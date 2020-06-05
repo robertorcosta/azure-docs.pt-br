@@ -1,53 +1,55 @@
 ---
-title: Acesso condicional-bloquear autenticação herdada-Azure Active Directory
-description: Criar uma política de acesso condicional personalizada para bloquear protocolos de autenticação herdados
+title: Acesso Condicional - Bloquear autenticação herdada - Azure Active Directory
+description: Criar uma política de Acesso Condicional para bloquear protocolos de autenticação herdada
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 05/13/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a868c8199ac34a498a280e2522d6b1e4c7ec370
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1cf241ec9a26ea2c9e877e40205065b6ad4e0a98
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80295226"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83641334"
 ---
-# <a name="conditional-access-block-legacy-authentication"></a>Acesso condicional: bloquear autenticação herdada
+# <a name="conditional-access-block-legacy-authentication"></a>Acesso Condicional: Bloquear a autenticação herdada
 
-Devido ao maior risco associado aos protocolos de autenticação herdados, a Microsoft recomenda que as organizações bloqueiem as solicitações de autenticação usando esses protocolos e exijam autenticação moderna.
+Devido ao maior risco associado aos protocolos de autenticação herdada, a Microsoft recomenda que as organizações bloqueiem as solicitações de autenticação que usem esses protocolos e exijam autenticação moderna.
 
 ## <a name="create-a-conditional-access-policy"></a>Criar uma política de Acesso Condicional
 
-As etapas a seguir ajudarão a criar uma política de acesso condicional para bloquear as solicitações de autenticação herdadas. Essa política é colocada no [modo somente de relatório](howto-conditional-access-report-only.md) para iniciar, para que os administradores possam determinar o impacto que eles terão sobre os usuários existentes. Quando os administradores se sentem confortáveis de que a política se aplica conforme pretendido, eles podem **alternar para ou preparar a implantação** adicionando grupos específicos e excluindo outros.
+As etapas a seguir ajudarão a criar uma política de Acesso Condicional para o bloqueio de solicitações de autenticação herdada. Inicialmente essa política é colocada em [modo somente de relatório](howto-conditional-access-report-only.md) para que os administradores possam determinar o impacto que ela terá sobre os usuários existentes. Quando os administradores tiverem certeza de que a política está sendo aplicada conforme pretendido, poderão mudar para **Ativada** ou preparar a implantação adicionando alguns grupos específicos e excluindo outros.
 
-1. Entre no **portal do Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
-1. Navegue até **Azure Active Directory** > **Security** > **acesso condicional**de segurança.
-1. Selecione **nova política**.
+1. Entre no **portal do Azure** como administrador global, administrador de segurança ou administrador de Acesso Condicional.
+1. Procure **Azure Active Directory** > **Segurança** > **Acesso Condicional**.
+1. Selecione **Nova política**.
 1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes de suas políticas.
-1. Em **atribuições**, selecione **usuários e grupos**
-   1. Em **incluir**, selecione **todos os usuários**.
-   1. Em **excluir**, selecione **usuários e grupos** e escolha as contas que devem manter a capacidade de usar a autenticação herdada. Exclua pelo menos uma conta para impedir que você mesmo fique bloqueada. Se você não excluir nenhuma conta, não será possível criar essa política.
+1. Em **Atribuições**, selecione **Usuários e grupos**
+   1. Em **Incluir**, selecione **Todos os usuários**.
+   1. Em **Excluir**, selecione **Usuários e grupos** e escolha as contas que vão continuar podendo usar a autenticação herdada. Exclua pelo menos uma conta para impedir que você fique bloqueado. Se você não excluir nenhuma conta, não poderá criar essa política.
    1. Selecione **Concluído**.
-1. Em **aplicativos de nuvem ou ações**, selecione **todos os aplicativos de nuvem**.
+1. Em **Aplicativos ou ações de nuvem**, selecione **Todos os aplicativos de nuvem**.
    1. Selecione **Concluído**.
-1. Em **condições** > **aplicativos de cliente (versão prévia)**, defina **Configurar** como **Sim**.
-   1. Marque somente as > caixas **aplicativos móveis e clientes de área de trabalho****outros clientes**.
+1. Em **Condições** > **Aplicativos clientes (versão prévia)** , defina **Configurar** com **Sim**.
+   1. Marque apenas as caixas **Aplicativos móveis e clientes desktop** > **Outros clientes**.
    1. Selecione **Concluído**.
-1. Em **Access controls** > **concessão**de controles de acesso, selecione **bloquear acesso**.
+1. Em **Controles de acesso** > **Conceder**, selecione **Bloquear acesso**.
    1. Selecione **Selecionar**.
-1. Confirme suas configurações e defina **habilitar política** como **somente relatório**.
-1. Selecione **criar** para criar para habilitar a política.
+1. Confirme suas configurações e defina **Habilitar política** com **Somente relatório**.
+1. Selecione **Criar** para criar e habilitar sua política.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
+[Políticas comuns de Acesso Condicional ](concept-conditional-access-policy-common.md)
 
-[Determinar o impacto usando o modo somente relatório de acesso condicional](howto-conditional-access-report-only.md)
+[Determinar o impacto usando o modo somente relatório de Acesso Condicional](howto-conditional-access-report-only.md)
 
-[Simular comportamento de entrada usando a ferramenta de What If de acesso condicional](troubleshoot-conditional-access-what-if.md)
+[Simular comportamento de entrada usando a ferramenta What If de Acesso Condicional](troubleshoot-conditional-access-what-if.md)
+
+[Como configurar um dispositivo ou aplicativo multifuncional para enviar e-mail usando Office 365 e Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-office-3)

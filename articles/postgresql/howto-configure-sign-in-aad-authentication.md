@@ -1,83 +1,78 @@
 ---
-title: Usar o Azure Active Directory-banco de dados do Azure para PostgreSQL-servidor único
-description: Saiba mais sobre como configurar o AAD (Azure Active Directory) para autenticação com o banco de dados do Azure para PostgreSQL-servidor único
+title: Usar o Azure Active Directory – Banco de Dados do Azure para PostgreSQL – Servidor único
+description: Saiba mais sobre como configurar o AAD (Azure Active Directory) para a autenticação com o Banco de Dados do Azure para PostgreSQL – Servidor único
 author: lfittl
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f5588503825281f407ddbbc2c1c57cd94a9c7ee6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 91435c2c5ca825793988e002c1ab9f6caacf2b17
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80804700"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652558"
 ---
-# <a name="use-azure-active-directory-for-authenticating-with-postgresql"></a>Usar Azure Active Directory para autenticação com PostgreSQL
+# <a name="use-azure-active-directory-for-authenticating-with-postgresql"></a>Usar o Azure Active Directory para autenticação com o PostgreSQL
 
-Este artigo explicará as etapas de como configurar o acesso a Azure Active Directory com o banco de dados do Azure para PostgreSQL e como se conectar usando um token do Azure AD.
+Este artigo explicará as etapas de como configurar o acesso do Azure Active Directory com o Banco de Dados do Azure para PostgreSQL e como se conectar usando um token do Azure Active Directory.
 
-> [!IMPORTANT]
-> A autenticação do Azure AD para o banco de dados do Azure para PostgreSQL está atualmente em visualização pública.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
-> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+## <a name="setting-the-azure-ad-admin-user"></a>Configurar o usuário administrador do Azure AD
 
-## <a name="setting-the-azure-ad-admin-user"></a>Configurando o usuário administrador do Azure AD
+Somente usuários administradores do Azure Active Directory podem criar/habilitar usuários para a autenticação baseada no Azure Active Directory. Recomendamos não usar o administrador do Azure Active Directory para operações de banco de dados regulares, pois ele tem permissões de usuário elevadas (por exemplo, CREATEDB).
 
-Somente usuários de administrador do Azure AD podem criar/habilitar usuários para autenticação baseada no Azure AD. Recomendamos não usar o administrador do Azure AD para operações de banco de dados regulares, pois ela tem permissões de usuário elevadas (por exemplo, CREATEDB).
+Para definir o administrador do Azure Active Directory (você pode usar um usuário ou um grupo), siga as etapas a seguir
 
-Para definir o administrador do Azure AD (você pode usar um usuário ou um grupo), siga as etapas a seguir
+1. No portal do Azure, selecione a instância do Banco de Dados do Azure para PostgreSQL que você deseja habilitar para o Azure Active Directory.
+2. Em Configurações, selecione Administrador do Active Directory:
 
-1. Na portal do Azure, selecione a instância do banco de dados do Azure para PostgreSQL que você deseja habilitar para o Azure AD.
-2. Em configurações, selecione administrador de Active Directory:
+![definir administrador do azure ad][2]
 
-![definir administrador do Azure AD][2]
-
-3. Selecione um usuário válido do Azure AD no locatário do cliente para ser administrador do Azure AD.
+3. Selecione um usuário válido do Azure Active Directory no locatário do cliente para ser administrador do Azure Active Directory.
 
 > [!IMPORTANT]
-> Ao definir o administrador, um novo usuário é adicionado ao banco de dados do Azure para servidor PostgreSQL com permissões de administrador completo. O usuário administrador do Azure AD no banco de dados do Azure para PostgreSQL `azure_ad_admin`terá a função.
+> Ao definir o administrador, um novo usuário é adicionado ao servidor do Banco de Dados do Azure para PostgreSQL com permissões de administrador completo. O usuário administrador do Azure Active Directory no Banco de Dados do Azure para PostgreSQL terá a função `azure_ad_admin`.
 
-Somente um administrador do Azure AD pode ser criado por servidor PostgreSQL e a seleção de outro substituirá o administrador do Azure AD existente configurado para o servidor. Você pode especificar um grupo do Azure AD em vez de um usuário individual para ter vários administradores. Observe que, em seguida, você entrará com o nome do grupo para fins de administração.
+Somente um administrador do Azure Active Directory pode ser criado por servidor PostgreSQL, e a seleção de outro substituirá o administrador do Azure Active Directory existente configurado para o servidor. Você pode especificar um grupo do Azure Active Directory em vez de um usuário individual para ter vários administradores. Depois, tenha em mente que você entrará com o nome do grupo para fins de administração.
 
-## <a name="connecting-to-azure-database-for-postgresql-using-azure-ad"></a>Conectando-se ao banco de dados do Azure para PostgreSQL usando o Azure AD
+## <a name="connecting-to-azure-database-for-postgresql-using-azure-ad"></a>Conectar ao Banco de Dados do Azure para PostgreSQL usando o Azure Active Directory
 
-O diagrama de alto nível a seguir resume o fluxo de trabalho do uso da autenticação do Azure AD com o banco de dados do Azure para PostgreSQL:
+O diagrama de alto nível a seguir resume o fluxo de trabalho de usar a autenticação do Azure Active Directory com o Banco de Dados do Azure para PostgreSQL:
 
 ![fluxo de autenticação][1]
 
-Criamos a integração do Azure AD para trabalhar com ferramentas PostgreSQL comuns, como psql, que não reconhecem o Azure AD e só dão suporte à especificação de nome de usuário e senha ao se conectar ao PostgreSQL. Passamos o token do Azure AD como a senha, conforme mostrado na imagem acima.
+Criamos a integração do Azure Active Directory para trabalhar com ferramentas comuns do PostgreSQL, como a psql, que não reconhecem o Azure Active Directory e só dão suporte à especificação de nome de usuário e senha ao se conectar ao PostgreSQL. Passamos o token do Azure Active Directory como a senha, conforme mostrado na imagem acima.
 
-No momento, testamos os seguintes clientes:
+No momento, testamos os clientes a seguir:
 
-- linha de comando do psql (utilize a variável PGPASSWORD para passar o token, veja abaixo)
-- Azure Data Studio (usando a extensão PostgreSQL)
-- Outros clientes baseados em libpq (por exemplo, estruturas de aplicativo comuns e ORMs)
+- linha de comando da psql (utilize a variável PGPASSWORD para passar o token, consulte abaixo)
+- Azure Data Studio (usando a extensão do PostgreSQL)
+- Outros clientes baseados em libpq (por exemplo, estruturas do aplicativo comuns e ORMs)
 
 > [!NOTE]
-> Lembre-se de que o uso do token do Azure AD com pgAdmin não tem suporte no momento, pois ele tem uma limitação embutida de 256 caracteres para senhas (que o token excede).
+> Lembre-se de que, no momento, o uso do token do Azure Active Directory com o pgAdmin não tem suporte, pois ele tem uma limitação embutida em código de 256 caracteres para senhas (a qual o token excede).
 
-Estas são as etapas que um usuário/aplicativo precisará fazer a autenticação com o Azure AD descrito abaixo:
+Estas são as etapas que um usuário/aplicativo precisará fazer a autenticação no Azure Active Directory descrito abaixo:
 
-### <a name="step-1-authenticate-with-azure-ad"></a>Etapa 1: autenticar com o Azure AD
+### <a name="step-1-authenticate-with-azure-ad"></a>Etapa 1: Autenticar com o Azure AD
 
-Verifique se você tem o [CLI do Azure instalado](/cli/azure/install-azure-cli).
+Garanta que você tem o [CLI do Azure instalado](/cli/azure/install-azure-cli).
 
-Invoque a ferramenta de CLI do Azure para autenticar com o Azure AD. Ele exige que você forneça a ID de usuário e a senha do Azure AD.
+Invoque a ferramenta de CLI do Azure para autenticar-se no Azure Active Directory. Ele exige que você forneça a ID de usuário e a senha do Azure Active Directory.
 
 ```azurecli-interactive
 az login
 ```
 
-Esse comando abrirá uma janela do navegador na página de autenticação do Azure AD.
+Esse comando abrirá uma janela do navegador na página de autenticação do Azure Active Directory.
 
 > [!NOTE]
-> Você também pode usar Azure Cloud Shell para executar essas etapas.
-> Esteja ciente de que, ao recuperar o token de acesso do Azure AD no Azure Cloud Shell você precisará chamar `az login` explicitamente e entrar novamente (na janela separada com um código). Após esse sinal, o `get-access-token` comando funcionará conforme o esperado.
+> Você também pode usar o Azure Cloud Shell para executar essas etapas.
+> Lembre-se de que, ao recuperar o token de acesso do Azure Active Directory no Azure Cloud Shell, você precisará chamar explicitamente `az login` e entrar novamente (na janela separada com um código). Depois, o comando `get-access-token` funcionará conforme o esperado.
 
-### <a name="step-2-retrieve-azure-ad-access-token"></a>Etapa 2: recuperar o token de acesso do Azure AD
+### <a name="step-2-retrieve-azure-ad-access-token"></a>Etapa 2: Recuperar um token de acesso do Azure Active Directory
 
-Invoque a ferramenta de CLI do Azure para adquirir um token de acesso para o usuário autenticado do Azure AD da etapa 1 para acessar o banco de dados do Azure para PostgreSQL.
+Invoque a ferramenta de CLI do Azure para adquirir um token de acesso para o usuário autenticado do Azure Active Directory da etapa 1 para acessar o Banco de Dados do Azure para PostgreSQL.
 
 Exemplo (para nuvem pública):
 
@@ -85,19 +80,19 @@ Exemplo (para nuvem pública):
 az account get-access-token --resource https://ossrdbms-aad.database.windows.net
 ```
 
-O valor do recurso acima deve ser especificado exatamente como mostrado. Para outras nuvens, o valor do recurso pode ser pesquisado usando:
+O valor do recurso acima deve ser especificado exatamente como o mostrado. Para outras nuvens, é possível pesquisar o valor do recurso usando:
 
 ```azurecli-interactive
 az cloud show
 ```
 
-Para CLI do Azure versão 2.0.71 e posterior, o comando pode ser especificado na seguinte versão mais conveniente para todas as nuvens:
+Para a versão 2.0.71 do CLI do Azure e posteriores, o comando pode ser especificado na seguinte versão mais conveniente para todas as nuvens:
 
 ```azurecli-interactive
 az account get-access-token --resource-type oss-rdbms
 ```
 
-Depois que a autenticação for bem-sucedida, o Azure AD retornará um token de acesso:
+Depois que a autenticação for bem-sucedida, o Azure Active Directory retornará um token de acesso:
 
 ```json
 {
@@ -109,16 +104,16 @@ Depois que a autenticação for bem-sucedida, o Azure AD retornará um token de 
 }
 ```
 
-O token é uma cadeia de caracteres base 64 que codifica todas as informações sobre o usuário autenticado e que é direcionado para o serviço banco de dados do Azure para PostgreSQL.
+O token é uma cadeia de caracteres Base 64 que codifica todas as informações sobre o usuário autenticado e que é direcionado para o serviço do Banco de Dados do Azure para PostgreSQL.
 
 > [!NOTE]
-> A validade do token de acesso é de qualquer lugar entre 5 minutos e 60 minutos. Recomendamos que você obtenha o token de acesso logo antes de iniciar o logon no banco de dados do Azure para PostgreSQL.
+> A validade do token de acesso está entre 5 e 60 minutos. Recomendamos que você obtenha o token de acesso logo antes de iniciar o logon no Banco de Dados do Azure para PostgreSQL.
 
-### <a name="step-3-use-token-as-password-for-logging-in-with-postgresql"></a>Etapa 3: usar o token como senha para fazer logon com PostgreSQL
+### <a name="step-3-use-token-as-password-for-logging-in-with-postgresql"></a>Etapa 3: Use o token como senha para fazer logon no PostgreSQL
 
 Ao se conectar, você precisa usar o token de acesso como a senha de usuário do PostgreSQL.
 
-Ao usar o `psql` cliente de linha de comando, o token de acesso precisa ser passado `PGPASSWORD` por meio da variável de ambiente, já que o token de `psql` acesso excede o comprimento da senha que pode aceitar diretamente:
+Ao usar o cliente de linha de comando `psql`, o token de acesso precisa ser passado pela variável de ambiente `PGPASSWORD`, já que o token de acesso excede o comprimento da senha que `psql` pode aceitar diretamente:
 
 Exemplo do Windows:
 
@@ -126,28 +121,28 @@ Exemplo do Windows:
 set PGPASSWORD=<copy/pasted TOKEN value from step 2>
 ```
 
-Exemplo de Linux/macOS:
+Exemplo do Linux/macOS:
 
 ```shell
 export PGPASSWORD=<copy/pasted TOKEN value from step 2>
 ```
 
-Agora você pode iniciar uma conexão com o banco de dados do Azure para PostgreSQL como faria normalmente:
+Agora, você pode iniciar uma conexão com o Banco de Dados do Azure para PostgreSQL como faria normalmente:
 
 ```shell
 psql "host=mydb.postgres... user=user@tenant.onmicrosoft.com@mydb dbname=postgres sslmode=require"
 ```
 
-Agora você está autenticado no servidor PostgreSQL usando a autenticação do Azure AD.
+Você já está autenticado no servidor PostgreSQL usando a autenticação do Azure Active Directory.
 
-## <a name="creating-azure-ad-users-in-azure-database-for-postgresql"></a>Criando usuários do Azure AD no banco de dados do Azure para PostgreSQL
+## <a name="creating-azure-ad-users-in-azure-database-for-postgresql"></a>Criar usuários do Azure Active Directory no Banco de Dados do Azure para PostgreSQL
 
-Para adicionar um usuário do Azure AD ao banco de dados do Azure para PostgreSQL, execute as etapas a seguir após a conexão (consulte a seção mais adiante sobre como se conectar):
+Para adicionar um usuário do Azure Active Directory ao banco de dados do Banco de Dados do Azure para PostgreSQL, execute as etapas a seguir após a conexão (consulte a seção mais adiante sobre como se conectar):
 
-1. Primeiro, verifique se o usuário `<user>@yourtenant.onmicrosoft.com` do Azure AD é um usuário válido no locatário do Azure AD.
-2. Entre na instância do banco de dados do Azure para PostgreSQL como o usuário administrador do Azure AD.
-3. Criar função `<user>@yourtenant.onmicrosoft.com` no banco de dados do Azure para PostgreSQL.
-4. Torne `<user>@yourtenant.onmicrosoft.com` um membro da função azure_ad_user. Isso só deve ser dado aos usuários do Azure AD.
+1. Primeiro, garanta que o usuário do Azure Active Directory `<user>@yourtenant.onmicrosoft.com` seja um usuário válido no locatário do Azure Active Directory.
+2. Entre na instância do Banco de Dados do Azure para PostgreSQL como o usuário administrador do Azure Active Directory.
+3. Criar a função `<user>@yourtenant.onmicrosoft.com` no Banco de Dados do Azure para PostgreSQL.
+4. Torne `<user>@yourtenant.onmicrosoft.com` um membro da função azure_ad_user. Isso só deve ser dado aos usuários do Azure Active Directory.
 
 **Exemplo:**
 
@@ -156,11 +151,11 @@ CREATE ROLE "user1@yourtenant.onmicrosoft.com" WITH LOGIN IN ROLE azure_ad_user;
 ```
 
 > [!NOTE]
-> A autenticação de um usuário por meio do Azure AD não concede ao usuário nenhuma permissão para acessar objetos no banco de dados do Azure para PostgreSQL. Você deve conceder ao usuário as permissões necessárias manualmente.
+> A autenticação de um usuário por meio do Azure Active Directory não concede ao usuário nenhuma permissão para acessar objetos no banco de dados do Banco de Dados do Azure para PostgreSQL. Você precisa conceder ao usuário as permissões necessárias manualmente.
 
-## <a name="creating-azure-ad-groups-in-azure-database-for-postgresql"></a>Criando grupos do Azure AD no banco de dados do Azure para PostgreSQL
+## <a name="creating-azure-ad-groups-in-azure-database-for-postgresql"></a>Criar grupos do Azure Active Directory no Banco de Dados do Azure para PostgreSQL
 
-Para habilitar um grupo do Azure AD para acesso ao seu banco de dados, use o mesmo mecanismo para os usuários, mas em vez disso, especifique o nome do Grupo:
+Para habilitar um grupo do Azure Active Directory para acesso ao seu banco de dados, use o mesmo mecanismo que o dos usuários, mas especifique o nome do grupo:
 
 **Exemplo:**
 
@@ -168,44 +163,44 @@ Para habilitar um grupo do Azure AD para acesso ao seu banco de dados, use o mes
 CREATE ROLE "Prod DB Readonly" WITH LOGIN IN ROLE azure_ad_user;
 ```
 
-Ao fazer logon, os membros do grupo usarão seus tokens de acesso pessoal, mas assinarão com o nome do grupo especificado como o nome de usuário.
+Ao fazer logon, os membros do grupo usarão os tokens de acesso pessoal deles, mas assinarão com o nome do grupo especificado como o nome de usuário.
 
 ## <a name="token-validation"></a>Validação de token
 
-A autenticação do Azure AD no banco de dados do Azure para PostgreSQL garante que o usuário exista no servidor PostgreSQL e verifica a validade do token Validando o conteúdo do token. As seguintes etapas de validação de token são executadas:
+A autenticação do Azure Active Directory no Banco de Dados do Azure para PostgreSQL garante que o usuário exista no servidor PostgreSQL e verifica a validade do token por meio da validação do conteúdo do token. As seguintes etapas de validação de token são executadas:
 
-- O token é assinado pelo Azure AD e não foi violado
-- O token foi emitido pelo Azure AD para o locatário associado ao servidor
+- O token é assinado pelo Azure Active Directory e não foi violado
+- O token foi emitido pelo Azure Active Directory para o locatário associado ao servidor
 - O token não expirou
-- O token é para o recurso de banco de dados do Azure para PostgreSQL (e não outro recurso do Azure)
+- O token é para o recurso do Banco de Dados do Azure para PostgreSQL (e não outro recurso do Azure)
 
-## <a name="migrating-existing-postgresql-users-to-azure-ad-based-authentication"></a>Migrando usuários do PostgreSQL existentes para a autenticação baseada no Azure AD
+## <a name="migrating-existing-postgresql-users-to-azure-ad-based-authentication"></a>Migrando usuários existentes do PostgreSQL para a autenticação baseada no Azure Active Directory
 
-Você pode habilitar a autenticação do Azure AD para usuários existentes. Há dois casos a serem considerados:
+Você pode habilitar a autenticação do Azure Active Directory para usuários existentes. Há dois casos a serem considerados:
 
-### <a name="case-1-postgresql-username-matches-the-azure-ad-user-principal-name"></a>Caso 1: o nome de usuário PostgreSQL corresponde ao nome UPN do Azure AD
+### <a name="case-1-postgresql-username-matches-the-azure-ad-user-principal-name"></a>Caso 1: O nome de usuário do PostgreSQL corresponde ao nome UPN do Azure Active Directory
 
-No caso improvável de que os usuários existentes já correspondam aos nomes de usuário do Azure AD, `azure_ad_user` você pode conceder a função a eles para habilitá-los para a autenticação do Azure AD:
+No caso improvável de que os usuários existentes já correspondam aos nomes de usuário do Azure Active Directory, você pode conceder a função `azure_ad_user` a eles a fim de habilitá-los para a autenticação do Azure Active Directory:
 
 ```sql
 GRANT azure_ad_user TO "existinguser@yourtenant.onmicrosoft.com";
 ```
 
-Agora, eles poderão entrar com as credenciais do Azure AD em vez de usar sua senha de usuário do PostgreSQL configurada anteriormente.
+Agora, eles poderão entrar com as credenciais do Azure Active Directory em vez de usar a senha de usuário do PostgreSQL configurada anteriormente.
 
-### <a name="case-2-postgresql-username-is-different-than-the-azure-ad-user-principal-name"></a>Caso 2: o nome de usuário PostgreSQL é diferente do nome UPN do Azure AD
+### <a name="case-2-postgresql-username-is-different-than-the-azure-ad-user-principal-name"></a>Caso 2: Nome de usuário do PostgreSQL diferente do nome UPN do Azure Active Directory
 
-Se um usuário PostgreSQL não existir no Azure AD ou tiver um nome de usuário diferente, você poderá usar os grupos do Azure AD para se autenticar como este usuário PostgreSQL. Você pode migrar os usuários existentes do banco de dados do Azure para PostgreSQL para o Azure AD criando um grupo do Azure AD com um nome que corresponda ao usuário PostgreSQL e, em seguida, concedendo a função azure_ad_user ao usuário PostgreSQL existente:
+Se um usuário do PostgreSQL não existir no Azure Active Directory ou tiver um nome de usuário diferente, você poderá usar os grupos do Azure Active Directory para se autenticar como este usuário do PostgreSQL. Você pode migrar os usuários existentes do Banco de Dados do Azure para PostgreSQL para o Azure Active Directory. Para isso, crie um grupo do Azure Active Directory com um nome que corresponda ao usuário do PostgreSQL e, em seguida, conceda a função azure_ad_user ao usuário existente do PostgreSQL:
 
 ```sql
 GRANT azure_ad_user TO "DBReadUser";
 ```
 
-Isso pressupõe que você criou um grupo "DBReadUser" no Azure AD. Os usuários que pertencem a esse grupo agora poderão entrar no banco de dados como esse usuário.
+Isso pressupõe que você criou um grupo "DBReadUser" no Azure Active Directory. Os usuários que pertencerem a esse grupo agora poderão entrar no banco de dados como esse usuário.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Examine os conceitos gerais para [Azure Active Directory autenticação com o banco de dados do Azure para PostgreSQL-servidor único](concepts-aad-authentication.md)
+* Consulte os conceitos gerais da [Autenticação do Azure Active Directory no Banco de Dados do Azure para PostgreSQL – Servidor único](concepts-aad-authentication.md)
 
 <!--Image references-->
 

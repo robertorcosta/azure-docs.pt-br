@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o SpringCM | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com SpringCM | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o SpringCM.
 services: active-directory
 documentationCenter: na
@@ -23,7 +23,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 04/29/2020
 ms.locfileid: "81867420"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-springcm"></a>Tutorial: Integração do Azure Active Directory com o SpringCM
+# <a name="tutorial-azure-active-directory-integration-with-springcm"></a>Tutorial: Integração do Azure Active Directory com SpringCM
 
 Neste tutorial, você aprenderá a integrar o SpringCM ao Azure AD (Azure Active Directory).
 A integração do SpringCM ao Azure AD oferece os seguintes benefícios:
@@ -35,7 +35,7 @@ A integração do SpringCM ao Azure AD oferece os seguintes benefícios:
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao SpringCM, você precisará dos seguintes itens:
 

@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: b237f710866ad3960dd65902c0789228d8c391bc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3838234f9f65fcf91f8de33e3d7196aa13f2b903
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77062312"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83741728"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>Adicionar uma conta manualmente ao aplicativo
 
@@ -25,7 +25,7 @@ Se a câmera não conseguir capturar o código QR, você poderá adicionar manua
 Os códigos fornecidos para suas contas não diferenciam maiúsculas de minúsculas e não exigem espaços quando adicionados ao aplicativo Microsoft Authenticator.
 
 >[!Important]
->Antes de poder adicionar sua conta, você deverá baixar e instalar o aplicativo Microsoft Authenticator. Se você ainda não tiver feito isso, siga as etapas no artigo [Baixar e instalar o aplicativo](user-help-auth-app-download-install.md).
+>Para poder adicionar sua conta, você deverá baixar e instalar o aplicativo Microsoft Authenticator. Se você ainda não tiver feito isso, siga as etapas no artigo [Baixar e instalar o aplicativo](user-help-auth-app-download-install.md).
 
 ## <a name="add-your-work-or-school-account"></a>Adicionar a conta corporativa ou de estudante
 
@@ -33,7 +33,7 @@ Os códigos fornecidos para suas contas não diferenciam maiúsculas de minúscu
 
     ![Tela que fornece o código QR](./media/user-help-auth-app-add-account-manual/auth-app-barcode.png)
 
-2. Abra o aplicativo Microsoft Authenticator, selecione **adicionar conta** da **personalizar e controle** ícone no canto superior direito e, em seguida, selecione **trabalho ou conta de escola**.
+2. Abra o aplicativo Microsoft Authenticator, selecione **Adicionar conta** por meio do ícone **Personalizar e controlar** no canto superior direito e, em seguida, selecione **conta corporativa ou de estudante**.
 
 3. Selecione **OU INSIRA O CÓDIGO MANUALMENTE**.
 
@@ -93,7 +93,7 @@ Você pode adicionar sua conta da Amazon ativando a verificação de dois fatore
 
 5. No computador, na página **Adicionar um método de verificação de backup**, digite o código de verificação de seis dígitos fornecido pelo método de verificação de backup para sua conta da Amazon e escolha **Verificar código e continuar**.
 
-6. Na página quase pronto, decida se deseja tornar seu computador um dispositivo confiável e, em seguida, selecione o **obteve. Ative a verificação em duas etapas**.
+6. Na página Quase concluído, decida se deseja tornar seu computador um dispositivo confiável e escolha **Entendi. Ative a verificação em duas etapas**.
 
     A página **Configurações de Segurança Avançadas** é exibida, mostrando os detalhes da sua verificação de dois fatores atualizada.
 
@@ -104,6 +104,6 @@ Você pode adicionar sua conta da Amazon ativando a verificação de dois fatore
 
 - Depois de adicionar as contas ao aplicativo, você poderá entrar usando o aplicativo Microsoft Authenticator em seu dispositivo. Para obter mais informações, confira [Entrar usando o aplicativo](user-help-auth-app-sign-in.md).
 
-- Se você estiver tendo problemas para obter seu código de verificação para seu conta Microsoft pessoal, consulte a seção **Solucionando** problemas de código de verificação do artigo [conta Microsoft informações de segurança & códigos de verificação](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes) .
+- Se estiver tendo problemas para obter o código de verificação de sua conta pessoal da Microsoft, consulte a seção **Solucionar problemas de código de verificação** do artigo [Informações & códigos de verificação de segurança das contas da Microsoft](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes).
 
 - Para dispositivos que executam o iOS, você também pode fazer backup das credenciais da sua conta e das configurações de aplicativos relacionadas, tais como a ordem de suas contas, na nuvem. Para obter mais informações, confira [Fazer backup e recuperar informações com o aplicativo Microsoft Authenticator](user-help-auth-app-backup-recovery.md).

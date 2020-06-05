@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Consultar dados de uma conta da API do Cassandra do Azure Cosmos DB'
+title: 'Tutorial: Consultar dados de uma conta da API do Cassandra no Azure Cosmos DB'
 description: Este tutorial mostra como consultar dados de usuário de uma conta da API do Cassandra do Azure Cosmos DB usando um aplicativo Java.
 ms.service: cosmos-db
 author: kanshiG
@@ -15,7 +15,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 05/06/2020
 ms.locfileid: "82853017"
 ---
-# <a name="tutorial-query-data-from-a-cassandra-api-account-in-azure-cosmos-db"></a>Tutorial: Consultar dados de uma conta da API do Cassandra do Azure Cosmos DB
+# <a name="tutorial-query-data-from-a-cassandra-api-account-in-azure-cosmos-db"></a>Tutorial: Consultar dados de uma conta da API do Cassandra no Azure Cosmos DB
 
 Como desenvolvedor, é possível ter aplicativos que usam os pares de chave/valor. Você pode usar uma conta da API do Cassandra do Azure Cosmos DB para armazenar e consultar dados de chave/valor. Este tutorial mostra como consultar dados de usuário de uma conta da API do Cassandra do Azure Cosmos DB usando um aplicativo Java. O aplicativo Java usa o [driver Java](https://github.com/datastax/java-driver) e consulta dados do usuário, como ID, nome e cidade do usuário. 
 
@@ -27,7 +27,7 @@ Este tutorial cobre as seguintes tarefas:
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Este artigo pertence a um tutorial com várias partes. Antes de começar, certifique-se de concluir as etapas anteriores para criar a conta da API do Cassandra, keyspace, tabela e [carregar dados de exemplo na tabela](cassandra-api-load-data.md). 
 

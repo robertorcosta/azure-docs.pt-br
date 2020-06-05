@@ -1,7 +1,7 @@
 ---
-title: Evite superajuste & dados desbalanceado com AutoML
+title: Evitar dados de sobreajuste e desequilibrados com o AutoML
 titleSuffix: Azure Machine Learning
-description: Identifique e gerencie armadilhas comuns de modelos de ML com as soluções de aprendizado de máquina automatizadas do Azure Machine Learning.
+description: Identifique e gerencie armadilhas comuns de modelos de ML com as soluções de machine learning automatizado do Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,107 +10,107 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 04/09/2020
-ms.openlocfilehash: 76f920ad6aae68defb567a7a6623d1ffd488af5f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e1191c01ce3f62f34c351cefd29a5e40aa68bfd3
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80874850"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658406"
 ---
-# <a name="prevent-overfitting-and-imbalanced-data-with-automated-machine-learning"></a>Evitar sobreajuste e dados desequilibrados com o Machine Learning automatizado
+# <a name="prevent-overfitting-and-imbalanced-data-with-automated-machine-learning"></a>Evitar dados de sobreajuste e desequilibrados com o machine learning automatizado
 
-Os dados de ajuste e desequilíbrio são armadilhas comuns quando você cria modelos de aprendizado de máquina. Por padrão, o Machine Learning automatizado do Azure Machine Learning fornece gráficos e métricas para ajudá-lo a identificar esses riscos e implementa práticas recomendadas para ajudar a atenuá-los. 
+Os dados de sobreajuste e desequilibrados são armadilhas comuns quando você cria modelos de machine learning. Por padrão, o machine learning automatizado do Azure Machine Learning fornece gráficos e métricas para ajudá-lo a identificar esses riscos e implementa práticas recomendadas para ajudar a atenuá-los. 
 
-## <a name="identify-over-fitting"></a>Identificar sobreajuste
+## <a name="identify-over-fitting"></a>Identificar o sobreajuste
 
-O ajuste excessivo no aprendizado de máquina ocorre quando um modelo se ajusta também aos dados de treinamento e, como resultado, não pode prever com precisão os dados de teste não vistos. Em outras palavras, o modelo tem apenas padrões específicos memorizados e ruídos nos dados de treinamento, mas não é flexível o suficiente para fazer previsões sobre dados reais.
+O sobreajuste no aprendizado de máquina ocorre quando um modelo se ajusta bem demais aos dados de treinamento e, como resultado, não consegue prever com precisão os dados de teste não vistos. Em outras palavras, o modelo simplesmente memorizou padrões e ruídos específicos nos dados de treinamento, mas não é suficientemente flexível para fazer previsões sobre dados reais.
 
-Considere os seguintes modelos treinados e suas imprecisões de treinamento e teste correspondentes.
+Considere os seguintes modelos treinados e suas imprecisões de treinamento e de teste correspondentes.
 
-| Modelo | Precisão do treinamento | Precisão do teste |
+| Modelo | Precisão de treinamento | Precisão de teste |
 |-------|----------------|---------------|
 | Um | 99,9% | 95% |
 | B | 87% | 87% |
 | C | 99,9% | 45% |
 
-Considerando o modelo **A**, há um equívoco comum de que, se a precisão do teste nos dados não vistos for menor do que a precisão do treinamento, o modelo será superajustado. No entanto, a precisão do teste deve ser sempre menor do que a precisão do treinamento, e a distinção de sobreajuste vs. adequado se ajusta ao *quanto* menos preciso. 
+Considerando o modelo **A**, há um equívoco comum de que, se a precisão de teste nos dados não vistos for menor do que a precisão de treinamento, o modelo será sobreajustado. No entanto, a precisão de teste deve ser sempre menor que a precisão de treinamento, e a distinção entre sobreajuste e ajuste adequado se resume a *quanto* menos preciso. 
 
-Ao comparar os modelos **a** e **B**, o modelo **A** é um modelo melhor porque tem precisão de teste mais alta e, embora a precisão do teste seja ligeiramente menor do que 95%, não é uma diferença significativa que sugere que o excesso de ajuste esteja presente. Você não escolheria o modelo **B** simplesmente porque as imprecisões de treinamento e de teste estão mais próximas.
+Ao comparar os modelos **A** e **B**, o modelo **A** é um modelo melhor porque tem maior precisão de teste e, embora a precisão de teste seja um pouco menor em 95%, não é uma diferença significativa que sugira que exista sobreposição. Você não escolheria o modelo **B** simplesmente porque as precisões de treinamento e de teste estão mais próximas.
 
-O modelo **C** representa um caso claro de sobreajuste; a precisão do treinamento é muito alta, mas a precisão do teste não é quase tão alta. Essa distinção é subjetiva, mas vem do conhecimento de seu problema e dados e de quais magnitudes de erro são aceitáveis.
+O modelo **C** representa um caso claro de sobreajuste; a precisão de treinamento é muito alta, mas a precisão de teste não é quase tão alta. Essa distinção é subjetiva, mas vem do conhecimento do seu problema e dados e de quais magnitudes de erro são aceitáveis.
 
-## <a name="prevent-over-fitting"></a>Evitar sobreajuste
+## <a name="prevent-over-fitting"></a>Evitar o sobreajuste
 
-Na maioria dos casos flagrantes, um modelo de sobreadaptação assumirá que as combinações de valor de recurso vistas durante o treinamento resultarão sempre na mesma saída para o destino.
+Na maioria dos casos flagrantes, um modelo de sobreajuste assumirá que as combinações de valor de recurso vistas durante o treinamento resultarão sempre na mesma saída para o destino.
 
-A melhor maneira de evitar o ajuste excessivo é seguir as práticas recomendadas do ML, incluindo:
+A melhor maneira de evitar o sobreajuste é seguir as práticas recomendadas do Azure Machine Learning, incluindo:
 
-* Usando mais dados de treinamento e eliminando a tendência estatística
-* Evitando o vazamento de destino
-* Usando menos recursos
-* **Regularização e otimização de hiperparâmetro**
+* Usar mais dados de treinamento e eliminar a tendência estatística
+* Evitar o vazamento de destino
+* Usar menos recursos
+* **Otimização de hiperparâmetro e regularização**
 * **Limitações de complexidade do modelo**
 * **Validação cruzada**
 
-No contexto de ML automatizado, os três primeiros itens acima são **as práticas recomendadas que você implementa**. Os últimos três itens em negrito são **as melhores práticas que o ml automatizado implementa** por padrão para proteger contra sobreajuste. Em configurações diferentes de ML automatizado, vale a pena seguir todas as seis práticas recomendadas para evitar modelos de sobreajuste.
+No contexto de machine learning automatizado, os três primeiros itens acima são **práticas recomendadas que você implementa**. Os últimos três itens em negrito são **as práticas recomendadas que o machine learning automatizado implementa** por padrão para proteção contra sobreajuste. Em configurações diferentes da do machine learning automatizado, vale a pena seguir todas as seis práticas recomendadas para evitar modelos de sobreajuste.
 
 ### <a name="best-practices-you-implement"></a>Práticas recomendadas que você implementa
 
-Usar **mais dados** é a maneira mais simples e melhor possível de evitar o ajuste excessivo, e como um bônus adicional normalmente aumenta a precisão. Quando você usa mais dados, fica mais difícil para o modelo memorizar padrões exatos e é forçado a alcançar soluções que são mais flexíveis para acomodar mais condições. Também é importante reconhecer a **diferença estatística**, para garantir que os dados de treinamento não incluam padrões isolados que não existam em dados de previsão dinâmica. Esse cenário pode ser difícil de resolver, pois pode não haver sobreajuste entre seus conjuntos de treinamento e teste, mas pode haver sobreajustes presentes em comparação com os dados de teste ao vivo.
+Usar **mais dados** é a maneira mais simples e melhor possível de evitar o sobreajuste, e como um bônus adicional, normalmente aumenta a precisão. Quando você usa mais dados, fica mais difícil para o modelo memorizar padrões exatos, e é forçado a alcançar soluções mais flexíveis para acomodar mais condições. Também é importante reconhecer o **desvio estatístico** para garantir que os dados de treinamento não incluam padrões isolados que não existam em dados de previsão dinâmica. Esse cenário pode ser difícil de resolver, pois pode não haver sobreajuste entre seus conjuntos de treinamento e de teste, mas pode haver sobreajuste em comparação com os dados de teste dinâmico.
 
-O vazamento de destino é um problema semelhante, no qual você pode não ver o ajuste excessivo entre os conjuntos de treinamento/teste, mas, em vez disso, ele aparece em tempo de previsão. O vazamento de destino ocorre quando seu modelo "trapacear" durante o treinamento, tendo acesso aos dados que normalmente não deveria ter no tempo de previsão. Por exemplo, se o problema for prever na segunda-feira, qual será o preço de mercadoria na sexta-feira, mas um de seus recursos incluía dados acidentalmente das quintas, que seriam dados que o modelo não terá no tempo de previsão, pois não poderá vê-lo no futuro. O vazamento de destino é um erro fácil de ser ignorado, mas geralmente é caracterizado por uma precisão muito alta para o seu problema. Se você estiver tentando prever o preço de ações e tiver treinado um modelo com precisão de 95%, é provável que haja vazamento de destino em algum lugar em seus recursos.
+**O vazamento de destino** é um problema semelhante, no qual você pode não ver o sobreajuste entre os conjuntos de treinamento/de teste, mas ele aparece no tempo de previsão. O vazamento de destino ocorre quando seu modelo "trapaceia" durante o treinamento tendo acesso aos dados que normalmente não deveria ter no tempo de previsão. Por exemplo, se o problema for prever na segunda-feira qual será o preço das commodities na sexta-feira, mas um de seus recursos acidentalmente incluía dados das quintas-feiras, seriam dados que o modelo não terá no tempo de previsão, pois não pode ver o futuro. O vazamento de destino é um erro fácil de ser ignorado, mas costuma ser caracterizado por uma precisão muito alta para o seu problema. Se você estiver tentando prever o preço das ações e tiver treinado um modelo com precisão de 95%, é provável que haja vazamento de destino em algum lugar em seus recursos.
 
-A remoção de recursos também pode ajudar com o sobreajuste, impedindo que o modelo tenha muitos campos a serem usados para memorizar padrões específicos, tornando-o mais flexível. Pode ser difícil medir de forma quantitativa, mas se você puder remover recursos e manter a mesma precisão, você provavelmente tornou o modelo mais flexível e reduziu o risco de sobreajuste.
+**A remoção de recursos** também pode ajudar no sobreajuste, impedindo que o modelo tenha muitos campos a serem usados para memorizar padrões específicos, fazendo com que ele seja mais flexível. Pode ser difícil medir de forma quantitativa. Contudo, se você puder remover recursos e manter a mesma precisão, você provavelmente tornará o modelo mais flexível e reduzirá o risco de sobreajuste.
 
-### <a name="best-practices-automated-ml-implements"></a>O ML automatizado de práticas recomendadas implementa
+### <a name="best-practices-automated-ml-implements"></a>Práticas recomendadas que o machine learning automatizado implementa
 
-A regularização é o processo de minimizar uma função de custo para penalizar modelos complexos e sobreajustados. Há diferentes tipos de funções de regularização, mas, em geral, todos eles penalizam o tamanho do coeficiente do modelo, a variância e a complexidade. O ML automatizado usa L1 (laço), L2 (saliência) e ElasticNet (L1 e L2 simultaneamente) em combinações diferentes com configurações de hiperparâmetro de modelo diferentes que controlam o sobreajuste. Em termos simples, o ML automatizado vai variar o quanto um modelo é regulamentado e escolher o melhor resultado.
+A **regularização** é o processo de minimizar uma função de custo para penalizar modelos complexos e sobreajustados. Há diferentes tipos de funções de regularização. Porém, em geral todos eles penalizam a variância, a complexidade e o tamanho do coeficiente do modelo. O machine learning automatizado usa L1 (Laço), L2 (Ressalto) e ElasticNet (L1 e L2 simultaneamente) em combinações diferentes com configurações de hiperparâmetro de modelo diferentes que controlam o sobreajuste. Em termos simples, o machine learning automatizado vai variar o quanto um modelo é regulamentado e escolher o melhor resultado.
 
-O ML automatizado também implementa limitações de complexidade de modelo explícitas para evitar o ajuste excessivo. Na maioria dos casos, essa implementação é especificamente para algoritmos de árvore de decisão ou de floresta, em que a profundidade máxima da árvore individual é limitada e o número total de árvores usadas nas técnicas de floresta ou Ensemble são limitados.
+O machine learning automatizado também implementa **limitações de complexidade de modelo** explícitas para evitar o sobreajuste. Na maioria dos casos, essa implementação é especificamente para algoritmos de árvore de floresta e árvore de decisão, em que a profundidade máxima da árvore individual é limitada, e o número total de árvores usadas nas técnicas de floresta ou de ensemble é limitado.
 
-A CV (validação cruzada) é o processo de pegar muitos subconjuntos de seus dados de treinamento completos e treinar um modelo em cada subconjunto. A ideia é que um modelo poderia ter "sorte" e ter grande precisão com um subconjunto, mas usando muitos subconjuntos o modelo não atingirá essa alta precisão a cada vez. Ao fazer a CV, você fornece um conjunto de um DataSet de validação, especifica as dobras de CV (número de subconjuntos) e o ML automatizado treinará seu modelo e ajustará os hiperparâmetros para minimizar o erro em seu conjunto de validação. Uma dobra de CV pode ser mais adequada, mas usar muitas delas reduz a probabilidade de que o modelo final seja mais adequado. A compensação é que a vc resulta em tempos de treinamento mais longos e, portanto, um custo maior, porque, em vez de treinar um modelo uma vez, você o treina uma vez para cada um dos *n* conjuntos de vc. 
+A **CV (validação cruzada)** é o processo de pegar muitos subconjuntos de seus dados de treinamento completos e treinar um modelo em cada subconjunto. A ideia é que um modelo poderia ter "sorte" e ter grande precisão com um subconjunto, mas usando muitos subconjuntos o modelo não atingirá essa alta precisão sempre. Ao fazer a CV, você fornece um conjunto de um conjunto de dados de controle de validação, especifica as dobras de CV (número de subconjuntos), e o machine learning automatizado treinará seu modelo e ajustará os hiperparâmetros para minimizar o erro em seu conjunto de validação. Uma dobra de CV pode ser sobreajustada, mas usar muitas delas reduz a probabilidade de que o modelo final seja sobreadequado. A desvantagem é que a CV resulta em tempos de treinamento maiores. Portanto, um custo maior, porque em vez de treinar um modelo uma vez, você o treina uma vez para cada *n* subconjuntos de CV. 
 
 > [!NOTE]
-> A validação cruzada não está habilitada por padrão; Ele deve ser configurado em configurações de ML automatizadas. No entanto, depois que a validação cruzada estiver configurada e um conjunto de dados de validação tiver sido fornecido, o processo será automatizado para você. Consulte 
+> A validação cruzada não está habilitada por padrão; ela deve ser configurada nas configurações de machine learning automatizado. No entanto, depois que a validação cruzada estiver configurada, e um conjunto de dados de validação tiver sido fornecido, o processo será automatizado para você. Consulte 
 
 <a name="imbalance"></a>
 
-## <a name="identify-models-with-imbalanced-data"></a>Identificar modelos com dados desbalanceado
+## <a name="identify-models-with-imbalanced-data"></a>Identificar modelos com dados desequilibrados
 
-Dados desequilibrados geralmente são encontrados em dados para cenários de classificação de aprendizado de máquina e referem-se a dados que contêm uma proporção desproporcional de observações em cada classe. Esse desequilíbrio pode levar a um efeito positivo falso e perceptível da precisão de um modelo, pois os dados de entrada têm a tendência de uma classe, o que resulta no modelo treinado para imitar essa tendência. 
+Normalmente, os dados desequilibrados são encontrados em dados para cenários de classificação de aprendizado de máquina e referem-se a dados que contêm uma proporção desproporcional de observações em cada classe. Esse desequilíbrio pode causar um efeito de falso positivo de acordo com a precisão de um modelo porque os dados de entrada têm desvio, o que resulta no modelo treinado para imitar esse desvio. 
 
-Como os algoritmos de classificação geralmente são avaliados por exatidão, a verificação da Pontuação de precisão de um modelo é uma boa maneira de identificar se ele foi afetado por dados desequilibrados. Tem realmente alta precisão ou precisão muito baixa para determinadas classes?
+Como os algoritmos de classificação costumam ser avaliados por exatidão, a verificação da pontuação de precisão de um modelo é uma boa maneira de identificar se ele foi afetado por dados desequilibrados. Ele tinha precisão bem alta ou precisão bem baixa para determinadas classes?
 
-Além disso, as execuções automáticas de ML geram automaticamente os gráficos a seguir, o que pode ajudá-lo a entender a exatidão das classificações do modelo e identificar os modelos potencialmente afetados por dados desequilibrados.
+Além disso, as execuções de machine learning automatizado geram automaticamente os gráficos a seguir, o que pode ajudá-lo a entender a exatidão das classificações do modelo, além de identificar os modelos potencialmente afetados por dados desequilibrados.
 
 Gráfico| Descrição
 ---|---
 [Matriz de confusão](how-to-understand-automated-ml.md#confusion-matrix)| Avalia os rótulos classificados corretamente em relação aos rótulos reais dos dados. 
-[Recall de precisão](how-to-understand-automated-ml.md#precision-recall-chart)| Avalia a proporção de rótulos corretos em relação à taxa de instâncias de rótulo encontradas dos dados 
+[Precisão/recall](how-to-understand-automated-ml.md#precision-recall-chart)| Avalia a proporção de rótulos corretos em relação à taxa de instâncias de rótulo encontradas dos dados 
 [Curvas ROC](how-to-understand-automated-ml.md#roc)| Avalia a proporção de rótulos corretos em relação à taxa de rótulos falsos positivos.
 
-## <a name="handle-imbalanced-data"></a>Lidar com dados desbalanceado 
+## <a name="handle-imbalanced-data"></a>Tratamento dos dados desequilibrados 
 
-Como parte de seu objetivo de simplificar o fluxo de trabalho do Machine Learning, o ML automatizado tem recursos internos para ajudar a lidar com dados desequilibrados, como 
+Como parte do seu objetivo de simplificar o fluxo de trabalho de machine learning, o machine learning automatizado tem recursos internos para ajudar a lidar com dados desequilibrados, como 
 
-- Uma **coluna de peso**: o ml automatizado dá suporte a uma coluna ponderada como entrada, fazendo com que as linhas nos dados sejam ponderadas ou reduzidas, o que pode tornar uma classe mais ou menos "importante".
+- Uma **coluna de peso**: o machine learning automatizado dá suporte a uma coluna ponderada como entrada, fazendo com que as linhas nos dados sejam ponderadas para cima ou para baixo, o que pode tornar uma classe mais ou menos "importante".
 
-- Os algoritmos usados pelo ML automatizado podem lidar corretamente com o desequilíbrio de até 20:1, o que significa que a classe mais comum pode ter 20 vezes mais linhas nos dados do que a classe menos comum.
+- Os algoritmos usados pelo machine learning automatizado podem lidar corretamente com o desequilíbrio de até 20:1, o que significa que a classe mais comum pode ter 20 vezes mais linhas nos dados do que a classe menos comum.
 
-As técnicas a seguir são opções adicionais para lidar com dados desequilibrados fora do ML automatizado. 
+As técnicas a seguir são opções adicionais para lidar com dados desequilibrados fora do machine learning automatizado. 
 
-- A reamostragem até mesmo do desequilíbrio de classe, seja por amostragem das classes menores ou da amostragem das classes maiores. Esses métodos exigem experiência para processar e analisar.
+- A reamostragem até mesmo do desequilíbrio de classe, seja por upsampling das classes menores ou downsampling das classes maiores. Esses métodos exigem experiência para processar e analisar.
 
-- Use uma métrica de desempenho que lida melhor com dados desequilibrados. Por exemplo, a pontuação F1 é uma média ponderada de precisão e RECALL. A precisão mede a exatidão de um classificador – a precisão baixa indica um alto número de falsos positivos--,, enquanto a RECALL mede a integridade de um classificador, a RECALL baixa indica um grande número de falsos negativos. 
+- Use uma métrica de desempenho que lide melhor com dados desequilibrados. Por exemplo, a medida f é uma média ponderada de precisão e recall. A precisão mede a exatidão de um classificador, e a precisão baixa indica um alto número de falsos positivos. O recall mede a integridade de um classificador, e o recall baixo indica um grande número de falsos negativos. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Veja exemplos e aprenda a criar modelos usando o aprendizado de máquina automatizado:
+Veja exemplos e saiba como criar modelos usando o machine learning automatizado:
 
-+ Siga o [tutorial: treinar automaticamente um modelo de regressão com Azure Machine Learning](tutorial-auto-train-models.md)
++ Siga o [tutorial: Treinar automaticamente um modelo de regressão com o Azure Machine Learning](tutorial-auto-train-models.md)
 
 + Defina as configurações para o teste de treinamento automático:
-  + No Azure Machine Learning Studio, [Use estas etapas](how-to-use-automated-ml-for-ml-models.md).
-  + Com o SDK do Python, [Use estas etapas](how-to-configure-auto-train.md).
+  + No Azure Machine Learning Studio, [use estas etapas](how-to-use-automated-ml-for-ml-models.md).
+  + Com o SDK do Python, [use estas etapas](how-to-configure-auto-train.md).
 
 

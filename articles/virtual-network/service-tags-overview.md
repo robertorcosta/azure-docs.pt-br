@@ -4,21 +4,21 @@ titlesuffix: Azure Virtual Network
 description: Saiba mais sobre as marcas de serviço. As marcas de serviço ajudam a minimizar a complexidade da criação de regras de segurança.
 services: virtual-network
 documentationcenter: na
-author: jispar
+author: allegradomel
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2020
-ms.author: jispar
+ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: bfeded391f582ab0ac6f3c15d2086789228f1494
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: ea756b965a2539886e695585c9b5f5034eac7684
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660592"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84263173"
 ---
 # <a name="virtual-network-service-tags"></a>Marcas de serviço de rede virtual
 <a name="network-service-tags"></a>
@@ -62,7 +62,7 @@ Por padrão, as marcas de serviço refletem os intervalos para toda a nuvem. Alg
 | **AzureDataExplorerManagement** | Gerenciamento do Azure Data Explorer. | Entrada | Não | Não |
 | **AzureDataLake** | Azure Data Lake Storage Gen1. | Saída | Não | Sim |
 | **AzureDevSpaces** | Azure Dev Spaces. | Saída | Não | Não |
-| **AzureEventGrid** | Grade de Eventos do Azure. <br/><br/>*Observação:* essa marca abrange somente os pontos de extremidade da Grade de Eventos do Azure no Centro-Sul dos EUA, Leste dos EUA, Leste dos EUA 2, Oeste dos EUA, Oeste dos EUA 2 e EUA Central. | Ambos | Não | Não |
+| **AzureEventGrid** | Grade de Eventos do Azure. | Ambos | Não | Não |
 | **AzureFrontDoor.Frontend** <br/> **AzureFrontDoor.Backend** <br/> **AzureFrontDoor.FirstParty**  | Azure Front Door. | Ambos | Não | Não |
 | **AzureInformationProtection** | Proteção de Informações do Azure.<br/><br/>*Observação:* essa marca tem uma dependência nas marcas **AzureActiveDirectory**, **AzureFrontDoor.Frontend** e **AzureFrontDoor.FirstParty**. | Saída | Não | Não |
 | **AzureIoTHub** | Hub IoT do Azure. | Saída | Não | Não |

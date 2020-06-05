@@ -1,6 +1,6 @@
 ---
-title: Correções para o erro "você não pode chegar lá daqui" – Azure AD
-description: Encontre possíveis correções por que você está recebendo a mensagem de erro "você não pode chegar lá daqui".
+title: Correções para o erro "Você não pode acessar esse lugar daqui" - Azure AD
+description: Encontre possíveis correções para os motivos pelos quais você está recebendo a mensagem de erro "Você não pode acessar esse lugar daqui".
 services: active-directory
 author: curtand
 manager: daveba
@@ -8,19 +8,19 @@ ms.assetid: 8ad0156c-0812-4855-8563-6fbff6194174
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 10/10/2018
 ms.author: curtand
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 2484de4e554d16ba049d206981a44654ede28a3f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b76e84f6ae2449347604ab823fde5b74d5c68f07
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77190019"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83740989"
 ---
-# <a name="possible-fixes-for-the-you-cant-get-there-from-here-error-message"></a>Possíveis correções para a mensagem de erro "você não pode chegar lá daqui"
+# <a name="possible-fixes-for-the-you-cant-get-there-from-here-error-message"></a>Possíveis correções para a mensagem de erro "Você não pode acessar esse lugar daqui"
 
 Ao acessar a aplicativos Web ou serviços internos da sua organização, você pode receber uma mensagem de erro que diz **Você não pode acessar esse lugar daqui**. Essa mensagem significa que sua organização aplicou uma política que está impedindo o dispositivo de acessar recursos da organização. Talvez você precise entrar em contato com o suporte técnico para corrigir esse problema, mas consulte aqui algumas coisas que você pode tentar primeiro.
 
@@ -38,7 +38,7 @@ Verifique se você está executando uma versão compatível do sistema operacion
 
 - **Windows Server.** Windows Server 2008 R2 ou posterior.
 
-- **MacOS.** macOS X ou posterior
+- **macOS.** macOS X ou posterior
 
 - **Android e iOS.** Versão mais recente de sistemas operacionais móveis Android e iOS
 
@@ -63,11 +63,11 @@ Se você receber a mensagem **Você não pode acessar esse lugar daqui** para in
 ### <a name="to-join-your-device-to-your-network"></a>Para adicionar seu dispositivo à rede
 Se o dispositivo não estiver adicionado à rede da sua organização, você terá duas opções:
 
-- **Ingresse no seu dispositivo de trabalho.** Junte-se ao seu dispositivo Windows 10 de propriedade de trabalho à rede da sua organização para poder acessar recursos possivelmente restritos. Para saber mais e obter instruções passo a passo, consulte [Adicionar seu dispositivo corporativo à rede da sua organização](user-help-join-device-on-network.md).
+- **Adicionar seu dispositivo de trabalho.** Junte-se ao seu dispositivo Windows 10 de propriedade de trabalho à rede da sua organização para poder acessar recursos possivelmente restritos. Para saber mais e obter instruções passo a passo, consulte [Adicionar seu dispositivo corporativo à rede da sua organização](user-help-join-device-on-network.md).
 
-- **Registre seu dispositivo pessoal para o trabalho.** Registre seu dispositivo pessoal, geralmente um telefone ou tablet, na rede da sua organização. Após o registro do dispositivo, ele poderá acessar os recursos restritos da sua organização. Para saber mais e obter instruções passo a passo, consulte [Registrar seu dispositivo pessoal à rede da sua organização](user-help-register-device-on-network.md).
+- **Registrar seu dispositivo pessoal para trabalho.** Registre seu dispositivo pessoal, geralmente um telefone ou tablet, na rede da sua organização. Após o registro do dispositivo, ele poderá acessar os recursos restritos da sua organização. Para saber mais e obter instruções passo a passo, consulte [Registrar seu dispositivo pessoal à rede da sua organização](user-help-register-device-on-network.md).
 
 ## <a name="next-steps"></a>Próximas etapas
-- [O que é o portal do MyApps?](active-directory-saas-access-panel-introduction.md)
+- [O que é o portal MyApps?](active-directory-saas-access-panel-introduction.md)
 
 - [Entre com seu telefone, não com sua senha](user-help-auth-app-sign-in.md)

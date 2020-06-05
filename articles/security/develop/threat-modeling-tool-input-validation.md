@@ -15,25 +15,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 712a0707826f97f29b015a2c5892f8d20577e41b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8e597fb9208430b8da447768608c48edef049d83
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687889"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653118"
 ---
-# <a name="security-frame-input-validation--mitigations"></a>Estrutura de segurança: validação de entrada | Atenuações 
+# <a name="security-frame-input-validation--mitigations"></a>Quadro de segurança: Validação de entrada | Atenuações 
 | Produto/Serviço | Artigo |
 | --------------- | ------- |
-| **Aplicativo Web** | <ul><li>[Desabilitar o script XSLT para todas as transformações usando folhas de estilo não confiáveis](#disable-xslt)</li><li>[Verifique se cada página que pode conter conteúdo controlável do usuário opta por detecção automática de MIME](#out-sniffing)</li><li>[Proteger ou desabilitar a resolução de entidade XML](#xml-resolution)</li><li>[Aplicativos que utilizam http. sys executam a verificação de canonização de URL](#app-verification)</li><li>[Verifique se os controles adequados estão em vigor ao aceitar arquivos de usuários](#controls-users)</li><li>[Verifique se os parâmetros de tipo seguro são usados no aplicativo Web para acesso a dados](#typesafe)</li><li>[Usar classes de associação de modelo separadas ou listas de filtro de associação para evitar vulnerabilidades de atribuição em massa do MVC](#binding-mvc)</li><li>[Codifique a saída da Web não confiável antes da renderização](#rendering)</li><li>[Executar validação e filtragem de entrada em todas as propriedades de modelo de tipo de cadeia de caracteres](#typemodel)</li><li>[A limpeza deve ser aplicada em campos de formulário que aceitam todos os caracteres, por exemplo, editor de Rich Text](#richtext)</li><li>[Não atribua elementos DOM a coletores que não têm codificação embutida](#inbuilt-encode)</li><li>[Valide se todos os redirecionamentos dentro do aplicativo são fechados ou foram feitos com segurança](#redirect-safe)</li><li>[Implemente a validação de entrada em todos os parâmetros de tipo de cadeia de caracteres aceitos por métodos do Controlador](#string-method)</li><li>[Definir o tempo limite de limite superior para o processamento de expressão regular para evitar DoS devido a expressões regulares inadequadas](#dos-expression)</li><li>[Evite usar HTML. RAW em exibições do Razor](#html-razor)</li></ul> | 
-| **Backup de banco de dados** | <ul><li>[Não usar consultas dinâmicas em procedimentos armazenados](#stored-proc)</li></ul> |
-| **API Web** | <ul><li>[Verifique se a validação do modelo é feita nos métodos da API Web](#validation-api)</li><li>[Implemente a validação de entrada em todos os parâmetros de tipo de cadeia de caracteres aceitos pelos métodos de API Web](#string-api)</li><li>[Verifique se os parâmetros de tipo seguro são usados na API Web para acesso a dados](#typesafe-api)</li></ul> | 
+| **Aplicativo Web** | <ul><li>[Desabilite o script XSLT para todas as transformações com uso de folhas de estilo não confiáveis](#disable-xslt)</li><li>[Verifique se cada página que pode ter conteúdo controlável pelo usuário recusa a detecção automática de MIME](#out-sniffing)</li><li>[Proteger ou desabilitar a resolução de entidade XML](#xml-resolution)</li><li>[Aplicativos que usam http.sys executam a verificação de conversão em formato canônico de URL](#app-verification)</li><li>[Verifique se os controles adequados estão em vigor ao aceitar arquivos de usuários](#controls-users)</li><li>[Verifique se os parâmetros de tipo seguro são usados no aplicativo Web para acesso a dados](#typesafe)</li><li>[Use classes de model binding separadas ou listas de filtro de associação para evitar a vulnerabilidade de atribuição em massa do MVC](#binding-mvc)</li><li>[Codifique a saída da Web não confiável antes da renderização](#rendering)</li><li>[Execute a validação de entrada e a filtragem em todos os tipos de cadeia de caracteres de propriedades do modelo](#typemodel)</li><li>[A limpeza deve ser aplicada em campos de formulário que aceitam todos os caracteres, como o editor de rich text](#richtext)</li><li>[Não atribua elementos DOM a coletores que não têm codificação embutida](#inbuilt-encode)</li><li>[Valide se todos os redirecionamentos dentro do aplicativo são fechados ou foram feitos com segurança](#redirect-safe)</li><li>[Implemente a validação de entrada em todos os parâmetros de tipo de cadeia de caracteres aceitos por métodos do Controlador](#string-method)</li><li>[Definir o tempo limite superior para o processamento de expressão regular para evitar DoS devido a expressões regulares incorretas](#dos-expression)</li><li>[Evite usar Html.Raw nos modos de exibição do Razor](#html-razor)</li></ul> | 
+| **Backup de banco de dados** | <ul><li>[Não use consultas dinâmicas em procedimentos armazenados](#stored-proc)</li></ul> |
+| **API da Web** | <ul><li>[Verifique se a validação do modelo é feita nos métodos de API Web](#validation-api)</li><li>[Implemente a validação de entrada em todos os parâmetros de tipo de cadeia de caracteres aceitos pelos métodos de API Web](#string-api)</li><li>[Verifique se os parâmetros de tipo seguro são usados na API Web para acesso a dados](#typesafe-api)</li></ul> | 
 | **Azure DocumentDB** | <ul><li>[Usar consultas SQL parametrizadas no Azure Cosmos DB](#sql-docdb)</li></ul> | 
-| **WCF** | <ul><li>[Validação de entrada do WCF por meio de associação de esquema](#schema-binding)</li><li>[WCF-validação de entrada por meio de inspetores de parâmetro](#parameters)</li></ul> |
+| **WCF** | <ul><li>[Validação de entrada de WCF por meio de associação de esquema](#schema-binding)</li><li>[Validação de entrada de WCF por meio de Inspetores de Parâmetro](#parameters)</li></ul> |
 
 ## <a name="disable-xslt-scripting-for-all-transforms-using-untrusted-style-sheets"></a><a id="disable-xslt"></a>Desabilite os scripts XSLT para todas as transformações usando folhas de estilo não confiáveis
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicativo Web | 
 | **Fase do SDL**               | Build |  
@@ -65,13 +65,13 @@ doc.setProperty("AllowXsltScript", false); // CORRECT. Setting to false disables
 
 ## <a name="ensure-that-each-page-that-could-contain-user-controllable-content-opts-out-of-automatic-mime-sniffing"></a><a id="out-sniffing"></a>Verifique se cada página que pode ter conteúdo controlável pelo usuário recusa a detecção automática de MIME
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicativo Web | 
 | **Fase do SDL**               | Build |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
-| **Referências**              | [Segurança do IE8 parte V - proteção abrangente](https://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx)  |
+| **Referências**              | [Segurança do IE8 parte V - proteção abrangente](https://docs.microsoft.com/archive/blogs/ie/ie8-security-part-v-comprehensive-protection)  |
 | **Etapas** | <p>Para cada página que pode conter conteúdo controlável do usuário, você deve usar o cabeçalho HTTP `X-Content-Type-Options:nosniff`. Para cumprir esse requisito, você pode definir o cabeçalho necessário página por página somente para as páginas com conteúdo controlável pelo usuário ou pode defini-lo globalmente para todas as páginas no aplicativo.</p><p>Cada tipo de arquivo entregue de um servidor Web tem um [tipo MIME](https://en.wikipedia.org/wiki/Mime_type) (também chamado de *tipo de conteúdo*) associado que descreve a natureza do conteúdo (ou seja, imagem, texto, aplicativo etc.)</p><p>O cabeçalho X-Content-Type-Options é um cabeçalho HTTP que permite aos desenvolvedores especificar que seus conteúdos não devem ter o MIME detectado. Esse cabeçalho foi criado para reduzir os ataques de detecção de MIME. Foi adicionado suporte para esse cabeçalho no Internet Explorer 8 (IE8)</p><p>Somente os usuários do Internet Explorer 8 (IE8) se beneficiarão de Content-Type-Options. Versões anteriores do Internet Explorer atualmente não respeitam o cabeçalho X-Content-Type-Options</p><p>O Internet Explorer 8 (e posterior) é o único navegador importante a implementar um recurso de recusa de detecção de MIME. Se e quando is principais navegadores (Firefox, Safari, Chrome) implementarem recursos semelhantes, essa recomendação será atualizada para incluir também a sintaxe para esses navegadores</p>|
 
 ### <a name="example"></a>Exemplo
@@ -134,14 +134,14 @@ this.Response.Headers[""X-Content-Type-Options""] = ""nosniff"";
 
 ## <a name="harden-or-disable-xml-entity-resolution"></a><a id="xml-resolution"></a>Proteger ou desabilitar a resolução de entidade XML
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicativo Web | 
 | **Fase do SDL**               | Build |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
 | **Referências**              | [Expansão de Entidade XML](https://capec.mitre.org/data/definitions/197.html), [Ataques de negação de serviço de XML e defesas](https://msdn.microsoft.com/magazine/ee335713.aspx), [Visão geral de segurança do MSXML](https://msdn.microsoft.com/library/ms754611(v=VS.85).aspx), [Práticas recomendadas para proteger o código do MSXML](https://msdn.microsoft.com/library/ms759188(VS.85).aspx), [Referência de protocolo NSXMLParserDelegate](https://developer.apple.com/library/ios/#documentation/cocoa/reference/NSXMLParserDelegate_Protocol/Reference/Reference.html), [Resolvendo referências externas](https://msdn.microsoft.com/library/5fcwybb2.aspx) |
-| **Etapas**| <p>Embora não seja amplamente usado, há um recurso XML que permite que o analisador XML expanda entidades de macro com valores definidos no próprio documento ou de fontes externas. Por exemplo, o documento pode definir uma entidade "companyname" com o valor de "Microsoft". Assim, sempre que o texto "&companyname;" aparecer no documento, ele será substituído automaticamente pelo texto Microsoft. Ou então, o documento pode definir uma entidade "MSFTStock" que faz referência a um serviço Web externo para buscar o valor atual de ações da Microsoft.</p><p>Em seguida, sempre que "&MSFTStock;" aparecer no documento, será substituído automaticamente pelo preço da ação atual. No entanto, essa funcionalidade pode ser usada para criar condições de DoS (negação de serviço). Um invasor pode aninhar várias entidades para criar um bomba XML de expansão exponencial que consome toda a memória disponível no sistema. </p><p>Como alternativa, ele pode criar uma referência externa que transmita de volta uma quantidade infinita de dados ou que simplesmente interrompa o thread. Como resultado, todas as equipes deverão desabilitar a resolução de entidade XML interna e/ou externa totalmente se o aplicativo não a usar ou limitar manualmente a quantidade de memória e o tempo que o aplicativo pode consumir para resolução de entidade, se essa funcionalidade for absolutamente necessária. Se a resolução de entidade não for exigida pelo aplicativo, desabilite-a. </p>|
+| **Etapas**| <p>Embora não seja amplamente usado, há um recurso XML que permite que o analisador XML expanda entidades de macro com valores definidos no próprio documento ou de fontes externas. Por exemplo, o documento pode definir uma entidade "companyname" com o valor de "Microsoft". Assim, sempre que o texto "&companyname;" aparecer no documento, ele será substituído automaticamente pelo texto Microsoft. Ou então, o documento pode definir uma entidade "MSFTStock" que faz referência a um serviço Web externo para buscar o valor atual de ações da Microsoft.</p><p>Em seguida, sempre que "&MSFTStock;" aparecer no documento, será substituído automaticamente pelo preço da ação atual. No entanto, essa funcionalidade pode ser usada para criar condições de DoS (negação de serviço). Um invasor pode aninhar várias entidades para criar uma bomba XML de expansão exponencial que consuma toda a memória disponível no sistema. </p><p>Como alternativa, ele pode criar uma referência externa que transmita de volta uma quantidade infinita de dados ou que simplesmente interrompa o thread. Como resultado, todas as equipes deverão desabilitar a resolução de entidade XML interna e/ou externa totalmente se o aplicativo não a usar ou limitar manualmente a quantidade de memória e o tempo que o aplicativo pode consumir para resolução de entidade, se essa funcionalidade for absolutamente necessária. Se a resolução de entidade não for exigida pelo aplicativo, desabilite-a. </p>|
 
 ### <a name="example"></a>Exemplo
 Para código do .NET Framework, você pode usar as seguintes abordagens:
@@ -196,7 +196,7 @@ Observe que, no MSXML6, ProhibitDTD está definido como true (desabilitando o pr
 
 ## <a name="applications-utilizing-httpsys-perform-url-canonicalization-verification"></a><a id="app-verification"></a>Os aplicativos que usam http.sys executam a verificação de conversão em formato canônico de URL
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicativo Web | 
 | **Fase do SDL**               | Build |  
@@ -207,13 +207,13 @@ Observe que, no MSXML6, ProhibitDTD está definido como true (desabilitando o pr
 
 ## <a name="ensure-appropriate-controls-are-in-place-when-accepting-files-from-users"></a><a id="controls-users"></a>Verifique se os controles adequados estão em vigor ao aceitar arquivos de usuários
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicativo Web | 
 | **Fase do SDL**               | Build |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
-| **Referências**              | [Upload de arquivo irrestrito](https://www.owasp.org/index.php/Unrestricted_File_Upload), [Tabela de assinatura de arquivo](https://www.garykessler.net/library/file_sigs.html) |
+| **Referências**              | [Upload de arquivo irrestrito](https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload), [Tabela de assinatura de arquivo](https://www.garykessler.net/library/file_sigs.html) |
 | **Etapas** | <p>Os arquivos carregados representam um risco significativo para os aplicativos.</p><p>A primeira etapa em muitos ataques é obter algum código do sistema a ser atacado. Assim, o ataque só precisa encontrar uma maneira de fazer com que o código seja executado. Usar um upload de arquivo ajuda o invasor a realizar a primeira etapa. As consequências do upload de arquivos irrestrito podem variar, incluindo a tomada de controle completa do sistema, um sistema de arquivos ou banco de dados sobrecarregado, encaminhamento de ataques aos sistemas de back-end e desfiguração simples.</p><p>Depende de que o aplicativo faz com o arquivo carregado e, especialmente, onde ele é armazenado. A validação do lado do servidor de uploads de arquivo está ausente. Os controles de segurança a seguir devem ser implementados para a funcionalidade de Upload de Arquivo:</p><ul><li>Verificação de extensão de arquivo (somente um conjunto válido de tipos de arquivo permitidos deve ser aceito)</li><li>Limite de tamanho máximo de arquivo</li><li>O arquivo não deve ser carregado para webroot; o local deve ser um diretório em uma unidade que não seja do sistema</li><li>A convenção de nomenclatura deve ser seguida, de forma que o nome do arquivo carregado seja aleatório até certo ponto, para impedir que o arquivo seja substituído</li><li>Os arquivos devem ser verificados com o antivírus antes de serem gravados no disco</li><li>Verifique se o nome do arquivo e outros metadados (por exemplo, o caminho do arquivo) são validados para caracteres mal-intencionados</li><li>A assinatura do formato de arquivo deve ser verificada para impedir que um usuário carregue um arquivo mascarado (por exemplo, carregando um arquivo exe alterando a extensão para txt)</li></ul>| 
 
 ### <a name="example"></a>Exemplo
@@ -323,7 +323,7 @@ Para o último ponto sobre validação de assinatura de formato de arquivo, conf
 
 ## <a name="ensure-that-type-safe-parameters-are-used-in-web-application-for-data-access"></a><a id="typesafe"></a>Verifique se os parâmetros de tipo seguro são usados no aplicativo Web para acesso a dados
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicativo Web | 
 | **Fase do SDL**               | Build |  
@@ -353,25 +353,25 @@ No exemplo de código anterior, o valor de entrada não pode ter mais de 11 cara
 
 ## <a name="use-separate-model-binding-classes-or-binding-filter-lists-to-prevent-mvc-mass-assignment-vulnerability"></a><a id="binding-mvc"></a>Use classes de model binding separadas ou listas de filtro de associação para evitar a vulnerabilidade de atribuição em massa do MVC
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicativo Web | 
 | **Fase do SDL**               | Build |  
 | **Tecnologias aplicáveis** | MVC5, MVC6 |
 | **Atributos**              | N/D  |
 | **Referências**              | [Atributos de metadados](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.metadatatypeattribute), [Vulnerabilidade de segurança de chave pública e atenuação](https://github.com/blog/1068-public-key-security-vulnerability-and-mitigation), [Guia completo para atribuição em massa no ASP.NET MVC](https://odetocode.com/Blogs/scott/archive/2012/03/11/complete-guide-to-mass-assignment-in-asp-net-mvc.aspx), [Introdução ao EF usando MVC](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost) |
-| **Etapas** | <ul><li>**Quando devo procurar vulnerabilidades de overposting? -** As vulnerabilidades de overposting podem ocorrer em qualquer lugar em que você associar classes de modelo da entrada do usuário. Estruturas como MVC podem representar dados de usuário em classes personalizadas do .NET, incluindo POCOs (Plain Old CLR Objects). O MVC popula automaticamente essas classes de modelo com os dados da solicitação, fornecendo uma representação conveniente para lidar com a entrada do usuário. Quando essas classes incluem propriedades que não devem ser definidas pelo usuário, o aplicativo pode ser vulnerável a ataques de overposting, que permitem o controle pelo usuário de dados que o aplicativo nunca deveria permitir. Assim como o model binding MVC, tecnologias de acesso a bancos de dados, como mapeadores de objeto/relacionais como Entity Framework, geralmente também dão suporte ao uso de objetos POCO para representar dados do banco de dados. Essas classes de modelo de dados fornecem a mesma conveniência ao lidar com dados do banco de dados que o MVC oferece ao lidar com a entrada do usuário. Como o MVC e o banco de dados dão suporte a modelos semelhantes, como objetos POCO, parece fácil reutilizar as mesmas classes para as duas finalidades. Essa prática não preservar a separação de questões e é uma área comum em que propriedades não intencionais são expostas ao model binding, habilitando ataques de excesso de postagem.</li><li>**Por que não deve usar classes de modelo de banco de dados não filtradas como parâmetros para as ações MVC? -** Porque o model binding MVC associará qualquer item nessa classe. Mesmo se os dados não aparecerem no modo de exibição, um usuário mal-intencionado poderá enviar uma solicitação HTTP com esses dados incluídos, e o MVC os associará, pois a ação diz que a classe de banco de dados é a forma de dados que ele deve aceitar para a entrada do usuário.</li><li>**Por que devo me preocupar com a forma usada para model binding? -** O uso do model binding com o ASP.NET MVC com modelos demasiadamente amplos expõe um aplicativo a ataques de overposting. O excesso de postagem pode permitir que usuários mal-intencionados alterem dados de aplicativos além do que o desenvolvedor desejava, como substituir o preço de um item ou os privilégios de segurança de uma conta. Os aplicativos devem usar modelos de associação específicos de ação (ou listas de filtros de propriedade permitidos específicos) para fornecer um contrato explícito para quais entradas não confiáveis devem ser permitidas por meio de model binding.</li><li>**Ter modelos de associação separados apenas duplica o código? -** Não, é uma questão de separação de questões. Se reutilizar os modelos de banco de dados nos métodos de ação, você está indicando que qualquer propriedade (ou subpropriedade) nessa classe poderá ser definida pelo usuário em uma solicitação HTTP. Se isso não for o que você deseja que o MVC faça, você precisará de uma lista de filtros ou uma forma de classe separada para mostrar ao MVC quais dados podem vir da entrada de usuário.</li><li>**Se eu tiver modelos de associação separados para entrada do usuário, terei que duplicar todos os atributos de anotação de dados? -** Não necessariamente. Você pode usar MetadataTypeAttribute na classe de modelo de banco de dados para vincular aos metadados em uma classe de model binding. Apenas observe que o tipo referenciado por MetadataTypeAttribute deve ser um subconjunto do tipo de referência (ele pode ter menos propriedades, mas não mais).</li><li>**Mover dados para frente e para trás entre modelos de entrada e modelos de banco do usuário é entediante. Posso simplesmente copiar todas as propriedades usando reflexão? -** Sim. As únicas propriedades que aparecem nos modelos de associação são aquelas que você determinou como seguras para a entrada do usuário. Não há motivo de segurança que impeça o uso de reflexão para copiar todas as propriedades que existem em comum entre esses dois modelos.</li><li>**E quanto a [BIND (exclude = "&euro;â ¦")]. Posso usar isso em vez de ter modelos de ligação separados? -** Essa abordagem não é recomendada. Usar [BIND (exclude = "â&euro;¦")] significa que qualquer nova propriedade é ligável por padrão. Quando uma nova propriedade é adicionada, há uma etapa extra para se lembrar de manter tudo seguro, em vez de ter o design seguro por padrão. É arriscado depender da verificação dessa lista pelo desenvolvedor sempre que uma propriedade for adicionada.</li><li>**Is [BIND (include = "â&euro;¦")] é útil para operações de edição?-** Não. [BIND (include = "â&euro;¦")] é adequado somente para operações de estilo de inserção (adicionando novos dados). Para operações de estilo UPDATE (examinar dados existentes), use outra abordagem, como ter modelos de associação separados ou passar uma lista explícita de propriedades permitidas para UpdateModel ou TryUpdateModel. Adicionar um atributo [BIND (include = "&euro;â ¦")] em uma operação de edição significa que o MVC criará uma instância de objeto e definirá apenas as propriedades listadas, deixando todos os outros com seus valores padrão. Quando os dados forem persistidos, isso substituirá totalmente a entidade existente, redefinindo os valores de qualquer propriedade omitida para seus padrões. Por exemplo, se ISAdmin foi omitido de um atributo [BIND (include =&euro;"â ¦")] em uma operação de edição, qualquer usuário cujo nome foi editado por essa ação seria redefinido para ISAdmin = false (qualquer usuário editado perderá o status do administrador). Se quiser impedir atualizações em determinadas propriedades, use um dos outros métodos acima. Observe que algumas versões das ferramentas MVC geram classes de controlador com [BIND (include = "&euro;â ¦")] em editar ações e sugerem que a remoção de uma propriedade dessa lista impedirá ataques de excesso de postagem. No entanto, conforme descrito acima, essa abordagem não funciona conforme o esperado e, em vez disso, redefinirá todos os dados nas propriedades omitidos para seus valores padrão.</li><li>**Para operações de criação, há qualquer restrição usando [BIND (include = "â&euro;¦")] em vez de modelos de associação separados?-** Ok. Primeiro, essa abordagem não funciona para cenários de Edição, que exigem a manutenção de duas abordagens separadas para atenuar todas as vulnerabilidades de excesso de postagem. Segundo, os modelos de associação separados impõem a separação de preocupações entre a forma usada para entrada do usuário e a forma usada para persistência, algo [BIND&euro;(include = "â ¦")] não faz. Terceiro, observe que [BIND (include = "â&euro;¦")] só pode manipular propriedades de nível superior; Você não pode permitir apenas partes de subpropriedades (como "Details.Name") no atributo. Finalmente, e talvez o mais importante, usando [BIND (include = "&euro;â ¦")] adiciona uma etapa extra que deve ser lembrada sempre que a classe for usada para associação de modelo. Se um novo método de ação for associado à classe de dados diretamente e se esquecer de incluir um atributo [BIND (include =&euro;"â ¦")], ele poderá ficar vulnerável a ataques de excesso de postagem para que a abordagem [BIND (&euro;include = "â ¦")] seja um pouco menos segura por padrão. Se você usar [BIND (include = "â&euro;¦")], tome cuidado sempre para especificá-lo toda vez que suas classes de dados aparecerem como parâmetros do método de ação.</li><li>**Para operações de criação, e quanto à colocação do atributo [BIND (include&euro;= "â ¦")] na própria classe de modelo? Não essa abordagem evita a necessidade de se lembrar de colocar o atributo em cada método de ação? -** Essa abordagem funciona em alguns casos. Usar [BIND (include = "â&euro;¦")] no próprio tipo de modelo (em vez de nos parâmetros de ação usando essa classe), evita a necessidade de se lembrar de incluir o atributo [BIND (include&euro;= "â ¦")] em cada método de ação. Usar o atributo diretamente na classe efetivamente cria uma área de superfície separada dessa classe para fins de model binding. No entanto, essa abordagem só permite uma forma de model binding por classe de modelo. Se um método de ação precisar permitir que o model binding de um campo (por exemplo, uma ação somente de administrador que atualiza funções de usuário) e outras ações precisarem impedir o model binding desse campo, essa abordagem não funcionará. Cada classe só pode ter uma forma de associação de modelo; se ações diferentes precisarem de formas de associação de modelo diferentes, elas precisam representar essas formas separadas usando classes de associação de modelo separadas ou atributos separados [BIND&euro;(include = "â ¦")] nos métodos de ação.</li><li>**O que são modelos de associação? Eles são a mesma coisa que os modelos de exibição? -** Esses são dois conceitos relacionados. O modelo de associação de termo se refere a um modelo de classe usado em uma ação e é a lista de parâmetros (a forma passada do model binding MVC para o método de ação). O modelo de exibição do termo se refere a uma classe de modelo passada de um método de ação para um modo de exibição. Usar um modelo específico de modo de exibição é uma abordagem comum para transmitir dados de um método de ação para um modo de exibição. Geralmente, essa forma também é adequada para a associação de modelo e o modelo de exibição de termo pode ser usado para fazer referência ao mesmo modelo usado em ambos os locais. Em termos mais precisos, esse procedimento aborda especificamente a associação de modelos, concentrando-se na forma passada para a ação, o que importa para fins de atribuição em massa.</li></ul>| 
+| **Etapas** | <ul><li>**Quando devo procurar vulnerabilidades de overposting? -** As vulnerabilidades de overposting podem ocorrer em qualquer lugar em que você associar classes de modelo da entrada do usuário. Estruturas como MVC podem representar dados de usuário em classes personalizadas do .NET, incluindo POCOs (Plain Old CLR Objects). O MVC popula automaticamente essas classes de modelo com os dados da solicitação, fornecendo uma representação conveniente para lidar com a entrada do usuário. Quando essas classes incluem propriedades que não devem ser definidas pelo usuário, o aplicativo pode ser vulnerável a ataques de overposting, que permitem o controle pelo usuário de dados que o aplicativo nunca deveria permitir. Assim como o model binding MVC, tecnologias de acesso a bancos de dados, como mapeadores de objeto/relacionais como Entity Framework, geralmente também dão suporte ao uso de objetos POCO para representar dados do banco de dados. Essas classes de modelo de dados fornecem a mesma conveniência ao lidar com dados do banco de dados que o MVC oferece ao lidar com a entrada do usuário. Como o MVC e o banco de dados dão suporte a modelos semelhantes, como objetos POCO, parece fácil reutilizar as mesmas classes para as duas finalidades. Essa prática não preservar a separação de questões e é uma área comum em que propriedades não intencionais são expostas ao model binding, habilitando ataques de excesso de postagem.</li><li>**Por que não deve usar classes de modelo de banco de dados não filtradas como parâmetros para as ações MVC? -** Porque o model binding MVC associará qualquer item nessa classe. Mesmo se os dados não aparecerem no modo de exibição, um usuário mal-intencionado poderá enviar uma solicitação HTTP com esses dados incluídos, e o MVC os associará, pois a ação diz que a classe de banco de dados é a forma de dados que ele deve aceitar para a entrada do usuário.</li><li>**Por que devo me preocupar com a forma usada para model binding? -** O uso do model binding com o ASP.NET MVC com modelos demasiadamente amplos expõe um aplicativo a ataques de overposting. O excesso de postagem pode permitir que usuários mal-intencionados alterem dados de aplicativos além do que o desenvolvedor desejava, como substituir o preço de um item ou os privilégios de segurança de uma conta. Os aplicativos devem usar modelos de associação específicos de ação (ou listas de filtros de propriedade permitidos específicos) para fornecer um contrato explícito para quais entradas não confiáveis devem ser permitidas por meio de model binding.</li><li>**Ter modelos de associação separados apenas duplica o código? -** Não, é uma questão de separação de questões. Se reutilizar os modelos de banco de dados nos métodos de ação, você está indicando que qualquer propriedade (ou subpropriedade) nessa classe poderá ser definida pelo usuário em uma solicitação HTTP. Se isso não for o que você deseja que o MVC faça, você precisará de uma lista de filtros ou uma forma de classe separada para mostrar ao MVC quais dados podem vir da entrada de usuário.</li><li>**Se eu tiver modelos de associação separados para entrada do usuário, terei que duplicar todos os atributos de anotação de dados? -** Não necessariamente. Você pode usar MetadataTypeAttribute na classe de modelo de banco de dados para vincular aos metadados em uma classe de model binding. Apenas observe que o tipo referenciado por MetadataTypeAttribute deve ser um subconjunto do tipo de referência (ele pode ter menos propriedades, mas não mais).</li><li>**A movimentação de dados entre modelos de entrada de usuário e modelos de banco de dados é entediante. Posso simplesmente copiar todas as propriedades usando a reflexão? -** Sim. As únicas propriedades que aparecem nos modelos de associação são aquelas que você determinou como seguras para a entrada do usuário. Não há motivo de segurança que impeça o uso de reflexão para copiar todas as propriedades que existem em comum entre esses dois modelos.</li><li>**Que tal [Bind(Exclude ="â&euro;¦")]. Posso usar isso em vez de ter modelos de associação separados? -** Essa abordagem não é recomendada. Usar [Bind(Exclude ="â&euro;¦")] significa que qualquer nova propriedade pode ser associada por padrão. Quando uma nova propriedade é adicionada, há uma etapa extra para se lembrar de manter tudo seguro, em vez de ter o design seguro por padrão. É arriscado depender da verificação dessa lista pelo desenvolvedor sempre que uma propriedade for adicionada.</li><li>**[Bind(Include ="â&euro;¦")] é útil para operações de Editar? -** Não. [Bind(Include ="â&euro;¦")] é adequado apenas para operações do estilo INSERT (adicionar novos dados). Para operações de estilo UPDATE (examinar dados existentes), use outra abordagem, como ter modelos de associação separados ou passar uma lista explícita de propriedades permitidas para UpdateModel ou TryUpdateModel. Adicionar um atributo [Bind(Include ="â&euro;¦")] em uma operação de Editar significa que o MVC criará uma instância do objeto e definirá apenas as propriedades listadas, deixando todas as outras com seus valores padrão. Quando os dados forem persistidos, isso substituirá totalmente a entidade existente, redefinindo os valores de qualquer propriedade omitida para seus padrões. Por exemplo, se IsAdmin for omitido de um atributo [Bind(Include ="â&euro;¦")] em uma operação de Editar, qualquer usuário cujo nome tiver sido editado por meio dessa ação será redefinido como IsAdmin = false (qualquer usuário editado perderia status de administrador). Se quiser impedir atualizações em determinadas propriedades, use um dos outros métodos acima. Observe que algumas versões das ferramentas do MVC geram classes de controlador com [Bind(Include ="â&euro;¦")] em ações de Editar, o que significa que remover uma propriedade dessa lista impedirá ataques de excesso de postagem. No entanto, conforme descrito acima, essa abordagem não funciona conforme o esperado e, em vez disso, redefinirá todos os dados nas propriedades omitidos para seus valores padrão.</li><li>**Para operações de Criar, há alguma restrição ao uso de [Bind(Include ="â&euro;¦")] em vez de modelos de associação separados? -** Sim. Primeiro, essa abordagem não funciona para cenários de Edição, que exigem a manutenção de duas abordagens separadas para atenuar todas as vulnerabilidades de excesso de postagem. Em segundo lugar, modelos de associação distintos impõem a separação de problemas entre a forma usada para a entrada do usuário e a usada para persistência, algo que [Bind(Include ="â&euro;¦")] não faz. Em terceiro lugar, lembre-se de que [Bind(Include ="â&euro;¦")] só pode lidar com propriedades de nível superior; não é possível permitir apenas partes de subpropriedades (por exemplo, "Details.Name") no atributo. Por fim, e talvez o mais importante, usar [Bind(Include ="â&euro;¦")] adiciona uma etapa extra que deve ser lembrada sempre que a classe for usada para model binding. Se um novo método de ação for associado à classe de dados diretamente e não incluir um atributo [Bind(Include ="â&euro;¦")], poderá ficar vulnerável a ataques de excesso de postagem, logo, a abordagem com [Bind(Include ="â&euro;¦")] é por padrão um pouco menos segura. Se você usar [Bind(Include ="â&euro;¦")], tome o cuidado de sempre lembrar-se de especificá-lo toda vez que suas classes de dados aparecerem como parâmetros de método de ação.</li><li>**Para operações de Criar, é possível colocar o atributo [Bind(Include ="â&euro;¦")] na própria classe do modelo? Essa abordagem não evita a necessidade de lembrar de colocar o atributo em cada método de ação? -** Essa abordagem funciona em alguns casos. Usar [Bind(Include ="â&euro;¦")] no tipo de modelo (e não nos parâmetros que usam a classe) evita ser preciso lembrar de incluir o atributo [Bind(Include ="â&euro;¦")] em cada método de ação. Usar o atributo diretamente na classe efetivamente cria uma área de superfície separada dessa classe para fins de model binding. No entanto, essa abordagem só permite uma forma de model binding por classe de modelo. Se um método de ação precisar permitir que o model binding de um campo (por exemplo, uma ação somente de administrador que atualiza funções de usuário) e outras ações precisarem impedir o model binding desse campo, essa abordagem não funcionará. Cada classe pode ter apenas uma forma de model binding. Se ações diferentes precisarem de formas de model binding distintas, elas terão de representar essas formas usando classes de model binding separadas ou atributos [Bind(Include ="â&euro;¦")] separados nos métodos de ação.</li><li>**O que são modelos de associação? Eles são o mesmo que os modelos de exibição? -** São dois conceitos relacionados. O modelo de associação de termo se refere a um modelo de classe usado em uma ação e é a lista de parâmetros (a forma passada do model binding MVC para o método de ação). O modelo de exibição do termo se refere a uma classe de modelo passada de um método de ação para um modo de exibição. Usar um modelo específico de modo de exibição é uma abordagem comum para transmitir dados de um método de ação para um modo de exibição. Muitas vezes, essa forma também é adequada para model binding, e o modelo de exibição de termo pode ser usado para referenciar o mesmo modelo usado em ambos os locais. Em termos mais precisos, esse procedimento aborda especificamente a associação de modelos, concentrando-se na forma passada para a ação, o que importa para fins de atribuição em massa.</li></ul>| 
 
 ## <a name="encode-untrusted-web-output-prior-to-rendering"></a><a id="rendering"></a>Codifique a saída da Web não confiável antes da renderização
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicativo Web | 
 | **Fase do SDL**               | Build |  
 | **Tecnologias aplicáveis** | Genérico, Formulários da Web, MVC5, MVC6 |
 | **Atributos**              | N/D  |
 | **Referências**              | [Como evitar scripts entre sites no ASP.NET](https://msdn.microsoft.com/library/ms998274.aspx), [Scripts entre sites](https://cwe.mitre.org/data/definitions/79.html), [Folha de consulta de prevenção de XSS (Cross Site Scripting)](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html) |
-| **Etapas** | Scripts entre sites (frequentemente abreviados como XSS) são um vetor de ataque para serviços online ou qualquer aplicativo/componente que consuma a entrada da Web. As vulnerabilidades de XSS podem permitir que um invasor execute o script no computador de outro usuário por meio de um aplicativo Web vulnerável. Scripts mal-intencionados podem ser usados para roubar cookies e adulterar máquina da vítima por meio de JavaScript. O XSS é impedido pela validação da entrada do usuário, garantindo que ele seja bem-formado e codificado antes de ser renderizado em uma página da Web. A validação de entrada e a codificação de saída podem ser feitas usando a Web Protection Library. Para código gerenciado (C\#, VB.net, etc.), use um ou mais métodos de codificação apropriados da biblioteca de proteção da Web (anti-XSS), dependendo do contexto em que a entrada do usuário é manifestada:| 
+| **Etapas** | Scripts entre sites (frequentemente abreviados como XSS) são um vetor de ataque para serviços online ou qualquer aplicativo/componente que consuma a entrada da Web. As vulnerabilidades de XSS podem permitir que um invasor execute o script no computador de outro usuário por meio de um aplicativo Web vulnerável. Scripts mal-intencionados podem ser usados para roubar cookies e adulterar máquina da vítima por meio de JavaScript. O XSS é impedido pela validação da entrada do usuário, garantindo que ele seja bem-formado e codificado antes de ser renderizado em uma página da Web. A validação de entrada e a codificação de saída podem ser feitas usando a Web Protection Library. Para código Gerenciado (C\#, VB.NET, etc.), use um ou mais métodos de codificação apropriados da Biblioteca de Proteção da Web (Anti-XSS), dependendo do contexto em que a entrada do usuário é manifestada:| 
 
 ### <a name="example"></a>Exemplo
 
@@ -389,7 +389,7 @@ No exemplo de código anterior, o valor de entrada não pode ter mais de 11 cara
 
 ## <a name="perform-input-validation-and-filtering-on-all-string-type-model-properties"></a><a id="typemodel"></a>Execute a validação de entrada e a filtragem em todos os tipos de cadeia de caracteres de propriedades do modelo
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicativo Web | 
 | **Fase do SDL**               | Build |  
@@ -398,9 +398,9 @@ No exemplo de código anterior, o valor de entrada não pode ter mais de 11 cara
 | **Referências**              | [Adicionando Validação](https://www.asp.net/mvc/overview/getting-started/introduction/adding-validation), [Validando Dados de Modelo em um Aplicativo MVC](https://msdn.microsoft.com/library/dd410404(v=vs.90).aspx), [Princípios Básicos para Aplicativos ASP.NET MVC](https://msdn.microsoft.com/magazine/dd942822.aspx) |
 | **Etapas** | <p>Todos os parâmetros de entrada devem ser validados antes de serem usados no aplicativo, para garantir que o aplicativo esteja protegido contra entradas de usuários mal-intencionados. Valide os valores de entrada usando validações de expressão regular no lado do servidor com uma estratégia de validação de lista de permissões. Entradas do usuário/parâmetros não corrigidos passados para os métodos podem causar vulnerabilidades de injeção de código.</p><p>Para aplicativos Web, os pontos de entrada também podem incluir campos de formulário, QueryStrings, cookies, cabeçalhos HTTP e parâmetros de serviço Web.</p><p>As seguintes verificações de validação de entrada devem ser executadas após o model binding:</p><ul><li>As propriedades do modelo devem ser anotadas com a anotação RegularExpression, para aceitar os caracteres e o comprimento máximo permitidos</li><li>Os métodos do controlador devem executar a validade ModelState</li></ul>|
 
-## <a name="sanitization-should-be-applied-on-form-fields-that-accept-all-characters-eg-rich-text-editor"></a><a id="richtext"></a>A limpeza deve ser aplicada em campos de formulário que aceitam todos os caracteres, por exemplo, editor de Rich Text
+## <a name="sanitization-should-be-applied-on-form-fields-that-accept-all-characters-eg-rich-text-editor"></a><a id="richtext"></a>A limpeza deve ser aplicada em campos de formulário que aceitam todos os caracteres, como o editor de rich text
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicativo Web | 
 | **Fase do SDL**               | Build |  
@@ -411,7 +411,7 @@ No exemplo de código anterior, o valor de entrada não pode ter mais de 11 cara
 
 ## <a name="do-not-assign-dom-elements-to-sinks-that-do-not-have-inbuilt-encoding"></a><a id="inbuilt-encode"></a>Não atribua elementos DOM a coletores que não tenham a codificação embutida
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicativo Web | 
 | **Fase do SDL**               | Build |  
@@ -433,7 +433,7 @@ Não use `innerHtml`; em vez disso, use `innerText`. Da mesma forma, em vez de `
 
 ## <a name="validate-all-redirects-within-the-application-are-closed-or-done-safely"></a><a id="redirect-safe"></a>Valide se todos os redirecionamentos dentro do aplicativo são fechados ou foram feitos com segurança
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicativo Web | 
 | **Fase do SDL**               | Build |  
@@ -444,7 +444,7 @@ Não use `innerHtml`; em vez disso, use `innerText`. Da mesma forma, em vez de `
 
 ## <a name="implement-input-validation-on-all-string-type-parameters-accepted-by-controller-methods"></a><a id="string-method"></a>Implemente a validação de entrada em todos os parâmetros de tipo de cadeia de caracteres aceitos por métodos do Controlador
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicativo Web | 
 | **Fase do SDL**               | Build |  
@@ -455,7 +455,7 @@ Não use `innerHtml`; em vez disso, use `innerText`. Da mesma forma, em vez de `
 
 ## <a name="set-upper-limit-timeout-for-regular-expression-processing-to-prevent-dos-due-to-bad-regular-expressions"></a><a id="dos-expression"></a>Defina o tempo limite superior para o processamento de expressão regular para evitar DoS devido a expressões regulares incorretas
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicativo Web | 
 | **Fase do SDL**               | Build |  
@@ -473,14 +473,14 @@ Por exemplo, a configuração a seguir lançará RegexMatchTimeoutException se o
 
 ## <a name="avoid-using-htmlraw-in-razor-views"></a><a id="html-razor"></a>Evite usar Html.Raw nos modos de exibição do Razor
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicativo Web | 
 | **Fase do SDL**               | Build |  
 | **Tecnologias aplicáveis** | MVC5, MVC6 |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
-| Etapa | O Razor (ASP.NET Web Pages) executa codificação HTML automática. Todas as cadeias de caracteres impressas por nuggets de código inserido (blocos @) são codificadas em HTML automaticamente. No entanto, quando o método `HtmlHelper.Raw` é invocado, ele retorna uma marcação que não é codificada em HTML. Se o método auxiliar `Html.Raw()` for usado, ele ignorará a proteção de codificação automática que o Razor fornece.|
+| Etapa | Páginas da Web do ASP.Net (Razor) executam a codificação HTML automática. Todas as cadeias de caracteres impressas por nuggets de código inserido (blocos @) são codificadas em HTML automaticamente. No entanto, quando o método `HtmlHelper.Raw` é invocado, ele retorna uma marcação que não é codificada em HTML. Se o método auxiliar `Html.Raw()` for usado, ele ignorará a proteção de codificação automática que o Razor fornece.|
 
 ### <a name="example"></a>Exemplo
 A seguir está um exemplo não seguro: 
@@ -498,7 +498,7 @@ Não use `Html.Raw()`, a menos que você precise exibir a marcação. Esse méto
 
 ## <a name="do-not-use-dynamic-queries-in-stored-procedures"></a><a id="stored-proc"></a>Não use consultas dinâmicas em procedimentos armazenados
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Banco de dados | 
 | **Fase do SDL**               | Build |  
@@ -558,13 +558,13 @@ AS
 
 ## <a name="ensure-that-model-validation-is-done-on-web-api-methods"></a><a id="validation-api"></a>Verifique se a validação do modelo é feita nos métodos de API Web
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
 | **Fase do SDL**               | Build |  
 | **Tecnologias aplicáveis** | MVC5, MVC6 |
 | **Atributos**              | N/D  |
-| **Referências**              | [Validação de modelo no ASP.NET Web API](https://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
+| **Referências**              | [Validação de modelo na ASP.NET Web API](https://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
 | **Etapas** | Quando um cliente envia dados a uma API Web, é obrigatório validar os dados antes de executar qualquer processamento. Para ASP.NET Web APIs que aceitam modelos como entrada, use anotações de dados em modelos para definir regras de validação nas propriedades do modelo.|
 
 ### <a name="example"></a>Exemplo
@@ -615,7 +615,7 @@ namespace MyApi.Controllers
 
 ## <a name="implement-input-validation-on-all-string-type-parameters-accepted-by-web-api-methods"></a><a id="string-api"></a>Implemente a validação de entrada em todos os parâmetros de tipo de cadeia de caracteres aceitos pelos métodos de API Web
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
 | **Fase do SDL**               | Build |  
@@ -626,7 +626,7 @@ namespace MyApi.Controllers
 
 ## <a name="ensure-that-type-safe-parameters-are-used-in-web-api-for-data-access"></a><a id="typesafe-api"></a>Verifique se os parâmetros de tipo seguro são usados na API Web para acesso a dados
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
 | **Fase do SDL**               | Build |  
@@ -656,18 +656,18 @@ No exemplo de código anterior, o valor de entrada não pode ter mais de 11 cara
 
 ## <a name="use-parameterized-sql-queries-for-cosmos-db"></a><a id="sql-docdb"></a>Usar consultas SQL parametrizadas no Cosmos DB
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Azure Document DB | 
 | **Fase do SDL**               | Build |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
 | **Referências**              | [Anunciando a parametrização de SQL no Azure Cosmos DB](https://azure.microsoft.com/blog/announcing-sql-parameterization-in-documentdb/) |
-| **Etapas** | Embora o Azure Cosmos DB dê suporte apenas a consultas somente leitura, a injeção de SQL ainda será possível se as consultas forem construídas concatenando com a entrada do usuário. Pode ser possível que um usuário tenha acesso aos dados que eles não devem acessar na mesma coleção, criando consultas SQL mal-intencionadas. Use consultas SQL parametrizadas se as consultas forem construídas com base na entrada do usuário. |
+| **Etapas** | Embora o Azure Cosmos DB dê suporte apenas a consultas somente leitura, a injeção de SQL ainda será possível se as consultas forem construídas concatenando com a entrada do usuário. É possível que um usuário obtenha acesso a dados que não deveria acessar na mesma coleção criando consultas SQL mal-intencionadas. Use consultas SQL parametrizadas se as consultas forem construídas com base na entrada do usuário. |
 
 ## <a name="wcf-input-validation-through-schema-binding"></a><a id="schema-binding"></a>Validação de entrada de WCF por meio de associação de esquema
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase do SDL**               | Build |  
@@ -678,7 +678,7 @@ No exemplo de código anterior, o valor de entrada não pode ter mais de 11 cara
 
 ## <a name="wcf--input-validation-through-parameter-inspectors"></a><a id="parameters"></a>Validação de entrada de WCF por meio de Inspetores de Parâmetro
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase do SDL**               | Build |  

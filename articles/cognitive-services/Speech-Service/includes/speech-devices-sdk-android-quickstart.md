@@ -18,7 +18,7 @@ Este guia exige uma conta dos [Serviços Cognitivos do Azure](../get-started.md)
 
 O código-fonte para o aplicativo de exemplo é incluído com o SDK de Dispositivos de Fala. Também está [disponível no GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar a usar o SDK de Dispositivos de Fala, você precisará:
 
@@ -168,7 +168,7 @@ Para validar sua instalação do kit de desenvolvimento, crie e instale o aplica
 
 1. Experimento!
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 Se você não puder se conectar ao Dispositivo de Fala. Digite o comando a seguir em uma janela do prompt de comando. Ele retornará uma lista de dispositivos:
 

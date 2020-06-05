@@ -13,7 +13,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 04/30/2020
 ms.locfileid: "82594756"
 ---
-# <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Tutorial: Configurar um ambiente Jenkins para habilitar o CI/CD para um aplicativo Java no Service Fabric
+# <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Tutorial: Configurar um ambiente Jenkins para habilitar a CI/CD para um aplicativo Java no Service Fabric
 
 Este tutorial é a parte cinco de uma série. Ele mostra como usar o Jenkins para implantar atualizações em seu aplicativo. Neste tutorial, o plug-in Jenkins do Service Fabric é usado com um repositório do GitHub que hospeda o aplicativo Voting para implantar o aplicativo em um cluster.
 
@@ -31,7 +31,7 @@ Nesta série de tutoriais, você aprenderá a:
 > * [Configurar monitoramento e diagnóstico para o aplicativo](service-fabric-tutorial-java-elk.md)
 > * Configurar CI/CD
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Instalar o Git no computador local da [página de downloads do Git](https://git-scm.com/downloads). Para obter mais informações sobre o Git, leia a [documentação do Git](https://git-scm.com/docs).
 * Ter um conhecimento prático do [Jenkins](https://jenkins.io/).

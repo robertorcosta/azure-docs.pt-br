@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 976ff4d3be194bf33d2c01f06c66782caf8dad50
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: MT
+ms.openlocfilehash: a5ef03689a6374dc1cf945a787f9f82b9979a1e0
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82608040"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834899"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Perguntas frequentes sobre diferentes APIs no Azure Cosmos DB
 
@@ -22,9 +22,9 @@ O Azure Cosmos DB é uma ótima escolha para novos aplicativos Web, móveis, de 
 
 ### <a name="how-does-azure-cosmos-db-offer-predictable-performance"></a>Como o Azure Cosmos DB oferece um desempenho previsível?
 
-Uma RU ([Unidade de Solicitação](request-units.md)) é a medida de taxa de transferência no Azure Cosmos DB. Uma taxa de transferência de 1RU corresponde à taxa de transferência da obtenção de um documento de 1 KB. Toda operação no Azure Cosmos DB, incluindo leituras, gravações, consultas SQL e execuções de procedimentos armazenados, tem um valor determinístico de RU baseado na produtividade necessária para concluir a operação. Em vez de pensar em CPU, E/S, memória e como cada uma dessas medidas afeta a produtividade do seu aplicativo, você pode pensar em uma medida de RU única.
+Uma RU ([Unidade de Solicitação](request-units.md)) é a medida de taxa de transferência no Azure Cosmos DB. Uma taxa de transferência de 1 RU corresponde à taxa de transferência do GET de um documento de 1 KB. Toda operação no Azure Cosmos DB, incluindo leituras, gravações, consultas SQL e execuções de procedimentos armazenados, tem um valor determinístico de RU baseado na produtividade necessária para concluir a operação. Em vez de pensar em CPU, E/S, memória e como cada uma dessas medidas afeta a produtividade do seu aplicativo, você pode pensar em uma medida de RU única.
 
-Você pode configurar cada contêiner Cosmos do Azure com taxa de transferência provisionada em termos de RUs de taxa de transferência por segundo. Em aplicativos de qualquer escala, você pode usar um parâmetro de comparação em solicitações individuais para medir seus valores de RU e provisionar um contêiner para manipular o total de unidades de solicitação em todas as solicitações. Também é possível aumentar ou reduzir verticalmente a produtividade de seu contêiner, conforme as necessidades do aplicativo mudam. Para obter mais informações sobre unidades de solicitação e ajuda para determinar suas necessidades de contêiner, experimente a [calculadora de produtividade](https://www.documentdb.com/capacityplanner).
+Você pode configurar cada contêiner do Azure Cosmos com taxa de transferência provisionada em termos de RUs da taxa de transferência por segundo. Em aplicativos de qualquer escala, você pode usar um parâmetro de comparação em solicitações individuais para medir seus valores de RU e provisionar um contêiner para manipular o total de unidades de solicitação em todas as solicitações. Também é possível aumentar ou reduzir verticalmente a produtividade de seu contêiner, conforme as necessidades do aplicativo mudam. Para obter mais informações sobre unidades de solicitação e para obter ajuda para determinar suas necessidades de contêiner, experimente a [calculadora de taxa de transferência](https://www.documentdb.com/capacityplanner).
 
 ### <a name="how-does-azure-cosmos-db-support-various-data-models-such-as-keyvalue-columnar-document-and-graph"></a>Como o Azure Cosmos DB dá suporte a vários modelos de dados, como chave/valor, colunar, documento e grafo?
 
@@ -34,13 +34,13 @@ O Azure Cosmos DB tem um mecanismo de indexação livre de esquemas, capaz de in
 
 ### <a name="can-i-use-multiple-apis-to-access-my-data"></a>Posso usar várias APIs para acessar meus dados?
 
-O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. Onde vários modelos significam Azure Cosmos DB dá suporte a várias APIs e a vários modelos de dados, diferentes APIs usam formatos de dados diferentes para o protocolo de armazenamento e de conexão. Por exemplo, o SQL usa JSON, o MongoDB usa BSON, a tabela usa o EDM, o Cassandra usa CQL, Gremlin usa o formato JSON. Como resultado, é recomendável usar a mesma API para todo o acesso aos dados em uma determinada conta.
+O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. Quando vários modelos significarem que o Azure Cosmos DB tem suporte para várias APIs e vários modelos de dados, APIs diferentes usarão formatos de dados diferentes para o protocolo de armazenamento e de conexão. Por exemplo: o SQL usa JSON; o MongoDB usa BSON; o Table usa o EDM; o Cassandra usa CQL; o Gremlin usa o formato JSON. Dessa forma, é recomendável usar a mesma API para todos os acessos aos dados em uma determinada conta.
 
-Cada API Opera de forma independente, exceto o Gremlin e a API do SQL, que são interoperáveis.
+Cada API opera de forma independente, exceto as API do Gremlin e do SQL, que são interoperáveis.
 
 ### <a name="is-azure-cosmos-db-hipaa-compliant"></a>O Azure Cosmos DB está em conformidade com a HIPAA?
 
-Sim, o Azure Cosmos DB está em conformidade com a HIPAA. A HIPAA estabelece os requisitos para o uso, a divulgação e a proteção de informações de integridade individualmente identificáveis. Para obter mais informações, consulte a [central de confiabilidade da Microsoft](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA).
+Sim, o Azure Cosmos DB está em conformidade com a HIPAA. A HIPAA estabelece os requisitos para o uso, a divulgação e a proteção de informações de integridade individualmente identificáveis. Para saber mais, confira o [Centro de Confiabilidade da Microsoft](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA).
 
 ### <a name="what-are-the-storage-limits-of-azure-cosmos-db"></a>Quais são os limites de armazenamento do Azure Cosmos DB?
 
@@ -70,7 +70,7 @@ Também use o [Emulador do Azure Cosmos DB](local-emulator.md) para desenvolver 
 
 Para fazer uma pergunta técnica, poste em um desses dois fóruns de perguntas e respostas:
 
-* [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
+* [Página de perguntas e respostas da Microsoft](https://docs.microsoft.com/answers/topics/azure-cosmos-db.html)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). O Stack Overflow é o melhor para perguntas sobre programação. Verifique se sua pergunta está [no tópico](https://stackoverflow.com/help/on-topic) e [forneça o máximo de detalhes possíveis, tornando a pergunta clara e possível de responder](https://stackoverflow.com/help/how-to-ask).
 
 Para solicitar novos recursos, crie uma nova solicitação em [Voz do usuário](https://feedback.azure.com/forums/263030-azure-cosmos-db).
@@ -79,32 +79,32 @@ Para corrigir um problema com sua conta, apresente uma [solicitação de suporte
 
 ## <a name="try-azure-cosmos-db-subscriptions"></a><a id="try-cosmos-db"></a>Experimente as assinaturas do Azure Cosmos DB
 
-Agora você pode aproveitar uma experiência do Azure Cosmos DB gratuitamente, por tempo limitado, sem assinatura e sem compromisso. Para se inscrever em uma assinatura do try Azure Cosmos DB, vá para [experimentar Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) e use qualquer conta Microsoft pessoal (MSA). Esta assinatura é separada da [Avaliação gratuita do Azure](https://azure.microsoft.com/free/) e pode ser usada juntamente com uma Avaliação gratuita do Azure ou uma assinatura paga do Azure.
+Agora você pode aproveitar uma experiência do Azure Cosmos DB gratuitamente, por tempo limitado, sem assinatura e sem compromisso. Para se inscrever para uma assinatura do tipo Experimente o Azure Cosmos DB gratuitamente, vá para [Experimente o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) e use qualquer MSA (Conta pessoal da Microsoft). Esta assinatura é separada da [Avaliação gratuita do Azure](https://azure.microsoft.com/free/) e pode ser usada juntamente com uma Avaliação gratuita do Azure ou uma assinatura paga do Azure.
 
 Experimente as assinaturas do Azure Cosmos DB é exibido no portal do Azure ao lado de outras assinaturas associadas à sua ID de usuário.
 
 As seguintes condições se aplicam às assinaturas de Experimente o Azure Cosmos DB:
 
-* O acesso à conta pode ser concedido a MSA (contas pessoais da Microsoft). Evite usar contas do Active Directory (AAD) ou contas que pertencem a locatários do AAD corporativos, elas podem ter limitações em vigor que poderiam bloquear a concessão de acesso.
-* Um [contêiner de taxa de transferência provisionado](./set-throughput.md#set-throughput-on-a-container) por assinatura para SQL, API Gremlin e contas de tabela.
+* O acesso à conta pode ser concedido a MSAs (Contas pessoais da Microsoft). Evite usar contas do AAD (Azure Active Directory) ou contas que pertencem a locatários corporativos do AAD, pois elas podem ter limitações em vigor que poderiam bloquear a concessão de acesso.
+* Um [contêiner de taxa de transferência provisionada](./set-throughput.md#set-throughput-on-a-container) por assinatura para contas SQL, API do Gremlin e Table.
 * Até três [coleções de taxa de transferência provisionada](./set-throughput.md#set-throughput-on-a-container) por assinatura para contas do MongoDB.
-* Uma [taxa de transferência de banco de dados provisionada](./set-throughput.md#set-throughput-on-a-database) por assinatura. Os bancos de dados provisionados pela taxa de transferência podem conter qualquer número de contêineres dentro do.
+* Um [banco de dados de taxa de transferência provisionada](./set-throughput.md#set-throughput-on-a-database) por assinatura. Os bancos de dados de taxa de transferência provisionada podem conter qualquer número de contêineres internamente.
 * Capacidade de armazenamento de 10 GB.
-* A replicação global está disponível nas seguintes [regiões do Azure](https://azure.microsoft.com/regions/): EUA Central, Europa setentrional e sudeste asiático
-* Taxa de transferência máxima de 5 K RU/s quando provisionado no nível de contêiner.
-* Taxa de transferência máxima de 20 K RU/s quando provisionado no nível do banco de dados.
-* As assinaturas expiram após 30 dias e podem ser estendidas para um máximo de 31 dias.
+* A replicação global está disponível atualmente nas seguintes [regiões do Azure](https://azure.microsoft.com/regions/): EUA Central, Norte da Europa e Sudeste Asiático
+* Taxa de transferência máxima de 5.000 RU/s quando provisionadas no nível de contêiner.
+* Taxa de transferência máxima de 20.000 RU/s quando provisionadas no nível de banco de dados.
+* As assinaturas expiram após 30 dias e podem ser estendidas para um máximo de 31 dias no total. Depois de expirarem, as informações contidas são excluídas.
 * Não é possível criar tíquetes de suporte do Azure para contas Experimente o Azure Cosmos DB; no entanto, é oferecido suporte para assinantes com planos de suporte existentes.
 
 ## <a name="set-up-azure-cosmos-db"></a>Configurar o Azure Cosmos DB
 
 ### <a name="how-do-i-sign-up-for-azure-cosmos-db"></a>Como fazer para se inscrever no Azure Cosmos DB?
 
-O Azure Cosmos DB está disponível no Portal do Azure. Primeiro, inscreva-se para uma assinatura do Azure. Depois de se inscrever, você pode adicionar uma conta de Azure Cosmos DB à sua assinatura do Azure.
+O Azure Cosmos DB está disponível no Portal do Azure. Primeiro, inscreva-se para uma assinatura do Azure. Depois de se inscrever, você poderá adicionar uma conta do Azure Cosmos DB à sua assinatura do Azure.
 
 ### <a name="what-is-a-master-key"></a>O que é uma chave mestra?
 
-Uma chave mestra é um token de segurança para acessar todos os recursos de uma conta. As pessoas que têm a chave têm acesso de leitura e gravação a todos os recursos na conta do banco de dados. Seja cauteloso ao distribuir chaves mestras. A chave mestra primária e a secundária estão disponíveis na folha **Chaves** do [Portal do Azure][azure-portal]. Para saber mais sobre as chaves, consulte [Exibir, copiar e regenerar chaves de acesso](manage-with-cli.md#list-account-keys).
+Uma chave mestra é um token de segurança para acessar todos os recursos de uma conta. As pessoas que têm a chave têm acesso de leitura e gravação a todos os recursos na conta do banco de dados. Seja cauteloso ao distribuir chaves mestras. As chaves mestras primária e a secundária estão disponíveis na folha **Chaves** do [portal do Azure][azure-portal]. Para saber mais sobre as chaves, consulte [Exibir, copiar e regenerar chaves de acesso](manage-with-cli.md#list-account-keys).
 
 ### <a name="what-are-the-regions-that-preferredlocations-can-be-set-to"></a>Quais são as regiões para as quais PreferredLocations pode ser definido?
 
@@ -118,21 +118,21 @@ Quando você definir uma região, lembre-se de que o Azure Cosmos DB respeita nu
 
 ### <a name="is-it-possible-to-switch-from-container-level-throughput-provisioning-to-database-level-throughput-provisioning-or-vice-versa"></a>É possível mudar do provisionamento de produtividade no nível do contêiner para o provisionamento de produtividade no nível do banco de dados? Ou vice-versa
 
-O provisionamento de produtividade no nível do contêiner e no nível do banco de dados são ofertas separadas e mudar entre elas requer a migração de dados de origem para destino. Isso significa que você precisa criar um novo banco de dados ou um novo contêiner e, em seguida, migrá-los usando a [biblioteca de executores em massa](bulk-executor-overview.md) ou [Azure data Factory](../data-factory/connector-azure-cosmos-db.md).
+O provisionamento de produtividade no nível do contêiner e no nível do banco de dados são ofertas separadas e mudar entre elas requer a migração de dados de origem para destino. Isso significa que você precisa criar um novo banco de dados ou um novo contêiner e, em seguida, migrar os dados usando a [biblioteca do executor em massa](bulk-executor-overview.md) ou o [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
 
 ### <a name="does-azure-cosmosdb-support-time-series-analysis"></a>O Azure CosmosDB dá suporte à análise de série temporal?
 
 Sim, o Azure CosmosDB dá suporte à análise de série temporal; veja um exemplo do [padrão de série temporal](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/samples/Patterns). O exemplo mostra como usar o feed de alterações para criar exibições agregadas nos dados de série temporal. Você pode estender essa abordagem usando o streaming do spark ou outro processador de dados de streaming.
 
-## <a name="what-are-the-azure-cosmos-db-service-quotas-and-throughput-limits"></a>Quais são as cotas de serviço Azure Cosmos DB e os limites de taxa de transferência
+## <a name="what-are-the-azure-cosmos-db-service-quotas-and-throughput-limits"></a>Quais são as cotas de serviço e os limites de taxa de transferência do Azure Cosmos DB
 
-Consulte os artigos Azure Cosmos DB [cotas de serviço](concepts-limits.md) e [limites por contêiner e banco de dados](set-throughput.md#comparison-of-models) para obter mais informações.
+Consulte os artigos sobre [cotas de serviço](concepts-limits.md) e [limites de taxa de transferência por contêiner e banco de dados](set-throughput.md#comparison-of-models) do Azure Cosmos DB para obter mais informações.
 
 ## <a name="frequently-asked-questions-about-sql-api"></a><a id="sql-api-faq"></a>Perguntas frequentes sobre a API do SQL
 
 ### <a name="how-do-i-start-developing-against-the-sql-api"></a>Como fazer para começar a desenvolver com a API do SQL?
 
-Primeiro você deve se inscrever para uma assinatura do Azure. Depois de se inscrever em uma assinatura do Azure, você poderá adicionar o contêiner da API do SQL à sua assinatura do Azure. Para obter instruções sobre como adicionar uma conta de Azure Cosmos DB, consulte [criar uma conta de banco de dados Cosmos do Azure](create-sql-api-dotnet.md#create-account).
+Primeiro você deve se inscrever para uma assinatura do Azure. Depois de se inscrever em uma assinatura do Azure, você poderá adicionar o contêiner da API do SQL à sua assinatura do Azure. Para obter instruções sobre como adicionar uma conta do Azure Cosmos DB, consulte [Criar uma conta de banco de dados do Azure Cosmos](create-sql-api-dotnet.md#create-account).
 
 [SDKs](sql-api-sdk-dotnet.md) estão disponíveis para .NET, Python, Node.js, JavaScript e Java. Os desenvolvedores também podem usar as [APIs HTTP RESTful](/rest/api/cosmos-db/) para interagir com os recursos do Azure Cosmos DB em uma série de plataformas e linguagens.
 
@@ -153,7 +153,7 @@ Sim, a API do SQL dá suporte a transações entre documentos expressas como pro
 Um contêiner é um grupo de documentos e de suas respectivas lógicas de aplicativo JavaScript associadas. Um contêiner é uma entidade faturável, em que o [custo](performance-levels.md) é determinado pela produtividade e pelo armazenamento usado. Os contêineres podem abranger um ou mais servidores ou partições e podem ser dimensionados para lidar com volumes de armazenamento ou de produtividade praticamente ilimitados.
 
 * Para a API do SQL, um contêiner é mapeado para um contêiner.
-* Para as contas da API de Cosmos DB para MongoDB, um contêiner é mapeado para uma coleção.
+* Para contas da API do Cosmos DB para contas do MongoDB, o contêiner é mapeado para uma coleção.
 * Para contas da API do Cassandra e de Tabela, o contêiner é mapeado para uma tabela.
 * Para contas da API do Gremlin, o contêiner é mapeado para um grafo.
 
@@ -161,7 +161,7 @@ Os contêineres também são as entidades de cobrança do Azure Cosmos DB. Cada 
 
 ### <a name="how-do-i-create-a-database"></a>Como crio um banco de dados?
 
-Você pode criar bancos de dados usando o [portal do Azure](https://portal.azure.com), conforme descrito em [Adicionar um contêiner](create-sql-api-java.md#add-a-container), um dos SDKs de [Azure Cosmos DB](sql-api-sdk-dotnet.md)ou as [APIs REST](/rest/api/cosmos-db/).
+Você pode criar bancos de dados usando o [Portal do Azure](https://portal.azure.com), conforme descrito em [Adicionar um contêiner](create-sql-api-java.md#add-a-container), um dos [SDKs do Azure Cosmos DB](sql-api-sdk-dotnet.md) ou as [APIs REST](/rest/api/cosmos-db/).
 
 ### <a name="how-do-i-set-up-users-and-permissions"></a>Como configuro usuários e permissões?
 
@@ -179,11 +179,11 @@ A API do SQL dá suporte à agregação de baixa latência em qualquer escala po
 
 A API do SQL dá suporte ao OCC (controle de simultaneidade otimista) por meio de marcações da entidade HTTP ou Etags. Cada recurso da API do SQL tem uma Etag e a Etag é definida no servidor sempre que um documento é atualizado. O cabeçalho da Etag e o valor atual são incluídos em todas as mensagens de resposta. As Etags podem ser usadas com o cabeçalho If-Match a fim de permitir que o servidor decida se um recurso deve ser atualizado. O valor de If-Match é o valor de Etag a ser comparado. Se o valor de Etag corresponder ao valor de Etag do servidor, o recurso será atualizado. Se a Etag não for mais atual, o servidor rejeitará a operação com um código de resposta "HTTP 412 Falha de pré-condição". O cliente refaz a busca do recurso a fim de obter o valor de Etag atual para o recurso. Além disso, as Etags podem ser usadas com o cabeçalho If-None-Match para determinar se é necessário realizar uma nova busca de um recurso.
 
-Para usar a simultaneidade otimista em .NET, use a classe [AccessCondition](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.accesscondition.aspx) . Para obter um exemplo do .NET, consulte [Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs) no exemplo de DocumentManagement no github.
+Para usar a simultaneidade otimista em .NET, use a classe [AccessCondition](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.accesscondition.aspx) . Para obter um exemplo de .NET, confira [Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs) no exemplo DocumentManagement no GitHub.
 
 ### <a name="how-do-i-perform-transactions-in-the-sql-api"></a>Como fazer para realizar transações na API do SQL?
 
-A API do SQL dá suporte a transações integradas à linguagem por meio de procedimentos armazenados e gatilhos do JavaScript. Todas as operações de banco de dados dentro de scripts são executadas em isolamento de instantâneo. Se for um contêiner de partição única, a execução será delimitada para o contêiner. Se o contêiner for particionado, a execução será delimitada para documentos com o mesmo valor de chave de partição no contêiner. E obtido um instantâneo das versões do documento (ETags) no início da transação e confirmado somente se o script for bem-sucedido. Se o JavaScript emitir um erro, a transação será revertida. Para obter mais informações, consulte a [Programação JavaScript do lado do servidor para o Azure Cosmos DB](stored-procedures-triggers-udfs.md).
+A API do SQL dá suporte a transações integradas à linguagem por meio de procedimentos armazenados e gatilhos do JavaScript. Todas as operações de banco de dados dentro de scripts são executadas em isolamento de instantâneo. Caso seja um contêiner de partição única, a execução terá o escopo definido para o contêiner. Se o contêiner estiver particionado, a execução terá o escopo definido para documentos com o mesmo valor de chave de partição dentro do contêiner. E obtido um instantâneo das versões do documento (ETags) no início da transação e confirmado somente se o script for bem-sucedido. Se o JavaScript emitir um erro, a transação será revertida. Para obter mais informações, consulte a [Programação JavaScript do lado do servidor para o Azure Cosmos DB](stored-procedures-triggers-udfs.md).
 
 ### <a name="how-can-i-bulk-insert-documents-into-cosmos-db"></a>Como posso inserir documentos em massa no Cosmos DB?
 
@@ -195,7 +195,7 @@ Você pode fazer a inserção em massa documentos no Azure Cosmos DB de uma das 
 
 ### <a name="does-the-sql-api-support-resource-link-caching"></a>A API do SQL dá suporte ao cache de link de recursos?
 
-Sim. Como o Azure Cosmos DB é um serviço RESTful, os links de recursos são imutáveis e podem ser armazenados em cache. Os clientes da API do SQL podem especificar um cabeçalho "If-None-Match" para leituras em qualquer documento ou contêiner do tipo recurso e, em seguida, atualizar suas cópias locais depois que a versão do servidor for alterada.
+Sim. Como o Azure Cosmos DB é um serviço RESTful, os links de recursos são imutáveis e podem ser armazenados em cache. Os clientes da API do SQL podem especificar um cabeçalho “If-None-Match” para leituras em qualquer documento semelhante a recurso ou contêiner e atualizar suas cópias após a versão do servidor ser alterada.
 
 ### <a name="is-a-local-instance-of-sql-api-available"></a>Uma instância local da API do SQL está disponível?
 
@@ -203,7 +203,7 @@ Sim. O [Emulador do Azure Cosmos DB](local-emulator.md) fornece uma emulação d
 
 ### <a name="why-are-long-floating-point-values-in-a-document-rounded-when-viewed-from-data-explorer-in-the-portal"></a>Por que os valores de ponto flutuante longos em um documento são arredondados quando exibidos no Data Explorer no portal.
 
-Esta é a limitação do JavaScript. O JavaScript usa números de formato de ponto flutuante de precisão dupla conforme especificado no IEEE 754 e pode conter com segurança números entre-(2<sup>53</sup> -1) e 2<sup>53</sup>-1 (ou seja, 9007199254740991) somente.
+Esta é a limitação do JavaScript. O JavaScript usa números de formato de ponto flutuante de precisão dupla conforme especificado em IEEE 754 e pode manter, com segurança, apenas números entre -(2<sup>53</sup> - 1) e 2<sup>53</sup>-1 (isto é, 9007199254740991).
 
 ### <a name="where-are-permissions-allowed-in-the-object-hierarchy"></a>Onde as permissões são permitidas na hierarquia do objeto?
 
@@ -214,9 +214,9 @@ A criação de permissões usando o ResourceTokens é permitida no nível do con
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre as perguntas frequentes em outras APIs, consulte:
+Para obter mais informações sobre perguntas frequentes de outras APIs, consulte:
 
-* Perguntas frequentes sobre [a API do Azure Cosmos DB para MongoDB](mongodb-api-faq.md)
-* Perguntas frequentes sobre a [API Gremlin no Azure Cosmos DB](gremlin-api-faq.md)
-* Perguntas frequentes sobre [API do Cassandra em Azure Cosmos DB](cassandra-faq.md)
-* Perguntas frequentes sobre [API de tabela em Azure Cosmos DB](table-api-faq.md)
+* Perguntas frequentes sobre a [API do Azure Cosmos DB para MongoDB](mongodb-api-faq.md)
+* Perguntas frequentes sobre a [API do Gremlin no Azure Cosmos DB](gremlin-api-faq.md)
+* Perguntas frequentes sobre a [API do Cassandra no Azure Cosmos DB](cassandra-faq.md)
+* Perguntas frequentes sobre a [API do Table no Azure Cosmos DB](table-api-faq.md)

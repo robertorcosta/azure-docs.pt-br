@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory ao CS Stars | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao CS Stars | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Active Directory do Azure e o CS Stars.
 services: active-directory
 documentationCenter: na
@@ -23,7 +23,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 04/29/2020
 ms.locfileid: "81869426"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cs-stars"></a>Tutorial: integração do Active Directory do Azure ao CS Stars
+# <a name="tutorial-azure-active-directory-integration-with-cs-stars"></a>Tutorial: Integração do Microsoft Azure Active Directory ao CS Stars
 
 Neste tutorial, você aprenderá a integrar o CS Stars ao Azure AD (Azure Active Directory).
 A integração do CS Stars ao Azure AD oferece os seguintes benefícios:
@@ -35,7 +35,7 @@ A integração do CS Stars ao Azure AD oferece os seguintes benefícios:
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao CS Stars, você precisa dos seguintes itens:
 
@@ -198,5 +198,5 @@ Ao clicar no bloco do CS Stars no Painel de Acesso, você deverá ser conectado 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -22,7 +22,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 04/29/2020
 ms.locfileid: "81254600"
 ---
-# <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Tutorial: Adicionar o CDN do Azure para um aplicativo web do Serviço de Aplicativo do Azure
+# <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Tutorial: Adicionar o CDN do Azure para um aplicativo Web do Serviço de Aplicativo do Azure
 
 Este tutorial mostra como adicionar a [Rede de Distribuição de Conteúdo (CDN)](cdn-overview.md) do Azure para um [aplicativo Web no Serviço de Aplicativo do Azure](../app-service/overview.md). Aplicativos Web é um serviço de hospedagem de aplicativos Web, APIs REST e back-ends móveis. 
 
@@ -38,7 +38,7 @@ O que você aprenderá:
 > * Usar cadeias de caracteres de consulta para controlar versões armazenadas em cache.
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial:
 
@@ -72,7 +72,7 @@ Na página da **Rede de distribuição de conteúdo do Azure**, forneça as conf
 
 ![Como criar perfil e o ponto de extremidade no portal](media/cdn-add-to-web-app/portal-new-endpoint.png)
 
-| Configuração | Valor sugerido | DESCRIÇÃO |
+| Configuração | Valor sugerido | Descrição |
 | ------- | --------------- | ----------- |
 | **Perfil do CDN** | myCDNProfile | Um perfil do CDN é uma coleção de pontos de extremidade do CDN com o mesmo tipo de preços. |
 | **Tipo de preços** | Akamai Standard | O [tipo de preços](cdn-features.md) especifica o provedor e os recursos disponíveis. Este tutorial usa *Akamai padrão*. |

@@ -19,7 +19,7 @@ ms.locfileid: "82731944"
 
 Este guia de início rápido percorre as etapas para conectar a instância do App Center do seu aplicativo ao Application Insights. Com o Application Insights, você pode consultar, segmentar, filtrar e analisar a telemetria com ferramentas mais avançadas que estão disponíveis no serviço [Análise](https://docs.microsoft.com/mobile-center/analytics/) do App Center.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este início rápido, você precisa de:
 
@@ -75,7 +75,7 @@ Quando o aplicativo estiver enviando eventos personalizados e eles forem recebid
 
     Será exibida uma caixa de configuração. Use a tabela a seguir para preencher os campos de entrada.
 
-    | Configurações        |  Valor           | DESCRIÇÃO  |
+    | Configurações        |  Valor           | Descrição  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Um valor globalmente exclusivo, como "myApp iOS" | Nome que identifica o aplicativo que você está monitorando |
      | **Grupo de recursos**     | Um novo grupo de recursos ou um existente no menu | O grupo de recursos no qual criar o novo recurso do Application Insights |

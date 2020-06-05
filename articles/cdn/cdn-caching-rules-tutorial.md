@@ -21,16 +21,16 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 04/29/2020
 ms.locfileid: "81254301"
 ---
-# <a name="tutorial-set-azure-cdn-caching-rules"></a>Tutorial - Configurar regras de cache da CDN do Azure
+# <a name="tutorial-set-azure-cdn-caching-rules"></a>Tutorial: Definir regras de cache da CDN do Azure
 
 > [!NOTE] 
 > As regras de cache estão disponíveis apenas para perfis de **CDN Standard do Azure do Verizon** e **CDN Standard do Azure da Akamai**. Para os perfis da **CDN do Azure da Microsoft**, você deve usar o [mecanismo de regras Standard](cdn-standard-rules-engine-reference.md). Para os **perfis da CDN do Azure Premium da Verizon**, você deve usar o [mecanismo de regras Premium da Verizon](cdn-rules-engine.md) no portal **Gerenciar** a fim de obter uma funcionalidade semelhante.
  
 
 Esse artigo descreve como é possível utilizar as regras de cache da CDN (rede de distribuição de conteúdo) do Azure para definir ou modificar o comportamento de expiração do cache padrão globalmente e com condições personalizadas, como um caminho de URL e extensão de arquivo. CDN do Azure fornece dois tipos de regras de cache:
-- Regras de cache globais: é possível definir uma regra de cache global para cada ponto de extremidade em seu perfil, que afeta todas as solicitações para o ponto de extremidade. A regra de cache global substitui todos os cabeçalhos de diretiva de cache HTTP, se configurado.
+- Regras de cache globais: Você pode definir uma regra de cache global para cada ponto de extremidade em seu perfil, o que afeta todas as solicitações para o ponto de extremidade. A regra de cache global substitui todos os cabeçalhos de diretiva de cache HTTP, se configurado.
 
-- Regras de cache personalizadas: é possível definir uma ou mais regras de cache personalizadas para cada ponto de extremidade em seu perfil. As regras de cache personalizadas combinam caminhos específicos e extensões de arquivo, são processadas em ordem e substituem a regra de cache global, se definido. 
+- Regras de cache personalizadas: Você pode definir uma ou mais regras de cache personalizadas para cada ponto de extremidade em seu perfil. As regras de cache personalizadas combinam caminhos específicos e extensões de arquivo, são processadas em ordem e substituem a regra de cache global, se definido. 
 
 Neste tutorial, você aprenderá como:
 > [!div class="checklist"]
@@ -40,9 +40,9 @@ Neste tutorial, você aprenderá como:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de concluir as etapas deste tutorial, crie primeiro um perfil CDN e pelo menos um ponto de extremidade da CDN. Para saber mais, confira [Início Rápido: Criar um perfil da CDN do Azure e um ponto de extremidade](cdn-create-new-endpoint.md).
+Antes de concluir as etapas deste tutorial, crie primeiro um perfil CDN e pelo menos um ponto de extremidade da CDN. Para saber mais, confira [Início Rápido: Criar um ponto de extremidade e um perfil de CDN do Azure](cdn-create-new-endpoint.md).
 
 ## <a name="open-the-azure-cdn-caching-rules-page"></a>Abrir a página Regras de cache da CDN do Azure
 

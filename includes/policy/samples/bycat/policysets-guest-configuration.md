@@ -12,7 +12,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 05/31/2020
 ms.locfileid: "84233963"
 ---
-|Nome |DESCRIÇÃO |Políticas |Versão |
+|Nome |Descrição |Políticas |Versão |
 |---|---|---|---|
 |[Auditar as VMs do Linux que não têm os aplicativos especificados instalados](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_InstalledApplicationLinux.json) |Essa iniciativa implanta os requisitos de política e audita as máquinas virtuais do Linux que não possuem os aplicativos especificados instalados. Para obter mais informações sobre as políticas de Configuração de Convidado, acesse [https://aka.ms/gcpol](https://aka.ms/gcpol) |2 |1.1.0 |
 |[Auditar as VMs do Linux que têm os aplicativos especificados instalados](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_NotInstalledApplicationLinux.json) |Essa iniciativa implanta os requisitos de política e audita as máquinas virtuais do Linux que possuem os aplicativos especificados instalados. Para obter mais informações sobre as políticas de Configuração de Convidado, acesse [https://aka.ms/gcpol](https://aka.ms/gcpol) |2 |1.1.0 |

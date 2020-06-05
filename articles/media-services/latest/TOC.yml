@@ -73,7 +73,7 @@
           displayName: 'name, naming, file name, upload, output, download'
     - name: Processamento de arquivos
       items:
-        - name: Transformações e Trabalhos
+        - name: Transformações e trabalhos
           href: transforms-jobs-concept.md
           displayName: 'preset, schema'
     - name: Codificando o conteúdo
@@ -93,13 +93,13 @@
         - name: Visão geral
           href: analyzing-video-audio-files-concept.md
           displayName: 'analyze, analyzing, presets, jobs'
-        - name: Transformações e Trabalhos
+        - name: Transformações e trabalhos
           href: transforms-jobs-concept.md
     - name: Transmissão ao vivo
       items:
         - name: Visão geral
           href: live-streaming-overview.md
-        - name: Eventos ao Vivo e Saídas Dinâmicas
+        - name: Eventos e saídas ao vivo
           href: live-events-outputs-concept.md
           displayName: 'vanity, ingest'
         - name: Codificadores dinâmicos locais testados
@@ -126,15 +126,15 @@
         - name: Filtros
           displayName: "manifest, dynamic manifest, filter, hls, dash, m3u8, mpd,\tcontent delivery"
           href: filters-concept.md
-        - name: Ponto de extremidade de streaming
+        - name: Pontos de extremidade de streaming
           displayName: 'origin, packager, cdn'
           href: streaming-endpoint-concept.md
         - name: Dimensionando o streaming com CDN
           href: scale-streaming-cdn.md
-        - name: Localizadores de Streaming
+        - name: Localizadores de streaming
           displayName: URLs
           href: streaming-locators-concept.md
-        - name: Políticas de Streaming
+        - name: Políticas de streaming
           href: streaming-policy-concept.md
     - name: Proteção de conteúdo
       items:
@@ -152,9 +152,9 @@
               href: widevine-license-template-overview.md
             - name: Requisitos de licença FairPlay
               href: fairplay-license-overview.md
-        - name: Políticas de Streaming
+        - name: Políticas de streaming
           href: streaming-policy-concept.md
-        - name: Políticas da Chave de Conteúdo
+        - name: Políticas da chave de conteúdo
           href: content-key-policy-concept.md
     - name: Monitoramento
       items:
@@ -215,7 +215,7 @@
         - name: API de acesso
           displayName: 'portal, cli'
           href: access-api-howto.md
-        - name: Dimensionar unidades reservadas para mídia
+        - name: Escalar unidades reservadas para mídia
           href: media-reserved-units-cli-how-to.md
         - name: Criar um ativo
           href: cli-create-asset.md
@@ -266,7 +266,7 @@
         - name: Arquivo local como entrada de trabalho
           displayName: 'encode, encoding'
           href: job-input-from-local-file-how-to.md
-        - name: Codificação com uma transformação personalizada
+        - name: Como codificar com uma transformação personalizada
           items:
             - name: Com .NET
               displayName: 'encode, encoding, custom, transform'
@@ -376,6 +376,10 @@
           href: 'https://aka.ms/ams-v3-go-ref'
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.media/allversions
+    - name: Esquemas do codificador padrão
+      items:
+        - name: Metadados de saída
+          href: output-metadata-schema.md
 - name: Recursos
   items:
     - name: Comunidade dos Serviços de Mídia do Azure
