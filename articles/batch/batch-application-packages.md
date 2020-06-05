@@ -1,15 +1,15 @@
 ---
-title: Instalar pacotes de aplicativos em nós de computação
+title: Implantar pacotes de aplicativos em nós de computação
 description: Use o recurso de pacotes de aplicativos do Lote do Azure para gerenciar facilmente vários aplicativos e versões para instalação nos nós de computação do Lote.
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/26/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7824d3e2d8cfb7b52041e59a9007688c4ef1cafa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: fd5821a7876cc99be41fbb2c5b095b931653c345
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115611"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780305"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implantar aplicativos em nós de computação com pacotes de aplicativos do Lote
 
@@ -20,7 +20,7 @@ Neste artigo, você aprenderá como carregar e gerenciar os pacotes de aplicativ
 > [!NOTE]
 > Os pacotes de aplicativos têm suporte em todos os pools do Lote criados após 5 de julho de 2017. Elas só terão suporte em pools do Lote criados entre 10 de março de 2016 e 5 de julho de 2017 se o pool tiver sido criado usando uma configuração de Serviço de Nuvem. Os pools do Lote criados antes de 10 de março de 2016 não dão suporte a pacotes de aplicativos.
 >
-> As APIs para criar e gerenciar pacotes de aplicativos fazem parte da biblioteca [[Batch Management .NET]][api_net_mgmt]. As APIs para instalar pacotes de aplicativos em um nó de computação fazem parte da biblioteca [Batch .NET][api_net]. Os recursos comparáveis estão nas APIs do lote disponível para outros idiomas. 
+> As APIs para criar e gerenciar pacotes de aplicativos fazem parte da biblioteca [.NET do Gerenciamento do Lote][api_net_mgmt]. As APIs para instalar pacotes de aplicativos em um nó de computação fazem parte da biblioteca [.NET do Lote][api_net]. Os recursos comparáveis estão nas APIs do lote disponível para outros idiomas. 
 >
 > O recurso de pacotes de aplicativos descrito aqui substitui o recurso Aplicativos do Lote, disponível nas versões anteriores do serviço.
 
@@ -65,10 +65,10 @@ Com pacotes de aplicativos, a tarefa de inicialização do pool não precisa esp
 >
 
 ## <a name="upload-and-manage-applications"></a>Carregar e gerenciar aplicativos
-Você pode usar o [Portal do Azure][portal] ou as APIs de Gerenciamento de Lote para gerenciar os pacotes de aplicativos em sua conta do Lote. Nas próximas seções, primeiro vincularemos uma conta de Armazenamento e analisaremos como adicionar aplicativos e pacotes e como gerenciá-los com o portal.
+Você pode usar o [portal do Azure][portal] ou as APIs de Gerenciamento do Lote para gerenciar os pacotes de aplicativos em sua conta do Lote. Nas próximas seções, primeiro vincularemos uma conta de Armazenamento e analisaremos como adicionar aplicativos e pacotes e como gerenciá-los com o portal.
 
 ### <a name="link-a-storage-account"></a>Vincular uma conta de armazenamento
-Para usar pacotes de aplicativos, você deve primeiro vincular uma [conta de armazenamento do Azure](batch-api-basics.md#azure-storage-account) à sua conta do lote. Se você ainda não configurou uma conta de Armazenamento, o Portal do Azure exibe um aviso na primeira vez em que clicar em Aplicativos na Conta do Lote.
+Para usar pacotes de aplicativo, primeiro vincule uma [conta do Azure Storage](accounts.md#azure-storage-accounts) a sua conta de Lote. Se você ainda não configurou uma conta de Armazenamento, o Portal do Azure exibe um aviso na primeira vez em que clicar em **Aplicativos** na Conta do Lote.
 
 
 
@@ -78,13 +78,13 @@ O serviço de Lote usa a conta de Armazenamento associada para armazenar os paco
 
 ![Folha Escolher conta de armazenamento no portal do Azure][10]
 
-Recomendamos que você crie uma conta de armazenamento *especificamente* para uso com sua conta do lote e selecione-a aqui. Depois de ter criado uma conta de Armazenamento, você poderá vinculá-la à sua conta do Lote usando a janela **Conta de Armazenamento**.
+Recomendamos que você crie uma conta de armazenamento para usar *especificamente* com sua conta do Lote e que a selecione aqui. Depois de ter criado uma conta de Armazenamento, você poderá vinculá-la à sua conta do Lote usando a janela **Conta de Armazenamento**.
 
 > [!IMPORTANT] 
 > - Atualmente você não pode usar pacotes de aplicativos com uma conta de Armazenamento do Microsoft Azure que está configurada com [as regras de firewall](../storage/common/storage-network-security.md).
-> - Uma conta de armazenamento do Azure com **namespace hierárquico** definido como **habilitado** não pode ser usada para pacotes de aplicativos.
+> - Uma conta de Armazenamento do Azure com **namespace hierárquico** definido como **Habilitado** não pode ser usada em pacotes de aplicativos.
 
-O serviço de Lote usa o Armazenamento do Azure para armazenar os pacotes de aplicativos como blobs de blocos. Você é [cobrado como normal][storage_pricing] para os dados do blob de blocos e o tamanho de cada pacote não pode exceder o tamanho máximo do blob de blocos. Para obter mais informações, consulte [escalabilidade e metas de desempenho do armazenamento do Azure para contas de armazenamento](../storage/blobs/scalability-targets.md). Não se esqueça de considerar o tamanho e o número de pacotes de aplicativos e, periodicamente, remova pacotes preteridos para minimizar o custo.
+O serviço de Lote usa o Armazenamento do Azure para armazenar os pacotes de aplicativos como blobs de blocos. Você é [cobrado normalmente][storage_pricing] pelos dados de blob de blocos e o tamanho de cada pacote não pode exceder o tamanho máximo do blob de blocos. Para obter mais informações, confira [Escalabilidade e metas de desempenho do Armazenamento do Azure para contas de armazenamento](../storage/blobs/scalability-targets.md). Não se esqueça de considerar o tamanho e o número de pacotes de aplicativos e, periodicamente, remova pacotes preteridos para minimizar o custo.
 
 ### <a name="view-current-applications"></a>Exibir aplicativos atuais
 Para exibir os aplicativos em sua conta do Lote, clique no item de menu **Aplicativos** no menu à esquerda enquanto exibe sua **Conta do Lote**.
@@ -97,15 +97,15 @@ Selecionar essa opção de menu abre a janela **Aplicativos**:
 
 Essa janela exibe a ID de cada aplicativo em sua conta e as seguintes propriedades:
 
-* **Pacotes**: o número de versões associadas a este aplicativo.
-* **Versão padrão**: a versão do aplicativo que será instalada se você não indicar uma versão ao especificar o aplicativo para um pool. Essa configuração é opcional.
-* **Permitir atualizações**: o valor que especifica se são permitidas as atualizações, exclusões e adições do pacote. Se isso estiver definido para **Não**, as exclusões e atualizações do pacote ficarão desabilitadas para o aplicativo. Apenas novas versões do pacote de aplicativos poderão ser adicionadas. O padrão é **Sim**.
+* **Pacotes**: O número de versões associadas a este aplicativo.
+* **Versão padrão**: A versão do aplicativo que será instalada se você não indicar uma versão ao especificar o aplicativo para um pool. Essa configuração é opcional.
+* **Permitir atualizações**: O valor que especifica se são permitidas as atualizações, exclusões e adições do pacote. Se isso estiver definido para **Não**, as exclusões e atualizações do pacote ficarão desabilitadas para o aplicativo. Apenas novas versões do pacote de aplicativos poderão ser adicionadas. O padrão é **Sim**.
 
-Se você quiser ver a estrutura de arquivos do pacote de aplicativos no nó de computação, navegue até sua conta do lote no Portal. Na sua conta do lote, navegue até **pools**. Selecione o pool que contém os nós de computação nos quais você está interessado.
+Se você quiser ver a estrutura de arquivos do pacote de aplicativos no nó de computação, navegue até sua conta do Lote no portal. Em sua conta do Lote, navegue até **Pools**. Selecione o pool que contém os nós de computação nos quais você está interessado.
 
 ![Nós no pool][13]
 
-Depois de selecionar o pool, navegue até o nó de computação em que o pacote de aplicativos está instalado. A partir daí, os detalhes do pacote de aplicativos estão localizados na pasta **aplicativos** . Pastas adicionais no nó de computação contêm outros arquivos, como tarefas de inicialização, arquivos de saída, saída de erro, etc.
+Depois de selecionar o pool, navegue até o nó de computação em que o pacote de aplicativos está instalado. A partir daí, os detalhes do pacote de aplicativos estão localizados na pasta **Aplicativos**. Pastas adicionais no nó de computação contêm outros arquivos, como tarefas de inicialização, arquivos de saída, saídas de erro etc.
 
 ![Arquivos no nó][14]
 
@@ -116,9 +116,9 @@ Para ver os detalhes de um aplicativo, selecione o aplicativo na janela **Aplica
 
 Nos detalhes do aplicativo, você pode configurar as definições a seguir para o aplicativo.
 
-* **Permitir atualizações**: especifique se seus pacotes de aplicativos podem ser atualizados ou excluídos. Consulte "Atualizar ou excluir um pacote de aplicativos" mais adiante neste artigo.
-* **Versão padrão**: especifique um pacote de aplicativos padrão para implantar nos nós de computação.
-* **Nome de exibição**: especifique um nome amigável que sua solução de Lote pode usar ao exibir informações sobre o aplicativo, como na interface do usuário de um serviço que você fornece aos clientes por meio do Lote.
+* **Permitir atualizações**: Especifique se seus pacotes de aplicativos podem ser atualizados ou excluídos. Consulte "Atualizar ou excluir um pacote de aplicativos" mais adiante neste artigo.
+* **Versão padrão**: Especifique um pacote de aplicativos padrão para implantar nos nós de computação.
+* **Nome de exibição**: Especifique um nome amigável que sua solução de Lote pode usar ao exibir informações sobre o aplicativo, como na interface do usuário de um serviço que você fornece aos clientes por meio do Lote.
 
 ### <a name="add-a-new-application"></a>Adicionar um novo aplicativo
 Para criar um novo aplicativo, adicione um pacote de aplicativos e especifique uma ID de aplicativo nova e exclusiva. O primeiro pacote de aplicativos que você adiciona com a nova ID de aplicativo também cria o novo aplicativo.
@@ -129,7 +129,7 @@ Clique em **Aplicativos** > **Adicionar**.
 
 A janela **Novo aplicativo** fornece os campos a seguir para especificar as configurações do seu novo aplicativo e do pacote de aplicativos.
 
-**ID do aplicativo**
+**ID do Aplicativo**
 
 Este campo especifica a ID do novo aplicativo, que está sujeita às regras de validação padrão de ID do Lote do Azure. As regras para fornecer uma ID de aplicativo são conforme descrito a seguir:
 
@@ -163,7 +163,7 @@ Para adicionar uma nova versão do pacote de aplicativos a um aplicativo existen
 
 ![Folha Adicionar pacote de aplicativos no portal do Azure][8]
 
-Como você pode ver, os campos correspondem aos da janela **novo aplicativo** , mas a caixa **ID do aplicativo** está desabilitada. Assim como para o novo aplicativo, especifique a **Versão** do novo pacote, procure o arquivo .zip do **Pacote de aplicativos** e clique em **OK** para carregar o pacote.
+Como você pode ver, os campos correspondem aos da janela **Novo aplicativo**, mas a caixa **ID do Aplicativo** fica desabilitada. Assim como para o novo aplicativo, especifique a **Versão** do novo pacote, procure o arquivo .zip do **Pacote de aplicativos** e clique em **OK** para carregar o pacote.
 
 ### <a name="update-or-delete-an-application-package"></a>Atualizar ou excluir um pacote de aplicativos
 Para atualizar ou excluir um pacote de aplicativos existente, abra os detalhes do aplicativo, clique em **Pacotes** clique nas **reticências** na linha do pacote de aplicativos que você deseja modificar e selecione a ação que deseja executar.
@@ -174,13 +174,13 @@ Para atualizar ou excluir um pacote de aplicativos existente, abra os detalhes d
 
 Quando você clica em **Atualizar**, a janela **Atualizar pacote** é exibida. Essa janela é semelhante à folha **Novo pacote de aplicativos**. No entanto, somente o campo de seleção de pacotes está habilitado, permitindo que você especifique um novo arquivo ZIP a carregar.
 
-![Folha Atualizar pacote no portal do Azure][11]
+![Folha do pacote de atualização no portal do Azure][11]
 
 **Delete (excluir)**
 
 Quando você clica em **Excluir**, é preciso confirmar a exclusão da versão do pacote e o Lote exclui o pacote do Armazenamento do Azure. Se você excluir a versão padrão de um aplicativo, a configuração da **Versão padrão** será removida para o aplicativo.
 
-![Excluir aplicativo][12]
+![Excluir aplicativo ][12]
 
 ## <a name="install-applications-on-compute-nodes"></a>Instalar aplicativos em nós de computação
 Agora que você aprendeu como gerenciar os pacotes de aplicativos com o portal do Azure, podemos analisar como implantá-los para os nós de computação e executá-los com tarefas em Lote.
@@ -285,9 +285,7 @@ CloudTask blenderTask = new CloudTask(taskId, commandLine);
 ```
 
 > [!TIP]
-> Consulte [Configurações do ambiente para tarefas](batch-api-basics.md#environment-settings-for-tasks) na [Visão geral do recurso de Lote](batch-api-basics.md) para saber mais sobre as configurações do ambiente do nó de computação.
-> 
-> 
+> Confira [Configurações do ambiente para tarefas](jobs-and-tasks.md#environment-settings-for-tasks) para saber mais sobre as configurações do ambiente do nó de computação. 
 
 ## <a name="update-a-pools-application-packages"></a>Atualizar pacotes de aplicativos de um pool
 Se um pool existente já tiver sido configurado com um pacote de aplicativos, você poderá especificar um novo pacote para o pool. Se você especificar uma nova referência de pacote para um pool, o seguinte se aplicará:
@@ -296,7 +294,7 @@ Se um pool existente já tiver sido configurado com um pacote de aplicativos, vo
 * Os nós de computação que já estão no pool quando você atualiza as referências do pacote não instalam automaticamente o novo pacote de aplicativos. Esses nós de computação devem ser reinicializados ou ter sua imagem recriada para receber o novo pacote.
 * Quando um novo pacote é implantado, as variáveis de ambiente criadas refletem as novas referências do pacote de aplicativos.
 
-Neste exemplo, o pool existente tem a versão 2.7 do aplicativo *blender* configurada como um de seus [CloudPool][net_cloudpool].[ApplicationPackageReferences][net_cloudpool_pkgref]. Para atualizar os nós do pool com a versão 2.76b, especifique um novo [ApplicationPackageReference][net_pkgref] com a nova versão e confirme a mudança.
+Neste exemplo, o pool existente tem a versão 2.7 do aplicativo *blender* configurada como um de seus [CloudPool][net_cloudpool].[ApplicationPackageReferences][net_cloudpool_pkgref]. Para atualizar os nós do pool com a versão 2.76b, especifique um novo [ApplicationPackageReference][net_pkgref] com a nova versão e confirme a alteração.
 
 ```csharp
 string newVersion = "2.76b";
@@ -333,7 +331,7 @@ foreach (ApplicationSummary app in applications)
 Com os pacotes de aplicativos, você pode fornecer ajudar seus clientes a escolher os aplicativos para seus trabalhos e especificar a versão exata a ser usada ao processar trabalhos com o serviço habilitado para o Lote. Você também pode fornecer aos clientes a capacidade de carregar e rastrear os próprios aplicativos no serviço.
 
 ## <a name="next-steps"></a>Próximas etapas
-* A [API REST do Lote][api_rest] também dá suporte ao trabalho com pacotes de aplicativos. Por exemplo, consulte o elemento [applicationPackageReferences][rest_add_pool_with_packages] em [Adicionar um pool a uma conta][rest_add_pool] para obter informações sobre como especificar os pacotes a instalar usando a API REST. Consulte [Aplicativos][rest_applications] para obter detalhes sobre como obter informações do aplicativo usando a API REST do Lote.
+* A [API REST do Lote][api_rest] também dá suporte ao trabalho com pacotes de aplicativos. Por exemplo, confira o elemento [applicationPackageReferences][rest_add_pool_with_packages] em [Adicionar um pool a uma conta][rest_add_pool] para obter informações sobre como especificar os pacotes a instalar usando a API REST. Confira [Aplicativos][rest_applications] para obter detalhes sobre como obter informações do aplicativo usando a API REST do Lote.
 * Aprenda a [gerenciar de modo programático as contas e as cotas do Lote do Azure com o .NET de Gerenciamento do Lote](batch-management-dotnet.md). A biblioteca [.NET de Gerenciamento do Lote][api_net_mgmt] pode permitir os recursos de criação e exclusão de conta para seu aplicativo ou serviço do Lote.
 
 [api_net]: https://docs.microsoft.com/dotnet/api/overview/azure/batch/client?view=azure-dotnet
@@ -359,12 +357,12 @@ Com os pacotes de aplicativos, você pode fornecer ajudar seus clientes a escolh
 [2]: ./media/batch-application-packages/app_pkg_02.png "Bloco Aplicativos no portal do Azure"
 [3]: ./media/batch-application-packages/app_pkg_03.png "Folha Aplicativos no portal do Azure"
 [4]: ./media/batch-application-packages/app_pkg_04.png "Folha Detalhes do aplicativo no portal do Azure"
-[5]: ./media/batch-application-packages/app_pkg_05.png "Folha novo aplicativo no portal do Azure"
+[5]: ./media/batch-application-packages/app_pkg_05.png "Folha Novo aplicativo no portal do Azure"
 [7]: ./media/batch-application-packages/app_pkg_07.png "Menu suspenso Atualizar ou excluir pacotes no portal do Azure"
 [8]: ./media/batch-application-packages/app_pkg_08.png "Folha Novo pacote de aplicativos no portal do Azure"
 [9]: ./media/batch-application-packages/app_pkg_09.png "Alerta Nenhuma conta de armazenamento vinculada"
-[10]: ./media/batch-application-packages/app_pkg_10.png "Escolha a folha conta de armazenamento em portal do Azure"
-[11]: ./media/batch-application-packages/app_pkg_11.png "Folha atualizar pacote no portal do Azure"
+[10]: ./media/batch-application-packages/app_pkg_10.png "Folha Escolher conta de armazenamento no portal do Azure"
+[11]: ./media/batch-application-packages/app_pkg_11.png "Folha do pacote de atualização no portal do Azure"
 [12]: ./media/batch-application-packages/app_pkg_12.png "Caixa de diálogo de confirmação Excluir pacote no portal do Azure"
-[13]: ./media/batch-application-packages/package-file-structure.png "Informações do nó de computação no portal do Azure"
+[13]: ./media/batch-application-packages/package-file-structure.png "Informações sobre o nó de computação no portal do Azure"
 [14]: ./media/batch-application-packages/package-file-structure-node.png "Arquivos no nó de computação exibido no portal do Azure"
