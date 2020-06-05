@@ -28,7 +28,7 @@ ms.locfileid: "80877791"
     |Resource group|Selecione um grupo de recursos disponível.|
     |Nome do cluster kubernetes|Insira um nome (em minúsculas).|
     |Região|Selecione um local próximo.|
-    |Versão do kubernetes|Qualquer que seja o valor marcado como **(padrão)**.|
+    |Versão do Kubernetes|Qualquer que seja o valor marcado como **(padrão)**.|
     |Prefixo do nome DNS|Criado automaticamente, mas você pode substituir.|
     |Tamanho do nó|Standard DS2 v2:<br>`2 vCPUs`, `7 GB`|
     |Contagem de nós|Deixe o controle deslizante no valor padrão.|

@@ -17,7 +17,7 @@ ms.locfileid: "81274922"
 ---
 O contêiner fornece [APIs de ponto de extremidade baseadas em REST](../rest-text-to-speech.md). Há muitos [projetos de código-fonte de exemplo](https://github.com/Azure-Samples/Cognitive-Speech-TTS) para a plataforma, estrutura e variações de linguagem disponíveis.
 
-Com o contêiner de *conversão de texto em fala padrão* , você deve confiar na localidade e na voz da marca de imagem que baixou. Por exemplo, se você baixou `latest` a marca, a localidade `en-US` padrão é `JessaRUS` e a voz. Em `{VOICE_NAME}` seguida, o argumento [`en-US-JessaRUS`](../language-support.md#standard-voices)seria. Consulte o exemplo SSML abaixo:
+Com o contêiner de *conversão de texto em fala padrão* , você deve confiar na localidade e na voz da marca de imagem que baixou. Por exemplo, se você baixou a `latest` marca, a localidade padrão é `en-US` e a `JessaRUS` voz. `{VOICE_NAME}`Em seguida, o argumento seria [`en-US-JessaRUS`](../language-support.md#standard-voices) . Consulte o exemplo SSML abaixo:
 
 ```xml
 <speak version="1.0" xml:lang="en-US">
@@ -53,8 +53,8 @@ curl -s -v -X POST http://localhost:5000/speech/synthesize/cognitiveservices/v1 
 
 Esse comando:
 
-* Constrói uma solicitação HTTP POST para o ponto `speech/synthesize/cognitiveservices/v1` de extremidade.
+* Constrói uma solicitação HTTP POST para o `speech/synthesize/cognitiveservices/v1` ponto de extremidade.
 * Especifica um `Accept` cabeçalho de`audio/*`
-* Especifica um `Content-Type` cabeçalho de `application/ssml+xml`, para obter mais informações, consulte [corpo da solicitação](../rest-text-to-speech.md#request-body).
-* Especifica um `X-Microsoft-OutputFormat` cabeçalho de `riff-16khz-16bit-mono-pcm`, para obter mais opções, consulte [saída de áudio](../rest-text-to-speech.md#audio-outputs).
+* Especifica um `Content-Type` cabeçalho de `application/ssml+xml` , para obter mais informações, consulte [corpo da solicitação](../rest-text-to-speech.md#request-body).
+* Especifica um `X-Microsoft-OutputFormat` cabeçalho de `riff-16khz-16bit-mono-pcm` , para obter mais opções, consulte [saída de áudio](../rest-text-to-speech.md#audio-outputs).
 * Envia a solicitação de [linguagem de marcação de síntese de fala (SSML)](../speech-synthesis-markup.md) de acordo `{VOICE_NAME}` com o ponto de extremidade.

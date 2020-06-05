@@ -19,7 +19,7 @@ ms.locfileid: "80876384"
 ### <a name="verify-the-language-detection-container-instance"></a>Verificar a instância de contêiner de Detecção de Idioma
 
 1. Selecione a guia **visão geral** e copie o endereço IP.
-1. Abra uma nova guia do navegador e insira o endereço IP. Por exemplo, digite `http://<IP-address>:5000 (http://55.55.55.55:5000`). O home page do contêiner é exibido, o que permite que você saiba que o contêiner está em execução.
+1. Abra uma nova guia do navegador e insira o endereço IP. Por exemplo, digite `http://<IP-address>:5000 (http://55.55.55.55:5000` ). O home page do contêiner é exibido, o que permite que você saiba que o contêiner está em execução.
 
     ![Exibir o home page do contêiner para verificar se ele está em execução](../media/how-tos/container-instance/swagger-docs-on-container.png)
 
@@ -49,7 +49,7 @@ ms.locfileid: "80876384"
     }
     ```
 
-1. Defina **o** de status `true`como.
+1. Defina **o** de status como `true` .
 
 1. Selecione **executar** para determinar a suopinião do texto.
 
@@ -127,4 +127,4 @@ ms.locfileid: "80876384"
     }
     ```
 
-Agora podemos correlacionar os documentos dos dados JSON da carga de resposta aos documentos de carga de solicitação originais por seus `id`correspondentes. Cada documento é tratado de `characterCount` forma independente, contendo várias estatísticas `transactionCount`, como e. Além disso, cada documento resultante tem `detectedLanguages` a matriz com `name`o `iso6391Name`, e `score` para cada idioma detectado. Quando vários idiomas são detectados, `score` o é usado para determinar a linguagem mais provável.
+Agora podemos correlacionar os documentos dos dados JSON da carga de resposta aos documentos de carga de solicitação originais por seus correspondentes `id` . Cada documento é tratado de forma independente, contendo várias estatísticas, como `characterCount` e `transactionCount` . Além disso, cada documento resultante tem a `detectedLanguages` matriz com o `name` , `iso6391Name` e `score` para cada idioma detectado. Quando vários idiomas são detectados, o `score` é usado para determinar a linguagem mais provável.

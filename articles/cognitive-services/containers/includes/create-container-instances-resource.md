@@ -25,11 +25,11 @@ ms.locfileid: "80876385"
     |Configuração|Valor|
     |--|--|
     |Subscription|Selecione sua assinatura.|
-    |Resource group|Selecione o grupo de recursos disponível ou crie um novo, como `cognitive-services`.|
-    |Nome do contêiner|Insira um nome como `cognitive-container-instance`. O nome deve estar em minúsculas.|
+    |Resource group|Selecione o grupo de recursos disponível ou crie um novo, como `cognitive-services` .|
+    |Nome do contêiner|Insira um nome como `cognitive-container-instance` . O nome deve estar em minúsculas.|
     |Location|Selecione uma região para implantação.|
-    |Tipo de Imagem|Se a imagem de contêiner estiver armazenada em um registro de contêiner que não requer `Public`credenciais, escolha. Se o acesso à sua imagem de contêiner exigir `Private`credenciais, escolha. Consulte [repositórios e imagens de contêiner](../../cognitive-services-container-support.md#container-repositories-and-images) para obter detalhes sobre se a imagem de contêiner é `Public` ou não `Private` ou ("visualização pública"). |
-    |Nome da imagem|Insira o local do contêiner de serviços cognitivas. O local é o que é usado como um argumento para `docker pull` o comando. Consulte os [repositórios e as imagens do contêiner](../../cognitive-services-container-support.md#container-repositories-and-images) para obter os nomes de imagem disponíveis e seu repositório correspondente.<br><br>O nome da imagem deve ser totalmente qualificado, especificando três partes. Primeiro, o registro de contêiner, em seguida, o repositório, por fim `<container-registry>/<repository>/<image-name>`, o nome da imagem:.<br><br>Aqui está um exemplo, `mcr.microsoft.com/azure-cognitive-services/keyphrase` que representaria a imagem de extração de frases-chave no registro de contêiner da Microsoft no repositório de serviços cognitivas do Azure. Outro exemplo é, `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` que representaria a imagem de fala para texto no repositório da Microsoft do registro de contêiner de visualização do contêiner. |
+    |Tipo de Imagem|Se a imagem de contêiner estiver armazenada em um registro de contêiner que não requer credenciais, escolha `Public` . Se o acesso à sua imagem de contêiner exigir credenciais, escolha `Private` . Consulte [repositórios e imagens de contêiner](../../cognitive-services-container-support.md#container-repositories-and-images) para obter detalhes sobre se a imagem de contêiner é ou não `Public` ou `Private` ("visualização pública"). |
+    |Nome da imagem|Insira o local do contêiner de serviços cognitivas. O local é o que é usado como um argumento para o `docker pull` comando. Consulte os [repositórios e as imagens do contêiner](../../cognitive-services-container-support.md#container-repositories-and-images) para obter os nomes de imagem disponíveis e seu repositório correspondente.<br><br>O nome da imagem deve ser totalmente qualificado, especificando três partes. Primeiro, o registro de contêiner, em seguida, o repositório, por fim, o nome da imagem: `<container-registry>/<repository>/<image-name>` .<br><br>Aqui está um exemplo, `mcr.microsoft.com/azure-cognitive-services/keyphrase` que representaria a imagem de extração de frases-chave no registro de contêiner da Microsoft no repositório de serviços cognitivas do Azure. Outro exemplo é, `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` que representaria a imagem de fala para texto no repositório da Microsoft do registro de contêiner de visualização do contêiner. |
     |Tipo do SO|`Linux`|
     |Tamanho|Altere o tamanho para as recomendações sugeridas para seu contêiner de serviço cognitiva específico:<br>2 núcleos de CPU<br>4 GB
 
@@ -37,13 +37,13 @@ ms.locfileid: "80876385"
 
     |Configuração|Valor|
     |--|--|
-    |Portas|Defina a porta TCP como `5000`. Expõe o contêiner na porta 5000.|
+    |Portas|Defina a porta TCP como `5000` . Expõe o contêiner na porta 5000.|
 
 4. Na guia **avançado** , insira as variáveis de **ambiente** necessárias para as configurações de cobrança de contêiner do recurso de instância de contêiner do Azure:
 
     | Chave | Valor |
     |--|--|
-    |`apikey`|Copiado da página de **chaves** do recurso. É uma cadeia de caracteres alfanuméricos 32 sem espaços ou traços `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
+    |`apikey`|Copiado da página de **chaves** do recurso. É uma cadeia de caracteres alfanuméricos 32 sem espaços ou traços `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` .|
     |`billing`|Copiado da página de **visão geral** do recurso.|
     |`eula`|`accept`|
 

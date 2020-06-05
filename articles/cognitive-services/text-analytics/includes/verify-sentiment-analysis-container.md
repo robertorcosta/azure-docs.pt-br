@@ -19,7 +19,7 @@ ms.locfileid: "80876381"
 ### <a name="verify-the-sentiment-analysis-container-instance"></a>Verificar a instância de contêiner de Análise de Sentimento
 
 1. Selecione a guia **visão geral** e copie o endereço IP.
-1. Abra uma nova guia do navegador e insira o endereço IP. Por exemplo, digite `http://<IP-address>:5000 (http://55.55.55.55:5000`). O home page do contêiner é exibido, o que permite que você saiba que o contêiner está em execução.
+1. Abra uma nova guia do navegador e insira o endereço IP. Por exemplo, digite `http://<IP-address>:5000 (http://55.55.55.55:5000` ). O home page do contêiner é exibido, o que permite que você saiba que o contêiner está em execução.
 
     ![Exibir o home page do contêiner para verificar se ele está em execução](../media/how-tos/container-instance/swagger-docs-on-container.png)
 
@@ -63,7 +63,7 @@ ms.locfileid: "80876381"
     }
     ```
 
-1. Defina **o** de status `true`como.
+1. Defina **o** de status como `true` .
 
 1. Selecione **executar** para determinar a suopinião do texto.
 
@@ -93,4 +93,4 @@ ms.locfileid: "80876381"
     }
     ```
 
-Agora podemos correlacionar o documento `id` dos dados JSON da carga de resposta ao documento `id`de carga de solicitação original. A pontuação de mais do `0.98` que indica um sentimentos muito positivo.
+Agora podemos correlacionar o documento `id` dos dados JSON da carga de resposta ao documento de carga de solicitação original `id` . A pontuação de mais do que `0.98` indica um sentimentos muito positivo.

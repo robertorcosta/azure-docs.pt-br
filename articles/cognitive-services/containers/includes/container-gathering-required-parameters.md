@@ -17,11 +17,11 @@ ms.locfileid: "80875020"
 ---
 ## <a name="gathering-required-parameters"></a>Coletando parâmetros necessários
 
-Há três parâmetros principais para todos os contêineres de serviços cognitivas que são necessários. O contrato de licença de usuário final (EULA) deve estar presente com um valor `accept`de. Além disso, uma URL de ponto de extremidade e uma chave de API são necessárias.
+Há três parâmetros principais para todos os contêineres de serviços cognitivas que são necessários. O contrato de licença de usuário final (EULA) deve estar presente com um valor de `accept` . Além disso, uma URL de ponto de extremidade e uma chave de API são necessárias.
 
 ### <a name="endpoint-uri-endpoint_uri"></a>URI do ponto de extremidade`{ENDPOINT_URI}`
 
-O valor do URI do **ponto de extremidade** está disponível na página de *visão geral* portal do Azure do recurso de serviço cognitiva correspondente. Navegue até a página *visão geral* , focalize o ponto de extremidade e `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> um ícone será exibido. Copie e use onde for necessário.
+O valor do URI do **ponto de extremidade** está disponível na página de *visão geral* portal do Azure do recurso de serviço cognitiva correspondente. Navegue até a página *visão geral* , focalize o ponto de extremidade e um `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> ícone será exibido. Copie e use onde for necessário.
 
 ![Coletar o URI do ponto de extremidade para uso posterior](../media/overview-endpoint-uri.png)
 

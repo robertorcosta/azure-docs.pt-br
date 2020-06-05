@@ -30,17 +30,17 @@ A receita funciona com qualquer contêiner de serviços cognitivas. O recurso de
 * **Chave** de serviço cognitiva-as chaves estão na página **chaves** do recurso do Azure. Você precisa apenas de uma das duas chaves. A chave é uma cadeia de caracteres de 32 alfanuméricos.
 * Um único contêiner de serviços cognitivas no host local (seu computador). Verifique se você pode:
   * Puxe a imagem com um `docker pull` comando.
-  * Execute o contêiner local com êxito com todas as definições de configuração necessárias `docker run` com um comando.
+  * Execute o contêiner local com êxito com todas as definições de configuração necessárias com um `docker run` comando.
   * Chame o ponto de extremidade do contêiner, obtendo uma resposta de HTTP 2xx e uma resposta JSON de volta.
 
-Todas as variáveis entre colchetes angulares, `<>`precisam ser substituídas por seus próprios valores. Essa substituição inclui os colchetes angulares.
+Todas as variáveis entre colchetes angulares, `<>` precisam ser substituídas por seus próprios valores. Essa substituição inclui os colchetes angulares.
 
 [!INCLUDE [Create a Text Analytics Containers on Azure Container Instances](includes/create-container-instances-resource.md)]
 
 ## <a name="use-the-container-instance"></a>Usar a instância de contêiner
 
-1. Selecione a **visão geral** e copie o endereço IP. Será um endereço IP numérico, como `55.55.55.55`.
-1. Abra uma nova guia do navegador e use o endereço IP, por exemplo `http://<IP-address>:5000 (http://55.55.55.55:5000`,). Você verá o home page do contêiner, informando que o contêiner está em execução.
+1. Selecione a **visão geral** e copie o endereço IP. Será um endereço IP numérico, como `55.55.55.55` .
+1. Abra uma nova guia do navegador e use o endereço IP, por exemplo, `http://<IP-address>:5000 (http://55.55.55.55:5000` ). Você verá o home page do contêiner, informando que o contêiner está em execução.
 
 1. Selecione **Descrição da API de serviço** para exibir a página do Swagger para o contêiner.
 
