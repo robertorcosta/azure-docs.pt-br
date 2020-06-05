@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: registrar um aplicativo'
+title: 'Tutorial: Registrar um aplicativo'
 titleSuffix: Azure AD B2C
 description: Saiba como registrar seus aplicativo Web no Azure Active Directory B2C usando o portal do Azure.
 services: active-directory-b2c
@@ -8,19 +8,19 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 10/16/2019
+ms.date: 04/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a688f5e75f7513d0ea4308b751f87f75a2c9510a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6e78a6b422f592caa252cb5856fc590a4bed35a7
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78183084"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83637594"
 ---
-# <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>Tutorial: registrar um aplicativo no Azure Active Directory B2C
+# <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>Tutorial: Registrar um aplicativo no Azure Active Directory B2C
 
-Antes que seus [aplicativos](application-types.md) possam interagir com Azure Active Directory B2C (Azure ad B2C), eles devem ser registrados em um locatário que você gerencia. Este tutorial mostra como registrar um aplicativo Web usando o portal do Azure.
+Antes que os [aplicativos](application-types.md) possam interagir com o Azure Active Directory B2C (Azure AD B2C), eles deverão ser registrados em um locatário gerenciado por você. Este tutorial mostra como registrar um aplicativo Web usando o portal do Azure.
 
 Neste artigo, você aprenderá como:
 
@@ -32,7 +32,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se você ainda não criou seu próprio [locatário de Azure ad B2C](tutorial-create-tenant.md), crie um agora. É possível usar um locatário existente do Azure AD B2C.
+Se você ainda não criou seu próprio [locatário do Azure AD B2C](tutorial-create-tenant.md), crie um agora. É possível usar um locatário existente do Azure AD B2C.
 
 ## <a name="register-a-web-application"></a>Registrar um aplicativo Web
 
@@ -41,43 +41,43 @@ Para registrar um aplicativo no locatário do Azure Active Directory B2C, você 
 #### <a name="applications"></a>[Aplicativos](#tab/applications/)
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-1. Selecione o ícone **diretório + assinatura** na barra de ferramentas do portal e selecione o diretório que contém seu locatário Azure ad B2C.
-1. Na portal do Azure, procure e selecione **Azure ad B2C**.
-1. Selecione **aplicativos**e, em seguida, selecione **Adicionar**.
+1. Selecione o ícone **Diretório + Assinatura** na barra de ferramentas do portal e selecione o diretório que contém o locatário do Azure AD B2C.
+1. No portal do Azure, pesquise e selecione **Azure AD B2C**.
+1. Selecione **Aplicativos** e, em seguida, selecione **Adicionar**.
 1. Insira um nome para o aplicativo. Por exemplo, *webapp1*.
 1. Para **Incluir aplicativo da Web / API da Web** e **Permitir fluxo implícito**, selecione **Sim**.
-1. Para a **URL de resposta**, insira um ponto de extremidade em que o Azure AD B2C deve retornar os tokens solicitados pelo seu aplicativo. Por exemplo, você pode defini-lo para escutar localmente `https://localhost:44316`em. Se você ainda não souber o número da porta, poderá inserir um valor de espaço reservado e alterá-lo posteriormente.
+1. Para a **URL de resposta**, insira um ponto de extremidade em que o Azure AD B2C deve retornar os tokens solicitados pelo seu aplicativo. Por exemplo, você pode defini-lo para escutar localmente em `https://localhost:44316`. Se você ainda não souber o número da porta, poderá inserir um valor de espaço reservado e alterá-lo posteriormente.
 
-    Para fins de teste como este tutorial, você pode defini `https://jwt.ms` -lo como que exibe o conteúdo de um token para inspeção. Para este tutorial, defina a **URL** de resposta `https://jwt.ms`como.
+    Para fins de teste, como neste tutorial, é possível defini-lo como `https://jwt.ms`, que exibe o conteúdo de um token para inspeção. Para este tutorial, defina a **URL de Resposta** como `https://jwt.ms`.
 
-    As seguintes restrições se aplicam a URLs de resposta:
+    As restrições a seguir se aplicam a URLs de resposta:
 
-    * A URL de resposta deve começar com o `https`esquema.
-    * A URL de resposta diferencia maiúsculas de minúsculas. Seu caso deve corresponder ao caso do caminho da URL do seu aplicativo em execução. Por exemplo, se seu aplicativo incluir como parte de seu caminho `.../abc/response-oidc`, não ESPECIFIQUE `.../ABC/response-oidc` na URL de resposta. Como o navegador da Web trata os caminhos como diferenciando maiúsculas de `.../abc/response-oidc` minúsculas, os cookies associados a podem ser excluídos se forem redirecionados para a `.../ABC/response-oidc` URL incompatível com maiúsculas e minúsculas.
+    * A URL de resposta deve começar com o esquema `https`.
+    * A URL de resposta diferencia maiúsculas de minúsculas. As letras maiúsculas e minúsculas devem corresponder às letras maiúsculas e minúsculas do caminho da URL do aplicativo em execução. Por exemplo, se o aplicativo incluir `.../abc/response-oidc` como parte de seu caminho, não especifique `.../ABC/response-oidc` na URL de resposta. Como o navegador da Web trata os caminhos diferenciando maiúsculas de minúsculas, os cookies associados a `.../abc/response-oidc` podem ser excluídos se forem redirecionados para a URL de `.../ABC/response-oidc` com maiúsculas e minúsculas não correspondentes.
 
-1. Selecione **criar** para concluir o registro do aplicativo.
+1. Selecione **Criar** para concluir o registro do aplicativo.
 
 #### <a name="app-registrations-preview"></a>[Registros de Aplicativo (versão prévia)](#tab/app-reg-preview/)
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-1. Selecione o ícone **diretório + assinatura** na barra de ferramentas do portal e selecione o diretório que contém seu locatário Azure ad B2C.
-1. Na portal do Azure, procure e selecione **Azure ad B2C**.
+1. Selecione o ícone **Diretório + Assinatura** na barra de ferramentas do portal e selecione o diretório que contém o locatário do Azure AD B2C.
+1. No portal do Azure, pesquise e selecione **Azure AD B2C**.
 1. Escolha **Registros de Aplicativo (versão prévia)** e depois selecione **Novo Registro**.
 1. Insira um **Nome** para o aplicativo. Por exemplo, *webapp1*.
-1. Selecione **contas em qualquer diretório organizacional ou qualquer provedor de identidade**.
-1. Em **URI de redirecionamento**, selecione **Web**e `https://jwt.ms` , em seguida, insira na caixa de texto URL.
+1. Em **Tipos de conta com suporte**, selecione **Contas em qualquer diretório organizacional (Qualquer diretório do Azure AD – Multilocatário) e contas Microsoft pessoais (por exemplo, Skype, Xbox)** .
+1. Em **URI de Redirecionamento**, selecione **Web** e, em seguida, insira `https://jwt.ms` na caixa de texto da URL.
 
-    O URI de redirecionamento é o ponto de extremidade para o qual o usuário é enviado pelo servidor de autorização (Azure AD B2C, nesse caso) depois de concluir sua interação com o usuário e para o qual um token de acesso ou código de autorização é enviado após a autorização bem-sucedida. Em um aplicativo de produção, normalmente é um ponto de extremidade publicamente acessível em que seu aplicativo está `https://contoso.com/auth-response`em execução, como. Para fins de teste como este tutorial, você pode defini- `https://jwt.ms`lo como, um aplicativo da Web da Microsoft que exibe o conteúdo decodificado de um token (o conteúdo do token nunca deixa seu navegador). Durante o desenvolvimento do aplicativo, você pode adicionar o ponto de extremidade onde seu aplicativo escuta `https://localhost:5000`localmente, como. Você pode adicionar e modificar URIs de redirecionamento em seus aplicativos registrados a qualquer momento.
+    O URI de redirecionamento é o ponto de extremidade para o qual o usuário é enviado pelo servidor de autorização (Azure AD B2C, nesse caso) depois de concluir sua interação com o usuário e para o qual um token de acesso ou código de autorização é enviado após uma autorização bem-sucedida. Em um aplicativo de produção, normalmente é um ponto de extremidade de acesso público no qual o aplicativo está em execução, como `https://contoso.com/auth-response`. Para fins de teste, como este tutorial, você pode defini-lo como `https://jwt.ms`, um aplicativo da Web de propriedade da Microsoft que exibe o conteúdo decodificado de um token (o conteúdo do token nunca deixa o navegador). Durante o desenvolvimento do aplicativo, é possível adicionar o ponto de extremidade onde o aplicativo escuta localmente, como `https://localhost:5000`. Adicione e modifique URIs de redirecionamento nos aplicativos registrados a qualquer momento.
 
-    As seguintes restrições se aplicam a URIs de redirecionamento:
+    As restrições a seguir se aplicam a URLs de redirecionamento:
 
-    * A URL de resposta deve começar com o `https`esquema.
-    * A URL de resposta diferencia maiúsculas de minúsculas. Seu caso deve corresponder ao caso do caminho da URL do seu aplicativo em execução. Por exemplo, se seu aplicativo incluir como parte de seu caminho `.../abc/response-oidc`, não ESPECIFIQUE `.../ABC/response-oidc` na URL de resposta. Como o navegador da Web trata os caminhos como diferenciando maiúsculas de `.../abc/response-oidc` minúsculas, os cookies associados a podem ser excluídos se forem redirecionados para a `.../ABC/response-oidc` URL incompatível com maiúsculas e minúsculas.
+    * A URL de resposta deve começar com o esquema `https`.
+    * A URL de resposta diferencia maiúsculas de minúsculas. As letras maiúsculas e minúsculas devem corresponder às letras maiúsculas e minúsculas do caminho da URL do aplicativo em execução. Por exemplo, se o aplicativo incluir `.../abc/response-oidc` como parte de seu caminho, não especifique `.../ABC/response-oidc` na URL de resposta. Como o navegador da Web trata os caminhos diferenciando maiúsculas de minúsculas, os cookies associados a `.../abc/response-oidc` podem ser excluídos se forem redirecionados para a URL de `.../ABC/response-oidc` com maiúsculas e minúsculas não correspondentes.
 
 1. Em **Permissões**, marque a caixa de seleção *Dar consentimento do administrador às permissões OpenID e offline_access*.
 1. Selecione **Registrar**.
 
-Depois que o registro do aplicativo for concluído, habilite o fluxo de concessão implícita:
+Habilite o fluxo de concessão implícita após concluir o registro do aplicativo:
 
 1. Em **Gerenciar**, selecione **Autenticação**.
 1. Selecione **Experimentar a nova experiência** (se mostrado).
@@ -88,22 +88,22 @@ Depois que o registro do aplicativo for concluído, habilite o fluxo de concess�
 
 ## <a name="create-a-client-secret"></a>Criar um segredo do cliente
 
-Se seu aplicativo trocar um código de autorização para um token de acesso, você precisará criar um segredo do aplicativo.
+Caso o aplicativo troque um código de autorização por um token, é necessário criar um segredo de aplicativo.
 
 #### <a name="applications"></a>[Aplicativos](#tab/applications/)
 
-1. Na página **Azure ad B2C-aplicativos** , selecione o aplicativo que você criou, por exemplo *webapp1*.
-1. Selecione **chaves** e, em seguida, selecione **gerar chave**.
-1. Selecione **salvar** para exibir a chave. Anote o valor da **Chave do Aplicativo**. Você usa esse valor como o segredo do aplicativo no código do aplicativo.
+1. Na página **Azure AD B2C - Aplicativos**, selecione o aplicativo criado, por exemplo *webapp1*.
+1. Selecione **Chaves** e, em seguida, selecione **Gerar chave**.
+1. Selecione **salvar** para exibir a chave. Anote o valor da **Chave do Aplicativo**. Use este valor como o segredo do aplicativo no código do aplicativo.
 
 #### <a name="app-registrations-preview"></a>[Registros de Aplicativo (versão prévia)](#tab/app-reg-preview/)
 
-1. Na página **Azure AD B2C registros de aplicativo (versão prévia)** , selecione o aplicativo que você criou, por exemplo *webapp1*.
+1. Na página **Azure AD B2C - Registros de aplicativos (Versão Prévia)** , selecione o aplicativo criado, por exemplo *webapp1*.
 1. Em **Gerenciar**, selecione **Certificados e Segredos**.
 1. Selecione **Novo segredo do cliente**.
 1. Insira uma descrição para o segredo do cliente na caixa **Descrição**. Por exemplo, *clientsecret1*.
 1. Em **Expirar**, selecione um período durante o qual o segredo será válido e clique em **Adicionar**.
-1. Registre o **valor**do segredo. Você usa esse valor como o segredo do aplicativo no código do aplicativo.
+1. Registre o **Valor** do segredo. Use este valor como o segredo do aplicativo no código do aplicativo.
 
 * * *
 
@@ -115,7 +115,7 @@ Neste artigo, você aprendeu a:
 > * Registrar um aplicativo Web
 > * Criar um segredo do cliente
 
-Em seguida, saiba como criar fluxos de usuário para permitir que os usuários se inscrevam, entrem e gerenciem seus perfis.
+A seguir você aprenderá como criar fluxos de usuário para permitir que os usuários se inscrevam, acessem e gerenciem perfis.
 
 > [!div class="nextstepaction"]
-> [Criar fluxos de usuário no Azure Active Directory B2C >](tutorial-create-user-flows.md)
+> [Criação de fluxos de usuário no Azure Active Directory B2C >](tutorial-create-user-flows.md)

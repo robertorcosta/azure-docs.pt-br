@@ -1,7 +1,7 @@
 ---
-title: Verificar a propriedade hora da última sincronização de uma conta de armazenamento
+title: Verificação da propriedade Horário da Última Sincronização de uma conta de armazenamento
 titleSuffix: Azure Storage
-description: Saiba como verificar a propriedade hora da última sincronização de uma conta de armazenamento replicada geograficamente. A propriedade hora da última sincronização indica a última vez em que todas as gravações da região primária foram gravadas com êxito na região secundária.
+description: Saiba como verificar a propriedade Horário da Última Sincronização de uma conta de armazenamento de replicação geográfica. A propriedade Hora da última sincronização indica a última vez em que as gravações da região primária foram gravadas com êxito na região secundária.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,40 +10,40 @@ ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: afcadd55e87579b25f03176fa3227024863b90fb
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.openlocfilehash: 02f7d7e2735717a7a6e7a56273551197c16b77aa
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858511"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659254"
 ---
-# <a name="check-the-last-sync-time-property-for-a-storage-account"></a>Verificar a propriedade hora da última sincronização de uma conta de armazenamento
+# <a name="check-the-last-sync-time-property-for-a-storage-account"></a>Verificação da propriedade Horário da Última Sincronização de uma conta de armazenamento
 
-Ao configurar uma conta de armazenamento, você pode especificar que seus dados sejam copiados para uma região secundária que seja de centenas de milhas da região primária. A replicação geográfica oferece durabilidade para seus dados em caso de uma interrupção significativa na região primária, como um desastre natural. Se você também habilitar o acesso de leitura para a região secundária, seus dados permanecerão disponíveis para operações de leitura se a região primária ficar indisponível. Você pode projetar seu aplicativo para alternar diretamente para a leitura da região secundária se a região primária não estiver respondendo.
+Quando configurar uma conta de armazenamento, especifique que seus dados sejam copiados para uma região secundária que esteja a centenas de quilômetros da região primária. A replicação geográfica oferece durabilidade para seus dados em caso de uma interrupção significativa na região primária, como um desastre natural. Se habilitar também o acesso de leitura para a região secundária, seus dados ficam disponíveis para operações de leitura se a região primária ficar indisponível. Projete seu aplicativo para alternar diretamente para a leitura da região secundária se a região primária não estiver respondendo.
 
-O GRS (armazenamento com redundância geográfica) e o GZRS (armazenamento com redundância de zona geográfica) replicam seus dados de forma assíncrona para uma região secundária. Para acesso de leitura à região secundária, habilite o armazenamento com redundância geográfica com acesso de leitura (RA-GRS) ou o armazenamento com redundância de acesso de leitura (RA-GZRS). Para obter mais informações sobre as várias opções de redundância oferecidas pelo armazenamento do Azure, consulte [redundância de armazenamento do Azure](storage-redundancy.md).
+O armazenamento com redundância geográfica (GRS) e o armazenamento com redundância de zona geográfica (GZRS) replicam seus dados de forma assíncrona para uma região secundária. Para obter acesso de leitura para o local secundário, habilite o armazenamento com redundância geográfica com acesso de leitura (RA-GRS) ou o armazenamento com redundância de zona com acesso de leitura (RA-GZRS). Para obter mais informações sobre as várias opções de redundância oferecidas pelo Armazenamento do Azure, veja [Redundância no Armazenamento do Azure](storage-redundancy.md).
 
-Este artigo descreve como verificar a propriedade **hora da última sincronização** de sua conta de armazenamento para que você possa avaliar qualquer discrepância entre as regiões primárias e secundárias.
+Este artigo descreve como verificar a propriedade **Hora da Última Sincronização** da sua conta de armazenamento para que você possa avaliar qualquer discrepância entre as regiões primárias e secundárias.
 
-## <a name="about-the-last-sync-time-property"></a>Sobre a propriedade hora da última sincronização
+## <a name="about-the-last-sync-time-property"></a>Sobre a propriedade Hora da Última Sincronização
 
-Como a replicação geográfica é assíncrona, é possível que os dados gravados na região primária ainda não tenham sido gravados na região secundária no momento em que ocorrer uma interrupção. A propriedade **hora da última sincronização** indica a última vez que os dados da região primária foram gravados com êxito na região secundária. Todas as gravações feitas na região primária antes da hora da última sincronização estão disponíveis para serem lidas a partir do local secundário. As gravações feitas na região primária após a última propriedade de hora de sincronização podem ou não estar disponíveis para leituras ainda.
+Como a replicação geográfica é assíncrona, é possível que os dados gravados na região primária ainda não tenham sido gravados na região secundária no momento em que ocorre uma interrupção. A propriedade **Hora da Última Sincronização** indica a última vez em que os dados da região primária foram gravados com êxito na região secundária. Todas as gravações feitas na região primária antes da hora da última sincronização estão disponíveis para leitura no local secundário. As gravações feitas na região primária após a hora da última sincronização podem ou não estarem disponíveis para leituras.
 
-A propriedade **hora da última sincronização** é um valor de data/hora GMT.
+A propriedade **Hora da Última Sincronização** é um valor de data/hora em GMT.
 
-## <a name="get-the-last-sync-time-property"></a>Obter a propriedade hora da última sincronização
+## <a name="get-the-last-sync-time-property"></a>Obtenção da propriedade Hora da Última Sincronização
 
-Você pode usar o PowerShell ou CLI do Azure para recuperar o valor da **última** propriedade de hora de sincronização.
+Você pode usar o PowerShell ou a CLI do Azure para recuperar o valor da propriedade **Hora da Última Sincronização**.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Para obter a hora da última sincronização para a conta de armazenamento com o PowerShell, instale uma versão do módulo AZ. Storage que dá suporte à obtenção de estatísticas de replicação geográfica. Por exemplo:
+Para obter a hora da última sincronização para a conta de armazenamento com o PowerShell, instale uma versão do módulo Az.Storage que dá suporte à obtenção de estatísticas de replicação geográfica. Por exemplo:
 
 ```powershell
-Install-Module Az.Storage –Repository PSGallery -RequiredVersion ??? –AllowPrerelease –AllowClobber –Force
+Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.14.0 –AllowClobber –Force
 ```
 
-Em seguida, verifique a propriedade **GeoReplicationStats. LastSyncTime** da conta de armazenamento. Lembre-se de substituir os valores de espaço reservado pelos seus próprios valores:
+Em seguida, verifique a propriedade **GeoReplicationStats.LastSyncTime** da conta de armazenamento. Lembre-se de substituir os valores dos espaços reservados por seus próprios valores:
 
 ```powershell
 $lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `
@@ -53,7 +53,7 @@ $lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para obter a hora da última sincronização para a conta de armazenamento com CLI do Azure, verifique a propriedade **geoReplicationStats. lastSyncTime** da conta de armazenamento. Use o `--expand` parâmetro para retornar valores para as propriedades aninhadas em **geoReplicationStats**. Lembre-se de substituir os valores de espaço reservado pelos seus próprios valores:
+Para obter a hora da última sincronização para a conta de armazenamento com a CLI do Azure, verifique a propriedade **geoReplicationStats.lastSyncTime** da conta de armazenamento. Use o parâmetro `--expand` para retornar valores para as propriedades aninhadas em **geoReplicationStats**. Lembre-se de substituir os valores dos espaços reservados por seus próprios valores:
 
 ```azurecli-interactive
 $lastSyncTime=$(az storage account show \
@@ -68,6 +68,6 @@ $lastSyncTime=$(az storage account show \
 
 ## <a name="see-also"></a>Confira também
 
-- [Redundância de armazenamento do Azure](storage-redundancy.md)
-- [Alterar a opção de redundância para uma conta de armazenamento](redundancy-migration.md)
-- [Use a redundância geográfica para criar aplicativos altamente disponíveis](geo-redundant-design.md)
+- [Redundância do Armazenamento do Azure](storage-redundancy.md)
+- [Alteração da opção de redundância de uma conta de armazenamento](redundancy-migration.md)
+- [Uso da redundância geográfica para criar aplicativos altamente disponíveis](geo-redundant-design.md)
