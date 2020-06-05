@@ -5,12 +5,12 @@ services: automation
 ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 5379f2c46bbeaba4ee8509603b7b739b75d08f04
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 332ff4f6e63a831c1523c3f959708f9dc48a72a9
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836780"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171048"
 ---
 # <a name="enable-change-tracking-and-inventory-from-an-azure-vm"></a>Habilitar Controle de Alterações e Inventário de uma VM do Azure
 
@@ -41,15 +41,7 @@ Entre no Portal do Azure em https://portal.azure.com.
 
 5. Escolha o workspace do Log Analytics e a conta da Atomação e clique em **Habilitar** para habilitar o Controle de Alterações e Inventário na VM. A instalação leva até 15 minutos para ser concluída. 
 
-## <a name="check-the-scope-configuration"></a><a name="scope-configuration"></a>Verificar a configuração de escopo
-
-O Controle de Alterações e Inventário usa uma configuração de escopo dentro do workspace a fim de definir os computadores a serem habilitados para o recurso. A configuração de escopo é um grupo de uma ou mais pesquisas salvas utilizadas para limitar o escopo do recurso a computadores específicos. Para obter mais informações, confira [Trabalhar com configurações de escopo para o Controle de Alterações e Inventário](automation-scope-configurations-change-tracking.md).
-
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para obter detalhes do trabalho com o recurso, confira [Gerenciar Controle de Alterações e Inventário](change-tracking-file-contents.md).
-* Para obter mais informações sobre as configurações de escopo, confira [Trabalhar com configurações de escopo para Controle de Alterações e Inventário](automation-scope-configurations-change-tracking.md).
-* Para saber como usar o recurso para identificar o software instalado em seu ambiente, confira [Descobrir qual software está instalado em suas VMs](automation-tutorial-installed-software.md).
-* Se você não quiser integrar sua conta de Automação a um workspace do Log Analytics ao habilitar o recurso, confira [Desvincular o workspace da conta de Automação](automation-unlink-workspace-change-tracking.md).
-* Ao concluir a implantação de alterações nas VMs, você pode removê-las conforme descrito em [Remover VMs do Controle de Alterações e Inventário](automation-remove-vms-from-change-tracking.md).
 * Para solucionar problemas gerais com o recurso, confira [Solucionar problemas de Controle de Alterações e Inventário](troubleshoot/change-tracking.md).
