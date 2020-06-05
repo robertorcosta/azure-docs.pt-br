@@ -1,26 +1,26 @@
 ---
-title: Habilitar uma listagem do Microsoft AppSource e Azure Marketplace usando o Azure Active Directory | Azure
-description: Habilitar o tipo de listagem usando o Microsoft Azure Active Directory no Microsoft Azure Marketplace e no AppSource para editores de serviços e aplicativos.
+title: Integre sua oferta de marketplace comercial da Microsoft ao Azure Active Directory
+description: Use o Azure Active Directory para autenticar suas ofertas do Microsoft AppSource e do Azure Marketplace.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: 324f8def5ddafb15156a31fe5addabadcee6f115
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
-ms.translationtype: MT
+ms.openlocfilehash: 17cbfe92744ad96f2b5651b7e2f47a6443337068
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160606"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658051"
 ---
-# <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Habilite uma listagem do AppSource e do Marketplace usando o Active Directory do Azure
+# <a name="integrate-your-commercial-marketplace-listing-with-azure-active-directory"></a>Integre sua listagem de marketplace comercial ao Azure Active Directory
 
- O Active Directory do Azure (Azure AD) é um serviço de identidade na nuvem que permite a autenticação com uma conta da Microsoft. O Azure AD usa estruturas de padrão da indústria. [Saiba mais sobre Azure Active Directory](https://azure.microsoft.com/services/active-directory).
+ Este artigo explica os requisitos para integrar uma listagem ou oferta de marketplace comercial ao Azure AD (Azure Active Directory). O Azure AD é um serviço de identidade de nuvem que usa estruturas padrão do setor para permitir a autenticação com uma conta da Microsoft. [Saiba mais sobre o Azure Active Directory](https://azure.microsoft.com/services/active-directory).
 
 ## <a name="azure-ad-benefits"></a>Benefícios do AD do Azure
 
-Os clientes do Microsoft AppSource e do Azure Marketplace usam experiências no produto para pesquisar os catálogos de listagem. Essas ações exigem que os clientes assinem o produto. A integração do Azure AD fornece os seguintes benefícios:
+Os clientes do Microsoft AppSource e do Azure Marketplace usam experiências no produto para pesquisar catálogos de listagem da vitrine. Essas ações exigem que os clientes assinem o produto. A integração do Azure AD fornece os seguintes benefícios:
 
 - Engajamento mais rápido e uma experiência otimizada para o cliente
 - Logon único (SSO) para milhões de usuários corporativos
@@ -29,7 +29,7 @@ Os clientes do Microsoft AppSource e do Azure Marketplace usam experiências no 
 
 ## <a name="offers-that-require-azure-ad"></a>Ofertas que exigem o Azure AD
 
-As várias [listando opções e tipos de oferta](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) para AppSource e o Azure Marketplace tem diferentes requisitos de implementação do Azure AD. Consulte a tabela a seguir para obter detalhes:
+As várias [opções de listagem e tipos de ofertas](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) do marketplace comercial têm requisitos diferentes para a implementação do Azure AD. Confira a tabela a seguir para obter detalhes.
 
 | **Tipo de oferta**    | **SSO do Azure AD é necessário?**  |  |   |  |
 | :------------------- | :-------------------|:-------------------|:-------------------|:-------------------|
@@ -81,7 +81,7 @@ Se você for novo no usando o logon único federado do Azure AD, siga estas etap
 Use o Azure AD para oferecer suporte a uma das seguintes ações:
 
 - Adicionar usuários convidados ao seu diretório por meio do [Azure AD B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
-- Configure manualmente as avaliações para clientes usando a opção de publicação **entre em contato comigo** .
+- Configurar manualmente avaliações para clientes usando o **entre em contato comigo** opção de publicação.
 - Desenvolva um test drive por cliente.
 - Crie um aplicativo de demonstração de exemplo multilocatário que usa SSO.
 
@@ -89,8 +89,8 @@ Use o Azure AD para oferecer suporte a uma das seguintes ações:
 
 Caso ainda não tenha feito isso, 
 
-- [Saiba mais](https://azuremarketplace.microsoft.com/sell) sobre o Marketplace.
+- [Saiba mais](https://azuremarketplace.microsoft.com/sell) sobre o marketplace.
 
-Para registrar-se no Partner Center, comece a criar uma nova oferta ou a trabalhar em uma existente:
+Para se registrar na Central de Parceiros, comece criando uma nova oferta ou trabalhando em uma existente:
 
-- [Entre no Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) para criar ou concluir sua oferta.
+- [Entre na Central de Parceiros](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) para criar ou concluir sua oferta.

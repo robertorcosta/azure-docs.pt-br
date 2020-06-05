@@ -1,14 +1,14 @@
 ---
-title: Monitorar lote com informações de Aplicativo Azure
+title: Monitorar Lote com o Azure Application Insights
 description: Aprenda como instrumentar um aplicativo .NET do Lote do Azure usando a biblioteca do Azure Application Insights.
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/05/2018
-ms.openlocfilehash: ca8cde9b1838239a79ebca4efe43d9e619f80f12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b6817ad1303e6039ebfe5fe5ae6101b9bc192eb4
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115458"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83723605"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Monitorar e depurar um aplicativo .NET do Lote do Azure com o Application Insights
 
@@ -19,7 +19,7 @@ Este artigo mostra como adicionar e configurar a biblioteca do Application Insig
 Uma solução C# de exemplo com código para acompanhar este artigo está disponível no [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights). Este exemplo adiciona o código de instrumentação do Application Insights ao exemplo do [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords). Se você não estiver familiarizado com esse exemplo, tente primeiro compilar e executar o TopNWords. Isso ajudará a compreender um fluxo de trabalho básico do Lote do processamento de um conjunto de blobs de entrada em paralelo em vários nós de computação. 
 
 > [!TIP]
-> Como alternativa, configure sua solução em lote para exibir dados do Application Insights, como os contadores de desempenho da VM no Batch Explorer. [O Explorador de lotes](https://github.com/Azure/BatchExplorer) é uma ferramenta de cliente autônomo e gratuita para ajudar a criar, depurar e monitorar aplicativos em lote do Azure. Baixe um [pacote de instalação](https://azure.github.io/BatchExplorer/) para Mac, Linux ou Windows. Confira o [repositório de insights em lote](https://github.com/Azure/batch-insights) para conhecer etapas rápidas para habilitar dados do Application Insights no Batch Explorer. 
+> Como alternativa, configure sua solução em lote para exibir dados do Application Insights, como os contadores de desempenho da VM no Batch Explorer. [O Batch Explorer](https://github.com/Azure/BatchExplorer) é uma ferramenta cliente autônoma, rica e exclusiva para ajudar a criar, depurar e monitorar aplicativos em lote do Azure. Baixe um [pacote de instalação](https://azure.github.io/BatchExplorer/) para Mac, Linux ou Windows. Confira o [repositório de insights em lote](https://github.com/Azure/batch-insights) para conhecer etapas rápidas para habilitar dados do Application Insights no Batch Explorer. 
 >
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -27,9 +27,9 @@ Uma solução C# de exemplo com código para acompanhar este artigo está dispon
 
 * [Conta do Lote e conta de armazenamento vinculada](batch-account-create-portal.md)
 
-* [Application Insights recurso](../azure-monitor/app/create-new-resource.md )
+* [Recurso do Application Insights](../azure-monitor/app/create-new-resource.md )
   
-   * Use o Portal do Azure para criar um *recurso* do Application Insights. Selecione a opção *Geral* **Tipo de Aplicativo**.
+   * Use o Portal do Azure para criar um *recurso* do Application Insights. Selecione o **Tipo de aplicativo**.*Geral*.
 
    * Copie a [chave de instrumentação](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) do portal. Essa chave será necessária mais adiante neste artigo.
   
@@ -48,7 +48,7 @@ Consulte o Application Insights do aplicativo .NET usando o namespace **Microsof
 
 ## <a name="instrument-your-code"></a>Instrumentalize seu código
 
-Para instrumentar o código, a solução precisa criar um [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient) do Application Insights. No exemplo, o TelemetryClient carrega a configuração do arquivo [ApplicationInsights.config](../azure-monitor/app/configuration-with-applicationinsights-config.md). Certifique-se de atualizar o ApplicationInsights.config nos projetos a seguir com a chave de instrumentação do Application Insights: Microsoft.Azure.Batch.Samples.TelemetryStartTask e TopNWordsSample.
+Para instrumentar o código, a solução precisa criar um [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient) do Application Insights. No exemplo, o TelemetryClient carrega a configuração do arquivo [ApplicationInsights.config](../azure-monitor/app/configuration-with-applicationinsights-config.md). Certifique-se de atualizar o ApplicationInsights.config nos projetos a seguir com a chave de instrumentação do Application Insights Microsoft.Azure.Batch.Samples.TelemetryStartTask and TopNWordsSample.
 
 ```xml
 <InstrumentationKey>YOUR-IKEY-GOES-HERE</InstrumentationKey>
@@ -280,7 +280,7 @@ As capturas de tela a seguir mostram como o Application Insights registra exceç
 Métricas personalizadas também são uma ferramenta valiosa no portal. Por exemplo, é possível exibir o tempo médio que cada nó de computação demorou para baixar o arquivo de texto necessário que estava processando.
 
 Para criar um gráfico de exemplo:
-1. Em seu recurso de Application insights, clique em **Metrics Explorer** > **Adicionar gráfico**.
+1. No recurso do Application Insights, clique em **Metrics Explorer** > **Adicionar gráfico**.
 2. Clique em **Editar** no gráfico que foi adicionado.
 2. Atualize os detalhes do gráfico conforme a seguir:
    * Defina **Tipo de gráfico** para **Grade**.
@@ -334,7 +334,7 @@ Devido à natureza em grande escala dos aplicativos do Lote do Azure executando 
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre [Application insights](../azure-monitor/app/app-insights-overview.md).
+* Saiba mais sobre o [Application Insights](../azure-monitor/app/app-insights-overview.md).
 
 * Para suporte do Application Insights em outros idiomas, consulte a [documentação de integrações, plataformas e idiomas](../azure-monitor/app/platforms.md).
 

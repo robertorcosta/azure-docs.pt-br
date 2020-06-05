@@ -1,17 +1,17 @@
 ---
-title: Restaurar dados no Azure para um Windows Server
-description: Neste artigo, saiba como restaurar os dados armazenados no Azure para um computador Windows Server ou Windows com o agente de Serviços de Recuperação do Microsoft Azure (MARS).
+title: Restaurar arquivos no Windows Server com o agente MARS
+description: Neste artigo, aprenda a restaurar os dados armazenados no Azure em um computador ou servidor Windows com o agente MARS (Serviços de Recuperação do Microsoft Azure).
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: 0494ce8016ff8b09265dd7ced8dc0926fd0c1a43
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 446ebf563a09131b715b2e08033a7a0278a1fd95
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82186797"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652097"
 ---
-# <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Restaurar arquivos no Windows usando o modelo de implantação do Azure Resource Manager
+# <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Restaurar arquivos no Windows Server com o agente MARS
 
 Este artigo explica como restaurar dados de um cofre de backup. Para restaurar dados, use o assistente para Recuperar Dados no agente do MARS (Serviços de Recuperação do Microsoft Azure). Você pode:
 
@@ -40,18 +40,18 @@ Se você excluiu acidentalmente um arquivo e deseja restaurá-lo para o mesmo co
 
     ![Captura de tela do Backup do Azure, com Recuperar Dados realçado](./media/backup-azure-restore-windows-server/recover.png)
 
-3. Na página **introdução** , para restaurar os dados para o mesmo servidor ou computador, selecione **este servidor (`<server name>`)****Next** > avançar.
+3. Na página **Introdução**, para restaurar os dados para o mesmo computador ou servidor, selecione **Este servidor (`<server name>`)**  > **Avançar**.
 
     ![Captura de tela da página Introdução ao Assistente para Recuperar Dados](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 
-4. Na página **Selecionar Modo de Recuperação**, escolha **Pastas e arquivos individuais** > **Avançar**.
+4. Na página **Selecionar Modo de Recuperação**, escolha **Pastas e arquivos individuais**>**Avançar**.
 
     ![Captura de tela da página Selecionar Modo de Recuperação do Assistente para Recuperar Dados](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
    > [!IMPORTANT]
    > A opção de restauração de arquivos e pastas individuais exige o .NET Framework 4.5.2 ou posterior. Se você não vir a opção **arquivos e pastas individuais**, você deve atualizar o .NET Framework para a versão 4.5.2 ou posterior e tente novamente.
 
    > [!TIP]
-   > A opção **arquivos e pastas individuais** permite acesso rápido aos dados do ponto de recuperação. Ela é adequada para a recuperação de arquivos individuais, com tamanhos totalizando não mais de 80 GB e ofertas de velocidades de transferência/cópia de até 6 MBps durante a recuperação. A opção **Volume** recupera todos os backups de dados em um volume especificado. Essa opção fornece velocidades de transferência mais rápidas (no máximo 60 MBps), que são ideais para a recuperação de dados grandes ou volumes inteiros.
+   > A opção **Arquivos e pastas individuais** permite acesso rápido aos dados de ponto de recuperação. Ela é adequada para a recuperação de arquivos individuais, com tamanhos totalizando não mais de 80 GB e ofertas de velocidades de transferência/cópia de até 6 MBps durante a recuperação. A opção **Volume** recupera todos os backups de dados em um volume especificado. Essa opção fornece velocidades de transferência mais rápidas (no máximo 60 MBps), que são ideais para a recuperação de dados grandes ou volumes inteiros.
 
 5. Na página **Selecionar Volume e Data**, selecione o volume que contém os arquivos e pastas que você deseja restaurar.
 
@@ -63,7 +63,7 @@ Se você excluiu acidentalmente um arquivo e deseja restaurá-lo para o mesmo co
 
     O Backup do Azure monta o ponto de recuperação local e o usa como um volume de recuperação.
 
-7. Na página **procurar e recuperar arquivos** , selecione **procurar** para abrir o Windows Explorer e localize os arquivos e pastas desejados.
+7. Na página **Procurar e Recuperar Arquivos**, selecione **Procurar** para abrir o Windows Explorer e localize os arquivos e pastas desejados.
 
     ![Captura de tela da página Procurar e Recuperar Arquivos do Assistente para Recuperar Dados](./media/backup-azure-restore-windows-server/samemachine_browserecover_instantrestore.png)
 
@@ -85,16 +85,16 @@ Se o servidor inteiro for perdido, você ainda pode recuperar dados do backup do
 
 Essas etapas incluem a seguinte terminologia:
 
-* *Computador de origem* – o computador original do qual o backup foi feito e que não está disponível no momento.
+* *Máquina de origem*: a máquina original da qual o backup foi feito e que está indisponível no momento.
 * *Computador de destino* – O computador para o qual os dados estão sendo recuperados.
-* *Cofre de exemplo* – o cofre dos serviços de recuperação no qual o computador de origem e o computador de destino estão registrados.
+* *Cofre de exemplo*: o cofre dos Serviços de Recuperação no qual a máquina de origem e a máquina de destino estão registradas.
 
 > [!NOTE]
-> Os backups não podem ser restaurados em um computador de destino que esteja executando uma versão anterior do sistema operacional. Por exemplo, um backup feito de um computador com Windows 7 pode ser restaurado em um computador com Windows 7 (ou posterior). Um backup feito em um computador com Windows 8 não pode ser restaurado em um computador com Windows 7.
+> Os backups não podem ser restaurados em um computador de destino que esteja executando uma versão anterior do sistema operacional. Por exemplo, um backup feito em um computador com Windows 7 pode ser restaurado em um computador com Windows 7 (ou posterior). Um backup feito em um computador com Windows 8 não pode ser restaurado em um computador com Windows 7.
 >
 >
 
-1. Abra o snap-in **backup do Microsoft Azure** no computador de destino.
+1. Abra o snap-in do **Backup do Microsoft Azure** no computador de destino.
 
 2. Verifique se a máquina de destino e a máquina de origem estão registradas no mesmo cofre dos Serviços de Recuperação.
 
@@ -126,7 +126,7 @@ Essas etapas incluem a seguinte terminologia:
 
 9. Selecione **Montar** para montar localmente o ponto de recuperação como um volume de recuperação em seu computador de destino.
 
-10. Na página **procurar e recuperar arquivos** , selecione **procurar** para abrir o Windows Explorer e localize os arquivos e pastas desejados.
+10. Na página **Procurar e Recuperar Arquivos**, selecione **Procurar** para abrir o Windows Explorer e localize os arquivos e pastas desejados.
 
     ![Captura de tela da página Procurar e Recuperar Arquivos do Assistente para Recuperar Dados](./media/backup-azure-restore-windows-server/alternatemachine_browserecover_instantrestore.png)
 
@@ -146,4 +146,4 @@ Essas etapas incluem a seguinte terminologia:
 
 * Agora que você restaurou seus arquivos e pastas, poderá [gerenciar seus backups](backup-azure-manage-windows-server.md).
 
-* Encontre [perguntas comuns sobre como fazer backup de arquivos e pastas](backup-azure-file-folder-backup-faq.md).
+* Encontre [Perguntas frequentes sobre como fazer backup de arquivos e pastas](backup-azure-file-folder-backup-faq.md).

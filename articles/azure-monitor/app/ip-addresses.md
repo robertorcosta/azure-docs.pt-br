@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 05/01/2020
-ms.openlocfilehash: bd0ed9db9723af9015d15429d632712d63e249c1
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
-ms.translationtype: MT
+ms.openlocfilehash: f6b35551af61c50a3db2d15b47d8f3910024b527
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82652740"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773731"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Endereços IP usados pelo Application Insights e pelo Log Analytics
 O serviço [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) usa vários endereços IP. Talvez seja necessário conhecer esses endereços se o aplicativo que você está monitorando estiver hospedado atrás de um firewall.
@@ -19,10 +19,10 @@ O serviço [Azure Application Insights](../../azure-monitor/app/app-insights-ove
 > Embora esses endereços sejam estáticos, é possível que seja necessário alterá-los de tempos em tempos. Todo o tráfego do Application Insights representa o tráfego de saída, com exceção do monitoramento da disponibilidade e webhooks, que requerem regras de firewall de entrada.
 
 > [!TIP]
-> Você pode usar as [marcas de serviço de rede](https://docs.microsoft.com/azure/virtual-network/service-tags-overview
-) do Azure para gerenciar o acesso se estiver usando grupos de segurança de rede do Azure. Se você estiver gerenciando o acesso para recursos híbridos/locais, poderá baixar as listas de endereços IP equivalentes como [arquivos JSON](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) que são atualizados a cada semana:. Para abordar todas as exceções neste artigo, você precisaria usar as marcas de serviço: ' The Action ', ' ApplicationInsightsAvailability ', ' AzureMonitor '.
+> Você poderá usar as [tags de serviço de rede](https://docs.microsoft.com/azure/virtual-network/service-tags-overview
+) do Azure para gerenciar o acesso se estiver usando grupos de segurança de rede do Azure. Se você estiver gerenciando o acesso para recursos híbridos/locais, poderá baixar as listas de endereços IP equivalentes como [arquivos JSON](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files), que são atualizados a cada semana. Para abordar todas as exceções neste artigo, você precisaria usar as seguintes marcas de serviço: "ActionGroup", "ApplicationInsightsAvailability", "AzureMonitor".
 
-Como alternativa, você pode assinar esta página como um RSS feed adicionando https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/azure-monitor/app/ip-addresses.md.atom ao seu leitor de RSS/Atom favorito para ser notificado das alterações mais recentes.
+Como alternativa, você também pode assinar essa página como um feed RSS, adicionando https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/azure-monitor/app/ip-addresses.md.atom ao seu leitor RSS/ATOM favorito para obter uma notificação das alterações mais recentes.
 
 
 ## <a name="outgoing-ports"></a>Portas de saída
@@ -30,13 +30,13 @@ Você precisa abrir algumas portas de saída no firewall do servidor para permit
 
 | Finalidade | URL | IP | Portas |
 | --- | --- | --- | --- |
-| Telemetria |dc.applicationinsights.azure.com<br/>dc.applicationinsights.microsoft.com<br/>dc.services.visualstudio.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74<br/>51.140.6.23<br/>40.71.12.231<br/>13.69.65.22<br/>13.78.108.165<br/>13.70.72.233<br/>20.44.8.7<br/>13.86.218.248<br/>40.79.138.41<br/>52.231.18.241<br/>13.75.38.7<br/>102.133.155.50<br/>52.162.110.67<br/>191.233.204.248<br/>13.69.66.140<br/>13.77.52.29<br/>51.107.59.180<br/>40.71.12.235<br/>20.44.8.10<br/>40.71.13.169<br/>13.66.141.156<br/>40.71.13.170 | 443 |
+| Telemetria |dc.applicationinsights.azure.com<br/>dc.applicationinsights.microsoft.com<br/>dc.services.visualstudio.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74<br/>51.140.6.23<br/>40.71.12.231<br/>13.69.65.22<br/>13.78.108.165<br/>13.70.72.233<br/>20.44.8.7<br/>13.86.218.248<br/>40.79.138.41<br/>52.231.18.241<br/>13.75.38.7<br/>102.133.155.50<br/>52.162.110.67<br/>191.233.204.248<br/>13.69.66.140<br/>13.77.52.29<br/>51.107.59.180<br/>40.71.12.235<br/>20.44.8.10<br/>40.71.13.169<br/>13.66.141.156<br/>40.71.13.170<br/>13.69.65.23 | 443 |
 | Live Metrics Stream (leste dos EUA) |use.rt.prod.applicationinsights.trafficmanager.net |23.96.28.38<br/>13.92.40.198<br/>40.112.49.101<br/>40.117.80.207 |443 |
-| Live Metrics Stream (EUA Central do Sul) |ussc.rt.prod.applicationinsights.trafficmanager.net |157.55.177.6<br/>104.44.140.84<br/>104.215.81.124<br/>23.100.122.113 |443 |
-| Live Metrics Stream (Europa Setentrional) |eun.rt.prod.applicationinsights.trafficmanager.net |40.115.103.168<br/>40.115.104.31<br/>40.87.140.215<br/>40.87.138.220 |443 |
-| Live Metrics Stream (Europa Ocidental) |euw.rt.prod.applicationinsights.trafficmanager.net |13.80.134.255<br/>40.68.61.229<br/>23.101.69.223<br/>52.232.106.242 |443 |
-| Live Metrics Stream (Ásia Oriental) |ase.rt.prod.applicationinsights.trafficmanager.net |23.100.90.7<br/>23.101.13.65<br/>23.101.0.142<br/>23.101.9.4 |443 |
-| Live Metrics Stream (Sudeste Asiático) |asse.rt.prod.applicationinsights.trafficmanager.net |207.46.224.101<br/>207.46.236.191<br/>137.116.151.139<br/>13.76.87.86 |443 |
+| Live Metrics Stream (Centro-Sul dos EUA) |ussc.rt.prod.applicationinsights.trafficmanager.net |157.55.177.6<br/>104.44.140.84<br/>104.215.81.124<br/>23.100.122.113 |443 |
+| Live Metrics Stream (Norte da Europa) |eun.rt.prod.applicationinsights.trafficmanager.net |40.115.103.168<br/>40.115.104.31<br/>40.87.140.215<br/>40.87.138.220 |443 |
+| Live Metrics Stream (Oeste da Europa) |euw.rt.prod.applicationinsights.trafficmanager.net |13.80.134.255<br/>40.68.61.229<br/>23.101.69.223<br/>52.232.106.242 |443 |
+| Live Metrics Stream (Leste da Ásia) |ase.rt.prod.applicationinsights.trafficmanager.net |23.100.90.7<br/>23.101.13.65<br/>23.101.0.142<br/>23.101.9.4 |443 |
+| Live Metrics Stream (Sudeste da Ásia) |asse.rt.prod.applicationinsights.trafficmanager.net |207.46.224.101<br/>207.46.236.191<br/>137.116.151.139<br/>13.76.87.86 |443 |
 
 ## <a name="status-monitor"></a>Monitor de status
 Configuração do Monitor de Status - necessária somente ao fazer alterações.
@@ -57,20 +57,20 @@ Esta é a lista de endereços a partir dos quais [testes da web de disponibilida
 
 ### <a name="service-tag"></a>Marca de serviço
 
-Se você estiver usando grupos de segurança de rede do Azure, basta adicionar uma **regra de porta de entrada** para permitir o tráfego de Application insights testes de disponibilidade selecionando a marca de **serviço** como a **origem** e a **ApplicationInsightsAvailability** como a marca de **serviço de origem**.
+Caso você esteja usando grupos de segurança de rede do Azure, basta adicionar uma **regra de porta de entrada** para permitir o tráfego de testes de disponibilidade do Application Insights, selecionando **Marca de Serviço** como a **Origem** e **ApplicationInsightsAvailability** como **Marca de serviço de origem**.
 
 >[!div class="mx-imgBorder"]
->![Em configurações, selecione regras de segurança de entrada e, em seguida, selecione Adicionar na parte superior da guia](./media/ip-addresses/add-inbound-security-rule.png)
+>![Em Configurações, selecione Regras de segurança de entrada e, em seguida, selecione Adicionar na parte superior da guia ](./media/ip-addresses/add-inbound-security-rule.png)
 
 >[!div class="mx-imgBorder"]
->![Adicionar a guia regra de segurança de entrada](./media/ip-addresses/add-inbound-security-rule2.png)
+>![Guia Adicionar regra de segurança de entrada](./media/ip-addresses/add-inbound-security-rule2.png)
 
 Abra as portas 80 (http) e 443 (https) para o tráfego de entrada destes endereços (endereços IP são agrupados por local):
 
 ### <a name="addresses-grouped-by-location"></a>Endereços agrupados por local
 
 > [!NOTE]
-> Esses endereços são listados usando a notação CIDR (roteamento entre domínios sem classificação). Isso significa que uma entrada like `51.144.56.112/28` é equivalente a 16 IPS começando em `51.144.56.112` e terminando `51.144.56.127`em.
+> Esses endereços são listados usando a notação CIDR (Roteamento entre Domínios sem Classificação). Isso significa que uma entrada como `51.144.56.112/28` é equivalente a 16 IPs, começando em `51.144.56.112` e terminando em `51.144.56.127`.
 
 ```
 Australia East
@@ -187,7 +187,7 @@ Azure US Government (Not needed if you are an Azure Public cloud customer)
 52.127.49.96/27
 ```  
 
-## <a name="application-insights--log-analytics-apis"></a>Application Insights & APIs de Log Analytics
+## <a name="application-insights--log-analytics-apis"></a>APIs de Application Insights e Log Analytics
 
 | Finalidade | URI |  IP | Portas |
 | --- | --- | --- | --- |
