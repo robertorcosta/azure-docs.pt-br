@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 359079ad73fcf162fb742afe74c1c1de5896c35c
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 6339b86166aff008bf17b5096d42629daf6e3401
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996067"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434295"
 ---
 # <a name="language-and-region-support-for-translator"></a>Suporte a idiomas e regiões para o tradutor
 
@@ -74,10 +74,11 @@ O tradutor dá suporte aos seguintes idiomas para tradução de texto para texto
 |Irlandês | `ga`| Neural
 |Italiano|    `it`    |    Neural|
 |Japonês|    `ja`    |    Neural|
-|canarim|`kn`| Neural
+|canarim|`kn`| Neural|
+|Cazaque |`kk`| Neural|
 |Suaíli|    `sw`    |    Estatística|
-|Klingon|    `tlh`    |    Estatística|
-|Klingon (plqaD)|    `tlh-Qaak`    |    Estatística|
+|Klingon|    `tlh-Latn`    |    Estatística|
+|Klingon (plqaD)|    `tlh-Piqd`    |    Estatística|
 |Coreano    |`ko`    |    Neural|
 |Letão|    `lv`    |    Neural|
 |Lituano|    `lt`    |    Neural|
@@ -130,20 +131,20 @@ O método Transliterate suporta os seguintes idiomas. Em "Para / De", "<->" indi
 | Chinês (Simplificado) | `zh-Hans` | Chinês simplificado `Hans`| <--> | Chinês tradicional `Hant`|
 | Chinês (Tradicional) | `zh-Hant` | Chinês tradicional `Hant`| <--> | Latim `Latn` |
 | Chinês (Tradicional) | `zh-Hant` | Chinês tradicional `Hant`| <--> | Chinês simplificado `Hans` |
-| Guzerate | `gu`  | Guzerate `Gujr` | --> | Latim `Latn` |
+| Guzerate | `gu`  | Guzerate `Gujr` | <--> | Latim `Latn` |
 | Hebraico | `he` | Hebraico `Hebr` | <--> | Latim `Latn` |
 | Híndi | `hi` | Devanagari `Deva` | <--> | Latim `Latn` |
 | Japonês | `ja` | Japonês `Jpan` | <--> | Latim `Latn` |
-| canarim | `kn` | Canarim `Knda` | --> | Latim `Latn` |
-| Malaiala | `ml` | Malaiala `Mlym` | --> | Latim `Latn` |
-| Marati | `mr` | Devanagari `Deva` | --> | Latim `Latn` |
+| canarim | `kn` | Canarim `Knda` | <--> | Latim `Latn` |
+| Malaiala | `ml` | Malaiala `Mlym` | <--> | Latim `Latn` |
+| Marati | `mr` | Devanagari `Deva` | <--> | Latim `Latn` |
 | Oriya | `or` | Oriya `Orya` | <--> | Latim `Latn` |
 | Panjabi | `pa` | Gurmukhi `Guru`  | <--> | Latim `Latn`  |
 | Sérvio (cirílico) | `sr-Cyrl` | Cirílico `Cyrl`  | --> | Latim `Latn` |
 | Sérvio (latino) | `sr-Latn` | Latim `Latn` | --> | Cirílico `Cyrl`|
-| Tâmil | `ta` | Tâmil `Taml` | --> | Latim `Latn` |
-| Télugo | `te` | Télugo `Telu` | --> | Latim `Latn` |
-| Tailandês | `th` | Tailandês `Thai` | --> | Latim `Latn` |
+| Tâmil | `ta` | Tâmil `Taml` | <--> | Latim `Latn` |
+| Télugo | `te` | Télugo `Telu` | <--> | Latim `Latn` |
+| Tailandês | `th` | Tailandês `Thai` | <--> | Latim `Latn` |
 
 ## <a name="dictionary"></a>Dicionário
 
@@ -177,7 +178,7 @@ O dicionário suporta os seguintes idiomas para ou do inglês usando os métodos
 | Italiano      | `it`          |
 | Japonês      | `ja`          |
 | Suaíli      | `sw`          |
-| Klingon      | `tlh`          |
+| Klingon      | `tlh-Latn`          |
 | Coreano      | `ko`          |
 | Letão      | `lv`          |
 | Lituano      | `lt`          |

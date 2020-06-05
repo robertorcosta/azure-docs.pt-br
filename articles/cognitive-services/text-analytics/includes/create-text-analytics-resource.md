@@ -19,7 +19,7 @@ ms.locfileid: "80876380"
 ## <a name="create-a-cognitive-services-text-analytics-resource"></a>Criar um recurso de Análise de Texto de serviços cognitivas
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-1. Selecione **criar um recurso**e vá para **ia + Machine Learning** > **análise de texto**.
+1. Selecione **criar um recurso**e vá para **ia + Machine Learning**  >  **análise de texto**.
    Ou vá para [criar análise de texto](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics).
 1. Insira todas as configurações necessárias:
 
@@ -36,5 +36,5 @@ ms.locfileid: "80876380"
 
     |Guia de recursos no portal|Configuração|Valor|
     |--|--|--|
-    |**Visão geral**|Ponto de extremidade|Copie o ponto de extremidade. Ele é semelhante a `https://northeurope.api.cognitive.microsoft.com/text/analytics/v2.0`.|
+    |**Visão geral**|Ponto de Extremidade|Copie o ponto de extremidade. Ele é semelhante a `https://northeurope.api.cognitive.microsoft.com/text/analytics/v2.0` .|
     |**Chaves**|Chave de API|Copie uma das duas chaves. É uma cadeia de caracteres alfanumérica de 32 caracteres sem espaços ou traços: <`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`>.|
