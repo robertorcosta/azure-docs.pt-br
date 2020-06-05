@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/25/2018
+ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3f6b698922440c6e3e9b488cca93ca8d98d9c59
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b23c2b81d281f787914e32818d768d2d531537f4
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80983068"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682218"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Recursos do serviço de sincronização do Azure AD Connect
 
@@ -57,12 +57,12 @@ As configurações a seguir são definidas pelo Azure AD Connect e não podem se
 
 | DirSyncFeature | Comentário |
 | --- | --- |
-| DeviceWriteback |[Azure AD Connect: habilitando o write-back do dispositivo](how-to-connect-device-writeback.md) |
-| DirectoryExtensions |[Sincronização do Azure AD Connect: extensões do Directory](how-to-connect-sync-feature-directory-extensions.md) |
+| DeviceWriteback |[Azure AD Connect: habilitar o write-back de dispositivo](how-to-connect-device-writeback.md) |
+| DirectoryExtensions |[Sincronização do Azure AD Connect: extensões de diretório](how-to-connect-sync-feature-directory-extensions.md) |
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Permite que um atributo seja colocado em quarentena quando ele é uma duplicata de outro objeto, em vez de causar falha de todo o objeto durante a exportação. |
 | Sincronização de hash de senha |[Implementação de sincronização de hash de senha com a sincronização do Azure AD Connect](how-to-connect-password-hash-synchronization.md) |
 |Autenticação de Passagem|[Entrada do usuário com autenticação de passagem do Azure Active Directory](how-to-connect-pta.md)|
-| UnifiedGroupWriteback |[Visualização: write-back de grupo](how-to-connect-preview.md#group-writeback) |
+| UnifiedGroupWriteback |Write-back de grupo|
 | UserWriteback |Sem suporte no momento. |
 
 ## <a name="duplicate-attribute-resiliency"></a>Duplicar a resiliência do atributo
@@ -89,16 +89,16 @@ Set-MsolDirSyncFeature -Feature EnableSoftMatchOnUpn -Enable $true
 
 ## <a name="synchronize-userprincipalname-updates"></a>Sincronizar atualizações de userPrincipalName
 
-Historicamente, as atualizações para o atributo UserPrincipalName usando o serviço de sincronização do local foram bloqueadas, a menos que essas duas condições sejam verdadeiras:
+Historicamente, atualizações do atributo UserPrincipalName usando o serviço de sincronização local são bloqueadas, a menos que estas duas condições sejam verdadeiras:
 
 * O usuário é gerenciado (não federado).
 * Não foi atribuída uma licença ao usuário.
 
 > [!NOTE]
-> A partir de março de 2019, é permitida a sincronização de alterações de UPN para contas de usuário federado.
+> A partir de março de 2019, é permitida a sincronização de alterações de UPN para contas de usuário federadas.
 > 
 
-Habilitar esse recurso permite que o mecanismo de sincronização atualize o userPrincipalName quando ele é alterado localmente e você usa a sincronização de hash de senha ou a autenticação de passagem.
+Habilitar o recurso permite que o mecanismo de sincronização atualize o userPrincipalName quando ele é alterado localmente e você usa a sincronização de hash da senha ou autenticação de passagem.
 
 O recurso fica ativado por padrão para diretórios recém-criados do Azure AD. Você pode ver se este recurso está habilitado executando:  
 
@@ -116,5 +116,5 @@ Depois de habilitar esse recurso, os valores existentes de userPrincipalName per
 
 ## <a name="see-also"></a>Confira também
 
-* [Sincronização de Azure AD Connect](how-to-connect-sync-whatis.md)
+* [Sincronização do Azure AD Connect](how-to-connect-sync-whatis.md)
 * [Integração de suas identidades locais com o Azure Active Directory](whatis-hybrid-identity.md).

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/12/2018
-ms.openlocfilehash: b9ca8a703ed8a84148abd23e90114402d8806bd6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6df27dde997bd34e86b1bb340817648bfe68f2c4
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77667186"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797592"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Monitoramento contínuo com o Azure Monitor
 
@@ -50,7 +50,7 @@ A [infraestrutura como código ](/azure/devops/learn/what-is-infrastructure-as-c
 ##  <a name="combine-resources-in-azure-resource-groups"></a>Combine recursos em grupos de recursos do Azure
 Atualmente, um aplicativo típico do Azure inclui vários recursos, como VMs e Serviços de Aplicativos, ou microsserviços hospedados em Serviços de Nuvem, clusters AKS ou Service Fabric. Esses aplicativos usam com frequência dependências como Hubs de Eventos, Armazenamento, SQL e Barramento de Serviço.
 
-- Combine recursos nos grupos de recursos do Azure para obter visibilidade total de todos os seus recursos que compõem seus aplicativos diferentes. O [Azure Monitor para grupos de recursos](../azure-monitor/insights/resource-group-insights.md) oferece uma maneira simples de acompanhar a integridade e o desempenho de todo o aplicativo de pilha completa e permite pesquisar os respectivos componentes para qualquer investigação ou depuração.
+- Combine recursos nos Grupos de Recursos do Azure para obter capacidade de observação total de todos os recursos que compõem seus diferentes aplicativos. O [Azure Monitor para grupos de recursos](../azure-monitor/insights/resource-group-insights.md) oferece uma maneira simples de acompanhar a integridade e o desempenho de todo o aplicativo de pilha completa e permite pesquisar os respectivos componentes para qualquer investigação ou depuração.
 
 ## <a name="ensure-quality-through-continuous-deployment"></a>Garanta a qualidade por meio da implantação contínua
 A Integração Contínua/Implantação Contínua permite integrar e implantar automaticamente alterações de código no aplicativo com base nos resultados de testes automatizados. Ela agiliza o processo de implantação e garante a qualidade das alterações antes de passar para a produção.
@@ -58,7 +58,7 @@ A Integração Contínua/Implantação Contínua permite integrar e implantar au
 
 - Use o [Azure Pipelines](/azure/devops/pipelines) para implementar a Implantação Contínua e automatizar todo o processo, desde a confirmação de código até a produção com base nos testes de CI/CD.
 - Use o [Quality Gates](/azure/devops/pipelines/release/approvals/gates) para integrar o monitoramento na pré-implantação ou pós-implantação. Isso garante que você esteja alcançando as principais métricas de integridade/desempenho (KPIs) à medida que os aplicativos passam do desenvolvimento à produção. E também assegura que as diferenças no ambiente de infraestrutura ou escala não estejam impactando negativamente os KPIs.
-- [Mantenha instâncias de monitoramento separadas](../azure-monitor/app/separate-resources.md) entre seus diferentes ambientes de implantação, como dev, Test, canário e prod. Isso garante que os dados coletados sejam relevantes entre os aplicativos e a infraestrutura associados. Se você precisar correlacionar dados entre ambientes, poderá usar [gráficos com vários recursos no Metrics Explorer](../azure-monitor/platform/metrics-charts.md) ou criar [consultas entre recursos no Azure Monitor](log-query/cross-workspace-query.md).
+- [Mantenha instâncias de monitoramento separadas](../azure-monitor/app/separate-resources.md) entre seus diferentes ambientes de implantação como Dev, Test, Canary e Prod. Isso garante que os dados coletados sejam relevantes entre os aplicativos e a infraestrutura associados. Se você precisar correlacionar dados entre ambientes, poderá usar [gráficos com vários recursos no Metrics Explorer](../azure-monitor/platform/metrics-charts.md) ou criar [consultas entre recursos no Azure Monitor](log-query/cross-workspace-query.md).
 
 
 ## <a name="create-actionable-alerts-with-actions"></a>Crie alertas acionáveis com ações
@@ -74,7 +74,7 @@ Uma das principais vantagens do monitoramento é que os administradores podem se
 Garantir que o desenvolvimento e as operações tenham acesso à mesma telemetria e ferramentas permite que eles visualizem padrões em todo o ambiente e minimizem o tempo médio de detecção (MTTD) e o tempo médio de restauração (MTTR).
 
 - Prepare [painéis personalizados](../azure-monitor/learn/tutorial-app-dashboards.md) com base em métricas e logs comuns para diferentes funções na sua organização. Os painéis podem combinar dados de todos os recursos do Azure.
-- Prepare [Pastas de trabalho ](../azure-monitor/app/usage-workbooks.md) para garantir o compartilhamento de conhecimento entre o desenvolvimento e as operações. Eles podem ser preparados como relatórios dinâmicos, com gráficos de métricas e consultas de log ou até mesmo como guias de solução de problemas preparados por desenvolvedores para oferecer suporte ao cliente ou às operações para lidar com problemas básicos.
+- Prepare [Pastas de trabalho ](../azure-monitor/platform/workbooks-overview.md) para garantir o compartilhamento de conhecimento entre o desenvolvimento e as operações. Eles podem ser preparados como relatórios dinâmicos, com gráficos de métricas e consultas de log ou até mesmo como guias de solução de problemas preparados por desenvolvedores para oferecer suporte ao cliente ou às operações para lidar com problemas básicos.
 
 ## <a name="continuously-optimize"></a>Otimize de forma contínua
  O monitoramento é um dos principais aspectos da popular filosofia Build-Measure-Learn (Construir, Medir, Aprender), que recomenda acompanhar continuamente os KPIs e as métricas de comportamento do usuário e depois se esforçar para otimizá-los por meio de iterações de planejamento. O Azure Monitor ajuda a coletar métricas e logs relevantes para sua empresa e adicionar novos pontos de dados na próxima implantação, conforme necessário.

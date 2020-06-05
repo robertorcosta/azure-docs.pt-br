@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfd430d750b2220882479a430322f4b4c4e0c44c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: cd94fffded8c0e5d7b120993f069b042c2b19b6c
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594725"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83712342"
 ---
 # <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Adicionar um fluxo do usuário de inscrição por autoatendimento a um aplicativo (visualização)
 |     |
@@ -25,7 +25,10 @@ ms.locfileid: "83594725"
 | A inscrição por autoatendimento é a versão prévia pública de um recurso do Azure Active Directory. Para saber mais sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
-Associar seu fluxo de usuário a um aplicativo permite que você habilite a inscrição nesse aplicativo. Você pode escolher mais de um aplicativo a ser associado ao fluxo do usuário. Depois de associar o fluxo do usuário a um ou mais aplicativos, os usuários que visitarem esse aplicativo poderão se inscrever usando as opções configuradas no fluxo do usuário.
+Você pode criar fluxos de usuários para aplicativos criados por sua organização. Associar seu fluxo de usuário a um aplicativo permite que você habilite a inscrição nesse aplicativo. Você pode escolher mais de um aplicativo a ser associado ao fluxo do usuário. Depois de associar o fluxo de usuários a um ou mais aplicativos, os usuários que visitarem esse aplicativo poderão se inscrever e obter uma conta de convidado usando as opções configuradas no fluxo.
+
+> [!NOTE]
+> Você pode associar os fluxos de usuários com aplicativos criados por sua organização. Os fluxos de usuários não podem ser usados para aplicativos da Microsoft, como SharePoint ou Teams.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -33,9 +36,12 @@ Associar seu fluxo de usuário a um aplicativo permite que você habilite a insc
 
 O Azure AD é o provedor de identidade padrão para inscrição de autoatendimento. Isso significa que os usuários podem se inscrever por padrão com uma conta do Azure AD. Os provedores de identidade social também podem ser incluídos nesses fluxos de inscrição para dar suporte a contas do Google e do Facebook.
 
-- [Adicionar o Google à sua lista de provedores de identidade social](google-federation.md)
 - [Adicionar o Facebook à sua lista de provedores de identidade social](facebook-federation.md)
- 
+- [Adicionar o Google à sua lista de provedores de identidade social](google-federation.md)
+
+> [!NOTE]
+> Na visualização atual, se um fluxo de usuários de inscrição de autoatendimento estiver associado a um aplicativo e você enviar um convite desse aplicativo para um usuário, ele não poderá usar uma conta do Gmail para resgatar o convite. Como alternativa, o usuário pode passar pelo processo de inscrição de autoatendimento. Ou ele pode resgatar o convite acessando um aplicativo diferente ou usando o portal Meus Aplicativos em https://myapps.microsoft.com.
+
 ### <a name="define-custom-attributes-optional"></a>Definir atributos personalizados (opcional)
 
 Os atributos de usuário são valores coletados do usuário durante a inscrição de autoatendimento. O Azure AD vem com um conjunto interno de atributos, mas você pode criar atributos personalizados para uso em seu fluxo de usuário. Você também pode ler e gravar esses atributos usando a API do Microsoft Graph. Consulte [ atributos personalizados para fluxos de usuário](user-flow-add-custom-attributes.md).

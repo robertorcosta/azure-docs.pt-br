@@ -1,6 +1,6 @@
 ---
-title: Analisar logs de atividade usando logs de Azure Monitor | Microsoft Docs
-description: Saiba como analisar Azure Active Directory logs de atividades usando logs de Azure Monitor
+title: Analisar logs de atividade usando logs do Azure Monitor | Microsoft Docs
+description: Saiba como analisar os logs de atividade do Azure Active Directory usando os logs do Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -17,16 +17,16 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d6212692465270182db541889bed5f03a08a345
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: fa952e0a237ca30a3bd109f51ee45c2f4dafa533
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74008281"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758258"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Analisar logs de atividade do Azure AD com os logs do Azure Monitor
 
-Depois de [integrar os logs de atividades do Azure AD com os logs do Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md), você pode usar o poder dos logs do Azure Monitor para obter insights sobre seu ambiente. Você também pode instalar os [modos de exibição do log Analytics para logs de atividades do Azure ad](howto-install-use-log-analytics-views.md) para obter acesso a relatórios pré-criados sobre eventos de auditoria e de entrada em seu ambiente.
+Depois de [integrar os logs de atividades do Azure AD com os logs do Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md), você pode usar o poder dos logs do Azure Monitor para obter insights sobre seu ambiente. Você também pode instalar as [exibições do Log Analytics para logs de atividade do Azure AD](howto-install-use-log-analytics-views.md) para obter acesso a relatórios pré-criados em torno de eventos de auditoria e entrada em seu ambiente.
 
 Neste artigo, você aprenderá como analisar o logs de atividades do Azure AD no seu espaço de trabalho do Log Analytics. 
 
@@ -38,8 +38,8 @@ Para acompanhar, você precisa:
 
 * Um espaço de trabalho do Log Analytics em sua assinatura do Azure. Saiba como [criar um espaço de trabalho do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 * Em primeiro lugar, conclua as etapas para [rotear os logs de atividades do Azure AD para seu espaço de trabalho do Log Analytics](howto-integrate-activity-logs-with-log-analytics.md).
-*  [Acesso](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions) ao espaço de trabalho do log Analytics
-* As funções a seguir no Azure Active Directory (se você estiver acessando Log Analytics por meio do portal do Azure Active Directory)
+*  [Acesse](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions) para o workspace de análise de logs
+* As funções a seguir no Azure Active Directory (se você estiver acessando a análise de logs por meio do portal do Azure Active Directory)
     - Administrador de Segurança
     - Leitor de segurança
     - Leitor de relatórios
@@ -60,8 +60,8 @@ Para acompanhar, você precisa:
 
 1. Na visualização da consulta padrão na seção anterior, selecione **Esquema** e expanda o workspace. 
 
-2. Expanda a seção **Gerenciamento de Log** e, em seguida, expanda **AuditLogs** ou **SignInLogs** para exibir o esquema de log.
-    ![Logs de](./media/howto-analyze-activity-logs-log-analytics/auditlogschema.png) ![entrada de logs de auditoria](./media/howto-analyze-activity-logs-log-analytics/signinlogschema.png)
+2. Expanda a seção **Gerenciamento de Log** e depois **AuditLogs** ou **SigninLogs** para exibir o esquema de log.
+    ![Logs de auditoria](./media/howto-analyze-activity-logs-log-analytics/auditlogschema.png) ![Logs de entrada](./media/howto-analyze-activity-logs-log-analytics/signinlogschema.png)
 
 ## <a name="query-the-azure-ad-activity-logs"></a>Consulte os logs de atividade do Azure AD
 
@@ -104,9 +104,9 @@ Você também pode configurar alertas em sua consulta. Por exemplo, para configu
 
 Você também pode baixar as exibições do Log Analytics predefinidas para logs de atividades do Azure AD. As exibições fornecem vários relatórios relacionados a cenários comuns que envolvem eventos de auditoria e entrada. Você também pode alertar sobre qualquer um dos dados fornecidos nos relatórios seguindo as etapas descritas na seção anterior.
 
-* **Eventos de Provisionamento de Conta do Azure AD**: esta exibição mostra os relatórios relacionados à auditoria da atividade de provisionamento, como o número de novos usuários provisionados e falhas de provisionamento, número de usuários atualizados e falhas de atualização e número de usuários desprovisionados e falhas correspondentes.    
-* **Eventos de Entradas**: esta exibição mostra os relatórios mais relevantes relacionados à atividade de entrada de monitoramento, como entradas por aplicativo, usuário, dispositivo, bem como exibição resumida acompanhando o número de entradas ao longo do tempo.
-* **Consentimento dos Usuários para Execução**: esta exibição mostra os relatórios relacionados ao consentimento do usuário, como o consentimento dados por usuário, entradas por usuários que recebeu consentimento, bem como entradas por aplicativo para todos os aplicativos baseados em consentimento. 
+* **Eventos de provisionamento de conta do Azure AD**: Essa exibição mostra os relatórios relacionados à auditoria da atividade de provisionamento, como o número de novos usuários provisionados e falhas de provisionamento, número de usuários atualizados e falhas de atualização, além de número de usuários desprovisionados e falhas correspondentes.    
+* **Eventos de entradas**: Essa exibição mostra os relatórios mais relevantes relacionados à atividade de entrada de monitoramento, como entradas por aplicativo, usuário, dispositivo, bem como exibição resumida de acompanhamento do número de entradas ao longo do tempo.
+* **Usuários que executam o consentimento**: essa exibição mostra os relatórios relacionados ao consentimento do usuário, como o consentimento dados por usuário, entradas por usuários que recebeu consentimento, bem como entradas por aplicativo para todos os aplicativos baseados em consentimento. 
 
 Saiba como [instalar e usar as exibições do Log Analytics para logs de atividades do Azure AD](howto-install-use-log-analytics-views.md). 
 

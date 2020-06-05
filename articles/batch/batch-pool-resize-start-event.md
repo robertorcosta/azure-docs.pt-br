@@ -1,15 +1,14 @@
 ---
-title: Evento inicial de redimensionamento do pool do lote do Azure
-description: Referência de redimensionamento do pool de lote evento inicial. Exemplo mostra o corpo de um evento de início de redimensionamento de pool para um redimensionamento de pool de 0 a 2 nós com um redimensionamento manual.
-ms.topic: article
+title: Evento inicial de redimensionamento do pool do Lote do Azure
+description: Referência de redimensionamento do pool de lote evento inicial. O exemplo mostra o corpo de um evento inicial de redimensionamento de pool para um redimensionamento de zero a dois nós com redimensionamento manual.
+ms.topic: reference
 ms.date: 04/20/2017
-ms.author: labrenne
-ms.openlocfilehash: b4aa503c5dfbe00a77216277bdaf7e4c0dc3b1bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 63576b04b06aad024211d0a50225907c88c138ce
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115866"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83723724"
 ---
 # <a name="pool-resize-start-event"></a>Evento inicial de redimensionamento de pool
 
@@ -32,8 +31,8 @@ ms.locfileid: "82115866"
 
 |Elemento|Type|Observações|
 |-------------|----------|-----------|
-|`id`|Cadeia de caracteres|A ID do pool.|
-|`nodeDeallocationOption`|Cadeia de caracteres|Especifica quando os nós poderão ser removidos do pool, se o tamanho do pool estiver diminuindo.<br /><br /> Os valores possíveis são:<br /><br /> **colocar novamente na fila** – Finalize as tarefas em execução e coloque-as novamente na fila. As tarefas serão executadas novamente quando o trabalho for habilitado. Remova nós assim que tarefas forem terminadas.<br /><br /> **terminar** – Termine as tarefas em execução. As tarefas não serão executadas novamente. Remova nós assim que tarefas forem terminadas.<br /><br /> **taskcompletion** – Permita a conclusão das tarefas atualmente em execução. Não agende novas tarefas enquanto aguarda. Remova nós quando todas as tarefas forem concluídas.<br /><br /> **Retaineddata** – permitir que as tarefas atualmente em execução sejam concluídas e aguarde até que todos os períodos de retenção de dados da tarefa expirem. Não agende novas tarefas enquanto aguarda. Remova nós quando todos os períodos de retenção de tarefa expirem.<br /><br /> O valor padrão é colocar novamente na fila.<br /><br /> Se o tamanho do pool aumentar, o valor será definido como **inválido**.|
+|`id`|String|A ID do pool.|
+|`nodeDeallocationOption`|String|Especifica quando os nós poderão ser removidos do pool, se o tamanho do pool estiver diminuindo.<br /><br /> Os valores possíveis são:<br /><br /> **colocar novamente na fila** – Finalize as tarefas em execução e coloque-as novamente na fila. As tarefas serão executadas novamente quando o trabalho for habilitado. Remova nós assim que tarefas forem terminadas.<br /><br /> **terminar** – Termine as tarefas em execução. As tarefas não serão executadas novamente. Remova nós assim que tarefas forem terminadas.<br /><br /> **taskcompletion** – Permita a conclusão das tarefas atualmente em execução. Não agende novas tarefas enquanto aguarda. Remova nós quando todas as tarefas forem concluídas.<br /><br /> **Retaineddata** – Permita que as tarefas atualmente em execução sejam concluídas e aguarde que os todos os períodos de retenção de dados das tarefas expirem. Não agende novas tarefas enquanto aguarda. Remova nós quando todos os períodos de retenção de tarefa expirem.<br /><br /> O valor padrão é colocar novamente na fila.<br /><br /> Se o tamanho do pool aumentar, o valor será definido como **inválido**.|
 |`currentDedicatedNodes`|Int32|O número de nós de computação atualmente atribuídos ao pool.|
 |`targetDedicatedNodes`|Int32|O número de nós de computação solicitados para o pool.|
 |`currentLowPriorityNodes`|Int32|O número de nós de computação atualmente atribuídos ao pool.|

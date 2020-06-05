@@ -1,15 +1,15 @@
 ---
-title: Manter os dados de saída no armazenamento do Azure com a API de serviço do lote-lote do Azure
-description: Saiba como usar a API do serviço de lote para manter os dados de saída de trabalho e tarefa do lote no armazenamento do Azure.
-ms.topic: article
+title: Persistir dados de saída para o Armazenamento do Azure com a API do serviço de Lote
+description: Saiba como usar a API do serviço de Lote para persistir dados de saída de trabalhos e tarefas no Armazenamento do Azure.
+ms.topic: how-to
 ms.date: 03/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: d9c6465a553e5652ecab5dcd167bb4058ff5cc08
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: 8020fbd184e200504d0fb0a9ab7ef5de64bd76c9
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82234274"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726308"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Manter os dados de tarefa para o Armazenamento do Azure com a API de serviço de lote
 
@@ -63,7 +63,7 @@ string containerSasUrl = container.Uri.AbsoluteUri + containerSasToken;
 
 Para especificar os arquivos de saída para uma tarefa, crie uma coleção de objetos [OutputFile](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile) e a atribua para a propriedade de [CloudTask.OutputFiles](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles#Microsoft_Azure_Batch_CloudTask_OutputFiles) ao criar a tarefa.
 
-O exemplo de código C# a seguir cria uma tarefa que grava números aleatórios para um arquivo chamado `output.txt`. O exemplo cria um arquivo de saída para `output.txt` a ser gravado para o contêiner. `std*.txt` O exemplo também cria arquivos de saída para todos os arquivos de log que correspondam ao padrão de `stderr.txt`arquivo (_por exemplo_, `stdout.txt` e). A URL do contêiner requer o SAS que foi criado anteriormente para o contêiner. O serviço de lote usa as SAS para autenticar o acesso ao contêiner:
+O exemplo de código C# a seguir cria uma tarefa que grava números aleatórios para um arquivo chamado `output.txt`. O exemplo cria um arquivo de saída para `output.txt` a ser gravado para o contêiner. O exemplo também cria arquivos de saída para os arquivos de log que correspondem ao padrão de arquivo `std*.txt` ( _, por exemplo,_ , `stdout.txt` e `stderr.txt`). A URL do contêiner requer o SAS que foi criado anteriormente para o contêiner. O serviço de lote usa as SAS para autenticar o acesso ao contêiner:
 
 ```csharp
 new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,100000) DO (ECHO !RANDOM!)) > output.txt\"")

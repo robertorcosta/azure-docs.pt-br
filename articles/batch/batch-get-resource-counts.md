@@ -1,15 +1,15 @@
 ---
-title: Contar Estados para tarefas e nós
+title: Contar estados para tarefas e nós
 description: Conte o estado das tarefas do Lote do Azure e nós de computação para ajudar a gerenciar e monitorar soluções do Lote.
 ms.date: 09/07/2018
-ms.topic: article
+ms.topic: how-to
 ms.custom: seodec18
-ms.openlocfilehash: 1abff4c1a07ba0c5375228995330646204d33cd7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d75ff1806f61b54bd058926f95c7c53b66aaf243
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116087"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780165"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Monitorar soluções do Lote pela contagem de tarefas e nós por estado
 
@@ -111,12 +111,12 @@ foreach (var nodeCounts in batchClient.PoolOperations.ListPoolNodeCounts(new ODA
     Console.WriteLine("Low-priority node count in Preempted state: {0}", nodeCounts.LowPriority.Preempted);
 }
 ```
+
 Você pode usar um padrão semelhante para REST e outras linguagens compatíveis para obter contagens de nó para pools.
  
 ## <a name="next-steps"></a>Próximas etapas
 
-* Veja a [visão geral dos recursos do Lote](batch-api-basics.md) para saber mais sobre os conceitos e os recursos do serviço do Lote. O artigo aborda os recursos principais do Lote, como pools, nós de computação, trabalhos e tarefas, e fornece uma visão geral dos recursos do serviço.
-
+* Saiba mais sobre o [Fluxo de trabalho e recursos primários do serviço de lote](batch-service-workflow-features.md) como pools, nós, trabalhos e tarefas.
 * Para obter informações sobre a aplicação de filtros a consultas que listam recursos do Lote, veja [Criar consultas para listar recursos do Lote com eficiência](batch-efficient-list-queries.md).
 
 
