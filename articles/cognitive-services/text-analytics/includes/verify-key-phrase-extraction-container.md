@@ -19,7 +19,7 @@ ms.locfileid: "80876382"
 ### <a name="verify-the-key-phrase-extraction-container-instance"></a>Verificar a instância de contêiner de Extração de Frases-chave
 
 1. Selecione a guia **visão geral** e copie o endereço IP.
-1. Abra uma nova guia do navegador e insira o endereço IP. Por exemplo, digite `http://<IP-address>:5000 (http://55.55.55.55:5000`). O home page do contêiner é exibido, o que permite que você saiba que o contêiner está em execução.
+1. Abra uma nova guia do navegador e insira o endereço IP. Por exemplo, digite `http://<IP-address>:5000 (http://55.55.55.55:5000` ). O home page do contêiner é exibido, o que permite que você saiba que o contêiner está em execução.
 
     ![Exibir o home page do contêiner para verificar se ele está em execução](../media/how-tos/container-instance/swagger-docs-on-container.png)
 
@@ -64,7 +64,7 @@ ms.locfileid: "80876382"
     }
     ```
 
-1. Defina **o** de status `true`como.
+1. Defina **o** de status como `true` .
 
 1. Selecione **executar** para determinar a suopinião do texto.
 
@@ -100,4 +100,4 @@ ms.locfileid: "80876382"
     }
     ```
 
-Agora podemos correlacionar o documento `id` dos dados JSON da carga de resposta ao documento `id`de carga de solicitação original. O documento resultante tem uma `keyPhrases` matriz, que contém a lista de frases-chave que foram extraídas do documento de entrada correspondente. Além disso, há várias estatísticas, como `characterCount` e `transactionCount` para cada documento resultante.
+Agora podemos correlacionar o documento `id` dos dados JSON da carga de resposta ao documento de carga de solicitação original `id` . O documento resultante tem uma `keyPhrases` matriz, que contém a lista de frases-chave que foram extraídas do documento de entrada correspondente. Além disso, há várias estatísticas, como `characterCount` e `transactionCount` para cada documento resultante.

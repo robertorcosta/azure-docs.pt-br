@@ -48,9 +48,9 @@ Espera-se que o computador host tenha um cluster kubernetes disponível. Consult
 
 ### <a name="sharing-docker-credentials-with-the-kubernetes-cluster"></a>Compartilhando as credenciais do Docker com o cluster kubernetes
 
-Para permitir que o cluster kubernetes `docker pull` para as imagens configuradas do registro `containerpreview.azurecr.io` de contêiner, você precisa transferir as credenciais do Docker para o cluster. Execute o [`kubectl create`][kubectl-create] comando a seguir para criar um *segredo do registro do Docker* com base nas credenciais fornecidas do pré-requisito de acesso ao registro de contêiner.
+Para permitir que o cluster kubernetes para `docker pull` as imagens configuradas do `containerpreview.azurecr.io` registro de contêiner, você precisa transferir as credenciais do Docker para o cluster. Execute o [`kubectl create`][kubectl-create] comando a seguir para criar um *segredo do registro do Docker* com base nas credenciais fornecidas do pré-requisito de acesso ao registro de contêiner.
 
-Na sua interface de linha de comando de escolha, execute o comando a seguir. Certifique-se de substituir `<username>`o `<password>`, e `<email-address>` pelas credenciais de registro de contêiner.
+Na sua interface de linha de comando de escolha, execute o comando a seguir. Certifique-se de substituir o `<username>` , `<password>` e `<email-address>` pelas credenciais de registro de contêiner.
 
 ```console
 kubectl create secret docker-registry containerpreview \
@@ -61,7 +61,7 @@ kubectl create secret docker-registry containerpreview \
 ```
 
 > [!NOTE]
-> Se você já tiver acesso ao registro `containerpreview.azurecr.io` de contêiner, poderá criar um segredo kubernetes usando o sinalizador genérico em vez disso. Considere o seguinte comando que é executado em seu JSON de configuração do Docker.
+> Se você já tiver acesso ao `containerpreview.azurecr.io` registro de contêiner, poderá criar um segredo kubernetes usando o sinalizador genérico em vez disso. Considere o seguinte comando que é executado em seu JSON de configuração do Docker.
 > ```console
 >  kubectl create secret generic containerpreview \
 >      --from-file=.dockerconfigjson=~/.docker/config.json \
@@ -98,7 +98,7 @@ version: 1.0.0
 description: A Helm chart to deploy the microsoft/cognitive-services-read to a Kubernetes cluster
 ```
 
-Para configurar os valores padrão do gráfico de Helm, copie e cole o seguinte YAML em um `values.yaml`arquivo chamado. Substitua os `# {ENDPOINT_URI}` comentários `# {API_KEY}` e pelos seus próprios valores.
+Para configurar os valores padrão do gráfico de Helm, copie e cole o seguinte YAML em um arquivo chamado `values.yaml` . Substitua os `# {ENDPOINT_URI}` `# {API_KEY}` comentários e pelos seus próprios valores.
 
 ```yaml
 # These settings are deployment specific and users can provide customizations
@@ -118,9 +118,9 @@ read:
 ```
 
 > [!IMPORTANT]
-> Se os `billing` valores `apikey` e não forem fornecidos, os serviços expirarão após 15 minutos. Da mesma forma, a verificação falhará, pois os serviços não estarão disponíveis.
+> Se os `billing` `apikey` valores e não forem fornecidos, os serviços expirarão após 15 minutos. Da mesma forma, a verificação falhará, pois os serviços não estarão disponíveis.
 
-Crie uma pasta de *modelos* no diretório de *leitura* . Copie e cole o YAML a seguir em um arquivo `deployment.yaml`chamado. O `deployment.yaml` arquivo funcionará como um modelo Helm.
+Crie uma pasta de *modelos* no diretório de *leitura* . Copie e cole o YAML a seguir em um arquivo chamado `deployment.yaml` . O `deployment.yaml` arquivo funcionará como um modelo Helm.
 
 > Os modelos geram arquivos de manifesto, que são descrições de recursos formatados por YAML que o kubernetes pode entender. [-Guia de modelo de gráfico de Helm][chart-template-guide]
 
@@ -167,7 +167,7 @@ O modelo especifica um serviço de balanceador de carga e a implantação do seu
 
 ### <a name="the-kubernetes-package-helm-chart"></a>O pacote kubernetes (gráfico Helm)
 
-O *gráfico Helm* contém a configuração da imagem (s) do Docker a ser extraída `containerpreview.azurecr.io` do registro de contêiner.
+O *gráfico Helm* contém a configuração da imagem (s) do Docker a ser extraída do `containerpreview.azurecr.io` registro de contêiner.
 
 > Um [gráfico do Helm][helm-charts] é uma coleção de arquivos que descrevem um conjunto relacionado de recursos do kubernetes. Um único gráfico pode ser usado para implantar algo simples, como um pod memcached, ou algo complexo, como uma pilha completa do aplicativo Web com servidores HTTP, bancos de dados, caches e assim por diante.
 
@@ -175,7 +175,7 @@ Os *gráficos Helm* fornecidos recebem as imagens do Docker do serviço pesquisa
 
 ## <a name="install-the-helm-chart-on-the-kubernetes-cluster"></a>Instalar o gráfico Helm no cluster kubernetes
 
-Para instalar o *gráfico do Helm*, precisaremos executar o [`helm install`][helm-install-cmd] comando. Certifique-se de executar o comando instalar do diretório acima `read` da pasta.
+Para instalar o *gráfico do Helm*, precisaremos executar o [`helm install`][helm-install-cmd] comando. Certifique-se de executar o comando instalar do diretório acima da `read` pasta.
 
 ```console
 helm install read ./read

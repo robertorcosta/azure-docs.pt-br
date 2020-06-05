@@ -48,7 +48,7 @@ ms.locfileid: "80877792"
     code .
     ```
 
-1. No editor de texto, crie um novo arquivo chamado *sentimentos. YAML*e cole o YAML a seguir nele. Certifique-se de `billing/value` substituir `apikey/value` e por suas próprias informações.
+1. No editor de texto, crie um novo arquivo chamado *sentimentos. YAML*e cole o YAML a seguir nele. Certifique-se de substituir `billing/value` e `apikey/value` por suas próprias informações.
 
     ```yaml
     apiVersion: apps/v1beta1
@@ -95,7 +95,7 @@ ms.locfileid: "80877792"
     ```
 
 1. Salve o arquivo e feche o editor de texto.
-1. Execute o comando `apply` kubernetes com o arquivo *sentimentos. YAML* como seu destino:
+1. Execute o `apply` comando kubernetes com o arquivo *sentimentos. YAML* como seu destino:
 
     ```console
     kubectl apply -f sentiment.yaml
