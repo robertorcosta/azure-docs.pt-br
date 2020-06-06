@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
-ms.openlocfilehash: aa71057d3819acb335153ee5b4b65960320405be
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 3cb4dd16592f3af962b32fe3005d2ad4b241d831
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82997409"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84456990"
 ---
 # <a name="samples-and-faqs"></a>Exemplos e perguntas frequentes
 
@@ -43,7 +43,7 @@ Contate winvoiceassistants@microsoft.com para solicitar esses recursos.
 
 Quando seu aplicativo é ativado pela primeira vez por voz, ele é iniciado em uma exibição compacta. Leia as [diretrizes de design para a visualização de ativação de voz](windows-voice-assistants-best-practices.md#design-guidance-for-voice-activation-preview) para obter orientação sobre as diferentes exibições e transições entre elas para assistentes de voz no Windows.
 
-Para fazer a transição da exibição compacta para a exibição de aplicativo completa, use a `TryEnterViewModeAsync`API appView:
+Para fazer a transição da exibição compacta para a exibição de aplicativo completa, use a API appView `TryEnterViewModeAsync` :
 
 `var appView = ApplicationView.GetForCurrentView();
  await appView.TryEnterViewModeAsync(ApplicationViewMode.Default);`
