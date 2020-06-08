@@ -195,7 +195,13 @@
 - name: Guias de instruções
   items:
     - name: 'Criar, exibir e gerenciar tópicos do sistema'
-      href: create-view-manage-system-topics.md
+      items:
+        - name: Portal do Azure
+          href: create-view-manage-system-topics.md
+        - name: CLI do Azure
+          href: create-view-manage-system-topics-cli.md
+        - name: Modelo do Azure Resource Manager
+          href: create-view-manage-system-topics-arm.md
     - name: Postar para tópico personalizado
       href: post-to-custom-topic.md
     - name: Assinar eventos do Auth0

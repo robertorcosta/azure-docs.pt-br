@@ -4,14 +4,14 @@ description: Use modelos do Azure Resource Manager para criar e configurar o Azu
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 05/19/2020
 ms.author: mjbrown
-ms.openlocfilehash: dfdeb210c59377822b2ee69bde286b87c2251021
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: b24998cbfdc037a6ded58fd17801c340c5891073
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592484"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684798"
 ---
 # <a name="manage-azure-cosmos-db-core-sql-api-resources-with-azure-resource-manager-templates"></a>Gerenciar recursos da API do Core (SQL) do Azure Cosmos DB com modelos do Azure Resource Manager
 
@@ -41,145 +41,15 @@ Este modelo cria uma conta do Azure Cosmos em duas regiões, com opções de con
 
 ## <a name="azure-cosmos-account-with-analytical-store"></a>Conta do Azure Cosmos com repositório analítico
 
-Este modelo cria uma conta do Azure Cosmos em uma região com um contêiner com TTL analítico habilitado e opções taxa de transferência manual ou de dimensionamento automático.
+Este modelo cria uma conta do Azure Cosmos em uma região com um contêiner com TTL analítico habilitado e opções taxa de transferência manual ou de dimensionamento automático. Este modelo também está disponível para implantação de um clique na galeria de modelos de início rápido do Azure.
 
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-       "accountName": {
-          "type": "string",
-          "defaultValue": "",
-          "metadata": {
-             "description": "Cosmos DB account name"
-          }
-       },
-       "location": {
-          "type": "string",
-          "defaultValue": "",
-          "metadata": {
-             "description": "Location for the Cosmos DB account."
-          }
-       },
-        "databaseName": {
-            "type": "string",
-            "defaultValue": "",
-            "metadata": {
-                "description": "The name for the database"
-            }
-        },
-        "containerName": {
-            "type": "string",
-            "defaultValue": "",
-            "metadata": {
-                "description": "The name for the container"
-            }
-        },
-        "partitionKeyPath": {
-            "type": "string",
-            "defaultValue": "/partitionKey",
-            "metadata": {
-                "description": "The partition key for the container"
-            }
-        },
-        "throughputPolicy":{
-            "type": "string",
-            "defaultValue": "Autoscale",
-            "allowedValues": [ "Manual", "Autoscale" ],
-            "metadata": {
-                "description": "The throughput policy for the container"
-            }
-        },
-        "manualProvisionedThroughput": {
-            "type": "int",
-            "defaultValue": 400,
-            "minValue": 400,
-            "maxValue": 1000000,
-            "metadata": {
-                "description": "Throughput value when using Manual Throughput Policy for the container"
-            }
-        },
-        "maxAutoscaleThroughput": {
-            "type": "int",
-            "defaultValue": 4000,
-            "minValue": 4000,
-            "maxValue": 1000000,
-            "metadata": {
-                "description": "Maximum throughput when using Autoscale Throughput Policy for the container"
-            }
-        }
-    },
-    "variables": {
-        "accountName": "[toLower(parameters('accountName'))]",
-        "locations": 
-        [ 
-            {
-                "locationName": "[parameters('location')]",
-                "failoverPriority": 0,
-                "isZoneRedundant": false
-            }
-        ],
-        "throughputPolicy": {
-            "Manual": {
-                "Throughput": "[parameters('manualProvisionedThroughput')]"
-            },
-            "Autoscale": {
-                "ProvisionedThroughputSettings": "[concat('{\"maxThroughput\":\"', parameters('maxAutoscaleThroughput'), '\"}')]"
-            }            
-        },
-        "throughputPolicyToUse": "[if(equals(parameters('throughputPolicy'), 'Manual'), variables('throughputPolicy').Manual, variables('throughputPolicy').Autoscale)]"
-    },
-    "resources": 
-    [
-        {
-            "type": "Microsoft.DocumentDB/databaseAccounts",
-            "name": "[variables('accountName')]",
-            "apiVersion": "2020-03-01",
-            "location": "[parameters('location')]",
-            "properties": {
-                "consistencyPolicy": {"defaultConsistencyLevel": "Session"},
-                "databaseAccountOfferType": "Standard",
-                "locations": "[variables('locations')]",
-                "enableAnalyticalStorage": true
-            }
-        },
-        {
-            "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases",
-            "name": "[concat(variables('accountName'), '/', parameters('databaseName'))]",
-            "apiVersion": "2020-03-01",
-            "dependsOn": [ "[resourceId('Microsoft.DocumentDB/databaseAccounts', variables('accountName'))]" ],
-            "properties":{
-                "resource":{
-                    "id": "[parameters('databaseName')]"
-                }
-            }
-        },
-        {
-            "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers",
-            "name": "[concat(variables('accountName'), '/', parameters('databaseName'), '/', parameters('containerName'))]",
-            "apiVersion": "2020-03-01",
-            "dependsOn": [ "[resourceId('Microsoft.DocumentDB/databaseAccounts/sqlDatabases', variables('accountName'), parameters('databaseName'))]" ],
-            "properties":
-            {
-                "resource":{
-                    "id":  "[parameters('containerName')]",
-                    "partitionKey": {
-                        "paths": [ "[parameters('partitionKeyPath')]" ],
-                        "kind": "Hash"
-                    },
-                    "analyticalStorageTtl": -1
-                },
-                "options": "[variables('throughputPolicyToUse')]"
-            }
-        }
-    ]
-}
-```
+[![Implantar no Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql-analytical-store%2Fazuredeploy.json)
+
+:::code language="json" source="~/quickstart-templates/101-cosmosdb-sql-analytical-store/azuredeploy.json":::
 
 <a id="create-manual"></a>
 
-## <a name="azure-cosmos-account-with-standard-manual-throughput"></a>Conta do Azure Cosmos com taxa de transferência padrão (manual)
+## <a name="azure-cosmos-account-with-standard-provisioned-throughput"></a>Conta do Azure Cosmos com taxa de transferência provisionada padrão
 
 Este modelo cria uma conta do Azure Cosmos em duas regiões, com opções de consistência e failover, com banco de dados e contêiner configurados para taxa de transferência padrão com a maioria das opções de política habilitadas. Este modelo também está disponível para implantação de um clique na galeria de modelos de início rápido do Azure.
 

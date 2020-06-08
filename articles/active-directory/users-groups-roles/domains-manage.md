@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e21d850f03fdca300085c864a12611acb968aa8
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
-ms.translationtype: MT
+ms.openlocfilehash: 2619af2959aa7d475c3e6bab9c8db55212ed0af4
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582958"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83845943"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gerenciando nomes de domínio personalizados no Azure Active Directory
 
@@ -33,21 +33,25 @@ Quando o diretório é criado, o nome de domínio inicial, como 'contoso.onmicro
 2. Selecione **Azure Active Directory**.
 3. Selecione **Personalizar nomes de domínio**.
   
-   ![Abrindo a página de gerenciamento de usuário](./media/domains-manage/add-custom-domain.png)
+   ![Abrir a página de gerenciamento de usuário](./media/domains-manage/add-custom-domain.png)
 4. Selecione o nome do domínio que gostaria que fosse o domínio primário.
 5. Selecione o comando **Tornar primário**. Confirme sua escolha quando solicitado.
   
-   ![Tornar um nome de domínio o primário](./media/domains-manage/make-primary-domain.png)
+   ![Tornar primário um nome de domínio](./media/domains-manage/make-primary-domain.png)
 
 Você pode alterar o nome de domínio primário para o seu diretório para qualquer domínio personalizado verificado não federado. Alterar o domínio primário para o seu diretório não alterará o nome de usuário de nenhum usuário existente.
 
-## <a name="add-custom-domain-names-to-your-azure-ad-organization"></a>Adicionar nomes de domínio personalizados à sua organização do Azure AD
+## <a name="add-custom-domain-names-to-your-azure-ad-organization"></a>Adicionar nomes de domínio personalizados a sua organização do Azure Active Directory
 
 É possível adicionar até 900 nomes de domínio gerenciado. Se estiver configurando todos os domínios para federação com Active Directory local, será possível adicionar até 450 nomes de domínio em cada diretório.
 
 ## <a name="add-subdomains-of-a-custom-domain"></a>Adicionar subdomínios de um domínio personalizado
 
 Se você quiser adicionar um nome de domínio de terceiro nível como 'europe.contoso.com' ao seu diretório, deverá primeiro adicionar e verificar o domínio de segundo nível, como contoso.com. O subdomínio é verificado automaticamente pelo Azure AD. Para ver que o subdomínio que você adicionou foi verificado, atualize a lista de domínios no navegador.
+
+Observação
+
+Se você já tiver adicionado um domínio contoso.com a um locatário do Azure Active Directory, também poderá adicionar o subdomínio europe.contoso.com a um segundo locatário do Azure Active Directory. Ao adicionar o subdomínio, você será solicitado a adicionar um registro TXT ao provedor de hospedagem DNS.
 
 ## <a name="what-to-do-if-you-change-the-dns-registrar-for-your-custom-domain-name"></a>O que fazer se você alterar o registrador DNS para o nome de domínio personalizado
 
@@ -72,7 +76,7 @@ Você pode aplicar **ForceDelete** a um nome de domínio no [Centro de administr
 Para chamar **ForceDelete** no portal do Azure, você deve garantir que há menos de 1.000 referências ao nome de domínio, e quaisquer referências em que o Exchange é o serviço de provisionamento devem ser atualizadas ou removidas no [Centro de administração do Exchange](https://outlook.office365.com/ecp/). Isso inclui listas distribuídas e grupos de segurança habilitados por email do Exchange. Para obter mais informações, veja [Remover grupos de segurança habilitados por email](https://technet.microsoft.com/library/bb123521(v=exchg.160).aspx#Remove%20mail-enabled%20security%20groups). Além disso, a operação **ForceDelete** não será bem-sucedida se qualquer uma das seguintes opções for verdadeira:
 
 * Você adquiriu um domínio por meio de serviços de assinatura de domínio do Office 365
-* Você é um parceiro administrando em nome de outra organização de clientes
+* Você é um parceiro administrando em nome de outra organização do cliente
 
 As ações a seguir são executadas como parte da operação **ForceDelete**:
 
@@ -90,11 +94,11 @@ Um erro é retornado quando:
 **P: Por que a exclusão do domínio está falhando com um erro afirmando que eu tenho grupos controlados pelo Exchange nesse nome de domínio?** <br>
 **R:** Hoje em dia, determinados grupos como grupos de segurança habilitados por email e listas distribuídas são provisionados pelo Exchange e precisem ser limpos manualmente no [EAC (Centro de administração do Exchange)](https://outlook.office365.com/ecp/). Poderá haver ProxyAddresses remanescentes que dependam do nome de domínio personalizado e precisarão ser atualizados manualmente para outro nome de domínio. 
 
-**P: estou conectado como administrador\@contoso.com, mas não posso excluir o nome de domínio "contoso.com"?**<br>
+**P: Eu estou conectado como admin\@contoso.com, mas não consigo excluir o nome de domínio "contoso.com".**<br>
 **R:** Você não pode referenciar o nome de domínio personalizado que você está tentando excluir em seu nome de conta de usuário. Verifique se a conta de Administrador Global está usando o nome de domínio padrão inicial (.onmicrosoft.com), assim como admin@contoso.onmicrosoft.com. Entre com uma conta de Administrador Global diferente, tal como admin@contoso.onmicrosoft.com, ou com outro nome de domínio personalizado, tal como "fabrikam.com", em que a conta é admin@fabrikam.com.
 
-**P: cliquei no botão excluir domínio e veja `In Progress` o status da operação de exclusão. Quanto tempo leva? O que acontecerá se falhar?**<br>
-**R:** a operação de exclusão do domínio é uma tarefa assíncrona em segundo plano que renomeia todas as referências para o nome de domínio. Ela deve ser concluída dentro de um ou dois minutos. Se a exclusão do domínio falhar, verifique se você não tem:
+**P: Eu cliquei no botão Excluir domínio e vejo o status `In Progress` para a operação de exclusão. Quanto tempo demora? O que acontecerá se ela falhar?**<br>
+**R:** A operação de exclusão do domínio é uma tarefa assíncrona em segundo plano que renomeia todas as referências para o nome de domínio. Ela deve ser concluída dentro de um ou dois minutos. Se a exclusão do domínio falhar, verifique se você não tem:
 
 * Aplicativos configurados no nome de domínio com o appIdentifierURI
 * Qualquer grupo habilitado por email referenciando o nome de domínio personalizado
@@ -102,9 +106,9 @@ Um erro é retornado quando:
 
 Se você achar que alguma das condições ainda não foi atendida, limpe as referências manualmente e tente excluir o domínio novamente.
 
-## <a name="use-powershell-or-the-microsoft-graph-api-to-manage-domain-names"></a>Usar o PowerShell ou a API Microsoft Graph para gerenciar nomes de domínio
+## <a name="use-powershell-or-the-microsoft-graph-api-to-manage-domain-names"></a>Usar o PowerShell ou o API do Microsoft Graph para gerenciar nomes de domínio
 
-A maioria das tarefas de gerenciamento para nomes de domínio no Azure Active Directory também pode ser concluída usando o Microsoft PowerShell ou programaticamente usando a API Microsoft Graph.
+A maioria das tarefas de gerenciamento para nomes de domínio no Azure Active Directory também pode ser concluída usando o Microsoft PowerShell ou de forma programática, usando a API do Microsoft Graph.
 
 * [Como usar o PowerShell para gerenciar nomes de domínio no Azure AD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#domains)
 * [Tipo de recurso de domínio](https://docs.microsoft.com/graph/api/resources/domain?view=graph-rest-1.0)

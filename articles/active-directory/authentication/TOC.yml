@@ -80,6 +80,8 @@
           href: howto-mfa-userstates.md
         - name: Configurar provedores de autenticação
           href: concept-mfa-authprovider.md
+        - name: Usar senhas de aplicativo
+          href: howto-mfa-app-passwords.md
         - name: Diretório de Federação
           items:
             - name: Adaptador do Windows Server 2016 AD FS
@@ -169,6 +171,8 @@
           href: howto-mfaserver-deploy-userportal.md
         - name: Serviço Web de Aplicativo móvel
           href: howto-mfaserver-deploy-mobileapp.md
+        - name: Definir configurações
+          href: howto-mfa-server-settings.md
         - name: Configurar alta disponibilidade
           href: howto-mfaserver-deploy-ha.md
         - name: Atualizar o Servidor MFA

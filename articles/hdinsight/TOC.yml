@@ -59,8 +59,6 @@
           href: ./hdinsight-selecting-vm-size.md
         - name: Planejamento de capacidade de cluster
           href: ./hdinsight-capacity-planning.md
-        - name: Solicitar aumento da cota de núcleo da CPU
-          href: ./quota-increase-request.md
         - name: Práticas recomendadas para o gerenciamento de cluster
           href: ./cluster-management-best-practices.md
         - name: Disponibilidade e confiabilidade
@@ -239,6 +237,8 @@
               href: ./cluster-availability-monitor-logs.md
         - name: Solucionar problemas
           items:
+            - name: Solicitar aumento da cota de núcleo da CPU
+              href: ./quota-increase-request.md
             - name: Solucionar problemas de ações de script
               href: ./troubleshoot-script-action.md
             - name: Falhas de criação de recursos
