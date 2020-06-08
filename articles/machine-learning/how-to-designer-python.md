@@ -1,65 +1,66 @@
 ---
 title: Python
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o Python no designer de Azure Machine Learning para transformar dados.
+description: Saiba como usar o Python no designer do Azure Machine Learning para transformar dados.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
 author: peterclu
 ms.author: peterlu
 ms.date: 02/28/2020
-ms.openlocfilehash: a2bd9845cd29c7d139e2042f39b4697847639207
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: designer
+ms.openlocfilehash: e27844f9f534ea4db1aba53c12fb3947e7269846
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79455784"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83644464"
 ---
-# <a name="execute-python-code-in-azure-machine-learning-designer"></a>Executar código Python no designer de Azure Machine Learning
+# <a name="execute-python-code-in-azure-machine-learning-designer"></a>Executar códigos do Python no designer do Azure Machine Learning
 
-Neste artigo, você aprenderá a usar o módulo [Executar script Python](algorithm-module-reference/execute-python-script.md) para adicionar lógica personalizada ao designer de Azure Machine Learning. Nas instruções a seguir, você usa a biblioteca pandas para fazer engenharia de recursos simples.
+Neste artigo, você aprenderá a usar o módulo [Executar Script do Python](algorithm-module-reference/execute-python-script.md) para adicionar lógica personalizada ao designer do Azure Machine Learning. Nas instruções a seguir, você usa a biblioteca Pandas para fazer engenharia de recursos simples.
 
-Você pode usar o editor de código interno para adicionar rapidamente uma lógica simples do Python. Se você quiser adicionar um código mais complexo ou carregar bibliotecas adicionais do Python, use o método de arquivo zip.
+Você pode usar o editor de código interno para adicionar rapidamente uma lógica simples do Python. Se quiser adicionar um código mais complexo ou carregar bibliotecas adicionais do Python, use o método de arquivo zip.
 
-O ambiente de execução padrão usa a distribuição Anacondas do Python. Para obter uma lista completa de pacotes pré-instalados, consulte a página de [referência executar módulo de script Python](algorithm-module-reference/execute-python-script.md) .
+O ambiente de execução padrão usa a distribuição Anaconda do Python. Para receber uma lista completa dos pacotes pré-instalados, consulte a página [referência do módulo Executar Script do Python](algorithm-module-reference/execute-python-script.md).
 
-![Executar o mapa de entrada do Python](media/how-to-designer-python/execute-python-map.png)
+![Executar mapa de entrada do Python](media/how-to-designer-python/execute-python-map.png)
 
-## <a name="execute-python-written-in-the-designer"></a>Executar o Python escrito no designer
+## <a name="execute-python-written-in-the-designer"></a>Executar Python escrito no designer
 
-### <a name="add-the-execute-python-script-module"></a>Adicionar o módulo executar script Python
+### <a name="add-the-execute-python-script-module"></a>Adicionar o módulo Executar Script do Python
 
-1. Localize o módulo **Executar script Python** na paleta do designer. Ele pode ser encontrado na seção **idioma do Python** .
+1. Localize o módulo **Executar Script do Python** na paleta do designer. Ele pode ser encontrado na seção **Linguagem do Python**.
 
-1. Arraste e solte o módulo na tela do pipeline.
+1. Arraste e solte o módulo na painel da tela do pipeline.
 
 ### <a name="connect-input-datasets"></a>Conectar conjuntos de dados de entrada
 
-Este artigo usa o conjunto de dados de exemplo, o **preço do automóvel (bruto)**. 
+Este artigo usa o exemplo de conjunto de dados **Dados de preços de automóveis (brutos)** . 
 
-1. Arraste e solte o conjunto de seus conjuntos de os para a tela do pipeline.
+1. Arraste e solte o conjunto de dados na painel da tela do pipeline.
 
-1. Conecte a porta de saída do conjunto de dados à porta de entrada superior esquerda do módulo **Executar script Python** . O designer expõe a entrada como um parâmetro para o script de ponto de entrada.
+1. Conecte a porta de saída do conjunto de dados à porta de entrada superior esquerda do módulo **Executar Script do Python**. O designer expõe a entrada como um parâmetro para o script de ponto de entrada.
     
     A porta de entrada à direita é reservada para bibliotecas do Python compactadas.
 
-    ![Conectar conjuntos de os](media/how-to-designer-python/connect-dataset.png)
+    ![Conectar conjuntos de dados](media/how-to-designer-python/connect-dataset.png)
         
 
-1. Anote a porta de entrada que você usa. O Designer atribui a porta de entrada à esquerda para a variável `dataset1` e a porta de entrada intermediária `dataset2`para. 
+1. Anote a porta de entrada que você usa. O designer atribui a porta de entrada à esquerda para a variável `dataset1` e a porta de entrada intermediária para `dataset2`. 
 
-Os módulos de entrada são opcionais, já que você pode gerar ou importar dados diretamente no módulo **Executar script Python** .
+Os módulos de entrada são opcionais, já que você pode gerar ou importar dados diretamente no módulo **Executar Script do Python**.
 
-### <a name="write-your-python-code"></a>Escreva seu código Python
+### <a name="write-your-python-code"></a>Escrever seu código Python
 
-O designer fornece um script de ponto de entrada inicial para você editar e inserir seu próprio código Python. 
+O designer oferece um script inicial que serve de ponto de partida para você editar e inserir seu próprio código Python. 
 
-Neste exemplo, você usa pandas para combinar duas colunas encontradas no conjunto de linhas do automóvel, **preço** e **potência**, para criar uma nova coluna, **dólares por cavalo**. Esta coluna representa o quanto você paga para cada potência, o que pode ser um recurso útil para decidir se um carro é um bom negócio para o dinheiro. 
+Neste exemplo, você usa o Pandas para combinar duas colunas encontradas no conjunto de dados de automóvel, **Preço** e **Cavalos-vapor**, para criar uma nova coluna, **Dólares por cavalo-vapor**. Esta coluna representa quanto você paga por cada cavalo-vapor, o que pode ser um recurso útil para decidir se um carro tem um bom custo-benefício. 
 
-1. Selecione o módulo **Executar script Python** .
+1. Selecione o módulo **Executar Script do Python**.
 
-1. No painel que aparece à direita da tela, selecione a caixa de texto **script Python** .
+1. No painel que aparece à direita do painel da tela, selecione a caixa de texto **Script Python**.
 
 1. Copie e cole o código a seguir na caixa de texto.
 
@@ -70,18 +71,18 @@ Neste exemplo, você usa pandas para combinar duas colunas encontradas no conjun
         dataframe1['Dollar/HP'] = dataframe1.price / dataframe1.horsepower
         return dataframe1
     ```
-    Seu pipeline deve ter a seguinte imagem:
+    Seu pipeline deverá ter a seguinte imagem:
     
-    ![Executar pipeline Python](media/how-to-designer-python/execute-python-pipeline.png)
+    ![Executar o pipeline do Python](media/how-to-designer-python/execute-python-pipeline.png)
 
-    O script de ponto de entrada deve conter `azureml_main`a função. Há dois parâmetros de função que são mapeados para as duas portas de entrada para o módulo **Executar script Python** .
+    O script de ponto de entrada deve conter a função `azureml_main`. Há dois parâmetros de função que são mapeados para as duas portas de entrada do módulo **Executar Script do Python**.
 
-    O valor de retorno deve ser um dataframe do pandas. Você pode retornar até dois quadros de molduras como saídas de módulo.
+    O valor retornado deve ser um Dataframe do Pandas. Você pode retornar até dois Dataframes como saída de módulo.
     
 1. Envie o pipeline.
 
-Agora, você tem um conjunto de recursos com o novo recurso **dólares/HP**, que pode ser útil para treinar um recomendador de carros. Este é um exemplo de extração de recursos e redução de dimensionalidade. 
+Agora, você tem um conjunto de dados com o novo recurso **Dólares/CV**, o que pode ser útil para o treinamento de um recomendador de carros. Este é um exemplo de extração de recursos e redução de dimensionalidade. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como [importar seus próprios dados](how-to-designer-import-data.md) no designer de Azure Machine Learning.
+Saiba como [importar seus próprios dados](how-to-designer-import-data.md) no designer do Azure Machine Learning.

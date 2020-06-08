@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.custom: hdinsightactive
-ms.date: 01/01/2020
-ms.openlocfilehash: 011ef4f192bbae12be7d2464d5b0526f584821a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 04/14/2020
+ms.openlocfilehash: 40d49d156b76db5e02ec48defbb82ed60819c478
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75638843"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651102"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Entenda e resolva erros recebidos do WebHCat no HDInsight
 
@@ -21,7 +21,7 @@ Saiba mais sobre erros recebidos ao usar o WebHCat com HDInsight e como resolvê
 
 ## <a name="what-is-webhcat"></a>O que é o WebHCat
 
-O [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) é uma API REST para o [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), uma camada de gerenciamento de armazenamento e tabela para Apache Hadoop. O WebHCat é habilitado por padrão em clusters HDInsight e é usado por várias ferramentas para enviar trabalhos, obter o status do trabalho e assim por diante, sem fazer logon no cluster.
+O [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) é uma API REST para o [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), uma camada de gerenciamento de armazenamento e tabela para Apache Hadoop. O WebHCat é habilitado por padrão em clusters do HDInsight e é usado por várias ferramentas para enviar trabalhos, obter o status do trabalho e muito mais, sem fazer logon no cluster.
 
 ## <a name="modifying-configuration"></a>Modificando a configuração
 
@@ -43,7 +43,7 @@ Se os seguintes valores padrão forem excedidos, isso poderá prejudicar o desem
 
 | Causa | Resolução |
 | --- | --- |
-| Você excedeu o máximo de solicitações simultâneas atendidas por WebHCat por minuto (padrão 20) |Reduza a carga de trabalho para garantir que você não envie mais do que o número máximo de solicitações simultâneas ou aumente o limite de `templeton.exec.max-procs`solicitações simultâneas modificando. Para obter mais informações, consulte [Modificar a configuração](#modifying-configuration) |
+| Você excedeu o máximo de solicitações simultâneas atendidas pelo WebHCat por minuto (o padrão é 20) |Reduza a carga de trabalho para garantir que não sejam enviadas mais do que o número máximo de solicitações simultâneas ou aumente o limite de solicitações simultâneas modificando `templeton.exec.max-procs`. Para obter mais informações, consulte [Modificar a configuração](#modifying-configuration) |
 
 ## <a name="server-unavailable"></a>Servidor indisponível
 
@@ -53,7 +53,7 @@ Se os seguintes valores padrão forem excedidos, isso poderá prejudicar o desem
 | --- | --- |
 | Esse código de status geralmente ocorre durante o failover entre o nó de cabeçalho primário e secundário para o cluster |Aguarde dois minutos e repita a operação |
 
-## <a name="bad-request-content-could-not-find-job"></a>Conteúdo de solicitação incorreto: não foi possível encontrar o trabalho
+## <a name="bad-request-content-could-not-find-job"></a>Conteúdo de solicitação inválido: Não foi possível localizar o trabalho
 
 **Código de status HTTP**: 400
 
@@ -61,7 +61,7 @@ Se os seguintes valores padrão forem excedidos, isso poderá prejudicar o desem
 | --- | --- |
 | Os detalhes do trabalho foram apagados pelo limpador de histórico de trabalhos |O período de retenção padrão do histórico de trabalhos é de 7 dias. O período de retenção padrão pode ser alterado modificando `mapreduce.jobhistory.max-age-ms`. Para obter mais informações, consulte [Modificar a configuração](#modifying-configuration) |
 | O trabalho foi encerrado devido a um failover |Repita o envio do trabalho em até dois minutos |
-| Uma ID de trabalho inválida foi usada |Verifique se a ID do trabalho está correta |
+| Foi usada uma ID de trabalho inválida |Verifique se a ID de trabalho está correta |
 
 ## <a name="bad-gateway"></a>Gateway inválido
 
@@ -71,9 +71,19 @@ Se os seguintes valores padrão forem excedidos, isso poderá prejudicar o desem
 | --- | --- |
 | A coleta de lixo interna está ocorrendo no processo do WebHCat |Aguarde até que a coleta de lixo seja concluída ou reinicie o serviço do WebHCat |
 | Tempo limite atingido ao aguardar uma resposta do serviço ResourceManager. Esse erro pode ocorrer quando o número de aplicativos ativos atinge o máximo configurado (padrão de 10.000) |Aguarde até que os trabalhos em execução no momento sejam concluídos ou aumente o limite de trabalhos simultâneos modificando `yarn.scheduler.capacity.maximum-applications`. Para obter mais informações, consulte a seção [Modificar a configuração](#modifying-configuration). |
-| Tentar recuperar todos os trabalhos por meio da chamada [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) quando `Fields` está definido como `*` |Não recupere *todos os* detalhes do trabalho. Em vez `jobid` disso, use para recuperar detalhes de trabalhos somente maiores que determinada ID de trabalho. Ou, não use`Fields` |
+| Tentar recuperar todos os trabalhos por meio da chamada [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) quando `Fields` está definido como `*` |Não recupere *todos* os detalhes do trabalho. Em vez disso, use `jobid` para recuperar detalhes somente de trabalhos maiores que determinada ID de trabalho. Ou, não use `Fields` |
 | O serviço do WebHCat está inativo durante o failover do HeadNode |Aguarde dois minutos e repita a operação |
 | Há mais de 500 trabalhos pendentes enviados por meio do WebHCat |Aguarde até que os trabalhos pendentes no momento sejam concluídos antes de enviar mais trabalhos |
+
+## <a name="next-steps"></a>Próximas etapas
+
+Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
+
+* Obtenha respostas de especialistas do Azure por meio do [Suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
+
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport), a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Como se conectar à comunidade do Azure para os recursos certos: respostas, suporte e especialistas.
+
+* Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte**. Para obter informações mais detalhadas, consulte [Como criar uma solicitação de Suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao Gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
 
 [maximum-applications]: https://docs.cloudera.com/HDPDocuments/HDP2/HDP-2.1.3/bk_system-admin-guide/content/setting_application_limits.html
 [max-procs]: https://cwiki.apache.org/confluence/display/Hive/WebHCat+Configure#WebHCatConfigure-WebHCatConfiguration

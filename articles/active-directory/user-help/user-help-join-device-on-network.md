@@ -1,5 +1,5 @@
 ---
-title: Ingresse seu dispositivo de trabalho na rede-AD da sua organização
+title: Junte seu dispositivo de trabalho à rede da sua organização - AD
 description: Saiba como associar seu dispositivo de trabalho à rede da sua organização.
 services: active-directory
 author: curtand
@@ -8,16 +8,16 @@ ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 08/03/2018
 ms.author: curtand
 ms.reviewer: jairoc
-ms.openlocfilehash: 0ff8b85a15d94ded2d702e0df247f9ebc4d3f923
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6c93f34068cd296cb2d3a59f208fa644cdbf2260
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79266306"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745728"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Junte seu dispositivo de trabalho à rede da sua organização
 Junte-se ao seu dispositivo Windows 10 de propriedade de trabalho à rede da sua organização para poder acessar recursos possivelmente restritos.
@@ -25,7 +25,7 @@ Junte-se ao seu dispositivo Windows 10 de propriedade de trabalho à rede da sua
 ## <a name="what-happens-when-you-join-your-device"></a>O que acontece quando você entra no seu dispositivo
 Enquanto você está ingressando no seu dispositivo Windows 10 na rede da sua organização, as seguintes ações ocorrerão:
 
-- O Windows registra seu dispositivo na rede da sua organização, permitindo que você acesse seus recursos usando sua conta pessoal. Depois que o dispositivo é registrado, o Windows associa o dispositivo à rede, para que você possa usar o nome de usuário e a senha da sua organização para entrar e acessar recursos restritos.
+- O Windows registra o dispositivo na rede da sua organização, permitindo que você acesse os recursos com sua conta pessoal. Depois que o dispositivo é registrado, o Windows associa o dispositivo à rede, para que você possa usar o nome de usuário e a senha da sua organização para entrar e acessar recursos restritos.
 
 - Opcionalmente, com base nas escolhas da sua organização, pode ser solicitado que você configure a verificação em duas etapas por meio de [Autenticação de vários fatores](multi-factor-authentication-end-user-first-time.md) ou [informações de segurança](user-help-security-info-overview.md).
 
@@ -61,7 +61,7 @@ Você pode ter certeza de que você está associado, observando as configuraçõ
 
     ![Contas na tela Configurações](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Selecione **acesso corporativo ou de estudante**e verifique se você vê texto que diz algo como, **conectado a * \<your_organization>* Azure ad**.
+2. Selecione **Acessar trabalho ou escola** e verifique se há algo como: **Conectado a *\<<sua_organização>* AD do Azure**.
 
     ![Acessar tela de trabalho ou escola com conta contoso conectada](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
 
@@ -106,7 +106,7 @@ Você pode ter certeza de que você está associado, observando as configuraçõ
 
     ![Contas na tela Configurações](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Selecione **acesso corporativo ou de estudante**e verifique se você vê texto que diz algo como, **conectado a * \<your_organization>* Azure ad**.
+2. Selecione **Acessar trabalho ou escola** e verifique se há algo como: **Conectado a *\<<sua_organização>* AD do Azure**.
 
     ![Acessar tela de trabalho ou escola com conta contoso conectada](./media/user-help-join-device-on-network/join-device-setup-verify.png)
 
@@ -115,4 +115,4 @@ Depois de associar seu dispositivo à rede da sua organização, você poderá a
 
 - Se sua organização quer que você registrar seu dispositivo pessoal, como seu telefone, consulte [registrar seu dispositivo pessoal na rede da sua organização](user-help-register-device-on-network.md).
 
-- Se sua organização for gerenciada usando Microsoft Intune e você tiver dúvidas sobre o registro, a entrada ou qualquer outro problema relacionado ao Intune, consulte o [conteúdo da ajuda do usuário do Intune](https://docs.microsoft.com/intune-user-help/use-managed-devices-to-get-work-done).
+- Se sua organização for gerenciada usando Microsoft Intune e você tiver dúvidas sobre o registro, a entrada ou qualquer outro problema relacionado ao Intune, consulte o [conteúdo de ajuda do usuário do Intune](https://docs.microsoft.com/intune-user-help/use-managed-devices-to-get-work-done).

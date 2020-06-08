@@ -1,6 +1,6 @@
 ---
-title: Redimensionar um disco do sistema operacional com uma partição GPT | Microsoft Docs
-description: Este artigo fornece instruções sobre como redimensionar um disco do sistema operacional com partição GPT.
+title: Redimensionar um disco do sistema operacional com partição GPT | Microsoft Docs
+description: Este artigo fornece instruções sobre o redimensionamento de um disco do sistema operacional com partição GPT.
 services: virtual-machines-linux
 documentationcenter: ''
 author: kailashmsft
@@ -14,27 +14,27 @@ ms.devlang: azurecli
 ms.date: 05/03/2020
 ms.author: kaib
 ms.custom: seodec18
-ms.openlocfilehash: f863233f0a34271841cc8e973f9aa3ca9416ceeb
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.openlocfilehash: 7c408e8e29b3f9ac423a6104c40242f11f93a171
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858984"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651099"
 ---
-# <a name="resize-an-os-disk-with-a-gpt-partition"></a>Redimensionar um disco do sistema operacional com uma partição GPT
+# <a name="resize-an-os-disk-that-has-a-gpt-partition"></a>Redimensionar um disco do sistema operacional com partição GPT
 
 > [!NOTE]
-> Esse cenário aplica-se somente ao disco do sistema operacional com uma partição GPT.
+> Esse cenário se aplica somente a discos do sistema operacional com uma partição GPT (tabela de partição GUID).
 
-Este artigo descreve como aumentar o tamanho do disco do sistema operacional com uma partição GPT no Linux.
+Este artigo descreve como aumentar o tamanho de um disco do sistema operacional com GPT no Linux. 
 
 ## <a name="identify-whether-the-os-disk-has-an-mbr-or-gpt-partition"></a>Identificar se o disco do sistema operacional tem uma partição MBR ou GPT
 
-Use o comando **parted** para identificar se a partição de disco foi criada com uma partição MBR (registro mestre de inicialização) ou uma partição GPT (tabela de partição GUID).
+Use o comando **parted** para identificar se a partição do disco foi criada com uma partição MBR (registro mestre de inicialização) ou GPT.
 
 ### <a name="mbr-partition"></a>Partição MBR
 
-Na saída a seguir, a **tabela de partição** mostra um valor de **MSDOS**, identificando uma partição **MBR** .
+Na saída a seguir, a **tabela de partição** mostra um valor de **msdos**. Esse valor identifica uma partição MBR.
 
 ```
 [user@myvm ~]# parted -l /dev/sda
@@ -50,7 +50,7 @@ Number  Start   End     Size    Type     File system  Flags
 
 ### <a name="gpt-partition"></a>Partição GPT
 
-Na saída a seguir, a **tabela de partição** mostra um valor de **GPT**, identificando uma partição GPT.
+Na saída a seguir, a **tabela de partição** mostra um valor de **gpt**. Esse valor identifica uma partição GPT.
 
 ```
 [user@myvm ~]# parted -l /dev/sda
@@ -74,18 +74,18 @@ Se sua VM (máquina virtual) tiver uma partição GPT no disco do sistema operac
 As instruções a seguir se aplicam a distribuições endossadas pelo Linux.
 
 > [!NOTE]
-> Antes de prosseguir, faça uma cópia de backup da VM ou tire um instantâneo do disco do sistema operacional.
+> Antes de prosseguir, faça uma cópia de backup de sua VM ou tire um instantâneo do disco do sistema operacional.
 
-### <a name="ubuntu-16x-and-18x"></a>Ubuntu 16. x e 18. x
+### <a name="ubuntu"></a>Ubuntu
 
-Para aumentar o tamanho do disco do sistema operacional no Ubuntu 16. x e 18. x:
+Para aumentar o tamanho do disco do sistema operacional no Ubuntu 16.x e 18.x:
 
 1. Pare a VM.
-1. Aumente o tamanho do OSDisk do Portal.
-1. Reinicie a VM e faça logon na VM como um usuário **raiz** .
-1. Agora, o OSDisk exibirá um tamanho de sistema de arquivos maior.
+1. Aumente o tamanho do disco do sistema operacional no portal.
+1. Reinicie a VM e faça logon na VM como um usuário **raiz**.
+1. Verifique se o disco do sistema operacional agora exibe um tamanho maior do sistema de arquivos.
 
-Conforme mostrado no exemplo a seguir, o disco do sistema operacional foi redimensionado do portal para 100 GB, pois o sistema de arquivos **/dev/sda1** montado **/** em agora exibe 97 GB.
+Conforme mostrado no exemplo a seguir, o disco do sistema operacional foi redimensionado no portal para 100 GB. O sistema de arquivos **/dev/sda1** montado em **/** mostra agora 97 GB.
 
 ```
 user@myvm:~# df -Th
@@ -102,21 +102,21 @@ tmpfs          tmpfs      65M     0   65M   0% /run/user/1000
 user@myvm:~#
 ```
 
-### <a name="suse-12-sp4suse-sles-12-for-sap-suse-sles-15-and-suse-sles-15-for-sap"></a>SUSE 12 SP4, SUSE SLES 12 para SAP, SUSE SLES 15 e SUSE SLES 15 para SAP
+### <a name="suse"></a>SUSE
 
-Para aumentar o tamanho do disco do sistema operacional no SUSE 12 SP4, SUSE SLES 15 e SUSE SLES 15 para SAP:
+Para aumentar o tamanho do disco do sistema operacional no SUSE 12 SP4, SUSE SLES 12 para SAP, SUSE SLES 15 e SUSE SLES 15 para SAP:
 
 1. Pare a VM.
-1. Aumente o tamanho do OSDisk do Portal.
+1. Aumente o tamanho do disco do sistema operacional no portal.
 1. Reinicie a VM.
 
-Quando a VM for reiniciada, execute as seguintes etapas:
+Quando a VM reiniciar, execute as etapas a seguir:
 
-   1. Acesse sua VM como um **usuário raiz** usando o seguinte comando:
+   1. Acesse sua VM como usuário **raiz** usando o comando a seguir:
    
       `#sudo su`
 
-   1. Use o comando a seguir para instalar o pacote **gptfdisk** , que é necessário para aumentar o tamanho do disco do sistema operacional:
+   1. Use o comando a seguir para instalar o pacote **gptfdisk** necessário para aumentar o tamanho do disco do sistema operacional:
 
       `#zypper install gptfdisk -y`
 
@@ -124,11 +124,11 @@ Quando a VM for reiniciada, execute as seguintes etapas:
 
       `#sgdisk -e /dev/sda`
 
-   1. Redimensione a partição sem excluí-la usando o comando a seguir. O comando **parted** tem uma opção chamada **resizepart** para redimensionar a partição sem excluí-la. O número 4 após resizepart indica o redimensionamento da quarta (quarta) partição.
+   1. Redimensione a partição sem excluí-la usando o comando a seguir. O comando **parted** tem uma opção chamada **resizepart** para redimensionar a partição sem excluí-la. O número 4 após **resizepart** indica o redimensionamento da quarta partição.
 
       `#parted -s /dev/sda "resizepart 4 -1" quit`
 
-   1. Execute o `#lsblk` comando para verificar se a partição foi aumentada.
+   1. Execute o comando **#lsblk** para verificar se a partição foi aumentada.
 
       A saída a seguir mostra que a partição **/dev/sda4** foi redimensionada para 98,5 GB.
 
@@ -143,7 +143,7 @@ Quando a VM for reiniciada, execute as seguintes etapas:
       └─sdb1   8:17   0   20G  0 part /mnt/resource
       ```
       
-   1. Identifique o tipo de sistema de arquivos no OSDisk usando o seguinte comando:
+   1. Para identificar o tipo de sistema de arquivos no disco do sistema operacional, use o seguinte comando:
 
       `blkid`
 
@@ -187,7 +187,7 @@ Quando a VM for reiniciada, execute as seguintes etapas:
 
       ```#resize2fs /dev/sda4```
 
-   1. Verifique o maior tamanho do sistema de arquivos para o **DF-ésimo**usando o seguinte comando:
+   1. Para verificar o aumento de tamanho do sistema de arquivos de **df -Th**, use o comando a seguir:
 
       `#df -Th`
 
@@ -208,21 +208,23 @@ Quando a VM for reiniciada, execute as seguintes etapas:
       user@myvm:~ #
       ```
 
-Conforme mostrado no exemplo anterior, podemos ver o tamanho do sistema de arquivos para o OSDisk ter sido aumentado.
+No exemplo anterior, podemos ver que o tamanho do sistema de arquivos para o disco do sistema operacional aumentou.
 
-### <a name="rhel-7x-with-lvm"></a>RHEL 7. x com LVM
+### <a name="rhel"></a>RHEL
+
+Para aumentar o tamanho do disco do sistema operacional no RHEL 7.x com LVM:
 
 1. Pare a VM.
-1. Aumente o tamanho do OSDisk do Portal.
+1. Aumente o tamanho do disco do sistema operacional no portal.
 1. Inicie a VM.
 
-Quando a VM for reiniciada, execute as seguintes etapas:
+Quando a VM reiniciar, execute as etapas a seguir:
 
-   1. Acesse sua VM como um **usuário raiz** usando o seguinte comando:
+   1. Acesse sua VM como usuário **raiz** usando o comando a seguir:
    
       `#sudo su`
 
-   1. Instale o pacote **gptfdisk** , que é necessário para aumentar o tamanho do disco do sistema operacional.
+   1. Instale o pacote **gptfdisk** necessário para aumentar o tamanho do disco do sistema operacional.
 
       `#yum install gdisk -y`
 
@@ -230,7 +232,7 @@ Quando a VM for reiniciada, execute as seguintes etapas:
 
       `#sgdisk -e /dev/sda`
 
-   1. Redimensione a partição sem excluí-la usando o comando a seguir. O comando **parted** tem uma opção chamada **resizepart** para redimensionar a partição sem excluí-la. O número 4 após resizepart indica o redimensionamento da quarta (quarta) partição.
+   1. Redimensione a partição sem excluí-la usando o comando a seguir. O comando **parted** tem uma opção chamada **resizepart** para redimensionar a partição sem excluí-la. O número 4 após **resizepart** indica o redimensionamento da quarta partição.
 
       `#parted -s /dev/sda "resizepart 4 -1" quit`
     
@@ -259,11 +261,11 @@ Quando a VM for reiniciada, execute as seguintes etapas:
       └─sdb1              8:17   0   50G  0 part /mnt/resource
       ```
 
-   1. Use o seguinte comando para redimensionar o **volume físico (VP)**:
+   1. Use o seguinte comando para redimensionar o volume físico (PV):
 
       `#pvresize /dev/sda4`
 
-      A saída a seguir mostra que o PV foi redimensionado para 99, 2 GB.
+      A saída a seguir mostra que o PV foi redimensionado para 99,02 GB.
 
       ```
       [user@myvm ~]# pvresize /dev/sda4
@@ -275,7 +277,7 @@ Quando a VM for reiniciada, execute as seguintes etapas:
       /dev/sda4  rootvg lvm2 a--  <99.02g <74.02g
       ```
 
-   1. No exemplo a seguir, `/dev/mapper/rootvg-rootlv` está sendo redimensionado de 2GB para 12 GB (um aumento de 10 GB) usando o comando a seguir, que também redimensionará o sistema de arquivos:
+   1. No exemplo a seguir, **/dev/mapper/rootvg-rootlv** será redimensionado de 2 GB para 12 GB (um aumento de 10 GB) por meio do comando a seguir. Este comando também redimensionará o sistema de arquivos.
 
       `#lvresize -r -L +10G /dev/mapper/rootvg-rootlv`
 
@@ -297,7 +299,7 @@ Quando a VM for reiniciada, execute as seguintes etapas:
       data blocks changed from 524288 to 3145728
       ```
          
-   1. Verifique se `/dev/mapper/rootvg-rootlv` o aumentou o tamanho do sistema de arquivos ou não está usando o seguinte comando:
+   1. Verifique se **/dev/mapper/rootvg-rootlv** tem um tamanho de sistema de arquivos maior usando o seguinte comando:
 
       `#df -Th /`
 
@@ -310,8 +312,8 @@ Quando a VM for reiniciada, execute as seguintes etapas:
       [user@myvm ~]#
       ```
 
-      > [!NOTE]
-      > Para usar o mesmo procedimento para redimensionar qualquer outro volume lógico, altere o nome **LV** na etapa 7
+   > [!NOTE]
+   > Para usar o mesmo procedimento para redimensionar qualquer outro volume lógico, altere o nome **lv** na etapa 7.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -3,18 +3,18 @@ title: Práticas recomendadas do registro
 description: Saiba como usar o registro de contêiner do Azure efetivamente seguindo estas melhores práticas.
 ms.topic: article
 ms.date: 09/27/2018
-ms.openlocfilehash: 233d84b8bfa6f3d8c800e76032ef74a643db11ca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: fc84fb8cb98f58e28570095370d55a7358ce3a99
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79247066"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682691"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Melhores práticas para o Registro de Contêiner do Azure
 
 Ao seguir essas melhores práticas, você pode ajudar a maximizar o desempenho e o uso econômico de seu registro de Docker privado no Azure.
 
-Consulte também [recomendações para marcação e controle de versão de imagens de contêiner](container-registry-image-tag-version.md) para estratégias para marcas e imagens de versão no registro. 
+Consulte também [Recomendações para marcação e controle de versão de imagens de contêiner](container-registry-image-tag-version.md) para obter estratégias para marcação e as imagens de versão no registro. 
 
 ## <a name="network-close-deployment"></a>Implantação de fechamento de rede
 
@@ -33,7 +33,7 @@ Para saber como usar a replicação geográfica, consulte o tutorial em três pa
 
 Ao aproveitar os namespaces de repositório, você pode permitir o compartilhamento de um único registro em vários grupos em sua organização. Os registros podem ser compartilhados entre equipes e implantações. O Registro de Contêiner do Azure oferece suporte a namespaces aninhados, habilitando o isolamento de grupo.
 
-Por exemplo, considere as seguintes marcas de imagem de contêiner. As imagens usadas em toda a empresa, como `aspnetcore`, são colocadas no namespace raiz, enquanto as imagens de contêiner de propriedade dos produtos e grupos de marketing usam seus próprios namespaces.
+Por exemplo, considere as seguintes marcas de imagem de contêiner. Imagens que são usadas em toda a empresa, como `aspnetcore`, são colocadas no namespace raiz, enquanto as imagens de contêiner que pertencem aos grupos de Produtos e Marketing usam cada um seus próprios namespaces.
 
 - *contoso.azurecr.io/aspnetcore:2.0*
 - *contoso.azurecr.io/products/widget/web:1*
@@ -52,14 +52,14 @@ Ao se autenticar com um registro de contêiner do Azure, há dois cenários prin
 
 | Type | Cenário de exemplo | Método recomendado |
 |---|---|---|
-| Identidade individual | Um desenvolvedor que efetua o pull de imagens de ou para seu computador de desenvolvimento. | [AZ ACR login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) |
+| Identidade individual | Um desenvolvedor que efetua o pull de imagens de ou para seu computador de desenvolvimento. | [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) |
 | Sem periférico/serviço identidade | Pipelines de implantação e compilação em que o usuário não está diretamente envolvido. | [Entidade de serviço](container-registry-authentication.md#service-principal) |
 
 Para obter informações detalhadas sobre a autenticação de Registro de Contêiner do Azure, consulte [Autenticar com um registro de contêiner do Azure](container-registry-authentication.md).
 
 ## <a name="manage-registry-size"></a>Gerenciar o tamanho do registro
 
-As restrições de armazenamento de cada [SKU de registro de contêiner][container-registry-skus] devem se alinhar com um cenário típico: **Básico** para introdução, **Standard** para a maioria dos aplicativos de produção e **Premium** para o desempenho de hiperescala e [replicação geográfica][container-registry-geo-replication]. Durante a vida útil do registro, você deve gerenciar o tamanho periodicamente excluindo conteúdo não utilizado.
+As restrições de armazenamento de cada [camada de serviço de registro de contêiner][container-registry-skus] são projetados para se alinhar com um cenário típico: **Básico** para começar, **Standard** para a maioria dos aplicativos de produção e **Premium** para o desempenho de hiperdimensionamento e [replicação geográfica][container-registry-geo-replication]. Durante a vida útil do registro, você deve gerenciar o tamanho periodicamente excluindo conteúdo não utilizado.
 
 Use o comando da CLI do Azure [az acr show-usage][az-acr-show-usage] para exibir o tamanho atual do registro:
 
@@ -86,7 +86,7 @@ Para obter detalhes sobre como excluir dados de imagem do registro, incluindo im
 
 ## <a name="next-steps"></a>Próximas etapas
 
-O Registro de Contêiner do Azure está disponível em várias camadas, chamadas de SKUs e cada uma delas fornece funcionalidades diferentes. Para obter detalhes sobre as SKUs disponíveis, consulte [SKUs de Registro de Contêiner do Azure](container-registry-skus.md).
+O Registro de Contêiner do Azure está disponível em várias camadas (também chamadas de SKUs) e cada uma delas fornece recursos diferentes. Para obter detalhes sobre as camadas de serviço disponíveis, consulte [Camadas de serviço do Registro de Contêiner do Azure](container-registry-skus.md).
 
 <!-- IMAGES -->
 [delete-repository-portal]: ./media/container-registry-best-practices/delete-repository-portal.png

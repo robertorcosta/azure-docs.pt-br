@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/15/2018
-ms.openlocfilehash: 7d94e53abbe8f4d2953729aa2363c3906ce94f74
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 05/18/2018
+ms.openlocfilehash: 5fb9e48a6d6a0b95b61478a7877e9b46dd8963e9
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77670212"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649387"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>Usar funções nas consultas de log no Azure Monitor
 
@@ -19,7 +19,7 @@ Para usar uma consulta de log com outra consulta, você pode salvá-la como uma 
 
 ## <a name="create-a-function"></a>Criar uma função
 
-Crie uma função com Log Analytics na portal do Azure clicando em **salvar** e, em seguida, fornecendo as informações na tabela a seguir.
+Crie uma função com o Log Analytics no portal do Azure clicando em **Salvar** e, em seguida, fornecendo as informações na tabela a seguir.
 
 | Configuração | Descrição |
 |:---|:---|
@@ -27,9 +27,6 @@ Crie uma função com Log Analytics na portal do Azure clicando em **salvar** e,
 | Salvar como        | Função |
 | Alias da função | Nome curto para usar a função em outras consultas. Não pode conter espaços e deve ser exclusivo. |
 | Categoria       | Uma categoria para organizar consultas salvas e funções na **Explorador de consultas**. |
-
-> [!NOTE]
-> Uma função no Azure Monitor não pode conter outra função.
 
 
 
@@ -56,7 +53,7 @@ security_updates_last_day | where Title contains "SQL"
 ## <a name="next-steps"></a>Próximas etapas
 Confira outras lições para escrever consultas de log no Azure Monitor:
 
-- [Operações da cadeia de caracteres](string-operations.md)
+- [Operações de cadeia de caracteres](string-operations.md)
 - [Operações de data e hora](datetime-operations.md)
 - [Funções de agregação](aggregations.md)
 - [Agregações avançadas](advanced-aggregations.md)

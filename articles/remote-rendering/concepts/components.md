@@ -1,28 +1,28 @@
 ---
 title: Componentes
-description: Definição de componentes no escopo da renderização remota do Azure
+description: Definição de componentes no escopo do Azure Remote Rendering
 author: florianborn71
 ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: cb8b38addef736914a8627971e57ea2b173293d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 42efc1395fee28a3854420f15c2ad08b301cc1f7
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681890"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758734"
 ---
 # <a name="components"></a>Componentes
 
-A renderização remota do Azure usa o padrão do [sistema de componentes de entidade](https://en.wikipedia.org/wiki/Entity_component_system) . Embora as [entidades](entities.md) representem a posição e a composição hierárquica de objetos, os componentes são responsáveis por implementar o comportamento.
+O Azure Remote Rendering usa o padrão [Sistema de componente de entidade](https://en.wikipedia.org/wiki/Entity_component_system). Embora as [entidades](entities.md) representem a posição e a composição hierárquica dos objetos, os componentes são responsáveis por implementar o comportamento.
 
-Os tipos de componentes usados com mais frequência são [componentes de malha](meshes.md), que adicionam malhas ao pipeline de renderização. Da mesma forma, os [componentes leves](../overview/features/lights.md) são usados para adicionar componentes de iluminação e de [plano de recorte](../overview/features/cut-planes.md) são usados para cortar malhas abertas.
+Os tipos de componentes usados com mais frequência são [componentes de malha](meshes.md), que adicionam malhas ao pipeline de renderização. Da mesma forma, [componentes de luz](../overview/features/lights.md) são usados para adicionar iluminação e [componentes de plano de corte](../overview/features/cut-planes.md) são usados para cortar malhas abertas.
 
-Todos esses componentes usam a transformação (posição, rotação, escala) da entidade à qual eles estão anexados, como seu ponto de referência.
+Todos esses componentes usam a transformação (posição, rotação, escala) da entidade à qual eles estão anexados como ponto de referência.
 
-## <a name="working-with-components"></a>Trabalhando com componentes
+## <a name="working-with-components"></a>Trabalho com componentes
 
-Você pode facilmente adicionar, remover e manipular componentes programaticamente:
+É fácil adicionar, remover e manipular componentes programaticamente:
 
 ```cs
 // create a point light component
@@ -39,13 +39,27 @@ lightComponent.Destroy();
 lightComponent = null;
 ```
 
-Um componente é anexado a uma entidade no momento da criação. Ele não pode ser movido para outra entidade posteriormente. Os componentes são explicitamente excluídos `Component.Destroy()` com ou automaticamente quando a entidade do proprietário do componente é destruída.
+```cpp
+// create a point light component
+ApiHandle<AzureSession> session = GetCurrentlyConnectedSession();
 
-Somente uma instância de cada tipo de componente pode ser adicionada a uma entidade por vez.
+ApiHandle<PointLightComponent> lightComponent = session->Actions()->CreateComponent(ObjectType::PointLightComponent, ownerEntity)->as<PointLightComponent>();
 
-## <a name="unity-specific"></a>Específico do Unity
+// ...
 
-A integração do Unity tem funções de extensão adicionais para interagir com componentes. Consulte [componentes e objetos de jogos do Unity](../how-tos/unity/objects-components.md).
+// destroy the component
+lightComponent->Destroy();
+lightComponent = nullptr;
+```
+
+
+Um componente é anexado a uma entidade no momento da criação. Ele não pode ser movido depois para outra entidade. Os componentes são excluídos explicitamente com `Component.Destroy()` ou automaticamente quando a entidade do proprietário é destruída.
+
+Apenas uma instância de cada tipo de componente pode ser adicionada por vez a uma entidade.
+
+## <a name="unity-specific"></a>Específico ao Unity
+
+A integração do Unity tem funções de extensão adicionais para interação com componentes. Veja [Componentes e objetos de jogos do Unity](../how-tos/unity/objects-components.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

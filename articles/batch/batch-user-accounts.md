@@ -1,20 +1,20 @@
 ---
-title: Executar tarefas em contas de usuário – lote do Azure
-description: É útil ser capaz de configurar a conta de usuário sob a qual você deseja que uma tarefa seja executada. Aprenda os tipos de contas de usuário e como configurá-las.
-ms.topic: article
+title: Executar tarefas em contas de usuário
+description: Conheça os tipos de contas de usuário e como configurá-las.
+ms.topic: how-to
 ms.date: 11/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1aeb96075e95d7bc0d1e4527fb50b2d5238dbab5
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.openlocfilehash: 14ee675b80e0d9dd24993d7e3ecd255b5568e9cc
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82980279"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779487"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Executar tarefas em contas de usuário no Lote
 
 > [!NOTE] 
-> As contas de usuário discutidas neste artigo são diferentes das contas de usuários usadas para protocolo RDP (RDP) ou Secure Shell (SSH), por motivos de segurança. 
+> As contas de usuário abordadas neste artigo são diferentes das contas de usuário usadas para RDP (Protocolo de Área de Trabalho Remota) ou da SSH (Secure Shell) por motivos de segurança. 
 >
 > Para se conectar a um nó em execução na configuração da máquina virtual Linux via SSH, confira [Usar Área de Trabalho Remota para uma VM Linux no Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). Para se conectar a nós em execução no Windows via RDP, confira [Conectar-se a uma VM do Windows Server](../virtual-machines/windows/connect-logon.md).<br /><br />
 > Para se conectar a um nó em execução na configuração do serviço de nuvem via RDP, confira [Habilitar a Conexão de Área de Trabalho Remota para uma função nos Serviços de Nuvem do Azure](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
@@ -40,13 +40,13 @@ Uma conta de usuário automático e uma conta de usuário nomeado têm acesso de
 
 Se uma tarefa for executada na mesma conta que foi usada para executar uma tarefa de inicialização, a tarefa terá acesso de leitura/gravação ao diretório da tarefa de inicialização. Da mesma forma, se uma tarefa for executada na mesma conta que foi usada para executar uma tarefa de preparação de trabalho, a tarefa terá acesso de leitura/gravação ao diretório de tarefa de preparação de trabalho. Se uma tarefa for executada em uma conta diferente da tarefa de inicialização ou da tarefa de preparação de trabalho, a tarefa terá acesso somente leitura ao respectivo diretório.
 
-Para saber mais sobre como acessar arquivos e diretórios de uma tarefa, confira [Desenvolver soluções de computação paralela em larga escala com o Lote](batch-api-basics.md#files-and-directories).
+Para obter mais informações sobre como acessar arquivos e diretórios de uma tarefa, consulte [Arquivos e diretórios](files-and-directories.md).
 
 ## <a name="elevated-access-for-tasks"></a>Acesso elevado para tarefas 
 
 O nível de elevação da conta de usuário indica se uma tarefa é executada com acesso elevado. Tanto uma conta de usuário automático, quanto uma conta de usuário nomeado podem ser executadas com acesso elevado. As duas opções de nível de elevação são:
 
-- **Não Administrador:** a tarefa é executada como um usuário padrão sem acesso elevado. O nível de elevação padrão de uma conta de usuário do Lote é sempre **Não Administrador**.
+- **Não administrador:** a tarefa é executada como um usuário padrão sem acesso elevado. O nível de elevação padrão de uma conta de usuário do Lote é sempre **Não Administrador**.
 - **Administrador:** a tarefa é executada como um usuário com acesso elevado e opera com permissões completas de Administrador. 
 
 ## <a name="auto-user-accounts"></a>Contas de usuário automático
@@ -146,7 +146,7 @@ Uma conta de usuário nomeado é útil quando você deseja executar todas as tar
 
 Você também pode usar uma conta de usuário nomeado para executar uma tarefa que defina permissões em recursos externos, como compartilhamentos de arquivos. Com uma conta de usuário nomeado, você controla a identidade do usuário e pode usar a identidade do usuário para definir permissões.  
 
-As contas de usuário nomeado permitem o SSH sem senha entre os nós Linux. É possível usar uma conta de usuário nomeado com nós Linux que precisam executar tarefas de várias instâncias. Cada nó no pool pode executar tarefas em uma conta de usuário definida no pool inteiro. Para obter mais informações sobre tarefas de várias instâncias, consulte [usar\-tarefas de várias instâncias para executar aplicativos MPI](batch-mpi.md).
+As contas de usuário nomeado permitem o SSH sem senha entre os nós Linux. É possível usar uma conta de usuário nomeado com nós Linux que precisam executar tarefas de várias instâncias. Cada nó no pool pode executar tarefas em uma conta de usuário definida no pool inteiro. Para saber mais sobre tarefas de várias instâncias, confira [Usar tarefas de várias instâncias para executar aplicativos de MPI](batch-mpi.md).
 
 ### <a name="create-named-user-accounts"></a>Criar contas de usuário nomeado
 
@@ -322,4 +322,5 @@ A versão 2017-01-01.4.0 do serviço de Lote introduz uma alteração significat
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para uma visão geral detalhada do Lote, confira [Desenvolver soluções de computação paralela em grande escala com o Lote](batch-api-basics.md).
+* Saiba mais sobre o [Fluxo de trabalho e recursos primários do serviço de lote](batch-service-workflow-features.md) como pools, nós, trabalhos e tarefas.
+* Saiba mais sobre [arquivos e diretórios](files-and-directories.md) no Lote do Azure.

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/09/2020
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 8df639eea757c374554fa19e57c43cef79308e98
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1dba3a6f3ebd7b6675e6d0d90d98a45625ad04ee
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79255139"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656898"
 ---
 # <a name="design-scalable-and-performant-tables"></a>Projetar tabelas escalonáveis e de alto desempenho
 
@@ -128,28 +128,28 @@ Sua escolha de **PartitionKey** e **RowKey** é fundamental para um bom design d
 Uma tabela contém uma ou mais partições, e muitas das decisões de design tomadas serão em torno da escolha de uma **PartitionKey** e uma **RowKey** adequadas para otimizar sua solução. Uma solução pode consistir em uma única tabela que contém todas as suas entidades organizadas em partições, mas normalmente uma solução tem várias tabelas. Tabelas o ajudarão a organizar suas entidades logicamente, gerenciar o acesso aos dados usando listas de controle de acesso, e você pode remover uma tabela inteira usando uma única operação de armazenamento.  
 
 ## <a name="table-partitions"></a>Partições de tabela
-O nome da conta, o nome da tabela e **PartitionKey** juntos identificam a partição no serviço de armazenamento em que o serviço tabela armazena a entidade. Além de ser parte do esquema de endereçamento de entidades, as partições definem um escopo para transações (consulte [Transações de Grupo de Entidades](#entity-group-transactions) abaixo) e forme a base de como o serviço Tabela pode ser dimensionado. Para obter mais informações sobre partições, consulte [lista de verificação de desempenho e escalabilidade para armazenamento de tabelas](storage-performance-checklist.md).  
+O nome da conta, o nome de tabela e **PartitionKey** juntas identificam a partição dentro do serviço de armazenamento no qual o serviço Tabela armazena a entidade. Além de ser parte do esquema de endereçamento de entidades, as partições definem um escopo para transações (consulte [Transações de Grupo de Entidades](#entity-group-transactions) abaixo) e forme a base de como o serviço Tabela pode ser dimensionado. Para obter mais informações sobre partições, consulte [Lista de verificação de desempenho e escalabilidade para armazenamento de tabela ](storage-performance-checklist.md).  
 
 No serviço Tabela, um nó individual atende a uma ou mais partições completas e o serviço é dimensionado pelo balanceamento dinâmico de carga das partições nos nós. Se um nó estiver sob carga, o serviço Tabela pode *dividir* o intervalo de partições atendidas por esse nó em nós diferentes. Quando o tráfego baixa, o serviço pode *mesclar* os intervalos de partições de nós silenciosos de volta para um único nó.  
 
-Para obter mais informações sobre os detalhes internos do serviço Tabela e, em particular, sobre como o serviço gerencia partições, consulte o artigo Armazenamento do Microsoft Azure: [Armazenamento do Microsoft Azure: um serviço de armazenamento em nuvem altamente disponível com coerência forte](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
+Para obter mais informações sobre os detalhes internos do serviço Tabela e, em particular, sobre como o serviço gerencia partições, confira o artigo [Armazenamento do Microsoft Azure: um serviço de armazenamento em nuvem altamente disponível com coerência forte](https://docs.microsoft.com/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency).  
 
 ## <a name="entity-group-transactions"></a>Transações de Grupo de Entidades
 No serviço Tabela, EGTs (Transações de Grupo de Entidades) são o único mecanismo interno para realizar atualizações atômicas entre várias entidades. EGTs são, às vezes, também conhecidas como *transações de lote*. EGTs só podem operar em entidades armazenadas na mesma partição (ou seja, compartilham a mesma chave de partição em uma determinada tabela). Portanto, sempre que você precisar de comportamento transacional atômico entre várias entidades, certifique-se de que as entidades estejam na mesma partição. Isso geralmente é um motivo para manter vários tipos de entidade na mesma tabela (e partição) e não usar várias tabelas para tipos de entidade diferentes. Uma única EGT pode operar no máximo 100 entidades.  Se você enviar várias EGTs simultâneas para processamento, é importante garantir que essas EGTs não operem em entidades comuns entre as EGTs; caso contrário, o processamento pode ser retardado.
 
-EGTs também apresentam uma desvantagem potencial para avaliar em seu design. Ou seja, usar mais partições aumenta a escalabilidade do seu aplicativo, porque o Azure tem mais oportunidades para solicitações de balanceamento de carga entre nós. Mas o uso de mais partições pode limitar a capacidade de seu aplicativo para executar transações atômicas e manter a consistência sólida para seus dados. Além disso, existem destinos de escalabilidade específica no nível de uma partição que pode limitar a taxa de transferência de transações que você pode esperar para um único nó. Para obter mais informações sobre metas de escalabilidade para contas de armazenamento standard do Azure, consulte [metas de escalabilidade para contas de armazenamento padrão](../common/scalability-targets-standard-account.md). Para obter mais informações sobre as metas de escalabilidade do serviço Tabela, confira [Metas de escalabilidade e desempenho do Armazenamento de Tabelas](scalability-targets.md).
+EGTs também apresentam uma desvantagem potencial para avaliar em seu design. Ou seja, usar mais partições aumenta a escalabilidade do seu aplicativo, porque o Azure tem mais oportunidades para solicitações de balanceamento de carga entre nós. Mas o uso de mais partições pode limitar a capacidade de seu aplicativo para executar transações atômicas e manter a consistência sólida para seus dados. Além disso, existem destinos de escalabilidade específica no nível de uma partição que pode limitar a taxa de transferência de transações que você pode esperar para um único nó. Para obter mais informações sobre destinos de escalabilidade para contas de armazenamento padrão do Azure, consulte [Destinos de escalabilidade para contas de armazenamento padrão](../common/scalability-targets-standard-account.md). Para obter mais informações sobre as metas de escalabilidade do serviço Tabela, confira [Metas de escalabilidade e desempenho do Armazenamento de Tabelas](scalability-targets.md).
 
 ## <a name="capacity-considerations"></a>Considerações sobre a capacidade
 
 [!INCLUDE [storage-table-scale-targets](../../../includes/storage-tables-scale-targets.md)]
 
 ## <a name="cost-considerations"></a>Considerações de custo
-Armazenamento de tabela é relativamente barato, mas você deve incluir estimativas de custo para a utilização da capacidade e a quantidade de transações como parte de sua avaliação de qualquer solução do serviço Tabela. No entanto, em muitos cenários, o armazenamento de dados duplicados ou desnormalizados para melhorar o desempenho ou a escalabilidade de sua solução é uma abordagem válida. Para obter mais informações sobre preços, consulte [preços do armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).  
+Armazenamento de tabela é relativamente barato, mas você deve incluir estimativas de custo para a utilização da capacidade e a quantidade de transações como parte de sua avaliação de qualquer solução do serviço Tabela. No entanto, em muitos cenários, o armazenamento de dados duplicados ou desnormalizados para melhorar o desempenho ou a escalabilidade de sua solução é uma abordagem válida. Para obter mais informações sobre preços, consulte [Preços de Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).  
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Padrões de design de tabela](table-storage-design-patterns.md)
 - [Relações de modelagem](table-storage-design-modeling.md)
 - [Design para consulta](table-storage-design-for-query.md)
-- [Criptografando dados da tabela](table-storage-design-encrypt-data.md)
+- [Criptografando dados de tabela](table-storage-design-encrypt-data.md)
 - [Design para modificação de dados](table-storage-design-for-modification.md)

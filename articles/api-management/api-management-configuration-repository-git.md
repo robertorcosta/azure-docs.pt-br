@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: f948d813ddb4d493b455a4922818e38ac3fd6eaa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c1a9f3e76622523dde03cc2a639cce33227dff5f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81259146"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649223"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Como salvar e definir a configuração de seu serviço de Gerenciamento de API usando o Git
 
@@ -52,7 +52,7 @@ Para exibir e definir as configurações do Git, clique no menu **Segurança** e
 ![Habilitar o GIT][api-management-enable-git]
 
 > [!IMPORTANT]
-> Os segredos que não estiverem definidos como valores nomeados serão armazenados no repositório e permanecerão em seu histórico até você desabilitar e reabilitar o acesso ao git. Os valores nomeados fornecem um local seguro para gerenciar valores de cadeia de caracteres constantes, incluindo segredos, em todas as políticas e configuração de API, para que você não precise armazená-los diretamente em suas instruções de política. Para saber mais, confira [Como usar Valores Nomeados nas políticas de Gerenciamento de API do Azure](api-management-howto-properties.md).
+> Todos os segredos que não sejam definidos como valores nomeados serão armazenados no repositório e permanecerão no histórico até que você desabilite e habilite novamente o acesso ao Git. Os valores nomeados fornecem um local seguro para o gerenciamento de valores constantes de cadeia de caracteres, incluindo segredos, em todas as configurações e políticas de API. Portanto, não é necessário armazená-los diretamente nas instruções de sua política. Para saber mais, confira [Como usar valores nomeados nas políticas de Gerenciamento de API do Azure](api-management-howto-properties.md).
 >
 >
 
@@ -174,7 +174,7 @@ Esses arquivos podem ser criados, excluídos, editados e gerenciados em seu sist
 >
 > * [Usuários](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/user)
 > * [Assinaturas](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/subscription)
-> * [Valores nomeados](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/property)
+> * Valores nomeados
 > * Outras entidades do portal do desenvolvedor além dos estilos
 >
 

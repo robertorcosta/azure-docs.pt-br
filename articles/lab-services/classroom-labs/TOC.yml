@@ -50,6 +50,8 @@
               href: class-type-big-data-analytics.md
             - name: MATLAB
               href: class-type-matlab.md
+            - name: CAD (design assistido por computador) da SolidWorks
+              href: class-type-solidworks.md
 - name: Guias de instruções
   items:
     - name: Guia do administrador
@@ -112,6 +114,8 @@
               href: how-to-enable-nested-virtualization-template-vm-ui.md
             - name: Habilitar a virtualização aninhada em uma VM modelo usando um script
               href: how-to-enable-nested-virtualization-template-vm-using-script.md
+        - name: Configurar um laboratório com GPUs
+          href: how-to-setup-lab-gpu.md
         - name: Preparar uma VM modelo do Windows
           href: how-to-prepare-windows-template.md
         - name: Controlar o comportamento de desligamento do Windows

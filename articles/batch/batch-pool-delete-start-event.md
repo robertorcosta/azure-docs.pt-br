@@ -1,15 +1,14 @@
 ---
-title: Evento de início de exclusão do pool do lote do Azure
+title: Evento inicial de exclusão do pool do Lote do Azure
 description: Referência para excluir um pool de lote evento inicial. Esse evento é emitido quando uma operação de exclusão de pool é iniciada.
-ms.topic: article
+ms.topic: reference
 ms.date: 04/20/2017
-ms.author: labrenne
-ms.openlocfilehash: 38e419e549006d3fde2f1694e0d40e620cd438e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d4fac833b6c77258e48b38838f6b7b133738a6e8
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115917"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83723928"
 ---
 # <a name="pool-delete-start-event"></a>Evento inicial de exclusão de pool
 
@@ -25,4 +24,4 @@ ms.locfileid: "82115917"
 
 |Elemento|Type|Observações|
 |-------------|----------|-----------|
-|`id`|Cadeia de caracteres|A ID do pool.|
+|`id`|String|A ID do pool.|
