@@ -9,12 +9,12 @@ ms.date: 05/19/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring
-ms.openlocfilehash: c8125001b5960a0bf770e8e015ad757a277629ea
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 3ede22b5af942c3f0c0cd88d86b56a625c7656c0
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684891"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267606"
 ---
 # <a name="monitor-azure-storage"></a>Monitorar o Armazenamento do Microsoft Azure
 
@@ -407,4 +407,3 @@ Não. A Computação do Azure suporta as métricas em discos. Para obter mais in
 - Para ver uma referência dos logs e das métricas criados pelo Armazenamento do Azure, consulte a [referência de dados de monitoramento do Armazenamento do Microsoft Azure](monitor-storage-reference.md).
 - Para ver informações detalhadas sobre o monitoramento dos recursos do Azure, consulte [Monitorar recursos do Azure com o Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md).
 - Para obter mais informações sobre a migração de métricas, consulte [Migração de métricas do Armazenamento do Microsoft Azure](./storage-metrics-migration.md).
-
