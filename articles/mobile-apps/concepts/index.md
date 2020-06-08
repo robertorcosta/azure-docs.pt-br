@@ -5,14 +5,14 @@ author: codemillmatt
 ms.assetid: 98899889-9b3c-4faf-8588-ccff02097224
 ms.service: mobile-services
 ms.topic: article
-ms.date: 03/24/2020
+ms.date: 06/05/2020
 ms.author: masoucou
-ms.openlocfilehash: 487de8ef7cb2cece33c373eae12bdd4ace93d3b2
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: ffbc5fa47dccb50c201c26ac830197c4ff585147
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84449858"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84482459"
 ---
 # <a name="mobile-application-development-in-microsoft"></a>Desenvolvimento de aplicativos móveis na Microsoft
 Os tomadores de decisões, as equipes de desenvolvimento e o departamento de TI precisam criar uma estratégia sólida de desenvolvimento de aplicativos móveis que:
