@@ -1,78 +1,19 @@
 - name: Gêmeos Digitais do Azure
   href: index.yml
 - name: Visão geral
-  items:
-    - name: Sobre os Gêmeos Digitais do Azure
-      href: about-digital-twins.md
 - name: Inícios rápidos
   expanded: true
-  items:
-    - name: Encontrar salas disponíveis
-      href: quickstart-view-occupancy-dotnet.md
 - name: Tutoriais
   items:
     - name: Monitorar um prédio com Gêmeos Digitais
-      items:
-        - name: Implantar e configurar
-          href: tutorial-facilities-setup.md
-        - name: Provisionar e monitorar condições
-          href: tutorial-facilities-udf.md
-        - name: Notificar com Aplicativos Lógicos
-          href: tutorial-facilities-events.md
-        - name: Visualizar eventos com o Time Series Insights
-          href: tutorial-facilities-analyze.md
 - name: Conceitos
   items:
-    - name: Modelo de objeto de Gêmeos Digitais e gráfico de inteligência espacial
-      href: concepts-objectmodel-spatialgraph.md
-    - name: Conectividade do dispositivo e entrada de telemetria
-      href: concepts-device-ingress.md
-    - name: Processamento de dados e funções definidas pelo usuário
-      href: concepts-user-defined-functions.md
-    - name: Roteamento de eventos e mensagens
-      href: concepts-events-routing.md
-    - name: Limites do serviço de visualização pública
-      href: concepts-service-limits.md
     - name: Segurança
-      items:
-        - name: Melhores práticas de segurança
-          href: security-best-practices.md
-        - name: Controle de acesso baseado em função
-          href: security-role-based-access-control.md
-        - name: Criar e gerenciar atribuições de função
-          href: security-create-manage-role-assignments.md
-        - name: Gerenciamento da autenticação das APIs
-          href: security-authenticating-apis.md
 - name: Guias de instruções
   items:
-    - name: Habilitar aplicativos multilocatários
-      href: how-to-multitenant-applications.md
-    - name: Criar funções definidas pelo usuário
-      href: how-to-user-defined-functions.md
-    - name: Rotear eventos e mensagens por meio de pontos de extremidade
-      href: how-to-egress-endpoints.md
-    - name: Adicionar blobs a objetos
-      href: how-to-add-blobs.md
-    - name: Usar o Swagger dos Gêmeos Digitais
-      href: how-to-use-swagger.md
-    - name: Depurar funções definidas pelo usuário
-      href: how-to-diagnose-user-defined-functions.md
-    - name: Configurar monitoramento
-      href: how-to-configure-monitoring.md
     - name: Consultar APIs dos Gêmeos Digitais
-      items:
-        - name: Configurar o Postman
-          href: how-to-configure-postman.md
-        - name: Usar APIs dos Gêmeos Digitais
-          href: how-to-navigate-apis.md
-        - name: Padrões de consulta comuns
-          href: how-to-query-common-apis.md
 - name: Referência
-  items:
-    - name: Biblioteca de clientes com funções definidas pelo usuário
-      href: reference-user-defined-functions-client-library.md
 - name: Recursos
-  expanded: true
   items:
     - name: Recursos para desenvolvedores
       items:
@@ -116,3 +57,4 @@
       href: 'https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22'
     - name: Atualizações do Azure IoT
       href: 'https://azure.microsoft.com/roadmap/?category=iot'
+  expanded: true
