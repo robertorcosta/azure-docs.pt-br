@@ -10,18 +10,18 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 5f41330836edab647f379eb43130c078c46cce53
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 31bd6a2680d8c71df6b6030187ff44ca10d09440
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83685073"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561037"
 ---
 # <a name="learn-text-moderation-concepts"></a>Aprender os conceitos de moderação de texto
 
 Use os modelos de moderação de texto Content Moderator para analisar o conteúdo de texto.
 
-Você pode bloquear, aprovar ou examinar o conteúdo com base em suas políticas e limites (consulte [revisões, fluxos de trabalho e trabalhos](./review-api.md) para saber como configurar revisões humanas). Use os modelos de moderação de texto para aumentar a moderação humana de ambientes em que parceiros, funcionários e consumidores geram conteúdo de texto. Isso inclui salas de chat, fóruns de discussão, chatbots, catálogos de comércio eletrônico e documentos. 
+Você pode bloquear, aprovar ou examinar o conteúdo com base em suas políticas e limites (consulte [revisões, fluxos de trabalho e trabalhos](./review-api.md) para saber como configurar revisões humanas). Use os modelos de moderação de texto para aumentar a moderação humana de ambientes em que parceiros, funcionários e consumidores geram conteúdo de texto. Isso inclui salas de chat, fóruns de discussão, chatbots, catálogos de comércio eletrônico e documentos.
 
 A resposta de serviço inclui as informações a seguir:
 
@@ -30,7 +30,7 @@ A resposta de serviço inclui as informações a seguir:
 - Dados pessoais
 - Texto corrigido automaticamente
 - Texto original
-- Linguagem
+- Idioma
 
 ## <a name="profanity"></a>Conteúdo ofensivo
 

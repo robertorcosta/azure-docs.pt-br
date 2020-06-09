@@ -3,19 +3,19 @@ title: 'Início rápido: criar um aplicativo de visualização de comandos perso
 titleSuffix: Azure Cognitive Services
 description: Neste artigo, você criará e testará um aplicativo de visualização de comandos personalizados hospedados. O aplicativo irá processar o declarações.
 services: cognitive-services
-author: don-d-kim
+author: nitinme
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.author: donkim
-ms.openlocfilehash: 80111ff370f3a5412b45adc04c82c9dee103c01d
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.author: nitinme
+ms.openlocfilehash: 5b54923bb667053ffc886b335ab9d1b0cf4cb754
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142343"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509348"
 ---
 # <a name="quickstart-create-a-custom-commands-preview-app"></a>Início rápido: criar um aplicativo de visualização de comandos personalizados
 
@@ -77,7 +77,7 @@ Você pode atualizar o recurso de criação que você selecionou na janela **nov
 
 1. Selecione **configurações** no painel esquerdo e, em seguida, selecione **recursos do Luis** no painel central.
 1. Selecione um recurso de previsão ou crie um selecionando **criar novo recurso**.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
     
     > [!div class="mx-imgBorder"]
     > ![Definir recursos do LUIS](media/custom-speech-commands/set-luis-resources.png)

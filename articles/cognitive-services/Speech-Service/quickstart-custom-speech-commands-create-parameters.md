@@ -3,19 +3,19 @@ title: 'Início rápido: criar um aplicativo de visualização de comandos perso
 titleSuffix: Azure Cognitive Services
 description: Neste artigo, você adicionará parâmetros a um aplicativo de comandos personalizados para que ele possa ativar e desativar vários dispositivos.
 services: cognitive-services
-author: don-d-kim
+author: nitinme
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.author: donkim
-ms.openlocfilehash: 5461ef9680ab89c8cc9cc2e1166366abb04a6eab
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.author: nitinme
+ms.openlocfilehash: 940b3604487fbef7736c0d8f4f9299563b0b86d5
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142275"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509297"
 ---
 # <a name="quickstart-create-a-custom-commands-preview-application-with-parameters"></a>Início rápido: criar um aplicativo de visualização de comandos personalizados com parâmetros
 
@@ -31,7 +31,7 @@ Neste artigo, você estenderá esse aplicativo com parâmetros para que ele poss
 1. Como o comando agora tratará on e off, renomeie-o como **TurnOnOff**.
    1. No painel esquerdo, selecione o comando **Ativar** e, em seguida, selecione o botão de reticências (**...**) ao lado do **comando novo** na parte superior do painel.
    
-   1. Selecione **renomear**. Na janela de **comando renomear** , altere o **nome** para **TurOnOff**. Selecione **Salvar**.
+   1. Selecione **renomear**. Na janela de **comando renomear** , altere o **nome** para **TurOnOff**. Clique em **Salvar**.
 
 1. Crie um parâmetro para representar se o usuário deseja ativar ou desativar o dispositivo.
    1. Selecione **Adicionar** na parte superior do painel central. Na lista suspensa, selecione **parâmetro**.
@@ -52,7 +52,7 @@ Neste artigo, você estenderá esse aplicativo com parâmetros para que ele poss
     | ------------------ | ----------------| ---------------------------------------------------------------------|
     | **Nome**               | **OnOff**           | Um nome descritivo para o parâmetro.                                                                  |
     | **É global**          | Desmarcada       | Uma caixa de seleção que indica se um valor para o parâmetro é aplicado globalmente a todos os comandos no aplicativo.|
-    | **Necessária**           | Selecionada         | Uma caixa de seleção que indica se um valor para o parâmetro é necessário.  |
+    | **Necessário**           | Selecionada         | Uma caixa de seleção que indica se um valor para o parâmetro é necessário.  |
     | **Resposta para o parâmetro obrigatório**      |**Editor simples – > ativado ou desativado?**      | Um prompt para solicitar o valor do parâmetro quando ele não for conhecido. |
     | **Tipo**               | **Cadeia de caracteres**          | O tipo do parâmetro. Por exemplo, número, Cadeia de caracteres, data e hora, geografia.   |
     | **Configuration**      | **Aceitar valores de entrada predefinidos do catálogo interno** | Para cadeias de caracteres, essa configuração limita as entradas a um conjunto de valores possíveis. |
@@ -72,7 +72,7 @@ Neste artigo, você estenderá esse aplicativo com parâmetros para que ele poss
        | ------------------ | --------------------- | --------------------------------------------------------------------------------------------------------- |
        | **Nome**               | **SubjectDevice**         | Um nome descritivo para o parâmetro.                                                                     |
        | **É global**          | Desmarcada             | Uma caixa de seleção que indica se um valor para o parâmetro é aplicado globalmente a todos os comandos no aplicativo. |
-       | **Necessária**           | Selecionada               | Uma caixa de seleção que indica se um valor para o parâmetro é necessário.          |
+       | **Necessário**           | Selecionada               | Uma caixa de seleção que indica se um valor para o parâmetro é necessário.          |
        | **Editor simples**      | **Qual dispositivo?**    | Um prompt para solicitar o valor do parâmetro quando ele não for conhecido.                                       |
        | **Tipo**               | **Cadeia de caracteres**                | O tipo do parâmetro. Por exemplo, número, Cadeia de caracteres, data e hora, geografia.                                                |
        | **Configuration**      | **Aceitar valores de entrada predefinidos do catálogo interno** | Para cadeias de caracteres, essa configuração limita as entradas a um conjunto de valores possíveis.       |

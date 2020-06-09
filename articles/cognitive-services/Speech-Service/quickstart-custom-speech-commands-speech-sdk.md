@@ -3,19 +3,19 @@ title: 'Início rápido: conectar a um aplicativo de comandos personalizados com
 titleSuffix: Azure Cognitive Services
 description: Neste artigo, você criará um aplicativo cliente do SDK de fala com comandos personalizados.
 services: cognitive-services
-author: don-d-kim
+author: nitinme
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.author: donkim
-ms.openlocfilehash: 186b684cc7e4442d1a8ce14f06e16c839e117a26
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.author: nitinme
+ms.openlocfilehash: f2e8292ccace38e1a167c3ecdfb924589e4ebf0e
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872503"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84508923"
 ---
 # <a name="quickstart-connect-to-a-custom-commands-application-with-the-speech-sdk-preview"></a>Início rápido: conectar a um aplicativo de comandos personalizados com o SDK de fala (versão prévia)
 
@@ -37,7 +37,7 @@ Você também precisará de:
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 > * Uma chave de assinatura do Azure para os Serviços de Fala. [Obtenha um gratuitamente](get-started.md) ou crie-o no [portal do Azure](https://portal.azure.com)
-> * [Habilitar o dispositivo para desenvolvimento](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)
+> * [Habilitar seu dispositivo para desenvolvimento](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)
 
 ## <a name="optional-get-started-fast"></a>Opcional: introdução rápida
 
@@ -120,7 +120,7 @@ O modo de exibição de Design é atualizado para mostrar a interface do usuári
 
 Adicione a fonte code-behind para que o aplicativo funcione conforme o esperado. A origem code-behind inclui:
 
-- Instruções `using` obrigatórias para `Speech` os `Speech.Dialog` namespaces e
+- Instruções obrigatórias `using` para `Speech` os `Speech.Dialog` namespaces e
 - Uma implementação simples para garantir o acesso ao microfone, conectado a um manipulador de botão
 - Auxiliares básicos de interface do usuário para apresentar erros e mensagens no aplicativo
 - Um ponto inicial para o caminho do código de inicialização que será populado posteriormente
@@ -129,7 +129,7 @@ Adicione a fonte code-behind para que o aplicativo funcione conforme o esperado.
 
 Adicione a fonte code-behind da seguinte maneira:
 
-1. Em **Gerenciador de soluções**, abra o arquivo `MainPage.xaml.cs` de origem code-behind (agrupado `MainPage.xaml`em)
+1. Em **Gerenciador de soluções**, abra o arquivo de origem code-behind `MainPage.xaml.cs` (agrupado em `MainPage.xaml` )
 
 1. Substitua o conteúdo do arquivo pelo seguinte código: 
 
@@ -321,7 +321,7 @@ Adicione a fonte code-behind da seguinte maneira:
    connector = new DialogServiceConnector(speechCommandsConfig);
    ```
 
-1. Substitua as cadeias `YourSpeechSubscriptionKey`de caracteres `YourServiceRegion` `YourApplicationId`, e pelos seus próprios valores para seu aplicativo, a assinatura de fala e a [região](regions.md)
+1. Substitua as cadeias de caracteres `YourApplicationId` , `YourSpeechSubscriptionKey` e `YourServiceRegion` pelos seus próprios valores para seu aplicativo, a assinatura de fala e a [região](regions.md)
 
 1. Acrescente o seguinte trecho de código ao final do corpo do método de`InitializeDialogServiceConnector`
 
@@ -381,7 +381,7 @@ Adicione a fonte code-behind da seguinte maneira:
    };
    ```
 
-1. Adicione o seguinte trecho de código ao corpo do `ListenButton_ButtonClicked` método na classe `MainPage`
+1. Adicione o seguinte trecho de código ao corpo do `ListenButton_ButtonClicked` método na `MainPage` classe
 
    ```csharp
    // This code sets up `DialogServiceConnector` to listen, since you already established the configuration and
@@ -405,7 +405,7 @@ Adicione a fonte code-behind da seguinte maneira:
    }
    ```
 
-1. Na barra de menus, escolha **arquivo** > **salvar tudo** para salvar suas alterações
+1. Na barra de menus, escolha **arquivo**  >  **salvar tudo** para salvar suas alterações
 
 ## <a name="build-and-run-the-application"></a>Compile e execute o aplicativo
 
@@ -424,8 +424,8 @@ Adicione a fonte code-behind da seguinte maneira:
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Como executar comandos no cliente com o SDK de fala (versão prévia)](./how-to-custom-speech-commands-fulfill-sdk.md)
-> [como: Adicionar validações a parâmetros de comando personalizados (versão prévia)](./how-to-custom-speech-commands-validations.md)
+> [Como: preencher comandos no cliente com o SDK de fala (versão prévia)](./how-to-custom-speech-commands-fulfill-sdk.md) 
+>  [Como: Adicionar validações a parâmetros de comando personalizados (visualização)](./how-to-custom-speech-commands-validations.md)
 
 ## <a name="sample-source-code"></a>Exemplo de código fonte
 Confira nossos códigos de exemplo de cliente no [GitHub-VoiceAssistant](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant)

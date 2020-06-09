@@ -10,16 +10,16 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: afb576c265ccdd4a014ed678331f030a0442a197
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c6fbec35920c8afd08ab60fc380c9f816ae599b0
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219297"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561016"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Como chamar a API REST de Análise de Texto
 
-As chamadas para a **API de Análise de Texto** são chamadas HTTP POST/GET que podem ser formuladas em qualquer idioma. Neste artigo, usamos REST e [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) para demonstrar conceitos fundamentais.
+As chamadas para a **API de Análise de Texto** são chamadas HTTP POST/GET que podem ser formuladas em qualquer idioma. Neste artigo, usamos REST e [Postman](https://www.postman.com/downloads/) para demonstrar conceitos fundamentais.
 
 Cada solicitação deve incluir sua chave de acesso e um ponto de extremidade HTTP. O ponto de extremidade especifica a região escolhida durante a inscrição, a URL do serviço e um recurso usado na solicitação: `sentiment`, `keyphrases`, `languages` e `entities`. 
 
