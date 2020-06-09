@@ -35,6 +35,8 @@
           href: manage-automation.md
         - name: Migrar do EA para APIs MCA
           href: migrate-cost-management-api.md
+        - name: Agrupar e filtrar opções
+          href: group-filter.md
     - name: Guias de instruções
       items:
         - name: Evitar e analisar preços inesperados
