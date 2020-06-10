@@ -12,17 +12,14 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 1ede6592b3da979136d70b873142af6d2bb8b593
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 6d869243f7f125ef7a795d6049d0b4f70fc51361
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201320"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84322763"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Tutorial: Conectar usuários e chamar a API do Microsoft Graph de um aplicativo de página única Angular
-
-> [!IMPORTANT]
-> Esse recurso está atualmente na visualização. As versões prévias são disponibilizadas com a condição de que você concorde com os [termos de uso complementares](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alguns aspectos desse recurso podem ser alterados antes da GA (disponibilidade geral).
 
 Este tutorial demonstra como um aplicativo SPA (aplicativo de página única) Angular pode:
 - Conectar contas pessoais, contas corporativas ou de estudante.

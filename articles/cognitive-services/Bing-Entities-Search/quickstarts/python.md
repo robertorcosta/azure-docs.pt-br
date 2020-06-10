@@ -10,12 +10,13 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: 43b440b631122f7057de68871f0a3f870588dc67
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.custom: tracking-python
+ms.openlocfilehash: c535683323428dadedeaefd5f76f4387569f9427
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650209"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84604126"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-python"></a>Início Rápido: Enviar uma solicitação de pesquisa à API REST de Pesquisa de Entidade do Bing usando Python
 

@@ -5,13 +5,13 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
-ms.custom: has-adal-ref
-ms.openlocfilehash: 4e3edc9819fc3a282cc707db636c8bb213b13776
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.custom: has-adal-ref, tracking-python
+ms.openlocfilehash: 1203feaf6b400e91e6ab5381df0af245db0a2973
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714467"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559550"
 ---
 # <a name="tutorial-create-a-python-runbook"></a>Tutorial: Criar runbook do Python
 
@@ -244,9 +244,9 @@ except Exception as detail:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Criar runbook do PowerShell](automation-tutorial-runbook-textual-powershell.md)
-- [Criar um runbook gráfico](automation-tutorial-runbook-graphical.md)
-- [Criar runbook de fluxo de trabalho do PowerShell](automation-tutorial-runbook-textual.md)
-- [Tipos de runbook da Automação do Azure](../automation-runbook-types.md)
-- [Azure para desenvolvedores do Python](/azure/python/)
-- [GitHub da Automação do Azure](https://github.com/azureautomation/runbooks/tree/master/Utility/Python)
+- Para começar a usar os runbooks do PowerShell, confira [Criar um runbook do PowerShell](automation-tutorial-runbook-textual-powershell.md).
+- Para começar a usar os runbooks gráficos, confira [Criar um runbook gráfico](automation-tutorial-runbook-graphical.md).
+- Para começar a usar runbooks de Fluxo de Trabalho do PowerShell, confira [Criar um runbook de Fluxo de Trabalho do PowerShell](automation-tutorial-runbook-textual.md).
+- Para saber mais sobre os tipos de runbook, suas vantagens e limitações, confira [Tipos de runbook da Automação do Azure](../automation-runbook-types.md).
+- Para obter informações sobre como desenvolver para o Azure em Python, consulte [Azure para desenvolvedores de Python](/azure/python/).
+- Para exibir runbooks de amostra do Python 2, consulte o [GitHub de Automação do Azure](https://github.com/azureautomation/runbooks/tree/master/Utility/Python).

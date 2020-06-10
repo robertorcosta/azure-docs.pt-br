@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 01/06/2020
-ms.openlocfilehash: df970ad31c3fd132f9081b90aa8877f0e29e195b
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 87295278f39f7e7097b1f4d1ce1c729a71599c9f
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891548"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84466214"
 ---
 # <a name="what-is-azure-cognitive-search"></a>O que é a Pesquisa Cognitiva do Azure?
 
@@ -68,7 +68,7 @@ A Pesquisa Cognitiva do Azure é adequada para os seguintes cenários de aplicat
 |-------------------|----------|
 | Ferramentas para criação de protótipos e inspeção | No portal, use o [**Assistente para importação de dados**](search-import-data-portal.md) para configurar indexadores, o designer de índices para criar um índice e o [**Search Explorer**](search-explorer.md) para testar as consultas e refinar os perfis de pontuação. Também é possível abrir qualquer índice para exibir seu esquema. |
 | Monitoramento e diagnóstico | [**Habilite recursos de monitoramento**](search-monitor-usage.md) para ir além de métricas rápidas que estão sempre visíveis no portal. As métricas nas consultas por segundo, latência e limitação são capturadas e informadas nas páginas do portal sem nenhuma configuração adicional necessária.|
-| Criptografia no servidor | A [**criptografia em repouso gerenciada pela Microsoft**](search-security-overview.md#encrypted-transmission-and-storage) está incorporada à camada de armazenamento interno e é irrevogável. Opcionalmente, você pode complementar a criptografia padrão com [**chaves de criptografia gerenciadas pelo cliente**](search-security-manage-encryption-keys.md). As chaves que você cria e gerencia no Azure Key Vault são usadas para criptografar índices e mapas de sinônimos no Azure Cognitive Search. |
+| Criptografia no servidor | A [**criptografia em repouso gerenciada pela Microsoft**](search-security-overview.md#encrypted-transmissions-and-storage) está incorporada à camada de armazenamento interno e é irrevogável. Opcionalmente, você pode complementar a criptografia padrão com [**chaves de criptografia gerenciadas pelo cliente**](search-security-manage-encryption-keys.md). As chaves que você cria e gerencia no Azure Key Vault são usadas para criptografar índices e mapas de sinônimos no Azure Cognitive Search. |
 | Infraestrutura | A **plataforma altamente disponível** garante uma experiência de serviço de pesquisa extremamente confiável. Quando dimensionado corretamente, o [Azure Cognitive Search oferece um SLA de 99,9%](https://azure.microsoft.com/support/legal/sla/search/v1_0/).<br/><br/> **Totalmente gerenciado e escalonável** como uma solução de ponta a ponta, o Azure Cognitive Search não exige nenhum gerenciamento de infraestrutura. Seu serviço pode ser adaptado facilmente às suas necessidades ajustando as duas dimensões para lidar com mais armazenamento de documentos, maiores cargas de consulta ou ambos.<br/><br/>|
 
 ## <a name="how-to-use-azure-cognitive-search"></a>Como usar a Pesquisa Cognitiva do Azure

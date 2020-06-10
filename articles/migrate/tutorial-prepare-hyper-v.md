@@ -4,12 +4,12 @@ description: Saiba como se preparar para a avaliação/migração de VMs do Hype
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: ea6290eae187ed4ead39f7307a84a54a23c19c29
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: 22fd5bc87494eb2fc162828363e7ca70afe1bbf0
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81641626"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84322158"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Preparar para a avaliação e a migração de VMs do Hyper-V para o Azure
 
@@ -126,11 +126,10 @@ Crie o script da seguinte maneira:
     ```
     Exemplo de uso:
     ```
-    C:\>CertUtil -HashFile C:\Users\Administrators\Desktop\ MicrosoftAzureMigrate-Hyper-V.ps1
-    SHA256
+    C:\>CertUtil -HashFile C:\Users\Administrators\Desktop\ MicrosoftAzureMigrate-Hyper-V.ps1 SHA256
     ```
 
-4.    Depois de validar a integridade do script, execute o script em cada host Hyper-V com este comando do PowerShell:
+4. Depois de validar a integridade do script, execute o script em cada host Hyper-V com este comando do PowerShell:
     ```
     PS C:\Users\Administrators\Desktop> MicrosoftAzureMigrate-Hyper-V.ps1
     ```

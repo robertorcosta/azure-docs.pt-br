@@ -3,12 +3,13 @@ title: Criar um projeto da versão prévia do Azure Notebooks com um ambiente pe
 description: Crie um projeto na versão prévia do Azure Notebooks configurado com um conjunto específico de pacotes instalados e scripts de inicialização.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: 6388cb7997cac5bef25975043a13c4e080f288d4
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.custom: tracking-python
+ms.openlocfilehash: 03935b9672c25db11b91733fac1c63f1f5978b87
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78196834"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559743"
 ---
 # <a name="quickstart-create-a-project-with-a-custom-environment-in-azure-notebooks-preview"></a>Início Rápido: Criar um projeto com um ambiente personalizado na versão prévia do Azure Notebooks
 

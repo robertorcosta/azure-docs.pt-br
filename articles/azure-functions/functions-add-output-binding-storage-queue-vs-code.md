@@ -3,13 +3,14 @@ title: Conectar o Azure Functions ao Armazenamento do Azure usando o Visual Stud
 description: Saiba como conectar o Azure Functions a uma fila de armazenamento do Azure adicionando uma associação de saída ao seu projeto do Visual Studio Code.
 ms.date: 02/07/2020
 ms.topic: quickstart
+ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: bb5db5858a65759c6cf20789da9cb5bfca761b1c
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 68d1e4e7fdf50ef3ec228b7e7ca4e620a47afb05
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125820"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84555898"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-visual-studio-code"></a>Conectar o Azure Functions ao Armazenamento do Azure usando o Visual Studio Code
 
