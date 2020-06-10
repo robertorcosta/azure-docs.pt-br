@@ -3,12 +3,13 @@ title: Criar e compartilhar um Jupyter notebook na versão prévia do Azure Note
 description: Crie e execute rapidamente um Jupyter notebook na versão prévia do Azure Notebooks e, em seguida, compartilhe esse notebook com outras pessoas.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: d3310444fa28240b8fb1344199514a9601a2c615
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.custom: tracking-python
+ms.openlocfilehash: 01d1035f794287e679b6ebc84fa9498b184b4791
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77064437"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561089"
 ---
 # <a name="quickstart-create-and-share-a-notebook-in-azure-notebooks-preview"></a>Início Rápido: Criar e compartilhar um notebook na versão prévia do Azure Notebooks
 
