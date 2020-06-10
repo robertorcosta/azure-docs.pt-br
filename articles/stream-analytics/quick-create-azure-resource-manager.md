@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs
 ms.date: 05/28/2020
-ms.openlocfilehash: 0d7dc6e09ba3d045fe48b0e91faf59b50d828253
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 127a8550b7f4ca89b8b3a8e61880b295a806e5d0
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84172393"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84449355"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-by-using-the-azure-resource-manager-template"></a>Início Rápido: Criar um trabalho do Azure Stream Analytics usando o modelo do Azure Resource Manager
 
@@ -33,13 +33,13 @@ Para concluir este artigo, você precisará:
 
 ### <a name="review-the-template"></a>Examinar o modelo
 
-O modelo usado neste início rápido é proveniente dos [modelos de Início Rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-streamanalytics-create).
+O modelo usado neste início rápido é proveniente dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-streamanalytics-create/).
 
-:::code language="json" source="~/quickstart-templates/101-streamanalytics-create/azuredeploy.json" range="1-66":::
+:::code language="json" source="~/quickstart-templates/101-streamanalytics-create/azuredeploy.json" range="1-66" highlight="41-60":::
 
-O recurso do Azure definido no modelo é [Microsoft.StreamAnalytics/StreamingJobs](https://docs.microsoft.com/azure/templates/microsoft.streamanalytics/2016-03-01/streamingjobs): criar um trabalho do Azure Stream Analytics. 
+O recurso do Azure definido no modelo é [Microsoft.StreamAnalytics/StreamingJobs](/azure/templates/microsoft.streamanalytics/streamingjobs): criar um trabalho do Azure Stream Analytics.
 
-## <a name="deploy-the-template"></a>Implantar o modelo
+### <a name="deploy-the-template"></a>Implantar o modelo
 
 Nesta seção, você criará um trabalho do Azure Stream Analytics usando o modelo do Azure Resource Manager.
 

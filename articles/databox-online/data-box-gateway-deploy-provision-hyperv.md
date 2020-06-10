@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: b3616a338666dbb10fe7500bad8c1e8239fd2c92
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: ffbfd3214242d8df5fe33faf465bc1da3eb9986d
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561623"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196628"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v"></a>Tutorial: Provisionar o Azure Data Box Gateway no Hyper-V
 
@@ -64,8 +64,8 @@ Antes de implantar um dispositivo, verifique se:
 
 Antes de começar:
 
-- Revise os requisitos de rede para implantar um Data Box Gateway e configurar a rede de datacenter de acordo com os requisitos. Saiba mais em [Requisitos de rede do Data Box Gateway](data-box-gateway-system-requirements.md#networking-port-requirements).
-- Garanta que a largura de banda mínima da Internet seja de 20 Mbps, para permitir o funcionamento ideal do dispositivo.
+* Revise os requisitos de rede para implantar um Data Box Gateway e configurar a rede de datacenter de acordo com os requisitos. Saiba mais em [Requisitos de rede do Data Box Gateway](data-box-gateway-system-requirements.md#networking-port-requirements).
+* Garanta que a largura de banda mínima da Internet seja de 20 Mbps, para permitir o funcionamento ideal do dispositivo.
 
 ## <a name="check-the-host-system"></a>Verificar o sistema host
 
@@ -75,11 +75,17 @@ Para criar um dispositivo virtual, você precisa de:
 * Microsoft Hyper-V Manager em um cliente Microsoft Windows conectado ao host.
 * Verifique se o hardware subjacente (sistema host) em que está criando o dispositivo virtual possa dedicar os recursos a seguir ao seu dispositivo virtual:
 
-    * Um mínimo de 4 processadores virtuais.
-    * Pelo menos 8 GB de RAM.
-    * Uma interface de rede conectada à rede capaz de rotear o tráfego para a Internet. 
-    * Um disco de SO de 250 GB.
-    * Um disco virtual de 2 TB de dados do sistema.
+  * Um mínimo de 4 processadores virtuais.
+  * Pelo menos 8 GB de RAM.
+  * Uma interface de rede conectada à rede capaz de rotear o tráfego para a Internet.
+  * Um disco de SO de 250 GB.
+  * Um disco virtual de 2 TB de dados do sistema.
+
+## <a name="bitlocker-considerations"></a>Considerações sobre o BitLocker
+
+* Recomendamos que você habilite o BitLocker em sua máquina virtual do Data Box Gateway. Por padrão, o BitLocker não fica habilitado. Para obter mais informações, consulte:
+  * [Configurações de suporte para criptografia no Gerenciador do Hyper-V](hhttps://docs.microsoft.com/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#encryption-support-settings-in-hyper-v-manager)
+  * [Suporte para BitLocker em uma máquina virtual](https://kb.vmware.com/s/article/2036142)
 
 ## <a name="provision-a-virtual-device-in-hypervisor"></a>Provisionar um dispositivo virtual no hipervisor
 
@@ -136,7 +142,7 @@ Execute as etapas a seguir para provisionar um dispositivo no seu hipervisor.
 
     ![Especifique o Nome e a página de Localização](./media/data-box-gateway-deploy-provision-hyperv/image14.png)
 19. Na página **Configurar Disco**, selecione a opção **Criar um novo disco de rígido virtual em branco** e especifique o tamanho como **2 TB** (ou mais).
-    
+
     Embora 2 TB seja o requisito mínimo, você sempre poderá provisionar um disco maior. Observe que não é possível reduzir o disco após o provisionamento. A tentativa de reduzir o disco resulta na perda de todos os dados locais no dispositivo. Não há suporte para a expansão do disco de dados. Clique em **Próximo**.
 
     ![Configurar a página de Disco](./media/data-box-gateway-deploy-provision-hyperv/image15.png)
@@ -148,9 +154,11 @@ Execute as etapas a seguir para provisionar um dispositivo no seu hipervisor.
     ![Página Configurações](./media/data-box-gateway-deploy-provision-hyperv/image17.png)
 
 ## <a name="start-the-virtual-device-and-get-the-ip"></a>Iniciar o dispositivo virtual e obter o IP
+
 Execute as etapas a seguir para iniciar o dispositivo virtual e conectar-se a ele.
 
 #### <a name="to-start-the-virtual-device"></a>Para iniciar o dispositivo virtual
+
 1. Inicie o dispositivo virtual.
 
    ![Iniciar o dispositivo virtual](./media/data-box-gateway-deploy-provision-hyperv/image18.png)
@@ -159,26 +167,25 @@ Execute as etapas a seguir para iniciar o dispositivo virtual e conectar-se a el
 3. Você terá que esperar de 10 a 15 minutos para que o dispositivo esteja pronto. Será exibida uma mensagem de status no console para indicar o andamento. Depois que o dispositivo estiver pronto, vá para **Ação**. Pressione `Ctrl + Alt + Delete` para entrar no dispositivo virtual. O usuário padrão é *EdgeUser* e a senha padrão é *Password1*.
 
    ![Entrar no dispositivo virtual](./media/data-box-gateway-deploy-provision-hyperv/image21.png)
-   
-6. As etapas 5 a 7 se aplicam somente na inicialização de um ambiente não DHCP. Se você estiver em um ambiente DHCP, ignore essas etapas. Caso tenha inicializado seu dispositivo em um ambiente não DHCP, você uma mensagem sobre isso.
-    
-7. Para configurar a rede, use o comando `Get-HcsIpAddress` para listar as interfaces de rede habilitadas em seu dispositivo virtual. Se o dispositivo tiver uma única interface de rede habilitada, o nome padrão atribuído a ela é `Ethernet`.
 
-8. Use o cmdlet `Set-HcsIpAddress` para configurar a rede. Consulte o seguinte exemplo:
+4. As etapas 5 a 7 se aplicam somente na inicialização de um ambiente não DHCP. Se você estiver em um ambiente DHCP, ignore essas etapas. Caso tenha inicializado seu dispositivo em um ambiente não DHCP, você uma mensagem sobre isso.
+
+5. Para configurar a rede, use o comando `Get-HcsIpAddress` para listar as interfaces de rede habilitadas em seu dispositivo virtual. Se o dispositivo tiver uma única interface de rede habilitada, o nome padrão atribuído a ela é `Ethernet`.
+
+6. Use o cmdlet `Set-HcsIpAddress` para configurar a rede. Consulte o seguinte exemplo:
 
     `Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
-    
-9. Depois que a configuração inicial for concluída e o dispositivo for inicializado, você verá o texto da faixa do dispositivo. Anote o endereço IP e a URL exibida no texto do banner para gerenciar o dispositivo. Use esse endereço IP para se conectar à interface do usuário da Web do seu dispositivo virtual e concluir a configuração local e ativação.
+
+7. Depois que a configuração inicial for concluída e o dispositivo for inicializado, você verá o texto da faixa do dispositivo. Anote o endereço IP e a URL exibida no texto do banner para gerenciar o dispositivo. Use esse endereço IP para se conectar à interface do usuário da Web do seu dispositivo virtual e concluir a configuração local e ativação.
 
    ![Faixa do dispositivo virtual com endereço IP e URL de conexão](./media/data-box-gateway-deploy-provision-hyperv/image23.png)
-      
 
 Se o dispositivo não cumprir os requisitos mínimos de configuração, você verá um erro no texto da faixa. Modifique a configuração do dispositivo para que o computador tenha recursos adequados para cumprir os requisitos mínimos. Em seguida, você pode reiniciar e conectar-se ao dispositivo. Consulte os requisitos mínimos de configuração em [Verificar se o sistema de host atende aos requisitos mínimos do dispositivo virtual](#check-the-host-system).
 
 Caso observe algum outro erro durante a configuração inicial usando a interface do usuário da Web local, veja os seguintes fluxos de trabalho:
 
-- [Execute testes de diagnóstico para solucionar problemas na configuração da interface do usuário da Web](data-box-gateway-troubleshoot.md#run-diagnostics).
-- [Gere um pacote de log e exiba os arquivos de log](data-box-gateway-troubleshoot.md#collect-support-package).
+* [Execute testes de diagnóstico para solucionar problemas na configuração da interface do usuário da Web](data-box-gateway-troubleshoot.md#run-diagnostics).
+* [Gere um pacote de log e exiba os arquivos de log](data-box-gateway-troubleshoot.md#collect-support-package).
 
 ## <a name="next-steps"></a>Próximas etapas
 
