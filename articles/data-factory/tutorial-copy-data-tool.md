@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 03/03/2020
-ms.openlocfilehash: be9395b908461b54b607fff32747ca0d9f20f45c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a0ed57657a461e4af8e58931b133437e5897796a
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81418653"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022054"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copie dados do Armazenamento de Blobs do Azure para um Banco de Dados SQL usando a ferramenta Copiar Dados
 
@@ -42,7 +42,7 @@ Neste tutorial, você executa as seguintes etapas:
 
 * **Assinatura do Azure**: Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 * **Conta de Armazenamento do Azure**: Use o armazenamento de Blobs como um armazenamento de dados de _origem_. Se você não tiver uma conta de armazenamento do Azure, confira as instruções em [Criar uma conta de armazenamento](../storage/common/storage-account-create.md).
-* **Banco de Dados SQL do Azure**: Use um Banco de Dados SQL como o armazenamento de dados _coletor_. Se você não tiver um Banco de Dados SQL, confira as instruções em [Criar um Banco de Dados SQL](../sql-database/sql-database-get-started-portal.md).
+* **Banco de Dados SQL do Azure**: Use um Banco de Dados SQL como o armazenamento de dados _coletor_. Se você não tiver um Banco de Dados SQL, confira as instruções em [Criar um Banco de Dados SQL](../azure-sql/database/single-database-create-quickstart.md).
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Criar um blob e uma tabela SQL
 
@@ -76,7 +76,7 @@ Prepare o Armazenamento de Blobs e o Banco de Dados SQL para o tutorial executan
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-2. Permita que os serviços do Azure acessem o SQL Server. Verifique se a configuração **Permitir que serviços e recursos do Azure acessem este servidor** está habilitada para o servidor que executa o Banco de Dados SQL. Essa configuração permite que o Data Factory grave dados em sua instância de banco de dados. Para verificar e ativar essa configuração, acesse Azure SQL Server > Segurança > Firewalls e redes virtuais > defina a opção **Permitir que serviços e recursos do Azure acessem este servidor** como **ATIVADA**.
+2. Permita que os serviços do Azure acessem o SQL Server. Verifique se a configuração **Permitir que serviços e recursos do Azure acessem este servidor** está habilitada para o servidor que executa o Banco de Dados SQL. Essa configuração permite que o Data Factory grave dados em sua instância de banco de dados. Para confirmar e ativar essa configuração, acesse servidor SQL lógico > Firewalls e redes virtuais > defina a opção **Permitir que serviços e recursos do Azure acessem este servidor** como **ATIVADA**.
 
 ## <a name="create-a-data-factory"></a>Criar uma data factory
 
@@ -89,7 +89,7 @@ Prepare o Armazenamento de Blobs e o Banco de Dados SQL para o tutorial executan
 
     ![Mensagem de erro do novo data factory](./media/doc-common-process/name-not-available-error.png)
 
-    Se você receber uma mensagem de erro sobre o valor do nome, insira um nome diferente para o data factory. Por exemplo, use o nome _**seunome**_ **ADFTutorialDataFactory**. Para ver as regras de nomenclatura de artefatos do Data Factory, confira [Regras de nomenclatura do Data Factory](naming-rules.md).
+    Se você receber uma mensagem de erro sobre o valor do nome, insira um nome diferente para o data factory. Por exemplo, use o nome _**seunome**_**ADFTutorialDataFactory**. Para ver as regras de nomenclatura de artefatos do Data Factory, confira [Regras de nomenclatura do Data Factory](naming-rules.md).
 1. Selecione a **assinatura** do Azure na qual deseja criar o novo data factory.
 1. Em **Grupo de Recursos**, use uma das seguintes etapas:
 

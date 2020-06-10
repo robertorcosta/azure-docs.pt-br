@@ -10,12 +10,12 @@ ms.topic: include
 ms.custom: include file
 ms.date: 04/27/2020
 ms.author: diberry
-ms.openlocfilehash: 9b1ee467abcbfb6d91a64abf4e9ad74d7b23e881
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 161dde34a4f459640d262197fd5ccbb16ac51d04
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203941"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84237722"
 ---
 Este início rápido baseado em cURL fornece uma orientação para obtenção de uma resposta de base de dados de conhecimento.
 
@@ -77,9 +77,11 @@ Use a base de dados de conhecimento do início rápido anterior para consultar u
     }
     ```
 
-    Se houver um conjunto de perguntas e respostas que não correspondeu ao termo de pesquisa, mas que correspondeu ao filtro, ele não será retornado. Em vez disso, a resposta geral `No good match found in KB.` será retornada.
+    Se houver um par de perguntas e respostas que não correspondeu ao termo de pesquisa, mas que correspondeu ao filtro, ele não será retornado. Em vez disso, a resposta geral `No good match found in KB.` será retornada.
 
 ## <a name="use-debug-query-property"></a>Usar a propriedade de consulta de depuração
+> [!NOTE]
+>Não recomendamos usar a propriedade Debug para nenhuma dependência. Ela foi adicionada para ajudar a equipe do produto com a solução de problemas.
 
 As informações de depuração ajudam você a entender como a resposta retornada foi determinada. Embora isso seja útil, não é necessário. Para gerar uma resposta com informações de depuração, adicione a propriedade `debug`:
 

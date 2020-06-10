@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 02/19/2020
+ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 0fa6785b2c4029dc5eb3f0397b1144616be357fe
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 482e1bfe14181a59b744efd794a5636a442ce9a4
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594161"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141935"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-rest-api-and-python"></a>Treinar um modelo do Reconhecimento de Formulários com rótulos usando a API REST e o Python
 
@@ -28,21 +28,24 @@ Para concluir este início rápido, é necessário ter:
 - [Python](https://www.python.org/downloads/) instalado (se quiser executar o exemplo localmente).
 - Um conjunto com pelo menos seis formulários do mesmo tipo. Você usará esses dados para treinar o modelo e testar um formulário. Você pode usar um [conjunto de dados de exemplo](https://go.microsoft.com/fwlink/?linkid=2090451) para este início rápido. Faça upload dos arquivos de treinamento na raiz de um contêiner de Armazenamento de Blobs em uma conta do Armazenamento do Azure.
 
+> [!NOTE]
+> Este início rápido usa documentos remotos acessados pela URL. Para usar arquivos locais, confira a [documentação de referência](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync).
+
 ## <a name="create-a-form-recognizer-resource"></a>Criar um recurso do Reconhecimento de Formulários
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
 ## <a name="set-up-training-data"></a>Configurar dados de treinamento
 
-Em seguida, você precisará configurar os dados de entrada necessários. O recurso de dados rotulados tem requisitos de entrada especiais além daqueles necessários para treinar um modelo personalizado. 
+Em seguida, você precisará configurar os dados de entrada necessários. O recurso de dados rotulados tem requisitos de entrada especiais, além daqueles necessários para treinar um modelo personalizado sem rótulos.
 
 Verifique se todos os documentos de treinamento têm o mesmo formato. Se você tiver formulários em vários formatos, organize-os em subpastas com base no formato comum. Ao treinar, você precisará direcionar a API para uma subpasta.
 
 Para treinar um modelo usando dados rotulados, você precisará dos arquivos a seguir como entradas na subpasta. Você aprenderá a criar esses arquivos abaixo.
 
 * **Formulários de origem** – os formulários dos quais extrair dados. Os tipos compatíveis são JPEG, PNG, PDF e TIFF.
-* **Arquivos de layout de OCR** – arquivos JSON que descrevem os tamanhos e as posições de todo o texto legível em cada formulário de origem. Você usará a API de layout do Reconhecimento de Formulários para gerar esses dados. 
-* **Arquivos de rótulo** – arquivos JSON que descrevem os rótulos de dados que um usuário inseriu manualmente.
+* **Arquivos de layout de OCR**: arquivos JSON que descrevem os tamanhos e as posições de todo o texto legível em cada formulário de origem. Você usará a API de layout do Reconhecimento de Formulários para gerar esses dados. 
+* **Arquivos de rótulo**: arquivos JSON que descrevem os rótulos de dados inseridos manualmente por um usuário.
 
 Todos esses arquivos devem ocupar a mesma subpasta e estar no seguinte formato:
 
@@ -116,7 +119,7 @@ Você precisa de arquivos de resultado de OCR para que o serviço considere os a
 
 ### <a name="create-the-label-files"></a>Criar os arquivos de rótulo
 
-Os arquivos de rótulo contêm associações de chave-valor que um usuário inseriu manualmente. Eles são necessários para o treinamento de dados rotulados, mas nem todos os arquivos de origem precisam ter um arquivo de rótulo correspondente. Os arquivos de origem sem rótulos serão tratados como documentos de treinamento comuns. Recomendamos cinco ou mais arquivos rotulados para um treinamento confiável.
+Os arquivos de rótulo contêm associações de chave-valor que um usuário inseriu manualmente. Eles são necessários para o treinamento de dados rotulados, mas nem todos os arquivos de origem precisam ter um arquivo de rótulo correspondente. Os arquivos de origem sem rótulos serão tratados como documentos de treinamento comuns. Recomendamos cinco ou mais arquivos rotulados para um treinamento confiável. Use uma ferramenta de interface do usuário como a [ferramenta de rotulagem de exemplo](./label-tool.md) para gerar esses arquivos.
 
 Ao criar um arquivo de rótulo, você pode opcionalmente especificar regiões, que são posições exatas dos valores no documento. Isso concederá uma precisão ainda maior ao treinamento. As regiões são formatadas como um conjunto de oito valores correspondentes a quatro coordenadas X,Y: superior esquerdo, superior direito, inferior direito e inferior esquerdo. Os valores de coordenadas estão entre zero e um, dimensionados para as dimensões da página.
 
@@ -187,8 +190,8 @@ Para cada formulário de origem, o arquivo de rótulo correspondente deve ter o 
                 ...
 ```
 
-> [!NOTE]
-> Você só pode aplicar um rótulo a cada elemento de texto, sendo que cada rótulo só pode ser aplicado uma vez por página. No momento, não é possível aplicar um rótulo em várias páginas.
+> [!IMPORTANT]
+> Você só pode aplicar um rótulo a cada elemento de texto, sendo que cada rótulo só pode ser aplicado uma vez por página. Não é possível aplicar um rótulo a várias páginas.
 
 
 ## <a name="train-a-model-using-labeled-data"></a>Treinar um modelo usando dados rotulados
@@ -554,4 +557,7 @@ Entendemos que esse cenário é essencial para nossos clientes e estamos trabalh
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você apendeu como usar a API REST do Reconhecimento de Formulários com o Python para treinar um modelo usando dados rotulados manualmente. Em seguida, confira a [documentação de referência da API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm) para explorar a API de Reconhecimento de Formulários de maneira mais aprofundada.
+Neste início rápido, você apendeu como usar a API REST do Reconhecimento de Formulários com o Python para treinar um modelo usando dados rotulados manualmente. Em seguida, confira a documentação de referência da API para explorar a API de Reconhecimento de Formulários de maneira mais aprofundada.
+
+> [!div class="nextstepaction"]
+> [Documentação de referência da API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)

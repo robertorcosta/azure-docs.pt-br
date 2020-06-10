@@ -7,12 +7,12 @@ ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
-ms.openlocfilehash: 5fce5c8de3b2224ef471b0b3eec5ff29a869a9f6
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 10bd2e4722751b290263fc0599890ca92cd743c9
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83844515"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995642"
 ---
 # <a name="understand-cost-management-data"></a>Entender os dados de Gerenciamento de Custos
 
@@ -75,7 +75,12 @@ Ainda não há compatibilidade para as seguintes ofertas:
 | **Planos de suporte** | Suporte Pro-Direct do Azure Governamental | Default_2014-09-01 | MS-AZR-USGOV-0042P |
 | **Planos de suporte** | Suporte Developer do Azure Governamental  | Default_2014-09-01 | MS-AZR-USGOV-0043P |
 
-## <a name="determine-your-offer-type"></a>Determinar o tipo de oferta
+### <a name="free-trial-to-pay-as-you-go-upgrade"></a>Atualização da versão de avaliação gratuita para a paga conforme o uso
+
+Para obter informações sobre a disponibilidade de serviços de nível gratuito depois de atualizar de uma Avaliação gratuita para o preço pago conforme o uso, confira as [perguntas frequentes sobre a conta gratuita do Azure](https://azure.microsoft.com/free/free-account-faq/).
+
+### <a name="determine-your-offer-type"></a>Determinar o tipo de oferta
+
 Se não vir os dados de uma assinatura e quiser determinar se sua assinatura se enquadra nas ofertas com suporte, você poderá validar se sua assinatura tem suporte. Para validar se uma assinatura do Azure é compatível, entre no [portal do Azure](https://portal.azure.com). Em seguida, selecione **Todos os serviços** no menu do painel esquerdo. Na lista de serviços, selecione **Assinaturas**. No menu de lista de assinaturas, selecione a assinatura que deseja verificar. Sua assinatura é mostrada na guia Visão Geral e você pode ver a **Oferta** e a **ID da Oferta**. A imagem a seguir mostra um exemplo.
 
 ![Exemplo da guia Visão Geral da Assinatura mostrando a Oferta e a ID da Oferta](./media/understand-cost-mgt-data/offer-and-offer-id.png)
@@ -106,7 +111,7 @@ O Gerenciamento de Custos do Azure recebe marcas como parte de cada registro de 
 - As marcas de recurso só têm suporte em recursos implantados em grupos de recursos.
 - Talvez alguns recursos implantados não deem suporte a marcas ou não incluam marcas em dados de uso. Confira [Suporte a marcas para recursos do Azure](../../azure-resource-manager/tag-support.md).
 - As marcas de recurso só são incluídas nos dados de uso enquanto a marca estiver aplicada. As marcas não são aplicadas aos dados históricos.
-- As marcas de recurso só estão disponíveis no Gerenciamento de Custos após a atualização dos dados. Confira [A frequência de atualização dos dados de uso varia](#usage-data-update-frequency-varies).
+- As marcas de recurso só estão disponíveis no Gerenciamento de Custos após a atualização dos dados. Confira [Atualizações de dados de custo e de uso e retenção](#cost-and-usage-data-updates-and-retention).
 - As marcas de recurso só ficam disponíveis no Gerenciamento de Custos quando o recurso está ativo/em execução e produzindo registros de uso (por exemplo, não quando uma VM é desalocada).
 - O gerenciamento de marcas exige acesso de colaborador a cada recurso.
 - O gerenciamento de políticas de marca exige acesso de proprietário ou de colaborador de política a um grupo de gerenciamento, assinatura ou grupo de recursos.
@@ -114,7 +119,7 @@ O Gerenciamento de Custos do Azure recebe marcas como parte de cada registro de 
 Se você não vir uma marca específica em Gerenciamento de Custos, considere o seguinte:
 
 - A marca foi aplicada diretamente ao recurso?
-- A marca foi aplicada há mais de 24 horas? Confira [A frequência de atualização dos dados de uso varia](#usage-data-update-frequency-varies)
+- A marca foi aplicada há mais de 24 horas? Confira [Atualizações de dados de custo e de uso e retenção](#cost-and-usage-data-updates-and-retention)
 - O tipo de recurso dá suporte a marcas? Os tipos de recurso a seguir não dão suporte a marcas em dados de uso desde 1º de dezembro de 2019. Confira [Suporte a marcas para recursos do Azure](../../azure-resource-manager/tag-support.md) para obter a lista completa do que tem suporte.
     - Diretórios do Azure Active Directory B2C
     - Firewalls do Azure
@@ -134,24 +139,22 @@ Confira algumas dicas para trabalhar com marcas:
 - Use a API de Tags em conjunto com Consulta ou o UsageDetails para obter todo o custo com base nas marcas atuais.
 
 
-## <a name="free-trial-to-pay-as-you-go-upgrade"></a>Atualização da versão de avaliação gratuita para a paga conforme o uso
+## <a name="cost-and-usage-data-updates-and-retention"></a>Atualizações de dados de custo e de uso e retenção
 
-Para obter informações sobre a disponibilidade de serviços de nível gratuito depois de atualizar de uma Avaliação gratuita para o preço pago conforme o uso, confira as [perguntas frequentes sobre a conta gratuita do Azure](https://azure.microsoft.com/free/free-account-faq/).
+Em geral, os dados de custo e de uso estão disponíveis em Gerenciamento de Custos + Cobrança no portal do Azure e nas [APIs compatíveis](../index.yml) no prazo de 8 a 24 horas. Ao avaliar os custos, tenha em mente os seguintes pontos:
 
-## <a name="rated-usage-data-refresh-schedule"></a>Agenda de atualização de dados de uso calculados
-
-Dados de uso e de custo estão disponíveis em Gerenciamento de Custos + Cobrança no portal do Azure e nas [APIs com suporte](../index.yml). Ao avaliar os custos, tenha em mente os seguintes pontos:
-
+- Cada serviço do Azure (como Armazenamento, Computação e SQL) emite o uso em intervalos diferentes; você pode ver os dados de alguns serviços mais rapidamente do que outros.
 - Os encargos estimados do período de cobrança atual são atualizados seis vezes por dia.
 - Os encargos estimados do período de cobrança atual podem ser alterados conforme você incorre em mais uso.
 - Cada atualização é cumulativa e inclui todos os itens de linha e informações da atualização anterior.
 - O Azure finaliza ou _encerra_ o período de cobrança atual até 72 horas (três dias corridos) após o fim período de cobrança.
 
-Os exemplos a seguir ilustram como os períodos de cobrança podem ser encerrados.
+Os seguintes exemplos ilustram como os períodos de cobrança podem ser encerrados:
 
-Assinaturas de EA (Contrato Enterprise) – Se o mês de cobrança terminar em 31 de março, os encargos estimados serão atualizados até 72 horas mais tarde. Neste exemplo, até meia-noite (UTC) de 4 de abril.
+* Assinaturas de EA (Contrato Enterprise) – Se o mês de cobrança terminar em 31 de março, os encargos estimados serão atualizados até 72 horas mais tarde. Neste exemplo, até meia-noite (UTC) de 4 de abril.
+* Assinaturas pagas conforme o uso – Se o mês de cobrança terminar no dia 15 de maio, os encargos estimados poderão ser atualizados até 72 horas depois. Neste exemplo, até meia-noite (UTC) de 19 de maio.
 
-Assinaturas pagas conforme o uso – Se o mês de cobrança terminar no dia 15 de maio, os encargos estimados poderão ser atualizados até 72 horas depois. Neste exemplo, até meia-noite (UTC) de 19 de maio.
+Depois que os dados de custo e de uso estiverem disponíveis em Gerenciamento de Custos + Cobrança, eles serão mantidos por, pelo menos, 7 anos.
 
 ### <a name="rerated-data"></a>Dados recalculados
 
@@ -166,16 +169,6 @@ Os custos mostrados no Gerenciamento de Custos são arredondados. Os custos reto
   - Preço 2: $0,004
   -    Preço agregado renderizado: 0,004 + 0,004 = 0,008. O preço mostrado será $0,01.
 - API de consulta – os preços são mostrados em oito casas decimais e o arredondamento não ocorre.
-
-
-## <a name="usage-data-update-frequency-varies"></a>A frequência de atualização dos dados de uso varia
-
-A disponibilidade de seus dados de uso incorridos no Gerenciamento de Custos depende de alguns fatores, incluindo:
-
-- A frequência com que os serviços do Azure (como Armazenamento, Computação, CDN e SQL) transmitem o uso.
-- O tempo necessário para processar os dados de uso por meio do mecanismo de classificação e dos pipelines de gerenciamento de custos.
-
-Alguns serviços transmitem o uso com mais frequência do que outros. Portanto, talvez você veja dados no Gerenciamento de Custos para alguns serviços antes do que para outros serviços que emitem dados menos frequentemente. Normalmente, o uso de serviços leva 8 a 24 horas para aparecer no Gerenciamento de Custos. Tenha em mente que os dados de um mês em aberto são atualizados conforme você incorre em mais uso porque as atualizações são cumulativas.
 
 ## <a name="historical-data-might-not-match-invoice"></a>Os dados históricos podem não corresponder à fatura
 

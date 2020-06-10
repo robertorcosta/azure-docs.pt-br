@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 470cc8cc16c8bdb32bac32a7227690899abb9c51
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 8ca2a3d55a98f96f704999d888761ea40fc4665f
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83644664"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84140966"
 ---
 # <a name="what-is-apache-spark-in-azure-synapse-analytics"></a>O que é Apache Spark no Azure Synapse Analytics
 
@@ -39,9 +39,9 @@ Os Pools do Spark no Azure Synapse oferecem um serviço do Spark totalmente gere
 | Fácil de uso |O Synapse Analytics inclui um notebook personalizado derivado do [Nteract](https://nteract.io/). Você pode usar esses blocos de anotações para processar e visualizar dados interativamente.|
 | APIs REST |O Spark no Synapse Analytics inclui o [Apache Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server), um servidor de trabalho do Spark baseado em API REST para enviar e monitorar trabalhos remotamente. |
 | Suporte ao Azure Data Lake Storage Generation 2| Os Pools do Spark no Azure Synapse podem usar o Azure Data Lake Storage Generation 2, bem como o Armazenamento de Blobs. Para obter mais informações sobre o Data Lake Storage, confira [Visão geral do Azure Data Lake Storage](../../data-lake-store/data-lake-store-overview.md). |
-| Integração com IDEs de terceiros | O Azure Synapse oferece um plug-in de IDE para o [Jetbrains' IntelliJ IDEA](https://www.jetbrains.com/idea/) que é útil para criar e enviar aplicativos para um Pool do Spark. |
+| Integração com IDEs de terceiros | O Azure Synapse fornece um plug-in de IDE para o [JetBrains' IntelliJ IDEA](https://www.jetbrains.com/idea/) que é útil para criar e enviar aplicativos para um Pool do Spark. |
 | Bibliotecas Anaconda pré-carregadas |Os Pools do Spark no Azure Synapse vêm com bibliotecas Anaconda pré-instaladas. [Anaconda](https://docs.continuum.io/anaconda/) fornece quase 200 bibliotecas de aprendizado de máquina, análise de dados, visualização, etc. |
-| Escalabilidade | O Apache Spark nos Pools do Azure Synapse podem ter o dimensionamento automático habilitado, para que os pools aumentem ou diminuam conforme necessário. Além disso, os Pools do Spark podem ser desligados sem perda de dados, pois todos os dados ficam armazenados no Armazenamento do Azure ou no Data Lake Storage. |
+| Escalabilidade | O Apache Spark nos pools do Azure Synapse pode ter o dimensionamento automático habilitado, de modo que os pools sejam escalados pela adição ou pela remoção de nós, conforme necessário. Além disso, os Pools do Spark podem ser desligados sem perda de dados, pois todos os dados ficam armazenados no Armazenamento do Azure ou no Data Lake Storage. |
 
 Os Pools do Spark no Azure Synapse incluem os componentes a seguir que estão disponíveis nos pools por padrão.
 

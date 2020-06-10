@@ -1,6 +1,6 @@
 ---
-title: Exemplo da CLI – Grupo de failover – instância gerenciada do Banco de Dados SQL do Azure
-description: Script de exemplo da CLI do Azure para criar uma instância gerenciada do Banco de Dados SQL do Azure, adicioná-la a um grupo de failover e testar o failover.
+title: 'CLI do Azure: Adicionar uma instância gerenciada a um grupo de failover'
+description: Script de exemplo da CLI do Azure para criar uma Instância Gerenciada de SQL do Azure, adicioná-la a um grupo de failover e testar o failover.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,14 +11,14 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 792746ec3bfcf429afb7919458b9ac7ec8446b60
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1f6c178c1f8813300d3473ad3b788ecd7e7b573e
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80061857"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84115392"
 ---
-# <a name="use-cli-to-add-an-azure-sql-database-managed-instance-to-a-failover-group"></a>Usar a CLI para adicionar uma instância gerenciada do Banco de Dados SQL do Azure a um grupo de failover
+# <a name="use-cli-to-add-an-azure-sql-managed-instance-to-a-failover-group"></a>Usar a CLI para adicionar uma Instância Gerenciada de SQL do Azure a um grupo de failover
 
 Este exemplo de script da CLI do Azure cria duas instâncias gerenciadas, adiciona-as a um grupo de failover e, em seguida, testa o failover da instância gerenciada primária para a instância gerenciada secundária.
 
@@ -53,13 +53,13 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 | [az network nsg](/cli/azure/network/nsg) | Comandos do grupo de segurança de rede. |
 | [az network nsg rule](/cli/azure/network/nsg/rule)| Comandos de regra de segurança de rede. |
 | [az network route-table](/cli/azure/network/route-table) | Comandos da tabela de rotas. |
-| [az sql mi](/cli/azure/sql/mi) | Comandos de instância gerenciada. |
+| [az sql mi](/cli/azure/sql/mi) | Comandos da Instância Gerenciada de SQL. |
 | [az network public-ip](/cli/azure/network/public-ip) | Comandos de endereço IP público de rede. |
 | [az network vnet-gateway](/cli/azure/network/vnet-gateway) | Comandos do gateway de rede virtual |
-| [az sql instance-failover-group](/cli/azure/sql/instance-failover-group) | Comandos de grupo de failover de instância gerenciada. |
+| [az sql instance-failover-group](/cli/azure/sql/instance-failover-group) | Comandos do grupo de failover da Instância Gerenciada de SQL. |
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](/cli/azure).
 
-Os exemplos de script da CLI do Banco de Dados SQL adicionais podem ser encontrados na [documentação do Banco de Dados SQL do Azure](../sql-database-cli-samples.md).
+Os exemplos de script da CLI do Banco de Dados SQL adicionais podem ser encontrados na [documentação do Banco de Dados SQL do Azure](../../azure-sql/database/az-cli-script-samples-content-guide.md).

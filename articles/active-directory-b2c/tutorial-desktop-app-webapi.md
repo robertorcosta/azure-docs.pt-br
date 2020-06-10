@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 59670cda68f54e4c0b20b361f0688e6766acba61
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8ebfbeeb4533f21bc0fa10a5fee7b88ef069c262
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78183357"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298833"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Tutorial: Permitir acesso a uma API Web do Node.js de um aplicativo da área de trabalho usando o Azure Active Directory B2C
 
@@ -51,17 +51,11 @@ Para chamar uma API Web de um aplicativo cliente nativo, você precisa conceder 
 
 No tutorial de pré-requisito, você registrou um aplicativo cliente nativo chamado *nativeapp1*. As etapas a seguir configuram esse registro de aplicativo nativo com os escopos de API expostos para *webapi1* na seção anterior. Isso permite que o aplicativo de área de trabalho obtenha um token de acesso do Azure AD B2C que a API Web pode usar para verificar e fornecer acesso com escopo para seus recursos. Você configurará e executará os exemplos de código do aplicativo de área de trabalho e da API Web posteriormente neste tutorial.
 
-#### <a name="applications"></a>[Aplicativos](#tab/applications/)
+Para registrar um aplicativo no locatário do Azure AD B2C, você pode usar a nossa nova experiência unificada de **Registros de aplicativos** ou a nossa experiência herdada **Aplicativos (Herdado)** . [Saiba mais sobre a nova experiência](https://aka.ms/b2cappregtraining).
 
-1. Selecione **Aplicativos** e, em seguida, selecione *nativeapp1*.
-1. Selecione **Acesso à API** e, em seguida, selecione **Adicionar**.
-1. No menu suspenso **Selecionar API**, selecione *webapi1*.
-1. Na lista suspensa **Selecionar Escopos**, selecione os escopos que você definiu anteriormente. Por exemplo, *demo.read* e *demo.write*.
-1. Selecione **OK**.
+#### <a name="app-registrations"></a>[Registros de aplicativo](#tab/app-reg-ga/)
 
-#### <a name="app-registrations-preview"></a>[Registros de Aplicativo (versão prévia)](#tab/app-reg-preview/)
-
-1. Selecione **Registros de aplicativo (versão prévia)** e, em seguida, selecione o aplicativo cliente nativo que deve ter acesso à API. Por exemplo, *nativeapp1*.
+1. Selecione **Registros de aplicativo** e, em seguida, selecione o aplicativo cliente nativo que deve ter acesso à API. Por exemplo, *nativeapp1*.
 1. Em **Gerenciar**, selecione **Permissões de API**.
 1. Em **Permissões Configuradas**, selecione **Adicionar uma permissão**.
 1. Selecione a guia **Minhas APIs**.
@@ -72,6 +66,14 @@ No tutorial de pré-requisito, você registrou um aplicativo cliente nativo cham
 1. Selecione a conta de administrador conectada no momento ou entre com uma conta no seu locatário do Azure AD B2C que tenha recebido, pelo menos, a função *Administrador de aplicativos de nuvem*.
 1. Selecione **Aceitar**.
 1. Selecione **Atualizar** e, em seguida, verifique se "Concedido para..." aparece em **Status** para ambos os escopos. Pode levar alguns minutos para que as permissões sejam propagadas.
+
+#### <a name="applications-legacy"></a>[Aplicativos (Herdado)](#tab/applications-legacy/)
+
+1. Selecione **Aplicativos (Herdado)** e, em seguida, selecione *nativeapp1*.
+1. Selecione **Acesso à API** e, em seguida, selecione **Adicionar**.
+1. No menu suspenso **Selecionar API**, selecione *webapi1*.
+1. Na lista suspensa **Selecionar Escopos**, selecione os escopos que você definiu anteriormente. Por exemplo, *demo.read* e *demo.write*.
+1. Selecione **OK**.
 
 * * *
 

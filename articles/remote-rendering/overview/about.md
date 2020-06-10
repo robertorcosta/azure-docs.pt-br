@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: overview
-ms.openlocfilehash: a06c63152cb56be6d94cccc472d2e1d65651d6ce
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: e40109a3c43fa30d70b7a13243723d717b4003c4
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677921"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021425"
 ---
 # <a name="about-azure-remote-rendering"></a>Sobre o Azure Remote Rendering
 
@@ -22,7 +22,11 @@ O *ARR* (Azure Remote Rendering) é um serviço que permite renderizar conteúdo
 
 ![Modelo de exemplo](../media/arr-engine.png)
 
-Dispositivos não vinculados têm capacidade computacional limitada para renderizar modelos complexos. No entanto, para muitos aplicativos, seria inaceitável reduzir a fidelidade visual de qualquer maneira.
+Dispositivos não vinculados têm capacidade computacional limitada para renderizar modelos complexos. No entanto, para muitos aplicativos, seria inaceitável reduzir a fidelidade visual de qualquer maneira. A seguinte captura de tela compara o modelo com detalhes completos com um modelo que foi dizimado com uma ferramenta comum de criação de conteúdo:
+
+![Modelo de exemplo](./media/engine-model-decimated.png)
+
+O modelo reduzido consiste em aproximadamente 200 mil triângulos (incluindo as partes internas detalhadas), comparado a mais de 18 milhões de triângulos no modelo original.
 
 O *Remote Rendering* resolve esse problema movendo a carga de trabalho de renderização para GPUs de alta-extremidade na nuvem. Um mecanismo de gráficos hospedado na nuvem renderiza a imagem, a codifica como um fluxo de vídeo e a transmite para o dispositivo de destino.
 

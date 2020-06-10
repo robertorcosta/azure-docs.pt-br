@@ -3,12 +3,12 @@ title: Tutorial – fazer backup de bancos de dados do SAP HANA em VMs do Azure
 description: Neste tutorial, saiba o backup de bancos de dados SAP HANA executados em uma VM do Azure pode ser realizado no cofre dos Serviços de Recuperação do Backup do Azure.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: cb1fc4c1b9bfa2025850f16d175ba83bd5ee1470
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 31958a4d4e3af4f747ab2f9de7b1bc67560e87d7
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747224"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248236"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutorial: Fazer backup de bancos de dados do SAP HANA em uma VM do Azure
 
@@ -22,6 +22,9 @@ Este tutorial mostra a você como fazer backup de bancos de dados do SAP HANA em
 
 [Aqui](sap-hana-backup-support-matrix.md#scenario-support) estão todos os cenários aos quais damos suporte no momento.
 
+>[!NOTE]
+>[Introdução](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db) à versão prévia de backup do SAP HANA para RHEL (7.4, 7.6, 7.7 ou 8.1). Para outras consultas, escreva-nos em [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de configurar backups, verifique se você fez o seguinte:
@@ -34,9 +37,7 @@ Antes de configurar backups, verifique se você fez o seguinte:
 * Executar o script de configuração de backup do SAP HANA (script de pré-registro) na máquina virtual em que o HANA está instalado como o usuário raiz. [Esse script](https://aka.ms/scriptforpermsonhana) faz o sistema HANA ficar pronto para backup. Veja a seção [O que o script de pré-registro faz](#what-the-pre-registration-script-does) para entender mais sobre o script de pré-registro.
 
 >[!NOTE]
->O Backup do Azure não é ajustado automaticamente para alterações do horário de verão ao fazer backup de um banco de dados SAP HANA em execução em uma VM do Azure.
->
->Modifique a política manualmente, se necessário.
+>O script de pré-registro instala o **compat-unixODBC234** para cargas de trabalho de SAP HANA em execução no RHEL (7.4, 7.6 e 7.7) e **unixODBC** para RHEL 8.1. [Esse pacote está localizado no repositório de RPMs (Serviços de Atualização para Soluções SAP) do RHEL for SAP HANA (para RHEL 7 Server)](https://access.redhat.com/solutions/5094721).  Para a imagem do RHEL do Azure Marketplace, o repositório seria **rhui-rhel-sap-hana-for-rhel-7-server-rhui-e4s-rpms**.
 
 ## <a name="set-up-network-connectivity"></a>Configurar a conectividade de rede
 

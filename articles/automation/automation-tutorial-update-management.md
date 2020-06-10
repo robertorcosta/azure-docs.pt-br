@@ -6,174 +6,209 @@ ms.subservice: update-management
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: mvc
-ms.openlocfilehash: 5b5172df6ed6993742a08d5ac08cf700681dfc6a
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 79cffa7aedd0fc04dd4a747ef28bc67cacf37905
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83829147"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204881"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Gerenciar atualizações e patches para as VMs do Azure
 
-Este artigo descreve como usar o recurso [Gerenciamento de Atualizações](automation-update-management.md) da Automação do Azure para gerenciar atualizações e patches para suas VMs do Azure. 
+Este artigo descreve como usar o recurso [Gerenciamento de Atualizações](automation-update-management.md) da Automação do Azure para gerenciar atualizações e patches para suas VMs do Azure. Para obter informações sobre preços, consulte [Preços de automação do Gerenciamento de Atualizações](https://azure.microsoft.com/pricing/details/automation/).
 
-Para obter informações sobre preços, consulte [Preços de automação do Gerenciamento de Atualizações](https://azure.microsoft.com/pricing/details/automation/).
+> [!NOTE]
+> O Gerenciamento de Atualizações dá suporte à implantação de atualizações próprias e de patches baixados previamente. Esse suporte requer alterações nos sistemas aos quais o patch está sendo aplicado. Confira [Definir configurações do Windows Update para o Gerenciamento de Atualizações da Automação do Azure](automation-configure-windows-update.md) para saber como definir essas configurações em seus sistemas.
 
-## <a name="prerequisites"></a>Pré-requisitos
+Antes de usar os procedimentos neste artigo, verifique se você habilitou Gerenciamento de Atualizações em suas VMs usando uma destas técnicas:
 
-* O recurso [Gerenciamento de Atualizações](automation-update-management.md) habilitado para uma ou mais de suas VMs. 
-* Uma [máquina virtual](../virtual-machines/windows/quick-create-portal.md) habilitada para o Gerenciamento de Atualizações.
+* [Habilitar o Gerenciamento de Atualizações de uma conta de Automação](automation-onboard-solutions-from-automation-account.md)
+* [Habilitar o Gerenciamento de Atualizações navegando no portal do Azure](automation-onboard-solutions-from-browse.md)
+* [Habilitar o Gerenciamento de Atualizações de um runbook](automation-onboard-solutions.md)
+* [Habilitar o Gerenciamento de Atualizações de uma VM do Azure](automation-onboard-solutions-from-vm.md)
 
-## <a name="sign-in-to-azure"></a>Entrar no Azure
+## <a name="limit-the-scope-for-the-deployment"></a><a name="scope-configuration"></a>Limitar o escopo para a implantação
 
-Entre no Portal do Azure em https://portal.azure.com.
+O Gerenciamento de Atualizações usa uma configuração de escopo dentro do workspace para definir os computadores a receberem atualizações. Para obter mais informações, confira [Limitar o escopo de implantação do Gerenciamento de Atualizações](automation-scope-configurations-update-management.md).
 
 ## <a name="view-update-assessment"></a>Exibir avaliação de atualização
 
-Após habilitar o Gerenciamento de Atualizações, a página Gerenciamento de Atualizações será aberta. Se alguma atualização for identificada como ausente, uma lista de atualizações ausentes aparecerá na guia **Atualizações ausentes**.
+Para exibir uma avaliação de atualização:
 
-Em **Link de informações**, selecione o link de atualização para abrir o artigo de suporte da atualização. Você pode ver informações importantes sobre a atualização.
+1. Na sua conta da Automação, selecione **Gerenciamento de atualizações** em **Gerenciamento de atualizações**. 
 
-![Exibir o status de atualização](./media/automation-tutorial-update-management/manageupdates-view-status-win.png)
+2. As atualizações de seu ambiente estão listadas na página Gerenciamento de atualizações. Se alguma atualização for identificada como ausente, uma lista de atualizações ausentes aparecerá na guia **Atualizações ausentes**.
 
-Clique em qualquer lugar da atualização para abrir o painel Pesquisa de logs da atualização selecionada. A consulta da pesquisa de log é predefinida para essa atualização específica. Você pode modificar ou criar uma consulta própria para ver informações detalhadas sobre as atualizações implantadas ou ausentes no ambiente.
+3. Em **Link para informações**, selecione o link para uma atualização para abrir o artigo de suporte que fornece informações importantes sobre a atualização.
 
-![Exibir o status de atualização](./media/automation-tutorial-update-management/logsearch.png)
+    ![Exibir o status de atualização](./media/automation-tutorial-update-management/manageupdates-view-status-win.png)
+
+4. Clique em qualquer lugar da atualização para abrir o painel da Pesquisa de logs. A consulta da pesquisa de log é predefinida para essa atualização específica. Você pode modificar essa consulta ou criar sua própria consulta para exibir informações detalhadas.
+
+    ![Exibir o status de atualização](./media/automation-tutorial-update-management/logsearch.png)
 
 ## <a name="configure-alerts"></a>Configurar alertas
 
-Nesta etapa, você aprenderá a configurar um alerta para informar o status da implantação de uma atualização.
+Siga as etapas abaixo para configurar alertas que informam o status da implantação de uma atualização:
 
-### <a name="alert-conditions"></a>Condições de alerta
+1. Em sua Conta de automação, acesse **Alertas**, em **Monitoramento** e, em seguida, clique em **+ Nova regra de alerta**.
 
-Em sua Conta de automação, acesse **Alertas**, em **Monitoramento** e, em seguida, clique em **+ Nova regra de alerta**.
+2. Na página Criar regra de alerta, sua Conta de automação já está selecionada como o recurso. Se você desejar alterá-la, clique em **Editar recurso**. 
 
-Sua Conta de automação já está selecionada como o recurso. Se você desejar alterá-la, clique em **Selecionar**. Na página Selecionar um recurso, escolha **Contas de Automação** no menu suspenso **Filtrar por tipo de recurso**. Selecione sua Conta de automação, depois clique em **Concluído**.
+3. Na página Selecionar um recurso, escolha **Contas de Automação** no menu suspenso **Filtrar por tipo de recurso**. 
 
-Clique em **Adicionar condição** para selecionar o sinal adequado para sua implantação de atualização. A tabela a seguir mostra os detalhes dos dois sinais disponíveis.
+4. Selecione a Conta de automação que deseja usar e clique em **Concluído**.
 
-|Nome do sinal|Dimensões|Descrição|
-|---|---|---|
-|`Total Update Deployment Runs`|– Nome da implantação de atualização<br>– Status|Esse sinal alerta quanto ao status geral de uma implantação de atualização.|
-|`Total Update Deployment Machine Runs`|– Nome da implantação de atualização</br>– Status</br>– Computador de destino</br>– ID de execução da implantação de atualizações|Esse sinal alerta quanto ao status de uma implantação de atualização direcionada a computadores específicos.|
+5. Clique em **Adicionar condição** para selecionar o sinal adequado para sua implantação de atualização. A tabela a seguir mostra os detalhes dos dois sinais disponíveis.
 
-Para uma dimensão, selecione um valor válido na lista. Se o valor desejado não estiver na lista, clique no sinal **\+** ao lado da dimensão e digite o nome personalizado. Em seguida, selecione o valor a ser pesquisado. Se desejar selecionar todos os valores de uma dimensão, clique no botão **Selecionar \*** . Se você não escolher um valor para uma dimensão, o Gerenciamento de Atualizações ignorará essa dimensão.
+    |Nome do sinal|Dimensões|Descrição
+    |---|---|---|
+    |`Total Update Deployment Runs`|– Nome da implantação de atualização<br>– Status    |Alerta quanto ao status geral de uma implantação de atualização.|
+    |`Total Update Deployment Machine Runs`|– Nome da implantação de atualização</br>– Status</br>– Computador de destino</br>– ID de execução da implantação de atualizações    |Alerta quanto ao status de uma implantação de atualização direcionada a computadores específicos.|
 
-![Configurar sinal lógico](./media/automation-tutorial-update-management/signal-logic.png)
+6. Para uma dimensão, selecione um valor válido na lista. Se o valor desejado não estiver na lista, clique em **\+** ao lado da dimensão e digite o nome personalizado. Em seguida, selecione o valor a ser pesquisado. Se desejar selecionar todos os valores de uma dimensão, clique no botão **Selecionar \*** . Se você não escolher um valor para uma dimensão, o Gerenciamento de Atualizações vai ignorar essa dimensão.
 
-Em **Lógica de alerta**, para **Limite**, digite **1**. Quando tiver terminado, selecione **Concluído**.
+    ![Configurar sinal lógico](./media/automation-tutorial-update-management/signal-logic.png)
 
-### <a name="alert-details"></a>Detalhes do Alerta
+7. Em **Lógica de alerta**, insira os valores os campos **Agregação de tempo** e **Limite** e clique em **Concluído**.
 
-Em **2. Defina os detalhes do alerta** e insira um nome e uma descrição para o alerta. Definir a **Gravidade** para **Informational(Sev 2)** para uma execução bem-sucedida ou **Informational(Sev 1)** para uma execução com falha.
+8. No painel seguinte, insira um nome e uma descrição para o alerta.
 
-![Configurar sinal lógico](./media/automation-tutorial-update-management/define-alert-details.png)
+9. Defina o campo **Gravidade** como **Informational(Sev 2)** para uma execução bem-sucedida ou **Informational(Sev 1)** para uma execução com falha.
 
-Em **Grupos de ações**, selecione **Criar Novo**. Um grupo de ação é um grupo de ações que você pode usar através de vários alertas. As ações podem incluir notificações email, runbooks, webhooks e muito mais. Para saber mais sobre grupos de ações, veja [Criar e gerenciar grupos de ações](../azure-monitor/platform/action-groups.md).
+    ![Configurar sinal lógico](./media/automation-tutorial-update-management/define-alert-details.png)
 
-No campo **Nome do grupo de ações**, digite um nome para o alerta e um nome curto. O Gerenciamento de Atualizações usa o nome curto no lugar de um nome completo do grupo de ações ao enviar notificações usando o grupo especificado.
+10. Clique em **Sim** ou **Não**, dependendo de como você deseja habilitar a regra de alerta.
 
-Em **Ações**, insira um nome para a ação, como **Notificação por Email**. Para **Tipo de Ação**, selecione **Email/SMS/Push/Voz**. Para **Detalhes**, selecione **Editar detalhes**.
+11. Se não quiser ter alertas para essa regra, selecione **Suprimir alertas**.
 
-No painel Email/SMS/Push/Voz, digite um nome. Marque a caixa de seleção **Email** e digite um endereço de email válido.
+## <a name="configure-action-groups-for-your-alerts"></a>Configurar grupos de ações para seus alertas
 
-![Configurar um grupo de ação de email](./media/automation-tutorial-update-management/configure-email-action-group.png)
+Depois de configurar os alertas, você pode configurar um grupo de ações, que é um grupo de ações a serem usadas em vários alertas. As ações podem incluir notificações email, runbooks, webhooks e muito mais. Para saber mais sobre grupos de ações, veja [Criar e gerenciar grupos de ações](../azure-monitor/platform/action-groups.md).
 
-No painel Email/SMS/Push/Voice, clique em **OK**. No painel Adicionar grupo de ações, clique em **OK**.
+1. Selecione um alerta e, em seguida, selecione **Criar** em **Grupos de Ações**. 
 
-Para personalizar o assunto do email de alerta, em **Criar regra**, em **Personalizar ações**, selecione **Assunto do email**. Quando terminar, selecione **Criar regra de alerta**. O alerta indica quando uma implantação de atualização é bem-sucedida e quais computadores fazem parte da execução de implantação de atualização.
+2. Insira um nome completo e um nome curto para o grupo de ações. O Gerenciamento de Atualizações usa o nome curto ao enviar notificações usando o grupo especificado.
+
+3. Em **Ações**, insira um nome que especifique a ação, por exemplo, **Notificação por email**. 
+
+4. Para **Tipo de ação**, selecione o tipo apropriado, por exemplo, **Email/SMS/Push/Voz**. 
+
+5. Clique em **Editar detalhes**.
+
+6. Preencha o painel do tipo de ação. Por exemplo, se estiver usando **Email/SMS/Push/Voz**, insira um nome de ação, marque a caixa de seleção **Email**, insira um endereço de email válido e clique em **OK**.
+
+    ![Configurar um grupo de ação de email](./media/automation-tutorial-update-management/configure-email-action-group.png)
+
+7. No painel Adicionar grupo de ações, clique em **OK**.
+
+8. Para um email de alerta, você pode personalizar o assunto do email. Selecione **Personalizar ações** em **Criar regra** e, em seguida, selecione **Assunto do email**. 
+
+9. Quando terminar, clique em **Criar regra de alerta**. 
 
 ## <a name="schedule-an-update-deployment"></a>Agendar uma implantação de atualização
 
-Agende uma implantação que siga o agendamento de versão e o período de serviço para instalar as atualizações. Você pode escolher os tipos de atualização que deseja incluir na implantação. Por exemplo, você pode incluir atualizações críticas ou de segurança e excluir pacotes cumulativos de atualizações.
+O agendamento de uma implantação de atualização cria um recurso de [agenda](shared-resources/schedules.md) vinculado ao runbook **Patch-MicrosoftOMSComputers** que manipula a implantação de atualização nos computadores de destino. Você precisa agendar uma implantação que siga o agendamento de versão e o período de serviço para instalar as atualizações. Você pode escolher os tipos de atualização que deseja incluir na implantação. Por exemplo, você pode incluir atualizações críticas ou de segurança e excluir pacotes cumulativos de atualizações.
 
 >[!NOTE]
->O agendamento de uma implantação de atualização cria um recurso de [agenda](shared-resources/schedules.md) vinculado ao runbook **Patch-MicrosoftOMSComputers** que manipula a implantação de atualização nos computadores de destino. Se você excluir o recurso de agenda no portal do Azure ou usando o PowerShell depois de criar a implantação, a exclusão interromperá a implantação de atualização agendada e apresentará um erro quando você tentar reconfigurar o recurso de agenda no portal. Você só pode excluir o recurso de agendamento excluindo o agendamento de implantação correspondente.  
+>Se você excluir o recurso de agenda no portal do Azure ou usando o PowerShell depois de criar a implantação, a exclusão interromperá a implantação de atualização agendada e apresentará um erro quando você tentar reconfigurar o recurso de agenda no portal. Você só pode excluir o recurso de agendamento excluindo o agendamento de implantação correspondente.  
 
-Para agendar uma nova implantação de atualização para a VM, vá para **Gerenciamento de atualizações** e selecione **Agendar implantação de atualização**.
+Para agendar uma nova implantação de atualização:
 
-Em **Nova implantação de atualização**, especifique as seguintes informações:
+1. E sua conta de Automação, vá para **Gerenciamento de atualizações** em **Gerenciamento de atualizações** e, em seguida, selecione **Agendar implantação de atualização**.
 
-* **Name**: insira um nome exclusivo para a implantação de atualização.
+2. Em **Nova implantação de atualização**, use o campo **Nome** para inserir um nome exclusivo para sua implantação.
 
-* **Sistema operacional**: selecione o sistema operacional de destino para a implantação de atualização.
+3. Selecione o sistema operacional de destino para a implantação de atualização.
 
-* **Grupos para atualizar (versão prévia)** : defina uma consulta que combina assinatura, grupos de recursos, locais e tags para criar um grupo dinâmico de VMs do Azure para incluir em sua implantação. Para saber mais, confira [Grupos dinâmicos](automation-update-management-groups.md).
+4. Na região **Grupos para atualizar (versão prévia)** , defina uma consulta que combina assinatura, grupos de recursos, locais e marcas para compilar um grupo dinâmico de VMs do Azure a ser incluído na implantação. Para saber mais, confira [Usar grupos dinâmicos com o Gerenciamento de Atualizações](automation-update-management-groups.md).
 
-* **Computadores para atualizar**: selecione uma Pesquisa salva, um Grupo importado ou selecione **Computadores** no menu suspenso e selecione computadores individuais. Se você escolher **Computadores**, a preparação de cada computador será mostrada na coluna **Preparação para atualização do agente**. Para saber mais sobre os diferentes métodos de criação de grupos de computadores nos logs do Azure Monitor, confira [Grupos de computadores nos logs do Azure Monitor](../azure-monitor/platform/computer-groups.md).
+5. Na região **Computadores para atualizar**, selecione uma pesquisa salva, um grupo importado ou selecione **Computadores** no menu suspenso e selecione computadores individuais. Com essa opção, você pode ver a prontidão do agente do Log Analytics para cada computador. Para saber mais sobre os diferentes métodos de criação de grupos de computadores nos logs do Azure Monitor, confira [Grupos de computadores nos logs do Azure Monitor](../azure-monitor/platform/computer-groups.md).
 
-* **Classificação de atualização**: para cada produto, desmarque todas as classificações de atualização com suporte, exceto as que serão incluídas na implantação da atualização. Para obter descrições dos tipos de classificação, confira [Classificações de atualização](automation-view-update-assessments.md#work-with-update-classifications).
+6. Use a região **Classificações de atualização** para especificar [classificações de atualização](automation-view-update-assessments.md#work-with-update-classifications) para os produtos. para cada produto, desmarque todas as classificações de atualização com suporte, exceto as que serão incluídas na implantação da atualização.
 
-* **Atualizações a serem incluídas/excluídas** – abre a página Incluir/Excluir. As atualizações a serem incluídas ou excluídas estão em guias separadas, especificando os números de ID do artigo da base de dados de conhecimento. Ao especificar um ou mais números de ID, você precisa remover ou desmarcar todas as classificações com a implantação de atualização. Isso verifica se nenhuma outra atualização foi incluída em seu pacote de atualização ao especificar IDs de atualização.
+7. Use a região **Incluir/excluir atualizações** para selecionar atualizações específicas para implantação. A página Incluir/excluir exibe as atualizações pelos números da ID do artigo na KB para inclusão ou exclusão. 
+    
+   > [!IMPORTANT]
+   > Lembre-se de que as exclusões substituem as inclusões. Por exemplo, se você definir uma regra de exclusão de `*`, o Gerenciamento de Atualizações excluirá todos os patches ou pacotes da instalação. Correções excluídas ainda são mostradas como ausentes dos computadores. Para computadores Linux, se você incluir um pacote que tem um pacote dependente que foi excluído, o Gerenciamento de Atualizações não instalará o pacote principal.
 
-> [!NOTE]
-> É importante saber que as exclusões substituem as inclusões. Por exemplo, se você definir uma regra de exclusão de `*`, o Gerenciamento de Atualizações não instalará nenhum patch ou pacote, pois todos serão excluídos. Correções excluídas ainda são mostradas como ausentes do computador. Para computadores Linux, se você incluir um pacote que tem um pacote dependente que foi excluído, o Gerenciamento de Atualizações não instalará o pacote principal.
+   > [!NOTE]
+   > Não é possível especificar atualizações que foram substituídas para inclusão na implantação de atualização.
 
-> [!NOTE]
-> Não é possível especificar atualizações que foram substituídas para inclusão na implantação de atualização.
->
-* **Configurações da agenda**: O painel Configurações da agenda é aberto. A hora de início padrão é 30 minutos após a hora atual. Você pode definir a hora de início para qualquer momento a partir de 10 minutos.
+8. Selecione **Configurações da agenda**. A hora de início padrão é 30 minutos após a hora atual. Você pode definir a hora de início para qualquer momento a partir de 10 minutos.
 
-   Você também pode especificar se a implantação ocorre uma única vez ou configurar um agendamento recorrente. Em **Recorrência**, selecione **Uma vez**. Deixe o padrão como 1 dia e clique em **OK**. Essas entradas configuram um agenda recorrente.
+9. Use o campo **Recorrência** para especificar se a implantação ocorre uma vez ou se usa um agendamento recorrente e clique em **OK**.
 
-* **Pré-scripts + pós-scripts**: Selecione os scripts a serem executados antes e depois de sua implantação. Para saber mais, consulte [Gerenciar pré e pós-scripts](pre-post-scripts.md).
+10. Na região **Pré-scripts + pós-scripts (versão prévia)** , selecione os scripts a serem executados antes e após sua implantação. Para saber mais, confira [Gerenciar pré-scripts e pós-scripts](pre-post-scripts.md).
+    
+11. Use o campo **Janelas de manutenção (minutos)** para especificar o tempo permitido para a instalação das atualizações. Considere os seguintes detalhes ao especificar uma janela de manutenção:
 
-* **Janela de manutenção (minutos)** : Mantenha o valor padrão. As janelas de manutenção controlam o tempo permitido para a instalação das atualizações. Considere os seguintes detalhes ao especificar uma janela de manutenção:
+    * As janelas de manutenção controlam o número de atualizações que são instaladas.
+    * O Gerenciamento de Atualizações não interromperá a instalação de novas atualizações se o fim de uma janela de manutenção estiver se aproximando.
+    * O Gerenciamento de Atualizações não encerrará as atualizações em andamento se a janela de manutenção for excedida.
+    * Se a janela de manutenção é excedida no Windows, isso geralmente ocorre devido a uma longa instalação de atualização do service pack.
 
-  * As janelas de manutenção controlam o número de atualizações que são instaladas.
-  * O Gerenciamento de Atualizações não interromperá a instalação de novas atualizações se o fim de uma janela de manutenção estiver se aproximando.
-  * O Gerenciamento de Atualizações não encerrará as atualizações em andamento se a janela de manutenção for excedida.
-  * Se a janela de manutenção é excedida no Windows, isso geralmente ocorre devido a uma longa instalação de atualização do service pack.
+    > [!NOTE]
+    > Para evitar atualizações aplicadas fora da janela de manutenção no Ubuntu, reconfigure o pacote `Unattended-Upgrade` para desabilitar as atualizações automáticas. Para saber mais sobre como configurar o pacote, veja o [tópico Atualizações automáticas no Guia do servidor Ubuntu](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
-  > [!NOTE]
-  > Para evitar atualizações aplicadas fora da janela de manutenção no Ubuntu, reconfigure o pacote de atualização automática para desabilitar as atualizações automáticas. Para saber mais sobre como configurar o pacote, veja [o tópico Atualizações automáticas no Guia do servidor Ubuntu](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
+12. Use o campo **Opções de reinicialização** para especificar como lidar com reinicializações durante a implantação. As seguintes opções estão disponíveis: 
+    * Reinicializar se necessário (padrão)
+    * Sempre reinicializar
+    * Nunca reinicializar
+    * Somente reinicialização; esta opção não instala atualizações
 
-* **Opções de reinicialização**: use para especificar opções para manipular reinicializações. As seguintes opções estão disponíveis:
-  * Reinicializar se necessário (padrão)
-  * Sempre reinicializar
-  * Nunca reinicializar
-  * Somente reinicialização – não instala atualizações
+    > [!NOTE]
+    > As chaves do Registro listadas em [Chaves do Registro usadas para gerenciar a reinicialização](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) poderão causar um evento de reinicialização se a opção **Opções de reinicialização** estiver definida como **Nunca reinicializar**.
 
-> [!NOTE]
-> As chaves do Registro listadas em [Chaves do Registro usadas para gerenciar a reinicialização](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) poderão causar um evento de reinicialização se a opção **Opções de reinicialização** estiver definida como **Nunca reinicializar**.
+13. Quando terminar de configurar a agenda de implantação, clique em **Criar**.
 
-Quando terminar de configurar o agenda, clique em **Criar**.
+    ![Painel Configurações de agendamento de atualizações](./media/automation-tutorial-update-management/manageupdates-schedule-win.png)
 
-![Painel Configurações de agendamento de atualizações](./media/automation-tutorial-update-management/manageupdates-schedule-win.png)
+14. Você é retornado ao painel de status. Selecione **Implantações de atualização agendadas** para mostrar a agenda de implantação que você criou.
 
-Você é retornado ao painel de status. Selecione **Implantações de atualização agendadas** para mostrar a agenda de implantação que você acabou de criar.
+## <a name="schedule-an-update-deployment-programmatically"></a>Agendar uma implantação de atualização programaticamente
 
-> [!NOTE]
-> O Gerenciamento de Atualizações dá suporte à implantação de atualizações próprias e patches baixados previamente. Esse suporte requer alterações nos sistemas aos quais o patch está sendo aplicado. Confira [Suporte próprio e de pré-download](automation-configure-windows-update.md) para saber como definir essas configurações em seus sistemas.
+Para saber como criar uma implantação de atualizações com a API REST, confira [Configurações de atualização de software – Criar](/rest/api/automation/softwareupdateconfigurations/create). 
 
-Crie também implantações de atualizações de forma programática. Para saber como criar uma implantação de atualizações com a API REST, confira [Configurações de atualização de software – Criar](/rest/api/automation/softwareupdateconfigurations/create). Há também um runbook de exemplo que pode ser usado para criar uma implantação de atualizações semanal. Para saber mais sobre este runbook, consulte [Criar uma implantação de atualização semanal para uma ou mais VMs em um grupo de recursos](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
+Você pode usar um runbook de exemplo para criar uma implantação de atualizações semanal. Para saber mais sobre este runbook, consulte [Criar uma implantação de atualização semanal para uma ou mais VMs em um grupo de recursos](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
 
-## <a name="view-results-of-an-update-deployment"></a>Exibir resultados de uma implantação de atualização
+## <a name="check-deployment-status"></a>Verifique o status da implantação
 
-Após o início da implantação agendada, você pode ver o status dessa implantação na guia **Implantações de atualização** em **Gerenciamento de Atualizações**. O status é **Em andamento** se a implantação está em execução no momento. Quando a implantação for concluída com êxito, o status será alterado para **Êxito**. Se houver falha em uma ou mais atualizações na implantação, o status será **Falha parcial**.
+Após o início da implantação agendada, você pode ver o status dela na guia **Implantações de atualização** em **Gerenciamento de atualizações**. O status é **Em andamento** se a implantação está em execução no momento. Quando a implantação for concluída com êxito, o status será alterado para **Êxito**. Se houver falha em uma ou mais atualizações na implantação, o status será **Falha parcial**.
 
-Selecione a implantação de atualizações concluída para ver o painel.
+## <a name="view-results-of-a-completed-update-deployment"></a>Exibir resultados de uma implantação de atualização concluída
+
+Quando a implantação for concluída, você poderá selecioná-la para ver seu painel.
 
 ![Painel de status de implantação de atualização para uma implantação específica](./media/automation-tutorial-update-management/manageupdates-view-results.png)
 
-Em **Resultados da atualização** há um resumo do número total de atualizações e resultados de implantação na VM. A tabela à direita mostra uma análise detalhada de cada atualização e os resultados da instalação.
+Em **Resultados da atualização** há um resumo do número total de atualizações e resultados de implantação nas VMs de destino. A tabela à direita mostra uma análise detalhada de cada atualização e os resultados da instalação de cada uma delas.
 
 Os valores disponíveis são:
 
-* **Nenhuma tentativa**: a atualização não foi instalada devido ao tempo suficiente disponível com base na duração da janela de manutenção definida.
-* **Bem-sucedido**: A atualização foi bem-sucedida.
-* **Falhou**: Falha na atualização.
+* **Não foi tentada**: a atualização não foi instalada devido a tempo suficiente disponível com base na duração da janela de manutenção definida.
+* **Não selecionado**: a atualização não foi selecionada para implantação.
+* **Êxito**: a atualização foi bem-sucedida.
+* **Falha**: falha na atualização.
 
 Selecione **Todos os logs** para ver todas as entradas de log que a implantação criou.
 
-Selecione **Saída** para ver o fluxo de trabalho do runbook responsável por gerenciar a implantação de atualização na VM de destino.
+Selecione **Saída** para ver o fluxo de trabalho do runbook responsável por gerenciar a implantação de atualização nas VMs de destino.
 
 Selecione **Erros** para ver informações detalhadas sobre quaisquer erros da implantação.
 
-Quando sua implantação de atualização for realizada com êxito, você receberá um email de confirmação semelhante ao seguinte:
+## <a name="view-the-deployment-alert"></a>Exibir o alerta de implantação
+
+Quando a implantação da atualização for concluída, você receberá o alerta que especificou durante a instalação da implantação. Por exemplo, aqui está um email confirmando um patch.
 
 ![Configurar o grupo de ação de email](./media/automation-tutorial-update-management/email-notification.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter detalhes sobre o Gerenciamento de Atualizações, consulte [Visão geral do Gerenciamento de Atualizações](automation-update-management.md).
+* Para obter informações sobre as configurações de escopo, confira [Limitar o escopo de implantação do Gerenciamento de Atualizações](automation-scope-configurations-update-management.md).
+* Se você precisar pesquisar logs armazenados em seu workspace do Log Analytics, confira [Pesquisas de logs em logs do Azure Monitor](../log-analytics/log-analytics-log-searches.md).
+* Se tiver terminado com as implantações, confira [Desvincular o workspace da conta de Automação para o Gerenciamento de Atualizações](automation-unlink-workspace-update-management.md).
+* Para excluir suas VMs do Gerenciamento de Atualizações, confira [Remover VMs do Gerenciamento de Atualizações](automation-remove-vms-from-update-management.md).
+* Para solucionar problemas gerais do Gerenciamento de Atualizações, consulte [Solucionar problemas do Gerenciamento de Atualizações](troubleshoot/update-management.md).
+* Para solucionar problemas com o agente de atualização do Windows, consulte [Solucionar problemas do agente de atualização do Windows](troubleshoot/update-agent-issues.md).
+* Para solucionar problemas com o agente de atualização do Linux, confira [Solucionar problemas do agente de atualização do Linux](troubleshoot/update-agent-issues-linux.md).

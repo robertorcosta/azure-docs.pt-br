@@ -4,18 +4,18 @@ description: Gerenciamento de desempenho de aplicativo e acompanhamento de uso d
 ms.topic: overview
 ms.date: 06/03/2019
 ms.custom: mvc
-ms.openlocfilehash: 6630de971dd9cc7ece2e0f87821db5fd62c39af0
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: c25929100fdfa6f4652e99c0d2563d9e56cfb62b
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828722"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996084"
 ---
 # <a name="what-is-application-insights"></a>O que é o Application Insights?
 O Application Insights, um recurso do [Azure Monitor](../overview.md), é um serviço de APM (Gerenciamento de Desempenho de Aplicativo) para desenvolvedores e profissionais de DevOps. Use-o para monitorar seus aplicativos ativos. Ele detecta automaticamente anomalias de desempenho e inclui ferramentas de análise avançadas para ajudar a diagnosticar problemas e entender o que os usuários realmente fazem com seu aplicativo.  Ele foi projetado para ajudar você a aprimorar continuamente o desempenho e a usabilidade do seu aplicativo. Ele funciona com aplicativos em uma ampla variedade de plataformas, incluindo .NET, Node.js, Java e Python, hospedadas localmente, de maneira híbrida ou em qualquer nuvem pública. Ele integra-se ao seu processo DevOps e tem pontos de conexão para uma ampla variedade de ferramentas de desenvolvimento. Ele pode monitorar e analisar a telemetria de aplicativos móveis integrando-se ao Visual Studio App Center.
 
 ## <a name="how-does-application-insights-work"></a>Como funciona o Application Insights?
-Instale um pacote de instrumentação pequeno (SDK) em seu aplicativo ou habilite o Application Insights sem uso de código quando essa opção for [compatível](../../azure-monitor/app/platforms.md). A instrumentação monitora seu aplicativo e direciona os dados de telemetria para um recurso do Azure Application Insights usando um GUID exclusivo ao qual nos referimos como uma chave de instrumentação.
+Instale um pacote de instrumentação pequeno (SDK) no seu aplicativo ou habilite o Application Insights usando o Agente do Application Insights quando essa opção for [compatível](../../azure-monitor/app/platforms.md). A instrumentação monitora seu aplicativo e direciona os dados de telemetria para um recurso do Azure Application Insights usando um GUID exclusivo ao qual nos referimos como uma chave de instrumentação.
 
 Você pode instrumentar não apenas o aplicativo de serviço web, mas também todos os componentes em segundo plano e o JavaScript nas próprias páginas da web. O aplicativo e os componentes dele podem ser executados em qualquer lugar, ele não precisa ser hospedado no Azure.
 
@@ -26,7 +26,7 @@ Além disso, você pode efetuar pull de telemetria dos ambientes de host, como c
 Todos esses fluxos de telemetria são integrados ao Azure Monitor. No portal do Azure, é possível aplicar ferramentas de pesquisa e análise poderosas aos dados brutos.
 
 ### <a name="whats-the-overhead"></a>Qual é a sobrecarga?
-O impacto sobre o desempenho do aplicativo é muito pequeno. As chamadas de acompanhamento não são bloqueadas, além de serem colocadas em lote e enviadas em um thread separado.
+O impacto sobre o desempenho do aplicativo é pequeno. As chamadas de acompanhamento não são bloqueadas, além de serem colocadas em lote e enviadas em um thread separado.
 
 ## <a name="what-does-application-insights-monitor"></a>O que o Application Insights monitora?
 
@@ -69,7 +69,7 @@ Há várias maneiras de explorar seus dados. Confira estes artigos:
 ### <a name="monitor"></a>Monitoramento
 Instale o Application Insights no seu aplicativo, configure os [testes de disponibilidade da web](../../azure-monitor/app/monitor-web-app-availability.md) e:
 
-* Faça o check-out do [painel do aplicativo](../../azure-monitor/app/overview-dashboard.md) padrão para sua sala da equipe para ficar atento à carga, à capacidade de resposta e ao desempenho de suas dependências, aos carregamentos de página e às chamadas AJAX.
+* Confira o [painel do aplicativo](../../azure-monitor/app/overview-dashboard.md) padrão da sala da equipe para acompanhar a carga, a capacidade de resposta e o desempenho das dependências, dos carregamentos de página e das chamadas AJAX.
 * Descubra quais são as solicitações mais lentas e com mais falhas.
 * Assista ao [Live Stream](../../azure-monitor/app/live-stream.md) quando implantar uma nova versão, para identificar imediatamente uma degradação.
 

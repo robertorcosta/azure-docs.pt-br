@@ -1,19 +1,19 @@
 ---
 title: Usar o Geth para anexar ao Azure Blockchain Service
 description: Anexar a uma instância do Geth no nó de transação Azure Blockchain Service
-ms.date: 11/20/2019
+ms.date: 05/26/2020
 ms.topic: quickstart
-ms.reviewer: janders
-ms.openlocfilehash: 9da78eac1dc429bcc0ad52bb9cb2f1fb743a90d4
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.reviewer: maheshna
+ms.openlocfilehash: 2c5b6a56d96ac132949052e9879c8f61d41ffb06
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74455838"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994758"
 ---
 # <a name="quickstart-use-geth-to-attach-to-an-azure-blockchain-service-transaction-node"></a>Início Rápido: Usar o Geth para anexar a um nó de transação do Azure Blockchain Service
 
-Neste Início Rápido, você usa o cliente Geth para se anexar a uma instância do Geth em um nó de transação do Azure Blockchain Service. Uma vez anexado, você usa o console do JavaScript Geth para chamar uma API JavaScript Dapp web3.
+Neste Início Rápido, você usa o cliente Geth para se anexar a uma instância do Geth em um nó de transação do Azure Blockchain Service. Depois de anexado, use o console do Geth para chamar uma API JavaScript do Ethereum.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -45,7 +45,7 @@ Você pode obter a cadeia de conexão Geth para um nó de transação do Azure B
     geth attach <connection string>
     ```
 
-1. Depois que estiver conectado ao console do Ethereum do nó de transação, você poderá chamar a API do Dapp JavaScript do web3 ou a API do administrador.
+1. Depois de conectado ao console do Ethereum do nó de transação, use a API JavaScript do Ethereum.
 
     Por exemplo, use a API a seguir para descobrir a chainId.
 

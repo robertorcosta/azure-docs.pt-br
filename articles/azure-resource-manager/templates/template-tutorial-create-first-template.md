@@ -2,15 +2,15 @@
 title: Tutorial – criar e implantar um modelo
 description: Criar seu primeiro modelo do Azure Resource Manager. No tutorial, você aprende sobre a sintaxe do arquivo de modelo e como implantar uma conta de armazenamento.
 author: mumian
-ms.date: 05/20/2020
+ms.date: 05/29/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 2180ca80d87643eb885d814318e516b4b3c53f37
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: dff1dd15f7f161f25ef7de54e36fa83e3e0036d2
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714790"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235224"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Tutorial: Criar e implantar seu primeiro modelo do ARM
 
@@ -39,6 +39,9 @@ Você também precisa do Azure PowerShell ou da CLI do Azure para implantar o mo
 - [Instalar a CLI do Azure no Linux](/cli/azure/install-azure-cli-linux)
 
 Depois de instalar o Azure PowerShell ou a CLI do Azure, é preciso que você entre pela primeira vez. Para obter ajuda, confira [Entrar – PowerShell](/powershell/azure/install-az-ps#sign-in) ou [Entrar – CLI do Azure](/cli/azure/get-started-with-azure-cli#sign-in).
+
+> [!IMPORTANT]
+> Se você estiver usando CLI do Azure, verifique se você tem a versão 2.6 ou posterior. Os comandos mostrados neste tutorial não funcionarão se você estiver usando versões anteriores. Para verificar sua versão instalada, use: `az --version`.
 
 Ok, você está pronto para começar a aprender sobre modelos.
 

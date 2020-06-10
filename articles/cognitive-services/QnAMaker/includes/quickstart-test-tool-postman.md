@@ -10,12 +10,12 @@ ms.topic: include
 ms.custom: include file
 ms.date: 04/27/2020
 ms.author: diberry
-ms.openlocfilehash: 97dfe175a609ab336206098948b4e3fcc401d8bc
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: a5af58c645720f0643e9245dc106248e36f2658f
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203942"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84237692"
 ---
 Este Início Rápido baseado no Postman fornece uma orientação para obtenção de uma resposta de uma base de dados de conhecimento.
 
@@ -64,7 +64,7 @@ Em um início rápido anterior, os metadados foram adicionados a dois pares de Q
     }
     ```
 
-    A pergunta é apenas uma só palavra, `size`, que pode retornar um dos dois conjuntos de perguntas e respostas. A matriz `strictFilters` instrui a resposta a reduzir para apenas as respostas `qna_maker`.
+    A pergunta é apenas uma só palavra, `size`, que pode retornar um dos dois pares de perguntas e respostas. A matriz `strictFilters` instrui a resposta a reduzir para apenas as respostas `qna_maker`.
 
 1. A resposta inclui apenas a resposta que atende aos critérios de filtro.
 
@@ -103,9 +103,12 @@ Em um início rápido anterior, os metadados foram adicionados a dois pares de Q
     }
     ```
 
-    Se houver um conjunto de perguntas e respostas que não correspondeu ao termo de pesquisa, mas que correspondeu ao filtro, ele não será retornado. Em vez disso, a resposta geral `No good match found in KB.` será retornada.
+    Se houver um par de perguntas e respostas que não correspondeu ao termo de pesquisa, mas que correspondeu ao filtro, ele não será retornado. Em vez disso, a resposta geral `No good match found in KB.` será retornada.
 
 ## <a name="use-debug-query-property"></a>Usar a propriedade de consulta de depuração
+
+> [!NOTE]
+>Não recomendamos usar a propriedade Debug para nenhuma dependência. Ela foi adicionada para ajudar a equipe do produto com a solução de problemas.
 
 As informações de depuração ajudam você a entender como a resposta retornada foi determinada. Embora isso seja útil, não é necessário. Para gerar uma resposta com informações de depuração, adicione a propriedade `debug`:
 

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 03/04/2020
 ms.author: aahi
-ms.openlocfilehash: a9519be591581fa434825f1a1fb31749788a21a8
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 1e9928359f314ed57004df0264ac843871083eba
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78395720"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141850"
 ---
 # <a name="what-is-the-text-analytics-api"></a>O que é a API de Análise de Texto?
 
@@ -88,7 +88,7 @@ Todos os pontos de extremidade da API de Análise de Texto aceitam dados de text
 |------------------------|---------------|
 | Tamanho máximo de um único documento | 5\.120 caracteres, conforme medido por [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
 | Tamanho máximo de toda a solicitação | 1 MB |
-| Número máximo de documentos em uma solicitação | Mil documentos |
+| Número máximo de documentos em uma solicitação | Até mil documentos ([varia de acordo com cada recurso](concepts/data-limits.md)) |
 
 O limite de taxa varia de acordo com o tipo de preço.
 

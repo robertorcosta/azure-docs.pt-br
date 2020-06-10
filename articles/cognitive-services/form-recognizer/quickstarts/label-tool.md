@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 3c42d520e5e30e57906245b9405b0d445be8ee16
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: cedc400ac6659cf2b2d0e9c499bf8789a6311e32
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871370"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141884"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Treinar um modelo de Reconhecimento de Formulários com rótulos usando a ferramenta de rotulagem de exemplo
 
@@ -143,7 +143,8 @@ Em seguida, você criará marcas (rótulos) e as aplicará aos elementos de text
     > * Valores de rótulo como aparecem no formulário. Não tente dividir um valor em duas partes com duas marcas diferentes. Por exemplo, um campo de endereço deve ser rotulado com uma só marca, mesmo que abranja várias linhas.
     > * Não inclua chaves nos campos marcados &mdash; apenas os valores.
     > * Os dados da tabela devem ser detectados automaticamente e estarão disponíveis no arquivo JSON de saída final. No entanto, se o modelo não detectar todos os dados da tabela, você também poderá marcar esses campos manualmente. Marque cada célula na tabela com um rótulo diferente. Se os formulários tiverem tabelas com números variados de linhas, marque pelo menos um formulário com a maior tabela possível.
-    > * Para excluir uma tag aplicada, selecione o retângulo na exibição do documento e pressione a tecla Delete.
+    > * Use os botões à direita do **+** para pesquisar, renomear, reordenar e excluir as marcas.
+    > * Para remover uma marca aplicada sem excluir a marca em si, selecione o retângulo marcado na exibição de documento e selecione a tecla Delete.
 
 ![Janela principal do editor da ferramenta de rótulo de exemplo](../media/label-tool/main-editor.png)
 

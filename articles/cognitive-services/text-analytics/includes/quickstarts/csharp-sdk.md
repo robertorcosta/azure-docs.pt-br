@@ -9,16 +9,16 @@ ms.topic: include
 ms.date: 03/17/2020
 ms.author: aahi
 ms.reviewer: assafi
-ms.openlocfilehash: 0e98a10573a2e3abda255c325845190ed5067bb3
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 979c714ca5446d3f1eabb76e97535ee5ffa2e359
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83778196"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84140682"
 ---
 <a name="HOLTop"></a>
 
-#### <a name="version-30-preview"></a>[Versão prévia 3.0](#tab/version-3)
+#### <a name="version-30"></a>[Versão 3.0](#tab/version-3)
 
 [Documentação de referência da v3](https://aka.ms/azsdk-net-textanalytics-ref-docs) | [Código-fonte da biblioteca v3](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics) | [Pacote da v3 (NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics) | [Amostras da v3](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
 
@@ -42,9 +42,9 @@ ms.locfileid: "83778196"
 
 Usando o IDE do Visual Studio, crie um aplicativo de console do .NET Core. Isso criará um projeto "Olá, Mundo" com um arquivo de origem C#: *program.cs*.
 
-#### <a name="version-30-preview"></a>[Versão prévia 3.0](#tab/version-3)
+#### <a name="version-30"></a>[Versão 3.0](#tab/version-3)
 
-Instale a biblioteca de cliente clicando com o botão direito do mouse na solução no **Gerenciador de Soluções** e selecionando **Gerenciar Pacotes do NuGet**. No gerenciador de pacotes aberto, selecione **Procurar**, marque **Incluir pré-lançamento** e pesquise `Azure.AI.TextAnalytics`. Selecione a versão `1.0.0-preview.4` e, em seguida, **Instalar**. Você também pode usar o [Console do Gerenciador de Pacotes](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
+Instale a biblioteca de cliente clicando com o botão direito do mouse na solução no **Gerenciador de Soluções** e selecionando **Gerenciar Pacotes do NuGet**. No gerenciador de pacotes aberto, selecione **Procurar**, marque **Incluir pré-lançamento** e pesquise `Azure.AI.TextAnalytics`. Selecione a versão `1.0.0-preview.5` e, em seguida, **Instalar**. Você também pode usar o [Console do Gerenciador de Pacotes](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
 
 > [!TIP]
 > Deseja exibir todo o arquivo de código do início rápido de uma vez? Você pode encontrá-lo [no GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/TextAnalytics/program.cs), que contém os exemplos de código neste início rápido. 
@@ -58,7 +58,7 @@ Instale a biblioteca de cliente clicando com o botão direito do mouse na soluç
 
 ---
 
-#### <a name="version-30-preview"></a>[Versão prévia 3.0](#tab/version-3)
+#### <a name="version-30"></a>[Versão 3.0](#tab/version-3)
 
 Abra o arquivo *program.cs* e adicione as seguintes diretivas `using`:
 
@@ -121,7 +121,7 @@ Substitua o método `Main` do aplicativo. Você definirá os métodos chamados a
 
 O cliente de Análise de Texto é um objeto `TextAnalyticsClient` que se autentica no Azure usando sua chave e fornece funções para aceitar texto como cadeias de caracteres únicas ou como um lote. Você pode enviar texto para a API de forma síncrona ou assíncrona. O objeto de resposta conterá as informações de análise para cada documento enviado. 
 
-Se estiver usando a versão `3.0-preview` do serviço, use uma instância `TextAnalyticsClientOptions` opcional para inicializar o cliente com várias configurações padrão (por exemplo, idioma padrão ou dica de país/região). Autentique-se também usando um token do Azure Active Directory. 
+Se estiver usando a versão `3.0` do serviço, use uma instância `TextAnalyticsClientOptions` opcional para inicializar o cliente com várias configurações padrão (por exemplo, idioma padrão ou dica de país/região). Autentique-se também usando um token do Azure Active Directory. 
 
 ## <a name="code-examples"></a>Exemplos de código
 
@@ -133,7 +133,7 @@ Se estiver usando a versão `3.0-preview` do serviço, use uma instância `TextA
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
-#### <a name="version-30-preview"></a>[Versão prévia 3.0](#tab/version-3)
+#### <a name="version-30"></a>[Versão 3.0](#tab/version-3)
 
 Verifique se o método principal indicado anteriormente cria um objeto de cliente com o ponto de extremidade e as credenciais.
 
@@ -155,7 +155,7 @@ Crie um método para criar uma instância do objeto [TextAnalyticsClient](https:
 
 ## <a name="sentiment-analysis"></a>Análise de sentimento
 
-#### <a name="version-30-preview"></a>[Versão prévia 3.0](#tab/version-3)
+#### <a name="version-30"></a>[Versão 3.0](#tab/version-3)
 
 Crie uma função chamada `SentimentAnalysisExample()` que use o cliente que você criou anteriormente e chame sua função `AnalyzeSentiment()`. O objeto `Response<DocumentSentiment>` retornado conterá o rótulo e a pontuação de sentimento de todo o documento de entrada, assim como uma análise de sentimento para cada frase se for bem-sucedido. Se houver um erro, ele gerará uma `RequestFailedException`.
 
@@ -169,8 +169,7 @@ static void SentimentAnalysisExample(TextAnalyticsClient client)
     var si = new StringInfo(inputText);
     foreach (var sentence in documentSentiment.Sentences)
     {
-        Console.WriteLine($"\tSentence [length {sentence.GraphemeLength}]");
-        Console.WriteLine($"\tText: \"{si.SubstringByTextElements(sentence.GraphemeOffset, sentence.GraphemeLength)}\"");
+        Console.WriteLine($"\tText: \"{sentence.Text}\"");
         Console.WriteLine($"\tSentence sentiment: {sentence.Sentiment}");
         Console.WriteLine($"\tPositive score: {sentence.ConfidenceScores.Positive:0.00}");
         Console.WriteLine($"\tNegative score: {sentence.ConfidenceScores.Negative:0.00}");
@@ -184,14 +183,12 @@ static void SentimentAnalysisExample(TextAnalyticsClient client)
 ```console
 Document sentiment: Positive
 
-        Sentence [length 30]
         Text: "I had the best day of my life."
         Sentence sentiment: Positive
         Positive score: 1.00
         Negative score: 0.00
         Neutral score: 0.00
 
-        Sentence [length 30]
         Text: "I wish you were there with me."
         Sentence sentiment: Neutral
         Positive score: 0.21
@@ -215,7 +212,7 @@ Sentiment Score: 0.87
 
 ## <a name="language-detection"></a>Detecção de idioma
 
-#### <a name="version-30-preview"></a>[Versão prévia 3.0](#tab/version-3)
+#### <a name="version-30"></a>[Versão 3.0](#tab/version-3)
 
 
 Crie uma função chamada `LanguageDetectionExample()` que use o cliente que você criou anteriormente e chame sua função `DetectLanguage()`. O objeto `Response<DetectedLanguage>` retornado conterá o idioma detectado junto com o nome e o código ISO-6391. Se houver um erro, ele gerará uma `RequestFailedException`.
@@ -258,11 +255,11 @@ Language: English
 
 ## <a name="named-entity-recognition-ner"></a>NER (Reconhecimento de Entidade Nomeada)
 
-#### <a name="version-30-preview"></a>[Versão prévia 3.0](#tab/version-3)
+#### <a name="version-30"></a>[Versão 3.0](#tab/version-3)
 
 
 > [!NOTE]
-> Novidade da versão `3.0-preview`:
+> Novidade da versão `3.0`:
 > * A vinculação de entidade agora está separada do reconhecimento de entidade.
 
 
@@ -276,7 +273,7 @@ static void EntityRecognitionExample(TextAnalyticsClient client)
     foreach (var entity in response.Value)
     {
         Console.WriteLine($"\tText: {entity.Text},\tCategory: {entity.Category},\tSub-Category: {entity.SubCategory}");
-        Console.WriteLine($"\t\tLength: {entity.GraphemeLength},\tScore: {entity.ConfidenceScore:F2}\n");
+        Console.WriteLine($"\t\tScore: {entity.ConfidenceScore:F2}\n");
     }
 }
 ```
@@ -285,11 +282,14 @@ static void EntityRecognitionExample(TextAnalyticsClient client)
 
 ```console
 Named Entities:
+        Text: trip,     Category: Event,        Sub-Category:
+                Score: 0.61
+
         Text: Seattle,  Category: Location,     Sub-Category: GPE
-                Length: 7,      Score: 0.92
+                Score: 0.82
 
         Text: last week,        Category: DateTime,     Sub-Category: DateRange
-                Length: 9,      Score: 0.80
+                Score: 0.80
 ```
 
 ## <a name="entity-linking"></a>Vinculação de entidade
@@ -313,7 +313,7 @@ static void EntityLinkingExample(TextAnalyticsClient client)
         foreach (var match in entity.Matches)
         {
             Console.WriteLine($"\t\tText: {match.Text}");
-            Console.WriteLine($"\t\tLength: {match.GraphemeLength},\tScore: {match.ConfidenceScore:F2}\n");
+            Console.WriteLine($"\t\tScore: {match.ConfidenceScore:F2}\n");
         }
     }
 }
@@ -326,38 +326,38 @@ Linked Entities:
         Name: Altair 8800,      ID: Altair 8800,        URL: https://en.wikipedia.org/wiki/Altair_8800  Data Source: Wikipedia
         Matches:
                 Text: Altair 8800
-                Length: 11,     Score: 0.78
+                Score: 0.88
 
         Name: Bill Gates,       ID: Bill Gates, URL: https://en.wikipedia.org/wiki/Bill_Gates   Data Source: Wikipedia
         Matches:
                 Text: Bill Gates
-                Length: 10,     Score: 0.55
+                Score: 0.63
 
                 Text: Gates
-                Length: 5,      Score: 0.55
+                Score: 0.63
 
         Name: Paul Allen,       ID: Paul Allen, URL: https://en.wikipedia.org/wiki/Paul_Allen   Data Source: Wikipedia
         Matches:
                 Text: Paul Allen
-                Length: 10,     Score: 0.53
+                Score: 0.60
 
         Name: Microsoft,        ID: Microsoft,  URL: https://en.wikipedia.org/wiki/Microsoft    Data Source: Wikipedia
         Matches:
                 Text: Microsoft
-                Length: 9,      Score: 0.47
+                Score: 0.55
 
                 Text: Microsoft
-                Length: 9,      Score: 0.47
+                Score: 0.55
 
         Name: April 4,  ID: April 4,    URL: https://en.wikipedia.org/wiki/April_4      Data Source: Wikipedia
         Matches:
                 Text: April 4
-                Length: 7,      Score: 0.25
+                Score: 0.32
 
         Name: BASIC,    ID: BASIC,      URL: https://en.wikipedia.org/wiki/BASIC        Data Source: Wikipedia
         Matches:
                 Text: BASIC
-                Length: 5,      Score: 0.28
+                Score: 0.33
 ```
 
 #### <a name="version-21"></a>[Versão 2.1](#tab/version-2)
@@ -374,7 +374,7 @@ Crie uma nova função chamada `RecognizeEntitiesExample()` que use o cliente qu
 
 ## <a name="key-phrase-extraction"></a>Extração de frases-chave
 
-#### <a name="version-30-preview"></a>[Versão prévia 3.0](#tab/version-3)
+#### <a name="version-30"></a>[Versão 3.0](#tab/version-3)
 
 Crie uma função chamada `KeyPhraseExtractionExample()` que use o cliente que você criou anteriormente e chame sua função `ExtractKeyPhrases()`. O objeto `<Response<IReadOnlyCollection<string>>` retornado conterá a lista das frases-chave detectadas. Se houver um erro, ele gerará uma `RequestFailedException`.
 

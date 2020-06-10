@@ -13,12 +13,12 @@ ms.topic: overview
 ms.custom: mvc, seodec18
 ms.date: 12/07/2018
 ms.author: mbaldwin
-ms.openlocfilehash: ad3c9d702384b8a32a9d4f0c8aebe44de4bb526e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fc7d4caecb2ca3d35d7b1b8d0cd5f9ff380d7674
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80337215"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310097"
 ---
 # <a name="troubleshooting"></a>Solução de problemas
 
@@ -120,7 +120,7 @@ Tenha cuidado ao configurar a rede no HSM.  O HSM tem uma conexão por meio do g
 
 ### <a name="hsm-device-reboot"></a>Reinicialização de dispositivo do HSM
 
-Algumas alterações de configuração exigem que o HSM seja desligado ou reinicializado. Os testes da Microsoft do HSM no Azure determinaram que, em algumas ocasiões, a reinicialização poderia parar. A implicação é que uma solicitação de suporte deve ser criada no portal do Azure solicitando a reinicialização física e que pode levar até 48 horas para ser concluída, considerando que se trata de um processo manual em um datacenter do Azure.  Para evitar essa situação, verifique se você implantou o patch de reinicialização disponível diretamente da Thales. Confira [KB0019789](https://supportportal.gemalto.com/csm?sys_kb_id=d66911e2db4ffbc0d298728dae9619b0&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=d568c35bdb9a4850d6b31f3b4b96199e&sysparm_article=KB0019789) nos Downloads do HSM 7.2 de Rede Thales Luna para obter um patch recomendado para um problema de reinicialização. (Observação: você precisará ter se registrado no portal de suporte da Thales para download.)
+Algumas alterações de configuração exigem que o HSM seja desligado ou reinicializado. Os testes da Microsoft do HSM no Azure determinaram que, em algumas ocasiões, a reinicialização poderia parar de responder. A implicação é que uma solicitação de suporte deve ser criada no portal do Azure solicitando a reinicialização física e que pode levar até 48 horas para ser concluída, considerando que se trata de um processo manual em um datacenter do Azure.  Para evitar essa situação, verifique se você implantou o patch de reinicialização disponível diretamente da Thales. Confira [KB0019789](https://supportportal.gemalto.com/csm?sys_kb_id=d66911e2db4ffbc0d298728dae9619b0&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=d568c35bdb9a4850d6b31f3b4b96199e&sysparm_article=KB0019789) nos Downloads do HSM 7.2 de Rede Thales Luna para obter um patch recomendado para um problema de reinicialização. (Observação: você precisará ter se registrado no portal de suporte da Thales para download.)
 
 ### <a name="ntls-certificates-out-of-sync"></a>Certificados NTLS fora de sincronia
 Um cliente pode perder a conectividade com um HSM quando um certificado expira ou é substituído por meio de atualizações de configuração. A configuração do cliente de troca de certificado deve ser reaplicada a cada HSM.

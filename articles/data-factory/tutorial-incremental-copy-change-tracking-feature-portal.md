@@ -1,6 +1,6 @@
 ---
 title: Copiar dados incrementalmente usando Controle de Alterações
-description: Neste tutorial, você deve criar um pipeline do Azure Data Factory que copie incrementalmente os dados delta de várias tabelas em um banco de dados do SQL Server local para um banco de dados SQL do Azure.
+description: Neste tutorial, você criará um pipeline do Azure Data Factory que copia os dados delta de maneira incremental de várias tabelas em um banco de dados do SQL Server para um banco de dados SQL do Azure.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/12/2018
-ms.openlocfilehash: 40e4fed9755edc2204c7b6b24a003995a14212d0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 842531b7f4bdd3690258262b32a42a19366c1830
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81415436"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196286"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Carregar incrementalmente os dados do Banco de Dados SQL do Azure para o Armazenamento de Blobs do Azure usando informações de controle de alterações
 
@@ -42,7 +42,7 @@ Em uma solução de integração de dados, o carregamento incremental de dados d
 Estas são as etapas normais de fluxo de trabalho de ponta a ponta para carregar incrementalmente os dados usando a tecnologia de Controle de Alterações.
 
 > [!NOTE]
-> O Banco de Dados SQL do Azure e o SQL Server oferecem suporte à tecnologia de Controle de Alterações. Este tutorial usa o Banco de Dados SQL do Azure como o armazenamento de dados de origem. Você também pode usar um SQL Server local.
+> O Banco de Dados SQL do Azure e o SQL Server oferecem suporte à tecnologia de Controle de Alterações. Este tutorial usa o Banco de Dados SQL do Azure como o armazenamento de dados de origem. Você também pode usar uma instância do SQL Server.
 
 1. **Carregamento inicial de dados históricos** (execução única):
     1. Habilite a tecnologia de Controle de Alterações no Banco de Dados SQL do Azure de origem.
@@ -70,11 +70,11 @@ Neste tutorial, você cria dois pipelines que executam as duas operações a seg
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* **Banco de dados SQL do Azure**. Você usa o banco de dados como um armazenamento de dados de **origem**. Se você não tiver um Banco de Dados SQL do Azure, veja o artigo [Criar um Banco de Dados SQL do Azure](../sql-database/sql-database-get-started-portal.md) para conhecer as etapas para criar um.
+* **Banco de dados SQL do Azure**. Você usa o banco de dados como um armazenamento de dados de **origem**. Se você não tiver um Banco de Dados SQL do Azure, veja o artigo [Criar um Banco de Dados SQL do Azure](../azure-sql/database/single-database-create-quickstart.md) para conhecer as etapas para criar um.
 * **Conta de Armazenamento do Azure**. Você usa o Armazenamento de Blobs como um armazenamento de dados de **coletor**. Se você não tiver uma conta de Armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/common/storage-account-create.md) para conhecer as etapas para criar uma. Crie um contêiner denominado **adftutorial**. 
 
 ### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Criar uma tabela de fonte de dados no Banco de Dados SQL do Azure
-1. Inicie o **SQL Server Management Studio** e conecte-se ao SQL Server do Azure.
+1. Inicie o **SQL Server Management Studio** e conecte-se ao Banco de Dados SQL.
 2. No **Gerenciador de Servidores**, clique com o botão direito do mouse no **banco de dados** e escolha **Nova Consulta**.
 3. Execute o comando SQL a seguir no Banco de Dados SQL do Azure para criar uma tabela chamada `data_source_table` como o repositório de fonte de dados.  
 
@@ -216,8 +216,8 @@ Nesta etapa, você vincula o banco de dados SQL do Azure ao data factory.
 3. Na janela **Novo Serviço Vinculado**, execute estas etapas:
 
     1. Insira **AzureSqlDatabaseLinkedService** para o campo **Nome**.
-    2. Selecione o servidor SQL do Azure no campo **Nome do servidor**.
-    4. Selecione o seu banco de dados SQL do Azure no campo **Nome do banco de dados**.
+    2. Selecione o servidor no campo **Nome do servidor**.
+    4. Selecione o seu banco de dados no campo **Nome do banco de dados**.
     5. Insira o nome do usuário no campo **Nome de usuário**.
     6. Insira a senha do usuário no campo **Senha**.
     7. Clique em **Testar conectividade** para testar a conexão.

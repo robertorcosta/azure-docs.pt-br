@@ -1,0 +1,21 @@
+---
+author: DCtheGeek
+ms.service: azure-policy
+ms.topic: include
+ms.date: 05/29/2020
+ms.author: dacoulte
+ms.custom: generated
+ms.openlocfilehash: 807dde49c352c3a4fc64fd540a0387e4cf77ae86
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84233528"
+---
+|Nome |Descrição |Efeito(s) |Versão |GitHub |
+|---|---|---|---|---|
+|[Configurar os autores de módulos permitidos para computações especificadas do Azure Machine Learning](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F53c70b02-63dd-11ea-bc55-0242ac130003) |Essa política ajuda a fornecer os autores de módulo permitidos em computações especificadas do Azure Machine Learning e pode ser atribuída no workspace. Para obter mais informações, visite [https://aka.ms/amlpolicydoc](https://aka.ms/amlpolicydoc). |enforceSetting, disabled |1.0.0 – versão prévia |[Link](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/AllowedModuleAuthors_EnforceSetting.json) |
+|[Configurar pacotes de Python permitidos para computações especificadas do Azure Machine Learning](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F77eeea86-7e81-4a7d-9067-de844d096752) | Essa política ajuda a fornecer pacotes de Python permitidos em computações especificadas do Azure Machine Learning e pode ser atribuída no workspace. Para obter mais informações, visite [https://aka.ms/amlpolicydoc](https://aka.ms/amlpolicydoc). |enforceSetting, disabled |1.0.0 – versão prévia |[Link](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/AllowedPythonPackageChannels_EnforceSetting.json) |
+|[Configurar registros permitidos para computações especificadas do Azure Machine Learning](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5853517a-63de-11ea-bc55-0242ac130003) |Essa política ajuda a fornecer os registros que são permitidos em computações especificadas do Azure Machine Learning e pode ser atribuída no workspace. Para obter mais informações, visite [https://aka.ms/amlpolicydoc](https://aka.ms/amlpolicydoc). |enforceSetting, disabled |1.0.0 – versão prévia |[Link](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/AllowedACRs_EnforceSetting.json) |
+|[Configurar um ponto de extremidade de aprovação chamado antes da execução dos trabalhos para computações especificadas do Azure Machine Learning](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3948394e-63de-11ea-bc55-0242ac130003) |Essa política ajuda a configurar um ponto de extremidade de aprovação chamado antes da execução dos trabalhos para computações especificadas do Azure Machine Learning e pode ser atribuída no workspace. Para obter mais informações. Para obter mais informações, visite [https://aka.ms/amlpolicydoc](https://aka.ms/amlpolicydoc). |enforceSetting, disabled |1.0.0 – versão prévia |[Link](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/ApprovalEndpoint_EnforceSetting.json) |
+|[Configurar expressões de filtro de log e armazenamento de dados para serem usadas para logs completos para computações especificadas do Azure Machine Learning](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d413020-63de-11ea-bc55-0242ac130003) |Essa política ajuda a fornecer a expressão de filtro de log e o armazenamento de dados a serem usados para logs completos em computações especificadas do Azure Machine Learning e pode ser atribuída no workspace. Para obter mais informações, visite [https://aka.ms/amlpolicydoc](https://aka.ms/amlpolicydoc). |enforceSetting, disabled |1.0.0 – versão prévia |[Link](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/AllowedLogFilter_EnforceSetting.json) |

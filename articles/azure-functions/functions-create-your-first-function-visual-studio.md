@@ -5,22 +5,18 @@ ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
 ms.date: 03/06/2020
 ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: a4549bd2947332d7140f4f440a5344f417430554
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: aa1999df83c3a3926f3410ea7ee48af75b2dd515
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83122703"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84231605"
 ---
 # <a name="quickstart-create-your-first-function-in-azure-using-visual-studio"></a>Início Rápido: Criar sua primeira função no Azure usando o Visual Studio
 
-O Azure Functions lhe permite executar o código em um ambiente sem servidor sem que seja preciso primeiro criar uma VM ou publicar um aplicativo Web.
+Neste artigo, você usará o Visual Studio para criar uma função baseada em biblioteca de classes C# que responde a solicitações HTTP. Após testar o código localmente, implante-o no ambiente sem servidor do Azure Functions.  
 
-Neste início rápido, você aprenderá a usar o Visual Studio 2019 para criar e testar localmente um aplicativo de funções “olá, mundo” em C# de gatilho HTTP e publicá-lo no Azure. 
-
-![Resposta da função localhost no navegador](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-local-final.png)
-
-Este início rápido foi criado para o Visual Studio 2019. 
+A realização deste início rápido gera um pequeno custo de alguns centavos de dólar ou menos em sua conta do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -34,11 +30,19 @@ Se você não tiver uma [assinatura do Azure](../guides/developer/azure-develope
 
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
-O Visual Studio cria um projeto e uma classe que contém o código clichê do tipo de função do gatilho HTTP. O atributo do método `FunctionName` define o nome da função, que é `Function1` por padrão. O atributo `HttpTrigger` especifica que a função é disparada por uma solicitação HTTP. O código padronizado envia uma resposta HTTP que inclui um valor do corpo de solicitação ou da cadeia de consulta.
+O Visual Studio cria um projeto e uma classe que contém o código clichê do tipo de função do gatilho HTTP. O código padronizado envia uma resposta HTTP que inclui um valor do corpo de solicitação ou da cadeia de consulta. O atributo `HttpTrigger` especifica que a função é disparada por uma solicitação HTTP. 
 
-Amplie as funcionalidades de sua função com associações de entrada e de saída, aplicando os atributos adequados ao método. Para obter mais informações, consulte a seção [Gatilhos e associações](functions-dotnet-class-library.md#triggers-and-bindings) da [referência do desenvolvedor C# do Azure Functions](functions-dotnet-class-library.md).
+## <a name="rename-the-function"></a>Renomear a função
 
-Agora que você criou o seu projeto de função e uma função de gatilho HTTP, você pode testá-la em seu computador local.
+O atributo do método `FunctionName` define o nome da função, que por padrão é gerado como `Function1`. Como as ferramentas não permitem que você substitua o nome padrão da função quando cria seu projeto, dedique um minuto a criar um nome melhor para a classe da função, o arquivo e os metadados.
+
+1. No **Explorador de Arquivos**, clique com o botão direito do mouse no arquivo Function1.cs e renomeie-o como `HttpExample.cs`.
+
+1. No código, renomeie a classe Function1 como 'HttpExample'.
+
+1. No método `HttpTrigger` chamado `run`, renomeie o atributo do método `FunctionName` como `HttpExample`.
+
+Agora que renomeou a função, você pode testá-la no computador local.
 
 ## <a name="run-the-function-locally"></a>Executar a função localmente
 
@@ -56,19 +60,41 @@ Antes de publicar o projeto, você deve ter um aplicativo de funções em sua as
 
 ## <a name="test-your-function-in-azure"></a>Testar sua função no Azure
 
-1. Copie a URL base do aplicativo de funções na página de perfil de **Publicação**. Substitua a parte `localhost:port` da URL que você usou para testar a função localmente pela nova URL base. Acrescente o valor de cadeia de consulta `?name=<YOUR_NAME>` a essa URL e execute a solicitação.
+1. No Cloud Explorer, seu novo aplicativo de funções deve estar selecionado. Caso contrário, expanda sua assinatura > **Serviços de Aplicativos** e selecione seu novo aplicativo de funções.
+
+1. Clique com o botão direito do mouse no aplicativo de funções e escolha **Abrir no navegador**. Isso abre a raiz do aplicativo de funções no navegador da Web padrão e exibe a página que indica que o aplicativo de funções está em execução. 
+
+    :::image type="content" source="media/functions-create-your-first-function-visual-studio/function-app-running-azure.png" alt-text="Aplicativo de funções em execução":::
+
+1. Na barra de endereços no navegador, acrescente a cadeia de caracteres `/api/HttpExample?name=Functions` à URL base e execute a solicitação.
 
     A URL que chama a função de gatilho HTTP está no seguinte formato:
 
-    `http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?name=<YOUR_NAME>`
+    `http://<APP_NAME>.azurewebsites.net/api/HttpExample?name=Functions`
 
-2. Cole essa nova URL para a solicitação HTTP na barra de endereços do navegador. A imagem a seguir mostra a resposta no navegador à solicitação GET remota retornada pela função:
+2. Vá para essa URL e você verá uma resposta no navegador à solicitação GET remota retornada pela função, que é semelhante ao seguinte exemplo:
 
-    ![Resposta da função no navegador](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-azure.png)
+    :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-azure.png" alt-text="Resposta da função no navegador":::
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-[!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
+Outros inícios rápidos nessa coleção aproveitam esse início rápido. Se você planeja trabalhar com guias de início rápido subsequentes, tutoriais ou com qualquer serviço criado por você nesse início rápido, não limpe os recursos.
+
+Os *Recursos* no Azure se referem a aplicativos de funções, funções, contas de armazenamento e assim por diante. Eles são agrupados em *grupos de recursos* e você pode excluir tudo junto ao excluir o grupo. 
+
+Você criou recursos para concluir esses guias de início rápido. Você pode ser cobrado por esses recursos, dependendo do [status de conta](https://azure.microsoft.com/account/) e [preços do serviço](https://azure.microsoft.com/pricing/). Caso não precise mais dos recursos, é possível excluí-los desta maneira:
+
+1. No Cloud Explorer, expanda sua assinatura > **Serviços de Aplicativos**, clique com o botão direito do mouse no aplicativo de funções e escolha **Abrir no Portal**. 
+
+1. Na página do aplicativo de funções, selecione a guia **Visão geral** e depois selecione o link em **Grupo de recursos**.
+
+   :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-app-delete-resource-group.png" alt-text="Selecione o grupo de recursos a ser excluído da página do aplicativo de funções":::
+
+2. Na página **Grupo de recursos**, examine a lista de recursos incluídos e verifique se eles são aqueles que deseja excluir.
+ 
+3. Selecione **Excluir grupo de recursos** e siga as instruções.
+
+   A exclusão poderá levar alguns minutos. Ao ser concluída, uma notificação será exibida por alguns segundos. Também é possível selecionar o ícone de sino na parte superior da página para exibir a notificação.
 
 ## <a name="next-steps"></a>Próximas etapas
 

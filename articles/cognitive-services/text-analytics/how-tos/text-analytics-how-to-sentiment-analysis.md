@@ -8,59 +8,39 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 04/27/2020
+ms.date: 05/18/2020
 ms.author: aahi
-ms.openlocfilehash: 99a62daf6dced88efd9bda591a0ca44a8b259a75
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: acd8fae81baa7ad65b8d9c321c55a6311cbf4c72
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195631"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141238"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Como fazer: Detectar o sentimento usando a API de Análise de Texto
 
 O recurso Análise de Sentimento da API de Análise de Texto avalia o texto e retorna pontuações e rótulos de sentimentos para cada frase. Isso é útil para detectar o sentimento positivo e negativo em fóruns de discussão, revisões de cliente e mídia social, entre outros. Os modelos de IA usados pela API são fornecidos pelo serviço; basta enviar o conteúdo para análise.
 
-> [!TIP]
-> A Análise de Texto também fornece um Docker baseado em imagem de contêiner do Linux para detecção de idioma, para que você possa [instalar e executar o contêiner de análise de texto](text-analytics-how-to-install-containers.md) perto de seus dados.
+Depois de enviar uma solicitação de análise de sentimento, a API retorna rótulos de sentimento (como "negativo", "neutro" e "positivo") e pontuações de confiança no nível da frase e do documento.
 
 A Análise de Sentimento dá suporte a uma ampla variedade de idiomas, com mais opções na versão prévia. Para obter mais informações, consulte [Linguagens com suporte](../text-analytics-supported-languages.md).
 
-## <a name="concepts"></a>Conceitos
-
-A API de Análise de Texto usa um algoritmo de classificação de aprendizado de máquina para gerar uma pontuação de sentimento entre 0 e 1. As pontuações mais próximas de 1 indicam sentimento positivo, enquanto as classificações mais próximas de 0 indicam sentimento negativo.” A Análise de Sentimento é executada em todo o documento, em vez de entidades individuais no texto. Isso significa que as pontuações de sentimentos são retornadas em um nível de documento ou frase. 
-
-O modelo usado é pré-treinado com um amplo corpus de associações de texto e sentimentos. Ele utiliza uma combinação de técnicas para a análise, incluindo processamento de texto, análise de classe gramatical, posicionamento e associações de palavras. Para obter mais informações sobre o algoritmo, consulte [Apresentando Análise de Texto do Azure Machine Learning](https://blogs.technet.microsoft.com/machinelearning/2015/04/08/introducing-text-analytics-in-the-azure-ml-marketplace/). Atualmente, não é possível fornecer seus próprios dados de treinamento. 
-
-Há uma tendência de melhoria na precisão de pontuação quando os documentos contêm menos frases em vez de um grande bloco de texto. Durante a fase de avaliação objetividade, o modelo determina se um documento como um todo é objetivo ou contém sentimento. Um documento que é principalmente objetivo não faz progresso para a frase de detecção de sentimento, resultando em uma pontuação 0,50, sem nenhum processamento adicional. Para documentos que continuam no pipeline, a próxima fase gera uma pontuação acima ou abaixo de 0,50. A pontuação depende do grau de sentimento detectado no documento.
-
 ## <a name="sentiment-analysis-versions-and-features"></a>Versões e recursos da Análise de Sentimento
 
-A API de Análise de Texto oferece duas versões da Análise de Sentimento: v2 e v3. A Análise de Sentimento v3 (versão prévia pública) fornece melhorias significativas na precisão e nos detalhes da pontuação e da categorização de texto da API.
+[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
-> [!NOTE]
-> * O formato de solicitação e os [limites de dados](../overview.md#data-limits) da Análise de Sentimento v3 são os mesmos que os da versão anterior.
-> * A Análise de Sentimento v3 está disponível nas seguintes regiões: `Australia East`, `Central Canada`, `Central US`, `East Asia`, `East US`, `East US 2`, `North Europe`, `Southeast Asia`, `South Central US`, `UK South`, `West Europe` e `West US 2`.
+| Recurso                                   | Análise de Sentimento v3 | Análise de Sentimento v3.1 (versão prévia) |
+|-------------------------------------------|-----------------------|-----------------------------------|
+| Métodos para solicitações únicas e em lote    | X                     | X                                 |
+| Pontuações e rotulagem de sentimentos             | X                     | X                                 |
+| [Contêiner do Docker](text-analytics-how-to-install-containers.md) baseado em Linux | X  |  |
+| Mineração de opinião                            |                       | X                                 |
 
-| Recurso                                   | Análise de Sentimento v2 | Análise de Sentimento v3 |
-|-------------------------------------------|-----------------------|-----------------------|
-| Métodos para solicitações únicas e em lote    | X                     | X                     |
-| Pontuações de sentimentos para o documento inteiro  | X                     | X                     |
-| Pontuações de sentimentos para frases individuais |                       | X                     |
-| Rotulação de sentimento                        |                       | X                     |
-| Controle de versão de modelo                   |                       | X                     |
+### <a name="sentiment-scoring-and-labeling"></a>Pontuação e rotulagem de sentimentos
 
-#### <a name="version-30-preview"></a>[Versão prévia 3.0](#tab/version-3)
+A Análise de Sentimento na v3 aplica rótulos de sentimento a um texto, que são retornados em um nível da frase e do documento, com uma pontuação de confiança para cada um. 
 
-### <a name="sentiment-scoring"></a>Pontuação de sentimento
-
-A Análise de Sentimento v3 classifica o texto com rótulos de sentimentos (descritos abaixo). As pontuações retornadas representam a confiança do modelo de que o texto é positivo, negativo ou neutro. Valores mais altos significam uma maior confiança. 
-
-### <a name="sentiment-labeling"></a>Rotulação de sentimento
-
-A Análise de Sentimento v3 retorna rótulos de sentimentos em um nível de frase e documento (`positive`, `negative` e `neutral`) junto com pontuações de confiança. O rótulo de sentimento `mixed` também pode ser retornado no nível do documento. 
-
-O sentimento do documento é determinado abaixo:
+Os rótulos são `positive`, `negative` e `neutral`. No nível do documento, o rótulo de sentimento `mixed` também pode ser retornado. O sentimento do documento é determinado abaixo:
 
 | Sentimento da frase                                                                            | Rótulo do documento retornado |
 |-----------------------------------------------------------------------------------------------|-------------------------|
@@ -69,25 +49,20 @@ O sentimento do documento é determinado abaixo:
 | Há, pelo menos, uma frase `negative` e uma frase `positive` no documento.    | `mixed`                 |
 | Todas as frases do documento são `neutral`.                                                  | `neutral`               |
 
-### <a name="model-versioning"></a>Controle de versão de modelo
+As pontuações de confiança vão de 1 a 0. As pontuações mais próximas a 1 indicam uma maior confiança na classificação do rótulo, enquanto as pontuações inferiores indicam uma menor confiança. As pontuações de confiança em cada documento ou frase somam 1.
 
-> [!NOTE]
-> O controle de versão de modelo para análise de sentimentos está disponível a partir da versão `v3.0-preview.1`.
+### <a name="opinion-mining"></a>Mineração de opinião
 
-[!INCLUDE [v3-model-versioning](../includes/model-versioning.md)]
+A mineração de opinião é um recurso da Análise de Sentimento na versão 3.1-preview.1 em diante. Também conhecida como Análise de Sentimento baseada em aspecto no NLP (processamento de idioma natural), esse recurso fornece informações mais granulares sobre as opiniões relacionadas a aspectos (como os atributos de produtos ou serviços) no texto.
 
-### <a name="example-c-code"></a>Código C# de exemplo
+Por exemplo, se um cliente deixar comentários sobre um hotel, como "o quarto era excelente, mas a equipe foi antipática", a mineração de opinião localizará aspectos no texto e as respectivas opiniões e sentimentos associados:
 
-Você pode encontrar um aplicativo em C# de exemplo que chama esta versão da Análise de Sentimento no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet/Language/TextAnalyticsSentiment.cs).
+| Aspecto | Opinião    | Sentimento |
+|--------|------------|-----------|
+| quarto   | excelente      | positivo  |
+| staff  | antipática | negativo  |
 
-
-#### <a name="version-21"></a>[Versão 2.1](#tab/version-2)
-
-### <a name="sentiment-scoring"></a>Pontuação de sentimento
-
-O analisador de sentimento classifica texto como predominantemente positivo ou negativo. Ele atribui uma pontuação no intervalo de 0 a 1. Valores próximos 0,5 são neutros ou indeterminados. Uma pontuação de 0,5 indica neutralidade. Quando uma cadeia de caracteres não pode ser analisada para sentimento ou não tem nenhum sentimento, a pontuação é sempre exatamente 0,5. Por exemplo, se você passar uma cadeia de caracteres espanhol com um código de idioma inglês, a pontuação é 0,5.
-
----
+Para incluir a mineração de opinião nos resultados, inclua o sinalizador `opinionMining=true` em uma solicitação de análise de sentimento. Os resultados da mineração de opinião serão incluídos na resposta da análise de sentimento.
 
 ## <a name="sending-a-rest-api-request"></a>Como enviar uma solicitação da API REST 
 
@@ -103,28 +78,36 @@ O tamanho do documento deve ser inferior a 5.120 caracteres. Você pode ter até
 
 Crie uma solicitação POST. Você pode [usar o Postman](text-analytics-how-to-call-api.md) ou o **console de teste da API** nos links de referência a seguir para estruturar e enviar uma rapidamente. 
 
-#### <a name="version-30-preview"></a>[Versão prévia 3.0](#tab/version-3)
+#### <a name="version-30"></a>[Versão 3.0](#tab/version-3)
 
-[Referência da Análise de Sentimento v3](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment)
+[Referência da Análise de Sentimento v3](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Sentiment)
 
-#### <a name="version-21"></a>[Versão 2.1](#tab/version-2)
+#### <a name="version-31-preview1"></a>[Versão 3.1-preview.1](#tab/version-3-1)
 
-[Referência da Análise de Sentimento v2](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
+[Referência da Análise de Sentimento v3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Sentiment)
 
 ---
 
-Defina o ponto de extremidade HTTPS para a Análise de Sentimento usando um recurso da Análise de Texto no Azure ou um [contêiner da Análise de Texto](text-analytics-how-to-install-containers.md) instanciado. É necessário incluir a URL correta para a versão que você deseja usar. Por exemplo: 
+### <a name="request-endpoints"></a>Pontos de extremidade de solicitação
+
+Defina o ponto de extremidade HTTPS para a Análise de Sentimento usando um recurso da Análise de Texto no Azure ou um [contêiner da Análise de Texto](text-analytics-how-to-install-containers.md) instanciado. É necessário incluir a URL correta para a versão que você deseja usar. Por exemplo:
 
 > [!NOTE]
 > Você pode encontrar sua chave e ponto de extremidade para o recurso da Análise de Texto no portal do Azure. Eles estarão localizados na página de **Início rápido** do recurso, em **Gerenciamento de recursos**. 
 
-#### <a name="version-30-preview"></a>[Versão prévia 3.0](#tab/version-3)
+#### <a name="version-30"></a>[Versão 3.0](#tab/version-3)
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/sentiment`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/sentiment`
 
-#### <a name="version-21"></a>[Versão 2.1](#tab/version-2)
+#### <a name="version-31-preview1"></a>[Versão 3.1-preview.1](#tab/version-3-1)
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/sentiment`
+
+Para obter os resultados da mineração de opinião, inclua o parâmetro `opinionMining=true`. Por exemplo:
+
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/sentiment?opinionMining=true`
+
+Esse parâmetro é definido como `false` por padrão. 
 
 ---
 
@@ -132,22 +115,17 @@ Defina um cabeçalho de solicitação para incluir sua chave de API de Análise 
 
 ### <a name="example-sentiment-analysis-request"></a>Solicitação de exemplo da Análise de Sentimento 
 
-Este é um exemplo de conteúdo que você pode enviar para a detecção de sentimento. O formato da solicitação é o mesmo para as duas versões da API.
+Este é um exemplo de conteúdo que você pode enviar para a detecção de sentimento. O formato da solicitação é o mesmo nas duas versões.
     
 ```json
 {
-    "documents": [
+  "documents": [
     {
-        "language": "en",
-        "id": "1",
-        "text": "Hello world. This is some input text that I love."
-    },
-    {
-        "language": "en",
-        "id": "2",
-        "text": "It's incredibly sunny outside! I'm so happy."
+      "language": "en",
+      "id": "1",
+      "text": "The restaurant had great food and our waiter was friendly."
     }
-    ],
+  ]
 }
 ```
 
@@ -160,15 +138,15 @@ A API de Análise de Texto é sem estado. Nenhum dado é armazenado em sua conta
 
 ### <a name="view-the-results"></a>Exibir os resultados
 
-O analisador de sentimento classifica texto como predominantemente positivo ou negativo. Ele atribui uma pontuação no intervalo de 0 a 1. Valores próximos 0,5 são neutros ou indeterminados. Uma pontuação de 0,5 indica neutralidade. Quando uma cadeia de caracteres não pode ser analisada para sentimento ou não tem nenhum sentimento, a pontuação é sempre exatamente 0,5. Por exemplo, se você passar uma cadeia de caracteres espanhol com um código de idioma inglês, a pontuação é 0,5.
+A análise de sentimento retorna um rótulo de sentimento e uma pontuação de confiança para todo o documento e cada frase dentro dele. As pontuações mais próximas a 1 indicam uma maior confiança na classificação do rótulo, enquanto as pontuações inferiores indicam uma menor confiança. Um documento pode ter várias frases, e as pontuações de confiança dentro de cada documento ou frase somam 1.
 
 A saída é retornada imediatamente. Você pode transmitir os resultados para um aplicativo que aceita JSON ou salvar a saída em um arquivo no sistema local. Em seguida, importe a saída para um aplicativo que você possa usar para classificar, pesquisar e manipular os dados. Devido ao suporte multilíngue e a emojis, a resposta pode conter deslocamentos de texto. Confira [como processar deslocamentos](../concepts/text-offsets.md) para obter mais informações.
 
-#### <a name="version-30-preview"></a>[Versão prévia 3.0](#tab/version-3)
+#### <a name="version-30"></a>[Versão 3.0](#tab/version-3)
 
-### <a name="sentiment-analysis-v3-example-response"></a>Exemplo de resposta da Análise de Sentimento v3
+### <a name="sentiment-analysis-v30-example-response"></a>Exemplo de resposta da Análise de Sentimento v3.0
 
-As respostas da Análise de Sentimento v3 contêm rótulos e pontuações de sentimentos para cada frase e documento analisado. `documentScores` não será retornado se o rótulo de sentimento do documento for `mixed`.
+As respostas da Análise de Sentimento v3 contêm rótulos e pontuações de sentimentos para cada frase e documento analisado.
 
 ```json
 {
@@ -176,86 +154,125 @@ As respostas da Análise de Sentimento v3 contêm rótulos e pontuações de sen
         {
             "id": "1",
             "sentiment": "positive",
-            "documentScores": {
-                "positive": 0.98570585250854492,
-                "neutral": 0.0001625834556762,
-                "negative": 0.0141316400840878
-            },
-            "sentences": [
-                {
-                    "sentiment": "neutral",
-                    "sentenceScores": {
-                        "positive": 0.0785155147314072,
-                        "neutral": 0.89702343940734863,
-                        "negative": 0.0244610067456961
-                    },
-                    "offset": 0,
-                    "length": 12
-                },
-                {
-                    "sentiment": "positive",
-                    "sentenceScores": {
-                        "positive": 0.98570585250854492,
-                        "neutral": 0.0001625834556762,
-                        "negative": 0.0141316400840878
-                    },
-                    "offset": 13,
-                    "length": 36
-                }
-            ]
-        },
-        {
-            "id": "2",
-            "sentiment": "positive",
-            "documentScores": {
-                "positive": 0.89198976755142212,
-                "neutral": 0.103382371366024,
-                "negative": 0.0046278294175863
+            "confidenceScores": {
+                "positive": 1.0,
+                "neutral": 0.0,
+                "negative": 0.0
             },
             "sentences": [
                 {
                     "sentiment": "positive",
-                    "sentenceScores": {
-                        "positive": 0.78401315212249756,
-                        "neutral": 0.2067587077617645,
-                        "negative": 0.0092281140387058
+                    "confidenceScores": {
+                        "positive": 1.0,
+                        "neutral": 0.0,
+                        "negative": 0.0
                     },
                     "offset": 0,
-                    "length": 30
-                },
-                {
-                    "sentiment": "positive",
-                    "sentenceScores": {
-                        "positive": 0.99996638298034668,
-                        "neutral": 0.0000060341349126,
-                        "negative": 0.0000275444017461
-                    },
-                    "offset": 31,
-                    "length": 13
+                    "length": 58,
+                    "text": "The restaurant had great food and our waiter was friendly."
                 }
-            ]
+            ],
+            "warnings": []
         }
     ],
-    "errors": []
+    "errors": [],
+    "modelVersion": "2020-04-01"
 }
 ```
 
-#### <a name="version-21"></a>[Versão 2.1](#tab/version-2)
+#### <a name="version-31-preview1"></a>[Versão 3.1-preview.1](#tab/version-3-1)
 
-### <a name="sentiment-analysis-v2-example-response"></a>Resposta de exemplo da Análise de Sentimento v2
+### <a name="sentiment-analysis-v31-example-response"></a>Exemplo de resposta da Análise de Sentimento v3.1
 
-As respostas da Análise de Sentimento v2 contêm pontuações de sentimentos para cada documento enviado.
+A Análise de Sentimento v3.1 oferece a mineração de opinião além do objeto de resposta na guia **Versão 3.0**. Na resposta abaixo, a frase *O restaurante oferecia uma ótima comida e nosso garçom foi simpático* tem dois aspectos: *comida* e *garçom*. A propriedade `relations` de cada aspecto contém um valor `ref` com a referência de URI aos objetos `documents`, `sentences` e `opinions` associados.
 
 ```json
 {
-  "documents": [{
-    "id": "1",
-    "score": 0.98690706491470337
-  }, {
-    "id": "2",
-    "score": 0.95202046632766724
-  }],
-  "errors": []
+    "documents": [
+        {
+            "id": "1",
+            "sentiment": "positive",
+            "confidenceScores": {
+                "positive": 1.0,
+                "neutral": 0.0,
+                "negative": 0.0
+            },
+            "sentences": [
+                {
+                    "sentiment": "positive",
+                    "confidenceScores": {
+                        "positive": 1.0,
+                        "neutral": 0.0,
+                        "negative": 0.0
+                    },
+                    "offset": 0,
+                    "length": 58,
+                    "text": "The restaurant had great food and our waiter was friendly.",
+                    "aspects": [
+                        {
+                            "sentiment": "positive",
+                            "confidenceScores": {
+                                "positive": 1.0,
+                                "negative": 0.0
+                            },
+                            "offset": 25,
+                            "length": 4,
+                            "text": "food",
+                            "relations": [
+                                {
+                                    "relationType": "opinion",
+                                    "ref": "#/documents/0/sentences/0/opinions/0"
+                                }
+                            ]
+                        },
+                        {
+                            "sentiment": "positive",
+                            "confidenceScores": {
+                                "positive": 1.0,
+                                "negative": 0.0
+                            },
+                            "offset": 38,
+                            "length": 6,
+                            "text": "waiter",
+                            "relations": [
+                                {
+                                    "relationType": "opinion",
+                                    "ref": "#/documents/0/sentences/0/opinions/1"
+                                }
+                            ]
+                        }
+                    ],
+                    "opinions": [
+                        {
+                            "sentiment": "positive",
+                            "confidenceScores": {
+                                "positive": 1.0,
+                                "negative": 0.0
+                            },
+                            "offset": 19,
+                            "length": 5,
+                            "text": "great",
+                            "isNegated": false
+                        },
+                        {
+                            "sentiment": "positive",
+                            "confidenceScores": {
+                                "positive": 1.0,
+                                "negative": 0.0
+                            },
+                            "offset": 49,
+                            "length": 8,
+                            "text": "friendly",
+                            "isNegated": false
+                        }
+                    ]
+                }
+            ],
+            "warnings": []
+        }
+    ],
+    "errors": [],
+    "modelVersion": "2020-04-01"
 }
 ```
 
@@ -265,7 +282,7 @@ As respostas da Análise de Sentimento v2 contêm pontuações de sentimentos pa
 
 Neste artigo, você conheceu os conceitos e o fluxo de trabalho para a análise de sentimento usando a API de Análise de Texto. Em resumo:
 
-+ A Análise de Sentimento está disponível para os idiomas selecionados em duas versões.
++ A Análise de Sentimento está disponível em idiomas seletos.
 + Documentos JSON no corpo da solicitação incluem um código de idioma, texto e ID.
 + A solicitação POST é feita para um ponto de extremidade `/sentiment` usando uma [chave de acesso personalizada e um ponto de extremidade](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) que é válido para sua assinatura.
 + Saída de resposta, que pontuação de sentimento para cada ID do documento, pode ser transmitida para qualquer aplicativo que aceita JSON. Por exemplo, Excel e Power BI.

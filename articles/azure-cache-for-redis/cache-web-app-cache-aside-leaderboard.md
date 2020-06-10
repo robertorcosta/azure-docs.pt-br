@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
-ms.openlocfilehash: e8b8feff0b66aa0b48c88b43049594003b20e5c0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ca70262a7980df9d427fbd7e58e08b41c37d7133
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75411951"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195585"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Tutorial: Criar um placar de líderes cache-aside no ASP.NET
 
@@ -642,9 +642,9 @@ Para executar o aplicativo localmente:
 
 ## <a name="publish-and-run-in-azure"></a>Publicar e executar no Azure
 
-### <a name="provision-a-sql-azure-database-for-the-app"></a>Provisionar um banco de dados SQL do Azure para o aplicativo
+### <a name="provision-a-database-for-the-app"></a>Provisionar um banco de dados para o aplicativo
 
-Nesta seção, você provisionará um novo banco de dados SQL do Azure para que o aplicativo use enquanto está hospedado no Azure.
+Nesta seção, você provisionará um novo banco de dados no Banco de Dados SQL para que o aplicativo use enquanto está hospedado no Azure.
 
 1. No [portal do Azure](https://portal.azure.com/), clique em **Criar um recurso** no canto superior esquerdo do portal do Azure.
 

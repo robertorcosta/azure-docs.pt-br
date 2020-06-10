@@ -8,224 +8,42 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 05/22/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: bd42dd52af039ee61585b110ee31f1ad41613162
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 0904f8689019e57ff830265dfe50007f0aaa75b4
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681199"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171728"
 ---
-# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-21-and-30-rest-api-and-c"></a>Início Rápido: Extrair texto impresso e manuscrito usando a API REST da Pesquisa Visual Computacional 2.1 e 3.0 e C#
+# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-30-rest-api-and-c"></a>Início Rápido: Extrair um texto impresso e manuscrito usando a API REST da Pesquisa Visual Computacional 3.0 e o C#
 
-Neste início rápido, você extrairá texto impresso e/ou manuscrito de uma imagem usando a API REST da Pesquisa Visual Computacional. Com os métodos [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) e [Read Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d), é possível detectar texto em uma imagem e extrair os caracteres reconhecidos em um fluxo de caracteres legível por computador. A API determinará qual modelo de reconhecimento usar para cada linha de texto, para que ele dê suporte a imagens com texto impresso e manuscrito.
-
-Em comparação com a Pesquisa Visual Computacional 2.1 e 3.0, a versão prévia pública da Pesquisa Visual Computacional 3.0 fornece:
-
-* precisão ainda maior
-* um formato de saída alterado
-* pontuação de confiança para palavras
-* suporte para os idiomas espanhol e inglês com o parâmetro de idioma adicional
-
-#### <a name="version-2"></a>[Versão 2](#tab/version-2)
+Neste início rápido, você extrairá o texto impresso e manuscrito de uma imagem usando a API REST da Pesquisa Visual Computacional. Com os métodos [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) e [Get Read Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750), você pode detectar um texto em uma imagem e extrair os caracteres reconhecidos em um fluxo de caracteres legível por computador. 
 
 > [!IMPORTANT]
-> O método [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) é executado de forma assíncrona. Esse método não retorna todas as informações no corpo de uma resposta bem-sucedida. Em vez disso, o método Batch Read retorna um URI no valor do campo de cabeçalho de resposta `Operation-Location`. Em seguida, é possível chamar esse URI, que representa a API [Read Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) para verificar o status e para retornar os resultados da chamada do método Batch Read.
-
-#### <a name="version-3"></a>[Versão 3](#tab/version-3)
-
-> [!IMPORTANT]
-> O método [Batch Read](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d986960601faab4bf452005) é executado de forma assíncrona. Esse método não retorna todas as informações no corpo de uma resposta bem-sucedida. Em vez disso, o método Batch Read retorna um URI no valor do campo de cabeçalho de resposta `Operation-Location`. Em seguida, é possível chamar esse URI, que representa a API [Read Operation Result](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d9869604be85dee480c8750) para verificar o status e para retornar os resultados da chamada do método Batch Read.
-
----
-
+> O método [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) é executado de maneira assíncrona. Esse método não retorna todas as informações no corpo de uma resposta bem-sucedida. Em vez disso, o método Batch Read retorna um URI no valor do campo de cabeçalho de resposta `Operation-Location`. Em seguida, você poderá chamar esse URI, que representa a API [Get Read Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) para verificar o status e retornar os resultados da chamada do método Read.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
 
 - É necessário ter o [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) ou posterior.
-- Você precisa ter uma chave de assinatura para a Pesquisa Visual Computacional. É possível obter uma chave de avaliação gratuita em [Experimente os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [Criar uma conta dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar a Pesquisa Visual Computacional e obter sua chave. Em seguida, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e a cadeia de caracteres do ponto de extremidade de serviço, denominadas `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`, respectivamente.
+- Você precisa ter uma chave de assinatura para a Pesquisa Visual Computacional. É possível obter uma chave de avaliação gratuita em [Experimente os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [Criar uma conta dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar a Pesquisa Visual Computacional e obter sua chave. 
+- [Crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e a cadeia de caracteres do ponto de extremidade de serviço, e dê os nomes `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`, respectivamente.
 
 ## <a name="create-and-run-the-sample-application"></a>Criar e executar o aplicativo de exemplo
 
-#### <a name="version-2"></a>[Versão 2](#tab/version-2)
-
-Para criar o exemplo no Visual Studio, siga as etapas abaixo:
+Para criar a amostra no Visual Studio:
 
 1. Crie uma nova solução do Visual Studio no Visual Studio, usando o modelo de Aplicativo de Console em C# do Visual.
-1. Instale o pacote do NuGet Newtonsoft.Json.
+2. Instale o pacote do NuGet Newtonsoft.Json.
     1. No menu, clique em **Ferramentas**, selecione **Gerenciador de Pacotes NuGet** e, em seguida, **Gerenciar Pacotes NuGet para a Solução**.
-    1. Clique na guia **Procurar** e, na caixa **Pesquisar**, digite "Newtonsoft.Json".
-    1. Selecione **Newtonsoft.Json** quando for exibida, clique na caixa de seleção ao lado do nome do projeto e escolha **Instalar**.
-1. Execute o programa.
-1. No prompt, digite o caminho para uma imagem local.
-
-```csharp
-using Newtonsoft.Json.Linq;
-using System;
-using System.IO;
-using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Threading.Tasks;
-
-namespace CSHttpClientSample
-{
-    static class Program
-    {
-        // Add your Computer Vision subscription key and endpoint to your environment variables.
-        static string subscriptionKey = Environment.GetEnvironmentVariable("COMPUTER_VISION_SUBSCRIPTION_KEY");
-
-        static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
-
-        // the Batch Read method endpoint
-        static string uriBase = endpoint + "vision/v2.1/read/core/asyncBatchAnalyze";
-        // Add your own local image with text (png or jpg OK)
-        static string imageFilePath = @"my-image.png";
-
-        static void Main()
-        {
-
-            // Call the REST API method.
-            Console.WriteLine("\nExtracting text...\n");
-            ReadText(imageFilePath).Wait();
-
-            Console.WriteLine("\nPress Enter to exit.");
-            Console.ReadLine();
-        }
-
-        /// <summary>
-        /// Gets the text from the specified image file by using
-        /// the Computer Vision REST API.
-        /// </summary>
-        /// <param name="imageFilePath">The image file with text.</param>
-        static async Task ReadText(string imageFilePath)
-        {
-            try
-            {
-                HttpClient client = new HttpClient();
-
-                // Request headers.
-                client.DefaultRequestHeaders.Add(
-                    "Ocp-Apim-Subscription-Key", subscriptionKey);
-
-                // Assemble the URI for the REST API method.
-                string uri = uriBase;
-
-                HttpResponseMessage response;
-
-                // Two REST API methods are required to extract text.
-                // One method to submit the image for processing, the other method
-                // to retrieve the text found in the image.
-
-                // operationLocation stores the URI of the second REST API method,
-                // returned by the first REST API method.
-                string operationLocation;
-
-                // Reads the contents of the specified local image
-                // into a byte array.
-                byte[] byteData = GetImageAsByteArray(imageFilePath);
-
-                // Adds the byte array as an octet stream to the request body.
-                using (ByteArrayContent content = new ByteArrayContent(byteData))
-                {
-                    // This example uses the "application/octet-stream" content type.
-                    // The other content types you can use are "application/json"
-                    // and "multipart/form-data".
-                    content.Headers.ContentType =
-                        new MediaTypeHeaderValue("application/octet-stream");
-
-                    // The first REST API method, Batch Read, starts
-                    // the async process to analyze the written text in the image.
-                    response = await client.PostAsync(uri, content);
-                }
-
-                // The response header for the Batch Read method contains the URI
-                // of the second method, Read Operation Result, which
-                // returns the results of the process in the response body.
-                // The Batch Read operation does not return anything in the response body.
-                if (response.IsSuccessStatusCode)
-                    operationLocation =
-                        response.Headers.GetValues("Operation-Location").FirstOrDefault();
-                else
-                {
-                    // Display the JSON error data.
-                    string errorString = await response.Content.ReadAsStringAsync();
-                    Console.WriteLine("\n\nResponse:\n{0}\n",
-                        JToken.Parse(errorString).ToString());
-                    return;
-                }
-
-                // If the first REST API method completes successfully, the second 
-                // REST API method retrieves the text written in the image.
-                //
-                // Note: The response may not be immediately available. Text
-                // recognition is an asynchronous operation that can take a variable
-                // amount of time depending on the length of the text.
-                // You may need to wait or retry this operation.
-                //
-                // This example checks once per second for ten seconds.
-                string contentString;
-                int i = 0;
-                do
-                {
-                    System.Threading.Thread.Sleep(1000);
-                    response = await client.GetAsync(operationLocation);
-                    contentString = await response.Content.ReadAsStringAsync();
-                    ++i;
-                }
-                while (i < 10 && contentString.IndexOf("\"status\":\"Succeeded\"") == -1);
-
-                if (i == 10 && contentString.IndexOf("\"status\":\"Succeeded\"") == -1)
-                {
-                    Console.WriteLine("\nTimeout error.\n");
-                    return;
-                }
-
-                // Display the JSON response.
-                Console.WriteLine("\nResponse:\n\n{0}\n",
-                    JToken.Parse(contentString).ToString());
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("\n" + e.Message);
-            }
-        }
-
-        /// <summary>
-        /// Returns the contents of the specified file as a byte array.
-        /// </summary>
-        /// <param name="imageFilePath">The image file to read.</param>
-        /// <returns>The byte array of the image data.</returns>
-        static byte[] GetImageAsByteArray(string imageFilePath)
-        {
-            // Open a read-only file stream for the specified file.
-            using (FileStream fileStream =
-                new FileStream(imageFilePath, FileMode.Open, FileAccess.Read))
-            {
-                // Read the file's contents into a byte array.
-                BinaryReader binaryReader = new BinaryReader(fileStream);
-                return binaryReader.ReadBytes((int)fileStream.Length);
-            }
-        }
-    }
-}
-```
-
-#### <a name="version-3-public-preview"></a>[Versão 3 (versão prévia pública)](#tab/version-3)
-
-Para criar o exemplo no Visual Studio, siga as etapas abaixo:
-
-1. Crie uma nova solução do Visual Studio no Visual Studio, usando o modelo de Aplicativo de Console em C# do Visual.
-1. Instale o pacote do NuGet Newtonsoft.Json.
-    1. No menu, clique em **Ferramentas**, selecione **Gerenciador de Pacotes NuGet** e, em seguida, **Gerenciar Pacotes NuGet para a Solução**.
-    1. Clique na guia **Procurar** e, na caixa **Pesquisar**, digite "Newtonsoft.Json".
-    1. Selecione **Newtonsoft.Json** quando for exibida, clique na caixa de seleção ao lado do nome do projeto e escolha **Instalar**.
-1. Execute o programa.
-1. No prompt, digite o caminho para uma imagem local e o idioma a ser reconhecido.
+    2. Clique na guia **Procurar** e, na caixa **Pesquisar**, digite "Newtonsoft.Json".
+    3. Selecione **Newtonsoft.Json** quando for exibida, clique na caixa de seleção ao lado do nome do projeto e escolha **Instalar**.
+3. Copie e cole o código abaixo no arquivo Program.cs da solução.
+4. Execute o programa.
 
 ```csharp
 using Newtonsoft.Json.Linq;
@@ -248,19 +66,17 @@ namespace CSHttpClientSample
         static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
 
         // the Batch Read method endpoint
-        static string uriBase = endpoint + "/vision/v3.0-preview//read/analyze";
+        static string uriBase = endpoint + "/vision/v3.0//read/analyze";
 
         // Add a local image with text here (png or jpg is OK)
         static string imageFilePath = @"my-image.png";
-        // Add a language, either "en" or "es"
-        static string language = "en";
 
 
         static void Main(string[] args)
         {
             // Call the REST API method.
             Console.WriteLine("\nExtracting text...\n");
-            ReadText(imageFilePath, language).Wait();
+            ReadText(imageFilePath).Wait();
 
             Console.WriteLine("\nPress Enter to exit...");
             Console.ReadLine();
@@ -271,7 +87,7 @@ namespace CSHttpClientSample
         /// the Computer Vision REST API.
         /// </summary>
         /// <param name="imageFilePath">The image file with text.</param>
-        static async Task ReadText(string imageFilePath, string language)
+        static async Task ReadText(string imageFilePath)
         {
             try
             {
@@ -281,12 +97,7 @@ namespace CSHttpClientSample
                 client.DefaultRequestHeaders.Add(
                     "Ocp-Apim-Subscription-Key", subscriptionKey);
 
-                var builder = new UriBuilder(uriBase);
-                builder.Port = -1;
-                var query = HttpUtility.ParseQueryString(builder.Query);
-                query["language"] = language;
-                builder.Query = query.ToString();
-                string url = builder.ToString();
+                string url = uriBase;
 
                 HttpResponseMessage response;
 
@@ -388,174 +199,196 @@ namespace CSHttpClientSample
 }
 ```
 
----
 
 ## <a name="examine-the-response"></a>Examinar a resposta
 
 Uma resposta com êxito é retornada em JSON. O aplicativo de exemplo analisa e exibe uma resposta bem-sucedida na janela do console, semelhante ao exemplo a seguir:
 
-#### <a name="version-2"></a>[Versão 2](#tab/version-2)
-
-```json
-{
-  "status": "Succeeded",
-  "recognitionResults": [
-    {
-      "page": 1,
-      "clockwiseOrientation": 349.59,
-      "width": 3200,
-      "height": 3200,
-      "unit": "pixel",
-      "lines": [
-        {
-          "boundingBox": [202,618,2047,643,2046,840,200,813],
-          "text": "Our greatest glory is not",
-          "words": [
-            {
-              "boundingBox": [204,627,481,628,481,830,204,829],
-              "text": "Our"
-            },
-            {
-              "boundingBox": [519,628,1057,630,1057,832,518,830],
-              "text": "greatest"
-            },
-            {
-              "boundingBox": [1114,630,1549,631,1548,833,1114,832],
-              "text": "glory"
-            },
-            {
-              "boundingBox": [1586,631,1785,632,1784,834,1586,833],
-              "text": "is"
-            },
-            {
-              "boundingBox": [1822,632,2115,633,2115,835,1822,834],
-              "text": "not"
-            }
-          ]
-        },
-        {
-          "boundingBox": [420,1273,2954,1250,2958,1488,422,1511],
-          "text": "but in rising every time we fall",
-          "words": [
-            {
-              "boundingBox": [423,1269,634,1268,635,1507,424,1508],
-              "text": "but"
-            },
-            {
-              "boundingBox": [667,1268,808,1268,809,1506,668,1507],
-              "text": "in"
-            },
-            {
-              "boundingBox": [874,1267,1289,1265,1290,1504,875,1506],
-              "text": "rising"
-            },
-            {
-              "boundingBox": [1331,1265,1771,1263,1772,1502,1332,1504],
-              "text": "every"
-            },
-            {
-              "boundingBox": [1812, 1263, 2178, 1261, 2179, 1500, 1813, 1502],
-              "text": "time"
-            },
-            {
-              "boundingBox": [2219, 1261, 2510, 1260, 2511, 1498, 2220, 1500],
-              "text": "we"
-            },
-            {
-              "boundingBox": [2551, 1260, 3016, 1258, 3017, 1496, 2552, 1498],
-              "text": "fall"
-            }
-          ]
-        },
-        {
-          "boundingBox": [1612, 903, 2744, 935, 2738, 1139, 1607, 1107],
-          "text": "in never failing ,",
-          "words": [
-            {
-              "boundingBox": [1611, 934, 1707, 933, 1708, 1147, 1613, 1147],
-              "text": "in"
-            },
-            {
-              "boundingBox": [1753, 933, 2132, 930, 2133, 1144, 1754, 1146],
-              "text": "never"
-            },
-            {
-              "boundingBox": [2162, 930, 2673, 927, 2674, 1140, 2164, 1144],
-              "text": "failing"
-            },
-            {
-              "boundingBox": [2703, 926, 2788, 926, 2790, 1139, 2705, 1140],
-              "text": ",",
-              "confidence": "Low"
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
-```
-
-#### <a name="version-3-public-preview"></a>[Versão 3 (versão prévia pública)](#tab/version-3)
-
 
 ```json
 {
   "status": "succeeded",
-  "createdDateTime": "2020-02-11T16:44:36Z",
-  "lastUpdatedDateTime": "2020-02-11T16:44:36Z",
+  "createdDateTime": "2020-05-28T05:13:21Z",
+  "lastUpdatedDateTime": "2020-05-28T05:13:22Z",
   "analyzeResult": {
     "version": "3.0.0",
     "readResults": [
       {
         "page": 1,
-        "language": "es",
-        "angle": -0.8011,
-        "width": 401,
-        "height": 119,
+        "language": "en",
+        "angle": 0.8551,
+        "width": 2661,
+        "height": 1901,
         "unit": "pixel",
         "lines": [
           {
-            "language": "es",
             "boundingBox": [
-              15,
-              42,
-              372,
-              38,
-              373,
-              91,
-              15,
-              97
+              67,
+              646,
+              2582,
+              713,
+              2580,
+              876,
+              67,
+              821
             ],
-            "text": "¡Buenos días!",
+            "text": "The quick brown fox jumps",
             "words": [
               {
                 "boundingBox": [
-                  15,
-                  43,
-                  243,
-                  40,
-                  244,
-                  93,
-                  17,
-                  98
+                  143,
+                  650,
+                  435,
+                  661,
+                  436,
+                  823,
+                  144,
+                  824
                 ],
-                "text": "¡Buenos",
-                "confidence": 0.56
+                "text": "The",
+                "confidence": 0.958
               },
               {
                 "boundingBox": [
-                  254,
-                  40,
-                  370,
-                  38,
-                  371,
-                  91,
-                  255,
-                  93
+                  540,
+                  665,
+                  926,
+                  679,
+                  926,
+                  825,
+                  541,
+                  823
                 ],
-                "text": "días!",
-                "confidence": 0.872
+                "text": "quick",
+                "confidence": 0.57
+              },
+              {
+                "boundingBox": [
+                  1125,
+                  686,
+                  1569,
+                  700,
+                  1569,
+                  838,
+                  1125,
+                  828
+                ],
+                "text": "brown",
+                "confidence": 0.799
+              },
+              {
+                "boundingBox": [
+                  1674,
+                  703,
+                  1966,
+                  711,
+                  1966,
+                  851,
+                  1674,
+                  841
+                ],
+                "text": "fox",
+                "confidence": 0.442
+              },
+              {
+                "boundingBox": [
+                  2083,
+                  714,
+                  2580,
+                  725,
+                  2579,
+                  876,
+                  2083,
+                  855
+                ],
+                "text": "jumps",
+                "confidence": 0.878
+              }
+            ]
+          },
+          {
+            "boundingBox": [
+              187,
+              1062,
+              485,
+              1056,
+              486,
+              1120,
+              189,
+              1126
+            ],
+            "text": "over",
+            "words": [
+              {
+                "boundingBox": [
+                  190,
+                  1064,
+                  439,
+                  1059,
+                  441,
+                  1122,
+                  192,
+                  1126
+                ],
+                "text": "over",
+                "confidence": 0.37
+              }
+            ]
+          },
+          {
+            "boundingBox": [
+              664,
+              1008,
+              1973,
+              1023,
+              1969,
+              1178,
+              664,
+              1154
+            ],
+            "text": "the lazy dog!",
+            "words": [
+              {
+                "boundingBox": [
+                  668,
+                  1008,
+                  923,
+                  1015,
+                  923,
+                  1146,
+                  669,
+                  1117
+                ],
+                "text": "the",
+                "confidence": 0.909
+              },
+              {
+                "boundingBox": [
+                  1107,
+                  1018,
+                  1447,
+                  1023,
+                  1445,
+                  1178,
+                  1107,
+                  1162
+                ],
+                "text": "lazy",
+                "confidence": 0.853
+              },
+              {
+                "boundingBox": [
+                  1639,
+                  1024,
+                  1974,
+                  1023,
+                  1971,
+                  1170,
+                  1636,
+                  1178
+                ],
+                "text": "dog!",
+                "confidence": 0.41
               }
             ]
           }
@@ -565,8 +398,6 @@ Uma resposta com êxito é retornada em JSON. O aplicativo de exemplo analisa e 
   }
 }
 ```
-
----
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

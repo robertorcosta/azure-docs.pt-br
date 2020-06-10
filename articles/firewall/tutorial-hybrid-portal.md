@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 208a7a677bdf0b76ffed83e679c6f1ff3041d50d
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 7da5e6fa3c977d309ad028cb446cd411a9d4fbaf
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80239680"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298951"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Tutorial: Implantar e configurar o Firewall do Azure em uma rede híbrida usando o portal do Azure
 
@@ -131,18 +131,6 @@ Agora crie uma segunda sub-rede para o gateway.
 4. Em **Intervalo de endereços (bloco CIDR)** , digite **192.168.2.0/24**.
 5. Selecione **OK**.
 
-### <a name="create-a-public-ip-address"></a>Criar um endereço IP público
-
-Este é o endereço IP público usado para o gateway local.
-
-1. Na página inicial do portal do Azure, selecione **Criar um recurso**.
-2. Na caixa de texto de pesquisa, digite **endereço IP público** e pressione **Enter**.
-3. Selecione **Endereço IP público** e, em seguida, selecione **Criar**.
-4. Para o nome, digite **VNet-Onprem-GW-pip**.
-5. Para o grupo de recursos, digite **FW-Hybrid-Test**.
-6. Em **local**, selecione o mesmo local usado anteriormente.
-7. Aceite os outros padrões e, em seguida, selecione **Criar**.
-
 ## <a name="configure-and-deploy-the-firewall"></a>Configurar e implantar o firewall
 
 Agora implante o firewall na rede virtual do hub de firewall.
@@ -153,7 +141,7 @@ Agora implante o firewall na rede virtual do hub de firewall.
 
    |Configuração  |Valor  |
    |---------|---------|
-   |Subscription     |\<sua assinatura\>|
+   |Subscription     |\<your subscription\>|
    |Resource group     |**FW-Hybrid-Test** |
    |Nome     |**AzFW01**|
    |Location     |Selecionar o mesmo local usado anteriormente|
@@ -422,7 +410,7 @@ Trata-se de uma máquina virtual que pode ser usada para se conectar usando a Á
 <!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.
 
    You should get a reply.--->
-3. Abra um navegador da Web na **VM-Onprem** e navegue até o IP privado http://\<VM-spoke-01\>.
+3. Abra um navegador da Web em **VM-Onprem** e navegue até http://\<VM-spoke-01 private IP\>.
 
    Você deverá ver a página da Web **VM-spoke-01**: ![Página da Web de VM-Spoke-01](media/tutorial-hybrid-portal/VM-Spoke-01-web.png)
 

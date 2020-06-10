@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/05/2020
-ms.openlocfilehash: 79deb2f33a11e8ccb6f059bde7590b7cc0fe20c0
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 0f7e210c0818bd317f8e69ebed28301fd9b06dc0
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80521135"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84263866"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Início Rápido: Criar uma conta, um banco de dados, um contêiner e itens do Azure Cosmos usando o portal do Azure
 
@@ -56,6 +56,9 @@ Vá para o [portal do Azure](https://portal.azure.com/) para criar uma conta do 
     |Aplicar desconto por nível gratuito|Aplicar ou não aplicar|Com o nível gratuito do Azure Cosmos DB, você receberá os primeiros 400 RU/s e 5 GB de armazenamento gratuitamente em uma conta. Saiba mais sobre o [nível gratuito](https://azure.microsoft.com/pricing/details/cosmos-db/).|
     |Location|A região mais próxima dos usuários|Selecione uma localização geográfica para hospedar a sua conta do Azure Cosmos DB. Use a localização mais próxima dos usuários para fornecer a eles acesso mais rápido aos dados.|
     |Tipo de Conta|Produção ou não produção|Selecione **Produção** se a conta for usada para uma carga de trabalho de produção. Selecione **Não produção** se a conta for usada para não produção, por exemplo, desenvolvimento, teste, garantia de qualidade ou de preparo. Essa é uma configuração de marca de recurso do Azure que ajusta a experiência do Portal, mas não afeta a conta do Azure Cosmos DB subjacente. Você pode alterar esse valor a qualquer momento.|
+    |Redundância geográfica|Habilitar ou Desabilitar|Habilite ou desabilite a distribuição global em sua conta emparelhando sua região com uma região de par. Você poderá adicionar mais regiões à sua conta posteriormente.|
+    |Gravações de várias regiões|Habilitar ou Desabilitar|A capacidade de gravação de várias regiões permite que você aproveite a taxa de transferência provisionada para seus bancos de dados e contêineres em todo o mundo.|
+    |Zonas de Disponibilidades|Habilitar ou Desabilitar|As Zonas de Disponibilidade ajudam a aprimorar a disponibilidade e a resiliência do seu aplicativo.|
 
 
 > [!NOTE]

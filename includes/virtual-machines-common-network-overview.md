@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/01/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 4559a49a64688545e519f6172798997c2d695672
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a665c3c27cca03a084896895ae51c56732ceb7b6
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461828"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84237708"
 ---
 Ao criar uma VM (máquina virtual) do Azure, você deve criar uma [VNet](../articles/virtual-network/virtual-networks-overview.md) (rede virtual) ou usar uma VNet existente. Você também precisa decidir como suas VMs devem ser acessadas na VNet. É importante [planejar antes de criar recursos](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) e compreender os [limites de recursos de rede](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
@@ -38,7 +38,7 @@ Uma [NIC (interface de rede)](../articles/virtual-network/virtual-network-networ
 
 Você pode criar uma VM com várias placas de rede e, em seguida, adicionar ou remover NICs por meio do ciclo de vida de uma VM. Várias NICs permitem que uma máquina virtual se conecte a várias sub-redes e envie ou receba tráfego na interface mais apropriada. VMs com qualquer número de interfaces de rede podem existir no mesmo conjunto de disponibilidade, até o número suportado pelo tamanho da VM. 
 
-Cada NIC conectada a uma VM deve existir no mesmo local e assinatura que a VM. Cada NIC deve ser conectada a uma VNet que existe na mesma localização e assinatura do Azure que a NIC. Você pode alterar a sub-rede à qual uma VM está conectada depois de criá-la, mas não é possível alterar a rede virtual. Cada NIC anexada a uma VM recebe um endereço MAC que não é alterado até que a VM seja excluída.
+Cada NIC conectada a uma VM deve existir no mesmo local e assinatura que a VM. Cada NIC deve ser conectada a uma VNet que existe na mesma localização e assinatura do Azure que a NIC. Você pode alterar a sub-rede à qual uma VM está conectada depois de criá-la, mas não é possível alterar a rede virtual. Um endereço MAC é atribuído a cada NIC conectada a uma VM e ele não é alterado até que a VM seja excluída.
 
 Esta tabela lista os métodos que você pode usar para criar uma interface de rede.
 
@@ -51,7 +51,7 @@ Esta tabela lista os métodos que você pode usar para criar uma interface de re
 
 ## <a name="ip-addresses"></a>Endereços IP 
 
-Você pode atribuir estes tipos de [endereços IP](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md) a uma NIC no Azure:
+Você pode atribuir estes tipos de [endereços IP](../articles/virtual-network/public-ip-addresses.md) a uma NIC no Azure:
 
 - **Endereços IP públicos** - usados para comunicação de entrada e saída (sem NAT (conversão de endereços de rede)) com a Internet e outros recursos do Azure não conectados a uma VNet. Atribuir um endereço IP público a uma NIC é opcional. Os endereços IP públicos têm um custo nominal, e há um número máximo que pode ser usado por assinatura.
 - **Endereços IP privados** - usados para comunicação em uma VNet, sua rede local e a Internet (com NAT). Você deve atribuir pelo menos um endereço IP privado a uma VM. Para saber mais sobre NAT no Azure, leia [Noções básicas sobre conexões de saída no Azure](../articles/load-balancer/load-balancer-outbound-connections.md).
@@ -79,7 +79,7 @@ Uma sub-rede é um intervalo de endereços IP na rede virtual. Você pode dividi
 
 Ao configurar uma rede virtual, você pode especificar a topologia, incluindo os espaços de endereço e sub-redes disponíveis. Se a VNet is precisar ser conectada a outras VNets ou redes locais, você deverá selecionar intervalos de endereços que não se sobreponham. Os endereços IP são privados e não podem ser acessados pela Internet, o que era verdadeiro apenas para os endereços IP não roteáveis, como 10.0.0.0/8, 172.16.0.0/12 ou 192.168.0.0/16. Agora, o Azure trata qualquer intervalo de endereços como parte do espaço de endereço IP VNet particular que está acessível apenas através da VNet, em VNets interconectadas e do seu local. 
 
-Se trabalha em uma organização em que outra pessoa é responsável por redes internas, você deve conversar com essa pessoa antes de selecionar o espaço de endereço. Certifique-se de que não há nenhuma sobreposição e informe o espaço que você deseja usar para que não tente usar o mesmo intervalo de endereços IP. 
+Se trabalha em uma organização em que outra pessoa é responsável por redes internas, você deve conversar com essa pessoa antes de selecionar o espaço de endereço. Verifique se não há sobreposição e informe o espaço que deseja usar para que eles não tentem usar o mesmo intervalo de endereços IP. 
 
 Por padrão, não há limite de segurança entre sub-redes. Portanto, as VMs em cada uma das sub-redes podem se comunicar entre si. No entanto, você pode configurar NSGs (Grupos de Segurança de Rede), que permitem controlar o fluxo de tráfego de e para sub-redes e de e para VMs. 
 
@@ -90,7 +90,7 @@ Esta tabela lista os métodos que você pode usar para criar uma VNet e sub-rede
 | [Azure portal](../articles/virtual-network/quick-create-portal.md) | Se você permitir que o Azure crie uma VNet quando você criar uma VM, o nome será uma combinação do nome do grupo de recursos que contém a VNet e **-vnet**. O espaço de endereço é 10.0.0.0/24, o nome da sub-rede necessária é **default** e o intervalo de endereços de sub-rede é 10.0.0.0/24. |
 | [PowerShell do Azure](../articles/virtual-network/quick-create-powershell.md) | Você usa [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkSubnetConfig) e [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) para criar uma sub-rede e uma VNet. Você também pode usar [Add-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/Az.Network/Add-AzVirtualNetworkSubnetConfig) para adicionar uma sub-rede a uma rede virtual existente. |
 | [CLI do Azure](../articles/virtual-network/quick-create-cli.md) | A sub-rede e a VNet são criadas ao mesmo tempo. Forneça um parâmetro **--subnet-name** para [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet) com o nome da sub-rede. |
-| Modelo | A maneira mais fácil de criar uma VNet e sub-redes é baixar um modelo existente, como a [rede virtual com duas sub-redes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets), e modificá-la para suas necessidades. |
+| Modelo | A maneira mais fácil de criar uma VNet e sub-redes é fazer o download de um modelo existente, como [Rede Virtual com duas sub-redes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets), e modificá-lo de acordo com suas necessidades. |
 
 ## <a name="network-security-groups"></a>Grupos de segurança de rede
 
@@ -100,7 +100,7 @@ Os NSGs contêm dois conjuntos de regras: entrada e saída. A prioridade de uma 
 
 Todos os NSGs contêm um conjunto de regras padrão. As regras padrão não podem ser excluídas, mas como recebem a prioridade mais baixa, elas podem ser substituídas pelas regras que você criar. 
 
- Quando um NSG é associado a uma NIC, as regras de acesso à rede no NSG são aplicadas somente a essa NIC. Se um NSG for aplicado a uma única NIC em uma VM com várias NICS, isso não afetará o tráfego para as outras NICs. É possível associar diferentes NSGs a um NIC (ou VM, dependendo do modelo de implantação) e à sub-rede a qual uma NIC ou VM está associada. A prioridade é fornecida com base na direção do tráfego.
+Quando um NSG é associado a uma NIC, as regras de acesso à rede no NSG são aplicadas somente a essa NIC. Se um NSG for aplicado a uma única NIC em uma VM com várias NICS, isso não afetará o tráfego para as outras NICs. É possível associar diferentes NSGs a um NIC (ou VM, dependendo do modelo de implantação) e à sub-rede a qual uma NIC ou VM está associada. A prioridade é fornecida com base na direção do tráfego.
 
 Não se esqueça de [planejar](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) seus NSGs ao planejar suas VMs e a VNet.
 
@@ -121,18 +121,18 @@ O balanceador de carga mapeia o tráfego de entrada e saída entre o endereço I
 
 Ao criar um balanceador de carga, você também deve considerar estes elementos de configuração:
 
-- **Configuração de IP de front-end** – um balanceador de carga pode incluir um ou mais endereços IP de front-end. Esses endereços IP servem como entrada para o tráfego.
+- **Configuração de IP front-end** – um balanceador de carga pode incluir um ou mais endereços IP front-end. Esses endereços IP servem como entrada para o tráfego.
 - **Pool de endereços de back-end** – endereços IP que estão associados à NIC para a qual a carga é distribuída.
-- **[Encaminhamento de porta](../articles/load-balancer/tutorial-load-balancer-port-forwarding-portal.md)** – define como o tráfego de entrada flui através do IP de front-end e distribuído para o IP de back-end utilizando regras de NAT de entrada.
+- **[Encaminhamento de porta](../articles/load-balancer/tutorial-load-balancer-port-forwarding-portal.md)** – define como o tráfego de entrada flui pelo IP de front-end e é distribuído para o IP de back-end usando regras NAT de entrada.
 - **Regras do balanceador de carga** -mapeia determinada combinação de porta e IP front-end para um conjunto de endereços IP back-end e combinação de portas. Um balanceador de carga único pode ter várias regras de balanceamento de carga. Cada regra é uma combinação de um IP de front-end e IP de porta e back-end e porta associada a VMs.
 - **[Sondas](../articles/load-balancer/load-balancer-custom-probe-overview.md)** - monitora a integridade das VMs. Quando uma investigação não responde, o balanceador de carga interrompe o envio de novas conexões para a VM não íntegra. As conexões existentes não são afetadas e novas conexões são enviadas para VMs íntegras.
-- **[Regras de saída](../articles/load-balancer/load-balancer-outbound-rules-overview.md)** – uma regra de saída configura a NAT (conversão de endereços de rede) de saída para todas as máquinas virtuais ou instâncias identificadas pelo pool de back-end de seu Standard Load Balancer a serem convertidas no front-end.
+- **[Regras de saída](../articles/load-balancer/load-balancer-outbound-rules-overview.md)** – uma regra de saída configura a NAT (conversão de endereços de rede) de saída para todas as máquinas virtuais identificadas pelo pool de back-end do Standard Load Balancer a serem convertidas no front-end.
 
 Esta tabela lista os métodos que você pode usar para criar um balanceador de carga voltado para a Internet.
 
 | Método | Descrição |
 | ------ | ----------- |
-| Portal do Azure |  Você pode [balancear a carga do tráfego de Internet para VMs usando o portal do Azure](../articles/load-balancer/tutorial-load-balancer-standard-manage-portal.md). |
+| Portal do Azure |  Você pode [balancear a carga de tráfego de Internet para VMs que estejam usando o portal do Azure](../articles/load-balancer/tutorial-load-balancer-standard-manage-portal.md). |
 | [PowerShell do Azure](/azure/load-balancer/load-balancer-get-started-ilb-arm-ps) | Para fornecer o identificador do endereço IP público que você criou anteriormente, use [New-AzLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerfrontendipconfig) com o parâmetro **-PublicIpAddress**. Use [New-AzLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) para criar a configuração do pool de endereços de back-end. Use [New-AzLoadBalancerInboundNatRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) para criar regras NAT de entrada associadas à configuração de IP front-end que você criou. Use [New-AzLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerprobeconfig) para criar os testes de que você precisa. Use [New-AzLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerruleconfig) para criar a configuração de balanceador de carga. Use [New-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancer) para criar o balanceador de carga.|
 | [CLI do Azure](../articles/load-balancer/load-balancer-get-started-internet-arm-cli.md) | Use [az network lb create](https://docs.microsoft.com/cli/azure/network/lb) para criar a configuração de balanceador de carga inicial. Use [az network lb frontend-ip create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip) para adicionar o endereço IP público que você criou anteriormente. Use [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb/address-pool) para adicionar a configuração do pool de endereços de back-end. Use [az network lb inbound-nat-rule create](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule) para adicionar regras de NAT. Use [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule) para adicionar as regras do balanceador de carga. Use [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe) para adicionar as sondas. |
 | [Modelo](../articles/load-balancer/quickstart-load-balancer-standard-public-template.md) | Use [Duas VMs em um balanceador de carga e regras de NAT configuradas no balanceamento de carga](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-standard-create) como um guia para a implantação de um balanceador de carga usando um modelo. |
@@ -141,14 +141,14 @@ Esta tabela lista os métodos que você pode usar para criar um balanceador de c
 
 | Método | Descrição |
 | ------ | ----------- |
-| Portal do Azure | Você pode [balancear a carga de tráfego interna com um balanceador de carga no portal do Azure](../articles/load-balancer/tutorial-load-balancer-standard-internal-portal.md). |
+| Portal do Azure | É possível [balancear carga de tráfego interna com um balanceador de carga no portal do Azure](../articles/load-balancer/tutorial-load-balancer-standard-internal-portal.md). |
 | [PowerShell do Azure](../articles/load-balancer/load-balancer-get-started-ilb-arm-ps.md) | Para fornecer um endereço IP privado na sub-rede, use [New-AzLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerfrontendipconfig) com o parâmetro **-PrivateIpAddress**. Use [New-AzLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) para criar a configuração do pool de endereços de back-end. Use [New-AzLoadBalancerInboundNatRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) para criar regras NAT de entrada associadas à configuração de IP front-end que você criou. Use [New-AzLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerprobeconfig) para criar os testes de que você precisa. Use [New-AzLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerruleconfig) para criar a configuração de balanceador de carga. Use [New-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancer) para criar o balanceador de carga.|
 | [CLI do Azure](../articles/load-balancer/load-balancer-get-started-ilb-arm-cli.md) | Use o comando [az network lb create](https://docs.microsoft.com/cli/azure/network/lb) para criar a configuração de balanceador de carga inicial. Para definir o endereço IP privado, use [az network lb frontend-ip create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip) com o parâmetro **--private-ip-address**. Use [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb/address-pool) para adicionar a configuração do pool de endereços de back-end. Use [az network lb inbound-nat-rule create](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule) para adicionar regras de NAT. Use [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule) para adicionar as regras do balanceador de carga. Use [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe) para adicionar as sondas.|
 | [Modelo](../articles/load-balancer/load-balancer-get-started-ilb-arm-template.md) | Use [Duas VMs em um balanceador de carga e regras de NAT configuradas no balanceamento de carga](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-internal-load-balancer) como um guia para a implantação de um balanceador de carga usando um modelo. |
 
-### <a name="virtual-machine-scale-sets"></a>Conjuntos de dimensionamento de máquinas virtuais
+### <a name="virtual-machine-scale-sets"></a>conjuntos de escala de máquina virtual
 
-Para obter mais informações sobre o balanceador de carga e os conjuntos de dimensionamento de máquinas virtuais, consulte [rede para conjuntos de dimensionamento de máquinas virtuais do Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking).
+Para obter mais informações sobre o balanceador de carga e conjuntos de dimensionamento de máquinas virtuais, confira [Rede para conjuntos de dimensionamento de máquinas virtuais do Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking).
 
 ## <a name="vms"></a>VMs
 
@@ -175,4 +175,4 @@ Também existem tutoriais sobre como balancear a carga de VMs e criar aplicativo
 - Saiba como configurar [rotas definidas pelo usuário e encaminhamento IP](../articles/virtual-network/virtual-networks-udr-overview.md). 
 - Saiba como configurar [conexões de VNet para VNet](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 - Saiba como [Solucionar problemas de rotas](../articles/virtual-network/diagnose-network-routing-problem.md).
-- Saiba mais sobre a [largura de banda da rede da máquina virtual](../articles/virtual-network/virtual-machine-network-throughput.md).
+- Saiba mais sobre [largura de banda de rede da máquina virtual](../articles/virtual-network/virtual-machine-network-throughput.md).

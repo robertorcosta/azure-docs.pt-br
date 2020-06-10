@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
-ms.date: 01/11/2018
-ms.openlocfilehash: 78cb58bca9b06b6dcf8549eefa5ebf0eb2b4b01c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/29/2020
+ms.openlocfilehash: 5b7c7219c15f6c9b687aecd2e9d9f46ea4a71efa
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81409327"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84249086"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Carregar incrementalmente os dados do banco de dados SQL do Azure para o Armazenamento de Blobs do Azure usando o portal do Azure
 
@@ -65,7 +65,7 @@ Aqui estão as etapas importantes ao criar essa solução:
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* **Banco de dados SQL do Azure**. Você usa o banco de dados como um armazenamento de dados de origem. Se você não tiver um banco de dados SQL, consulte [Criar um banco de dados SQL do Azure](../sql-database/sql-database-get-started-portal.md) para saber as etapas para criar um.
+* **Banco de dados SQL do Azure**. Você usa o banco de dados como um armazenamento de dados de origem. Se você não tiver um banco de dados SQL, consulte [Criar um banco de dados SQL do Azure](../azure-sql/database/single-database-create-quickstart.md) para saber as etapas para criar um.
 * **Armazenamento do Azure**. Você usa o Armazenamento de Blobs como um armazenamento de dados de coletor. Se você não tiver uma conta de armazenamento, consulte [Criar uma conta de armazenamento](../storage/common/storage-account-create.md) para saber as etapas para criar uma. Crie um contêiner denominado adftutorial. 
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>Criar uma tabela de fonte de dados no banco de dados SQL
@@ -182,7 +182,7 @@ Neste tutorial, você cria um pipeline com duas atividades de Pesquisa, uma ativ
 1. Na página **introdução** da interface do usuário do Data Factory, clique no bloco **Criar pipeline**.
 
    ![Obter a página de introdução da interface do usuário do Data Factory](./media/doc-common-process/get-started-page.png)    
-3. Na página **Geral** da janela **Propriedades** para o pipeline, digite o nome **IncrementalCopyPipeline**.
+3. No painel geral, em **Propriedades**, especifique **IncrementalCopyPipeline** para **Nome**. Em seguida, recolha o painel clicando no ícone Propriedades no canto superior direito.
 
 4. Vamos adicionar a primeira atividade de pesquisa para recuperar o último valor de marca-d'água. Na caixa de ferramentas **Atividades**, expanda **Geral** e arraste e solte a atividade de **Pesquisa** para a superfície do designer de pipeline. Alterar o nome da atividade para **LookupOldWaterMarkActivity**.
 
@@ -196,7 +196,7 @@ Neste tutorial, você cria um pipeline com duas atividades de Pesquisa, uma ativ
 8. Para **Serviço Vinculado**, selecione **Novo** e, em seguida, execute as seguintes etapas:
 
     1. Insira **AzureSqlDatabaseLinkedService** para o **Nome**.
-    2. Selecione o SQL Server do Azure para o **Nome do servidor**.
+    2. Selecione o seu servidor para o **Nome do servidor**.
     3. Selecione o **Nome do banco de dados** na lista suspensa.
     4. Insira os valores para **Nome de usuário** & **Senha**.
     5. Para testar a conexão ao Banco de Dados SQL do Azure, clique em **Testar conectividade**.
@@ -398,7 +398,7 @@ Neste tutorial, você realizará os seguintes procedimentos:
 > * Monitorar a segunda execução do pipeline
 > * Examinar os resultados da segunda execução
 
-Neste tutorial, o pipeline copiou dados de uma única tabela em um banco de dados SQL para um Armazenamento de Blobs. Avance para o tutorial a seguir para saber mais sobre como copiar dados de várias tabelas em um banco de dados do SQL Server local para um banco de dados SQL.
+Neste tutorial, o pipeline copiou dados de uma única tabela em um banco de dados SQL para um Armazenamento de Blobs. Avance para o tutorial a seguir para saber mais sobre como copiar dados de várias tabelas em um banco de dados do SQL Server para um Banco de Dados SQL.
 
 > [!div class="nextstepaction"]
 >[Carregar incrementalmente os dados de várias tabelas no SQL Server para o Banco de Dados SQL do Azure](tutorial-incremental-copy-multiple-tables-portal.md)

@@ -8,12 +8,12 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 8f2e99ffc9f9ee5c5553e8d933d82f83999c8ab2
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 1ed7126f2698294ac6706aafcb85e3229a7491bb
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81732892"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300039"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>Início Rápido: Criar um aplicativo Java no Serviço de Aplicativo do Azure no Linux
 
@@ -34,7 +34,7 @@ O [Serviço de Aplicativo no Linux](app-service-linux-intro.md) fornece um servi
 Execute o seguinte comando do Maven no prompt do Cloud Shell para criar um aplicativo chamado `helloworld`:
 
 ```bash
-mvn archetype:generate "-DgroupId=example.demo" "-DartifactId=helloworld" "-DarchetypeArtifactId=maven-archetype-webapp"
+mvn archetype:generate "-DgroupId=example.demo" "-DartifactId=helloworld" "-DarchetypeArtifactId=maven-archetype-webapp" -Dversion=1.0-SNAPSHOT
 ```
 Em seguida, altere o diretório de trabalho para a pasta do projeto:
 
@@ -44,13 +44,9 @@ cd helloworld
 
 ## <a name="configure-the-maven-plugin"></a>Configurar o plug-in do Maven
 
-O processo de implantação no Serviço de Aplicativo do Azure usa credenciais de conta da CLI do Azure. [Entre com a CLI do Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) antes de continuar.
+O processo de implantação no Serviço de Aplicativo do Azure pode extrair suas credenciais da CLI do Azure automaticamente. Se você ainda não tiver a CLI do Azure instalada, o plug-in do Maven conectará você com o Oauth ou com o logon do dispositivo. Verifique os detalhes em [Autenticação com plug-ins do Maven](https://github.com/microsoft/azure-maven-plugins/wiki/Authenticatio), se necessário.
 
-```azurecli
-az login
-```
-
-Em seguida, configure a implantação, execute o comando do Maven no prompt de comando e use as configurações padrão pressionando **ENTER** até chegar ao aviso **Confirmar (S/N)** e, em seguida, pressione **'s'** e a configuração estará concluída. 
+Para configurar a implantação, execute o comando do Maven no prompt de comando e use as configurações padrão pressionando **ENTER** até aparecer o prompt **Confirmar (S/N)** e, em seguida, pressione **'s'** e a configuração estará concluída. 
 ```cmd
 mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 ```
@@ -93,7 +89,13 @@ Confirm (Y/N)? : Y
 > [!NOTE]
 > Neste artigo, estamos trabalhando apenas com aplicativos Java empacotados em arquivos WAR. O plug-in também oferece suporte a aplicativos Web JAR, visite [Implantar um arquivo JAR do Java SE para o Serviço de Aplicativo no Linux](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) para experimentá-lo.
 
-Navegue até `pom.xml` novamente para ver se a configuração de plug-in foi atualizada. Você poderá modificar outras configurações do Serviço de Aplicativo diretamente em seu arquivo pom se necessário. Alguns comuns estão listados abaixo:
+Abra em `pom.xml` para ver a configuração atualizada.
+
+```bash
+code pom.xml
+```
+
+Você poderá modificar as configurações do Serviço de Aplicativo diretamente em seu arquivo pom, se necessário. Algumas comuns estão listadas abaixo:
 
  Propriedade | Obrigatório | Descrição | Versão
 ---|---|---|---
@@ -147,7 +149,7 @@ Esse comando pode demorar um pouco para ser executado.
 > [Conectar-se ao BD do Azure para PostgreSQL com Java](/azure/postgresql/connect-java)
 
 > [!div class="nextstepaction"]
-> [Configurar o aplicativo Java](configure-custom-container.md)
+> [Configurar o aplicativo Java](configure-language-java.md)
 
 > [!div class="nextstepaction"]
 > [CI/CD com Jenkins](/azure/jenkins/deploy-jenkins-app-service-plugin)

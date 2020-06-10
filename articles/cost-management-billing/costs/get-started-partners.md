@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: d1425407b9d451a8c35e736c38b8fac059a7c9d8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8dea0da44ebfb35165daa7096296dada55e78e99
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79204878"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83997121"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introdução ao Gerenciamento de Custos do Azure para parceiros
 
@@ -246,7 +246,7 @@ Quando a propriedade **PartnerEarnedCreditApplied** é _True_, o custo associado
 
 Quando a propriedade **PartnerEarnedCreditApplied** é _False_, isso indica que o custo associado não atendeu à qualificação necessária para o crédito. Ou o serviço comprado não está qualificado para o crédito ganho pelo parceiro.
 
-Os dados de utilização do serviço normalmente levam de 8 a 24 horas para serem exibidos no Gerenciamento de Custos. Para obter mais informações, confira [A frequência de atualização de dados de uso varia](understand-cost-mgt-data.md#usage-data-update-frequency-varies). Os créditos do PEC são exibidos em até 48 horas após a hora de acesso no Gerenciamento de Custos do Azure.
+Os dados de utilização do serviço normalmente levam de 8 a 24 horas para serem exibidos no Gerenciamento de Custos. Para obter mais informações, confira [Atualizações de dados de custo e de uso e retenção](understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention). Os créditos do PEC são exibidos em até 48 horas após a hora de acesso no Gerenciamento de Custos do Azure.
 
 
 Você também pode fazer um agrupamento e aplicar um filtro pela propriedade **PartnerEarnedCreditApplied** usando as opções **Agrupar por**. Use as opções para examinar os custos que têm e não têm o PEC.
