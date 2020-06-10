@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: d9c6062e7106f764058d6c96c6f730d235b2ef0c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: cea48f2d30687e85c39f0969874489aa1d70a4a5
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83673026"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84637500"
 ---
 Ao desenvolver para macOS, há três SDKs de fala disponíveis.
 
@@ -20,7 +20,7 @@ Ao desenvolver para macOS, há três SDKs de fala disponíveis.
 > [!TIP]
 > Para obter detalhes sobre como usar o SDK de fala do Objective-C com Swift, consulte <a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift" target="_blank">importando Objective-c para Swift <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 
-### <a name="system-requirements"></a>Requisitos de sistema
+### <a name="system-requirements"></a>Requisitos do sistema
 
 - Um macOS versão 10,13 ou posterior
 
@@ -43,7 +43,7 @@ platform :ios, '9.3'
 use_frameworks!
 
 target 'MyApp' do
-  pod 'MicrosoftCognitiveServicesSpeech', '~> 1.12.0'
+  pod 'MicrosoftCognitiveServicesSpeech', '~> 1.12.1'
 end
 ```
 

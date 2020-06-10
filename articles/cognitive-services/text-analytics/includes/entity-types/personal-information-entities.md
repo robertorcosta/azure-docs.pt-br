@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/30/2020
 ms.author: aahi
-ms.openlocfilehash: 81ed10f0b3b2a8042f0766f89bb99d7cad950fca
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 04fb080d09b1945add7340db081ab49dd017731d
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84140901"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84637442"
 ---
 > [!NOTE]
 > Para detectar `PHI` , use o `domain=phi` parâmetro e a versão do modelo `2020-04-01` ou posterior.
@@ -22,7 +22,7 @@ ms.locfileid: "84140901"
  
 As categorias de entidade a seguir são retornadas ao enviar solicitações para o `/v3.1-preview.1/entities/recognition/pii` ponto de extremidade.
 
-| Categoria   | Subcategoria | Descrição                          | Iniciando versão do modelo | Observações |
+| Categoria   | Subcategoria | Descrição                          | Iniciando versão do modelo | Anotações |
 |------------|-------------|--------------------------------------|------------------------|---|
 | Person     | N/D         | Nomes de pessoas.  | `2019-10-01`  | Também retornado com `domain=phi` . |
 | Persontype | N/D         | Tipos de trabalho ou funções mantidas por uma pessoa. | `2020-02-01` | |
@@ -40,8 +40,8 @@ As categorias de entidade a seguir são retornadas ao enviar solicitações para
 | Datetime | Data | Datas do calendário. | `2019-10-01` | Também retornado com `domain=phi` . |
 | Quantidade | N/D | Números e quantidades numéricas. | `2019-10-01` |  |
 | Quantidade | Idade | Paralisa. | `2019-10-01` | | |
-| Classificação internacional de doenças (ICD-10-CM) | N/D | Entidades relacionadas à classificação internacional de doenças, nono revisão.   | `2020-04-01` | Também retornado com `domain=phi` . |
-| Classificação internacional de doenças (ICD-10-CM) | N/D | Entidades relacionadas à classificação internacional de doenças, décimo revisão.    | `2020-04-01` | Também retornado com `domain=phi` . |
+| Classificação internacional de doenças (ICD-10-CM) | N/D | Entidades relacionadas à classificação internacional de doenças, nono revisão.   | `2020-04-01` | |
+| Classificação internacional de doenças (ICD-10-CM) | N/D | Entidades relacionadas à classificação internacional de doenças, décimo revisão.    | `2020-04-01` | |
 
 ## <a name="azure-information"></a>Informações do Azure
 

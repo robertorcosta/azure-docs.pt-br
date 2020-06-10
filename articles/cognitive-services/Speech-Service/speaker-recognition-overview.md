@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/27/2020
 ms.author: trbye
-ms.openlocfilehash: 2d4ce6f274efbd4d8afe2ac48856b0fc312f0a09
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: cc19844c6407a83233c70048e9eb258a742036fb
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84261781"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84635162"
 ---
 # <a name="what-is-the-azure-speaker-recognition-service"></a>O que é o serviço de Reconhecimento do Locutor do Azure?
 
@@ -27,7 +27,7 @@ Verificação do Locutor simplifica o processo de verificar a identidade de um p
 
 ### <a name="how-does-speaker-verification-work"></a>Como funciona Verificação do Locutor?
 
-![Como funciona a verificação do palestrante](media/speaker-recognition/speaker-rec.png)
+:::image type="content" source="media/speaker-recognition/speaker-rec.png" alt-text="Verificação do Locutor fluxograma.":::
 
 A verificação do orador pode ser dependente de texto ou independente de texto. A verificação **dependente de texto** significa que os alto-falantes precisam escolher a mesma senha a ser usada durante as fases de registro e de verificação. A verificação **independente de texto** significa que os alto-falantes podem falar em idioma diário nas frases de registro e verificação.
 
@@ -59,4 +59,5 @@ Assim como em todos os recursos de serviços cognitivas, os desenvolvedores que 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
+> * Conclua o [artigo reconhecimento do locutor noções básicas](speaker-recognition-basics.md) para obter uma execução de padrões de design comuns que você pode usar em seus aplicativos.
 > * Consulte o [tutorial em vídeo](https://azure.microsoft.com/resources/videos/speaker-recognition-text-independent-verification-developer-tutorial/) para verificação de alto-falante independente de texto.
