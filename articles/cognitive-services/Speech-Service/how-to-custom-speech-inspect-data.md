@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 7a8fec876556d943d29756a38ffc27ae8095e3c4
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: e871d2c8e0fe00fa7db3144a787447163c82e62d
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84466231"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629031"
 ---
 # <a name="inspect-custom-speech-data"></a>Inspecionar dados da Fala Personalizada
 
@@ -33,7 +33,7 @@ Nesta página, você aprenderá a inspecionar visualmente a qualidade do modelo 
 Siga estas instruções para criar um teste:
 
 1. Entre no portal de [fala personalizada](https://speech.microsoft.com/customspeech).
-2. Navegue até a **> de fala para texto fala personalizada teste de >**.
+2. Navegue até **conversão de fala em texto > Fala Personalizada > [nome do projeto] > teste**.
 3. Clique em **Adicionar teste**.
 4. Selecione **inspecionar qualidade (dados somente de áudio)**. Dê ao teste um nome, uma descrição e selecione seu conjunto de dado de áudio.
 5. Selecione até dois modelos que você gostaria de testar.

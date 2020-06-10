@@ -10,18 +10,19 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 4/26/2019
 ms.author: scottwhi
-ms.openlocfilehash: 251197c456ece4fe2dbbe264219d52f3502b7492
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: tracking-python
+ms.openlocfilehash: ac704ff7213b08072debf9d56da10a74e8315c68
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67341716"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84607025"
 ---
 # <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Usar um token de informações para obter informações sobre uma imagem
 
-A API de Pesquisa Visual do Bing retorna informações sobre uma imagem que você fornece. Você pode fornecer a imagem usando a URL da imagem, um token de insights ou fazendo upload de uma imagem. Para obter informações sobre essas opções, consulte [O que é a API de Pesquisa Visual do Bing?](overview.md). Este artigo demonstra como usar um token de insights. Para obter exemplos que demonstram como carregar uma imagem para obter informações, consulte os guias de início rápido ([C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node. js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)).
+A API de Pesquisa Visual do Bing retorna informações sobre uma imagem que você fornece. Você pode fornecer a imagem usando a URL da imagem, um token de insights ou fazendo upload de uma imagem. Para obter informações sobre essas opções, consulte [O que é a API de Pesquisa Visual do Bing?](overview.md). Este artigo demonstra como usar um token de insights. Para obter exemplos que demonstram como carregar uma imagem para obter informações, consulte os guias de início rápido ([C#](quickstarts/csharp.md)  |  [Java](quickstarts/java.md)  |  [node. js](quickstarts/nodejs.md)  |  [Python](quickstarts/python.md)).
 
-Se você enviar Pesquisa Visual do Bing um token de imagem ou uma URL, o seguinte mostrará os dados de formulário que você deve incluir no corpo da POSTAgem. Os dados do formulário devem incluir `Content-Disposition` o cabeçalho e você deve definir seu `name` parâmetro como "knowledgeRequest". Para obter detalhes sobre `imageInfo` o objeto, consulte a solicitação:
+Se você enviar Pesquisa Visual do Bing um token de imagem ou uma URL, o seguinte mostrará os dados de formulário que você deve incluir no corpo da POSTAgem. Os dados do formulário devem incluir o `Content-Disposition` cabeçalho e você deve definir seu `name` parâmetro como "knowledgeRequest". Para obter detalhes sobre o `imageInfo` objeto, consulte a solicitação:
 
 ```json
 {
@@ -58,7 +59,7 @@ Content-Disposition: form-data; name="knowledgeRequest"
 --boundary_1234-abcd--
 ```
 
-Para obter exemplos que usam o token de informações, consulte [C#](#use-with-c) | [Java](#use-with-java) | [node. js](#use-with-nodejs) | [Python](#use-with-python).
+Para obter exemplos que usam o token de informações, consulte [C#](#use-with-c)  |  [Java](#use-with-java)  |  [node. js](#use-with-nodejs)  |  [Python](#use-with-python).
 
 ## <a name="use-with-c"></a>Usar com C #
 

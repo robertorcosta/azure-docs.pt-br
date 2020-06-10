@@ -41,7 +41,7 @@ Para demonstrar validações, crie um novo comando que permita aos usuários def
    | Configuração do parâmetro           | Valor sugerido    |Descrição                 |                                    
    | ----------------- | ----------------------------------| -------------|
    | **Nome**              | **Temperatura**                       | Um nome descritivo para o parâmetro                                |
-   | **Necessário**          | Verificado                           | Caixa de seleção que indica se um valor para esse parâmetro é necessário antes de concluir o comando |
+   | **Necessária**          | Verificado                           | Caixa de seleção que indica se um valor para esse parâmetro é necessário antes de concluir o comando |
    | **Resposta para o parâmetro obrigatório**     | **Editor simples-> qual temperatura você deseja?**  | Um prompt para solicitar o valor desse parâmetro quando ele não for conhecido |
    | **Tipo**              | **Número**                            | Tipo de parâmetro, como número, Cadeia de caracteres, DateTime ou Geografia   |
 
@@ -75,7 +75,7 @@ Para demonstrar validações, crie um novo comando que permita aos usuários def
 
    | Configuração    | Valor sugerido                                           |Descrição                                     |
    | ---------- | --------------------------------------------------------- |-----|
-   | Nome       | Mensagem de confirmação                                      |Um nome que descreve a finalidade da regra |
+   | Name       | Mensagem de confirmação                                      |Um nome que descreve a finalidade da regra |
    | **Condições** | **Parâmetros necessários-temperatura**                       |Condições que determinam quando a regra pode ser executada    |   
    | **Ações**    | **Enviar resposta de fala-Ok, definindo a temperatura para {temperatura} graus** | A ação a ser tomada quando a condição da regra for verdadeira |
 

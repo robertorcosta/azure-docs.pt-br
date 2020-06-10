@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: bbe1d651a7d2d2cac1b1aa78b815b2797ad185c5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5f087a2880c16218905a4410a2f591511a155ffd
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76717317"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629006"
 ---
 # <a name="create-a-custom-voice"></a>Criar uma Voz Personalizada
 
@@ -62,13 +62,13 @@ Considere regravar quaisquer enunciados com pontuações baixas de pronúncia ou
 
 Depois que o conjunto de seus conjuntos de um for validado, você poderá usá-lo para criar seu modelo de voz personalizado.
 
-1.  Navegue até a **conversão de texto em fala > treinamento de > de voz personalizado**.
+1.  Navegue até **conversão de texto em fala > > de voz personalizada [nome do projeto] > treinamento**.
 
 2.  Clique em **treinar modelo**.
 
 3.  Em seguida, insira um **nome** e uma **Descrição** para ajudá-lo a identificar esse modelo.
 
-    Escolha um nome com cuidado. O nome que você inserir aqui será o nome utilizado para especificar a voz na solicitação de síntese de fala como parte da entrada SSML. Somente letras, números e alguns caracteres de pontuação, como-, \_e (', ') são permitidos. Use nomes diferentes para modelos de voz diferentes.
+    Escolha um nome com cuidado. O nome que você inserir aqui será o nome utilizado para especificar a voz na solicitação de síntese de fala como parte da entrada SSML. Somente letras, números e alguns caracteres de pontuação, como-, e \_ (', ') são permitidos. Use nomes diferentes para modelos de voz diferentes.
 
     Um uso comum do campo **Descrição** é registrar os nomes dos conjuntos de registros que foram usados para criar o modelo.
 
@@ -106,7 +106,7 @@ Se você estiver usando o recurso de treinamento de voz neural, poderá optar po
 
 Depois que a fonte de voz for compilada com êxito, você poderá testá-la antes de implantá-la para uso.
 
-1.  Navegue até a **conversão de texto em fala > teste de > de voz personalizado**.
+1.  Navegue até **conversão de texto em fala > > de voz personalizada [nome do projeto] teste de >**.
 
 2.  Clique em **Adicionar teste**.
 

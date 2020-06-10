@@ -10,16 +10,35 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: bc79dabe82ab02166e3aa60a378ff394bca25028
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: f43f7894c46a75894eb648f02ec378f3a8b2633d
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725543"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84628045"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparar dados para Fala Personalizada
 
-Ao testar a precisão do reconhecimento de fala da Microsoft ou treinar seus modelos personalizados, você precisará de dados de áudio e texto. Nesta página, abordamos os tipos de dados, como usá-los e gerenciá-los.
+Ao testar a precisão do reconhecimento de fala da Microsoft ou treinar seus modelos personalizados, você precisará de dados de áudio e texto. Nesta página, abordamos os tipos de dados de que um modelo de fala personalizado precisa.
+
+## <a name="data-diversity"></a>Diversidade de dados
+
+O texto e o áudio usados para testar e treinar um modelo personalizado precisam incluir exemplos de um conjunto variado de alto-falantes e cenários que você precisa que seu modelo reconheça.
+Considere esses fatores ao coletar dados para treinamento e teste de modelo personalizado:
+
+* Os dados de áudio de texto e fala precisam abranger os tipos de instruções verbal que os usuários farão ao interagir com seu modelo. Por exemplo, um modelo que gera e reduz o treinamento de necessidades de temperatura em instruções que as pessoas podem fazer para solicitar tais alterações.
+* Seus dados precisam incluir todas as variações de fala que seu modelo precisará reconhecer. Muitos fatores podem variar a fala, incluindo acentos, dialetos, combinação de idiomas, idade, sexo, Tom de voz, nível de estresse e hora do dia.
+* Você deve incluir exemplos de ambientes diferentes (interno, externo, ruído de estrada) em que seu modelo será usado.
+* O áudio deve ser coletado usando dispositivos de hardware que o sistema de produção usará. Se seu modelo precisar identificar a fala registrada em dispositivos de gravação de qualidade variável, os dados de áudio que você fornecer para treinar seu modelo também deverão representar esses diversos cenários.
+* Você pode adicionar mais dados ao seu modelo posteriormente, mas tome cuidado para manter o conjunto variado e representativo de suas necessidades de projeto.
+* A inclusão de dados que *não* estão em suas necessidades de reconhecimento de modelo personalizado pode prejudicar a qualidade do reconhecimento em geral, portanto, não inclua dados que seu modelo não precise transcrever.
+
+Um modelo treinado em um subconjunto de cenários só pode funcionar bem nesses cenários. Escolha cuidadosamente os dados que representam o escopo completo dos cenários que você precisa que seu modelo personalizado reconheça.
+
+> [!TIP]
+> Comece com pequenos conjuntos de dados de exemplo que correspondem ao idioma e acústicos que seu modelo encontrará.
+> Por exemplo, registre uma amostra pequena, mas representativa de áudio no mesmo hardware e no mesmo ambiente acústico que seu modelo encontrará em cenários de produção.
+> Pequenos conjuntos de dados representativos podem expor problemas antes de você se investir em reunir conjuntos de dados muito maiores para treinamento.
 
 ## <a name="data-types"></a>Tipos de dados
 
@@ -167,7 +186,7 @@ O formulário falado é a seqüência fonética escrita. Ele pode ser composto p
 
 A pronúncia personalizada está disponível em inglês ( `en-US` ) e alemão ( `de-DE` ). Esta tabela mostra os caracteres com suporte por idioma:
 
-| Linguagem | Localidade | Caracteres |
+| Idioma | Localidade | Caracteres |
 |----------|--------|------------|
 | Inglês | `en-US` | `a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
 | Alemão | `de-DE` | `ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
