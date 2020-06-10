@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: e4b56f18bf8a2ed1c22b00b8a57efdbf06eb7fa2
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: dabceb3cc3b7fa2b48ad1b21dfcafb3278c2461d
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78183305"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298748"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Tutorial: Habilitar autenticação em um aplicativo Web usando o Azure Active Directory B2C
 
@@ -42,28 +42,27 @@ No tutorial concluído como parte dos pré-requisitos, você registrou um aplica
 
 ### <a name="add-a-redirect-uri-reply-url"></a>Adicionar um URI de redirecionamento (URL de resposta)
 
-Você pode usar a experiência **Aplicativos** atual ou nossa nova experiência **Registros de aplicativo (versão prévia)** unificada para atualizar o aplicativo. [Saiba mais sobre a nova experiência](https://aka.ms/b2cappregintro).
+Para atualizar um aplicativo no locatário do Azure AD B2C, você pode usar a nossa nova experiência unificada de **Registros de aplicativos** ou a nossa experiência herdada **Aplicativos (Herdado)** . [Saiba mais sobre a nova experiência](https://aka.ms/b2cappregtraining).
 
-#### <a name="applications"></a>[Aplicativos](#tab/applications/)
-
-1. Entre no [portal do Azure](https://portal.azure.com).
-1. Verifique se você está usando o diretório que contém o locatário do Azure AD B2C selecionando o filtro **Diretório + assinatura** no menu superior e escolhendo o diretório que contém o locatário.
-1. Escolha **Todos os serviços** no canto superior esquerdo do Portal do Azure, pesquise **Azure AD B2C** e selecione-o.
-1. Selecione **Aplicativos** e, em seguida, selecione o aplicativo *webapp1*.
-1. Em **URL de resposta**, adicione `https://localhost:44316`.
-1. Clique em **Salvar**.
-1. Na página de propriedades, registre a ID do aplicativo para usar em uma etapa posterior ao configurar o aplicativo Web.
-
-#### <a name="app-registrations-preview"></a>[Registros de Aplicativo (versão prévia)](#tab/app-reg-preview/)
+#### <a name="app-registrations"></a>[Registros de aplicativo](#tab/app-reg-ga/)
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. Selecione o filtro **Diretório + assinatura** no menu superior e, em seguida, selecione o diretório que contém o locatário do Azure AD B2C.
 1. No menu à esquerda, selecione **Azure AD B2C**. Ou selecione **Todos os serviços** e pesquise e selecione **Azure AD B2C**.
-1. Selecione **Registros de aplicativo (versão prévia)** , selecione a guia **Aplicativos Próprios** e, em seguida, selecione o aplicativo *webapp1*.
-1. Selecione **Autenticação** e, em seguida, selecione **Experimente agora a nova experiência** (se mostrado).
+1. Selecione **Registros de aplicativo**, selecione a guia **Aplicativos Próprios** e, em seguida, selecione o aplicativo *webapp1*.
 1. Em **Web**, selecione o link **Adicionar URI**, digite `https://localhost:44316` e, em seguida, selecione **Salvar**.
 1. Selecione **Visão geral**.
 1. Registre a **ID do aplicativo (cliente)** para usar em uma etapa posterior ao configurar o aplicativo Web.
+
+#### <a name="applications-legacy"></a>[Aplicativos (Herdado)](#tab/applications-legacy/)
+
+1. Entre no [portal do Azure](https://portal.azure.com).
+1. Verifique se você está usando o diretório que contém o locatário do Azure AD B2C selecionando o filtro **Diretório + assinatura** no menu superior e escolhendo o diretório que contém o locatário.
+1. Escolha **Todos os serviços** no canto superior esquerdo do Portal do Azure, pesquise **Azure AD B2C** e selecione-o.
+1. Selecione **Aplicativos (Herdado)** e, em seguida, selecione o aplicativo *webapp1*.
+1. Em **URL de resposta**, adicione `https://localhost:44316`.
+1. Clique em **Salvar**.
+1. Na página de propriedades, registre a ID do aplicativo para usar em uma etapa posterior ao configurar o aplicativo Web.
 
 * * *
 
@@ -93,6 +92,7 @@ Atualize as configurações do arquivo Web.config de acordo com seu fluxo de usu
 1. Abra a solução **B2C-WebAPI-DotNet** no Visual Studio.
 1. No projeto **TaskWebApp**, abra o arquivo **Web.config**.
     1. Atualize o valor de `ida:Tenant` e `ida:AadInstance` pelo nome do locatário do Azure AD B2C que você criou. Por exemplo, substitua `fabrikamb2c` por `contoso`.
+    1. Substitua o valor de `ida:TenantId` pela ID de diretório, que pode ser encontrada nas propriedades de seu locatário do Azure B2C (no portal do Azure, em **Azure Active Directory** > **Propriedades** > **ID de Diretório**).
     1. Substitua o valor de `ida:ClientId` pela ID do aplicativo que você registrou.
     1. Substitua o valor de `ida:ClientSecret` pela chave que você registrou. Se o segredo do cliente contiver qualquer entidade XML predefinida, por exemplo, menor que (`<`), maior que (`>`), e comercial (`&`) ou aspas duplas (`"`), você deverá escapar esses caracteres por codificação XML do segredo do cliente antes de adicioná-lo ao Web.config.
     1. Substitua o valor de `ida:SignUpSignInPolicyId` por `b2c_1_signupsignin1`.

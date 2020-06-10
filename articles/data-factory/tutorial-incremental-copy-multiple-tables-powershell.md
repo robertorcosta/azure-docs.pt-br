@@ -1,6 +1,6 @@
 ---
 title: Copiar incrementalmente várias tabelas usando o PowerShell
-description: Neste tutorial, você criará um pipeline do Azure Data Factory que copia os dados delta de maneira incremental de várias tabelas em um banco de dados do SQL Server local para um Banco de Dados SQL do Azure.
+description: Neste tutorial, você criará um pipeline do Azure Data Factory que copia os dados delta de maneira incremental de várias tabelas em um banco de dados do SQL Server para um Banco de Dados SQL do Azure.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/30/2020
-ms.openlocfilehash: aa4dbfbaff620c25042d2603dab543661ec2cd14
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a3fc4a7fa905e7538199d3b26a0cd8b9791aaac4
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81410000"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194523"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Carregar dados de maneira incremental de várias tabelas no SQL Server para um Banco de Dados SQL do Azure
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Neste tutorial, você criará um Azure Data Factory com um pipeline que carrega dados delta de várias tabelas no SQL Server local para um Banco de Dados SQL do Azure.    
+Neste tutorial, você criará um Azure Data Factory com um pipeline que carrega os dados delta de várias tabelas em um banco de dados do SQL Server para um Banco de Dados SQL do Azure.    
 
 Neste tutorial, você realizará os seguintes procedimentos:
 
@@ -69,12 +69,12 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **SQL Server**. Neste tutorial, você utiliza um banco de dados do SQL Server local como o armazenamento de dados de origem. 
-* **Banco de dados SQL do Azure**. Use um banco de dados SQL do Azure como o armazenamento de dados do coletor. Se você não tiver um banco de dados SQL, consulte [Criar um banco de dados SQL do Azure](../sql-database/sql-database-get-started-portal.md) para saber as etapas para criar um. 
+* **SQL Server**. Você usa um banco de dados do SQL Server como o armazenamento de dados de origem neste tutorial. 
+* **Banco de dados SQL do Azure**. Use um banco de dados SQL do Azure como o armazenamento de dados do coletor. Se você não tiver um banco de dados SQL, consulte [Criar um banco de dados SQL do Azure](../azure-sql/database/single-database-create-quickstart.md) para saber as etapas para criar um. 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Criar tabelas de origem no banco de dados do SQL Server
 
-1. Abra o [SSMS (SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ou o [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio) e conecte-se ao banco de dados do SQL Server local.
+1. Abra o [SSMS (SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ou o [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio) e conecte-se ao banco de dados do SQL Server.
 
 2. No **SSMS (Gerenciador de Servidores)** ou no **painel Conexões (Azure Data Studio)** , clique com o botão direito do mouse no banco de dados e escolha **Nova Consulta**.
 
@@ -113,7 +113,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 ### <a name="create-destination-tables-in-your-azure-sql-database"></a>Criar tabelas de destino no Banco de Dados SQL do Azure
 
-1. Abra o [SSMS (SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ou o [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio) e conecte-se ao banco de dados do SQL Server local.
+1. Abra o [SSMS (SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ou o [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio) e conecte-se ao banco de dados do SQL Server.
 
 2. No **SSMS (Gerenciador de Servidores)** ou no **painel Conexões (Azure Data Studio)** , clique com o botão direito do mouse no banco de dados e escolha **Nova Consulta**.
 
@@ -289,11 +289,11 @@ Observe os seguintes pontos:
 
 ## <a name="create-linked-services"></a>Criar serviços vinculados
 
-Os serviços vinculados são criados em um data factory para vincular seus armazenamentos de dados e serviços de computação ao data factory. Nesta seção, você criará serviços vinculados para o banco de dados do SQL Server local e o Banco de Dados SQL do Azure. 
+Os serviços vinculados são criados em um data factory para vincular seus armazenamentos de dados e serviços de computação ao data factory. Nesta seção, você criará serviços vinculados para o banco de dados do SQL Server e o Banco de Dados SQL do Azure. 
 
 ### <a name="create-the-sql-server-linked-service"></a>Criar um serviço vinculado do SQL Server
 
-Nesta etapa, você vincula seu banco de dados do SQL Server local ao data factory.
+Nesta etapa, você vincula seu banco de dados do SQL Server ao data factory.
 
 1. Crie um arquivo JSON chamado **SqlServerLinkedService.json** na pasta C:\ADFTutorials\IncCopyMultiTableTutorial (crie as pastas locais, caso elas ainda não existam) com o conteúdo a seguir. Selecione a seção correta com base na autenticação que você usa para se conectar ao SQL Server.  
 

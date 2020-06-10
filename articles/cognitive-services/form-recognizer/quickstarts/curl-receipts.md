@@ -7,18 +7,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 01/27/2020
+ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: e053222d3b79668c2f6044417e31e104ce0f4222
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: b1f2d97aabfee47110946336c0ad8ad03d86a163
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77118494"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116589"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-curl"></a>Início Rápido: Extrair dados de recibos usando a API REST de Reconhecimento de Formulários com cURL
 
-Neste início rápido, você usará a API REST de Reconhecimento de Formulários do Azure com cURL para identificar informações relevantes em recibos de vendas dos EUA e extraí-las.
+Neste início rápido, você usará a API REST de Reconhecimento de Formulários do Azure com o cURL para extrair e identificar informações relevantes de recibos de vendas dos EUA.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -26,7 +26,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Para concluir este início rápido, é necessário ter:
 - [cURL](https://curl.haxx.se/windows/) instalado.
-- Uma URL para uma imagem de um recibo. Use uma [imagem de exemplo](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-allinone.jpg?raw=true) para este início rápido.
+- Uma URL para uma imagem de um recibo. Use uma [imagem de exemplo](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-allinone.jpg) para este início rápido.
 
 ## <a name="create-a-form-recognizer-resource"></a>Criar um recurso do Reconhecimento de Formulários
 
@@ -399,7 +399,7 @@ O nó `"recognitionResults"` contém todo o texto reconhecido. O texto é organi
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você usou a API REST de Reconhecimento de Formulários com cURL para extrair o conteúdo de um recibo de venda. Em seguida, confira a documentação de referência para explorar a API de Reconhecimento de Formulários de forma mais aprofundada.
+Neste início rápido, você usou a API REST de Reconhecimento de Formulários com o cURL para extrair o conteúdo de um recibo de vendas. Em seguida, confira a documentação de referência para explorar a API de Reconhecimento de Formulários de forma mais aprofundada.
 
 > [!div class="nextstepaction"]
 > [Documentação de referência da API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)

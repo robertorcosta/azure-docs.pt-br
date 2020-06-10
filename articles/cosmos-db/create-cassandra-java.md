@@ -2,30 +2,32 @@
 title: Compilar um aplicativo Java com a API do Cassandra do Azure Cosmos DB
 description: Este guia de início rápido mostra como usar a API Cassandra do Azure Cosmos DB para criar um aplicativo de perfil com portal e Java
 ms.service: cosmos-db
-author: SnehaGunda
-ms.author: sngun
+author: TheovanKraay
+ms.author: thvankra
 ms.subservice: cosmosdb-cassandra
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 05/18/2020
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 124bbcedceffca318367799441f66e330bc41fef
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: 6c56dc32ff733aa9dbbba8102ff8d79a592ea957
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811320"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309740"
 ---
-# <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-cassandra-api-data"></a>Início Rápido: Criar um aplicativo Java para gerenciar os dados de API do Cassandra do Azure Cosmos DB
+# <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-cassandra-api-data-v3-driver"></a>Início Rápido: Criar um aplicativo Java para gerenciar os dados da API do Cassandra do Azure Cosmos DB (Driver v3)
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
-> * [Java](create-cassandra-java.md)
+> * [.NET Core](create-cassandra-dotnet-core.md)
+> * [Java v3](create-cassandra-java.md)
+> * [Java v4](create-cassandra-java-v4.md)
 > * [Node.js](create-cassandra-nodejs.md)
 > * [Python](create-cassandra-python.md)
 >  
 
-Neste início rápido, você cria uma conta de API do Cassandra do Azure Cosmos DB e usa um aplicativo Cassandra Java clonado no GitHub para criar um banco de dados e contêiner Cassandra. O Azure Cosmos DB é um serviço de banco de dados multimodelo que permite criar e consultar rapidamente bancos de dados de documentos, tabelas, pares chave-valor e grafo com funcionalidades de escala horizontal e distribuição global.
+Neste início rápido, você cria uma conta de API do Cassandra do Azure Cosmos DB e usa um aplicativo Java do Cassandra clonado no GitHub para criar um banco de dados e um contêiner do Cassandra usando os [drivers Apache Cassandra v3.x](https://github.com/datastax/java-driver/tree/3.x) para Java. O Azure Cosmos DB é um serviço de banco de dados multimodelo que permite criar e consultar rapidamente bancos de dados de documentos, tabelas, pares chave-valor e grafo com funcionalidades de escala horizontal e distribuição global.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

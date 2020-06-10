@@ -17,12 +17,12 @@ ms.date: 08/01/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 08/01/2019
-ms.openlocfilehash: 0e4354fa7466efcf27f430bbce7edb30bb9a304c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 06be9e7c4ce41ff01494ecef84a800b52db6b82e
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "72387661"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84308125"
 ---
 # <a name="tutorial-send-push-notifications-to-xamarinandroid-apps-using-notification-hubs"></a>Tutorial: Enviar notificações por push para aplicativos Xamarin.Android usando os Hubs de Notificação
 
@@ -248,7 +248,7 @@ Seu hub de notificação está configurado para funcionar com o FCM e você tem 
     public class MyFirebaseMessagingService : FirebaseMessagingService
     ```
 
-18. Adicione o código a seguir ao `MyFirebaseMessagingService.cs` para processar as mensagens que são recebidas. 
+18. Adicione o código a seguir à classe `MyFirebaseMessagingService` para processar as mensagens recebidas. 
 
     ```csharp
         const string TAG = "MyFirebaseMsgService";
@@ -292,7 +292,7 @@ Seu hub de notificação está configurado para funcionar com o FCM e você tem 
         }
     ```
 
-19. Adicione os métodos a seguir à classe MyFirebaseMessagingService para receber o token de registro FCM e enviá-lo para a instância dos Hubs de Notificação (hub). 
+19. Adicione os métodos a seguir à classe MyFirebaseMessagingService (logo abaixo do código adicionado na etapa anterior) para receber o token de registro FCM e enviá-lo para a instância dos Hubs de Notificação (hub). 
 
     ```csharp
         public override void OnNewToken(string token)

@@ -2,19 +2,19 @@
 title: Configurar módulos IoT Edge no SQL do Azure no Edge
 description: Na segunda parte deste tutorial do SQL do Azure no Edge de três partes para prever as impurezas do minério de ferro, você configurará módulos e conexões do IoT Edge.
 keywords: ''
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: tutorial
 author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: bbbbe09aac30165a2f9b7bbe54f58e0c09a6cf09
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: a4087ef56712e098443009bd0457029394ea7b51
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593494"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235033"
 ---
 # <a name="set-up-iot-edge-modules-and-connections"></a>Configurar módulos e conexões de IoT Edge
 
@@ -25,7 +25,7 @@ Na segunda parte deste tutorial de três partes para prever as impurezas do min�
 
 ## <a name="create-azure-stream-analytics-module"></a>Criar módulo do Azure Stream Analytics
 
-Crie um módulo do Azure Stream Analytics que será usado neste tutorial. Para saber mais sobre como usar trabalhos de streaming com o SQL no Edge, confira [Usando trabalhos de streaming com o Banco de Dados SQL no Edge](https://docs.microsoft.com/azure/sql-database-edge/stream-analytics#using-streaming-jobs-with-sql-database-edge).
+Crie um módulo do Azure Stream Analytics que será usado neste tutorial. Para saber mais sobre como usar trabalhos de streaming com o SQL no Edge, confira [Usando trabalhos de streaming com o SQL no Edge](stream-analytics.md).
 
 Após a criação do trabalho do Azure Stream Analytics com o ambiente de hospedagem definido como Edge, configure as entradas e saídas do tutorial.
 
@@ -101,7 +101,7 @@ Agora, especifique as credenciais do contêiner no módulo do IoT Edge.
 
 ## <a name="deploy-the-azure-sql-edge-module"></a>Implantar o módulo de SQL do Azure no Edge
 
-1. Implante o módulo de SQL do Azure no Edge seguindo as etapas listadas em [Deploy Azure SQL Database Edge Preview](https://docs.microsoft.com/azure/sql-database-edge/deploy-portal#deploy-sql-database-edge) (Implantar SQL do Azure no Edge (versão prévia)).
+1. Implante o módulo de SQL do Azure no Edge seguindo as etapas listadas em [Implantar SQL do Azure no Edge (versão prévia)](https://docs.microsoft.com/azure/azure-sql-edge/deploy-portal).
 
 2. Em **Especificar rota** da página **Definir módulos**, especifique as rotas do módulo para comunicação do hub do IoT Edge como segue. 
 

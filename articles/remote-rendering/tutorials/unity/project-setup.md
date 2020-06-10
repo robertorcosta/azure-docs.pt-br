@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/30/2020
 ms.topic: tutorial
-ms.openlocfilehash: 33801316e4c0446865169560bb42f98052acba70
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 7901f12763cb97fa76c0908e76755247ae934a20
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80678647"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300582"
 ---
 # <a name="tutorial-setting-up-a-unity-project-from-scratch"></a>Tutorial: Configuração de um projeto do Unity do zero
 
@@ -31,7 +31,10 @@ Para este tutorial, é necessário:
 
 * As informações da conta (ID da conta, chave de conta, ID da assinatura). Se você ainda não tiver uma conta, [crie uma](../../how-tos/create-an-account.md).
 * SDK do Windows 10.0.18362.0 [(baixar)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
-* A versão mais recente do Visual Studio 2019 [(baixar)](https://visualstudio.microsoft.com/vs/older-downloads/)
+* A versão mais recente do Visual Studio 2019 [(baixar)](https://visualstudio.microsoft.com/vs/older-downloads/). 
+* [Ferramentas do Visual Studio para Realidade Misturada](https://docs.microsoft.com/windows/mixed-reality/install-the-tools). Especificamente, as seguintes instalações de *carga de trabalho* são obrigatórias:
+  * **Desenvolvimento para desktop com C++**
+  * **Desenvolvimento da UWP (Plataforma Universal do Windows)**
 * GIT [(baixar)](https://git-scm.com/downloads)
 * Unity 2019.3.1 [(baixar)](https://unity3d.com/get-unity/download)
   * Instale estes módulos no Unity:
@@ -77,7 +80,7 @@ Depois que você modificar e salvar o manifesto, o Unity será atualizado automa
 ## <a name="ensure-you-have-the-latest-version-of-the-package"></a>Verificar se tem a versão mais recente do pacote
 
 As etapas a seguir garantem que seu projeto esteja usando a versão mais recente do pacote de renderização remota.
-1. Selecione o pacote na janela do projeto e clique no ícone de pacote: ![Selecionar o ícone de pacote](media/package-icons.png)
+1. Selecione o pacote na janela do Projeto e clique no ícone :::no-loc text="package":::: ![Selecionar o ícone de pacote](media/package-icons.png)
 1. No Inspetor, clique em “Exibir no Gerenciador de Pacotes”: ![inspetor de pacotes](media/package-properties.png)
 1. Na página Gerenciador de Pacotes do pacote de renderização remoto, veja se o botão Atualizar está disponível. Se estiver, clicar nele atualizará o pacote para a versão mais recente disponível: ![O pacote do ARR no Gerenciador de Pacotes](media/package-manager.png)
 1. Às vezes, atualizar o pacote pode levar a erros no console. Se isso ocorrer, tente fechar e reabrir o projeto.
@@ -90,11 +93,11 @@ Selecione o nó **Câmera principal**.
 
     ![redefinir transformação da câmera](media/camera-reset-transform.png)
 
-1. Defina **Desmarcar sinalizadores** como *Cor sólida*
+1. Definir **:::no-loc text="Clear flags":::** como *:::no-loc text="Solid Color":::*
 
-1. Defina **Tela de fundo** como *Preto*
+1. Definir **:::no-loc text="Background":::** como *:::no-loc text="Black":::*
 
-1. Defina os **Planos de recorte** como *Perto = 0,3* e *Longe = 20*. Isso significa que a renderização recortará a geometria que estiver a menos de 30 cm ou a mais de 20 metros.
+1. Defina **:::no-loc text="Clipping Planes":::** como *Próximo = 0,3* e *Distante = 20*. Isso significa que a renderização recortará a geometria que estiver a menos de 30 cm ou a mais de 20 metros.
 
     ![Propriedades da câmera do Unity](media/camera-properties.png)
 

@@ -7,14 +7,14 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 05/14/2020
-ms.openlocfilehash: 6273043fc50938961caaf9f5a84273ec93c7521c
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 70def2584cf8855e8fdf4a74081dc5a9a8c46f68
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83801713"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84205102"
 ---
-# <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-postgresql---single-server"></a>Início Rápido: Usar um modelo do ARM para criar um Banco de Dados do Azure para PostgreSQL – servidor único
+# <a name="quickstart-use-a-resource-manager-template-to-create-an-azure-database-for-postgresql---single-server"></a>Início Rápido: Usar um modelo do Resource Manager para criar um Banco de Dados do Azure para PostgreSQL – servidor único
 
 O Banco de Dados do Azure para PostgreSQL é um serviço gerenciado usado para executar, gerenciar e dimensionar bancos de dados altamente disponíveis do PostgreSQL na nuvem. Neste guia de início rápido, você usa um modelo do ARM para criar um Banco de Dados do Azure para PostgreSQL – servidor único no portal do Azure, no PowerShell ou na CLI do Azure.
 
@@ -44,7 +44,7 @@ Você cria um Banco de Dados do Azure para PostgreSQL com um conjunto configurad
 
 ### <a name="review-the-template"></a>Examinar o modelo
 
-O modelo usado neste início rápido é proveniente dos [modelos de Início Rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-managed-postgresql-with-vnet/).
+O modelo usado neste início rápido é proveniente dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-managed-postgresql-with-vnet/).
 
 :::code language="json" source="~/quickstart-templates/101-managed-postgresql-with-vnet/azuredeploy.json" range="001-233" highlight="151,164,178,201,215":::
 
@@ -56,9 +56,9 @@ O modelo define cinco recursos do Azure:
 * [**Microsoft.DBforPostgreSQL/servers/virtualNetworkRules**](/azure/templates/microsoft.dbforpostgresql/servers/virtualnetworkrules)
 * [**Microsoft.DBforPostgreSQL/servers/firewallRules**](/azure/templates/microsoft.dbforpostgresql/servers/firewallrules)
 
-Mais exemplos do modelo do Banco de Dados do Azure para PostgreSQL podem ser encontrados nos [Modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbforpostgresql&pageNumber=1&sort=Popular).
+Mais exemplos de modelos do Banco de Dados do Azure para PostgreSQL podem ser encontrados nos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbforpostgresql&pageNumber=1&sort=Popular).
 
-## <a name="deploy-the-template"></a>Implantar o modelo
+### <a name="deploy-the-template"></a>Implantar o modelo
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 

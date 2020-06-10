@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 11/08/2019
 ms.author: jingwang
-ms.openlocfilehash: a835e67b1091a55c832955d8dac8615289a6d99e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ad257d0bea38d03803bf2be44313a3e086e7654c
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81418687"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118159"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Copiar dados do Blob do Azure para o Banco de Dados SQL do Azure usando o Azure Data Factory
 
@@ -41,7 +41,7 @@ Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * *Conta de Armazenamento do Azure*. Você usa o Armazenamento de Blobs como um armazenamento de dados de *origem*. Se você não tiver uma conta de armazenamento do Azure, confira [Criar uma conta de armazenamento para uso geral](../storage/common/storage-account-create.md).
-* *Banco de dados SQL do Azure*. Você usa o banco de dados como um armazenamento de dados de *coletor*. Se você não tiver um Banco de Dados SQL do Azure, confira [Criar um Banco de Dados SQL do Azure](../sql-database/sql-database-single-database-get-started.md).
+* *Banco de dados SQL do Azure*. Você usa o banco de dados como um armazenamento de dados de *coletor*. Se você não tiver um Banco de Dados SQL do Azure, confira [Criar um Banco de Dados SQL do Azure](../azure-sql/database/single-database-create-quickstart.md).
 * *Do Visual Studio*. As instruções passo a passo neste artigo usam o Visual Studio 2019.
 * *[SDK do Azure para .NET](/dotnet/azure/dotnet-tools)* .
 * *Aplicativo do Azure Active Directory*. Se você não tiver um aplicativo do Azure Active Directory, confira a seção [Criar um aplicativo do Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) em [Como Use o portal para criar um aplicativo do Azure AD](../active-directory/develop/howto-create-service-principal-portal.md). Copie os seguintes valores para uso em etapas posteriores: **ID do aplicativo (cliente)** , **chave de autenticação** e **ID do Diretório (locatário)** . Seguindo as instruções no mesmo artigo, atribua o aplicativo à função **Colaborador**.
@@ -81,7 +81,7 @@ Em seguida, crie uma tabela do SQL de coletor:
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-2. Permita que os serviços do Azure acessem o SQL Server. Permita acesso a serviços do Azure em seu SQL Server do Azure para que o serviço de Data Factory possa gravar dados no SQL Server do Azure. Para verificar e ativar essa configuração, faça as seguintes etapas:
+2. Permita que os serviços do Azure acessem o Banco de Dados SQL. Permita acesso aos serviços do Azure no servidor, de modo que o serviço do Data Factory possa gravar dados no Banco de Dados SQL. Para verificar e ativar essa configuração, faça as seguintes etapas:
 
     1. Acesse o [portal do Azure](https://portal.azure.com) para gerenciar o SQL Server. Pesquise e selecione **servidores SQL**.
 

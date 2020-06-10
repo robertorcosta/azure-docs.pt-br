@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 07/03/2019
-ms.openlocfilehash: 1a46cb537892d4255fd274b5754ab8e8c0278308
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: c6ae8d79ee40729f47a906561d6c8ae586765f5d
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774467"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84019836"
 ---
 # <a name="use-cli-to-restore-a-managed-instance-database-to-another-geo-region"></a>Usar a CLI para restaurar um banco de dados de Instância Gerenciada para outra região geográfica
 
@@ -28,7 +28,7 @@ Se você optar por instalar e usar a CLI localmente, este artigo exigirá que se
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-Um par existente de instâncias gerenciadas, confira [Usar a CLI do Azure para criar uma instância gerenciada do Banco de Dados SQL do Azure](sql-database-create-configure-managed-instance-cli.md).
+Um par existente de instâncias gerenciadas; confira [Usar a CLI do Azure para criar uma Instância Gerenciada de SQL do Azure](sql-database-create-configure-managed-instance-cli.md).
 
 ### <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -64,4 +64,4 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 
 Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](/cli/azure).
 
-Os exemplos de script da CLI do Banco de Dados SQL adicionais podem ser encontrados na [documentação do Banco de Dados SQL do Azure](../sql-database-cli-samples.md).
+Os exemplos de script da CLI do Banco de Dados SQL adicionais podem ser encontrados na [documentação do Banco de Dados SQL do Azure](../../azure-sql/database/az-cli-script-samples-content-guide.md).

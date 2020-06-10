@@ -6,20 +6,22 @@ ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.topic: tutorial
-ms.date: 02/13/2020
+ms.date: 05/28/2020
 ms.author: banders
-ms.openlocfilehash: 8ebda9716df2e9e45050760ee8d0434c12838370
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5a9e21cacb17743cbb8324a06c083c52aa261eb9
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199119"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194130"
 ---
 # <a name="tutorial-review-your-individual-azure-bill"></a>Tutorial: Examinar sua fatura individual do Azure
 
 Este artigo ajuda você a entender e examinar sua fatura do Azure. Para cada período de cobrança, você normalmente recebe uma fatura por email. A fatura é uma representação de sua conta do Azure. As mesmas informações de custo na fatura estão disponíveis no portal do Azure. Neste tutorial, você comparará sua fatura com o arquivo de uso diário detalhado e com a análise de custos no portal do Azure.
 
 Este tutorial se aplica somente aos clientes do Azure com uma assinatura individual. As assinaturas individuais comuns são aquelas com tarifas pagas conforme o uso adquiridas diretamente do site do Azure.
+
+Se precisar de ajuda para entender encargos inesperados, consulte [Analisar encargos inesperados](https://docs.microsoft.com/azure/cost-management-billing/manage/getting-started#analyze-unexpected-charges). Ou, se você precisar cancelar sua assinatura do Azure, confira [Cancelar sua assinatura do Azure](../manage/cancel-azure-subscription.md).
 
 Neste tutorial, você aprenderá como:
 
@@ -47,7 +49,7 @@ A primeira etapa para comparar o uso e os custos é baixar seus arquivos de fatu
 
 No portal do Azure, digite *assinaturas* na caixa de pesquisa e clique em [Assinaturas](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
-![Navegar para assinaturas](./media/review-individual-bill/navigate-subscriptions.png)
+[![Navegue até Assinaturas](./media/review-individual-bill/navigate-subscriptions.png)](./media/review-individual-bill/navigate-subscriptions.png#lightbox)
 
 Na lista de assinaturas, clique na assinatura.
 
@@ -147,7 +149,7 @@ Por exemplo, uma única máquina virtual (VM) criada no Azure pode ter os seguin
 
 Quando a VM é criada, cada medidor começa a emitir registros de uso. Esse uso e o preço do medidor são rastreados no sistema de medição do Azure.
 
-Você pode ver os medidores que foram usados para calcular sua fatura no arquivo CSV de uso.
+Você pode ver os medidores que foram usados para calcular sua fatura no arquivo CSV de uso, como no exemplo anterior.
 
 ## <a name="pay-your-bill"></a><a name="payment"></a>Pagar sua fatura
 

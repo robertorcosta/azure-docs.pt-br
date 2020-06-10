@@ -5,15 +5,15 @@ author: ramonarguelles
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
-ms.date: 02/24/2019
+ms.date: 05/18/2020
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 046e438304991c4af7ea4a208e51b7a695a5bf23
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 4bf55daa64319cfd47efd2e38a368d76f3814b4e
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83004463"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84296662"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Perguntas frequentes sobre as Âncoras Espaciais do Azure
 
@@ -72,21 +72,21 @@ O recurso Âncoras Espaciais do Azure segue os [Termos do Contrato de Serviço d
 
 **P: Vocês fornece um SLA?**
 
-**R:** Como é padrão para serviços do Azure, nosso objetivo é uma disponibilidade superior a 99,9%. Observe que Âncoras Espaciais do Azure está atualmente em Versão Prévia e, como tal, os [Termos Suplementares de Versão Prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) se aplicam.
+**R:** Como é padrão para serviços do Azure, nosso objetivo é uma disponibilidade superior a 99,9%. 
 
 **P: Posso publicar meus aplicativos usando Âncoras Espaciais do Azure em lojas de aplicativos? Posso usar Âncoras Espaciais do Azure para cenários de produção de missão crítica?**
 
-**R:** Âncoras Espaciais do Azure está atualmente em Versão Prévia e, durante esse tempo, convidamos você a desenvolver aplicativos, [fazer comentários](https://feedback.azure.com/forums/919252-azure-spatial-anchors) sobre o produto e planejar suas implantações de produção.
-
-Datas de GA (Disponibilidade Geral) serão anunciadas em breve.
+**R:** Sim, as Âncoras Espaciais do Azure estão em disponibilidade geral e têm um SLA de serviços padrão do Azure. Convidamos você a desenvolver aplicativos para suas implantações de produção e [compartilhar seus comentários](https://feedback.azure.com/forums/919252-azure-spatial-anchors) sobre o produto conosco.
 
 **P: Vocês têm limites de limitação em vigor?**
 
-**R**: Sim, temos limites de limitação.  Não esperamos que você os atinja para teste e desenvolvimento de aplicativos típicos. Para implantações de produção, estamos prontos para dar suporte aos requisitos de alta escala de nossos clientes. [Entre em contato conosco](mailto:azuremrs@microsoft.com) para discutir isso. Durante essa fase de Versão Prévia, ainda não publicamos nossa estrutura de camadas e preços, mas esperamos fazê-lo em breve.
+**R**: Sim, temos limites de limitação.  Não esperamos que você os atinja para teste e desenvolvimento de aplicativos típicos. Para implantações de produção, estamos prontos para dar suporte aos requisitos de alta escala de nossos clientes. [Entre em contato conosco](mailto:azuremrs@microsoft.com) para discutir isso. 
 
 **P: Em quais regiões o recurso Âncoras Espaciais do Azure está disponível?**
 
-**R:** Você pode criar uma conta de Âncoras Espaciais do Azure hoje mesmo na região do Azure Leste dos EUA 2. Isso significa que há tanto computação quanto armazenamento habilitando esse serviço nessa região. Dito isso, não há nenhuma restrição quanto ao local onde os clientes estão localizados. No futuro, vamos expandir a disponibilidade regional do serviço para todas as regiões primárias do Azure.
+**R:** As Âncoras Espaciais do Azure estão disponíveis no momento no Oeste dos EUA 2, Leste dos EUA, Leste dos EUA 2, Centro-Sul dos EUA, Oeste da Europa, Norte da Europa, Sul do Reino Unido e Leste da Austrália. Ele será disponibilizado em outras regiões no futuro.
+
+Isso significa que há tanto computação quanto armazenamento habilitando esse serviço nessas regiões. Dito isso, não há nenhuma restrição quanto ao local onde os clientes estão localizados. 
 
 **P: Vocês cobram pelo recurso Âncoras Espaciais do Azure? Algum dia cobrarão?**
 

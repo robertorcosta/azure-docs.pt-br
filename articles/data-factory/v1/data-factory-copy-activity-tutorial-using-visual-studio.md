@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d9059c9386af6fab6bb1068d6a9e64b763206f94
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 69f63615d3c5f10bdcef071e18a7379ecf52338e
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74929199"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119298"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Tutorial: Criar um pipeline com a Atividade de Cópia usando o Visual Studio
 > [!div class="op_single_selector"]
@@ -108,7 +108,7 @@ Serviços vinculados vinculam armazenamentos de dados ou serviços de computaç�
 ### <a name="create-the-azure-sql-linked-service"></a>Criar um serviço vinculado do SQL do Azure
 1. Clique com o botão direito no nó **Serviços Vinculados** no **Gerenciador de Soluções** novamente, aponte para **Adicionar** e clique em **Novo Item**. 
 2. Desta vez, selecione **Serviço Vinculado SQL do Azure** e clique em **Adicionar**. 
-3. No arquivo **AzureSqlLinkedService1.json**, substitua `<servername>`, `<databasename>`, `<username@servername>` e `<password>` pelos nomes do SQL server do Azure, do banco de dados, da conta de usuário e pela senha.    
+3. No arquivo **AzureSqlLinkedService1.json**, substitua `<servername>`, `<databasename>`, `<username@servername>` e `<password>` pelos nomes do servidor, do banco de dados, da conta de usuário e pela senha.    
 4. Salve o arquivo **AzureSqlLinkedService1.json** . 
     
     Para saber mais sobre essas propriedades JSON, confira o [Conector do Banco de Dados SQL do Azure](data-factory-azure-sql-connector.md#linked-service-properties).
@@ -436,7 +436,7 @@ Adicione um arquivo de configuração para cada ambiente executando as seguintes
         "AzureSqlLinkedService1": [
             {
                 "name": "$.properties.typeProperties.connectionString",
-                "value":  "Server=tcp:<Azure SQL server name>.database.windows.net,1433;Database=<Azure SQL datbase>;User ID=<Username>;Password=<Password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+                "value":  "Server=tcp:<logical SQL server name>.database.windows.net,1433;Database=<Azure SQL datbase>;User ID=<Username>;Password=<Password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
             }
         ]
     }

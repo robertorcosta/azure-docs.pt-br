@@ -15,12 +15,12 @@ ms.custom: mvc
 ms.date: 05/20/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 738a5bd76cc15b9356275707aed0d0a695aa6367
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 2cd1b846b77e4b600fc9b7590715a73b0ca8f672
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83770917"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266314"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>O que são identidades gerenciadas para recursos do Azure?
 
@@ -50,7 +50,7 @@ Há dois tipos de identidades gerenciadas:
 - Uma **identidade gerenciada atribuída pelo sistema** é habilitada diretamente em uma instância de serviço do Microsoft Azure. Quando a identidade é habilitada, o Azure cria uma identidade para a instância do locatário do Azure AD confiado pela assinatura da instância. Depois que a identidade é criada, as credenciais são provisionadas para a instância. O ciclo de vida de uma identidade atribuída ao sistema está diretamente relacionado à instância de serviço do Azure na qual ela está habilitada. Se a instância é excluída, o Azure limpa automaticamente as credenciais e a identidade no Azure AD.
 - Uma **identidade gerenciada atribuída pelo usuário** é criada como um recurso autônomo do Azure. Por meio de um processo de criação, o Microsoft Azure cria uma identidade no locatário do Azure AD confiado pela assinatura em uso. Depois que a identidade é criada, ela pode ser atribuída a uma ou mais instâncias de serviço do Azure. O ciclo de vida de uma identidade atribuída pelo usuário é gerenciado separadamente do ciclo de vida das instâncias de serviço do Azure a que ela é atribuída.
 
-Internamente, as identidades gerenciadas são entidades de serviço de um tipo especial, que estão bloqueadas para serem usadas apenas com recursos do Azure. Quando a identidade gerenciada é excluída, a entidade de serviço correspondente é removida automaticamente.
+Internamente, as identidades gerenciadas são entidades de serviço de um tipo especial, que só podem ser usadas com recursos do Azure. Quando a identidade gerenciada é excluída, a entidade de serviço correspondente é removida automaticamente.
 Além disso, quando uma identidade atribuída pelo usuário ou pelo sistema é criada, o MSRP (Provedor de Recursos de Identidade Gerenciada) emite um certificado internamente para essa identidade. 
 
 Seu código pode usar uma identidade gerenciada para solicitar tokens de acesso para os serviços que dão suporte à autenticação do Azure AD. O Azure é responsável por reverter as credenciais que são usadas pela instância de serviço. 
@@ -61,10 +61,10 @@ O diagrama abaixo mostra como as identidades de serviço gerenciadas funcionam c
 
 |  Propriedade    | Identidade gerenciada atribuída pelo sistema | Identidade gerenciada atribuída pelo usuário |
 |------|----------------------------------|--------------------------------|
-| Criação |  Criada como parte de um recurso do Azure (por exemplo, uma máquina virtual do Azure ou o Serviço de Aplicativo do Azure) | Criada como um recurso independente do Azure |
+| Criação |  Criada como parte de um recurso do Azure (por exemplo, uma máquina virtual do Azure ou o Serviço de Aplicativo do Azure). | Criada como um recurso independente do Azure. |
 | Ciclo de vida | Ciclo de vida compartilhado com o recurso do Azure com o qual a identidade gerenciada é criada. <br/> Quando o recurso pai é excluído, a identidade gerenciada também é excluída. | Ciclo de vida independente. <br/> Precisa ser explicitamente excluída. |
-| Compartilhamento entre recursos do Azure | Não pode ser compartilhada. <br/> Só pode ser associada a um único recurso do Azure. | Pode ser compartilhada <br/> A mesma identidade gerenciada atribuída pelo usuário pode ser associada a mais de um recurso do Azure. |
-| Casos de uso comuns | Cargas de trabalho que estão contidas em um único recurso do Azure <br/> Cargas de trabalho para as quais você precisa de identidades independentes. <br/> Por exemplo, um aplicativo que é executado em uma única máquina virtual | Cargas de trabalho que são executadas em vários recursos e que podem compartilhar uma única identidade. <br/> Cargas de trabalho que precisam de pré-autorização para um recurso seguro como parte de um fluxo de provisionamento. <br/> Cargas de trabalho em que os recursos são reciclados com frequência, mas as permissões devem permanecer consistentes. <br/> Por exemplo, uma carga de trabalho em que várias máquinas virtuais precisam acessar o mesmo recurso |
+| Compartilhamento entre recursos do Azure | Não pode ser compartilhada. <br/> Só pode ser associada a um único recurso do Azure. | Pode ser compartilhada. <br/> A mesma identidade gerenciada atribuída pelo usuário pode ser associada a mais de um recurso do Azure. |
+| Casos de uso comuns | Cargas de trabalho que estão contidas em um único recurso do Azure. <br/> Cargas de trabalho para as quais você precisa de identidades independentes. <br/> Por exemplo, um aplicativo que é executado em uma única máquina virtual | Cargas de trabalho que são executadas em vários recursos e que podem compartilhar uma única identidade. <br/> Cargas de trabalho que precisam de pré-autorização para um recurso seguro como parte de um fluxo de provisionamento. <br/> Cargas de trabalho em que os recursos são reciclados com frequência, mas as permissões devem permanecer consistentes. <br/> Por exemplo, uma carga de trabalho em que várias máquinas virtuais precisam acessar o mesmo recurso |
 
 ### <a name="how-a-system-assigned-managed-identity-works-with-an-azure-vm"></a>Como uma identidade gerenciada atribuída pelo sistema funciona com uma VM do Azure
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: c9ed675dc970b093f6407d15b3db2ac2668c626b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1e408f27d4c9b2686bd9f56ca754f5553a446440
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74327568"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014903"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-hdinsight"></a>Tutorial: extrair, transformar e carregar dados usando o Azure HDInsight
 
@@ -244,12 +244,12 @@ Como parte do trabalho do Apache Hive, importe os dados do arquivo .csv para uma
    sudo apt-get --assume-yes install freetds-dev freetds-bin
    ```
 
-6. Depois de concluir a instalação, use o seguinte comando para conectar-se ao servidor do banco de dados SQL.
+6. Após a conclusão da instalação, use o comando a seguir para se conectar ao Banco de Dados SQL.
 
    ```bash
    TDSVER=8.0 tsql -H '<server-name>.database.windows.net' -U '<admin-login>' -p 1433 -D '<database-name>'
     ```
-   * Substitua o espaço reservado `<server-name>` pelo nome do servidor do Banco de Dados SQL.
+   * Substitua o espaço reservado `<server-name>` pelo nome do servidor SQL lógico.
 
    * Substitua o espaço reservado `<admin-login>` pelo logon do administrador do Banco de Dados SQL.
 

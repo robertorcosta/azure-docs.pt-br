@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
-ms.date: 02/10/2020
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 955476eefc7575edb90634ce305bbebdf62e2371
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 991a31898bb010dab3db7a545cd115a60bfe3ed1
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592348"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995709"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Tutorial: Criar um aplicativo Flask com os serviços Cognitivos do Azure
 
@@ -119,7 +119,7 @@ Vamos criar um ambiente virtual para nosso aplicativo Flask usando `virtualenv`.
 
 ### <a name="install-requests"></a>Solicitações de instalação
 
-Solicitações é um módulo popular que é usado para enviar solicitações de HTTP 1.1. Não é necessário adicionar manualmente cadeias de caracteres de consulta a suas URLs, nem codificar formulário de seus dados POST.
+Solicitações é um módulo popular que é usado para enviar solicitações de HTTP 1.1. Não é necessário adicionar manualmente cadeias de consulta às URLs nem codificar os dados POST em um formulário.
 
 1. Para instalar as solicitações, execute:
 
@@ -144,7 +144,7 @@ Em seguida, precisamos instalar o Flask. O Flask manipula o roteamento para noss
    ```
    A versão deve ser impressa no terminal. Qualquer outra coisa significa que algo deu errado.
 
-2. Para executar o aplicativo Flask, você pode usar o comando flask ou o switch de -m do Python com o Flask. Antes de fazer isso você precisará informar ao seu terminal com qual aplicativo ele deverá trabalhar por meio da exportação da `FLASK_APP` variável de ambiente:
+2. Para executar o aplicativo do Flask, use o comando flask ou a opção -m do Python com o Flask. Antes de fazer isso você precisará informar ao seu terminal com qual aplicativo ele deverá trabalhar por meio da exportação da `FLASK_APP` variável de ambiente:
 
    **macOS/Linux**:
    ```
