@@ -1,6 +1,6 @@
 ---
-title: Exemplo da CLI de cópia do Banco de Dados SQL do Azure para o novo servidor
-description: Script de exemplo da CLI do Azure para copiar um Banco de Dados SQL para um novo servidor
+title: 'CLI do Azure: Copiar um banco de dados do Banco de Dados SQL do Azure para um novo servidor'
+description: Script de exemplo da CLI do Azure para copiar um banco de dados no Banco de Dados SQL do Azure para um novo servidor
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -11,14 +11,14 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: b7e04d7b1ed51a45e132d088b0dd29377312027c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e7a83478654b848b8e001dd3fea276c5cc9e125a
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80067472"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022685"
 ---
-# <a name="use-cli-to-copy-a-sql-database-to-a-new-server"></a>Usar a CLI para copiar um Banco de Dados SQL para um novo servidor
+# <a name="use-cli-to-copy-a-database-in-azure-sql-database-to-a-new-server"></a>Usar a CLI para copiar um banco de dados no Banco de Dados SQL do Azure para um novo servidor
 
 Este exemplo de script da CLI do Azure cria uma cópia de um banco de dados existente em um novo servidor.
 
@@ -61,4 +61,4 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 
 Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](/cli/azure).
 
-Os exemplos de script da CLI do Banco de Dados SQL adicionais podem ser encontrados na [documentação do Banco de Dados SQL do Azure](../sql-database-cli-samples.md).
+Os exemplos de script da CLI do Banco de Dados SQL adicionais podem ser encontrados na [documentação do Banco de Dados SQL do Azure](../../azure-sql/database/az-cli-script-samples-content-guide.md).

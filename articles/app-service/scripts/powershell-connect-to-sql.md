@@ -6,12 +6,12 @@ ms.assetid: 055440a9-fff1-49b2-b964-9c95b364e533
 ms.topic: sample
 ms.date: 03/20/2017
 ms.custom: mvc
-ms.openlocfilehash: bb5fc8bcc99a4439276f53325c029635143c86c5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e050675282d8a7784d31aaf45a564da991ff6e63
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74685396"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020023"
 ---
 # <a name="connect-an-app-service-app-to-a-sql-database"></a>Conectar um aplicativo do Serviço de Aplicativo a um Banco de Dados SQL
 
@@ -42,8 +42,8 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Cria um Plano do Serviço de Aplicativo. |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Cria um aplicativo do Serviço de Aplicativo. |
-| [New-AzSQLServer](/powershell/module/az.sql/new-azsqlserver) | Cria um servidor do Banco de Dados SQL. |
-| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Cria uma regra de firewall para um servidor do Banco de Dados SQL. |
+| [New-AzSQLServer](/powershell/module/az.sql/new-azsqlserver) | Cria um servidor. |
+| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Cria uma regra de firewall no nível do servidor. |
 | [New-AzSQLDatabase](/powershell/module/az.sql/new-azsqldatabase) | Cria um banco de dados ou um banco de dados elástico. |
 | [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) | Modifica a configuração de um aplicativo do Serviço de Aplicativo. |
 

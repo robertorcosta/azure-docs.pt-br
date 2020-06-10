@@ -5,14 +5,14 @@ ms.subservice: logs
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
-ms.date: 06/19/2019
+ms.date: 05/28/2020
 ms.custom: mvc
-ms.openlocfilehash: 76ba79561df4a75004369d24c4c6af82de9b1cfc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7bc2da2043c6607cfff62ff524be88efb79c6f18
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77661525"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84148252"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Criar e compartilhar painéis de dados do Log Analytics
 
@@ -35,6 +35,14 @@ Selecione **Painel** para abrir o [painel](../../azure-portal/azure-portal-dashb
 ![Painel do portal do Azure](media/tutorial-logs-dashboards/log-analytics-portal-dashboard.png)
 
 Aqui você pode reunir dados operacionais que são mais importantes para a TI em todos os seus recursos do Azure, incluindo a telemetria do Azure Log Analytics.  Antes de começarmos a visualizar uma consulta de logs, vamos criar um painel e compartilhá-lo.  Depois, podemos nos concentrar em nosso exemplo de consulta do log de desempenho, que será renderizado como um gráfico de linhas, e adicioná-lo ao painel.  
+
+> [!NOTE]
+> Há suporte para os seguintes tipos de gráficos nos painéis do Azure por meio das consultas de log:
+> - areachart
+> - columnchart
+> - piechart (será renderizado no painel como um gráfico de rosca)
+> - scatterchart
+> - timechart
 
 Para criar um painel, selecione o botão **Novo painel** ao lado do nome do painel atual.
 

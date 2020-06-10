@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/26/2020
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 477f3cf270377bc1341e65ab500093e05277afa8
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 4e56063891a92ef06e3e14651e26f0b73d280e79
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657604"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84231618"
 ---
 O modelo de projeto do Azure Functions no Visual Studio cria um projeto que você pode publicar em um aplicativo de funções no Azure. Você pode usar um aplicativo de funções para agrupar funções como uma unidade lógica para facilitar o gerenciamento, a implantação, o dimensionamento e o compartilhamento de recursos.
 
@@ -27,12 +27,11 @@ O modelo de projeto do Azure Functions no Visual Studio cria um projeto que voc�
 
     | Configuração      | Valor  | Descrição                      |
     | ------------ |  ------- |----------------------------------------- |
-    | **Runtime do Functions** | **Azure Functions v2 <br />(.NET Core)** | Esse valor cria um projeto de função que usa o runtime versão 2.x do Azure Functions, compatível com o .NET Core. O Azure Functions 1.x dá suporte ao .NET Framework. Para obter mais informações, consulte [Visão geral de versões do Azure Functions runtime](../articles/azure-functions/functions-versions.md).   |
+    | **Runtime do Functions** | **Azure Functions v3 <br />(.NET Core)** | Esse valor cria um projeto de função que usa o runtime versão 3.x do Azure Functions, compatível com o .NET Core 3.x. O Azure Functions 1.x dá suporte ao .NET Framework. Para obter mais informações, consulte [Visão geral de versões do Azure Functions runtime](../articles/azure-functions/functions-versions.md).   |
     | **Modelo de função** | **Gatilho HTTP** | Esse valor cria uma função acionada por uma solicitação HTTP. |
     | **Conta de armazenamento**  | **Emulador de armazenamento** | Como Uma Função do Azure requer uma conta de armazenamento, uma será atribuída ou criada quando você publicar seu projeto no Azure. Um gatilho HTTP não usa uma cadeia de conexão da conta do Armazenamento do Azure; todos os outros tipos de gatilho exigem uma cadeia de conexão válida da conta do Armazenamento do Azure.  |
     | **Direitos de acesso** | **Anônimo** | A função criada pode ser acionada por qualquer cliente sem fornecer uma chave. Essa configuração de autorização torna fácil testar a nova função. Para obter mais informações sobre chaves e autorização, consulte [Chaves de autorização](../articles/azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) e [associações HTTP e webhook](../articles/azure-functions/functions-bindings-http-webhook.md). |
     
-
     
     ![Configurações do projeto do Azure Functions](./media/functions-vs-tools-create/functions-project-settings.png)
 

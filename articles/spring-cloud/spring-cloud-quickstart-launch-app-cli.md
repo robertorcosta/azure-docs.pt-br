@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 02/15/2020
 ms.author: brendm
-ms.openlocfilehash: c05e53bd8ad8ade8c1e42729f46c99a0059c4dce
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ab6eb9b516ca30d92437bdc358e3f1f56cfe8e71
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79470853"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457211"
 ---
 # <a name="quickstart-launch-a-java-spring-application-using-the-azure-cli"></a>Início Rápido: Iniciar um aplicativo Spring Java usando a CLI do Azure
 
@@ -154,16 +154,8 @@ az spring-cloud app update -n gateway --is-public true
 
 2. Consulte o aplicativo de **gateway** quanto ao IP público dele para você poder verificar se ele está em execução:
 
-Linux:
-
 ```azurecli
-az spring-cloud app show --name gateway | grep url
-```
-
-Windows:
-
-```azurecli
-az spring-cloud app show -s <service name> -g <resource group> -n gateway -o table
+az spring-cloud app show --name gateway --query properties.url
 ```
 
 3. Navegue até a URL fornecida pelo comando anterior para executar o aplicativo PiggyMetrics.

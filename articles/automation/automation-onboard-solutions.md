@@ -5,12 +5,12 @@ services: automation
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 39ebdb6937b03d72365e9d3785af9571ebb66186
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 95370a45b9fce69e5c1d06ac9bb987e1bfcfba4f
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836049"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204065"
 ---
 # <a name="enable-update-management-from-a-runbook"></a>Habilitar o Gerenciamento de Atualizações de um runbook
 
@@ -103,9 +103,6 @@ Você deve ter habilitado o Gerenciamento de Atualizações para uma VM do Azure
 
 * Para agendar um runbook, consulte [Gerenciar agendamentos na Automação do Azure](shared-resources/schedules.md).
 * Para usar o Gerenciamento de Atualizações para VMs, consulte [Gerenciar atualizações e patches para suas VMs do Azure](automation-tutorial-update-management.md).
-* Para configurações de escopo, consulte [Trabalhar com configurações de escopo](automation-scope-configurations-update-management.md).
-* Se você não precisar mais do workspace do Log Analytics, consulte as instruções em [Desvincular workspace da conta da Automação para Gerenciamento de Atualizações](automation-unlink-workspace-update-management.md).
-* Para excluir VMs do Gerenciamento de Atualizações, consulte [Remover VMs do Gerenciamento de Atualizações](automation-remove-vms-from-update-management.md).
 * Para solucionar problemas gerais do Gerenciamento de Atualizações, consulte [Solucionar problemas do Gerenciamento de Atualizações](troubleshoot/update-management.md).
 * Para solucionar problemas com o agente de atualização do Windows, consulte [Solucionar problemas do agente de atualização do Windows](troubleshoot/update-agent-issues.md).
-* Para solucionar problemas com o agente de atualização do Linux, consulte [Solucionar problemas do agente de atualização do Linux](troubleshoot/update-agent-issues-linux.md).
+* Para solucionar problemas com o agente de atualização do Linux, confira [Solucionar problemas do agente de atualização do Linux](troubleshoot/update-agent-issues-linux.md).

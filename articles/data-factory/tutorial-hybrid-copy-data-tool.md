@@ -1,6 +1,6 @@
 ---
 title: Copiar dados locais usando a ferramenta de Copiar Dados do Azure
-description: Crie um Azure Data Factory e, em seguida, use a ferramenta Copy Data para copiar dados de um banco de dados do SQL Server local para o armazenamento de Blobs do Azure.
+description: Crie um Azure Data Factory e, em seguida, use a ferramenta Copiar Dados para copiar dados de um banco de dados do SQL Server para o Armazenamento de Blobs do Azure.
 services: data-factory
 ms.author: abnarain
 author: nabhishek
@@ -11,21 +11,21 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 04/09/2018
-ms.openlocfilehash: 6b4df324fec38d08355754146d8be76d225e6cb7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: badf6ed4e4a330aae288cd6a2b102941901a0461
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81418585"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194601"
 ---
-# <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Copie dados de um banco de dados do SQL Server local para um Armazenamento de Blobs do Azure usando a ferramenta Copy Data
+# <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Copie dados de um banco de dados do SQL Server para um Armazenamento de Blobs do Azure usando a ferramenta Copiar Dados
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versão atual](tutorial-hybrid-copy-data-tool.md)
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Neste tutorial, você pode usar o portal do Azure para criar um Data Factory. Em seguida, use a ferramenta Copy Data para criar um pipeline que copia dados de um banco de dados do SQL Server local para um Armazenamento de Blobs do Azure.
+Neste tutorial, você pode usar o portal do Azure para criar um Data Factory. Em seguida, use a ferramenta Copiar Dados para criar um pipeline que copia dados de um banco de dados do SQL Server para um Armazenamento de Blobs do Azure.
 
 > [!NOTE]
 > - Se estiver se familiarizando com o Azure Data Factory, confira [Introdução ao Data Factory](introduction.md).
@@ -37,7 +37,7 @@ Neste tutorial, você executa as seguintes etapas:
 > * Usar a ferramenta Copy Data para criar um pipeline.
 > * Monitore as execuções de pipeline e de atividade.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 ### <a name="azure-subscription"></a>Assinatura do Azure
 Antes de começar, se você ainda não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/).
 
@@ -47,7 +47,7 @@ Para criar instâncias de data factory, a conta de usuário usada para fazer log
 Para exibir as permissões que você tem na assinatura, acesse o portal do Azure. Selecione seu nome de usuário no canto superior direito, depois selecione **Permissões**. Se tiver acesso a várias assinaturas, selecione a que for adequada. Para obter instruções de exemplo sobre como adicionar um usuário a uma função, confira [Gerenciar o acesso usando o portal do Azure e o RBAC](../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="sql-server-2014-2016-and-2017"></a>SQL Server 2014, 2016 e 2017
-Neste tutorial, você usa um banco de dados do SQL Server local como um armazenamento de dados de *fonte*. O pipeline no data factory criado neste tutorial copia dados desse banco de dados do SQL Server local (origem) para um Armazenamento de blobs (coletor). Depois você cria uma tabela chamada **emp** no seu banco de dados do SQL Server e insere algumas entradas de exemplo na tabela.
+Neste tutorial, você usa um banco de dados do SQL Server como um armazenamento de dados de *origem*. O pipeline no data factory criado neste tutorial copia dados desse banco de dados do SQL Server (origem) para um Armazenamento de Blobs (coletor). Depois você cria uma tabela chamada **emp** no seu banco de dados do SQL Server e insere algumas entradas de exemplo na tabela.
 
 1. Inicie o SQL Server Management Studio. Se ainda não estiver instalado em seu computador, vá para [Baixar o SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
@@ -74,7 +74,7 @@ Neste tutorial, você usa um banco de dados do SQL Server local como um armazena
     ```
 
 ### <a name="azure-storage-account"></a>Conta de Armazenamento do Azure
-Neste tutorial, você usa uma conta de armazenamento do Azure para fins gerais (especificamente o Armazenamento de blobs) como armazenamento de dados de destino/coletor. Se você não tiver uma conta de armazenamento de fins gerais, confira [Criar uma conta de armazenamento](../storage/common/storage-account-create.md) para obter instruções sobre como criar uma. O pipeline no data factory criado neste tutorial copia dados do banco de dados do SQL Server local (origem) para este Armazenamento de blobs (coletor). 
+Neste tutorial, você usa uma conta de armazenamento do Azure para fins gerais (especificamente o Armazenamento de blobs) como armazenamento de dados de destino/coletor. Se você não tiver uma conta de armazenamento de fins gerais, confira [Criar uma conta de armazenamento](../storage/common/storage-account-create.md) para obter instruções sobre como criar uma. O pipeline no data factory criado neste tutorial copia dados desse banco de dados do SQL Server (origem) para esse Armazenamento de Blobs (coletor). 
 
 #### <a name="get-the-storage-account-name-and-account-key"></a>Obter o nome da conta de armazenamento e a chave da conta
 Use o nome e a chave da sua conta de armazenamento neste tutorial. Para obter o nome e a chave da sua conta de armazenamento, realize as etapas a seguir:
@@ -169,13 +169,13 @@ Nesta seção, você cria um contêiner de blobs chamado **adftutorial** no seu 
 
     a. Em **Nome**, insira **SqlServerLinkedService**.
 
-    b. Em **Nome do servidor**, insira o nome da sua instância do SQL Server local.
+    b. Em **Nome do servidor**, insira o nome da instância do SQL Server.
 
     c. Em **Nome do banco de dados**, insira o nome do seu banco de dados local.
 
     d. Em **Tipo de autenticação**, selecione a autenticação adequada.
 
-    e. Em **Nome de usuário**, insira o nome de usuário com acesso ao SQL Server local.
+    e. Em **Nome de usuário**, insira o nome de usuário com acesso ao SQL Server.
 
     f. Insira a **senha** para o usuário.
 
@@ -233,7 +233,7 @@ Nesta seção, você cria um contêiner de blobs chamado **adftutorial** no seu 
 
 
 ## <a name="next-steps"></a>Próximas etapas
-O pipeline deste exemplo copia dados de um banco de dados do SQL Server local para um Armazenamento de blobs. Você aprendeu a:
+O pipeline deste exemplo copia dados de um banco de dados do SQL Server para um Armazenamento de Blobs. Você aprendeu a:
 
 > [!div class="checklist"]
 > * Criar um data factory.

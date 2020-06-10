@@ -7,16 +7,16 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 1bdc089bb89a732e329bf7d3ffd3d5b5c09ba408
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.openlocfilehash: ef6d49c9046ba04bbac40ec9bf555e12d2faa8f6
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80637255"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021697"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>Início Rápido: Criar um ponto de extremidade privado usando portal do Azure
 
-Um ponto de extremidade privado é o bloco de construção fundamental para o link privado no Azure. Ele permite que os recursos do Azure, como VMs (máquinas virtuais), se comuniquem de forma privada com recursos de link privado. Neste Início Rápido, você aprenderá a criar uma VM em uma Rede Virtual do Azure, um servidor do banco de dados SQL com um ponto de extremidade privado do Azure usando o portal do Azure. Em seguida, você pode acessar com segurança o servidor do banco de dados SQL na VM.
+Um ponto de extremidade privado é o bloco de construção fundamental para o link privado no Azure. Ele permite que os recursos do Azure, como VMs (máquinas virtuais), se comuniquem de forma privada com recursos de link privado. Neste Início Rápido, você aprenderá a criar uma VM em uma Rede Virtual do Azure e um servidor SQL lógico com um ponto de extremidade privado do Azure usando o portal do Azure. Em seguida, você poderá acessar o Banco de Dados SQL na VM com segurança.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -93,8 +93,9 @@ Nesta seção, você precisará substituir os seguintes parâmetros nas etapas p
 
 1. Quando vir a mensagem **Validação aprovada**, selecione **Criar**.
 
-## <a name="create-a-sql-database-server"></a>Criar um servidor do banco de dados SQL
-Nesta seção, você criará um servidor do banco de dados SQL no Azure. 
+## <a name="create-a-logical-sql-server"></a>Criar um servidor SQL lógico
+
+Nesta seção, você criará um servidor SQL lógico no Azure. 
 
 1. No lado superior esquerdo da tela no portal do Azure, selecione **Criar um recurso** > **Bancos de Dados** > **Banco de Dados SQL**.
 
@@ -193,7 +194,7 @@ Depois de criar **myVm**, conecte-se a ela pela Internet da seguinte maneira:
 
 1. Depois que a área de trabalho da VM for exibida, minimize-a para voltar para sua área de trabalho local.  
 
-## <a name="access-the-sql-database-server-privately-from-the-vm"></a>Acessar o servidor do banco de dados SQL de forma privada da VM
+## <a name="access-sql-database-privately-from-the-vm"></a>Acessar o Banco de Dados SQL no modo privado da VM
 
 1. Na Área de Trabalho Remota do *myVM*, abra o PowerShell.
 
@@ -233,4 +234,4 @@ Quando terminar de usar o ponto de extremidade privado, o SQL Server e a VM, exc
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você criou uma VM em uma rede virtual, um servidor do banco de dados SQL e um ponto de extremidade privado para acesso privado. Você se conectou a uma VM pela Internet e se comunicou com segurança com servidor do banco de dados SQL usando o Link Privado. Para saber mais sobre pontos de extremidade privados, confira [O que é o ponto de extremidade privado do Azure?](private-endpoint-overview.md).
+Neste início rápido, você criou uma VM em uma rede virtual, um servidor SQL lógico e um ponto de extremidade privado para acesso privado. Você se conectou a uma VM pela Internet e se comunicou com o Banco de Dados SQL com segurança usando o Link Privado. Para saber mais sobre pontos de extremidade privados, confira [O que é o ponto de extremidade privado do Azure?](private-endpoint-overview.md).

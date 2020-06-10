@@ -1,0 +1,67 @@
+---
+title: 'PowerShell: Configurar a replicação geográfica ativa de um pool elástico'
+description: Script de exemplo do Azure PowerShell para configurar uma replicação geográfica ativa para um banco de dados em pool no Banco de Dados SQL do Azure e fazer failover.
+services: sql-database
+ms.service: sql-database
+ms.subservice: high-availability
+ms.custom: sqldbrb=1
+ms.devlang: PowerShell
+ms.topic: sample
+author: mashamsft
+ms.author: mathoma
+ms.reviewer: carlrab
+ms.date: 03/12/2019
+ms.openlocfilehash: c0cc21471789a175ee2483e3969bc6e47f6322ea
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196680"
+---
+# <a name="use-powershell-to-configure-active-geo-replication-for-a-pooled-database-in-azure-sql-database"></a>Use o PowerShell para configurar a replicação geográfica ativa de um banco de dados em pool no Banco de Dados SQL do Azure
+[!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
+
+Este exemplo de script do Azure PowerShell configura a replicação geográfica ativa para um banco de dados em pool no Banco de Dados SQL do Azure e faz o failover dele para a réplica secundária do banco de dados.
+
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
+
+Quando você opta por instalar e usar o PowerShell localmente, este tutorial exige o Az PowerShell 1.4.0 ou posterior. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
+
+## <a name="sample-scripts"></a>Scripts de exemplo
+
+[!code-powershell-interactive[main](../../../../powershell_scripts/sql-database/setup-geodr-and-failover/setup-geodr-and-failover-elastic-pool.ps1?highlight=17-20 "Set up active geo-replication for elastic pool")]
+
+## <a name="clean-up-deployment"></a>Limpar a implantação
+
+Use o comando a seguir para remover o grupo de recursos e todos os recursos associados a ele.
+
+```powershell
+Remove-AzResourceGroup -ResourceGroupName $primaryresourcegroupname
+Remove-AzResourceGroup -ResourceGroupName $secondaryresourcegroupname
+```
+
+## <a name="script-explanation"></a>Explicação sobre o script
+
+Este script usa os comandos a seguir. Cada comando na tabela redireciona para a documentação específica do comando.
+
+| Comando | Observações |
+|---|---|
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Cria um servidor que hospeda bancos de dados e pools elásticos. |
+| [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) | Cria um pool elástico. |
+| [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Cria um banco de dados em um servidor. |
+| [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) | Atualiza as propriedades do banco de dados ou move um banco de dados para dentro, para fora ou entre os pools elásticos. |
+| [New-AzSqlDatabaseSecondary](/powershell/module/az.sql/new-azsqldatabasesecondary)| Cria um banco de dados secundário para um banco de dados existente e inicia a replicação de dados. |
+| [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase)| Obtém um ou mais bancos de dados. |
+| [Set-AzSqlDatabaseSecondary](/powershell/module/az.sql/set-azsqldatabasesecondary)| Define um banco de dados secundário como primário para iniciar o failover.|
+| [Get-AzSqlDatabaseReplicationLink](/powershell/module/az.sql/get-azsqldatabasereplicationlink) | Obtém os links de replicação geográfica entre um Banco de Dados SQL do Azure e um grupo de recursos ou servidor SQL lógico. |
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
+|||
+
+## <a name="next-steps"></a>Próximas etapas
+
+Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](/powershell/azure/overview).
+
+Outros exemplos de script do PowerShell para Banco de Dados SQL podem ser encontrados nos [scripts do PowerShell para Banco de Dados SQL do Azure](../powershell-script-content-guide.md).

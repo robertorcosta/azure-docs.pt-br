@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 215ed088b17125e7e41877e3c188a6bf3d77e8bb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f34103bb42999f6d2e9bfe35dbc257db7cecd909
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73682849"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119275"
 ---
 # <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>Tutorial: Criar um pipeline do Data Factory que move dados usando o Azure PowerShell
 > [!div class="op_single_selector"]
@@ -189,7 +189,7 @@ Nesta etapa, você vincula o banco de dados SQL do Azure ao data factory.
 1. Crie um arquivo JSON denominado AzureSqlLinkedService.json na pasta C:\ADFGetStartedPSH, com o seguinte conteúdo:
 
     > [!IMPORTANT]
-    > Substitua &lt;servername&gt;, &lt;databasename&gt;, &lt;username@servername&gt; e &lt;password&gt; pelos nomes de seu servidor SQL do Azure, banco de dados, conta de usuário e senha.
+    > Substitua &lt;servername&gt;, &lt;databasename&gt;, &lt;username@servername&gt; e &lt;password&gt; pelos nomes do servidor e do banco de dados, pela conta de usuário e pela senha.
     
     ```json
     {
@@ -218,7 +218,7 @@ Nesta etapa, você vincula o banco de dados SQL do Azure ao data factory.
     ProvisioningState : Succeeded
     ```
 
-   Confirme se a configuração **Permitir acesso aos serviços do Azure** está ativada para o servidor do banco de dados SQL. Para verificar e ativar essa configuração, execute as seguintes etapas:
+   Confirme se a configuração **Permitir acesso aos serviços do Azure** está ativada no servidor. Para verificar e ativar essa configuração, execute as seguintes etapas:
 
     1. Faça logon no [Portal do Azure](https://portal.azure.com)
     1. Clique em **Mais serviços >** à esquerda e clique em **Servidores SQL** na categoria **BANCOS DE DADOS**.

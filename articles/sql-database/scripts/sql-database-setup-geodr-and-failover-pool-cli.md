@@ -1,22 +1,22 @@
 ---
-title: Exemplo da CLI para replicação geográfica ativa em pools do Banco de Dados SQL do Azure
+title: 'CLI do Azure: Configurar a replicação geográfica ativa para um pool elástico'
 description: Script de exemplo da CLI do Azure para configurar a replicação geográfica ativa para um banco de dados em pool no Banco de Dados SQL do Azure e fazer failover.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: ''
+ms.custom: sqldbrb=1
 ms.devlang: azurecli
 ms.topic: sample
 author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 2646ed98f4a73c69d339df0134e8a565c958c514
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a272564684671e38100e5390e95129121fcbd0f8
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80067353"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84019376"
 ---
 # <a name="use-cli-to-configure-active-geo-replication-for-a-pooled-database-in-azure-sql-database"></a>Use a CLI para configurar a replicação geográfica ativa de um banco de dados em pool no Banco de Dados SQL do Azure
 
@@ -62,4 +62,4 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 
 Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](/cli/azure).
 
-Os exemplos de script da CLI do Banco de Dados SQL adicionais podem ser encontrados na [documentação do Banco de Dados SQL do Azure](../sql-database-cli-samples.md).
+Os exemplos de script da CLI do Banco de Dados SQL adicionais podem ser encontrados na [documentação do Banco de Dados SQL do Azure](../../azure-sql/database/az-cli-script-samples-content-guide.md).

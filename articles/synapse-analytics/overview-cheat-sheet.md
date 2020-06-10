@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: c49e5f421f88b4d2676204ff0a32a0aa2b808be1
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 660e77e130d5546d29730680c5863e25c052e5d2
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652649"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234842"
 ---
 # <a name="azure-synapse-analytics-cheat-sheet"></a>Folha de referências do Azure Synapse Analytics
 
@@ -27,14 +27,14 @@ A folha de referências do Azure Synapse Analytics explicará os conceitos bási
 > [!div class="mx-imgBorder"]
 >![Arquitetura do Synapse](media/overview-cheat-sheet/azure-synapse-architecture-cheat-sheet.png)
 
-## <a name="concepts"></a>Conceitos
-| Substantivos e verbos                         | O que faz       |
+## <a name="terminology"></a>Terminologia
+| Termo                         | Definição      |
 |:---                                 |:---                 |
 | **Workspace do Synapse (versão prévia)** | Um limite de colaboração protegível para fazer análises empresariais baseadas em nuvem no Azure. Um workspace é implantado em uma região específica e tem uma conta do ADLS Gen2 e um sistema de arquivos associados (para armazenar dados temporários). Um workspace está localizado em um grupo de recursos. |
 | **SQL do Synapse**   | Execute análises com pools ou com funcionalidades sob demanda.  |
 | **Pool de SQL**   | Os recursos provisionados do SQL de 0 a N com os bancos de dados correspondentes podem ser implantados em um workspace. Cada pool de SQL tem um banco de dados associado. Um pool de SQL pode ser escalado, colocado em pausa e retomado manual ou automaticamente. Um pool de SQL pode ser escalado de 100 DWUs até 30 mil DWUs.       |
 | **SQL sob demanda (versão prévia)**   | Sistema de processamento de dados distribuído criado para dados de grande escala que permite executar consultas T-SQL nos dados do data lake. Ele é sem servidor e, portanto, você não precisa gerenciar a infraestrutura.       |
-|**Apache Spark** | Runtime do Spark usado em um Pool do Spark. A versão atual compatível é Spark 2.4 com Python 3.6.1, Scala 2.11.12, suporte do .NET para Apache Spark 0.5 e Delta Lake 0.3.  | 
+|**Apache Spark para o Synapse** | Runtime do Spark usado em um Pool do Spark. A versão atual compatível é Spark 2.4 com Python 3.6.1, Scala 2.11.12, suporte do .NET para Apache Spark 0.5 e Delta Lake 0.3.  | 
 | **Pool do Apache Spark (versão prévia)**  | Os recursos provisionados do Spark de 0 a N com os bancos de dados correspondentes podem ser implantados em um workspace. Um Pool do Spark pode ser colocado em pausa automaticamente, retomado e escalado.  |
 | **Aplicativo Spark**  |   Ele consiste em um processo de driver e em um conjunto de processos de executor. Um aplicativo Spark é executado em um Pool do Spark.            |
 | **Sessão do Spark**  |   Ponto de entrada unificado de um aplicativo Spark. Ele fornece um modo de interagir com várias funcionalidades do Spark e com um número menor de constructos. Para executar um notebook, uma sessão precisará ser criada. Uma sessão pode ser configurada para ser executada em um número específico de executores de um tamanho específico. A configuração padrão de uma sessão de notebook é a execução em dois executores de tamanho médio. |

@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 05/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 7642c009a5bcd1d00efb432975fff5a65c7ba340
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: aa59d2dea4456b977afee92103fa66d6afe9bf31
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80297192"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219148"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Tutorial: Copiar dados para o Armazenamento de Blobs do Azure Data Box por meio de APIs REST  
 
@@ -36,17 +36,16 @@ Antes de começar, verifique se:
 2. Você recebeu seu Data Box e o status do pedido no portal está como **Entregue**.
 3. Você examinou os [requisitos do sistema para o Armazenamento de Blobs do Data Box](data-box-system-requirements-rest.md) e está familiarizado com as versões compatíveis de APIs, SDKs e ferramentas.
 4. Você tem acesso a um computador host contendo os dados que deseja copiar para o Data Box. O computador host deve
-    - Executar um [Sistema operacional com suporte](data-box-system-requirements.md).
-    - Estar conectado a uma rede de alta velocidade. É altamente recomendável que você tenha pelo menos uma conexão de 10 GbE. Se uma conexão de 10 GbE não estiver disponível, um link de dados de 1 GbE poderá ser usado, mas as velocidades de cópia serão afetadas.
+    * Executar um [Sistema operacional com suporte](data-box-system-requirements.md).
+    * Estar conectado a uma rede de alta velocidade. É altamente recomendável que você tenha pelo menos uma conexão de 10 GbE. Se uma conexão de 10 GbE não estiver disponível, um link de dados de 1 GbE poderá ser usado, mas as velocidades de cópia serão afetadas.
 5. [Baixe o AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417) no computador host. Você usará o AzCopy para copiar dados para o Armazenamento de Blobs do Azure Data Box do computador host.
-
 
 ## <a name="connect-via-http-or-https"></a>Conectar-se via HTTP ou HTTPS
 
 Conecte-se ao Armazenamento de Blobs do Data Box via *HTTP* ou *HTTPS*.
 
-- *HTTPS* é a maneira segura e recomendada de se conectar ao Armazenamento de Blobs do Data Box.
-- *HTTP* é usado para a conexão em redes confiáveis.
+* *HTTPS* é a maneira segura e recomendada de se conectar ao Armazenamento de Blobs do Data Box.
+* *HTTP* é usado para a conexão em redes confiáveis.
 
 As etapas para conectar são diferentes quando você se conecta ao Armazenamento de blobs do Data Box por *http* ou por *https*.
 
@@ -54,8 +53,8 @@ As etapas para conectar são diferentes quando você se conecta ao Armazenamento
 
 A conexão às APIs REST do Armazenamento de Blobs do Data Box via *HTTP* exige as seguintes etapas:
 
-- Adicionar o IP do dispositivo e o ponto de extremidade de serviço Blob ao host remoto
-- Configurar software de terceiros e verificar a conexão
+* Adicionar o IP do dispositivo e o ponto de extremidade de serviço Blob ao host remoto
+* Configurar software de terceiros e verificar a conexão
 
 Cada uma dessas etapas é descrita nas seções a seguir.
 
@@ -63,7 +62,7 @@ Cada uma dessas etapas é descrita nas seções a seguir.
 
 [!INCLUDE [data-box-add-device-ip](../../includes/data-box-add-device-ip.md)]
 
-### <a name="configure-partner-software-and-verify-connection"></a>Configurar o software parceiro e verificar a conexão
+### <a name="verify-connection-and-configure-partner-software"></a>Verificar a conectar e configurar o software parceiro
 
 [!INCLUDE [data-box-configure-partner-software](../../includes/data-box-configure-partner-software.md)]
 
@@ -73,10 +72,10 @@ Cada uma dessas etapas é descrita nas seções a seguir.
 
 A conexão às APIs REST do Armazenamento de Blobs do Azure via HTTPS exige as seguintes etapas:
 
-- Baixar o certificado no portal do Azure
-- Importar o certificado no host remoto ou do cliente
-- Adicionar o IP do dispositivo e o ponto de extremidade de serviço Blob ao host remoto ou do cliente
-- Configurar software de terceiros e verificar a conexão
+* Baixar o certificado no portal do Azure
+* Importar o certificado no host remoto ou do cliente
+* Adicionar o IP do dispositivo e o ponto de extremidade de serviço Blob ao host remoto ou do cliente
+* Configurar software de terceiros e verificar a conexão
 
 Cada uma dessas etapas é descrita nas seções a seguir.
 
@@ -86,11 +85,11 @@ Use o portal do Azure para baixar o certificado.
 
 1. Entre no portal do Azure.
 2. Acesse sua ordem do Data Box e navegue para **Geral > Detalhes do dispositivo**.
-3. Em **Credenciais do dispositivo**, acesse **Acesso à API** no dispositivo. Clique em **Download**. Essa ação baixa um arquivo de certificado **\<nome de seu pedido>.cer**. **Salve** esse arquivo. Você instalará esse certificado no computador cliente ou host que será usado para se conectar ao dispositivo.
+3. Em **Credenciais do dispositivo**, acesse **Acesso à API** no dispositivo. Clique em **Download**. Essa ação baixa um arquivo de certificado **\<your order name>.cer**. **Salve** esse arquivo. Você instalará esse certificado no computador cliente ou host que será usado para se conectar ao dispositivo.
 
     ![Baixar o certificado no portal do Azure](media/data-box-deploy-copy-data-via-rest/download-cert-1.png)
- 
-### <a name="import-certificate"></a>Importar certificado 
+
+### <a name="import-certificate"></a>Importar certificado
 
 O acesso ao armazenamento de blobs do Data Box via HTTPS requer um certificado TLS/SSL para o dispositivo. A maneira na qual esse certificado é disponibilizado para o aplicativo cliente varia de acordo com o aplicativo e entre sistemas operacionais e distribuições. Alguns aplicativos podem acessar o certificado depois que ele é importado no repositório de certificados do sistema, enquanto outros aplicativos não fazem uso desse mecanismo.
 
@@ -109,16 +108,16 @@ Siga estas etapas para importar o arquivo `.cer` para o repositório raiz de um 
 
 #### <a name="use-windows-server-ui"></a>Usar a interface do usuário do Windows Server
 
-1.   Clique com o botão direito do mouse no arquivo `.cer` e selecione **Instalar certificado**. Essa ação inicia o Assistente para Importação de Certificados.
-2.   Em **Localização do repositório**, selecione **Computador Local** e, em seguida, clique em **Próximo**.
+1. Clique com o botão direito do mouse no arquivo `.cer` e selecione **Instalar certificado**. Essa ação inicia o Assistente para Importação de Certificados.
+2. Em **Localização do repositório**, selecione **Computador Local** e, em seguida, clique em **Próximo**.
 
     ![Importar o certificado usando o PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-1.png)
 
-3.   Selecione **Colocar todos os certificados no seguinte repositório** e, em seguida, clique em **Procurar**. Navegue até o repositório de raiz do seu host remoto e, em seguida, clique em **Próximo**.
+3. Selecione **Colocar todos os certificados no seguinte repositório** e, em seguida, clique em **Procurar**. Navegue até o repositório de raiz do seu host remoto e, em seguida, clique em **Próximo**.
 
     ![Importar o certificado usando o PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-2.png)
 
-4.   Clique em **Concluir**. Será exibida uma mensagem que informa que a importação foi bem-sucedida.
+4. Clique em **Concluir**. Será exibida uma mensagem que informa que a importação foi bem-sucedida.
 
     ![Importar o certificado usando o PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-3.png)
 
@@ -128,13 +127,13 @@ O método para importar um certificado varia de acordo com a distribuição.
 
 Várias delas, tais como Ubuntu e Debian, usam o comando `update-ca-certificates`.  
 
-- Renomeie o arquivo de certificado codificado em Base64 para ter uma extensão `.crt` e copie-o para o `/usr/local/share/ca-certificates directory`.
-- Execute o comando `update-ca-certificates`.
+* Renomeie o arquivo de certificado codificado em Base64 para ter uma extensão `.crt` e copie-o para o `/usr/local/share/ca-certificates directory`.
+* Execute o comando `update-ca-certificates`.
 
 Versões recentes do RHEL, Fedora e CentOS usam o comando `update-ca-trust`.
 
-- Copie o arquivo de certificado para o diretório `/etc/pki/ca-trust/source/anchors`.
-- Execute `update-ca-trust`.
+* Copie o arquivo de certificado para o diretório `/etc/pki/ca-trust/source/anchors`.
+* Execute `update-ca-trust`.
 
 Consulte a documentação específica para a sua distribuição para obter detalhes.
 
@@ -144,7 +143,7 @@ Siga as mesmas etapas para [adicionar endereço IP do dispositivo e ponto de ext
 
 ### <a name="configure-partner-software-and-verify-connection"></a>Configurar o software parceiro e verificar a conexão
 
-Siga as etapas para [configurar o software de parceiro que você usou ao se conectar via *HTTP*](#configure-partner-software-and-verify-connection). A única diferença é que você deve deixar a *opção Usar HTTP* desmarcada.
+Siga as etapas para [configurar o software de parceiro que você usou ao se conectar via *HTTP*](#verify-connection-and-configure-partner-software). A única diferença é que você deve deixar a *opção Usar HTTP* desmarcada.
 
 ## <a name="copy-data-to-data-box"></a>Copiar dados para caixa de dados
 
@@ -152,15 +151,17 @@ Depois que você estiver conectado ao Armazenamento de Blobs do Data Box, a pró
 
 * Ao copiar dados, verifique se o tamanho dos dados está de acordo com os limites de tamanho descritos nos [armazenamento do Azure e nos limites da Caixa de Dados](data-box-limits.md).
 * Se os dados, que estão sendo carregados pelo Data Box, forem carregados simultaneamente por outros aplicativos fora do Data Box, isso poderá resultar em falhas no trabalho de upload e em dados corrompidos.
-* Mantenha uma cópia dos dados de origem até que haja a confirmação de que o Data Box transferiu os seus dados para o Armazenamento do Azure.
+
+> [!IMPORTANT]
+> Mantenha uma cópia dos dados de origem até que haja a confirmação de que o Data Box transferiu os seus dados para o Armazenamento do Azure.
 
 Neste tutorial, o AzCopy é usado para copiar dados para o Armazenamento de Blobs do Data Box. Use também o Gerenciador de Armazenamento do Azure (se preferir uma ferramenta baseada em GUI) ou um software parceiro para copiar os dados.
 
 O procedimento de cópia tem as seguintes etapas:
 
-- Criar um contêiner
-- Carregar o conteúdo de uma pasta no Armazenamento de Blobs do Data Box
-- Carregar os arquivos modificados no Armazenamento de Blobs do Data Box
+* Criar um contêiner
+* Carregar o conteúdo de uma pasta no Armazenamento de Blobs do Data Box
+* Carregar os arquivos modificados no Armazenamento de Blobs do Data Box
 
 Cada uma dessas etapas é descrita mais detalhadamente nas seções a seguir.
 
@@ -195,7 +196,6 @@ Use o AzCopy para carregar todos os arquivos de uma pasta no Armazenamento de Bl
 
     AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S
 
-
 Substitua `<key>` pela chave da conta. Para obter a chave da conta, no portal do Azure, acesse sua conta de armazenamento. Acesse **Configurações > Chaves de acesso**, selecione uma chave e cole-a no comando do AzCopy.
 
 Se o contêiner de destino especificado não existir, o AzCopy o criará e carregará o arquivo nele. Atualize o caminho de origem para o diretório de dados e substitua `data-box-storage-account-name` na URL de destino pelo nome da conta de armazenamento associada ao Data Box.
@@ -229,10 +229,10 @@ A próxima etapa é preparar seu dispositivo para envio.
 Neste tutorial, você aprendeu sobre tópicos do Azure Data Box como:
 
 > [!div class="checklist"]
+>
 > * Pré-requisitos
 > * Conectar-se ao Armazenamento de Blobs do Data Box via *HTTP* ou *HTTPS*
 > * Copiar dados para caixa de dados
-
 
 Avance para o próximo tutorial para saber como enviar o Data Box novamente à Microsoft.
 

@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: alkohli
-ms.openlocfilehash: ef0d79cae11a382bcca0ddb61e1d4a04b5db41e9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5b3db919056f24ad8b46c9925c044453e671d99f
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79501869"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219157"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>Tutorial: Usar o serviço de cópia de dados para copiar dados para o Azure Data Box (versão prévia)
 
@@ -50,7 +50,8 @@ Depois que você estiver conectado ao dispositivo NAS, a próxima etapa será co
 
 * Se os dados estiverem sendo modificados enquanto o serviço de cópia de dados os estiver lendo, poderão ocorrer falhas ou dados corrompidos.
 
-* Mantenha uma cópia dos dados de origem até que haja a confirmação de que o Data Box transferiu os seus dados para o Armazenamento do Azure.
+> [!IMPORTANT]
+> Mantenha uma cópia dos dados de origem até que haja a confirmação de que o Data Box transferiu os seus dados para o Armazenamento do Azure.
 
 Para copiar dados usando o serviço de cópia de dados, é necessário criar um trabalho:
 
@@ -150,4 +151,3 @@ Avance para o próximo tutorial para saber como enviar o dispositivo Data Box no
 
 > [!div class="nextstepaction"]
 > [Enviar o dispositivo Azure Data Box para a Microsoft](./data-box-deploy-picked-up.md)
-

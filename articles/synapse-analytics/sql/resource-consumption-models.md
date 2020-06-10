@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: e078893b3bbe0ef5661cd87bad62b320f78ceb5d
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: b81f1e49b2209d0a236f1fb453bb7fe679bb3608
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81421230"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84112764"
 ---
 # <a name="azure-synapse-analytics-sql-resource-consumption"></a>Consumo de recursos do Azure Synapse Analytics SQL
 
@@ -77,7 +77,7 @@ DWUs e cDWUs oferecem suporte ao dimensionamento vertical ou horizontal de compu
 
 #### <a name="capacity-limits"></a>Limites de capacidade
 
-Cada servidor SQL (por exemplo, myserver.database.windows.net) tem uma cota de [Unidade de Transação de Banco de Dados (DTU)](../../sql-database/sql-database-service-tiers-dtu.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) que permite um número específico de unidades de depósito de dados. Para mais informações, consulte o [limites de capacidade de gerenciamento de carga de trabalho](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#workload-management).
+Cada servidor SQL (por exemplo, myserver.database.windows.net) tem uma cota de [Unidade de Transação de Banco de Dados (DTU)](../../azure-sql/database/service-tiers-dtu.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) que permite um número específico de unidades de depósito de dados. Para mais informações, consulte o [limites de capacidade de gerenciamento de carga de trabalho](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#workload-management).
 
 ### <a name="how-many-data-warehouse-units-do-i-need"></a>De quantas Unidades de Data Warehouse precisarei?
 
@@ -106,7 +106,7 @@ Funções internas para recursos do Azure, como Colaborador do BD SQL e Colabora
 Para exibir a configuração atual de DWU:
 
 1. Abra o Pesquisador de Objetos do SQL Server no Visual Studio.
-2. Conecte-se ao banco de dados mestre associado ao servidor lógico do Banco de Dados SQL.
+2. Conecte-se ao banco de dados mestre associado ao servidor SQL lógico.
 3. Selecione do modo de exibição de gerenciamento dinâmico sys.database_service_objectives. Veja um exemplo:
 
 ```sql
@@ -148,7 +148,7 @@ Com o T-SQL, você pode ver as configurações atuais de DWU, alterar as configu
 
 Para alterar as DWUs:
 
-1. Conecte-se ao banco de dados mestre associado ao seu servidor lógico do Banco de Dados SQL.
+1. Conecte-se ao banco de dados mestre associado ao servidor.
 2. Use a instrução TSQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). O exemplo a seguir define o objetivo de nível de serviço como DW1000c para o banco de dados MySQLDW.
 
 ```Sql
@@ -184,7 +184,7 @@ Não é possível verificar o estado do banco de dados para operações de dimen
 
 Para verificar o status de alterações de DWU:
 
-1. Conecte-se ao banco de dados mestre associado ao seu servidor lógico do Banco de Dados SQL.
+1. Conecte-se ao banco de dados mestre associado ao servidor.
 2. Envie a seguinte consulta para verificar o estado do banco de dados.
 
 ```sql

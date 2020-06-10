@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 01/4/2020
 ms.author: metan
-ms.openlocfilehash: 2eab7ab62f6a7a105dab33aa889af9f2be3a3fa3
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: b9efe70e8658e25d61decffbe44dec776890b17b
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80052375"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267266"
 ---
 # <a name="what-is-immersive-reader"></a>O que é a Leitura Avançada?
 
@@ -61,6 +61,6 @@ A Leitura Avançada é um aplicativo Web autônomo que, quando invocado usando o
 
 Introdução à Leitura Avançada:
 
-* Pular para o [início rápido](./quickstart.md)
+* Pular para os [inícios rápidos](./quickstarts/client-libraries.md?pivots=programming-language-csharp)
 * Explorar o [SDK da Leitura Avançada no GitHub](https://github.com/microsoft/immersive-reader-sdk)
 * Ler a [Referência do SDK da Leitura Avançada](./reference.md)

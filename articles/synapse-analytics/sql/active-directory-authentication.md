@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: db80c11c3b6eab3b7e682878e479729f4787a40b
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 894eecc7746ddb1352708f2dfe5d6d2d53cdd8c9
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82086089"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021646"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-synapse-sql"></a>Usar a Autenticação do Azure Active Directory para autenticação com o Synapse SQL
 
@@ -22,7 +22,7 @@ A Autenticação do Azure Active Directory é um mecanismo para se conectar ao [
 Com a autenticação do Azure AD, você pode gerenciar de maneira centralizada as identidades do usuário que têm acesso ao Azure Synapse para simplificar o gerenciamento de permissões. Os benefícios incluem o seguinte:
 
 - Ela fornece uma alternativa à autenticação convencional de nome de usuário e senha.
-- Ajuda a interromper a proliferação de identidades de usuário entre os servidores de banco de dados.
+- Ajuda a impedir a proliferação de identidades de usuário entre servidores.
 - Permite o rodízio de senhas em um único lugar.
 - Os clientes podem gerenciar permissões usando grupos externos (Azure AD).
 - Pode eliminar o armazenamento de senhas, permitindo a autenticação integrada do Windows e outras formas de autenticação às quais o Active Directory do Azure dá suporte.

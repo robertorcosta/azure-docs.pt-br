@@ -5,22 +5,23 @@ author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 83108c056035b16d26343d82c721b275ebcad0c5
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 69e2b25a16a984445a32f884fab5caec6651df32
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754318"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84018371"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>Tutorial: Importar arquivos BACPAC do SQL com modelos do ARM
 
 Saiba como usar a extensão de Banco de Dados SQL do Azure para importar um arquivo BACPAC com modelos do ARM (Azure Resource Manager). Artefatos de implantação são quaisquer arquivos, além dos arquivos de modelo principais, necessários para concluir uma implantação. O arquivo BACPAC é um artefato.
 
-Neste tutorial, você criará um modelo para implantar um servidor SQL do Azure e um banco de dados SQL e importar um arquivo BACPAC. Para obter informações sobre como implantar extensões de máquina virtual do Azure usando modelos do ARM, confira o [Tutorial: Implantar extensões de máquina virtual com modelos do ARM](./template-tutorial-deploy-vm-extensions.md).
+Neste tutorial, você criará um modelo para implantar um [servidor SQL lógico](../../azure-sql/database/logical-servers.md) e um banco de dados individual e importar um arquivo BACPAC. Para obter informações sobre como implantar extensões de máquina virtual do Azure usando modelos do ARM, confira o [Tutorial: Implantar extensões de máquina virtual com modelos do ARM](./template-tutorial-deploy-vm-extensions.md).
 
 Este tutorial cobre as seguintes tarefas:
 
 > [!div class="checklist"]
+>
 > * Preparar um arquivo BACPAC.
 > * Abrir um modelo de início rápido.
 > * Editar o modelo.
@@ -34,7 +35,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 Para concluir este artigo, você precisa do seguinte:
 
 * Visual Studio Code com a extensão Ferramentas do Resource Manager. Confira [Usar o Visual Studio Code para criar modelos do ARM](./use-vs-code-to-create-template.md).
-* Para aumentar a segurança, use uma senha gerada para a conta de administrador do Azure SQL Server. Aqui está um exemplo que você pode usar para gerar uma senha:
+* Para aumentar a segurança, use uma senha gerada para a conta de administrador do servidor. Aqui está um exemplo que você pode usar para gerar uma senha:
 
     ```console
     openssl rand -base64 32
@@ -44,7 +45,7 @@ Para concluir este artigo, você precisa do seguinte:
 
 ## <a name="prepare-a-bacpac-file"></a>Preparar um arquivo BACPAC
 
-Um arquivo BACPAC é compartilhado no [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac). Para criar seus próprio arquivo, confira [Exportar um Banco de Dados SQL do Azure para um arquivo BACPAC](../../sql-database/sql-database-export.md). Se você optar por publicar o arquivo em seu próprio local, deverá atualizar o modelo posteriormente no tutorial.
+Um arquivo BACPAC é compartilhado no [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac). Para criar seus próprio arquivo, confira [Exportar um Banco de Dados SQL do Azure para um arquivo BACPAC](../../azure-sql/database/database-export.md). Se você optar por publicar o arquivo em seu próprio local, deverá atualizar o modelo posteriormente no tutorial.
 
 O arquivo BACPAC deve ser armazenado em uma conta de Armazenamento do Azure antes que possa ser importado usando um modelo do ARM. O script do PowerShell a seguir prepara o arquivo BACPAC com estas etapas:
 
@@ -142,7 +143,7 @@ O modelo usado neste tutorial é armazenado no [GitHub](https://raw.githubuserco
 
 1. Adicione dois recursos extras ao modelo.
 
-    * Para permitir que a extensão do Banco de Dados SQL importe arquivos BACPAC, você precisará permitir tráfego dos serviços do Azure. Adicione a seguinte definição de regra de firewall à definição do SQL Server:
+    * Para permitir que a extensão do Banco de Dados SQL importe arquivos BACPAC, você precisará permitir tráfego dos serviços do Azure. Adicione a seguinte definição de regra de firewall à definição de servidor:
 
         ```json
         "resources": [
@@ -238,7 +239,7 @@ Use a senha gerada. Consulte [Pré-requisitos](#prerequisites).
 
 ## <a name="verify-the-deployment"></a>Verificar a implantação
 
-Para acessar o SQL Server do computador cliente, você precisa adicionar uma regra de firewall extra. Para obter mais informações, confira [Criar e gerenciar regras de firewall de IP](../../sql-database/sql-database-firewall-configure.md#create-and-manage-ip-firewall-rules).
+Para acessar o servidor no computador cliente, você precisará adicionar uma regra de firewall extra. Para obter mais informações, confira [Criar e gerenciar regras de firewall de IP](../../azure-sql/database/firewall-configure.md#create-and-manage-ip-firewall-rules).
 
 No portal do Azure, selecione o banco de dados SQL no grupo de recursos implantado recentemente. Selecione **Editor de consultas (versão prévia)** e insira as credenciais de administrador. Você verá duas tabelas importadas para o banco de dados.
 
@@ -255,7 +256,7 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos impla
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você implantou um servidor SQL e um banco de dados SQL e importou um arquivo BACPAC. Para saber como solucionar problemas de implantação de modelo, confira:
+Neste tutorial, você implantou um servidor e um banco de dados e importou um arquivo BACPAC. Para saber como solucionar problemas de implantação de modelo, confira:
 
 > [!div class="nextstepaction"]
 > [Solucionar problemas de implantações do modelo do ARM](./template-tutorial-troubleshoot.md)

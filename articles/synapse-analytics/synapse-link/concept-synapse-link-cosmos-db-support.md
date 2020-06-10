@@ -9,22 +9,25 @@ ms.subservice: ''
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2e0b1ee5584420ab38fda8897ef610794b09c29a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 9c90bc9527bffff55d7478150cc1f31827bacc46
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658846"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235278"
 ---
 # <a name="azure-synapse-link-preview-for-azure-cosmos-db-supported-features"></a>Recursos compatíveis do Link do Azure Synapse (versão prévia) para o Azure Cosmos DB
 
-Este artigo descreve as funcionalidades atualmente compatíveis no Link do Azure Synapse para Azure Cosmos DB. 
+Este artigo descreve as funcionalidades atualmente compatíveis no Link do Azure Synapse para Azure Cosmos DB.
 
 ## <a name="azure-synapse-support"></a>Suporte do Azure Synapse
 
 Há dois tipos de contêineres no Azure Cosmos DB:
 * Contêiner HTAP - um contêiner com o Link do Synapse habilitado. Esse contêiner tem repositório transacional e repositório analítico. 
 * Contêiner OLTP - um contêiner com apenas o repositório transacional. O Link do Synapse não está habilitado. 
+
+> [!IMPORTANT]
+> O Link do Azure Synapse para o Azure Cosmos DB é compatível atualmente com workspaces que não têm uma rede virtual gerenciada habilitada. 
 
 Você pode se conectar a um contêiner do Azure Cosmos DB sem habilitar o Link do Synapse. Nesse caso, você só poderá ler/gravar no repositório transacional. Segue uma lista dos recursos compatíveis no Link do Synapse para Azure Cosmos DB. 
 

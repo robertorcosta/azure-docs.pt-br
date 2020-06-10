@@ -9,13 +9,13 @@ ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
 ms.date: 03/18/2020
-ms.custom: seodec18
-ms.openlocfilehash: bcc9e748cb5f88084b9cd3254654f9dc0fbc8aa1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: seodec18, tracking-python
+ms.openlocfilehash: 3cdd39ea9581384e7dd37ed67c641849f2696e1c
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115560"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558330"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>Tutorial: Treinar modelos de classificação de imagem usando dados MNIST e scikit-learn 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -107,7 +107,7 @@ exp = Experiment(workspace=ws, name=experiment_name)
 
 Usando a Computação do Azure Machine Learning, um serviço gerenciado, os cientistas de dados podem treinar modelos de aprendizado de máquina em clusters de máquinas virtuais do Azure. Exemplos incluem máquinas virtuais com suporte a GPU. Neste tutorial, você cria a Computação do Azure Machine Learning como seu ambiente de treinamento. Você enviará o código do Python a ser executado nessa VM mais adiante no tutorial. 
 
-O código abaixo criará clusters de computação para você se eles ainda não existirem em seu workspace.
+O código abaixo criará clusters de computação para você se eles ainda não existirem em seu workspace. Ele configura um cluster que será reduzido verticalmente para 0 quando não estiver em uso e que poderá ser escalado verticalmente para, no máximo, 4 nós. 
 
  **A criação do destino de computação leva cerca de cinco minutos.** Se o recurso de computação já estiver no workspace, o código o usará e ignorará o processo de criação.
 

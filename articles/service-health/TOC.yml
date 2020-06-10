@@ -30,8 +30,6 @@
       href: service-health-alert-webhook-pagerduty.md
     - name: Enviar alertas ao OpsGenie
       href: service-health-alert-webhook-opsgenie.md
-    - name: Recuperar eventos de integridade com REST
-      href: service-health-rest.md
     - name: Configurar alertas para eventos do Resource Health
       href: resource-health-alert-arm-template-guide.md
 - name: Referência

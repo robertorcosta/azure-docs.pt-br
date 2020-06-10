@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 04/13/2020
 ms.author: metan
-ms.openlocfilehash: c4dae18a5040d475c246d244ea7702ccfdf85cd9
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: cdf21ed85933c2a629c5752659e9cc50107a3762
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81538363"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309298"
 ---
 # <a name="language-support-for-immersive-reader"></a>Suporte de idioma para a Leitura Avançada
 
@@ -33,16 +33,16 @@ Este artigo lista os idiomas humanos compatíveis com os recursos de Leitura Ava
 | Catalão | ca-ES |
 | Chinês | zh |
 | Chinês (China) | zh-CN |
-| Chinês (Hong Kong) | zh-HK |
-| Chinês (Macau) | zh-MO |
+| Chinês (RAE de Hong Kong) | zh-HK |
+| Chinese (Macao SAR) | zh-MO |
 | Chinês (Singapura) | zh-SG |
 | Chinês (Taiwan) | zh-TW |
 | Chinês simplificado | zh-Hans |
 | Chinês Simplificado (China) | zh-Hans-CN |
 | Chinês Simplificado (Singapura) | zh-Hans-SG |
 | Chinês (tradicional) | zh-Hant-CN |
-| Chinês Tradicional (Hong Kong) | zh-Hant-HK |
-| Chinês Tradicional (Macau) | zh-Hant-MO |
+| Chinês Tradicional (RAE de Hong Kong) | zh-Hant-HK |
+| Chinês Tradicional (RAE de Macau) | zh-Hant-MO |
 | Chinês Tradicional (Taiwan) | zh-Hant-TW |
 | Croata | hr |
 | Croata (Croácia) | hr-HR |
@@ -135,16 +135,16 @@ Este artigo lista os idiomas humanos compatíveis com os recursos de Leitura Ava
 | Catalão | ca-ES |
 | Chinês | zh |
 | Chinês (China) | zh-CN |
-| Chinês (Hong Kong) | zh-HK |
-| Chinês (Macau) | zh-MO |
+| Chinês (RAE de Hong Kong) | zh-HK |
+| Chinese (Macao SAR) | zh-MO |
 | Chinês (Singapura) | zh-SG |
 | Chinês (Taiwan) | zh-TW |
 | Chinês simplificado | zh-Hans |
 | Chinês Simplificado (China) | zh-Hans-CN |
 | Chinês Simplificado (Singapura) | zh-Hans-SG |
 | Chinês (tradicional) | zh-Hant-CN |
-| Chinês Tradicional (Hong Kong) | zh-Hant-HK |
-| Chinês Tradicional (Macau) | zh-Hant-MO |
+| Chinês Tradicional (RAE de Hong Kong) | zh-Hant-HK |
+| Chinês Tradicional (RAE de Macau) | zh-Hant-MO |
 | Chinês Tradicional (Taiwan) | zh-Hant-TW |
 | Croata | hr |
 | Croata (Croácia) | hr-HR |
@@ -267,8 +267,8 @@ Este artigo lista os idiomas humanos compatíveis com os recursos de Leitura Ava
 | Chinês Simplificado (China) | zh-Hans-CN |
 | Chinês Simplificado (Singapura) | zh-Hans-SG |
 | Chinês (tradicional) | zh-Hant-CN |
-| Chinês Tradicional (Hong Kong) | zh-Hant-HK |
-| Chinês Tradicional (Macau) | zh-Hant-MO |
+| Chinês Tradicional (RAE de Hong Kong) | zh-Hant-HK |
+| Chinês Tradicional (RAE de Macau) | zh-Hant-MO |
 | Chinês Tradicional (Taiwan) | zh-Hant-TW |
 | Croata | hr |
 | Croata (Croácia) | hr-HR |

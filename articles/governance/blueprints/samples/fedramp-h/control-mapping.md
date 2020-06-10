@@ -1,14 +1,14 @@
 ---
 title: Controles do exemplo de blueprint do FedRAMP High
 description: Mapeamento de controle do exemplo de blueprint do FedRAMP High. Cada controle é mapeado para uma ou mais Políticas do Azure que auxiliam na avaliação.
-ms.date: 01/31/2020
+ms.date: 05/12/2020
 ms.topic: sample
-ms.openlocfilehash: cceca23e4bdc749c553eaf41b5f9599be3c9bf7d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f57f753c405e736a4c83dd6f10b6f38184ce74b6
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77150605"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84168872"
 ---
 # <a name="control-mapping-of-the-fedramp-high-blueprint-sample"></a>Controlar o mapeamento do exemplo de blueprint do FedRAMP High
 
@@ -118,9 +118,7 @@ Dados de log coletados pelo Azure Monitor são armazenados em um workspace do Lo
 
 ## <a name="au-6-5-audit-review-analysis-and-reporting--integration--scanning-and-monitoring-capabilities"></a>AU-6 (5) Revisão, análise e relatórios de auditoria | Funcionalidades de integração/verificação e monitoramento
 
-Este blueprint fornece definições de políticas que auditam registros com a análise de avaliação de vulnerabilidade em máquinas virtuais, conjuntos de dimensionamento de máquinas virtuais, instâncias gerenciadas do SQL e servidores SQL.
-Essas definições de política também auditam a configuração dos logs de diagnóstico para fornecer informações sobre as operações executadas em recursos do Azure. Esses insights fornecem informações em tempo real sobre o estado de segurança dos recursos implantados e podem ajudá-lo a priorizar as ações de correção.
-Para obter verificação e monitoramento detalhados de vulnerabilidades, recomendamos que você use o Azure Sentinel e a Central de Segurança do Azure também.
+Esse blueprint fornece definições de políticas que auditam registros com a análise de avaliação de vulnerabilidade em máquinas virtuais, conjuntos de dimensionamento de máquinas virtuais, servidores do Banco de Dados SQL e servidores da Instância Gerenciada de SQL. Essas definições de política também auditam a configuração dos logs de diagnóstico para fornecer informações sobre as operações executadas em recursos do Azure. Esses insights fornecem informações em tempo real sobre o estado de segurança dos recursos implantados e podem ajudá-lo a priorizar as ações de correção. Para obter verificação e monitoramento detalhados de vulnerabilidades, recomendamos que você use o Azure Sentinel e a Central de Segurança do Azure também.
 
 - \[Versão Prévia\]: a Avaliação de Vulnerabilidades deve estar habilitada nas Máquinas Virtuais
 - \[Versão Prévia\]: Habilitar o Azure Monitor para VMs

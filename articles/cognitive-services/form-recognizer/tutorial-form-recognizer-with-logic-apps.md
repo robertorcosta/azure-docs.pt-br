@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 01/27/2020
+ms.date: 05/27/2020
 ms.author: nitinme
-ms.openlocfilehash: d71d9c7e6570e562fe4c692ede1d07b70c923cb6
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: ff160c57b86e2269165f5fe1d2808684d2e6e86e
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77118275"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118544"
 ---
 # <a name="tutorial-use-form-recognizer-with-azure-logic-apps-to-analyze-invoices"></a>Tutorial: Usar o Reconhecimento de Formulários com Aplicativos Lógicos do Azure para analisar faturas
 
@@ -377,11 +377,10 @@ Para testar o aplicativo lógico, use as notas fiscais de exemplo na pasta **/Te
       }
     ]
     ```
-    Este tutorial foi concluído com êxito.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você configura um fluxo de trabalho de Aplicativos Lógicos do Azure para usar o Reconhecimento de Formulários para treinar um modelo e extrair o conteúdo de uma fatura. Em seguida, saiba como criar um conjunto de dados de treinamento para que você possa criar um cenário semelhante com seus próprios formulários.
+Neste tutorial, você vai configurar um fluxo de trabalho dos Aplicativos Lógicos do Azure para usar o Reconhecimento de Formulários a fim de treinar um modelo e extrair o conteúdo de uma fatura. Em seguida, saiba como criar um conjunto de dados de treinamento para que você possa criar um cenário semelhante com seus próprios formulários.
 
 > [!div class="nextstepaction"]
 > [Criar um conjunto de dados de treinamento](build-training-data-set.md)

@@ -5,14 +5,14 @@ author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 05/01/2020
+ms.date: 06/01/2020
 ms.author: banders
-ms.openlocfilehash: b8f588df89429bd08b1c74fbc528801fb45377ed
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: ea6dc2a35d4b55c2164e7586684cdaf019e5277d
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692299"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299920"
 ---
 # <a name="complete-enterprise-agreement-tasks-in-your-billing-account-for-a-microsoft-customer-agreement"></a>Concluir as tarefas do Contrato Enterprise em sua conta de cobrança para um Contrato de Cliente da Microsoft
 
@@ -125,7 +125,7 @@ Os proprietários da conta no Contrato Enterprise obtêm permissão para criar a
 
 Para criar assinaturas adicionais do Azure, você receberá a função a seguir na nova conta de cobrança.
 
-**Criador de assinatura do Azure** – você recebe a função de criador de assinatura do Azure na seção da fatura criada para seu departamento no Contrato Enterprise. Caso a sua conta não pertença a um departamento, você receberá a função de criador de assinatura do Azure em uma seção da fatura chamada Seção da fatura padrão. A função permite que você crie assinaturas do Azure para a seção da fatura.
+**Criador de assinatura do Azure** – Você foi designado com a função de criador de assinatura do Azure na seção da fatura criada para seu departamento no Contrato Enterprise. Caso a sua conta não pertença a um departamento, você receberá a função de criador de assinatura do Azure em uma seção da fatura chamada Seção da fatura padrão. A função permite que você crie assinaturas do Azure para a seção da fatura.
 
 ### <a name="create-an-azure-subscription"></a>Cria uma assinatura do Azure
 

@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: 6debf422d0c16a6a2bfe180e6febb4973846e0f0
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 85376e1861108089cd7918b3b261f05433b59217
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83870687"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298016"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Tutorial: Publicar um site do Hugo na Versão Prévia dos Aplicativos Web Estáticos do Azure
 
@@ -109,7 +109,7 @@ As etapas a seguir mostram como criar um novo aplicativo de site estático e imp
 
 1. Em _Grupo de recursos_, selecione **Novo**. Em _Novo nome do grupo de recursos_, insira **hugo-static-app** e selecione **OK**.
 
-1. Em seguida, forneça um nome globalmente exclusivo para seu aplicativo na caixa **Nome**. Os caracteres válidos incluem `a-z`, `A-Z`, `0-9` e `-`. Esse valor é usado como o prefixo de URL para seu aplicativo estático no formato `https://<APP_NAME>....`.
+1. Em seguida, um nome para o seu aplicativo na caixa **Nome**. Os caracteres válidos incluem `a-z`, `A-Z`, `0-9` e `-`.
 
 1. Para _Região_, selecione uma região disponível próxima de você.
 
@@ -153,7 +153,7 @@ Em seguida, você adiciona as definições de configuração que o processo de c
 
 1. Abra o aplicativo Hugo em um editor de texto e abra o arquivo _.github/workflows/azure-pages-<NOME_FLUXO_TRABALHO>.yml_.
 
-1. Substitua a linha `- uses: actions/checkout@v2` (linha 18) pelo seguinte para compilar o aplicativo Hugo.
+1. Substitua a linha `- uses: actions/checkout@v2` (linha 18) pelo seguinte para compilar o aplicativo Hugo. Se você precisar do Hugo estendido, remova a marca de comentário `extended: true`.
 
    ```yml
    - uses: actions/checkout@v2
@@ -164,6 +164,7 @@ Em seguida, você adiciona as definições de configuração que o processo de c
      uses: peaceiris/actions-hugo@v2.4.8
      with:
        hugo-version: "latest"
+       # extended: true
 
    - name: Build
      run: hugo

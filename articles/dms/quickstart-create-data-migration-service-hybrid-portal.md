@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
 ms.date: 03/13/2020
-ms.openlocfilehash: dd3e77610749eb5d146b0c0b7cf9d307fba0dd83
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e63f073c4f7166cd205b85ef06589f6056b2a70f
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79370229"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195682"
 ---
 # <a name="quickstart-create-a-hybrid-mode-instance-with-azure-portal--azure-database-migration-service"></a>Início Rápido: Criar uma instância do modo híbrido com portal do Azure e Serviço de Migração de Banco de Dados do Azure
 
@@ -26,7 +26,7 @@ O modo híbrido do Serviço de Migração de Banco de Dados do Azure gerencia mi
 >[!NOTE]
 >Atualmente, o Serviço de Migração de Banco de Dados do Azure em execução no modo híbrido é compatível com migrações do SQL Server para:
 >
->- Instância gerenciada do Banco de Dados SQL do Azure com tempo de inatividade quase zero (online).
+>- Instância Gerenciada de SQL do Azure com tempo de inatividade quase zero (online).
 >- Banco de Dados SQL do Azure individual com algum tempo de inatividade (offline).
 >- MongoDb para Azure CosmosDB com tempo de inatividade quase zero (online).
 >- MongoDb para Azure CosmosDB com algum tempo de inatividade (offline).
@@ -191,5 +191,5 @@ Preencha os parâmetros na parte superior do script e, em seguida, executar o sc
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Migrar o SQL Server para uma instância gerenciada do Banco de Dados SQL do Azure online](tutorial-sql-server-managed-instance-online.md)
-> [Migrar o SQL Server para um banco de dados individual ou um banco de dados em pool no Banco de Dados SQL do Azure offline](tutorial-sql-server-to-azure-sql.md)
+> [Migrar o SQL Server para uma Instância Gerenciada de SQL do Azure online](tutorial-sql-server-managed-instance-online.md)
+> [Migrar o SQL Server para um Banco de Dados SQL do Azure offline](tutorial-sql-server-to-azure-sql.md)

@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.author: inhenkel
 author: IngridAtMicrosoft
 ms.date: 04/16/2020
-ms.openlocfilehash: 74aa17fb17d682449bd817945c3b8bbf3f95363e
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 671609fc1db7325823e8ac40b2b8153682596588
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81727683"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84147810"
 ---
 # <a name="create-an-azure-media-services-live-stream-with-obs"></a>Criar uma transmissão ao vivo dos Serviços de Mídia do Azure com o OBS
 
@@ -147,7 +147,7 @@ No procedimento seguinte, você voltará aos Serviços de Mídia do Azure no nav
 
    ![Configurações de saída do OBS](media/live-events-obs-quickstart/live-event-obs-advanced-output-settings.png)
 
-1. Deixe o restante das configurações inalterado e clique em **OK**.
+1. Mantenha o restante das configurações inalterado e clique em **OK**.
 
 ### <a name="start-streaming"></a>Iniciar o streaming
 

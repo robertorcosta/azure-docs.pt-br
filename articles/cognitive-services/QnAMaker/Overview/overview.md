@@ -3,12 +3,12 @@ title: O que é o serviço QnA Maker?
 description: O QnA Maker é um serviço de NLP baseado em nuvem que cria facilmente uma camada de conversa natural sobre seus dados. Ele pode ser usado para encontrar a resposta mais apropriada para qualquer entrada de idioma natural proveniente de sua KB (base de dados de conhecimento) personalizada de informações.
 ms.topic: overview
 ms.date: 05/26/2020
-ms.openlocfilehash: 5962ab2294a19c600beb00816394d96059bd4108
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: d2ff2d789f2ea1ae6018d95ef1d880da87b4ff74
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873718"
+ms.locfileid: "83994860"
 ---
 # <a name="what-is-the-qna-maker-service"></a>O que é o serviço QnA Maker?
 
@@ -40,9 +40,9 @@ Quando uma base de dados de conhecimento do QnA Maker é publicada, um aplicativ
 
 ## <a name="what-is-a-knowledge-base"></a>O que é uma base de dados de conhecimento?
 
-O QnA Maker [importa o conteúdo](../concepts/knowledge-base.md) para uma base de dados de conhecimento de conjuntos de perguntas e respostas. O processo de importação extrai informações sobre a relação entre as partes do conteúdo estruturado e semiestruturado para pressupor relações entre os conjuntos de perguntas e respostas. Você pode editar esses conjuntos de perguntas e respostas ou adicionar novos conjuntos.
+O QnA Maker [importa o conteúdo](../concepts/knowledge-base.md) para uma base de dados de conhecimento de pares de perguntas e respostas. O processo de importação extrai informações sobre a relação entre as partes do conteúdo estruturado e semiestruturado para pressupor relações entre os pares de perguntas e respostas. Você pode editar esses pares de perguntas e respostas ou adicionar novos pares.
 
-O conteúdo do conjunto de perguntas e respostas inclui:
+O conteúdo do par de perguntas e respostas inclui:
 * Todas as formas alternativas da pergunta
 * Marcas de metadados usadas para filtrar as opções de resposta durante a pesquisa
 * Avisos de acompanhamento para continuar o refinamento da pesquisa
@@ -53,7 +53,7 @@ Depois de publicar a base de dados de conhecimento, um aplicativo cliente envia 
 
 ## <a name="create-manage-and-publish-to-a-bot-without-code"></a>Criar, gerenciar e publicar em um bot sem usar código
 
-O portal do QnA Maker fornece a experiência completa de criação da base de dados de conhecimento. Você pode importar documentos na forma atual deles para a base de dados de conhecimento. Esses documentos (como perguntas frequentes, manuais do produto, planilhas ou páginas da Web) são convertidos em conjuntos de perguntas e respostas. Cada conjunto é analisado para solicitações de acompanhamento e conectado a outros conjuntos. O formato de _Markdown_ final dá suporte a apresentação avançada, incluindo imagens e links.
+O portal do QnA Maker fornece a experiência completa de criação da base de dados de conhecimento. Você pode importar documentos na forma atual deles para a base de dados de conhecimento. Esses documentos (como perguntas frequentes, manuais do produto, planilhas ou páginas da Web) são convertidos em pares de perguntas e respostas. Cada par é analisado em relação aos avisos de acompanhamento e conectado a outros pares. O formato de _Markdown_ final dá suporte a apresentação avançada, incluindo imagens e links.
 
 Depois que a base de dados de conhecimento for editada, publique a base de dados de conhecimento em um [bot de aplicativo Web do Azure](https://azure.microsoft.com/services/bot-service/) em funcionamento sem escrever nenhum código. Teste o bot no [portal do Azure](https://portal.azure.com) ou baixe-o e continue o desenvolvimento.
 
@@ -63,7 +63,7 @@ O sistema de QnA Maker é uma abordagem de classificação em camadas. Os dados 
 
 ## <a name="qna-maker-improves-the-conversation-process"></a>O QnA Maker melhora o processo de conversa
 
-O QnA Maker fornece avisos de vários turnos e aprendizado ativo para ajudá-lo a melhorar os conjuntos básicos de perguntas e respostas.
+O QnA Maker fornece avisos de vários turnos e aprendizado ativo para ajudar você a aprimorar os pares básicos de perguntas e respostas.
 
 Os **avisos de vários turnos** oferecem a oportunidade de conectar pares de perguntas e respostas. Essa conexão permite que o aplicativo cliente forneça uma resposta principal e oferece mais perguntas para refinar a pesquisa para uma resposta final.
 

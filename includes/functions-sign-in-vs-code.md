@@ -4,18 +4,18 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 01/13/2020
 ms.author: glenga
-ms.openlocfilehash: 960bbfc82e6cea0b868f93f784103b8ea1743e00
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3fcca11e4e27a8ad291cffeda68d9e32e02a0912
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76963998"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84268988"
 ---
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
 Antes de poder publicar seu aplicativo, você precisa entrar no Azure. 
 
-1. Se ainda não estiver conectado, escolha o ícone do Azure na barra Atividade e, em seguida, na área **Azure: Functions**, escolha **Entrar no Azure…** . Se você não tiver uma, poderá **Criar uma conta gratuita do Azure**. 
+1. Se ainda não estiver conectado, escolha o ícone do Azure na barra Atividade e, em seguida, na área **Azure: Functions**, escolha **Entrar no Azure…** . Se você ainda não tiver uma, poderá **[Criar uma conta gratuita do Azure](https://azure.microsoft.com/free/)** . Os alunos podem clicar aqui para **[criar uma conta gratuita do Azure for Students](https://azure.microsoft.com/free/students/)**
 
     ![Resposta da função localhost no navegador](./media/functions-sign-in-vs-code/functions-sign-into-azure.png)
 

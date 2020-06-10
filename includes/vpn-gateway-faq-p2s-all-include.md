@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ec684e5e6fa2ef8e9ed30be49f59e8aa7ef3a28b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a3c10ca35ee2f085d4ce41e862a895ff17ff63a0
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79117121"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84317451"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Quantos pontos de extremidade de cliente VPN posso ter em minha configuração ponto a site?
 
@@ -29,6 +29,7 @@ Há suporte para os seguintes sistemas operacionais de cliente:
 * Windows Server 2012 (somente 64 bits)
 * Windows Server 2012 R2 (somente 64 bits)
 * Windows Server 2016 (somente 64 bits)
+* Windows Server 2019 (somente 64 bits)
 * Windows 10
 * Mac OS X versão 10.11 ou superior
 * Linux (StrongSwan)
@@ -38,13 +39,13 @@ Há suporte para os seguintes sistemas operacionais de cliente:
 
 ### <a name="can-i-traverse-proxies-and-firewalls-using-point-to-site-capability"></a>Posso atravessar proxies e firewalls usando o recurso de ponto a site?
 
-O Azure dá suporte a três tipos de opções de VPN ponto a site:
+O Azure dá suporte a três tipos de opções de VPN Ponto a Site:
 
-* SSTP (Secure Socket Tunneling Protocol). O SSTP é uma solução baseada em SSL proprietária da Microsoft que pode penetrar em firewalls, pois a maioria dos firewalls abre a porta TCP de saída que o SSL 443 usa.
+* SSTP (Secure Socket Tunneling Protocol). SSTP é uma solução baseada em SSL da Microsoft que pode invadir firewalls, já que a maioria dos firewalls abre a porta TCP de saída, que usa SSL 443.
 
-* OpenVPN. O OpenVPN é uma solução baseada em SSL que pode penetrar em firewalls, pois a maioria dos firewalls abre a porta TCP de saída que o SSL 443 usa.
+* OpenVPN. OpenVPN é uma solução baseada em SSL que pode invadir firewalls, já que a maioria dos firewalls abre a porta TCP de saída, que usa SSL 443.
 
-* VPN IKEv2. A VPN IKEv2 é uma solução de VPN IPsec baseada em padrões que usa as portas UDP de saída 500 e 4500 e o protocolo IP no. 50. Nem sempre os firewalls abrem essas portas, por isso, há uma possibilidade de a VPN IKEv2 não conseguir atravessar proxies e firewalls.
+* VPN IKEv2. A VPN IKEv2 é uma solução de VPN IPsec baseada em padrões que usa as portas UDP de saída 500 e 4500 e o protocolo IP número 50. Nem sempre os firewalls abrem essas portas, por isso, há uma possibilidade de a VPN IKEv2 não conseguir atravessar proxies e firewalls.
 
 ### <a name="if-i-restart-a-client-computer-configured-for-point-to-site-will-the-vpn-automatically-reconnect"></a>Se eu reiniciar um computador cliente configurado para ponto a site, a VPN se reconectará automaticamente?
 
@@ -58,13 +59,13 @@ A reconexão automática e o DDNS atualmente não têm suporte em VPNs ponto a s
 
 Sim. Para o modelo de implantação do Gerenciador de Recursos, você deve ter um tipo de VPN RouteBased para o gateway. Para o modelo de implantação clássica, você precisará de um gateway dinâmico. Não damos suporte a Ponto a Site para o roteamento estático de gateways de VPN ou gateways de VPN PolicyBased.
 
-### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-network-gateways-at-the-same-time"></a>Posso configurar um cliente ponto a site para se conectar a vários gateways de rede virtual ao mesmo tempo?
+### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-network-gateways-at-the-same-time"></a>Posso configurar um cliente de ponto a site para se conectar a vários gateways de rede virtual ao mesmo tempo?
 
-Dependendo do software cliente VPN usado, você poderá se conectar a vários gateways de rede virtual, desde que as redes virtuais que estão sendo conectadas não tenham espaços de endereço conflitantes entre eles ou a rede do com o cliente esteja se conectando.  Enquanto o cliente VPN do Azure dá suporte a várias conexões VPN, somente uma conexão pode ser conectada a qualquer momento.
+Dependendo do software cliente VPN usado, você poderá se conectar a vários gateways de rede virtual, desde que as redes virtuais que estão sendo conectadas não tenham espaços de endereço conflitantes entre si ou com a rede da qual o cliente está se conectando.  Enquanto o Cliente VPN do Azure dá suporte a várias conexões VPN, somente uma conexão pode ser estabelecida em um determinado momento.
 
 ### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-networks-at-the-same-time"></a>Posso configurar um cliente de ponto a site para se conectar a várias redes virtuais ao mesmo tempo?
 
-Sim, as conexões ponto a site com um gateway de rede virtual implantado em uma VNet emparelhada com outros VNets podem ter acesso a outros VNets emparelhados.  Desde que os VNets emparelhados estejam usando os recursos UseRemoteGateway/AllowGatewayTransit, o cliente ponto a site poderá se conectar a esses VNets emparelhados.  Para obter mais informações, consulte [este](../articles/vpn-gateway/vpn-gateway-about-point-to-site-routing.md) artigo.
+Sim, as conexões ponto a site com um gateway de rede virtual implantado em uma VNet emparelhada com outras VNets podem ter acesso a outras VNets emparelhadas.  Desde que as VNets emparelhadas estejam usando os recursos UseRemoteGateway/AllowGatewayTransit, o cliente ponto a site poderá se conectar a essas VNets emparelhadas.  Para obter mais informações, consulte [este](../articles/vpn-gateway/vpn-gateway-about-point-to-site-routing.md) artigo.
 
 ### <a name="how-much-throughput-can-i-expect-through-site-to-site-or-point-to-site-connections"></a>Quanta taxa de transferência posso esperar por meio de conexões site a site ou ponto a site?
 
@@ -76,7 +77,7 @@ Não. Você só pode usar o cliente VPN nativo no Windows para SSTP, e o cliente
 
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>O Azure oferece suporte à VPN IKEv2 com o Windows?
 
-O IKEv2 tem suporte no Windows 10 e Server 2016. No entanto, para usar IKEv2, você deve instalar as atualizações e definir um valor de chave do Registro localmente. As versões do sistema operacional anteriores ao Windows 10 não têm suporte e só podem usar o protocolo SSTP ou **OpenVPN®**.
+O IKEv2 tem suporte no Windows 10 e Server 2016. No entanto, para usar IKEv2, você deve instalar as atualizações e definir um valor de chave do Registro localmente. Não há suporte para versões de sistema operacional anteriores ao Windows 10 e elas só podem usar SSTP ou o **Protocolo OpenVPN®**.
 
 Para preparar o Windows 10 ou Server 2016 para IKEv2:
 
@@ -103,9 +104,9 @@ O Azure oferece suporte a Windows, Mac e Linux para VPN P2S.
 
 Sim, você pode habilitar esses novos recursos em gateways já implantados usando o Powershell ou o portal do Azure, desde que o SKU do gateway que você está usando dê suporte a RADIUS e/ou a IKEv2. Por exemplo, o SKU Básico do gateway de VPN não dá suporte a RADIUS ou a IKEv2.
 
-### <a name="how-do-i-remove-the-configuration-of-a-p2s-connection"></a><a name="removeconfig"></a>Como fazer remover a configuração de uma conexão P2S?
+### <a name="how-do-i-remove-the-configuration-of-a-p2s-connection"></a><a name="removeconfig"></a>Como fazer para remover a configuração de uma conexão P2S?
 
-Uma configuração do P2S pode ser removida usando CLI do Azure e o PowerShell usando os seguintes comandos:
+Uma configuração P2S pode ser removida usando a CLI do Azure e o PowerShell usando os seguintes comandos:
 
 #### <a name="azure-powershell"></a>Azure PowerShell
 

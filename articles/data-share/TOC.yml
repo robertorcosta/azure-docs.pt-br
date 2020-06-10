@@ -19,8 +19,6 @@
       href: terminology.md
     - name: Requisitos e funções
       href: concepts-roles-permissions.md
-    - name: Recuperação de desastre
-      href: disaster-recovery.md
 - name: Exemplos
   items:
     - name: Exemplos de código
@@ -43,6 +41,10 @@
       href: how-to-delete-invitation.md
     - name: Revogar uma assinatura de compartilhamento
       href: how-to-revoke-share-subscription.md
+    - name: Segurança
+      href: security.md
+    - name: Recuperação de desastre
+      href: disaster-recovery.md
 - name: Referência
   items:
     - name: .NET

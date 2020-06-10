@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.date: 01/15/2020
 ms.topic: tutorial
 ms.service: event-hubs
-ms.openlocfilehash: 28fa9dddda94845511ead7d8fb7481aff6b6b044
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ef24e78ea88bb0922c0affbe47f2591475024601
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80130859"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015991"
 ---
 # <a name="tutorial-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Tutorial: Migrar dados dos Hubs de Eventos capturados para um SQL Data Warehouse usando a Grade de Eventos e o Azure Functions
 
@@ -22,18 +22,19 @@ A [captura](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overv
 
 ![Visual Studio](./media/store-captured-data-data-warehouse/EventGridIntegrationOverview.PNG)
 
-*   Primeiro, crie um hub de eventos com o recurso **Capturar** habilitado e defina um armazenamento de blobs do Azure como destino. Os dados gerados pelo WindTurbineGenerator são transmitidos para o hub de eventos e são capturados automaticamente no Armazenamento do Azure como arquivos Avro. 
-*   Em seguida, você cria uma assinatura da Grade de Eventos do Azure com o namespace dos Hubs de Eventos como sua fonte e o ponto de extremidade da função do Azure como seu destino.
-*   Sempre que um novo arquivo Avro é enviado para o blob do Armazenamento do Azure pelo recurso Captura dos Hubs de Eventos, a Grade de Eventos notifica a função do Azure com o URI do blob. A função, em seguida, migra dados do blob para um SQL data warehouse.
+- Primeiro, crie um hub de eventos com o recurso **Capturar** habilitado e defina um armazenamento de blobs do Azure como destino. Os dados gerados pelo WindTurbineGenerator são transmitidos para o hub de eventos e são capturados automaticamente no Armazenamento do Azure como arquivos Avro.
+- Em seguida, você cria uma assinatura da Grade de Eventos do Azure com o namespace dos Hubs de Eventos como sua fonte e o ponto de extremidade da função do Azure como seu destino.
+- Sempre que um novo arquivo Avro é enviado para o blob do Armazenamento do Azure pelo recurso Captura dos Hubs de Eventos, a Grade de Eventos notifica a função do Azure com o URI do blob. A função, em seguida, migra dados do blob para um SQL data warehouse.
 
-Neste tutorial, você executa as seguintes ações: 
+Neste tutorial, você executa as seguintes ações:
 
 > [!div class="checklist"]
-> * Implantar a infraestrutura
-> * Publicar o código em um aplicativo do Functions
-> * Criar uma assinatura da Grade de Eventos a partir do aplicativo de funções
-> * Transmitir dados de exemplo ao Hub de Eventos. 
-> * Verificar dados capturados em um SQL Data Warehouse
+>
+> - Implantar a infraestrutura
+> - Publicar o código em um aplicativo do Functions
+> - Criar uma assinatura da Grade de Eventos a partir do aplicativo de funções
+> - Transmitir dados de exemplo ao Hub de Eventos.
+> - Verificar dados capturados em um SQL Data Warehouse
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,20 +42,22 @@ Neste tutorial, você executa as seguintes ações:
 
 - [Visual Studio 2019](https://www.visualstudio.com/vs/). Durante a instalação, instale as cargas de trabalho a seguir: desenvolvimento para desktop com .NET, desenvolvimento do Azure, ASP.NET e desenvolvimento Web, desenvolvimento em Node.js e desenvolvimento em Python
 - Baixe o [exemplo do Git](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/EventHubsCaptureEventGridDemo) A solução de exemplo contém os seguintes componentes:
-    - *WindTurbineDataGenerator*: um editor simples que envia dados de exemplo de turbina eólica para um hub de eventos habilitado para captura
-    - *FunctionDWDumper*: uma função do Azure que recebe uma notificação da Grade de Eventos quando um arquivo Avro é capturado no blob do Armazenamento do Azure. Ela recebe o caminho do URI do blob, lê seu conteúdo e envia esses dados para um SQL Data Warehouse.
 
-    Este exemplo usa o pacote mais recente Azure.Messaging.EventHubs. Você pode encontrar o exemplo antigo que usa o pacote Microsoft.Azure.EventHubs [aqui](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo). 
+  - *WindTurbineDataGenerator*: um editor simples que envia dados de exemplo de turbina eólica para um hub de eventos habilitado para captura
+  - *FunctionDWDumper*: uma função do Azure que recebe uma notificação da Grade de Eventos quando um arquivo Avro é capturado no blob do Armazenamento do Azure. Ela recebe o caminho do URI do blob, lê seu conteúdo e envia esses dados para um SQL Data Warehouse.
+
+  Este exemplo usa o pacote mais recente Azure.Messaging.EventHubs. Você pode encontrar o exemplo antigo que usa o pacote Microsoft.Azure.EventHubs [aqui](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo).
 
 ### <a name="deploy-the-infrastructure"></a>Implantar a infraestrutura
+
 Use o Azure PowerShell ou a CLI do Azure para implantar a infraestrutura necessária para o tutorial usando esse [modelo do Azure Resource Manager](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json). Este modelo cria os seguintes recursos:
 
--   Hub de Eventos com o recurso Captura habilitado
--   Conta de armazenamento para os dados de evento capturados
--   Plano do Serviço de Aplicativo do Azure para hospedar o aplicativo de funções
--   Aplicativo de funções para processar arquivos de eventos capturados
--   SQL Server para hospedar o Data Warehouse
--   SQL Data Warehouse para armazenamento dos dados migrados
+- Hub de Eventos com o recurso Captura habilitado
+- Conta de armazenamento para os dados de evento capturados
+- Plano do Serviço de Aplicativo do Azure para hospedar o aplicativo de funções
+- Aplicativo de funções para processar arquivos de eventos capturados
+- Servidor SQL lógico para hospedar o Data Warehouse
+- SQL Data Warehouse para armazenamento dos dados migrados
 
 As seções a seguir fornecem comandos da CLI do Azure e do Azure PowerShell a fim de implantar a infraestrutura necessária para o tutorial. Atualize os nomes dos objetos abaixo antes de executar os comandos: 
 
@@ -62,7 +65,7 @@ As seções a seguir fornecem comandos da CLI do Azure e do Azure PowerShell a f
 - Região do grupo de recursos
 - Namespace do Hubs de Eventos
 - Hub de Eventos
-- Azure SQL Server
+- Servidor SQL lógico
 - Usuário do SQL (e senha)
 - Banco de Dados SQL do Azure
 - Armazenamento do Azure 
@@ -71,6 +74,7 @@ As seções a seguir fornecem comandos da CLI do Azure e do Azure PowerShell a f
 Esses scripts levam algum tempo para criar todos os artefatos do Azure. Aguarde até que o script seja concluído antes de continuar. Se a implantação falhar por algum motivo, exclua o grupo de recursos, corrija o problema relatado e execute o comando novamente. 
 
 #### <a name="azure-cli"></a>CLI do Azure
+
 Para implantar o modelo usando a CLI do Azure, use os seguintes comandos:
 
 ```azurecli-interactive
@@ -91,8 +95,8 @@ New-AzResourceGroup -Name rgDataMigration -Location westcentralus
 New-AzResourceGroupDeployment -ResourceGroupName rgDataMigration -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json -eventHubNamespaceName <event-hub-namespace> -eventHubName hubdatamigration -sqlServerName <sql-server-name> -sqlServerUserName <user-name> -sqlServerDatabaseName <database-name> -storageName <unique-storage-name> -functionAppName <app-name>
 ```
 
+### <a name="create-a-table-in-sql-data-warehouse"></a>Criar uma tabela no SQL Data Warehouse
 
-### <a name="create-a-table-in-sql-data-warehouse"></a>Criar uma tabela no SQL Data Warehouse 
 Crie uma tabela no SQL data warehouse, executando o script [CreateDataWarehouseTable.sql](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql) usando o [Visual Studio](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-query-visual-studio.md), o [SQL Server Management Studio](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-query-ssms.md) ou o Editor de Consulta no portal. 
 
 ```sql

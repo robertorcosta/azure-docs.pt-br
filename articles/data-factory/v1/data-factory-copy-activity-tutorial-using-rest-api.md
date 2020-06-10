@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c6e6d4a38c5ed2afc118b267f253ffc7533f9d82
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6344f2c69e7b6407152e752c61c1928ab651a88c
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75438869"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119243"
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Tutorial: Usar a API REST para criar um pipeline do Azure Data Factory para copiar dados 
 > [!div class="op_single_selector"]
@@ -121,7 +121,7 @@ Para obter detalhes sobre as propriedades JSON, confira [Serviço vinculado do A
 
 ### <a name="azuresqllinkedservicejson"></a>azuresqllinkedservice.json
 > [!IMPORTANT]
-> Substitua **servername**, **databasename**, **username** e **passwords** pelos nomes do servidor SQL do Azure e do banco de dados SQL, pela conta de usuário e pela senha da conta.  
+> Substitua **servername**, **databasename**, **username** e **password** pelo nome do servidor, pelo nome do banco de dados SQL, pela conta de usuário e pela senha da conta.  
 > 
 >
 
@@ -403,7 +403,7 @@ Nesta etapa, você vincula a conta do Armazenamento do Azure ao data factory. Es
     ```
 
 ### <a name="create-azure-sql-linked-service"></a>Criar serviço vinculado do Azure SQL
-Nesta etapa, você vincula o banco de dados SQL do Azure ao data factory. Especifique o nome do SQL Server do Azure, nome do banco de dados, nome de usuário e senha de usuário nesta seção. Consulte [Serviço vinculado do SQL do Azure](data-factory-azure-sql-connector.md#linked-service-properties) para obter detalhes sobre os propriedades JSON usadas para definir um serviço vinculado do SQL do Azure.
+Nesta etapa, você vincula o banco de dados SQL do Azure ao data factory. Especifique o nome do servidor SQL lógico, o nome do banco de dados, o nome de usuário e a senha do usuário nesta seção. Consulte [Serviço vinculado do SQL do Azure](data-factory-azure-sql-connector.md#linked-service-properties) para obter detalhes sobre os propriedades JSON usadas para definir um serviço vinculado do SQL do Azure.
 
 1. Atribua o comando à variável chamada **cmd**. 
    

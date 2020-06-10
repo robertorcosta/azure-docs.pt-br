@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17c68a95530f345d1ec0ed077681ec4cd6eb3775
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: 733e7529af5de453462efb1a13c21203681e442c
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402433"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994163"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-trelica"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Trelica
 
@@ -90,9 +90,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure:
     1. Na caixa **URL de Resposta**, digite uma URL que tenha o padrão `https://app.trelica.com/Id/Saml2/<CUSTOM_IDENTIFIER>/Acs`.
 
     > [!NOTE]
-    > O valor **URL de Resposta** não é real. Atualize esse valor com a URL de resposta real. Entre em contato com a [equipe de suporte ao cliente do Trelica](mailto:support@trelica.com) para obter esse valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > O valor de URL de Resposta não é real. Atualize esse valor com a URL de Resposta real (também conhecida como o ACS).
+    > Encontre isso fazendo logon no Trelica e acessando a [página de configuração provedores de identidade SAML](https://app.trelica.com/Admin/Profile/SAML) (Administrador > Conta > SAML). Clique no botão Copiar ao lado da **URL do ACS (serviço do consumidor de declaração)** para colocá-lo na área de transferência, pronto para colar na caixa de texto **URL de Resposta** no Azure AD.
+    > Leia a [documentação de ajuda do Trelica](https://docs.trelica.com/admin/saml/azure-ad) ou entre em contato com a [equipe de suporte ao cliente do Trelica](mailto:support@trelica.com) em caso de dúvidas.
 
-1. Na página **Configurar Logon Único com SAML**, acesse a seção **Certificado de Autenticação SAML**. À direita da **URL de Metadados de Federação do Aplicativo**, selecione o botão copiar para copiar a URL. Salve a URL em seu computador.
+1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, clique no botão Copiar para copiar a **URL de Metadados de Federação do Aplicativo** e salve-a no computador.
 
     ![A seção Certificado de Autenticação SAML, com o botão copiar realçado ao lado da URL de Metadados de Federação do Aplicativo](common/copy-metadataurl.png)
 
@@ -128,11 +130,11 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 ## <a name="configure-trelica-sso"></a>Configurar o SSO do Trelica
 
-Para configurar o logon único no lado do **Trelica**, envie o valor da **URL de metadados de federação do aplicativo** à [equipe de suporte do Trelica](mailto:support@trelica.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no lado do **Trelica**, acesse a [página de configuração de provedores de identidade SAML](https://app.trelica.com/Admin/Profile/SAML) (Administrador > Conta > SAML). Clique no botão **Novo**. Insira **Azure AD** como o Nome e escolha **Metadados da URL** como o tipo de metadados. Cole a **URL de Metadados de Federação do Aplicativo** copiada do Azure AD no campo **URL de Metadados** do Trelica.
+
+Leia a [documentação de ajuda do Trelica](https://docs.trelica.com/admin/saml/azure-ad) ou entre em contato com a [equipe de suporte ao cliente do Trelica](mailto:support@trelica.com) em caso de dúvidas.
 
 ### <a name="create-a-trelica-test-user"></a>Criar um usuário de teste do Trelica
-
-Nesta seção, você criará um usuário com o nome B.Fernandes no Trelica.
 
 O Trelica é compatível com o provisionamento de usuário Just-In-Time, que está habilitado por padrão. Não há nenhuma ação para você executar nesta seção. Se um usuário ainda não existir no Trelica, um será criado após a autenticação.
 

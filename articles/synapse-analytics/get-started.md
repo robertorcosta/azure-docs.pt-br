@@ -9,57 +9,49 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.date: 05/19/2020
-ms.openlocfilehash: dcad90713227e55437523c91997175242078e9e4
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 24a34ae6f00eca7154021162184f5e71503da06b
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836474"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248321"
 ---
 # <a name="getting-started-with-azure-synapse-analytics"></a>Introdução ao Azure Synapse Analytics
 
-Este tutorial guiará você por todas as etapas básicas necessárias para configurar e usar o Azure Synapse Analytics.
+Este documento guia você por todas as etapas básicas necessárias para configurar e usar o Azure Synapse Analytics.
 
 ## <a name="prepare-a-storage-account-for-use-with-a-synapse-workspace"></a>Preparar uma conta de armazenamento para usar com um workspace do Synapse
 
-1. Abra o [portal do Azure](https://portal.azure.com)
-1. Crie uma conta de armazenamento com as seguintes configurações:
-    * Na guia **Básico**
+* Abra o [portal do Azure](https://portal.azure.com)
+* Crie uma conta de armazenamento com as seguintes configurações:
 
-    |Configuração | Valor sugerido | Descrição |
-    |---|---|---|
-    |**Nome da conta de armazenamento**| Você pode colocar qualquer nome.|Neste documento, vamos nos referir a ela como `contosolake`.
-    |**Tipo de conta**|Precisa ser definida como `StorageV2`||
-    |**Localidade**|Você pode escolher qualquer local| É recomendável que seu workspace do Synapse e a conta do ADLS (Azure Data Lake Storage) Gen2 estejam na mesma região.|
-    ||||
-    
-    * Na guia **Avançado**
-    
-    |Configuração | Valor sugerido | Descrição |
-    |---|---|---|
-    |**Data Lake Storage Gen2**|`Enabled`| O Azure Synapse só funciona com contas de armazenamento em que essa configuração está habilitada.|
-    ||||
+    |Tab|Configuração | Valor sugerido | Descrição |
+    |---|---|---|---|
+    |Noções básicas|**Nome da conta de armazenamento**| Você pode colocar qualquer nome.|Neste documento, vamos nos referir a ela como `contosolake`.|
+    |Noções básicas|**Tipo de conta**|Precisa ser definida como `StorageV2`||
+    |Noções básicas|**Localidade**|Você pode escolher qualquer local| É recomendável que seu workspace do Synapse e a conta do ADLS (Azure Data Lake Storage) Gen2 estejam na mesma região.|
+    |Avançado|**Data Lake Storage Gen2**|`Enabled`| O Azure Synapse só funciona com contas de armazenamento em que essa configuração está habilitada.|
 
 1. Depois que a conta de armazenamento for criada, selecione **Controle de acesso (IAM)** na navegação à esquerda. Em seguida, atribua as seguintes funções ou verifique se elas já estão atribuídas. 
+
     a. * Atribua-se à função de **Proprietário** na conta de armazenamento b. * Atribua-se à função de **Proprietário de Dados do Blob de Armazenamento** na Conta de Armazenamento
+
 1. No painel de navegação esquerdo, selecione **Contêineres** e crie um contêiner. Você pode colocar qualquer nome. Aceite o **Nível de acesso público** padrão. Neste documento, chamaremos o contêiner de `users`. Selecione **Criar**. 
+
+Na etapa a seguir, você vai configurar seu workspace do Synapse para usar essa conta de armazenamento como a conta de armazenamento "primária" e o contêiner para armazenar dados do workspace. O workspace armazenará dados em tabelas do Apache Spark e logs do aplicativo Spark nessa conta em uma pasta chamada `/synapse/workspacename`.
 
 ## <a name="create-a-synapse-workspace"></a>Criar um workspace do Synapse
 
-1. Abra o [portal do Azure](https://portal.azure.com) e, na parte superior, procure `Synapse`.
-1. Nos resultados da pesquisa em **Serviços**, selecione **Azure Synapse Analytics (versão prévia de workspaces)**
-1. Selecione **+ Adicionar**
-1. Guia **Básico**:
+* Abra o [portal do Azure](https://portal.azure.com) e, na parte superior, procure `Synapse`.
+* Nos resultados da pesquisa em **Serviços**, selecione **Azure Synapse Analytics (versão prévia de workspaces)**
+* Selecione **+ Adicionar** para criar um workspace usando essas configurações
 
-    |Configuração | Valor sugerido | Descrição |
-    |---|---|---|
-    |**Nome do workspace**|Você pode dar qualquer nome.| Neste documento, usaremos `myworkspace`
-    |**Região**|Corresponder à região da conta de armazenamento||
-    |||
+    |Tab|Configuração | Valor sugerido | Descrição |
+    |---|---|---|---|
+    |Noções básicas|**Nome do workspace**|Você pode dar qualquer nome.| Neste documento, usaremos `myworkspace`|
+    |Noções básicas|**Região**|Corresponder à região da conta de armazenamento|
 
 1. Em **Selecionar Data Lake Storage Gen 2**, selecione a conta e o contêiner que você criou anteriormente.
-    > [!NOTE]
-    > Nós nos referimos à conta de armazenamento escolhida aqui como a conta de armazenamento "primária" do workspace do Synapse. Essa conta é usada para armazenar dados em tabelas do Apache Spark e para logs criados quando os Pools do Spark são criados ou quando aplicativos Spark são executados.
 
 1. Selecione **Examinar + criar**. Selecione **Criar**. Seu workspace estará pronto em alguns minutos.
 
@@ -81,27 +73,17 @@ Depois de criar o workspace do Synapse, você tem duas maneiras de abrir o Synap
 ## <a name="create-a-sql-pool"></a>Criar um pool de SQL
 
 1. No Synapse Studio, na navegação do lado esquerdo, selecione **Gerenciar > Pools de SQL**
-
-    > [!NOTE] 
-    > Todos os workspaces do Synapse vêm com um pool previamente criado chamado **SQL sob demanda**.
-
 1. Selecione **+Novo** e insira estas configurações:
 
     |Configuração | Valor sugerido | 
-    |---|---|---|
+    |---|---|
     |**Nome do pool de SQL**| `SQLDB1`|
     |**Nível de desempenho**|`DW100C`|
-    |||
 
 1. Selecione **Examinar + Criar** e, em seguida, selecione **Criar**.
-1. Seu pool de SQL estará pronto em alguns minutos.
+1. Seu pool de SQL estará pronto em alguns minutos. Quando o pool de SQL for criado, ele será associado a um banco de dados do pool de SQL também chamado **SQLDB1**.
 
-    > [!NOTE]
-    > Um pool de SQL do Synapse corresponde ao que costumava ser chamado de "SQL Data Warehouse do Azure"
-
-Um pool de SQL consome recursos faturáveis desde que esteja em execução. Portanto, você pode pausar o pool quando necessário, para reduzir os custos.
-
-Quando o pool de SQL for criado, ele será associado a um banco de dados do pool de SQL também chamado **SQLDB1**.
+Um pool de SQL consome recursos faturáveis desde que ele esteja ativo. Você pode pausar o pool posteriormente para reduzir custos.
 
 ## <a name="create-an-apache-spark-pool"></a>Criar um Pool do Apache Spark
 
@@ -109,11 +91,10 @@ Quando o pool de SQL for criado, ele será associado a um banco de dados do pool
 1. Selecione **+Novo** e insira estas configurações:
 
     |Configuração | Valor sugerido | 
-    |---|---|---|
+    |---|---|
     |**Nome do Pool do Apache Spark**|`Spark1`
     |**Tamanho do nó**| `Small`|
     |**Número de nós**| Defina o mínimo como 3 e o máximo como 3|
-    |||
 
 1. Selecione **Examinar + Criar** e, em seguida, selecione **Criar**.
 1. Seu Pool do Apache Spark estará pronto em alguns segundos.
@@ -126,7 +107,7 @@ Como são metadados, os Pools do Spark não podem ser iniciados nem interrompido
 Ao fazer qualquer atividade do Spark no Synapse, você especifica um Pool do Spark a ser usado. O pool informa ao Synapse quantos recursos do Spark usar. Você paga somente pelos recursos usados. Quando você parar ativamente de usar o pool, os recursos atingirão o tempo limite automaticamente e serão reciclados.
 
 > [!NOTE]
-> Os bancos de dados do Spark são criados independentemente dos Pools do Spark. Um workspace sempre tem um BD do Spark chamado **padrão** e você pode criar bancos de dados adicionais do Spark.
+> Os bancos de dados do Spark são criados independentemente dos Pools do Spark. Um workspace sempre tem um banco de dados do Spark chamado **padrão** e você pode criar bancos de dados adicionais do Spark.
 
 ## <a name="the-sql-on-demand-pool"></a>O pool de SQL sob demanda
 
@@ -149,7 +130,7 @@ Todo workspace é fornecido com um pool pré-criado e impossível de excluir cha
 1. Navegue até **SQLDB1 > Tabelas**. Você verá várias tabelas que foram carregadas.
 1. Clique com o botão direito do mouse na tabela **dbo.Trip** e selecione **Novo Script de SQL > Selecionar as primeiras 100 linhas**
 1. Um novo script de SQL será criado e executado automaticamente.
-1. Observe na parte superior do script de SQL que **Conectar ao** é automaticamente definido como o pool de SQL chamado SQLDB1.
+1. Observe na parte superior do script de SQL que **Conectar a** é automaticamente definido como o pool de SQL chamado `SQLDB1`.
 1. Substitua o texto do script de SQL por esse código e execute-o.
 
     ```sql
@@ -167,7 +148,7 @@ Todo workspace é fornecido com um pool pré-criado e impossível de excluir cha
 
 ## <a name="load-the-nyc-taxi-sample-data-into-the-spark-nyctaxi-database"></a>Carregar os dados de exemplo de táxi de NYC no banco de dados nyctaxi do Spark
 
-Temos dados disponíveis em uma tabela em `SQLDB1`. Agora, nós os carregamos em um banco de dados do Spark chamado "nyctaxi".
+Temos dados disponíveis em uma tabela em `SQLDB1`. Agora, carregamos esses dados em um banco de dados do Spark nomeado `nyctaxi`.
 
 1. No Synapse Studio, navegue até o hub **Desenvolver**
 1. Selecione **+** e selecione **Notebook**
@@ -189,7 +170,7 @@ Temos dados disponíveis em uma tabela em `SQLDB1`. Agora, nós os carregamos em
 ## <a name="analyze-the-nyc-taxi-data-using-spark-and-notebooks"></a>Analisar os dados de táxi de NYC usando Spark e notebooks
 
 1. Retornar ao notebook
-1. Crie uma célula de código, insira o texto abaixo e execute a célula para obter exemplos dos dados de táxi de NYC que carregamos no BD Spark `nyctaxi`.
+1. Crie uma célula de código, insira o texto abaixo e execute a célula para obter exemplos dos dados de táxi de NYC que carregamos no banco de dados do Spark `nyctaxi`.
 
    ```py
    %%pyspark
@@ -299,8 +280,8 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
 1. Selecionar **Vinculado**
 1. Navegue até **Contas de armazenamento > myworkspace (primário – contosolake)**
 1. Selecione **usuários (Primário)"**
-1. Você verá uma pasta chamada "NYCTaxi". Dentro você verá duas pastas: "PassengerCountStats.csv" e "PassengerCountStats.parquet".
-1. Navegue até a pasta "PassengerCountStats.parquet".
+1. Você verá uma pasta chamada `NYCTaxi`. Dentro de você deve ver duas pastas, `PassengerCountStats.csv` e `PassengerCountStats.parquet`.
+1. Navegue até a pasta `PassengerCountStats.parquet`.
 1. Clique com o botão direito do mouse no arquivo parquet que está dentro e selecione **novo notebook**; isso criará um notebook com uma célula como esta:
 
     ```py
@@ -342,11 +323,10 @@ Você pode vincular um workspace do Power BI ao seu workspace do Synapse. Isso p
 1. Selecione **+ Novo**, selecione **Conectar ao Power BI** e defina esses campos:
 
     |Configuração | Valor sugerido | 
-    |---|---|---|
+    |---|---|
     |**Nome**|`NYCTaxiWorkspace1`|
     |**Nome do workspace**|`NYCTaxiWorkspace1`|
-    |||
-    
+        
 1. Selecione **Criar**.
 
 ### <a name="create-a-power-bi-dataset-that-uses-data-in-your-synapse-workspace"></a>Criar um conjunto de dados do Power BI que use dados em seu workspace do Synapse

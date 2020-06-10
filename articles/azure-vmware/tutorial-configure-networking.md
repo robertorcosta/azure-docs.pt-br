@@ -3,14 +3,14 @@ title: Tutorial – Configurar a rede para sua nuvem privada do VMware no Azure
 description: Saiba como a criar e configurar a rede necessária para implantar sua nuvem privada no Azure
 ms.topic: tutorial
 ms.date: 05/04/2020
-ms.openlocfilehash: 5a8086f78f465f52d0f9107932c09c4690f505e8
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 6cac420fb77526746dbdbfef5a88b071c007d555
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873859"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84148099"
 ---
-# <a name="tutorial-configure-networking-for-your-vmware-private-cloud-in-azure"></a>Tutorial: Configurar a rede para sua nuvem privada do VMWare no Azure
+# <a name="tutorial-configure-networking-for-your-vmware-private-cloud-in-azure"></a>Tutorial: Configurar a rede para a sua nuvem privada da VMware no Azure
 
 Uma nuvem privada da AVS (Solução VMware no Azure) requer uma rede virtual. Como a AVS não tem suporte para o vCenter local durante a versão prévia, são necessárias etapas adicionais para a integração ao ambiente local. Também é necessário configurar um circuito do ExpressRoute e um Gateway de Rede Virtual e isso será abordado neste tutorial.
 

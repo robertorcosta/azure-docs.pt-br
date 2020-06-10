@@ -1,5 +1,5 @@
 ---
-title: Exemplo da CLI – backup – Banco de Dados SQL do Azure
+title: 'CLI do Azure: Fazer backup de um banco de dados no Banco de Dados SQL do Azure'
 description: Script de exemplo da CLI do Azure para fazer backup de um Banco de Dados SQL do Azure individual em um contêiner de Armazenamento do Azure
 services: sql-database
 ms.service: sql-database
@@ -10,16 +10,16 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/27/2019
-ms.openlocfilehash: 68af42bd83565243dad5d48f227fa5cef3115cf6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 605b2690f85ea8c800e6485b0eb998b795ea9d10
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80061875"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022702"
 ---
 # <a name="use-cli-to-backup-an-azure-sql-single-database-to-an-azure-storage-container"></a>Usar a CLI para fazer backup de um Banco de Dados SQL do Azure individual em um contêiner de Armazenamento do Azure
 
-Esse exemplo da CLI do Azure faz backup de um Banco de Dados SQL do Azure em um contêiner de Armazenamento do Azure.  
+Este exemplo da CLI do Azure faz backup de um banco de dados no Banco de Dados SQL em um contêiner de armazenamento do Azure.  
 
 Se você optar por instalar e usar a CLI localmente, este artigo exigirá que seja executada a CLI do Azure versão 2.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
@@ -60,4 +60,4 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 
 Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](/cli/azure).
 
-Os exemplos de script da CLI do Banco de Dados SQL adicionais podem ser encontrados na [documentação do Banco de Dados SQL do Azure](../sql-database-cli-samples.md).
+Os exemplos de script da CLI do Banco de Dados SQL adicionais podem ser encontrados na [documentação do Banco de Dados SQL do Azure](../../azure-sql/database/az-cli-script-samples-content-guide.md).

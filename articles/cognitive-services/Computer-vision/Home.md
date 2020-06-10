@@ -8,23 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 01/27/2020
+ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: af49e80766d7ac4bd2d9ed677a2571fb0a5a3189
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 99af09ded8759e7f6e2235ce0c1354982568e19d
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80131759"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117523"
 ---
 # <a name="what-is-computer-vision"></a>O que é a Pesquisa Visual Computacional?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-O serviço de Pesquisa Visual Computacional do Azure fornece aos desenvolvedores acesso a algoritmos avançados que processam imagens e retornam informações, dependendo dos recursos visuais nos quais você tem interesse. Por exemplo, a Pesquisa Visual Computacional pode determinar se uma imagem apresenta conteúdo para adulto ou pode localizar todos os rostos em uma imagem.
+O serviço de Pesquisa Visual Computacional do Azure fornece aos desenvolvedores o acesso a algoritmos avançados que processam imagens e retornam informações, com base nos recursos visuais de seu interesse. Por exemplo, a Pesquisa Visual Computacional pode determinar se uma imagem apresenta conteúdo para adulto, localizar marcas ou objetos específicos ou encontrar rostos humanos.
 
-Você pode usar Pesquisa Visual Computacional em seu aplicativo usando um SDK nativo ou invocando a API REST diretamente. Esta página cobre amplamente o que você pode fazer com a Pesquisa Visual Computacional.
+Use a Pesquisa Visual Computacional no seu aplicativo por meio de um SDK da biblioteca de clientes ou chamando a API REST diretamente. Esta página cobre amplamente o que você pode fazer com a Pesquisa Visual Computacional.
 
 ## <a name="computer-vision-for-digital-asset-management"></a>Pesquisa Visual Computacional para gerenciamento de ativo digital
 
@@ -32,7 +32,7 @@ A Pesquisa Visual Computacional pode viabilizar muitos cenários de gerenciament
 
 ## <a name="analyze-images-for-insight"></a>Analisar imagens quanto a insights
 
-Você pode analisar imagens para detectar e fornecer informações sobre seus recursos visuais e características. Todos os recursos na tabela a seguir são fornecidos pela API [Analisar Imagem](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa).
+Analise imagens para fornecer insights sobre os recursos visuais e as características. Todos os recursos na tabela a seguir são fornecidos pela API [Analisar Imagem](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa).
 
 | Ação | Descrição |
 | ------ | ----------- |
@@ -50,7 +50,7 @@ Você pode analisar imagens para detectar e fornecer informações sobre seus re
 
 ## <a name="extract-text-from-images"></a>Extrair texto de imagens
 
-Use a API de [Leitura](concept-recognizing-text.md#read-api) da Pesquisa Visual Computacional para extrair um texto impresso e manuscrito de imagens para um fluxo de caracteres legível por computador. A API de Leitura usa nossos modelos mais recentes e funciona com texto em uma variedade de superfícies e telas de fundo, como recibos, cartazes, cartões de visita, cartas e quadros de comunicações. Atualmente, inglês e espanhol são os únicos idiomas com suporte.
+Use a API de [Leitura](concept-recognizing-text.md#read-api) da Pesquisa Visual Computacional para extrair um texto impresso e manuscrito de imagens em um fluxo de caracteres legível por computador. A API de Leitura usa os modelos mais recentes e funciona com um texto em uma variedade de superfícies e telas de fundo, como recibos, cartazes, cartões de visita, cartas e quadros de comunicações. Atualmente, ela funciona em sete idiomas diferentes (confira [Suporte de idiomas](./language-support.md)).
 
 Use também a API do [OCR (reconhecimento óptico de caracteres)](concept-recognizing-text.md#ocr-optical-character-recognition-api) para extrair um texto impresso em vários idiomas. Se necessário, o OCR corrige a rotação do texto reconhecido e fornece as coordenadas de quadro de cada palavra. O OCR dá suporte a 25 idiomas e detecta automaticamente o idioma do texto reconhecido.
 

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3e28a76a559603755d3d72e8d5e27cde72aa9533
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: ff8d82966d479491bc9600a0331f69ffd09253d1
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701068"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84112700"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Tabelas de metadados compartilhados do Azure Synapse Analytics
 
@@ -193,6 +193,6 @@ id | name | birthdate
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Saiba mais sobre os metadados compartilhados do Azure Synapse Analytics](overview.md)
-- [Saiba mais sobre as tabelas de metadados compartilhados do Azure Synapse Analytics](table.md)
+- [Saiba mais sobre os bancos de dados de metadados compartilhados do Azure Synapse Analytics](database.md)
 
 

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6bdc2eca3bdf02814ee851ff266e04bb57f7978c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 32087b1b2340508f7f868455e2db476046eaa4b5
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658833"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235263"
 ---
 # <a name="connect-to-azure-synapse-link-preview-for-azure-cosmos-db"></a>Conectar-se ao Link do Azure Synapse (versão prévia) para o Azure Cosmos DB
 
@@ -23,6 +23,9 @@ Este artigo descreve como acessar um banco de dados Azure Cosmos DB pelo Azure S
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de conectar um banco de dados Azure Cosmos DB ao workspace, você precisará do seguinte:
+
+> [!IMPORTANT]
+> O Link do Azure Synapse para o Azure Cosmos DB é compatível atualmente com workspaces que não têm uma rede virtual gerenciada habilitada. 
 
 * Banco de dados do Azure Cosmos DB existente ou criar uma nova conta após este [início rápido](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-database-account)
 * Espaço de trabalho Synapse existente ou criar um novo espaço de trabalho após este [início rápido](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace) 

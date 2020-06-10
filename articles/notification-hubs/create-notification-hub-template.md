@@ -10,20 +10,20 @@ ms.author: sethm
 ms.date: 05/15/2020
 ms.reviewer: thsomasu
 ms.lastreviewed: 05/15/2020
-ms.openlocfilehash: aefccb831fe35898962893a173c5bd1125877def
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: ede6b8ae22fb51a9586c6c4465d2cf9ac79f88df
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743523"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996662"
 ---
 # <a name="quickstart-create-a-notification-hub-using-an-azure-resource-manager-template"></a>Início Rápido: criar um hub de notificação usando o modelo do Azure Resource Manager
 
 Os Hubs de Notificação do Azure fornecem um mecanismo de push expansível e fácil de usar que permite que você envie notificações para qualquer plataforma (iOS, Android, Windows, Kindle etc.) de qualquer back-end (nuvem ou local). Para obter mais informações sobre o serviço, confira [O que são os Hubs de Notificação do Azure?](notification-hubs-push-notification-overview.md).
 
-Este início rápido usa um modelo do Azure Resource Manager para criar um namespace dos Hubs de Notificação do Microsoft Azure e um hub de notificação chamado "MyHub" dentro desse namespace.
-
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Este início rápido usa um modelo do Azure Resource Manager para criar um namespace dos Hubs de Notificação do Azure e um hub de notificação chamado **MyHub** dentro desse namespace.
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -32,8 +32,6 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 Nenhum.
 
 ## <a name="create-a-notification-hubs-namespace-and-hub"></a>Criar um namespace e um hub dos Hubs de Notificação
-
-<!-- The second H2 must start with "Create a". For example,  'Create a Key Vault', 'Create a virtual machine', etc. -->
 
 ### <a name="review-the-template"></a>Examinar o modelo
 
@@ -48,7 +46,7 @@ O modelo usado neste início rápido é proveniente dos [modelos de Início Ráp
 
 Selecione a imagem a seguir para entrar no Azure e abrir um modelo. O modelo usa o nome de um namespace dos Hubs de Notificação como parâmetro. Em seguida, o modelo cria um namespace com esse nome e um hub de notificação chamado **MyHub** dentro desse namespace.
 
-[![Implantar no Azure](./media/create-notification-hub-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-notification-hub%2Fazuredeploy.json)
+[![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-notification-hub%2Fazuredeploy.json)
 
 ## <a name="review-deployed-resources"></a>Examinar os recursos implantados
 

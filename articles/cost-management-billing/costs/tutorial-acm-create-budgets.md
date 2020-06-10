@@ -3,17 +3,17 @@ title: 'Tutorial: criar e gerenciar orçamentos do Azure'
 description: Este tutorial ajuda a planejar e contabilizar os custos de serviços do Azure que você consome.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/22/2020
+ms.date: 05/27/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: e8afa19b6d79ce915ca41f7b0e6b4a203d7daa1b
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: ef165f63ff1f9e45bb3586192146d822e334dc54
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82101749"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142428"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: criar e gerenciar orçamentos do Azure
 
@@ -115,6 +115,15 @@ Depois de criar um orçamento, ele é mostrado na análise de custo. Exibir seu 
 
 No exemplo anterior, você criou um orçamento para uma assinatura. Você também pode criar um orçamento para um grupo de recursos. Se você quiser criar um orçamento para um grupo de recursos, navegue até **Gerenciamento de Custos + Cobrança**&gt;**Assinaturas** &gt; selecione uma assinatura > **Grupo de recursos** > selecione um grupo de recursos > **Orçamentos** > e, em seguida escolha **Adicionar** um orçamento.
 
+### <a name="create-a-budget-for-combined-azure-and-aws-costs"></a>Criar um orçamento para os custos combinados do Azure e do AWS
+
+Você pode agrupar seus custos do Azure e do AWS atribuindo um grupo de gerenciamento ao conector, juntamente com as contas consolidadas e vinculadas. Atribua suas assinaturas do Azure ao mesmo grupo de gerenciamento. Em seguida, crie um orçamento para os custos combinados.
+
+1. No Gerenciamento de Custos, selecione **Orçamentos**.
+1. Selecione **Adicionar**.
+1. Selecione **Alterar escopo** e escolha o grupo de gerenciamento.
+1. Continue criando o orçamento até concluí-lo.
+
 ## <a name="costs-in-budget-evaluations"></a>Avaliações dos custos no orçamento
 
 Agora, as avaliações dos custos no orçamento incluem dados de instâncias reservadas e de compra. Se os encargos se aplicarem a você, você poderá receber alertas conforme os encargos forem incorporados a suas avaliações. Recomendamos que você entre no [portal do Azure](https://portal.azure.com) para verificar se os limites de orçamento estão configurados corretamente para levar em consideração os novos custos. Seus encargos cobrados no Azure não são alterados. Agora, os orçamentos são avaliados em relação a um conjunto mais completo de seus custos. Se os encargos não se aplicarem a você, o comportamento de seu orçamento permanecerá inalterado.
@@ -125,7 +134,6 @@ Se você quiser filtrar os novos custos para que os orçamentos sejam avaliados 
 - Tipo de preço: Uso
 
 As avaliações de custo do orçamento baseiam-se no custo real. Elas não incluem amortização. Para obter mais informações sobre as opções de filtragem disponíveis nos orçamentos, confira [Como entender opções de agrupamento e filtragem](quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options).
-
 
 ## <a name="trigger-an-action-group"></a>Disparar um grupo de ações
 

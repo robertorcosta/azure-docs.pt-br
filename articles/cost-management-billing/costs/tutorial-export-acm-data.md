@@ -3,17 +3,17 @@ title: Tutorial – Criar e gerenciar dados exportados do Gerenciamento de Custo
 description: Este artigo mostra como você pode criar e gerenciar dados exportados do Gerenciamento de Custos do Azure para que você possa usá-los em sistemas externos.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/24/2020
+ms.date: 05/27/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: f0a1515816fe7a9e1d79f69655e6bf21725a0b5d
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 90334d29ed2f649854863f9ad86f03811728a945
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80877942"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142292"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: Criar e gerenciar dados exportados
 
@@ -49,17 +49,15 @@ Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com/
 
 ## <a name="create-a-daily-export"></a>Criar uma exportação diária
 
-Para criar ou exibir uma exportação de dados ou para agendar uma exportação, abra o escopo desejado no portal do Azure e selecione **Análise de custo** no menu. Por exemplo, navegue até **Inscrições**, selecione uma assinatura na lista e, em seguida, selecione **Análise de custo** no menu. Na parte superior da página de Análise de custo, selecione **Exportar** e, em seguida, escolha uma opção de exportação. Por exemplo, selecione **Agendar exportação**.  
+Para criar ou exibir uma exportação de dados ou para agendar uma exportação, abra o escopo desejado no portal do Azure e selecione **Análise de custo** no menu. Por exemplo, navegue até **Inscrições**, selecione uma assinatura na lista e, em seguida, selecione **Análise de custo** no menu. Na parte superior da página Análise de custo, selecione **Configurações** e **Exportações** e escolha uma opção de exportação.
 
 > [!NOTE]
 > - Além de assinaturas, você pode criar exportações em registros, contas, departamentos e grupos de recursos. Para obter mais informações sobre escopos, consulte [Entender e trabalhar com escopos](understand-work-scopes.md).
 >- Quando estiver conectado como um parceiro no escopo da conta de cobrança ou no locatário de um cliente, você poderá exportar dados para uma conta do Armazenamento do Azure que esteja vinculada à conta de armazenamento do parceiro. No entanto, você precisa ter uma assinatura ativa em seu locatário do CSP.
->
-
 
 Selecione **Adicionar**, digite um nome para a exportação e, em seguida, selecione a opção **Exportação diária de custos do mês atual**. Selecione **Avançar**.
 
-![Novo exemplo de exportação mostrando o tipo de exportação](./media/tutorial-export-acm-data/basics_exports.png)
+[![Novo exemplo de exportação mostrando o tipo de exportação](./media/tutorial-export-acm-data/basics_exports.png)](./media/tutorial-export-acm-data/basics_exports.png#lightbox)
 
 Especifique a assinatura da sua conta de Armazenamento do Azure e, depois, selecione sua conta de armazenamento.  Especifique o contêiner de armazenamento e o caminho do diretório para o qual você gostaria de enviar o arquivo de exportação. Selecione **Avançar**.
 
@@ -83,10 +81,19 @@ Há dois tipos de opções de exportação:
 **Personalizado** – permite que você agende exportações semanal e mensalmente com opções de semana e mês atual. *A exportação inicial será executada imediatamente.*
 
 Se você tiver uma assinatura de Pagamento Conforme o Uso, do MSDN ou do Visual Studio, o período de cobrança da fatura talvez não esteja alinhado ao mês do calendário. Para esses tipos de assinaturas e grupos de recursos, você pode criar uma exportação alinhada ao período da fatura ou aos meses do calendário. Para criar uma exportação alinhada ao mês da fatura, navegue até **Personalizado**, em seguida, selecione **Período de cobrança até a data**.  Para criar uma exportação alinhada ao mês do calendário, selecione **Mês até a data**.
->
->
 
 ![Guia Nova exportação – Informações Básicas mostrando uma seleção semanal personalizada da semana atual](./media/tutorial-export-acm-data/tutorial-export-schedule-weekly-week-to-date.png)
+
+#### <a name="create-an-export-for-multiple-subscriptions"></a>Criar uma exportação para várias assinaturas
+
+Caso você tenha um Contrato Enterprise, use um grupo de gerenciamento para agregar as informações de custo da assinatura em um só contêiner. Em seguida, você poderá exportar os dados de gerenciamento de custos do grupo de gerenciamento.
+
+Não há suporte para exportações de grupos de gerenciamento de outros tipos de assinaturas.
+
+1. Crie um grupo de gerenciamento e atribua assinaturas a ele.
+1. Em Exportações, selecione **Escopo**.
+1. Escolha **Selecionar este grupo de gerenciamento**.
+1. Crie uma exportação no escopo para obter os dados de gerenciamento de custos para as assinaturas do grupo de gerenciamento.
 
 ## <a name="verify-that-data-is-collected"></a>Verificar se os dados são coletados
 
@@ -104,6 +111,18 @@ O arquivo é aberto com o programa ou aplicativo que está configurado para abri
 
 ![Exemplo de dados CSV exportados mostrados no Excel](./media/tutorial-export-acm-data/example-export-data.png)
 
+### <a name="download-an-exported-csv-data-file"></a>Baixar um arquivo de dados CSV exportado
+
+Baixe também o arquivo CSV exportado no portal do Azure. As etapas a seguir explicam como encontrá-lo na análise de custo.
+
+1. Na análise de custo, selecione **Configurações** e **Exportações**.
+1. Na lista de exportações, escolha a conta de armazenamento para uma exportação.
+1. Em sua conta de armazenamento, clique em **Contêineres**.
+1. Na lista de contêineres, escolha o contêiner.
+1. Navegue pelos diretórios e pelos blobs de armazenamento até a data desejada.
+1. Selecione o arquivo CSV e escolha **Baixar**.
+
+[![Exemplo de download de exportação](./media/tutorial-export-acm-data/download-export.png)](./media/tutorial-export-acm-data/download-export.png#lightbox)
 
 ## <a name="access-exported-data-from-other-systems"></a>Acessar dados exportados de outros sistemas
 

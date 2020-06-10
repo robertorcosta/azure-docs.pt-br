@@ -1,6 +1,6 @@
 ---
-title: Enviar notificações por push para o Android usando os Hubs de Notificação do Azure e o Firebase | Microsoft Docs
-description: Neste tutorial, você aprende a usar os Hubs de Notificação do Azure e o Google Firebase Cloud Messaging para enviar notificações por push a dispositivos Android.
+title: Enviar notificações por push para o Android usando os Hubs de Notificação do Azure e o SDK do Firebase versão 0.6 | Microsoft Docs
+description: Neste tutorial, você aprenderá a usar os Hubs de Notificação do Azure e o Google Firebase Cloud Messaging para enviar notificações por push para dispositivos Android.
 services: notification-hubs
 documentationcenter: android
 keywords: notificações por push, notificação por push, notificação por push do android, fcm, firebase cloud messaging
@@ -16,20 +16,20 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/11/2019
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 09/11/2019
-ms.openlocfilehash: e6bc4ed94c8b8e62740f81497231a163283ebcb7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7dbe9faabcb7a46ae3862ac7da6504b6b0407d86
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80521563"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170436"
 ---
-# <a name="tutorial-send-push-notifications-to-android-devices-using-firebase"></a>Tutorial: Enviar notificações por push para dispositivos Android usando o Firebase
+# <a name="tutorial-send-push-notifications-to-android-devices-using-firebase-sdk-version-06"></a>Tutorial: Enviar notificações por push para dispositivos Android usando o SDK do Firebase versão 0.6
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-Este tutorial mostra como usar os Hubs de Notificação do Azure e o FCM (Firebase Cloud Messaging) para enviar notificações por push a um aplicativo do Android. Neste tutorial, você cria um aplicativo Android em branco que recebe notificações por push usando o FCM.
+Este tutorial mostra como usar os Hubs de Notificação do Azure e o SDK do FCM (Firebase Cloud Messaging) versão 0.6 para enviar notificações por push para um aplicativo Android. Neste tutorial, você cria um aplicativo Android em branco que recebe notificações por push usando o FCM.
 
 O código completo deste tutorial pode ser baixado [no GitHub](https://github.com/Azure/azure-notificationhubs-android/tree/master/FCMTutorialApp).
 

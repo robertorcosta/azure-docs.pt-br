@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: e7ab15749ccd4ef2808e9cbb362196e38e3d7f4b
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: de481abd82b4fc7dd2eae3763f82b8dd96cc14a9
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746092"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266518"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Tutorial: Solicitar um Azure Data Box Disk
 
@@ -105,7 +105,7 @@ Faça o seguinte para solicitar o Data Box Disk.
 
 7. Na guia **Endereço para remessa**, forneça seu nome e sobrenome, nome e endereço da empresa e um número de telefone válido. Clique em **Validar endereço**. O serviço valida o endereço de remessa para a disponibilidade do serviço. Se o serviço está disponível para o endereço de remessa especificado, você receberá uma notificação para esse efeito.
 
-   Após o processamento do pedido, você receberá uma notificação por email. Para saber mais sobre a remessa autogerenciada, confira [Usar a remessa autogerenciada](data-box-disk-portal-customer-managed-shipping.md).
+   Após o processamento do pedido, você receberá uma notificação por email. Se você escolheu a remessa autogerenciada, confira [Usar a remessa autogerenciada](data-box-disk-portal-customer-managed-shipping.md).
 
     ![Fornecer endereço de remessa](media/data-box-disk-deploy-ordered/data-box-shipping-address.png)
 8. Nos **Detalhes da notificação**, especifique endereços de email. O serviço envia as notificações por email em relação a quaisquer atualizações do status do pedido para os endereços de email especificados.

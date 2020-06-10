@@ -1,14 +1,14 @@
 ---
 title: Controles da amostra exemplo de blueprint do CIS Microsoft Azure Foundations Benchmark
 description: Mapeamento de recomendação da amostra de blueprint do CIS Microsoft Azure Foundations Benchmark para o Azure Policy.
-ms.date: 05/06/2020
+ms.date: 05/12/2020
 ms.topic: sample
-ms.openlocfilehash: 2163162f52eb4ad7f580c01d6539c242bd332645
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: b6029e147af49cfb91078c6228615c32ad2db5fe
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82863953"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84167223"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Mapeamento de recomendação da amostra de blueprint do CIS Microsoft Azure Foundations Benchmark
 
@@ -192,14 +192,14 @@ Esse blueprint atribui uma definição do [Azure Policy](../../../policy/overvie
 
 ## <a name="44-ensure-that-advanced-data-security-on-a-sql-server-is-set-to-on"></a>4.4 Garantir que a "Segurança de Dados Avançada" em um SQL Server esteja definida como "Ativado"
 
-Esse blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) que ajuda a garantir que a segurança de dados avançada seja habilitada em SQL Servers e instâncias gerenciadas do SQL.
+Esse blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) que ajuda você a verificar se a segurança de dados avançada está habilitada nos servidores do Banco de Dados SQL e da Instância Gerenciada de SQL.
 
 - A Segurança de Dados Avançada deve ser habilitada nos servidores SQL
 - A Segurança de Dados Avançada deve ser habilitada nas instâncias gerenciadas do SQL
 
 ## <a name="45-ensure-that-threat-detection-types-is-set-to-all"></a>4.5 Garantir que 'Tipos de Detecção de Ameaças' esteja definido como 'Todos'
 
-Esse blueprint atribui definições do [Azure Policy](../../../policy/overview.md) que ajudam você a garantir que a Proteção Avançada contra Ameaças esteja configurada adequadamente em SQL Servers e instâncias gerenciadas do SQL.
+Esse blueprint atribui definições do [Azure Policy](../../../policy/overview.md) que ajudam você a verificar se a Proteção Avançada contra Ameaças está configurada corretamente nos servidores do Banco de Dados SQL e da Instância Gerenciada de SQL.
 
 - Os tipos de Proteção Avançada contra Ameaças devem estar definidos como “Todos” nas configurações de Segurança de Dados Avançada do SQL Server
 - Os tipos de Proteção Avançada contra Ameaças devem estar definidos como “Todos” nas configurações de Segurança de Dados Avançada da instância gerenciada de SQL
@@ -232,7 +232,7 @@ Esse blueprint atribui uma definição de política do [Azure Policy](../../../p
 
 ## <a name="410-ensure-sql-servers-tde-protector-is-encrypted-with-byok-use-your-own-key"></a>4.10 Garantir que o protetor de TDE do SQL Server seja criptografado com BYOK (Bring Your Own Key)
 
-Esse blueprint atribui definições do [Azure Policy](../../../policy/overview.md) que ajudam você a garantir que o protetor de TDE para SQL Servers e instâncias gerenciadas do SQL seja criptografado com sua própria chave.
+Esse blueprint atribui definições do [Azure Policy](../../../policy/overview.md) que ajudam você a verificar se o protetor de TDE para servidores do Banco de Dados SQL e da Instância Gerenciada de SQL está criptografado com a própria chave.
 
 - O protetor TDE do SQL Server deve ser criptografado com sua própria chave
 - O protetor TDE da instância gerenciada do SQL deve ser criptografado com sua própria chave

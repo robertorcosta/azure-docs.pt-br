@@ -1,6 +1,6 @@
 ---
 title: Copiar incrementalmente várias tabelas usando o portal do Azure
-description: Neste tutorial, você deve criar um pipeline do Azure Data Factory que copie incrementalmente os dados delta de várias tabelas em um banco de dados do SQL Server local para um banco de dados SQL do Azure.
+description: Neste tutorial, você criará um pipeline do Azure Data Factory que copia os dados delta de maneira incremental de várias tabelas em um banco de dados do SQL Server para um Banco de Dados SQL do Azure.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -10,19 +10,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 01/20/2018
-ms.openlocfilehash: 290ddf9a99d421bbf6303675fd544e81b637d070
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/29/2020
+ms.openlocfilehash: ba934d8eeadcd3d3e89d5d9f6115c258206c2d13
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81419248"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84247250"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Carregar incrementalmente os dados de várias tabelas no SQL Server para um banco de dados SQL do Azure
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Neste tutorial, você pode criar um Azure Data Factory com um pipeline que carrega dados delta de várias tabelas do SQL Server local para um banco de dados SQL do Azure.    
+Neste tutorial, você criará um Azure Data Factory com um pipeline que carrega os dados delta de várias tabelas em um banco de dados do SQL Server para um Banco de Dados SQL do Azure.    
 
 Neste tutorial, você realizará os seguintes procedimentos:
 
@@ -67,13 +67,13 @@ Aqui estão as etapas importantes ao criar essa solução:
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
-* **SQL Server**. Neste tutorial, você utiliza um banco de dados do SQL Server local como o armazenamento de dados de origem. 
-* **Banco de dados SQL do Azure**. Use um banco de dados SQL do Azure como o armazenamento de dados do coletor. Se você não tiver um banco de dados SQL, consulte [Criar um banco de dados SQL do Azure](../sql-database/sql-database-get-started-portal.md) para saber as etapas para criar um. 
+## <a name="prerequisites"></a>Pré-requisitos
+* **SQL Server**. Você usa um banco de dados do SQL Server como o armazenamento de dados de origem neste tutorial. 
+* **Banco de dados SQL do Azure**. Use um banco de dados SQL do Azure como o armazenamento de dados do coletor. Se você não tiver um banco de dados SQL, consulte [Criar um banco de dados SQL do Azure](../azure-sql/database/single-database-create-quickstart.md) para saber as etapas para criar um. 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Criar tabelas de origem no banco de dados do SQL Server
 
-1. Abra o SQL Server Management Studio e conecte-se ao banco de dados do SQL Server local.
+1. Abra o SQL Server Management Studio e conecte-se ao banco de dados do SQL Server.
 
 1. No **Gerenciador de Servidores**, clique com o botão direito do mouse no banco de dados e escolha **Nova consulta**.
 
@@ -269,7 +269,7 @@ Conforme você move dados de um armazenamento de dados em uma rede privada (loca
 1. Selecione **Auto-hospedada** e clique em **Continuar**. 
 1. Insira **MySelfHostedIR** em **Nome** e clique em **Criar**. 
 
-1. Clique em **Clique aqui para iniciar a instalação expressa para este computador** na seção **Opção 1: instalação Expressa**. 
+1. Clique em **Clique aqui para inicializar a instalação expressa para este computador** na seção **Opção 1: instalação expressa**. 
 
    ![Clique no link de instalação Expressa](./media/tutorial-incremental-copy-multiple-tables-portal/click-express-setup.png)
 1. Na janela **Instalação Expressa do Microsoft Integration Runtime (auto-hospedado)** , clique em **Fechar**. 
@@ -281,10 +281,10 @@ Conforme você move dados de um armazenamento de dados em uma rede privada (loca
 1. Confirme que você vê **MySelfHostedIR** na lista de runtimes de integração.
 
 ## <a name="create-linked-services"></a>Criar serviços vinculados
-Os serviços vinculados são criados em um data factory para vincular seus armazenamentos de dados e serviços de computação ao data factory. Nesta seção, você cria serviços vinculados para seu banco de dados SQL Server local e o banco de dados SQL do Azure. 
+Os serviços vinculados são criados em um data factory para vincular seus armazenamentos de dados e serviços de computação ao data factory. Nesta seção, você criará serviços vinculados para o Banco de Dados do SQL Server e o Banco de Dados SQL do Azure. 
 
 ### <a name="create-the-sql-server-linked-service"></a>Criar um serviço vinculado do SQL Server
-Nesta etapa, você vincula seu banco de dados do SQL Server local ao data factory.
+Nesta etapa, você vincula seu Banco de Dados do SQL Server ao data factory.
 
 1. Na janela **Conexões**, alterne da guia **Integration Runtime** para a guia **Serviços Associados** e clique em **+ Novo**.
 
@@ -310,7 +310,7 @@ Na última etapa, você deve criar um serviço vinculado para vincular o banco d
 1. Na janela **Novo Serviço Vinculado**, execute estas etapas:
 
     1. Insira **AzureSqlDatabaseLinkedService** para o **Nome**. 
-    1. Como **Nome do servidor**, selecione o nome do servidor SQL do Azure na lista suspensa. 
+    1. Como **Nome do servidor**, selecione o nome do servidor na lista suspensa. 
     1. Como **Nome do banco de dados**, selecione o banco de dados SQL do Azure em que você criou customer_table e project_table como parte dos pré-requisitos. 
     1. Como **Nome de usuário**, digite o nome do usuário que tem acesso ao banco de dados SQL do Azure. 
     1. Para **Senha**, insira a **senha** do usuário. 
@@ -388,7 +388,7 @@ O pipeline usa uma lista de nomes de tabela como um parâmetro. A atividade ForE
 
 1. No painel esquerdo, clique em **+ (adição)** e clique em **Pipeline**.
 
-1. Na guia **Geral**, insira **IncrementalCopyPipeline** em **Nome**. 
+1. No painel geral, em **Propriedades**, especifique **IncrementalCopyPipeline** para **Nome**. Em seguida, recolha o painel clicando no ícone Propriedades no canto superior direito.  
 
 1. Na guia **Parâmetros**, execute as seguintes etapas: 
 

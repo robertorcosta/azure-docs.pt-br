@@ -3,17 +3,17 @@ title: Otimizar seu investimento na nuvem com o Gerenciamento de Custos do Azure
 description: Este artigo ajuda a obter o valor máximo dos seus investimentos de nuvem, reduzir os custos e avaliar onde seu dinheiro está sendo gasto.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/04/2020
+ms.date: 05/27/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 759c69544c083e95cbd5198eecf9f7bb0e882aa8
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: f328f17b1d64bc9b8f0be35321aecaba0cb85fa6
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791605"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142411"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Como otimizar seu investimento na nuvem com o Gerenciamento de Custos do Azure
 
@@ -131,14 +131,39 @@ Para obter mais informações, confira [Migrações para Azure](https://docs.mic
 
 Mantenha-se informado sobre como os custos da sua organização evoluem ao longo do tempo. Use as técnicas a seguir para entender e gerenciar seus gastos corretamente.
 
-### <a name="organize-and-tag-your-resources"></a>Organizar e marcar seus recursos
+### <a name="organize-resources-to-maximize-cost-insights-and-accountability"></a>Organize os recursos para maximizar os insights sobre custos e a responsabilidade
 
-Organize seus recursos com o custo em mente. Ao criar assinaturas e grupos de recursos, pense em quais são equipes responsáveis pelos custos associados. Faça com que os relatórios mantenham a organização em mente. As assinaturas e os grupos de recursos fornecem bons buckets para organizar e atribuir gastos em sua organização. As marcas fornecem uma boa maneira atribuir custos. Você pode usar as marcas como um filtro. E você pode usá-las para agrupar ao analisar dados e investigar custos. Os clientes do Enterprise Agreement também podem criar departamentos e colocar assinaturas neles. A organização baseada em custos no Azure ajuda a responsabilizar as pessoas relevantes na organização pelos custos para reduzir os gastos da equipe.
+Uma estrutura organizacional bem planejada para as suas hierarquias de recursos e cobrança do Azure ajuda a fornecer uma boa compreensão e controle sobre os custos à medida que você cria sua infraestrutura de nuvem. Assista ao vídeo [Como configurar hierarquias de entidade](https://www.youtube.com/watch?v=n3TLRaYJ1NY) para obter uma melhor compreensão das ferramentas organizacionais disponíveis e como aproveitá-las. Para assistir a outros vídeos, visite o [Canal do YouTube do Gerenciamento de Custos](https://www.youtube.com/c/AzureCostManagement).
 
-Assista ao vídeo [Como examinar as políticas de marcação com o Gerenciamento de Custos do Azure](https://www.youtube.com/watch?v=nHQYcYGKuyw) para entender as ferramentas disponíveis e impor a marcação de recursos escalonáveis em sua organização. Para assistir a outros vídeos, visite o [Canal do YouTube do Gerenciamento de Custos](https://www.youtube.com/c/AzureCostManagement).
+>[!VIDEO https://www.youtube.com/embed/n3TLRaYJ1NY]
+
+Ao avaliar e criar uma hierarquia que atende às suas necessidades, responda às perguntas a seguir.
+
+*Qual hierarquia de cobrança está disponível para mim e quais são os diferentes escopos que posso usar?*
+
+Identifique a organização de cobrança da sua organização determinando o tipo de oferta do Azure. Os escopos disponíveis para cada organização de cobrança do Azure estão documentados em [Entender e trabalhar com escopos](understand-work-scopes.md).
+
+*Se eu tiver várias equipes, como devo organizar minhas assinaturas e meus grupos de recursos?*
+
+A criação de uma assinatura ou um grupo de recursos para cada equipe é uma prática comum. Eles podem ajudar você a diferenciar os custos e a responsabilizar as equipes. No entanto, os custos ficam limitados à assinatura ou ao grupo de recursos.
+
+Se você já tiver equipes com várias assinaturas, considere o agrupamento das assinaturas em grupos de gerenciamento para analisar os custos juntos. Grupos de gerenciamento, assinaturas e grupos de recursos fazem parte da hierarquia do RBAC do Azure. Use-os em conjunto para o controle de acesso nas suas equipes.
+
+Os recursos podem se estender por vários escopos, especialmente quando são compartilhados por várias equipes ou cargas de trabalho. Considere a possibilidade de identificar os recursos com marcas. As marcas são abordadas mais detalhadamente na próxima seção.
+
+*Tenho ambientes de desenvolvimento e de produção?*
+
+Considere a possibilidade de criar assinaturas de Desenvolvimento/Teste para seus ambientes de desenvolvimento a fim de aproveitar os preços reduzidos. Se as cargas de trabalho abrangem várias equipes ou vários escopos do Azure, considere o uso de marcas para identificá-las.
+
+### <a name="tag-shared-resources"></a>Marcar os recursos compartilhados
+
+As marcas são uma forma eficaz de entender os custos que abrangem várias equipes e vários escopos do Azure. Por exemplo, você pode ter um recurso como um servidor de email utilizado por muitas equipes. Você pode colocar um recurso compartilhado, como o servidor de email, em uma assinatura dedicada a recursos compartilhados ou colocá-lo em uma assinatura existente. Se você o colocar em uma assinatura existente, o proprietário da assinatura poderá não querer que o custo seja acumulado na equipe dele todos os meses. Para este exemplo, use uma marca para identificar o recurso como compartilhado.
+
+Da mesma forma, você também pode ter aplicativos Web ou ambientes, como teste ou produção, que usam recursos em várias assinaturas pertencentes a diferentes equipes. Para entender melhor o custo total das cargas de trabalho, marque os recursos utilizados por elas. Quando as marcas são aplicadas corretamente, você pode aplicá-las como um filtro na análise de custo para entender melhor as tendências.
+
+Depois de planejar a marcação de recursos, configure uma política do Azure para impor a marcação aos recursos. Assista ao vídeo [Como examinar as políticas de marca com o Gerenciamento de Custos do Azure](https://www.youtube.com/watch?v=nHQYcYGKuyw) para conhecer as ferramentas disponíveis que ajudarão você a impor uma marcação de recursos escalonável. Para assistir a outros vídeos, visite o [Canal do YouTube do Gerenciamento de Custos](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/nHQYcYGKuyw]
-
 
 ### <a name="use-cost-analysis"></a>Usar análise de custo
 
