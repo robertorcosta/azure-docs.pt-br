@@ -3,17 +3,17 @@ title: 'Início Rápido: Enviar eventos personalizados para a Função do Azure 
 description: 'Início Rápido: Use a Grade de Eventos do Azure e a CLI do Azure ou o portal para publicar um tópico e assinar esse evento. Uma Função do Azure é usada para o ponto de extremidade.'
 services: event-grid
 keywords: ''
-author: banisadr
-ms.author: babanisa
+author: femila
+ms.author: femila
 ms.date: 11/15/2019
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 5e38571cf84537fd722093b96cd277743e8ce80c
-ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
+ms.openlocfilehash: cc429fd38fc3322887affb72e71e0f583823c297
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80292159"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84557852"
 ---
 # <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>Início Rápido: Rotear eventos personalizados para uma Função do Azure com a Grade de Eventos
 
