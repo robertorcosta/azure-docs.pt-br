@@ -2,13 +2,13 @@
 title: Tipos de entidade-LUIS
 description: Uma entidade extrai dados de um usuário expressão no tempo de execução de previsão. Uma finalidade _opcional_e secundária é impulsionar a previsão da intenção ou de outras entidades usando a entidade como um recurso.
 ms.topic: conceptual
-ms.date: 05/17/2020
-ms.openlocfilehash: a5e4812eab84650401dd19b0f8d7b361a5135dd3
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.date: 06/10/2020
+ms.openlocfilehash: 61dc0688cd304a672321f846a3ae5798c271345d
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682180"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84676481"
 ---
 # <a name="extract-data-with-entities"></a>Extrair dados com entidades
 
@@ -41,7 +41,9 @@ Embora as [intenções](luis-concept-intent.md) sejam obrigatórias, as entidade
 
 Conforme o aplicativo é reparado e uma nova necessidade de dados é identificada, você pode adicionar entidades apropriadas ao modelo LUIS mais tarde.
 
-## <a name="entity-compared-to-intent"></a>Entidade comparada com a intenção
+<a name="entity-compared-to-intent"></a>
+
+## <a name="entity-represents-data-extraction"></a>A entidade representa a extração de dados
 
 A entidade representa um conceito de dados _dentro do expressão_. Uma intenção classifica _todo o expressão_.
 
@@ -53,6 +55,10 @@ Considere os quatro declarações a seguir:
 |Enviar algo|sendSomething|-|Nada para extrair. O modelo não tem um recurso necessário para extrair neste `something` contexto, e não há nenhum destinatário declarado.|
 |Enviar Bob a presente|sendSomething|`Bob`, `present`|O modelo extrai `Bob` adicionando um recurso necessário da entidade predefinida `personName` . Uma entidade de aprendizado de máquina foi usada para extrair `present` .|
 |Enviar Bob a caixa de chocolates|sendSomething|`Bob`, `box of chocolates`|As duas partes importantes dos dados `Bob` e as foram `box of chocolates` extraídas pelas entidades de aprendizado de máquina.|
+
+## <a name="label-entities-in-all-intents"></a>Rotular entidades em todas as intenções
+
+As entidades extraem dados independentemente da intenção prevista. Certifique-se de rotular _todos os_ exemplos de declarações em todas as intenções. A `None` tentativa de rotulação de entidade ausente causa confusão, mesmo se houvesse muito mais declarações de treinamento para as outras intenções.
 
 ## <a name="design-entities-for-decomposition"></a>Projetar entidades para decomposição
 

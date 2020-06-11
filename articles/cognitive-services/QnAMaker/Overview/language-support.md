@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 09/24/2019
 ms.author: diberry
-ms.openlocfilehash: 96440bf0e9c26e6f222f3bc94c8fabb0bc8f488d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2c1b98a72af3442b596a9fdde66d254e3e5c2c19
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79220551"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678606"
 ---
 # <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>Suporte a idiomas para um recurso QnA Maker e bases de dados de conhecimento
 
@@ -29,11 +29,11 @@ Saiba mais sobre o [impacto da seleção de idioma](../how-to/language-knowledge
 
 A lista a seguir contém os idiomas com suporte para um recurso de QnA Maker. 
 
-|Linguagem|
+|Idioma|
 |--|
 |Árabe|
 |Armênia|
-|Bengali|
+|Bangla|
 |Basco|
 |Búlgaro|
 |Catalão|

@@ -13,6 +13,7 @@
     - name: Criar um ponto de extremidade privado – CLI do Azure
       href: create-private-endpoint-cli.md
     - name: Criar um ponto de extremidade privado – modelo do ARM
+      displayName: Resource Manager
       href: create-private-endpoint-template.md
     - name: Criar um serviço de Link Privado – Portal
       href: create-private-link-service-portal.md
@@ -21,6 +22,7 @@
     - name: Criar um serviço de Link Privado – CLI do Azure
       href: create-private-link-service-cli.md
     - name: Criar um serviço de Link Privado – Modelo do ARM
+      displayName: Resource Manager
       href: create-private-link-service-template.md
 - name: Conceitos
   items:

@@ -3,18 +3,24 @@ title: Novidades - reconhecimento vocal (LUIS)
 description: Este artigo é atualizado regularmente com notícias sobre a API de reconhecimento vocal dos Serviços Cognitivos do Azure.
 ms.topic: overview
 ms.date: 05/19/2020
-ms.openlocfilehash: b4d287c8d1ddbeeee63390fb397718de1234c93e
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: 45bfe4e703942a7fa38329bd0905833e904e0ab1
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83675945"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678742"
 ---
 # <a name="whats-new-in-language-understanding"></a>Novidades sobre reconhecimento vocal
 
 Conheça o que há de novo no serviço. Esses itens incluem notas sobre a versão, vídeos, postagens no blog e outros tipos de informações. Marque esta página para manter-se atualizado quanto ao serviço.
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="june-2020"></a>Junho de 2020
+
+* [Visualização de 3,0 criação](luis-migration-authoring-entities.md) SDK
+    * Versão 3.2.0-Preview. 3- [.net-NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)
+    * Versão 4.0.0-Preview. 3- [js-NPM](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)
 
 ### <a name="may-2020---build"></a>Maio de 2020 - //Build
 

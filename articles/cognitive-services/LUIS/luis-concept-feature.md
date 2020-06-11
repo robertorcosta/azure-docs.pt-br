@@ -2,29 +2,70 @@
 title: Recursos-LUIS
 description: Adicione recursos a um modelo de linguagem para fornecer dicas sobre como reconhecer a entrada que você deseja identificar ou classificar.
 ms.topic: conceptual
-ms.date: 05/14/2020
-ms.openlocfilehash: c4f19ceed2e48f3f6ec2ed0958bccb7a85cff44f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.date: 06/10/2020
+ms.openlocfilehash: 823c51f0b58481e30ff54814dde03285ad094b9e
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83742706"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677584"
 ---
 # <a name="machine-learning-ml-features"></a>Recursos de aprendizado de máquina (ML)
 
-No Machine Learning, um **recurso**   é uma característica ou atributo diferenciado dos dados que seu sistema observa.
+No Machine Learning, um **recurso**   é uma característica ou atributo diferenciado dos dados que seu sistema observa e aprende.
 
 Os recursos de aprendizado de máquina fornecem indicações LUISs importantes para onde procurar coisas que irão distinguir um conceito. Elas são dicas que o LUIS pode usar, mas não as regras difíceis.  Essas dicas são usadas em conjunto com os rótulos para localizar os dados.
 
- O LUIS dá suporte a ambas as listas de frases e ao uso de outras entidades como recursos:
+## <a name="what-is-a-feature"></a>O que é um recurso
+
+Um recurso é uma característica de distinção, que pode ser descrita como uma função: f (x) = y. O recurso é usado para saber onde procurar, no exemplo expressão, para a característica de distinção. Ao criar seu esquema, o que você sabe sobre o exemplo expressão que indica a característica? Sua resposta é o seu melhor guia para a criação de recursos.
+
+## <a name="types-of-features"></a>Tipos de recursos
+
+ O LUIS dá suporte a listas de frases e modelos como recursos:
 * Recurso de lista de frases
 * Modelo (intenção ou entidade) como um recurso
 
 Os recursos devem ser considerados uma parte necessária do seu design de esquema.
 
+## <a name="how-you-find-features-in-your-example-utterances"></a>Como encontrar recursos no seu exemplo declarações
+
+Como o LUIS é um aplicativo baseado em linguagem, os recursos serão baseados em texto. Escolha o texto que indica a característica que você deseja distinguir. Para LUIS, a menor unidade baseada em texto é o token. Para o idioma inglês, um token é um Span contíguo, sem espaços ou pontuação, de letras e números. Um espaço não é um token.
+
+Como os espaços e a pontuação não são tokens, concentre-se nas pistas de texto que você pode usar como recursos. Lembre-se de incluir variações de palavra como:
+* formulários do plural
+* conjugação de verbo
+* abreviação
+* ortografia e grafia incorreta
+
+O texto, como uma característica diferencial, precisa:
+* Corresponder uma palavra ou frase exata-considere adicionar uma entidade de expressão regular ou uma entidade de lista como um recurso para a entidade ou intenção
+* Corresponder a um conceito bem conhecido, como datas, horários ou nomes de pessoas, usar uma entidade predefinida como um recurso para a entidade ou intenção
+* Aprenda novos exemplos ao longo do tempo – use uma lista de frases de alguns exemplos do conceito como um recurso para a entidade ou intenção
+
+## <a name="combine-features"></a>Combinar recursos
+
+Como há várias opções de como uma característica é descrita, você pode usar mais de um recurso que ajuda a descrever essa característica ou o conceito. Um emparelhamento comum é usar um recurso de lista de frases e um dos tipos de entidade comumente usados como recursos: entidade predefinida, entidade de expressão regular ou entidade de lista.
+
+### <a name="ticket-booking-entity-example"></a>Exemplo de entidade de reservas de tíquetes
+
+Como primeiro exemplo, considere um aplicativo para reservar um vôo com uma tentativa de reserva de voo e uma entidade de reserva de tíquete.
+
+A entidade de reserva de tíquete é uma entidade aprendida pelo computador para o destino do vôo. Para ajudar a extrair o local, use dois recursos para ajudar:
+* Lista de frases de palavras relevantes, como,, `plane` `flight` `reservation` ,`ticket`
+* Entidade predefinida `geographyV2` como recurso para a entidade
+
+### <a name="pizza-entity-example"></a>Exemplo de entidade de pizza
+
+Como outro exemplo, considere um aplicativo para solicitar uma pizza com uma intenção criar ordem de pizza e uma entidade de pizza.
+
+A entidade de pizza é uma entidade aprendida por máquina para os detalhes de pizza. Para ajudar a extrair os detalhes, use dois recursos para ajudar:
+* Lista de frases de palavras relevantes, como,, `cheese` `crust` `pepperoni` ,`pineapple`
+* Entidade predefinida `number` como recurso para a entidade
+
 ## <a name="a-phrase-list-for-a-particular-concept"></a>Uma lista de frases para um determinado conceito
 
-Uma lista de frases é uma lista de palavras ou frases que encapsula um determinado conceito.
+Uma lista de frases é uma lista de palavras ou frases que encapsula um determinado conceito e é aplicada como uma correspondência que não diferencia maiúsculas de minúsculas no nível do token.
 
 Ao adicionar uma lista de frases, você pode definir o recurso como:
 * **[Global](#global-features)**. Um recurso global se aplica a todo o aplicativo.
@@ -55,6 +96,18 @@ Se você quiser extrair os termos médicos:
 * Primeiro, crie o exemplo declarações e Rotule os termos médicos dentro desses declarações.
 * Em seguida, crie uma lista de frases com exemplos dos termos dentro do domínio do assunto. Essa lista de frases deve incluir o termo real rotulado e outros termos que descrevam o mesmo conceito.
 * Adicione a lista de frases à entidade ou subentidade que extrai o conceito usado na lista de frases. O cenário mais comum é um componente (filho) de uma entidade de aprendizado de máquina. Se a lista de frases deve ser aplicada em todas as intenções ou entidades, marque a lista de frases como uma lista de frases globais. O `enabledForAllModels` sinalizador controla esse escopo de modelo na API.
+
+### <a name="token-matches-for-a-phrase-list"></a>Correspondências de token para uma lista de frases
+
+Uma lista de frases aplica-se ao nível de token, independentemente do caso. O gráfico a seguir mostra como uma lista de frases que contém a palavra `Ann` é aplicada a variações dos mesmos caracteres nessa ordem.
+
+
+| Variação de token de`Ann` | Correspondência da lista de frases quando o token é encontrado |
+|--------------------------|---------------------------------------|
+| Maria<br>Maria<br>           | Sim-o token é`Ann`                  |
+| Ana Maria                    | Sim-o token é`Ann`                  |
+| Anne                     | No-token é`Anne`                  |
+
 
 <a name="how-to-use-phrase-lists"></a>
 <a name="how-to-use-a-phrase-lists"></a>

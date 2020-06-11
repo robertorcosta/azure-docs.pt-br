@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 2061d69fdfd13683ee722951cc7aaedcb1e1750a
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 5c76e45f09a0f432d2775eb19d3dcaa668294e6f
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745363"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84672656"
 ---
 # <a name="language-understanding-luis-container-limitations"></a>Limitações de contêiner de Reconhecimento vocal (LUIS)
 
@@ -46,9 +46,10 @@ Configurações de aplicativo sem suporte|Detalhes|
 
 Os contêineres LUIS dão suporte a um subconjunto dos [idiomas com suporte](luis-language-support.md#languages-supported) do Luis apropriado. Os contêineres LUIS são capazes de entender declarações nos seguintes idiomas:
 
-| Idioma | Locale | Domínio predefinido | Entidade predefinida | Recomendações da lista de frases | **[Análise de texto](../text-analytics/language-support.md)<br>(Sentimento e<br>Palavras-chave)|
+| Idioma | Localidade | Domínio predefinido | Entidade predefinida | Recomendações da lista de frases | **[Análise de texto](../text-analytics/language-support.md)<br>(Sentimento e<br>Palavras-chave)|
 |--|--|:--:|:--:|:--:|:--:|
 | Inglês (Estados Unidos) | `en-US` | ✔️ | ✔️ | ✔️ | ✔️ |
+| Árabe (visualização-árabe moderno padrão) |`ar-AR`|❌|❌|❌|❌|
 | *[Chinês](#chinese-support-notes) |`zh-CN` | ✔️ | ✔️ | ✔️ | ❌ |
 | Francês (França) |`fr-FR` | ✔️ | ✔️ | ✔️ | ✔️ |
 | Francês (Canadá) |`fr-CA` | ❌ | ❌ | ❌ | ✔️ |
@@ -56,9 +57,12 @@ Os contêineres LUIS dão suporte a um subconjunto dos [idiomas com suporte](lui
 | Híndi | `hi-IN`| ❌ | ❌ | ❌ | ❌ |
 | Italiano |`it-IT` | ✔️ | ✔️ | ✔️ | ✔️ |
 | Coreano |`ko-KR` | ✔️ | ❌ | ❌ | Somente *frase-chave* |
+| Marati | `mr-IN`|❌|❌|❌|❌|
 | Português (Brasil) |`pt-BR` | ✔️ | ✔️ | ✔️ | nem todas as subculturas |
 | Espanhol (Espanha) |`es-ES` | ✔️ | ✔️ |✔️|✔️|
 | Espanhol (México)|`es-MX` | ❌ | ❌ |✔️|✔️|
+| Tâmil | `ta-IN`|❌|❌|❌|❌|
+| Télugo | `te-IN`|❌|❌|❌|❌|
 | Turco | `tr-TR` |✔️| ❌ | ❌ | Somente *sentimentos* |
 
 [!INCLUDE [Chinese language support notes](includes/chinese-language-support-notes.md)]

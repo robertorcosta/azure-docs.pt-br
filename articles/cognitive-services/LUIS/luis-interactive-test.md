@@ -1,14 +1,14 @@
 ---
 title: Testar o aplicativo no portal do LUIS
 description: Use o LUIS (Serviço Inteligente de Reconhecimento Vocal) para trabalhar continuamente em seu aplicativo para refiná-lo e melhorar seu reconhecimento vocal.
-ms.topic: how-to
-ms.date: 05/20/2020
-ms.openlocfilehash: 86ee90e2d3bb322a4f55439d105941cf43462d3e
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.topic: conceptual
+ms.date: 06/02/2020
+ms.openlocfilehash: 574bacdb5e1f167c9c9174d4a119552391059004
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344145"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677722"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Testar seu aplicativo LUIS no portal do LUIS
 
@@ -65,9 +65,25 @@ No painel de inspeção, você pode adicionar o expressão de teste a uma inten�
 
 ## <a name="disable-required-features"></a>Desabilitar recursos necessários
 
-Selecione essa alternância para ver o que a previsão seria se o recurso da entidade não fosse necessário.
+Essa alternância ajuda a determinar se o aplicativo treinado está prevendo corretamente suas entidades com base nos recursos necessários. A configuração padrão é aplicar o recurso conforme necessário durante a previsão. Selecione essa alternância para ver qual será a previsão se o recurso da subentidade não fosse necessário.
 
-Essa alternância ajuda a determinar se o aplicativo treinado está prevendo corretamente suas entidades com base nos recursos necessários. O aplicativo treinado pode prever incorretamente uma entidade aprendida por máquina com base em rótulos incorretos de exemplo declarações ou o recurso necessário não corresponde ao texto.
+### <a name="when-to-disable-required-features"></a>Quando desabilitar os recursos necessários
+
+O aplicativo treinado pode prever incorretamente uma entidade aprendida por máquina com base em uma das seguintes opções:
+* Rotulação incorreta do exemplo declarações.
+* O recurso necessário não corresponde ao texto.
+
+Um exemplo é uma entidade aprendida por máquina com uma subentidade do nome de uma pessoa.
+
+:::image type="content" source="media/luis-how-to-interactive-test/disable-required-feature.png" alt-text="Captura de tela da máquina do portal do LUIS-conhece o esquema de entidade com o recurso necessário":::
+
+Um exemplo de expressão para esta entidade aprendida por computador é: `Assign Bob Jones to work on the new security feature` .
+
+A extração deve ser `security feature` como a descrição do tíquete e `Bob Jones` como o engenheiro, duas subentidades de `Assign ticket` entidade.
+
+Para ajudar a subentidade a prever com êxito, adicione o recurso predefinido AA de entidade de [usuário](luis-reference-prebuilt-person.md) para a `engineer` subentidade. Se você tornar o recurso necessário, isso significará que a subentidade só será extraída se a entidade predefinida PersonName for prevista para o texto. Isso significa que qualquer nome no texto que não prevê a subentidade PersonName não será retornado como uma subentidade rotulada, `engineer` .
+
+Quando você usa o painel de teste interativo e vê uma subentidade, com um recurso necessário, não está prevendo, alterne essa configuração para ver se a subentidade deve ser prevista sem que o recurso seja necessário. A subentidade pode ser capaz de ser prevista corretamente sem o recurso, conforme necessário, devido à rotulagem correta do exemplo declarações.
 
 ## <a name="view-sentiment-results"></a>Exibir resultados de sentimento
 

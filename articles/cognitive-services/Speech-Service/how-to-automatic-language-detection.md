@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-nineteen
-ms.openlocfilehash: 311c85e254711a219ac93424b77f35c2662008b7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a9fac89f529cfefbb8a8d82135838bb96e2689db
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658458"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669810"
 ---
 # <a name="automatic-language-detection-for-speech-to-text"></a>Detecção automática de idioma para fala em texto
 
@@ -29,7 +29,7 @@ Neste artigo, você aprenderá a usar `AutoDetectSourceLanguageConfig` o para co
 
 ## <a name="automatic-language-detection-with-the-speech-sdk"></a>Detecção automática de idioma com o SDK de fala
 
-A detecção automática de idioma atualmente tem um limite no lado dos serviços de dois idiomas por detecção. Tenha essa limitação em mente ao construção do `AudoDetectSourceLanguageConfig` objeto. Nos exemplos abaixo, você criará um `AutoDetectSourceLanguageConfig` e o usará para construir um `SpeechRecognizer` .
+A detecção automática de idioma atualmente tem um limite no lado dos serviços de quatro idiomas por detecção. Tenha essa limitação em mente ao construção do `AudoDetectSourceLanguageConfig` objeto. Nos exemplos abaixo, você criará um `AutoDetectSourceLanguageConfig` e o usará para construir um `SpeechRecognizer` .
 
 > [!TIP]
 > Você também pode especificar um modelo personalizado a ser usado ao executar a fala em texto. Para obter mais informações, consulte [usar um modelo personalizado para detecção automática de idioma](#use-a-custom-model-for-automatic-language-detection).
