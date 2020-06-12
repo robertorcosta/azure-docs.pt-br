@@ -1,19 +1,19 @@
 ---
-title: Gerenciar certificados em um cluster de Service Fabric do Azure
+title: Gerenciar certificados em um cluster do Azure Service Fabric
 description: Descreve como adicionar novos certificados, sobrepor certificados e remover certificados de e para um cluster do Service Fabric.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: a3c92e1b39261af32085e4d9b6cb2462d5c0eb64
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 43e9c95e0fb8484f7b24c5a0c409d3aa6a68eabc
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75458360"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658377"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Adicionar ou remover certificados para um cluster do Service Fabric no Azure
 É recomendável que você se familiarize com o modo como o Service Fabric usa certificados X.509 e com os [Cenários de segurança do cluster do cluster](service-fabric-cluster-security.md). Você deve entender o que é um certificado de cluster e qual sua finalidade, antes de continuar.
 
-O comportamento de carregamento de certificado padrão do SDK do Azure Service fabrics é implantar e usar o certificado definido com a data de expiração mais distante no futuro; independentemente de sua definição de configuração primária ou secundária. Voltar ao comportamento clássico é uma ação avançada não recomendada e requer a definição do valor do parâmetro de configuração "UseSecondaryIfNewer" como false em sua `Fabric.Code` configuração.
+O comportamento de carregamento do certificado padrão do SDK do Azure Service Fabrics é implantar e usar um certificado definido come uma data de vencimento mais distante no futuro, independentemente de sua definição como configuração primária ou secundária. Voltar para o comportamento clássico é uma ação avançada não recomendada e exige a definição do valor "UseSecondaryIfNewer" do parâmetro de configuração como false na sua configuração `Fabric.Code`.
 
 O Service Fabric permite especificar dois certificados de cluster, um primário e um secundário, quando você configura a segurança do certificado durante a criação do cluster, além de certificados de cliente. Veja a [criação de um cluster do Service Fabric por meio do portal](service-fabric-cluster-creation-via-portal.md) ou a [criação de um cluster do azure por meio do Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) para obter detalhes sobre a configuração deles no tempo de criação. Se você especificar apenas um certificado de cluster no momento da criação, em seguida, que é usado como o certificado principal. Após a criação do cluster, é possível adicionar um novo certificado como um secundário.
 
@@ -29,26 +29,24 @@ O Service Fabric permite especificar dois certificados de cluster, um primário 
 Certificado de cluster secundário não pode ser adicionado por meio do portal do Azure, use o powershell do Azure. O processo será descrito posteriormente neste documento.
 
 ## <a name="remove-a-cluster-certificate-using-the-portal"></a>Remover um certificado de cluster usando o portal
-Para um cluster seguro, sempre será necessário pelo menos um certificado (não revogado ou expirado) válido. O certificado implantado com o mais distante na data de expiração futura estará em uso e removê-lo fará com que o cluster pare de funcionar; Certifique-se de remover apenas o certificado que expirou ou um certificado não usado que expire mais cedo.
+Para um cluster seguro, sempre será necessário pelo menos um certificado (não revogado ou expirado) válido. O certificado implantado com a data mais distante na data de vencimento futura estará em uso e removê-lo fará o cluster parar de funcionar; certifique-se de remover somente o certificado que expirou ou um certificado não utilizado que expirará em breve.
 
 Para remover um certificado de segurança de cluster não usado, navegue até a seção Segurança e selecione a opção 'Excluir' no menu de contexto do certificado não usado.
 
 Se a sua intenção for remover o certificado que está marcado como primário,você precisará implantar um certificado secundário com uma data de expiração ainda mais no futuro que o certificado primário, permitindo o comportamento de sobreposição automática. Exclua o certificado primário após a substituição automática ser concluída.
 
-## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>Adicionar um certificado secundário usando o Powershell do Resource Manager
-> [!TIP]
-> Agora há uma maneira melhor e mais fácil de adicionar um certificado secundário usando o cmdlet [Add-AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) . Não é necessário seguir o restante das etapas nesta seção.  Além disso, você não precisa do modelo usado originalmente para criar e implantar o cluster ao usar o cmdlet [Add-AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) .
+## <a name="add-a-secondary-certificate-using-azure-resource-manager"></a>Adicionar um certificado secundário usando o Azure Resource Manager
 
 Essas etapas pressupõem que você esteja familiarizado com o funcionamento do Gerenciador de Recursos e tenha implantado pelo menos um cluster do Service Fabric usando um modelo do Resource Manager e tenha o modelo que você usou para configurar o cluster à mão. Presume-se também que você esteja familiarizado com o uso do JSON.
 
 > [!NOTE]
-> Se você estiver procurando um modelo de exemplo e parâmetros que você pode usar para acompanhar ou como um ponto de partida, baixe-o deste [repositório de git](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Cert-Rollover-Sample). 
+> Se você estiver procurando um modelo de exemplo e parâmetros que você pode usar para acompanhar ou como um ponto de partida, baixe-o deste [repositório Git](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Cert-Rollover-Sample). 
 > 
 > 
 
 ### <a name="edit-your-resource-manager-template"></a>Editar o modelo do Resource Manager
 
-Para facilitar o acompanhamento, o exemplo 5-VM-1-NodeTypes-Secure_Step2.JSON contém todas as edições que faremos. o exemplo está disponível em [git-Repositório](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Cert-Rollover-Sample).
+Para facilitar o acompanhamento, o exemplo 5-VM-1-NodeTypes-Secure_Step2.JSON contém todas as edições que faremos. o exemplo está disponível no [repositório Git](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Cert-Rollover-Sample).
 
 **Certifique-se de seguir todas as etapas**
 
@@ -106,7 +104,7 @@ Para facilitar o acompanhamento, o exemplo 5-VM-1-NodeTypes-Secure_Step2.JSON co
          }
     ``` 
 
-4. Faça alterações em **todas** as definições de recurso **Microsoft. Compute/virtualMachineScaleSets** -localize a definição de recurso Microsoft. Compute/virtualMachineScaleSets. Role até "publisher": "Microsoft.Azure.ServiceFabric", em "virtualMachineProfile".
+4. Faça alterações em **todas** as definições do recurso **Microsoft.Compute/virtualMachineScaleSets** - localize a definição do recurso Microsoft.Compute/virtualMachineScaleSets. Role até "publisher": "Microsoft.Azure.ServiceFabric", em "virtualMachineProfile".
 
     Nas configurações de editor do Service Fabric, você verá algo assim.
     
@@ -184,7 +182,7 @@ Editar seu parâmetro de modelo do Resource Manager de arquivo, adicione dois no
 ### <a name="deploy-the-template-to-azure"></a>Implantar o modelo no Azure
 
 - Agora você está pronto para implantar o modelo no Azure. Abra um prompt de comando do Azure PS versão 1+.
-- Entre em sua conta do Azure e selecione a assinatura específica do Azure. Essa é uma etapa importante para pessoas que têm acesso a mais de uma assinatura do Azure.
+- Entre em sua Conta do Azure e selecione a assinatura do Azure específica. Essa é uma etapa importante para pessoas que têm acesso a mais de uma assinatura do Azure.
 
 ```powershell
 Connect-AzAccount
@@ -251,7 +249,7 @@ Para referência rápida, este é o comando para obter a integridade do cluster
 Get-ServiceFabricClusterHealth 
 ```
 
-## <a name="deploying-client-certificates-to-the-cluster"></a>Implantando certificados de cliente no cluster.
+## <a name="deploying-client-certificates-to-the-cluster"></a>Implantar certificados de aplicativo no cluster.
 
 Você pode usar as mesmas etapas conforme descrito nas Etapas 5 anteriores para que os certificados implantados de um Key Vault para os nós. É necessário apenas definir e usar parâmetros diferentes.
 
@@ -279,7 +277,7 @@ Para remover um certificado secundário sejam usados para segurança de cluster,
 
 ## <a name="adding-application-certificates-to-a-virtual-machine-scale-set"></a>Adicionando certificados de aplicativo a um conjunto de dimensionamento de máquinas virtuais
 
-Para implantar um certificado que você usa para seus aplicativos em seu cluster, consulte [Este exemplo de script do PowerShell](scripts/service-fabric-powershell-add-application-certificate.md).
+Para implantar um certificado para usar nos aplicativos de seu cluster, confira [este exemplo de script do Powershell](scripts/service-fabric-powershell-add-application-certificate.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 Leia estes artigos para obter mais informações sobre gerenciamento de cluster:

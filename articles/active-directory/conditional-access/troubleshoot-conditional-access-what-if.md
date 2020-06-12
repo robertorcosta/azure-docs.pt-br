@@ -1,6 +1,6 @@
 ---
-title: Solucionar problemas de acesso condicional usando a ferramenta de What If-Azure Active Directory
-description: Onde encontrar quais políticas de acesso condicional foram aplicadas e por que
+title: Solucionar problema de Acesso Condicional usando a ferramenta What If – Azure Active Directory
+description: Onde encontrar quais políticas de Acesso Condicional foram aplicadas e por quê
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,47 +11,47 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 661afc08c76c6cde61b02a29a55b4a8bec932e21
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.openlocfilehash: a9aaab58acb00305f76b10847a0417d91d724ba8
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73175821"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83737632"
 ---
-# <a name="troubleshooting-conditional-access-using-the-what-if-tool"></a>Solucionando problemas de acesso condicional usando a ferramenta de What If
+# <a name="troubleshooting-conditional-access-using-the-what-if-tool"></a>Solucionar problema de Acesso Condicional usando a ferramenta What If
 
-A [ferramenta de What If](what-if-tool.md) no acesso condicional é eficiente ao tentar entender por que uma política foi ou não foi aplicada a um usuário em uma circunstância específica ou se uma política se aplicaria em um estado conhecido.
+A [ferramenta What If](what-if-tool.md) do Acesso Condicional é eficiente para entender por que uma política foi ou não foi aplicada a um usuário em uma circunstância específica ou se uma política seria aplicada em um estado conhecido.
 
-A ferramenta de What If está localizada no **portal do Azure** > **Azure Active Directory** >  > **What If**de**acesso condicional**.
+A ferramenta What If está localizada no **portal do Azure** > **Azure Active Directory** > **Acesso Condicional** > **What If**.
 
-![Ferramenta de What If de acesso condicional no estado padrão](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-tool.png)
+![Ferramenta de Acesso Condicional What If no estado padrão](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-tool.png)
 
 > [!NOTE]
-> Atualmente, a ferramenta de What If não avalia políticas no modo somente de relatório.
+> Atualmente, a ferramenta What If não avalia políticas no modo somente de relatório.
 
-## <a name="gathering-information"></a>Coletando informações
+## <a name="gathering-information"></a>Reunindo informações
 
-A ferramenta de What If requer apenas um **usuário** para começar. 
+A ferramenta What If requer apenas um **Usuário** para começar. 
 
 As informações adicionais a seguir são opcionais, mas ajudarão a restringir o escopo para casos específicos.
 
 * Aplicativos na nuvem ou ações
 * Endereço IP 
 * País/Região
-* Plataforma do dispositivo
-* Aplicativos cliente (visualização)
+* Plataforma de dispositivos
+* Aplicativos do cliente (versão prévia)
 * Estado do dispositivo (versão prévia) 
 * Risco de entrada
 
-Essas informações podem ser coletadas do usuário, de seu dispositivo ou do log de entradas do Azure AD.
+Essas informações podem ser coletadas do usuário, do dispositivo deles ou do log de entradas do Azure AD.
 
-## <a name="generating-results"></a>Gerando resultados
+## <a name="generating-results"></a>Gerar resultados
 
 Insira os critérios coletados na seção anterior e selecione **What If** para gerar uma lista de resultados. 
 
 A qualquer momento, você pode selecionar **Redefinir** para limpar qualquer entrada de critério e retornar ao estado padrão.
 
-## <a name="evaluating-results"></a>Avaliando resultados
+## <a name="evaluating-results"></a>Avaliar resultados
 
 ### <a name="policies-that-will-apply"></a>Políticas que serão aplicadas
 
@@ -59,17 +59,17 @@ Esta lista mostrará quais políticas de acesso condicional se aplicam de acordo
 
 ### <a name="policies-that-will-not-apply"></a>Políticas que não serão aplicadas
 
-Esta lista mostrará políticas de acesso condicional que não se aplicarão se as condições forem aplicadas. A lista incluirá todas as políticas e o motivo pelo qual elas não se aplicam. Os exemplos incluem usuários e grupos que podem ser excluídos de uma política.
+Esta lista mostrará políticas de Acesso Condicional que não se aplicarão se as condições forem aplicadas. A lista incluirá todas as políticas e o motivo pelo qual elas não se aplicam. Os exemplos incluem usuários e grupos que podem ser excluídos de uma política.
 
 ## <a name="use-case"></a>Caso de uso
 
-Muitas organizações criam políticas com base em locais de rede, permitindo locais confiáveis e locais de bloqueio onde o acesso não deve ocorrer.
+Muitas organizações criam políticas com base em locais de rede, permitindo locais confiáveis e bloqueando locais onde o acesso não deve ocorrer.
 
 Para validar que uma configuração foi feita adequadamente, um administrador pode usar a ferramenta de What If para imitar o acesso, de um local que deve ser permitido e de um local que deve ser negado.
 
-![Ferramenta de What If mostrando resultados com acesso de bloqueio](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-results.png)
+![Ferramenta What If mostrando resultados com Acesso bloqueado](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-results.png)
 
-Nessa instância, o usuário será impedido de acessar qualquer aplicativo de nuvem em sua viagem para a Coreia do Norte, pois a contoso bloqueou o acesso desse local.
+Nessa instância, o usuário será impedido de acessar qualquer aplicativo de nuvem em sua viagem à Coreia do Norte, pois a Contoso bloqueou o acesso desse local.
 
 Esse teste pode ser expandido para incorporar outros pontos de dados para restringir o escopo.
 
@@ -78,4 +78,4 @@ Esse teste pode ser expandido para incorporar outros pontos de dados para restri
 * [O que é Acesso Condicional?](overview.md)
 * [O que é Azure Active Directory Identity Protection?](../identity-protection/overview-v2.md)
 * [O que é uma identidade do dispositivo?](../devices/overview.md)
-* [Como funciona: autenticação multifator do Azure](../authentication/concept-mfa-howitworks.md)
+* [Como funciona: Autenticação Multifator do Azure](../authentication/concept-mfa-howitworks.md)

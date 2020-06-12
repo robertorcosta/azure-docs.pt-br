@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/12/2019
-ms.openlocfilehash: 0e91bc9c994a48b335c3ccb7373a9f4f5dc6d1e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 05/26/2020
+ms.openlocfilehash: 11fb2b7785540f24b0a8318428da01a4edd5cb5b
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81605080"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860623"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Criar um espaço de trabalho do Log Analytics com a CLI do Azure 2.0
 
@@ -19,7 +19,7 @@ A CLI do Azure 2.0 é usada para criar e gerenciar recursos do Azure da linha de
 
 * Recursos do Azure em sua assinatura  
 * Computadores locais monitorados pelo System Center Operations Manager  
-* Coleções de dispositivos de Configuration Manager  
+* Coleções de dispositivos do Configuration Manager  
 * Dados de diagnóstico ou de log do armazenamento do Azure  
 
 Para outras fontes, como as VMs do Azure e as VMs do Windows ou do Linux em seu ambiente, veja os tópicos a seguir:
@@ -37,7 +37,7 @@ Se você optar por instalar e usar a CLI localmente, este início rápido exigir
 ## <a name="create-a-workspace"></a>Criar um workspace
 Crie um workspace com [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). O exemplo a seguir cria um espaço de trabalho no local *eastus* usando um modelo do Resource Manager do computador local. O modelo JSON está configurado para solicitar apenas o nome do workspace e especifica um valor padrão para os outros parâmetros que provavelmente seriam usados como uma configuração padrão em seu ambiente. Ou ainda armazenar o modelo em uma conta de armazenamento do Azure para acesso compartilhado na sua organização. Para obter mais informações sobre como trabalhar com modelos, veja [Implantar recursos com modelos do Resource Manager e a CLI do Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
-Para obter informações sobre regiões com suporte, consulte [regiões log Analytics está disponível no](https://azure.microsoft.com/regions/services/) e procure por Azure monitor no campo **Pesquisar um produto** .
+Para saber mais sobre regiões com suporte, confira [regiões em que o Log Analytics está disponível](https://azure.microsoft.com/regions/services/) e pesquise Azure Monitor no campo **Pesquisar por um produto**.
 
 Os parâmetros a seguir definem um valor padrão:
 
@@ -108,7 +108,7 @@ Os parâmetros a seguir definem um valor padrão:
 
 2. Edite o modelo para atender às suas necessidades. Revisão de referência[Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) para saber quais propriedades e os valores são suportados.
 3. Salve esse arquivo como **deploylaworkspacetemplate.json** para uma pasta local.   
-4. Você está pronto para implantar o modelo. Use os comandos a seguir da pasta que contém o modelo. Quando for solicitado um nome de espaço de trabalho, forneça um nome que seja globalmente exclusivo em todas as assinaturas do Azure.
+4. Você está pronto para implantar o modelo. Use os seguintes comandos na pasta que contém o modelo. Quando for solicitado a informar um nome de espaço de trabalho, forneça um nome que seja globalmente exclusivo em todas as assinaturas do Azure.
 
     ```azurecli
     az group deployment create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deploylaworkspacetemplate.json
@@ -117,6 +117,14 @@ Os parâmetros a seguir definem um valor padrão:
 A implantação pode levar alguns minutos para ser concluída. Quando ela for concluída, você verá uma mensagem semelhante que inclui o resultado:
 
 ![Resultados de exemplo, quando a implantação for concluída](media/quick-create-workspace-cli/template-output-01.png)
+
+## <a name="troubleshooting"></a>Solução de problemas
+Quando você cria um espaço de trabalho que foi excluído nos últimos 14 dias e está no [estado de exclusão reversível](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#soft-delete-behavior), a operação pode ter um resultado diferente, dependendo da configuração do seu espaço de trabalho:
+1. Se você fornecer o mesmo nome do espaço de trabalho, grupo de recursos, assinatura e região como no espaço de trabalho excluído, seu espaço de trabalho será recuperado, incluindo seus dados, configuração e agentes conectados.
+2. Se você usar o mesmo nome de espaço de trabalho, mas outro grupo de recursos, assinatura ou região, receberá o erro *O nome do espaço de trabalho "espaço de trabalho-name" não é exclusivo* ou erro de *conflito*. Para substituir a exclusão reversível, excluir permanentemente o espaço de trabalho e criar um novo espaço de trabalho com o mesmo nome, siga estas etapas para primeiro recuperar o espaço de trabalho e depois executar a exclusão permanente:
+   * [Recuperar](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) seu workspace
+   * [Excluir permanentemente](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) seu espaço de trabalho
+   * Criar um novo espaço de trabalho usando o mesmo nome
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora que já tem um workspace disponível, você pode configurar a coleta de monitoramento de telemetria, executar pesquisas de logs para analisar os dados e adicionar uma solução de gerenciamento para fornecer dados adicionais e informações analíticas.  
