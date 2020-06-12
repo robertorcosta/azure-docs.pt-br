@@ -1,33 +1,33 @@
 ---
 title: Criar, exibir e gerenciar alertas do log de atividades no Azure Monitor
-description: Crie alertas do log de atividades usando o portal do Azure, um modelo de Azure Resource Manager e Azure PowerShell.
+description: Crie alertas do log de atividades usando o portal do Azure, um modelo do Azure Resource Manager e o Azure PowerShell.
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: bfbe2bc3ae3edf9285d3ec006ab0451f070cabd6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 45345d06e64194224df48a33fab1e74433a1eaac
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80132402"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744259"
 ---
-# <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Criar, exibir e gerenciar alertas do log de atividades usando Azure Monitor  
+# <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Criar, exibir e gerenciar alertas do log de atividades usando o Azure Monitor  
 
 ## <a name="overview"></a>Visão geral
 
 Alertas do log de atividades são os alertas ativados quando ocorre um novo evento de log de atividades que corresponde às condições especificadas no alerta.
 
-Esses alertas são para recursos do Azure e podem ser criados usando um modelo de Azure Resource Manager. Eles também podem ser criados, atualizados ou excluídos no portal do Azure. Normalmente, você cria alertas do log de atividades para receber notificações quando ocorrem alterações específicas nos recursos em sua assinatura do Azure. Os alertas geralmente são delimitados a recursos ou grupos de recursos específicos. Por exemplo, talvez você queira ser notificado quando qualquer máquina virtual no grupo de recursos de exemplo **myProductionResourceGroup** for excluída. Ou talvez você queira ser notificado se alguma nova função for atribuída a um usuário em sua assinatura.
+Esses alertas são para recursos do Azure e podem ser criados usando um modelo do Azure Resource Manager. Eles também podem ser criados, atualizados ou excluídos no portal do Azure. Normalmente, você cria alertas do log de atividades para receber notificações quando ocorrem alterações específicas nos recursos da sua assinatura do Azure. Os escopos dos alertas geralmente são relacionados a recursos ou grupos de recursos específicos. Por exemplo, convém ser notificado quando qualquer máquina virtual no **myProductionResourceGroup** do grupo de recursos de exemplo for excluída. Ou você poderá receber uma notificação se funções novas forem atribuídas a um usuário em sua assinatura.
 
 > [!IMPORTANT]
-> Alertas sobre a notificação de integridade do serviço não podem ser criados por meio da interface para a criação do alerta do log de atividades. Para saber mais sobre como criar e usar notificações de integridade do serviço, consulte [receber alertas do log de atividades em notificações de integridade do serviço](alerts-activity-log-service-notifications.md).
+> Não é possível criar alertas de notificação de integridade do serviço por meio da interface para a criação de alerta do log de atividades. Para saber mais sobre como criar e usar notificações de integridade do serviço, veja [Receber alertas do log de atividades sobre as notificações de integridade do serviço](alerts-activity-log-service-notifications.md).
 
-Ao criar regras de alerta, verifique o seguinte:
+Ao criar as regras de alerta, assegure o seguinte:
 
-- A assinatura no escopo não é diferente da assinatura em que o alerta é criado.
-- Os critérios devem ser o nível, o status, o chamador, o grupo de recursos, a ID do recurso ou a categoria de evento do tipo de recurso no qual o alerta está configurado.
+- A assinatura no escopo não é diferente da assinatura em que o alerta foi criado.
+- Os critérios devem ser nível, status, chamador, grupo de recursos, ID do recurso ou categoria de eventos do tipo de recurso no qual o alerta é configurado.
 - Não há nenhuma condição "anyOf" ou condições aninhadas no JSON de configuração de alerta. Basicamente, apenas uma condição "allOf" é permitida sem mais condições "allOf" ou "anyOf".
-- Quando a categoria é "administrativa", você deve especificar pelo menos um dos critérios anteriores em seu alerta. Você não pode criar um alerta que seja ativado sempre que um evento for criado nos logs de atividades.
+- Quando a categoria for "administrativa", você deverá especificar pelo menos um dos critérios anteriores no seu alerta. Você não pode criar um alerta que seja ativado sempre que um evento for criado nos logs de atividades.
 
 ## <a name="azure-portal"></a>Portal do Azure
 
@@ -37,28 +37,28 @@ Você pode usar o portal do Azure para criar e modificar as regras de alerta do 
 
 Use o procedimento a seguir.
 
-1. Na portal do Azure, selecione **monitorar** > **alertas**.
-2. Selecione **nova regra de alerta** no canto superior esquerdo da janela **alertas** .
+1. No portal do Azure, selecione **Monitor** > **Alertas**.
+2. Selecione **Nova regra de alerta** no canto superior esquerdo da janela **Alertas**.
 
      ![Nova regra de alerta](media/alerts-activity-log/AlertsPreviewOption.png)
 
      A janela **Criar regra** é exibida.
 
-      ![Novas opções de regra de alerta](media/alerts-activity-log/create-new-alert-rule-options.png)
+      ![Opções de nova regra de alerta](media/alerts-activity-log/create-new-alert-rule-options.png)
 
-3. Em **definir condição de alerta**, forneça as seguintes informações e selecione **concluído**:
+3. Em **Definir a condição de alerta**, forneça as seguintes informações e clique em **Concluído**:
 
-   - **Destino do alerta:** Para exibir e selecionar o destino do novo alerta, use **Filtrar por filtro de assinatura** / **por tipo de recurso**. Selecione o recurso ou grupo de recursos na lista exibida.
+   - **Destino de Alerta:** Para ver e selecionar o destino do novo alerta, use **Filtrar por assinatura** / **Filtrar por tipo de recurso**. Selecione o recurso ou o grupo de recursos na lista exibida.
 
      > [!NOTE]
      > 
-     > Você pode selecionar apenas [Azure Resource Manager](../../azure-resource-manager/management/overview.md) recurso controlado, grupo de recursos ou uma assinatura inteira para um sinal do log de atividades. 
+     > Você pode selecionar um recurso rastreado, um grupo de recursos ou uma assinatura inteira do [Azure Resource Manager](../../azure-resource-manager/management/overview.md) para o sinal do log de atividades. 
 
      **Exibição de exemplo do destino de alerta**
 
      ![Selecionar o destino](media/alerts-activity-log/select-target.png)
 
-   - Em **critérios de destino**, selecione **Adicionar critérios**. Todos os sinais disponíveis para o destino são exibidos, o que os inclui de várias categorias de **log de atividades**. O nome da categoria é anexado ao nome do **serviço monitor** .
+   - Em **Critérios de destino**, selecione **Adicionar critérios**. Todos os sinais disponíveis para o destino são exibidos, o que inclui aqueles de várias categorias do **Log de Atividades**. O nome da categoria é anexado ao nome do **Serviço de Monitor**.
 
    - Selecione o sinal na lista exibida com as várias operações possíveis para o tipo **Log de Atividades**.
 
@@ -67,67 +67,72 @@ Use o procedimento a seguir.
      **Tela Adicionar critérios**
 
      ![Adicionar critérios](media/alerts-activity-log/add-criteria.png)
+     
+     > [!NOTE]
+     > 
+     >  Para ter uma alta qualidade e regras efetivas, solicitamos que adicione pelo menos mais uma condição às regras com o sinal "Tudo Administrativo". 
+     > Como parte da definição do alerta, você deve preencher um dos menus suspensos: "Nível de evento", "Status" ou "Iniciado por" e, com isso, a regra será mais específica.
 
-     - **Tempo do histórico**: os eventos disponíveis para a operação selecionada podem ser plotados nas últimas 6, 12 ou 24 horas ou na última semana.
+     - **Tempo de histórico**: os eventos disponíveis para a operação selecionada podem ser plotados durante as últimas 6, 12 ou 24 horas ou durante a última semana.
 
      - **Lógica de Alerta**:
 
-       - **Nível de evento**: o nível de severidade do evento: _detalhado_, _informativo_, _aviso_, _erro_ou _crítico_.
-       - **Status**: o status do evento: _iniciado_, _com falha_ou com _êxito_.
-       - **Evento iniciado por**: também conhecido como chamador. O endereço de email ou o identificador do Azure Active Directory do usuário que realizou a operação.
+       - **Nível do evento**: o nível de severidade do evento: _Detalhado_, _Informativo_, _Aviso_, _Erro_ ou _Crítico_.
+       - **Status**: O status do evento: _Iniciado_, _Com falha_ ou _Bem-sucedido_.
+       - **Evento iniciado por**: também conhecido como o chamador. O endereço de email ou o identificador do Azure Active Directory do usuário que realizou a operação.
 
-       Este grafo de sinal de exemplo tem a lógica de alerta aplicada:
+       Esse gráfico de sinal de exemplo com a lógica de alerta aplicada:
 
-       ![Critérios selecionados](media/alerts-activity-log/criteria-selected.png)
+       ![critérios selecionados](media/alerts-activity-log/criteria-selected.png)
 
-4. Em **definir detalhes do alerta**, forneça os seguintes detalhes:
+4. Em **Definir detalhes de alerta**, forneça os seguintes detalhes:
 
     - **Nome da regra de alerta**: o nome da nova regra de alerta.
-    - **Descrição**: a descrição da nova regra de alerta.
-    - **Salvar alerta no grupo de recursos**: selecione o grupo de recursos no qual você deseja salvar essa nova regra.
+    - **Descrição**: a descrição para a nova regra de alerta.
+    - **Salvar o alerta para o grupo de recursos**: selecione o grupo de recursos no qual deseja salvar essa nova regra.
 
-5. Em **Grupo de ações**, no menu suspenso, especifique o grupo de ações que deseja atribuir à nova regra de alerta. Ou [crie um novo grupo de ação](../../azure-monitor/platform/action-groups.md) e atribua-o à nova regra. Para criar um novo grupo, selecione **+ novo grupo**.
+5. Em **Grupo de ações**, no menu suspenso, especifique o grupo de ações que deseja atribuir à nova regra de alerta. Ou [crie um grupo de ações](../../azure-monitor/platform/action-groups.md) e atribua à nova regra. Para criar um grupo, selecione **+ Novo grupo**.
 
-6. Para habilitar as regras depois de criá-las, selecione **Sim** para a opção **habilitar regra na criação** .
+6. Para habilitar as regras após criá-lo, selecione **Sim** da opção **Habilitar regra após a criação**.
 7. Selecione **Criar regra de alerta**.
 
-    A nova regra de alerta para o log de atividades é criada e uma mensagem de confirmação é exibida no canto superior direito da janela.
+    A regra de alerta para o log de atividades é criada e uma mensagem de confirmação aparece no canto superior direito da janela.
 
-    É possível habilitar, desabilitar, editar ou excluir uma regra. Saiba mais sobre como gerenciar regras de log de atividades.
+    É possível habilitar, desabilitar, editar ou excluir uma regra. Saiba mais sobre como gerenciar as regras do log de atividades.
 
 
-Uma analogia simples para entender as condições em que as regras de alerta podem ser criadas em um log de atividades é explorar ou filtrar eventos por meio do [log de atividades no portal do Azure](activity-log-view.md#azure-portal). Na tela **log de Azure monitor de atividades** , você pode filtrar ou localizar o evento necessário e, em seguida, criar um alerta usando o botão de **alerta Adicionar log de atividades** . Em seguida, siga as etapas 4 a 7, conforme mostrado anteriormente.
+Uma analogia simples para entender as condições nas quais as regras de alerta podem ser criadas em um log de atividades é explorar ou filtrar eventos por meio do [log de atividades no portal do Azure](activity-log-view.md#azure-portal). Na tela **Azure Monitor – Log de atividades**, é possível filtrar ou localizar os eventos necessários e, em seguida, criar um alerta usando o botão **Adicionar alerta do log de atividades**. Em seguida, siga as etapas 4 a 7, conforme mostrado anteriormente.
     
  ![Adicionar alerta do log de atividades](media/alerts-activity-log/add-activity-log.png)
     
 
 ### <a name="view-and-manage-in-the-azure-portal"></a>Exibir e gerenciar no portal do Azure
 
-1. Na portal do Azure, selecione **monitorar** > **alertas**. Selecione **gerenciar regras de alerta** no canto superior esquerdo da janela.
+1. No portal do Azure, selecione **Monitor** > **Alertas**. Selecione **Gerenciar regras de alerta** no canto superior esquerdo da janela.
 
     ![Gerenciar regras de alerta](media/alerts-activity-log/manage-alert-rules.png)
 
     A lista das regras disponíveis é exibida.
 
-2. Procure a regra do log de atividades a ser modificada.
+2. Pesquise a regra do log de atividades para modificar.
 
-    ![Regras de alerta do log de atividades de pesquisa](media/alerts-activity-log/searth-activity-log-rule-to-edit.png)
+    ![Pesquisar regras de alerta do log de atividades](media/alerts-activity-log/searth-activity-log-rule-to-edit.png)
 
-    Você pode usar os filtros, a _assinatura_, _o grupo de recursos_, o _recurso_, o _tipo de sinal_ou o _status_disponíveis para localizar a regra de atividade que deseja editar.
+    Você pode usar os filtros disponíveis, _Assinatura_, _Grupo de recursos_, _Recurso_, _Tipo de sinal_ ou _Status_, para localizar a regra de atividade que deseja editar.
 
    > [!NOTE]
    > 
-   > Você pode editar somente a **Descrição**, os **critérios de destino**e os grupos de **ação**.
+   > É possível editar apenas a **Descrição**, os **Critérios de destino** e os **Grupos de ações**.
 
-3. Selecione a regra e clique duas vezes para editar as opções de regra. Faça as alterações necessárias e, em seguida, selecione **salvar**.
+3. Selecione a regra e clique duas vezes para editar as opções da regra. Faça as alterações necessárias e selecione **Salvar**.
 
    ![Gerenciar regras de alerta](media/alerts-activity-log/activity-log-rule-edit-page.png)
 
-4. Você pode habilitar, desabilitar ou excluir uma regra. Selecione a opção apropriada na parte superior da janela depois de selecionar a regra, conforme descrito na etapa 2.
+4. É possível habilitar, desabilitar ou excluir uma regra. Selecione a opção apropriada na parte superior da janela após selecionar a regra, conforme descrito na etapa 2.
 
 
 ## <a name="azure-resource-manager-template"></a>Modelo do Azure Resource Manager
-Para criar uma regra de alerta do log de atividades usando um modelo de Azure Resource Manager, você cria um recurso `microsoft.insights/activityLogAlerts`do tipo. Em seguida, você preencherá todas as propriedades relacionadas. Aqui está um modelo que cria uma regra de alerta do log de atividades:
+Para criar uma regra de alerta do log de atividades usando um modelo do Azure Resource Manager, você cria um recurso do tipo `microsoft.insights/activityLogAlerts`. Em seguida, você preencherá todas as propriedades relacionadas. Veja abaixo um modelo que cria uma regra de alerta do log de atividades:
 
 ```json
 {
@@ -194,19 +199,19 @@ Para criar uma regra de alerta do log de atividades usando um modelo de Azure Re
   ]
 }
 ```
-O JSON de exemplo anterior pode ser salvo como, por exemplo, sampleActivityLogAlert. JSON para fins deste passo a passo e pode ser implantado usando [Azure Resource Manager no portal do Azure](../../azure-resource-manager/templates/deploy-portal.md).
+O JSON de exemplo anterior pode ser salvo como, por exemplo, sampleActivityLogAlert.json para este passo a passo e pode ser implantado usando o [Azure Resource Manager no portal do Azure](../../azure-resource-manager/templates/deploy-portal.md).
 
-Os campos a seguir são as opções que você pode usar no modelo de Azure Resource Manager para os campos de condições: Observe que "Resource Health", "Supervisor" e "integridade do serviço" têm campos de propriedades extras para seus campos especiais. 
-1. ResourceId: a ID do recurso afetado no evento do log de atividades no qual o alerta deve ser gerado.
-2. Categoria: a categoria de no evento do log de atividades. Por exemplo: administrativo, imhealth, ResourceHealth, autoescala, segurança, recomendação, política.
-3. chamador: o endereço de email ou o identificador de Azure Active Directory do usuário que realizou a operação do evento do log de atividades.
-4. nível: nível da atividade no evento do log de atividades no qual o alerta deve ser gerado. Por exemplo: crítico, erro, aviso, informativo, detalhado.
-5. operationName: o nome da operação no evento do log de atividades. Por exemplo: Microsoft. Resources/Implantations/Write
-6. resourcegroup: o nome do grupo de recursos para o recurso afetado no evento do log de atividades.
-7. resourceprovider: [explicação de tipos e provedores de recursos do Azure](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fazure-resource-manager%2Fmanagement%2Fresource-providers-and-types&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C90b7c2308c0647c0347908d7c9a2918d%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637199572373543634&sdata=4RjpTkO5jsdOgPdt%2F%2FDOlYjIFE2%2B%2BuoHq5%2F7lHpCwQw%3D&reserved=0). Para obter uma lista que mapeia os provedores de recursos para os serviços do Azure, consulte [provedores de recursos para serviços do Azure](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fazure-resource-manager%2Fmanagement%2Fazure-services-resource-providers&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C90b7c2308c0647c0347908d7c9a2918d%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637199572373553639&sdata=0ZgJPK7BYuJsRifBKFytqphMOxMrkfkEwDqgVH1g8lw%3D&reserved=0).
-8. status: cadeia de caracteres que descreve o status da operação no evento de atividade. Por exemplo: iniciado, em andamento, com êxito, com falha, ativo, resolvido
-9. substatus: geralmente o código de status HTTP da chamada REST correspondente, mas também pode incluir outras cadeias de caracteres que descrevem um substatus.   Por exemplo: OK (código de status HTTP: 200), criado (código de status HTTP: 201), aceito (código de status HTTP: 202), nenhum conteúdo (código de status HTTP: 204), solicitação inválida (código de status HTTP: 400), não encontrado (código de status HTTP: 404), conflito (código de status HTTP: 409), erro interno do servidor (código de status http: 500), serviço não disponível (código de status HTTP: 503), tempo limite do gateway (código de status
-10. resourceType: o tipo do recurso que foi afetado pelo evento. Por exemplo: Microsoft. Resources/Implantations
+Os seguintes campos são as opções que você pode usar no modelo do Azure Resource Manager para os campos de condições: Observe que "Resource Health", "Assistente" e "Integridade do Serviço" têm campos de propriedades extras para seus campos especiais. 
+1. resourceId:  a ID do recurso afetado no evento do log de atividades no qual o alerta deve ser gerado.
+2. categoria: a categoria do evento do log de atividades. Por exemplo:  Administrativa, ServiceHealth, ResourceHealth, Dimensionamento Automático, Segurança, Recomendação e Política.
+3. chamador: o endereço de email ou o identificador do Azure Active Directory do usuário que realizou a operação do evento do log de atividades.
+4. nível: o nível da atividade no evento do log de atividades no qual o alerta deve ser gerado. Por exemplo:  Crítico, Erro, Aviso, Informativo, Detalhado.
+5. operationName: o nome da operação no evento do log de atividades. Por exemplo:  Microsoft.Resources/deployments/write
+6. resourceGroup: nome do grupo de recursos para o recurso afetado no evento do log de atividades.
+7. resourceProvider: [Explicação sobre os provedores e tipos de recursos do Azure](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fazure-resource-manager%2Fmanagement%2Fresource-providers-and-types&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C90b7c2308c0647c0347908d7c9a2918d%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637199572373543634&sdata=4RjpTkO5jsdOgPdt%2F%2FDOlYjIFE2%2B%2BuoHq5%2F7lHpCwQw%3D&reserved=0). Para obter uma lista que mapeia os provedores de recursos para os serviços do Azure, confira [Provedores de recursos para os serviços do Azure](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fazure-resource-manager%2Fmanagement%2Fazure-services-resource-providers&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C90b7c2308c0647c0347908d7c9a2918d%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637199572373553639&sdata=0ZgJPK7BYuJsRifBKFytqphMOxMrkfkEwDqgVH1g8lw%3D&reserved=0).
+8. status: cadeia de caracteres que descreve o status da operação no evento de atividade. Por exemplo:  Iniciado, Em Progresso, Sucesso, Falha, Ativo, Resolvido
+9. subStatus: Geralmente, o código de status HTTP da chamada REST correspondente, mas também pode incluir outras cadeias de caracteres que descrevam um substatus.   Por exemplo:  OK (Código de Status HTTP: 200), Criado (Código de Status HTTP: 201), Aceito (Código de Status HTTP: 202), Sem Conteúdo (Código de Status HTTP: 204) Solicitação Incorreta (Código de Status HTTP: 400) Não Localizado (Código de Status HTTP: 404) Conflito (código de status HTTP: 409) Erro Interno do Servidor (Código de Status HTTP: 500) Serviço Não Disponível (Código de Status HTTP: 503) Tempo Limite de Gateway (Código de Status HTTP: 504).
+10. resourceType: o tipo de recurso que foi afetado por um evento. Por exemplo:  Microsoft.Resources/deployments
 
 Por exemplo:
 
@@ -225,56 +230,56 @@ Por exemplo:
         }
 
 ```
-Mais detalhes sobre os campos do log de atividades que você pode encontrar [aqui](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fazure-monitor%2Fplatform%2Factivity-log-schema&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C90b7c2308c0647c0347908d7c9a2918d%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637199572373563632&sdata=6QXLswwZgUHFXCuF%2FgOSowLzA8iOALVgvL3GMVhkYJY%3D&reserved=0).
+Mais detalhes sobre os campos do log de atividades podem ser encontrados [aqui](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fazure-monitor%2Fplatform%2Factivity-log-schema&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C90b7c2308c0647c0347908d7c9a2918d%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637199572373563632&sdata=6QXLswwZgUHFXCuF%2FgOSowLzA8iOALVgvL3GMVhkYJY%3D&reserved=0).
 
 
 
 > [!NOTE]
-> Pode levar até 5 minutos para que a nova regra de alerta do log de atividades fique ativa.
+> Pode levar até cinco minutos para que uma nova regra de alerta do log de atividades fique ativa.
 
 ## <a name="rest-api"></a>API REST 
-A [API de alertas do log de atividades Azure monitor](https://docs.microsoft.com/rest/api/monitor/activitylogalerts) é uma API REST. Ele é totalmente compatível com a API REST do Azure Resource Manager. Ele pode ser usado por meio do PowerShell usando o cmdlet do Gerenciador de recursos ou o CLI do Azure.
+A [API de Alertas do Log de Atividades do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/activitylogalerts) é a API REST. Ela é totalmente compatível com a API REST do Azure Resource Manager. Ela pode ser usada por meio do PowerShell usando o cmdlet do Resource Manager ou a CLI do Azure.
 
 ## <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ### <a name="deploy-the-resource-manager-template-with-powershell"></a>Implantar o modelo do Resource Manager com o PowerShell
-Para usar o PowerShell para implantar o modelo do Resource Manager de exemplo mostrado na seção [modelo de Azure Resource Manager](#azure-resource-manager-template) anterior, use o seguinte comando:
+Para usar o PowerShell para implantar o modelo do Resource Manager de exemplo mostrado na seção [Modelo do Azure Resource Manager](#azure-resource-manager-template) anterior, use o seguinte comando:
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActivityLogAlert.json -TemplateParameterFile sampleActivityLogAlert.parameters.json
 ```
 
-em que sampleActivityLogAlert. Parameters. JSON contém os valores fornecidos para os parâmetros necessários para a criação da regra de alerta.
+em que o sampleActivityLogAlert.parameters.json tem os valores fornecidos para os parâmetros necessários para a criação da regra de alerta.
 
 ### <a name="use-activity-log-powershell-cmdlets"></a>Usar cmdlets do PowerShell do log de atividades
 
 Os alertas do log de atividades têm cmdlets do PowerShell dedicados disponíveis:
 
-- [Set-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Set-AzActivityLogAlert): cria um novo alerta do log de atividades ou atualiza um alerta do log de atividades existente.
-- [Get-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Get-AzActivityLogAlert): Obtém um ou mais recursos de alerta do log de atividades.
+- [Set-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Set-AzActivityLogAlert): cria um alerta do log de atividades ou atualiza um alerta do log de atividades existente.
+- [Get-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Get-AzActivityLogAlert): obtém um ou mais recursos de alerta do log de atividades.
 - [Enable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Enable-AzActivityLogAlert): habilita um alerta do log de atividades existente e define suas marcas.
 - [Disable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Disable-AzActivityLogAlert): desabilita um alerta do log de atividades existente e define suas marcas.
-- [Remove-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Remove-AzActivityLogAlert): Remove um alerta do log de atividades.
+- [Remove-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Remove-AzActivityLogAlert): remove um alerta do log de atividades.
 
 ## <a name="azure-cli"></a>CLI do Azure
 
 Os comandos da CLI do Azure dedicados sob o conjunto [az monitor activity-log alert](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert) estão disponíveis para gerenciar regras de alerta do log de atividades.
 
-Para criar uma nova regra de alerta do log de atividades, use os seguintes comandos nesta ordem:
+Para criar uma regra de alerta do log de atividades, use os seguintes comandos nessa ordem:
 
-1. [AZ monitor atividade – alerta de log criar](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): criar um novo recurso de regra de alerta do log de atividades.
-1. [AZ monitor atividade – escopo do alerta do log](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/scope): Adicionar escopo para a regra de alerta do log de atividades criado.
-1. [AZ monitor Activity – alerta do log de ações-grupo](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/action-group): adicionar um grupo de ação à regra de alerta do log de atividades.
+1. [az monitor activity-log alert create](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): criar um recurso da regra de alerta do log de atividades.
+1. [az monitor activity-log alert scope](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/scope): adicionar escopo para a regra de alerta do log de atividades criado.
+1. [az monitor activity-log alert action-group](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/action-group): um adicionar grupo de ações para a regra de alerta do log de atividades.
 
-Para recuperar um recurso de regra de alerta do log de atividades, use o comando CLI do Azure [AZ monitor atividade-log Alert show](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-show
-). Para exibir todos os recursos de regra de alerta do log de atividades em um grupo de recursos, use a [lista de alertas AZ monitor Activity-log](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list).
-Os recursos da regra de alerta do log de atividades podem ser removidos usando o comando CLI do Azure [AZ monitor atividade-log Delete](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-delete).
+Para recuperar um recurso da regra de alerta do log de atividades, use o comando [az monitor activity-log alert show](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-show
+) da CLI do Azure. Para ver todos os recursos da regra de alerta do log de atividades em um grupo de recursos, use [az monitor activity-log alert list](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list).
+Os recursos da regra de alerta do log de atividades podem ser movidos usando o comando [az monitor activity-log alert delete](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-delete) da CLI do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre o [esquema de webhook para logs de atividades](../../azure-monitor/platform/activity-log-alerts-webhook.md).
+- Saiba mais sobre o [esquema de webhook para os logs de atividades](../../azure-monitor/platform/activity-log-alerts-webhook.md).
 - Leia uma [visão geral dos logs de atividades](../../azure-monitor/platform/activity-log-alerts.md).
-- Saiba mais sobre [grupos de ações](../../azure-monitor/platform/action-groups.md).  
+- Saiba mais sobre [grupos de ação](../../azure-monitor/platform/action-groups.md).  
 - Saiba mais sobre as [notificações de integridade do serviço](../../azure-monitor/platform/service-notifications.md).

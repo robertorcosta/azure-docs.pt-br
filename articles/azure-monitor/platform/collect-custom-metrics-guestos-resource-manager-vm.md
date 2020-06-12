@@ -1,38 +1,35 @@
 ---
-title: Coletar métricas de VM do Windows em Azure Monitor com modelo
-description: Enviar métricas do SO convidado para o repositório de métricas do Azure Monitor usando um modelo do Resource Manager para uma máquina virtual do Windows
+title: Coletar métricas de VM do Windows no Azure Monitor com modelo
+description: Enviar métricas do SO convidado para o repositório de banco de dados de métricas do Monitor do Azure usando um modelo do Resource Manager para uma máquina virtual do Windows
 author: anirudhcavale
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.author: ancav
+ms.date: 05/04/2020
+ms.author: bwren
 ms.subservice: metrics
-ms.openlocfilehash: e747ca89912c36538bfb9d02986629fe57c5adcb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 14079f42fd857495396a0c44fd3bdeaf4371ea5f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77657360"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650550"
 ---
-# <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Enviar métricas do SO convidado para o repositório de métricas do Azure Monitor usando um modelo do Resource Manager para uma máquina virtual do Windows
+# <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine"></a>Enviar métricas do SO convidado para o repositório de métricas do Monitor do Azure usando um modelo do Azure Resource Manager para uma máquina virtual do Windows
+Os dados de desempenho do SO convidado de máquinas virtuais do Azure não são coletados automaticamente como outras [métricas de plataforma](../insights/monitor-azure-resource.md#monitoring-data). Instale a [extensão de diagnóstico](diagnostics-extension-overview.md) do Azure Monitor para coletar métricas do SO convidado no banco de dados de métricas para que elas possam ser usadas com todos os recursos de Métricas do Azure Monitor, incluindo alertas quase em tempo real, criação de gráficos, roteamento e acesso de uma API REST. Este artigo descreve o processo para enviar métricas de desempenho do SO convidado para uma máquina virtual do Windows para o banco de dados de métricas usando um modelo do Resource Manager. 
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+> [!NOTE]
+> Para obter detalhes sobre como configurar a extensão de diagnóstico para coletar métricas de SO convidado usando o portal do Azure, confira [Instalar e configurar a WAD (extensão de Diagnóstico do Microsoft Azure)](diagnostics-extension-windows-install.md).
 
-Usando a [extensão de Diagnóstico](diagnostics-extension-overview.md) do Azure Monitor, você pode coletar logs e métricas do SO (sistema operacional) convidado executado como parte de uma máquina virtual, do serviço de nuvem ou do cluster do Service Fabric. A extensão pode enviar telemetria para [muitos locais diferentes.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
 
-Este artigo descreve o processo para enviar métricas de desempenho do SO convidado de uma máquina virtual do Windows para o armazenamento de dados do Azure Monitor. A partir da versão 1.11 do Diagnostics, você pode gravar métricas diretamente no repositório de métricas do Monitor do Azure, onde métricas de plataforma padrão já foram coletadas.
-
-Armazená-las nessa localização permite que você acesse as mesmas ações para as métricas da plataforma. As ações incluem alertas quase em tempo real, criação de gráficos, roteamento, acesso por meio de uma API REST e muito mais. Anteriormente, a Extensão de diagnóstico gravava no Armazenamento do Azure, mas não no armazenamento de dados do Azure Monitor.
-
-Se você for novo nos modelos do Resource Manager, saiba mais sobre [implantações de modelo](../../azure-resource-manager/management/overview.md) e sua estrutura e sintaxe.
+Se você é novo nos modelos do Resource Manager, aprenda sobre [implantações de modelos](../../azure-resource-manager/management/overview.md) e sua estrutura e sintaxe.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Sua assinatura deve ser registrada com [Microsoft. Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services).
 
-- Você precisa ter o [Azure PowerShell](/powershell/azure) ou [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) instalado.
+- Você precisará ter o [Azure PowerShell](/powershell/azure) ou o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) instalado.
 
-- O recurso da VM deve estar em uma [região que ofereça suporte a métricas personalizadas](metrics-custom-overview.md#supported-regions). 
+- O recurso de VM deve estar em uma [região com suporte para métricas personalizadas](metrics-custom-overview.md#supported-regions). 
 
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Configurar o Azure Monitor como um coletor de dados
@@ -48,7 +45,7 @@ Para este exemplo, você pode usar um modelo de exemplo disponível publicamente
 Baixe e salve os dois arquivos localmente.
 
 ### <a name="modify-azuredeployparametersjson"></a>Modificar azuredeploy.parameters.json
-Abra o arquivo *azuredeploy. Parameters. JSON*
+Abra o arquivo *azuredeploy.parameters.json*
 
 1. Insira valores de **adminUsername** e **adminPassword** para a VM. Esses parâmetros são usados para acesso remoto à VM. Para evitar que sua VM seja sequestrada, NÃO use os valores fornecidos neste modelo. Os bots examinam a Internet em busca de nomes de usuário e senhas em repositórios GitHub públicos. É provável que eles testem as VMs com esses padrões.
 
@@ -56,7 +53,7 @@ Abra o arquivo *azuredeploy. Parameters. JSON*
 
 ### <a name="modify-azuredeployjson"></a>Modificar azuredeploy.json
 
-Abra o arquivo *azuredeploy. JSON*
+Abra o arquivo *azuredeploy.json*
 
 Adicione uma ID da conta de armazenamento à seção **variables** do modelo após a entrada para **storageAccountName**.
 
@@ -69,7 +66,7 @@ Adicione uma ID da conta de armazenamento à seção **variables** do modelo ap�
     "accountid": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
 ```
 
-Adicione essa extensão de Identidade de Serviço Gerenciada (MSI) ao modelo na parte superior da seção de **recursos** . A extensão garante que o Azure Monitor aceite as métricas que estão sendo emitidas.
+Adicione essa extensão de MSI (Identidade de Serviço Gerenciada) ao modelo na parte superior da seção **resources**. A extensão garante que o Azure Monitor aceite as métricas que estão sendo emitidas.
 
 ```json
 //Find this code.
@@ -234,7 +231,7 @@ Salve e feche ambos os arquivos.
 ## <a name="deploy-the-resource-manager-template"></a>Implantar o modelo do Resource Manager
 
 > [!NOTE]
-> Você deve estar executando a extensão de Diagnóstico do Azure versão 1,5 ou superior e ter a propriedade **autoUpgradeMinorVersion**: definida como ' true ' em seu modelo do Resource Manager. Então, o Azure carregará a extensão apropriada ao iniciar a VM. Se você não tiver essas configurações no seu modelo, altere-as e reimplemente o modelo.
+> Você precisa ter a versão 1.5 ou posterior da extensão do Diagnóstico do Azure E precisa ter a propriedade **autoUpgradeMinorVersion**: definida para 'true' no modelo do Resource Manager. Então, o Azure carregará a extensão apropriada ao iniciar a VM. Se você não tiver essas configurações no seu modelo, altere-as e reimplemente o modelo.
 
 
 Para implantar o modelo do Resource Manager, usamos o Azure PowerShell.
@@ -272,9 +269,9 @@ Para implantar o modelo do Resource Manager, usamos o Azure PowerShell.
 
 1. Faça logon no Portal do Azure.
 
-2. No menu à esquerda, selecione **Monitor**.
+2. No menu esquerdo, selecione **Monitorar**.
 
-3. Sobre o Monitor página, selecione **métricas**.
+3. Na página do Monitor, selecione **Métricas**.
 
    ![Página de métricas](media/collect-custom-metrics-guestos-resource-manager-vm/metrics.png)
 
@@ -282,7 +279,7 @@ Para implantar o modelo do Resource Manager, usamos o Azure PowerShell.
 
 5. No menu suspenso de recursos, selecione a VM que você criou. Se você não alterou o nome do modelo, ele deve ser *SimpleWinVM2*.
 
-6. No menu suspenso namespaces, selecione **Azure. VM. Windows. Guest**
+6. No menu suspenso de namespaces, selecione **azure.vm.windows.guest**
 
 7. No menu suspenso de métricas, selecione **Memória\%Bytes Confirmados em Uso**.
 

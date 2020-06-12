@@ -1,52 +1,80 @@
 ---
-title: Acessando a alteração de feed no Azure Cosmos DB do Azure Cosmos DB
-description: Este artigo descreve as diferentes opções disponíveis para ler e acessar o feed de alterações no Azure Cosmos DB.
+title: Lendo o Azure Cosmos DB alterar feed
+description: Este artigo descreve diferentes opções disponíveis para ler e acessar o feed de alterações no Azure Cosmos DB.
 author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 05/20/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 266a13b7702f567e69129c0b4e92c4bd7c0f29ef
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.openlocfilehash: d7408f3b3e955d397ba4a54d07323f80dd72c3d3
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982489"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697334"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Lendo o Azure Cosmos DB alterar feed
 
-Você pode trabalhar com o feed de alteração do Azure Cosmos DB usando qualquer uma das seguintes opções:
+Você pode trabalhar com o feed de alterações do Azure Cosmos DB usando um modelo push ou pull. Com um modelo push, um cliente solicita o trabalho de um servidor e tem lógica de negócios para processar uma alteração. No entanto, a complexidade na verificação das alterações e no armazenamento do estado para as últimas alterações processadas é tratada no servidor.
 
-* Usando o Azure Functions
-* Usando o processador do feed de alterações
-* Usando a API do SQL do Azure Cosmos DB
-* Usando o modelo de pull do feed de alterações (visualização)
+Com um modelo pull, um servidor solicita trabalho, geralmente solicitando-o de uma fila de trabalho central. O cliente, nesse caso, não só tem lógica de negócios para processar alterações, mas também armazenar o estado da última alteração processada, lidando com o balanceamento de carga entre vários clientes que processam alterações em paralelo e manipulando erros.
 
-## <a name="using-azure-functions"></a>Usando o Azure Functions
+Durante a leitura do feed de alterações do Azure Cosmos DB, geralmente é recomendável usar um modelo push porque você não precisará se preocupar com:
 
-Funções do Azure é a opção mais simples e recomendada. Ao criar um gatilho de Azure Functions para Cosmos DB, você pode selecionar o contêiner a ser conectado e a função do Azure é disparada sempre que há uma alteração no contêiner. Os gatilhos podem ser criados usando o portal Funções do Azure, o portal do Azure Cosmos DB ou programaticamente com SDKs. O Visual Studio e o VS Code fornecem suporte para escrever as Funções do Azure e você pode até mesmo usar a CLI do Azure Functions para o desenvolvimento de plataforma cruzada. Você pode gravar e depurar o código em sua área de trabalho e, em seguida, implantar a função com um clique. Consulte [Computação de banco de dados sem servidor usando os artigos](serverless-computing-database.md) e [Usando os feeds do Azure](change-feed-functions.md) do Azure Functions para saber mais.
+- A sondagem do feed de alterações em relação a alterações futuras.
+- O armazenamento do estado da última alteração processada. Durante a leitura do feed de alterações, isso é automaticamente armazenado em um [contêiner de concessão](change-feed-processor.md#components-of-the-change-feed-processor).
+- Balanceamento de carga entre vários clientes consumindo alterações. Por exemplo, se um cliente não puder acompanhar as alterações de processamento e outro tiver a capacidade disponível.
+- [Manipulação de erros](change-feed-processor.md#error-handling). Por exemplo, repetir automaticamente as alterações com falha e que não foram processadas corretamente após uma exceção sem tratamento no código ou um problema de rede transitório.
 
-## <a name="using-the-change-feed-processor"></a>Usando o processador do feed de alterações
+A maioria dos cenários que usam o feed de alterações do Azure Cosmos DB usará uma das opções de modelo push. No entanto, há alguns cenários em que você talvez queira o controle de nível inferior adicional do modelo pull. Eles incluem:
 
-O processador do feed de alterações oculta a complexidade e ainda oferece um controle completo do feed de alterações. A biblioteca segue o padrão do observador, onde sua função de processamento é chamada pela biblioteca. Se você tiver feed de alterações de alta taxa de transferência, poderá instanciar vários clientes para ler o feed de alterações. Como você está usando a biblioteca do processador de feeds de mudança, ele irá dividir automaticamente a carga entre os diferentes clientes sem que você tenha que implementar essa lógica. Toda a complexidade é tratada pela biblioteca. Para saber mais, consulte [usando o processador do feed de alterações](change-feed-processor.md). O processador do feed de alterações faz parte do [SDK do Azure Cosmos DB v3](https://github.com/Azure/azure-cosmos-dotnet-v3).
+- Ler as alterações de uma chave de partição específica
+- Controlar o ritmo no qual seu cliente recebe alterações para processamento
+- Fazer uma leitura única dos dados existentes no feed de alterações (por exemplo, fazer uma migração de dados)
 
-## <a name="using-the-azure-cosmos-db-sql-api-sdk"></a>Usando a API do SQL do Azure Cosmos DB
+## <a name="reading-change-feed-with-a-push-model"></a>Ler o feed de alterações com um modelo push
 
-Com o SDK, você obtém um controle de baixo nível do feed de alterações. Você pode gerenciar o ponto de verificação, acessar uma chave de partição lógica específica, etc. Se você tiver vários leitores, poderá usar `ChangeFeedOptions` o para distribuir a carga de leitura para diferentes threads ou clientes diferentes.
+Usar um modelo push é a maneira mais fácil de ler no feed de alterações. Há duas maneiras de ler o feed de alterações com um modelo push: [Gatilhos do Azure Functions Cosmos DB](change-feed-functions.md) e [biblioteca do processador do feed de alterações](change-feed-processor.md). O Azure Functions usa o processador do feed de alterações nos bastidores, portanto, são maneiras muito semelhantes de ler o feed de alterações. Imagine o Azure Functions como uma plataforma de hospedagem para o processador do feed de alterações, não uma maneira totalmente diferente de ler o feed de alterações.
 
-## <a name="using-the-change-feed-pull-model"></a>Usando o modelo de pull do feed de alterações
+### <a name="azure-functions"></a>Funções do Azure
 
-O [modelo de pull do feed de alterações](change-feed-pull-model.md) permite que você consuma o feed de alterações em seu próprio ritmo e paraleliza o processamento de alterações com o FeedRanges. Um FeedRange abrange um intervalo de valores de chave de partição. Usando o modelo de pull do feed de alterações, também é fácil processar alterações para uma chave de partição específica.
+O Azure Functions é a opção mais simples, se você estiver apenas começando a usar o feed de alterações. Devido à sua simplicidade, também é a opção recomendada para a maioria dos casos de uso do feed de alterações. Quando você cria um gatilho do Azure Functions para Azure Cosmos DB, selecione o contêiner para se conectar, e o Azure Functions será acionado sempre que houver uma alteração no contêiner. Como o Azure Functions usa o processador do feed de alterações nos bastidores, ele paraleliza automaticamente o processamento de alterações nas [partições](partition-data.md) do contêiner.
+
+Desenvolver com o Azure Functions é uma experiência fácil e pode ser mais rápido do que implantar o processador do feed de alterações por conta própria. Os gatilhos podem ser criados no portal do Azure Functions ou programaticamente usando SDKs. O Visual Studio e o VS Code fornecem suporte para escrever as Funções do Azure e você pode até mesmo usar a CLI do Azure Functions para o desenvolvimento de plataforma cruzada. Você pode gravar e depurar o código em sua área de trabalho e, em seguida, implantar a função com um clique. Para saber mais, consulte os artigos [Computação de banco de dados sem servidor usando o Azure Functions](serverless-computing-database.md) e [Usar o feed de alterações com o Azure Functions](change-feed-functions.md).
+
+### <a name="change-feed-processor-library"></a>Biblioteca do processador do feed de alterações
+
+O processador do feed de alterações oferece a você mais controle do feed de alterações e ainda oculta mais complexidade. A biblioteca do processador do feed de alterações segue o padrão do observador, onde sua função de processamento é chamada pela biblioteca. A biblioteca do processador do feed de alterações verificará automaticamente se há alterações e, se forem encontradas alterações, efetue "push" delas para o cliente. Se você tiver feed de alterações de alta taxa de transferência, poderá instanciar vários clientes para ler o feed de alterações. A biblioteca do processador de feed de alterações dividirá automaticamente a carga entre os diferentes clientes. Você não precisará implementar nenhuma lógica para o balanceamento de carga entre vários clientes ou para manter o estado de concessão.
+
+A biblioteca do processador do feed de alterações garante "pelo menos uma" entrega de todas as alterações. Em outras palavras, se você usar a biblioteca do processador do feed de alterações, sua função de processamento será chamada com êxito para cada item no feed de alterações. Se houver uma exceção sem tratamento na lógica de negócios em sua função de processamento, as alterações com falha serão repetidas até que elas sejam processadas com êxito. Para impedir que o processador do feed de alterações fique "preso" repetindo continuamente as mesmas alterações, adicione lógica à sua função de processamento para gravar documentos, mediante exceção, em uma fila de mensagens mortas. Saiba mais sobre o [tratamento de erro](change-feed-processor.md#error-handling).
+
+No Azure Functions, a recomendação para tratar os erros é a mesma. Você ainda deve adicionar lógica em seu código delegado para gravar documentos, mediante exceção, em uma fila de mensagens mortas. No entanto, se houver uma exceção sem tratamento em sua função do Azure, a alteração que gerou a exceção não será repetida automaticamente. Se houver uma exceção sem tratamento na lógica de negócios, a função do Azure passará para o processamento da próxima alteração. A função do Azure não tentará novamente a mesma alteração com falha.
+
+Como o Azure Functions, o desenvolvimento com a biblioteca do processador do feed de alterações é fácil. No entanto, você é responsável por implantar um ou mais hosts para o processador do feed de alterações. Um host é uma instância de aplicativo que usa o processador do feed de alterações para escutar alterações. Embora o Azure Functions tenha recursos para o dimensionamento automático, você é responsável por dimensionar seus hosts. Para saber mais, consulte [Usar o processador do feed de alterações](change-feed-processor.md#dynamic-scaling). A biblioteca do processador do feed de alterações faz parte do [SDK V3 do Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v3).
+
+## <a name="reading-change-feed-with-a-pull-model"></a>Ler o feed de alterações com um modelo pull
+
+Com o [modelo pull do feed de alterações](change-feed-pull-model.md), você pode consumir o feed de alterações do Azure Cosmos DB em seu próprio ritmo. As alterações devem ser solicitadas pelo cliente e não há nenhuma sondagem automática para elas. Se você quiser "indicar" permanentemente a última alteração processada (semelhante ao contêiner de concessão do modelo push), será necessário [salvar um token de continuação](change-feed-pull-model.md#saving-continuation-tokens).
+
+Usando o modelo pull do feed de alterações, você obtém um controle de nível mais baixo do feed de alterações. Ao ler o feed de alterações com o modelo pull, há três opções:
+
+- Ler alterações para um contêiner inteiro
+- Ler alterações para um determinado [FeedRange](change-feed-pull-model.md#using-feedrange-for-parallelization)
+- Ler alterações para um valor de chave de partição específico
+
+Você pode paralelizar o processamento de alterações em vários clientes, assim como é possível com o processador do feed de alterações. No entanto, o modelo pull não trata automaticamente o balanceamento de carga entre clientes. Ao usar o modelo pull para paralelizar o processamento do feed de alterações, primeiro você obterá uma lista de FeedRanges. Um FeedRange representa um intervalo de valores de chave de partição. Você precisará ter um processo de orquestrador que obtém FeedRanges e os distribui entre seus computadores. Em seguida, você pode usar esses FeedRanges para que vários computadores leiam o feed de alterações em paralelo.
+
+Não há nenhuma garantia de "pelo menos uma" entrega interna com o modelo pull. O modelo pull fornece controle de baixo nível para decidir como você gostaria de lidar com erros.
 
 > [!NOTE]
-> O modelo de pull do feed de alterações está atualmente em [visualização somente no SDK Azure Cosmos DB .net](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.9.0-preview) . A versão prévia ainda não está disponível para outras versões do SDK.
+> O modelo de pull do feed de alterações está atualmente somente em [versão prévia no SDK do .NET do Azure Cosmos DB](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.9.0-preview). A versão prévia ainda não está disponível para outras versões do SDK.
 
-## <a name="change-feed-in-apis-for-cassandra-and-mongodb"></a>Alterar feed em APIs para Cassandra e MongoDB
+## <a name="change-feed-in-apis-for-cassandra-and-mongodb"></a>Feed de alterações em APIs para Cassandra e MongoDB
 
-A funcionalidade do feed de alterações é inserida como fluxo de alteração na API do MongoDB e consulta com predicado em API do Cassandra. Para saber mais sobre os detalhes de implementação para a API do MongoDB, consulte os [fluxos de alteração na API de Azure Cosmos DB para MongoDB](mongodb-change-streams.md).
+A funcionalidade do feed de alterações é apresentada como fluxos de alteração na API do MongoDB e consulta com predicado em API do Cassandra. Para saber mais sobre os detalhes de implementação para a API do MongoDB, consulte [Fluxos de alteração na API do Azure Cosmos DB para o MongoDB](mongodb-change-streams.md).
 
-O Apache Cassandra nativo fornece a captura de dados de alteração (CDC), um mecanismo para sinalizar tabelas específicas para arquivamento, bem como rejeitar gravações para essas tabelas assim que um tamanho configurável no disco para o log CDC for atingido. O recurso de feed de alterações na API Azure Cosmos DB para Cassandra aprimora a capacidade de consultar as alterações com o predicado por meio de CQL. Para saber mais sobre os detalhes da implementação, consulte [o feed de alterações na API de Azure Cosmos DB para Cassandra](cassandra-change-feed.md).
+O Apache Cassandra nativo fornece captura de dados de alterações (CDC), um mecanismo para sinalizar tabelas específicas para arquivamento, bem como rejeitar gravações para essas tabelas assim que um tamanho configurável no disco para o log CDC for atingido. O recurso do feed de alterações na API do Azure Cosmos DB para Cassandra aprimora a capacidade de consultar as alterações com o predicado por meio de CQL. Para saber mais sobre os detalhes de implementação, consulte [Feed de alterações na API do Azure Cosmos DB para Cassandra](cassandra-change-feed.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -54,4 +82,4 @@ Agora, você pode prosseguir para saber mais sobre o feed de alterações nos se
 
 * [Visão geral do feed de alterações](change-feed.md)
 * [Usando feed de alterações com o Azure Functions](change-feed-functions.md)
-* [Usando a biblioteca do processador do feed de alterações](change-feed-processor.md)
+* [Biblioteca do processador do feed usando a alteração](change-feed-processor.md)

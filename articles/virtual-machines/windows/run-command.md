@@ -1,6 +1,6 @@
 ---
 title: Executar scripts do PowerShell em uma VM do Windows no Azure
-description: Este tópico descreve como executar scripts do PowerShell em uma máquina virtual do Windows do Azure usando o recurso executar comando
+description: Este tópico descreve como executar scripts do PowerShell em uma máquina virtual Windows do Azure usando o recurso Executar Comando
 services: automation
 ms.service: virtual-machines
 author: bobbytreed
@@ -8,44 +8,44 @@ ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: how-to
 manager: carmonm
-ms.openlocfilehash: f4e318281da5cd704d9fbf13c96cbec0a2d1b1b6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c6fbe66d8fbbb92c7fb668cc565da8446d97ab0a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82143790"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653605"
 ---
-# <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>Executar scripts do PowerShell em sua VM do Windows usando o comando executar
+# <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>Executar scripts do PowerShell na VM Windows usando o recurso Executar Comando
 
-O recurso executar comando usa o agente de VM (máquina virtual) para executar scripts do PowerShell em uma VM Windows do Azure. Você pode usar esses scripts para o gerenciamento geral de computadores ou aplicativos. Eles podem ajudá-lo a diagnosticar e corrigir rapidamente problemas de rede e acesso à VM e colocar a VM de volta em um bom estado.
+O recurso Executar Comando usa o agente da máquina virtual (VM) para executar scripts do PowerShell dentro de uma VM Windows do Azure. Use esses scripts para o gerenciamento geral de máquinas ou aplicativos. Eles podem ajudá-lo a diagnosticar e corrigir rapidamente problemas de rede e acesso à VM e colocar a VM em um bom estado.
 
- 
 
-## <a name="benefits"></a>Vantagens
 
-Você pode acessar suas máquinas virtuais de várias maneiras. O comando executar pode executar scripts em suas máquinas virtuais remotamente usando o agente de VM. Use o comando executar por meio do portal do Azure, da [API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand)ou do [PowerShell](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) para VMs do Windows.
+## <a name="benefits"></a>Benefícios
+
+Acesse as máquinas virtuais de várias maneiras. O recurso Executar Comando pode executar scripts nas máquinas virtuais remotamente usando o agente de VM. Use Executar Comando por meio do portal do Azure, da [API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), ou do [PowerShell](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) para VMs do Windows.
 
 Esse recurso é útil em todos os cenários em que você deseja executar um script em uma máquina virtual. É uma das únicas maneiras de solucionar problemas e corrigir uma máquina virtual que não tem a porta RDP ou SSH aberta devido à configuração imprópria da rede ou do usuário administrativo.
 
 ## <a name="restrictions"></a>Restrições
 
-As seguintes restrições se aplicam quando você está usando o comando executar:
+As seguintes restrições se aplicam ao usar o recurso Executar Comando:
 
-* A saída é limitada aos últimos 4.096 bytes.
+* A saída está limitada aos últimos 4.096 bytes.
 * O tempo mínimo para executar um script é de cerca de 20 segundos.
 * Os scripts são executados como sistema no Windows.
-* Um script de cada vez pode ser executado.
+* É possível executar um script por vez.
 * Scripts que solicitam informações (modo interativo) não têm suporte.
 * Não é possível cancelar um script em execução.
-* O tempo máximo que um script pode executar é de 90 minutos. Depois disso, ele atingirá o tempo limite.
+* O tempo máximo que um script pode ser executado é 90 minutos. Depois disso, ele atingirá o tempo limite.
 * A conectividade de saída da VM é necessária para retornar os resultados do script.
 
 > [!NOTE]
-> Para funcionar corretamente, o comando executar requer conectividade (porta 443) para endereços IP públicos do Azure. Se a extensão não tiver acesso a esses pontos de extremidade, os scripts poderão ser executados com êxito, mas não retornar os resultados. Se você estiver bloqueando o tráfego na máquina virtual, poderá usar [marcas de serviço](../../virtual-network/security-overview.md#service-tags) para permitir o tráfego para endereços IP públicos do Azure `AzureCloud` usando a marca.
+> Para funcionar corretamente, Executar Comando requer conectividade (porta 443) a endereços IP públicos do Azure. Se a extensão não tiver acesso a esses pontos de extremidade, os scripts poderão ser executados com êxito, mas não retornarão os resultados. Se você estiver bloqueando o tráfego na máquina virtual, poderá usar [marcas de serviço](../../virtual-network/security-overview.md#service-tags) para permitir o tráfego para os endereços IP públicos do Azure usando a marca `AzureCloud`.
 
 ## <a name="available-commands"></a>Comandos disponíveis
 
-Esta tabela mostra a lista de comandos disponíveis para VMs Windows. Você pode usar o comando **RunPowerShellScript** para executar qualquer script personalizado desejado. Quando você estiver usando o CLI do Azure ou o PowerShell para executar um comando, o valor que você fornecer para `--command-id` o `-CommandId` parâmetro ou deverá ser um dos seguintes valores listados. Quando você especifica um valor que não é um comando disponível, você recebe esse erro:
+Esta tabela mostra a lista de comandos disponíveis para VMs Windows. Use o comando **RunPowerShellScript** para executar qualquer script personalizado que desejar. Quando você estiver usando a CLI do Azure ou o PowerShell para executar um comando, o valor fornecido para o parâmetro `--command-id` ou `-CommandId` deve ser um dos seguintes valores listados. Quando especifica um valor que não é um comando disponível, recebe este erro:
 
 ```error
 The entity was not found in this Azure location
@@ -55,15 +55,15 @@ The entity was not found in this Azure location
 |---|---|
 |**RunPowerShellScript**|Executa um script do PowerShell.|
 |**EnableRemotePS**|Configura o computador para habilitar o PowerShell remoto.|
-|**EnableAdminAccount**|Verifica se a conta de administrador local está desabilitada e, se for habilitada.|
-|**IPConfig**| Mostra informações detalhadas para o endereço IP, a máscara de sub-rede e o gateway padrão para cada adaptador associado ao TCP/IP.|
-|**RDPSettings**|Verifica as configurações do registro e de política de domínio. Sugere ações de política se o computador fizer parte de um domínio ou modificar as configurações para valores padrão.|
-|**ResetRDPCert**|Remove o certificado TLS/SSL vinculado ao ouvinte RDP e restaura a segurança do ouvinte RDP para o padrão. Use este script se houver algum problema com o certificado.|
-|**SetRDPPort**|Define o número da porta padrão ou especificada pelo usuário para conexões de Área de Trabalho Remota. Habilita regras de firewall para acesso de entrada à porta.|
+|**EnableAdminAccount**|Verifica se a conta de administrador local está desabilitada e, em caso positivo, a habilita.|
+|**IPConfig**| Mostra informações detalhadas do endereço IP, da máscara de sub-rede e do gateway padrão de cada adaptador associado ao TCP/IP.|
+|**RDPSettings**|Verifica as configurações do registro e de política de domínio. Sugere as ações de política se o computador fizer parte de um domínio ou modifica as configurações para os valores padrão.|
+|**ResetRDPCert**|Remove o certificado TSL/SSL associado ao ouvinte RDP e restaura a segurança dele para o padrão. Use este script se houver algum problema com o certificado.|
+|**SetRDPPort**|Define o padrão ou o número da porta do usuário especificado para conexões de Área de Trabalho Remota. Habilita as regras de firewall para acesso de entrada à porta.|
 
 ## <a name="azure-cli"></a>CLI do Azure
 
-O exemplo a seguir usa o comando [AZ VM execute-Command](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) para executar um script de Shell em uma VM do Windows do Azure.
+O exemplo a seguir usa o comando [az vm run-command](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) para executar um script de shell em uma VM Windows do Azure.
 
 ```azurecli-interactive
 # script.ps1
@@ -79,16 +79,16 @@ az vm run-command invoke  --command-id RunPowerShellScript --name win-vm -g my-r
 
 ## <a name="azure-portal"></a>Portal do Azure
 
-Vá para uma VM na [portal do Azure](https://portal.azure.com) e selecione **executar comando** em **operações**. Você verá uma lista dos comandos disponíveis a serem executados na VM.
+Acesse uma VM no [portal do Azure](https://portal.azure.com) e selecione **Executar comando** em **OPERAÇÕES**. Você vê uma lista dos comandos disponíveis a serem executados na VM.
 
 ![Lista de comandos](./media/run-command/run-command-list.png)
 
-Escolha um comando a ser executado. Alguns dos comandos podem ter parâmetros de entrada opcionais ou obrigatórios. Para esses comandos, os parâmetros são apresentados como campos de texto para que você forneça os valores de entrada. Para cada comando, você pode exibir o script que está sendo executado expandindo o **script de exibição**. O **RunPowerShellScript** é diferente dos outros comandos, pois permite que você forneça seu próprio script personalizado.
+Escolha um comando a ser executado. Alguns dos comandos podem ter parâmetros de entrada obrigatórios ou opcionais. Para esses comandos, os parâmetros são apresentados como campos de texto para você fornecer os valores de entrada. Para cada comando, é possível exibir o script que está em execução expandindo **Exibir script**. **RunPowerShellScript** é diferente dos outros comandos, uma vez que permite a você fornecer seu próprio script personalizado.
 
 > [!NOTE]
 > Os comandos internos não podem ser editados.
 
-Depois de escolher o comando, selecione **executar** para executar o script. Depois que o script for concluído, ele retornará a saída e todos os erros na janela de saída. A captura de tela a seguir mostra um exemplo de saída da execução do comando **RDPSettings**.
+Depois de escolher o comando, selecione **Executar** para executar o script. Quando o script for concluído, ele retornará a saída e os erros na janela de saída. A captura de tela a seguir mostra um exemplo de saída da execução do comando **RDPSettings**.
 
 ![Executar saída de script de comando](./media/run-command/run-command-script-output.png)
 
@@ -102,12 +102,12 @@ Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' 
 
 ## <a name="limiting-access-to-run-command"></a>Limitando o acesso ao recurso Executar Comando
 
-Listar os comandos de execução ou mostrar os detalhes de um comando `Microsoft.Compute/locations/runCommands/read` requer a permissão no nível de assinatura. A função de [leitor](../../role-based-access-control/built-in-roles.md#reader) interna e os níveis superiores têm essa permissão.
+Listar os comandos de execução ou mostrar os detalhes de um comando requer a permissão `Microsoft.Compute/locations/runCommands/read`. A função [Leitor](../../role-based-access-control/built-in-roles.md#reader) interna e os níveis superiores têm essa permissão.
 
-A execução de um comando `Microsoft.Compute/virtualMachines/runCommand/action` requer a permissão no nível da assinatura. A função [colaborador da máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) e os níveis superiores têm essa permissão.
+A execução de um comando requer a permissão `Microsoft.Compute/virtualMachines/runCommand/action`. A função [Colaborador de Máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) e os níveis superiores têm essa permissão.
 
-Você pode usar uma das [funções internas](../../role-based-access-control/built-in-roles.md) ou criar uma [função personalizada](../../role-based-access-control/custom-roles.md) para usar o comando executar.
+Use uma das [funções internas](../../role-based-access-control/built-in-roles.md) ou crie uma [função personalizada](../../role-based-access-control/custom-roles.md) para usar o recurso Executar Comando.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre outras maneiras de executar scripts e comandos remotamente em sua VM, consulte [executar scripts em sua VM do Windows](run-scripts-in-vm.md).
+Para conhecer outras maneiras de executar scripts e comandos remotamente em sua VM, consulte [Executar scripts na VM do Windows](run-scripts-in-vm.md).

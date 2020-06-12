@@ -1,7 +1,7 @@
 ---
-title: 'Problemas conhecidos: migrar do Oracle para o banco de dados do Azure para PostgreSQL'
+title: 'Problemas conhecidos: Migrar do Oracle para Banco de Dados do Azure para PostgreSQL'
 titleSuffix: Azure Database Migration Service
-description: Saiba mais sobre problemas conhecidos e limitações de migração com migrações online do Oracle para o banco de dados do Azure para PostgreSQL-servidor único usando o serviço de migração de banco de dados do Azure.
+description: Saiba mais sobre problemas conhecidos e limitações de migração com migrações online do Oracle para o Banco de Dados do Azure para PostgreSQL – servidor único usando o Serviço de Migração de Banco de Dados do Azure.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -11,34 +11,34 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 02/20/2020
-ms.openlocfilehash: fcebc7eb170239e5d7efd8a32599a6e782f630bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 05/20/2020
+ms.openlocfilehash: 2cf8ff446fe3441fc039ef3c2afef6308224666f
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80235253"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701210"
 ---
-# <a name="known-issuesmigration-limitations-with-online-migrations-from-oracle-to-azure-db-for-postgresql-single-server"></a>Problemas conhecidos/limitações de migração com migrações online do Oracle para o BD do Azure para PostgreSQL-servidor único
+# <a name="known-issuesmigration-limitations-with-online-migrations-from-oracle-to-azure-db-for-postgresql-single-server"></a>Problemas conhecidos/limitações de migração com migrações online da Oracle para o BD do Azure para PostgreSQL – servidor único
 
-Problemas conhecidos e limitações associadas a migrações online do Oracle para o banco de dados do Azure para PostgreSQL-um único servidor são descritos nas seções a seguir.
+Os problemas e as limitações conhecidos associados às migrações online do Oracle para o Banco de Dados do Azure para PostgreSQL – servidor único são descritos nas seções a seguir.
 
 ## <a name="oracle-versions-supported-as-a-source-database"></a>Versões do Oracle com suporte como um banco de dados de origem
 
-O serviço de migração de banco de dados do Azure dá suporte à conexão com
+O Serviço de Migração de Banco de Dados do Azure dá suporte à conexão com:
 
 - Oracle versão 10g, 11g e 12c.
 - Oracle Enterprise, Standard, Express e Personal Edition.
 
-O serviço de migração de banco de dados do Azure não dá suporte à conexão com bancos de dados de contêiner multilocatário (CDBs).
+O Serviço de Migração de Banco de Dados do Azure não dá suporte à conexão com CDBs (Bancos de Dados de Contêiner) multilocatário.
 
 ## <a name="postgresql-versions-supported-as-a-target-database"></a>Versões do PostgreSQL com suporte como um banco de dados de destino
 
-O serviço de migração de banco de dados do Azure dá suporte a migrações para o banco de dados do Azure para PostgreSQL, versão 9,5, 9,6, 10 e 11 do servidor. Consulte o artigo [versões de banco de dados PostgreSQL com suporte](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions) para obter informações atuais sobre o suporte de versão no banco de dados do Azure para PostgreSQL-servidor único.
+O Serviço de Migração de Banco de Dados do Azure dá suporte a migrações para o Banco de Dados do Azure para PostgreSQL – servidor único, versões 9.5, 9.6, 10 e 11 do servidor. Confira o artigo [versões do banco de dados PostgreSQL com suporte](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions) para obter informações atuais sobre o suporte de versão no Banco de Dados do Azure para PostgreSQL – servidor único.
 
 ## <a name="datatype-limitations"></a>Limitações de tipo de dados
 
-Os seguintes tipos de texto **não** serão migrados:
+Os seguintes tipos de tipo de dados **não** serão migrados:
 
 - BFILE
 - ROWID
@@ -48,25 +48,25 @@ Os seguintes tipos de texto **não** serão migrados:
 - SDO_GEOMETRY
 - Tabelas aninhadas
 - Tipos de dados definidos pelo usuário
-- Anotações
+- Observações
 - Colunas virtuais
-- Exibições materializadas com base na coluna de ROWID
+- Exibições materializadas com base na coluna ROWID
 
-Além disso, colunas BLOB/CLOB vazias são mapeadas para NULL no destino.
+Além disso, as colunas BLOB/CLOB vazias são mapeadas para NULL no destino.
 
 ## <a name="lob-limitations"></a>Limitações de LOB
 
-- Quando o modo LOB de tamanho limitado estiver habilitado, os LOBs vazios na origem do Oracle serão replicados como valores nulos.
+- Quando o modo LOB de tamanho limitado estiver habilitado, os LOBs vazios na origem do Oracle serão replicados como valores NULL.
 - Não há suporte para nomes de objeto longos (mais de 30 bytes).
-- Os dados na coluna bruta longa e longa não podem exceder 64K. Todos os dados além de 64K serão truncados.
+- Os dados na coluna LONG e LONG RAW não podem exceder 64k. Todos os dados com mais de 64k serão truncados.
 - Somente no Oracle 12, não há suporte para alterações nas colunas LOB (migradas).
-- Não há suporte para atualizações em colunas XMLTYPE e LOB (migradas).
+- Não há suporte para atualizações para colunas XMLTYPE e LOB (migradas).
 
 ## <a name="known-issues-and-limitations"></a>Limitações e problemas conhecidos
 
-- Os clientes devem usar o SYSDBA para se conectar ao Oracle.
-- As alterações de dados resultantes de operações de partição/subpartição (adicionar, descartar, trocar e TRUNCAr) não serão migradas e poderão causar os seguintes erros:
-  - Para adicionar operações, as atualizações e exclusões nos dados adicionados podem retornar um aviso "0 linhas afetadas".
+- O usuário deve ter o privilégio DBA no Servidor Oracle.
+- As alterações de dados resultantes de operações de partição/subpartição (ADD, DROP, EXCHANGE e TRUNCATE) não serão migradas e poderão causar os seguintes erros:
+  - Para operações ADD, as atualizações e exclusões nos dados adicionados podem retornar um aviso "0 linha afetada".
   - Para operações DROP e TRUNCATE, novas inserções podem resultar em erros de "duplicatas".
-  - Para operações do EXCHANGE, um aviso "0 linhas afetadas" e erros "duplicatas" podem ocorrer.
-- Tabelas cujos nomes contêm apóstrofos não podem ser replicados.
+  - Para operações EXCHANGE, um aviso "0 linha afetada" e erros de "duplicatas" podem ocorrer.
+- Tabelas cujos nomes contêm apóstrofos não podem ser replicadas.

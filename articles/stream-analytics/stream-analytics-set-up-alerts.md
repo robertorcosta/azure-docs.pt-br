@@ -7,18 +7,18 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 2bd1f59d5cf33ae7f1f2e33e6c3f1312b5a13e61
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8219fba44be608a9fd31139a89c8dac2cc3e3082
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82127584"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835403"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Configurar alertas para trabalhos do Stream Analytics do Azure
 
 É importante monitorar o trabalho do Azure Stream Analytics para garantir que ele seja executado continuamente sem problemas. Este artigo descreve como configurar alertas para cenários comuns que devem ser monitorados. 
 
-Você pode definir regras em métricas de dados de logs de operação por meio do portal, bem como [programaticamente](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a).
+É possível definir regras em métricas de dados de Logs de Operação por meio do portal ou [programaticamente](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a).
 
 ## <a name="set-up-alerts-in-the-azure-portal"></a>Configurar alertas no Portal do Azure
 ### <a name="get-alerted-when-a-job-stops-unexpectedly"></a>Receber alertas quando um trabalho parar inesperadamente
@@ -29,7 +29,7 @@ O exemplo a seguir demonstra como configurar alertas para os casos em que o trab
 
 2. Na página **Trabalho**, navegue para a seção **Monitoramento**.  
 
-3. Selecione **métricas**e **nova regra de alerta**.
+3. Selecione **Métricas** e **Nova regra de alerta**.
 
    ![Configuração de alertas do Stream Analytics do portal do Azure](./media/stream-analytics-set-up-alerts/stream-analytics-set-up-alerts.png)  
 
@@ -37,7 +37,7 @@ O exemplo a seguir demonstra como configurar alertas para os casos em que o trab
 
    ![Selecionar o nome do sinal para o alerta do Stream Analytics](./media/stream-analytics-set-up-alerts/stream-analytics-condition-signal.png)  
 
-5. Em **Configurar lógica de sinal**, altere **Nível de Evento** para **Todos** e altere **Status** para **Falha**. Deixe o **evento iniciado por** em branco e selecione **concluído**.
+5. Em **Configurar lógica de sinal**, altere **Nível de Evento** para **Todos** e altere **Status** para **Falha**. Deixe a opção **Evento iniciado por** em branco e selecione **Concluído**.
 
    ![Configurar a lógica de sinal para o alerta do Stream Analytics](./media/stream-analytics-set-up-alerts/stream-analytics-configure-signal-logic.png) 
 
@@ -60,20 +60,20 @@ Os alertas a seguir são recomendados para o monitoramento do desempenho do trab
 |Métrica|Condição|Agregação de Tempo|Limite|Ações Corretivas|
 |-|-|-|-|-|
 |% de Utilização da UA|Maior que|Máximo|80|Há vários fatores que aumentam a % de Utilização da UA. Você pode dimensionar com a paralelização de consultas ou aumentar o número de unidades de streaming. Para obter mais informações, confira [Aproveitar a paralelização de consultas no Azure Stream Analytics](stream-analytics-parallelization.md).|
-|Erros em runtime|Maior que|Total|0|Examine os logs de atividade ou de recursos e faça as alterações apropriadas nas entradas, na consulta ou nas saídas.|
+|Erros em runtime|Maior que|Total|0|Examine os logs de atividades ou de recursos e faça as alterações apropriadas nas entradas, na consulta ou nas saídas.|
 |Atraso de marca-d'água|Maior que|Máximo|Quando o valor médio dessa métrica nos últimos 15 minutos é maior que a tolerância da chegada tardia (em segundos). Se você não modificou a tolerância da chegada tardia, o padrão é definido como 5 segundos.|Tente aumentar o número de UAs ou paralelizar a consulta. Para obter mais informações sobre as UAs, confira [Compreender e ajustar unidades de streaming](stream-analytics-streaming-unit-consumption.md#how-many-sus-are-required-for-a-job). Para obter mais informações sobre como paralelizar a consulta, confira [Aproveitar a paralelização de consultas no Azure Stream Analytics](stream-analytics-parallelization.md).|
-|Erros de desserialização de entrada|Maior que|Total|0|Examine os logs de atividade ou de recursos e faça as alterações apropriadas na entrada. Para obter mais informações sobre logs de recursos, consulte [solucionar problemas Azure Stream Analytics usando logs de recursos](stream-analytics-job-diagnostic-logs.md)|
+|Erros de desserialização de entrada|Maior que|Total|0|Examine os logs de atividades ou de recursos e faça as alterações apropriadas na entrada. Para obter mais informações sobre logs de recursos, consulte [Solução de problemas do Azure Stream Analytics usando logs de recurso](stream-analytics-job-diagnostic-logs.md)|
 
 ## <a name="get-help"></a>Obter ajuda
 
 Para obter mais detalhes sobre como configurar alertas no portal do Azure, consulte [Receber notificações de alerta](../azure-monitor/platform/alerts-overview.md).  
 
-Para obter mais assistência, experimente nosso [Fórum de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Para obter mais assistência, veja nossa [página de perguntas e respostas da Microsoft sobre o Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
-* [Introdução ao uso de Azure Stream Analytics](stream-analytics-get-started.md)
+* [Introdução ao uso do Stream Analytics do Azure](stream-analytics-get-started.md)
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
 * [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referência da API REST de gerenciamento de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

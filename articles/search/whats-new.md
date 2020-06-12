@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 05/19/2020
-ms.openlocfilehash: 6597a8d5f1f8f4aa34ba9f59d4e08b5dc6d66728
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: f8ddc3ef56aefc6ea613af19d91cd0122435efd7
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682471"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344196"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novidades no Azure Cognitive Search
 
@@ -29,7 +29,7 @@ Conheça o que há de novo no serviço. Marque esta página para manter-se atual
 
 + Use uma [identidade gerenciada pelo sistema (versão prévia)](search-howto-managed-identities-data-sources.md) para configurar uma conexão com uma fonte de dados do Azure para indexação. Aplica-se a [indexadores](search-indexer-overview.md) que ingerem conteúdo de fontes de dados do Azure, como o Banco de Dados SQL do Azure, o Azure Cosmos DB e o Armazenamento do Azure.
 
-+ Altere a base de como as pontuações de pesquisa são calculadas, de por fragmento para todos os fragmentos, usando o [parâmetro de consulta scoringStatistics=global](index-similarity-and-scoring.md#scoring-statistics).
++ Altere a forma como as pontuações de pesquisa são calculadas, de por fragmento para todos os fragmentos, usando os parâmetros de consulta [scoringStatistics=global](index-similarity-and-scoring.md#scoring-statistics) e sessionId.
 
 ### <a name="march-2020"></a>Março de 2020
 

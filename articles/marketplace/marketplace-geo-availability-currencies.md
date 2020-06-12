@@ -1,24 +1,24 @@
 ---
-title: Disponibilidade geográfica e suporte de moeda para o Marketplace comercial | Azure Marketplace
-description: Disponibilidade geográfica no Marketplace comercial
+title: Disponibilidade geográfica e suporte para moedas para o marketplace comercial da Microsoft
+description: A disponibilidade geográfica e o suporte de moeda para transações no marketplace comercial
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/29/2020
 ms.author: dsindona
-ms.openlocfilehash: 83906e6270ed41c2ea8f489c5a5312d32a565a29
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 16d41879321c7cbaa4f38bcba83d83d39f30ee13
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687578"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657879"
 ---
-# <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Disponibilidade geográfica e suporte de moeda para o Marketplace comercial
+# <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Disponibilidade geográfica e suporte para moedas para o marketplace comercial
 
-As ofertas do Marketplace comercial podem ser adquiridas em 141 geografias, conforme definido pelo endereço de cobrança do cliente, e as transações podem ser concluídas em 17 moedas. A tabela a seguir lista cada local geográfico com suporte, seu [código alfa ISO 3166 2-digit](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)e a moeda atribuída.
+As ofertas do marketplace comercial podem ser adquiridas em 141 regiões geográficas, conforme definido pelo endereço para cobrança do cliente, e as transações podem ser concluídas em 17 moedas. A tabela a seguir lista cada localização geográfica com suporte, seu [código alfabético de dois dígitos ISO 3166](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes) e a moeda atribuída.
 
-|   Nome do país/região               |   ISO-2   |   Currency   |
+|   Nome do país/região               |   ISO-2   |   Moeda   |
 |-------------------------------------|-----------|--------------|
 | Afeganistão                         | AF        | USD          |
 | Albânia                             | AL        | USD          |
@@ -48,12 +48,12 @@ As ofertas do Marketplace comercial podem ser adquiridas em 141 geografias, conf
 | Cabo Verde                          | CV        | USD          |
 | Ilhas Cayman                      | KY        | USD          |
 | Chile                               | CL        | USD          |
-| Chinês\**                            | CN        | N/D          |
+| China\**                            | CN        | N/D          |
 | Colômbia                            | CO        | USD          |
 | Costa Rica                          | CR        | USD          |
 | Côte d’Ivoire                       | CI        | USD          |
 | Croácia                             | HR        | EUR          |
-| Curaçao                             | PESO        | USD          |
+| Curaçao                             | CW        | USD          |
 | Chipre                              | CY        | EUR          |
 | República Tcheca                      | CZ        | EUR          |
 | Dinamarca                             | DK        | DKK          |
@@ -81,13 +81,13 @@ As ofertas do Marketplace comercial podem ser adquiridas em 141 geografias, conf
 | Iraque                                | IQ        | USD          |
 | Irlanda                             | IE        | EUR          |
 | Israel                              | IL        | USD          |
-| Itália                               | TI        | EUR          |
+| Itália                               | IT        | EUR          |
 | Jamaica                             | JM        | USD          |
 | Japão                               | JP        | JPY          |
 | Jordânia                              | JO        | USD          |
 | Cazaquistão                          | KZ        | USD          |
 | Quênia                               | KE        | USD          |
-| Coreia (Sul)                       | KR        | KRW          |
+| Coreia (do Sul)                       | KR        | KRW          |
 | Kuwait                              | KW        | USD          |
 | Quirguistão                          | KG        | USD          |
 | Letônia                              | LV        | EUR          |
@@ -149,7 +149,7 @@ As ofertas do Marketplace comercial podem ser adquiridas em 141 geografias, conf
 | Turquia                              | TR        | USD          |
 | Turcomenistão                        | TM        | USD          |
 | Cidade do Vaticano (Santa Sé)             | VA        | EUR          |
-| Ilhas Virgens da Estados Unidos | VI        | USD          |
+| Ilhas Virgens dos Estados Unidos | VI        | USD          |
 | Uganda                              | UG        | USD          |
 | Ucrânia                             | UA        | USD          |
 | Emirados Árabes Unidos                | AE        | USD          |
@@ -164,6 +164,6 @@ As ofertas do Marketplace comercial podem ser adquiridas em 141 geografias, conf
 | Zimbábue                            | ZW        | USD          |
 |   |   |   |
 
-\*Para clientes no Brasil, o Marketplace por meio do CSP (provedores de soluções de nuvem) usa USD.
+\* Para clientes no Brasil, o Marketplace por meio do CSP (provedores de soluções de nuvem) usa USD.
 
 \** Somente imagens de VM gratuitas e BYOL.

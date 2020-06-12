@@ -1,60 +1,130 @@
 - name: Gêmeos Digitais do Azure
   href: index.yml
 - name: Visão geral
-- name: Inícios rápidos
-  expanded: true
+  items:
+    - name: Sobre os Gêmeos Digitais do Azure
+      href: overview.md
+    - name: Diferenças da versão anterior
+      href: overview-differences.md
 - name: Tutoriais
   items:
-    - name: Monitorar um prédio com Gêmeos Digitais
+    - name: Codificar um aplicativo cliente
+      href: tutorial-code.md
+    - name: Explorar as noções básicas com um aplicativo cliente de exemplo
+      href: tutorial-command-line-app.md
+    - name: Conectar uma solução de ponta a ponta
+      href: tutorial-end-to-end.md
 - name: Conceitos
   items:
-    - name: Segurança
+    - name: Modelos personalizados
+      href: concepts-models.md
+    - name: Gêmeos digitais e o grafo de gêmeos
+      href: concepts-twins-graph.md
+    - name: Idioma de consulta
+      href: concepts-query-language.md
+    - name: Integração com outros serviços
+      href: concepts-integration.md
+    - name: Rotas de eventos
+      href: concepts-route-events.md
+    - name: Segurança para soluções dos Gêmeos Digitais do Azure
+      href: concepts-security.md
 - name: Guias de instruções
   items:
-    - name: Consultar APIs dos Gêmeos Digitais
+    - name: Usar a CLI dos Gêmeos Digitais do Azure
+      href: how-to-use-cli.md
+    - name: Usar as APIs e os SDKs
+      href: how-to-use-apis-sdks.md
+    - name: Criar SDKs personalizados com o AutoRest
+      href: how-to-create-custom-sdks.md
+    - name: Criar uma instância dos Gêmeos Digitais do Azure
+      href: how-to-set-up-instance.md
+    - name: Autenticar um aplicativo cliente
+      href: how-to-authenticate-client.md
+    - name: Analisar e validar modelos
+      href: how-to-use-parser.md
+    - name: Gerenciar um modelo de gêmeos
+      href: how-to-manage-model.md
+    - name: Gerenciar um gêmeo digital
+      href: how-to-manage-twin.md
+    - name: Gerenciar um grafo de gêmeos com relações
+      href: how-to-manage-graph.md
+    - name: Consultar o grafo de gêmeos
+      href: how-to-query-graph.md
+    - name: Gerenciar pontos de extremidade e rotas
+      href: how-to-manage-routes.md
+    - name: Interpretar dados de eventos
+      href: how-to-interpret-event-data.md
+    - name: Configurar uma função do Azure para processar dados
+      href: how-to-create-azure-function.md
+    - name: Ingerir telemetria do Hub IoT
+      href: how-to-ingest-iot-hub-data.md
 - name: Referência
+  items:
+    - name: APIs REST dos Gêmeos Digitais
+      href: 'https://docs.microsoft.com/rest/api/azure-digitaltwins/'
+    - name: 'SDK dos Gêmeos Digitais para .NET (C#)'
+      href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core'
+    - name: Limites de serviço dos Gêmeos Digitais
+      href: reference-service-limits.md
+    - name: Especificação da DTDL v2
+      href: 'https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md'
+    - name: Especificação do DTMI
+      href: 'https://github.com/Azure/digital-twin-model-identifier'
+    - name: CLI do Azure
+      href: /cli/azure/iot
+    - name: Extensão da CLI do Azure IoT
+      href: /cli/azure/ext/azure-iot/iot?view=azure-cli-latest
+    - name: Azure Cloud Shell
+      href: 'https://shell.azure.com'
+    - name: Azure PowerShell
+      href: '/powershell/module/az.iothub#iot'
+    - name: Portal do Azure
+      href: 'https://portal.azure.com'
+    - name: Documentação do Azure RBAC
+      href: /role-based-access-control/overview
 - name: Recursos
   items:
-    - name: Recursos para desenvolvedores
-      items:
-        - name: Visualizador de Grafo dos Gêmeos Digitais do Azure
-          href: 'https://github.com/Azure/azure-digital-twins-graph-viewer'
-        - name: 'Exemplos de Gêmeos Digitais do Azure para C# (.NET)'
-          href: 'https://github.com/Azure-Samples/digital-twins-samples-csharp'
-        - name: API REST dos Gêmeos Digitais do Azure
-          href: 'https://docs.westcentralus.azuresmartspaces.net/management/swagger'
+    - name: Extensão da DTDL para VS Code
+      href: 'https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl'
+    - name: Opções de Ajuda e suporte
+      href: /azure/iot-fundamentals/iot-support-help
+    - name: Relatos de clientes
+      href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20Digital%20Twins%22&ff=&p=0&so=story_publish_date%20desc'
+    - name: Vídeos do Channel 9
+      href: 'https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22'
+    - name: Solicitações de dados do cliente
+      href: resources-customer-data-requests.md
     - name: Preços e disponibilidade
       items:
         - name: Preços
-          href: 'https://azure.microsoft.com/pricing/details/digital-twins/'
-        - name: Calculadora de preço
-          href: 'https://azure.microsoft.com/pricing/calculator/'
-        - name: Disponibilidade de região
-          href: 'https://azure.microsoft.com/regions/services/'
-    - name: Opções de Ajuda e suporte
+          href: 'https://azure.microsoft.com/pricing/details/digital-twins'
+        - name: Regiões e disponibilidade
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins'
+- name: Relacionados
+  items:
+    - name: Soluções
       items:
-        - name: Opções de suporte do Azure
-          href: 'https://azure.microsoft.com/support/options/'
-        - name: Opções de ajuda e suporte do Azure IoT
-          href: 'https://docs.microsoft.com/azure/iot-fundamentals/iot-support-help'
-        - name: Stack Overflow
-          href: 'https://stackoverflow.com/questions/tagged/azure-digital-twins'
-        - name: Página de perguntas de P e R da Microsoft
-          href: 'https://docs.microsoft.com/answers/topics/azure-digital-twins.html'
-        - name: Exemplos de código do Azure IoT
-          href: 'https://docs.microsoft.com/samples/browse/?term=iot'
-    - name: Comentários e fóruns
+        - name: Aceleradores de solução do IoT
+          href: /azure/iot-suite
+        - name: Central da IoT
+          href: /azure/iot-central/iot-support-help
+    - name: Serviços de plataforma
       items:
-        - name: Página de perguntas de P e R da Microsoft
-          href: 'https://docs.microsoft.com/answers/topics/azure-digital-twins.html'
-        - name: Solicitações e sugestões de produtos
-          href: 'https://feedback.azure.com/forums/916621-azure-digital-twins'
-    - name: Relatos de clientes
-      href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20Digital%20Twins%22&ff=&p=0&so=story_publish_date%20desc'
-    - name: Vídeos do Azure
-      href: 'https://azure.microsoft.com/resources/videos/index/?services=digital-twins&sort=newest'
-    - name: Vídeos do Channel 9
-      href: 'https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22'
-    - name: Atualizações do Azure IoT
-      href: 'https://azure.microsoft.com/roadmap/?category=iot'
-  expanded: true
+        - name: Hub IoT
+          href: /azure/iot-hub
+        - name: IoT Plug and Play
+          href: /azure/iot-pnp
+        - name: Provisionamento de Dispositivos no Hub IoT
+          href: /azure/iot-dps
+        - name: Mapas
+          href: /azure/azure-maps
+        - name: SDKs do Serviço
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: Soluções do Edge
+      items:
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: SDKs do dispositivo IoT
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'

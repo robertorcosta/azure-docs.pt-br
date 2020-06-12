@@ -11,12 +11,12 @@ metadata:
   author: dnblankedelman
   ms.author: dnb
   ms.date: 02/18/2020
-  ms.openlocfilehash: 18857c11887ef6934485602d0fcb7aaf2220721e
-  ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+  ms.openlocfilehash: f46fd0f8323b483cdbec072bcda0346d0b4c2ab7
+  ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 04/28/2020
-  ms.locfileid: "82185074"
+  ms.lasthandoff: 06/10/2020
+  ms.locfileid: "84659876"
 highlightedContent:
   items:
   - title: 'Introdução à SRE:  o que é a SRE? (1/3)'
@@ -43,11 +43,13 @@ productDirectory:
       text: Práticas de implantação para maior confiabilidade
     - url: https://myignite.techcommunity.microsoft.com/sessions/83001
       text: 'Preparando-se para o crescimento: planejamento de capacidade e dimensionamento'
-  - title: Introdução ao curso online sobre SRE
+  - title: Cursos online da SRE
     imageSrc: ./media/index/learn.svg
     links:
     - url: https://docs.microsoft.com/learn/modules/intro-to-site-reliability-engineering/
-      text: Aprenda os conceitos básicos da SRE em um curso online gratuito
+      text: Introdução à engenharia de confiabilidade de sites
+    - url: https://docs.microsoft.com/learn/paths/improve-reliability-modern-operations/
+      text: Aprimore a confiabilidade com as práticas de operações modernas
   - title: Recursos da SRE
     imageSrc: ./media/index/reference.svg
     links:
@@ -118,6 +120,9 @@ conceptualContent:
     - url: https://docs.microsoft.com/azure/azure-monitor/azure-monitor-app-hub
       itemType: get-started
       text: Gerenciamento de desempenho de aplicativos com o Application Insights
+    - url: https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing
+      itemType: get-started
+      text: Rastreamento distribuído com o Azure Monitor
     - url: https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing
       itemType: get-started
       text: Rastreamento distribuído com o Azure Monitor

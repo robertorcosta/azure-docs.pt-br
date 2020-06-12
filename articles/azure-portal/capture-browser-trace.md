@@ -5,166 +5,208 @@ services: azure-portal
 keywords: ''
 author: mgblythe
 ms.author: mblythe
-ms.date: 01/09/2020
+ms.date: 05/11/2020
 ms.topic: troubleshooting
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 2b506c9d15dafcd23b24207fe15ed0532939209f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: dba321d055e64d62ca91f95461c3299bee5f90d2
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76310689"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714212"
 ---
 # <a name="capture-a-browser-trace-for-troubleshooting"></a>Capturar um rastreamento de navegador para solucionar problemas
 
-Se você estiver solucionando um problema com o portal do Azure e precisar entrar em contato com o suporte da Microsoft, recomendamos que você capture primeiro um rastreamento de navegador e algumas informações adicionais. As informações coletadas podem fornecer detalhes importantes sobre o portal no momento em que o problema ocorre. Siga as etapas neste artigo para as ferramentas de desenvolvedor no navegador que você usa: Google Chrome ou Microsoft Edge (Chromium), o Microsoft Edge (EdgeHTML) ou o Apple Safari.
+Se você estiver solucionando um problema com o portal do Azure e precisar entrar em contato com o Suporte da Microsoft, recomendamos que você capture primeiro um rastreamento de navegador e algumas informações adicionais. As informações coletadas podem fornecer detalhes importantes sobre o portal no momento em que o problema ocorre. Siga as etapas neste artigo para as ferramentas para desenvolvedores no navegador que você usa: Google Chrome ou Microsoft Edge (Chromium), Microsoft Edge (EdgeHTML), Apple Safari ou Firefox.
 
 ## <a name="google-chrome-and-microsoft-edge-chromium"></a>Google Chrome e Microsoft Edge (Chromium)
 
-O Google Chrome e o Microsoft Edge (Chromium) são baseados no [projeto de código-fonte aberto do Chromium](https://www.chromium.org/Home). As etapas a seguir mostram como usar as ferramentas de desenvolvedor, que são muito semelhantes nos dois navegadores. Para obter mais informações, consulte [Chrome devtools](https://developers.google.com/web/tools/chrome-devtools) e [Microsoft Edge (Chromium) ferramentas para desenvolvedores](/microsoft-edge/devtools-guide-chromium).
+O Google Chrome e o Microsoft Edge (Chromium) são baseados no [projeto de software livre Chromium](https://www.chromium.org/Home). As etapas a seguir mostram como usar as ferramentas para desenvolvedores, que são muito semelhantes nos dois navegadores. Para obter mais informações, confira [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools) e [Ferramentas para Desenvolvedores do Microsoft Edge (Chromium)](/microsoft-edge/devtools-guide-chromium).
 
 1. Entre no [portal do Azure](https://portal.azure.com). É importante entrar _antes_ de iniciar o rastreamento para que o rastreamento não contenha informações confidenciais relacionadas à sua entrada. 
 
-1. Inicie a gravação das etapas executadas no portal, usando o [gravador de etapas](https://support.microsoft.com/help/22878/windows-10-record-steps).
+1. Inicie a gravação das etapas executadas no portal usando o [Gravador de Passos](https://support.microsoft.com/help/22878/windows-10-record-steps).
 
 1. No portal, navegue até a etapa logo antes de onde o problema ocorre.
 
-1. Pressione F12 ou selecione ![captura de tela do ícone](media/capture-browser-trace/chromium-icon-settings.png) > configurações do navegador**mais ferramentas** > **ferramentas para desenvolvedores**.
+1. Pressione F12 ou selecione ![Captura de tela do ícone de configurações do navegador](media/capture-browser-trace/chromium-icon-settings.png) > **Mais ferramentas** > **Ferramentas para desenvolvedores**.
 
-1. Por padrão, o navegador mantém informações de rastreamento somente para a página que está carregada no momento. Defina as seguintes opções para que o navegador mantenha todas as informações de rastreamento, mesmo que sua reprodução exija que vá para mais de uma página:
+1. Por padrão, o navegador mantém informações de rastreamento somente para a página que está sendo carregada no momento. Defina as seguintes opções para que o navegador mantenha todas as informações de rastreamento, mesmo que sua reprodução exija ir para mais de uma página:
 
-    1. Selecione a guia **rede** e, em seguida, selecione **preservar log**.
+    1. Selecione a guia **Rede** e, em seguida, selecione **Preservar log**.
 
-          ![Captura de tela de "preservar log"](media/capture-browser-trace/chromium-network-preserve-log.png)
+          ![Captura de tela de "Preservar log"](media/capture-browser-trace/chromium-network-preserve-log.png)
 
-    1. Selecione a guia **console** , selecione **configurações do console**e, em seguida, selecione **preservar log**. Selecione **as configurações do console** novamente para fechar o painel configurações.
+    1. Selecione a guia **Console**, selecione **Configurações do console** e, em seguida, selecione **Preservar log**. Selecione **Configurações do console** novamente para fechar o painel de configurações.
 
-          ![Captura de tela de "preservar log"](media/capture-browser-trace/chromium-console-preserve-log.png)
+          ![Captura de tela de "Preservar Log"](media/capture-browser-trace/chromium-console-preserve-log.png)
 
-1. Selecione a guia **rede** e, em seguida, selecione **parar a gravação do log de rede** e **limpar**.
+1. Selecione a guia **Rede**, em seguida, selecione **Parar gravação do log de rede** e **Limpar**.
 
-    ![Captura de tela de "parar a gravação do log de rede" e "limpar"](media/capture-browser-trace/chromium-stop-clear-session.png)
+    ![Captura de tela de "Parar gravação do log de rede" e "Limpar"](media/capture-browser-trace/chromium-stop-clear-session.png)
 
-1. Selecione **gravar log de rede**e, em seguida, reproduza o problema no Portal.
+1. Selecione **Registrar log de rede** e, em seguida, reproduza o problema no portal.
 
-    ![Captura de tela de "iniciar sessão de criação de perfil"](media/capture-browser-trace/chromium-start-session.png)
+    ![Captura de tela de "Iniciar a sessão de criação de perfil"](media/capture-browser-trace/chromium-start-session.png)
 
-    Você verá uma saída de sessão semelhante à imagem a seguir.
+    Você verá saídas de sessão semelhantes à imagem a seguir.
 
     ![Captura de tela dos resultados do rastreamento do navegador](media/capture-browser-trace/chromium-browser-trace-results.png)
 
-1. Depois de reproduzir o comportamento de portal inesperado, selecione **parar de gravar o log de rede**, em seguida, selecione **Exportar Har** e salve o arquivo.
+1. Depois de reproduzir o comportamento de portal inesperado, selecione **Parar gravação do log de rede**, em seguida, selecione **Exportar HAR** e salve o arquivo.
 
-    ![Captura de tela de "exportar HAR"](media/capture-browser-trace/chromium-network-export-har.png)
+    ![Captura de tela de "Exportar HAR"](media/capture-browser-trace/chromium-network-export-har.png)
 
-1. Pare o gravador de etapas e salve o arquivo.
+1. Pare o Gravador de Passos e salve a gravação.
 
-1. De volta ao painel Ferramentas de desenvolvedor do navegador, selecione a guia **console** . Clique com o botão direito do mouse e selecione **salvar como...** e salve a saída do console em um arquivo de texto.
+1. De volta ao painel de ferramentas para desenvolvedores do navegador, selecione a guia **Console**. Clique com o botão direito do mouse em uma das mensagens e selecione **Salvar como...** e salve a saída do console em um arquivo de texto.
 
     ![Captura de tela da saída do console](media/capture-browser-trace/chromium-console-select.png)
 
-1. Empacote o arquivo HAR, a saída do console e a gravação de tela em um formato compactado como. zip e compartilhe isso com o suporte da Microsoft.
+1. Agrupe o arquivo HAR, a saída do console e a gravação de tela em um formato compactado (como .zip) e compartilhe isso com o Suporte da Microsoft.
 
 ## <a name="microsoft-edge-edgehtml"></a>Microsoft Edge (EdgeHTML)
 
-As etapas a seguir mostram como usar as ferramentas de desenvolvedor no Microsoft Edge (EdgeHTML). Para obter mais informações, consulte [Microsoft Edge (EdgeHTML) ferramentas para desenvolvedores](/microsoft-edge/devtools-guide).
+As etapas a seguir mostram como usar as ferramentas para desenvolvedores no Microsoft Edge (EdgeHTML). Para obter mais informações, confira [Ferramentas para Desenvolvedores do Microsoft Edge (EdgeHTML)](/microsoft-edge/devtools-guide).
 
 1. Entre no [portal do Azure](https://portal.azure.com). É importante entrar _antes_ de iniciar o rastreamento para que o rastreamento não contenha informações confidenciais relacionadas à sua entrada. 
 
-1. Inicie a gravação das etapas executadas no portal, usando o [gravador de etapas](https://support.microsoft.com/help/22878/windows-10-record-steps).
+1. Inicie a gravação das etapas executadas no portal usando o [Gravador de Passos](https://support.microsoft.com/help/22878/windows-10-record-steps).
 
 1. No portal, navegue até a etapa logo antes de onde o problema ocorre.
 
-1. Pressione F12 ou selecione ![captura de tela do ícone](media/capture-browser-trace/edge-icon-settings.png) > configurações do navegador**mais ferramentas** > **ferramentas para desenvolvedores**.
+1. Pressione F12 ou selecione ![Captura de tela do ícone de configurações do navegador](media/capture-browser-trace/edge-icon-settings.png) > **Mais ferramentas** > **Ferramentas para desenvolvedores**.
 
-1. Por padrão, o navegador mantém informações de rastreamento somente para a página que está carregada no momento. Defina as seguintes opções para que o navegador mantenha todas as informações de rastreamento, mesmo que sua reprodução exija que vá para mais de uma página:
+1. Por padrão, o navegador mantém informações de rastreamento somente para a página que está sendo carregada no momento. Defina as seguintes opções para que o navegador mantenha todas as informações de rastreamento, mesmo que sua reprodução exija ir para mais de uma página:
 
-    1. Selecione a guia **rede** e desmarque a opção **Limpar entradas ao navegar**.
+    1. Selecione a guia **Rede**, em seguida, desmarque a opção **Limpar entradas ao navegar**.
 
           ![Captura de tela de "Limpar entradas ao navegar"](media/capture-browser-trace/edge-network-clear-entries.png)
 
-    1. Selecione a guia **console** e, em seguida, selecione **preservar log**.
+    1. Selecione a guia **Console** e, em seguida, selecione **Preservar Log**.
 
-          ![Captura de tela de "preservar log"](media/capture-browser-trace/edge-console-preserve-log.png)
+          ![Captura de tela de "Preservar Log"](media/capture-browser-trace/edge-console-preserve-log.png)
 
-1. Selecione a guia **rede** e, em seguida, selecione **parar sessão de criação de perfil** e **limpar sessão**.
+1. Selecione a guia **Rede**, em seguida, selecione **Parar a sessão de criação de perfil** e **Limpar sessão**.
 
-    ![Captura de tela de "parar sessão de criação de perfil" e "limpar sessão"](media/capture-browser-trace/edge-stop-clear-session.png)
+    ![Captura de tela de "Parar sessão de criação de perfil" e "Limpar sessão"](media/capture-browser-trace/edge-stop-clear-session.png)
 
-1. Selecione **iniciar sessão de criação de perfil**e, em seguida, reproduza o problema no Portal.
+1. Selecione **Iniciar a sessão de criação de perfil**, em seguida, reproduza o problema no portal.
 
-    ![Captura de tela de "iniciar sessão de criação de perfil"](media/capture-browser-trace/edge-start-session.png)
+    ![Captura de tela de "Iniciar a sessão de criação de perfil"](media/capture-browser-trace/edge-start-session.png)
 
-    Você verá uma saída de sessão semelhante à imagem a seguir.
+    Você verá saídas de sessão semelhantes à imagem a seguir.
 
     ![Captura de tela dos resultados do rastreamento do navegador](media/capture-browser-trace/edge-browser-trace-results.png)
 
-1. Depois de reproduzir o comportamento do portal inesperado, selecione **parar sessão de criação de perfil**e, em seguida, selecione **exportar como Har** e salve o arquivo.
+1. Depois de reproduzir o comportamento de portal inesperado, selecione **Parar sessão de criação de perfil**, em seguida, selecione **Exportar HAR** e salve o arquivo.
 
-    ![Captura de tela de "exportar como HAR"](media/capture-browser-trace/edge-network-export-har.png)
+    ![Captura de tela de "Exportar como HAR"](media/capture-browser-trace/edge-network-export-har.png)
 
-1. Pare o gravador de etapas e salve o arquivo.
+1. Pare o Gravador de Passos e salve a gravação.
 
-1. De volta ao painel Ferramentas de desenvolvedor do navegador, selecione a guia **console** e expanda a janela. Coloque o cursor no início da saída do console e, em seguida, arraste e selecione todo o conteúdo da saída. Clique com o botão direito do mouse, selecione **copiar**e salve a saída do console em um arquivo de texto.
+1. De volta ao painel de ferramentas para desenvolvedores do navegador, selecione a guia **Console** e expanda a janela. Coloque o cursor no início da saída do console e, em seguida, arraste e selecione todo o conteúdo da saída. Clique com o botão direito do mouse, selecione **Copiar** e salve a saída do console em um arquivo de texto.
 
     ![Captura de tela da saída do console](media/capture-browser-trace/edge-console-select.png)
 
-1. Empacote o arquivo HAR, a saída do console e a gravação de tela em um formato compactado como. zip e compartilhe isso com o suporte da Microsoft.
+1. Agrupe o arquivo HAR, a saída do console e a gravação de tela em um formato compactado (como .zip) e compartilhe isso com o Suporte da Microsoft.
 
 ## <a name="apple-safari"></a>Apple Safari
 
-As etapas a seguir mostram como usar as ferramentas de desenvolvedor no Apple Safari. Para obter mais informações, consulte [Safari ferramentas para desenvolvedores Overview](https://support.apple.com/guide/safari-developer/safari-developer-tools-overview-dev073038698/11.0/mac).
+As etapas a seguir mostram como usar as ferramentas para desenvolvedores no Apple Safari. Para obter mais informações, confira [Visão geral das Ferramentas para Desenvolvedores do Safari](https://support.apple.com/guide/safari-developer/safari-developer-tools-overview-dev073038698/11.0/mac).
 
-1. Habilite as ferramentas de desenvolvedor no Apple Safari:
+1. Habilite as ferramentas para desenvolvedores no Apple Safari:
 
-    1. Selecione **Safari**e, em seguida, selecione **preferências**.
+    1. Selecione **Safari** e, em seguida, selecione **Preferências**.
 
         ![Captura de tela das preferências do Safari](media/capture-browser-trace/safari-preferences.png)
 
-    1. Selecione a guia **avançado** e, em seguida, selecione **Mostrar menu desenvolver na barra de menus**.
+    1. Selecione a guia **Avançado** e, em seguida, selecione **Mostrar menu Desenvolver na barra de menus**.
 
         ![Captura de tela das preferências avançadas do Safari](media/capture-browser-trace/safari-show-develop-menu.png)
 
 1. Entre no [portal do Azure](https://portal.azure.com). É importante entrar _antes_ de iniciar o rastreamento para que o rastreamento não contenha informações confidenciais relacionadas à sua entrada. 
 
-1. Comece a gravar as etapas executadas no Portal. Para obter mais informações, consulte [como registrar a tela no seu Mac](https://support.apple.com/HT208721).
+1. Inicie a gravação das etapas executadas no portal. Para obter mais informações, confira [Como registrar a tela em seu Mac](https://support.apple.com/HT208721).
 
 1. No portal, navegue até a etapa logo antes de onde o problema ocorre.
 
-1. Selecione **desenvolver**e, em seguida, selecione **Mostrar inspetor da Web**.
+1. Selecione **Desenvolver** e, em seguida, selecione **Mostrar Inspetor da Web**.
 
-    ![Captura de tela de "mostrar inspetor da Web"](media/capture-browser-trace/safari-show-web-inspector.png)
+    ![Captura de tela de "Mostrar Inspetor da Web"](media/capture-browser-trace/safari-show-web-inspector.png)
 
-1. Por padrão, o navegador mantém informações de rastreamento somente para a página que está carregada no momento. Defina as seguintes opções para que o navegador mantenha todas as informações de rastreamento, mesmo que sua reprodução exija que vá para mais de uma página:
+1. Por padrão, o navegador mantém informações de rastreamento somente para a página que está sendo carregada no momento. Defina as seguintes opções para que o navegador mantenha todas as informações de rastreamento, mesmo que sua reprodução exija ir para mais de uma página:
 
-    1. Selecione a guia **rede** e, em seguida, selecione **preservar log**.
+    1. Selecione a guia **Rede** e, em seguida, selecione **Preservar Log**.
 
-          ![Captura de tela de "preservar log"](media/capture-browser-trace/safari-network-preserve-log.png)
+          ![Captura de tela de "Preservar Log"](media/capture-browser-trace/safari-network-preserve-log.png)
 
-    1. Selecione a guia **console** e, em seguida, selecione **preservar log**.
+    1. Selecione a guia **Console** e, em seguida, selecione **Preservar Log**.
 
-          ![Captura de tela de "preservar log"](media/capture-browser-trace/safari-console-preserve-log.png)
+          ![Captura de tela de "Preservar Log"](media/capture-browser-trace/safari-console-preserve-log.png)
 
-1. Selecione a guia **rede** e, em seguida, selecione **limpar itens de rede**.
+1. Selecione a guia **Rede** e, em seguida, selecione **Limpar Itens de Rede**.
 
-    ![Captura de tela de "limpar itens de rede"](media/capture-browser-trace/safari-clear-session.png)
+    ![Captura de tela de "Limpar Itens de Rede"](media/capture-browser-trace/safari-clear-session.png)
 
-1. Reproduza o problema no Portal. Você verá uma saída de sessão semelhante à imagem a seguir.
+1. Reproduza o problema no portal. Você verá saídas de sessão semelhantes à imagem a seguir.
 
     ![Captura de tela dos resultados do rastreamento do navegador](media/capture-browser-trace/safari-browser-trace-results.png)
 
 1. Depois de reproduzir o comportamento de portal inesperado, selecione **Exportar** e salve o arquivo.
 
-    ![Captura de tela de "exportar"](media/capture-browser-trace/safari-network-export-har.png)
+    ![Captura de tela de "Exportar"](media/capture-browser-trace/safari-network-export-har.png)
 
-1. Interrompa o gravador de tela e salve o arquivo.
+1. Pare o gravador de tela e salve a gravação.
 
-1. De volta ao painel Ferramentas de desenvolvedor do navegador, selecione a guia **console** e expanda a janela. Coloque o cursor no início da saída do console e, em seguida, arraste e selecione todo o conteúdo da saída. Use Command-C para copiar a saída e salvá-la em um arquivo de texto.
+1. De volta ao painel de ferramentas para desenvolvedores do navegador, selecione a guia **Console** e expanda a janela. Coloque o cursor no início da saída do console e, em seguida, arraste e selecione todo o conteúdo da saída. Use Command + C para copiar a saída e salvá-la em um arquivo de texto.
 
     ![Captura de tela da saída do console](media/capture-browser-trace/safari-console-select.png)
 
-1. Empacote o arquivo HAR, a saída do console e a gravação de tela em um formato compactado como. zip e compartilhe isso com o suporte da Microsoft.
+1. Agrupe o arquivo HAR, a saída do console e a gravação de tela em um formato compactado (como .zip) e compartilhe isso com o Suporte da Microsoft.
+
+## <a name="firefox"></a>Firefox
+
+As etapas a seguir mostram como usar as ferramentas para desenvolvedores no Firefox. Para mais informações, confira [Ferramentas para Desenvolvedores do Firefox](https://developer.mozilla.org/docs/Tools).
+
+1. Entre no [portal do Azure](https://portal.azure.com). É importante entrar _antes_ de iniciar o rastreamento para que o rastreamento não contenha informações confidenciais relacionadas à sua entrada. 
+
+1. Inicie a gravação das etapas executadas no portal. Use o [Gravador de Passos](https://support.microsoft.com/help/22878/windows-10-record-steps) no Windows ou consulte [Como gravar a tela no Mac](https://support.apple.com/HT208721).
+
+1. No portal, navegue até a etapa logo antes de onde o problema ocorre.
+
+1. Pressione F12 ou selecione ![Captura de tela do ícone de configurações do navegador](media/capture-browser-trace/firefox-icon-settings.png) > **Desenvolvedor Web** > **Alternar Ferramentas**.
+
+1. Por padrão, o navegador mantém informações de rastreamento somente para a página que está sendo carregada no momento. Defina as seguintes opções para que o navegador mantenha todas as informações de rastreamento, mesmo que sua reprodução exija ir para mais de uma página:
+
+    1. Selecione a guia **Rede** e, em seguida, selecione **Persistir Logs**.
+
+          ![Captura de tela de "Persistir Logs"](media/capture-browser-trace/firefox-network-persist-logs.png)
+
+    1. Selecione a guia **Console**, selecione **Configurações do console** e, em seguida, selecione **Persistir Logs**.
+
+          ![Captura de tela de "Persistir Logs"](media/capture-browser-trace/firefox-console-persist-logs.png)
+
+1. Selecione a guia **Rede** e, em seguida, selecione **Limpar**.
+
+    ![Captura de tela de "Limpar"](media/capture-browser-trace/firefox-clear-session.png)
+
+1. Reproduza o problema no portal. Você verá saídas de sessão semelhantes à imagem a seguir.
+
+    ![Captura de tela dos resultados do rastreamento do navegador](media/capture-browser-trace/firefox-browser-trace-results.png)
+
+1. Depois de reproduzir o comportamento de portal inesperado, selecione **Exportar/Importar HAR** e **Salvar Tudo como HAR**.
+
+    ![Captura de tela de "Exportar HAR"](media/capture-browser-trace/firefox-network-export-har.png)
+
+1. Pare o Gravador de Passos no Windows ou a gravação de tela no Mac e salve a gravação.
+
+1. De volta ao painel de ferramentas para desenvolvedores do navegador, selecione a guia **Console**. Clique com o botão direito do mouse em uma das mensagens e selecione **Exportar Mensagem Visível para** e salve a saída do console em um arquivo de texto.
+
+    ![Captura de tela da saída do console](media/capture-browser-trace/firefox-console-select.png)
+
+1. Agrupe o arquivo HAR, a saída do console e a gravação de tela em um formato compactado (como .zip) e compartilhe isso com o Suporte da Microsoft.
 
 ## <a name="next-steps"></a>Próximas etapas
 

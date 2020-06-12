@@ -1,14 +1,14 @@
 ---
-title: Compartilhamento de arquivos do Azure para pools do lote do Azure
+title: Compartilhamento de arquivo do Azure para pools do Lote do Azure
 description: Como montar um compartilhamento de Arquivos do Azure de nós de computação em um pool de Linux ou Windows no Lote do Azure.
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/24/2018
-ms.openlocfilehash: 666ee6bd0e6287545c107427dffcc9f2ccde900a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: cb7e6f158e246319e851ee2edd5b21bae33c3723
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115441"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780279"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Usar um compartilhamento de arquivos do Azure com um pool do Lote
 
@@ -39,10 +39,10 @@ No Lote, você precisará montar o compartilhamento sempre que uma tarefa for ex
 
 Por exemplo, inclua um comando `net use` para montar o compartilhamento de arquivos como parte de cada linha de comando da tarefa. Para montar o compartilhamento de arquivos, as credenciais a seguir são necessárias:
 
-* **Nome de usuário**:\\\<StorageAccountName\>do Azure, por exemplo\\,*mystorageaccountname* do Azure
-* **Senha**: \<StorageAccountKeyWhichEnds in = =>, por exemplo, *XXXXXXXXXXXXXXXXXXXXX = =*
+* **Nome de Usuário**: AZURE\\\<nomedacontadearmazenamento\>, por exemplo, AZURE\\*nomedaminhacontadearmazenamento*
+* **Senha**: \<StorageAccountKeyWhichEnds in==>, por exemplo, *XXXXXXXXXXXXXXXXXXXXX==*
 
-O comando a seguir monta um compartilhamento de arquivos *meucompartilhamentodearquivos* na conta de armazenamento *nomedaminhacontadearmazenamento* como a unidade *S:*:
+O comando a seguir monta um compartilhamento de arquivos *meucompartilhamentodearquivos* na conta de armazenamento *nomedaminhacontadearmazenamento* como a unidade *S:* :
 
 ```
 net use S: \\mystorageaccountname.file.core.windows.net\myfileshare /user:AZURE\mystorageaccountname XXXXXXXXXXXXXXXXXXXXX==
@@ -59,7 +59,7 @@ Para simplificar a operação de montagem, opcionalmente mantenha as credenciais
 
    ```
 
-2. Montar o compartilhamento em cada nó como parte de cada tarefa usando `net use`. Por exemplo, a seguinte linha de comando da tarefa monta o compartilhamento de arquivos como a unidade *S:*. Isso deve ser seguido por um comando ou script que referencie o compartilhamento. As credenciais armazenadas em cache são usadas na chamada para `net use`. Esta etapa pressupõe que você esteja usando a mesma identidade de usuário para as tarefas que usou na tarefa inicial no pool, o que não é apropriado para todos os cenários.
+2. Montar o compartilhamento em cada nó como parte de cada tarefa usando `net use`. Por exemplo, a seguinte linha de comando da tarefa monta o compartilhamento de arquivos como a unidade *S:* . Isso deve ser seguido por um comando ou script que referencie o compartilhamento. As credenciais armazenadas em cache são usadas na chamada para `net use`. Esta etapa pressupõe que você esteja usando a mesma identidade de usuário para as tarefas que usou na tarefa inicial no pool, o que não é apropriado para todos os cenários.
 
    ```
    cmd /c "net use S: \\mystorageaccountname.file.core.windows.net\myfileshare" 
@@ -116,8 +116,8 @@ apt-get update && apt-get install cifs-utils && sudo mkdir -p /mnt/MyAzureFileSh
 
 Em seguida, execute o comando `mount` para montar o compartilhamento de arquivos, fornecendo estas credenciais:
 
-* **Nome**de usuário \<:\>StorageAccountName, por exemplo, *mystorageaccountname*
-* **Senha**: \<StorageAccountKeyWhichEnds in = =>, por exemplo, *XXXXXXXXXXXXXXXXXXXXX = =*
+* **Nome de usuário**: \<nomedacontadearmazenamento\>, por exemplo, *nomedaminhacontadearmazenamento*
+* **Senha**: \<StorageAccountKeyWhichEnds in==>, por exemplo, *XXXXXXXXXXXXXXXXXXXXX==*
 
 O comando a seguir monta um compartilhamento de arquivos *meucompartilhamentodearquivos* na conta de armazenamento *nomedaminhacontadearmazenamento* em */mnt/MeuCompartilhamentoDeArquivosDoAzure*: 
 
@@ -172,6 +172,5 @@ batch_service_client.task.add(job_id, task)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para outras opções para ler e gravar dados no Lote, confira a [Visão geral de recursos do Lote](batch-api-basics.md) e [Manter a saída de trabalho e tarefa](batch-task-output.md).
-
+* Para outras opções de leitura e gravação de dados no Lote, confira [Manter a saída de trabalho e tarefa](batch-task-output.md).
 * Veja também o kit de ferramentas [Shipyard do Lote](https://github.com/Azure/batch-shipyard), que inclui [receitas Shipyard](https://github.com/Azure/batch-shipyard/tree/master/recipes) para implantar sistemas de arquivos para cargas de trabalho de contêiner do Lote.

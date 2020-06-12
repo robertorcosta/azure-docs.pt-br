@@ -1,15 +1,15 @@
 ---
-title: Introdução ao CLI do Azure para o lote
+title: Introdução à CLI do Azure para o Lote
 description: Obtenha uma introdução rápida dos comandos do Lote na CLI do Azure para gerenciar recursos de serviço do Lote do Azure
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/24/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5fe73770dbe8dfe6d69cb08e1fbf44d42bff9e54
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2bb3dd2e67c3c3bf9139a25935ab0dd074799c6f
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117362"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780221"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gerenciar recursos do Lote com a CLI do Azure
 
@@ -73,7 +73,7 @@ Para usar a CLI do Azure e gerenciar recursos do Lote, como pools, trabalhos e t
 
 Você tem duas opções para autenticação na sua conta do Lote:
 
-- **Usando a autenticação do Azure Active Directory (AD do Azure)** 
+- **Usando a autenticação do Azure AD (Azure Active Directory)** 
 
     A autenticação com o Azure AD é o padrão quando você usa a CLI do Azure com o Lote e é recomendada na maioria dos cenários. 
     
@@ -103,7 +103,7 @@ Os exemplos listados na seção Scripts do shell de exemplo mostram como fazer l
 
 ## <a name="use-azure-batch-cli-extension-commands"></a>Usar comandos de extensão da CLI do Lote do Azure
 
-Instalando a extensão de CLI do Lote do Azure, você pode usar a CLI do Azure para executar trabalhos do Lote de ponta a ponta sem escrever código. Os comandos do Lote com suporte pela extensão permitem que você use modelos JSON para criar pools, trabalhos e tarefas com a CLI do Azure. Você também pode usar os comandos de CLI da extensão para carregar arquivos de entrada de trabalho na conta de Armazenamento do Azure associada à conta do Lote e baixar arquivos de saída de trabalho dele. Para obter mais informações, consulte [usar modelos da CLI do lote do Azure e transferência de arquivos](batch-cli-templates.md).
+Instalando a extensão de CLI do Lote do Azure, você pode usar a CLI do Azure para executar trabalhos do Lote de ponta a ponta sem escrever código. Os comandos do Lote com suporte pela extensão permitem que você use modelos JSON para criar pools, trabalhos e tarefas com a CLI do Azure. Você também pode usar os comandos de CLI da extensão para carregar arquivos de entrada de trabalho na conta de Armazenamento do Azure associada à conta do Lote e baixar arquivos de saída de trabalho dele. Para saber mais, confira [Usar modelos da CLI do Lote do Azure e transferência de arquivos](batch-cli-templates.md).
 
 ## <a name="script-examples"></a>Exemplos de script
 
@@ -119,7 +119,7 @@ az batch pool create my_batch_pool.json
 
 Embora seja possível criar a maioria dos recursos do Lote usando apenas as opções de linha de comando, alguns recursos exigem a especificação de um arquivo formatado em JSON contendo os detalhes do recurso. Por exemplo, você deve usar um arquivo JSON se quiser especificar arquivos de recurso para uma tarefa de inicialização.
 
-Para ver a sintaxe JSON necessária para criar um recurso, consulte a documentação de [referência da API REST do Lote][rest_api]. Cada tópico "Adicionar *tipo de recurso*" na referência da API REST contém exemplos de scripts JSON para criar esse recurso. Você pode usar esses exemplos de scripts JSON como modelos para que os arquivos JSON usem com a CLI do Azure. Por exemplo, para ver a sintaxe JSON para criação do pool, consulte [Adicionar um pool a uma conta][rest_add_pool].
+Para ver a sintaxe JSON necessária para criar um recurso, confira a documentação de [referência da API REST do Lote][rest_api]. Cada tópico "Adicionar *tipo de recurso*" na referência da API REST contém exemplos de scripts JSON para criar esse recurso. Você pode usar esses exemplos de scripts JSON como modelos para que os arquivos JSON usem com a CLI do Azure. Por exemplo, para ver a sintaxe JSON de criação do pool, confira [Adicionar um pool a uma conta][rest_add_pool].
 
 Para um exemplo de script que especifica um arquivo JSON, consulte [Executar um trabalho e tarefas com o Lote](./scripts/batch-cli-sample-run-job.md).
 
@@ -162,8 +162,8 @@ As dicas abaixo poderão ajudar você quando estiver solucionando problemas da C
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
-* Para saber mais sobre recursos do Lote, consulte [Visão geral do Lote do Azure para desenvolvedores](batch-api-basics.md).
+* Confira a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
+* Saiba mais sobre o [Fluxo de trabalho e recursos primários do serviço de lote](batch-service-workflow-features.md) como pools, nós, trabalhos e tarefas.
 * Para saber mais sobre como usar modelos do Lote para criar pools, trabalhos e tarefas sem escrever código, confira [Usar modelos da CLI do Lote do Azure e transferência de arquivos](batch-cli-templates.md).
 
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md

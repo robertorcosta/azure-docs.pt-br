@@ -8,28 +8,28 @@ ms.service: internet-peering
 ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: cee548aff49cd5e4a57eed994b8ade2d157c6313
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ee4fb0708d437c21bea8e77864f210c42b5df019
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75912222"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683966"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-the-portal"></a>Associar o ASN do par à assinatura do Azure usando o portal
 
-Antes de enviar uma solicitação de emparelhamento, você deve primeiro associar seu ASN à assinatura do Azure usando as etapas abaixo.
+Antes de enviar uma solicitação de emparelhamento, você deve primeiro associar seu ASN à assinatura do Azure seguindo as etapas abaixo.
 
-Se preferir, você pode concluir este guia usando o [PowerShell](howto-subscription-association-powershell.md).
+Se preferir, conclua este guia usando o [PowerShell](howto-subscription-association-powershell.md).
 
 ## <a name="create-peerasn-to-associate-your-asn-with-azure-subscription"></a>Criar PeerAsn para associar seu ASN à assinatura do Azure
 
 ### <a name="sign-in-to-the-portal"></a>Entrar no portal
 [!INCLUDE [Account](./includes/account-portal.md)]
 
-### <a name="register-for-peering-resource-provider"></a>Registrar para provedor de recursos de emparelhamento
-Registre-se para provedor de recursos de emparelhamento em sua assinatura seguindo as etapas abaixo. Se você não executar isso, os recursos do Azure necessários para configurar o emparelhamento não estarão acessíveis.
+### <a name="register-for-peering-resource-provider"></a>Registrar-se para o provedor de recursos de emparelhamento
+Registre-se para o provedor de recursos de emparelhamento em sua assinatura seguindo as etapas abaixo. Se você não fizer isso, os recursos do Azure necessários para configurar o emparelhamento não estarão acessíveis.
 
-1. Clique em **assinaturas** no canto superior esquerdo do Portal. Se você não o vir, clique em **mais serviços** e pesquise por ele.
+1. Clique em **Assinaturas** no canto superior esquerdo do portal. Se você não localizar essa opção, clique em **Mais serviços** e pesquise por ela.
 
     > [!div class="mx-imgBorder"]
     > ![Abrir assinaturas](./media/rp-subscriptions-open.png)
@@ -39,83 +39,69 @@ Registre-se para provedor de recursos de emparelhamento em sua assinatura seguin
     > [!div class="mx-imgBorder"]
     > ![Iniciar assinatura](./media/rp-subscriptions-launch.png)
 
-1. Quando a assinatura for aberta, à esquerda, clique em **provedores de recursos**. Em seguida, no painel direito, pesquise *emparelhamento* na janela de pesquisa ou use a barra de rolagem para localizar **Microsoft. emparelhamento** e examine o **status**. Se o status for ***registrado***, ignore as etapas abaixo e vá para a seção **criar PeerAsn**. Se o status for não ***registrado***, selecione **Microsoft. emparelhamento** e clique em **registrar**.
+1. Quando a assinatura for aberta, à esquerda, clique em **Provedores de recursos**. Em seguida, no painel direito, pesquise *emparelhamento* na janela de pesquisa ou use a barra de rolagem para localizar **Microsoft.Peering** e examine o **Status**. Se o status for ***Registrado***, ignore as etapas abaixo e vá para a seção **Criar PeerAsn**. Se o status for ***NotRegistered***, selecione **Microsoft.Peering** e clique em **Registrar**.
 
     > [!div class="mx-imgBorder"]
     > ![Início do registro](./media/rp-register-start.png)
 
-1. Observe que o status muda para ***registro***.
+1. Observe que o status muda para ***Registrando***.
 
     > [!div class="mx-imgBorder"]
     > ![Registro em andamento](./media/rp-register-progress.png)
 
-1. Aguarde um mínimo ou então para que ele conclua o registro. Em seguida, clique em **Atualizar** e verifique se o status é ***registrado***.
+1. Aguarde cerca de um minuto para que ele conclua o registro. Em seguida, clique em **Atualizar** e verifique se o status é ***Registrado***.
 
     > [!div class="mx-imgBorder"]
     > ![Registro concluído](./media/rp-register-completed.png)
 
 ### <a name="create-peerasn"></a>Criar PeerAsn
-Você pode criar um novo recurso PeerAsn para associar um número de sistema autônomo (ASN) com a assinatura do Azure. Você pode associar vários ASNs a uma assinatura criando um **PeerAsn** para cada ASN que você precisa associar.
+Como um provedor de serviços de Internet ou um Provedor do Internet Exchange, você pode criar um recurso PeerAsn para associar um ASN (número de sistema autônomo) a uma assinatura do Azure. Você pode associar vários ASNs a uma assinatura navegando até a [página Associar um PeerASN](https://go.microsoft.com/fwlink/?linkid=2129592) para cada ASN que você precisa associar.
 
-1. Clique em **criar um recurso** > **ver tudo**.
 
-    > [!div class="mx-imgBorder"]
-    > ![Pesquisar PeerAsn](./media/peerasn-seeall.png)
-
-1. Procure *PeerAsn* na caixa de pesquisa e pressione *Enter* no teclado. Nos resultados, clique em recurso **PeerAsn** .
+1. Na página **Associar um ASN Par**, na guia **Noções Básicas**, preencha os campos conforme mostrado abaixo.
 
     > [!div class="mx-imgBorder"]
-    > ![Iniciar o PeerAsn](./media/peerasn-launch.png)
+    > ![Guia de Noções Básicas do PeerAsn](./media/peerasn-basics-tab.png)
 
-1. Depois que **PeerAsn** for iniciado, clique em **criar**.
-
-    > [!div class="mx-imgBorder"]
-    > ![Criar PeerAsn](./media/peerasn-create.png)
-
-1. Na página **associar um par ASN** , na guia **noções básicas** , preencha os campos conforme mostrado abaixo.
-
-    > [!div class="mx-imgBorder"]
-    > ![Guia de noções básicas do PeerAsn](./media/peerasn-basics-tab.png)
-
-    * **Nome** corresponde ao nome do recurso e pode ser qualquer coisa que você escolher.  
-    * Escolha a **assinatura** com a qual você precisa associar o ASN.
-    * O **nome do par** corresponde ao nome da sua empresa e precisa ser o mais próximo possível do seu perfil do PeeringDB. Observe que o valor dá suporte apenas aos caracteres de a-z, A-Z e espaço
-    * Insira seu ASN no campo **ASN par** .
-    * Clique em **criar novo** e insira o **endereço de email** e o número de **telefone** do seu centro de operações de rede (NOC)
-1. Em seguida, clique em **examinar + criar** e observe que o portal executa a validação básica das informações inseridas. Isso é exibido em uma faixa de forma na parte superior, como *executando a validação final...*.
+    * O **nome** corresponde ao nome do recurso e pode ser qualquer um que você escolher.  
+    * Escolha a **Assinatura** à qual você precisa associar ao ASN.
+    * O **nome do par** corresponde ao nome da sua empresa e precisa ser o mais próximo possível do seu perfil de PeeringDB. Observe que o valor dá suporte apenas aos caracteres a-z, A-Z e espaço
+    * Insira seu ASN no campo **ASN Par**.
+    * Clique em **Criar** e insira o **ENDEREÇO DE EMAIL** e o **NÚMERO DE TELEFONE** para o NOC (centro de operações de rede)
+1. Em seguida, clique em **Examinar + criar** e observe que o portal executa a validação básica das informações inseridas. Isso é exibido em uma faixa de opções na parte superior, como *Executando a validação final...* .
 
     > [!div class="mx-imgBorder"]
-    > ![Guia de revisão do PeerAsn](./media/peerasn-review-tab-validation.png)
+    > ![Guia Análise do PeerAsn](./media/peerasn-review-tab-validation.png)
 
-1. Depois que a mensagem na faixa de medida se transformar em *validação aprovada*, verifique suas informações e envie a solicitação clicando em **criar**. Se a validação não for aprovada, clique em **anterior** e repita as etapas acima para modificar sua solicitação e garantir que os valores inseridos não tenham erros.
-
-    > [!div class="mx-imgBorder"]
-    > ![Guia de revisão do PeerAsn](./media/peerasn-review-tab.png)
-
-1. Depois de enviar a solicitação, aguarde até que ela conclua a implantação. Se a implantação falhar, entre em contato com [o emparelhamento da Microsoft](mailto:peering@microsoft.com). Uma implantação bem-sucedida será exibida como a seguir.
+1. Depois que a mensagem na faixa de opções passa a ser *Validação Aprovada*, verifique suas informações e envie a solicitação clicando em **Criar**. Se a validação não for aprovada, clique em **Anterior** e repita as etapas acima para modificar sua solicitação e verificar se os valores inseridos não contêm erros.
 
     > [!div class="mx-imgBorder"]
-    > ![PeerAsn êxito](./media/peerasn-success.png)
+    > ![Guia Análise do PeerAsn](./media/peerasn-review-tab.png)
 
-### <a name="view-status-of-a-peerasn"></a>Exibir o status de um PeerAsn
-Depois que o recurso PeerAsn for implantado com êxito, você precisará aguardar pela Microsoft para aprovar a solicitação de associação. Pode levar até 12 horas para aprovação. Depois de aprovado, você receberá uma notificação para o endereço de email inserido na seção acima.
+1. Depois de enviar a solicitação, aguarde até que ela conclua a implantação. Se a implantação falhar, entre em contato com [Emparelhamento da Microsoft](mailto:peering@microsoft.com). Uma implantação bem-sucedida será exibida como a seguir.
+
+    > [!div class="mx-imgBorder"]
+    > ![Sucesso do PeerAsn](./media/peerasn-success.png)
+
+### <a name="view-status-of-a-peerasn"></a>Ver o status de um PeerAsn
+Depois que o recurso PeerAsn tiver sido implantado com êxito, você precisará aguardar a Microsoft aprovar a solicitação de associação. Podem ser necessárias 12 horas para a aprovação. Depois de aprovado, você receberá uma notificação no endereço de email inserido na seção acima.
 
 > [!IMPORTANT]
-> Aguarde até que o ValidationState ative "aprovado" antes de enviar uma solicitação de emparelhamento. Pode levar até 12 horas para essa aprovação.
+> Aguarde até que o ValidationState passe a ser "Aprovado" antes de enviar uma solicitação de emparelhamento. Podem ser necessárias 12 horas para essa aprovação.
 
 ## <a name="modify-peerasn"></a>Modificar PeerAsn
-No momento, não há suporte para a modificação de PeerAsn. Se você precisar modificar, entre em contato com [o emparelhamento da Microsoft](mailto:peering@microsoft.com).
+No momento, não há suporte para a modificar o PeerAsn. Se precisar modificá-lo, entre em contato com [Emparelhamento da Microsoft](mailto:peering@microsoft.com).
 
 ## <a name="delete-peerasn"></a>Excluir PeerAsn
-Atualmente, não há suporte para a exclusão de um PeerAsn. Se você precisar excluir PeerAsn, entre em contato com [o emparelhamento da Microsoft](mailto:peering@microsoft.com).
+No momento, não há suporte para a excluir um PeerAsn. Se você precisar excluir o PeerAsn, entre em contato com [Emparelhamento da Microsoft](mailto:peering@microsoft.com).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Criar ou modificar um Emparelhamento direto usando o portal](howto-direct-portal.md)
 * [Converter um Emparelhamento direto herdado para o recurso do Azure usando o portal](howto-legacy-direct-portal.md)
-* [Criar ou modificar o emparelhamento do Exchange usando o portal](howto-exchange-portal.md)
+* [Criar ou modificar um emparelhamento do Exchange usando o portal](howto-exchange-portal.md)
 * [Converter um emparelhamento do Exchange herdado para o recurso do Azure usando o portal](howto-legacy-exchange-portal.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-Para obter mais informações, visite [perguntas frequentes sobre emparelhamento da Internet](faqs.md)
+Para obter mais informações, acesse [Perguntas frequentes sobre emparelhamento de Internet](faqs.md)

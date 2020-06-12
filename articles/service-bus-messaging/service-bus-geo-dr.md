@@ -7,14 +7,14 @@ manager: timlt
 editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 04/29/2020
 ms.author: aschhab
-ms.openlocfilehash: 49748006baf779e6aea4322068ca3bd07a03a0a3
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
-ms.translationtype: MT
+ms.openlocfilehash: a5a1e7a7ef73825b4b13d2f36c1c8554fdc2a9b6
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209393"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647864"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Recuperação de desastre em área geográfica do Barramento de Serviço do Azure
 
@@ -41,11 +41,11 @@ O recurso de recuperação de desastre implementa a recuperação de desastre do
 
 Os seguintes termos são usados neste artigo:
 
--  *Alias*: o nome para uma configuração de recuperação de desastres que você configurou. O alias fornece uma única cadeia de conexão estável do FQDN (Nome de Domínio Totalmente Qualificado). Aplicativos usam essa cadeia de conexão de alias para conectarem-se a um namespace. Usar um alias garante que a cadeia de caracteres de conexão fique inalterada quando o failover for disparado.
+-  *Alias*: o nome para uma configuração de recuperação de desastre que você configurou. O alias fornece uma única cadeia de conexão estável do FQDN (Nome de Domínio Totalmente Qualificado). Aplicativos usam essa cadeia de conexão de alias para conectarem-se a um namespace. Usar um alias garante que a cadeia de caracteres de conexão fique inalterada quando o failover for disparado.
 
 -  *Namespace primário/secundário*: os namespaces que correspondem ao alias. O namespace primário é "ativo" e recebe mensagens (pode ser um namespace existente ou novo). O namespace secundário "passivo" e não recebe mensagens. Os metadados entre os dois estão sincronizados, para que ambos possam aceitar mensagens continuamente sem quaisquer alterações no código do aplicativo ou na cadeia de conexão. Para garantir que apenas o namespace ativo receba mensagens, você deve usar o alias. 
 
--  *Metadados*: entidades como filas, tópicos e assinaturas; e suas propriedades do serviço que são associadas ao namespace. Observe que somente entidades e suas configurações são replicadas automaticamente. Mensagens não são replicadas.
+-  *Metadados*: Entidades como filas, tópicos e assinaturas; e suas propriedades do serviço que são associadas ao namespace. Observe que somente entidades e suas configurações são replicadas automaticamente. Mensagens não são replicadas.
 
 -  *Failover*: o processo de ativação do namespace secundário.
 
@@ -64,12 +64,12 @@ O processo de instalação é o seguinte:
 3. Crie o emparelhamento entre os namespaces primário e secundário para obter o ***alias***.
 
     >[!NOTE] 
-    > Se você tiver [migrado seu namespace standard do barramento de serviço do Azure para o barramento de serviço Premium do Azure](service-bus-migrate-standard-premium.md), deverá usar o alias pré-existente (ou seja, sua cadeia de conexão de namespace padrão do barramento de serviço) para criar a configuração de recuperação de desastre por meio do **PS/CLI** ou da **API REST**.
+    > Se você tiver [migrado seu namespace do Barramento de Serviço do Azure Standard para o Barramento de Serviço do Azure Premium](service-bus-migrate-standard-premium.md), use o alias preexistente (ou seja, sua cadeia de conexão de namespace do Barramento de Serviço Standard) para criar a configuração de recuperação de desastre por meio do **PS/CLI** ou da **API REST**.
     >
     >
-    > Isso ocorre porque, durante a migração, sua cadeia de conexão de namespace padrão do barramento de serviço do Azure/nome DNS em si se torna um alias para o namespace Premium do barramento de serviço do Azure.
+    > Isso ocorre porque, durante a migração, sua cadeia de conexão de namespace do Barramento de Serviço do Azure Standard/nome DNS em si se torna um alias para o namespace Premium do Barramento de Serviço do Azure.
     >
-    > Seus aplicativos cliente devem utilizar esse alias (ou seja, a cadeia de conexão de namespace padrão do barramento de serviço do Azure) para se conectar ao namespace Premium em que o emparelhamento de recuperação de desastre foi configurado.
+    > Seus aplicativos cliente devem utilizar esse alias (ou seja, a cadeia de conexão de namespace do Barramento de Serviço do Azure Standard) para se conectar ao namespace Premium em que o emparelhamento de recuperação de desastre foi configurado.
     >
     > Se você usar o portal para configurar a configuração de recuperação de desastre, o portal abstrairá essa limitação de você.
 
@@ -145,6 +145,43 @@ O SKU Premium do Barramento de Serviço também oferece suporte às [Zonas de Di
 Você pode habilitar as Zonas de Disponibilidade apenas em novos namespaces usando o portal do Azure. O Barramento de Serviço não dá suporte à migração dos namespaces existentes. Você não pode desabilitar a redundância de zona depois de habilitá-la em seu namespace.
 
 ![3][]
+
+## <a name="private-endpoints"></a>Pontos de extremidade privados
+Esta seção fornece considerações adicionais ao usar a recuperação de desastre geográfico com namespaces que usam pontos de extremidade privados. Para saber mais sobre como usar pontos de extremidade privados com o Barramento de Serviço em geral, confira [Integrar o Barramento de Serviço do Azure ao Link Privado do Azure](private-link-service.md).
+
+### <a name="new-pairings"></a>Novos emparelhamentos
+Se você tentar criar um emparelhamento entre um namespace primário com um ponto de extremidade privado e um namespace secundário sem um ponto de extremidade privado, o emparelhamento falhará. O emparelhamento só terá sucesso se os namespaces primários e secundários tiverem pontos de extremidade privados. Recomendamos que você use as mesmas configurações nos namespaces primário e secundário e nas redes virtuais nas quais os pontos de extremidade privados são criados. 
+
+> [!NOTE]
+> Quando você tenta emparelhar o namespace primário com um ponto de extremidade privado e o namespace secundário, o processo de validação verifica apenas se existe um ponto de extremidade privado no namespace secundário. Ele não verifica se o ponto de extremidade funciona nem se funcionará após o failover. É sua responsabilidade garantir que o namespace secundário com ponto de extremidade privado funcione conforme o esperado após o failover.
+>
+> Para testar se as configurações do ponto de extremidade privado são as mesmas, envie uma solicitação [Obter filas](/rest/api/servicebus/queues/get) ao namespace secundário de fora da rede virtual e verifique se você recebeu uma mensagem de erro do serviço.
+
+### <a name="existing-pairings"></a>Emparelhamentos existentes
+Se o emparelhamento entre o namespace primário e o secundário já existir, a criação de ponto de extremidade privado no namespace primário falhará. Para resolver, crie primeiro um ponto de extremidade privado no namespace secundário e, em seguida, crie um para o namespace primário.
+
+> [!NOTE]
+> Embora seja permitido acesso somente leitura ao namespace secundário, as atualizações para as configurações do ponto de extremidade privado são permitidas. 
+
+### <a name="recommended-configuration"></a>Configuração recomendada
+Ao criar uma configuração de recuperação de desastre para seu aplicativo e Barramento de Serviço, você deve criar pontos de extremidade privados para namespaces de Barramento de Serviço primário e secundário em redes virtuais que hospedam as instâncias primária e secundária do seu aplicativo.
+
+Digamos que você tenha duas redes virtuais: VNET-1 e VNET-2, além destes namespaces primários e secundários: ServiceBus-Namespace1-Primary, ServiceBus-Namespace2-Secondary. Você precisa executar as seguintes etapas: 
+
+- No ServiceBus-Namespace1-Primary, crie dois pontos de extremidade privados que usam sub-redes de VNET-1 e VNET-2
+- No ServiceBus-Namespace2-Secondary, crie dois pontos de extremidade privados que usam as mesmas sub-redes de VNET-1 e VNET-2 
+
+![Pontos de extremidade privados e redes virtuais](./media/service-bus-geo-dr/private-endpoints-virtual-networks.png)
+
+
+A vantagem dessa abordagem é que o failover pode ocorrer na camada de aplicativo independente do namespace do Barramento de Serviço. Considere os seguintes cenário: 
+
+**Failover somente de aplicativo:** Aqui, o aplicativo não existirá na VNET-1, mas mudará para VNET-2. Uma vez que ambos os pontos de extremidade privados estão configurados tanto na VNET-1 quanto na VNET-2 para os namespaces primário e secundário, o aplicativo simplesmente funcionará. 
+
+**Failover somente de namespace do Barramento de Serviço**: aqui, novamente, como os pontos de extremidade privados são configurados em ambas as redes virtuais para namespaces primários e secundários, o aplicativo simplesmente funcionará. 
+
+> [!NOTE]
+> Para obter orientação sobre a recuperação de desastre geográfico de uma rede virtual, confira [Rede virtual – continuidade dos negócios](../virtual-network/virtual-network-disaster-recovery-guidance.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

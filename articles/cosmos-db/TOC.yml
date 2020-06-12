@@ -977,41 +977,40 @@
           href: how-to-manage-indexing-policy.md
         - name: Definir chaves exclusivas
           href: how-to-define-unique-keys.md
-    - name: Práticas recomendadas
+    - name: Desempenho e solução de problemas
       items:
-        - name: Dicas de desempenho
+        - name: Consulta
           items:
             - name: Obter métricas de execução da consulta
-              displayName: 'query profile, profile'
               href: profile-sql-api-query.md
             - name: Desempenho de consulta de ajuste
               href: sql-api-query-metrics.md
-            - name: Dicas de desempenho para o SDK do .NET
+            - name: Solucionar problemas de desempenho de consulta
+              href: troubleshoot-query-performance.md
+        - name: .NET
+          items:
+            - name: Dicas de desempenho para o SDK v3 do .NET
+              href: performance-tips-dotnet-sdk-v3-sql.md
+            - name: Dicas de desempenho para o SDK v2 do .NET
               href: performance-tips.md
+            - name: Solucionar problemas de SDK do .NET
+              href: troubleshoot-dot-net-sdk.md
+        - name: Java
+          items:
             - name: Dicas de desempenho para o SDK do Java v4
               href: performance-tips-java-sdk-v4-sql.md
-            - name: Dicas de desempenho para SDKs do Java mais antigos
-              items:
-                - name: SDK do Java Assíncrono v2
-                  href: performance-tips-async-java.md
-                - name: SDK do Java Síncrono v2
-                  href: performance-tips-java.md
-            - name: Teste de desempenho - aplicativo de exemplo
-              href: performance-testing.md
-        - name: Gravações e leituras econômicas
-          href: key-value-store-cost.md
-    - name: Solucionar problemas
-      items:
-        - name: Solucionar problemas de desempenho de consulta
-          href: troubleshoot-query-performance.md
-        - name: Solucionar problemas do SDK do Java v4
-          href: troubleshoot-java-sdk-v4-sql.md
-        - name: Solucionar problemas de SDKs do Java mais antigos
-          items:
+            - name: Solucionar problemas do SDK do Java v4
+              href: troubleshoot-java-sdk-v4-sql.md
+            - name: SDK do Java Assíncrono v2
+              href: performance-tips-async-java.md
+            - name: SDK do Java Síncrono v2
+              href: performance-tips-java.md
             - name: SDK do Java Assíncrono v2
               href: troubleshoot-java-async-sdk.md
-        - name: Solucionar problemas de SDK do .NET
-          href: troubleshoot-dot-net-sdk.md
+        - name: Teste de desempenho - aplicativo de exemplo
+          href: performance-testing.md
+        - name: Gravações e leituras econômicas
+          href: key-value-store-cost.md
     - name: Migrar para SDKs mais recentes
       items:
         - name: Migrar para o SDK do Java V4
@@ -1194,28 +1193,30 @@
           href: how-to-migrate-from-bulk-executor-library.md
         - name: Executor em massa - Biblioteca Java
           href: bulk-executor-java.md
-- name: Referência
+- name: Referências para SDKs da API do SQL
   items:
-    - name: .NET
-      href: sql-api-sdk-dotnet.md
-    - name: .NET Core
-      href: sql-api-sdk-dotnet-core.md
-    - name: .NET Standard
-      href: sql-api-sdk-dotnet-standard.md
-    - name: Biblioteca do feed de alterações do .NET
-      href: sql-api-sdk-dotnet-changefeed.md
-    - name: Biblioteca do executor em massa do .NET
-      href: sql-api-sdk-bulk-executor-dot-net.md
-    - name: Biblioteca do executor em massa Java
-      href: sql-api-sdk-bulk-executor-java.md
-    - name: SDK do Java v4 para Core
-      href: sql-api-sdk-java-v4.md
-    - name: SDKs de Java mais antigos para Core
+    - name: SDKs do .NET
       items:
+        - name: SDK v3 do .NET
+          href: sql-api-sdk-dotnet-standard.md
+        - name: SDK v2 do .NET
+          href: sql-api-sdk-dotnet.md
+        - name: SDK v2 do .NET Core
+          href: sql-api-sdk-dotnet-core.md
+        - name: Biblioteca do feed de alterações do .NET v2
+          href: sql-api-sdk-dotnet-changefeed.md
+        - name: Biblioteca do executor em massa do .NET v2
+          href: sql-api-sdk-bulk-executor-dot-net.md
+    - name: SDKs do Java
+      items:
+        - name: SDK do Java v4
+          href: sql-api-sdk-java-v4.md
         - name: SDK do Java Assíncrono v2
           href: sql-api-sdk-async-java.md
         - name: SDK do Java Síncrono v2
           href: sql-api-sdk-java.md
+        - name: Biblioteca do executor em massa Java v2
+          href: sql-api-sdk-bulk-executor-java.md
     - name: Node.js
       href: sql-api-sdk-node.md
     - name: Python

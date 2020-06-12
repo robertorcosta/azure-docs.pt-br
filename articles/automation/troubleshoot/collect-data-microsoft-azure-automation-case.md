@@ -1,6 +1,6 @@
 ---
-title: Dados a serem coletados quando você abre um caso para Microsoft Azure automação | Microsoft Docs
-description: Este artigo descreve algumas das informações que você deve coletar antes de abrir um caso para a automação do Azure com suporte Microsoft Azure.
+title: Dados a serem coletados ao abrir um caso para a Automação do Microsoft Azure | Microsoft Docs
+description: Este artigo descreve as informações a serem coletadas antes de abrir um caso para a Automação do Azure com suporte do Microsoft Azure.
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
 author: v-miegge
@@ -13,75 +13,75 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/23/2019
 ms.author: v-miegge
-ms.openlocfilehash: e1d5d791a58f301991819b41757b9021f6e30fc0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d2f97d0b889186324aef9613847e3eddbfe1eb02
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81679412"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684853"
 ---
-# <a name="data-to-collect-when-you-open-a-case-for-microsoft-azure-automation"></a>Dados a serem coletados quando você abre um caso para a Automação do Microsoft Azure
+# <a name="data-to-collect-when-opening-a-case-for-microsoft-azure-automation"></a>Dados a serem coletados ao abrir um caso para a Automação do Microsoft Azure
 
-Este artigo descreve algumas das informações que você deve coletar antes de abrir um caso para a automação do Azure com suporte Microsoft Azure. Essas informações não são necessárias para abrir o caso. No entanto, ele pode ajudar a Microsoft a resolver seu problema mais rapidamente. Além disso, você pode ser solicitado a fornecer esses dados pelo engenheiro de suporte depois de abrir o caso.
+Este artigo descreve algumas informações a serem coletadas antes de abrir um caso para a Automação do Azure com suporte do Microsoft Azure. Essas informações não são necessárias para abrir o caso. No entanto, elas podem ajudar a Microsoft a solucionar seu problema mais rapidamente. Além disso, você pode ser solicitado a fornecer esses dados pelo engenheiro de suporte depois de abrir o caso.
 
 ## <a name="basic-data"></a>Dados básicos
 
-Colete os dados básicos descritos no artigo da base de dados de conhecimento [4034605-como capturar a automação do Azure-diagnóstico com script](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics).
+Colete os dados básicos descritos no artigo da Base de Dados de Conhecimento [4034605 - Como capturar diagnóstico com script da Automação do Azure](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics).
 
-## <a name="data-for-update-management-issues-on-linux"></a>Dados para problemas de Gerenciamento de Atualizações no Linux
+## <a name="data-for-update-management-issues-on-linux"></a>Dados para problemas no Gerenciamento de Atualizações no Linux
 
 1. Além dos itens listados em KB [4034605](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics), execute a seguinte ferramenta de coleta de logs:
 
    [Coletor de logs do agente do OMS para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/tools/LogCollector/OMS_Linux_Agent_Log_Collector.md)
  
-2. Compacte o conteúdo da pasta **/var/opt/Microsoft/omsagent/Run/automationworker/** e, em seguida, envie o arquivo compactado para o suporte do Azure.
+2. Compacte o conteúdo da pasta **/var/opt/microsoft/omsagent/run/automationworker/** e envie o arquivo compactado para o Suporte do Azure.
  
 3. Verifique se a ID do espaço de trabalho para a qual o agente do Log Analytics para Linux se reporta é igual à ID do espaço de trabalho que está sendo monitorado para atualizações.
 
-## <a name="data-for-update-management-issues-on-windows"></a>Dados para problemas de Gerenciamento de Atualizações no Windows
+## <a name="data-for-update-management-issues-on-windows"></a>Dados para problemas no Gerenciamento de Atualizações no Windows
 
-1. Coletar dados para os itens listados em [4034605](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics).
+1. Colete dados para os itens listados em [4034605](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics).
 
 2. Exporte os seguintes logs de eventos para o formato EVTX:
 
-   * System (sistema)
+   * Sistema
    * Aplicativo
    * Segurança
    * Operations Manager
-   * Microsoft-SMA/operacional
+   * Microsoft-SMA/Operational
 
-3. Verifique se a ID do espaço de trabalho que o agente se reporta é igual à ID do espaço de trabalho que está sendo monitorado pelas atualizações do Windows.
+3. Verifique se a ID do espaço de trabalho para a qual o agente se reporta é igual à ID do espaço de trabalho que está sendo monitorado por Atualizações do Windows.
 
 ## <a name="data-for-job-issues"></a>Dados para problemas de trabalho
 
-1. Coletar dados para os itens listados em [4034605](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics).
+1. Colete dados para os itens listados em [4034605](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics).
 
 2. Colete a ID do trabalho que tem um problema:
 
-   1. Na portal do Azure, acesse **contas de automação**.
-   2. Selecione a conta de automação para a qual você está Solucionando problemas e anote o nome.
-   3. Selecione **trabalhos**.
-   4. Escolha o trabalho que você está solucionando.
-   5. No painel Resumo do trabalho, procure o valor GUID na **ID do trabalho**.
+   1. No portal do Azure, acesse as **Contas de automação**.
+   2. Selecione a Conta de automação para a qual você está solucionando problemas e anote o nome.
+   3. Selecione **Trabalhos**.
+   4. Escolha o trabalho que você está solucionando problemas.
+   5. No painel Resumo do trabalho, procure o valor GUID em **ID do trabalho**.
 
    ![ID do trabalho no painel Resumo do trabalho](media/collect-data-microsoft-azure-automation-case/job-summary-job-id.png)
 
 3. Colete uma amostra do script que você está executando.
 
-4. Coletar os arquivos de log:
+4. Colete os arquivos de log:
 
-   1. Na portal do Azure, acesse **contas de automação**.
-   2. Selecione a conta de automação para a qual você está Solucionando problemas.
-   3. Selecione **trabalhos**.
-   4. Escolha o trabalho que você está solucionando.
-   5. Selecione **todos os logs**.
+   1. No portal do Azure, acesse as **Contas de automação**.
+   2. Selecione a Conta de automação para a qual você está solucionando problemas.
+   3. Selecione **Trabalhos**.
+   4. Escolha o trabalho que você está solucionando problemas.
+   5. Selecione **Todos os logs**.
    6. No painel resultante, colete os dados.
 
-   ![Dados listados em todos os logs](media/collect-data-microsoft-azure-automation-case/all-logs-data.png)
+   ![Dados listados em Todos os logs](media/collect-data-microsoft-azure-automation-case/all-logs-data.png)
 
-## <a name="data-for-module-issues"></a>Dados para problemas de módulo
+## <a name="data-for-module-issues"></a>Dados de problemas de módulo
 
-Além dos itens de [dados básicos](#basic-data), reúna as seguintes informações:
+Além dos [itens de dados básicos](#basic-data), reúna as seguintes informações:
 
 * As etapas que você seguiu, para que o problema possa ser reproduzido.
 * Capturas de tela de qualquer mensagem de erro.
@@ -89,8 +89,8 @@ Além dos itens de [dados básicos](#basic-data), reúna as seguintes informaç�
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você precisar de mais ajuda:
+Se precisar de mais:
 
-* Obtenha respostas de especialistas do Azure por meio dos [fóruns do Azure](https://azure.microsoft.com/support/forums/).
-* Conecte- [@AzureSupport](https://twitter.com/azuresupport)se com o, a conta de Microsoft Azure oficial para melhorar a experiência do cliente conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
-* Registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **obter suporte**.
+* Obtenha respostas de especialistas do Azure nos [Fóruns do Azure](https://azure.microsoft.com/support/forums/).
+* Conecte-se a [@AzureSupport](https://twitter.com/azuresupport), a conta oficial do Microsoft Azure para melhorar a experiência do cliente conectando-se à comunidade do Azure para os recursos certos: respostas, suporte e especialistas.
+* Registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **Obter Suporte**.

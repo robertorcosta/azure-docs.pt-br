@@ -6,7 +6,7 @@ ms.date: 11/09/2018
 ms.author: magoedte
 ms.openlocfilehash: 6890c71ac7c265d46cc77751786fea4d0b228588
 ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/27/2020
 ms.locfileid: "67172315"
@@ -34,4 +34,4 @@ No PowerShell, se você receber a seguinte mensagem de erro, precisará atualiza
 
 `Set-AzDiagnosticSetting : A parameter cannot be found that matches parameter name 'WorkspaceId'.`
 
-Atualize sua versão do Azure PowerShell, siga as instruções no artigo [instalar Azure PowerShell](/powershell/azure/install-az-ps) .
+Atualize a versão do Azure PowerShell e siga as instruções no artigo [Instalar o Azure PowerShell](/powershell/azure/install-az-ps).

@@ -1,40 +1,55 @@
 ---
-title: Converter um emparelhamento do Exchange herdado em um recurso do Azure usando o portal do Azure
+title: Converter um emparelhamento do Exchange herdado para um recurso do Azure usando o portal do Azure
 titleSuffix: Azure
-description: Converter um emparelhamento do Exchange herdado em um recurso do Azure usando o portal do Azure
+description: Converter um emparelhamento do Exchange herdado para um recurso do Azure usando o portal do Azure
 services: internet-peering
-author: prmitiki
+author: derekolo
 ms.service: internet-peering
 ms.topic: article
-ms.date: 11/27/2019
-ms.author: prmitiki
-ms.openlocfilehash: 87a7a6bca608f1748d3b659eabdc3e941b537377
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 5/21/2020
+ms.author: derekol
+ms.openlocfilehash: e4f9f5b59b61065c300b58fb1cdb88e12b7ddbe0
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81678572"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84247216"
 ---
-# <a name="convert-a-legacy-exchange-peering-to-an-azure-resource-by-using-the-azure-portal"></a>Converter um emparelhamento do Exchange herdado em um recurso do Azure usando o portal do Azure
+# <a name="convert-a-legacy-exchange-peering-to-an-azure-resource-by-using-the-azure-portal"></a>Converter um emparelhamento do Exchange herdado para um recurso do Azure usando o portal do Azure
 
-Este artigo descreve como converter um emparelhamento do Exchange herdado existente em um recurso do Azure usando o portal do Azure.
+Este artigo descreve como converter um emparelhamento do Exchange herdado existente para um recurso do Azure usando o portal do Azure.
 
-Se preferir, você pode concluir este guia usando o [PowerShell](howto-legacy-exchange-powershell.md).
+Se preferir, conclua este guia usando o [PowerShell](howto-legacy-exchange-powershell.md).
 
 ## <a name="before-you-begin"></a>Antes de começar
-* Examine os [pré-requisitos](prerequisites.md) e o [passo a passos de emparelhamento do Exchange](walkthrough-exchange-all.md) antes de começar a configuração.
+* Examine os [pré-requisitos](prerequisites.md) e o [Guia passo a passo de emparelhamento do Exchange](walkthrough-exchange-all.md) antes de começar a configuração.
 
 ## <a name="convert-a-legacy-exchange-peering-to-an-azure-resource"></a>Converter um emparelhamento do Exchange herdado para um recurso do Azure
 
-### <a name="sign-in-to-the-portal-and-select-your-subscription"></a>Entre no portal e selecione sua assinatura
-[!INCLUDE [Account](./includes/account-portal.md)]
+Como um Provedor de Internet do Exchange, você pode criar uma solicitação de emparelhamento do Exchange [Criando um Emparelhamento]( https://go.microsoft.com/fwlink/?linkid=2129593).
 
-### <a name="convert-legacy-exchange-peering"></a><a name=create></a>Converter o emparelhamento do Exchange herdado
+1. Na página **Criar um Emparelhamento**, na guia **Noções Básicas**, preencha as caixas conforme mostrado aqui:
 
-Você pode converter conexões de emparelhamento herdadas usando o recurso de **emparelhamento** .
+   ![Registrar Serviço de Emparelhamento](./media/setup-basics-tab.png)
 
-#### <a name="launch-the-resource-and-configure-basic-settings"></a>Iniciar o recurso e definir as configurações básicas
-[!INCLUDE [direct-peering-basic](./includes/direct-portal-basic.md)]
+* Selecione sua Assinatura do Azure.
+
+* Para o grupo de recursos, você pode escolher um grupo de recursos existente na lista suspensa ou criar um selecionando Criar. Para este exemplo, vamos criar um grupo de recursos.
+
+* O nome corresponde ao nome do recurso e pode ser qualquer um de sua escolha.
+
+* A região será selecionada automaticamente se você escolher um grupo de recursos existente. Se você optar por criar um novo grupo de recursos, também precisará escolher a região do Azure na qual deseja que o recurso resida.
+
+  >[!NOTE]
+  >A região em que um grupo de recursos reside é independente do local em que você deseja criar o emparelhamento com a Microsoft. Porém, é uma prática recomendada organizar seus recursos de emparelhamento em grupos de recursos que residem nas regiões do Azure mais próximas. Por exemplo, para emparelhamentos em Ashburn, você pode criar um grupo de recursos no Leste dos EUA ou no Leste dos EUA 2.
+
+* Selecione seu ASN na caixa **PeerASN**.
+
+  >[!IMPORTANT]  
+  >Você só pode escolher um ASN com ValidationState como Aprovado antes de enviar uma solicitação de emparelhamento. Se você tiver acabado de enviar sua solicitação PeerAsn, aguarde cerca de 12 horas para que a associação do ASN seja aprovada. Se o ASN selecionado tiver validação pendente, você verá uma mensagem de erro. Se não vir o ASN que precisa escolher, verifique se selecionou a assinatura correta. Neste caso, verifique se você já criou o PeerAsn usando **[Associar o ASN Par à assinatura do Azure](https://go.microsoft.com/fwlink/?linkid=2129592)** .
+
+* Selecione **Avançar: Configuração** para continuar.
+
 
 #### <a name="configure-connections-and-submit"></a>Configurar conexões e enviar
 [!INCLUDE [exchange-peering-configuration](./includes/exchange-portal-configuration-legacy.md)]
@@ -44,7 +59,7 @@ Você pode converter conexões de emparelhamento herdadas usando o recurso de **
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-Para obter mais informações, consulte [perguntas frequentes sobre emparelhamento da Internet](faqs.md).
+Para obter mais informações, confira [Perguntas frequentes sobre emparelhamento de Internet](faqs.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

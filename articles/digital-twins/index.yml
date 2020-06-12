@@ -1,75 +1,81 @@
 ### YamlMime:Landing
 title: Documentação da Versão Prévia dos Gêmeos Digitais do Azure
-summary: Saiba como usar os Gêmeos Digitais do Azure para conectar pessoas, lugares e coisas, e criar soluções IoT com inteligência espacial. Veja o Guia de início rápido e Tutoriais para monitorar um prédio inteligente imaginário, aprender conceitos detalhados e criar uma solução IoT de última geração que modela seu ambiente físico.
+summary: Saiba como usar os Gêmeos Digitais do Azure para criar não só uma representação digital de seus ativos, de seus ambientes e de seus sistemas de negócios, mas também soluções de IoT da próxima geração que modelem o mundo real.
 metadata:
   title: Documentação da Versão Prévia dos Gêmeos Digitais do Azure – Tutoriais, Referência da API | Microsoft Docs
   description: Saiba como usar os Gêmeos Digitais do Azure para conectar pessoas, lugares e coisas, e criar soluções de IoT com inteligência espacial.
-  services: digital-twins
   ms.service: digital-twins
-  ms.subservice: digital-twins
   ms.topic: landing-page
   ms.collection: collection
-  author: KingdomOfEnds
-  ms.author: v-adgera
-  ms.date: 02/07/2020
-  ms.openlocfilehash: e5d66ffb35cb0ce50aa7898cad30bf9fd0bf57ac
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  author: philmea
+  ms.author: philmea
+  ms.date: 02/12/2020
+  ms.openlocfilehash: 93bfe0db668e3aaa78e7f58b715490dfe26fbe7a
+  ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "77110578"
+  ms.lasthandoff: 06/09/2020
+  ms.locfileid: "84610025"
 landingContent:
 - title: Sobre os Gêmeos Digitais do Azure
   linkLists:
   - linkListType: overview
     links:
     - text: O que são Gêmeos Digitais do Azure?
-      url: about-digital-twins.md
-  - linkListType: concept
-    links:
-    - text: Noções básicas sobre modelo de objeto e gráfico de inteligência espacial dos Gêmeos Digitais
-      url: concepts-objectmodel-spatialgraph.md
-  - linkListType: video
-    links:
-    - text: Introdução aos Gêmeos Digitais do Azure
-      url: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Digital-Twins-Introduction
-- title: Introdução
+      url: overview.md
+- title: Começar com os tutoriais
   linkLists:
-  - linkListType: quickstart
-    links:
-    - text: Encontrar salas disponíveis
-      url: quickstart-view-occupancy-dotnet.md
   - linkListType: tutorial
     links:
-    - text: Implantar e configurar
-      url: tutorial-facilities-setup.md
-    - text: Provisionar e monitorar condições
-      url: tutorial-facilities-udf.md
-    - text: Notificar com Aplicativos Lógicos
-      url: tutorial-facilities-events.md
-    - text: Visualizar eventos com o Time Series Insights
-      url: tutorial-facilities-analyze.md
-- title: Desenvolver com os Gêmeos Digitais do Azure
+    - text: Codificar um aplicativo cliente
+      url: tutorial-code.md
+  - linkListType: tutorial
+    links:
+    - text: Explorar as noções básicas com um aplicativo cliente de exemplo
+      url: tutorial-command-line-app.md
+  - linkListType: tutorial
+    links:
+    - text: Conectar uma solução de ponta a ponta
+      url: tutorial-end-to-end.md
+- title: Saiba mais
   linkLists:
   - linkListType: concept
     links:
-    - text: Conectividade do dispositivo e entrada de telemetria
-      url: concepts-device-ingress.md
-    - text: Processamento de dados e funções definidas pelo usuário
-      url: concepts-user-defined-functions.md
+    - text: Modelos personalizados
+      url: concepts-models.md
+  - linkListType: concept
+    links:
+    - text: Gêmeos digitais e o grafo de gêmeos
+      url: concepts-twins-graph.md
+  - linkListType: concept
+    links:
+    - text: Idioma de consulta
+      url: concepts-query-language.md
+- title: Desenvolver
+  linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Configurar o Postman
-      url: how-to-configure-postman.md
-    - text: Criar funções definidas pelo usuário
-      url: how-to-user-defined-functions.md
+    - text: Usar a CLI dos Gêmeos Digitais do Azure
+      url: how-to-use-cli.md
+  - linkListType: how-to-guide
+    links:
+    - text: Criar uma instância dos Gêmeos Digitais do Azure
+      url: how-to-set-up-instance.md
+  - linkListType: how-to-guide
+    links:
+    - text: Autenticar um aplicativo cliente
+      url: how-to-authenticate-client.md
 - title: Referência de API
   linkLists:
-  - linkListType: reference
-    links:
-    - text: Biblioteca de clientes com funções definidas pelo usuário
-      url: reference-user-defined-functions-client-library.md
   - linkListType: how-to-guide
     links:
-    - text: Usar o Swagger dos Gêmeos Digitais
-      url: how-to-use-swagger.md
+    - text: Usar as APIs e os SDKs dos Gêmeos Digitais do Azure
+      url: how-to-use-apis-sdks.md
+  - linkListType: how-to-guide
+    links:
+    - text: Criar SDKs personalizados com o AutoRest
+      url: how-to-create-custom-sdks.md
+  - linkListType: reference
+    links:
+    - text: APIs REST
+      url: https://docs.microsoft.com/rest/api/azure-digitaltwins/

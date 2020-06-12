@@ -4,16 +4,19 @@
   items:
     - name: O que é o Azure Blueprints?
       displayName: 'templates, policy, definition, assignment, rbac'
-      href: overview.md
+      href: ./overview.md
 - name: Inícios rápidos
   expanded: true
   items:
     - name: Criar um blueprint – Portal
       displayName: 'publish, assign, track, unassign, delete'
-      href: create-blueprint-portal.md
-    - name: Criar um blueprint – PowerShell
+      href: ./create-blueprint-portal.md
+    - name: Criar um blueprint – Azure PowerShell
       displayName: 'publish, assign, track, unassign, delete'
-      href: create-blueprint-powershell.md
+      href: ./create-blueprint-powershell.md
+    - name: Criar um blueprint – CLI do Azure
+      displayName: 'publish, assign, track, unassign, delete'
+      href: ./create-blueprint-azurecli.md
     - name: Criar um blueprint – API REST
       displayName: 'publish, assign, track, unassign, delete'
       href: create-blueprint-rest-api.md
@@ -268,6 +271,8 @@
   href: ./troubleshoot/general.md
 - name: Referência
   items:
+    - name: CLI do Azure
+      href: /cli/azure/ext/blueprint/blueprint
     - name: Azure PowerShell
       href: '/powershell/module/az.blueprint/#blueprint'
     - name: SDK do Azure para .NET
@@ -285,7 +290,7 @@
     - name: GitHub – Exemplos do Azure Blueprints
       href: 'https://github.com/Azure/azure-blueprints'
     - name: P e R da Microsoft para Azure Blueprints
-      href: /answers/topics/azure-blueprints.html.html
+      href: /answers/topics/azure-blueprints.html
     - name: Canal do YouTube de Governança
       href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
     - name: Azure Friday – Visão geral do Azure Blueprints

@@ -1,24 +1,24 @@
 ---
-title: Limitações-banco de dados do Azure para MariaDB
+title: Limitações - Banco de Dados do Azure para MariaDB
 description: Este artigo descreve as limitações no Banco de Dados do Azure para o MariaDB, como o número de opções de mecanismo de conexão e armazenamento.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 4/1/2020
-ms.openlocfilehash: 18f227c1888e0565eebb640fa61ced56dc994865
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d4450689f6865c19436e437e09a3aa9f286c6e21
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80632335"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653129"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Limitações no Banco de Dados do Azure para o MariaDB
 As seções a seguir descrevem a capacidade, suporte do mecanismo de armazenamento, suporte de privilégio, suporte à instrução de manipulação de dados e limites funcionais no serviço do banco de dados.
 
 ## <a name="server-parameters"></a>Parâmetros do Servidor
 
-Os valores mínimo e máximo de vários parâmetros de servidor populares são determinados pelo tipo de preço e vCores. Consulte as tabelas abaixo para obter limites.
+Os valores mínimo e máximo de vários parâmetros comuns de servidor são determinados pelo tipo de preço e pelos vCores. Consulte as tabelas abaixo para saber os limites.
 
 ### <a name="max_connections"></a>max_connections
 
@@ -29,28 +29,28 @@ Os valores mínimo e máximo de vários parâmetros de servidor populares são d
 |Uso Geral|2|300|10|600|
 |Uso Geral|4|625|10|1250|
 |Uso Geral|8|1250|10|2500|
-|Uso Geral|16|2500|10|5.000|
-|Uso Geral|32|5.000|10|10000|
+|Uso Geral|16|2500|10|5\.000|
+|Uso Geral|32|5\.000|10|10000|
 |Uso Geral|64|10000|10|20000|
 |Otimizado para memória|2|600|10|800|
 |Otimizado para memória|4|1250|10|2500|
-|Otimizado para memória|8|2500|10|5.000|
-|Otimizado para memória|16|5.000|10|10000|
+|Otimizado para memória|8|2500|10|5\.000|
+|Otimizado para memória|16|5\.000|10|10000|
 |Otimizado para memória|32|10000|10|20000|
 
 Quando as conexões excederem o limite, você poderá receber o seguinte erro:
-> ERRO 1040 (08004): número excessivo de conexões
+> ERRO 1040 (08004): Muitas conexões
 
 > [!IMPORTANT]
-> Para obter a melhor experiência, recomendamos que você use um pool de conexões como o ProxySQL para gerenciar conexões com eficiência.
+> Para obter a melhor experiência, recomendamos usar um pool de conexões como o ProxySQL para gerenciar conexões com eficiência.
 
-A criação de novas conexões de cliente com o MariaDB leva tempo e, uma vez estabelecida, essas conexões ocupam recursos do banco de dados, mesmo quando ociosas. A maioria dos aplicativos solicita muitas conexões de curta duração, o que aumenta essa situação. O resultado é um número menor de recursos disponíveis para sua carga de trabalho real, levando a um desempenho reduzido. Um pool de conexões que diminui as conexões ociosas e reutiliza as conexões existentes ajudará a evitar isso. Para saber mais sobre como configurar o ProxySQL, visite nossa [postagem no blog](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042).
+A criação de novas conexões de cliente com o MariaDB leva tempo e, uma vez estabelecidas, essas conexões ocupam recursos do banco de dados, mesmo quando ociosas. A maioria dos aplicativos solicita muitas conexões de curta duração, o que agrega a essa situação. O resultado é um número menor de recursos disponíveis para sua carga de trabalho real, o que leva à redução do desempenho. Um pool de conexões que diminui as conexões ociosas e reutiliza as conexões existentes ajudará a evitar isso. Para saber mais sobre a configuração do ProxySQL, visite nossa [postagem do blog](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042).
 
 ### <a name="query_cache_size"></a>query_cache_size
 
-O cache de consulta é desativado por padrão. Para habilitar o cache de consulta, configure `query_cache_type` o parâmetro. 
+O cache de consulta é desativado por padrão. Para habilitar o cache de consulta, configure o parâmetro `query_cache_type`. 
 
-Examine a [documentação do MariaDB](https://mariadb.com/kb/en/server-system-variables/#query_cache_size) para saber mais sobre esse parâmetro.
+Consulte a [documentação do MariaDB](https://mariadb.com/kb/en/server-system-variables/#query_cache_size) para saber mais sobre esse parâmetro.
 
 |**Tipo de preço**|**vCore(s)**|**Valor padrão**|**Valor mínimo**|**Valor máximo**|
 |---|---|---|---|---|
@@ -70,7 +70,7 @@ Examine a [documentação do MariaDB](https://mariadb.com/kb/en/server-system-va
 
 ### <a name="sort_buffer_size"></a>sort_buffer_size
 
-Examine a [documentação do MariaDB](https://mariadb.com/kb/en/server-system-variables/#sort_buffer_size) para saber mais sobre esse parâmetro.
+Consulte a [documentação do MariaDB](https://mariadb.com/kb/en/server-system-variables/#sort_buffer_size) para saber mais sobre esse parâmetro.
 
 |**Tipo de preço**|**vCore(s)**|**Valor padrão**|**Valor mínimo**|**Valor máximo**|
 |---|---|---|---|---|
@@ -90,7 +90,7 @@ Examine a [documentação do MariaDB](https://mariadb.com/kb/en/server-system-va
 
 ### <a name="join_buffer_size"></a>join_buffer_size
 
-Examine a [documentação do MariaDB](https://mariadb.com/kb/en/server-system-variables/#join_buffer_size) para saber mais sobre esse parâmetro.
+Consulte a [documentação do MariaDB](https://mariadb.com/kb/en/server-system-variables/#join_buffer_size) para saber mais sobre esse parâmetro.
 
 |**Tipo de preço**|**vCore(s)**|**Valor padrão**|**Valor mínimo**|**Valor máximo**|
 |---|---|---|---|---|
@@ -110,7 +110,7 @@ Examine a [documentação do MariaDB](https://mariadb.com/kb/en/server-system-va
 
 ### <a name="max_heap_table_size"></a>max_heap_table_size
 
-Examine a [documentação do MariaDB](https://mariadb.com/kb/en/server-system-variables/#max_heap_table_size) para saber mais sobre esse parâmetro.
+Consulte a [documentação do MariaDB](https://mariadb.com/kb/en/server-system-variables/#max_heap_table_size) para saber mais sobre esse parâmetro.
 
 |**Tipo de preço**|**vCore(s)**|**Valor padrão**|**Valor mínimo**|**Valor máximo**|
 |---|---|---|---|---|
@@ -130,7 +130,7 @@ Examine a [documentação do MariaDB](https://mariadb.com/kb/en/server-system-va
 
 ### <a name="tmp_table_size"></a>tmp_table_size
 
-Examine a [documentação do MariaDB](https://mariadb.com/kb/en/server-system-variables/#tmp_table_size) para saber mais sobre esse parâmetro.
+Consulte a [documentação do MariaDB](https://mariadb.com/kb/en/server-system-variables/#tmp_table_size) para saber mais sobre esse parâmetro.
 
 |**Tipo de preço**|**vCore(s)**|**Valor padrão**|**Valor mínimo**|**Valor máximo**|
 |---|---|---|---|---|
@@ -150,25 +150,31 @@ Examine a [documentação do MariaDB](https://mariadb.com/kb/en/server-system-va
 
 ### <a name="time_zone"></a>time_zone
 
-As tabelas de fuso horário podem ser populadas `mysql.az_load_timezone` chamando o procedimento armazenado de uma ferramenta como a linha de comando do MySQL ou o MySQL Workbench. Consulte os artigos [portal do Azure](howto-server-parameters.md#working-with-the-time-zone-parameter) ou [CLI do Azure](howto-configure-server-parameters-cli.md#working-with-the-time-zone-parameter) para saber como chamar o procedimento armazenado e definir os fusos horários globais ou de nível de sessão.
+As tabelas de fuso horário podem ser preenchidas, chamando o procedimento armazenado `mysql.az_load_timezone` de uma ferramenta como a linha de comando do MySQL ou o Workbench do MySQL. Consulte os artigos [Portal do Azure](howto-server-parameters.md#working-with-the-time-zone-parameter) ou [CLI do Azure](howto-configure-server-parameters-cli.md#working-with-the-time-zone-parameter) para saber como chamar o procedimento armazenado e definir os fusos horários globais ou no nível da sessão.
+
+### <a name="innodb_file_per_table"></a>innodb_file_per_table
+
+O MariaDB armazena a tabela InnoDB em espaços de tabela diferentes com base na configuração fornecida durante a criação da tabela. O de [espaço de tabela do sistema](https://mariadb.com/kb/en/innodb-system-tablespaces/) é a área de armazenamento do dicionário de dados InnoDB. Um [espaço de tabela de arquivo por tabela](https://mariadb.com/kb/en/innodb-file-per-table-tablespaces/) contém dados e índices de uma única tabela InnoDB e é armazenado no sistema de arquivos em seu próprio arquivo de dados. Esse comportamento é controlado pelo parâmetro do servidor `innodb_file_per_table`. Definir `innodb_file_per_table` como `OFF` faz com que o InnoDB crie tabelas no espaço de tabela do sistema. Caso contrário, o InnoDB cria tabelas em espaços de tabela de arquivo por tabela.
+
+O Banco de Dados do Azure para MariaDB oferece suporte abrangente, de **1 TB**, em um único arquivo de dados. Se o tamanho do banco de dados for maior que 1 TB, você deverá criar a tabela no espaço de tabela [innodb_file_per_table](https://mariadb.com/kb/en/innodb-system-variables/#innodb_file_per_table). Se você tiver um tamanho de tabela único maior que 1 TB, deverá usar a tabela de partição.
 
 ## <a name="storage-engine-support"></a>Suporte do mecanismo de armazenamento
 
 ### <a name="supported"></a>Com suporte
 - [InnoDB](https://mariadb.com/kb/en/library/xtradb-and-innodb/)
-- [MEMÓRIA](https://mariadb.com/kb/en/library/memory-storage-engine/)
+- [MEMORY](https://mariadb.com/kb/en/library/memory-storage-engine/)
 
 ### <a name="unsupported"></a>Sem suporte
 - [MyISAM](https://mariadb.com/kb/en/library/myisam-storage-engine/)
 - [BLACKHOLE](https://mariadb.com/kb/en/library/blackhole/)
-- [OPERAÇÃO](https://mariadb.com/kb/en/library/archive/)
+- [ARCHIVE](https://mariadb.com/kb/en/library/archive/)
 
 ## <a name="privilege-support"></a>Suporte de privilégio
 
 ### <a name="unsupported"></a>Sem suporte
-- Função DBA: muitas configurações e parâmetros do servidor podem inadvertidamente prejudicar o desempenho do servidor ou negar as propriedades ACID do DBMS. Desa forma, para manter a SLA e integridade do serviço em um nível de produto, esse serviço não expõe a função DBA. A conta de usuário padrão, que é construída quando uma nova instância do banco de dados é criada, permite que o usuário execute a maioria das instruções DDL e DML na instância do banco de dados gerenciado.
-- SUPER privilégio: da mesma forma, o [privilégio super](https://mariadb.com/kb/en/library/grant/#global-privileges) também é restrito.
-- O desfinamento: requer a criação de privilégios e é restrito. Se estiver importando dados usando um backup, remova os comandos `CREATE DEFINER`manualmente ou usando o comando `--skip-definer` ao executar um mysqldump.
+- Função DBA: Muitas configurações e parâmetros do servidor podem, inadvertidamente, prejudicar o desempenho do servidor ou negar as propriedades de ACID do DBMS. Desa forma, para manter a SLA e integridade do serviço em um nível de produto, esse serviço não expõe a função DBA. A conta de usuário padrão, que é construída quando uma nova instância do banco de dados é criada, permite que o usuário execute a maioria das instruções DDL e DML na instância do banco de dados gerenciado.
+- Privilégio SUPER: De forma semelhante, o [privilégio SUPER](https://mariadb.com/kb/en/library/grant/#global-privileges) também é restrito.
+- DEFINER: Requer superprivilégios para criar e é restrito. Se estiver importando dados usando um backup, remova os comandos `CREATE DEFINER`manualmente ou usando o comando `--skip-definer` ao executar um mysqldump.
 
 ## <a name="data-manipulation-statement-support"></a>Suporte à instrução de manipulação de dados
 
@@ -198,7 +204,7 @@ As tabelas de fuso horário podem ser populadas `mysql.az_load_timezone` chamand
 - O suporte para ponto de extremidade de serviço de VNet é apenas para servidores de Uso Geral e Otimizados para Memória.
 
 ### <a name="storage-size"></a>Tamanho de armazenamento
-- Veja os [tipos de preço](concepts-pricing-tiers.md) para os limites de tamanho de armazenamento por tipo de preço.
+- Consulte [tipos de preço](concepts-pricing-tiers.md) para saber os limites de tamanho de armazenamento por faixa de preço.
 
 ## <a name="current-known-issues"></a>Problemas frequentes conhecidos
 - Instância de servidor MariaDB exibe a versão de servidor incorreto após o estabelecimento de conexão. Para obter a versão correta do mecanismo de instância de servidor, use o comando `select version();`.

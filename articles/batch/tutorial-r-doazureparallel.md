@@ -5,14 +5,14 @@ ms.devlang: r
 ms.topic: tutorial
 ms.date: 01/23/2018
 ms.custom: mvc
-ms.openlocfilehash: c9708360df4a7fb711a3d57b39f33c576c75a0d5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dc5c022b4722f844e0b3c117bb5961843865bd55
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82117090"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84418170"
 ---
-# <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Tutorial: executar uma simulação de R paralelo com o Lote do Azure 
+# <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Tutorial: Executar uma simulação de R paralelo com o Lote do Azure 
 
 Execute suas cargas de trabalho R paralelas em larga escala usando [doAzureParallel](https://www.github.com/Azure/doAzureParallel), um pacote em R leve que permite que você use o Lote do Azure diretamente na sessão de R. O pacote doAzureParallel se baseia no pacote popular em R [foreach](https://cran.r-project.org/web/packages/foreach/index.html). doAzureParallel usa cada iteração do loop foreach e o envia como uma tarefa do Lote do Azure.
 
@@ -24,7 +24,7 @@ Este tutorial mostra como implantar um pool do Lote e executar um trabalho de R 
 > * Criar um pool do Lote como um back-end paralelo para a sessão de R
 > * Executar uma simulação paralela do exemplo no pool
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma distribuição [R](https://www.r-project.org/) instalada, como o [Microsoft R Open](https://mran.microsoft.com/open). Use a versão do R 3.3.1 ou posterior.
 

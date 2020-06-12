@@ -219,8 +219,12 @@
           href: sap-hana-db-manage.md
     - name: Servidor de Backup do Azure (MABS)
       items:
-        - name: Matriz de proteção do Servidor de Backup do Azure
-          href: backup-mabs-protection-matrix.md
+        - name: Matrizes de proteção
+          items:
+            - name: Matriz de proteção do UR1 do MABS V3
+              href: backup-mabs-protection-matrix.md
+            - name: Matriz de proteção do RTM do MABS V3
+              href: microsoft-azure-backup-server-protection-v3.md
         - name: Instalar ou atualizar
           items:
             - name: Instalar o Servidor de Backup do Azure
@@ -229,7 +233,7 @@
               href: backup-mabs-add-storage.md
             - name: O que há de novo no MABS
               href: backup-mabs-whats-new-mabs.md
-            - name: Notas de versão MABS V3
+            - name: Notas sobre a versão do MABS
               href: backup-mabs-release-notes-v3.md
             - name: Instalação autônoma
               href: backup-mabs-unattended-install.md
@@ -284,7 +288,9 @@
         - name: Backup offline com a Importação/Exportação (MARS)
           href: backup-azure-backup-import-export.md
         - name: Backup offline com a Importação/Exportação (DPM/MABS)
-          href: backup-azure-backup-server-import-export-.md
+          href: backup-azure-backup-server-import-export.md
+        - name: Backup offline para DPM e MABS (versões anteriores)
+          href: offline-backup-server-previous-versions.md
     - name: Monitoramento e Alertas
       items:
         - name: Como usar o Explorador de Backup
