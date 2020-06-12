@@ -1,5 +1,5 @@
 ---
-title: Criar uma imagem gerenciada no Azure
+title: Criação de uma imagem gerenciada no Azure
 description: Crie uma imagem gerenciada de uma VM ou um VHD generalizado no Azure. Imagens podem ser usadas para criar várias VMs que usam discos gerenciados.
 author: cynthn
 ms.service: virtual-machines-windows
@@ -8,24 +8,25 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 258bddec85e4ab182ff0b07c49cdc93f92264f95
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: legacy
+ms.openlocfilehash: 1b72be91ee11ef7003e225fe830a59ea42310ac6
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82084457"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656692"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Criar uma imagem gerenciada de uma VM generalizada no Azure
 
 Um recurso de imagem gerenciada pode ser criado de uma VM (máquina virtual) generalizada que é armazenada como um disco gerenciado ou um disco não gerenciado em uma conta de armazenamento. Em seguida, a imagem pode ser usada para criar várias VMs. Para obter informações de como as imagens gerenciadas são cobradas, confira [Preços do Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
- 
+Uma imagem gerenciada dá suporte a até 20 implantações simultâneas. A tentativa de criar simultaneamente mais de 20 VMs a partir da mesma imagem gerenciada pode exceder os tempos limite de provisionamento devido às limitações de desempenho de armazenamento de um único VHD. Para criar simultaneamente mais de 20 VMs, use uma imagem das [Galerias de Imagens Compartilhadas](shared-image-galleries.md), configurada com uma réplica para cada 20 implantações simultâneas de VM.
 
 ## <a name="generalize-the-windows-vm-using-sysprep"></a>Generalizar a VM Windows usando Sysprep
 
 O Sysprep remove todas as informações pessoais e de segurança da conta e prepara a máquina para ser usada como uma imagem. Para obter informações sobre o Sysprep, confira [Visão geral do Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
-Verifique se as funções de servidor em execução no computador são suportadas pelo Sysprep. Para obter mais informações, consulte [suporte do Sysprep para funções de servidor](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles) e [cenários sem suporte](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview#unsupported-scenarios).
+Verifique se as funções de servidor em execução no computador são suportadas pelo Sysprep. Para saber mais, confira [Suporte do Sysprep para funções de servidor](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles) e [Cenários sem suporte](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview#unsupported-scenarios).
 
 > [!IMPORTANT]
 > Depois que o Sysprep for executado em uma VM, essa VM será considerada *generalizada* e não poderá ser reiniciada. O processo de generalização de uma VM não é reversível. Se você precisar manter o funcionamento da VM original, crie uma [cópia da VM](create-vm-specialized.md#option-3-copy-an-existing-azure-vm) e generalize a cópia. 
@@ -51,22 +52,22 @@ Para generalizar a VM do Windows, siga estas etapas:
 6. Quando o Sysprep for concluído, ele desligará a VM. Não reinicie a VM.
 
 > [!TIP]
-> **Opcional** Use o [DISM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-optimize-image-command-line-options) para otimizar a imagem e reduzir a primeira hora de inicialização da VM.
+> **Opcional** – use [DISM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-optimize-image-command-line-options) para otimizar a imagem e reduzir a primeira hora de inicialização da VM.
 >
-> Para otimizar sua imagem, monte seu VHD clicando duas vezes nele no Windows Explorer e, em seguida, execute o DISM com `/optimize-image` o parâmetro.
+> Para otimizar a imagem, monte o VHD clicando duas vezes nele no Windows Explorer e, em seguida, execute o DISM com o parâmetro `/optimize-image`.
 >
 > ```cmd
 > DISM /image:D:\ /optimize-image /boot
 > ```
-> Onde D: é o caminho do VHD montado.
+> No qual D: é o caminho do VHD montado.
 >
-> A `DISM /optimize-image` execução deve ser a última modificação feita em seu VHD. Se você fizer alterações em seu VHD antes da implantação, precisará executar `DISM /optimize-image` novamente.
+> A execução de `DISM /optimize-image` deve ser a última modificação feita no VHD. Se você fizer alterações no VHD antes da implantação, precisará executar `DISM /optimize-image` novamente.
 
 ## <a name="create-a-managed-image-in-the-portal"></a>Criação de uma imagem gerenciada no portal 
 
-1. Vá para o [portal do Azure](https://portal.azure.com) para gerenciar a imagem da VM. Pesquise por **Máquinas virtuais** e selecione essa opção.
+1. Acesse o [portal do Azure](https://portal.azure.com) para gerenciar a imagem da VM. Pesquise por **Máquinas virtuais** e selecione essa opção.
 
-2. Selecione sua VM na lista.
+2. Selecione a VM na lista.
 
 3. Na página **Máquina virtual** da VM, no menu superior, selecione **Capturar**.
 
@@ -74,7 +75,7 @@ Para generalizar a VM do Windows, siga estas etapas:
 
 4. Para **Nome**, aceite o nome já preenchido ou insira um nome que você deseje usar para a imagem.
 
-5. Para o **grupo de recursos**, selecione **criar novo** e insira um nome ou selecione um grupo de recursos a ser usado na lista suspensa.
+5. Em **Grupo de recursos**, selecione **Criar** e insira um nome ou selecione o grupo de recursos a ser usado.
 
 6. Se você quiser excluir a VM de origem depois que a imagem foi criada, selecione **Excluir automaticamente esta máquina virtual após criar a imagem**.
 
@@ -92,7 +93,7 @@ Depois que a imagem for criada, você poderá encontrá-la como um recurso de **
 
 Criar uma imagem diretamente da VM garante que a imagem inclua todos os discos associados à VM, incluindo o disco do sistema operacional e os discos de dados. Este exemplo mostra como criar uma imagem gerenciada de uma VM que usa discos gerenciados.
 
-Antes de começar, verifique se você tem a versão mais recente do módulo Azure PowerShell. Para localizar a versão, execute `Get-Module -ListAvailable Az` no PowerShell. Se você precisar atualizar, confira [Instalar o Azure PowerShell no Windows com o PowerShellGet](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, execute `Connect-AzAccount` para criar uma conexão com o Azure.
+Antes de iniciar, confira se você tem a versão mais recente do módulo do Azure PowerShell. Para localizar a versão, execute `Get-Module -ListAvailable Az` no PowerShell. Se você precisar atualizar, confira [Instalar o Azure PowerShell no Windows com o PowerShellGet](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, execute `Connect-AzAccount` para criar uma conexão com o Azure.
 
 
 > [!NOTE]
@@ -212,7 +213,7 @@ Você pode criar uma imagem gerenciada usando um instantâneo de uma VM generali
 
 ## <a name="create-an-image-from-a-vm-that-uses-a-storage-account"></a>Criar uma imagem de uma VM que usa uma conta de armazenamento
 
-Para criar uma imagem gerenciada de uma VM que não usa discos gerenciados, você precisa do URI do VHD do sistema operacional na conta de armazenamento, no seguinte formato: https://*mystorageaccount*. blob.Core.Windows.NET/*vhdcontainer*/*vhdfilename. vhd*. Neste exemplo, o VHD está em *mystorageaccount*, em um contêiner denominado *vhdcontainer*, e o nome do arquivo do VHD é *vhdfilename.vhd*.
+Para criar uma imagem gerenciada de uma VM que não usa discos gerenciados, é necessário o URI do VHD do sistema operacional na conta de armazenamento, que está no seguinte formato: https://*minhacontadearmazenamento*.blob.core.windows.net/*contêinervhd*/*nomedoarquivovhd.vhd*. Neste exemplo, o VHD está em *mystorageaccount*, em um contêiner denominado *vhdcontainer*, e o nome do arquivo do VHD é *vhdfilename.vhd*.
 
 
 1.  Defina algumas variáveis.
@@ -245,5 +246,5 @@ Para criar uma imagem gerenciada de uma VM que não usa discos gerenciados, voc�
 
     
 ## <a name="next-steps"></a>Próximas etapas
-- [Crie uma VM com base em uma imagem gerenciada](create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).    
+- [Criar uma VM de uma imagem gerenciada](create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).    
 
