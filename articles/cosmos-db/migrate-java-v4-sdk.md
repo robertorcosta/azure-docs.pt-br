@@ -1,118 +1,118 @@
 ---
-title: Migre seu aplicativo para usar o Azure Cosmos DB SDK do Java V4 (com. Azure. Cosmos)
-description: Saiba como atualizar seu aplicativo Java existente usando os SDKs de Java mais antigos Azure Cosmos DB para o SDK do Java 4,0 (pacote com. Azure. Cosmos) para a API básica (SQL).
+title: Migre seu aplicativo para usar o SDK do Java do Azure Cosmos DB v4 (com.azure.cosmos)
+description: Saiba como atualizar seu aplicativo Java existente usando os SDKs do Java do Azure Cosmos DB mais antigos para o Java SDK 4.0 mais recente (pacote com.azure.cosmos) para API Core (SQL).
 author: anfeldma-ms
 ms.author: anfeldma
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 05/26/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 929fa936cdb864fd9b84f8feba55ef01ae6fed9c
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.openlocfilehash: b1ad7b44b34b678eac3348ba3b3ec54fcc508fcf
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82984701"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310658"
 ---
-# <a name="migrate-your-application-to-use-the-azure-cosmos-db-java-sdk-v4"></a>Migrar seu aplicativo para usar o SDK do Java do Azure Cosmos DB v4
+# <a name="migrate-your-application-to-use-the-azure-cosmos-db-java-sdk-v4"></a>Migre seu aplicativo para usar o SDK do Java do Azure Cosmos DB v4
 
 > [!IMPORTANT]  
-> Para obter mais informações sobre esse SDK, consulte as notas de versão Azure Cosmos DB SDK do Java v4, [repositório Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos), Azure Cosmos DB [dicas de desempenho](performance-tips-java-sdk-v4-sql.md)do SDK do Java v4 e Azure Cosmos DB guia de [solução de problemas](troubleshoot-java-sdk-v4-sql.md)do SDK do Java v4.
+> Para obter mais informações sobre este SDK, veja as [Notas de versão](sql-api-sdk-java-v4.md) do SDK do Java do Azure Cosmos DB v4, [repositório do Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos), [dicas de desempenho](performance-tips-java-sdk-v4-sql.md) do SDK do Java do Azure Cosmos DB v4 e [guia de solução de problemas](troubleshoot-java-sdk-v4-sql.md) do SDK do Java do Azure Cosmos DB v4.
 >
 
-Este artigo explica como atualizar seu aplicativo Java existente que está usando um SDK Azure Cosmos DB Java mais antigo para a API do SQL SDK 4,0 para núcleos do Java mais recente Azure Cosmos DB. Azure Cosmos DB SDK do `com.azure.cosmos` Java v4 corresponde ao pacote. Você pode usar as instruções neste documento se estiver migrando seu aplicativo de qualquer um dos seguintes Azure Cosmos DB SDKs do Java: 
+Este artigo explica como atualizar o aplicativo Java existente que está usando um SDK do Java do Azure Cosmos DB mais antigo para o SDK do Java do Azure Cosmos DB 4.0 mais recente para API Core (SQL). O SDK do Java do Azure Cosmos DB v4 corresponde ao pacote `com.azure.cosmos`. Você pode usar as instruções neste documento, se estiver migrando o aplicativo de qualquer um dos seguintes SDKs do Java do Azure Cosmos DB: 
 
-* Sincronizar SDK do Java 2. x. x
-* SDK Java assíncrono 2. x. x
-* SDK do Java 3. x. x
+* SDK do Java Síncrono 2.x.x
+* SDK do Java Assíncrono 2.x.x
+* SDK do Java 3.x.x
 
-## <a name="azure-cosmos-db-java-sdks-and-package-mappings"></a>Azure Cosmos DB os mapeamentos de pacote e SDK do Java
+## <a name="azure-cosmos-db-java-sdks-and-package-mappings"></a>SDKs do Java e mapeamentos de pacote do Azure Cosmos DB
 
-A tabela a seguir lista diferentes Azure Cosmos DB SDKs de Java, o nome do pacote e as informações de versão:
+A tabela a seguir lista diferentes SDKs do Java do Azure Cosmos DB, o nome do pacote e as informações de versão:
 
-| Java SDK| Data de lançamento | APIs agrupadas   | Jar do Maven  | Nome do pacote Java  |Referência de API   | Notas de Versão  |
+| Java SDK| Data de lançamento | Aplicativos agrupados   | Jar do Maven  | Nome do pacote do Java  |Referência de API   | Notas de versão  |
 |-------|------|-----------|-----------|--------------|-------------|---------------------------|
-| Async 2. x. x  | Junho de 2018    | Async (RxJava)  | `com.microsoft.azure::azure-cosmosdb` | `com.microsoft.azure.cosmosdb.rx` | [API](https://azure.github.io/azure-cosmosdb-java/2.0.0/) | [Notas de Versão](sql-api-sdk-async-java.md) |
-| Sincronizar 2. x. x     | 2018 de setembro    | Sincronizar   | `com.microsoft.azure::azure-documentdb` | `com.microsoft.azure.cosmosdb` | [API](https://azure.github.io/azure-cosmosdb-java/2.0.0/) | [Notas de Versão](sql-api-sdk-java.md)  |
-| 3.x.x    | Julho de 2019    | /Sync Async (reator)  | `com.microsoft.azure::azure-cosmos`  | `com.azure.data.cosmos` | [API](https://azure.github.io/azure-cosmosdb-java/3.0.0/) | - |
-| 4,0   | Abril de 2020   | /Sync Async (reator)  | `com.azure::azure-cosmos` | `com.azure.cosmos`   | -  | -  |
+| Async 2.x.x  | Junho de 2018    | Async(RxJava)  | `com.microsoft.azure::azure-cosmosdb` | `com.microsoft.azure.cosmosdb.rx` | [API](https://azure.github.io/azure-cosmosdb-java/2.0.0/) | [Notas de Versão](sql-api-sdk-async-java.md) |
+| Sync 2.x.x     | Setembro de 2018    | Sincronizar   | `com.microsoft.azure::azure-documentdb` | `com.microsoft.azure.cosmosdb` | [API](https://azure.github.io/azure-cosmosdb-java/2.0.0/) | [Notas de Versão](sql-api-sdk-java.md)  |
+| 3.x.x    | Julho de 2019    | Async(Reactor)/Sync  | `com.microsoft.azure::azure-cosmos`  | `com.azure.data.cosmos` | [API](https://azure.github.io/azure-cosmosdb-java/3.0.0/) | - |
+| 4,0   | Abril de 2020   | Async(Reactor)/Sync  | `com.azure::azure-cosmos` | `com.azure.cosmos`   | -  | -  |
 
 ## <a name="sdk-level-implementation-changes"></a>Alterações de implementação no nível do SDK
 
-A seguir estão as principais diferenças de implementação entre SDKs diferentes:
+Veja a seguir as principais diferenças de implementação entre SDKs diferentes:
 
-### <a name="rxjava-is-replaced-with-reactor-in-azure-cosmos-db-java-sdk-versions-3xx-and-40"></a>RxJava é substituído por reator em Azure Cosmos DB Java SDK versões 3. x e 4,0
+### <a name="rxjava-is-replaced-with-reactor-in-azure-cosmos-db-java-sdk-versions-3xx-and-40"></a>RxJava é substituído pelo reator no SDK do Java do Azure Cosmos DB versões 3.x.x e 4.0
 
-Se você não estiver familiarizado com a programação assíncrona ou a programação reativa, consulte o [Guia de padrões de reator](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-pattern-guide.md) para obter uma introdução à programação assíncrona e ao reator do projeto. Este guia poderá ser útil se você estiver usando Azure Cosmos DB sincronização de Java SDK 2. x. x ou Azure Cosmos DB API de sincronização do Java SDK 3. x. x no passado.
+Se você não estiver familiarizado com a programação assíncrona ou programação reativa, confira o [guia de padrão do Reator](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-pattern-guide.md) para obter uma introdução à programação assíncrona e ao Reator do Projeto. Este guia pode ser útil se você usou a API Síncrona do SDK do Java Síncrono do Azure Cosmos DB 2.x.x ou do SDK do Java do Azure Cosmos DB 3.x.x no passado.
 
-Se você estiver usando Azure Cosmos DB SDK Java assíncrono 2. x. x, e planeja migrar para o SDK 4,0, consulte o guia de [reator versus RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) para obter orientação sobre como converter o código RxJava para usar o reator.
+Se você usou o SDK do Java Assíncrono do Azure Cosmos DB 2.x.x e planeja migrar para o SDK 4.0, confira o [Guia de Reator versus RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) para obter orientação sobre a conversão do código RxJava para usar o Reator.
 
-### <a name="azure-cosmos-db-java-sdk-v4-has-direct-connectivity-mode-in-both-async-and-sync-apis"></a>Azure Cosmos DB SDK do Java v4 tem o modo de conectividade direta nas APIs Async e Sync
+### <a name="azure-cosmos-db-java-sdk-v4-has-direct-connectivity-mode-in-both-async-and-sync-apis"></a>O SDK do Java do Azure Cosmos DB v4 tem o modo de conectividade direta nas APIs Assíncrona e Síncrona
 
-Se você tiver usado Azure Cosmos DB sincronizar o SDK Java 2. x. x, observe que o modo de conexão direta baseado em TCP (ao contrário de HTTP) é implementado em Azure Cosmos DB SDK do Java 4,0 para as APIs Async e Sync.
+Se você usou o SDK do Java do Azure Cosmos DB 2.x.x, observe que o modo de conexão direta baseado em TCP (ao contrário do HTTP) foi implementado no SDK do Java do Azure Cosmos DB 4.0 para as APIs Assíncrona e Síncrona.
 
 ## <a name="api-level-changes"></a>Alterações no nível da API
 
-A seguir estão as alterações no nível da API em Azure Cosmos DB SDK do Java 4. x. x em comparação com os SDKs anteriores (Java SDK 3. x. x, Async Java SDK 2. x. x e sincronizar o SDK do Java 2. x. x):
+Veja a seguir as alterações no nível da API no SDK do Java do Azure Cosmos DB 4.x.x, em comparação aos SDKs anteriores (SDK do Java 3.x.x, SDK do Java Assíncrono 2.x.x e SDK do Java Síncrono 2.x.x):
 
-![Azure Cosmos DB convenções de nomenclatura do SDK do Java](./media/migrate-java-v4-sdk/java-sdk-naming-conventions.png)
+![Convenções de nomenclatura do SDK do Java do Azure Cosmos DB](./media/migrate-java-v4-sdk/java-sdk-naming-conventions.png)
 
-* O Azure Cosmos DB Java SDK 3. x e 4,0 referem-se aos recursos do `Cosmos<resourceName>`cliente como. Por exemplo, `CosmosClient`, `CosmosDatabase`, `CosmosContainer`. Enquanto na versão 2. x. x, o Azure Cosmos DB SDKs de Java não têm um esquema de nomenclatura uniforme.
+* O SDK do Java do Azure Cosmos DB 3.x.x e 4.0 se referem aos recursos do cliente como `Cosmos<resourceName>`. Por exemplo, `CosmosClient`, `CosmosDatabase`, `CosmosContainer`. Enquanto que na versão 2.x.x, os SDKs do Java do Azure Cosmos DB não têm um esquema de nomenclatura uniforme.
 
-* Azure Cosmos DB SDK do Java 3. x. x e 4,0 oferecem APIs de sincronização e assíncronas.
+* Os SDKs do Java do Azure Cosmos DB 3.x.x e 4.0 oferecem APIs Síncrona e Assíncrona.
 
-  * **SDK do Java 4,0** : todas as classes pertencem à API de sincronização, a menos que o nome da `Async` classe `Cosmos`seja anexado com After.
+  * **SDK do Java 4.0**: Todas as classes pertencem à API Síncrona, a menos que o nome da classe seja anexado com `Async` depois de `Cosmos`.
 
-  * **SDK do Java 3. x. x**: todas as classes pertencem à API assíncrona, a menos que o nome da `Async` classe `Cosmos`seja anexado com After.
+  * **SDK do Java 3.x.x**: Todas as classes pertencem à API Assíncrona, a menos que o nome da classe seja anexado com `Async` depois de `Cosmos`.
 
-  * **SDK Java assíncrono 2. x.** x: os nomes de classe são semelhantes à sincronização de Java SDK 2. x. x, no entanto, o nome começa com *Async*.
+  * **SDK do Java Assíncrono 2.x.x**: Os nomes de classe são semelhantes aos do SDK do Java Síncrono 2.x.x, no entanto, o nome começa com *Assíncrono*.
 
-### <a name="hierarchical-api-structure"></a>Estrutura de API hierárquica
+### <a name="hierarchical-api-structure"></a>Estrutura hierárquica da API
 
-Azure Cosmos DB SDK do Java 4,0 e 3. x. x introduz uma estrutura de API hierárquica que organiza os clientes, bancos de dados e contêineres de maneira aninhada, conforme mostrado no seguinte trecho de código do SDK 4,0:
+Os SDKs do Java do Azure Cosmos DB 4.0 e 3.x.x introduzem uma estrutura hierárquica da API que organiza os clientes, bancos de dados e contêineres de maneira aninhada, conforme mostrado no seguinte trecho de código do SDK 4.0:
 
 ```java
 CosmosContainer = client.getDatabase("MyDatabaseName").getContainer("MyContainerName");
 ```
 
-Na versão 2. x. x do SDK do Java do Azure Cosmos DB, todas as operações em recursos e documentos são executadas por meio da instância do cliente.
+Na versão 2.x.x do SDK do Java do Azure Cosmos DB, todas as operações em recursos e documentos são realizadas por meio da instância do cliente.
 
-### <a name="representing-documents"></a>Representando documentos
+### <a name="representing-documents"></a>Documentos representantes
 
-Em Azure Cosmos DB SDK do Java 4,0, POJO personalizados e `JsonNodes` são as duas opções para ler e gravar os documentos de Azure Cosmos DB.
+No SDK do Java do Azure Cosmos DB 4.0, os POJOs personalizados e `JsonNodes` são as duas opções para ler e gravar os documentos no Azure Cosmos DB.
 
-No SDK do Java do Azure Cosmos DB 3. x. x, `CosmosItemProperties` o objeto é exposto pela API pública e fornecido como uma representação de documento. Essa classe não é mais exposta publicamente na versão 4,0.
+No SDK do Java do Azure Cosmos DB 3.x.x, o objeto `CosmosItemProperties` é exposto pela API pública e distribuído como representação do documento. Essa classe não é mais exposta publicamente na versão 4.0.
 
 ### <a name="imports"></a>Importações
 
-* Os pacotes Azure Cosmos DB SDK do Java 4,0 começam com`com.azure.cosmos`
-  * Azure Cosmos DB pacotes Java SDK 3. x. x começam com`com.azure.data.cosmos`
+* Os pacotes do SDK do Java do Azure Cosmos DB 4.0 começam com `com.azure.cosmos`
+  * Os pacotes do SDK do Java do Azure Cosmos DB 3.x.x começam com `com.azure.data.cosmos`
 
-* Azure Cosmos DB Java SDK 4,0 coloca várias classes em um pacote `com.azure.cosmos.models`aninhado. Alguns desses pacotes incluem:
+* O SDK do Java do Azure Cosmos DB 4.0 coloca várias classes em um pacote aninhado `com.azure.cosmos.models`. Alguns desses pacotes incluem:
 
   * `CosmosContainerResponse`
   * `CosmosDatabaseResponse`
   * `CosmosItemResponse`
-  * Os analógicos da API assíncrona para todos os pacotes acima
+  * Os análogos da API assíncrona para todos os pacotes acima
   * `CosmosContainerProperties`
   * `FeedOptions`
   * `PartitionKey`
   * `IndexingPolicy`
-  * `IndexingMode`... diante.
+  * `IndexingMode` ...etc.
 
 ### <a name="accessors"></a>Acessadores
 
-Azure Cosmos DB o Java SDK 4,0 `get` expões e `set` métodos para acessar os membros da instância. Por exemplo, a `CosmosContainer` instância tem `container.getId()` e `container.setId()` métodos.
+O SDK do Java do Azure Cosmos DB 4.0 expõe os métodos `get` e `set` para acessar os membros da instância. Por exemplo, a instância de `CosmosContainer` tem os métodos `container.getId()` e `container.setId()`.
 
-Isso é diferente de Azure Cosmos DB Java SDK 3. x. x, que expõe uma interface fluente. Por exemplo, uma `CosmosSyncContainer` instância tem `container.id()` o que está sobrecarregado para obter ou definir o `id` valor.
+Isso é diferente do SDK do Java do Azure Cosmos DB 3.x.x, que expõe uma interface fluente. Por exemplo, uma instância `CosmosSyncContainer` tem `container.id()`, que está sobrecarregado para obter ou definir o valor de `id`.
 
 ## <a name="code-snippet-comparisons"></a>Comparações de trecho de código
 
 ### <a name="create-resources"></a>Criar recursos
 
-O trecho de código a seguir mostra as diferenças em como os recursos são criados entre as APIs assíncronas 4,0 e 3. x. x:
+O trecho de código a seguir mostra as diferenças em como os recursos são criados entre as APIs Assíncronas 4.0 e 3.x.x:
 
-# <a name="java-sdk-40-async-api"></a>[API assíncrona do SDK do Java 4,0](#tab/java-v4-async)
+# <a name="java-sdk-40-async-api"></a>[API Assíncrona do SDK do Java 4.0](#tab/java-v4-async)
 
 ```java
 ConnectionPolicy defaultPolicy = ConnectionPolicy.getDefaultPolicy();
@@ -145,10 +145,10 @@ client.createDatabaseIfNotExists("YourDatabaseName")
 }).subscribe();
 ```
 
-# <a name="java-sdk-3xx-async-api"></a>[API assíncrona do SDK do Java 3. x. x](#tab/java-v3-async)
+# <a name="java-sdk-3xx-async-api"></a>[API Assíncrona do SDK do Java 3.x.x](#tab/java-v3-async)
 
 ```java
-ConnectionPolicy defaultPolicy = ConnectionPolicy.defaultPo"ic"();
+ConnectionPolicy defaultPolicy = ConnectionPolicy.defaultPolicy();
 //  Setting the preferred location to Cosmos DB Account region
 defaultPolicy.preferredLocations(Lists.newArrayList("Your Account Location"));
 
@@ -179,9 +179,9 @@ client.createDatabaseIfNotExists("YourDatabaseName")
 
 ### <a name="item-operations"></a>Operações de item
 
-O trecho de código a seguir mostra as diferenças em como as operações de item são executadas entre as APIs assíncronas 4,0 e 3. x. x:
+O trecho de código a seguir mostra as diferenças em como as operações de item são realizadas entre as APIs Assíncronas 4.0 e 3.x.x:
 
-# <a name="java-sdk-40-async-api"></a>[API assíncrona do SDK do Java 4,0](#tab/java-v4-async)
+# <a name="java-sdk-40-async-api"></a>[API Assíncrona do SDK do Java 4.0](#tab/java-v4-async)
 
 ```java
 // Container is created. Generate many docs to insert.
@@ -194,7 +194,7 @@ Flux.fromIterable(docs)
     .subscribe(); // ...Subscribing triggers stream execution.
 ```
 
-# <a name="java-sdk-3xx-async-api"></a>[API assíncrona do SDK do Java 3. x. x](#tab/java-v3-async)
+# <a name="java-sdk-3xx-async-api"></a>[API Assíncrona do SDK do Java 3.x.x](#tab/java-v3-async)
 
 ```java
 // Container is created. Generate many docs to insert.
@@ -210,9 +210,9 @@ Flux.fromIterable(docs)
 
 ### <a name="indexing"></a>Indexação
 
-O trecho de código a seguir mostra as diferenças em como a indexação é criada entre as APIs assíncronas 4,0 e 3. x. x:
+O trecho de código a seguir mostra as diferenças em como a indexação é criada entre as APIs Assíncronas 4.0 e 3.x.x:
 
-# <a name="java-sdk-40-async-api"></a>[API assíncrona do SDK do Java 4,0](#tab/java-v4-async)
+# <a name="java-sdk-40-async-api"></a>[API Assíncrona do SDK do Java 4.0](#tab/java-v4-async)
 
 ```java
 CosmosContainerProperties containerProperties = new CosmosContainerProperties(containerName, "/lastName");
@@ -242,7 +242,7 @@ CosmosAsyncContainer containerIfNotExists = database.createContainerIfNotExists(
                                                     .getContainer();
 ```
 
-# <a name="java-sdk-3xx-async-api"></a>[API assíncrona do SDK do Java 3. x. x](#tab/java-v3-async)
+# <a name="java-sdk-3xx-async-api"></a>[API Assíncrona do SDK do Java 3.x.x](#tab/java-v3-async)
 
 ```java
 CosmosContainerProperties containerProperties = new CosmosContainerProperties(containerName, "/lastName");
@@ -275,9 +275,9 @@ CosmosContainer containerIfNotExists = database.createContainerIfNotExists(conta
 
 ### <a name="stored-procedures"></a>Procedimentos armazenados
 
-O trecho de código a seguir mostra as diferenças em como os procedimentos armazenados são criados entre as APIs assíncronas 4,0 e 3. x. x:
+O trecho de código a seguir mostra as diferenças em como os procedimentos armazenados são criados entre as APIs Assíncronas 4.0 e 3.x.x:
 
-# <a name="java-sdk-40-async-api"></a>[API assíncrona do SDK do Java 4,0](#tab/java-v4-async)
+# <a name="java-sdk-40-async-api"></a>[API Assíncrona do SDK do Java 4.0](#tab/java-v4-async)
 
 ```java
 logger.info("Creating stored procedure...\n");
@@ -319,7 +319,7 @@ container.getScripts()
         }).block();
 ```
 
-# <a name="java-sdk-3xx-async-api"></a>[API assíncrona do SDK do Java 3. x. x](#tab/java-v3-async)
+# <a name="java-sdk-3xx-async-api"></a>[API Assíncrona do SDK do Java 3.x.x](#tab/java-v3-async)
 
 ```java
 logger.info("Creating stored procedure...\n");
@@ -364,9 +364,9 @@ container.getScripts()
 
 ### <a name="change-feed"></a>Feed de alteração
 
-O trecho de código a seguir mostra as diferenças em como as operações de feed de alterações são executadas entre as APIs assíncronas 4,0 e 3. x. x:
+O trecho de código a seguir mostra as diferenças em como as operações do feed de alterações são realizadas entre as APIs Assíncronas 4.0 e 3.x.x:
 
-# <a name="java-sdk-40-async-api"></a>[API assíncrona do SDK do Java 4,0](#tab/java-v4-async)
+# <a name="java-sdk-40-async-api"></a>[API Assíncrona do SDK do Java 4.0](#tab/java-v4-async)
 
 ```java
 ChangeFeedProcessor changeFeedProcessorInstance = 
@@ -407,7 +407,7 @@ ChangeFeedProcessor.changeFeedProcessorBuilder()
                             .subscribe();
 ```
 
-# <a name="java-sdk-3xx-async-api"></a>[API assíncrona do SDK do Java 3. x. x](#tab/java-v3-async)
+# <a name="java-sdk-3xx-async-api"></a>[API Assíncrona do SDK do Java 3.x.x](#tab/java-v3-async)
 
 ```java
 ChangeFeedProcessor changeFeedProcessorInstance = 
@@ -443,11 +443,11 @@ ChangeFeedProcessor.Builder()
 ```
 ---
 
-### <a name="container-level-time-to-livettl"></a>Tempo de vida (TTL) do nível de contêiner
+### <a name="container-level-time-to-livettl"></a>Vida útil (TTL) no nível de contêiner
 
-O trecho de código a seguir mostra as diferenças em como criar vida útil para dados no contêiner usando as APIs assíncronas 4,0 e 3. x. x:
+O trecho de código a seguir mostra as diferenças na criação de vida útil para dados no contêiner, usando as APIs Assíncronas 4.0 e 3.x.x:
 
-# <a name="java-sdk-40-async-api"></a>[API assíncrona do SDK do Java 4,0](#tab/java-v4-async)
+# <a name="java-sdk-40-async-api"></a>[API Assíncrona do SDK do Java 4.0](#tab/java-v4-async)
 
 ```java
 CosmosAsyncContainer container;
@@ -458,7 +458,7 @@ containerProperties.setDefaultTimeToLiveInSeconds(90 * 60 * 60 * 24);
 container = database.createContainerIfNotExists(containerProperties, 400).block().getContainer();
 ```
 
-# <a name="java-sdk-3xx-async-api"></a>[API assíncrona do SDK do Java 3. x. x](#tab/java-v3-async)
+# <a name="java-sdk-3xx-async-api"></a>[API Assíncrona do SDK do Java 3.x.x](#tab/java-v3-async)
 
 ```java
 CosmosContainer container;
@@ -470,11 +470,11 @@ container = database.createContainerIfNotExists(containerProperties, 400).block(
 ```
 ---
 
-### <a name="item-level-time-to-livettl"></a>Tempo de vida (TTL) do nível de item
+### <a name="item-level-time-to-livettl"></a>Vida útil (TTL) no nível de item
 
-O trecho de código a seguir mostra as diferenças em como criar vida útil para um item usando as APIs assíncronas 4,0 e 3. x. x:
+O trecho de código a seguir mostra as diferenças na criação de vida útil para um item, usando as APIs Assíncronas 4.0 e 3.x.x:
 
-# <a name="java-sdk-40-async-api"></a>[API assíncrona do SDK do Java 4,0](#tab/java-v4-async)
+# <a name="java-sdk-40-async-api"></a>[API Assíncrona do SDK do Java 4.0](#tab/java-v4-async)
 
 ```java
 // Include a property that serializes to "ttl" in JSON
@@ -508,7 +508,7 @@ SalesOrder salesOrder = new SalesOrder(
 );
 ```
 
-# <a name="java-sdk-3xx-async-api"></a>[API assíncrona do SDK do Java 3. x. x](#tab/java-v3-async)
+# <a name="java-sdk-3xx-async-api"></a>[API Assíncrona do SDK do Java 3.x.x](#tab/java-v3-async)
 
 ```java
 // Include a property that serializes to "ttl" in JSON
@@ -545,6 +545,6 @@ SalesOrder salesOrder = new SalesOrder(
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Criar um aplicativo Java](create-sql-api-java.md) para gerenciar Azure Cosmos DB dados da API do SQL usando o SDK do v4
-* Saiba mais sobre os [SDKs Java baseados em reator](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-pattern-guide.md)
-* Saiba como converter o código assíncrono RxJava para redirecionar o código assíncrono com o [Guia de reator vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md)
+* [Criar um de aplicativo Java](create-sql-api-java.md) para gerenciar os dados da API do SQL do Azure Cosmos DB, usando o SDK v4
+* Saiba mais sobre os [SDKs do Java baseados em reator](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-pattern-guide.md)
+* Saiba mais sobre como converter o código assíncrono do RxJava em código assíncrono do Reator com o [Guia de Reator versus RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md)

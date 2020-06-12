@@ -52,6 +52,8 @@
           href: identity-providers.md
         - name: Fluxos dos usuários de inscrição por autoatendimento (versão prévia)
           href: self-service-sign-up-overview.md
+        - name: Conectores de API de inscrição por autoatendimento (versão prévia)
+          href: api-connectors-overview.md
         - name: Gerenciamento de direitos do Azure AD
           href: self-service-portal.md
         - name: Limitações atuais
@@ -95,6 +97,10 @@
               href: user-flow-add-custom-attributes.md
             - name: Personalizar o idioma do fluxo dos usuários
               href: user-flow-customize-language.md
+            - name: Adicionar um conector de API
+              href: self-service-sign-up-add-api-connector.md
+            - name: Adicionar um sistema de aprovação personalizado
+              href: self-service-sign-up-add-approvals.md
         - name: Gerenciar contas de convidados
           items:
             - name: Adicionar um usuário de B2B a uma função

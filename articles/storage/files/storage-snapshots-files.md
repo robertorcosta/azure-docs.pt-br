@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e09887b8000a0aeb52879d5306bc0a00da5141f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b50407b3ea7389388577d229f67a4e4baca4296d
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176134"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873588"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Visão geral de instantâneos de compartilhamento para Arquivos do Azure 
 Os Arquivos do Azure fornecem a funcionalidade de tirar instantâneos de compartilhamentos de arquivos. Os instantâneos de compartilhamento capturam o estado de compartilhamento naquele ponto no tempo. Neste artigo, descreveremos quais recursos os instantâneos de compartilhamento fornecem e como você pode aproveitá-los no seu caso de uso personalizado.
@@ -37,7 +37,7 @@ Quando um instantâneo de compartilhamento é criado, ele pode ser lido, copiado
 
 A capacidade de instantâneo de compartilhamento é fornecida no nível de compartilhamento de arquivo. A recuperação é fornecida no nível de arquivo individual, para permitir a restauração de arquivos individuais. Você pode restaurar um compartilhamento de arquivo completo usando o SMB, a API REST, o portal, a biblioteca de cliente ou ferramentas de PowerShell/CLI.
 
-Um instantâneo de compartilhamento de um compartilhamento de arquivos é idêntico ao seu compartilhamento de arquivo de base. A única diferença é que um valor de **DateTime** é acrescentado ao URI do compartilhamento para indicar o horário em que o compartilhamento de instantâneo foi tirado. Por exemplo, se um URI de compartilhamento de arquivos for\/http:/StorageSample.Core.File.Windows.net/MyShare, o URI do instantâneo de compartilhamento será semelhante a:
+Um instantâneo de compartilhamento de um compartilhamento de arquivos é idêntico ao seu compartilhamento de arquivo de base. A única diferença é que um valor de **DateTime** é acrescentado ao URI do compartilhamento para indicar o horário em que o compartilhamento de instantâneo foi tirado. Por exemplo, se um URI de compartilhamento de arquivo for http:\//storagesample.core.file.windows.net/myshare, o URI do instantâneo de compartilhamento será semelhante a:
 ```
 http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```
@@ -71,7 +71,7 @@ Você pode copiar arquivos individuais de um instantâneo de compartilhamento de
 
 O instantâneo de compartilhamento permanece intacto após a cópia, mas o compartilhamento de arquivos base é substituído por uma cópia dos dados que estavam disponíveis no instantâneo de compartilhamento. Todos os arquivos restaurados contam como “conteúdo alterado”.
 
-Você pode copiar um arquivo em um instantâneo de compartilhamento para um destino diferente com um nome diferente. O arquivo de destino resultante é um arquivo gravável que não é um instantâneo de compartilhamento. Nesse caso, o compartilhamento de arquivos base permanecerá intacto.
+Você pode copiar um arquivo em um instantâneo de compartilhamento para um destino diferente com um nome diferente. O arquivo de destino resultante é um arquivo gravável que não é um instantâneo de compartilhamento. Nesse caso, o compartilhamento de arquivo base permanecerá intacto.
 
 Quando um arquivo de destino é substituído por uma cópia, todos os instantâneos de compartilhamento associados ao arquivo de destino original permanecem intactos.
 
@@ -80,7 +80,7 @@ Ao executar infraestrutura do Azure, automatize os backups para recuperação de
 
 Antes de implantar o agendador de instantâneos de compartilhamento, leve em conta cuidadosamente as configurações de retenção e a frequência dos instantâneos de compartilhamento para evitar incorrer em encargos desnecessários.
 
-Compartilhamentos de instantâneos fornecem apenas a proteção no nível de arquivo. Compartilhamentos de instantâneos não impedem exclusões de digitação acidental em uma conta de armazenamento ou compartilhamento de arquivos. Para ajudar a proteger a conta de armazenamento de exclusões acidentais, você pode bloquear a conta de armazenamento ou o grupo de recursos.
+Compartilhamentos de instantâneos fornecem apenas a proteção no nível de arquivo. Compartilhamentos de instantâneos não impedem exclusões de digitação acidental em uma conta de armazenamento ou compartilhamento de arquivos. Para ajudar a proteger a conta de armazenamento de exclusões acidentais, você pode [habilitar a exclusão reversível](storage-files-prevent-file-share-deletion.md) ou bloquear a conta de armazenamento e/ou o grupo de recursos.
 
 ## <a name="next-steps"></a>Próximas etapas
 - Trabalhar com instantâneos de compartilhamento em:

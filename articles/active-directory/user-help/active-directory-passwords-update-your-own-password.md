@@ -8,24 +8,24 @@ ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 01/15/2020
 ms.author: curtand
-ms.openlocfilehash: 3ed79be318319009aabb1b1ef0c42c4021bbbabe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9606bf0108186cd73adbdb38aef3ac428da229d6
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77062652"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828399"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>Redefinir sua senha corporativa ou de estudante usando informações de segurança
 
-Caso você tenha esquecido sua senha corporativa ou de estudante, nunca tenha recebido uma da empresa ou sua conta tenha sido bloqueada, você pode usar suas informações de segurança e o dispositivo móvel para redefinir sua senha corporativa ou de estudante. O administrador deve ativar esse recurso para que você possa configurar suas informações e redefinir sua própria senha.
+Caso você tenha esquecido sua senha corporativa ou de estudante, nunca tenha recebido uma da empresa ou sua conta tenha sido bloqueada, você pode usar suas informações de segurança e o dispositivo móvel para redefinir sua senha corporativa ou de estudante. Seu administrador deve ativar esse recurso para que você possa configurar suas informações e [redefinir sua senha](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-reset-register).
 
-Se você souber sua senha, mas quiser alterá-la, consulte as seções [alterar as etapas de senha](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password#how-to-change-your-password) deste artigo.
+Se você souber sua senha, mas desejar alterá-la, confira as seções de etapas [Alterar sua senha](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password#how-to-change-your-password) deste artigo.
 
 >[!Important]
->Este artigo destina-se a usuários tentando usar redefinir uma senha de conta corporativa ou de estudante esquecida ou desconhecida. Se você for um administrador que procura informações sobre como ativar a redefinição de senha de autoatendimento para seus funcionários ou outros usuários, consulte [implantar a redefinição de senha de autoatendimento do Azure AD e outros artigos](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
+>Este artigo destina-se aos usuários que estão tentando redefinir uma senha de conta corporativa ou de estudante esquecida ou desconhecida. Se você for um administrador procurando informações sobre como ativar a redefinição de senha por autoatendimento para seus funcionários ou outros usuários, confira [Implantar a redefinição de senha por autoatendimento do Azure AD e outros artigos](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
 
 ## <a name="how-to-reset-or-unlock-your-password-for-a-work-or-school-account"></a>Como redefinir ou desbloquear sua senha para uma conta corporativa ou de estudante
 
@@ -117,7 +117,7 @@ Use esse método se você normalmente acessa seus aplicativos pelo portal do Off
 
 2. Selecione seu perfil no lado superior direito e selecione **Exibir conta**.
 
-3. Selecione **segurança &** > **senha**de privacidade.
+3. Selecione **Segurança e privacidade** > **Senha**.
 
 4. Digite sua senha antiga, crie e confirme sua nova senha e, em seguida, selecione **Enviar**.
 
@@ -160,10 +160,10 @@ Aqui estão alguns casos de erro comuns e suas soluções:
 |Quando tento alterar minha senha, recebo um erro. |Sua senha tem uma palavra, frase ou padrão que torna sua senha facilmente adivinhada.| Tente novamente usando uma senha mais forte.|
 |Depois de inserir minha ID de usuário, vou para uma página que diz "Entre em contato com seu administrador".|A Microsoft determinou que a senha da sua conta de usuário é gerenciada pelo seu administrador em um ambiente local. Como resultado, você não pode redefinir sua senha no link "Não consigo acessar sua conta". |Entre em contato com seu administrador para mais ajuda.|
 |Depois de inserir minha ID de usuário, recebo um erro que diz "Sua conta não está habilitada para redefinição de senha".|Seu administrador não configurou sua conta para que você possa redefinir sua própria senha.|Seu administrador não ativou a redefinição de senha da sua organização no link "Não foi possível acessar sua conta" ou não o autorizou a usar o recurso.<br><br> Para redefinir sua senha, você deve selecionar o link "contatar um administrador" para enviar um e-mail ao administrador da sua empresa e informá-lo que deseja redefinir sua senha.|
-|Depois de inserir minha ID de usuário, recebo um erro que diz "Não foi possível confirmar sua conta".|O processo de login não conseguiu confirmar as informações da sua conta.|Existem duas razões pelas quais você pode estar vendo esta mensagem.<br><br>1. o administrador ativou a redefinição de senha para sua organização, mas você não se registrou para usar o serviço. Para se inscrever na redefinição de senha, consulte um dos artigos a seguir, com base no seu método de verificação: [Configure informações de segurança para usar um aplicativo do autenticador (visualização)](security-info-setup-auth-app.md), [Configure informações de segurança para usar uma ligação (versão prévia)](security-info-setup-phone-number.md), [Configure informações de segurança para usar mensagens de texto (versão prévia)](security-info-setup-text-msg.md), [Configure informações de segurança para usar e-mail (versão prévia)](security-info-setup-email.md) ou [Configurar informações de segurança para usar questões de segurança (versão prévia)](security-info-setup-questions.md).<br><br>2. o administrador não ativou a redefinição de senha para sua organização. Nessa situação, você deve selecionar o "contatar um link de administrador" para enviar um e-mail ao seu administrador, pedindo para redefinir sua senha.|
+|Depois de inserir minha ID de usuário, recebo um erro que diz "Não foi possível confirmar sua conta".|O processo de login não conseguiu confirmar as informações da sua conta.|Existem duas razões pelas quais você pode estar vendo esta mensagem.<br><br>1. Seu administrador ativou a redefinição de senha para sua organização, mas você não se registrou para usar o serviço. Para se registrar para redefinição de senha, consulte um dos artigos a seguir, com base em seu método de verificação: [Configurar informações de segurança para usar um aplicativo autenticador (versão prévia)](security-info-setup-auth-app.md), [Configurar informações de segurança para usar uma ligação (versão prévia)](security-info-setup-phone-number.md), [Configurar informações de segurança para usar mensagens de texto (versão prévia)](security-info-setup-text-msg.md), [Configurar informações de segurança para usar o email (versão prévia)](security-info-setup-email.md) ou [Configurar informações de segurança para usar perguntas de segurança (versão prévia)](security-info-setup-questions.md).<br><br>2. Seu administrador não ativou a redefinição de senha para sua organização. Nessa situação, você deve selecionar o "contatar um link de administrador" para enviar um e-mail ao seu administrador, pedindo para redefinir sua senha.|
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre as informações de segurança no artigo [Visão geral da informação de segurança (visualização)](user-help-security-info-overview.md).
 
-- Se você estiver tentando voltar a uma conta pessoal como Xbox, hotmail.com ou outlook.com, tente as sugestões no [artigo quando não puder entrar no seu conta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
+- Se você estiver tentando voltar a uma conta pessoal como Xbox, hotmail.com ou outlook.com, experimente as sugestões no artigo [Quando não for possível entrar em sua conta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).

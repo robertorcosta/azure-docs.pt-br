@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 5f6c04c9a57dc8c250d99f2fa944203d2d73c404
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 986440db7f8d4e1d4d46832543f58fa2985a4df4
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79270570"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83831612"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Criar loops que repetem ações de fluxo de trabalho ou processam matrizes nos Aplicativos Lógicos do Azure
 
@@ -40,7 +40,7 @@ Aqui estão algumas considerações ao usar loops "Foreach":
 
 * Para obter resultados previsíveis de operações em variáveis durante cada iteração do loop, execute esses loops sequencialmente. Por exemplo, quando um looping em execução simultânea termina, o incremento, a diminuição e o acréscimo às operações de variável retornam resultados previsíveis. No entanto, durante cada iteração no loop em execução simultânea, essas operações podem retornar resultados imprevisíveis. 
 
-* As ações em um loop "foreach" usam o[`@item()`](../logic-apps/workflow-definition-language-functions-reference.md#item) 
+* As ações em um loop "Foreach" usem a expressão [`@item()`](../logic-apps/workflow-definition-language-functions-reference.md#item) 
 para fazer referência e processar cada item na matriz. Se você especificar dados que não estejam em uma matriz, o fluxo de trabalho do aplicativo lógico falhará. 
 
 Este exemplo de aplicativo lógico envia um resumo diário para um RSS feed de um site. O aplicativo usa um loop "Foreach" que envia um email para cada novo item.
@@ -50,11 +50,11 @@ Este exemplo de aplicativo lógico envia um resumo diário para um RSS feed de u
 2. Entre o gatilho RSS e enviar ação de email, adicione um loop "Foreach". 
 
    1. Para adicionar um loop entre as etapas, mova o ponteiro sobre a seta entre essas etapas. 
-   Escolha o **sinal** de adição**+**() que aparece e, em seguida, selecione **Adicionar uma ação**.
+   Escolha o sinal **mais** ( **+** ) que aparece e selecione **Adicionar uma ação**.
 
       ![Selecione "Adicionar uma ação"](media/logic-apps-control-flow-loops/add-for-each-loop.png)
 
-   1. Na caixa de pesquisa, escolha **Tudo**. Na caixa de pesquisa, digite "for each" como filtro. Na lista ações, selecione esta ação: **para cada controle**
+   1. Na caixa de pesquisa, escolha **Tudo**. Na caixa de pesquisa, digite "for each" como filtro. Na lista de ações, selecione esta ação: **For each – Controle**
 
       ![Adicionar o loop "for each"](media/logic-apps-control-flow-loops/select-for-each.png)
 
@@ -118,11 +118,11 @@ Se você estiver trabalhando na exibição de código para o aplicativo lógico,
 
 <a name="sequential-foreach-loop"></a>
 
-## <a name="foreach-loop-sequential"></a>Loop "Foreach": sequencial
+## <a name="foreach-loop-sequential"></a>Loop "Foreach": Sequencial
 
 Por padrão, os ciclos em um loop "Foreach" são executados em paralelo. Para executar cada ciclo sequencialmente, defina a opção **Sequencial** do loop. Os loops "Foreach" devem ser executados sequencialmente quando você tem loops aninhados ou variáveis dentro de loops em que você espera resultados previsíveis. 
 
-1. No canto superior direito do loop, escolha **reticências** (**...**) > **Configurações**.
+1. No canto superior direito do loop, escolha **reticências** ( **...** ) > **Configurações**.
 
    ![No loop "Foreach" loop, escolha "..." > "Configurações"](media/logic-apps-control-flow-loops/for-each-loop-settings.png)
 
@@ -150,7 +150,7 @@ Se você estiver trabalhando com a definição de JSON do aplicativo lógico, vo
 
 ## <a name="until-loop"></a>Loop "Until"
   
-Para executar e repetir ações até que uma condição seja atendida ou um estado é alterado, coloque essas ações em um loop "until". Seu aplicativo lógico primeiro executa qualquer e todas as ações dentro do loop e, em seguida, verifica a condição ou o estado. Se a condição é atendida, o loop para. Caso contrário, o loop repete.
+Para executar e repetir ações até que uma condição seja atendida ou um estado seja alterado, coloque essas ações em um loop "Until". O aplicativo lógico primeiro executa toda e qualquer ação dentro do loop e, em seguida, verifica a condição ou o estado. Se a condição é atendida, o loop para. Caso contrário, o loop repete.
 
 Aqui estão alguns cenários comuns em que é possível utilizar um loop "Until":
 
@@ -165,7 +165,7 @@ Começando às 8h00 todos os dias, esse aplicativo lógico incrementa uma variá
 > [Veja a lista de conectores aqui](https://docs.microsoft.com/connectors/). Se você usar uma outra conta de email, as etapas gerais serão as mesmas, mas a interface do usuário poderá parecer um pouco diferente. 
 
 1. Criar um aplicativo lógico em branco. No Designer de Aplicativos Lógicos, na caixa de pesquisa, escolha **Tudo**. Pesquise por "recorrência". 
-   Na lista de gatilhos, selecione este gatilho: **recorrência-agenda**
+   Na lista de gatilhos, selecione este gatilho: **Recorrência – Agenda**
 
    ![Adicionar o gatilho "Recorrência – Agendamento"](./media/logic-apps-control-flow-loops/do-until-loop-add-trigger.png)
 
@@ -181,7 +181,7 @@ Começando às 8h00 todos os dias, esse aplicativo lógico incrementa uma variá
    ||| 
 
 1. No gatilho, escolha **Nova etapa**. 
-   Pesquise por "variáveis" e selecione esta ação: **inicializar variáveis de variável**
+   Pesquise por "variáveis" e selecione esta ação: **Inicializar variável – Variáveis**
 
    ![Adicionar a ação Inicializar variável – Variáveis](./media/logic-apps-control-flow-loops/do-until-loop-add-variable.png)
 
@@ -198,7 +198,7 @@ Começando às 8h00 todos os dias, esse aplicativo lógico incrementa uma variá
 
 1. Na ação **Inicializar variável**, escolha **Nova etapa**. 
 
-1. Na caixa de pesquisa, escolha **Tudo**. Pesquise "até" e selecione esta ação: **até-controle**
+1. Na caixa de pesquisa, escolha **Tudo**. Pesquise por "until" e selecione esta ação: **Until – Controle**
 
    ![Adicionar o loop "Until"](./media/logic-apps-control-flow-loops/do-until-loop-add-until-loop.png)
 
@@ -209,11 +209,11 @@ Começando às 8h00 todos os dias, esse aplicativo lógico incrementa uma variá
 
 1. Dentro do loop, escolha **Adicionar uma ação**. 
 
-1. Na caixa de pesquisa, escolha **Tudo**. Pesquise "Variables" e selecione esta ação: **incrementar variável variáveis**
+1. Na caixa de pesquisa, escolha **Tudo**. Pesquise por "variáveis" e selecione esta ação: **Incrementar variável – Variáveis**
 
    ![Adicionar ação para incrementar a variável](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable.png)
 
-1. Para **Nome**, selecione a variável **Limite**. Para **valor**, insira "1". 
+1. Para **Nome**, selecione a variável **Limite**. Para **Valor**, insira "1". 
 
      ![Incrementar "Limite" por 1](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
 
@@ -232,9 +232,9 @@ Começando às 8h00 todos os dias, esse aplicativo lógico incrementa uma variá
 
       | Propriedade | Valor | Descrição |
       | -------- | ----- | ----------- | 
-      | **Para** | *\<>de domínio\@de endereço de email* | O endereço de email do destinatário. Para testes, use seu próprio endereço de email. | 
+      | **Para** | *\<email-address\@domain>* | O endereço de email do destinatário. Para testes, use seu próprio endereço de email. | 
       | **Assunto** | O valor atual para "Limit" é **Limite** | Especifique o assunto do email. Para esse exemplo, certifique-se de incluir a variável **Limite**. | 
-      | **Conteúdo** | <*email-conteúdo*> | Especifique o conteúdo da mensagem de email que deseja enviar. Para esse exemplo, insira o texto de sua escolha. | 
+      | **Corpo** | <*email-conteúdo*> | Especifique o conteúdo da mensagem de email que deseja enviar. Para esse exemplo, insira o texto de sua escolha. | 
       |||| 
 
 1. Salve seu aplicativo lógico. Para testar manualmente o aplicativo lógico, na barra de ferramentas do Designer, escolha **Executar**.
@@ -333,9 +333,9 @@ Neste exemplo, o loop "Until" chama um ponto de extremidade HTTP, que cria um re
 }
 ```
 
-## <a name="get-support"></a>Obter suporte
+## <a name="get-support"></a>Obtenha suporte
 
-* Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Em caso de dúvidas, visite a [página de perguntas e respostas da Microsoft sobre os Aplicativos Lógicos do Azure](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 * Para enviar ou votar em recursos e sugestões, visite o [site de comentários do usuário de Aplicativos Lógicos do Azure](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Próximas etapas

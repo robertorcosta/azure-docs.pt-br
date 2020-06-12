@@ -8,16 +8,17 @@ ms.date: 03/30/2018
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: b5d8add293a2ba8f14dc2d2fb8ba3b4228f455b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: monitoring
+ms.openlocfilehash: 10768ca4c6fbe4afc322fa9a7045c7cc4fe6f175
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176219"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681313"
 ---
 # <a name="azure-storage-metrics-migration"></a>Migração de métricas de Armazenamento do Azure
 
-Alinhado com a estratégia de unificar a experiência do Azure Monitor, o Armazenamento do Microsoft Azure integra métricas à plataforma do Azure Monitor. No futuro, o serviço das métricas antigas terminará com uma notificação antecipada com base em Azure Policy. Se você depender de métricas de armazenamento antigas, precisará migrar antes da data de término do serviço para manter as informações da métrica.
+Alinhado com a estratégia de unificar a experiência do Azure Monitor, o Armazenamento do Microsoft Azure integra métricas à plataforma do Azure Monitor. No futuro, o serviço das métricas antigas terminará com uma notificação antecipada com base no Azure Policy. Se você depender de métricas de armazenamento antigas, precisará migrar antes da data de término do serviço para manter as informações da métrica.
 
 Este artigo mostra como migrar das métricas antigas para as novas métricas.
 
@@ -45,7 +46,7 @@ Se você lê dados da métrica programaticamente, você precisa adotar o novo es
 
 | Métrica antiga | Nova métrica |
 | ------------------- | ----------------- |
-| **Capacity**            | **BlobCapacity** com a dimensão **BlobType** igual a **BlockBlob** ou **PageBlob** |
+| **Capacidade**            | **BlobCapacity** com a dimensão **BlobType** igual a **BlockBlob** ou **PageBlob** |
 | **ObjectCount**        | **BlobCount** com a dimensão **BlobType** igual a **BlockBlob** ou **PageBlob** |
 | **ContainerCount**      | **ContainerCount** |
 
@@ -83,7 +84,7 @@ As métricas a seguir são novas ofertas que as métricas antigas não dão supo
 | **PercentAuthorizationError** | Transações com a dimensão **ResponseType** igual a **AuthorizationError** |
 | **PercentClientOtherError** | Transações com a dimensão **ResponseType** igual a **ClientOtherError** |
 | **PercentNetworkError** | Transações com a dimensão **ResponseType** igual a **NetworkError** |
-| **PercentClientOtherError** | Transações com a dimensão **ResponseType** igual a **ServerOtherError** |
+| **PercentServerOtherError** | Transações com a dimensão **ResponseType** igual a **ServerOtherError** |
 | **PercentSuccess** | Transações com a dimensão **ResponseType** igual a **Success** |
 | **PercentThrottlingError** | Transações com a dimensão **ResponseType** igual a **ClientThrottlingError** ou **ServerBusyError** |
 | **PercentTimeoutError** | Transações com a dimensão **ResponseType** igual a **ServerTimeoutError** ou **ResponseType** igual a **ClientTimeoutError** |
@@ -99,10 +100,10 @@ As métricas a seguir são novas ofertas que as métricas antigas não dão supo
 | **ServerTimeoutError** | Transações com a dimensão **ResponseType** igual a **ServerTimeoutError** |
 | **Êxito** | Transações com a dimensão **ResponseType** igual a **Success** |
 | **ThrottlingError** | **Transações** com a dimensão **ResponseType** igual a **ClientThrottlingError** ou **ServerBusyError**|
-| **TotalBillableRequests** | **Transactions** |
+| **TotalBillableRequests** | **Transações** |
 | **TotalEgress** | **Saída** |
 | **TotalIngress** | **Entrada** |
-| **TotalRequests** | **Transactions** |
+| **TotalRequests** | **Transações** |
 
 ## <a name="faq"></a>Perguntas frequentes
 
@@ -117,4 +118,4 @@ Não. Para arquivar os dados de métrica em uma conta de armazenamento, use a [A
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview.md)
-* [Métricas de armazenamento no Azure Monitor](./storage-metrics-in-azure-monitor.md)
+* [Métricas de Armazenamento do Microsoft Azure no Azure Monitor](./storage-metrics-in-azure-monitor.md)

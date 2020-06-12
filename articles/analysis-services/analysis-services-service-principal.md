@@ -1,18 +1,18 @@
 ---
-title: Automatizar tarefas de Azure Analysis Services com entidades de serviço | Microsoft Docs
-description: Saiba como criar uma entidade de serviço para automatizar Azure Analysis Services tarefas administrativas.
+title: Automatize as tarefas do Azure Analysis Services com entidades de serviço | Microsoft Docs
+description: Saiba como criar uma entidade de serviço para automatizar tarefas administrativas do Azure Analysis Services.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 05/26/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: dc163de9a7fb46d62f4bc2983e040e68bbf9231c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 638ba26c8c8aed9385e10242b86a7587c1d9a7c5
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79266137"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871167"
 ---
 # <a name="automation-with-service-principals"></a>Automação com entidades de serviço
 
@@ -20,20 +20,20 @@ As entidades de serviço são um recurso de aplicativo do Azure Active Directory
 
 No Analysis Services, as entidades de serviço são usadas com o Automação do Azure, o modo autônomo do PowerShell, aplicativos cliente personalizados e aplicativos Web para automatizar tarefas comuns. Por exemplo, servidores de provisionamento, modelos de implantação, atualização de dados, escalar verticalmente/reduzir verticalmente e pausar/continuar podem ser automatizados usando entidades de serviço. As permissões são atribuídas a entidades de serviço por meio da associação de funções, semelhante às contas comuns de UPN do Microsoft Azure AD.
 
-O Analysis Services também dá suporte a operações executadas por identidades gerenciadas usando entidades de serviço. Para saber mais, confira [identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md) e [Serviços do Azure que dão suporte à autenticação do Azure ad](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services).  
+O Analysis Services também é compatível com operações executadas por identidades gerenciadas usando entidades de serviço. Para saber mais, confira [Identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md) e [Serviços do Azure compatíveis com a autenticação do Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services).  
 
 ## <a name="create-service-principals"></a>Criar entidades de serviço
  
 As entidades de serviço podem ser criadas no portal do Azure ou usando o PowerShell. Para obter mais informações, consulte:
 
-[Criar entidade de serviço-portal do Azure](../active-directory/develop/howto-create-service-principal-portal.md)   
-[Criar entidade de serviço – PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
+[Criar entidade de serviço - Portal do Azure](../active-directory/develop/howto-create-service-principal-portal.md)   
+[Criar entidade de serviço - PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## <a name="store-credential-and-certificate-assets-in-azure-automation"></a>Armazenar credenciais e ativos de certificado na Automação do Azure
 
 Credenciais e certificados da entidade de serviço podem ser armazenados de forma segura na Automação do Azure para operações de runbook. Para obter mais informações, consulte:
 
-[Ativos de credencial na automação do Azure](../automation/automation-credentials.md)   
+[Ativos de credenciais na Automação do Azure](../automation/automation-credentials.md)   
 [Ativos de certificado na Automação do Azure](../automation/automation-certificates.md)
 
 ## <a name="add-service-principals-to-server-admin-role"></a>Adicionar entidades de serviço à função de administrador do servidor
@@ -48,11 +48,11 @@ AppID de entidade de serviço e senha ou certificado podem ser usados em cadeias
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-#### <a name="using-azanalysisservices-module"></a><a name="azmodule" />Usando o módulo AZ. AnalysisServices
+#### <a name="using-azanalysisservices-module"></a><a name="azmodule" />Usar o módulo Az.AnalysisServices
 
-Ao usar uma entidade de serviço para operações de gerenciamento de recursos com o módulo [AZ. AnalysisServices](/powershell/module/az.analysisservices) , use `Connect-AzAccount` o cmdlet. 
+Ao usar uma entidade de serviço para operações de gerenciamento de recursos com o módulo [Az.AnalysisServices](/powershell/module/az.analysisservices), use o cmdlet `Connect-AzAccount`. 
 
-No exemplo a seguir, appID e uma senha são usados para executar operações de plano de controle para sincronização para réplicas somente leitura e escala vertical/horizontal:
+No seguinte exemplo, appID e uma senha são usados para executar operações de plano de controle para sincronização a réplicas somente leitura e escala vertical/horizontal:
 
 ```powershell
 Param (
@@ -73,7 +73,7 @@ Sync-AzAnalysisServicesInstance -Instance "asazure://westus.asazure.windows.net/
 Set-AzAnalysisServicesServer -Name "testsvr" -ResourceGroupName "testRG" -Sku "S1" -ReadonlyReplicaCount 2 -DefaultConnectionMode Readonly
 ```
 
-#### <a name="using-sqlserver-module"></a>Usando o módulo do SQLServer
+#### <a name="using-sqlserver-module"></a>Usar o módulo SQLServer
 
 No exemplo a seguir, appID e uma senha são usados para executar uma operação de atualização de modelo de banco de dados:
 
@@ -109,5 +109,8 @@ db.Model.SaveChanges();
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-[Entrar com Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps)   
-[Adicionar uma entidade de serviço à função de administrador do servidor](analysis-services-addservprinc-admins.md)   
+[Entrar com o Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps)   
+[Atualizar com Aplicativos Lógicos](analysis-services-refresh-logic-app.md)  
+[Atualizar com Automação do Azure](analysis-services-refresh-azure-automation.md)  
+[Adicionar uma entidade de serviço à função de administrador do servidor](analysis-services-addservprinc-admins.md)  
+[Automatizar tarefas de conjunto de dados e workspace do Power BI Premium com entidades de serviço](https://docs.microsoft.com/power-bi/admin/service-premium-service-principal) 

@@ -1,26 +1,27 @@
 ---
-title: ENDSWITH na linguagem de consulta Azure Cosmos DB
-description: Saiba mais sobre a função de sistema SQL ENDSWITH em Azure Cosmos DB para retornar um booliano que indica se a primeira expressão de cadeia de caracteres termina com a segunda
+title: EndsWith na linguagem de consulta do Azure Cosmos DB
+description: Saiba mais sobre a função de sistema ENDSWITH do SQL no Azure Cosmos DB para retornar um booliano que indica se a primeira expressão de cadeia de caracteres termina com a segunda
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 05/20/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 37c5a8b3c44c5ac46b837e4d851d22f85aeaf39c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0cd927af50eca04aa8162d9d8f292077d9e4165c
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78299441"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83844957"
 ---
 # <a name="endswith-azure-cosmos-db"></a>ENDSWITH (Azure Cosmos DB)
+
  Retorna um valor booliano que indica se a primeira expressão de cadeia de caracteres termina com a segunda.  
   
 ## <a name="syntax"></a>Sintaxe
   
 ```sql
-ENDSWITH(<str_expr1>, <str_expr2>)  
+ENDSWITH(<str_expr1>, <str_expr2> [, <bool_expr>])
 ```  
   
 ## <a name="arguments"></a>Argumentos
@@ -29,7 +30,9 @@ ENDSWITH(<str_expr1>, <str_expr2>)
    É uma expressão de cadeia de caracteres.  
   
 *str_expr2*  
-   É uma expressão de cadeia de caracteres a ser comparada ao final de *str_expr1*.  
+   É uma expressão de cadeia de caracteres a ser comparada ao final de *str_expr1*.
+
+*bool_expr* valor opcional para ignorar maiúsculas e minúsculas. Quando definido como true, ENDSWITH fará uma pesquisa que não diferencia maiúsculas de minúsculas. Quando não especificado, esse valor é false.
   
 ## <a name="return-types"></a>Tipos de retorno
   
@@ -37,24 +40,44 @@ ENDSWITH(<str_expr1>, <str_expr2>)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo a seguir retorna "abc" terminando com "b" e "bc".  
+O exemplo a seguir verifica se a cadeia de caracteres "abc" termina com "b" e "bC".  
   
 ```sql
-SELECT ENDSWITH("abc", "b") AS e1, ENDSWITH("abc", "bc") AS e2 
+SELECT ENDSWITH("abc", "b", false) AS e1, ENDSWITH("abc", "bC", false) AS e2, ENDSWITH("abc", "bC", true) AS e3
 ```  
   
  Este é o conjunto de resultados.  
   
 ```json
-[{"e1": false, "e2": true}]  
+[
+    {
+        "e1": false,
+        "e2": false,
+        "e3": true
+    }
+]
 ```  
 
 ## <a name="remarks"></a>Comentários
 
-Essa função do sistema não usará o índice.
+Essa função do sistema se beneficiará de um [índice de intervalo](index-policy.md#includeexclude-strategy).
+
+O consumo do EndsWith de RU aumentará conforme a cardinalidade da propriedade do sistema aumentar. Em outras palavras, se estiver verificando se um valor de propriedade termina com uma determinada cadeia de caracteres, a cobrança de RU da consulta dependerá do número de valores possíveis para essa propriedade.
+
+Por exemplo, considere duas propriedades: cidade e país. A cardinalidade de cidade é 5.000 e a cardinalidade de país é 200. A seguir, são apresentados dois exemplos de consultas:
+
+```sql
+    SELECT * FROM c WHERE ENDSWITH(c.town, "York", false)
+```
+
+```sql
+    SELECT * FROM c WHERE ENDSWITH(c.country, "States", false)
+```
+
+A primeira consulta provavelmente usará mais RUs do que a segunda consulta, pois a cardinalidade da cidade é maior do que a do país.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Funções de cadeia de caracteres Azure Cosmos DB](sql-query-string-functions.md)
-- [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funções de cadeia de caracteres do Azure Cosmos DB](sql-query-string-functions.md)
+- [Funções de sistema do Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

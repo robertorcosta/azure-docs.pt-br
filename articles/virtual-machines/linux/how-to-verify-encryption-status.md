@@ -1,89 +1,73 @@
 ---
-title: Como verificar o status de criptografia para Linux
-description: Este artigo fornece instruções sobre como verificar o status de criptografia do nível da plataforma e do sistema operacional.
+title: Verificar o status de criptografia para Linux – Azure Disk Encryption
+description: Este artigo fornece instruções sobre como verificar o status de criptografia dos níveis da plataforma e do SO.
 author: kailashmsft
 ms.service: security
 ms.topic: article
 ms.author: kaib
 ms.date: 03/11/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0aaa32c46d915eafffcfac9d95cfdd3a24d4086d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e2916a71f167c415f6bf1dde8ff82a38b0e0557c
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80123415"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873994"
 ---
-# <a name="how-to-verify-encryption-status-for-linux"></a>Como verificar o status de criptografia para Linux 
+# <a name="verify-encryption-status-for-linux"></a>Verificar o status da criptografia para Linux 
 
-**Esse cenário se aplica a extensões de passagem dupla e de passagem única do ADE.**  
-Esse escopo de documento é validar o status de criptografia de uma máquina virtual usando métodos diferentes.
+O escopo deste artigo é validar o status de criptografia de uma máquina virtual usando métodos diferentes: o portal do Azure, o PowerShell, a CLI do Azure ou o sistema operacional da VM (máquina virtual). 
 
-### <a name="environment"></a>Ambiente
+Você pode validar o status de criptografia durante ou após a criptografia realizando uma das seguintes ações:
 
-- Distribuições Linux
+- Verificar os discos anexados a uma VM específica. 
+- Consultar as configurações de criptografia em cada disco, independentemente de o disco estar anexado ou desanexado.
 
-### <a name="procedure"></a>Procedimento
-
-Uma máquina virtual foi criptografada usando passagem dupla ou passagem única.
-
-O status de criptografia pode ser validado durante ou após a criptografia usando métodos diferentes.
+Esse cenário se aplica às extensões de passagem dupla e de passagem única do Azure Disk Encryption. As distribuições do Linux são o único ambiente para esse cenário.
 
 >[!NOTE] 
->Estamos usando variáveis em todo o documento, substitua os valores de acordo.
+>Estamos usando variáveis em todo o artigo. Substitua os valores adequadamente.
 
-### <a name="verification"></a>Verificação
+## <a name="portal"></a>Portal
 
-A verificação pode ser feita no portal, no PowerShell, no AZ CLI e no no lado do sistema operacional da VM. 
+Na portal do Azure, dentro da seção **Extensões**, selecione a extensão Azure Disk Encryption na lista. As informações para **Mensagem de status** indicam o status de criptografia atual:
 
-Essa verificação pode ser feita verificando os discos anexados a uma VM específica. 
+![Verificação do portal com status, versão e mensagem de status realçados](./media/disk-encryption/verify-encryption-linux/portal-check-001.png)
 
-Ou consultando as configurações de criptografia em cada disco individual, se o disco está anexado ou desanexado.
+Na lista de extensões, você verá a versão de extensão do Azure Disk Encryption correspondente. A versão 0.x corresponde à passagem dupla do Azure Disk Encryption e a versão 1.x corresponde à passagem única do Azure Disk Encryption.
 
-Abaixo dos diferentes métodos de validação:
+Você pode obter mais detalhes selecionando a extensão e, em seguida, selecionando **Exibir o status detalhado**. O status detalhado do processo de criptografia é exibido no formato JSON.
 
-## <a name="using-the-portal"></a>Usar o portal
+![Verificação do portal com o link "Exibir status detalhado" realçado](./media/disk-encryption/verify-encryption-linux/portal-check-002.png)
 
-Valide o status de criptografia verificando a seção extensões no portal do Azure.
+![Status detalhado no formato JSON](./media/disk-encryption/verify-encryption-linux/portal-check-003.png)
 
-Dentro da seção **extensões** , você verá a extensão Ade listada. 
+Outra maneira de validar o status de criptografia é observando a seção **Configurações de disco**.
 
-Clique nele e dê uma olhada na **mensagem de status**, indicando o status de criptografia atual:
-
-![Cheque do portal número 1](./media/disk-encryption/verify-encryption-linux/portal-check-001.png)
-
-Na lista de extensões, você verá a versão de extensão ADE correspondente. A versão 0. x corresponde a uma passagem dupla e a versão 1. x corresponde à passagem única de ADE.
-
-Você pode obter mais detalhes clicando na extensão e, em seguida, em *Exibir status detalhado*.
-
-Você verá um status mais detalhado do processo de criptografia no formato JSON:
-
-![Cheque do portal número 2](./media/disk-encryption/verify-encryption-linux/portal-check-002.png)
-
-![Cheque do portal número 3](./media/disk-encryption/verify-encryption-linux/portal-check-003.png)
-
-Outra maneira de validar o status de criptografia é examinando a seção **discos** .
-
-![Verificação do portal número 4](./media/disk-encryption/verify-encryption-linux/portal-check-004.png)
+![Status de criptografia para disco do sistema operacional e discos de dados](./media/disk-encryption/verify-encryption-linux/portal-check-004.png)
 
 >[!NOTE] 
-> Esse status significa que os discos têm configurações de criptografia carimbadas, mas não que foram realmente criptografadas no nível do sistema operacional. Por design, os discos são marcados primeiro e criptografados mais tarde. Se o processo de criptografia falhar, os discos poderão terminar de ser carimbados, mas não criptografados. Para confirmar se os discos estão verdadeiramente criptografados, você pode verificar a criptografia de cada disco no nível do sistema operacional.
+> Esse status significa que as configurações de criptografia estão registradas nos discos, não que eles foram realmente criptografados no nível do sistema operacional.
+>
+> Por concepção, essas configurações são registradas nos discos primeiro e eles são criptografados posteriormente. Se o processo de criptografia falhar, esse processo de registro nos discos poderá ser concluído, mas o mesmo não ocorre para o processo de criptografia. 
+>
+> Para confirmar se os discos estão realmente criptografados, você pode verificar a criptografia de cada disco no nível do sistema operacional.
 
-## <a name="using-powershell"></a>Usando o PowerShell
+## <a name="powershell"></a>PowerShell
 
-Você pode validar o status de criptografia **geral** de uma VM criptografada usando os seguintes comandos do PowerShell:
+Você pode validar o status de criptografia *geral* de uma VM criptografada usando os seguintes comandos do PowerShell:
 
 ```azurepowershell
    $VMNAME="VMNAME"
    $RGNAME="RGNAME"
    Get-AzVmDiskEncryptionStatus -ResourceGroupName  ${RGNAME} -VMName ${VMNAME}
 ```
-![verificar o PowerShell 1](./media/disk-encryption/verify-encryption-linux/verify-status-ps-01.png)
+![Status de criptografia geral no PowerShell](./media/disk-encryption/verify-encryption-linux/verify-status-ps-01.png)
 
-Você pode capturar as configurações de criptografia de cada disco individual usando os seguintes comandos do PowerShell:
+Você pode capturar as configurações de criptografia de cada disco usando os comandos do PowerShell a seguir.
 
 ### <a name="single-pass"></a>Passagem única
-Se houver uma passagem única, as configurações de criptografia serão carimbadas em cada um dos discos (so e dados), você poderá capturar as configurações de criptografia de disco do sistema operacional em uma única passagem da seguinte maneira:
+Em uma passagem, as configurações de criptografia são registradas em cada um dos discos (SO e dados). Você pode capturar as configurações de criptografia para um disco do sistema operacional em uma passagem única, da seguinte maneira:
 
 ``` powershell
 $RGNAME = "RGNAME"
@@ -101,13 +85,13 @@ $VM = Get-AzVM -Name ${VMNAME} -ResourceGroupName ${RGNAME}
  Write-Host "Key URL:" $Sourcedisk.EncryptionSettingsCollection.EncryptionSettings.KeyEncryptionKey.KeyUrl
  Write-Host "============================================================================================================================================================="
 ```
-![Verificar o sistema operacional único Pass 01](./media/disk-encryption/verify-encryption-linux/verify-os-single-ps-001.png)
+![Configurações de criptografia para um disco do sistema operacional](./media/disk-encryption/verify-encryption-linux/verify-os-single-ps-001.png)
 
-Se o disco não tiver as configurações de criptografia carimbadas, a saída estará vazia, conforme mostrado abaixo:
+Se não houver configurações de criptografia registradas no disco, a saída estará vazia:
 
-![Configurações de criptografia do SO 2](./media/disk-encryption/verify-encryption-linux/os-encryption-settings-2.png)
+![Saída vazia](./media/disk-encryption/verify-encryption-linux/os-encryption-settings-2.png)
 
-Capturar configurações de criptografia de discos de dados:
+Use os seguintes comandos para capturar as configurações de criptografia para discos de dados:
 
 ```azurepowershell
 $RGNAME = "RGNAME"
@@ -128,12 +112,12 @@ $VM = Get-AzVM -Name ${VMNAME} -ResourceGroupName ${RGNAME}
  Write-Host "============================================================================================================================================================="
  }
 ```
-![Verificar dados único PS 001](./media/disk-encryption/verify-encryption-linux/verify-data-single-ps-001.png)
+![Configurações de criptografia para discos de dados](./media/disk-encryption/verify-encryption-linux/verify-data-single-ps-001.png)
 
 ### <a name="dual-pass"></a>Passagem dupla
-Em passagem dupla, as configurações de criptografia são carimbadas no modelo de VM e não em cada disco individual.
+Em uma passagem dupla, as configurações de criptografia são registradas no modelo de VM e não em cada disco individual.
 
-Para verificar se as configurações de criptografia foram carimbadas em passagem dupla, você pode usar os seguintes comandos:
+Para verificar se as configurações de criptografia foram registradas em uma passagem dupla, use os seguintes comandos:
 
 ```azurepowershell
 $RGNAME = "RGNAME"
@@ -152,9 +136,9 @@ Write-Host "Secret URL:" $Sourcedisk.EncryptionSettingsCollection.EncryptionSett
 Write-Host "Key URL:" $Sourcedisk.EncryptionSettingsCollection.EncryptionSettings.KeyEncryptionKey.KeyUrl
 Write-Host "============================================================================================================================================================="
 ```
-![Verificar o PowerShell 1 de passagem dupla](./media/disk-encryption/verify-encryption-linux/verify-dual-ps-001.png)
+![Configurações de criptografia em uma passagem dupla](./media/disk-encryption/verify-encryption-linux/verify-dual-ps-001.png)
 
-### <a name="unattached-disks"></a>Discos desanexados
+### <a name="unattached-disks"></a>Discos desconectados
 
 Verifique as configurações de criptografia de discos que não estão anexados a uma VM.
 
@@ -171,19 +155,19 @@ Write-Host "Secret URL:" $Sourcedisk.EncryptionSettingsCollection.EncryptionSett
 Write-Host "Key URL:" $Sourcedisk.EncryptionSettingsCollection.EncryptionSettings.KeyEncryptionKey.KeyUrl
 Write-Host "============================================================================================================================================================="
 ```
-## <a name="using-az-cli"></a>Usando AZ CLI
+## <a name="azure-cli"></a>CLI do Azure
 
-Você pode validar o status de criptografia **geral** de uma VM criptografada usando os seguintes comandos AZ CLI:
+Você pode validar o status de criptografia *geral* de uma VM criptografada usando os seguintes comandos da CLI do Azure:
 
 ```bash
 VMNAME="VMNAME"
 RGNAME="RGNAME"
 az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} --query "substatus"
 ```
-![Verificar geral usando a CLI ](./media/disk-encryption/verify-encryption-linux/verify-gen-cli.png)
+![Status geral de criptografia da CLI do Azure ](./media/disk-encryption/verify-encryption-linux/verify-gen-cli.png)
 
 ### <a name="single-pass"></a>Passagem única
-Você pode validar as configurações de criptografia de cada disco individual usando os seguintes comandos AZ CLI:
+Você pode validar as configurações de criptografia de cada disco usando os seguintes comandos da CLI do Azure:
 
 ```bash
 az vm encryption show -g ${RGNAME} -n ${VMNAME} --query "disks[*].[name, statuses[*].displayStatus]"  -o table
@@ -192,11 +176,11 @@ az vm encryption show -g ${RGNAME} -n ${VMNAME} --query "disks[*].[name, statuse
 ![Configurações de criptografia de dados](./media/disk-encryption/verify-encryption-linux/data-encryption-settings-2.png)
 
 >[!IMPORTANT]
-> Caso o disco não tenha as configurações de criptografia carimbadas, ele será mostrado como "o disco não está criptografado"
+> Se as configurações de criptografia não estiverem registradas no disco, você verá o texto **O disco não está criptografado**.
 
-Status detalhado e configurações de criptografia:
+Use os comandos a seguir para obter configurações detalhadas de status e de criptografia.
 
-Disco do so:
+Disco do sistema operacional:
 
 ```bash
 RGNAME="RGNAME"
@@ -214,7 +198,7 @@ echo "==========================================================================
 done
 ```
 
-![OSSingleCLI](./media/disk-encryption/verify-encryption-linux/os-single-cli.png)
+![Status detalhado e configurações de criptografia para o disco do sistema operacional](./media/disk-encryption/verify-encryption-linux/os-single-cli.png)
 
 Discos de dados:
 
@@ -234,7 +218,7 @@ echo "==========================================================================
 done
 ```
 
-![CLI única de dados ](./media/disk-encryption/verify-encryption-linux/data-single-cli.png)
+![Status detalhado e configurações de criptografia para os discos de dados](./media/disk-encryption/verify-encryption-linux/data-single-cli.png)
 
 ### <a name="dual-pass"></a>Passagem dupla
 
@@ -242,7 +226,9 @@ done
 az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} -o table
 ```
 
-![Verificar o dual geral usando ](./media/disk-encryption/verify-encryption-linux/verify-gen-dual-cli.png) a CLI você também pode verificar as configurações de criptografia no perfil de armazenamento do modelo de VM do disco do sistema operacional:
+![Configurações de criptografia gerais para passagem dupla por meio da CLI do Azure](./media/disk-encryption/verify-encryption-linux/verify-gen-dual-cli.png)
+
+Você também pode verificar as configurações de criptografia no perfil de armazenamento do modelo de VM do disco do sistema operacional:
 
 ```bash
 disk=`az vm show -g ${RGNAME} -n ${VMNAME} --query storageProfile.osDisk.name -o tsv`
@@ -257,9 +243,9 @@ echo "==========================================================================
 done
 ```
 
-![Verificar o perfil de VM Dual usando a CLI ](./media/disk-encryption/verify-encryption-linux/verify-vm-profile-dual-cli.png)
+![Perfil de VM para passagem dupla por meio da CLI do Azure](./media/disk-encryption/verify-encryption-linux/verify-vm-profile-dual-cli.png)
 
-### <a name="unattached-disks"></a>Discos desanexados
+### <a name="unattached-disks"></a>Discos desconectados
 
 Verifique as configurações de criptografia de discos que não estão anexados a uma VM.
 
@@ -278,14 +264,14 @@ echo "==========================================================================
 ```
 ### <a name="unmanaged-disks"></a>Discos não gerenciados
 
-Discos não gerenciados são arquivos VHD armazenados como blobs de páginas nas Contas de Armazenamento do Microsoft Azure.
+Discos não gerenciados são arquivos VHD armazenados como blobs de páginas nas contas de armazenamento do Microsoft Azure.
 
 Para obter os detalhes de um disco específico, você precisa fornecer:
 
-A ID da conta de armazenamento que contém o disco.
-Uma cadeia de conexão para essa conta de armazenamento específica.
-O nome do contêiner que armazena o disco.
-O nome do disco.
+- A ID da conta de armazenamento que contém o disco.
+- Uma cadeia de conexão para essa conta de armazenamento específica.
+- O nome do contêiner que armazena o disco.
+- O nome do disco.
 
 Este comando lista todas as IDs de todas as suas contas de armazenamento:
 
@@ -294,13 +280,12 @@ az storage account list --query [].[id] -o tsv
 ```
 As IDs da conta de armazenamento são listadas no seguinte formato:
 
-ID\<da assinatura do/subscriptions/\<> nome do grupo de\<recursos do/resourcegroups/> nome da conta de armazenamento do/Providers/Microsoft.Storage/storageaccounts/>
+/subscriptions/\<ID da assinatura>/resourceGroups/\<nome do grupo de recursos>/providers/Microsoft.Storage/storageAccounts/\<nome da conta de armazenamento>
 
 Selecione a ID apropriada e armazene-a em uma variável:
 ```bash
 id="/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name>"
 ```
-A cadeia de conexão.
 
 Esse comando obtém a cadeia de conexão para uma conta de armazenamento específica e a armazena em uma variável:
 
@@ -308,57 +293,51 @@ Esse comando obtém a cadeia de conexão para uma conta de armazenamento especí
 ConnectionString=$(az storage account show-connection-string --ids $id --query connectionString -o tsv)
 ```
 
-O nome do contêiner.
-
-O comando a seguir lista todos os contêineres em uma conta de armazenamento:
+O seguinte comando lista todos os contêineres em uma conta de armazenamento:
 ```bash
 az storage container list --connection-string $ConnectionString --query [].[name] -o tsv
 ```
-O contêiner usado para discos normalmente é chamado de "VHDs"
+O contêiner usado para discos normalmente é denominado "vhds".
 
-Armazenar o nome do contêiner em uma variável 
+Armazene o nome do contêiner em uma variável: 
 ```bash
 ContainerName="name of the container"
 ```
 
-O nome do disco.
-
-Use este comando para listar todos os BLOBs em um contêiner específico
+Use este comando para listar todos os BLOBs em um contêiner específico:
 ```bash 
 az storage blob list -c ${ContainerName} --connection-string $ConnectionString --query [].[name] -o tsv
 ```
-Escolha o disco que você deseja consultar e armazene seu nome em uma variável.
+Escolha o disco que você deseja consultar e armazene o nome dele em uma variável:
 ```bash
 DiskName="diskname.vhd"
 ```
-Consultar as configurações de criptografia de disco
+Consultar as configurações de criptografia de disco:
 ```bash
 az storage blob show -c ${ContainerName} --connection-string ${ConnectionString} -n ${DiskName} --query metadata.DiskEncryptionSettings
 ```
 
-## <a name="from-the-os"></a>Do sistema operacional
-Validar se as partições do disco de dados estão criptografadas (e o disco do sistema operacional não está)
+## <a name="operating-system"></a>Sistema operacional
+Validar se as partições de disco de dados estão criptografadas (e o disco do sistema operacional não está).
 
-Quando uma partição/disco é criptografada, ela é exibida como tipo **cript** . quando não é criptografada, ela é exibida como **parte/** tipo de disco
+Quando uma partição ou um disco está criptografado, ele é exibido como um tipo **crypt**. Quando não estiver criptografado, ele será exibido como um tipo **part/disk**.
 
 ``` bash
 lsblk
 ```
 
-![Camada cript. do sistema operacional ](./media/disk-encryption/verify-encryption-linux/verify-os-crypt-layer.png)
+![Camada cript do sistema operacional para uma partição](./media/disk-encryption/verify-encryption-linux/verify-os-crypt-layer.png)
 
-Você pode obter mais detalhes usando a variante "lsblk" a seguir. 
+Você pode obter mais detalhes de configuração usando a variante **lsblk** a seguir. 
 
-Você verá uma camada de tipo **cript** . que é montada pela extensão.
-
-O exemplo a seguir mostra volumes lógicos e discos normais com um "**\_crypto luks FSTYPE**".
+Você verá uma camada de tipo **crypt** que é montada pela extensão. O exemplo a seguir mostra volumes lógicos e discos normais com **crypto\_LUKS FSTYPE**.
 
 ```bash
 lsblk -o NAME,TYPE,FSTYPE,LABEL,SIZE,RO,MOUNTPOINT
 ```
-![Camada 2 criptografada do sistema operacional](./media/disk-encryption/verify-encryption-linux/verify-os-crypt-layer-2.png)
+![Camada crypt do sistema operacional para volumes lógicos e discos normais](./media/disk-encryption/verify-encryption-linux/verify-os-crypt-layer-2.png)
 
-Como uma etapa extra, você também pode validar se o disco de dados tem alguma chave carregada
+Como uma etapa extra, você pode validar se o disco de dados tem alguma chave carregada:
 
 ``` bash
 cryptsetup luksDump /dev/VGNAME/LVNAME
@@ -368,7 +347,7 @@ cryptsetup luksDump /dev/VGNAME/LVNAME
 cryptsetup luksDump /dev/sdd1
 ```
 
-E quais dispositivos DM são listados como cript.
+E você pode verificar quais dispositivos **dm** estão listados como **crypt**:
 
 ```bash
 dmsetup ls --target crypt

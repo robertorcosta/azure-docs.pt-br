@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: spelluru
-ms.openlocfilehash: 7a60f761e4ee575e3196bb1ccd3baa42f27221f8
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 4c2c02e47059d73e29da705fc9075721e080e636
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588166"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701797"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gerenciar laboratórios de sala de aula no Azure Lab Services 
 Este artigo descreve como criar e excluir um laboratório de sala de aula. Isso também mostra como exibir todos os laboratórios de sala de aula em uma conta de laboratório. 
@@ -29,18 +29,18 @@ Para configurar um laboratório de sala de aula em uma conta de laboratório, vo
 ## <a name="create-a-classroom-lab"></a>Criar um laboratório de sala de aula
 
 1. Navegue até [Site do Azure Lab Services](https://labs.azure.com). Ainda não há suporte para o Internet Explorer 11. 
-2. Selecione **Iniciar sessão** e insira suas credenciais. Selecione ou insira uma **ID de usuário** que é um membro da função **Criador de laboratório** na conta do laboratório e insira a senha. O Azure Lab Services oferece suporte a contas organizacionais e contas Microsoft. 
-3. Selecione **Novo laboratório**. 
+1. Selecione **Iniciar sessão** e insira suas credenciais. Selecione ou insira uma **ID de usuário** que é um membro da função **Criador de laboratório** na conta do laboratório e insira a senha. O Azure Lab Services oferece suporte a contas organizacionais e contas Microsoft. 
+1. Selecione **Novo laboratório**. 
     
     ![Criar um laboratório de sala de aula](../media/tutorial-setup-classroom-lab/new-lab-button.png)
-3. Na janela **Novo laboratório**, execute as seguintes ações: 
+1. Na janela **Novo laboratório**, execute as seguintes ações: 
     1. Especifique um **nome** para o laboratório. 
-    2. Selecione o **tamanho das máquinas virtuais** de que você precisa para a classe. Para obter a lista de tamanhos disponíveis, consulte a seção [Tamanhos de VM](#vm-sizes). 
-    3. Selecione a **imagem da máquina virtual** que você deseja usar para o laboratório de sala de aula. Se você selecionar uma imagem do Linux, verá uma opção para habilitar a conexão de área de trabalho remota para ela. Para obter detalhes, veja [Habilitar conexão de área de trabalho remota para Linux](how-to-enable-remote-desktop-linux.md).
+    1. Selecione o **tamanho das máquinas virtuais** de que você precisa para a classe. Para obter a lista de tamanhos disponíveis, consulte a seção [Tamanhos de VM](#vm-sizes). 
+    1. Selecione a **imagem da máquina virtual** que você deseja usar para o laboratório de sala de aula. Se você selecionar uma imagem do Linux, verá uma opção para **habilitar a Conexão de Área de Trabalho Remota**. Para obter detalhes, veja [Habilitar conexão de área de trabalho remota para Linux](how-to-enable-remote-desktop-linux.md).
 
         Se você tiver entrado usando credenciais do proprietário da conta do laboratório, verá uma opção para habilitar mais imagens para o laboratório. Para obter mais informações, consulte [Habilitar imagens no momento da criação do laboratório](specify-marketplace-images.md#enable-images-at-the-time-of-lab-creation).
-    4. Revise o **preço total por hora** exibido na página. 
-    6. Clique em **Salvar**.
+    1. Revise o **preço total por hora** exibido na página. 
+    1. Clique em **Salvar**.
 
         ![Janela Novo laboratório](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 
@@ -70,24 +70,24 @@ Para configurar um laboratório de sala de aula em uma conta de laboratório, vo
     ![Status da criação da VM de modelo](../media/tutorial-setup-classroom-lab/create-template-vm-progress.png)
 8. Na página **Modelo**, execute as seguintes etapas: Essas etapas são **opcionais** para o tutorial.
 
-    2. Conecte-se à VM modelo selecionando **Conectar**. Se for uma VM de modelo do Linux, você escolherá se deseja se conectar usando SSH ou RDP (se RDP estiver habilitado).
+    1. Conecte-se à VM modelo selecionando **Conectar**. Se for uma VM de modelo do Linux, você escolherá se deseja se conectar usando SSH ou a Área de Trabalho Remota da GUI.  É necessária uma configuração adicional para usar uma Área de Trabalho Remota da GUI. Confira [Habilitar a Área de Trabalho Remota gráfica para Máquinas Virtuais do Linux](how-to-use-remote-desktop-linux-student.md) para mais informações.
     1. Selecione **Redefinição de senha** para redefinir a senha da VM. 
     1. Instale e configure software em sua VM modelo. 
     1. **Pare** a VM.  
     1. Insira uma **descrição** do modelo
-10. Na página **Modelo**, selecione **Publicar** na barra de ferramentas. 
+9.  Na página **Modelo**, selecione **Publicar** na barra de ferramentas. 
 
     ![Botão Publicar modelo](../media/tutorial-setup-classroom-lab/template-page-publish-button.png)
 
     > [!WARNING]
     > Depois de publicar, você não pode cancelar a publicação. 
-8. Na página **Publicar modelo**, insira o número de máquinas virtuais que deseja criar no laboratório e, em seguida, selecione **Publicar**. 
+10. Na página **Publicar modelo**, insira o número de máquinas virtuais que deseja criar no laboratório e, em seguida, selecione **Publicar**. 
 
     ![Publicar modelo – número de VMs](../media/tutorial-setup-classroom-lab/publish-template-number-vms.png)
 11. Você verá o **status de publicação** do modelo na página. Esse processo pode levar até uma hora. 
 
     ![Publicar modelo – andamento](../media/tutorial-setup-classroom-lab/publish-template-progress.png)
-4. Alterne para a página **Pool de máquinas virtuais** selecionando Máquinas virtuais no menu esquerdo ou selecionando o bloco Máquinas virtuais. Confirme que você vê cinco máquinas virtuais no estado **Não atribuído**. Essas máquinas virtuais ainda não foram atribuídas aos alunos. Elas devem estar no estado **Parado**. Você pode iniciar a VM de um aluno, conectar-se à VM, parar a VM e excluir a VM nesta página. Você pode iniciá-los nesta página ou permitir que os alunos iniciem as máquinas virtuais. 
+12. Alterne para a página **Pool de máquinas virtuais** selecionando Máquinas virtuais no menu esquerdo ou selecionando o bloco Máquinas virtuais. Confirme que você vê cinco máquinas virtuais no estado **Não atribuído**. Essas máquinas virtuais ainda não foram atribuídas aos alunos. Elas devem estar no estado **Parado**. Você pode iniciar a VM de um aluno, conectar-se à VM, parar a VM e excluir a VM nesta página. Você pode iniciá-los nesta página ou permitir que os alunos iniciem as máquinas virtuais. 
 
     ![Máquinas virtuais no estado parado](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 

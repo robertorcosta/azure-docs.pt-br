@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 9f780ad3d2c95f9d23ea9a0b675b59ba22e25016
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b9a855a89a37cde0be3c30b2428c32db361aa2e8
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83651942"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021680"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Usar dados de referência de um Banco de Dados SQL para um trabalho do Azure Stream Analytics
 
@@ -40,7 +40,7 @@ Siga as etapas abaixo para adicionar o Banco de Dados SQL do Azure como uma font
 
    ![Configuração da referência do Banco de Dados SQL](./media/sql-reference-data/sql-input-config.png)
 
-3. Teste a consulta de instantâneo no editor de consultas SQL. Para obter mais informações, confira o artigo sobre como [usar o editor de consultas SQL do portal do Azure para se conectar e consultar dados](../sql-database/sql-database-connect-query-portal.md)
+3. Teste a consulta de instantâneo no editor de consultas SQL. Para obter mais informações, confira o artigo sobre como [usar o editor de consultas SQL do portal do Azure para se conectar e consultar dados](../azure-sql/database/connect-query-portal.md)
 
 ### <a name="specify-storage-account-in-job-config"></a>Especificar a conta de armazenamento na configuração do trabalho
 
@@ -69,7 +69,7 @@ Siga as etapas abaixo para adicionar o Banco de Dados SQL do Azure como uma font
 
 ### <a name="create-a-sql-database-table"></a>Criar uma tabela do Banco de Dados SQL
 
-Use o SQL Server Management Studio para criar uma tabela para armazenar os dados de referência. Saiba mais em [Projetar seu primeiro Banco de Dados SQL do Azure usando o SSMS](../sql-database/sql-database-design-first-database.md).
+Use o SQL Server Management Studio para criar uma tabela para armazenar os dados de referência. Saiba mais em [Projetar seu primeiro Banco de Dados SQL do Azure usando o SSMS](../azure-sql/database/design-first-database-tutorial.md).
 
 A tabela de exemplo usada a seguir foi criada com base nesta instrução:
 
@@ -129,7 +129,7 @@ Antes de implantar o trabalho no Azure, você poderá testar a lógica de consul
 
 ## <a name="delta-query"></a>Consulta delta
 
-Ao usar a consulta delta, são recomendadas [tabelas temporais no Banco de Dados SQL do Azure](../sql-database/sql-database-temporal-tables.md).
+Ao usar a consulta delta, são recomendadas [tabelas temporais no Banco de Dados SQL do Azure](../azure-sql/temporal-tables.md).
 
 1. Crie uma tabela temporal no Banco de Dados SQL do Azure.
    

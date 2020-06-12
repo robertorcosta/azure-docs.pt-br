@@ -462,6 +462,8 @@
       items:
         - name: O que é o Reconhecimento do Locutor?
           href: speaker-recognition-overview.md
+        - name: Noções básicas do Reconhecimento do Locutor
+          href: speaker-recognition-basics.md
     - name: Referência
       items:
         - name: APIs REST

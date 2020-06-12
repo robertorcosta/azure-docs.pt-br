@@ -4,12 +4,12 @@ ms.service: sql-database
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: sstein
-ms.openlocfilehash: f11fbaccd38e8d6fed956c5cf476ed5a3732a68d
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.openlocfilehash: 1462f0dbeb45edeed964c24585b1fbc948f74233
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67171999"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84013224"
 ---
 ## <a name="additional-resources"></a>Recursos adicionais
-Ainda não está usando ferramentas de banco de dados elástico? Confira nosso [Guia de Introdução](../articles/sql-database/sql-database-elastic-scale-get-started.md).  Em caso de dúvidas, entre em contato conosco pelo [fórum do Banco de Dados SQL](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) e, para solicitações de recursos, adicione-as ao [fórum de comentários sobre o Banco de Dados SQL](https://feedback.azure.com/forums/217321-sql-database/).
+Ainda não está usando ferramentas de banco de dados elástico? Confira nosso [Guia de Introdução](../articles/azure-sql/database/elastic-scale-get-started.md).  Em caso de dúvidas, entre em contato conosco pela [página de perguntas do Microsoft Q&A para Banco de Dados SQL](https://docs.microsoft.com/answers/topics/azure-sql-database.html) e, para solicitações de recursos, adicione-as ao [fórum de comentários sobre o Banco de Dados SQL](https://feedback.azure.com/forums/217321-sql-database/).
