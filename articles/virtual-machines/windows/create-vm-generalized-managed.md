@@ -1,29 +1,30 @@
 ---
-title: Criar VM de uma imagem gerenciada no Azure
-description: Crie uma máquina virtual do Windows com base em uma imagem gerenciada generalizada usando Azure PowerShell ou o Portal.
+title: Criar uma VM de uma imagem gerenciada no Azure
+description: Crie uma máquina virtual do Windows de uma imagem de gerenciada generalizada usando o Azure PowerShell ou o portal.
 author: cynthn
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: b0c6689b66037067a4c5174738945b7c6fabd5b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a028d597c3eb2a1c66df0e40266c2822e5cd7aab
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82086310"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726954"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Criar uma VM por meio de uma imagem gerenciada
 
 Você pode criar várias VMs (máquinas virtuais) de uma imagem de VM gerenciada do Azure usando o PowerShell ou o portal do Azure. Uma imagem de VM gerenciada contém as informações necessárias para criar uma VM, incluindo o sistema operacional e os discos de dados. Os VHDs (discos rígidos virtuais) que formam a imagem, incluindo os discos do sistema operacional e quaisquer discos de dados, são armazenados como discos gerenciados. 
 
-Antes de criar uma nova VM, você precisará [criar uma imagem de VM gerenciada](capture-image-resource.md) para usar como a imagem de origem e conceder acesso de leitura na imagem a qualquer usuário que deve ter acesso à imagem. 
+Antes de criar uma VM, será necessário [criar uma imagem de VM gerenciada](capture-image-resource.md) para usar como a imagem de origem e conceder acesso de leitura na imagem a qualquer usuário que deva ter acesso a ela. 
 
+Uma imagem gerenciada dá suporte a até 20 implantações simultâneas. A tentativa de criar simultaneamente mais de 20 VMs a partir da mesma imagem gerenciada pode exceder os tempos limite de provisionamento devido às limitações de desempenho de armazenamento de um único VHD. Para criar simultaneamente mais de 20 VMs, use uma imagem das [Galerias de Imagens Compartilhadas](shared-image-galleries.md), configurada com uma réplica para cada 20 implantações simultâneas de VM.
 
 ## <a name="use-the-portal"></a>Usar o portal
 
-1. Vá para a [portal do Azure](https://portal.azure.com) para localizar uma imagem gerenciada. Procure e selecione **imagens**.
+1. Acesse o [portal do Azure](https://portal.azure.com) para localizar uma imagem gerenciada. Pesquise e selecione **Imagens**.
 3. Selecione a imagem que você deseja usar a partir da lista. A imagem da página **Visão geral** será aberta.
 4. Clique em **Criar VM** no menu.
 5. Insira as informações da máquina virtual. O nome do usuário e a senha inseridos aqui serão usados para fazer logon na máquina virtual. Quando concluir, selecione **OK**. Você pode criar a nova VM em um grupo de recursos existente ou escolher **Criar novo** para criar um novo grupo de recursos para armazenar a VM.
