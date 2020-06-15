@@ -3,12 +3,12 @@ title: Avaliar servidores físicos para migração para o Azure com a avaliaçã
 description: Descreve como avaliar servidores físicos para a migração para o Azure usando a Avaliação de Servidor das Migrações para Azure.
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: b36cba18bd154cd5d14e16a9f8bf85cda6bf87a8
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 5cbd1b85bdb9017a96dc863b83223c31c716cf77
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535427"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331790"
 ---
 # <a name="assess-physical-servers-with-azure-migrateserver-assessment"></a>Avaliar servidores físicos com as Migrações para Azure: Avaliação de Servidor
 
@@ -102,20 +102,18 @@ Verifique se o arquivo compactado é seguro antes de implantá-lo.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exemplo de uso da nuvem pública: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
     - Exemplo de uso da nuvem governamental: ```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5 ```
-3.  Verificar valores hash:
- 
-    - Para a nuvem pública (para a versão mais recente do dispositivo):
+3.  Verifique as versões mais recentes do dispositivo e os valores de hash:
+    - Para a nuvem pública:
 
-        **Algoritmo** | **Valor de hash**
-          --- | ---
-          MD5 | 1e92ede3e87c03bd148e56a708cdd33f
-          SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
+        **Cenário** | **Baixar*** | **Valor de hash**
+        --- | --- | ---
+        Físico (63,1 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2105112) | 0a27adf13cc5755e4b23df0c05732c6ac08d1fe8850567cb57c9906fbc3b85a0
 
-    - Para o Azure Government (para a versão mais recente do dispositivo):
+    - Para o Azure Government:
 
-        **Algoritmo** | **Valor de hash**
-          --- | ---
-          MD5 | f81c155fc4a1409901caea948713913f
+        **Cenário** | **Baixar*** | **Valor de hash**
+        --- | --- | ---
+        Físico (63,1 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2120100&clcid=0x409) | 93dfef131026e70acdfad2769cd208ff745ab96a96f013cdf3f9e1e61c9b37e1
 
 ### <a name="run-the-azure-migrate-installer-script"></a>Executar o script de instalador de Migrações para Azure
 

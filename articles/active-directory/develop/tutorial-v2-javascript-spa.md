@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 6f0253490d39e69d491dd5fd3ab0d0d0a32d47bb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 573aef4f0d340d0d32dc4977e0937bca9c6d3cef
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181555"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84338917"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Conectar usuários e chamar a API do Microsoft Graph de um SPA (aplicativo de página única) JavaScript
 
@@ -56,13 +56,26 @@ Este guia usa a seguinte biblioteca:
 
 * As instruções neste guia se baseiam em um servidor Web criado em Node.js. Recomendamos usar o [Visual Studio Code](https://code.visualstudio.com/download) como o seu IDE (ambiente de desenvolvimento integrado).
 
+* Um navegador da Web moderno. Este exemplo de JavaScript usa convenções [ES6](http://www.ecma-international.org/ecma-262/6.0/), portanto, **não** é compatível com **Internet Explorer**.
+
 ## <a name="create-your-project"></a>Criar seu projeto
 
 Verifique se você tem o [Node.js](https://nodejs.org/en/download/) instalado e, em seguida, crie uma pasta para hospedar seu aplicativo. Lá, implementaremos um servidor Web simples do [Express](https://expressjs.com/) para atender ao seu arquivo `index.html`.
 
-1. Primeiro, usando um terminal integrado do Visual Studio Code, localize a pasta do projeto e, em seguida, instale o Express usando o NPM.
+1. Usando um terminal (como Visual Studio Code terminal integrado), localize a pasta do projeto e digite:
 
-1. Em seguida, crie um arquivo .js chamado `server.js` e, depois, adicione o seguinte código:
+   ```console
+   npm init
+   ```
+
+2. Em seguida, instale as dependências necessárias:
+
+   ```console
+   npm install express --save
+   npm install morgan --save
+   ```
+
+1. Agora, crie um arquivo .js chamado `index.js` e, depois, adicione o seguinte código:
 
    ```JavaScript
    const express = require('express');
@@ -269,12 +282,12 @@ Antes de continuar com a autenticação, registre seu aplicativo no **Azure Acti
 
 > ### <a name="set-a-redirect-url-for-nodejs"></a>Configurar a URL de redirecionamento para o Node.js
 >
-> Para o Node.js, você pode definir a porta do servidor Web no arquivo *server.js*. Este tutorial usa a porta 3000, mas você pode usar qualquer outra porta disponível.
+> Para o Node.js, você pode definir a porta do servidor Web no arquivo *index.js*. Este tutorial usa a porta 3000, mas você pode usar qualquer outra porta disponível.
 >
 > Para configurar uma URL de redirecionamento nas informações de registro do aplicativo, volte para o painel **Registro de Aplicativo** e siga um destes procedimentos:
 >
 > - Defina *`http://localhost:3000/`* como a **URL de Redirecionamento**.
-> - Se você estiver usando uma porta TCP personalizada, use *`http://localhost:<port>/`* (onde *\<porta>* é o número de porta TCP personalizada).
+> - Se você estiver usando uma porta TCP personalizada, use *`http://localhost:<port>/`* (em que *\<port>* é o número da porta TCP personalizada).
 >   1. Copie o valor da **URL**.
 >   1. Volte para o painel **Registro de Aplicativo** e cole o valor copiado como uma **URL de Redirecionamento**.
 >
@@ -308,9 +321,9 @@ Crie um arquivo .js chamado `authConfig.js`, que conterá os parâmetros de conf
 ```
 
  Em que:
- - *\<Insira_a_ID_do_Aplicativo_Aqui>* é a **ID do Aplicativo (cliente)** do aplicativo registrado.
- - *\<Insira_a_ID_da_Instância_de_Nuvem_Aqui>* é a instância da nuvem do Azure. Para a nuvem principal ou global do Azure, basta inserir *https://login.microsoftonline.com* . Para nuvens **nacionais** (por exemplo, China), confira [Nuvens nacionais](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).
- - *\<Insira_as_informações_de_Locatário_aqui>* é definido para uma das seguintes opções:
+ - *\<Enter_the_Application_Id_Here>* é a **ID do Aplicativo (cliente)** que você registrou.
+ - *\<Enter_the_Cloud_Instance_Id_Here>* é a instância da nuvem do Azure. Para a nuvem principal ou global do Azure, basta inserir *https://login.microsoftonline.com* . Para nuvens **nacionais** (por exemplo, China), confira [Nuvens nacionais](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).
+ - *\<Enter_the_Tenant_info_here>* é definido como uma das seguintes opções:
    - Se o seu aplicativo for compatível com as *contas neste diretório organizacional*, substitua esse valor pela **ID do locatário** ou **Nome do locatário** (por exemplo, *contoso.microsoft.com*).
    - Se o aplicativo for compatível com as *contas em qualquer diretório organizacional*, substitua esse valor por **organizações**.
    - Se o seu aplicativo for compatível com as *contas em qualquer diretório organizacional e contas pessoais da Microsoft*, substitua esse valor por **comum**. Para restringir o suporte a *contas pessoais da Microsoft*, substitua esse valor por **consumidores**.
@@ -433,7 +446,7 @@ O método `acquireTokenSilent` manipula a aquisição e a renovação de tokens 
    ```
 
    Em que:
-   - *\<Insira_o_ponto_de_extremidade_do_Graph_aqui>* é a instância da API do MS Graph. Para o ponto de extremidade global da API do MS Graph, basta substituir essa cadeia de caracteres por `https://graph.microsoft.com`. Para implantações de nuvem nacional, confira [Documentação da API do Graph](https://docs.microsoft.com/graph/deployments).
+   - *\<Enter_the_Graph_Endpoint_Here>* é a instância da API do MS Graph. Para o ponto de extremidade global da API do MS Graph, basta substituir essa cadeia de caracteres por `https://graph.microsoft.com`. Para implantações de nuvem nacional, confira [Documentação da API do Graph](https://docs.microsoft.com/graph/deployments).
 
 1. Em seguida, crie um arquivo .js chamado `graph.js`, que fará uma chamada REST para a API do Microsoft Graph, depois adicione a ele o seguinte código:
 
@@ -496,7 +509,5 @@ A API do Microsoft Graph requer o escopo *user.read* para ler o perfil do usuár
 
 > [!NOTE]
 > Talvez o usuário precise fornecer autorizações adicionais à medida que o número de escopos aumentar.
-
-Se uma API de back-end não exigir um escopo (não recomendado), você poderá usar a *clientId* como o escopo nas chamadas para obter tokens.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

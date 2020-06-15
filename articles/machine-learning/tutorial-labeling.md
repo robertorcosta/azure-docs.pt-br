@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: 54f09c4b35f31619c3dcaa027c70444595c4352e
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 5f3a73ed6c7843c13d35a91a75189fe9dd8d4dbd
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196538"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84628373"
 ---
 # <a name="tutorial-create-a-labeling-project-preview-for-multi-class-image-classification"></a>Tutorial: Criar um projeto de rotulagem (versão prévia) para classificação de imagens de várias classes 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -109,6 +109,12 @@ Agora que você tem acesso aos dados que deseja rotular, crie o projeto de rotul
     1. Selecione o círculo ao lado do nome do conjunto de dados na lista, por exemplo **images-for-tutorial**.
 
 1. Selecione **Avançar** para continuar a criar o projeto.
+
+### <a name="incremental-refresh"></a>Atualização incremental
+
+Se você planeja adicionar novas imagens ao conjunto de dados, a atualização incremental encontra essas novas imagens e as adiciona ao projeto.  Quando você habilita esse recurso, o projeto verifica periodicamente se há novas imagens.  Você não adicionará novas imagens ao armazenamento de dados para este tutorial, portanto, deixe esse recurso desmarcado.
+
+Selecione **Avançar** para continuar.
 
 ### <a name="label-classes"></a>Classes de rótulos
 

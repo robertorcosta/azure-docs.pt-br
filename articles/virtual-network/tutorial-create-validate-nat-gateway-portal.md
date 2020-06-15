@@ -8,18 +8,19 @@ author: asudbring
 manager: KumundD
 Customer intent: I want to test a NAT Gateway for outbound connectivity for my virtual network.
 ms.service: virtual-network
+ms.subservice: nat
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: ceadbb4297ad0c5ce28470dd75b3f3496c9c5152
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: d798725892a9586c17cd7023863fe5cf7df05cb6
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82084736"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417830"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-portal-and-test-the-nat-service"></a>Tutorial: Criar um Gateway da NAT usando o portal do Azure e testar o serviço NAT
 
@@ -169,9 +170,9 @@ Nesta seção, você precisará substituir os seguintes parâmetros nas etapas p
 | **\<resource-group-name>**  | myResourceGroupNAT |
 | **\<virtual-network-name>** | myVNetdestination          |
 | **\<region-name>**          | Leste dos EUA 2      |
-| **\<IPv4-address-space>**   | 192.168.0.0/16          |
+| **\<IPv4-address-space>**   | 10.1.0.0/16          |
 | **\<subnet-name>**          | mySubnetdestination        |
-| **\<subnet-address-range>** | 192.168.0.0/24          |
+| **\<subnet-address-range>** | 10.1.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
@@ -286,13 +287,13 @@ Agora você está pronto para testar o serviço NAT.
 
 Enquanto estiver conectado à VM de origem, você poderá usar o **curl** e o **hey** para gerar solicitações para o endereço IP de destino.
 
-Use curl para recuperar o arquivo de 100 KB.  Substitua **\<destino-de-endereço-IP>** no exemplo abaixo pelo endereço IP de destino copiado anteriormente.  O parâmetro **--output** indica que o arquivo recuperado será descartado.
+Use curl para recuperar o arquivo de 100 KB.  Substitua **\<ip-address-destination>** no exemplo abaixo pelo endereço IP de destino copiado anteriormente.  O parâmetro **--output** indica que o arquivo recuperado será descartado.
 
 ```bash
 curl http://<ip-address-destination>/100k --output /dev/null
 ```
 
-Você também pode gerar uma série de solicitações usando o **hey**. Novamente, substitua **\<destino-de-endereço-IP>** pelo endereço IP de destino copiado anteriormente.
+Você também pode gerar uma série de solicitações usando o **hey**. Novamente, substitua **\<ip-address-destination>** pelo endereço IP de destino que você copiou anteriormente.
 
 ```bash
 hey -n 100 -c 10 -t 30 --disable-keepalive http://<ip-address-destination>/100k

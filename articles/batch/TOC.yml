@@ -95,6 +95,8 @@
           href: batch-management-dotnet.md
         - name: Análise de custo e orçamentos
           href: budget.md
+        - name: Usar pontos de extremidade privados com contas do Lote
+          href: private-connectivity.md
     - name: Autenticar com o Azure AD
       items:
         - name: Azure AD com serviço de Lote

@@ -4,12 +4,13 @@ description: Saiba mais sobre a oferta opcional de SLA de tempo de atividade par
 services: container-service
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: e0e1399f69640dddfd618ac99637023390f28a92
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.custom: references_regions
+ms.openlocfilehash: 2df0ad675f03b25363ab0f5b13dceb762a657ed7
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683212"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299546"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>SLA de tempo de atividade do Serviço de Kubernetes do Azure (AKS)
 
@@ -25,18 +26,6 @@ Os clientes ainda podem criar clusters grátis ilimitados com um objetivo de ní
 ## <a name="sla-terms-and-conditions"></a>Termos e condições do SLA
 
 O SLA de tempo de atividade é um recurso pago e habilitado por cluster. O preço do SLA de tempo de atividade é determinado pelo número de clusters discretos e não pelo tamanho de clusters individuais. Você pode ver [Detalhes de preços do SLA de tempo de atividade](https://azure.microsoft.com/pricing/details/kubernetes-service/) para mais informações.
-
-## <a name="region-availability"></a>Disponibilidade de região
-
-O SLA de tempo de atividade está disponível nas seguintes regiões:
-
-* Leste da Austrália
-* Canadá Central
-* Leste dos EUA
-* Leste dos EUA 2
-* Centro-Sul dos Estados Unidos
-* Sudeste da Ásia
-* Oeste dos EUA 2
 
 ## <a name="before-you-begin"></a>Antes de começar
 

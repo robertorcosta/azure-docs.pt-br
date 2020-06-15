@@ -1,5 +1,5 @@
 ---
-title: Configurar ouvinte do grupo de disponibilidade para SQL Server em máquinas virtuais RHEL no Azure – Máquinas Virtuais do Linux | Microsoft Docs
+title: Configurar um ouvinte do grupo de disponibilidade para SQL Server em máquinas virtuais RHEL no Azure – máquinas virtuais do Linux | Microsoft Docs
 description: Aprenda a configurar um ouvinte do grupo de disponibilidade no SQL Server em máquinas virtuais do RHEL no Azure
 ms.service: virtual-machines-linux
 ms.subservice: ''
@@ -8,22 +8,22 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 03/11/2020
-ms.openlocfilehash: edd9b83de0feff3b9ef12c67cdca19501eaa63a2
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: f60cb3f28c57d6df4a309a7630d078c593d75410
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84025060"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343754"
 ---
-# <a name="tutorial-configure-availability-group-listener-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutorial: Configurar ouvinte do grupo de disponibilidade para o SQL Server em máquinas virtuais do RHEL no Azure
+# <a name="tutorial-configure-an-availability-group-listener-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutorial: Configurar um ouvinte do grupo de disponibilidade para o SQL Server em máquinas virtuais do RHEL no Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!NOTE]
 > O tutorial apresentado está em **versão prévia pública**. 
 >
-> Usamos o SQL Server 2017 com RHEL 7.6 neste tutorial, mas é possível usar o SQL Server 2019 no RHEL 7 ou RHEL 8 para configurar a HA. Os comandos para configurar os recursos do grupo de disponibilidade foram alterados no RHEL 8 e será conveniente examinar o artigo [Criar recurso do grupo de disponibilidade](/sql/linux/sql-server-linux-availability-group-cluster-rhel#create-availability-group-resource) e recursos do RHEL 8 para obter mais informações sobre os comandos corretos.
+> Usamos o SQL Server 2017 com RHEL 7.6 neste tutorial, mas é possível usar o SQL Server 2019 no RHEL 7 ou RHEL 8 para configurar a alta disponibilidade. Os comandos para configurar os recursos do grupo de disponibilidade foram alterados no RHEL 8 e será conveniente examinar o artigo [Criar recurso do grupo de disponibilidade](/sql/linux/sql-server-linux-availability-group-cluster-rhel#create-availability-group-resource) e recursos do RHEL 8 para obter mais informações sobre os comandos corretos.
 
-Este tutorial abordará etapas sobre como criar um ouvinte do grupo de disponibilidade para seus SQL Servers em máquinas virtuais RHEL no Azure. Você saberá como:
+Este tutorial abordará etapas sobre como criar um ouvinte do grupo de disponibilidade para seus SQL Servers em máquinas virtuais (VMs) RHEL no Azure. Você saberá como:
 
 > [!div class="checklist"]
 > - Criar um balanceador de carga no portal do Azure
@@ -37,7 +37,7 @@ Este tutorial abordará etapas sobre como criar um ouvinte do grupo de disponibi
 
 ## <a name="prerequisite"></a>Pré-requisito
 
-[**Tutorial: Configurar grupos de disponibilidade para o SQL Server em máquinas virtuais RHEL no Azure**](rhel-high-availability-stonith-tutorial.md) concluído
+[Tutorial: Configurar grupos de disponibilidade para o SQL Server em máquinas virtuais RHEL no Azure](rhel-high-availability-stonith-tutorial.md) concluído
 
 ## <a name="create-the-load-balancer-in-the-azure-portal"></a>Criar o balanceador de carga no portal do Azure
 
@@ -59,7 +59,7 @@ As instruções a seguir percorrem as etapas 1 a 4 da seção [Criar e configura
    | --- | --- |
    | **Nome** |Um nome de texto que representa o balanceador de carga. Por exemplo, **sqlLB**. |
    | **Tipo** |**Interna** |
-   | **Rede virtual** |A VNet padrão que foi criada deve ter o nome **VM1VNET**. |
+   | **Rede virtual** |A rede virtual padrão que foi criada deve ter o nome **VM1VNET**. |
    | **Sub-rede** |Selecione a sub-rede na qual estão as instâncias do SQL Server. O padrão deve ser **VM1Subnet**.|
    | **Atribuição de endereço IP** |**Estático** |
    | **Endereço IP privado** |Use o endereço IP `virtualip` que foi criado no cluster. |
@@ -220,7 +220,7 @@ Neste ponto, o grupo de recursos tem um balanceador de carga que se conecta em t
 
 ## <a name="test-the-listener-and-a-failover"></a>Testar o ouvinte e um failover
 
-### <a name="test-logging-into-sql-server-using-the-availability-group-listener"></a>Testar o logon no SQL Server usando o ouvinte do grupo de disponibilidade
+### <a name="test-logging-in-to-sql-server-using-the-availability-group-listener"></a>Testar o logon no SQL Server usando o ouvinte do grupo de disponibilidade
 
 1. Use o SQLCMD para fazer logon no nó primário do SQL Server usando o nome do ouvinte do grupo de disponibilidade:
 
@@ -238,7 +238,7 @@ Neste ponto, o grupo de recursos tem um balanceador de carga que se conecta em t
 
     A saída deve mostrar o nó primário atual. Isso deverá ser `VM1` se você nunca tiver testado um failover.
 
-    Saia da sessão do SQL digitando o comando `exit`.
+    Saia da sessão do SQL Server digitando o comando `exit`.
 
 ### <a name="test-a-failover"></a>Testar um failover
 
@@ -280,7 +280,7 @@ Neste ponto, o grupo de recursos tem um balanceador de carga que se conecta em t
 
     ```bash
     sqlcmd -S ag1-listener -U sa -P <YourPassword>
-    ```
+     ```
 
 1. Verifique o servidor ao qual você está conectado. Execute o seguinte comando no SQLCMD:
 
@@ -292,7 +292,7 @@ Neste ponto, o grupo de recursos tem um balanceador de carga que se conecta em t
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre Balanceadores de carga no Azure, confira:
+Para obter mais informações sobre balanceadores de carga no Azure, confira:
 
 > [!div class="nextstepaction"]
-> [Configurar um balanceador de carga para um grupo de disponibilidade em VMs do SQL Server do Azure](../windows/availability-group-load-balancer-portal-configure.md)
+> [Configurar um balanceador de carga para um grupo de disponibilidade no SQL Server em VMs do Azure](../windows/availability-group-load-balancer-portal-configure.md)

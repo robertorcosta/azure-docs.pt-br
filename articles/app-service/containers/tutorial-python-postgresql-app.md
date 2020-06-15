@@ -9,12 +9,13 @@ ms.custom:
 - seodec18
 - seo-python-october2019
 - cli-validate
-ms.openlocfilehash: 504e2f7c07d8d29e4fe4dad52dc008c895517a3d
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+- tracking-python
+ms.openlocfilehash: 4a2f80ea30fc68ae1dfea72983fd2b229d40c711
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82609775"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559292"
 ---
 # <a name="tutorial-deploy-a-python-django-web-app-with-postgresql-in-azure-app-service"></a>Tutorial: Implantar um aplicativo Web Python (Django) com o PostgreSQL no Serviço de Aplicativo do Azure
 
@@ -111,7 +112,7 @@ Nesta seção, você criará um servidor e um Banco de Dados do Azure para Postg
 az extension add --name db-up
 ```
 
-Crie o banco de dados Postgres no Azure com o comando [`az postgres up`](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up), conforme mostrado no exemplo a seguir. Substitua *\<nome-do-postgresql>* por um nome *exclusivo* (o ponto de extremidade do servidor é *https://\<nome-do-postgresql>.postgres.database.azure.com*). Para *\<nome-do-usuário-admin>* e *\<senha-do-admin>* , especifique as credenciais para criar um usuário administrador para esse servidor do Postgres.
+Crie o banco de dados Postgres no Azure com o comando [`az postgres up`](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up), conforme mostrado no exemplo a seguir. Substitua *\<postgresql-name>* por um nome *exclusivo* (o ponto de extremidade do servidor é *https://\<postgresql-name>.postgres.database.azure.com*). Em *\<admin-username>* e *\<admin-password>* , especifique as credenciais para criar um usuário administrador para esse servidor Postgres.
 
 <!-- Issue: without --location -->
 ```azurecli
@@ -146,7 +147,7 @@ Nesta seção, você criará o aplicativo do Serviço de Aplicativo. Você conec
 
 Verifique se você está de volta na raiz do repositório (`djangoapp`), porque o aplicativo será implantado com base nesse diretório.
 
-Crie um aplicativo do Serviço de Aplicativo com o comando [`az webapp up`](/cli/azure/webapp#az-webapp-up), conforme mostrado no exemplo a seguir. Substitua *\<nome-do-aplicativo>* por um nome *exclusivo* (o ponto de extremidade do servidor é *https://\<nome-do-aplicativo>.azurewebsites.net*). Os caracteres permitidos para *\<nome-do-aplicativo>* são `A`-`Z`, `0`-`9` e `-`.
+Crie um aplicativo do Serviço de Aplicativo com o comando [`az webapp up`](/cli/azure/webapp#az-webapp-up), conforme mostrado no exemplo a seguir. Substitua *\<app-name>* por um nome *exclusivo* (o ponto de extremidade do servidor é *https://\<app-name>.azurewebsites.net*). Os caracteres permitidos para *\<app-name>* são `A`-`Z`, `0`-`9` e `-`.
 
 ```azurecli
 az webapp up --plan myAppServicePlan --location westus2 --sku B1 --name <app-name>
@@ -195,7 +196,7 @@ O código de exemplo agora foi implantado, mas o aplicativo ainda não se conect
 
 Ao executar o aplicativo localmente, você pode definir as variáveis de ambiente na sessão de terminal. No Serviço de Aplicativo, faça isso com as *configurações do aplicativo* usando o comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set).
 
-Execute o comando a seguir para especificar os detalhes de conexão de banco de dados como configurações do aplicativo. Substitua *\<nome-do-aplicativo>* , *\<grupo-de-recursos-do-aplicativo>* e *\<nome-do-postgresql>* pelos seus valores. Lembre-se de que as credenciais de usuário `root` e `Pollsdb1` foram criadas para você por `az postgres up`.
+Execute o comando a seguir para especificar os detalhes de conexão de banco de dados como configurações do aplicativo. Substitua *\<app-name>* , *\<app-resource-group>* e *\<postgresql-name>* por valores próprios. Lembre-se de que as credenciais de usuário `root` e `Pollsdb1` foram criadas para você por `az postgres up`.
 
 ```azurecli
 az webapp config appsettings set --name <app-name> --resource-group <app-resource-group> --settings DJANGO_ENV="production" DBHOST="<postgresql-name>.postgres.database.azure.com" DBUSER="root@<postgresql-name>" DBPASS="Pollsdb1" DBNAME="pollsdb"
@@ -205,7 +206,7 @@ Para obter informações sobre como seu código acessa essas configurações de 
 
 ### <a name="run-database-migrations"></a>Executar migrações de banco de dados
 
-Para executar migrações de banco de dados no Serviço de Aplicativo, abra uma sessão SSH no navegador acessando *https://\<nome-do-aplicativo>.scm.azurewebsites.net/webssh/host*:
+Para executar migrações de banco de dados no Serviço de Aplicativo, abra uma sessão SSH no navegador acessando *https://\<app-name>.scm.azurewebsites.net/webssh/host*:
 
 <!-- doesn't work when container not started -->
 <!-- ```azurecli
@@ -227,15 +228,15 @@ python manage.py createsuperuser
 
 ### <a name="browse-to-the-azure-app"></a>Navegar até o aplicativo do Azure
 
-Navegue até o aplicativo implantado com a URL *http:\//\<nome-do-aplicativo>.azurewebsites.net* em um navegador. Você deverá ver a mensagem **Não há enquetes disponíveis**. 
+Navegue até o aplicativo implantado com a URL *http:\//\<app-name>.azurewebsites.net* em um navegador. Você deverá ver a mensagem **Não há enquetes disponíveis**. 
 
-Navegue até *http:\//\<nome-do-aplicativo>.azurewebsites.net/admin* e entre usando o usuário administrador que você criou na última etapa. Selecione **Adicionar** ao lado de **Perguntas** e crie uma enquete com algumas opções.
+Navegue até *http:\//\<app-name>.azurewebsites.net/admin* e conecte-se usando o usuário administrador que você criou na última etapa. Selecione **Adicionar** ao lado de **Perguntas** e crie uma enquete com algumas opções.
 
-Navegue até o aplicativo implantado com a URL *http:\//\<nome-do-aplicativo>.azurewebsites.net/admin* e crie algumas perguntas de enquete. É possível ver as perguntas em *http:\//\<nome-do-aplicativo>.azurewebsites.net/* . 
+Navegue até o aplicativo implantado com a URL *http:\//\<app-name>.azurewebsites.net/admin* e crie algumas perguntas de sondagem. Veja as perguntas em *http:\//\<app-name>.azurewebsites.net/* . 
 
 ![Execute o aplicativo Python Django nos Serviços de Aplicativos no Azure](./media/tutorial-python-postgresql-app/deploy-python-django-app-in-azure.png)
 
-Navegue até o aplicativo implantado com a URL *http:\//\<nome-do-aplicativo>.azurewebsites.net* novamente para ver a pergunta de enquete e responde-la.
+Navegue até o aplicativo implantado com a URL *http:\//\<app-name>.azurewebsites.net* novamente para ver a pergunta de sondagem e responder a ela.
 
 O Serviço de Aplicativo detecta um projeto do Django em seu repositório procurando por um arquivo *wsgi.py* em cada subdiretório, que é criado por `manage.py startproject` por padrão. Ao encontrar o arquivo, o Serviço de Aplicativo carrega o aplicativo Web Django. Para obter mais informações sobre como o Serviço de Aplicativo carrega os aplicativos Python, confira [Configurar a imagem interna do Python](how-to-configure-python.md).
 
@@ -363,7 +364,7 @@ O Serviço de Aplicativo detecta que o aplicativo existe e apenas implanta o có
 
 ### <a name="rerun-migrations-in-azure"></a>Executar migrações novamente no Azure
 
-Como você fez alterações no modelo de dados, é necessário executar novamente as migrações de banco de dados no Serviço de Aplicativo. Abra uma sessão SSH no navegador acessando *https://\<nome-do-aplicativo>.scm.azurewebsites.net/webssh/host*. Execute os seguintes comandos:
+Como você fez alterações no modelo de dados, é necessário executar novamente as migrações de banco de dados no Serviço de Aplicativo. Abra uma sessão SSH no navegador acessando *https://\<app-name>.scm.azurewebsites.net/webssh/host*. Execute os seguintes comandos:
 
 ```
 cd site/wwwroot
@@ -376,7 +377,7 @@ python manage.py migrate
 
 ### <a name="review-app-in-production"></a>Examinar o aplicativo na produção
 
-Acesse *http:\//\<nome-do-aplicativo>.azurewebsites.net* e veja as alterações sendo executadas em tempo real em produção. 
+Navegue até *http:\//\<app-name>.azurewebsites.net* e veja as alterações sendo executadas em tempo real em produção. 
 
 ## <a name="stream-diagnostic-logs"></a>Logs de diagnóstico de fluxo
 

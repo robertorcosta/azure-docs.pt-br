@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: tutorial
-ms.date: 11/05/2019
+ms.date: 06/08/2020
 ms.author: spelluru
-ms.openlocfilehash: fef325b67c38eda09a05dac9d74bd5b97df164cc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 548a51fef693aae6e9b9068f9731b82aaa85dfe3
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80067759"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610322"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Tutorial: Responder a eventos do Barramento de Serviço do Azure recebidos por meio da Grade de Eventos do Azure usando o Azure Functions e os Aplicativos Lógicos do Azure
 Neste tutorial, você aprenderá a responder a eventos do Barramento de Serviço do Azure que são recebidos por meio da Grade de Eventos do Azure usando o Azure Functions e os Aplicativos Lógicos do Azure. 
@@ -122,19 +122,25 @@ Depois, execute as etapas a seguir:
     }
     
     ```
-2. Selecione **Salvar e executar**.
+2. Selecione **Salvar** na barra de ferramentas para salvar o código da função.
 
-    ![Saída do aplicativo de funções](./media/service-bus-to-event-grid-integration-example/function-run-output.png)
+    ![Salvar código da função](./media/service-bus-to-event-grid-integration-example/save-function-code.png)
+3. Selecione **Testar/Executar** na barra de ferramentas, insira um nome no corpo e selecione **Executar**. 
+
+    ![Execução de teste](./media/service-bus-to-event-grid-integration-example/test-run-function.png)
+4. Confirme se você vê a saída e os logs mostrados na imagem a seguir. 
+
+    ![Execução de teste – saída](./media/service-bus-to-event-grid-integration-example/test-run-output.png)
 3. Selecione **Obter a URL da função** e anote a URL. 
 
     ![Obter URL de função](./media/service-bus-to-event-grid-integration-example/get-function-url.png)
+5. Selecione o botão **Copiar** ao lado do texto da URL.    
+    ![Copiar URL de função](./media/service-bus-to-event-grid-integration-example/get-function-url-copy.png)
 
 # <a name="azure-functions-v1"></a>[Azure Functions V1](#tab/v1)
 
 1. Configurar a função para usar a versão **V1**: 
     1. Selecione seu aplicativo de funções no modo de exibição de árvore e selecione **Configurações do aplicativo de funções**. 
-
-        ![Configurações do aplicativo de funções]()./media/service-bus-to-event-grid-integration-example/function-app-settings.png)
     2. Selecione **~1** para **Versão de runtime**. 
 2. Expanda as **Funções** no modo de exibição de árvore e selecione sua função. Substitua o código da função pelo código a seguir: 
 
@@ -184,9 +190,11 @@ Depois, execute as etapas a seguir:
 4. Selecione **Salvar e executar**.
 
     ![Saída do aplicativo de funções](./media/service-bus-to-event-grid-integration-example/function-run-output.png)
-4. Selecione **Obter a URL da função** e anote a URL. 
+4. Selecione **Obter URL da função** na barra de ferramentas. 
 
     ![Obter URL de função](./media/service-bus-to-event-grid-integration-example/get-function-url.png)
+5. Selecione o botão **Copiar** ao lado do texto da URL.    
+    ![Copiar URL de função](./media/service-bus-to-event-grid-integration-example/get-function-url-copy.png)
 
 ---
 
@@ -201,16 +209,20 @@ Para criar uma assinatura da Grade de Eventos do Azure, siga as etapas a seguir:
 2. Selecione **+ Assinatura de Evento** na barra de ferramentas. 
 3. Na página **Criar Assinatura de Eventos**, faça o seguinte:
     1. Insira um **nome** para a assinatura. 
+    2. Insira um **nome** para o **tópico do sistema**. Os tópicos do sistema são tópicos criados para recursos do Azure, como a conta do Armazenamento do Azure e o Barramento de Serviço do Azure. Para saber mais sobre os tópicos do sistema, confira [Visão geral dos tópicos do sistema](../event-grid/system-topics.md).
     2. Selecione **Web Hook** para o **Tipo de ponto de extremidade**. 
 
         ![Barramento de Serviço – Assinatura da Grade de Eventos](./media/service-bus-to-event-grid-integration-example/event-grid-subscription-page.png)
-    3. Escolha **Selecionar um ponto de extremidade**, cole a URL da função e, em seguida, selecione **Confirmar seleção**. 
+    3. Escolha **Selecionar um ponto de extremidade**, cole a URL da função e escolha **Confirmar seleção**. 
 
         ![Função – selecionar o ponto de extremidade](./media/service-bus-to-event-grid-integration-example/function-select-endpoint.png)
-    4. Alterne para a guia **Filtros**, insira o nome da **primeira assinatura** do tópico do Barramento de Serviço que você criou anteriormente e, em seguida, selecione o botão **Criar**. 
+    4. Alterne para a guia **Filtros** e execute as seguintes tarefas:
+        1. Selecione **Habilitar filtragem por assunto**
+        2. Insira o nome da **primeira assinatura** do tópico do Barramento de Serviço criado anteriormente.
+        3. Selecione o botão **Criar**. 
 
-        ![Filtro de assinatura de eventos](./media/service-bus-to-event-grid-integration-example/event-subscription-filter.png)
-4. Confirme se a assinatura de evento está na lista.
+            ![Filtro de assinatura de eventos](./media/service-bus-to-event-grid-integration-example/event-subscription-filter.png)
+4. Alterne para a guia **Assinaturas de Evento** da página **Eventos** e confirme se você vê a assinatura de evento na lista.
 
     ![Assinatura de eventos na lista](./media/service-bus-to-event-grid-integration-example/event-subscription-in-list.png)
 
@@ -242,11 +254,15 @@ Nesta seção, você aprenderá como receber e processar mensagens depois de rec
         ![Obter o perfil de publicação para a função](./media/service-bus-to-event-grid-integration-example/function-download-publish-profile.png)
     4. Salve o arquivo na pasta do projeto. 
 4. No Visual Studio, clique com o botão direito do mouse em **SBEventGridIntegration** e, em seguida, selecione **Publicar**. 
-5. Selecione **Iniciar** na página **Publicar**. 
-6. Na página **Escolher um destino de publicação**, siga as etapas a seguir e selecione **Importar perfil**. 
+5. Em **Publicar**, execute as seguintes etapas: 
+    1. Selecione **Iniciar** na página **Publicar** 
+    2. Em **Destino**, selecione **Importar Perfil**. 
+    3. Selecione **Avançar**. 
 
-    ![Visual Studio – botão Importar perfil](./media/service-bus-to-event-grid-integration-example/visual-studio-import-profile-button.png)
-7. Selecione o **arquivo de perfil de publicação** baixado anteriormente. 
+        ![Visual Studio – botão Importar perfil](./media/service-bus-to-event-grid-integration-example/visual-studio-import-profile-button.png)
+7. Selecione o **arquivo de perfil de publicação** baixado anteriormente e selecione **Concluir**.
+
+    ![Selecionar o perfil de publicação](./media/service-bus-to-event-grid-integration-example/select-publish-profile.png)
 8. Selecione **Publicar** na página **Publicar**. 
 
     ![Visual Studio – Publicar](./media/service-bus-to-event-grid-integration-example/select-publish.png)

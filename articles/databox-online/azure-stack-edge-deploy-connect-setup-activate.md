@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 7c8a35b2699035b3ce4f96a94ca970da2cf343c4
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: e0a0d9415cc55c24bb4dc0690c73d9f79fc0ce0e
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82564424"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608427"
 ---
 # <a name="tutorial-connect-set-up-and-activate-azure-stack-edge"></a>Tutorial: Conectar, configurar e ativar o Azure Stack Edge 
 
@@ -25,6 +25,7 @@ O processo de configuração e ativação pode levar cerca de 20 minutos para se
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
+>
 > * Conectar-se a um dispositivo físico
 > * Configurar e ativar o dispositivo físico
 
@@ -35,7 +36,7 @@ Antes de configurar e configurar seu dispositivo Azure Stack Edge, verifique o s
 * Você instalou o dispositivo físico conforme detalhado em [Instalar o Azure Stack Edge](azure-stack-edge-deploy-install.md).
 * Você tem a chave de ativação do serviço Azure Stack Edge que você criou para gerenciar o dispositivo Azure Stack Edge. Para obter mais informações, vá para [Preparar para implantar o Azure Stack Edge](azure-stack-edge-deploy-prep.md).
 
-## <a name="connect-to-the-local-web-ui-setup"></a>Conectar-se para a configuração de interface do usuário da web local 
+## <a name="connect-to-the-local-web-ui-setup"></a>Conectar-se para a configuração de interface do usuário da web local
 
 1. Configure o adaptador Ethernet no computador usado para conectar-se ao dispositivo Azure Stack Edge com um endereço IP estático de 192.168.100.5 e sub-rede 255.255.255.0.
 
@@ -43,11 +44,10 @@ Antes de configurar e configurar seu dispositivo Azure Stack Edge, verifique o s
 
     ![Backplane de um dispositivo cabeado](./media/azure-stack-edge-deploy-install/backplane-cabled.png)
 
-
 3. Abrir uma janela do navegador e acessar o local da web da interface do usuário do dispositivo em `https://192.168.100.10`.  
-    Essa ação pode levar alguns minutos depois que você tenha ativado o dispositivo. 
+    Essa ação pode levar alguns minutos depois que você tenha ativado o dispositivo.
 
-    Você verá um erro ou um aviso indicando que há um problema com o certificado de segurança do site. 
+    Você verá um erro ou um aviso indicando que há um problema com o certificado de segurança do site.
    
     ![Mensagem de erro de certificado de segurança do site](./media/azure-stack-edge-deploy-connect-setup-activate/image2.png)
 
@@ -96,12 +96,12 @@ O painel exibe as várias configurações necessárias para configurar e registr
    
    a. Na **URL do proxy Web**, digite a URL neste formato: `http://host-IP address or FQDN:Port number`. Não há suporte para URLs HTTPS.
 
-   b. Em **Autenticação**, selecione **Nenhuma** ou **NTLM**.
+   b. Em **Autenticação**, selecione **Nenhuma** ou **NTLM**. Se você habilitar a computação e usar o módulo do IoT Edge no seu dispositivo do Azure Stack Edge, recomendamos definir a autenticação de proxy Web como **Nenhum**. Não há suporte para o **NTLM**.
 
    c. Se você estiver usando a autenticação, insira um nome de usuário e uma senha.
 
    d. Para validar e aplicar as configurações de proxy da Web, selecione **Aplicar configurações**.
-   
+
    > [!NOTE]
    > Não há suporte para arquivos PAC (configuração automática de proxy). Um arquivo PAC define como os navegadores da Web e outros agentes de usuário podem escolher automaticamente o servidor proxy apropriado (método de acesso) para buscar uma determinada URL.
    > Os proxies que tentam interceptar e ler todo o tráfego (e depois assinar novamente tudo com a própria certificação) não são compatíveis, pois o certificado do proxy não é confiável.

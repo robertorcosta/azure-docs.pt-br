@@ -6,14 +6,14 @@ author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 11/05/2019
+ms.date: 06/08/2020
 ms.author: spelluru
-ms.openlocfilehash: 6f5bd129b175210cd5b9415a65b8db06d904e24d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e6733bdc91ba26d52366de09ed6bc255dcd4ff98
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73718190"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610645"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Tutorial: Transmitir Big Data para um data warehouse
 A [Grade de Eventos](overview.md) do Azure é um serviço de roteamento de evento inteligente que permite que você reaja às notificações (eventos) de aplicativos e serviços. Por exemplo, ele pode disparar uma função do Azure para processar dados de Hubs de Eventos que foram capturados em um Armazenamento de Blobs do Azure ou Azure Data Lake Storage e migrar os dados para outros repositórios de dados. Este [Exemplo de integração de Hubs de Eventos e Grade de Eventos](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) mostra como usar a Hubs de Eventos com a Grade de Eventos para migrar com perfeição dados dos Hubs de Eventos capturados do Armazenamento de Blobs para um SQL Data Warehouse.
@@ -79,12 +79,11 @@ Nesta etapa, você implanta a infraestrutura necessária com um [modelo do Resou
 ### <a name="use-azure-cli"></a>Usar a CLI do Azure
 
 1. Crie um grupo de recursos do Azure executando o seguinte comando da CLI: 
-    1. Copie e cole o seguinte comando na janela do Cloud Shell
+    1. Copie e cole o seguinte comando na janela do Cloud Shell. Altere o nome e a localização do grupo de recursos, se desejar.
 
         ```azurecli
-        az group create -l eastus -n <Name for the resource group>
+        az group create -l eastus -n rgDataMigration
         ```
-    1. Especifique um nome para um novo **grupo de recursos**
     2. Pressione **ENTER**. 
 
         Veja um exemplo:
@@ -107,7 +106,7 @@ Nesta etapa, você implanta a infraestrutura necessária com um [modelo do Resou
 
         ```azurecli
         az group deployment create \
-            --resource-group rgDataMigrationSample \
+            --resource-group rgDataMigration \
             --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json \
             --parameters eventHubNamespaceName=<event-hub-namespace> eventHubName=hubdatamigration sqlServerName=<sql-server-name> sqlServerUserName=<user-name> sqlServerPassword=<password> sqlServerDatabaseName=<database-name> storageName=<unique-storage-name> functionAppName=<app-name>
         ```
@@ -132,7 +131,7 @@ Nesta etapa, você implanta a infraestrutura necessária com um [modelo do Resou
     1. Copie e cole o seguinte comando na janela do Cloud Shell.
 
         ```powershell
-        New-AzResourceGroup -Name rgDataMigration -Location westcentralus
+        New-AzResourceGroup -Name rgDataMigration -Location eastus
         ```
     2. Especifique um nome para um novo **grupo de recursos**.
     3. Pressione ENTER. 
@@ -170,11 +169,11 @@ Feche o Cloud Shell selecionando o botão **Cloud Shell** no portal (ou) o botã
 ### <a name="create-a-table-in-sql-data-warehouse"></a>Criar uma tabela no SQL Data Warehouse
 Crie uma tabela no data warehouse executando o script [CreateDataWarehouseTable.sql](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql). Para executar o script, você pode usar o Visual Studio ou o Editor de Consultas no portal. As etapas a seguir mostram como usar o Editor de Consultas: 
 
-1. Na lista de recursos no grupo de recursos, selecione seu SQL data warehouse. 
+1. Na lista de recursos no grupo de recursos, selecione o seu **pool de SQL do Synapse (data warehouse)** . 
 2. Na página SQL data warehouse, selecione **Editor de consulta (versão prévia)** no menu à esquerda. 
 
     ![Página do SQL data warehouse](media/event-grid-event-hubs-integration/sql-data-warehouse-page.png)
-2. Insira o nome de **usuário** e **senha** para o SQL Server e selecione **OK**. 
+2. Insira o nome de **usuário** e **senha** para o SQL Server e selecione **OK**. Talvez você precise fornecer seu endereço IP de cliente ao firewall para fazer logon com êxito no SQL Server. 
 
     ![Autenticação do SQL Server](media/event-grid-event-hubs-integration/sql-server-authentication.png)
 4. Na janela de consulta, copie e execute o seguinte script SQL: 
@@ -193,6 +192,17 @@ Crie uma tabela no data warehouse executando o script [CreateDataWarehouseTable.
     ![Executar uma consulta SQL](media/event-grid-event-hubs-integration/run-sql-query.png)
 5. Mantenha essa guia ou janela aberta para que você possa verificar se os dados são criados no final do tutorial. 
 
+### <a name="update-the-function-runtime-version"></a>Atualizar a versão de runtime da função
+
+1. No portal do Azure, selecione **Grupos de recursos** no menu esquerdo.
+2. Selecione o grupo de recursos no qual o aplicativo de funções está localizado. 
+3. Selecione o aplicativo de funções do tipo **Serviço de Aplicativo** na lista de recursos no grupo de recursos.
+4. Selecione **Configuração** em **Configurações** no menu à esquerda. 
+5. Alterne para a guia **Configurações de runtime da função** no painel direito. 
+5. Atualize a **versão de runtime** para **~3**. 
+
+    ![Atualizar a versão de runtime da função](media/event-grid-event-hubs-integration/function-runtime-version.png)
+    
 
 ## <a name="publish-the-azure-functions-app"></a>Publicar o aplicativo do Azure Functions
 
@@ -204,13 +214,20 @@ Crie uma tabela no data warehouse executando o script [CreateDataWarehouseTable.
 4. Se você vir a tela a seguir, selecione **Iniciar**. 
 
    ![Botão Iniciar publicação](media/event-grid-event-hubs-integration/start-publish-button.png) 
-5. Na página **Escolher um destino de publicação**, selecione a opção **Selecionar existente** e selecione **Criar Perfil**. 
+5. Na caixa de diálogo **Publicar**, selecione **Azure** como **Destino** e **Avançar**. 
 
-   ![Escolher um destino de publicação](media/event-grid-event-hubs-integration/publish-select-existing.png)
-6. Na página do Serviço de Aplicativo, selecione sua **Assinatura do Azure**, selecione o **aplicativo de funções** em seu grupo de recursos e selecione **OK**. 
+   ![Botão Iniciar publicação](media/event-grid-event-hubs-integration/publish-select-azure.png)
+6. Selecione **Aplicativo de Funções do Azure (Windows)** e **Avançar**. 
 
-   ![Página Serviço de Aplicativo](media/event-grid-event-hubs-integration/publish-app-service.png) 
-1. Quando o Visual Studio tiver configurado o perfil, selecione **Publicar**.
+   ![Selecionar Aplicativo de Funções do Azure (Windows)](media/event-grid-event-hubs-integration/select-azure-function-windows.png)
+7. Na guia **Instância do Functions**, selecione sua assinatura do Azure, expanda o grupo de recursos, escolha o aplicativo de funções e selecione **Concluir**. Faça logon na sua conta do Azure se ainda não fez isso. 
+
+   ![Selecione seu aplicativo de funções](media/event-grid-event-hubs-integration/publish-select-function-app.png)
+8. Na seção **Dependências do Serviço**, selecione **Configurar**.
+9. Na página **Configurar dependência**, selecione a conta de armazenamento que você criou anteriormente e escolha **Avançar**. 
+10. Mantenha as configurações de nome e valor da cadeia de conexão e escolha **Avançar**.
+11. Desmarque a opção **Repositório de segredos** e selecione **Concluir**.  
+8. Quando o Visual Studio tiver configurado o perfil, selecione **Publicar**.
 
    ![Selecionar Publicar](media/event-grid-event-hubs-integration/select-publish.png)
 
@@ -224,21 +241,24 @@ Depois de publicar a função, você estará pronto para assinar o evento.
 4. Selecione seu grupo de recursos na lista.
 
     ![Selecione o grupo de recursos](media/event-grid-event-hubs-integration/select-resource-group.png)
-4. Selecione o plano de Serviço de Aplicativo na lista. 
+4. Selecione o Plano do Serviço de Aplicativo (não o Serviço de Aplicativo) na lista de recursos no grupo de recursos. 
 5. Na página Plano do Serviço de Aplicativo, selecione **Aplicativos** no menu à esquerda e selecione o aplicativo de funções. 
 
     ![Selecione seu aplicativo de funções](media/event-grid-event-hubs-integration/select-function-app-app-service-plan.png)
 6. Expanda o aplicativo de funções, expanda as funções e, em seguida, selecione sua função. 
+7. Selecione **Adicionar assinatura de Grade de Eventos** na barra de ferramentas. 
 
     ![Selecionar a função do Azure](media/event-grid-event-hubs-integration/select-function-add-button.png)
-7. Selecione **Adicionar assinatura de Grade de Eventos** na barra de ferramentas. 
 8. Na página **Criar Assinatura de Grade de Eventos**, faça as seguintes ações: 
-    1. Na seção **DETALHES DO TÓPICO**, execute as seguintes ações:
-        1. Selecione sua assinatura do Azure.
+    1. Na página **DETALHES DA ASSINATURA DE EVENTO**, insira um nome para a assinatura (por exemplo: captureEventSub) e selecione **Criar**. 
+    2. Na seção **DETALHES DO TÓPICO**, execute as seguintes ações:
+        1. Selecione **Namespaces dos Hubs de Eventos** como os **Tipos de Tópico**. 
+        2. Selecione sua assinatura do Azure.
         2. Selecione o grupo de recursos do Azure.
-        3. Selecione o namespace Hubs de Eventos.
-    2. Na página **DETALHES DA ASSINATURA DE EVENTO**, insira um nome para a assinatura (por exemplo: captureEventSub) e selecione **Criar**. 
-
+        3. Selecione o namespace dos Hubs de Eventos.
+    3. Na seção **TIPOS DE EVENTO**, confirme se o **Arquivo de Captura Criado** está selecionado para **Filtrar para Tipos de Evento**. 
+    4. Na seção **DETALHES DO PONTO DE EXTREMIDADE**, confirme se o **Tipo de ponto de extremidade** está definido como **Função do Azure** e se **Ponto de extremidade** está definido como a função do Azure. 
+    
         ![Criar Assinatura de Grade de Eventos](media/event-grid-event-hubs-integration/create-event-subscription.png)
 
 ## <a name="run-the-app-to-generate-data"></a>Executar o aplicativo para gerar dados

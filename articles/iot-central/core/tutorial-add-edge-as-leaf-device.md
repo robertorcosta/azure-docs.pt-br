@@ -3,24 +3,23 @@ title: Adicionar um dispositivo Azure IoT Edge ao Azure IoT Central | Microsoft 
 description: Como operador, adicione um dispositivo Azure IoT Edge ao aplicativo do Azure IoT Central
 author: rangv
 ms.author: rangv
-ms.date: 12/09/2019
+ms.date: 05/29/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-manager: peterpr
-ms.openlocfilehash: c60cf4b90b089d271c0ccd91031420efe9017b1e
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 1b90364bee42b31843ac8d84f5a692a3eeb6d3f1
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81758166"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417508"
 ---
 # <a name="tutorial-add-an-azure-iot-edge-device-to-your-azure-iot-central-application"></a>Tutorial: Adicionar um dispositivo Azure IoT Edge ao aplicativo do Azure IoT Central
 
-*Este artigo se aplica a construtores de solução e desenvolvedores de dispositivos.*
+*Este artigo se aplica a operadores, criadores de solução e desenvolvedores de dispositivos.*
 
-Este tutorial mostra como configurar e adicionar um dispositivo Azure IoT Edge para o aplicativo do Azure IoT Central. O tutorial usa uma VM (máquina virtual) do Linux habilitada para IoT Edge do Azure Marketplace para simular um dispositivo IoT Edge. O dispositivo IoT Edge usa um módulo que gera telemetria de ambiente simulado. Você exibe a telemetria em um painel no aplicativo IoT Central.
+Este tutorial mostra como configurar e adicionar um dispositivo Azure IoT Edge para o aplicativo do Azure IoT Central. O tutorial usa uma VM (máquina virtual) do Linux habilitada para IoT Edge para simular um dispositivo do IoT Edge. O dispositivo IoT Edge usa um módulo que gera telemetria de ambiente simulado. Você exibe a telemetria em um painel no aplicativo IoT Central.
 
 Neste tutorial, você aprenderá como:
 
@@ -41,7 +40,7 @@ Baixe o arquivo de manifesto do IoT Edge no GitHub. Clique com o botão direito 
 
 ## <a name="create-device-template"></a>Criar modelo de dispositivo
 
-Nesta seção, você cria um modelo de dispositivo para um dispositivo IoT Edge que se conecta ao aplicativo IoT Central. Você importa um manifesto IoT Edge para começar e, em seguida, modifica o modelo para adicionar definições e exibições de telemetria:
+Nesta seção, você cria um modelo de dispositivo do IoT Central para um dispositivo IoT Edge. Você importa um manifesto IoT Edge para começar e, em seguida, modifica o modelo para adicionar definições e exibições de telemetria:
 
 ### <a name="import-manifest-to-create-template"></a>Importar manifesto para criar modelo
 
@@ -51,31 +50,29 @@ Para criar um modelo de dispositivo com base em um manifesto IoT Edge:
 
 1. Na página **Selecionar tipo de modelo**, selecione o bloco **Azure IoT Edge**. Em seguida, selecione **Avançar: Personalizar**.
 
-1. Na página **Carregar um manifesto de implantação do Azure IoT Edge**, selecione **Procurar** para carregar o **EnvironmentalSensorManifest.json** que você baixou anteriormente. Em seguida, selecione **Avançar: Análise**.
+1. Na página **Carregar um manifesto de implantação do Azure IoT Edge**, insira *Dispositivo de Borda do Sensor Ambiental* como o nome do modelo de dispositivo. Em seguida, selecione **Procurar** para carregar o **EnvironmentalSensorManifest.json** baixado anteriormente. Em seguida, selecione **Avançar: Análise**.
 
 1. Na página **Examinar**, selecione **Criar**.
 
-1. Quando o modelo tiver sido criado, altere o nome dele para *Dispositivo de borda do sensor ambiental*.
-
 1. Selecione a interface **Gerenciar** no módulo **SimulatedTemperatureSensor** para exibir as duas propriedades definidas no manifesto:
 
-![Modelo de dispositivo criado no manifesto IoT Edge](./media/tutorial-add-edge-as-leaf-device/imported-manifest.png)
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/imported-manifest.png" alt-text="Modelo de dispositivo criado no manifesto IoT Edge":::
 
 ### <a name="add-telemetry-to-manifest"></a>Adicionar telemetria ao manifesto
 
-Um manifesto IoT Edge não define a telemetria que um módulo envia. Você deve adicionar as definições de telemetria ao modelo de dispositivo. O módulo **SimulatedTemperatureSensor** envia mensagens de telemetria parecidas com o seguinte JSON:
+Um manifesto IoT Edge não define a telemetria que um módulo envia. Você adiciona as definições de telemetria ao modelo de dispositivo no IoT Central. O módulo **SimulatedTemperatureSensor** envia mensagens de telemetria parecidas com o seguinte JSON:
 
 ```json
 {
-    "machine": {
-        "temperature": 75.0,
-        "pressure": 40.2
-    },
-    "ambient": {
-        "temperature": 23.0,
-        "humidity": 30.0
-    },
-    "timeCreated": ""
+  "machine": {
+    "temperature": 75.0,
+    "pressure": 40.2
+  },
+  "ambient": {
+    "temperature": 23.0,
+    "humidity": 30.0
+  },
+  "timeCreated": ""
 }
 ```
 
@@ -99,7 +96,7 @@ Para adicionar as definições de telemetria ao modelo de dispositivo:
 
 Agora, a interface **Gerenciar** inclui os tipos de telemetria **machine**, **ambient** e **timeCreated**:
 
-![Interface com os tipos de telemetria machine e ambient](./media/tutorial-add-edge-as-leaf-device/manage-interface.png)
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/manage-interface.png" alt-text="Interface com os tipos de telemetria computador e ambiente":::
 
 ### <a name="add-views-to-template"></a>Adicionar exibições ao modelo
 
@@ -115,15 +112,15 @@ O modelo de dispositivo ainda não tem uma exibição que permite que um operado
 
 1. Selecione **Salvar** para salvar a exibição **Exibir telemetria do dispositivo IoT Edge**.
 
-![Modelo de dispositivo com exibição de telemetria](./media/tutorial-add-edge-as-leaf-device/template-telemetry-view.png)
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/template-telemetry-view.png" alt-text="Modelo de dispositivo com exibição de telemetria":::
 
 ### <a name="publish-the-template"></a>Publicar o modelo
 
 Antes de adicionar um dispositivo que usa o modelo de **Dispositivo de borda do sensor ambiental**, você deve publicar o modelo.
 
-Navegue até o modelo de **Dispositivo de borda do sensor de ambiente** e selecione **Publicar**. Selecione **Publicar** para publicar o modelo:
+Navegue até o modelo de **Dispositivo de borda do sensor de ambiente** e selecione **Publicar**. No painel **Publicar este modelo de dispositivo no aplicativo**, selecione **Publicar** para publicar o modelo:
 
-![Publicar o modelo de dispositivo](./media/tutorial-add-edge-as-leaf-device/publish-template.png)
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/publish-template.png" alt-text="Publicar o modelo de dispositivo":::
 
 ## <a name="add-iot-edge-device"></a>Adicionar dispositivo do IoT Edge
 
@@ -131,11 +128,11 @@ Agora que você publicou o modelo de **Dispositivo de borda do sensor ambiental*
 
 1. No aplicativo IoT Central, navegue até a página **Dispositivos** e selecione **Dispositivo de borda do sensor ambiental** na lista de modelos disponíveis.
 
-1. Selecione **+** para adicionar um novo dispositivo do modelo. Na página **Criar dispositivo**, selecione **Criar**.
+1. Selecione **+ Novo** para adicionar um novo dispositivo do modelo. Na página **Criar dispositivo**, selecione **Criar**.
 
 Agora você tem um novo dispositivo com o status **Registrado**:
 
-![Publicar o modelo de dispositivo](./media/tutorial-add-edge-as-leaf-device/new-device.png)
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/new-device.png" alt-text="Novo dispositivo registrado":::
 
 ### <a name="get-the-device-credentials"></a>Obter as credenciais do dispositivo
 
@@ -153,38 +150,49 @@ Agora você concluiu a configuração do aplicativo IoT Central para permitir qu
 
 ## <a name="deploy-an-iot-edge-device"></a>Implantar um dispositivo IoT Edge
 
-Neste tutorial, você usa uma VM do Linux habilitada para Azure IoT Edge, criada no Azure para simular um dispositivo IoT Edge. Para criar a VM habilitada para IoT Edge:
+Neste tutorial, você usa uma VM do Linux habilitada para Azure IoT Edge, criada no Azure para simular um dispositivo IoT Edge. Para criar a VM habilitada para IoT Edge em sua assinatura do Azure, clique em:
 
-1. Navegue até [Azure IoT Edge no Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu?tab=Overview) no Azure Marketplace. Selecione **Obtenha agora**.
+[![Botão Implantar no Azure para iotedge-vm-deploy](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fiotedge-vm-deploy%2Fmaster%2FedgeDeploy.json)
 
-1. Na página **Criar este aplicativo no Azure**, selecione **Continuar**. Esse link leva você para o portal do Azure, em que talvez seja necessário entrar na sua assinatura do Azure.
+Na página **Implantação personalizada**:
 
-1. Na página **Azure IoT Edge no Ubuntu** no portal do Azure, selecione **Criar**.
+1. Selecione sua assinatura do Azure.
 
-1. Na página **Criar uma máquina virtual > Noções básicas**:
+1. Selecione **Criar** para criar um grupo de recursos chamado *central-edge-rg*.
 
-    - Selecione sua assinatura do Azure.
-    - Crie um grupo de recursos chamado **iot-edge-devices**.
-    - Use o nome da máquina virtual: **iotedgevm**.
-    - Escolha a região mais próxima a você.
-    - Defina o tipo de autenticação como **Senha**.
-    - Escolha um nome de usuário e uma senha.
-    - É possível deixar as outras opções com os valores padrão.
-    - Selecione **Examinar + criar**.
+1. Escolha uma região próxima de você.
 
-1. Após concluir a validação, selecione **Criar**.
+1. Adicione um **Prefixo de Rótulo DNS** exclusivo, como *contoso-central-edge*.
 
-Aguarde alguns minutos. Depois que a implantação estiver concluída, selecione **Ir para o recurso**.
+1. Escolha um nome de usuário administrador para a máquina virtual.
 
-### <a name="provision-vm-as-an-iot-edge-device"></a>Provisionar uma VM como um dispositivo do IoT Edge 
+1. Insira *temp* como a cadeia de conexão. Posteriormente, você vai configurar o dispositivo para se conectar usando o DPS.
 
-Para provisionar uma VM como um dispositivo IoT Edge:
+1. Aceite os valores padrão para o tamanho da VM, a versão do Ubuntu e o local.
 
-1. Na seção **Suporte + solução de problemas**, selecione **Console serial**.
+1. Selecione **senha** como o tipo de autenticação.
+
+1. Insira uma senha para a VM.
+
+1. Em seguida, selecione **Examinar + Criar**.
+
+1. Examine suas escolhas e, em seguida, selecione **Criar**:
+
+    :::image type="content" source="media/tutorial-add-edge-as-leaf-device/vm-deployment.png" alt-text="Criar uma VM do IoT Edge":::
+
+Concluir a implantação leva alguns minutos. Quando a implantação for concluída, navegue até o grupo de recursos **central-edge-rg** no portal do Azure.
+
+### <a name="configure-the-iot-edge-vm"></a>Configurar a VM IoT Edge
+
+Para configurar IoT Edge na VM para usar o DPS para registrar-se e conectar-se ao aplicativo IoT Central:
+
+1. No grupo de recursos **contoso-edge-rg**, selecione a instância de máquina virtual.
+
+1. Na seção **Suporte + solução de problemas**, selecione **Console serial**. Se você for solicitado a configurar o diagnóstico de inicialização, siga as instruções no portal.
 
 1. Pressione **Enter** para ver o prompt `login:`. Insira seu nome de usuário e sua senha para entrar.
 
-1. Execute o comando a seguir para verificar a versão do runtime do IoT Edge. No momento da escrita, a versão é 1.0.8:
+1. Execute o comando a seguir para verificar a versão do runtime do IoT Edge. No momento da redação deste artigo, a versão era 1.0.9.1:
 
     ```bash
     sudo iotedge --version
@@ -202,7 +210,7 @@ Para provisionar uma VM como um dispositivo IoT Edge:
     # Manual provisioning configuration
     #provisioning:
     #  source: "manual"
-    #  device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
+    #  device_connection_string: "temp"
     ```
 
 1. Role a tela para baixo até ver `# DPS symmetric key provisioning configuration`. Remova a marca de comentário das próximas oito linhas, conforme mostrado no seguinte snippet:
@@ -218,6 +226,9 @@ Para provisionar uma VM como um dispositivo IoT Edge:
         registration_id: "{registration_id}"
         symmetric_key: "{symmetric_key}"
     ```
+
+    > [!TIP]
+    > Não deve haver espaço restante na frente de `provisioning:`
 
 1. Substitua `{scope_id}` pelo **Escopo da ID** que você anotou anteriormente.
 
@@ -239,7 +250,7 @@ Para provisionar uma VM como um dispositivo IoT Edge:
     iotedge list
     ```
 
-    A saída se parece com o seguinte:
+    A seguinte saída de exemplo mostra os módulos em execução:
 
     ```bash
     NAME                        STATUS           DESCRIPTION      CONFIG
@@ -248,25 +259,38 @@ Para provisionar uma VM como um dispositivo IoT Edge:
     edgeHub                     running          Up 22 seconds    mcr.microsoft.com/azureiotedge-hub:1.0
     ```
 
+    > [!TIP]
+    > Talvez seja necessário aguardar até que todos os módulos iniciem a execução.
+
 ## <a name="view-the-telemetry"></a>Exibir a Telemetria
 
 Agora, o dispositivo IoT Edge simulado está em execução na VM. No aplicativo IoT Central, o status do dispositivo agora é **Provisionado** na página **Dispositivos**:
 
-![Dispositivo provisionado](./media/tutorial-add-edge-as-leaf-device/provisioned-device.png)
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/provisioned-device.png" alt-text="Dispositivo do IoT Edge provisionado":::
 
-Você pode ver a telemetria na página **Exibir telemetria do dispositivo IoT Edge**:
+Você pode ver a telemetria do dispositivo na página **Exibir telemetria do dispositivo do IoT Edge**:
 
-![Telemetria de dispositivo](./media/tutorial-add-edge-as-leaf-device/device-telemetry-view.png)
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/device-telemetry-view.png" alt-text="Telemetria do Dispositivo":::
 
-A página **Módulos** mostra o status dos módulos do IoT Edge:
+A página **Módulos** mostra o status dos módulos do IoT Edge no dispositivo:
 
-![Telemetria de dispositivo](./media/tutorial-add-edge-as-leaf-device/edge-module-status.png)
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/edge-module-status.png" alt-text="Status do módulo de dispositivo":::
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Se você planeja continuar trabalhando com a VM IoT Edge, pode manter e reutilizar os recursos usados neste tutorial. Caso contrário, exclua os recursos criados neste tutorial para evitar encargos adicionais:
+
+* Para excluir a VM do IoT Edge e seus recursos associados, exclua o grupo de recursos **contoso-edge-rg** no portal do Azure.
+* Para excluir o aplicativo IoT Central, navegue até a página **Seu aplicativo** na seção **Administração** do aplicativo e selecione **Excluir**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Como um desenvolvedor de dispositivos, agora que você aprendeu a trabalhar com dispositivos IoT Edge e gerenciá-los no IoT Central, uma sugestão para a próxima etapa é ler:
 
-<!-- Next how-tos in the sequence -->
+> [!div class="nextstepaction"]
+> [Desenvolver módulos do IoT Edge](../../iot-edge/tutorial-develop-for-linux.md)
+
+Como um operador ou desenvolvedor de soluções, agora que você aprendeu a trabalhar com dispositivos IoT Edge e gerenciá-los no IoT Central, uma sugestão para a próxima etapa:
 
 > [!div class="nextstepaction"]
-> [Conectar-se ao Azure IoT Central](./concepts-get-connected.md)
+> [Usar grupos de dispositivos para analisar a telemetria do dispositivo](./tutorial-use-device-groups.md)

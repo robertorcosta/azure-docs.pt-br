@@ -5,14 +5,14 @@ services: iot-hub
 author: robinsh
 ms.service: iot-hub
 ms.topic: tutorial
-ms.date: 11/21/2019
+ms.date: 06/02/2020
 ms.author: robinsh
-ms.openlocfilehash: 0b1870af6316713590eec59aee2af94ce34b7e1a
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 2a0b25fc73bf0f549a199592d558c0097c2db8b8
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83722551"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457058"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>Tutorial: Enviar notificações por email sobre os eventos do Hub IoT do Azure usando Aplicativos Lógicos e a Grade de Eventos
 
@@ -175,19 +175,26 @@ Nesta seção, você configura o Hub IoT para publicar eventos à medida que oco
 
 4. Crie a assinatura de evento com os seguintes valores: 
 
-   * **Detalhes da Assinatura de Evento**: Forneça um nome descritivo e selecione **Esquema da Grade de Eventos**.
+    1. Na seção **DETALHES DA ASSINATURA DE EVENTO**, execute as seguintes tarefas:
+        1. Forneça um **nome** para a assinatura de evento. 
+        2. Selecione **Esquema de Grade de Eventos** para **Esquema de Evento**. 
+   2. Na seção **DETALHES DO TÓPICO**, execute as seguintes tarefas:
+       1. Confirme se o **Tipo de tópico** está definido como **Hub IoT**. 
+       2. Confirme se o nome do Hub IoT está definido como o valor do campo **Recurso de Origem**. 
+       3. Insira um nome para o **tópico do sistema** que será criado para você. Para saber mais sobre os tópicos do sistema, confira [Visão geral dos tópicos do sistema](system-topics.md).
+   3. Na seção **TIPOS DE EVENTO**, execute as seguintes tarefas: 
+        1. Para **Filtrar para Tipos de Evento**, desmarque todas as opções, exceto **Dispositivo Criado**.
 
-   * **Tipos de Evento**: Em **Filtrar para Tipos de Evento**, desmarque todas as opções, exceto **Dispositivo Criado**.
+           ![tipos de evento de assinatura](./media/publish-iot-hub-events-to-logic-apps/subscription-event-types.png)
+   4. Na seção **DETALHES DO PONTO DE EXTREMIDADE**, execute as seguintes tarefas: 
+       1. Selecione o **Tipo de Ponto de Extremidade** como **Web Hook**.
+       2. Clique em **selecionar um ponto de extremidade**, cole a URL que você copiou do aplicativo lógico e confirme a seleção.
 
-       ![tipos de evento de assinatura](./media/publish-iot-hub-events-to-logic-apps/subscription-event-types.png)
+         ![selecionar a url de ponto de extremidade](./media/publish-iot-hub-events-to-logic-apps/endpoint-webhook.png)
 
-   * **Detalhes do Ponto de Extremidade**: Selecione o Tipo de Ponto de Extremidade como **Web Hook** e selecione *selecionar um ponto de extremidade*, cole a URL copiada do aplicativo lógico e confirme a seleção.
+         Quando terminar, o painel deverá ser como o seguinte exemplo: 
 
-     ![selecionar a url de ponto de extremidade](./media/publish-iot-hub-events-to-logic-apps/endpoint-webhook.png)
-
-   Quando terminar, o painel deverá ser como o seguinte exemplo: 
-
-    ![Exemplo de formulário de inscrição de evento](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
+        ![Exemplo de formulário de inscrição de evento](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
 
 5. Você pode salvar a assinatura de evento aqui e receber notificações para cada dispositivo criado no seu Hub IoT. Para este tutorial, no entanto, vamos usar os campos opcionais para filtrar dispositivos específicos. Selecione **Filtros** na parte superior do painel.
 

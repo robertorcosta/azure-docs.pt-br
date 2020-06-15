@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 04/01/2020
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: 77b801837be80749ca73dd4ae5c526a7980e83e0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 92962c376e2b800a327f44c4cad5cd9fdd4cab8d
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652724"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560506"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Tutorial: Automatizar o redimensionamento de imagens carregadas usando a Grade de Eventos
 
@@ -75,14 +75,19 @@ O Azure Functions exige uma conta de armazenamento geral. Além da conta de Arma
     ```azurecli-interactive
     resourceGroupName="myResourceGroup"
     ```
-2. Defina uma variável para o nome da nova conta de armazenamento necessária para o Azure Functions.
+2. Defina uma variável para armazenar a localização dos recursos a serem criados. 
+
+    ```azurecli-interactive
+    location="eastus"
+    ```    
+3. Defina uma variável para o nome da nova conta de armazenamento necessária para o Azure Functions.
     ```azurecli-interactive
     functionstorage="<name of the storage account to be used by the function>"
     ```
-3. Crie a conta de armazenamento para a função do Azure.
+4. Crie a conta de armazenamento para a função do Azure.
 
     ```azurecli-interactive
-    az storage account create --name $functionstorage --location southeastasia \
+    az storage account create --name $functionstorage --location $location \
     --resource-group $resourceGroupName --sku Standard_LRS --kind StorageV2
     ```
 
@@ -101,7 +106,7 @@ No comando a seguir, forneça seu próprio nome exclusivo do aplicativo de funç
 
     ```azurecli-interactive
     az functionapp create --name $functionapp --storage-account $functionstorage \
-      --resource-group $resourceGroupName --consumption-plan-location southeastasia \
+      --resource-group $resourceGroupName --consumption-plan-location $location \
       --functions-version 2
     ```
 
@@ -114,7 +119,6 @@ A função precisa ter credenciais para a conta de Armazenamento de Blobs, que s
 # <a name="net-v12-sdk"></a>[\.SDK do NET v12](#tab/dotnet)
 
 ```azurecli-interactive
-blobStorageAccount="<name of the Blob storage account you created in the previous tutorial>"
 storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName \
   --name $blobStorageAccount --query connectionString --output tsv)
 
@@ -126,8 +130,6 @@ az functionapp config appsettings set --name $functionapp --resource-group $reso
 # <a name="nodejs-v10-sdk"></a>[SDK do Node.js V10](#tab/nodejsv10)
 
 ```azurecli-interactive
-blobStorageAccount="<name of the Blob storage account you created in the previous tutorial>"
-
 blobStorageAccountKey=$(az storage account keys list -g $resourceGroupName \
   -n $blobStorageAccount --query [0].value --output tsv)
 
@@ -211,6 +213,7 @@ Uma assinatura de evento indica quais eventos gerados pelo provedor você deseja
     | **Assinatura** | Sua assinatura do Azure | Por padrão, sua assinatura atual do Azure é selecionada. |
     | **Grupo de recursos** | myResourceGroup | Selecione **Usar existente** e escolha o grupo de recursos que está sendo usado neste tutorial. |
     | **Recurso** | Sua conta de armazenamento de Blobs | Escolha a conta de armazenamento de Blobs criada. |
+    | **Nome do Tópico do Sistema** | imagestoragesystopic | Especifique um nome para o tópico do sistema. Para saber mais sobre os tópicos do sistema, confira [Visão geral dos tópicos do sistema](system-topics.md). |    
     | **Tipos de evento** | Blob criado | Desmarque todos os tipos que não sejam **Blob criado**. Somente os tipos de evento `Microsoft.Storage.BlobCreated` são passados para a função. |
     | **Tipo de ponto de extremidade** | gerado automaticamente | Pré-definido como **Função do Azure**. |
     | **Ponto de extremidade** | gerado automaticamente | Nome da função. Nesse caso, é **Miniatura**. |

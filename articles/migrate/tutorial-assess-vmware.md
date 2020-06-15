@@ -2,14 +2,14 @@
 title: Avaliar VMs do VMware usando a avaliação de servidor das Migrações para Azure
 description: Descreve como avaliar as VMs locais do VMware para migração para o Azure usando a Avaliação de Servidor de Migrações para Azure.
 ms.topic: tutorial
-ms.date: 04/15/2020
+ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: bd9e6b5923207297b1aa70a67052a7796b901781
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 87eac5979176fe9a71db15961e4c5f822b56568e
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535359"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331875"
 ---
 # <a name="assess-vmware-vms-with-server-assessment"></a>Avaliar VMs do VMware com a Avaliação do Servidor
 
@@ -85,18 +85,26 @@ Depois de criar o dispositivo, você verifica se é possível conectá-lo ao Mig
 Verifique se o arquivo OVA é seguro antes de implantá-lo:
 
 1. No computador no qual você baixou o arquivo, abra uma janela de comando do administrador.
-1. Execute o seguinte comando para gerar o hash para o arquivo OVA:
+2. Execute o seguinte comando para gerar o hash para o arquivo OVA:
   
    ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
    
    Exemplo de uso: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 
-Para a versão 2.19.07.30, o hash gerado deve corresponder a esses valores:
+3. Verifique as versões mais recentes do dispositivo e os valores de hash:
 
-**Algoritmo** | **Valor de hash**
---- | ---
-MD5 | c06ac2a2c0f870d3b274a0b7a73b78b1
-SHA256 | 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
+    - Para a nuvem pública do Azure:
+    
+        **Algoritmo** | **Download** | **SHA256**
+        --- | --- | ---
+        VMware (10,9 GB) | [Última versão](https://aka.ms/migrate/appliance/vmware) | cacbdaef927fe5477fa4e1f494fcb7203cbd6b6ce7402b79f234bc0fe69663dd
+
+    - Para o Azure Goverment:
+    
+        **Algoritmo** | **Download** | **SHA256**
+        --- | --- | ---
+        VMware (63,1 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2120300&clcid=0x409 ) | 3d5822038646b81f458d89d706832c0a2c0e827bfa9b0a55cc478eaf2757a4de
+
 
 ### <a name="create-the-appliance-vm"></a>Criar a VM do dispositivo
 

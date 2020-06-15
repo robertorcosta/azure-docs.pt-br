@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 484dfd7834a206dce6805dc38b0eabeae2ee352a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 519520538c16b1bde18f0810344864d37090accf
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82114557"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84342639"
 ---
 # <a name="assess-servers-by-using-imported-data"></a>Avaliar servidores pelo uso de dados importados
 
@@ -111,6 +111,7 @@ A tabela a seguir resume os campos de arquivo a serem preenchidos:
 **Memória** | Sim | Total de RAM (MB) alocado para o servidor.
 **Nome do SO** | Sim | Sistema operacional do servidor. <br/> Nomes de sistema operacional que correspondem ou contêm os nomes [desta](#supported-operating-system-names) lista são reconhecidos pela avaliação.
 **Versão do SO** | Não | Versão do sistema operacional do servidor.
+**Arquitetura do SO** | Não | Arquitetura do SO do servidor <br/> Os valores válidos são: x64, x86, amd64, 32 bits ou 64 bits
 **Número de discos** | Não | Não é necessário se forem fornecidos detalhes de disco individuais.
 **Tamanho do Disco 1**  | Não | Tamanho máximo do disco (GB).<br/>Para adicionar detalhes de outros discos, [adicione colunas](#add-multiple-disks) no modelo. Você pode adicionar até oito discos.
 **Operações de leitura do Disco 1** | Não | Operações de leitura do disco por segundo.

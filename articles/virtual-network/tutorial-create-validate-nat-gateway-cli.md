@@ -8,17 +8,18 @@ author: asudbring
 manager: KumudD
 Customer intent: I want to test a NAT gateway for outbound connectivity for my virtual network.
 ms.service: virtual-network
+ms.subservice: nat
 ms.devlang: na
 ms.topic: tutorial
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: b3e10b3abbe5c9815e51ce67786882dbd294df3f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b1ca26a63c910861d333f707d13946c5e046f599
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79202199"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84340973"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-azure-cli-and-test-the-nat-service"></a>Tutorial: Criar um gateway da NAT usando a CLI do Azure e testar o serviço NAT
 
@@ -390,13 +391,13 @@ Agora você está pronto para testar o serviço NAT.
 
 Enquanto estiver conectado à VM de origem, você poderá usar o **curl** e o **hey** para gerar solicitações para o endereço IP de destino.
 
-Use curl para recuperar o arquivo de 100 KB.  Substitua **\<destino-de-endereço-IP>** no exemplo abaixo pelo endereço IP de destino copiado anteriormente.  O parâmetro **--output** indica que o arquivo recuperado será descartado.
+Use curl para recuperar o arquivo de 100 KB.  Substitua **\<ip-address-destination>** no exemplo abaixo pelo endereço IP de destino copiado anteriormente.  O parâmetro **--output** indica que o arquivo recuperado será descartado.
 
 ```bash
 curl http://<ip-address-destination>/100k --output /dev/null
 ```
 
-Você também pode gerar uma série de solicitações usando o **hey**. Novamente, substitua **\<destino-de-endereço-IP>** pelo endereço IP de destino copiado anteriormente.
+Você também pode gerar uma série de solicitações usando o **hey**. Novamente, substitua **\<ip-address-destination>** pelo endereço IP de destino que você copiou anteriormente.
 
 ```bash
 hey -n 100 -c 10 -t 30 --disable-keepalive http://<ip-address-destination>/100k

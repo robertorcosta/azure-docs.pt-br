@@ -7,13 +7,13 @@ ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: msangapu
-ms.custom: mvc, seodec18
-ms.openlocfilehash: 2609ff908b3c2f872cb63d3dcd7dcd481d316484
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, seodec18, tracking-python
+ms.openlocfilehash: d9c7b9b296aaf287d185cd3e7544e40d9cdef2f5
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82085851"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561100"
 ---
 # <a name="tutorial-build-a-custom-image-and-run-in-app-service-from-a-private-registry"></a>Tutorial: Criar uma imagem personalizada e executá-la no Serviço de Aplicativo por meio de um registro particular
 
@@ -139,7 +139,7 @@ O resultado revela duas senhas, juntamente com o nome de usuário.
 }
 </pre>
 
-Na janela do terminal local, entre no Registro de Contêiner do Azure usando o comando `docker login`, conforme mostrado no exemplo a seguir. Substitua *\<azure-container-registry-name>* e *\<registry-username>* pelos valores do registro. Quando solicitado, digite uma das senhas da etapa anterior.
+Na janela do terminal local, entre no Registro de Contêiner do Azure usando o comando `docker login`, conforme mostrado no exemplo a seguir. Substitua *\<azure-container-registry-name>* e *\<registry-username>* pelos valores do Registro. Quando solicitado, digite uma das senhas da etapa anterior.
 
 ```bash
 docker login <azure-container-registry-name>.azurecr.io --username <registry-username>
@@ -180,7 +180,7 @@ Você deverá obter o resultado a seguir.
 
 ### <a name="create-web-app"></a>Criar um aplicativo Web
 
-No Cloud Shell, crie um [aplicativo Web](app-service-linux-intro.md) no plano do Serviço de Aplicativo do `myAppServicePlan` com o comando [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Substitua _\<app-name>_ por um nome de aplicativo exclusivo e _\<azure-container-registry-name>_ pelo nome do registro.
+No Cloud Shell, crie um [aplicativo Web](app-service-linux-intro.md) no plano do Serviço de Aplicativo do `myAppServicePlan` com o comando [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Substitua _\<app-name>_ por um nome de aplicativo exclusivo e _\<azure-container-registry-name>_ pelo nome do Registro.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --deployment-container-image-name <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0
@@ -205,7 +205,7 @@ Quando o aplicativo Web for criado, a CLI do Azure mostrará um resultado semelh
 
 ### <a name="configure-registry-credentials-in-web-app"></a>Configurar as credenciais de registro no aplicativo Web
 
-Para que o Serviço de Aplicativo efetue pull da imagem particular, ele precisará obter informações sobre o registro e a imagem. No Cloud Shell, forneça-as com o comando [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set). Substitua *\<app-name>* pelo nome do aplicativo, *\<azure-container-registry-name>* pelo nome do Registro de Contêiner do Azure, _\<registry-username>_ pelo nome de usuário do registro e _\<password>_ pela senha.
+Para que o Serviço de Aplicativo efetue pull da imagem particular, ele precisará obter informações sobre o registro e a imagem. No Cloud Shell, forneça-as com o comando [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set). Substitua *\<app-name>* , *\<azure-container-registry-name>* , _\<registry-username>_ e _\<password>_ .
 
 ```azurecli-interactive
 az webapp config container set --name <app-name> --resource-group myResourceGroup --docker-custom-image-name <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0 --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>

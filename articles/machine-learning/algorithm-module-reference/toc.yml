@@ -166,8 +166,12 @@
       href: evaluate-recommender.md
     - name: Pontuar o sistema de recomendação SVD
       href: score-svd-recommender.md
+    - name: Pontuar o sistema de recomendação grande e profundo
+      href: score-wide-and-deep-recommender.md
     - name: Treinar o sistema de recomendação SVD
       href: train-svd-recommender.md
+    - name: Treinar o sistema de recomendação grande e profundo
+      href: train-wide-and-deep-recommender.md
 - name: Detecção de anomalias
   items:
     - name: Detecção de anomalias baseada em PCA
