@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
 ms.openlocfilehash: d15058126f43fff328acfc563ffd081164a69a90
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79220188"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710551"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Idiomas e regiões compatíveis com a API de Pesquisa de Notícias do Bing
 
@@ -31,15 +31,15 @@ Para o ponto de extremidade `/news/search`, a tabela a seguir lista os valores d
 
 Para obter uma lista de códigos de país/região que podem ser especificados no parâmetro de consulta `cc`, consulte [Códigos do País](#countrycodes).  
 
-|País/região|Linguagem|Código de mercado|  
+|País/Região|Idioma|Código de mercado|  
 |---------------------|--------------|-----------------|
 |Dinamarca|Dinamarquês|da-DK|
 |Áustria|Alemão|de-AT|
 |Suíça|Alemão|de-CH|
 |Alemanha|Alemão|de-DE|
 |Austrália|Inglês|en-AU|
-|Canada|Inglês|en-CA|
-|United Kingdom|Inglês|en-GB|
+|Canadá|Inglês|en-CA|
+|Reino Unido|Inglês|en-GB|
 |Indonésia|Inglês|en-ID|
 |Irlanda|Inglês|en-IE|
 |Índia|Inglês|en-IN|
@@ -59,7 +59,7 @@ Para obter uma lista de códigos de país/região que podem ser especificados no
 |Espanhol|geral|es-XL|
 |Finlândia|Finlandês|fi-FI|  
 |França|Francês|fr-BE|
-|Canada|Francês|fr-CA|
+|Canadá|Francês|fr-CA|
 |Bélgica|Holandês|nl-BE|
 |Suíça|Francês|fr-CH|
 |França|Francês|fr-FR|  
@@ -80,19 +80,19 @@ Para o ponto de extremidade `/news`, a tabela a seguir lista os valores de códi
 
 Para obter uma lista de códigos de país/região que podem ser especificados no parâmetro de consulta `cc`, consulte [Códigos do País](#countrycodes).  
 
-|País/região|Linguagem|Código de mercado|  
+|País/Região|Idioma|Código de mercado|  
 |---------------------|--------------|-----------------|
 |Dinamarca|Dinamarquês|da-DK|
 |Alemanha|Alemão|de-DE|
 |Austrália|Inglês|en-AU|
-|United Kingdom|Inglês|en-GB|
+|Reino Unido|Inglês|en-GB|
 |Estados Unidos|Inglês|pt-BR|
 |Inglês|geral|en-WW|
 |Chile|Espanhol|es-CL|
 |México|Espanhol|es-MX|
 |Estados Unidos|Espanhol|es-US|
 |Finlândia|Finlandês|fi-FI|  
-|Canada|Francês|fr-CA|
+|Canadá|Francês|fr-CA|
 |França|Francês|fr-FR|  
 |Itália|Italiano|it-IT|
 |Brasil|Português|pt-BR|
@@ -103,16 +103,16 @@ Para o ponto de extremidade `/news/trendingtopics`, a tabela a seguir lista os v
 
 Para obter uma lista de códigos de país/região que podem ser especificados no parâmetro de consulta `cc`, consulte [Códigos do País](#countrycodes).  
 
-|País/região|Linguagem|Código de mercado|  
+|País/Região|Idioma|Código de mercado|  
 |---------------------|--------------|-----------------|
 |Alemanha|Alemão|de-DE|
 |Austrália|Inglês|en-AU|
-|United Kingdom|Inglês|en-GB|
+|Reino Unido|Inglês|en-GB|
 |Estados Unidos|Inglês|pt-BR|
-|Canada|Inglês|en-CA|
+|Canadá|Inglês|en-CA|
 |Índia|Inglês|en-IN|
 |França|Francês|fr-FR|
-|Canada|Francês|fr-CA|
+|Canadá|Francês|fr-CA|
 |Brasil|Português|pt-BR|
 |República Popular da China|Chinês|zh-CN|
 
@@ -122,7 +122,7 @@ Para obter uma lista de códigos de país/região que podem ser especificados no
 
 A seguir, são apresentados os códigos de país/região que podem ser especificados no parâmetro de consulta `cc`. A lista está sujeita a alterações.  
 
-|País/região|Código do país|  
+|País/Região|Código do país|  
 |---------------------|------------------|  
 |Argentina|AR|  
 |Austrália|AU|  
@@ -138,7 +138,7 @@ A seguir, são apresentados os códigos de país/região que podem ser especific
 |RAE de Hong Kong|HK|  
 |Índia|IN|  
 |Indonésia|ID|  
-|Itália|TI|  
+|Itália|IT|  
 |Japão|JP|  
 |Coreia do Sul|KR|  
 |Malásia|MY|  

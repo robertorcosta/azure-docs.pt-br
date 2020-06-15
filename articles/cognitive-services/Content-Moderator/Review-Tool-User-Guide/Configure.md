@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
 ms.openlocfilehash: 2d685683bdc359b31a5a6c550c19e8c0d858f12a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79220122"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84689836"
 ---
 # <a name="configure-the-review-tool"></a>Configurar a ferramenta de análise
 
@@ -25,7 +25,7 @@ A [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com) tem
 
 ## <a name="manage-team-and-subteams"></a>Gerenciar equipe e subequipes
 
-A guia **equipe** permite que você gerencie seus&mdash;grupos de equipe e subequipes de usuários que podem ser notificados quando determinadas [revisões humanas](../review-api.md#reviews) são iniciadas. Você só pode ter uma equipe (que você cria ao se inscrever com a ferramenta de revisão), mas pode criar várias subequipes. O administrador da equipe pode convidar Membros, definir suas permissões e atribuí-los a diferentes subequipes.
+A guia **equipe** permite que você gerencie seus grupos de equipe e subequipes &mdash; de usuários que podem ser notificados quando determinadas [revisões humanas](../review-api.md#reviews) são iniciadas. Você só pode ter uma equipe (que você cria ao se inscrever com a ferramenta de revisão), mas pode criar várias subequipes. O administrador da equipe pode convidar Membros, definir suas permissões e atribuí-los a diferentes subequipes.
 
 ![Examinar as configurações da equipe de ferramentas](images/settings-2-team.png)
 
@@ -64,9 +64,9 @@ Se você for membro de mais de uma subequipe, poderá alternar entre essas subeq
 
 ![Alternar entre subequipes](images/3-review-image-subteam-2.png)
 
-## <a name="tags"></a>Marcas
+## <a name="tags"></a>Marcações
 
-A **guia marcas** permite que você defina marcas de moderação personalizadas além&mdash;das duas marcas de moderação padrão**isadulto** (**a**) e **isracy** (**r**). Quando você cria uma marca personalizada, ela fica disponível em revisões junto com as marcas padrão. Você pode alterar quais marcas aparecem em revisões alternando suas configurações de visibilidade.
+A guia **marcas** permite que você defina marcas de moderação personalizadas além das duas marcas de moderação padrão &mdash; **isadulto** (**a**) e **isracy** (**r**). Quando você cria uma marca personalizada, ela fica disponível em revisões junto com as marcas padrão. Você pode alterar quais marcas aparecem em revisões alternando suas configurações de visibilidade.
 
 ![Exibição de marcas, incluindo as caixas de seleção "is Visible"](images/tags-4-disable.png)
 
@@ -95,9 +95,9 @@ O conector padrão quando você cria um fluxo de trabalho é o conector de Conte
 A [ferramenta de revisão](./human-in-the-loop.md) inclui os seguintes conectores:
 
 - Emoção
-- Face
+- Detecção Facial
 - Serviço de nuvem PhotoDNA
-- Análise de texto
+- Análise de Texto
 
 ### <a name="add-a-connector"></a>Adicionar um conexão
 
@@ -105,7 +105,7 @@ Para adicionar um conector (e torná-lo disponível para uso em [fluxos de traba
 
 ![Configurações de conectores do Content Moderator](images/settings-4-connectors.png)
 
-## <a name="workflows"></a>Fluxos de Trabalho
+## <a name="workflows"></a>Fluxos de trabalho
 
 A guia **fluxos de trabalho** permite que você gerencie seus fluxos de [trabalho](../review-api.md#workflows). Os fluxos de trabalho são filtros baseados em nuvem para conteúdo e trabalham com conectores para classificar conteúdo de maneiras diferentes e tomar as medidas apropriadas. Aqui, você pode definir, editar e testar seus fluxos de trabalho. Consulte [definir e usar fluxos de trabalho](Workflows.md) para obter orientação sobre como fazer isso.
 

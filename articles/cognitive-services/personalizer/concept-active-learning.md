@@ -4,11 +4,11 @@ description: As configurações de aprendizado determinam os *hiperparâmetros* 
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: abe6a2a2ec9b9978230d894c69193469f6e932e6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219341"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84700725"
 ---
 # <a name="learning-policy-and-settings"></a>Política de aprendizado e configurações
 
@@ -28,7 +28,7 @@ As configurações na política de aprendizado não devem ser alteradas. Altere 
 
 O personalizador usa [vowpalwabbit](https://github.com/VowpalWabbit) para treinar e pontuar os eventos. Consulte a [documentação do vowpalwabbit](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Command-line-arguments) sobre como editar as configurações de aprendizado usando o vowpalwabbit. Depois de ter os argumentos de linha de comando corretos, salve o comando em um arquivo com o seguinte formato (substitua o valor da propriedade arguments pelo comando desejado) e carregue o arquivo para importar as configurações de aprendizado no painel de **configurações de aprendizado e de modelo** no portal do Azure para o recurso personalizador.
 
-Veja a `.json` seguir um exemplo de uma política de aprendizado.
+Veja a seguir `.json` um exemplo de uma política de aprendizado.
 
 ```json
 {

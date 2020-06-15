@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
-ms.openlocfilehash: 69046772b81f0b5b597cce8e86aca9cbf27c49f8
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: a96ddfe2023fbddd6a4a25c97001875e0dddc7f3
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84457092"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753193"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Tutorial: habilitar o bot para voz usando o SDK de fala
 
@@ -104,7 +104,7 @@ Siga estas instruções para criar um recurso de fala:
 
 Neste ponto, verifique se seu grupo de recursos (**SpeechEchoBotTutorial-resourcegroup**) tem um recurso de fala:
 
-| Nome | Type  | Location |
+| Nome | Tipo  | Location |
 |------|-------|----------|
 | SpeechEchoBotTutorial-fala | Serviços Cognitivos | Oeste dos EUA |
 
@@ -125,7 +125,7 @@ A próxima etapa é criar um plano do serviço de aplicativo. Um plano de servi�
 
 Neste ponto, verifique se seu grupo de recursos (**SpeechEchoBotTutorial-resourcegroup**) tem dois recursos:
 
-| Nome | Type  | Location |
+| Nome | Tipo  | Location |
 |------|-------|----------|
 | SpeechEchoBotTutorial-AppServicePlan | Plano do Serviço de Aplicativo | Oeste dos EUA |
 | SpeechEchoBotTutorial-fala | Serviços Cognitivos | Oeste dos EUA |
@@ -208,7 +208,7 @@ A próxima etapa é implantar o Echo bot no Azure. Há algumas maneiras de impla
 1. O navegador padrão deve abrir e exibir uma página que leia: "o bot está pronto!".
 1. Neste ponto, verifique o grupo de recursos **SpeechEchoBotTutorial-resourcegroup** no portal do Azure e confirme se há três recursos:
 
-| Nome | Type  | Location |
+| Nome | Tipo  | Location |
 |------|-------|----------|
 | EchoBot20190805125647 | Serviço de Aplicativo | Oeste dos EUA |
 | SpeechEchoBotTutorial-AppServicePlan | Plano do Serviço de Aplicativo | Oeste dos EUA |
@@ -249,7 +249,7 @@ Agora que você criou um serviço de Azure App para hospedar o bot, a próxima e
 
 Neste ponto, verifique o grupo de recursos **SpeechEchoBotTutorial-resourcegroup** no portal do Azure. Agora, ele deve mostrar quatro recursos:
 
-| Nome | Type  | Location |
+| Nome | Tipo  | Location |
 |------|-------|----------|
 | EchoBot20190805125647 | Serviço de Aplicativo | Oeste dos EUA |
 | SpeechEchoBotTutorial-AppServicePlan | Plano do Serviço de Aplicativo | Oeste dos EUA |
@@ -265,7 +265,7 @@ A página de registro de canais de bot do Azure tem um **teste na opção de cha
 
 1. Localize e abra o recurso **EchoBotTutorial-BotRegistration-# # # #** no [portal do Azure](https://portal.azure.com)
 1. Na navegação de **Gerenciamento de bot** , selecione **configurações**. Copie o valor sob **ID do aplicativo da Microsoft**
-1. Abra a solução EchoBot do Visual Studio. No Gerenciador de soluções, localize e clique duas vezes em **appSettings. JSON**
+1. Abra a solução EchoBot do Visual Studio. No Gerenciador de soluções, localize e clique duas vezes em **appsettings.jsem**
 1. Substitua a cadeia de caracteres vazia ao lado de **MicrosoftAppId** no arquivo JSON com o valor de ID copiado
 1. Retorne ao portal do Azure, na navegação **de gerenciamento de bot** , selecione **configurações**e clique em **(gerenciar)** ao lado de **ID do aplicativo da Microsoft**
 1. Clique em **novo segredo do cliente**. Adicione uma descrição (por exemplo, "chat da Web") e clique em **Adicionar**. Copiar o novo segredo
@@ -323,13 +323,16 @@ Se você receber uma mensagem de erro na janela do aplicativo principal, use est
 
 | Erro | O que você deverá fazer? |
 |-------|----------------------|
-|Erro AuthenticationFailure: falha na atualização do WebSocket com um erro de autenticação (401). Verificar a chave de assinatura (ou o token de autorização) correta e o nome da região| Na página Configurações do aplicativo, verifique se você inseriu a chave de assinatura de fala e sua região corretamente.<br>Certifique-se de que sua chave de fala e região de chave foram inseridas corretamente. |
-|Erro ConnectionFailure: a conexão foi fechada pelo host remoto. Código de erro: 1011. Detalhes do erro: não foi possível conectar ao bot antes de enviar uma mensagem | Verifique se você [marcou a caixa "Habilitar ponto de extremidade de streaming"](#register-the-direct-line-speech-channel) e/ou os [ **soquetes da Web** alternados](#enable-web-sockets) para ativado.<br>Verifique se o serviço de Azure App está em execução. Se for, tente reiniciar o serviço de aplicativo.|
-|Erro ConnectionFailure: a conexão foi fechada pelo host remoto. Código de erro: 1011. Detalhes do erro: o código de status de resposta não indica êxito: 500 (InternalServerError)| O bot especificou uma voz neural em seu campo [ler](https://github.com/microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) atividade de saída, mas a região do Azure associada à sua chave de assinatura de fala não oferece suporte a vozes neurais. Consulte [vozes padrão e neural](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices).|
-|Erro ConnectionFailure: a conexão foi fechada pelo host remoto. Código de erro: 1000. Detalhes do erro: tempo ocioso máximo de conexão de soquete da Web excedido (> 300000 MS)| Esse é um erro esperado quando uma conexão com o canal é deixada aberta e inativa por mais de cinco minutos. |
+|Erro (AuthenticationFailure): falha na atualização do WebSocket com um erro de autenticação (401). Verificar a chave de assinatura (ou o token de autorização) correta e o nome da região| Na página Configurações do aplicativo, verifique se você inseriu a chave de assinatura de fala e sua região corretamente.<br>Certifique-se de que sua chave de fala e região de chave foram inseridas corretamente. |
+|Erro (ConnectionFailure): a conexão foi fechada pelo host remoto. Código de erro: 1011. Detalhes do erro: não foi possível conectar ao bot antes de enviar uma mensagem | Verifique se você [marcou a caixa "Habilitar ponto de extremidade de streaming"](#register-the-direct-line-speech-channel) e/ou os [ **soquetes da Web** alternados](#enable-web-sockets) para ativado.<br>Verifique se o serviço de Azure App está em execução. Se for, tente reiniciar o serviço de aplicativo.|
+|Erro (ConnectionFailure): a conexão foi fechada pelo host remoto. Código de erro: 1002. Detalhes do erro: o servidor retornou o código de status ' 503 ' quando o código de status ' 101 ' era esperado | Verifique se você [marcou a caixa "Habilitar ponto de extremidade de streaming"](#register-the-direct-line-speech-channel) e/ou os [ **soquetes da Web** alternados](#enable-web-sockets) para ativado.<br>Verifique se o serviço de Azure App está em execução. Se for, tente reiniciar o serviço de aplicativo.|
+|Erro (ConnectionFailure): a conexão foi fechada pelo host remoto. Código de erro: 1011. Detalhes do erro: o código de status de resposta não indica êxito: 500 (InternalServerError)| O bot especificou uma voz neural em seu campo [ler](https://github.com/microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) atividade de saída, mas a região do Azure associada à sua chave de assinatura de fala não oferece suporte a vozes neurais. Consulte [vozes padrão e neural](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices).|
 
-Se o problema não for resolvido na tabela, consulte [assistentes de voz: perguntas](faq-voice-assistants.md)frequentes.
+Se o problema não for resolvido na tabela, consulte [assistentes de voz: perguntas](faq-voice-assistants.md)frequentes. Se ainda não for possível resolver o problema depois de seguir todas as etapas neste tutorial, insira um novo problema na [página GitHub do assistente de voz](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/issues).
 
+#### <a name="a-note-on-connection-time-out"></a>Uma observação sobre o tempo limite de conexão
+
+Se você estiver conectado a um bot e nenhuma atividade acontecer nos últimos 5 minutos, o serviço fechará automaticamente a conexão WebSocket com o cliente e com o bot. Isso ocorre por design. Uma mensagem será exibida na barra inferior: *"o tempo limite da conexão ativa foi atingido, mas está pronto para se reconectar sob demanda"*. Você não precisa pressionar o botão "reconectar" – basta pressionar o botão de microfone e começar a conversar, digitar uma mensagem de texto ou dizer a palavra-chave (se houver uma habilitada). A conexão será restabelecida automaticamente.  
 ### <a name="view-bot-activities"></a>Exibir atividades de bot
 
 Cada bot envia e recebe mensagens de **atividade** . Na janela **log de atividades** do cliente do assistente do Windows Voice, você verá os logs com carimbo de data/hora com cada atividade que o cliente recebeu do bot. Você também pode ver as atividades que o cliente enviou para o bot usando o [`DialogServiceConnector.SendActivityAsync`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.sendactivityasync) método. Quando você seleciona um item de log, ele mostrará os detalhes da atividade associada como JSON.
@@ -467,7 +470,7 @@ Se você não continuar usando o Echo-bot implantado neste tutorial, poderá rem
 > [!div class="nextstepaction"]
 > [Crie seu próprio aplicativo cliente com o SDK de fala](quickstart-voice-assistant-csharp-uwp.md)
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 * Implantando em uma [região do Azure perto de você](https://azure.microsoft.com/global-infrastructure/locations/) para ver o aperfeiçoamento do tempo de resposta do bot
 * Implantando em uma [região do Azure que dá suporte a vozes de TTS de alta qualidade](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices)

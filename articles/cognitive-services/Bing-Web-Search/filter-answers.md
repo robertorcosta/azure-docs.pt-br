@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: scottwhi
 ms.openlocfilehash: 6fa022f181e2061c6a7f3e08d1f2f501ddd9cac3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79220265"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84696704"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>Filtrar as respostas que a resposta da pesquisa inclui  
 
@@ -102,7 +102,7 @@ Não é recomendável usar `responseFilter` para obter os resultados de uma úni
 
 ### <a name="site"></a>Site
 
-Para obter os resultados da pesquisa de um domínio específico, `site:` inclua o parâmetro de consulta na cadeia de caracteres de consulta.  
+Para obter os resultados da pesquisa de um domínio específico, inclua o `site:` parâmetro de consulta na cadeia de caracteres de consulta.  
 
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us
@@ -119,7 +119,7 @@ Para limitar os resultados da resposta da Web a páginas da Webque o Bing descob
 * `Week`— Retornar páginas da Web que o Bing descobriu nos últimos 7 dias
 * `Month`— Retornar páginas da Web que foram descobertas nos últimos 30 dias
 
-Você também pode definir esse parâmetro para um intervalo de datas personalizado no formulário, `YYYY-MM-DD..YYYY-MM-DD`. 
+Você também pode definir esse parâmetro para um intervalo de datas personalizado no formulário, `YYYY-MM-DD..YYYY-MM-DD` . 
 
 `https://<host>/bing/v7.0/search?q=ipad+updates&freshness=2019-02-01..2019-05-30`
 
@@ -131,7 +131,7 @@ Os resultados podem incluir páginas da Web que se enquadram fora do período es
 
 ## <a name="limiting-the-number-of-answers-in-the-response"></a>Limite o número de itens na resposta
 
-O Bing pode retornar vários tipos de resposta na resposta JSON. Por exemplo, se você consultar *velejando + Dinghies*, o Bing poderá `webpages`retornar `images`, `videos`, e `relatedSearches`.
+O Bing pode retornar vários tipos de resposta na resposta JSON. Por exemplo, se você consultar *velejando + Dinghies*, o Bing poderá retornar `webpages` , `images` , `videos` e `relatedSearches` .
 
 ```json
 {

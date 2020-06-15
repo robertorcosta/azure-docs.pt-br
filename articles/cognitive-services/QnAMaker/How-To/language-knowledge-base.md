@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: diberry
 ms.openlocfilehash: 38701e8bbef1c5d78eca2242105e81fe7261c0f6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79220628"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84693083"
 ---
 # <a name="language-support-of-knowledge-base-content-for-qna-maker"></a>Suporte a idioma do conteúdo da base de dados de conhecimento para QnA Maker
 
@@ -25,7 +25,7 @@ O idioma determina a relevância dos resultados QnA Maker fornece em resposta a 
 
 ## <a name="one-language-for-all-knowledge-bases-in-resource"></a>Um idioma para todas as bases de dados de conhecimento no recurso
 
-QnA Maker permite que você selecione o idioma do serviço QnA ao criar a primeira base de dados de conhecimento. Para todas as bases de dados de conhecimento em um recurso QnA Maker, todas elas devem estar no mesmo idioma. Este idioma não pode ser alterado.
+O QnA Maker permite que você selecione o idioma do serviço QnA ao criar a primeira base de dados de conhecimento. Todas as bases de dados de conhecimento em um recurso QnA Maker devem estar no mesmo idioma. Esse idioma não pode ser alterado.
 
 A criação de bases de dados de conhecimento em diferentes idiomas em um recurso afeta negativamente a relevância dos resultados QnA Maker fornece em resposta a consultas de usuário.
 

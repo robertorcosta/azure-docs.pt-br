@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: aahi
 ms.openlocfilehash: 72b00d78d19ed0e963b4dad01b82033c659e1efd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219605"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84704702"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Criar um recurso de serviços cognitivas usando a CLI (interface de linha de comando) do Azure
 
@@ -60,7 +60,7 @@ az account list-locations \
 
 Depois de ter o local do Azure, crie um novo grupo de recursos no CLI do Azure usando o comando [AZ Group Create](/cli/azure/group#az-group-create) .
 
-No exemplo a seguir, substitua o local `westus2` do Azure por um dos locais do Azure disponíveis para sua assinatura.
+No exemplo a seguir, substitua o local do Azure `westus2` por um dos locais do Azure disponíveis para sua assinatura.
 
 ```azurecli-interactive
 az group create \
@@ -88,7 +88,7 @@ Ao criar um novo recurso, você precisará saber o "tipo" de serviço que deseja
 
 | Serviço                    | Tipo                      |
 |----------------------------|---------------------------|
-| Visual Computacional            | `ComputerVision`          |
+| Pesquisa Visual Computacional            | `ComputerVision`          |
 | Visão Personalizada-previsão | `CustomVision.Prediction` |
 | Visão Personalizada-treinamento   | `CustomVision.Training`   |
 | Face                       | `Face`                    |
@@ -112,7 +112,7 @@ Ao criar um novo recurso, você precisará saber o "tipo" de serviço que deseja
 | Serviços de Fala    | `SpeechServices`     |
 | Reconhecimento de fala | `SpeakerRecognition` |
 
-### <a name="language"></a>Linguagem
+### <a name="language"></a>Idioma
 
 | Serviço            | Tipo                |
 |--------------------|---------------------|
@@ -140,7 +140,7 @@ az cognitiveservices account list-kinds
 
 Para criar e assinar um novo recurso de serviços cognitivas, use o comando [AZ cognitivaservices Account Create](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create) . Esse comando adiciona um novo recurso cobrável ao grupo de recursos criado anteriormente. Ao criar o novo recurso, você precisará saber o "tipo" de serviço que deseja usar, juntamente com seu tipo de preço (ou SKU) e um local do Azure:
 
-Você pode criar um recurso F0 (gratuito) para o detector de anomalias `anomaly-detector-resource` , chamado com o comando a seguir.
+Você pode criar um recurso F0 (gratuito) para o detector de anomalias, chamado `anomaly-detector-resource` com o comando a seguir.
 
 ```azurecli-interactive
 az cognitiveservices account create \
@@ -198,7 +198,7 @@ Para remover o grupo de recursos e seus recursos associados, use o comando AZ Gr
 az group delete --name cognitive-services-resource-group
 ```
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 * [Autenticar solicitações para os Serviços Cognitivos do Azure](authentication.md)
 * [O que são os serviços cognitivas do Azure?](Welcome.md)
