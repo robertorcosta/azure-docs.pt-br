@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 58f5d2e641cfe4913d6a06621b663d8a61cd00bb
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: f9ed611ae530e49ad8e776c47450bc9b7ece3190
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800283"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266756"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Desenvolver aplicativos seguros no Azure
 Neste artigo, apresentamos as atividades de segurança e os controles a serem considerados ao desenvolver aplicativos para a nuvem. Abordamos as perguntas e os conceitos de segurança a serem considerados durante as fases de implementação e verificação do ciclo de vida de desenvolvimento do [Microsoft SDL (Security Development Lifecycle)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx). O objetivo é ajudá-lo a definir atividades e serviços do Azure que você possa usar para desenvolver um aplicativo mais seguro.
@@ -128,7 +128,7 @@ O DAST (teste de segurança do aplicativo dinâmico) é um processo de teste de 
 
 O DAST é diferente do SAST (teste de segurança do aplicativo estático). As ferramentas de SAST analisam o código-fonte ou as versões compiladas do código quando ele não está em execução para encontrar falhas de segurança.
 
-Faça o DAST preferencialmente com a assistência de um profissional de segurança (um [testador de penetração](../fundamentals/pen-testing.md) ou avaliador de vulnerabilidade). Se um profissional de segurança não estiver disponível, você poderá fazer o DAST por conta própria com um scanner de proxy da Web e algum treinamento. Conecte um scanner DAST logo no início para não introduzir problemas de segurança óbvios em seu código. Consulte o site [OWASP](https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools) para obter uma lista de scanners de vulnerabilidade de aplicativos Web.
+Faça o DAST preferencialmente com a assistência de um profissional de segurança (um [testador de penetração](../fundamentals/pen-testing.md) ou avaliador de vulnerabilidade). Se um profissional de segurança não estiver disponível, você poderá fazer o DAST por conta própria com um scanner de proxy da Web e algum treinamento. Conecte um scanner DAST logo no início para não introduzir problemas de segurança óbvios em seu código. Consulte o site [OWASP](https://owasp.org/www-community/Vulnerability_Scanning_Tools) para obter uma lista de scanners de vulnerabilidade de aplicativos Web.
 
 ### <a name="perform-fuzz-testing"></a>Fazer teste de fuzzing
 

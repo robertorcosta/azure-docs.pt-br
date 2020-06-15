@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: 5d6d4a41deb1ef96789a48eefba306be4dfb20eb
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 3cf16c2cd119eb3eec64104b2573ff7de2cc76c4
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745127"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020074"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extrair, transformar e carregar (ETL) em escala
 
@@ -106,9 +106,9 @@ A adaptabilidade do HBase é determinada pelo número de nós no cluster HDInsig
 
 O Azure oferece três bancos de dados relacionais de PaaS:
 
-- [Banco de Dados SQL do Azure](../../sql-database/sql-database-technical-overview.md) é uma implementação do Microsoft SQL Server. Para obter mais informações sobre o desempenho, consulte [Ajustar o desempenho no Banco de Dados SQL do Azure](../../sql-database/sql-database-performance-guidance.md).
-- O [Banco de Dados do Azure para MySQL](../../mysql/overview.md) é uma implementação do Oracle MySQL.
-- [Banco de Dados do Azure para PostgreSQL](../../postgresql/quickstart-create-server-database-portal.md) é uma implementação do Oracle PostgreSQL.
+* [Banco de Dados SQL do Azure](../../azure-sql/database/sql-database-paas-overview.md) é uma implementação do Microsoft SQL Server. Para obter mais informações sobre o desempenho, consulte [Ajustando o desempenho no Banco de Dados SQL do Azure](../../azure-sql/database/performance-guidance.md).
+* [Banco de Dados do Azure para MySQL](../../mysql/overview.md) é uma implementação do Oracle MySQL.
+* [Banco de Dados do Azure para PostgreSQL](../../postgresql/quickstart-create-server-database-portal.md) é uma implementação do Oracle PostgreSQL.
 
 Adicione mais CPU e memória para escalar verticalmente esses produtos.  Você também pode optar por usar discos premium com os produtos para melhorar o desempenho de I/O.
 
