@@ -1,32 +1,32 @@
 ---
-title: Alta disponibilidade do AKS (serviço kubernetes do Azure) com SLA de tempo de atividade
-description: Saiba mais sobre a oferta de SLA de tempo de atividade de alta disponibilidade opcional para o servidor de API do AKS (serviço de kubernetes do Azure).
+title: Serviço de Kubernetes do Azure (AKS) com SLA de tempo de atividade
+description: Saiba mais sobre a oferta opcional de SLA de tempo de atividade para o servidor de API do Serviço de Kubernetes do Azure (AKS).
 services: container-service
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.openlocfilehash: 1c340f85a107cac437e1241025d8c9bc6991b965
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.date: 05/19/2020
+ms.openlocfilehash: e0e1399f69640dddfd618ac99637023390f28a92
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125716"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683212"
 ---
-# <a name="azure-kubernetes-service-aks-uptime-sla"></a>SLA de tempo de atividade do AKS (serviço kubernetes do Azure)
+# <a name="azure-kubernetes-service-aks-uptime-sla"></a>SLA de tempo de atividade do Serviço de Kubernetes do Azure (AKS)
 
-O SLA de tempo de atividade é um recurso opcional para habilitar o SLA mais alto com suporte financeiro para um cluster. O SLA de tempo de atividade garante 99,95% de disponibilidade do ponto de extremidade do servidor de API kubernetes para clusters que usam a [zona de disponibilidade][availability-zones] e 99,9% da disponibilidade para clusters que não usam zonas de disponibilidade. O AKS usa réplicas de nó mestre em domínios de atualização e de falha para garantir que os requisitos de SLA sejam atendidos.
+O SLA de tempo de atividade é um recurso opcional para habilitar um SLA com suporte financeiro e superior para um cluster. O SLA de tempo de atividade garante 99,95% de disponibilidade do ponto de extremidade do servidor de API do Kubernetes para clusters que usam [Zona de Disponibilidade][availability-zones] e 99,9% da disponibilidade para clusters que não usam Zonas de Disponibilidade. O AKS usa réplicas de nó mestre em domínios de atualização e de falha para garantir que os requisitos de SLA sejam atendidos.
 
-Os clientes que precisam de SLA por motivos de conformidade ou estendendo SLA para seus clientes devem ativar esse recurso. Clientes com cargas de trabalho críticas que precisam de maior disponibilidade com uma opção de SLA beneficiam-se de habilitar esse recurso. Habilite o recurso com Zonas de Disponibilidade para obter maior disponibilidade do servidor de API do kubernetes.  
+Os clientes que precisam de um SLA para atender aos requisitos de conformidade ou solicitam a extensão de um SLA para seus usuários finais devem ativar esse recurso. Os clientes com cargas de trabalho críticas que aproveitarão bem um SLA de tempo de atividade mais alto também podem se beneficiar. Usar o recurso de SLA de tempo de atividade com Zonas de Disponibilidade permite uma disponibilidade maior para o tempo de atividade do servidor de API do Kubernetes.  
 
-Os clientes podem criar clusters livres ilimitados com um objetivo de nível de serviço (SLO) de 99,5%.
+Os clientes ainda podem criar clusters grátis ilimitados com um objetivo de nível de serviço (SLO) de 99,5% e optar pelo tempo de atividade do SLO ou do SLA que preferirem, conforme necessário.
 
 > [!Important]
-> Para clusters com bloqueio de saída, consulte [limitar o tráfego de saída](limit-egress-traffic.md) para abrir as portas apropriadas para o SLA de tempo de atividade.
+> Para clusters com bloqueio de tráfego de saída, consulte [limitar tráfego de saída](limit-egress-traffic.md) para abrir as portas apropriadas.
 
 ## <a name="sla-terms-and-conditions"></a>Termos e condições do SLA
 
-O SLA de tempo de atividade é um recurso pago e habilitado por cluster. O preço do SLA de tempo de atividade é determinado pelo número de clusters e não pelo tamanho dos clusters. Você pode exibir [detalhes de preços do SLA de tempo de atividade](https://azure.microsoft.com/pricing/details/kubernetes-service/) para obter mais informações.
+O SLA de tempo de atividade é um recurso pago e habilitado por cluster. O preço do SLA de tempo de atividade é determinado pelo número de clusters discretos e não pelo tamanho de clusters individuais. Você pode ver [Detalhes de preços do SLA de tempo de atividade](https://azure.microsoft.com/pricing/details/kubernetes-service/) para mais informações.
 
-## <a name="region-availability"></a>Disponibilidade da região
+## <a name="region-availability"></a>Disponibilidade de região
 
 O SLA de tempo de atividade está disponível nas seguintes regiões:
 
@@ -40,11 +40,11 @@ O SLA de tempo de atividade está disponível nas seguintes regiões:
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-* O CLI do Azure versão 2.7.0 ou posterior
+* A CLI do Azure versão 2.7.0 ou posterior
 
-## <a name="creating-a-cluster-with-uptime-sla"></a>Criando um cluster com SLA de tempo de atividade
+## <a name="creating-a-cluster-with-uptime-sla"></a>Criar um cluster com SLA de tempo de atividade
 
-Para criar um novo cluster com o SLA de tempo de atividade, use o CLI do Azure.
+Para criar um novo cluster com o SLA de tempo de atividade, use a CLI do Azure.
 
 O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no local *eastus*.
 
@@ -56,7 +56,7 @@ Use o comando [az aks create][az-aks-create] para criar um cluster do AKS. O exe
 ```azurecli-interactive
 az aks create --resource-group myResourceGroup --name myAKSCluster --uptime-sla --node-count 1 --enable-addons monitoring --generate-ssh-keys
 ```
-Após alguns minutos, o comando será concluído e retornará informações no formato JSON sobre o cluster. O trecho JSON a seguir mostra a camada paga para a SKU, indicando que o cluster está habilitado com SLA de tempo de atividade.
+Após alguns minutos, o comando será concluído e retornará informações no formato JSON sobre o cluster. O snippet JSON a seguir mostra a camada paga do SKU, indicando que seu cluster está habilitado com SLA de tempo de atividade.
 
 ```output
   },
@@ -64,19 +64,18 @@ Após alguns minutos, o comando será concluído e retornará informações no f
     "name": "Basic",
     "tier": "Paid"
   },
-  "tags": null,
-  "type": "Microsoft.ContainerService/ManagedClusters",
-  "windowsProfile": null
 ```
 
 ## <a name="limitations"></a>Limitações
 
-* Atualmente, não é possível adicionar SLA de tempo de atividade a clusters existentes.
-* Atualmente, não há nenhuma maneira de remover o SLA de tempo de atividade de um cluster AKS.  
+* Atualmente, não é possível converter como cluster existente para habilitar o SLA de tempo de atividade.
+* Atualmente, não é possível remover o SLA de tempo de atividade de um cluster AKS depois que ele foi criado com esse SLA ativado.  
+* Atualmente, não há suporte para clusters particulares.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Use [zonas de disponibilidade][availability-zones] para aumentar a alta disponibilidade com suas cargas de trabalho de cluster do AKS.
+Use as [Zonas de Disponibilidade][availability-zones] para aumentar a HA com suas cargas de trabalho de cluster do AKS.
+Configure o cluster para [limitar o tráfego de saída](limit-egress-traffic.md).
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

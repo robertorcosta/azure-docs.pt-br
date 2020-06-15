@@ -1,53 +1,53 @@
 ---
-title: Contrato padrão do Microsoft Commercial Marketplace
-description: Contrato padrão para o Azure Marketplace e o AppSource no Partner Center
+title: Contrato Standard para o Marketplace comercial da Microsoft
+description: Contrato Standard para o Azure Marketplace e o AppSource na Central de Parceiros
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 05/20/2020
 ms.author: dsindona
-ms.openlocfilehash: 3886b29a47edcfb36114cedf8b8edb3799e0c345
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: MT
+ms.openlocfilehash: 53a22140fe62ce0db18c1d02d816eb31b12a381b
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871441"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714144"
 ---
-# <a name="standard-contract-for-microsoft-commercial-marketplace"></a>Contrato padrão do Microsoft Commercial Marketplace
+# <a name="standard-contract-for-microsoft-commercial-marketplace"></a>Contrato Standard para o Marketplace comercial da Microsoft
 
-A Microsoft oferece um contrato padrão para o Microsoft Commercial Marketplace. Isso ajuda a simplificar o processo de aquisição para clientes, reduzir a complexidade legal para fornecedores de software e facilitar as transações no Marketplace. Em vez de criar termos e condições personalizados, como um editor de mercado comercial, você pode optar por oferecer seu software sob o [contrato padrão](https://go.microsoft.com/fwlink/?linkid=2041178), que os clientes precisam apenas examinaremos e aceitar uma vez.
+A Microsoft oferece um Contrato Standard para o Marketplace comercial da Microsoft. Isso simplifica o processo de aquisição dos clientes, reduz a complexidade jurídica para fornecedores de software e facilita as transações no Marketplace. Em vez de criar termos e condições personalizados, você, como editor do Marketplace comercial, pode optar por oferecer seu software sob o [Contrato Standard,](https://go.microsoft.com/fwlink/?linkid=2041178) que os clientes precisam analisar e aceitar apenas uma vez.
 
-Os termos e condições de uma oferta são definidos ao criar a oferta no Partner Center. Você pode optar por usar o contrato padrão para o Marketplace comercial da Microsoft em vez de fornecer seus próprios termos e condições personalizados.
-
->[!Note]
->Depois de publicar uma oferta usando o contrato padrão do Microsoft Commercial Marketplace, você não poderá usar seus próprios termos e condições personalizados. É um cenário de "ou". Você pode oferecer sua solução sob o contrato Standard *ou* seus próprios termos e condições. Se você quiser modificar os termos do contrato padrão, poderá fazer isso por meio de emendas de contrato padrão.
-
-## <a name="standard-contract-amendments"></a>Emendas de contrato padrão
-
-As emendas de contrato padrão permitem que os editores selecionem o contrato padrão para simplificar e com termos personalizados para seus produtos ou negócios. Os clientes precisam apenas examinar as emendas ao contrato, caso já tenham revisado e aceito o contrato padrão da Microsoft.
-
-Há dois tipos de emendas disponíveis para editores de mercado comercial:
-
-* Emendas universais: essas emendas são aplicadas universalmente ao contrato padrão para todos os clientes. As emendas universais são mostradas a todos os clientes da oferta no fluxo de compra. Os clientes devem aceitar os termos do contrato padrão e o aditamento antes de poderem usar sua oferta.
-
-* Emendas personalizadas: essas emendas são emendas especiais ao contrato padrão que são direcionados a clientes específicos somente por meio de IDs de locatário do Azure. Os editores podem escolher o locatário que desejam direcionar. Somente os clientes do locatário serão apresentados com os termos personalizados de emenda no fluxo de compra da oferta.  Os clientes devem aceitar os termos do contrato padrão e as emendas antes de poderem usar sua oferta.
+Os termos e condições de uma oferta são definidos ao criar a oferta na Central de Parceiros. Você pode optar por usar o Contrato Standard do Marketplace comercial da Microsoft em vez de fornecer seus próprios termos e condições personalizados.
 
 >[!Note]
->Esses dois tipos de emendas se empilham um sobre o outro. Os clientes destinados a emendas personalizadas também terão a emenda universal ao contrato padrão durante a compra.
+>Depois de publicar uma oferta usando o Contrato Standard para o Marketplace comercial da Microsoft, você não poderá usar seus termos e condições personalizados. Esse é um cenário com duas possibilidades mutuamente exclusivas. Você pode oferecer uma solução sob o Contrato Standard *ou* os seus termos e condições. Se você quiser modificar os termos do Contrato Standard, poderá fazer isso por meio de aditamento ao Contrato Standard.
 
-Você pode aproveitar o contrato padrão do Microsoft Commercial Marketplace para os seguintes tipos de oferta: aplicativos do Azure (modelos de solução e aplicativos gerenciados), máquinas virtuais, contêineres, aplicativos de contêiner, módulos de IoT Edge e SaaS.
+## <a name="standard-contract-amendments"></a>Aditamentos do Contrato Standard
 
-## <a name="customer-experience"></a>Experiência do cliente
+Os aditamentos do Contrato Standard permitem que os editores selecionem o Contrato Standard para simplificar e termos personalizados para seus produtos ou negócios. Os clientes precisarão examinar os aditamentos do contrato somente se já tiverem examinado e aceitado o Contrato Standard da Microsoft.
 
-Durante a experiência de descoberta no Azure Marketplace ou no AppSource, os clientes poderão ver os termos associados à oferta como contrato padrão para o Marketplace comercial da Microsoft e quaisquer emendas universais.
+Há dois tipos de aditamentos disponíveis para editores do marketplace comercial:
 
-![A experiência de descoberta do cliente portal do Azure.](media/marketplace-publishers-guide/azure-discovery-process.png)
+* Aditamentos universais: Esses aditamentos são aplicados universalmente ao Contrato Standard para todos os clientes. Os aditamentos universais são mostrados para todos os clientes da oferta no fluxo de compra. Os clientes precisam aceitar os termos do Contrato Standard e o aditamento para usar sua oferta.
 
-Durante o processo de compra no portal do Azure, os clientes poderão ver os termos associados à oferta como o contrato padrão para o Marketplace comercial da Microsoft e quaisquer emendas universais e/ou específicas de locatário.
+* Aditamentos personalizados: São aditamentos especiais ao Contrato Standard destinados apenas a clientes específicos por meio de IDs de locatário do Azure. Os editores podem escolher o locatário que desejam usar como destino. Somente os clientes do locatário serão apresentados com os termos de aditamento personalizados no fluxo de compra da oferta.  Os clientes precisam aceitar os termos do Contrato Standard e os aditamentos para usar sua oferta.
 
-![A experiência de compra portal do Azure cliente.](media/marketplace-publishers-guide/azure-purchase-process.png)
+>[!Note]
+>Esses dois tipos de aditamentos se sobrepõem. Os clientes aos quais os aditamentos personalizados são direcionados também terão o aditamento universal para o Contrato Standard durante a compra.
+
+Você pode aproveitar o Contrato Standard do Marketplace comercial da Microsoft para os seguintes tipos de oferta:  Aplicativos do Azure (modelos de solução e aplicativos gerenciados), máquinas virtuais e SaaS.
+
+## <a name="customer-experience"></a>Experiência do usuário
+
+Durante a experiência de descoberta no Azure Marketplace ou no AppSource, os clientes poderão ver os termos associados à oferta, como Contrato Standard do Marketplace comercial da Microsoft e todos os aditamentos universais.
+
+![A experiência de descoberta do cliente do portal do Azure.](media/marketplace-publishers-guide/azure-discovery-process.png)
+
+Durante o processo de compra no portal do Azure, os clientes poderão ver os termos associados à oferta como o Contrato Standard do Marketplace comercial da Microsoft e todos os aditamentos universais e/ou específicos do locatário.
+
+![A experiência de compra do cliente no portal do Azure.](media/marketplace-publishers-guide/azure-purchase-process.png)
 
 ## <a name="api"></a>API
 
-Os clientes podem usar Get-Azurermmarketplacetermsget para recuperar os termos de uma oferta e aceitá-lo. O contrato padrão e as emendas associadas serão retornados na saída do cmdlet.
+Os clientes podem usar Get-AzureRmMarketplaceTerms para recuperar os termos de uma oferta e aceitá-los. O Contrato Standard e os aditamentos associados serão retornados na saída do cmdlet.
