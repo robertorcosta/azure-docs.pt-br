@@ -1,17 +1,17 @@
 ---
-title: Análise de usuário, sessão e evento no Aplicativo Azure insights
+title: Análise de usuários, sessões e eventos no Application Insights do Azure
 description: Análise demográfica dos usuários de seu aplicativo Web.
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 56059304026b060e2215ce73e0e94e3200573a14
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 10ea3c68695e7e4fb4950fbcc4a190e9f1d83f49
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77670977"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797696"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Análise de usuários, sessões e eventos no Application Insights
 
@@ -27,9 +27,9 @@ Caso ainda não veja dados nas folhas de usuários, sessões ou eventos no porta
 
 Três das folhas de uso usam a mesma ferramenta para dividir a telemetria do seu aplicativo Web em três perspectivas diferentes. Filtrando e dividindo os dados, você pode descobrir informações sobre o uso relativo de diferentes páginas e recursos.
 
-* **Ferramenta de Usuários**: quantas pessoas usaram seu aplicativo e seus recursos.  Os usuários são contados usando IDs anônimas armazenadas em cookies do navegador. Uma única pessoa que usar diferentes navegadores ou computadores será contada como mais de um usuário.
-* **Ferramenta de Sessões**: quantas sessões de atividade do usuário incluíram determinadas páginas e recursos de seu aplicativo. Uma sessão é contada após meia hora de inatividade do usuário ou após 24 horas contínuas de uso.
-* **Ferramenta de Eventos**: com que frequência determinadas páginas e recursos de seu aplicativo são usados. Uma exibição de página é contada quando um navegador carrega uma página do seu aplicativo, desde que você a tenha [instrumentado](../../azure-monitor/app/javascript.md). 
+* **Ferramenta de usuários**: Quantas pessoas usaram seu aplicativo e seus recursos.  Os usuários são contados usando IDs anônimas armazenadas em cookies do navegador. Uma única pessoa que usar diferentes navegadores ou computadores será contada como mais de um usuário.
+* **Ferramenta de sessões**: Quantas sessões de atividade do usuário incluíram determinadas páginas e recursos de seu aplicativo. Uma sessão é contada após meia hora de inatividade do usuário ou após 24 horas contínuas de uso.
+* **Ferramenta de eventos**: Com que frequência determinadas páginas e recursos de seu aplicativo são usados. Uma exibição de página é contada quando um navegador carrega uma página do seu aplicativo, desde que você a tenha [instrumentado](../../azure-monitor/app/javascript.md). 
 
     Um evento personalizado representa uma ocorrência de algo que esteja acontecendo em seu aplicativo, geralmente uma interação do usuário, como um clique de botão ou a conclusão de uma tarefa. Insira o código em seu aplicativo para [gerar eventos personalizados](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
 
@@ -38,11 +38,11 @@ Três das folhas de uso usam a mesma ferramenta para dividir a telemetria do seu
 Explore diferentes grupos de usuários, ajustando as opções de consulta na parte superior da ferramenta de Usuários:
 
 * Mostrar: Escolha um coorte de usuários para analisar.
-* Quem usou: escolha exibições de página e eventos personalizados.
-* Durante: escolha um intervalo de tempo.
-* Por: escolha como compartimentar os dados, seja segundo um período ou segundo outra propriedade, como navegador ou cidade.
-* Dividido por: escolha uma propriedade segundo a qual o segmento ou os dados deverão ser divididos. 
-* Adicionar filtros: limite a consulta a determinados usuários, sessões ou eventos com base em suas propriedades, como navegador ou cidade. 
+* Quem usou: Escolha os eventos personalizados e todas as exibições de página.
+* Durante: Escolha um intervalo de tempo.
+* Por: Escolha como compartimentar os dados, seja segundo um período ou segundo outra propriedade, como navegador ou cidade.
+* Dividir por: Escolha uma propriedade segundo a qual o segmento ou os dados deverão ser divididos. 
+* Adicionar filtros: Limite a consulta a determinados usuários, sessões ou eventos com base em suas propriedades, como navegador ou cidade. 
  
 ## <a name="saving-and-sharing-reports"></a>Salvar e compartilhar relatórios 
 Você pode salvar relatórios de Usuários, de forma privada na seção Meus Relatórios ou de forma compartilhada com quem tiver acesso a esse recurso do Application Insights na seção Relatórios Compartilhados.
@@ -62,5 +62,5 @@ A seção **Conheça seus usuários** mostra informações sobre cinco usuários
     - [Funis](usage-funnels.md)
     - [Retenção](usage-retention.md)
     - [Fluxos de Usuário](usage-flows.md)
-    - [Pastas de trabalho](../../azure-monitor/app/usage-workbooks.md)
+    - [Pastas de trabalho](../../azure-monitor/platform/workbooks-overview.md)
     - [Adicionar contexto de usuário](usage-send-user-context.md)

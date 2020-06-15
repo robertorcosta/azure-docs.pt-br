@@ -1,5 +1,5 @@
 ---
-title: Guia de solução de problemas-DNS do Azure
+title: Guia de solução de problemas – DNS do Azure
 description: Neste roteiro de aprendizagem, comece a solucionar problemas comuns com o DNS do Azure
 services: dns
 author: rohinkoul
@@ -7,18 +7,18 @@ ms.service: dns
 ms.topic: article
 ms.date: 09/20/2019
 ms.author: rohink
-ms.openlocfilehash: b5e1624bf852256f6e8fb0b616258f932c5a8998
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 27d192a50a13437b755e7cc0db8a7dbcc4fee2f5
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76939040"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83833391"
 ---
 # <a name="azure-dns-troubleshooting-guide"></a>Guia de solução de problemas do DNS do Azure
 
-Este artigo fornece informações de solução de problemas para perguntas comuns sobre o DNS do Azure.
+Este artigo apresenta informações sobre a solução de problemas de DNS do Azure.
 
-Se essas etapas não resolverem o problema, você pode também procurar ou poste seu problema no nosso [Fórum de suporte da comunidade no MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork). Ou, você pode abrir uma solicitação de suporte do Azure.
+Se essas etapas não resolverem o problema, também é possível procurar ou postar o problema na nossa [página de perguntas e respostas da Microsoft para suporte da comunidade](https://docs.microsoft.com/answers/topics/azure-virtual-network.html). Como alternativa, abra uma solicitação de Suporte do Azure.
 
 
 ## <a name="i-cant-create-a-dns-zone"></a>Não consigo criar uma zona DNS
@@ -28,7 +28,7 @@ Para resolver problemas comuns, tente uma ou mais das etapas a seguir:
 1.  Examine os logs de auditoria do DNS do Azure para determinar o motivo da falha.
 2.  Cada nome de zona DNS deve ser exclusivo dentro de seu grupo de recursos. Ou seja, duas zonas DNS com o mesmo nome não podem compartilhar um grupo de recursos. Tente usar um nome de zona diferente ou outro grupo de recursos.
 3.  Será exibido um erro "Você atingiu ou excedeu o número máximo de zonas na assinatura {ID da assinatura}." Use uma assinatura do Azure diferente, exclua algumas zonas ou entre em contato com o Suporte do Azure para aumentar o limite de sua assinatura.
-4.  Você verá um erro "A zona '{nome da zona}' não está disponível." Esse erro significa que o DNS do Azure não pôde alocar servidores de nome para esta zona DNS. Tente usar um nome de zona diferente. Ou, se você for o proprietário do nome de domínio, poderá contatar o suporte do Azure para alocar servidores de nomes para você.
+4.  Você verá um erro "A zona '{nome da zona}' não está disponível." Esse erro significa que o DNS do Azure não pôde alocar servidores de nome para esta zona DNS. Tente usar um nome de zona diferente. Como alternativa, se você for o proprietário do nome de domínio, pode entrar em contato com o Suporte do Azure, que poderá alocar servidores de nomes para você.
 
 
 ### <a name="recommended-articles"></a>Artigos recomendados
@@ -42,9 +42,9 @@ Para resolver problemas comuns, tente uma ou mais das etapas a seguir:
 
 1.  Examine os logs de auditoria do DNS do Azure para determinar o motivo da falha.
 2.  O conjunto de registros já existe?  O DNS do Azure gerencia registros usando *conjuntos* de registros, que são a coleção de registros com o mesmo nome e o mesmo tipo. Se já existe um registro com o mesmo nome e o mesmo tipo, para adicionar outro registro desse você deve editar o conjunto de registros existente.
-3.  Você está tentando criar um registro no ápice da zona DNS (na 'raiz' da zona)? Se sim, a convenção DNS é usar o caractere “@” como o nome do registro. Observe também que os padrões de DNS não permitem registros CNAME no Apex da zona.
+3.  Você está tentando criar um registro no ápice da zona DNS (na 'raiz' da zona)? Se sim, a convenção DNS é usar o caractere “@” como o nome do registro. Observe também que os padrões de DNS não permitem registros CNAME no ápice da zona.
 4.  Existe um conflito de CNAME?  Os padrões de DNS não permitem um registro CNAME com o mesmo nome de um registro de qualquer outro tipo. Se já houver um CNAME existente, a criação de um registro com o mesmo nome de um tipo diferente falhará.  Da mesma forma, a criação de um CNAME falhará se o nome corresponder a um registro existente de um tipo diferente. Remova o conflito removendo o outro registro ou escolha um nome de registro diferente.
-5.  Você atingiu o limite do número de conjuntos de registros permitidos em uma zona DNS? O número atual de conjuntos de registros e o número máximo de conjuntos de registros são mostrados no Portal do Azure, nas 'Propriedades' da zona. Se você atingiu esse limite, exclua alguns conjuntos de registros ou entre em contato com o suporte do Azure para aumentar o limite do conjunto de registros dessa zona e tente novamente. 
+5.  Você atingiu o limite do número de conjuntos de registros permitidos em uma zona DNS? O número atual de conjuntos de registros e o número máximo de conjuntos de registros são mostrados no Portal do Azure, nas 'Propriedades' da zona. Se você atingiu esse limite, exclua alguns conjuntos de registros ou entre em contato com o Suporte do Azure para aumentar seu limite de conjuntos de registros para essa zona. Em seguida, tente novamente. 
 
 
 ### <a name="recommended-articles"></a>Artigos recomendados

@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: spelluru
-ms.openlocfilehash: 201d3203d845ce84207d103750709fe2ff93f022
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: c9e1c9aa664065371595ed34a3af28330bd7e0db
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83596315"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798874"
 ---
 # <a name="service-bus-queues-and-topics-as-event-handlers-for-azure-event-grid-events"></a>Tópicos e filas do Barramento de Serviço como manipuladores de eventos para eventos da Grade de Eventos do Azure
 Um manipulador de eventos é o local para o qual o evento é enviado. O manipulador usa alguma ação adicional para processar o evento. Vários serviços do Azure são automaticamente configurados para lidar com os eventos, e o **Barramento de Serviço do Azure** é um deles. 
@@ -69,6 +69,97 @@ Se você usar um **tópico ou uma fila do Barramento de Serviço** como um manip
 Ao enviar um evento para uma fila ou um tópico do Barramento de Serviço como uma mensagem agenciada, o `messageid` da mensagem agenciada é a **ID do evento**.
 
 A ID do evento será mantida na nova entrega do evento para que você possa evitar entregas duplicadas ativando a **detecção de duplicidades** na entidade do barramento de serviço. Recomendamos que você habilite a duração da detecção de duplicidades na entidade do Barramento de Serviço como TTL (tempo de vida) do evento ou duração máxima de repetição, o que for maior.
+
+## <a name="rest-examples-for-put"></a>Exemplos de REST (para PUT)
+
+### <a name="service-bus-queue"></a>Fila do Barramento de Serviço
+
+```json
+{
+    "properties": 
+    {
+        "destination": 
+        {
+            "endpointType": "ServiceBusQueue",
+            "properties": 
+            {
+                "resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.ServiceBus/namespaces/<SERVICE BUS NAMESPACE NAME>/queues/<SERVICE BUS QUEUE NAME>"
+            }
+        },
+        "eventDeliverySchema": "EventGridSchema"
+    }
+}
+```
+
+### <a name="service-bus-queue---delivery-with-managed-identity"></a>Fila do Barramento de Serviço – entrega com identidade gerenciada
+
+```json
+{
+    "properties": {
+        "deliveryWithResourceIdentity": 
+        {
+            "identity": 
+            {
+                "type": "SystemAssigned"
+            },
+            "destination": 
+            {
+                "endpointType": "ServiceBusQueue",
+                "properties": 
+                {
+                    "resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.ServiceBus/namespaces/<SERVICE BUS NAMESPACE NAME>/queues/<SERVICE BUS QUEUE NAME>"
+                }
+            }
+        },
+        "eventDeliverySchema": "EventGridSchema"
+    }
+}
+```
+
+### <a name="service-bus-topic"></a>Tópico do Barramento de Serviço
+
+```json
+{
+    "properties": 
+    {
+        "destination": 
+        {
+            "endpointType": "ServiceBusTopic",
+            "properties": 
+            {
+                "resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.ServiceBus/namespaces/<SERVICE BUS NAMESPACE NAME>/topics/<SERVICE BUS TOPIC NAME>"
+            }
+        },
+        "eventDeliverySchema": "EventGridSchema"
+    }
+}
+```
+
+### <a name="service-bus-topic---delivery-with-managed-identity"></a>Tópico do Barramento de Serviço – entrega com identidade gerenciada
+
+```json
+{
+    "properties": 
+    {
+        "deliveryWithResourceIdentity": 
+        {
+            "identity": 
+            {
+                "type": "SystemAssigned"
+            },
+            "destination": 
+            {
+                "endpointType": "ServiceBusTopic",
+                "properties": 
+                {
+                    "resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.ServiceBus/namespaces/<SERVICE BUS NAMESPACE NAME>/topics/<SERVICE BUS TOPIC NAME>"
+                }
+            }
+        },
+        "eventDeliverySchema": "EventGridSchema"
+    }
+}
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 Consulte o artigo [Manipuladores de eventos](event-handlers.md) para obter uma lista dos manipuladores de eventos compatíveis. 

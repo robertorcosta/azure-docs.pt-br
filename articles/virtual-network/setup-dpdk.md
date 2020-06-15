@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/27/2018
+ms.date: 05/12/2020
 ms.author: labattul
-ms.openlocfilehash: c79c1fd687e329b97a854a3ff66a3cf95076b5d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 79e06fe95b48468616dce913e19c430dc2818719
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80384221"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744872"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Configurar o DPDK em uma máquina virtual Linux
 
@@ -33,24 +33,24 @@ O DPDK pode ser executado em máquinas virtuais do Azure, com suporte a várias 
 
 ## <a name="benefit"></a>Benefício
 
-**Pacotes superiores por segundo (PPS)**: Ignorando o kernel e controlando os pacotes no espaço do usuário reduz a contagem de ciclos eliminando a alternância de contexto. Ele também melhora a taxa de pacotes que são processados por segundo nas máquinas virtuais do Azure Linux.
+**Mais pacotes por segundo (PPS)** : ignorar o kernel e controlar os pacotes no espaço do usuário reduz a contagem de ciclos através da eliminação de alternância de contexto. Ele também melhora a taxa de pacotes que são processados por segundo nas máquinas virtuais do Azure Linux.
 
 
-## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
+## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 
-Há suporte para as seguintes distribuições do Azure Marketplace:
+As seguintes distribuições do Azure Marketplace são suportadas:
 
 | Sistema operacional Linux     | Versão do kernel               | 
 |--------------|---------------------------   |
-| Ubuntu 16.04 | 4.15.0-1014-Azure +           | 
-| Ubuntu 18.04 | 4.15.0-1014-Azure +           |
-| SLES 15 SP1  | 4.12.14-8,27-Azure +          | 
-| RHEL 7.5     | 3.10.0-862.11.6. EL7. x86_64 +  | 
-| CentOS 7.5   | 3.10.0-862.11.6. EL7. x86_64 +  | 
+| Ubuntu 16.04 | 4.15.0-1014-azure+           | 
+| Ubuntu 18.04 | 4.15.0-1014-azure+           |
+| SLES 15 SP1  | 4.12.14-8.27-azure+          | 
+| RHEL 7.5     | 3.10.0-862.11.6.el7.x86_64+  | 
+| CentOS 7.5   | 3.10.0-862.11.6.el7.x86_64+  | 
 
 **Suporte a kernel personalizado**
 
-Para qualquer versão do kernel Linux que não esteja listada, confira [Patches para a criação de um kernel do Linux ajustado para o Azure](https://github.com/microsoft/azure-linux-kernel). Para obter mais informações, você também pode [azuredpdk@microsoft.com](mailto:azuredpdk@microsoft.com)contatar. 
+Para qualquer versão do kernel Linux que não esteja listada, confira [Patches para a criação de um kernel do Linux ajustado para o Azure](https://github.com/microsoft/azure-linux-kernel). Para mais informações, você também pode entrar em contato com [azuredpdk@microsoft.com](mailto:azuredpdk@microsoft.com). 
 
 ## <a name="region-support"></a>Suporte de regiões
 
@@ -108,7 +108,7 @@ zypper \
 
 ## <a name="set-up-the-virtual-machine-environment-once"></a>Configurar o ambiente de máquina virtual (uma vez)
 
-1. [Baixar a mais recente DPDK](https://core.dpdk.org/download). A versão 18,11 LTS ou 19,11 LTS é necessária para o Azure.
+1. [Baixar a mais recente DPDK](https://core.dpdk.org/download). A versão 18.11 LTS ou 19.11 LTS é obrigatória para o Azure.
 2. Crie a configuração padrão com `make config T=x86_64-native-linuxapp-gcc`.
 3. Habilitar Mellanox PMDs a configuração gerada com `sed -ri 's,(MLX._PMD=)n,\1y,' build/.config`.
 4. Compilar com `make`.
@@ -120,7 +120,7 @@ Depois de reiniciar, execute os comandos a seguir, uma vez:
 
 1. Hugepages
 
-   * Configure o hugepage executando o seguinte comando, uma vez para cada nó numa:
+   * Configure a hugepage executando o seguinte comando, uma vez para cada nó NUMA:
 
      ```bash
      echo 1024 | sudo tee /sys/devices/system/node/node*/hugepages/hugepages-2048kB/nr_hugepages
@@ -130,20 +130,20 @@ Depois de reiniciar, execute os comandos a seguir, uma vez:
    * Monte as hugepages com `mount -t hugetlbfs nodev /mnt/huge`.
    * Verifique se hugepages estão reservados com `grep Huge /proc/meminfo`.
 
-     > ANOTAÇÕES Há uma maneira de modificar o arquivo grub para que hugepages sejam reservados na inicialização seguindo as [instruções](https://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) para o DPDK. As instruções estão na parte inferior da página. Ao usar uma máquina virtual do Azure Linux, modifique os arquivos em **/etc/config/grub.d** para reservar páginas amplas nas reinicializações.
+     > [OBSERVAÇÃO] Há uma maneira de modificar o arquivo grub para que as hugepages sejam reservadas na inicialização seguindo as [instruções](https://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) para o DPDK. As instruções estão na parte inferior da página. Ao usar uma máquina virtual do Azure Linux, modifique os arquivos em **/etc/config/grub.d** para reservar páginas amplas nas reinicializações.
 
-2. Endereços MAC e IP: use `ifconfig –a` para visualizar o endereço MAC e IP das interfaces de rede. A interface de rede *VF* e a interface de rede *NETVSC* têm o mesmo endereço MAC, mas apenas a interface de rede *NETVSC* tem um endereço IP. As interfaces *VF* são executadas como interfaces subordinadas das interfaces *NETVSC* .
+2. Endereços MAC e IP: use `ifconfig –a` para visualizar os endereços MAC e IP das interfaces de rede. A interface de rede *VF* e a interface de rede *NETVSC* têm o mesmo endereço MAC, mas apenas a interface de rede *NETVSC* tem um endereço IP. Interfaces de *VF* estão em execução como interfaces subordinadas de interfaces *NETVSC*.
 
 3. Endereços PCI
 
    * Use `ethtool -i <vf interface name>` para descobrir qual endereço PCI usar para *VF*.
-   * Se o *eth0* tiver a rede acelerada habilitada, certifique-se de que o testpmd não assuma acidentalmente o dispositivo PCI *VF* para *eth0*. Se o aplicativo DPDK acidentalmente assumir a interface de rede de gerenciamento e fizer com que você perca a conexão SSH, use o console serial para interromper o aplicativo DPDK. Você também pode usar o console serial para interromper ou iniciar a máquina virtual.
+   * Se *eth0* tem rede acelerada habilitada, garanta que testpmd não assuma acidentalmente o controle do dispositivo *VF* de pci para *eth0*. Se o aplicativo DPDK acidentalmente assumir a interface de rede de gerenciamento e fizer com que você perca a conexão SSH, use o console serial para interromper o aplicativo DPDK. Você também pode usar o console serial para interromper ou iniciar a máquina virtual.
 
 4. Carga *ibuverbs* em cada reinicialização com `modprobe -a ib_uverbs`. Para apenas 15 SLES, também carrega *mlx4_ib* com `modprobe -a mlx4_ib`.
 
 ## <a name="failsafe-pmd"></a>PMD à prova de falhas
 
-Os aplicativos DPDK devem ser executados sobre o PMD à prova de falhas exposto no Azure. Se o aplicativo for executado diretamente por meio do PMD *VF* , ele não receberá **todos os** pacotes destinados à VM, já que alguns pacotes aparecem na interface sintética. 
+Os aplicativos DPDK devem ser executados sobre o PMD à prova de falhas exposto no Azure. Se o aplicativo for executado diretamente sobre o PMD de *VF*, ele não receberá **todos** os pacotes destinados à VM, pois alguns pacotes aparecem na interface sintética. 
 
 Se você executar um aplicativo DPDK sobre o PMD à prova de falhas, ele garantirá que o aplicativo receba todos os pacotes destinados a ele. Ele também garante que o aplicativo continue em execução no modo DPDK, mesmo que o FV seja revogado quando o host estiver em manutenção. Confira mais informações sobre PMD à prova de falhas em [Biblioteca de drivers do modo de sondagem à prova de falhas](https://doc.dpdk.org/guides/nics/fail_safe.html).
 
@@ -151,7 +151,7 @@ Se você executar um aplicativo DPDK sobre o PMD à prova de falhas, ele garanti
 
 Para executar testpmd no modo de raiz, use `sudo` antes do comando *testpmd*.
 
-### <a name="basic-sanity-check-failsafe-adapter-initialization"></a>Basic: Verificação de integridade, a inicialização do adaptador à prova de falhas
+### <a name="basic-sanity-check-failsafe-adapter-initialization"></a>Básico: verificação de integridade, inicialização do adaptador à prova de falhas
 
 1. Execute os seguintes comandos para iniciar um aplicativo testpmd de porta única:
 
@@ -174,12 +174,12 @@ Para executar testpmd no modo de raiz, use `sudo` antes do comando *testpmd*.
 
    Se você estiver executando testpmd com mais de duas NICs, o argumento `--vdev` seguirá este padrão: `net_vdev_netvsc<id>,iface=<vf’s pairing eth>`.
 
-3.  Depois de iniciado, execute `show port info all` para verificar as informações de porta. Você deve ver uma ou duas portas DPDK que são net_failsafe (não * net_mlx4 *).
+3.  Depois de iniciado, execute `show port info all` para verificar as informações de porta. Você deve ver uma ou duas portas DPDK que são net_failsafe (não *net_mlx4*).
 4.  Use `start <port> /stop <port>` para iniciar o tráfego.
 
 Os comandos anteriores iniciam *testpmd* no modo interativo, o que é recomendado, para testar alguns comandos testpmd.
 
-### <a name="basic-single-sendersingle-receiver"></a>Básico: Receptor de único remetente/única
+### <a name="basic-single-sendersingle-receiver"></a>Básico: remetente único/receptor único
 
 Os seguintes comandos periodicamente imprimem as estatísticas de pacotes por segundo:
 
@@ -215,7 +215,7 @@ Os seguintes comandos periodicamente imprimem as estatísticas de pacotes por se
 
 Ao executar os comandos anteriores em uma máquina virtual, altere *IP_SRC_ADDR* e *IP_DST_ADDR* em `app/test-pmd/txonly.c` para corresponder ao endereço IP real das máquinas virtuais antes de compilar. Caso contrário, os pacotes são descartados antes de chegar ao receptor.
 
-### <a name="advanced-single-sendersingle-forwarder"></a>Avançado: Encaminhador de único remetente/único
+### <a name="advanced-single-sendersingle-forwarder"></a>Avançado: Remetente único/encaminhador único
 Os seguintes comandos periodicamente imprimem as estatísticas de pacotes por segundo:
 
 1. No lado do TX, execute o seguinte comando:

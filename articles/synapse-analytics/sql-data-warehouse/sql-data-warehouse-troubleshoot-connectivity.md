@@ -11,56 +11,56 @@ ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: d69c8dd28b946df3fff500c31c7cdefa4767c0c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b4fbfb65a609742105056fa7fb849f84579245cb
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81408174"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650494"
 ---
-# <a name="troubleshooting-connectivity-issues"></a>Solucionar problemas de conectividade
+# <a name="troubleshooting-connectivity-issues-in-synapse-sql-pool"></a>Solução de problemas de conectividade no pool de SQL do Synapse
 
-Este artigo lista técnicas comuns de solução de problemas em relação à conexão com o banco de dados de análise de SQL.
+Este artigo lista técnicas comuns de solução de problemas de conexão com o banco de dados do pool de SQL.
 
-## <a name="check-service-availability"></a>Verificar a disponibilidade do serviço
+## <a name="check-service-availability"></a>Verificação da disponibilidade do serviço
 
-Verifique se o serviço está disponível. Na portal do Azure, vá para o pool SQL do Synapse que você está tentando conectar. No painel de Sumário à esquerda, clique em **diagnosticar e resolver problemas**.
+Verifique se o serviço está disponível. No portal do Azure, vá até o pool de SQL que você está tentando conectar. No painel do sumário à esquerda, clique em **Diagnosticar e resolver problemas**.
 
-![Selecionar Resource Health](./media/sql-data-warehouse-troubleshoot-connectivity/diagnostics-link.png)
+![Selecione Integridade do recurso](./media/sql-data-warehouse-troubleshoot-connectivity/diagnostics-link.png)
 
-O status do pool SQL do Synapse será mostrado aqui. Se o serviço não estiver sendo exibido como **disponível**, verifique outras etapas.
+O status do pool de SQL será mostrado aqui. Se o serviço não estiver sendo exibido como **Disponível**, verifique outras etapas.
 
-![Serviço disponível](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health.png)
+![Serviço Disponível](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health.png)
 
-Se o Resource Health mostrar que a instância do pool SQL do Synapse está em pausa ou em escala, siga as orientações para retomar sua instância.
+Se a opção Integridade do recurso mostrar que a instância do pool de SQL estiver pausada ou em dimensionamento, siga as orientações para retomar a instância.
 
-![O serviço está](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png) em pausa informações adicionais sobre Resource Health podem ser encontradas aqui.
+![Serviço em pausa](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png) Informações adicionais sobre a Integridade do recurso podem ser encontradas aqui.
 
-## <a name="check-for-paused-or-scaling-operation"></a>Verificar se a operação está em pausa ou em dimensionamento
+## <a name="check-for-paused-or-scaling-operation"></a>Verificar se a operação está pausada ou em dimensionamento
 
-Verifique o portal para ver se a instância do pool SQL do Synapse está em pausa ou em escala.
+Verifique o portal para ver se a instância do pool de SQL está pausada ou em dimensionamento.
 
-![Serviço em pausa](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
+![Serviço pausado](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
 
-Se você vir que o serviço está em pausa ou em escala, verifique se ele não está durante o agendamento de manutenção. No portal para sua *visão geral*do pool SQL do Synapse, você verá o agendamento de manutenção escolhido.
+Se você vir que o serviço está pausado ou em dimensionamento, verifique se ele não está durante o agendamento de manutenção. No portal de *Visão geral* do pool de SQL, você verá o agendamento de manutenção escolhido.
 
-![Agendamento de manutenção de visão geral](./media/sql-data-warehouse-troubleshoot-connectivity/overview-maintance-schedule.png)
+![Visão geral do agendamento de manutenção](./media/sql-data-warehouse-troubleshoot-connectivity/overview-maintance-schedule.png)
 
-Caso contrário, verifique com seu administrador de ti para verificar se essa manutenção não é um evento agendado. Para retomar a instância do SQL Analytics, siga [estas etapas](pause-and-resume-compute-portal.md).
+Caso contrário, peça ao administrador de TI para verificar se essa manutenção não é um evento agendado. Para retomar a instância do pool de SQL, siga [estas etapas](pause-and-resume-compute-portal.md).
 
 ## <a name="check-your-firewall-settings"></a>Verificar as configurações de firewall
 
-O banco de dados do SQL Analytics se comunica pela porta 1433.Se você estiver tentando se conectar de dentro de uma rede corporativa, o tráfego de saída pela porta 1433 talvez não seja permitido pelo firewall da rede. Nesse caso, você não poderá se conectar ao servidor do Banco de Dados SQL do Azure, a menos que o departamento de TI abra a porta 1433. Informações adicionais sobre as configurações de firewall podem ser encontradas [aqui](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules).
+O banco de dados do pool de SQL se comunica pela porta 1433.  Se você estiver tentando se conectar de dentro de uma rede corporativa, o tráfego de saída pela porta 1433 talvez não seja permitido pelo firewall da rede. Nesse caso, você não poderá se conectar ao servidor do Banco de Dados SQL do Azure, a menos que o departamento de TI abra a porta 1433. Outras informações sobre as configurações de firewall podem ser encontradas [aqui](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules).
 
-## <a name="check-your-vnetservice-endpoint-settings"></a>Verificar as configurações do ponto de extremidade de serviço/VNet
+## <a name="check-your-vnetservice-endpoint-settings"></a>Verificar as configurações do ponto de extremidade de serviço/rede virtual
 
-Se você estiver recebendo os erros 40914 e 40615, consulte [Descrição e resolução do erro aqui](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615).
+Se estiver recebendo os erros 40914 e 40615, veja a [descrição e a resolução do erro aqui](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615).
 
-## <a name="check-for-the-latest-drivers"></a>Verificar se os drivers são os mais recentes
+## <a name="check-for-the-latest-drivers"></a>Verificar se os drivers estão atualizados
 
 ### <a name="software"></a>Software
 
-Verifique se você está usando as ferramentas mais recentes para se conectar ao pool SQL do Synapse:
+Verifique se você está usando as ferramentas mais recentes para se conectar ao pool de SQL:
 
 - SSMS
 - Azure Data Studio
@@ -68,7 +68,7 @@ Verifique se você está usando as ferramentas mais recentes para se conectar ao
 
 ### <a name="drivers"></a>Drivers
 
-Verifique se você está usando as versões de driver mais recentes.O uso de uma versão mais antiga dos drivers pode resultar em comportamentos inesperados, pois os drivers mais antigos podem não dar suporte a novos recursos.
+Verifique se está usando as versões mais recentes do driver.  O uso de uma versão mais antiga dos drivers pode resultar em comportamentos inesperados, pois os drivers mais antigos podem não dar suporte aos novos recursos.
 
 - [ODBC](/sql/connect/odbc/download-odbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [JDBC](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -105,12 +105,12 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 ## <a name="intermittent-connection-issues"></a>Problemas de conexão intermitentes
 
-Verifique se você está com uma carga pesada sobre o servidor, com um grande número de solicitações enfileiradas. Talvez seja necessário escalar verticalmente seu pool SQL do Synapse para obter recursos adicionais.
+Verifique se você está com uma carga pesada sobre o servidor, com um grande número de solicitações enfileiradas. Talvez seja necessário escalar verticalmente seu pool de SQL para obter recursos adicionais.
 
 ## <a name="common-error-messages"></a>Mensagens de erro comuns
 
-Erros 40914 e 40615, consulte a [Descrição e a resolução do erro aqui](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615).
+Para saber sobre os erros 40914 e 40615, veja a [descrição e a resolução do erro aqui](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615).
 
-## <a name="still-having-connectivity-issues"></a>Ainda tem problemas de conectividade?
+## <a name="still-having-connectivity-issues"></a>Ainda está tendo problemas de conectividade?
 
-Crie um [tíquete de suporte](sql-data-warehouse-get-started-create-support-ticket.md) para que a equipe de engenharia possa dar suporte a você.
+Crie um [tíquete de suporte](sql-data-warehouse-get-started-create-support-ticket.md) para que a equipe de engenharia possa ajudá-lo.

@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor pastas de trabalho para relatórios | Microsoft Docs
-description: Saiba como usar pastas de trabalho do Azure Monitor para relatórios Azure Active Directory.
+title: Pastas de trabalho do Azure Monitor para relatórios | Microsoft Docs
+description: Saiba como usar pastas de trabalho do Azure Monitor para relatórios do Azure Active Directory.
 services: active-directory
 author: MarkusVi
 manager: daveba
@@ -14,63 +14,63 @@ ms.subservice: report-monitor
 ms.date: 10/30/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 094939ee62046c72f07ac46f0781e687034f731f
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
-ms.translationtype: MT
+ms.openlocfilehash: 3c6b8ef04e44a68290f61ed4688e3379130231ef
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690623"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83799362"
 ---
-# <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Como usar pastas de trabalho do Azure Monitor para relatórios Azure Active Directory
+# <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Como usar pastas de trabalho do Azure Monitor para relatórios do Azure Active Directory
 
 > [!IMPORTANT]
-> Para otimizar as consultas subjacentes nesta pasta de trabalho, clique em "Editar", clique no ícone de configurações e selecione o espaço de trabalho onde você deseja executar essas consultas. Por padrão, as pastas de trabalho selecionarão todos os espaços de trabalho nos quais você está roteando seus logs do Azure AD. 
+> Para otimizar as consultas subjacentes nessa pasta de trabalho, clique em "Editar", clique no ícone de configurações e selecione o espaço de trabalho em que deseja executar essas consultas. Por padrão, as pastas de trabalho selecionarão todos os espaços de trabalho nos quais você está roteando os logs do Azure AD. 
 
-Deseja:
+Você deseja:
 
-- Entender o efeito de suas [políticas de acesso condicional](../conditional-access/overview.md) na experiência de entrada de seus usuários?
+- Entender o efeito das [políticas de acesso condicional](../conditional-access/overview.md) na experiência de entrada do usuário?
 
-- Solucionar problemas de falhas de entrada para obter uma exibição melhor da integridade de entrada da sua organização e resolver problemas rapidamente?
+- Solucionar problemas de falhas de entrada para obter uma exibição melhor da integridade das credenciais da sua organização e resolver problemas rapidamente?
 
-- Sabe quem está usando autenticações herdadas para entrar em seu ambiente? (Ao [bloquear a autenticação herdada](../conditional-access/block-legacy-authentication.md), você pode melhorar a proteção do locatário.)
+- Saber quem está usando autenticações herdadas para entrar em seu ambiente? (Ao [bloquear a autenticação herdada](../conditional-access/block-legacy-authentication.md), você melhora a proteção do locatário.)
 
-- Você precisa entender o impacto das políticas de acesso condicional em seu locatário?
+- Você precisa entender como as políticas de acesso condicional afetam seu locatário?
 
-- Você gostaria de poder examinar: consultas de log de entrada, a pasta de trabalho informa quantos usuários tiveram o acesso concedido ou negado, bem como quantos usuários ignoraram as políticas de acesso condicional ao acessar recursos?
+- Você gostaria de poder examinar: consultas de log de entrada, os relatórios da pasta de trabalho sobre quantos usuários tiveram o acesso concedido ou negado, bem como quantos usuários contornaram as políticas de acesso condicional ao acessar recursos?
 
-- Interessado em desenvolver uma compreensão mais profunda de: os detalhes da pasta de trabalho por condição para que o impacto de uma política possa ser contextual por condição, incluindo a plataforma do dispositivo, o estado do dispositivo, o aplicativo cliente, o risco de entrada, o local e o aplicativo?
+- Tem interesse em aprofundar-se em: detalhes da pasta de trabalho por condição para que o impacto de uma política possa ser contextual por condição, como incluir a plataforma do dispositivo, o estado do dispositivo, o aplicativo cliente, o risco de entrada, a localização e o aplicativo?
 
-- Obter informações mais aprofundadas sobre consultas de log de entrada, a pasta de trabalho relata quantos usuários tiveram acesso concedido ou negado, bem como quantos usuários ignoraram as políticas de acesso condicional ao acessar recursos.
+- Tenha uma ideia mais aprofundada sobre consultas de log de entrada, os relatórios da pasta de trabalho sobre quantos usuários tiveram o acesso concedido ou negado, bem como quantos usuários contornaram as políticas de acesso condicional ao acessar recursos.
 
-- Para ajudá-lo a resolver essas perguntas, Azure Active Directory fornece pastas de trabalho para monitoramento. [Azure monitor pastas de trabalho](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) combinam texto, consultas de análise, métricas e parâmetros em relatórios interativos sofisticados.
+- Para ajudar você a tirar essas dúvidas, o Azure Active Directory fornece pastas de trabalho para monitoramento. As [pastas de trabalho do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview) combinam texto, consultas analíticas, métricas e parâmetros em relatórios interativos avançados.
 
 
 
 Este artigo:
 
-- Pressupõe que você esteja familiarizado com a [criação de relatórios interativos usando as pastas de trabalho do monitor](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks).
+- Pressupõe que você já saiba [criar relatórios interativos usando as pastas de trabalho do Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview).
 
-- Explica como usar pastas de trabalho do monitor para entender o efeito de suas políticas de acesso condicional, para solucionar problemas de falhas de entrada e para identificar autenticações herdadas.
+- Explica como usar pastas de trabalho do Monitor para entender o efeito das políticas de acesso condicional, solucionar problemas de falhas de entrada e identificar autenticações herdadas.
  
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para usar pastas de trabalho de monitoramento, você precisa de:
+Para usar pastas de trabalho do Monitor, você precisa de:
 
-- Um locatário Azure Active Directory com uma licença Premium (P1 ou P2). Saiba como [obter uma licença Premium](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
+- Um locatário do Azure Active Directory com uma licença premium (P1 ou P2). Saiba como [obter uma licença premium](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
 
-- Um [espaço de trabalho log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
+- Um [workspace do Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
-- [Acesso](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions) ao espaço de trabalho do log Analytics
-- Funções a seguir no Azure Active Directory (se você estiver acessando Log Analytics por meio do portal do Azure Active Directory)
+- [Acesso](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions) ao workspace do Log Analytics
+- As funções a seguir no Azure Active Directory (se você estiver acessando o Log Analytics por meio do portal do Azure Active Directory)
     - Administrador de segurança
     - Leitor de segurança
     - Leitor de relatórios
     - Administrador global
 
 ## <a name="roles"></a>Funções
-Você deve estar em uma das seguintes funções, bem como ter acesso ao espaço de trabalho de [log Analytics subjacente](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) para gerenciar as pastas de trabalho:
+Você deve ter uma das funções a seguir, bem como [acesso ao workspace do Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions), para gerenciar as pastas de trabalho:
 -   Administrador global
 -   Administrador de segurança
 -   Leitor de segurança
@@ -83,23 +83,23 @@ Para acessar pastas de trabalho:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 
-1. Navegue até **Azure Active Directory** > **Monitoring** > **pastas de trabalho**de monitoramento. 
+1. Navegue até **Azure Active Directory** > **Monitoramento** > **Pastas de Trabalho**. 
 
-1. Selecione um relatório ou modelo ou, na barra de ferramentas, selecione **abrir**. 
+1. Selecione um relatório ou modelo ou, na barra de ferramentas, escolha **Abrir**. 
 
 ![Localizar as pastas de trabalho do Azure Monitor no Azure AD](./media/howto-use-azure-monitor-workbooks/azure-monitor-workbooks-in-azure-ad.png)
 
-## <a name="sign-in-analysis"></a>Análise de entrada
+## <a name="sign-in-analysis"></a>Análise de credenciais
 
-Para acessar a pasta de trabalho de análise de entrada, na seção **uso** , selecione **entradas**. 
+Para acessar a pasta de trabalho de análise de credenciais, na seção **Uso**, selecione **Entradas**. 
 
-Esta pasta de trabalho mostra as seguintes tendências de entrada:
+A pasta de trabalho mostra as seguintes tendências de entrada:
 
 - Todas as entradas
 
 - Sucesso
 
-- Ação pendente do usuário
+- Ação do usuário pendente
 
 - Falha
 
@@ -111,26 +111,26 @@ Você pode filtrar cada tendência pelas seguintes categorias:
 
 - Usuários
 
-![Análise de entrada](./media/howto-use-azure-monitor-workbooks/43.png)
+![Análise de credenciais](./media/howto-use-azure-monitor-workbooks/43.png)
 
 
-Para cada tendência, você obtém uma divisão das seguintes categorias:
+Para cada tendência, você obtém um detalhamento das seguintes categorias:
 
-- Local
+- Location
 
-    ![Entradas por local](./media/howto-use-azure-monitor-workbooks/45.png)
+    ![Entradas por localização](./media/howto-use-azure-monitor-workbooks/45.png)
 
 - Dispositivo
 
     ![Entradas por dispositivo](./media/howto-use-azure-monitor-workbooks/46.png)
 
 
-## <a name="sign-ins-using-legacy-authentication"></a>Entradas usando autenticação herdada 
+## <a name="sign-ins-using-legacy-authentication"></a>Entradas usando a autenticação herdada 
 
 
-Para acessar a pasta de trabalho para entradas que usam [autenticação herdada](../conditional-access/block-legacy-authentication.md), na seção **uso** , selecione **entradas usando autenticação herdada**. 
+Para acessar a pasta de trabalho das entradas que usam [autenticação herdada](../conditional-access/block-legacy-authentication.md), na seção **Uso**, selecione **Entradas usando a autenticação herdada**. 
 
-Esta pasta de trabalho mostra as seguintes tendências de entrada:
+A pasta de trabalho mostra as seguintes tendências de entrada:
 
 - Todas as entradas
 
@@ -150,18 +150,18 @@ Você pode filtrar cada tendência pelas seguintes categorias:
 ![Entradas por autenticação herdada](./media/howto-use-azure-monitor-workbooks/47.png)
 
 
-Para cada tendência, você obtém uma divisão por aplicativo e protocolo.
+Para cada tendência, você obtém um detalhamento por aplicativo e protocolo.
 
-![Herdado-entradas de autenticação por aplicativo e protocolo](./media/howto-use-azure-monitor-workbooks/48.png)
+![Entradas de autenticação herdada por aplicativo e protocolo](./media/howto-use-azure-monitor-workbooks/48.png)
 
 
 
 ## <a name="sign-ins-by-conditional-access"></a>Entradas por acesso condicional 
 
 
-Para acessar a pasta de trabalho para entradas por [políticas de acesso condicional](../conditional-access/overview.md), na seção **acesso condicional** , selecione **entradas por acesso condicional**. 
+Para acessar a pasta de trabalho de entradas por [políticas de acesso condicional](../conditional-access/overview.md), na seção **Acesso condicional**, selecione **Entradas por acesso condicional**. 
 
-Esta pasta de trabalho mostra as tendências para as entradas desabilitadas. Você pode filtrar cada tendência pelas seguintes categorias:
+Essa pasta de trabalho mostra as tendências das entradas desabilitadas. Você pode filtrar cada tendência pelas seguintes categorias:
 
 - Intervalo de horas
 
@@ -172,64 +172,64 @@ Esta pasta de trabalho mostra as tendências para as entradas desabilitadas. Voc
 ![Entradas usando o acesso condicional](./media/howto-use-azure-monitor-workbooks/49.png)
 
 
-Para entradas desabilitadas, você obtém uma divisão pelo status de acesso condicional.
+Para entradas desabilitadas, você obtém um detalhamento pelo status do acesso condicional.
 
-![Status de acesso condicional](./media/howto-use-azure-monitor-workbooks/conditional-access-status.png)
+![Status do acesso condicional](./media/howto-use-azure-monitor-workbooks/conditional-access-status.png)
 
 
 ## <a name="conditional-access-insights"></a>Insights de Acesso Condicional
 
 ### <a name="overview"></a>Visão geral
 
-As pastas de trabalho contêm consultas de log de entrada que podem ajudar os administradores de ti a monitorar o impacto das políticas de acesso condicional em seu locatário. Você tem a capacidade de relatar o acesso concedido ou negado a muitos usuários. A pasta de trabalho contém informações sobre quantos usuários ignoraram as políticas de acesso condicional com base nos atributos dos usuários no momento da entrada. Ele contém detalhes por condição para que o impacto de uma política possa ser contextual por condição, incluindo a plataforma do dispositivo, o estado do dispositivo, o aplicativo cliente, o risco de entrada, o local e o aplicativo.
+As pastas de trabalho contêm consultas de log de entrada que podem ajudar os administradores de TI a monitorar o impacto das políticas de acesso condicional no locatário. Você pode emitir relatórios sobre quantos usuários teriam o acesso concedido ou negado. A pasta de trabalho contém insights sobre quantos usuários teriam contornado as políticas de acesso condicional com base nos atributos desses usuários no momento da entrada. Ela contém detalhes por condição para que o impacto de uma política possa ser contextual por condição, como incluir a plataforma do dispositivo, o estado do dispositivo, o aplicativo cliente, o risco de entrada, a localização e o aplicativo.
 
 ### <a name="instructions"></a>Instruções 
-Para acessar a pasta de trabalho para informações de acesso condicional, selecione a pasta de trabalho de **informações** de acesso condicional na seção acesso condicional. Esta pasta de trabalho mostra o impacto esperado de cada política de acesso condicional em seu locatário. Selecione uma ou mais políticas de acesso condicional na lista suspensa e restrinja o escopo da pasta de trabalho aplicando os seguintes filtros: 
+Para acessar a pasta de trabalho de insights de acesso condicional, selecione a pasta de trabalho **Políticas de Acesso Condicional**, na seção Acesso condicional. Essa pasta de trabalho mostra o impacto esperado de cada política de acesso condicional em seu locatário. Selecione uma ou mais políticas de acesso condicional na lista suspensa e restrinja o escopo da pasta de trabalho aplicando os seguintes filtros: 
 
 - **Intervalo de tempo**
 
 - **Usuário**
 
-- **Apps**
+- **Aplicativos**
 
 - **Exibição de dados**
 
-![Status de acesso condicional](./media/howto-use-azure-monitor-workbooks/access-insights.png)
+![Status do acesso condicional](./media/howto-use-azure-monitor-workbooks/access-insights.png)
 
 
-O resumo de impacto mostra o número de usuários ou de entradas para os quais as políticas selecionadas tinham um resultado específico. Total é o número de usuários ou entradas para os quais as políticas selecionadas foram avaliadas no intervalo de tempo selecionado. Clique em um bloco para filtrar os dados na pasta de trabalho por esse tipo de resultado. 
+O resumo de impacto mostra o número de usuário ou credenciais para os quais as políticas selecionadas tiveram um resultado específico. O total é o número de usuários ou entradas para os quais as políticas selecionadas foram avaliadas no intervalo de tempo selecionado. Clique em um título para filtrar os dados na pasta de trabalho por esse tipo de resultado. 
 
-![Status de acesso condicional](./media/howto-use-azure-monitor-workbooks/impact-summary.png)
+![Status do acesso condicional](./media/howto-use-azure-monitor-workbooks/impact-summary.png)
 
-Essa pasta de trabalho também mostra o impacto das políticas selecionadas divididas por cada uma das seis condições: 
+Essa pasta de trabalho mostra o impacto das políticas selecionadas detalhado a cada seis condições: 
 - **Estado do dispositivo**
 - **Plataforma do dispositivo**
-- **Aplicativos cliente**
+- **Aplicativos do cliente**
 - **Risco de entrada**
 - **Localidade**
 - **Aplicativos**
 
-![Status de acesso condicional](./media/howto-use-azure-monitor-workbooks/device-platform.png)
+![Status do acesso condicional](./media/howto-use-azure-monitor-workbooks/device-platform.png)
 
-Você também pode investigar entradas individuais filtradas pelos parâmetros selecionados na pasta de trabalho. Pesquise por usuários individuais, classificados por frequência de entrada e exiba seus eventos de entrada correspondentes. 
+Você também pode investigar entradas individuais, filtradas pelos parâmetros selecionados na pasta de trabalho. Pesquise por usuários individuais, classificados por frequência de entrada, e exiba seus eventos de entrada correspondentes. 
 
-![Status de acesso condicional](./media/howto-use-azure-monitor-workbooks/filtered.png)
-
-
+![Status do acesso condicional](./media/howto-use-azure-monitor-workbooks/filtered.png)
 
 
 
-## <a name="sign-ins-by-grant-controls"></a>Entradas por conceder controles
 
-Para acessar a pasta de trabalho para entradas por meio de [controles de concessão](../conditional-access/controls.md), na seção **acesso condicional** , selecione **entradas por conceder controles**. 
 
-Esta pasta de trabalho mostra as seguintes tendências de entrada desabilitadas:
+## <a name="sign-ins-by-grant-controls"></a>Entradas por controles de concessão
+
+Para acessar a pasta de trabalho de entradas por [controles de concessão](../conditional-access/controls.md), na seção **Acesso condicional**, selecione **Entradas por controles de concessão**. 
+
+Essa pasta de trabalho mostra as seguintes tendências de entrada desabilitadas:
 
 - Exigir MFA
  
 - Requerer termos de uso
 
-- Exigir política de privacidade
+- Política de privacidade do Azure
 
 - Outros
 
@@ -242,28 +242,28 @@ Você pode filtrar cada tendência pelas seguintes categorias:
 
 - Usuários
 
-![Entradas por conceder controles](./media/howto-use-azure-monitor-workbooks/50.png)
+![Entradas por controles de concessão](./media/howto-use-azure-monitor-workbooks/50.png)
 
 
-Para cada tendência, você obtém uma divisão por aplicativo e protocolo.
+Para cada tendência, você obtém um detalhamento por aplicativo e protocolo.
 
-![Divisão de entradas recentes](./media/howto-use-azure-monitor-workbooks/51.png)
+![Detalhamento das entradas recentes](./media/howto-use-azure-monitor-workbooks/51.png)
 
 
 
 
 ## <a name="sign-ins-failure-analysis"></a>Análise de falha de entradas
 
-Use a pasta de trabalho **análise de falhas de entradas** para solucionar erros com:
+Use a pasta de trabalho **Análise de falha de entradas** para solucionar erros em:
 
 - Entradas
 - Políticas de Acesso Condicional
 - Autenticação herdada 
 
 
-Para acessar as entradas por dados de acesso condicional, na seção **solucionar problemas** , selecione **entradas usando a autenticação herdada**. 
+Para acessar as entradas por dados de acesso condicional, na seção **Solução de problemas**, selecione **Entradas usando a autenticação herdada**. 
 
-Esta pasta de trabalho mostra as seguintes tendências de entrada:
+A pasta de trabalho mostra as seguintes tendências de entrada:
 
 - Todas as entradas
 
@@ -282,18 +282,18 @@ Você pode filtrar cada tendência pelas seguintes categorias:
 
 - Usuários
 
-![Solucionando problemas de entradas](./media/howto-use-azure-monitor-workbooks/52.png)
+![Solução de problemas de entrada](./media/howto-use-azure-monitor-workbooks/52.png)
 
 
-Para ajudá-lo a solucionar problemas de entrada, Azure Monitor oferece uma divisão das seguintes categorias:
+Para ajudar você a solucionar problemas de entrada, o Azure Monitor oferece um detalhamento pelas seguintes categorias:
 
 - Principais erros
 
     ![Resumo dos principais erros](./media/howto-use-azure-monitor-workbooks/53.png)
 
-- Entradas aguardando a ação do usuário
+- Entradas aguardando ação do usuário
 
-    ![Resumo de entradas aguardando a ação do usuário](./media/howto-use-azure-monitor-workbooks/54.png)
+    ![Resumo de entradas aguardando ação do usuário](./media/howto-use-azure-monitor-workbooks/54.png)
 
 
 
@@ -302,4 +302,4 @@ Para ajudá-lo a solucionar problemas de entrada, Azure Monitor oferece uma divi
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Crie relatórios interativos usando monitorar pastas de trabalho](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks).
+[Criar relatórios usando pastas de trabalho do Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview).

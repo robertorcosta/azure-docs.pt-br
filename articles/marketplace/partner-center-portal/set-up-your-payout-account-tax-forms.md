@@ -1,207 +1,207 @@
 ---
-title: Configurar a conta de pagamento & formulários de impostos-Microsoft Commercial Marketplace
-Description: Para receber dinheiro da oferta vendas no Marketplace comercial, saiba como configurar sua conta de pagamento e preencher os formulários de imposto necessários.
+title: Configurar a conta de pagamento e os formulários de impostos – Microsoft Marketplace comercial
+Description: Para receber dinheiro das vendas de ofertas no Marketplace comercial, saiba como configurar sua conta de pagamento e preencher os formulários de imposto necessários.
 ms.date: 12/10/2019
 ms.topic: conceptual
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
-ms.openlocfilehash: 627f6f01a17fc8cabb4f1883306baeb0e2d77e70
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.openlocfilehash: 0256e5c60a417cec47f90cd6ec30fe9208f47f7f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792880"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83738278"
 ---
 # <a name="set-up-your-payout-account-and-tax-forms"></a>Configurar sua conta de pagamento e formulários de imposto
 
 Para receber dinheiro de vendas de ofertas no Marketplace comercial, você precisa configurar sua conta de pagamento e preencher os formulários de impostos necessários no [Partner Center](https://partner.microsoft.com/dashboard).
 
-Se você planeja listar ofertas gratuitas (e não planeja oferecer compras no aplicativo ou usar Microsoft Advertising), não é necessário configurar uma conta de pagamento nem preencher os formulários de impostos. Se você mudar de ideia mais tarde e decidir que deseja vender ofertas (ou complementos), poderá configurar sua conta de pagamento e preencher os formulários de impostos nesse momento. Você não poderá enviar quaisquer ofertas pagas ou Complementos até que sua conta de pagamento e o perfil fiscal tenham sido concluídos.
+Se você planeja listar ofertas gratuitas (e não oferecer compras no aplicativo ou usar o Microsoft Advertising), não precisa configurar uma conta de pagamento nem preencher os formulários de impostos. Se você mudar de ideia mais tarde e decidir que deseja vender ofertas (ou complementos), poderá, então, configurar sua conta de pagamento e preencher os formulários de impostos. Você não poderá enviar ofertas ou complementos pagos enquanto sua conta de pagamento e o perfil fiscal não tiverem sido preenchidos.
 
 > [!NOTE]
-> Em determinados mercados, os editores só podem enviar uma oferta gratuita. Sua conta precisa estar registrada em um desses mercados para que você tenha a opção de configurar uma conta de pagamento.
+> Em determinados mercados, os fornecedores podem enviar apenas ofertas gratuitas. Se sua conta estiver registrada em um desses mercados, você não terá a opção de configurar uma conta de pagamento.
 
-Depois de configurar sua conta, há duas coisas que você precisa fazer para poder vender a oferta (ou complementos) no Marketplace comercial:
+Depois de configurar a conta, há duas coisas que você precisa fazer para poder vender a oferta (ou os complementos) no Marketplace comercial:
 
-- [Preencher os formulários de imposto](#tax-forms)
+- [Preencher seus formulários de imposto](#tax-forms)
 - [Configurar sua conta de pagamento](#payout-account)
 
 > [!NOTE]
-> Para obter detalhes sobre como e quando você será pago pelo dinheiro que sua oferta, consulte [recebendo pagamentos](get-paid.md).
+> Para obter detalhes sobre como e quando você receberá o dinheiro que sua oferta gerou, confira [Recebendo pagamentos](get-paid.md).
 
-## <a name="tax-forms"></a>Formulários fiscais
+## <a name="tax-forms"></a>Formulário de impostos
 
-### <a name="fill-out-your-tax-forms"></a>Preencher os formulários de imposto
+### <a name="fill-out-your-tax-forms"></a>Preencher seus formulários de imposto
 
-Primeiro, você precisará criar um perfil de imposto e atribuí-lo aos programas que participa. Você pode criar seu *perfil de imposto* para o Marketplace comercial executando as seguintes etapas:
+Primeiro, você precisa criar um perfil de imposto e atribuí-lo aos programas de que participa. Você pode criar seu *perfil fiscal* para o Marketplace comercial com a conclusão das seguintes etapas:
 
-- Especificar seu país/região de residência e cidadania.
-- Preencher os formulários fiscais apropriados.
+- Especifique seu país/região de residência e nacionalidade.
+- Preencha os formulários de imposto apropriados.
 
-Você pode concluir e enviar seus formulários de impostos eletronicamente no Partner Center; na maioria dos casos, você não precisa imprimir e enviar nenhum formulário.
+Você pode preencher e enviar seus formulários de impostos eletronicamente no Partner Center; na maioria dos casos, você não precisa imprimir e enviar nenhum formulário por correio.
 
 > [!IMPORTANT]
-> Os diversos países e regiões têm requisitos fiscais diferentes. O valor exato que você deve pagar em impostos depende dos países e regiões em que você vende sua oferta. Confira o [contrato do Microsoft Azure Marketplace Publisher](https://go.microsoft.com/fwlink/p/?LinkID=699560) para descobrir em quais países a Microsoft remete as vendas e o imposto sobre o uso em seu nome. Em outros países, dependendo de onde você está registrado, talvez seja necessário remeter vendas e usar o imposto para suas vendas de oferta diretamente para a autoridade fiscal local. Além disso, as receitas de vendas do aplicativo que você recebe podem ser taxadas como renda. Recomendamos que você entre em contato com a autoridade relevante para seu país ou região que possa ajudá-lo a determinar as informações de impostos certas para suas atividades do Marketplace comercial.
+> Países e regiões diferentes têm requisitos de impostos diferentes. O valor exato que você deve pagar em impostos depende dos países e das regiões em que vende suas ofertas. Confira o [Contrato de fornecedor do Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/p/?LinkID=699560) para descobrir em quais países/regiões a Microsoft retém e usa impostos em seu nome. Em outros países/regiões, dependendo de onde você está registrado, talvez seja necessário pagar impostos sobre vendas e sobre o consumo de suas ofertas de venda diretamente para a autoridade tributária local. Além disso, os lucros sobre as vendas de aplicativos que você recebe podem ser tributáveis como renda. Recomendamos que você entre em contato com a autoridade pertinente do seu país ou sua região para ajudá-lo a determinar as informações de impostos incidentes sobre suas atividades de marketplace comercial.
 
-1. No [Partner Center](https://partner.microsoft.com/dashboard), selecione o ícone **configurações de conta** no canto superior direito e, em seguida, selecione configurações do **desenvolvedor**.
+1. No [Partner Center](https://partner.microsoft.com/dashboard), selecione o ícone **Configurações de conta** no canto superior direito e selecione **Configurações do desenvolvedor**.
 
-2. No menu de navegação à esquerda, selecione **pagamento e imposto**e, em seguida, selecione **pagamento e atribuições de impostos**.
+2. No menu de navegação à esquerda, selecione **Pagamento e imposto** e selecione **Atribuições de pagamento e imposto**.
 
-3. Selecione a combinação programa e ID do vendedor para a qual você deseja configurar as informações do imposto.
+3. Selecione a combinação de programa e ID do vendedor para a qual você deseja configurar as informações fiscais.
 
-4. Se você quiser usar um perfil de imposto existente, selecione-o na lista suspensa. Caso contrário, selecione **criar novo perfil** e pressione **Enviar**. Você será levado para a página de perfis de impostos.
+4. Se você quiser usar um perfil fiscal existente, selecione-o na lista suspensa. Caso contrário, selecione **Criar perfil** e pressione **Enviar**. Você será levado para a página de perfis fiscais.
 
-5. Clique no botão **Editar** para editar suas informações de imposto.
+5. Clique no botão **Editar** para editar suas informações fiscais.
 
-6. Selecione o botão de opção apropriado e selecione seu país, se solicitado. Esta etapa determina a entidade de negócios da Microsoft que será usada para fazer pagamentos em sua conta.
+6. Selecione o botão de opção apropriado e, caso seja solicitado, selecione seu país/sua região. Esta etapa determina a pessoa jurídica da Microsoft que será usada para fazer pagamentos em sua conta.
 
-7. Dependendo de suas seleções na etapa 6, você será solicitado a fornecer informações de impostos necessárias para seu país.
+7. Dependendo de suas escolhas na etapa 6, você será solicitado a fornecer informações fiscais exigidas para seu país/sua região.
 
    > [!NOTE]
-   > Independentemente do seu país de residência ou cidadania, você deve preencher Estados Unidos formulários de impostos para vender qualquer oferta ou complemento por meio do Marketplace comercial. Os editores que atendem a determinados requisitos de residência de Estados Unidos devem preencher um formulário IRS W-9. Outros publicadores fora do Estados Unidos devem preencher um formulário IRS W-8. Você pode preencher esses formulários online enquanto preenche seu perfil fiscal.
+   > Independentemente do seu país/sua região de residência ou cidadania, você deve preencher formulários de impostos dos Estados Unidos para vender ofertas ou complementos pelo marketplace comercial. Os fornecedores que atendem a determinados requisitos de residência dos Estados Unidos devem preencher um formulário IRS W-9. Outros fornecedores de fora do Estados Unidos devem preencher um formulário IRS W-8. Você pode preencher esses formulários online enquanto completa seu perfil fiscal.
 
-### <a name="withholding-rates"></a>Retenção de impostos
+### <a name="withholding-rates"></a>Taxas de retenção
 
-As informações que você envia em seus formulários fiscais determinam a taxa de retenção de impostos apropriada. A retenção de impostos aplica-se somente a vendas realizadas nos Estados Unidos; as vendas feitas em locais fora dos EUA não estão sujeitas à retenção. As taxas de retenção variam, mas para a maioria dos publicadores registrando-se fora do Estados Unidos, a taxa padrão é 30%. Você tem a opção de reduzir essa taxa, se o seu país/região tiver firmado um tratado de imposto de renda com os Estados Unidos.
+As informações que você envia em seus formulários de imposto determinam a taxa de retenção de imposto apropriada. A taxa de retenção se aplica somente às vendas que você faz nos Estados Unidos; as vendas feitas em locais fora dos EUA não estão sujeitas à retenção. As taxas de retenção variam, mas para a maioria dos fornecedores que se registram fora do Estados Unidos, a taxa padrão é de 30%. Você tem a opção de reduzir essa taxa se o seu país/sua região tiver acordado um tratado de imposto de renda com os Estados Unidos.
 
 ### <a name="tax-treaty-benefits"></a>Benefícios de tratados fiscais
 
-Se você está fora dos Estados Unidos, talvez possa tirar proveito de benefícios de tratados fiscais. Esses benefícios variam de país para país e podem permitir que você reduza a quantidade de impostos que o Marketplace comercial retém. Você pode reivindicar benefícios de tratados fiscais preenchendo a Parte II do formulário W-8BEN. Recomendamos que você entre em contato com os recursos apropriados em seu país ou sua região para determinar se esses benefícios se aplicam a você.
+Se você estiver fora do Estados Unidos, poderá aproveitar os benefícios de tratados fiscais. Esses benefícios variam de país/região a país/região e podem permitir que você reduza o valor de impostos que o marketplace comercial retém. Você pode reivindicar benefícios de tratados fiscais concluindo a Parte II do formulário W-8BEN. Recomendamos que você se comunique com os recursos apropriados em seu país ou sua região para determinar se esses benefícios se aplicam a você.
 
 > [!NOTE]
-> Não é necessário ter um ITIN (Número de Identificação de Contribuinte Individual) dos Estados Unidos para receber pagamentos da Microsoft ou reivindicar benefícios de tratados fiscais.
+> Um ITIN (número de identificação de contribuinte individual) dos Estados Unidos não é necessário para receber pagamentos da Microsoft nem para reivindicar benefícios de tratados de impostos.
 
 ## <a name="payout-account"></a>Conta de pagamento
 
-A conta de pagamento é a conta bancária para a qual enviamos a receita de suas vendas. Você pode exibir todas as contas de pagamento inseridas na página perfil.
+Uma conta de pagamento é a conta bancária para onde enviamos os rendimentos de suas vendas. Você pode exibir todas as contas de pagamento inseridas na página Perfil.
 
 > [!NOTE]
-> Em alguns mercados, o PayPal pode ser usado para sua conta de pagamento. Para saber se o PayPal tem suporte para um mercado específico, confira [limites de pagamento, métodos e períodos de tempo](payment-thresholds-methods-timeframes.md) e as [informações de PayPal](#paypal-info) abaixo para obter mais detalhes.
+> Em alguns mercados, o PayPal pode ser usado como conta de pagamento. Para saber se o PayPal é aceito em um mercado específico, confira [Limites, formas e cronogramas de pagamento](payment-thresholds-methods-timeframes.md) e as [informações do PayPal](#paypal-info) abaixo para obter mais detalhes.
 
 ### <a name="create-a-payment-profile"></a>Criar um perfil de pagamento
 
-1. No [Partner Center](https://partner.microsoft.com/dashboard), selecione o ícone de engrenagem **configurações** no canto superior direito e, em seguida, selecione **configurações do desenvolvedor**.
-2. Abaixo do *pagamento e* do cabeçalho do imposto, selecione **pagamento e atribuição de perfil de imposto**.
+1. No [Partner Center](https://partner.microsoft.com/dashboard), selecione o ícone de engrenagem **Configurações** no canto superior direito e selecione **Configurações do desenvolvedor**.
+2. Embaixo do cabeçalho *Pagamento e imposto*, selecione **Atribuição de perfil de pagamento e imposto**.
 
     > [!NOTE]
-    > Como se tratam de informações confidenciais, talvez você seja solicitado a entrar novamente.
+    > Como essas informações são confidenciais, você pode ser solicitado a entrar novamente.
 
-3. Selecione o método de pagamento que você deseja configurar.
+3. Selecione a forma de pagamento que você deseja configurar.
 
-4. Selecione um perfil de pagamento existente ou clique em **criar um novo perfil de pagamento** para criar um novo perfil para o método de pagamento escolhido.
+4. Selecione um perfil de pagamento existente ou clique em **Criar perfil de pagamento** a fim de criar um perfil para a forma de pagamento escolhida.
 
-### <a name="create-a-bank-based-payment-profile"></a>Criar um perfil de pagamento baseado no banco
+### <a name="create-a-bank-based-payment-profile"></a>Criar um perfil de pagamento bancário
 
-Se você optou por usar uma conta bancária para receber pagamentos, você concluirá o processo a seguir para configurar sua conta bancária.
+Se optou por usar uma conta bancária para receber pagamentos, você concluirá o processo a seguir para configurar sua conta bancária.
 
-1. Na página *perfil bancário* , forneça as informações necessárias sobre seu banco.
+1. Na página *Perfil bancário*, forneça as informações necessárias sobre seu banco.
 2. Forneça os detalhes da sua conta bancária.
 
     > [!NOTE]
-    > Os campos que você usa para inserir as informações da conta aceitam apenas caracteres alfanuméricos.
+    > Os campos que você usa para fornecer as informações da sua conta aceitam apenas caracteres alfanuméricos.
 
 3. Forneça os detalhes do beneficiário.
-4. De volta à página *atribuição de perfil* , selecione a moeda que você gostaria de usar ao emitir seus pagamentos.
+4. De volta à página *Atribuição de perfil*, selecione a moeda que você gostaria de usar ao emitir seus pagamentos.
 
     > [!WARNING]
     > Verifique se seu banco aceita a moeda de pagamento que você selecionou.
 
-5. Você precisará selecionar um perfil de pagamento para cada programa no qual você participa, embora possa usar o mesmo perfil para vários programas.
+5. Você precisará selecionar um perfil de pagamento para cada programa do qual participa, mas pode usar o mesmo perfil em vários programas.
 
-6. Clique em enviar para salvar as alterações.
+6. Clique em Enviar para salvar as alterações.
 
    > [!NOTE]
-   > A Microsoft pode levar até 48 horas para validar as informações em seu perfil. Quando esse processo estiver concluído, o *status de verificação* mostrará **concluído**
+   > A Microsoft pode levar até 48 horas para validar as informações em seu perfil. Quando esse processo for concluído, o *status de verificação* aparecerá como **Concluído**
 
-Para garantir que seu pagamento seja bem-sucedido, verifique se:
+Para ter certeza de que seu pagamento será bem-sucedido, verifique se:
 
-- O **nome do titular da conta** inserido para sua conta de pagamento no Partner Center deve ter exatamente o mesmo nome associado à sua conta bancária. Por exemplo, se seu nome da conta bancária contiver um nome do meio, adicione-o ao **Nome do titular da conta**.
+- O **Nome do titular da conta** inserido para sua conta de pagamento no Partner Center tem exatamente o mesmo nome associado à sua conta bancária. Por exemplo, se o nome de sua conta bancária tiver um segundo nome, adicione um nome do meio ao seu **Nome de titular da conta**.
 - Os pagamentos são transferidos diretamente da Microsoft para sua conta bancária na moeda USD.
-- As informações bancárias inseridas no Partner Center em caracteres latinos são convertidas em caracteres cirílico.
+- As informações bancárias inseridas no Partner Center em caracteres latinos serão convertidas em caracteres cirílicos.
 
 ### <a name="editing-existing-payment-profiles"></a>Editando perfis de pagamento existentes
 
-Você pode editar os perfis de pagamento existentes se precisar fazer alterações ou corrigir informações incorretas.
+Você poderá editar os perfis de pagamento existentes se precisar fazer alterações ou corrigir informações incorretas.
 
-1. No [Partner Center](https://partner.microsoft.com/dashboard), selecione o ícone de engrenagem **configurações** no canto superior direito e, em seguida, selecione **configurações do desenvolvedor**.
+1. No [Partner Center](https://partner.microsoft.com/dashboard), selecione o ícone de engrenagem **Configurações** no canto superior direito e selecione **Configurações do desenvolvedor**.
 
-2. Abaixo do *pagamento e* do cabeçalho do imposto, selecione **pagamento e perfis de impostos**.
+2. Embaixo do cabeçalho *Pagamento e imposto*, selecione **Perfis de pagamento e imposto**.
 
-3. Seus perfis de pagamento serão listados junto com seu status. Localize o perfil que você deseja editar e clique em **Editar** na extrema direita
+3. Seus perfis de pagamento serão listados junto com o status. Localize o perfil que você deseja editar e clique em **Editar** à direita
 
 > [!IMPORTANT]
-> A alteração da conta de pagamento pode atrasar os pagamentos em até um ciclo de pagamento. Esse atraso ocorre porque precisamos confirmar a alteração da conta, como fizemos na primeira configuração da conta de pagamento. Você ainda receberá o valor total após a verificação de sua conta; os pagamentos atrasados do ciclo de pagamento atual serão adicionados ao próximo. Consulte [Obtendo pagamento](get-paid.md) para saber mais.
+> A alteração da conta de pagamento pode atrasar os pagamentos em até um ciclo de pagamento. Esse atraso ocorre porque precisamos confirmar a alteração da conta, como fizemos na primeira configuração da conta de pagamento. Você ainda receberá o valor total após a verificação de sua conta; os pagamentos atrasados do ciclo de pagamento atual serão adicionados ao próximo. Confira [Recebendo pagamentos](get-paid.md) para obter mais informações.
 
-### <a name="paypal-info"></a>Informações do PayPal
+### <a name="paypal-info"></a>Informações de PayPal
 
-Em alguns países e regiões, você pode criar uma conta de pagamento inserindo suas informações do PayPal. No entanto, antes de escolher o PayPal como opção de conta de pagamento:
+Em alguns países e regiões, você pode criar uma conta de pagamento inserindo suas informações do PayPal. No entanto, antes de escolher o PayPal como uma opção de conta de pagamento:
 
-- Verifique os [limites de pagamento, os métodos e os períodos de tempo](payment-thresholds-methods-timeframes.md) para confirmar se o Paypal é um método de pagamento com suporte em seu país ou região.
-- Leia as perguntas frequentes a seguir. Dependendo da situação, o PayPal pode não ser a melhor opção de conta de pagamento para você e uma conta bancária pode ser preferencial.
+- Verifique os [Limites, formas e cronogramas de pagamento](payment-thresholds-methods-timeframes.md) para confirmar se o PayPal é uma forma de pagamento com suporte em seu país ou região.
+- Examine as perguntas frequentes a seguir. Dependendo de sua situação, o PayPal pode não ser a melhor opção de conta de pagamento para você, e será melhor usar uma conta bancária.
 
 Perguntas comuns sobre como usar o PayPal como forma de pagamento:
 
-- **Que configurações do PayPal preciso ter para receber pagamentos?** Verifique se sua conta do PayPal não bloqueia pagamentos de eCheck. Essa configuração é gerenciada na página Preferências de Recebimento de Pagamento do PayPal. Consulte a [página de configuração da conta do PayPal](https://go.microsoft.com/fwlink/p/?linkid=513139) para saber mais.
+- **Quais configurações do PayPal preciso ter para poder receber pagamentos?** Verifique se sua conta do PayPal não bloqueia pagamentos de eCheck. Essa configuração é gerenciada na página Preferências de Recebimento de Pagamento do PayPal. Confira a [página de configuração da conta do PayPal](https://go.microsoft.com/fwlink/p/?linkid=513139) para obter mais informações.
 
-- **Meu país/região tem suporte?** Confira [limites de pagamento, métodos e períodos de tempo](payment-thresholds-methods-timeframes.md) para descobrir onde o Paypal é um método de pagamento com suporte.
+- **Meu País/minha região têm Suporte?** Confira [Limites, formas e cronogramas de pagamento](payment-thresholds-methods-timeframes.md) para descobrir onde o PayPal é uma forma de pagamento com suporte.
 
-- **Minha conta do PayPal precisa ser registrada no mesmo país/região que minha conta do centro de parceiros?** Não. Quando você configura uma conta do PayPal, é possível aceitar a configuração padrão. Você não deve ter problemas com outros países/regiões e moedas, a menos que tenha pagamento bloqueado em algumas moedas. Essa configuração é gerenciada na página Preferências de Recebimento de Pagamento do PayPal.
+- **Minha conta do PayPal precisa estar registrada no mesmo país/região que minha conta do Partner Center?** Não. Ao configurar uma conta do PayPal, você poderá aceitar a configuração padrão. Você não deve ter problemas com outros países/regiões e moedas, a menos que tenha bloqueado o pagamento em algumas moedas. Essa configuração é gerenciada na página Preferências de Recebimento de Pagamento do PayPal.
 
-- **Preciso aceitar os pagamentos do PayPal manualmente?** Não. As contas do PayPal são configuradas por padrão para exigir que os usuários aceitem pagamentos manualmente, o que significa que se você não aceitar o pagamento dentro de 30 dias, ele é devolvido. Você pode alterar essa configuração desativando “Perguntar-me” na página Mais Configurações do PayPal.
+- **Preciso aceitar os pagamentos do PayPal manualmente?** Não. As contas do PayPal são definidas por padrão para exigir que os usuários aceitem pagamentos manualmente, o que significa que se você não aceitar o pagamento dentro de 30 dias, ele será devolvido. Você pode alterar essa configuração desligando a opção "Pergunte-me" na página Mais configurações do PayPal.
 
-- **A quais moedas o PayPal dá suporte?** Consulte a [página de suporte do PayPal](https://developer.paypal.com/docs/classic/api/currency-codes/#paypal) para a lista atual
+- **A quais moedas o PayPal dá suporte?** Consulte a página de suporte do [PayPal](https://developer.paypal.com/docs/classic/api/currency-codes/#paypal) para obter a lista atual
 
 ### <a name="specific-requirements-for-certain-countriesregions"></a>Requisitos específicos para determinados países/regiões
 
-Em alguns países e regiões, requisitos adicionais para contas de pagamento devem ser seguidos. Se você for um residente do Paquistão, da Rússia ou da Ucrânia, observe os requisitos a seguir.
+Em alguns países e regiões, é necessário atender a requisitos adicionais de contas de pagamento. Se você for um residente do Paquistão, da Rússia ou da Ucrânia, observe os requisitos a seguir.
 
 #### <a name="pakistan"></a>Paquistão
 
-Formulário-R é uma exigência regulamentar bancária do Paquistão. Ele é usado para indicar a finalidade e a razão para o recebimento de fundos do exterior. Portanto, a qualquer momento que você tiver direito a um pagamento mensal da Microsoft, precisará enviar um formulário-R ao seu banco para que o pagamento seja liberado em sua conta. Entre em contato com sua filial bancária local para obter instruções sobre como obter uma cópia do formulário-R.
+O Formulário-R é um requisito legal do sistema bancário do Paquistão. Ele é usado para indicar a finalidade e o motivo do recebimento de fundos do exterior. Portanto, sempre que você estiver qualificado para receber um pagamento mensal da Microsoft, será necessário enviar um formulário-R ao seu banco antes que o pagamento possa ser liberado na sua conta. Entre em contato com sua agência bancária local para obter instruções sobre como obter uma cópia do Formulário-R.
 
-Você precisará enviar um formulário-R ao seu banco a cada mês que você tiver direito a um pagamento. Por exemplo, se você espera receber um pagamento todos os meses do ano, precisará enviar um formulário-R 12 vezes (uma vez por mês).
+Você precisará enviar um Formulário-R ao seu banco todos os meses em que estiver qualificado para receber um pagamento. Por exemplo, se você espera receber um pagamento a cada mês do ano, será necessário enviar um Formulário-R 12 vezes (uma vez por mês).
 
-Uma vez enviado o pagamento ao seu banco, você tem 30 dias para enviar um formulário-R. Se não for enviado no prazo de 30 dias, os fundos serão devolvidos para a Microsoft.
+Depois que o pagamento tiver sido enviado ao seu banco, você terá 30 dias para enviar um Formulário-R. Se ele não for enviado dentro de 30 dias, os fundos serão devolvidos à Microsoft.
 
 #### <a name="russia"></a>Rússia
 
-Se você for um editor que mora na Rússia, talvez seja necessário fornecer documentação ao seu banco antes que seu banco seja depositado nos fundos em sua conta. Quando você estiver qualificado para o pagamento, iremos fornecer-lhe a seguinte documentação em uma mensagem por email:
+Se você for um fornecedor que mora na Rússia, talvez seja necessário enviar documentação ao seu banco antes que ele deposite os fundos na sua conta. Quando você estiver qualificado para ser pago, enviaremos a seguinte documentação em uma mensagem de email:
 
-- Certificado de Aceitação (AC) – contém o montante do pagamento transferido a sua conta.
-- [Microsoft Azure Marketplace contrato de editor](https://go.microsoft.com/fwlink/p/?LinkID=699560) – uma cópia assinada do contrato do Publicador que precisa ser assinada como contador.
+- Certificado de aceitação (AC): contém o valor do pagamento que está sendo transferido para sua conta.
+- [Contrato de Fornecedor do Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/p/?LinkID=699560): uma cópia assinada do contrato de fornecedor que precisa ter contra-assinatura.
 
-Para garantir que seu pagamento seja bem-sucedido, verifique se:
+Para ter certeza de que seu pagamento será bem-sucedido, verifique se:
 
-- O **nome do titular da conta** inserido para sua conta de pagamento no Partner Center deve ter exatamente o mesmo nome associado à sua conta bancária. Por exemplo, se seu nome da conta bancária contiver um nome do meio, adicione-o ao **Nome do titular da conta**.
-- Os pagamentos são transferidos diretamente da Microsoft para sua conta bancária na moeda rublo (RUB).
-- As informações bancárias inseridas no Partner Center em caracteres latinos são convertidas em caracteres cirílico.
-- Os pagamentos devem ser efetuados em uma conta bancária e não em um cartão bancário.
+- O **Nome do titular da conta** inserido para sua conta de pagamento no Partner Center tem exatamente o mesmo nome associado à sua conta bancária. Por exemplo, se o nome de sua conta bancária tiver um segundo nome, adicione um nome do meio ao seu **Nome de titular da conta**.
+- Os pagamentos são transferidos diretamente da Microsoft para sua conta bancária em rublos (RUB).
+- As informações bancárias inseridas no Partner Center em caracteres latinos serão convertidas em caracteres cirílicos.
+- Os pagamentos precisam ser feitos em uma conta bancária e não em um cartão bancário.
 
 #### <a name="ukraine"></a>Ucrânia
 
-Se você for um editor que mora na Ucrânia, talvez seja necessário fornecer a documentação ao seu banco antes que seu banco seja depositado nos fundos em sua conta. Quando você estiver qualificado para o pagamento, iremos fornecer-lhe a seguinte documentação em uma mensagem por email:
+Se você for um fornecedor que mora na Ucrânia, talvez seja necessário enviar documentação ao seu banco antes que ele deposite fundos na sua conta. Quando você estiver qualificado para ser pago, enviaremos a seguinte documentação em uma mensagem de email:
 
-- Certificado de Aceitação (AC) – contém o montante do pagamento transferido a sua conta.
-- [Microsoft Azure Marketplace contrato de editor](https://go.microsoft.com/fwlink/p/?LinkID=699560) – uma cópia assinada do contrato do Publicador que precisa ser assinada como contador.
-- Acordo de Alteração (AA) - este documento pode ser usado por seu banco para ajudar a identificar os seus fundos de pagamento.
+- Certificado de aceitação (AC): contém o valor do pagamento que está sendo transferido para sua conta.
+- [Contrato de Fornecedor do Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/p/?LinkID=699560): uma cópia assinada do contrato de fornecedor que precisa ter contra-assinatura.
+- Alteração contratual (AA): documento que pode ser usado pelo seu banco para ajudar a identificar seus fundos de pagamento.
 
-A Microsoft fornece os três documentos quando é feita a tentativa de efetuar seu primeiro pagamento. Para todos os pagamentos subsequentes, você só receberá o documento AC. Mantenha os documentos ADA e AA caso você precise deles para receber pagamentos futuros de seu banco.
+A Microsoft fornece todos os três documentos na primeira tentativa de pagamento. Nos pagamentos subsequentes, você receberá apenas o documento AC. Mantenha os documentos ADA e AA caso você precise deles para receber pagamentos futuros do seu banco.
 
 ### <a name="create-a-paypal-payment-profile"></a>Criar um perfil de pagamento do PayPal
 
-Se você optou por usar uma conta bancária para receber pagamentos, você concluirá o processo a seguir para configurar sua conta bancária.
+Se optou por usar uma conta bancária para receber pagamentos, você concluirá o processo a seguir para configurar sua conta bancária.
 
-1. Na página *paypal* , forneça as informações necessárias sobre sua conta do PayPal.
+1. Na página *PayPal*, forneça as informações necessárias sobre sua conta do PayPal.
 2. Forneça os detalhes da sua conta do PayPal.
 
     > [!NOTE]
-    > Os campos que você usa para inserir as informações da conta aceitam apenas caracteres alfanuméricos.
+    > Os campos que você usa para fornecer as informações da sua conta aceitam apenas caracteres alfanuméricos.
 
 3. Forneça os detalhes do beneficiário.
-4. De volta à página *atribuição de perfil* , selecione a moeda que você gostaria de usar ao emitir seus pagamentos.
-5. Você precisará selecionar um perfil de pagamento para cada programa no qual você participa, embora possa usar o mesmo perfil para vários programas.
-6. Clique em enviar para salvar as alterações.
+4. De volta à página *Atribuição de perfil*, selecione a moeda que você gostaria de usar ao emitir seus pagamentos.
+5. Você precisará selecionar um perfil de pagamento para cada programa do qual participa, mas pode usar o mesmo perfil em vários programas.
+6. Clique em Enviar para salvar as alterações.
 
 ## <a name="next-steps"></a>Próximas etapas
 

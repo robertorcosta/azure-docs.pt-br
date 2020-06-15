@@ -213,8 +213,12 @@
           href: configure-customer-managed-key.md
     - name: Solucionar problemas
       items:
-        - name: Guia de Solução de Problemas
+        - name: Solucionar problemas de conectividade
           href: troubleshooting-guide.md
+        - name: Solucionar problemas de autenticação e autorização
+          href: troubleshoot-authentication-authorization.md
+        - name: Guia de solução de problemas do Kafka para os Hubs de Eventos
+          href: apache-kafka-troubleshooting-guide.md
         - name: Exceções .NET
           href: event-hubs-messaging-exceptions.md
         - name: Exceções do Resource Manager

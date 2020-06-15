@@ -1,6 +1,6 @@
 ---
-title: Observador de rede – criar logs de fluxo de NSG usando um modelo de Azure Resource Manager
-description: Use um modelo de Azure Resource Manager e o PowerShell para configurar facilmente os logs de fluxo do NSG.
+title: Observador de Rede - Crie logs do fluxo NSG usando um modelo do Azure Resource Manager
+description: Use um modelo do Azure Resource Manager e o PowerShell para configurar facilmente os logs do fluxo NSG.
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/26/2020
 ms.author: damendo
-ms.openlocfilehash: 104311904b99cadbbc8c0267a98f2709443608ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7b7580843bc5ad90ebc394c41e81f4d16f51ccb1
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80891451"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701754"
 ---
-# <a name="configure-nsg-flow-logs-from-an-azure-resource-manager-template"></a>Configurar logs de fluxo de NSG de um modelo de Azure Resource Manager
+# <a name="configure-nsg-flow-logs-from-an-azure-resource-manager-template"></a>Configurar os logs do fluxo NSG a partir de um modelo do Azure Resource Manager
 
 > [!div class="op_single_selector"]
 > - [Azure portal](network-watcher-nsg-flow-logging-portal.md)
@@ -31,15 +31,15 @@ ms.locfileid: "80891451"
 > - [Azure Resource Manager](network-watcher-nsg-flow-logging-azure-resource-manager.md)
 
 
-[Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) é o modo nativo e avançado do Azure para gerenciar sua [Infraestrutura como código](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code).
+O [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) é o modo nativo e poderoso do Azure para gerenciar a [infraestrutura como código](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code).
 
-Este artigo mostra como habilitar logs de [fluxo NSG](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview) programaticamente usando um modelo de Azure Resource Manager e Azure PowerShell. Começamos fornecendo uma visão geral das propriedades do objeto de log de fluxo NSG, seguido por alguns modelos de exemplo. Em seguida, usamos o modelo de implantação usando uma instância local do PowerShell.
+Este artigo mostra como habilitar os [logs do fluxo NSG](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview) programaticamente usando um modelo do Azure Resource Manager e o Azure PowerShell. Começamos fornecendo uma visão geral das propriedades do objeto de log do fluxo NSG, seguido por alguns modelos de amostra. Em seguida, implantamos o modelo usando uma instância do PowerShell local.
 
 
-## <a name="nsg-flow-logs-object"></a>Objeto de logs de fluxo NSG
+## <a name="nsg-flow-logs-object"></a>Objeto de logs do fluxo NSG
 
-O objeto de logs de fluxo NSG com todos os parâmetros é mostrado abaixo.
-Para obter uma visão geral completa das propriedades, você pode ler a [referência de modelo de logs de fluxo NSG](https://docs.microsoft.com/azure/templates/microsoft.network/2019-11-01/networkwatchers/flowlogs#RetentionPolicyParameters).
+O objeto de logs do fluxo NSG com todos os parâmetros é mostrado abaixo.
+Para obter uma visão geral completa das propriedades, você pode ler a [referência do modelo dos logs do fluxo NSG](https://docs.microsoft.com/azure/templates/microsoft.network/2019-11-01/networkwatchers/flowlogs#RetentionPolicyParameters).
 
 ```json
 {
@@ -69,20 +69,20 @@ Para obter uma visão geral completa das propriedades, você pode ler a [referê
     }
   }
 ```
-Para criar um recurso Microsoft. Network/networkWatchers/flowLogs, adicione o JSON acima à seção de recursos do seu modelo.
+Para criar um recurso Microsoft.Network/networkWatchers/flowLogs, adicione o JSON acima à seção de recursos do seu modelo.
 
 
 ## <a name="creating-your-template"></a>Criando seu modelo
 
-Se você estiver usando modelos de Azure Resource Manager pela primeira vez, poderá aprender mais sobre eles usando os links abaixo.
+Se você estiver usando modelos do Azure Resource Manager pela primeira vez, use os links abaixo para obter mais informações.
 
 * [Implantar recursos com modelos do Resource Manager e o Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell#deploy-local-template)
-* [Tutorial: criar e implantar seu primeiro modelo de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-powershell)
+* [Tutorial: Criar e implantar seu primeiro modelo do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-powershell)
 
 
-Abaixo estão dois exemplos de modelos completos para configurar os logs de fluxo do NSG.
+Abaixo temos dois exemplos de modelos completos para configurar os logs do fluxo NSG.
 
-**Exemplo 1**: a versão mais simples do acima com os parâmetros mínimos passados. O modelo abaixo habilita os logs de fluxo NSG em um NSG de destino e os armazena em uma determinada conta de armazenamento.
+**Exemplo 1**:  A versão mais simples do acima com os parâmetros mínimos passados. O modelo abaixo habilita os logs do fluxo NSG em um NSG de destino e os armazena em uma determinada conta de armazenamento.
 
 ```json
 {
@@ -110,11 +110,11 @@ Abaixo estão dois exemplos de modelos completos para configurar os logs de flux
 ```
 
 > [!NOTE]
-> * O nome do recurso tem o formato "Parent Resource>/Child Resource". Aqui, o recurso pai é a instância do observador de rede regional (formato<RegionName>: NetworkWatcher_. Exemplo: NetworkWatcher_centraluseuap)
-> * targetResourceId é a ID de recurso do NSG de destino
-> * storageid é a ID de recurso da conta de armazenamento de destino
+> * O nome do recurso tem o formato “Recurso pai_Recurso filho”. Aqui, o recurso pai é a instância do Observador de Rede regional (formato: ObservadordeRede_NomedaRegião. Exemplo: ObservadordeRede_euacentraleuap)
+> * targetResourceId é a ID do recurso do NSG de destino
+> * storageId é a ID do recurso da conta de armazenamento de destino
 
-**Exemplo 2**: os modelos a seguir habilitam os logs de fluxo do NSG (versão 2) com uma retenção por 5 dias. Habilitar Análise de Tráfego com um intervalo de processamento de 10 minutos.
+**Exemplo 2**: Os modelos a seguir habilitam os logs do fluxo NSG (versão 2) com retenção por 5 dias. Habilitando a Análise de Tráfego com um intervalo de processamento de 10 minutos.
 
 ```json
 {
@@ -153,28 +153,33 @@ Abaixo estão dois exemplos de modelos completos para configurar os logs de flux
 }
 ```
 
-## <a name="deploying-your-azure-resource-manager-template"></a>Implantando seu modelo de Azure Resource Manager
+## <a name="deploying-your-azure-resource-manager-template"></a>Implantando o modelo do Azure Resource Manager
 
-Este tutorial pressupõe que você tenha um grupo de recursos existente e um NSG você possa habilitar o log de fluxo.
-Você pode salvar qualquer um dos modelos de exemplo acima localmente `azuredeploy.json`como. Atualize os valores de propriedade para que eles apontem para recursos válidos em sua assinatura.
+Este tutorial pressupõe que você tem um grupo de Recursos existente e um NSG que pode habilitar o log do fluxo.
+Você pode salvar qualquer um dos modelos do exemplo acima localmente como `azuredeploy.json`. Atualize os valores da propriedade para que eles apontem para recursos válidos em sua assinatura.
 
 Para implantar o modelo, execute o seguinte comando no PowerShell.
 ```azurepowershell
+$context = Get-AzSubscription -SubscriptionId 56acfbd6-vc72-43e9-831f-bcdb6f2c5505
+Set-AzContext $context
 New-AzResourceGroupDeployment -Name EnableFlowLog -ResourceGroupName NetworkWatcherRG `
     -TemplateFile "C:\MyTemplates\azuredeploy.json"
 ```
 
+> [!NOTE]
+> Os comandos acima estão implantando um recurso no grupo de recursos NetworkWatcherRG e não no grupo de recursos que contém o NSG
 
-## <a name="verifying-your-deployment"></a>Verificando sua implantação
 
-Há duas maneiras de verificar se sua implantação foi bem-sucedida. O console do PowerShell deve mostrar "ProvisioningState" como "êxito". Além disso, você pode visitar a [página do portal de logs de fluxo do NSG](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) para confirmar suas alterações. Se houver problemas com a implantação, dê uma olhada em [solucionar erros comuns de implantação do Azure com o Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/common-deployment-errors).
+## <a name="verifying-your-deployment"></a>Verificando a implantação
 
-## <a name="deleting-your-resource"></a>Excluindo seu recurso
-O Azure permite a exclusão de recursos por meio do modo de implantação "completo". Para excluir um recurso de logs de fluxo, especifique uma implantação no modo completo sem incluir o recurso que você deseja excluir. Leia mais sobre o [modo de implantação completo](https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-modes#complete-mode)
+Há algumas maneiras de verificar se sua implantação foi bem-sucedida. O console do PowerShell deve mostrar “ProvisioningState” como “Bem-sucedido”. Além disso, você pode visitar a [página do portal de logs do fluxo NSG](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) para confirmar suas alterações. Se houver problemas com a implantação, consulte [Solução de problemas comuns de implantação do Azure com o Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/common-deployment-errors).
+
+## <a name="deleting-your-resource"></a>Excluindo o recurso
+O Azure permite a exclusão de recursos por meio do modo de implantação “Completo”. Para excluir um recurso de logs do fluxo, especifique uma implantação no modo Completo sem incluir o recurso que você deseja excluir. Leia mais sobre o [Modo de implantação completa](https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-modes#complete-mode)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como visualizar seus dados de fluxo do NSG usando:
-* [Power BI da Microsoft](network-watcher-visualize-nsg-flow-logs-power-bi.md)
-* [Ferramentas de código aberto](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
+Aprenda a visualizar os dados do fluxo NSG usando:
+* [Microsoft Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+* [Ferramentas de software livre](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 * [Análise de Tráfego do Azure](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)

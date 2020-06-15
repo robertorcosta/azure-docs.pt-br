@@ -1,6 +1,6 @@
 ---
-title: Solução de problemas da conta de automação do Azure
-description: Saiba como solucionar problemas de uma conta do Azure e solucioná-los.
+title: Solução de problemas de conta da Automação do Azure
+description: Este artigo informa como solucionar problemas com uma conta do Azure.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -8,22 +8,22 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 6a7defdaa9b4b0f0b3580a3ac6b1a0487434a97c
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
-ms.translationtype: MT
+ms.openlocfilehash: bebc89514da7f28015da5cb145ae50bf3fccdb6a
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864123"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680090"
 ---
-# <a name="troubleshoot-an-azure-automation-account"></a>Solucionar problemas de uma conta de automação do Azure
+# <a name="troubleshoot-azure-automation-account-issues"></a>Solução de problemas de conta da Automação do Azure
 
-Este artigo aborda soluções para problemas que você pode encontrar ao usar uma conta de automação do Azure. Para obter informações gerais sobre contas de automação, consulte [criar uma conta do Azure](../automation-quickstart-create-account.md).
+Este artigo aborda soluções para problemas que você pode encontrar ao usar uma conta de Automação do Azure. Confira informações gerais sobre contas de automação em [Visão geral da autenticação da conta de Automação do Azure](../automation-security-overview.md).
 
-## <a name="scenario-unable-to-register-automation-resource-provider-for-subscriptions"></a><a name="rp-register"></a>Cenário: não é possível registrar o provedor de recursos de automação para assinaturas
+## <a name="scenario-unable-to-register-automation-resource-provider-for-subscriptions"></a><a name="rp-register"></a>Cenário: não é possível registrar o Provedor de Recursos de Automação para assinaturas
 
 ### <a name="issue"></a>Problema
 
-Ao trabalhar com soluções de gerenciamento em sua conta de automação, você encontrará o seguinte erro:
+Ao trabalhar em sua conta de automação com recursos de gerenciamento como, por exemplo, o Gerenciamento de Atualizações, você encontra o seguinte erro:
 
 ```error
 Error details: Unable to register Automation Resource Provider for subscriptions:
@@ -31,26 +31,26 @@ Error details: Unable to register Automation Resource Provider for subscriptions
 
 ### <a name="cause"></a>Causa
 
-O provedor de recursos de automação não está registrado na assinatura.
+O Provedor de Recursos de Automação não está registrado na assinatura.
 
 ### <a name="resolution"></a>Resolução
 
-Para registrar o provedor de recursos de automação, siga estas etapas na portal do Azure:
+Para registrar o Provedor de Recursos de Automação, execute as seguintes etapas no portal do Azure:
 
 1. No navegador, acesse o [portal do Azure](https://portal.azure.com).
 
-2. Vá para **assinaturas**e selecione sua assinatura.   
+2. Em **Assinaturas**, selecione sua assinatura.   
 
-3. Em **configurações**, selecione **provedores de recursos**.
+3. Em **Configurações**, selecione **Provedores de Recursos**.
 
-4. Na lista de provedores de recursos, verifique se o provedor de recursos **Microsoft. Automation** está registrado.
+4. Na lista de provedores de recursos, verifique se o provedor de recursos **Microsoft.Automation** está registrado.
 
-5. Se o provedor não estiver listado, registre-o conforme descrito em [resolver erros para o registro do provedor de recursos](/azure/azure-resource-manager/resource-manager-register-provider-errors).
+5. Se o provedor não estiver listado, registre-o conforme descrito em [Resolver erros de registro do provedor de recursos](/azure/azure-resource-manager/resource-manager-register-provider-errors).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se este artigo não resolver o problema, tente um dos seguintes canais para obter suporte adicional:
+Se este artigo não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
 
-* Obtenha respostas de especialistas do Azure por meio dos [fóruns do Azure](https://azure.microsoft.com/support/forums/).
-* Conecte- [@AzureSupport](https://twitter.com/azuresupport)se com. Esta é a conta de Microsoft Azure oficial para conectar a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
-* Registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/)e selecione **obter suporte**.
+* Obtenha respostas de especialistas do Azure nos [Fóruns do Azure](https://azure.microsoft.com/support/forums/).
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport). Esta é a conta oficial do Microsoft Azure para conectar-se aos recursos certos de respostas, suporte e especialistas da comunidade do Azure.
+* Registrar um incidente de suporte do Azure. Acesse o [site de Suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **Obter suporte**.

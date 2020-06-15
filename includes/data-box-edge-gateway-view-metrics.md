@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: e02c0b86cd542b3ea12914e35a6577cf4e9b43d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9ac7966538102273b91d6b7f15b90e18ceedd421
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67172373"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779926"
 ---
 Exiba também as métricas para monitorar o desempenho do dispositivo e, em alguns casos, para solução de problemas do dispositivo.
 
@@ -27,25 +27,7 @@ Execute as etapas a seguir no portal do Azure para criar um gráfico para as mé
 
     ![Escolher outro recurso](media/data-box-edge-gateway-view-metrics/view-metrics-3.png)
 
-3. Na lista suspensa, selecione uma métrica para monitorar seu dispositivo. As métricas podem ser **Métricas de capacidade** ou **Métricas de transação**. As métricas de capacidade estão relacionadas à capacidade do dispositivo. As métricas de transação estão relacionadas a operações de leitura e gravação no Armazenamento do Azure.
-
-    |Métricas de capacidade                     |Descrição  |
-    |-------------------------------------|-------------|
-    |**Capacidade disponível**               | Refere-se ao tamanho dos dados que podem ser gravados no dispositivo. Em outras palavras, essa é a capacidade que pode ser disponibilizada no dispositivo. <br></br>Libere a capacidade do dispositivo excluindo a cópia local dos arquivos que têm uma cópia no dispositivo, bem como na nuvem.        |
-    |**Capacidade total**                   | Refere-se ao total de bytes no dispositivo no qual os dados serão gravados. Isso também é chamado de tamanho total do cache local. <br></br> Agora você pode aumentar a capacidade de um dispositivo virtual existente adicionando um disco de dados. Adicione um disco de dados por meio do gerenciamento do hipervisor à VM e, em seguida, reinicie a VM. O pool de armazenamento local do dispositivo de gateway será expandido para acomodar o disco de dados recém-adicionado. <br></br>Para obter mais informações, acesse [Adicionar um disco rígido a uma máquina virtual do Hyper-V](https://www.youtube.com/watch?v=EWdqUw9tTe4). |
-    
-    |Métricas de transação              | Descrição         |
-    |-------------------------------------|---------|
-    |**Bytes carregados na nuvem (dispositivo)**    | Soma de todos os bytes carregados em todos os compartilhamentos no dispositivo        |
-    |**Bytes carregados na nuvem (compartilhamento)**     | Bytes carregados por compartilhamento. Isso pode ser: <br></br> Méd., que é a (Soma de todos os bytes carregados por compartilhamento/Número de compartilhamentos)  <br></br>Máx., que é o número máximo de bytes carregados de um compartilhamento <br></br>Mín., que é o número mínimo de bytes carregados de um compartilhamento      |
-    |**Taxa de transferência de downloads na nuvem (compartilhamento)**| Bytes baixados por compartilhamento. Isso pode ser: <br></br> Méd., que é a (Soma de todos os bytes lidos ou baixados em um compartilhamento/Número de compartilhamentos) <br></br> Máx., que é o número máximo de bytes baixados de um compartilhamento<br></br> e Mín., que é o número mínimo de bytes baixados de um compartilhamento  |
-    |**Taxa de transferência de leituras na nuvem**            | Soma de todos os bytes lidos na nuvem em todos os compartilhamentos no dispositivo     |
-    |**Taxa de transferência de uploads na nuvem**          | Soma de todos os bytes gravados na nuvem em todos os compartilhamentos no dispositivo     |
-    |**Taxa de transferência de uploads na nuvem (compartilhamento)**  | Soma de todos os bytes gravados na nuvem de um compartilhamento/nº de compartilhamentos é média, máx. e mín. por compartilhamento      |
-    |**Taxa de transferência da leituras (rede)**           | Inclui a taxa de transferência de rede do sistema para todos os bytes lidos na nuvem. Essa exibição pode incluir dados que não são restritos aos compartilhamentos. <br></br>A separação mostrará o tráfego em todos os adaptadores de rede no dispositivo. Isso inclui adaptadores que não estão conectados nem habilitados.      |
-    |**Taxa de transferência de gravações (rede)**       | Inclui a taxa de transferência de rede do sistema para todos os bytes gravados na nuvem. Essa exibição pode incluir dados que não são restritos aos compartilhamentos. <br></br>A separação mostrará o tráfego em todos os adaptadores de rede no dispositivo. Isso inclui adaptadores que não estão conectados nem habilitados.          |
-    |**Computação de borda – uso de memória**      | Essa métrica não é aplicável ao Data Box Gateway e, portanto, não é populada.          |
-    |**Computação de borda – percentual de CPU**    | Essa métrica não é aplicável ao Data Box Gateway e, portanto, não é populada.         |
+3. Na lista suspensa, selecione uma métrica para monitorar seu dispositivo. Para obter uma lista completa dessas métricas, consulte [Métricas em seu dispositivo](#metrics-on-your-device).
 
 4. Quando uma métrica é selecionada na lista suspensa, a agregação também pode ser definida. Agregação refere-se ao valor real agregado em um período de tempo especificado. Os valores agregados podem ser a média, o valor mínimo ou o valor máximo. Selecionar Méd., Máx. ou Mín. para a agregação
 

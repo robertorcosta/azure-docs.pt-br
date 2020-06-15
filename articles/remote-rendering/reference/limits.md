@@ -5,26 +5,26 @@ author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: b6e501cdc1d5091a27d86406c6919587bedb261a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6a1a51ee09422607ae1392704add4d49d3367d57
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417684"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83759040"
 ---
 # <a name="limitations"></a>Limitações
 
-Vários recursos têm tamanho, contagem ou outras limitações.
+Vários recursos têm limitações de tamanho, contagem ou outras limitações.
 
-## <a name="azure-frontend"></a>Front-end do Azure
+## <a name="azure-frontend"></a>Azure Frontend
 
-* Total de instâncias AzureFrontend por processo: 16.
+* Total de instâncias de AzureFrontend por processo: 16.
 * Total de instâncias de AzureSession por AzureFrontend: 16.
 
 ## <a name="objects"></a>Objetos
 
-* Total de objetos permitidos de um único tipo (entidade, CutPlaneComponent, etc.): 16.777.215.
-* Total de planos de recorte ativos permitidos: 8.
+* Total de objetos permitidos de um único tipo (Entity, CutPlaneComponent, etc.): 16.777.215.
+* Total de planos de corte ativos permitidos: 8.
 
 ## <a name="materials"></a>Materiais
 
@@ -42,11 +42,10 @@ O número permitido de polígonos para todos os modelos carregados depende do ta
 
 ## <a name="platform-limitations"></a>Limitações da plataforma
 
-**Windows 10 desktop**
+**Windows 10 Desktop**
 
-* Não há suporte para a implantação de "PC autônomo" do Unity. Em vez disso, use UWP.
-* O UWP/x86 é a única plataforma UWP com suporte. Não há suporte para UWP/x64.
+* A UWP/x86 é a única plataforma UWP com suporte. Não há suporte para a UWP/x64.
 
 **Hololens 2**
 
-* Não há suporte para o recurso [render da câmera PV](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers#render-from-the-pv-camera-opt-in) .
+* Não há suporte para [renderização de câmeras de foto/vídeo](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers#render-from-the-pv-camera-opt-in).

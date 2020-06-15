@@ -1,6 +1,6 @@
 ---
-title: Azure Key Vault extensão de VM para Linux
-description: Implante um agente executando a atualização automática de certificados de Key Vault em máquinas virtuais usando uma extensão de máquina virtual.
+title: Extensão de VM do Azure Key Vault para Linux
+description: Implante um agente que execute a atualização automática de certificados de Key Vault em máquinas virtuais usando uma extensão da máquina virtual.
 services: virtual-machines-linux
 author: msmbaldwin
 tags: keyvault
@@ -8,29 +8,29 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: add2d515e4f8e8c56a98a7292e137e601332d10c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e653adfd7a148cea7bfb1ecfdbbf386eff0c3e86
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80410875"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83723316"
 ---
-# <a name="key-vault-virtual-machine-extension-for-linux"></a>Extensão de máquina virtual Key Vault para Linux
+# <a name="key-vault-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual de Key Vault para Linux
 
-A extensão de VM Key Vault fornece a atualização automática de certificados armazenados em um cofre de chaves do Azure. Especificamente, a extensão monitora uma lista de certificados observados armazenados em cofres de chaves.  Após detectar uma alteração, a extensão recupera e instala os certificados correspondentes. A extensão de VM Key Vault é publicada e suportada pela Microsoft, atualmente em VMs Linux. Este documento detalha as plataformas, configurações e opções de implantação com suporte para a extensão de VM Key Vault para Linux. 
+A extensão de VM de Key Vault fornece a atualização automática dos certificados armazenados no cofre de chaves do Azure. Especificamente, a extensão monitora uma lista de certificados observados armazenados em cofres de chaves.  Após detectar uma alteração, a extensão recupera e instala os certificados correspondentes. A extensão de VM do Key Vault é publicada e suportada pela Microsoft, no momento em VMs do Linux. Este documento detalha as plataformas com opções de plataformas, configurações e implantação com suporte para a extensão da VM de Key Vault para Linux. 
 
 ### <a name="operating-system"></a>Sistema operacional
 
-A extensão de VM Key Vault dá suporte a essas distribuições do Linux:
+A extensão de VM do Key Vault dá suporte a essas distribuições do Linux:
 
 - Ubuntu-1604
 - Ubuntu-1804
 - Debian-9
-- SuSE-15 
+- Suse-15 
 
-### <a name="supported-certificate-content-types"></a>Tipos de conteúdo de certificado com suporte
+### <a name="supported-certificate-content-types"></a>Tipos suportados de conteúdo de certificado
 
-- #12 PKCS
+- PKCS #12
 - PEM
 
 ## <a name="extension-schema"></a>Esquema de extensão
@@ -65,32 +65,32 @@ O JSON a seguir mostra o esquema para a extensão da VM de Key Vault. A extensã
 ```
 
 > [!NOTE]
-> Suas URLs de certificados observadas devem estar no `https://myVaultName.vault.azure.net/secrets/myCertName`formato.
+> Suas URLs de certificado observadas devem estar no formato `https://myVaultName.vault.azure.net/secrets/myCertName`.
 > 
-> Isso ocorre porque o `/secrets` caminho retorna o certificado completo, incluindo a chave privada, enquanto o `/certificates` caminho não tem. Mais informações sobre certificados podem ser encontradas aqui: [Key Vault certificados](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
+> Isso porque o caminho `/secrets` retorna todo o certificado, incluindo a chave privada, enquanto o caminho `/certificates` não faz isso. Mais informações sobre certificados podem ser encontradas aqui: [Certificados do Key Vault](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
 
 
 ### <a name="property-values"></a>Valores de propriedade
 
-| Name | Valor/Exemplo | Tipo de Dados |
+| Nome | Valor/Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
-| editor | Microsoft.Azure.KeyVault | cadeia de caracteres |
-| type | KeyVaultForLinux | cadeia de caracteres |
+| publicador | Microsoft.Azure.KeyVault | string |
+| type | KeyVaultForLinux | string |
 | typeHandlerVersion | 1.0 | INT |
-| pollingIntervalInS | 3600 | cadeia de caracteres |
-| certificateStoreName | MY | cadeia de caracteres |
+| pollingIntervalInS | 3600 | string |
+| certificateStoreName | MY | string |
 | linkOnRenewal | false | booleano |
-| certificateStoreLocation  | LocalMachine | cadeia de caracteres |
+| certificateStoreLocation  | LocalMachine | string |
 | requiredInitialSync | true | booleano |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | Matriz de cadeia de caracteres
 
 
 ## <a name="template-deployment"></a>Implantação de modelo
 
-Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Manager. Modelos são ideais ao implantar uma ou mais máquinas virtuais que exigem renovação de certificados pós-implantação. A extensão pode ser implantada em VMs individuais ou conjuntos de dimensionamento de máquinas virtuais. O esquema e a configuração são comuns a ambos os tipos de modelo. 
+Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Manager. Modelos são ideais ao implantar uma ou mais máquinas virtuais que exigem renovação de certificados pós-implantação. A extensão pode ser implantada em VMs individuais ou conjunto de dimensionamento de máquinas virtuais. O esquema e a configuração são comuns a ambos os tipos de modelo. 
 
-A configuração JSON para uma extensão de máquina virtual deve ser aninhada dentro do fragmento de recurso de máquina virtual do `"resources": []` modelo, especificamente objeto para o modelo de máquina virtual e, no caso do `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` conjunto de dimensionamento de máquinas virtuais em objeto.
+A configuração JSON para uma extensão de máquina virtual deve ser aninhada dentro do fragmento do recurso de máquina virtual do modelo, especificamente o objeto `"resources": []` para o modelo de máquina virtual e, no caso de conjunto de dimensionamento de máquinas virtuais, no objeto `"virtualMachineProfile":"extensionProfile":{"extensions" :[]`.
 
 ```json
     {
@@ -167,7 +167,7 @@ O Azure PowerShell pode ser usado para implantar a extensão da VM do Diagnósti
 
 ## <a name="azure-cli-deployment"></a>Implantação da CLI do Azure
 
-O CLI do Azure pode ser usado para implantar a extensão de VM Key Vault em uma máquina virtual existente ou em um conjunto de dimensionamento de máquinas virtuais. 
+A CLI do Azure pode ser usada para implantar a extensão da VM do Key Vault em uma máquina virtual existente ou em um conjunto de dimensionamento de máquinas virtuais. 
  
 * Para implantar a extensão em uma VM:
     
@@ -194,7 +194,7 @@ O CLI do Azure pode ser usado para implantar a extensão de VM Key Vault em uma 
 Por favor esteja ciente das seguintes restrições/exigências:
 - Restrições de Key Vault:
   - Ele deve existir no momento da implantação 
-  - A política de acesso Key Vault está definida para a identidade VM/VMSS usando o MSI
+  - A política de acesso do Key Vault deve ser definida para Identidade VM/VMSS usando uma identidade gerenciada. Consulte [Fornecer autenticação do Key Vault com uma identidade gerenciada](../../key-vault/managed-identity.md)
 
 
 ## <a name="troubleshoot-and-support"></a>Solução de problemas e suporte
@@ -215,4 +215,4 @@ Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>
 
 ### <a name="support"></a>Suporte
 
-Se precisar de mais ajuda a qualquer momento neste artigo, você poderá entrar em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow do MSDN](https://azure.microsoft.com/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione obter suporte. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes sobre o suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).
+Caso precise de mais ajuda em qualquer ponto deste artigo, entre em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN](https://azure.microsoft.com/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione Obter suporte. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes sobre o suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).

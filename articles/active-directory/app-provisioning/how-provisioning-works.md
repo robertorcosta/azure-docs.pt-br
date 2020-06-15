@@ -1,6 +1,6 @@
 ---
-title: Entender como o provisionamento do Azure AD funciona | Microsoft Docs
-description: Entenda como funciona o provisionamento do Azure AD
+title: Entenda como funciona o provisionamento do Azure Active Directory | Microsoft Docs
+description: Entenda como funciona o provisionamento do Azure Active Directory
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -8,183 +8,183 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/10/2019
+ms.date: 05/20/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.openlocfilehash: 7ee685da3492b6915a687151beea3e82e46185de
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.openlocfilehash: 533e38206b9a85b449880d88c9ff969c051fac53
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593719"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83712223"
 ---
 # <a name="how-provisioning-works"></a>Como funciona o provisionamento
 
-O provisionamento automático refere-se à criação de identidades e funções de usuário nos aplicativos de nuvem aos quais os usuários precisam acessar. Além de criar identidades de usuário, o provisionamento automático inclui a manutenção e a remoção de identidades de usuário à medida que o status ou as funções mudam. Antes de iniciar uma implantação, você pode examinar este artigo para saber como o provisionamento do Azure AD funciona e obter recomendações de configuração. 
+O provisionamento automático refere-se à criação de identidades e funções de usuário nos aplicativos de nuvem que os usuários precisam acessar. Além de criar identidades de usuário, o provisionamento automático inclui a manutenção e a remoção de identidades de usuário à medida que o status ou as funções mudam. Antes de iniciar uma implantação, você pode ler este artigo para saber como o provisionamento do Azure Active Directory funciona e obter recomendações de configuração. 
 
-O **serviço de provisionamento do Azure ad** provisiona usuários para aplicativos SaaS e outros sistemas conectando-se a um sistema para o ponto de extremidade da API de gerenciamento de usuário 2,0 do scim (gerenciamento de identidade entre domínios) fornecido pelo fornecedor do aplicativo. Esse ponto de extremidade SCIM permite que o Azure AD crie, atualize e remova programaticamente usuários. Para os aplicativos selecionados, o serviço de provisionamento também pode criar, atualizar e remover objetos adicionais relacionados à identidade, como grupos e funções. O canal usado para provisionamento entre o Azure AD e o aplicativo é criptografado usando a criptografia HTTPS TLS 1,2.
+O **serviço de provisionamento do Azure Active Directory** provisiona usuários para aplicativos SaaS e outros sistemas a um ponto de extremidade da API de gerenciamento de usuários do Sistema de Gerenciamento de Usuários entre Domínios (SCIM) 2.0 fornecido pelo fornecedor do aplicativo. Esse ponto de extremidade do SCIM permite que o Azure Active Directory crie, atualize e remova usuários por meio de programação. Para os aplicativos selecionados, o serviço de provisionamento também pode criar, atualizar e remover objetos adicionais relacionados à identidade, como grupos e funções. O canal usado para provisionamento entre o Azure Active Directory e o aplicativo usa a criptografia HTTPS TLS 1.2.
 
 
-![Serviço](./media/how-provisioning-works/provisioning0.PNG)
-de provisionamento do Azure ad*Figura 1: o serviço de provisionamento do Azure ad*
+![Serviço de provisionamento do Azure Active Directory](./media/how-provisioning-works/provisioning0.PNG)
+*Figura 1: Serviço de provisionamento do Azure AD*
 
-![Fluxo de trabalho](./media/how-provisioning-works/provisioning1.PNG)
-de provisionamento*de usuário de saída Figura 2: fluxo de trabalho de provisionamento de usuário de "saída" do Azure ad para aplicativos SaaS populares*
+![Fluxo de trabalho de saída do provisionamento do usuário](./media/how-provisioning-works/provisioning1.PNG)
+*Figura 2: fluxo de trabalho de provisionamento do usuário de "saída" do Azure AD para aplicativos SaaS populares*
 
-![Fluxo de trabalho](./media/how-provisioning-works/provisioning2.PNG)
-de provisionamento*de usuário de entrada Figura 3: fluxo de trabalho de provisionamento de usuário de "entrada" de aplicativos de HCM (gerenciamento de capital humano) populares para Azure Active Directory e o Windows Server Active Directory*
+![Fluxo de trabalho de entrada do provisionamento de usuário](./media/how-provisioning-works/provisioning2.PNG)
+*Figura 3: fluxo de trabalho de provisionamento do usuário de "entrada" de aplicativos de HCM (gerenciamento de capital humano) para o Azure Active Directory e o Windows Server Active Directory*
 
-## <a name="provisioning-using-scim-20"></a>Provisionamento usando o SCIM 2,0
+## <a name="provisioning-using-scim-20"></a>Provisionamento usando o SCIM 2.0
 
-O serviço de provisionamento do Azure AD usa o [protocolo SCIM 2,0](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/bg-p/IdentityStandards) para provisionamento automático. O serviço se conecta ao ponto de extremidade do SCIM para o aplicativo e usa o esquema de objeto do usuário do SCIM e as APIs REST para automatizar o provisionamento e desprovisionamento de usuários e grupos. Um conector de provisionamento baseado em SCIM é fornecido para a maioria dos aplicativos na galeria do Azure AD. Ao criar aplicativos para o Azure AD, os desenvolvedores podem usar a API de gerenciamento de usuário do SCIM 2,0 para criar um ponto de extremidade SCIM que integre o Azure AD para provisionamento. Para obter detalhes, consulte [criar um ponto de extremidade scim e configurar o provisionamento de usuário](../app-provisioning/use-scim-to-provision-users-and-groups.md).
+O serviço de provisionamento do Azure Active Directory usa o protocolo [SCIM 2.0](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/bg-p/IdentityStandards) para provisionamento automático. O serviço se conecta ao ponto de extremidade do SCIM do aplicativo e usa o esquema de objeto do usuário do SCIM e as APIs REST para automatizar o provisionamento e desprovisionamento de usuários e grupos. Um conector de provisionamento que usa o SCIM é fornecido para a maioria dos aplicativos na galeria do Azure Active Directory. Ao criar aplicativos para o Azure Active Directory, os desenvolvedores podem usar a API de gerenciamento de usuário do SCIM 2.0 para criar um ponto de extremidade do SCIM que integra o Azure Active Directory para provisionamento. Para mais informações, consulte [Criar um ponto de extremidade SCIM e configurar o provisionamento do usuário](../app-provisioning/use-scim-to-provision-users-and-groups.md).
 
-Para solicitar um conector de provisionamento automático do Azure AD para um aplicativo que atualmente não tem um, preencha uma [solicitação de aplicativo Azure Active Directory](https://aka.ms/aadapprequest).
+Para solicitar um conector de provisionamento automático do Azure Active Directory para um aplicativo que não tem um, preencha uma [solicitação de aplicativo do Azure Active Directory](https://aka.ms/aadapprequest).
 
 ## <a name="authorization"></a>Autorização
 
-As credenciais são necessárias para que o Azure AD se conecte à API de gerenciamento de usuários do aplicativo. Enquanto estiver configurando o provisionamento automático de usuário para um aplicativo, você precisará inserir credenciais válidas. Você pode encontrar os requisitos e tipos de credenciais para o aplicativo consultando o tutorial do aplicativo. No portal do Azure, você poderá testar as credenciais fazendo com que o Azure AD tente se conectar ao aplicativo de provisionamento do aplicativo usando as credenciais fornecidas.
+As credenciais são necessárias para que o Azure Active Directory se conecte à API de gerenciamento de usuários do aplicativo. Enquanto estiver configurando o provisionamento automático de usuário para um aplicativo, você precisará inserir credenciais válidas. Para encontrar os requisitos e tipos de credenciais do aplicativo, você pode consultar o tutorial do aplicativo. No portal do Azure, para testar as credenciais, faça com que o Azure Active Directory tente se conectar ao aplicativo de provisionamento de aplicativo com as credenciais fornecidas.
 
-Se o logon único baseado em SAML também estiver configurado para o aplicativo, o limite de armazenamento por aplicativo interno do Azure AD será de 1024 bytes. Esse limite inclui todos os certificados, tokens secretos, credenciais e dados de configuração relacionados associados a uma única instância de um aplicativo (também conhecido como registro de entidade de serviço no Azure AD). Quando o logon único baseado em SAML é configurado, o certificado usado para assinar os tokens SAML geralmente consome mais de 50% por cento do espaço. Quaisquer itens adicionais (tokens secretos, URIs, endereços de email de notificação, nomes de usuário e senhas) inseridos durante a configuração de provisionamento do usuário podem exceder o limite de armazenamento. Para obter mais informações, consulte [problema ao salvar as credenciais de administrador ao configurar o provisionamento do usuário](../manage-apps/application-provisioning-config-problem-storage-limit.md).
+Se o logon único baseado em SAML também estiver configurado para o aplicativo, o limite de armazenamento por aplicativo interno do Azure Active Directory será de 1024 bytes. Esse limite inclui todos os certificados, tokens secretos, credenciais e dados de configuração relacionados associados a uma única instância de um aplicativo (também conhecido como registro de entidade de serviço no Azure Active Directory). Ao configurar o logon único baseado no SAML, o certificado usado para assinar os tokens SAML geralmente consome mais 50% do espaço. Itens adicionais (tokens secretos, URIs, endereços de email de notificação, nomes de usuário e senhas) inseridos durante a configuração de provisionamento do usuário podem exceder o limite de armazenamento. Para obter mais informações, consulte [Problema ao salvar credenciais do administrador ao configurar o provisionamento do usuário](../manage-apps/application-provisioning-config-problem-storage-limit.md).
 
 ## <a name="mapping-attributes"></a>Atributos de mapeamento
 
-Quando você habilita o provisionamento de usuário para um aplicativo SaaS de terceiros, o portal do Azure controla seus valores de atributo por meio de mapeamentos de atributo. Os mapeamentos determinam os atributos de usuário que fluem entre o Azure AD e o aplicativo de destino quando as contas de usuário são provisionadas ou atualizadas.
+Ao habilitar o provisionamento de usuário para um aplicativo SaaS de terceiros, o portal do Azure controlará os valores de seus atributos por meio do mapeamento de atributos. Os mapeamentos determinam os atributos de usuário que são transmitidos entre o Azure Active Directory e o aplicativo de destino quando as contas de usuário são provisionadas ou atualizadas.
 
-Há um conjunto pré-configurado de atributos e mapeamentos de atributo entre objetos de usuário do Azure AD e os objetos de usuário de cada aplicativo SaaS. Alguns aplicativos gerenciam outros tipos de objetos junto com os usuários, como grupos.
+Há um conjunto pré-configurado de atributos e mapeamentos de atributos entre objetos de usuário do Azure Active Directory e objetos de usuário de cada aplicativo SaaS. Alguns aplicativos gerenciam outros tipos de objetos em conjunto com os Usuários, como Grupos.
 
-Ao configurar o provisionamento, é importante revisar e configurar os mapeamentos de atributo e os fluxos de trabalho que definem quais propriedades de usuário (ou grupo) fluem do Azure AD para o aplicativo. Examine e configure a propriedade correspondente (**corresponder objetos usando este atributo**) que é usada para identificar exclusivamente e corresponder usuários/grupos entre os dois sistemas.
+Ao configurar o provisionamento, é importante examinar e configurar os mapeamentos de atributos e fluxos de trabalho que definem quais propriedades de usuário (ou grupo) são transmitidas entre o Azure Active Directory e o aplicativo. Examine e configure a propriedade correspondente (**Corresponder objetos usando este atributo**) usada para identificar e corresponder usuários/grupos com exclusividade entre os dois sistemas.
 
-Você pode personalizar mapeamentos de atributo padrão de acordo com suas necessidades comerciais. Portanto, você pode alterar ou excluir mapeamentos de atributo existentes ou criar novos mapeamentos de atributo. Para obter detalhes, consulte [Personalizando o atributo de provisionamento de usuário-mapeamentos para aplicativos SaaS](../manage-apps/customize-application-attributes.md).
+Você pode personalizar mapeamentos de atributo padrão de acordo com suas necessidades comerciais. Sendo assim, você pode alterar ou excluir mapeamentos de atributos existentes ou criar mapeamentos. Para mais informações, consulte [Personalizar mapeamentos de atributo de provisionamento de usuário para aplicativos SaaS](../manage-apps/customize-application-attributes.md).
 
-Quando você configura o provisionamento de um aplicativo SaaS, um dos tipos de mapeamentos de atributos que você pode especificar é o mapeamento de expressão. Para esses mapeamentos, você deve escrever uma expressão do tipo script que permite transformar os dados dos usuários em formatos que são mais aceitáveis para o aplicativo SaaS. Para obter detalhes, consulte [escrevendo expressões para mapeamentos de atributo](functions-for-customizing-application-data.md).
+Quando você configura o provisionamento de um aplicativo SaaS, um dos tipos de mapeamentos de atributos que você pode especificar é o mapeamento de expressão. Para esses mapeamentos, você precisa escrever uma expressão semelhante a script que permite transformar os dados de usuários em formatos que são mais aceitáveis para o aplicativo SaaS. Para mais informações, consulte [Escrever expressões para mapeamentos de atributo](functions-for-customizing-application-data.md).
 
 ## <a name="scoping"></a>Scoping 
 ### <a name="assignment-based-scoping"></a>Escopo baseado em atribuição
 
-Para o provisionamento de saída do Azure AD para um aplicativo SaaS, depender de [atribuições de usuário ou de grupo](../manage-apps/assign-user-or-group-access-portal.md) é a maneira mais comum de determinar quais usuários estão no escopo do provisionamento. Como as atribuições de usuário também são usadas para habilitar o logon único, o mesmo método pode ser usado para gerenciar o acesso e o provisionamento. O escopo baseado em atribuição não se aplica a cenários de provisionamento de entrada como workday e Successfactors.
+Para o provisionamento de saída do Azure Active Directory para um aplicativo SaaS, depender de [atribuições de usuário ou grupo](../manage-apps/assign-user-or-group-access-portal.md) é a maneira mais comum de determinar quais usuários estão no escopo para provisionamento. Como as atribuições de usuário também são usadas para habilitar o logon único, o mesmo método pode ser usado para gerenciar o acesso e o provisionamento. O escopo baseado em atribuição não se aplica a cenários de provisionamento de entrada, como o Workday e o Successfactors.
 
-* **Agrupa.** Com um plano de licença Azure AD Premium, você pode usar grupos para atribuir acesso a um aplicativo SaaS. Em seguida, quando o escopo de provisionamento for definido para **sincronizar somente usuários e grupos atribuídos**, o serviço de provisionamento do Azure ad provisionará ou desprovisionará usuários com base no fato de eles serem membros de um grupo atribuído ao aplicativo. O próprio objeto Group não é provisionado, a menos que o aplicativo dê suporte a objetos Group. Verifique se os grupos atribuídos ao seu aplicativo têm a propriedade "SecurityEnabled" definida como "false".
+* **Grupos.** Com um plano de licença Azure AD Premium, você pode usar grupos para atribuir acesso a um aplicativo SaaS. Em seguida, quando o escopo de provisionamento estiver definido como **Sincronizar somente usuários e grupos atribuídos**, o serviço de provisionamento do Azure Active Directory provisionará ou desprovisionará os usuários com base em sua associação a um grupo que é atribuído ao aplicativo. O objeto de grupo em si não é provisionado, a menos que o aplicativo dê suporte a objetos de grupo. Verifique se os grupos atribuídos ao seu aplicativo têm a propriedade "SecurityEnabled" definida como "True".
 
-* **Grupos dinâmicos.** O serviço de provisionamento de usuários do Azure AD pode ler e provisionar usuários em [grupos dinâmicos](../users-groups-roles/groups-create-rule.md). Mantenha essas advertências e recomendações em mente:
+* **Grupos dinâmicos.** O serviço de provisionamento de usuários do Azure Active Directory pode ler e provisionar usuários em [grupos dinâmicos](../users-groups-roles/groups-create-rule.md). Observe estas advertências e recomendações:
 
-  * Grupos dinâmicos podem afetar o desempenho do provisionamento de ponta a ponta do Azure AD para aplicativos SaaS.
+  * Grupos dinâmicos podem afetar o desempenho do provisionamento de ponta a ponta do Azure Active Directory para aplicativos SaaS.
 
-  * A velocidade com que um usuário em um grupo dinâmico é provisionado ou desprovisionado em um aplicativo SaaS depende de quão rápido o grupo dinâmico pode avaliar as alterações de associação. Para obter informações sobre como verificar o status de processamento de um grupo dinâmico, consulte [verificar o status de processamento de uma regra de associação](../users-groups-roles/groups-create-rule.md).
+  * A rapidez em que um usuário em um grupo dinâmico é provisionado ou desprovisionado em um aplicativo SaaS depende de quanto tempo o grupo dinâmico pode avaliar as alterações de associação. Para informações sobre como verificar o status de processamento de um grupo dinâmico, consulte [Verificar o status de processamento para uma regra de associação](../users-groups-roles/groups-create-rule.md).
 
-  * Quando um usuário perde a associação no grupo dinâmico, ele é considerado um evento de desprovisionamento. Considere este cenário ao criar regras para grupos dinâmicos.
+  * Um usuário perder a associação no grupo dinâmico é considerado um evento de desprovisionamento. Considere este cenário ao criar regras para grupos dinâmicos.
 
-* **Grupos aninhados.** O serviço de provisionamento de usuário do Azure AD não pode ler ou provisionar usuários em grupos aninhados. O serviço só pode ler e provisionar usuários que são membros imediatos de um grupo explicitamente atribuído. Essa limitação de "atribuições baseadas em grupo a aplicativos" também afeta o logon único (consulte [usando um grupo para gerenciar o acesso a aplicativos SaaS](../users-groups-roles/groups-saasapps.md)). Em vez disso, atribua ou então o [escopo diretamente nos](define-conditional-rules-for-provisioning-user-accounts.md) grupos que contêm os usuários que precisam ser provisionados.
+* **Grupos aninhados.** O serviço de provisionamento de usuário do Azure Active Directory não pode ler ou provisionar usuários em grupos aninhados. O serviço só pode ler e provisionar usuários que são membros imediatos de um grupo explicitamente atribuído. Essa limitação de "atribuições baseadas em grupo a aplicativos" também afeta o logon único (consulte [Usar um grupo para gerenciar o acesso a aplicativos SaaS](../users-groups-roles/groups-saasapps.md)). Em vez disso, atribua ou, de outra forma, [coloque em escopo](define-conditional-rules-for-provisioning-user-accounts.md) os grupos que contêm os usuários que precisam ser provisionados.
 
 ### <a name="attribute-based-scoping"></a>Escopo baseado em atributo 
 
-Você pode usar filtros de escopo para definir regras baseadas em atributo que determinam quais usuários são provisionados para um aplicativo. Esse método é usado normalmente para o provisionamento de entrada de aplicativos HCM para o Azure AD e Active Directory. Os filtros de escopo são configurados como parte dos mapeamentos de atributos para cada conector de provisionamento de usuário do Azure AD. Para obter detalhes sobre como configurar filtros de escopo com base em atributo, consulte [provisionamento de aplicativo baseado em atributo com filtros de escopo](define-conditional-rules-for-provisioning-user-accounts.md).
+Você pode usar filtros de escopo para definir regras baseadas em atributo que determinam quais usuários são provisionados para um aplicativo. Esse método é usado normalmente no provisionamento de entrada de aplicativos HCM para o Azure Active Directory e Active Directory. Os filtros de escopo são configurados como parte dos mapeamentos de atributos para cada conector de provisionamento de usuário do Azure AD. Para mais informações para configurar filtros de escopo baseados em atributo, consulte [Provisionamento de aplicativo baseado em atributo com filtros de escopo](define-conditional-rules-for-provisioning-user-accounts.md).
 
-### <a name="b2b-guest-users"></a>Usuários B2B (convidados)
+### <a name="b2b-guest-users"></a>Usuários B2B (convidado)
 
-É possível usar o serviço de provisionamento de usuário do Azure AD para provisionar usuários B2B (ou convidados) no Azure AD para aplicativos SaaS. No entanto, para que os usuários B2B entrem no aplicativo SaaS usando o Azure AD, o aplicativo SaaS deve ter seu recurso de logon único baseado em SAML configurado de forma específica. Para obter mais informações sobre como configurar aplicativos SaaS para dar suporte a entradas de usuários de B2B, consulte [Configurar aplicativos SaaS para colaboração B2B](../b2b/configure-saas-apps.md).
+É possível usar o provisionamento de usuários do serviço para provisionar B2B (ou convidado) no Azure Active Directory para aplicativos SaaS de usuário do Azure Active Directory. No entanto, para usuários B2B entrarem no aplicativo SaaS usando o Azure Active Directory, o aplicativo de SaaS deve ter sua capacidade de logon único baseada em SAML configurada de maneira específica. Para obter mais informações sobre como configurar aplicativos SaaS para dar suporte a entradas de usuários de B2B, consulte [Configurar aplicativos SaaS para colaboração B2B](../b2b/configure-saas-apps.md).
 
-Observe que o userPrincipalName de um usuário convidado é geralmente armazenado como "alias # EXT #@domain.com". Quando o userPrincipalName é incluído nos mapeamentos de atributo como um atributo de origem, o #EXT # é removido do userPrincipalName. Se você precisar que o #EXT # esteja presente, substitua userPrincipalName por originalUserPrincipalName como o atributo de origem. 
+Observe que userPrincipalName de um usuário convidado é frequentemente armazenado como "alias#EXT#@domain.com". Quando userPrincipalName é incluído nos mapeamentos de atributo como um atributo de origem, #EXT # é removido do userPrincipalName. Se você precisar que o #EXT # esteja presente, substitua userPrincipalName por originalUserPrincipalName como o atributo de origem. 
 
-## <a name="provisioning-cycles-initial-and-incremental"></a>Ciclos de provisionamento: inicial e incremental
+## <a name="provisioning-cycles-initial-and-incremental"></a>Ciclos de provisionamento: Inicial e incremental
 
-Quando o Azure AD é o sistema de origem, o serviço de provisionamento usa a [consulta usar Delta para controlar as alterações nos Microsoft Graph dados](https://docs.microsoft.com/graph/delta-query-overview) para monitorar usuários e grupos. O serviço de provisionamento executa um ciclo inicial no sistema de origem e no sistema de destino, seguido por ciclos incrementais periódicos.
+Quando o Azure Active Directory é o sistema de origem, o serviço de provisionamento utiliza [Usar a consulta delta para controlar as alterações nos dados do Microsoft Graph](https://docs.microsoft.com/graph/delta-query-overview) para monitorar usuários e grupos. O serviço de provisionamento executa um ciclo inicial com o sistema de origem e o sistema de destino, seguida de ciclos incrementais periódicos.
 
 ### <a name="initial-cycle"></a>Ciclo inicial
 
-Quando o serviço de provisionamento for iniciado, o primeiro ciclo irá:
+Quando o serviço de provisionamento for iniciado, o primeiro ciclo vai:
 
 1. Consultar todos os usuários e grupos do sistema de origem, recuperando todos os atributos definidos nos [mapeamentos de atributo](customize-application-attributes.md).
 
 2. Filtre os usuários e os grupos retornados usando qualquer [atribuição](../manage-apps/assign-user-or-group-access-portal.md) configurada ou [filtros de escopo com base em atributo](define-conditional-rules-for-provisioning-user-accounts.md).
 
-3. Quando um usuário é atribuído ou está no escopo para provisionamento, o serviço consulta o sistema de destino para um usuário correspondente usando os [atributos correspondentes](customize-application-attributes.md#understanding-attribute-mapping-properties)especificados. Exemplo: se o nome userPrincipal no sistema de origem for o atributo correspondente e for mapeado para userName no sistema de destino, o serviço de provisionamento consultará o sistema de destino em busca de userNames que correspondam aos valores de nome de Principal no sistema de origem.
+3. Quando um usuário é atribuído ou está no escopo para provisionamento, o serviço consulta o sistema de destino em busca de um usuário correspondente usando os [atributos correspondentes](customize-application-attributes.md#understanding-attribute-mapping-properties) especificados. Exemplo: Se o nome userPrincipal no sistema de origem for o atributo correspondente e for mapeado para userName no sistema de destino, o serviço de provisionamento consultará o sistema de destino em busca de userNames que correspondam aos valores de nome de Principal no sistema de origem.
 
-4. Se um usuário correspondente não for encontrado no sistema de destino, ele será criado usando os atributos retornados do sistema de origem. Depois que a conta de usuário é criada, o serviço de provisionamento detecta e armazena em cache a ID do sistema de destino para o novo usuário. Essa ID é usada para executar todas as operações futuras nesse usuário.
+4. Se um usuário correspondente não for encontrado no sistema de destino, ele será criado com os atributos retornados do sistema de origem. Depois que a conta de usuário é criada, o serviço de provisionamento detecta a ID do sistema de destino para o novo usuário e a armazena em cache. Essa ID é usada para executar todas as operações futuras nesse usuário.
 
-5. Se um usuário correspondente for encontrado, ele será atualizado usando os atributos fornecidos pelo sistema de origem. Depois que a conta de usuário for correspondida, o serviço de provisionamento detectará e armazenará em cache a ID do sistema de destino para o novo usuário. Essa ID é usada para executar todas as operações futuras nesse usuário.
+5. Se um usuário correspondente for encontrado, ele será atualizado com os atributos fornecidos pelo sistema de origem. Depois que há uma correspondência de conta de usuário, o serviço de provisionamento detecta a ID do sistema de destino para o novo usuário. Essa ID é usada para executar todas as operações futuras nesse usuário.
 
-6. Se os mapeamentos de atributo contiverem atributos de "referência", o serviço fará atualizações adicionais no sistema de destino para criar e vincular os objetos referenciados. Por exemplo, um usuário pode ter um atributo "Manager" no sistema de destino, vinculado a outro usuário criado no sistema de destino.
+6. Se os mapeamentos de atributo contiverem atributos "reference", o serviço fará atualizações adicionais no sistema de destino para criar e vincular os objetos referenciados. Por exemplo, um usuário pode ter um atributo "Manager" no sistema de destino, vinculado a outro usuário criado no sistema de destino.
 
-7. Mantenha uma marca-d ' água no final do ciclo inicial, que fornece o ponto de partida para os ciclos incrementais posteriores.
+7. Mantenha uma marca d'água ao final do ciclo inicial para fornecer o ponto de partida para os ciclos incrementais posteriores.
 
-Alguns aplicativos, como ServiceNow, G Suite e Box, oferecem suporte não apenas ao provisionamento de usuários, mas também ao provisionamento de grupos e de seus membros. Nesses casos, se o provisionamento de grupo estiver habilitado nos [mapeamentos](customize-application-attributes.md), o serviço de provisionamento sincronizará os usuários e os grupos e, posteriormente, sincronizará as associações de grupo.
+Alguns aplicativos, como ServiceNow, G Suite e Box, dão suporte não apenas ao provisionamento de usuários, mas também ao provisionamento de grupos e seus membros. Nesses casos, se o provisionamento de grupos estiver habilitado nos [mapeamentos](customize-application-attributes.md), o serviço de provisionamento sincronizará os usuários e os grupos e, em seguida, as associações de grupos.
 
 ### <a name="incremental-cycles"></a>Ciclos incrementais
 
-Após o ciclo inicial, todos os outros ciclos irão:
+Após o ciclo inicial, todos os outros ciclos vão:
 
 1. Consultar o sistema de origem em busca de eventuais usuários e grupos que tenham sido atualizados desde a última marca d'água armazenada.
 
 2. Filtre os usuários e os grupos retornados usando qualquer [atribuição](../manage-apps/assign-user-or-group-access-portal.md) configurada ou [filtros de escopo com base em atributo](define-conditional-rules-for-provisioning-user-accounts.md).
 
-3. Quando um usuário é atribuído ou está no escopo para provisionamento, o serviço consulta o sistema de destino para um usuário correspondente usando os [atributos correspondentes](customize-application-attributes.md#understanding-attribute-mapping-properties)especificados.
+3. Quando um usuário é atribuído ou está no escopo para provisionamento, o serviço consulta o sistema de destino em busca de um usuário correspondente usando os [atributos correspondentes](customize-application-attributes.md#understanding-attribute-mapping-properties) especificados.
 
-4. Se um usuário correspondente não for encontrado no sistema de destino, ele será criado usando os atributos retornados do sistema de origem. Depois que a conta de usuário é criada, o serviço de provisionamento detecta e armazena em cache a ID do sistema de destino para o novo usuário. Essa ID é usada para executar todas as operações futuras nesse usuário.
+4. Se um usuário correspondente não for encontrado no sistema de destino, ele será criado com os atributos retornados do sistema de origem. Depois que a conta de usuário é criada, o serviço de provisionamento detecta a ID do sistema de destino para o novo usuário e a armazena em cache. Essa ID é usada para executar todas as operações futuras nesse usuário.
 
-5. Se um usuário correspondente for encontrado, ele será atualizado usando os atributos fornecidos pelo sistema de origem. Se for uma conta atribuída recentemente que seja correspondida, o serviço de provisionamento detectará e armazenará em cache a ID do sistema de destino para o novo usuário. Essa ID é usada para executar todas as operações futuras nesse usuário.
+5. Se um usuário correspondente for encontrado, ele será atualizado com os atributos fornecidos pelo sistema de origem. Se a correspondência for uma conta atribuída recentemente, o serviço de provisionamento detectará e armazenará em cache a ID do sistema de destino para o novo usuário. Essa ID é usada para executar todas as operações futuras nesse usuário.
 
-6. Se os mapeamentos de atributo contiverem atributos de "referência", o serviço fará atualizações adicionais no sistema de destino para criar e vincular os objetos referenciados. Por exemplo, um usuário pode ter um atributo "Manager" no sistema de destino, vinculado a outro usuário criado no sistema de destino.
+6. Se os mapeamentos de atributo contiverem atributos "reference", o serviço fará atualizações adicionais no sistema de destino para criar e vincular os objetos referenciados. Por exemplo, um usuário pode ter um atributo "Manager" no sistema de destino, vinculado a outro usuário criado no sistema de destino.
 
-7. Se um usuário que estava anteriormente no escopo para provisionamento for removido do escopo, incluindo a não atribuição, o serviço desabilitará o usuário no sistema de destino por meio de uma atualização.
+7. Se um usuário que estava anteriormente no escopo para provisionamento for removido do escopo (inclusive sendo desatribuído), o serviço desabilitará o usuário no sistema de destino por meio de uma atualização.
 
 8. Se um usuário que estava anteriormente no escopo para provisionamento for desabilitado ou excluído no sistema de origem, o serviço desabilitará o usuário no sistema de destino por meio de uma atualização.
 
-9. Se um usuário que estava anteriormente no escopo para provisionamento for excluído no sistema de origem, o serviço excluirá o usuário no sistema de destino. No Azure AD, os usuários são excluídos por 30 dias após serem excluídos de maneira reversível.
+9. Se um usuário que estava anteriormente no escopo para provisionamento for excluído no sistema de origem, o serviço excluirá o usuário no sistema de destino. No Azure Active Directory, os usuários são excluídos 30 dias depois que forem excluídos pelo software.
 
-10. Mantenha uma nova marca d' água no final do ciclo incremental, que fornece o ponto de partida para os ciclos incrementais posteriores.
+10. Mantenha uma nova marca d'água ao final do ciclo incremental para fornecer o ponto de partida para os ciclos incrementais posteriores.
 
 > [!NOTE]
-> Opcionalmente, você pode desabilitar as caixas de seleção **criar**, **Atualizar**ou **excluir** usando as **ações do objeto de destino** na seção [mapeamentos](customize-application-attributes.md) . A lógica para desabilitar um usuário durante uma atualização também é controlada por meio de um mapeamento de atributos em um campo como "accountEnabled".
+> Você também pode desabilitar as operações de **criação**, **atualização** ou **exclusão** operações usando as caixas de seleção **Ações do objeto de destino** na seção [Mapeamentos](customize-application-attributes.md). A lógica para desabilitar um usuário durante uma atualização também é controlada por meio de um mapeamento de atributos em um campo como "accountEnabled".
 
-O serviço de provisionamento continua executando ciclos incrementais back-to-back indefinidamente, em intervalos definidos no [tutorial específico de cada aplicativo](../saas-apps/tutorial-list.md). Os ciclos incrementais continuam até que ocorra um dos seguintes eventos:
+O serviço de provisionamento continua executando ciclos incrementais back-to-back indefinidamente, em intervalos definidos no tutorial [específico para cada aplicativo](../saas-apps/tutorial-list.md). Os ciclos incrementais continuam até que ocorra um dos seguintes eventos:
 
-- O serviço é interrompido manualmente usando o portal do Azure ou usando o comando da API Microsoft Graph apropriado.
-- Um novo ciclo inicial é disparado usando a opção **limpar estado e reiniciar** na portal do Azure ou usando o comando da API Microsoft Graph apropriado. Esta ação limpa qualquer marca d' água armazenada e faz com que todos os objetos de origem sejam avaliados novamente.
-- Um novo ciclo inicial é disparado devido a uma alteração nos mapeamentos de atributo ou filtros de escopo. Essa ação também limpa qualquer marca-d ' água armazenada e faz com que todos os objetos de origem sejam avaliados novamente.
-- O processo de provisionamento entra em quarentena (veja abaixo) devido a uma alta taxa de erros e permanece em quarentena por mais de quatro semanas. Neste caso, o serviço será desabilitado automaticamente.
+- O serviço é interrompido manualmente usando o portal do Azure ou o comando apropriado da API do Microsoft Graph.
+- Um novo ciclo inicial é disparado usando a opção **Limpar estado e reiniciar** no portal do Azure ou o comando apropriado da API do Microsoft Graph. Essa ação apaga qualquer marca d'água armazenada e faz todos os objetos de origem serem reavaliados.
+- Um novo ciclo inicial é disparado devido a uma alteração nos mapeamentos de atributo ou filtros de escopo. Essa ação também apaga qualquer marca d'água armazenada e faz todos os objetos de origem serem reavaliados.
+- O processo de provisionamento vai para quarentena (veja abaixo) devido à taxa de erros alta e permanece em quarentena por mais de quatro semanas. Neste caso, o serviço será desabilitado automaticamente.
 
 ### <a name="errors-and-retries"></a>Erros e novas tentativas
 
 Se um erro no sistema de destino impedir que um usuário individual seja adicionado, atualizado ou excluído no sistema de destino, a operação será repetida no próximo ciclo de sincronização. Se o usuário continuar falhando, as novas tentativas começarão a ocorrer em uma frequência reduzida, voltando gradualmente para apenas uma tentativa por dia. Para resolver a falha, os administradores devem verificar os [logs de provisionamento](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) para determinar a causa raiz e executar a ação apropriada. Entre as falhas comuns podem estar:
 
 - Usuários que não tenham um atributo preenchido no sistema de origem necessário no sistema de destino
-- Os usuários têm um valor de atributo no sistema de origem para o qual há uma restrição exclusiva no sistema de destino e o mesmo valor está presente em outro registro de usuário
+- Usuários que tenham um valor de atributo no sistema de origem para o qual há uma restrição exclusiva no sistema de destino e o mesmo valor está presente em outro registro de usuário
 
-Resolva essas falhas ajustando os valores de atributo para o usuário afetado no sistema de origem ou ajustando os mapeamentos de atributo para que eles não causem conflitos.
+Para resolver essas falhas, ajuste os valores de atributo do usuário afetado no sistema de origem ou os mapeamentos de atributos para que eles não causem conflitos.
 
 ### <a name="quarantine"></a>Quarentena
 
-Se a maioria ou todas as chamadas feitas no sistema de destino falharem consistentemente devido a um erro (por exemplo, credenciais de administrador inválidas), o trabalho de provisionamento entrará em um estado de "quarentena". Esse estado é indicado no [relatório de Resumo de provisionamento](../manage-apps/check-status-user-account-provisioning.md) e por email se as notificações por email tiverem sido configuradas no portal do Azure.
+Se a maioria ou todas as chamadas feitas no sistema de destino falharem regularmente por causa de um erro (por exemplo, credenciais de administrador inválidas), o trabalho de provisionamento entrará em um estado de "quarentena". Esse estado é indicado no [relatório de resumo do provisionamento](../manage-apps/check-status-user-account-provisioning.md) e por email, se notificações por email estiverem configuradas no portal do Azure.
 
-Quando em quarentena, a frequência de ciclos incrementais é reduzida gradualmente para uma vez por dia.
+Em quarentena, a frequência de ciclos incrementais é reduzida gradualmente a uma por dia.
 
-O trabalho de provisionamento sai da quarentena depois que todos os erros incorretos são corrigidos e o próximo ciclo de sincronização é iniciado. Se permanecer em quarentena por mais de quatro semanas, o trabalho de provisionamento será desabilitado. Saiba mais aqui sobre o status de quarentena [aqui](../manage-apps/application-provisioning-quarantine-status.md).
+O trabalho de provisionamento sai da quarentena depois que todos os erros inválidos são corrigidos e o próximo ciclo de sincronização é iniciado. Se permanecer em quarentena por mais de quatro semanas, o trabalho de provisionamento será desabilitado. Saiba mais aqui sobre o status de quarentena [aqui](../manage-apps/application-provisioning-quarantine-status.md).
 
 ### <a name="how-long-provisioning-takes"></a>Quanto tempo demora o provisionamento
 
-O desempenho depende se o seu trabalho de provisionamento está executando um ciclo de provisionamento inicial ou um ciclo incremental. Para obter detalhes sobre quanto tempo o provisionamento leva e como monitorar o status do serviço de provisionamento, consulte [verificar o status do provisionamento do usuário](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md).
+O desempenho depende se o seu trabalho de provisionamento está executando um ciclo de provisionamento inicial ou incremental. Para mais informações sobre a duração do provisionamento e como monitorar o status do serviço de provisionamento, consulte [Verificar o status do provisionamento de usuário](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md).
 
-### <a name="how-to-tell-if-users-are-being-provisioned-properly"></a>Como saber se os usuários estão sendo provisionados corretamente
+### <a name="how-to-tell-if-users-are-being-provisioned-properly"></a>Como posso saber se os usuários estão sendo provisionados corretamente
 
-Todas as operações executadas pelo serviço de provisionamento de usuário são registradas nos logs de provisionamento do Azure AD [(versão prévia)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Os logs incluem todas as operações de leitura e gravação feitas nos sistemas de origem e de destino e os dados de usuário que foram lidos ou gravados durante cada operação. Para obter informações sobre como ler os logs de provisionamento no portal do Azure, consulte o guia de [relatórios de provisionamento](../manage-apps/check-status-user-account-provisioning.md).
+Todas as operações executadas pelo serviço de provisionamento de usuário são registradas nos [Logs de provisionamento (versão prévia)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) do Azure Active Directory. Os logs incluem todas as operações de gravação feitas para os sistemas de origem e destino, e os dados de usuário que foram lidos ou gravados durante cada operação. Para informações sobre como ler os logs de provisionamento no portal do Azure, consulte o [guia de relatório de provisionamento](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="de-provisioning"></a>Desprovisionamento
 
-O serviço de provisionamento do Azure AD mantém os sistemas de origem e de destino sincronizados por contas de provisionamento quando os usuários não devem mais ter acesso. 
+O serviço de provisionamento do Azure Active Directory mantém os sistemas de origem e de destino sincronizados por contas de desprovisionamento quando os usuários não devem mais ter acesso. 
 
-O serviço de provisionamento do Azure AD excluirá de forma reversível um usuário em um aplicativo quando o aplicativo suupports as exclusões reversívels (solicitação de atualização com Active = false) e qualquer um dos seguintes eventos ocorrer:
+O serviço de provisionamento do Azure Active Directory excluirá de forma temporária um usuário em um aplicativo quando o aplicativo dá suporte a exclusões temporárias (solicitação de atualização com active = false) e algum dos eventos a seguir ocorra:
 
-* A conta de usuário é excluída no Azure AD
-*   O usuário não está atribuído do aplicativo
-*   O usuário não atende mais a um filtro de escopo e sai do escopo
-    * Por padrão, o serviço de provisionamento do Azure AD exclui ou desabilita usuários que saem do escopo. Se você quiser substituir esse comportamento padrão, poderá definir um sinalizador para [ignorar exclusões fora do escopo](../app-provisioning/skip-out-of-scope-deletions.md).
-*   A propriedade AccountEnabled está definida como false
+* A conta de usuário é excluída no Azure Active Directory
+*   O usuário não é desatribuído do aplicativo
+*   O usuário não atende mais a um filtro de escopo e sai de escopo
+    * Por padrão, o serviço de provisionamento do Azure Active Directory exclui ou desabilita usuários que saem de escopo. Se quiser substituir esse comportamento padrão, poderá definir um sinalizador para [ignorar exclusões fora do escopo](../app-provisioning/skip-out-of-scope-deletions.md).
+*   A propriedade AccountEnabled está definida como False
 
-Se um dos quatro eventos acima ocorrer e o aplicativo de destino não oferecer suporte a exclusões reversível, o serviço de provisionamento enviará uma solicitação de exclusão para excluir permanentemente o usuário do aplicativo. 
+Se um dos quatro eventos acima ocorrer e o aplicativo de destino não oferecer suporte a exclusões reversíveis, o serviço de provisionamento enviará uma solicitação de EXCLUSÃO para excluir permanentemente o usuário do aplicativo. 
 
-30 dias após a exclusão de um usuário no Azure AD, eles serão excluídos permanentemente do locatário. Neste ponto, o serviço de provisionamento enviará uma solicitação de exclusão para excluir permanentemente o usuário no aplicativo. A qualquer momento durante o período de 30 dias, você pode [excluir manualmente um usuário permanentemente](../fundamentals/active-directory-users-restore.md), o que envia uma solicitação de exclusão para o aplicativo.
+Trinta dias após a exclusão de um usuário no Azure Active Directory, eles serão excluídos permanentemente do locatário. Neste ponto, o serviço de provisionamento enviará uma solicitação de EXCLUSÃO para excluir permanentemente o usuário no aplicativo. Durante o período de 30 dias, você pode [excluir manualmente um usuário de forma permanente](../fundamentals/active-directory-users-restore.md), o que envia uma solicitação de exclusão ao aplicativo.
 
-Se você vir um atributo IsSoftDeleted em seus mapeamentos de atributo, ele será usado para determinar o estado do usuário e se deseja enviar uma solicitação de atualização com Active = false para excluir a exclusão reversível do usuário. 
+Se você vir um atributo IsSoftDeleted em seus mapeamentos de atributo, ele será usado para determinar o estado do usuário e se deseja enviar uma solicitação de atualização com active = false para excluir a exclusão reversível do usuário. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: spelluru
-ms.openlocfilehash: c9ce4e7da51005dcb06c9df420d80f4d2c7b93e9
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: f46b17fdffc870e6afc5f3b0711169db8270a540
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83596015"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800435"
 ---
 # <a name="event-hub-as-an-event-handler-for-azure-event-grid-events"></a>Hub de eventos como um manipulador de eventos para os eventos da Grade de Eventos do Azure
 Um manipulador de eventos é o local para o qual o evento é enviado. O manipulador usa uma ação para processar o evento. Vários serviços do Azure são automaticamente configurados para lidar com os eventos, e o **Hubs de Eventos do Azure** é um deles. 
@@ -39,6 +39,52 @@ Se você usar um **hub de eventos** como um manipulador de eventos para eventos 
 | aeg-data-version | <p>Versão de dados do evento.</p><p>Exemplo: "1".</p><p>Para o **esquema de evento da Grade de Eventos**, essa propriedade representa a versão dos dados e para o **esquema de evento da nuvem**, ela não se aplica.</p> |
 | aeg-output-event-id | ID do evento da Grade de Eventos. |
 
+## <a name="rest-examples-for-put"></a>Exemplos de REST (para PUT)
+
+
+### <a name="event-hub"></a>Hub de Eventos
+
+```json
+{
+    "properties": 
+    {
+        "destination": 
+        {
+            "endpointType": "EventHub",
+            "properties": 
+            {
+                "resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUBS NAMESPACE NAME>/eventhubs/<EVENT HUB NAME>"
+            }
+        },
+        "eventDeliverySchema": "EventGridSchema"
+    }
+}
+```
+
+### <a name="event-hub---delivery-with-managed-identity"></a>Hub de eventos – entrega com identidade gerenciada
+
+```json
+{
+    "properties": {
+        "deliveryWithResourceIdentity": 
+        {
+            "identity": 
+            {
+                "type": "SystemAssigned"
+            },
+            "destination": 
+            {
+                "endpointType": "EventHub",
+                "properties": 
+                {
+                    "resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUBS NAMESPACE NAME>/eventhubs/<EVENT HUB NAME>"
+                }
+            }
+        },
+        "eventDeliverySchema": "EventGridSchema"
+    }
+}
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 Consulte o artigo [Manipuladores de eventos](event-handlers.md) para obter uma lista dos manipuladores de eventos compatíveis. 

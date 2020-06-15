@@ -1,5 +1,5 @@
 ---
-title: Anexar um disco de dados a uma VM do Linux
+title: Anexação de um disco de dados a uma VM do Linux
 description: Utilize o portal para anexar disco de dados novo ou existente a uma VM Linux.
 author: cynthn
 ms.service: virtual-machines-linux
@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 746cef8dfe026c731a677cbf77f729d36342f007
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6c485c1612df526e813119239fd2202b7657db9c
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78969349"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774190"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Utilize o portal para anexar um disco de dados a uma VM Linux 
 Este artigo mostra como anexar discos novos e existentes a uma máquina virtual Linux por meio do portal do Azure. Você também pode [anexar um disco de dados a uma VM do Windows no Portal do Azure](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -25,9 +25,9 @@ Antes de anexar discos à sua VM, veja estas dicas:
 
 
 ## <a name="find-the-virtual-machine"></a>Localizar a máquina virtual
-1. Vá para a [portal do Azure](https://portal.azure.com/) para localizar a VM. Pesquise por **Máquinas virtuais** e selecione essa opção.
+1. Acesse o [portal](https://portal.azure.com/) do Azure para encontrar a VM. Pesquise por **Máquinas virtuais** e selecione essa opção.
 2. Escolha a VM na lista.
-3. Na barra lateral da página **máquinas virtuais** , em **configurações**, escolha **discos**.
+3. Na barra lateral da página **Máquinas virtuais**, em **Configurações**, escolha **Discos**.
    
     ![Abrir configurações de disco](./media/attach-disk-portal/find-disk-settings.png)
 
@@ -47,7 +47,7 @@ Antes de anexar discos à sua VM, veja estas dicas:
 
    ![Salvar novo Azure Managed Disk](./media/attach-disk-portal/confirm-create-new-md.png)
 
-5. Depois que o Azure cria o disco e o anexa à máquina virtual, o novo disco é listado nas configurações de disco da máquina virtual em **discos de dados**. Como os discos gerenciados são um recurso de nível superior, o disco aparece na raiz do grupo de recursos:
+5. Depois que o Azure cria o disco e o anexa à máquina virtual, o novo disco é listado nas configurações de disco da máquina virtual em **Discos de Dados**. Como os discos gerenciados são um recurso de nível superior, o disco aparece na raiz do grupo de recursos:
 
    ![Azure Managed Disk no grupo de recursos](./media/attach-disk-portal/view-md-resource-group.png)
 
@@ -64,13 +64,13 @@ Antes de anexar discos à sua VM, veja estas dicas:
 4. Depois que o Azure anexa o disco à máquina virtual, ele é listado nas configurações de disco da máquina virtual em **Discos de Dados**.
 
 ## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>Conectar-se à VM do Linux para montar o novo disco
-Para participar, formatar e montar o novo disco para que sua VM do Linux possa usá-lo, Secure Shell em sua VM. Para obter mais informações, consulte [como usar SSH com Linux no Azure](mac-create-ssh-keys.md). O exemplo a seguir se conecta a uma VM com a entrada DNS pública de *mypublicdns.westus.cloudapp.azure.com* com o nome de usuário *azureuser*: 
+Para participar, formatar e montar o novo disco para que sua VM do Linux possa usá-lo, Secure Shell em sua VM. Para saber mais, confira [Como usar o SSH com o Linux no Azure](mac-create-ssh-keys.md). O exemplo a seguir se conecta a uma VM com a entrada DNS pública de *mypublicdns.westus.cloudapp.azure.com* com o nome de usuário *azureuser*: 
 
 ```bash
 ssh azureuser@mypublicdns.westus.cloudapp.azure.com
 ```
 
-Uma vez conectado a uma VM, você está pronto para anexar um disco. Primeiro, localize o disco usando `dmesg` (o método usado para descobrir o novo disco pode variar). O exemplo a seguir usa dmesg para filtrar em discos *SCSI* :
+Uma vez conectado a uma VM, você está pronto para anexar um disco. Primeiro, localize o disco usando `dmesg` (o método usado para descobrir o novo disco pode variar). O exemplo a seguir usa dmesg para filtragem em discos *SCSI*:
 
 ```bash
 dmesg | grep SCSI
@@ -92,7 +92,7 @@ Aqui, *sdc* é o disco que queremos.
 Se você estiver usando um disco existente que contenha dados, pule para montar o disco. Se você estiver anexando um novo disco, precisará particionar o disco.
 
 > [!NOTE]
-> É recomendável que você use as versões mais recentes do fdisk ou parcialmente disponíveis para seu distribuição.
+> É recomendável usar as versões mais recentes do fdisk ou parted disponíveis para sua distro.
 
 Particione o disco com `fdisk`. Se o tamanho do disco for 2 tebibytes (TiB) ou maior, então você deve usar o particionamento GPT, você pode usar `parted` para executar o particionamento GPT. Se o tamanho do disco for menor que 2TiB, você pode usar o particionamento MBR ou GPT. Torne-o um disco primário na partição 1 e aceite os outros padrões. O exemplo a seguir inicia o processo `fdisk` em */dev/sdc*:
 
@@ -175,13 +175,14 @@ Creating journal (32768 blocks): done
 Writing superblocks and filesystem accounting information: done
 ```
 
-#### <a name="alternate-method-using-parted"></a>Método alternativo usando parte
-O utilitário fdisk precisa de entrada interativa e, portanto, não é ideal para uso em scripts de automação. No entanto, o utilitário em [partes](https://www.gnu.org/software/parted/) pode ser inserido no script e, portanto, se presta melhor em cenários de automação. O utilitário em partes pode ser usado para particionar e formatar um disco de dados. Para as instruções a seguir, usamos um novo disco de dados/dev/sdc e o formato usando o sistema de arquivos [xfs](https://xfs.wiki.kernel.org/) .
+#### <a name="alternate-method-using-parted"></a>Método alternativo usando parted
+O utilitário fdisk precisa de entrada interativa e, portanto, não é o mais adequado para uso em scripts de automação. No entanto, o utilitário [parted](https://www.gnu.org/software/parted/) pode ser inserido no script e, portanto, é uma opção melhor para cenários de automação. O utilitário parted pode ser usado para particionar e para formatar um disco de dados. Para as instruções a seguir, usamos um novo disco de dados /dev/sdc e o formatamos usando o sistema de arquivos [XFS](https://xfs.wiki.kernel.org/).
 ```bash
 sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
+sudo mkfs.xfs /dev/sdc1
 partprobe /dev/sdc1
 ```
-Como visto acima, usamos o utilitário [partprobe](https://linux.die.net/man/8/partprobe) para garantir que o kernel esteja ciente imediatamente da nova partição e do sistema de arquivos. A falha ao usar o partprobe pode fazer com que os comandos blkid ou lslbk não retornem o UUID para o novo FileSystem imediatamente.
+Como visto acima, usamos o utilitário [partprobe](https://linux.die.net/man/8/partprobe) para garantir que o kernel fique imediatamente ciente da nova partição e do novo sistema de arquivos. Não usar o partprobe pode fazer com que os comandos blkid ou lslbk não retornem o UUID para o novo sistema de arquivos de forma imediata.
 
 ### <a name="mount-the-disk"></a>Monte o disco
 Crie um diretório para montar o novo sistema de arquivos usando o `mkdir`. O exemplo a seguir cria um diretório em */datadrive*:
@@ -224,11 +225,11 @@ Neste exemplo, usamos o valor UUID para o novo dispositivo */dev/sdc1* criado na
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
 ```
-Quando terminar, salve o arquivo */etc/fstab* e reinicialize o sistema.
+Quando terminar, salve o arquivo */etc/fstab* e reinicie o sistema.
 > [!NOTE]
 > Remover um disco de dados posteriormente sem editar fstab pode fazer com que a VM falhe ao ser inicializada. A maioria das distribuições fornecem as opções de fstab *nofail* e/ou *nobootwait*. Essas opções permitem que um sistema inicialize mesmo se o disco não for montado no momento da inicialização. Consulte a documentação da distribuição para obter mais informações sobre esses parâmetros.
 > 
-> A opção *nofail* garante que a VM inicie mesmo que o sistema de arquivos esteja corrompido ou que o disco não exista no momento da inicialização. Sem essa opção, você pode encontrar um comportamento conforme descrito em [não pode SSH para VM Linux devido a erros de fstab](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)
+> A opção *nofail* garante que a VM inicie mesmo que o sistema de arquivos esteja corrompido ou que o disco não exista no momento da inicialização. Sem essa opção, você poderá encontrar um comportamento conforme descrito em [Não é possível conectar-se a uma VM Linux via SSH devido a erros no FSTAB](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)
 
 ### <a name="trimunmap-support-for-linux-in-azure"></a>Suporte a TRIM/UNMAP para Linux no Azure
 Alguns kernels Linux permitem operações TRIM/UNMAP para descartar os blocos não utilizados no disco. Esse recurso é útil principalmente no Armazenamento Standard, para informar o Azure de que as páginas excluídas não são mais válidas e podem ser descartadas, podendo também economizar dinheiro se você criar arquivos grandes e depois excluí-los.

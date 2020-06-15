@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 10d3e3674aef901ad35dfb6d0b9fd13715aace55
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8425c2c1f653d874d24053a12d511c64a3b9ee9d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594935"
+ms.locfileid: "83655247"
 ---
 # <a name="setup-a-custom-domain-in-azure-static-web-apps-preview"></a>Configurar um domínio personalizado nos Aplicativos Web Estáticos do Azure – Visualização
 
@@ -92,7 +92,7 @@ Embora o suporte ao domínio raiz não esteja disponível durante a visualizaç�
 
 ## <a name="map-a-wildcard-domain"></a>Mapear um domínio curinga
 
-Às vezes, você deseja que todo o tráfego seja enviado a um subdomínio para rotear para outro domínio. Um exemplo comum é o mapeamento de todo o tráfego de subdomínio para `www.example.com`. Dessa forma, mesmo se alguém digitar `ww.example.com` em vez de `www.example.com`, a solicitação será enviada para `www.example.com`.
+Às vezes, você deseja que todo o tráfego seja enviado a um subdomínio para rotear para outro domínio. Um exemplo comum é o mapeamento de todo o tráfego de subdomínio para `www.example.com`. Dessa forma, mesmo se alguém digitar `w.example.com` em vez de `www.example.com`, a solicitação será enviada para `www.example.com`.
 
 ### <a name="configure-dns-provider"></a>Configurar provedor DNS
 

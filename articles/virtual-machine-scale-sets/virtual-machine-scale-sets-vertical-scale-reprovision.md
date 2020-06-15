@@ -1,5 +1,5 @@
 ---
-title: Dimensionar verticalmente os conjuntos de dimensionamento de máquinas virtuais do Azure
+title: Dimensionar verticalmente os conjuntos de dimensionamento de máquinas virtuais
 description: Como dimensionar verticalmente uma máquina virtual em resposta a alertas de monitoramento com a Automação do Azure
 author: ju-shim
 ms.author: jushiman
@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 04/18/2019
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: 69c613de02b9601966cae2d36c13428ca6c7becc
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 565d98bd5f27351f16ff523aa017c4b980fbdd53
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83120990"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827259"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Dimensionamento automático vertical com conjuntos de dimensionamento de máquinas virtuais
 
@@ -37,7 +37,7 @@ Você pode definir o dimensionamento vertical para ser disparado com base em ale
 4. Adicione um alerta em seu conjunto de dimensionamento de máquinas virtuais usando uma notificação de webhook.
 
 > [!NOTE]
-> Devido ao tamanho da primeira máquina virtual, os tamanhos para expansão podem ser limitados devido à disponibilidade de outros tamanhos no cluster em que a máquina virtual atual está implantada. Nos Runbooks de automação publicados usados neste artigo, levamos isso em conta e dimensionamos apenas dentro dos pares de tamanhos da VM abaixo. Isso significa que uma máquina virtual Standard_D1v2 não será expandida repentinamente para Standard_G5 ou reduzida para Basic_A0. Também não há suporte para expansão/redução de tamanhos de máquina virtual restritos. Você pode optar por dimensionar entre os seguintes pares de tamanhos:
+> Devido ao tamanho da primeira máquina virtual, os tamanhos para expansão podem ser limitados devido à disponibilidade de outros tamanhos no cluster em que a máquina virtual atual está implantada. Nos Runbooks de automação publicados usados neste artigo, levamos isso em conta e dimensionamos apenas dentro dos pares de tamanhos da VM abaixo. Isso significa que uma máquina virtual Standard_D1v2 não será expandida repentinamente para Standard_G5 ou reduzida para Basic_A0. Também não há suporte para escalar/reduzir verticalmente os tamanhos restritos de máquina virtual. Você pode optar por dimensionar entre os seguintes pares de tamanhos:
 > 
 > | Par de dimensionamento de tamanhos de VM |  |
 > | --- | --- |
@@ -118,7 +118,7 @@ Depois de importar os runbooks, adicione um webhook no runbook para que ele poss
 
 ## <a name="add-an-alert-to-your-virtual-machine-scale-set"></a>Adicionar um alerta ao conjunto de dimensionamento de máquinas virtuais
 
-Abaixo está um script do PowerShell que mostra como adicionar um alerta a um conjunto de dimensionamento de máquinas virtuais. Consulte o seguinte artigo para obter o nome da métrica em que o alerta será acionado: [Métricas comuns de dimensionamento automático do Azure Monitor](../azure-monitor/platform/autoscale-common-metrics.md).
+Abaixo está um script do PowerShell que mostra como adicionar um alerta a um conjunto de dimensionamento de máquinas virtuais. Veja o seguinte artigo para obter o nome da métrica em que o alerta será acionado: [Métricas comuns de dimensionamento automático do Azure Monitor](../azure-monitor/platform/autoscale-common-metrics.md).
 
 ```powershell
 $actionEmail = New-AzAlertRuleEmail -CustomEmail user@contoso.com
@@ -153,8 +153,8 @@ Add-AzMetricAlertRule  -Name  $alertName `
 
 Para obter mais informações sobre como criar alertas, consulte os seguintes artigos:
 
-* [Exemplos de início rápido do PowerShell do Azure Monitor](../azure-monitor/platform/powershell-quickstart-samples.md)
-* [Exemplos de início rápido da CLI multiplataforma do Azure Monitor](../azure-monitor/platform/cli-samples.md)
+* [Exemplos do PowerShell do Azure Monitor](../azure-monitor/samples/powershell-samples.md)
+* [Exemplos da CLI de plataforma cruzada do Azure Monitor](../azure-monitor/samples/cli-samples.md)
 
 ## <a name="summary"></a>Resumo
 

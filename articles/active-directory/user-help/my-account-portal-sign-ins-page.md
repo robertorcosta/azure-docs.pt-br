@@ -1,6 +1,6 @@
 ---
-title: Exiba e pesquise sua atividade de entrada recente na página meu logon (versão prévia)-Azure Active Directory | Microsoft Docs
-description: Detalhes sobre como exibir e pesquisar sua atividade de entrada recente na página minhas entradas do portal minha conta.
+title: Exibição e pesquisa da atividade de entrada recente da página Minhas Entradas (versão prévia) – Azure Active Directory | Microsoft Docs
+description: Detalhes sobre como exibir e pesquisar sua atividade de entrada recente na página Minhas Entradas do portal Minha Conta.
 services: active-directory
 author: curtand
 manager: daveba
@@ -8,23 +8,23 @@ ms.reviewer: rhicock
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 10/28/2019
 ms.author: curtand
-ms.openlocfilehash: c828878506ee69e90945d1f4be07eb81541b9757
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
-ms.translationtype: MT
+ms.openlocfilehash: 0b3b0d686ae10f9b376c977bf165eccddda32239
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82625401"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744523"
 ---
-# <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-preview-page"></a>Exibir e pesquisar sua atividade de entrada recente na página minhas entradas (versão prévia)
+# <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-preview-page"></a>Exibição e pesquisa da atividade de entrada recente da página Minhas entradas (versão prévia)
 
-Você pode exibir todas as atividades recentes de entrada da conta corporativa ou de estudante, na página **minhas entradas** do portal **minha conta** . A revisão do histórico de entrada ajuda você a verificar atividades incomuns ajudando-o a ver:
+Você pode ver toda a atividade de entrada recente na sua conta corporativa ou de estudante, na página **Minhas Entradas** do portal **Minha Conta**. A análise do histórico de entradas ajuda a verificar atividades incomuns, já que ajuda a ver:
 
-- Se alguém estiver tentando adivinhar sua senha.
+- Se alguém está tentando adivinhar sua senha.
 
-- Se um invasor tiver entrado com êxito em sua conta e a partir de qual local.
+- Se um invasor conseguiu entrar em sua conta e a partir de que localização.
 
 - Quais aplicativos o invasor tentou acessar.
 
@@ -32,44 +32,44 @@ Você pode exibir todas as atividades recentes de entrada da conta corporativa o
 
 1. Entre em sua conta corporativa ou de estudante e vá para a página https://myaccount.microsoft.com/.
 
-2. Selecione **minhas entradas (versão prévia)** no painel de navegação esquerdo ou selecione o link **examinar atividade recente** no bloco **minhas entradas (versão prévia)** .
+2. Selecione **Minhas Entradas (versão prévia)** no painel de navegação à esquerda ou selecione o link **Analisar atividade recente** no bloco **Minhas entradas (versão prévia)** .
 
-    ![Página minha conta, mostrando links de atividade recentes realçados](media/my-account-portal/my-account-portal-sign-ins.png)
+    ![Página Minha Conta, mostrando em destaque os links de Atividade recente](media/my-account-portal/my-account-portal-sign-ins.png)
 
-3. Expanda e examine cada um dos itens de entrada, verificando que reconhece cada uma delas. Se você encontrar um item de entrada que não parece familiar, é altamente recomendável alterar sua senha para ajudar a proteger sua conta se ela tiver sido comprometida.
+3. Expanda e examine cada um dos itens de entrada, verificando que reconhece cada uma delas. Se encontrar um item de entrada que não parece familiar, é altamente recomendável que você altere sua senha para ajudar a proteger sua conta se ela tiver sido comprometida.
 
     ![Página de atividades recentes, com detalhes de entrada expandidos](media/my-account-portal/my-account-portal-sign-ins-page.png)
 
-### <a name="if-you-see-a-successful-sign-in"></a>Se você vir uma entrada bem-sucedida
+### <a name="if-you-see-a-successful-sign-in"></a>Se você vir uma Entrada bem-sucedida
 
-Você deve reconhecer sua própria atividade como normal. No entanto, se você notar uma entrada bem-sucedida de um local estranho, navegador ou sistema operacional, isso pode significar que um invasor obteve acesso à sua conta. Nessa situação, recomendamos que você altere imediatamente sua senha e, em seguida, vá para a página [informações de segurança](https://mysignins.microsoft.com/security-info) para atualizar as configurações de segurança.
+Você deve reconhecer sua própria atividade como sendo normal. No entanto, se você notar uma Entrada bem-sucedida de uma localização, navegador ou sistema operacional estranhos, isso pode significar que um invasor conseguiu acessar a sua conta. Neste caso, recomendamos que você altere imediatamente sua senha e, em seguida, vá até a página [Informações de segurança](https://mysignins.microsoft.com/security-info) para atualizar suas configurações de segurança.
 
-Antes de determinar que algo está incorreto, verifique se você não está vendo um falso positivo (onde o item parece questionável, mas está ok). Por exemplo, determinamos o local e o mapa aproximados com base no seu endereço IP. As redes móveis são especialmente difíceis de identificar, pois, às vezes, roteiam o tráfego por meio de locais distantes. Portanto, se você tiver entrado usando seu dispositivo móvel no estado de Washington, o local poderá mostrar a entrada proveniente da Califórnia. Por isso, sugerimos enfaticamente que você verifique mais detalhes, além do local. Você também deve verificar se o sistema operacional, o navegador e o aplicativo fazem sentido.
+Antes de determinar que algo está errado, verifique se o que você está vendo não é um falso positivo (quando um item parece estranho, mas não há nada de errado). Por exemplo, determinamos a localização aproximada e o mapa com base no seu endereço IP. As redes móveis são especialmente difíceis de localizar com precisão, já que, às vezes, elas roteiam o tráfego através de localizações distantes. Portanto, se você tiver entrado usando seu dispositivo móvel no estado de Washington, a localização de entrada exibida poderá ser a Califórnia. Por isso, recomendamos fortemente que você verifique outros detalhes, além da localização. Verifique também se o sistema operacional, o navegador e o aplicativo fazem sentido para você.
 
-### <a name="if-you-see-an-unsuccessful-sign-in"></a>Se você vir uma entrada malsucedida
+### <a name="if-you-see-an-unsuccessful-sign-in"></a>Se você vir uma Entrada recusada
 
-Uma entrada malsucedida, sem atividade de sessão, significa que o método de verificação principal (nome de usuário/senha) falhou. Isso pode significar que você digitou indigitadamente seu nome de usuário ou senha, mas também pode significar que um invasor estava tentando adivinhar sua senha. Se você acha que foi um invasor tentando sem êxito adivinhar sua senha, não precisa alterar sua senha, mas sugerimos fortemente que você se registre na MFA (autenticação multifator do Azure). Com o MFA, mesmo que o hacker eventualmente Adivinhe sua senha, ele não será suficiente para acessar sua conta.
+Uma entrada recusada, sem atividade de sessão, significa que o método de verificação principal (nome de usuário/senha) falhou. Isso pode significar que você digitou errado seu nome de usuário ou senha, mas também pode significar que um invasor estava tentando adivinhar sua senha. Se você acha que foi um invasor tentando adivinhar sua senha sem sucesso, não é necessário alterá-la, mas recomendamos fortemente que você se registre na Autenticação Multifator do Azure (MFA). Com a MFA, mesmo que o hacker eventualmente adivinhe sua senha, isso não será o suficiente para acessar a sua conta.
 
-Se você vir uma entrada malsucedida, com uma observação sob a atividade de sessão que diz, a **verificação adicional falhou, código inválido**, significa que sua autenticação principal (nome de usuário/senha) foi bem-sucedida, mas a MFA falhou. Se esse era um invasor, ele adivinhou corretamente sua senha, mas ainda não conseguiu passar o desafio de MFA. Nesse caso, recomendamos que você ainda altere sua senha, uma vez que o invasor obteve a parte certa e, em seguida, vá para a página [informações de segurança](https://mysignins.microsoft.com/security-info) para atualizar suas configurações de segurança.
+Se você vir uma entrada recusada, com uma observação sob a Atividade de sessão que diz, **Falha na verificação adicional, código inválido**, isso significa que sua autenticação principal (nome de usuário/senha) foi bem-sucedida, mas a MFA falhou. Se esse era um invasor, ele adivinhou corretamente sua senha, mas não conseguiu passar o desafio de MFA. Neste caso, recomendamos que você altere sua senha mesmo assim, já que o invasor a descobriu e, em seguida, vá até a página [Informações de segurança](https://mysignins.microsoft.com/security-info) para atualizar suas configurações de segurança.
 
-## <a name="search-for-specific-sign-in-activity"></a>Pesquisar atividade de entrada específica
+## <a name="search-for-specific-sign-in-activity"></a>Pesquisa de atividade de entrada específica
 
-Você pode pesquisar sua atividade de entrada recente por qualquer uma das informações disponíveis. Por exemplo, você pode pesquisar sua atividade de entrada recente por sistema operacional, local, aplicativo e assim por diante.
+Você pode pesquisar sua atividade de entrada recente usando qualquer uma das informações disponíveis. Por exemplo, você pode pesquisar sua atividade de entrada recente por sistema operacional, localização, aplicativo, e assim por diante.
 
-1. Na página **revisão recente da atividade** , digite as informações que você deseja pesquisar na barra de **pesquisa** . Por exemplo, digite `My Account` para pesquisar todas as atividades coletadas pelo aplicativo minha conta.
+1. Na página **Analisar atividade recente**, digite as informações que quer pesquisar na barra **Pesquisa**. Por exemplo, digite `My Account` para pesquisar todas as atividades coletadas pelo aplicativo Minha Conta.
 
-2. Selecione o botão **Pesquisar** para começar a Pesquisar.
+2. Selecione o botão **Pesquisar** para iniciar a pesquisa.
 
-    ![Página atividade recente, mostrando a barra de pesquisa realçada, o botão de pesquisa e os resultados](media/my-account-portal/my-account-portal-sign-ins-page-search.png)
+    ![Página Atividade Recente, mostrando a barra de pesquisa realçada, o botão de pesquisa e os resultados](media/my-account-portal/my-account-portal-sign-ins-page-search.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de exibir sua atividade de entrada recente, você pode:
+Depois de ver sua atividade de entrada recente, você pode:
 
-- Exiba ou gerencie suas [informações de segurança](user-help-security-info-overview.md).
+- Exibir ou gerenciar as [informações de segurança](user-help-security-info-overview.md).
 
-- Exiba ou gerencie seus [dispositivos](my-account-portal-devices-page.md)conectados.
+- Exibir ou gerenciar os [dispositivos](my-account-portal-devices-page.md) conectados.
 
-- Exiba ou gerencie suas [organizações](my-account-portal-organizations-page.md).
+- Exibir ou gerenciar as [organizações](my-account-portal-organizations-page.md).
 
-- Veja como sua organização [usa seus dados relacionados à privacidade](my-account-portal-privacy-page.md).
+- Exibir como a organização [usa os dados relacionados à privacidade](my-account-portal-privacy-page.md).

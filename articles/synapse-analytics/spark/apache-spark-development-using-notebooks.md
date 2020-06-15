@@ -1,91 +1,91 @@
 ---
-title: Criar, desenvolver e manter blocos de anotações do Azure Synapse Studio (visualização)
-description: Neste artigo, você aprenderá a criar e desenvolver blocos de anotações do Azure Synapse Studio (visualização) para fazer a preparação e a visualização dos dados.
+title: Criar, desenvolver e manter notebooks do Azure Synapse Studio (versão prévia)
+description: Neste artigo, você aprenderá a criar e a desenvolver notebooks do Azure Synapse Studio (versão prévia) para fazer a preparação e a visualização dos dados.
 services: synapse analytics
 author: ruixinxu
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 05/01/2020
 ms.author: ruxu
 ms.reviewer: ''
-ms.openlocfilehash: 506339cefa90fb17bedfc946f70cb4d7d8047cf2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 21e3ba8cbf60cbbdc6480719016fc48db4fe390c
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81430221"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83702105"
 ---
-# <a name="create-develop-and-maintain-azure-synapse-studio-preview-notebooks"></a>Criar, desenvolver e manter blocos de anotações do Azure Synapse Studio (visualização)
+# <a name="create-develop-and-maintain-azure-synapse-studio-preview-notebooks"></a>Criar, desenvolver e manter notebooks do Azure Synapse Studio (versão prévia)
 
-Um notebook do Azure Synapse Studio (versão prévia) é uma interface da Web para que você crie arquivos que contenham código ao vivo, visualizações e texto de narração. Os notebooks são um bom lugar para validar ideias e usar experimentos rápidos para obter informações de seus dados. Os notebooks também são amplamente usados na preparação de dados, na visualização de dados, no aprendizado de máquina e em outros cenários de Big Data.
+Um notebook do Azure Synapse Studio (versão prévia) é uma interface da Web para você criar arquivos que contém código em tempo real, visualizações e texto de narração. Os notebooks são um bom lugar para validar ideias e fazer experimentos rápidos para obter insights de seus dados. Os notebooks também são amplamente usados na preparação e visualização de dados, no aprendizado de máquina e em outros cenários de Big Data.
 
 Com um notebook do Azure Synapse Studio, você pode:
 
-* Introdução ao esforço de configuração zero.
-* Mantenha os dados protegidos com recursos internos de segurança corporativa.
-* Analise dados em formatos brutos (CSV, txt, JSON, etc.), formatos de arquivo processados (parquet, Delta Lake, ORC, etc.) e arquivos de dados tabulares do SQL em Spark e SQL.
+* Começar a trabalhar com um mínimo de configuração.
+* Manter os dados protegidos com recursos internos de segurança corporativa.
+* Analisar dados em formatos brutos (CSV, txt, JSON, etc.), formatos de arquivo processados (Parquet, Delta Lake, ORC, etc.) e arquivos de dados tabulares do SQL em Spark e SQL.
 * Seja produtivo com recursos de criação aprimorados e visualização de dados interna.
 
-Este artigo descreve como usar blocos de anotações no Azure Synapse Studio.
+Este artigo descreve como usar notebooks no Azure Synapse Studio.
 
 ## <a name="create-a-notebook"></a>Criar um notebook
 
-Há duas maneiras de criar um bloco de anotações. Você pode criar um novo bloco de anotações ou importar um bloco de anotações existente para um espaço de trabalho do Azure Synapse do pesquisador de **objetos**. Os blocos de anotações do Azure Synapse Studio podem reconhecer arquivos IPYNB padrão de Jupyter Notebook.
+Há dois modos de criar um notebook. Você pode criar um notebook ou importar um existente para um workspace do Azure Synapse no **Pesquisador de Objetos**. Os notebooks do Azure Synapse Studio podem reconhecer arquivos IPYNB padrão do Jupyter Notebook.
 
-![Synapse-criar-importar-Notebook](./media/apache-spark-development-using-notebooks/synapse-create-import-notebook.png)
+![synapse-create-import-notebook](./media/apache-spark-development-using-notebooks/synapse-create-import-notebook.png)
 
 ## <a name="develop-notebooks"></a>Desenvolver notebooks
 
-Os blocos de anotações consistem em células, que são blocos individuais de código ou texto que podem ser executados de forma independente ou como um grupo.
+Os notebooks consistem em células, que são blocos individuais de código ou texto que podem ser executados de forma independente ou em grupo.
 
 ### <a name="add-a-cell"></a>Adicionar uma célula
 
-Há várias maneiras de adicionar uma nova célula ao seu bloco de anotações.
+Há várias maneiras de adicionar uma nova célula ao notebook.
 
-1. Expanda o botão superior esquerdo **+ célula** e selecione **Adicionar célula de código** ou **Adicionar célula de texto**.
+1. Expanda o botão superior esquerdo **+ Célula** e selecione **Adicionar célula de código** ou **Adicionar célula de texto**.
 
-    ![Adicionar célula com botão de célula](./media/apache-spark-development-using-notebooks/synapse-add-cell-1.png)
+    ![add-cell-with-cell-button](./media/apache-spark-development-using-notebooks/synapse-add-cell-1.png)
 
-2. Focalize o espaço entre duas células e selecione **Adicionar código** ou **Adicionar texto**.
+2. Passe o mouse sobre o espaço entre duas células e selecione **Adicionar código** ou **Adicionar texto**.
 
-    ![Adicionar célula-entre-espaço](./media/apache-spark-development-using-notebooks/synapse-add-cell-2.png)
+    ![add-cell-between-space](./media/apache-spark-development-using-notebooks/synapse-add-cell-2.png)
 
-3. Use [as teclas de atalho no modo de comando](#shortcut-keys-under-command-mode). Pressione **um** para inserir uma célula acima da célula atual. Pressione **B** para inserir uma célula abaixo da célula atual.
+3. Use [teclas de atalho no modo de comando](#shortcut-keys-under-command-mode). Pressione **A** para inserir uma célula acima da célula atual. Pressione **B** para inserir uma célula abaixo da célula atual.
 
-### <a name="set-a-primary-language"></a>Definir um idioma principal
+### <a name="set-a-primary-language"></a>Definir uma linguagem principal
 
-Os notebooks do Azure Synapse Studio dão suporte a quatro idiomas do Spark:
+Os notebooks do Azure Synapse Studio dão suporte a quatro linguagens do Apache Spark:
 
-* pyspark (Python)
-* Spark (escala)
-* sparkSQL
-* Spark.NET (C#)
+* pySpark (Python)
+* Spark (Scala)
+* SparkSQL
+* .NET para Apache Spark (C#)
 
-Você pode definir o idioma principal para novas células adicionadas na lista suspensa na barra de comandos superior.
+Você pode definir a linguagem principal para novas células adicionadas na lista suspensa na barra de comandos superior.
 
-   ![padrão-Synapse-idioma](./media/apache-spark-development-using-notebooks/synapse-default-language.png)
+   ![default-synapse-language](./media/apache-spark-development-using-notebooks/synapse-default-language.png)
 
 ### <a name="use-multiple-languages"></a>Usar vários idiomas
 
-Você pode usar vários idiomas em um notebook especificando o comando mágico de idioma correto no início de uma célula. A tabela a seguir lista os comandos mágicos para alternar idiomas de célula.
+Você pode usar várias linguagens em um notebook especificando o comando magic da linguagem correto no início de uma célula. A tabela a seguir lista os comandos magic para alternar entre linguagens de célula.
 
-|Comando mágico |Linguagem | Descrição |  
+|Comandos magic |Linguagem | Descrição |  
 |---|------|-----|
-|%% pyspark| Python | Execute uma consulta **Python** no contexto do Spark.  |
-|%% Spark| Scala | Execute uma consulta **escalar** no contexto do Spark.  |  
-|%% SQL| SparkSQL | Execute uma consulta **SparkSQL** no contexto do Spark.  |
-|%% Csharp | Spark.NET C # | Execute uma consulta **C# Spark.net** no contexto do Spark. |
+|%%pyspark| Python | Execute uma consulta **Python** no contexto do Spark.  |
+|%%spark| Scala | Execute uma consulta **Scala** no contexto do Spark.  |  
+|%%sql| SparkSQL | Execute uma consulta **SparkSQL** no contexto do Spark.  |
+|%%csharp | .NET para Spark C# | Execute uma consulta **.NET para Spark C#** no contexto do Spark. |
 
-A imagem a seguir é um exemplo de como você pode escrever uma consulta PySpark usando o comando **%% PySpark** mágica ou uma consulta SparkSQL com o comando **%% SQL** mágico em um notebook **Spark (escala)** . Observe que o idioma principal do bloco de anotações é definido como escala.
+A imagem a seguir é um exemplo de como você pode escrever uma consulta PySpark com o comando magic **%%pyspark** ou uma consulta SparkSQL com o comando magic **%%sql** em um notebook **Spark (Scala)** . Observe que a linguagem principal do notebook está definida como pySpark.
 
-   ![Synapse-Spark-Magic](./media/apache-spark-development-using-notebooks/synapse-spark-magics.png)
+   ![synapse-spark-magics](./media/apache-spark-development-using-notebooks/synapse-spark-magics.png)
 
 ### <a name="use-temp-tables-to-reference-data-across-languages"></a>Usar tabelas temporárias para fazer referência a dados entre linguagens
 
-Você não pode fazer referência a dados ou variáveis diretamente em idiomas diferentes em um notebook do Synapse Studio. No Spark, uma tabela temporária pode ser referenciada entre os idiomas. Aqui está um exemplo de como ler um `Scala` dataframe no e `PySpark` `SparkSQL` usar uma tabela temporária do Spark como uma solução alternativa.
+Você não pode fazer referência a dados ou variáveis diretamente em linguagens diferentes em um notebook do Synapse Studio. No Spark, uma tabela temporária pode ser referenciada entre os idiomas. Aqui está um exemplo de como ler um dataframe `Scala` no `PySpark` e `SparkSQL` usando uma tabela temporária do Spark como solução alternativa.
 
-1. Na célula 1, leia um dataframe do conector do pool SQL usando escalabilidade e crie uma tabela temporária.
+1. Na célula 1, leia um dataframe do conector do pool SQL com o Scala e crie uma tabela temporária.
 
    ```scala
    %%scala
@@ -93,128 +93,128 @@ Você não pode fazer referência a dados ou variáveis diretamente em idiomas d
    scalaDataFrame.registerTempTable( "mydataframetable" )
    ```
 
-2. Na célula 2, consulte os dados usando o Spark SQL.
+2. Na célula 2, consulte os dados com o Spark SQL.
    
    ```sql
    %%sql
    SELECT * FROM mydataframetable
    ```
 
-3. Na célula 3, use os dados em PySpark.
+3. Na célula 3, use os dados no PySpark.
 
    ```python
    %%pyspark
    myNewPythonDataFrame = spark.sql("SELECT * FROM mydataframetable")
    ```
 
-### <a name="ide-style-intellisense"></a>IntelliSense estilo IDE
+### <a name="ide-style-intellisense"></a>IntelliSense de estilo IDE
 
-Os blocos de anotações do Azure Synapse Studio são integrados ao editor Mônaco para colocar o IntelliSense estilo IDE no editor de célula. O realce de sintaxe, o criador de erros e as conclusões de código automáticas ajudam você a escrever código e identificar problemas mais rapidamente.
+Os notebooks do Azure Synapse Studio são integrados ao editor Monaco para levar o IntelliSense de estilo IDE ao editor de célula. O realce de sintaxe, o marcador de erros e os preenchimentos de código automáticos ajudam você a codificar e identificar problemas mais rapidamente.
 
-Os recursos do IntelliSense estão em níveis diferentes de maturidade para diferentes idiomas. Use a tabela abaixo para ver o que tem suporte.
+Os recursos do IntelliSense estão em níveis diferentes de maturidade para linguagens diferentes. Use a tabela abaixo para ver o que tem suporte.
 
-|Languages| Realce da sintaxe | Marcador de erro de sintaxe  | Conclusão do código de sintaxe | Conclusão de código de variável| Conclusão de código de função do sistema| Conclusão do código da função de usuário| Recuo Inteligente | Dobramento de código|
+|Languages| Realce da sintaxe | Marcador de erro de sintaxe  | Conclusão de código de sintaxe | Conclusão de código de variável| Conclusão de código de função do sistema| Conclusão do código de função do usuário| Recuo Inteligente | Dobramento de código|
 |--|--|--|--|--|--|--|--|--|
 |PySpark (Python)|Sim|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
-|Spark (escala)|Sim|Sim|Sim|Sim|-|-|-|Sim|
+|Spark (Scala)|Sim|Sim|Sim|Sim|-|-|-|Sim|
 |SparkSQL|Sim|Sim|-|-|-|-|-|-|
-|Spark.NET (C#)|Sim|-|-|-|-|-|-|-|
+|.NET para Spark (C#)|Sim|-|-|-|-|-|-|-|
 
 ### <a name="format-text-cell-with-toolbar-buttons"></a>Formatar célula de texto com botões da barra de ferramentas
 
-Você pode usar os botões de formatação na barra de ferramentas de células de texto para realizar ações de redução comuns. Ele inclui texto em negrito, itálico em texto, inserção de trechos de código, inserção de lista não ordenada, inserção de lista ordenada e inserção de imagem da URL.
+Você pode usar os botões de formatação da barra de ferramentas de células de texto para realizar ações de markdown comuns. Eles incluem texto em negrito, texto em itálico, inserção de trechos de código, inserção de lista não ordenada, inserção de lista ordenada e inserção de imagem da URL.
 
-  ![Synapse-texto-célula-barra de ferramentas](./media/apache-spark-development-using-notebooks/synapse-text-cell-toolbar.png)
+  ![synapse-text-cell-toolbar](./media/apache-spark-development-using-notebooks/synapse-text-cell-toolbar.png)
 
 ### <a name="undo-cell-operations"></a>Desfazer operações de célula
-Clique no botão **desfazer** ou pressione **Ctrl + Z** para revogar a operação de célula mais recente. Agora você pode desfazer até as últimas 20 ações de célula históricas. 
+Clique no botão **Desfazer** ou pressione **CTRL+Z** para revogar a operação de célula mais recente. Agora você pode desfazer até as 20 últimas ações do histórico da célula. 
 
-   ![Synapse-desfazer células](./media/apache-spark-development-using-notebooks/synapse-undo-cells.png)
+   ![synapse-undo-cells](./media/apache-spark-development-using-notebooks/synapse-undo-cells.png)
 
 ### <a name="move-a-cell"></a>Mover uma célula
 
-Selecione as reticências (...) para acessar o menu ações adicionais de célula na extrema direita. Em seguida, selecione **mover célula para cima** ou **mover célula para baixo** para mover a célula atual. 
+Selecione as reticências (...) para acessar o menu de ações adicionais de célula na extrema direita. Em seguida, selecione **Mover célula para cima** ou **Mover célula para baixo** para mover a célula atual. 
 
-Você também pode usar [as teclas de atalho no modo de comando](#shortcut-keys-under-command-mode). Pressione **Ctrl + Alt + ↑** para mover para cima a célula atual. Pressione **Ctrl + Alt + ↓** para mover a célula atual para baixo.
+Você também pode usar [teclas de atalho no modo de comando](#shortcut-keys-under-command-mode). Pressione **Ctrl+Alt+↑** a fim de mover a célula atual para cima. Pressione **Ctrl+Alt+↓** a fim de mover a célula atual para baixo.
 
-   ![mover uma célula](./media/apache-spark-development-using-notebooks/synapse-move-cells.png)
+   ![move-a-cell](./media/apache-spark-development-using-notebooks/synapse-move-cells.png)
 
 ### <a name="delete-a-cell"></a>Excluir uma célula
 
-Para excluir uma célula, selecione as reticências (...) para acessar o menu de ações de célula adicional na extrema direita e selecione **excluir célula**. 
+Para excluir uma célula, selecione as reticências (...), acesse o menu de ações de célula adicional na extrema direita e selecione **Excluir uma célula**. 
 
-Você também pode usar [as teclas de atalho no modo de comando](#shortcut-keys-under-command-mode). Pressione **d, d** para excluir a célula atual.
+Você também pode usar [teclas de atalho no modo de comando](#shortcut-keys-under-command-mode). Pressione **D,D** para excluir a célula atual.
   
-   ![excluir-a-célula](./media/apache-spark-development-using-notebooks/synapse-delete-cell.png)
+   ![delete-a-cell](./media/apache-spark-development-using-notebooks/synapse-delete-cell.png)
 
 ### <a name="collapse-a-cell-input"></a>Recolher uma entrada de célula
-Clique no botão de seta na parte inferior da célula atual para recolhê-la. Para expandi-lo, clique no botão de seta enquanto a célula está recolhida.
+Clique no botão de seta na parte inferior da célula atual para recolhê-la. Para expandi-la, clique no botão de seta enquanto a célula estiver recolhida.
 
-   ![recolher-célula-entrada](./media/apache-spark-development-using-notebooks/synapse-collapse-cell-input.gif)
+   ![collapse-cell-input](./media/apache-spark-development-using-notebooks/synapse-collapse-cell-input.gif)
 
 ### <a name="collapse-a-cell-output"></a>Recolher uma saída de célula
 
-Clique no botão **recolher saída** no canto superior esquerdo da saída da célula atual para recolhê-la. Para expandi-lo, clique na **saída mostrar célula** enquanto a saída da célula estiver recolhida.
+Clique no botão **Recolher saída** no canto superior esquerdo da saída da célula atual para recolhê-la. Para expandi-la, clique em **Mostrar saída da célula** enquanto a saída da célula está recolhida.
 
-   ![recolher-célula-saída](./media/apache-spark-development-using-notebooks/synapse-collapse-cell-output.gif)
+   ![collapse-cell-output](./media/apache-spark-development-using-notebooks/synapse-collapse-cell-output.gif)
 
 ## <a name="run-notebooks"></a>Executar notebooks
 
-Você pode executar as células de código em seu bloco de anotações individualmente ou todas de uma vez. O status e o progresso de cada célula são representados no bloco de anotações.
+Você pode executar as células de código em seu notebook individualmente ou todas de uma vez. O status e o progresso de cada célula são representados no notebook.
 
 ### <a name="run-a-cell"></a>Executar uma célula
 
 Há várias maneiras de executar o código em uma célula.
 
-1. Focalize a célula que você deseja executar e selecione o botão **executar célula** ou pressione **Ctrl + Enter**.
+1. Passe o mouse sobre a célula que você deseja executar e selecione o botão **Executar Célula** ou pressione **Ctrl+Enter**.
 
-   ![Run-Cell-1](./media/apache-spark-development-using-notebooks/synapse-run-cell.png)
+   ![run-cell-1](./media/apache-spark-development-using-notebooks/synapse-run-cell.png)
 
 
-2. Para acessar o menu ações adicionais de célula na extrema direita, selecione as reticências (**...**). Em seguida, selecione **executar célula**.
+2. Para acessar o menu de ações adicionais de célula na extrema direita, selecione as reticências ( **...** ). Em seguida, selecione **Executar célula**.
 
-   ![executar-célula-2](./media/apache-spark-development-using-notebooks/synapse-run-cell-2.png)
+   ![run-cell-2](./media/apache-spark-development-using-notebooks/synapse-run-cell-2.png)
    
-3. Use [as teclas de atalho no modo de comando](#shortcut-keys-under-command-mode). Pressione **Shift + Enter** para executar a célula atual e selecione a célula abaixo. Pressione **ALT + Enter** para executar a célula atual e insira uma nova célula abaixo.
+3. Use [teclas de atalho no modo de comando](#shortcut-keys-under-command-mode). Pressione **Shift+Enter** para executar a célula atual e selecionar a célula abaixo. Pressione **Alt+Enter** para executar a célula atual e inserir uma célula abaixo.
 
 
 ### <a name="run-all-cells"></a>Executar todas as células
-Clique no botão **executar tudo** para executar todas as células no bloco de anotações atual em sequência.
+Clique no botão **Executar Tudo** para executar todas as células no notebook atual em sequência.
 
-   ![executar-todas as células](./media/apache-spark-development-using-notebooks/synapse-run-all.png)
+   ![run-all-cells](./media/apache-spark-development-using-notebooks/synapse-run-all.png)
 
 ### <a name="run-all-cells-above-or-below"></a>Executar todas as células acima ou abaixo
 
-Para acessar o menu ações adicionais de célula na extrema direita, selecione as reticências (**...**). Em seguida, selecione **executar células acima** para executar todas as células acima da atual em sequência. Selecione **executar células abaixo** para executar todas as células abaixo da atual em sequência.
+Para acessar o menu de ações adicionais de célula na extrema direita, selecione as reticências ( **...** ). Em seguida, selecione **Executar células acima** para executar todas as células acima da atual em sequência. Selecione **Executar células abaixo** para executar todas as células abaixo da atual em sequência.
 
-   ![Run-Cells-Above-ou-abaixo](./media/apache-spark-development-using-notebooks/synapse-run-cells-above-or-below.png)
+   ![run-cells-above-or-below](./media/apache-spark-development-using-notebooks/synapse-run-cells-above-or-below.png)
 
 
 ### <a name="cell-status-indicator"></a>Indicador de status de célula
 
 Um status de execução de célula passo a passo é exibido abaixo da célula para ajudá-lo a ver seu progresso atual. Depois que a execução da célula for concluída, um resumo de execução com a duração total e a hora de término serão mostrados e mantidos ali para referência futura.
 
-![status da célula](./media/apache-spark-development-using-notebooks/synapse-cell-status.png)
+![cell-status](./media/apache-spark-development-using-notebooks/synapse-cell-status.png)
 
 ### <a name="spark-progress-indicator"></a>Indicador de progresso do Spark
 
-O notebook do Azure Synapse Studio é baseado exclusivamente em Spark. As células de código são executadas remotamente no pool do Spark. Um indicador de progresso do trabalho do Spark é fornecido com uma barra de progresso em tempo real aparece para ajudá-lo a entender o status de execução do trabalho.
+O notebook do Azure Synapse Studio é baseado exclusivamente no Spark. As células de código são executadas remotamente no pool do Spark. Um indicador de progresso do trabalho do Spark é fornecido com uma barra de progresso em tempo real para ajudá-lo a entender o status de execução do trabalho.
 
 
-![Spark-Progress-indicador](./media/apache-spark-development-using-notebooks/synapse-spark-progress-indicator.png)
+![spark-progress-indicator](./media/apache-spark-development-using-notebooks/synapse-spark-progress-indicator.png)
 
 ### <a name="spark-session-config"></a>Configuração de sessão do Spark
 
-Você pode especificar a duração do tempo limite, o número e o tamanho dos executores para dar à sessão atual do Spark na **sessão de configuração**. Reinicie a sessão do Spark para que as alterações de configuração entrem em vigor. Todas as variáveis de bloco de anotações em cache são limpas.
+Você pode especificar a duração do tempo limite, o número e o tamanho dos executores para dar à sessão atual do Spark em **Configurar sessão**. Reinicie a sessão do Spark para que as alterações de configuração entrem em vigor. Todas as variáveis do notebook em cache serão limpas.
 
-![gerenciamento de sessão](./media/apache-spark-development-using-notebooks/synapse-spark-session-mgmt.png)
+![session-mgmt](./media/apache-spark-development-using-notebooks/synapse-spark-session-mgmt.png)
 
 
-## <a name="bring-data-to-a-notebook"></a>Trazer dados para um bloco de anotações
+## <a name="bring-data-to-a-notebook"></a>Trazer dados para um notebook
 
-Você pode carregar dados do armazenamento de BLOBs do Azure, Azure Data Lake Store Gen 2 e pool do SQL, conforme mostrado nos exemplos de código abaixo.
+Você pode carregar dados do Armazenamento de Blobs do Azure, do Azure Data Lake Store Gen 2 e de pool do SQL, como mostram os exemplos de código abaixo.
 
-### <a name="read-a-csv-from-azure-data-lake-store-gen2-as-a-spark-dataframe"></a>Ler um CSV de Azure Data Lake Store Gen2 como um dataframe do Spark
+### <a name="read-a-csv-from-azure-data-lake-store-gen2-as-a-spark-dataframe"></a>Ler um CSV do Azure Data Lake Store Gen2 como um dataframe do Spark
 
 ```python
 from pyspark.sql import SparkSession
@@ -233,7 +233,7 @@ df1 = spark.read.option('header', 'true') \
 
 ```
 
-#### <a name="read-a-csv-from-azure-blob-storage-as-a-spark-dataframe"></a>Ler um CSV do armazenamento de BLOBs do Azure como um dataframe do Spark
+#### <a name="read-a-csv-from-azure-blob-storage-as-a-spark-dataframe"></a>Ler um CSV do Armazenamento de Blobs do Azure como um dataframe do Spark
 
 ```python
 
@@ -257,30 +257,30 @@ df = spark.read.option("header", "true") \
 
 ### <a name="read-data-from-the-primary-storage-account"></a>Ler dados da conta de armazenamento primária
 
-Você pode acessar os dados na conta de armazenamento principal diretamente. Não é necessário fornecer as chaves secretas. Em Data Explorer, clique com o botão direito do mouse em um arquivo e selecione **novo bloco** de anotações para ver um novo bloco de anotações com o extrator de dados gerado automaticamente.
+Você pode acessar os dados na conta de armazenamento principal diretamente. Não é necessário fornecer as chaves secretas. No Data Explorer, clique com o botão direito do mouse em um arquivo e selecione **Novo notebook** para ver um novo notebook com o extrator de dados gerado automaticamente.
 
-![dados para célula](./media/apache-spark-development-using-notebooks/synapse-data-to-cell.png)
+![data-to-cell](./media/apache-spark-development-using-notebooks/synapse-data-to-cell.png)
 
-## <a name="visualize-data-in-a-notebook"></a>Visualizar dados em um bloco de anotações
+## <a name="visualize-data-in-a-notebook"></a>Visualizar dados em um notebook
 
-### <a name="display"></a>Exibir ()
+### <a name="display"></a>Display()
 
-Uma exibição de resultados tabulares é fornecida com a opção para criar um gráfico de barras, gráfico de linhas, gráfico de pizza, gráfico de dispersão e gráfico de área. Você pode visualizar seus dados sem precisar escrever código. Os gráficos podem ser personalizados nas **Opções de gráfico**. 
+Uma exibição de resultados tabulares é fornecida com a opção para criar gráfico de barras, de linhas, de pizza, de dispersão e de área. Você pode visualizar seus dados sem precisar escrever código. Os gráficos podem ser personalizados nas **Opções de Gráfico**. 
 
-A saída dos comandos da mágica **%% SQL** é exibida por padrão na exibição de tabela renderizada. Você pode chamar **Display (`<DataFrame name>`)** no Spark dataframes ou na função RDD (resiliented Distributed DataSets) para produzir a exibição de tabela renderizada.
+A saída dos comandos magic **%%sql** aparecem na exibição de tabela renderizada por padrão. Você pode chamar **display(`<DataFrame name>`)** na função RDD (Resilient Distributed Datasets) para produzir a exibição de tabela renderizada.
 
-   ![gráficos internos](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png)
+   ![builtin-charts](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png)
 
 ### <a name="displayhtml"></a>DisplayHTML()
 
-Você pode renderizar bibliotecas HTML ou interativas, como **bokeh**, usando o **displayHTML ()**.
+Você pode renderizar bibliotecas HTML ou interativas, como a **bokeh**, usando **displayHTML()** .
 
-A imagem a seguir é um exemplo de plotar glifos em um mapa usando **bokeh**.
+A imagem a seguir é um exemplo de como plotar glifos em um mapa usando **bokeh**.
 
-   ![bokeh-exemplo](./media/apache-spark-development-using-notebooks/synapse-bokeh-image.png)
+   ![bokeh-example](./media/apache-spark-development-using-notebooks/synapse-bokeh-image.png)
    
 
-Execute o seguinte código de exemplo para desenhar a imagem acima.
+Execute o código de exemplo a seguir para desenhar a imagem acima.
 
 ```python
 from bokeh.plotting import figure, output_file
@@ -312,83 +312,86 @@ displayHTML(html)
 
 ```
 
-## <a name="save-notebooks"></a>Salvar blocos de anotações
+## <a name="save-notebooks"></a>Salvar notebooks
 
-Você pode salvar um único bloco de anotações ou todos os blocos de anotações em seu espaço de trabalho.
+Você pode salvar um único notebook ou todos eles em seu espaço de trabalho.
 
-1. Para salvar as alterações feitas em um único bloco de anotações, selecione o botão **publicar** na barra de comandos do bloco de anotações.
+1. Para salvar as alterações feitas em um único notebook, selecione o botão **Publicar** na barra de comandos do notebook.
 
-   ![publicar-Notebook](./media/apache-spark-development-using-notebooks/synapse-publish-notebook.png)
+   ![publish-notebook](./media/apache-spark-development-using-notebooks/synapse-publish-notebook.png)
 
-2. Para salvar todos os blocos de anotações em seu espaço de trabalho, selecione o botão **publicar tudo** na barra de comandos do espaço de trabalho. 
+2. Para salvar todos os notebooks em seu espaço de trabalho, selecione o botão **Publicar tudo** na barra de comandos do espaço de trabalho. 
 
-   ![publicar tudo](./media/apache-spark-development-using-notebooks/synapse-publish-all.png)
+   ![publish-all](./media/apache-spark-development-using-notebooks/synapse-publish-all.png)
 
-Nas propriedades do bloco de anotações, você pode configurar se deseja incluir a saída da célula ao salvar.
+Nas propriedades do notebook, você pode configurar se deseja incluir a saída da célula ao salvar.
 
-   ![bloco de notas-Propriedades](./media/apache-spark-development-using-notebooks/synapse-notebook-properties.png)
+   ![notebook-properties](./media/apache-spark-development-using-notebooks/synapse-notebook-properties.png)
 
-## <a name="magic-commands"></a>Comandos mágicos
-Você pode usar seus comandos mágicos Jupyter familiares nos notebooks do Azure Synapse Studio. Verifique a lista abaixo como os comandos mágicos disponíveis atuais. Conte-nos seus casos de uso no GitHub para que possamos continuar a criar mais comandos mágicos para atender às suas necessidades.
+## <a name="magic-commands"></a>Comandos magic
+Você pode usar seus comandos magic do Jupyter conhecidos nos notebooks do Azure Synapse Studio. Verifique a lista abaixo com os comandos magic disponíveis atuais. Conte-nos seus casos de uso no GitHub para que possamos continuar a criar mais comandos magic e atender às suas necessidades.
 
-Mágicas de linha disponíveis: [% lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [% time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [% timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit)
+Magics de linha disponíveis: [%lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [% timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit)
 
-Mágicas de célula disponíveis: [%% time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%% timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%% Capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%% WriteFile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%% SQL](#use-multiple-languages), [%% pyspark](#use-multiple-languages), [%% Spark](#use-multiple-languages), [%% Csharp](#use-multiple-languages)
+Magics de célula disponíveis: [%%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%%capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%%writefile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%%sql](#use-multiple-languages), [%%pyspark](#use-multiple-languages), [%%spark](#use-multiple-languages), [%%csharp](#use-multiple-languages)
 
 ## <a name="shortcut-keys"></a>Teclas de atalho
 
-Semelhante aos notebooks Jupyter, os notebooks do Azure Synapse Studio têm uma interface de usuário modal. O teclado faz coisas diferentes, dependendo de em qual modo a célula do notebook está. Os notebooks do Synapse Studio dão suporte aos dois modos a seguir para uma determinada célula de código: modo de comando e modo de edição.
+Semelhantemente aos Jupyter Notebooks, os notebooks do Azure Synapse Studio têm uma interface de usuário modal. O teclado faz coisas diferentes, dependendo de em qual modo a célula do notebook está. Os notebooks do Synapse Studio dão suporte aos seguintes dois modos de uma célula de código: modo de comando e modo de edição.
 
-1. Uma célula está no modo de comando quando não há um cursor de texto solicitando que você digite. Quando uma célula está no modo de comando, você pode editar o bloco de anotações como um todo, mas não digitar em células individuais. Insira o modo de comando `ESC` pressionando ou usando o mouse para clicar fora da área do editor de uma célula.
+1. Uma célula está no modo de comando quando não há um cursor de texto solicitando que você digite. Quando uma célula está no modo de comando, você pode editar o notebook como um todo, mas não pode digitar em células individuais. Entre no modo de comando pressionando `ESC` ou usando o mouse para clicar fora da área do editor de uma célula.
 
-   ![modo de comando](./media/apache-spark-development-using-notebooks/synapse-command-mode2.png)
+   ![command-mode](./media/apache-spark-development-using-notebooks/synapse-command-mode2.png)
 
-2. O modo de edição é indicado por um cursor de texto solicitando que você digite na área do editor. Quando uma célula está no modo de edição, você não consegue digitar na célula. Insira o modo de edição `Enter` pressionando ou usando o mouse para clicar na área do editor de uma célula.
+2. O modo de edição é indicado por um cursor de texto solicitando que você digite na área do editor. Quando uma célula está no modo de edição, não é possível digitar na célula. Entre no modo de edição pressionando `Enter` ou usando o mouse para clicar na área do editor de uma célula.
    
-   ![modo-de-edição](./media/apache-spark-development-using-notebooks/synapse-edit-mode2.png)
+   ![edit-mode](./media/apache-spark-development-using-notebooks/synapse-edit-mode2.png)
 
 ### <a name="shortcut-keys-under-command-mode"></a>Teclas de atalho no modo de comando
 
-Usando os atalhos de tecla a seguir, você pode navegar e executar o código com mais facilidade nos blocos de anotações do Azure Synapse.
+Usando os atalhos de tecla a seguir, você pode navegar e executar o código com mais facilidade nos notebooks do Azure Synapse.
 
-| Ação |Atalhos do bloco de anotações do Synapse Studio  |
+| Ação |Atalhos do notebook do Synapse Studio  |
 |--|--|
-|Execute a célula atual e selecione abaixo | Shift+Enter |
-|Execute a célula atual e insira abaixo | Alt+Enter |
+|Executar a célula atual e selecionar abaixo | Shift+Enter |
+|Executar a célula atual e inserir abaixo | Alt+Enter |
 |Selecionar célula acima| Para cima |
-|Selecione a célula abaixo| Para baixo |
+|Selecionar célula abaixo| Para baixo |
 |Inserir célula acima| Um |
 |Inserir célula abaixo| B |
-|Estender células selecionadas acima| Shift + para cima |
-|Estender as células selecionadas abaixo| Shift + seta para baixo|
-|Mover célula para cima| CTRL + ALT + ↑ |
-|Mover célula para baixo| CTRL + ALT + ↓ |
+|Estender células selecionadas acima| Shift+Seta para Cima |
+|Estender células selecionadas abaixo| Shift+Seta para Baixo|
+|Mover a célula para cima| CTRL+ALT+↑ |
+|Mover a célula para baixo| CTRL+ALT+↓ |
 |Excluir células selecionadas| D, D |
-|Alternar para o modo de edição| Digite |
+|Mudar para o modo de edição| Digite |
 
 ### <a name="shortcut-keys-under-edit-mode"></a>Teclas de atalho no modo de edição
 
-Usando os atalhos de tecla a seguir, você pode navegar e executar o código com mais facilidade nos blocos de anotações do Azure Synapse quando estiver no modo de edição.
+Usando os atalhos de tecla a seguir, você pode navegar e executar o código com mais facilidade nos notebooks do Azure Synapse quando no modo de edição.
 
-| Ação |Atalhos do bloco de anotações do Synapse Studio  |
+| Ação |Atalhos do notebook do Synapse Studio  |
 |--|--|
 |Mover cursor para cima | Para cima |
 |Mover cursor para baixo|Para baixo|
-|Desfazer|Ctrl + Z|
-|Refaz|Ctrl + Y|
-|Inserir/remover comentário|CTRL +/|
-|Excluir palavra antes|Ctrl + Backspace|
-|Excluir palavra após|Ctrl + Delete|
-|Ir para início da célula|Ctrl + Home|
-|Ir para final da célula |Ctrl + End|
-|Ir uma palavra para a esquerda|CTRL + esquerda|
-|Ir uma palavra para a direita|CTRL + direita|
-|Selecionar tudo|Ctrl + A|
-|Dividir| CTRL +]|
-|Desrecuar|CTRL + [|
+|Desfazer|CTRL+Z|
+|Refaz|Ctrl+Y|
+|Inserir/remover comentário|Ctrl+/|
+|Excluir palavra anterior|Ctrl+Backspace|
+|Excluir palavra seguinte|Ctrl+Delete|
+|Ir para o início da célula|Ctrl+Home|
+|Ir para o final da célula |Ctrl+End|
+|Ir uma palavra para a esquerda|CTRL+Seta para a esquerda|
+|Ir uma palavra para a direita|CTRL+Seta para a direita|
+|Selecionar tudo|CTRL+A|
+|Recuar| Ctrl+]|
+|Desfazer recuo|Ctrl+[|
 |Alternar para o modo de comando| Esc |
 
 ## <a name="next-steps"></a>Próximas etapas
 
+- [Início Rápido: Criar um Pool do Apache Spark (versão prévia) no Azure Synapse Analytics usando ferramentas da Web](../quickstart-apache-spark-notebook.md)
+- [O que é Apache Spark no Azure Synapse Analytics](apache-spark-overview.md)
+- [Use .NET para Apache Spark com Azure Synapse Analytics](spark-dotnet.md)
 - [Documentação do .NET para Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)

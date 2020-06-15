@@ -1,24 +1,24 @@
 ---
 title: Log de diagnósticos do Azure Analysis Services | Microsoft Docs
-description: Descreve como configurar o registro em log para monitorar o servidor de Azure Analysis Services.
+description: Descreve como configurar o registro em log para monitorar o servidor do Azure Analysis Services.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 71a81c4a3a57c206540e20f7c7e58949c552e582
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7e1eab20a8e315b977c21de46dd4f6ea2fec9f5d
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82128923"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701481"
 ---
 # <a name="setup-diagnostic-logging"></a>Configurar o log de diagnósticos
 
-Uma parte importante de qualquer solução do Analysis Services é o monitoramento do desempenho de seus servidores. O Azure Analysis Services está integrado ao Azure Monitor. Com [Azure monitor logs de recursos](../azure-monitor/platform/platform-logs-overview.md), você pode monitorar e enviar logs para o [armazenamento do Azure](https://azure.microsoft.com/services/storage/), transmiti-los para os [hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/)e exportá-los para [Azure monitor logs](../azure-monitor/azure-monitor-log-hub.md).
+Uma parte importante de qualquer solução do Analysis Services é o monitoramento do desempenho de seus servidores. O Azure Analysis Services está integrado ao Azure Monitor. Com os [logs de registro do Azure Monitor](../azure-monitor/platform/platform-logs-overview.md), é possível monitorar e enviar logs para o [Armazenamento do Microsoft Azure](https://azure.microsoft.com/services/storage/), transmiti-los para [Hubs de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/) e exportá-los para os [logs do Azure Monitor](../azure-monitor/azure-monitor-log-hub.md).
 
-![Log de recursos para armazenamento, hubs de eventos ou logs de Azure Monitor](./media/analysis-services-logging/aas-logging-overview.png)
+![Registrar em log os recursos do Armazenamento, do Hubs de Eventos ou do Azure Monitor](./media/analysis-services-logging/aas-logging-overview.png)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -42,7 +42,7 @@ Selecionar **Mecanismo** registra todos [xEvents](https://docs.microsoft.com/ana
 |Consultas     |   Término de consulta      |
 |Comandos     |  Início de comando       |
 |Comandos     |  Término de comando       |
-|Erros e avisos     |   Erro do      |
+|Erros e avisos     |   Erro      |
 |Descobrir     |   Término de descoberta      |
 |Notification     |    Notification     |
 |Session     |  Inicialização de sessão       |
@@ -66,15 +66,15 @@ Selecionar **Mecanismo** registra todos [xEvents](https://docs.microsoft.com/ana
 
 ### <a name="all-metrics"></a>Todas as métricas
 
-A categoria de métricas registra as mesmas [métricas de servidor](analysis-services-monitor.md#server-metrics) na tabela AzureMetrics. Se você estiver usando a [expansão](analysis-services-scale-out.md) de consulta e precisar separar métricas para cada réplica de leitura, use a tabela AzureDiagnostics em vez disso, em que **OperationName** é igual a **LogMetric**.
+Os logs da categoria de métricas registra as [métricas de servidor](analysis-services-monitor.md#server-metrics) para a tabela AzureMetrics. Se estiver usando a [expansão](analysis-services-scale-out.md) de consulta e precisar separar métricas para cada réplica de leitura, use a tabela AzureDiagnostics, onde **OperationName** é igual a **LogMetric**.
 
 ## <a name="setup-diagnostics-logging"></a>Configurar o log de diagnósticos
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-1. Em [portal do Azure](https://portal.azure.com) > Server, clique em **configurações de diagnóstico** no painel de navegação esquerdo e, em seguida, clique em **Ativar diagnóstico**.
+1. Em [Portal do Azure](https://portal.azure.com) > Servidor, clique em **Configurações de diagnóstico** na navegação à esquerda e, em seguida, clique em **Ativar diagnóstico**.
 
-    ![Ative o log de recursos para Azure Cosmos DB no portal do Azure](./media/analysis-services-logging/aas-logging-turn-on-diagnostics.png)
+    ![Ativar o log de recursos do Azure Cosmos DB no portal do Azure](./media/analysis-services-logging/aas-logging-turn-on-diagnostics.png)
 
 2. Em **Configurações de diagnóstico**, especifique as opções a seguir: 
 
@@ -82,17 +82,17 @@ A categoria de métricas registra as mesmas [métricas de servidor](analysis-ser
 
     * **Arquivar em uma conta de armazenamento**. Para usar essa opção, você precisa de uma conta de armazenamento existente à qual se conectar. Consulte [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md). Siga as instruções para criar um Gerenciador de Recursos, uma conta de finalidade geral, em seguida, selecione sua conta de armazenamento retornando para esta página no portal. Pode levar alguns minutos para que as contas de armazenamento recém-criadas sejam exibidas no menu suspenso.
     * **Transmitir para um hub de eventos**. Para usar essa opção, é necessário ter um namespace existente do Hub de Eventos e um hub de evento ao qual se conectar. Para saber mais, consulte [Criar um namespace de Hubs de Eventos e um hub de eventos usando o Portal do Azure](../event-hubs/event-hubs-create.md). Em seguida, retorne a esta página no portal para selecionar o namespace e o nome da política do Hub de Eventos.
-    * **Enviar para o Azure Monitor (espaço de trabalho do Log Analytics)**. Para usar essa opção, use um workspace existente ou [crie um novo recurso de workspace](../azure-monitor/learn/quick-create-workspace.md) no portal. Para obter mais informações sobre como exibir os logs, confira [Exibir logs no espaço de trabalho do Log Analytics](#view-logs-in-log-analytics-workspace) neste artigo.
+    * **Enviar para o Azure Monitor (espaço de trabalho do Log Analytics)** . Para usar essa opção, use um workspace existente ou [crie um novo recurso de workspace](../azure-monitor/learn/quick-create-workspace.md) no portal. Para obter mais informações sobre como exibir os logs, confira [Exibir logs no espaço de trabalho do Log Analytics](#view-logs-in-log-analytics-workspace) neste artigo.
 
-    * **Mecanismo**. Selecione esta opção para registrar xEvents. Se você estiver arquivando em uma conta de armazenamento, poderá selecionar o período de retenção para os logs de recursos. Os logs são excluídos automaticamente depois que o período de retenção expira.
-    * Do **serviço**. Selecione esta opção para registrar eventos de nível de serviço. Se você estiver arquivando em uma conta de armazenamento, poderá selecionar o período de retenção para os logs de recursos. Os logs são excluídos automaticamente depois que o período de retenção expira.
-    * **Métricas**. Selecione esta opção para armazenar dados detalhados em [Métricas](analysis-services-monitor.md#server-metrics). Se você estiver arquivando em uma conta de armazenamento, poderá selecionar o período de retenção para os logs de recursos. Os logs são excluídos automaticamente depois que o período de retenção expira.
+    * **Mecanismo**. Selecione esta opção para registrar xEvents. Ao arquivar uma conta de armazenamento, você poderá selecionar o período de retenção para os logs de recurso. Os logs são excluídos automaticamente depois que o período de retenção expira.
+    * **Serviço**. Selecione esta opção para registrar eventos de nível de serviço. Ao arquivar em uma conta de armazenamento, poderá selecionar o período de retenção para os logs de recurso. Os logs são excluídos automaticamente depois que o período de retenção expira.
+    * **Métricas**. Selecione esta opção para armazenar dados detalhados em [Métricas](analysis-services-monitor.md#server-metrics). Ao arquivar em uma conta de armazenamento, poderá selecionar o período de retenção para os logs de recurso. Os logs são excluídos automaticamente depois que o período de retenção expira.
 
-3. Clique em **Salvar**.
+3. Clique em **Save** (Salvar).
 
     Se você receber um erro que diga "Falha ao atualizar o diagnóstico para \<nome do workspace&gt;. A assinatura \<id da assinatura> não está registrada para usar o microsoft.insights." siga as instruções para [Solucionar Problemas de Diagnóstico do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) para registrar a conta, então repita este procedimento.
 
-    Se você quiser alterar o modo como os logs de recursos são salvos em qualquer ponto no futuro, você pode retornar a esta página para modificar as configurações.
+    Sempre que você quiser alterar como os seus logs de recursos são salvos, retorne a esta página para modificar as configurações.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -100,7 +100,7 @@ Aqui estão os comandos básicos para você começar. Se você desejar obter aju
 
 Para habilitar as métricas e o log de recursos usando o PowerShell, use os seguintes comandos:
 
-- Para habilitar o armazenamento de logs de recursos em uma conta de armazenamento, use este comando:
+- Para habilitar o armazenamento dos logs de recursos em uma conta de armazenamento, use este comando:
 
    ```powershell
    Set-AzDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
@@ -108,7 +108,7 @@ Para habilitar as métricas e o log de recursos usando o PowerShell, use os segu
 
    A ID da conta de armazenamento é a ID de recurso da conta de armazenamento para a qual os logs serão enviados.
 
-- Para habilitar o streaming de logs de recursos para um hub de eventos, use este comando:
+- Para habilitar o streaming dos logs de recursos para um hub de eventos, use este comando:
 
    ```powershell
    Set-AzDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
@@ -120,7 +120,7 @@ Para habilitar as métricas e o log de recursos usando o PowerShell, use os segu
    {service bus resource ID}/authorizationrules/{key name}
    ``` 
 
-- Para habilitar o envio de logs de recursos para um espaço de trabalho Log Analytics, use este comando:
+- Para habilitar o envio dos logs de recursos para um workspace do Log Analytics, use este comando:
 
    ```powershell
    Set-AzDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
@@ -164,7 +164,7 @@ No construtor de consultas, expanda **LogManagement** > **AzureDiagnostics**. O 
 
 #### <a name="example-1"></a>Exemplo 1
 
-A consulta a seguir retorna durações para cada evento end/atualizar end da consulta para um banco de dados modelo e um servidor. Se for expandido, os resultados serão divididos por réplica porque o número da réplica está incluído no ServerName_s. O agrupamento por RootActivityId_g reduz a contagem de linhas recuperadas da API REST Diagnóstico do Azure e ajuda a permanecer dentro dos limites, conforme descrito em [limites de taxa de log Analytics](https://dev.loganalytics.io/documentation/Using-the-API/Limits).
+A consulta a seguir retorna as durações de cada evento de fim de consulta/fim de atualização de consulta para um modelo de banco de dados e servidor. Se for escalado horizontalmente, os resultados serão divididos por réplica porque o número da réplica está incluído no ServerName_s. O agrupamento por RootActivityId_g reduz a contagem de linhas recuperadas da API REST do Diagnóstico do Azure e ajuda a ficar dentro dos limites conforme a descrição nos [limites de taxa do Log Analytics](https://dev.loganalytics.io/documentation/Using-the-API/Limits).
 
 ```Kusto
 let window = AzureDiagnostics
@@ -179,7 +179,7 @@ window
 
 #### <a name="example-2"></a>Exemplo 2
 
-A consulta a seguir retorna a memória e o consumo de QPU para um servidor. Se for expandido, os resultados serão divididos por réplica porque o número da réplica está incluído no ServerName_s.
+A consulta a seguir retorna a memória e o consumo de QPU de um servidor. Se for escalado horizontalmente, os resultados serão divididos por réplica porque o número da réplica está incluído no ServerName_s.
 
 ```Kusto
 let window = AzureDiagnostics
@@ -194,7 +194,7 @@ window
 
 #### <a name="example-3"></a>Exemplo 3
 
-A consulta a seguir retorna os contadores de desempenho de linhas lidas/s Analysis Services mecanismo para um servidor.
+A consulta a seguir retorna os contadores de desempenho de leitura de linhas por segundo do Analysis Services de um servidor.
 
 ```Kusto
 let window =  AzureDiagnostics
@@ -213,7 +213,7 @@ Há centenas de consultas que você pode usar. Para saber mais sobre as consulta
 
 ## <a name="turn-on-logging-by-using-powershell"></a>Ativar o registro em log usando o PowerShell
 
-Neste tutorial rápido, você cria uma conta de armazenamento na mesma assinatura e mesmo grupo de recursos que o servidor do Analysis Services. Em seguida, use set-AzDiagnosticSetting para ativar o log de diagnósticos, enviando a saída para a nova conta de armazenamento.
+Neste tutorial rápido, você cria uma conta de armazenamento na mesma assinatura e mesmo grupo de recursos que o servidor do Analysis Services. Então, você usa Set-AzDiagnosticSetting para ativar o log de diagnósticos, enviando a saída para a nova conta de armazenamento.
 
 ### <a name="prerequisites"></a>Pré-requisitos
 Para concluir este tutorial, você deve ter os seguintes recursos:
@@ -269,7 +269,7 @@ $account = Get-AzResource -ResourceGroupName awsales_resgroup `
 
 ### <a name="enable-logging"></a>Habilitar o registro em log
 
-Para habilitar o registro em log, use o cmdlet Set-AzDiagnosticSetting junto com as variáveis para a nova conta de armazenamento, conta de servidor e a categoria. Execute o seguinte comando, definindo o sinalizador **-Enabled** como **$true**:
+Para habilitar o registro em log, use o cmdlet Set-AzDiagnosticSetting junto com as variáveis para a nova conta de armazenamento, a conta do servidor e a categoria. Execute o seguinte comando, definindo o sinalizador **-Enabled** como **$true**:
 
 ```powershell
 Set-AzDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories Engine
@@ -326,6 +326,6 @@ Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre [Azure monitor log de recursos](../azure-monitor/platform/platform-logs-overview.md).
+Saiba mais sobre [o log de recursos do Azure Monitor](../azure-monitor/platform/platform-logs-overview.md).
 
-Consulte [set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) na ajuda do PowerShell.
+Consulte [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) na ajuda do PowerShell.

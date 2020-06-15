@@ -1,6 +1,6 @@
 ---
-title: Configurar seu número de telefone como seu método de verificação – Azure AD
-description: Como configurar sua página de informações de segurança (versão prévia) para verificar sua identidade usando seu número de telefone e dispositivo móvel como seu método de verificação.
+title: Configurar seu número de telefone como o método de verificação – Azure Active Directory
+description: Como configurar sua página de Informações de segurança (versão preliminar) para verificar a identidade usando seu número de telefone e dispositivo móvel como método de verificação.
 services: active-directory
 author: curtand
 manager: daveba
@@ -8,17 +8,17 @@ ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 02/13/2019
 ms.author: curtand
-ms.openlocfilehash: 63774f2f6b600b1f60aefea84e1d5ea0abd63cbb
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
-ms.translationtype: MT
+ms.openlocfilehash: 7500b6b146a627dcdebacd9d2e2c7c61bc43c105
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628377"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744459"
 ---
-# <a name="set-up-a-phone-number-as-your-verification-method"></a>Configurar um número de telefone como seu método de verificação
+# <a name="set-up-a-phone-number-as-your-verification-method"></a>Configurar um número de telefone como o método de verificação
 
 Siga estas instruções para adicionar os métodos de verificação em duas etapas e redefinição de senha. Depois da primeira configuração, você pode retornar para a página **Informações de segurança** a fim de adicionar, atualizar ou excluir suas informações de segurança.
 
@@ -29,7 +29,7 @@ Se for solicitado que você faça tais configurações imediatamente após entra
 > [!Note]
 > Informações de segurança não suportam o uso de extensões de telefone. Mesmo se você adicionar o formato adequado, +1 4255551234X12345, as extensões serão removidas antes da chamada ser feita.
 >
-> Se você não vir uma opção de telefone, é possível que sua organização não permita que você use essa opção para verificação. Nesse caso, você precisará escolher outro método ou entrar em contato com o suporte técnico da sua organização para obter mais assistência.
+> Caso não veja a opção de telefone, talvez sua organização não permita que você use essa opção para verificação. Nesse caso, será preciso escolher outro método ou entrar em contato com o suporte técnico da sua organização para obter mais assistência.
 
 ## <a name="security-verification-versus-password-reset-authentication"></a>Autenticação por redefinição de senha versus verificação de segurança
 
@@ -106,7 +106,7 @@ Se quiser que chamadas telefônicas sejam o método padrão usando ao entrar na 
 
     ![Selecione o método de entrada padrão](media/security-info/securityinfo-myprofile-phonecall-changeddefault.png)
 
-    O método padrão usado para alterações de entrada para **Telefone – chamada (*_seu_número_de_telefone_*)**.
+    O método padrão usado para alterações de entrada para **Telefone – chamada (*_seu_número_de_telefone_*)** .
 
 ## <a name="additional-security-info-methods"></a>Métodos de informações de segurança adicionais
 
@@ -116,9 +116,9 @@ Você tem opções adicionais de como sua organização entra em contato com voc
 
 - **Texto de dispositivo móvel.** Insira o número do seu dispositivo móvel e receba um texto com um código que você usará para verificação em duas etapas ou redefinição de senha. Para obter instruções passo a passo sobre como verificar sua identidade com uma mensagem de texto (SMS), consulte [Configurar informações de segurança para usar mensagens de texto (SMS)](security-info-setup-text-msg.md).
 
-- **Chave de segurança.** Registre sua chave de segurança compatível com a Microsoft e use-a junto com um PIN para verificação em duas etapas ou redefinição de senha. Para obter instruções detalhadas sobre como verificar sua identidade com uma chave de segurança, consulte [configurar informações de segurança para usar uma chave de segurança](security-info-setup-security-key.md).
+- **Chave de segurança.** Registre sua chave de segurança compatível com a Microsoft e use-a com um PIN para verificação em duas etapas ou redefinição de senha. Para obter instruções passo a passo sobre como verificar sua identidade com uma chave de segurança, confira [Configurar informações de segurança para usar uma chave de segurança](security-info-setup-security-key.md).
 
-- **Endereço de email.** Digite seu endereço de e-mail do trabalho ou da escola para receber um e-mail para redefinir a senha. Essa opção não está disponível para verificação em duas etapas. Para obter instruções passo a passo sobre como configurar seu e-mail, consulte [Configurar informações de segurança para usar o e-mail](security-info-setup-email.md).
+- **Endereço de e-mail.** Digite seu endereço de e-mail do trabalho ou da escola para receber um e-mail para redefinir a senha. Essa opção não está disponível para verificação em duas etapas. Para obter instruções passo a passo sobre como configurar seu e-mail, consulte [Configurar informações de segurança para usar o e-mail](security-info-setup-email.md).
 
 - **Perguntas de segurança.** Responder a algumas perguntas de segurança criadas pelo seu administrador para sua organização. Essa opção só está disponível para a redefinição de senha e não para verificação em duas etapas. Para obter instruções passo a passo sobre como configurar suas perguntas de segurança, consulte o artigo [Configurar informações de segurança para usar perguntas de segurança](security-info-setup-questions.md).
 

@@ -1,25 +1,25 @@
 ---
-title: Ler réplicas-banco de dados do Azure para MySQL.
-description: 'Saiba mais sobre réplicas de leitura no banco de dados do Azure para MySQL: escolhendo regiões, criando réplicas, conectando a réplicas, monitorando a replicação e parando a replicação.'
+title: Réplicas de leitura - Banco de Dados do Azure para MySQL.
+description: 'Saiba mais sobre réplicas de leitura no Banco de Dados do Azure para MySQL: como escolher regiões, criar réplicas, conectar réplicas, monitorar replicação e parar replicação.'
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/4/2020
-ms.openlocfilehash: cb82b3223d50c66b4d6c176a274d5ccf8d510911
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.openlocfilehash: d9d600b4ac34e4608b7747bee0e0a704ad2ab3be
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792098"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83846045"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Leia réplicas no Banco de Dados do Azure para MySQL
 
 O recurso de réplica de leitura permite replicar dados de um servidor de Banco de Dados do Azure para MySQL para um servidor somente leitura. Você pode replicar do servidor mestre para até cinco réplicas. As réplicas são atualizadas de forma assíncrona usando a tecnologia de replicação baseada em posição do arquivo binário nativo (log binário) do mecanismo MySQL. Para saber mais sobre a replicação do binlog, confira a [visão geral da replicação do binlog do MySQL](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
-Réplicas são novos servidores que você gerencia de forma semelhante ao banco de dados do Azure regular para servidores MySQL. Para cada réplica de leitura, você será cobrado pela computação provisionada em vCores e pelo armazenamento em GB/mês.
+As réplicas são novos servidores que você gerencia de modo semelhante aos servidores normais do Banco de Dados do Azure para PostgreSQL. Para cada réplica de leitura, você será cobrado pela computação provisionada em vCores e pelo armazenamento em GB/mês.
 
-Para saber mais sobre os recursos e problemas de replicação do MySQL, consulte a [documentação de replicação do MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
+Para saber mais sobre recursos e problemas de replicação do MySQL, consulte a [documentação de replicação do MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
 
 ## <a name="when-to-use-a-read-replica"></a>Quando usar uma réplica de leitura
 
@@ -29,51 +29,51 @@ Um cenário comum é ter cargas de trabalho analíticas e de BI usando a réplic
 
 Como réplicas são somente leitura, elas não reduzem diretamente os encargos de capacidade de gravação no mestre. Esse recurso não se destina a cargas de trabalho com uso intenso de gravação.
 
-O recurso ler réplica usa a replicação assíncrona do MySQL. O recurso não se destina a cenários de replicação síncrona. Haverá um atraso mensurável entre o mestre e a réplica. Os dados na réplica acabarão se tornando consistentes com os dados no mestre. Use este recurso para cargas de trabalho que podem acomodar esse atraso.
+O recurso de réplica de leitura usa replicação assíncrona do MySQL. O recurso não se destina a cenários de replicação síncrona. Haverá um atraso mensurável entre o mestre e a réplica. Os dados na réplica acabarão se tornando consistentes com os dados no mestre. Use este recurso para cargas de trabalho que podem acomodar esse atraso.
 
 ## <a name="cross-region-replication"></a>Replicação entre regiões
-Você pode criar uma réplica de leitura em uma região diferente do servidor mestre. A replicação entre regiões pode ser útil para cenários como planejamento de recuperação de desastres ou trazer dados mais próximos aos seus usuários.
+Você pode criar uma réplica de leitura em uma região diferente da do servidor mestre. A replicação entre regiões pode ser útil para cenários como o planejamento de recuperação de desastres ou para trazer dados mais próximos dos seus usuários.
 
-Você pode ter um servidor mestre em qualquer [região do banco de dados do Azure para MySQL](https://azure.microsoft.com/global-infrastructure/services/?products=mysql).  Um servidor mestre pode ter uma réplica em sua região emparelhada ou nas regiões de réplica universal. A figura abaixo mostra quais regiões de réplica estão disponíveis dependendo de sua região mestra.
+Você pode ter um servidor mestre em qualquer [região do Banco de Dados do Azure para MySQL](https://azure.microsoft.com/global-infrastructure/services/?products=mysql).  Um servidor mestre pode ter uma réplica em sua região emparelhada ou nas regiões de réplica universal. A figura abaixo mostra quais regiões de réplica estão disponíveis dependendo da sua região mestra.
 
-[![Ler regiões de réplica](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
+[ ![Ler regiões de réplica](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### <a name="universal-replica-regions"></a>Regiões de réplica universal
-Você pode criar uma réplica de leitura em qualquer uma das seguintes regiões, independentemente de onde o servidor mestre está localizado. As regiões de réplica universal com suporte incluem:
+Você pode criar uma réplica de leitura em qualquer uma das seguintes regiões, independentemente de onde o servidor mestre estiver localizado. As regiões de réplica universal compatíveis incluem:
 
-Leste da Austrália, sudeste da Austrália, EUA Central, Ásia Oriental, leste dos EUA, leste dos EUA 2, leste do Japão, oeste do Japão, Coreia central, sul da Coreia, norte EUA Central, Europa Setentrional, Sul EUA Central, Sudeste Asiático, Sul do Reino Unido, Oeste do Reino Unido, Europa Ocidental, oeste dos EUA.
+Leste da Austrália, Sudeste da Austrália, EUA Central, Leste da Ásia, Leste dos EUA, Leste dos EUA 2, Leste do Japão, Oeste do Japão, Coreia Central, Sul da Coreia, Centro-Norte dos EUA, Norte da Europa, Centro-Sul dos EUA, Sudeste da Ásia, Sul do Reino Unido, Oeste do Reino Unido, Oeste da Europa, Oeste dos EUA.
 
-* Oeste dos EUA 2 está temporariamente indisponível como um local de réplica entre regiões.
+*Oeste dos EUA 2 está temporariamente indisponível como um local de réplica entre regiões.
 
 ### <a name="paired-regions"></a>Regiões emparelhadas
-Além das regiões de réplica universal, você pode criar uma réplica de leitura na região emparelhada do Azure do seu servidor mestre. Se você não souber o par de sua região, poderá aprender mais no [artigo regiões emparelhadas do Azure](../best-practices-availability-paired-regions.md).
+Você pode criar uma réplica de leitura na região emparelhada do Azure do seu servidor mestre além das regiões de réplica universal. Se não souber o par da sua região, você pode encontrar essa informação no [artigo Regiões emparelhadas do Azure](../best-practices-availability-paired-regions.md).
 
-Se você estiver usando réplicas entre regiões para planejamento de recuperação de desastres, recomendamos que você crie a réplica na região emparelhada em vez de uma das outras regiões. Regiões emparelhadas evitam atualizações simultâneas e priorizam o isolamento físico e a residência de dados.  
+Se você estiver usando réplicas entre regiões para o planejamento de recuperação de desastres, recomendamos criar a réplica na região emparelhada, e não em uma das outras regiões. Regiões emparelhadas evitam atualizações simultâneas e priorizam isolamento físico e residência de dados.  
 
-No entanto, há limitações a serem consideradas: 
+No entanto, há certas limitações a serem consideradas: 
 
-* Disponibilidade regional: o banco de dados do Azure para MySQL está disponível no oeste dos EUA 2, França central, Norte dos EAU e Alemanha central. No entanto, suas regiões emparelhadas não estão disponíveis.
+* Disponibilidade regional: O Banco de Dados do Azure para MySQL está disponível no Oeste dos EUA 2, França Central, Norte dos EAU e Alemanha Central. Entretanto, suas regiões emparelhadas não estão disponíveis.
     
-* Pares unidirecionais: algumas regiões do Azure são emparelhadas apenas em uma direção. Essas regiões incluem Índia ocidental, sul do Brasil e US Gov-Virgínia. 
-   Isso significa que um servidor mestre na Índia ocidental pode criar uma réplica na Índia Sul. No entanto, um servidor mestre na Índia Sul não pode criar uma réplica na Índia ocidental. Isso ocorre porque a região secundária da Índia ocidental é sul da Índia, mas a região secundária do Sul da Índia não é oeste da Índia.
+* Pares unidirecionais: Algumas regiões do Azure são emparelhadas em uma direção apenas. Essas regiões incluem Oeste da Índia, Sul do Brasil e US Gov - Virgínia. 
+   Isso significa que um servidor mestre no Oeste da Índia pode criar uma réplica no Sul da Índia. Entretanto, um servidor mestre no Sul da Índia não pode criar uma réplica no Oeste da Índia. Isso ocorre porque a região secundária do Oeste da Índia é o Sul da Índia, mas a região secundária do Sul da Índia não é o Oeste da Índia.
 
 ## <a name="create-a-replica"></a>Criar uma réplica
 
-Se um servidor mestre não tiver servidores de réplica existentes, o mestre será reiniciado primeiro para se preparar para a replicação.
+Se um servidor mestre não tiver servidores de réplica, o mestre será reiniciado primeiro para se preparar para a replicação.
 
-Quando você inicia o fluxo de trabalho criar réplica, um servidor do banco de dados do Azure para MySQL em branco é criado. O novo servidor é preenchido com os dados que estavam no servidor mestre. A hora de criação depende da quantidade de dados no mestre e do tempo decorrido desde o último backup completo semanal. O tempo pode variar de alguns minutos a várias horas.
+Quando você inicia o fluxo de trabalho de criação de réplica, um servidor do Banco de Dados do Azure para MySQL é criado. O novo servidor é preenchido com os dados que estavam no servidor mestre. A hora de criação depende da quantidade de dados no mestre e do tempo decorrido desde o último backup completo semanal. O tempo pode variar de alguns minutos a várias horas. O servidor de réplica é sempre criado no mesmo grupo de recursos e na mesma assinatura do servidor mestre. Se você quiser criar um servidor de réplica para um grupo de recursos diferente ou uma assinatura diferente, você pode [mover o servidor de réplica](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) após a criação.
 
-Cada réplica é habilitada para [crescimento automático](concepts-pricing-tiers.md#storage-auto-grow)do armazenamento. O recurso de aumento automático permite que a réplica acompanhe os dados replicados para ele e evite uma interrupção na replicação causada por erros de indisponibilidade de armazenamento.
+Cada réplica é habilitada para armazenamento de [aumento automático](concepts-pricing-tiers.md#storage-auto-grow). O recurso de aumento automático permite que a réplica acompanhe os dados replicados e evita uma interrupção na replicação causada por erros de falta de armazenamento.
 
 Saiba como [criar uma réplica de leitura no portal do Azure](howto-read-replicas-portal.md).
 
 ## <a name="connect-to-a-replica"></a>Conectar-se a uma réplica
 
-Na criação, uma réplica herda as regras de firewall do servidor mestre. Posteriormente, essas regras são independentes do servidor mestre.
+Uma réplica herda as regras de firewall do servidor mestre na criação. Essas regras são independentes do servidor mestre posteriormente.
 
 A réplica herda a conta do administrador do servidor mestre. Todas as contas de usuário no servidor mestre são replicadas para as réplicas de leitura. Você só pode se conectar a uma réplica de leitura usando as contas de usuário disponíveis no servidor mestre.
 
-Você pode se conectar à réplica usando seu nome de host e uma conta de usuário válida, como faria em um servidor de banco de dados do Azure regular para MySQL. Para um servidor chamado **myreplication** com o nome de usuário admin **myadmin**, você pode se conectar à réplica usando a CLI do MySQL:
+Você pode se conectar à réplica usando seu nome de host e uma conta de usuário válida, assim como faria em um servidor regular do Banco de Dados do Azure para MySQL. Para um servidor chamado **myreplica** com o nome de usuário admin **myadmin**, você pode se conectar à réplica usando a CLI do mysql:
 
 ```bash
 mysql -h myreplica.mysql.database.azure.com -u myadmin@myreplica -p
@@ -83,17 +83,17 @@ No prompt, insira a senha da conta de usuário.
 
 ## <a name="monitor-replication"></a>Monitorar a replicação
 
-O banco de dados do Azure para MySQL fornece a métrica **atraso de replicação em segundos** no Azure monitor. Essa métrica está disponível apenas para réplicas.
+O Banco de Dados do Azure para MySQL fornece a métrica **Atraso da replicação em segundos** no Azure Monitor. Essa métrica está disponível apenas para réplicas.
 
-Essa métrica é calculada usando `seconds_behind_master` a métrica disponível no comando `SHOW SLAVE STATUS` do MySQL.
+Essa métrica é calculada com o uso da métrica `seconds_behind_master` disponível no comando `SHOW SLAVE STATUS` do MySQL.
 
-Defina um alerta para informá-lo quando o retardo de replicação atingir um valor que não é aceitável para sua carga de trabalho.
+Defina um alerta para informá-lo quando o retardo da replicação atinge um valor que não é aceitável para sua carga de trabalho.
 
 ## <a name="stop-replication"></a>Parar replicação
 
 Você pode interromper a replicação entre um mestre e uma réplica. Após a replicação ser interrompida entre um servidor mestre e uma réplica de leitura, a réplica se torna um servidor autônomo. Os dados no servidor autônomo são os dados que estavam disponíveis na réplica no momento em que o comando de parar a replicação foi iniciado. O servidor autônomo não alcança o servidor mestre.
 
-Quando você opta por interromper a replicação em uma réplica, ela perde todos os links para o mestre anterior e outras réplicas. Não há nenhum failover automatizado entre um mestre e sua réplica.
+Quando você escolhe interromper a replicação em uma réplica, ela perde todos os links para o mestre anterior e outras réplicas. Não há failover automatizado entre um mestre e sua réplica.
 
 > [!IMPORTANT]
 > O servidor autônomo não pode se tornar uma réplica novamente.
@@ -109,11 +109,11 @@ No momento, as réplicas de leitura estão disponíveis apenas nas camadas de pr
 
 ### <a name="master-server-restart"></a>Reinicialização do servidor mestre
 
-Quando você cria uma réplica para um mestre que não tem réplicas existentes, o mestre primeiro será reiniciado para se preparar para a replicação. Leve isso em consideração e execute essas operações durante um período de fora de pico.
+Ao criar uma réplica para um mestre que não tem nenhuma réplica existente, primeiro o mestre será reiniciado para se preparar para a replicação. Leve isso em consideração e realize essas operações durante um período de pouca atividade.
 
 ### <a name="new-replicas"></a>Novas réplicas
 
-Uma réplica de leitura é criada como um novo servidor de banco de dados do Azure para MySQL. Um servidor existente não pode se tornar uma réplica. Você não pode criar uma réplica de outra réplica de leitura.
+Uma réplica de leitura é criada como um novo servidor de Banco de Dados do Azure para MySQL. Um servidor existente não pode se tornar uma réplica. Você não pode criar uma réplica de outra réplica de leitura.
 
 ### <a name="replica-configuration"></a>Configuração da réplica
 
@@ -122,11 +122,11 @@ Uma réplica é criada usando a mesma configuração de servidor que o mestre. D
 > [!IMPORTANT]
 > Antes de uma configuração de servidor mestre ser atualizada com novos valores, atualize a configuração de réplica para valores iguais ou maiores. Esta ação garante que a réplica pode acompanhar as alterações feitas ao mestre.
 
-As regras de firewall e as configurações de parâmetros são herdadas do servidor mestre para a réplica quando a réplica é criada. Posteriormente, as regras da réplica são independentes.
+Regras de firewall e configurações de parâmetros são herdadas do servidor mestre para a réplica quando a réplica é criada. As regras da réplica são independentes posteriormente.
 
 ### <a name="stopped-replicas"></a>Réplicas paradas
 
-Se você parar a replicação entre um servidor mestre e uma réplica de leitura, a réplica parada se tornará um servidor autônomo que aceita leituras e gravações. O servidor autônomo não pode se tornar uma réplica novamente.
+Se você interromper a replicação entre um servidor mestre e uma réplica de leitura, a réplica interrompida se tornará um servidor autônomo que aceita leituras e gravações. O servidor autônomo não pode se tornar uma réplica novamente.
 
 ### <a name="deleted-master-and-standalone-servers"></a>Servidores mestre e autônomo excluídos
 
@@ -140,11 +140,11 @@ Os usuários no servidor mestre são replicados para as réplicas de leitura. Vo
 
 Para impedir que os dados fiquem fora de sincronia e evitar possíveis perdas de dados ou danos, alguns parâmetros de servidor estão bloqueados para serem atualizados ao usar réplicas de leitura.
 
-Os seguintes parâmetros de servidor estão bloqueados nos servidores mestre e de réplica:
+Os seguintes parâmetros do servidor estão bloqueados nos servidores mestre e de réplica:
 - [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/5.7/en/innodb-multiple-tablespaces.html) 
 - [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators)
 
-O [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) parâmetro está bloqueado nos servidores de réplica. 
+O parâmetro [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) está bloqueado nos servidores de réplica. 
 
 Para atualizar um dos parâmetros acima no servidor mestre, exclua os servidores de réplica, atualize o valor do parâmetro no mestre e recrie as réplicas.
 
@@ -152,11 +152,11 @@ Para atualizar um dos parâmetros acima no servidor mestre, exclua os servidores
 
 - O GTID (identificadores de transação globais) não são compatíveis.
 - A criação de uma réplica de uma réplica não é suportada.
-- Tabelas na memória podem fazer com que as réplicas fiquem fora de sincronia. Essa é uma limitação da tecnologia de replicação do MySQL. Leia mais na [documentação de referência do MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) para mais informações.
+- Tabelas na memória podem fazer com que as réplicas fiquem fora de sincronia. Esta é uma limitação da tecnologia de replicação do MySQL. Leia mais na [documentação de referência do MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) para mais informações.
 - Verifique se as tabelas de servidor mestre contêm chaves primárias. A falta de chaves primárias pode resultar em latência de replicação entre o mestre e as réplicas.
 - Analise a lista completa das limitações de replicação do MySQL no [documentação do MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba como [criar e gerenciar réplicas de leitura usando o portal do Azure](howto-read-replicas-portal.md)
-- Saiba como [criar e gerenciar réplicas de leitura usando o CLI do Azure e a API REST](howto-read-replicas-cli.md)
+- Saiba como [criar e gerenciar réplicas de leitura usando a CLI do Azure e o API REST](howto-read-replicas-cli.md)

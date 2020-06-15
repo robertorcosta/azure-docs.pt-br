@@ -1,6 +1,6 @@
 ---
 title: Vídeos da plataforma de identidade da Microsoft | Azure
-description: Uma lista de vídeos sobre a autenticação moderna e a plataforma de identidade da Microsoft
+description: Uma lista de vídeos sobre autenticação moderna e a plataforma de identidade da Microsoft
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -8,80 +8,130 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/08/2020
+ms.date: 05/19/2020
 ms.author: marsma
 ms.custom: aaddev
 ms.reviewer: celested
-ms.openlocfilehash: e8c7ec6cf1d15e414a6db54d5bc2ad7e4994cd82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 232b166d667996f2138224dc6ecbbc925d0ebe9e
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80991289"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83712648"
 ---
 # <a name="microsoft-identity-platform-videos"></a>Vídeos da plataforma de identidade da Microsoft
 
-Conheça os conceitos básicos da autenticação moderna, da plataforma de identidade da Microsoft e das MSAL (bibliotecas de autenticação da Microsoft).
+Conheça os conceitos básicos sobre autenticação moderna, a plataforma de identidade da Microsoft e as bibliotecas de autenticação da Microsoft (MSAL).
 
-## <a name="authentication-fundamentals"></a>Conceitos básicos de autenticação
+## <a name="microsoft-identity-platform-for-developers"></a>Plataforma de identidade da Microsoft para desenvolvedores
 
-Se você é novo em conceitos como provedores de identidade, tokens de segurança, declarações e público-alvo, esta série de vídeos é um bom lugar para começar.
+Na série de vídeos *Identidade para desenvolvedores*, Matthijs Hoekstra e Kyle Marsh fornecem uma introdução guiada à plataforma de identidade da Microsoft. Aprenda os principais componentes e funcionalidades da plataforma e como usar suas bibliotecas de autenticação para começar a incluir autenticação moderna e segura nos seus aplicativos.
+
+Com um conteúdo coletado e aprimorado ao longo de várias sessões de treinamento que eles realizaram, esta série é um bom ponto de partida para qualquer desenvolvedor que esteja começado a usar identidade no Azure.
 ___
 
 :::row:::
     :::column:::
-        1-noções básicas: conceitos de autenticação moderna (4:33)
+        1 - Visão geral sobre a plataforma de identidade da Microsoft para desenvolvedores (33:55)
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/fbSVgC8nGz4?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+        >[!VIDEO https://www.youtube.com/embed/zjezqZPPOfc]
     :::column-end:::
      :::column:::
-        2-autenticação moderna para aplicativos Web (6:02)
+        2 - Como autenticar usuários de aplicativos com a plataforma de identidade da Microsoft (29:09)
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/tCNcG1lcCHY?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+        >[!VIDEO https://www.youtube.com/embed/Mtpx_lpfRLs]
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-        3-logon único da Web (4:13)
+        3 - Estrutura de permissões e consentimento da plataforma de identidade da Microsoft (45:08)
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/51B-jSOBF8U?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+        >[!VIDEO https://www.youtube.com/embed/toAWRNqqDL4]
     :::column-end:::
     :::column:::
-        4-autenticação Web federada (6:19)
+        4 - Como proteger APIs com a plataforma de identidade da Microsoft (33:17)
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/CjarTgjKcX8?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+        >[!VIDEO https://www.youtube.com/embed/IIQ7QW4bYqA]
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-        5-aplicativos cliente nativos-parte 1 (8:12)
+        5 - Funções de aplicativo e grupos de segurança na plataforma de identidade da Microsoft (15:52)
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/OGMDnuDrAcQ?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+        >[!VIDEO https://www.youtube.com/embed/-BK2iBDrmNo]
     :::column-end:::
     :::column:::
-        6-aplicativos cliente nativos-parte 2 (5:33)
+        <!-- BLANK TITLE CELL -->
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/2RE6IhXfmHY?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+        <!-- BLANK VIDEO CELL -->
     :::column-end:::
 :::row-end:::
 
-## <a name="microsoft-identity-platform-basics"></a>Noções básicas da plataforma Microsoft Identity
+## <a name="authentication-fundamentals"></a>Conceitos básicos sobre autenticação
 
-Saiba mais sobre os componentes da plataforma de identidade da Microsoft, as MSAL (bibliotecas de autenticação da Microsoft) e como esses componentes interagem com Azure Active Directory. Os vídeos de uma pergunta de desenvolvimento têm 1-2 minutos de comprimento.
+Se você ainda não está familiarizado com conceitos como provedores de identidade, tokens de segurança, declarações e público-alvo, esta série de vídeos ajuda a esclarecer os conceitos e componentes envolvidos na autenticação moderna.
 ___
 
 :::row:::
     :::column:::
-        Visão geral da plataforma Microsoft Identity
+        1 - Noções básicas: Os conceitos de autenticação moderna (4:33)
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/bNlcFuIo3r8]
+        >[!VIDEO https://www.youtube.com/embed/fbSVgC8nGz4?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+    :::column-end:::
+     :::column:::
+        2 - Autenticação moderna para aplicativo Web (6:02)
+    :::column-end:::
+    :::column:::
+        >[!VIDEO https://www.youtube.com/embed/tCNcG1lcCHY?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        3 - Logon único pela Web (4:13)
+    :::column-end:::
+    :::column:::
+        >[!VIDEO https://www.youtube.com/embed/51B-jSOBF8U?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+    :::column-end:::
+    :::column:::
+        4 - Autenticação Web federada (6:19)
+    :::column-end:::
+    :::column:::
+        >[!VIDEO https://www.youtube.com/embed/CjarTgjKcX8?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        5 - Aplicativos cliente nativos - Parte 1 (8:12)
+    :::column-end:::
+    :::column:::
+        >[!VIDEO https://www.youtube.com/embed/OGMDnuDrAcQ?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+    :::column-end:::
+    :::column:::
+        6 - Aplicativos cliente nativos - Parte 2 (5:33)
+    :::column-end:::
+    :::column:::
+        >[!VIDEO https://www.youtube.com/embed/2RE6IhXfmHY?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+    :::column-end:::
+:::row-end:::
+
+## <a name="microsoft-identity-platform-basics"></a>Noções básicas sobre a plataforma de identidade da Microsoft
+
+Saiba mais sobre os componentes da plataforma de identidade da Microsoft, as bibliotecas de autenticação da Microsoft (MSAL) e como esses componentes interagem com o Azure Active Directory. Os vídeos da série Uma Pergunta sobre desenvolvimento têm 1 a 2 minutos de duração.
+___
+
+:::row:::
+    :::column:::
+        Visão geral da plataforma de identidade da Microsoft
+    :::column-end:::
+    :::column:::
+        >[!VIDEO https://www.youtube.com/embed/bNlcFuIo3r8]
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -90,16 +140,16 @@ ___
 :::row-end:::
 :::row:::
     :::column:::
-        Introdução às bibliotecas de MSAL
+        Introdução às bibliotecas MSAL
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/apbbx2n4tnU]
+        >[!VIDEO https://www.youtube.com/embed/apbbx2n4tnU]
     :::column-end:::
     :::column:::
-        Como o MSAL facilita a autenticação
+        Como as bibliotecas MSAL facilitam a autenticação
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/yLVEBU9Z96Q]
+        >[!VIDEO https://www.youtube.com/embed/yLVEBU9Z96Q]
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -107,27 +157,27 @@ ___
         Escopos explicados
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/eiPHOoLmGJs]
+        >[!VIDEO https://www.youtube.com/embed/eiPHOoLmGJs]
     :::column-end:::
     :::column:::
         O que são agentes
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/Zd_Uubnu0U0]
+        >[!VIDEO https://www.youtube.com/embed/Zd_Uubnu0U0]
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-        O que os URIs de redirecionamento fazem
+        O que fazem os URIs de redirecionamento
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/znSN_3JAuoU]
+        >[!VIDEO https://www.youtube.com/embed/znSN_3JAuoU]
     :::column-end:::
     :::column:::
         Locatários explicados
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/mDhT4Zv1fZU]
+        >[!VIDEO https://www.youtube.com/embed/mDhT4Zv1fZU]
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -135,60 +185,60 @@ ___
         Função do Azure AD
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/zDEC7A5ZS2Q]
+        >[!VIDEO https://www.youtube.com/embed/zDEC7A5ZS2Q]
     :::column-end:::
     :::column:::
-        Função de objetos de aplicativo do Azure AD
+        Função dos objetos de aplicativo do Azure AD
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/HEpq_YSmuWw]
+        >[!VIDEO https://www.youtube.com/embed/HEpq_YSmuWw]
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-        Diferenças de conta Microsoft organizacional e pessoais
+        Diferenças entre as contas Microsoft organizacional e pessoal
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/E2OUluQQKSk]
+        >[!VIDEO https://www.youtube.com/embed/E2OUluQQKSk]
     :::column-end:::
     :::column:::
-        Diferenças de SPA e aplicativo Web
+        Diferenças entre aplicativo de página única e aplicativo Web
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/ZJirt7eTVw8?t=5]
+        >[!VIDEO https://www.youtube.com/embed/ZJirt7eTVw8?t=5]
     :::column-end:::
 :::row-end:::
 
-## <a name="migrate-from-v10-to-v20"></a>Migrar de v 1.0 para v 2.0
+## <a name="migrate-from-v10-to-v20"></a>Migração de v1.0 para v2.0
 
-Saiba mais sobre como migrar para a versão mais recente da plataforma de identidade da Microsoft, incluindo a migração do Biblioteca de Autenticação do Active Directory (ADAL) para MSAL.
+Saiba mais sobre como migrar para a versão mais recente da plataforma de identidade da Microsoft, incluindo a migração da Biblioteca de Autenticação do Active Directory (ADAL) para MSAL.
 ___
 
 :::row:::
     :::column:::
-        Pontos de extremidade e os benefícios de mudar para o v 2.0
+        Pontos de extremidade e os benefícios de migrar para a v2.0
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/qpdC45tZYDg]
+        >[!VIDEO https://www.youtube.com/embed/qpdC45tZYDg]
     :::column-end:::
      :::column:::
-        Migrando sua base de código do ADAL para MSAL
+        Migração do código de ADAL para MSAL
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/xgL_z9yCnrE]
+        >[!VIDEO https://www.youtube.com/embed/xgL_z9yCnrE]
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-        Por que migrar do ADAL para o MSAL
+        Por que migrar de ADAL para MSAL
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/qpdC45tZYDg]
+        >[!VIDEO https://www.youtube.com/embed/qpdC45tZYDg]
     :::column-end:::
     :::column:::
-        Vantagens do MSAL sobre a ADAL
+        Vantagens da MSAL sobre a ADAL
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/q-TDszj2O-4]
+        >[!VIDEO https://www.youtube.com/embed/q-TDszj2O-4]
     :::column-end:::
 :::row-end:::

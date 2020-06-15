@@ -1,28 +1,28 @@
 ---
-title: Ler entrada em qualquer formato usando desserializadores personalizados do .NET no Azure Stream Analytics
-description: Este artigo explica o formato de serialização e as interfaces que definem desserializadores .NET personalizados para Azure Stream Analytics trabalhos de nuvem e borda.
+title: Ler entrada em qualquer formato usando desserializadores .NET personalizados no Azure Stream Analytics
+description: Este artigo explica o formato de serialização e as interfaces que definem desserializadores .NET personalizados para trabalhos de nuvem e borda do Azure Stream Analytics.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 5cde80bf3205557884dfe8f2b8f5e79031bbca69
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: MT
+ms.openlocfilehash: b7994754d3ca9c43fe7935b2b52c42f2f113b1d3
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612054"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873054"
 ---
-# <a name="read-input-in-any-format-using-net-custom-deserializers"></a>Ler entrada em qualquer formato usando desserializadores personalizados do .NET
+# <a name="read-input-in-any-format-using-net-custom-deserializers"></a>Ler entradas em qualquer formato usando desserializadores .NET personalizados
 
-Os desserializadores personalizados do .NET permitem que seu trabalho de Azure Stream Analytics leia dados de formatos fora dos três [formatos de dados internos](stream-analytics-parsing-json.md). Este artigo explica o formato de serialização e as interfaces que definem desserializadores personalizados do .NET para Azure Stream Analytics trabalhos de nuvem e borda. Também há exemplos de desserializadores para buffer de protocolo e formato CSV.
+Os desserializadores .NET personalizados permitem que o trabalho do Azure Stream Analytics leia dados de formatos fora dos três [formatos de dados internos](stream-analytics-parsing-json.md). Este artigo explica o formato de serialização e as interfaces que definem desserializadores .NET personalizados para trabalhos de nuvem e borda do Azure Stream Analytics. Também há exemplos de desserializadores para buffer de protocolo e formato CSV.
 
-## <a name="net-custom-deserializer"></a>Desserializador personalizado do .NET
+## <a name="net-custom-deserializer"></a>Desserializador .NET personalizado
 
-Os exemplos de código a seguir são as interfaces que definem o desserializador personalizado e implementam `StreamDeserializer<T>`.
+Os exemplos de código a seguir são as interfaces que definem o desserializador personalizado e implementam o `StreamDeserializer<T>`.
 
-`UserDefinedOperator`é a classe base para todos os operadores de streaming personalizados. Ele inicializa `StreamingContext`, que fornece contexto que inclui o mecanismo de publicação de diagnóstico para o qual você precisará depurar quaisquer problemas com o seu desserializador.
+`UserDefinedOperator` é a classe base para todos os operadores de streaming personalizados. Ele inicializa `StreamingContext`, que fornece contexto que inclui o mecanismo para a publicação de diagnósticos para os quais você precisará depurar qualquer problema com o desserializador.
 
 ```csharp
     public abstract class UserDefinedOperator
@@ -33,19 +33,19 @@ Os exemplos de código a seguir são as interfaces que definem o desserializador
 
 O trecho de código a seguir é a desserialização para streaming de dados. 
 
-Erros ignoráveis devem ser emitidos usando `IStreamingDiagnostics` o método `UserDefinedOperator`Initialize do passado. Todas as exceções serão tratadas como erros e o desserializador será recriado. Após um determinado número de erros, o trabalho vai para um status de falha.
+Os erros ignoráveis devem ser emitidos usando `IStreamingDiagnostics` passado pelo método Initialize do `UserDefinedOperator`. Todas as exceções serão tratadas como erros, e o desserializador será recriado. Após um determinado número de erros, o trabalho vai para um status de falha.
 
-`StreamDeserializer<T>`Desserializa um fluxo em um objeto do tipo `T`. As seguintes condições devem ser atendidas:
+`StreamDeserializer<T>` desserializa um fluxo em um objeto do tipo `T`. As seguintes condições devem ser atendidas:
 
 1. T é uma classe ou struct.
 1. Todos os campos públicos em T são
-    1. Um de [SByte, byte, short, ushort, int, uint, Long, DateTime, String, float, Double] ou seus equivalentes anuláveis.
+    1. Um de [sbyte, byte, short, ushort, int, uint, long, DateTime, string, float, double] ou seus equivalentes anuláveis.
     1. Outra struct ou classe seguindo as mesmas regras.
     1. Matriz do tipo `T2` que segue as mesmas regras.
-    1. IList`T2` , em que T2 segue as mesmas regras.
+    1. IList`T2` em que T2 segue as mesmas regras.
     1. Não tem nenhum tipo recursivo.
 
-O parâmetro `stream` é o fluxo que contém o objeto serializado. `Deserialize`Retorna uma coleção de `T` instâncias.
+O parâmetro `stream` é o fluxo que contém o objeto serializado. `Deserialize` retorna um conjunto de instâncias de `T`.
 
 ```csharp
     public abstract class StreamDeserializer<T> : UserDefinedOperator
@@ -54,7 +54,7 @@ O parâmetro `stream` é o fluxo que contém o objeto serializado. `Deserialize`
     }
 ```
 
-`StreamingContext`fornece o contexto que inclui o mecanismo de publicação de diagnóstico para o operador de usuário.
+`StreamingContext` fornece o contexto que inclui o mecanismo de publicação de diagnóstico para o operador de usuário.
 
 ```csharp
     public abstract class StreamingContext
@@ -63,13 +63,13 @@ O parâmetro `stream` é o fluxo que contém o objeto serializado. `Deserialize`
     }
 ```
 
-`StreamingDiagnostics`é o diagnóstico para operadores definidos pelo usuário, incluindo serializador, desserializador e funções definidas pelo usuário.
+`StreamingDiagnostics` é o diagnóstico para operadores definidos pelo usuário, incluindo serializador, desserializador e funções definidas pelo usuário.
 
-`WriteError`grava uma mensagem de erro nos logs de recursos e envia o erro para diagnóstico.
+`WriteError` grava uma mensagem de erro nos logs de recursos e envia o erro para diagnóstico.
 
-`briefMessage`é uma breve mensagem de erro. Essa mensagem aparece no diagnóstico e é usada pela equipe do produto para fins de depuração. Não inclua informações confidenciais e mantenha a mensagem com menos de 200 caracteres
+`briefMessage` é uma breve mensagem de erro. Essa mensagem aparece no diagnóstico e é usada pela equipe do produto para fins de depuração. Não inclua informações confidenciais e mantenha a mensagem com menos de 200 caracteres
 
-`detailedMessage`é uma mensagem de erro detalhada que é adicionada somente aos logs de recursos em seu armazenamento. Esta mensagem deve ter menos de 2000 caracteres.
+`detailedMessage` é uma mensagem de erro detalhada que só é adicionada aos logs de recursos em seu armazenamento. A mensagem deve ter menos de 2000 caracteres.
 
 ```csharp
     public abstract class StreamingDiagnostics
@@ -80,7 +80,7 @@ O parâmetro `stream` é o fluxo que contém o objeto serializado. `Deserialize`
 
 ## <a name="deserializer-examples"></a>Exemplos de desserializador
 
-Esta seção mostra como escrever desserializadores personalizados para Protobuf e CSV. Para obter exemplos adicionais, como o formato AVRO para captura do hub de eventos, visite [Azure Stream Analytics no GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/CustomDeserializers).
+Esta seção mostra como gravar desserializadores personalizados para Protobuf e CSV. Para ver exemplos adicionais, como o formato AVRO para o Event Hub Capture, visite [Azure Stream Analytics no GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/CustomDeserializers).
 
 ### <a name="protocol-buffer-protobuf-format"></a>Formato de buffer de protocolo (Protobuf)
 
@@ -112,9 +112,9 @@ message MessageBodyProto {
 }
 ```
 
-A `protoc.exe` execução do NuGet **Google. Protobuf. Tools** gera um arquivo. cs com a definição. O arquivo gerado não é mostrado aqui.
+A execução de `protoc.exe` do NuGet **Google.Protobuf.Tools** gera um arquivo .cs com a definição. O arquivo gerado não aparece aqui. Você deve garantir que a versão do Protobuf NuGet que você usa em seu projeto de Stream Analytics corresponda à versão do Protobuf usada para gerar a entrada. 
 
-O trecho de código a seguir é a implementação de desserializador, supondo que o arquivo gerado esteja incluído no projeto. Essa implementação é apenas um wrapper fino sobre o arquivo gerado.
+O trecho de código a seguir é a implementação do desserializador, supondo que o arquivo gerado esteja incluído no projeto. Essa implementação é apenas um wrapper fino no arquivo gerado.
 
 ```csharp
     public class MessageBodyDeserializer : StreamDeserializer<SimulatedTemperatureSensor.MessageBodyProto>
@@ -135,7 +135,7 @@ O trecho de código a seguir é a implementação de desserializador, supondo qu
 
 ### <a name="csv"></a>CSV
 
-O trecho de código a seguir é um desserializador CSV simples que também demonstra a propagação de erros.
+O trecho de código a seguir é um desserializador CSV simples que também demonstra erros de propagação.
 
 ```csharp
 using System.Collections.Generic;
@@ -200,9 +200,9 @@ namespace ExampleCustomCode.Serialization
 
 ## <a name="serialization-format-for-rest-apis"></a>Formato de serialização para APIs REST
 
-Cada entrada de Stream Analytics tem um **formato de serialização**. Para obter mais informações sobre as opções de entrada, consulte a documentação da [API REST de entrada](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-input) .
+Cada entrada do Azure Stream Analytics tem um **formato de serialização**. Para obter mais informações sobre opções de entrada, consulte a documentação [API REST de entrada](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-input).
 
-O código JavaScript a seguir é um exemplo do formato de serialização do desserializador do .NET ao usar a API REST:
+O código JavaScript a seguir é um exemplo do formato de serialização do desserializador do .NET ao se usar a API REST:
 
 ```javascript
 {    
@@ -219,11 +219,11 @@ O código JavaScript a seguir é um exemplo do formato de serialização do dess
 }  
 ```
 
-`serializationClassName`deve ser uma classe que implementa `StreamDeserializer<T>`. Isso é descrito na seção a seguir.
+`serializationClassName` deve ser uma classe que implementa `StreamDeserializer<T>`. Isso é descrito na seção a seguir.
 
 ## <a name="region-support"></a>Suporte de regiões
 
-Esse recurso está disponível nas seguintes regiões:
+Este recurso está disponível nas seguintes regiões:
 
 * Centro-Oeste dos EUA
 * Norte da Europa
@@ -232,26 +232,26 @@ Esse recurso está disponível nas seguintes regiões:
 * Leste dos EUA 2
 * Europa Ocidental
 
-Você pode [solicitar suporte](https://aka.ms/ccodereqregion) para regiões adicionais.
+Você pode [solicitar suporte](https://aka.ms/ccodereqregion) para outras regiões.
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 ### <a name="when-will-this-feature-be-available-in-all-azure-regions"></a>Quando esse recurso estará disponível em todas as regiões do Azure?
 
-Esse recurso está disponível em [6 regiões](https://docs.microsoft.com/azure/stream-analytics/custom-deserializer-examples#region-support). Se você estiver interessado em usar essa funcionalidade em outra região, poderá [Enviar uma solicitação](https://aka.ms/ccodereqregion). O suporte para todas as regiões do Azure está no roteiro.
+Esse recurso está disponível em [6 regiões](https://docs.microsoft.com/azure/stream-analytics/custom-deserializer-examples#region-support). Se você estiver interessado em usar essa funcionalidade em outra região, [envie uma solicitação](https://aka.ms/ccodereqregion). Estamos trabalhando para oferecer suporte a todas as regiões do Azure.
 
 ### <a name="can-i-access-metadatapropertyvalue-from-my-inputs-similar-to-getmetadatapropertyvalue-function"></a>Posso acessar o MetadataPropertyValue de minhas entradas semelhantes à função GetMetadataPropertyValue?
 
-Não há mais suporte para essa funcionalidade. Se você precisar desse recurso, poderá votar nessa solicitação no [UserVoice](https://feedback.azure.com/forums/270577-stream-analytics/suggestions/38779801-accessing-input-metadata-properties-in-custom-dese).
+Não há mais suporte para essa funcionalidade. Se você precisar desse recurso, vote nessa solicitação em [UserVoice](https://feedback.azure.com/forums/270577-stream-analytics/suggestions/38779801-accessing-input-metadata-properties-in-custom-dese).
 
-### <a name="can-i-share-my-deserializer-implementation-with-the-community-so-that-others-can-benefit"></a>Posso compartilhar minha implementação de desserializador com a Comunidade para que outras pessoas possam se beneficiar?
+### <a name="can-i-share-my-deserializer-implementation-with-the-community-so-that-others-can-benefit"></a>Posso compartilhar minha implementação de desserializador com a comunidade para que outras pessoas se beneficiem?
 
-Depois de implementar seu desserializador, você pode ajudar outras pessoas compartilhando-o com a Comunidade. Envie seu código para o [repositório GitHub Azure Stream Analytics](https://github.com/Azure/azure-stream-analytics/tree/master/CustomDeserializers).
+Depois de implementar seu desserializador, você poderá ajudar outras pessoas compartilhando-o com a comunidade. Envie seu código para o [repositório do Azure Stream Analytics no GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/CustomDeserializers).
 
-### <a name="what-are-the-other-limitation-of-using-custom-deserializers-in-stream-analytics"></a>Quais são as outras limitações de usar desserializadores personalizados no Stream Analytics?
+### <a name="what-are-the-other-limitation-of-using-custom-deserializers-in-stream-analytics"></a>Quais são as outras limitações do uso de desserializadores personalizados no Stream Analytics?
 
-Se a entrada for do formato Protobuf com esquema que contém o tipo MapField, você não poderá implementar um desserializador personalizado. Estamos trabalhando para dar suporte a esse tipo no futuro.
+Se a entrada for do formato Protobuf com esquema que contenha o tipo MapField, você não poderá implementar um desserializador personalizado. Estamos trabalhando para oferecer suporte a esse tipo no futuro.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Desserializadores personalizados do .NET para trabalhos de Azure Stream Analytics nuvem](custom-deserializer.md)
+* [Desserializadores .NET personalizados para trabalhos de nuvem do Azure Stream Analytics](custom-deserializer.md)

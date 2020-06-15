@@ -1,20 +1,20 @@
 ---
-title: Como consultar logs de Iniciar/Parar VMs fora do horário comercial
-description: Este artigo descreve como consultar dados de log gerados pela solução de Iniciar/Parar VMs fora do horário comercial de Azure Monitor.
+title: Consulta de logs da solução Iniciar/Parar VMs fora do horário comercial da Automação do Azure
+description: Este artigo descreve como usar o Azure Monitor para consultar dados de log gerados pela solução Iniciar/Parar VMs fora do horário comercial.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 472baa3f4b3cbb970a8f365ccc94929ad565c421
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
-ms.translationtype: MT
+ms.openlocfilehash: de013b6ccd924f50ffe12fcba1285b121eece5f7
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864225"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827549"
 ---
-# <a name="how-to-query-logs-from-startstop-vms-during-off-hours"></a>Como consultar logs de Iniciar/Parar VMs fora do horário comercial
+# <a name="query-logs-from-startstop-vms-during-off-hours"></a>Logs de consulta de Iniciar/Parar VMs fora do horário comercial
 
-A automação do Azure encaminha dois tipos de registros para o espaço de trabalho Log Analytics vinculado: logs de trabalho e fluxos de trabalho. Este artigo revisa os dados disponíveis para [consulta](../azure-monitor/log-query/log-query-overview.md) no Azure monitor.
+A Automação cria dois tipos de registros no workspace do Log Analytics vinculado: logs de trabalho e fluxos de trabalho. Este artigo revisa os dados disponíveis para [consulta](../azure-monitor/log-query/log-query-overview.md) no Azure Monitor.
 
 ## <a name="job-logs"></a>Logs de trabalho
 
@@ -60,15 +60,17 @@ Quando você executa uma pesquisa de logs que retorna registros da categoria de 
 
 ## <a name="sample-log-searches"></a>Pesquisas de log de exemplo
 
-A tabela a seguir fornece pesquisas de log de exemplo para os registros de alerta coletados por essa solução.
+A tabela a seguir fornece pesquisas de logs de exemplo para os registros de trabalho coletados pela solução Iniciar/Parar VMs fora do horário comercial.
 
 |Consulta | Descrição|
 |----------|----------|
 |Localizar trabalhos para o runbook ScheduledStartStop_Parent que foram finalizados com êxito | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" )  <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
-|Localizar trabalhos para ScheduledStartStop_Parent de runbook que não foram concluídos com êxito | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Failed" )  <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
+|Localizar trabalhos referentes ao runbook ScheduledStartStop_Parent que não foram concluídos com êxito | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Failed" )  <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
 |Localizar trabalhos para o runbook SequencedStartStop_Parent que foram finalizados com êxito | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" ) <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
-|Localizar trabalhos para SequencedStartStop_Parent de runbook que não foram concluídos com êxito | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Failed" ) <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
+|Localizar trabalhos referentes ao runbook SequencedStartStop_Parent que não foram concluídos com êxito | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Failed" ) <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
 
 ## <a name="next-steps"></a>Próximas etapas
 
-A solução **iniciar/parar VMs fora do horário comercial** não inclui um conjunto predefinido de alertas. Examine os [alertas de criar log](../azure-monitor/platform/alerts-log.md) com Azure monitor para saber como criar alertas de falha de trabalho para dar suporte aos processos e procedimentos operacionais ou DevOps.
+* Para configurar o recurso, veja [Configurar Iniciar/Parar VMs fora do horário comercial](automation-solution-vm-management-config.md).
+* Para obter informações sobre alertas de log durante a implantação de recursos, veja [Criar alertas de log com o Azure Monitor](../azure-monitor/platform/alerts-log.md).
+* Para resolver erros de recurso, veja [Solucionar problemas de Iniciar/Parar VMs fora do horário comercial](troubleshoot/start-stop-vm.md).

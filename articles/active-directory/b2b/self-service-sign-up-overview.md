@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e0325b43b6726f04d5994b60404f218ac58122d
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 98456f26fbc7ca3955883eb283b54084bd86d503
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594825"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83737751"
 ---
 # <a name="self-service-sign-up-preview"></a>Inscrição por autoatendimento (versão prévia)
 |     |
@@ -24,21 +24,24 @@ ms.locfileid: "83594825"
 | A inscrição por autoatendimento é a versão prévia pública de um recurso do Azure Active Directory. Para saber mais sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
-Ao compartilhar aplicativos com usuários externos, é possível que você não saiba com antecedência quem precisará de acesso a um aplicativo. Como alternativa ao envio de convites diretamente para as pessoas, você pode permitir que usuários externos se inscrevam em aplicativos específicos, habilitando a inscrição por autoatendimento. Você pode criar uma experiência de inscrição personalizada, personalizando o fluxo de inscrição por autoatendimento do usuário. Por exemplo, você pode fornecer opções para provedores de identidade social ou do Azure AD e coletar informações sobre o usuário.
+Quando compartilhar um aplicativo com usuários externos, é possível que você não saiba com antecedência quem precisará de acesso a um aplicativo. Como alternativa ao envio de convites diretamente para as pessoas, você pode permitir que usuários externos se inscrevam em aplicativos específicos, habilitando a inscrição por autoatendimento. Você pode criar uma experiência de inscrição personalizada, personalizando o fluxo de inscrição por autoatendimento do usuário. Por exemplo, você pode fornecer opções de inscrição com o Azure AD ou com provedores de identidade social e coletar informações sobre o usuário durante o processo de criação da conta.
+
+> [!NOTE]
+> Você pode associar os fluxos de usuários com aplicativos criados por sua organização. Os fluxos de usuários não podem ser usados para aplicativos da Microsoft, como SharePoint ou Teams.
 
 ## <a name="user-flow-for-self-service-sign-up"></a>Fluxo de usuários da inscrição por autoatendimento
 
-Um fluxo de usuários da inscrição por autoatendimento cria uma experiência de inscrição para seus usuários externos por meio do aplicativo que você deseja compartilhar. O fluxo do usuário pode ser associado a um ou mais dos seus aplicativos. Em primeiro lugar, você habilitará a inscrição por autoatendimento para seu locatário e fará a federação dos provedores de identidade que deseja permitir que usuários externos usem como credenciais. Em seguida, você criará e personalizará o fluxo de usuários da inscrição e atribuirá seus aplicativos a ele.
+Um fluxo de usuários da inscrição por autoatendimento cria uma experiência de inscrição para seus usuários externos por meio do aplicativo que você deseja compartilhar. O fluxo do usuário pode ser associado a um ou mais dos seus aplicativos. Primeiro, você habilitará a inscrição para autoatendimento para o locatário e fará a federação dos provedores de identidade que deseja permitir que usuários externos usem para iniciar sessão. Em seguida, você criará e personalizará o fluxo de usuários da inscrição e atribuirá seus aplicativos a ele.
 Você pode definir configurações de fluxo de usuários para controlar como o usuário se inscreve no aplicativo:
 
 - tipos de conta usados credenciais; por exemplo, contas de redes sociais, como as do Facebook, ou contas do Azure AD.
-- Atributos a serem coletados na inscrição do usuário, como nome, CEP ou país de residência.
+- Atributos a serem coletados durante a inscrição do usuário, como nome, CEP ou país/região de residência
 
-Quando um usuário deseja entrar em seu aplicativo, seja ele da Web, móvel, da área de trabalho ou um SPA (aplicativo de página única), o aplicativo inicia uma solicitação de autorização para o ponto de extremidade fornecido pelo fluxo de usuários. O fluxo de usuários define e controla a experiência do usuário. Quando conclui um fluxo de usuários de inscrição, o Azure AD gera um token que redireciona o usuário para o aplicativo. Vários aplicativos podem usar o mesmo fluxo de usuários.
+Quando um usuário deseja entrar em seu aplicativo, seja ele da Web, móvel, da área de trabalho ou um SPA (aplicativo de página única), o aplicativo inicia uma solicitação de autorização para o ponto de extremidade fornecido pelo fluxo de usuários. O fluxo de usuários define e controla a experiência do usuário. Quando o usuário conclui um fluxo de usuário para inscrição, o Azure AD gera um token que redireciona o usuário para o aplicativo. Após a inscrição ser concluída, uma conta de convidado é provisionada para o usuário no diretório. Vários aplicativos podem usar o mesmo fluxo de usuários.
 
 ## <a name="example-of-self-service-sign-up"></a>Exemplo de inscrição por autoatendimento
 
-O exemplo a seguir ilustra como estamos trazendo provedores de identidade social para o Azure AD com recursos de inscrição por autoatendimento para usuários convidados.  
+O exemplo a seguir ilustra como estamos trazendo provedores de identidade social para o Azure AD com recursos de inscrição para autoatendimento para usuários convidados.  
 Um parceiro do Woodgrove abre o aplicativo do Woodgrove. Ele decide que deseja se inscrever em uma conta de fornecedor. Ele seleciona Solicitar sua conta de fornecedor, o que inicia o fluxo de inscrição por autoatendimento.
 
 ![Exemplo de página inicial de inscrição por autoatendimento](media/self-service-sign-up-overview/example-start-sign-up-flow.png)
@@ -47,7 +50,7 @@ Ele usa o email de sua escolha para se inscrever.
 
 ![Exemplo mostrando a seleção do Facebook como credenciais](media/self-service-sign-up-overview/example-sign-in-with-facebook.png)
 
-O Azure AD cria uma relação com o Woodgrove usando a conta do Facebook do parceiro e cria uma nova conta.
+O Azure AD cria uma relação com o Woodgrove usando a conta do Facebook do parceiro, e cria uma nova conta de convidado para o usuário após a inscrição.
 
 O Woodgrove quer saber mais sobre o usuário, como nome, nome da empresa, CNPJ e número de telefone.
 

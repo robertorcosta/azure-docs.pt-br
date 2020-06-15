@@ -1,40 +1,42 @@
 ---
-title: Política de suporte do cluster do Azure Red Hat OpenShift 4
-description: Compreenda os requisitos da política de suporte para o Red Hat OpenShift 4.
+title: Política de suporte do cluster do Red Hat OpenShift no Azure 4
+description: Entenda os requisitos da política de suporte para o Red Hat OpenShift 4.
 author: sakthi-vetrivel
 ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 7bdcccee3270f9d2b611682a9a59505158a494d2
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
-ms.translationtype: MT
+ms.openlocfilehash: ec27d054055866c72148ad6eb024d4324f063ce8
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82205203"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774399"
 ---
-# <a name="azure-red-hat-openshift-support-policy"></a>Política de suporte do Azure Red Hat OpenShift
+# <a name="azure-red-hat-openshift-support-policy"></a>Política de suporte do Red Hat OpenShift no Azure
 
-Determinadas configurações para clusters do Azure Red Hat OpenShift 4 podem afetar a compatibilidade do cluster. O Azure Red Hat OpenShift 4 permite que os administradores de cluster façam alterações em componentes de cluster internos, mas nem todas as alterações têm suporte. A política de suporte abaixo compartilha as modificações que violam a política e o suporte a void da Microsoft e do Red Hat.
+Determinadas configurações dos clusters do Red Hat OpenShift no Azure 4 podem afetar a compatibilidade do cluster. O Red Hat OpenShift no Azure 4 permite que os administradores do cluster façam alterações em componentes internos do cluster, mas nem todas as alterações são compatíveis. A política de suporte abaixo compartilha as modificações que violam a política e anulam o suporte da Microsoft e do Red Hat.
 
 > [!NOTE]
-> Os recursos marcados como visualização tecnológica na plataforma de contêiner OpenShift não têm suporte no Azure Red Hat OpenShift.
+> Os recursos marcados como Visualização da tecnologia na plataforma do contêiner do OpenShift não são compatíveis com o Red Hat OpenShift no Azure.
 
-## <a name="cluster-configuration-requirements"></a>Requisitos de configuração de cluster
+## <a name="cluster-configuration-requirements"></a>Requisitos de configuração do cluster
 
-* Todos os operadores de cluster OpenShift devem permanecer em um estado gerenciado. A lista de operadores de cluster pode ser retornada executando `oc get clusteroperators`.
-* Não remova ou modifique os serviços Prometheus e Alertmanager do cluster.
-* Não remova as regras do Alertmanager do serviço.
-* Não modifique a versão do cluster OpenShift.
-* Não remova ou modifique o registro em log do serviço OpenShift do Azure Red Hat (MDSD Pods).
-* Não remova ou modifique o segredo de extração de cluster ' arosvc.azurecr.io '.
-* Todas as máquinas virtuais de cluster devem ter acesso de saída à Internet, pelo menos aos pontos de extremidade Azure Resource Manager (ARM) e log de serviço (Geneva).
-* O serviço do Azure Red Hat OpenShift acessa seu cluster por meio do serviço de vínculo privado.  Não remova ou modifique o acesso ao serviço.
+* Todos os operadores do cluster do OpenShift devem permanecer em um estado gerenciado. A lista de operadores do cluster pode ser retornada executando `oc get clusteroperators`.
+* Não remova nem modifique os serviços Prometheus e Alertmanager do cluster.
+* Não remova as regras de Alertmanager do serviço.
+* Não modifique a versão do cluster do OpenShift.
+* Não remova nem modifique o registro em log do serviço do Red Hat OpenShift no Azure (pods mdsd).
+* Não remova nem modifique o segredo de pull do cluster “arosvc.azurecr.io”.
+* Todas as máquinas virtuais do cluster devem ter acesso direto à Internet de saída, pelo menos para os pontos de extremidade do Azure Resource Manager (ARM) e do registro em log do serviço (Geneva).  Não há suporte para nenhuma forma de proxy HTTPS.
+* Não modifique a configuração de DNS da rede virtual do cluster. Use o resolvedor DNS do Azure padrão.
+* Não substitua nenhum dos objetos MachineConfig do cluster (por exemplo, a configuração do kubelet) de forma alguma.
+* O serviço do Red Hat OpenShift no Azure acessa seu cluster por meio do serviço de Link Privado.  Não remova nem modifique o acesso ao serviço.
 * Não há suporte para nós de computação não RHCOS. Por exemplo, você não pode usar um nó de computação RHEL.
 
-## <a name="supported-virtual-machine-sizes"></a>Tamanhos de máquina virtual com suporte
+## <a name="supported-virtual-machine-sizes"></a>Tamanhos de máquinas virtuais compatíveis
 
-O Azure Red Hat OpenShift 4 dá suporte a instâncias de nó de trabalho nos seguintes tamanhos de máquina virtual:
+O Red Hat OpenShift no Azure 4 oferece suporte a instâncias de nó de trabalho nos seguintes tamanhos de máquina virtual:
 
 ### <a name="general-purpose"></a>Propósito geral
 
@@ -66,3 +68,11 @@ O Azure Red Hat OpenShift 4 dá suporte a instâncias de nó de trabalho nos seg
 |Fsv2|Standard_F8s_v2|8|16|
 |Fsv2|Standard_F16s_v2|16|32|
 |Fsv2|Standard_F32s_v2|32|64|
+
+### <a name="master-nodes"></a>Nós mestres
+
+|Série|Tamanho|vCPU|Memória: GiB|
+|-|-|-|-|
+|Dsv3|Standard_D8s_v3|8|32|
+|Dsv3|Standard_D16s_v3|16|64|
+|Dsv3|Standard_D32s_v3|32|128|

@@ -7,14 +7,14 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2019
-ms.openlocfilehash: 8466fbcb4325dc244551a3b84fc20581366b7071
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: edc2b1d7d6a97dd7d7ec35dadf946b5b8581bd06
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78851156"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83833125"
 ---
-# <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics e Power BI: um painel de análise em tempo real para dados de streaming
+# <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics e Power BI: Um painel de análise em tempo real para dados de streaming
 
 O Stream Analytics do Azure permite aproveitar uma das principais ferramentas de business intelligence, o [Microsoft Power BI](https://powerbi.com/). Neste artigo, você saberá como criar ferramentas de business intelligence usando o Power BI como uma saída de seus trabalhos do Stream Analytics do Azure. Você também aprenderá a criar e usar um painel em tempo real.
 
@@ -28,7 +28,7 @@ Você pode assistir a [um vídeo](https://www.youtube.com/watch?v=SGUpT-a99MA) q
 Antes de começar, verifique se você tem:
 
 * Uma conta do Azure.
-* Uma conta para Power BI Pro. Você pode usar uma conta corporativa ou de estudante.
+* Uma conta para o Power BI Pro. Você pode usar uma conta corporativa ou de estudante.
 * Uma versão concluída do tutorial [Detecção de fraudes em tempo real](stream-analytics-real-time-fraud-detection.md). O tutorial inclui um aplicativo que gera metadados de chamada telefônica fictícios. No tutorial, você cria um hub de eventos e envia os dados de streaming de chamada telefônica para o hub de eventos. Você escreve uma consulta que detecta chamadas fraudulentas (chamadas simultâneas do mesmo número em diferentes locais). 
 
 
@@ -37,15 +37,15 @@ No tutorial de detecção de fraudes em tempo real, a saída é enviada para o A
 
 1. No Portal do Azure, abra o trabalho do Stream Analytics criado anteriormente. Se você usou o nome sugerido, o trabalho é nomeado `sa_frauddetection_job_demo`.
 
-2. No menu à esquerda, selecione **saídas** em **topologia do trabalho**. Em seguida, selecione **+ Adicionar** e escolha **Power bi** no menu suspenso.
+2. No menu à esquerda, escolha **Saídas** em **Topologia de trabalho**. Em seguida, escolha **+ Adicionar** e escolha **Power BI** no menu suspenso.
 
-3. Selecione **+ Adicionar** > **Power bi**. Em seguida, preencha o formulário com os seguintes detalhes e marque **Autorizar**:
+3. Escolha **+ Adicionar** > **Power BI**. Em seguida, preencha o formulário com os seguintes detalhes e marque **Autorizar**:
 
    |**Configuração**  |**Valor sugerido**  |
    |---------|---------|
    |Alias de saída  |  CallStream-PowerBI  |
-   |Nome do conjunto de dados  |   SA-conjunto de um  |
-   |Nome da tabela |  chamadas fraudulentas  |
+   |Nome do conjunto de dados  |   sa-dataset  |
+   |Nome da tabela |  fraudulent-calls  |
 
    ![Configurar a saída do Stream Analytics](media/stream-analytics-power-bi-dashboard/configure-stream-analytics-output.png)
 
@@ -60,8 +60,8 @@ No tutorial de detecção de fraudes em tempo real, a saída é enviada para o A
 
 O conjunto de dados é criado com as seguintes configurações:
 
-* **defaultRetentionPolicy: BasicFIFO** -os dados são FIFO, com um máximo de 200.000 linhas.
-* **: pushStreaming** -o conjunto de um é compatível com blocos de streaming e visuais baseados em relatórios tradicionais (também conhecido como push).
+* **defaultRetentionPolicy: BasicFIFO**: os dados são FIFO, com um máximo de 200.000 linhas.
+* **defaultMode: pushStreaming**: o conjunto de dados dá suporte a blocos de streaming e objetos visuais com base em relatórios tradicionais (também conhecido como push).
 
 Atualmente, não é possível criar conjuntos de dados com outros sinalizadores.
 
@@ -99,7 +99,7 @@ Para saber mais sobre conjuntos de dados do Power BI, consulte a referência à 
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-4. Clique em **Salvar**.
+4. Clique em **Save** (Salvar).
 
 
 ## <a name="test-the-query"></a>Testar a consulta
@@ -108,23 +108,23 @@ Esta etapa é opcional, mas recomendada.
 
 1. Se o aplicativo TelcoStreaming não estiver em execução, inicie-o seguindo estas etapas:
 
-    * Abra o Prompt de Comando.
+    * Abra o prompt de comando.
     * Vá para a pasta em que os arquivos telcodatagen.exe.config e telcogenerator.exe.config modificado estão.
-    * Execute o seguinte comando:
+    * Execute o comando a seguir:
 
        `telcodatagen.exe 1000 .2 2`
 
-2. Na página **consulta** para seu trabalho de Stream Analytics, clique nos pontos ao lado da `CallStream` entrada e selecione **dados de exemplo da entrada**.
+2. Na página **Consulta** do trabalho Stream Analytics, clique nos pontos ao lado da entrada `CallStream` e, em seguida, escolha **Dados de exemplo da entrada**.
 
 3. Especifique que você deseja dados equivalentes a três minutos e clique em **OK**. Aguarde até ser notificado de que a amostragem dos dados foi realizada.
 
-4. Clique em **testar** e examine os resultados.
+4. Clique em **Teste** e revise os resultados.
 
 ## <a name="run-the-job"></a>Executar o trabalho
 
 1. Verifique se o aplicativo TelcoStreaming está em execução.
 
-2. Navegue até a página de **visão geral** de seu trabalho de Stream Analytics e selecione **Iniciar**.
+2. Navegue até a página **Visão geral** para seu trabalho do Stream Analytics e escolha **iniciar**.
 
     ![Iniciar o trabalho do Stream Analytics](./media/stream-analytics-power-bi-dashboard/stream-analytics-sa-job-start-output.png)
 
@@ -137,7 +137,7 @@ O trabalho do Stream Analytics começa procurando chamadas fraudulentas no fluxo
 
     ![Localização do conjunto de dados de streaming no Power BI](./media/stream-analytics-power-bi-dashboard/stream-analytics-streaming-dataset.png)
 
-2. Em seu espaço de trabalho, clique em ** + &nbsp;criar**.
+2. No workspace, clique em **+&nbsp;Criar**.
 
     ![O botão Criar no workspace do Power BI](./media/stream-analytics-power-bi-dashboard/pbi-create-dashboard.png)
 
@@ -157,7 +157,7 @@ O trabalho do Stream Analytics começa procurando chamadas fraudulentas no fluxo
 
     ![Detalhes da visualização para o novo bloco](./media/stream-analytics-power-bi-dashboard/add-fraudulent-calls-tile.png)
 
-7. Clique em **Avançar**.
+7. Clique em **Próximo**.
 
 8. Preencha os detalhes do bloco, tais como um título e subtítulo.
 
@@ -235,11 +235,11 @@ De modo similar, se um trabalho iniciar depois que o token tiver expirado, ocorr
 Depois que a autorização foi atualizada com o Power BI, um alerta verde é exibida na área de autorização para refletir se o problema foi resolvido.
 
 ## <a name="get-help"></a>Obter ajuda
-Para obter mais assistência, experimente nosso [Fórum de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Para obter mais assistência, experimente a nossa [página de Perguntas e respostas da Microsoft do Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
-* [Introdução ao uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
+* [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
-* [Referência de linguagem de consulta Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referência de linguagem de consulta do Stream Analytics do Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referência da API REST do Gerenciamento do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
