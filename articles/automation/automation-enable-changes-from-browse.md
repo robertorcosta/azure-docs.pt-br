@@ -5,12 +5,12 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: 0491f10f22e35c81e5bc35d537546001f136be50
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: f84a609ea2821546c4001b98ad11495305ac101a
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826818"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171065"
 ---
 # <a name="enable-change-tracking-and-inventory-from-azure-portal"></a>Habilitação dos recursos de Controle de Alterações e Inventário no portal do Azure
 
@@ -61,8 +61,4 @@ Entre no Azure em https://portal.azure.com.
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para obter detalhes do trabalho com o recurso, veja [Gerenciar Controle de Alterações e Inventário](change-tracking-file-contents.md).
-* Para obter mais informações sobre as configurações de escopo, veja [Trabalhar com configurações de escopo para Controle de Alterações e Inventário](automation-scope-configurations-change-tracking.md).
-* Para saber como usar o recurso para identificar o software instalado em seu ambiente, veja [Descobrir qual software está instalado em suas VMs](automation-tutorial-installed-software.md).
-* Se você não quiser integrar sua conta de Automação a um workspace do Log Analytics ao habilitar o recurso, veja [Desvincular o workspace da conta de Automação](automation-unlink-workspace-change-tracking.md).
-* Quando concluir a implantação de alterações nas VMs, remova-as conforme descrito em [Remover VMs do Controle de Alterações e Inventário](automation-remove-vms-from-change-tracking.md).
 * Para solucionar problemas gerais com o recurso, veja [Solucionar problemas de Controle de Alterações e Inventário](troubleshoot/change-tracking.md).

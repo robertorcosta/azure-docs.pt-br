@@ -22,6 +22,9 @@
           href: functions-create-your-first-function-visual-studio.md
         - name: Linha de comando
           href: functions-create-first-azure-function-azure-cli.md
+        - name: Modelo de ARM
+          displayName: Resource Manager
+          href: functions-create-first-function-resource-manager.md
     - name: Conectar ao armazenamento
       items:
         - name: Visual Studio Code

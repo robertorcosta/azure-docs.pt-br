@@ -35,6 +35,8 @@
           href: temporal-tables.md
         - name: Escalar/reduzir verticalmente
           href: database/scale-resources.md
+        - name: Expansão de leitura
+          href: database/read-scale-out.md
         - name: Segurança
           items:
             - name: Visão geral
@@ -282,8 +284,6 @@
           href: database/connectivity-architecture.md
         - name: Configurações de conectividade
           href: database/connectivity-settings.md
-        - name: Expansão de leitura
-          href: database/read-scale-out.md
         - name: Diferenças de T-SQL
           href: database/transact-sql-tsql-differences-sql-server.md
         - name: Automação do Azure
