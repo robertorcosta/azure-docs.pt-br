@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 560575ca7f51218e472abecb4319f4a3db69b1ff
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 27e26bb37b444b49797d46dd4e12b61f8fe11b16
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79220463"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84782527"
 ---
 # <a name="speech-service-supported-regions"></a>Regiões com suporte do serviço de fala
 
@@ -38,7 +38,7 @@ O serviço de fala está disponível nessas regiões para **reconhecimento de fa
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
 
-Se você usar o [SDK de fala](speech-sdk.md), as regiões serão especificadas pelo **identificador de região** (por exemplo, como um `SpeechConfig.FromSubscription`parâmetro para). Verifique se a região corresponde à região da sua assinatura.
+Se você usar o [SDK de fala](speech-sdk.md), as regiões serão especificadas pelo **identificador de região** (por exemplo, como um parâmetro para `SpeechConfig.FromSubscription` ). Verifique se a região corresponde à região da sua assinatura.
 
 ### <a name="intent-recognition"></a>Reconhecimento de intenção
 
@@ -74,6 +74,10 @@ O [SDK de fala](speech-sdk.md) dá suporte a recursos do **Assistente de voz** n
 | Europa Ocidental    | `westeurope`         |
 | Norte da Europa   | `northeurope`        |
 | Sudeste Asiático | `southeastasia`      |
+
+### <a name="speaker-recognition"></a>Reconhecimento do Locutor
+
+Atualmente, o Reconhecimento do Locutor está disponível apenas na `westus` região.
 
 ## <a name="rest-apis"></a>APIs REST
 
