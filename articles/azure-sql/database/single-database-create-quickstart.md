@@ -1,6 +1,6 @@
 ---
 title: Criar um banco de dados individual
-description: Crie um Banco de Dados SQL do Azure individual usando o portal do Azure, o PowerShell ou a CLI do Azure. Consulte o banco de dados com o Editor de Consultas no portal do Azure.
+description: Criar um banco de dados individual no Banco de Dados SQL do Azure usando o portal do Azure, o PowerShell ou a CLI do Azure. Consulte o banco de dados com o Editor de Consultas no portal do Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -11,23 +11,22 @@ author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein, vanto
 ms.date: 04/19/2020
-ms.openlocfilehash: 8b4e057fe41bdf76612888e9d4715d7cdee0ce29
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 1ae3159365e63159b8ed62c09bc20441ba65d8aa
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053206"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343839"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>Início Rápido: Criar um banco de dados individual do Banco de Dados SQL do Azure
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Neste início rápido, você usará o portal do Azure, um script do PowerShell ou um script da CLI do Azure para criar um Banco de Dados SQL do Azure individual. Em seguida, você consultará o banco de dados usando o **Editor de consultas** no portal do Azure.
+Neste início rápido, você usará o portal do Azure, um script do PowerShell ou um script da CLI do Azure para criar um banco de dados individual no Banco de Dados SQL do Azure. Em seguida, você consultará o banco de dados usando o **Editor de consultas** no portal do Azure.
 
 Um [banco de dados individual](single-database-overview.md) é a opção mais rápida e simples do Banco de Dados SQL do Azure. Você gerencia um banco de dados individual dentro de um [servidor](logical-servers.md), que está dentro de um [grupo de recursos do Azure](../../active-directory-b2c/overview.md) em uma região especificada do Azure. Neste início rápido, você criará um grupo de recursos e um servidor para o novo banco de dados.
 
 Você poderá criar um banco de dados individual na camada de computação *provisionada* ou *sem servidor*. É pré-alocada a um banco de dados provisionado uma quantidade fixa de recursos de computação, incluindo CPU e memória, e esse banco de dados usa um dos dois [modelos de compra](purchasing-models.md). Este início rápido cria um banco de dados provisionado usando o modelo de compra [baseado em vCore](service-tiers-vcore.md), mas você também pode escolher um modelo [baseado em DTU](service-tiers-dtu.md).
 
-A camada de computação sem servidor só está disponível no modelo de compra baseado em vCore e tem um intervalo dimensionado automaticamente de recursos de computação, incluindo CPU e memória. Para criar um banco de dados individual na camada de computação sem servidor, confira [Criar um banco de dados sem servidor](serverless-tier-overview.md#create-new-database-in-serverless-compute-tier).
+A camada de computação sem servidor só está disponível no modelo de compra baseado em vCore e tem um intervalo dimensionado automaticamente de recursos de computação, incluindo CPU e memória. Para criar um banco de dados individual na camada de computação sem servidor, confira [Criar um banco de dados sem servidor](serverless-tier-overview.md#create-a-new-database-in-the-serverless-compute-tier).
 
 ## <a name="prerequisite"></a>Pré-requisito
 
@@ -68,7 +67,7 @@ Mantenha o grupo de recursos, o servidor e o banco de dados individual para as p
 
 Quando você terminar de usar esses recursos, você poderá excluir o grupo de recursos criado, que também excluirá o servidor e o banco de dados individual dentro dele.
 
-### <a name="portal"></a>[Portal](#tab/azure-portal)
+### <a name="the-azure-portal"></a>[O portal do Azure](#tab/azure-portal)
 
 Para excluir **myResourceGroup** e todos os recursos dele usando o portal do Azure:
 
@@ -76,7 +75,7 @@ Para excluir **myResourceGroup** e todos os recursos dele usando o portal do Azu
 1. Na página Grupo de recursos, selecione **Excluir grupo de recursos**.
 1. Em **Digite o nome do grupo de recursos**, insira *myResourceGroup* e selecione **Excluir**.
 
-### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+### <a name="the-azure-cli"></a>[A CLI do Azure](#tab/azure-cli)
 
 Para excluir o grupo de recursos e os recursos dele, execute o seguinte comando da CLI do Azure usando o nome do seu grupo de recursos:
 
@@ -98,5 +97,7 @@ Remove-AzResourceGroup -Name <your resource group>
 
 [Conectar e consultar](connect-query-content-reference-guide.md) seu banco de dados usando diferentes ferramentas e linguagens:
 > [!div class="nextstepaction"]
-> [Conexão e consulta por meio do SQL Server Management Studio](connect-query-ssms.md)
-> [Conexão e consulta por meio do Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
+> [Conectar e consultar usando o SQL Server Management Studio](connect-query-ssms.md)
+>
+> [Conectar e consultar usando o Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
+ 

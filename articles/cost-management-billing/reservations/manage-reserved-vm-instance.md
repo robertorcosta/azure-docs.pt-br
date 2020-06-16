@@ -5,14 +5,14 @@ ms.service: cost-management-billing
 author: bandersmsft
 ms.reviewer: yashesvi
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 06/04/2020
 ms.author: banders
-ms.openlocfilehash: 1084e8687cc709b5e31a9ef2c903638dd3d8f62c
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 187bfeb7f9e4be47fb44a1ad0cf97be757865ab9
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84019989"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434187"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gerenciar Reservas para recursos do Azure
 
@@ -20,6 +20,7 @@ Após comprar uma reserva do Azure, talvez seja necessário aplicar a reserva a 
 
 Se você tiver comprado Instâncias de Máquinas Virtuais Reservadas do Azure, poderá alterar a configuração de otimização da reserva. O desconto de reserva pode ser aplicado a VMs na mesma série ou você pode reservar a capacidade do data center para um tamanho de VM específico. Além disso, você deve tentar otimizar reservas para que elas sejam totalmente usadas.
 
+*A permissão necessária para gerenciar uma reserva é separada da permissão de assinatura.*
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -55,10 +56,9 @@ O escopo somente se aplica a assinaturas individuais com taxas pagas conforme o 
 
 Você pode delegar o gerenciamento de uma reserva adicionando pessoas às funções na reserva. Por padrão, a pessoa que fez a reserva e o administrador da conta têm a função de Proprietário de reserva.
 
-É possível gerenciar o acesso a pedidos de reservas e reservas independentemente das assinaturas que obtêm o desconto de reserva. Ao conceder a alguém permissões para gerenciar um pedido de reserva ou a reserva, a pessoa não recebe permissão para gerenciar a assinatura. De maneira semelhante, se você conceder a alguém permissões para gerenciar uma assinatura no escopo da reserva, a pessoa não receberá direitos de gerenciar o pedido da reserva ou a reserva.
+É possível gerenciar o acesso a pedidos de reservas e reservas *independentemente das assinaturas* que obtêm o desconto de reserva. Ao conceder a alguém permissões para gerenciar um pedido de reserva ou a reserva, a pessoa não recebe permissão para gerenciar a assinatura. De maneira semelhante, se você conceder a alguém permissões para gerenciar uma assinatura no escopo da reserva, a pessoa não receberá direitos de gerenciar o pedido da reserva ou a reserva.
 
 Para realizar uma troca ou reembolso, o usuário deve ter acesso ao pedido de reserva. Ao conceder permissões a alguém, é melhor conceder permissões ao pedido de reserva, não à reserva.
-
 
 Para delegar o gerenciamento de acesso de uma reserva:
 

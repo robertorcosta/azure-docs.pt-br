@@ -6,14 +6,14 @@ ms.author: sngun
 tags: azure-resource-manager
 ms.service: cosmos-db
 ms.topic: quickstart
-ms.date: 02/27/2020
+ms.date: 06/01/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: f524a1e1db426b9b9dafb2fb95d77538a34b04ec
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 273305894e05b397d0f48acd7a483a9fdfc247ef
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81605460"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324022"
 ---
 # <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-azure-resource-manager-template"></a>Início Rápido: Criar um Azure Cosmos DB e um contêiner usando um modelo do Azure Resource Manager
 
@@ -35,9 +35,9 @@ Uma assinatura do Azure ou uma conta de avaliação gratuita do Azure Cosmos DB
 
 ### <a name="review-the-template"></a>Examinar o modelo
 
-O modelo usado neste início rápido é proveniente dos [modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-create/).
+O modelo usado neste início rápido é proveniente dos [modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/).
 
-:::code language="json" source="~/quickstart-templates/101-cosmosdb-create/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json":::
 
 Há três recursos do Azure definidos no modelo:
 
@@ -53,7 +53,7 @@ Mais exemplos de modelos do Azure Cosmos DB podem ser encontrados na [galeria de
 
 1. Selecione a imagem a seguir para entrar no Azure e abrir um modelo. O modelo cria uma conta, um banco de dados e um contêiner do Azure Cosmos.
 
-   [![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-create%2Fazuredeploy.json)
+   [![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql%2Fazuredeploy.json)
 
 2. Selecione ou insira os seguintes valores.
 
@@ -68,6 +68,9 @@ Mais exemplos de modelos do Azure Cosmos DB podem ser encontrados na [galeria de
     * **Localização**: insira uma localização em que você deseja criar sua conta do Azure Cosmos. A conta do Azure Cosmos pode estar na mesma localização que o grupo de recursos.
     * **Região Primária**: a região da réplica primária para a conta do Azure Cosmos.
     * **Região secundária**: a região da réplica secundária para a conta do Azure Cosmos.
+    * **Nível de consistência padrão**: O nível de consistência padrão para a conta do Azure Cosmos.
+    * **Prefixo máximo de desatualização**: máximo de solicitações obsoletas. Exigido para BoundedStaleness.
+    * **Intervalo máximo em segundos**: tempo de retardo máximo. Exigido para BoundedStaleness.
     * **Nome do Banco de Dados**: o nome do banco de dados do Azure Cosmos.
     * **Nome do Contêiner**: o nome do contêiner do Azure Cosmos.
     * **Taxa de transferência**:  a taxa de transferência do contêiner, cujo valor mínimo é de 400 RU/s.

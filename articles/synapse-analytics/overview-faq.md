@@ -1,6 +1,6 @@
 ---
-title: Perguntas frequentes – Azure Synapse Analytics
-description: Perguntas frequentes sobre o Azure Synapse Analytics
+title: Perguntas frequentes – Azure Synapse Analytics (versão prévia dos workspaces)
+description: Perguntas frequentes do Azure Synapse Analytics (versão prévia dos workspaces)
 services: synapse-analytics
 author: ArnoMicrosoft
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 999a181a812157a3e408d3e95b3e7fc00e29ecea
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 2c470483cee8b621475fa70dd09c80aa126173be
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118381"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609141"
 ---
-# <a name="azure-synapse-analytics-workspace-preview-frequently-asked-questions"></a>Perguntas frequentes sobre o Azure Synapse Analytics (versão prévia do workspace)
+# <a name="azure-synapse-analytics-workspaces-preview-frequently-asked-questions"></a>Perguntas frequentes sobre o Azure Synapse Analytics (versão prévia dos workspaces)
 
 Neste guia, você encontrará as perguntas mais frequentes sobre o Synapse Analytics.
 

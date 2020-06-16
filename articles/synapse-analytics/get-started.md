@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.date: 05/19/2020
-ms.openlocfilehash: 24a34ae6f00eca7154021162184f5e71503da06b
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 00f93086fec62c08c5241d868fc5104a1197cff3
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248321"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84605401"
 ---
 # <a name="getting-started-with-azure-synapse-analytics"></a>Introdução ao Azure Synapse Analytics
 
@@ -164,7 +164,7 @@ Temos dados disponíveis em uma tabela em `SQLDB1`. Agora, carregamos esses dado
 
 1. Navegue até o hub **Dados**, clique com o botão direito do mouse em **Bancos de dados** e selecione **Atualizar**.
 1. Agora você deve ver estes bancos de dados:
-    - SQLDB (pool de SQL)
+    - SQLDB1 (pool de SQL)
     - nyctaxi (Spark)
       
 ## <a name="analyze-the-nyc-taxi-data-using-spark-and-notebooks"></a>Analisar os dados de táxi de NYC usando Spark e notebooks
@@ -190,10 +190,10 @@ Temos dados disponíveis em uma tabela em `SQLDB1`. Agora, carregamos esses dado
       WHERE TripDistanceMiles > 0 AND PassengerCount > 0
       GROUP BY PassengerCount
       ORDER BY PassengerCount
-    """) 
-    display(df)
-    df.write.saveAsTable("nyctaxi.passengercountstats")
-    ```
+   """) 
+   display(df)
+   df.write.saveAsTable("nyctaxi.passengercountstats")
+   ```
 
 1. Nos resultados da célula, selecione **Gráfico** para observar os dados visualizados
  
@@ -262,7 +262,7 @@ Até agora nós abordamos cenários em que os dados residiam em bancos de dados 
 * O nome da conta de armazenamento: `contosolake`
 * O nome do contêiner na conta de armazenamento: `users`
 
-### <a name="creating-csv-and-parquet-files-in-your-storage-account"></a>Criando arquivos CSV e Parquet em sua Conta de armazenamento
+### <a name="creating-csv-and-parquet-files-in-your-storage-account"></a>Criar arquivos CSV e Parquet em sua conta de armazenamento
 
 Execute o código a seguir em um notebook. Ele cria um arquivo CSV e um arquivo Parquet na conta de armazenamento
 
@@ -282,7 +282,7 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
 1. Selecione **usuários (Primário)"**
 1. Você verá uma pasta chamada `NYCTaxi`. Dentro de você deve ver duas pastas, `PassengerCountStats.csv` e `PassengerCountStats.parquet`.
 1. Navegue até a pasta `PassengerCountStats.parquet`.
-1. Clique com o botão direito do mouse no arquivo parquet que está dentro e selecione **novo notebook**; isso criará um notebook com uma célula como esta:
+1. Clique com o botão direito do mouse no arquivo `.parquet` que está dentro e selecione **novo notebook**; isso criará um notebook com uma célula como esta:
 
     ```py
     %%pyspark

@@ -3,13 +3,14 @@ title: Criar uma função no Azure que responda a solicitações HTTP
 description: Saiba como criar uma função na linha de comando e, em seguida, publicar o projeto local na hospedagem sem servidor no Azure Functions.
 ms.date: 03/30/2020
 ms.topic: quickstart
+ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 8b720a34268a1a43b65ef8a7b8afbf61b753f79a
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 890dc2f7560faa6df302212aebb2fbe006894d3f
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195040"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559889"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Início Rápido: Criar uma função no Azure que responda a solicitações HTTP
 
@@ -408,6 +409,9 @@ az group delete --name AzureFunctionsQuickstart-rg
 ```azurecli
 az group delete --name java-functions-group
 ```
+::: zone-end
+::: zone pivot="programming-language-python"
+Para sair do ambiente virtual, execute `deactivate`.
 ::: zone-end
 
 ## <a name="next-steps"></a>Próximas etapas

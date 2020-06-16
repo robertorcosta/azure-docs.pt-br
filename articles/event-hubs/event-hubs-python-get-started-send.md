@@ -9,12 +9,13 @@ ms.workload: core
 ms.topic: quickstart
 ms.date: 01/15/2020
 ms.author: spelluru
-ms.openlocfilehash: 22f6b2aba36e560e9bd335baa92925fe9846c670
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.custom: tracking-python
+ms.openlocfilehash: 96c95efdc8f2154e0586fec59d1af66496acb101
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77162592"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558962"
 ---
 # <a name="quickstart-send-and-receive-events-with-event-hubs-using-python-azure-eventhub-version-1"></a>Início Rápido: Enviar e receber eventos com Hubs de Eventos usando o Python (azure-eventhub versão 1)
 Este início rápido mostra como enviar e receber eventos de um hub de eventos usando o pacote Python **azure-eventhub version 1**. 
@@ -47,7 +48,7 @@ Para criar um aplicativo Python que envia eventos para um hub de eventos:
 
 1. Abra seu editor de Python favorito, como o [Visual Studio Code](https://code.visualstudio.com/)
 2. Crie um novo arquivo chamado *send.py*. Esse script envia 100 eventos ao hub de eventos.
-3. Cole o código a seguir em *send.py*, substituindo os Hubs de Eventos \<namespace>, \<eventhub>, \<AccessKeyName> e \<valor da chave primária> pelos seus valores: 
+3. Cole o seguinte código em *send.py*, substituindo os Hubs de Eventos \<namespace>, \<eventhub>, \<AccessKeyName> e \<primary key value> pelos seus valores: 
    
    ```python
    import sys
@@ -110,7 +111,7 @@ Parabéns! Agora você enviou mensagens para um hub de eventos.
 Para criar um aplicativo do Python que receba eventos de um hub de eventos:
 
 1. No editor do Python, crie um arquivo chamado *recv.py*.
-2. Cole o código a seguir em *recv.py*, substituindo os Hubs de Eventos \<namespace>, \<eventhub>, \<AccessKeyName> e \<valor da chave primária> pelos seus valores: 
+2. Cole o seguinte código em *recv.py*, substituindo os Hubs de Eventos \<namespace>, \<eventhub>, \<AccessKeyName> e \<primary key value> por seus valores: 
    
    ```python
    import os

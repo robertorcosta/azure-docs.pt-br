@@ -6,37 +6,25 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/20/2020
+ms.date: 06/03/2020
 ms.author: diberry
-ms.openlocfilehash: 2307ef6ea8940a3b3ddfb8c7539f4f809dc4c52c
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: f5a4c49e9cad9f4e16124d2fad67c6302239c6b7
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81733245"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417986"
 ---
+[Documentação de referência](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c08) | [Amostra](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/python-predict-with-rest/predict.py)
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [Python 3.6](https://www.python.org/downloads/) ou posterior.
 * [Visual Studio Code](https://code.visualstudio.com/)
-* Uma ID do aplicativo LUIS – use a ID do aplicativo IoT público de `df67dcdb-c37d-46af-88e1-8b97951ca1c2`. A consulta de usuário usada no código de início rápido é específica para esse aplicativo.
 
-## <a name="create-luis-runtime-key-for-predictions"></a>Criar uma chave de runtime do LUIS para previsões
+## <a name="create-pizza-app"></a>Criar aplicativo Pizza
 
-1. Entre no [Portal do Azure](https://portal.azure.com)
-1. Clique em [Criar **Reconhecimento vocal**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
-1. Insira todas as configurações necessárias para a chave de **Runtime**:
-
-    |Configuração|Valor|
-    |--|--|
-    |Nome|Nome desejado (2 a 64 caracteres)|
-    |Subscription|Selecione a assinatura apropriada|
-    |Location|Selecione qualquer localização próxima e disponível|
-    |Camada de preços|`F0` – o tipo de preço mínimo|
-    |Grupo de recursos|Selecione um grupo de recursos disponível|
-
-1. Clique em **Criar** e aguarde até que o recurso seja criado. Após a criação dele, navegue até a página do recurso.
-1. Colete o `endpoint` configurado e uma `key`.
+[!INCLUDE [Create pizza app](get-started-get-intent-create-pizza-app.md)]
 
 ## <a name="get-intent-from-the-prediction-endpoint"></a>Obter a intenção do ponto de extremidade de previsão
 
@@ -44,45 +32,17 @@ Use o Python para consultar o [ponto de extremidade de previsão](https://aka.ms
 
 1. Copie este snippet de código para um arquivo chamado `predict.py`:
 
-    ```python
-    ########### Python 3.6 #############
-    import requests
+    [!code-python[Code snippet](~/cognitive-services-quickstart-code/python/LUIS/python-predict-with-rest/predict.py)]
 
-    try:
-
-        key = 'YOUR-KEY' # your Runtime key
-        endpoint = 'YOUR-ENDPOINT' # such as 'your-resource-name.api.cognitive.microsoft.com'
-        appId = 'df67dcdb-c37d-46af-88e1-8b97951ca1c2'
-        utterance = 'turn on all lights'
-
-        headers = {
-        }
-
-        params ={
-            'query': utterance,
-            'timezoneOffset': '0',
-            'verbose': 'true',
-            'show-all-intents': 'true',
-            'spellCheck': 'false',
-            'staging': 'false',
-            'subscription-key': key
-        }
-
-        r = requests.get(f'https://{endpoint}/luis/prediction/v3.0/apps/{appId}/slots/production/predict',headers=headers, params=params)
-        print(r.json())
-
-    except Exception as e:
-        print(f'{e}')
-    ```
-
-1. Substitua os valores `YOUR-KEY` e `YOUR-ENDPOINT` pelo próprio ponto de extremidade e pela própria chave de **Runtime** de previsão.
+1. Substitua os valores que começam com `YOUR-` por seus valores.
 
     |Informações|Finalidade|
     |--|--|
-    |`YOUR-KEY`|A chave de **Runtime** de previsão de 32 caracteres.|
-    |`YOUR-ENDPOINT`| O ponto de extremidade da URL de previsão. Por exemplo, `replace-with-your-resource-name.api.cognitive.microsoft.com`.|
+    |`YOUR-APP-ID`|ID do seu aplicativo. Localizada no portal do LUIS, página de Configurações de Aplicativo do seu aplicativo.
+    |`YOUR-PREDICTION-KEY`|Sua chave de previsão de 32 caracteres. Localizada no portal do LUIS, página de Recursos do Azure do seu aplicativo.
+    |`YOUR-PREDICTION-ENDPOINT`| O ponto de extremidade da URL de previsão. Localizada no portal do LUIS, página de Recursos do Azure do seu aplicativo.<br>Por exemplo, `https://westus.api.cognitive.microsoft.com/`.|
 
-1. Instalar a dependência `requests`. Isto é usado para fazer solicitações HTTP:
+1. Instalar a dependência `requests`. A biblioteca `requests` é usada para fazer solicitações HTTP:
 
     ```console
     pip install requests
@@ -97,49 +57,168 @@ Use o Python para consultar o [ponto de extremidade de previsão](https://aka.ms
 1. Examine a resposta de previsão, que é retornada como JSON:
 
     ```console
-    {'query': 'turn on all lights', 'prediction': {'topIntent': 'HomeAutomation.TurnOn', 'intents': {'HomeAutomation.TurnOn': {'score': 0.5375382}, 'None': {'score': 0.08687421}, 'HomeAutomation.TurnOff': {'score': 0.0207554}}, 'entities': {'HomeAutomation.Operation': ['on'], '$instance': {'HomeAutomation.Operation': [{'type': 'HomeAutomation.Operation', 'text': 'on', 'startIndex': 5, 'length': 2, 'score': 0.724984169, 'modelTypeId': -1, 'modelType': 'Unknown', 'recognitionSources': ['model']}]}}}}
+    {'query': 'I want two large pepperoni pizzas on thin crust please', 'prediction': {'topIntent': 'ModifyOrder', 'intents': {'ModifyOrder': {'score': 1.0}, 'None': {'score': 8.55e-09}, 'Greetings': {'score': 1.82222226e-09}, 'CancelOrder': {'score': 1.47272727e-09}, 'Confirmation': {'score': 9.8125e-10}}, 'entities': {'Order': [{'FullPizzaWithModifiers': [{'PizzaType': ['pepperoni pizzas'], 'Size': [['Large']], 'Quantity': [2], 'Crust': [['Thin']], '$instance': {'PizzaType': [{'type': 'PizzaType', 'text': 'pepperoni pizzas', 'startIndex': 17, 'length': 16, 'score': 0.9978157, 'modelTypeId': 1, 'modelType': 'Entity Extractor', 'recognitionSources': ['model']}], 'Size': [{'type': 'SizeList', 'text': 'large', 'startIndex': 11, 'length': 5, 'score': 0.9984481, 'modelTypeId': 1, 'modelType': 'Entity Extractor', 'recognitionSources': ['model']}], 'Quantity': [{'type': 'builtin.number', 'text': 'two', 'startIndex': 7, 'length': 3, 'score': 0.999770939, 'modelTypeId': 1, 'modelType': 'Entity Extractor', 'recognitionSources': ['model']}], 'Crust': [{'type': 'CrustList', 'text': 'thin crust', 'startIndex': 37, 'length': 10, 'score': 0.933985531, 'modelTypeId': 1, 'modelType': 'Entity Extractor', 'recognitionSources': ['model']}]}}], '$instance': {'FullPizzaWithModifiers': [{'type': 'FullPizzaWithModifiers', 'text': 'two large pepperoni pizzas on thin crust', 'startIndex': 7, 'length': 40, 'score': 0.90681237, 'modelTypeId': 1, 'modelType': 'Entity Extractor', 'recognitionSources': ['model']}]}}], 'ToppingList': [['Pepperoni']], '$instance': {'Order': [{'type': 'Order', 'text': 'two large pepperoni pizzas on thin crust', 'startIndex': 7, 'length': 40, 'score': 0.9047088, 'modelTypeId': 1, 'modelType': 'Entity Extractor', 'recognitionSources': ['model']}], 'ToppingList': [{'type': 'ToppingList', 'text': 'pepperoni', 'startIndex': 17, 'length': 9, 'modelTypeId': 5, 'modelType': 'List Entity Extractor', 'recognitionSources': ['model']}]}}}}
     ```
 
-    Aqui está a resposta em JSON formatada para facilitar a leitura:
+    Resposta em JSON formatada para facilitar a leitura:
 
     ```JSON
     {
-        "query": "turn on all lights",
-        "prediction": {
-            "topIntent": "HomeAutomation.TurnOn",
-            "intents": {
-                "HomeAutomation.TurnOn": {
-                    "score": 0.5375382
-                },
-                "None": {
-                    "score": 0.08687421
-                },
-                "HomeAutomation.TurnOff": {
-                    "score": 0.0207554
-                }
-            },
-            "entities": {
-                "HomeAutomation.Operation": [
-                    "on"
-                ],
-                "$instance": {
-                    "HomeAutomation.Operation": [
-                        {
-                            "type": "HomeAutomation.Operation",
-                            "text": "on",
-                            "startIndex": 5,
-                            "length": 2,
-                            "score": 0.724984169,
-                            "modelTypeId": -1,
-                            "modelType": "Unknown",
-                            "recognitionSources": [
-                                "model"
-                            ]
-                        }
+      'query': 'I want two large pepperoni pizzas on thin crust please',
+      'prediction': {
+        'topIntent': 'ModifyOrder',
+        'intents': {
+          'ModifyOrder': {
+            'score': 1.0
+          },
+          'None': {
+            'score': 8.55e-9
+          },
+          'Greetings': {
+            'score': 1.82222226e-9
+          },
+          'CancelOrder': {
+            'score': 1.47272727e-9
+          },
+          'Confirmation': {
+            'score': 9.8125e-10
+          }
+        },
+        'entities': {
+          'Order': [
+            {
+              'FullPizzaWithModifiers': [
+                {
+                  'PizzaType': [
+                    'pepperoni pizzas'
+                  ],
+                  'Size': [
+                    [
+                      'Large'
                     ]
+                  ],
+                  'Quantity': [
+                    2
+                  ],
+                  'Crust': [
+                    [
+                      'Thin'
+                    ]
+                  ],
+                  '$instance': {
+                    'PizzaType': [
+                      {
+                        'type': 'PizzaType',
+                        'text': 'pepperoni pizzas',
+                        'startIndex': 17,
+                        'length': 16,
+                        'score': 0.9978157,
+                        'modelTypeId': 1,
+                        'modelType': 'Entity Extractor',
+                        'recognitionSources': [
+                          'model'
+                        ]
+                      }
+                    ],
+                    'Size': [
+                      {
+                        'type': 'SizeList',
+                        'text': 'large',
+                        'startIndex': 11,
+                        'length': 5,
+                        'score': 0.9984481,
+                        'modelTypeId': 1,
+                        'modelType': 'Entity Extractor',
+                        'recognitionSources': [
+                          'model'
+                        ]
+                      }
+                    ],
+                    'Quantity': [
+                      {
+                        'type': 'builtin.number',
+                        'text': 'two',
+                        'startIndex': 7,
+                        'length': 3,
+                        'score': 0.999770939,
+                        'modelTypeId': 1,
+                        'modelType': 'Entity Extractor',
+                        'recognitionSources': [
+                          'model'
+                        ]
+                      }
+                    ],
+                    'Crust': [
+                      {
+                        'type': 'CrustList',
+                        'text': 'thin crust',
+                        'startIndex': 37,
+                        'length': 10,
+                        'score': 0.933985531,
+                        'modelTypeId': 1,
+                        'modelType': 'Entity Extractor',
+                        'recognitionSources': [
+                          'model'
+                        ]
+                      }
+                    ]
+                  }
                 }
+              ],
+              '$instance': {
+                'FullPizzaWithModifiers': [
+                  {
+                    'type': 'FullPizzaWithModifiers',
+                    'text': 'two large pepperoni pizzas on thin crust',
+                    'startIndex': 7,
+                    'length': 40,
+                    'score': 0.90681237,
+                    'modelTypeId': 1,
+                    'modelType': 'Entity Extractor',
+                    'recognitionSources': [
+                      'model'
+                    ]
+                  }
+                ]
+              }
             }
+          ],
+          'ToppingList': [
+            [
+              'Pepperoni'
+            ]
+          ],
+          '$instance': {
+            'Order': [
+              {
+                'type': 'Order',
+                'text': 'two large pepperoni pizzas on thin crust',
+                'startIndex': 7,
+                'length': 40,
+                'score': 0.9047088,
+                'modelTypeId': 1,
+                'modelType': 'Entity Extractor',
+                'recognitionSources': [
+                  'model'
+                ]
+              }
+            ],
+            'ToppingList': [
+              {
+                'type': 'ToppingList',
+                'text': 'pepperoni',
+                'startIndex': 17,
+                'length': 9,
+                'modelTypeId': 5,
+                'modelType': 'List Entity Extractor',
+                'recognitionSources': [
+                  'model'
+                ]
+              }
+            ]
+          }
         }
+      }
     }
     ```
 

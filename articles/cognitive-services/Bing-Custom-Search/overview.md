@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: overview
 ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: 12c255f0e4ed11ce8acbd762530604218f8bc12b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 010f2960693a06a50cd15ac3bac2fe35b6c0985f
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448731"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434584"
 ---
 # <a name="what-is-the-bing-custom-search-api"></a>O que é API de Pesquisa Personalizada do Bing?
 
@@ -23,13 +23,13 @@ A API de Pesquisa Personalizada do Bing permite que você crie experiências de 
 
 ## <a name="features"></a>Recursos
 
-|Recurso  |DESCRIÇÃO  |
+|Recurso  |Descrição  |
 |---------|---------|
 |[Sugestões de pesquisa personalizadas em tempo real](define-custom-suggestions.md)     | Fornece sugestões de pesquisa que podem ser exibidas como uma lista suspensa conforme os usuários digitam.       | 
 |[Experiências de pesquisa de imagem personalizada](get-images-from-instance.md)     | Permita que os usuários pesquisem imagens dos domínios e dos sites especificados em sua instância de pesquisa personalizada.        |        
 |[Experiências de pesquisa de vídeo personalizada](get-videos-from-instance.md)     | Permita que os usuários pesquisem vídeos dos domínios e dos sites especificados em sua instância de pesquisa personalizada.        |    
 |[Compartilhar sua instância de pesquisa personalizada](share-your-custom-search.md)     | Edite e teste sua instância de pesquisa de forma colaborativa, compartilhando-a com membros de sua equipe.        | 
-|[Configurar uma interface do usuário para seus aplicativos e sites](hosted-ui.md)     | Edite e teste sua instância de pesquisa de forma colaborativa, compartilhando-a com membros de sua equipe.        | 
+|[Configurar uma interface do usuário para seus aplicativos e sites](hosted-ui.md)     | Oferece uma interface do usuário hospedada que pode ser facilmente integrada aos seus aplicativos e páginas da Web como um snippet de código JavaScript.        | 
 ## <a name="workflow"></a>Fluxo de trabalho
 
 Crie uma instância de pesquisa personalizada usando o [portal de Pesquisa Personalizada do Bing](https://customsearch.ai). O portal permite criar uma instância de pesquisa personalizada que especifica os domínios, os sites e as páginas da Web que você deseja pesquisar no Bing, juntamente com aqueles que você não deseja pesquisar. Use também o portal para: visualizar a experiência de pesquisa, ajustar as classificações de pesquisa fornecidas pela API e, opcionalmente, configurar uma interface do usuário pesquisável para que ela seja renderizada em seus sites e seus aplicativos.

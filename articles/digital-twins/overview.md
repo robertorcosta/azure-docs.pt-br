@@ -1,0 +1,103 @@
+---
+title: O que são Gêmeos Digitais do Azure?
+titleSuffix: Azure Digital Twins
+description: Visão geral do que pode ser feito com os Gêmeos Digitais do Azure.
+author: baanders
+ms.author: baanders
+ms.date: 3/12/2020
+ms.topic: overview
+ms.service: digital-twins
+ms.openlocfilehash: 11ec9a4294cb1d5895d1bbc4e75c6b1a9b071f65
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84613311"
+---
+# <a name="what-is-azure-digital-twins"></a>O que são Gêmeos Digitais do Azure?
+
+Os **Gêmeos Digitais do Azure** são uma plataforma IoT que permite a criação de modelos digitais abrangentes para ambientes inteiros. Esses ambientes podem ser edifícios, fábricas, fazendas, redes de energia, ferrovias, estádios e muito mais – até mesmo cidades inteiras. Esses modelos digitais podem ser usados para obter insights que impulsionam melhores produtos, operações otimizadas, custos reduzidos e experiências de clientes inovadoras.
+
+Aproveite o seu conhecimento de domínio sobre os Gêmeos Digitais do Azure para criar soluções conectadas e personalizadas que:
+* Modelem qualquer ambiente e deem vida aos Gêmeos Digitais de maneira escalonável e segura
+* Conectem ativos como dispositivos IoT e sistemas de negócios existentes
+* Usem um sistema de eventos robusto para criar uma lógica de negócios e um processamento de dados dinâmicos
+* Integrem-se com os serviços de dados, análise e IA do Azure para ajudar a acompanhar o passado e, em seguida, prever o futuro
+
+## <a name="azure-digital-twins-capabilities"></a>Funcionalidades dos Gêmeos Digitais do Azure
+
+Aqui está um resumo dos recursos fornecidos pelos Gêmeos Digitais do Azure.
+
+### <a name="open-modeling-language"></a>Linguagem de modelagem aberta
+
+Nos Gêmeos Digitais do Azure, você define as entidades digitais que representam as pessoas, os lugares e as coisas do seu ambiente físico usando tipos de gêmeos personalizados chamados de [**modelos**](concepts-models.md). 
+
+Você pode considerar essas definições de modelo como um vocabulário especializado para descrever seus negócios. Para uma solução de gerenciamento de edifício, por exemplo, você pode definir modelos como "edifício", "andar" e "elevador". Em seguida, você pode criar **gêmeos digitais** com base nesses modelos a fim de representar seu ambiente específico.
+
+Os modelos são definidos em uma linguagem semelhante à JSON chamada [DTDL (Linguagem de Definição de Gêmeos Digitais)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) e descrevem os gêmeos em termos de suas propriedades de estado, eventos de telemetria, comandos, componentes e relações.
+* Os modelos definem **relações** semânticas entre as entidades para que você possa conectar os gêmeos a um grafo de conhecimento que reflita as interações deles. Em uma analogia com o mundo real, você pode considerar os modelos como substantivos e as relações como verbos.
+* Você também pode especializar os gêmeos usando a herança entre modelos. Um modelo pode herdar características de outro.
+
+A DTDL é usada para modelos de dados em todos os outros serviços de IoT do Azure, incluindo o [IoT PnP (IoT Plug and Play)](../iot-pnp/overview-iot-plug-and-play.md) e o [TSI (Time Series Insights)](../time-series-insights/time-series-insights-update-overview.md). Isso ajuda a manter a solução dos Gêmeos Digitais do Azure conectada e compatível com as demais partes do ecossistema do Azure.
+
+### <a name="live-execution-environment"></a>Ambiente de execução ao vivo
+
+Os modelos digitais dos Gêmeos Digitais do Azure são representações ao vivo e atualizadas do mundo real. Usando as relações dos modelos DTDL personalizados, você conectará os gêmeos a um **grafo ao vivo** que representa o seu ambiente.
+
+Os Gêmeos Digitais do Azure fornecem um **sistema de eventos** avançado para manter esse grafo atualizado com o processamento de dados e a lógica de negócios. Você poderá conectar recursos externos de computação, como o [Azure Functions](../azure-functions/functions-overview.md), a fim de impulsionar esse processamento de dados de maneiras flexíveis e personalizadas.
+
+Você também poderá extrair insights do ambiente de execução ao vivo usando a poderosa **API de consulta** dos Gêmeos Digitais do Azure. A API permite consultas com critérios de pesquisa avançados, incluindo valores de propriedade, relações, propriedades de relações, informações sobre modelos e muito mais. Você também poderá combinar consultas, reunindo um amplo intervalo de insights sobre o ambiente e respondendo a perguntas personalizadas que são importantes para você.
+
+### <a name="input-from-iot-and-business-systems"></a>Entrada da IoT e de sistemas de negócio
+
+Para manter o ambiente de execução ao vivo dos Gêmeos Digitais do Azure atualizado com o mundo real, você poderá usar o [Hub IoT](../iot-hub/about-iot-hub.md) a fim de conectar a solução a dispositivos IoT e IoT Edge. Esses dispositivos gerenciados por hub são representados como parte do grafo de gêmeos e fornecem os dados que orientam o modelo.
+
+Você poderá criar um Hub IoT para essa finalidade com os Gêmeos Digitais do Azure ou conectar um Hub IoT existente juntamente com os dispositivos que ele já gerencia.
+
+Você também poderá obter os Gêmeos Digitais do Azure de outras fontes de dados, usando APIs REST ou conectores para outros serviços, como os [Aplicativos Lógicos](../logic-apps/logic-apps-overview.md).
+
+### <a name="output-to-tsi-storage-and-analytics"></a>Saída para TSI, armazenamento e análise
+
+Os dados do modelo Gêmeos Digitais do Azure podem ser roteados para serviços downstream do Azure para análise ou armazenamento adicional. Isso é fornecido por meio de **rotas de eventos**, que usam o [Hub de Eventos](../event-hubs/event-hubs-about.md), a [Grade de Eventos](../event-grid/overview.md) ou o [Barramento de Serviço](../service-bus-messaging/service-bus-messaging-overview.md) para impulsionar os fluxos de dados desejados.
+
+Dentre as coisas que você pode fazer com as rotas de eventos estão:
+* Armazenar dados dos Gêmeos Digitais do Azure no [Azure Data Lake](../storage/blobs/data-lake-storage-introduction.md)
+* Analisar dados dos Gêmeos Digitais do Azure com o [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) ou com outras ferramentas de análise de dados da Microsoft
+* Integrar fluxos de trabalho maiores com os Aplicativos Lógicos
+* Conectar os Gêmeos Digitais do Azure ao Time Series Insights a fim de acompanhar o histórico de séries temporais de cada gêmeo
+* Alinhar um modelo de série temporal no Time Series Insights com origem nos Gêmeos Digitais do Azure
+
+Essa é outra maneira pela qual os Gêmeos Digitais do Azure podem se conectar a uma solução mais ampla e dar suporte às suas necessidades personalizadas para trabalho contínuo com esses insights.
+
+## <a name="azure-digital-twins-in-a-solution-context"></a>Gêmeos Digitais do Azure no contexto de uma solução
+
+Os Gêmeos Digitais do Azure normalmente são usados em combinação com outros serviços do Azure, como parte de uma solução de IoT mais ampla. 
+
+Uma solução completa usando os Gêmeos Digitais do Azure pode conter as seguintes partes:
+* A instância de serviço dos Gêmeos Digitais do Azure. Ela armazena os modelos gêmeos e o grafo gêmeo com seu respectivo estado e orquestra o processamento de eventos.
+* Um ou mais aplicativos cliente que impulsionam a instância dos Gêmeos Digitais do Azure configurando modelos, criando topologia e extraindo insights do grafo gêmeo.
+* Um ou mais recursos externos de computação para processar eventos gerados pelos Gêmeos Digitais do Azure ou fontes de dados conectadas, como dispositivos. Uma forma comum de fornecer recursos de computação é por meio do [Azure Functions](../azure-functions/functions-overview.md).
+* Um Hub IoT para proporcionar o gerenciamento de dispositivos e funcionalidades de fluxo de dados de IoT.
+* Serviços downstream para gerenciar tarefas como a integração do fluxo de trabalho (como [Aplicativos Lógicos](../logic-apps/logic-apps-overview.md), armazenamento frio, integração de série temporal ou análise). 
+
+O diagrama a seguir mostra onde se situam os Gêmeos Digitais do Azure no contexto de uma solução mais ampla de IoT do Azure.
+
+:::image type="content" source="media/overview/solution-context.png" alt-text="Diagrama mostrando fontes de entrada, serviços de saída e comunicação bidirecional com aplicativos cliente e recursos externos de computação." border="false" lightbox="media/overview/solution-context.png":::
+
+## <a name="service-limits-in-public-preview"></a>Limites de serviço em versão prévia pública
+
+> [!IMPORTANT]
+> No momento, os Gêmeos Digitais do Azure estão em versão prévia pública.
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Para ver uma lista de limitações dos Gêmeos Digitais do Azure durante a versão prévia pública, confira [Referência: limites de serviço da versão prévia pública](reference-service-limits.md).
+
+## <a name="next-steps"></a>Próximas etapas
+
+Se você trabalhou com a versão prévia anterior dos Gêmeos Digitais do Azure, saiba o que mudou:
+* [Visão geral: Diferenças da versão anterior](overview-differences.md)
+
+Ou aprofunde-se no trabalho com os Gêmeos Digitais do Azure por meio do primeiro tutorial:
+
+> [!div class="nextstepaction"]
+> [Tutorial: codificar um aplicativo cliente](tutorial-code.md)

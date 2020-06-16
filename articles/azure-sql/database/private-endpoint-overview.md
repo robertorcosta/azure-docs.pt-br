@@ -1,6 +1,6 @@
 ---
-title: Link Privado
-description: Visão geral do recurso do ponto de extremidade privado
+title: Link Privado do Azure
+description: Visão geral do recurso do ponto de extremidade privado.
 author: rohitnayakmsft
 ms.author: rohitna
 titleSuffix: Azure SQL Database and Azure Synapse Analytics
@@ -9,36 +9,36 @@ ms.topic: overview
 ms.custom: sqldbrb=1
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: e1093e57757d780bf5393b6cb1bb45a706b18b11
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: cd2f88d78a967b46c1983e7eb96328c14d90a81a
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219871"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343992"
 ---
-# <a name="private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Link Privado para o Banco de Dados SQL do Azure e o Azure Synapse Analytics
+# <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Link Privado do Azure para o Banco de Dados SQL do Azure e o Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
 O Link Privado permite que você se conecte a vários serviços de PaaS no Azure por meio de um **ponto de extremidade privado**. Para obter uma lista dos serviços de PaaS que dão suporte à funcionalidade de Link Privado, acesse a página [Documentação do Link Privado](../../private-link/index.yml). Um ponto de extremidade privado é um endereço IP privado em uma [VNet](../../virtual-network/virtual-networks-overview.md) e sub-rede específicas.
 
 > [!IMPORTANT]
-> Este artigo se aplica ao Banco de Dados SQL do Azure e ao Azure Synapse Analytics (anteriormente, SQL Data Warehouse). Para simplificar, o termo "banco de dados" se refere aos bancos de dados no Banco de Dados SQL do Azure e no Azure Synapse Analytics. Da mesma forma, as referências a "servidor" se referem ao [servidor SQL lógico](logical-servers.md) que hospeda o Banco de Dados SQL do Azure e o Azure Synapse Analytics. Este artigo *não* se aplica à **Instância Gerenciada de SQL do Azure**.
+> Este artigo se aplica ao Banco de Dados SQL do Azure e ao Azure Synapse Analytics (anteriormente, SQL Data Warehouse do Azure). Para simplificar, o termo "banco de dados" se refere aos bancos de dados no Banco de Dados SQL do Azure e no Azure Synapse Analytics. Da mesma forma, as referências a "servidor" se referem ao [servidor SQL lógico](logical-servers.md) que hospeda o Banco de Dados SQL do Azure e o Azure Synapse Analytics. Este artigo *não* se aplica à **Instância Gerenciada de SQL do Azure**.
 
 ## <a name="data-exfiltration-prevention"></a>Prevenção contra exportação de dados
 
 A exportação de dados no Banco de Dados SQL do Azure ocorre quando um usuário autorizado, como um administrador de banco de dados, tem a capacidade de extrair dados de um sistema e movê-los para outra localização ou outro sistema fora da organização. Por exemplo, o usuário move os dados para uma conta de armazenamento pertencente a terceiros.
 
-Considere um cenário com um usuário que executa o SSMS (SQL Server Management Studio) em uma VM do Azure que se conecta a um Banco de Dados SQL. Esse Banco de Dados SQL está no data center do Oeste dos EUA. O exemplo abaixo mostra como limitar o acesso com pontos de extremidade públicos no Banco de Dados SQL usando controles de acesso à rede.
+Considere um cenário com um usuário que executa o SSMS (SQL Server Management Studio) em uma máquina virtual do Azure que se conecta a um banco de dados no Banco de Dados SQL. Esse banco de dados está no data center do Oeste dos EUA. O exemplo abaixo mostra como limitar o acesso com pontos de extremidade públicos no Banco de Dados SQL usando controles de acesso à rede.
 
 1. Desabilite todo o tráfego de serviço do Azure para o Banco de Dados SQL por meio do ponto de extremidade público configurando Permitir Serviços do Azure como **DESATIVADO**. Verifique se nenhum endereço IP é permitido nas regras de firewall no nível de servidor e de banco de dados. Para obter mais informações, confira [Controles de acesso à rede do Banco de Dados SQL do Azure e do Azure Synapse Analytics](network-access-controls-overview.md).
-1. Só permita o tráfego para o Banco de Dados SQL usando o endereço IP privado da VM. Para obter mais informações, confira os artigos sobre o [ponto de extremidade de serviço](vnet-service-endpoint-rule-overview.md) e as [regras de firewall da VNET](firewall-configure.md).
+1. Só permita o tráfego para o banco de dados no Banco de Dados SQL usando o endereço IP privado da VM. Para obter mais informações, confira os artigos sobre o [ponto de extremidade de serviço](vnet-service-endpoint-rule-overview.md) e as [regras de firewall da rede virtual](firewall-configure.md).
 1. Na VM do Azure, restrinja o escopo da conexão de saída usando [NSGs (grupos de segurança de rede)](../../virtual-network/manage-network-security-group.md) e Marcas de Serviço, conforme mostrado a seguir
     - Especifique uma regra NSG para permitir o tráfego para a Tag de Serviço = SQL.WestUs – só permitindo a conexão com o Banco de Dados SQL no Oeste dos EUA
     - Especifique uma regra NSG (com uma **prioridade mais alta**) para negar o tráfego para a Tag de Serviço = SQL – negando as conexões com o Banco de Dados SQL em todas as regiões
 
-Ao final desta configuração, a VM do Azure só poderá se conectar aos Bancos de Dados SQL na região Oeste dos EUA. No entanto, a conectividade não é restrita a um único Banco de Dados SQL. A VM ainda pode se conectar a qualquer Banco de Dados SQL na região Oeste dos EUA, incluindo os bancos de dados que não fazem parte da assinatura. Embora tenhamos reduzido o escopo da exportação de dados no cenário acima a uma região específica, não o eliminamos por completo.
+Ao final desta configuração, a VM do Azure só poderá se conectar a um banco de dados no Banco de Dados SQL na região Oeste dos EUA. No entanto, a conectividade não é restrita a um banco de dados individual no Banco de Dados SQL. A VM ainda pode se conectar a qualquer banco de dados na região Oeste dos EUA, incluindo os bancos de dados que não fazem parte da assinatura. Embora tenhamos reduzido o escopo da exportação de dados no cenário acima a uma região específica, não o eliminamos por completo.
 
-Com o Link Privado, os clientes agora podem configurar controles de acesso à rede como NSGs para restringir o acesso ao ponto de extremidade privado. Os recursos de PaaS individuais do Azure são então mapeados para pontos de extremidade privados específicos. Um usuário interno mal-intencionado só pode acessar o recurso de PaaS mapeado (por exemplo, um Banco de Dados SQL) e nenhum outro recurso. 
+Com o Link Privado, os clientes agora podem configurar controles de acesso à rede como NSGs para restringir o acesso ao ponto de extremidade privado. Os recursos de PaaS individuais do Azure são então mapeados para pontos de extremidade privados específicos. Um usuário interno mal-intencionado só pode acessar o recurso de PaaS mapeado (por exemplo, um banco de dados no Banco de Dados SQL) e nenhum outro recurso. 
 
 ## <a name="on-premises-connectivity-over-private-peering"></a>Conectividade local no emparelhamento privado
 
@@ -49,15 +49,15 @@ Com o Link Privado, os clientes podem habilitar o acesso entre instalações ao 
 ## <a name="how-to-set-up-private-link-for-azure-sql-database"></a>Como configurar o Link Privado para o Banco de Dados SQL do Azure 
 
 ### <a name="creation-process"></a>Processo de criação
-Os pontos de extremidade privados podem ser criados usando o portal, o PowerShell ou a CLI do Azure:
-- [Portal](../../private-link/create-private-endpoint-portal.md)
+Os pontos de extremidade privados podem ser criados usando o portal do Azure, o PowerShell ou a CLI do Azure:
+- [O portal](../../private-link/create-private-endpoint-portal.md)
 - [PowerShell](../../private-link/create-private-endpoint-powershell.md)
 - [CLI](../../private-link/create-private-endpoint-cli.md)
 
 ### <a name="approval-process"></a>Processo de aprovação
 Depois que o administrador de rede cria o PE (ponto de extremidade privado), o administrador do SQL pode gerenciar a PEC (conexão de ponto de extremidade privado) com o Banco de Dados SQL.
 
-1. Navegue até o recurso do SQL Server na portal do Azure de acordo com as etapas mostradas na captura de tela a seguir
+1. Navegue até o recurso do servidor na portal do Azure de acordo com as etapas mostradas na captura de tela a seguir
 
     - (1) Selecione as conexões de ponto de extremidade privado no painel esquerdo
     - (2) Mostra uma lista de todas as PECs (conexões de ponto de extremidade privado)
@@ -74,11 +74,11 @@ Depois que o administrador de rede cria o PE (ponto de extremidade privado), o a
 
 ## <a name="use-cases-of-private-link-for-azure-sql-database"></a>Casos de uso do Link Privado para o Banco de Dados SQL do Azure 
 
-Os clientes podem se conectar ao ponto de extremidade privado na mesma VNET, VNET emparelhada na mesma região ou por meio da conexão VNET a VNET entre regiões. Além disso, os clientes podem se conectar localmente usando o ExpressRoute, o emparelhamento privado ou o túnel de VPN. Veja abaixo um diagrama simplificado que mostra os casos de uso comuns.
+Os clientes podem se conectar ao ponto de extremidade privado da mesma rede virtual, rede virtual emparelhada na mesma região ou via rede virtual para conexão de rede virtual entre regiões. Além disso, os clientes podem se conectar localmente usando o ExpressRoute, o emparelhamento privado ou o túnel de VPN. Veja abaixo um diagrama simplificado que mostra os casos de uso comuns.
 
  ![Diagrama das opções de conectividade][1]
 
-## <a name="test-connectivity-to-sql-database-from-an-azure-vm-in-same-virtual-network-vnet"></a>Testar a conectividade com o Banco de Dados SQL em uma VM do Azure na mesma VNET (Rede Virtual)
+## <a name="test-connectivity-to-sql-database-from-an-azure-vm-in-same-virtual-network"></a>Testar a conectividade com o Banco de Dados SQL em uma VM do Azure na mesma rede virtual
 
 Para este cenário, suponha que você tenha criado uma VM (Máquina Virtual) do Azure que executa o Windows Server 2016. 
 
@@ -93,7 +93,7 @@ Para este cenário, suponha que você tenha criado uma VM (Máquina Virtual) do 
 
 O [Cliente Telnet](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754293%28v%3dws.10%29) é um recurso do Windows que pode ser usado para testar a conectividade. Dependendo da versão do sistema operacional Windows, talvez seja necessário habilitar esse recurso explicitamente. 
 
-Abra uma janela do prompt de comando depois de instalar o Telnet. Execute o comando do Telnet e especifique o endereço IP e o ponto de extremidade privado do Banco de Dados SQL.
+Abra uma janela do prompt de comando depois de instalar o Telnet. Execute o comando do Telnet e especifique o endereço IP e o ponto de extremidade privado do banco de dados no Banco de Dados SQL.
 
 ```
 >telnet 10.1.1.5 1433
@@ -159,17 +159,17 @@ where session_id=@@SPID
 As conexões com o ponto de extremidade privado só dão suporte ao **Proxy** como a [política de conexão](connectivity-architecture.md#connection-policy)
 
 
-## <a name="connecting-from-an-azure-vm-in-peered-virtual-network-vnet"></a>Como se conectar por meio de uma VM do Azure na VNET (Rede Virtual) emparelhada 
+## <a name="connecting-from-an-azure-vm-in-peered-virtual-network"></a>Como se conectar por meio de uma VM do Azure na Rede Virtual emparelhada 
 
-Configure o [Emparelhamento VNET](../../virtual-network/tutorial-connect-virtual-networks-powershell.md) para estabelecer a conectividade com o Banco de Dados SQL por meio de uma VM do Azure em uma VNET emparelhada.
+Configure [emparelhamento de rede virtual](../../virtual-network/tutorial-connect-virtual-networks-powershell.md) para estabelecer conectividade com o Banco de Dados SQL de uma VM do Azure em uma rede virtual emparelhada.
 
-## <a name="connecting-from-an-azure-vm-in-vnet-to-vnet-environment"></a>Como se conectar por meio de uma VM do Azure no ambiente VNET a VNET
+## <a name="connecting-from-an-azure-vm-in-virtual-network-to-virtual-network-environment"></a>Como conectar-se de uma VM do Azure em um ambiente de rede virtual a rede virtual
 
-Configure a [conexão de gateway de VPN VNET a VNET](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) para estabelecer a conectividade com um Banco de Dados SQL por meio de uma VM do Azure em uma região ou uma assinatura diferente.
+Configure a [conexão do gateway da VPN de rede virtual para rede virtual](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) para estabelecer a conectividade com um banco de dados no Banco de Dados SQL de uma VM do Azure em uma região ou assinatura diferente.
 
 ## <a name="connecting-from-an-on-premises-environment-over-vpn"></a>Como se conectar por meio de um ambiente local pela VPN
 
-Para estabelecer a conectividade de um ambiente local com o Banco de Dados SQL, escolha e implemente uma das opções:
+Para estabelecer a conectividade de um ambiente local com o banco de dados no Banco de Dados SQL, escolha e implemente uma das opções:
 - [Conexão ponto a site](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 - [Conexão VPN site a site](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 - [Circuito do ExpressRoute](../../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)
@@ -177,7 +177,7 @@ Para estabelecer a conectividade de um ambiente local com o Banco de Dados SQL, 
 
 ## <a name="connecting-from-azure-synapse-analytics-to-azure-storage-using-polybase"></a>Conectar-se do Azure Synapse Analytics ao Armazenamento do Azure usando o Polybase
 
-O PolyBase costuma ser usado para carregar dados no Azure Synapse Analytics de contas do Armazenamento do Azure. Se a conta de Armazenamento do Azure da qual você está carregando dados limita o acesso somente a um conjunto de sub-redes da VNET por meio de pontos de extremidade privados, pontos de extremidade de serviço ou firewalls baseados em IP, a conectividade do PolyBase com a conta será interrompida. Para habilitar os cenários de importação e exportação do PolyBase com o Azure Synapse Analytics conectando-se ao Armazenamento do Azure protegido com uma VNET, siga as etapas fornecidas [aqui](vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). 
+O PolyBase costuma ser usado para carregar dados no Azure Synapse Analytics de contas do Armazenamento do Azure. Se a conta de Armazenamento do Azure da qual você está carregando dados limita o acesso somente a um conjunto de sub-redes da rede virtual por meio de pontos de extremidade privados, pontos de extremidade de serviço ou firewalls baseados em IP, a conectividade do PolyBase com a conta será interrompida. Para habilitar os cenários de importação e exportação do PolyBase com o Azure Synapse Analytics conectando-se ao Armazenamento do Azure protegido com uma rede virtual, siga as etapas fornecidas [aqui](vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). 
 
 ## <a name="next-steps"></a>Próximas etapas
 

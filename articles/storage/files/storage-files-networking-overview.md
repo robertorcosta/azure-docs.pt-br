@@ -7,20 +7,20 @@ ms.topic: overview
 ms.date: 02/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7d95cc08595296d697618cbb3ff0025c7c212a1f
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 804e469a01be042b4c299fd608f11426e7274b72
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84296520"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84464803"
 ---
 # <a name="azure-files-networking-considerations"></a>Considerações de rede dos Arquivos do Azure 
 Você pode se conectar a um compartilhamento de arquivo do Azure de duas maneiras:
 
 - Acessando o compartilhamento diretamente por meio dos protocolos SMB ou FileREST. Esse padrão de acesso é empregado principalmente quando é possível eliminar o máximo possível de servidores locais.
-- Criando um cache do compartilhamento de arquivo do Azure em um servidor local com a Sincronização de Arquivos do Azure e acessando os dados do compartilhamento de arquivo do servidor local com o protocolo de sua escolha (SMB, NFS, FTPS etc.) para seu caso de uso. Esse padrão de acesso é útil porque ele combina o melhor de desempenho local e escala de nuvem e serviços anexáveis sem servidor, como o Backup do Azure.
+- Criando um cache do compartilhamento de arquivo do Azure em um servidor local (ou em uma VM do Azure) com a Sincronização de Arquivos do Azure e acessando os dados do compartilhamento de arquivo do servidor local com o protocolo de sua escolha (SMB, NFS, FTPS etc.) para seu caso de uso. Esse padrão de acesso é útil porque ele combina o melhor de desempenho local e escala de nuvem e serviços anexáveis sem servidor, como o Backup do Azure.
 
-Este artigo se concentra em como configurar a rede para quando seu caso de uso chamar o acesso ao compartilhamento de arquivo do Azure diretamente, em vez de usar a Sincronização de Arquivos do Azure. Para obter mais informações sobre considerações de rede para uma implantação da Sincronização de Arquivos do Azure, consulte [Como configurar as definições de firewall e proxy da Sincronização de Arquivos do Azure](storage-sync-files-firewall-and-proxy.md).
+Este artigo se concentra em como configurar a rede para quando seu caso de uso chamar o acesso ao compartilhamento de arquivo do Azure diretamente, em vez de usar a Sincronização de Arquivos do Azure. Para obter mais informações sobre considerações de rede para uma implantação de Sincronização de Arquivos do Azure, confira [Considerações de rede de Sincronização de Arquivos do Azure](storage-sync-files-networking-overview.md).
 
 A configuração de rede para compartilhamentos de arquivos do Azure é feita na conta de armazenamento do Azure. Uma conta de armazenamento é um constructo de gerenciamento que representa um pool compartilhado de armazenamento no qual você pode implantar vários compartilhamentos de arquivos bem como outros recursos de armazenamento, como filas ou contêineres de blob. As contas de armazenamento expõem várias configurações que ajudam a proteger o acesso à rede para seus compartilhamentos de arquivos: pontos de extremidade de rede, configurações de firewall da conta de armazenamento e criptografia em trânsito. 
 

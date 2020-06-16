@@ -10,14 +10,14 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: 7181dd74963a1af05438b16e00e2442478daac03
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: a709d0d4aa9b7c4e3ab06e6d34bbb199cb1b5917
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267896"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84323919"
 ---
-# <a name="tutorial-secure-an-azure-sql-database"></a>Tutorial: Proteger um Banco de Dados SQL do Azure
+# <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Tutorial: Proteger um banco de dados no Banco de Dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Neste tutorial, você aprenderá a:
@@ -25,7 +25,7 @@ Neste tutorial, você aprenderá a:
 > [!div class="checklist"]
 >
 > - Criar regras de firewall no nível do servidor e do banco de dados
-> - Configurar um administrador do Azure AD (Active Directory)
+> - Configurar um administrador do Azure AD (Azure Active Directory)
 > - Gerenciar o acesso do usuário com a autenticação do SQL, a autenticação do Azure AD e cadeias de conexão seguras
 > - Habilitar recursos de segurança, como a segurança de dados avançada, a auditoria, a máscara de dados e a criptografia
 
@@ -42,7 +42,7 @@ O Banco de Dados SQL do Azure protege os dados permitindo que você:
 Para obter mais informações, confira os artigos [Visão geral](/azure/sql-database/sql-database-security-index) e [Recursos de segurança do Banco de Dados SQL do Azure](security-overview.md).
 
 > [!TIP]
-> O módulo do Microsoft Learn a seguir ajuda você a aprender gratuitamente sobre como [Proteger seu Banco de Dados SQL do Azure](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
+> O módulo do Microsoft Learn a seguir ajuda você a aprender gratuitamente sobre como [Proteger seu banco de dados no Banco de Dados SQL do Azure](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -94,7 +94,7 @@ Agora você pode se conectar a qualquer banco de dados do servidor com o endere�
 
 As regras de firewall no nível do banco de dados se aplicam somente a bancos de dados individuais. O banco de dados manterá essas regras durante um failover de servidor. As regras de firewall no nível do banco de dados só poderão ser configuradas usando instruções T-SQL (Transact-SQL) e somente depois que você configurar uma regra de firewall no nível do servidor.
 
-Para configurar uma regra de firewall no nível do banco de dados:
+Para configurar uma regra de firewall de nível de banco de dados:
 
 1. Conecte-se ao banco de dados, por exemplo, usando o [SQL Server Management Studio](connect-query-ssms.md).
 

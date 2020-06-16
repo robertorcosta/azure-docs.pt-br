@@ -11,15 +11,14 @@ author: mumian
 ms.author: jgao
 ms.reviewer: carlrab
 ms.date: 06/28/2019
-ms.openlocfilehash: 03d598e0c0756cd304248ab19ab28a25836c57ab
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 02e0947de3e7e5c6ce5110740127571ea393b168
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84052403"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343856"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-resource-manager-template"></a>Início Rápido: Crie um banco de dados individual no Banco de Dados SQL do Azure usando o modelo do Azure Resource Manager
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 A criação de um [banco de dados individual](single-database-overview.md) é a opção mais rápida e simples para a criação de um banco de dados no Banco de Dados SQL do Azure. Este início rápido mostra como criar um banco de dados individual usando o modelo do Azure Resource Manager.
 
@@ -29,7 +28,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Nenhum
+Nenhum.
 
 ## <a name="create-a-single-database"></a>Criar um banco de dados individual
 
@@ -73,7 +72,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 Read-Host -Prompt "Press [ENTER] to continue ..."
 ```
 
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[A CLI do Azure](#tab/azure-cli)
 
 ```azurecli-interactive
 $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -112,7 +111,7 @@ $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Remove-AzResourceGroup -Name $resourceGroupName
 ```
 
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[A CLI do Azure](#tab/azure-cli)
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -131,3 +130,4 @@ az group delete --name $resourceGroupName
 - Para criar um banco de dados individual usando a CLI do Azure, confira [Amostras da CLI do Azure](az-cli-script-samples-content-guide.md).
 - Para criar um banco de dados individual usando o Azure PowerShell, confira [Amostras do Azure PowerShell](powershell-script-content-guide.md).
 - Para saber como criar modelos do Resource Manager, consulte [Criar seu primeiro modelo](../../azure-resource-manager/templates/template-tutorial-create-first-template.md).
+ 

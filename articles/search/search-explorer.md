@@ -7,25 +7,29 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 03/27/2020
-ms.openlocfilehash: 9fb34141d19866a2f49ac164e0d89802cf7818c5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/07/2020
+ms.openlocfilehash: 19d46c034d56c1c54f8a00f08a7e3e72e758984f
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80369701"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488198"
 ---
 # <a name="quickstart-use-search-explorer-to-run-queries-in-the-portal"></a>Início Rápido: Usar o Gerenciador de pesquisa para executar consultas no portal
 
-O **Gerenciador de pesquisa** é uma ferramenta de consulta interna usada para executar consultas em um índice de pesquisa no Azure Cognitive Search. Essa ferramenta facilita a aprendizagem da sintaxe de consulta, o teste de uma expressão de consulta ou filtro ou a confirmação dos resultados de uma atualização de índice verificando se há conteúdo mais recente.
+O **Gerenciador de pesquisa** é uma ferramenta de consulta interna usada para executar consultas em um índice de pesquisa no Azure Cognitive Search. Essa ferramenta facilita a aprendizagem da sintaxe de consulta, o teste de uma expressão de consulta ou filtro ou a confirmação de uma atualização de dados verificando se o novo conteúdo existe no índice.
 
-Este início rápido usa **realestate-us-sample-index** para demonstrar o Gerenciador de pesquisa. As solicitações são formuladas usando a [API REST de Pesquisa](https://docs.microsoft.com/rest/api/searchservice/), com respostas retornadas como documentos JSON.
+Este guia de início rápido usa o índice existente para demonstrar o Gerenciador de pesquisa. As solicitações são formuladas usando a [API REST de Pesquisa](https://docs.microsoft.com/rest/api/searchservice/), com respostas retornadas como documentos JSON.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-+ [Crie um serviço da Pesquisa Cognitiva do Azure](search-create-service-portal.md) ou [localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na assinatura atual. É possível usar um serviço gratuito para este início rápido.
+Antes de começar, você deverá ter o seguinte:
 
-+ **realestate-us-sample-index** é usado neste início rápido. Percorra o assistente para [**Importar dados**](search-import-data-portal.md) a fim de gerar o índice da fonte de dados de exemplos interna.
++ Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/).
+
++ Um serviço do Azure Cognitive Search. [Crie um serviço](search-create-service-portal.md) ou [localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na assinatura atual. É possível usar um serviço gratuito para este início rápido. 
+
++ O *realestate-us-sample-index* é usado para este guia de início rápido. Use o assistente [**Importar dados**](search-import-data-portal.md) para criar o índice. Na primeira etapa, quando solicitado para a fonte de dados, escolha **Exemplos** e selecione a fonte de dados **realestate-us-sample**. Aceite todos os padrões do assistente para criar o índice.
 
 ## <a name="start-search-explorer"></a>Iniciar o Gerenciador de pesquisa
 

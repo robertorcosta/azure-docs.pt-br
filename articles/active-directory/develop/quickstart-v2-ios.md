@@ -12,12 +12,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: 5ade4701c53287de5d5815531f12850b3dc839de
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 840c0157713e9758092ca5cc51ee2745428ae568
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84169841"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84483533"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Início Rápido: Conectar usuários e chamar a API do Microsoft Graph de um aplicativo iOS ou macOS
 
@@ -70,56 +70,32 @@ Este início rápido se aplica a aplicativos iOS e macOS. Algumas etapas são ne
 >
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Já configurado](media/quickstart-v2-ios/green-check.png) Seu aplicativo já está configurado com esses atributos
-
-#### <a name="step-2-download-the-sample-project"></a>Etapa 2: Baixar o projeto de exemplo
-
-- [Baixar o exemplo de código para iOS](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
-- [Baixar o exemplo de código para macOS](https://github.com/Azure-Samples/active-directory-macOS-swift-native-v2/archive/master.zip)
+> 
+> #### <a name="step-2-download-the-sample-project"></a>Etapa 2: Baixar o projeto de exemplo
+> > [!div id="autoupdate_ios" class="nextstepaction"]
+> > [Baixar o exemplo de código para iOS]()
+> 
+> > [!div id="autoupdate_macos" class="nextstepaction"]
+> > [Baixar o exemplo de código para macOS]()
+> [!div renderon="docs"]
+> #### <a name="step-2-download-the-sample-project"></a>Etapa 2: Baixar o projeto de exemplo
+> 
+> - [Baixar o exemplo de código para iOS](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
+> - [Baixar o exemplo de código para macOS](https://github.com/Azure-Samples/active-directory-macOS-swift-native-v2/archive/master.zip)
 
 #### <a name="step-3-install-dependencies"></a>Etapa 3: Instalar dependências
 
 Em uma janela do terminal, navegue até a pasta que contém o exemplo de código baixado e execute `pod install` para instalar a biblioteca MSAL mais recente.
 
-#### <a name="step-4-configure-your-project"></a>Etapa 4: Configurar seu projeto
-
-> [!div renderon="docs"]
-> Se você tiver selecionado a Opção 1 acima, poderá ignorar essas etapas.
-
 > [!div renderon="portal" class="sxs-lookup"]
-> 1. Extraia o arquivo zip e abra o projeto no XCode.
-> 1. Edite **ViewController.swift** e substitua a linha que começa com 'let kClientID' pelo seguinte snippet de código. Lembre-se de atualizar o valor de `kClientID` com a ID do cliente que você salvou quando registrou seu aplicativo no portal anteriormente no início rápido:
->    ```swift
->    let kClientID = "Enter_the_Application_Id_Here"
->    ```
-> 1. Edite **ViewController.swift** e substitua a linha que começa com 'let kAuthority' pelo seguinte snippet de código:
->    ```swift
->    let kAuthority = "Enter_the_Authority_Endpoint_Host_HereEnter_the_Tenant_Info_Here"
->    ```
-> 1. Edite **ViewController.swift** e substitua a linha que começa com 'let kGraphEndpoint' pelo seguinte snippet de código:
->    ```swift
->    let kGraphEndpoint = "Enter_the_MS_Graph_Endpoint_Host_Here"
->    ```
-> 1. Abra as configurações do projeto. Na seção **Identidade**, insira o **Identificador do Pacote** que você inseriu no portal.
-> 1. Somente para o iOS, clique com o botão direito do mouse em **Info.plist** e selecione **Abrir como** > **Código-fonte**.
-> 1. Somente para o iOS, no nó raiz do dict, substitua `CFBundleURLSchemes` pela ***ID do Pacote*** que você inseriu no portal.
->
->    ```xml
->    <key>CFBundleURLTypes</key>
->    <array>
->       <dict>
->          <key>CFBundleURLSchemes</key>
->          <array>
->             <string>msauth.Enter_the_Bundle_Id_Here</string>
->          </array>
->       </dict>
->    </array>
->    ```
-> 1. Compile e execute o aplicativo.
-> [!div class="sxs-lookup" renderon="portal"]
-> > [!NOTE]
+> #### <a name="step-4-your-app-is-configured-and-ready-to-run"></a>Etapa 4: seu aplicativo está configurado e pronto para ser executado
+> Configuramos seu projeto com os valores das propriedades do aplicativo e ele está pronto para ser executado.
+> >  [!NOTE]
 > > `Enter_the_Supported_Account_Info_Here`
+
 > [!div renderon="docs"]
->
+>#### <a name="step-4-configure-your-project"></a>Etapa 4: Configurar seu projeto
+> Se você tiver selecionado a Opção 1 acima, poderá ignorar essas etapas.
 > 1. Extraia o arquivo zip e abra o projeto no XCode.
 > 1. Edite **ViewController.swift** e substitua a linha que começa com 'let kClientID' pelo seguinte snippet de código. Lembre-se de atualizar o valor de `kClientID` com a ID do cliente que você salvou quando registrou seu aplicativo no portal anteriormente neste início rápido:
 >    ```swift
@@ -136,8 +112,8 @@ Em uma janela do terminal, navegue até a pasta que contém o exemplo de código
 >     let kAuthority = "https://login.microsoftonline.de/common"
 >     ```
 > 1. Abra as configurações do projeto. Na seção **Identidade**, insira o **Identificador do Pacote** que você inseriu no portal.
-> 1. Somente para o iOS, clique com o botão direito do mouse em **Info.plist** e selecione **Abrir como** > **Código-fonte**.
-> 1. Somente para o iOS, no nó raiz do dict, substitua `Enter_the_bundle_Id_Here` pela ***ID do Pacote*** que você usou no portal.
+> 1. Clique com o botão direito do mouse em **Info.plist** e selecione **Abrir Como** > **Código-Fonte**.
+> 1. No nó raiz dict, substitua `Enter_the_bundle_Id_Here` pela ***ID do Pacote*** que você usou no portal.
 >
 >    ```xml
 >    <key>CFBundleURLTypes</key>

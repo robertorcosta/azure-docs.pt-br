@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
-ms.openlocfilehash: 91a4d10269975152cc62f3f5dc33238a8f6f2e11
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: d0c705ffba84b9d34f8bc3d6e4c06d4bdb90fa21
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890513"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84322814"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Início Rápido: Conectar usuários e obter um token de acesso em um JavaScript SPA
 
@@ -92,7 +92,7 @@ Neste início rápido, você usará um exemplo de código para aprender como um 
 >  const msalConfig = {
 >    auth: {
 >      clientId: "Enter_the_Application_Id_Here",
->      authority: "Enter_the_Cloud_Instance_Id_Here_OR_Enter_the_Tenant_Info_Here",
+>      authority: "Enter_the_Cloud_Instance_Id_Here/Enter_the_Tenant_Info_Here",
 >      redirectUri: "Enter_the_Redirect_Uri_Here",
 >    },
 >    cache: {
@@ -110,9 +110,9 @@ Neste início rápido, você usará um exemplo de código para aprender como um 
 > [!div renderon="docs"]
 >
 > Em que:
-> - *\<Insira_a_ID_do_Aplicativo_Aqui>* é a **ID do Aplicativo (cliente)** do aplicativo registrado.
-> - *\<Insira_a_ID_da_Instância_de_Nuvem_Aqui>* é a instância da nuvem do Azure. Para a nuvem principal ou global do Azure, basta inserir *https://login.microsoftonline.com* . Para nuvens **nacionais** (por exemplo, China), confira [Nuvens nacionais](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).
-> - *\<Insira_as_informações_de_Locatário_aqui>* é definido para uma das seguintes opções:
+> - *\<Enter_the_Application_Id_Here>* é a **ID do Aplicativo (cliente)** que você registrou.
+> - *\<Enter_the_Cloud_Instance_Id_Here>* é a instância da nuvem do Azure. Para a nuvem principal ou global do Azure, basta inserir *https://login.microsoftonline.com* . Para nuvens **nacionais** (por exemplo, China), confira [Nuvens nacionais](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).
+> - *\<Enter_the_Tenant_info_here>* é definido como uma das seguintes opções:
 >    - Se o seu aplicativo for compatível com as *contas neste diretório organizacional*, substitua esse valor pela **ID do locatário** ou **Nome do locatário** (por exemplo, *contoso.microsoft.com*).
 >    - Se o aplicativo for compatível com as *contas em qualquer diretório organizacional*, substitua esse valor por **organizações**.
 >    - Se o seu aplicativo for compatível com as *contas em qualquer diretório organizacional e contas pessoais da Microsoft*, substitua esse valor por **comum**. Para restringir o suporte a *contas pessoais da Microsoft*, substitua esse valor por **consumidores**.
@@ -130,8 +130,8 @@ Neste início rápido, você usará um exemplo de código para aprender como um 
 > ```javascript
 >   // Add here the endpoints for MS Graph API services you would like to use.
 >   const graphConfig = {
->     graphMeEndpoint: "Enter_the_Graph_Endpoint_Herev1.0/me",
->     graphMailEndpoint: "Enter_the_Graph_Endpoint_Herev1.0/me/messages"
+>     graphMeEndpoint: "Enter_the_Graph_Endpoint_Here/v1.0/me",
+>     graphMailEndpoint: "Enter_the_Graph_Endpoint_Here/v1.0/me/messages"
 >   };
 >
 >   // Add here scopes for access token to be used at MS Graph API endpoints.
@@ -144,7 +144,7 @@ Neste início rápido, você usará um exemplo de código para aprender como um 
 > [!div renderon="docs"]
 >
 > Em que:
-> - *\<Insira_o_Ponto_de_Extremidade_Aqui>* é o ponto de extremidade no qual as chamadas à API serão feitas. Para o serviço principal ou global da API do Microsoft Graph, basta inserir `https://graph.microsoft.com`. Para obter mais informações, confira [Implantação em uma nuvem nacional](https://docs.microsoft.com/graph/deployments)
+> - *\<Enter_the_Graph_Endpoint_Here>* é o ponto de extremidade no qual as chamadas à API serão feitas. Para o serviço principal ou global da API do Microsoft Graph, basta inserir `https://graph.microsoft.com`. Para obter mais informações, confira [Implantação em uma nuvem nacional](https://docs.microsoft.com/graph/deployments)
 >
 > #### <a name="step-4-run-the-project"></a>Etapa 4: Executar o projeto
 
@@ -268,7 +268,7 @@ myMSALObj.acquireTokenSilent(tokenRequest)
 
 #### <a name="get-a-user-token-interactively"></a>Obter um token de usuário interativamente
 
-Há situações em que é necessário forçar os usuários a interagir com o ponto de extremidade da plataforma de identidade da Microsoft. Por exemplo: 
+Há situações em que é necessário forçar os usuários a interagir com o ponto de extremidade da plataforma de identidade da Microsoft. Por exemplo:
 * Os usuários podem precisar reinserir as credenciais porque a senha expirou.
 * Seu aplicativo está solicitando acesso a escopos de recursos adicionais com os quais o usuário precisa concordar.
 * A autenticação de dois fatores é necessária.

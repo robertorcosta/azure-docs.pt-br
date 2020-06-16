@@ -9,12 +9,12 @@ ms.date: 06/02/2020
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 3c84bf32f0d7b8b8381747e995f060d7e2dc1c9b
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 8c1627b0a9ae37f7d784c49613eb14b0c851b9b1
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310437"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457041"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Início Rápido: Encaminhar eventos de Armazenamento de Blobs para o ponto de extremidade da Web com o portal do Azure
 
@@ -92,12 +92,9 @@ Assine um tópico para indicar à Grade de Eventos quais eventos você deseja ac
    ![Selecionar web hook](./media/blob-event-quickstart-portal/select-web-hook.png)
 3. Na página **Criar Assinatura de Eventos**, faça o seguinte: 
     1. Insira um **nome** para a assinatura de evento.
-    2. Insira um **nome** para o **tópico do sistema**. 
+    2. Insira um **nome** para o **tópico do sistema**. Para saber mais sobre os tópicos do sistema, confira [Visão geral dos tópicos do sistema](system-topics.md).
 
        ![Inserir nomes para a assinatura de evento e o tópico do sistema](./media/blob-event-quickstart-portal/event-subscription-name-system-topic.png)
-
-       > [!NOTE]
-       > Anteriormente, quando você criou uma assinatura para um evento gerado pelas fontes do Azure, o serviço de grade de eventos criou automaticamente um tópico de sistema com um nome gerado aleatoriamente. Agora, você pode especificar um nome para o tópico do sistema usando essa caixa de texto. Você pode usar este recurso de tópico de sistema para descobrir métricas e logs de diagnóstico.
     2. Selecione **Web Hook** para o **Tipo de ponto de extremidade**. 
 
        ![Selecione o tipo de ponto de extremidade do web hook](./media/blob-event-quickstart-portal/select-web-hook-end-point-type.png)

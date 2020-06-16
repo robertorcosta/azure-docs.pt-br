@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 03/12/2020
 ms.author: trbye
-ms.openlocfilehash: 464e21caf3105b12f0fbf44dc2aa3674a252d3c6
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 664b71c56ae63ea73478923171731e343dfa5cbe
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81401032"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417218"
 ---
 # <a name="what-is-the-speech-service"></a>O que é Serviço de fala?
 
@@ -37,6 +37,7 @@ Esses recursos compõem o serviço de Fala. Use os links nesta tabela para saber
 | | [Criar Vozes Personalizadas](#customize-your-speech-experience) | Crie fontes de voz personalizadas exclusivas para sua marca ou produto. | Não | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Tradução de Fala](speech-translation.md) | Tradução de fala | A tradução de fala possibilita a tradução em tempo real e em vários idiomas de fala para seus aplicativos, suas ferramentas e seus dispositivos. Use esse serviço para tradução de fala em fala e fala em texto. | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | Não |
 | [Assistentes de voz](voice-assistants.md) | Assistentes de voz | Assistentes de voz que usam o serviço de Fala capacitam os desenvolvedores a criarem interfaces de conversação natural, semelhante à humana, para seus aplicativos e suas experiências. O serviço de assistente de voz fornece interação rápida e confiável entre um dispositivo e uma implementação de assistente que usa o Canal de Fala de Linha Direta do Bot Framework ou o serviço integrado de Comandos Personalizados (versão prévia) para a conclusão da tarefa. | [Sim](voice-assistants.md) | Não |
+| [Reconhecimento do Locutor](speaker-recognition-overview.md) | Identificação e verificação do locutor | O serviço de Reconhecimento do Locutor fornece algoritmos que verificam e identificam os locutores por suas características de voz exclusivas. O Reconhecimento do Locutor é usado para responder à pergunta "quem está falando?". | Sim | [Sim](https://docs.microsoft.com/rest/api/speakerrecognition/) |
 
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]

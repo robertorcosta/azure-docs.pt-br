@@ -3,12 +3,12 @@ title: Reproduzir gravações de vários dias – Azure
 description: Neste tutorial, você aprenderá a usar as APIs do Serviço de Mídia do Azure para reproduzir uma gravação de vídeo contínua de vários dias.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 0b294769fce58f5aaae82fec590c783e8328d826
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 52ef33e8c4380e9c21e99c4ba45b7f25f7c57780
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84260037"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433666"
 ---
 # <a name="tutorial-playback-of-multi-day-recordings"></a>Tutorial: Reproduzir gravações de vários dias  
 
@@ -57,7 +57,7 @@ Como parte do tutorial do [CVR](continuous-video-recording-tutorial.md), você t
 }
 ```
 
-Em seguida, no Visual Studio Code, abra src/ams-asset-player. Esta pasta contém os arquivos necessários para este tutorial. Abra o arquivo appsettings.json e copie o conteúdo dele em um novo arquivo, appsettings.Developer.json. Faça as seguintes edições nesse segundo arquivo:
+Em seguida, no Visual Studio Code, abra src/ams-asset-player. Esta pasta contém os arquivos necessários para este tutorial. Abra o arquivo appsettings.json e copie o conteúdo dele em um novo arquivo, appsettings.development.json. Faça as seguintes edições nesse segundo arquivo:
 
 ```
   "AMS" : {

@@ -14,12 +14,12 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6dee5d6e1bb2802114d7bba14a57b91dbab09e19
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 37cc50a31f2f31c0cb7fc49102328f2072c6570a
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053239"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324582"
 ---
 # <a name="quickstart-create-and-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Início Rápido: Criar e treinar um modelo preditivo em R com os Serviços do Machine Learning do Banco de Dados SQL do Azure (versão prévia)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -51,11 +51,11 @@ Os requisitos de um modelo linear são simples:
 > [!TIP]
 > Se você precisar de uma atualização sobre modelos lineares, experimente este tutorial, que descreve o processo de ajuste de um modelo usando o rxLinMod: [Ajustando modelos lineares](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model)
 
-Nas etapas a seguir, você configurará os dados de treinamento, criará um modelo de regressão, treinará esse modelo usando os dados de treinamento e o salvará em uma tabela SQL.
+Nas etapas a seguir, você vai configurar os dados de treinamento, criará um modelo de regressão, treinará esse modelo usando os dados de treinamento e o salvará em uma tabela SQL.
 
-1. Abra o **SQL Server Management Studio** e conecte-se ao seu banco de dados SQL.
+1. Abra o **SQL Server Management Studio** e conecte-se ao seu banco de dados.
 
-   Se você precisar de ajuda para se conectar, veja o [Início Rápido: Usar o SQL Server Management Studio para conectar e consultar um Banco de Dados SQL do Azure](connect-query-ssms.md).
+   Se você precisar de ajuda para se conectar, veja o [Início Rápido: Usar o SQL Server Management Studio para conectar e consultar um banco de dados no Banco de Dados SQL do Azure](connect-query-ssms.md).
 
 1. Crie a tabela **CarSpeed** para salvar os dados de treinamento.
 

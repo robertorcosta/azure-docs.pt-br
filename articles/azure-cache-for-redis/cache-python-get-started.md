@@ -9,13 +9,14 @@ ms.topic: quickstart
 ms.custom:
 - mvc
 - seo-python-october2019
+- tracking-python
 ms.date: 11/05/2019
-ms.openlocfilehash: 6ce3dd1cbb694988af3555765342a1c4ca3850b5
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 120708cc72117495e6200f41f13422e94a58c265
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81010844"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84556477"
 ---
 # <a name="quickstart-create-a-python-app-that-uses-azure-cache-for-redis"></a>Início Rápido: crie um aplicativo Python que usa um Cache do Azure para Redis
 
@@ -41,7 +42,7 @@ O exemplo a seguir usa *pip3* para Python 3 para instalar o *redis-py* no Window
 
 ## <a name="read-and-write-to-the-cache"></a>Ler e gravar no cache
 
-Execute o Python na linha de comando e teste seu cache usando o código a seguir. Substitua `<Your Host Name>` e `<Your Access Key>` pelos valores da sua instância do Cache do Azure para Redis. O nome do seu host tem o formato *\<nome DNS>.redis.cache.windows.net*.
+Execute o Python na linha de comando e teste seu cache usando o código a seguir. Substitua `<Your Host Name>` e `<Your Access Key>` pelos valores da sua instância do Cache do Azure para Redis. O nome do seu host tem o formato *\<DNS name>.redis.cache.windows.net*.
 
 ```python
 >>> import redis
@@ -58,7 +59,7 @@ b'bar'
 
 ## <a name="create-a-python-sample-app"></a>Criar um aplicativo de exemplo do Python
 
-Crie um novo arquivo de texto, adicione o script a seguir e salve o arquivo como *PythonApplication1.py*. Substitua `<Your Host Name>` e `<Your Access Key>` pelos valores da sua instância do Cache do Azure para Redis. O nome do seu host tem o formato *\<nome DNS>.redis.cache.windows.net*.
+Crie um novo arquivo de texto, adicione o script a seguir e salve o arquivo como *PythonApplication1.py*. Substitua `<Your Host Name>` e `<Your Access Key>` pelos valores da sua instância do Cache do Azure para Redis. O nome do seu host tem o formato *\<DNS name>.redis.cache.windows.net*.
 
 ```python
 import redis

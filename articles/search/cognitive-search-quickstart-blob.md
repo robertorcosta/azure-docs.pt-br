@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Criar um conjunto de habilidades no portal do Azure'
+title: Criar um conjunto de habilidades no portal do Azure
 titleSuffix: Azure Cognitive Search
 description: Neste guia de início rápido do portal, saiba como usar o assistente de Importação de dados para adicionar habilidades cognitivas a um pipeline de indexação no Azure Cognitive Search. As habilidades cognitivas incluem o OCR (Reconhecimento de Caracteres Ópticos) e o processamento de idioma natural.
 manager: nitinme
@@ -7,35 +7,44 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 12/20/2019
-ms.openlocfilehash: e2e17ba6af60fa495a03e7d46a07cfe6b66f4e68
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 06/07/2020
+ms.openlocfilehash: db9e8f71787026abea74fbbfeed51a227a295601
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77472410"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488946"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>Início Rápido: Criar um conjunto de habilidades cognitivas da Pesquisa Cognitiva do Azure no portal do Azure
 
-Um conjunto de habilidades é um recurso de IA que extrai informações e estrutura de grandes arquivos de texto não diferenciado ou de imagens e as torna indexáveis e pesquisáveis para consultas de pesquisa de texto completo na Pesquisa Cognitiva do Azure. 
+Um conjunto de habilidades é um recurso baseado em IA que extrai informações e estrutura de grandes arquivos de texto não diferenciado ou de imagens e torna o conteúdo indexável e pesquisável no Azure Cognitive Search. 
 
-Neste início rápido, você combinará serviços e dados na nuvem do Azure para criar o conjunto de habilidades. Quando tudo estiver configurado, você executará o assistente **Importar dados** no portal para reunir tudo. O resultado final é um índice pesquisável populado com dados criados pelo processamento de IA que você pode consultar no portal ([Gerenciador de pesquisa](search-explorer.md)).
+Neste início rápido, você combinará serviços e dados na nuvem do Azure para criar o conjunto de habilidades. Quando tudo estiver configurado, você executará o assistente **Importar dados** no portal do Azure para reunir tudo. O resultado final é um índice pesquisável populado com dados criados pelo processamento de IA que você pode consultar no portal ([Gerenciador de pesquisa](search-explorer.md)).
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+## <a name="prerequisites"></a>Pré-requisitos
 
-## <a name="create-services-and-load-data"></a>Criar serviços e carregar dados
+Antes de começar, você deverá ter o seguinte:
 
-Este início rápido usa o Azure Cognitive Search, o [Armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/storage/blobs/) e os [Serviços Cognitivos do Azure](https://azure.microsoft.com/services/cognitive-services/) para a IA. 
++ Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/).
 
-Como a carga de trabalho é muito pequena, os Serviços Cognitivos são acionados nos bastidores para fornecer processamento gratuito para até 20 transações quando invocados pela Pesquisa Cognitiva do Azure. Para um conjunto de dados tão pequeno, você pode ignorar a criação ou anexação de um recurso dos Serviços Cognitivos.
++ Um serviço do Azure Cognitive Search. [Crie um serviço](search-create-service-portal.md) ou [localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na assinatura atual. É possível usar um serviço gratuito para este início rápido. 
+
++ Uma conta de Armazenamento do Azure com o [Armazenamento de blobs](https://docs.microsoft.com/azure/storage/blobs/).
+
+> [!NOTE]
+> Este guia de início rápido também usa os [Serviços Cognitivos do Azure](https://azure.microsoft.com/services/cognitive-services/) para a IA. Como a carga de trabalho é muito pequena, os Serviços Cognitivos são acionados nos bastidores para fornecer processamento gratuito para até 20 transações. Isso significa que você pode concluir este exercício sem precisar criar um recurso adicional dos Serviços Cognitivos.
+
+## <a name="set-up-your-data"></a>Configurar seus dados
+
+Nas etapas a seguir, configure um contêiner de blobs no Armazenamento do Azure para armazenar arquivos de conteúdo heterogêneos.
 
 1. [Fazer o download de dados de exemplo](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) consiste em um conjunto de pequenos arquivos de tipos diferentes. Descompacte os arquivos.
 
 1. [Criar uma conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) ou [localizar uma conta](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
 
-   Escolha a mesma região do Azure Cognitive Search para evitar preços de largura de banda. 
-   
-   Escolha o tipo de conta StorageV2 (uso geral V2) se quiser experimentar o recurso de repositório de conhecimento mais tarde, em outro passo a passo. Caso contrário, escolha qualquer tipo.
+   + Escolha a mesma região do Azure Cognitive Search para evitar preços de largura de banda. 
+
+   + Escolha o tipo de conta StorageV2 (uso geral V2) se quiser experimentar o recurso de repositório de conhecimento mais tarde, em outro passo a passo. Caso contrário, escolha qualquer tipo.
 
 1. Abra as páginas dos serviços Blob e crie um contêiner. Você pode usar o nível de acesso público padrão. 
 
@@ -43,15 +52,15 @@ Como a carga de trabalho é muito pequena, os Serviços Cognitivos são acionado
 
    ![Arquivos de origem no armazenamento de blobs do Azure](./media/cognitive-search-quickstart-blob/sample-data.png)
 
-1. [Crie um serviço do Azure Cognitive Search](search-create-service-portal.md) ou [localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). É possível usar um serviço gratuito para este início rápido.
-
 Agora, você está pronto prosseguir para assistente de Importação de dados.
 
 ## <a name="run-the-import-data-wizard"></a>Executar o assistente de Importação de dados
 
-Na página de Visão geral do serviço de pesquisa, clique em **Importar dados** na barra de comandos para definir o enriquecimento cognitivo em quatro etapas.
+1. Entre no [portal do Azure](https://portal.azure.com/) com sua conta do Azure.
 
-  ![Comando Importar de dados](media/cognitive-search-quickstart-blob/import-data-cmd2.png)
+1. [Encontre seu serviço de pesquisa](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) e, na página Visão Geral, clique em **Importar dados** na barra de comandos para configurar o aprimoramento cognitivo em quatro etapas.
+
+   ![Comando Importar de dados](media/cognitive-search-quickstart-blob/import-data-cmd2.png)
 
 ### <a name="step-1---create-a-data-source"></a>Etapa 1: Criar uma fonte de dados
 

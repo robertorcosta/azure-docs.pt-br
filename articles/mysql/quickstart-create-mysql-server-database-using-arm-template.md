@@ -7,14 +7,14 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 05/19/2020
-ms.openlocfilehash: ef3813840b1ecb3ad091a5b420ff8cfff9f6059a
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 9f38ba439a5f2facbc1c80493b802b5205a54691
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800206"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84323563"
 ---
-# <a name="quickstart-use-a-resource-manager-template-to-create-an-azure-database-for-mysql-server"></a>Início Rápido: Usar um modelo do Resource Manager para criar um servidor do Banco de Dados do Azure para MySQL
+# <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql-server"></a>Início Rápido: Usar um modelo do ARM para criar um servidor de Banco de Dados do Azure para MySQL
 
 O Banco de Dados do Azure para MySQL é um serviço gerenciado usado para executar, gerenciar e dimensionar Bancos de Dados MySQL altamente disponíveis na nuvem. Neste guia de início rápido, você usa um modelo do ARM para criar um servidor do Banco de Dados do Azure para MySQL com integração com rede virtual. Você pode criar o servidor no o portal do Azure, na CLI do Azure ou no Azure PowerShell.
 
@@ -44,7 +44,7 @@ Crie um Banco de Dados do Azure para o servidor MySQL com um conjunto definido d
 
 ### <a name="review-the-template"></a>Examinar o modelo
 
-O modelo usado neste início rápido é proveniente dos [modelos de Início Rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-managed-mysql-with-vnet/).
+O modelo usado neste início rápido é proveniente dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-managed-mysql-with-vnet/).
 
 :::code language="json" source="~/quickstart-templates/101-managed-mysql-with-vnet/azuredeploy.json" range="001-231" highlight="149,162,176,199,213":::
 

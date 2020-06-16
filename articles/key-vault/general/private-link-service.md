@@ -7,12 +7,12 @@ ms.date: 03/08/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: quickstart
-ms.openlocfilehash: a8c153094d38d137ce50c6ff4f922b7708bfcb24
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: c832634a4b9154ec800da8c8ff25c6d81c620e9f
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266824"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610144"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Integrar o Key Vault ao Link Privado do Azure
 
@@ -225,13 +225,16 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 
 ## <a name="limitations-and-design-considerations"></a>Limitações e considerações de design
 
+> [!NOTE]
+> O número de cofres de chaves com pontos de extremidade privados habilitados por assinatura é um limite ajustável. Esse limite mostrado abaixo é o limite padrão. Se você quiser solicitar um aumento de limite para o serviço, envie um email para akv-privatelink@microsoft.com. Aprovaremos essas solicitações dependendo do caso.
+
 **Preço**: Para obter informações sobre preço, confira [Preço do Link Privado do Azure](https://azure.microsoft.com/pricing/details/private-link/).
 
 **Limitações**:  O ponto de extremidade privado para o Azure Key Vault só está disponível nas regiões públicas do Azure.
 
 **Número máximo de Pontos de Extremidade Privados por Key Vault**: 64.
 
-**Número máximo de Key Vaults com Pontos de Extremidade Privados por Assinatura**: 64.
+**Número padrão de Key Vaults com Pontos de Extremidade Privados por Assinatura**: 400.
 
 Para saber mais, confira [Serviço de Link Privado do Azure: Limitações](../../private-link/private-link-service-overview.md#limitations)
 

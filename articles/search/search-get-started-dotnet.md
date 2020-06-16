@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Criar um índice de pesquisa em C# usando o .NET'
+title: Criar um índice de pesquisa no .NET
 titleSuffix: Azure Cognitive Search
 description: Neste início rápido do C#, saiba como criar um índice, carregar dados e executar consultas usando o SDK do .NET do Azure Cognitive Search.
 manager: nitinme
@@ -8,15 +8,15 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 02/10/2020
-ms.openlocfilehash: 3d0006a3c77050c1bb21a0da8d6be51e659f933d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 06/07/2020
+ms.openlocfilehash: 59ef47ac67955ef5b9b7cb51ae6f39a9e0d30c3b
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77589208"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84634926"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-index-in-c-using-the-net-sdk"></a>Início Rápido: Criar um índice da Pesquisa Cognitiva do Azure em C# usando o SDK do .NET
+# <a name="quickstart-create-a-search-index-in-net"></a>Início Rápido: Criar um índice de pesquisa no .NET
 > [!div class="op_single_selector"]
 > * [C#](search-get-started-dotnet.md)
 > * [Portal](search-get-started-portal.md)
@@ -25,20 +25,22 @@ ms.locfileid: "77589208"
 > * [Postman](search-get-started-postman.md)
 >*
 
-Crie um aplicativo de console C# do .NET Core que cria, carrega e consulta um índice da Pesquisa Cognitiva do Azure usando o Visual Studio e o [SDK do .NET da Pesquisa Cognitiva do Azure](https://aka.ms/search-sdk). Este artigo explica como criar o aplicativo passo a passo. Como alternativa, você pode [baixar e executar o aplicativo completo](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/Quickstart).
+Crie um aplicativo de console do .NET Core em C# que cria, carrega e consulta um índice do Azure Cognitive Search usando o Visual Studio e o [SDK do .NET do Azure Cognitive Search](https://aka.ms/search-sdk). 
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Este artigo explica como criar o aplicativo passo a passo. Você também pode [baixar e executar o aplicativo completo](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/Quickstart) se quiser avançar diretamente para o código.
 
 > [!NOTE]
 > O código de demonstração deste artigo usa os métodos síncronos do SDK do .NET da Pesquisa Cognitiva do Azure para manter a simplicidade. No entanto, para cenários de produção, recomendamos usar os métodos assíncronos em seus próprios aplicativos para mantê-los escalonáveis e dinâmicos. Por exemplo, você pode usar `CreateAsync` e `DeleteAsync` em vez de `Create` e `Delete`.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Os serviços e as ferramentas a seguir são necessários para este início rápido.
+Antes de começar, você deverá ter o seguinte:
+
++ Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/).
+
++ Um serviço do Azure Cognitive Search. [Crie um serviço](search-create-service-portal.md) ou [localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na assinatura atual. É possível usar um serviço gratuito para este início rápido. 
 
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/), qualquer edição. O código de exemplo e as instruções foram testados na edição gratuita da Comunidade.
-
-+ [Crie um serviço da Pesquisa Cognitiva do Azure](search-create-service-portal.md) ou [localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na assinatura atual. É possível usar um serviço gratuito para este início rápido.
 
 <a name="get-service-info"></a>
 
@@ -70,7 +72,7 @@ Para este projeto, use a versão 9 do pacote NuGet `Microsoft.Azure.Search` e o 
 
 1. Clique em **Procurar**.
 
-1. Pesquise `Microsoft.Azure.Search` e selecione a versão 9.0.1 ou posterior.
+1. Pesquise por `Microsoft.Azure.Search` e selecione a versão 9.0.1 ou posterior (a versão estável mais recente é a 10.1.0).
 
 1. Clique em **Instalar** à direita para adicionar o assembly ao projeto e à solução.
 
@@ -87,26 +89,27 @@ Para este projeto, use a versão 9 do pacote NuGet `Microsoft.Azure.Search` e o 
 
 1. Adicione o arquivo ao diretório de saída. Clique com o botão direito do mouse em appsettings.json e selecione **Propriedades**. Em **Copiar para Diretório de Saída**, selecione **Copiar se for o mais recente**.
 
-1. Copie o JSON a seguir para o novo arquivo JSON. Substitua o nome do serviço de pesquisa (NOME-DO-SERVIÇO-DE-PESQUISA) e a chave de API de administração (CHAVE-DE-API-DE-ADMINISTRAÇÃO) por valores válidos. Se o ponto de extremidade de serviço for `https://mydemo.search.windows.net`, o nome do serviço será "mydemo".
+1. Copie o JSON a seguir para o novo arquivo JSON. 
 
-```json
-{
-  "SearchServiceName": "<YOUR-SEARCH-SERVICE-NAME>",
-  "SearchServiceAdminApiKey": "<YOUR-ADMIN-API-KEY>",
-  "SearchIndexName": "hotels-quickstart"
-}
-```
+    ```json
+    {
+      "SearchServiceName": "<YOUR-SEARCH-SERVICE-NAME>",
+      "SearchServiceAdminApiKey": "<YOUR-ADMIN-API-KEY>",
+      "SearchIndexName": "hotels-quickstart"
+    }
+    ```
+
+1. Substitua o nome do serviço de pesquisa (NOME-DO-SERVIÇO-DE-PESQUISA) e a chave de API de administração (CHAVE-DE-API-DE-ADMINISTRAÇÃO) por valores válidos. Se o ponto de extremidade de serviço for `https://mydemo.search.windows.net`, o nome do serviço será "mydemo".
 
 ### <a name="add-class-method-files-to-your-project"></a>Adicionar arquivos ".Method" da classe ao projeto
 
-Ao imprimir os resultados na janela do console, os campos individuais do objeto Hotel precisam ser retornados como cadeias de caracteres. Você pode implementar [ToString()](https://docs.microsoft.com/dotnet/api/system.object.tostring?view=netframework-4.8) para executar essa tarefa, copiando o código necessário para dois novos arquivos.
+Essa etapa é necessária para produzir uma saída significativa no console. Ao imprimir os resultados na janela do console, os campos individuais do objeto Hotel precisam ser retornados como cadeias de caracteres. Este etapa implementa [ToString()](https://docs.microsoft.com/dotnet/api/system.object.tostring?view=netframework-4.8) para executar essa tarefa, o que pode ser feito copiando o código necessário para dois novos arquivos.
 
 1. Adicione duas definições de classe vazias ao projeto: Address.Methods.cs e Hotel.Methods.cs
 
-1. Em Address.Methods.cs, substitua o conteúdo padrão pelo código a seguir, [linhas 1 a 32](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/Quickstart/AzureSearchQuickstart/Address.Methods.cs/#L1-L32).
+1. Em Address.Methods.cs, substitua o conteúdo padrão pelo código a seguir, [linhas 1 a 25](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/Quickstart/AzureSearchQuickstart/Address.Methods.cs/#L1-L25).
 
-1. Em Hotel.Methods.cs, copie as [linhas 1 a 66](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/Quickstart/AzureSearchQuickstart/Hotel.Methods.cs/#L1-L66).
-
+1. Em Hotel.Methods.cs, copie as [linhas 1 a 68](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/Quickstart/AzureSearchQuickstart/Hotel.Methods.cs/#L1-L68).
 
 ## <a name="1---create-index"></a>1 – Criar o índice
 
@@ -271,7 +274,7 @@ O índice de hotéis consiste em campos simples e complexos, em que um campo sim
             // The fields of the index are defined by calling the FieldBuilder.BuildForType() method.
             private static void CreateIndex(string indexName, SearchServiceClient serviceClient)
             {
-                var definition = new Index()
+                var definition = new Microsoft.Azure.Search.Models.Index()
                 {
                     Name = indexName,
                     Fields = FieldBuilder.BuildForType<Hotel>()

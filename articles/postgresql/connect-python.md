@@ -4,16 +4,16 @@ description: Este início rápido fornece exemplos de código do Python que voc�
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, tracking-python
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/07/2019
-ms.openlocfilehash: 3694c0b74393068538a0c8f496444a1541d88fee
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 174c11ba65ccba6389bf3e62d233b1ee56943b97
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76769053"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560931"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Início Rápido: Usar o Python para se conectar e consultar dados no Banco de Dados do Azure para PostgreSQL – servidor único
 
@@ -38,7 +38,7 @@ Para instalar `psycopg2`, abra um terminal ou um prompt de comando e execute o c
 A conexão com um Banco de Dados do Azure para PostgreSQL requer o nome do servidor totalmente qualificado e as credenciais de logon. Você pode obter essas informações no portal do Azure.
 
 1. No [portal do Azure](https://portal.azure.com/), procure e selecione o nome do servidor do Banco de Dados do Azure para PostgreSQL. 
-1. Na página **Visão Geral** do servidor, copie o **Nome do servidor** totalmente qualificado e o **Nome de usuário do administrador**. O **Nome do servidor** totalmente qualificado está sempre no formato *\<my-server-name>.postgres.database.azure.com* e o **Nome de usuário do administrador** está sempre no formato *\<my-admin-username>@\<my-server-name>* . 
+1. Na página **Visão Geral** do servidor, copie o **Nome do servidor** totalmente qualificado e o **Nome de usuário do administrador**. O **Nome do servidor** totalmente qualificado sempre está no formato *\<my-server-name>.postgres.database.azure.com* e **Nome do usuário administrador** sempre está no formato *\<my-admin-username>@\<my-server-name>* . 
    
    Você também precisa da sua senha de administrador. Se a esquecer, será possível redefini-la nessa página. 
    

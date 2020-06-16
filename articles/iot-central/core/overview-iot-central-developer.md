@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: d29420d14a716e5a45e42dd681faa01f518f713a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: aa442e15dbc95709ecf3c818f69301d2f02e9b5b
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83665787"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417014"
 ---
 # <a name="iot-central-device-development-overview"></a>Visão geral do desenvolvimento de dispositivos para o IoT Central
 
@@ -85,7 +85,9 @@ Use um dos [SDKs do dispositivo IoT do Azure](#languages-and-sdks) para implemen
 - Sincronizar valores de propriedade entre o dispositivo e o IoT Central. O modelo de dispositivo especifica os nomes de propriedade e os tipos de dados para que o IoT Central possa exibir as informações.
 - Implementar manipuladores de comandos para os comandos especificados no modelo de dispositivo. O modelo de dispositivo especifica os nomes de comando e parâmetros que o dispositivo deve usar.
 
-Para obter mais informações, confira [Criar e conectar um aplicativo cliente Node.js](./tutorial-connect-device-nodejs.md) ou [Criar e conectar um aplicativo cliente Python](./tutorial-connect-device-python.md).
+Para obter mais informações sobre a função de modelos de dispositivo, confira [O que são modelos de dispositivo?](./concepts-device-templates.md).
+
+Para algum código de exemplo, confira [Criar e conectar um aplicativo cliente Node.js](./tutorial-connect-device-nodejs.md) ou [Criar e conectar um aplicativo cliente Python](./tutorial-connect-device-python.md).
 
 ### <a name="languages-and-sdks"></a>Linguagens e SDKs
 

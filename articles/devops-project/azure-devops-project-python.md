@@ -1,6 +1,6 @@
 ---
-title: 'Início rápido: criar um pipeline de CI/CD para Python com o iniciador DevOps do Azure'
-description: O DevOps Starter facilita a introdução ao Azure. Ele ajuda você a iniciar um aplicativo em um serviço do Azure de sua escolha em algumas etapas rápidas.
+title: 'Início Rápido: Criar um pipeline de CI/CD para Python com o Azure DevOps Starter'
+description: O DevOps Starter facilita o uso inicial do Azure. Ele ajuda você a iniciar um aplicativo em um serviço do Azure de sua escolha em algumas etapas rápidas.
 ms.prod: devops
 ms.technology: devops-cicd
 services: vsts
@@ -12,32 +12,32 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
-ms.custom: mvc
-ms.openlocfilehash: 5bd16b256076886232062be9786914e55db0185f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.custom: mvc, tracking-python
+ms.openlocfilehash: e148d50af39e69750c3024d98abc833e40654705
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82233748"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558734"
 ---
-# <a name="create-a-cicd-pipeline-for-python-with-azure-devops-starter"></a>Criar um pipeline de CI/CD para Python com o iniciador DevOps do Azure
+# <a name="create-a-cicd-pipeline-for-python-with-azure-devops-starter"></a>Criar um pipeline de CI/CD para Python com o Azure DevOps Starter
 
-Neste guia de início rápido, você usa a experiência do iniciante do Azure DevOps simplificada para configurar um pipeline de CI (integração contínua) e um CD (entrega contínua) para seu aplicativo Python no Azure Pipelines. Você pode usar o Azure DevOps Starter para configurar tudo o que precisa para desenvolver, implantar e monitorar seu aplicativo. 
+Neste início rápido, você usará a experiência simplificada do Azure DevOps Starter para configurar um pipeline de CI (integração contínua) e CD (entrega contínua) para o seu aplicativo Python no Azure Pipelines. Use o Azure DevOps Starter para configurar tudo o que você precisa para desenvolver, implantar e monitorar seu aplicativo. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
 - Uma conta e uma organização do [Azure DevOps](https://azure.microsoft.com/services/devops/).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-O iniciador DevOps cria um pipeline de CI/CD no Azure Pipelines. É possível criar uma nova organização do Azure DevOps ou usar uma existente. O iniciador DevOps também cria recursos do Azure na assinatura do Azure de sua escolha.
+O DevOps Starter cria um pipeline de CI/CD no Azure Pipelines. É possível criar uma nova organização do Azure DevOps ou usar uma existente. O DevOps Starter também cria recursos do Azure na assinatura do Azure de sua escolha.
 
 1. Entre no [portal do Azure](https://portal.azure.com). 
 
-1. Na caixa de pesquisa, digite **DevOps Starter**e, em seguida, selecione. Clique em **Adicionar** para criar um novo.
+1. Na caixa de pesquisa, digite **DevOps Starter** e selecione. Clique em **Adicionar** para criar um.
 
-    ![O painel inicial do DevOps](_img/azure-devops-starter-aks/search-devops-starter.png) 
+    ![O painel do DevOps Starter](_img/azure-devops-starter-aks/search-devops-starter.png) 
 
 ## <a name="select-a-sample-application-and-azure-service"></a>Selecionar um aplicativo de exemplo e o serviço do Azure
 
@@ -55,7 +55,7 @@ O iniciador DevOps cria um pipeline de CI/CD no Azure Pipelines. É possível cr
 
     1. Selecione a assinatura e o local do Azure, insira um nome para o aplicativo e selecione **Concluído**.  
     
-     Após alguns minutos, o painel inicial é exibido na portal do Azure. Um aplicativo de exemplo é configurado em um repositório em sua organização do Azure DevOps, é executado um build, e seu aplicativo é implantado no Azure. Esse painel oferece visibilidade no seu repositório de código, pipeline de CI/CD e aplicativo no Azure.  
+     Após alguns minutos, o painel do Starter é exibido no portal do Azure. Um aplicativo de exemplo é configurado em um repositório em sua organização do Azure DevOps, é executado um build, e seu aplicativo é implantado no Azure. Esse painel oferece visibilidade no seu repositório de código, pipeline de CI/CD e aplicativo no Azure.  
     
 2. Selecione **Procurar** para exibir o aplicativo em execução.
 
@@ -65,9 +65,9 @@ O iniciador DevOps cria um pipeline de CI/CD no Azure Pipelines. É possível cr
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Confirmar as alterações de código e executar CI/CD
 
-O iniciador DevOps cria um repositório git no Azure Repos ou no GitHub. Para exibir o repositório e fazer alterações de código no seu aplicativo, faça o seguinte: 
+O DevOps Starter cria um repositório Git no Azure Repos ou no GitHub. Para exibir o repositório e fazer alterações de código no seu aplicativo, faça o seguinte: 
 
-1. No lado esquerdo do painel de início do DevOps, selecione o link para sua ramificação mestre. Esse link abre uma exibição do repositório de Git recém-criado.
+1. No lado esquerdo do painel do DevOps Starter, selecione o link para seu branch mestre. Esse link abre uma exibição do repositório de Git recém-criado.
 
 1. Para exibir a URL de clone do repositório, selecione **Clone** na parte superior direita do navegador. Você pode clonar seu repositório Git no seu IDE favorito. Nas próximas etapas, você pode usar o navegador da Web para criar e confirmar as alterações de código diretamente no branch mestre.
 
@@ -77,15 +77,15 @@ O iniciador DevOps cria um repositório git no Azure Repos ou no GitHub. Para ex
 
 1. Selecione **Confirmar**, depois salve as alterações.
 
-1. No navegador, vá para o painel inicial do DevOps. Agora você deve ver uma compilação em andamento. As alterações que você acabou de criar são compiladas e implantadas automaticamente por meio de um pipeline de CI/CD.
+1. No navegador, acesse o painel do DevOps Starter. Agora você deve ver uma compilação em andamento. As alterações que você acabou de criar são compiladas e implantadas automaticamente por meio de um pipeline de CI/CD.
 
 ## <a name="examine-the-cicd-pipeline"></a>Examinar o pipeline de CI/CD
 
-Na etapa anterior, o iniciador DevOps configurou automaticamente um pipeline de CI/CD completo. Explore e personalize o pipeline conforme necessário. Para se familiarizar com os pipelines de build e de lançamento, faça o seguinte:
+Na etapa anterior, o DevOps Starter configurou automaticamente um pipeline de CI/CD completo. Explore e personalize o pipeline conforme necessário. Para se familiarizar com os pipelines de build e de lançamento, faça o seguinte:
 
-1. Na parte superior do painel inicial do DevOps, selecione **criar pipelines**. Uma guia do navegador exibe o pipeline de build do seu novo projeto.
+1. Na parte superior do painel do DevOps Starter, selecione **Pipelines de Build**. Uma guia do navegador exibe o pipeline de build do seu novo projeto.
 
-1. Aponte para o campo **status** e, em seguida, selecione as **reticências** (...). Um menu exibe várias opções, como enfileirar uma nova compilação, pausar uma compilação e editar o pipeline de compilação.
+1. Aponte para o campo **Status**, depois selecione as **reticências** (...). Um menu exibe várias opções, como o enfileiramento de um novo build, pausando um build e editando o pipeline de build.
 
 1. Selecione **Editar**.
 
@@ -93,11 +93,11 @@ Na etapa anterior, o iniciador DevOps configurou automaticamente um pipeline de 
 
 1. Na parte superior do pipeline de build, selecione o nome desse pipeline.
 
-1. Altere o nome do pipeline de compilação para algo mais descritivo, selecione **salvar & fila**e, em seguida, selecione **salvar**.
+1. Altere o nome do pipeline de build para algo mais descritivo, selecione **Salvar e enfileirar** e selecione **Salvar**.
 
 1. Embaixo do nome do pipeline de build, selecione **Histórico**. Você verá uma trilha de auditoria das alterações recentes do build. O Azure DevOps controla quaisquer alterações feitas no pipeline de build e permite que você compare versões.
 
-1. Selecione **Gatilhos**. O DevOps Starter cria automaticamente um gatilho de CI e todas as confirmações para o repositório iniciam uma nova compilação. Você pode optar por incluir ou excluir os branches do processo de CI.
+1. Selecione **Gatilhos**. O DevOps Starter cria automaticamente um gatilho de CI e cada confirmação no repositório inicia um novo build. Você pode optar por incluir ou excluir os branches do processo de CI.
 
 1. Selecione **Retenção**. Dependendo do seu cenário, você pode especificar políticas para manter ou remover um determinado número de compilações.
 
@@ -118,11 +118,11 @@ Na etapa anterior, o iniciador DevOps configurou automaticamente um pipeline de 
 
 1. Selecione **Confirmações**. Essa exibição mostra as confirmações de código associadas à implantação específica. 
 
-1. Selecione **logs**. Os logs contêm informações úteis sobre o processo de implantação. É possível exibi-los durante e após as implantações.
+1. Selecione **Logs**. Os logs contêm informações úteis sobre o processo de implantação. É possível exibi-los durante e após as implantações.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-É possível excluir o Serviço de Aplicativo do Azure e recursos relacionados quando você não precisa mais deles. Use a funcionalidade **excluir** no painel inicial do DevOps.
+É possível excluir o Serviço de Aplicativo do Azure e recursos relacionados quando você não precisa mais deles. Use a funcionalidade **Excluir** no painel do DevOps Starter.
 
 ## <a name="next-steps"></a>Próximas etapas
 

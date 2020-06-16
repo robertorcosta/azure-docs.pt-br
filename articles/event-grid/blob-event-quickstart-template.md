@@ -5,16 +5,16 @@ services: event-grid
 keywords: ''
 author: spelluru
 ms.author: spelluru
-ms.date: 02/27/2020
+ms.date: 06/03/2020
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: subject-armqs
-ms.openlocfilehash: 86dc7a4ed05ceae5c7a641ffef23bd75ec48ceea
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 0cf880411a5c2a8eefd592a01de40b5098f31cda
+ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81605536"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84424118"
 ---
 # <a name="route-blob-storage-events-to-web-endpoint-by-using-azure-resource-manager-template"></a>Rotear os eventos do Armazenamento de Blobs para o ponto de extremidade da Web usando um modelo do Azure Resource Manager
 
@@ -50,7 +50,8 @@ O modelo usado neste início rápido é proveniente dos [modelos de Início Ráp
 Há dois recursos do Azure definidos no modelo:
 
 * [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageaccounts): crie uma conta de armazenamento do Azure.
-* [ **"Microsoft.Storage/storageAccounts/providers/eventSubscriptions**](/azure/templates/microsoft.eventgrid/eventsubscriptions): crie uma assinatura da Grade de Eventos do Azure para a conta de armazenamento.
+* [**Microsoft. EventGrid/systemTopics**](/azure/templates/microsoft.eventgrid/systemtopics): crie um tópico do sistema com o nome especificado para a conta de armazenamento. 
+* [**Microsoft.EventGrid/systemTopics/eventSubscriptions**](/azure/templates/microsoft.eventgrid/systemtopics/eventsubscriptions): crie uma assinatura da Grade de Eventos do Azure para o tópico do sistema.
 
 ### <a name="deploy-the-template"></a>Implantar o modelo
 

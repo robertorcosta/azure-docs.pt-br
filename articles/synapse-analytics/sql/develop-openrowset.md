@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3861b981a1083b44e9cc522a01c50cf24f281e91
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 9c2a2d7059e24b37b0f47d0b568a3929f296d8c6
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83702037"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560865"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Como usar OPENROWSET com o SQL sob demanda (versão prévia)
 
@@ -107,19 +107,19 @@ Você tem duas opções para arquivos de entrada que contêm os dados de destino
 **'unstructured_data_path'**
 
 O unstructured_data_path que estabelece um caminho para os dados pode ser um caminho absoluto ou relativo:
-- O caminho absoluto no formato '\<prefixo>://\<caminho_da_conta_de_armazenamento>/\<caminho_de_armazenamento>' permite que um usuário leia diretamente os arquivos.
+- O caminho absoluto no formato '\<prefix>://\<storage_account_path>/\<storage_path>' permite que um usuário leia os arquivos diretamente.
 - Caminho relativo no formato '<caminho_de_armazenamento>' que deve ser usado com o parâmetro `DATA_SOURCE` e descreve o padrão de arquivo dentro do local <caminho_da_conta_de_armazenamento> definido no `EXTERNAL DATA SOURCE`. 
 
  Abaixo você encontrará os valores <storage account path> relevantes que serão vinculados à fonte de dados externa específica. 
 
 | Fonte de dados externa       | Prefixo | Caminho da conta de armazenamento                                 |
 | -------------------------- | ------ | ---------------------------------------------------- |
-| Armazenamento do Blobs do Azure         | HTTPS  | \<conta_de_armazenamento>.blob.core.windows.net             |
-| Azure Data Lake Storage Gen1 | HTTPS  | \<conta_de_armazenamento>.azuredatalakestore.net/webhdfs/v1 |
-| Azure Data Lake Storage Gen2 | HTTPS  | \<conta_de_armazenamento>.dfs.core.windows.net              |
+| Armazenamento do Blobs do Azure         | HTTPS  | \<storage_account>.blob.core.windows.net             |
+| Azure Data Lake Storage Gen1 | HTTPS  | \<storage_account>.azuredatalakestore.net/webhdfs/v1 |
+| Azure Data Lake Storage Gen2 | HTTPS  | \<storage_account>.dfs.core.windows.net              |
 ||||
 
-'\<caminho_de_armazenamento>'
+'\<storage_path>'
 
  Especifica um caminho no armazenamento que aponta para a pasta ou o arquivo que você deseja ler. Se o caminho apontar para um contêiner ou uma pasta, todos os arquivos serão lidos nessa pasta ou nesse contêiner específico. Os arquivos nas subpastas não serão incluídos. 
 

@@ -7,13 +7,13 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: patricka
-ms.date: 04/22/2020
-ms.openlocfilehash: 1e0e4018c79c231c69f29b2272420344198af413
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.date: 06/04/2020
+ms.openlocfilehash: 5524a8920ef49603ab9aa143ae4094cdaad9d340
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310352"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84456514"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-member-using-an-azure-resource-manager-template"></a>Início Rápido: Criar um membro do Azure Blockchain Service usando um modelo Azure Resource Manager
 
@@ -61,6 +61,12 @@ Os recursos do Azure definidos no modelo:
 1. Selecione **Comprar** para implantar o modelo.
 
   O portal do Azure é usado para implantar o modelo. Use também o Azure PowerShell, a CLI do Azure e a API REST. Para saber mais sobre outros métodos de implantação, confira [Implantar modelos](../../azure-resource-manager/templates/deploy-powershell.md).
+
+## <a name="review-deployed-resources"></a>Examinar os recursos implantados
+
+Você pode usar o portal do Azure para exibir detalhes do membro do Azure Blockchain Service implantado. No portal, vá para o grupo de recursos que contém o membro do Azure Blockchain Service. Selecione o membro do blockchain que você criou.
+
+![Detalhes da visão geral do Membro do Azure Blockchain implantado no portal do Azure](./media/create-member-template/deployed-member.png)
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

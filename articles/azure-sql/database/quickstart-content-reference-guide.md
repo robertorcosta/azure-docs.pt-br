@@ -1,6 +1,6 @@
 ---
 title: Referência de conteúdo do início rápido do banco de dados individual
-description: Encontre uma referência de conteúdo de todos os guias de início rápido que vão ajudar você a começar a usar rapidamente bancos de dados individuais no Banco de Dados SQL do Azure
+description: Encontre uma referência de conteúdo de todos os guias de início rápido que vão ajudar você a começar a usar rapidamente bancos de dados individuais no Banco de Dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -11,21 +11,21 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 07/29/2019
-ms.openlocfilehash: c4a699a6b531feee98f9c6f83ba19cfef9d27620
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 3265b1f8234e1f2a2f19fb488d5c311e501c770e
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84052898"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84338237"
 ---
 # <a name="getting-started-with-single-databases-in-azure-sql-database"></a>Introdução aos bancos de dados individuais no Banco de Dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-[Um banco de dados individual](../index.yml) é um DBaaS (banco de dados como serviço) de PaaS totalmente gerenciado que é o mecanismo de armazenamento ideal para aplicativos modernos criados na nuvem. Nesta seção, você aprenderá a configurar e criar rapidamente um banco de dados individual no Banco de Dados SQL do Azure.
+[Um banco de dados individual](../index.yml) é um DbaaS (banco de dados como serviço) de PaaS (plataforma como serviço) totalmente gerenciado que é o mecanismo de armazenamento ideal para aplicativos modernos criados na nuvem. Nesta seção, você aprenderá a configurar e criar rapidamente um banco de dados individual no Banco de Dados SQL do Azure.
 
 ## <a name="quickstart-overview"></a>Visão geral do início rápido
 
-Nesta seção, você terá uma visão geral dos artigos disponíveis que podem ajudá-lo a se familiarizar rapidamente com os bancos de dados individuais. Os seguintes guias de início rápido permitem criar rapidamente um banco de dados individual, configurar uma regra de firewall no nível do servidor e importar um banco de dados para o novo banco de dados individual usando um arquivo `.bacpac`:
+Nesta seção, haverá uma visão geral dos artigos disponíveis que podem ajudar você a se familiarizar rapidamente com os bancos de dados individuais. Os seguintes guias de início rápido permitem criar rapidamente um banco de dados individual, configurar uma regra de firewall no nível do servidor e importar um banco de dados para o novo banco de dados individual usando um arquivo `.bacpac`:
 
 - [Criar um banco de dados individual usando o portal do Azure](single-database-create-quickstart.md).
 - Após a criação do banco de dados, você precisará [proteger seu banco de dados configurando regras de firewall](firewall-create-server-level-portal-quickstart.md).
@@ -48,8 +48,8 @@ Esses Guias de Início Rápido permitem criar ou importar rapidamente seu banco 
 Os módulos do Microsoft Learn a seguir ajudam você a aprender gratuitamente sobre o Banco de Dados SQL do Azure.
 
 - [Provisionar um banco de dados no Banco de Dados SQL para armazenar dados de aplicativo](https://docs.microsoft.com/learn/modules/provision-azure-sql-db/)
-- [Desenvolver e configurar um aplicativo ASP.NET que consulta um Banco de Dados SQL do Azure](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)
-- [Proteger o Banco de Dados SQL do Azure](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/)
+- [Desenvolver e configurar um aplicativo ASP.NET que consulta um banco de dados no Banco de Dados SQL do Azure](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)
+- [Proteger seu banco de dados no Banco de Dados SQL do Azure](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/)
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -58,4 +58,4 @@ Os módulos do Microsoft Learn a seguir ajudam você a aprender gratuitamente so
 - Encontre instruções mais avançadas em [Como usar um banco de dados individual no Banco de Dados SQL do Azure](how-to-content-reference-guide.md).
 - Encontre mais exemplos de scripts escritos no [PowerShell](powershell-script-content-guide.md) e na [CLI do Azure](az-cli-script-samples-content-guide.md).
 - Saiba mais sobre a [API de Gerenciamento](single-database-manage.md) que pode ser usada para configurar os bancos de dados.
-- [Identificar o Banco de Dados SQL do Azure ou o SKU da Instância Gerenciada de SQL correto para o seu banco de dados local](/sql/dma/dma-sku-recommend-sql-db/).
+- [Identificar o Banco de Dados SQL do Azure ou o SKU da Instância Gerenciada de SQL do Azure correto para o seu banco de dados local](/sql/dma/dma-sku-recommend-sql-db/).

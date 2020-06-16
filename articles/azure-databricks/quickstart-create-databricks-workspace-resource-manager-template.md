@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs
 ms.date: 05/27/2020
-ms.openlocfilehash: 8435704963e832020ecff27a11d00793ad28890c
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: c8503aee5cefbe197fd63cd6406006a1cdf8afa9
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171031"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84463137"
 ---
 # <a name="quickstart-create-an-azure-databricks-workspace-by-using-the-azure-resource-manager-template"></a>Início Rápido: Criar um workspace do Azure Databricks usando um modelo do Azure Resource Manager
 
@@ -33,13 +33,13 @@ Para concluir este artigo, você precisará:
 
 ### <a name="review-the-template"></a>Examinar o modelo
 
-O modelo usado neste início rápido é proveniente dos [modelos de Início Rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-databricks-workspace).
+O modelo usado neste início rápido é proveniente dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-databricks-workspace/).
 
-:::code language="json" source="~/quickstart-templates/101-databricks-workspace/azuredeploy.json" range="1-53":::
+:::code language="json" source="~/quickstart-templates/101-databricks-workspace/azuredeploy.json" range="1-53" highlight="33-46":::
 
-O recurso do Azure definido no modelo é Microsoft.Databricks/workspaces: crie um workspace do Azure Databricks. 
+O recurso do Azure definido no modelo é [Microsoft.Databricks/workspaces](/azure/templates/microsoft.databricks/workspaces): crie um workspace do Azure Databricks.
 
-## <a name="deploy-the-template"></a>Implantar o modelo
+### <a name="deploy-the-template"></a>Implantar o modelo
 
 Nesta seção, você criará um workspace do Azure Databricks usando o modelo do Azure Resource Manager.
 

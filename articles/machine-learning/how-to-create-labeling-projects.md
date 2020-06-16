@@ -7,12 +7,12 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 40c31d4dd4a6c675691f75d3717f7865d6b847f7
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 45097b948c76413785ca5ec48c31faa83b3883ee
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171541"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629620"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Criar um projeto de rotulagem de dados e exportar rótulos 
 
@@ -40,7 +40,6 @@ Neste artigo, você aprenderá a:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-
 * Os dados que deseja rotular, em arquivos locais ou no Armazenamento de Blobs do Azure.
 * O conjunto de rótulos que deseja aplicar.
 * As instruções para rotulagem.
@@ -67,6 +66,8 @@ Selecione **Avançar** quando estiver pronto para continuar.
 
 Se já tiver criado um conjunto de dados que contenha seus dados, selecione-o na lista suspensa **Selecionar um conjunto de dados existente**. Ou, então, selecione **Criar um conjunto de dados** para usar um armazenamento de dados do Azure existente ou fazer upload de arquivos locais.
 
+> [!NOTE]
+> Um projeto não pode conter mais que 500.000 imagens.  Se o conjunto de dados tiver mais, somente as primeiras 500.000 imagens serão carregadas.  
 
 ### <a name="create-a-dataset-from-an-azure-datastore"></a>Criar um conjunto de dados de um armazenamento de dados do Azure
 
@@ -85,8 +86,6 @@ Para criar um conjunto de dados com base nos dados que você já armazenou no Ar
 1. Selecione **Avançar**.
 1. Confirme os detalhes. Selecione **Voltar** para modificar as configurações ou **Criar** para criar o conjunto de dados.
 
-> [!NOTE]
-> Os dados escolhidos são carregados no projeto.  A adição de mais dados ao armazenamento de dados não será exibida neste projeto depois que o projeto for criado.  
 
 ### <a name="create-a-dataset-from-uploaded-data"></a>Criar um conjunto de dados com base nos dados carregados
 
@@ -102,6 +101,19 @@ Para fazer upload dos dados diretamente:
 1. Confirme os detalhes. Selecione **Voltar** para modificar as configurações ou **Criar** para criar o conjunto de dados.
 
 Os dados são carregados no armazenamento de blobs padrão ("workspaceblobstore") do Workspace do Machine Learning.
+
+## <a name="configure-incremental-refresh"></a><a name="incremental-refresh"> </a> Configurar a atualização incremental
+
+Se você planeja adicionar novas imagens ao conjunto de dados, use a atualização incremental para adicionar essas novas imagens ao projeto.   Quando a **atualização incremental** está habilitada, o conjunto de dados é verificado periodicamente em busca de novas imagens a serem adicionadas ao projeto, com base na taxa de conclusão de rotulagem.   A verificação de novos dados é interrompida quando o projeto alcança o máximo de 500.000 imagens.
+
+Para adicionar mais imagens ao projeto, use o [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) para carregar na pasta apropriada do armazenamento de blobs. 
+
+Marque a caixa para **Habilitar a atualização incremental** quando quiser que o projeto monitore continuamente a inclusão de novos dados no armazenamento de dados.
+
+Desmarque essa caixa se não quiser que as novas imagens que aparecem no armazenamento de dados sejam adicionadas ao projeto.
+
+Você pode encontrar o carimbo de data/hora da atualização mais recente na seção de **Atualização incremental** da guia **Detalhes** do projeto.
+
 
 ## <a name="specify-label-classes"></a>Especificar classes de rótulo
 
