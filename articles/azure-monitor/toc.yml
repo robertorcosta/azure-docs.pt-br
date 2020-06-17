@@ -197,7 +197,7 @@
             - name: Visão geral
               href: platform/agents-overview.md
             - name: Perguntas frequentes
-              href: 'faq.md#agents'
+              href: faq.md#agents
             - name: Extensão de Diagnóstico do Azure
               items:
                 - name: Visão geral
@@ -905,7 +905,7 @@
         - name: Perguntas frequentes sobre disponibilidade geral
           href: insights/vminsights-ga-release-faq.md
         - name: Perguntas frequentes
-          href: 'faq.md#azure-monitor-for-vms'
+          href: faq.md#azure-monitor-for-vms
         - name: Habilitar o monitoramento
           items:
             - name: Habilitar a visão geral de monitoramento
@@ -937,7 +937,7 @@
         - name: Visão geral
           href: insights/container-insights-overview.md
         - name: Perguntas frequentes
-          href: 'faq.md#azure-monitor-for-containers'
+          href: faq.md#azure-monitor-for-containers
         - name: Habilitar o monitoramento
           items:
             - name: Habilitar a visão geral de monitoramento
@@ -952,6 +952,8 @@
               href: insights/container-insights-azure-redhat-setup.md
             - name: Habilitar para o Red Hat OpenShift no Azure v4
               href: insights/container-insights-azure-redhat4-setup.md
+            - name: Habilitar para cluster habilitado para Arc
+              href: insights/container-insights-enable-arc-enabled-clusters.md
             - name: Mapeamentos de região
               href: insights/container-insights-region-mapping.md
         - name: Monitorar desempenho

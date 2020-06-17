@@ -1,9 +1,9 @@
 ### YamlMime:Landing
-title: Documentação do Azure DevTest Labs
-summary: Saiba como usar o Azure DevTest Labs para configurar rapidamente um laboratório de desenvolvimento, de teste, de hackathon ou de sala de aula na nuvem para sua equipe ou seus alunos.
+title: Documentação do Azure Lab Services
+summary: Saiba como usar o Azure Lab Services para configurar rapidamente um laboratório de desenvolvimento, de teste, de hackathon ou de sala de aula na nuvem para sua equipe ou seus alunos.
 metadata:
-  title: Documentação do Azure DevTest Labs
-  description: Saiba como usar o Azure DevTest Labs para configurar rapidamente um laboratório de desenvolvimento, de teste, de hackathon ou de sala de aula na nuvem para sua equipe ou seus alunos.
+  title: Documentação do Azure Lab Services
+  description: Saiba como usar o Azure Lab Services para configurar rapidamente um laboratório de desenvolvimento, de teste, de hackathon ou de sala de aula na nuvem para sua equipe ou seus alunos.
   services: lab-services
   ms.service: lab-services
   ms.subservice: 
@@ -12,78 +12,68 @@ metadata:
   author: spelluru
   ms.author: spelluru
   ms.date: 09/26/2019
-  ms.openlocfilehash: 1cfb86a37068d4cd928081446e6bf9ad381bbd86
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: b5ca864504ccc0110636860c0c5d0cecc13adc50
+  ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "72790959"
+  ms.lasthandoff: 06/17/2020
+  ms.locfileid: "84882838"
 landingContent:
-- title: Introdução
+- title: Visão geral de alto nível
   linkLists:
   - linkListType: overview
     links:
-    - text: Sobre o DevTest Labs
-      url: devtest-lab-overview.md
-    - text: Sobre o DevTest Labs e o Lab Services
-      url: lab-services-overview.md
+    - text: Sobre o Lab Services e o DevTest Labs
+      url: ../devtest-labs/lab-services-overview.md?toc=%2fazure%2fevent-grid%2fclassroom-labs%2ftoc.json
+    - text: Sobre os laboratórios de sala de aula
+      url: classroom-labs-overview.md
   - linkListType: concept
     links:
-    - text: Conceitos dos Laboratórios de Desenvolvimento/Teste
-      url: devtest-lab-concepts.md
-    - text: Cenários populares
-      url: devtest-lab-guidance-get-started.md
+    - text: Conceitos dos laboratórios de sala de aula
+      url: classroom-labs-concepts.md
+- title: Contas de laboratório
+  linkLists:
   - linkListType: tutorial
     links:
-    - text: Configurar um laboratório
-      url: tutorial-create-custom-lab.md
-    - text: Acessar um laboratório
-      url: tutorial-use-custom-lab.md
-- title: Artefatos
-  linkLists:
+    - text: Configurar uma conta de laboratório
+      url: tutorial-setup-lab-account.md
   - linkListType: how-to-guide
     links:
-    - text: Adicionar um artefato a uma VM
-      url: add-artifact-vm.md
-    - text: Criar artefatos personalizados
-      url: devtest-lab-artifact-author.md
-    - text: Especificar artefatos obrigatórios
-      url: devtest-lab-mandatory-artifacts.md
-    - text: Solucionar falhas de artefato
-      url: devtest-lab-troubleshoot-artifact-failure.md
-- title: Ambientes
+    - text: Criar e gerenciar contas de laboratório
+      url: how-to-manage-lab-accounts.md
+    - text: Configurar contas de laboratório
+      url: how-to-configure-lab-accounts.md
+- title: Configurar laboratórios de sala de aula
   linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Configurar um laboratório de sala de aula
+      url: tutorial-setup-classroom-lab.md
   - linkListType: how-to-guide
     links:
-    - text: Configurar e usar ambientes públicos
-      url: devtest-lab-configure-use-public-environments.md
-    - text: Criar um ambiente
-      url: devtest-lab-create-environment-from-arm.md
-    - text: Usar serviços de plataforma como serviço
-      url: use-paas-services.md
-    - text: Conectar-se a uma rede virtual do laboratório
-      url: connect-environment-lab-virtual-network.md
-    - text: Solucionar problemas de falhas de ambiente
-      url: troubleshoot-vm-environment-creation-failures.md
-- title: Explorar nosso conteúdo de referência
+    - text: Criar e gerenciar laboratórios de sala de aula
+      url: how-to-manage-lab-accounts.md
+    - text: Configurar, personalizar e publicar modelos
+      url: how-to-create-manage-template.md
+    - text: Configurar e gerenciar o pool de máquinas virtuais
+      url: how-to-set-virtual-machine-passwords.md
+    - text: Adicionar e gerenciar os usuários do laboratório
+      url: how-to-configure-student-usage.md
+    - text: Criar e gerenciar agendas
+      url: how-to-create-schedules.md
+- title: Usar laboratórios de sala de aula
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Acessar um laboratório de sala de aula
+      url: tutorial-connect-virtual-machine-classroom-lab.md
+  - linkListType: how-to-guide
+    links:
+    - text: Usar a conexão de área de trabalho remota para VMs do Linux
+      url: how-to-use-remote-desktop-linux-student.md
+- title: Explorar o conteúdo de referência
   linkLists:
   - linkListType: reference
     links:
-    - text: CLI do Azure
-      url: /cli/azure/lab
-    - text: PowerShell
-      url: /powershell/module/az.devtestlabs/#devtest_labs
     - text: REST
-      url: /rest/api/dtl
-- title: Modelos
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: Imagem personalizada vs. Fórmula
-      url: devtest-lab-comparing-vm-base-image-types.md
-  - linkListType: how-to-guide
-    links:
-    - text: Criar uma imagem personalizada de uma VM
-      url: devtest-lab-create-custom-image-from-vm-using-portal.md
-    - text: Gerenciar fórmulas
-      url: devtest-lab-manage-formulas.md
+      url: /rest/api/labservices/

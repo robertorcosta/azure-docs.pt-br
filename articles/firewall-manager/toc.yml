@@ -24,7 +24,7 @@
       href: secured-virtual-hub.md
     - name: Processo de implantação geral
       href: deployment-overview.md
-    - name: Parceiros de segurança confiáveis
+    - name: Provedores de parceiro de segurança
       href: trusted-security-partners.md
     - name: Lógica de processamento da regra
       href: rule-processing.md
@@ -32,7 +32,7 @@
       href: vhubs-and-vnets.md
 - name: Guias de instruções
   items:
-    - name: Implantar parceiros de segurança confiáveis
+    - name: Implantar provedores de parceiro de segurança
       href: deploy-trusted-security-partner.md
     - name: Migrar para a política de firewall – PowerShell
       href: migrate-to-policy.md

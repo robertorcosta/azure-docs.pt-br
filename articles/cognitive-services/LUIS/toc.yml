@@ -52,7 +52,7 @@
           href: luis-tutorial-pattern.md
     - name: Usar com o bot
       items:
-        - name: 'Com C#'
+        - name: Com C#
           href: luis-csharp-tutorial-bf-v4.md
           displayName: 'bot framework, framework, sdk, abs'
         - name: Com Node.js
@@ -125,6 +125,14 @@
         - name: Estratégias de design
           href: luis-concept-enterprise.md
           displayName: import
+    - name: Aplicar práticas de DevOps com LUIS
+      items:
+        - name: Controle do código-fonte e estratégias de branch do LUIS
+          href: luis-concept-devops-sourcecontrol.md
+        - name: Testar para DevOps
+          href: luis-concept-devops-testing.md
+        - name: Fluxos de trabalho de CI/CD
+          href: luis-concept-devops-automation.md
 - name: Guias de instruções
   items:
     - name: Iniciar um novo aplicativo
@@ -238,11 +246,13 @@
         - name: Limitações do contêiner
           href: luis-container-limitations.md
           displayName: 'phrase list recommendations, multi-language, translator, locale, language, English, Chinese, French, German, Italian, Korean, Portuguese, Spanish, Turkish, Keigo, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens'
+    - name: Usar DevOps
+      href: luis-how-to-devops-with-github.md
     - name: Serviços relacionados
       items:
         - name: Serviço de Bot do Azure
           href: 'https://dev.botframework.com/'
-        - name: 'C# do SDK 4x do construtor de bot'
+        - name: C# do SDK 4x do construtor de bot
           href: 'https://github.com/Microsoft/botbuilder-dotnet'
         - name: QnA Maker
           href: 'https://qnamaker.ai/'
@@ -284,7 +294,7 @@
               href: luis-reference-response-codes.md
         - name: SDKs
           items:
-            - name: 'C#'
+            - name: C#
               items:
                 - name: NuGet – criação
                   href: 'https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/'
