@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/30/2020
 ms.author: aahi
-ms.openlocfilehash: 04fb080d09b1945add7340db081ab49dd017731d
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 637c2bb1bc37d26dcdf1a169b2f5d20766d0a27f
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84637442"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84902515"
 ---
 > [!NOTE]
 > Para detectar `PHI` , use o `domain=phi` parâmetro e a versão do modelo `2020-04-01` ou posterior.
@@ -22,7 +22,7 @@ ms.locfileid: "84637442"
  
 As categorias de entidade a seguir são retornadas ao enviar solicitações para o `/v3.1-preview.1/entities/recognition/pii` ponto de extremidade.
 
-| Categoria   | Subcategoria | Descrição                          | Iniciando versão do modelo | Anotações |
+| Categoria   | Subcategoria | Descrição                          | Iniciando versão do modelo | Observações |
 |------------|-------------|--------------------------------------|------------------------|---|
 | Person     | N/D         | Nomes de pessoas.  | `2019-10-01`  | Também retornado com `domain=phi` . |
 | Persontype | N/D         | Tipos de trabalho ou funções mantidas por uma pessoa. | `2020-02-01` | |
@@ -40,7 +40,7 @@ As categorias de entidade a seguir são retornadas ao enviar solicitações para
 | Datetime | Data | Datas do calendário. | `2019-10-01` | Também retornado com `domain=phi` . |
 | Quantidade | N/D | Números e quantidades numéricas. | `2019-10-01` |  |
 | Quantidade | Idade | Paralisa. | `2019-10-01` | | |
-| Classificação internacional de doenças (ICD-10-CM) | N/D | Entidades relacionadas à classificação internacional de doenças, nono revisão.   | `2020-04-01` | |
+| Classificação internacional de doenças (ICD-9-CM) | N/D | Entidades relacionadas à classificação internacional de doenças, nono revisão.   | `2020-04-01` | |
 | Classificação internacional de doenças (ICD-10-CM) | N/D | Entidades relacionadas à classificação internacional de doenças, décimo revisão.    | `2020-04-01` | |
 
 ## <a name="azure-information"></a>Informações do Azure

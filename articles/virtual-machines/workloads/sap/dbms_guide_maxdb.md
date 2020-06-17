@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 90de49ae3137735683bae6a18b5f7c8951b021ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5a7343bcf6ba4388beda118b242fa47d13baaa89
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75645864"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022583"
 ---
 # <a name="sap-maxdb-livecache-and-content-server-deployment-on-azure-vms"></a>SAP MaxDB, liveCache e implantação do Servidor de Conteúdo nas VMs do Azure
 
@@ -281,9 +281,9 @@ ms.locfileid: "75645864"
 [virtual-machines-sizes-windows]:../../windows/sizes.md
 [virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
 [virtual-machines-windows-classic-ps-sql-int-listener]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener.md
-[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:./../../windows/sql/virtual-machines-windows-sql-high-availability-dr.md
-[virtual-machines-sql-server-infrastructure-services]:./../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md
-[virtual-machines-sql-server-performance-best-practices]:./../../windows/sql/virtual-machines-windows-sql-performance.md
+[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:../../../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
+[virtual-machines-sql-server-infrastructure-services]:../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
+[virtual-machines-sql-server-performance-best-practices]:../../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md
 [virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/resources/templates/sql-server-2014-alwayson-existing-vnet-and-ad/
@@ -338,7 +338,7 @@ As práticas recomendadas de armazenamento do Azure para SAP MaxDB seguem as rec
 
 Em resumo, você precisa:
 
-* Se você usar contas do Armazenamento do Azure, defina a conta de armazenamento do Azure que contém os volumes de log e dados do SAP MaxDB (arquivos de log e dados) como **LRS (Armazenamento Local Redundante)**, conforme especificado em [Considerações para Máquinas Virtuais do Azure para implementação DBMS para carga de trabalho do SAP](dbms_guide_general.md).
+* Se você usar contas do Armazenamento do Azure, defina a conta de armazenamento do Azure que contém os volumes de log e dados do SAP MaxDB (arquivos de log e dados) como **LRS (Armazenamento Local Redundante)** , conforme especificado em [Considerações para Máquinas Virtuais do Azure para implementação DBMS para carga de trabalho do SAP](dbms_guide_general.md).
 * Separe o caminho de E/S para volumes de dados (arquivos de dados) do SAP MaxDB do caminho de E/S para volumes de log (arquivos de logs). Isso significa que os volumes de dados (arquivos de dados) do SAP MaxDB precisam ser instalado em uma unidade lógica e os volumes de log (arquivos de log) do SAP MaxDB precisam ser instalado em outra unidade lógica.
 * Defina o tipo de cache adequado para cada disco, dependendo de se você o usa para volumes de log ou de dados do SAP MaxDB (arquivos de log e dados) e se você usa o Armazenamento Standard ou Premium do Azure, conforme descrito em [Considerações para Máquinas Virtuais do Azure para implementação DBMS para carga de trabalho do SAP](dbms_guide_general.md).
 * Desde que a cota de IOPS por disco atenda aos requisitos, é possível armazenar todos os volumes de dados em um único disco montado e também armazenar todos os volumes de log do banco de dados em outro disco único montado.
@@ -427,7 +427,7 @@ No momento o SAP dá suporte ao:
 
 É altamente recomendável usar a versão mais recente do SAP Content Server, e a versão mais recente do **IIS da Microsoft**. 
 
-Verifique as versões mais recentes com suporte do SAP Content Server e do IIS da Microsoft no [PAM (Matriz de Disponibilidade de Produto) da SAP][sap-pam].
+Verifique as versões mais recentes compatíveis do SAP Content Server e do IIS da Microsoft no [PAM (Matriz de Disponibilidade de Produto) da SAP][sap-pam].
 
 ### <a name="supported-microsoft-windows-and-azure-vm-types-for-sap-content-server"></a>Tipos de VM do Azure e Microsoft Windows com suporte para o SAP Content Server
 Para descobrir a versão com suporte do Windows para o SAP Content Server no Azure, consulte:
@@ -438,7 +438,7 @@ Para descobrir a versão com suporte do Windows para o SAP Content Server no Azu
 É altamente recomendável usar a versão mais recente do Microsoft Windows Server.
 
 ### <a name="sap-content-server-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Diretrizes de configuração do SAP Content Server para instalações do SAP em VMs do Azure
-#### <a name="storage-configuration-for-content-server-in-azure"></a>Configuração de armazenamento para o servidor de conteúdo no Azure
+#### <a name="storage-configuration-for-content-server-in-azure"></a>Configuração de armazenamento para o Content Server no Azure
 Se você configurar o SAP Content Server para armazenar arquivos no banco de dados do SAP MaxDB, todas as práticas recomendadas de armazenamento do Azure mencionadas para o SAP MaxDB neste documento também serão válidas para o cenário do SAP Content Server. 
 
 Se você configurar o SAP Content Server para armazenar arquivos no sistema de arquivos, será recomendável usar uma unidade lógica dedicada. O uso de Espaços de Armazenamento do Windows permite que você também aumente o tamanho do disco lógico e a taxa de transferência de IOPS, conforme descrito em [Considerações para a implantação DBMS de Máquinas Virtuais do Azure para carga de trabalho SAP](dbms_guide_general.md). 

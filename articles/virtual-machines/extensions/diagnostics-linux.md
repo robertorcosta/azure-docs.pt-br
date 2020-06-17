@@ -1,5 +1,5 @@
 ---
-title: Computação do Azure-extensão de diagnóstico do Linux
+title: Computação do Azure – Extensão de Diagnóstico Linux
 description: Como configurar a Extensão de Diagnóstico Linux (LAD) no Azure para coletar métricas e eventos de log de VMs Linux em execução no Azure.
 services: virtual-machines-linux
 author: axayjo
@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: 7a7c1af1193ba391550438229a22c4a8c116e6be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4c34996cb47b1f09f47454f162674248820ce975
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80289168"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118548"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Use a Extensão de Diagnóstico Linux para monitorar as métricas e os logs
 
@@ -49,13 +49,28 @@ Estas instruções de instalação e uma [configuração de amostra para downloa
 
 A configuração para download é apenas um exemplo; modifique-a para atender às suas necessidades.
 
+### <a name="supported-linux-distributions"></a>Distribuições Linux compatíveis
+
+A extensão de diagnóstico do Linux é compatível com as distribuições e versões a seguir. A lista de distribuições e versões aplica-se somente a imagens de fornecedor do Linux endossadas pelo Azure. Imagens BYOL e BYOS de terceiros, como dispositivos, geralmente não são compatíveis com a Extensão de Diagnóstico do Linux.
+
+Uma distribuição que lista somente as versões principais, como Debian 7, também é compatível com todas as versões secundárias. Se uma versão secundária específica for especificada, somente essa versão específica será compatível; se "+" for anexado, as versões secundárias iguais ou posteriores à versão especificada serão compatíveis.
+
+Distribuições e versões compatíveis:
+
+- Ubuntu 18.04, 16.04, 14.04
+- CentOS 7, 6.5+
+- Oracle Linux 7, 6.4+
+- OpenSUSE 13.1+
+- SUSE Linux Enterprise Server 12
+- Debian 9, 8, 7
+- RHEL 7, 6.7+
+
 ### <a name="prerequisites"></a>Pré-requisitos
 
 * **Agente Linux do Azure versão 2.2.0 ou posterior**. A maioria das imagens de galeria da VM Linux do Azure inclui a versão 2.2.7 ou posterior. Execute `/usr/sbin/waagent -version` para confirmar a versão instalada na VM. Se a VM estiver executando uma versão mais antiga do agente convidado, execute [estas instruções](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) para atualizá-la.
 * **CLI do Azure**. [Configurar o ambiente da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) em seu computador.
-* O comando wget, caso ainda não o tenha: execute `sudo apt-get install wget`.
+* O comando wget, caso ainda não o tenha: Execute `sudo apt-get install wget`.
 * Uma assinatura existente do Azure e uma conta de armazenamento existente nela para armazenar os dados.
-* A lista de distribuições Linux com suporte está em https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic#supported-linux-distributions
 
 ### <a name="sample-installation"></a>Instalação de exemplo
 
@@ -89,7 +104,7 @@ my_lad_protected_settings="{'storageAccountName': '$my_diagnostic_storage_accoun
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group $my_resource_group --vm-name $my_linux_vm --protected-settings "${my_lad_protected_settings}" --settings portal_public_settings.json
 ```
 
-A configuração de exemplo baixada nesses exemplos coleta um conjunto de dados padrão e os envia para o armazenamento de tabelas. A URL para a configuração de exemplo e seu conteúdo estão sujeitos a alterações. Na maioria dos casos, você deve baixar uma cópia do arquivo JSON de configurações do portal e personalizá-lo para suas necessidades e, em seguida, ter qualquer modelo ou automação que você construa, use sua própria versão do arquivo de configuração em vez de baixar essa URL a cada vez.
+A configuração de exemplo baixada nesses exemplos coleta um conjunto de dados padrão e os envia para o Armazenamento de Tabelas. A URL para a configuração de exemplo e o respectivo conteúdo estão sujeitos a alterações. Na maioria dos casos, você deve baixar uma cópia do arquivo JSON de configurações do portal e personalizá-lo para suas necessidades e, em seguida, fazer com que qualquer modelo ou automação que você construa use sua versão do arquivo de configuração, em vez de baixar essa URL a cada vez.
 
 #### <a name="powershell-sample"></a>Exemplo do PowerShell
 
@@ -163,7 +178,7 @@ storageAccountSasToken | Um [Token de SAS de conta](https://azure.microsoft.com/
 mdsdHttpProxy | (opcional) As informações de proxy de HTTP necessárias para habilitar a extensão para se conectar ao ponto de extremidade e à conta de armazenamento especificados.
 sinksConfig | (opcional) Detalhes de destinos alternativos para os quais as métricas e os eventos podem ser entregues. Os detalhes específicos de cada coletor de dados compatível com a extensão são abordados nas seções a seguir.
 
-Para obter um token SAS em um modelo do Resource Manager, use a função **listAccountSas** . Para obter um modelo de exemplo, consulte [exemplo de função de lista](../../azure-resource-manager/templates/template-functions-resource.md#list-example).
+Para obter um token SAS dentro de um modelo do Resource Manager, use a função **listAccountSas**. Para obter um modelo de exemplo, confira [Exemplo da função de lista](../../azure-resource-manager/templates/template-functions-resource.md#list-example).
 
 Você pode facilmente construir o token de SAS necessário por meio do Portal do Azure.
 
@@ -198,7 +213,7 @@ Elemento | Valor
 name | Uma cadeia de caracteres usada para se referir a esse coletor em outro lugar na configuração da extensão.
 type | O tipo de coletor que está sendo definido. Determina os outros valores (se houver) em instâncias desse tipo.
 
-A extensão de Diagnóstico do Linux versão 3.0 oferece suporte a dois tipos de coletor: EventHub e JsonBlob.
+A versão 3.0 da Extensão de Diagnóstico do Linux dá suporte a dois tipos de coletores: EventHub e JsonBlob.
 
 #### <a name="the-eventhub-sink"></a>O coletor EventHub
 
@@ -225,7 +240,7 @@ Se você tiver criado uma SAS válida até meia-noite UTC em 1 de janeiro de 201
 https://contosohub.servicebus.windows.net/syslogmsgs?sr=contosohub.servicebus.windows.net%2fsyslogmsgs&sig=xxxxxxxxxxxxxxxxxxxxxxxxx&se=1514764800&skn=writer
 ```
 
-Para obter mais informações sobre como gerar e recuperar informações sobre tokens SAS para hubs de eventos, consulte [esta página da Web](https://docs.microsoft.com/rest/api/eventhub/generate-sas-token#powershell).
+Para saber mais sobre como gerar e recuperar informações sobre tokens SAS para Hubs de Eventos, confira [esta página da Web](https://docs.microsoft.com/rest/api/eventhub/generate-sas-token#powershell).
 
 #### <a name="the-jsonblob-sink"></a>O coletor JsonBlob
 
@@ -339,7 +354,7 @@ Elemento | Valor
 ------- | -----
 coletores | (opcional) Uma lista separada por vírgulas de nomes de coletores para os quais o LAD envia resultados de métricas agregadas. Todas as métricas agregadas são publicadas em cada coletor listado. Veja [sinksConfig](#sinksconfig). Exemplo: `"EHsink1, myjsonsink"`.
 type | Identifica o provedor real da métrica.
-classe | Junto com "counter", identifica a métrica específica dentro do namespace do provedor.
+class | Junto com "counter", identifica a métrica específica dentro do namespace do provedor.
 contador | Junto com "class", identifica a métrica específica dentro do namespace do provedor.
 counterSpecifier | Identifica a métrica específica dentro do namespace de Métricas do Azure.
 condition | (opcional) Seleciona uma instância específica do objeto ao qual a métrica se aplica ou seleciona a agregação em todas as instâncias desse objeto. Para saber mais, confira as definições de métricas `builtin`.
@@ -528,7 +543,7 @@ TransfersPerSecond | Operações de leitura ou gravação por segundo
 
 Os valores agregados em todos os sistemas de arquivo podem ser obtidos pela configuração `"condition": "IsAggregate=True"`. Os valores para um sistema de arquivos montado específico, como "/mnt", podem ser obtidos pela configuração `"condition": 'Name="/mnt"'`. 
 
-**Observação**: se estiver usando o portal do Azure em vez de JSON, o formulário de campo de condição correto será Name = '/mnt '
+**OBSERVAÇÃO**: Se estiver usando o portal do Azure em vez de JSON, o formulário de campo de condição correto será Name='/mnt'
 
 ### <a name="builtin-metrics-for-the-disk-class"></a>métricas internas para a classe Disk
 
@@ -723,7 +738,7 @@ Os dados enviados para coletores JsonBlob são armazenados nos blobs na conta de
 Além disso, você pode usar essas ferramentas de interface do usuário para acessar os dados no Armazenamento do Azure:
 
 * Gerenciador de Servidores do Visual Studio.
-* [Gerenciador de armazenamento do Microsoft Azure](https://azurestorageexplorer.codeplex.com/ "Gerenciador de Armazenamento do Azure").
+* [Gerenciador do Armazenamento do Microsoft Azure](https://azurestorageexplorer.codeplex.com/ "Gerenciador de Armazenamento do Azure").
 
 Esse instantâneo de uma sessão do Gerenciador de Armazenamento do Microsoft Azure mostra as tabelas do Armazenamento do Azure geradas e os contêineres de uma extensão de LAD 3.0 configurada corretamente em uma VM de teste. A imagem não coincide exatamente com a [configuração de amostra do LAD 3.0](#an-example-lad-30-configuration).
 

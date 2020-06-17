@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a23fb981e24f6152d99b76bd72115f8159f5d60f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 15f94e93c270c8d62436b81a7caedbf181c1aeb8
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75645837"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022535"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implantação do DBMS de Máquinas Virtuais do Azure para carga de trabalho do SAP
 
@@ -281,9 +281,9 @@ ms.locfileid: "75645837"
 [virtual-machines-sizes-windows]:../../windows/sizes.md
 [virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
 [virtual-machines-windows-classic-ps-sql-int-listener]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener.md
-[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:./../../windows/sql/virtual-machines-windows-sql-high-availability-dr.md
-[virtual-machines-sql-server-infrastructure-services]:./../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md
-[virtual-machines-sql-server-performance-best-practices]:./../../windows/sql/virtual-machines-windows-sql-performance.md
+[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:../../../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
+[virtual-machines-sql-server-infrastructure-services]:../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
+[virtual-machines-sql-server-performance-best-practices]:../../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md
 [virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/resources/templates/sql-server-2014-alwayson-existing-vnet-and-ad/
@@ -318,15 +318,15 @@ O software Oracle tem suporte pela Oracle para ser executado no Microsoft Azure.
 
 As Notas de SAP a seguir estão relacionadas ao SAP no Azure.
 
-| Número da observação | Título |
+| Número da observação | Title |
 | --- | --- |
 | [1928533] |Aplicativos SAP no Azure: produtos com suporte e tipos de VM do Azure |
-| [2015553] |SAP em Microsoft Azure: pré-requisitos de suporte |
+| [2015553] |SAP no Microsoft Azure: pré-requisitos de suporte |
 | [1999351] |Solução de problemas de monitoramento aprimorado do Azure para SAP |
 | [2178632] |Métricas-chave de monitoramento para SAP no Microsoft Azure |
-| [2191498] |SAP no Linux com o Azure: monitoramento avançado |
-| [2039619] |Aplicativos SAP em Microsoft Azure usando o banco de dados Oracle: produtos e versões com suporte |
-| [2243692] |Linux na VM do Microsoft Azure (IaaS): problemas de licença SAP |
+| [2191498] |SAP no Linux com o Azure: monitoramento aprimorado |
+| [2039619] |Os aplicativos SAP no Microsoft Azure que usam o Oracle Database: produtos e versões com suporte |
+| [2243692] |Linux na VM (IaaS) do Microsoft Azure: Problemas de licença do SAP |
 | [2069760] |Atualização e instalação do SAP do Oracle Linux 7.x |
 | [1597355] |Recomendação de troca de espaço para Linux |
 | [2171857] |Oracle Database 12c – suporte do sistema de arquivos em Linux |
@@ -366,7 +366,7 @@ As unidades de rede ou de compartilhamentos remoto como os serviços de arquivo 
 
 Se você estiver usando discos baseados no armazenamento de blobs de páginas do Azure ou Managed Disks, as declarações nas [Considerações para implantação de DBMS de máquinas virtuais do Azure para a carga de trabalho SAP](dbms_guide_general.md) também se aplicarão a implantações com o Oracle Database.
 
-Existem cotas na taxa de transferência IOPS para discos do Azure. Este conceito é explicado nas [Considerações para implantação de DBMS de máquinas virtuais do Azure para a carga de trabalho SAP](dbms_guide_general.md). As cotas exatas dependem do tipo de VM usado. Uma lista dos tipos de VMs com suas cotas pode ser encontrada em [Tamanhos para máquinas virtuais do Windows no Azure][virtual-machines-sizes-windows].
+Existem cotas na taxa de transferência IOPS para discos do Azure. Este conceito é explicado nas [Considerações para implantação de DBMS de máquinas virtuais do Azure para a carga de trabalho SAP](dbms_guide_general.md). As cotas exatas dependem do tipo de VM usado. Uma lista dos tipos de VMs com suas cotas pode ser encontrada em [Tamanhos das Máquinas Virtuais do Windows no Azure][virtual-machines-sizes-windows].
 
 Para identificar os tipos de VM do Azure com suporte, confira a Nota SAP [1928533].
 
@@ -374,8 +374,8 @@ A configuração mínima é a seguinte:
 
 | Componente | Disco | Cache | Pool de armazenamento |
 | --- | ---| --- | --- |
-| \oracle\<SID>\origlogaA & mirrlogB | Premium | Nenhum | Não é necessário |
-| \oracle\<SID>\origlogaB & mirrlogA | Premium | Nenhum | Não é necessário |
+| \oracle\<SID>\origlogaA e mirrlogB | Premium | Nenhum | Não é necessário |
+| \oracle\<SID>\origlogaB e mirrlogA | Premium | Nenhum | Não é necessário |
 | \oracle\<SID>\sapdata1...n | Premium | Somente leitura | Pode ser usado |
 | \oracle\<SID>\oraarch | Standard | Nenhum | Não é necessário |
 | Oracle Home, saptrace, ... | Disco do sistema operacional | | Não é necessário |
@@ -456,7 +456,7 @@ As unidades de rede ou de compartilhamentos remoto como os serviços de arquivo 
 
 Caso esteja usando discos baseados no Armazenamento de blob de página do Azure ou Managed Disks, as declarações feitas nas [Considerações para implantação de DBMS de máquinas virtuais do Azure para a carga de trabalho SAP](dbms_guide_general.md) também se aplicarão a implantações com o Oracle Database.
 
- Existem cotas na taxa de transferência IOPS para discos do Azure. Esse conceito é explicado em [Considerações para implantação de DBMS de máquinas virtuais do Azure para a carga de trabalho SAP](dbms_guide_general.md). As cotas exatas dependem do tipo de VM usado. Para obter uma lista dos tipos de VM com suas cotas, confira [Tamanhos para máquinas virtuais Linux no Azure][virtual-machines-sizes-linux].
+ Existem cotas na taxa de transferência IOPS para discos do Azure. Esse conceito é explicado em [Considerações para implantação de DBMS de máquinas virtuais do Azure para a carga de trabalho SAP](dbms_guide_general.md). As cotas exatas dependem do tipo de VM usado. Para obter uma lista dos tipos de VM com suas cotas, confira [Tamanhos das Máquinas Virtuais do Linux no Azure][virtual-machines-sizes-linux].
 
 Para identificar os tipos de VM do Azure com suporte, confira a Nota SAP [1928533].
 
@@ -464,13 +464,13 @@ Configuração mínima:
 
 | Componente | Disco | Cache | Stripping* |
 | --- | ---| --- | --- |
-| /Oracle/\<Sid>/Origlogaa & mirrlogB | Premium | Nenhum | Não é necessário |
-| /Oracle/\<Sid>/Origlogab & mirrlogA | Premium | Nenhum | Não é necessário |
-| /Oracle/\<Sid>/sapdata1... p | Premium | Somente leitura | Pode ser usado |
-| /Oracle/\<Sid>/oraarch | Standard | Nenhum | Não é necessário |
+| /oracle/\<SID>/origlogaA & mirrlogB | Premium | Nenhum | Não é necessário |
+| /oracle/\<SID>/origlogaB & mirrlogA | Premium | Nenhum | Não é necessário |
+| /oracle/\<SID>/sapdata1...n | Premium | Somente leitura | Pode ser usado |
+| /oracle/\<SID>/oraarch | Standard | Nenhum | Não é necessário |
 | Oracle Home, saptrace, ... | Disco do sistema operacional | | Não é necessário |
 
-*Stripping: faixa de LVM ou MDADM usando RAID0
+*Stripping: Faixa de LVM ou MDADM usando RAID0
 
 A seleção de discos para hospedagem de logs de restauração online do Oracle deve ser controlada pelos requisitos de IOPs. É possível armazenar todos os sapdata1...n (espaços de tabela) em um único disco montado, desde que o volume, o IOPS e a taxa de transferência atendam aos requisitos. 
 
@@ -478,18 +478,18 @@ Configuração de desempenho:
 
 | Componente | Disco | Cache | Stripping* |
 | --- | ---| --- | --- |
-| /Oracle/\<Sid>/origlogaa | Premium | Nenhum | Pode ser usado  |
-| /Oracle/\<Sid>/origlogab | Premium | Nenhum | Pode ser usado |
-| /Oracle/\<Sid>/mirrlogab | Premium | Nenhum | Pode ser usado |
-| /Oracle/\<Sid>/mirrlogba | Premium | Nenhum | Pode ser usado |
-| /Oracle/\<Sid>/sapdata1... p | Premium | Somente leitura | Recomendadas  |
-| /Oracle/\<Sid>/sapdata (n + 1) * | Premium | Nenhum | Pode ser usado |
-| /Oracle/\<Sid>/oraarch * | Premium | Nenhum | Não é necessário |
+| /oracle/\<SID>/origlogaA | Premium | Nenhum | Pode ser usado  |
+| /oracle/\<SID>/origlogaB | Premium | Nenhum | Pode ser usado |
+| /oracle/\<SID>/mirrlogAB | Premium | Nenhum | Pode ser usado |
+| /oracle/\<SID>/mirrlogBA | Premium | Nenhum | Pode ser usado |
+| /oracle/\<SID>/sapdata1...n | Premium | Somente leitura | Recomendadas  |
+| /oracle/\<SID>/sapdata(n+1)* | Premium | Nenhum | Pode ser usado |
+| /oracle/\<SID>/oraarch* | Premium | Nenhum | Não é necessário |
 | Oracle Home, saptrace, ... | Disco do sistema operacional | Não é necessário |
 
-*Stripping: faixa de LVM ou MDADM usando RAID0
+*Stripping: Faixa de LVM ou MDADM usando RAID0
 
-* (n + 1): Hospedagem de espaços de tabela, TEMP e desfazer: o padrão de e/s de espaços de tabela de sistema e desfazer são diferentes de outros espaços de tabela que hospedam dados de aplicativo. “Sem cache” é a melhor opção para o desempenho dos espaços de tabela System e Undo.
+*(n+1): hospedagem dos espaços de tabela SYSTEM, TEMP e UNDO: O padrão de E/S dos espaços de tabela System e Undo são diferentes dos outros espaços de tabela que hospedam dados de aplicativo. “Sem cache” é a melhor opção para o desempenho dos espaços de tabela System e Undo.
 
 *oraarch: do ponto de vista do desempenho, o pool de armazenamento não é necessário.
 

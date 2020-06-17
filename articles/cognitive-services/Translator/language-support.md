@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 7ddf556be584603ce3e7cb4a97eb4cc9ff63ec68
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.openlocfilehash: 4e4200e291db81ff759e21eac5b1a9b785b5657f
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84718437"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888297"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Suporte a idiomas e regiões para conversão de texto e fala
 
@@ -186,7 +186,7 @@ O método Transliterate suporta os seguintes idiomas. Em "Para / De", "<->" indi
 | Linguagem    | Código de idioma | Script | Para/De | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Árabe | `ar` | Árabe `Arab` | <--> | Latim `Latn` |
-|Bangla  | `bn` | Bengalês `Beng` | <--> | Latim `Latn` |
+| Bangla  | `bn` | Bengalês `Beng` | <--> | Latim `Latn` |
 | Chinês (Simplificado) | `zh-Hans` | Chinês simplificado `Hans`| <--> | Latim `Latn` |
 | Chinês (Simplificado) | `zh-Hans` | Chinês simplificado `Hans`| <--> | Chinês tradicional `Hant`|
 | Chinês (Tradicional) | `zh-Hant` | Chinês tradicional `Hant`| <--> | Latim `Latn` |
@@ -198,7 +198,7 @@ O método Transliterate suporta os seguintes idiomas. Em "Para / De", "<->" indi
 | canarim | `kn` | Canarim `Knda` | --> | Latim `Latn` |
 | Malaiala | `ml` | Malaiala `Mlym` | --> | Latim `Latn` |
 | Marati | `mr` | Devanagari `Deva` | --> | Latim `Latn` |
-| Oriya | `or` | Oriya `Orya` | <--> | Latim `Latn` |
+| Oriá | `or` | Oriya `Orya` | <--> | Latim `Latn` |
 | Panjabi | `pa` | Gurmukhi `Guru`  | <--> | Latim `Latn`  |
 | Sérvio (cirílico) | `sr-Cyrl` | Cirílico `Cyrl`  | --> | Latim `Latn` |
 | Sérvio (latino) | `sr-Latn` | Latim `Latn` | --> | Cirílico `Cyrl`|
@@ -331,7 +331,7 @@ A tradução de fala está disponível usando o tradutor com o serviço de fala 
 ### <a name="speech-to-text"></a>Conversão de fala em texto
 Converta a fala em texto para traduzir para o idioma de texto de sua escolha. A conversão de fala em texto é usada para a tradução de fala para texto ou para tradução de fala para fala quando usada em conjunto com a síntese de fala.
 
-| Idioma    |
+| Linguagem    |
 |:----------- |
 |Árabe|
 |Cantonês (tradicional)|
@@ -365,7 +365,7 @@ Converta a fala em texto para traduzir para o idioma de texto de sua escolha. A 
 ### <a name="text-to-speech"></a>Conversão de texto em fala
 Converter texto em fala. A conversão de texto em fala é usada para adicionar saída audível de resultados de tradução ou para tradução de fala a fala quando usada com a fala em texto. 
 
-| Idioma    |
+| Linguagem    |
 |:----------- |
 |Árabe|
 |Búlgaro|

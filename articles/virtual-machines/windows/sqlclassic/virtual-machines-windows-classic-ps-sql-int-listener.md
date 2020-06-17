@@ -1,6 +1,6 @@
 ---
-title: Configurar um ouvinte de ILB para grupos de disponibilidade (clássico)
-description: Este tutorial usa recursos criados com o modelo de implantação clássico e cria um ouvinte de grupo de disponibilidade Always On no para uma VM SQL Server no Azure que usa um balanceador de carga interno.
+title: Configurar um ouvinte de ILB para grupos de disponibilidade (clássicos)
+description: Este tutorial usa os recursos criados com o modelo de implantação clássico e cria um ouvinte para grupo de disponibilidade Always On para uma VM do SQL Server no Azure que usa um balanceador de carga interno.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
@@ -15,14 +15,14 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f26c5a6c6fc2774d19beaa021015357a1991f0ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f05e1d46485b337acbd9390441359e086067db74
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75978163"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014801"
 ---
-# <a name="configure-an-ilb-listener-for-availability-groups-on-azure-sql-server-vms"></a>Configurar um ouvinte de ILB para grupos de disponibilidade em VMs SQL Server do Azure
+# <a name="configure-an-ilb-listener-for-availability-groups-on-azure-sql-server-vms"></a>Configurar um ouvinte de ILB para grupos de disponibilidade em VMs do SQL Server do Azure
 > [!div class="op_single_selector"]
 > * [Ouvinte interno](../classic/ps-sql-int-listener.md)
 > * [Ouvinte externo](../classic/ps-sql-ext-listener.md)
@@ -34,7 +34,7 @@ ms.locfileid: "75978163"
 > [!IMPORTANT]
 > O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Azure Resource Manager e clássico](../../../azure-resource-manager/management/deployment-models.md). Este artigo aborda o uso do modelo de implantação clássico. Recomendamos que a maioria das novas implantações use o modelo do Resource Manager.
 
-Para configurar um ouvinte para um grupo de disponibilidade AlwaysOn no modelo do Resource Manager, veja [Configurar um balanceador de carga para um grupo de disponibilidade AlwaysOn no Azure](../sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md).
+Para configurar um ouvinte para um grupo de disponibilidade AlwaysOn no modelo do Resource Manager, veja [Configurar um balanceador de carga para um grupo de disponibilidade AlwaysOn no Azure](../../../azure-sql/virtual-machines/windows/availability-group-load-balancer-portal-configure.md).
 
 O seu grupo de disponibilidade pode conter réplicas somente locais, somente no Azure ou tanto locais quanto no Azure para configurações híbridas. As réplicas do Azure podem residir na mesma região ou em várias regiões que usam várias redes virtuais. Os procedimentos neste artigo pressupõem que você já tenha [configurado um grupo de disponibilidade](../classic/portal-sql-alwayson-availability-groups.md), mas ainda não configurou um ouvinte.
 
@@ -105,7 +105,7 @@ Crie um ponto de extremidade com carga equilibrada para cada VM que hospeda uma 
             Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -LBSetName "ListenerEndpointLB" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName $ILBName -DirectServerReturn $true | Update-AzureVM
         }
 
-13. Depois de definir as variáveis, copie o script do editor de texto para sua sessão do PowerShell a fim de executá-lo. Se o prompt ainda mostrar **>>**, pressione Enter novamente para verificar se o script começa a ser executado.
+13. Depois de definir as variáveis, copie o script do editor de texto para sua sessão do PowerShell a fim de executá-lo. Se o prompt ainda mostrar **>>** , pressione Enter novamente para ter certeza de que o script será executado.
 
 ## <a name="verify-that-kb2854082-is-installed-if-necessary"></a>Verifique se KB2854082 está instalado, se necessário
 [!INCLUDE [kb2854082](../../../../includes/virtual-machines-ag-listener-kb2854082.md)]
@@ -151,7 +151,7 @@ Crie o ouvinte do grupo de disponibilidade em duas etapas. Primeiro, crie o recu
 
         cluster res $IPResourceName /priv enabledhcp=0 address=$ILBIP probeport=59999  subnetmask=255.255.255.255
 
-3. Depois de definir as variáveis, abra uma janela elevada do Windows PowerShell, cole o script do editor de texto em sua sessão do PowerShell para executá-lo. Se o prompt ainda mostrar **>>**, pressione Enter novamente para ter certeza de que o script começa a ser executado.
+3. Depois de definir as variáveis, abra uma janela elevada do Windows PowerShell, cole o script do editor de texto em sua sessão do PowerShell para executá-lo. Se o prompt ainda mostrar **>>** , pressione Enter novamente para ter certeza de que o script será executado.
 
 4. Repita as etapas anteriores para cada VM.  
     Esse script configura o recurso de endereço IP com o endereço IP do serviço de nuvem e define outros parâmetros, como a porta de investigação. Quando o recurso de endereço IP é colocado online, ele pode responder à sondagem na porta de investigação do ponto de extremidade com balanceamento de carga criado anteriormente.

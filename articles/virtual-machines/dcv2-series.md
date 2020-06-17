@@ -1,5 +1,5 @@
 ---
-title: Série DC-máquinas virtuais do Azure
+title: Série DC – Máquinas Virtuais do Azure
 description: Especificações para as VMs da série DC.
 services: virtual-machines
 author: susaxen
@@ -7,42 +7,42 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: lahugh
-ms.openlocfilehash: 431c1b1211165f43feb7fe1f93c73c2bf141e004
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: MT
+ms.openlocfilehash: 955b3d967d2e62e1158f329a58f040121ca8b416
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871807"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220980"
 ---
 # <a name="dcsv2-series"></a>Série DCsv2
 
 
-A série DCsv2 pode ajudar a proteger a confidencialidade e a integridade de seus dados e código enquanto eles são processados na nuvem pública. Essas máquinas têm o respaldo da última geração de processador E-2288G Intel XEON com tecnologia de SGX. Com a tecnologia Intel Turbo Boost, essas máquinas podem ir até 5.0 GHz. As instâncias da série DCsv2 permitem que os clientes criem aplicativos baseados em enclave seguros para proteger seu código e seus dados enquanto eles estão em uso.
+A série DCsv2 pode ajudar a proteger a confidencialidade e a integridade dos dados e do código enquanto eles são processados na nuvem pública. Esses computadores têm o suporte da última geração do processador Intel XEON E-2288G com a tecnologia SGX. Com a Tecnologia Intel Turbo Boost, esses computadores podem chegar a 5,0 GHz. As instâncias da série DCsv2 permitem que os clientes criem aplicativos seguros baseados em enclave para proteger o código e os dados enquanto estiverem em uso.
 
-Os casos de uso de exemplo incluem: compartilhamento de dados multipartes confidenciais, detecção de fraudes, Laundering antidinheiro, blockchain, análise de uso confidencial, análise de inteligência e aprendizado de máquina confidencial.
+Exemplos de casos de uso incluem: compartilhamento de dados confidenciais entre vários participantes, detecção de fraudes, antilavagem de dinheiro, blockchain, análise de uso confidencial, análise de inteligência e machine learning confidencial.
 
-Armazenamento Premium: com suporte *
+Armazenamento Premium: Com suporte*
 
-Cache de armazenamento Premium: com suporte *
+Cache de Armazenamento Premium: Com suporte*
 
-Migração ao Vivo: sem suporte
+Migração ao Vivo: Sem suporte
 
-Atualizações de preservação de memória: sem suporte
+Atualizações de preservação de memória: Sem suporte
 
-* Exceto para Standard_DC8_v2
+*Exceto para Standard_DC8_v2
 
 
 
-| Tamanho             | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima do disco em cache e armazenamento temporário: IOPS / MBps (tamanho do cache em GiB) | Taxa de transferência máxima do disco não armazenado em cache: IOPS / MBps | Máximo de NICs/largura de banda de rede esperada (MBps) | Memória EPC (MiB) |
-|------------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|-------------------------------------------|----------------------------------------------|---------------------|
-| Standard_DC1s_v2 | 1    | 4           | 50                     | 1              | 2000/16 (21)                                                            | 1600/24                                   | 2   | 28                                      |
-| Standard_DC2s_v2 | 2    | 8           | 100                    | 2              | 4000/32 (43)                                                            | 3200/48                                   | 2  | 56                                          |
-| Standard_DC4s_v2 | 4    | 16          | 200                    | 4              | 8000/64 (86)                                                            | 6400/96                                   | 2  | 112                                          |
-| Standard_DC8_v2  | 8   | 32          | 400                    | 8              | 16000/128 (172)                                                         | 12800/192                                 | 2   | 168                                         |
+| Tamanho             | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima de armazenamento temporário: IOPS / MBps (tamanho do cache em GiB) | Número máximo de NICs/largura de banda de rede esperada (MBps) | Memória EPC (MiB) |
+|------------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|----------------------------------------------|---------------------|
+| Standard_DC1s_v2 | 1    | 4           | 50                     | 1              | 2\.000/16                                                                                               | 2   | 28                                      |
+| Standard_DC2s_v2 | 2    | 8           | 100                    | 2              | 4\.000/32                                                                                               | 2  | 56                                          |
+| Standard_DC4s_v2 | 4    | 16          | 200                    | 4              | 8\.000/64                                                                                               | 2  | 112                                          |
+| Standard_DC8_v2  | 8   | 32          | 400                    | 8              | 16.000/128                                                                                         | 2   | 168                                         |
 
-- As VMs da série DCsv2 são [VMs de geração 2](./linux/generation-2.md#creating-a-generation-2-vm) e `Gen2` só oferecem suporte a imagens.
-- Disponível atualmente somente no Sul do Reino Unido, no Canadá central e no leste dos EUA.
-- Geração anterior de VMs de computação confidencial: [série de DC](sizes-previous-gen.md#preview-dc-series)
+- As VMs da série DCsv2 são [VMs de geração 2](./linux/generation-2.md#creating-a-generation-2-vm) e dão suporte apenas a imagens `Gen2`.
+- Disponíveis atualmente somente no Sul do Reino Unido, no Canadá Central e no Leste dos EUA.
+- Geração anterior de VMs de computação confidencial: [Série DC](sizes-previous-gen.md#preview-dc-series)
 - Criar VMs DCsv2 usando o [portal do Azure](./linux/quick-create-portal.md) ou o [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.acc-virtual-machine-v2?tab=overview)
 
 

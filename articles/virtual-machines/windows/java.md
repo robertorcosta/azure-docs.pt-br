@@ -1,5 +1,5 @@
 ---
-title: Criar e gerenciar uma máquina virtual do Azure usando o Java
+title: Criar e gerenciar uma Máquina Virtual do Azure usando Java
 description: Use o Java e o Azure Resource Manager para implantar uma máquina virtual e todos os seus recursos de suporte.
 services: virtual-machines-windows
 author: cynthn
@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: a99924983bf0e78bd8c8901e25819a363583169a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e6218906760baad0673b6599a278d50c6c73e1a0
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81870022"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84232965"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Criar e gerenciar VMs Windows no Azure usando o Java
 
@@ -127,7 +127,7 @@ Antes de começar essa etapa, verifique se você tem acesso a uma [entidade de s
     graphURL=https://graph.microsoft.com/
     ```
 
-    Substitua ** &lt;Subscription-ID&gt; ** pelo seu identificador de assinatura, ** &lt;ID&gt; do aplicativo** com o identificador do aplicativo Active Directory, ** &lt;a&gt; chave de autenticação** com a chave do aplicativo e ** &lt;a&gt; ID do locatário** pelo identificador do locatário.
+    Substitua **&lt;subscription-id&gt;** pelo identificador da assinatura, **&lt;application-id&gt;** pelo identificador de aplicativo do Active Directory, **&lt;authentication-key&gt;** pela chave do aplicativo e **&lt;tenant-id&gt;** pelo identificador do locatário.
 
 2. Salve o arquivo.
 3. Defina uma variável de ambiente chamada AZURE_AUTH_LOCATION no shell com o caminho completo para o arquivo de autenticação.
@@ -182,7 +182,7 @@ Antes de começar essa etapa, verifique se você tem acesso a uma [entidade de s
 
 ### <a name="create-the-resource-group"></a>Criar o grupo de recursos
 
-Todos os recursos devem estar contidos em um [grupo de recursos](../../azure-resource-manager/management/overview.md).
+Todos os recursos devem estar contidos em um [Grupo de recursos](../../azure-resource-manager/management/overview.md).
 
 Para especificar valores para o aplicativo e criar o grupo de recursos, adicione este código ao bloco try no método principal:
 
@@ -211,7 +211,7 @@ AvailabilitySet availabilitySet = azure.availabilitySets()
 ```
 ### <a name="create-the-public-ip-address"></a>Criar um endereço IP público
 
-Um [endereço IP público](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) é necessário para se comunicar com a máquina virtual.
+Um [endereço IP público](../../virtual-network/public-ip-addresses.md) é necessário para se comunicar com a máquina virtual.
 
 Para criar o endereço IP público para a máquina virtual, adicione este código ao bloco try no método principal:
 

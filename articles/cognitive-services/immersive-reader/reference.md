@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 879834567b6905a070aada3dae2a41a672635c6c
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 5b1471cc43fc506ca798e81ac8e35a5051278ee0
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267232"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84907373"
 ---
 # <a name="immersive-reader-sdk-reference-guide"></a>Guia de referência do SDK do leitor de imersão
 
@@ -111,7 +111,7 @@ Um único bloco de dados, que será passado para o conteúdo do leitor de imers�
 
 ### <a name="launchresponse"></a>LaunchResponse
 
-Contém a resposta da chamada para `ImmersiveReader.launchAsync` .
+Contém a resposta da chamada para `ImmersiveReader.launchAsync` . Observe que uma referência ao `iframe` que contém o leitor de imersão pode ser acessada via `container.firstChild` .
 
 ```typescript
 {
@@ -135,7 +135,7 @@ enum CookiePolicy { Disable, Enable }
 | texto/sem formatação | Texto sem formatação. |
 | texto/html | Conteúdo HTML. [Saiba mais](#html-support)|
 | aplicativo/MathML + XML | MathML (matematica Markup Language). [Saiba mais](./how-to/display-math.md).
-| application/vnd. openxmlformats-officeDocument. WordprocessingML. Document | Documento de formato Microsoft Word. docx.
+| aplicativo/vnd.openxmlformats-officedocument.wordprocessingml.document | Documento de formato Microsoft Word. docx.
 
 ### <a name="html-support"></a>Suporte a HTML
 

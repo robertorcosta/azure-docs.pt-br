@@ -1,18 +1,18 @@
 ---
-title: Solucionar problemas de degradação do desempenho
-description: Descubra como solucionar problemas de desempenho de aplicativo lento no serviço Azure App, incluindo monitoramento de comportamento do aplicativo, coleta de dados e mitigação do problema.
+title: Solução de problemas de degradação do desempenho
+description: Descubra como solucionar problemas de desempenho lento do aplicativo no Serviço de Aplicativo do Azure, incluindo monitoramento de comportamento do aplicativo, coleta de dados e mitigação do problema.
 tags: top-support-issue
 keywords: desempenho do aplicativo Web, aplicativo lento, lentidão do aplicativo
 ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
 ms.topic: article
 ms.date: 08/03/2016
 ms.custom: seodec18
-ms.openlocfilehash: 98c11a72b5aea0fac15d943977402289dc33a970
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2ef4862b629f5d192049c2cb9236a3da2b411960
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74688310"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170759"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Solucionar problemas de desempenho de aplicativo lento no Serviço de Aplicativo do Azure
 Este artigo ajuda você a solucionar problemas de desempenho de aplicativo lento no [Serviço de Aplicativo do Azure](https://go.microsoft.com/fwlink/?LinkId=529714).
@@ -39,9 +39,9 @@ A solução de problemas pode ser dividida em três tarefas distintas, em ordem 
 
 O [Serviço de Aplicativo](overview.md) oferece diversas opções em cada etapa.
 
-<a name="observe" />
+<a name="observe"></a>
 
-### <a name="1-observe-and-monitor-application-behavior"></a>1. observar e monitorar o comportamento do aplicativo
+### <a name="1-observe-and-monitor-application-behavior"></a>1. Observar e monitorar o comportamento do aplicativo
 #### <a name="track-service-health"></a>Controlar a integridade do serviço
 O Microsoft Azure publica sempre que há uma degradação no desempenho ou interrupção do serviço. Você pode controlar a integridade do serviço no [Portal do Azure](https://portal.azure.com/). Para obter mais informações, confira [Controlar a integridade do serviço](../monitoring-and-diagnostics/insights-service-health.md).
 
@@ -84,9 +84,9 @@ Cada aplicativo Web do Serviço de Aplicativo fornece um ponto de extremidade de
 
 [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) é uma extensão de site para monitoramento de desempenho que também está disponível. Para usar o Application Insights, você deve recompilar seu código com um SDK. Você também pode instalar uma extensão que forneça acesso a dados adicionais. O SDK permite que você escreva código para monitorar o uso e o desempenho de seu aplicativo em mais detalhes. Para obter mais informações, consulte [Monitorar desempenho em aplicativos Web](../azure-monitor/app/web-monitor-performance.md).
 
-<a name="collect" />
+<a name="collect"></a>
 
-### <a name="2-collect-data"></a>2. coletar dados
+### <a name="2-collect-data"></a>2. Coletar dados
 O Serviço de Aplicativo oferece funcionalidade de diagnóstico para informações de log do servidor Web e do aplicativo Web. As informações estão separadas em diagnóstico de servidor Web e diagnóstico de aplicativos.
 
 #### <a name="enable-web-server-diagnostics"></a>Habilitar o diagnóstico de servidor Web
@@ -94,7 +94,7 @@ Você pode habilitar ou desabilitar os seguintes tipos de logs:
 
 * **Registro em Log Detalhado de Erros** - informações detalhadas de erros para códigos de status HTTP que indiquem uma falha (código de status 400 ou superior). Isto pode conter informações que podem ajudar a determinar por que o servidor retornou o código de erro.
 * **Falha no Rastreamento de Solicitação** - informações detalhadas sobre solicitações com falha, incluindo um rastreamento dos componentes IIS usados para processar a solicitação e o tempo levado em cada componente. Isso pode ser útil se você está tentando melhorar o desempenho do aplicativo ou isolar o que está causando um erro de HTTP específico.
-* **Log de servidor Web** -informações sobre transações http usando o formato de arquivo de log estendido W3C. Isso é útil para determinar as métricas gerais do aplicativo, como o número de solicitações manipuladas ou quantas solicitações são de um endereço IP específico.
+* **Registro em Log de Servidor Web** - informações sobre transações HTTP usando o formato de arquivo de log estendido W3C. Isso é útil para determinar as métricas gerais do aplicativo, como o número de solicitações manipuladas ou quantas solicitações são de um endereço IP específico.
 
 #### <a name="enable-application-diagnostics"></a>Habilitar o diagnóstico de aplicativos
 Há várias opções para coletar dados de desempenho do aplicativo do Serviço de Aplicativo, criar o perfil do aplicativo ao vivo por meio do Visual Studio ou modificar o código do aplicativo para registrar mais informações e rastreamentos em log. Você pode escolher as opções com base no nível de acesso que tem ao aplicativo e no que observou por meio das ferramentas de monitoramento.
@@ -126,7 +126,7 @@ Para acessar o diagnóstico do Serviço de Aplicativo, navegue até seu aplicati
 #### <a name="use-the-kudu-debug-console"></a>Usar o Console de Depuração Kudu
 O Serviço de Aplicativo vem com um console de depuração que você pode usar para depurar, explorar e carregar arquivos, incluindo pontos de extremidade JSON para obter informações sobre o ambiente. Esse console chama o *Console Kudu* ou o *Painel SCM* do seu aplicativo.
 
-Você pode acessar este painel acessando o link **https://&lt;Nome do aplicativo>.scm.azurewebsites.net/**.
+Você pode acessar este painel acessando o link **https://&lt;Nome do aplicativo>.scm.azurewebsites.net/** .
 
 Estas são algumas das coisas que o Kudu fornece:
 
@@ -139,9 +139,9 @@ Outro recurso útil do Kudu é que, caso seu aplicativo esteja lançando exceç�
 
 Para saber mais sobre recursos disponíveis no Kudu, confira [Ferramentas do Azure DevOps que você deve conhecer](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
-<a name="mitigate" />
+<a name="mitigate"></a>
 
-### <a name="3-mitigate-the-issue"></a>3. atenue o problema
+### <a name="3-mitigate-the-issue"></a>3. Atenuar o problema
 #### <a name="scale-the-app"></a>Escalar o aplicativo
 No Serviço de Aplicativo do Azure, para um melhor desempenho e taxa de transferência, você pode ajustar a escala na qual você está executando seu aplicativo. Escalar verticalmente aplicativos envolve duas ações relacionadas: alterar seu plano do Serviço de Aplicativo para um tipo de preço mais alto e definir certas configurações depois de ter mudado para o tipo de preço mais alto.
 
@@ -152,7 +152,7 @@ Além disso, você pode optar por executar o aplicativo em mais de uma instânci
 Você pode definir a escala para ser Manual ou Automática.
 
 #### <a name="use-autoheal"></a>Usar AutoHeal
-O AutoHeal recicla o processo de trabalho para seu aplicativo com base nas configurações que você escolher (como alterações de configuração, solicitações, limites baseados na memória ou o tempo necessário para executar uma solicitação). Na maioria das vezes, reciclar o processo é a maneira mais rápida de resolver um problema. Embora você possa sempre reiniciar o aplicativo diretamente no portal do Azure, o AutoHeal faz isso automaticamente. Tudo que você precisa fazer é adicionar alguns gatilhos na raiz web.config do seu aplicativo. Essas configurações funcionarão da mesma maneira mesmo que seu aplicativo não seja um aplicativo .NET.
+O AutoHeal recicla o processo de trabalho para seu aplicativo com base nas configurações que você escolher (como alterações de configuração, solicitações, limites baseados na memória ou o tempo necessário para executar uma solicitação). Na maioria das vezes, reciclar o processo é a maneira mais rápida de resolver um problema. Embora você possa sempre reiniciar o aplicativo diretamente no portal do Azure, o AutoHeal faz isso automaticamente. Tudo que você precisa fazer é adicionar alguns gatilhos na raiz web.config do seu aplicativo. Essas configurações funcionarão da mesma forma, mesmo que o seu aplicativo não seja um aplicativo .NET.
 
 Para saber mais, consulte [AutoHeal em sites do Azure](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/).
 
@@ -161,4 +161,4 @@ Reiniciar é geralmente a maneira mais simples de se recuperar de problemas de u
 
  ![reiniciar o aplicativo para solucionar problemas de desempenho](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 
-Também é possível gerenciar o aplicativo usando o Azure Powershell. Para obter mais informações, consulte [usando Azure PowerShell com Azure Resource Manager](../powershell-azure-resource-manager.md).
+Também é possível gerenciar o aplicativo usando o Azure Powershell. Para obter mais informações, consulte [Usando o PowerShell do Azure com o Azure Resource Manager](../powershell-azure-resource-manager.md).
