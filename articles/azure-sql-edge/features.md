@@ -2,19 +2,19 @@
 title: Recursos com suporte do SQL do Azure no Edge (versão prévia)
 description: Saiba mais sobre os recursos com suporte no SQL do Azure no Edge (versão prévia)
 keywords: introdução ao SQL no Edge, o que é o SQL no Edge, visão geral do SQL no Edge
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 7d33c2bef1cd0f7bfab4ec3c09f16c049881d1cd
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: e3bac1cbb0e57f9be4a489207f2fe8b30b5d457e
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594615"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84233205"
 ---
 # <a name="supported-features-of-azure-sql-edge-preview"></a>Recursos com suporte do SQL do Azure no Edge (versão prévia) 
 
@@ -34,7 +34,7 @@ O SQL do Azure no Edge está disponível com duas edições ou planos de softwar
 
 ## <a name="operating-system"></a>Sistema operacional
 
-Os contêineres do SQL do Azure no Edge atualmente são baseados no Ubuntu (16.04 e 18.04) e, como tal, só há suporte para execução em hosts do docker que executam o Ubuntu 16.04 e 18.04. O SQL do Azure no Edge também pode ser executado em outros hosts de sistema operacional, por exemplo, outras distribuições do Linux ou do Windows (usando o Docker CE ou o Docker EE), no entanto, essas configurações não são amplamente testadas pela Microsoft.
+Os contêineres do SQL do Azure no Edge atualmente são baseados no Ubuntu 16.04 e, como tal, só há suporte para execução em hosts do docker que executam o Ubuntu 16.04 (recomendado) ou Ubuntu 18.04. O SQL do Azure no Edge também pode ser executado em outros hosts de sistema operacional, por exemplo, outras distribuições do Linux ou do Windows (usando o Docker CE ou o Docker EE), no entanto, essas configurações não são amplamente testadas pela Microsoft.
 
 No momento, o SQL do Azure no Edge só tem suporte para implantação por meio de Azure IoT Edge. Para obter mais informações sobre os sistemas com suporte para Azure IoT Edge, consulte [Sistemas com suporte para Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/support).
 

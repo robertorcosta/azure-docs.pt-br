@@ -1,6 +1,6 @@
 ---
 title: Limites de memória e simultaneidade
-description: Exiba a memória e os limites de simultaneidade alocados para os vários níveis de desempenho e classes de recursos no Azure Synapse Analytics.
+description: Exiba os limites de memória e simultaneidade alocados para os vários níveis de desempenho e classes de recursos no Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 56ab49949b4ea2a92bc591042b2d43a7f7b2dc63
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: cd2511dcbf2e387a6f324742219b81c927b534af
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80632677"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83636401"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-synapse-analytics"></a>Limites de memória e simultaneidade do Azure Synapse Analytics
 
-Exiba a memória e os limites de simultaneidade alocados para os vários níveis de desempenho e classes de recursos no Azure Synapse Analytics.  
+Exiba os limites de memória e simultaneidade alocados para os vários níveis de desempenho e classes de recursos no Azure Synapse Analytics.  
 
 ## <a name="data-warehouse-capacity-settings"></a>Configurações de capacidade do banco de dados de data warehouse
 
@@ -49,13 +49,13 @@ Os níveis de serviço variam de DW100c a DW30000c.
 | DW15000c          | 30            | 2                              |  9000                          |
 | DW30000c          | 60            | 1                              | 18000                          |
 
-O nível de serviço máximo é DW30000c, que tem 60 nós de computação e uma distribuição por nó de computação. Por exemplo, um data warehouse de 600 TB a DW30000c processa aproximadamente 10 TB por nó de Computação.
+O valor máximo do nível de serviço é DW30000c, que possui 60 nós de cálculo e uma distribuição por nó de computação. Por exemplo, um data warehouse de 600 TB a DW30000c processa aproximadamente 10 TB por nó de Computação.
 
 ## <a name="concurrency-maximums-for-workload-groups"></a>Máximos de simultaneidade para grupos de carga de trabalho
 
-Com a introdução dos [grupos de cargas de trabalho](sql-data-warehouse-workload-isolation.md), o conceito de Slots de simultaneidade não se aplica mais.  Os recursos por solicitação são alocados em uma base percentual e especificados na definição do grupo de carga de trabalho.  No entanto, mesmo com a remoção de Slots de simultaneidade, há uma quantidade mínima de recursos necessários por consultas com base no nível de serviço.  A tabela abaixo definiu a quantidade mínima de recursos necessários por consulta nos níveis de serviço e a simultaneidade associada que pode ser obtida.
+Com a introdução do [grupos de carga de trabalho](sql-data-warehouse-workload-isolation.md), o conceito de slots de simultaneidade não se aplica mais.  Os recursos por solicitação são alocados em uma porcentagem e especificados na definição do grupo de carga de trabalho.  No entanto, mesmo com a remoção dos slots de simultaneidade, há uma quantidade mínima de recursos necessários por consultas com base no nível de serviço.  A tabela abaixo definiu a quantidade mínima de recursos necessários por consulta nos níveis de serviço e a simultaneidade associada que pode ser obtida.
 
-|Nível de serviço|Máximo de consultas simultâneas|Mínimo de% com suporte para REQUEST_MIN_RESOURCE_GRANT_PERCENT|
+|Nível de serviço|Máximo de consultas simultâneas|Porcentagem mínima com suporte para REQUEST_MIN_RESOURCE_GRANT_PERCENT|
 |---|---|---|
 |DW100c|4|25%|
 |DW200c|8|12,5%|
@@ -77,7 +77,7 @@ Com a introdução dos [grupos de cargas de trabalho](sql-data-warehouse-workloa
 
 ## <a name="concurrency-maximums-for-resource-classes"></a>Máximos de simultaneidade para classes de recurso
 
-Para garantir que cada consulta tenha recursos suficientes para ser executada com eficiência, a análise de SQL no Azure Synapse controla a utilização de recursos atribuindo slots de simultaneidade a cada consulta. O sistema coloca as consultas em uma fila com base em importância e slots de simultaneidade. As consultas esperam na fila até que slots de simultaneidade suficientes estejam disponíveis. Os slots de [importância](sql-data-warehouse-workload-importance.md) e de simultaneidade determinam a priorização da CPU. Para saber mais, confira [Analisar sua carga de trabalho](analyze-your-workload.md)
+Para garantir que cada consulta tenha recursos suficientes para executar com eficiência, o SQL do Synapse rastreia a utilização de recursos, atribuindo slots de simultaneidade a cada consulta. O sistema coloca as consultas em uma fila com base na importância e nos slots de simultaneidade. As consultas esperam na fila até que slots de simultaneidade suficientes estejam disponíveis. [A importância](sql-data-warehouse-workload-importance.md) e os slots de simultaneidade determinam a priorização da CPU. Para saber mais, confira [Analisar sua carga de trabalho](analyze-your-workload.md)
 
 **Classes de recursos estáticos**
 
@@ -104,7 +104,7 @@ A tabela a seguir mostra o número máximo de consultas simultâneas e slots de 
 
 **Classes de recursos dinâmicos**
 
-A tabela a seguir mostra o número máximo de consultas simultâneas e slots de simultaneidade para cada [classe de recurso dinâmico](resource-classes-for-workload-management.md). As classes de recursos dinâmicos usam uma alocação de porcentagem de memória de 3-10-22-70 para classes de recursos de XLarge pequeno e médio porte em todos os níveis de serviço.
+A tabela a seguir mostra o número máximo de consultas simultâneas e slots de simultaneidade para cada [classe de recurso dinâmico](resource-classes-for-workload-management.md). As classes de recursos dinâmicos usam uma alocação de porcentagem de memória de 3-10-22-70 para classes de recursos small-medium-large-xlarge em todos os níveis de serviço.
 
 | Nível de serviço | Máximo de consultas simultâneas | Slots de simultaneidade disponíveis | Slots usados pelo smallrc | Slots usados pelo mediumrc | Slots usados pelo largerc | Slots usados pelo xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|
@@ -125,7 +125,7 @@ A tabela a seguir mostra o número máximo de consultas simultâneas e slots de 
 | DW15000c      | 32                         |  600                        | 18                    | 60                     | 132                   | 420                    |
 | DW30000c      | 32                         | 1200                        | 36                    | 120                    | 264                   | 840                    |
 
-Quando não há slots de simultaneidade suficientes livres para iniciar a execução da consulta, as consultas são enfileiradas e executadas com base na importância.  Se houver importância equivalente, as consultas serão executadas em uma base primeiro a entrar, primeiro a sair.  À medida que uma consulta é concluída e o número de consultas e slots ficam abaixo do limite, o SQL Data Warehouse libera as consultas em fila.
+Quando não há slots de simultaneidade suficientes livres para iniciar a execução da consulta, as consultas são enfileiradas e executadas com base na importância.  Se houver importância equivalente, as consultas serão executadas de acordo com o princípio primeiro a entrar, primeiro a sair.  À medida que uma consulta é concluída e o número de consultas e slots ficam abaixo do limite, o SQL Data Warehouse libera as consultas em fila.
 
 ## <a name="next-steps"></a>Próximas etapas
 

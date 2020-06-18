@@ -1,166 +1,203 @@
 ---
 title: Práticas recomendadas
-description: Conheça as práticas recomendadas e dicas úteis para desenvolver sua solução de lote do Azure.
-ms.date: 04/03/2020
-ms.topic: article
-ms.openlocfilehash: 43a0020953ea44593cf38298a78547194751fc72
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+description: Conheça as melhores práticas e dicas úteis para desenvolver sua solução de Lote do Azure.
+ms.date: 05/22/2020
+ms.topic: conceptual
+ms.openlocfilehash: 0fa6c5e1d7e770468a14c66af9b99b32a7827eb1
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117498"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871351"
 ---
-# <a name="azure-batch-best-practices"></a>Práticas recomendadas do lote do Azure
+# <a name="azure-batch-best-practices"></a>Melhores práticas do Lote do Azure
 
-Este artigo aborda uma coleção de práticas recomendadas para usar o serviço de lote do Azure com eficiência e eficiência. Essas práticas recomendadas derivam de nossa experiência com o lote e as experiências de clientes do lote. É importante entender este artigo para evitar armadilhas de design, possíveis problemas de desempenho e antipadrões ao desenvolver para e usar o lote.
-
-Neste artigo, você aprenderá o seguinte:
-
-> [!div class="checklist"]
-> - Quais são as práticas recomendadas
-> - Por que você deve usar as práticas recomendadas
-> - O que pode acontecer se você não seguir as práticas recomendadas
-> - Como seguir as práticas recomendadas
+Este artigo aborda uma coleção de melhores práticas para usar o serviço de Lote do Azure de forma eficaz e eficiente, com base na experiência real com o Lote. Leia este artigo para evitar armadilhas de design, possíveis problemas de desempenho e antipadrões ao desenvolver para e usar o Lote.
 
 ## <a name="pools"></a>Pools
 
-Os pools do lote são os recursos de computação para executar trabalhos no serviço de lote. As seções a seguir fornecem orientação sobre as principais práticas recomendadas a serem seguidas ao trabalhar com pools do lote.
+Os [pools](nodes-and-pools.md#pools) são os recursos de computação para executar trabalhos no serviço de Lote. As seções a seguir fornecem recomendações para trabalhar com pools do Lote.
 
 ### <a name="pool-configuration-and-naming"></a>Configuração e nomenclatura de pool
 
-- **Modo de alocação do pool** Ao criar uma conta do lote, você pode escolher entre dois modos de alocação de pool: **serviço de lote** ou **assinatura de usuário**. Na maioria dos casos, você deve usar o modo de serviço de lote padrão, no qual os pools são alocados em segundo plano em assinaturas gerenciadas em lote. No modo de assinatura alternativo do usuário, as VMs do Lote e outros recursos são criados diretamente em sua assinatura, quando um pool é criado. As contas de assinatura de usuário são usadas principalmente para habilitar um subconjunto importante, mas pequeno, de cenários. Você pode ler mais sobre o modo de assinatura [do usuário em configuração adicional para o modo de assinatura do usuário](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
+- **Modo de alocação de pool** Ao criar uma conta do Lote, você pode escolher entre dois modos de alocação de pool: **Serviço de lote** ou **assinatura de usuário**. Na maioria dos casos, você deve usar o modo de serviço de Lote padrão, no qual os pools são alocados em segundo plano em assinaturas gerenciadas no Lote. No modo de assinatura alternativo do usuário, as VMs do Lote e outros recursos são criados diretamente em sua assinatura, quando um pool é criado. As contas de assinatura de usuário são usadas principalmente para habilitar um subconjunto de cenários importante, mas pequeno. Você pode ler mais sobre o modo de assinatura do usuário em [Configuração adicional para o modo de assinatura do usuário](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
 
-- **Considere o tempo de execução do trabalho e da tarefa ao determinar o mapeamento do trabalho para o pool.**
+- **Considere o tempo de execução de trabalho e tarefa ao determinar o mapeamento do trabalho para o pool.**
     Se você tiver trabalhos compostos principalmente de tarefas de execução curta, e as contagens de tarefas totais esperadas forem pequenas, para que o tempo de execução esperado geral do trabalho não seja longo, não aloque um novo pool para cada trabalho. O tempo de alocação dos nós reduzirá o tempo de execução do trabalho.
 
 - **Os pools devem ter mais de um nó de computação.**
-    Não há garantia de que os nós individuais estejam sempre disponíveis. Embora não sejam comuns, falhas de hardware, atualizações de sistema operacional e um host de outros problemas podem fazer com que nós individuais estejam offline. Se a carga de trabalho do lote exigir um progresso determinístico e garantido, você deverá alocar pools com vários nós.
+    Não há garantia de que os nós individuais estejam sempre disponíveis. Embora não sejam comuns, falhas de hardware, atualizações de sistema operacional e outros problemas podem fazer com que nós individuais fiquem offline. Se a carga de trabalho do Lote exigir um progresso determinístico e garantido, você deverá alocar pools com vários nós.
 
 - **Não reutilize nomes de recursos.**
-    Os recursos do lote (trabalhos, pools, etc.) geralmente são fornecidos e passam ao longo do tempo. Por exemplo, você pode criar um pool na segunda-feira, excluí-lo na terça-feira e, em seguida, criar outro pool na quinta-feira. Cada novo recurso que você criar deve receber um nome exclusivo que você não usou antes. Isso pode ser feito usando um GUID (como o nome do recurso inteiro ou como parte dele) ou inserindo a hora em que o recurso foi criado no nome do recurso. O lote dá suporte a [DisplayName](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.jobspecification.displayname?view=azure-dotnet), que pode ser usado para dar a um recurso um nome legível por humanos, mesmo que a ID de recurso real seja algo que seja amigável para o humano. Usar nomes exclusivos facilita a diferenciação de qual recurso em particular fez algo em logs e métricas. Ela também removerá a ambiguidade se você precisar arquivar um caso de suporte para um recurso.
+    Os recursos do Lote (trabalhos, pools etc.) geralmente entram e saem ao longo do tempo. Por exemplo, você pode criar um pool na segunda-feira, excluí-lo na terça-feira e, em seguida, criar outro pool na quinta-feira. Os novos recursos criados devem receber um nome exclusivo que você não usou antes. Isso pode ser feito usando um GUID (como o nome do recurso inteiro ou como parte dele) ou inserindo a hora em que o recurso foi criado no nome do recurso. O Lote permite [DisplayName](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.jobspecification.displayname?view=azure-dotnet), que pode ser usado para atribuir a um recurso um nome fácil, mesmo que a ID de recurso real seja algo amigável para as pessoas. Se você usar nomes exclusivos, isso facilita diferenciar um recurso específico que fez algo em logs e métricas. Ele também removerá a ambiguidade se você precisar arquivar um caso de suporte para um recurso.
 
 - **Continuidade durante a manutenção e a falha do pool.**
     É melhor fazer com que seus trabalhos usem pools dinamicamente. Se seus trabalhos usarem o mesmo pool para tudo, haverá a chance de que seus trabalhos não sejam executados se algo der errado com o pool. Isso é especialmente importante para cargas de trabalho com detecção de hora. Para corrigir isso, selecione ou crie um pool dinamicamente ao agendar cada trabalho ou tenha uma maneira de substituir o nome do pool para que você possa ignorar um pool não íntegro.
 
-- **Continuidade dos negócios durante a manutenção e a falha do pool** Há muitas causas possíveis que podem impedir que um pool aumente para o tamanho necessário que você deseja, como erros internos, restrições de capacidade, etc. Por esse motivo, você deve estar pronto para redirecionar trabalhos em um pool diferente (possivelmente com um tamanho de VM diferente-o lote dá suporte a isso via [UpdateJob](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.protocol.joboperationsextensions.update?view=azure-dotnet)), se necessário. Evite usar uma ID de pool estático com a expectativa de que ela nunca seja excluída e nunca seja alterada.
+- **Continuidade dos negócios durante a manutenção e a falha do pool** Há muitas causas possíveis que podem impedir que um pool aumente para o tamanho necessário que você deseja, como erros internos, restrições de capacidade etc. Por esse motivo, você deve estar pronto para redirecionar os trabalhos em um pool diferente (possivelmente com um tamanho de VM diferente; o Lote dá suporte a isso por meio de [UpdateJob](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.protocol.joboperationsextensions.update?view=azure-dotnet)), se necessário. Evite usar uma ID de pool estático com a expectativa de que ela nunca seja excluída e nunca seja alterada.
 
 ### <a name="pool-lifetime-and-billing"></a>Tempo de vida e cobrança do pool
 
-O tempo de vida do pool pode variar dependendo do método de alocação e das opções aplicadas à configuração do pool. Os pools podem ter um tempo de vida arbitrário e um número variável de nós de computação no pool a qualquer momento. É sua responsabilidade gerenciar os nós de computação no pool explicitamente ou por meio de recursos fornecidos pelo serviço (autoescala ou autopool).
+O tempo de vida do pool pode variar de acordo com o método de alocação e as opções aplicadas à configuração do pool. Os pools podem ter um tempo de vida arbitrário e um número variável de nós de computação no pool a qualquer momento. É sua responsabilidade gerenciar os nós de computação no pool, explicitamente ou por meio de recursos fornecidos pelo serviço (dimensionamento ou pool automático).
 
 - **Mantenha os pools atualizados.**
-    Você deve redimensionar seus pools para zero a cada poucos meses para garantir que você obtenha as atualizações e correções de bug mais recentes do agente de nó. Seu pool não receberá atualizações do agente de nó a menos que seja recriado ou redimensionado para 0 nós de computação. Antes de recriar ou redimensionar o pool, é recomendável baixar todos os logs do agente de nó para fins de depuração, conforme discutido na seção [nós](#nodes) .
+    É necessário redimensionar seus pools para zero com intervalos de poucos meses para garantir que você obtenha as atualizações e correções de bug mais recentes do agente de nó. Seu pool não receberá atualizações do agente de nó a menos que seja recriado ou redimensionado para 0 nós de computação. Antes de recriar ou redimensionar o pool, é recomendável baixar todos os logs do agente de nó para fins de depuração, conforme discutido na seção [nós](#nodes).
 
-- **Recriação de pool** Em uma observação semelhante, não é recomendável excluir e recriar seus pools diariamente. Em vez disso, crie um novo pool, atualize seus trabalhos existentes para apontar para o novo pool. Depois que todas as tarefas tiverem sido movidas para o novo pool, exclua o pool antigo.
+- **Recriação do pool** Em uma observação semelhante, não é recomendável excluir e recriar seus pools diariamente. Em vez disso, crie um novo pool, atualize seus trabalhos existentes para apontar para o novo pool. Depois que todas as tarefas forem movidas para o novo pool, exclua o pool antigo.
 
-- **Eficiência e cobrança do pool** O próprio lote incorre em encargos extras, mas você não tem cobranças para os recursos de computação usados. Você será cobrado por cada nó de computação no pool, independentemente do estado em que ele está. Isso inclui quaisquer encargos necessários para que o nó seja executado, como os custos de armazenamento e rede. Para saber mais sobre as práticas recomendadas, consulte [análise de custo e orçamentos para o lote do Azure](budget.md).
+- **Eficiência do pool e cobrança** O Lote incorre em encargos adicionais, mas você não é cobrado pelos recursos de computação usados. Você será cobrado por cada nó de computação no pool, independentemente do estado em que ele está. Isso inclui quaisquer encargos necessários para que o nó seja executado, como os custos de armazenamento e de rede. Para saber mais melhores práticas, consulte [Análise de custo e orçamentos para Lote do Azure](budget.md).
 
 ### <a name="pool-allocation-failures"></a>Falhas de alocação de pool
 
-As falhas de alocação de pool podem ocorrer a qualquer momento durante a primeira alocação ou redimensionamentos subsequentes. Isso pode ser devido à esgotamento de capacidade temporária em uma região ou falhas em outros serviços do Azure nos quais o lote depende. Sua cota principal não é uma garantia, mas sim um limite.
+As falhas de alocação de pool podem ocorrer a qualquer momento durante a primeira alocação ou redimensionamentos subsequentes. Isso pode ocorrer devido ao esgotamento de capacidade temporária em uma região ou às falhas em outros serviços do Azure dos quais o Lote depende. Sua cota principal não é uma garantia, mas sim um limite.
 
 ### <a name="unplanned-downtime"></a>Tempo de inatividade não planejado
 
-É possível que os pools do lote tenham eventos de tempo de inatividade no Azure. Isso é importante para ter em mente ao planejar e desenvolver seu cenário ou fluxo de trabalho para o lote.
+É possível que os pools do Lote tenham eventos de tempo de inatividade no Azure. Tenha isso em mente ao planejar e desenvolver seu cenário ou fluxo de trabalho para o Lote.
 
-No caso de um nó falhar, o lote tentará recuperar automaticamente esses nós de computação em seu nome. Isso pode disparar a reagendamento de qualquer tarefa em execução no nó recuperado. Consulte [projetando para novas tentativas](#designing-for-retries-and-re-execution) para saber mais sobre as tarefas interrompidas.
+No caso de um nó falhar, o Lote tentará recuperar automaticamente esses nós de computação em seu nome. Isso pode disparar o reagendamento de qualquer tarefa em execução no nó recuperado. Consulte [Criação de repetições](#design-for-retries-and-re-execution) para saber mais sobre as tarefas interrompidas.
 
-- **Dependência da região do Azure** É aconselhável não depender de uma única região do Azure se você tiver uma carga de trabalho de produção ou de tempo. Embora seja raro, há problemas que podem afetar toda a região. Por exemplo, se o processamento precisar ser iniciado em um momento específico, considere escalar verticalmente o pool em sua região primária *bem antes da hora de início*. Se a escala do pool falhar, você poderá fazer fallback para escalar verticalmente um pool em uma região (ou regiões) de backup. Os pools em várias contas em regiões diferentes fornecem um backup pronto e facilmente acessível se algo der errado com outro pool. Para obter mais informações, consulte [criar seu aplicativo para alta disponibilidade](high-availability-disaster-recovery.md).
+### <a name="azure-region-dependency"></a>Dependência da região do Azure
+
+É aconselhável não depender de uma única região do Azure caso você tenha uma carga de trabalho de produção ou sensível ao tempo. Embora seja raro, há problemas que podem afetar toda a região. Por exemplo, se o processamento precisar ser iniciado em um momento específico, considere escalar verticalmente o pool em sua região primária *bem antes da hora de início*. Se a escala do pool falhar, você poderá fazer fallback para escalar verticalmente um pool em uma região (ou regiões) de backup. Os pools em várias contas em regiões diferentes fornecem um backup pronto e facilmente acessível se algo der errado com outro pool. Para obter mais informações, consulte [Projetar seu aplicativo para alta disponibilidade](high-availability-disaster-recovery.md).
 
 ## <a name="jobs"></a>Trabalhos
 
-Um trabalho é um contêiner projetado para conter centenas, milhares ou até mesmo milhões de tarefas.
+Um [trabalho](jobs-and-tasks.md#jobs) é um contêiner projetado para conter centenas, milhares ou até mesmo milhões de tarefas. Siga estas diretrizes ao criar trabalhos.
 
-- **Colocar muitas tarefas em um trabalho** O uso de um trabalho para executar uma única tarefa é ineficiente. Por exemplo, é mais eficiente usar um único trabalho contendo 1000 tarefas em vez de criar trabalhos 100 que contenham 10 tarefas cada. A execução de 1000 trabalhos, cada um com uma única tarefa, seria a abordagem menos eficiente, mais lenta e mais cara a ser tomada.
+### <a name="fewer-jobs-more-tasks"></a>Menos trabalhos, mais tarefas
 
-    Não projete uma solução em lote que exija milhares de trabalhos ativos simultaneamente. Não há nenhuma cota para tarefas, portanto, executar tantas tarefas no menor número de trabalhos possível usa com eficiência suas [cotas de trabalho e agenda de trabalho](batch-quota-limit.md#resource-quotas).
+O uso de um trabalho para executar uma única tarefa é ineficiente. Por exemplo, é mais eficiente usar um único trabalho com 1.000 tarefas em vez de criar 100 trabalhos com 10 tarefas cada. A execução de 1.000 trabalhos, cada um com uma única tarefa, seria a abordagem menos eficiente, mais lenta e mais cara a ser tomada.
 
-- **Vida útil do trabalho** Um trabalho em lotes tem um tempo de vida indefinido até que seja excluído do sistema. O estado de um trabalho designa se ele pode aceitar mais tarefas para agendamento ou não. Um trabalho não é movido automaticamente para o estado concluído, a menos que seja explicitamente encerrado. Isso pode ser disparado automaticamente por meio da propriedade [onAllTasksComplete](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.common.onalltaskscomplete?view=azure-dotnet) ou [maxWallClockTime](https://docs.microsoft.com/rest/api/batchservice/job/add#jobconstraints).
+Por isso, certifique-se de não criar uma solução de Lote que exija milhares de trabalhos ativos simultaneamente. Não há nenhuma cota para tarefas; então, executar muitas tarefas com o mínimo de trabalhos possível usa com eficiência suas [cotas de trabalho e de agendamento de trabalho](batch-quota-limit.md#resource-quotas).
 
-Há um [trabalho ativo padrão e uma cota de agendamento de trabalho](batch-quota-limit.md#resource-quotas). Trabalhos e agendas de trabalho no estado concluído não contam para esta cota.
+### <a name="job-lifetime"></a>Tempo de vida do trabalho
+
+Um trabalho em Lotes tem um tempo de vida indefinido até que seja excluído do sistema. Seu estado designa se ele pode aceitar mais tarefas para agendamento ou não.
+
+Um trabalho não é movido automaticamente para o estado concluído, a menos que seja explicitamente encerrado. Isso pode ser disparado automaticamente por meio da propriedade [onAllTasksComplete](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.common.onalltaskscomplete?view=azure-dotnet) ou [maxWallClockTime](https://docs.microsoft.com/rest/api/batchservice/job/add#jobconstraints).
+
+Há uma [cota de trabalho ativo padrão e agendamento de trabalho](batch-quota-limit.md#resource-quotas). Trabalhos e agendamentos de trabalho no estado concluído não contam nesta cota.
 
 ## <a name="tasks"></a>Tarefas
 
-As tarefas são unidades individuais de trabalho que compõem um trabalho. As tarefas são enviadas pelo usuário e agendadas pelo lote para nós de computação. Há várias considerações de design a serem feitas ao criar e executar tarefas. As seções a seguir explicam cenários comuns e como projetar suas tarefas para lidar com problemas e executar com eficiência.
+As [tarefas](jobs-and-tasks.md#tasks) são unidades individuais de trabalho que compõem um trabalho. As tarefas são enviadas pelo usuário e agendadas pelo Lote para nós de computação. Há várias considerações de design a serem feitas ao criar e executar tarefas. As seções a seguir explicam cenários comuns e como projetar suas tarefas para lidar com problemas e executar com eficiência.
 
-- **Salve os dados da tarefa como parte da tarefa.**
-    Nós de computação são por sua natureza efêmera. Há muitos recursos no lote, como o autopool e o dimensionamento automático, que facilitam o desdesaparecimento dos nós. Quando os nós deixam o pool (devido a um redimensionamento ou a uma exclusão de pool), todos os arquivos nesses nós também são excluídos. Por isso, é recomendável que, antes de uma tarefa ser concluída, ele mova a saída do nó em que está sendo executado e para um repositório durável, da mesma forma, se uma tarefa falhar, deverá mover os logs necessários para diagnosticar a falha em um repositório durável. O lote integrou suporte ao armazenamento do Azure para carregar dados via [OutputFiles](batch-task-output-files.md), bem como uma variedade de sistemas de arquivos compartilhados, ou você pode executar o upload por conta própria em suas tarefas.
+### <a name="save-task-data"></a>Salvar dados da tarefa
 
-### <a name="task-lifetime"></a>Tempo de vida da tarefa
+Os nós de computação são, por sua natureza, efêmeros. Há muitos recursos no Lote, como o pool automático e o dimensionamento automático, que facilitam o desaparecimento dos nós. Quando os nós deixam o pool (devido a um redimensionamento ou a uma exclusão de pool), todos os arquivos nesses nós também são excluídos. Por isso, uma tarefa deve mover sua saída do nó em execução e para um repositório durável antes de ser concluída. Da mesma forma, se uma tarefa falhar, ela deverá mover os logs necessários para diagnosticar a falha em um repositório durável.
 
-- **Exclua as tarefas quando elas estiverem concluídas.**
-    Exclua tarefas quando elas não forem mais necessárias ou defina uma restrição de tarefa de [retençãotime](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskconstraints.retentiontime?view=azure-dotnet) . Se um `retentionTime` for definido, o lote limpará automaticamente o espaço em disco usado pela tarefa quando `retentionTime` o expirar.
+O Lote tem suporte integrado ao Armazenamento do Azure para carregar dados por meio de [OutputFiles](batch-task-output-files.md), bem como uma variedade de sistemas de arquivos compartilhados, ou você pode executar o upload por conta própria em suas tarefas.
 
-    A exclusão de tarefas realiza duas coisas. Ele garante que você não tenha uma compilação de tarefas no trabalho, fazendo consultas/encontrando a tarefa de que você está interessado com mais dificuldade (porque você terá que filtrar as tarefas concluídas). Ele também limpa os dados da tarefa correspondente no nó (fornecido `retentionTime` ainda não foi atingido). Isso garante que os nós não sejam preenchidos com os dados da tarefa e fique sem espaço em disco.
+### <a name="manage-task-lifetime"></a>Gerenciar tempo de vida da tarefa
 
-### <a name="task-submission"></a>Envio de tarefa
+Exclua tarefas quando elas não forem mais necessárias ou defina uma restrição de tarefa [retentionTime](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskconstraints.retentiontime?view=azure-dotnet). Se um `retentionTime` estiver definido, o Lote limpará automaticamente o espaço em disco usado pela tarefa quando o `retentionTime` expirar.
 
-- **Envie um grande número de tarefas em uma coleção.**
-    As tarefas podem ser enviadas em uma base individual ou em coleções. Envie tarefas em [coleções](https://docs.microsoft.com/rest/api/batchservice/task/addcollection) de até 100 de uma vez ao realizar o envio em massa de tarefas para reduzir a sobrecarga e o tempo de envio.
+A exclusão de tarefas realiza duas coisas. Ela garante que você não tenha uma compilação de tarefas no trabalho, o que pode dificultar a consulta/localização da tarefa em que você está interessado (porque será necessário filtrar as tarefas concluídas). Ela também limpa os dados de tarefa correspondentes no nó (desde que o `retentionTime` ainda não tenha sido atingido). Isso ajuda a garantir que os nós não sejam preenchidos com os dados da tarefa e fique sem espaço em disco.
 
-### <a name="task-execution"></a>Execução das tarefas
+### <a name="submit-large-numbers-of-tasks-in-collection"></a>Enviar um grande número de tarefas na coleção
 
-- **Escolhendo o máximo de tarefas por nó** O lote dá suporte a tarefas de sobrecarregar em nós (executando mais tarefas do que um nó tem núcleos). Cabe a você garantir que suas tarefas se ajustem aos nós no pool. Por exemplo, você pode ter uma experiência degradada se tentar agendar oito tarefas, cada uma consumindo 25% de uso da CPU em um nó (em `maxTasksPerNode = 8`um pool com).
+As tarefas podem ser enviadas em uma base individual ou em coleções. Envie tarefas em [coleções](https://docs.microsoft.com/rest/api/batchservice/task/addcollection) de até 100 por vez ao realizar o envio em massa de tarefas para reduzir a sobrecarga e o tempo de envio.
 
-### <a name="designing-for-retries-and-re-execution"></a>Design para repetições e reexecução
+### <a name="set-max-tasks-per-node-appropriately"></a>Definir o máximo de tarefas por nó adequadamente
 
-As tarefas podem ser repetidas automaticamente pelo lote. Há dois tipos de tentativas: controlado pelo usuário e interno. As repetições controladas pelo usuário são especificadas pelo [maxTaskRetryCount](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskconstraints.maxtaskretrycount?view=azure-dotnet)da tarefa. Quando um programa especificado na tarefa é encerrado com um código de saída diferente de zero, a tarefa é repetida até o valor de `maxTaskRetryCount`.
+O Lote permite tarefas de substituição em nós (a execução de mais tarefas em vez de um nó tem núcleos). Cabe a você garantir que suas tarefas se ajustem aos nós no pool. Por exemplo, você pode ter uma experiência degradada se tentar agendar oito tarefas, cada uma consumindo 25% de uso da CPU em um nó (em um pool com `maxTasksPerNode = 8`).
 
-Embora seja raro, uma tarefa pode ser repetida internamente devido a falhas no nó de computação, como não ser capaz de atualizar o estado interno ou uma falha no nó enquanto a tarefa está em execução. A tarefa será repetida no mesmo nó de computação, se possível, até um limite interno antes de desistir da tarefa e adiar a tarefa a ser reagendada pelo lote, potencialmente em um nó de computação diferente.
+### <a name="design-for-retries-and-re-execution"></a>Design para novas tentativas e nova execução
 
-- **Tarefas duráveis de compilação** As tarefas devem ser projetadas para resistir à falha e acomodar novas tentativas. Isso é especialmente importante para tarefas de longa execução. Para fazer isso, verifique se as tarefas geram o mesmo resultado, mesmo que elas sejam executadas mais de uma vez. Uma maneira de conseguir isso é fazer suas tarefas "atingir metas". Outra maneira é garantir que suas tarefas sejam idempotentes (as tarefas terão o mesmo resultado, independentemente de quantas vezes elas forem executadas).
+As tarefas podem ser repetidas automaticamente pelo Lote. Há dois tipos de tentativas: controlado pelo usuário e interno. As novas tentativas controladas pelo usuário são especificadas pelo [maxTaskRetryCount](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskconstraints.maxtaskretrycount?view=azure-dotnet) da tarefa. Quando um programa especificado na tarefa é encerrado com um código de saída diferente de zero, a tarefa é repetida até o valor da `maxTaskRetryCount`.
 
-    Um exemplo comum é uma tarefa para copiar arquivos para um nó de computação. Uma abordagem simples é uma tarefa que copia todos os arquivos especificados toda vez que ele é executado, o que é ineficiente e não é criado para resistir a falhas. Em vez disso, crie uma tarefa para garantir que os arquivos estejam no nó de computação; uma tarefa que não copia arquivos que já estão presentes. Dessa forma, a tarefa é escolhida de onde parou se foi interrompida.
+Embora seja raro, uma tarefa pode ser repetida internamente devido a falhas no nó de computação, como não ser capaz de atualizar o estado interno ou uma falha no nó enquanto a tarefa está em execução. A tarefa será repetida no mesmo nó de computação, se possível, até um limite interno antes de desistir da tarefa e adiá-la para ser reagendada pelo Lote, potencialmente em um nó de computação diferente.
 
-- **Nós de baixa prioridade** Não há diferenças de design ao executar suas tarefas em nós dedicados ou de baixa prioridade. Se uma tarefa é antecipada durante a execução em um nó de baixa prioridade ou interrompida devido a uma falha em um nó dedicado, ambas as situações são atenuadas com a criação da tarefa para resistir à falha.
+Não há diferenças de design ao executar suas tarefas em nós dedicados ou de baixa prioridade. Se uma tarefa é antecipada durante a execução em um nó de baixa prioridade ou interrompida devido a uma falha em um nó dedicado, ambas as situações são atenuadas com a criação da tarefa para resistir à falha.
 
-- **Tempo de execução da tarefa** Evite tarefas com tempo de execução curto. As tarefas que só são executadas por um ou dois segundos não são ideais. Você deve tentar fazer uma quantidade significativa de trabalho em uma tarefa individual (no mínimo 10 segundos, indo até horas ou dias). Se cada tarefa estiver em execução por um minuto (ou mais), a sobrecarga de agendamento como uma fração do tempo de computação geral será pequena.
+### <a name="build-durable-tasks"></a>Criar tarefas duráveis
+
+As tarefas devem ser projetadas para resistir à falha e acomodar novas tentativas. Isso é importante principalmente para tarefas de execução prolongada. Para fazer isso, verifique se as tarefas geram o mesmo resultado, mesmo que elas sejam executadas mais de uma vez. Uma maneira de conseguir isso é fazer suas tarefas "atingir metas". Outra maneira é garantir que suas tarefas sejam idempotentes (as tarefas terão o mesmo resultado, independentemente de quantas vezes elas forem executadas).
+
+Um exemplo comum é uma tarefa que copia arquivos para um nó de computação. Uma abordagem simples é uma tarefa que copia todos os arquivos especificados toda vez que ela é executada, o que é ineficiente e não é criado para resistir a falhas. Em vez disso, crie uma tarefa para garantir que os arquivos estejam no nó de computação; uma tarefa que não copia arquivos que já estão presentes. Dessa forma, a tarefa é escolhida de onde parou se foi interrompida.
+
+### <a name="avoid-short-execution-time"></a>Evitar tempo de execução curto
+
+As tarefas que só são executadas por um ou dois segundos não são ideais. Tente fazer uma quantidade significativa de trabalho em uma tarefa individual (no mínimo 10 segundos, no máximo horas ou dias). Se cada tarefa estiver em execução por um minuto (ou mais), a sobrecarga de agendamento como uma fração do tempo de computação geral será pequena.
+
 
 ## <a name="nodes"></a>Nós
 
-- **As tarefas iniciais devem ser idempotentes** Semelhante a outras tarefas, a tarefa de início do nó deve ser idempotente, pois ela será executada novamente sempre que o nó for inicializado. Uma tarefa idempotente é simplesmente uma que produz um resultado consistente quando executada várias vezes.
+Um [nó de computação](nodes-and-pools.md#nodes) é uma máquina virtual (VM) do Azure ou VM do serviço de nuvem que é dedicada ao processamento de uma parte da carga de trabalho do aplicativo. Siga estas diretrizes ao trabalhar com nós.
 
-- **Gerencie serviços de longa execução por meio da interface de serviços do sistema operacional.**
-    Às vezes, há a necessidade de executar outro agente junto com o agente do lote no nó, por exemplo, para coletar dados do nó e relatá-los. Recomendamos que esses agentes sejam implantados como serviços do sistema operacional, como um serviço do `systemd` Windows ou um serviço do Linux.
+### <a name="idempotent-start-tasks"></a>Tarefas de início idempotentes
 
-    Ao executar esses serviços, eles não devem fazer bloqueios de arquivo em todos os arquivos em diretórios gerenciados em lote no nó, pois, caso contrário, o lote não poderá excluir esses diretórios devido aos bloqueios de arquivo. Por exemplo, se estiver instalando um serviço do Windows em uma tarefa inicial, em vez de iniciar o serviço diretamente do diretório de trabalho Iniciar tarefa, copie os arquivos em outro lugar (se os arquivos existirem apenas ignorar a cópia). Instale o serviço a partir desse local. Quando o lote executa novamente a tarefa inicial, ele excluirá o diretório de trabalho Iniciar tarefa e o criará novamente. Isso funciona porque o serviço tem bloqueios de arquivo no outro diretório, não o diretório de trabalho Iniciar tarefa.
+Assim como ocorre com outras tarefas, a [tarefa de início](jobs-and-tasks.md#start-task) do nó deve ser idempotente, pois ela será executada novamente sempre que o nó for inicializado. Uma tarefa idempotente produz um resultado consistente quando executada várias vezes.
 
-- **Evite criar junções de diretório no Windows** As junções de diretório, às vezes chamadas de links físicos de diretório, são difíceis de lidar durante a limpeza da tarefa e do trabalho. Use symlinks (links Soft) em vez de links físicos.
+### <a name="manage-long-running-services-via-the-operating-system-services-interface"></a>Gerenciar serviços de execução longa por meio da interface de serviços do sistema operacional
 
-- **Coletar os logs do agente do lote se houver um problema** Se você notar um problema envolvendo o comportamento de um nó ou de tarefas em execução em um nó, é recomendável coletar os logs do agente do lote antes de desalocar os nós em questão. Os logs do agente do lote podem ser coletados usando a API carregar logs de serviço do lote. Esses logs podem ser fornecidos como parte de um tíquete de suporte à Microsoft e ajudarão no problema de resolução e solução de problemas.
+Às vezes, há a necessidade de executar outro agente junto com o agente do Lote no nó. Por exemplo, talvez você queira coletar dados do nó e relatá-los. Recomendamos que esses agentes sejam implantados como serviços do sistema operacional, como um serviço do Windows ou um serviço de `systemd` do Linux.
 
-## <a name="security"></a>Segurança
+Ao executar esses serviços, eles não devem fazer bloqueios de arquivo em nenhum arquivo nos diretórios gerenciados pelo Lote no nó; caso contrário, o Lote não poderá excluir esses diretórios devido aos bloqueios de arquivo. Por exemplo, se estiver instalando um serviço do Windows em uma tarefa inicial, em vez de iniciar o serviço diretamente do diretório de trabalho da tarefa de início, copie os arquivos em outro lugar (ou se os arquivos existirem, apenas ignore a cópia). Em seguida, instale o serviço a partir desse local. Quando o Lote executar novamente a tarefa de início, ele vai excluir o diretório de trabalho da tarefa de início e criá-lo novamente. Isso funciona porque o serviço tem bloqueios de arquivo no outro diretório, não no diretório de trabalho da tarefa de início.
 
-### <a name="security-isolation"></a>Isolamento de segurança
+### <a name="avoid-creating-directory-junctions-in-windows"></a>Evitar criar junções de diretório no Windows
 
-Para fins de isolamento, se o seu cenário exigir o isolamento de trabalhos uns dos outros, você deverá isolar esses trabalhos fazendo com que eles estejam em pools separados. Um pool é o limite de isolamento de segurança no lote e, por padrão, dois pools não são visíveis ou são capazes de se comunicar entre si. Evite usar contas do lote separadas como meio de isolamento.
+As junções de diretório, às vezes chamadas de links físicos de diretório, são difíceis de lidar durante a limpeza da tarefa e do trabalho. Use symlinks (links soft) em vez de links físicos.
 
-## <a name="moving"></a>Movimenta
+### <a name="collect-the-batch-agent-logs"></a>Coletar logs de agente do Lote
 
-### <a name="move-batch-account-across-regions"></a>Mover conta do lote entre regiões
+Se você notar um problema envolvendo o comportamento de um nó ou de tarefas em execução em um nó, colete os logs do agente do Lote antes de desalocar os nós em questão. Os logs de agente do Lote podem ser coletados usando a API de logs de serviço Carregar Lote. Esses logs podem ser fornecidos como parte de um tíquete de suporte à Microsoft e ajudarão com a solução de problemas.
 
-Há vários cenários em que você deseja mover sua conta do lote existente de uma região para outra. Por exemplo, talvez você queira mover para outra região como parte do planejamento de recuperação de desastre.
+## <a name="isolation-security"></a>Segurança de isolamento
 
-As contas do lote do Azure não podem ser movidas de uma região para outra. No entanto, você pode usar um modelo de Azure Resource Manager para exportar a configuração existente da sua conta do lote.  Em seguida, você pode preparar o recurso em outra região exportando a conta do lote para um modelo, modificando os parâmetros para corresponder à região de destino e, em seguida, implantar o modelo na nova região. Depois de carregar o modelo para a nova região, você precisará recriar certificados, agendas de trabalho e pacotes de aplicativos. Para confirmar as alterações e concluir a movimentação da conta do lote, lembre-se de excluir a conta do lote original ou o grupo de recursos.
+Para fins de isolamento, se seu cenário exigir o isolamento de trabalhos uns dos outros, faça isso colocando-os em pools separados. Um pool é o limite de isolamento de segurança no Lote e, por padrão, dois pools não são visíveis ou capazes de se comunicar entre si. Evite usar contas do Lote separadas como meio de isolamento.
 
-Para obter mais informações sobre o Gerenciador de recursos e modelos, consulte [início rápido: criar e implantar modelos de Azure Resource Manager usando o portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+## <a name="moving-batch-accounts-across-regions"></a>Como mover contas do Lote entre regiões
 
-## <a name="connectivity-to-the-batch-service"></a>Conectividade com o serviço de lote
+Há cenários em que pode ser útil mover uma conta do Lote existente de uma região para outra. Por exemplo, talvez você queira mover para outra região como parte do planejamento de recuperação de desastre.
+
+As contas do Lote do Azure não podem ser diretamente movidas de uma região para outra. No entanto, você pode usar um modelo do Azure Resource Manager para exportar a configuração existente da sua conta do Lote. Em seguida, você pode preparar o recurso em outra região, exportando a conta do Lote para um modelo, modificando os parâmetros para corresponder à região de destino e, em seguida, implantando o modelo na nova região.
+
+Depois de carregar o modelo para a nova região, você precisará recriar certificados, agendas de trabalho e pacotes de aplicativos. Para confirmar as alterações e concluir a movimentação da conta do Lote, lembre-se de excluir a conta do Lote original ou o grupo de recursos.
+
+Para obter mais informações sobre o Resource Manager e modelos, consulte [Início Rápido: Crie e implante modelos do Azure Resource Manager usando o portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+
+## <a name="connectivity"></a>Conectividade
+
+Examine as diretrizes a seguir ao considerar a conectividade em suas soluções do Lote.
 
 ### <a name="network-security-groups-nsgs-and-user-defined-routes-udrs"></a>NSGs (grupos de segurança de rede) e UDRs (rotas definidas pelo usuário)
 
-Ao provisionar [pools do lote em uma rede virtual](batch-virtual-network.md), verifique se você está seguindo as diretrizes em relação ao uso `BatchNodeManagement` da marca de serviço, portas, protocolos e direção da regra.
-O uso da marca de serviço é altamente recomendado e não os endereços IP subjacentes do serviço de lote, pois eles podem mudar ao longo do tempo. Usar os endereços IP do serviço de lote diretamente pode ser manifestado como instabilidade, interrupções ou interrupções para seus pools do lote, pois o serviço de lote atualiza os endereços IP usados ao longo do tempo. Se você estiver usando atualmente endereços IP do serviço de lote em suas regras do NSG, é recomendável alternar para usando a marca de serviço.
+Ao provisionar [pools do Lote em uma rede virtual](batch-virtual-network.md), verifique se você está seguindo as diretrizes em relação ao uso da marca de serviço `BatchNodeManagement`, das portas, do protocolos e da direção da regra.
+O uso da marca de serviço é altamente recomendado, em vez de usar os endereços IP subjacentes do serviço do Lote. Isso ocorre porque os endereços IP podem mudar ao longo do tempo. Usar endereços IP do serviço do Lote diretamente pode causar instabilidade ou interrupções nos pools do Lote.
 
-Para rotas definidas pelo usuário, verifique se você tem um processo em vigor para atualizar os endereços IP do serviço de lote periodicamente em sua tabela de rotas, pois essas alterações são alteradas ao longo do tempo. Para saber como obter a lista de endereços IP do serviço de lote, consulte [marcas de serviço no local](../virtual-network/service-tags-overview.md). Os endereços IP do serviço de lote serão associados à `BatchNodeManagement` marca de serviço (ou à variante regional que corresponde à sua região de conta do lote).
+Para UDRs (rotas definidas pelo usuário), verifique se você tem um processo em vigor para atualizar os endereços IP do serviço do Lote periodicamente em sua tabela de rotas, pois esses endereços mudam com o passar do tempo. Para saber como obter a lista de endereços IP do serviço do Lote, consulte [Marcas de serviços locais](../virtual-network/service-tags-overview.md). Os endereços IP do serviço do Lote serão associados à marca de serviço `BatchNodeManagement` (ou à variante regional que corresponde à região da sua conta do Lote).
 
-### <a name="honoring-dns"></a>Honrando o DNS
+### <a name="honoring-dns"></a>Como honrar o DNS
 
-Verifique se seus sistemas estão respeitando a TTL (vida útil) do DNS para a URL do serviço de conta do lote. Além disso, verifique se os clientes de serviço do lote e outros mecanismos de conectividade para o serviço de lote não dependem de endereços IP.
+Verifique se seus sistemas estão respeitando a TTL (vida útil) do DNS para a URL do serviço da conta do Lote. Além disso, verifique se os clientes de serviço do Lote e outros mecanismos de conectividade para o serviço do Lote não dependem de endereços IP.
 
-Se suas solicitações receberem respostas HTTP de nível 5xx e houver um cabeçalho "conexão: fechamento" na resposta, o cliente do serviço de lote deverá observar a recomendação fechando a conexão existente, resolvendo novamente o DNS para a URL do serviço de conta do lote e tentar as solicitações a seguir em uma nova conexão.
+Se suas solicitações receberem respostas HTTP de nível 5xx e houver um cabeçalho "Conexão: fechamento" na resposta, o cliente do serviço do Lote deverá observar a recomendação, fechando a conexão existente e resolvendo novamente o DNS para a URL de serviço da conta do Lote, e tentar seguir estas solicitações em uma nova conexão.
 
-### <a name="retrying-requests-automatically"></a>Repetindo solicitações automaticamente
+### <a name="retrying-requests-automatically"></a>Como repetir solicitações automaticamente
 
-Verifique se os clientes do serviço de lote têm políticas de repetição apropriadas em vigor para repetir automaticamente suas solicitações, mesmo durante a operação normal e não exclusivamente durante os períodos de tempo de manutenção do serviço. Essas políticas de repetição devem abranger um intervalo de pelo menos 5 minutos. Os recursos de repetição automática são fornecidos com vários SDKs do lote, como a [classe RetryPolicyProvider do .net](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.retrypolicyprovider?view=azure-dotnet).
+Verifique se os clientes do serviço do Lote têm políticas de repetição apropriadas em vigor para repetir automaticamente suas solicitações, mesmo durante a operação normal e não exclusivamente durante os períodos de tempo de manutenção do serviço. Essas políticas de repetição devem abranger um intervalo de pelo menos 5 minutos. Os recursos de repetição automática são fornecidos com vários SDKs do Lote, como a [classe .NET RetryPolicyProvider](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.retrypolicyprovider?view=azure-dotnet).
 
+## <a name="batch-node-underlying-dependencies"></a>Dependências subjacentes do nó do Lote
+
+Considere as seguintes dependências e restrições ao projetar suas soluções do Lote.
+
+### <a name="system-created-resources"></a>Recursos criados pelo sistema
+
+O Lote do Azure cria e gerencia um conjunto de usuários e grupos na VM, que não devem ser alterados. Elas são as seguintes:
+
+#### <a name="windows"></a>Windows
+
+- Um usuário chamado **PoolNonAdmin**
+- Um grupo de usuários chamado **WATaskCommon**
+
+#### <a name="linux"></a>Linux
+
+- Um usuário chamado **_azbatch**
+
+### <a name="file-cleanup"></a>Limpeza de arquivo
+
+O Lote tenta ativamente limpar o diretório de trabalho no qual as tarefas são executadas, quando o tempo de retenção expira. [Você é responsável por limpar](#manage-task-lifetime) todos os arquivos gravados fora desse diretório para evitar o preenchimento do espaço em disco. 
+
+A limpeza automatizada para o diretório de trabalho será bloqueada se você executar um serviço no Windows a partir do diretório de trabalho startTask, porque a pasta ainda está em uso. Isso resultará em degradação do desempenho. Para corrigir isso, altere o diretório desse serviço para um diretório separado que não seja gerenciado pelo Lote.

@@ -1,6 +1,6 @@
 ---
-title: Alterar sua senha de conta corporativa ou de estudante-Azure AD
-description: Saiba como alterar sua senha de conta corporativa ou de estudante na página Alterar senha do portal minha conta.
+title: Alterar a senha de uma conta corporativa ou de estudante - Azure AD
+description: Saiba como alterar a senha da conta corporativa ou de estudante na página Alterar senha do portal Minha conta.
 services: active-directory
 author: curtand
 manager: daveba
@@ -8,49 +8,49 @@ ms.reviewer: jpettere
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 10/28/2019
 ms.author: curtand
-ms.openlocfilehash: 75564ea463198967c6ed170851058202b5ba3478
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
-ms.translationtype: MT
+ms.openlocfilehash: a93ee781648440a6e656ff8fd948b2eb9e96bd43
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82625945"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83735932"
 ---
-# <a name="change-your-work-or-school-account-password-from-the-change-password-page"></a>Alterar a senha da conta corporativa ou de estudante da página Alterar senha
+# <a name="change-your-work-or-school-account-password-from-the-change-password-page"></a>Alterar a senha da conta corporativa ou de estudante na página Alterar senha
 
-A página **alterar senha** do portal **minha conta** ajuda a atualizar uma senha existente para sua conta corporativa ou de estudante, supondo que você se lembre da senha e que você não está bloqueado em sua conta. Se você não se lembrar da sua senha, se você tiver bloqueado sua conta ou se nunca tiver uma senha de sua organização, poderá usar suas informações de segurança e seu dispositivo móvel para redefinir sua senha.
+A página **Alterar a senha** do portal **Minha conta** ajuda a atualizar uma senha existente para a conta corporativa ou de estudante, supondo que você se lembre da senha e que você não está bloqueado na conta. Se você não se lembrar da sua senha, se estiver bloqueado na sua conta ou se nunca recebeu uma senha da sua organização, pode usar suas informações de segurança e seu dispositivo móvel para redefinir sua senha.
 
 >[!Important]
->Este artigo destina-se a usuários que tentam atualizar uma senha conhecida para uma conta corporativa ou de estudante existente. Se você for um usuário que está tentando entrar em uma conta pessoal, como para Xbox, hotmail ou Outlook.com, tente as sugestões no artigo [quando não conseguir entrar no seu conta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) . Se você for um administrador que está tentando encontrar mais informações sobre como testar a redefinição de senha de autoatendimento para seus funcionários ou outros usuários, consulte [autoatendimento de redefinição de senha](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr).
+>Este artigo destina-se a usuários que tentam atualizar uma senha conhecida para uma conta corporativa ou de estudante existente. Se você for um usuário que está tentando voltar a uma conta pessoal como Xbox, Hotmail ou Outlook.com, experimente as sugestões no artigo [Quando não for possível entrar em sua conta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant). Se você for um administrador que está tentando encontrar mais informações sobre como testar a redefinição de senha por autoatendimento para seus funcionários ou outros usuários, confira [Redefinição de senha por autoatendimento](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr).
 
-## <a name="update-a-password-from-the-change-password-page"></a>Atualizar uma senha da página Alterar senha
+## <a name="update-a-password-from-the-change-password-page"></a>Atualizar uma senha na página Alterar senha
 
-1. Entre em sua conta corporativa ou de estudante, usando sua senha existente e vá para a página **minha conta** (https://myaccount.microsoft.com/) .
+1. Entre em sua conta corporativa ou de estudante usando sua senha atual e vá para a página **Minha Conta** (https://myaccount.microsoft.com/).
 
-2. Selecione **senha** no painel de navegação esquerdo ou selecione o link **alterar senha** do bloco de **senha** .
+2. Selecione **Senha** no painel de navegação esquerdo ou selecione o link **Alterar senha** no bloco **Senha**.
 
-    ![Página minha conta, mostrando o link realçado alterar senha](media/my-account-portal/my-account-portal-change-password.png)
+    ![Página Minha conta com o link Alterar senha em destaque](media/my-account-portal/my-account-portal-change-password.png)
 
-3. Digite sua senha antiga e, em seguida, crie e confirme sua nova senha.
+3. Digite sua senha antiga e depois crie e confirme sua nova senha.
 
-    ![Página Alterar senha, mostrando campos de senha](media/my-account-portal/my-account-portal-change-password-page.png)
+    ![Página Alterar senha com os campos de senha](media/my-account-portal/my-account-portal-change-password-page.png)
 
 4. Selecione **Enviar**.
 
-    Sua senha será alterada e você será solicitado a entrar em sua conta corporativa ou de estudante novamente.
+    Sua senha será alterada e você será solicitado a entrar novamente em sua conta corporativa ou de estudante.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Depois de alterar sua senha, você pode:
 
-- Exiba ou gerencie suas [informações de segurança](user-help-security-info-overview.md).
+- Exibir ou gerenciar as [informações de segurança](user-help-security-info-overview.md).
 
-- Exiba ou gerencie seus [dispositivos](my-account-portal-devices-page.md)conectados.
+- Exibir ou gerenciar os [dispositivos](my-account-portal-devices-page.md) conectados.
 
-- Exiba ou gerencie suas [organizações](my-account-portal-organizations-page.md).
+- Exibir ou gerenciar as [organizações](my-account-portal-organizations-page.md).
 
-- Exiba sua [atividade de entrada](my-account-portal-sign-ins-page.md).
+- Exibir sua [atividade de entrada](my-account-portal-sign-ins-page.md).
 
-- Veja como sua organização [usa seus dados relacionados à privacidade](my-account-portal-privacy-page.md).
+- Exibir como a organização [usa os dados relacionados à privacidade](my-account-portal-privacy-page.md).

@@ -41,10 +41,10 @@
           href: mca-section-invoice.md
         - name: Configurar conta de cobrança do Contrato de Cliente da Microsoft
           href: mca-setup-account.md
-        - name: Inscrever-se com conta do Office 365
-          href: office-365-account-for-azure-subscription.md
-        - name: Inscrever-se no Office 365 com a conta do Azure
-          href: azure-account-for-office-365-subscription.md
+        - name: Inscrever-se com a conta Microsoft 365
+          href: microsoft-365-account-for-azure-subscription.md
+        - name: Inscrever-se no Microsoft 365 com a conta do Azure
+          href: azure-account-for-microsoft-365-subscription.md
         - name: Pagar usando a autenticação forte de cliente
           href: open-banking-strong-customer-authentication.md
     - name: Administrar assinaturas

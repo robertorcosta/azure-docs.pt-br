@@ -4,18 +4,18 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tagore
-ms.openlocfilehash: b86e0d784d26e9e483dd12e20d45189ae8bfb9bd
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
-ms.translationtype: MT
+ms.openlocfilehash: d7019d673bd8dfda31c5073fb7f37e26768dcc1d
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81866208"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83778194"
 ---
 ## <a name="migrate-iaas-resources-from-the-classic-deployment-model-to-azure-resource-manager"></a>Migrar recursos de IaaS do modelo de implantação clássico para o Azure Resource Manager
 Primeiro, é importante compreender a diferença entre as operações de plano de dados e de plano de gerenciamento nos recursos de IaaS (infraestrutura como serviço).
 
-* *O plano de gerenciamento/controle* descreve as chamadas que entram no plano de gerenciamento/controle ou na API para modificar recursos. Por exemplo, operações como a criação de uma VM, reinicialização de uma VM e atualização de uma rede virtual com uma nova sub-rede para gerenciar os recursos em execução. Elas não afetam diretamente a conexão com as VMs.
-* *O data plane* (aplicativo) descreve o tempo de execução do aplicativo em si, e envolve interação com instâncias que não passam pela API do Azure. Por exemplo, o acesso ao seu site ou o pull de dados de uma instância do SQL Server ou servidor MongoDB em execução são plano de dados ou interação com o aplicativo. Outros exemplos incluem copiar um blob de uma conta de armazenamento e acessar um endereço IP público para usar o protocolo RDP ou SSH (Secure Shell) na máquina virtual. Essas operações mantêm o aplicativo em execução entre computação, rede e armazenamento.
+* O *Plano de gerenciamento/controle* descreve as chamadas que vão para o plano de gerenciamento/controle ou para a API para modificar recursos. Por exemplo, operações como a criação de uma VM, reinicialização de uma VM e atualização de uma rede virtual com uma nova sub-rede para gerenciar os recursos em execução. Elas não afetam diretamente a conexão com as VMs.
+* *Plano de dados* (aplicativo) descreve o runtime do próprio aplicativo e envolve a interação com instâncias que não passam pela API do Azure. Por exemplo, o acesso ao seu site ou o pull de dados de uma instância do SQL Server ou servidor MongoDB em execução são plano de dados ou interação com o aplicativo. Outros exemplos incluem copiar um blob de uma conta de armazenamento e acessar um endereço IP público para usar o protocolo RDP ou SSH (Secure Shell) na máquina virtual. Essas operações mantêm o aplicativo em execução entre computação, rede e armazenamento.
 
 O plano de dados é o mesmo entre o modelo de implantação Clássico e a pilha do Gerenciador de Recursos. A diferença é que, durante o processo de migração, a Microsoft converte a representação dos recursos do modelo de implantação Clássico para aquela da pilha do Gerenciador de Recursos. Como resultado, você precisa usar novas ferramentas, APIs e SDKs para gerenciar seus recursos na pilha do Gerenciador de Recursos.
 
@@ -121,7 +121,7 @@ Essa é uma etapa opcional se você quiser reverter as alterações para o model
 Após a conclusão da validação, é possível confirmar a migração. Os recursos não aparecerão mais no modelo de implantação clássico e estão disponíveis apenas no modelo de implantação do Gerenciador de Recursos. Os recursos migrados só podem ser gerenciados no novo portal.
 
 > [!NOTE]
-> Esta é uma operação idempotente. Se ela falhar, repita a operação. Se ele continuar a falhar, crie um ticket de suporte ou crie um fórum no [Microsoft Q&A](https://docs.microsoft.com/answers/index.html)
+> Esta é uma operação idempotente. Se ela falhar, repita a operação. Se ele continuar falhando, crie um tíquete de suporte ou crie um fórum em [Página de P e R da Microsoft](https://docs.microsoft.com/answers/index.html)
 >
 >
 
@@ -151,11 +151,11 @@ Você pode encontrar o modelo de implantação clássico e representações do R
 | Regras NAT de entrada |Regras NAT de entrada |Os pontos de extremidade de entrada definidos na VM são convertidos em regras de conversão de endereços de rede de entrada sob o balanceador de carga durante a migração. |
 | Endereço VIP |Endereço IP público com o nome DNS |O endereço IP virtual se torna um endereço IP público e é associado ao balanceador de carga. Um IP virtual só pode ser migrado se houver um ponto de extremidade de entrada atribuído a ele. |
 | Rede virtual |Rede virtual |A rede virtual é migrada com todas as propriedades para o modelo de implantação do Gerenciador de Recursos. É criado um novo grupo de recursos com o nome `-migrated`. |
-| IPs Reservados |Endereço IP público com método de alocação estático |Os IPs Reservados associados ao balanceador de carga são migrados, juntamente com a migração do serviço de nuvem ou da máquina virtual. No momento, não há suporte para a migração de IP reservado não associado. |
+| IPs Reservados |Endereço IP público com método de alocação estático |Os IPs Reservados associados ao balanceador de carga são migrados, juntamente com a migração do serviço de nuvem ou da máquina virtual. Os IPs reservados não associados podem ser migrados usando [move-AzureReservedIP](https://docs.microsoft.com/powershell/module/servicemanagement/azure/move-azurereservedip?view=azuresmps-4.0.0).  |
 | Endereço IP público por VM |Endereço IP público com método de alocação dinâmico |O endereço IP público associado à VM é convertido como um recurso de endereço IP público, com o método de alocação definido como estático. |
-| NSGs |NSGs |Os grupos de segurança de rede associados a uma sub-rede são clonados como parte da migração para o modelo de implantação do Gerenciador de Recursos. O NSG no modelo de implantação clássica não é removido durante a migração. No entanto, as operações do plano de gerenciamento referentes ao NSG serão bloqueadas quando a migração estiver em andamento. |
+| NSGs |NSGs |Os grupos de segurança de rede associados a uma sub-rede são clonados como parte da migração para o modelo de implantação do Gerenciador de Recursos. O NSG no modelo de implantação clássica não é removido durante a migração. No entanto, as operações do plano de gerenciamento referentes ao NSG serão bloqueadas quando a migração estiver em andamento. O NSGs não associado pode ser migrado usando [Move-AzureNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/servicemanagement/azure/move-azurenetworksecuritygroup?view=azuresmps-4.0.0).|
 | Servidores DNS |Servidores DNS |Os servidores DNS associados a uma rede virtual ou à VM são migrados como parte da migração do recurso correspondente, juntamente com todas as propriedades. |
-| UDRs |UDRs |As rotas definidas pelo usuário associados a uma sub-rede são clonadas como parte da migração para o modelo de implantação do Gerenciador de Recursos. A UDR no modelo de implantação clássica não é removida durante a migração. As operações do plano de gerenciamento referentes à UDR serão bloqueadas quando a migração estiver em andamento. |
+| UDRs |UDRs |As rotas definidas pelo usuário associados a uma sub-rede são clonadas como parte da migração para o modelo de implantação do Gerenciador de Recursos. A UDR no modelo de implantação clássica não é removida durante a migração. As operações do plano de gerenciamento referentes à UDR serão bloqueadas quando a migração estiver em andamento. As UDRs não associadas podem ser migradas usando [Move-AzureReservedIP](https://docs.microsoft.com/powershell/module/servicemanagement/azure/Move-AzureRouteTable?view=azuresmps-4.0.0). |
 | Propriedade de encaminhamento IP em uma configuração de rede da VM |Propriedade de encaminhamento IP na NIC |A propriedade de encaminhamento IP em uma VM é convertida em uma propriedade na interface de rede durante a migração. |
 | Balanceador de carga com vários IPs |Balanceador de carga com vários recursos IP públicos |Cada IP público associado ao balanceador de carga é convertido em um recurso IP público e associado ao balanceador de carga após a migração. |
 | Nomes DNS internos na VM |Nomes DNS internos na NIC |Durante a migração, os sufixos DNS internos das VMs são migrados para uma propriedade somente leitura chamada "InternalDomainNameSuffix" no NIC. O sufixo permanece inalterado após a migração, e a resolução da VM deve continuar a funcionar como antes. |

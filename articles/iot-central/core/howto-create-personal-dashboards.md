@@ -8,66 +8,67 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 06225e284000d7f10f575be08cd683488abec339
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f7dca7352a49e668231f64632371a445985e4de3
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80985483"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83634629"
 ---
-# <a name="create-and-manage-multiple-dashboards"></a>Criar e gerenciar vários dashboards
+# <a name="create-and-manage-multiple-dashboards"></a>Criar e gerenciar vários painéis
 
-O **painel** é a página que carrega quando você navega pela primeira vez para seu aplicativo. Um **Construtor** em seu aplicativo define o painel do aplicativo padrão para todos os usuários. Além disso, você pode criar seu próprio painel de aplicativo personalizado. Você pode ter vários painéis que exibem dados diferentes e alternam entre eles.
+O **Painel** é a página que é carregada quando você navega pela primeira vez no aplicativo. Um **construtor** no aplicativo define o painel do aplicativo padrão para todos os usuários. Além disso, você pode criar seu próprio painel de aplicativo personalizado. Você pode ter vários painéis que exibem dados diferentes e alternam entre eles.
 
-Se você for um **administrador** do aplicativo, também poderá criar até 10 painéis de nível de aplicativo para compartilhar com outros usuários do aplicativo. Somente os **Administradores** têm a capacidade de criar, editar e excluir painéis de nível de aplicativo. 
+Se você for um **administrador** do aplicativo, também pode criar até 10 painéis de nível de aplicativo para compartilhar com outros usuários do aplicativo. Somente **administradores** têm a capacidade de criar, editar e excluir painéis de nível de aplicativo.  
 
 ## <a name="create-dashboard"></a>Criar painel
 
-A captura de tela a seguir mostra o painel em um aplicativo criado a partir do modelo de **aplicativo personalizado** . Você pode substituir o painel do aplicativo padrão por um painel pessoal, ou se você for um administrador, outro painel de nível de aplicativo. Para fazer isso, selecione **+ novo** na parte superior esquerda da página.
- 
-> [!div class="mx-imgBorder"]
-> ![Painel para aplicativos com base no modelo "aplicativo personalizado"](media/howto-create-personal-dashboards/dashboard-custom-app.png)
+A captura de tela a seguir mostra o painel em um aplicativo criado com base no modelo de **Aplicativo personalizado**. Você pode substituir o painel do aplicativo padrão por um painel pessoal ou, se você for um administrador, por outro painel de nível de aplicativo. Para fazer isso, selecione **+ Novo** na parte superior esquerda da página.
 
-Selecionar **+ novo** abre o editor de painel. No editor, você pode dar um nome ao seu painel e escolher itens da biblioteca. A biblioteca contém os blocos e os primitivos de painel que você pode usar para personalizar o painel.
+> [!div class="mx-imgBorder"]
+> ![Painel para aplicativos com base no modelo de "Aplicativo personalizado"](media/howto-create-personal-dashboards/dashboard-custom-app.png)
+
+Selecionar **+ Novo** abre o editor de painel. No editor, você pode dar um nome ao painel e escolher itens na biblioteca. A biblioteca contém os blocos e os primitivos de painel que você pode usar para personalizar o painel.
 
 > [!div class="mx-imgBorder"]
 > ![Biblioteca de painéis](media/howto-create-personal-dashboards/dashboard-library.png)
 
-Se você for um **administrador** do aplicativo, terá a opção de alternar se quiser criar um painel de nível pessoal ou um painel de nível de aplicativo. Se você criar um painel de nível pessoal, apenas você poderá vê-lo. Se você criar um painel de nível de aplicativo, todos os usuários do aplicativo poderão vê-lo. Depois de inserir um título e selecionar o tipo de painel que você deseja criar, você pode salvar e adicionar blocos posteriormente. Ou, se você estiver pronto agora e tiver adicionado um modelo de dispositivo e uma instância de dispositivo, poderá criar seu primeiro bloco. 
+Se você for um **administrador** do aplicativo, tem a opção de criar um painel de nível pessoal ou um painel de nível de aplicativo. Se você criar um painel de nível pessoal, só você poderá vê-lo. Se você criar um painel de nível de aplicativo, todos os usuários do aplicativo poderão vê-lo. Depois de inserir um título e selecionar o tipo de painel que você deseja criar, pode salvar e adicionar blocos posteriormente. Ou então, se você estiver pronto agora e tiver adicionado um modelo de dispositivo e uma instância de dispositivo, pode criar o primeiro bloco.  
 
 > [!div class="mx-imgBorder"]
-> ![Configurar detalhes do dispositivo ", formulário com detalhes de temperatura](media/howto-create-personal-dashboards/device-details.png)
+> Formulário !["Configurar detalhes do dispositivo" com detalhes para temperatura](media/howto-create-personal-dashboards/device-details.png)
 
-Por exemplo, você pode adicionar um bloco de **telemetria** para a temperatura atual do dispositivo. Para fazer isso:
-1. Selecionar um **modelo de dispositivo**
-1. Selecione uma **instância de dispositivo** para o dispositivo que você deseja ver em um bloco do Dashboard. Em seguida, você verá uma lista das propriedades do dispositivo que podem ser usadas no bloco.
-1. Para criar o bloco no painel, clique em **temperatura** e arraste-o para a área painel. Você também pode clicar na caixa de seleção ao lado de **temperatura** e clicar em **combinar**. A captura de tela a seguir mostra a seleção de um modelo de dispositivo e uma instância de dispositivo, criando um bloco de telemetria de temperatura no painel.
-1. Selecione **salvar** na parte superior esquerda para salvar o bloco no painel.
+Por exemplo, você pode adicionar um bloco de **Telemetria** para a temperatura atual do dispositivo. Para fazer isso:
 
-> [!div class="mx-imgBorder"]
-> ![Painel "com detalhes para o bloco de temperatura](media/howto-create-personal-dashboards/temperature-tile-edit.png)
-
-Agora, quando você exibir seu painel pessoal, verá o novo bloco com a configuração de **temperatura** para o dispositivo:
+1. Selecionar um **Modelo de dispositivo**
+1. Selecione um dispositivo em **Dispositivos** para o dispositivo que você deseja ver em um bloco do painel. Em seguida, você verá uma lista das propriedades do dispositivo que podem ser usadas no bloco.
+1. Para criar o bloco no painel, clique em **Temperatura** e arraste para a área do painel. Você também pode clicar na caixa de seleção ao lado de **Temperatura** e clicar em **Adicionar bloco**. A captura de tela a seguir mostra a seleção de um dispositivo e modelo de dispositivo, criando um bloco de Telemetria de temperatura no painel.
+1. Selecione **Salvar** na parte superior esquerda para salvar as alterações no painel.
 
 > [!div class="mx-imgBorder"]
-> ![Painel "com detalhes para o bloco de temperatura](media/howto-create-personal-dashboards/temperature-tile-complete.png)
+> Guia !["Painel" com detalhes para bloco de Temperatura](media/howto-create-personal-dashboards/temperature-tile-edit.png)
+
+Agora, quando você exibir seu painel pessoal, verá o novo bloco com a configuração de **Temperatura** do dispositivo:
+
+> [!div class="mx-imgBorder"]
+> Guia !["Painel" com detalhes para bloco de Temperatura](media/howto-create-personal-dashboards/temperature-tile-complete.png)
 
 Você pode explorar outros tipos de bloco na biblioteca para descobrir como personalizar ainda mais seus painéis pessoais.
 
-Para saber mais sobre como usar blocos no Azure IoT Central, confira [Adicionar blocos ao seu painel](howto-add-tiles-to-your-dashboard.md).
+Para saber mais sobre como usar blocos no Azure IoT Central, confira [Adicionar blocos ao painel](howto-add-tiles-to-your-dashboard.md).
 
-## <a name="manage-dashboards"></a>Gerenciar painéis
+## <a name="manage-dashboards"></a>Gerenciar Painéis
 
-Você pode ter vários painéis pessoais e alternar entre eles ou escolher um dos painéis de aplicativo padrão:
+Você pode ter vários painéis pessoais e alternar entre eles ou escolher um dos painéis do aplicativo padrão:
 
 > [!div class="mx-imgBorder"]
-> ![Alternar entre painéis](media/howto-create-personal-dashboards/switch-dashboards.png)
+> ![Alternar entre os painéis](media/howto-create-personal-dashboards/switch-dashboards.png)
 
-Você pode editar seus painéis pessoais e excluir os painéis que não são mais necessários. Se você for um **administrador**, também terá a capacidade de editar ou excluir painéis de nível de aplicativo também.
+Você pode editar seus painéis pessoais e excluir os painéis que não são mais necessários. Se você for um **administrador**, também pode editar ou excluir painéis de nível de aplicativo.
 
 > [!div class="mx-imgBorder"]
 > ![Excluir painéis](media/howto-create-personal-dashboards/delete-dashboards.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você aprendeu como criar e gerenciar painéis pessoais, você pode [aprender a gerenciar suas preferências de aplicativo](howto-manage-preferences.md)
+Agora que você aprendeu como criar e gerenciar painéis pessoais, você pode [Aprender a gerenciar as preferências do aplicativo](howto-manage-preferences.md).

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 36b653fb3c3a24f3d19408aa2c87b3b764d04ec1
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: HT
+ms.openlocfilehash: 3e32c7d7da918eb58de47d8fc9b7688a189cb022
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84730315"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84783088"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Idiomas compatíveis e suporte de voz para o serviço de Fala
 
@@ -312,6 +312,27 @@ A API de **Tradução de Fala** é compatível com diferentes idiomas para conve
 | Vietnamita              | `vi`          |
 | Galês                   | `cy`          |
 | Yucatec Maya            | `yua`         |
+
+## <a name="speaker-recognition"></a>Reconhecimento do Locutor
+
+Veja na tabela a seguir os idiomas com suporte para as várias APIs de Reconhecimento do Locutor. Confira a [visão geral](speaker-recognition-overview.md) para obter informações adicionais sobre o Reconhecimento do Locutor.
+
+| Local | Linguagem | Verificação dependente do texto | Verificação independente do texto | Identificação independente do texto |
+|----|----|----|----|----|
+| pt-BR | Inglês (EUA) | sim | sim | sim |
+|zh-CN  |Chinês (mandarim, simplificado)|    n/d|    sim|    sim|
+|de-DE  |Alemão (Alemanha)   |n/d    |sim    |sim|
+|en-GB  |Inglês (Reino Unido)   |n/d    |sim    |sim|
+|fr-FR  |Francês (França)    |n/d    |sim    |sim|
+|en-AU  |Inglês (Austrália)    |n/d    |sim    |sim|
+|en-CA  |Inglês (Canadá)   |n/d|   sim|    sim|
+|fr-CA  |Francês (Canadá)    |n/d    |sim|   sim|
+|it-IT  |Italiano|   n/d |sim|   sim|
+|es-ES| Espanhol (Espanha) |n/d    |sim|   sim|
+|es-MX  |Espanhol (México)   |n/d|   sim|    sim|
+|ja-JP| Japonês    |n/d    |sim    |sim|
+|pt-BR| Português (Brasil)|    n/d|    sim|    sim|
+|ko-KR| Coreano  |n/d    |sim|   sim|
 
 ## <a name="next-steps"></a>Próximas etapas
 

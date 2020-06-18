@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 03/24/2020
+ms.date: 05/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: ac0a795c98673eba30531f586ff634c62673cdd6
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.openlocfilehash: 52c53cc10fe6517be6083a14c98daa9e6ff3b56f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82980942"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648076"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Conectar computadores híbridos ao Azure por meio do portal do Azure
 
@@ -21,7 +21,7 @@ Você pode habilitar o Azure Arc para servidores (versão prévia) para um ou um
 
 Esse método exige que você tenha permissões de administrador no computador para instalar e configurar o agente. No Linux, usando a conta raiz, e no Windows, você é membro do grupo local de administradores.
 
-Antes de começar, examine os [pré-requisitos](overview.md#prerequisites) e verifique se a sua assinatura e os recursos atendem aos requisitos.
+Antes de começar, examine os [pré-requisitos](agent-overview.md#prerequisites) e verifique se a sua assinatura e os recursos atendem aos requisitos.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -43,11 +43,11 @@ O script usado para automatizar o download e a instalação e para estabelecer a
     >- WestEurope
     >- WestAsia
     >
-    >Examine considerações adicionais ao selecionar uma região [aqui](overview.md#supported-regions) no artigo de visão geral.
+    >Examine considerações adicionais ao selecionar uma região [aqui](overview.md#supported-regions) no artigo de Visão geral.
 
 1. Na página **Gerar script**, na lista suspensa **Sistema operacional**, selecione o sistema operacional no qual o script será executado.
 
-1. Se a máquina estiver se comunicando por meio de um servidor proxy para se conectar à Internet, selecione **Avançar: servidor proxy**. 
+1. Se o computador estiver se comunicando por meio de um servidor proxy para se conectar à Internet, selecione **Próximo: Servidor Proxy**. 
 1. Na guia **Servidor proxy**, especifique o endereço IP do servidor proxy ou o nome e o número da porta que o computador usará para se comunicar com o servidor proxy. Digite o valor no formato `http://<proxyURL>:<proxyport>`. 
 1. Selecione **Examinar + gerar**.
 
@@ -57,7 +57,7 @@ O script usado para automatizar o download e a instalação e para estabelecer a
 
 ### <a name="install-manually"></a>Instalar manualmente
 
-Instale o agente do Connected Machine manualmente executando o pacote *AzureConnectedMachineAgent.msi* do Windows Installer. 
+Instale o agente do Connected Machine manualmente executando o pacote *AzureConnectedMachineAgent.msi* do Windows Installer. Você pode baixar a versão mais recente do [Pacote do Windows Installer do agente do Windows](https://aka.ms/AzureConnectedMachineAgent) no Centro de Download da Microsoft. 
 
 > [!NOTE]
 > * Para instalar ou desinstalar o agente, você precisa ter permissões de *Administrador*.
@@ -65,21 +65,21 @@ Instale o agente do Connected Machine manualmente executando o pacote *AzureConn
 
 Se o computador precisar se comunicar por meio de um servidor proxy com o serviço, depois de instalar o agente, você precisará executar um comando que será descrito mais adiante neste artigo. Isso define a variável de ambiente `https_proxy` do sistema do servidor proxy.
 
-Se você não estiver familiarizado com as opções de linha de comando para pacotes Windows Installer, examine as opções de [linha de comando MSIExec padrão](https://docs.microsoft.com/windows/win32/msi/standard-installer-command-line-options) e [Opções de linha de comando msiexec](https://docs.microsoft.com/windows/win32/msi/command-line-options).
+Se você não estiver familiarizado com as opções de linha de comando para pacotes do Windows Installer, examine [Opções de linha de comando msiexec](https://docs.microsoft.com/windows/win32/msi/standard-installer-command-line-options) e [Opções de linha de comando msiexec](https://docs.microsoft.com/windows/win32/msi/command-line-options).
 
-Por exemplo, execute o programa de instalação com `/?` o parâmetro para examinar a opção ajuda e referência rápida. 
+Por exemplo, execute o programa de instalação com o parâmetro `/?` para revisar a opção de ajuda e referência rápida. 
 
 ```dos
 msiexec.exe /i AzureConnectedMachineAgent.msi /?
 ```
 
-Para instalar o agente silenciosamente e criar um arquivo de log da instalação `C:\Support\Logs` na pasta existente, execute o comando a seguir.
+Para instalar o agente silenciosamente e criar um arquivo de log da instalação na pasta `C:\Support\Logs` existente, execute o comando a seguir.
 
 ```dos
 msiexec.exe /i AzureConnectedMachineAgent.msi /qn /l*v "C:\Support\Logs\Azcmagentsetup.log"
 ```
 
-Os arquivos para o agente do computador conectado são instalados por padrão em *C:\Program Files\AzureConnectedMachineAgent*. Se o agente não for iniciado após a conclusão da instalação, verifique os logs para obter informações de erro detalhadas. O diretório de log é *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
+Se o agente não for iniciado após a conclusão da instalação, verifique os logs para obter informações de erro detalhadas. O diretório de log é *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
 
 ### <a name="install-with-the-scripted-method"></a>Instalação com o método com script
 
@@ -88,6 +88,8 @@ Os arquivos para o agente do computador conectado são instalados por padrão em
 1. Abra um prompt de comando com privilégios elevados do PowerShell.
 
 1. Vá para a pasta ou o compartilhamento para o qual você copiou o script e execute-o no servidor executando o script `./OnboardingScript.ps1`.
+
+Se o agente não for iniciado após a conclusão da instalação, verifique os logs para obter informações de erro detalhadas. O diretório de log é *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
 
 ### <a name="configure-the-agent-proxy-setting"></a>Definir a configuração do proxy do agente
 
@@ -156,6 +158,6 @@ Depois de instalar o agente e configurá-lo para se conectar ao Azure Arc para s
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como gerenciar seu computador usando [Azure Policy](../../governance/policy/overview.md), para tarefas como [configuração de convidado](../../governance/policy/concepts/guest-configuration.md)de VM, verificar se o computador está relatando para o espaço de trabalho esperado log Analytics, habilitar o monitoramento com o [Azure monitor com VMs](../../azure-monitor/insights/vminsights-enable-at-scale-policy.md)e muito mais.
+- Saiba como gerenciar seu computador usando o [Azure Policy](../../governance/policy/overview.md) para itens como [configurar convidados](../../governance/policy/concepts/guest-configuration.md) de VM, verificar se o computador está relatando ao workspace do Log Analytics esperado, habilitar o monitoramento com o [Azure Monitor em VMs](../../azure-monitor/insights/vminsights-enable-at-scale-policy.md) e muito mais.
 
-- Saiba mais sobre o [agente de log Analytics](../../azure-monitor/platform/log-analytics-agent.md). O agente do Log Analytics para Windows e Linux é necessário quando você deseja monitorar proativamente o sistema operacional e as cargas de trabalho em execução no computador, o gerencia usando os runbooks de automação ou soluções como o Gerenciamento de Atualizações ou usa outros serviços do Azure como a [Central de Segurança do Azure](../../security-center/security-center-intro.md).
+- Saiba mais sobre o [Agente do Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). O agente do Log Analytics para Windows e Linux é necessário quando você deseja monitorar proativamente o sistema operacional e as cargas de trabalho em execução no computador, o gerencia usando os runbooks de automação ou soluções como o Gerenciamento de Atualizações ou usa outros serviços do Azure como a [Central de Segurança do Azure](../../security-center/security-center-intro.md).

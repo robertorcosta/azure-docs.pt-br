@@ -1,5 +1,5 @@
 ---
-title: Monitorar implantações de IoT Edge-Azure IoT Edge
+title: Monitorar implantações do IoT Edge - Azure IoT Edge
 description: Monitoramento de alto nível, incluindo propriedades relatadas de edgeHub e edgeAgent e métricas de implantação automática.
 author: kgremban
 manager: philmea
@@ -9,96 +9,96 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: cc7c1fd1dff85908c96e2fd7b2276df3d833e37f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 97bc3c8571793ec8c8b67fe0e7c5cb3b6a56fde4
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82134306"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726036"
 ---
 # <a name="monitor-iot-edge-deployments"></a>Monitorar implantações do IoT Edge
 
-Azure IoT Edge fornece relatórios que permitem monitorar informações em tempo real sobre os módulos implantados em seus dispositivos IoT Edge. O serviço do Hub IoT recupera o status dos dispositivos e os disponibiliza para o operador. O monitoramento também é importante para [implantações feitas em escala](module-deployment-monitoring.md) que incluem implantações automáticas e implantações em camadas.
+O Azure IoT Edge fornece relatórios que permitem monitorar informações em tempo real sobre os módulos implantados nos dispositivos do IoT Edge. O serviço do Hub IoT recupera o status dos dispositivos e os disponibiliza para o operador. O monitoramento também é importante para [implantações feitas em escala](module-deployment-monitoring.md) que incluem implantações automáticas e implantações em camadas.
 
 Os dispositivos e os módulos têm dados semelhantes, como conectividade, para que os valores sejam obtidos de acordo com a ID do dispositivo ou a ID do módulo.
 
-O serviço de Hub IoT coleta dados relatados pelo dispositivo e pelo módulo gêmeos e fornece contagens de vários Estados que os dispositivos podem ter. O serviço do Hub IoT organiza esses dados em quatro grupos de métricas:
+O serviço de Hub IoT coleta dados relatados pelo dispositivo e pelo módulo gêmeo e fornece contagens dos vários estados que os dispositivos podem ter. O serviço do Hub IoT organiza esses dados em quatro grupos de métricas:
 
 | Type | Descrição |
 | --- | ---|
-| Destino | Mostra os dispositivos IoT Edge que correspondem à condição de destino da implantação. |
-| Aplicada | Mostra os dispositivos de IoT Edge de destino que não são direcionados por outra implantação de prioridade mais alta. |
-| Êxito no relatório | Mostra os dispositivos IoT Edge que relataram que os módulos foram implantados com êxito. |
-| Falha de relatório | Mostra os dispositivos IoT Edge que relataram que um ou mais módulos não foram implantados com êxito. Para investigar o erro mais detalhadamente, conecte-se remotamente a esses dispositivos e exiba os arquivos de log. |
+| Direcionado | Mostra os dispositivos do IoT Edge que correspondem à condição de direcionamento da implantação. |
+| Aplicado | Mostra os dispositivos do IoT Edge direcionados que não foram direcionados por outra implantação de maior prioridade. |
+| Relatório de sucesso | Mostra os dispositivos do IoT Edge que relataram que os módulos foram implantados com sucesso. |
+| Relatório de falha | Mostra os dispositivos do IoT Edge que relataram que um ou mais módulos não foram implantados com sucesso. Para investigar o erro mais detalhadamente, conecte-se remotamente a esses dispositivos e exiba os arquivos de log. |
 
-O serviço de Hub IoT disponibiliza esses dados para você monitorar na portal do Azure e no CLI do Azure.
+O serviço de Hub IoT disponibiliza esses dados para você monitorar no portal do Azure e na CLI do Azure.
 
 ## <a name="monitor-a-deployment-in-the-azure-portal"></a>Monitorar uma implantação no portal do Azure
 
 Para exibir os detalhes de uma implantação e monitorar os dispositivos que a executam, use as seguintes etapas:
 
-1. Entre no [portal do Azure](https://portal.azure.com) e navegue até o seu Hub IoT.
-1. Selecione **IOT Edge** no menu do painel esquerdo.
-1. Selecione a guia **implantações IOT Edge** .
-1. Inspecione a lista de implantação.Para cada implantação, você pode exibir os seguintes detalhes:
+1. Entre no [portal do Azure](https://portal.azure.com) e navegue até o Hub IoT.
+1. Selecione **IoT Edge** no menu do painel esquerdo.
+1. Selecione a guia **Implantações do IoT Edge**.
+1. Inspecione a lista de implantação. Para cada implantação, você pode exibir os seguintes detalhes:
 
     | Coluna | Descrição |
     | --- | --- |
     | ID | O nome da implantação. |
-    | Type | O tipo de implantação, **implantação** ou **implantação em camadas**. |
-    | Condição de destino | A marca usada para definir os dispositivos de destino. |
+    | Type | O tipo de implantação, **Implantação** ou **Implantação em camadas**. |
+    | Condição de destino | A marcação usada para definir os dispositivos direcionados. |
     | Prioridade | O número de prioridade atribuído à implantação. |
-    | Métricas do sistema | O número de dispositivos gêmeos no Hub IoT que correspondem à condição de destino. **Aplicado** especifica o número de dispositivos que tiveram o conteúdo de implantação aplicado ao seu módulo gêmeos no Hub IOT. |
-    | Métricas do dispositivo | O número de dispositivos IoT Edge que relataram êxito ou erros do tempo de execução do cliente IoT Edge. |
-    | Métricas personalizadas | O número de dispositivos IoT Edge que relata dados para qualquer métrica que você definiu para a implantação. |
+    | Métricas do sistema | O número de dispositivos gêmeos no Hub IoT que correspondem à condição de direcionamento. **Aplicado** especifica o número de dispositivos que tiveram o conteúdo de implantação aplicado ao módulo gêmeo no Hub IoT. |
+    | Métricas do dispositivo | O número de dispositivos do IoT Edge que relatam sucesso ou erros no runtime do cliente IoT Edge. |
+    | Métricas personalizadas | O número de dispositivos do IoT Edge que relatam dados para as métricas que você definiu para a implantação. |
     | Hora de criação | O carimbo de data/hora de quando a implantação foi criada. Esse carimbo de data/hora é usado para desempate quando duas implantações têm a mesma prioridade. |
 
 1. Selecione a implantação que deseja monitorar.  
-1. Na página **detalhes da implantação** , role para baixo até a seção inferior e selecione a guia **condição de destino** . Selecione **Exibir** para listar os dispositivos que correspondem à condição de destino. Você pode alterar a condição e também a **prioridade**. Selecione **salvar** se você fez alterações.
+1. Na página **Detalhes da implantação**, role para baixo até a seção inferior e selecione a guia **Condição de destino**. Selecione **Exibir** para listar os dispositivos que correspondem à condição de destino. Você pode alterar a condição e também a **Prioridade**. Selecione **Salvar** se você fez alterações.
 
-   ![Exibir dispositivos de destino para uma implantação](./media/how-to-monitor-iot-edge-deployments/target-devices.png)
+   ![Exibir dispositivos direcionados para uma implantação](./media/how-to-monitor-iot-edge-deployments/target-devices.png)
 
-1. Selecione a guia **métricas** . Se você escolher uma métrica na lista suspensa **selecionar métrica** , um botão **Exibir** será exibido para que você exiba os resultados. Você também pode selecionar **Editar métricas** para ajustar os critérios para as métricas personalizadas que você definiu. Selecione **salvar** se você fez alterações.
+1. Selecione a guia **Métricas**. Se você escolher uma métrica na lista suspensa **Selecionar métrica**, um botão **Exibir** aparecerá para mostrar os resultados. Você também pode selecionar **Editar métricas** para ajustar os critérios para as métricas personalizadas que você definiu. Selecione **Salvar** se você fez alterações.
 
-   ![Exibir métricas para uma implantação](./media/how-to-monitor-iot-edge-deployments/deployment-metrics-tab.png)
+   ![Exibir métrica de uma implantação](./media/how-to-monitor-iot-edge-deployments/deployment-metrics-tab.png)
 
 
-Para fazer alterações em sua implantação, consulte [modificar uma implantação](how-to-deploy-at-scale.md#modify-a-deployment).
+Para fazer alterações na implantação, confira [Modificar uma implantação](how-to-deploy-at-scale.md#modify-a-deployment).
 
-## <a name="monitor-a-deployment-with-azure-cli"></a>Monitorar uma implantação com o CLI do Azure
+## <a name="monitor-a-deployment-with-azure-cli"></a>Monitorar a implantação com a CLI do Azure
 
-Use o comando [az IOT Edge Deployment show](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-show) para exibir os detalhes de uma única implantação:
+Use o comando [az IoT Edge deployment show](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-show) para exibir os detalhes de uma única implantação:
 
 ```cli
 az iot edge deployment show --deployment-id [deployment id] --hub-name [hub name]
 ```
 
-O comando Deployment show usa os seguintes parâmetros:
+O comando deployment show usa os seguintes parâmetros:
 
-* **--deployment-id** - O nome da implantação que existe no hub IoT. Parâmetro necessário.
-* **--Hub-nome** -nome do Hub IOT no qual a implantação existe. O hub deve estar na assinatura atual. Alterne para a assinatura desejada com o comando `az account set -s [subscription name]`
+* **--deployment-id** - O nome da implantação que existe no hub IoT. Parâmetro obrigatório.
+* **--hub-name** - Nome do hub IoT no qual a implantação existe. O hub deve estar na assinatura atual. Alterne para a assinatura desejada com o comando `az account set -s [subscription name]`
 
-Inspecione a implantação na janela de comando.A propriedade **Metrics** lista uma contagem para cada métrica avaliada por cada hub:
+Inspecione a implantação na janela de comando. A propriedade **Metrics** lista uma contagem para cada métrica avaliada por cada hub:
 
 * **targetedCount** - Uma métrica do sistema que especifica o número de dispositivos gêmeos no Hub IoT que correspondem à condição de direcionamento.
 * **appliedCount** - Uma métrica de sistema especifica o número de dispositivos que tiveram o conteúdo de implantação aplicado aos módulos gêmeos no Hub IoT.
-* **reportedSuccessfulCount** -uma métrica de dispositivo que especifica o número de dispositivos IOT Edge na implantação que relataram o sucesso do tempo de execução do cliente IOT Edge.
-* **reportedFailedCount** -uma métrica de dispositivo que especifica o número de dispositivos IOT Edge na implantação que relatam a falha do tempo de execução do cliente IOT Edge.
+* **reportedSuccessfulCount** - Uma métrica de dispositivo que especifica o número de dispositivos do IoT Edge no relatório de sucesso da implantação do runtime do cliente do IoT Edge.
+* **reportedFailedCount** - Uma métrica de dispositivo que especifica o número de dispositivos do IoT Edge no relatório de falha da implantação do runtime do cliente do IoT Edge.
 
-Você pode mostrar uma lista de IDs de dispositivo ou objetos para cada uma das métricas com o comando [az IOT Edge Deployment show-Metric](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-show-metric) :
+Você pode mostrar uma lista de IDs de dispositivo ou objetos para cada uma das métricas com o comando [az IoT Edge deployment show-metric](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-show-metric):
 
 ```cli
 az iot edge deployment show-metric --deployment-id [deployment id] --metric-id [metric id] --hub-name [hub name]
 ```
 
-O comando Deployment show-Metric usa os seguintes parâmetros:
+O comando deployment show-metric usa os seguintes parâmetros:
 
 * **--deployment-id** - O nome da implantação que existe no hub IoT.
-* **--Metric-ID** -o nome da métrica para a qual você deseja ver a lista de IDs de dispositivo, por exemplo `reportedFailedCount`.
-* **--Hub-nome** -nome do Hub IOT no qual a implantação existe. O hub deve estar na assinatura atual. Alterne para a assinatura desejada com o comando `az account set -s [subscription name]`.
+* **--metric-id** - O nome da métrica para a qual você deseja ver a lista de códigos de dispositivos, por exemplo `reportedFailedCount`.
+* **--hub-name** - Nome do hub IoT no qual a implantação existe. O hub deve estar na assinatura atual. Alterne para a assinatura desejada com o comando `az account set -s [subscription name]`.
 
-Para fazer alterações em sua implantação, consulte [modificar uma implantação](how-to-deploy-cli-at-scale.md#modify-a-deployment).
+Para fazer alterações na implantação, confira [Modificar uma implantação](how-to-deploy-cli-at-scale.md#modify-a-deployment).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como [se comunicar com o EdgeAgent usando métodos diretos internos](how-to-edgeagent-direct-method.md).
+Aprenda a [comunicar-se com o EdgeAgent usando os métodos diretos integrados](how-to-edgeagent-direct-method.md).

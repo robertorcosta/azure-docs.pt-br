@@ -1,8 +1,14 @@
-- name: Renderizar um modelo com o Unity
-  href: render-model.md
-- name: Implantar a amostra de Unity no HoloLens
-  href: deploy-to-hololens.md
-- name: Implantar a amostra de Unity na Área de Trabalho
-  href: deploy-to-desktop.md
+- name: Unity
+  items:
+    - name: Renderizar um modelo com o Unity
+      href: render-model.md
+    - name: Implantar a amostra de Unity no HoloLens
+      href: deploy-to-hololens.md
+    - name: Implantar a amostra de Unity na Área de Trabalho
+      href: deploy-to-desktop.md
+- name: C++ nativo
+  items:
+    - name: Implantar exemplo nativo do C++ no HoloLens
+      href: native-cpp/hololens/deploy-native-cpp-tutorial.md
 - name: Converter um modelo para renderização
   href: convert-model.md

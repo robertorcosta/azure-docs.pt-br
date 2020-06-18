@@ -1,0 +1,161 @@
+---
+title: Solucionar problemas comuns de Kubernetes habilitado para Azure Arc (versão prévia)
+services: azure-arc
+ms.service: azure-arc
+ms.date: 05/19/2020
+ms.topic: article
+author: mlearned
+ms.author: mlearned
+description: Solução de problemas comuns de clusters do Kubernetes habilitado para Arc.
+keywords: Kubernetes, Arc, Azure, contêineres
+ms.openlocfilehash: 1527f8d4ca06c2deaf4ce18b73bfdb515dcadc63
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725577"
+---
+# <a name="azure-arc-enabled-kubernetes-troubleshooting-preview"></a>Solução de problemas de Kubernetes habilitado para Azure Arc (versão prévia)
+
+Este documento fornece alguns cenários comuns da solução de problemas de conectividade, permissões e agentes.
+
+## <a name="general-troubleshooting"></a>Solução de problemas gerais
+
+### <a name="azure-cli-set-up"></a>Configuração da CLI do Azure
+Antes de usar os comandos da CLI az connectedk8s ou az k8sconfiguration, verifique se az está configurado para funcionar com a assinatura correta do Azure.
+
+```console
+az account set --subscription 'subscriptionId'
+az account show
+```
+
+### <a name="azure-arc-agents"></a>Agentes azure-arc
+Todos os agentes do Kubernetes habilitado para o Azure Arc são implantados como pods no namespace `azure-arc`. Em operações normais, todos os pods devem estar em execução e passar as verificações de integridade.
+
+Primeiro, verifique a versão do Helm do Azure Arc:
+
+```console
+$ helm --namespace default status azure-arc
+NAME: azure-arc
+LAST DEPLOYED: Fri Apr  3 11:13:10 2020
+NAMESPACE: default
+STATUS: deployed
+REVISION: 5
+TEST SUITE: None
+```
+
+Se a versão do Helm não for encontrada ou estiver ausente, tente realizar a integração do cluster novamente.
+
+Se a versão do Helm estiver presente e `STATUS: deployed` determinar o status dos agentes usando `kubectl`:
+
+```console
+$ kubectl -n azure-arc get deployments,pods
+NAME                                        READY   UP-TO-DATE AVAILABLE AGE
+deployment.apps/cluster-metadata-operator   1/1     1           1        16h
+deployment.apps/clusteridentityoperator     1/1     1           1        16h
+deployment.apps/config-agent                1/1     1           1        16h
+deployment.apps/controller-manager          1/1     1           1        16h
+deployment.apps/flux-logs-agent             1/1     1           1        16h
+deployment.apps/metrics-agent               1/1     1           1        16h
+deployment.apps/resource-sync-agent         1/1     1           1        16h
+
+NAME                                            READY   STATUS   RESTART AGE
+pod/cluster-metadata-operator-7fb54d9986-g785b  2/2     Running  0       16h
+pod/clusteridentityoperator-6d6678ffd4-tx8hr    3/3     Running  0       16h
+pod/config-agent-544c4669f9-4th92               3/3     Running  0       16h
+pod/controller-manager-fddf5c766-ftd96          3/3     Running  0       16h
+pod/flux-logs-agent-7c489f57f4-mwqqv            2/2     Running  0       16h
+pod/metrics-agent-58b765c8db-n5l7k              2/2     Running  0       16h
+pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
+```
+
+Todos os Pods devem mostrar `STATUS` como `Running` e `READY` deve ser `3/3` ou `2/2`. Busque os logs e descreva os pods que estão retornando `Error` ou `CrashLoopBackOff`.
+
+## <a name="unable-to-connect-my-kubernetes-cluster-to-azure"></a>Não é possível conectar meu cluster do Kubernetes ao Azure
+
+A conexão de clusters ao Azure requer acesso a uma assinatura do Azure e `cluster-admin` a um cluster de destino. Se não for possível acessar o cluster ou se não houver permissões suficientes, a integração falhará.
+
+### <a name="insufficient-cluster-permissions"></a>Permissões de cluster insuficientes
+
+Se o arquivo kubeconfig fornecido não tiver permissões suficientes para instalar os agentes do Azure Arc, o comando da CLI do Azure retornará um erro ao tentar chamar a API do Kubernetes.
+
+```console
+$ az connectedk8s connect --resource-group AzureArc --name AzureArcCluster
+Command group 'connectedk8s' is in preview. It may be changed/removed in a future release.
+Ensure that you have the latest helm version installed before proceeding to avoid unexpected errors.
+This operation might take a while...
+
+Error: list: failed to list: secrets is forbidden: User "myuser" cannot list resource "secrets" in API group "" at the cluster scope
+```
+
+O proprietário do cluster deve usar um usuário de Kubernetes com permissões de administrador de cluster.
+
+### <a name="installation-timeouts"></a>Tempos limite de instalação
+
+A instalação do agente do Azure Arc requer a execução de um conjunto de contêineres no cluster de destino. Se o cluster for executado em uma conexão lenta com a Internet, o pull da imagem de contêiner pode demorar mais do que o tempo limite da CLI do Azure.
+
+```console
+$ az connectedk8s connect --resource-group AzureArc --name AzureArcCluster
+Command group 'connectedk8s' is in preview. It may be changed/removed in a future release.
+Ensure that you have the latest helm version installed before proceeding to avoid unexpected errors.
+This operation might take a while...
+
+There was a problem with connect-agent deployment. Please run 'kubectl -n azure-arc logs -l app.kubernetes.io/component=connect-agent -c connect-agent' to debug the error.
+```
+
+## <a name="configuration-management"></a>Gerenciamento de configuração
+
+### <a name="general"></a>Geral
+Para ajudar a solucionar problemas na configuração do controle do código-fonte, execute os comandos az com a opção --debug.
+
+```console
+az provider show -n Microsoft.KubernetesConfiguration --debug
+az k8sconfiguration create <parameters> --debug
+```
+
+### <a name="create-source-control-configuration"></a>Criar configuração de controle do código-fonte
+A função de colaborador no recurso Microsoft.Kubernetes/connectedCluster é necessária e suficiente para criar o recurso Microsoft.KubernetesConfiguration/sourceControlConfiguration.
+
+### <a name="configuration-remains-pending"></a>A configuração permanece `Pending`
+
+```console
+kubectl -n azure-arc logs -l app.kubernetes.io/component=config-agent -c config-agent
+$ k -n pending get gitconfigs.clusterconfig.azure.com  -o yaml
+apiVersion: v1
+items:
+- apiVersion: clusterconfig.azure.com/v1beta1
+  kind: GitConfig
+  metadata:
+    creationTimestamp: "2020-04-13T20:37:25Z"
+    generation: 1
+    name: pending
+    namespace: pending
+    resourceVersion: "10088301"
+    selfLink: /apis/clusterconfig.azure.com/v1beta1/namespaces/pending/gitconfigs/pending
+    uid: d9452407-ff53-4c02-9b5a-51d55e62f704
+  spec:
+    correlationId: ""
+    deleteOperator: false
+    enableHelmOperator: false
+    giturl: git@github.com:slack/cluster-config.git
+    helmOperatorProperties: null
+    operatorClientLocation: azurearcfork8s.azurecr.io/arc-preview/fluxctl:0.1.3
+    operatorInstanceName: pending
+    operatorParams: '"--disable-registry-scanning"'
+    operatorScope: cluster
+    operatorType: flux
+  status:
+    configAppliedTime: "2020-04-13T20:38:43.081Z"
+    isSyncedWithAzure: true
+    lastPolledStatusTime: ""
+    message: 'Error: {exit status 1} occurred while doing the operation : {Installing
+      the operator} on the config'
+    operatorPropertiesHashed: ""
+    publicKey: ""
+    retryCountPublicKey: 0
+    status: Installing the operator
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""
+```
