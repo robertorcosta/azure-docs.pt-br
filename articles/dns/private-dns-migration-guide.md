@@ -5,15 +5,15 @@ description: Este guia fornece instruções passo a passo sobre como migrar as z
 services: dns
 author: rohinkoul
 ms.service: dns
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 06/18/2019
 ms.author: rohink
-ms.openlocfilehash: d29885104d6f39a17b5bdeb786cda8f56f58d987
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9302e922d509f3145fd7913835ce896a6da860fd
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76939357"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84699457"
 ---
 # <a name="migrating-legacy-azure-dns-private-zones-to-new-resource-model"></a>Migrar zonas privadas do DNS do Azure herdadas para um novo modelo de recurso
 

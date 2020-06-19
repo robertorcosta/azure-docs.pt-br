@@ -1,26 +1,25 @@
 ---
-title: Instalação do driver de GPU da série N do Azure para Linux
+title: Instalação do driver da GPU da série N do Azure para Linux
 description: Como configurar drivers NVIDIA GPU para VMs da série N que executam o Linux no Azure
 services: virtual-machines-linux
-author: cynthn
-ms.assetid: d91695d0-64b9-4e6b-84bd-18401eaecdde
+author: vikancha
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
-ms.author: cynthn
-ms.openlocfilehash: cb2d5c43b8c04829dd6830126b7bc01bee07133b
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
-ms.translationtype: MT
+ms.author: vikancha
+ms.openlocfilehash: e4ee760acb441cdf70e588004d2f380ead07cd34
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628185"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779354"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalar drivers NVIDIA GPU em VMs da série N que executam o Linux
 
-Para aproveitar os recursos de GPU das VMs da série N do Azure apoiadas por GPUs NVIDIA, você deve instalar os drivers NVIDIA GPU. A [Extensão de Driver de GPU NVIDIA](../extensions/hpccompute-gpu-linux.md) instala drivers CUDA ou GRID NVIDIA apropriados em VMs da série N. Instale ou gerencie a extensão usando o portal do Azure ou ferramentas, como a CLI do Azure ou os modelos do Azure Resource Manager. Confira a [documentação da Extensão de Driver de GPU NVIDIA](../extensions/hpccompute-gpu-linux.md) para saber quais são as distribuições compatíveis e as etapas de implantação.
+Para aproveitar as funcionalidades de GPU das VMs da série N do Azure que contam com GPUs da NVIDIA, é preciso instalar os drivers para GPU NVIDIA. A [Extensão de Driver de GPU NVIDIA](../extensions/hpccompute-gpu-linux.md) instala drivers CUDA ou GRID NVIDIA apropriados em VMs da série N. Instale ou gerencie a extensão usando o portal do Azure ou ferramentas, como a CLI do Azure ou os modelos do Azure Resource Manager. Confira a [documentação da Extensão de Driver de GPU NVIDIA](../extensions/hpccompute-gpu-linux.md) para saber quais são as distribuições compatíveis e as etapas de implantação.
 
-Se você optar por instalar os drivers NVIDIA GPU manualmente, este artigo fornecerá as distribuições, drivers e etapas de instalação e verificação com suporte. Também há informações de As informações de instalação manual de driver também estão disponíveis para [VMs do Windows](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Se você optar por instalar os drivers de GPU da NVIDIA manualmente, este artigo fornecerá as distribuições compatíveis, os drivers e as etapas de instalação e verificação. Também há informações de As informações de instalação manual de driver também estão disponíveis para [VMs do Windows](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Para obter as especificações de VMs da série N, as capacidades de armazenamento e os detalhes de disco, consulte [Tamanhos de VM Linux para GPU](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
@@ -151,7 +150,7 @@ Se o driver estiver instalado, você verá uma saída parecida com a mostrada a 
 
 ## <a name="rdma-network-connectivity"></a>Conectividade de rede RDMA
 
-A conectividade de rede RDMA pode ser habilitada em VMs da série N compatíveis com RDMA, como o NC24r implantado no mesmo conjunto de disponibilidade ou em um grupo de posicionamento único em um conjunto de dimensionamento de VM (virtual Machiine). A rede RDMA dá suporte ao tráfego da Interface de transmissão de mensagens (MPI) para aplicativos executados com Intel MPI 5.x ou uma versão posterior. Requisitos adicionais são listados a seguir:
+A conectividade de rede RDMA pode ser habilitada em VMs da série N com capacidade de RDMA, como o NC24r implementada no mesmo conjunto de disponibilidade ou em um único grupo de posicionamento em um conjunto de dimensionamento de máquina virtual (VM). A rede RDMA dá suporte ao tráfego da Interface de transmissão de mensagens (MPI) para aplicativos executados com Intel MPI 5.x ou uma versão posterior. Requisitos adicionais são listados a seguir:
 
 ### <a name="distributions"></a>Distribuições
 
@@ -163,9 +162,9 @@ Implante VMs da série N habilitadas para RDMA de uma das imagens no Azure Marke
 
 * **CentOS-based 7.4 HPC** - Os drivers RDMA e o Intel MPI 5.1 são instalados na VM.
 
-## <a name="install-grid-drivers-on-nv-or-nvv3-series-vms"></a>Instalar drivers de grade em VMs do NV ou da série NVv3
+## <a name="install-grid-drivers-on-nv-or-nvv3-series-vms"></a>Instalar drivers de GRID em VMs da série NVv3 ou NV
 
-Para instalar os drivers NVIDIA GRID nas VMs do NV ou da série NVv3, faça uma conexão SSH com cada VM e siga as etapas para sua distribuição do Linux. 
+Para instalar drivers NVIDIA GRID em VMs da série NVv3 ou NV, faça uma conexão SSH para cada VM e siga as etapas para a sua distribuição do Linux. 
 
 ### <a name="ubuntu"></a>Ubuntu 
 
@@ -184,7 +183,7 @@ Para instalar os drivers NVIDIA GRID nas VMs do NV ou da série NVv3, faça uma 
    
    sudo apt-get install linux-azure -y
    ```
-3. Desabilite o driver de kernel Nouveau, que é incompatível com o driver NVIDIA. (Use apenas o driver NVIDIA em VMs NV ou NVv2.) Para fazer isso, crie um arquivo em `/etc/modprobe.d` nome `nouveau.conf` com o seguinte conteúdo:
+3. Desabilite o driver de kernel Nouveau, que é incompatível com o driver NVIDIA. (Apenas use o driver NVIDIA em VMs NVv2 ou NV.) Para fazer isso, crie um arquivo em `/etc/modprobe.d` chamado `nouveau.conf` com o conteúdo a seguir:
 
    ```
    blacklist nouveau
@@ -224,7 +223,7 @@ Para instalar os drivers NVIDIA GRID nas VMs do NV ou da série NVv3, faça uma 
    EnableUI=FALSE
    ```
    
-9. Remova o seguinte de `/etc/nvidia/gridd.conf` se ele estiver presente:
+9. Remova o seguinte de `/etc/nvidia/gridd.conf` se estiver presente:
  
    ```
    FeatureType=0
@@ -248,7 +247,7 @@ Para instalar os drivers NVIDIA GRID nas VMs do NV ou da série NVv3, faça uma 
    sudo yum install hyperv-daemons
    ```
 
-2. Desabilite o driver de kernel Nouveau, que é incompatível com o driver NVIDIA. (Use apenas o driver NVIDIA em VMs NV ou NV2.) Para fazer isso, crie um arquivo em `/etc/modprobe.d` nome `nouveau.conf` com o seguinte conteúdo:
+2. Desabilite o driver de kernel Nouveau, que é incompatível com o driver NVIDIA. (Apenas use o driver NVIDIA em VMs NV2 ou NV.) Para fazer isso, crie um arquivo em `/etc/modprobe.d` chamado `nouveau.conf` com o conteúdo a seguir:
 
    ```
    blacklist nouveau
@@ -296,7 +295,7 @@ Para instalar os drivers NVIDIA GRID nas VMs do NV ou da série NVv3, faça uma 
    IgnoreSP=FALSE
    EnableUI=FALSE 
    ```
-9. Remova o seguinte de `/etc/nvidia/gridd.conf` se ele estiver presente:
+9. Remova o seguinte de `/etc/nvidia/gridd.conf` se estiver presente:
  
    ```
    FeatureType=0
@@ -356,7 +355,7 @@ Em seguida, crie uma entrada para o seu script de atualização em `/etc/rc.d/rc
 ## <a name="troubleshooting"></a>Solução de problemas
 
 * Você pode definir o modo de persistência usando `nvidia-smi`, de modo que o resultado do comando seja mais rápido quando você precisar consultar cartões. Para definir o modo de persistência, execute `nvidia-smi -pm 1`. Observe que, se a VM for reiniciada, a configuração do modo desaparecerá. Você sempre pode gerar um script da configuração de modo para ser executada na inicialização.
-* Se você atualizou os drivers NVIDIA CUDA para a versão mais recente e encontrar a conectividade RDMA não está mais funcionando, [reinstale os drivers RDMA](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#rdma-network-connectivity) para restabelecer essa conectividade. 
+* Se você atualizou os drivers NVIDIA CUDA para a versão mais recente e descobrir que a conectividade RDMA não está mais funcionando, [reinstale os drivers RDMA](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#rdma-network-connectivity) para restabelecer essa conectividade. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

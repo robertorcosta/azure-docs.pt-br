@@ -9,13 +9,13 @@ author: nabhishek
 ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
-ms.date: 05/31/2018
-ms.openlocfilehash: c39575e8ea60a091124c633f8958ec36e8a61885
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 05/08/2020
+ms.openlocfilehash: bc8fd73b18e197c42e4750612320c1b15a6db020
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418840"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849205"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Transformar dados usando a atividade do Spark no Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -62,16 +62,16 @@ A tabela a seguir descreve as propriedades JSON usadas na definição de JSON:
 | Propriedade              | Descrição                              | Obrigatório |
 | --------------------- | ---------------------------------------- | -------- |
 | name                  | Nome da atividade no pipeline.    | Sim      |
-| description           | Texto que descreve o que a atividade faz.  | Não       |
+| descrição           | Texto que descreve o que a atividade faz.  | Não       |
 | type                  | Para a atividade do Spark, o tipo de atividade é HDInsightSpark. | Sim      |
 | linkedServiceName     | Nome do serviço vinculado do HDInsight Spark no qual o programa Spark é executado. Para saber mais sobre esse serviço vinculado, consulte o artigo [Compute linked services](compute-linked-services.md) (Serviços de computação vinculados). | Sim      |
-| SparkJobLinkedService | O serviço vinculado ao Armazenamento do Azure que contém o arquivo de trabalho, dependências e os logs do Spark.  Se você não especificar um valor para essa propriedade, o armazenamento associado ao cluster HDInsight será usado. O valor desta propriedade só pode ser um serviço vinculado do Armazenamento do Microsoft Azure. | Não       |
+| SparkJobLinkedService | O serviço vinculado ao Armazenamento do Azure que contém o arquivo de trabalho, dependências e os logs do Spark. Somente os serviços vinculados do **[Armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)** e do **[ADLS Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)** são compatíveis aqui. Se você não especificar um valor para essa propriedade, o armazenamento associado ao cluster HDInsight será usado. O valor desta propriedade só pode ser um serviço vinculado do Armazenamento do Microsoft Azure. | Não       |
 | rootPath              | O contêiner de Blob do Azure e a pasta que contém o arquivo Spark. O nome do arquivo diferencia maiúsculas de minúsculas. Consulte a seção de estrutura de pasta (próxima seção) para obter detalhes sobre a estrutura desta pasta. | Sim      |
 | entryFilePath         | Caminho relativo à pasta raiz do código/pacote Spark. O arquivo de entrada deve ser um arquivo. jar ou um arquivo Python. | Sim      |
 | className             | Classe principal de Java/Spark do aplicativo      | Não       |
 | argumentos             | Uma lista de argumentos de linha de comando para o programa Spark. | Não       |
 | proxyUser             | A conta de usuário a ser representada para execução do programa Spark | Não       |
-| sparkConfig           | Especifique valores para propriedades de configuração do Spark listadas no tópico: [Configuração do Spark – Propriedades de aplicativo](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Não       |
+| sparkConfig           | Especifique valores para as propriedades de configuração do Spark listadas no tópico: [Configuração do Spark – propriedades do aplicativo](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Não       |
 | getDebugInfo          | Especifica quando os arquivos de log do Spark são copiados no armazenamento do Azure usado pelo cluster HDInsight (ou) especificado por sparkJobLinkedService. Valores permitidos: Nenhum, Sempre ou Falha. Valor padrão: Nenhum. | Não       |
 
 ## <a name="folder-structure"></a>Estrutura de pastas
@@ -114,10 +114,10 @@ Consulte os seguintes artigos que explicam como transformar dados de outras mane
 
 * [U-SQL activity](transform-data-using-data-lake-analytics.md) (Atividade do U-SQL)
 * [Hive activity](transform-data-using-hadoop-hive.md) (Atividade do Hive)
-* [Atividade Pig](transform-data-using-hadoop-pig.md)
+* [Pig activity](transform-data-using-hadoop-pig.md) (Atividade do Pig)
 * [MapReduce activity](transform-data-using-hadoop-map-reduce.md) (Atividade do MapReduce)
 * [Hadoop Streaming activity](transform-data-using-hadoop-streaming.md) (Atividade de streaming do Hadoop)
-* [Atividade do Spark](transform-data-using-spark.md)
+* [Spark activity](transform-data-using-spark.md) (Atividade do Spark)
 * [Atividade personalizada do .NET](transform-data-using-dotnet-custom-activity.md)
-* [Atividade de execução de Machine Learning lote](transform-data-using-machine-learning.md)
-* [Atividade de procedimento armazenado](transform-data-using-stored-procedure.md)
+* [Machine Learning Batch Execution activity](transform-data-using-machine-learning.md) (Atividade de execução em lotes do Machine Learning)
+* [Stored procedure activity](transform-data-using-stored-procedure.md) (Atividade de procedimento armazenado)

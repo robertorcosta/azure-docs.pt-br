@@ -6,30 +6,27 @@ author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 4c1fe9ac5d3b2470fb70231a83e57f3e08d0dfb1
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 7a8c9083ecbadbf63cf0ac65dc1803b478e939fe
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197600"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873397"
 ---
 # <a name="query-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Consultar arquivos JSON usando o SQL sob demanda (versão prévia) no Azure Synapse Analytics
 
-Neste artigo, você aprenderá a escrever uma consulta usando o SQL sob demanda (versão prévia) no Azure Synapse Analytics. O objetivo da consulta é ler arquivos JSON. Os formatos com suporte são listados em [OPENROWSET](develop-openrowset.md).
+Neste artigo, você aprenderá a escrever uma consulta usando o SQL sob demanda (versão prévia) no Azure Synapse Analytics. A consulta tem como objetivo a leitura de arquivos JSON. Os formatos compatíveis são listados em [OPENROWSET](develop-openrowset.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de ler o restante deste artigo, examine os seguintes artigos:
-
-- [Configuração inicial](query-data-storage.md#first-time-setup)
-- [Pré-requisitos](query-data-storage.md#prerequisites)
+A primeira etapa é **criar um banco de dados** em que as consultas serão executadas. Em seguida, inicialize os objetos executando o [script de instalação](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) nesse banco de dados. Esse script de instalação criará as fontes de dados, as credenciais no escopo do banco de dados e os formatos de arquivo externos que serão usados nessas amostras.
 
 ## <a name="sample-json-files"></a>Arquivos JSON de exemplo
 
-A seção a seguir contém scripts de exemplo para ler arquivos JSON. Os arquivos são armazenados em um contêiner *JSON* , em *livros*de pastas e contêm uma única entrada de livro com a seguinte estrutura:
+A seção a seguir contém scripts de exemplo de leitura de arquivos JSON. Os arquivos são armazenados no contêiner *json* e na pasta *books* e contêm uma só entrada de livro com a seguinte estrutura:
 
 ```json
 {
@@ -47,16 +44,17 @@ A seção a seguir contém scripts de exemplo para ler arquivos JSON. Os arquivo
 }
 ```
 
-## <a name="read-json-files"></a>Ler arquivos JSON
+## <a name="read-json-files"></a>Leitura de arquivos JSON
 
-Para processar arquivos JSON usando JSON_VALUE e [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), você precisa ler o arquivo JSON do armazenamento como uma única coluna. O script a seguir lê o arquivo *book1. JSON* como uma única coluna:
+Para processar arquivos JSON usando JSON_VALUE e [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), o arquivo JSON precisa ser lido no armazenamento como uma única coluna. O script a seguir lê o arquivo *book1.json* como uma única coluna:
 
 ```sql
 SELECT
     *
 FROM
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/json/books/book1.json',
+        BULK 'json/books/book1.json',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT='CSV',
         FIELDTERMINATOR ='0x0b',
         FIELDQUOTE = '0x0b',
@@ -68,11 +66,11 @@ FROM
 ```
 
 > [!NOTE]
-> Você está lendo o arquivo JSON inteiro como uma única linha ou coluna. Portanto, FIELDTERMINATOR, FIELDQUOTE e timeterminator são definidos como 0x0B.
+> O arquivo JSON inteiro está sendo lido como uma só linha/coluna. Portanto, FIELDTERMINATOR, FIELDQUOTE e ROWTERMINATOR são definidos como 0x0b.
 
 ## <a name="query-json-files-using-json_value"></a>Consultar arquivos JSON usando JSON_VALUE
 
-A consulta a seguir mostra como usar [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para recuperar valores escalares (título, Publicador) de um livro intitulado *probabilística e métodos estatísticos em Cryptology, uma introdução dos artigos selecionados*:
+A consulta abaixo mostra como usar [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para recuperar valores escalares (título, editor) de um livro intitulado *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected Topics*:
 
 ```sql
 SELECT
@@ -81,7 +79,8 @@ SELECT
     jsonContent
 FROM
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/json/books/*.json',
+        BULK 'json/books/*.json',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT='CSV',
         FIELDTERMINATOR ='0x0b',
         FIELDQUOTE = '0x0b',
@@ -96,7 +95,7 @@ WHERE
 
 ## <a name="query-json-files-using-json_query"></a>Consultar arquivos JSON usando JSON_QUERY
 
-A consulta a seguir mostra como usar [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para recuperar objetos e matrizes (autores) de um livro intitulado *probabilística e métodos estatísticos no Cryptology, uma introdução dos tópicos selecionados*:
+A consulta a seguir mostra como usar [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para recuperar objetos e matrizes (autores) de um livro intitulado *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected Topics*:
 
 ```sql
 SELECT
@@ -104,7 +103,8 @@ SELECT
     jsonContent
 FROM
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/json/books/*.json',
+        BULK 'json/books/*.json',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT='CSV',
         FIELDTERMINATOR ='0x0b',
         FIELDQUOTE = '0x0b',
@@ -119,14 +119,15 @@ WHERE
 
 ## <a name="query-json-files-using-openjson"></a>Consultar arquivos JSON usando OPENJSON
 
-A consulta a seguir usa [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). Ele recuperará objetos e propriedades em um livro intitulado *probabilística e métodos estatísticos no Cryptology, uma introdução dos artigos selecionados*:
+A consulta a seguir usa [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). Ela recuperará objetos e propriedades dentro de um livro intitulado *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected Topics*:
 
 ```sql
 SELECT
     j.*
 FROM
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/json/books/*.json',
+        BULK 'json/books/*.json',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT='CSV',
         FIELDTERMINATOR ='0x0b',
         FIELDQUOTE = '0x0b',
@@ -142,7 +143,7 @@ WHERE
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Os próximos artigos desta série demonstram como:
+Os próximos artigos desta série demonstrarão como:
 
-- [Consultando pastas e vários arquivos](query-folders-multiple-csv-files.md)
+- [Consultar pastas e arquivos múltiplos](query-folders-multiple-csv-files.md)
 - [Criar e usar modos de exibição](create-use-views.md)

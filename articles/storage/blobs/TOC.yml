@@ -471,8 +471,6 @@
               items:
                 - name: Usar o iniciador do Spring Boot
                   href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage
-            - name: Xamarin
-              href: storage-xamarin-blob-storage.md
         - name: Mover entre regiões
           href: ../common/storage-account-move.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Monitor (clássico)

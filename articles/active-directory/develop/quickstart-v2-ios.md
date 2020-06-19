@@ -12,12 +12,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: 840c0157713e9758092ca5cc51ee2745428ae568
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: b4092ac7bdd03d2e978cd9d9a8aa9fd2aaf1cdd2
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84483533"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84733284"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Início Rápido: Conectar usuários e chamar a API do Microsoft Graph de um aplicativo iOS ou macOS
 
@@ -90,9 +90,9 @@ Em uma janela do terminal, navegue até a pasta que contém o exemplo de código
 > [!div renderon="portal" class="sxs-lookup"]
 > #### <a name="step-4-your-app-is-configured-and-ready-to-run"></a>Etapa 4: seu aplicativo está configurado e pronto para ser executado
 > Configuramos seu projeto com os valores das propriedades do aplicativo e ele está pronto para ser executado.
-> >  [!NOTE]
+> > [!NOTE]
 > > `Enter_the_Supported_Account_Info_Here`
-
+>
 > [!div renderon="docs"]
 >#### <a name="step-4-configure-your-project"></a>Etapa 4: Configurar seu projeto
 > Se você tiver selecionado a Opção 1 acima, poderá ignorar essas etapas.

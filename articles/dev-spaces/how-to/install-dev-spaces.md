@@ -1,27 +1,27 @@
 ---
-title: Habilitar Azure Dev Spaces no AKS & instalar as ferramentas do lado do cliente
+title: Habilitar o Azure Dev Spaces no AKS e instalar as ferramentas do lado do cliente
 services: azure-dev-spaces
 ms.date: 07/24/2019
 ms.topic: conceptual
-description: Saiba como habilitar Azure Dev Spaces em um cluster AKS e instalar as ferramentas do lado do cliente.
+description: Saiba como habilitar o Azure Dev Spaces em um cluster AKS e instalar as ferramentas do lado do cliente.
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
-ms.openlocfilehash: a6b3be5ceba5e60b99b2f75e060f3321cd3151f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3666eeb995c73615c522200a3619d785814ea0b5
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78898946"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873514"
 ---
-# <a name="enable-azure-dev-spaces-on-an-aks-cluster-and-install-the-client-side-tools"></a>Habilitar Azure Dev Spaces em um cluster AKS e instalar as ferramentas do lado do cliente
+# <a name="enable-azure-dev-spaces-on-an-aks-cluster-and-install-the-client-side-tools"></a>Habilitar o Azure Dev Spaces em um cluster AKS e instalar as ferramentas do lado do cliente
 
-Este artigo mostra várias maneiras de habilitar Azure Dev Spaces em um cluster AKS, bem como instalar as ferramentas do lado do cliente.
+Este artigo mostra várias maneiras de habilitar o Azure Dev Spaces em um cluster AKS, bem como instalar as ferramentas do lado do cliente.
 
-## <a name="enable-or-remove-azure-dev-spaces-using-the-cli"></a>Habilitar ou remover Azure Dev Spaces usando a CLI
+## <a name="enable-or-remove-azure-dev-spaces-using-the-cli"></a>Habilitar ou remover o Azure Dev Spaces usando a CLI
 
-Antes de poder habilitar espaços de desenvolvimento usando a CLI, você precisa:
-* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, poderá criar uma [conta gratuita][az-portal-create-account].
-* [O CLI do Azure instalado][install-cli].
-* [Um cluster AKs][create-aks-cli] em uma [região com suporte][supported-regions].
+Antes de poder habilitar o Dev Spaces usando a CLI, você precisa:
+* Uma assinatura do Azure. Caso não tenha uma assinatura do Azure, é possível criar uma [conta gratuita][az-portal-create-account].
+* [A CLI do Azure instalada][install-cli].
+* [Um cluster do AKS][create-aks-cli] em uma [região com suporte][supported-regions].
 
 Use o comando `use-dev-spaces` para habilitar o Dev Spaces no cluster do AKS e siga os prompts.
 
@@ -29,7 +29,7 @@ Use o comando `use-dev-spaces` para habilitar o Dev Spaces no cluster do AKS e s
 az aks use-dev-spaces -g myResourceGroup -n myAKSCluster
 ```
 
-O comando acima habilita espaços de desenvolvimento no cluster *myAKSCluster* no grupo *MyResource* Group e cria um espaço de desenvolvimento *padrão* .
+O comando acima habilita o Dev Spaces no cluster *myAKSCluster*, no grupo *myResourceGroup* e cria um espaço de desenvolvimento *padrão*.
 
 ```console
 'An Azure Dev Spaces Controller' will be created that targets resource 'myAKSCluster' in resource group 'myResourceGroup'. Continue? (y/N): y
@@ -47,9 +47,9 @@ Configuring and selecting dev space 'default'...3s
 Managed Kubernetes cluster 'myAKSCluster' in resource group 'myResourceGroup' is ready for development in dev space 'default'. Type `azds prep` to prepare a source directory for use with Azure Dev Spaces and `azds up` to run.
 ```
 
-O `use-dev-spaces` comando também instala a CLI do Azure dev Spaces.
+O comando `use-dev-spaces` também instala a CLI do Azure Dev Spaces.
 
-Para remover Azure Dev Spaces do cluster AKS, use o `azds remove` comando. Por exemplo:
+Para remover o Azure Dev Spaces do cluster AKS, use o comando `azds remove`. Por exemplo:
 
 ```azurecli
 $ azds remove -g MyResourceGroup -n MyAKS
@@ -58,34 +58,33 @@ Azure Dev Spaces Controller 'MyAKS' in resource group 'MyResourceGroup' that tar
 Deleting Azure Dev Spaces Controller 'MyAKS' in resource group 'MyResourceGroup' that targets resource 'MyAks' in resource group 'MyResourceGroup' (takes a few minutes)...
 ```
 
-O comando acima remove Azure Dev Spaces do cluster *MyAKS* no *MyResource*. Todos os namespaces criados com Azure Dev Spaces permanecerão junto com suas cargas de trabalho, mas as novas cargas de trabalho nesses namespaces não serão instrumentadas com Azure Dev Spaces. Além disso, se você reiniciar qualquer pods existente instrumentado com Azure Dev Spaces, poderá ver erros. Esses pods devem ser reimplantados sem Azure Dev Spaces ferramentas. Para remover completamente Azure Dev Spaces do cluster, exclua todos os pods em todos os namespaces em que Azure Dev Spaces foi habilitado.
+O comando acima remove o Azure Dev Spaces do cluster *MyAKS* em *MyResourceGroup*. Todos os namespaces criados com o Azure Dev Spaces permanecerão junto com suas cargas de trabalho, mas as novas cargas de trabalho nesses namespaces não serão instrumentadas com o Azure Dev Spaces. Além disso, poderá haver falha se você reiniciar pods existentes instrumentados com o Azure Dev Spaces. Esses pods devem ser reimplantados sem as ferramentas do Azure Dev Spaces. Para remover completamente o Azure Dev Spaces do cluster, exclua todos os pods em todos os namespaces em que o Azure Dev Spaces tiver sido habilitado.
 
-## <a name="enable-or-remove-azure-dev-spaces-using-the-azure-portal"></a>Habilitar ou remover Azure Dev Spaces usando o portal do Azure
+## <a name="enable-or-remove-azure-dev-spaces-using-the-azure-portal"></a>Habilitar ou remover o Azure Dev Spaces usando o portal do Azure
 
-Antes de poder habilitar espaços de desenvolvimento usando o portal do Azure, você precisa:
-* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, poderá criar uma [conta gratuita][az-portal-create-account].
-* [Um cluster AKs][create-aks-portal] em uma [região com suporte][supported-regions].
+Antes de poder habilitar o Dev Spaces usando o portal do Azure, você precisa:
+* Uma assinatura do Azure. Caso não tenha uma assinatura do Azure, é possível criar uma [conta gratuita][az-portal-create-account].
+* [Um cluster do AKS][create-aks-portal] em uma [região com suporte][supported-regions].
 
-Para habilitar Azure Dev Spaces usando o portal do Azure:
+Para habilitar o Azure Dev Spaces usando o portal do Azure:
 1. Entre no [portal do Azure][az-portal].
 1. Navegue até o cluster AKS.
-1. Selecione o item de menu de *espaços de desenvolvimento* .
+1. Selecione o item de menu *Dev Spaces*.
 1. Altere *Habilitar Dev Spaces* para *Sim* e clique em *Salvar*.
 
 ![Habilitar o Dev Spaces no portal do Azure](../media/how-to-setup-dev-spaces/enable-dev-spaces-portal.png)
 
-Habilitar Azure Dev Spaces usando **o portal do Azure não** instala nenhuma ferramenta do lado do cliente para Azure dev Spaces.
+Habilitar o Azure Dev Spaces usando o portal do Azure **não** instala nenhuma ferramenta do lado do cliente para o Azure Dev Spaces.
 
-Para remover Azure Dev Spaces do cluster AKS, altere *habilitar espaços de desenvolvimento* para *não* e clique em *salvar*. Todos os namespaces criados com Azure Dev Spaces permanecerão junto com suas cargas de trabalho, mas as novas cargas de trabalho nesses namespaces não serão instrumentadas com Azure Dev Spaces. Além disso, se você reiniciar qualquer pods existente instrumentado com Azure Dev Spaces, poderá ver erros. Esses pods devem ser reimplantados sem Azure Dev Spaces ferramentas. Para remover completamente Azure Dev Spaces do cluster, exclua todos os pods em todos os namespaces em que Azure Dev Spaces foi habilitado.
+Para remover o Azure Dev Spaces do cluster AKS, altere *Habilitar Dev Spaces* para *Não* e clique em *Salvar*. Todos os namespaces criados com o Azure Dev Spaces permanecerão junto com suas cargas de trabalho, mas as novas cargas de trabalho nesses namespaces não serão instrumentadas com o Azure Dev Spaces. Além disso, poderá haver falha se você reiniciar pods existentes instrumentados com o Azure Dev Spaces. Esses pods devem ser reimplantados sem as ferramentas do Azure Dev Spaces. Para remover completamente o Azure Dev Spaces do cluster, exclua todos os pods em todos os namespaces em que o Azure Dev Spaces tiver sido habilitado.
 
 ## <a name="install-the-client-side-tools"></a>Instalar as ferramentas do lado do cliente
 
-Você pode usar o Azure Dev Spaces ferramentas do lado do cliente para interagir com espaços de desenvolvimento em um cluster AKS do computador local. Há várias maneiras de instalar as ferramentas do lado do cliente:
+Você pode usar as ferramentas do lado do cliente do Azure Dev Spaces para interagir com espaços de desenvolvimento em um cluster AKS do computador local. Há várias maneiras de instalar as ferramentas do lado do cliente:
 
-* No [Visual Studio Code][vscode], instale a [extensão de Azure dev Spaces][vscode-extension].
-* No [Visual Studio 2019][visual-studio], instale a carga de trabalho de desenvolvimento do Azure.
-* No Visual Studio 2017, instale a carga de trabalho de desenvolvimento Web e [Ferramentas do Visual Studio para kubernetes][visual-studio-k8s-tools].
-* Baixe e instale a CLI do [Windows][cli-win], [Mac][cli-mac]ou [Linux][cli-linux] .
+* No [Visual Studio Code][vscode], instale a [extensão Azure Dev Spaces][vscode-extension].
+* No [Visual Studio 2019][visual-studio], instale a carga de trabalho de Desenvolvimento do Azure.
+* Baixe e instale o CLI do [Windows][cli-win], [Mac][cli-mac] ou [Linux][cli-linux].
 
 ## <a name="next-steps"></a>Próximas etapas
 

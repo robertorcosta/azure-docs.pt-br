@@ -6,37 +6,34 @@ author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 3d09692c06bcdffbb070f545950092592e417838
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 41c4a8940cc49a3859a2511f0de65d0019817078
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81431586"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836542"
 ---
 # <a name="query-csv-files"></a>Consultar arquivos CSV
 
-Neste artigo, você aprenderá a consultar um único arquivo CSV usando o SQL sob demanda (versão prévia) no Azure Synapse Analytics. Arquivos CSV podem ter formatos diferentes: 
+Neste artigo, você aprenderá a consultar um único arquivo CSV usando o SQL sob demanda (versão prévia) no Azure Synapse Analytics. Arquivos CSV podem ter diferentes formatos: 
 
-- Com e sem uma linha de cabeçalho
-- Valores de vírgula e delimitado por tabulação
-- Terminações de linha de estilo do Windows e UNIX
-- Valores não citados e entre aspas e caracteres de escape
+- Com e sem linha de cabeçalho
+- Com valores delimitados por tabulação e vírgula
+- Com terminações de linha de estilo do Windows e Unix
+- Com valores citados e não citados e caracteres de escape
 
-Todas as variações acima serão abordadas abaixo.
+Todas essas variações serão abordadas abaixo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de ler o restante deste artigo, examine os seguintes artigos:
+A primeira etapa é criar um **banco de dados** no qual as tabelas serão criadas. Em seguida, inicialize os objetos executando o [script de instalação](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) nesse banco de dados. Esse script de instalação criará as fontes de dados, as credenciais no escopo do banco de dados e os formatos de arquivo externos que são usados nessas amostras.
 
-- [Configuração inicial](query-data-storage.md#first-time-setup)
-- [Pré-requisitos](query-data-storage.md#prerequisites)
+## <a name="windows-style-new-line"></a>Nova linha de estilo Windows
 
-## <a name="windows-style-new-line"></a>Nova linha do estilo Windows
-
-A consulta a seguir mostra como ler um arquivo CSV sem uma linha de cabeçalho, com uma nova linha do estilo do Windows e colunas delimitadas por vírgula.
+A consulta a seguir mostra como ler um arquivo CSV sem uma linha de cabeçalho, com uma nova linha de estilo do Windows e colunas delimitadas por vírgula.
 
 Visualização do arquivo:
 
@@ -45,8 +42,9 @@ Visualização do arquivo:
 ```sql
 SELECT *
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/population.csv',
-         FORMAT = 'CSV',
+        BULK 'csv/population/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
+        FORMAT = 'CSV',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '\n'
     )
@@ -61,18 +59,19 @@ WHERE
     AND year = 2017;
 ```
 
-## <a name="unix-style-new-line"></a>Nova linha do estilo UNIX
+## <a name="unix-style-new-line"></a>Nova linha de estilo UNIX
 
-A consulta a seguir mostra como ler um arquivo sem uma linha de cabeçalho, com uma nova linha em estilo UNIX e colunas delimitadas por vírgulas. Observe o local diferente do arquivo em comparação com os outros exemplos.
+A consulta a seguir mostra como ler um arquivo CSV sem uma linha de cabeçalho, com uma nova linha de estilo Unix e colunas delimitadas por vírgula. Observe que o arquivo está em um local diferente, quando comparado a outros exemplos.
 
 Visualização do arquivo:
 
-![Primeiras 10 linhas do arquivo CSV sem a linha de cabeçalho e com a nova linha do estilo UNIX.](./media/query-single-csv-file/population-unix.png)
+![Primeiras 10 linhas do arquivo CSV sem linha de cabeçalho e com a nova linha de estilo UNIX.](./media/query-single-csv-file/population-unix.png)
 
 ```sql
 SELECT *
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix/population.csv',
+        BULK 'csv/population-unix/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT = 'CSV',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '0x0a'
@@ -90,16 +89,17 @@ WHERE
 
 ## <a name="header-row"></a>Linha de cabeçalho
 
-A consulta a seguir mostra como ler um arquivo com uma linha de cabeçalho, com uma nova linha em estilo UNIX e colunas delimitadas por vírgulas. Observe o local diferente do arquivo em comparação com os outros exemplos.
+A consulta a seguir mostra como ler um arquivo CSV com uma linha de cabeçalho, com uma nova linha de estilo Unix e colunas delimitadas por vírgula. Observe que o arquivo está em um local diferente, quando comparado a outros exemplos.
 
 Visualização do arquivo:
 
-![Primeiras 10 linhas do arquivo CSV com a linha de cabeçalho e com a nova linha em estilo UNIX.](./media/query-single-csv-file/population-unix-hdr.png)
+![Primeiras 10 linhas do arquivo CSV com linha de cabeçalho e com a nova linha de estilo UNIX.](./media/query-single-csv-file/population-unix-hdr.png)
 
 ```sql
 SELECT *
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix-hdr/population.csv',
+        BULK 'csv/population-unix-hdr/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT = 'CSV',
         FIELDTERMINATOR =',',
         FIRSTROW = 2
@@ -115,18 +115,19 @@ WHERE
     AND year = 2017;
 ```
 
-## <a name="custom-quote-character"></a>Caractere de aspas personalizada
+## <a name="custom-quote-character"></a>Caractere de aspas personalizado
 
-A consulta a seguir mostra como ler um arquivo com uma linha de cabeçalho, com uma nova linha em estilo UNIX, colunas delimitadas por vírgula e valores entre aspas. Observe o local diferente do arquivo em comparação com os outros exemplos.
+A consulta a seguir mostra como ler um arquivo com uma linha de cabeçalho, com uma nova linha de estilo UNIX, com colunas delimitadas por vírgula e valores entre aspas. Observe que o arquivo está em um local diferente, quando comparado a outros exemplos.
 
 Visualização do arquivo:
 
-![Primeiras 10 linhas do arquivo CSV com a linha de cabeçalho e com a nova linha e os valores entre estilo UNIX.](./media/query-single-csv-file/population-unix-hdr-quoted.png)
+![Primeiras 10 linhas do arquivo CSV com a linha de cabeçalho e com os valores entre aspas e a nova linha de estilo Unix.](./media/query-single-csv-file/population-unix-hdr-quoted.png)
 
 ```sql
 SELECT *
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix-hdr-quoted/population.csv',
+        BULK 'csv/population-unix-hdr-quoted/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT = 'CSV',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '0x0a',
@@ -145,20 +146,21 @@ WHERE
 ```
 
 > [!NOTE]
-> Essa consulta retornaria os mesmos resultados se você omitisse o parâmetro FIELDQUOTE, pois o valor padrão para FIELDQUOTE é uma aspa dupla.
+> Essa consulta retornaria os mesmos resultados se o parâmetro FIELDQUOTE fosse omitido, pois FIELDQUOTE tem como valor padrão as aspas duplas.
 
 ## <a name="escaping-characters"></a>Caracteres de escape
 
-A consulta a seguir mostra como ler um arquivo com uma linha de cabeçalho, com uma nova linha em estilo UNIX, colunas delimitadas por vírgula e um caractere de escape usado para o delimitador de campo (vírgula) dentro dos valores. Observe o local diferente do arquivo em comparação com os outros exemplos.
+A consulta a seguir mostra como ler um arquivo com uma linha de cabeçalho, com uma nova linha de estilo UNIX, colunas delimitadas por vírgula e um caractere de escape usado pelo delimitador de campo (vírgula) dentro dos valores. Observe que o arquivo está em um local diferente, quando comparado a outros exemplos.
 
 Visualização do arquivo:
 
-![Primeiras 10 linhas do arquivo CSV com a linha de cabeçalho e com a nova linha e o caractere de escape do estilo UNIX usados para delimitador de campo.](./media/query-single-csv-file/population-unix-hdr-escape.png)
+![Primeiras 10 linhas do arquivo CSV com a linha de cabeçalho, com o caractere de escape e com a nova linha de estilo UNIX usados pelo delimitador de campo.](./media/query-single-csv-file/population-unix-hdr-escape.png)
 
 ```sql
 SELECT *
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix-hdr-escape/population.csv',
+        BULK 'csv/population-unix-hdr-escape/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT = 'CSV',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '0x0a',
@@ -176,20 +178,21 @@ WHERE
 ```
 
 > [!NOTE]
-> Essa consulta falharia se ESCAPECHAR não for especificado, pois a vírgula em "Slov, Enia" seria tratada como delimitador de campo em vez de parte do nome do país. "Slov, Enia" seria tratado como duas colunas. Portanto, a linha específica teria uma coluna mais do que as outras linhas e uma coluna mais do que você definiu na cláusula WITH.
+> Essa consulta falhará se o parâmetro ESCAPECHAR não for especificado, pois a vírgula em "Slov,enia" será tratada como delimitador de campo, em vez de parte do nome do país/região. Nesse caso, "Slov,enia" seria tratada como duas colunas. Ou seja, a linha específica teria uma coluna a mais que as outras linhas, e uma coluna a mais que o definido na cláusula WITH.
 
 ## <a name="tab-delimited-files"></a>Arquivos delimitados por tabulação
 
-A consulta a seguir mostra como ler um arquivo com uma linha de cabeçalho, com uma nova linha em estilo UNIX e colunas delimitadas por tabulação. Observe o local diferente do arquivo em comparação com os outros exemplos.
+A consulta a seguir mostra como ler um arquivo CSV com uma linha de cabeçalho, com uma nova linha de estilo Unix e colunas delimitadas por tabulação. Observe que o arquivo está em um local diferente, quando comparado a outros exemplos.
 
 Visualização do arquivo:
 
-![As primeiras 10 linhas do arquivo CSV com a linha de cabeçalho e com o novo delimitador de linha e tabulação do estilo UNIX.](./media/query-single-csv-file/population-unix-hdr-tsv.png)
+![Primeiras 10 linhas do arquivo CSV com a linha de cabeçalho, com o delimitador por tabulação e a nova linha de estilo Unix.](./media/query-single-csv-file/population-unix-hdr-tsv.png)
 
 ```sql
 SELECT *
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix-hdr-tsv/population.csv',
+        BULK 'csv/population-unix-hdr-tsv/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT = 'CSV',
         FIELDTERMINATOR ='\t',
         ROWTERMINATOR = '0x0a',
@@ -206,27 +209,28 @@ WHERE
     AND year = 2017
 ```
 
-## <a name="returning-subset-of-columns"></a>Retornando subconjunto de colunas
+## <a name="returning-subset-of-columns"></a>Retornar um subconjunto de colunas
 
-Até agora, você especificou o esquema de arquivo CSV usando com e listando todas as colunas. Você só pode especificar as colunas que realmente precisa em sua consulta usando um número ordinal para cada coluna necessária. Você também omitirá colunas sem interesse.
+Até agora, você especificou um esquema de arquivo CSV usando a cláusula WITH e listando todas as colunas. Você só pode especificar as colunas que realmente precisa em sua consulta usando um número ordinal para cada coluna necessária. Colunas não relevantes também deverão ser omitidas.
 
-A consulta a seguir retorna o número de nomes de país distintos em um arquivo, especificando apenas as colunas que são necessárias:
+A consulta a seguir retorna o número de nomes de país/região distintos em um arquivo, especificando apenas as colunas necessárias:
 
 > [!NOTE]
-> Dê uma olhada na cláusula WITH na consulta abaixo e observe que há "2" (sem aspas) no final da linha em que você define a coluna *[country_name]* . Isso significa que a coluna *[country_name]* é a segunda coluna no arquivo. A consulta irá ignorar todas as colunas no arquivo, exceto a segunda.
+> Dê uma olhada na cláusula WITH na consulta abaixo e observe que há um valor "2" (sem aspas) no final da linha em que coluna *[country_name]* é definida. Isso significa que a coluna *[country_name]* é a segunda coluna no arquivo. A consulta ignorará todas as colunas no arquivo, exceto a segunda.
 
 ```sql
 SELECT
     COUNT(DISTINCT country_name) AS countries
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/population.csv',
-         FORMAT = 'CSV',
+        BULK 'csv/population/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
+        FORMAT = 'CSV',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '\n'
     )
 WITH (
-    --[country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
-    [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2 2
+    --[country_code] VARCHAR (5),
+    [country_name] VARCHAR (100) 2
     --[year] smallint,
     --[population] bigint
 ) AS [r]
@@ -234,7 +238,7 @@ WITH (
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Os próximos artigos lhe mostrarão como:
+Os próximos artigos mostrarão como:
 
-- [Consultando arquivos parquet](query-parquet-files.md)
-- [Consultando pastas e vários arquivos](query-folders-multiple-csv-files.md)
+- [Consultar arquivos Parquet](query-parquet-files.md)
+- [Consultar pastas e arquivos múltiplos](query-folders-multiple-csv-files.md)

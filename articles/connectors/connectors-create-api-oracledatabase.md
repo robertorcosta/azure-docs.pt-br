@@ -1,18 +1,18 @@
 ---
-title: Conectar-se ao Oracle Database
+title: Conectar-se a um Oracle Database
 description: Inserir e gerenciar registros com APIs REST do Oracle Database e os Aplicativos Lógicos do Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 05/20/2020
 tags: connectors
-ms.openlocfilehash: fdbf7fd7dded2fc0026e5c819ca579eeddc5cdb6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3e1583abd5cca4ea1f961353eb84a4b93a997e51
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82147809"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836270"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Introdução ao conector do Banco de Dados Oracle
 
@@ -20,6 +20,13 @@ Com o conector do Banco de Dados Oracle, você cria fluxos de trabalho organizac
 
 * Compile o fluxo de trabalho adicionando um novo cliente a um banco de dados de clientes ou atualizando um pedido em um banco de dados de pedidos.
 * Use as ações para obter uma linha de dados, inserir uma nova linha e até mesmo excluir. Por exemplo, quando um registro é criado no Dynamics CRM Online (um gatilho), insira uma linha em um Banco de Dados Oracle (uma ação). 
+
+Este conector não é compatível com os seguintes itens:
+
+* Exibições 
+* Qualquer tabela com chaves compostas
+* Tipos de objeto aninhados em tabelas
+* Funções de banco de dados com valores não escalares
 
 Este artigo mostra como usar o conector do Banco de Dados Oracle um aplicativo lógico.
 
@@ -32,9 +39,9 @@ Este artigo mostra como usar o conector do Banco de Dados Oracle um aplicativo l
 * Instalar o gateway de dados local. [Conectar-se a dados locais de aplicativos lógicos](../logic-apps/logic-apps-gateway-connection.md) lista as etapas. O gateway é necessário para se conectar ao Banco de Dados Oracle local, ou uma VM do Azure com o Banco de Dados Oracle instalado. 
 
     > [!NOTE]
-    > O gateway de dados local atua como uma ponte e fornece transferência de dados segura entre dados locais (dados que não estão na nuvem) e seu aplicativo lógico. O mesmo gateway pode ser usado com vários serviços e várias fontes de dados.Assim, você só precisará instalar o gateway uma vez.
+    > O gateway de dados local atua como uma ponte e fornece transferência de dados segura entre dados locais (dados que não estão na nuvem) e seu aplicativo lógico. O mesmo gateway pode ser usado com vários serviços e várias fontes de dados. Assim, você só precisará instalar o gateway uma vez.
 
-* Instale o Cliente Oracle no computador onde você instalou o gateway de dados local.Instale o Provedor de Dados do Oracle de 64 bits para .NET a partir do Oracle:  
+* Instale o Cliente Oracle no computador onde você instalou o gateway de dados local. Instale o Provedor de Dados do Oracle de 64 bits para .NET a partir do Oracle:  
 
   [ODAC 12c Release 4 (12.1.0.2.4) de 64 bits para Windows x64](https://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
 
@@ -53,7 +60,7 @@ Este artigo mostra como usar o conector do Banco de Dados Oracle um aplicativo l
 
     ![](./media/connectors-create-api-oracledatabase/request-trigger.png)
 
-3. Selecione **Salvar**. Quando você salva, a URL de uma solicitação é gerada automaticamente. 
+3. Clique em **Salvar**. Quando você salva, a URL de uma solicitação é gerada automaticamente. 
 
 4. Selecione **Nova etapa** e selecione **Adicionar uma ação**. Digite `oracle` para ver as ações disponíveis: 
 
@@ -72,7 +79,7 @@ Este artigo mostra como usar o conector do Banco de Dados Oracle um aplicativo l
 
     ![](./media/connectors-create-api-oracledatabase/table-rowid.png)
 
-7. Nesta próxima etapa, use qualquer um dos outros conectores para compilar seu fluxo de trabalho. Se você quiser testar a obtenção de dados do Oracle, envie um email com os dados da Oracle usando um dos conectores de envio de email, como o Outlook do Office 365. Use os tokens dinâmicos da tabela do Oracle para criar o `Subject` e o `Body` de seu email:
+7. Nesta próxima etapa, use qualquer um dos outros conectores para compilar seu fluxo de trabalho. Se quiser testar a obtenção de dados do Oracle, envie um email com os dados do Oracle usando um dos conectores de envio de email, como o Office 365 ou o Outlook. Use os tokens dinâmicos da tabela do Oracle para criar o `Subject` e o `Body` de seu email:
 
     ![](./media/connectors-create-api-oracledatabase/oracle-send-email.png)
 
@@ -91,29 +98,23 @@ Este artigo mostra como usar o conector do Banco de Dados Oracle um aplicativo l
 
 ## <a name="common-errors"></a>Erros comuns
 
-#### <a name="error-cannot-reach-the-gateway"></a>**Erro**: não é possível acessar o Gateway
+#### <a name="error-cannot-reach-the-gateway"></a>**Erro**: Não é possível acessar o Gateway
 
 **Causa**: o gateway de dados local não é capaz de se conectar à nuvem. 
 
-**Atenuação**: verifique se o gateway está em execução no computador local onde ele foi instalado e se ele pode se conectar à internet.Recomendamos a não instalação do gateway em um computador que pode ser desativado ou suspenso.Você também pode reiniciar o serviço de gateway de dados local (PBIEgwService).
+**Atenuação**: verifique se o gateway está em execução no computador local em que ele foi instalado e se ele pode se conectar à Internet.  Recomendamos a não instalação do gateway em um computador que pode ser desativado ou suspenso. Você também pode reiniciar o serviço de gateway de dados local (PBIEgwService).
 
-#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Erro**: o provedor que está sendo usado é preterido: 'O System.Data.OracleClient exige o software cliente da Oracle versão 8.1.7 ou posterior.'. Consulte [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) para instalar o provedor oficial.
+#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Erro**: o provedor que está sendo usado é preterido: 'System.Data.OracleClient exige software cliente Oracle versão 8.1.7 ou posterior.'. Consulte [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) para instalar o provedor oficial.
 
-**Causa**: o SDK do cliente da Oracle não está instalado no computador onde o gateway de dados local está em execução.  
+**Causa**: o SDK do cliente da Oracle não está instalado no computador em que o gateway de dados local está em execução.  
 
-**Resolução**: baixe e instale o SDK do cliente da Oracle no mesmo computador que o gateway de dados local.
+**Resolução:** baixe e instale o SDK do cliente da Oracle no mesmo computador que o gateway de dados local.
 
 #### <a name="error-table-tablename-does-not-define-any-key-columns"></a>**Erro**: a tabela '[Nome_da_tabela]' não define colunas de chave
 
 **Causa**: a tabela não tem uma chave primária.  
 
-**Resolução**: o conector do Banco de Dados Oracle exige o uso de uma tabela com uma coluna de chave primária.
-
-#### <a name="currently-not-supported"></a>Não há suporte no momento
-
-* Exibições 
-* Qualquer tabela com chaves compostas
-* Tipos de objeto aninhados em tabelas
+**Resolução:** o conector do Oracle Database exige o uso de uma tabela com uma coluna de chave primária.
  
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
@@ -121,9 +122,9 @@ Veja os gatilhos e ações definidos no swagger e também os limites nos [detalh
 
 ## <a name="get-some-help"></a>Obtenha ajuda
 
-O [fórum de Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) é um ótimo lugar para fazer perguntas, responder a perguntas e saber o que os outros usuários dos Aplicativos Lógicos estão fazendo. 
+A [página de perguntas e respostas da Microsoft sobre Aplicativos Lógicos do Azure](https://docs.microsoft.com/answers/topics/azure-logic-apps.html) é um ótimo lugar para fazer perguntas, responder a dúvidas e saber o que os outros usuários dos Aplicativos Lógicos estão fazendo. 
 
-Você pode ajudar a melhorar os aplicativos lógicos e conectores votando e enviando [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish)suas ideias em. 
+Você pode ajudar a melhorar os Aplicativos Lógicos e os conectores vitando e enviando suas ideias em [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish). 
 
 
 ## <a name="next-steps"></a>Próximas etapas

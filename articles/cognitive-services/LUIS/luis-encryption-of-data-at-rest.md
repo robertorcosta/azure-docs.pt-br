@@ -9,12 +9,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: egeaney
-ms.openlocfilehash: 59e066974f690bda2384504cc27af5aa94b7b75b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4fc816c3894120a5d1b356d91ebebbc56f21b530
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79372332"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052691"
 ---
 # <a name="language-understanding-service-encryption-of-data-at-rest"></a>Criptografia do serviço de Reconhecimento vocal de dados em repouso
 
@@ -32,19 +32,17 @@ Por padrão, sua assinatura usa chaves de criptografia gerenciadas pela Microsof
 
 Também há uma opção para gerenciar sua assinatura com suas próprias chaves. As chaves gerenciadas pelo cliente (CMK), também conhecidas como traga sua própria chave (BYOK), oferecem maior flexibilidade para criar, girar, desabilitar e revogar controles de acesso. Você também pode auditar as chaves de criptografia usadas para proteger seus dados.
 
-Você deve usar Azure Key Vault para armazenar as chaves gerenciadas pelo cliente. Você pode criar suas próprias chaves e armazená-las em um cofre de chaves ou pode usar as APIs de Azure Key Vault para gerar chaves. O recurso de serviços cognitivas e o cofre de chaves devem estar na mesma região e no mesmo locatário Azure Active Directory (Azure AD), mas podem estar em assinaturas diferentes. Para obter mais informações sobre Azure Key Vault, consulte [o que é Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
+Você deve usar Azure Key Vault para armazenar as chaves gerenciadas pelo cliente. Você pode criar suas próprias chaves e armazená-las em um cofre de chaves ou pode usar as APIs do Azure Key Vault para gerar chaves. O recurso de serviços cognitivas e o cofre de chaves devem estar na mesma região e no mesmo locatário Azure Active Directory (Azure AD), mas podem estar em assinaturas diferentes. Para obter mais informações sobre Azure Key Vault, consulte [o que é Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
 
 ### <a name="customer-managed-keys-for-language-understanding"></a>Chaves gerenciadas pelo cliente para Reconhecimento vocal
 
 Para solicitar a capacidade de usar chaves gerenciadas pelo cliente, preencha e envie o [formulário de solicitação de chave gerenciada pelo cliente do serviço Luis](https://aka.ms/cogsvc-cmk). Levará aproximadamente 3-5 dias úteis para que o status da solicitação seja reproduzido. Dependendo da demanda, você pode ser colocado em uma fila e aprovado, pois o espaço se torna disponível. Depois de aprovado para usar o CMK com LUIS, você precisará criar um novo recurso de Reconhecimento vocal da portal do Azure e selecionar E0 como o tipo de preço. O novo SKU funcionará da mesma forma que a SKU F0 que já está disponível, exceto para CMK. Os usuários não poderão atualizar do F0 para o novo SKU E0.
 
-Os recursos E0 só estão disponíveis para o serviço de criação e a camada E0 inicialmente terá suporte na região oeste dos EUA.
-
 ![Imagem de assinatura do LUIS](../media/cognitive-services-encryption/luis-subscription.png)
 
 ### <a name="regional-availability"></a>Disponibilidade regional
 
-Atualmente, as chaves gerenciadas pelo cliente estão disponíveis na região **oeste dos EUA** .
+As chaves gerenciadas pelo cliente estão disponíveis em todas as [regiões de criação](luis-reference-regions.md). 
 
 ### <a name="limitations"></a>Limitações
 
@@ -81,13 +79,13 @@ Somente chaves RSA de tamanho 2048 têm suporte com a criptografia de serviços 
 
 ### <a name="rotate-customer-managed-keys"></a>Girar chaves gerenciadas pelo cliente
 
-Você pode girar uma chave gerenciada pelo cliente em Azure Key Vault de acordo com suas políticas de conformidade. Quando a chave é girada, você deve atualizar o recurso de serviços cognitivas para usar o novo URI de chave. Para saber como atualizar o recurso para usar uma nova versão da chave no portal do Azure, consulte a seção intitulada **atualizar a versão da chave** em [Configurar chaves gerenciadas pelo cliente para serviços cognitivas usando o portal do Azure](../Encryption/cognitive-services-encryption-keys-portal.md).
+Você pode fazer a rotação de uma chave gerenciada pelo cliente no Azure Key Vault de acordo com suas políticas de conformidade. Quando a chave é girada, você deve atualizar o recurso de serviços cognitivas para usar o novo URI de chave. Para saber como atualizar o recurso para usar uma nova versão da chave no portal do Azure, consulte a seção intitulada **atualizar a versão da chave** em [Configurar chaves gerenciadas pelo cliente para serviços cognitivas usando o portal do Azure](../Encryption/cognitive-services-encryption-keys-portal.md).
 
 A rotação da chave não aciona a nova criptografia dos dados no recurso. Não há nenhuma ação adicional necessária do usuário.
 
 ### <a name="revoke-access-to-customer-managed-keys"></a>Revogar o acesso a chaves gerenciadas pelo cliente
 
-Para revogar o acesso às chaves gerenciadas pelo cliente, use o PowerShell ou CLI do Azure. Para obter mais informações, consulte [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault//) ou [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault). Revogar o acesso efetivamente bloqueia o acesso a todos os dados no recurso de serviços cognitivas, pois a chave de criptografia é inacessível por serviços cognitivas.
+Para revogar o acesso às chaves gerenciadas pelo cliente, use o PowerShell ou CLI do Azure. Para obter mais informações, confira [PowerShell do Azure Key Vault](https://docs.microsoft.com/powershell/module/az.keyvault//) ou [CLI do Azure Key Vault](https://docs.microsoft.com/cli/azure/keyvault). Revogar o acesso efetivamente bloqueia o acesso a todos os dados no recurso de serviços cognitivas, pois a chave de criptografia é inacessível por serviços cognitivas.
 
 ## <a name="next-steps"></a>Próximas etapas
 

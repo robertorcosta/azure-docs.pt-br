@@ -1,54 +1,53 @@
 ---
 title: Engenharia de recurso na ciência de dados - Processo da Ciência de dados de Equipe
-description: Explica a finalidade da seleção de recursos e fornece exemplos de sua função no processo de aperfeiçoamento de dados do aprendizado de máquina.
+description: Saiba mais sobre a engenharia de recursos e a função dela no processo de melhoria de dados do aprendizado de máquina.
 services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
-ms.topic: article
-ms.date: 01/10/2020
+ms.topic: conceptual
+ms.date: 05/14/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 02f109f250fa9bcd4c77cecd0b1b3e4514ecd8bc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
+ms.openlocfilehash: c31cf0e5c655f53e8838c92f5463d3a85c2f6f65
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76721125"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836814"
 ---
 # <a name="feature-engineering-in-data-science"></a>Engenharia de recursos em ciência de dados
-Este artigo explica a finalidade da criação de recursos e fornece exemplos de sua função no processo de aperfeiçoamento de dados do aprendizado de máquina. Os exemplos usados para ilustrar esse processo são extraídos do Azure Machine Learning Studio. 
 
-Essa tarefa é uma etapa no [TDSP (Processo de Ciência de Dados de Equipe)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Neste artigo, você aprende sobre a engenharia de recursos e a função dela no aprimoramento de dados no aprendizado de máquina. Aprenda com exemplos ilustrativos desenhados de experimentos do [Azure Machine Learning Studio (clássico)](../studio/what-is-ml-studio.md). 
 
-A engenharia de recurso tenta aumentar a capacidade de previsão dos algoritmos de aprendizado criando recursos de dados brutos que facilitam o processo de aprendizado de recursos. A engenharia e a seleção de recursos faz parte do processo de TDSP descrito em [O que é o ciclo de vida de Processo de Ciência de Dados de Equipe?](overview.md) A engenharia e a seleção de recursos fazem parte da etapa **Desenvolver recursos** do TDSP. 
+* **Engenharia de recursos**: o processo de criação de recursos de dados brutos para aumentar a potência preditiva do algoritmo de aprendizado. Recursos de engenharia devem capturar informações adicionais que não sejam facilmente aparentes no conjunto de recursos original.
+* **Seleção de recursos**: o processo de seleção do subconjunto principal de recursos para reduzir a dimensionalidade do problema de treinamento.
 
-* **engenharia de recursos**: esse processo tenta criar outros recursos relevantes com base nos recursos brutos existentes nos dados e aumentar a capacidade de previsão do algoritmo de aprendizado.
-* **seleção de recursos**: este processo seleciona o subconjunto principal de recursos de dados originais para tentar reduzir a dimensionalidade do problema de treinamento.
+Normalmente, a **engenharia de recursos** é aplicada primeiro para gerar recursos adicionais e, em seguida, a **seleção de recursos** é feita para eliminar recursos redundantes, altamente correlacionados ou irrelevantes.
 
-Normalmente, a **engenharia de recursos** é aplicada primeiro para gerar recursos adicionais e, em seguida, a etapa de **seleção de recursos** é feita para eliminar recursos redundantes, altamente correlacionados ou irrelevantes.
+A engenharia e a seleção de recursos fazem parte do [estágio de modelagem](lifecycle-modeling.md) do TDSP (processo de ciência de dados de equipe). Para saber mais sobre o TDSP e o ciclo de vida de ciência de dados, confira [O que é o TDSP?](overview.md)
 
-Os dados de treinamento usados no aprendizado de máquina frequentemente podem ser aprimorados pela extração de recursos dos dados brutos coletados. Um exemplo de recurso de engenharia no contexto de aprender a classificar imagens de caracteres manuscritos é a criação de um mapa de densidade de bits construído por meio dos dados brutos de distribuição de bits. Este mapa pode ajudar a localizar as bordas dos caracteres da forma mais eficiente do que simplesmente usar a distribuição bruta diretamente.
+## <a name="what-is-feature-engineering"></a>O que é a engenharia de recursos?
 
-Para criar recursos para dados em ambientes específicos, consulte os artigos a seguir:
+Os dados de treinamento consistem em uma matriz composta por linhas e colunas. Cada linha na matriz é uma observação ou um registro. As colunas de cada linha são os recursos que descrevem cada registro. Os recursos especificados no design experimental devem caracterizar os padrões nos dados.
 
-* [Criar recursos de dados no SQL Server](create-features-sql-server.md)
-* [Criar recursos de dados em um cluster Hadoop usando as consultas do Hive](create-features-hive.md)
+Embora muitos dos campos de dados brutos possam ser usados diretamente para treinar um modelo, muitas vezes é necessário criar recursos adicionais (projetados) para um conjunto de dados de treinamento avançado.
 
-## <a name="create-features-from-your-data---feature-engineering"></a>Criar recursos de seus dados - Engenharia de recursos
-Os dados de treinamento consistem de uma matriz composta de exemplos (registros ou observações armazenadas em linhas), cada um deles dos quais tem um conjunto de recursos (variáveis ou campos armazenados em colunas). Espera-se que os recursos especificados no design experimental caracterizem os padrões nos dados. Embora muitos dos campos de dados brutos possam ser incluídos diretamente no conjunto de recursos selecionado para treinar um modelo, frequentemente é necessário que recursos adicionais (engenharia) precisem ser construídos por meio dos recursos nos dados brutos para gerar um conjunto de dados de treinamento aperfeiçoado.
+Recursos de engenharia que aprimoram o treinamento fornecem informações que diferenciam melhor os padrões nos dados. Mas esse processo tem algo de artístico. Decisões sensatas e produtivas frequentemente exigem alguma experiência na área.
 
-Que tipos de recursos devem ser criados para aperfeiçoar o conjunto de dados ao treinar um modelo? Recursos de engenharia que aprimoram o treinamento fornecem informações que diferenciam melhor os padrões nos dados. Os novos recursos devem fornecer informações adicionais que não são capturadas claramente ou que não ficam aparentes com facilidade no conjunto de recursos original ou existente. Mas esse processo tem algo de artístico. Decisões sensatas e produtivas frequentemente exigem alguma experiência de domínio.
+## <a name="example-1-add-temporal-features-for-a-regression-model"></a>Exemplo 1: Adicionar recursos temporais para um modelo de regressão
 
-Ao começar a usar o Azure Machine Learning, é mais fácil entender esse processo concretamente usando exemplos fornecidos no Studio. Dois exemplos são apresentados aqui:
+Vamos usar o experimento [Previsão de demanda de locações de bicicletas](https://gallery.azure.ai/Experiment/Regression-Demand-estimation-4) no Azure Machine Learning Studio (clássico) para demonstrar como fazer a engenharia de recursos para uma tarefa de regressão. O objetivo do experimento é prever a demanda de locações de bicicletas dentro de um mês/dia/hora específica.
 
-* Um exemplo de regressão, [Previsão do número de locações de bicicletas](https://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4) , em um experimento supervisionado em que os valores de destino são conhecidos
-* Um exemplo de classificação de mineração de texto usando [Hash de recursos](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/)
+### <a name="bike-rental-dataset"></a>Conjunto de dados de locação de bicicletas
 
-## <a name="example-1-add-temporal-features-for-a-regression-model"></a>Exemplo 1: adicionar recursos temporais para um modelo de regressão
-Vamos usar o experimento "Previsão de demanda de bicicletas" em Azure Machine Learning Studio (clássico) para demonstrar como desenvolver recursos para uma tarefa de regressão. O objetivo do experimento é prever a demanda de bicicletas, ou seja, o número de locações de bicicletas dentro de um mês/dia/hora específica. O “Conjunto de dados de UCI de locação de bicicletas” é usado como os dados brutos de entrada. Esse conjunto de dados baseia-se em dados reais da empresa Capital Bikeshare, que mantém uma rede de aluguel de bicicletas em Washington, D.C. nos Estados Unidos. O conjunto de dados representa o número de locações de bicicletas em uma hora específica de um dia nos anos 2011 e 2012 e contém 17379 linhas e 17 colunas. O conjunto de recursos brutos contém condições climáticas (temperatura/umidade/velocidade do vento) e o tipo de dia (feriado/dia da semana). O campo a prever é a contagem ' CNT ', que representa a locações de bicicletas em uma hora específica e que varia de 1 a 977.
+O [Conjunto de dados UCI de locação de bicicletas](http://archive.ics.uci.edu/ml/datasets/Bike+Sharing+Dataset/) baseia-se em dados reais de uma empresa de compartilhamento de bicicletas com sede nos Estados Unidos. Ele representa o número de locações de bicicletas em uma hora específica de um dia nos anos 2011 e 2012. Ele contém 17.379 linhas e 17 colunas.
+
+O conjunto de recursos brutos contém condições climáticas (temperatura/umidade/velocidade do vento) e o tipo de dia (feriado/dia da semana). O campo a ser previsto é a contagem, que representa as locações de bicicleta em uma hora específica. A contagem varia de 1 a 977.
+
+### <a name="create-a-feature-engineering-experiment"></a>Criar um experimento de engenharia de recursos
 
 Com o objetivo de construir recursos efetivos nos dados de treinamento, quatro modelos de regressão são criados usando o mesmo algoritmo, mas com quatro conjuntos de dados de treinamento diferentes. Os quatro conjuntos de dados representam os mesmos dados de entrada brutos, mas com um número crescente de características definido. Os recursos são agrupados em quatro categorias:
 
@@ -59,22 +58,31 @@ Com o objetivo de construir recursos efetivos nos dados de treinamento, quatro m
 
 Além do conjunto de recursos A, que já existe nos dados brutos originais, três outros conjuntos de recursos são criados por meio do processo de engenharia de recursos. O conjunto de recursos B captura a demanda recente pelas bicicletas. O conjunto de recursos C captura a demanda por bicicletas em uma hora específica. O conjunto de recursos D captura a demanda por bicicletas em uma hora específica de um dia específico da semana. Os quatro conjuntos de dados de treinamento incluem os conjuntos de recursos A, A + B, A + B + C e A + B + C + D, respectivamente.
 
-No experimento do Azure Machine Learning, esses quatro conjuntos de dados de treinamento são formados por meio de quatro ramificações do conjunto de dados de entrada pré-processado. Exceto pela ramificação mais à esquerda, cada uma dessas ramificações contém um módulo [Executar Script R](https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/), no qual os recursos derivados (conjuntos de recursos B, C e D) são construídos e acrescentados ao conjunto de dados importado. A figura a seguir demonstra o script R sendo usado para criar o conjunto de recursos B na segunda ramificação à esquerda.
+### <a name="feature-engineering-using-studio-classic"></a>Engenharia de recursos usando o Studio (clássico)
+
+No experimento do Studio (clássico), esses quatro conjuntos de dados de treinamento são formados por meio de quatro ramificações do conjunto de dados de entrada pré-processado. Exceto pela ramificação mais à esquerda, cada uma dessas ramificações contém um módulo [Executar Script R](https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/), no qual os recursos derivados (conjuntos de recursos B, C e D) são construídos e acrescentados ao conjunto de dados importado.
+
+A figura a seguir demonstra o script R sendo usado para criar o conjunto de recursos B na segunda ramificação à esquerda.
 
 ![criar recursos](./media/create-features/addFeature-Rscripts.png)
+
+### <a name="results"></a>Resultados
 
 Uma comparação dos resultados de desempenho dos quatro modelos é resumida na tabela a seguir: 
 
 ![comparação de resultados](./media/create-features/result1.png)
 
-Os melhores resultados são mostrados pelos recursos A + B + C. A taxa de erros diminui quando um conjunto de recursos adicional é incluído nos dados de treinamento. Isso confirma a suposição de que o conjunto de recursos B, C fornece informações adicionais relevantes para a tarefa de regressão. Mas adicionar o recurso D não parece fornecer qualquer redução adicional da taxa de erro.
+Os melhores resultados são mostrados pelos recursos A + B + C. A taxa de erro diminui quando o conjunto de recursos adicional é incluído nos dados de treinamento. Isso confirma a suposição de que o conjunto de recursos B, C fornece informações adicionais relevantes para a tarefa de regressão. Mas adicionar o recurso D não parece fornecer qualquer redução adicional da taxa de erro.
 
-## <a name="example-2-creating-features-in-text-mining"></a><a name="example2"></a>Exemplo 2: criando recursos na mineração de texto
-A engenharia de recursos é amplamente aplicada a tarefas relacionadas à mineração de texto, como classificação de documentos e análise de sentimento. Por exemplo, quando se quer classificar documentos em várias categorias, um pressuposto típico é que as palavras/expressões incluídas em uma categoria de documentos têm menor probabilidade de ocorrer em outra categoria de documentos. Em outras palavras, a frequência da distribuição de palavras/expressões é capaz de caracterizar diferentes categorias de documentos. Para aplicações associadas à mineração de texto, como trechos individuais do conteúdo de texto normalmente funcionam como dados de entrada, o processo de engenharia de recurso é necessário para criar os recursos que envolvem frequências de palavra/expressão.
+## <a name="example-2-create-features-for-text-mining"></a><a name="example2"></a> Exemplo 2: Criar recursos para mineração de texto
 
-Para realizar essa tarefa, uma técnica chamada **hash de recursos** é aplicada para transformar de maneira eficiente recursos de texto arbitrários em índices. Em vez de associar cada recurso de texto (palavras/expressões) a um índice em particular, este método funciona aplicando uma função de hash aos recursos e usando seus valores de hash como índices diretamente.
+A engenharia de recursos é amplamente aplicada a tarefas relacionadas à mineração de texto, como classificação de documentos e análise de sentimento. Já que trechos individuais do conteúdo de texto bruto normalmente funcionam como dados de entrada, o processo de engenharia de recurso é necessário para criar os recursos que envolvem frequências de palavra/expressão.
 
-No Azure Machine Learning, há um módulo de [hash de recurso](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) que cria recursos de palavra/frase convenientemente. A figura a seguir mostra um exemplo de uso deste módulo. O conjunto de dados de entrada contém duas colunas: a classificação do livro, que varia de 1 a 5, e o conteúdo real da resenha. O objetivo desse módulo de [Hash de Recursos](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) é recuperar um monte de novos recursos que mostram a frequência de ocorrência das palavras/expressões correspondentes dentro de uma resenha de livro. Para usar este módulo, conclua as seguintes etapas:
+### <a name="feature-hashing"></a>Hash de recursos
+
+Para realizar essa tarefa, uma técnica chamada [hash de recursos](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/feature-hashing) é aplicada para transformar de maneira eficiente recursos de texto arbitrários em índices. Em vez de associar cada recurso de texto (palavras/expressões) a um índice em particular, este método aplica uma função de hash aos recursos e usando seus valores de hash como índices diretamente.
+
+No Studio (clássico), há um módulo [Hash de Recursos](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/feature-hashing) que cria esses recursos de palavra/expressão de maneira conveniente. A figura a seguir mostra um exemplo de uso deste módulo. O conjunto de dados de entrada contém duas colunas: a classificação do livro, que varia de 1 a 5, e o conteúdo real da resenha. O objetivo desse módulo é recuperar um monte de novos recursos que mostram a frequência de ocorrência das palavras/expressões correspondentes dentro de uma resenha de livro. Para usar este módulo, conclua as seguintes etapas:
 
 * Primeiro, selecione a coluna que contém o texto de entrada ("Col2" neste exemplo).
 * Em segundo lugar, defina "Bitsize de hashing" como 8, o que significa que 2^8 = 256 recursos serão criados. A palavra/expressão em todo o texto será colocada em hash, em 256 índices. O parâmetro "Bitsize de hashing" varia de 1 a 31. As palavras/expressões têm menos probabilidades de serem colocadas em hash no mesmo índice se a configuração for para um número maior.
@@ -87,7 +95,15 @@ A figura a seguir mostra como ficariam esses novos recursos.
 ![Exemplo de "Hash de Recursos"](./media/create-features/feature-Hashing2.png)
 
 ## <a name="conclusion"></a>Conclusão
-Os recursos de engenharia e selecionados aumentam a eficiência do processo de treinamento, que tenta extrair as informações importantes contidas nos dados. Eles também melhoram a capacidade desses modelos de classificar os dados de entrada com precisão e prever resultados de interesse com mais robustez. Também é possível combinar seleção e engenharia de recursos para que o aprendizado seja mais tratável por computação. Ele faz isso aperfeiçoando e, em seguida, reduzindo o número de recursos necessários para calibrar ou treinar um modelo. Matematicamente, os recursos selecionados para treinar o modelo são um conjunto mínimo de variáveis independentes que explicam os padrões dos dados e preveem os resultados com êxito.
+Os recursos de engenharia e selecionados aumentam a eficiência do processo de treinamento, que tenta extrair as informações importantes contidas nos dados. Eles também melhoram a capacidade desses modelos de classificar os dados de entrada com precisão e prever resultados de interesse com mais robustez.
 
-Nem sempre é necessário realizar a engenharia ou a seleção de recursos. Essa necessidade depende dos dados acessíveis ou coletados, do algoritmo selecionado e do objetivo do experimento.
+Também é possível combinar seleção e engenharia de recursos para que o aprendizado seja mais tratável por computação. Ele faz isso aperfeiçoando e, em seguida, reduzindo o número de recursos necessários para calibrar ou treinar um modelo. Matematicamente, os recursos selecionados são um conjunto mínimo de variáveis independentes que explicam os padrões dos dados e preveem os resultados com êxito.
 
+Nem sempre é necessário realizar a engenharia ou a seleção de recursos. Isso depende dos dados, do algoritmo selecionado e do objetivo do experimento.
+
+## <a name="next-steps"></a>Próximas etapas
+
+Para criar recursos para dados em ambientes específicos, consulte os artigos a seguir:
+
+* [Criar recursos de dados no SQL Server](create-features-sql-server.md)
+* [Criar recursos de dados em um cluster Hadoop usando as consultas do Hive](create-features-hive.md)

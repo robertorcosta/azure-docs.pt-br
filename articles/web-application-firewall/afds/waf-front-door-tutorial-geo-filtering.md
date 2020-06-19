@@ -1,6 +1,6 @@
 ---
-title: Configurar a política de firewall do aplicativo Web de filtragem geográfica para o serviço de porta frontal do Azure
-description: Neste tutorial, você aprenderá a criar uma política de filtragem geográfica e a associar a política ao host de front-end da porta frontal existente
+title: Configurar a política de firewall do aplicativo Web de filtragem geográfica para o Azure Front Door Service
+description: Neste tutorial, você aprenderá a criar uma política de filtragem geográfica e associar a política ao host de front-end Front Door existente
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: victorh
 ms.reviewer: tyao
-ms.openlocfilehash: abcef61d478eccb4e979b60eb845ac8d398a49f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: eb97a2d848441a153db47b41644a6226e9d75782
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79135863"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747756"
 ---
-# <a name="set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Configurar uma política de WAF de filtragem geográfica para sua porta frontal
+# <a name="set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Configurar uma política de filtragem geográfica WAF para o Front Door
 
 Este tutorial mostra como usar o Azure PowerShell para criar uma política de filtragem geográfica de exemplo e associar a política a seu host de front-end Front Door existente. Essa política de filtragem geográfica de exemplo bloqueará as solicitações de todos os outros países/regiões, exceto dos Estados Unidos.
 
@@ -25,11 +25,11 @@ Caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure
 
 Antes de configurar uma política de filtragem geográfica, configure o ambiente do PowerShell e crie um perfil de Front Door.
 ### <a name="set-up-your-powershell-environment"></a>Configurar o ambiente do PowerShell
-O Azure PowerShell fornece um conjunto de cmdlets que usam o modelo [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para gerenciar os recursos do Azure. 
+O Azure PowerShell fornece um conjunto de cmdlets que usa o modelo do [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para gerenciar os recursos do Azure. 
 
 Você pode instalar o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) no computador local e usá-lo em qualquer sessão do PowerShell. Siga as instruções na página para entrar com suas credenciais Azure e instale o módulo Az PowerShell.
 
-#### <a name="connect-to-azure-with-an-interactive-dialog-for-sign-in"></a>Conectar-se ao Azure com uma caixa de diálogo interativa para entrar
+#### <a name="connect-to-azure-with-an-interactive-dialog-for-sign-in"></a>Conecte-se ao Azure com um diálogo interativo para entrar
 
 ```
 Install-Module -Name Az
@@ -48,11 +48,11 @@ Install-Module -Name Az.FrontDoor
 
 ### <a name="create-a-front-door-profile"></a>Criar um perfil de Front Door
 
-Crie um perfil de porta frontal seguindo as instruções descritas em [início rápido: criar um perfil de porta frontal](../../frontdoor/quickstart-create-front-door.md).
+Crie um perfil de Front Door seguindo as instruções descritas no [Guia de Início Rápido: Crie um perfil de Front Door](../../frontdoor/quickstart-create-front-door.md).
 
 ## <a name="define-geo-filtering-match-condition"></a>Definir condição de correspondência da filtragem geográfica
 
-Crie uma condição de correspondência de exemplo que seleciona as solicitações não provenientes de "US" usando [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) nos parâmetros, ao criar uma condição de correspondência. São fornecidos dois códigos de país de letra para o mapeamento de país no [que é a filtragem geográfica em um domínio para a porta frontal do Azure?](waf-front-door-geo-filtering.md).
+Crie uma condição de correspondência de exemplo que seleciona as solicitações não provenientes de "US" usando [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) nos parâmetros, ao criar uma condição de correspondência. Os códigos de país/região de duas letras para o mapeamento de país/região são fornecidos em [O que é a filtragem geográfica em um domínio do Azure Front Door?](waf-front-door-geo-filtering.md).
 
 ```azurepowershell-interactive
 $nonUSGeoMatchCondition = New-AzFrontDoorWafMatchConditionObject `
@@ -79,7 +79,7 @@ $nonUSBlockRule = New-AzFrontDoorWafCustomRuleObject `
 
 Encontre o nome do grupo de recursos que contém o perfil de Front Door usando `Get-AzResourceGroup`. Em seguida, crie um objeto de política `geoPolicy` contendo `nonUSBlockRule` usando [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) no grupo de recursos especificado que contém o perfil de Front Door. Você deve fornecer um nome exclusivo para a política geográfica. 
 
-O exemplo a seguir usa o nome do grupo de recursos *myResourceGroupFD1* com a suposição de que você criou o perfil de porta frontal usando as instruções fornecidas no artigo [início rápido: criar uma porta frontal](../../frontdoor/quickstart-create-front-door.md) . No exemplo abaixo, substitua o nome da política *geoPolicyAllowUSOnly* por um nome de política exclusivo.
+O exemplo a seguir usa o nome do Grupo de Recursos *myResourceGroupFD1* supondo que o perfil de Front Door foi criado com as instruções fornecidas no [Guia de Início Rápido: Criar um artigo de Front Door](../../frontdoor/quickstart-create-front-door.md). No exemplo abaixo, substitua o nome da política *geoPolicyAllowUSOnly* por um nome de política exclusivo.
 
 ```
 $geoPolicy = New-AzFrontDoorWafPolicy `

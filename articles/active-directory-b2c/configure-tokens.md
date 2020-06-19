@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a2b9cc0c69f0c559c9561a02de4192974ee7f521
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: dca235374ca20ef8a17e685706f952127d5ece2a
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82926180"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83869428"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Configurar tokens no Azure Active Directory B2C
 
@@ -54,7 +54,7 @@ Você pode configurar o tempo de vida do token em qualquer fluxo de usuários.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre como [usar tokens de acesso](access-tokens.md).
+Saiba mais sobre como [solicitar tokens de acesso](access-tokens.md).
 
 
 

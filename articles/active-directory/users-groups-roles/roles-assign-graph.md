@@ -1,5 +1,5 @@
 ---
-title: Atribuir funções de administrador do Azure AD com a API Microsoft Graph | Microsoft Docs
+title: Atribuir funções de administrador do Azure AD com a API do Microsoft Graph | Microsoft Docs
 description: Atribuir e remover funções de administrador do Azure AD com o API do Graph no Azure Active Directory
 services: active-directory
 author: curtand
@@ -13,16 +13,16 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c93c8e354c7c02c6a085c2baa8fd664faaf1f64
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
-ms.translationtype: MT
+ms.openlocfilehash: 7ac6f06a936893f26c634951e50a3579401c15d5
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582624"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83869603"
 ---
-# <a name="assign-custom-admin-roles-using-the-microsoft-graph-api-in-azure-active-directory"></a>Atribuir funções de administrador personalizadas usando a API de Microsoft Graph no Azure Active Directory 
+# <a name="assign-custom-admin-roles-using-the-microsoft-graph-api-in-azure-active-directory"></a>Atribuir funções de administrador personalizadas usando a API do Microsoft Graph no Azure Active Directory 
 
-Você pode automatizar a forma como atribui funções a contas de usuário usando a API Microsoft Graph. Este artigo aborda as operações POST, GET e DELETE no roleAssignments.
+Você pode automatizar a forma como atribui funções a contas de usuário usando a API do Microsoft Graph. Este artigo aborda as operações POST, GET e DELETE em roleAssignments.
 
 ## <a name="required-permissions"></a>Permissões necessárias
 
@@ -45,7 +45,7 @@ Corpo
 {
     "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
     "roleDefinitionId":"194ae4cb-b126-40b2-bd5b-6091b380977d",
-    "resourceScopes":["/"]
+    "resourceScopes":"/"
 }
 ```
 
@@ -55,7 +55,7 @@ Resposta
 HTTP/1.1 201 Created
 ```
 
-Solicitação HTTP para criar uma atribuição de função na qual a definição de entidade ou função não existe
+Solicitação HTTP para criar uma atribuição de função na qual a definição de entidade de segurança ou função não existe
 
 POST
 
@@ -69,7 +69,7 @@ Corpo
 {
     "principalId":" 2142743c-a5b3-4983-8486-4532ccba12869",
     "roleDefinitionId":"194ae4cb-b126-40b2-bd5b-6091b380977d",
-    "resourceScopes":["/"]
+    "resourceScopes":"/"
 }
 ```
 
@@ -79,10 +79,10 @@ Resposta
 HTTP/1.1 404 Not Found
 ```
 
-Solicitação HTTP para criar uma atribuição de função com escopo de recurso único em uma definição de função interna.
+Solicitação HTTP para criar uma atribuição de função única com escopo de recurso em uma definição de função interna.
 
 > [!NOTE] 
-> Atualmente, as funções internas têm uma limitação em que podem ser escopos somente para o escopo "/" de toda a organização ou o escopo "/AU/*". O escopo de recurso único não funciona para funções internas, mas funciona para funções personalizadas.
+> Atualmente, as funções internas têm uma limitação em que podem ter escopos definidos somente para o escopo "/" de toda a organização ou o escopo "/AU/*". O escopo de recurso único não funciona para funções internas, mas sim para funções personalizadas.
 
 POST
 
@@ -96,7 +96,7 @@ Corpo
 {
     "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
     "roleDefinitionId":"194ae4cb-b126-40b2-bd5b-6091b380977d",
-    "resourceScopes":["/ab2e1023-bddc-4038-9ac1-ad4843e7e539"]
+    "resourceScopes":"/ab2e1023-bddc-4038-9ac1-ad4843e7e539"
 }
 ```
 
@@ -124,9 +124,9 @@ HTTP/1.1 400 Bad Request
 }
 ```
 
-## <a name="get-operations-on-roleassignment"></a>OBTER operações no RoleAssignment
+## <a name="get-operations-on-roleassignment"></a>Operações GET no RoleAssignment
 
-Solicitação HTTP para obter uma atribuição de função para uma determinada entidade
+Solicitação HTTP para obter uma atribuição de função para uma determinada entidade de segurança
 
 GET
 
@@ -142,13 +142,13 @@ HTTP/1.1 200 OK
     "id":"mhxJMipY4UanIzy2yE-r7JIiSDKQoTVJrLE9etXyrY0-1"
     "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
     "roleDefinitionId":"10dae51f-b6af-4016-8d66-8c2a99b929b3",
-    "resourceScopes":["/"]
+    "resourceScopes":"/"
 } ,
 {
     "id":"CtRxNqwabEKgwaOCHr2CGJIiSDKQoTVJrLE9etXyrY0-1"
     "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
     "roleDefinitionId":"3671d40a-1aac-426c-a0c1-a3821ebd8218",
-    "resourceScopes":["/"]
+    "resourceScopes":"/"
 }
 ```
 
@@ -168,7 +168,7 @@ HTTP/1.1 200 OK
     "id":"CtRxNqwabEKgwaOCHr2CGJIiSDKQoTVJrLE9etXyrY0-1"
     "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
     "roleDefinitionId":"3671d40a-1aac-426c-a0c1-a3821ebd8218",
-    "resourceScopes":["/"]
+    "resourceScopes":"/"
 }
 ```
 
@@ -188,11 +188,11 @@ HTTP/1.1 200 OK
     "id":"mhxJMipY4UanIzy2yE-r7JIiSDKQoTVJrLE9etXyrY0-1",
     "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
     "roleDefinitionId":"10dae51f-b6af-4016-8d66-8c2a99b929b3",
-    "resourceScopes":["/"]
+    "resourceScopes":"/"
 }
 ```
 
-## <a name="delete-operations-on-roleassignment"></a>Operações de exclusão no RoleAssignment
+## <a name="delete-operations-on-roleassignment"></a>Operações DELETE no RoleAssignment
 
 Solicitação HTTP para excluir uma atribuição de função entre um usuário e uma definição de função.
 
@@ -221,7 +221,7 @@ Resposta
 HTTP/1.1 404 Not Found
 ```
 
-Solicitação HTTP para excluir uma atribuição de função entre a definição de função própria e interna
+Solicitação HTTP para excluir uma atribuição de função entre uma definição de função interna e individual
 
 Delete (excluir)
 

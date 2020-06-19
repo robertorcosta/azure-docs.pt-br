@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 070a65207bc1aa2cf754f3a0dca59f1a2950a339
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: 2534b2ef2eec0ca993ee2506dcc285d750ba38ce
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84611809"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737183"
 ---
 # <a name="explore-azure-digital-twins-with-a-sample-client-app"></a>Explorar os Gêmeos Digitais do Azure com um aplicativo cliente de exemplo
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Este tutorial apresenta um aplicativo de exemplo que implementa um aplicativo cliente de linha de comando para interagir com uma instância dos Gêmeos Digitais do Azure. O aplicativo cliente é semelhante ao escrito no [Tutorial: Codificar um aplicativo cliente](tutorial-code.md).
 
