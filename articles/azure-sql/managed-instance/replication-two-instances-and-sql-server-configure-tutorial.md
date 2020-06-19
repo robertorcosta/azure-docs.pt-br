@@ -2,7 +2,7 @@
 title: Configurar a replicação transacional entre a Instância Gerenciada de SQL do Azure e o SQL Server
 description: Um tutorial que configura a replicação entre uma instância gerenciada do publicador, uma instância gerenciada do distribuidor e um assinante do SQL Server em uma VM do Azure, juntamente com os componentes de rede necessários, como a zona DNS privado e o emparelhamento VPN.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.topic: tutorial
@@ -10,12 +10,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 11/21/2019
-ms.openlocfilehash: a34ac27459a84048ac5fc9ef10f6f55def6cec78
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 8a6f21d6b02d555456bb70a16b353e5cdbd52fd4
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84221334"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708511"
 ---
 # <a name="tutorial-configure-transactional-replication-between-azure-sql-managed-instance-and-sql-server"></a>Tutorial: Configurar a replicação transacional entre a Instância Gerenciada de SQL do Azure e o SQL Server
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

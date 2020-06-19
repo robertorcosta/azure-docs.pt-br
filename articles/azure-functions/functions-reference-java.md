@@ -1,22 +1,22 @@
 ---
-title: Referência do desenvolvedor Java para Azure Functions
+title: Referência do desenvolvedor de Java para o Azure Functions
 description: Entenda como desenvolver funções usando Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 19a290fe7717d7838e8fcd1d1f5cddb3f54eb812
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6ce886fd0ca47d728a115427b354442fd259e714
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82145323"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648241"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guia do desenvolvedor de Java do Azure Functions
 
-O tempo de execução do Azure Functions dá suporte a [Java se 8 LTS (Zulu 8.31.0.2-JRE 8.0.181-win_x64)](https://repos.azul.com/azure-only/zulu/packages/zulu-8/8u181/). Este guia contém informações sobre as complexidades de escrever Azure Functions com Java.
+O runtime do Azure Functions dá suporte ao [Java SE 8 LTS (zulu8.31.0.2-jre8.0.181-win_x64)](https://repos.azul.com/azure-only/zulu/packages/zulu-8/8u181/). Este guia contém informações sobre as complexidades de escrever Azure Functions com Java.
 
-Como acontece com outras linguagens, um Aplicativo de funções pode ter uma ou mais funções. Uma função Java é um `public` método, decorado com a `@FunctionName`anotação. Esse método define a entrada para uma função Java e deve ser exclusivo em um pacote específico. Uma Aplicativo de funções escrita em Java pode ter várias classes com vários métodos públicos anotados com `@FunctionName`.
+Como acontece com outras linguagens, um Aplicativo de funções pode ter uma ou mais funções. Uma função Java é um método `public`, decorado com a anotação `@FunctionName`. Esse método define a entrada para uma função Java e deve ser exclusivo em um pacote específico. Um Aplicativo de funções escrito em Java pode ter várias classes com vários métodos públicos anotados com `@FunctionName`.
 
-Este artigo pressupõe que você já tenha lido a [Referência do desenvolvedor do Azure Functions](functions-reference.md). Você também deve concluir o guia de início rápido do Functions para criar sua primeira função, usando [Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java) ou [Maven](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java).
+Este artigo pressupõe que você já tenha lido a [Referência do desenvolvedor do Azure Functions](functions-reference.md). Você também deve concluir um dos seguintes guias de início rápido do Functions: [Criar sua primeira função Java usando o Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java) ou [Criar sua primeira função Java na linha de comando com o Maven](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java).
 
 ## <a name="programming-model"></a>Modelo de programação 
 
@@ -28,19 +28,19 @@ Para facilitar a criação de funções Java, há ferramentas baseadas no Maven 
 
 ### <a name="maven-based-tooling"></a>Ferramentas baseadas no Maven
 
-Os seguintes ambientes de desenvolvedor têm Azure Functions ferramentas que permitem criar projetos de funções Java: 
+Os seguintes ambientes de desenvolvedor têm ferramentas do Azure Functions que permitem criar projetos de funções Java: 
 
 + [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions)
 + [Eclipse](functions-create-maven-eclipse.md)
 + [IntelliJ](functions-create-maven-intellij.md)
 
-O artigo links acima mostra como criar suas primeiras funções usando o IDE de sua escolha. 
+Os links do artigo acima mostram como criar suas primeiras funções usando o IDE de sua escolha. 
 
 ### <a name="project-scaffolding"></a>Scaffolding do projeto
 
-Se você preferir o desenvolvimento de linha de comando do terminal, a maneira mais simples de scaffoldr projetos de funções baseados em `Apache Maven` Java é usar arquétipos. O arquétipo do Java Maven para Azure Functions é publicado sob o seguinte _GroupId_:_artefatoid_: [com. Microsoft. Azure: Azure-Functions-arquétipo](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/). 
+Caso você prefira o desenvolvimento de linha de comando do Terminal, a maneira mais simples de fazer o scaffolding de projetos de funções baseados em Java é com arquétipos `Apache Maven`. O arquétipo Java Maven para o Azure Functions é publicado na seguinte _groupId_:_artifactId_: [com.microsoft.azure:azure-functions-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/). 
 
-O comando a seguir gera um novo projeto de função Java usando este arquétipo:
+O seguinte comando gera um novo projeto de função Java usando esse arquétipo:
 
 ```
 mvn archetype:generate \
@@ -48,13 +48,13 @@ mvn archetype:generate \
     -DarchetypeArtifactId=azure-functions-archetype 
 ```
 
-Para começar a usar esse arquétipo, consulte o [início rápido do Java](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java). 
+Para começar a usar esse arquétipo, confira o [Início rápido do Java](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java). 
 
-## <a name="create-kotlin-functions-preview"></a>Criar funções Kotlin (visualização)
+## <a name="create-kotlin-functions-preview"></a>Criar funções Kotlin (versão prévia)
 
-Também há um arquétipo Maven para gerar funções Kotlin. Esse arquétipo, atualmente em visualização, é publicado sob o seguinte _GroupId_:_artefatoid_: [com. Microsoft. Azure: Azure-Functions-Kotlin-arquétipo](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-kotlin-archetype/). 
+Também há um arquétipo Maven para gerar funções Kotlin. Esse arquétipo, atualmente em versão prévia, é publicado na seguinte _groupId_:_artifactId_: [com.microsoft.azure:azure-functions-kotlin-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-kotlin-archetype/). 
 
-O comando a seguir gera um novo projeto de função Java usando este arquétipo:
+O seguinte comando gera um novo projeto de função Java usando esse arquétipo:
 
 ```
 mvn archetype:generate \
@@ -62,11 +62,11 @@ mvn archetype:generate \
     -DarchetypeArtifactId=azure-functions-kotlin-archetype
 ```
 
-Para começar a usar esse arquétipo, consulte o guia de [início rápido do Kotlin](functions-create-first-kotlin-maven.md).
+Para começar a usar esse arquétipo, confira o [Início rápido do Kotlin](functions-create-first-kotlin-maven.md).
 
 ## <a name="folder-structure"></a>Estrutura de pastas
 
-Aqui está a estrutura de pastas de um projeto Azure Functions Java:
+Aqui está a estrutura de pastas de um projeto Java do Azure Functions:
 
 ```
 FunctionsProject
@@ -90,9 +90,9 @@ FunctionsProject
  | - pom.xml
 ```
 
-_* O projeto Kotlin parece muito semelhante, pois ainda é Maven_
+_* O projeto Kotlin é bastante semelhante, pois ainda é Maven_
 
-Você pode usar um arquivo [host. JSON](functions-host-json.md) compartilhado para configurar o aplicativo de funções. Cada função possui seu próprio arquivo de código (.java) e arquivo de configuração de associação (function.json).
+Você pode usar um arquivo [host.json](functions-host-json.md) compartilhado para configurar o aplicativo de funções. Cada função possui seu próprio arquivo de código (.java) e arquivo de configuração de associação (function.json).
 
 Você pode colocar mais de uma função em um projeto. Evite colocar suas funções no jars separados. O `FunctionApp` no diretório de destino é o que é implantado em seu aplicativo de funções no Azure.
 
@@ -100,10 +100,10 @@ Você pode colocar mais de uma função em um projeto. Evite colocar suas funç�
 
  As funções são invocadas por um gatilho, como uma solicitação HTTP, um temporizador ou uma atualização para os dados. Sua função precisa processar esse gatilho e quaisquer outras entradas para produzir uma ou mais saídas.
 
-Use as anotações Java incluídas no pacote [com.microsoft.azure.functions.annotation. *](/java/api/com.microsoft.azure.functions.annotation) para ligar entradas e saídas a seus métodos. Para obter mais informações, consulte os [documentos de referência do Java](/java/api/com.microsoft.azure.functions.annotation).
+Use as anotações Java incluídas no pacote [com.microsoft.azure.functions.annotation. *](/java/api/com.microsoft.azure.functions.annotation) para ligar entradas e saídas a seus métodos. Para obter mais informações, confira os [documentos de referência Java](/java/api/com.microsoft.azure.functions.annotation).
 
 > [!IMPORTANT] 
-> Você deve configurar uma conta de armazenamento do Azure no seu [local. Settings. JSON](/azure/azure-functions/functions-run-local#local-settings-file) para executar o armazenamento de BLOBs do Azure, o armazenamento de filas do Azure ou os gatilhos de armazenamento de tabelas do Azure localmente.
+> Você precisa configurar uma conta de Armazenamento do Azure em [local.settings.json](/azure/azure-functions/functions-run-local#local-settings-file) para executar localmente os gatilhos de armazenamento de Blob do Azure, armazenamento de Filas do Azure ou Armazenamento de Tabelas do Azure.
 
 Exemplo:
 
@@ -117,7 +117,7 @@ public class Function {
 }
 ```
 
-Aqui está o gerado correspondente `function.json` pelo [plug-in Azure-Functions-Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-maven-plugin):
+Aqui está o `function.json` correspondente gerado pelo [azure-functions-maven-plugin](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-maven-plugin):
 
 ```json
 {
@@ -143,9 +143,9 @@ Aqui está o gerado correspondente `function.json` pelo [plug-in Azure-Functions
 
 ## <a name="jdk-runtime-availability-and-support"></a>Suporte e disponibilidade de runtime do JDK 
 
-Para o desenvolvimento local de aplicativos de funções Java, baixe e use o [azul Zulu Enterprise para o Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) Java 8 JDKs de [sistemas azul](https://www.azul.com/downloads/azure-only/zulu/). O Azure Functions usa o runtime do JDK Java 8 da Azul quando você implanta seus aplicativos de funções na nuvem.
+Para o desenvolvimento local de aplicativos de funções Java, baixe e use os JDKs Java 8 [Azul Zulu Enterprise para Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) do[Azul Systems](https://www.azul.com/downloads/azure-only/zulu/). O Azure Functions usa o runtime do JDK Java 8 da Azul quando você implanta seus aplicativos de funções na nuvem.
 
-O [suporte do Azure](https://azure.microsoft.com/support/) para problemas com o JDKs e os aplicativos de função está disponível com um plano de [suporte qualificado](https://azure.microsoft.com/support/plans/).
+O [Suporte do Azure](https://azure.microsoft.com/support/) está disponível para solucionar problemas com os JDKs e os aplicativos de funções com um [plano de suporte qualificado](https://azure.microsoft.com/support/plans/).
 
 ## <a name="customize-jvm"></a>Personalizar JVM
 
@@ -157,18 +157,18 @@ O Functions permite que você personalize a JVM (máquina virtual Java) usada pa
 * `-Djava.net.preferIPv4Stack=true`
 * `-jar`
 
-Você pode fornecer argumentos adicionais em uma configuração de aplicativo `JAVA_OPTS`chamada. Você pode adicionar configurações de aplicativo ao seu aplicativo de funções implantado no Azure no portal do Azure ou no CLI do Azure.
+Você pode fornecer argumentos adicionais em uma configuração de aplicativo chamada `JAVA_OPTS`. Você pode adicionar configurações ao seu aplicativo de funções implantado no Azure no portal do Azure ou na CLI do Azure.
 
 > [!IMPORTANT]  
-> No plano de consumo, você também deve adicionar a configuração de WEBSITE_USE_PLACEHOLDER com um valor de 0 para que a personalização funcione. Essa configuração aumenta as horas de início frio para funções Java.
+> No plano de consumo, você também deve adicionar a configuração de WEBSITE_USE_PLACEHOLDER com um valor 0 para que a personalização funcione. Essa configuração aumenta as horas de inicialização a frio para funções Java.
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-No [portal do Azure](https://portal.azure.com), use a [guia Configurações do aplicativo](functions-how-to-use-azure-function-app-settings.md#settings) para adicionar a `JAVA_OPTS` configuração.
+No [portal do Azure](https://portal.azure.com), use a guia [Configurações de Aplicativo](functions-how-to-use-azure-function-app-settings.md#settings) para adicionar a configuração `JAVA_OPTS`.
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Você pode usar o comando [AZ functionapp config appSettings Set](/cli/azure/functionapp/config/appsettings) para definir `JAVA_OPTS`, como no exemplo a seguir:
+Você pode usar o comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) para definir `JAVA_OPTS`, como no seguinte exemplo:
 
 #### <a name="consumption-plan"></a>[Plano de consumo](#tab/consumption)
 ```azurecli-interactive
@@ -189,21 +189,21 @@ Este exemplo habilita o modo sem periféricos. Substitua `<APP_NAME>` pelo nome 
 
 ## <a name="third-party-libraries"></a>Bibliotecas de terceiros 
 
-O Azure Functions oferece suporte ao uso de bibliotecas de terceiros. Por padrão, todas as dependências especificadas no `pom.xml` arquivo de projeto são agrupadas automaticamente [`mvn package`](https://github.com/Microsoft/azure-maven-plugins/blob/master/azure-functions-maven-plugin/README.md#azure-functionspackage) durante o objetivo. Para bibliotecas não especificadas como dependências no `pom.xml`arquivo, coloque-as em um diretório`lib` no diretório-raiz da função. As dependências colocadas `lib` no diretório são adicionadas ao carregador de classe do sistema em tempo de execução.
+O Azure Functions oferece suporte ao uso de bibliotecas de terceiros. Por padrão, todas as dependências especificadas no arquivo `pom.xml` do projeto são agrupadas automaticamente durante a meta [`mvn package`](https://github.com/Microsoft/azure-maven-plugins/blob/master/azure-functions-maven-plugin/README.md#azure-functionspackage). Para bibliotecas não especificadas como dependências no `pom.xml`arquivo, coloque-as em um diretório`lib` no diretório-raiz da função. As dependências colocadas no diretório `lib` são adicionadas ao carregador de classe do sistema em runtime.
 
-A `com.microsoft.azure.functions:azure-functions-java-library` dependência é fornecida no classpath por padrão e não precisa ser incluída no `lib` diretório. Além disso, o [Azure-Functions-Java-Worker](https://github.com/Azure/azure-functions-java-worker) adiciona dependências listadas [aqui](https://github.com/Azure/azure-functions-java-worker/wiki/Azure-Java-Functions-Worker-Dependencies) ao classpath.
+A dependência `com.microsoft.azure.functions:azure-functions-java-library` é fornecida no classpath por padrão e não precisa ser incluída no diretório `lib`. Além disso,o [azure-functions-java-worker](https://github.com/Azure/azure-functions-java-worker) adiciona as dependências listadas [aqui](https://github.com/Azure/azure-functions-java-worker/wiki/Azure-Java-Functions-Worker-Dependencies) ao classpath.
 
 ## <a name="data-type-support"></a>Suporte do tipo de dados
 
-Você pode usar objetos Java simples (POJOs), tipos definidos em ou `azure-functions-java-library`tipos de dados primitivos, como String e Integer, para associar a associações de entrada ou saída.
+Você pode usar POJOs (objetos Java básicos), tipos definidos em `azure-functions-java-library` ou tipos de dados primitivos, como String e Integer, para vincular a associações de entrada ou saída.
 
 ### <a name="pojos"></a>POJOs
 
-Para converter dados de entrada em POJO, o [Azure-Functions-Java-Worker](https://github.com/Azure/azure-functions-java-worker) usa a biblioteca [Gson](https://github.com/google/gson) . Tipos de POJO usados como entradas para funções devem ser `public`.
+Para converter dados de entrada em POJO, o [azure-functions-java-worker](https://github.com/Azure/azure-functions-java-worker) usa a biblioteca [gson](https://github.com/google/gson). Tipos de POJO usados como entradas para funções devem ser `public`.
 
 ### <a name="binary-data"></a>Dados binários
 
-Associe entradas binárias ou saídas `byte[]`ao, definindo o `dataType` campo em seu function. JSON para `binary`:
+Associe entradas ou saídas binárias a `byte[]`, definindo o campo `dataType` em function.json como `binary`:
 
 ```java
    @FunctionName("BlobTrigger")
@@ -217,7 +217,7 @@ Associe entradas binárias ou saídas `byte[]`ao, definindo o `dataType` campo e
     }
 ```
 
-Se você espera valores nulos, `Optional<T>`use.
+Se você espera valores nulos, use `Optional<T>`.
 
 ## <a name="bindings"></a>Associações
 
@@ -260,10 +260,10 @@ public class Function {
 ```
 
 Você invoca essa função com uma solicitação HTTP. 
-- A carga de solicitação HTTP é passada `String` como um para `inputReq`o argumento.
-- Uma entrada é recuperada do armazenamento de tabela e é passada `TestInputData` como para o `inputData`argumento.
+- A carga de solicitação HTTP é passada como um `String` para o argumento `inputReq`.
+- Uma entrada é recuperada do armazenamento de tabela e é passada como `TestInputData` para o argumento `inputData`.
 
-Para receber um lote de entradas, você pode associar a `String[]`, `POJO[]`, `List<String>`ou `List<POJO>`.
+Para receber um lote de entradas, você pode associar a `String[]`, `POJO[]`, `List<String>` ou `List<POJO>`.
 
 ```java
 @FunctionName("ProcessIotMessages")
@@ -280,11 +280,11 @@ Para receber um lote de entradas, você pode associar a `String[]`, `POJO[]`, `L
 
 ```
 
-Essa função é acionada sempre que houver novos dados no hub de eventos configurado. Como o `cardinality` é definido como `MANY`, a função recebe um lote de mensagens do hub de eventos. `EventData`do hub de eventos é convertido `TestEventData` para para a execução da função.
+Essa função é acionada sempre que houver novos dados no hub de eventos configurado. Como q `cardinality` é definidq para `MANY`, a função recebe um lote de mensagens do hub de eventos. `EventData` do hub de eventos é convertido em `TestEventData` para a execução da função.
 
 ### <a name="output-binding-example"></a>Exemplo de associação de saída
 
-Você pode associar uma associação de saída ao valor de retorno usando `$return`. 
+Você pode vincular uma associação de saída ao valor retornado usando `$return`. 
 
 ```java
 package com.example;
@@ -337,7 +337,7 @@ Para enviar vários valores de saída, use `OutputBinding<T>` definido no pacote
     }
 ```
 
-Você invoca essa função em um HttpRequest. Ele grava vários valores no armazenamento de fila.
+Você invoca essa função em uma HttpRequest. Ela grava vários valores no armazenamento de Filas.
 
 ## <a name="httprequestmessage-and-httpresponsemessage"></a>HttpRequestMessage e HttpResponseMessage
 
@@ -345,12 +345,12 @@ Você invoca essa função em um HttpRequest. Ele grava vários valores no armaz
 
 | Tipo especializado      |       Destino        | Uso típico                  |
 | --------------------- | :-----------------: | ------------------------------ |
-| `HttpRequestMessage<T>`  |    Gatilho de HTTP     | Obtém o método, os cabeçalhos ou as consultas |
-| `HttpResponseMessage` | Associação de saída HTTP | Retorna o status diferente de 200   |
+| `HttpRequestMessage<T>`  |    Gatilho de HTTP     | Obtém método, cabeçalhos ou consultas |
+| `HttpResponseMessage` | Associação de saída HTTP | Retorna um status diferente de 200   |
 
 ## <a name="metadata"></a>Metadados
 
-Poucos gatilhos enviam [gatilhos de metadados](/azure/azure-functions/functions-triggers-bindings) juntamente com dados de entrada. Você pode usar Anotação `@BindingName` para associar a metadados de gatilho.
+Poucos gatilhos enviam [gatilhos de metadados](/azure/azure-functions/functions-triggers-bindings) juntamente com dados de entrada. Você pode usar a anotação `@BindingName` para associar aos metadados do gatilho.
 
 
 ```Java
@@ -370,7 +370,7 @@ public class Function {
     }
 }
 ```
-No exemplo anterior, o `queryValue` está associado ao parâmetro `name` de cadeia de caracteres de consulta na URL de solicitação `http://{example.host}/api/metadata?name=test`http,. Aqui está outro exemplo, mostrando como associar a `Id` de metadados de gatilho de fila.
+No exemplo anterior, o `queryValue` está associado ao parâmetro de cadeia de caracteres de consulta `name` na URL de solicitação HTTP `http://{example.host}/api/metadata?name=test`. Aqui está outro exemplo, mostrando como associar a `Id` de metadados de gatilho de fila.
 
 ```java
  @FunctionName("QueueTriggerMetadata")
@@ -391,7 +391,7 @@ No exemplo anterior, o `queryValue` está associado ao parâmetro `name` de cade
 
 ## <a name="execution-context"></a>Contexto de execução
 
-`ExecutionContext`, definido no `azure-functions-java-library`, contém métodos auxiliares para se comunicar com o tempo de execução do functions.
+`ExecutionContext` definido na `azure-functions-java-library` contém métodos auxiliares para se comunicar com o runtime das funções.
 
 ### <a name="logger"></a>Agente
 
@@ -416,34 +416,34 @@ public class Function {
 
 ## <a name="view-logs-and-trace"></a>Exibir logs e rastreamento
 
-Você pode usar o CLI do Azure para transmitir o log Java stdout e stderr, bem como outros logs de aplicativo. 
+Você pode usar a CLI do Azure para transmitir o log Java stdout e stderr, bem como outros logs de aplicativo. 
 
-Veja como configurar seu aplicativo de funções para gravar o log do aplicativo usando o CLI do Azure:
+Confira como configurar seu aplicativo de funções para gravar o log do aplicativo usando a CLI do Azure:
 
 ```azurecli-interactive
 az webapp log config --name functionname --resource-group myResourceGroup --application-logging true
 ```
 
-Para transmitir a saída de log para seu aplicativo de funções usando o CLI do Azure, abra um novo prompt de comando, bash ou sessão de terminal e digite o seguinte comando:
+Para transmitir a saída de log de seu aplicativo de funções usando a CLI do Azure, abra um novo prompt de comando, Bash ou sessão de terminal e digite o seguinte comando:
 
 ```azurecli-interactive
 az webapp log tail --name webappname --resource-group myResourceGroup
 ```
-O comando [AZ webapp log tail](/cli/azure/webapp/log) tem opções para filtrar a saída usando a `--provider` opção. 
+O comando [az webapp log tail](/cli/azure/webapp/log) tem opções para filtrar a saída usando a opção `--provider`. 
 
-Para baixar os arquivos de log como um único arquivo ZIP usando o CLI do Azure, abra um novo prompt de comando, bash ou sessão de terminal e digite o seguinte comando:
+Para baixar os arquivos de log como um único arquivo ZIP usando a CLI do Azure, abra um novo prompt de comando, Bash ou sessão de terminal e digite o seguinte comando:
 
 ```azurecli-interactive
 az webapp log download --resource-group resourcegroupname --name functionappname
 ```
 
-Você deve ter habilitado o log do sistema de arquivos na portal do Azure ou na CLI do Azure antes de executar esse comando.
+Você deve ter habilitado o log do sistema de arquivos no Portal do Azure ou na CLI do Azure antes de executar esse comando.
 
 ## <a name="environment-variables"></a>Variáveis de ambiente
 
-Em funções, [configurações do aplicativo](functions-app-settings.md), como conexão de serviço cadeias de caracteres, são expostas como variáveis de ambiente durante a execução. Você pode acessar essas configurações usando, `System.getenv("AzureWebJobsStorage")`.
+Em funções, [configurações do aplicativo](functions-app-settings.md), como conexão de serviço cadeias de caracteres, são expostas como variáveis de ambiente durante a execução. Você pode acessar essas configurações usando `System.getenv("AzureWebJobsStorage")`.
 
-O exemplo a seguir obtém a [configuração do aplicativo](functions-how-to-use-azure-function-app-settings.md#settings), com a `myAppSetting`chave chamada:
+O exemplo a seguir obtém a [configuração de aplicativo](functions-how-to-use-azure-function-app-settings.md#settings), com a chave chamada `myAppSetting`:
 
 ```java
 
@@ -461,12 +461,12 @@ public class Function {
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o desenvolvimento em Java Azure Functions, consulte os seguintes recursos:
+Para obter mais informações sobre o desenvolvimento de Java do Azure Functions confira os seguintes recursos:
 
-* [Práticas recomendadas do Azure Functions](functions-best-practices.md)
+* [Práticas recomendadas para o Azure Functions](functions-best-practices.md)
 * [Referência do desenvolvedor do Azure Functions](functions-reference.md)
 * [Gatilhos e associações de Azure Functions](functions-triggers-bindings.md)
-* Desenvolvimento local e depuração com [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions), [IntelliJ](functions-create-maven-intellij.md)e [Eclipse](functions-create-maven-eclipse.md)
-* [Azure Functions de Java de Depuração Remota com Visual Studio Code](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)
+* Desenvolvimento local e depuração com o [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions), [IntelliJ](functions-create-maven-intellij.md) e [Eclipse](functions-create-maven-eclipse.md)
+* [Funções Java de Depuração Remota usando o Visual Studio Code](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)
 * [Plug-in do Maven para Azure Functions](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-functions-maven-plugin/README.md) 
-* Simplifique a criação da função por `azure-functions:add` meio da meta e prepare um diretório de preparo para a [implantação do arquivo zip](deployment-zip-push.md).
+* Simplifique a criação de funções por meio da meta `azure-functions:add` e prepare um diretório de preparo para a [implantação do arquivo ZIP](deployment-zip-push.md).
