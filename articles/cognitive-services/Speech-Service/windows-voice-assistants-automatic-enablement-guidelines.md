@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
-ms.openlocfilehash: 436367ede4f4be323b5334a201b1c9fb8f7f28e8
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: b9cbb873066131264732d6f46320461bae8c3188
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82997508"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84981754"
 ---
 # <a name="privacy-guidelines-for-voice-assistants-on-windows"></a>Diretrizes de privacidade para assistentes de voz no Windows
 
@@ -24,37 +24,37 @@ ms.locfileid: "82997508"
 Os desenvolvedores que criam assistentes de voz no Windows devem incluir elementos de interface do usuário claros em seus aplicativos que refletem os recursos de escuta do assistente.
 
 > [!NOTE]
-> A falha em fornecer a divulgação e o consentimento apropriados para um aplicativo assistente, incluindo após as atualizações do aplicativo, pode fazer com que o assistente fique indisponível para ativação de voz até que os problemas de privacidade sejam resolvidos. 
+> A falha em fornecer a divulgação e o consentimento apropriados para um aplicativo assistente, incluindo após as atualizações do aplicativo, pode fazer com que o assistente fique indisponível para ativação de voz até que os problemas de privacidade sejam resolvidos.
 
 ## <a name="minimum-requirements-for-feature-inclusion"></a>Requisitos mínimos para inclusão de recursos
 
-Os usuários do Windows podem ver e controlar a disponibilidade de seus aplicativos **`Settings > Privacy > Voice activation`** assistente no.
+Os usuários do Windows podem ver e controlar a disponibilidade de seus aplicativos assistente no **`Settings > Privacy > Voice activation`** .
 
  > [!div class="mx-imgBorder"]
  > [![privacidade – listagem de aplicativos](media/voice-assistants/windows_voice_assistant/privacy-app-listing.png "Uma entrada de configuração de privacidade de ativação do Windows Voice para um aplicativo assistente")](media/voice-assistants/windows_voice_assistant/privacy-app-listing.png#lightbox)
 
-Para se tornar qualificado para inclusão nessa lista, um aplicativo deve:
+Para se tornar qualificado para inclusão nesta lista, contate a Microsoft em winvoiceassistants@microsoft.com para começar. Por padrão, os usuários precisarão habilitar explicitamente a ativação por voz para um novo assistente no **`Settings > Privacy > Voice Activation`** , ao qual um aplicativo pode vincular o link com `ms-settings:privacy-voiceactivation` . Um aplicativo permitido aparecerá na lista depois que ele tiver sido executado e usado as `Windows.ApplicationModel.ConversationalAgent` APIs. Suas configurações de ativação de voz poderão ser modificadas depois que o aplicativo tiver obtido o consentimento do microfone do usuário.
 
-1. Diga aos seus usuários de forma proeminente que ele escutará por uma palavra-chave, mesmo quando o aplicativo não estiver em execução e qual é a palavra-chave
-1. Inclua uma descrição de como os dados de voz de um usuário serão usados, incluindo um link ou referência a políticas de privacidade relevantes
-1. Informar aos usuários que, além das configurações no aplicativo, os usuários podem exibir e modificar suas opções de privacidade no **`Settings > Privacy > Voice activation`**, incluindo opcionalmente um link de protocolo `ms-settings:privacy-voiceactivation` para o acesso direto
+Como as configurações de privacidade do Windows incluem informações sobre como a ativação de voz funciona e tem interface do usuário padrão para controlar a permissão, a divulgação e o consentimento são ambos atendidos. O assistente permanecerá nessa lista de permissões, desde que não:
 
-Depois de atender a esses requisitos e obter aprovação da Microsoft, um aplicativo de assistente será exibido na lista de aplicativos de ativação de voz depois `Windows.ApplicationModel.ConversationalAgent` que ele estiver registrado com as APIs e os usuários poderão conceder consentimento ao aplicativo para a ativação de palavra-chave. Por padrão, essas duas configurações são `Off` e exigem que o usuário visite manualmente a página de configurações para habilitar o.
+* Induzir ou misinformr o usuário sobre ativação de voz ou manipulação de dados de voz pelo assistente
+* Interfere indevidamente com outro assistente
+* Interromper qualquer outra política relevante da Microsoft
+
+Se qualquer um dos anteriores for descoberto, a Microsoft poderá remover um assistente da lista de permissões até que os problemas sejam resolvidos.
 
 > [!NOTE]
 > Em todos os casos, a permissão de ativação de voz requer permissão de microfone. Se um aplicativo de assistente não tiver acesso ao microfone, ele não será elegível para ativação de voz e aparecerá nas configurações de privacidade de ativação de voz em um estado desabilitado.
 
 ## <a name="additional-requirements-for-inclusion-in-microphone-consent"></a>Requisitos adicionais para inclusão no consentimento do microfone
 
-Os autores do assistente que desejam tornar mais fácil e suave que seus usuários aceitem a ativação de voz podem fazer isso atendendo a alguns requisitos adicionais aos anteriores. Depois de atenderem a `On` eles, uma configuração padrão de ativação de voz do aplicativo de assistente, que não é desbloqueada, usará como padrão uma vez (e somente uma vez) o acesso ao microfone será concedido ao aplicativo. Isso elimina a necessidade de uma viagem extra para as configurações antes de ativar um assistente para voz.
+Os autores do assistente que desejam tornar mais fácil e suave que os usuários aceitem a ativação de voz podem fazer isso atendendo aos requisitos adicionais para atender adequadamente à divulgação e ao consentimento sem uma viagem extra para a página de configurações. Depois de aprovado, a ativação de voz ficará disponível imediatamente quando um usuário conceder permissão de microfone ao aplicativo assistente. Para se qualificar para isso, um aplicativo assistente deve fazer o seguinte **antes** de solicitar o consentimento do microfone (por exemplo, usando a `AppCapability.RequestAccessAsync` API):
 
-Os requisitos adicionais são que um aplicativo assistente deve:
+1. Forneça uma indicação clara e proeminente ao usuário que o aplicativo gostaria de escutar na voz do usuário por uma palavra-chave, *mesmo quando o aplicativo não está em execução*e gostaria do consentimento do usuário
+1. Inclua informações relevantes sobre o uso de dados e políticas de privacidade, como um link para uma política de privacidade oficial
+1. Evite qualquer diretiva ou palavra à esquerda (por exemplo, "clique em Sim no seguinte prompt") no fluxo de experiência que divulga o comportamento de captura de áudio
 
-1. **Antes** de solicitar o consentimento do microfone (por exemplo, usando `AppCapability.RequestAccessAsync` a API), forneça uma indicação proeminente ao usuário que o aplicativo assistente gostaria de escutar na voz de um usuário para uma palavra-chave, mesmo quando o aplicativo não está em execução e gostaria do consentimento do usuário
-2. Incluir todas as informações relevantes para o uso de dados e políticas de privacidade **antes** de solicitar acesso `Windows.ApplicationModel.ConversationalAgent` ao microfone ou usar as APIs
-3. Evite qualquer diretiva ou palavra à esquerda (por exemplo, "clique em Sim no prompt a seguir") no fluxo da experiência que divulga o comportamento de captura de áudio e solicitando permissão
-
-Depois que esses requisitos forem atendidos, um aplicativo assistente qualificado será exibido na lista de aplicativos qualificados para ativação de voz `enabled` em um estado assim que o acesso ao microfone for concedido.
+Se um aplicativo realiza todas as opções acima, ele é elegível para habilitar o recurso de ativação de voz junto com o consentimento do microfone. Entre em contato winvoiceassistants@microsoft.com para obter mais informações e para examinar uma experiência de uso inicial.
 
 > [!NOTE]
 > A ativação de voz acima do bloqueio não está qualificada para habilitação automática com acesso ao microfone e ainda exigirá que um usuário visite a página de privacidade ativação de voz para habilitar o acesso de bloqueio acima para um assistente.

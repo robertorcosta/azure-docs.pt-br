@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: b65213bd87f6b82391733a135e096077127765d7
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 44472981e48a7018fcdf55f28d33d0dda9479d44
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344009"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669895"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Tutorial: Publicar um site do Hugo na Versão Prévia dos Aplicativos Web Estáticos do Azure
 
@@ -133,9 +133,9 @@ Em seguida, você adiciona as definições de configuração que o processo de c
 
 1. Clique em **Avançar: Build >** para editar a configuração do build
 
-1. Defina o _Local do aplicativo_ como **público**.
+1. Defina o _Local do aplicativo_ para **/** .
 
-1. Deixe _Local do artefato do aplicativo_ em branco.
+1. Defina o _Local do artefato do aplicativo_ como **público**.
 
    Não é necessário um valor para _Local da API_, pois você não está implantando uma API no momento.
 

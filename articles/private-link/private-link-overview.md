@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 06/02/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4752fe65cf06b894413df2fda0decdfbb427afd5
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: ec64facd554ca32ddc1357d9b92b08f1d844e377
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84449372"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84673404"
 ---
 # <a name="what-is-azure-private-link"></a>O que é o Link Privado do Azure? 
 O Link Privado do Azure lhe permite acessar os serviços de PaaS do Azure (por exemplo, Armazenamento do Azure e Banco de Dados SQL) e serviços de parceiros/de propriedade de clientes hospedados no Azure em um [ponto de extremidade privado](private-endpoint-overview.md) em sua rede virtual.
@@ -63,7 +63,7 @@ O Link Privado do Azure fornece os seguintes benefícios:
 |Grade de Eventos do Azure| Todas as regiões públicas       |   GA   <br/> [Saiba mais](https://docs.microsoft.com/azure/event-grid/network-security) |
 |Aplicativos Web do Azure | Todas as regiões públicas      |   Visualização   <br/> [Saiba mais](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
 |Azure Machine Learning | LESTE DOS EUA, OESTE DOS EUA 2, CENTRO-SUL DOS EUA      |   Visualização   <br/> [Saiba mais](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
-| Hub IoT | Todas as regiões públicas    |   Visualização   <br/> [Saiba mais](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |
+| Hub IoT do Azure | Todas as regiões públicas    |   GA   <br/> [Saiba mais](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |
 | Azure SignalR | LESTE DOS EUA, OESTE DOS EUA 2, CENTRO-SUL DOS EUA      |   Visualização   <br/> [Saiba mais](https://aka.ms/asrs/privatelink)   |
 | Azure Monitor <br/>(Log Analytics e Application Insights) | Todas as regiões públicas      |   GA   <br/> [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security)   |
 

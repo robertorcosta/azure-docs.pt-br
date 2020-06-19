@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: aahi
-ms.openlocfilehash: b76690cfbe0eb4851bdd1e4316235a7a9092c86e
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.openlocfilehash: e120eb20d247ce2def7f7c322ead3066c1d4386e
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84781201"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84974646"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Instalar e executar contêineres do serviço de fala (versão prévia)
 
@@ -28,10 +28,10 @@ Os contêineres de fala permitem que os clientes criem uma arquitetura de aplica
 
 | Função | Recursos | Última |
 |--|--|--|
-| Conversão de fala em texto | Analisa sentimentos e transcreve gravações contínuas em tempo real ou de áudio em lotes com resultados intermediários.  | 2.2.0 |
-| Fala Personalizada para texto | Usar um modelo personalizado do [portal de fala personalizada](https://speech.microsoft.com/customspeech), transcreve gravações contínuas em tempo real ou de áudio em lotes em texto com resultados intermediários. | 2.2.0 |
-| Conversão de texto em fala | Converte texto em fala natural-som com entrada de texto sem formatação ou SSML (linguagem de marcação de síntese de fala). | 1.4.0 |
-| Conversão de texto em fala personalizada | Usando um modelo personalizado do [portal de voz personalizado](https://aka.ms/custom-voice-portal), o converte o texto em fala de som natural com entrada de texto sem formatação ou SSML (linguagem de marcação de síntese de fala). | 1.4.0 |
+| Conversão de fala em texto | Analisa sentimentos e transcreve gravações contínuas em tempo real ou de áudio em lotes com resultados intermediários.  | 2.3.1 |
+| Fala Personalizada para texto | Usar um modelo personalizado do [portal de fala personalizada](https://speech.microsoft.com/customspeech), transcreve gravações contínuas em tempo real ou de áudio em lotes em texto com resultados intermediários. | 2.3.1 |
+| Conversão de texto em fala | Converte texto em fala natural-som com entrada de texto sem formatação ou SSML (linguagem de marcação de síntese de fala). | 1.5.0 |
+| Conversão de texto em fala personalizada | Usando um modelo personalizado do [portal de voz personalizado](https://aka.ms/custom-voice-portal), o converte o texto em fala de som natural com entrada de texto sem formatação ou SSML (linguagem de marcação de síntese de fala). | 1.5.0 |
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -39,7 +39,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Os seguintes pré-requisitos antes de usar os contêineres de fala:
 
-| Obrigatório | Finalidade |
+| Necessária | Finalidade |
 |--|--|
 | Mecanismo Docker | É necessário ter o Mecanismo Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br> |
 | Familiaridade com o Docker | É necessário ter uma compreensão básica de conceitos do Docker, como registros, repositórios, contêineres e imagens de contêiner, bem como conhecimento dos comandos básicos do `docker`. |
@@ -165,7 +165,7 @@ Todas as marcas, exceto `latest` as estão no seguinte formato e diferenciam mai
 A marca a seguir é um exemplo do formato:
 
 ```
-2.2.0-amd64-en-us-preview
+2.3.1-amd64-en-us-preview
 ```
 
 Para todas as localidades com suporte do contêiner de **fala a texto** , consulte [marcas de imagem de fala para texto](../containers/container-image-tags.md#speech-to-text).
@@ -194,7 +194,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 ```
 
 > [!IMPORTANT]
-> A `latest` marca extrai a `en-US` localidade e a `jessarus` voz. Para localidades adicionais, consulte [localidades de conversão de texto em fala](#text-to-speech-locales).
+> A `latest` marca extrai a `en-US` localidade e a `ariarus` voz. Para localidades adicionais, consulte [localidades de conversão de texto em fala](#text-to-speech-locales).
 
 #### <a name="text-to-speech-locales"></a>Localidades de conversão de texto em fala
 
@@ -207,13 +207,13 @@ Todas as marcas, exceto `latest` as estão no seguinte formato e diferenciam mai
 A marca a seguir é um exemplo do formato:
 
 ```
-1.3.0-amd64-en-us-jessarus-preview
+1.5.0-amd64-en-us-ariarus-preview
 ```
 
 Para todas as localidades com suporte e as vozes correspondentes do contêiner de **conversão de texto em fala** , confira [marcas de imagem de texto em fala](../containers/container-image-tags.md#text-to-speech).
 
 > [!IMPORTANT]
-> Ao construir um HTTP POST *padrão de conversão de texto em fala* , a mensagem de [linguagem de marcação de síntese de fala (SSML)](speech-synthesis-markup.md) requer um `voice` elemento com um `name` atributo. O valor é a localidade de contêiner correspondente e voz, também conhecido como ["nome curto"](language-support.md#standard-voices). Por exemplo, a `latest` marca teria um nome de voz de `en-US-JessaRUS` .
+> Ao construir um HTTP POST *padrão de conversão de texto em fala* , a mensagem de [linguagem de marcação de síntese de fala (SSML)](speech-synthesis-markup.md) requer um `voice` elemento com um `name` atributo. O valor é a localidade de contêiner correspondente e voz, também conhecido como ["nome curto"](language-support.md#standard-voices). Por exemplo, a `latest` marca teria um nome de voz de `en-US-AriaRUS` .
 
 # <a name="custom-text-to-speech"></a>[Conversão de texto em fala personalizada](#tab/ctts)
 

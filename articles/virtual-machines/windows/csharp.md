@@ -1,5 +1,5 @@
 ---
-title: 'Criar e gerenciar uma máquina virtual do Azure usando C #'
+title: Criar e gerenciar uma máquina virtual do Azure usando C#
 description: Use o C# e o Azure Resource Manager para implantar uma máquina virtual e todos os seus recursos de suporte.
 author: cynthn
 ms.service: virtual-machines-windows
@@ -7,12 +7,12 @@ ms.workload: infrastructure
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 07c66b2955f3df1ffae1a0cb0c2b0888bdc790e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4fd7ccc7b6df85397fd547f8e1e48b776f12c0df
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82082876"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234525"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Criar e gerenciar VMs Windows no Azure usando C# #
 
@@ -32,14 +32,14 @@ São necessários cerca de 20 minutos para a conclusão destas etapas.
 ## <a name="create-a-visual-studio-project"></a>Criar um projeto do Visual Studio
 
 1. Se você ainda não fez isso, instale o [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Selecione **Desenvolvimento para desktop com o .NET** na página Cargas de trabalho e, em seguida, clique em **Instalar**. No resumo, é possível verificar que as **ferramentas de desenvolvimento do .NET Framework 4 - 4.6** são automaticamente selecionadas. Se o Visual Studio já estiver instalado, você poderá adicionar a carga de trabalho .NET utilizando o Iniciador do Visual Studio.
-2. No Visual Studio, clique em **arquivo** > **novo** > **projeto**.
-3. Em **modelos** > **Visual C#**, selecione **aplicativo de console (.NET Framework)**, digite *myDotnetProject* para o nome do projeto, selecione o local do projeto e clique em **OK**.
+2. No Visual Studio, clique em **Arquivo** > **Novo** > **Projeto**.
+3. Em **Modelos** > **Visual C#** , selecione **Aplicativo de Console (.NET Framework)** , digite *myDotnetProject* para o nome do projeto, selecione o local do projeto e, em seguida, clique em **OK**.
 
 ## <a name="install-the-package"></a>Instalar o pacote
 
 Os pacotes NuGet são a maneira mais fácil de instalar as bibliotecas de que você precisa para concluir estas etapas. Para obter as bibliotecas que você precisa no Visual Studio, siga estas etapas:
 
-1. Clique em **ferramentas** > **Gerenciador de pacotes NuGet**e em **console do Gerenciador de pacotes**.
+1. Clique em **Ferramentas** > **Gerenciador de Pacotes Nuget** e em **Console do Gerenciador de Pacotes**.
 2. Digite este comando no console:
 
     ```
@@ -52,7 +52,7 @@ Antes de começar essa etapa, verifique se você tem acesso a uma [entidade de s
 
 ### <a name="create-the-authorization-file"></a>Criar o arquivo de autorização
 
-1. Em Gerenciador de soluções, clique com o botão direito do mouse em *myDotnetProject* > **Adicionar** > **novo item**e, em seguida, selecione **arquivo de texto** em *itens do Visual C#*. Nomeie o arquivo *azureauth.properties* e, em seguida, clique em **Adicionar**.
+1. No Gerenciador de Soluções, clique com o botão direito do mouse em *myDotnetProject* > **Adicionar** > **Novo Item** e, em seguida, selecione **Arquivo de Texto** em *Itens do Visual C#* . Nomeie o arquivo *azureauth.properties* e, em seguida, clique em **Adicionar**.
 2. Adicione estas propriedades de autorização:
 
     ```
@@ -66,7 +66,7 @@ Antes de começar essa etapa, verifique se você tem acesso a uma [entidade de s
     graphURL=https://graph.microsoft.com/
     ```
 
-    Substitua ** &lt;Subscription-ID&gt; ** pelo seu identificador de assinatura, ** &lt;ID&gt; do aplicativo** com o identificador do aplicativo Active Directory, ** &lt;a&gt; chave de autenticação** com a chave do aplicativo e ** &lt;a&gt; ID do locatário** pelo identificador do locatário.
+    Substitua **&lt;subscription-id&gt;** pelo identificador da assinatura, **&lt;application-id&gt;** pelo identificador de aplicativo do Active Directory, **&lt;authentication-key&gt;** pela chave do aplicativo e **&lt;tenant-id&gt;** pelo identificador do locatário.
 
 3. Salve o arquivo azureauth.properties. 
 4. Defina uma variável de ambiente no Windows chamada AZURE_AUTH_LOCATION com o caminho completo para o arquivo de autorização que você criou. Por exemplo, o seguinte comando do PowerShell pode ser usado:
@@ -77,7 +77,7 @@ Antes de começar essa etapa, verifique se você tem acesso a uma [entidade de s
 
 ### <a name="create-the-management-client"></a>Criar o cliente de gerenciamento
 
-1. Abra o arquivo Program.cs para o projeto que você criou. Em seguida, adicione essas instruções using às instruções existentes na parte superior do arquivo:
+1. Abra o arquivo Program.cs do projeto que você criou. Adicione estas instruções de uso às instruções existentes na parte superior do arquivo:
 
     ```csharp
     using Microsoft.Azure.Management.Compute.Fluent;
@@ -104,7 +104,7 @@ Antes de começar essa etapa, verifique se você tem acesso a uma [entidade de s
 
 ### <a name="create-the-resource-group"></a>Criar o grupo de recursos
 
-Todos os recursos devem estar contidos em um [grupo de recursos](../../azure-resource-manager/management/overview.md).
+Todos os recursos devem estar contidos em um [Grupo de recursos](../../azure-resource-manager/management/overview.md).
 
 Para especificar valores para o aplicativo e criar o grupo de recursos, adicione este código ao método Main:
 
@@ -136,7 +136,7 @@ var availabilitySet = azure.AvailabilitySets.Define("myAVSet")
 
 ### <a name="create-the-public-ip-address"></a>Criar um endereço IP público
 
-Um [endereço IP público](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) é necessário para se comunicar com a máquina virtual.
+Um [endereço IP público](../../virtual-network/public-ip-addresses.md) é necessário para se comunicar com a máquina virtual.
 
 Para criar o endereço IP público para a máquina virtual, adicione este código ao método Main:
    
@@ -357,7 +357,7 @@ Console.ReadLine();
 
 ### <a name="add-a-data-disk-to-the-vm"></a>Adicionar um disco de dados à VM
 
-Para adicionar um disco de dados à máquina virtual, adicione este código ao método Main. Este exemplo adiciona um disco de dados que tem 2 GB de tamanho, Han a LUN 0 e um tipo de cache de ReadWrite:
+Para adicionar um disco de dados à máquina virtual, adicione o código abaixo ao método principal. Este exemplo adiciona um disco de dados com 2 GB, um LUN de 0 e um tipo de cache de ReadWrite:
 
 ```csharp
 Console.WriteLine("Adding data disk to vm...");

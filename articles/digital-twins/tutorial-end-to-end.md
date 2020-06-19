@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: e824641f261fc920dd234ba8d4787fbd8ddffe48
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: 0f9ddf2f4fba9e216ef0b5a5747fc32f4288cf67
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84611512"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737267"
 ---
 # <a name="build-out-an-end-to-end-solution"></a>Criar uma solução de ponta a ponta
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Para configurar uma solução de ponta a ponta completa baseada em dados dinâmicos de seu ambiente, você pode conectar sua instância dos Gêmeos Digitais do Azure a outros serviços do Azure para o gerenciamento de dispositivos e de dados.
 

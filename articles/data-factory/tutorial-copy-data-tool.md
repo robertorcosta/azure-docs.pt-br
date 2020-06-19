@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 03/03/2020
-ms.openlocfilehash: a0ed57657a461e4af8e58931b133437e5897796a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 06/08/2020
+ms.openlocfilehash: 2165efd6b522d3809dba285cf2c3050fc50b2d28
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022054"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660978"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copie dados do Armazenamento de Blobs do Azure para um Banco de Dados SQL usando a ferramenta Copiar Dados
 
@@ -156,11 +156,13 @@ Prepare o Armazenamento de Blobs e o Banco de Dados SQL para o tutorial executan
     ![Página Mapeamento de coluna](./media/tutorial-copy-data-tool/column-mapping.png)
 
 1. Na página **Configurações**, selecione **Avançar**.
-1. Na página **Resumo**, analise as configurações e selecione **Avançar**.
-1. Na **página Implantação**, selecione **Monitorar** para monitorar o pipeline (tarefa).
- 
-    ![Monitorar o pipeline](./media/tutorial-copy-data-tool/monitor-pipeline.png)
 
+1. Na página **Resumo**, analise as configurações e selecione **Avançar**.
+
+1. Na **página Implantação**, selecione **Monitorar** para monitorar o pipeline (tarefa).
+
+    ![Monitorar o pipeline](./media/tutorial-copy-data-tool/monitor-pipeline.png)
+    
 1. Na página Execuções de pipeline, selecione **Atualizar** para atualizar a lista. Clique no link em **NOME DO PIPELINE** para ver os detalhes da execução de atividade ou execute o pipeline novamente. 
     ![Execução de pipeline](./media/tutorial-copy-data-tool/pipeline-run.png)
 
@@ -168,9 +170,7 @@ Prepare o Armazenamento de Blobs e o Banco de Dados SQL para o tutorial executan
 
     ![Monitorar execuções de atividade](./media/tutorial-copy-data-tool/activity-monitoring.png)
 
-
 1. Verifique se os dados foram inseridos na tabela **dbo.emp** no Banco de Dados SQL.
-
 
 1. Selecione a guia **Criar** à esquerda para alternar para o modo de edição. É possível atualizar os serviços vinculados, os conjuntos de dados e os pipelines criados com a ferramenta usando o editor. Para obter detalhes sobre essas entidades na IU do Data Factory, confira em [a versão do portal do Azure deste tutorial](tutorial-copy-data-portal.md).
 

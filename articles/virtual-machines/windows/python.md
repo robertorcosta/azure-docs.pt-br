@@ -1,5 +1,5 @@
 ---
-title: Criar e gerenciar uma VM do Windows no Azure usando o Python
+title: Criar e gerenciar uma VM do Windows no Azure usando Python
 description: Aprenda a usar o Python para criar e gerenciar uma VM Windows no Azure.
 author: cynthn
 ms.service: virtual-machines-windows
@@ -7,12 +7,12 @@ ms.workload: infrastructure
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: cynthn
-ms.openlocfilehash: b2172d44b4136b51c0ea459868ebd5b0572bb004
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 81b8f83115a8bcb953fc4445899f7ea9afc1007c
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82098061"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84233345"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Criar e gerenciar VMs Windows no Azure usando Python
 
@@ -32,8 +32,8 @@ São necessários cerca de 20 minutos para a conclusão destas etapas.
 ## <a name="create-a-visual-studio-project"></a>Criar um projeto do Visual Studio
 
 1. Se você ainda não fez isso, instale o [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Selecione **Desenvolvimento do Python** na página Cargas de Trabalho e, em seguida, clique **Instalar**. No resumo, você pode ver que **Python 3 64 bits (3.6.0)** está selecionado automaticamente para você. Se você já tiver instalado o Visual Studio, poderá adicionar a carga de trabalho do Python usando o Inicializador do Visual Studio.
-2. Depois de instalar e iniciar o Visual Studio, clique em **arquivo** > **novo** > **projeto**.
-3. Clique em **modelos** > **Python** > Python**aplicativo**Python, digite *myPythonProject* para o nome do projeto, selecione o local do projeto e clique em **OK**.
+2. Depois de instalar e iniciar o Visual Studio, clique em **Arquivo** > **Novo** > **Projeto**.
+3. Clique em **Modelos** > **Python** > **Aplicativo do Python**, insira *myPythonProject* para o nome do projeto, selecione a localização do projeto e clique em **OK**.
 
 ## <a name="install-packages"></a>Instalar Pacotes
 
@@ -118,7 +118,7 @@ compute_client = ComputeManagementClient(
 
 ### <a name="create-the-vm-and-supporting-resources"></a>Criar a VM e recursos de suporte
 
-Todos os recursos devem estar contidos em um [grupo de recursos](../../azure-resource-manager/management/overview.md).
+Todos os recursos devem estar contidos em um [Grupo de recursos](../../azure-resource-manager/management/overview.md).
 
 1. Para criar um grupo de recursos, adicione essa função após as variáveis no arquivo .py:
 
@@ -164,7 +164,7 @@ Os [conjuntos de disponibilidade](tutorial-availability-sets.md) facilitam a man
     input('Availability set created. Press enter to continue...')
     ```
 
-Um [endereço IP público](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) é necessário para se comunicar com a máquina virtual.
+Um [endereço IP público](../../virtual-network/public-ip-addresses.md) é necessário para se comunicar com a máquina virtual.
 
 1. Para criar um endereço IP público para a máquina virtual, adicione essa função após as variáveis no arquivo .py:
 
@@ -565,6 +565,6 @@ Como você é cobrado pelos recursos usados no Azure, sempre é uma boa prática
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Se houver problemas com a implantação, uma próxima etapa seria examinar a [solução de problemas de implantações de grupo de recursos com portal do Azure](../../resource-manager-troubleshoot-deployments-portal.md)
+- Se houver problemas com a implantação, uma próxima etapa será examinar [Solucionando problemas de implantações do grupo de recursos com o portal do Azure](../../resource-manager-troubleshoot-deployments-portal.md)
 - Saiba mais sobre a [Biblioteca do Python do Azure](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python)
 

@@ -1,49 +1,49 @@
 ---
-title: Alterar fluxos na API do Azure Cosmos DB para MongoDB
-description: Saiba como usar fluxos de alteração na API do Azure Cosmos DB para MongoDB para obter as alterações feitas nos seus dados.
-author: timsander1
+title: Fluxos de alteração na API do Azure Cosmos DB para MongoDB
+description: Saiba como usar os fluxos de alteração na API do Azure Cosmos DB para MongoDB para obter as alterações feitas em seus dados.
+author: srchi
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
-ms.date: 03/30/2020
-ms.author: tisande
-ms.openlocfilehash: 7a6060448175530ada5ba95ceda470056a7be002
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: MT
+ms.date: 11/16/2019
+ms.author: srchi
+ms.openlocfilehash: cc6b74a56d2a538d35e324090832e6c7e03e609f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872146"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647296"
 ---
-# <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Alterar fluxos na API do Azure Cosmos DB para MongoDB
+# <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Fluxos de alteração na API do Azure Cosmos DB para MongoDB
 
-O suporte do [feed de alterações](change-feed.md) na api do Azure Cosmos DB para MongoDB está disponível usando a API de fluxos de alteração. Usando a API de fluxos de alteração, seus aplicativos podem obter as alterações feitas na coleção ou nos itens em um único fragmento. Posteriormente, você pode executar ações adicionais com base nos resultados. As alterações nos itens na coleção são capturadas na ordem de seu tempo de modificação e a ordem de classificação é garantida por chave de fragmentação.
+O suporte do [feed de alterações](change-feed.md) na API do Azure Cosmos DB para MongoDB está disponível usando a API de fluxos de alteração. Usando a API de fluxos de alteração, seus aplicativos podem obter as alterações feitas na coleção ou nos itens em um único fragmento. Posteriormente, você pode executar ações adicionais com base nos resultados. As alterações nos itens na coleção são capturadas na ordem de seu tempo de modificação e a ordem de classificação é garantida por chave de fragmentação.
 
-> [!NOTE]
-> Para usar os fluxos de alteração, crie a conta com a versão 3,6 da API do Azure Cosmos DB para MongoDB ou uma versão posterior. Se você executar os exemplos de fluxo de alterações em uma versão anterior, poderá ver `Unrecognized pipeline stage name: $changeStream` o erro.
+[!NOTE]
+Para usar os fluxos de alteração, crie a conta com a versão 3.6 da API do Azure Cosmos DB para MongoDB ou uma versão posterior. Se você executar os exemplos de fluxo de alterações em uma versão anterior, poderá ver o erro de `Unrecognized pipeline stage name: $changeStream`.
 
 ## <a name="current-limitations"></a>Limitações atuais
 
 As seguintes limitações são aplicáveis ao usar fluxos de alteração:
 
-* As `operationType` propriedades `updateDescription` e ainda não têm suporte no documento de saída.
-* Atualmente `insert`, `update`há suporte `replace` para os tipos de operações, e. 
+* As propriedades `operationType` e `updateDescription` ainda não têm suporte no documento de saída.
+* Atualmente, há suporte para os tipos de operações `insert`, `update` e `replace`. 
 * Ainda não há suporte para a operação de exclusão ou outros eventos.
 
-Devido a essas limitações, as opções estágio de $match, estágio de $project e fullDocument são necessárias, conforme mostrado nos exemplos anteriores.
+Devido a essas limitações, as opções de fase $match, fase $project e fullDocument são necessárias, conforme mostrado nos exemplos anteriores.
 
-Ao contrário do feed de alterações na API do SQL Azure Cosmos DB, não há uma [biblioteca](change-feed-processor.md) separada do processador do feed de alterações para consumir fluxos de alteração ou uma necessidade de um contêiner de concessões. Atualmente, não há suporte para [gatilhos Azure Functions](change-feed-functions.md) para processar fluxos de alteração.
+Ao contrário do feed de alterações na API do SQL do Azure Cosmos DB, não há uma [Biblioteca de Processador do Feed de Alterações](change-feed-processor.md) separada para consumir fluxos de alteração ou uma necessidade de um contêiner de concessões. Atualmente, não há suporte para [gatilhos do Azure Functions](change-feed-functions.md) para processamento de fluxos de alteração.
 
 ## <a name="error-handling"></a>Tratamento de erros
 
-Há suporte para os seguintes códigos de erro e mensagens ao usar fluxos de alteração:
+Há suporte para os seguintes códigos de erro e mensagens ao usar os fluxo de alterações:
 
-* **Código de erro HTTP 16500** -quando o fluxo de alteração é limitado, ele retorna uma página vazia.
+* **Código de erro HTTP 16500** – quando o fluxo de alterações é limitado, ele retorna uma página vazia.
 
-* **NamespaceNotFound (OperationType Invalidate)** – se você executar o fluxo de alterações na coleção que não existe ou se a coleção for descartada, `NamespaceNotFound` um erro será retornado. Como a `operationType` propriedade não pode ser retornada no documento de saída, em vez `operationType Invalidate` do erro, `NamespaceNotFound` o erro é retornado.
+* **NamespaceNotFound (OperationType Invalidate)** – se você executar o fluxo de alterações na coleção que não existe ou se a coleção for solta, um erro `NamespaceNotFound` será retornado. Como a propriedade `operationType` não pode ser retornada no documento de saída, em vez do erro `operationType Invalidate`, o erro `NamespaceNotFound` será retornado.
 
 ## <a name="examples"></a>Exemplos
 
-O exemplo a seguir mostra como obter fluxos de alteração em todos os itens na coleção. Este exemplo cria um cursor para observar itens quando eles são inseridos, atualizados ou substituídos. O `$match` estágio, `$project` estágio e `fullDocument` opção são necessários para obter os fluxos de alteração. Não há suporte para a observação de operações de exclusão usando fluxos de alteração no momento. Como alternativa, você pode adicionar um marcador flexível nos itens que estão sendo excluídos. Por exemplo, você pode adicionar um atributo no item chamado "excluído". Quando você quiser excluir o item, poderá definir "Deleted" como `true` e definir um TTL no item. Como atualizar "Deleted" para `true` é uma atualização, essa alteração será visível no fluxo de alteração.
+O exemplo a seguir mostra como obter fluxos de alteração em todos os itens na coleção. Este exemplo cria um cursor para observar itens quando eles são inseridos, atualizados ou substituídos. O fase `$match`, a fase `$project` e a opção `fullDocument` são necessários para obter os fluxos de alteração. Não há suporte para a observação de operações de exclusão usando fluxos de alteração no momento. Como alternativa, você pode adicionar um marcador flexível nos itens que estão sendo excluídos. Por exemplo, você pode adicionar um atributo no item chamado "deleted". Quando você quiser excluir o item, poderá definir "deleted" como `true` e definir um TTL no item. Como a atualização de "deleted" para `true` é uma atualização, essa alteração será visível no fluxo de alterações.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -84,13 +84,13 @@ enumerator.Dispose();
 
 ## <a name="changes-within-a-single-shard"></a>Alterações em um único fragmento
 
-O exemplo a seguir mostra como obter alterações nos itens em um único fragmento. Este exemplo obtém as alterações de itens que têm a chave de fragmentação igual a "a" e o valor de chave de fragmento igual a "1". É possível ter diferentes clientes lendo alterações de fragmentos diferentes em paralelo.
+O exemplo a seguir mostra como obter alterações nos itens em um único fragmento. Este exemplo obtém as alterações de itens que têm a chave de fragmento igual a "a" e o valor da chave de fragmento igual a "1". É possível ter diferentes clientes lendo alterações de fragmentos diferentes em paralelo.
 
 ```javascript
 var cursor = db.coll.watch(
     [
-        {
-            $match: {
+        { 
+            $match: { 
                 $and: [
                     { "fullDocument.a": 1 }, 
                     { "operationType": { $in: ["insert", "update", "replace"] } }
@@ -103,7 +103,24 @@ var cursor = db.coll.watch(
 
 ```
 
+## <a name="current-limitations"></a>Limitações atuais
+
+As seguintes limitações são aplicáveis ao usar fluxos de alteração:
+
+* As propriedades `operationType` e `updateDescription` ainda não têm suporte no documento de saída.
+* Atualmente, há suporte para os tipos de operações `insert`, `update` e `replace`. Ainda não há suporte para a operação de exclusão ou outros eventos.
+
+Devido a essas limitações, as opções de fase $match, fase $project e fullDocument são necessárias, conforme mostrado nos exemplos anteriores.
+
+## <a name="error-handling"></a>Tratamento de erros
+
+Há suporte para os seguintes códigos de erro e mensagens ao usar os fluxo de alterações:
+
+* **Código de erro HTTP 429** – quando o fluxo de alterações é limitado, ele retorna uma página vazia.
+
+* **NamespaceNotFound (OperationType Invalidate)** – se você executar o fluxo de alterações na coleção que não existe ou se a coleção for solta, um erro `NamespaceNotFound` será retornado. Como a propriedade `operationType` não pode ser retornada no documento de saída, em vez do erro `operationType Invalidate`, o erro `NamespaceNotFound` será retornado.
+
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Use a vida útil para expirar os dados automaticamente na API do Azure Cosmos DB para MongoDB](mongodb-time-to-live.md)
+* [Usar a vida útil para expirar os dados automaticamente na API do Azure Cosmos DB para MongoDB](mongodb-time-to-live.md)
 * [Indexação na API do Azure Cosmos DB para MongoDB](mongodb-indexing.md)

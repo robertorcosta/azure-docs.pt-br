@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: b84f98bd383c2b90c3291527b336d798e9b9cae9
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 14760eaef309ec5695b423b98e59a8ae1ab5cacb
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83662228"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84886721"
 ---
 # <a name="tutorial-diagnose-repair-and-commit-changes-to-your-skillset"></a>Tutorial: Diagnosticar, reparar e confirmar alterações no conjunto de habilidades
 
@@ -173,12 +173,12 @@ Depois que a execução da sessão de depuração for concluída, clique na guia
 ## <a name="fix-missing-skill-output-values"></a>Corrigir valores de saída da habilidade ausente
 
 > [!div class="mx-imgBorder"]
-> ![Erros e avisos](media/cognitive-search-debug/warnings-missing-value-locs-orgs.png)
+> ![Erros e avisos](media/cognitive-search-debug/warnings-missing-value-locations-organizations.png)
 
 Há valores de saída ausentes de uma habilidade. Para identificar a habilidade com erro, vá para a Estrutura de Dados Enriquecidos, localize o nome do valor e examine sua Fonte de Origem. No caso dos valores de organizações e locais ausentes, eles são saídas do da habilidade #1. Abrir o Avaliador de Expressão </> para cada caminho exibirá as expressões listadas como '/document/content/organizations' e '/document/content/locations', respectivamente.
 
 > [!div class="mx-imgBorder"]
-> ![Entidade de organizações do Avaliador de Expressão](media/cognitive-search-debug/expression-eval-missing-value-locs-orgs.png)
+> ![Entidade de organizações do Avaliador de Expressão](media/cognitive-search-debug/expression-eval-missing-value-locations-organizations.png)
 
 A saída dessas entidades está vazia e não deveria estar vazia. Quais são as entradas que produzem esse resultado?
 
@@ -187,7 +187,7 @@ A saída dessas entidades está vazia e não deveria estar vazia. Quais são as 
 1. Abra o Avaliador de Expressão **</>** para a ENTRADA "text".
 
 > [!div class="mx-imgBorder"]
-> ![Entrada da habilidade de texto](media/cognitive-search-debug/input-skill-missing-value-locs-orgs.png)
+> ![Entrada da habilidade de texto](media/cognitive-search-debug/input-skill-missing-value-locations-organizations.png)
 
 O resultado exibido para essa entrada não se parece com uma entrada de texto. Ele parece uma imagem envolvida por novas linhas. A falta de texto significa que nenhuma entidade pode ser identificada. Examinar a hierarquia do conjunto de habilidades mostra que o conteúdo é processado primeiro pela habilidade #6 (OCR) e, em seguida, passado para a habilidade #5 (Merge). 
 
@@ -195,7 +195,7 @@ O resultado exibido para essa entrada não se parece com uma entrada de texto. E
 1. Selecione a guia **Execuções** no painel de detalhes da habilidade à direita e abra o Avaliador de Expressão **</>** para as SAÍDAS "mergedText".
 
 > [!div class="mx-imgBorder"]
-> ![Saída para a habilidade Merge](media/cognitive-search-debug/merge-output-detail-missing-value-locs-orgs.png)
+> ![Saída para a habilidade Merge](media/cognitive-search-debug/merge-output-detail-missing-value-locations-organizations.png)
 
 Aqui, o texto está emparelhado com a imagem. Examinando a expressão '/Document/merged_content', o erro nos caminhos "organizations" e "locations" para a habilidade #1 é visível. Em vez de usar '/document/content', ele deve usar '/document/merged_content' para as entradas de "text".
 
@@ -216,7 +216,7 @@ Quando a execução do indexador for concluída, os erros ainda estarão lá. Vo
 1. Abra o Avaliador de Expressão **</>** para a entidade "organizations".
 
 > [!div class="mx-imgBorder"]
-> ![Saída da entidade organizations](media/cognitive-search-debug/skill-output-detail-missing-value-locs-orgs.png)
+> ![Saída da entidade organizations](media/cognitive-search-debug/skill-output-detail-missing-value-locations-organizations.png)
 
 Avaliar o resultado da expressão fornece o resultado correto. A habilidade está trabalhando para identificar o valor correto da entidade "organizations". No entanto, o mapeamento de saída no caminho da entidade ainda está gerando um erro. Comparando o caminho de saída na habilidade com o caminho de saída no erro, a habilidade está gerando as saídas, organizações e locais sob o nó /document/content. Enquanto o mapeamento do campo de saída está esperando que os resultados sejam gerados no nó /document/merged_content. Na etapa anterior, a entrada mudou de '/document/content' para '/document/merged_content'. O contexto nas configurações da habilidade precisa ser alterado para garantir que a saída seja gerada com o contexto correto.
 
@@ -228,7 +228,7 @@ Avaliar o resultado da expressão fornece o resultado correto. A habilidade est�
 1. Clique em **Executar** no menu da janela das sessões. Isso iniciará outra execução do conjunto de habilidades usando o documento.
 
 > [!div class="mx-imgBorder"]
-> ![Correção de contexto na configuração da habilidade](media/cognitive-search-debug/skill-setting-context-correction-missing-value-locs-orgs.png)
+> ![Correção de contexto na configuração da habilidade](media/cognitive-search-debug/skill-setting-context-correction-missing-value-locations-organizations.png)
 
 Todos os erros foram resolvidos.
 

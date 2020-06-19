@@ -10,14 +10,14 @@ ms.date: 06/10/2020
 ms.service: machine-learning
 ms.subservice: data-science-vm
 ms.topic: quickstart
-ms.openlocfilehash: e89f3d85156081106f4e1dbb55ee6c895e7e7a2d
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: 7e3e45d96839be06deec238deccdc9873492d68f
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636743"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660253"
 ---
-# <a name="tutorial-create-an-ubuntu-data-science-virtual-machine-using-a-resource-manager-template"></a>Tutorial: Criar uma Máquina Virtual de Ciência de Dados do Ubuntu usando um modelo do Resource Manager
+# <a name="quickstart-create-an-ubuntu-data-science-virtual-machine-using-a-resource-manager-template"></a>Início Rápido: Criar uma Máquina Virtual de Ciência de Dados do Ubuntu usando um modelo do Resource Manager
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Este guia de início rápido mostra como criar uma Máquina Virtual de Ciência de Dados do Ubuntu 18.04 usando um modelo do Azure Resource Manager. As Máquinas Virtuais de Ciência de Dados são máquinas virtuais baseadas em nuvem pré-carregadas com um conjunto de estruturas e ferramentas de ciência de dados e de machine learning. Quando implantadas em recursos de computação baseados em GPU, todas as ferramentas e bibliotecas são configuradas para usar a GPU. 

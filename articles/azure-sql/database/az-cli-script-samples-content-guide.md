@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/03/2019
-ms.openlocfilehash: a17b5d80817637f1038996b034f926ee74cf54e9
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: ecd78cdc534b68d913b6b5114a04ad2720796665
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344655"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84658174"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database-and-sql-managed-instance"></a>Exemplos da CLI do Azure para Banco de Dados SQL do Azure e Instância Gerenciada de SQL 
  
@@ -75,6 +75,6 @@ A tabela a seguir inclui links para exemplos de scripts da CLI do Azure para a I
 
 Para obter exemplos adicionais da Instância Gerenciada de SQL, confira os scripts [criar](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../create-azure-sql-managed-instance-using-azure-cli/), [atualizar](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../modify-azure-sql-database-managed-instance-using-azure-cli/), [mover um banco de dados](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/) e [trabalhar com](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44).
 
-Saiba mais sobre a [API da CLI do Azure da Instância Gerenciada de SQL](../managed-instance/api-references-create-manage-instance.md#azure-cli-create-and-manage-managed-instances).
+Saiba mais sobre a [API da CLI do Azure da Instância Gerenciada de SQL](../managed-instance/api-references-create-manage-instance.md#azure-cli-create-and-configure-managed-instances).
 
 ---

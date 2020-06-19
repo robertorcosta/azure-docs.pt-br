@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 7dfc7b680c6b7d6b2a3641b25c0f82665143bde1
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 0ddfc445ee8bd67b39de4ddd013a25f20fd75315
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594665"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681246"
 ---
 # <a name="deploy-azure-sql-edge-preview"></a>Implantar o SQL do Azure no Edge (versão prévia) 
 
@@ -119,4 +119,4 @@ Neste início rápido, você implantou um módulo do SQL no Edge em um dispositi
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Machine learning e inteligência artificial com o ONNX no SQL no Edge](onnx-overview.md).
-- Como criar uma solução de IoT de ponta a ponta com o SQL no Edge usando o IoT Edge.
+- [Como criar uma solução de IoT de ponta a ponta com o SQL no Edge usando o IoT Edge](tutorial-deploy-azure-resources.md).

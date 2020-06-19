@@ -1,6 +1,6 @@
 ---
-title: cotas do vCPU para o Azure
-description: Saiba mais sobre as cotas do vCPU para máquinas virtuais do Azure.
+title: Cotas de vCPU para o Azure
+description: Saiba mais sobre as cotas de vCPU para máquinas virtuais do Azure.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: sizes
@@ -8,18 +8,19 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: 13d9153d1bf6776b7d3d71c4a85c18d8529188b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6640640248854d91078203012a01d8865845702a
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82097873"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680927"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>Cotas de vCPU de máquina virtual
 
 As cotas de vCPU para máquinas virtuais e conjuntos de escala de máquinas virtuais são organizadas em duas camadas para cada assinatura, em cada região. A primeira camada é a vCPUs Total Regional e a segunda camada são os vários núcleos da família de tamanho da VM, como as vCPUs da série D. Sempre que uma nova VM é implantada a vCPUs para a máquina virtual não deve exceder a cota de vCPU para a família de tamanho VM ou a cota total vCPU regional. Se qualquer uma das cotas é excedida, a implantação de VM não será permitida. Também há uma cota para o número total de máquinas virtuais na região. Os detalhes sobre cada uma dessas cotas podem ser vistos na seção **uso + cotas** da página de **assinatura** no [portal do Azure](https://portal.azure.com), ou você pode consultar os valores usando o PowerShell.
 
-   
+> [!NOTE]
+> A cota é calculada com base no número total de núcleos em alocados e desalocados. Se precisar de núcleos adicionais, [solicite um aumento de cota](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) ou exclua VMs desnecessárias. 
  
 ## <a name="check-usage"></a>Verificar o uso
 

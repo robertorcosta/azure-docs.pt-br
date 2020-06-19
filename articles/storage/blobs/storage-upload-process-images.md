@@ -5,24 +5,26 @@ author: mhopkins-msft
 ms.service: storage
 ms.subservice: blobs
 ms.topic: tutorial
-ms.date: 03/06/2020
+ms.date: 06/11/2020
 ms.author: mhopkins
 ms.reviewer: dineshm
-ms.openlocfilehash: 3c475787eafde4ba847b292df57e4b0d18cfe5d0
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 37e751d78bddd76847a4859b6f24e37bec5c9acb
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196044"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84730485"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Tutorial: Carregar dados de imagem na nuvem com o Armazenamento do Azure
 
 Este tutorial é a primeira parte de uma série. Neste tutorial, você aprenderá como implantar um aplicativo Web que usa a biblioteca de clientes do armazenamento de Blobs do Azure para carregar imagens para uma conta de armazenamento. Ao terminar, você terá um aplicativo Web que armazena e exibe imagens do Armazenamento do Azure.
 
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+
 ![Aplicativo de redimensionador de imagem no .NET](media/storage-upload-process-images/figure2.png)
 
 # <a name="nodejs-v10"></a>[Node.js v10](#tab/nodejsv10)
+
 ![Aplicativo de redimensionador de imagem no Node.js V10](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---
@@ -30,6 +32,7 @@ Este tutorial é a primeira parte de uma série. Neste tutorial, você aprender�
 Na primeira parte da série, você aprenderá a:
 
 > [!div class="checklist"]
+
 > * Criar uma conta de armazenamento
 > * Criar um contêiner e definir permissões
 > * Recuperar uma chave de acesso
@@ -51,7 +54,11 @@ Crie um grupo de recursos com o comando [az group create](/cli/azure/group). Um 
 
 O seguinte exemplo cria um grupo de recursos chamado `myResourceGroup`.
 
-```azurecli-interactive
+```bash
+az group create --name myResourceGroup --location southeastasia
+```
+
+```powershell
 az group create --name myResourceGroup --location southeastasia
 ```
 
@@ -64,10 +71,17 @@ O exemplo carrega imagens em um contêiner de blobs em uma conta de armazenament
 
 No comando a seguir, substitua seu próprio nome global exclusivo da conta de armazenamento de blobs quando o espaço reservado `<blob_storage_account>` for exibido.
 
-```azurecli-interactive
+```bash
 blobStorageAccount="<blob_storage_account>"
 
 az storage account create --name $blobStorageAccount --location southeastasia \
+  --resource-group myResourceGroup --sku Standard_LRS --kind StorageV2 --access-tier hot
+```
+
+```powershell
+$blobStorageAccount="<blob_storage_account>"
+
+az storage account create --name $blobStorageAccount --location southeastasia `
   --resource-group myResourceGroup --sku Standard_LRS --kind StorageV2 --access-tier hot
 ```
 
@@ -79,14 +93,28 @@ Obtenha a chave de conta de armazenamento usando o comando [az storage account k
 
 O acesso público do contêiner de *imagens* é definido como `off`. O acesso público do contêiner de *miniaturas* é definido como `container`. A configuração de acesso público do `container` permite que os usuários que visitam a página da Web exibir as miniaturas.
 
-```azurecli-interactive
+```bash
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
   -n $blobStorageAccount --query "[0].value" --output tsv)
 
 az storage container create -n images --account-name $blobStorageAccount \
-  --account-key $blobStorageAccountKey --public-access off
+  --account-key $blobStorageAccountKey
 
 az storage container create -n thumbnails --account-name $blobStorageAccount \
+  --account-key $blobStorageAccountKey --public-access container
+
+echo "Make a note of your Blob storage account key..."
+echo $blobStorageAccountKey
+```
+
+```powershell
+$blobStorageAccountKey=$(az storage account keys list -g myResourceGroup `
+  -n $blobStorageAccount --query "[0].value" --output tsv)
+
+az storage container create -n images --account-name $blobStorageAccount `
+  --account-key $blobStorageAccountKey
+
+az storage container create -n thumbnails --account-name $blobStorageAccount `
   --account-key $blobStorageAccountKey --public-access container
 
 echo "Make a note of your Blob storage account key..."
@@ -103,7 +131,11 @@ Criar um plano do Serviço de Aplicativo com o comando [az appservice plan creat
 
 O exemplo a seguir cria um plano do Serviço de Aplicativo denominado `myAppServicePlan` usando o tipo de preço **Gratuita**:
 
-```azurecli-interactive
+```bash
+az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku Free
+```
+
+```powershell
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku Free
 ```
 
@@ -113,8 +145,14 @@ O aplicativo Web fornece um espaço de hospedagem para o código do aplicativo d
 
 No comando a seguir, substitua `<web_app>` por um nome exclusivo. Os caracteres válidos são `a-z`, `0-9` e `-`. Se `<web_app>` for não exclusivo, você receberá a mensagem de erro: *O site com o nome `<web_app>` atribuído já existe.* A URL padrão do aplicativo Web é `https://<web_app>.azurewebsites.net`.  
 
-```azurecli-interactive
+```bash
 webapp="<web_app>"
+
+az webapp create --name $webapp --resource-group myResourceGroup --plan myAppServicePlan
+```
+
+```powershell
+$webapp="<web_app>"
 
 az webapp create --name $webapp --resource-group myResourceGroup --plan myAppServicePlan
 ```
@@ -127,18 +165,31 @@ Serviço de Aplicativo dá suporte a várias maneiras de implantar o conteúdo e
 
 O projeto de exemplo contém um aplicativo [ASP.NET MVC](https://www.asp.net/mvc). O aplicativo aceita uma imagem, salva-a em uma conta de armazenamento e exibe imagens de um contêiner de miniaturas. O aplicativo Web usa os namespaces [Azure.Storage](/dotnet/api/azure.storage), [Azure.Storage.Blobs](/dotnet/api/azure.storage.blobs) e [Azure.Storage.Blobs.Models](/dotnet/api/azure.storage.blobs.models) para interagir com o serviço de Armazenamento do Azure.
 
-```azurecli-interactive
+```bash
 az webapp deployment source config --name $webapp --resource-group myResourceGroup \
   --branch master --manual-integration \
   --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
 ```
 
+```powershell
+az webapp deployment source config --name $webapp --resource-group myResourceGroup `
+  --branch master --manual-integration `
+  --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
+```
+
 # <a name="nodejs-v10"></a>[Node.js v10](#tab/nodejsv10)
+
 Serviço de Aplicativo dá suporte a várias maneiras de implantar o conteúdo em um aplicativo Web. Neste tutorial, você implanta o aplicativo Web de um [repositório de exemplo do GitHub público](https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node-v10). Configure a implantação do GitHub para o aplicativo Web com o comando [az webapp deployment source config](/cli/azure/webapp/deployment/source).
 
-```azurecli-interactive
+```bash
 az webapp deployment source config --name $webapp --resource-group myResourceGroup \
   --branch master --manual-integration \
+  --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node-v10
+```
+
+```powershell
+az webapp deployment source config --name $webapp --resource-group myResourceGroup `
+  --branch master --manual-integration `
   --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node-v10
 ```
 
@@ -150,7 +201,7 @@ az webapp deployment source config --name $webapp --resource-group myResourceGro
 
 O aplicativo Web de exemplo usa as [APIs do Armazenamento do Azure para .NET](/dotnet/api/overview/azure/storage) para carregar imagens. As credenciais da conta de armazenamento são definidas nas configurações do aplicativo para o aplicativo Web. Adicione configurações de aplicativo ao aplicativo implantado com o comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings).
 
-```azurecli-interactive
+```bash
 az webapp config appsettings set --name $webapp --resource-group myResourceGroup \
   --settings AzureStorageConfig__AccountName=$blobStorageAccount \
     AzureStorageConfig__ImageContainer=images \
@@ -158,14 +209,28 @@ az webapp config appsettings set --name $webapp --resource-group myResourceGroup
     AzureStorageConfig__AccountKey=$blobStorageAccountKey
 ```
 
+```powershell
+az webapp config appsettings set --name $webapp --resource-group myResourceGroup `
+  --settings AzureStorageConfig__AccountName=$blobStorageAccount `
+    AzureStorageConfig__ImageContainer=images `
+    AzureStorageConfig__ThumbnailContainer=thumbnails `
+    AzureStorageConfig__AccountKey=$blobStorageAccountKey
+```
+
 # <a name="nodejs-v10"></a>[Node.js v10](#tab/nodejsv10)
 
 O aplicativo Web de exemplo usa a [Biblioteca de Clientes do Armazenamento do Azure](https://github.com/Azure/azure-storage-js) para solicitar tokens de acesso, que são usados para carregar imagens. As credenciais da conta de armazenamento usadas pelo SDK do Armazenamento são definidas nas configurações do aplicativo para o aplicativo Web. Adicione configurações de aplicativo ao aplicativo implantado com o comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings).
 
-```azurecli-interactive
+```bash
 az webapp config appsettings set --name $webapp --resource-group myResourceGroup \
   --settings AZURE_STORAGE_ACCOUNT_NAME=$blobStorageAccount \
     AZURE_STORAGE_ACCOUNT_ACCESS_KEY=$blobStorageAccountKey
+```
+
+```powershell
+az webapp config appsettings set --name $webapp --resource-group myResourceGroup `
+  --settings AZURE_STORAGE_ACCOUNT_NAME=$blobStorageAccount `
+  AZURE_STORAGE_ACCOUNT_ACCESS_KEY=$blobStorageAccountKey
 ```
 
 ---
@@ -212,8 +277,8 @@ public static async Task<bool> UploadFileToStorage(Stream fileStream, string fil
 
 As seguintes classes e métodos são usados na tarefa anterior:
 
-| Classe    | Método   |
-|----------|----------|
+| Classe | Método |
+|-------|--------|
 | [Uri](/dotnet/api/system.uri) | [Construtor Uri](/dotnet/api/system.uri.-ctor) |
 | [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) | [Construtor StorageSharedKeyCredential(String, String)](/dotnet/api/azure.storage.storagesharedkeycredential.-ctor) |
 | [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) | [UploadAsync](/dotnet/api/azure.storage.blobs.blobclient.uploadasync) |
@@ -283,7 +348,7 @@ router.post('/', uploadStrategy, async (req, res) => {
     const blockBlobURL = BlockBlobURL.fromBlobURL(blobURL);
 
     try {
-      
+
       await uploadStreamToBlockBlob(aborter, stream,
         blockBlobURL, uploadOptions.bufferSize, uploadOptions.maxBuffers);
 
@@ -296,6 +361,7 @@ router.post('/', uploadStrategy, async (req, res) => {
     }
 });
 ```
+
 ---
 
 ## <a name="verify-the-image-is-shown-in-the-storage-account"></a>Verifique se a imagem é mostrada na conta de armazenamento
@@ -317,9 +383,11 @@ Escolha um arquivo com o seletor de arquivos e selecione **Carregar**.
 Navegue de volta para seu aplicativo para verificar se a imagem carregada para o contêiner **miniaturas** está visível.
 
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+
 ![Aplicativo de redimensionamento de imagem do .NET com a nova imagem exibida](media/storage-upload-process-images/figure2.png)
 
 # <a name="nodejs-v10"></a>[Node.js v10](#tab/nodejsv10)
+
 ![Aplicativo de redimensionamento de imagem do Node.js V10 com a nova imagem exibida](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---
