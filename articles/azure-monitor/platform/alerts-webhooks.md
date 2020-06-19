@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: alerts
-ms.openlocfilehash: 27510871f9a022cb27c6b03b812ce1d37b47312c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0677c7a0521fe1f63c9c2c9fce65d8dbd8e6d5c4
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79248977"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826903"
 ---
 # <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Chamar um webhook com um alerta de métrica clássico no Azure Monitor
 
@@ -26,7 +26,7 @@ Para adicionar ou atualizar o URI do webhook, no [Portal do Azure](https://porta
 
 ![Painel Adicionar uma regra de alerta](./media/alerts-webhooks/Alertwebhook.png)
 
-Você também pode configurar um alerta para publicar no URI de um webhook usando [Cmdlets do Azure PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md#create-metric-alerts), uma [CLI entre plataformas](../../azure-monitor/platform/cli-samples.md#work-with-alerts) ou [APIs REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+Você também pode configurar um alerta para publicar no URI de um webhook usando [Cmdlets do Azure PowerShell](../samples/powershell-samples.md#create-metric-alerts), uma [CLI entre plataformas](../samples/cli-samples.md#work-with-alerts) ou [APIs REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
 ## <a name="authenticate-the-webhook"></a>Autenticar o webhook
 O webhook pode autenticar usando a autorização baseada em token. O URI do webhook é salvo com uma ID de token. Por exemplo: `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
@@ -68,14 +68,14 @@ A operação POST contém o seguinte esquema e conteúdo JSON para todos os aler
 ```
 
 
-| Campo | Obrigatório | Conjunto fixo de valores | Anotações |
+| Campo | Obrigatório | Conjunto fixo de valores | Observações |
 |:--- |:--- |:--- |:--- |
 | status |S |Activated, Resolved |O status do alerta como base nas condições que você definiu. |
 | contexto |S | |O contexto do alerta. |
 | timestamp |S | |A hora em que o alerta foi disparado. |
 | id |S | |Cada regra de alerta tem uma ID exclusiva. |
 | name |S | |O nome do alerta. |
-| description |S | |Uma descrição do alerta. |
+| descrição |S | |Uma descrição do alerta. |
 | conditionType |S |Metric, Event |Há suporte para dois tipos de alertas: de métrica e evento. Alertas de métricas são baseados na condição de uma métrica. Alertas de eventos são baseados em um evento no log de atividades. Use esse valor para verificar se o alerta é baseado em uma métrica ou em um evento. |
 | condition |S | |Os campos específicos para verificação com base no valor de **conditionType**. |
 | metricName |Para alertas de métrica | |O nome da métrica define o que a regra monitora. |
@@ -100,7 +100,7 @@ A operação POST contém o seguinte esquema e conteúdo JSON para todos os aler
 >
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre os alertas do Azure e WebHooks no vídeo [integrar alertas do Azure com o PagerDuty](https://go.microsoft.com/fwlink/?LinkId=627080).
+* Saiba mais sobre os alertas e webhooks do Azure no vídeo [Integrar Alertas do Azure com o PagerDuty](https://go.microsoft.com/fwlink/?LinkId=627080).
 * Saiba como [Executar exemplos de scripts da Automação do Azure (runbooks) em alertas do Azure](https://go.microsoft.com/fwlink/?LinkId=627081).
 * Saiba como [usar um aplicativo lógico para enviar uma mensagem de SMS por meio do Twilio de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app).
 * Saiba como [usar um aplicativo lógico para enviar uma mensagem do Slack de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app).

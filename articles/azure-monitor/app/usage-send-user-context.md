@@ -1,17 +1,17 @@
 ---
-title: IDs de contexto de usuário para acompanhar informações de Aplicativo Azure de atividade
+title: 'IDs de contexto de usuário para monitorar atividade: Azure Application Insights'
 description: Acompanhe como os usuários navegam pelo serviço, atribuindo a cada um deles uma cadeia de identificação exclusiva e persistente no Application Insights.
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
 ms.date: 01/03/2019
 ms.reviewer: abgreg;mbullwin
-ms.openlocfilehash: beb5a0f7ad3733aaf12b0880af4fba23a705a7e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ecdcc8a84cdccb05ec514003d63f808583d719c9
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77670926"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797691"
 ---
 # <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Enviar IDs de contexto de usuário para permitir experiências de uso no Azure Application Insights
 
@@ -22,12 +22,12 @@ O Application Insights permite monitorar e acompanhar seus usuários por meio de
 - [Usuários, Sessões, Eventos](https://docs.microsoft.com/azure/application-insights/app-insights-usage-segmentation)
 - [Funis](https://docs.microsoft.com/azure/application-insights/usage-funnels)
 - [Retenção](https://docs.microsoft.com/azure/application-insights/app-insights-usage-retention) Coortes
-- [Pastas de trabalho](https://docs.microsoft.com/azure/application-insights/app-insights-usage-workbooks)
+- [Pastas de trabalho](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview)
 
 Para acompanhar o que um usuário faz ao longo do tempo, o Application Insights precisa de uma ID para cada usuário ou sessão. Inclua estas IDs em cada exibição de página ou evento personalizado.
 
-- Usuários, Funis, Retenção e Coortes: inclua a ID de usuário.
-- Sessões: inclua a ID da sessão.
+- Usuários, Funis, Retenção e Coortes: Inclua a ID de usuário.
+- Sessões: Inclua a ID da sessão.
 
 > [!NOTE]
 > Este é um artigo avançado que descreve as etapas manuais para acompanhar a atividade do usuário com o Application Insights. Com muitos aplicativos Web, **talvez estas etapas não sejam necessárias**, pois, geralmente, os SDKs padrão do lado do servidor em conjunto com o [SDK do JavaScript do lado do cliente/navegador](../../azure-monitor/app/website-monitoring.md ), são suficientes para controlar automaticamente a atividade de usuário. Se você não tiver configurado o [monitoramento do lado do cliente](../../azure-monitor/app/website-monitoring.md ) além do SDK do lado do servidor, faça isso primeiro e teste se as ferramentas de análise de comportamento do usuário estão apresentando o desempenho esperado.
@@ -44,7 +44,7 @@ A ID deve ser um Guid ou outra cadeia de caracteres suficientemente complexa par
 
 Se a ID contém informações de identificação pessoal sobre o usuário, ela não é um valor apropriado para enviar ao Application Insights como uma ID de usuário. Você pode enviar tal ID como uma [ID de usuário autenticado](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#authenticated-users), mas ela não atende ao requisito de ID de usuário para cenários de uso.
 
-## <a name="aspnet-apps-setting-the-user-context-in-an-itelemetryinitializer"></a>Aplicativos ASP .NET: definir o contexto de usuário em um ITelemetryInitializer
+## <a name="aspnet-apps-setting-the-user-context-in-an-itelemetryinitializer"></a>Aplicativos ASP.NET: Definir o contexto de usuário em um ITelemetryInitializer
 
 Crie um inicializador de telemetria, conforme descrito em detalhes [aqui](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#addmodify-properties-itelemetryinitializer). Passe a ID de sessão por meio da telemetria de solicitação e defina o Context.User.Id e o Context.Session.Id.
 
@@ -134,4 +134,4 @@ namespace MvcWebRole.Telemetry
     - [Usuários, Sessões e Eventos](usage-segmentation.md)
     - [Funis](usage-funnels.md)
     - [Retenção](usage-retention.md)
-    - [Pastas de trabalho](../../azure-monitor/app/usage-workbooks.md)
+    - [Pastas de trabalho](../../azure-monitor/platform/workbooks-overview.md)

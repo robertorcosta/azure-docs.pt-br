@@ -1,23 +1,23 @@
 ---
-title: Perguntas frequentes sobre o API de Tabela no Azure Cosmos DB
-description: Obtenha respostas para perguntas frequentes sobre o API de Tabela no Azure Cosmos DB
+title: Perguntas frequentes sobre a API de Tabela no Azure Cosmos DB
+description: Obtenha respostas para perguntas frequentes sobre a API de Tabela no Azure Cosmos DB
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: sngun
-ms.openlocfilehash: 981c6f145f0bf06fbe81234d473b9fbcd2235174
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: MT
+ms.openlocfilehash: 4be2f61cb0a45f30f0201d1ecca0efc2d8cbd9ae
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614480"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836219"
 ---
-# <a name="frequently-asked-questions-about-the-table-api-in-azure-cosmos-db"></a>Perguntas frequentes sobre o API de Tabela no Azure Cosmos DB
+# <a name="frequently-asked-questions-about-the-table-api-in-azure-cosmos-db"></a>Perguntas frequentes sobre a API de Tabela no Azure Cosmos DB
 
-O Azure Cosmos DB API de Tabela está disponível na [portal do Azure](https://portal.azure.com) primeiro você deve se inscrever para uma assinatura do Azure. Depois de se inscrever, você pode adicionar uma conta de API de Tabela do Azure Cosmos DB à sua assinatura e, em seguida, adicionar tabelas à conta. Você pode encontrar linguagens com suporte e inícios rápidos associados na [Introdução à API de Tabela do Azure Cosmos DB](table-introduction.md).
+A API de Tabela do Azure Cosmos DB está disponível no [portal do Azure](https://portal.azure.com), mas primeiro você deve se inscrever em uma assinatura do Azure. Depois de se inscrever, você pode adicionar uma conta de API de Tabela do Azure Cosmos DB à sua assinatura e, em seguida, adicionar tabelas à conta. Você pode encontrar linguagens com suporte e inícios rápidos associados na [Introdução à API de Tabela do Azure Cosmos DB](table-introduction.md).
 
-## <a name="table-api-in-azure-cosmos-db-vs-azure-table-storage"></a><a id="table-api-vs-table-storage"></a>API de Tabela em Azure Cosmos DB armazenamento de tabelas do Azure
+## <a name="table-api-in-azure-cosmos-db-vs-azure-table-storage"></a><a id="table-api-vs-table-storage"></a>API de Tabela no Azure Cosmos DB versus armazenamento da Tabela do Azure
 
 ### <a name="where-is-table-api-not-identical-with-azure-table-storage-behavior"></a>Onde a API de Tabela não é idêntica com comportamento de armazenamento da Tabela do Azure?
 
@@ -25,21 +25,21 @@ Há algumas diferenças de comportamento de que os usuários provenientes do arm
 
 * A API de Tabela do Azure Cosmos DB usa um modelo de capacidade reservada para assegurar o desempenho garantido, mas isso significa que se paga pela capacidade assim que a tabela é criada, mesmo se a capacidade não estiver sendo usada. Com o armazenamento da Tabela do Azure, paga-se apenas pela capacidade que é usada. Isso ajuda a explicar por que a API de Tabela pode oferecer um SLA com leitura de 10 ms e gravação de 15 ms no 99º percentil enquanto o armazenamento de Tabela do Azure oferece um SLA de 10 segundos. Mas, como consequência, com tabelas da API de Tabela, até mesmo tabelas vazias sem quaisquer solicitações custam dinheiro para que se garanta que a capacidade esteja disponível para tratar de quaisquer solicitações feitas a elas no SLA oferecido pelo Azure Cosmos DB.
 
-* Os resultados da consulta retornados pelo API de Tabela não são classificados em ordem de chave de partição/chave de linha, pois estão no armazenamento de tabelas do Azure.
+* Os resultados de consulta retornados pela API de Tabela não são classificados em ordem de chave de linha/chave de partição como é feito no armazenamento de Tabela do Azure.
 
-* As chaves de linha podem ter até 255 bytes.
+* As chaves de linha só podem ter até 255 bytes.
 
-* Os lotes podem ter até 2 MBs.
+* Os lotes só podem ter até 2 MBs.
 
-* Atualmente, não há suporte para CORS.
+* Não há suporte para CORS no momento.
 
-* Os nomes de tabela no armazenamento de tabelas do Azure não diferenciam maiúsculas de minúsculas, mas estão em Azure Cosmos DB API de Tabela.
+* Os nomes de tabela no armazenamento de Tabela do Azure não diferenciam maiúsculas de minúsculas, mas estão na API de Tabela do Azure Cosmos DB.
 
 * Alguns dos formatos internos do Azure Cosmos DB para a codificação de informações, como campos binários, atualmente não são tão eficientes quanto se desejaria. Portanto, isso pode causar limitações inesperadas no tamanho dos dados. Por exemplo, no momento você não poderia usar todo o 1 MB de uma entidade de tabela para armazenar dados binários, pois a codificação aumenta o tamanho dos dados.
 
-* O nome da propriedade de entidade ' ID ' não tem suporte no momento.
+* A “ID” do nome da propriedade de entidade não tem suporte no momento.
 
-* TableQuery TakeCount não é limitado a 1000.
+* TableQuery TakeCount não está limitado a 1.000.
 
 * Em termos da API REST, há várias opções de pontos de extremidade/consulta que não são suportados pela API de Tabela do Azure Cosmos DB:
 
@@ -50,7 +50,7 @@ Há algumas diferenças de comportamento de que os usuários provenientes do arm
   | GET | `/?restype=service@comp=stats` | [Obter estatísticas do serviço de tabela](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Fornece informações sobre quão rapidamente os dados estão replicando entre primários e secundários. Isso não é necessária no Cosmos DB, uma vez que a replicação é parte de gravações. |
   | GET, PUT | `/mytable?comp=acl` | [Obter ACL da tabela](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) e [Definir ACL da tabela](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | Isso obtém e define as políticas de acesso armazenadas usadas para gerenciar assinaturas de acesso compartilhado (SAS). Embora haja suporte para SAS, elas são definidas e gerenciadas de modo diferente. |
 
-* Azure Cosmos DB API de Tabela só dá suporte ao formato JSON, não ao ATOM.
+* A API de Tabela do Azure Cosmos DB só dá suporte ao formato JSON, ao ATOM não.
 
 * Embora o Azure Cosmos DB dê suporte a assinaturas de acesso compartilhado (SAS), ele não dá suporte a determinadas políticas, especificamente as relacionadas a operações de gerenciamento, como o direito de criar novas tabelas.
 
@@ -143,7 +143,7 @@ Não, você pode criar e usar os ativos de armazenamento da Tabela do Azure sem 
 
 ### <a name="how-do-i-add-replication-of-the-data-in-the-table-api-across-more-than-one-region-of-azure"></a>Como fazer para adicionar a replicação dos dados na API de Tabela em mais de uma região do Azure?
 
-Você pode usar as [configurações de replicação global](tutorial-global-distribution-sql-api.md#portal) do portal de Azure Cosmos DB para adicionar regiões adequadas para seu aplicativo. Para desenvolver um aplicativo distribuído globalmente, você deve também adicionar seu aplicativo com as informações de PreferredLocation definidas como a região local, a fim de fornecer uma baixa latência de leitura.
+Você pode usar as [configurações de replicação global](tutorial-global-distribution-sql-api.md#portal) do portal do Azure Cosmos DB para adicionar regiões que servem para o aplicativo. Para desenvolver um aplicativo distribuído globalmente, você deve também adicionar seu aplicativo com as informações de PreferredLocation definidas como a região local, a fim de fornecer uma baixa latência de leitura.
 
 ### <a name="how-do-i-change-the-primary-write-region-for-the-account-in-the-table-api"></a>Como faço para alterar a região de gravação primária da conta na API de Tabela?
 
@@ -171,7 +171,7 @@ O Azure Cosmos DB confirma os dados de maneira duradoura na região local e efet
 
 ### <a name="can-the-read-request-consistency-level-be-changed"></a>O nível de consistência de solicitação de leitura pode ser alterado?
 
-Com o Azure Cosmos DB, você pode definir o nível de consistência no nível do contêiner (na tabela). Usando o SDK do .NET, você pode alterar o nível fornecendo o valor para a chave TableConsistencyLevel no arquivo app.config. Os valores possíveis são: Forte, Desatualização Limitada, Sessão, Prefixo Consistente e Eventual. Para obter mais informações, consulte [Níveis ajustáveis de consistência de dados no Azure Cosmos DB](consistency-levels.md). A ideia da chave é que você não pode definir o nível de consistência da solicitação em mais do que a configuração da tabela. Por exemplo, você não pode definir o nível de consistência para a tabela como Eventual e o nível de consistência de solicitação como Forte.
+Com o Azure Cosmos DB, você pode definir o nível de consistência no nível do contêiner (na tabela). Usando o SDK do .NET, você pode alterar o nível fornecendo o valor para a chave TableConsistencyLevel no arquivo app.config. Os valores possíveis são: Forte, desatualização limitada, sessão, prefixo consistente e eventual. Para obter mais informações, consulte [Níveis ajustáveis de consistência de dados no Azure Cosmos DB](consistency-levels.md). A ideia da chave é que você não pode definir o nível de consistência da solicitação em mais do que a configuração da tabela. Por exemplo, você não pode definir o nível de consistência para a tabela como Eventual e o nível de consistência de solicitação como Forte.
 
 ### <a name="how-does-the-table-api-handle-failover-if-a-region-goes-down"></a>Como a API de Tabela lida com o failover caso uma região fique inativa?
 
@@ -185,17 +185,17 @@ Sim, a API de Tabela utiliza a plataforma do Azure Cosmos DB para backups. Os ba
 
 ### <a name="does-the-table-api-index-all-attributes-of-an-entity-by-default"></a>A API de Tabela indexa todos os atributos de uma entidade por padrão?
 
-Sim, por padrão, todos os atributos de uma entidade são indexados. Para obter mais informações, consulte [Azure Cosmos DB: políticas de indexação](index-policy.md).
+Sim, por padrão, todos os atributos de uma entidade são indexados. Para obter mais informações, veja [Azure Cosmos DB: políticas de indexação](index-policy.md).
 
 ### <a name="does-this-mean-i-dont-have-to-create-more-than-one-index-to-satisfy-the-queries"></a>Isso significa que não é necessário criar mais de um índice para atender às consultas?
 
-Sim, a API de Tabela do Azure Cosmos DB fornece a indexação automática de todos os atributos sem nenhuma definição de esquema. Essa automação libera os desenvolvedores para se concentrarem no aplicativo, em vez de na criação e no gerenciamento de índices. Para obter mais informações, consulte [Azure Cosmos DB: políticas de indexação](index-policy.md).
+Sim, a API de Tabela do Azure Cosmos DB fornece a indexação automática de todos os atributos sem nenhuma definição de esquema. Essa automação libera os desenvolvedores para se concentrarem no aplicativo, em vez de na criação e no gerenciamento de índices. Para obter mais informações, veja [Azure Cosmos DB: políticas de indexação](index-policy.md).
 
 ### <a name="can-i-change-the-indexing-policy"></a>Posso alterar a política de indexação?
 
 Sim, você pode alterar a política de indexação fornecendo a definição de índice. Você precisa codificar e escapar adequadamente as configurações.
 
-Para os SDKs do non-.NET, a política de indexação só pode ser definida no portal em **Data Explorer**, navegue até a tabela específica que você deseja alterar e, em seguida, vá para a **escala & configurações**->política de indexação, faça a alteração desejada e, em seguida, **salve**.
+Para o SDKs não .NET, a política de indexação só pode ser definida no portal no **Data Explorer**, navegue até a tabela específica que deseja alterar e depois até **Escala e Configurações**-> Política de Indexação, faça as alterações desejadas e depois selecione **Salvar**.
 
 No SDK do .NET, pode ser enviado no arquivo app.config:
 
@@ -238,7 +238,7 @@ A API de Tabela fornece a mesma funcionalidade de consulta que o armazenamento d
 Você deve alterar TableThroughput quando uma das seguintes condições se aplicar:
 
 * Você estiver executando uma ETL (extração, transformação e carregamento) de dados ou desejar carregar muitos dados em um curto período de tempo.
-* Você precisa de mais taxa de transferência do contêiner ou de um conjunto de contêineres no back-end. Por exemplo, você verá que a produtividade usada é maior do que a provisionada e você está sendo limitado. Para obter mais informações, consulte [definir taxa de transferência para contêineres de Cosmos do Azure](set-throughput.md).
+* Você precisa de mais taxa de transferência do contêiner ou de um conjunto de contêineres no back-end. Por exemplo, você verá que a produtividade usada é maior do que a provisionada e você está sendo limitado. Para obter mais informações, consulte [Definir a taxa de transferência para contêineres do Azure Cosmos](set-throughput.md).
 
 ### <a name="can-i-scale-up-or-scale-down-the-throughput-of-my-table-api-table"></a>Posso escalar verticalmente ou reduzir verticalmente a produtividade da minha tabela da API de Tabela (versão prévia)?
 
@@ -274,7 +274,7 @@ O Azure Cosmos DB foi projetado para ser um sistema baseado em SLA distribuído 
 
 ### <a name="i-never-get-a-quota-full-notification-indicating-that-a-partition-is-full-when-i-ingest-data-into-azure-table-storage-with-the-table-api-i-do-get-this-message-is-this-offering-limiting-me-and-forcing-me-to-change-my-existing-application"></a>Eu nunca recebo uma notificação de “cota cheia” (indicando que uma partição está cheia) quando realizo a ingestão de dados no armazenamento de Tabelas do Azure. Com a API de Tabela, eu recebo essa mensagem. Essa oferta está me limitando e me forçando a alterar meu aplicativo existente?
 
-O Azure Cosmos DB é um sistema baseado em SLA que fornece escala ilimitada com garantias de latência, produtividade, disponibilidade e consistência. Para assegurar o desempenho premium garantido, certifique-se de que seu índice e tamanho de dados sejam gerenciáveis e escalonáveis. O limite de 10 GB no número de entidades ou itens por chave de partição serve para garantir que fornecemos um excelente desempenho de pesquisa e consulta. Para garantir que seu aplicativo dimensione bem, mesmo para o armazenamento do Azure, recomendamos que você *não* crie uma partição ativa armazenando todas as informações em uma partição e consultando-as.
+O Azure Cosmos DB é um sistema baseado em SLA que fornece escala ilimitada com garantias de latência, produtividade, disponibilidade e consistência. Para assegurar o desempenho premium garantido, certifique-se de que seu índice e tamanho de dados sejam gerenciáveis e escalonáveis. O limite de 10 GB no número de entidades ou itens por chave de partição serve para garantir que fornecemos um excelente desempenho de pesquisa e consulta. Para garantir que seu aplicativo dimensiona bem, mesmo para o Armazenamento do Microsoft Azure, recomendamos que você *não* crie uma partição ativa armazenando todas as informações em uma partição e consultando-a.
 
 ### <a name="so-partitionkey-and-rowkey-are-still-required-with-the-table-api"></a>PartitionKey e RowKey ainda são necessárias na API de Tabela?
 
@@ -293,10 +293,10 @@ O Azure Cosmos DB é um sistema baseado em SLA que fornece garantia de latência
 Você pode compartilhar seus comentários em qualquer uma das seguintes maneiras:
 
 * [Voz do usuário](https://feedback.azure.com/forums/263030-azure-cosmos-db)
-* [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
+* [Página de perguntas e respostas da Microsoft](https://docs.microsoft.com/answers/topics/azure-cosmos-db.html)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). O Stack Overflow é o melhor para perguntas sobre programação. Verifique se sua pergunta está [no tópico](https://stackoverflow.com/help/on-topic) e [forneça o máximo de detalhes possíveis, tornando a pergunta clara e possível de responder](https://stackoverflow.com/help/how-to-ask).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [compilar um aplicativo de API de Tabela com o SDK do .NET e o Azure Cosmos DB](create-table-dotnet.md)
+* [Compilar um aplicativo de API de Tabela com o SDK do .NET e o Azure Cosmos DB](create-table-dotnet.md)
 * [Criar um aplicativo Java para gerenciar os dados de API de Tabela do Azure Cosmos DB](create-table-java.md)

@@ -1,6 +1,6 @@
 ---
-title: Sessão de escala hospeda a automação do Azure – Azure
-description: Como dimensionar automaticamente hosts de sessão de área de trabalho virtual do Windows com a automação do Azure.
+title: Dimensionar hosts da sessão com a Automação do Azure – Azure
+description: Como dimensionar automaticamente os hosts da sessão da Área de Trabalho Virtual do Windows com a Automação do Azure.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,87 +8,87 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 012cdc53099bf156e50fe766b04c3176d415db1c
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: f659a40cbb9e3ef2d0e7fe4e527518a76507d5ee
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83117386"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745707"
 ---
-# <a name="scale-session-hosts-using-azure-automation"></a>Dimensionar hosts de sessão usando a automação do Azure
+# <a name="scale-session-hosts-using-azure-automation"></a>Dimensionar hosts da sessão usando a Automação do Azure
 
 >[!IMPORTANT]
 >Esse conteúdo se aplica à versão Outono 2019 que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager.
 
-Você pode reduzir o custo total de implantação de área de trabalho virtual do Windows dimensionando suas VMs (máquinas virtuais). Isso significa desligar e desalocar VMs de host de sessão fora do horário de pico de uso, ligá-las novamente e realocá-las durante horários de pico.
+É possível reduzir o custo total de implantação da Área de Trabalho Virtual do Windows dimensionando suas VMs (máquinas virtuais). Isso significa desligar e desalocar VMs de host da sessão fora do horário de pico de uso, voltar a ligá-las e realocá-las durante os horários de pico.
 
-Neste artigo, você aprenderá sobre a ferramenta de dimensionamento criada com a automação do Azure e com o aplicativo lógico do Azure que dimensionará automaticamente as máquinas virtuais do host de sessão no seu ambiente de área de trabalho virtual do Windows. Para saber como usar a ferramenta de dimensionamento, pule para os [pré-requisitos](#prerequisites).
+Neste artigo, você conhecerá a ferramenta de dimensionamento criada com os Aplicativos Lógicos do Azure e a Automação do Azure que dimensionarão automaticamente as máquinas virtuais dos hosts da sessão no seu ambiente da Área de Trabalho Virtual do Windows. Para ver como usar a ferramenta de dimensionamento, pule para [Pré-requisitos](#prerequisites).
 
 ## <a name="report-issues"></a>Relatar problemas
 
-Os relatórios de problemas da ferramenta de dimensionamento estão sendo tratados atualmente no GitHub em vez de Suporte da Microsoft. Se você encontrar algum problema com a ferramenta de dimensionamento, poderá relatá-las em Bu, abrindo um problema do GitHub rotulado "4a-WVD-Scaling-logicapps" na [página do GitHub do RDS](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4a-WVD-scaling-logicapps).
+No momento, os relatórios de problemas da ferramenta de dimensionamento estão sendo tratados no GitHub, e não no Suporte da Microsoft. Se encontrar algum problema com a ferramenta de dimensionamento, comunique-o abrindo um tíquete no GitHub rotulado "4a-WVD-scaling-logicapps" na [página da RDS do GitHub](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4a-WVD-scaling-logicapps).
 
 ## <a name="how-the-scaling-tool-works"></a>Como funciona a ferramenta de dimensionamento
 
-A ferramenta de dimensionamento fornece uma opção de automação de baixo custo para clientes que desejam otimizar seus custos de VM host de sessão.
+A ferramenta de dimensionamento fornece uma opção de automação de baixo custo para os clientes que desejam otimizar os custos de VM dos hosts da sessão.
 
-Você pode usar a ferramenta de dimensionamento para:
+A ferramenta de dimensionamento pode ser usada para:
  
-- Agende as VMs para iniciar e parar com base no horário comercial de pico e fora do pico.
-- Expanda as VMs com base no número de sessões por núcleo de CPU.
-- Dimensione em VMs fora do horário de pico, deixando o número mínimo de VMs de host de sessão em execução.
+- Agendar o início e o término das VMs com base nos horários comerciais de pico e fora de pico.
+- Distribuir as VMs com base no número de sessões por núcleo de CPU.
+- Dimensionar as VMs fora dos horários de pico, deixando o mínimo de VMs de host da sessão em execução.
 
-A ferramenta de dimensionamento usa uma combinação de runbooks do PowerShell de automação do Azure, WebHooks e aplicativos lógicos do Azure para funcionar. Quando a ferramenta é executada, o aplicativo lógico do Azure chama um webhook para iniciar o runbook de automação do Azure. Em seguida, o runbook cria um trabalho.
+Para funcionar, a ferramenta de dimensionamento usa uma combinação de runbooks do PowerShell de Automação do Azure, webhooks e Aplicativos Lógicos do Azure. Quando a ferramenta é executada, os Aplicativos Lógicos do Azure chamam um webhook para iniciar o runbook de Automação do Azure. O runbook então cria um trabalho.
 
-Durante o tempo de uso de pico, o trabalho verifica o número atual de sessões e a capacidade da VM do host de sessão em execução atual para cada pool de hosts. Ele usa essas informações para calcular se as VMs do host da sessão em execução podem dar suporte a sessões existentes com base no parâmetro *SessionThresholdPerCPU* definido para o arquivo **createazurelogicapp. ps1** . Se as VMs de host de sessão não conseguirem dar suporte a sessões existentes, o trabalho iniciará VMs de host de sessão adicionais no pool de hosts.
+Durante o período de uso de pico, o trabalho verifica o número atual de sessões e a capacidade da VM do host da sessão em execução atual para cada pool de hosts. Ele usa essas informações para calcular se as VMs do host da sessão em execução dão conta das sessões existentes com base no parâmetro *SessionThresholdPerCPU* definido para o arquivo **createazurelogicapp.ps1**. Se as VMs de host da sessão não derem conta das sessões existentes, o trabalho iniciará VMs de host da sessão adicionais no pool de hosts.
 
 >[!NOTE]
->*SessionThresholdPerCPU* não restringe o número de sessões na VM. Esse parâmetro determina apenas quando novas VMs precisam ser iniciadas para balancear a carga das conexões. Para restringir o número de sessões, você precisa seguir as instruções [set-RdsHostPool](/powershell/module/windowsvirtualdesktop/set-rdshostpool/) para configurar o parâmetro *MaxSessionLimit* de acordo.
+>*SessionThresholdPerCPU* não restringe o número de sessões na VM. Esse parâmetro determina apenas quando novas VMs precisam ser iniciadas para equilibrar a carga das conexões. Para restringir o número de sessões, siga as instruções [Set-RdsHostPool](/powershell/module/windowsvirtualdesktop/set-rdshostpool/) para configurar adequadamente o parâmetro *MaxSessionLimit*.
 
-Durante o tempo de uso fora de pico, o trabalho determina quais VMs de host de sessão devem ser desligadas com base no parâmetro *MinimumNumberOfRDSH* . O trabalho definirá as VMs do host da sessão para o modo de descarga para evitar novas sessões se conectando aos hosts. Se você definir o parâmetro *LimitSecondsToForceLogOffUser* para um valor positivo diferente de zero, o trabalho notificará qualquer usuário conectado no momento para salvar seu trabalho, aguardará a quantidade de tempo configurada e, em seguida, forçará os usuários a se desconectarem. Depois que todas as sessões de usuário na VM host de sessão forem desconectadas, o trabalho desligará a VM.
+Durante o período de uso fora de pico, o trabalho determina quais VMs de host da sessão devem ser desligadas com base no parâmetro *MinimumNumberOfRDSH*. O trabalho definirá as VMs de host da sessão para o modo esvaziar, a fim de evitar que novas sessões se conectem aos hosts. Se o parâmetro *LimitSecondsToForceLogOffUser* for definido com um valor positivo diferente de zero, o trabalho enviará uma notificação para que todos os usuários conectados no momento salvem o que estiverem fazendo, esperará o período configurado e, em seguida, forçará os usuários a se desconectare. Quando todas as sessões de usuário na VM de host da sessão tiverem sido desconectadas, o trabalho desligará a VM.
 
-Se você definir o parâmetro *LimitSecondsToForceLogOffUser* como zero, o trabalho permitirá que a definição de configuração de sessão em políticas de grupo especificadas manipule a assinatura de sessões de usuário. Para ver essas políticas de grupo, vá para **configuração do computador**  >  **políticas**  >  **modelos administrativos**  >  **componentes do Windows**  >  **serviços de terminal**  >  **Terminal Server**  >  **limites de tempo de sessão**. Se houver sessões ativas em uma VM host de sessão, o trabalho deixará a VM host de sessão em execução. Se não houver nenhuma sessão ativa, o trabalho desligará a VM do host da sessão.
+Se o parâmetro *LimitSecondsToForceLogOffUser* for definido como zero, o trabalho permitirá que a definição de configuração de sessão nas políticas de grupo especificadas manipule a desconexão das sessões de usuário. Para ver essas políticas de grupo, vá para **Configuração do Computador** > **Políticas** > **Modelos Administrativos** > **Componentes do Windows** > **Serviços do Terminal** > **Servidor do Terminal** > **Limites do Tempo de Sessão**. Se houver sessões ativas em uma VM de host da sessão, o trabalho deixará a VM de host da sessão em execução. Se não houver sessões ativas, o trabalho desligará a VM do host da sessão.
 
-O trabalho é executado periodicamente com base em um intervalo de recorrência definido. Você pode alterar esse intervalo com base no tamanho do seu ambiente de área de trabalho virtual do Windows, mas lembre-se de que iniciar e desligar máquinas virtuais pode levar algum tempo, portanto, lembre-se de considerar o atraso. É recomendável definir o intervalo de recorrência para a cada 15 minutos.
+O trabalho é executado periodicamente com base em um intervalo de recorrência definido. Esse intervalo pode ser alterado com base no tamanho do ambiente da Área de Trabalho Virtual do Windows, mas lembre-se de que iniciar e desligar máquinas virtuais pode levar tempo; portanto, leve em conta esse atraso. É recomendável definir o intervalo de recorrência para ocorrer a cada 15 minutos.
 
 No entanto, a ferramenta também tem as seguintes limitações:
 
-- Essa solução se aplica somente a VMs de host de sessão em pool.
-- Essa solução gerencia VMs em qualquer região, mas só pode ser usada na mesma assinatura que a sua conta de automação do Azure e aplicativos lógicos do Azure.
+- Essa solução se aplica somente a VMs de host da sessão em pool.
+- Essa solução gerencia VMs em qualquer região, mas só pode ser usada na mesma assinatura que sua conta da Automação do Azure e dos Aplicativos Lógicos do Azure.
 
 >[!NOTE]
->A ferramenta de dimensionamento controla o modo de balanceamento de carga do pool de hosts que está dimensionando. Ele o define para o balanceamento de carga de primeira amplitude para os horários de pico e fora do horário de pico.
+>A ferramenta de dimensionamento controla o modo de balanceamento de carga do pool de hosts que está dimensionando. Ela o define para o balanceamento de carga em largura para os horários de pico e fora de pico.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar a configurar a ferramenta de dimensionamento, verifique se você tem as seguintes opções prontas:
+Antes de começar a configurar a ferramenta de dimensionamento, verifique se estas opções estão prontas:
 
-- Um [locatário de área de trabalho virtual do Windows e um pool de hosts](create-host-pools-arm-template.md)
-- VMs do pool de hosts de sessão configuradas e registradas no serviço de área de trabalho virtual
-- Um usuário com [acesso de colaborador](../../role-based-access-control/role-assignments-portal.md) na assinatura do Azure
+- Um [locatário e pool de host da Área de Trabalho Virtual do Windows](create-host-pools-arm-template.md)
+- VMs de pool de hosts da sessão configuradas e registradas no serviço da Área de Trabalho Virtual do Windows
+- Um usuário com [acesso de Colaborador](../../role-based-access-control/role-assignments-portal.md) na assinatura do Azure
 
-O computador que você usa para implantar a ferramenta deve ter: 
+O computador que você usar para implantar a ferramenta deverá ter: 
 
-- Windows PowerShell 5,1 ou posterior
-- O módulo Microsoft AZ PowerShell
+- O Windows PowerShell 5.1 ou posterior
+- O módulo do PowerShell Microsoft AZ
 
-Se você tiver tudo pronto, vamos começar.
+Se estiver tudo pronto, vamos começar.
 
 ## <a name="create-an-azure-automation-account"></a>Criar uma conta de Automação do Azure
 
-Primeiro, você precisará de uma conta de automação do Azure para executar o runbook do PowerShell. Veja como configurar sua conta:
+Primeiro, será preciso uma conta de Automação do Azure para executar o runbook do PowerShell. Veja como configurar sua conta:
 
 1. Abra o Windows PowerShell como administrador.
-2. Execute o cmdlet a seguir para entrar em sua conta do Azure.
+2. Execute o seguinte cmdlet para entrar em sua conta do Azure.
 
      ```powershell
      Login-AzAccount
      ```
 
      >[!NOTE]
-     >Sua conta deve ter direitos de colaborador na assinatura do Azure na qual você deseja implantar a ferramenta de dimensionamento.
+     >Sua conta deve ter direitos de colaborador na assinatura do Azure em que você deseja implantar a ferramenta de dimensionamento.
 
-3. Execute o seguinte cmdlet para baixar o script para criar a conta de automação do Azure:
+3. Execute o seguinte cmdlet para baixar o script e criar a conta de Automação do Azure:
 
      ```powershell
      Set-Location -Path "c:\temp"
@@ -96,47 +96,47 @@ Primeiro, você precisará de uma conta de automação do Azure para executar o 
      Invoke-WebRequest -Uri $uri -OutFile ".\createazureautomationaccount.ps1"
      ```
 
-4. Execute o seguinte cmdlet para executar o script e criar a conta de automação do Azure:
+4. Execute o seguinte cmdlet para executar o script e criar a conta de Automação do Azure:
 
      ```powershell
      .\createazureautomationaccount.ps1 -SubscriptionID <azuresubscriptionid> -ResourceGroupName <resourcegroupname> -AutomationAccountName <name of automation account> -Location "Azure region for deployment"
      ```
 
-5. A saída do cmdlet incluirá um URI de webhook. Certifique-se de manter um registro do URI porque você o usará como um parâmetro ao configurar o agendamento de execução para os aplicativos lógicos do Azure.
+5. A saída do cmdlet incluirá um URI de webhook. Certifique-se de registrar o URI porque você o usará como parâmetro ao configurar o agendamento de execução para os Aplicativos Lógicos do Azure.
 
-6. Depois de configurar sua conta de automação do Azure, entre na sua assinatura do Azure e verifique se sua conta de automação do Azure e o runbook relevante foram exibidos no grupo de recursos especificado, conforme mostrado na imagem a seguir:
+6. Depois de configurar sua conta de Automação do Azure, entre na sua assinatura do Azure e verifique se sua conta de Automação do Azure e o respectivo runbook apareceram no grupo de recursos especificado, conforme mostrado na seguinte imagem:
 
 ![Uma imagem da página de visão geral do Azure mostrando a conta de automação e o runbook recém-criados.](../media/automation-account.png)
 
-  Para verificar se o seu webhook é onde deveria estar, selecione o nome do seu runbook. Em seguida, vá para a seção recursos do runbook e selecione **WebHooks**.
+  Para verificar se o webhook está no local certo, selecione o nome dele. Em seguida, vá para a seção Recursos do seu runbook e selecione **Webhooks**.
 
-## <a name="create-an-azure-automation-run-as-account"></a>Criar uma conta Executar como da automação do Azure
+## <a name="create-an-azure-automation-run-as-account"></a>Criar uma conta Executar como da Automação do Azure
 
-Agora que você tem uma conta de automação do Azure, também precisará criar uma conta Executar como da automação do Azure para acessar os recursos do Azure.
+Agora que você tem uma conta de Automação do Azure, também precisará criar uma conta Executar como da Automação do Azure para acessar os recursos do Azure.
 
-Uma [conta Executar como da automação do Azure](../../automation/manage-runas-account.md) fornece autenticação para gerenciar recursos no Azure com os cmdlets do Azure. Quando você cria uma conta Executar como, ela cria um novo usuário de entidade de serviço no Azure Active Directory e atribui a função colaborador ao usuário da entidade de serviço no nível da assinatura, a conta Executar como do Azure é uma ótima maneira de autenticar com segurança com certificados e um nome da entidade de serviço sem a necessidade de armazenar um nome de usuário e uma senha em um objeto de credencial. Para saber mais sobre a autenticação executar como, consulte [limitando as permissões da conta Executar como](../../automation/manage-runas-account.md#limiting-run-as-account-permissions).
+Uma [conta Executar como da Automação do Azure](../../automation/manage-runas-account.md) fornece autenticação para o gerenciamento de recursos no Azure com os cmdlets do Azure. Quando você cria uma conta Executar como, ela cria um usuário de entidade de serviço no Azure Active Directory e atribui a função de Colaborador ao usuário da entidade de serviço no nível da assinatura. A conta Executar como do Azure é uma ótima maneira de fazer a autenticação com segurança usando certificados e um nome da entidade de serviço sem a necessidade de armazenar um nome de usuário e uma senha em um objeto de credencial. Saiba mais sobre a autenticação Executar como em [Permissões para limitar uma conta Executar como](../../automation/manage-runas-account.md#limit-run-as-account-permissions).
 
-Qualquer usuário que seja membro da função Administradores de assinatura e coadministrador da assinatura pode criar uma conta Executar como seguindo as instruções da próxima seção.
+Todo usuário que é membro da função Administradores de Assinatura e coadministrador da assinatura pode criar uma conta Executar como seguindo as instruções da próxima seção.
 
-Para criar uma conta Executar como em sua conta do Azure:
+Para criar uma conta Executar como na conta do Azure:
 
-1. Na portal do Azure, selecione **todos os serviços**. Na lista de recursos, insira e selecione **contas de automação**.
+1. No portal do Azure, selecione **Todos os serviços**. Na lista de recursos, insira e selecione as **Contas de Automação**.
 
-2. Na página **contas de automação** , selecione o nome da sua conta de automação.
+2. Na página de **Contas de Automação**, selecione o nome da Conta de Automação.
 
-3. No painel no lado esquerdo da janela, selecione **contas Executar como** na seção Configurações de conta.
+3. No painel do lado esquerdo da janela, selecione **Contas Executar como**, na seção Configurações de Conta.
 
-4. Selecione **conta Executar como do Azure**. Quando o painel **adicionar conta Executar como do Azure** for exibido, examine as informações de visão geral e, em seguida, selecione **criar** para iniciar o processo de criação de conta.
+4. Selecione **Conta Executar como do Azure**. Quando surgir o painel **Adicionar Conta Executar como do Azure**, examine as informações de visão geral e selecione **Criar** para iniciar o processo de criação da conta.
 
-5. Aguarde alguns minutos para que o Azure crie a conta Executar como. Você pode acompanhar o progresso da criação no menu em notificações.
+5. Aguarde alguns minutos para que o Azure crie a conta Executar como. O progresso da criação pode ser acompanhado no menu Notificações.
 
-6. Quando o processo for concluído, ele criará um ativo chamado AzureRunAsConnection na conta de automação especificada. O ativo de conexão contém a ID do aplicativo, a ID do locatário, a ID da assinatura e a impressão digital do certificado. Lembre-se da ID do aplicativo, pois você a usará mais tarde.
+6. Ao término do processo, será criado um ativo chamado AzureRunAsConnection na conta de Automação especificada. O ativo de conexão contém a ID do aplicativo, a ID do locatário, a ID da assinatura e a impressão digital do certificado. Lembre-se da ID do Aplicativo, pois você a usará mais tarde.
 
 ### <a name="create-a-role-assignment-in-windows-virtual-desktop"></a>Criar uma atribuição de função na Área de Trabalho Virtual do Windows
 
-Em seguida, você precisa criar uma atribuição de função para que o AzureRunAsConnection possa interagir com a área de trabalho virtual do Windows. Certifique-se de usar o PowerShell para entrar com uma conta que tenha permissões para criar atribuições de função.
+Em seguida, é preciso criar uma atribuição de função para que o AzureRunAsConnection possa interagir com a Área de Trabalho Virtual do Windows. Use o PowerShell para entrar com uma conta que tenha permissões para criar atribuições de função.
 
-Primeiro, baixe e importe o [módulo do PowerShell de área de trabalho virtual do Windows](/powershell/windows-virtual-desktop/overview/) para usar em sua sessão do PowerShell, se ainda não tiver feito isso. Execute os cmdlets do PowerShell a seguir para se conectar à Área de Trabalho Virtual do Windows e exibir seus locatários.
+Primeiro, baixe e importe o [módulo do PowerShell da Área de Trabalho Virtual do Windows](/powershell/windows-virtual-desktop/overview/) para usá-lo na sessão do PowerShell, caso ainda não tenha feito isso. Execute os cmdlets do PowerShell a seguir para se conectar à Área de Trabalho Virtual do Windows e exibir seus locatários.
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
@@ -144,25 +144,25 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 Get-RdsTenant
 ```
 
-Quando você encontrar o locatário com os pools de hosts que deseja dimensionar, siga as instruções em [criar uma conta de automação do Azure](#create-an-azure-automation-account) e use o nome do locatário obtido do cmdlet anterior no seguinte cmdlet para criar a atribuição de função:
+Quando encontrar o locatário com os pools de hosts que deseja dimensionar, siga as instruções em [Criar uma conta de Automação do Azure](#create-an-azure-automation-account) e use o nome do locatário obtido com o cmdlet anterior no cmdlet a seguir para criar a atribuição de função:
 
 ```powershell
 New-RdsRoleAssignment -RoleDefinitionName "RDS Contributor" -ApplicationId <applicationid> -TenantName <tenantname>
 ```
 
-## <a name="create-the-azure-logic-app-and-execution-schedule"></a>Criar o aplicativo lógico do Azure e o agendamento de execução
+## <a name="create-the-azure-logic-app-and-execution-schedule"></a>Criar o Aplicativo Lógico do Azure e o agendamento de execução
 
-Por fim, você precisará criar o aplicativo lógico do Azure e configurar um agendamento de execução para sua nova ferramenta de dimensionamento.
+Por fim, será preciso criar o Aplicativo Lógico do Azure e configurar um agendamento de execução para sua nova ferramenta de dimensionamento.
 
-1.  Abrir o Windows PowerShell como administrador
+1.  Abra o Windows PowerShell como Administrador
 
-2.  Execute o cmdlet a seguir para entrar em sua conta do Azure.
+2.  Execute o seguinte cmdlet para entrar em sua conta do Azure.
 
      ```powershell
      Login-AzAccount
      ```
 
-3. Execute o cmdlet a seguir para baixar o arquivo de script createazurelogicapp. ps1 no computador local.
+3. Execute o cmdlet a seguir para baixar o arquivo de script createazurelogicapp.ps1 no computador local.
 
      ```powershell
      Set-Location -Path "c:\temp"
@@ -170,13 +170,13 @@ Por fim, você precisará criar o aplicativo lógico do Azure e configurar um ag
      Invoke-WebRequest -Uri $uri -OutFile ".\createazurelogicapp.ps1"
      ```
 
-4. Execute o cmdlet a seguir para entrar na área de trabalho virtual do Windows com uma conta que tenha permissões de proprietário RDS ou de colaborador do RDS.
+4. Execute o cmdlet a seguir para entrar na Área de Trabalho Virtual do Windows com uma conta que tenha permissões de Proprietário da RDS ou de Colaborador da RDS.
 
      ```powershell
      Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
      ```
 
-5. Execute o seguinte script do PowerShell para criar o aplicativo lógico do Azure e o agendamento de execução.
+5. Execute o seguinte script do PowerShell para criar o Aplicativo Lógico do Azure e o agendamento de execução.
 
      ```powershell
      $aadTenantId = (Get-AzContext).Tenant.Id
@@ -236,29 +236,29 @@ Por fim, você precisará criar o aplicativo lógico do Azure e configurar um ag
 
      Depois de executar o script, o aplicativo lógico deve aparecer em um grupo de recursos, conforme mostrado na imagem a seguir.
 
-     ![Uma imagem da página de visão geral de um aplicativo lógico do Azure de exemplo.](../media/logic-app.png)
+     ![Uma imagem da página de visão geral de um Aplicativo Lógico do Azure de exemplo.](../media/logic-app.png)
 
-Para fazer alterações no agendamento de execução, como alterar o intervalo de recorrência ou o fuso horário, vá para o Agendador de dimensionamento automático e selecione **Editar** para ir para o designer de aplicativos lógicos.
+Para fazer alterações no agendamento de execução, como alterar o intervalo de recorrência ou o fuso horário, acesse o Agendador de dimensionamento automático e selecione **Editar** para ir para o Designer de Aplicativos Lógicos.
 
-![Uma imagem do designer de aplicativos lógicos. Os menus de recorrência e webhook que permitem ao usuário editar os horários de recorrência e o arquivo de webhook estão abertos.](../media/logic-apps-designer.png)
+![Uma imagem do Designer de Aplicativos Lógicos. Os menus de Recorrência e Webhook que permitem ao usuário editar os horários de recorrência e o arquivo de webhook estão abertos.](../media/logic-apps-designer.png)
 
-## <a name="manage-your-scaling-tool"></a>Gerenciar sua ferramenta de dimensionamento
+## <a name="manage-your-scaling-tool"></a>Gerenciar a ferramenta de dimensionamento
 
-Agora que você criou sua ferramenta de dimensionamento, pode acessar sua saída. Esta seção descreve alguns recursos que podem ser úteis.
+Agora que você criou a ferramenta de dimensionamento, pode acessar a saída dela. Esta seção descreve alguns recursos que podem ser úteis.
 
 ### <a name="view-job-status"></a>Exibir status do trabalho
 
-Você pode exibir um status resumido de todos os trabalhos de runbook ou exibir um status mais detalhado de um trabalho de runbook específico no portal do Azure.
+No portal do Azure, é possível exibir um status resumido de todos os trabalhos do runbook ou exibir um status mais detalhado de um trabalho específico do runbook.
 
-À direita da sua conta de automação selecionada, em "estatísticas do trabalho", você pode exibir uma lista de resumos de todos os trabalhos de runbook. Abrir a página **trabalhos** no lado esquerdo da janela mostra os status do trabalho atual, os horários de início e os horários de conclusão.
+À direita da conta de Automação selecionada, em "Estatísticas de Trabalho", é possível exibir uma lista de resumos de todos os trabalhos de runbook. Abrir a página **Trabalhos** no lado esquerdo da janela mostrará os status do trabalho atual, os horários de início e de conclusão.
 
-![Uma captura de tela da página status do trabalho.](../media/jobs-status.png)
+![Uma captura de tela da página de status de trabalho.](../media/jobs-status.png)
 
-### <a name="view-logs-and-scaling-tool-output"></a>Exibir saída da ferramenta de dimensionamento e logs
+### <a name="view-logs-and-scaling-tool-output"></a>Exibir logs e saída da ferramenta de dimensionamento
 
-Você pode exibir os logs das operações de expansão e redução horizontal abrindo seu runbook e selecionando o nome do seu trabalho.
+Exiba os logs das operações de expansão e redução abrindo o runbook e selecionando o nome do trabalho.
 
-Navegue até o runbook (o nome padrão é WVDAutoScaleRunbook) em seu grupo de recursos que hospeda a conta de automação do Azure e selecione **visão geral**. Na página Visão geral, selecione um trabalho em trabalhos recentes para exibir sua saída da ferramenta de dimensionamento, conforme mostrado na imagem a seguir.
+Navegue até o runbook (o nome padrão é WVDAutoScaleRunbook) no grupo de recursos que hospeda a conta de Automação do Azure e selecione **Visão geral**. Na página Visão geral, selecione um trabalho em Trabalhos recentes para exibir a saída da ferramenta de dimensionamento, conforme mostrado na imagem a seguir.
 
 ![Uma imagem da janela de saída da ferramenta de dimensionamento.](../media/tool-output.png)
 

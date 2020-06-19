@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.custom: amqp
-ms.openlocfilehash: bf7c4118e17727c6c8141570ab146026d5383059
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.openlocfilehash: fba22324a3c35b861d28ed9b84207ab3a6f9816b
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996931"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872699"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Ler mensagens de dispositivo para a nuvem do ponto de extremidade interno
 
@@ -22,14 +22,14 @@ Por padrão, as mensagens são roteadas para o ponto de extremidade voltado para
 
 | Propriedade            | Descrição |
 | ------------------- | ----------- |
-| **Contagem de partições** | Defina essa propriedade no momento da criação para determinar o número de [partições](../event-hubs/event-hubs-features.md#partitions) para inclusão do evento de dispositivo para nuvem. |
-| **Tempo de retenção**  | Esta propriedade especifica por quanto tempo, em dias, as mensagens são retidas pelo Hub IoT. O padrão é de um dia, mas pode ser aumentado para sete dias. |
+| **Contagem de partição** | Defina essa propriedade no momento da criação para determinar o número de [partições](../event-hubs/event-hubs-features.md#partitions) para inclusão do evento de dispositivo para nuvem. |
+| **Período de retenção**  | Esta propriedade especifica por quanto tempo, em dias, as mensagens são retidas pelo Hub IoT. O padrão é de um dia, mas pode ser aumentado para sete dias. |
 
-O Hub IoT permite a retenção de dados nos hubs de eventos internos por um máximo de 7 dias. Você pode definir o tempo de retenção durante a criação do Hub IoT. O tempo de retenção de dados no Hub IoT depende da camada e do tipo de unidade do Hub IoT. Em termos de tamanho, os hubs de eventos internos podem reter as mensagens do tamanho máximo da mensagem até pelo menos 24 horas de cota. Por exemplo, para um hub IoT de unidade S1 fornece armazenamento suficiente para reter pelo menos mensagens 400 mil de tamanho de 4K cada. Se seus dispositivos estiverem enviando mensagens menores, eles poderão ser retidos por mais tempo (até 7 dias), dependendo da quantidade de armazenamento consumida. Garantimos manter os dados para o tempo de retenção especificado como um mínimo. As mensagens expirarão e não poderão ser acessadas depois que o tempo de retenção tiver passado. 
+O Hub IoT permite retenção de dados nos Hubs de Eventos internos por, no máximo, 7 dias. Você pode definir o tempo de retenção durante a criação do Hub IoT. O tempo de retenção de dados no Hub IoT depende da camada e do tipo de unidade do Hub IoT. Em termos de tamanho, os Hub de Eventos internos podem reter as mensagens do tamanho máximo da mensagem até pelo menos 24 horas de cota. Por exemplo, para uma unidade S1, o Hub IoT fornece armazenamento suficiente para reter pelo menos 400 mil mensagens de 4k cada. Se seus dispositivos enviarem mensagens menores, elas poderão ser retidas por mais tempo (até 7 dias), dependendo do consumo de armazenamento. Garantimos a retenção dos dados pelo tempo de retenção especificado como mínimo. As mensagens expirarão e não poderão ser acessadas depois que o tempo de retenção tiver passado. 
 
 O Hub IoT também permite que você gerencie grupos de consumidores no ponto de extremidade de recebimento do dispositivo para a nuvem interno. Você pode ter até 20 grupos de consumidores para cada Hub IoT.
 
-Se você estiver usando o [Roteamento de mensagens](iot-hub-devguide-messages-d2c.md) e a rota de [fallback](iot-hub-devguide-messages-d2c.md#fallback-route) estiver habilitada, todas as mensagens que não corresponderem a uma consulta em qualquer rota vão para o ponto de extremidade interno. Se você desabilitar essa rota de fallback, as mensagens que não corresponderem a nenhuma consulta serão descartadas.
+Se você estiver usando [roteamento de mensagens](iot-hub-devguide-messages-d2c.md) e a [rota de fallback](iot-hub-devguide-messages-d2c.md#fallback-route) estiver habilitada, todas as mensagens que não corresponderem a uma consulta em qualquer rota irão para o ponto de extremidade interno. Se você desabilitar esta rota de fallback, as mensagens que não corresponderem a nenhuma consulta serão descartadas.
 
 Você pode modificar o tempo de retenção, seja de maneira programática usando as [APIs REST do provedor de recursos do Hub IoT](/rest/api/iothub/iothubresource) ou com o [portal do Azure](https://portal.azure.com).
 
@@ -37,19 +37,19 @@ O Hub IoT expõe um ponto de extremidade interno de **mensagens/eventos** para o
 
 ## <a name="read-from-the-built-in-endpoint"></a>Leitura do ponto de extremidade interno
 
-Algumas integrações de produtos e SDKs de hubs de eventos estão cientes do Hub IoT e permitem que você use a cadeia de conexão de serviço do Hub IoT para se conectar ao ponto de extremidade interno.
+Algumas integrações do produto e SDKs dos Hubs de Eventos reconhecem o Hub IoT e permitem que você use a cadeia de conexão do serviço do Hub IoT para se conectar ao ponto de extremidade interno.
 
-Ao usar SDKs de hubs de eventos ou integrações de produtos que não reconhecem o Hub IoT, você precisa de um ponto de extremidade compatível com o Hub de eventos e um nome compatível com o Hub de eventos. Você pode recuperar esses valores do portal da seguinte maneira:
+Ao usar os SDKs dos Hubs de Eventos ou as integrações do produto que não reconhecem o Hub IoT, você precisará recuperar um ponto de extremidade compatível com o hub de eventos e o nome compatível com o Hub de Eventos. Você pode recuperar esses valores do portal da seguinte maneira:
 
-1. Entre no [portal do Azure](https://portal.azure.com) e navegue até o Hub IOT.
+1. Entre no [Portal do Azure](https://portal.azure.com) e navegue até o Hub IoT.
 
 2. Clique em **Pontos de extremidade internos**.
 
-3. A seção de **eventos** contém os seguintes valores: **partições**, **nome compatível**com o Hub de eventos, **ponto de extremidade compatível com o Hub de eventos**, tempo de **retenção**e **grupos de consumidores**.
+3. A seção **Eventos** contém os valores a seguir: **Partições**, **Nome compatível com o hub de eventos**, **ponto de extremidade compatível com hub de eventos**, **Tempo de retenção** e **Grupos de consumidores**.
 
     ![Configurações de dispositivo para a nuvem](./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png)
 
-No portal, o campo ponto de extremidade compatível com o Hub de eventos contém uma cadeia de conexão completa de hubs de eventos semelhante a: **Endpoint = SB://abcd1234namespace.ServiceBus.Windows.net/; SharedAccessKeyName = iothubowner; SharedAccessKey = keykeykeykeykeykey =; EntityPath = iothub-eHub-ABCD-1234-123456**. Se o SDK que você está usando exigir outros valores, eles serão:
+No portal, o campo do ponto de extremidade compatível com hub de eventos contém uma cadeia de conexão completa dos Hubs de Eventos parecida com esta: **Endpoint=sb://abcd1234namespace.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=keykeykeykeykeykey=;EntityPath=iothub-ehub-abcd-1234-123456**. Se o SDK que você está usando exigir outros valores, eles devem ser:
 
 | Nome | Valor |
 | ---- | ----- |
@@ -59,20 +59,20 @@ No portal, o campo ponto de extremidade compatível com o Hub de eventos contém
 
 Dessa forma, você poderá usar qualquer política de acesso compartilhado com permissões **ServiceConnect** para se conectar ao Hub de Eventos especificado.
 
-Os SDKs que você pode usar para se conectar ao ponto de extremidade compatível com o Hub de eventos interno que o Hub IoT expõe incluem:
+Os SDKs, que você pode usar para se conectar ao ponto de extremidade compatível com hub de eventos interno que o Hub IoT expõe, incluem:
 
 | Linguagem | . | Exemplo |
 | -------- | --- | ------ |
 | .NET | https://github.com/Azure/azure-event-hubs-dotnet | [Início rápido](quickstart-send-telemetry-dotnet.md) |
- Java | https://github.com/Azure/azure-event-hubs-java | [Início rápido](quickstart-send-telemetry-java.md) |
+ Java | https://mvnrepository.com/artifact/com.azure/azure-messaging-eventhubs | [Início rápido](quickstart-send-telemetry-java.md) |
 | Node.js | https://www.npmjs.com/package/@azure/event-hubs | [Início rápido](quickstart-send-telemetry-node.md) |
 | Python | https://pypi.org/project/azure-eventhub/ | https://github.com/Azure-Samples/azure-iot-samples-python/tree/master/iot-hub/Quickstarts/read-d2c-messages |
 
-As integrações de produto que você pode usar com o ponto de extremidade compatível com o Hub de eventos interno que o Hub IoT expõe incluem:
+As integrações do produto, que você pode usar com o ponto de extremidade compatível com hub de eventos interno que o Hub IoT expõe, incluem:
 
-* [Azure Functions](https://docs.microsoft.com/azure/azure-functions/). Consulte [processando dados do Hub IOT com Azure Functions](https://azure.microsoft.com/resources/samples/functions-js-iot-hub-processing/).
-* [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/). Consulte [transmitir dados como entrada no Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-iot-hub).
-* [Time Series insights](https://docs.microsoft.com/azure/time-series-insights/). Consulte [Adicionar uma origem de evento do Hub IOT ao seu ambiente de time Series insights](../time-series-insights/time-series-insights-how-to-add-an-event-source-iothub.md).
+* [Azure Functions](https://docs.microsoft.com/azure/azure-functions/). Consulte [Processar dados do Hub IoT com o Azure Functions](https://azure.microsoft.com/resources/samples/functions-js-iot-hub-processing/).
+* [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/). Consulte [Transmitir dados como entrada no Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-iot-hub).
+* [Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/). Consulte [Adicionar uma origem do evento do hub IoT ao seu ambiente do Time Series Insights](../time-series-insights/time-series-insights-how-to-add-an-event-source-iothub.md).
 * [Spout do Apache Storm](../hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md). Você pode exibir a [fonte do spout](https://github.com/apache/storm/tree/master/external/storm-eventhubs) no GitHub.
 * [Integração do Apache Spark](../hdinsight/spark/apache-spark-eventhub-streaming.md).
 * [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/).

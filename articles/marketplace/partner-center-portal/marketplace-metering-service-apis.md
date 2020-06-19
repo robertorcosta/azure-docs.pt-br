@@ -1,26 +1,26 @@
 ---
-title: APIs de serviço de medição-Microsoft Commercial Marketplace
-description: A API de evento de uso permite que você emita eventos de uso para ofertas de SaaS no Microsoft AppSource e no Azure Marketplace.
+title: APIs de serviço de medição – Marketplace comercial da Microsoft
+description: A API de evento de uso permite emitir eventos de uso para ofertas de SaaS no Microsoft AppSource e no Azure Marketplace.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/11/2019
-ms.openlocfilehash: 159d2c60fc1fc5ad1f21f2b948208eaae0d06208
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.date: 05/18/2020
+ms.openlocfilehash: 95eba648219413923ce27d433a5236877c4953f3
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857857"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725458"
 ---
 # <a name="marketplace-metering-service-apis"></a>APIs de serviço de medição do Marketplace
 
-A API de evento de uso permite que você emita eventos de uso para uma entidade comprada específica. A solicitação de evento de uso faz referência à dimensão de serviços de medição definida pelo publicador ao publicar a oferta.
+A API de evento de uso permite emitir eventos de uso para uma entidade específica que tenha sido adquirida. A solicitação de evento de uso faz referência à dimensão de serviços de medição definida pelo publicador ao publicar a oferta.
 
 ## <a name="usage-event"></a>Evento de uso
 
-**Post**:`https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
+**POST**: `https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
 
 *Parâmetros de consulta:*
 
@@ -32,11 +32,14 @@ A API de evento de uso permite que você emita eventos de uso para uma entidade 
 
 | Content-type       | `application/json`    |
 | ------------------ | ---------------------------- |
-| `x-ms-requestid`     | Valor de cadeia de caracteres exclusiva para acompanhar a solicitação do cliente, preferivelmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
-| `x-ms-correlationid` | Valor de cadeia de caracteres exclusiva para a operação no cliente. Esse parâmetro correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
-| `authorization`   | [Obter token de portador JWT (token Web JSON).](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) Observação: ao fazer a solicitação HTTP, coloque `Bearer` o prefixo para o token obtido do link referenciado. |
+| `x-ms-requestid`     | Valor de cadeia de caracteres exclusivo para acompanhamento da solicitação do cliente, preferencialmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
+| `x-ms-correlationid` | Valor de cadeia de caracteres exclusivo para a operação no cliente. Esse parâmetro correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, ele será gerado e fornecido nos cabeçalhos de resposta. |
+| `authorization`   | [Obtenha o token de portador Token Web JSON (JWT).](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) Observação: Quando fizer a solicitação HTTP, coloque o prefixo `Bearer` para o token obtido do link referenciado. |
 
-*Quest*
+>[!Note]
+>Para planos de Aplicativos Gerenciados do Aplicativo Azure, a `resourceId` é a `resourceUsageId` encontrada no `billingDetails` do objeto de metadados do Aplicativo Gerenciado.  Um script de exemplo para buscá-los pode ser encontrado em [usando o token de identidades gerenciadas pelo Azure](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token).  Para ofertas de SaaS, a `resourceId` é a ID de assinatura do SaaS.  Para obter mais detalhes sobre assinaturas de SaaS, veja [listar assinaturas](./pc-saas-fulfillment-api-v2.md#list-subscriptions).
+
+*Solicitação:*
 
 ```json
 {
@@ -95,7 +98,7 @@ Solicitação inválida, dados ausentes ou inválidos fornecidos ou expirados
 ```
 
 Código: 409<br>
-Conflito, quando recebemos a chamada de uso para a ID de recurso de uso e o uso efetivo, que já existe. A resposta conterá `additionalInfo` o campo que contém informações sobre a mensagem aceita.
+Conflito, quando recebemos a chamada de uso para a ID de recurso de uso e o uso efetivo, que já existe. A resposta conterá o campo `additionalInfo` que contém informações sobre a mensagem aceita.
 
 ```json
 {
@@ -113,14 +116,14 @@ Conflito, quando recebemos a chamada de uso para a ID de recurso de uso e o uso 
 }
 ```
 
-## <a name="batch-usage-event"></a>Evento de uso do lote
+## <a name="batch-usage-event"></a>Evento de uso em lote
 
-A API de evento de uso do lote permite que você emita eventos de uso para mais de uma entidade comprada de uma só vez. A solicitação de evento de uso do lote faz referência à dimensão de serviços de medição definida pelo publicador ao publicar a oferta.
+A API de evento de uso em lote permite emitir eventos de uso para mais uma entidade que tenha sido adquirida, de uma só vez. A solicitação de evento de uso em lote faz referência à dimensão de serviços de medição definida pelo publicador ao publicar a oferta.
 
 >[!Note]
->Você pode registrar várias ofertas de SaaS no Marketplace comercial da Microsoft. Cada oferta de SaaS registrada tem um aplicativo exclusivo do Azure AD que é registrado para fins de autenticação e autorização. Os eventos emitidos no lote devem pertencer a ofertas com o mesmo aplicativo do Azure AD no momento do registro da oferta.
+>Você pode registrar várias ofertas de SaaS no Marketplace comercial da Microsoft. Cada oferta de SaaS registrada tem um aplicativo exclusivo do Azure AD que é registrado para fins de autenticação e autorização. Os eventos emitidos em lote devem pertencer a ofertas com o mesmo aplicativo do Azure AD no momento do registro da oferta.
 
-**Post:**`https://marketplaceapi.microsoft.com/api/batchUsageEvent?api-version=<ApiVersion>`
+**POST:** `https://marketplaceapi.microsoft.com/api/batchUsageEvent?api-version=<ApiVersion>`
 
 *Parâmetros de consulta:*
 
@@ -132,11 +135,11 @@ A API de evento de uso do lote permite que você emita eventos de uso para mais 
 
 | Content-type       | `application/json`       |
 | ------------------ | ------ |
-| `x-ms-requestid`     | Valor de cadeia de caracteres exclusiva para acompanhar a solicitação do cliente, preferivelmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
-| `x-ms-correlationid` | Valor de cadeia de caracteres exclusiva para a operação no cliente. Esse parâmetro correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
-| `authorization`      | [Obter token de portador JWT (token Web JSON).](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) Observação: ao fazer a solicitação HTTP, coloque `Bearer` o prefixo para o token obtido do link referenciado.  |
+| `x-ms-requestid`     | Valor de cadeia de caracteres exclusivo para acompanhamento da solicitação do cliente, preferencialmente um GUID. Se esse valor não for fornecido, ele será gerado e fornecido nos cabeçalhos de resposta. |
+| `x-ms-correlationid` | Valor de cadeia de caracteres exclusivo para a operação no cliente. Esse parâmetro correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, ele será gerado e fornecido nos cabeçalhos de resposta. |
+| `authorization`      | [Obtenha o token de portador Token Web JSON (JWT).](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) Observação: Quando fizer a solicitação HTTP, coloque o prefixo `Bearer` para o token obtido do link referenciado.  |
 
-*Quest*
+*Solicitação:*
 ```json
 {
   "request": [
@@ -192,9 +195,9 @@ OK
 }
 ```
 
-Descrição do código de status referenciado na resposta da `BatchUsageEvent` API:
+Descrição do código de status referenciado na resposta da API `BatchUsageEvent`:
 
-| Código de status  | Description |
+| Código de status  | Descrição |
 | ---------- | -------------------- |
 | `Accepted` | Código aceito. |
 | `Expired` | Uso expirado. |
@@ -202,9 +205,9 @@ Descrição do código de status referenciado na resposta da `BatchUsageEvent` A
 | `Error` | Código do erro. |
 | `ResourceNotFound` | O recurso de uso fornecido é inválido. |
 | `ResourceNotAuthorized` | Você não está autorizado a fornecer uso para este recurso. |
-| `InvalidDimension` | A dimensão para a qual o uso é passado é inválida para esta oferta/plano. |
+| `InvalidDimension` | A dimensão para a qual o uso foi passado é inválida para esta oferta/plano. |
 | `InvalidQuantity` | A quantidade passada é < 0. |
-| `BadArgument` | A entrada está ausente ou malformada. |
+| `BadArgument` | A entrada está ausente ou mal formulada. |
 
 Código: 400<br>
 Solicitação inválida, dados ausentes ou inválidos fornecidos ou expirados
@@ -235,4 +238,4 @@ O usuário não está autorizado a fazer esta chamada
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações, consulte [cobrança limitada de SaaS](./saas-metered-billing.md).
+Para obter mais informações, veja [Cobrança limitada de SaaS](./saas-metered-billing.md).

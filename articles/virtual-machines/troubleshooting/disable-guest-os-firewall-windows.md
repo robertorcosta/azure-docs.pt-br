@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: e4cd1595d963330bd5decb366310bf5e97f59bc8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5d8aa456a6454dd511b7dcda5d3f74a739033356
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80422374"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774337"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Desativar o firewall do sistema operacional convidado na VM do Azure
 
@@ -27,7 +27,7 @@ Este artigo fornece uma referência para situações em que você suspeita de qu
 
 ## <a name="solution"></a>Solução
 
-O processo descrito neste artigo se destina a ser usado como uma solução alternativa para que você possa se concentrar em corrigir o problema real, que é como configurar as regras de firewall corretamente. É uma prática recomendada da Microsoft ter o componente Firewall do Windows habilitado. A maneira como você configura as regras de firewall depende do nível de acesso à VM necessária.
+O processo descrito neste artigo se destina a ser usado como uma solução alternativa para que você possa se concentrar em corrigir o problema real, que é como configurar as regras de firewall corretamente. É uma prática recomendada da Microsoft ter o componente do Firewall do Windows habilitado. A maneira como você configura as regras do firewall depende do nível de acesso à VM necessária.
 
 ### <a name="online-solutions"></a>Soluções on-line 
 
@@ -49,18 +49,18 @@ Se você tiver um agente do Azure em funcionamento, você pode usar a [Extensão
 >   ```
 >   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile' -name "EnableFirewall" -Value 0
 >   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile' -name "EnableFirewall" -Value 0
->   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\StandardProfile' name "EnableFirewall" -Value 0
+>   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\StandardProfile' -name "EnableFirewall" -Value 0
 >   Restart-Service -Name mpssvc
 >   ```
 >   No entanto, assim que a política é aplicada novamente, você vai será retirado da sessão remota. A correção permanente para esse problema é modificar a política que é aplicada neste computador.
 
-#### <a name="mitigation-2-remote-powershell"></a>Mitigação 2: PowerShell Remoto
+#### <a name="mitigation-2-remote-powershell"></a>Mitigação 2: PowerShell remoto
 
 1.  Conecte-se a uma VM que está localizada na mesma rede virtual da VM que você não pode acessar por meio de conexão de RDP.
 
 2.  Abra uma janela do console do PowerShell.
 
-3.  Execute os comandos a seguir:
+3.  Execute os seguintes comandos:
 
     ```powershell
     Enter-PSSession (New-PSSession -ComputerName "<HOSTNAME>" -Credential (Get-Credential) -SessionOption (New-PSSessionOption -SkipCACheck -SkipCNCheck)) 
@@ -72,13 +72,13 @@ Se você tiver um agente do Azure em funcionamento, você pode usar a [Extensão
 > [!Note]
 > Se o firewall for definido por meio de um Objeto da Política de Grupo, esse método pode não funcionar porque esse comando altera somente as entradas dos registros locais. Se uma política estiver em vigor, ela substituirá essa alteração. 
 
-#### <a name="mitigation-3-pstools-commands"></a>Mitigação 3: comandos do PSTools
+#### <a name="mitigation-3-pstools-commands"></a>Mitigação 3: Comandos do PSTools
 
 1.  Na VM de solução de problemas, baixe [ PSTools ](https://docs.microsoft.com/sysinternals/downloads/pstools).
 
 2.  Abra uma instância do CMD e acesse a VM por meio de seu DIP.
 
-3.  Execute os comandos a seguir:
+3.  Execute os seguintes comandos:
 
     ```cmd
     psexec \\<DIP> -u <username> cmd
@@ -86,13 +86,13 @@ Se você tiver um agente do Azure em funcionamento, você pode usar a [Extensão
     psservice restart mpssvc
     ```
 
-#### <a name="mitigation-4-remote-registry"></a>Mitigation 4: Registro remoto 
+#### <a name="mitigation-4-remote-registry"></a>Mitigação 4: Registro remoto 
 
 Siga estas etapas para usar o [Registro Remoto](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry).
 
-1.  Na VM de solução de problemas, inicie o editor do registro e vá para **arquivo** > **conectar registro de rede**.
+1.  Na solução de problemas da VM, inicie o editor do registro e selecione **Arquivo** > **Conecte o Registro de Rede**.
 
-2.  Abra a ramificação \System do *computador de destino*e especifique os seguintes valores:
+2.  Abra a ramificação *TARGET MACHINE*\SYSTEM e especifique os seguintes valores:
 
     ```
     <TARGET MACHINE>\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\DomainProfile\EnableFirewall           -->        0 
@@ -100,15 +100,15 @@ Siga estas etapas para usar o [Registro Remoto](https://support.microsoft.com/he
     <TARGET MACHINE>\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\StandardProfile\EnableFirewall         -->        0
     ```
 
-3.  Reinicie o serviço. Como não é possível fazer isso usando o registro remoto, você deve usar o console de serviço remoto.
+3.  Reinicie o serviço. Uma vez que você não pode fazer isso usando o registro remoto, você deve usar Remover o Console de Serviço.
 
-4.  Abra uma instância de **Services. msc**.
+4.  Abra uma instância do **Services. msc**.
 
-5.  Clique em **Serviços (Local)**.
+5.  Clique em **Serviços (Local)** .
 
 6.  Selecione **Conectar-se a outro computador**.
 
-7.  Insira o **endereço IP privado (DIP)** da VM com problema.
+7.  Insira o **Endereço de IP Privado (DIP)** da VM com problema.
 
 8.  Reinicie a política de firewall local.
 
@@ -116,7 +116,7 @@ Siga estas etapas para usar o [Registro Remoto](https://support.microsoft.com/he
 
 ### <a name="offline-solutions"></a>Soluções Offline 
 
-Se você tiver uma situação em que você não pode alcançar a VM por meio de qualquer método, Extensão do Script Personalizado falhará e você terá o trabalho no modo OFFLINE trabalhando diretamente através do disco do sistema. Para fazer isso, execute estas etapas:
+Se você tiver uma situação em que você não pode alcançar a VM por meio de qualquer método, Extensão do Script Personalizado falhará e você terá o trabalho no modo OFFLINE trabalhando diretamente através do disco do sistema. Para fazer isso, siga estas etapas:
 
 1.  [Anexar o disco do sistema para uma VM de recuperação](troubleshoot-recovery-disks-portal-windows.md).
 

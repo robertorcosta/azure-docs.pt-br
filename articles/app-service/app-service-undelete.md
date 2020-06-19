@@ -1,27 +1,27 @@
 ---
 title: Restaurar aplicativos excluídos
-description: Saiba como restaurar um aplicativo excluído no serviço Azure App. Evite a dor de cabeça de um aplicativo excluído acidentalmente.
+description: Saiba como restaurar um aplicativo excluído no Serviço de Aplicativo do Azure. Evite ter dor de cabeça com um aplicativo excluído acidentalmente.
 author: btardif
 ms.author: byvinyal
 ms.date: 9/23/2019
 ms.topic: article
-ms.openlocfilehash: 296c8e2dfe99e3b0aea66f364ac6f6d9b2f60a1a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 440f46cbeebee1b552e64eba4ebc8787a47edf56
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81272484"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779222"
 ---
 # <a name="restore-deleted-app-service-app-using-powershell"></a>Restaurar o aplicativo Serviço de Aplicativo excluído usando o PowerShell
 
-Se você tiver excluído acidentalmente seu aplicativo no serviço Azure App, poderá restaurá-lo usando os comandos do [módulo AZ PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-2.6.0&viewFallbackFrom=azps-2.2.0).
+Se excluir acidentalmente seu aplicativo no Serviço de Aplicativo do Azure, você poderá restaurá-lo usando os comandos do [módulo Az PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-2.6.0&viewFallbackFrom=azps-2.2.0).
 
 > [!NOTE]
-> Os aplicativos excluídos são limpos do sistema 30 dias após a exclusão inicial. Depois que um aplicativo tiver sido limpo, ele não poderá ser recuperado.
+> Os aplicativos excluídos são limpos do sistema 30 dias após a exclusão inicial. Depois que um aplicativo for limpo, ele não poderá ser recuperado.
 >
 
-## <a name="re-register-app-service-resource-provider"></a>Registrar novamente o provedor de recursos do serviço de aplicativo
-Alguns clientes podem chegar a um problema em que a recuperação da lista de aplicativos excluídos falha. Para resolver o problema, execute o seguinte comando:
+## <a name="re-register-app-service-resource-provider"></a>Registrar novamente o provedor de recursos do Serviço de Aplicativo
+Alguns clientes podem encontrar um problema em que não é possível recuperar a lista de aplicativos excluídos. Para resolver o problema, execute o seguinte comando:
 
 ```powershell
  Register-AzResourceProvider -ProviderNamespace "Microsoft.Web"
@@ -31,7 +31,7 @@ Alguns clientes podem chegar a um problema em que a recuperação da lista de ap
 
 Para obter a coleção de aplicativos excluídos, você pode usar `Get-AzDeletedWebApp`.
 
-Para obter detalhes sobre um aplicativo específico excluído, você pode usar:
+Para mais informações sobre um aplicativo específico excluído, você pode usar:
 
 ```powershell
 Get-AzDeletedWebApp -Name <your_deleted_app> -Location <your_deleted_app_location> 
@@ -39,35 +39,37 @@ Get-AzDeletedWebApp -Name <your_deleted_app> -Location <your_deleted_app_locatio
 
 As informações detalhadas incluem:
 
-- **DeletedSiteId**: identificador exclusivo para o aplicativo, usado para cenários em que vários aplicativos com o mesmo nome foram excluídos
-- **SubscriptionId**: assinatura que contém o recurso excluído
-- **Local**: local do aplicativo original
-- **ResourceGroupName**: nome do grupo de recursos original
-- **Nome**: o nome do aplicativo original.
+- **DeletedSiteId**: Identificador exclusivo do aplicativo, usado em cenários em que vários aplicativos com o mesmo nome foram excluídos
+- **SubscriptionID**: Assinatura que contém o recurso excluído
+- **Localização**: Local do aplicativo original
+- **ResourceGroupName**: Nome do grupo de recursos original
+- **Name**: Nome do aplicativo original.
 - **Slot**: o nome do slot.
-- **Hora da exclusão**: quando o aplicativo foi excluído  
+- **Hora da exclusão**: Quando o aplicativo foi excluído  
 
 ## <a name="restore-deleted-app"></a>Restaurar aplicativo excluído
+>[!NOTE]
+> `Restore-AzDeletedWebApp` não tem suporte para aplicativos de funções.
 
-Depois que o aplicativo que você deseja restaurar tiver sido identificado, você poderá restaurá- `Restore-AzDeletedWebApp`lo usando o.
+Depois de identificar o aplicativo que quer restaurar, você poderá usar `Restore-AzDeletedWebApp`.
 
 ```powershell
 Restore-AzDeletedWebApp -ResourceGroupName <my_rg> -Name <my_app> -TargetAppServicePlanName <my_asp>
 ```
 > [!NOTE]
-> Os slots de implantação não são restaurados como parte do seu aplicativo. Se você precisar restaurar um slot de preparo, use o `-Slot <slot-name>` sinalizador.
+> Os slots de implantação não são restaurados como parte do seu aplicativo. Se você precisar restaurar um slot de preparo, use o sinalizador `-Slot <slot-name>`.
 >
 
 As entradas para o comando são:
 
-- **Grupo de recursos**: grupo de recursos de destino em que o aplicativo será restaurado
-- **Nome**: o nome do aplicativo deve ser globalmente exclusivo.
-- **TargetAppServicePlanName**: plano do serviço de aplicativo vinculado ao aplicativo
+- **Grupo de Recursos**: Grupo de recursos de destino onde o aplicativo será restaurado
+- **Name**: O nome do aplicativo que deve ser globalmente exclusivo.
+- **TargetAppServicePlanName**: Plano do Serviço de Aplicativo vinculado ao aplicativo
 
-Por padrão `Restore-AzDeletedWebApp` , o também restaurará a configuração do aplicativo como um conteúdo. Se você quiser restaurar apenas o conteúdo, use o `-RestoreContentOnly` sinalizador com este commandlet.
+Por padrão, `Restore-AzDeletedWebApp` restaurará a configuração do seu aplicativo, bem como um conteúdo. Se você quiser restaurar apenas o conteúdo, use o sinalizador `-RestoreContentOnly` com esse commandlet.
 
 > [!NOTE]
 > Se o aplicativo foi hospedado em e, em seguida, excluído de um Ambiente do Serviço de Aplicativo, ele só poderá ser restaurado se o Ambiente do Serviço de Aplicativo correspondente ainda existir.
 >
 
-Você pode encontrar a referência completa do commandlet aqui: [Restore-AzDeletedWebApp](https://docs.microsoft.com/powershell/module/az.websites/restore-azdeletedwebapp).
+A referência completa do commandlet está aqui: [Restore-AzDeletedWebApp](https://docs.microsoft.com/powershell/module/az.websites/restore-azdeletedwebapp).

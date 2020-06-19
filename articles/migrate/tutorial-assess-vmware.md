@@ -4,12 +4,12 @@ description: Descreve como avaliar as VMs locais do VMware para migração para 
 ms.topic: tutorial
 ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: 87eac5979176fe9a71db15961e4c5f822b56568e
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: 231daff5972e9b2f115df9e6184c43a553f55b83
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84331875"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84771301"
 ---
 # <a name="assess-vmware-vms-with-server-assessment"></a>Avaliar VMs do VMware com a Avaliação do Servidor
 
@@ -34,7 +34,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 - [Conclua o primeiro tutorial](tutorial-prepare-vmware.md) desta série. Caso contrário, as instruções deste tutorial não funcionarão.
 - Veja o que você deve ter feito no primeiro tutorial:
     - [Preparar o Azure](tutorial-prepare-vmware.md#prepare-azure) para trabalhar com as Migrações para Azure.
-    - [Preparar o VMware para a avaliação](tutorial-prepare-vmware.md#prepare-for-vmware-vm-assessment) para avaliação. Isso inclui verificar as configurações do VMware, configurando uma conta que o Migrações para Azure possa usar para acessar o vCenter Server.
+    - [Preparar o VMware para a avaliação](tutorial-prepare-vmware.md#prepare-for-assessment) para avaliação. Isso inclui verificar as configurações do VMware, configurando uma conta que o Migrações para Azure possa usar para acessar o vCenter Server.
     - [Verificar](tutorial-prepare-vmware.md#verify-appliance-settings-for-assessment) o que você precisa para implantar o dispositivo de Migrações para Azure para avaliação do VMware.
 
 ## <a name="set-up-an-azure-migrate-project"></a>Configurar um projeto das Migrações para Azure
@@ -99,7 +99,7 @@ Verifique se o arquivo OVA é seguro antes de implantá-lo:
         --- | --- | ---
         VMware (10,9 GB) | [Última versão](https://aka.ms/migrate/appliance/vmware) | cacbdaef927fe5477fa4e1f494fcb7203cbd6b6ce7402b79f234bc0fe69663dd
 
-    - Para o Azure Goverment:
+    - Para o Azure Government:
     
         **Algoritmo** | **Download** | **SHA256**
         --- | --- | ---
@@ -170,7 +170,7 @@ O dispositivo precisa se conectar ao vCenter Server para descobrir a configuraç
 1. Em **Especificar detalhes do vCenter Server**, especifique o nome (FQDN) ou o endereço IP da instância do vCenter Server. Você pode manter a porta padrão ou especificar uma porta personalizada na qual o vCenter Server escutará.
 2. Em **Nome de usuário** e **Senha**, especifique as credenciais de conta do vCenter Server que o dispositivo usará para descobrir VMs na instância do vCenter Server. 
 
-    - Você deve ter configurado uma conta com as permissões necessárias no [tutorial anterior](tutorial-prepare-vmware.md#set-up-an-account-for-assessment).
+    - Você deve ter configurado uma conta com as permissões necessárias no [tutorial anterior](tutorial-prepare-vmware.md#set-up-permissions-for-assessment).
     - Se você quiser definir o escopo da descoberta para objetos específicos do VMware (data centers, clusters, uma pasta de clusters, hosts, uma pasta de hosts ou VMs individuais do vCenter Server), examine as instruções [neste artigo](set-discovery-scope.md) para restringir a conta usada por Migrações para Azure.
 
 3. Selecione **Validar conexão** para garantir que o dispositivo possa se conectar ao vCenter Server.
@@ -178,7 +178,7 @@ O dispositivo precisa se conectar ao vCenter Server para descobrir a configuraç
 
     - Opcionalmente, adicione credenciais aqui se você tiver criado uma conta a ser usada para o [recurso de descoberta de aplicativo](how-to-discover-applications.md) ou o [recurso de análise de dependência sem agente](how-to-create-group-machine-dependencies-agentless.md).
     - Se você não estiver usando esses recursos, poderá ignorar essa configuração.
-    - Examine as credenciais necessárias para [descoberta do aplicativo](migrate-support-matrix-vmware.md#application-discovery) ou para [análise sem agente](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements).
+    - Examine as credenciais necessárias para [descoberta do aplicativo](migrate-support-matrix-vmware.md#application-discovery-requirements) ou para [análise sem agente](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless).
 
 5. **Salve e inicie a descoberta** para iniciar a descoberta de VM.
 

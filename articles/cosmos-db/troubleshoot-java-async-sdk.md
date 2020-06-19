@@ -1,22 +1,22 @@
 ---
-title: Diagnosticar e solucionar problemas Azure Cosmos DB SDK Java assíncrono v2
-description: Use recursos como registro em log do lado do cliente e outras ferramentas de terceiros para identificar, diagnosticar e solucionar problemas de Azure Cosmos DB no SDK Java assíncrono v2.
+title: Diagnosticar e solucionar problemas do SDK do Java Assíncrono v2 do Azure Cosmos DB
+description: Use recursos como registro em log do lado do cliente e outras ferramentas de terceiros para identificar, diagnosticar e solucionar problemas do Azure Cosmos DB no SDK do Java Assíncrono v2.
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 05/08/2020
+ms.date: 05/11/2020
 ms.author: anfeldma
 ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 04fa8d65ffb822fcd37f6da1bf3074a4e6a1d088
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.openlocfilehash: 10ad2fa3eb03254894c51fff66389ec3a8da4c38
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982608"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651897"
 ---
-# <a name="troubleshoot-issues-when-you-use-the-azure-cosmos-db-async-java-sdk-v2-with-sql-api-accounts"></a>Solucionar problemas ao usar o Azure Cosmos DB o SDK Java assíncrono V2 com contas da API do SQL
+# <a name="troubleshoot-issues-when-you-use-the-azure-cosmos-db-async-java-sdk-v2-with-sql-api-accounts"></a>Solucionar problemas ao usar o SDK do Java Assíncrono v2 do Azure Cosmos DB com contas de API do SQL
 
 > [!div class="op_single_selector"]
 > * [SDK do Java v4](troubleshoot-java-sdk-v4-sql.md)
@@ -25,12 +25,12 @@ ms.locfileid: "82982608"
 > 
 
 > [!IMPORTANT]
-> Este *não* é o SDK do Java mais recente para Azure Cosmos DB! Considere usar Azure Cosmos DB SDK do Java v4 para seu projeto. Siga as instruções no guia [migrar para Azure Cosmos DB SDK do Java v4](migrate-java-v4-sdk.md) e [reator versus](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) guia de RxJava para atualizar. 
+> Esse *não* é o SDK do Java mais recente para o Azure Cosmos DB! Você deve atualizar seu projeto para [SDK do Java v4 do Azure Cosmos DB](sql-api-sdk-java-v4.md) e, em seguida, ler o [guia de solução de problemas](troubleshoot-java-sdk-v4-sql.md) do SDK do Java v4 do Azure Cosmos DB. Siga as instruções nos guias [Migrar para o SDK do Java v4 do Azure Cosmos DB](migrate-java-v4-sdk.md) e [Reator vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md). 
 >
-> Este artigo aborda a solução de problemas para Azure Cosmos DB somente o SDK do Java assíncrono v2. Consulte as [notas de versão](sql-api-sdk-async-java.md)do Azure Cosmos DB Async Java SDK v2, [repositório Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) e [dicas de desempenho](performance-tips-async-java.md) para obter mais informações.
+> Este artigo aborda apenas a solução de problemas para o SDK do Java Assíncrono v2 do Azure Cosmos DB. Confira as [Notas sobre a Versão](sql-api-sdk-async-java.md) do SDK do Java Assíncrono v2 do Azure Cosmos DB, o [repositório Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) e as [dicas de desempenho](performance-tips-async-java.md) para obter mais informações.
 >
 
-Este artigo aborda problemas comuns, soluções alternativas, etapas de diagnóstico e ferramentas quando você usa o [Java Async SDK](sql-api-sdk-async-java.md) com Azure Cosmos DB contas da API do SQL.
+Este artigo aborda problemas comuns, soluções alternativas, etapas de diagnóstico e ferramentas ao usar do [SDK do Java Assíncrono](sql-api-sdk-async-java.md) com contas da API Azure Cosmos DB SQL.
 O SDK do Java Assíncrono fornece uma representação lógica do lado do cliente para acessar a API do Azure Cosmos DB SQL. Este artigo descreve as ferramentas e as abordagens para ajudá-lo se você tiver algum problema.
 
 Comece com esta lista:
@@ -49,7 +49,7 @@ Comece com esta lista:
 * Verifique o uso da CPU no host em que o aplicativo está sendo executado. Se o uso da CPU é de 90% ou mais, execute seu aplicativo em um host com uma configuração superior. Ou você pode distribuir a carga em mais computadores.
 
 #### <a name="connection-throttling"></a>Limitação de conexão
-A limitação de conexão pode ocorrer devido a um [limite de conexão no computador host] ou a [Esgotamento de porta do Azure SNAT (PAT)].
+A limitação de conexão pode ocorrer devido a um [limite de conexão no computador host] ou a [Esgotamento da porta SNAT (PAT) do Azure].
 
 ##### <a name="connection-limit-on-a-host-machine"></a><a name="connection-limit-on-host"></a>Limite de conexão no computador host
 Alguns sistemas Linux, como Red Hat, têm um limite superior para o número total de arquivos abertos. Soquetes no Linux são implementados como arquivos, portanto, esse número limita o número total de conexões também.
@@ -71,22 +71,22 @@ Se o seu aplicativo for desenvolvido nas Máquinas Virtuais do Microsoft Azure s
     Quando o ponto de extremidade for habilitado, as solicitações não são mais enviadas de um IP público para o Azure Cosmos DB. Em vez disso, a rede virtual e a identidade de sub-rede são enviadas. Essa alteração poderá resultar em quedas de firewall se apenas IPs públicos forem permitidos. Se você usar um firewall, quando você habilitar o ponto de extremidade de serviço, adicione uma sub-rede para o firewall usando as [ACLs de Rede Virtual](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl).
 * Atribua um IP público à sua VM do Azure.
 
-##### <a name="cant-reach-the-service---firewall"></a><a name="cant-connect"></a>Não é possível acessar o serviço-Firewall
-``ConnectTimeoutException``indica que o SDK não pode acessar o serviço.
+##### <a name="cant-reach-the-service---firewall"></a><a name="cant-connect"></a>Não é possível acessar o Serviço – firewall
+``ConnectTimeoutException`` indica que o SDK não pode acessar o serviço.
 Você pode obter uma falha semelhante à seguinte ao usar o modo direto:
 ```
 GoneException{error=null, resourceAddress='https://cdb-ms-prod-westus-fd4.documents.azure.com:14940/apps/e41242a5-2d71-5acb-2e00-5e5f744b12de/services/d8aa21a5-340b-21d4-b1a2-4a5333e7ed8a/partitions/ed028254-b613-4c2a-bf3c-14bd5eb64500/replicas/131298754052060051p//', statusCode=410, message=Message: The requested resource is no longer available at the server., getCauseInfo=[class: class io.netty.channel.ConnectTimeoutException, message: connection timed out: cdb-ms-prod-westus-fd4.documents.azure.com/101.13.12.5:14940]
 ```
 
-Se você tiver um firewall em execução em seu computador de aplicativo, abra o intervalo de portas 10.000 a 20.000 que são usadas pelo modo direto.
-Além disso, siga o [limite de conexão em um computador host](#connection-limit-on-host).
+Se você tiver um firewall em execução em seu computador do aplicativo, abra o intervalo de portas 10.000 a 20.000 que são usadas pelo modo direto.
+Além disso, siga o [Limite de conexão em um computador host](#connection-limit-on-host).
 
 #### <a name="http-proxy"></a>Proxy HTTP
 
 Se você usar um proxy HTTP, certifique-se que pode suportar o número de conexões configuradas no SDK `ConnectionPolicy`.
 Caso contrário, você enfrentará problemas de conexão.
 
-#### <a name="invalid-coding-pattern-blocking-netty-io-thread"></a>Padrão de codificação inválido: bloqueio do thread de E/S do Netty
+#### <a name="invalid-coding-pattern-blocking-netty-io-thread"></a>Padrão de codificação inválido: Bloqueio do thread de E/S do Netty
 
 O SDK usa a biblioteca de E/S [Netty](https://netty.io/) biblioteca para se comunicar com o Azure Cosmos DB. O SDK tem APIs assíncronas e usas as APIs de E/S sem bloqueio do Netty. O trabalho de E/S do SDK é executado em threads de Netty de E/S. O número de threads de E/S Netty está configurado para ser igual ao número de núcleos da CPU no computador do aplicativo. 
 
@@ -94,7 +94,7 @@ Os threads de E/S Netty destinam-se somente a serem usados para o trabalho de E/
 
 Por exemplo, dê uma olhada no seguinte snippet de código. Você pode executar o trabalho de longa duração que leva mais de alguns milissegundos no thread de Netty. Nesse caso, você, eventualmente, pode colocar em um estado em que nenhum thread de e/s do Netty está presente para processar o trabalho de e/s. Como resultado, você obterá uma falha de ReadTimeoutException.
 
-### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-readtimeout"></a>SDK Java assíncrono v2 (Maven com. Microsoft. Azure:: Azure-cosmosdb)
+### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-readtimeout"></a>SDK do Java Assíncrono V2 (Maven com.microsoft.azure::azure-cosmosdb)
 
 ```java
 @Test
@@ -149,7 +149,7 @@ public void badCodeWithReadTimeoutException() throws Exception {
 ```
 A solução alternativa é alterar o thread em que você executa o trabalho demorado. Defina uma instância singleton do agendador para seu aplicativo.
 
-### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-scheduler"></a>SDK Java assíncrono v2 (Maven com. Microsoft. Azure:: Azure-cosmosdb)
+### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-scheduler"></a>SDK do Java Assíncrono V2 (Maven com.microsoft.azure::azure-cosmosdb)
 
 ```java
 // Have a singleton instance of an executor and a scheduler.
@@ -158,7 +158,7 @@ Scheduler customScheduler = rx.schedulers.Schedulers.from(ex);
 ```
 Você talvez precise fazer o trabalho que leva tempo, por exemplo, recursos computacionais pesados corporativos ou bloqueio de e/s. Nesse caso, alterne o thread para um trabalhador fornecido pelo seu `customScheduler` usando a `.observeOn(customScheduler)` API.
 
-### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-applycustomscheduler"></a>SDK Java assíncrono v2 (Maven com. Microsoft. Azure:: Azure-cosmosdb)
+### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-applycustomscheduler"></a>SDK do Java Assíncrono V2 (Maven com.microsoft.azure::azure-cosmosdb)
 
 ```java
 Observable<ResourceResponse<Document>> createObservable = client
@@ -189,17 +189,17 @@ O certificado HTTPS do emulador do Azure Cosmos DB é autoassinado. Para o SDK f
 Exception in thread "main" java.lang.NoSuchMethodError: rx.Observable.toSingle()Lrx/Single;
 ```
 
-A exceção acima sugere que você tenha uma dependência de uma versão mais antiga do RxJava lib (por exemplo, 1.2.2). Nosso SDK se baseia em RxJava 1.3.8, que tem APIs não disponíveis na versão anterior do RxJava. 
+A exceção acima sugere que você tem uma dependência em uma versão mais antiga da biblioteca RxJava (por exemplo, 1.2.2). Nosso SDK se baseia em RxJava 1.3.8, que tem APIs não disponíveis na versão anterior do RxJava. 
 
-A solução alternativa para esses problemas é identificar qual outra dependência traz em RxJava-1.2.2 e excluir a dependência transitiva em RxJava-1.2.2 e permitir que o SDK do CosmosDB traga a versão mais recente.
+A solução alternativa para esses problemas é identificar qual outra dependência traz o RxJava-1.2.2, excluir a dependência transitiva em RxJava-1.2.2 e permitir que o SDK do CosmosDB traga a versão mais recente.
 
-Para identificar qual biblioteca apresenta o RxJava-1.2.2, execute o seguinte comando ao lado do arquivo pom. XML do projeto:
+Para identificar qual biblioteca apresenta o RxJava-1.2.2, execute o seguinte comando ao lado do arquivo pom.xml do projeto:
 ```bash
 mvn dependency:tree
 ```
-Para obter mais informações, consulte o [Guia de árvore de dependência do Maven](https://maven.apache.org/plugins/maven-dependency-plugin/examples/resolving-conflicts-using-the-dependency-tree.html).
+Para obter mais informações, confira o [guia de árvore de dependências do Maven](https://maven.apache.org/plugins/maven-dependency-plugin/examples/resolving-conflicts-using-the-dependency-tree.html).
 
-Depois de identificar o RxJava-1.2.2 é uma dependência transitiva de qual outra dependência do seu projeto, você pode modificar a dependência da lib em seu arquivo POM e excluir RxJava dependência transitiva:
+Depois de identificar de qual outra dependência do seu projeto o RxJava-1.2.2 é uma dependência transitiva, você pode modificar a dependência na biblioteca em seu arquivo pom e excluir a dependência transitiva do RXJava:
 
 ```xml
 <dependency>
@@ -215,7 +215,7 @@ Depois de identificar o RxJava-1.2.2 é uma dependência transitiva de qual outr
 </dependency>
 ```
 
-Para obter mais informações, consulte o [guia Excluir dependência transitiva](https://maven.apache.org/guides/introduction/introduction-to-optional-and-excludes-dependencies.html).
+Para obter mais informações, confira o [guia Excluir dependência transitiva](https://maven.apache.org/guides/introduction/introduction-to-optional-and-excludes-dependencies.html).
 
 
 ## <a name="enable-client-sdk-logging"></a><a name="enable-client-sice-logging"></a>Habilitar o log do SDK do cliente
@@ -273,7 +273,7 @@ Muitas conexões para o ponto de extremidade do Azure Cosmos DB podem estar no `
  <!--Anchors-->
 [Problemas comuns e soluções alternativas]: #common-issues-workarounds
 [Enable client SDK logging]: #enable-client-sice-logging
-[Limite de conexão em um computador host]: #connection-limit-on-host
-[Esgotamento de porta de SNAT do Azure (PAT)]: #snat
+[Limite de conexão no computador host]: #connection-limit-on-host
+[Esgotamento da porta SNAT (PAT) do Azure]: #snat
 
 

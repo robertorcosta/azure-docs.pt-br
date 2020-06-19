@@ -1,14 +1,14 @@
 ---
-title: Erros de modelo inválidos
-description: Descreve como resolver erros de modelo inválido ao implantar modelos de Azure Resource Manager.
+title: Erros de modelo inválido
+description: Descreve como resolver erros de modelo inválido ao implantar modelos do Azure Resource Manager.
 ms.topic: troubleshooting
-ms.date: 03/08/2018
-ms.openlocfilehash: 65cd69d67933d117b51f37b587b276aec2bd635a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 05/22/2020
+ms.openlocfilehash: bb053f59c417827a7c07ca193ccea0b8509244d6
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76154050"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832514"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Resolva erros de modelo inválido
 
@@ -130,7 +130,7 @@ Verifique uma segunda vez os valores permitidos no modelo e forneça um durante 
 
 ## <a name="solution-4---too-many-target-resource-groups"></a>Solução 4 – Muitos grupos de recursos de destino
 
-Se especificar mais de cinco grupos de recursos de destino em uma única implantação, você receberá esse erro. Considere a possibilidade de consolidar o número de grupos de recursos em sua implantação ou implantar alguns dos modelos como implantações separadas. Para saber mais, consulte [Implantar recursos do Azure em mais de uma assinatura ou grupo de recursos](cross-resource-group-deployment.md).
+Você pode observar esse erro em implantações anteriores porque estava limitado a cinco grupos de recursos de destino em uma única implantação. Em maio de 2020, esse limite foi aumentado para 800 grupos de recursos. Para saber mais, consulte [Implantar recursos do Azure em mais de uma assinatura ou grupo de recursos](cross-resource-group-deployment.md).
 
 <a id="circular-dependency" />
 
@@ -143,7 +143,7 @@ Para resolver uma dependência circular:
 1. No modelo, localize o recurso identificado na dependência circular.
 2. Para esse recurso, examine o **dependsOn** propriedade e quaisquer usos da **referência** função para ver quais recursos ele depende.
 3. Examine os recursos para ver quais recursos eles dependem. Siga as dependências até você perceber um recurso depende do recurso original.
-5. Para os recursos envolvidos na dependência circular, examine cuidadosamente todas as funções de **dependsOn** propriedade para identificar quaisquer dependências que não são necessários. Remova essas dependências. Se você não tiver certeza de que uma dependência é necessária, tente removê-lo.
+5. Para os recursos envolvidos na dependência circular, examine cuidadosamente todos os usos da propriedade **dependsOn** para identificar quaisquer dependências desnecessárias. Remova essas dependências. Se você não tiver certeza de que uma dependência é necessária, tente removê-la.
 6. Reimplante o modelo.
 
 Removendo valores do **dependsOn** propriedade pode causar erros quando você implanta o modelo. Se você receber um erro, adicione a dependência de volta ao modelo.

@@ -2,108 +2,89 @@
 title: APIs e ferramentas para desenvolvedores
 description: Saiba mais sobre as APIs e ferramentas disponíveis para o desenvolvimento de soluções com o serviço de Lote do Azure.
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 05/22/2010
 ms.custom: seodec18
-ms.openlocfilehash: e345e91b2f7d66f014427770614efe42b5fb7a44
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: cd87419cd8c389be861cb88071884f8da1c3c1a3
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232676"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83870589"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Visão geral das ferramentas e APIs de Lote
 
-O processamento de cargas de trabalho paralelas com o Lote do Azure normalmente é feito de forma programática usando uma das APIs do Lote. O aplicativo cliente ou serviço pode usar as APIs do Lote para se comunicar com o serviço de Lote. Com as APIs do Lote, você pode criar e gerenciar pools de nós de computação, máquinas virtuais ou serviços de nuvem. Em seguida, você pode agendar trabalhos e tarefas para serem executadas em nós. 
+O processamento de cargas de trabalho paralelas com o Lote do Azure normalmente é feito de forma programática usando uma das APIs do Lote. O aplicativo cliente ou serviço pode usar as APIs do Lote para se comunicar com o serviço de Lote. Com as APIs do Lote, você pode criar e gerenciar pools de nós de computação, máquinas virtuais ou serviços de nuvem. Em seguida, você pode agendar trabalhos e tarefas para serem executadas em nós.
 
 Você pode processar com eficiência cargas de trabalho em grande escala para sua organização ou fornecer um front-end de serviço a seus clientes para que eles possam executar trabalhos e tarefas, sob demanda ou de acordo com uma agenda, em um ou em centenas ou em milhares de nós. Você também pode usar o Lote do Azure como parte de um fluxo de trabalho maior, gerenciado por ferramentas como o [Azure Data Factory](../data-factory/transform-data-using-dotnet-custom-activity.md?toc=%2fazure%2fbatch%2ftoc.json).
 
 > [!TIP]
-> Quando estiver pronto para se aprofundar na API do Lote e obter uma compreensão mais profunda dos recursos que ele fornece, confira a [Visão geral do recurso Lote para desenvolvedores](batch-api-basics.md).
-> 
-> 
+> Para saber mais sobre os recursos e o fluxo de trabalho usados no Lote do Azure, consulte [Fluxo de trabalho e recursos do serviço de lote](batch-service-workflow-features.md).
 
 ## <a name="azure-accounts-for-batch-development"></a>Contas do Azure para desenvolvimento de Lote
+
 Ao desenvolver soluções de Lote, você usará as contas a seguir na sua assinatura do Azure:
 
-* **Conta do lote** -recursos do lote do Azure, incluindo pools, nós de computação, trabalhos e tarefas, são associados a uma [conta do lote](batch-api-basics.md#account)do Azure. Quando o aplicativo faz uma solicitação ao serviço de Lote, ele autentica a solicitação usando o nome de conta do Lote do Azure, a URL da conta e uma chave de acesso ou um token do Azure Active Directory. Você pode [criar uma conta do Lote](batch-account-create-portal.md) no portal do Azure ou de forma programática.
-* **Conta de armazenamento** – o Lote inclui suporte interno para trabalhar com arquivos no [Armazenamento do Azure][azure_storage]. Quase todos os cenários de Lote usam o Armazenamento de Blobs do Azure para preparar os programas que as tarefas executam e os dados que eles processam e para o armazenamento dos dados de saída que eles geram. Para opções de conta de armazenamento em Lote, confira a [Visão geral do recurso de Lote](batch-api-basics.md#azure-storage-account).
+- **Conta do Lote** - Recursos do Lote do Azure, incluindo pools, nós de computação, trabalhos e tarefas, são associados a uma [conta do Lote](accounts.md) do Azure. Quando o aplicativo faz uma solicitação ao serviço de Lote, ele autentica a solicitação usando o nome de conta do Lote do Azure, a URL da conta e uma chave de acesso ou um token do Azure Active Directory. Você pode [criar uma conta do Lote](batch-account-create-portal.md) no portal do Azure ou de forma programática.
+- **Conta de armazenamento** – o Lote inclui suporte interno para trabalhar com arquivos no [Armazenamento do Azure](../storage/index.yml). Quase todos os cenários de Lote usam o Armazenamento de Blobs do Azure para preparar os programas que as tarefas executam e os dados que eles processam e para o armazenamento dos dados de saída que eles geram. Cada conta do Lote geralmente é associada a uma conta de armazenamento correspondente.
+
+## <a name="service-level-and-management-level-apis"></a>APIs de nível de serviço e de gerenciamento
+
+O Lote do Azure tem dois conjuntos de APIs, um para o nível de serviço e o outro para o nível de gerenciamento. A nomenclatura costuma ser semelhante, mas retorna resultados diferentes.
+
+Somente ações das APIs de gerenciamento são rastreadas no log de atividades. As APIs de nível de serviço ignoram a camada de Gerenciamento de Recursos do Azure (management.azure.com) e não são registradas.
+
+Por exemplo, a [API do serviço de Lote para excluir um pool](https://docs.microsoft.com/rest/api/batchservice/pool/delete) é direcionada diretamente para a conta do lote: `DELETE {batchUrl}/pools/{poolId}`
+
+Ao passo que a [API de gerenciamento de lotes para excluir um pool](https://docs.microsoft.com/rest/api/batchmanagement/pool/delete) é direcionada à camada management.azure.com: `DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Batch/batchAccounts/{accountName}/pools/{poolName}`
 
 ## <a name="batch-service-apis"></a>APIs de serviço do Lote
 
 Os aplicativos e serviços podem emitir chamadas da REST API diretamente ou usar uma ou mais das bibliotecas de cliente a seguir para executar e gerenciar as cargas de trabalho do Lote do Azure.
 
-| API | Reference API | Baixar | Tutorial | Exemplos de código | Mais informações |
+| API | Referência de API | Baixar | Tutorial | Exemplos de código | Mais informações |
 | --- | --- | --- | --- | --- | --- |
-| **REST do Lote** |[docs.microsoft.com][batch_rest] |N/D |- |- | [Versões com suporte](/rest/api/batchservice/batch-service-rest-api-versioning) |
-| **.NET do Lote** |[docs.microsoft.com][api_net] |[NuGet][api_net_nuget] |[Tutorial](tutorial-parallel-dotnet.md) |[GitHub][api_sample_net] | [Notas de Versão](https://aka.ms/batch-net-dataplane-changelog) |
-| **Python em lotes** |[docs.microsoft.com][api_python] |[PyPI][api_python_pypi] |[Tutorial](tutorial-parallel-python.md)|[GitHub][api_sample_python] | [Arquivos](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/batch/azure-batch/README.md) |
-| **Lote do Node.js** |[docs.microsoft.com][api_nodejs] |[NPM][api_nodejs_npm] |[Tutorial](batch-nodejs-get-started.md) |- | [Arquivos](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/batch) |
-| **Lote Java** |[docs.microsoft.com][api_java] |[Maven][api_java_jar] |- |[Arquivos][api_sample_java] | [Arquivos](https://github.com/Azure/azure-batch-sdk-for-java)|
+| **REST do Lote** |[docs.microsoft.com](https://docs.microsoft.com/rest/api/batchservice/) |N/D |- |- | [Versões com suporte](/rest/api/batchservice/batch-service-rest-api-versioning) |
+| **.NET do Lote** |[docs.microsoft.com](https://docs.microsoft.com/dotnet/api/overview/azure/batch?view=azure-dotnet) |[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Batch/) |[Tutorial](tutorial-parallel-dotnet.md) |[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp) | [Notas de versão](https://aka.ms/batch-net-dataplane-changelog) |
+| **Python em lotes** |[docs.microsoft.com](https://docs.microsoft.com/python/api/overview/azure/batch/client?view=azure-python) |[PyPI](https://pypi.org/project/azure-batch/) |[Tutorial](tutorial-parallel-python.md)|[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/Python/Batch) | [Leiame](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/batch/azure-batch/README.md) |
+| **Lote do Node.js** |[docs.microsoft.com](https://docs.microsoft.com/javascript/api/overview/azure/batch/client?view=azure-node-latest) |[npm](https://www.npmjs.com/package/azure-batch) |[Tutorial](batch-nodejs-get-started.md) |- | [Leiame](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/batch) |
+| **Lote Java** |[docs.microsoft.com](https://docs.microsoft.com/java/api/overview/azure/batch?view=azure-java-stable) |[Maven](https://search.maven.org/search?q=a:azure-batch) |- |[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/Java) | [Leiame](https://github.com/Azure/azure-batch-sdk-for-java)|
 
 ## <a name="batch-management-apis"></a>APIs de Gerenciamento do Lote
 
 As APIs do Azure Resource Manager para o Lote fornecem acesso programático a contas do Lote. Usando essas APIs, você pode gerenciar programaticamente contas, cotas, pacotes de aplicativos e outros recursos do Lote por meio do provedor Microsoft.Batch.  
 
-| API | Reference API | Baixar | Tutorial | Exemplos de código |
+| API | Referência de API | Baixar | Tutorial | Exemplos de código |
 | --- | --- | --- | --- | --- |
-| **REST do Gerenciamento do Lote** |[docs.microsoft.com][api_rest_mgmt] |N/D |- |[GitHub](https://github.com/Azure-Samples/batch-dotnet-manage-batch-accounts) |
-| **.NET de Gerenciamento do Lote** |[docs.microsoft.com][api_net_mgmt] |[NuGet][api_net_mgmt_nuget] | [Tutorial](batch-management-dotnet.md) |[GitHub][api_sample_net] |
-| **Python de Gerenciamento do Lote** |[docs.microsoft.com][api_python_mgmt] |[PyPI][api_python_mgmt_pypi] |- |- |
-| **Node.js de Gerenciamento do Lote** |[docs.microsoft.com][api_nodejs_mgmt] |[NPM][api_nodejs_mgmt_npm] |- |- | 
-| **Java de Gerenciamento do Lote** |- |[Maven][api_java_mgmt_jar] |- |- |
+| **REST do Gerenciamento do Lote** |[docs.microsoft.com](https://docs.microsoft.com/rest/api/batchmanagement/) |- |- |[GitHub](https://github.com/Azure-Samples/batch-dotnet-manage-batch-accounts) |
+| **.NET de Gerenciamento do Lote** |[docs.microsoft.com](https://docs.microsoft.com/dotnet/api/overview/azure/batch/management?view=azure-dotnet) |[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Batch/) | [Tutorial](batch-management-dotnet.md) |[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp) |
+| **Python de Gerenciamento do Lote** |[docs.microsoft.com](https://docs.microsoft.com/python/api/overview/azure/batch/management?view=azure-python) |[PyPI](https://pypi.org/project/azure-mgmt-batch/) |- |- |
+| **Node.js de Gerenciamento do Lote** |[docs.microsoft.com](https://docs.microsoft.com/javascript/api/overview/azure/batch/management?view=azure-node-latest) |[npm](https://www.npmjs.com/package/azure-arm-batch) |- |- | 
+| **Java de Gerenciamento do Lote** |[docs.microsoft.com](https://docs.microsoft.com/java/api/overview/azure/batch/management?view=azure-java-stable) |[Maven](https://search.maven.org/search?q=a:azure-batch) |- |- |
+
 ## <a name="batch-command-line-tools"></a>Ferramentas de linha de comando do Lote
 
 Essas ferramentas de linha de comando fornecem a mesma funcionalidade que o serviço do Lote e as APIs de gerenciamento do Lote: 
 
-* [Cmdlets do PowerShell do Lote][batch_ps]: os cmdlets do Lote do Azure no módulo do [Azure PowerShell](/powershell/azure/overview) permitem que você gerencie recursos do Lote com o PowerShell.
-* [CLI do Azure](/cli/azure): a CLI do Azure é um conjunto de ferramentas de plataforma cruzada que fornece comandos do shell para interação com muitos serviços do Azure, incluindo o serviço de Lote e o serviço de Gerenciamento de lotes. Consulte [Gerenciar recursos do Lote de com a CLI do Azure](batch-cli-get-started.md) para obter mais informações sobre como usar a CLI do Azure com o Lote.
+- [Batch PowerShell cmdlets](https://docs.microsoft.com/powershell/module/az.batch/): Os cmdlets do Lote do Azure no módulo do [Azure PowerShell](/powershell/azure/overview) permitem que você gerencie recursos do Lote com o PowerShell.
+- [CLI do Azure](/cli/azure): A CLI do Azure é um conjunto de ferramentas multiplataforma que fornece comandos do shell para interação com muitos serviços do Azure, incluindo o serviço de Lote e o serviço de Gerenciamento de Lote. Consulte [Gerenciar recursos do Lote de com a CLI do Azure](batch-cli-get-started.md) para obter mais informações sobre como usar a CLI do Azure com o Lote.
 
 ## <a name="other-tools-for-application-development"></a>Outras ferramentas para desenvolvimento de aplicativos
 
-Aqui estão algumas ferramentas adicionais que podem ser úteis para compilar e depurar seus aplicativos e serviços do Lote:
+Essas ferramentas adicionais podem ser úteis para compilar e depurar seus aplicativos e serviços do Lote.
 
-* [Portal do azure][portal]: você pode criar, monitorar e excluir pools, trabalhos e tarefas do Lote no portal do Azure. Você pode exibir as informações de status para esses e outros recursos ao executar seus trabalhos e até mesmo baixar arquivos de nós de computação em seus pools. Por exemplo, você pode baixar uma `stderr.txt` de uma tarefa com falha durante a solução de problemas. Você também pode baixar arquivos da área de trabalho remota (RDP) que pode usar para fazer logon em nós de computação.
-* [Azure Batch Explorer][batch_labs]: O Batch Explorer (anteriormente chamado de BatchLabs) é uma ferramenta de cliente autônoma, gratuita e com recursos avançados para ajudar a criar, depurar e monitorar aplicativos do Lote do Azure. Baixe um [pacote de instalação](https://azure.github.io/BatchExplorer/) para Mac, Linux ou Windows.
-* [Shipyard do lote do Azure](https://github.com/Azure/batch-shipyard): o Shipyard do lote é uma ferramenta para ajudar a provisionar, executar e monitorar cargas de trabalho de HPC e processamento em lotes baseado em contêiner no lote do Azure.
-* [Gerenciador de armazenamento do Azure][storage_explorer]: embora não seja estritamente uma ferramenta de lote do Azure, a Gerenciador de armazenamento é outra ferramenta valiosa a ser desenvolvida durante o desenvolvimento e a depuração das soluções do lote.
+- [Portal do Azure](https://portal.azure.com/): Crie, monitore e exclua pools, trabalhos e tarefas do Lote no portal do Azure. Você pode exibir as informações de status para esses e outros recursos ao executar seus trabalhos e até mesmo baixar arquivos de nós de computação em seus pools. Por exemplo, você pode baixar uma `stderr.txt` de uma tarefa com falha durante a solução de problemas. Você também pode baixar arquivos da área de trabalho remota (RDP) que pode usar para fazer logon em nós de computação.
+- [Azure Batch Explorer](https://azure.github.io/BatchExplorer/): O Batch Explorer (anteriormente chamado de BatchLabs) é uma ferramenta de cliente gratuita, autônoma e repleta de recursos para ajudar a criar, depurar e monitorar aplicativos do Lote do Azure. Baixe um [pacote de instalação](https://azure.github.io/BatchExplorer/) para Mac, Linux ou Windows.
+- [Shipyard do Lote do Azure](https://github.com/Azure/batch-shipyard): O Shipyard do Lote é uma ferramenta usada para ajudar a provisionar, executar e monitorar o processamento em lotes baseado em contêiner e cargas de trabalho HPC no Lote do Azure.
+- [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/): Embora não seja estritamente uma ferramenta do Lote do Azure, o Gerenciador de Armazenamento é outra ferramenta útil a ser usada durante o desenvolvimento e a depuração das soluções do Lote.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- Para saber mais sobre log de eventos do seu aplicativo do Lote, consulte [Eventos de log para a avaliação de diagnóstico e monitoramento de soluções do lote](batch-diagnostics.md). Para obter uma referência para eventos gerados pelo serviço do Lote, consulte [Análise do Lote](batch-analytics.md).
-- Para obter informações sobre variáveis de ambiente para nós de computação, consulte [Variáveis de ambiente do nó de computação do Lote do Azure](batch-compute-node-environment-variables.md).
+- Para saber mais sobre o registro de eventos do aplicativo do Lote, consulte [Métricas, alertas e logs de Lote para avaliação e monitoramento de diagnóstico](batch-diagnostics.md).
+- Para obter informações de referência sobre eventos gerados pelo serviço do Lote, consulte [Análise do Lote](batch-analytics.md).
+- Para obter informações sobre variáveis de ambiente para nós de computação, consulte [Variáveis de ambiente do runtime do Lote do Azure](batch-compute-node-environment-variables.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Leia ae [Visão geral de recursos do Lote para desenvolvedores](batch-api-basics.md), informações essenciais para qualquer pessoa que está se preparando para usar o Lote. O artigo contém informações mais detalhadas sobre os recursos de serviço do Lote, como pools, nós, trabalhos e tarefas, e os muitos recursos da API que você pode usar ao criar o aplicativo do Lote.
-* [Introdução à biblioteca do Lote do Azure para .NET](tutorial-parallel-dotnet.md) para aprender a usar o C# e a biblioteca do .NET do Lote para executar uma carga de trabalho simples usando um fluxo de trabalho comum do Lote. Uma [versão do Python](tutorial-parallel-python.md) e um [tutorial do Node.js](batch-nodejs-get-started.md) também estão disponíveis.
-* Baixe os [exemplos de código no GitHub][github_samples] para ver como o C# e o Python podem interagir com o Lote para agendar e processar cargas de trabalho de exemplo.
-
-[azure_storage]: https://azure.microsoft.com/services/storage/
-[api_java]: /java/api/overview/azure/batch
-[api_java_mgmt]: /java/api/overview/azure/batch/managementapi
-[api_java_jar]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-batch%22
-[api_java_mgmt_jar]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-batch%22
-[api_net]: /dotnet/api/overview/azure/batch/
-[api_net_nuget]: https://www.nuget.org/packages/Microsoft.Azure.Batch/
-[api_rest_mgmt]: /rest/api/batchmanagement/
-[api_net_mgmt]: /dotnet/api/overview/azure/batch/management
-[api_net_mgmt_nuget]: https://www.nuget.org/packages/Microsoft.Azure.Management.Batch/
-[api_nodejs]: /javascript/api/overview/azure/batch/client
-[api_nodejs_mgmt]: /javascript/api/overview/azure/batch/management
-[api_nodejs_npm]: https://www.npmjs.com/package/azure-batch
-[api_nodejs_mgmt_npm]: https://www.npmjs.com/package/azure-arm-batch
-[api_python]: /python/api/overview/azure/batch/client
-[api_python_mgmt]: /python/api/overview/azure/batch/management
-[api_python_pypi]: https://pypi.python.org/pypi/azure-batch
-[api_python_mgmt_pypi]: https://pypi.python.org/pypi/azure-mgmt-batch
-[api_sample_net]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp
-[api_sample_python]: https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch
-[api_sample_java]: https://github.com/Azure/azure-batch-samples/tree/master/Java/
-[batch_ps]: /powershell/module/az.batch/
-[batch_rest]: /rest/api/batchservice/
-[free_account]: https://azure.microsoft.com/free/
-[github_samples]: https://github.com/Azure/azure-batch-samples
-[msdn_benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
-[batch_labs]: https://azure.github.io/BatchExplorer/
-[storage_explorer]: https://storageexplorer.com/
-[portal]: https://portal.azure.com
+- Saiba mais sobre o [Fluxo de trabalho e recursos primários do serviço de lote](batch-service-workflow-features.md) como pools, nós, trabalhos e tarefas.
+- [Introdução à biblioteca do Lote do Azure para .NET](tutorial-parallel-dotnet.md) para aprender a usar o C# e a biblioteca do .NET do Lote para executar uma carga de trabalho simples usando um fluxo de trabalho comum do Lote. Uma [versão do Python](tutorial-parallel-python.md) e um [tutorial do Node.js](batch-nodejs-get-started.md) também estão disponíveis.
+- Baixe os [exemplos de código no GitHub](https://github.com/Azure-Samples/azure-batch-samples) para ver como o C# e o Python podem interagir com o Lote para agendar e processar cargas de trabalho de exemplo.

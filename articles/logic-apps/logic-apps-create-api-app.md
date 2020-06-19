@@ -1,27 +1,27 @@
 ---
-title: Criar APIs Web & APIs REST para aplicativos lógicos do Azure
+title: Criar APIs Web e APIs REST para Aplicativos Lógicos do Azure
 description: Criar APIs Web e APIs REST para chamar suas APIs, serviços ou sistemas para integrações do sistema nos Aplicativos Lógicos do Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/26/2017
-ms.openlocfilehash: d892dc75d4e745912ceaf444b56494a2e0ed2a19
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
-ms.translationtype: MT
+ms.openlocfilehash: 45b53b0e692a1272ba59719655c8d60c90fd6c96
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005261"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834485"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Criar APIs personalizadas que podem ser chamadas dos Aplicativos Lógicos do Azure
 
-Embora os aplicativos lógicos do Azure ofereçam [centenas de conectores](../connectors/apis-list.md) que você pode usar em fluxos de trabalho de aplicativo lógico, talvez você queira chamar APIs, sistemas e serviços que não estão disponíveis como conectores. Você pode criar suas próprias APIs que fornecem ações e gatilhos para uso em aplicativos lógicos. Veja outros motivos para criar suas próprias APIs que você pode chamar de fluxos de trabalhos de aplicativos lógicos:
+Embora os Aplicativos Lógicos do Azure ofereçam [centenas de conectores internos](../connectors/apis-list.md) que você pode usar em fluxos de trabalho de aplicativo lógico, talvez seja melhor chamar APIs, sistemas e serviços que não estão disponíveis como conectores. Você pode criar suas próprias APIs que fornecem ações e gatilhos para uso em aplicativos lógicos. Veja outros motivos para criar suas próprias APIs que você pode chamar de fluxos de trabalhos de aplicativos lógicos:
 
 * Estender os fluxos de trabalho de integração de dados e integração do sistema.
 * Ajudar os clientes a usar seu serviço para gerenciar tarefas profissionais ou pessoais.
 * Expandir o alcance, a descoberta e o uso do seu serviço.
 
-Basicamente, conectores são APIs Web que usam REST para interfaces conectáveis, [formatos de metadados do Swagger](https://swagger.io/specification/) para documentação e JSON como formato de troca de dados. Como os conectores são APIs REST que se comunicam por meio de pontos de extremidade HTTP, você pode usar qualquer linguagem, como .NET, Java, Python ou node. js, para criar conectores. Você também pode hospedar suas APIs no [Serviço de Aplicativo do Azure](../app-service/overview.md), uma oferta de PaaS (plataforma como serviço) que fornece uma das maneiras mais fáceis, mais escaláveis e melhores de hospedar a API. 
+Basicamente, conectores são APIs Web que usam REST para interfaces conectáveis, [formatos de metadados do Swagger](https://swagger.io/specification/) para documentação e JSON como formato de troca de dados. Como os conectores são APIs REST que se comunicam por meio de pontos de extremidade HTTP, você pode usar qualquer linguagem, como .NET, Java, Python ou Node.js, para criar conectores. Você também pode hospedar suas APIs no [Serviço de Aplicativo do Azure](../app-service/overview.md), uma oferta de PaaS (plataforma como serviço) que fornece uma das maneiras mais fáceis, mais escaláveis e melhores de hospedar a API. 
 
 Para que as APIs personalizadas funcionem com aplicativos lógicos, sua API pode fornecer [*ações*](./logic-apps-overview.md#logic-app-concepts) que executam tarefas específicas em fluxos de trabalho de aplicativos lógicos. Sua API também pode atuar como um [*gatilho*](./logic-apps-overview.md#logic-app-concepts) que inicia um fluxo de trabalho do aplicativo lógico quando novos dados ou um evento atendem a uma condição especificada. Este tópico descreve padrões comuns que você pode seguir para criar ações e gatilhos em sua API, com base no comportamento que a API deve fornecer.
 
@@ -30,7 +30,7 @@ Você pode hospedar suas APIs no [Serviço de Aplicativo do Azure](../app-servic
 > [!TIP] 
 > Embora você possa implantar suas APIs como aplicativos Web, considere implantar suas APIs como aplicativos de API, o que pode facilitar o trabalho quando você criar, hospedar e consumir APIs locais e na nuvem. Você não precisa alterar o código em suas APIs; basta implantar seu código para um aplicativo de API. Por exemplo, saiba como criar aplicativos de API criados com estas linguagens: 
 > 
-> * [ASP.net](../app-service/app-service-web-get-started-dotnet.md). 
+> * [ASP.NET](../app-service/app-service-web-get-started-dotnet.md). 
 > * [Java](../app-service/app-service-web-get-started-java.md)
 > * [Node.js](../app-service/app-service-web-get-started-nodejs.md)
 > * [PHP](../app-service/app-service-web-get-started-php.md)
@@ -41,7 +41,7 @@ Você pode hospedar suas APIs no [Serviço de Aplicativo do Azure](../app-servic
 
 ## <a name="how-do-custom-apis-differ-from-custom-connectors"></a>Como as APIs personalizadas diferem dos conectores personalizados?
 
-APIs personalizadas e [conectores personalizados](../logic-apps/custom-connector-overview.md) são APIs Web que usam REST para interfaces conectáveis, [formatos de metadados do Swagger](https://swagger.io/specification/) para documentação e JSON como formato de troca de dados. E como essas APIs e conectores são APIs REST que se comunicam por meio de pontos de extremidade HTTP, você pode usar qualquer linguagem, como .NET, Java, Python ou node. js, para criar APIs e conectores personalizados.
+APIs personalizadas e [conectores personalizados](../logic-apps/custom-connector-overview.md) são APIs Web que usam REST para interfaces conectáveis, [formatos de metadados do Swagger](https://swagger.io/specification/) para documentação e JSON como formato de troca de dados. E como essas APIs e conectores são APIs REST que se comunicam por meio de pontos de extremidade HTTP, você pode usar qualquer linguagem, como .NET, Java, Python ou Node.js, para criar APIs e conectores personalizados.
 
 APIs personalizadas permitem que você chame APIs que não são conectores e forneça pontos de extremidade que você pode chamar com HTTP + Swagger, Gerenciamento de API do Azure ou Serviços de Aplicativos. Conectores personalizados funcionam como APIs personalizadas, mas também têm estes atributos:
 
@@ -49,7 +49,7 @@ APIs personalizadas permitem que você chame APIs que não são conectores e for
 * Aparecem com ícones ao lado de conectores gerenciados pela Microsoft no Designer de Aplicativos Lógicos.
 * Disponível somente para usuários de aplicativos lógicos e autores de conectores que têm o mesmo locatário do Azure Active Directory e a assinatura do Azure na região em que os aplicativos lógicos são implantados.
 
-Você também pode nominar conectores registrados para certificação da Microsoft. Esse processo verifica se os conectores registrados atendem aos critérios de uso público e disponibilizam esses conectores para os usuários na energia automatizada e no Microsoft Power apps.
+Você também pode nominar conectores registrados para certificação da Microsoft. Esse processo verifica se os conectores registrados atendem aos critérios para uso público e disponibiliza os conectores para usuários no Power Automate e no Microsoft Power Apps.
 
 Para obter mais informações sobre conectores personalizados, consulte 
 
@@ -100,9 +100,9 @@ Aqui estão as etapas específicas que sua API deve seguir, descritas da perspec
    
    A resposta `202 ACCEPTED` deve incluir estes cabeçalhos:
    
-   * *Obrigatório*: um cabeçalho `location` que especifica o caminho absoluto para uma URL onde o mecanismo dos Aplicativos Lógicos pode verificar o status do trabalho da API
+   * *Obrigatório*: Um cabeçalho `location` que especifica o caminho absoluto para uma URL onde o mecanismo dos Aplicativos Lógicos pode verificar o status do trabalho da API
 
-   * *Opcional*: um cabeçalho `retry-after` que especifica o número de segundos que o mecanismo deve aguardar antes de verificar a URL `location` em relação ao status do trabalho. 
+   * *Opcional*: Um cabeçalho `retry-after` que especifica o número de segundos que o mecanismo deve aguardar antes de verificar a URL `location` em relação ao status do trabalho. 
 
      Por padrão, o mecanismo verifica a cada 20 segundos. Para especificar um intervalo diferente, inclua o cabeçalho `retry-after` e o número de segundos até o próximo intervalo de sondagem.
 
@@ -130,9 +130,9 @@ Quando o trabalho está pronto, sua API usa a URL para notificar o mecanismo e r
 
 Para esse padrão, configure dois pontos de extremidade em seu controlador: `subscribe` e `unsubscribe`
 
-*  Ponto de extremidade `subscribe`: quando a execução atinge a ação da API no fluxo de trabalho, o mecanismo dos Aplicativos Lógicos chama o ponto de extremidade `subscribe`. Esta etapa faz com que o aplicativo lógico crie uma URL de retorno de chamada que a API armazena e, em seguida, aguarda o retorno de chamada da API quando o trabalho é concluído. Sua API retorna a chamada com um HTTP POST para a URL e transmite o conteúdo retornado e os cabeçalhos como entrada para o aplicativo lógico.
+*  Ponto de extremidade `subscribe`: Quando a execução atinge a ação da API no fluxo de trabalho, o mecanismo dos Aplicativos Lógicos chama o ponto de extremidade `subscribe`. Esta etapa faz com que o aplicativo lógico crie uma URL de retorno de chamada que a API armazena e, em seguida, aguarda o retorno de chamada da API quando o trabalho é concluído. Sua API retorna a chamada com um HTTP POST para a URL e transmite o conteúdo retornado e os cabeçalhos como entrada para o aplicativo lógico.
 
-* Ponto de extremidade `unsubscribe`: se a execução do aplicativo lógico for cancelada, o mecanismo dos Aplicativos Lógicos chama o ponto de extremidade `unsubscribe`. Sua API pode cancelar o registro da URL de retorno de chamada e parar todos os processos conforme a necessidade.
+* Ponto de extremidade `unsubscribe`: Se a execução do aplicativo lógico for cancelada, o mecanismo dos Aplicativos Lógicos chama o ponto de extremidade `unsubscribe`. Sua API pode cancelar o registro da URL de retorno de chamada e parar todos os processos conforme a necessidade.
 
 ![Padrão de ação do Webhook](./media/logic-apps-create-api-app/custom-api-webhook-action-pattern.png)
 
@@ -142,7 +142,7 @@ Aqui estão algumas outras dicas e observações:
 
 * Para transmitir a URL de retorno de chamada, você pode usar a função de fluxo de trabalho `@listCallbackUrl()` em qualquer um desses campos, conforme a necessidade.
 
-* Se você tiver o aplicativo lógico e o serviço assinado, não precisará chamar o ponto de `unsubscribe` extremidade depois que a URL de retorno de chamada for chamada. Caso contrário, o tempo de execução dos aplicativos lógicos precisa chamar o `unsubscribe` ponto de extremidade para sinalizar que não há mais chamadas esperadas e permitir a limpeza de recursos no lado do servidor.
+* Se você tiver o aplicativo lógico e o serviço assinado, não precisará chamar o ponto de extremidade `unsubscribe` depois que a URL de retorno de chamada for chamada. Caso contrário, o runtime dos Aplicativos Lógicos precisa chamar o ponto de extremidade `unsubscribe` para sinalizar que não há mais chamadas esperadas e para permitir a limpeza de recursos no lado do servidor.
 
 <a name="triggers"></a>
 
@@ -194,9 +194,9 @@ Por exemplo, para verificar periodicamente novos arquivos no serviço, você pod
 Um gatilho de webhook é um *gatilho de envio por push* que aguarda e escuta novos dados ou eventos em seu ponto de extremidade de serviço. Se novos dados ou um evento atendem à condição especificada, o gatilho será acionado e criará uma instância de aplicativo lógico que processa os dados como entrada.
 Os gatilhos de webhook atuam como as [ações de webhook](#webhook-actions) descritas anteriormente neste tópico e são configuradas com pontos de extremidade `subscribe` e `unsubscribe`. 
 
-* Ponto de extremidade `subscribe`: quando você adiciona e salva um gatilho de webhook em seu aplicativo lógico, o mecanismo dos Aplicativos Lógicos chama o ponto de extremidade `subscribe`. Esta etapa faz com que o aplicativo lógico crie uma URL de retorno de chamada que é armazenada pela API. Quando há novos dados ou um evento que atenda à condição especificada, sua API retorna a chamada com um HTTP POST para a URL. A carga de conteúdo e os cabeçalhos são transmitidos como entrada para o aplicativo lógico.
+* Ponto de extremidade `subscribe`: Quando você adiciona e salva um gatilho de webhook em seu aplicativo lógico, o mecanismo dos Aplicativos Lógicos chama o ponto de extremidade `subscribe`. Esta etapa faz com que o aplicativo lógico crie uma URL de retorno de chamada que é armazenada pela API. Quando há novos dados ou um evento que atenda à condição especificada, sua API retorna a chamada com um HTTP POST para a URL. A carga de conteúdo e os cabeçalhos são transmitidos como entrada para o aplicativo lógico.
 
-* Ponto de extremidade `unsubscribe`: se o gatilho de webhook ou o aplicativo lógico inteiro for excluído, o mecanismo dos Aplicativos Lógicos chama o ponto de extremidade `unsubscribe`. Sua API pode cancelar o registro da URL de retorno de chamada e parar todos os processos conforme a necessidade.
+* Ponto de extremidade `unsubscribe`: Se o gatilho de webhook ou o aplicativo lógico inteiro for excluído, o mecanismo dos Aplicativos Lógicos chama o ponto de extremidade `unsubscribe`. Sua API pode cancelar o registro da URL de retorno de chamada e parar todos os processos conforme a necessidade.
 
 ![Padrão de gatilho de webhook](./media/logic-apps-create-api-app/custom-api-webhook-trigger-pattern.png)
 
@@ -208,11 +208,11 @@ Aqui estão algumas outras dicas e observações:
 
 * Para evitar o processamento dos mesmos dados várias vezes, o gatilho deve limpar os dados que já foram lidos e transmitidos para o aplicativo lógico.
 
-* Se você tiver o aplicativo lógico e o serviço assinado, não precisará chamar o ponto de `unsubscribe` extremidade depois que a URL de retorno de chamada for chamada. Caso contrário, o tempo de execução dos aplicativos lógicos precisa chamar o `unsubscribe` ponto de extremidade para sinalizar que não há mais chamadas esperadas e permitir a limpeza de recursos no lado do servidor.
+* Se você tiver o aplicativo lógico e o serviço assinado, não precisará chamar o ponto de extremidade `unsubscribe` depois que a URL de retorno de chamada for chamada. Caso contrário, o runtime dos Aplicativos Lógicos precisa chamar o ponto de extremidade `unsubscribe` para sinalizar que não há mais chamadas esperadas e para permitir a limpeza de recursos no lado do servidor.
 
-## <a name="improve-security-for-calls-to-your-apis-from-logic-apps"></a>Melhorar a segurança para chamadas para suas APIs de aplicativos lógicos
+## <a name="improve-security-for-calls-to-your-apis-from-logic-apps"></a>Melhore a segurança para chamadas para suas APIs de aplicativos lógicos
 
-Depois de criar suas APIs personalizados, configure a autenticação para suas APIs para que você possa chamá-las com segurança de aplicativos lógicos. Saiba [como melhorar a segurança para chamadas para APIs personalizadas de aplicativos lógicos](../logic-apps/logic-apps-custom-api-authentication.md).
+Depois de criar suas APIs personalizados, configure a autenticação para suas APIs para que você possa chamá-las com segurança de aplicativos lógicos. Saiba [como melhorar a segurança em chamadas para APIs personalizadas de aplicativos lógicos](../logic-apps/logic-apps-custom-api-authentication.md).
 
 ## <a name="deploy-and-call-your-apis"></a>Implantar e chamar suas APIs
 
@@ -222,18 +222,18 @@ Depois de configurar a autenticação, configure a implantação para suas APIs.
 
 Para disponibilizar seu APIs personalizadas para outros usuários de aplicativos lógicos no Azure, você deve adicionar a segurança e registrá-los como conectores do Aplicativo Lógico. Para obter mais informações, consulte [Visão geral de conectores personalizados](../logic-apps/custom-connector-overview.md). 
 
-Para disponibilizar suas APIs personalizadas para todos os usuários em aplicativos lógicos, Power Automate e Microsoft Power apps, você deve adicionar segurança, registrar suas APIs como conectores de aplicativos lógicos e indicar seus conectores para o [programa Microsoft Azure certificado](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/). 
+Para disponibilizar suas APIs personalizadas a todos os usuários nos Aplicativos Lógicos,no Power Automate e no Microsoft Power Apps, você deve adicionar segurança, registrar suas APIs como conectores de Aplicativos Lógicos e designar os conectores para o [programa Microsoft Azure Certified](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/). 
 
-## <a name="get-support"></a>Obter suporte
+## <a name="get-support"></a>Obtenha suporte
 
-* Para obter ajuda específica com APIs personalizadas, [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com)contate.
+* Para obter ajuda específica com APIs personalizadas, entre em contato com [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com).
 
-* Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Em caso de dúvidas, visite a [página de perguntas e respostas da Microsoft sobre os Aplicativos Lógicos do Azure](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 
 * Para ajudar a melhorar os Aplicativos Lógicos, vote ou envie ideias no [site de comentários do usuário dos Aplicativos Lógicos](https://aka.ms/logicapps-wish). 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Lidar com erros e exceções](../logic-apps/logic-apps-exception-handling.md)
+* [Processar erros e exceções](../logic-apps/logic-apps-exception-handling.md)
 * [Chamar, disparar ou aninhar aplicativos lógicos com pontos de extremidade HTTP](../logic-apps/logic-apps-http-endpoint.md)
 * [Medição de uso para as ações e gatilhos](../logic-apps/logic-apps-pricing.md)

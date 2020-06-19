@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: cb6b99351a5cb995d87b482b7e707a3913fd86f2
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 1ac1df402c25c0f6e5f07ce8d9631c01c0fa504c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594955"
+ms.locfileid: "83655256"
 ---
 # <a name="authentication-and-authorization-for-azure-static-web-apps-preview"></a>Autenticação e autorização para Versão Prévia do serviço Aplicativos Web Estáticos do Azure
 
@@ -118,7 +118,7 @@ https://identity.azurestaticapps.net/.auth/purge/<AUTHENTICATION_PROVIDER_NAME>
 Para impedir que a plataforma forneça essas informações em solicitações futuras para aplicativos individuais, envie uma solicitação para a seguinte URL:
 
 ```url
-https://<WEB_APP_DOMAIN_NAME>/identity/.auth/purge/<AUTHENTICATION_PROVIDER_NAME>
+https://<WEB_APP_DOMAIN_NAME>/.auth/purge/<AUTHENTICATION_PROVIDER_NAME>
 ```
 
 ## <a name="system-folder"></a>Pasta do sistema
@@ -154,6 +154,11 @@ Você pode usar uma [regra de rota](routes.md) para mapear um provedor padrão p
 }
 ```
 
+### <a name="post-login-redirect"></a>Redirecionamento pós-logon
+
+Se você quiser que um usuário retorne a uma página específica após o logon, forneça uma URL no parâmetro de cadeia de caracteres de consulta `post_login_redirect_uri`.
+
+
 ## <a name="logout"></a>Logout
 
 A rota `/.auth/logout` registra os usuários fora do site. Você pode adicionar um link para a navegação do site para permitir que o usuário faça logoff, conforme mostrado no exemplo a seguir.
@@ -170,6 +175,10 @@ Você pode usar uma [regra de rota](routes.md) para mapear uma rota amigável co
   "serve": "/.auth/logout"
 }
 ```
+
+### <a name="post-logout-redirect"></a>Redirecionamento pós-logoff
+
+Se você quiser que um usuário retorne a uma página específica após o logoff, forneça uma URL no parâmetro de cadeia de caracteres de consulta `post_logout_redirect_uri`.
 
 ## <a name="block-an-authorization-provider"></a>Bloquear um provedor de autorização
 

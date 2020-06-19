@@ -1,5 +1,5 @@
 ---
-title: Desanexar um disco de dados de uma VM do Linux-Azure
+title: Desanexar um disco de dados de uma VM Linux – Azure
 description: Saiba como desanexar um disco de dados de uma máquina virtual no Azure usando a CLI do Azure ou o portal do Azure.
 author: roygara
 ms.service: virtual-machines-linux
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: f8a0790169b17ad7755386f9bdd4f9372efc83e7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0c827a19fd2b3e946154a3ee0acf6dddc6ad45a0
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74036378"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83829997"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Como desanexar um disco de dados de uma máquina virtual Linux
 
@@ -106,17 +106,15 @@ O disco permanecerá no armazenamento, mas não estará mais conectado a uma má
 ## <a name="detach-a-data-disk-using-the-portal"></a>Desanexar um disco de dados usando o portal
 
 1. No menu à esquerda, selecione **Máquinas Virtuais**.
-2. Selecione a máquina virtual que tem o disco de dados que você deseja desanexar e clique em **parar** para desalocar a VM.
-3. No painel de máquina virtual, selecione **Discos**.
-4. Na parte superior do painel **Discos**, selecione **Editar**.
-5. No painel **Discos**, mais à direita do disco de dados que você deseja desanexar, clique no botão Desanexar ![Imagem do botão Desanexar](./media/detach-disk/detach.png).
-5. Depois que o disco for removido, clique em Salvar na parte superior do painel.
-6. No painel da máquina virtual, clique em **Visão Geral** e, em seguida, clique no botão **Iniciar** na parte superior do painel para reiniciar a VM.
+1. Na folha da máquina virtual, selecione **Discos**.
+1. Na parte superior da folha **Discos**, selecione **Editar**.
+1. Na folha **Discos**, mais à direita do disco de dados que você deseja desanexar, clique no botão Desanexar ![Imagem do botão Desanexar](./media/detach-disk/detach.png).
+1. Depois que o disco for removido, clique em **Salvar** na parte superior da folha.
 
 O disco permanecerá no armazenamento, mas não estará mais conectado a uma máquina virtual.
 
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Se você quiser reutilizar o disco de dados, você pode apenas [anexá-lo a outra VM](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Se deseja reutilizar o disco de dados, basta [anexá-lo a outra VM](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

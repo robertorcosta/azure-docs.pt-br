@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2019
 ms.author: memildin
-ms.openlocfilehash: 1a6999c05c0b3dbaf572b376412f666c50c23df7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 285245e499cfe8a5d7e365044c188191325e4267
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77604447"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84782850"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Tutorial: Melhorar sua conformidade regulatória
 ---
@@ -103,4 +103,4 @@ Para saber mais, confira:
 
 -   [Gerenciar as recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md) – saiba como usar as recomendações da Central de Segurança do Azure para ajudar a proteger seus recursos do Azure.
 
--   [Aprimorar sua classificação de segurança na Central de Segurança do Azure](security-center-secure-score.md) – saiba como priorizar as vulnerabilidades e as recomendações de segurança para aprimorar ao máximo sua postura de segurança.
+-   [Aprimorar sua classificação de segurança na Central de Segurança do Azure](secure-score-security-controls.md) – saiba como priorizar as vulnerabilidades e as recomendações de segurança para aprimorar ao máximo sua postura de segurança.

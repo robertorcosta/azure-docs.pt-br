@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 877616f6fd31bdfbe193bd8f03efb3f79317ad42
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2da0cd2ede33abe8ebbe3616192349112fb24bae
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79535362"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797494"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizando dados do Monitor do Azure
 Este artigo fornece um resumo dos métodos disponíveis para visualizar os dados de log e métrica armazenados no Azure Monitor.
@@ -19,7 +19,7 @@ Este artigo fornece um resumo dos métodos disponíveis para visualizar os dados
 Visualizações como tabelas e gráficos podem ajudá-lo a analisar seus dados de monitoramento para detalhar problemas e identificar padrões. Dependendo da ferramenta que você usa, você também pode ter a opção de compartilhar visualizações com outros usuários dentro e fora de sua organização.
 
 ## <a name="workbooks"></a>Pastas de trabalho
-[As pastas de trabalho](../azure-monitor/app/usage-workbooks.md) são documentos interativos que fornecem informações detalhadas sobre seus dados, investigação e colaboração dentro da equipe. Exemplos específicos em que as pastas de trabalho são úteis são guias de solução de problemas e postmortem de incidentes.
+[As pastas de trabalho](../azure-monitor/platform/workbooks-overview.md) são documentos interativos que fornecem informações detalhadas sobre seus dados, investigação e colaboração dentro da equipe. Exemplos específicos em que as pastas de trabalho são úteis são guias de solução de problemas e postmortem de incidentes.
 
 ![Pasta de trabalho](media/visualizations/workbook.png)
 
@@ -42,11 +42,11 @@ Os [painéis do Azure](../azure-portal/azure-portal-dashboards.md) são a princi
 ![Painel](media/visualizations/dashboard.png)
 
 ### <a name="advantages"></a>Vantagens
-- Integração profunda no Azure. As visualizações podem ser fixadas em painéis de várias páginas do Azure, incluindo Metrics Explorer, Log Analytics e Application Insights.
+- Integração profunda no Azure. As visualizações podem ser fixadas em painéis a partir de várias páginas do Azure, incluindo o Metrics Explorer, o Log Analytics e o Application Insights.
 - Suporta métricas e logs.
-- Combine dados de várias origens, incluindo a saída do [Metrics Explorer](platform/metrics-charts.md), das [consultas do Log Analytics](log-query/log-query-overview.md) e dos [mapas](app/app-map.md), e a disponibilidade no Application Insights.
+- Combine dados de várias origens, incluindo a saída do [Metrics Explorer](platform/metrics-charts.md), das [consultas de log](log-query/log-query-overview.md) e dos [mapas](app/app-map.md), e a disponibilidade no Application Insights.
 - Opção para os painéis de pessoais ou compartilhadas. Integrado com a autenticação baseada em função do Azure [(RBAC)](../role-based-access-control/overview.md).
-- Atualização automática. A atualização de métricas depende do intervalo de tempo com um mínimo de cinco minutos. Os logs são atualizados a cada hora, com uma opção de atualização manual sob demanda clicando no ícone "atualizar" em uma determinada visualização ou atualizando o painel completo.
+- Atualização automática. A atualização de métricas depende do intervalo de tempo com um mínimo de cinco minutos. Os logs são atualizados a cada hora, com uma opção de atualização manual sob demanda clicando no ícone “atualizar” em uma determinada visualização ou atualizando o painel completo.
 - Painéis de métricas parametrizadas com carimbo de data/hora e parâmetros personalizados.
 - Opções de layout flexível.
 - Modo de tela inteira.
@@ -111,12 +111,12 @@ Você pode acessar os dados nos dados de log e métrica do Azure Monitor por mei
 ## <a name="azure-monitor-views"></a>Modos de exibição do Monitor do Azure
 
 > [!IMPORTANT]
-> As exibições estão no processo de serem preteridas. Consulte [Guia de transição do designer de exibição para pastas de trabalho do Azure monitor](platform/view-designer-conversion-overview.md) para obter orientação sobre como converter exibições em pastas de trabalho.
+> Exibições estão no processo de serem preteridas. Consulte o [guia de transição do designer do Azure Monitor View para pastas de trabalho](platform/view-designer-conversion-overview.md) para obter diretrizes sobre como converter exibições em pastas de trabalho.
 
 As [exibições no Azure Monitor](platform/view-designer.md) permitem que você crie visualizações personalizadas com os dados de log. Elas são usadas pelas [soluções de monitoramento](insights/solutions.md) para apresentar os dados coletados.
 
 
-![Exibir](media/visualizations/view.png)
+![Visualizar](media/visualizations/view.png)
 
 ### <a name="advantages"></a>Vantagens
 - Visualizações ricas para dados de log.
@@ -137,7 +137,7 @@ As [exibições no Azure Monitor](platform/view-designer.md) permitem que você 
 - Aprenda sobre os [dados coletados pelo Azure Monitor](platform/data-platform.md).
 - Saiba mais sobre os [painéis do Azure](../azure-portal/azure-portal-dashboards.md).
 - Saiba mais sobre [modos de exibição no Azure Monitor](platform/view-designer.md).
-- Saiba mais sobre [pastas de trabalho](../azure-monitor/app/usage-workbooks.md).
+- Saiba mais sobre [Pastas de trabalho](../azure-monitor/platform/workbooks-overview.md).
 - Saiba mais sobre [importar dados de log no Power BI](../azure-monitor/platform/powerbi.md).
 - Saiba mais sobre o [plug-in de fonte de dados do Azure Monitor do Grafana](../azure-monitor/platform/grafana-plugin.md).
 

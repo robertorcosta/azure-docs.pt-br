@@ -7,12 +7,12 @@ ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
-ms.openlocfilehash: 10bd2e4722751b290263fc0599890ca92cd743c9
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: a25a34db99a4c1550ed78b5f084501fb8badfacf
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995642"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84791275"
 ---
 # <a name="understand-cost-management-data"></a>Entender os dados de Gerenciamento de Custos
 
@@ -122,6 +122,7 @@ Se você não vir uma marca específica em Gerenciamento de Custos, considere o 
 - A marca foi aplicada há mais de 24 horas? Confira [Atualizações de dados de custo e de uso e retenção](#cost-and-usage-data-updates-and-retention)
 - O tipo de recurso dá suporte a marcas? Os tipos de recurso a seguir não dão suporte a marcas em dados de uso desde 1º de dezembro de 2019. Confira [Suporte a marcas para recursos do Azure](../../azure-resource-manager/tag-support.md) para obter a lista completa do que tem suporte.
     - Diretórios do Azure Active Directory B2C
+    - Azure Bastion
     - Firewalls do Azure
     - Azure NetApp Files
     - Data Factory
