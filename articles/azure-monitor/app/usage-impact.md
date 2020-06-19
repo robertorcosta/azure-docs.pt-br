@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/08/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 787221c4df3f06029d19ee779a28bb763723f27d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5d775e876a0cce1ba13964d6d4777307a34fdf3f
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77671028"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797898"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Análise do Impact com o Application Insights
 
@@ -56,7 +56,7 @@ O Impact dá suporte a propriedades padrão e personalizadas, além de medidas. 
 2. Escolha “País ou região” no menu suspenso **analisar como o**
 3. Para o menu suspenso **afeta o uso do**, selecione um evento personalizado que corresponda a um elemento de interface do usuário na exibição de página que você escolheu na etapa 1.
 
-Neste caso, os resultados deixam de se ajustar a um modelo de eixo x contínuo como fizeram no primeiro exemplo. Em vez disso, uma visualização semelhante a um funil segmentado é apresentada. Classifique por **uso** para exibir a variação de conversão em seu evento personalizado com base no país/região.
+Neste caso, os resultados deixam de se ajustar a um modelo de eixo x contínuo como fizeram no primeiro exemplo. Em vez disso, uma visualização semelhante a um funil segmentado é apresentada. Classifique por **Uso** para exibir a variação de conversão do evento personalizado com base no país/região.
 
 
 ## <a name="how-does-the-impact-tool-calculate-these-conversion-rates"></a>Como a ferramenta Impact calcula essas taxas de conversão?
@@ -85,5 +85,5 @@ Como o impacto acaba sendo calculado varia de acordo com a análise feita por m�
     - [Funis](usage-funnels.md)
     - [Retenção](usage-retention.md)
     - [Fluxos de Usuário](usage-flows.md)
-    - [Pastas de trabalho](../../azure-monitor/app/usage-workbooks.md)
+    - [Pastas de trabalho](../../azure-monitor/platform/workbooks-overview.md)
     - [Adicionar contexto de usuário](usage-send-user-context.md)

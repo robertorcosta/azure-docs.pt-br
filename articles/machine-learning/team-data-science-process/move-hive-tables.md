@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 625d9d5c5ecf095d4acbff625754b2065f184536
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d5e44d6b34a16f03d4ca1f82453f1f6e9f074917
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79251655"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860606"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Criar tabelas do Hive e carregar dados do Armazenamento de Blobs do Azure
 
@@ -25,12 +25,12 @@ Neste artigo, são apresentadas consultas genéricas do Hive que criam tabelas d
 ## <a name="prerequisites"></a>Pré-requisitos
 Este artigo supõe que você:
 
-* Uma conta de armazenamento do Azure foi criada. Se você precisar de instruções, consulte [sobre contas de armazenamento do Azure](../../storage/common/storage-introduction.md).
+* Criar uma conta do Armazenamento do Microsoft Azure. Se precisar de instruções, consulte [Sobre contas do Armazenamento do Microsoft Azure](../../storage/common/storage-introduction.md).
 * Provisionou um cluster do Hadoop personalizado com o serviço HDInsight.  Se precisar de instruções, confira [Configurar clusters no HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md).
 * Habilitou o acesso remoto para o cluster, conectou-se e abriu o Console de Linha de Comando do Hadoop. Se precisar de instruções, confira [Gerenciar clusters do Apache Hadoop](../../hdinsight/hdinsight-administer-use-portal-linux.md).
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Carregar dados no armazenamento de blob do Azure
-Se você criou uma máquina virtual do Azure seguindo as instruções fornecidas em [Configurar uma máquina virtual do Azure para análise avançada](../../machine-learning/data-science-virtual-machine/overview.md), esse arquivo de script deve ter sido baixado no diretório *C:\\User\\\<suser name\>\\Documents\\Data Science Scripts* na máquina virtual. Essas consultas de Hive exigem apenas que você forneça um esquema de dados e a configuração de armazenamento de BLOBs do Azure nos campos apropriados para que estejam prontas para envio.
+Se você criou uma máquina virtual do Azure seguindo as instruções fornecidas em [Configurar uma máquina virtual do Azure para análise avançada](../../machine-learning/data-science-virtual-machine/overview.md), esse arquivo de script deve ter sido baixado no diretório *C:\\User\\\<suser name\>\\Documents\\Data Science Scripts* na máquina virtual. Essas consultas de Hive exigem somente que você fornaça seu próprio esquema de dados e que a configuração de armazenamento de blobs do Azure nos campos apropriados esteja pronta para envio.
 
 Supomos que os dados de tabelas Hive estejam em formato de tabela **descompactado** e que os dados foram carregado no contêiner padrão (ou em um adicional) da conta de armazenamento usada pelo cluster do Hadoop.
 
@@ -38,7 +38,7 @@ Se quiser praticar com os **Dados de viagens de táxi de NYC**, você precisará
 
 * **baixar** os 24 arquivos de [Dados de viagens de táxi de NYC](https://www.andresmh.com/nyctaxitrips) (12 arquivos de viagens e 12 arquivos de tarifas),
 * **descompactar** todos os arquivos em arquivos .csv, e
-* **carregue** -os no padrão (ou no contêiner apropriado) da conta de armazenamento do Azure; as opções para essa conta são exibidas no tópico [usar o armazenamento do Azure com clusters do Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-blob-storage.md) . O processo para carregar os arquivos .csv para o contêiner padrão na conta de armazenamento pode ser encontrado nesta [página](hive-walkthrough.md#upload).
+* **carregue**-os para o padrão (ou o contêiner apropriado) da conta do Armazenamento do Microsoft Azure; as opções para essa conta aparecem no tópico [Usar o Armazenamento do Microsoft Azure com clusters do Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-blob-storage.md). O processo para carregar os arquivos .csv para o contêiner padrão na conta de armazenamento pode ser encontrado nesta [página](hive-walkthrough.md#upload).
 
 ## <a name="how-to-submit-hive-queries"></a><a name="submit"></a>Como enviar consultas de Hive
 Consultas de Hive podem ser enviadas usando:
@@ -59,7 +59,7 @@ Faça logon no nó principal do cluster do Hadoop, abra a Linha de Comando do Ha
 Você tem três maneiras de enviar consultas de Hive na Linha de Comando do Hadoop:
 
 * diretamente
-* usando arquivos '. HQL '
+* usando arquivos “.hql”
 * com o console de comando do Hive
 
 #### <a name="submit-hive-queries-directly-in-hadoop-command-line"></a>Enviar consultas de Hive diretamente na Linha de Comando do Hadoop.
@@ -67,12 +67,12 @@ Você pode executar o comando como `hive -e "<your hive query>;` para enviar con
 
 ![Comando para enviar a consulta do Hive com a saída](./media/move-hive-tables/run-hive-queries-1.png)
 
-#### <a name="submit-hive-queries-in-hql-files"></a>Enviar consultas de Hive em arquivos '. HQL '
-Quando a consulta Hive é mais complicada e tem várias linhas, não é prático editar consultas na linha de comando ou no console de comando de Hive. Uma alternativa é usar um editor de texto no nó principal do cluster do Hadoop para salvar as consultas do hive em um arquivo '. HQL ' em um diretório local do nó principal. Em seguida, a consulta do hive no arquivo '. HQL ' pode ser enviada usando `-f` o argumento da seguinte maneira:
+#### <a name="submit-hive-queries-in-hql-files"></a>Enviar consultas de Hive em arquivos “.hql”
+Quando a consulta Hive é mais complicada e tem várias linhas, não é prático editar consultas na linha de comando ou no console de comando de Hive. Uma alternativa é usar um editor de texto no nó principal do cluster do Hadoop para salvar as consultas de Hive em um arquivo “.hql” em um diretório local do nó principal. Em seguida, a consulta de Hive no arquivo “,hql” pode ser enviada usando o argumento `-f` da seguinte maneira:
 
     hive -f "<path to the '.hql' file>"
 
-![Consulta de Hive em um arquivo '. HQL '](./media/move-hive-tables/run-hive-queries-3.png)
+![Consulta do Hive em um arquivo “.hql”](./media/move-hive-tables/run-hive-queries-3.png)
 
 **Suprimir a impressão da tela de status de progresso de consultas de Hive**
 
@@ -112,12 +112,12 @@ Se abrir o contêiner padrão do cluster do Hadoop usando o Gerenciador de Armaz
 ![Gerenciador de Armazenamento do Azure mostrando a saída da consulta do Hive](./media/move-hive-tables/output-hive-results-3.png)
 
 ### <a name="submit-hive-queries-with-the-hive-editor"></a><a name="hive-editor"></a>Enviar consultas de Hive com o Editor de Hive
-Você também pode usar o console de consulta (editor de Hive) inserindo uma URL do formulário *https\//\<: nome do cluster Hadoop>. azurehdinsight.net/Home/HiveEditor* em um navegador da Web. Você precisa estar conectado ao console, de forma que precisa de suas credenciais do cluster do Hadoop aqui.
+Você também pode usar o console de consulta (Editor de Hive) digitando uma URL do formulário *https:\//\<Nome do cluster do Hadoop>.azurehdinsight.net/Home/HiveEditor* em um navegador da Web. Você precisa estar conectado ao console, de forma que precisa de suas credenciais do cluster do Hadoop aqui.
 
-### <a name="submit-hive-queries-with-azure-powershell-commands"></a><a name="ps"></a>Enviar consultas de Hive com comandos do PowerShell do Azure
+### <a name="submit-hive-queries-with-azure-powershell-commands"></a><a name="ps"></a>Enviar consultas de Hive com comandos do Azure PowerShell
 Você também pode usar o PowerShell para enviar consultas de Hive. Para obter instruções, confira [Enviar trabalhos do Hive usando o PowerShell](../../hdinsight/hadoop/apache-hadoop-use-hive-powershell.md).
 
-## <a name="create-hive-database-and-tables"></a><a name="create-tables"></a>Criar banco de dados e tabelas do hive
+## <a name="create-hive-database-and-tables"></a><a name="create-tables"></a>Criar banco de dados e tabelas Hive
 As consultas de Hive são compartilhadas no [repositório GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_db_tbls_load_data_generic.hql) e podem ser baixadas de lá.
 
 Veja aqui a consulta Hive que cria uma tabela Hive.
@@ -137,19 +137,19 @@ Veja aqui a consulta Hive que cria uma tabela Hive.
 
 Veja aqui as descrições dos campos de que você precisa para plug-ins e outras configurações:
 
-* nome do banco de dados: o nome do banco de dados que você deseja criar. ** \<\>** Se você quiser apenas usar o banco de dados padrão, a consulta "*criar banco de dados...*" pode ser omitida.
-* nome da tabela: o nome da tabela que você deseja criar dentro do banco de dados especificado. ** \<\>** Se você quiser usar o banco de dados padrão, a tabela poderá ser referenciada diretamente pelo * \<nome\> da tabela* sem \<o nome\>do banco de dados.
-* separador de campo: o separador que delimita campos no arquivo de dados a serem carregados na tabela Hive. ** \<\>**
-* separador de linha: o separador que delimita as linhas no arquivo de dados. ** \<\>**
-* local de armazenamento: o local de armazenamento do Azure para salvar os dados de tabelas do hive. ** \<\>** Se você não especificar *LOCATION \<local de armazenamento\>*, o banco de dados e as tabelas serão armazenados no diretório *hive/warehouse/* no contêiner padrão do cluster do Hive por padrão. Se você quiser especificar a localização de armazenamento, esta deverá estar dentro do contêiner padrão para o banco de dados e tabelas. Esse local deve ser referenciado como local relativo ao contêiner padrão do cluster no formato *' WASB:///\<Directory 1>/'* ou *'\<wasb:///Directory 1>/\<Directory 2>/'*, etc. Depois que a consulta é executada, os diretórios relativos são criados dentro do contêiner padrão.
-* **TBLPROPERTIES("skip.header.line.count"="1")**: Se o arquivo de dados tiver uma linha de cabeçalho, você precisará adicionar essa propriedade **ao final** da consulta *create table*. Caso contrário, a linha de cabeçalho será carregada como um registro para a tabela. Se o arquivo de dados não tiver uma linha de cabeçalho, essa configuração pode ser omitida na consulta.
+* **\<nome do banco de dados\>** : o nome do banco de dados que você deseja criar. Se quiser apenas usar o banco de dados padrão, a consulta *create database...* poderá ser omitida.
+* **\<nome da tabela\>** : o nome da tabela que você deseja criar no banco de dados especificado. Caso deseje usar o banco de dados padrão, a tabela poderá ser referida diretamente pelo *\<nome da tabela\>* sem o \<nome do banco de dados\>.
+* **\<separador de campo\>** : o separador que delimita os campos no arquivo de dados a serem carregados na tabela do Hive.
+* **\<separador de linha\>** : o separador que delimita as linhas no arquivo de dados.
+* **\<local de armazenamento\>** : o local do Armazenamento do Microsoft Azure para salvar os dados das tabelas do Hive. Se você não especificar *LOCATION \<local de armazenamento\>* , o banco de dados e as tabelas serão armazenados no diretório *hive/warehouse/* no contêiner padrão do cluster do Hive por padrão. Se você quiser especificar a localização de armazenamento, esta deverá estar dentro do contêiner padrão para o banco de dados e tabelas. Esse local deve ser referido como local relativo ao contêiner padrão do cluster no formato *“wasb:///\<diretório 1>/”* ou *“wasb:///\<diretório 1>/\< 2>/”* , etc. Após a consulta ser executada, os diretórios relativos serão criados no contêiner padrão.
+* **TBLPROPERTIES("skip.header.line.count"="1")** : Se o arquivo de dados tiver uma linha de cabeçalho, você precisará adicionar essa propriedade **ao final** da consulta *create table*. Caso contrário, a linha de cabeçalho será carregada como um registro para a tabela. Se o arquivo de dados não tiver uma linha de cabeçalho, essa configuração pode ser omitida na consulta.
 
 ## <a name="load-data-to-hive-tables"></a><a name="load-data"></a>Carregar dados para tabelas Hive
 Veja aqui a consulta Hive que carrega dados em uma tabela Hive.
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
-* **caminho para dados\>de blob: se o arquivo de blob a ser carregado na tabela Hive estiver no contêiner padrão do cluster HDInsight Hadoop, o caminho para os dados de BLOB deve estar no formato ' WASB://Directory neste contêiner>/nome de arquivo de blob> '. \<** * \<\> * *\<\<* O arquivo de blob também pode estar em um contêiner adicional do cluster do Hadoop do HDInsight. Nesse caso, * \<o caminho para dados\> de blob* deve estar no formato *' nome do contêiner WASB:// \<\<\<>nome da conta de armazenamento>. nome do arquivo de blob do blob.Core.Windows.net/> '*.
+* **\<caminho para os dados de blob\>** : Se o arquivo de blob a ser carregado para a tabela Hive estiver no contêiner padrão do cluster do Hadoop do HDInsight, o *\<caminho para dados de blob\>* deverá estar no formato *“wasb://\<diretório neste contêiner>/\<nome do arquivo do blob>”* . O arquivo de blob também pode estar em um contêiner adicional do cluster do Hadoop do HDInsight. Neste caso, *\<caminho para dados de blob\>* devem estar no formato *'wasb://\<nome do contêiner>@\<nome da conta de armazenamento>.blob.core.windows.net/\<nome do arquivo de blob>'* .
 
   > [!NOTE]
   > Os dados blob a serem carregados na tabela Hive deve estar no contêiner padrão ou adicional da conta de armazenamento para o cluster do Hadoop. Caso contrário, a consulta *LOAD DATA* falhará reclamando que não pode acessar os dados.
@@ -174,7 +174,7 @@ Aqui está a consulta de Hive que cria uma tabela particionada e carrega dados n
     LOAD DATA INPATH '<path to the source file>' INTO TABLE <database name>.<partitioned table name>
         PARTITION (<partitionfieldname>=<partitionfieldvalue>);
 
-Ao consultar tabelas particionadas, é recomendável adicionar a condição de partição no **início** da `where` cláusula, o que melhora a eficiência da pesquisa.
+Ao consultar tabelas particionadas, recomendamos adicionar a condição de partição no **começo** da cláusula `where`, o que melhora a eficiência da pesquisa.
 
     select
         field1, field2, ..., fieldN
@@ -216,7 +216,7 @@ Selecione os dados da tabela externa da etapa 1 e insira-os na tabela ORC
             SELECT * FROM <database name>.<external textfile table name>;
 
 > [!NOTE]
-> Se o * \<nome\>do banco de dados da\< tabela textfile. o nome\> da tabela de textfiles externa* tem partições, na `SELECT * FROM <database name>.<external textfile table name>` etapa 3, o comando seleciona a variável de partição como um campo no conjunto de dados retornado. Inserindo-o no * \<nome\>do banco\< de dados. \> O nome da tabela Orc* falhará desde * \<o nome\>do banco de dados.\< O\> nome da tabela Orc* não tem a variável de partição como um campo no esquema da tabela. Nesse caso, você precisa selecionar especificamente os campos a serem inseridos no * \<nome\>do banco de\< dados. \> Nome da tabela Orc* da seguinte maneira:
+> Se a tabela TEXTFILE *\<nome do banco de dados\>.\<nome da tabela externa de arquivo de texto\>* tiver partições, na ETAPA 3, o comando `SELECT * FROM <database name>.<external textfile table name>` selecionará a variável de partição como um campo no conjunto de dados retornados. A inserção deles no *\<nome do banco de dados\>.\<nome da tabela ORC\>* falhará, pois o *\<nome do banco de dados\>.\<nome da tabela ORC\>* não tem a variável de partição como um campo no esquema de tabela. Nesse caso, você precisará selecionar especificamente os campos a serem inseridos no *\<nome do banco de dados\>.\<nome da tabela ORC\>* da seguinte maneira:
 >
 >
 
@@ -225,7 +225,7 @@ Selecione os dados da tabela externa da etapa 1 e insira-os na tabela ORC
            FROM <database name>.<external textfile table name>
            WHERE <partition variable>=<partition value>;
 
-É seguro descartar o * \<nome\> da tabela do arquivo de texto externo* ao usar a consulta a seguir depois que todos os dados tiverem sido inseridos no * \<nome\>do banco de dado\< . \>Nome da tabela Orc*:
+É seguro remover o *\<nome da tabela externa do arquivo de texto\>* ao usar a seguinte consulta depois de todos os dados serem inseridos no *\<nome do banco de dados\>.\<nome da tabela ORC\>* :
 
         DROP TABLE IF EXISTS <database name>.<external textfile table name>;
 

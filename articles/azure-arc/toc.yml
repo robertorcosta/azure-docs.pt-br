@@ -18,6 +18,8 @@
           href: ./servers/onboard-dsc.md
     - name: Gerenciar
       items:
+        - name: Gerenciar e usar extensões de VM do Azure
+          href: ./servers/manage-vm-extensions.md
         - name: Gerenciar agente
           href: ./servers/manage-agent.md
 - name: Exemplos

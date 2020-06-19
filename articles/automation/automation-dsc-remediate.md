@@ -1,6 +1,6 @@
 ---
-title: Corrigir servidores de configuração de estado de automação do Azure não compatível
-description: Como reaplicar as configurações sob demanda aos servidores em que o estado da configuração foi descompasso
+title: Corrigir servidores do State Configuration da Automação do Azure sem conformidade
+description: Este artigo informa como reaplicar as configurações sob demanda nos servidores em que o estado da configuração foi descompassado.
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -9,25 +9,25 @@ ms.author: migreene
 ms.topic: conceptual
 ms.date: 07/17/2019
 manager: nirb
-ms.openlocfilehash: f871b406793e455c857ca14c83434c9ed3e004df
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.openlocfilehash: ff785bf3ace7c65f83fe8e505f0544edd24776d8
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993837"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836848"
 ---
-# <a name="remediate-noncompliant-dsc-servers"></a>Corrigir servidores DSC não compatíveis
+# <a name="remediate-noncompliant-azure-automation-state-configuration-servers"></a>Corrigir servidores do State Configuration da Automação do Azure sem conformidade
 
-Quando os servidores são registrados com a configuração de estado da automação do Azure, o `ApplyOnly`modo `ApplyandMonitor`de configuração `ApplyAndAutoCorrect`é definido como, ou. Se o modo não estiver definido `ApplyAndAutoCorrect`como, os servidores que desaparecerem de um estado compatível por qualquer motivo permanecerão não compatíveis até que sejam corrigidos manualmente.
+Quando os servidores são registrados com State Configuration de Automação do Azure, o modo de configuração é definido como `ApplyOnly`, `ApplyandMonitor` ou `ApplyAndAutoCorrect`. Se o modo não estiver definido como `ApplyAndAutoCorrect`, os servidores que ficarem descompassados de um estado compatível por qualquer motivo permanecerão não compatíveis até que sejam corrigidos manualmente.
 
-A computação do Azure oferece um recurso chamado executar comando que permite aos clientes executar scripts dentro de máquinas virtuais.
+A computação do Azure oferece um recurso chamado Executar Comando, que permite aos clientes executar scripts dentro de máquinas virtuais.
 Este documento fornece scripts de exemplo para esse recurso ao corrigir manualmente a descompasso de configuração.
 
 ## <a name="correct-drift-of-windows-virtual-machines-using-powershell"></a>Corrigir descompasso das máquinas virtuais do Windows usando o PowerShell
 
-Para obter instruções detalhadas usando o recurso executar comando em máquinas virtuais do Windows, consulte a página de documentação [executar scripts do PowerShell em sua VM do Windows com o comando executar](/azure/virtual-machines/windows/run-command).
+Você pode corrigir o descompasso de máquinas virtuais do Windows usando o recurso de comando `Run`. Consulte [Executar scripts do PowerShell em sua VM do Windows com o comando Run](/azure/virtual-machines/windows/run-command).
 
-Para forçar um nó de configuração de estado da automação do Azure a baixar a configuração mais recente e aplicá-la, use o cmdlet [Update-DscConfiguration](/powershell/module/psdesiredstateconfiguration/update-dscconfiguration) .
+Para forçar um nó de State Configuration da Automação do Azure a baixar a configuração mais recente e aplicá-la, use o cmdlet [Update-DscConfiguration](/powershell/module/psdesiredstateconfiguration/update-dscconfiguration).
 
 ```powershell
 Update-DscConfiguration -Wait -Verbose
@@ -35,14 +35,13 @@ Update-DscConfiguration -Wait -Verbose
 
 ## <a name="correct-drift-of-linux-virtual-machines"></a>Corrigir descompasso das máquinas virtuais do Linux
 
-A funcionalidade semelhante não está disponível atualmente para servidores Linux.
-A única opção é repetir o processo de registro.
-Para nós do Azure, você pode corrigir a descompasso do portal do Azure ou usando cmdlets de módulo AZ. Os detalhes sobre esse processo estão documentados em [máquinas de integração para o gerenciamento pela configuração de estado da automação do Azure](automation-dsc-onboarding.md#enable-a-vm-using-azure-portal).
-Para nós híbridos, você pode corrigir a descompasso usando os scripts Python incluídos.
-Confira o [repositório DSC do PowerShell para Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux#performing-dsc-operations-from-the-linux-computer).
+Para máquinas virtuais do Linux, você não tem a opção de usar o comando `Run`. Você só pode corrigir o descompasso desses computadores repetindo o processo de registro. 
+
+Para nós do Azure, você pode corrigir o descompasso do portal do Azure ou usando cmdlets de módulo Az. Os detalhes sobre esse processo estão documentados em [Habilitar uma VM usando o portal do Azure](automation-dsc-onboarding.md#enable-a-vm-using-azure-portal).
+
+Para nós híbridos, você pode corrigir o descompasso usando os scripts do Python. Consulte [Executar operações de DSC no computador Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux#performing-dsc-operations-from-the-linux-computer).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter uma referência de cmdlet do PowerShell, confira [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
-- Para ver um exemplo de como usar a configuração de estado de automação do Azure em um pipeline de implantação contínua, consulte [implantação contínua usando configuração de estado de automação do Azure e Chocolatey](automation-dsc-cd-chocolatey.md).
+- Para obter uma referência de cmdlet do PowerShell, confira [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).
+- Para ver um exemplo de uso do serviço State Configuration da Automação do Azure em um pipeline de implantação contínua, veja [Configuração de implantação contínua com o Chocolatey](automation-dsc-cd-chocolatey.md).

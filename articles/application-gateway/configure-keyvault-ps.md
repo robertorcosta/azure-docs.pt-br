@@ -1,35 +1,35 @@
 ---
-title: Configurar terminação de TLS com certificados Key Vault-PowerShell
+title: Configurar o encerramento de TLS com certificados do Key Vault – PowerShell
 titleSuffix: Azure Application Gateway
-description: Saiba como você pode integrar Aplicativo Azure gateway com Key Vault para certificados de servidor que são anexados a ouvintes habilitados para HTTPS.
+description: Saiba como você pode integrar o Gateway de Aplicativo do Azure com o Key Vault para certificados de servidor que estejam anexados a ouvintes habilitados para HTTPS.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 02/27/2020
+ms.date: 05/26/2020
 ms.author: victorh
-ms.openlocfilehash: ffda4b41497a9fd84db5fcee36202eb1c1dca2c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6c638004d209996e52b0e57b467bfa184a77779c
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457834"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873466"
 ---
-# <a name="configure-tls-termination-with-key-vault-certificates-by-using-azure-powershell"></a>Configurar a terminação de TLS com certificados de Key Vault usando Azure PowerShell
+# <a name="configure-tls-termination-with-key-vault-certificates-using-azure-powershell"></a>Configurar o encerramento de TLS com certificados do Key Vault usando o Azure PowerShell
 
-[Azure Key Vault](../key-vault/general/overview.md) é um repositório de segredos gerenciado por plataforma que você pode usar para proteger segredos, chaves e certificados TLS/SSL. Aplicativo Azure gateway dá suporte à integração com Key Vault para certificados de servidor que são anexados a ouvintes habilitados para HTTPS. Esse suporte é limitado ao SKU do gateway de aplicativo v2.
+[Azure Key Vault](../key-vault/general/overview.md) é um repositório de segredos gerenciado por plataforma que você pode usar para proteger segredos, chaves e certificados TLS/SSL. O Gateway de Aplicativo v2 do Azure dá suporte à integração com o Key Vault para certificados de servidor que estejam anexados a ouvintes habilitados para HTTPS. Esse suporte é limitado ao SKU do Gateway de Aplicativo v2.
 
-Para obter mais informações, consulte [terminação de TLS com certificados de Key Vault](key-vault-certs.md).
+Para obter mais informações, confira [Encerramento de TLS com certificados do Key Vault](key-vault-certs.md).
 
-Este artigo mostra como usar um script de Azure PowerShell para integrar o cofre de chaves ao seu gateway de aplicativo para certificados de término TLS/SSL.
+Este artigo mostra como usar um script do Azure PowerShell para integrar o cofre de chaves ao seu gateway de aplicativo para certificados de encerramento de TLS/SSL.
 
-Este artigo requer Azure PowerShell módulo versão 1.0.0 ou posterior. Para saber qual é a versão, execute `Get-Module -ListAvailable Az`. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Para executar os comandos neste artigo, você também precisará criar uma conexão com o Azure executando `Connect-AzAccount`.
+Este artigo requer o módulo Azure PowerShell versão 1.0.0 ou posterior. Para saber qual é a versão, execute `Get-Module -ListAvailable Az`. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Para executar os comandos neste artigo, você também precisa para criar uma conexão com o Azure executando o `Connect-AzAccount`.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, você deve ter o módulo ManagedServiceIdentity instalado:
+Antes de começar, você deverá ter o módulo ManagedServiceIdentity instalado:
 
 ```azurepowershell
 Install-Module -Name Az.ManagedServiceIdentity
@@ -39,14 +39,16 @@ Select-AzSubscription -Subscription <your subscription>
 
 ## <a name="example-script"></a>Script de exemplo
 
-### <a name="set-up-variables"></a>Configurar variáveis
+### <a name="set-up-variables"></a>Definir variáveis
 
 ```azurepowershell
 $rgname = "KeyVaultTest"
 $location = "East US"
-$kv = "TestKeyVaultAppGw"
+$kv = "<your key vault name>"
 $appgwName = "AppGwKVIntegration"
 ```
+> [!IMPORTANT]
+> O nome do Key Vault deve ser universalmente exclusivo.
 
 ### <a name="create-a-resource-group-and-a-user-managed-identity"></a>Criar um grupo de recursos e uma identidade gerenciada pelo usuário
 
@@ -71,7 +73,7 @@ $certificate = Get-AzKeyVaultCertificate -VaultName $kv -Name "cert1"
 $secretId = $certificate.SecretId.Replace($certificate.Version, "")
 ```
 > [!NOTE]
-> O sinalizador-EnableSoftDelete deve ser usado para que o término do TLS funcione corretamente. Se você estiver configurando [Key Vault exclusão reversível por meio do portal](../key-vault/general/overview-soft-delete.md#soft-delete-behavior), o período de retenção deverá ser mantido em 90 dias, o valor padrão. O gateway de aplicativo ainda não dá suporte a um período de retenção diferente. 
+> O sinalizador-EnableSoftDelete deve ser usado para que o encerramento do TLS funcione corretamente. Se você estiver configurando a [Exclusão reversível do Key Vault por meio do portal](../key-vault/general/overview-soft-delete.md#soft-delete-behavior), o período de retenção deverá ser mantido em 90 dias, o valor padrão. O Gateway de Aplicativo ainda não dá suporte a um período de retenção diferente. 
 
 ### <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
@@ -144,4 +146,4 @@ $appgw = New-AzApplicationGateway -Name $appgwName -Identity $appgwIdentity -Res
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Saiba mais sobre a terminação de TLS](ssl-overview.md)
+[Saiba mais sobre o encerramento de TLS](ssl-overview.md)

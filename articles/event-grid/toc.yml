@@ -244,7 +244,7 @@
           href: troubleshoot-errors.md
         - name: Solucionar problemas de validação de assinatura
           href: troubleshoot-subscription-validation.md
-        - name: Monitorize as entregas de eventos
+        - name: Exibir métricas e definir alertas
           href: monitor-event-delivery.md
 - name: Referência
   items:

@@ -2,15 +2,15 @@
 title: Solução de problemas de ausência de dados - Application Insights para .NET
 description: Não consegue ver os dados no Application Insights do Azure? Tente aqui.
 ms.topic: conceptual
-ms.date: 07/23/2018
-ms.openlocfilehash: 34fc51f8f656ec0f630bd984ac1b28fbaa5e4dae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 05/21/2020
+ms.openlocfilehash: 882081f28a53e347612a4b30374e294bb7352796
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80802579"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835131"
 ---
-# <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Solução de problemas sem dados-Application Insights para .NET/.NET Core
+# <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Solução de problemas de ausência de dados – Application Insights para .NET/.NET Core
 
 ## <a name="some-of-my-telemetry-is-missing"></a>Parte da minha telemetria está ausente
 *No Application Insights, vejo apenas uma fração dos eventos que são gerados pelo meu aplicativo.*
@@ -18,15 +18,15 @@ ms.locfileid: "80802579"
 * Caso você esteja vendo consistentemente a mesma fração, isso provavelmente se deve à [amostragem](../../azure-monitor/app/sampling.md)adaptável. Para confirmar isso, abra a Pesquisa (na folha de visão geral) e examine uma instância de uma Solicitação ou outro evento. Na parte inferior da seção de propriedades, clique em "…" para obter detalhes completos da propriedade. Se Contagem de solicitações for > 1, a amostragem estará em operação.
 * Caso contrário, é possível que você esteja atingindo um [limite de taxa de dados](../../azure-monitor/app/pricing.md#limits-summary) para seu plano de preços. Esses limites são aplicados por minuto.
 
-*Estou tendo perda de dados aleatoriamente.*
+*Estou com perda aleatória de dados.*
 
-* Verifique se você está passando por perda de dados no [canal de telemetria](telemetry-channels.md#does-the-application-insights-channel-guarantee-telemetry-delivery-if-not-what-are-the-scenarios-in-which-telemetry-can-be-lost)
+* Verifique se você está com perda aleatória de dados no [Canal de Telemetria](telemetry-channels.md#does-the-application-insights-channel-guarantee-telemetry-delivery-if-not-what-are-the-scenarios-in-which-telemetry-can-be-lost)
 
-* Verifique se há problemas conhecidos no [repositório GitHub](https://github.com/Microsoft/ApplicationInsights-dotnet/issues) do canal de telemetria
+* Verifique se há problemas conhecidos no repositório GitHub do [Canal de Telemetria](https://github.com/Microsoft/ApplicationInsights-dotnet/issues)
 
-*Estou tendo perda de dados no aplicativo de console ou no aplicativo Web quando o aplicativo está prestes a parar.*
+*Estou com perda aleatória de dados no Aplicativo de Console ou no Aplicativo Web quando ele está prestes a ser interrompido.*
 
-* O canal do SDK mantém a telemetria no buffer e os envia em lotes. Se o aplicativo estiver sendo desligado, talvez seja necessário chamar explicitamente [flush ()](api-custom-events-metrics.md#flushing-data). O comportamento `Flush()` de depende do [canal](telemetry-channels.md#built-in-telemetry-channels) real usado.
+* O canal do SDK mantém a telemetria no buffer e a envia em lotes. Caso o aplicativo esteja sendo desligado, talvez seja necessário chamar explicitamente [Flush()](api-custom-events-metrics.md#flushing-data). O comportamento de `Flush()` depende do [canal](telemetry-channels.md#built-in-telemetry-channels) real usado.
 
 ## <a name="no-data-from-my-server"></a>Nenhum dado do meu servidor
 *Instalei meu aplicativo em meu servidor Web e agora não vejo nenhuma telemetria dele. Ele funcionou corretamente no meu computador de desenvolvimento.*
@@ -34,7 +34,7 @@ ms.locfileid: "80802579"
 * Provavelmente um problema de firewall. [Defina exceções de firewall para o Application Insights enviar dados](../../azure-monitor/app/ip-addresses.md).
 * Podem estar faltando alguns pré-requisitos no servidor IIS: .NET Extensibility 4.5 e ASP.NET 4.5.
 
-*Eu [instalei status monitor](../../azure-monitor/app/monitor-performance-live-website-now.md) no meu servidor Web para monitorar os aplicativos existentes. Não vejo nenhum resultado.*
+*Eu [instalei o Status Monitor](../../azure-monitor/app/monitor-performance-live-website-now.md) no meu servidor Web para monitorar os aplicativos existentes. Não consigo ver todos os resultados.*
 
 * Veja [Solução de problemas do Monitor de Status](../../azure-monitor/app/monitor-performance-live-website-now.md#troubleshoot).
 
@@ -44,7 +44,7 @@ ms.locfileid: "80802579"
 * Nem todos os tipos de projeto do .NET têm suporte das ferramentas. Há suporte para projetos Web e WCF. Para outros tipos de projeto, como aplicativos de área de trabalho ou de serviço, você ainda pode [adicionar manualmente um SDK do Application Insights ao seu projeto](../../azure-monitor/app/windows-desktop.md).
 * Certifique-se de que você tem o [Visual Studio 2013 Atualização 3 ou posterior](https://docs.microsoft.com/visualstudio/releasenotes/vs2013-update3-rtm-vs). Ele vem pré-instalado com ferramentas de análise do desenvolvedor, que fornecem o SDK do Application Insights.
 * Escolha **Ferramentas**, **Extensões e Atualizações** e verifique se as **Ferramentas de Análise do Desenvolvedor** estão instaladas e habilitadas. Nesse caso, clique em **Atualizações** para ver se há uma atualização disponível.
-* Abra o diálogo Novo Projeto e escolha aplicativo Web ASP.NET. Se você vir a opção de Application Insights, as ferramentas estão instaladas. Caso contrário, tente desinstalar e instalar novamente o Developer Analytics Tools.
+* Abra o diálogo Novo Projeto e escolha aplicativo Web ASP.NET. Se você vir a opção de Application Insights, as ferramentas estão instaladas. Caso contrário, tente desinstalar e instalar novamente as Developer Analytics Tools.
 
 ## <a name="adding-application-insights-failed"></a><a name="q02"></a>Falha ao adicionar o Application Insights
 *Quanto tento adicionar o Application Insights a um projeto existente, vejo uma mensagem de erro.*
@@ -59,7 +59,7 @@ Correção:
 
 * Verifique se você forneceu as credenciais corretas de entrada da conta do Azure.
 * No navegador, verifique se você tem acesso ao [portal do Azure](https://portal.azure.com). Abra Configurações e veja se há alguma restrição.
-* [Adicione o Application Insights ao seu projeto existente](../../azure-monitor/app/asp-net.md): no Gerenciador de Soluções, clique com o botão direito do mouse no seu projeto e selecione “Adicionar Application Insights”.
+* [Adicione o Application Insights ao seu projeto](../../azure-monitor/app/asp-net.md): Em Gerenciador de Soluções, clique com o botão direito no seu projeto e escolha "Adicionar Application Insights."
 
 ## <a name="i-get-an-error-instrumentation-key-cannot-be-empty"></a><a name="emptykey"></a>Recebo um erro "Chave de instrumentação não pode ser vazio"
 Parece que algo deu errado enquanto você instalava o Application Insights, ou talvez um adaptador de registro em log.
@@ -83,10 +83,10 @@ Causas mais prováveis:
 Correção:
 
 * Verifique se a versão do Visual Studio é a 2013 atualização 3 ou posterior.
-* Selecione **ferramentas**, **extensões e atualizações** e verifique se as **Ferramentas do desenvolvedor Analytics** estão instaladas e habilitadas. Nesse caso, clique em **Atualizações** para ver se há uma atualização disponível.
+* Escolha **Ferramentas**, **Extensões e Atualizações** e verifique se as **Ferramentas de Análise do Desenvolvedor** estão instaladas e habilitadas. Nesse caso, clique em **Atualizações** para ver se há uma atualização disponível.
 * Clique com o botão direito do mouse no projeto no Gerenciador de Soluções. Se você vir o comando **Application Insights > Configurar Application Insights**, use-o para conectar seu projeto ao recurso no serviço Application Insights.
 
-Caso contrário, o tipo de projeto não tem suporte direto das ferramentas de análise do desenvolvedor. Para ver a telemetria, entre no [portal do Azure](https://portal.azure.com), escolha Application Insights na barra de navegação à esquerda e selecione seu aplicativo.
+Caso contrário, o tipo de projeto não tem suporte direto das Developer Analytics Tools. Para ver a telemetria, entre no [portal do Azure](https://portal.azure.com), escolha Application Insights na barra de navegação à esquerda e selecione seu aplicativo.
 
 ## <a name="access-denied-on-opening-application-insights-from-visual-studio"></a>“Acesso negado” ao abrir o Application Insights a partir do Visual Studio
 *O comando de menu “Abrir Application Insights” me leva ao portal do Azure, mas eu recebo um erro de “acesso negado”.*
@@ -94,9 +94,9 @@ Caso contrário, o tipo de projeto não tem suporte direto das ferramentas de an
 As credenciais da Microsoft que você usou pela última vez no navegador padrão não têm acesso ao [recurso que foi criado quando o Application Insights foi adicionado a este aplicativo](../../azure-monitor/app/asp-net.md). Há duas razões prováveis:
 
 * Você tem mais de uma conta da Microsoft. Talvez uma conta de trabalho e uma conta pessoal da Microsoft? As credenciais usadas pela última vez no navegador padrão foram para uma conta diferente daquela que tem acesso a [adicionar o Application Insights ao projeto](../../azure-monitor/app/asp-net.md).
-  * Correção: clique no seu nome na parte superior direita da janela do navegador e saia. Em seguida, entre com a conta que tem acesso. Na barra de navegação à esquerda, clique em Application Insights e escolha seu aplicativo.
+  * Correção: Clique em seu nome no canto superior direito da janela do navegador e saia. Em seguida, entre com a conta que tem acesso. Na barra de navegação à esquerda, clique em Application Insights e escolha seu aplicativo.
 * Alguém adicionou o Application Insights ao projeto e esqueceu-se de dar [acesso ao grupo de recursos](../../azure-monitor/app/resources-roles-access-control.md) no qual ele foi criado.
-  * Correção: se eles tiverem usado uma conta organizacional, poderão adicionar você à equipe, ou podem conceder acesso individual ao grupo de recursos.
+  * Correção: Se eles tiverem usado uma conta organizacional, poderão adicionar você à equipe, ou podem conceder acesso individual ao grupo de recursos.
 
 ## <a name="asset-not-found-on-opening-application-insights-from-visual-studio"></a>“Ativo não encontrado” ao abrir o Application Insights do Visual Studio
 *O comando de menu “Abrir Application Insights” me leva ao portal do Azure, mas eu obtenho um erro de “ativo não encontrado”.*
@@ -114,7 +114,7 @@ Correção:
 * Abra o recurso diretamente. Entre no [portal do Azure](https://portal.azure.com), clique em Application Insights na barra de navegação à esquerda e selecione seu aplicativo.
 
 ## <a name="where-do-i-find-my-telemetry"></a>Onde posso encontrar minha telemetria?
-*Entrei na [portal do Microsoft Azure](https://portal.azure.com)e estou olhando para o painel de início do Azure. Onde encontro meus dados de Application Insights?*
+*Entrei no [portal do Microsoft Azure](https://portal.azure.com) e estou olhando para o painel inicial do Azure. Como eu encontro meus dados no Application Insights?*
 
 * Na barra de navegação à esquerda, clique em Application Insights e no nome do aplicativo. Se você não tiver projetos, precisará [adicionar ou configurar o Application Insights ao seu projeto Web](../../azure-monitor/app/asp-net.md).  
   Lá, você verá alguns gráficos de resumo. Clique em qualquer gráfico para ver mais detalhes.
@@ -155,11 +155,11 @@ Haverá dados de desempenho (CPU, taxa de E/S, etc.) disponíveis para [serviço
 * Verifique que você copiou todos da Microsoft. DLLs do ApplicationInsights no servidor, junto com Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll
 * Em seu firewall, você talvez precise [abrir algumas portas TCP](../../azure-monitor/app/ip-addresses.md).
 * Se você tiver que usar um proxy para envio fora de sua rede corporativa, defina [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx) em Web.config
-* Windows Server 2008: verifique se você instalou as seguintes atualizações: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
+* Windows Server 2008: Verifique se você instalou as atualizações a seguir: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
 
 ## <a name="i-used-to-see-data-but-it-has-stopped"></a>Eu costumava ver os dados, mas eles foram interrompidos
 * Verifique o [blog de status](https://blogs.msdn.com/b/applicationinsights-status/).
-* Você atingiu sua cota mensal de pontos de dados? Abra as configurações/cota e os preços para descobrir. Nesse caso, você pode atualizar seu plano ou pagar por capacidade adicional. Consulte o [esquema de preços](https://azure.microsoft.com/pricing/details/application-insights/).
+* Você atingiu sua cota mensal de pontos de dados? Abra configurações/Cota e Preços para descobrir. Nesse caso, você pode atualizar seu plano ou então pagar por capacidade adicional. Consulte o [esquema de preços](https://azure.microsoft.com/pricing/details/application-insights/).
 
 ## <a name="i-dont-see-all-the-data-im-expecting"></a>Não vejo todos os dados que eu esperava
 Se o aplicativo enviar muitos dados e se você estiver usando o SDK do Application Insights para o ASP.NET versão 2.0.0-beta3 ou posterior, o recurso de [amostragem adaptável](../../azure-monitor/app/sampling.md) poderá operar e enviar apenas um percentual de sua telemetria.
@@ -209,7 +209,7 @@ Siga estas instruções para capturar logs de solução de problemas para sua es
 
 1. Instale o pacote [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) do NuGet. A versão que você instala deve corresponder à versão instalada atual do `Microsoft.ApplicationInsights`
 
-A versão mais recente de Microsoft. ApplicationInsights. AspNetCore é 2.8.2 e se refere à Microsoft. ApplicationInsights versão 2.11.2. Portanto, a versão de Microsoft. AspNet. ApplicationInsights. HostingStartup a ser instalada deve ser 2.11.2
+A versão mais recente do Microsoft.ApplicationInsights.AspNetCore é a 2.8.2 e se refere ao Microsoft.ApplicationInsights versão 2.11.2. Portanto, a versão do Microsoft.AspNet.ApplicationInsights.HostingStartup a ser instalada deve ser a 2.11.2
 
 2. Modifique o método `ConfigureServices` na sua classe `Startup.cs`:
 
@@ -228,29 +228,37 @@ A versão mais recente de Microsoft. ApplicationInsights. AspNetCore é 2.8.2 e 
 4. Reverta essas alterações quando tiver terminado.
 
 
-## <a name="collect-logs-with-perfview"></a><a name="PerfView"></a>Coletar logs com PerfView
-O [Perfview](https://github.com/Microsoft/perfview) é uma ferramenta gratuita de análise de desempenho e diagnóstico que ajuda a isolar a CPU, a memória e outros problemas ao coletar e visualizar informações de diagnóstico de várias fontes.
+## <a name="collect-logs-with-perfview"></a><a name="PerfView"></a> Coletar logs com PerfView
+[PerfView](https://github.com/Microsoft/perfview) é uma ferramenta gratuita de análise de desempenho e diagnóstico que ajuda a isolar a CPU, a memória e outros problemas ao coletar e visualizar informações de diagnóstico de várias fontes.
 
-Os logs de autosoluçãoização de log EventSource do Application Insights SDK que podem ser capturados pelo PerfView.
+O SDK do Application Insights registra logs de solução de problemas de autoatendimento EventSource que podem ser capturados pelo PerfView.
 
-Para coletar logs, baixe PerfView e execute este comando:
+Para coletar logs, baixe o PerfView e execute este comando:
 ```cmd
 PerfView.exe collect -MaxCollectSec:300 -NoGui /onlyProviders=*Microsoft-ApplicationInsights-Core,*Microsoft-ApplicationInsights-Data,*Microsoft-ApplicationInsights-WindowsServer-TelemetryChannel,*Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Dependency,*Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Web,*Microsoft-ApplicationInsights-Extensibility-DependencyCollector,*Microsoft-ApplicationInsights-Extensibility-HostingStartup,*Microsoft-ApplicationInsights-Extensibility-PerformanceCollector,*Microsoft-ApplicationInsights-Extensibility-EventCounterCollector,*Microsoft-ApplicationInsights-Extensibility-PerformanceCollector-QuickPulse,*Microsoft-ApplicationInsights-Extensibility-Web,*Microsoft-ApplicationInsights-Extensibility-WindowsServer,*Microsoft-ApplicationInsights-WindowsServer-Core,*Microsoft-ApplicationInsights-Extensibility-EventSourceListener,*Microsoft-ApplicationInsights-AspNetCore
 ```
 
-Você pode modificar esses parâmetros conforme necessário:
+Você pode modificar estes parâmetros conforme necessário:
 - **MaxCollectSec**. Defina esse parâmetro para impedir que o PerfView seja executado indefinidamente e afete o desempenho do servidor.
 - **OnlyProviders**. Defina esse parâmetro para coletar somente os logs do SDK. Você pode personalizar essa lista com base em suas investigações específicas. 
 - **NoGui**. Defina esse parâmetro para coletar logs sem a GUI.
 
 
-Para saber mais,
-- [Gravando rastreamentos de desempenho com o Perfview](https://github.com/dotnet/roslyn/wiki/Recording-performance-traces-with-PerfView).
-- [Fontes de eventos de Application Insights](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/ETW)
+Para mais informações,
+- [Gravar rastreamentos de desempenho com o PerfView](https://github.com/dotnet/roslyn/wiki/Recording-performance-traces-with-PerfView).
+- [Fontes de Eventos do Application Insights](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/ETW)
 
-## <a name="how-to-remove-application-insights"></a>Como remover Application Insights
+## <a name="collect-logs-with-dotnet-trace"></a>Coletar logs com dotnet-trace
 
-Saiba como remover Application Insights no Visual Studio seguindo as etapas fornecidas no [artigo](../../azure-monitor/app/remove-application-insights.md)de remoção.
+Um método alternativo de coleta de logs para solução de problemas que pode ser particularmente útil em ambientes baseados em Linux é [`dotnet-trace`](https://docs.microsoft.com/dotnet/core/diagnostics/dotnet-trace)
+
+```bash
+dotnet-trace collect --process-id <PID> --providers Microsoft-ApplicationInsights-Core,Microsoft-ApplicationInsights-Data,Microsoft-ApplicationInsights-WindowsServer-TelemetryChannel,Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Dependency,Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Web,Microsoft-ApplicationInsights-Extensibility-DependencyCollector,Microsoft-ApplicationInsights-Extensibility-HostingStartup,Microsoft-ApplicationInsights-Extensibility-PerformanceCollector,Microsoft-ApplicationInsights-Extensibility-EventCounterCollector,Microsoft-ApplicationInsights-Extensibility-PerformanceCollector-QuickPulse,Microsoft-ApplicationInsights-Extensibility-Web,Microsoft-ApplicationInsights-Extensibility-WindowsServer,Microsoft-ApplicationInsights-WindowsServer-Core,Microsoft-ApplicationInsights-Extensibility-EventSourceListener,Microsoft-ApplicationInsights-AspNetCore
+```
+
+## <a name="how-to-remove-application-insights"></a>Como remover o Application Insights
+
+Saiba como remover o Application Insights no Visual Studio seguindo as etapas fornecidas no [artigo](../../azure-monitor/app/remove-application-insights.md) de remoção.
 
 ## <a name="still-not-working"></a>Ainda não está funcionando...
-* [Fórum do Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
+* [Página de perguntas e respostas para o Application Insights](https://docs.microsoft.com/answers/topics/azure-monitor.html)

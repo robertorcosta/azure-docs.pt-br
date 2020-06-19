@@ -1,6 +1,6 @@
 ---
-title: Reparar uma VM do Linux usando os comandos de reparo da máquina virtual do Azure | Microsoft Docs
-description: Este artigo fornece detalhes sobre como usar os comandos de reparo de máquina virtual do Azure para conectar o disco a outra VM Linux para corrigir erros e, em seguida, recriar sua VM original.
+title: Reparar uma VM do Linux usando os comandos de reparo de Máquinas Virtuais do Azure | Microsoft Docs
+description: Este artigo fornece detalhes sobre como usar os comandos de reparo de Máquinas Virtuais do Azure para conectar o disco a outra VM do Linux para corrigir erros e, em seguida, reconstruir sua VM original.
 services: virtual-machines-linux
 documentationcenter: ''
 author: v-miegge
@@ -14,59 +14,59 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: 49fdfde402938ce8d0ee1b141a47e68c99c502e7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: da40deb4df55a63f5fecc380500a507b374ca63d
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73796211"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83711135"
 ---
 # <a name="repair-a-linux-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Reparar uma VM do Linux usando os comandos de reparo da Máquina Virtual do Azure
 
-Se sua VM (máquina virtual) do Linux no Azure encontrar um erro de disco ou de inicialização, talvez seja necessário executar a mitigação no próprio disco. Um exemplo comum seria uma atualização de aplicativo com falha que impede a inicialização bem-sucedida da VM. Este artigo fornece detalhes sobre como usar os comandos de reparo de máquina virtual do Azure para conectar o disco a outra VM Linux para corrigir erros e, em seguida, recriar sua VM original.
+Se sua máquina virtual (VM) do Linux no Azure encontrar um erro de inicialização ou disco, talvez seja necessário executar a atenuação no próprio disco. Um exemplo comum seria uma atualização de aplicativo com falha que impede a inicialização bem-sucedida da VM. Este artigo fornece detalhes sobre como usar os comandos de reparo de Máquinas Virtuais do Azure para conectar o disco a outra VM do Linux para corrigir erros e, em seguida, reconstruir sua VM original.
 
 > [!IMPORTANT]
-> Os scripts neste artigo se aplicam somente às VMs que usam [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+> Os scripts neste artigo se aplicam somente às VMs que usam o [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 ## <a name="repair-process-overview"></a>Visão geral do processo de reparo
 
-Agora você pode usar os comandos de reparo da máquina virtual do Azure para alterar o disco do sistema operacional de uma VM e não precisa mais excluir e recriar a VM.
+Agora você pode usar os comandos de reparo de Máquinas Virtuais do Azure para alterar o disco do SO de uma VM, não sendo mais necessário excluir e recriar a VM.
 
 Siga estas etapas para solucionar o problema da VM:
 
 1. Iniciar o Azure Cloud Shell
-2. Executar adicionar/atualizar extensão AZ
-3. Executar AZ VM Repair Create
-4. Executar etapas de mitigação
-5. Executar AZ VM Repair Restore
+2. Execute a adição/atualização da extensão az
+3. Execute a criação de reparo da vm az
+4. Execute as etapas de mitigação
+5. Execute a restauração de reparo da vm az
 
-Para obter mais informações e documentação, consulte [AZ VM Repair](https://docs.microsoft.com/cli/azure/ext/vm-repair/vm/repair).
+Para documentação e instruções adicionais, consulte [reparo da vm az](https://docs.microsoft.com/cli/azure/ext/vm-repair/vm/repair).
 
 ## <a name="repair-process-example"></a>Exemplo de processo de reparo
 
 1. Iniciar o Azure Cloud Shell
 
-   O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo. Ele inclui ferramentas comuns do Azure pré-instalados e configuradas para usar com sua conta.
+   O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta.
 
-   Para abrir o Cloud Shell, selecione **Experimente** no canto superior direito de um bloco de código. Você também pode abrir o Cloud Shell em uma guia separada do navegador indo até [https://shell.azure.com](https://shell.azure.com).
+   Para abrir o Cloud Shell, selecione **Experimentar** no canto superior direito de um bloco de códigos. Você também pode abrir o Cloud Shell em uma guia separada do navegador indo até [https://shell.azure.com](https://shell.azure.com).
 
-   Selecione **copiar** para copiar os blocos de código e, em seguida, Cole o código no Cloud Shell e selecione **Enter** para executá-lo.
+   Selecione **Copiar** para copiar os blocos de código, cole-os no Cloud Shell e selecione **Enter** para executá-los.
 
-   Se preferir instalar e usar a CLI localmente, este início rápido exigirá a CLI do Azure versão 2.0.30 ou posterior. Execute ``az --version`` para encontrar a versão. Se você precisar instalar ou atualizar seu CLI do Azure, consulte [instalar CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+   Se preferir instalar e usar a CLI localmente, este início rápido exigirá a CLI do Azure versão 2.0.30 ou posterior. Execute ``az --version`` para encontrar a versão. Se você precisar instalar ou atualizar sua CLI do Azure, consulte [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-2. Se esta for a primeira vez que você usou os `az vm repair` comandos, adicione a extensão da CLI de reparo de VM.
+2. Se esta é a primeira vez que você usa os comandos `az vm repair`, adicione a extensão da CLI vm-repair.
 
    ```azurecli-interactive
    az extension add -n vm-repair
    ```
 
-   Se você tiver usado os `az vm repair` comandos anteriormente, aplique todas as atualizações à extensão de reparo de VM.
+   Se você já usou os comandos `az vm repair`, aplique as atualizações na extensão vm-repair.
 
    ```azurecli-interactive
    az extension update -n vm-repair
    ```
 
-3. Execute `az vm repair create`. Esse comando criará uma cópia do disco do sistema operacional para a VM não funcional, criará uma VM de reparo e anexará o disco.
+3. Execute `az vm repair create`. Esse comando criará uma cópia do disco do sistema operacional para a VM não funcional, criará uma VM de reparo em um novo grupo de recursos e anexará a cópia do disco do sistema operacional.  A VM de reparo terá o mesmo tamanho e região que a VM não funcional especificada.
 
    ```azurecli-interactive
    az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password password!234 --verbose
@@ -74,7 +74,7 @@ Para obter mais informações e documentação, consulte [AZ VM Repair](https://
 
 4. Execute as etapas de mitigação necessárias na VM de reparo criada e vá para a etapa 5.
 
-5. Execute `az vm repair restore`. Esse comando alternará o disco do sistema operacional reparado com o disco do sistema operacional original da VM.
+5. Execute `az vm repair restore`. Este comando irá trocar o disco do SO reparado pelo disco do SO original da VM.
 
    ```azurecli-interactive
    az vm repair restore -g MyResourceGroup -n MyVM --verbose
@@ -92,6 +92,6 @@ az vm boot-diagnostics enable --name myVMDeployed --resource-group myResourceGro
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Se você estiver tendo problemas para se conectar à sua VM, consulte [solucionar problemas de conexões RDP para uma máquina virtual do Azure](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-rdp-connection).
-* Para problemas com o acesso a aplicativos executados em sua VM, consulte [solucionar problemas de conectividade de aplicativos em máquinas virtuais no Azure](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-app-connection).
+* Se estiver tendo problemas para se conectar à VM, consulte [Solucionar problemas de conexões RDP a uma Virtual Machine do Azure](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-rdp-connection).
+* Para problemas com o acesso a aplicativos em execução na sua VM, consulte [Solucionar problemas de conectividade de aplicativos em máquinas virtuais no Azure](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-app-connection).
 * Para obter mais informações sobre como usar o Resource Manager, consulte [Visão geral do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).

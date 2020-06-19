@@ -1,42 +1,52 @@
 ---
-title: Introdução à autenticação na Automação do Azure
-description: Este artigo fornece uma visão geral da segurança de automação e dos diferentes métodos de autenticação disponíveis para Contas de automação na Automação do Azure.
+title: Visão geral da autenticação de conta da Automação do Azure
+description: Este artigo mostra uma visão geral da autenticação de conta da Automação do Azure.
 keywords: segurança de automação, automação segura; autenticação de automação
 services: automation
 ms.subservice: process-automation
 ms.date: 04/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3d3dbaad18f6acbe1ddf17d81f54e4232c838dd7
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.openlocfilehash: d2b9f705c73e667f34e46fdeed3c80af1e65fb12
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82787406"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830099"
 ---
-# <a name="introduction-to-authentication-in-azure-automation"></a>Introdução à autenticação na Automação do Azure
+# <a name="automation-account-authentication-overview"></a>Visão geral da autenticação da conta de automação
 
-A Automação do Azure permite automatizar tarefas em relação a recursos no Azure, locais e com outros provedores de nuvem, como AWS (Amazon Web Services). Para que um runbook execute as ações necessárias, ele deve ter permissões para acessar os recursos com segurança e apenas com os direitos mínimos necessários na assinatura.
+A Automação do Azure permite automatizar tarefas em relação a recursos no Azure, locais e com outros provedores de nuvem, como AWS (Amazon Web Services). É possível usar runbooks para automatizar suas tarefas ou um Hybrid Runbook Worker se você tiver tarefas que não sejam do Azure para gerenciar. Qualquer ambiente exige permissões para acessar com segurança os recursos com os direitos mínimos necessários na assinatura do Azure.
 
-Este artigo abordará os vários cenários de autenticação com suporte da automação do Azure e como começar com base no ambiente ou nos ambientes que você precisa gerenciar.  
+Este artigo aborda os vários cenários de autenticação compatíveis com a Automação do Azure e mostra como iniciar com base nos ambientes que você precisa gerenciar.
 
-## <a name="automation-account-overview"></a>Visão geral da Conta de Automação
+## <a name="automation-account"></a>Conta de automação 
 
-Ao iniciar a Automação do Azure pela primeira vez, você deve criar pelo menos uma conta de Automação. As contas de Automação permitem isolar seus recursos de Automação (runbooks, ativos, configurações) dos recursos contidos em outras contas de Automação. Você pode usar contas de Automação para separar os recursos em ambientes lógicos separados. Por exemplo, você pode usar uma conta para desenvolvimento, outra para produção e outra para seu ambiente local. Uma conta de Automação do Azure é diferente de sua conta da Microsoft ou de contas criadas em sua assinatura do Azure.
+Ao iniciar a Automação do Azure pela primeira vez, você deve criar pelo menos uma conta de Automação. As contas de Automação permitem isolar seus recursos de Automação (runbooks, ativos, configurações) dos recursos contidos em outras contas. Você pode usar contas de Automação para separar os recursos em ambientes lógicos separados. Por exemplo, você pode usar uma conta para desenvolvimento, outra para produção e outra para seu ambiente local. Uma conta de Automação do Azure é diferente de sua conta da Microsoft ou de contas criadas em sua assinatura do Azure. Para obter uma introdução à criação de uma conta de Automação, veja [Criar uma conta de automação](automation-quickstart-create-account.md).
 
-Os recursos de Automação para cada conta de Automação estão associados a uma única região do Azure, mas as contas de Automação podem gerenciar todos os recursos em sua assinatura. O principal motivo para criar contas de Automação em regiões diferentes seria se você tiver políticas que exijam que dados e recursos sejam isolados em uma região específica.
+## <a name="automation-resources"></a>Recursos de automação
 
-Todas as tarefas que podem ser executadas em relação a recursos usando o Azure Resource Manager e os cmdlets do Azure na Automação do Azure devem ser autenticadas no Azure usando a autenticação baseada em credenciais de identidade organizacional do Azure Active Directory. As contas Executar como na automação do Azure fornecem autenticação para gerenciar recursos no Azure usando os cmdlets do Azure. Quando você cria uma conta Executar como, ela cria um novo usuário de entidade de serviço no Azure Active Directory (AD) e atribui a função colaborador a esse usuário no nível de assinatura. Para runbooks que usam Hybrid runbook Workers em máquinas virtuais do Azure, você pode usar a [autenticação de runbook com identidades gerenciadas](automation-hrw-run-runbooks.md#runbook-auth-managed-identities) em vez de contas Executar como para autenticar os recursos do Azure.
+Os recursos de Automação para cada conta de Automação estão associados a uma única região do Azure, mas a conta pode gerenciar todos os recursos em sua assinatura do Azure. O principal motivo para criar contas de Automação em regiões diferentes seria se você tivesse políticas que exijam que dados e recursos sejam isolados em uma região específica.
 
-A entidade de serviço para uma conta Executar como não tem permissões para ler o Azure AD por padrão. Se desejar adicionar permissões para ler ou gerenciar o Azure AD, você precisará conceder as permissões na entidade de serviço sob permissões de **API**. Para saber mais, consulte [adicionar permissões para acessar APIs da Web](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
+Todas as tarefas que você cria em relação a recursos usando o Azure Resource Manager e os cmdlets do PowerShell na Automação do Azure devem ser autenticadas no Azure usando a autenticação baseada em credenciais de identidade organizacional do Azure Active Directory. 
 
-O controle de acesso baseado em função está disponível com o Azure Resource Manager para conceder ações permitidas a uma conta de usuário do Azure AD e uma conta Executar como e autenticar essa entidade de serviço. Leia o [artigo Controle de acesso baseado em função da Automação do Azure](automation-role-based-access-control.md) para obter mais informações que o ajudarão a desenvolver seu modelo para gerenciar permissões de Automação.  
+## <a name="run-as-account"></a>Conta Executar como
 
-Os runbooks em execução em um Hybrid Runbook Worker no data center ou em relação aos serviços de computação em outros ambientes de nuvem, como AWS, não podem usar o mesmo método que normalmente é usado para autenticação de runbooks nos recursos do Azure. Isso ocorre porque esses recursos estão em execução fora do Azure e, assim, exigirão suas próprias credenciais de segurança definidas na Automação para se autenticarem em recursos que acessarão localmente. Para obter mais informações sobre a autenticação de runbook com runbook Workers, consulte [autenticar runbooks para Hybrid runbook Workers](automation-hrw-run-runbooks.md). 
+As contas Executar como na Automação do Azure fornecem autenticação para gerenciar recursos do Azure usando cmdlets do PowerShell. Quando você cria uma conta Executar como, ela cria uma nova entidade de serviço no Azure Active Directory e atribui a função Colaborador a esse usuário no nível da assinatura. Para runbooks que usam Hybrid Runbook Workers em VMs do Azure, é possível usar [autenticação de runbook com identidades gerenciadas](automation-hrw-run-runbooks.md#runbook-auth-managed-identities) em vez de contas Executar como para autenticar em recursos do Azure.
+
+## <a name="service-principal-for-run-as-account"></a>Entidade de serviço para conta Executar como
+
+A entidade de serviço para uma conta Executar como não tem permissões para ler o Azure Active Directory por padrão. Se quiser adicionar permissões para ler ou gerenciar o Azure Active Directory, você precisará conceder as permissões na entidade de serviço em **Permissões de API**. Para saber mais, consulte [Adicionar permissões para acessar APIs Web](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
+
+## <a name="role-based-access-control"></a>Controle de acesso baseado em função
+
+O controle de acesso baseado em função está disponível com o Azure Resource Manager para conceder ações permitidas a uma conta de usuário do Azure Active Directory e uma conta Executar como e autenticar a entidade de serviço. Leia o [artigo Controle de acesso baseado em função da Automação do Azure](automation-role-based-access-control.md) para obter mais informações que o ajudarão a desenvolver seu modelo para gerenciar permissões de Automação.  
+
+## <a name="runbook-authentication-with-hybrid-runbook-worker"></a>Autenticação de runbook com Hybrid Runbook Worker 
+
+Runbooks em execução em um Hybrid Runbook Worker em seu datacenter ou em relação a serviços de computação em outros ambientes de nuvem, como a AWS, não podem usar o mesmo método que é normalmente usado para autenticar runbooks em recursos do Azure. Isso ocorre porque esses recursos estão em execução fora do Azure e, assim, exigirão suas próprias credenciais de segurança definidas na Automação para se autenticarem em recursos que acessarão localmente. Para obter mais informações sobre a autenticação de runbook com trabalho de runbook, veja [Executar runbooks em um Hybrid Runbook Worker](automation-hrw-run-runbooks.md). 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Crie uma conta de automação do portal do Azure](automation-create-standalone-account.md).
-
-* [Crie uma conta de automação usando Azure Resource Manager modelo](automation-create-account-template.md).
-
-* [Autenticar com Amazon Web Services (AWS)](automation-config-aws-account.md).
+* Para criar uma conta de Automação no portal do Azure, veja [Criar uma conta de Automação do Azure autônoma](automation-create-standalone-account.md).
+* Se preferir criar sua conta usando um modelo, veja [Criar uma conta de Automação usando um modelo do Azure Resource Manager](automation-create-account-template.md).
+* Para autenticação usando Amazon Web Services, veja [Autenticar runbooks com Amazon Web Services](automation-config-aws-account.md).

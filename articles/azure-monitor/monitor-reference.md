@@ -6,53 +6,56 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/17/2020
-ms.openlocfilehash: 27503defa23b2a35e767156139228aa2e177652f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d154029e20ed952ca371685b00d5520f9d7850c8
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81405174"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873836"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>O que é monitorado pelo Azure Monitor?
 Este artigo descreve os diferentes aplicativos e serviços monitorados pelo Azure Monitor. 
 
-## <a name="insights-and-core-solutions"></a>Informações e soluções principais
-As principais informações e soluções são consideradas parte do Azure Monitor e seguem os contratos de nível de serviço e suporte para o Azure. Eles têm suporte em todas as regiões do Azure onde Azure Monitor está disponível.
+## <a name="insights-and-core-solutions"></a>Insights e principais soluções
+As principais informações e soluções são consideradas parte do Azure Monitor e seguem os contratos de nível de serviço e suporte para o Azure. Eles têm suporte em todas as regiões do Azure onde o Azure Monitor está disponível.
 
 ### <a name="insights"></a>Insights
 
-As informações fornecem uma experiência de monitoramento Personalizada para aplicativos e serviços específicos. Eles coletam e analisam os logs e as métricas.
+O Insights fornece uma experiência de monitoramento personalizada para aplicativos e serviços específicos. Eles coletam e analisam os logs e as métricas.
 
 | Insight | Descrição |
 |:---|:---|
-| [Application Insights](app/app-insights-overview.md) | Serviço de gerenciamento de desempenho de aplicativos (APM) extensível para monitorar seu aplicativo Web ativo em qualquer plataforma. |
-| [Azure Monitor para contêineres](insights/container-insights-overview.md) | Monitora o desempenho de cargas de trabalho de contêiner implantadas em instâncias de contêiner do Azure ou em clusters kubernetes gerenciados hospedados no AKS (serviço kubernetes do Azure). |
-| [Azure Monitor para Cosmos DB (versão prévia)](insights/cosmosdb-insights-overview.md) | Fornece uma visão do desempenho geral, falhas, capacidade e integridade operacional de todos os seus Azure Cosmos DB recursos em uma experiência interativa unificada. |
-| [Azure Monitor para redes (visualização)](insights/network-insights-overview.md) | Fornece uma visão abrangente da integridade e das métricas para todos os recursos de rede. A capacidade de pesquisa avançada ajuda a identificar dependências de recursos, permitindo cenários como identificar recursos que hospedam seu site, simplesmente pesquisando o nome do site. |
-[Azure Monitor para grupos de recursos (visualização)](insights/resource-group-insights.md) |  Faça a triagem e diagnostique quaisquer problemas que seus recursos individuais encontrem, enquanto oferece contexto para a integridade e o desempenho do grupo de recursos como um todo. |
-| [Azure Monitor para armazenamento (visualização)](insights/storage-insights-overview.md) | Fornece monitoramento abrangente de suas contas de armazenamento do Azure fornecendo uma exibição unificada de desempenho, capacidade e disponibilidade dos serviços de armazenamento do Azure. |
-| [Azure Monitor para VMs](insights/container-insights-overview.md) | Monitora as máquinas virtuais (VM) e os conjuntos de dimensionamento de máquinas virtuais do Azure em escala. Ele analisa o desempenho e a integridade das VMs do Windows e do Linux e monitora os processos e as dependências de outros recursos e processos externos. |
+| [Application Insights](app/app-insights-overview.md) | Serviço de APM (gerenciamento de desempenho de aplicativos) extensível para monitorar seu aplicativo Web ativo em qualquer plataforma. |
+| [Azure Monitor para Contêineres](insights/container-insights-overview.md) | Monitora o desempenho das cargas de trabalho de contêineres implantadas nas Instâncias de Contêiner do Azure ou nos clusters Kubernetes gerenciados hospedados no AKS (Serviço de Kubernetes do Azure). |
+| [Azure Monitor para Azure Cosmos DB](insights/cosmosdb-insights-overview.md) | Fornece uma exibição do desempenho geral, das falhas, da capacidade e da integridade operacional de todos os seus recursos de Azure Cosmos DB em uma experiência interativa unificada. |
+| [Azure Monitor para Redes (versão prévia)](insights/network-insights-overview.md) | Fornece uma visão abrangente da integridade e das métricas para todos os seus recursos de rede. O recurso de pesquisa avançada ajuda a identificar dependências de recursos, permitindo cenários como identificar recursos que hospedam seu site, simplesmente pesquisando o nome do site. |
+[Azure Monitor para Grupos de Recursos (versão prévia)](insights/resource-group-insights.md) |  Facilita a triagem e o diagnóstico de quaisquer problemas encontrados pelos recursos individuais, oferecendo contexto sobre a integridade e o desempenho do grupo de recursos como um todo. |
+| [Azure Monitor para Armazenamento](insights/storage-insights-overview.md) | Fornece monitoramento abrangente das contas do Armazenamento do Azure proporcionando uma exibição unificada de desempenho, capacidade e disponibilidade dos serviços do Armazenamento. |
+| [Azure Monitor para VMs](insights/container-insights-overview.md) | Monitora as VMs (máquinas virtuais) e os conjuntos de dimensionamento de máquinas virtuais do Azure em escala. Ele analisa o desempenho e a integridade das VMs do Windows e do Linux e monitora os processos e as dependências de outros recursos e processos externos. |
+| [Azure Monitor para Key Vault (versão prévia)](insights/key-vaults-insights-overview.md) | Fornece monitoramento abrangente de cofres de chaves, fornecendo uma exibição unificada das solicitações, desempenho, falhas e latência do Key Vault. |
+| [Azure Monitor para Cache do Azure para Redis (versão prévia)](insights/redis-cache-insights-overview.md) |  Fornece uma exibição unificada e interativa de desempenho geral, falhas, capacidade e integridade operacional. |
 
-### <a name="core-solutions"></a>Soluções principais
 
-As soluções são baseadas em consultas de log e exibições personalizadas para um determinado aplicativo ou serviço. Eles coletam e analisam somente logs e estão sendo preteridos ao longo do tempo em favor das ideias.
+### <a name="core-solutions"></a>Principais soluções
+
+As soluções são baseadas em consultas de log e exibições personalizadas para um determinado aplicativo ou serviço. Eles coletam e analisam somente logs e estão sendo preteridos ao longo do tempo em favor de insights.
 
 | Solução | Descrição |
 |:---|:---|
-| [Integridade do agente](insights/solution-agenthealth.md) | Analise a integridade e a configuração dos agentes de Log Analytics. |
-| [Gerenciamento de alertas](platform/alert-management-solution.md) | Analise os alertas coletados de System Center Operations Manager, Nagios ou Zabbix. |
-| [Mapa do Serviço](insights/service-map.md) | Descobre automaticamente os componentes de aplicativos em sistemas Windows e Linux e mapeia a comunicação entre os serviços. |
+| [Integridade do agente](insights/solution-agenthealth.md) | Analise a integridade e a configuração dos agentes do Log Analytics. |
+| [Gerenciamento de alertas](platform/alert-management-solution.md) | Analise os alertas coletados do System Center Operations Manager, Nagios ou Zabbix. |
+| [Mapa do Serviço](insights/service-map.md) | Descobre automaticamente os componentes de aplicativo em sistemas Windows e Linux e mapeia a comunicação entre os serviços. |
 
 
 
 ## <a name="azure-services"></a>Serviços do Azure
 A tabela a seguir lista os serviços do Azure e os dados coletados no Azure Monitor. 
 
-- Métricas – o serviço coleta automaticamente as métricas em métricas de Azure Monitor. 
-- Logs – o serviço dá suporte a configurações de diagnóstico que podem coletar logs e métricas de plataforma para Azure Monitor logs.
-- Insight – há uma Insight disponível para o serviço que fornece uma experiência de monitoramento Personalizada para o serviço.
+- Métricas – o serviço coleta automaticamente as dados em Métricas de Azure Monitor. 
+- Logs – o serviço dá suporte a configurações de diagnóstico que podem coletar logs e métricas de plataforma para os logs do Azure Monitor.
+- Insight – há um insight disponível para o serviço que fornece uma experiência de monitoramento personalizada para o serviço.
 
-| Serviço | Métricas | Logs | Insight | Anotações |
+| Serviço | Métricas | Logs | Insight | Observações |
 |:---|:---|:---|:---|:---|
 |Active Directory | Não | Sim | [Sim](../active-directory/reports-monitoring/howto-use-azure-monitor-workbooks.md) |  |
 |Active Directory B2C | Não | Não | Não |  |
@@ -67,7 +70,7 @@ A tabela a seguir lista os serviços do Azure e os dados coletados no Azure Moni
 |Serviço de Aplicativo | Sim | Sim | Não |  |
 |AppConfig | Não | Não | Não |  |
 |Gateway de Aplicativo | Sim | Sim | Não |  |
-|Serviço de atestado | Não | Não | Não |  |
+|Serviço do atestado | Não | Não | Não |  |
 |Automação | Sim | Sim | Não |  |
 |Service Manager do Azure (RDFE) | Não | Não | Não |  |
 |Backup | Não | Sim | Não |  |
@@ -86,7 +89,7 @@ A tabela a seguir lista os serviços do Azure e os dados coletados no Azure Moni
 |Cosmos DB | Sim | Sim | [Sim](insights/cosmosdb-insights-overview.md) |  |
 |Gerenciamento de Custos | Não | Não | Não |  |
 |Data Box | Não | Não | Não |  |
-|Gen2 do catálogo de dados | Não | Não | Não |  |
+|Catálogo de Dados Gen2 | Não | Não | Não |  |
 |Data Explorer | Sim | Sim | Não |  |
 |Data Factory | Sim | Sim | Não |  |
 |Data Factory v2 | Não | Sim | Não |  |
@@ -101,8 +104,8 @@ A tabela a seguir lista os serviços do Azure e os dados coletados no Azure Moni
 |DNS | Sim | Não | Não |  |
 |Nomes de domínio | Não | Não | Não |  |
 |DPS | Não | Não | Não |  |
-|Compromisso com o cliente do Dynamics 365 | Não | Não | Não |  |
-|Operações e finanças do Dynamics 365 | Não | Não | Não |  |
+|Dynamics 365 Customer Engagement | Não | Não | Não |  |
+|Dynamics 365 Finance and Operations | Não | Não | Não |  |
 |Grade de Eventos | Sim | Não | Não |  |
 |Hubs de Eventos | Sim | Sim | Não |  |
 |ExpressRoute | Sim | Sim | Não |  |
@@ -115,7 +118,7 @@ A tabela a seguir lista os serviços do Azure e os dados coletados no Azure Moni
 |Intune | Não | Sim | Não |  |
 |Central da IoT | Não | Não | Não |  |
 |Hub IoT | Sim | Sim | Não |  |
-|Key Vault | Sim | Sim | Não |  |
+|Key Vault | Sim | Sim | [Sim](insights/key-vaults-insights-overview.md) |  |
 |AKS (Serviço do Kubernetes) | Não | Não | [Sim](insights/container-insights-overview.md)  |  |
 |Load Balancer | Sim | Sim | Não |  |
 |Aplicativos Lógicos | Sim | Sim | Não |  |
@@ -126,7 +129,7 @@ A tabela a seguir lista os serviços do Azure e os dados coletados no Azure Moni
 |Microsoft Flow | Não | Não | Não |  |
 |Área de Trabalho Gerenciada da Microsoft | Não | Não | Não |  |
 |Microsoft PowerApps | Não | Não | Não |  |
-|Microsoft Social Engagement | Não | Não | Não |  |
+|Engajamento social da Microsoft | Não | Não | Não |  |
 |Microsoft Stream | Sim | Sim | Não |  |
 |Migrar | Não | Não | Não |  |
 |Autenticação Multifator | Não | Sim | Não |  |
@@ -139,72 +142,72 @@ A tabela a seguir lista os serviços do Azure e os dados coletados no Azure Moni
 |Link Privado | Não | Não | Não |  |
 |Plataforma de comunicação do spool do projeto | Não | Não | Não |  |
 |Red Hat OpenShift | Não | Não | Não |  |
-|Cache Redis | Sim | Sim | Não |  |
+|Cache Redis | Sim | Sim | [Sim](insights/redis-cache-insights-overview.md) | |
 |Resource Graph | Não | Não | Não |  |
 |Gerenciador de Recursos | Não | Não | Não |  |
 |Pesquisa de varejo – por Bing | Não | Não | Não |  |
-|Pesquisar | Sim | Sim | Não |  |
-|Service Bus | Sim | Sim | Não |  |
+|Search | Sim | Sim | Não |  |
+|Barramento de Serviço | Sim | Sim | Não |  |
 |Service Fabric | Não | Sim | Não | Agente necessário para monitorar o sistema operacional convidado e os fluxos de trabalho.  |
 |Portal de inscrição | Não | Não | Não |  |
 |Site Recovery | Não | Sim | Não |  |
-|Serviço Spring Cloud | Não | Não | Não |  |
+|Spring Cloud Service | Não | Não | Não |  |
 |SQL Data Warehouse | Sim | Sim | Não |  |
 |Banco de Dados SQL | Sim | Sim | Não |  |
 |SQL Server Stretch Database | Sim | Sim | Não |  |
 |Pilha | Não | Não | Não |  |
 |Armazenamento | Sim | Não | [Sim](insights/storage-insights-overview.md) |  |
-|Cache de armazenamento | Não | Não | Não |  |
+|Cache de Armazenamento | Não | Não | Não |  |
 |Serviços de sincronização de armazenamento | Não | Não | Não |  |
 |Stream Analytics | Sim | Sim | Não |  |
 |Time Series Insights | Sim | Sim | Não |  |
 |TINA | Não | Não | Não |  |
 |Gerenciador de Tráfego | Sim | Sim | Não |  |
-|Impressão universal | Não | Não | Não |  |
+|Impressão Universal | Não | Não | Não |  |
 |Conjuntos de Dimensionamento de Máquinas Virtuais | Não | Sim | [Sim](insights/vminsights-overview.md) | Agente necessário para monitorar o sistema operacional convidado e os fluxos de trabalho. |
 |Máquinas Virtuais | Sim | Sim | [Sim](insights/vminsights-overview.md) | Agente necessário para monitorar o sistema operacional convidado e os fluxos de trabalho. |
 |Rede Virtual | Sim | Sim | [Sim](insights/network-insights-overview.md) |  |
-|Rede virtual-logs de fluxo NSG | Não | Sim | Não |  |
+|Rede virtual – logs de fluxo NSG | Não | Sim | Não |  |
 |Gateway de VPN | Sim | Sim | Não |  |
 |Área de Trabalho Virtual do Windows | Não | Não | Não |  |
 
 
-## <a name="product-integrations"></a>Integrações de produtos
-Os serviços e as soluções na tabela a seguir armazenam seus dados em um Log Analytics espaço de trabalho para que possam ser analisados com outros dados de log coletados pelo Azure Monitor.
+## <a name="product-integrations"></a>Integrações de produto
+Os serviços e as soluções na tabela a seguir armazenam seus dados em um workspace do Log Analytics para que possam ser analisados com outros dados de log coletados pelo Azure Monitor.
 
 | Produto/Serviço | Descrição |
 |:---|:---|
-| [Automação do Azure](/azure/automation/) | Gerenciar atualizações do sistema operacional e controlar alterações em computadores Windows e Linux. Consulte [controle de alterações](../automation/change-tracking.md) e [Gerenciamento de atualizações](../automation/automation-update-management.md). |
-| [Proteção de informações do Azure](https://docs.microsoft.com/azure/information-protection/) | Classifique e, opcionalmente, proteja documentos e emails. Consulte [relatórios centrais para a proteção de informações do Azure](https://docs.microsoft.com/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports). |
-| [Central de Segurança do Azure](/azure/security-center/) | Colete e analise eventos de segurança e execute a análise de ameaças. Consulte [coleta de dados na central de segurança do Azure](/azure/security-center/security-center-enable-data-collection) |
-| [Azure Sentinel](/azure/sentinel/) | Conecta-se a fontes diferentes, incluindo o Office 365 e a trilha de nuvem do Amazon Web Services. Consulte [conectar fontes de dados](/azure/sentinel/connect-data-sources). |
-| [Análise do Cofre de Chaves](insights/azure-key-vault.md) | Analise Azure Key Vault logs do AuditEvent. |
-| [Microsoft Intune](https://docs.microsoft.com/intune/) | Crie uma configuração de diagnóstico para enviar logs para Azure Monitor. Consulte [enviar dados de log para armazenamento, hubs de eventos ou log Analytics no Intune (versão prévia)](https://docs.microsoft.com/intune/fundamentals/review-logs-using-azure-monitor).  |
-| Rede  | [Monitor de desempenho de rede](insights/network-performance-monitor.md) -monitore a conectividade de rede e o desempenho para pontos de extremidade de serviço e de aplicativo.<br>[Aplicativo Azure gateway](insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) -analise os logs e as métricas do gateway de aplicativo Azure.<br>[Análise de tráfego](/azure/network-watcher/traffic-analytics) -analisa os logs de fluxo do NSG (grupo de segurança de rede) do observador de rede para fornecer informações sobre o fluxo de tráfego em sua nuvem do Azure. |
+| [Automação do Azure](/azure/automation/) | Gerenciar atualizações do sistema operacional e controlar alterações em computadores Windows e Linux. Confira [Controle de Alterações](../automation/change-tracking.md) e [Gerenciamento de Atualizações](../automation/automation-update-management.md). |
+| [Proteção de Informações do Azure ](https://docs.microsoft.com/azure/information-protection/) | Classifique e, opcionalmente, proteja documentos e emails. Confira [Relatórios centrais para a Proteção de Informações do Azure](https://docs.microsoft.com/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports). |
+| [Central de Segurança do Azure](/azure/security-center/) | Colete e analise eventos de segurança e execute a análise de ameaças. Confira [Coleta de dados na Central de Segurança do Azure](/azure/security-center/security-center-enable-data-collection) |
+| [Azure Sentinel](/azure/sentinel/) | Conecta-se a fontes diferentes, incluindo o Office 365 e o Amazon Web Services CloudTrail. Confira [Conectar fontes de dados](/azure/sentinel/connect-data-sources). |
+| [Análise do Cofre de Chaves](insights/azure-key-vault.md) | Analise os logs do AuditEvent do Azure Key Vault. |
+| [Microsoft Intune](https://docs.microsoft.com/intune/) | Crie uma configuração de diagnóstico para enviar logs para o Azure Monitor. Confira [Enviar dados de log para armazenamento, hubs de eventos ou análise de logs no Intune (versão prévia)](https://docs.microsoft.com/intune/fundamentals/review-logs-using-azure-monitor).  |
+| Rede  | [Monitor de Desempenho de Rede](insights/network-performance-monitor.md) – monitore a conectividade de rede e o desempenho para pontos de extremidade de serviço e aplicativo.<br>[Gateway de Aplicativo do Azure](insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) – analise os logs e as métricas do Gateway de Aplicativo do Azure.<br>[Análise de Tráfego](/azure/network-watcher/traffic-analytics) –analisa os logs de fluxo de NSG (grupo de segurança de rede) do Observador de Rede para fornecer informações sobre o fluxo de tráfego em sua nuvem do Azure. |
 | [Office 365](insights/solution-office-365.md) | Monitore seu ambiente do Office 365. Versão atualizada com integração aprimorada disponível por meio do Azure Sentinel. |
-| [Análise de SQL](insights/azure-sql.md) | Monitore o desempenho de bancos de dados SQL do Azure, pools elásticos e instâncias gerenciadas em escala e em várias assinaturas. |
-| [Surface Hub](insights/surface-hubs.md) | Acompanhe a integridade e o uso de dispositivos Surface Hub. |
-| [System Center Operations Manager](https://docs.microsoft.com/system-center/scom) | Colete dados de agentes de Operations Manager conectando seu grupo de gerenciamento ao Azure Monitor. Consulte [conectar Operations Manager ao Azure monitor](platform/om-agents.md)<br> Avalie o risco e a integridade de seu grupo de gerenciamento de System Center Operations Manager com Operations Manager solução de [avaliação](insights/scom-assessment.md) . |
+| [Análise de SQL](insights/azure-sql.md) | Monitora o desempenho de bancos de dados SQL do Azure, de pools elásticos e das instâncias gerenciadas em escala e em várias assinaturas. |
+| [Hub de Superfície](insights/surface-hubs.md) | Acompanhe a integridade e o uso de dispositivos Surface Hub. |
+| [System Center Operations Manager](https://docs.microsoft.com/system-center/scom) | Colete dados de agentes do Operations Manager conectando seu grupo de gerenciamento ao Azure Monitor. Confira [Conectar o Operations Manager com o Azure Monitor](platform/om-agents.md)<br> Avalie o risco e a integridade do seu grupo de gerenciamento do System Center Operations Manager com a solução [Avaliação do Operations Manager](insights/scom-assessment.md). |
 | [Salas do Microsoft Teams](https://docs.microsoft.com/microsoftteams/room-systems/azure-monitor-deploy) | Gerenciamento integrado de ponta a ponta de dispositivos de salas do Microsoft Teams. |
-| [Visual Studio App Center](https://docs.microsoft.com/appcenter/) | Crie, teste e distribua aplicativos e, em seguida, monitore seu status e uso. Consulte [começar a analisar seu aplicativo móvel com app Center e Application insights](learn/mobile-center-quickstart.md). |
-| Windows | [Conformidade de Windows Update](https://docs.microsoft.com/windows/deployment/update/update-compliance-get-started) – avalie as atualizações da área de trabalho do Windows.<br>[Análise de desktop](https://docs.microsoft.com/configmgr/desktop-analytics/overview) -integra-se com Configuration Manager para fornecer informações e inteligência para tomar decisões mais informadas sobre a prontidão de atualização de seus clientes Windows. |
+| [Visual Studio App Center](https://docs.microsoft.com/appcenter/) | Crie, teste e distribua aplicativos e, em seguida, monitore seu status e uso. Confira [Começar a analisar seu aplicativo móvel com o App Center e o Application Insights](learn/mobile-center-quickstart.md). |
+| Windows | [Conformidade de Atualizações do Windows](https://docs.microsoft.com/windows/deployment/update/update-compliance-get-started) – avalie as atualizações da área de trabalho do Windows.<br>[Análise de Área de Trabalho ](https://docs.microsoft.com/configmgr/desktop-analytics/overview) – integra-se com o Configuration Manager para oferecer insights e inteligência a fim de tomar decisões mais informadas sobre a preparação para atualização dos clientes do Windows. |
 
 
 
 ## <a name="other-solutions"></a>Outras soluções
-Outras soluções estão disponíveis para monitorar diferentes aplicativos e serviços, mas o desenvolvimento ativo foi interrompido e eles podem não estar disponíveis em todas as regiões. Eles são cobertos pelo contrato de nível de serviço de ingestão de dados do Azure Log Analytics.
+Outras soluções estão disponíveis para monitorar diferentes aplicativos e serviços, mas o desenvolvimento ativo foi interrompido e elas podem não estar disponíveis em todas as regiões. Elas são cobertas pelo contrato de nível de serviço de ingestão de dados do Azure Log Analytics.
 
 | Solução | Descrição |
 |:---|:---|
-| [Active Directory verificação de integridade](insights/ad-assessment.md) | Avalie o risco e a integridade de seus ambientes de Active Directory. |
-| [Status de replicação do Active Directory](insights/ad-replication-status.md) | Monitora regularmente seu ambiente de Active Directory em busca de falhas de replicação. |
-| [Log Analytics de atividades](platform/activity-log-view.md#azure-portal) | Exibir entradas do log de atividades. |
-| [Análise de DNS (versão prévia)](insights/dns-analytics.md) | Coleta, analisa e correlaciona os logs analíticos e de auditoria do DNS do Windows e outros dados relacionados dos servidores DNS. |
-| [Cloud Foundry](../cloudfoundry/cloudfoundry-oms-nozzle.md) | Colete, exiba e analise suas Cloud Foundry métricas de desempenho e integridade do sistema em várias implantações. |
+| [Verificação de integridade do Active Directory](insights/ad-assessment.md) | Avalie o risco e a integridade de ambientes do Active Directory. |
+| [Status de replicação do Active Directory](insights/ad-replication-status.md) | Monitora regularmente seu ambiente do Active Directory em busca de falhas de replicação. |
+| [Análise do Log de Atividades](platform/activity-log-view.md#azure-portal) | Exiba entradas de log de atividades. |
+| [Análise de DNS (versão prévia)](insights/dns-analytics.md) | Coleta, analisa e correlaciona logs de auditoria e analíticos de DNS do Windows, bem como outros dados relacionados de seus servidores DNS. |
+| [Cloud Foundry](../cloudfoundry/cloudfoundry-oms-nozzle.md) | Colete, exiba e analise a integridade do sistema Cloud Foundry e as métricas de desempenho do CF em várias implantações. |
 | [Contêineres](insights/containers.md) | Exiba e gerencie hosts de contêiner do Docker e do Windows. |
 | [Avaliações sob demanda](https://docs.microsoft.com/services-hub/health/getting_started_with_on_demand_assessments) | Avalie e otimize a disponibilidade, a segurança e o desempenho de seus ambientes de tecnologia da Microsoft locais, híbridos e na nuvem. |
-| [Verificação de integridade do SQL](insights/sql-assessment.md) | Avalie o risco e a integridade de seus ambientes de SQL Server.  |
-| [Dados durante a transmissão](insights/wire-data.md) | Dados consolidados de rede e de desempenho coletados de computadores conectados ao Windows e conectados ao Linux com o agente de Log Analytics. |
+| [Verificação de Integridade do SQL](insights/sql-assessment.md) | Avalie o risco e a integridade de ambientes do SQL Server.  |
+| [Dados durante a transmissão](insights/wire-data.md) | Consolidados de rede e de desempenho coletados de computadores conectados por Windows e conectados por Linux com o agente do Log Analytics. |
 
 ## <a name="third-party-integration"></a>Integração de terceiros
 
@@ -214,21 +217,21 @@ Outras soluções estão disponíveis para monitorar diferentes aplicativos e se
 
 
 ## <a name="resources-outside-of-azure"></a>Recursos fora do Azure
-Azure Monitor pode coletar dados de recursos fora do Azure usando os métodos listados na tabela a seguir.
+O Azure Monitor pode coletar dados de recursos fora do Azure usando os métodos listados na tabela a seguir.
 
 | Recurso | Método |
 |:---|:---|
-| Aplicativos | Monitore aplicativos Web fora do Azure usando Application Insights. Veja [o que é Application insights?](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). |
-| Máquinas virtuais | Use o agente de Log Analytics para coletar dados do sistema operacional convidado de máquinas virtuais em outros ambientes de nuvem ou locais. Consulte [coletar dados de log com o agente de log Analytics](platform/log-analytics-agent.md). |
-| Cliente da API REST | APIs separadas estão disponíveis para gravar dados em Azure Monitor logs e métricas de qualquer cliente de API REST. Consulte [enviar dados de log para Azure monitor com a API do coletor de dados http](platform/data-collector-api.md) para logs e [Enviar métricas personalizadas para um recurso do Azure para o repositório de métrica Azure monitor usando uma API REST](platform/metrics-store-custom-rest-api.md) para métricas. |
+| Aplicativos | Monitore aplicativos Web fora do Azure usando o Application Insights. Confira [O que é o Application Insights?](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). |
+| Máquinas virtuais | Use o agente do Log Analytics para coletar dados do sistema operacional convidado de máquinas virtuais em outros ambientes de nuvem ou locais. Confira [Coletar dados de log com o agente do Log Analytics](platform/log-analytics-agent.md). |
+| Cliente da API REST | As APIs separadas estão disponíveis para gravar dados nos logs e nas métricas do Azure Monitor de qualquer cliente da API REST. Confira [Enviar dados de log para o Azure Monitor com a API do coletor de dados HTTP](platform/data-collector-api.md) para logs e [Enviar métricas personalizadas de um recurso do Azure para o repositório de métricas do Azure Monitor usando uma API REST](platform/metrics-store-custom-rest-api.md) para métricas. |
 
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Leia mais sobre a [plataforma de dados Azure monitor que armazena os logs e as métricas coletados por informações e soluções](platform/data-platform.md).
+- Leia mais sobre a [Plataforma de dados do Azure Monitor que armazena os logs e as métricas coletados pelos insights e pelas soluções](platform/data-platform.md).
 - Conclua um [tutorial sobre como monitorar um recurso do Azure](learn/tutorial-resource-logs.md).
-- Conclua um [tutorial sobre como gravar uma consulta de log para analisar dados em logs de Azure monitor](learn/tutorial-resource-logs.md).
-- Conclua um [tutorial sobre como criar um gráfico de métricas para analisar dados em métricas de Azure monitor](learn/tutorial-metrics-explorer.md).
+- Conclua um [tutorial sobre como gravar uma consulta de log para analisar dados em logs do Azure Monitor](learn/tutorial-resource-logs.md).
+- Conclua um [tutorial sobre como criar um gráfico de métricas para analisar dados nas métricas do Azure Monitor](learn/tutorial-metrics-explorer.md).
 
  

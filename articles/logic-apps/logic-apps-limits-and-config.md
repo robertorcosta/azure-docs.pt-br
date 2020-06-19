@@ -1,21 +1,21 @@
 ---
 title: Limites e configuração
-description: Limites de serviço, como duração, taxa de transferência e capacidade, além de valores de configuração, como endereços IP para permitir, para aplicativos lógicos do Azure
+description: Limites de serviço, como duração, taxa de transferência e capacidade, além de valores da configuração, como endereços IP para permitir, para Aplicativos Lógicos do Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 05/04/2020
-ms.openlocfilehash: 807949d7ed0c68edd44fba95109f118e97c59b5a
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
-ms.translationtype: MT
+ms.date: 05/23/2020
+ms.openlocfilehash: 29c5cdf418c4b7acfc7c3c510c3e76d956268fdf
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901255"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780360"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informações de limites e configuração para os Aplicativos Lógicos do Azure
 
-Este artigo descreve os limites e os detalhes de configuração para criar e executar fluxos de trabalho automatizados com os Aplicativos Lógicos do Azure. Para a automatização de energia, consulte [limites e configuração no Power Automate](https://docs.microsoft.com/flow/limits-and-config).
+Este artigo descreve os limites e os detalhes de configuração para criar e executar fluxos de trabalho automatizados com os Aplicativos Lógicos do Azure. Para o Power Automate, consulte [Limites e configuração no Power Automate](https://docs.microsoft.com/flow/limits-and-config).
 
 <a name="definition-limits"></a>
 
@@ -23,7 +23,7 @@ Este artigo descreve os limites e os detalhes de configuração para criar e exe
 
 Estes são os limites de definição de um único aplicativo lógico:
 
-| Nome | Limite | Anotações |
+| Nome | Limite | Observações |
 | ---- | ----- | ----- |
 | Ações por fluxo de trabalho | 500 | Para estender esse limite, adicione fluxos de trabalho aninhados conforme necessário. |
 | Profundidade de aninhamento permitido para ações | 8 | Para estender esse limite, adicione fluxos de trabalho aninhados conforme necessário. |
@@ -31,7 +31,7 @@ Estes são os limites de definição de um único aplicativo lógico:
 | Gatilhos por fluxo de trabalho | 10 | Ao trabalhar no modo de exibição de código, não no designer |
 | Limite de casos de escopo do comutador | 25 | |
 | Variáveis por fluxo de trabalho | 250 | |
-| Caracteres por expressão | 8.192 | |
+| Caracteres por expressão | 8\.192 | |
 | Tamanho máximo para `trackedProperties` | 16.000 caracteres |
 | Nome para `action` ou `trigger` | 80 caracteres | |
 | Comprimento de `description` | 256 caracteres | |
@@ -44,10 +44,10 @@ Estes são os limites de definição de um único aplicativo lógico:
 
 Estes são os limites de execução de um único aplicativo lógico:
 
-| Nome | Limite de vários locatários | Limite do ambiente do serviço de integração | Anotações |
+| Nome | Limite de multilocatários | Limite do ambiente do serviço de integração | Observações |
 |------|--------------------|---------------------------------------|-------|
-| Duração da execução | 90 dias | 366 dias | A duração da execução é calculada usando a hora de início de uma execução e o limite especificado *na hora de início* pela configuração do fluxo de trabalho, [**retenção do histórico de execuções em dias**](#change-duration). <p><p>Para alterar o limite padrão, que é de 90 dias, consulte [duração da execução da alteração](#change-duration). |
-| Executar retenção no armazenamento | 90 dias | 366 dias | A retenção de execução é calculada usando a hora de início de uma execução e o limite especificado *na hora atual* pela configuração do fluxo de trabalho, [**retenção do histórico de execuções em dias**](#change-retention). Se uma execução for concluída ou expirar, o cálculo de retenção sempre usará a hora de início da execução. Quando a duração de uma execução excede o limite de retenção *atual* , a execução é removida do histórico de execuções. <p><p>Se você alterar essa configuração, o limite atual será sempre usado para calcular a retenção, não importa o limite anterior. Por exemplo, se você reduzir o limite de retenção de 90 dias para 30 dias, uma execução de 60 dias de idade será removida do histórico de execuções. Se você aumentar o período de retenção de 30 dias para 60 dias, uma execução de 20 dias permanecerá no histórico de execuções por mais 40 dias. <p><p>Para alterar o limite padrão, que é de 90 dias, consulte [alterar a retenção de execução no armazenamento](#change-retention). |
+| Duração da execução | 90 dias | 366 dias | A duração da execução é calculada usando a hora de início de uma execução e o limite especificado *na hora de início* pela configuração do fluxo de trabalho, [**Retenção do histórico de execuções em dias**](#change-duration). <p><p>Para alterar o limite padrão, que é de 90 dias, consulte como [alterar a duração da execução](#change-duration). |
+| Retenção da execução no armazenamento | 90 dias | 366 dias | A retenção da execução é calculada usando a hora de início de uma execução e o limite especificado *na hora atual* pela configuração do fluxo de trabalho, [**Retenção do histórico de execução em dias**](#change-retention). Se uma execução for concluída ou expirar, o cálculo da retenção sempre usará a hora de início da execução. Quando a duração de uma execução excede o limite de retenção *atual*, a execução é removida do histórico de execuções. <p><p>Se você alterar essa configuração, o limite atual será sempre usado para calcular a retenção, não importa o limite anterior. Por exemplo, se você reduzir o limite de retenção de 90 dias para 30 dias, uma execução de 60 dias será removida do histórico de execuções. Se você aumentar o período de retenção de 30 dias para 60 dias, uma execução de 20 dias permanecerá no histórico de execuções por mais 40 dias. <p><p>Para alterar o limite padrão, que é de 90 dias, consulte como [alterar a retenção da execução no armazenamento](#change-retention). |
 | Intervalo de recorrência mínimo | 1 segundo | 1 segundo ||
 | Intervalo de recorrência máximo | 500 dias | 500 dias ||
 |||||
@@ -55,25 +55,25 @@ Estes são os limites de execução de um único aplicativo lógico:
 <a name="change-duration"></a>
 <a name="change-retention"></a>
 
-### <a name="change-run-duration-and-run-retention-in-storage"></a>Duração da execução de alteração e execução de retenção no armazenamento
+### <a name="change-run-duration-and-run-retention-in-storage"></a>Alterar a duração a retenção da execução no armazenamento
 
-Para alterar o limite padrão de duração da execução e executar a retenção no armazenamento, siga estas etapas. Para aumentar o limite máximo, [entre em contato com a equipe de aplicativos lógicos](mailto://logicappsemail@microsoft.com) para obter ajuda com seus requisitos.
+Para alterar o limite padrão de duração e retenção da execução no armazenamento, siga estas etapas. Para aumentar o limite máximo, [entre em contato com a equipe de Aplicativos Lógicos](mailto://logicappsemail@microsoft.com) para ter ajuda com seus requisitos.
 
 > [!NOTE]
-> Para aplicativos lógicos em vários locatários do Azure, o limite padrão de 90 dias é o mesmo que o limite máximo. Você só pode diminuir esse valor.
-> Para aplicativos lógicos em um ambiente de serviço de integração, você pode diminuir ou aumentar o limite padrão de 90 dias.
+> Para os aplicativos lógicos no Azure com multilocatário, o limite padrão de 90 dias é igual ao limite máximo. Você só pode diminuir esse valor.
+> Para os aplicativos lógicos em um ambiente do serviço de integração, você pode diminuir ou aumentar o limite padrão de 90 dias.
 
-1. Vá para o [Portal do Azure](https://portal.azure.com). Na caixa de pesquisa do portal, localize e selecione **aplicativos lógicos**.
+1. Vá para o [Portal do Azure](https://portal.azure.com). Na caixa de pesquisa do portal, localize e selecione **Aplicativos lógicos**.
 
-1. Selecione e, em seguida, abra seu aplicativo lógico no designer do aplicativo lógico.
+1. Selecione e abra seu aplicativo lógico no Designer do Aplicativo Lógico.
 
-1. No menu do aplicativo lógico, selecione **configurações de fluxo de trabalho**.
+1. No menu do aplicativo lógico, selecione **Configurações do fluxo de trabalho**.
 
-1. Em **Opções de tempo de execução**, na lista **retenção do histórico de execuções em dias** , selecione **personalizado**.
+1. Em **Opções de runtime**, na lista **Retenção do histórico de execuções em dias**, escolha **Personalizar**.
 
-1. Arraste o controle deslizante para alterar o número de dias que você deseja.
+1. Arraste o controle deslizante para mudar o número de dias que você deseja.
 
-1. Quando terminar, na barra de ferramentas **configurações de fluxo de trabalho** , selecione **salvar**.
+1. Quando terminar, selecione **Salvar** na barra de ferramentas **Configurações do fluxo de trabalho**.
 
 <a name="looping-debatching-limits"></a>
 
@@ -81,14 +81,14 @@ Para alterar o limite padrão de duração da execução e executar a retenção
 
 Estes são os limites de execução de um único aplicativo lógico:
 
-| Nome | Limite | Anotações |
+| Nome | Limite | Observações |
 | ---- | ----- | ----- |
-| Simultaneidade do gatilho | – Ilimitado quando o controle de simultaneidade é desativado <p><p>-25 é o limite padrão quando o controle de simultaneidade é ativado, o que você não pode desfazer depois de habilitar a simultaneidade. Você pode alterar o padrão para um valor entre 1 e 50, inclusive. | Esse limite descreve o número mais alto de instâncias de aplicativo lógico que podem ser executados ao mesmo tempo, ou em paralelo. <p><p>**Observação**: quando a simultaneidade é ativada, o limite de divisão é reduzido para 100 itens para [matrizes de delote](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Para alterar o limite padrão para um valor entre 1 e 50, inclusive, consulte [Alterar o limite de simultaneidade do gatilho](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) ou [Disparar instâncias sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
-| Execuções de espera máximo | -Sem simultaneidade, o número mínimo de execuções de espera é 1, enquanto o número máximo é 50. <p><p>-Com a simultaneidade, o número mínimo de execuções de espera é de 10 mais o número de execuções simultâneas (simultaneidade do gatilho). Você pode alterar o número máximo até 100, inclusive. | Esse limite descreve o maior número de instâncias do aplicativo lógico que pode aguardar para ser executado quando o aplicativo lógico já está em execução o número máximo de instâncias simultâneo. <p><p>Para alterar o limite padrão, consulte [execuções de espera da alteração limitam](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
+| Simultaneidade do gatilho | - Ilimitado quando o controle de simultaneidade está desativado <p><p>- 25 é o limite padrão, quando o controle de simultaneidade está ativado, o que não pode ser desfeito depois de ativar a simultaneidade. Você pode alterar o padrão para um valor entre 1 e 50, inclusive. | Esse limite descreve o número mais alto de instâncias de aplicativo lógico que podem ser executados ao mesmo tempo, ou em paralelo. <p><p>**Observação**: Quando a simultaneidade é ativada, o limite SplitOn é reduzido para 100 itens para [desfazer o lote nas matrizes](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Para alterar o limite padrão para um valor entre 1 e 50, inclusive, consulte [Alterar o limite de simultaneidade do gatilho](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) ou [Disparar instâncias sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
+| Execuções de espera máximo | - Sem simultaneidade, o número mínimo de execuções de espera é 1, enquanto o número máximo é 50. <p><p>- Com simultaneidade, o número mínimo de execuções de espera é 10 mais o número de execuções simultâneas (simultaneidade do gatilho). Você pode alterar o número máximo até 100, inclusive. | Esse limite descreve o maior número de instâncias do aplicativo lógico que pode aguardar para ser executado quando o aplicativo lógico já está em execução o número máximo de instâncias simultâneo. <p><p>Para alterar o limite padrão, consulte [execuções de espera da alteração limitam](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
 | Itens da matriz de foreach | 100.000 | Esse limite descreve o maior número de itens de matriz que um loop "para cada" pode processar. <p><p>Para filtrar matrizes maiores, você pode usar o [ação de consulta](logic-apps-perform-data-operations.md#filter-array-action). |
 | Simultaneidade de foreach | 20 é o limite padrão quando o controle de simultaneidade é desativado. Você pode alterar o padrão para um valor entre 1 e 50, inclusive. | Esse limite é o maior número de iterações de loop "for each" que podem ser executadas ao mesmo tempo ou em paralelo. <p><p>Para alterar o limite padrão para um valor entre 1 e 50 inclusive, consulte [Alterar o limite de simultaneidade “para cada”](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) ou [Executar loops "para cada" sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
-| Itens SplitOn | -100.000 sem simultaneidade de gatilho <p><p>-100 com simultaneidade de gatilho | Para gatilhos que retornam uma matriz, você pode especificar uma expressão que usa uma propriedade 'SplitOn' que [divide ou retira de lote os itens da matriz em várias instâncias de fluxo de trabalho](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) para processamento, em vez de usar um loop "Foreach". Essa expressão referencia a matriz a ser usada para criar e executar uma instância de fluxo de trabalho para cada item da matriz. <p><p>**Observação**: quando a simultaneidade é ativada, o limite de divisão é reduzido para 100 itens. |
-| Iterações Until | -Padrão: 60 <p><p>-Máximo: 5.000 | |
+| Itens SplitOn | - 100.000 sem simultaneidade do gatilho <p><p>- 100 sem simultaneidade do gatilho | Para gatilhos que retornam uma matriz, você pode especificar uma expressão que usa uma propriedade 'SplitOn' que [divide ou retira de lote os itens da matriz em várias instâncias de fluxo de trabalho](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) para processamento, em vez de usar um loop "Foreach". Essa expressão referencia a matriz a ser usada para criar e executar uma instância de fluxo de trabalho para cada item da matriz. <p><p>**Observação**: Quando a simultaneidade é ativada, o limite SplitOn é reduzido para 100 itens. |
+| Iterações Until | - Padrão: 60 <p><p>- Máximo: 5.000 | |
 ||||
 
 <a name="throughput-limits"></a>
@@ -97,69 +97,69 @@ Estes são os limites de execução de um único aplicativo lógico:
 
 Estes são os limites de definição de um único aplicativo lógico:
 
-### <a name="multi-tenant-logic-apps-service"></a>Serviço de aplicativos lógicos multilocatários
+### <a name="multi-tenant-logic-apps-service"></a>Serviço de Aplicativos Lógicos com multilocatário
 
-| Nome | Limite | Anotações |
+| Nome | Limite | Observações |
 | ---- | ----- | ----- |
 | Ação: Execuções a cada 5 minutos | 100.000 é o limite padrão, mas 300.000 é o limite máximo. | Para alterar o limite padrão, consulte [Execute seu aplicativo lógico no modo "alto rendimento"](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), que está na visualização. Ou, você pode distribuir a carga de trabalho entre mais de um aplicativo lógico conforme necessário. |
-| Ação: Saída de chamadas simultâneas | ~2.500 | Você pode reduzir o número de solicitações simultâneas ou reduzir a duração conforme necessário. |
-| Ponto de extremidade de runtime: chamadas de entrada simultâneas | ~1,000 | Você pode reduzir o número de solicitações simultâneas ou reduzir a duração conforme necessário. |
-| Ponto de extremidade de runtime: lê chamadas por 5 minutos  | 60.000 | Você pode distribuir a carga de trabalho entre mais de um aplicativo, conforme necessário. |
-| Ponto de extremidade de runtime: invoca chamadas por 5 minutos | 45,000 | Você pode distribuir a carga de trabalho entre mais de um aplicativo, conforme necessário. |
+| Ação: Chamadas de saída simultâneas | ~2.500 | Você pode reduzir o número de solicitações simultâneas ou reduzir a duração conforme necessário. |
+| Ponto de extremidade de runtime: Chamadas recebidas simultâneas | ~1,000 | Você pode reduzir o número de solicitações simultâneas ou reduzir a duração conforme necessário. |
+| Ponto de extremidade de runtime: Chamadas de leitura a cada 5 minutos  | 60.000 | Você pode distribuir a carga de trabalho entre mais de um aplicativo, conforme necessário. |
+| Ponto de extremidade de runtime: Chamadas de invocação a cada 5 minutos | 45,000 | Você pode distribuir a carga de trabalho entre mais de um aplicativo, conforme necessário. |
 | Taxa de transferência de conteúdo por 5 minutos | 600 MB | Você pode distribuir a carga de trabalho entre mais de um aplicativo, conforme necessário. |
 ||||
 
 ### <a name="integration-service-environment-ise"></a>Ambiente do serviço de integração (ISE)
 
-Estes são os limites de taxa de transferência para o [SKU do ISE Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level):
+Estes são os limites da taxa de transferência para o [SKU do ISE Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level):
 
-| Nome | Limite | Anotações |
+| Nome | Limite | Observações |
 |------|-------|-------|
-| Limite de execução de unidade base | Sistema-limitado quando a capacidade da infraestrutura atinge 80% | Fornece ~ 4.000 execuções de ação por minuto, que é ~ 160 milhões execuções de ação por mês | |
-| Limite de execução de unidade de escala | Sistema-limitado quando a capacidade da infraestrutura atinge 80% | Cada unidade de escala pode fornecer aproximadamente 2.000 execuções de ação adicionais por minuto, que é ~ 80 milhões mais execuções de ação por mês | |
+| Limite de execução da unidade base | Sistema limitado quando a capacidade da infraestrutura atinge 80% | Fornece ~4.000 execuções de ação por minuto, que são ~160 milhões execuções de ação por mês | |
+| Limite de execução da unidade de escala | Sistema limitado quando a capacidade da infraestrutura atinge 80% | Cada unidade de escala pode fornecer ~2.000 execuções de ação adicionais por minuto, que são mais ~80 milhões de execuções de ação por mês | |
 | Unidades de escala máximas que você pode adicionar | 10 | |
 ||||
 
 Para ultrapassar esses limites no processamento normal ou executar um teste de carga que possa ultrapassar esses limites, [entre em contato com a equipe de Aplicativos Lógicos](mailto://logicappsemail@microsoft.com) para que possam ajudá-lo com suas necessidades.
 
 > [!NOTE]
-> A [SKU do ISE do desenvolvedor](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) não tem limites publicados, nenhum recurso para escalar verticalmente e nenhum SLA (contrato de nível de serviço). Use esta SKU somente para testes, desenvolvimento e teste, não para produção ou teste de desempenho.
+> O [SKU do ISE do Desenvolvedor](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) não tem limites publicados, nenhum recurso para escalar verticalmente, nem SLA (contrato de nível de serviço). Use esse SKU somente para experimentar, desenvolver e testar, não para produção ou teste de desempenho.
 
 <a name="gateway-limits"></a>
 
-## <a name="gateway-limits"></a>Limites de gateway
+## <a name="gateway-limits"></a>Limites do gateway
 
-O aplicativo lógico do Azure dá suporte a operações de gravação, incluindo inserções e atualizações, por meio do gateway. No entanto, essas operações têm [limites de seu tamanho de carga](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations).
+Os Aplicativos Lógicos do Azure dão suporte a operações de gravação, incluindo inserções e atualizações, por meio do gateway. No entanto, essas operações têm [limites no tamanho da carga](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations).
 
 <a name="request-limits"></a>
 
 ## <a name="http-limits"></a>Limites do HTTP
 
-Aqui estão os limites para uma única chamada HTTP de saída ou de entrada:
+Aqui estão os limites para uma única chamada HTTP de saída ou entrada:
 
 #### <a name="timeout"></a>Tempo limite
 
 Algumas operações de conector fazem chamadas assíncronas ou escutam solicitações de webhook, portanto o tempo limite para essas operações pode ter mais do que esses limites. Para obter mais informações, consulte os detalhes técnicos para o conector específico e também [Gatilhos e ações de fluxo de trabalho](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action).
 
-| Nome | Limite de vários locatários | Limite do ambiente do serviço de integração | Anotações |
+| Nome | Limite de multilocatários | Limite do ambiente do serviço de integração | Observações |
 |------|--------------------|---------------------------------------|-------|
-| Solicitação de saída | 120 segundos <br>(2 minutos) | 240 segundos <br>(4 minutos) | Exemplos de solicitações de saída incluem chamadas feitas por gatilhos HTTP. <p><p>**Dica**: para operações de execução mais longa, use um [padrão de sondagem assíncrona](../logic-apps/logic-apps-create-api-app.md#async-pattern) ou um [loop Until](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). |
-| Solicitação de entrada | 120 segundos <br>(2 minutos) | 240 segundos <br>(4 minutos) | Exemplos de solicitações de entrada incluem chamadas recebidas por gatilhos de solicitação e gatilhos de webhook. <p><p>**Observação**: para que o chamador original obtenha a resposta, todas as etapas na resposta devem ser concluídas dentro do limite, a menos que você chame outro aplicativo lógico como um fluxo de trabalho aninhado. Para obter mais informações, consulte [Chamar, acionar ou aninhar aplicativos lógicos](../logic-apps/logic-apps-http-endpoint.md). |
+| Solicitação de saída | 120 segundos <br>(2 minutos) | 240 segundos <br>(4 minutos) | Os exemplos de solicitações de saída incluem as chamadas feitas por gatilhos HTTP. <p><p>**Dica**: Para operações com execução mais longa, use um [padrão de sondagem assíncrona](../logic-apps/logic-apps-create-api-app.md#async-pattern) ou um [até que o loop](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). Para solucionar os limites de tempo ao chamar outro aplicativo lógico que tem um [ponto de extremidade de chamada](logic-apps-http-endpoint.md), você pode usar a ação predefinida dos Aplicativos Lógicos do Azure, que pode ser encontrada no seletor do conector em **Predefinido**. |
+| Solicitação de entrada | 120 segundos <br>(2 minutos) | 240 segundos <br>(4 minutos) | Os exemplos de solicitações de entrada incluem as chamadas recebidas por gatilhos de solicitação e gatilhos de webhook. <p><p>**Observação**: Para o chamador original obter a resposta, todas as etapas na resposta devem ser finalizadas dentro do limite, a menos que você chame outro aplicativo lógico como um fluxo de trabalho aninhado. Para obter mais informações, consulte [Chamar, acionar ou aninhar aplicativos lógicos](../logic-apps/logic-apps-http-endpoint.md). |
 |||||
 
 <a name="message-size-limits"></a>
 
 #### <a name="message-size"></a>Tamanho da mensagem
 
-| Nome | Limite de vários locatários | Limite do ambiente do serviço de integração | Anotações |
+| Nome | Limite de multilocatários | Limite do ambiente do serviço de integração | Observações |
 |------|--------------------|---------------------------------------|-------|
-| Tamanho da mensagem | 100 MB | 200 MB | Para contornar esse limite, consulte [Tratar mensagens grandes com agrupamento](../logic-apps/logic-apps-handle-large-messages.md). No entanto, alguns conectores e APIs podem não oferecer suporte a agrupamento ou até o limite padrão. <p><p>-Conectores como AS2, X12 e EDIFACT têm seus próprios [limites de mensagens B2B](#b2b-protocol-limits). <br>-Os conectores do ISE usam o limite do ISE, não seus limites de conector não ISE. |
-| Tamanho da mensagem com agrupamento | 1 GB | 5 GB | Esse limite se aplica a ações que oferecem suporte nativo ao agrupamento ou permitem que você habilite o agrupamento em sua configuração de tempo de execução. <p><p>Se você estiver usando um ISE, o mecanismo de aplicativos lógicos dá suporte a esse limite, mas os conectores têm seus próprios limites de agrupamento até o limite do mecanismo, por exemplo, consulte a [referência de API do conector de armazenamento de BLOBs do Azure](https://docs.microsoft.com/connectors/azureblob/). Para obter mais informações sobre agrupamento, consulte [tratar mensagens grandes com agrupamento](../logic-apps/logic-apps-handle-large-messages.md). |
+| Tamanho da mensagem | 100 MB | 200 MB | Para contornar esse limite, consulte [Tratar mensagens grandes com agrupamento](../logic-apps/logic-apps-handle-large-messages.md). No entanto, alguns conectores e APIs podem não oferecer suporte a agrupamento ou até o limite padrão. <p><p>- Conectores como AS2, X12 e EDIFACT têm seus próprios [limites de mensagem B2B](#b2b-protocol-limits). <br>- Os conectores do ISE usam o limite do ISE, não os limites do conector diferentes do ISE. |
+| Tamanho da mensagem com agrupamento | 1 GB | 5 GB | Esse limite se aplica a ações com compatibilidade nativa com o agrupamento ou que permitem que você habilite o agrupamento na configuração de runtime. <p><p>Se você estiver usando um ISE, o mecanismo dos Aplicativos Lógicos dá suporte a esse limite, mas os conectores têm seus próprios limites de agrupamento até o limite do mecanismo; por exemplo, consulte a [Referência de API do conector do Armazenamento de Blobs do Azure](https://docs.microsoft.com/connectors/azureblob/). Para obter mais informações sobre o agrupamento, consulte [Tratar mensagens grandes com agrupamento](../logic-apps/logic-apps-handle-large-messages.md). |
 |||||
 
-#### <a name="character-limits"></a>Limites de caracteres
+#### <a name="character-limits"></a>Limites de caractere
 
-| Nome | Anotações |
+| Nome | Observações |
 |------|-------|
 | Limite de avaliação da expressão | 131.072 caracteres | As expressões `@concat()`, `@base64()`, `@string()` não podem ser maiores do que esse limite. |
 | Limite de caracteres da URL de solicitação | 16.384 caracteres |
@@ -169,7 +169,7 @@ Algumas operações de conector fazem chamadas assíncronas ou escutam solicita�
 
 #### <a name="retry-policy"></a>Política de repetição
 
-| Nome | Limite | Anotações |
+| Nome | Limite | Observações |
 | ---- | ----- | ----- |
 | Tentativas de repetição | 90 | O padrão é 4. Para alterar o padrão, use o [Parâmetro de política de repetição](../logic-apps/logic-apps-workflow-actions-triggers.md). |
 | Atraso máximo de nova tentativa | 1 dia | Para alterar o padrão, use o [Parâmetro de política de repetição](../logic-apps/logic-apps-workflow-actions-triggers.md). |
@@ -178,11 +178,11 @@ Algumas operações de conector fazem chamadas assíncronas ou escutam solicita�
 
 <a name="authentication-limits"></a>
 
-### <a name="authentication-limits"></a>Limites de autenticação
+### <a name="authentication-limits"></a>Limites da autenticação
 
-Aqui estão os limites para um aplicativo lógico que começa com um gatilho de solicitação e habilita [Azure Active Directory autenticação aberta](../active-directory/develop/about-microsoft-identity-platform.md) (Azure ad OAuth) para autorizar chamadas de entrada para o gatilho de solicitação:
+Veja os limites de um aplicativo lógico que começa com um Gatilho de solicitação e permite a [Open Authorization do Azure Active Directory](../active-directory/develop/about-microsoft-identity-platform.md) (OAuth do Azure AD) para autorizar chamadas de entrada para esse gatilho:
 
-| Nome | Limite | Anotações |
+| Nome | Limite | Observações |
 | ---- | ----- | ----- |
 | Políticas de autorização do Azure AD | 5 | |
 | Declarações por política de autorização | 10 | |
@@ -194,10 +194,10 @@ Aqui estão os limites para um aplicativo lógico que começa com um gatilho de 
 
 Aqui estão os limites para conectores personalizados que você pode criar de APIs da Web.
 
-| Nome | Limite de vários locatários | Limite do ambiente do serviço de integração | Anotações |
+| Nome | Limite de multilocatários | Limite do ambiente do serviço de integração | Observações |
 |------|--------------------|---------------------------------------|-------|
-| Número de conectores personalizados | 1.000 por assinatura do Azure | 1.000 por assinatura do Azure ||
-| Número de solicitações por minuto para um conector personalizado | 500 solicitações por minuto por conexão | 2.000 solicitações por minuto por *conector personalizado* ||
+| Número de conectores personalizados | 1\.000 por assinatura do Azure | 1\.000 por assinatura do Azure ||
+| Número de solicitações por minuto para um conector personalizado | 500 solicitações por minuto e por conexão | 2\.000 solicitações por minuto e por *conector personalizado* ||
 |||
 
 <a name="managed-identity"></a>
@@ -206,39 +206,39 @@ Aqui estão os limites para conectores personalizados que você pode criar de AP
 
 | Nome | Limite |
 |------|-------|
-| Identidades gerenciadas por aplicativo lógico | A identidade atribuída pelo sistema ou uma identidade atribuída pelo usuário |
-| Número de aplicativos lógicos que têm uma identidade gerenciada em uma assinatura do Azure por região | 250 |
+| Identidades gerenciadas por aplicativo lógico | Identidade atribuída pelo sistema ou 1 identidade atribuída pelo usuário |
+| Número de aplicativos lógicos que têm uma identidade gerenciada em uma assinatura do Azure por região | 500 |
 |||
 
 <a name="integration-account-limits"></a>
 
 ## <a name="integration-account-limits"></a>Limites da conta de integração
 
-Cada assinatura do Azure tem estes limites de conta de integração:
+Cada assinatura do Azure tem estes limites da conta de integração:
 
-* Uma conta de integração de [camada gratuita](../logic-apps/logic-apps-pricing.md#integration-accounts) por região do Azure
+* Uma conta de integração com [Camada gratuita](../logic-apps/logic-apps-pricing.md#integration-accounts) por região do Azure
 
-* 1.000 total de contas de integração, incluindo contas de integração em qualquer [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) em [SKUs do desenvolvedor e Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level).
+* 1\.000 contas de integração no total, incluindo contas de integração em qualquer [ISE (ambiente do serviço de integração)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) em [SKUs do Desenvolvedor e Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level).
 
-* Cada ISE, seja [desenvolvedor ou Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), está limitado a 5 contas de integração totais:
+* Cada ISE, do [Desenvolvedor ou Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), está limitado a 5 contas de integração no total:
 
-  | SKU DO ISE | Limites da conta de integração |
+  | SKU do ISE | Limites da conta de integração |
   |---------|----------------------------|
-  | **Premium** | total de 5 contas [padrão](../logic-apps/logic-apps-pricing.md#integration-accounts) , incluindo uma conta padrão gratuitamente. Nenhuma conta gratuita ou básica é permitida. |
-  | **Desenvolvedor** | 5 total- [livre](../logic-apps/logic-apps-pricing.md#integration-accounts) (limitado a 1 conta) e [padrão](../logic-apps/logic-apps-pricing.md#integration-accounts) combinado, ou todas as contas padrão. Nenhuma conta básica é permitida. Use a [SKU do desenvolvedor](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) para experimentação, desenvolvimento e teste, mas não para teste de produção ou de desempenho. |
+  | **Premium** | 5 no total - contas [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts) apenas, incluindo uma conta Standard gratuita. Nenhuma conta Gratuita ou Básica é permitida. |
+  | **Desenvolvedor** | 5 no total - [Gratuita](../logic-apps/logic-apps-pricing.md#integration-accounts) (limitado a 1 conta) e [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts) combinadas, ou todas as contas Standard. Nenhuma conta Básica é permitida. Use o [SKU do Desenvolvedor](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) para experimentar, desenvolver e testar, não para produção ou teste de desempenho. |
   |||
 
-Custos adicionais se aplicam a contas de integração que você adiciona além das contas de integração incluídas com um ISE. Para saber como o preço e a cobrança funcionam para o ISEs, consulte o [modelo de preços dos aplicativos lógicos](../logic-apps/logic-apps-pricing.md#fixed-pricing). Para obter taxas de preços, consulte [preços dos aplicativos lógicos](https://azure.microsoft.com/pricing/details/logic-apps/).
+Custos adicionais se aplicam a contas de integração que você adiciona além das contas de integração incluídas com um ISE. Para saber como funcionam o preço e a cobrança nos ISEs, consulte o [Modelo de preços dos Aplicativos Lógicos](../logic-apps/logic-apps-pricing.md#fixed-pricing). Para obter os valores, consulte [Preços dos Aplicativos Lógicos](https://azure.microsoft.com/pricing/details/logic-apps/).
 
 <a name="artifact-number-limits"></a>
 
 ### <a name="artifact-limits-per-integration-account"></a>Limites de artefato por conta de integração
 
-Aqui estão os limites do número de artefatos para cada camada de conta de integração.
-Para obter taxas de preços, consulte [preços dos aplicativos lógicos](https://azure.microsoft.com/pricing/details/logic-apps/). Para saber como o preço e a cobrança funcionam para contas de integração, consulte o [modelo de preços dos aplicativos lógicos](../logic-apps/logic-apps-pricing.md#integration-accounts).
+Estes são os limites no número de artefatos para cada camada da conta de integração.
+Para obter os valores, consulte [Preços dos Aplicativos Lógicos](https://azure.microsoft.com/pricing/details/logic-apps/). Para saber como funcionam o preço e a cobrança nas contas de integração, consulte o [Modelo de preços dos Aplicativos Lógicos](../logic-apps/logic-apps-pricing.md#integration-accounts).
 
 > [!NOTE]
-> Use a camada gratuita somente para cenários exploratórios, não cenários de produção. Esta camada restringe o uso e a taxa de transferência e não tem nenhum SLA (Contrato de Nível de Serviço).
+> Use a camada Gratuita somente para cenários exploratórios, não cenários de produção. Esta camada restringe o uso e a taxa de transferência e não tem nenhum SLA (Contrato de Nível de Serviço).
 
 | Artefato | Grátis | Basic | Standard |
 |----------|------|-------|----------|
@@ -255,10 +255,10 @@ Para obter taxas de preços, consulte [preços dos aplicativos lógicos](https:/
 
 ### <a name="artifact-capacity-limits"></a>Limites de capacidade do artefato
 
-| Artefato | Limite | Anotações |
+| Artefato | Limite | Observações |
 | -------- | ----- | ----- |
 | Assembly | 8 MB | Para carregar arquivos maiores que 2 MB, use um [contêiner de blob e uma conta de armazenamento do Azure](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
-| Mapa (arquivo XSLT) | 8 MB | Para carregar arquivos maiores que 2 MB, use a [API REST de Aplicativos Lógicos do Azure – Mapas](https://docs.microsoft.com/rest/api/logic/maps/createorupdate). <p><p>**Observação**: a quantidade de dados ou registros que um mapa pode processar com êxito baseia-se no tamanho da mensagem e nos limites de tempo limite da ação nos aplicativos lógicos do Azure. Por exemplo, se você usar uma ação HTTP, com base no [tamanho da mensagem http e nos limites de tempo limite](#request-limits), um mapa poderá processar dados até o limite de tamanho da mensagem http se a operação for concluída dentro do tempo limite de http. |
+| Mapa (arquivo XSLT) | 8 MB | Para carregar arquivos maiores que 2 MB, use a [API REST de Aplicativos Lógicos do Azure – Mapas](https://docs.microsoft.com/rest/api/logic/maps/createorupdate). <p><p>**Observação**: A quantidade de dados ou registros que um mapa pode processar com êxito baseia-se no tamanho da mensagem e nos limites de tempo da ação nos Aplicativos Lógicos do Azure. Por exemplo, se você usar uma ação HTTP, baseada no [tamanho da mensagem HTTP e nos limites de tempo](#request-limits), um mapa poderá processar dados até o limite de tamanho da mensagem HTTP se a operação for concluída dentro do limite de tempo do HTTP. |
 | Esquema | 8 MB | Para carregar arquivos maiores que 2 MB, use um [contêiner de blob e uma conta de armazenamento do Azure](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
 ||||
 
@@ -266,7 +266,7 @@ Para obter taxas de preços, consulte [preços dos aplicativos lógicos](https:/
 
 ### <a name="throughput-limits"></a>Limites de taxa de transferência
 
-| Ponto de extremidade de runtime | Grátis | Basic | Standard | Anotações |
+| Ponto de extremidade de runtime | Grátis | Basic | Standard | Observações |
 |------------------|------|-------|----------|-------|
 | Chamadas de leitura a cada 5 minutos | 3\.000 | 30,000 | 60.000 | Você pode distribuir a carga de trabalho entre mais de uma conta conforme necessário. |
 | Chamadas de invocação a cada 5 minutos | 3\.000 | 30,000 | 45,000 | Você pode distribuir a carga de trabalho entre mais de uma conta conforme necessário. |
@@ -278,11 +278,11 @@ Para obter taxas de preços, consulte [preços dos aplicativos lógicos](https:/
 
 ### <a name="b2b-protocol-as2-x12-edifact-message-size"></a>Tamanho da mensagem do protocolo B2B (AS2, X12, EDIFACT)
 
-Estes são os limites de tamanho de mensagem que se aplicam aos protocolos B2B:
+Estes são os limites da mensagem que se aplicam aos protocolos B2B:
 
-| Nome | Limite de vários locatários | Limite do ambiente do serviço de integração | Anotações |
+| Nome | Limite de multilocatários | Limite do ambiente do serviço de integração | Observações |
 |------|--------------------|---------------------------------------|-------|
-| AS2 | v2-100 MB<br>v1-50 MB | v2-200 MB <br>v1-50 MB | Aplicável ao decodificar e codificar |
+| AS2 | v2 - 100MB<br>v1 - 50MB | v2 - 200MB <br>v1 - 50MB | Aplicável ao decodificar e codificar |
 | X12 | 50 MB | 50 MB | Aplicável ao decodificar e codificar |
 | EDIFACT | 50 MB | 50 MB | Aplicável ao decodificar e codificar |
 ||||
@@ -291,48 +291,48 @@ Estes são os limites de tamanho de mensagem que se aplicam aos protocolos B2B:
 
 ## <a name="disabling-or-deleting-logic-apps"></a>Desabilitar ou excluir aplicativos lógicos
 
-Ao desabilitar um aplicativo lógico, nenhuma nova execução será instanciada. Todas as execuções em andamento e pendentes continuam até que sejam concluídas, o que pode levar tempo para ser concluído.
+Ao desabilitar um aplicativo lógico, nenhuma nova execução será instanciada. Todas as execuções em andamento e pendentes continuam até que sejam concluídas, e isso pode demorar algum tempo.
 
 Ao excluir um aplicativo lógico, nenhuma nova execução será instanciada. Todas as execuções em andamento e pendentes serão canceladas. Se você tiver milhares de execuções, o cancelamento poderá demorar um tempo significativo até ser concluído.
 
 <a name="configuration"></a>
 
-## <a name="firewall-configuration-ip-addresses-and-service-tags"></a>Configuração de firewall: endereços IP e marcas de serviço
+## <a name="firewall-configuration-ip-addresses-and-service-tags"></a>Configuração do firewall: Endereços IP e marcas de serviço
 
-Os endereços IP que o aplicativo lógico do Azure usa para chamadas de entrada e saída dependem da região em que seu aplicativo lógico existe. *Todos os* aplicativos lógicos na mesma região usam os mesmos intervalos de endereços IP. Algumas chamadas de [automatização de energia](https://docs.microsoft.com/power-automate/getting-started) , como solicitações **http** e **http + openapi** , vão diretamente por meio do serviço de aplicativos lógicos do Azure e vêm dos endereços IP listados aqui. Para obter mais informações sobre os endereços IP usados pela automatização de energia, consulte [limites e configuração no Power Automate](https://docs.microsoft.com/flow/limits-and-config#ip-address-configuration).
+Os endereços IP usados pelos Aplicativos Lógicos do Azure para chamadas de entrada e saída dependem da região em que seu aplicativo lógico existe. *Todos* os aplicativos lógicos na mesma região usam os mesmos intervalos de endereço IP. Algumas chamadas do [Power Automate](https://docs.microsoft.com/power-automate/getting-started), como solicitações **HTTP** e **HTTP + OpenAPI**, vão diretamente por meio do serviço de Aplicativos Lógicos do Azure e vêm dos endereços IP listados aqui. Para obter mais informações sobre os endereços IP usados pelo Power Automate, consulte os [Limites e configuração no Power Automate](https://docs.microsoft.com/flow/limits-and-config#ip-address-configuration).
 
 > [!TIP]
-> Para ajudar a reduzir a complexidade ao criar regras de segurança, você pode, opcionalmente, usar [marcas de serviço](../virtual-network/service-tags-overview.md), em vez de especificar os endereços IP dos aplicativos lógicos para cada região, descritos mais adiante nesta seção. Essas marcas funcionam nas regiões em que o serviço de aplicativos lógicos está disponível:
+> Para ajudar a reduzir a complexidade ao criar regras de segurança, você pode, opcionalmente, usar [marcas de serviço](../virtual-network/service-tags-overview.md), em vez de especificar os endereços IP dos Aplicativos Lógicos para cada região, descritos mais adiante nesta seção. Essas marcas funcionam nas regiões em que o serviço de Aplicativos Lógicos está disponível:
 >
-> * **LogicAppsManagement**: representa os prefixos de endereço IP de entrada para o serviço de aplicativos lógicos.
-> * **LogicApps**: representa os prefixos de endereço IP de saída para o serviço de aplicativos lógicos.
+> * **LogicAppsManagement**: Representa os prefixos do endereço IP de entrada para o serviço de Aplicativos Lógicos.
+> * **LogicApps**: Representa os prefixos do endereço IP de saída para o serviço de Aplicativos Lógicos.
 
-* Para o [Azure China 21vianet](https://docs.microsoft.com/azure/china/), os endereços IP fixos ou reservados não estão disponíveis para [conectores personalizados](../logic-apps/custom-connector-overview.md) e [conectores gerenciados](../connectors/apis-list.md#managed-api-connectors), por exemplo, armazenamento do Azure, SQL Server, Outlook do Office 365 e assim por diante.
+* Para o [Azure China 21Vianet](https://docs.microsoft.com/azure/china/), os endereços IP fixos ou reservados estão indisponíveis para os [conectores personalizados](../logic-apps/custom-connector-overview.md) e os [conectores gerenciados](../connectors/apis-list.md#managed-api-connectors); por exemplo, Armazenamento do Azure, SQL Server, Outlook do Office 365 etc.
 
-* Para dar suporte às chamadas que seus aplicativos lógicos fazem diretamente com [http](../connectors/connectors-native-http.md), [http + Swagger](../connectors/connectors-native-http-swagger.md)e outras solicitações HTTP, configure seu firewall com todos os endereços IP de [entrada](#inbound) *e* [saída](#outbound) que são usados pelo serviço de aplicativos lógicos, com base nas regiões em que seus aplicativos lógicos existem. Esses endereços são exibidos sob os títulos **De entrada** e **De saída** nesta seção e são classificados por região.
+* Para dar suporte às chamadas que os aplicativos lógicos fazem diretamente com [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) e outras solicitações HTTP, configure seu firewall com todos os endereços IP de [entrada](#inbound) *e* [saída](#outbound) usados pelo serviço dos Aplicativos Lógicos, com base nas regiões em que esses aplicativos existem. Esses endereços são exibidos sob os títulos **De entrada** e **De saída** nesta seção e são classificados por região.
 
-* Para dar suporte às chamadas feitas pelos [conectores gerenciados](../connectors/apis-list.md#managed-api-connectors) , configure seu firewall com *todos* os endereços IP de [saída](#outbound) usados por esses conectores, com base nas regiões em que os seus aplicativos lógicos existem. Esses endereços são exibidos sob o título **De saída** nesta seção e são classificados por região.
+* Para dar suporte às chamadas que os [conectores gerenciados](../connectors/apis-list.md#managed-api-connectors) fazem, configure seu firewall com *todos* os endereços IP [de saída](#outbound) usados por esses conectores, com base nas regiões em que seus aplicativos lógicos existem. Esses endereços são exibidos sob o título **De saída** nesta seção e são classificados por região.
 
-* Para habilitar a comunicação para aplicativos lógicos executados em um ambiente do serviço de integração (ISE), certifique-se de [abrir essas portas](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise).
+* Para habilitar a comunicação para os aplicativos lógicos executados em um ambiente do serviço de integração (ISE), [abra essas portas](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise).
 
 * Se seus aplicativos lógicos tiverem problemas para acessar contas de armazenamento do Azure que usam [firewalls e regras de firewall](../storage/common/storage-network-security.md), você terá [várias opções para habilitar o acesso](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
 
-  Por exemplo, os aplicativos lógicos não podem acessar diretamente as contas de armazenamento que usam regras de firewall e existem na mesma região. No entanto, se você permitir os [endereços IP de saída para conectores gerenciados em sua região](../logic-apps/logic-apps-limits-and-config.md#outbound), seus aplicativos lógicos poderão acessar contas de armazenamento que estão em uma região diferente, exceto quando você usar o armazenamento de tabelas do Azure ou conectores de armazenamento de filas do Azure. Para acessar o armazenamento de tabelas ou o armazenamento de filas, você pode usar o gatilho e as ações HTTP em vez disso. Para outras opções, consulte [acessar contas de armazenamento por trás de firewalls](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
+  Por exemplo, os aplicativos lógicos não podem acessar diretamente as contas de armazenamento que usam regras de firewall e existem na mesma região. No entanto, se você permitir [endereços IP de saída para os conectores gerenciados em sua região](../logic-apps/logic-apps-limits-and-config.md#outbound), seus aplicativos lógicos poderão acessar as contas de armazenamento que estão em uma região diferente, exceto quando usar os conectores de Armazenamento de Tabelas do Azure ou Armazenamento de Filas do Azure. Para acessar o Armazenamento de Tabelas ou o Armazenamento de Filas, você pode usar o gatilho e as ações HTTP. Para ver outras opções, consulte [Acessar contas de armazenamento por trás de firewalls](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
 
 <a name="inbound"></a>
 
 ### <a name="inbound-ip-addresses"></a>Endereços IP de entrada
 
-Esta seção lista os endereços IP de entrada para o serviço de aplicativos lógicos do Azure somente. Se você tiver o Azure governamental, consulte [endereços IP de entrada do Azure governamental](#azure-government-inbound).
+Esta seção lista os endereços IP de entrada para o serviço de Aplicativos Lógicos do Azure somente. Se você tem o Azure Governamental, consulte os [endereços IP de entrada do Azure Governamental](#azure-government-inbound).
 
 > [!TIP]
-> Para ajudar a reduzir a complexidade ao criar regras de segurança, você pode, opcionalmente, usar a [marca de serviço](../virtual-network/service-tags-overview.md), **LogicAppsManagement**, em vez de especificar prefixos de endereço IP de aplicativos lógicos de entrada para cada região. Essa marca funciona nas regiões em que o serviço de aplicativos lógicos está disponível.
+> Para ajudar a reduzir a complexidade ao criar regras de segurança, você pode, opcionalmente, usar a [marca de serviço](../virtual-network/service-tags-overview.md), **LogicAppsManagement**, em vez de especificar os endereços IP dos Aplicativos Lógicos de entrada para cada região. Essa marca funciona nas regiões em que o serviço de Aplicativos Lógicos está disponível.
 
 <a name="multi-tenant-inbound"></a>
 
-#### <a name="multi-tenant-azure---inbound-ip-addresses"></a>Endereços IP de entrada do Azure de vários locatários
+#### <a name="multi-tenant-azure---inbound-ip-addresses"></a>Endereços IP de entrada do Azure com multilocatário
 
-| Região multilocatário | IP |
+| Região com multilocatário | IP |
 |---------------------|----|
 | Leste da Austrália | 13.75.153.66, 104.210.89.222, 104.210.89.244, 52.187.231.161 |
 | Sudeste da Austrália | 13.73.115.153, 40.115.78.70, 40.115.78.237, 52.189.216.28 |
@@ -369,9 +369,9 @@ Esta seção lista os endereços IP de entrada para o serviço de aplicativos l�
 
 <a name="azure-government-inbound"></a>
 
-#### <a name="azure-government---inbound-ip-addresses"></a>Azure governamental-endereços IP de entrada
+#### <a name="azure-government---inbound-ip-addresses"></a>Endereços IP de entrada do Azure Governamental
 
-| Região do Azure governamental | IP |
+| Região do Azure Governamental | IP |
 |-------------------------|----|
 | Governo dos EUA do Arizona | 52.244.67.164, 52.244.67.64, 52.244.66.82 |
 | Governo dos EUA do Texas | 52.238.119.104, 52.238.112.96, 52.238.119.145 |
@@ -383,16 +383,16 @@ Esta seção lista os endereços IP de entrada para o serviço de aplicativos l�
 
 ### <a name="outbound-ip-addresses"></a>Endereços IP de saída
 
-Esta seção lista os endereços IP de saída para o serviço de aplicativos lógicos do Azure e conectores gerenciados. Se você tiver o Azure governamental, consulte os [endereços IP de saída do Azure governamental](#azure-government-outbound).
+Esta seção lista os endereços IP de saída para o serviço de Aplicativos Lógicos do Azure e conectores gerenciados. Se você tem o Azure Governamental, consulte os [endereços IP de saída do Azure Governamental](#azure-government-outbound).
 
 > [!TIP]
-> Para ajudar a reduzir a complexidade ao criar regras de segurança, você pode, opcionalmente, usar a [marca de serviço](../virtual-network/service-tags-overview.md), **LogicApps**, em vez de especificar prefixos de endereço IP de aplicativos lógicos de saída para cada região. Essa marca funciona nas regiões em que o serviço de aplicativos lógicos está disponível. Para conectores gerenciados, você deve continuar a usar os endereços IP.
+> Para ajudar a reduzir a complexidade ao criar regras de segurança, você pode, opcionalmente, usar a [marca de serviço](../virtual-network/service-tags-overview.md), **LogicApps**, em vez de especificar os endereços IP dos Aplicativos Lógicos de saída para cada região. Essa marca funciona nas regiões em que o serviço de Aplicativos Lógicos está disponível. Para os conectores gerenciados, você deve continuar a usar os endereços IP.
 
 <a name="multi-tenant-outbound"></a>
 
-#### <a name="multi-tenant-azure---outbound-ip-addresses"></a>Endereços IP de saída do Azure multilocatário
+#### <a name="multi-tenant-azure---outbound-ip-addresses"></a>Endereços IP de saída do Azure com multilocatário
 
-| Região multilocatário | IP de Aplicativos Lógicos | IP de conectores gerenciados |
+| Região com multilocatário | IP de Aplicativos Lógicos | IP de conectores gerenciados |
 |---------------------|---------------|-----------------------|
 | Leste da Austrália | 13.75.149.4, 104.210.91.55, 104.210.90.241, 52.187.227.245, 52.187.226.96, 52.187.231.184, 52.187.229.130, 52.187.226.139 | 13.70.72.192 - 13.70.72.207, 13.72.243.10, 40.126.251.213, 52.237.214.72 |
 | Sudeste da Austrália | 13.73.114.207, 13.77.3.139, 13.70.159.205, 52.189.222.77, 13.77.56.167, 13.77.58.136, 52.189.214.42, 52.189.220.75 | 13.70.136.174, 13.77.50.240 - 13.77.50.255, 40.127.80.34, 52.255.48.202 |
@@ -429,7 +429,7 @@ Esta seção lista os endereços IP de saída para o serviço de aplicativos ló
 
 <a name="azure-government-outbound"></a>
 
-#### <a name="azure-government---outbound-ip-addresses"></a>Azure governamental-endereços IP de saída
+#### <a name="azure-government---outbound-ip-addresses"></a>Endereços IP de saída do Azure Governamental
 
 | Região | IP de Aplicativos Lógicos | IP de conectores gerenciados |
 |--------|---------------|-----------------------|

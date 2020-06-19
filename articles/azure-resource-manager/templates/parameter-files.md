@@ -1,16 +1,16 @@
 ---
 title: Criar arquivo de parâmetros
-description: Criar arquivo de parâmetro para passar valores durante a implantação de um modelo de Azure Resource Manager
+description: Criar arquivo de parâmetros para passar valores durante a implantação de um modelo do Azure Resource Manager
 ms.topic: conceptual
 ms.date: 04/20/2020
-ms.openlocfilehash: a1a1f703594f8eaa572ea38ecef88b4cd6ba5a4b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a9845bbb9e14288a01fb7836db260a2baf484395
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81682885"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873075"
 ---
-# <a name="create-resource-manager-parameter-file"></a>Criar arquivo de parâmetro do Resource Manager
+# <a name="create-resource-manager-parameter-file"></a>Criar um arquivo de parâmetro do Resource Manager
 
 Em vez de passar parâmetros como valores embutidos no script, talvez seja mais fácil usar um arquivo JSON que contenha os valores de parâmetro. Este artigo mostra como criar o arquivo de parâmetro.
 
@@ -33,9 +33,9 @@ O arquivo de parâmetro tem o seguinte formato:
 }
 ```
 
-Observe que os valores de parâmetro são armazenados como texto sem formatação no arquivo de parâmetro. Essa abordagem funciona para valores que não são confidenciais, como especificar a SKU para um recurso. Ele não funciona para valores confidenciais, como senhas. Se você precisar passar um valor confidencial como um parâmetro, armazene o valor em um cofre de chaves e faça referência ao cofre de chaves em seu arquivo de parâmetro. O valor confidencial é recuperado com segurança durante a implantação.
+Observe que os valores de parâmetro são armazenados como texto sem formatação no arquivo de parâmetros. Essa abordagem funciona para valores que não são confidenciais, como especificar a SKU para um recurso. Não funciona para valores confidenciais, como senhas. Se você precisar passar um valor confidencial como um parâmetro, armazene o valor em um cofre de chaves e faça referência ao cofre de chaves em seu arquivo de parâmetros. O valor confidencial é recuperado com segurança durante a implantação.
 
-O arquivo de parâmetro a seguir inclui um valor de texto sem formatação e um valor que é armazenado em um cofre de chaves.
+O arquivo de parâmetros a seguir inclui um valor de texto sem formatação e um valor que é armazenado em um cofre de chaves.
 
 ```json
 {
@@ -57,11 +57,11 @@ O arquivo de parâmetro a seguir inclui um valor de texto sem formatação e um 
 }
 ```
 
-Para obter mais informações sobre como usar valores de um cofre de chaves, consulte [usar Azure Key Vault para passar um valor de parâmetro seguro durante a implantação](key-vault-parameter.md).
+Para saber mais sobre ambas como usar valores de um cofre de chaves, confira [Usar o Azure Key Vault para passar um valor de parâmetro seguro durante a implantação](key-vault-parameter.md).
 
 ## <a name="define-parameter-values"></a>Definir valores de parâmetro
 
-Para descobrir como definir os valores de parâmetro, abra o modelo que você está implantando. Examine a seção de parâmetros do modelo. O exemplo a seguir mostra os parâmetros de um modelo.
+Para descobrir como definir os valores de parâmetro, abra o modelo que você está implantando. Examine a seção de parâmetros do modelo. O seguinte exemplo mostra os parâmetros de um modelo.
 
 ```json
 "parameters": {
@@ -82,7 +82,7 @@ Para descobrir como definir os valores de parâmetro, abra o modelo que você es
 }
 ```
 
-O primeiro detalhe a ser observado é o nome de cada parâmetro. Os valores em seu arquivo de parâmetro devem corresponder aos nomes.
+O primeiro detalhe a ser observado é o nome de cada parâmetro. Os valores em seu arquivo de parâmetros devem corresponder aos nomes.
 
 ```json
 {
@@ -97,7 +97,7 @@ O primeiro detalhe a ser observado é o nome de cada parâmetro. Os valores em s
 }
 ```
 
-Observe o tipo do parâmetro. Os valores em seu arquivo de parâmetro devem ter os mesmos tipos. Para este modelo, você pode fornecer ambos os parâmetros como cadeias de caracteres.
+Observe o tipo do parâmetro. Os valores em seu arquivo de parâmetros devem ter os mesmos tipos. Para este modelo, você pode fornecer ambos os parâmetros como cadeias de caracteres.
 
 ```json
 {
@@ -114,7 +114,7 @@ Observe o tipo do parâmetro. Os valores em seu arquivo de parâmetro devem ter 
 }
 ```
 
-Em seguida, procure um valor padrão. Se um parâmetro tiver um valor padrão, você poderá fornecer um valor, mas não precisará.
+Em seguida, procure um valor padrão. Se um parâmetro tiver um valor padrão, você poderá fornecer um valor, mas não precisará fazer isso.
 
 ```json
 {
@@ -148,7 +148,7 @@ Por fim, examine os valores permitidos e as restrições como comprimento máxim
 }
 ```
 
-## <a name="parameter-type-formats"></a>Formatos de tipo de parâmetro
+## <a name="parameter-type-formats"></a>Formatos do tipo de parâmetro
 
 O exemplo a seguir mostra os formatos de tipos de parâmetros diferentes.
 
@@ -182,18 +182,18 @@ O exemplo a seguir mostra os formatos de tipos de parâmetros diferentes.
 }
 ```
 
-## <a name="file-name"></a>Nome do Arquivo
+## <a name="file-name"></a>Nome do arquivo
 
-A Convenção geral para nomear o arquivo de parâmetro é adicionar **. Parameters** ao nome do modelo. Por exemplo, se seu modelo for denominado **azuredeploy. JSON**, o arquivo de parâmetro será chamado **azuredeploy. Parameters. JSON**. Essa convenção de nomenclatura ajuda a ver a conexão entre o modelo e os parâmetros.
+A convenção geral para nomear o arquivo de parâmetros é adicionar **.parameters** ao nome do modelo. Por exemplo, se seu modelo for nomeado **azuredeploy.json**, o arquivo de parâmetros será nomeado **azuredeploy.parameters.json**. Essa convenção de nomenclatura ajuda a ver a conexão entre o modelo e os parâmetros.
 
-Para implantar em ambientes diferentes, crie mais de um arquivo de parâmetro. Ao nomear o arquivo de parâmetro, adicione uma maneira de identificar seu uso. Por exemplo, use **azuredeploy. Parameters-dev. JSON** e **azuredeploy. Parameters-prod. JSON**
+Para implantar em ambientes diferentes, crie mais de um arquivo de parâmetros. Ao nomear o arquivo de parâmetros, adicione uma maneira de identificar seu uso. Por exemplo, use **azuredeploy.parameters-dev.json** e **azuredeploy.parameters-prod.json**
 
 
 ## <a name="parameter-precedence"></a>Precedência de parâmetro
 
 Você pode usar parâmetros embutidos e um arquivo de parâmetro local na mesma operação de implantação. Por exemplo, você pode especificar alguns valores no arquivo de parâmetro local e adicionar outros valores embutidos durante a implantação. Se você fornecer valores para um parâmetro no arquivo de parâmetros local e embutido, o valor embutido terá precedência.
 
-No entanto, quando você usa um arquivo de parâmetro externo, não é possível transmitir outros valores em linha ou em um arquivo local. Todos os parâmetros embutidos são ignorados. Forneça todos os valores de parâmetro no arquivo externo.
+É possível usar um arquivo de parâmetros externo, fornecendo o URI para o arquivo. Quando você faz isso, não é possível transmitir outros valores em linha ou em um arquivo local. Todos os parâmetros embutidos são ignorados. Forneça todos os valores de parâmetro no arquivo externo.
 
 ## <a name="parameter-name-conflicts"></a>Conflitos de nome de parâmetro
 
@@ -201,6 +201,6 @@ Se o modelo incluir um parâmetro com o mesmo nome que um dos parâmetros no com
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para entender como definir parâmetros em seu modelo, consulte [parâmetros em modelos de Azure Resource Manager](template-parameters.md).
-- Para obter mais informações sobre como usar valores de um cofre de chaves, consulte [usar Azure Key Vault para passar um valor de parâmetro seguro durante a implantação](key-vault-parameter.md).
-- Para obter mais informações sobre parâmetros, consulte [parâmetros em modelos de Azure Resource Manager](template-parameters.md).
+- Para entender como definir parâmetros em seu modelo, confira [Parâmetros nos modelos do Azure Resource Manager](template-parameters.md).
+- Para saber mais sobre ambas como usar valores de um cofre de chaves, confira [Usar o Azure Key Vault para passar um valor de parâmetro seguro durante a implantação](key-vault-parameter.md).
+- Para obter mais informações sobre parâmetros, confira [Parâmetros nos modelos do Azure Resource Manager](template-parameters.md).

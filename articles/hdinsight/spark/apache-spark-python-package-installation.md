@@ -1,5 +1,5 @@
 ---
-title: Ação de script para pacotes do Python com Jupyter no Azure HDInsight
+title: Ação de script para pacotes do Python com o Jupyter no Azure HDInsight
 description: Instruções passo a passo sobre como usar ação de script para configurar os blocos de anotações do Jupyter disponíveis com clusters Spark no HDInsight para usar pacotes Python externos.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 13ea1043d05c9f349e25623086c2908e176772a8
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
-ms.translationtype: MT
+ms.openlocfilehash: ec914db1e26e6f052715440c3e418df09fe8a361
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583958"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835964"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Gerenciar com segurança o ambiente do Python no Azure HDInsight usando a Ação de Script
 
@@ -21,137 +21,137 @@ ms.locfileid: "82583958"
 > * [Usando a mágica da célula](apache-spark-jupyter-notebook-use-external-packages.md)
 > * [Usando a ação de script](apache-spark-python-package-installation.md)
 
-O HDInsight tem duas instalações internas do Python no cluster do Spark, Anaconda Python 2,7 e Python 3,5. Os clientes podem precisar personalizar o ambiente do Python. Como instalar pacotes python externos ou outra versão do Python. Aqui, mostramos a prática recomendada de gerenciar com segurança ambientes de Python para clusters de Apache Spark no HDInsight.
+O HDInsight tem duas instalações internas do Python no cluster do Spark, Anaconda Python 2.7 e Python 3.5. Talvez seja necessário que os clientes personalizem o ambiente do Python. Como instalar pacotes externos do Python ou outra versão do Python. Aqui, mostramos a melhor prática de gerenciamento seguro de ambientes do Python para clusters Apache Spark no HDInsight.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Um cluster do Apache Spark no HDInsight. Para obter instruções, consulte o artigo sobre como [Criar clusters do Apache Spark no Azure HDInsight](apache-spark-jupyter-spark-sql.md). Se você ainda não tiver um cluster Spark no HDInsight, poderá executar ações de script durante a criação do cluster.  Acesse a documentação em [como usar ações de script personalizadas](../hdinsight-hadoop-customize-cluster-linux.md).
+Um cluster do Apache Spark no HDInsight. Para obter instruções, consulte o artigo sobre como [Criar clusters do Apache Spark no Azure HDInsight](apache-spark-jupyter-spark-sql.md). Se você ainda não tiver um cluster Spark no HDInsight, poderá executar ações de script durante a criação do cluster. Acesse a documentação em [como usar ações de script personalizadas](../hdinsight-hadoop-customize-cluster-linux.md).
 
 ## <a name="support-for-open-source-software-used-on-hdinsight-clusters"></a>Suporte para software livre utilizado em clusters do HDInsight
 
-O serviço de Microsoft Azure HDInsight usa um ambiente de tecnologias de software livre formado por Apache Hadoop. O Microsoft Azure fornece um nível geral de suporte para tecnologias de software livre. Para obter mais informações, consulte [site de perguntas frequentes do suporte do Azure](https://azure.microsoft.com/support/faq/). O serviço HDInsight fornece um nível adicional de suporte a componentes internos.
+O serviço Microsoft Azure HDInsight usa um ambiente de tecnologias de software livre construído em torno do Apache Hadoop. O Microsoft Azure fornece um nível geral de suporte para tecnologias de software livre. Para obter mais informações, confira o [site de perguntas frequentes do Suporte do Azure](https://azure.microsoft.com/support/faq/). O serviço HDInsight fornece um nível adicional de suporte a componentes internos.
 
 Há dois tipos de componentes de software livre disponíveis no serviço HDInsight:
 
 |Componente |Descrição |
 |---|---|
-|Interno|Esses componentes são pré-instalados em clusters HDInsight e fornecem a funcionalidade básica do cluster. Por exemplo, Apache Hadoop o YARN Resource Manager, a linguagem de consulta Apache Hive (HiveQL) e a biblioteca Mahout pertencem a essa categoria. Uma lista completa de componentes de cluster está disponível em [O que há de novo nas versões de cluster do Apache Hadoop fornecidas pelo HDInsight](../hdinsight-component-versioning.md).|
-|Personalizado|Você, como um usuário do cluster, pode instalar ou usar em sua carga de trabalho qualquer componente disponível na Comunidade ou criado por você.|
+|Interno|Esses componentes estão pré-instalados em clusters do HDInsight e fornecem os recursos básicos do cluster. Por exemplo, o Apache Hadoop YARN Resource Manager, a linguagem de consulta do Apache Hive (HiveQL) e a biblioteca do Mahout pertencem a essa categoria. Uma lista completa de componentes de cluster está disponível em [O que há de novo nas versões de cluster do Apache Hadoop fornecidas pelo HDInsight](../hdinsight-component-versioning.md).|
+|Personalizado|Você, como usuário do cluster, pode instalar ou usar em sua carga de trabalho qualquer componente disponível na comunidade ou criado por você.|
 
 > [!IMPORTANT]
 > Componentes fornecidos com o cluster HDInsight contam com suporte total. O Suporte da Microsoft ajuda a isolar e resolver problemas relacionados a esses componentes.
 >
-> Componentes personalizados recebem suporte comercialmente razoável para ajudá-lo a solucionar o problema. O suporte da Microsoft pode estar apto a resolver o problema OU pode solicitar que você contate canais disponíveis para as tecnologias de software livre em que é encontrado conhecimento profundo sobre essa tecnologia. Por exemplo, há muitos sites de comunidade que podem ser usados, como o [Fórum do MSDN para HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), `https://stackoverflow.com`. Além disso, os projetos do Apache `https://apache.org`têm sites do projeto no.
+> Componentes personalizados recebem suporte comercialmente razoável para ajudá-lo a solucionar o problema. O suporte da Microsoft pode estar apto a resolver o problema OU pode solicitar que você contate canais disponíveis para as tecnologias de software livre em que é encontrado conhecimento profundo sobre essa tecnologia. Por exemplo, há muitos sites da comunidade que podem ser usados, como: [Página de perguntas e respostas da Microsoft sobre o HDInsight](https://docs.microsoft.com/answers/topics/azure-hdinsight.html), `https://stackoverflow.com`. Além disso, os projetos Apache têm sites de projeto em `https://apache.org`.
 
 ## <a name="understand-default-python-installation"></a>Entender a instalação padrão do Python
 
-O cluster HDInsight Spark é criado com a instalação do Anaconda. Há duas instalações do Python no cluster, Anaconda Python 2,7 e Python 3,5. A tabela a seguir mostra as configurações padrão do Python para Spark, Livy e Jupyter.
+O cluster do HDInsight Spark é criado com a instalação do Anaconda. Há duas instalações do Python no cluster: Anaconda Python 2.7 e Python 3.5. A tabela a seguir mostra as configurações padrão do Python para Spark, Livy e Jupyter.
 
 | |Python 2,7|Python 3.5|
 |----|----|----|
 |Caminho|/usr/bin/anaconda/bin|/usr/bin/anaconda/envs/py35/bin|
-|Spark|Padrão definido como 2,7|N/D|
-|Livy|Padrão definido como 2,7|N/D|
-|Jupyter|Kernel PySpark|Kernel PySpark3|
+|Spark|Padrão definido como 2.7|N/D|
+|Livy|Padrão definido como 2.7|N/D|
+|Jupyter|Kernel do PySpark|Kernel do PySpark3|
 
-## <a name="safely-install-external-python-packages"></a>Instalar com segurança pacotes do Python externos
+## <a name="safely-install-external-python-packages"></a>Instalar com segurança pacotes externos do Python
 
-O cluster HDInsight depende do ambiente interno do Python, Python 2,7 e Python 3,5. A instalação direta de pacotes personalizados nesses ambientes internos padrão pode causar alterações inesperadas na versão da biblioteca. E interrompa ainda mais o cluster. Para instalar com segurança pacotes do Python externos personalizados para seus aplicativos Spark, siga as etapas abaixo.
+O cluster do HDInsight depende do ambiente interno do Python, tanto Python 2.7 quanto Python 3.5. A instalação direta de pacotes personalizados nesses ambientes internos padrão pode causar alterações inesperadas na versão da biblioteca. Além disso, pode dividir ainda mais o cluster. Para instalar com segurança pacotes externos do Python personalizados para seus aplicativos Spark, siga as etapas abaixo.
 
-1. Crie um ambiente virtual Python usando o Conda. Um ambiente virtual fornece um espaço isolado para seus projetos sem quebrar outros. Ao criar o ambiente virtual do Python, você pode especificar a versão do Python que deseja usar. Você ainda precisa criar um ambiente virtual, embora queira usar python 2,7 e 3,5. Esse requisito é verificar se o ambiente padrão do cluster não está sendo quebrado. Execute ações de script no cluster para todos os nós com o script abaixo para criar um ambiente virtual do Python.
+1. Crie um ambiente virtual do Python usando o Conda. Um ambiente virtual fornece um espaço isolado para seus projetos sem dividir outros. Ao criar o ambiente virtual do Python, você pode especificar a versão do Python que deseja usar. Você ainda precisa criar um ambiente virtual, mesmo que queira usar Python 2.7 e 3.5. Esse requisito é para garantir que o ambiente padrão do cluster não está sendo dividido. Execute ações de script no cluster para todos os nós com o script abaixo para criar um ambiente virtual do Python.
 
-    -   `--prefix`Especifica um caminho em que um ambiente virtual Conda reside. Há várias configurações que precisam ser alteradas com base no caminho especificado aqui. Neste exemplo, usamos o py35new, pois o cluster já tem um ambiente virtual existente chamado py35.
-    -   `python=`Especifica a versão do Python para o ambiente virtual. Neste exemplo, usamos a versão 3,5, a mesma versão do cluster criado em um. Você também pode usar outras versões do Python para criar o ambiente virtual.
-    -   `anaconda`Especifica o package_spec como Anaconda para instalar os pacotes Anaconda no ambiente virtual.
+    -   `--prefix` especifica um caminho em que um ambiente virtual Conda reside. Há várias configurações que precisam ser alteradas com base no caminho especificado aqui. Neste exemplo, usamos o py35new, pois o cluster já tem um ambiente virtual existente chamado py35.
+    -   `python=` especifica a versão do Python para o ambiente virtual. Neste exemplo, usamos a versão 3.5, a mesma versão do cluster interno. Você também pode usar outras versões do Python para criar o ambiente virtual.
+    -   `anaconda` especifica o package_spec como Anaconda para instalar os pacotes do Anaconda no ambiente virtual.
     
     ```bash
     sudo /usr/bin/anaconda/bin/conda create --prefix /usr/bin/anaconda/envs/py35new python=3.5 anaconda --yes
     ```
 
-2. Instale pacotes python externos no ambiente virtual criado, se necessário. Execute ações de script no cluster para todos os nós com o script abaixo para instalar pacotes python externos. Você precisa ter o privilégio sudo aqui para gravar arquivos na pasta do ambiente virtual.
+2. Instale pacotes externos do Python no ambiente virtual criado, se necessário. Execute ações de script no cluster para todos os nós com o script abaixo para instalar pacotes externos do Python. Aqui, você precisa ter privilégio de acesso no sudo para gravar arquivos na pasta do ambiente virtual.
 
-    Pesquise o [índice do pacote](https://pypi.python.org/pypi) para obter a lista completa de pacotes que estão disponíveis. Você também pode obter uma lista de pacotes disponíveis de outras fontes. Por exemplo, você pode instalar pacotes disponibilizados por meio [conda-forge](https://conda-forge.org/feedstocks/).
+    Pesquise o [índice do pacote](https://pypi.python.org/pypi) para obter uma lista completa de pacotes disponíveis. Você também pode obter uma lista de pacotes disponíveis de outras fontes. Por exemplo, você pode instalar pacotes disponibilizados por meio [conda-forge](https://conda-forge.org/feedstocks/).
 
-    Use o comando abaixo se você quiser instalar uma biblioteca com sua versão mais recente:
+    Use o comando abaixo caso queira instalar uma biblioteca com sua versão mais recente:
 
-    - Usar canal Conda:
+    - Use o canal do conda:
 
-        -   `seaborn`é o nome do pacote que você deseja instalar.
-        -   `-n py35new`Especifique o nome do ambiente virtual que acabou de ser criado. Certifique-se de alterar o nome de forma correspondente com base em sua criação de ambiente virtual.
+        -   `seaborn` é o nome do pacote que você deseja instalar.
+        -   `-n py35new` especifica o nome do ambiente virtual que foi criado. Não se esqueça de alterar o nome de forma correspondente, com base na criação do ambiente virtual.
 
         ```bash
         sudo /usr/bin/anaconda/bin/conda install seaborn -n py35new --yes
         ```
 
-    - Ou use o repositório PyPi, `seaborn` Altere `py35new` e de forma correspondente:
+    - Ou use o repositório PyPi e altere `seaborn` e `py35new` de forma correspondente:
         ```bash
         sudo /usr/bin/anaconda/env/py35new/bin/pip install seaborn
         ```
 
-    Use o comando abaixo se você quiser instalar uma biblioteca com uma versão específica:
+    Use o comando abaixo caso queira instalar uma biblioteca com uma versão específica:
 
-    - Usar canal Conda:
+    - Use o canal do conda:
 
-        -   `numpy=1.16.1`é o nome do pacote e a versão que você deseja instalar.
-        -   `-n py35new`Especifique o nome do ambiente virtual que acabou de ser criado. Certifique-se de alterar o nome de forma correspondente com base em sua criação de ambiente virtual.
+        -   `numpy=1.16.1` é o nome do pacote e a versão que você deseja instalar.
+        -   `-n py35new` especifica o nome do ambiente virtual que foi criado. Não se esqueça de alterar o nome de forma correspondente, com base na criação do ambiente virtual.
 
         ```bash
         sudo /usr/bin/anaconda/bin/conda install numpy=1.16.1 -n py35new --yes
         ```
 
-    - Ou use o repositório PyPi, `numpy==1.16.1` Altere `py35new` e de forma correspondente:
+    - Ou use o repositório PyPi e altere `numpy==1.16.1` e `py35new` de forma correspondente:
 
         ```bash
         sudo /usr/bin/anaconda/env/py35new/bin/pip install numpy==1.16.1
         ```
 
-    Se você não souber o nome do ambiente virtual, poderá fazer SSH para o nó principal do cluster e executar `/usr/bin/anaconda/bin/conda info -e` para mostrar todos os ambientes virtuais.
+    se você não souber o nome do ambiente virtual, poderá usar SSH no nó principal do cluster e executar `/usr/bin/anaconda/bin/conda info -e` para mostrar todos os ambientes virtuais.
 
 3. Altere as configurações do Spark e do Livy e aponte para o ambiente virtual criado.
 
-    1. Abra a interface do usuário do Ambari, vá para a página Spark2, guia Configurações.
+    1. Abra a interface do usuário do Ambari, acesse a página Spark2, guia Configurações.
 
         ![Alterar a configuração do Spark e do Livy por meio do Ambari](./media/apache-spark-python-package-installation/ambari-spark-and-livy-config.png)
 
-    2. Expanda Advanced livy2-env, adicione as instruções abaixo na parte inferior. Se você instalou o ambiente virtual com um prefixo diferente, altere o caminho de forma correspondente.
+    2. Expanda Livy2-env avançado e adicione as instruções abaixo na parte inferior. Se você instalou o ambiente virtual com um prefixo diferente, altere o caminho analogamente.
 
         ```bash
         export PYSPARK_PYTHON=/usr/bin/anaconda/envs/py35new/bin/python
         export PYSPARK_DRIVER_PYTHON=/usr/bin/anaconda/envs/py35new/bin/python
         ```
 
-        ![Alterar Livy config por meio de Ambari](./media/apache-spark-python-package-installation/ambari-livy-config.png)
+        ![Alterar a configuração do Livy por meio do Ambari](./media/apache-spark-python-package-installation/ambari-livy-config.png)
 
-    3. Expanda spark2-env avançado, substitua a instrução de PYSPARK_PYTHON de exportação existente na parte inferior. Se você instalou o ambiente virtual com um prefixo diferente, altere o caminho de forma correspondente.
+    3. Expanda Spark2-env avançado, substitua a instrução exportação PYSPARK_PYTHON existente, na parte inferior. Se você instalou o ambiente virtual com um prefixo diferente, altere o caminho analogamente.
 
         ```bash
         export PYSPARK_PYTHON=${PYSPARK_PYTHON:-/usr/bin/anaconda/envs/py35new/bin/python}
         ```
 
-        ![Alterar a configuração do Spark por meio de Ambari](./media/apache-spark-python-package-installation/ambari-spark-config.png)
+        ![Alterar a configuração do Spark por meio do Ambari](./media/apache-spark-python-package-installation/ambari-spark-config.png)
 
-    4. Salve as alterações e reinicie os serviços afetados. Essas alterações precisam de uma reinicialização do serviço Spark2. A interface do usuário do Ambari solicitará um lembrete de reinicialização necessário, clique em reiniciar para reiniciar todos os serviços afetados.
+    4. Salve as alterações e reinicie os serviços afetados. Essas alterações precisam de uma reinicialização do serviço Spark2. A interface do usuário do Ambari exibirá um lembrete de reinicialização necessária. Clique em Reiniciar para reiniciar todos os serviços afetados.
 
-        ![Alterar a configuração do Spark por meio de Ambari](./media/apache-spark-python-package-installation/ambari-restart-services.png)
+        ![Alterar a configuração do Spark por meio do Ambari](./media/apache-spark-python-package-installation/ambari-restart-services.png)
 
-4. Se você quiser usar o novo ambiente virtual criado em Jupyter. Altere as configurações do Jupyter e reinicie o Jupyter. Execute ações de script em todos os nós de cabeçalho com a instrução abaixo para apontar Jupyter para o novo ambiente virtual criado. Certifique-se de modificar o caminho para o prefixo que você especificou para o seu ambiente virtual. Depois de executar essa ação de script, reinicie o serviço Jupyter por meio da interface do usuário do Ambari para tornar essa alteração disponível.
+4. Se você quiser usar o novo ambiente virtual criado no Jupyter. Altere as configurações do Jupyter e reinicie-o. Execute ações de script em todos os nós de cabeçalho com a instrução abaixo para apontar o Jupyter para o novo ambiente virtual criado. Não se esqueça de modificar o caminho para o prefixo que você especificou para o seu ambiente virtual. Depois de executar essa ação de script, reinicie o serviço Jupyter por meio da interface do usuário do Ambari para disponibilizar essa alteração.
 
     ```bash
     sudo sed -i '/python3_executable_path/c\ \"python3_executable_path\" : \"/usr/bin/anaconda/envs/py35new/bin/python3\"' /home/spark/.sparkmagic/config.json
     ```
 
-    Você poderia confirmar duas vezes o ambiente do Python em Jupyter Notebook executando o código abaixo:
+    Você pode confirmar duas vezes o ambiente do Python no Jupyter Notebook executando o código abaixo:
 
     ![Verificar a versão do Python no Jupyter Notebook](./media/apache-spark-python-package-installation/check-python-version-in-jupyter.png)
 
 ## <a name="known-issue"></a>Problema conhecido
 
-Há um bug conhecido para a versão `4.7.11`Anaconda, `4.7.12`e. `4.8.0` Se você vir suas ações de script travando `"Collecting package metadata (repodata.json): ...working..."` e falhando com. `"Python script has been killed due to timeout after waiting 3600 secs"` Você pode baixar [esse script](https://gregorysfixes.blob.core.windows.net/public/fix-conda.sh) e executá-lo como ações de script em todos os nós para corrigir o problema.
+Há um bug conhecido nas versões `4.7.11`, `4.7.12` e `4.8.0` do Anaconda. Se as suas ações de script estiverem travando em `"Collecting package metadata (repodata.json): ...working..."` e falhando com `"Python script has been killed due to timeout after waiting 3600 secs"`. Baixe [este script](https://gregorysfixes.blob.core.windows.net/public/fix-conda.sh) e execute-o como ações de script em todos os nós para corrigir o problema.
 
-Para verificar sua versão do Anaconda, você pode executar SSH no nó de cabeçalho do `/usr/bin/anaconda/bin/conda --v`cluster e executá-lo.
+Para verificar sua versão do Anaconda, você pode usar SSH no nó de cabeçalho do cluster e executar `/usr/bin/anaconda/bin/conda --v`.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Visão geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
-* [Pacotes externos com blocos de anotações do Jupyter no Apache Spark](apache-spark-jupyter-notebook-use-external-packages.md)
+* [Usar pacotes externos com Jupyter Notebooks no Apache Spark](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Rastrear e depurar trabalhos em execução em um cluster do Apache Spark no HDInsight](apache-spark-job-debugging.md)

@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: 54e44a12f593d2074eefe5b2ff890863db3199f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9ef38829a18f9e43f38cbdb291a799110d710cd7
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80478945"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834723"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Solucionar erros ao fazer failover de VM VMWare ou de computador físico para o Azure
 
@@ -24,7 +24,7 @@ Você poderá receber um dos erros a seguir ao fazer failover de uma máquina vi
 
 O Site Recovery não pôde criar uma máquina virtual com failover no Azure. Isso pode ocorrer devido a um dos seguintes motivos:
 
-* Não há cota suficiente disponível para criar a máquina virtual: verifique a cota disponível acessando Assinatura -> Uso + cotas. Abra uma [nova solicitação de suporte](https://aka.ms/getazuresupport) para aumentar a cota.
+* Não há cota suficiente disponível para criar a máquina virtual: Verifique a cota disponível acessando Assinatura -> Uso + cotas. Abra uma [nova solicitação de suporte](https://aka.ms/getazuresupport) para aumentar a cota.
 
 * Você está tentando fazer failover em máquinas virtuais de famílias de tamanho diferentes no mesmo conjunto de disponibilidade. Escolha a mesma família de tamanho para todas as máquinas virtuais no mesmo conjunto de disponibilidade. Altere o tamanho acessando as configurações Computação e Rede da máquina virtual e, em seguida, repita o failover.
 
@@ -76,10 +76,10 @@ Para alterar manualmente o tipo de inicialização de drivers para o **sistema o
 
 Se o botão **Conectar** da VM com failover no Azure estiver esmaecido e você não estiver conectado ao Azure por meio de uma conexão VPN Site a Site ou do Express Route,
 
-1. Vá para > **rede**de **máquinas virtuais**, clique no nome da interface de rede necessária.  ![network-interface](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
+1. Vá para **Máquina Virtual** > **Rede** e clique no nome da interface de rede necessária.  ![network-interface](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
 2. Navegue até **Configurações de Ip** e clique no campo de nome da configuração de IP necessária. ![IPConfigurations](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
 3. Para habilitar o endereço IP público, clique em **Habilitar**. ![Habilitar 3D](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
-4. Clique em **definir configurações** > necessárias**criar novo**. ![Criar novo](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
+4. Clique em **Definir as configurações necessárias** > **Criar novo**. ![Criar novo](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
 5. Insira o nome do endereço público, escolha as opções padrão para **SKU** e **atribuição** e clique em **OK**.
 6. Agora, para salvar as alterações feitas, clique em **Salvar**.
 7. Feche os painéis e navegue até a seção **Visão geral** de máquina virtual para conectar-se/RDP.
@@ -110,11 +110,11 @@ Se o botão **Conectar** da VM com failover no Azure estiver disponível (não e
 
 Se você conseguir se conectar ao computador usando o RDP, mas não puder abrir o console serial, siga as etapas abaixo:
 
-* Se o sistema operacional do computador for Red Hat ou Oracle Linux 7. */8.0, execute o seguinte comando na VM do Azure de failover com permissões de raiz. Reinicialize a VM após o comando.
+* Se o sistema operacional do computador for Red Hat ou Oracle Linux 7.*/8.0, execute o comando a seguir na VM do Azure de failover com permissões de raiz. Reinicialize a VM após o comando.
 
         grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg
 
-* Se o sistema operacional do computador for CentOS 7. *, execute o comando a seguir na VM do Azure de failover com permissões de raiz. Reinicialize a VM após o comando.
+* Se o sistema operacional do computador for o CentOS 7.*, execute o comando a seguir na VM do Azure de failover com permissões de raiz. Reinicialize a VM após o comando.
 
         grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
 
@@ -122,25 +122,25 @@ Se você conseguir se conectar ao computador usando o RDP, mas não puder abrir 
 
 Ao inicializar uma VM do Windows após o failover, se você receber uma mensagem de desligamento inesperada na VM recuperada, ela indicará que um estado de desligamento da VM não foi capturado no ponto de recuperação usado para failover. Isso acontece quando você recupera para um ponto em que a VM não havia sido completamente desligada.
 
-Normalmente, isso não é motivo de preocupação e geralmente pode ser ignorado para failovers não planejados. Se o failover for planejado, verifique se a VM está desligada corretamente antes do failover e forneça tempo suficiente para os dados de replicação pendentes locais a serem enviados ao Azure. Em seguida, use a opção **Mais recente** na [Tela de failover](site-recovery-failover.md#run-a-failover) para que todos os dados pendentes no Azure sejam processados em um ponto de recuperação, que é usado para failover da VM.
+Normalmente, isso não é motivo de preocupação e geralmente pode ser ignorado para failovers não planejados. Se o failover for planejado, verifique se a VM foi desligada corretamente antes do failover e forneça tempo suficiente para que os dados da replicação pendente localmente sejam enviados para o Azure. Em seguida, use a opção **Mais recente** na [Tela de failover](site-recovery-failover.md#run-a-failover) para que todos os dados pendentes no Azure sejam processados em um ponto de recuperação, que é usado para failover da VM.
 
-## <a name="unable-to-select-the-datastore"></a>Não é possível selecionar o repositório de armazenamento
+## <a name="unable-to-select-the-datastore"></a>Não é possível selecionar o armazenamento de dados
 
-Esse problema é indicado quando você não consegue ver o repositório de armazenamento no portal do Azure ao tentar proteger novamente a máquina virtual que sofreu um failover. Isso ocorre porque o destino mestre não é reconhecido como uma máquina virtual em vCenters adicionado a Azure Site Recovery.
+Esse problema é indicado quando você não consegue ver o armazenamento de dados no portal do Azure ao tentar proteger novamente a máquina virtual que sofreu um failover. Isso ocorre porque o destino mestre não é reconhecido como uma máquina virtual em vCenters adicionada ao Azure Site Recovery.
 
-Para obter mais informações sobre como proteger novamente uma máquina virtual, consulte [proteger novamente e executar failback de computadores em um site local após o failover para o Azure](vmware-azure-reprotect.md).
+Para obter mais informações sobre como proteger novamente uma máquina virtual, confira [Proteja novamente e execute o failback de computadores para um site local após o failover no Azure](vmware-azure-reprotect.md).
 
 Como resolver o problema:
 
-Crie manualmente o destino mestre no vCenter que gerencia o computador de origem. O repositório de armazenamento estará disponível após as próximas operações do vCenter Discovery e do Refresh Fabric.
+Crie manualmente o destino mestre no vCenter que gerencia o computador de origem. O armazenamento de dados estará disponível após as próximas operações de descoberta e atualização de malha do vCenter.
 
 > [!Note]
 > 
-> As operações de descoberta e de malha de atualização podem levar até 30 minutos para serem concluídas. 
+> As operações de descoberta e atualização de malha podem levar até 30 minutos para serem concluídas. 
 
 ## <a name="linux-master-target-registration-with-cs-fails-with-a-tls-error-35"></a>O registro de destino mestre do Linux com o CS falha com um erro de TLS 35 
 
-O registro de destino mestre Azure Site Recovery com o servidor de configuração falha devido à habilitação do proxy autenticado no destino mestre. 
+O registro de destino mestre do Azure Site Recovery com o servidor de configuração falha devido ao proxy autenticado estar habilitado no destino mestre. 
  
 Esse erro é indicado pelas seguintes cadeias de caracteres no log de instalação: 
 
@@ -152,7 +152,7 @@ Como resolver o problema:
  
 1. Na VM do servidor de configuração, abra um prompt de comando e verifique as configurações de proxy usando os seguintes comandos:
 
-    cat/etc/environment Echo $http _proxy Echo $https _proxy 
+    cat /etc/environment  echo $http_proxy  echo $https_proxy 
 
 2. Se a saída dos comandos anteriores mostrar que as configurações http_proxy ou https_proxy estão definidas, use um dos seguintes métodos para desbloquear as comunicações de destino mestre com o servidor de configuração:
    
@@ -160,9 +160,9 @@ Como resolver o problema:
    - Use a ferramenta para acessar o contexto de usuário do sistema e determinar se o endereço do proxy está configurado. 
    - Se o proxy estiver configurado, abra o IE em um contexto de usuário do sistema usando a ferramenta PsExec.
   
-     **PsExec-s-i "%programfiles%\Internet Explorer\iexplore.exe"**
+     **psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"**
 
-   - Para garantir que o servidor de destino mestre possa se comunicar com o servidor de configuração:
+   - Para assegurar que o servidor do destino mestre possa se comunicar com o servidor de configuração:
   
      - Modifique as configurações de proxy no Internet Explorer para ignorar o endereço IP do servidor de destino mestre por meio do proxy.   
      Ou
@@ -170,7 +170,7 @@ Como resolver o problema:
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- Solucionar problemas [de conexão RDP com a VM do Windows](../virtual-machines/windows/troubleshoot-rdp-connection.md)
-- Solucionar problemas [de conexão SSH para VM Linux](../virtual-machines/linux/detailed-troubleshoot-ssh-connection.md)
+- Solucionar problemas da [conexão de RDP para a VM Windows](../virtual-machines/windows/troubleshoot-rdp-connection.md)
+- Solucionar problemas da [conexão de SSH para VM Linux](../virtual-machines/linux/detailed-troubleshoot-ssh-connection.md)
 
-Se precisar de mais ajuda, poste sua consulta no [fórum do Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr) ou deixe um comentário ao final deste documento. Temos uma comunidade ativa que deve conseguir ajudá-lo.
+Se precisar de mais ajuda, poste sua consulta na [página de perguntas de P e R da Microsoft para o Site Recovery](https://docs.microsoft.com/answers/topics/azure-site-recovery.html) ou deixe um comentário ao final deste documento. Temos uma comunidade ativa que deve conseguir ajudá-lo.

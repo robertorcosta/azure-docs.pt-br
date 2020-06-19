@@ -4,15 +4,15 @@ description: Neste artigo, saiba como inserir o cliente JavaScript do Analisador
 services: internet-analyzer
 author: mattcalder
 ms.service: internet-analyzer
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: f9ecb8d731945847160b49c68c554fafdd7285d9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0d4b27b85ac7bc61e14a79f29e4e26ec4973ced1
+ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74896376"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84744044"
 ---
 # <a name="embed-the-internet-analyzer-client"></a>Inserir o cliente do Analisador de Internet
 
