@@ -1,5 +1,6 @@
 ---
-title: Plataforma de identidade da Microsoft e fluxo em nome de do OAuth 2.0 | Azure
+title: Plataforma de identidade da Microsoft e o fluxo On-Behalf-Of do OAuth 2.0 | Azure
+titleSuffix: Microsoft identity platform
 description: Este artigo descreve como usar mensagens HTTP para implementar a autenticação de serviço para serviço usando o fluxo em nome de do OAuth2.0.
 services: active-directory
 author: hpsin
@@ -8,47 +9,47 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 1/3/2020
+ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 57497c7bd8cd1d0b46c40b6977079f4a6a2d876f
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
-ms.translationtype: MT
+ms.openlocfilehash: bcf971b56aa0dc343fdfaf34b329e49a82bba9a8
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82689543"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83771513"
 ---
-# <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Plataforma de identidade da Microsoft e fluxo em nome de OAuth 2,0
+# <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Plataforma de identidade da Microsoft e o fluxo On-Behalf-Of de OAuth 2.0
 
 
-O fluxo OBO (On-Behalf-Of) do OAuth 2.0 atende ao caso de uso em que um aplicativo invoca uma API de serviço/Web que, por sua vez, precisa chamar outra API de serviço/Web. A ideia é propagar a identidade do usuário delegado e as permissões pela cadeia de solicitação. Para que o serviço de camada intermediária faça solicitações autenticadas para o serviço downstream, ele precisa proteger um token de acesso da plataforma Microsoft Identity, em nome do usuário.
+O fluxo On-Behalf-Of (OBO) do OAuth 2.0 serve para o caso em que um aplicativo chama um serviço/uma API Web que, por sua vez, precisa chamar outro serviço/outra API Web. A ideia é propagar as permissões e identidade de usuário delegado por meio da cadeia de solicitações. Para o serviço de camada intermediária fazer solicitações autenticadas para o serviço downstream, ele precisa proteger um token de acesso da plataforma de identidade da Microsoft em nome do usuário.
 
-Este artigo descreve como programar diretamente em relação ao protocolo em seu aplicativo.  Quando possível, recomendamos que você use as MSAL (bibliotecas de autenticação da Microsoft) com suporte em vez de [adquirir tokens e chamar APIs da Web protegidas](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Veja também os [aplicativos de exemplo que usam MSAL](sample-v2-code.md).
+Este artigo descreve como programar diretamente no protocolo do seu aplicativo.  Quando possível, recomendamos que você use as MSAL (bibliotecas de autenticação da Microsoft) com suporte para [adquirir tokens e chamar APIs Web seguras](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Confira também os [aplicativos de exemplo que usam MSAL](sample-v2-code.md).
 
 > [!NOTE]
 > Desde maio de 2018, alguns `id_token` derivados de fluxo implícito não podem ser usados para o fluxo OBO. Os aplicativos de página única (SPAs) devem aprovar um token de **acesso** para um cliente confidencial de camada intermediária a fim de executar fluxos OBO. Para saber mais sobre quais clientes podem fazer chamadas OBO, confira as [limitações](#client-limitations).
 
-## <a name="protocol-diagram"></a>Diagrama do protocolo
+## <a name="protocol-diagram"></a>Diagrama de protocolo
 
-Suponha que o usuário tenha sido autenticado em um aplicativo usando o [fluxo de concessão de código de autorização OAuth 2,0](v2-oauth2-auth-code-flow.md) ou outro fluxo de logon. Neste ponto, o aplicativo tem um token de acesso *para a API a* (token a) com as declarações do usuário e o consentimento para acessar a API da Web de camada intermediária (API a). Agora, a API A precisa fazer uma solicitação autenticada para a API Web downstream (API B).
+Suponha que o usuário tenha sido autenticado em um aplicativo usando o [fluxo de concessão de código de autorização do OAuth 2.0](v2-oauth2-auth-code-flow.md) ou outro fluxo de login. Nesse ponto, o aplicativo tem um token de acesso *para a API A* (token A) com as declarações do usuário e o consentimento para acessar a API Web de camada intermediária (API A). Agora, a API A precisa fazer uma solicitação autenticada para a API Web downstream (API B).
 
-As etapas a seguir constituem o fluxo OBO e são explicadas com a ajuda do diagrama a seguir.
+As etapas abaixo constituem o fluxo OBO e são explicadas com a ajuda do diagrama a seguir.
 
-![Mostra o fluxo em nome de do OAuth 2.0](./media/v2-oauth2-on-behalf-of-flow/protocols-oauth-on-behalf-of-flow.png)
+![Mostra o fluxo On-Behalf-Of do OAuth 2.0](./media/v2-oauth2-on-behalf-of-flow/protocols-oauth-on-behalf-of-flow.png)
 
 1. O aplicativo cliente faz uma solicitação para API A com o token A (com uma declaração `aud` da API A).
-1. A API A é autenticada no ponto de extremidade de emissão de token da plataforma de identidade da Microsoft e solicita um token para acessar a API B.
-1. O ponto de extremidade de emissão de token da plataforma de identidade da Microsoft valida as credenciais da API A junto com o token A e emite o token de acesso para a API B (token B) para a API A.
+1. A API A se autentica no ponto de extremidade de emissão de token da plataforma de identidade da Microsoft e solicita um token para acessar a API B.
+1. O ponto de extremidade de emissão de token da plataforma de identidade da Microsoft valida as credenciais da API A com o token A e emite o token de acesso da API B (token B) para a API A.
 1. O token B é definido pela API A no cabeçalho de autorização da solicitação para a API B.
 1. Os dados do recurso protegido são retornados pela API B para a API A e de lá para o cliente.
 
 > [!NOTE]
 > Nesse cenário, o serviço de camada intermediária não tem nenhuma interação do usuário para obter o consentimento do usuário para acessar a API downstream. Portanto, a opção de conceder acesso à API downstream é apresentada antecipadamente como parte da etapa de consentimento durante a autenticação. Para saber como realizar essa configuração em seu aplicativo, confira o artigo sobre como [obter consentimento para o aplicativo de camada intermediária](#gaining-consent-for-the-middle-tier-application).
 
-## <a name="service-to-service-access-token-request"></a>Solicitação de token de acesso de serviço a serviço
+## <a name="service-to-service-access-token-request"></a>Solicitação de token de acesso de serviço para serviço
 
-Para solicitar um token de acesso, faça um HTTP POST para o ponto de extremidade do token da plataforma de identidade do Microsoft específico do locatário com os seguintes parâmetros.
+Para solicitar um token de acesso, use um HTTP POST para o ponto de extremidade do token da plataforma de identidade da Microsoft específico ao locatário com os parâmetros a seguir.
 
 ```
 https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
@@ -56,18 +57,18 @@ https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
 
 Há dois casos que dependem se o aplicativo cliente escolhe ser protegido por um segredo compartilhado ou por um certificado.
 
-### <a name="first-case-access-token-request-with-a-shared-secret"></a>Primeiro caso: Solicitação de token de acesso com um segredo compartilhado
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>Primeiro caso: solicitação de token de acesso com um segredo compartilhado
 
-Ao usar um segredo compartilhado, uma solicitação de token de acesso de serviço a serviço contém os seguintes parâmetros:
+Ao usar um segredo compartilhado, uma solicitação de token de acesso de serviço para serviço contém estes parâmetros:
 
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
-| `grant_type` | Necessária | O tipo da solicitação do token. Para uma solicitação usando um JWT, o valor deve ser `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
-| `client_id` | Necessária | A ID do aplicativo (cliente) que [a página portal do Azure registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) atribuída ao seu aplicativo. |
-| `client_secret` | Necessária | O segredo do cliente que você gerou para seu aplicativo na página de portal do Azure Registros de aplicativo. |
-| `assertion` | Necessária | O valor do token usado na solicitação.  Esse token deve ter um público-alvo do aplicativo que faz essa solicitação OBO (o aplicativo indicado pelo `client-id` campo). |
-| `scope` | Necessária | Uma lista de escopos separados por espaços para a solicitação de token. Para obter mais informações, consulte [escopos](v2-permissions-and-consent.md). |
-| `requested_token_use` | Necessária | Especifica como a solicitação deve ser processada. No fluxo OBO, o valor precisa ser definido como `on_behalf_of`. |
+| `grant_type` | Obrigatório | O tipo da solicitação do token. Para uma solicitação usando um JWT, o valor deve ser `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
+| `client_id` | Obrigatório | A ID do aplicativo (cliente) que a página [Portal do Azure - Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) atribuiu ao seu aplicativo. |
+| `client_secret` | Obrigatório | O segredo do cliente que você gerou para seu aplicativo no portal do Azure, página Registros de aplicativo. |
+| `assertion` | Obrigatório | O valor do token usado na solicitação.  Esse token precisa que um público-alvo do aplicativo faça essa solicitação OBO (o aplicativo indicado pelo campo `client-id`). |
+| `scope` | Obrigatório | Lista de escopos separados por espaço para a solicitação de token. Para obter mais informações, consulte [escopos](v2-permissions-and-consent.md). |
+| `requested_token_use` | Obrigatório | Especifica como a solicitação deve ser processada. No fluxo OBO, o valor precisa ser definido como `on_behalf_of`. |
 
 #### <a name="example"></a>Exemplo
 
@@ -88,19 +89,19 @@ grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
 &requested_token_use=on_behalf_of
 ```
 
-### <a name="second-case-access-token-request-with-a-certificate"></a>Segundo caso: Solicitação de token de acesso com um certificado
+### <a name="second-case-access-token-request-with-a-certificate"></a>Segundo caso: solicitação de token de acesso com um certificado
 
-Uma solicitação de token de acesso de serviço a serviço com um certificado contém os seguintes parâmetros:
+Uma solicitação de token de acesso de serviço para serviço com certificado contém estes parâmetros:
 
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
-| `grant_type` | Necessária | O tipo da solicitação de token. Para uma solicitação usando um JWT, o valor deve ser `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
-| `client_id` | Necessária |  A ID do aplicativo (cliente) que [a página portal do Azure registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) atribuída ao seu aplicativo. |
-| `client_assertion_type` | Necessária | O valor deve ser `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
-| `client_assertion` | Necessária | Uma asserção (um token Web JSON) que você precisa criar e assinar com o certificado que você registrou como credenciais para seu aplicativo. Para saber mais sobre como registrar seu certificado e o formato da asserção, confira [credenciais de certificado](active-directory-certificate-credentials.md). |
-| `assertion` | Necessária | O valor do token usado na solicitação. |
-| `requested_token_use` | Necessária | Especifica como a solicitação deve ser processada. No fluxo OBO, o valor precisa ser definido como `on_behalf_of`. |
-| `scope` | Necessária | Lista de escopos separados por espaço para a solicitação de token. Para obter mais informações, consulte [escopos](v2-permissions-and-consent.md).|
+| `grant_type` | Obrigatório | O tipo da solicitação de token. Para uma solicitação usando um JWT, o valor deve ser `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
+| `client_id` | Obrigatório |  A ID do aplicativo (cliente) que a página [Portal do Azure - Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) atribuiu ao seu aplicativo. |
+| `client_assertion_type` | Obrigatório | O valor deve ser `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
+| `client_assertion` | Obrigatório | Uma asserção (um token Web JSON) que você precisa para criar e assinar com o certificado registrado como credenciais do seu aplicativo. Para saber mais sobre como registrar seu certificado e o formato da asserção, confira [credenciais de certificado](active-directory-certificate-credentials.md). |
+| `assertion` | Obrigatório | O valor do token usado na solicitação. |
+| `requested_token_use` | Obrigatório | Especifica como a solicitação deve ser processada. No fluxo OBO, o valor precisa ser definido como `on_behalf_of`. |
+| `scope` | Obrigatório | Lista de escopos separados por espaço para a solicitação de token. Para obter mais informações, consulte [escopos](v2-permissions-and-consent.md).|
 
 Observe que os parâmetros são praticamente os mesmos como no caso da solicitação pelo segredo compartilhado, exceto pelo fato de o parâmetro `client_secret` ser substituído por dois parâmetros: `client_assertion_type` e `client_assertion`.
 
@@ -124,19 +125,19 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 &scope=https://graph.microsoft.com/user.read+offline_access
 ```
 
-## <a name="service-to-service-access-token-response"></a>Resposta de token de acesso de serviço a serviço
+## <a name="service-to-service-access-token-response"></a>Resposta de token de acesso de serviço para serviço
 
-Uma resposta de êxito é uma resposta JSON OAuth 2.0 com os parâmetros a seguir.
+Uma resposta bem-sucedida é uma resposta JSON do OAuth 2.0 com os parâmetros a seguir.
 
 | Parâmetro | Descrição |
 | --- | --- |
-| `token_type` | Indica o valor do tipo de token. O único tipo compatível com a plataforma de identidade `Bearer`da Microsoft é. Para obter mais informações sobre tokens de portador, consulte a [estrutura de autorização do OAuth 2,0: uso de token de portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
-| `scope` | O escopo de acesso concedido no token. |
-| `expires_in` | O período, em segundos, pelo qual o token de acesso é válido. |
-| `access_token` | O token de acesso solicitado. O serviço de chamada pode usar esse token para autenticar-se no serviço de recebimento. |
-| `refresh_token` | O token de atualização para o token de acesso solicitado. O serviço de chamada pode usar esse token para solicitar outro token de acesso depois que o token de acesso atual expirar. O token de atualização é fornecido apenas se o `offline_access` escopo foi solicitado. |
+| `token_type` | Indica o valor do tipo de token. O único tipo com suporte da plataforma de identidade da Microsoft é `Bearer`. Para saber mais sobre os tokens de portador, confira o artigo [Estrutura de Autorização do OAuth 2.0: Uso do Token de Portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
+| `scope` | O escopo do acesso concedido no token. |
+| `expires_in` | O tempo, em segundos, pelo qual o token de acesso é válido. |
+| `access_token` | O token de acesso solicitado. O serviço de chamada pode usar esse token para se autenticar no serviço de recebimento. |
+| `refresh_token` | O token de atualização para o token de acesso solicitado. O serviço de chamada poderá usar esse token para solicitar outro token de acesso depois que o token de acesso atual expirar. O token de atualização é fornecido apenas se o `offline_access` escopo foi solicitado. |
 
-### <a name="success-response-example"></a>Exemplo de resposta de sucesso
+### <a name="success-response-example"></a>Exemplo de resposta de êxito
 
 O exemplo a seguir mostra uma resposta bem-sucedida a uma solicitação para um token de acesso para a API Web https://graph.microsoft.com.
 
@@ -152,11 +153,11 @@ O exemplo a seguir mostra uma resposta bem-sucedida a uma solicitação para um 
 ```
 
 > [!NOTE]
-> O token de acesso acima é um token formatado para v1.0. Isso ocorre porque o token é fornecido com base no **recurso** que está sendo acessado. A Microsoft Graph está configurada para aceitar tokens v 1.0, portanto, a plataforma de identidade da Microsoft produz tokens de acesso v 1.0 quando um cliente solicita tokens para Microsoft Graph. Somente os aplicativos devem examinar os tokens de acesso. Os clientes **não devem** inspecioná-los.
+> O token de acesso acima é um token formatado para v1.0. Isso ocorre porque o token é fornecido com base no **recurso** que está sendo acessado. O Microsoft Graph está configurado para aceitar tokens v1.0. Portanto, a plataforma de identidade da Microsoft produz tokens de acesso v1.0 quando um cliente solicita tokens para o Microsoft Graph. Somente os aplicativos devem examinar os tokens de acesso. Os clientes **não devem** inspecioná-los.
 
 ### <a name="error-response-example"></a>Exemplo de resposta de erro
 
-Uma resposta de erro é retornada pelo ponto de extremidade do token ao tentar adquirir um token de acesso para a API downstream, se a API downstream tiver uma política de acesso condicional (como a autenticação multifator) definida. O serviço de camada intermediária deve enfileirar esse erro para o aplicativo cliente para que o aplicativo cliente possa fornecer a interação do usuário para atender à política de acesso condicional.
+Uma resposta de erro retornará pelo ponto de extremidade do token durante a tentativa de adquirir um token de acesso para a API downstream, se esta tiver definida nela uma política de acesso condicional (como a [autenticação multifator](../authentication/concept-mfa-howitworks.md)). O serviço de camada intermediária deve revelar esse erro para o aplicativo cliente de modo que este possa fornecer a interação do usuário para satisfazer a política de acesso condicional.
 
 ```json
 {
@@ -179,23 +180,23 @@ Agora, o serviço de camada intermediária pode usar o token adquirido acima par
 ```HTTP
 GET /v1.0/me HTTP/1.1
 Host: graph.microsoft.com
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVGFlN0NkV1c3UWZkSzdNN0RyNXlvUUdLNmFEc19vdDF3cEQyZjNqRkxiNlVrcm9PcXA2cXBJclAxZVV0QktzMHEza29HN3RzXzJpSkYtQjY1UV8zVGgzSnktUHZsMjkxaFNBQSIsImFsZyI6IlJTMjU2IiwieDV0IjoiejAzOXpkc0Z1aXpwQmZCVksxVG4yNVFIWU8wIiwia2lkIjoiejAzOXpkc0Z1aXpwQmZCVksxVG4yNVFIWU8wIn0.eyJhdWQiOiJodHRwczovL2dyYXBoLm1pY3Jvc29mdC5jb20iLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDcvIiwiaWF0IjoxNDkzOTMwMDE2LCJuYmYiOjE0OTM5MzAwMTYsImV4cCI6MTQ5MzkzMzg3NSwiYWNyIjoiMCIsImFpbyI6IkFTUUEyLzhEQUFBQUlzQjN5ZUljNkZ1aEhkd1YxckoxS1dlbzJPckZOUUQwN2FENTVjUVRtems9IiwiYW1yIjpbInB3ZCJdLCJhcHBfZGlzcGxheW5hbWUiOiJUb2RvRG90bmV0T2JvIiwiYXBwaWQiOiIyODQ2ZjcxYi1hN2E0LTQ5ODctYmFiMy03NjAwMzViMmYzODkiLCJhcHBpZGFjciI6IjEiLCJmYW1pbHlfbmFtZSI6IkNhbnVtYWxsYSIsImdpdmVuX25hbWUiOiJOYXZ5YSIsImlwYWRkciI6IjE2Ny4yMjAuMC4xOTkiLCJuYW1lIjoiTmF2eWEgQ2FudW1hbGxhIiwib2lkIjoiZDVlOTc5YzctM2QyZC00MmFmLThmMzAtNzI3ZGQ0YzJkMzgzIiwib25wcmVtX3NpZCI6IlMtMS01LTIxLTIxMjc1MjExODQtMTYwNDAxMjkyMC0xODg3OTI3NTI3LTI2MTE4NDg0IiwicGxhdGYiOiIxNCIsInB1aWQiOiIxMDAzM0ZGRkEwNkQxN0M5Iiwic2NwIjoiVXNlci5SZWFkIiwic3ViIjoibWtMMHBiLXlpMXQ1ckRGd2JTZ1JvTWxrZE52b3UzSjNWNm84UFE3alVCRSIsInRpZCI6IjcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0NyIsInVuaXF1ZV9uYW1lIjoibmFjYW51bWFAbWljcm9zb2Z0LmNvbSIsInVwbiI6Im5hY2FudW1hQG1pY3Jvc29mdC5jb20iLCJ1dGkiOiJzUVlVekYxdUVVS0NQS0dRTVFVRkFBIiwidmVyIjoiMS4wIn0.Hrn__RGi-HMAzYRyCqX3kBGb6OS7z7y49XPVPpwK_7rJ6nik9E4s6PNY4XkIamJYn7tphpmsHdfM9lQ1gqeeFvFGhweIACsNBWhJ9Nx4dvQnGRkqZ17KnF_wf_QLcyOrOWpUxdSD_oPKcPS-Qr5AFkjw0t7GOKLY-Xw3QLJhzeKmYuuOkmMDJDAl0eNDbH0HiCh3g189a176BfyaR0MgK8wrXI_6MTnFSVfBePqklQeLhcr50YTBfWg3Svgl6MuK_g1hOuaO-XpjUxpdv5dZ0SvI47fAuVDdpCE48igCX5VMj4KUVytDIf6T78aIXMkYHGgW3-xAmuSyYH_Fr0yVAQ
+Authorization: Bearer eyJ0eXAiO ... 0X2tnSQLEANnSPHY0gKcgw
 ```
 
 ## <a name="gaining-consent-for-the-middle-tier-application"></a>Obter consentimento para o aplicativo de camada intermediária
 
-Dependendo da arquitetura ou do uso do seu aplicativo, você pode considerar estratégias diferentes para garantir que o fluxo de OBO seja bem-sucedido. Em todos os casos, o objetivo final é garantir que o consentimento apropriado seja fornecido para que o aplicativo cliente possa chamar o aplicativo de camada intermediária e o aplicativo de camada intermediária tenha permissão para chamar o recurso de back-end.
+Dependendo da arquitetura ou do uso de seu aplicativo, você pode considerar estratégias diferentes para garantir que o fluxo OBO seja bem-sucedido. Em todos os casos, o objetivo final é garantir que o consentimento apropriado seja fornecido para que o aplicativo cliente possa chamar o aplicativo de camada intermediária, e o aplicativo de camada intermediária tenha permissão para chamar o recurso de back-end.
 
 > [!NOTE]
-> Anteriormente, o sistema de conta Microsoft (contas pessoais) não dava suporte ao campo "aplicativo cliente conhecido", nem poderia mostrar o consentimento combinado.  Isso foi adicionado e todos os aplicativos na plataforma de identidade da Microsoft podem usar a abordagem de aplicativo cliente conhecida para obter consentimento para chamadas OBO.
+> Anteriormente, o sistema de conta Microsoft (contas pessoais) não dava suporte ao campo "Aplicativo cliente conhecido", nem poderia mostrar o consentimento combinado.  Isso foi adicionado, e todos os aplicativos na plataforma de identidade da Microsoft podem usar a conhecida abordagem de aplicativo cliente para obter consentimento para chamadas OBO.
 
 ### <a name="default-and-combined-consent"></a>/.default e consentimento combinado
 
-O aplicativo de camada intermediária adiciona o cliente à lista de aplicativos cliente conhecidos em seu manifesto e, em seguida, o cliente pode disparar um fluxo de consentimento combinado para ele mesmo e para o aplicativo de camada intermediária. No ponto de extremidade da plataforma Microsoft Identity, isso é feito usando o [ `/.default` escopo](v2-permissions-and-consent.md#the-default-scope). Ao disparar uma tela de consentimento usando aplicativos cliente conhecidos e `/.default`, a tela de consentimento mostrará permissões **para o** cliente para a API de camada intermediária e também solicitará quaisquer permissões necessárias para a API de camada intermediária. O usuário fornece o consentimento para ambos os aplicativos e, em seguida, o fluxo OBO funciona.
+O aplicativo de camada intermediária adiciona o cliente à lista de aplicativos cliente conhecidos em seu manifesto e, em seguida, o cliente pode disparar um fluxo de consentimento combinado para ele mesmo e para o aplicativo de camada intermediária. No ponto de extremidade da plataforma de identidade da Microsoft, isso é feito usando o [`/.default` escopo](v2-permissions-and-consent.md#the-default-scope). Ao disparar uma tela de consentimento usando aplicativos clientes conhecidos e `/.default`, a tela de consentimento mostrará as permissões **tanto** para o cliente da API de camada intermediária e também solicitará todas as permissões necessárias para a API de camada intermediária. O usuário fornece o consentimento para ambos os aplicativos e, em seguida, o fluxo OBO funciona.
 
 ### <a name="pre-authorized-applications"></a>Aplicativos pré-autorizados
 
-Os recursos podem indicar que um determinado aplicativo sempre tem permissão para receber determinados escopos. Isso é útil principalmente para estabelecer conexões entre um cliente de front-end e um recurso de back-end de forma mais contínua. Um recurso pode declarar vários aplicativos pré-autorizados: qualquer aplicativo desse tipo pode solicitar essas permissões em um fluxo OBO e recebê-las sem que o usuário forneça o consentimento.
+Os recursos podem indicar que um determinado aplicativo sempre terá permissão para receber determinados escopos. Isso é útil principalmente para estabelecer conexões entre um cliente de front-end e um recurso de back-end de forma mais contínua. Um recurso pode declarar vários aplicativos pré-autorizados: qualquer aplicativo desse tipo pode solicitar essas permissões em um fluxo OBO e recebê-las sem que o usuário forneça o consentimento.
 
 ### <a name="admin-consent"></a>Consentimento do administrador
 
@@ -207,12 +208,12 @@ Em alguns cenários, você pode ter apenas um emparelhamento único de cliente d
 
 ## <a name="client-limitations"></a>Limitações do cliente
 
-Se um cliente usar o fluxo implícito para obter um id_token e esse cliente também tiver curingas em uma URL de resposta, o id_token não poderá ser usado para um fluxo OBO.  No entanto, os tokens de acesso adquiridos por meio de fluxo de concessão implícito ainda podem ser resgatados por um cliente confidencial mesmo se o cliente que inicia o processo tiver uma URL de resposta curinga registrada.
+Se um cliente usa o fluxo implícito para obter um id_token e esse cliente também tem caracteres curinga em uma URL de resposta, o id_token não pode ser usado para um fluxo OBO.  No entanto, os tokens de acesso adquiridos por meio de fluxo de concessão implícito ainda podem ser resgatados por um cliente confidencial mesmo se o cliente que inicia o processo tiver uma URL de resposta curinga registrada.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre o protocolo OAuth 2.0 e outra maneira de executar autenticação de serviço para serviço usando as credenciais do cliente.
 
-* [Concessão de credenciais de cliente OAuth 2,0 na plataforma Microsoft Identity](v2-oauth2-client-creds-grant-flow.md)
-* [Fluxo de código do OAuth 2,0 na plataforma Microsoft Identity](v2-oauth2-auth-code-flow.md)
+* [Concessão de credenciais de cliente OAuth 2.0 na plataforma de identidade da Microsoft](v2-oauth2-client-creds-grant-flow.md)
+* [Fluxo de código do OAuth 2.0 na plataforma de identidade da Microsoft](v2-oauth2-auth-code-flow.md)
 * [Como usar o escopo `/.default`](v2-permissions-and-consent.md#the-default-scope)

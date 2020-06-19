@@ -1,11 +1,9 @@
 ---
-title: Solucionando problemas causados por aplicativos que não dão suporte a TLS 1,2 | Microsoft Docs
-description: Solucionando problemas causados por aplicativos que não dão suporte a TLS 1,2
+title: Solucionar problemas causados por aplicativos que não permitem TLS 1.2 | Microsoft Docs
+description: Solucionar problemas causados por aplicativos que não permitem TLS 1.2
 services: cloud-services
 documentationcenter: ''
-author: mimckitt
-manager: vashan
-editor: ''
+author: tanmaygore
 tags: top-support-issue
 ms.assetid: ''
 ms.service: cloud-services
@@ -14,29 +12,29 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 03/16/2020
 ms.author: tagore
-ms.openlocfilehash: 6153b9d5e8ef11412b0dd53a15c565becfa1c8a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9338ad86595771c1c70d243250c2d57af5eb7858
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80053766"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683799"
 ---
-# <a name="troubleshooting-applications-that-dont-support-tls-12"></a>Solucionando problemas de aplicativos que não dão suporte a TLS 1,2
-Este artigo descreve como habilitar os protocolos TLS mais antigos (TLS 1,0 e 1,1), bem como aplicar pacotes de criptografia herdados para dar suporte aos protocolos adicionais nas funções Web e de trabalho do serviço de nuvem do Windows Server 2019. 
+# <a name="troubleshooting-applications-that-dont-support-tls-12"></a>Solucionar aplicativos que não permitem TLS 1.2
+Este artigo descreve como habilitar os protocolos TLS mais antigos (TLS 1.0 e 1.1), bem como aplicar pacotes de criptografia herdados para permitir protocolos adicionais na Web do serviço de nuvem do Windows Server 2019 e nas funções de trabalho. 
 
-Entendemos que, enquanto estamos realizando etapas para substituir o TLS 1,0 e o TLS 1,1, nossos clientes talvez precisem dar suporte aos protocolos mais antigos e conjuntos de codificação até que possam planejar sua substituição.  Embora não seja recomendável reabilitar esses valores herdados, estamos fornecendo orientações para ajudar os clientes. Incentivamos os clientes a avaliar o risco de regressão antes de implementar as alterações descritas neste artigo. 
+Entendemos que, enquanto estamos realizando etapas para substituir o TLS 1.0 e TLS 1.1, nossos clientes talvez precisem usar protocolos e conjuntos de codificação mais antigos até que possam planejar a substituição.  Embora não seja recomendável reabilitar esses valores herdados, estamos dando orientações para ajudar os clientes. Incentivamos os clientes a avaliar o risco de regressão antes de implementar as alterações descritas neste artigo. 
 
 > [!NOTE]
-> A versão da família de sistemas operacionais convidados 6 impõe o TLS 1,2 desabilitando explicitamente o TLS 1,0 e 1,1 e definindo um conjunto específico de conjuntos de codificação. Para obter mais informações sobre famílias de sistemas operacionais convidados, consulte [notícias de versão do SO convidado](https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases)
+> A versão 6 da família de sistemas operacionais convidados impõe o TLS 1.2 desabilitando explicitamente o TLS 1.0 e 1.1 e definindo um conjunto específico de conjuntos de codificação. Para obter mais informações sobre famílias de sistemas operacionais convidados, consulte as [notícias da versão do SO convidado](https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases)
 
 
-## <a name="dropping-support-for-tls-10-tls-11-and-older-cipher-suites"></a>Descartando o suporte para TLS 1,0, TLS 1,1 e pacotes de criptografia mais antigos 
-Para dar suporte ao nosso compromisso de usar a melhor criptografia de classe, a Microsoft anunciou os planos de iniciar a migração do TLS 1,0 e 1,1 em junho de 2017.   Desde esse anúncio inicial, a Microsoft anunciou nossa intenção de desabilitar o protocolo TLS 1,0 e 1,1 por padrão nas versões com suporte do Microsoft Edge e no Internet Explorer 11 na primeira metade de 2020.  Anúncios semelhantes da Apple, do Google e do Mozilla indicam a direção na qual o setor está.   
+## <a name="dropping-support-for-tls-10-tls-11-and-older-cipher-suites"></a>Fim do suporte para TLS 1.0, TLS 1.1 e conjuntos de criptografia mais antigos 
+Para dar suporte ao nosso compromisso de usar a melhor criptografia possível, a Microsoft anunciou os planos de iniciar a migração do TLS 1.0 e 1.1 em junho de 2017.   Desde esse anúncio inicial, a Microsoft anunciou nossa intenção de desabilitar o protocolo TLS 1.0 e 1.1 por padrão nas versões compatíveis do Microsoft Edge e no Internet Explorer 11 na primeira metade de 2020.  Anúncios semelhantes da Apple, do Google e da Mozilla indicam o direcionamento do setor.   
 
-Para obter mais informações, consulte [preparando para TLS 1,2 no Microsoft Azure](https://azure.microsoft.com/updates/azuretls12/)
+Para obter mais informações, consulte [Preparar para o TLS 1.2 no Microsoft Azure](https://azure.microsoft.com/updates/azuretls12/)
 
-## <a name="tls-configuration"></a>Configuração de TLS  
-A imagem do servidor de nuvem do Windows Server 2019 está configurada com TLS 1,0 e TLS 1,1 desabilitado no nível do registro. Isso significa que os aplicativos implantados nesta versão do Windows e usando a negociação do Windows Stack para TLS não permitirão a comunicação TLS 1,0 e TLS 1,1.   
+## <a name="tls-configuration"></a>Configuração TLS  
+A imagem do servidor de nuvem do Windows Server 2019 está configurada com TLS 1.0 e TLS 1.1 desabilitado no nível do registro. Isso significa que os aplicativos implantados nessa versão do Windows que usem a negociação da pilha do Windows para TLS não permitirão a comunicação TLS 1.0 e TLS 1.1.   
 
 O servidor também vem com um conjunto limitado de conjuntos de codificação: 
 
@@ -51,9 +49,9 @@ O servidor também vem com um conjunto limitado de conjuntos de codificação:
     TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 
 ```
 
-## <a name="step-1-create-the-powershell-script-to-enable-tls-10-and-tls-11"></a>Etapa 1: criar o script do PowerShell para habilitar o TLS 1,0 e o TLS 1,1 
+## <a name="step-1-create-the-powershell-script-to-enable-tls-10-and-tls-11"></a>Etapa 1: Criar o script do PowerShell para habilitar o TLS 1.0 e TLS 1.1 
 
-Use o código a seguir como um exemplo para criar um script que habilita os protocolos mais antigos e conjuntos de codificação. Para os fins desta documentação, esse script será nomeado: **TLSsettings. ps1**. Armazene esse script em sua área de trabalho local para facilitar o acesso em etapas posteriores. 
+Use o código a seguir como um exemplo para criar um script que habilita os protocolos e conjuntos de codificação mais antigos. Para os fins desta documentação, esse script terá o nome: **TLSsettings.ps1**. Armazene esse script em sua área de trabalho local para facilitar o acesso em etapas posteriores. 
 
 
 ```Powershell
@@ -273,9 +271,9 @@ If ($reboot) {
 }
 ```
 
-## <a name="step-2-create-a-command-file"></a>Etapa 2: criar um arquivo de comando 
+## <a name="step-2-create-a-command-file"></a>Etapa 2: Criar um arquivo de comandos 
 
-Crie um arquivo CMD chamado **RunTLSSettings. cmd** usando o abaixo. Armazene esse script em sua área de trabalho local para facilitar o acesso em etapas posteriores. 
+Crie um arquivo CMD chamado **RunTLSSettings.cmd** usando o que está descrito abaixo. Armazene esse script em sua área de trabalho local para facilitar o acesso em etapas posteriores. 
 
 ```cmd
 SET LOG_FILE="%TEMP%\StartupLog.txt"
@@ -300,7 +298,7 @@ EXIT /B %ERRORLEVEL%
 
 ```
 
-## <a name="step-3-add-the-startup-task-to-the-roles-service-definition-csdef"></a>Etapa 3: adicionar a tarefa de inicialização à definição de serviço da função (csdef) 
+## <a name="step-3-add-the-startup-task-to-the-roles-service-definition-csdef"></a>Etapa 3: Adicionar a tarefa de inicialização à definição de serviço da função (csdef) 
 
 Adicione o trecho a seguir ao arquivo de definição de serviço existente. 
 
@@ -341,24 +339,24 @@ Aqui está um exemplo que mostra a função de trabalho e a função Web.
 </ServiceDefinition> 
 ```
 
-## <a name="step-4-add-the-scripts-to-your-cloud-service"></a>Etapa 4: adicionar os scripts ao serviço de nuvem 
+## <a name="step-4-add-the-scripts-to-your-cloud-service"></a>Etapa 4: Adicionar os scripts ao seu serviço de nuvem 
 
 1) No Visual Studio, clique com o botão direito do mouse em seu WebRole ou WorkerRole
 2) Selecione **Adicionar**
-3) Selecionar **Item existente**
-4) No explorador de arquivos, navegue até a área de trabalho onde você armazenou os arquivos **TLSsettings. ps1** e **RunTLSSettings. cmd** 
-5) Selecione os dois arquivos para adicioná-los ao seu projeto de serviços de nuvem
+3) Selecione o **Item Existente**
+4) No explorador de arquivos, navegue até a área de trabalho em que você armazenou os arquivos **TLSsettings.ps1** e **RunTLSSettings.cmd** 
+5) Selecione os dois arquivos para adicioná-los ao seu projeto dos Serviços de Nuvem do Azure
 
-## <a name="step-5-enable-copy-to-output-directory"></a>Etapa 5: habilitar a cópia para o diretório de saída
+## <a name="step-5-enable-copy-to-output-directory"></a>Etapa 5: Habilitar cópia para diretório de saída
 
-Para garantir que os scripts sejam carregados com cada atualização enviada por push do Visual Studio, a configuração *copiar para diretório de saída* precisa ser definida como *copiar sempre*
+Para garantir que os scripts sejam carregados com todas as atualizações enviadas do Visual Studio, a configuração *Copiar para Diretório de Saída* precisa estar configurada como *Copiar Sempre*
 
-1) Em seu WebRole ou WorkerRole, clique com o botão direito do mouse em RunTLSSettings. cmd
-2) Selecionar **Propriedades**
-3) Na guia Propriedades, altere *copiar para diretório de saída* para *copiar sempre "*
-4) Repita as etapas para **TLSsettings. ps1**
+1) Em seu WebRole ou WorkerRole, clique com o botão direito do mouse em RunTLSSettings.cmd
+2) Selecione **Propriedades**
+3) Na guia Propriedades, altere *Copiar para Diretório de Saída* para *Copiar Sempre"*
+4) Repita as etapas com **TLSsettings.ps1**
 
-## <a name="step-6-publish--validate"></a>Etapa 6: publicar & validar
+## <a name="step-6-publish--validate"></a>Etapa 6: Publicar e validar
 
 Agora que as etapas acima foram concluídas, publique a atualização em seu serviço de nuvem existente. 
 

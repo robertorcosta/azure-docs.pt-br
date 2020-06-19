@@ -1,21 +1,21 @@
 ---
 title: Provisionar taxa de transferência de contêiner no Azure Cosmos DB
-description: Saiba como provisionar a taxa de transferência no nível de contêiner em Azure Cosmos DB usando portal do Azure, CLI, PowerShell e vários outros SDKs.
+description: Saiba como provisionar a taxa de transferência no nível de contêiner no Azure Cosmos DB com o portal do Azure, a CLI, o PowerShell e vários outros SDKs.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: mjbrown
-ms.openlocfilehash: 4249f1e9f2bf9fcb235644bb211065db460c936e
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: MT
+ms.openlocfilehash: 0e7a2e9e5feb848971c4858415510f98a7bdaf78
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82869906"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655339"
 ---
-# <a name="provision-throughput-on-an-azure-cosmos-container"></a>Provisionar a taxa de transferência em um contêiner do Azure Cosmos
+# <a name="provision-standard-manual-throughput-on-an-azure-cosmos-container"></a>Provisionar taxa de transferência padrão (manual) em um contêiner do Azure Cosmos
 
-Este artigo explica como provisionar a taxa de transferência em um contêiner (coleção, grafo, tabela) no Azure Cosmos DB. Você pode provisionar a produtividade em um único contêiner ou [provisionar a taxa de transferência em um banco de dados](how-to-provision-database-throughput.md) e compartilhá-lo entre os contêineres no banco de dados. É possível provisionar a taxa de transferência em um contêiner usando o portal do Azure, a CLI do Azure ou SDKs do Azure Cosmos DB.
+Este artigo explica como provisionar a taxa de transferência padrão (manual) em um contêiner (coleção, gráfico ou tabela) no Azure Cosmos DB. É possível provisionar a taxa de transferência em um único contêiner ou [provisionar a taxa de transferência em um banco de dados](how-to-provision-database-throughput.md) e compartilhá-la entre os contêineres no banco de dados. É possível provisionar a taxa de transferência em um contêiner usando o portal do Azure, a CLI do Azure ou SDKs do Azure Cosmos DB.
 
 ## <a name="azure-portal"></a>Portal do Azure
 
@@ -23,7 +23,7 @@ Este artigo explica como provisionar a taxa de transferência em um contêiner (
 
 1. [Crie uma conta do Azure Cosmos](create-sql-api-dotnet.md#create-account) ou selecione uma existente.
 
-1. Abra o painel **Data Explorer** e selecione **nova coleção**. Em seguida, forneça os seguintes detalhes:
+1. Abra o painel **Data Explorer** e selecione **Nova Coleção**. Em seguida, forneça os seguintes detalhes:
 
    * Indique se você está criando um banco de dados ou usando um existente.
    * Insira uma ID de contêiner (ou de tabela ou de grafo).
@@ -35,10 +35,10 @@ Este artigo explica como provisionar a taxa de transferência em um contêiner (
 
 ## <a name="azure-cli-or-powershell"></a>CLI do Azure ou PowerShell
 
-Para criar um contêiner com taxa de transferência dedicada, consulte
+Para criar um contêiner com taxa de transferência dedicada confira,
 
-* [Criar um contêiner usando a CLI do Azure](manage-with-cli.md#create-a-container)
-* [Criar um contêiner usando o PowerShell](manage-with-powershell.md#create-container)
+* [Criar um contêiner com a CLI do Azure](manage-with-cli.md#create-a-container)
+* [Criar um contêiner com o PowerShell](manage-with-powershell.md#create-container)
 
 > [!Note]
 > Se você estiver provisionando a taxa de transferência em um contêiner em uma conta do Azure Cosmos configurada com a API do Azure Cosmos DB para MongoDB, use `/myShardKey` para o caminho da chave de partição. Se você estiver provisionando a taxa de transferência em um contêiner em uma conta do Azure Cosmos configurada com a API do Cassandra, use `/myPrimaryKey` para o caminho da chave de partição.
@@ -50,7 +50,7 @@ Para criar um contêiner com taxa de transferência dedicada, consulte
 
 ### <a name="sql-mongodb-gremlin-and-table-apis"></a><a id="dotnet-most"></a>SQL, MongoDB, Gremlin e APIs de Tabela
 
-# <a name="net-sdk-v2"></a>[SDK DO .NET V2](#tab/dotnetv2)
+# <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
 ```csharp
 // Create a container with a partition key and provision throughput of 400 RU/s
@@ -64,7 +64,7 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 400 });
 ```
 
-# <a name="net-sdk-v3"></a>[SDK DO .NET V3](#tab/dotnetv3)
+# <a name="net-sdk-v3"></a>[.NET SDK V3](#tab/dotnetv3)
 
 [!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/ContainerDocsSampleCode.cs?name=ContainerCreateWithThroughput)]
 
@@ -99,7 +99,7 @@ offer.content.offerThroughput = 2000;
 await client.offer(offer.id).replace(offer);
 ```
 
-### <a name="cassandra-api"></a><a id="dotnet-cassandra"></a>API Cassandra
+### <a name="cassandra-api"></a><a id="dotnet-cassandra"></a>API do Cassandra
 
 Comandos semelhantes podem ser emitidos por meio de qualquer driver compatível com CQL.
 
@@ -111,7 +111,7 @@ session.Execute("CREATE TABLE myKeySpace.myTable(
     lastName text) WITH cosmosdb_provisioned_throughput=400");
 
 ```
-### <a name="alter-or-change-throughput-for-cassandra-table"></a>Alterar ou alterar a taxa de transferência para a tabela Cassandra
+### <a name="alter-or-change-throughput-for-cassandra-table"></a>Alterar ou mudar a taxa de transferência para a tabela Cassandra
 
 ```csharp
 // Altering the throughput too can be done through code by issuing following command
@@ -123,5 +123,6 @@ session.Execute("ALTER TABLE myKeySpace.myTable WITH cosmosdb_provisioned_throug
 
 Confira os seguintes artigos para saber mais sobre o provisionamento de taxa de transferência no Azure Cosmos DB:
 
-* [Como provisionar a taxa de transferência em um banco de dados](how-to-provision-database-throughput.md)
+* [Como provisionar a taxa de transferência padrão (manual) em um banco de dados](how-to-provision-database-throughput.md)
+* [Como provisionar a taxa de transferência de dimensionamento automático em um banco de dados](how-to-provision-autoscale-throughput.md)
 * [Unidades de solicitação e taxa de transferência no Azure Cosmos DB](request-units.md)

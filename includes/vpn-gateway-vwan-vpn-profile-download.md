@@ -5,19 +5,19 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/17/2020
+ms.date: 05/13/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c61378510fbfc8bdc13f35ba1063a0d9316d88e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1d14ee849c89e6c3807636d0a728157abd9de97a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80066206"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650670"
 ---
-## <a name="1-download-the-file"></a>1. baixar o arquivo
+## <a name="1-download-the-file"></a>1. Baixar o arquivo
 
-Execute os seguintes comandos: Copie a URL do resultado para o navegador para baixar o arquivo zip do perfil.
+Execute os seguintes comandos: Copie a URL do resultado no navegador para baixar o arquivo zip do perfil.
 
 ```azurepowershell-interactive
 $profile = New-AzVpnClientConfiguration -ResourceGroupName AADAuth -Name AADauthGW -AuthenticationMethod "EapTls"
@@ -25,17 +25,17 @@ $profile = New-AzVpnClientConfiguration -ResourceGroupName AADAuth -Name AADauth
 $PROFILE.VpnProfileSASUrl
 ```
 
-## <a name="2-extract-the-zip-file"></a>2. Extraia o arquivo zip
+## <a name="2-extract-the-zip-file"></a>2. Extrair o arquivo zip
 
 Extraia o arquivo zip. O arquivo contém as seguintes pastas:
 
 * AzureVPN
 * Genérico
-* OpenVPN (se você tiver habilitado as configurações de autenticação do OpenVPN e do Azure AD no gateway. Para gateway de VPN, consulte [criar um locatário](../articles/vpn-gateway/openvpn-azure-ad-tenant.md). Para WAN virtual, consulte [criar um locatário-VWAN](../articles/virtual-wan/openvpn-azure-ad-tenant.md).
+* OpenVPN (se você tiver habilitado as configurações de autenticação do OpenVPN e do Azure AD no gateway). Para o Gateway de VPN, consulte [Criar um locatário](../articles/vpn-gateway/openvpn-azure-ad-tenant.md). Para a WAN Virtual, consulte [Criar um locatário — VWAN](../articles/virtual-wan/openvpn-azure-ad-tenant.md).
 
-## <a name="3-retrieve-information"></a>3. recuperar informações
+## <a name="3-retrieve-information"></a>3. Recuperar informações
 
-Na pasta **AzureVPN** , navegue até o arquivo ***azurevpnconfig. xml*** e abra-o com o bloco de notas. Anote o texto entre as marcas a seguir.
+Na pasta **AzureVPN**, navegue até o arquivo ***azurevpnconfig.xml*** e abra-o com o Bloco de notas. Anote o texto entre as marcas a seguir.
 
 ```
 <audience>          </audience>
@@ -47,16 +47,16 @@ Na pasta **AzureVPN** , navegue até o arquivo ***azurevpnconfig. xml*** e abra-
 
 ## <a name="profile-details"></a>Detalhes do perfil
 
-Ao adicionar uma conexão, use as informações coletadas na etapa anterior para a página de detalhes do perfil. Os campos correspondem às seguintes informações:
+Ao adicionar uma conexão, use as informações coletadas na etapa anterior na página de detalhes do perfil. Os campos correspondem às seguintes informações:
 
-   * **Público-alvo:** Identifica o recurso de destinatário para o qual o token se destina
-   * **Emissor:** Identifica o serviço de token de segurança (STS) que emitiu o token, bem como o locatário do Azure AD
+   * **Público:** Identifica o recurso de destinatário ao qual o token é destinado
+   * **Emissor:** Identifica o STS (serviço de token de segurança) que emitiu o token e o locatário do Azure AD
    * **Locatário:** Contém um identificador exclusivo e imutável do locatário do diretório que emitiu o token
    * **FQDN:** O FQDN (nome de domínio totalmente qualificado) no gateway de VPN do Azure
-   * **ServerSecret:** A chave pré-compartilhada de gateway de VPN
+   * **ServerSecret:** A chave pré-compartilhada do gateway de VPN
 
 ## <a name="folder-contents"></a>Conteúdo da pasta
 
-* A **pasta genérico** contém o certificado do servidor público e o arquivo VpnSettings. xml. O arquivo VpnSettings. xml contém as informações necessárias para configurar um cliente genérico.
+* O **pasta genérica** contém o certificado do servidor público e o arquivo VpnSettings.xml. O arquivo VpnSettings.xml contém as informações necessárias para configurar um cliente genérico.
 
-* O arquivo zip baixado também pode conter pastas **WindowsAmd64** e **WindowsX86** . Essas pastas contêm o instalador para SSTP e IKEv2 para clientes Windows. Você precisa de direitos de administrador no cliente para instalá-los.
+* O arquivo zip baixado também pode conter as pastas **WindowsAmd64** e **WindowsX86**. Essas pastas contêm o instalador para SSTP e IKEv2 para clientes Windows. Você precisa de direitos de administrador no cliente para instalá-los.

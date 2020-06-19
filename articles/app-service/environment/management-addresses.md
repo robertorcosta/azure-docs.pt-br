@@ -1,26 +1,26 @@
 ---
 title: Endereços de gerenciamento
-description: Localize os endereços de gerenciamento usados para controlar um Ambiente do Serviço de Aplicativo. As configurou em uma tabela de rotas para evitar problemas de roteamento assimétrico.
+description: Localize os endereços de gerenciamento usados para controlar um Ambiente do Serviço de Aplicativo. Configure-os em uma tabela de roteamento para evitar problemas de roteamento assimétrico.
 author: ccompy
 ms.assetid: a7738a24-89ef-43d3-bff1-77f43d5a3952
 ms.topic: article
 ms.date: 05/10/2020
 ms.author: ccompy
-ms.custom: seodec18
-ms.openlocfilehash: 8fc77c05878af9278906e061f67479ddafa6a47c
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.custom: seodec18, references_regions
+ms.openlocfilehash: 34daf74ddf5e9c93a05d27bad5f9ac55d767d5e6
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83118015"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195117"
 ---
 # <a name="app-service-environment-management-addresses"></a>Endereços de gerenciamento de Ambiente de Serviço de Aplicativo
 
-O Ambiente do Serviço de Aplicativo (ASE) é uma implantação de locatário único do serviço de Azure App que é executado em sua VNet (rede virtual) do Azure.  Embora o ASE seja executado em sua VNet, ele ainda deve estar acessível a partir de vários endereços IP dedicados que são usados pelo serviço de Azure App para gerenciar o serviço.  No caso de um ASE, o tráfego de gerenciamento atravessa a rede controlada pelo usuário. Se o tráfego estiver bloqueado ou estiver encaminhado erroneamente, o ASE será suspenso. Para obter detalhes sobre as dependências de rede do ASE, leia [considerações de rede e o ambiente do serviço de aplicativo][networking]. Para obter informações gerais sobre o ASE, você pode iniciar com [Introdução ao Ambiente do Serviço de Aplicativo][intro].
+O ASE (Ambiente do Serviço de Aplicativo) é uma implantação de locatário único do Serviço de Aplicativo do Azure que é executada na sua VNet (Rede Virtual) do Azure.  Embora o ASE seja executado em sua VNet, ele ainda deve estar acessível de vários endereços IP dedicados que são usados pelo Serviço de Aplicativo do Azure para gerenciar o serviço.  No caso de um ASE, o tráfego de gerenciamento atravessa a rede controlada pelo usuário. Se o tráfego estiver bloqueado ou estiver encaminhado erroneamente, o ASE será suspenso. Para obter mais informações sobre as dependências da rede do ASE, leia [Considerações sobre a rede e o ambiente do Serviço de Aplicativo][networking]. Para obter informações gerais sobre o ASE, você pode começar com a [Introdução ao Ambiente do Serviço de Aplicativo][intro].
 
-Todos os ASEs têm um VIP público no qual o tráfego de gerenciamento entra. O tráfego de gerenciamento de entrada desses endereços é proveniente das portas 454 e 455 no VIP público de seu ASE. Este documento lista os endereços de origem do Serviço de Aplicativo para o tráfego de gerenciamento para o ASE. Esses endereços também estão na marca de serviço IP chamada AppServiceManagement.
+Todos os ASEs têm um VIP público no qual o tráfego de gerenciamento entra. O tráfego de gerenciamento de entrada desses endereços é proveniente das portas 454 e 455 no VIP público de seu ASE. Este documento lista os endereços de origem do Serviço de Aplicativo para o tráfego de gerenciamento para o ASE. Esses endereços também estão na Marca de serviço IP chamada AppServiceManagement.
 
-Os endereços indicados abaixo podem ser configurados em uma tabela de rotas para evitar problemas de roteamento assimétrico com o tráfego de gerenciamento. As rotas agem sobre o tráfego no nível do IP e não têm um reconhecimento da direção do tráfego ou que o tráfego faz parte de uma mensagem de resposta TCP. Se o endereço de resposta para uma solicitação TCP for diferente do endereço para o qual foi enviado, você terá um problema de roteamento assimétrico. Para evitar problemas de roteamento assimétrico com o tráfego de gerenciamento do ASE, você precisa garantir que as respostas sejam enviadas de volta do mesmo endereço para o qual foram enviadas. Para obter detalhes sobre como configurar o ASE para operar em um ambiente em que o tráfego de saída é enviado localmente, leia [Configurar ASE com túnel forçado][forcedtunnel]
+Os endereços indicados abaixo podem ser configurados em uma tabela de roteamento para evitar problemas de roteamento assimétrico com o tráfego de gerenciamento. As rotas agem sobre o tráfego em nível de IP e não reconhecem a direção do tráfego ou se o tráfego faz parte de uma mensagem de resposta TCP. Se o endereço de resposta para uma solicitação TCP for diferente do endereço para o qual foi enviado, você terá um problema de roteamento assimétrico. Para evitar problemas de roteamento assimétrico com o tráfego de gerenciamento do ASE, você precisa garantir que as respostas sejam enviadas de volta do mesmo endereço para o qual foram enviadas. Para obter mais informações sobre como configurar o ASE para operar em um ambiente em que o tráfego de saída é enviado localmente, leia [Configurar ASE com túnel forçado][forcedtunnel].
 
 ## <a name="list-of-management-addresses"></a>Lista de endereços de gerenciamento ##
 
@@ -31,7 +31,7 @@ Os endereços indicados abaixo podem ser configurados em uma tabela de rotas par
 
 ## <a name="configuring-a-network-security-group"></a>Configurando um Grupo de Segurança de Rede
 
-Com grupos de segurança de rede, você não precisa se preocupar com os endereços individuais nem manter sua própria configuração. Há uma marca de serviço IP chamada AppServiceManagement que é mantida atualizada com todos os endereços. Para usar essa marca de serviço IP em seu NSG, vá para o portal, abra a interface do usuário dos grupos de segurança de rede e selecione regras de segurança de entrada. Se você tiver uma regra já existente para o tráfego de gerenciamento de entrada, edite-a. Se esse NSG não foi criado com o ASE ou se ele é novo, selecione **Adicionar**. No menu suspenso Origem, selecione **Marca de Serviço**.  Na marca serviço de origem, selecione **AppServiceManagement**. Defina os intervalos da porta de origem como \*, Destino como **Qualquer**, os intervalos da porta de destino como **454-455**, Protocolo como **TCP** e Ação como **Permitir**. Se você estiver fazendo a regra, precisará definir a prioridade. 
+Com Grupos de Segurança de Rede, você não precisa se preocupar com os endereços individuais nem em manter sua própria configuração. Há uma marca de serviço IP chamada AppServiceManagement que é mantida atualizada com todos os endereços. Para usar essa marca de serviço IP em seu NSG, acesse o portal, abra a interface do usuário dos Grupos de Segurança de Rede e selecione Regras de segurança de entrada. Caso tenha uma regra pré-existente para o tráfego de gerenciamento de entrada, edite-a. Se esse NSG não foi criado com o ASE ou se ele é novo, selecione **Adicionar**. No menu suspenso Origem, selecione **Marca de Serviço**.  Na marca de serviço Origem, selecione **AppServiceManagement**. Defina os intervalos da porta de origem como \*, Destino como **Qualquer**, os intervalos da porta de destino como **454-455**, Protocolo como **TCP** e Ação como **Permitir**. Se você estiver criando a regra, precisará definir a Prioridade. 
 
 ![criando um NSG com a marca de serviço][1]
 

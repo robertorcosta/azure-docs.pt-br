@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: rohink
 ms.openlocfilehash: 8f29a2bbe0eb392927dd111b13e2260111ddd18e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79222783"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710126"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>Tutorial: Hospede seu domínio no DNS do Azure
 

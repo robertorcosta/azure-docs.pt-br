@@ -330,6 +330,8 @@
               href: ./partner-center-portal/azure-vm-create-offer.md
             - name: Criar ativo técnico de VM do Azure
               items:
+                - name: Certificação de máquina virtual – problemas e soluções
+                  href: ./partner-center-portal/vm-certification-issues-solutions.md
                 - name: Criar ativo técnico de VM do Azure
                   href: ./partner-center-portal/create-azure-vm-technical-asset.md
                 - name: Perguntas frequentes sobre ativos técnicos da VM do Azure

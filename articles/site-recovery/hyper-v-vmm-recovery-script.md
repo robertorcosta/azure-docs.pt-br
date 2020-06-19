@@ -1,5 +1,5 @@
 ---
-title: Adicionar um script a um plano de recuperação no Azure Site Recovery
+title: Adicionar um script ao plano de recuperação no Azure Site Recovery
 description: Saiba como adicionar um script do VMM a um plano de recuperação para recuperação de desastre de VMs do Hyper-V em nuvens do VMM.
 author: rajani-janaki-ram
 manager: rochakm
@@ -7,18 +7,18 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 6902876e066649ae4dff4134fb8cc462f30dd0b7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 14c2a9a2ad818cc358535a91f9a6813ec7b91a6f
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74084869"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826274"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Adicionar um script a um plano de recuperação
 
 Este artigo descreve como criar um script do System Center VMM (Virtual Machine Manager) e adicioná-lo a um plano de recuperação no [Azure Site Recovery](site-recovery-overview.md).
 
-Poste comentários ou perguntas na parte inferior deste artigo ou no [Fórum dos serviços de recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Publique comentários ou perguntas na parte de baixo deste artigo ou na [página de perguntas dos Serviços de Recuperação do Microsoft Azure](https://docs.microsoft.com/answers/topics/azure-site-recovery.html).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -29,7 +29,7 @@ Você pode usar scripts do PowerShell em seus planos de recuperação. Para pode
     - Se ocorrer um erro, o restante do script não será executado.
     - Se ocorrer um erro quando você executa um failover não planejado, o plano de recuperação continuará.
     - Se ocorrer um erro quando você executa um failover planejado, o plano de recuperação será interrompido. Corrija o script, verifique se ele funciona conforme esperado e execute novamente o plano de recuperação.
-        - O comando `Write-Host` não funciona em um script de plano de recuperação. Se você usar o comando `Write-Host` em um script, o script falhará. Para criar, crie um script de proxy que por sua vez executa o script principal. Para garantir que toda a saída seja canalizada, use o ** \> ** comando.
+        - O comando `Write-Host` não funciona em um script de plano de recuperação. Se você usar o comando `Write-Host` em um script, o script falhará. Para criar, crie um script de proxy que por sua vez executa o script principal. Para colocar toda a saída no pipe, use o comando **\>\>** .
         - O script expira se não retornar em até 600 segundos.
         - Se nada for escrito em STDERR, o script será classificado como com falha. Essa informação é exibida nos detalhes de execução do script.
 
@@ -45,7 +45,7 @@ Você pode usar scripts do PowerShell em seus planos de recuperação. Para pode
   
   1. Abra o Editor do Registro e vá para **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**.
 
-  1. Altere o valor de **ScriptLibraryPath** para **\\\libserver2.contoso.com\share\\**. Especifique o FQDN completo. Forneça permissões para o local de compartilhamento. Esse é o nó raiz do compartilhamento. Para verificar o nó raiz, no VMM, vá para o nó raiz na biblioteca. O caminho que abre é a raiz do caminho. Esse é o caminho que você deve usar na variável.
+  1. Altere o valor de **ScriptLibraryPath** para **\\\libserver2.contoso.com\share\\** . Especifique o FQDN completo. Forneça permissões para o local de compartilhamento. Esse é o nó raiz do compartilhamento. Para verificar o nó raiz, no VMM, vá para o nó raiz na biblioteca. O caminho que abre é a raiz do caminho. Esse é o caminho que você deve usar na variável.
 
   1. Teste o script usando uma conta de usuário com o mesmo nível de direitos de usuário da conta de serviço do VMM. O uso desses direitos de usuário verifica se os scripts autônomos testados são executados da mesma forma que são executados nos planos de recuperação. No servidor VMM, defina a política de execução a ser ignorada da seguinte maneira:
 
@@ -77,5 +77,5 @@ Depois que VMs ou grupos de replicação são adicionados a um plano de recupera
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre a [execução de failovers](site-recovery-failover.md).
+* Saiba mais sobre [execução de failovers](site-recovery-failover.md).
 

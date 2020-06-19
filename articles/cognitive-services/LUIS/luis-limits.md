@@ -3,12 +3,12 @@ title: Limites-LUIS
 description: Este artigo contém os limites conhecidos do LUIS (Reconhecimento vocal) dos Serviços Cognitivos do Azure. LUIS tem várias áreas limites. O limite de modelo controla as intenções, as entidades e os recursos no LUIS. Limites de cota com base no tipo de chave. A combinação de teclado controla o site do LUIS.
 ms.topic: reference
 ms.date: 06/04/2020
-ms.openlocfilehash: aa4362fba09834758d47f3ef063068c1854b9280
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: fce4aab0221cf050ce175c582f21de58b6e27eac
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84449491"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976975"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>Limites para o modelo e as chaves do LUIS
 LUIS tem várias áreas de limite. O primeiro é o [limite do modelo](#model-limits), que controla as intenções, as entidades e os recursos no Luis. A segunda área é [limites de cota](#key-limits) com base no tipo de chave. Uma terceira área de limites é a [combinação de teclado](#keyboard-controls) para controlar o site Luis. Uma quarta área é o [mapeamento de região do mundo](luis-reference-regions.md) entre o site de criação do LUIS e as APIs do [ponto de extremidade](luis-glossary.md#endpoint) do LUIS.
@@ -22,12 +22,12 @@ Se seu aplicativo exceder os limites do modelo LUIS, considere o uso de um aplic
 |Área|Limite|
 |--|:--|
 | [Nome do aplicativo][luis-get-started-create-app] | *Máximo de caracteres padrão |
-| Aplicativos| 500 aplicativos por recurso de criação do Azure |
+| Aplicativo| 500 aplicativos por recurso de criação do Azure |
 | [Teste em lote][batch-testing]| 10 conjuntos de dados, 1000 declarações por conjunto de dados|
 | Lista explícita | 50 por aplicativo|
 | Entidades externas | sem limites |
 | [Intenções][intents]|500 por aplicativo: 499 tentativas personalizadas e a intenção _nenhuma_ necessária.<br>O aplicativo [baseado em expedição](https://aka.ms/dispatch-tool) tem fontes de expedição 500 correspondentes.|
-| [Entidades de lista](./luis-concept-entity-types.md) | Pai: 50, filho: 20 mil itens. O nome Canonical é o máximo de caracteres padrão* Valores de sinônimos não têm restrição de comprimento. |
+| [Listar entidades](./luis-concept-entity-types.md) | Pai: 50, filho: 20 mil itens. O nome Canonical é o máximo de caracteres padrão* Valores de sinônimos não têm restrição de comprimento. |
 | [entidades de aprendizado de máquina + funções](./luis-concept-entity-types.md):<br> Spot<br>único<br>função de entidade|Um limite de entidades pai 100 ou de 330 entidades, o que limitará o usuário primeiro. Uma função conta como uma entidade com a finalidade desse limite. Um exemplo é uma composição com uma entidade simples, que tem duas funções: 1 composição + 1 simples + 2 funções = 4 das entidades 330.<br>As subentidades podem ser aninhadas até 5 níveis.|
 |Modelo como um recurso| Número máximo de modelos que podem ser usados como um recurso para um modelo específico para ter 10 modelos. O número máximo de listas de frases usadas como um recurso para um modelo específico ter 10 listas de frases.|
 | [Visualização-entidades de lista dinâmica](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 listas de ~ 1K por solicitação de ponto de extremidade de previsão de consulta|
@@ -37,7 +37,7 @@ Se seu aplicativo exceder os limites do modelo LUIS, considere o uso de um aplic
 | [Entidades predefinidas](./luis-prebuilt-entities.md) | nenhum limite|
 | [Entidades de expressão regular](./luis-concept-entity-types.md)|20 entidades<br>500 caracteres, no máximo, por padrão de entidade de expressão regular|
 | [Funções](luis-concept-roles.md)|300 funções por aplicativo. 10 funções por entidade|
-| [Enunciado][utterances] | 500 caracteres<br><br>Se você tiver um texto maior do que esse limite de caracteres, você precisará segmentar o expressão antes da entrada para LUIS e mesclar as respostas de acordo. Há quebras óbvias com as quais você pode trabalhar, como marcas de Pontuação e pausas longas em fala.|
+| [Enunciado][utterances] | 500 caracteres<br><br>Se você tiver um texto maior do que esse limite de caracteres, será necessário segmentar o expressão antes de inserir para LUIS e você receberá respostas de intenção individuais por segmento. Há quebras óbvias com as quais você pode trabalhar, como marcas de Pontuação e pausas longas em fala.|
 | [Exemplos de expressão][utterances] | 15.000 por aplicativo – não há limite para o número de declarações por tentativa<br><br>Se você precisar treinar o aplicativo com mais exemplos, use uma abordagem de modelo de [expedição](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch) . Você treina aplicativos LUIS individuais (conhecidos como aplicativos filho para o aplicativo de expedição pai) com uma ou mais intenções e, em seguida, treina um aplicativo de expedição que faz amostras de cada declarações do aplicativo LUIS filho para direcionar a solicitação de previsão para o aplicativo filho correto. |
 | [Versões](luis-concept-version.md)| 100 versões por aplicativo |
 | [Nome da versão][luis-how-to-manage-versions] | 128 caracteres |

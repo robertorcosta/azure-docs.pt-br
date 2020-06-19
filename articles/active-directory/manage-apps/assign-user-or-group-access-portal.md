@@ -12,80 +12,80 @@ ms.date: 02/21/2020
 ms.author: mimart
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 186e36e4625a60362c54972b16b53f0f3e6753fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b52bc45287e0e3a8f4908630cb6e57130c1725df
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79409185"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83772413"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Atribuir um usuário ou um grupo a um aplicativo empresarial no Azure Active Directory
 
-Este artigo mostra como atribuir usuários ou grupos a aplicativos empresariais no Azure Active Directory (Azure AD), seja de dentro do portal do Azure ou usando o PowerShell. Quando você atribui um usuário a um aplicativo, o aplicativo é exibido no painel de [acesso meus aplicativos](https://myapps.microsoft.com/) do usuário para facilitar o acesso. Se o aplicativo expõe funções, você também pode atribuir uma função específica ao usuário.
+Neste artigo, você verá como atribuir usuários ou grupos a aplicativos empresariais no Azure AD (Azure Active Directory) no portal do Azure ou no PowerShell. Quando você atribui um usuário a um aplicativo, esse aplicativo aparece no [painel de acesso Meus Aplicativos](https://myapps.microsoft.com/) do usuário para facilitar o acesso. Se o aplicativo expõe funções, você também pode atribuir uma função específica ao usuário.
 
-Para maior controle, determinados tipos de aplicativos empresariais podem ser configurados para [exigir atribuição de usuário](#configure-an-application-to-require-user-assignment). 
+Para maior controle, determinados tipos de aplicativos empresariais podem ser configurados para [exigir a atribuição de usuário](#configure-an-application-to-require-user-assignment). 
 
-Para [atribuir um usuário ou grupo a um aplicativo empresarial](#assign-users-or-groups-to-an-app-via-the-azure-portal), você precisará entrar como um administrador global, administrador de aplicativos, administrador de aplicativos de nuvem ou o proprietário atribuído do aplicativo empresarial.
+Para [atribuir um usuário ou grupo a um aplicativo empresarial](#assign-users-or-groups-to-an-app-via-the-azure-portal), você precisará entrar como administrador global, administrador de aplicativos, administrador de aplicativos de nuvem ou proprietário atribuído do aplicativo empresarial.
 
 > [!NOTE]
-> A atribuição baseada em grupo requer a edição Azure Active Directory Premium P1 ou P2. A atribuição baseada em grupo tem suporte apenas para grupos de segurança. Atualmente, não há suporte para associações de grupo aninhado e grupos do Office 365. Para obter mais requisitos de licenciamento para os recursos discutidos neste artigo, consulte a [página de preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory). 
+> A atribuição baseada em grupo exige o Azure Active Directory Premium edição P1 ou P2. A atribuição baseada em grupo é compatível somente com os grupos de segurança. Atualmente, não há compatibilidade com associações de grupo aninhado e grupos do Office 365. Para ver mais requisitos de licenciamento dos recursos discutidos neste artigo, confira a [página de preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory). 
 
-## <a name="configure-an-application-to-require-user-assignment"></a>Configurar um aplicativo para exigir atribuição de usuário
+## <a name="configure-an-application-to-require-user-assignment"></a>Configurar um aplicativo para exigir a atribuição de usuários
 
-Com os seguintes tipos de aplicativos, você tem a opção de exigir que os usuários sejam atribuídos ao aplicativo antes que possam acessá-lo:
+Com os seguintes tipos de aplicativos, você tem a opção de exigir que os usuários sejam atribuídos ao aplicativo antes que eles possam acessá-lo:
 
 - Aplicativos configurados para SSO (logon único) federado com autenticação baseada em SAML
-- Aplicativos de proxy de aplicativo que usam Azure Active Directory pré-autenticação
-- Aplicativos criados na plataforma de aplicativo do Azure AD que usam autenticação OAuth 2,0/OpenID Connect depois que um usuário ou administrador consentiu nesse aplicativo.
+- Aplicativos de proxy de aplicativo que usam a pré-autenticação do Azure Active Directory
+- Aplicativos criados na plataforma de aplicativos do Azure AD que usam a autenticação OAuth 2.0/OpenID Connect depois que um usuário ou administrador autoriza o aplicativo.
 
-Quando a atribuição de usuário é necessária, somente os usuários que você atribui explicitamente ao aplicativo poderão entrar. Eles podem acessar o aplicativo na página meus aplicativos ou usando um link direto. 
+Quando a atribuição de usuário é necessária, somente os usuários que você atribui explicitamente ao aplicativo (por meio da atribuição de usuário direta ou com base na associação de grupo) poderão entrar. Eles podem acessar o aplicativo na página Meus Aplicativos ou usando um link direto. 
 
-Quando a atribuição *não é necessária*, porque você definiu essa opção como **não** ou porque o aplicativo usa outro modo de SSO, qualquer usuário poderá acessar o aplicativo se ele tiver um link direto para o aplicativo ou a URL de **acesso do usuário** na página de **Propriedades** do aplicativo. 
+Quando a atribuição *não é necessária*, seja porque você definiu essa opção como **Não** ou porque o aplicativo usa outro modo SSO, qualquer usuário poderá acessar o aplicativo se tiver um link direto para ele ou a **URL de acesso do usuário** na página **Propriedades** do aplicativo. 
 
-Essa configuração não afeta se um aplicativo aparece ou não no painel de acesso meus aplicativos. Os aplicativos aparecem nos painéis de acesso dos meus aplicativos dos usuários depois que você atribuiu um usuário ou grupo ao aplicativo. Para obter informações, consulte [Managing Access to apps](what-is-access-management.md).
+Essa configuração não afeta se um aplicativo é exibido ou não no painel de acesso Meus Aplicativos. Os aplicativos aparecem nos painéis de acesso Meus Aplicativos dos usuários depois que você atribuiu um usuário ou grupo ao aplicativo. Para saber mais, confira [Gerenciar o acesso a aplicativos](what-is-access-management.md).
 
 
-Para exigir a atribuição de usuário para um aplicativo:
+Para exigir a atribuição de usuários a um aplicativo:
 
-1. Entre no [portal do Azure](https://portal.azure.com) com uma conta de administrador ou como um proprietário do aplicativo.
+1. Entre no [portal do Azure](https://portal.azure.com) com uma conta de administrador ou proprietário do aplicativo.
 
-2. Selecione **Azure Active Directory**. No menu de navegação à esquerda, selecione **aplicativos empresariais**.
+2. Selecione **Azure Active Directory**. No menu de navegação esquerdo, selecione **Aplicativos empresariais**.
 
-3. Selecione o aplicativo na lista. Se você não vir o aplicativo, comece a digitar seu nome na caixa de pesquisa. Ou use os controles de filtro para selecionar o tipo de aplicativo, o status ou a visibilidade e, em seguida, selecione **aplicar**.
+3. Selecione o aplicativo na lista. Se você não encontrar o aplicativo, comece a digitar o nome dele na caixa de pesquisa. Outra opção é usar os controles de filtro para selecionar o tipo, o status ou a visibilidade do aplicativo e, em seguida, selecionar **Aplicar**.
 
-4. No menu de navegação à esquerda, selecione **Propriedades**.
+4. No menu de navegação esquerdo, selecione **Propriedades**.
 
-5. Verifique se a **atribuição de usuário é necessária?** a alternância está definida como **Sim**.
+5. Defina o botão de alternância **Atribuição de usuário necessária?** para **Sim**.
 
    > [!NOTE]
-   > Se a **atribuição de usuário for necessária?** alternar não está disponível, você pode usar o PowerShell para definir a propriedade appRoleAssignmentRequired na entidade de serviço.
+   > Se o botão de alternância **Atribuição de usuário necessária?** não estiver disponível, use o PowerShell para definir a propriedade appRoleAssignmentRequired na entidade de serviço.
 
-6. Selecione o botão **salvar** na parte superior da tela.
+6. Clique no botão **Salvar** na parte superior da tela.
 
-## <a name="assign-users-or-groups-to-an-app-via-the-azure-portal"></a>Atribuir usuários ou grupos a um aplicativo por meio do portal do Azure
+## <a name="assign-users-or-groups-to-an-app-via-the-azure-portal"></a>Atribuir usuários ou grupos a um aplicativo no portal do Azure
 
-1. Entre no [portal do Azure](https://portal.azure.com) com uma conta de administrador global, administrador de aplicativos ou administrador de aplicativos de nuvem ou como o proprietário atribuído do aplicativo empresarial.
-2. Selecione **Azure Active Directory**. No menu de navegação à esquerda, selecione **aplicativos empresariais**.
-3. Selecione o aplicativo na lista. Se você não vir o aplicativo, comece a digitar seu nome na caixa de pesquisa. Ou use os controles de filtro para selecionar o tipo de aplicativo, o status ou a visibilidade e, em seguida, selecione **aplicar**.
-4. No menu de navegação à esquerda, selecione **usuários e grupos**.
+1. Entre no [portal do Azure](https://portal.azure.com) com uma conta de administrador global, administrador de aplicativo, administrador de aplicativos de nuvem ou proprietário atribuído do aplicativo empresarial.
+2. Selecione **Azure Active Directory**. No menu de navegação esquerdo, selecione **Aplicativos empresariais**.
+3. Selecione o aplicativo na lista. Se você não encontrar o aplicativo, comece a digitar o nome dele na caixa de pesquisa. Outra opção é usar os controles de filtro para selecionar o tipo, o status ou a visibilidade do aplicativo e, em seguida, selecionar **Aplicar**.
+4. No menu de navegação esquerdo, selecione **Usuários e grupos**.
    > [!NOTE]
-   > Se você quiser atribuir usuários a aplicativos da Microsoft, como aplicativos do Office 365, alguns desses aplicativos usarão o PowerShell. 
-5. Selecione o botão **Adicionar usuário** .
-6. No painel **Adicionar atribuição** , selecione **usuários e grupos**.
-7. Selecione o usuário ou grupo que você deseja atribuir ao aplicativo ou comece a digitar o nome do usuário ou grupo na caixa de pesquisa. Você pode escolher vários usuários e grupos e suas seleções aparecerão em **itens selecionados**.
-8. Quando terminar, clique em **selecionar**.
+   > Se você quiser atribuir usuários aos Aplicativos da Microsoft, como os do Office 365, alguns deles usam o PowerShell. 
+5. Selecione o botão **Adicionar usuário**.
+6. No painel **Adicionar Atribuição**, selecione **Usuários e grupos**.
+7. Selecione o usuário ou grupo que você deseja atribuir ao aplicativo ou comece a digitar o nome do usuário ou grupo na caixa de pesquisa. É possível escolher vários usuários e grupos. As seleções aparecerão em **Itens selecionados**.
+8. Ao terminar, clique em **Selecionar**.
 
    ![Atribuir um usuário ou um grupo ao aplicativo](./media/assign-user-or-group-access-portal/assign-users.png)
 
-9. No painel **usuários e grupos** , selecione um ou mais usuários ou grupos na lista e, em seguida, escolha o botão **selecionar** na parte inferior do painel.
-10. Se o aplicativo der suporte a ele, você poderá atribuir uma função ao usuário ou ao grupo. No painel **Adicionar atribuição** , escolha **selecionar função**. Em seguida, no painel **selecionar função** , escolha uma função a ser aplicada aos usuários ou grupos selecionados e, em seguida, selecione **OK** na parte inferior do painel. 
+9. No painel **Usuários e grupos**, selecione um ou mais usuários ou grupos na lista. Em seguida, pressione o botão **Selecionar** na parte inferior do painel.
+10. Se o aplicativo for compatível, você poderá atribuir uma função ao usuário ou grupo. Na painel **Adicionar Atribuição**, escolha **Selecionar Função**. Em seguida, no painel **Selecionar Função**, escolha uma função para aplicar aos usuários ou grupos selecionados e clique no botão **OK** na parte inferior do painel. 
 
     > [!NOTE]
-    > Se o aplicativo não oferecer suporte à seleção de função, a função de acesso padrão será atribuída. Nesse caso, o aplicativo gerencia o nível de acesso que os usuários têm.
+    > Se o aplicativo não for compatível com a seleção de função, a função de acesso padrão será atribuída. Nesse caso, o aplicativo gerencia o nível de acesso dos usuários.
 
-2. No painel **Adicionar atribuição** , selecione o botão **atribuir** na parte inferior do painel.
+2. No painel **Adicionar Atribuição**, clique no botão **Atribuir** na parte inferior do painel.
 
-## <a name="assign-users-or-groups-to-an-app-via-powershell"></a>Atribuir usuários ou grupos a um aplicativo por meio do PowerShell
+## <a name="assign-users-or-groups-to-an-app-via-powershell"></a>Atribuir usuários ou grupos a um aplicativo no PowerShell
 
 1. Abra um prompt elevado do Windows PowerShell.
 
@@ -110,9 +110,11 @@ Para exigir a atribuição de usuário para um aplicativo:
     New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
     ```
 
-Para saber mais sobre como atribuir um usuário a uma função de aplicativo, consulte a documentação sobre [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0)
+Para saber mais sobre como atribuir um usuário a uma função de aplicativo, confira a documentação sobre [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0).
 
-Para atribuir um grupo a um aplicativo empresarial, é preciso substituir `Get-AzureADUser` por `Get-AzureADGroup`.
+Para atribuir um grupo a um aplicativo empresarial, é preciso substituir `Get-AzureADUser` por `Get-AzureADGroup` e `New-AzureADUserAppRoleAssignment` por `New-AzureADGroupAppRoleAssignment`.
+
+Para saber mais sobre como atribuir um grupo a uma função de aplicativo, confira a documentação sobre [New-AzureADGroupAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureadgroupapproleassignment?view=azureadps-2.0).
 
 ### <a name="example"></a>Exemplo
 
@@ -136,7 +138,7 @@ Este exemplo atribui a usuária Brenda Fernandes ao aplicativo [Microsoft Workpl
 
 1. Execute o comando `$sp.AppRoles` para exibir as funções disponíveis para o aplicativo Workplace Analytics. Neste exemplo, queremos atribuir a Brenda Fernandes a função de Analista (acesso limitado).
 
-   ![Mostra as funções disponíveis para um usuário usando a função de análise de local de trabalho](./media/assign-user-or-group-access-portal/workplace-analytics-role.png)
+   ![Mostra as funções disponíveis para um usuário que usa a função de análise](./media/assign-user-or-group-access-portal/workplace-analytics-role.png)
 
 1. Atribua o nome de função à variável `$app_role_name`.
 
@@ -157,7 +159,7 @@ Este exemplo atribui a usuária Brenda Fernandes ao aplicativo [Microsoft Workpl
 
 - [Saiba mais sobre o acesso do usuário final a aplicativos](end-user-experiences.md)
 - [Planejar uma implantação do painel de acesso do Azure AD](access-panel-deployment-plan.md)
-- [Gerenciando o acesso a aplicativos](what-is-access-management.md)
+- [Gerenciamento do acesso aos aplicativos](what-is-access-management.md)
  
 ## <a name="next-steps"></a>Próximas etapas
 

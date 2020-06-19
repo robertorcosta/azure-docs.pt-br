@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: trbye
-ms.openlocfilehash: 550579b40470d7a1ad02031b8140e7d0a7164f46
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: ca6bff4c1e99bb8e63db212ca57693870afc30e7
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310590"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080646"
 ---
 # <a name="long-audio-api-preview"></a>API de áudio longo (visualização)
 
@@ -66,11 +66,11 @@ Os **códigos de status http** indicam erros comuns.
 |        | 400 | A síntese de voz só dá suporte ao arquivo de texto na codificação UTF-8 com o marcador de ordem de byte. | Verifique se os arquivos de entrada estão em codificação UTF-8 com o marcador de ordem de byte. |
 |        | 400 | Somente entradas SSML válidas são permitidas na solicitação de síntese de voz. | Verifique se as expressões SSML de entrada estão corretas. |
 |        | 400 | O nome de voz {voicename} não foi encontrado no arquivo de entrada. | O nome da voz SSML de entrada não está alinhado com a ID do modelo. |
-|        | 400 | A quantidade de parágrafo no arquivo de entrada deve ser menor que 10.000. | Verifique se o parágrafo no arquivo é menor que 10.000. |
+|        | 400 | O número de parágrafos no arquivo de entrada deve ser menor que 10.000. | Verifique se o número de parágrafos no arquivo é menor que 10.000. |
 |        | 400 | O arquivo de entrada deve ter mais de 400 caracteres. | Verifique se o arquivo de entrada excede 400 caracteres. |
 |        | 404 | O modelo declarado na definição de síntese de voz não pode ser encontrado: {ModelId}. | Verifique se {ModelId} está correto. |
 |        | 429 | Excede o limite de síntese de voz ativo. Aguarde até que algumas solicitações sejam concluídas. | O servidor tem permissão para executar e enfileirar até 120 solicitações para cada conta do Azure. Aguarde e evite enviar novas solicitações até que algumas solicitações sejam concluídas. |
-| Tudo       | 429 | Há muitas solicitações. | O cliente tem permissão para enviar até 5 solicitações ao servidor por segundo para cada conta do Azure. Reduza o valor da solicitação por segundo. |
+| Todos       | 429 | Há muitas solicitações. | O cliente tem permissão para enviar até 5 solicitações ao servidor por segundo para cada conta do Azure. Reduza o valor da solicitação por segundo. |
 | Excluir    | 400 | A tarefa de síntese de voz ainda está em uso. | Você só pode excluir solicitações **concluídas** ou **com falha**. |
 | GetByID   | 404 | A entidade especificada não pode ser encontrada. | Verifique se a ID de síntese está correta. |
 
@@ -78,7 +78,7 @@ Os **códigos de status http** indicam erros comuns.
 
 A API de áudio longa está disponível em várias regiões com pontos de extremidade exclusivos.
 
-| Região | Ponto de Extremidade |
+| Região | Ponto de extremidade |
 |--------|----------|
 | Leste da Austrália | `https://australiaeast.customvoice.api.speech.microsoft.com` |
 | Canadá Central | `https://canadacentral.customvoice.api.speech.microsoft.com` |

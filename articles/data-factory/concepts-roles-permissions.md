@@ -10,12 +10,12 @@ ms.workload: data-services
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: 8b7791c5c04e986b30959d2fcae17142fdd8b7ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3955d3b9370a1cd2ee88c27e42b107f5ae0f87c2
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418313"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83833499"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Funções e permissões do Azure Data Factory
 
@@ -80,11 +80,11 @@ Aqui estão alguns exemplos que demonstram o que você pode obter com as funçõ
   Esse cenário requer duas atribuições de função.
 
   1. Atribuir a função interna **Colaborador** no nível do data factory.
-  2. Crie uma função personalizada com a permissão **Microsoft.Resources/deployments/**. Atribua essa função personalizada ao usuário no nível do grupo de recursos.
+  2. Crie uma função personalizada com a permissão **Microsoft.Resources/deployments/** . Atribua essa função personalizada ao usuário no nível do grupo de recursos.
 
 - Permitir que um usuário só possa testar a conexão em um serviço vinculado
 
-    Crie uma função de função personalizada com permissões para as seguintes ações: **Microsoft. datafactory/fábricas/Getfeaturevalue/Read** e **Microsoft. datafactory/factories/getDataPlaneAccess/Read**. Atribua essa função personalizada no recurso de data factory para o usuário.
+    Crie uma função personalizada com permissões para as seguintes ações: **Microsoft.DataFactory/factories/getFeatureValue/read** e **Microsoft.DataFactory/factories/getDataPlaneAccess/read**. Atribua essa função interna no recurso do data factory para o usuário.
 
 - Permitir que um usuário atualize um data factory usando o PowerShell ou o SDK, mas não o portal do Azure.
 

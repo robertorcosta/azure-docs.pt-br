@@ -1,14 +1,14 @@
 ---
-title: Armazenamento de imagem de contêiner
+title: Armazenamento de imagens de contêiner
 description: Detalhes sobre como as imagens de contêiner do Docker são armazenadas no Registro de Contêiner do Azure, incluindo segurança, redundância e capacidade.
 ms.topic: article
 ms.date: 03/21/2018
-ms.openlocfilehash: f66c3dd95edfe5035c46857cb6f9aa59d8a6a0e1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b738556e5a4f764cd47c72d964ee188d1344b336
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74456214"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683408"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Armazenamento de imagens de contêiner no Registro de Contêiner do Azure
 
@@ -42,11 +42,11 @@ Números muito altos de repositórios e marcas podem afetar o desempenho do regi
 
 ## <a name="storage-cost"></a>Custo de armazenamento
 
-Para obter detalhes completos sobre preços, consulte [preços de Registro de Contêiner do Azure][pricing].
+Para obter detalhes completos sobre preços, consulte [Preços de Registro de Contêiner do Azure][pricing].
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre as diferentes SKUs de Registro de Contêiner do Azure (Básico, Standard e Premium), consulte [SKUs do Registro de Contêiner do Azure](container-registry-skus.md).
+Para obter mais informações sobre registros de contêiner Básico, Standard e Premium, consulte [Camadas de serviço do Registro de Contêiner do Azure](container-registry-skus.md).
 
 <!-- IMAGES -->
 

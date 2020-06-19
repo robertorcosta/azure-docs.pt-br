@@ -1,7 +1,7 @@
 ---
-title: Problemas no Internet Explorer & Microsoft Edge (MSAL. js) | Azure
+title: Problemas no Internet Explorer e no Microsoft Edge (MSAL.js) | Azure
 titleSuffix: Microsoft identity platform
-description: Saiba mais sobre os problemas conhecidos ao usar a biblioteca de autenticação da Microsoft para JavaScript (MSAL. js) com os navegadores do Internet Explorer e do Microsoft Edge.
+description: Saiba mais sobre os problemas conhecidos ao usar a Biblioteca de Autenticação da Microsoft para JavaScript (MSAL.js) com os navegadores Internet Explorer e Microsoft Edge.
 services: active-directory
 author: navyasric
 manager: CelesteDG
@@ -9,63 +9,63 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: troubleshooting
 ms.workload: identity
-ms.date: 05/16/2019
+ms.date: 05/18/2020
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 5ae2dee68ec0da8e8a00d4f01583461462bc196c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2a471504b88791b5bfb6ce6cc7c81d60bfbe5028
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76696088"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83772073"
 ---
-# <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-msaljs"></a>Problemas conhecidos nos navegadores do Internet Explorer e do Microsoft Edge (MSAL. js)
+# <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-msaljs"></a>Problemas conhecidos nos navegadores Internet Explorer e Microsoft Edge (MSAL.js)
 
 ## <a name="issues-due-to-security-zones"></a>Problemas devido a zonas de segurança
-Tivemos vários relatórios de problemas com a autenticação no IE e no Microsoft Edge (desde a atualização da *versão do navegador Microsoft Edge para 40.15063.0.0*). Estamos acompanhando esses e informamos à equipe do Microsoft Edge. Embora o Microsoft Edge funcione em uma resolução, aqui está uma descrição dos problemas que ocorrem com frequência e das possíveis soluções alternativas que podem ser implementadas.
+Recebemos vários relatórios de problemas com a autenticação no IE e no Microsoft Edge (desde a atualização da *versão do navegador Microsoft Edge para 40.15063.0.0*). Estamos monitorando esses problemas e já informamos a equipe do Microsoft Edge. Embora o Microsoft Edge funcione em uma resolução, veja uma descrição dos problemas mais frequentes e as possíveis soluções que podem ser implementadas.
 
 ### <a name="cause"></a>Causa
-A causa da maioria desses problemas é a seguinte. O armazenamento de sessão e o armazenamento local são particionados por zonas de segurança no navegador Microsoft Edge. Nesta versão específica do Microsoft Edge, quando o aplicativo é redirecionado entre as zonas, o armazenamento de sessão e o armazenamento local são limpos. Especificamente, o armazenamento de sessão é limpo na navegação regular do navegador, e a sessão e o armazenamento local são limpos no modo InPrivate do navegador. O MSAL. js salva determinado estado no armazenamento da sessão e se baseia em verificar esse estado durante os fluxos de autenticação. Quando o armazenamento da sessão é limpo, esse estado é perdido e, portanto, resulta em experiências interrompidas.
+Veja a seguir a causa da maioria desses problemas. Os armazenamentos de sessão e local são particionados por zonas de segurança no navegador Microsoft Edge. Nesta versão específica do Microsoft Edge, quando o aplicativo é redirecionado entre zonas, os armazenamentos de sessão e local são limpos. Especificamente, o armazenamento de sessão é limpo na navegação normal, e tanto o armazenamento de sessão quanto o local são limpos na navegação InPrivate. A MSAL.js salva um determinado estado no armazenamento de sessão e verifica esse estado durante os fluxos de autenticação. Quando o armazenamento de sessão é limpo, esse estado é perdido e, portanto, resulta em experiências ruins.
 
 ### <a name="issues"></a>Problemas
 
-- **Loops de redirecionamento infinitos e recarregamentos de página durante a autenticação**. Quando os usuários entram no aplicativo no Microsoft Edge, eles são redirecionados de volta da página de logon do AAD e ficam presos em um loop de redirecionamento infinito, resultando em recargas repetidas de página. Isso geralmente é acompanhado por um `invalid_state` erro no armazenamento da sessão.
+- **Loops de redirecionamento infinitos e recarregamentos de página durante a autenticação**. Quando os usuários entram no aplicativo no Microsoft Edge, são redirecionados de volta da página de entrada do AAD e ficam presos em um loop de redirecionamento infinito, que faz com que a página seja recarregada repetidamente. Normalmente, também ocorre um erro `invalid_state` no armazenamento de sessão.
 
-- **Loops de token de aquisição infinito e erro AADSTS50058**. Quando um aplicativo em execução no Microsoft Edge tenta adquirir um token para um recurso, o aplicativo pode ficar preso em um loop infinito da chamada de aquisição de token junto com o seguinte erro do AAD em seu rastreamento de rede:
+- **Loops de token de aquisição infinitos e erro AADSTS50058**. Quando um aplicativo em execução no Microsoft Edge tenta adquirir um token para um recurso, o aplicativo pode ficar preso em um loop infinito da chamada de aquisição de token junto com o seguinte erro do AAD no rastreamento de rede:
 
     `Error :login_required; Error description:AADSTS50058: A silent sign-in request was sent but no user is signed in. The cookies used to represent the user's session were not sent in the request to Azure AD. This can happen if the user is using Internet Explorer or Edge, and the web app sending the silent sign-in request is in different IE security zone than the Azure AD endpoint (login.microsoftonline.com)`
 
-- **A janela pop-up não fecha ou está presa ao usar o logon por meio de Popup para autenticar**. Ao autenticar por meio da janela pop-up no Microsoft Edge ou IE (InPrivate), depois de inserir as credenciais e entrar, se vários domínios entre zonas de segurança estiverem envolvidos na navegação, a janela pop-up não fechará porque MSAL. js perde a alça para a janela pop-up.  
+- **A janela pop-up não fecha ou fica presa ao usar o logon por meio de Pop-up para autenticar**. Ao autenticar por meio da janela pop-up no Microsoft Edge ou IE (InPrivate), depois de inserir as credenciais e entrar, se vários domínios entre zonas de segurança estiverem envolvidos na navegação, a janela pop-up não fechará porque a MSAL.js perde o identificador para a janela pop-up.  
 
-### <a name="update-fix-available-in-msaljs-023"></a>Atualização: correção disponível no MSAL. js 0.2.3
-Correções para os problemas de loop de redirecionamento de autenticação foram liberadas no [MSAL. js 0.2.3](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases). Habilite o `storeAuthStateInCookie` sinalizador na configuração do MSAL. js para aproveitar essa correção. Por padrão, esse sinalizador é definido como false.
+### <a name="update-fix-available-in-msaljs-023"></a>Atualização: Correção disponível na MSAL.js 0.2.3
+Correções para os problemas de loop de redirecionamento de autenticação foram liberadas na [MSAL.js 0.2.3](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases). Habilite o sinalizador `storeAuthStateInCookie` na configuração da MSAL.js para usar a correção. Por padrão, esse sinalizador é definido como false.
 
-Quando o `storeAuthStateInCookie` sinalizador estiver habilitado, o MSAL. js usará os cookies do navegador para armazenar o estado de solicitação necessário para a validação dos fluxos de autenticação.
+Quando o sinalizador `storeAuthStateInCookie` está habilitado, a MSAL.js usa os cookies do navegador para armazenar o estado de solicitação exigido para validação dos fluxos de autenticação.
 
 > [!NOTE]
-> Essa correção ainda não está disponível para os invólucros MSAL-angular e MSAL-angularjs. Essa correção não aborda o problema com janelas pop-up.
+> Essa correção ainda não está disponível para os wrappers msal-angular e msal-angularjs. Essa correção não resolve o problema das janelas pop-up.
 
-Use as soluções alternativas abaixo.
+Use as soluções alternativas a seguir.
 
 #### <a name="other-workarounds"></a>Outras soluções alternativas
-Certifique-se de testar se o problema está ocorrendo apenas na versão específica do navegador Microsoft Edge e funciona nos outros navegadores antes de adotar essas soluções alternativas.  
-1. Como uma primeira etapa para contornar esses problemas, certifique-se de que o domínio do aplicativo, e quaisquer outros sites envolvidos nos redirecionamentos do fluxo de autenticação sejam adicionados como sites confiáveis nas configurações de segurança do navegador, para que eles pertençam à mesma zona de segurança.
+Verifique se o problema ocorre somente na versão específica do navegador Microsoft Edge e se funciona nos outros navegadores antes de usar estas soluções alternativas.  
+1. A primeira etapa para solucionar esses problemas é garantir que o domínio do aplicativo e outros sites envolvidos nos redirecionamentos do fluxo de autenticação sejam adicionados como sites confiáveis às configurações de segurança do navegador. Assim, eles pertencerão à mesma zona de segurança.
 Para fazer isso, siga estas etapas:
-    - Abra o **Internet Explorer** e clique nas **configurações** (ícone de engrenagem) no canto superior direito
-    - Selecionar **Opções da Internet**
-    - Selecione a guia **segurança**
-    - Na opção **sites confiáveis** , clique no botão **sites** e adicione as URLs na caixa de diálogo que é aberta.
+    - Abra o **Internet Explorer** e clique em **Configurações** (ícone de engrenagem) no canto superior direito
+    - Clique em **Opções da Internet**
+    - Selecione a guia **Segurança**
+    - Na opção **Sites confiáveis**, clique no botão **Sites** e adicione as URLs à caixa de diálogo que se abre.
 
-2. Como mencionado anteriormente, como apenas o armazenamento de sessão é limpo durante a navegação regular, você pode configurar o MSAL. js para usar o armazenamento local. Isso pode ser definido como o `cacheLocation` parâmetro de configuração ao inicializar MSAL.
+2. Já mencionamos que como somente o armazenamento de sessão é limpo durante a navegação normal, você pode configurar a MSAL.js para usar o armazenamento local. Isso pode ser definido como o parâmetro configuração `cacheLocation` ao inicializar a MSAL.
 
-Observe que isso não resolverá o problema de navegação InPrivate, pois a sessão e o armazenamento local são limpos.
+Isso não resolverá o problema da navegação InPrivate, pois ambos os armazenamentos estão limpos, de sessão e local.
 
 ## <a name="issues-due-to-popup-blockers"></a>Problemas devido a bloqueadores de pop-ups
 
-Há casos em que os pop-ups são bloqueados no IE ou no Microsoft Edge, por exemplo, quando um segundo pop-up ocorre durante a autenticação multifator. Você receberá um alerta no navegador para permitir o pop-up uma vez ou sempre. Se você optar por permitir, o navegador abrirá a janela pop-up automaticamente `null` e retornará um identificador para ele. Como resultado, a biblioteca não tem um identificador para a janela e não há como fechar a janela pop-up. O mesmo problema não acontece no Chrome quando ele solicita que você permita pop-ups porque ele não abre uma janela pop-up automaticamente.
+Existem casos em que os pop-ups são bloqueados no IE ou no Microsoft Edge. Por exemplo, quando um segundo pop-up ocorre durante a [autenticação multifator](../authentication/concept-mfa-howitworks.md). Você receberá um alerta no navegador para permitir o pop-up uma vez ou sempre. Se você optar por permitir, o navegador abrirá a janela pop-up automaticamente e retornará um identificador `null` para ele. Como resultado, a biblioteca não tem um identificador para a janela e não há como fechar a janela pop-up. O mesmo problema não acontece no Chrome quando ele solicita que você permita pop-ups, porque ele não abre uma janela pop-up automaticamente.
 
-Como **alternativa**, os desenvolvedores precisarão permitir pop-ups no IE e no Microsoft Edge antes de começarem a usar seu aplicativo para evitar esse problema.
+Como **solução alternativa**, os desenvolvedores precisarão permitir pop-ups no IE e no Microsoft Edge antes de começarem a usar o aplicativo para evitar esse problema.
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre como [usar o MSAL. js no Internet Explorer](msal-js-use-ie-browser.md).
+Saiba mais sobre como [Usar a MSAL.js no Internet Explorer](msal-js-use-ie-browser.md).

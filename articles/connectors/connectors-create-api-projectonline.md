@@ -1,5 +1,5 @@
 ---
-title: Conectar-se ao Project online por meio de aplicativos lógicos do Azure
+title: Conectar-se com o Project Online dos Aplicativos Lógicos do Azure
 description: Automatize fluxos de trabalho que monitoram, criam e gerenciam projetos, tarefas e recursos do Project Online usando os Aplicativos Lógicos do Azure
 services: logic-apps
 ms.suite: integration
@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/24/2018
 tags: connectors
-ms.openlocfilehash: 116922e018410f260b33f4dfd76e5983fbbcc0a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a3e90fa3e3f57c1575a7ab09f9ce6941c13adcd1
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74789317"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834859"
 ---
 # <a name="manage-project-online-projects-tasks-and-resources-by-using-azure-logic-apps"></a>Gerencie projetos, tarefas e recursos do Project Online usando os Aplicativos Lógicos do Azure
 
@@ -23,7 +23,7 @@ Com os Aplicativos Lógicos do Azure e o conector do Project Online, você pode 
 * Listar projetos ou tarefas existentes.
 * Fazer check-out e check-in de projetos ou publicá-los.
 
-O Project Online ajuda você a planejar, priorizar e gerenciar projetos e investimentos em portfólio de projetos, praticamente em qualquer lugar e em qualquer dispositivo, fornecendo funcionalidades avançadas de gerenciamento de projetos. Você pode usar gatilhos do Project Online para obter respostas do Project Online e disponibilizar a saída para outras ações. Você pode usar ações em seus aplicativos lógicos para executar diversas tarefas no Project Online. Se você for novo em aplicativos lógicos, examine [o que são os aplicativos lógicos do Azure?](../logic-apps/logic-apps-overview.md)
+O Project Online ajuda você a planejar, priorizar e gerenciar projetos e investimentos em portfólio de projetos, praticamente em qualquer lugar e em qualquer dispositivo, fornecendo funcionalidades avançadas de gerenciamento de projetos. Você pode usar gatilhos do Project Online para obter respostas do Project Online e disponibilizar a saída para outras ações. Você pode usar ações em seus aplicativos lógicos para executar diversas tarefas no Project Online. Se ainda não estiver familiarizado com os aplicativos lógicos, veja [O que é o Aplicativo Lógico do Azure?](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -60,9 +60,9 @@ O Project Online ajuda você a planejar, priorizar e gerenciar projetos e invest
 
 Para obter detalhes técnicos sobre gatilhos, ações e limites, que são explicados na descrição da OpenAPI do conector (anteriormente conhecido como Swagger), veja a [página de referência](/connectors/projectonline/) do conector.
 
-## <a name="get-support"></a>Obter suporte
+## <a name="get-support"></a>Obtenha suporte
 
-* Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Em caso de dúvidas, visite a [página de perguntas e respostas da Microsoft sobre os Aplicativos Lógicos do Azure](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 * Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Próximas etapas

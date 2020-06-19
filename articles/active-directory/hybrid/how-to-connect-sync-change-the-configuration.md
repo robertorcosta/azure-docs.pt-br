@@ -1,5 +1,5 @@
 ---
-title: 'Sincronização de Azure AD Connect: fazer uma alteração de configuração na sincronização de Azure AD Connect'
+title: 'Sincronização do Azure AD Connect: Fazer uma alteração de configuração na sincronização do Azure AD Connect'
 description: Explica como fazer uma alteração da configuração na sincronização do Azure AD Connect.
 services: active-directory
 author: billmath
@@ -12,20 +12,20 @@ ms.date: 08/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d77882817934d5ad98f16965aeb9dc246931c495
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a9fb43061b42a43755564f825fa01e65dacad3e5
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79261158"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827288"
 ---
-# <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Sincronização do Azure AD Connect: como fazer uma alteração na configuração padrão
-A finalidade deste artigo é orientá-lo sobre como fazer alterações na configuração padrão na sincronização do Azure Active Directory (Azure AD) Connect. Ele fornece etapas para alguns cenários comuns. Com esse conhecimento, você deve ser capaz de fazer alterações simples em sua própria configuração com base em suas próprias regras de negócios.
+# <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Sincronização do Azure AD Connect: Fazer uma alteração na configuração padrão
+O objetivo deste artigo é orientá-lo sobre como fazer alterações na configuração padrão na sincronização do Azure Active Directory (Azure AD) Connect. Ele fornece etapas para alguns cenários comuns. Com esse conhecimento, você deve ser capaz de fazer alterações simples em sua própria configuração com base em suas próprias regras de negócios.
 
 > [!WARNING]
-> Se você fizer alterações nas regras de sincronização prontas para uso padrão, essas alterações serão substituídas na próxima vez que o Azure AD Connect for atualizado, resultando em resultados de sincronização indesejados e prováveis.
+> Se você fizer alterações nas regras de sincronização padrão que estão prontas para uso, essas alterações serão substituídas na próxima vez em que o Azure Active Directory Connect for atualizado, ocasionando resultados inesperados e provável sincronização indesejada.
 >
-> As regras de sincronização integradas padrão têm uma impressão digital. Se você fizer uma alteração a essas regras, a impressão digital não corresponderá mais. Você pode ter problemas no futuro, quando tentar aplicar uma nova versão do Azure AD Connect. Faça alterações somente como é descrito neste artigo.
+> As regras padrão de sincronização prontas para uso têm uma impressão digital. Se você fizer uma alteração a essas regras, a impressão digital não corresponderá mais. Você pode ter problemas no futuro, quando tentar aplicar uma nova versão do Azure AD Connect. Faça alterações somente como é descrito neste artigo.
 
 ## <a name="synchronization-rules-editor"></a>Editor de Regras de Sincronização
 O Editor de Regras de Sincronização é usado para exibir e alterar a configuração padrão. Você pode encontrá-lo no menu **Iniciar** no grupo **Azure Connect AD**.  
@@ -56,18 +56,18 @@ O [Agendador](how-to-connect-sync-feature-scheduler.md) é executado a cada 30 m
 1. Clique em **Adicionar nova regra**.
 2. Na página **Descrição**, insira o seguinte:  
    ![Filtragem das regras de entrada](./media/how-to-connect-sync-change-the-configuration/description2.png)  
-   * **Nome**: dê um nome descritivo à regra.
-   * **Descrição**: dê algum esclarecimento para que outra pessoa possa entender para que serve a regra.
-   * **Sistema conectado**: esse é o sistema no qual o objeto pode ser encontrado. Neste caso, selecione o **Active Directory Connector**.
-   * **Tipo de Sistema Conectado/Objeto do Metaverso**: selecione **Usuário** e **Pessoa** respectivamente.
-   * **Tipo de Link**: altere esse valor para **Ingressar**.
-   * **Precedência**: forneça um valor que seja exclusivo no sistema. Um valor numérico mais baixo indica uma precedência mais alta.
-   * **Marca**: deixe o campo vazio. As regras integradas da Microsoft devem ter essa caixa preenchida com um valor.
+   * **Name**: Dê um nome descritivo à regra.
+   * **Descrição**: Forneça algum esclarecimento para que outras pessoas possam entender para que serve a regra.
+   * **Sistema Conectado**: Esse é o sistema no qual o objeto pode ser encontrado. Neste caso, selecione o **Active Directory Connector**.
+   * **Tipo de Objeto do Sistema Conectado/Metaverso**: Selecione **Usuário** e **Pessoa**, respectivamente.
+   * **Tipo de Link**: Altere esse valor para **Junção**.
+   * **Precedência**: Forneça um valor que seja exclusivo no sistema. Um valor numérico mais baixo indica uma precedência mais alta.
+   * **Tag**: Deixe esse campo vazio. As regras integradas da Microsoft devem ter essa caixa preenchida com um valor.
 3. Na página **Filtro de escopo**, insira **givenName ISNOTNULL**.  
    ![Filtrar escopo das regras de entrada](./media/how-to-connect-sync-change-the-configuration/scopingfilter.png)  
    Esta seção é usada para definir a quais objetos a regra deve ser aplicada. Se deixada em branco, a regra se aplicaria a todos os objetos de usuário. Contudo, isso incluiria as salas de conferência, contas de serviço e outros objetos de usuário que não são de pessoas.
 4. Na página **Regras de associação**, deixe o campo vazio.
-5. Na página **Transformações**, altere o **FlowType** para **Expression**. Para **Atributo de destino**, selecione **givenName**. E para **Fonte**, digite **PCase([givenName])**.
+5. Na página **Transformações**, altere o **FlowType** para **Expression**. Para **Atributo de destino**, selecione **givenName**. E para **Fonte**, digite **PCase([givenName])** .
    ![Transformações das regras de entrada](./media/how-to-connect-sync-change-the-configuration/transformations.png)  
    O mecanismo de sincronização diferencia as letras maiúsculas das minúsculas no nome da função e no nome do atributo. Se você digitar algo errado, verá um aviso quando adicionar a regra. Você pode salvar e continuar, mas precisa reabrir e corrigir a regra.
 6. Clique em **Adicionar** para salvar a regra.
@@ -97,7 +97,7 @@ Abra o **Serviço de Sincronização** no menu **Iniciar**. As etapas nesta seç
    3. Use o **Escopo** para localizar um objeto que você deseja usar para testar a alteração. Selecione o objeto e clique em **Visualizar**. 
    4. Na nova tela, selecione **Visualização de Confirmação**.  
    ![Commit preview](./media/how-to-connect-sync-change-the-configuration/commitpreview.png)  
-    Agora, a alteração está confirmada no metaverso.
+   Agora, a alteração está confirmada no metaverso.
 
 **Ver o objeto no metaverso**  
 
@@ -115,7 +115,7 @@ A seção anterior descreveu como fazer alterações em um fluxo de atributos. N
 ### <a name="use-an-attribute-other-than-the-default"></a>Usar outro atributo diferente do padrão
 Nesse cenário do Fabrikam, há uma floresta na qual o alfabeto local é usado para o nome dado, sobrenome e nome de exibição. A representação de caracteres latinos desses atributos pode ser encontrada nos atributos de extensão. Para compilar uma lista de endereços global no Azure AD e no Office 365, a organização deseja usar esses atributos.
 
-Com uma configuração padrão, um objeto da floresta local tem esta aparência:   
+Com uma configuração padrão, um objeto da floresta local tem esta aparência:  
 ![Fluxo de atributos 1](./media/how-to-connect-sync-change-the-configuration/attributeflowjp1.png)
 
 Para criar uma regra com outros fluxos de atributos, faça o seguinte:
@@ -131,7 +131,7 @@ Para criar uma regra com outros fluxos de atributos, faça o seguinte:
 7. Clique em **Adicionar** para salvar a regra.
 8. Vá para o **Synchronization Service Manager**. Em **Conectores**, selecione o conector ao qual você adicionou a regra. Selecione **Executar** e depois **Sincronização Completa**. Uma sincronização completa recalcula todos os objetos usando as regras atuais.
 
-Este é o resultado para o mesmo objeto com essa regra personalizada:   
+Este é o resultado para o mesmo objeto com essa regra personalizada:  
 ![Fluxo de atributos 4](./media/how-to-connect-sync-change-the-configuration/attributeflowjp4.png)
 
 ### <a name="length-of-attributes"></a>Comprimento de atributos
@@ -200,7 +200,7 @@ Por padrão, o atributo UserType não está habilitado para sincronização porq
 
 - O Azure AD aceita apenas dois valores para o atributo UserType: **Membro** e **Convidado**.
 - Se o atributo UserType não estiver habilitado para sincronização no Azure AD Connect, os usuários do Azure AD, criados por meio da sincronização de diretório, terão o atributo UserType definido como **Membro**.
-- O Azure AD não permite que o atributo UserType em usuários existentes do Azure AD seja alterado pelo Azure AD Connect. Ele só pode ser definido durante a criação dos usuários do Azure AD e [alterado por meio do PowerShell](/powershell/module/azuread/set-azureaduser?view=azureadps-2.0).
+- Antes da versão 1.5.30.0, o Azure Active Directory não permitia que o atributo UserType em usuários existentes do Azure Active Directory fosse alterado pelo Azure AD Connect. Em versões mais antigas, ele pode ser definido apenas durante a criação dos usuários do Azure Active Directory e [alterado por meio do PowerShell](/powershell/module/azuread/set-azureaduser?view=azureadps-2.0).
 
 Antes de habilitar a sincronização do atributo UserType, você deve decidir como o atributo será derivado do Active Directory local. A seguir, estão as abordagens mais comuns:
 
@@ -208,9 +208,9 @@ Antes de habilitar a sincronização do atributo UserType, você deve decidir co
 
     Se você escolher essa abordagem, você deverá garantir que o atributo designado seja preenchido com o valor correto para todos os objetos de usuário existentes no Active Directory local que estejam sincronizados com o Azure AD antes de habilitar a sincronização do atributo UserType.
 
-- Como alternativa, você pode derivar o valor do atributo UserType de outras propriedades. Por exemplo, você deseja sincronizar todos os usuários como **convidados** se o atributo USERPRINCIPALNAME do AD local terminar com parte <em>@partners.fabrikam123.org</em>do domínio. 
+- Como alternativa, você pode derivar o valor do atributo UserType de outras propriedades. Por exemplo, você deseja sincronizar todos os usuários como **Convidados**, caso os respectivos atributos UserPrincipalName do AD local terminem com a parte do domínio <em>@partners.fabrikam123.org</em>. 
 
-    Conforme mencionado anteriormente, o Azure AD Connect não permite que o atributo UserType em usuários existentes do Azure AD seja alterado pelo Azure AD Connect. Portanto, você deve garantir que a lógica que você escolheu seja consistente com a maneira como o atributo UserType já está configurado para todos os usuários do Azure AD existentes em seu locatário.
+    Conforme mencionado anteriormente, versões mais antigas do Azure AD Connect não permitem que o atributo UserType em usuários existentes do Azure Active Directory seja alterado pelo Azure AD Connect. Portanto, você deve garantir que a lógica que você escolheu seja consistente com a maneira como o atributo UserType já está configurado para todos os usuários do Azure AD existentes em seu locatário.
 
 As etapas para habilitar a sincronização do atributo UserType podem ser resumidas como:
 
@@ -225,15 +225,15 @@ As etapas para habilitar a sincronização do atributo UserType podem ser resumi
 >[!NOTE]
 > O restante desta seção aborda essas etapas. Elas são descritas no contexto de uma implantação do Azure AD com topologia de floresta única e sem regras de sincronização personalizadas. Se você tiver uma topologia de várias florestas, regras de sincronização personalizadas configuradas ou um servidor de preparo, você precisará ajustar as etapas de acordo.
 
-### <a name="step-1-disable-the-sync-scheduler-and-verify-there-is-no-synchronization-in-progress"></a>Etapa 1: desabilitar o agendador de sincronização e verificar se não há nenhuma sincronização em andamento
+### <a name="step-1-disable-the-sync-scheduler-and-verify-there-is-no-synchronization-in-progress"></a>Etapa 1: Desabilitar o agendador de sincronização e verificar se não há nenhuma sincronização em andamento
 Para evitar a exportação de alterações indesejadas ao Azure AD, garanta que não haja nenhuma sincronização enquanto você estiver atualizando as regras de sincronização. Para desabilitar o agendador de sincronização interno:
 
  1. Inicie uma sessão do PowerShell no servidor do Azure AD Connect.
  2. Desabilite a sincronização agendada executando o cmdlet `Set-ADSyncScheduler -SyncCycleEnabled $false`.
- 3. Abra o Synchronization Service Manager acessando **Iniciar** > **serviço de sincronização**.
+ 3. Inicie o Synchronization Service Manager acessando **Iniciar** > **Serviço de Sincronização**.
  4. Acesse a guia **Operações** e confirme se não há nenhuma operação cujo status seja *em andamento*.
 
-### <a name="step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema"></a>Etapa 2: adicionar o atributo de origem ao esquema do AD Connector local
+### <a name="step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema"></a>Etapa 2: Adicione o atributo de origem ao esquema do AD Connector local
 Nem todos os atributos do Azure AD são importados para o Espaço do AD Connector local. Para adicionar o atributo de origem à lista de atributos importados:
 
  1. Acesse a guia **Conectores** no Synchronization Service Manager.
@@ -243,33 +243,33 @@ Nem todos os atributos do Azure AD são importados para o Espaço do AD Connecto
  5. Clique em **OK** para salvar.
 ![Adicionar atributo de origem ao esquema do Conector do AD local](./media/how-to-connect-sync-change-the-configuration/usertype1.png)
 
-### <a name="step-3-add-the-usertype-to-the-azure-ad-connector-schema"></a>Etapa 3: adicionar UserType ao esquema do Azure AD Connector
+### <a name="step-3-add-the-usertype-to-the-azure-ad-connector-schema"></a>Etapa 3: Adicionar UserType ao esquema do Azure AD Connector
 Por padrão, o atributo UserType não será importado para o espaço do Azure AD Connect. Para adicionar o atributo UserType à lista de atributos importados:
 
  1. Acesse a guia **Conectores** no Synchronization Service Manager.
- 2. Clique com o botão direito do mouse no **Azure ad Connector** e selecione **Propriedades**.
+ 2. Clique com o botão direito do mouse em **Conector do Azure AD** e selecione **Propriedades**.
  3. Na caixa de diálogo pop-up, vá para a guia **Selecionar Atributos**.
  4. Certifique-se de que o atributo UserType esteja selecionado na lista de atributos.
  5. Clique em **OK** para salvar.
 
 ![Adicionar atributo de origem ao esquema do Azure AD Connector](./media/how-to-connect-sync-change-the-configuration/usertype2.png)
 
-### <a name="step-4-create-an-inbound-synchronization-rule-to-flow-the-attribute-value-from-on-premises-active-directory"></a>Etapa 4: criar uma regra de sincronização de entrada para fazer o valor de atributo fluir do Active Directory local
+### <a name="step-4-create-an-inbound-synchronization-rule-to-flow-the-attribute-value-from-on-premises-active-directory"></a>Etapa 4: Criar uma regra de sincronização de entrada para fazer o valor de atributo fluir do Active Directory local
 A regra de sincronização de entrada permite que o valor do atributo flua do atributo de origem do Active Directory local para o metaverso:
 
-1. Abra o editor de regras de sincronização acessando **Iniciar** > **Editor de regras de sincronização**.
+1. Abra o Editor de Regras de Sincronização acessando **Iniciar** > **Editor de Regras de Sincronização**.
 2. Defina o filtro de pesquisa **Direção** como **Entrada**.
 3. Clique no botão **Adicionar nova regra** para criar uma nova regra de entrada.
-4. Na guia **Descrição** , forneça a seguinte configuração:
+4. Na guia **Descrição**, forneça a seguinte configuração:
 
     | Atributo | Valor | Detalhes |
     | --- | --- | --- |
     | Nome | *Fornecer um nome* | Por exemplo, *Entrada do AD – UserType Usuário* |
-    | Descrição | *Forneça uma descrição* |  |
+    | Descrição | *Fornecer uma descrição* |  |
     | Sistema Conectado | *Selecionar o AD connector local* |  |
     | Tipo de Objeto do Sistema Conectado | **Usuário** |  |
     | Tipo de Objeto de Metaverso | **Person** |  |
-    | Tipo de link | **Ingressar** |  |
+    | Tipo de link | **Join** |  |
     | Precedência | *Escolha um número entre 1 e 99* | 1 a 99 são reservados para regras de sincronização personalizadas. Não selecione um valor que seja usado por outra regra de sincronização. |
 
 5. Acesse a guia **Filtro de escopo** e adicione um **único grupo de filtro de escopo** com a seguinte cláusula:
@@ -286,7 +286,7 @@ A regra de sincronização de entrada permite que o valor do atributo flua do at
     | --- | --- | --- | --- | --- |
     | Direto | UserType | extensionAttribute1 | Desmarcado | Atualizar |
 
-    Em outro exemplo, você deseja derivar o valor do atributo UserType de outras propriedades. Por exemplo, você deseja sincronizar todos os usuários como convidados se o atributo userPrincipalName do AD local terminar com parte <em>@partners.fabrikam123.org</em>do domínio. Você pode implementar uma expressão como esta:
+    Em outro exemplo, você deseja derivar o valor do atributo UserType de outras propriedades. Por exemplo, você deseja sincronizar todos os usuários como Convidados, caso seu respectivo atributo UserPrincipalName local do AD termine com a parte do domínio <em>@partners.fabrikam123.org</em>. Você pode implementar uma expressão como esta:
 
     | Tipo de fluxo | Atributo de destino | Fonte | Aplicar uma vez | Tipo de mesclagem |
     | --- | --- | --- | --- | --- |
@@ -296,25 +296,25 @@ A regra de sincronização de entrada permite que o valor do atributo flua do at
 
 ![Criar regra de sincronização de entrada](./media/how-to-connect-sync-change-the-configuration/usertype3.png)
 
-### <a name="step-5-create-an-outbound-synchronization-rule-to-flow-the-attribute-value-to-azure-ad"></a>Etapa 5: criar uma regra de sincronização de saída para fazer o valor de atributo fluir para o Azure AD
+### <a name="step-5-create-an-outbound-synchronization-rule-to-flow-the-attribute-value-to-azure-ad"></a>Etapa 5: Criar uma regra de sincronização de saída para fazer o valor de atributo fluir para o Azure AD
 A regra de sincronização de saída permite que o valor do atributo flua do metaverso para o atributo UserType no Microsoft Azure AD:
 
 1. Acesse o Editor de Regras de Sincronização.
 2. Defina o filtro de pesquisa **Direção** como **Saída**.
 3. Clique no botão **Adicionar nova regra**.
-4. Na guia **Descrição** , forneça a seguinte configuração:
+4. Na guia **Descrição**, forneça a seguinte configuração:
 
     | Atributo | Valor | Detalhes |
     | ----- | ------ | --- |
     | Nome | *Fornecer um nome* | Por exemplo, *Saída para AAD – UserType Usuário* |
-    | Descrição | *Forneça uma descrição* ||
+    | Descrição | *Fornecer uma descrição* ||
     | Sistema Conectado | *Selecione o AAD connector* ||
     | Tipo de Objeto do Sistema Conectado | **Usuário** ||
     | Tipo de Objeto de Metaverso | **Person** ||
-    | Tipo de link | **Ingressar** ||
+    | Tipo de link | **Join** ||
     | Precedência | *Escolha um número entre 1 e 99* | 1 a 99 são reservados para regras de sincronização personalizadas. Não selecione um valor que seja usado por outra regra de sincronização. |
 
-5. Vá para a guia **filtro de escopo** e adicione um **único grupo de filtro de escopo** com duas cláusulas:
+5. Acesse a guia **Filtro de escopo** e adicione um **único grupo de filtro de escopo** com as duas cláusulas a seguir:
 
     | Atributo | Operador | Valor |
     | --- | --- | --- |
@@ -323,7 +323,7 @@ A regra de sincronização de saída permite que o valor do atributo flua do met
 
     O filtro de escopo determina a quais objetos do Azure AD essa regra de sincronização de saída é aplicada. Neste exemplo, usamos o mesmo filtro de escopo da regra de sincronização pronta para uso de *Saída para AD – identidade do usuário*. Impede que a regra de sincronização seja aplicada aos objetos de Usuário que não estão sincronizados do Active Directory local. Talvez seja necessário ajustar o filtro de escopo de acordo com sua implantação do Azure AD Connect.
 
-6. Vá para a guia **transformação** e implemente a seguinte regra de transformação:
+6. Acesse a guia **Transformação** e implemente a seguinte regra de transformação:
 
     | Tipo de fluxo | Atributo de destino | Fonte | Aplicar uma vez | Tipo de mesclagem |
     | --- | --- | --- | --- | --- |
@@ -333,7 +333,7 @@ A regra de sincronização de saída permite que o valor do atributo flua do met
 
 ![Criar regra de sincronização de saída](./media/how-to-connect-sync-change-the-configuration/usertype4.png)
 
-### <a name="step-6-run-a-full-synchronization-cycle"></a>Etapa 6: executar um ciclo completo de sincronização
+### <a name="step-6-run-a-full-synchronization-cycle"></a>Etapa 6: Executar um ciclo completo de sincronização
 Em geral, um ciclo completo de sincronização é necessário, já que adicionamos novos atributos ao esquema do Active Directory e do Azure AD Connector e introduzimos regras de sincronização personalizadas. Você deseja verificar as alterações antes de exportá-las para o Azure AD. 
 
 Você pode usar as etapas a seguir para verificar as alterações enquanto executa manualmente as etapas que formam um ciclo completo de sincronização.
@@ -346,7 +346,7 @@ Você pode usar as etapas a seguir para verificar as alterações enquanto execu
    4. Aguarde até operação terminar.
 
       > [!NOTE]
-      > Você poderá ignorar uma Importação completa no AD Connector local se o atributo de origem já estiver incluído na lista de atributos importados. Em outras palavras, você não precisou fazer nenhuma alteração durante a [Etapa 2: adicionar os atributos de origem ao esquema do AD Connector local](#step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema).
+      > Você poderá ignorar uma Importação completa no AD Connector local se o atributo de origem já estiver incluído na lista de atributos importados. Em outras palavras, você não precisou fazer nenhuma alteração durante a [Etapa 2: Adicionar o atributo de origem ao esquema local do AD Connector](#step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema).
 
 2. Execute uma **Importação completa** no **Azure AD Connector**:
 
@@ -385,7 +385,7 @@ Você pode usar as etapas a seguir para verificar as alterações enquanto execu
 > [!NOTE]
 > Essas etapas não incluem as etapas de sincronização completa e de exportação no Azure AD Connector. Essas etapas não são obrigatórias, já que os valores de atributo estão fluindo do Active Directory local para o Azure AD apenas.
 
-### <a name="step-7-re-enable-the-sync-scheduler"></a>Etapa 7: reabilitar o agendador de sincronização
+### <a name="step-7-re-enable-the-sync-scheduler"></a>Etapa 7: Habilitar o agendador de sincronização novamente
 Reabilite o agendador de sincronização interno:
 
 1. Inicie uma sessão do PowerShell.
@@ -398,5 +398,5 @@ Reabilite o agendador de sincronização interno:
 
 **Tópicos de visão geral**
 
-* [Sincronização do Azure AD Connect: compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)
-* [Integrando suas identidades locais ao Azure Active Directory](whatis-hybrid-identity.md)
+* [Sincronização do Azure AD Connect: Compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)
+* [Integração de suas identidades locais com o Active Directory do Azure](whatis-hybrid-identity.md)

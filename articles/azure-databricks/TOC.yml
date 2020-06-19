@@ -11,7 +11,7 @@
       items:
         - name: Portal
           href: quickstart-create-databricks-workspace-portal.md
-        - name: PowerShell
+        - name: Azure PowerShell
           href: quickstart-create-databricks-workspace-powershell.md
         - name: Modelo de ARM
           displayName: Resource Manager
@@ -1260,13 +1260,13 @@
             - name: A interface do usuário do Apache Spark mostra menos do que a memória total do nó
               href: /azure/databricks/kb/clusters/spark-shows-less-memory
               maintainContext: true
-            - name: O limite de núcleo da CPU impede a criação do cluster
+            - name: O limite de núcleos da CPU impede a criação do cluster
               href: /azure/databricks/kb/clusters/azure-core-limit
               maintainContext: true
             - name: O limite de endereços IP impede a criação do cluster
               href: /azure/databricks/kb/clusters/azure-ip-limit
               maintainContext: true
-            - name: Inicialização lenta do cluster e nós ausentes
+            - name: Inicialização lenta de cluster e nós ausentes
               href: /azure/databricks/kb/clusters/azure-nodes-not-acquired
               maintainContext: true
             - name: Configurar um cluster para usar um servidor NTP personalizado
@@ -1348,7 +1348,7 @@
             - name: Otimizar o desempenho de leitura de fontes de dados JDBC
               href: /azure/databricks/kb/data-sources/jdbc-optimize-read
               maintainContext: true
-            - name: Gravações em ADLS e WASB limitadas
+            - name: Gravações do ADLS e do WASB limitadas
               href: /azure/databricks/kb/data-sources/azure-storage-throttling
               maintainContext: true
         - name: DBFS
