@@ -5,12 +5,12 @@ services: automation
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 014442dee1be23a189e22a505abf86050601b2aa
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 2728964d5bbf83b42251068ffbdea223ff6bd85e
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826735"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171082"
 ---
 # <a name="enable-change-tracking-and-inventory-from-a-runbook"></a>Habilitar Controle de Alterações e Inventário de um runbook
 
@@ -104,8 +104,4 @@ Você deve ter habilitado Controle de Alterações e Inventário para uma VM do 
 
 * Para agendar um runbook, consulte [Gerenciar agendamentos na Automação do Azure](shared-resources/schedules.md).
 * Para obter detalhes do trabalho com o recurso, veja [Gerenciar Controle de Alterações e Inventário](change-tracking-file-contents.md).
-* Para obter mais informações sobre as configurações de escopo, veja [Trabalhar com configurações de escopo para Controle de Alterações e Inventário](automation-scope-configurations-change-tracking.md).
-* Para saber como usar o recurso para identificar o software instalado em seu ambiente, veja [Descobrir qual software está instalado em suas VMs](automation-tutorial-installed-software.md).
-* Se você não quiser integrar sua conta de Automação a um workspace do Log Analytics ao habilitar o recurso, veja [Desvincular o workspace da conta de Automação](automation-unlink-workspace-change-tracking.md).
-* Quando concluir a implantação de alterações nas VMs, remova-as conforme descrito em [Remover VMs do Controle de Alterações e Inventário](automation-remove-vms-from-change-tracking.md).
 * Para solucionar problemas gerais com o recurso, veja [Solucionar problemas de Controle de Alterações e Inventário](troubleshoot/change-tracking.md).

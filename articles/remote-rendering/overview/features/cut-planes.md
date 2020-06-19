@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/06/2020
 ms.topic: article
-ms.openlocfilehash: 5d641b573a1cad5cac6db6199f5bad5c06151c62
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 7adf9a9701eb2492f0b13a26af1dbaf8de631373
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83759074"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021357"
 ---
 # <a name="cut-planes"></a>Recortar planos
 
@@ -60,11 +60,11 @@ void CreateCutPlane(ApiHandle<AzureSession> session, ApiHandle<Entity> ownerEnti
 
 As propriedades a seguir são expostas em um componente de plano de recorte:
 
-* **Habilitado:** É possível desativar temporariamente os planos de recorte desabilitando o componente. Os planos de recorte desabilitados não geram sobrecarga de renderização e também não contam para o limite do plano de recorte global.
+* `Enabled`: É possível desativar temporariamente os planos de recorte desabilitando o componente. Os planos de recorte desabilitados não geram sobrecarga de renderização e também não contam para o limite do plano de recorte global.
 
-* **Normal:** Especifica qual direção (+X,-X,+Y,-Y,+Z,-Z) é usada como o plano normal. Essa direção é relativa à orientação da entidade do proprietário. Mova e gire a entidade do proprietário para o posicionamento exato.
+* `Normal`: Especifica qual direção (+X,-X,+Y,-Y,+Z,-Z) é usada como o plano normal. Essa direção é relativa à orientação da entidade do proprietário. Mova e gire a entidade do proprietário para o posicionamento exato.
 
-* **FadeColor** e **FadeLength:**
+* `FadeColor` e `FadeLength`:
 
   Se o valor alfa de *FadeColor* for diferente de zero, os pixels próximos ao plano de recorte ficarão em direção à parte RGB de FadeColor. A força do canal alfa determina se ele ficará totalmente esmaecido em direção à cor de esmaecimento ou apenas parcialmente. *FadeLength* define em qual distância esse esmaecimento será realizado.
 
