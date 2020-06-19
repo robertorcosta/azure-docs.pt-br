@@ -1,32 +1,32 @@
 ---
 title: Mitigação de Z-fighting
-description: Descreve as técnicas para mitigar os artefatos de combate ao z
+description: Descreve as técnicas para mitigar os artefatos de Z-fighting
 author: florianborn71
 ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
-ms.openlocfilehash: bc06deafe3f589fce9a9178fefdb22388254929d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 69774c0014aac26c7266620bbe7d06ba37d6023b
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80680447"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758802"
 ---
 # <a name="z-fighting-mitigation"></a>Mitigação de Z-fighting
 
-Quando duas superfícies se sobrepõem, não fica claro qual delas deve ser renderizada sobre a outra. O resultado até varia por pixel, resultando em artefatos dependentes da exibição. Consequentemente, quando a câmera ou a malha se move, esses padrões se deslocam visivelmente. Esse artefato é chamado *de combate ao z*. Para os aplicativos de AR e VR, o problema é intensificado porque os dispositivos com montagem de cabeçalho naturalmente sempre se movem. Para evitar o visualizador discomfort, a funcionalidade de mitigação do combate ao z está disponível na renderização remota do Azure.
+Quando duas superfícies se sobrepõem, não fica claro qual delas deve ser renderizada sobre a outra. O resultado até varia por pixel, resultando em artefatos dependentes da exibição. Consequentemente, quando a câmera ou a malha se move, esses padrões se deslocam visivelmente. Esse artefato é chamado *Z-fighting*. No caso de aplicativos de RA e RV, o problema é intensificado porque os dispositivos com capacete naturalmente sempre se movem. Para evitar desconforto do usuário, a funcionalidade de mitigação de Z-fighting está disponível no Azure Remote Rendering.
 
-## <a name="z-fighting-mitigation-modes"></a>Modos de mitigação de combate Z
+## <a name="z-fighting-mitigation-modes"></a>Modos de mitigação de Z-fighting
 
-|Ocorrer                        | Result                               |
+|Situação                        | Result                               |
 |---------------------------------|:-------------------------------------|
-|Combate z regular               |![Combate ao Z](./media/zfighting-0.png)|
-|Mitigação de combate a Z habilitada    |![Combate ao Z](./media/zfighting-1.png)|
-|Realce de quadriculado habilitado|![Combate ao Z](./media/zfighting-2.png)|
+|Z-fighting regular               |![Z-fighting](./media/zfighting-0.png)|
+|Mitigação de Z-fighting habilitada    |![Z-fighting](./media/zfighting-1.png)|
+|Realce de padrão quadriculado habilitado|![Z-fighting](./media/zfighting-2.png)|
 
-O código a seguir habilita a mitigação do combate ao z:
+O código a seguir habilita a mitigação do Z-fighting:
 
-``` cs
+```cs
 void EnableZFightingMitigation(AzureSession session, bool highlight)
 {
     ZFightingMitigationSettings settings = session.Actions.ZFightingMitigationSettings;
@@ -39,30 +39,44 @@ void EnableZFightingMitigation(AzureSession session, bool highlight)
 }
 ```
 
+```cpp
+void EnableZFightingMitigation(ApiHandle<AzureSession> session, bool highlight)
+{
+    ApiHandle<ZFightingMitigationSettings> settings = *session->Actions()->ZFightingMitigationSettings();
+
+    // enabling z-fighting mitigation
+    settings->Enabled(true);
+
+    // enabling checkerboard highlighting of z-fighting potential
+    settings->Highlighting(highlight);
+}
+```
+
+
 > [!NOTE]
-> A mitigação do combate ao Z é uma configuração global que afeta todas as malhas renderizadas.
+> A mitigação do Z-fighting é uma configuração global que afeta todas as malhas renderizadas.
 
-## <a name="reasons-for-z-fighting"></a>Motivos para combater o z
+## <a name="reasons-for-z-fighting"></a>Motivos para Z-fighting
 
-O combate ao Z ocorre principalmente por dois motivos:
+O Z-fighting ocorre principalmente por dois motivos:
 
-1. Quando as superfícies estão longe da câmera, a precisão dos valores de profundidade diminui e os valores se tornam indistinguíveis
-1. Quando as superfícies em uma malha se sobrepõem fisicamente
+1. Quando as superfícies estão longe da câmera, a precisão dos valores de profundidade diminui, e os valores se tornam indistinguíveis
+1. quando as superfícies em uma malha se sobrepõem fisicamente
 
-O primeiro problema sempre pode acontecer e é difícil de eliminar. Se isso acontecer em seu aplicativo, certifique-se de que a proporção da distância do *plano próximo* com a distância do *plano distante* é tão baixa quanto prática. Por exemplo, um plano próximo à distância 0, 1 e o plano distante na distância 1000 criará esse problema muito mais cedo do que ter o plano próximo às 0,1 e o plano distante na distância 20.
+O primeiro problema sempre pode acontecer e é difícil de eliminar. Se isso acontecer em seu aplicativo, a proporção da distância do *próximo plano* à distância do *plano distante* deve ser tão baixa quanto prática. Por exemplo, um plano próximo à distância 0,01 e o plano distante na distância 1.000 criarão esse problema muito antes do que com o plano próximo a 0,1 e o plano distante na distância 20.
 
-O segundo problema é um indicador de conteúdo mal criado. No mundo real, dois objetos não podem estar no mesmo local ao mesmo tempo. Dependendo do aplicativo, os usuários talvez queiram saber se existem superfícies sobrepostas e onde elas estão. Por exemplo, uma cena do CAD de um edifício que é a base para uma construção do mundo real não deve conter interseções de superfície fisicamente impossíveis. Para permitir a inspeção visual, o modo de realce está disponível, que exibe o combate a z potencial como um padrão quadriculado animado.
+O segundo problema é um indicador de conteúdo criado incorretamente. No mundo real, dois objetos não podem estar no mesmo local ao mesmo tempo. Dependendo do aplicativo, os usuários talvez queiram saber se existem superfícies sobrepostas e onde elas estão. Por exemplo, uma cena do CAD de um edifício que é a base para uma construção do mundo real não deve conter interseções de superfície fisicamente impossíveis. Para permitir a inspeção visual, o modo de realce está disponível, que exibe o Z-fighting potencial como um padrão quadriculado animado.
 
 ## <a name="limitations"></a>Limitações
 
-A mitigação de combate ao z fornecida é um melhor esforço. Não há nenhuma garantia de que remova todo o combate ao z. Além disso, ele preferirá automaticamente uma superfície sobre a outra. Assim, quando você tem superfícies muito próximas entre si, pode acontecer que a superfície "errada" termine na parte superior. Um caso de problema comum é quando o texto e outros decals são aplicados a uma superfície. Com a mitigação de combate a z habilitada, esses detalhes poderiam simplesmente desaparecer.
+A mitigação de Z-fighting apresentada é um melhor esforço. Não há nenhuma garantia de que todo o Z-fighting seja removido. Além disso, ele preferirá automaticamente uma superfície sobre outra. Assim, quando você tem superfícies muito próximas entre si, a superfície "errada" pode acabar na parte superior. Um caso de problema comum é quando o texto e outros decals são aplicados a uma superfície. Com a mitigação do Z-fighting habilitada, esses detalhes podem simplesmente desaparecer.
 
 ## <a name="performance-considerations"></a>Considerações sobre o desempenho
 
-* Habilitar a mitigação de combate a z incorre em pouca ou nenhuma sobrecarga de desempenho.
-* Além disso, habilitar a sobreposição de combate ao z incorre em uma sobrecarga de desempenho não trivial, embora possa variar dependendo da cena.
+* A habilitação da mitigação das sobreposições de texto gera pouca ou nenhuma sobrecarga de desempenho.
+* Além disso, a habilitação da sobreposição do Z-fighting provoca uma sobrecarga de desempenho não trivial, embora possa variar dependendo da cena.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Renderização de modos](../../concepts/rendering-modes.md)
+* [Modos de renderização](../../concepts/rendering-modes.md)
 * [Reprojeção de fase tardia](late-stage-reprojection.md)

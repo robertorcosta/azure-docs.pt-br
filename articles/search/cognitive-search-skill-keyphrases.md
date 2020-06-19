@@ -1,19 +1,19 @@
 ---
 title: Habilidade cognitiva de Extração de Frases-Chave
 titleSuffix: Azure Cognitive Search
-description: Avalia o texto não estruturado e, para cada registro, retorna uma lista de frases-chave em um pipeline de enriquecimento de ia no Azure Pesquisa Cognitiva.
+description: Avalia o texto não estruturado e, para cada registro, retorna uma lista de frases-chave em um pipeline de enriquecimento de IA no Azure Cognitive Search.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ccdd25d82af2b4893260af18dac818816d9e4579
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ddcd95356f9b70fec5a74f36f5b80e55ea56b477
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72791968"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744008"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>Habilidade cognitiva de Extração de Frases-Chave
 
@@ -44,10 +44,17 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
-| Entradas     | Descrição |
+| Entrada  | Descrição |
 |--------------------|-------------|
 | text | O texto a ser analisado.|
-| languageCode  |  Uma cadeia de caracteres que indica o idioma dos registros. Se esse parâmetro não for especificado, o código de idioma padrão será usado para analisar os registros. <br/>Veja a [lista completa de idiomas com suporte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)|
+| languageCode  |  Uma cadeia de caracteres que indica o idioma dos registros. Se esse parâmetro não for especificado, o código de idioma padrão será usado para analisar os registros. <br/>Consulte [Lista completa dos idiomas com suporte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)|
+
+## <a name="skill-outputs"></a>Saídas de habilidades
+
+| Saída  | Descrição |
+|--------------------|-------------|
+| keyPhrases | Uma lista de frases-chave extraídas do texto de entrada. As frases-chave são retornadas em ordem de importância. |
+
 
 ##  <a name="sample-definition"></a>Definição de exemplo
 

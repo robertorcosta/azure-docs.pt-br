@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: e978771eaafafe4120f9eec802525c293fb9c7c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: dc37cb985ae561ddbd06c2236ab77d6d20d9242c
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75426375"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747628"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Particionamento de saída de blob personalizado do Azure Stream Analytics
 
@@ -25,7 +25,7 @@ Campo personalizado ou atributos de entrada melhoram os fluxos de trabalho de pr
 
 ### <a name="partition-key-options"></a>Opções de chave de partição
 
-A chave de partição ou o nome da coluna, usado para particionar dados de entrada, pode conter caracteres alfanuméricos com espaços, sublinhados e hifens. Não é possível usar campos aninhados como uma chave de partição, a menos que usados em conjunto com aliases. A chave de partição deve ser NVARCHAR (MAX).
+A chave de partição ou o nome da coluna, usado para particionar dados de entrada, pode conter caracteres alfanuméricos com espaços, sublinhados e hifens. Não é possível usar campos aninhados como uma chave de partição, a menos que usados em conjunto com aliases. A chave de partição deve ser NVARCHAR(MAX).
 
 ### <a name="example"></a>Exemplo
 
@@ -77,10 +77,10 @@ Os seguintes tokens especificadores de formato podem ser usados sozinhos ou de f
 |{datetime:MM}|Mês de 01 a 12|01|
 |{datetime:M}|Mês de 1 a 12|1|
 |{datetime:dd}|Dia de 01 a 31|02|
-|{datetime:d}|Dia de 1 a 12|2|
+|{datetime:d}|Dia de 1 a 31|2|
 |{datetime:HH}|Hora usando o formato de 24 horas, de 00 a 23|10|
-|{datetime:mm}|Minutos de 00 a 24|06|
-|{datetime:m}|Minutos de 0 a 24|6|
+|{datetime:mm}|Minutos de 00 a 60|06|
+|{datetime:m}|Minutos de 0 a 60|6|
 |{datetime:ss}|Segundos de 00 a 60|08|
 
 Se não quiser usar padrões de DateTime personalizados, você poderá adicionar o token {date} e/ou {time} ao prefixo do caminho para gerar um menu suspenso com os formatos de DateTime internos.

@@ -1,6 +1,6 @@
 ---
-title: Capturar uma imagem gerenciada de uma VM do Linux usando CLI do Azure
-description: Capture uma imagem gerenciada de uma VM do Azure para usar em implantações em massa usando o CLI do Azure.
+title: Capturar uma imagem gerenciada de uma VM do Linux usando a CLI do Azure
+description: Capturar uma imagem gerenciada de uma VM do Azure a ser usada para implantações em massa usando a CLI do Azure.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
@@ -8,22 +8,24 @@ ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: 70282879b64054d48d904b5ada9284f844448851
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.openlocfilehash: 54f82d0ba4b0c5de0b4e373416857d670d4bba53
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792676"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83723299"
 ---
-# <a name="how-to-create-a-managed-image-of-a-virtual-machine-or-vhd"></a>Como criar uma imagem gerenciada de uma máquina virtual ou VHD
+# <a name="how-to-create-a-managed-image-of-a-virtual-machine-or-vhd"></a>Como criar uma imagem gerenciada de uma máquina virtual ou um VHD
 
-Para criar várias cópias de uma VM (máquina virtual) para uso no Azure para desenvolvimento e teste, Capture uma imagem gerenciada da VM ou do VHD do sistema operacional. Para criar, armazenar e compartilhar imagens em escala, consulte [galerias de imagens compartilhadas](../shared-images-cli.md).
+Para criar várias cópias de uma VM (máquina virtual) para uso no Azure para desenvolvimento e teste, capture uma imagem gerenciada da VM ou do VHD do sistema operacional. Para criar, armazenar e compartilhar imagens em escala, confira as [Galerias de Imagens Compartilhadas](../shared-images-cli.md).
+
+Uma imagem gerenciada dá suporte a até 20 implantações simultâneas. A tentativa de criar simultaneamente mais de 20 VMs a partir da mesma imagem gerenciada pode exceder os tempos limite de provisionamento devido às limitações de desempenho de armazenamento de um único VHD. Para criar simultaneamente mais de 20 VMs, use uma imagem das [Galerias de Imagens Compartilhadas](shared-image-galleries.md), configurada com uma réplica para cada 20 implantações simultâneas de VM.
 
 Para criar uma imagem gerenciada, você precisará remover informações pessoais da conta. Nas etapas a seguir, desprovisione uma VM existente, desaloque e crie uma imagem. Você pode usar essa imagem para criar VMs em qualquer grupo de recursos dentro da sua assinatura.
 
 Para criar uma cópia da VM Linux existente para backup ou depuração ou então carregar um VHD Linux especializado de uma VM local, consulte [Carregar e criar uma VM Linux com base em uma imagem de disco personalizada](upload-vhd.md).  
 
-Você pode usar o serviço do **Construtor de imagem de VM do Azure (visualização pública)** para criar sua imagem personalizada, sem necessidade de aprender sobre as ferramentas ou instalar pipelines de compilação, simplesmente fornecendo uma configuração de imagem, e o construtor de imagem criará a imagem. Para obter mais informações, consulte [introdução com o construtor de imagem de VM do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview).
+Você pode usar o serviço de **Construtor de Imagens de VM do Azure (Visualização Pública)** para criar sua imagem personalizada, sem necessidade de aprender nenhuma ferramenta ou instalar pipelines de build, basta apenas fornecer uma configuração da imagem e o Construtor de Imagens a criará. Para saber mais, consulte [Introdução ao Construtor de Imagens de VM do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview).
 
 Você precisará dos seguintes itens antes de criar uma imagem:
 
@@ -36,7 +38,7 @@ Você precisará dos seguintes itens antes de criar uma imagem:
 Para uma versão simplificada deste artigo e para testar, avaliando ou aprendendo sobre VMs no Azure, consulte [Criar uma imagem personalizada de uma VM do Azure usando a CLI](tutorial-custom-images.md).  Caso contrário, continue lendo aqui para obter o panorama completo.
 
 
-## <a name="step-1-deprovision-the-vm"></a>Etapa 1: desprovisionar a VM
+## <a name="step-1-deprovision-the-vm"></a>Etapa 1: Desprovisionar a VM
 Primeiro, você vai desprovisionar a VM usando o agente de VM do Azure para excluir dados e arquivos específicos do computador. Use o comando `waagent` com o `-deprovision+user` parâmetro em sua VM do Linux de origem. Para saber mais, confira o [Guia do usuário do agente Linux para o Azure](../extensions/agent-linux.md).
 
 1. Conecte-se à VM do Linux com um cliente SSH.
@@ -54,7 +56,7 @@ Primeiro, você vai desprovisionar a VM usando o agente de VM do Azure para excl
 ## <a name="step-2-create-vm-image"></a>Etapa 2: Criar a imagem de VM
 Use a CLI do Azure para marcar a VM como generalizada e capturar a imagem. Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo com seus próprios valores. Os nomes de parâmetro de exemplo incluem *myResourceGroup*, *myVnet* e *myVM*.
 
-1. Desaloque a VM desprovisionada com [az vm deallocate](/cli/azure/vm). O exemplo a seguir Desaloca a VM denominada *myVM* no grupo de recursos chamado *MyResource*Group.  
+1. Desaloque a VM desprovisionada com [az vm deallocate](/cli/azure/vm). O exemplo a seguir desaloca a VM chamada *myVM* no grupo de recursos chamado *myResourceGroup*.  
    
     ```azurecli
     az vm deallocate \
@@ -64,7 +66,7 @@ Use a CLI do Azure para marcar a VM como generalizada e capturar a imagem. Nos e
     
     Aguarde até que a VM seja completamente desalocada antes de prosseguir. Isso pode demorar alguns minutos para ser concluído.  A VM é desligada durante a desalocação.
 
-2. Marque a VM como generalizada com [az vm generalize](/cli/azure/vm). O exemplo a seguir marca a VM chamada *myVM* no grupo de recursos chamado *MyResource* Group como generalizado.
+2. Marque a VM como generalizada com [az vm generalize](/cli/azure/vm). O exemplo a seguir marca a VM denominada *myVM* no grupo de recursos chamado *myResourceGroup* como generalizada.
    
     ```azurecli
     az vm generalize \
@@ -89,7 +91,7 @@ Use a CLI do Azure para marcar a VM como generalizada e capturar a imagem. Nos e
    
 Esse comando retorna JSON que descreve a imagem da VM. Salve essa saída para referência posterior.
 
-## <a name="step-3-create-a-vm-from-the-captured-image"></a>Etapa 3: criar uma VM com base na imagem capturada
+## <a name="step-3-create-a-vm-from-the-captured-image"></a>Etapa 3: Criar uma VM com base na imagem capturada
 Criar uma VM usando a imagem criada com [criar vm az](/cli/azure/vm). O exemplo a seguir cria uma VM denominada *myVMDeployed* da imagem denominada *myImage*.
 
 ```azurecli
@@ -123,7 +125,7 @@ az vm create \
 ```
 
 
-## <a name="step-4-verify-the-deployment"></a>Etapa 4: verificar a implantação
+## <a name="step-4-verify-the-deployment"></a>Etapa 4: Verificar a implantação
 
 SSH para a máquina virtual que você criou para verificar a implantação e começar a usar a nova VM. Para se conectar via SSH, localize o endereço IP ou o FQDN da VM com [az vm show](/cli/azure/vm#az-vm-show).
 
@@ -135,4 +137,4 @@ az vm show \
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Para criar, armazenar e compartilhar imagens em escala, consulte [galerias de imagens compartilhadas](shared-images.md).
+Para criar, armazenar e compartilhar imagens em escala, confira as [Galerias de Imagens Compartilhadas](shared-images.md).

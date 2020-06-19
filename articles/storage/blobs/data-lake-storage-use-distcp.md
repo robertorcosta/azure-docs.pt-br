@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 3c09a95309e001def306698bbba4f6d0a1a2804d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2ea7fb97b6c97a797ce99878762333833965549d
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79255529"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698657"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>Use o DistCp para copiar dados entre os Azure Storage Blobs e o Azure Data Lake Storage Gen2
 
@@ -23,11 +23,11 @@ O DistCp fornece uma variedade de parâmetros de linha de comando e é altamente
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Uma conta de Armazenamento do Microsoft Azure existente sem os recursos do Data Lake Storage Gen2 (namespace hierárquico) habilitados**.
-* **Uma conta de Armazenamento do Microsoft Azure com o recurso Data Lake Storage Gen2 habilitado**. Para instruções sobre como criar uma, consulte [Criar uma conta de armazenamento do Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md)
-* **Um sistema de arquivos** que foi criado na conta de armazenamento com namespace hierárquico habilitado.
-* **Cluster de HDInsight do Azure** com acesso a uma conta de armazenamento com o Data Lake Storage Gen2 habilitado. Consulte [Usar o Azure Data Lake Storage Gen2 com clusters de HDInsight do Azure](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Certifique-se de habilitar a área de trabalho remota para o cluster.
+* Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Uma conta do Armazenamento do Azure existente sem as funcionalidades do Data Lake Storage Gen2 (namespace hierárquico) habilitadas.
+* Uma conta de Armazenamento do Microsoft Azure com os recursos do Data Lake Storage Gen2 (namespace hierárquico) habilitados. Para obter instruções sobre como criar uma, confira [Criar uma conta do Armazenamento do Azure](../common/storage-account-create.md)
+* Um contêiner que foi criado na conta de armazenamento com namespace hierárquico habilitado.
+* Um cluster do Azure HDInsight com acesso a uma conta de armazenamento com o recurso de namespace hierárquico habilitado. Consulte [Usar o Azure Data Lake Storage Gen2 com clusters de HDInsight do Azure](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Certifique-se de habilitar a área de trabalho remota para o cluster.
 
 ## <a name="use-distcp-from-an-hdinsight-linux-cluster"></a>Usar o DistCp de um cluster HDInsight do Linux
 
@@ -37,25 +37,25 @@ Um cluster HDInsight é fornecido com o utilitário DistCp que pode ser usado pa
 
 2. Verifique se é possível acessar a conta V2 de uso geral existente (sem namespace hierárquico habilitado).
 
-        hdfs dfs –ls wasbs://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/
+        hdfs dfs –ls wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/
 
-    A saída deve fornecer uma lista de conteúdo no contêiner.
+   A saída deve fornecer uma lista de conteúdo no contêiner.
 
-3. Do mesmo modo, verifique se é possível acessar a conta de armazenamento com o namespace hierárquico habilitado do cluster. Execute o seguinte comando:
+3. Do mesmo modo, verifique se é possível acessar a conta de armazenamento com o namespace hierárquico habilitado do cluster. Execute o comando a seguir:
 
-        hdfs dfs -ls abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/
+        hdfs dfs -ls abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/
 
     A saída deve fornecer uma lista de arquivos/pastas na conta do Data Lake Storage.
 
 4. Use o DistCp para copiar dados do WASB para uma conta do Data Lake Storage.
 
-        hadoop distcp wasbs://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/example/data/gutenberg abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/myfolder
+        hadoop distcp wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder
 
     O comando copia os conteúdos da pasta **/example/data/gutenberg/** do Armazenamento de Blobs em **/myfolder** na conta do Data Lake Storage.
 
 5. Igualmente, use o DistCp para copiar dados da conta do Data Lake Storage para o WASB (Azure Storage Blob).
 
-        hadoop distcp abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/myfolder wasbs://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/example/data/gutenberg
+        hadoop distcp abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg
 
     O comando copia o conteúdo de **/myfolder** na conta do Data Lake Store para a pasta **/example/data/gutenberg/** no WASB.
 
@@ -65,15 +65,15 @@ Como a granularidade mais baixa do DistCp é um único arquivo, definir o númer
 
 **Exemplo**
 
-    hadoop distcp -m 100 wasbs://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/example/data/gutenberg abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/myfolder
+    hadoop distcp -m 100 wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder
 
 ### <a name="how-do-i-determine-the-number-of-mappers-to-use"></a>Como determino o número de mapeadores que serão usados?
 
 Aqui estão algumas diretrizes que podem ser usadas.
 
-* **Etapa 1: determinar a memória total disponível para a fila de aplicativo yarn ' padrão '** -a primeira etapa é determinar a memória disponível para a fila de aplicativos do yarn ' default '. Essas informações estão disponíveis no portal do Ambari associado ao cluster. Navegue até YARN e exiba a guia Configs para ver a memória YARN disponível para a fila de aplicativos 'padrão'. Essa é a memória total disponível para o trabalho DistCp (que efetivamente é um trabalho do MapReduce).
+* **Etapa 1: Determine a memória total disponível para a fila de aplicativos do YARN 'padrão'**  - A primeira etapa é determinar a memória disponível para a fila de aplicativos do YARN 'padrão'. Essas informações estão disponíveis no portal do Ambari associado ao cluster. Navegue até YARN e exiba a guia Configs para ver a memória YARN disponível para a fila de aplicativos 'padrão'. Essa é a memória total disponível para o trabalho DistCp (que efetivamente é um trabalho do MapReduce).
 
-* **Etapa 2: Calcular o número de mapeadores** ‑ O valor de **m** é igual ao quociente de memória total de YARN dividida pelo tamanho do contêiner YARN. As informações de tamanho do contêiner YARN também estão disponíveis no portal do Ambari. Navegue até YARN e exiba a guia Configurações. O tamanho do contêiner YARN é exibido nesta janela. A equação para chegar até o número de mapeadores (**m**) é
+* **Etapa 2: Calcule o número de mapeadores** - O valor de **m** é igual ao quociente da memória total do YARN dividido pelo tamanho do contêiner do YARN. As informações de tamanho do contêiner YARN também estão disponíveis no portal do Ambari. Navegue até YARN e exiba a guia Configurações. O tamanho do contêiner YARN é exibido nessa janela. A equação para chegar até o número de mapeadores (**m**) é
 
         m = (number of nodes * YARN memory for each node) / YARN container size
 
@@ -81,11 +81,11 @@ Aqui estão algumas diretrizes que podem ser usadas.
 
 Vamos supor que você tenha um cluster 4x D14v2s e esteja tentando transferir 10 TB de dados de 10 pastas diferentes. Cada uma das pastas contêm volumes diversos de dados e os tamanhos dos arquivos em cada pasta também são diferentes.
 
-* **Total de memória YARN**: No portal do Ambari você determina que a memória YARN é 96 GB para um nó D14. Portanto, o total de memória YARN para um cluster de quatro nós é: 
+* **Memória do YARN total**: No portal do Ambari, você determina que a memória do YARN é de 96 GB para um nó D14. Portanto, o total de memória YARN para um cluster de quatro nós é: 
 
         YARN memory = 4 * 96GB = 384GB
 
-* **Número de Mapeadores**: no portal do Ambari, você determina que o tamanho do contêiner YARN é 3.072 MB para um nó de cluster D14. Portanto, o número de mapeadores é:
+* **Número de mapeadores**: No portal do Ambari, você determina que o tamanho do contêiner YARN é 3.072 MB para um nó do cluster D14. Portanto, o número de mapeadores é:
 
         m = (4 nodes * 96GB) / 3072MB = 128 mappers
 

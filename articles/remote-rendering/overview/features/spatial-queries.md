@@ -5,34 +5,34 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/07/2020
 ms.topic: article
-ms.openlocfilehash: 9a981aeb08ec46900994fd599b592b9f16034f34
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8f64c4a9a438b07fef428a5ed044985736055525
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80680525"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758836"
 ---
 # <a name="spatial-queries"></a>Consultas espaciais
 
-As consultas espaciais são operações com as quais você pode solicitar ao serviço de renderização remoto quais objetos estão localizados em uma área. Consultas espaciais são usadas frequentemente para implementar interações, como descobrir em qual objeto um usuário está apontando.
+As consultas espaciais são operações com as quais você pode perguntar ao serviço de renderização remoto quais objetos estão localizados em uma área. Consultas espaciais são usadas frequentemente para implementar interações, como descobrir para qual objeto um usuário está apontando.
 
-Todas as consultas espaciais são avaliadas no servidor. Consequentemente, eles são operações assíncronas e os resultados chegarão com um atraso que depende da sua latência de rede. Como cada consulta espacial gera o tráfego de rede, tenha cuidado para não fazer muitas de uma vez.
+Todas as consultas espaciais são avaliadas no servidor. Consequentemente, elas são operações assíncronas, e os resultados chegarão com um atraso que depende da sua latência de rede. Como cada consulta espacial gera tráfego de rede, tenha cuidado para não fazer muitas de uma vez.
 
 ## <a name="collision-meshes"></a>Malhas de colisão
 
-As consultas espaciais são alimentadas pelo mecanismo de [física Havok](https://www.havok.com/products/havok-physics) e exigem a presença de uma malha de colisão dedicada. Por padrão, a [conversão de modelo](../../how-tos/conversion/model-conversion.md) gera malhas de colisão. Se você não precisar de consultas espaciais em um modelo complexo, considere desabilitar a geração de malha de colisão nas [Opções de conversão](../../how-tos/conversion/configure-model-conversion.md), pois ela tem um impacto de várias maneiras:
+As consultas espaciais são alimentadas pelo mecanismo [Havok](https://www.havok.com/products/havok-physics) e exigem a presença de uma malha de colisão dedicada. Por padrão, a [conversão de modelo](../../how-tos/conversion/model-conversion.md) gera malhas de colisão. Se você não precisar de consultas espaciais em um modelo complexo, considere desabilitar a geração de malha de colisão nas [opções de conversão](../../how-tos/conversion/configure-model-conversion.md), pois ela impactam de várias maneiras:
 
 * A [conversão de modelo](../../how-tos/conversion/model-conversion.md) levará consideravelmente mais tempo.
-* Os tamanhos de arquivo de modelo convertidos são visivelmente maiores, impactando a velocidade de download.
-* Tempos de carregamento em tempo de execução são mais longos.
-* O consumo de memória de CPU em tempo de execução é maior.
-* Há uma pequena sobrecarga de desempenho de tempo de execução para cada instância de modelo.
+* Os tamanhos de arquivos de modelo convertidos são visivelmente maiores, impactando a velocidade de download.
+* Os tempos de carregamento em runtime são mais longos.
+* O consumo de memória de CPU em runtime é maior.
+* Há uma pequena sobrecarga de desempenho de runtime para cada instância de modelo.
 
-## <a name="ray-casts"></a>Ray casts
+## <a name="ray-casts"></a>Incidências de raio
 
-Um *Ray Cast* é uma consulta espacial em que o tempo de execução verifica quais objetos são interseccionados por um raio, começando em uma determinada posição e apontando para uma determinada direção. Como uma otimização, uma distância máxima de Ray também é fornecida, para não Pesquisar objetos que estejam muito distantes.
+Uma *incidência de raio* é uma consulta espacial em que o runtime verifica quais objetos são interseccionados por um raio, começando em uma determinada posição e apontando para uma determinada direção. Como uma otimização, uma distância máxima de raios também é mostrada, para não procurar objetos que estejam muito distantes.
 
-````c#
+```cs
 async void CastRay(AzureSession session)
 {
     // trace a line from the origin into the +z direction, over 10 units of distance.
@@ -45,42 +45,74 @@ async void CastRay(AzureSession session)
 
     if (hits.Length > 0)
     {
-        var hitObject = hits[0].HitEntity;
+        var hitObject = hits[0].HitObject;
         var hitPosition = hits[0].HitPosition;
         var hitNormal = hits[0].HitNormal;
 
         // do something with the hit information
     }
 }
-````
+```
 
-Há três modos de coleta de visita:
+```cpp
+void CastRay(ApiHandle<AzureSession> session)
+{
+    // trace a line from the origin into the +z direction, over 10 units of distance.
+    RayCast rayCast;
+    rayCast.StartPos = { 0, 0, 0 };
+    rayCast.EndPos = { 0, 0, 1 };
+    rayCast.MaxHits = 10;
 
-* **Mais próximo:** Nesse modo, somente a visita mais próxima será relatada.
-* **Qualquer:** Prefira esse modo quando tudo o que você deseja saber é *se* um raio atingiria algo, mas não se importa com o que foi exatamente pressionado. Essa consulta pode ser consideravelmente mais barata para ser avaliada, mas também tem apenas alguns aplicativos.
-* **Todos:** Nesse modo, todas as ocorrências ao longo do raio são relatadas, classificadas por distância. Não use esse modo, a menos que você realmente precise de mais do que o primeiro acesso. Limite o número de ocorrências relatadas com a `MaxHits` opção.
+    // only return the closest hit
+    rayCast.HitCollection = HitCollectionPolicy::ClosestHit;
 
-Para excluir objetos de forma seletiva de serem considerados para Ray casts, o componente [HierarchicalStateOverrideComponent](override-hierarchical-state.md) pode ser usado.
+    ApiHandle<RaycastQueryAsync> castQuery = *session->Actions()->RayCastQueryAsync(rayCast);
+
+    castQuery->Completed([](const ApiHandle<RaycastQueryAsync>& async)
+    {
+        std::vector<RayCastHit> hits = *async->Result();
+
+        if (hits.size() > 0)
+        {
+            auto hitObject = hits[0].HitObject;
+            auto hitPosition = hits[0].HitPosition;
+            auto hitNormal = hits[0].HitNormal;
+
+            // do something with the hit information
+        }
+    });
+
+}
+```
+
+
+Há três modos de coleta de impactos:
+
+* **Mais próximo:** nesse modo, somente o impacto mais próximo a será relatado.
+* **Qualquer:** prefira esse modo quando tudo o que você deseja saber é *se* um raio atingiria algum ponto, mas sem se importar com o que exatamente seria atingido. Essa consulta pode ser consideravelmente mais barata para avaliar, mas também tem poucas aplicações.
+* **Todos:** nesse modo, todos os impactos ao longo do raio são relatados, classificados por distância. Não use esse modo, a menos que você realmente precise saber mais do que o primeiro impacto. Limite o número de impactos relatados com a opção `MaxHits`.
+
+Para excluir objetos de forma seletiva a serem considerados para incidências de raio, o componente [HierarchicalStateOverrideComponent](override-hierarchical-state.md) pode ser usado.
 
 <!--
-The CollisionMask allows the quey to consider or ignore some objects based on their collision layer. If an object has layer L, it will be hit only if the mask has  bit L set.
+The CollisionMask allows the query to consider or ignore some objects based on their collision layer. If an object has layer L, it will be hit only if the mask has bit L set.
 It is useful in case you want to ignore objects, for instance when setting an object transparent, and trying to select another object behind it.
 TODO : Add an API to make that possible.
 -->
 
-### <a name="hit-result"></a>Resultado da visita
+### <a name="hit-result"></a>Resultado do impacto
 
-O resultado de uma consulta Ray Cast é uma matriz de ocorrências. A matriz estará vazia se nenhum objeto tiver sido atingido.
+O resultado de uma consulta de incidências de raio é uma matriz de impactos. A matriz estará vazia se nenhum objeto tiver sido atingido.
 
-Um clique tem as seguintes propriedades:
+Um impacto tem as seguintes propriedades:
 
-* **HitEntity:** Qual [entidade](../../concepts/entities.md) foi atingida.
-* **Subpartid:** Qual *submalha* foi atingida em um [MeshComponent](../../concepts/meshes.md). Pode ser usado para indexar `MeshComponent.UsedMaterials` e pesquisar o [material](../../concepts/materials.md) nesse ponto.
-* **HitPosition:** A posição de espaço mundial em que Ray interseccionau o objeto.
-* **HitNormal:** A superfície de espaço do mundo normal da malha na posição da interseção.
-* **DistanceToHit:** A distância da posição de início de Ray até o pressionamento.
+* **HitEntity:** qual [entidade](../../concepts/entities.md) foi atingida.
+* **SubPartId:** qual *submalha* foi atingida em um [MeshComponent](../../concepts/meshes.md). Pode ser usado para indexar `MeshComponent.UsedMaterials` e procurar o [material](../../concepts/materials.md) nesse ponto.
+* **HitPosition:** a posição do espaço global em que o raio interseccionou o objeto.
+* **HitNormal:** a normal da superfície do espaço mundial da malha na posição da interseção.
+* **DistanceToHit:** a distância da posição inicial do raio até o impacto.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Limites do objeto](../../concepts/object-bounds.md)
-* [Substituindo Estados hierárquicos](override-hierarchical-state.md)
+* [Substituir estados hierárquicos](override-hierarchical-state.md)

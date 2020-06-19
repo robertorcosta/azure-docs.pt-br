@@ -1,20 +1,20 @@
 ---
 title: Restrições de nomenclatura de recursos
-description: Mostra as regras e restrições para nomear recursos do Azure.
+description: Mostra as regras e restrições de nomenclatura de recursos do Azure.
 ms.topic: conceptual
-ms.date: 04/22/2020
-ms.openlocfilehash: fab1ab2bb779b3826c852e49da7970030d34594d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 05/21/2020
+ms.openlocfilehash: 553d0e33c4b9bc1aa238cf582f37be1e148eea5e
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82086378"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758887"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Regras de nomenclatura e restrições para recursos do Azure
 
-Este artigo resume as regras de nomenclatura e as restrições dos recursos do Azure. Para obter recomendações sobre como nomear recursos, consulte [convenções de nomenclatura e marcação recomendadas](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
+Este artigo resume as regras de nomenclatura e as restrições para recursos do Azure. Para obter recomendações sobre como dar nome aos recursos, veja [Convenções de nomenclatura e de marcação recomendadas](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
 
-Os nomes de recursos não diferenciam maiúsculas de minúsculas, a menos que sejam especificamente indicados na coluna caracteres válidos.
+Os nomes de recursos não diferenciam maiúsculas de minúsculas, a menos que sejam especificamente indicados na coluna de caracteres válidos.
 
 Nas tabelas a seguir, o termo alfanumérico refere-se a:
 
@@ -34,71 +34,71 @@ Nas tabelas a seguir, o termo alfanumérico refere-se a:
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | serviço | global | 1-50 | Alfanuméricos.<br><br>Comece com a letra. |
-> | serviço/APIs | serviço | 1-256 | Não é possível usar:<br> `*#&+:<>?` |
-> | serviço/APIs/problemas | api | 1-256 | Não é possível usar:<br> `*#&+:<>?` |
-> | serviço/APIs/problemas/anexos | lo | 1-256 | Não é possível usar:<br> `*#&+:<>?` |
-> | serviço/APIs/problemas/comentários | lo | 1-256 | Não é possível usar:<br> `*#&+:<>?` |
-> | serviço/APIs/operações | api | 1-256 | Não é possível usar:<br> `*#&+:<>?` |
-> | serviço/APIs/operações/marcas | operação | 1-256 | Não é possível usar:<br> `*#&+:<>?` |
-> | serviço/APIs/versões | api | 1-80 | Alfanuméricos, sublinhados e hifens.<br><br>Comece e termine com caracteres alfanuméricos ou sublinhados. |
-> | serviços/APIs/esquemas | api | 1-256 | Não é possível usar:<br> `*#&+:<>?` |
-> | serviço/APIs/tagDescriptions | api | 1-256 | Não é possível usar:<br> `*#&+:<>?` |
-> | serviço/APIs/marcas | api | 1-256 | Não é possível usar:<br> `*#&+:<>?` |
-> | serviço/API – conjuntos de versão | serviço | 1-256 | Não é possível usar:<br> `*#&+:<>?` |
-> | serviço/authorizationServers | serviço | 1-256 | Não é possível usar:<br> `*#&+:<>?` |
-> | serviço/back-ends | serviço | 1-256 | Não é possível usar:<br> `*#&+:<>?` |
-> | serviço/certificados | serviço | 1-256 | Não é possível usar:<br> `*#&+:<>?` |
-> | serviço/diagnóstico | serviço | 1-256 | Não é possível usar:<br> `*#&+:<>?` |
-> | serviço/grupos | serviço | 1-256 | Não é possível usar:<br> `*#&+:<>?` |
-> | serviço/grupos/usuários | group | 1-256 | Não é possível usar:<br> `*#&+:<>?` |
-> | serviço/identityProviders | serviço | 1-256 | Não é possível usar:<br> `*#&+:<>?` |
-> | serviço/agentes | serviço | 1-256 | Não é possível usar:<br> `*#&+:<>?` |
-> | serviço/notificações | serviço | 1-256 | Não é possível usar:<br> `*#&+:<>?` |
-> | serviço/notificações/recipientEmails | notificação | 1-256 | Não é possível usar:<br> `*#&+:<>?` |
-> | serviço/openidConnectProviders | serviço | 1-256 | Não é possível usar:<br> `*#&+:<>?` |
-> | serviço/políticas | serviço | 1-256 | Não é possível usar:<br> `*#&+:<>?` |
-> | serviços/produtos | serviço | 1-256 | Não é possível usar:<br> `*#&+:<>?` |
-> | serviço/produtos/APIs | product | 1-256 | Não é possível usar:<br> `*#&+:<>?` |
-> | serviço/produtos/grupos | product | 1-256 | Não é possível usar:<br> `*#&+:<>?` |
-> | serviço/produtos/marcas | product | 1-256 | Não é possível usar:<br> `*#&+:<>?` |
-> | serviço/Propriedades | serviço | 1-256 | Não é possível usar:<br> `*#&+:<>?` |
-> | serviço/assinaturas | serviço | 1-256 | Não é possível usar:<br> `*#&+:<>?` |
-> | serviço/marcas | serviço | 1-256 | Não é possível usar:<br> `*#&+:<>?` |
-> | serviço/modelos | serviço | 1-256 | Não é possível usar:<br> `*#&+:<>?` |
-> | serviço/usuários | serviço | 1-256 | Não é possível usar:<br> `*#&+:<>?` |
+> | serviço | global | 1-50 | Caracteres alfanuméricos.<br><br>Comece com letra. |
+> | service / apis | serviço | 1–256 | Não é possível usar:<br> `*#&+:<>?` |
+> | service / apis / issues | api | 1–256 | Não é possível usar:<br> `*#&+:<>?` |
+> | service / apis / issues / attachments | problema | 1–256 | Não é possível usar:<br> `*#&+:<>?` |
+> | service / apis / issues / comments | problema | 1–256 | Não é possível usar:<br> `*#&+:<>?` |
+> | service / apis / operations | api | 1–256 | Não é possível usar:<br> `*#&+:<>?` |
+> | service / apis / operations / tags | operação | 1–256 | Não é possível usar:<br> `*#&+:<>?` |
+> | service / apis / releases | api | 1-80 | Caracteres alfanuméricos, sublinhados e hifens.<br><br>Comece e termine com caracteres alfanuméricos ou sublinhados. |
+> | service / apis / schemas | api | 1–256 | Não é possível usar:<br> `*#&+:<>?` |
+> | service / apis / tagDescriptions | api | 1–256 | Não é possível usar:<br> `*#&+:<>?` |
+> | service / apis / tags | api | 1–256 | Não é possível usar:<br> `*#&+:<>?` |
+> | service / api-version-sets | serviço | 1–256 | Não é possível usar:<br> `*#&+:<>?` |
+> | service / authorizationServers | serviço | 1–256 | Não é possível usar:<br> `*#&+:<>?` |
+> | service / backends | serviço | 1–256 | Não é possível usar:<br> `*#&+:<>?` |
+> | service / certificates | serviço | 1–256 | Não é possível usar:<br> `*#&+:<>?` |
+> | service / diagnostics | serviço | 1–256 | Não é possível usar:<br> `*#&+:<>?` |
+> | service / groups | serviço | 1–256 | Não é possível usar:<br> `*#&+:<>?` |
+> | service / groups / users | group | 1–256 | Não é possível usar:<br> `*#&+:<>?` |
+> | service / identityProviders | serviço | 1–256 | Não é possível usar:<br> `*#&+:<>?` |
+> | service / loggers | serviço | 1–256 | Não é possível usar:<br> `*#&+:<>?` |
+> | service / notifications | serviço | 1–256 | Não é possível usar:<br> `*#&+:<>?` |
+> | service / notifications / recipientEmails | notificação | 1–256 | Não é possível usar:<br> `*#&+:<>?` |
+> | service / openidConnectProviders | serviço | 1–256 | Não é possível usar:<br> `*#&+:<>?` |
+> | service / policies | serviço | 1–256 | Não é possível usar:<br> `*#&+:<>?` |
+> | service / products | serviço | 1–256 | Não é possível usar:<br> `*#&+:<>?` |
+> | service / products / apis | product | 1–256 | Não é possível usar:<br> `*#&+:<>?` |
+> | service / products / groups | product | 1–256 | Não é possível usar:<br> `*#&+:<>?` |
+> | service / products / tags | product | 1–256 | Não é possível usar:<br> `*#&+:<>?` |
+> | service / properties | serviço | 1–256 | Não é possível usar:<br> `*#&+:<>?` |
+> | service / subscriptions | serviço | 1–256 | Não é possível usar:<br> `*#&+:<>?` |
+> | service / tags | serviço | 1–256 | Não é possível usar:<br> `*#&+:<>?` |
+> | service / templates | serviço | 1–256 | Não é possível usar:<br> `*#&+:<>?` |
+> | service / users | serviço | 1–256 | Não é possível usar:<br> `*#&+:<>?` |
 
-## <a name="microsoftappconfiguration"></a>Microsoft. AppConfiguration
+## <a name="microsoftappconfiguration"></a>Microsoft.AppConfiguration
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | configurationStores | grupo de recursos | 5 a 50 | Alfanuméricos, sublinhados e hifens. |
+> | configurationStores | grupo de recursos | 5 a 50 | Caracteres alfanuméricos, sublinhados e hifens. |
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | locks | escopo da atribuição | 1-90 | Alfanuméricos, pontos, sublinhados, hifens e parênteses.<br><br>Não pode terminar no período. |
-> | policyassignments | escopo da atribuição | 1-128 nome para exibição<br><br>1-260 nome do recurso | O nome para exibição pode conter qualquer caractere.<br><br>O nome do recurso `%` não pode incluir nem terminar com o período ou o espaço. |
-> | PolicyDefinitions | escopo da definição | 1-128 nome para exibição<br><br>1-260 nome do recurso | O nome para exibição pode conter qualquer caractere.<br><br>O nome do recurso `%` não pode incluir nem terminar com o período ou o espaço. |
-> | policySetDefinitions | escopo da definição | 1-128 nome para exibição<br><br>1-260 nome do recurso | O nome para exibição pode conter qualquer caractere.<br><br>O nome do recurso `%` não pode incluir nem terminar com o período ou o espaço.  |
+> | locks | escopo da atribuição | 1-90 | Caracteres alfanuméricos, pontos, sublinhados, hifens e parênteses.<br><br>Não pode terminar com ponto. |
+> | policyassignments | escopo da atribuição | Nome de exibição 1–128<br><br>Nome do recurso 1–260 | O nome para exibição pode conter qualquer caractere.<br><br>O nome do recurso não pode incluir `%` e não pode terminar com ponto ou espaço. |
+> | policydefinitions | escopo da definição | Nome de exibição 1–128<br><br>Nome do recurso 1–260 | O nome para exibição pode conter qualquer caractere.<br><br>O nome do recurso não pode incluir `%` e não pode terminar com ponto ou espaço. |
+> | policySetDefinitions | escopo da definição | Nome de exibição 1–128<br><br>Nome do recurso 1–260 | O nome para exibição pode conter qualquer caractere.<br><br>O nome do recurso não pode incluir `%` e não pode terminar com ponto ou espaço.  |
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | automationaccounts | grupo de recursos | 6-50 | Alfanuméricos e hifens.<br><br>Comece com letra e termine com alfanumérico. |
-> | automationAccounts/certificados | conta de automação | 1-128 | Não é possível usar:<br> `<>*%&:\?.+/` <br><br>Não é possível terminar com espaço.  |
-> | automationAccounts/conexões | conta de automação | 1-128 | Não é possível usar:<br> `<>*%&:\?.+/` <br><br>Não é possível terminar com espaço. |
-> | automationAccounts/credenciais | conta de automação | 1-128 | Não é possível usar:<br> `<>*%&:\?.+/` <br><br>Não é possível terminar com espaço. |
-> | automationAccounts/runbooks | conta de automação | 1-63 | Alfanuméricos, sublinhados e hifens.<br><br>Comece com a letra.  |
-> | automationAccounts/agendas | conta de automação | 1-128 | Não é possível usar:<br> `<>*%&:\?.+/` <br><br>Não é possível terminar com espaço. |
-> | automationAccounts/variáveis | conta de automação | 1-128 | Não é possível usar:<br> `<>*%&:\?.+/` <br><br>Não é possível terminar com espaço. |
-> | automationAccounts/inspetores | conta de automação | 1-63 |  Alfanuméricos, sublinhados e hifens.<br><br>Comece com a letra. |
-> | automationAccounts/WebHooks | conta de automação | 1-128 | Não é possível usar:<br> `<>*%&:\?.+/` <br><br>Não é possível terminar com espaço. |
+> | automationaccounts | grupo de recursos | 6–50 | Caracteres alfanuméricos e hifens.<br><br>Comece com letra e termine com caractere alfanumérico. |
+> | automationAccounts / certificates | conta de automação | 1–128 | Não é possível usar:<br> `<>*%&:\?.+/` <br><br>Não pode terminar com espaço.  |
+> | automationAccounts / connections | conta de automação | 1–128 | Não é possível usar:<br> `<>*%&:\?.+/` <br><br>Não pode terminar com espaço. |
+> | automationAccounts / credentials | conta de automação | 1–128 | Não é possível usar:<br> `<>*%&:\?.+/` <br><br>Não pode terminar com espaço. |
+> | automationAccounts / runbooks | conta de automação | 1-63 | Caracteres alfanuméricos, sublinhados e hifens.<br><br>Comece com letra.  |
+> | automationAccounts / schedules | conta de automação | 1–128 | Não é possível usar:<br> `<>*%&:\?.+/` <br><br>Não pode terminar com espaço. |
+> | automationAccounts / variables | conta de automação | 1–128 | Não é possível usar:<br> `<>*%&:\?.+/` <br><br>Não pode terminar com espaço. |
+> | automationAccounts / watchers | conta de automação | 1-63 |  Caracteres alfanuméricos, sublinhados e hifens.<br><br>Comece com letra. |
+> | automationAccounts / webhooks | conta de automação | 1–128 | Não é possível usar:<br> `<>*%&:\?.+/` <br><br>Não pode terminar com espaço. |
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 
@@ -106,74 +106,74 @@ Nas tabelas a seguir, o termo alfanumérico refere-se a:
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
 > | batchAccounts | Região | 3-24 | Letras minúsculas e números. |
-> | batchAccounts/aplicativos | conta do lote | 1-64 | Alfanuméricos, sublinhados e hifens. |
-> | batchAccounts/certificados | conta do lote | 5-45 | Alfanuméricos, sublinhados e hifens. |
-> | batchAccounts/pools | conta do lote | 1-64 | Alfanuméricos, sublinhados e hifens. |
+> | batchAccounts / applications | conta do lote | 1-64 | Caracteres alfanuméricos, sublinhados e hifens. |
+> | batchAccounts / certificates | conta do lote | 5–45 | Caracteres alfanuméricos, sublinhados e hifens. |
+> | batchAccounts / pools | conta do lote | 1-64 | Caracteres alfanuméricos, sublinhados e hifens. |
 
 ## <a name="microsoftblockchain"></a>Microsoft.Blockchain
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | blockchainMembers | global | 2-20 | Letras minúsculas e números.<br><br>Comece com uma letra minúscula. |
+> | blockchainMembers | global | 2–20 | Letras minúsculas e números.<br><br>Comece com uma letra minúscula. |
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | botServices | global | 2-64 |  Alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com alfanumérico. |
-> | botServices/canais | serviço de bot | 2-64 | Alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com alfanumérico. |
-> | botServices/conexões | serviço de bot | 2-64 | Alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com alfanumérico. |
-> | enterpriseChannels | grupo de recursos | 2-64 | Alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com alfanumérico. |
+> | botServices | global | 2-64 |  Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. |
+> | botServices / channels | serviço de bot | 2-64 | Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. |
+> | botServices / Connections | serviço de bot | 2-64 | Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. |
+> | enterpriseChannels | grupo de recursos | 2-64 | Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. |
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | Redis | global | 1-63 | Alfanuméricos e hifens.<br><br>Comece e termine com alfanumérico. Hifens consecutivos não são permitidos. |
-> | Redis/firewallRules | Redis | 1-256 | Alfanuméricos |
+> | Redis | global | 1-63 | Caracteres alfanuméricos e hifens.<br><br>Comece e termine com caractere alfanumérico. Hifens consecutivos não são permitidos. |
+> | Redis / firewallRules | Redis | 1–256 | Caracteres alfanuméricos |
 
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | profiles | grupo de recursos | 1-260 | Alfanuméricos e hifens.<br><br>Comece e termine com alfanumérico. |
-> | perfis/pontos de extremidade | global | 1-50 | Alfanuméricos e hifens.<br><br>Comece e termine com alfanumérico. |
+> | perfis | grupo de recursos | 1–260 | Caracteres alfanuméricos e hifens.<br><br>Comece e termine com caractere alfanumérico. |
+> | profiles/endpoints | global | 1-50 | Caracteres alfanuméricos e hifens.<br><br>Comece e termine com caractere alfanumérico. |
 
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | certificateOrders | grupo de recursos | 3-30 | Alfanuméricos. |
+> | certificateOrders | grupo de recursos | 3–30 | Caracteres alfanuméricos. |
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | contas | grupo de recursos | 2-64 | Alfanuméricos e hifens.<br><br>Comece e termine com alfanumérico. |
+> | accounts | grupo de recursos | 2-64 | Caracteres alfanuméricos e hifens.<br><br>Comece e termine com caractere alfanumérico. |
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | availabilitySets | grupo de recursos | 1-80 | Alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com alfanumérico. Terminar com alfanumérico ou sublinhado. |
+> | availabilitySets | grupo de recursos | 1-80 | Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. Termine com caractere alfanumérico ou sublinhado. |
 > | diskEncryptionSets | grupo de recursos | 1-80 | Caracteres alfanuméricos e sublinhados. |
 > | disks | grupo de recursos | 1-80 | Caracteres alfanuméricos e sublinhados. |
-> | galleries | grupo de recursos | 1-80 | Alfanuméricos e pontos.<br><br>Comece e termine com alfanumérico. |
-> | galerias/aplicativos | galeria | 1-80 | Alfanuméricos, hifens e pontos.<br><br>Comece e termine com alfanumérico. |
-> | galerias/aplicativos/versões | aplicativo | Inteiro de 32 bits | Números e pontos. |
-> | galerias/imagens | galeria | 1-80 | Alfanuméricos, hifens e pontos.<br><br>Comece e termine com alfanumérico. |
-> | galerias/imagens/versões | image | Inteiro de 32 bits | Números e pontos. |
-> | images | grupo de recursos | 1-80 | Alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com alfanumérico. Terminar com alfanumérico ou sublinhado. |
-> | snapshots | grupo de recursos | 1-80 | Alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com alfanumérico. Terminar com alfanumérico ou sublinhado. |
-> | virtualMachines | grupo de recursos | 1-15 (Windows)<br>1-64 (Linux)<br><br>Consulte a observação abaixo. | Não é possível usar:<br> `\/""[]:|<>+=;,?*@&`<br><br>Não é possível começar com sublinhado. Não é possível terminar com ponto ou hífen. |
-> | virtualMachineScaleSets | grupo de recursos | 1-15 (Windows)<br>1-64 (Linux)<br><br>Consulte a observação abaixo. | Não é possível usar:<br> `\/""[]:|<>+=;,?*@&`<br><br>Não é possível começar com sublinhado. Não é possível terminar com ponto ou hífen. |
+> | galleries | grupo de recursos | 1-80 | Caracteres alfanuméricos e pontos.<br><br>Comece e termine com caractere alfanumérico. |
+> | galleries / applications | gallery | 1-80 | Caracteres alfanuméricos, hifens e pontos.<br><br>Comece e termine com caractere alfanumérico. |
+> | galleries / applications/versions | aplicativo | Inteiro de 32 bits | Números e pontos. |
+> | galleries/images | gallery | 1-80 | Caracteres alfanuméricos, hifens e pontos.<br><br>Comece e termine com caractere alfanumérico. |
+> | galleries/images/versions | image | Inteiro de 32 bits | Números e pontos. |
+> | images | grupo de recursos | 1-80 | Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. Termine com caractere alfanumérico ou sublinhado. |
+> | snapshots | grupo de recursos | 1-80 | Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. Termine com caractere alfanumérico ou sublinhado. |
+> | virtualMachines | grupo de recursos | 1–15 (Windows)<br>1–64 (Linux)<br><br>Veja a observação abaixo. | Não é possível usar:<br> `\/""[]:|<>+=;,?*@&`<br><br>Não pode começar com sublinhado. Não pode terminar com ponto ou hífen. |
+> | virtualMachineScaleSets | grupo de recursos | 1–15 (Windows)<br>1–64 (Linux)<br><br>Veja a observação abaixo. | Não é possível usar:<br> `\/""[]:|<>+=;,?*@&`<br><br>Não pode começar com sublinhado. Não pode terminar com ponto ou hífen. |
 
 > [!NOTE]
 > As máquinas virtuais do Azure têm dois nomes distintos: nome do recurso e nome do host. Quando você cria uma máquina virtual no portal, o mesmo valor é usado para ambos os nomes. As restrições na tabela anterior são para o nome do host. O nome real do recurso pode ter até 64 caracteres.
@@ -183,288 +183,288 @@ Nas tabelas a seguir, o termo alfanumérico refere-se a:
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | containerGroups | grupo de recursos | 1-63 | Letras minúsculas, números e hifens.<br><br>Não é possível iniciar ou terminar com hífen. Hifens consecutivos não são permitidos. |
+> | containerGroups | grupo de recursos | 1-63 | Letras minúsculas, números e hifens.<br><br>Não pode iniciar ou terminar com hífen. Hifens consecutivos não são permitidos. |
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | registries | global | 5 a 50 | Alfanuméricos. |
-> | registros/buildTasks | Registro | 5 a 50 | Alfanuméricos. |
-> | registros/buildTasks/etapas | tarefa de build | 5 a 50 | Alfanuméricos. |
-> | registros/replicações | Registro | 5 a 50 | Alfanuméricos. |
-> | registros/scopeMaps | Registro | 5 a 50 | Alfanuméricos, hifens e sublinhados. |
-> | registros/tarefas | Registro | 5 a 50 | Alfanuméricos, hifens e sublinhados. |
-> | registros/tokens | Registro | 5 a 50 | Alfanuméricos, hifens e sublinhados. |
-> | registros/WebHooks | Registro | 5 a 50 | Alfanuméricos. |
+> | registries | global | 5 a 50 | Caracteres alfanuméricos. |
+> | registries / buildTasks | Registro | 5 a 50 | Caracteres alfanuméricos. |
+> | registries / buildTasks/steps | tarefa de build | 5 a 50 | Caracteres alfanuméricos. |
+> | registries/replications | Registro | 5 a 50 | Caracteres alfanuméricos. |
+> | registries / scopeMaps | Registro | 5 a 50 | Caracteres alfanuméricos, hifens e sublinhados. |
+> | registries/tasks | Registro | 5 a 50 | Caracteres alfanuméricos, hifens e sublinhados. |
+> | registries/tokens | Registro | 5 a 50 | Caracteres alfanuméricos, hifens e sublinhados. |
+> | registries/webhooks | Registro | 5 a 50 | Caracteres alfanuméricos. |
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | managedClusters | grupo de recursos | 1-63 | Alfanuméricos, sublinhados e hifens.<br><br>Comece e termine com alfanumérico. |
-> | openShiftManagedClusters | grupo de recursos | 1-30 | Alfanuméricos. |
+> | managedClusters | grupo de recursos | 1-63 | Caracteres alfanuméricos, sublinhados e hifens.<br><br>Comece e termine com caractere alfanumérico. |
+> | openShiftManagedClusters | grupo de recursos | 1–30 | Caracteres alfanuméricos. |
 
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | hubs | grupo de recursos | 1-64 | Alfanuméricos.<br><br>Comece com a letra.  |
-> | hubs/authorizationPolicies | hub | 1-50 | Alfanuméricos, sublinhados e pontos.<br><br>Comece e termine com alfanumérico. |
-> | hubs/conectores | hub | 1-128 | Caracteres alfanuméricos e sublinhados.<br><br>Comece com a letra. |
-> | hubs/conectores/mapeamentos | conector | 1-128 | Caracteres alfanuméricos e sublinhados.<br><br>Comece com a letra. |
-> | hubs/interações | hub | 1-128 | Caracteres alfanuméricos e sublinhados.<br><br>Comece com a letra. |
-> | hubs/KPI | hub | 1-512 | Caracteres alfanuméricos e sublinhados.<br><br>Comece com a letra. |
-> | hubs/links | hub | 1-512 | Caracteres alfanuméricos e sublinhados.<br><br>Comece com a letra. |
-> | hubs/previsões | hub | 1-512 | Caracteres alfanuméricos e sublinhados.<br><br>Comece com a letra. |
-> | hubs/perfis | hub | 1-128 | Caracteres alfanuméricos e sublinhados.<br><br>Comece com a letra. |
-> | hubs/relationshipLinks | hub | 1-512 | Caracteres alfanuméricos e sublinhados.<br><br>Comece com a letra. |
-> | hubs/relações | hub | 1-512 | Caracteres alfanuméricos e sublinhados.<br><br>Comece com a letra. |
-> | hubs/roleAssignments | hub | 1-128 | Caracteres alfanuméricos e sublinhados.<br><br>Comece com a letra. |
-> | hubs/exibições | hub | 1-512 | Caracteres alfanuméricos e sublinhados.<br><br>Comece com a letra. |
+> | hubs | grupo de recursos | 1-64 | Caracteres alfanuméricos.<br><br>Comece com letra.  |
+> | hubs / authorizationPolicies | hub | 1-50 | Caracteres alfanuméricos, sublinhados e pontos.<br><br>Comece e termine com caractere alfanumérico. |
+> | hubs / connectors | hub | 1–128 | Caracteres alfanuméricos e sublinhados.<br><br>Comece com letra. |
+> | hubs / connectors/mappings | conector | 1–128 | Caracteres alfanuméricos e sublinhados.<br><br>Comece com letra. |
+> | hubs / interactions | hub | 1–128 | Caracteres alfanuméricos e sublinhados.<br><br>Comece com letra. |
+> | hubs / kpi | hub | 1–512 | Caracteres alfanuméricos e sublinhados.<br><br>Comece com letra. |
+> | hubs / links | hub | 1–512 | Caracteres alfanuméricos e sublinhados.<br><br>Comece com letra. |
+> | hubs / predictions | hub | 1–512 | Caracteres alfanuméricos e sublinhados.<br><br>Comece com letra. |
+> | hubs / profiles | hub | 1–128 | Caracteres alfanuméricos e sublinhados.<br><br>Comece com letra. |
+> | hubs / relationshipLinks | hub | 1–512 | Caracteres alfanuméricos e sublinhados.<br><br>Comece com letra. |
+> | hubs / relationships | hub | 1–512 | Caracteres alfanuméricos e sublinhados.<br><br>Comece com letra. |
+> | hubs / roleAssignments | hub | 1–128 | Caracteres alfanuméricos e sublinhados.<br><br>Comece com letra. |
+> | hubs / views | hub | 1–512 | Caracteres alfanuméricos e sublinhados.<br><br>Comece com letra. |
 
-## <a name="microsoftcustomproviders"></a>Microsoft. CustomProviders
+## <a name="microsoftcustomproviders"></a>Microsoft.CustomProviders
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | associações | grupo de recursos | 1-180 | Não é possível usar:<br>`%&\\?/`<br><br>Não é possível terminar com período ou espaço. |
-> | resourceProviders | grupo de recursos | 3-64 | Não é possível usar:<br>`%&\\?/`<br><br>Não é possível terminar com período ou espaço. |
+> | associations | grupo de recursos | 1–180 | Não é possível usar:<br>`%&\\?/`<br><br>Não pode terminar com ponto ou espaço. |
+> | resourceProviders | grupo de recursos | 3–64 | Não é possível usar:<br>`%&\\?/`<br><br>Não pode terminar com ponto ou espaço. |
 
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | jobs | grupo de recursos | 3-24 | Alfanuméricos, hifens, sublinhados e pontos. |
+> | jobs | grupo de recursos | 3-24 | Caracteres alfanuméricos, hifens, sublinhados e pontos. |
 
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | workspaces | grupo de recursos | 3-30 | Alfanuméricos, sublinhados e hifens |
+> | workspaces | grupo de recursos | 3–30 | Caracteres alfanuméricos, sublinhados e hifens |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | factories | global | 3-63 | Alfanuméricos e hifens.<br><br>Comece e termine com alfanumérico. |
-> | fábricas/fluxos de fluxo de os | fábrica | 1-260 | Não é possível usar:<br>`<>*#.%&:\\+?/`<br><br>Comece com alfanumérico. |
-> | fábricas/conjuntos de | fábrica | 1-260 | Não é possível usar:<br>`<>*#.%&:\\+?/`<br><br>Comece com alfanumérico. |
-> | fábricas/integrationRuntimes | fábrica | 3-63 | Alfanuméricos e hifens.<br><br>Comece e termine com alfanumérico. |
-> | fábricas/linksservices | fábrica | 1-260 | Não é possível usar:<br>`<>*#.%&:\\+?/`<br><br>Comece com alfanumérico. |
-> | fábricas/pipelines | fábrica | 1-260 | Não é possível usar:<br>`<>*#.%&:\\+?/`<br><br>Comece com alfanumérico. |
-> | fábricas/gatilhos | fábrica | 1-260 | Não é possível usar:<br>`<>*#.%&:\\+?/`<br><br>Comece com alfanumérico. |
-> | fábricas/gatilhos/rerunTriggers | gatilho | 1-260 | Não é possível usar:<br>`<>*#.%&:\\+?/`<br><br>Comece com alfanumérico. |
+> | factories | global | 3-63 | Caracteres alfanuméricos e hifens.<br><br>Comece e termine com caractere alfanumérico. |
+> | factories / dataflows | fábrica | 1–260 | Não é possível usar:<br>`<>*#.%&:\\+?/`<br><br>Comece com caractere alfanumérico. |
+> | factories / datasets | fábrica | 1–260 | Não é possível usar:<br>`<>*#.%&:\\+?/`<br><br>Comece com caractere alfanumérico. |
+> | factories / integrationRuntimes | fábrica | 3-63 | Caracteres alfanuméricos e hifens.<br><br>Comece e termine com caractere alfanumérico. |
+> | factories / linkedservices | fábrica | 1–260 | Não é possível usar:<br>`<>*#.%&:\\+?/`<br><br>Comece com caractere alfanumérico. |
+> | factories / pipelines | fábrica | 1–260 | Não é possível usar:<br>`<>*#.%&:\\+?/`<br><br>Comece com caractere alfanumérico. |
+> | factories / triggers | fábrica | 1–260 | Não é possível usar:<br>`<>*#.%&:\\+?/`<br><br>Comece com caractere alfanumérico. |
+> | factories / triggers / rerunTriggers | gatilho | 1–260 | Não é possível usar:<br>`<>*#.%&:\\+?/`<br><br>Comece com caractere alfanumérico. |
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | contas | global | 3-24 | Letras minúsculas e números. |
-> | contas/computePolicies | account | 3-60 | Alfanuméricos, hifens e sublinhados. |
-> | contas/dataLakeStoreAccounts | account | 3-24 | Letras minúsculas e números. |
-> | contas/firewallRules | account | 3-50 | Alfanuméricos, hifens e sublinhados. |
-> | contas/storageAccounts | account | 3-60 | Alfanuméricos, hifens e sublinhados. |
+> | accounts | global | 3-24 | Letras minúsculas e números. |
+> | accounts / computePolicies | account | 3–60 | Caracteres alfanuméricos, hifens e sublinhados. |
+> | accounts / dataLakeStoreAccounts | account | 3-24 | Letras minúsculas e números. |
+> | accounts / firewallRules | account | 3-50 | Caracteres alfanuméricos, hifens e sublinhados. |
+> | accounts / storageAccounts | account | 3–60 | Caracteres alfanuméricos, hifens e sublinhados. |
 
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | contas | global | 3-24 | Letras minúsculas e números. |
-> | contas/firewallRules | account | 3-50 | Alfanuméricos, hifens e sublinhados. |
-> | contas/virtualNetworkRules | account | 3-50 | Alfanuméricos, hifens e sublinhados. |
+> | accounts | global | 3-24 | Letras minúsculas e números. |
+> | accounts / firewallRules | account | 3-50 | Caracteres alfanuméricos, hifens e sublinhados. |
+> | accounts / virtualNetworkRules | account | 3-50 | Caracteres alfanuméricos, hifens e sublinhados. |
 
 ## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | services | grupo de recursos | 2-62 | Alfanuméricos, hifens, pontos e sublinhados.<br><br>Comece com alfanumérico. |
-> | serviços/projetos | serviço | 2-57 | Alfanuméricos, hifens, pontos e sublinhados.<br><br>Comece com alfanumérico. |
+> | services | grupo de recursos | 2–62 | Caracteres alfanuméricos, hifens, pontos e sublinhados.<br><br>Comece com caractere alfanumérico. |
+> | services/projects | serviço | 2–57 | Caracteres alfanuméricos, hifens, pontos e sublinhados.<br><br>Comece com caractere alfanumérico. |
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | servers | global | 3-63 | Letras minúsculas, hifens e números.<br><br>Não é possível iniciar ou terminar com hífen. |
-> | servidores/bancos de dados | servers | 1-63 | Alfanuméricos e hifens. |
-> | servidores/firewallRules | servers | 1-128 | Alfanuméricos, hifens e sublinhados. |
-> | servidores/virtualNetworkRules | servers | 1-128 | Alfanuméricos e hifens. |
+> | servers | global | 3-63 | Letras minúsculas, hifens e números.<br><br>Não pode iniciar ou terminar com hífen. |
+> | servers/databases | servers | 1-63 | Caracteres alfanuméricos e hifens. |
+> | servers / firewallRules | servers | 1–128 | Caracteres alfanuméricos, hifens e sublinhados. |
+> | servers / virtualNetworkRules | servers | 1–128 | Caracteres alfanuméricos e hifens. |
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | servers | global | 3-63 | Letras minúsculas, hifens e números.<br><br>Não é possível iniciar ou terminar com hífen. |
-> | servidores/bancos de dados | servers | 1-63 | Alfanuméricos e hifens. |
-> | servidores/firewallRules | servers | 1-128 | Alfanuméricos, hifens e sublinhados. |
-> | servidores/virtualNetworkRules | servers | 1-128 | Alfanuméricos e hifens. |
+> | servers | global | 3-63 | Letras minúsculas, hifens e números.<br><br>Não pode iniciar ou terminar com hífen. |
+> | servers/databases | servers | 1-63 | Caracteres alfanuméricos e hifens. |
+> | servers / firewallRules | servers | 1–128 | Caracteres alfanuméricos, hifens e sublinhados. |
+> | servers / virtualNetworkRules | servers | 1–128 | Caracteres alfanuméricos e hifens. |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | servers | global | 3-63 | Letras minúsculas, hifens e números.<br><br>Não é possível iniciar ou terminar com hífen. |
-> | servidores/bancos de dados | servers | 1-63 | Alfanuméricos e hifens. |
-> | servidores/firewallRules | servers | 1-128 | Alfanuméricos, hifens e sublinhados. |
-> | servidores/virtualNetworkRules | servers | 1-128 | Alfanuméricos e hifens. |
+> | servers | global | 3-63 | Letras minúsculas, hifens e números.<br><br>Não pode iniciar ou terminar com hífen. |
+> | servers / databases | servers | 1-63 | Caracteres alfanuméricos e hifens. |
+> | servers / firewallRules | servers | 1–128 | Caracteres alfanuméricos, hifens e sublinhados. |
+> | servers / virtualNetworkRules | servers | 1–128 | Caracteres alfanuméricos e hifens. |
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | IotHubs | global | 3-50 | Alfanuméricos e hifens.<br><br>Não é possível terminar com hífen. |
-> | IotHubs/certificados | Hub IoT | 1-64 | Alfanuméricos, hifens, pontos e sublinhados. |
-> | IotHubs/eventHubEndpoints/ConsumerGroups | eventHubEndpoints | 1-50 | Alfanuméricos, hifens, pontos e sublinhados. |
-> | provisioningServices | grupo de recursos | 3-64 | Alfanuméricos e hifens.<br><br>Terminar com alfanumérico. |
-> | provisioningServices/certificados | provisioningServices | 1-64 | Alfanuméricos, hifens, pontos e sublinhados. |
+> | IotHubs | global | 3-50 | Caracteres alfanuméricos e hifens.<br><br>Não pode terminar com hífen. |
+> | IotHubs / certificates | Hub IoT | 1-64 | Caracteres alfanuméricos, hifens, pontos e sublinhados. |
+> | IotHubs / eventHubEndpoints / ConsumerGroups | eventHubEndpoints | 1-50 | Caracteres alfanuméricos, hifens, pontos e sublinhados. |
+> | provisioningServices | grupo de recursos | 3–64 | Caracteres alfanuméricos e hifens.<br><br>Termine com caractere alfanumérico. |
+> | provisioningServices / certificates | provisioningServices | 1-64 | Caracteres alfanuméricos, hifens, pontos e sublinhados. |
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | labs | grupo de recursos | 1-50 | Alfanuméricos, sublinhados e hifens. |
-> | laboratórios/customimages | laboratórios | 1-80 | Alfanuméricos, sublinhados, hifens e parênteses. |
-> | laboratórios/fórmulas | laboratórios | 1-80 | Alfanuméricos, sublinhados, hifens e parênteses. |
-> | laboratórios/VirtualMachines | laboratórios | 1-15 (Windows)<br>1-64 (Linux) | Alfanuméricos e hifens.<br><br>Comece e termine com alfanumérico. Não pode ser todos os números. |
+> | labs | grupo de recursos | 1-50 | Caracteres alfanuméricos, sublinhados e hifens. |
+> | labs / customimages | laboratório | 1-80 | Caracteres alfanuméricos, sublinhados, hifens e parênteses. |
+> | labs / formulas | laboratório | 1-80 | Caracteres alfanuméricos, sublinhados, hifens e parênteses. |
+> | labs / virtualmachines | laboratório | 1–15 (Windows)<br>1–64 (Linux) | Caracteres alfanuméricos e hifens.<br><br>Comece e termine com caractere alfanumérico. Não pode ser apenas números. |
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | databaseAccounts | global | 3-31 | Letras minúsculas, números e hifens.<br><br>Comece com letra minúscula ou número. |
+> | databaseAccounts | global | 3–44 | Letras minúsculas, números e hifens.<br><br>Comece com letra minúscula ou número. |
 
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | domains | grupo de recursos | 3-50 | Alfanuméricos e hifens. |
-> | domínios/tópicos | domínio | 3-50 | Alfanuméricos e hifens. |
-> | eventSubscriptions | grupo de recursos | 3-64 | Alfanuméricos e hifens. |
-> | topics | grupo de recursos | 3-50 | Alfanuméricos e hifens. |
+> | domains | grupo de recursos | 3-50 | Caracteres alfanuméricos e hifens. |
+> | domains / topics | domínio | 3-50 | Caracteres alfanuméricos e hifens. |
+> | eventSubscriptions | grupo de recursos | 3–64 | Caracteres alfanuméricos e hifens. |
+> | topics | grupo de recursos | 3-50 | Caracteres alfanuméricos e hifens. |
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | clusters | grupo de recursos | 6-50 | Alfanuméricos e hifens.<br><br>Comece com a letra. Terminar com letra ou número. |
-> | namespaces | global | 6-50 | Alfanuméricos e hifens.<br><br>Comece com a letra. Terminar com letra ou número. |
-> | namespaces/AuthorizationRules | namespace | 1-50 | Alfanuméricos, pontos, hifens e sublinhados.<br><br>Comece e termine com letra ou número. |
-> | namespaces/disasterRecoveryConfigs | namespace | 1-50 | Alfanuméricos, pontos, hifens e sublinhados.<br><br>Comece e termine com letra ou número. |
-> | namespaces/Eventhubs | namespace | 1-50 | Alfanuméricos, pontos, hifens e sublinhados.<br><br>Comece e termine com letra ou número. |
-> | namespaces/Eventhubs/authorizationRules | Hub de eventos | 1-50 | Alfanuméricos, pontos, hifens e sublinhados.<br><br>Comece e termine com letra ou número. |
-> | namespaces/Eventhubs/consumergroups | Hub de eventos | 1-50 | Alfanuméricos, pontos, hifens e sublinhados.<br><br>Comece e termine com letra ou número. |
+> | clusters | grupo de recursos | 6–50 | Caracteres alfanuméricos e hifens.<br><br>Comece com letra. Termine com letra ou número. |
+> | namespaces | global | 6–50 | Caracteres alfanuméricos e hifens.<br><br>Comece com letra. Termine com letra ou número. |
+> | namespaces / AuthorizationRules | namespace | 1-50 | Caracteres alfanuméricos, pontos, hifens e sublinhados.<br><br>Deve começar e terminar com letra ou número. |
+> | namespaces / disasterRecoveryConfigs | namespace | 1-50 | Caracteres alfanuméricos, pontos, hifens e sublinhados.<br><br>Deve começar e terminar com letra ou número. |
+> | namespaces / eventhubs | namespace | 1-50 | Caracteres alfanuméricos, pontos, hifens e sublinhados.<br><br>Deve começar e terminar com letra ou número. |
+> | namespaces / eventhubs / authorizationRules | hub de eventos | 1-50 | Caracteres alfanuméricos, pontos, hifens e sublinhados.<br><br>Deve começar e terminar com letra ou número. |
+> | namespaces / eventhubs / consumergroups | hub de eventos | 1-50 | Caracteres alfanuméricos, pontos, hifens e sublinhados.<br><br>Deve começar e terminar com letra ou número. |
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | clusters | global | 3-59 | Alfanuméricos e hifens<br><br>Comece e termine com letra ou número. |
+> | clusters | global | 3–59 | Caracteres alfanuméricos e hifens<br><br>Deve começar e terminar com letra ou número. |
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | jobs | grupo de recursos | 2-64 | Alfanuméricos e hifens.<br><br>Comece com a letra. |
+> | jobs | grupo de recursos | 2-64 | Caracteres alfanuméricos e hifens.<br><br>Comece com letra. |
 
 ## <a name="microsoftinsights"></a>Microsoft.insights
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | components | grupo de recursos | 1-260 | Não é possível usar:<br>`%&\?/` <br><br>Não é possível terminar com espaço ou ponto.  |
+> | components | grupo de recursos | 1–260 | Não é possível usar:<br>`%&\?/` <br><br>Não pode terminar com espaço ou ponto.  |
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | IoTApps | global | 2-63 | Letras minúsculas, números e hifens.<br><br>Comece com letra minúscula ou número. |
+> | IoTApps | global | 2–63 | Letras minúsculas, números e hifens.<br><br>Comece com letra minúscula ou número. |
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | vaults | global | 3-24 | Alfanuméricos e hifens.<br><br>Comece com a letra. Terminar com letra ou dígito. Não pode conter hifens consecutivos. |
-> | cofres/segredos | Cofre | 1-127 | Alfanuméricos e hifens. |
+> | vaults | global | 3-24 | Caracteres alfanuméricos e hifens.<br><br>Comece com letra. Termine com letra ou dígito. Não pode conter hifens consecutivos. |
+> | vaults / secrets | Cofre | 1–127 | Caracteres alfanuméricos e hifens. |
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | clusters | global | 4-22 | Letras minúsculas e números.<br><br>Comece com a letra. |
-> | /clusters/bancos de dados | cluster | 1-260 | Alfanuméricos, hifens, espaços e pontos. |
-> | /clusters/bancos de dados/conexões | Banco de Dados | 1-40 | Alfanuméricos, hifens, espaços e pontos. |
-> | /clusters/bancos de dados/eventhubconnections | Banco de Dados | 1-40 | Alfanuméricos, hifens, espaços e pontos. |
+> | clusters | global | 4–22 | Letras minúsculas e números.<br><br>Comece com letra. |
+> | /clusters / databases | cluster | 1–260 | Caracteres alfanuméricos, hifens, espaços e pontos. |
+> | /clusters / databases / dataConnections | Banco de Dados | 1–40 | Caracteres alfanuméricos, hifens, espaços e pontos. |
+> | /clusters / databases / eventhubconnections | Banco de Dados | 1–40 | Caracteres alfanuméricos, hifens, espaços e pontos. |
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | integrationAccounts | grupo de recursos | 1-80 | Alfanuméricos, hifens, sublinhados, pontos e parênteses. |
-> | integrationAccounts/assemblies | conta de integração | 1-80 | Alfanuméricos, hifens, sublinhados, pontos e parênteses. |
-> | integrationAccounts / batchConfigurations | conta de integração | 1-20 | Alfanuméricos. |
-> | integrationAccounts/certificados | conta de integração | 1-80 | Alfanuméricos, hifens, sublinhados, pontos e parênteses. |
-> | integrationAccounts/Maps | conta de integração | 1-80 | Alfanuméricos, hifens, sublinhados, pontos e parênteses. |
-> | integrationAccounts/parceiros | conta de integração | 1-80 | Alfanuméricos, hifens, sublinhados, pontos e parênteses. |
-> | integrationAccounts / rosettanetprocessconfigurations | conta de integração | 1-80 | Alfanuméricos, hifens, sublinhados, pontos e parênteses. |
-> | integrationAccounts/esquemas | conta de integração | 1-80 | Alfanuméricos, hifens, sublinhados, pontos e parênteses. |
-> | integrationAccounts/sessões | conta de integração | 1-80 | Alfanuméricos, hifens, sublinhados, pontos e parênteses. |
-> | integrationServiceEnvironments | grupo de recursos | 1-80 | Alfanuméricos, hifens, pontos e sublinhados. |
-> | integrationServiceEnvironments / managedApis | ambiente do serviço de integração | 1-80 | Alfanuméricos, hifens, pontos e sublinhados. |
-> | workflows | grupo de recursos | 1-80 | Alfanuméricos, hifens, sublinhados, pontos e parênteses. |
+> | integrationAccounts | grupo de recursos | 1-80 | Caracteres alfanuméricos, hifens, sublinhados, pontos e parênteses. |
+> | integrationAccounts / assemblies | conta de integração | 1-80 | Caracteres alfanuméricos, hifens, sublinhados, pontos e parênteses. |
+> | integrationAccounts / batchConfigurations | conta de integração | 1–20 | Caracteres alfanuméricos. |
+> | integrationAccounts / certificates | conta de integração | 1-80 | Caracteres alfanuméricos, hifens, sublinhados, pontos e parênteses. |
+> | integrationAccounts / maps | conta de integração | 1-80 | Caracteres alfanuméricos, hifens, sublinhados, pontos e parênteses. |
+> | integrationAccounts / partners | conta de integração | 1-80 | Caracteres alfanuméricos, hifens, sublinhados, pontos e parênteses. |
+> | integrationAccounts / rosettanetprocessconfigurations | conta de integração | 1-80 | Caracteres alfanuméricos, hifens, sublinhados, pontos e parênteses. |
+> | integrationAccounts / schemas | conta de integração | 1-80 | Caracteres alfanuméricos, hifens, sublinhados, pontos e parênteses. |
+> | integrationAccounts / sessions | conta de integração | 1-80 | Caracteres alfanuméricos, hifens, sublinhados, pontos e parênteses. |
+> | integrationServiceEnvironments | grupo de recursos | 1-80 | Caracteres alfanuméricos, hifens, pontos e sublinhados. |
+> | integrationServiceEnvironments / managedApis | ambiente do serviço de integração | 1-80 | Caracteres alfanuméricos, hifens, pontos e sublinhados. |
+> | workflows | grupo de recursos | 1-80 | Caracteres alfanuméricos, hifens, sublinhados, pontos e parênteses. |
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | commitmentPlans | grupo de recursos | 1-260 | Não é possível usar:<br>`<>*%&:?+/\\`<br><br>Não é possível terminar com um espaço. |
-> | webServices | grupo de recursos | 1-260 | Não é possível usar:<br>`<>*%&:?+/\\`<br><br>Não é possível terminar com um espaço. |
-> | workspaces | grupo de recursos | 1-260 | Não é possível usar:<br>`<>*%&:?+/\\`<br><br>Não é possível terminar com um espaço. |
+> | commitmentPlans | grupo de recursos | 1–260 | Não é possível usar:<br>`<>*%&:?+/\\`<br><br>Não pode terminar com um espaço. |
+> | webServices | grupo de recursos | 1–260 | Não é possível usar:<br>`<>*%&:?+/\\`<br><br>Não pode terminar com um espaço. |
+> | workspaces | grupo de recursos | 1–260 | Não é possível usar:<br>`<>*%&:?+/\\`<br><br>Não pode terminar com um espaço. |
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | workspaces | grupo de recursos | 3-33 | Alfanuméricos e hifens. |
-> | espaços de trabalho/computações | workspace | 2-16 | Alfanuméricos e hifens. |
+> | workspaces | grupo de recursos | 3–33 | Caracteres alfanuméricos e hifens. |
+> | workspaces / computes | workspace | 2–16 | Caracteres alfanuméricos e hifens. |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | userAssignedIdentities | grupo de recursos | 3-128 | Alfanuméricos, hifens e sublinhados<br><br>Comece com letra ou número. |
+> | userAssignedIdentities | grupo de recursos | 3–128 | Caracteres alfanuméricos, hifens e sublinhados<br><br>Comece com letra ou número. |
 
 ## <a name="microsoftmaps"></a>Microsoft.Maps
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | contas | grupo de recursos | 1-98 (para nome do grupo de recursos e nome da conta) | Alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com alfanumérico. |
+> | accounts | grupo de recursos | 1–98 (para nome do grupo de recursos e nome da conta) | Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. |
 
 ## <a name="microsoftmedia"></a>Microsoft.Media
 
@@ -472,68 +472,68 @@ Nas tabelas a seguir, o termo alfanumérico refere-se a:
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
 > | mediaservices | grupo de recursos | 3-24 | Letras minúsculas e números. |
-> | mediaservices/liveEvents | Serviço de mídia | 1-32 | Alfanuméricos e hifens.<br><br>Comece com alfanumérico. |
-> | mediaservices/liveEvents/liveOutputs | Evento ao vivo | 1-256 | Alfanuméricos e hifens.<br><br>Comece com alfanumérico. |
-> | mediaservices/streamingEndpoints | Serviço de mídia | 1-24 | Alfanuméricos e hifens.<br><br>Comece com alfanumérico. |
+> | mediaservices / liveEvents | Serviço de mídia | 1–32 | Caracteres alfanuméricos e hifens.<br><br>Comece com caractere alfanumérico. |
+> | mediaservices / liveEvents / liveOutputs | Evento ao vivo | 1–256 | Caracteres alfanuméricos e hifens.<br><br>Comece com caractere alfanumérico. |
+> | mediaservices / streamingEndpoints | Serviço de mídia | 1-24 | Caracteres alfanuméricos e hifens.<br><br>Comece com caractere alfanumérico. |
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | applicationGateways | grupo de recursos | 1-80 | Alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com alfanumérico. Fim alfanumérico ou sublinhado. |
-> | applicationSecurityGroups | grupo de recursos | 1-80 | Alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com alfanumérico. Fim alfanumérico ou sublinhado. |
-> | azureFirewalls | grupo de recursos | 1-80 | Alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com alfanumérico. Terminar com alfanumérico ou sublinhado. |
-> | bastionHosts | grupo de recursos | 1-80 | Alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com alfanumérico. Fim alfanumérico ou sublinhado. |
-> | connections | grupo de recursos | 1-80 | Alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com alfanumérico. Fim alfanumérico ou sublinhado. |
-> | dnsZones | grupo de recursos | 1-63 caracteres<br><br>2 a 34 rótulos<br><br>Cada rótulo é um conjunto de caracteres separados por um ponto. Por exemplo, **contoso.com** tem 2 rótulos. | Cada rótulo pode conter alfanuméricos, sublinhados e hifens.<br><br>Cada rótulo é separado por um ponto. |
-> | expressRouteCircuits | grupo de recursos | 1-80 | Alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com alfanumérico. Fim alfanumérico ou sublinhado. |
-> | firewallPolicies | grupo de recursos | 1-80 | Alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com alfanumérico. Fim alfanumérico ou sublinhado. |
-> | firewallPolicies/grupo | política de firewall | 1-80 | Alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com alfanumérico. Fim alfanumérico ou sublinhado. |
-> | frontDoors | global | 5-64 | Alfanuméricos e hifens.<br><br>Comece e termine com alfanumérico. |
-> | loadBalancers | grupo de recursos | 1-80 | Alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com alfanumérico. Fim alfanumérico ou sublinhado. |
-> | Balanceadores de carga/inboundNatRules | balanceador de carga | 1-80 | Alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com alfanumérico. Fim alfanumérico ou sublinhado. |
-> | virtualNetworkGateways | grupo de recursos | 1-80 | Alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com alfanumérico. Fim alfanumérico ou sublinhado. |
-> | networkInterfaces | grupo de recursos | 1-80 | Alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com alfanumérico. Fim alfanumérico ou sublinhado. |
-> | networkSecurityGroups | grupo de recursos | 1-80 | Alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com alfanumérico. Fim alfanumérico ou sublinhado. |
-> | networkSecurityGroups/securityRules | grupo de segurança de rede | 1-80 |  Alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com alfanumérico. Fim alfanumérico ou sublinhado. |
-> | networkWatchers | grupo de recursos | 1-80 | Alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com alfanumérico. Fim alfanumérico ou sublinhado. |
-> | privateDnsZones | grupo de recursos | 1-63 caracteres<br><br>2 a 34 rótulos<br><br>Cada rótulo é um conjunto de caracteres separados por um ponto. Por exemplo, **contoso.com** tem 2 rótulos. | Cada rótulo pode conter alfanuméricos, sublinhados e hifens.<br><br>Cada rótulo é separado por um ponto. |
-> | privateDnsZones / virtualNetworkLinks | zona DNS privada | 1-80 | Alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com alfanumérico. Fim alfanumérico ou sublinhado. |
-> | publicIPAddresses | grupo de recursos | 1-80 | Alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com alfanumérico. Fim alfanumérico ou sublinhado. |
-> | publicIPPrefixes | grupo de recursos | 1-80 | Alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com alfanumérico. Fim alfanumérico ou sublinhado. |
-> | routeFilters | grupo de recursos | 1-80 | Alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com alfanumérico. Fim alfanumérico ou sublinhado. |
-> | routeFilters / routeFilterRules | filtro de rota | 1-80 | Alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com alfanumérico. Fim alfanumérico ou sublinhado. |
-> | routeTables | grupo de recursos | 1-80 | Alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com alfanumérico. Fim alfanumérico ou sublinhado. |
-> | routeTables/rotas | route table | 1-80 | Alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com alfanumérico. Fim alfanumérico ou sublinhado. |
-> | serviceEndpointPolicies | grupo de recursos | 1-80 | Alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com alfanumérico. Fim alfanumérico ou sublinhado. |
-> | trafficmanagerprofiles | global | 1-63 | Alfanuméricos, hifens e pontos.<br><br>Comece e termine com alfanumérico. |
-> | virtualNetworkGateways | grupo de recursos | 1-80 | Alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com alfanumérico. Fim alfanumérico ou sublinhado. |
-> | virtualNetworks | grupo de recursos | 2-64 | Alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com alfanumérico. Fim alfanumérico ou sublinhado. |
-> | virtualnetworks/sub-redes | rede virtual | 1-80 | Alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com alfanumérico. Fim alfanumérico ou sublinhado. |
-> | virtualNetworks/virtualNetworkPeerings | rede virtual | 1-80 | Alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com alfanumérico. Fim alfanumérico ou sublinhado. |
-> | virtualWans | grupo de recursos | 1-80 | Alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com alfanumérico. Fim alfanumérico ou sublinhado. |
-> | vpnGateways | grupo de recursos | 1-80 | Alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com alfanumérico. Fim alfanumérico ou sublinhado. |
-> | vpnGateways / vpnConnections | gateway de VPN | 1-80 | Alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com alfanumérico. Fim alfanumérico ou sublinhado. |
-> | vpnSites | grupo de recursos | 1-80 | Alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com alfanumérico. Fim alfanumérico ou sublinhado. |
+> | applicationGateways | grupo de recursos | 1-80 | Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. Termine com caractere alfanumérico ou sublinhado. |
+> | applicationSecurityGroups | grupo de recursos | 1-80 | Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. Termine com caractere alfanumérico ou sublinhado. |
+> | azureFirewalls | grupo de recursos | 1-80 | Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. Termine com caractere alfanumérico ou sublinhado. |
+> | bastionHosts | grupo de recursos | 1-80 | Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. Termine com caractere alfanumérico ou sublinhado. |
+> | connections | grupo de recursos | 1-80 | Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. Termine com caractere alfanumérico ou sublinhado. |
+> | dnsZones | grupo de recursos | Caracteres 1–63<br><br>2 a 34 rótulos<br><br>Cada rótulo é um conjunto de caracteres separados por um ponto. Por exemplo, **contoso.com** tem 2 rótulos. | Cada rótulo pode conter caracteres alfanuméricos, sublinhados e hifens.<br><br>Cada rótulo é separado por um ponto. |
+> | expressRouteCircuits | grupo de recursos | 1-80 | Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. Termine com caractere alfanumérico ou sublinhado. |
+> | firewallPolicies | grupo de recursos | 1-80 | Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. Termine com caractere alfanumérico ou sublinhado. |
+> | firewallPolicies / ruleGroups | Política de firewall | 1-80 | Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. Termine com caractere alfanumérico ou sublinhado. |
+> | frontDoors | global | 5–64 | Caracteres alfanuméricos e hifens.<br><br>Comece e termine com caractere alfanumérico. |
+> | loadBalancers | grupo de recursos | 1-80 | Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. Termine com caractere alfanumérico ou sublinhado. |
+> | loadBalancers / inboundNatRules | balanceador de carga | 1-80 | Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. Termine com caractere alfanumérico ou sublinhado. |
+> | virtualNetworkGateways | grupo de recursos | 1-80 | Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. Termine com caractere alfanumérico ou sublinhado. |
+> | networkInterfaces | grupo de recursos | 1-80 | Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. Termine com caractere alfanumérico ou sublinhado. |
+> | networkSecurityGroups | grupo de recursos | 1-80 | Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. Termine com caractere alfanumérico ou sublinhado. |
+> | networkSecurityGroups / securityRules | grupo de segurança de rede | 1-80 |  Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. Termine com caractere alfanumérico ou sublinhado. |
+> | networkWatchers | grupo de recursos | 1-80 | Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. Termine com caractere alfanumérico ou sublinhado. |
+> | privateDnsZones | grupo de recursos | Caracteres 1–63<br><br>2 a 34 rótulos<br><br>Cada rótulo é um conjunto de caracteres separados por um ponto. Por exemplo, **contoso.com** tem 2 rótulos. | Cada rótulo pode conter caracteres alfanuméricos, sublinhados e hifens.<br><br>Cada rótulo é separado por um ponto. |
+> | privateDnsZones / virtualNetworkLinks | zona DNS privada | 1-80 | Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. Termine com caractere alfanumérico ou sublinhado. |
+> | publicIPAddresses | grupo de recursos | 1-80 | Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. Termine com caractere alfanumérico ou sublinhado. |
+> | publicIPPrefixes | grupo de recursos | 1-80 | Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. Termine com caractere alfanumérico ou sublinhado. |
+> | routeFilters | grupo de recursos | 1-80 | Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. Termine com caractere alfanumérico ou sublinhado. |
+> | routeFilters / routeFilterRules | filtro de rota | 1-80 | Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. Termine com caractere alfanumérico ou sublinhado. |
+> | routeTables | grupo de recursos | 1-80 | Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. Termine com caractere alfanumérico ou sublinhado. |
+> | routeTables / routes | route table | 1-80 | Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. Termine com caractere alfanumérico ou sublinhado. |
+> | serviceEndpointPolicies | grupo de recursos | 1-80 | Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. Termine com caractere alfanumérico ou sublinhado. |
+> | trafficmanagerprofiles | global | 1-63 | Caracteres alfanuméricos, hifens e pontos.<br><br>Comece e termine com caractere alfanumérico. |
+> | virtualNetworkGateways | grupo de recursos | 1-80 | Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. Termine com caractere alfanumérico ou sublinhado. |
+> | virtualNetworks | grupo de recursos | 2-64 | Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. Termine com caractere alfanumérico ou sublinhado. |
+> | virtualnetworks / subnets | rede virtual | 1-80 | Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. Termine com caractere alfanumérico ou sublinhado. |
+> | virtualNetworks / virtualNetworkPeerings | rede virtual | 1-80 | Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. Termine com caractere alfanumérico ou sublinhado. |
+> | virtualWans | grupo de recursos | 1-80 | Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. Termine com caractere alfanumérico ou sublinhado. |
+> | vpnGateways | grupo de recursos | 1-80 | Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. Termine com caractere alfanumérico ou sublinhado. |
+> | vpnGateways / vpnConnections | gateway de VPN | 1-80 | Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. Termine com caractere alfanumérico ou sublinhado. |
+> | vpnSites | grupo de recursos | 1-80 | Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. Termine com caractere alfanumérico ou sublinhado. |
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | namespaces | global | 6-50 | Alfanuméricos e hifens<br><br>Comece e termine com alfanumérico. |
-> | namespaces/AuthorizationRules | namespace | 1-256 | Alfanuméricos, pontos, hifens e sublinhados.<br><br>Iniciar alfanumérico. |
-> | namespaces/notificationHubs | namespace | 1-260 | Alfanuméricos, pontos, hifens e sublinhados.<br><br>Iniciar alfanumérico. |
-> | namespaces/notificationHubs/AuthorizationRules | Hub de notificação | 1-256 | Alfanuméricos, pontos, hifens e sublinhados.<br><br>Iniciar alfanumérico. |
+> | namespaces | global | 6–50 | Caracteres alfanuméricos e hifens<br><br>Comece e termine com caractere alfanumérico. |
+> | namespaces / AuthorizationRules | namespace | 1–256 | Caracteres alfanuméricos, pontos, hifens e sublinhados.<br><br>Comece com caractere alfanumérico. |
+> | namespaces / notificationHubs | namespace | 1–260 | Caracteres alfanuméricos, pontos, hifens e sublinhados.<br><br>Comece com caractere alfanumérico. |
+> | namespaces / notificationHubs / AuthorizationRules | hub de notificação | 1–256 | Caracteres alfanuméricos, pontos, hifens e sublinhados.<br><br>Comece com caractere alfanumérico. |
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | clusters | grupo de recursos | 4-63 | Alfanuméricos e hifens.<br><br>Comece e termine com alfanumérico. |
-> | workspaces | grupo de recursos | 4-63 | Alfanuméricos e hifens.<br><br>Comece e termine com alfanumérico. |
+> | clusters | grupo de recursos | 4–63 | Caracteres alfanuméricos e hifens.<br><br>Comece e termine com caractere alfanumérico. |
+> | workspaces | grupo de recursos | 4–63 | Caracteres alfanuméricos e hifens.<br><br>Comece e termine com caractere alfanumérico. |
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 
@@ -547,14 +547,14 @@ Nas tabelas a seguir, o termo alfanumérico refere-se a:
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | dashboards | grupo de recursos | 3-160 | Alfanuméricos e hifens.<br><br>Para usar caracteres restritos, adicione uma marca denominada **Hidden-título** com o nome do painel que você deseja usar. O portal exibe esse nome ao mostrar o painel. |
+> | dashboards | grupo de recursos | 3–160 | Caracteres alfanuméricos e hifens.<br><br>Para usar caracteres restritos, adicione uma marca denominada **hidden-title** com o nome do painel que você deseja usar. O portal exibe esse nome ao mostrar o painel. |
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | workspaceCollections | region | 3-63 | Alfanuméricos e hifens.<br><br>Não é possível começar com hífen. Não é possível usar hifens consecutivos. |
+> | workspaceCollections | region | 3-63 | Caracteres alfanuméricos e hifens.<br><br>Não pode começar com hífen. Não é possível usar hifens consecutivos. |
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 
@@ -568,74 +568,74 @@ Nas tabelas a seguir, o termo alfanumérico refere-se a:
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | vaults | grupo de recursos | 2-50 | Alfanuméricos e hifens.<br><br>Comece com a letra. |
-> | cofres/backupPolicies | cofre | 3-150 | Alfanuméricos e hifens.<br><br>Comece com a letra. Não é possível terminar com hífen. |
+> | vaults | grupo de recursos | 2–50 | Caracteres alfanuméricos e hifens.<br><br>Comece com letra. |
+> | vaults / backupPolicies | cofre | 3–150 | Caracteres alfanuméricos e hifens.<br><br>Comece com letra. Não pode terminar com hífen. |
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | namespaces | global | 6-50 | Alfanuméricos e hifens.<br><br>Comece com uma letra. Terminar com uma letra ou número. |
-> | namespaces/AuthorizationRules | namespace | 1-50 |  Alfanuméricos, pontos, hifens e sublinhados.<br><br>Comece e termine com alfanumérico. |
-> | namespaces/HybridConnections | namespace | 1-260 | Alfanuméricos, pontos, hifens, sublinhados e barras.<br><br>Comece e termine com alfanumérico. |
-> | namespaces/HybridConnections/authorizationRules | conexão híbrida | 1-50 | Alfanuméricos, pontos, hifens e sublinhados.<br><br>Comece e termine com alfanumérico. |
-> | namespaces/WcfRelays | namespace | 1-260 | Alfanuméricos, pontos, hifens, sublinhados e barras.<br><br>Comece e termine com alfanumérico. |
-> | namespaces/WcfRelays/authorizationRules | Retransmissão do WCF | 1-50 | Alfanuméricos, pontos, hifens e sublinhados.<br><br>Comece e termine com alfanumérico. |
+> | namespaces | global | 6–50 | Caracteres alfanuméricos e hifens.<br><br>Comece com uma letra. Termine com uma letra ou número. |
+> | namespaces / AuthorizationRules | namespace | 1-50 |  Caracteres alfanuméricos, pontos, hifens e sublinhados.<br><br>Comece e termine com caractere alfanumérico. |
+> | namespaces / HybridConnections | namespace | 1–260 | Caracteres alfanuméricos, pontos, hifens, sublinhados e barras.<br><br>Comece e termine com caractere alfanumérico. |
+> | namespaces / HybridConnections/authorizationRules | conexão híbrida | 1-50 | Caracteres alfanuméricos, pontos, hifens e sublinhados.<br><br>Comece e termine com caractere alfanumérico. |
+> | namespaces / WcfRelays | namespace | 1–260 | Caracteres alfanuméricos, pontos, hifens, sublinhados e barras.<br><br>Comece e termine com caractere alfanumérico. |
+> | namespaces / WcfRelays / authorizationRules | Retransmissão de WCF | 1-50 | Caracteres alfanuméricos, pontos, hifens e sublinhados.<br><br>Comece e termine com caractere alfanumérico. |
 
 ## <a name="microsoftresources"></a>Microsoft.Resources
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | deployments | grupo de recursos | 1-64 | Alfanuméricos, sublinhados, parênteses, hifens e pontos. |
-> | resourcegroups | subscription | 1-90 | Alfanuméricos, sublinhados, parênteses, hifens, pontos e caracteres Unicode que correspondem à [documentação do Regex](/rest/api/resources/resourcegroups/createorupdate).<br><br>Não é possível terminar com período. |
-> | tagNames | recurso | 1-512 | Não é possível usar:<br>`<>%&\?/` |
-> | tagNames/tagValues | nome da marca | 1-256 | Todos os caracteres. |
+> | deployments | grupo de recursos | 1-64 | Caracteres alfanuméricos, sublinhados, parênteses, hifens e pontos. |
+> | resourcegroups | subscription | 1-90 | Caracteres alfanuméricos, sublinhados, parênteses, hifens, pontos e caracteres unicode que correspondem à [documentação regex](/rest/api/resources/resourcegroups/createorupdate).<br><br>Não pode terminar com ponto. |
+> | tagNames | recurso | 1–512 | Não é possível usar:<br>`<>%&\?/` |
+> | tagNames / tagValues | nome da tag | 1–256 | Todos os caracteres. |
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | namespaces | global | 6-50 | Alfanuméricos e hifens.<br><br>Comece com uma letra. Terminar com uma letra ou número.<br><br>Para obter mais informações, consulte [criar namespace](/rest/api/servicebus/create-namespace). |
-> | namespaces/AuthorizationRules | namespace | 1-50 | Alfanuméricos, pontos, hifens e sublinhados.<br><br>Comece e termine com alphnumeric. |
-> | namespaces/disasterRecoveryConfigs | global | 6-50 | Alfanuméricos e hifens.<br><br>Comece com a letra. Terminar com alfanumérico. |
-> | namespaces/migrationConfigurations | namespace |  | Sempre deve ser **$Default**. |
-> | namespaces/filas | namespace | 1-260 | Alfanuméricos, pontos, hifens, sublinhados e barras.<br><br>Comece e termine com alfanumérico. |
-> | namespaces/filas/authorizationRules | fila | 1-50 | Alfanuméricos, pontos, hifens e sublinhados.<br><br>Comece e termine com alphnumeric. |
-> | namespaces/tópicos | namespace | 1-260 | Alfanuméricos, pontos, hifens, sublinhados e barras.<br><br>Comece e termine com alfanumérico. |
-> | namespaces/tópicos/authorizationRules | topic | 1-50 | Alfanuméricos, pontos, hifens e sublinhados.<br><br>Comece e termine com alphnumeric. |
-> | namespaces/tópicos/assinaturas | topic | 1-50 | Alfanuméricos, pontos, hifens e sublinhados.<br><br>Comece e termine com alphnumeric. |
-> | namespaces/tópicos/assinaturas/regras | subscription | 1-50 | Alfanuméricos, pontos, hifens e sublinhados.<br><br>Comece e termine com alphnumeric. |
+> | namespaces | global | 6–50 | Caracteres alfanuméricos e hifens.<br><br>Comece com uma letra. Termine com uma letra ou número.<br><br>Para mais informações, veja [Criar namespace](/rest/api/servicebus/create-namespace). |
+> | namespaces / AuthorizationRules | namespace | 1-50 | Caracteres alfanuméricos, pontos, hifens e sublinhados.<br><br>Comece e termine com caractere alfanumérico. |
+> | namespaces / disasterRecoveryConfigs | global | 6–50 | Caracteres alfanuméricos e hifens.<br><br>Comece com letra. Termine com caractere alfanumérico. |
+> | namespaces / migrationConfigurations | namespace |  | Sempre deve ser **$default**. |
+> | namespaces / queues | namespace | 1–260 | Caracteres alfanuméricos, pontos, hifens, sublinhados e barras.<br><br>Comece e termine com caractere alfanumérico. |
+> | namespaces / queues / authorizationRules | fila | 1-50 | Caracteres alfanuméricos, pontos, hifens e sublinhados.<br><br>Comece e termine com caractere alfanumérico. |
+> | namespaces / topics | namespace | 1–260 | Caracteres alfanuméricos, pontos, hifens, sublinhados e barras.<br><br>Comece e termine com caractere alfanumérico. |
+> | namespaces / topics / authorizationRules | topic | 1-50 | Caracteres alfanuméricos, pontos, hifens e sublinhados.<br><br>Comece e termine com caractere alfanumérico. |
+> | namespaces / topics / subscriptions | topic | 1-50 | Caracteres alfanuméricos, pontos, hifens e sublinhados.<br><br>Comece e termine com caractere alfanumérico. |
+> | namespaces / topics / subscriptions / rules | subscription | 1-50 | Caracteres alfanuméricos, pontos, hifens e sublinhados.<br><br>Comece e termine com caractere alfanumérico. |
 
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | clusters | region | 4-23 | Letras minúsculas, números e hifens.<br><br>Comece com uma letra minúscula. Terminar com letra minúscula ou número. |
+> | clusters | region | 4–23 | Letras minúsculas, números e hifens.<br><br>Comece com uma letra minúscula. Termine com letra minúscula ou número. |
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | signalR | global | 3-63 | Alfanuméricos e hifens.<br><br>Comece com a letra. Terminar com letra ou número.  |
+> | signalR | global | 3-63 | Caracteres alfanuméricos e hifens.<br><br>Comece com letra. Termine com letra ou número.  |
 
 ## <a name="microsoftsql"></a>Microsoft.Sql
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | managedInstances | global | 1-63 | Letras minúsculas, números e hifens.<br><br>Não é possível iniciar ou terminar com hífen. |
-> | servers | global | 1-63 | Letras minúsculas, números e hifens.<br><br>Não é possível iniciar ou terminar com hífen. |
-> | servidores/administradores | Servidor |  | Deve ser `ActiveDirectory`. |
-> | servidores/bancos de dados | Servidor | 1-128 | Não é possível usar:<br>`<>*%&:\/?`<br><br>Não é possível terminar com período ou espaço. |
-> | servidores/bancos de dados/syncGroups | Banco de Dados | 1-150 | Alfanuméricos, hifens e sublinhados. |
-> | servidores/elasticPools | Servidor | 1-128 | Não é possível usar:<br>`<>*%&:\/?`<br><br>Não é possível terminar com período ou espaço. |
-> | servidores/failoverGroups | global | 1-63 | Letras minúsculas, números e hifens.<br><br>Não é possível iniciar ou terminar com hífen. |
-> | servidores/firewallRules | Servidor | 1-128 | Não é possível usar:<br>`<>*%&:;\/?`<br><br>Não é possível terminar com período. |
+> | managedInstances | global | 1-63 | Letras minúsculas, números e hifens.<br><br>Não pode iniciar ou terminar com hífen. |
+> | servers | global | 1-63 | Letras minúsculas, números e hifens.<br><br>Não pode iniciar ou terminar com hífen. |
+> | servers / administrators | Servidor |  | Deve ser `ActiveDirectory`. |
+> | servers / databases | Servidor | 1–128 | Não é possível usar:<br>`<>*%&:\/?`<br><br>Não pode terminar com ponto ou espaço. |
+> | servers / databases / syncGroups | Banco de Dados | 1-150 | Caracteres alfanuméricos, hifens e sublinhados. |
+> | servers / elasticPools | Servidor | 1–128 | Não é possível usar:<br>`<>*%&:\/?`<br><br>Não pode terminar com ponto ou espaço. |
+> | servers / failoverGroups | global | 1-63 | Letras minúsculas, números e hifens.<br><br>Não pode iniciar ou terminar com hífen. |
+> | servers / firewallRules | Servidor | 1–128 | Não é possível usar:<br>`<>*%&:;\/?`<br><br>Não pode terminar com ponto. |
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
@@ -643,40 +643,40 @@ Nas tabelas a seguir, o termo alfanumérico refere-se a:
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
 > | storageAccounts | global | 3-24 | Letras minúsculas e números. |
-> | storageAccounts/blobservices | do Azure |  | Deve ser `default`. |
-> | storageAccounts/blobservices/contêineres | do Azure | 3-63 | Letras minúsculas, números e hifens.<br><br>Comece com letra minúscula ou número. Não é possível usar hifens consecutivos. |
-> | storageAccounts/fileservices | do Azure |  | Deve ser `default`. |
-> | storageAccounts/fileservices/compartilhamentos | do Azure | 3-63 | Letras minúsculas, números e hifens.<br><br>Não é possível iniciar ou terminar com hífen. Não é possível usar hifens consecutivos. |
-> | storageAccounts/managementPolicies | do Azure |  | Deve ser `default`. |
+> | storageAccounts / blobServices | do Azure |  | Deve ser `default`. |
+> | storageAccounts / blobServices / containers | do Azure | 3-63 | Letras minúsculas, números e hifens.<br><br>Comece com letra minúscula ou número. Não é possível usar hifens consecutivos. |
+> | storageAccounts / fileServices | do Azure |  | Deve ser `default`. |
+> | storageAccounts / fileServices / shares | do Azure | 3-63 | Letras minúsculas, números e hifens.<br><br>Não pode iniciar ou terminar com hífen. Não é possível usar hifens consecutivos. |
+> | storageAccounts / managementPolicies | do Azure |  | Deve ser `default`. |
 > | blob | contêiner | 1-1024 | Qualquer caractere de URL, diferencia maiúsculas de minúsculas |
-> | fila | do Azure | 3-63 | Letras minúsculas, números e hifens.<br><br>Não é possível iniciar ou terminar com hífen. Não é possível usar hifens consecutivos. |
-> | tabela | do Azure | 3-63 | Alfanuméricos.<br><br>Comece com a letra. |
+> | fila | do Azure | 3-63 | Letras minúsculas, números e hifens.<br><br>Não pode iniciar ou terminar com hífen. Não é possível usar hifens consecutivos. |
+> | tabela | do Azure | 3-63 | Caracteres alfanuméricos.<br><br>Comece com letra. |
 
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | storageSyncServices | grupo de recursos | 1-260 | Alfanuméricos, espaços, pontos, hifens e sublinhados.<br><br>Não é possível terminar com período ou espaço. |
-> | storageSyncServices / syncGroups | serviço de sincronização de armazenamento | 1-260 | Alfanuméricos, espaços, pontos, hifens e sublinhados.<br><br>Não é possível terminar com período ou espaço. |
+> | storageSyncServices | grupo de recursos | 1–260 | Caracteres alfanuméricos, espaços, pontos, hifens e sublinhados.<br><br>Não pode terminar com ponto ou espaço. |
+> | storageSyncServices / syncGroups | serviço de sincronização de dados | 1–260 | Caracteres alfanuméricos, espaços, pontos, hifens e sublinhados.<br><br>Não pode terminar com ponto ou espaço. |
 
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | managers | grupo de recursos | 2-50 | Alfanuméricos e hifens.<br><br>Comece com a letra. Terminar com alfanumérico. |
+> | managers | grupo de recursos | 2–50 | Caracteres alfanuméricos e hifens.<br><br>Comece com letra. Termine com caractere alfanumérico. |
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | streamingjobs | grupo de recursos | 3-63 | Alfanuméricos, hifens e sublinhados. |
-> | streamingjobs/funções | trabalho de streaming | 3-63 | Alfanuméricos, hifens e sublinhados. |
-> | streamingjobs/entradas | trabalho de streaming | 3-63 | Alfanuméricos, hifens e sublinhados. |
-> | streamingjobs/saídas | trabalho de streaming | 3-63 | Alfanuméricos, hifens e sublinhados. |
-> | streamingjobs/transformações | trabalho de streaming | 3-63 | Alfanuméricos, hifens e sublinhados. |
+> | streamingjobs | grupo de recursos | 3-63 | Caracteres alfanuméricos, hifens e sublinhados. |
+> | streamingjobs / functions | trabalho de streaming | 3-63 | Caracteres alfanuméricos, hifens e sublinhados. |
+> | streamingjobs / inputs | trabalho de streaming | 3-63 | Caracteres alfanuméricos, hifens e sublinhados. |
+> | streamingjobs / outputs | trabalho de streaming | 3-63 | Caracteres alfanuméricos, hifens e sublinhados. |
+> | streamingjobs / transformations | trabalho de streaming | 3-63 | Caracteres alfanuméricos, hifens e sublinhados. |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 
@@ -684,19 +684,22 @@ Nas tabelas a seguir, o termo alfanumérico refere-se a:
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
 > | environments | grupo de recursos | 1-90 | Não é possível usar:<br>`'<>%&:\?/#` |
-> | ambientes/accessPolicies | environment | 1-90 | Não é possível usar:<br> `'<>%&:\?/#` |
-> | ambientes/eventSources | environment | 1-90 | Não é possível usar:<br>`'<>%&:\?/#` |
-> | ambientes/referenceDataSets | environment | 3-63 | Alfanuméricos |
+> | environments / accessPolicies | environment | 1-90 | Não é possível usar:<br> `'<>%&:\?/#` |
+> | environments / eventSources | environment | 1-90 | Não é possível usar:<br>`'<>%&:\?/#` |
+> | environments / referenceDataSets | environment | 3-63 | Caracteres alfanuméricos |
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | serverfarms | grupo de recursos | 1-40 | Alfanuméricos e hifens. |
-> | sites | global | 2-60 | Contém caracteres alfanuméricos e hifens.<br><br>Não é possível iniciar ou terminar com hífen. |
-> | sites/Slots | site | 2-59 | Alfanuméricos e hifens. |
+> | serverfarms | grupo de recursos | 1–40 | Caracteres alfanuméricos e hifens. |
+> | sites | global | 2–60 | Contém caracteres alfanuméricos e hifens.<br><br>Não pode iniciar ou terminar com hífen. |
+> | sites / slots | site | 2–59 | Caracteres alfanuméricos e hifens. |
+
+> [!NOTE]
+> O Azure Functions tem as mesmas regras de nomenclatura e restrições que Microsoft.Web/sites.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter recomendações sobre como nomear recursos, consulte [pronto: convenções de nomenclatura e marcação recomendadas](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
+Para obter recomendações sobre como dar nome aos recursos, veja [Pronto: Convenções de nomenclatura e de marcação recomendadas](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).

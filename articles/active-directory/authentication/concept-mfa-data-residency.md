@@ -1,6 +1,6 @@
 ---
-title: Residência de dados da autenticação multifator do Azure
-description: Saiba o que os dados pessoais e organizacionais que a autenticação multifator do Azure armazena sobre você e seus usuários e quais dados permanecem dentro do país de origem.
+title: Residência de dados da Autenticação Multifator do Azure
+description: Saiba o que os dados pessoais e organizacionais a Autenticação Multifator do Azure armazena sobre você e seus usuários e quais dados permanecem dentro do país/região de origem.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,100 +11,100 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29ce7631c0ce8ab83edc7b9cd31dfe0db3be5d7e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2a75e9d5c8501274553edef36b475b2bd21b7875
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81309793"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83738794"
 ---
-# <a name="data-residency-and-customer-data-for-azure-multi-factor-authentication"></a>Dados de residência de dados e de cliente para a autenticação multifator do Azure
+# <a name="data-residency-and-customer-data-for-azure-multi-factor-authentication"></a>Residência de dados e dados do cliente para Autenticação Multifator do Azure
 
-Os dados do cliente são armazenados pelo Azure AD em uma localização geográfica com base no endereço fornecido pela sua organização ao assinar um serviço online da Microsoft, como o Office 365 e o Azure. Para obter informações sobre onde os dados do cliente são armazenados, você pode usar a seção [onde os dados estão localizados?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) da central de confiabilidade da Microsoft.
+Os dados do cliente são armazenados pelo Azure AD em um local geográfico com base no endereço fornecido por sua organização ao se inscrever em um serviço Microsoft Online como o Office 365 e o Azure. Para obter informações sobre onde os dados do cliente estão armazenados, você pode usar a seção [Onde seus dados estão localizados?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) do Microsoft Trust Center.
 
-A autenticação multifator do Azure baseada em nuvem e o processo de Servidor de Autenticação Multifator do Azure e armazenar uma quantidade de dados pessoais e dados organizacionais. Este artigo descreve o que e onde os dados são armazenados.
+A Autenticação Multifator do Azure baseada em nuvem e o Servidor de Autenticação Multifator do Azure processam e armazenam uma quantidade de dados pessoais e organizacionais. Este artigo descreve o que são os dados e onde eles são armazenados.
 
-As seguintes atividades de autenticação multifator se originam em data centers dos EUA, exceto onde indicado:
+As seguintes atividades da Autenticação Multifator são originadas de datacenters dos EUA no momento, exceto onde indicado:
 
-* A autenticação de dois fatores que usa chamadas telefônicas ou SMS normalmente é originada de data centers dos EUA e é roteada por provedores globais.
-    * As solicitações de autenticação de usuário de uso geral de outras regiões, como Europa ou Austrália, atualmente são processadas por data centers nessa região. Outros eventos, como redefinições de senha de autoatendimento, eventos do Azure B2C ou cenários híbridos usando a extensão do NPS ou o adaptador de AD FS, são atualmente processados por data centers dos EUA.
-* As notificações por push usando o aplicativo Microsoft Authenticator originam-se de datacenters dos EUA. Além disso, os serviços específicos de fornecedores de dispositivos também podem entrar em cena de regiões diferentes.
-* Os códigos OATH geralmente são validados no momento nos EUA.
-    * Novamente, os eventos de autenticação de usuário de uso geral que se originam em outras regiões, como Europa ou Austrália, são processados por data centers nessa região. Os eventos adicionais são processados atualmente por data centers dos EUA.
+* A autenticação de dois fatores que usa ligações telefônicas ou SMS normalmente é originada de datacenters dos EUA e é roteada por provedores globais.
+    * As solicitações de autenticação de usuário de uso geral de outras regiões, como Europa ou Austrália, são processadas no momento por datacenters nessa região. Outros eventos como redefinições de senha por autoatendimento, eventos do Azure B2C ou cenários híbridos que usam a Extensão do NPS ou o adaptador do AD FS, são processados, no momento, por datacenters dos EUA.
+* As notificações por push que usam o aplicativo Microsoft Authenticator são originadas de datacenters dos EUA. Além disso, os serviços específicos de fornecedores de dispositivos também podem entrar em ação de regiões diferentes.
+* Normalmente, os códigos OATH são validados no momento nos EUA.
+    * Novamente, os eventos de autenticação de usuário de uso geral originados em outras regiões, como Europa ou Austrália, são processados por datacenters nessa região. Os eventos adicionais são processados atualmente por datacenters dos EUA.
 
-## <a name="personal-data-stored-by-azure-multi-factor-authentication"></a>Dados pessoais armazenados pela autenticação multifator do Azure
+## <a name="personal-data-stored-by-azure-multi-factor-authentication"></a>Dados pessoais armazenados pela Autenticação Multifator do Azure
 
 Dados pessoais são informações de nível de usuário associadas a uma pessoa específica. Os seguintes armazenamentos de dados contêm informações pessoais:
 
 * Usuários bloqueados
 * Usuários ignorados
-* Microsoft Authenticator solicitações de alteração de token de dispositivo
-* Relatórios de atividade da autenticação multifator
-* Ativações de Microsoft Authenticator
+* Solicitações de alteração de token do dispositivo Microsoft Authenticator
+* Relatórios de atividade da Autenticação Multifator
+* Ativações do Microsoft Authenticator
 
 Essas informações são mantidas por 90 dias.
 
-A autenticação multifator do Azure não registra dados pessoais, como nome de usuário, número de telefone ou endereço IP, mas há um *Userobjectid* que identifica as tentativas de autenticação multifator para os usuários. Os dados de log são armazenados por 30 dias.
+A Autenticação Multifator do Azure não registra dados pessoais como nome de usuário, número de telefone ou endereço IP, mas há um *UserObjectId* que identifica as tentativas de autenticação multifator para os usuários. Os dados de log são armazenados por 30 dias.
 
 ### <a name="azure-multi-factor-authentication"></a>Autenticação Multifator do Azure
 
-Para nuvens públicas do Azure, excluindo a autenticação do Azure B2C, a extensão do NPS e o Windows Server 2016 ou 2019 AD FS adaptador, os seguintes dados pessoais são armazenados:
+Para nuvens públicas do Azure, excluindo a autenticação do Azure B2C, a Extensão do NPS e o Adaptador do AD FS do Windows Server 2016 ou 2019, os seguintes dados pessoais são armazenados:
 
-| Tipo de evento                           | Tipo de repositório de dados |
+| Tipo de evento                           | Tipo de armazenamento de dados |
 |--------------------------------------|-----------------|
-| Token OATH                           | Nos logs da autenticação multifator     |
-| SMS unidirecional                          | Nos logs da autenticação multifator     |
-| Chamada de voz                           | Nos logs da autenticação multifator<br />Armazenamento de dados de relatório de atividade de autenticação multifator<br />Usuários bloqueados se houver fraude relatada |
-| Notificação de Microsoft Authenticator | Nos logs da autenticação multifator<br />Armazenamento de dados de relatório de atividade de autenticação multifator<br />Usuários bloqueados se houver fraude relatada<br />Solicitações de alteração ao Microsoft Authenticator o token de dispositivo é alterado |
+| Token OATH                           | Em logs de Autenticação Multifator     |
+| SMS unidirecional                          | Em logs de Autenticação Multifator     |
+| Chamada de voz                           | Em logs de Autenticação Multifator<br />Armazenamento de dados do relatório de atividade da Autenticação Multifator<br />Usuários bloqueados se houver fraude relatada |
+| Notificação do Microsoft Authenticator | Em logs de Autenticação Multifator<br />Armazenamento de dados do relatório de atividade da Autenticação Multifator<br />Usuários bloqueados se houver fraude relatada<br />Solicitações de alteração quando o token do dispositivo Microsoft Authenticator é alterado |
 
 > [!NOTE]
-> O armazenamento de dados do relatório de atividade de autenticação multifator é armazenado no Estados Unidos para todas as nuvens, independentemente da região que processa a solicitação de autenticação. Microsoft Azure Alemanha, Microsoft Azure operado pela 21Vianet e a nuvem do Microsoft governamental têm seus próprios armazenamentos de dados independentes separados de armazenamentos de dados de região de nuvem pública, no entanto, esses dados são sempre armazenados no Estados Unidos.
+> O armazenamento de dados do relatório de atividade da Autenticação Multifator é armazenado nos Estados Unidos para todas as nuvens, independentemente da região que processa a solicitação de autenticação. Microsoft Azure Alemanha, o Microsoft Azure operado pela 21Vianet e a nuvem do Microsoft Government têm os próprios armazenamentos de dados independentes separados de armazenamentos de dados de região de nuvem pública, no entanto esses dados são sempre armazenados no Estados Unidos.
 
-Por Microsoft Azure Governamental, Microsoft Azure Alemanha, Microsoft Azure operado por 21Vianet, autenticação do Azure B2C, extensão NPS e adaptador de AD FS do Windows Server 2016 ou 2019, os seguintes dados pessoais são armazenados:
+Para o Microsoft Azure Government, o Microsoft Azure Alemanha, o Microsoft Azure operado pela 21Vianet, a autenticação do Azure B2C, a Extensão NPS e o Adaptador do AD FS do Windows Server 2016 ou 2019, os seguintes dados pessoais são armazenados:
 
-| Tipo de evento                           | Tipo de repositório de dados |
+| Tipo de evento                           | Tipo de armazenamento de dados |
 |--------------------------------------|-----------------|
-| Token OATH                           | Nos logs da autenticação multifator<br />Armazenamento de dados de relatório de atividade de autenticação multifator |
-| SMS unidirecional                          | Nos logs da autenticação multifator<br />Armazenamento de dados de relatório de atividade de autenticação multifator |
-| Chamada de voz                           | Nos logs da autenticação multifator<br />Armazenamento de dados de relatório de atividade de autenticação multifator<br />Usuários bloqueados se houver fraude relatada |
-| Notificação de Microsoft Authenticator | Nos logs da autenticação multifator<br />Armazenamento de dados de relatório de atividade de autenticação multifator<br />Usuários bloqueados se houver fraude relatada<br />Solicitações de alteração ao Microsoft Authenticator o token de dispositivo é alterado |
+| Token OATH                           | Em logs de Autenticação Multifator<br />Armazenamento de dados do relatório de atividade da Autenticação Multifator |
+| SMS unidirecional                          | Em logs de Autenticação Multifator<br />Armazenamento de dados do relatório de atividade da Autenticação Multifator |
+| Chamada de voz                           | Em logs de Autenticação Multifator<br />Armazenamento de dados do relatório de atividade da Autenticação Multifator<br />Usuários bloqueados se houver fraude relatada |
+| Notificação do Microsoft Authenticator | Em logs de Autenticação Multifator<br />Armazenamento de dados do relatório de atividade da Autenticação Multifator<br />Usuários bloqueados se houver fraude relatada<br />Solicitações de alteração quando o token do dispositivo Microsoft Authenticator é alterado |
 
 ### <a name="multi-factor-authentication-server"></a>Servidor de Autenticação Multifator
 
-Se você implantar e executar o Azure Servidor de Autenticação Multifator, os seguintes dados pessoais serão armazenados:
+Se você implantar e executar o Servidor de Autenticação Multifator do Azure, os seguintes dados pessoais serão armazenados:
 
 > [!IMPORTANT]
-> A partir de 1º de julho de 2019, a Microsoft não oferecerá mais Servidor de Autenticação Multifator para novas implantações. Novos clientes que queiram exigir a autenticação multifator de seus usuários devem usar a autenticação multifator do Azure baseada em nuvem. Os clientes existentes que ativaram Servidor de Autenticação Multifator antes de 1º de julho poderão baixar a versão mais recente, futuras atualizações e gerar credenciais de ativação como de costume.
+> A partir de 1º de julho de 2019, a Microsoft não oferecerá mais o Servidor de Autenticação Multifator para novas implantações. Novos clientes que desejarem exigir a autenticação multifator de seus usuários devem usar a Autenticação Multifator do Microsoft Azure baseada em nuvem. Os clientes existentes que têm o Servidor de Autenticação Multifator antes de 1º de julho poderão baixar a versão mais recente e atualizações futuras e gerar credenciais de ativação como de costume.
 
-| Tipo de evento                           | Tipo de repositório de dados |
+| Tipo de evento                           | Tipo de armazenamento de dados |
 |--------------------------------------|-----------------|
-| Token OATH                           | Nos logs da autenticação multifator<br />Armazenamento de dados de relatório de atividade de autenticação multifator |
-| SMS unidirecional                          | Nos logs da autenticação multifator<br />Armazenamento de dados de relatório de atividade de autenticação multifator |
-| Chamada de voz                           | Nos logs da autenticação multifator<br />Armazenamento de dados de relatório de atividade de autenticação multifator<br />Usuários bloqueados se houver fraude relatada |
-| Notificação de Microsoft Authenticator | Nos logs da autenticação multifator<br />Armazenamento de dados de relatório de atividade de autenticação multifator<br />Usuários bloqueados se houver fraude relatada<br />Solicitações de alteração ao Microsoft Authenticator o token de dispositivo é alterado |
+| Token OATH                           | Em logs de Autenticação Multifator<br />Armazenamento de dados do relatório de atividade da Autenticação Multifator |
+| SMS unidirecional                          | Em logs de Autenticação Multifator<br />Armazenamento de dados do relatório de atividade da Autenticação Multifator |
+| Chamada de voz                           | Em logs de Autenticação Multifator<br />Armazenamento de dados do relatório de atividade da Autenticação Multifator<br />Usuários bloqueados se houver fraude relatada |
+| Notificação do Microsoft Authenticator | Em logs de Autenticação Multifator<br />Armazenamento de dados do relatório de atividade da Autenticação Multifator<br />Usuários bloqueados se houver fraude relatada<br />Solicitações de alteração quando o token do dispositivo Microsoft Authenticator é alterado |
 
-## <a name="organizational-data-stored-by-azure-multi-factor-authentication"></a>Dados organizacionais armazenados pela autenticação multifator do Azure
+## <a name="organizational-data-stored-by-azure-multi-factor-authentication"></a>Dados organizacionais armazenados pela Autenticação Multifator do Azure
 
-Os dados organizacionais são informações de nível de locatário que podem expor configuração ou instalação de ambiente. As configurações de locatário do seguinte portal do Azure páginas de autenticação multifator podem armazenar dados organizacionais, como limites de bloqueio ou informações de ID do chamador para solicitações de autenticação de telefone de entrada:
+Os dados organizacionais são informações de nível de locatário que podiam expor a instalação da configuração ou do ambiente. As configurações de locatário das seguintes páginas da Autenticação Multifator do portal do Azure podem armazenar dados organizacionais como limites de bloqueio ou informações sobre a chamada para solicitações de autenticação do telefone de entrada:
 
 * Bloqueio de conta
 * Alerta de fraude
 * Notificações
 * Configurações de chamada telefônica
 
-E para o Azure Servidor de Autenticação Multifator, as seguintes portal do Azure páginas podem conter dados organizacionais:
+Para o Servidor de Autenticação Multifator do Azure, as seguintes páginas do portal do Azure podem conter dados organizacionais:
 
 * Configurações do servidor
 * Desvio único
 * Regras de cache
-* Status de Servidor de Autenticação Multifator
+* Status do Servidor de Autenticação Multifator
 
-## <a name="log-data-location"></a>Local dos dados de log
+## <a name="log-data-location"></a>Registrar local de dados
 
-O local em que as informações de log são armazenadas depende de em qual região elas são processadas. A maioria das geografias tem recursos nativos de autenticação multifator do Azure, portanto, os dados de log são armazenados na mesma região que processa a solicitação de autenticação multifator. Em geografias sem suporte nativo à autenticação multifator do Azure, eles são atendidos pelo Estados Unidos ou pelas geografias da Europa e os dados de log são armazenados na mesma região que processa a solicitação de autenticação multifator.
+O local em que as informações de log são armazenadas depende de em qual região elas são processadas. A maioria das geografias tem funcionalidades de Autenticação Multifator do Azure nativas, portanto os dados de log são armazenados na mesma região que processa a solicitação da Autenticação Multifator. Em geografias sem suporte nativo da Autenticação Multifator do Azure, elas são atendidas pelas geografias dos Estados Unidos ou da Europa e os dados de log são armazenados na mesma região que processa a solicitação da Autenticação Multifator.
 
-Alguns dados de log de autenticação de núcleo só são armazenados no Estados Unidos. Microsoft Azure Alemanha e Microsoft Azure operado pela 21Vianet são sempre armazenados em sua respectiva nuvem. Os dados de log da nuvem do Microsoft governamental sempre são armazenados no Estados Unidos.
+Alguns dados importantes de log de autenticação são armazenados apenas nos Estados Unidos. O Microsoft Azure Alemanha e o Microsoft Azure operado pela 21Vianet sempre são armazenados na respectiva nuvem. Os dados de log da nuvem do Microsoft Government sempre estão disponíveis nos Estados Unidos.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre quais informações do usuário são coletadas pela autenticação multifator do Azure baseada em nuvem e pelo Azure Servidor de Autenticação Multifator, consulte [coleta de dados do usuário da autenticação multifator do Azure](howto-mfa-reporting-datacollection.md).
+Para obter mais informações sobre quais informações do usuário são coletadas pelo Servidor de Autenticação Multifator do Azure e pela Autenticação Multifator do Azure baseados em nuvem, confira [Coleta de dados do usuário da Autenticação Multifator do Azure](howto-mfa-reporting-datacollection.md).

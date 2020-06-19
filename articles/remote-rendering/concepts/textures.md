@@ -5,45 +5,45 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 09fa22d33377dfcbafd84f0caeb5f33a575b1bce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: de3f127d97803ea920d61d748a1af0c80a1a1afc
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681656"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83759125"
 ---
 # <a name="textures"></a>Texturas
 
-As texturas são um [recurso compartilhado](../concepts/lifetime.md)imutável. As texturas podem ser carregadas do [armazenamento de BLOBs](../how-tos/conversion/blob-storage.md) e aplicadas aos modelos diretamente, como demonstrado no [tutorial: alterando o ambiente e os materiais](../tutorials/unity/changing-environment-and-materials.md). No entanto, geralmente as texturas serão parte de um [modelo convertido](../how-tos/conversion/model-conversion.md), onde são referenciadas por seus [materiais](materials.md).
+As texturas são um [recurso compartilhado](../concepts/lifetime.md) imutável. As texturas podem ser carregadas do [armazenamento de blobs](../how-tos/conversion/blob-storage.md) e aplicadas aos modelos diretamente, como demonstrado no [Tutorial: Alteração do ambiente e dos materiais](../tutorials/unity/changing-environment-and-materials.md). No entanto, geralmente as texturas serão parte de um [modelo convertido](../how-tos/conversion/model-conversion.md), em que eles são referenciados por seus [materiais](materials.md).
 
 ## <a name="texture-types"></a>Tipos de textura
 
 Tipos de textura diferentes têm diferentes casos de uso:
 
-* as **texturas 2D** são usadas principalmente em [materiais](materials.md).
-* **Cubemaps** pode ser usado para o [céu](../overview/features/sky.md).
+* As **texturas 2D** são usadas principalmente em [materiais](materials.md).
+* **Cubemaps** podem ser usados para [céu](../overview/features/sky.md).
 
-## <a name="supported-texture-formats"></a>Formatos de textura com suporte
+## <a name="supported-texture-formats"></a>Formatos de textura compatíveis
 
-Todas as texturas dadas a ARR devem estar no [formato DDS](https://en.wikipedia.org/wiki/DirectDraw_Surface). Preferencialmente com mipmaps e a compactação de textura. Consulte [a ferramenta de linha de comando TexConv](../resources/tools/tex-conv.md) se você quiser automatizar o processo de conversão.
+Todas as texturas para o Application Request Routing devem estar no formato [DDS](https://en.wikipedia.org/wiki/DirectDraw_Surface). Preferencialmente com mipmaps e compactação de textura. Veja [a ferramenta de linha de comando TexConv](../resources/tools/tex-conv.md) se quiser automatizar o processo de conversão.
 
-## <a name="loading-textures"></a>Carregando texturas
+## <a name="loading-textures"></a>Carregar texturas
 
-Ao carregar uma textura, você precisa especificar seu tipo esperado. Se o tipo não corresponder, o carregamento da textura falhará.
-Carregar uma textura com o mesmo URI duas vezes retornará o mesmo objeto de textura, pois ele é um [recurso compartilhado](../concepts/lifetime.md).
+Ao carregar uma textura, é preciso especificar seu tipo esperado. Se o tipo não corresponder, o carregamento da textura falhará.
+Carregar uma textura com o mesmo URI duas vezes retornará o mesmo objeto de textura, pois é um [recurso compartilhado](../concepts/lifetime.md).
 
-De forma semelhante ao carregamento de modelos, há duas variantes de endereçamento de um ativo de textura no armazenamento de blob de origem:
+De forma semelhante ao carregamento de modelos, há duas variantes de endereçamento de um ativo de textura no armazenamento do blob de origem:
 
-* O ativo de textura pode ser endereçado por seu URI de SAS. A função de carregamento `LoadTextureFromSASAsync` relevante é `LoadTextureFromSASParams`com o parâmetro. Use essa variante também ao carregar [texturas internas](../overview/features/sky.md#built-in-environment-maps).
-* A textura pode ser resolvida pelos parâmetros de armazenamento de BLOBs diretamente, caso o [armazenamento de BLOBs esteja vinculado à conta](../how-tos/create-an-account.md#link-storage-accounts). A função de carregamento relevante nesse caso `LoadTextureAsync` é com `LoadTextureParams`o parâmetro.
+* O ativo de textura pode ser endereçado por seu URI de SAS. A função de carregamento relevante é `LoadTextureFromSASAsync` com o parâmetro `LoadTextureFromSASParams`. Use essa variante também ao carregar [texturas integradas](../overview/features/sky.md#built-in-environment-maps).
+* Lide com a textura diretamente pelos parâmetros de Armazenamento de Blobs, caso o [armazenamento de blobs esteja vinculado à conta](../how-tos/create-an-account.md#link-storage-accounts). A função de carregamento relevante nesse caso é `LoadTextureAsync` com o parâmetro `LoadTextureParams`.
 
-O código de exemplo a seguir mostra como carregar uma textura por meio de seu URI de SAS (ou textura interna) – Observe que apenas a função/parâmetro de carregamento difere para o outro caso:
+O código de exemplo a seguir mostra como carregar uma textura por meio de seu URI de SAS (ou textura integrada). Observe que apenas a função/o parâmetro de carregamento difere para o outro caso:
 
-``` cs
+```cs
 LoadTextureAsync _textureLoad = null;
 void LoadMyTexture(AzureSession session, string textureUri)
 {
-    _textureLoad = session.Actions.LoadTextureAsync(new LoadTextureParams(textureUri, TextureType.Texture2D));
+    _textureLoad = session.Actions.LoadTextureFromSASAsync(new LoadTextureFromSASParams(textureUri, TextureType.Texture2D));
     _textureLoad.Completed +=
         (LoadTextureAsync res) =>
         {
@@ -60,12 +60,34 @@ void LoadMyTexture(AzureSession session, string textureUri)
 }
 ```
 
-Dependendo do que a textura deve ser usada, pode haver restrições para o tipo de textura e o conteúdo. Por exemplo, o mapa de comparações de um [material PBR](../overview/features/pbr-materials.md) deve ser em escala de cinza.
+```cpp
+void LoadMyTexture(ApiHandle<AzureSession> session, std::string textureUri)
+{
+    LoadTextureFromSASParams params;
+    params.TextureType = TextureType::Texture2D;
+    params.TextureUrl = std::move(textureUri);
+    ApiHandle<LoadTextureAsync> textureLoad = *session->Actions()->LoadTextureFromSASAsync(params);
+    textureLoad->Completed([](ApiHandle<LoadTextureAsync> res)
+    {
+        if (res->IsRanToCompletion())
+        {
+            //use res->Result()
+        }
+        else
+        {
+            printf("Texture loading failed!");
+        }
+    });
+}
+```
+
+
+Dependendo do uso da textura, pode haver restrições para o tipo de textura e o conteúdo. Por exemplo, o mapa de irregularidades de um [material PBR](../overview/features/pbr-materials.md) deve ser em escala de cinza.
 
 > [!CAUTION]
-> Todas as funções *assíncronas* no Arr retornam objetos de operação assíncrona. Você deve armazenar uma referência a esses objetos até que a operação seja concluída. Caso contrário, o coletor de lixo C# poderá excluir a operação antecipadamente e nunca poderá ser concluído. No código de exemplo acima, a variável de membro ' _textureLoad ' é usada para manter uma referência até que o evento *concluído* chegue.
+> Todas as funções *assíncronas* no Application Request Routing retornam objetos de operação assíncronos. É preciso armazenar uma referência a esses objetos até que a operação seja concluída. Caso contrário, o coletor de lixo do C# pode excluir a operação antecipadamente e pode nunca ser concluído. No código de exemplo acima, a variável de membro "_textureLoad" é usada para manter uma referência até que o evento *Concluído* chegue.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Materiais](materials.md)
-* [Celeste](../overview/features/sky.md)
+* [Céu](../overview/features/sky.md)

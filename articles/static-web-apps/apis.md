@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 7f86ce9158b5b07b036c785c2973e8a5883ed686
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 4fa3acf0e6cc767aeee4504bbc4df382a75e256b
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594265"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758751"
 ---
 # <a name="api-support-in-azure-static-web-apps-preview-with-azure-functions"></a>Suporte de API na Versão Prévia dos Aplicativos Web Estáticos do Azure com Azure Functions
 
@@ -32,6 +32,7 @@ Os pontos de extremidade da API estão disponíveis para o aplicativo web por me
 Os Aplicativos Web Estáticos do Azure fornecem uma API por meio das Azure Functions. As funcionalidades das Azure Functions estão concentradas em um conjunto específico de recursos que permitem criar uma API para um aplicativo web, possibilitando que o aplicativo Web conecte a API com segurança. Esses recursos têm algumas restrições, incluindo:
 
 - O prefixo de rota da API deve ser _api_.
+- O aplicativo de funções de API deve estar em JavaScript.
 - Gatilhos e associações são limitados ao [HTTP](../azure-functions/functions-bindings-http-webhook.md).
   - Todos os outros [gatilhos e associações das Azure Functions](../azure-functions/functions-triggers-bindings.md#supported-bindings), exceto as associações de saída, são restritos.
 - Os logs só estarão disponíveis se você adicionar [Application Insights](../azure-functions/functions-monitoring.md) ao seu aplicativo Functions.

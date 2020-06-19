@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/15/2019
-ms.openlocfilehash: 52f389e00d63f3659dfe79487b31ec9c3fab1ced
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
-ms.translationtype: MT
+ms.openlocfilehash: 82fbc144b9b2dffdddc09900bf6ed9424b445100
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82580686"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701451"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Expressões de transformação de dados no fluxo de dados de mapeamento
 
@@ -32,11 +32,11 @@ Valor absoluto de um número.
 ___   
 ### <code>acos</code>
 <code><b>acos(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Calcula um valor inverso do cosseno* ``acos(1) -> 0.0``  
+Calcula um valor de inverso do cosseno * ``acos(1) -> 0.0``  
 ___
 ### <code>add</code>
 <code><b>add(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
-Adiciona um par de cadeias de caracteres ou números. Adiciona uma data a um número de dias. Adiciona uma duração a um carimbo de data/hora. Acrescenta uma matriz de tipo semelhante a outra. Mesmo que o operador +* ``add(10, 20) -> 30``  
+Adiciona um par de cadeias de caracteres ou números. Adiciona uma data a um número de dias. Adiciona uma duração a um carimbo de data/hora. Acrescenta uma matriz de tipo semelhante a outra. Similar ao operador + * ``add(10, 20) -> 30``  
 * ``10 + 20 -> 30``  
 * ``add('ice', 'cream') -> 'icecream'``  
 * ``'ice' + 'cream' + ' cone' -> 'icecream cone'``  
@@ -51,21 +51,28 @@ Adiciona dias a uma data ou carimbo de data/hora. Similar ao operador + para dat
 ___
 ### <code>addMonths</code>
 <code><b>addMonths(<i>&lt;date/timestamp&gt;</i> : datetime, <i>&lt;months to add&gt;</i> : integral, [<i>&lt;value3&gt;</i> : string]) => datetime</b></code><br/><br/>
-Adicione meses a uma data ou timestamp. Opcionalmente, você pode passar um fuso horário* ``addMonths(toDate('2016-08-31'), 1) -> toDate('2016-09-30')``  
+Adiciona meses a uma data ou um carimbo de data/hora. Opcionalmente, você pode transmitir um fuso horário * ``addMonths(toDate('2016-08-31'), 1) -> toDate('2016-09-30')``  
 * ``addMonths(toTimestamp('2016-09-30 10:10:10'), -1) -> toTimestamp('2016-08-31 10:10:10')``  
 ___
 ### <code>and</code>
 <code><b>and(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : boolean) => boolean</b></code><br/><br/>
-Operador AND lógico. O mesmo que && * ``and(true, false) -> false``  
+Operador AND lógico. Similar a && * ``and(true, false) -> false``  
 * ``true && false -> false``  
+___
+### <code>array</code>
+<code><b>array([<i>&lt;value1&gt;</i> : any], ...) => array</b></code><br/><br/>
+Cria uma matriz de itens. Todos os itens devem ser do mesmo tipo. Se nenhum item for especificado, o padrão será uma matriz de cadeia de caracteres vazia. O mesmo que um operador de criação [] * ``array('Seattle', 'Washington')``
+* ``['Seattle', 'Washington']``
+* ``['Seattle', 'Washington'][1]``
+* ``'Washington'``
 ___
 ### <code>asin</code>
 <code><b>asin(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Calcula um valor inverso do seno* ``asin(0) -> 0.0``  
+Calcula um valor de inverso do seno * ``asin(0) -> 0.0``  
 ___
 ### <code>atan</code>
 <code><b>atan(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Calcula um valor de inverso da tangente * ``atan(0) -> 0.0``  
+Calcula um valor inverso da tangente * ``atan(0) -> 0.0``  
 ___
 ### <code>atan2</code>
 <code><b>atan2(<i>&lt;value1&gt;</i> : number, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
@@ -73,16 +80,37 @@ Retorna o ângulo em radianos entre o eixo x positivo de um plano e o ponto dado
 ___
 ### <code>byName</code>
 <code><b>byName(<i>&lt;column name&gt;</i> : string, [<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
-Seleciona um valor de coluna por nome no fluxo. Você pode passar um nome de fluxo opcional como o segundo argumento. Se houver várias correspondências, a primeira correspondência será retornada. Se nenhuma correspondência retornar um valor nulo. O valor retornado deve ser do tipo convertido por uma das funções de conversão de tipo (TO_DATE, TO_STRING...).  Nomes de coluna conhecidos em tempo de design devem ser abordados apenas por seu nome. Não há suporte para entradas computadas, mas você pode usar substituições de parâmetro* ``toString(byName('parent'))``  
+Seleciona um valor de coluna de acordo com o nome no fluxo. Você pode transmitir um nome de fluxo opcional como o segundo argumento. Se houver várias correspondências, a primeira correspondência será retornada. Se não houver correspondência, um valor NULL é retornado. O valor retornado deve ser do tipo convertido por uma das funções de conversão de tipo (TO_DATE, TO_STRING...).  Os nomes de coluna conhecidos no tempo de design devem ser tratados apenas por seus nomes. Não há suporte a entradas computadas, mas você pode usar substituições de parâmetro * ``toString(byName('parent'))``  
 * ``toLong(byName('income'))``  
 * ``toBoolean(byName('foster'))``  
 * ``toLong(byName($debtCol))``  
 * ``toString(byName('Bogus Column'))``  
 * ``toString(byName('Bogus Column', 'DeriveStream'))``  
 ___
+### <code>byNames</code>
+<code><b>byNames(<i>&lt;column names&gt;</i> : array, [<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
+Selecione uma matriz de colunas de acordo com o nome no fluxo. Você pode transmitir um nome de fluxo opcional como o segundo argumento. Se houver várias correspondências, a primeira correspondência será retornada. Se não houver correspondência para uma coluna, a saída inteira será um valor NULL. O valor retornado requer uma função de conversão de tipo (toDate, toString,...).  Os nomes de coluna conhecidos no tempo de design devem ser tratados apenas por seus nomes. Não há suporte a entradas computadas, mas você pode usar substituições de parâmetro.
+* ``toString(byNames(['parent', 'child']))``
+* ````
+* ``byNames(['parent']) ? string``
+* ````
+* ``toLong(byNames(['income']))``
+* ````
+* ``byNames(['income']) ? long``
+* ````
+* ``toBoolean(byNames(['foster']))``
+* ````
+* ``toLong(byNames($debtCols))``
+* ````
+* ``toString(byNames(['a Column']))``
+* ````
+* ``toString(byNames(['a Column'], 'DeriveStream'))``
+* ````
+* ``byNames(['orderItem']) ? (itemName as string, itemQty as integer)``
+___
 ### <code>byPosition</code>
 <code><b>byPosition(<i>&lt;position&gt;</i> : integer) => any</b></code><br/><br/>
-Seleciona um valor de coluna por sua posição relativa (1 com base) no fluxo. Se a posição estiver fora dos limites, ela retornará um valor nulo. O valor retornado deve ser do tipo convertido por uma das funções de conversão de tipo (TO_DATE, TO_STRING...) Não há suporte para entradas computadas, mas você pode usar substituições de parâmetro* ``toString(byPosition(1))``  
+Seleciona um valor de coluna de acordo com sua posição relativa (com base em 1) no fluxo. Se a posição estiver fora dos limites, ela retornará um valor NULL. O valor retornado deve ser do tipo convertido por uma das funções de conversão de tipo (TO_DATE, TO_STRING...) Não há suporte a entradas computadas, mas você pode usar substituições de parâmetro * ``toString(byPosition(1))``  
 * ``toDecimal(byPosition(2), 10, 2)``  
 * ``toBoolean(byName(4))``  
 * ``toString(byName($colName))``  
@@ -90,7 +118,7 @@ Seleciona um valor de coluna por sua posição relativa (1 com base) no fluxo. S
 ___
 ### <code>case</code>
 <code><b>case(<i>&lt;condition&gt;</i> : boolean, <i>&lt;true_expression&gt;</i> : any, <i>&lt;false_expression&gt;</i> : any, ...) => any</b></code><br/><br/>
-Com base em condições alternadas, aplica-se um valor ou o outro. Se o número de entradas for par, o outro será padronizado como nulo para a última condição* ``case(10 + 20 == 30, 'dumbo', 'gumbo') -> 'dumbo'``  
+Com base em condições alternadas, aplica-se um valor ou o outro. Se o número de entradas for par, o outro é padronizado como NULL na última condição * ``case(10 + 20 == 30, 'dumbo', 'gumbo') -> 'dumbo'``  
 * ``case(10 + 20 == 25, 'bojjus', 'do' < 'go', 'gunchus') -> 'gunchus'``  
 * ``isNull(case(10 + 20 == 25, 'bojjus', 'do' > 'go', 'gunchus')) -> true``  
 * ``case(10 + 20 == 25, 'bojjus', 'do' > 'go', 'gunchus', 'dumbo') -> 'dumbo'``  
@@ -105,24 +133,33 @@ Retorna o menor inteiro não inferior ao número * ``ceil(-0.1) -> 0``
 ___
 ### <code>coalesce</code>
 <code><b>coalesce(<i>&lt;value1&gt;</i> : any, ...) => any</b></code><br/><br/>
-Retorna o primeiro valor não nulo de um conjunto de entradas. Todas as entradas devem ser do mesmo tipo* ``coalesce(10, 20) -> 10``  
+Retorna o primeiro valor não nulo de um conjunto de entradas. Todas as entradas devem ser do mesmo tipo * ``coalesce(10, 20) -> 10``  
 * ``coalesce(toString(null), toString(null), 'dumbo', 'bo', 'go') -> 'dumbo'``  
 ___
 ### <code>collect</code>
 <code><b>collect(<i>&lt;value1&gt;</i> : any) => array</b></code><br/><br/>
-Coleta todos os valores da expressão no grupo agregado em uma matriz. As estruturas podem ser coletadas e transformadas em estruturas alternativas durante esse processo. O número de itens será igual ao número de linhas nesse grupo e poderá conter valores nulos. O número de itens coletados deve ser pequeno* ``collect(salesPerson)``
+Coleta todos os valores da expressão no grupo agregado em uma matriz. As estruturas podem ser coletadas e transformadas em estruturas alternativas durante esse processo. O número de itens será igual ao número de linhas nesse grupo e poderá conter valores nulos. O número de itens coletados deve ser pequeno * ``collect(salesPerson)``
 * ``collect(firstName + lastName))``
 * ``collect(@(name = salesPerson, sales = salesAmount) )``
 ___
 ### <code>columnNames</code>
 <code><b>columnNames(<i>&lt;value1&gt;</i> : string) => array</b></code><br/><br/>
-Obtém todas as colunas de saída para um fluxo. Você pode passar um nome de fluxo opcional como o segundo argumento.  
+Obtém todas as colunas de saída de um fluxo. Você pode transmitir um nome de fluxo opcional como o segundo argumento.  
 * ``columnNames()``
 * ``columnNames('DeriveStream')``
+
+___
+### <code>columns</code>
+<code><b>columns([<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
+Obtém todas as colunas de saída de um fluxo. Você pode transmitir um nome de fluxo opcional como o segundo argumento.   
+* ``columns()``
+* ````
+* ``columns('DeriveStream')``
+* ````
 ___
 ### <code>compare</code>
 <code><b>compare(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => integer</b></code><br/><br/>
-Compara dois valores do mesmo tipo. Retorna um inteiro negativo se value1 < value2, 0 se value1 = = value2, valor positivo se value1 > value2* ``(compare(12, 24) < 1) -> true``  
+Compara dois valores do mesmo tipo. Retorna um inteiro negativo se value1 < value2, 0 se value1 == value2, um valor positivo se value1 > value2 * ``(compare(12, 24) < 1) -> true``  
 * ``(compare('dumbo', 'dum') > 0) -> true``  
 ___
 ### <code>concat</code>
@@ -139,7 +176,7 @@ Concatena um número variável de cadeias de caracteres juntamente com um separa
 ___
 ### <code>contains</code>
 <code><b>contains(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => boolean</b></code><br/><br/>
-Retornará true se qualquer elemento na matriz fornecida for avaliado como true no predicado fornecido. Contains espera uma referência a um elemento na função de predicado como #item* ``contains([1, 2, 3, 4], #item == 3) -> true``  
+Retornará true se algum elemento na matriz fornecida for avaliado como true no predicado fornecido. Contains espera uma referência a um elemento na função de predicado como #item * ``contains([1, 2, 3, 4], #item == 3) -> true``  
 * ``contains([1, 2, 3, 4], #item > 5) -> false``  
 ___
 ### <code>cos</code>
@@ -156,7 +193,7 @@ Calcula o hash CRC32 do conjunto de colunas de diferentes tipos de dados primiti
 ___
 ### <code>currentDate</code>
 <code><b>currentDate([<i>&lt;value1&gt;</i> : string]) => date</b></code><br/><br/>
-Obtém a data atual quando este trabalho começa a ser executado. Você pode passar um fuso horário opcional na forma de 'GMT', 'PST', 'UTC', 'America/Cayman'. O fuso horário local é usado como o padrão. Consulte SimpleDateFormat do Java para obter os formatos disponíveis. ["https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) * ``currentDate() == toDate('2250-12-31') -> false``  
+Obtém a data atual quando este trabalho começa a ser executado. Você pode passar um fuso horário opcional na forma de 'GMT', 'PST', 'UTC', 'America/Cayman'. O fuso horário local é usado como o padrão. Consulte SimpleDateFormat do Java para obter os formatos disponíveis. [ https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html ](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) * ``currentDate() == toDate('2250-12-31') -> false``  
 * ``currentDate('PST')  == toDate('2250-12-31') -> false``  
 * ``currentDate('America/New_York')  == toDate('2250-12-31') -> false``  
 ___
@@ -166,13 +203,13 @@ Obtém o carimbo de data/hora atual quando o trabalho começa a ser executado co
 ___
 ### <code>currentUTC</code>
 <code><b>currentUTC([<i>&lt;value1&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Obtém o carimbo de data/hora atual como UTC. Se desejar que a hora atual seja interpretada em um fuso horário diferente do fuso horário do cluster, você poderá passar um fuso horário opcional na forma de ' GMT ', ' PST ', ' UTC ', ' América/Cayman '. Ele é padronizado para o fuso horário atual. Consulte SimpleDateFormat do Java para obter os formatos disponíveis. [https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html). Para converter a hora UTC em um fuso horário diferente, use fromUTC ()* ``currentUTC() == toTimestamp('2050-12-12 19:18:12') -> false``  
+Obtém o carimbo de data/hora atual como UTC. Se desejar que a hora atual seja interpretada em um fuso horário diferente do fuso horário do cluster, você poderá transmitir um fuso horário opcional nos formatos 'GMT', 'PST', 'UTC', 'América/Cayman'. É padronizado como o fuso horário atual. Consulte SimpleDateFormat do Java para obter os formatos disponíveis. [https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html). Para converter a hora UTC em um fuso horário diferente, use fromUTC() * ``currentUTC() == toTimestamp('2050-12-12 19:18:12') -> false``  
 * ``currentUTC() != toTimestamp('2050-12-12 19:18:12') -> true``  
 * ``fromUTC(currentUTC(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``  
 ___
 ### <code>dayOfMonth</code>
 <code><b>dayOfMonth(<i>&lt;value1&gt;</i> : datetime) => integer</b></code><br/><br/>
-Obtém o dia do mês de uma determinada data * ``dayOfMonth(toDate('2018-06-08')) -> 8``  
+Obtém o dia do mês de determinada data * ``dayOfMonth(toDate('2018-06-08')) -> 8``  
 ___
 ### <code>dayOfWeek</code>
 <code><b>dayOfWeek(<i>&lt;value1&gt;</i> : datetime) => integer</b></code><br/><br/>
@@ -180,15 +217,15 @@ Obtém o dia da semana de uma determinada data. 1 - domingo, 2 - segunda ..., 7 
 ___
 ### <code>dayOfYear</code>
 <code><b>dayOfYear(<i>&lt;value1&gt;</i> : datetime) => integer</b></code><br/><br/>
-Obtém o dia do ano de uma determinada data * ``dayOfYear(toDate('2016-04-09')) -> 100``  
+Obtém o dia do ano de determinada data * ``dayOfYear(toDate('2016-04-09')) -> 100``  
 ___
 ### <code>days</code>
 <code><b>days(<i>&lt;value1&gt;</i> : integer) => long</b></code><br/><br/>
-Duração em milissegundos para o número de dias* ``days(2) -> 172800000L``  
+Duração em milissegundos para o número de dias * ``days(2) -> 172800000L``  
 ___
 ### <code>degrees</code>
 <code><b>degrees(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Converte radianos em graus* ``degrees(3.141592653589793) -> 180``  
+Converte radianos em graus * ``degrees(3.141592653589793) -> 180``  
 ___
 ### <code>divide</code>
 <code><b>divide(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
@@ -201,7 +238,7 @@ Verifica se a cadeia de caracteres termina com a cadeia de caracteres fornecida 
 ___
 ### <code>equals</code>
 <code><b>equals(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
-Operador de comparação equals. Mesmo que o operador = =* ``equals(12, 24) -> false``  
+Operador de comparação equals. Similar ao operador == * ``equals(12, 24) -> false``  
 * ``12 == 24 -> false``  
 * ``'bad' == 'bad' -> true``  
 * ``isNull('good' == toString(null)) -> true``  
@@ -209,7 +246,7 @@ Operador de comparação equals. Mesmo que o operador = =* ``equals(12, 24) -> f
 ___
 ### <code>equalsIgnoreCase</code>
 <code><b>equalsIgnoreCase(<i>&lt;value1&gt;</i> : string, <i>&lt;value2&gt;</i> : string) => boolean</b></code><br/><br/>
-Operador de comparação equals ignorando maiúsculas e minúsculas. Mesmo que <= operador>* ``'abc'<=>'Abc' -> true``  
+Operador de comparação equals ignorando maiúsculas e minúsculas. Similar ao operador <=> * ``'abc'<=>'Abc' -> true``  
 * ``equalsIgnoreCase('abc', 'Abc') -> true``  
 ___
 ### <code>factorial</code>
@@ -218,12 +255,12 @@ Calcula o fatorial de um número * ``factorial(5) -> 120``
 ___
 ### <code>false</code>
 <code><b>false() => boolean</b></code><br/><br/>
-Sempre retorna um valor false. Use a sintaxe da função (false ()) se houver uma coluna chamada ' false '* ``(10 + 20 > 30) -> false``  
+Sempre retorna um valor false. Use a função syntax(false()) se houver uma coluna chamada 'false' * ``(10 + 20 > 30) -> false``  
 * ``(10 + 20 > 30) -> false()``  
 ___
 ### <code>filter</code>
 <code><b>filter(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => array</b></code><br/><br/>
-Filtra elementos da matriz que não atendem ao predicado fornecido. O filtro espera uma referência a um elemento na função de predicado como #item* ``filter([1, 2, 3, 4], #item > 2) -> [3, 4]``  
+Filtra elementos da matriz que não atendem ao predicado fornecido. O filtro espera uma referência a um elemento na função de predicado como #item * ``filter([1, 2, 3, 4], #item > 2) -> [3, 4]``  
 * ``filter(['a', 'b', 'c', 'd'], #item == 'a' || #item == 'b') -> ['a', 'b']``  
 ___
 ### <code>floor</code>
@@ -232,34 +269,34 @@ Retorna o maior inteiro não superior ao número * ``floor(-0.1) -> -1``
 ___
 ### <code>fromBase64</code>
 <code><b>fromBase64(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
-Codifica a cadeia de caracteres determinada em base64* ``fromBase64('Z3VuY2h1cw==') -> 'gunchus'``  
+Codifica a cadeia de caracteres especificada em base64 * ``fromBase64('Z3VuY2h1cw==') -> 'gunchus'``  
 ___
 ### <code>fromUTC</code>
 <code><b>fromUTC(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Converte para o carimbo de data/hora do UTC. Opcionalmente, você pode passar o fuso horário na forma de ' GMT ', ' PST ', ' UTC ', ' América/Cayman '. Ele é padronizado para os SimpleDateFormat atuais do timezoneRefer Java para os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``fromUTC(currentTimeStamp()) == toTimestamp('2050-12-12 19:18:12') -> false``  
+Converte no carimbo de data/hora do UTC. Você pode opcionalmente transmitir o fuso horário nos formatos 'GMT', 'PST', 'UTC', 'America/Cayman'. É padronizado como o fuso horário atual. Consulte SimpleDateFormat do Java para obter os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``fromUTC(currentTimeStamp()) == toTimestamp('2050-12-12 19:18:12') -> false``  
 * ``fromUTC(currentTimeStamp(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``  
 ___
 ### <code>greater</code>
 <code><b>greater(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
-Operador de comparação greater. O mesmo que > operador* ``greater(12, 24) -> false``  
+Operador de comparação greater. Similar ao operador > * ``greater(12, 24) -> false``  
 * ``('dumbo' > 'dum') -> true``  
 * ``(toTimestamp('2019-02-05 08:21:34.890', 'yyyy-MM-dd HH:mm:ss.SSS') > toTimestamp('2019-02-03 05:19:28.871', 'yyyy-MM-dd HH:mm:ss.SSS')) -> true``  
 ___
 ### <code>greaterOrEqual</code>
 <code><b>greaterOrEqual(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
-Operador de comparação greater than or equal. Mesmo que >= Operator* ``greaterOrEqual(12, 12) -> true``  
+Operador de comparação greater than or equal. Similar ao operador >= * ``greaterOrEqual(12, 12) -> true``  
 * ``('dumbo' >= 'dum') -> true``  
 ___
 ### <code>greatest</code>
 <code><b>greatest(<i>&lt;value1&gt;</i> : any, ...) => any</b></code><br/><br/>
-Retorna o valor máximo entre a lista de valores como entrada ignorando valores nulos. Retorna null se todas as entradas forem null * ``greatest(10, 30, 15, 20) -> 30``  
+Retorna o maior valor entre a lista de valores como entrada e ignora os valores null. Retorna null se todas as entradas são null * ``greatest(10, 30, 15, 20) -> 30``  
 * ``greatest(10, toInteger(null), 20) -> 20``  
 * ``greatest(toDate('2010-12-12'), toDate('2011-12-12'), toDate('2000-12-12')) -> toDate('2011-12-12')``  
 * ``greatest(toTimestamp('2019-02-03 05:19:28.871', 'yyyy-MM-dd HH:mm:ss.SSS'), toTimestamp('2019-02-05 08:21:34.890', 'yyyy-MM-dd HH:mm:ss.SSS')) -> toTimestamp('2019-02-05 08:21:34.890', 'yyyy-MM-dd HH:mm:ss.SSS')``  
 ___
 ### <code>hasColumn</code>
 <code><b>hasColumn(<i>&lt;column name&gt;</i> : string, [<i>&lt;stream name&gt;</i> : string]) => boolean</b></code><br/><br/>
-Verifica o valor de uma coluna por nome no fluxo. Você pode passar um nome de fluxo opcional como o segundo argumento.  Nomes de coluna conhecidos em tempo de design devem ser abordados apenas por seu nome. Não há suporte para entradas computadas, mas você pode usar substituições de parâmetro* ``hasColumn('parent')``  
+Verifica um valor de coluna de acordo com o nome no fluxo. Você pode transmitir um nome de fluxo opcional como o segundo argumento.  Os nomes de coluna conhecidos no tempo de design devem ser tratados apenas por seus nomes. Não há suporte a entradas computadas, mas você pode usar substituições de parâmetro * ``hasColumn('parent')``  
 ___
 ### <code>hour</code>
 <code><b>hour(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
@@ -268,17 +305,17 @@ Obtém o valor da hora de um carimbo de data/hora. Você pode passar um fuso hor
 ___
 ### <code>hours</code>
 <code><b>hours(<i>&lt;value1&gt;</i> : integer) => long</b></code><br/><br/>
-Duração em milissegundos para o número de horas* ``hours(2) -> 7200000L``  
+Duração em milissegundos para o número de horas * ``hours(2) -> 7200000L``  
 ___
 ### <code>iif</code>
 <code><b>iif(<i>&lt;condition&gt;</i> : boolean, <i>&lt;true_expression&gt;</i> : any, [<i>&lt;false_expression&gt;</i> : any]) => any</b></code><br/><br/>
-Com base em uma condição, aplica-se um valor ou o outro. Se outro não for especificado, ele será considerado nulo. Ambos os valores devem ser compatíveis (numérico, cadeia de caracteres...) * ``iif(10 + 20 == 30, 'dumbo', 'gumbo') -> 'dumbo'``  
+Com base em uma condição, aplica-se um valor ou o outro. Se "Outros" não for especificado, será considerado NULL. Ambos os valores devem ser compatíveis (numérico, cadeia de caracteres...) * ``iif(10 + 20 == 30, 'dumbo', 'gumbo') -> 'dumbo'``  
 * ``iif(10 > 30, 'dumbo', 'gumbo') -> 'gumbo'``  
 * ``iif(month(toDate('2018-12-01')) == 12, 345.12, 102.67) -> 345.12``  
 ___
 ### <code>iifNull</code>
 <code><b>iifNull(<i>&lt;value1&gt;</i> : any, [<i>&lt;value2&gt;</i> : any], ...) => any</b></code><br/><br/>
-Verifica se o primeiro parâmetro é nulo. Se não for NULL, o primeiro parâmetro será retornado. Se for NULL, o segundo parâmetro será retornado. Se três parâmetros forem especificados, o comportamento será o mesmo que IIF (isNull (value1), value2, Value3) e o terceiro parâmetro será retornado se o primeiro valor não for nulo.  
+Verifica se o primeiro parâmetro é null. Se não for null, o primeiro parâmetro será retornado. Se for null, o segundo parâmetro será retornado. Se três parâmetros forem especificados, o comportamento será o mesmo de iif(isNull(value1),value2, value3) e o terceiro parâmetro será retornado se o primeiro valor não for nulo.  
 * ``iifNull(10, 20) -> 10``  
 * ``iifNull(null, 20, 40) -> 20``  
 * ``iifNull('azure', 'data', 'factory') -> 'factory'``  
@@ -301,27 +338,27 @@ Localiza a posição (baseada em 1) da subcadeia de caracteres dentro de uma cad
 ___
 ### <code>isDelete</code>
 <code><b>isDelete([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
-Verifica se a linha está marcada para exclusão. Para transformações que levam mais de um fluxo de entrada, você pode passar o índice (baseado em 1) do fluxo. O índice de fluxo deve ser 1 ou 2 e o valor padrão é 1* ``isDelete()``  
+Verifica se a linha está marcada para exclusão. No caso de transformações que usem mais de um fluxo de entrada, você pode transmitir o índice (baseado em 1) do fluxo. O índice de fluxo deve ser 1 ou 2 e o valor padrão é 1 * ``isDelete()``  
 * ``isDelete(1)``  
 ___
 ### <code>isError</code>
 <code><b>isError([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
-Verifica se a linha está marcada como erro. Para transformações que levam mais de um fluxo de entrada, você pode passar o índice (baseado em 1) do fluxo. O índice de fluxo deve ser 1 ou 2 e o valor padrão é 1* ``isError()``  
+Verifica se a linha está marcada como erro. No caso de transformações que usem mais de um fluxo de entrada, você pode transmitir o índice (baseado em 1) do fluxo. O índice de fluxo deve ser 1 ou 2 e o valor padrão é 1 * ``isError()``  
 * ``isError(1)``  
 ___
 ### <code>isIgnore</code>
 <code><b>isIgnore([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
-Verifica se a linha está marcada para ser ignorada. Para transformações que levam mais de um fluxo de entrada, você pode passar o índice (baseado em 1) do fluxo. O índice de fluxo deve ser 1 ou 2 e o valor padrão é 1* ``isIgnore()``  
+Verifica se a linha está marcada para ser ignorada. No caso de transformações que usem mais de um fluxo de entrada, você pode transmitir o índice (baseado em 1) do fluxo. O índice de fluxo deve ser 1 ou 2 e o valor padrão é 1 * ``isIgnore()``  
 * ``isIgnore(1)``  
 ___
 ### <code>isInsert</code>
 <code><b>isInsert([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
-Verifica se a linha está marcada para inserção. Para transformações que levam mais de um fluxo de entrada, você pode passar o índice (baseado em 1) do fluxo. O índice de fluxo deve ser 1 ou 2 e o valor padrão é 1* ``isInsert()``  
+Verifica se a linha está marcada para inserção. No caso de transformações que usem mais de um fluxo de entrada, você pode transmitir o índice (baseado em 1) do fluxo. O índice de fluxo deve ser 1 ou 2 e o valor padrão é 1 * ``isInsert()``  
 * ``isInsert(1)``  
 ___
 ### <code>isMatch</code>
 <code><b>isMatch([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
-Verifica se a linha é correspondida na pesquisa. Para transformações que levam mais de um fluxo de entrada, você pode passar o índice (baseado em 1) do fluxo. O índice de fluxo deve ser 1 ou 2 e o valor padrão é 1* ``isMatch()``  
+Verifica se a linha é correspondida na pesquisa. No caso de transformações que usem mais de um fluxo de entrada, você pode transmitir o índice (baseado em 1) do fluxo. O índice de fluxo deve ser 1 ou 2 e o valor padrão é 1 * ``isMatch()``  
 * ``isMatch(1)``  
 ___
 ### <code>isNull</code>
@@ -331,21 +368,21 @@ Verifica se o valor é NULL * ``isNull(NULL()) -> true``
 ___
 ### <code>isUpdate</code>
 <code><b>isUpdate([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
-Verifica se a linha está marcada para atualização. Para transformações que levam mais de um fluxo de entrada, você pode passar o índice (baseado em 1) do fluxo. O índice de fluxo deve ser 1 ou 2 e o valor padrão é 1* ``isUpdate()``  
+Verifica se a linha está marcada para atualização. No caso de transformações que usem mais de um fluxo de entrada, você pode transmitir o índice (baseado em 1) do fluxo. O índice de fluxo deve ser 1 ou 2 e o valor padrão é 1 * ``isUpdate()``  
 * ``isUpdate(1)``  
 ___
 ### <code>isUpsert</code>
 <code><b>isUpsert([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
-Verifica se a linha está marcada para inserção. Para transformações que levam mais de um fluxo de entrada, você pode passar o índice (baseado em 1) do fluxo. O índice de fluxo deve ser 1 ou 2 e o valor padrão é 1* ``isUpsert()``  
+Verifica se a linha está marcada para inserção. No caso de transformações que usem mais de um fluxo de entrada, você pode transmitir o índice (baseado em 1) do fluxo. O índice de fluxo deve ser 1 ou 2 e o valor padrão é 1 * ``isUpsert()``  
 * ``isUpsert(1)``  
 ___
 ### <code>lastDayOfMonth</code>
 <code><b>lastDayOfMonth(<i>&lt;value1&gt;</i> : datetime) => date</b></code><br/><br/>
-Obtém a última data do mês de uma determinada data * ``lastDayOfMonth(toDate('2009-01-12')) -> toDate('2009-01-31')``  
+Obtém a última data do mês de determinada data * ``lastDayOfMonth(toDate('2009-01-12')) -> toDate('2009-01-31')``  
 ___
 ### <code>least</code>
 <code><b>least(<i>&lt;value1&gt;</i> : any, ...) => any</b></code><br/><br/>
-Operador de comparação lesser than or equal. Mesmo que <= Operator* ``least(10, 30, 15, 20) -> 10``  
+Operador de comparação lesser than or equal. Similar ao operador <= * ``least(10, 30, 15, 20) -> 10``  
 * ``least(toDate('2010-12-12'), toDate('2011-12-12'), toDate('2000-12-12')) -> toDate('2000-12-12')``  
 ___
 ### <code>left</code>
@@ -359,22 +396,22 @@ Retorna o comprimento da cadeia de caracteres * ``length('dumbo') -> 5``
 ___
 ### <code>lesser</code>
 <code><b>lesser(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
-Operador de comparação less. O mesmo que < operador* ``lesser(12, 24) -> true``  
+Operador de comparação less. Similar ao operador < * ``lesser(12, 24) -> true``  
 * ``('abcd' < 'abc') -> false``  
 * ``(toTimestamp('2019-02-03 05:19:28.871', 'yyyy-MM-dd HH:mm:ss.SSS') < toTimestamp('2019-02-05 08:21:34.890', 'yyyy-MM-dd HH:mm:ss.SSS')) -> true``  
 ___
 ### <code>lesserOrEqual</code>
 <code><b>lesserOrEqual(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
-Operador de comparação lesser than or equal. Mesmo que <= Operator* ``lesserOrEqual(12, 12) -> true``  
+Operador de comparação lesser than or equal. Similar ao operador <= * ``lesserOrEqual(12, 12) -> true``  
 * ``('dumbo' <= 'dum') -> false``  
 ___
 ### <code>levenshtein</code>
 <code><b>levenshtein(<i>&lt;from string&gt;</i> : string, <i>&lt;to string&gt;</i> : string) => integer</b></code><br/><br/>
-Obtém a distância levenshtein entre duas cadeias de caracteres * ``levenshtein('boys', 'girls') -> 4``  
+Obtém a distância Levenshtein entre duas cadeias de caracteres * ``levenshtein('boys', 'girls') -> 4``  
 ___
 ### <code>like</code>
 <code><b>like(<i>&lt;string&gt;</i> : string, <i>&lt;pattern match&gt;</i> : string) => boolean</b></code><br/><br/>
-O padrão é uma cadeia de caracteres que corresponde literalmente. As exceções são os seguintes símbolos especiais: _ corresponde a um caractere na entrada (semelhante a. em expressões regulares do posix) % corresponde a zero ou mais caracteres na entrada (semelhante a .* em expressões regulares do posix).
+O padrão é uma cadeia de caracteres com correspondência literal. As exceções são os seguintes símbolos especiais: _ corresponde a um caractere na entrada (semelhante a. em expressões regulares do posix) % corresponde a zero ou mais caracteres na entrada (semelhante a .* em expressões regulares do posix).
 O caractere de escape é ''. Se um caractere de escape precede um símbolo especial ou outro caractere de escape, o caractere seguinte será correspondido literalmente. Não é válido para escape de qualquer outro caractere.  
 * ``like('icecream', 'ice%') -> true``  
 ___
@@ -386,35 +423,35 @@ Localiza a posição (baseada em 1) da subcadeia de caracteres dentro de uma cad
 ___
 ### <code>log</code>
 <code><b>log(<i>&lt;value1&gt;</i> : number, [<i>&lt;value2&gt;</i> : number]) => double</b></code><br/><br/>
-Calcula o valor de log. Uma base opcional pode ser fornecida mais um número Euler, se usado* ``log(100, 10) -> 2``  
+Calcula o valor de log. Uma base opcional pode ser fornecida caso um número de Euler seja usado * ``log(100, 10) -> 2``  
 ___
 ### <code>log10</code>
 <code><b>log10(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Calcula o valor do log com base em 10* ``log10(100) -> 2``  
+Calcula o valor do log com base em 10 * ``log10(100) -> 2``  
 ___
 ### <code>lower</code>
 <code><b>lower(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
-Coloca em minúsculas todos os caracteres de uma cadeia de caracteres* ``lower('GunChus') -> 'gunchus'``  
+Coloca em minúsculas todos os caracteres de uma cadeia de caracteres * ``lower('GunChus') -> 'gunchus'``  
 ___
 ### <code>lpad</code>
 <code><b>lpad(<i>&lt;string to pad&gt;</i> : string, <i>&lt;final padded length&gt;</i> : integral, <i>&lt;padding&gt;</i> : string) => string</b></code><br/><br/>
-Preenche à esquerda a cadeia de caracteres com o preenchimento fornecido até que esta alcance um determinado comprimento. Se a cadeia de caracteres for igual ou maior que o comprimento, ela será cortada para o comprimento* ``lpad('dumbo', 10, '-') -> '-----dumbo'``  
+Preenche à esquerda a cadeia de caracteres com o preenchimento fornecido até que esta alcance um determinado comprimento. Se a cadeia de caracteres for igual ou maior que o tamanho, ela será cortada no tamanho * ``lpad('dumbo', 10, '-') -> '-----dumbo'``  
 * ``lpad('dumbo', 4, '-') -> 'dumb'``  
-*' ' LPAD (' Dumbo ', 8, ' <> ')-> ' <><dumbo'``  
+* ``lpad('dumbo', 8, '<>') -> '<><dumbo'``  
 ___
-### <code>LTrim</code>
+### <code>ltrim</code>
 <code><b>ltrim(<i>&lt;string to trim&gt;</i> : string, [<i>&lt;trim characters&gt;</i> : string]) => string</b></code><br/><br/>
 Corta uma cadeia de caracteres inicial à esquerda. Se o segundo parâmetro não for especificado, ele cortará o espaço em branco. Caso contrário, ele cortará qualquer caractere especificado no segundo parâmetro * ``ltrim('  dumbo  ') -> 'dumbo  '``  
 * ``ltrim('!--!du!mbo!', '-!') -> 'du!mbo!'``  
 ___
 ### <code>map</code>
 <code><b>map(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => any</b></code><br/><br/>
-Mapeia cada elemento da matriz para um novo elemento usando a expressão fornecida. O mapa espera uma referência a um elemento na função de expressão como #item* ``map([1, 2, 3, 4], #item + 2) -> [3, 4, 5, 6]``  
+Mapeia cada elemento da matriz para um novo elemento usando a expressão fornecida. Map espera uma referência a um elemento na função de expressão como #item * ``map([1, 2, 3, 4], #item + 2) -> [3, 4, 5, 6]``  
 * ``map(['a', 'b', 'c', 'd'], #item + '_processed') -> ['a_processed', 'b_processed', 'c_processed', 'd_processed']``  
 ___
 ### <code>mapIndex</code>
 <code><b>mapIndex(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : binaryfunction) => any</b></code><br/><br/>
-Mapeia cada elemento da matriz para um novo elemento usando a expressão fornecida. O mapa espera uma referência a um elemento na função de expressão como #item e uma referência ao índice de elemento como #index* ``mapIndex([1, 2, 3, 4], #item + 2 + #index) -> [4, 6, 8, 10]``  
+Mapeia cada elemento da matriz para um novo elemento usando a expressão fornecida. Map espera uma referência a um elemento na função de expressão como #item e uma referência ao índice de elemento como #index * ``mapIndex([1, 2, 3, 4], #item + 2 + #index) -> [4, 6, 8, 10]``  
 ___
 ### <code>md5</code>
 <code><b>md5(<i>&lt;value1&gt;</i> : any, ...) => string</b></code><br/><br/>
@@ -422,15 +459,15 @@ Calcula o digest MD5 do conjunto de colunas de diferentes tipos de dados primiti
 ___
 ### <code>millisecond</code>
 <code><b>millisecond(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
-Obtém o valor de milissegundo de uma data. Você pode passar um fuso horário opcional na forma de 'GMT', 'PST', 'UTC', 'America/Cayman'. O fuso horário local é usado como o padrão. Consulte SimpleDateFormat do Java para obter os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``millisecond(toTimestamp('2009-07-30 12:58:59.871', 'yyyy-MM-dd HH:mm:ss.SSS')) -> 871``  
+Obtém o valor de uma data em milissegundos. Você pode passar um fuso horário opcional na forma de 'GMT', 'PST', 'UTC', 'America/Cayman'. O fuso horário local é usado como o padrão. Consulte SimpleDateFormat do Java para obter os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``millisecond(toTimestamp('2009-07-30 12:58:59.871', 'yyyy-MM-dd HH:mm:ss.SSS')) -> 871``  
 ___
 ### <code>milliseconds</code>
 <code><b>milliseconds(<i>&lt;value1&gt;</i> : integer) => long</b></code><br/><br/>
-Duração em milissegundos para o número de milissegundos* ``milliseconds(2) -> 2L``  
+Duração em milissegundos para o número de milissegundos * ``milliseconds(2) -> 2L``  
 ___
 ### <code>minus</code>
 <code><b>minus(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
-Subtrai números. Subtrai a partir de um número de data de dias. Subtraia duração de um carimbo de data/hora. Subtraia dois carimbos de data/hora para obter a diferença em milissegundos. Mesmo que o operador-* ``minus(20, 10) -> 10``  
+Subtrai números. Subtrai a partir de um número de data de dias. Subtrai a duração de um carimbo de data/hora. Subtrai dois carimbos de data/hora para obter a diferença em milissegundos. Similar ao operador - * ``minus(20, 10) -> 10``  
 * ``20 - 10 -> 10``  
 * ``minus(toDate('2012-12-15'), 3) -> toDate('2012-12-12')``  
 * ``toDate('2012-12-15') - 3 -> toDate('2012-12-12')``  
@@ -444,11 +481,11 @@ Obtém o valor do minuto de um carimbo de data/hora. Você pode passar um fuso h
 ___
 ### <code>minutes</code>
 <code><b>minutes(<i>&lt;value1&gt;</i> : integer) => long</b></code><br/><br/>
-Duração em milissegundos para o número de minutos* ``minutes(2) -> 120000L``  
+Duração em milissegundos para o número de minutos * ``minutes(2) -> 120000L``  
 ___
 ### <code>mod</code>
 <code><b>mod(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
-Módulo de par de números. O mesmo que o operador%* ``mod(20, 8) -> 4``  
+Módulo de par de números. Similar ao operador % * ``mod(20, 8) -> 4``  
 * ``20 % 8 -> 4``  
 ___
 ### <code>month</code>
@@ -457,11 +494,11 @@ Obtém o valor do mês de uma data ou carimbo de data/hora * ``month(toDate('201
 ___
 ### <code>monthsBetween</code>
 <code><b>monthsBetween(<i>&lt;from date/timestamp&gt;</i> : datetime, <i>&lt;to date/timestamp&gt;</i> : datetime, [<i>&lt;roundoff&gt;</i> : boolean], [<i>&lt;time zone&gt;</i> : string]) => double</b></code><br/><br/>
-Obtém o número de meses entre duas datas. Você pode arredondar o cálculo. Você pode passar um fuso horário opcional na forma de ' GMT ', ' PST ', ' UTC ', ' América/Cayman '. O fuso horário local é usado como o padrão. Consulte SimpleDateFormat do Java para obter os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``monthsBetween(toTimestamp('1997-02-28 10:30:00'), toDate('1996-10-30')) -> 3.94959677``  
+Obtém o número de meses entre duas datas. Você pode arredondar o cálculo. É possível transmitir um fuso horário opcional nos formatos 'GMT', 'PST', 'UTC', 'America/Cayman'. O fuso horário local é usado como o padrão. Consulte SimpleDateFormat do Java para obter os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``monthsBetween(toTimestamp('1997-02-28 10:30:00'), toDate('1996-10-30')) -> 3.94959677``  
 ___
 ### <code>multiply</code>
 <code><b>multiply(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
-Multiplica o par de números. Mesmo que o operador ** ``multiply(20, 10) -> 200``  
+Multiplica o par de números. Similar ao operador * * ``multiply(20, 10) -> 200``  
 * ``20 * 10 -> 200``  
 ___
 ### <code>negate</code>
@@ -474,21 +511,21 @@ Retorna a próxima sequência exclusiva. O número é consecutivo somente dentro
 ___
 ### <code>normalize</code>
 <code><b>normalize(<i>&lt;String to normalize&gt;</i> : string) => string</b></code><br/><br/>
-Normalizar o valor da cadeia para separar caracteres Unicode acentuados* ``regexReplace(normalize('bo²s'), `\p{M}`, '') -> 'boys'``  
+Normaliza o valor da cadeia de caracteres para separar caracteres Unicode acentuados * ``regexReplace(normalize('bo²s'), `\p{M}`, '') -> 'boys'``  
 ___
 ### <code>not</code>
 <code><b>not(<i>&lt;value1&gt;</i> : boolean) => boolean</b></code><br/><br/>
-Operador de negação lógico * ``not(true) -> false``  
+Operador de negação lógica * ``not(true) -> false``  
 * ``not(10 == 20) -> true``  
 ___
 ### <code>notEquals</code>
 <code><b>notEquals(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
-Operador de comparação not equals. Mesmo que o operador! =* ``12 != 24 -> true``  
+Operador de comparação not equals. Similar ao operador != * ``12 != 24 -> true``  
 * ``'bojjus' != 'bo' + 'jjus' -> false``  
 ___
 ### <code>notNull</code>
 <code><b>notNull(<i>&lt;value1&gt;</i> : any) => boolean</b></code><br/><br/>
-Verifica se o valor não é nulo* ``notNull(NULL()) -> false``  
+Verifica se o valor não é NULL * ``notNull(NULL()) -> false``  
 * ``notNull('') -> true``  
 ___
 ### <code>null</code>
@@ -501,7 +538,7 @@ Retorna um valor NULL. Use a função syntax(null()) se houver uma coluna chamad
 ___
 ### <code>or</code>
 <code><b>or(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : boolean) => boolean</b></code><br/><br/>
-Operador OR lógico. Mesmo que | |* ``or(true, false) -> true``  
+Operador OR lógico. Similar a || * ``or(true, false) -> true``  
 * ``true || false -> true``  
 ___
 ### <code>pMod</code>
@@ -511,7 +548,7 @@ Módulo positivo de par de números.
 ___
 ### <code>partitionId</code>
 <code><b>partitionId() => integer</b></code><br/><br/>
-Retorna a ID da partição atual na qual a linha de entrada está* ``partitionId()``  
+Retorna a ID da partição atual na qual a linha de entrada está * ``partitionId()``  
 ___
 ### <code>power</code>
 <code><b>power(<i>&lt;value1&gt;</i> : number, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
@@ -519,21 +556,21 @@ Eleva um número à potência de outro * ``power(10, 2) -> 100``
 ___
 ### <code>reduce</code>
 <code><b>reduce(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : any, <i>&lt;value3&gt;</i> : binaryfunction, <i>&lt;value4&gt;</i> : unaryfunction) => any</b></code><br/><br/>
-Acumula elementos em uma matriz. A redução espera uma referência a um acumulador e um elemento na primeira função de expressão como #acc e #item e espera que o valor resultante como #result seja usado na segunda função de expressão* ``toString(reduce(['1', '2', '3', '4'], '0', #acc + #item, #result)) -> '01234'``  
+Acumula elementos em uma matriz. A redução espera uma referência a um acumulador e um elemento na primeira função de expressão como #acc e #item, e espera que o valor resultante como #result seja usado na segunda função de expressão * ``toString(reduce(['1', '2', '3', '4'], '0', #acc + #item, #result)) -> '01234'``  
 ___
 ### <code>regexExtract</code>
 <code><b>regexExtract(<i>&lt;string&gt;</i> : string, <i>&lt;regex to find&gt;</i> : string, [<i>&lt;match group 1-based index&gt;</i> : integral]) => string</b></code><br/><br/>
-Extrai uma subcadeia de caracteres correspondente a um determinado padrão regex. O último parâmetro identifica o grupo de correspondências e será padronizado como 1 se omitido. Use `<regex>`(acento grave) para corresponder uma cadeia de caracteres sem escape * ``regexExtract('Cost is between 600 and 800 dollars', '(\\d+) and (\\d+)', 2) -> '800'``  
+Extrai uma subcadeia de caracteres correspondente a um determinado padrão regex. O último parâmetro identifica o grupo de correspondências e será padronizado como 1 se omitido. Use `<regex>`(acento grave) para corresponder a uma cadeia de caracteres sem escape * ``regexExtract('Cost is between 600 and 800 dollars', '(\\d+) and (\\d+)', 2) -> '800'``  
 * ``regexExtract('Cost is between 600 and 800 dollars', `(\d+) and (\d+)`, 2) -> '800'``  
 ___
 ### <code>regexMatch</code>
 <code><b>regexMatch(<i>&lt;string&gt;</i> : string, <i>&lt;regex to match&gt;</i> : string) => boolean</b></code><br/><br/>
-Verifica se a cadeia de caracteres corresponde ao determinado padrão regex. Use `<regex>`(acento grave) para corresponder uma cadeia de caracteres sem escape * ``regexMatch('200.50', '(\\d+).(\\d+)') -> true``  
+Verifica se a cadeia de caracteres corresponde ao determinado padrão regex. Use `<regex>`(acento grave) para corresponder a uma cadeia de caracteres sem escape * ``regexMatch('200.50', '(\\d+).(\\d+)') -> true``  
 * ``regexMatch('200.50', `(\d+).(\d+)`) -> true``  
 ___
 ### <code>regexReplace</code>
 <code><b>regexReplace(<i>&lt;string&gt;</i> : string, <i>&lt;regex to find&gt;</i> : string, <i>&lt;substring to replace&gt;</i> : string) => string</b></code><br/><br/>
-Substitui todas as ocorrências de um padrão regex por outra subcadeia de caracteres na cadeia de caracteres determinada. Use `<regex>`(acento grave) para corresponder uma cadeia de caracteres sem escape * ``regexReplace('100 and 200', '(\\d+)', 'bojjus') -> 'bojjus and bojjus'``  
+Substitui todas as ocorrências de um padrão regex por outra subcadeia de caracteres na cadeia de caracteres determinada. Use `<regex>`(acento grave) para corresponder a uma cadeia de caracteres sem escape * ``regexReplace('100 and 200', '(\\d+)', 'bojjus') -> 'bojjus and bojjus'``  
 * ``regexReplace('100 and 200', `(\d+)`, 'gunchus') -> 'gunchus and gunchus'``  
 ___
 ### <code>regexSplit</code>
@@ -545,7 +582,7 @@ Divide uma cadeia de caracteres com base em um delimitador baseado no regex e re
 ___
 ### <code>replace</code>
 <code><b>replace(<i>&lt;string&gt;</i> : string, <i>&lt;substring to find&gt;</i> : string, [<i>&lt;substring to replace&gt;</i> : string]) => string</b></code><br/><br/>
-Substitua todas as ocorrências de uma subcadeia de caracteres por outra subcadeia de caracteres na cadeia de caracteres especificada. Se o último parâmetro for omitido, ele será padronizado como uma cadeia de caracteres vazia* ``replace('doggie dog', 'dog', 'cat') -> 'catgie cat'``  
+Substitui todas as ocorrências de uma subcadeia de caracteres por outra subcadeia de caracteres na cadeia de caracteres determinada. Se o último parâmetro for omitido, ele será padronizado como uma cadeia de caracteres vazia * ``replace('doggie dog', 'dog', 'cat') -> 'catgie cat'``  
 * ``replace('doggie dog', 'dog', '') -> 'gie '``  
 * ``replace('doggie dog', 'dog') -> 'gie '``  
 ___
@@ -560,22 +597,22 @@ Extrai uma subcadeia de caracteres com o número de caracteres à direita. Simil
 ___
 ### <code>rlike</code>
 <code><b>rlike(<i>&lt;string&gt;</i> : string, <i>&lt;pattern match&gt;</i> : string) => boolean</b></code><br/><br/>
-Verifica se a cadeia de caracteres corresponde ao padrão Regex fornecido* ``rlike('200.50', `(\d+).(\d+)`) -> true``  
+Verifica se a cadeia de caracteres corresponde a determinado padrão regex * ``rlike('200.50', `(\d+).(\d+)`) -> true``  
 * ``rlike('bogus', `M[0-9]+.*`) -> false``  
 ___
 ### <code>round</code>
 <code><b>round(<i>&lt;number&gt;</i> : number, [<i>&lt;scale to round&gt;</i> : number], [<i>&lt;rounding option&gt;</i> : integral]) => double</b></code><br/><br/>
-Arredonda um número de acordo com uma escala opcional e um modo de arredondamento opcional. Se a escala for omitida, o padrão será 0.  Se o modo for omitido, o padrão será ROUND_HALF_UP (5). Os valores para arredondamento incluem: 1 - ROUND_UP 2 - ROUND_DOWN 3 - ROUND_CEILING 4 - ROUND_FLOOR 5 - ROUND_HALF_UP 6 - ROUND_HALF_DOWN 7 - ROUND_HALF_EVEN 8 - ROUND_UNNECESSARY * ``round(100.123) -> 100.0``  
+Arredonda um número com determinada escala opcional e um modo de arredondamento opcional. Se a escala for omitida, será padronizada como 0.  Se o modo for omitido, será padronizado como ROUND_HALF_UP(5). Os valores para arredondamento incluem: 1 - ROUND_UP 2 - ROUND_DOWN 3 - ROUND_CEILING 4 - ROUND_FLOOR 5 - ROUND_HALF_UP 6 - ROUND_HALF_DOWN 7 - ROUND_HALF_EVEN 8 - ROUND_UNNECESSARY * ``round(100.123) -> 100.0``  
 * ``round(2.5, 0) -> 3.0``  
 * ``round(5.3999999999999995, 2, 7) -> 5.40``  
 ___
 ### <code>rpad</code>
 <code><b>rpad(<i>&lt;string to pad&gt;</i> : string, <i>&lt;final padded length&gt;</i> : integral, <i>&lt;padding&gt;</i> : string) => string</b></code><br/><br/>
-Preenche à direita a cadeia de caracteres com o preenchimento fornecido até que esta alcance um determinado comprimento. Se a cadeia de caracteres for igual ou maior que o comprimento, ela será cortada para o comprimento* ``rpad('dumbo', 10, '-') -> 'dumbo-----'``  
+Preenche à direita a cadeia de caracteres com o preenchimento fornecido até que esta alcance um determinado comprimento. Se a cadeia de caracteres for igual ou maior que o tamanho, ela será cortada no tamanho * ``rpad('dumbo', 10, '-') -> 'dumbo-----'``  
 * ``rpad('dumbo', 4, '-') -> 'dumb'``  
 * ``rpad('dumbo', 8, '<>') -> 'dumbo<><'``  
 ___
-### <code>rtrim</code>RTrim</code>
+### <code>rtrim</code>rtrim</code>
 <code><b>rtrim(<i>&lt;string to trim&gt;</i> : string, [<i>&lt;trim characters&gt;</i> : string]) => string</b></code><br/><br/>
 Corta uma cadeia de caracteres final à direita. Se o segundo parâmetro não for especificado, ele cortará o espaço em branco. Caso contrário, ele cortará qualquer caractere especificado no segundo parâmetro * ``rtrim('  dumbo  ') -> '  dumbo'``  
 * ``rtrim('!--!du!mbo!', '-!') -> '!--!du!mbo'``  
@@ -586,7 +623,7 @@ Obtém o segundo valor de uma data. Você pode passar um fuso horário opcional 
 ___
 ### <code>seconds</code>
 <code><b>seconds(<i>&lt;value1&gt;</i> : integer) => long</b></code><br/><br/>
-Duração em milissegundos para o número de segundos* ``seconds(2) -> 2000L``  
+Duração em milissegundos para o número de segundos * ``seconds(2) -> 2000L``  
 ___
 ### <code>sha1</code>
 <code><b>sha1(<i>&lt;value1&gt;</i> : any, ...) => string</b></code><br/><br/>
@@ -594,7 +631,7 @@ Calcula o digest SHA-1 do conjunto de colunas de diferentes tipos de dados primi
 ___
 ### <code>sha2</code>
 <code><b>sha2(<i>&lt;value1&gt;</i> : integer, <i>&lt;value2&gt;</i> : any, ...) => string</b></code><br/><br/>
-Calcula o resumo SHA-2 do conjunto de colunas de tipos de dados primitivos variados de acordo com um comprimento de bit que só pode ser de valores 0 (256), 224, 256, 384, 512. Pode ser usado para calcular uma impressão digital para uma linha * ``sha2(256, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4')) -> 'afe8a553b1761c67d76f8c31ceef7f71b66a1ee6f4e6d3b5478bf68b47d06bd3'``  
+Calcula o digest SHA-2 do conjunto de colunas de diferentes tipos de dados primitivos dado um comprimento de bits, que pode ser apenas de valores 0 (256), 224, 256, 384, 512. Pode ser usado para calcular uma impressão digital para uma linha * ``sha2(256, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4')) -> 'afe8a553b1761c67d76f8c31ceef7f71b66a1ee6f4e6d3b5478bf68b47d06bd3'``  
 ___
 ### <code>sin</code>
 <code><b>sin(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
@@ -606,7 +643,7 @@ Calcula um valor de seno hiperbólico * ``sinh(0) -> 0.0``
 ___
 ### <code>slice</code>
 <code><b>slice(<i>&lt;array to slice&gt;</i> : array, <i>&lt;from 1-based index&gt;</i> : integral, [<i>&lt;number of items&gt;</i> : integral]) => array</b></code><br/><br/>
-Extrai um subconjunto de uma matriz a partir de uma posição. A posição é baseada em 1. Se o comprimento for omitido, ele será padronizado para o final da cadeia de caracteres * ``slice([10, 20, 30, 40], 1, 2) -> [10, 20]``  
+Extrai um subconjunto de uma matriz a partir de uma posição. A posição é baseada em 1. Se o comprimento for omitido, ele será padronizado como o final da cadeia de caracteres * ``slice([10, 20, 30, 40], 1, 2) -> [10, 20]``  
 * ``slice([10, 20, 30, 40], 2) -> [20, 30, 40]``  
 * ``slice([10, 20, 30, 40], 2)[1] -> 20``  
 * ``isNull(slice([10, 20, 30, 40], 2)[0]) -> true``  
@@ -615,7 +652,7 @@ Extrai um subconjunto de uma matriz a partir de uma posição. A posição é ba
 ___
 ### <code>sort</code>
 <code><b>sort(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : binaryfunction) => array</b></code><br/><br/>
-Classifica a matriz usando a função de predicado fornecida. Sort espera uma referência a dois elementos consecutivos na função Expression como #item1 e #item2* ``sort([4, 8, 2, 3], compare(#item1, #item2)) -> [2, 3, 4, 8]``  
+Classifica a matriz usando a função de predicado fornecida. Sort espera uma referência a dois elementos consecutivos na função de expressão como #item1 e #item2 * ``sort([4, 8, 2, 3], compare(#item1, #item2)) -> [2, 3, 4, 8]``  
 * ``sort(['a3', 'b2', 'c1'], iif(right(#item1, 1) >= right(#item2, 1), 1, -1)) -> ['c1', 'b2', 'a3']``  
 ___
 ### <code>soundex</code>
@@ -642,7 +679,7 @@ Verifica se a cadeia de caracteres começa com a cadeia de caracteres fornecida 
 ___
 ### <code>subDays</code>
 <code><b>subDays(<i>&lt;date/timestamp&gt;</i> : datetime, <i>&lt;days to subtract&gt;</i> : integral) => datetime</b></code><br/><br/>
-Subtraia meses de uma data ou timestamp. O mesmo que o-Operator para data* ``subDays(toDate('2016-08-08'), 1) -> toDate('2016-08-07')``  
+Subtrai meses a partir de uma data ou carimbo de data/hora. Similar ao operador - para data * ``subDays(toDate('2016-08-08'), 1) -> toDate('2016-08-07')``  
 ___
 ### <code>subMonths</code>
 <code><b>subMonths(<i>&lt;date/timestamp&gt;</i> : datetime, <i>&lt;months to subtract&gt;</i> : integral) => datetime</b></code><br/><br/>
@@ -650,7 +687,7 @@ Subtrai meses a partir de uma data ou carimbo de data/hora* ``subMonths(toDate('
 ___
 ### <code>substring</code>
 <code><b>substring(<i>&lt;string to subset&gt;</i> : string, <i>&lt;from 1-based index&gt;</i> : integral, [<i>&lt;number of characters&gt;</i> : integral]) => string</b></code><br/><br/>
-Extrai uma subcadeia de caracteres de um determinado comprimento a partir de uma posição. A posição é baseada em 1. Se o comprimento for omitido, ele será padronizado para o final da cadeia de caracteres * ``substring('Cat in the hat', 5, 2) -> 'in'``  
+Extrai uma subcadeia de caracteres de um determinado comprimento a partir de uma posição. A posição é baseada em 1. Se o comprimento for omitido, ele será padronizado como o final da cadeia de caracteres * ``substring('Cat in the hat', 5, 2) -> 'in'``  
 * ``substring('Cat in the hat', 5, 100) -> 'in the hat'``  
 * ``substring('Cat in the hat', 5) -> 'in the hat'``  
 * ``substring('Cat in the hat', 100, 100) -> ''``  
@@ -665,11 +702,11 @@ Calcula um valor de tangente hiperbólica * ``tanh(0) -> 0.0``
 ___
 ### <code>toBase64</code>
 <code><b>toBase64(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
-Codifica a cadeia de caracteres determinada em base64* ``toBase64('bojjus') -> 'Ym9qanVz'``  
+Codifica a cadeia de caracteres especificada em base64 * ``toBase64('bojjus') -> 'Ym9qanVz'``  
 ___
 ### <code>toBinary</code>
 <code><b>toBinary(<i>&lt;value1&gt;</i> : any) => binary</b></code><br/><br/>
-Converte qualquer número de data/hora/timestamp/cadeia de caracteres em representação binária* ``toBinary(3) -> [0x11]``  
+Converte um número de data/hora/timestamp/cadeia de caracteres em uma representação binária * ``toBinary(3) -> [0x11]``  
 ___
 ### <code>toBoolean</code>
 <code><b>toBoolean(<i>&lt;value1&gt;</i> : string) => boolean</b></code><br/><br/>
@@ -679,50 +716,50 @@ Converte um valor de ('t', 'true', 'y', 'yes', '1') para true e de ('f', 'false'
 ___
 ### <code>toDate</code>
 <code><b>toDate(<i>&lt;string&gt;</i> : any, [<i>&lt;date format&gt;</i> : string]) => date</b></code><br/><br/>
-Converte a cadeia de caracteres de data de entrada em data usando um formato de data de entrada opcional. Consulte SimpleDateFormat do Java para obter os formatos disponíveis. Se o formato de data de entrada for omitido, o formato padrão será aaaa-[M] M-[d] d. Os formatos aceitos são: [aaaa, aaaa-[M] M, YYYY-[M] M-[d] d, YYYY-[M] M-[d] dT *]* ``toDate('2012-8-18') -> toDate('2012-08-18')``  
+Converte a cadeia de caracteres de data de entrada em data usando um formato de data de entrada opcional. Consulte SimpleDateFormat do Java para obter os formatos disponíveis. Se o formato de data de entrada for omitido, o formato padrão será aaaa-[M]M-[d]d. Os formatos aceitos são: [aaaa, aaaa-[M]M, aaaa-[M]M-[d]d, aaaa-[M]M-[d]dT* ] * ``toDate('2012-8-18') -> toDate('2012-08-18')``  
 * ``toDate('12/18/2012', 'MM/dd/yyyy') -> toDate('2012-12-18')``  
 ___
 ### <code>toDecimal</code>
 <code><b>toDecimal(<i>&lt;value&gt;</i> : any, [<i>&lt;precision&gt;</i> : integral], [<i>&lt;scale&gt;</i> : integral], [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => decimal(10,0)</b></code><br/><br/>
-Converte qualquer numérico ou cadeia de caracteres em um valor decimal. Se a precisão e escala não forem especificados, ele é padronizado para (10,2). Um formato decimal opcional do Java pode ser usado para a conversão. Um formato de localidade opcional na forma de linguagem BCP47, como en-US, de, zh-CN* ``toDecimal(123.45) -> 123.45``  
+Converte qualquer numérico ou cadeia de caracteres em um valor decimal. Se a precisão e escala não forem especificados, ele é padronizado para (10,2). Um formato decimal opcional do Java pode ser usado para a conversão. Um formato de localidade opcional no formato de linguagem BCP47, como en-US, de, zh-CN * ``toDecimal(123.45) -> 123.45``  
 * ``toDecimal('123.45', 8, 4) -> 123.4500``  
 * ``toDecimal('$123.45', 8, 4,'$###.00') -> 123.4500``  
 * ``toDecimal('Ç123,45', 10, 2, 'Ç###,##', 'de') -> 123.45``  
 ___
 ### <code>toDouble</code>
 <code><b>toDouble(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => double</b></code><br/><br/>
-Converte qualquer numérico ou cadeia de caracteres em um valor duplo. Um formato decimal opcional do Java pode ser usado para a conversão. Um formato de localidade opcional na forma de linguagem BCP47, como en-US, de, zh-CN* ``toDouble(123.45) -> 123.45``  
+Converte qualquer numérico ou cadeia de caracteres em um valor duplo. Um formato decimal opcional do Java pode ser usado para a conversão. Um formato de localidade opcional no formato de linguagem BCP47, como en-US, de, zh-CN * ``toDouble(123.45) -> 123.45``  
 * ``toDouble('123.45') -> 123.45``  
 * ``toDouble('$123.45', '$###.00') -> 123.45``  
 * ``toDouble('Ç123,45', 'Ç###,##', 'de') -> 123.45``  
 ___
 ### <code>toFloat</code>
 <code><b>toFloat(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => float</b></code><br/><br/>
-Converte qualquer numérico ou cadeia de caracteres em um valor flutuante. Um formato decimal opcional do Java pode ser usado para a conversão. Trunca qualquer duplo* ``toFloat(123.45) -> 123.45f``  
+Converte qualquer numérico ou cadeia de caracteres em um valor flutuante. Um formato decimal opcional do Java pode ser usado para a conversão. Trunca qualquer duplo * ``toFloat(123.45) -> 123.45f``  
 * ``toFloat('123.45') -> 123.45f``  
 * ``toFloat('$123.45', '$###.00') -> 123.45f``  
 ___
 ### <code>toInteger</code>
 <code><b>toInteger(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => integer</b></code><br/><br/>
-Converte qualquer número ou cadeia de caracteres em um valor inteiro. Um formato decimal opcional do Java pode ser usado para a conversão. Trunca qualquer longo, float, Double* ``toInteger(123) -> 123``  
+Converte qualquer numérico ou cadeia de caracteres em um valor inteiro. Um formato decimal opcional do Java pode ser usado para a conversão. Trunca qualquer long, float, double * ``toInteger(123) -> 123``  
 * ``toInteger('123') -> 123``  
 * ``toInteger('$123', '$###') -> 123``  
 ___
 ### <code>toLong</code>
 <code><b>toLong(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => long</b></code><br/><br/>
-Converte qualquer numérico ou cadeia de caracteres em um valor longo. Um formato decimal opcional do Java pode ser usado para a conversão. Trunca qualquer float, Double* ``toLong(123) -> 123``  
+Converte qualquer numérico ou cadeia de caracteres em um valor longo. Um formato decimal opcional do Java pode ser usado para a conversão. Trunca qualquer float, double * ``toLong(123) -> 123``  
 * ``toLong('123') -> 123``  
 * ``toLong('$123', '$###') -> 123``  
 ___
 ### <code>toShort</code>
 <code><b>toShort(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => short</b></code><br/><br/>
-Converte qualquer numérico ou cadeia de caracteres em um valor resumido. Um formato decimal opcional do Java pode ser usado para a conversão. Trunca qualquer inteiro, longo, flutuante, duplo* ``toShort(123) -> 123``  
+Converte qualquer numérico ou cadeia de caracteres em um valor resumido. Um formato decimal opcional do Java pode ser usado para a conversão. Trunca qualquer integer, long, float, double * ``toShort(123) -> 123``  
 * ``toShort('123') -> 123``  
 * ``toShort('$123', '$###') -> 123``  
 ___
 ### <code>toString</code>
 <code><b>toString(<i>&lt;value&gt;</i> : any, [<i>&lt;number format/date format&gt;</i> : string]) => string</b></code><br/><br/>
-Converte um tipo de dados primitivo em uma cadeia de caracteres. Para números e data, um formato pode ser especificado. Se não for especificado, o padrão do sistema será selecionado. O formato decimal Java é usado para números. Consulte Java SimpleDateFormat para todos os formatos de data possíveis; o formato padrão é AAAA-MM-DD* ``toString(10) -> '10'``  
+Converte um tipo de dados primitivo em uma cadeia de caracteres. Para números e data, um formato pode ser especificado. Se não for especificado, o padrão do sistema será selecionado. O formato decimal Java é usado para números. Consulte SimpleDateFormat do Java para ver todos os formatos de data possíveis; o formato padrão é aaaa-MM-dd * ``toString(10) -> '10'``  
 * ``toString('engineer') -> 'engineer'``  
 * ``toString(123456.789, '##,###.##') -> '123,456.79'``  
 * ``toString(123.78, '000000.000') -> '000123.780'``  
@@ -733,14 +770,14 @@ Converte um tipo de dados primitivo em uma cadeia de caracteres. Para números e
 ___
 ### <code>toTimestamp</code>
 <code><b>toTimestamp(<i>&lt;string&gt;</i> : any, [<i>&lt;timestamp format&gt;</i> : string], [<i>&lt;time zone&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Converte uma cadeia de caracteres em um timestamp dado um formato de carimbo de data/hora opcional. Consulte Java SimpleDateFormat para todos os formatos possíveis. Se o carimbo de data/hora for omitido, o padrão. YYYY-[M] M-[d] d hh: mm: SS [. f...] será usado. Você pode passar um fuso horário opcional na forma de ' GMT ', ' PST ', ' UTC ', ' América/Cayman '. O carimbo de data/hora dá suporte a uma precisão de até milissegundos com o valor de SimpleDateFormat 999Refer Java para os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``toTimestamp('2016-12-31 00:12:00') -> toTimestamp('2016-12-31 00:12:00')``  
+Converte uma cadeia de caracteres em um carimbo de data/hora com determinado formato de carimbo de data/hora opcional. Consulte SimpleDateFormat do Java para ver todos os formatos possíveis. Se o carimbo de data/hora for omitido, o padrão aaaa-[m]m-[d]d hh:mm:ss[.f...] será usado. Você pode transmitir um fuso horário opcional nos formatos 'GMT', 'PST', 'UTC', 'America/Cayman'. O carimbo de data/hora dá suporte a uma precisão de até milissegundos com o valor de SimpleDateFormat 999Refer do Java para os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``toTimestamp('2016-12-31 00:12:00') -> toTimestamp('2016-12-31 00:12:00')``  
 * ``toTimestamp('2016-12-31T00:12:00', 'yyyy-MM-dd\'T\'HH:mm:ss', 'PST') -> toTimestamp('2016-12-31 00:12:00')``  
 * ``toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss') -> toTimestamp('2016-12-31 00:12:00')``  
 * ``millisecond(toTimestamp('2019-02-03 05:19:28.871', 'yyyy-MM-dd HH:mm:ss.SSS')) -> 871``  
 ___
 ### <code>toUTC</code>
 <code><b>toUTC(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Converte o carimbo de data/hora em UTC. Você pode passar um fuso horário opcional na forma de 'GMT', 'PST', 'UTC', 'America/Cayman'. Ele é padronizado para os SimpleDateFormat atuais do timezoneRefer Java para os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``toUTC(currentTimeStamp()) == toTimestamp('2050-12-12 19:18:12') -> false``  
+Converte o carimbo de data/hora em UTC. Você pode passar um fuso horário opcional na forma de 'GMT', 'PST', 'UTC', 'America/Cayman'. É padronizado como o fuso horário atual. Consulte SimpleDateFormat do Java para obter os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``toUTC(currentTimeStamp()) == toTimestamp('2050-12-12 19:18:12') -> false``  
 * ``toUTC(currentTimeStamp(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``  
 ___
 ### <code>translate</code>
@@ -755,7 +792,7 @@ Apara uma cadeia de caracteres inicial e final. Se o segundo parâmetro não for
 ___
 ### <code>true</code>
 <code><b>true() => boolean</b></code><br/><br/>
-Sempre retorna um valor true. Use a sintaxe da função (true ()) se houver uma coluna chamada ' true '* ``(10 + 20 == 30) -> true``  
+Sempre retorna um valor true. Use a função syntax(true()) se houver uma coluna chamada 'true' * ``(10 + 20 == 30) -> true``  
 * ``(10 + 20 == 30) -> true()``  
 ___
 ### <code>typeMatch</code>
@@ -769,7 +806,7 @@ Coloca em maiúsculas todos os caracteres de uma cadeia de caracteres* ``upper('
 ___
 ### <code>uuid</code>
 <code><b>uuid() => string</b></code><br/><br/>
-Retorna o UUID gerado* ``uuid()``  
+Retorna o UUID gerado * ``uuid()``  
 ___
 ### <code>weekOfYear</code>
 <code><b>weekOfYear(<i>&lt;value1&gt;</i> : datetime) => integer</b></code><br/><br/>
@@ -777,7 +814,7 @@ Obtém a semana do ano de uma determinada data * ``weekOfYear(toDate('2008-02-20
 ___
 ### <code>weeks</code>
 <code><b>weeks(<i>&lt;value1&gt;</i> : integer) => long</b></code><br/><br/>
-Duração em milissegundos para o número de semanas* ``weeks(2) -> 1209600000L``  
+Duração em milissegundos para o número de semanas * ``weeks(2) -> 1209600000L``  
 ___
 ### <code>xor</code>
 <code><b>xor(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : boolean) => boolean</b></code><br/><br/>
@@ -788,7 +825,7 @@ ___
 ### <code>year</code>
 <code><b>year(<i>&lt;value1&gt;</i> : datetime) => integer</b></code><br/><br/>
 Obtém o valor do ano de uma data * ``year(toDate('2012-8-8')) -> 2012``  
-##Funções de agregação as funções a seguir só estão disponíveis em transformações agregadas, dinâmicas, não dinâmicas e de janela___
+## Funções de agregação As funções a seguir só estão disponíveis em transformações agregadas, dinâmicas, não dinâmicas e de janela ___
 ### <code>avg</code>
 <code><b>avg(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
 Obtém a média dos valores de uma coluna * ``avg(sales)``  
@@ -856,11 +893,11 @@ Com base em um critério, obtém o valor máximo de uma coluna * ``maxIf(region 
 ___
 ### <code>mean</code>
 <code><b>mean(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
-Obtém a média dos valores de uma coluna. Similar ao AVG * ``mean(sales)``  
+Obtém a média dos valores de uma coluna. Igual a AVG * ``mean(sales)``  
 ___
 ### <code>meanIf</code>
 <code><b>meanIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => number</b></code><br/><br/>
-Com base em um critério, obtém a média dos valores de uma coluna. Similar ao avgIf * ``meanIf(region == 'West', sales)``  
+Com base em um critério, obtém a média dos valores de uma coluna. Igual a avgIf * ``meanIf(region == 'West', sales)``  
 ___
 ### <code>min</code>
 <code><b>min(<i>&lt;value1&gt;</i> : any) => any</b></code><br/><br/>
@@ -943,10 +980,10 @@ ___
 ### <code>varianceSampleIf</code>
 <code><b>varianceSampleIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
 Com base em um critério, obtém a variação não polarizada de uma coluna * ``varianceSampleIf(region == 'West', sales)``  
-##Funções de janela as funções a seguir só estão disponíveis em transformações de janela___
+## Funções de janela As funções a seguir só estão disponíveis em transformações de janela ___
 ### <code>cumeDist</code>
 <code><b>cumeDist() => integer</b></code><br/><br/>
-A função CumeDist calcula a posição de um valor relativo a todos os valores na partição. O resultado é o número de linhas anteriores ou iguais à linha atual na ordenação da partição, dividido pelo número total de linhas na partição de janela. Os valores de ligação na ordenação serão avaliados como a mesma posição.  
+A função CumeDist calcula a posição de um valor relativo a todos os valores na partição. O resultado é o número de linhas anteriores ou iguais à linha atual na ordenação da partição, dividido pelo número total de linhas na partição de janela. Os valores de empate na ordenação, se houver, serão avaliados para a mesma posição.  
 * ``cumeDist()``  
 ___
 ### <code>denseRank</code>
@@ -955,17 +992,17 @@ Computa a classificação de um valor em um grupo de valores especificados na cl
 ___
 ### <code>lag</code>
 <code><b>lag(<i>&lt;value&gt;</i> : any, [<i>&lt;number of rows to look before&gt;</i> : number], [<i>&lt;default value&gt;</i> : any]) => any</b></code><br/><br/>
-Obtém o valor do primeiro parâmetro avaliado n linhas antes da linha atual. O segundo parâmetro é o número de linhas a serem examinadas e o valor padrão é 1. Se não houver tantas linhas, um valor null será retornado, a menos que um valor padrão seja especificado * ``lag(amount, 2)``  
+Obtém o valor do primeiro parâmetro avaliado n linhas antes da linha atual. O segundo parâmetro é o número de linhas a retroceder e o valor padrão é 1. Se não houver tantas linhas, um valor null será retornado, a menos que um valor padrão seja especificado * ``lag(amount, 2)``  
 * ``lag(amount, 2000, 100)``  
 ___
 ### <code>lead</code>
 <code><b>lead(<i>&lt;value&gt;</i> : any, [<i>&lt;number of rows to look after&gt;</i> : number], [<i>&lt;default value&gt;</i> : any]) => any</b></code><br/><br/>
-Obtém o valor do primeiro parâmetro avaliado n linhas depois da linha atual. O segundo parâmetro é o número de linhas a serem examinadas e o valor padrão é 1. Se não houver tantas linhas, um valor null será retornado, a menos que um valor padrão seja especificado * ``lead(amount, 2)``  
+Obtém o valor do primeiro parâmetro avaliado n linhas depois da linha atual. O segundo parâmetro é o número de linhas a avançar e o valor padrão é 1. Se não houver tantas linhas, um valor null será retornado, a menos que um valor padrão seja especificado * ``lead(amount, 2)``  
 * ``lead(amount, 2000, 100)``  
 ___
 ### <code>nTile</code>
 <code><b>nTile([<i>&lt;value1&gt;</i> : integer]) => integer</b></code><br/><br/>
-A função NTile divide as linhas de cada partição de janela em `n` buckets que variam de 1 a no máximo `n`. Os valores de bucket vão diferir em no máximo 1. Se o número de linhas na partição não se dividir uniformemente em um número de buckets, os valores restantes serão distribuídos um por bucket, começando com o primeiro bucket. A função NTile é útil para o cálculo de tertiles, quartils, decis e outras estatísticas de resumo comuns. A função calcula duas variáveis durante a inicialização: o tamanho de um Bucket regular terá uma linha extra adicionada a ele. Ambas as variáveis são baseadas no tamanho da partição atual. Durante o processo de cálculo, a função acompanha o número da linha atual, o número do bucket atual e o número da linha em que o bucket será alterado (bucketThreshold). Quando o número da linha atual atinge o limite do bucket, o valor do bucket é aumentado em um e o limite é aumentado pelo tamanho do bucket (mais um extra se o bucket atual for preenchido).  
+A função NTile divide as linhas de cada partição de janela em `n` buckets que variam de 1 a no máximo `n`. Os valores de bucket vão diferir em no máximo 1. Se o número de linhas na partição não se dividir uniformemente em um número de buckets, os valores restantes serão distribuídos um por bucket, começando com o primeiro bucket. A função NTile é útil para o cálculo de tercis, quartis, decis e outras estatísticas de resumo comuns. A função calcula duas variáveis durante a inicialização: O tamanho de um bucket regular terá uma linha extra adicionada a ele. Ambas as variáveis são baseadas no tamanho da partição atual. Durante o processo de cálculo, a função acompanha o número da linha atual, o número do bucket atual e o número da linha em que o bucket será alterado (bucketThreshold). Quando o número da linha atual atinge o limite do bucket, o valor do bucket é aumentado em um e o limite é aumentado pelo tamanho do bucket (mais um extra se o bucket atual for preenchido).  
 * ``nTile()``  
 * ``nTile(numOfBuckets)``  
 ___
@@ -979,4 +1016,4 @@ Atribui uma numeração de linha sequencial para linhas em uma janela que começ
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Saiba como usar o Expression Builder](concepts-data-flow-expression-builder.md).
+[Saiba como usar o Construtor de Expressões](concepts-data-flow-expression-builder.md).
