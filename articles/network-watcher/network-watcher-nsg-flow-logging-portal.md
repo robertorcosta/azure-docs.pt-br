@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: f3448765eecf4a586e13155903f1c093607781dc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: da7d56a0fd8571e796567331a7543074f0bf1eda
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76896436"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808701"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Tutorial: Registrar em log o tráfego de rede bidirecionalmente em uma máquina virtual usando o portal do Azure
 
@@ -123,7 +123,7 @@ O log de fluxo do NSG exige o provedor **Microsoft.Insights**. Para registrar o 
    ![Baixar logs de fluxo](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
 
 3. Selecione a conta de armazenamento que você configurou na etapa 2 de [Habilitar o log de fluxo do NSG](#enable-nsg-flow-log).
-4. Em **Serviço Blob**, selecione **Blobs** e, em seguida, selecione o contêiner **insights-logs-networksecuritygroupflowevent**.
+4. Em **Serviço Blob**, selecione **Contêineres** e, em seguida, selecione o contêiner **insights-logs-networksecuritygroupflowevent**.
 5. No contêiner, navegue na hierarquia de pastas até chegar a um arquivo PT1H.json, conforme mostrado na figura a seguir. Arquivos de log são gravados em uma hierarquia de pastas que segue a seguinte convenção de nomenclatura: https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 
    ![Log de fluxo](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
@@ -215,7 +215,7 @@ O valor de **mac** na saída anterior é o endereço MAC do adaptador de rede qu
 | T            | Protocolo               | Indica se o protocolo do fluxo era TCP (T) ou UDP (U).                                  |
 | O            | Direção              | Indica se o tráfego era de entrada (I) ou de saída (O).                                     |
 | Um            | Ação                 | Indica se o tráfego foi permitido (A) ou negado (D).  
-| C            | Estado de fluxo da **Versão 2 somente** | Captura o estado do fluxo. Os estados possíveis são **B**: iniciar, quando um fluxo for criado. As estatísticas não são fornecidas. **C**: continuando um fluxo contínuo. As estatísticas são fornecidas em intervalos de 5 minutos. **E**: final, quando um fluxo é encerrado. Estatísticas são fornecidas. |
+| C            | Estado de fluxo da **Versão 2 somente** | Captura o estado do fluxo. Os possíveis estados são **B**: Iniciar, quando um fluxo é criado. As estatísticas não são fornecidas. **C**: Continuando um fluxo contínuo. As estatísticas são fornecidas em intervalos de 5 minutos. **E**: Encerrar, quando um fluxo é encerrado. Estatísticas são fornecidas. |
 | 30 | Pacotes enviados – Origem ao destino **Versão 2 somente** | A quantidade total de pacotes TCP ou UDP enviados da origem ao destino desde a última atualização. |
 | 16978 | Bytes enviados – Origem ao destino **Versão 2 somente** | A quantidade total de bytes de pacote TCP ou UDP enviados da origem para o destino desde a última atualização. O número total de bytes de pacote TCP e UDP enviados da origem para o destino desde os últimos bytes updatePacket inclui o cabeçalho e a carga útil do pacote. |
 | 24 | Pacotes enviados – Destino para origem **Versão 2 somente** | A quantidade total de pacotes TCP ou UDP enviados do destino para a origem desde a última atualização. |

@@ -6,14 +6,14 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/10/2020
+ms.date: 05/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 0e6e243ceb73ca2a1180e59ba6c6b4095ed6069a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: c47016d0b82a4e4ed084f5d82394d91fd2b46be1
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83116706"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697718"
 ---
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Alterar o modelo de pull do feed de alterações no Azure Cosmos DB
 
@@ -43,7 +43,7 @@ FeedIterator iteratorWithStreams = container.GetChangeFeedStreamIterator();
 Usando um `FeedIterator`, você pode processar facilmente o feed de alterações de um contêiner inteiro em seu próprio ritmo. Aqui está um exemplo:
 
 ```csharp
-FeedIterator<User> iteratorForTheEntireContainer= container.GetChangeFeedIterator(new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
+FeedIterator<User> iteratorForTheEntireContainer= container.GetChangeFeedIterator<User>();
 
 while (iteratorForTheEntireContainer.HasMoreResults)
 {
@@ -58,10 +58,10 @@ while (iteratorForTheEntireContainer.HasMoreResults)
 
 ## <a name="consuming-a-partition-keys-changes"></a>Consumindo as alterações de uma chave de partição
 
-Em alguns casos, talvez você queira apenas processar as alterações de uma chave de partição específica. Você pode obter um `FeedIterator` para uma chave de partição específica e processar as alterações da mesma maneira que pode fazê-lo para um contêiner inteiro:
+Em alguns casos, talvez você queira apenas processar as alterações de uma chave de partição específica. Você pode obter um `FeedIterator` para uma chave de partição específica e processar as alterações da mesma maneira que pode fazê-lo para um contêiner inteiro.
 
 ```csharp
-FeedIterator<User> iteratorForThePartitionKey = container.GetChangeFeedIterator(new PartitionKey("myPartitionKeyValueToRead"), new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
+FeedIterator<User> iteratorForThePartitionKey = container.GetChangeFeedIterator<User>(new PartitionKey("myPartitionKeyValueToRead"));
 
 while (iteratorForThePartitionKey.HasMoreResults)
 {
@@ -98,7 +98,7 @@ Aqui está um exemplo que mostra como ler desde o início do feed de alteraçõe
 Computador 1:
 
 ```csharp
-FeedIterator<User> iteratorA = container.GetChangeFeedIterator<Person>(ranges[0], new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
+FeedIterator<User> iteratorA = container.GetChangeFeedIterator<User>(ranges[0], new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
 while (iteratorA.HasMoreResults)
 {
    FeedResponse<User> users = await iteratorA.ReadNextAsync();
@@ -149,6 +149,8 @@ while (iterator.HasMoreResults)
 FeedIterator<User> iteratorThatResumesFromLastPoint = container.GetChangeFeedIterator<User>(continuation);
 ```
 
+Enquanto o contêiner do Cosmos existir, um token de continuação FeedIterator nunca expirará.
+
 ## <a name="comparing-with-change-feed-processor"></a>Comparação com o processador do feed de alterações
 
 Muitos cenários podem processar o feed de alterações usando o [processador do feed de alterações](change-feed-processor.md) ou o modelo de pull. Os tokens de continuação do modelo de pull e o contêiner de concessão do processador de feed de alterações são "indicadores" para o último item processado (ou lote de itens) no feed de alterações.
@@ -156,9 +158,9 @@ No entanto, não é possível converter tokens de continuação em um contêiner
 
 Você deve considerar o uso do modelo de pull nestes cenários:
 
-- Você deseja fazer uma leitura única dos dados existentes no feed de alterações
-- Você deseja apenas ler as alterações de uma chave de partição específica
-- Você não quer um modelo de push e deseja consumir o feed de alterações em seu próprio ritmo
+- Ler as alterações de uma chave de partição específica
+- Controlar o ritmo no qual seu cliente recebe alterações para processamento
+- Fazer uma leitura única dos dados existentes no feed de alterações (por exemplo, fazer uma migração de dados)
 
 Aqui estão algumas diferenças importantes entre o processador do feed de alterações e o modelo de pull:
 

@@ -1,65 +1,71 @@
 ---
-title: Transformação pesquisa no fluxo de dados de mapeamento
-description: Dados de referência de outra fonte usando a transformação pesquisa no fluxo de dados de mapeamento.
+title: Transformação de pesquisa no fluxo de dados de mapeamento
+description: Dados de referência de outra fonte usando a transformação de pesquisa no fluxo de dados de mapeamento.
 author: kromerm
 ms.reviewer: daperlov
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/23/2020
-ms.openlocfilehash: 672fecc7487a73909efa5b4247f4889bb47b7b7e
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.date: 05/15/2020
+ms.openlocfilehash: 59c7a34e975a53226b032827feae436202c8fa30
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594310"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683339"
 ---
-# <a name="lookup-transformation-in-mapping-data-flow"></a>Transformação pesquisa no fluxo de dados de mapeamento
+# <a name="lookup-transformation-in-mapping-data-flow"></a>Transformação de pesquisa no fluxo de dados de mapeamento
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Use a transformação pesquisa para fazer referência a dados de outra fonte em um fluxo de fluxo de dados. A transformação pesquisa acrescenta colunas de dados correspondentes aos dados de origem.
+Use a transformação de pesquisa para fazer referência a dados de outra fonte em um stream de fluxo de dados. A transformação de pesquisa acrescenta colunas dos dados correspondentes aos dados de origem.
 
-Uma transformação pesquisa é semelhante a uma junção externa esquerda. Todas as linhas do fluxo primário existirão no fluxo de saída com colunas adicionais do fluxo de pesquisa. 
+Uma transformação de pesquisa é semelhante a uma união externa esquerda. Todas as linhas do fluxo primário existirão no fluxo de saída com colunas adicionais do fluxo de pesquisa. 
 
 ## <a name="configuration"></a>Configuração
 
-![Transformação pesquisa](media/data-flow/lookup1.png "Pesquisa")
+![Transformação Pesquisa](media/data-flow/lookup1.png "Pesquisa")
 
-**Fluxo primário:** O fluxo de entrada de dados. Esse fluxo é equivalente ao lado esquerdo de uma junção.
+**Fluxo primário:** O fluxo de entrada de dados. Esse fluxo é equivalente ao lado esquerdo de uma união.
 
-**Fluxo de pesquisa:** Os dados que são acrescentados ao fluxo primário. Quais dados são adicionados é determinado pelas condições de pesquisa. Esse fluxo é equivalente ao lado direito de uma junção.
+**Fluxo de pesquisa:** Os dados que são acrescentados ao fluxo primário. A determinação de quais dados são adicionados é feita pelas condições de pesquisa. Esse fluxo é equivalente ao lado direito de uma união.
 
-**Corresponder várias linhas:** Se habilitada, uma linha com várias correspondências no fluxo principal retornará várias linhas. Caso contrário, apenas uma única linha será retornada com base na condição ' corresponder em '.
+**Corresponder várias linhas:** Se habilitada, uma linha com várias correspondências no fluxo principal retornará várias linhas. Caso contrário, apenas uma linha será retornada com base na condição “Corresponder a”.
 
-**Corresponder em:** Visível somente se ' corresponder várias linhas ' não estiver selecionado. Escolha se deseja corresponder em qualquer linha, a primeira correspondência ou a última correspondência. Qualquer linha é recomendada à medida que ela é executada mais rapidamente. Se a primeira linha ou última linha for selecionada, será necessário especificar as condições de classificação.
+**Corresponder a:** Visível somente se “Corresponder a várias linhas” não estiver selecionado. Escolha se deseja corresponder a qualquer linha, a primeira correspondência ou a última correspondência. Qualquer linha será recomendada à medida que for executada mais rapidamente. Se a primeira linha ou a última linha for selecionada, será necessário especificar as condições de classificação.
 
-**Condições de pesquisa:** Escolha em quais colunas corresponder. Se a condição de igualdade for atendida, as linhas serão consideradas uma correspondência. Focalize e selecione "coluna computada" para extrair um valor usando a [linguagem de expressão de fluxo de dados](data-flow-expression-functions.md).
+**Condições de pesquisa:** Escolha a quais colunas será feita a correspondência. Se a condição de igualdade for atendida, as linhas serão consideradas uma correspondência. Focalize e selecione "Coluna computada" para extrair um valor usando a [linguagem de expressão do fluxo de dados](data-flow-expression-functions.md).
 
-A transformação pesquisa dá suporte apenas a correspondências de igualdade. Para personalizar a expressão de pesquisa para incluir outros operadores, como maior que, é recomendável usar uma [junção cruzada na transformação junção](data-flow-join.md#custom-cross-join). Uma junção cruzada evitará qualquer erro de produto cartesiano possível na execução.
+A transformação de pesquisa só dá suporte a correspondências de igualdade. Para personalizar a expressão de pesquisa a incluir outros operadores, como maior que, é recomendável usar uma [união cruzada na transformação de união](data-flow-join.md#custom-cross-join). Uma união cruzada evitará erros de produto cartesiano possíveis na execução.
 
-Todas as colunas de ambos os fluxos são incluídas nos dados de saída. Para remover colunas duplicadas ou indesejadas, adicione uma [transformação selecionar](data-flow-select.md) após a transformação pesquisa. As colunas também podem ser descartadas ou renomeadas em uma transformação de coletor.
+Todas as colunas de ambos os fluxos são incluídas nos dados de saída. Para remover colunas duplicadas ou indesejadas, adicione um [Selecionar transformação](data-flow-select.md) após a transformação de pesquisa. As colunas também podem ser descartadas ou renomeadas em uma transformação de coletor.
 
-## <a name="analyzing-matched-rows"></a>Analisando linhas correspondentes
+### <a name="non-equi-joins"></a>Uniões não equivalentes
 
-Após a transformação pesquisa, a função `isMatch()` pode ser usada para ver se a pesquisa correspondeu a linhas individuais.
+Para usar um operador condicional como diferente de (!=) ou maior que (>) em suas condições de pesquisa, altere a lista suspensa do operador entre as duas colunas. Uniões não equivalentes exigem que pelo menos um dos dois fluxos sejam transmitidos usando a transmissão **Fixa** na guia **Otimizar**.
+
+![Pesquisa sem equivalência](media/data-flow/non-equi-lookup.png "Pesquisa sem equivalência")
+
+## <a name="analyzing-matched-rows"></a>Análise de linhas correspondentes
+
+Após a transformação de pesquisa, a função `isMatch()` poderá ser usada para ver se a pesquisa correspondeu a linhas individuais.
 
 ![Padrão de pesquisa](media/data-flow/lookup111.png "Padrão de pesquisa")
 
-Um exemplo desse padrão é usar a transformação Divisão condicional para dividir a `isMatch()` função. No exemplo acima, as linhas correspondentes passam pelo fluxo superior e as linhas não correspondentes fluem por meio do ```NoMatch``` fluxo.
+Um exemplo desse padrão é usar a transformação de divisão condicional para dividir na função `isMatch()`. No exemplo acima, as linhas correspondentes passam pelo fluxo superior, e o fluxo de linhas não correspondentes pelo fluxo ```NoMatch```.
 
-## <a name="testing-lookup-conditions"></a>Testando condições de pesquisa
+## <a name="testing-lookup-conditions"></a>Teste de condições de pesquisa
 
-Ao testar a transformação pesquisa com a visualização de dados no modo de depuração, use um pequeno conjunto de dados conhecidos. Ao fazer amostragem de linhas de um grande conjunto de grandes, você não pode prever quais linhas e chaves serão lidas para teste. O resultado é não determinístico, o que significa que suas condições de junção podem não retornar nenhuma correspondência.
+Ao testar a transformação de pesquisa com a visualização de dados no modo de depuração, use um pequeno conjunto de dados conhecidos. Ao fazer a amostragem de linhas de um grande conjunto de grande, você não consegue prever quais linhas e chaves serão lidas para o teste. O resultado é não determinístico, o que significa que suas condições de junção podem não retornar correspondência alguma.
 
-## <a name="broadcast-optimization"></a>Otimização de difusão
+## <a name="broadcast-optimization"></a>Otimização de transmissão
 
-![Junção de difusão](media/data-flow/broadcast.png "Junção de difusão")
+![União de transmissão](media/data-flow/broadcast.png "União de transmissão")
 
-Em junções, pesquisas e a transformação Exists, se um ou ambos os fluxos de dados couberem na memória do nó de trabalho, você poderá otimizar o desempenho habilitando a **difusão**. Por padrão, o mecanismo do Spark decidirá automaticamente se deseja ou não difundir um lado. Para escolher manualmente qual lado deve ser difundido, selecione **fixo**.
+Em transformação de junções, pesquisas e ocorrências, se um ou ambos os fluxos de dados se ajustarem à memória do nó de trabalho, você poderá otimizar o desempenho habilitando a **Difusão**. Por padrão, o mecanismo do Spark decidirá automaticamente se deseja ou não transmitir um lado. Para escolher manualmente o lado a ser transmitido, selecione **Fixo**.
 
-Não é recomendável desabilitar a difusão por meio da opção **desligar** , a menos que suas junções estejam em erros de tempo limite.
+Não é recomendável desabilitar a transmissão por meio da opção **Desativar**, a menos que suas uniões estejam tendo erros de tempo limite.
 
 ## <a name="data-flow-script"></a>Script de fluxo de dados
 
@@ -77,7 +83,7 @@ Não é recomendável desabilitar a difusão por meio da opção **desligar** , 
 ```
 ### <a name="example"></a>Exemplo
 
-![Transformação pesquisa](media/data-flow/lookup-dsl-example.png "Pesquisa")
+![Transformação Pesquisa](media/data-flow/lookup-dsl-example.png "Pesquisa")
 
 O script de fluxo de dados para a configuração de pesquisa acima está no trecho de código abaixo.
 
@@ -91,5 +97,5 @@ SQLProducts, DimProd lookup(ProductID == ProductKey,
 ## 
 Próximas etapas
 
-* As transformações [Join](data-flow-join.md) e [Exists](data-flow-exists.md) levam em várias entradas de fluxo
-* Usar uma [transformação de divisão condicional](data-flow-conditional-split.md) com ```isMatch()``` para dividir linhas em valores correspondentes e não correspondentes
+* As transformações de [união](data-flow-join.md) e de [ocorrências](data-flow-exists.md) ambas levam várias entradas de fluxo
+* Usar uma [transformação de divisão condicional](data-flow-conditional-split.md) com ```isMatch()``` para dividir as linhas em valores correspondentes e não correspondentes

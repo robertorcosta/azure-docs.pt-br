@@ -1,6 +1,6 @@
 ---
 title: Classes de recursos para gerenciamento de carga de trabalho
-description: Diretrizes para usar classes de recursos para gerenciar simultaneidade e recursos de computação para consultas no Azure Synapse Analytics.
+description: Diretrizes para usar classes de recursos para gerenciar a simultaneidade e computar recursos para consultas no Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,20 +11,20 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: c2ac05cb2a6b3bd185d5e3a84df4f3d9a01c5bef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6214c7f0d7728d39e36a7b555f503e130b405e81
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80743274"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653062"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-synapse-analytics"></a>Gerenciamento de carga de trabalho com classes de recursos no Azure Synapse Analytics
 
-Diretrizes para usar classes de recursos para gerenciar a memória e a simultaneidade para consultas de pool do SQL Synapse no Azure Synapse.  
+Diretrizes para usar classes de recursos para gerenciar a memória e simultaneidade para consultas de pool de SQL no Azure Synapse.  
 
-## <a name="what-are-resource-classes"></a>O que são classes de recurso
+## <a name="what-are-resource-classes"></a>O que são classes de recursos
 
-A capacidade de desempenho de uma consulta é determinada pela classe de recurso do usuário.  As classes de recursos são limites de recursos predeterminados no pool do SQL Synapse que regem os recursos de computação e a simultaneidade para a execução da consulta. As classes de recursos podem ajudá-lo a configurar recursos para suas consultas definindo limites no número de consultas executadas simultaneamente e nos recursos de computação atribuídos a cada consulta.  Há uma compensação entre a memória e a simultaneidade.
+A capacidade de desempenho de uma consulta é determinada pela classe de recurso do usuário.  Classes de recursos são limites de recursos predeterminados no pool de SQL do Synapse que controlam recursos de computação e simultaneidade para execução da consulta. As classes de recursos podem ajudá-lo a configurar recursos para suas consultas, definindo limites no número de consultas executadas simultaneamente e os recursos de computação atribuídos a cada consulta.  Há um equilíbrio entre a memória e simultaneidade.
 
 - Classes de recursos menores reduzem a memória máxima por consulta, mas aumentam a simultaneidade.
 - Classes de recursos maiores aumentam a memória máxima por consulta, mas reduzem a simultaneidade.
@@ -32,7 +32,7 @@ A capacidade de desempenho de uma consulta é determinada pela classe de recurso
 Há dois tipos de classes de recursos:
 
 - Classes de recursos estáticos, que são adequadas para aprimoramento de simultaneidade em um tamanho de conjunto de dados é fixa.
-- Classes de recursos dinâmicos, que são adequadas para conjuntos de dados que estão crescendo em tamanho e precisam de aumento de desempenho conforme o nível de serviço é escalado verticalmente.
+- Classes de recursos dinâmicos, que são adequadas para conjuntos de dados que estão crescendo em tamanho e precisam de aumento do desempenho conforme o nível de serviço é dimensionado.
 
 As classes de recursos usam slots de simultaneidade para medir o consumo de recursos.  Os [slots de simultaneidade](#concurrency-slots) são explicados mais adiante neste artigo.
 
@@ -74,13 +74,13 @@ A alocação de memória para cada classe de recurso é a seguinte.
 | DW300c         | 8%                | 10%                    | 22%                    | 70%                    |
 | DW400c         | 6,25%             | 10%                    | 22%                    | 70%                    |
 | DW500c         | 5%                | 10%                    | 22%                    | 70%                    |
-| DW1000c para<br> DW30000c | 3%       | 10%                    | 22%                    | 70%                    |
+| DW1000c até<br> DW30000c | 3%       | 10%                    | 22%                    | 70%                    |
 
 ### <a name="default-resource-class"></a>Classe de recurso padrão
 
 Por padrão, cada usuário é um membro da classe de recursos dinâmicos **smallrc**.
 
-A classe de recurso do administrador de serviços é fixada em smallrc e não pode ser alterada.  O administrador de serviços é o usuário criado durante o processo de provisionamento.  O administrador de serviços nesse contexto é o logon especificado para o "logon de administrador do servidor" ao criar um novo pool do SQL Synapse com um novo servidor.
+A classe de recurso do administrador de serviços é fixada em smallrc e não pode ser alterada.  O administrador de serviços é o usuário criado durante o processo de provisionamento.  O administrador de serviços nesse contexto é o logon especificado para o "Logon de administrador do servidor" ao criar um pool de SQL do Synapse com um novo servidor.
 
 > [!NOTE]
 > Usuários ou grupos definidos como administrador do Active Directory também são administradores de serviços.
@@ -117,7 +117,7 @@ Algumas consultas sempre são executadas na classe de recurso smallrc, mesmo se 
 As instruções a seguir estão isentas das classes de recursos e sempre são executadas em smallrc:
 
 - CREATE ou DROP TABLE
-- ALTERAR TABELA... COMUTAdor, divisão ou MESCLAr partição
+- ALTER TABLE ... SWITCH, SPLIT ou MERGE PARTITION
 - ALTER INDEX DISABLE
 - DROP INDEX
 - CREATE, UPDATE ou DROP STATISTICS
@@ -141,12 +141,12 @@ Removed as these two are not confirmed / supported under SQL DW
 
 ## <a name="concurrency-slots"></a>Slots de simultaneidade
 
-Slots de simultaneidade são uma maneira conveniente para controlar os recursos disponíveis para execução da consulta. Eles são como tíquetes que você compra para reservar assentos em um concerto, pois a capacidade é limitada. O número total de slots de simultaneidade por data warehouse é determinado pelo nível de serviço. Antes de iniciar a execução de uma consulta, ela deve ser capaz de reserva slots de simultaneidade suficientes. Quando uma consulta é concluída, ela libera seus slots de simultaneidade.  
+Slots de simultaneidade são uma maneira conveniente para controlar os recursos disponíveis para execução da consulta. Eles são como tíquetes que você compra para reservar assentos em um concerto, pois a capacidade é limitada. O número total de slots de simultaneidade por data warehouse é determinado pelo nível de serviço. Antes de iniciar a execução de uma consulta, ela deve ser capaz de reserva slots de simultaneidade suficientes. Quando uma consulta for concluída, ela libera seus slots de simultaneidade.  
 
 - Uma consulta em execução com 10 slots de simultaneidade pode acessar 5 vezes mais recursos de computação que uma consulta em execução com 2 slots de simultaneidade.
 - Se cada consulta exige 10 slots de simultaneidade e houver 40 slots de simultaneidade, então, apenas 4 consultas podem ser executados simultaneamente.
 
-Apenas consultas governadas por recurso consomem slots de simultaneidade. As consultas do sistema e algumas consultas triviais não consomem nenhum slot. O número exato de slots de simultaneidade consumidos é determinado pela classe de recurso da consulta.
+Apenas consultas governadas por recurso consomem slots de simultaneidade. Consultas de sistema e algumas consultas triviais não consomem nenhum slot. O número exato de slots de simultaneidade consumidos é determinado pela classe de recurso da consulta.
 
 ## <a name="view-the-resource-classes"></a>Exibir as classes de recursos
 
@@ -160,15 +160,15 @@ WHERE  name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
 
 ## <a name="change-a-users-resource-class"></a>Alterar uma classe de recursos de usuário
 
-Classes de recursos são implementadas atribuindo usuários a funções de banco de dados. Quando um usuário executa uma consulta, a consulta é executada com a classe de recurso do usuário. Por exemplo, se um usuário for membro da função de banco de dados staticrc10, suas consultas serão executadas com pequenas quantidades de memória. Se um usuário de banco de dados for membro das funções de banco de dados xlargerc ou staticrc80, suas consultas serão executadas com grandes quantidades de memória.
+Classes de recursos são implementadas atribuindo usuários a funções de banco de dados. Quando um usuário executa uma consulta, a consulta é executada com a classe de recurso do usuário. Por exemplo, se um usuário é um membro da função de banco de dados staticrc10, suas consultas são executadas com pequenas quantidades de memória. Se um usuário de banco de dados é um membro das funções de banco de dados xlargerc ou staticrc80, suas consultas são executadas com grandes quantidades de memória.
 
-Para aumentar a classe de recurso de um usuário, use [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para adicionar o usuário a uma função de banco de dados de uma classe de recurso grande.  O código abaixo adiciona um usuário à função de banco de dados largerc.  Cada solicitação Obtém 22% da memória do sistema.
+Para aumentar a classe de recurso de um usuário, use [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para adicionar o usuário a uma função de banco de dados de uma classe de recurso grande.  O código abaixo adiciona um usuário à função de banco de dados largerc.  Cada solicitação obtém 22% da memória do sistema.
 
 ```sql
 EXEC sp_addrolemember 'largerc', 'loaduser';
 ```
 
-Para diminuir a classe de recurso, use [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Se ' loaduser ' não for um membro ou outras classes de recurso, eles entrarão na classe de recurso smallrc padrão com uma concessão de memória de 3%.  
+Para diminuir a classe de recurso, use [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Se 'loaduser' não for um membro ou estiver em qualquer outra classe de recurso, eles entrarão na classe de recurso smallrc padrão com uma concessão de memória de 3%.  
 
 ```sql
 EXEC sp_droprolemember 'largerc', 'loaduser';
@@ -184,11 +184,11 @@ Os usuários podem ser membros de várias classes de recursos. Quando um usuári
 ## <a name="recommendations"></a>Recomendações
 
 >[!NOTE]
->Considere aproveitar os recursos de gerenciamento de carga de trabalho ([isolamento de carga de trabalho](sql-data-warehouse-workload-isolation.md), [classificação](sql-data-warehouse-workload-classification.md) e [importância](sql-data-warehouse-workload-importance.md)) para obter mais controle sobre sua carga de trabalho e desempenho previsível  
+>Considere aproveitar os recursos de gerenciamento de carga de trabalho ([isolamento de carga de trabalho](sql-data-warehouse-workload-isolation.md), [classificação](sql-data-warehouse-workload-classification.md) e [importância](sql-data-warehouse-workload-importance.md)) para obter mais controle sobre a carga de trabalho e o desempenho previsível.  
 >
 >
 
-É recomendável criar um usuário dedicado à execução de um tipo específico de consulta ou operação de carregamento. Dê a esse usuário uma classe de recurso permanente em vez de alterar a classe de recurso com frequência. As classes de recursos estáticos oferecem maior controle geral na carga de trabalho, então sugerimos o uso de classes de recursos estáticos antes de considerar as classes de recursos dinâmicos.
+Recomendamos criar um usuário que seja dedicado à execução de um tipo específico de consulta ou operação de carregamento. Ofereça a esse usuário uma classe de recursos permanente em vez de alterar a classe de recurso com frequência. As classes de recursos estáticos têm maior controle geral sobre a carga de trabalho, por isso sugerimos usá-las antes de considerar classes de recursos dinâmicos.
 
 ### <a name="resource-classes-for-load-users"></a>Classes de recursos para usuários de carga
 
@@ -199,36 +199,36 @@ A memória necessária para processar cargas com eficiência depende da natureza
 Depois de determinar o requisito de memória, escolha se deseja atribuir o usuário de carga a uma classe de recurso estático ou dinâmico.
 
 - Use uma classe de recurso estático quando os requisitos de memória de tabela estiverem em um intervalo específico. As cargas são executadas com memória apropriada. Quando você dimensiona o data warehouse, as cargas não precisam de mais memória. Ao usar uma classe de recurso estático, as alocações de memória permanecem constantes. Essa consistência economiza a memória e permite que mais consultas sejam executadas simultaneamente. É recomendável que novas soluções usem as classes de recursos estáticos primeiro, pois eles fornecem maior controle.
-- Use uma classe de recursos dinâmicos quando os requisitos de memória de tabela variarem muito. As cargas podem exigir mais memória do que a DWU atual ou que o nível de cDWU fornece. O dimensionamento da data warehouse adiciona mais memória às operações de carregamento, o que permite que as cargas sejam executadas mais rapidamente.
+- Use uma classe de recursos dinâmicos quando os requisitos de memória de tabela variarem muito. As cargas podem exigir mais memória do que a DWU atual ou que o nível de cDWU fornece. Dimensionar o data warehouse adiciona mais memória para operações de carregamento, o que permite que cargas tenham um desempenho mais rápido.
 
 ### <a name="resource-classes-for-queries"></a>Classes de recursos para consultas
 
-Algumas consultas são de computação intensiva e outras não.  
+Algumas consultas são de computação intensiva e algumas não.  
 
-- Escolha uma classe de recurso dinâmico quando as consultas forem complexas, mas não precisarem de alta simultaneidade.  Por exemplo, a geração de relatórios diários ou semanais é uma necessidade ocasional para recursos. Se os relatórios estiverem processando grandes quantidades de dados, dimensionar o data warehouse fornece mais memória à classe de recurso existente do usuário.
+- Escolha uma classe de recursos dinâmicos quando consultas forem complexas, mas não precisarem de alta simultaneidade.  Por exemplo, a geração de relatórios diários ou semanais é uma necessidade ocasional para recursos. Se os relatórios estiverem processando grandes quantidades de dados, dimensionar o data warehouse fornece mais memória à classe de recurso existente do usuário.
 - Escolha uma classe de recurso estático quando as expectativas de recursos variarem ao longo do dia. Por exemplo, uma classe de recurso estático funciona bem quando o data warehouse é consultado por várias pessoas. Ao dimensionar o data warehouse, a quantidade de memória alocada para o usuário não é alterada. Consequentemente, mais consultas podem ser executadas em paralelo no sistema.
 
-As concessões de memória adequadas dependem de vários fatores, como a quantidade de dados consultados, a natureza dos esquemas de tabela e vários predicados de junções, de seleção e de grupo. Em geral, alocar mais memória permitirá que consultas sejam concluídas mais rapidamente, mas reduzirá a simultaneidade geral. Se a simultaneidade não for um problema, a alocação excessiva de memória não prejudicará a taxa de transferência.
+A concessão de memória apropriada depende de muitos fatores, como a quantidade de dados consultada, a natureza dos esquemas de tabela e vários predicados de união, seleção e agrupamento. Em geral, alocar mais memória permitirá que consultas sejam concluídas mais rapidamente, mas reduzirá a simultaneidade geral. Se a simultaneidade não for um problema, a alocação excessiva de memória não prejudicará a taxa de transferência.
 
 Para ajustar o desempenho, use classes de recursos diferentes. A próxima seção fornece um procedimento armazenado que ajuda você a descobrir a melhor classe de recurso.
 
 ## <a name="example-code-for-finding-the-best-resource-class"></a>Exemplo de código para encontrar a melhor classe de recurso
 
-Você pode usar o seguinte procedimento armazenado especificado para descobrir a simultaneidade e a concessão de memória por classe de recurso em um determinado SLO e a melhor classe de recursos para operações de CCI com uso intensivo de memória em uma tabela CCI não particionada em uma determinada classe de recurso:
+Você pode usar o procedimento armazenado especificado a seguir para descobrir a concessão de memória e a simultaneidade por classe de recursos em um determinado SLO e a melhor classe de recursos para operações de CCI de uso intenso da memória em uma tabela CCI não particionada em uma determinada classe de recursos:
 
 Aqui está a finalidade deste procedimento armazenado:
 
 1. Visualizar a simultaneidade e a concessão de memória por classe de recursos em um determinado SLO. O usuário precisa fornecer NULL para o esquema e tablename, conforme mostrado neste exemplo.  
-2. Para ver a melhor classe de recurso para as operações de CCI com uso intensivo de memória (carregar, copiar tabela, recompilar índice, etc.) na tabela CCI não particionada em uma determinada classe de recurso. O procedimento armazenado usa o esquema da tabela para descobrir a concessão de memória necessária.
+2. Visualizar a melhor classe de recursos para operações de CCI de uso intenso de memória (carregar, copiar tabela, recompilar índice etc.) na tabela CCI não particionada em uma determinada classe de recursos. O procedimento armazenado usa o esquema da tabela para descobrir a concessão de memória necessária.
 
-### <a name="dependencies--restrictions"></a>Dependências & restrições
+### <a name="dependencies--restrictions"></a>Dependências e restrições
 
-- Esse procedimento armazenado não foi projetado para calcular o requisito de memória para uma tabela CCI particionada.
-- Esse procedimento armazenado não leva em conta os requisitos de memória para a parte SELECT de CTAS/INSERT-SELECT e pressupõe que é uma seleção.
+- Esse procedimento armazenado não foi projetado para calcular os requisitos de memória para uma tabela CCI particionada.
+- Esse procedimento armazenado não considera os requisitos de memória para a parte SELECT de CTAS/INSERT-SELECT e pressupõe que sejam um SELECT.
 - Esse procedimento armazenado usa uma tabela temporária que está disponível na sessão em que esse procedimento armazenado foi criado.
-- Esse procedimento armazenado depende das ofertas atuais (por exemplo, configuração de hardware, config do DMS) e, se qualquer uma dessas alterações for alterada, esse procedimento armazenado não funcionará corretamente.  
-- Esse procedimento armazenado depende das ofertas de limite de simultaneidade existentes e, se essa alteração for alterada, esse procedimento armazenado não funcionará corretamente.  
-- Esse procedimento armazenado depende das ofertas de classe de recurso existentes e, se essas alterações forem alteradas, esse procedimento armazenado não funcionará corretamente.  
+- Esse procedimento armazenado depende das ofertas atuais (por exemplo, a configuração de hardware, a configuração DMS) e se qualquer uma delas for alterada, esse procedimento armazenado não funcionará corretamente.  
+- Esse procedimento armazenado depende das ofertas de limite de simultaneidade existentes e, se isso mudar, esse procedimento armazenado não funcionará corretamente.  
+- Esse procedimento armazenado depende das ofertas de classe de recurso existentes e, se isso mudar, esse procedimento armazenado não funcionará corretamente.  
 
 >[!NOTE]  
 >Se você não estiver obtendo a saída após executar o procedimento armazenado com parâmetros fornecidos, então poderá ser dois casos.
@@ -236,14 +236,14 @@ Aqui está a finalidade deste procedimento armazenado:
 >1. Um parâmetro de DW contém um valor inválido de SLO
 >2. Ou, não há nenhuma classe de recurso correspondente para a operação CCI na tabela.
 >
->Por exemplo, em DW100c, a concessão de memória mais alta disponível é de 1 GB e se o esquema de tabela for grande o suficiente para cruzar o requisito de 1 GB.
+>Por exemplo, no DW100c, a concessão de memória mais alta disponível é de 1 GB e se o esquema de tabela for grande o suficiente para atravessar o requisito de 1 GB.
 
 ### <a name="usage-example"></a>Exemplo de uso
 
 Sintaxe:  
 `EXEC dbo.prc_workload_management_by_DWU @DWU VARCHAR(7), @SCHEMA_NAME VARCHAR(128), @TABLE_NAME VARCHAR(128)`
   
-1. @DWU:Forneça um parâmetro nulo para extrair o DWU atual do banco de BD DW ou fornecer qualquer DWU com suporte na forma de ' DW100c '
+1. @DWU: Forneça um parâmetro NULL para extrair a DWU atual do BD do DW ou forneça uma DWU compatível na forma de 'DW100c'
 2. @SCHEMA_NAME: Forneça um nome de esquema da tabela
 3. @TABLE_NAME: Forneça um nome de tabela dos juros
 
@@ -592,4 +592,4 @@ GO
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre como gerenciar usuários e segurança de banco de dados, consulte [proteger um banco de dados na análise de SQL](sql-data-warehouse-overview-manage-security.md). Para obter mais informações sobre como classes de recursos maiores podem melhorar a qualidade do índice columnstore clusterizado, consulte [Otimizações de memória para compressão de columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+Para obter mais informações sobre como gerenciar usuários de banco de dados e segurança, confira [Proteger um banco de dados no SQL do Synapse](sql-data-warehouse-overview-manage-security.md). Para obter mais informações sobre como classes de recursos maiores podem melhorar a qualidade do índice columnstore clusterizado, consulte [Otimizações de memória para compressão de columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).

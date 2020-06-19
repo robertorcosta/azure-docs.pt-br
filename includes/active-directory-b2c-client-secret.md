@@ -5,14 +5,14 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
 ms.author: mimart
-ms.openlocfilehash: 6c562f9b19082f01cd8447eb727ce830b003f396
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: f227021f6cd71686eb58b43dc16a03d6fc010b83
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298747"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84672503"
 ---
-#### <a name="app-registrations-preview"></a>[Registros de Aplicativo (versão prévia)](#tab/app-reg-preview/)
+#### <a name="app-registrations"></a>[Registros de aplicativo](#tab/app-reg-ga/) 
 
 1. Em **Gerenciar**, selecione **Certificados e Segredos**.
 1. Selecione **Novo segredo do cliente**.
@@ -20,7 +20,7 @@ ms.locfileid: "84298747"
 1. Em **Expirar**, selecione um período durante o qual o segredo será válido e clique em **Adicionar**.
 1. Registre o **Valor** do segredo. Você usará esse valor para uma configuração em uma etapa posterior.
 
-#### <a name="applications"></a>[Aplicativos](#tab/applications/)
+#### <a name="applications-legacy"></a>[Aplicativos (Herdado)](#tab/applications-legacy/)
 
 1. Em **ACESSO À API**, selecione **Chaves**.
 1. Insira uma descrição para a chave na caixa **Descrição da Chave**. Por exemplo, *clientsecret1*.

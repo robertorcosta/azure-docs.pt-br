@@ -1,116 +1,187 @@
 ---
 title: Azure Monitor para Cache do Azure para Redis (versão prévia) | Microsoft Docs
-description: Este artigo descreve o recurso Azure Monitor para Cache do Azure para Redis, que fornece aos proprietários do Cache do Azure para Redis uma rápida compreensão dos problemas de desempenho e utilização.
+description: Este artigo descreve o recurso Azure Monitor para Cache do Azure para Redis, que fornece aos proprietários do cache uma rápida compreensão dos problemas de desempenho e utilização.
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 05/07/2020
-ms.openlocfilehash: af32459ffcb50c9f1cfdc59d2c8d355d3551e230
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 05/21/2020
+ms.openlocfilehash: d892c58413803ff65fbd8ca8b25a61bc5ffeb26f
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83210968"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847354"
 ---
 # <a name="explore-azure-monitor-for-azure-cache-for-redis-preview"></a>Explorar o Azure Monitor para Cache do Azure para Redis (versão prévia)
 
-O Azure Monitor para Cache do Azure para Redis (versão prévia) fornece uma exibição do desempenho geral, das falhas, da capacidade e da integridade operacional de todos os seus recursos do Cache do Azure para Redis em uma experiência interativa unificada. Este artigo o ajudará a entender os benefícios dessa nova experiência de monitoramento e como você pode modificar e adaptar a experiência para atender às necessidades exclusivas de sua organização.
+Para todos os seus recursos do Cache do Azure para Redis, o Azure Monitor para o Cache do Azure para Redis (versão prévia) fornece uma exibição unificada e interativa de:
+
+- Desempenho geral
+- Falhas
+- Capacity
+- Integridade operacional
+
+Este artigo ajuda você a entender os benefícios dessa nova experiência de monitoramento. Ele também mostra como modificar e adaptar a experiência para atender às necessidades exclusivas de sua organização.
 
 ## <a name="introduction"></a>Introdução
 
-Antes de mergulhar na experiência, você deve entender como ela apresenta e visualiza informações.
+Antes de iniciar a experiência, você deve entender como Azure Monitor para o Cache do Azure para Redis apresenta as informações visualmente.
 
 Ela oferece:
 
-* **Perspectiva em escala** de seus recursos do Cache do Azure para Redis em todas as suas assinaturas em um único local, com a capacidade de definir o escopo seletivamente apenas com as assinaturas e os recursos que você está interessado em avaliar.
+- **Na perspectiva da escala** dos recursos do Cache do Azure para Redis em apenas um local, em todas as suas assinaturas. Você pode fazer o escopo seletivo somente para as assinaturas e os recursos que deseja avaliar.
 
-* **Análise de busca detalhada** de um recurso específico do Cache do Azure para Redis para ajudar a diagnosticar problemas ou executar uma análise detalhada por categoria – utilização, falhas, capacidade e operações. A seleção de qualquer uma dessas opções fornece uma visão detalhada das métricas relevantes.  
+- **Análise de busca detalhada** de um recurso específico do Cache do Azure para Redis. Você pode diagnosticar problemas e ver a análise detalhada de utilização, falhas, capacidade e operações. Selecione qualquer uma dessas categorias para ter uma visão detalhada das informações relevantes.  
 
-* **Personalizável** – essa experiência é criada sobre os modelos de pasta de trabalho do Azure Monitor, permitindo que você altere quais métricas são exibidas, modifique ou defina os limites que se alinham com seus limites e, em seguida, salve em uma pasta de trabalho personalizada. Os gráficos nas pastas de trabalho podem ser fixados a painéis do Azure.  
+- A **personalização** dessa experiência, que é criada sobre modelos de pasta de trabalho do Azure Monitor. A experiência permite alterar quais métricas são exibidas e modificar ou definir limites que se alinham com os seus. Você pode salvar as alterações em uma pasta de trabalho personalizada e, em seguida, fixar os gráficos da pasta de trabalho a painéis do Azure.
 
-Esse recurso não exige que você habilite nem configure nada, essas métricas do Cache do Azure para Redis são coletadas por padrão.
+Esse recurso não exige que você habilite nem configure nada. As informações do Cache do Azure para Redis são coletadas por padrão.
 
 >[!NOTE]
->Não há nenhum encargo para acessar esse recurso e você será cobrado somente pelos recursos essenciais do Azure Monitor que você configurar ou habilitar, conforme descrito na página [Detalhes de preços de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
+>Não há nenhum encargo para acessar esse recurso. Você será cobrado somente pelos recursos essenciais do Azure Monitor que você configurar ou habilitar, conforme descrito na página [Detalhes de preços do Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
 ## <a name="view-utilization-and-performance-metrics-for-azure-cache-for-redis"></a>Exibir métricas de desempenho e utilização para o Cache do Azure para Redis
 
-Para exibir a utilização e o desempenho de suas contas de armazenamento em todas as suas assinaturas, execute as etapas a seguir.
+Para exibir a utilização e o desempenho de suas contas de armazenamento em todas as suas assinaturas, execute as seguintes etapas:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 
-2. Pesquise **Monitor** e selecione **Monitor**.
+1. Pesquise **Monitor** e selecione **Monitor**.
 
-    ![Caixa de pesquisa com a palavra “Monitor” e uma lista suspensa com os dizeres “Monitor” de Serviços com uma imagem semelhante a um velocímetro](./media/cosmosdb-insights-overview/search-monitor.png)
+    ![Caixa de pesquisa com a palavra "Monitor" e os resultados da pesquisa de serviços com a palavra "Monitor" e um símbolo de velocímetro](./media/cosmosdb-insights-overview/search-monitor.png)
 
-3. Selecione **Cache do Azure para Redis (versão prévia)** .
-
-Se essa opção não estiver presente, clique em **Mais** e selecione **Cache do Azure para Redis**.
+1. Selecione **Cache do Azure para Redis (versão prévia)** . Se essa opção não estiver presente, selecione **Mais** > **Cache do Azure para Redis**.
 
 ### <a name="overview"></a>Visão geral
 
 Em **Visão geral**, a tabela exibe métricas interativas do Cache do Azure para Redis. Você pode filtrar os resultados com base nas opções selecionadas nas seguintes listas suspensas:
 
-* **Assinaturas** – somente assinaturas que têm um recurso do Cache do Azure para Redis são listadas.  
+- **Assinaturas**: somente assinaturas que têm um recurso do Cache do Azure para Redis são listadas.  
 
-* **Cache do Azure para Redis** – você pode selecionar todos, um subconjunto ou um único cache do recurso Cache do Azure para Redis.
+- **Cache do Azure para Redis**: você pode selecionar todos, um subconjunto ou um único cache do recurso do Cache do Azure para Redis.
 
-* **Intervalo de tempo** – por padrão, exibe as últimas quatro horas de informações com base nas seleções correspondentes feitas.
+- **Intervalo de Tempo**: por padrão, exibe as últimas 24 horas de informações com base nas seleções correspondentes.
 
-O bloco contador sob as listas suspensas acumula o número total de recursos do Cache do Azure para Redis que estão nas assinaturas selecionadas. Há codificação de cor condicional ou mapas de calor para colunas na pasta de trabalho que relatam métricas de transação. A cor mais intensa tem o valor mais alto e uma cor mais clara é baseada nos valores mais baixos.
+Há um bloco de contador sob as listas suspensas. O bloco mostra o número total de recursos do Cache do Azure para Redis nas assinaturas selecionadas. Os códigos de cores condicionais ou mapas de calor para colunas da pasta de trabalho relatam métricas de transação. A cor mais profunda representa o valor mais alto. Cores mais claras representam valores mais baixos.
 
-A seleção de uma seta suspensa ao lado de um dos recursos do Cache do Azure para Redis revelará uma análise das métricas de desempenho no nível de recurso individual:
+A seleção de uma seta de lista suspensa ao lado de um dos recursos do Cache do Azure para Redis revela uma análise das métricas de desempenho no nível de recurso individual.
 
 ![Captura da experiência de Visão geral](./media/redis-cache-insights-overview/overview.png)
 
-Selecionar o nome do recurso do Cache do Azure para Redis realçado em azul levará você para a **Visão geral** padrão para a conta associada. Ela mostra `Used Memory`, `Used Memory Percentage`, `Server Load`, `Server Load Timeline`, `CPU`, `Connected Clients`, `Cache Misses`, `Errors (Max)`.
+Ao selecionar o nome do recurso do Cache do Azure para Redis realçado em azul, você vê a tabela **Visão geral** padrão para a conta associada. Ela mostra estas colunas:
+
+- **Memória Usada**
+- **Percentual de memória utilizada**
+- **Carga do Servidor**
+- **Linha do Tempo de Carga do Servidor**
+- **CPU**
+- **Clientes Conectados**
+- **Perdas no Cache**
+- **Erros (Máx.)**
 
 ### <a name="operations"></a>Operações
 
-Selecione **Operações** na parte superior da página e a parte **Operações** do modelo da pasta de trabalho é aberta. Ela mostra `Total Operations`, `Total Operations Timeline`, `Operations Per Second`, `Gets`, `Sets`.
+Quando você seleciona **Operações** na parte superior da página, a tabela **Operações** do modelo da pasta de trabalho é aberto. Ela mostra estas colunas:
 
-![Captura da experiência de Visão geral](./media/redis-cache-insights-overview/operations.png)
+- **Total de Operações**
+- **Linha do Tempo de Total de Operações**
+- **Operações por Segundo**
+- **Gets**
+- **Sets**
+
+![Captura da experiência de operações](./media/redis-cache-insights-overview/operations.png)
 
 ### <a name="usage"></a>Uso
 
-Selecione **Uso** na parte superior da página e a parte **Uso** do modelo da pasta de trabalho é aberta. Ela mostra `Cache Read`, `Cache Read Timeline`, `CacheWrite`, `CacheHits`, `Cache Misses`.
+Quando você seleciona **Uso** na parte superior da página, a parte **Uso** do modelo da pasta de trabalho é aberta. Ela mostra estas colunas:
 
-![Captura da experiência de Visão geral](./media/redis-cache-insights-overview/usage.png)
+- **Cache Lido**
+- **Linha do Tempo de Leitura do Cache**
+- **Gravação no Cache**
+- **Ocorrências no Cache**
+- **Perdas no Cache**
 
-Selecione **Falhas** na parte superior da página e a parte **Falhas** do modelo da pasta de trabalho é aberta. Ela mostra `Total Errors`, `Failover/Errors`, `UnresponsiveClient/Errors`, `RDB/Errors`, `AOF/Errors`, `Export/Errors`, `Dataloss/Errors`, `Import/Errors`.
+![Captura de tela da experiência de uso](./media/redis-cache-insights-overview/usage.png)
 
-![Captura de tela de falhas com divisão por tipo de solicitação HTTP](./media/redis-cache-insights-overview/failures.png)
+### <a name="failures"></a>Falhas
+
+Quando você seleciona **Falhas** na parte superior da página, a tabela **Falhas** do modelo da pasta de trabalho é aberta. Ela mostra estas colunas:
+
+- **Total de Erros**
+- **Failover/Erros**
+- **UnresponsiveClient/Erros**
+- **RDB/Erros**
+- **AOF/Erros**
+- **Exportação/Erros**
+- **Perda de dados/Erros**
+- **Importação/Erros**
+
+![Captura de tela de falhas com uma divisão por tipo de solicitação HTTP](./media/redis-cache-insights-overview/failures.png)
 
 ### <a name="metric-definitions"></a>Definições de Métrica
 
-Para obter uma lista completa das definições de métrica que compõem essas pastas de trabalho, confira o [artigo de métricas disponíveis e intervalos de relatório](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-monitor#available-metrics-and-reporting-intervals).
+Para obter uma lista completa das definições de métrica que compõem essas pastas de trabalho, confira o [artigo sobre métricas disponíveis e intervalos de relatório](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-monitor#available-metrics-and-reporting-intervals).
+
+## <a name="view-from-an-azure-cache-for-redis-resource"></a>Exibição de um recurso do Cache do Azure para Redis
+
+Para acessar o Azure Monitor para o Cache do Azure para Redis diretamente de um recurso individual:
+
+1. Na portal do Azure, selecione Cache do Azure para Redis.
+
+2. Na lista, escolha um recurso individual de Cache do Azure para Redis. Na seção Monitoramento, escolha Insights (versão prévia).
+
+    ![Captura de tela das opções de menu com as palavras "Insights (versão prévia)" realçadas em uma caixa vermelha](./media/redis-cache-insights-overview/insights.png)
+
+Essas exibições também podem ser acessadas selecionando o nome de um recurso do Cache do Azure para Redis na pasta de trabalho do nível do Azure Monitor.
+
+### <a name="resource-level-overview"></a>Visão geral no nível do recurso
+
+Na pasta de trabalho **Visão geral** para o Cache do Azure para Redis, são mostradas várias métricas de desempenho que lhe oferecem acesso a:
+
+- Gráficos de desempenho interativos que mostram os detalhes mais fundamentais relacionados ao desempenho do Cache do Azure para Redis.
+
+- Blocos de status e de métricas realçando o desempenho de fragmentos, o número total de clientes conectados e a latência geral.
+
+![Captura de tela do painel de visão geral exibindo informações sobre desempenho da CPU, memória usada, clientes conectados, erros, chaves expiradas e chaves removidas](./media/redis-cache-insights-overview/resource-overview.png)
+
+Selecionar qualquer uma das outras guias para **Desempenho** ou **Operações** abre as respectivas pastas de trabalho.
+
+### <a name="resource-level-performance"></a>Desempenho no nível do recurso
+
+![Captura de tela dos gráficos de desempenho do recurso](./media/redis-cache-insights-overview/resource-performance.png)
+
+### <a name="resource-level-operations"></a>Operações no nível do recurso
+
+![Captura de tela de gráficos de operações de recurso](./media/redis-cache-insights-overview/resource-operations.png)
 
 ## <a name="pin-export-and-expand"></a>Fixar, exportar e expandir
 
-Você pode fixar qualquer uma das seções de métrica em um [Painel do Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards) selecionando o ícone de alfinete na parte superior direita da seção.
+Para fixar qualquer seção de métrica em um [painel do Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards), selecione o símbolo de alfinete na parte superior direita da seção.
 
-![Exemplo de fixação no painel na seção de métrica](./media/cosmosdb-insights-overview/pin.png)
+![Uma seção de métrica com o símbolo de alfinete realçado](./media/cosmosdb-insights-overview/pin.png)
 
-Para exportar os dados para o formato do Excel, selecione o ícone de seta para baixo à esquerda do ícone de alfinete.
+Para exportar os dados para um formato do Excel, selecione o símbolo de seta para baixo à esquerda do símbolo de alfinete.
 
-![Exportar ícone de pasta de trabalho](./media/cosmosdb-insights-overview/export.png)
+![Um símbolo de exportação/pasta de trabalho realçado](./media/cosmosdb-insights-overview/export.png)
 
-Para expandir ou recolher todas as exibições suspensas na pasta de trabalho, selecione o ícone de expansão à esquerda do ícone de exportação:
+Para expandir ou recolher todas as exibições em uma pasta de trabalho, selecione o símbolo de expansão à esquerda do símbolo de exportação.
 
-![Ícone expandir pasta de trabalho](./media/cosmosdb-insights-overview/expand.png)
+![Um símbolo de expansão/pasta de trabalho realçado](./media/cosmosdb-insights-overview/expand.png)
 
 ## <a name="customize-azure-monitor-for-azure-cache-for-redis-preview"></a>Personalizar o Azure Monitor para Cache do Azure para Redis (versão prévia)
 
-Já que essa experiência foi criada sobre os modelos de pasta de trabalho Azure Monitor, você tem a capacidade de **Personalizar** > **Editar** e **Salvar** uma cópia da sua versão modificada em uma pasta de trabalho personalizada. 
+Já que essa experiência foi criada sobre os modelos de pasta de trabalho Azure Monitor, você tem a capacidade de **Personalizar** > **Editar** > **Salvar** uma cópia da sua versão modificada em uma pasta de trabalho personalizada.
 
-![Personalizar barra](./media/cosmosdb-insights-overview/customize.png)
+![Uma barra de comandos com Personalizar realçado](./media/cosmosdb-insights-overview/customize.png)
 
-As pastas de trabalho são salvas em um grupo de recursos, seja na seção **Meus Relatórios**, que é particular a você, ou na seção **Relatórios Compartilhados**, que é acessível a todos com acesso ao grupo de recursos. Depois de salvar a pasta de trabalho personalizada, você precisa ir para a galeria de pastas de trabalho para iniciá-la.
+As pastas de trabalho são salvas em um grupo de recursos na seção **Meus Relatórios** ou na seção **Relatórios Compartilhados**. **Meus Relatórios** está disponível apenas para você. **Relatórios Compartilhados** está disponível para todos com acesso ao grupo de recursos.
 
-![Iniciar galeria de pastas de trabalho na barra de comandos](./media/cosmosdb-insights-overview/gallery.png)
+Depois de salvar uma pasta de trabalho personalizada, acesse a galeria de pastas de trabalho para abri-la.
+
+![Uma barra de comandos com Galeria realçado](./media/cosmosdb-insights-overview/gallery.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Configure [alertas de métrica](../platform/alerts-metric.md) e [notificações de integridade do serviço](../../service-health/alerts-activity-log-service-notifications.md) para configurar alertas automatizados a fim de auxiliar na detecção de problemas.
+* Configure [alertas de métrica](../platform/alerts-metric.md) e [notificações de integridade do serviço](../../service-health/alerts-activity-log-service-notifications.md) para configurar alertas automatizados que auxiliam na detecção de problemas.
 
-* Conheça os cenários aos quais as pastas de trabalho foram projetadas para dar suporte, como criar relatórios, personalizar relatórios existentes e muito mais, examinando [Criar relatórios interativos com pastas de trabalho do Azure Monitor](../app/usage-workbooks.md).
+* Conheça os cenários compatíveis com as pastas de trabalho, como criar ou personalizar relatórios e muito mais, examinando [Criar relatórios interativos com pastas de trabalho do Azure Monitor](../platform/workbooks-overview.md).
