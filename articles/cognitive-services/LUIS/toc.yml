@@ -30,9 +30,9 @@
     - name: Usar APIs REST
       items:
         - name: Obter a intenção
-          href: luis-get-started-get-intent-from-rest.md
+          href: luis-get-started-rest-get-intent.md
         - name: Alterar modelo
-          href: get-started-get-model-rest-apis.md
+          href: luis-get-started-rest-get-model.md
 - name: Tutoriais
   items:
     - name: Criar um aplicativo decomposto
@@ -226,6 +226,12 @@
           href: luis-migration-api-v3.md
         - name: Migrar para API V2
           href: luis-migration-api-v1-to-v2.md
+    - name: Usar APIs REST
+      items:
+        - name: Obter a intenção
+          href: luis-get-started-get-intent-from-rest.md
+        - name: Alterar modelo
+          href: get-started-get-model-rest-apis.md
     - name: Usar contêineres
       items:
         - name: Instalar e executar contêineres

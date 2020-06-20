@@ -953,6 +953,9 @@
                 - name: Edition
                   displayName: 'change, modify, update'
                   href: virtual-machines/windows/change-sql-server-edition.md
+                - name: Versão
+                  displayName: 'change, modify, update'
+                  href: virtual-machines/windows/change-sql-server-version.md
                 - name: Armazenamento do Azure para backup e restauração
                   href: virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md
             - name: Migrar
