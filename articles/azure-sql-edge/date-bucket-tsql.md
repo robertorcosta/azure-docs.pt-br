@@ -2,19 +2,19 @@
 title: Date_Bucket (T-SQL) - SQL do Azure no Edge (versão prévia)
 description: Saiba mais sobre como usar Date_Bucket no SQL do Azure no Edge (versão prévia)
 keywords: Date_Bucket, SQL no Edge
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: reference
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2019
-ms.openlocfilehash: 7cedc19c1b2a19fb26677a9426300d19c5396bd4
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: c2f63abeb9f935236b4c35decb278eb86e0e2a82
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682735"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84233290"
 ---
 # <a name="date_bucket-transact-sql"></a>Date_Bucket (T-SQL)
 

@@ -2,19 +2,19 @@
 title: O que é o SQL do Azure no Edge (visualização)?
 description: Saiba mais sobre o SQL do Azure no Edge (visualização)
 keywords: introdução ao SQL do Azure no Edge, o que é o SQL do Azure no Edge, visão geral do SQL do Azure no Edge
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 40128c68caeba793919a680ba2beeb35eb3aa3be
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 1c70950426b2f34d94bd66d2287550e19253874c
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83712801"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84233158"
 ---
 # <a name="what-is-azure-sql-edge-preview"></a>O que é o SQL do Azure no Edge (visualização)?
 
