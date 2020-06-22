@@ -6,12 +6,12 @@ metadata:
   title: Documentação dos serviços de contêiner do Microsoft Azure | Microsoft Docs
   description: Saiba como usar os serviços de contêiner do Azure para gerenciar e desenvolver aplicativos de contêiner baseados em nuvem.
   ms.topic: hub-page
-  ms.openlocfilehash: f4d76c0f2ddbecd386a3e3b9d3de370f19b86fee
-  ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+  ms.openlocfilehash: 8cfbe066a0e52615b6312ff49d0af268d1acf610
+  ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 04/13/2020
-  ms.locfileid: "81259010"
+  ms.lasthandoff: 06/18/2020
+  ms.locfileid: "84981584"
 highlightedContent:
   items:
   - itemType: whats-new
@@ -41,18 +41,15 @@ conceptualContent:
       text: Ver mais
   - title: Testar e desenvolver aplicativos do AKS
     links:
-    - url: /azure/dev-spaces/about
-      itemType: overview
-      text: O que é o Azure Dev Spaces?
-    - url: /azure/dev-spaces/quickstart-netcore
-      itemType: quickstart
-      text: Executar e depurar um microsserviço
-    - url: /azure/dev-spaces/quickstart-team-development
-      itemType: quickstart
-      text: Colaborar em um conjunto de microsserviços com uma equipe
-    footerLink:
-      url: /azure/dev-spaces/
-      text: Ver mais
+    - url: /azure/dev-spaces/how-dev-spaces-works-local-process-kubernetes
+      itemType: concept
+      text: Como o processo local com Kubernetes funciona
+    - url: /azure/dev-spaces/how-to/local-process-kubernetes-vs-code
+      itemType: how-to-guide
+      text: Usar o Local Process with Kubernetes com o Visual Studio Code
+    - url: /azure/dev-spaces/how-to/local-process-kubernetes-visual-studio
+      itemType: how-to-guide
+      text: Usar o Local Process with Kubernetes com o Visual Studio
   - title: Criar aplicativos de nuvem para a Web e móvel
     links:
     - url: /azure/app-service/overview

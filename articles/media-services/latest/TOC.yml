@@ -18,6 +18,11 @@
     - name: Evento ao vivo com portal e OBS
       displayName: 'live, event, portal, obs'
       href: live-events-obs-quickstart.md
+    - name: 'Usar o portal para carregar, codificar e transmitir conteúdo'
+      href: manage-assets-quickstart.md
+    - name: Usar o portal para criptografar conteúdo
+      displayName: 'protect, drm, aes'
+      href: encrypt-content-quickstart.md
 - name: Tutoriais
   items:
     - name: Codificar o arquivo remoto e o fluxo de vídeo
@@ -378,6 +383,8 @@
       href: /azure/templates/microsoft.media/allversions
     - name: Esquemas do codificador padrão
       items:
+        - name: Metadados de entrada
+          href: input-metadata-schema.md
         - name: Metadados de saída
           href: output-metadata-schema.md
 - name: Recursos

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 12/09/2016
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8c7c6b797605da2884c6bffc47e593ffc9a3faca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 553abc0a221950d81f3ee8591875507d0b6a2f0c
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77615130"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020754"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>Criar uma configuração multi-SID do SAP NetWeaver
 
@@ -414,10 +414,10 @@ ms.locfileid: "77615130"
 [virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
 [virtual-machines-windows-classic-ps-sql-int-listener]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener.md
 [virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]:./../../windows/sql/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md
-[virtual-machines-windows-portal-sql-alwayson-int-listener]:./../../windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md
-[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:./../../windows/sql/virtual-machines-windows-sql-high-availability-dr.md
-[virtual-machines-sql-server-infrastructure-services]:./../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md
-[virtual-machines-sql-server-performance-best-practices]:./../../windows/sql/virtual-machines-windows-sql-performance.md
+[virtual-machines-windows-portal-sql-alwayson-int-listener]:../../../azure-sql/virtual-machines/windows/availability-group-load-balancer-portal-configure.md
+[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:../../../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
+[virtual-machines-sql-server-infrastructure-services]:../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
+[virtual-machines-sql-server-performance-best-practices]:../../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md
 [virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
@@ -444,7 +444,7 @@ ms.locfileid: "77615130"
 [xplat-cli-azure-resource-manager]:../../../xplat-cli-azure-resource-manager.md
 
 
-Em setembro de 2016, a Microsoft lançou um recurso em que você pode gerenciar vários endereços IP virtuais usando um [balanceador de carga interno do Azure][load-balancer-multivip-overview]. Essa funcionalidade já existe no balanceador externo de carga do Azure.
+Em setembro de 2016, a Microsoft lançou um recurso com o qual é possível gerenciar vários endereços IP virtual usando um [balanceador de carga interno do Azure][load-balancer-multivip-overview]. Essa funcionalidade já existe no balanceador externo de carga do Azure.
 
 Se você tiver uma implantação do SAP, será possível usar um balanceador de carga interno para criar uma configuração de cluster do Windows para SAP ASCS/SCS, conforme documentado no [guia para SAP NetWeaver de alta disponibilidade em VMs do Windows][sap-ha-guide].
 
@@ -472,7 +472,7 @@ A meta é instalar várias instâncias clusterizadas do SAP ABAP ASCS ou do SAP 
 >O número máximo de instâncias do SAP ASCS/SCS em um cluster WSFC é igual ao número máximo de IPs de front-end privado para cada balanceador de carga interno do Azure.
 >
 
-Para obter mais informações sobre limites do balanceador de carga, consulte “IP de front-end privado por balanceador de carga” em [Limites de Rede: Azure Resource Manager][networking-limits-azure-resource-manager].
+Para obter mais informações sobre limites do balanceador de carga, confira “IP de front-end privado por balanceador de carga” em [Limites de rede: Azure Resource Manager][networking-limits-azure-resource-manager].
 
 O cenário completo com dois sistemas SAP de alta disponibilidade seria assim:
 
@@ -641,31 +641,31 @@ O processo completo de instalação de um segundo sistema SAP SID2 é descrito n
 
 O procedimento de alto nível é o seguinte:
 
-1. [Instale o primeiro nó do cluster do SAP][sap-ha-guide-9.1.2].  
- Nesta etapa, você está instalando o SAP com uma instância ASCS/SCS de alta disponibilidade no **nó de Cluster WSFC existente 1**.
+1. [Instalar o primeiro nó do cluster do SAP.][sap-ha-guide-9.1.2]  
+ Nesta etapa, instale o SAP com uma instância do ASCS/SCS de alta disponibilidade no **nó de cluster WSFC EXISTENTE 1**.
 
-2. [Modifique o perfil SAP da instância do ASCS/SCS][sap-ha-guide-9.1.3].
+2. [Modificar o perfil SAP da instância do ASCS/SCS.][sap-ha-guide-9.1.3]
 
-3. [Configurar uma investigação][sap-ha-guide-9.1.4].  
+3. [Configurar uma porta de investigação][sap-ha-guide-9.1.4].  
  Nesta etapa, você configurará uma porta de investigação SAP-SID2-IP do recurso do cluster SAP usando o PowerShell. Execute essa configuração em um dos nós do cluster SAP ASCS/SCS.
 
-4. [Instale a instância do banco de dados][sap-ha-guide-9.2].  
+4. [Instalar a instância de banco de dados][sap-ha-guide-9.2].  
  Nesta etapa, você instalará o DBMS em um cluster WSFC dedicado.
 
-5. [Instale o segundo nó de cluster][sap-ha-guide-9.3].  
+5. [Instalar o segundo nó de cluster][sap-ha-guide-9.3].  
  Nesta etapa, instale o SAP com uma instância do ASCS/SCS de alta disponibilidade no nó de cluster WSFC existente 2.
 
 6. Abra portas do Firewall do Windows para a instância do SAP ASCS /SCS e ProbePort.  
- Em ambos os nós de cluster usados para as instâncias do SAP ASCS/SCS, abra todas as portas do Firewall do Windows usadas pelo SAP ASCS/SCS. Essas portas estão listadas no principal [guia para SAP NetWeaver de alta disponibilidade em VMs do Windows][sap-ha-guide-8.8].  
+ Em ambos os nós de cluster usados para as instâncias do SAP ASCS/SCS, abra todas as portas do Firewall do Windows usadas pelo SAP ASCS/SCS. Essas portas estão listadas no [guia para SAP NetWeaver de alta disponibilidade em VMs do Windows][sap-ha-guide-8.8].  
  Além disso, abra a porta de investigação do balanceador de carga interno do Azure, que, neste cenário, é 62350.
 
-7. [Altere o tipo de início da instância de serviço do Windows ers do SAP][sap-ha-guide-9.4].
+7. [Altere o tipo de início da instância do serviço Windows ERS do SAP][sap-ha-guide-9.4].
 
 8. [Instale o servidor de aplicativos SAP principal][sap-ha-guide-9.5] na nova VM dedicada.
 
 9. [Instale o servidor de aplicativos SAP adicional][sap-ha-guide-9.6] na nova VM dedicada.
 
-10. [Teste o failover da instância do SAP ASCS/SCS e a replicação sios][sap-ha-guide-10].
+10. [Teste o failover da instância do SAP ASCS/SCS e a replicação do SIOS][sap-ha-guide-10].
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -26,8 +26,10 @@
       href: capacity-limits.md
     - name: Cenários
       items:
-        - name: Usar laboratórios para dar aulas
+        - name: Usar o Lab Services para dar aulas
           href: classroom-labs-scenarios.md
+        - name: Usar o Lab Services para hackathon
+          href: hackathon-labs.md
         - name: Laboratórios de sala de aula – tipos de aula
           items:
             - name: Visão geral dos tipos de classe
