@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/07/2020
 ms.topic: article
-ms.openlocfilehash: 8f64c4a9a438b07fef428a5ed044985736055525
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 3f808d45197f7d9ee23d3f809a2ab0452e92c20e
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758836"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021289"
 ---
 # <a name="spatial-queries"></a>Consultas espaciais
 
@@ -88,9 +88,9 @@ void CastRay(ApiHandle<AzureSession> session)
 
 Há três modos de coleta de impactos:
 
-* **Mais próximo:** nesse modo, somente o impacto mais próximo a será relatado.
-* **Qualquer:** prefira esse modo quando tudo o que você deseja saber é *se* um raio atingiria algum ponto, mas sem se importar com o que exatamente seria atingido. Essa consulta pode ser consideravelmente mais barata para avaliar, mas também tem poucas aplicações.
-* **Todos:** nesse modo, todos os impactos ao longo do raio são relatados, classificados por distância. Não use esse modo, a menos que você realmente precise saber mais do que o primeiro impacto. Limite o número de impactos relatados com a opção `MaxHits`.
+* **`Closest`:** nesse modo, somente o impacto mais próximo a será relatado.
+* **`Any`:** prefira esse modo quando tudo o que você deseja saber é *se* um raio atingiria algum ponto, mas sem se importar com o que exatamente seria atingido. Essa consulta pode ser consideravelmente mais barata para avaliar, mas também tem poucas aplicações.
+* **`All`:** nesse modo, todos os impactos ao longo do raio são relatados, classificados por distância. Não use esse modo, a menos que você realmente precise saber mais do que o primeiro impacto. Limite o número de impactos relatados com a opção `MaxHits`.
 
 Para excluir objetos de forma seletiva a serem considerados para incidências de raio, o componente [HierarchicalStateOverrideComponent](override-hierarchical-state.md) pode ser usado.
 
@@ -106,11 +106,11 @@ O resultado de uma consulta de incidências de raio é uma matriz de impactos. A
 
 Um impacto tem as seguintes propriedades:
 
-* **HitEntity:** qual [entidade](../../concepts/entities.md) foi atingida.
-* **SubPartId:** qual *submalha* foi atingida em um [MeshComponent](../../concepts/meshes.md). Pode ser usado para indexar `MeshComponent.UsedMaterials` e procurar o [material](../../concepts/materials.md) nesse ponto.
-* **HitPosition:** a posição do espaço global em que o raio interseccionou o objeto.
-* **HitNormal:** a normal da superfície do espaço mundial da malha na posição da interseção.
-* **DistanceToHit:** a distância da posição inicial do raio até o impacto.
+* **`HitEntity`:** qual [entidade](../../concepts/entities.md) foi atingida.
+* **`SubPartId`:** qual *submalha* foi atingida em um [MeshComponent](../../concepts/meshes.md). Pode ser usado para indexar `MeshComponent.UsedMaterials` e procurar o [material](../../concepts/materials.md) nesse ponto.
+* **`HitPosition`:** a posição do espaço global em que o raio interseccionou o objeto.
+* **`HitNormal`:** a normal da superfície do espaço mundial da malha na posição da interseção.
+* **`DistanceToHit`:** a distância da posição inicial do raio até o impacto.
 
 ## <a name="next-steps"></a>Próximas etapas
 
