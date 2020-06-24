@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: wellsi
-ms.openlocfilehash: 93bedbf4275dacc3ec84e6df9c55e7e9a7b9d632
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: a2fe1c7c1ac8799d615c26fdaee40b92bf3e294b
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780905"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212489"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>Notas de versão: SDK de dispositivos de fala
 
@@ -39,10 +39,10 @@ As seções a seguir listam as alterações nas versões mais recentes.
 
 - Agora há suporte para o ARM do Linux.
 - Os binários iniciais para [Roobo v2 DDK](https://aka.ms/sdsdk-download-roobov2) são fornecidos (Linux ARM64).
-- Os usuários do Windows `AudioConfig.fromDefaultMicrophoneInput()` podem `AudioConfig.fromMicrophoneInput(deviceName)` usar o ou o para especificar o microfone a ser usado.
+- Os usuários do Windows podem usar `AudioConfig.fromDefaultMicrophoneInput()` `AudioConfig.fromMicrophoneInput(deviceName)` o ou o para especificar o microfone a ser usado.
 - O tamanho da biblioteca foi otimizado.
 - Suporte para reconhecimento de Multiturn usando o mesmo objeto de reconhecedor de fala/intenção.
-- Corrija a interrupção ocasional que ocorreria ao parar o reconhecimento.
+- Corrija o problema ocasional em que o processo deixaria de responder ao parar o reconhecimento.
 - Os aplicativos de exemplo agora contêm um arquivo participantes. Properties de exemplo para demonstrar o formato do arquivo.
 - Atualizado o componente [SDK de fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) para a versão 1.7.0. Para obter mais informações, consulte [notas de versão](https://aka.ms/csspeech/whatsnew).
 

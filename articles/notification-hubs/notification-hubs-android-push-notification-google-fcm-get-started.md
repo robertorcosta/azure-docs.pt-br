@@ -6,24 +6,22 @@ documentationcenter: android
 keywords: notificações por push, notificação por push, notificação por push do android, fcm, firebase cloud messaging
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: 02298560-da61-4bbb-b07c-e79bd520e420
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 09/11/2019
+ms.date: 06/22/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 09/11/2019
-ms.openlocfilehash: 7dbe9faabcb7a46ae3862ac7da6504b6b0407d86
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 244e9d9136705eeef27680d2fa590d283abb6467
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170436"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255459"
 ---
 # <a name="tutorial-send-push-notifications-to-android-devices-using-firebase-sdk-version-06"></a>Tutorial: Enviar notificações por push para dispositivos Android usando o SDK do Firebase versão 0.6
 
@@ -556,11 +554,13 @@ Você pode enviar notificações por push pelo [Azure portal] seguindo estas eta
 [!INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
 ### <a name="run-the-mobile-app-on-emulator"></a>Executar o aplicativo móvel no emulador
+
 Antes de testar notificações por push em um emulador, verifique se a imagem do emulador dá suporte ao nível de API do Google que você escolheu para o aplicativo. Se a imagem não der suporte às APIs nativas do Google, você poderá receber a exceção **SERVICE\_NOT\_AVAILABLE**.
 
 Além disso, verifique se você adicionou a conta do Google ao emulador em execução em **Configurações** > **Contas**. Caso contrário, suas tentativas de se registrar no FCM poderão resultar na exceção **AUTHENTICATION\_FAILED**.
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Neste tutorial, você usou o Firebase Cloud Messaging para difundir notificações a todos os dispositivos Android que estavam registrados no serviço. Para saber como enviar notificações por push a dispositivos específicos, avance ao seguinte tutorial:
 
 > [!div class="nextstepaction"]
