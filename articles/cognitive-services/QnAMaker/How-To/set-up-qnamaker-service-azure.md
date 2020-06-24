@@ -3,12 +3,12 @@ title: Configurar um serviço de QnA Maker-QnA Maker
 description: Antes de criar quaisquer bases de dados de conhecimento do QnA Maker, primeiro você deve configurar um serviço de QnA Maker no Azure. Qualquer pessoa com autorização para criar novos recursos em uma assinatura pode configurar o serviço QnA Maker.
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 106796533f42250a2656735d97878ea04d6fa57f
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 0a1b79c91e4e1bd9a57d6dcbb38432125573b9e6
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235531"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85214121"
 ---
 # <a name="manage-qna-maker-resources"></a>Gerenciar QnA Maker recursos
 
@@ -51,7 +51,7 @@ Este procedimento cria os recursos do Azure necessários para gerenciar o conte�
     * Escolha o **local do Application insights** no qual o recurso de Application insights será implantado.
     * Como medida de economia de custo, você pode [compartilhar](#configure-qna-maker-to-use-different-cognitive-search-resource) alguns, mas não todos os recursos do Azure criados para o QnA Maker.
 
-1. Depois que todos os campos forem validados, selecione **criar**. O processo pode levar alguns minutos para ser concluído.
+1. Depois que todos os campos forem validados, selecione **criar**. O processo pode levar alguns minutos.
 
 1. Após a conclusão da implantação, você verá os seguintes recursos criados em sua assinatura:
 
@@ -60,9 +60,9 @@ Este procedimento cria os recursos do Azure necessários para gerenciar o conte�
     O recurso com o tipo de _Serviços cognitivas_ tem suas chaves de _assinatura_ .
 
 
-## <a name="find-subscription-keys-in-the-azure-portal"></a>Localizar chaves de assinatura no portal do Azure
+## <a name="find-authoring-keys-in-the-azure-portal"></a>Localizar chaves de criação no portal do Azure
 
-Você pode exibir e redefinir suas chaves de assinatura do portal do Azure, em que você criou o recurso de QnA Maker.
+Você pode exibir e redefinir as chaves de criação do portal do Azure, em que você criou o recurso de QnA Maker. Essas chaves podem ser chamadas de chaves de assinatura. 
 
 1. Vá para o recurso de QnA Maker na portal do Azure e selecione o recurso que tem o tipo de _Serviços cognitivas_ :
 
@@ -72,7 +72,7 @@ Você pode exibir e redefinir suas chaves de assinatura do portal do Azure, em q
 
     ![Chave de assinatura](../media/qnamaker-how-to-key-management/subscription-key.PNG)
 
-## <a name="find-endpoint-keys-in-the-qna-maker-portal"></a>Localizar chaves de ponto de extremidade no portal de QnA Maker
+## <a name="find-query-endpoint-keys-in-the-qna-maker-portal"></a>Localizar chaves de ponto de extremidade de consulta no portal de QnA Maker
 
 O ponto de extremidade está na mesma região que o recurso porque as chaves de ponto de extremidade são usadas para fazer uma chamada para a base de dados de conhecimento.
 
@@ -206,7 +206,7 @@ Para manter o aplicativo de ponto de extremidade de previsão carregado mesmo qu
     > [!div class="mx-imgBorder"]
     > ![No painel configuração, selecione * * configurações gerais * *, em seguida, localize * * Always on * * e selecione * * em * * como o valor.](../media/qnamaker-how-to-upgrade-qnamaker/configure-app-service-idle-timeout.png)
 
-1. Selecione **Salvar** para salvar a configuração.
+1. Selecione **salvar** para salvar a configuração.
 1. Você será perguntado se deseja reiniciar o aplicativo para usar a nova configuração. Selecione **Continuar**.
 
 Saiba mais sobre como definir as [configurações gerais](../../../app-service/configure-common.md#configure-general-settings)do serviço de aplicativo.

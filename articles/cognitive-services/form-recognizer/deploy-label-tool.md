@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 27afbafcadb4c482e97e1d003706e7d2712e63c9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3bb8f0e809ae1acbec1479c20e24c90fd81905d4
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82117260"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212438"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Implantar a ferramenta de rotulagem de exemplos
 
@@ -35,7 +35,7 @@ A maneira mais rápida de começar a rotular dados é executar a ferramenta de r
 Antes de começar, é importante observar que há duas maneiras de implantar a ferramenta de rotulamento de exemplo em uma instância de contêiner do Azure (ACI). Ambas as opções são usadas para executar a ferramenta de rotulagem de exemplo com ACI: 
 
 * [Usando o portal do Azure](#azure-portal)
-* [Usando o CLI do Azure](#azure-cli)
+* [Usando a CLI do Azure](#azure-cli)
 
 ### <a name="azure-portal"></a>Portal do Azure
 
@@ -89,7 +89,7 @@ Siga estas etapas para criar um novo recurso usando o portal do Azure:
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Como alternativa ao uso do portal do Azure, você pode criar um recurso usando o CLI do Azure. Antes de continuar, você precisará instalar o [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Você pode ignorar esta etapa se já estiver trabalhando com o CLI do Azure. 
+Como alternativa ao uso do portal do Azure, você pode criar um recurso usando o CLI do Azure. Antes de continuar, você precisará instalar o [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Você pode ignorar esta etapa se já estiver trabalhando com o CLI do Azure. 
 
 Há algumas coisas que você precisa saber sobre este comando:
 

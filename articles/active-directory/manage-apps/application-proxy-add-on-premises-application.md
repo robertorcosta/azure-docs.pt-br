@@ -12,12 +12,12 @@ ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc1d0687c0d2d48a64e38fd5a57fe32c13063890
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: e365503ba975f8cc93302bd3f1084c2cdd4f254f
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84760296"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85114020"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: Adicionar um aplicativo local para acesso remoto por meio do Proxy de Aplicativo no Azure Active Directory
 
@@ -50,7 +50,9 @@ Para alta disponibilidade no seu ambiente de produção, é recomendável ter ma
 > Se você estiver instalando o conector no Windows Server 2019, deverá desabilitar o suporte do protocolo HTTP2 no componente WinHttp. Isso é desabilitado por padrão em versões anteriores de sistemas operacionais compatíveis. Adicionar a chave do Registro a seguir e reiniciar o servidor a desabilitará no Windows Server 2019. Observe que essa é uma chave do Registro em todo o computador.
 >
 > ```
-> HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
+> Windows Registry Editor Version 5.00
+> 
+> [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp] "EnableDefaultHttp2"=dword:00000000
 > ```
 >
 

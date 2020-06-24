@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: pafarley
-ms.openlocfilehash: 9342d87318eb6a5248c75d2333fb5e2a4cbef8f4
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: ffa09293ad2ff02e104ce285b6b0aaca7d4744a2
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873301"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212658"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>Criar um conjunto de dados de treinamento para um modelo personalizado
 
@@ -26,7 +26,7 @@ Se você quiser usar dados de treinamento rotulados manualmente, deverá começa
 
 ## <a name="training-data-tips"></a>Dicas de dados de treinamento
 
-É importante usar um conjunto de dados otimizado para treinamento. Use as dicas a seguir para garantir que você obtenha os melhores resultados da operação [treinar modelo personalizado](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync) :
+É importante usar um conjunto de dados otimizado para treinamento. Use as dicas a seguir para garantir que você obtenha os melhores resultados da operação [treinar modelo personalizado](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/TrainCustomModelAsync) :
 
 * Se possível, use documentos PDF baseados em texto em vez de documentos baseados em imagem. Os PDFs digitalizados são tratados como imagens.
 * Para formulários preenchidos, use exemplos que tenham todos os seus campos preenchidos.
@@ -44,11 +44,11 @@ Verifique se o conjunto de dados de treinamento também segue os requisitos de e
 
 Depois de reunir o conjunto de documentos de formulário que você usará para treinamento, você precisa carregá-lo em um contêiner de armazenamento de BLOBs do Azure. Se você não souber como criar uma conta de armazenamento do Azure com um contêiner, seguindo o guia de [início rápido do armazenamento do Azure para Portal do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
 
-Se você quiser usar dados rotulados manualmente, também precisará carregar os arquivos *. Labels. JSON* e *. OCR. JSON* que correspondem aos seus documentos de treinamento. Você pode usar a [ferramenta de rotulagem de exemplo](./quickstarts/label-tool.md) (ou sua própria interface do usuário) para gerar esses arquivos.
+Se você quiser usar dados rotulados manualmente, também precisará carregar o *.labels.js* e *.ocr.jsem* arquivos que correspondam aos seus documentos de treinamento. Você pode usar a [ferramenta de rotulagem de exemplo](./quickstarts/label-tool.md) (ou sua própria interface do usuário) para gerar esses arquivos.
 
 ### <a name="organize-your-data-in-subfolders-optional"></a>Organizar seus dados em subpastas (opcional)
 
-Por padrão, a API de [modelo personalizado Train](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync) só usará documentos de formulário localizados na raiz do seu contêiner de armazenamento. No entanto, você pode treinar com dados em subpastas se especificá-los na chamada à API. Normalmente, o corpo da chamada de [modelo personalizado Train](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync) tem o seguinte formato, em que `<SAS URL>` é a URL de assinatura de acesso compartilhado do seu contêiner:
+Por padrão, a API de [modelo personalizado Train](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/TrainCustomModelAsync) só usará documentos de formulário localizados na raiz do seu contêiner de armazenamento. No entanto, você pode treinar com dados em subpastas se especificá-los na chamada à API. Normalmente, o corpo da chamada de [modelo personalizado Train](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/TrainCustomModelAsync) tem o seguinte formato, em que `<SAS URL>` é a URL de assinatura de acesso compartilhado do seu contêiner:
 
 ```json
 {

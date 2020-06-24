@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: 855feaf9b5b47b7b725ee7927418a2b3a9e25393
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 8772607c7f43f2a06f5c9f12ee5efd603a1e324f
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84017759"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212642"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Melhorar a síntese com a linguagem de marcação de síntese de fala (SSML)
 
@@ -118,7 +118,7 @@ speechConfig.SetProperty(
     "SpeechServiceResponse_Synthesis_WordBoundaryEnabled", "false");
 ```
 
-# <a name="c"></a>[C](#tab/cpp)
+# <a name="c"></a>[C++](#tab/cpp)
 
 Para obter mais informações, <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setproperty" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>consulte.
 
@@ -266,7 +266,7 @@ Use o `break` elemento para inserir pausas (ou interrupções) entre palavras ou
 | Segurança                      | Descrição |
 |-------------------------------|-------------|
 | Nenhum, ou se nenhum valor for fornecido | 0 ms        |
-| x-fraco                        | 250 MS      |
+| x-fraco                        | 250 ms      |
 | baixas                          | 500 ms      |
 | média                        | 750 ms      |
 | forte                        | 1000 MS     |
@@ -378,7 +378,7 @@ Os alfabetos fonéticos são compostos por telefones, que são compostos por let
 |-----------|-------------------------------------------|---------------------|
 | `uri`     | O endereço do documento PLS externo. | Obrigatórios.           |
 
-**Uso**
+**Usage**
 
 Para definir como várias entidades são lidas, você pode criar um léxico personalizado, que é armazenado como um arquivo. xml ou. pls. Este é um arquivo. XML de exemplo.
 
@@ -403,7 +403,7 @@ Para definir como várias entidades são lidas, você pode criar um léxico pers
 
 O `lexicon` elemento contém pelo menos um `lexeme` elemento. Cada `lexeme` elemento contém pelo menos um `grapheme` elemento e um ou mais `grapheme` `alias` elementos, e `phoneme` . O `grapheme` elemento contém texto que descreve <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">o <span class="docon docon-navigate-external x-hidden-focus"></span> orthography </a>. Os `alias` elementos são usados para indicar a pronúncia de um acrônimo ou um termo abreviado. O `phoneme` elemento fornece texto que descreve como o `lexeme` é pronunciado.
 
-É importante observar que não é possível definir diretamente a pronúncia de uma palavra usando o léxico personalizado. Se você precisar definir a pronúncia para um, primeiro forneça um `alias` e, em seguida, associe o `phoneme` com isso `alias` . Por exemplo:
+É importante observar que não é possível definir diretamente a pronúncia de uma palavra usando o léxico personalizado. Se você precisar definir a pronúncia para um acrônimo ou um termo abreviado, primeiro forneça um `alias` e, em seguida, associe o `phoneme` com isso `alias` . Por exemplo:
 
 ```xml
   <lexeme>
@@ -594,7 +594,7 @@ A seguir estão os tipos de conteúdo com suporte para os `interpret-as` `format
 | `telephone` | | O texto é falado como um número de telefone. O `format` atributo pode conter dígitos que representam um código de país. Por exemplo, "1" para o Estados Unidos ou "39" para a Itália. O mecanismo de síntese de fala pode usar essas informações para orientar sua pronúncia de um número de telefone. O número de telefone também pode incluir o código do país e, nesse caso, tem precedência sobre o código do país no `format` . O mecanismo de síntese de fala pronuncia:<br /><br />`The number is <say-as interpret-as="telephone" format="1">(888) 555-1212</say-as>`<br /><br />Como "meu número é código de área 8 8 8 5 5 5 1 2 1 2." |
 | `time` | hms12, hms24 | O texto é falado como uma hora. O `format` atributo especifica se a hora é especificada usando um relógio de 12 horas (hms12) ou um relógio de 24 horas (hms24). Use dois-pontos para separar números que representam horas, minutos e segundos. Estes são exemplos de tempo válidos: 12:35, 1:14:32, 08:15 e 02:50:45. O mecanismo de síntese de fala pronuncia:<br /><br />`The train departs at <say-as interpret-as="time" format="hms12">4:00am</say-as>`<br /><br />Como "o treinamento faz parte de quatro A M". |
 
-**Uso**
+**Usage**
 
 O `say-as` elemento pode conter apenas texto.
 

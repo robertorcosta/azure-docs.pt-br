@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: 94f005ee4b2542e4cc0908880d589a2ee6a4d798
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 3f951c05100b5e36a2162e2422a066d563b24136
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267419"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85250648"
 ---
 # <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Início Rápido: Usar o .NET e o C# no Visual Studio para se conectar a um banco de dados no Banco de Dados SQL do Azure ou na Instância Gerenciada de SQL do Azure e consultá-lo
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -29,7 +29,7 @@ Este guia de início rápido mostra como usar o [.NET Framework](https://www.mic
 Para concluir este início rápido, você precisa de:
 
 - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- Um banco de dados SQL do Azure. Você pode usar um destes guias de início rápido para criar e, em seguida, configurar um banco de dados no Banco de Dados SQL do Azure:
+- Um banco de dados no Banco de Dados SQL do Azure. Você pode usar um destes guias de início rápido para criar e, em seguida, configurar um banco de dados no Banco de Dados SQL do Azure:
 
   || Banco de Dados SQL | Instância Gerenciada do SQL | SQL Server na VM do Azure |
   |:--- |:--- |:---|:---|
@@ -49,7 +49,7 @@ Para concluir este início rápido, você precisa de:
 
 ## <a name="get-server-connection-information"></a>Obter informações de conexão do servidor
 
-Obtenha as informações de conexão necessárias para se conectar ao Banco de Dados SQL do Azure. Você precisará do nome totalmente qualificado do servidor ou do host, do nome do banco de dados e das informações de logon nos próximos procedimentos.
+Obtenha as informações de conexão necessárias para se conectar ao banco de dados. Você precisará do nome totalmente qualificado do servidor ou do host, do nome do banco de dados e das informações de logon nos próximos procedimentos.
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
 

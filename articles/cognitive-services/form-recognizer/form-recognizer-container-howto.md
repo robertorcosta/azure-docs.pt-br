@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 761cf5831bb2332ae8c3f7a9a8edee707e6810ee
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: fe6e0a0f3ffd3680c75c086222a4a390ce15d4df
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816328"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213186"
 ---
 # <a name="install-and-run-form-recognizer-containers-preview"></a>Instalar e executar contêineres do reconhecedor de formulário (versão prévia)
 
@@ -39,7 +39,7 @@ Antes de usar contêineres de Reconhecimento de Formulários, é necessário ate
 |----------|---------|
 | Mecanismo Docker | É necessário ter o Mecanismo Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure. <br><br> No Windows, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br> |
 | Familiaridade com o Docker | É necessário ter uma compreensão básica de conceitos do Docker, como Registros, repositórios, contêineres e imagens de contêiner, bem como conhecimento dos comandos básicos do `docker`. |
-| A CLI do Azure | Instale a [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) no host. |
+| A CLI do Azure | Instale a [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) no host. |
 | Recurso da API de Pesquisa Visual Computacional | Para processar imagens e documentos digitalizados, é necessário ter um recurso da Pesquisa Visual Computacional. Acesse o recurso de Reconhecimento de Texto como um recurso do Azure (API REST ou SDK) ou como um *contêiner do * [cognitive-services-recognize-text](../Computer-vision/computer-vision-how-to-install-containers.md#get-the-container-image-with-docker-pull). Os valores de cobrança normais se aplicam. <br><br>Transmita a chave de API e os pontos de extremidade para seu recurso de Pesquisa Visual Computacional (contêiner de nuvem do Azure ou serviços cognitivas). Use essa chave de API e o ponto de extremidade como **{COMPUTER_VISION_API_KEY}** e **{COMPUTER_VISION_ENDPOINT_URI}**.<br><br> Se você usar o contêiner *cognitive-services-recognize-text*, certifique-se de que:<br><br>A chave da Pesquisa Visual Computacional para o contêiner do Reconhecimento de Formulários seja a chave especificada no comando `docker run` da Pesquisa Visual Computacional para o contêiner do *cognitive-services-recognize-text*.<br>O ponto de extremidade de cobrança é o ponto de extremidade do contêiner (por exemplo, `http://localhost:5000`). Se você usar os contêineres da Pesquisa Visual Computacional e do Reconhecimento de Formulários juntos no mesmo host, eles não poderão ser iniciados com a porta padrão *5000*. |
 | Recurso do Reconhecimento de Formulários | Para usar esses contêineres, é necessário ter:<br><br>Um recurso do **reconhecedor** do Azure Form para obter a chave de API e o URI de ponto de extremidade associados. Ambos os valores estão disponíveis nas páginas visão geral e chaves do **reconhecedor** do portal do Azure Form e os dois valores são necessários para iniciar o contêiner.<br><br>**{FORM_RECOGNIZER_API_KEY}**: uma das duas chaves de recurso disponíveis na página chaves<br><br>**{FORM_RECOGNIZER_ENDPOINT_URI}**: o ponto de extremidade conforme fornecido na página Visão geral |
 
@@ -81,7 +81,7 @@ Preencha e envie o [formulário de solicitação](https://aka.ms/cognitivegate) 
 
 Os núcleos de CPU e a memória mínimos e recomendados a serem alocados para cada contêiner do Reconhecimento de Formulários são descritos na tabela a seguir:
 
-| Contêiner | Mínimo | Recomendado |
+| Contêiner | Mínimo | Recomendadas |
 |-----------|---------|-------------|
 | Reconhecimento de Formulários | 2 núcleos, 4 GB de memória | 4 núcleos, 8 GB de memória |
 | Reconhecimento de Texto | 1 núcleo, 8 GB de memória | 2 núcleos, 8 GB de memória |
