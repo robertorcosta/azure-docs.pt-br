@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: b1f2d97aabfee47110946336c0ad8ad03d86a163
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 03b289bb01285dd13f4456940ce891cf42518253
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84116589"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85206273"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-curl"></a>Início Rápido: Extrair dados de recibos usando a API REST de Reconhecimento de Formulários com cURL
 
@@ -34,32 +34,32 @@ Para concluir este início rápido, é necessário ter:
 
 ## <a name="analyze-a-receipt"></a>Analisar um recibo
 
-Para começar a analisar um recibo, chame a API **[Analisar Recibo](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)** usando o comando cURL a seguir. Antes de executar o comando, faça essas alterações:
+Para começar a analisar um recibo, chame a API **[Analisar Recibo](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/AnalyzeReceiptAsync)** usando o comando cURL a seguir. Antes de executar o comando, faça essas alterações:
 
 1. Substitua `<Endpoint>` pelo ponto de extremidade que você obteve com a assinatura do Reconhecimento de Formulários.
 1. Substitua `<your receipt URL>` pelo endereço da URL de uma imagem de recibo.
 1. Substitua `<subscription key>` pela chave de assinatura que você copiou na etapa anterior.
 
 ```bash
-curl -i -X POST "https://<Endpoint>/formrecognizer/v2.0-preview/prebuilt/receipt/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"url\": \"<your receipt URL>\"}"
+curl -i -X POST "https://<Endpoint>/formrecognizer/v2.0/prebuilt/receipt/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"url\": \"<your receipt URL>\"}"
 ```
 
 Você receberá uma resposta `202 (Success)` com um cabeçalho **Operation-Location**. O valor desse cabeçalho contém uma ID da operação que você pode usar para consultar o status da operação assíncrona e obter os resultados. No valor de exemplo a seguir, a cadeia de caracteres após `operations/` é a ID da operação.
 
 ```console
-https://cognitiveservice/formrecognizer/v2.0-preview/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
+https://cognitiveservice/formrecognizer/v2.0/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
 
 ## <a name="get-the-receipt-results"></a>Obter os resultados do recibo
 
-Depois de ter chamado a API **Analisar Recibo**, chame a API **[Obter Resultados de Analisar Recibo](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeReceiptResult)** para receber o status da operação e os dados extraídos. Antes de executar o comando, faça essas alterações:
+Depois de ter chamado a API **Analisar Recibo**, chame a API **[Obter Resultados de Analisar Recibo](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/GetAnalyzeReceiptResult)** para receber o status da operação e os dados extraídos. Antes de executar o comando, faça essas alterações:
 
 1. Substitua `<Endpoint>` pelo ponto de extremidade que você obteve com a chave de assinatura do Reconhecimento de Formulários. Encontre-o na guia **Visão geral** de recursos do Reconhecimento de Formulários.
 1. Substitua `<operationId>` pela ID da operação da etapa anterior.
 1. Substitua `<subscription key>` por sua chave de assinatura.
 
 ```bash
-curl -X GET "https://<Endpoint>/formrecognizer/v2.0-preview/prebuilt/receipt/analyzeResults/<operationId>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
+curl -X GET "https://<Endpoint>/formrecognizer/v2.0/prebuilt/receipt/analyzeResults/<operationId>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
 ```
 
 ### <a name="examine-the-response"></a>Examinar a resposta
@@ -402,4 +402,4 @@ O nó `"recognitionResults"` contém todo o texto reconhecido. O texto é organi
 Neste início rápido, você usou a API REST de Reconhecimento de Formulários com o cURL para extrair o conteúdo de um recibo de vendas. Em seguida, confira a documentação de referência para explorar a API de Reconhecimento de Formulários de forma mais aprofundada.
 
 > [!div class="nextstepaction"]
-> [Documentação de referência da API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)
+> [Documentação de referência da API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/AnalyzeReceiptAsync)
