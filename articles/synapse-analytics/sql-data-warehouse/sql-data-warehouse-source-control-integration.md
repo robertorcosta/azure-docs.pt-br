@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 3ec52c5274891619cf7976e99b5241bfc67a4076
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: afb1108bacadd16007e1f53186107ea8458d96e9
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415092"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85205111"
 ---
 # <a name="source-control-integration-for-sql-pool"></a>Integração de controle do código-fonte para o pool de SQL
 
@@ -81,4 +81,4 @@ Este tutorial descreve como integrar seu projeto de banco de dados SSDT (SQL Ser
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Desenvolvendo para o pool de SQL](sql-data-warehouse-overview-develop.md)
+- [Como desenvolvedor para o pool de SQL](sql-data-warehouse-overview-develop.md)
