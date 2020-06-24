@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/30/2020
 ms.author: aahi
-ms.openlocfilehash: 637c2bb1bc37d26dcdf1a169b2f5d20766d0a27f
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: cd17bf6c97cb89984bf407552330fbe9bec36e3f
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84902515"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85292079"
 ---
 > [!NOTE]
 > Para detectar `PHI` , use o `domain=phi` parâmetro e a versão do modelo `2020-04-01` ou posterior.
@@ -51,7 +51,7 @@ Essa categoria de entidade inclui informações identificáveis do Azure, inclui
 |---------------------------------------|-----------------------------------------------------------------------------|
 | Chave de autenticação DocumentDB do Azure             | Chave de autorização para um servidor do Azure DocumentDB.                           |
 | Cadeia de conexão do banco de dados IAAS do Azure e Cadeia de conexão de SQL do Azure | Cadeia de conexão para um banco de dados IaaS (infraestrutura como serviço) do Azure e uma cadeia de conexão SQL. |
-| Cadeia de conexão SQL do Azure           | Cadeia de conexão para um banco de dados SQL do Azure.                                |
+| Cadeia de conexão SQL do Azure           | Cadeia de conexão para um banco de dados no banco de dados SQL do Azure.                                |
 | Cadeia de conexão do IoT do Azure           | Cadeia de conexão para a IoT (Internet das coisas) do Azure.                        |
 | Senha das configurações de publicação do Azure        | Senha para as configurações de publicação do Azure.                                        |
 | Cadeia de conexão do Cache Redis do Azure   | Cadeia de conexão para um cache do Azure para Redis.                             |
