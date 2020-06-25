@@ -59,6 +59,8 @@
           href: automation-config-aws-account.md
         - name: Configurar a autenticação com o Azure AD
           href: automation-use-azure-ad.md
+        - name: Gerenciar registro DNS usado pela Automação
+          href: how-to/automation-region-dns-records.md
         - name: Gerenciar uma conta Executar como de Automação
           href: manage-runas-account.md
         - name: Gerenciar permissões e segurança de funções
@@ -282,7 +284,7 @@
         - name: Integrar-se à Grade de Eventos e ao Microsoft Teams
           href: ../event-grid/ensure-tags-exists-on-new-virtual-machines.md
         - name: Automatizar início/parada do Azure-SSIS IR
-          href: '../data-factory/how-to-schedule-azure-ssis-integration-runtime.md#create-and-schedule-azure-automation-runbook-that-startsstops-azure-ssis-ir'
+          href: ../data-factory/how-to-schedule-azure-ssis-integration-runtime.md#create-and-schedule-azure-automation-runbook-that-startsstops-azure-ssis-ir
 - name: Referência
   items:
     - name: Az do Azure PowerShell

@@ -30,7 +30,9 @@
       href: service-health-alert-webhook-pagerduty.md
     - name: Enviar alertas ao OpsGenie
       href: service-health-alert-webhook-opsgenie.md
-    - name: Configurar alertas para eventos do Resource Health
+    - name: Configurar alertas do Resource Health usando o portal do Azure
+      href: resource-health-alert-monitor-guide.md
+    - name: Configurar alertas de integridade de recursos do Azure usando modelos do Resource Manager
       href: resource-health-alert-arm-template-guide.md
 - name: Referência
   items:

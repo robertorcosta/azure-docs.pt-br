@@ -91,6 +91,8 @@
           href: troubleshoot-reboot-loop.md
         - name: Preso na atualização do Windows
           href: troubleshoot-stuck-updating-boot-error.md
+        - name: Reinicialização ou erro inesperado
+          href: troubleshoot-unexpected-restart-error-during-vm-boot.md
         - name: Inicialização da VM paralisada
           href: troubleshoot-vm-boot-configure-update.md
         - name: Não é possível inicializar a VM devido ao gerenciador de inicialização do Windows
