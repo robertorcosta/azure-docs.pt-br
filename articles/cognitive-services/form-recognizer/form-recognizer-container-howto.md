@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 06/24/2020
 ms.author: aahi
-ms.openlocfilehash: fe6e0a0f3ffd3680c75c086222a4a390ce15d4df
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: a014628a9664e33aa855cc4fbf40979236d765f9
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85213186"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85355600"
 ---
 # <a name="install-and-run-form-recognizer-containers-preview"></a>Instalar e executar contêineres do reconhecedor de formulário (versão prévia)
 
@@ -35,7 +35,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Antes de usar contêineres de Reconhecimento de Formulários, é necessário atender aos seguintes pré-requisitos:
 
-| Obrigatório | Finalidade |
+| Necessária | Finalidade |
 |----------|---------|
 | Mecanismo Docker | É necessário ter o Mecanismo Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure. <br><br> No Windows, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br> |
 | Familiaridade com o Docker | É necessário ter uma compreensão básica de conceitos do Docker, como Registros, repositórios, contêineres e imagens de contêiner, bem como conhecimento dos comandos básicos do `docker`. |
@@ -138,6 +138,9 @@ Use o comando [docker run](https://docs.docker.com/engine/reference/commandline/
 [Exemplos](form-recognizer-container-configuration.md#example-docker-run-commands) do `docker run` comando estão disponíveis.
 
 ### <a name="form-recognizer"></a>Reconhecimento de Formulários
+
+> [!NOTE]
+> Os diretórios usados para `--mount` nesses exemplos são caminhos de diretório do Windows. Se você estiver usando o Linux ou o macOS, altere o parâmetro para o seu ambiente. 
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 \
