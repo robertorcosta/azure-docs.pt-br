@@ -30,9 +30,9 @@
     - name: Automação com entidades de serviço
       href: analysis-services-service-principal.md
     - name: Bibliotecas de cliente
-      href: analysis-services-data-providers.md
+      href: 'https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current'
     - name: Nível de Compatibilidade
-      href: 'https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services'
+      href: 'https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services?view=azure-analysis-services-current'
     - name: Conectando-se a fontes de dados locais
       href: analysis-services-gateway.md
     - name: Conectando-se a servidores
