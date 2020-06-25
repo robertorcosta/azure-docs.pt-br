@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 1d74bf089f3e5bc1fd04232b58ce95c649a170e1
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: d2a14a501ebcf0913804ce39019a3fa4018ca141
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307358"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362366"
 ---
 # <a name="add-parameters-to-commands"></a>Adicionar parâmetros a comandos
 
@@ -54,15 +54,16 @@ Edite o comando de **ativação** existente para ativar e desativar vários disp
        | ------------------ | ----------------| ---------------------------------------------------------------------|
        | Nome               | `OnOff`           | Um nome descritivo para o parâmetro                                                                           |
        | É global          | unchecked       | Caixa de seleção que indica se um valor para esse parâmetro é globalmente aplicado a todos os comandos no aplicativo|
-       | Obrigatório           | checked         | Caixa de seleção que indica se um valor para esse parâmetro é necessário antes de concluir o comando |
+       | Necessária           | checked         | Caixa de seleção que indica se um valor para esse parâmetro é necessário antes de concluir o comando |
        | Resposta para o parâmetro obrigatório      |Editor simples >`On or Off?`      | Um prompt para solicitar o valor desse parâmetro quando ele não for conhecido |
-       | Type               | String          | O tipo de parâmetro, como número, Cadeia de caracteres, data/hora ou Geografia   |
+       | Tipo               | Cadeia de caracteres          | O tipo de parâmetro, como número, Cadeia de caracteres, data/hora ou Geografia   |
        | Configuração      | Aceitar valores de entrada predefinidos do catálogo interno | Para cadeias de caracteres, isso limita as entradas a um conjunto de valores possíveis |
        | Valores de entrada predefinidos     | `on`, `off`           | Conjunto de valores possíveis e seus aliases         |
        
-        > [!div class="mx-imgBorder"]
+        
+   1. Para adicionar valores de entrada predefinidos, selecione **Adicionar uma entrada predefinida** e na janela **novo item** , digite o **nome** conforme fornecido na tabela acima. Nesse caso, não estamos usando aliases, portanto, você pode deixá-lo em branco. 
+    > [!div class="mx-imgBorder"]
         > ![Criar parâmetro](media/custom-commands/create-on-off-parameter.png)
-
    1. Selecione **salvar** para salvar todas as configurações do parâmetro.
  
  ### <a name="add-subjectdevice-parameter"></a>Adicionar parâmetro SubjectDevice 
@@ -74,9 +75,9 @@ Edite o comando de **ativação** existente para ativar e desativar vários disp
        | ------------------ | --------------------- |
        | Nome               | `SubjectDevice`         |
        | É global          | unchecked             |
-       | Obrigatório           | checked               |
+       | Necessária           | checked               |
        | Resposta para o parâmetro obrigatório     | Editor simples >`Which device do you want to control?`    | 
-       | Type               | String                |          |
+       | Tipo               | Cadeia de caracteres                |          |
        | Configuração      | Aceitar valores de entrada predefinidos do catálogo interno | 
        | Valores de entrada predefinidos | `tv`, `fan`               |
        | Aliases ( `tv` )      | `television`, `telly`     |
@@ -103,7 +104,7 @@ turn something {OnOff}
 turn something
 ```
 
-Clique em **Salvar**.
+Selecione **Salvar**.
 
 > [!TIP]
 > No editor de sentenças de exemplo, use chaves para fazer referência aos parâmetros. - `turn {OnOff} the {SubjectDevice}`Use a guia para preenchimento automático apoiado por parâmetros criados anteriormente.
@@ -120,7 +121,7 @@ Modifique a regra de conclusão existente **ConfirmationResponse**.
     ```
     Ok, turning the {SubjectDevice} {OnOff}
     ```
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 ### <a name="try-it-out"></a>Experimentar
 1. Selecione o ícone de **treinamento** presente na parte superior do painel direito.
@@ -146,9 +147,9 @@ Adicionar nova **temperatura** de parâmetro com a seguinte configuração
 | Configuração      | Valor sugerido     |
 | ------------------ | ----------------|
 | Nome               | `Temperature`           |
-| Obrigatório           | checked         |
+| Necessária           | checked         |
 | Resposta para o parâmetro obrigatório      | Editor simples >`What temperature would you like?`
-| Type               | Número          |
+| Tipo               | Número          |
 
 
 Edite o exemplo declarações para os valores a seguir.
@@ -183,9 +184,9 @@ Adicione um parâmetro chamado **DateTime** com a configuração a seguir.
    | Configuração                           | Valor sugerido                     | 
    | --------------------------------- | ----------------------------------------|
    | Nome                              | `DateTime`                               |
-   | Obrigatório                          | checked                                 |
+   | Necessária                          | checked                                 |
    | Resposta para o parâmetro obrigatório   | Editor simples >`For what time?`            | 
-   | Type                              | Datetime                                |
+   | Tipo                              | Datetime                                |
    | Padrões de data                     | Se a data estiver ausente, use hoje mesmo            |
    | Padrões de tempo                     | Se o tempo estiver ausente, use o início do dia     |
 

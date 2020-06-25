@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 14bf43375e2ebe37d496a7343c5f85c41f55bc29
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 2ea850acf0ef581ea66733b0293ba044c87bb3a0
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307350"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362135"
 ---
 # <a name="create-a-voice-assistant-using-custom-commands"></a>Criar um assistente de voz usando comandos personalizados
 
@@ -24,7 +24,7 @@ Neste guia de início rápido, você cria e testa um aplicativo básico de coman
 ## <a name="prerequisites"></a>Pré-requisitos
 
 > [!div class="checklist"]
-> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Criar um recurso de Fala do Azure <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Crie um recurso de fala do Azure em uma região que dê suporte a comandos personalizados.<span class="docon docon-navigate-external x-hidden-focus"></span></a>
 > * Baixe o arquivo JSON de exemplo do [Smart Room Lite](https://aka.ms/speech/cc-quickstart) .
 > * Baixe a versão mais recente do [cliente do assistente do Windows Voice](https://aka.ms/speech/va-samples-wvac).
 
@@ -82,7 +82,8 @@ Agora você deve ver a visão geral do seu novo aplicativo de comandos personali
     - Ligar a TV
     - Definir a temperatura como 80 graus
     - Desativá-lo
-    - Definir um alarme
+    - A TV
+    - Definir um alarme para 5 PM
 
 ## <a name="integrate-custom-commands-application-in-an-assistant"></a>Integrar o aplicativo de comandos personalizados em um assistente
 Antes de poder acessar esse aplicativo de fora do Speech Studio, você precisa publicar o aplicativo. Para publicar um aplicativo, você precisará configurar o recurso de LUIS de previsão.  
@@ -92,7 +93,7 @@ Antes de poder acessar esse aplicativo de fora do Speech Studio, você precisa p
 
 1. Selecione **configurações** no painel esquerdo e selecione **recursos do Luis** no painel central.
 1. Selecione um recurso de previsão ou crie um selecionando **criar novo recurso**.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
     
     > [!div class="mx-imgBorder"]
     > ![Definir recursos do LUIS](media/custom-commands/set-luis-resources.png)
@@ -110,7 +111,7 @@ Como alternativa, você também pode obter esses valores selecionando **configur
 
 No escopo deste artigo, usaremos o cliente do assistente de voz do Windows que você baixou como parte dos pré-requisitos. Descompacte a pasta.
 1. Iniciar **VoiceAssistantClient.exe**.
-1. Crie um novo perfil de publicação e insira o valor para o **perfil de conexão**. Na seção **configurações gerais** , insira valores **chave de assinatura**, **região de chave de assinatura** e ID do aplicativo de **comandos personalizados**.
+1. Crie um novo perfil de publicação e insira o valor para o **perfil de conexão**. Na seção **configurações gerais** , insira valores **chave de assinatura** (é igual ao valor da **chave de recurso de fala** que você salvou ao publicar o aplicativo), região de chave de **assinatura** e ID do **aplicativo de comandos personalizados**.
     > [!div class="mx-imgBorder"]
     > ![WVAC criar perfil](media/custom-commands/create-profile.png)
 1. Selecione **salvar e aplicar perfil**.

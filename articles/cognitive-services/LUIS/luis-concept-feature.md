@@ -3,111 +3,116 @@ title: Recursos-LUIS
 description: Adicione recursos a um modelo de linguagem para fornecer dicas sobre como reconhecer a entrada que você deseja identificar ou classificar.
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 823c51f0b58481e30ff54814dde03285ad094b9e
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: fbf39382e418bef9a7d39886076a4100a26ce3e7
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84677584"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362451"
 ---
-# <a name="machine-learning-ml-features"></a>Recursos de aprendizado de máquina (ML)
+# <a name="machine-learning-features"></a>Recursos de aprendizado de máquina
 
-No Machine Learning, um **recurso**   é uma característica ou atributo diferenciado dos dados que seu sistema observa e aprende.
+No Machine Learning, um *recurso*   é uma característica ou atributo diferenciado dos dados que seu sistema observa e aprende.
 
-Os recursos de aprendizado de máquina fornecem indicações LUISs importantes para onde procurar coisas que irão distinguir um conceito. Elas são dicas que o LUIS pode usar, mas não as regras difíceis.  Essas dicas são usadas em conjunto com os rótulos para localizar os dados.
+Os recursos de aprendizado de máquina fornecem indicações LUIS importantes para onde procurar coisas que distinguem um conceito. Eles são dicas que o LUIS pode usar, mas não são regras rígidas. O LUIS usa essas dicas em conjunto com os rótulos para localizar os dados.
 
-## <a name="what-is-a-feature"></a>O que é um recurso
-
-Um recurso é uma característica de distinção, que pode ser descrita como uma função: f (x) = y. O recurso é usado para saber onde procurar, no exemplo expressão, para a característica de distinção. Ao criar seu esquema, o que você sabe sobre o exemplo expressão que indica a característica? Sua resposta é o seu melhor guia para a criação de recursos.
+Um recurso pode ser descrito como uma função, como f (x) = y. No exemplo expressão, o recurso informa onde procurar a característica diferencial. Use essas informações para ajudar a criar seu esquema.
 
 ## <a name="types-of-features"></a>Tipos de recursos
 
- O LUIS dá suporte a listas de frases e modelos como recursos:
-* Recurso de lista de frases
+O LUIS dá suporte a listas de frases e modelos como recursos:
+
+* Recurso de lista de frases 
 * Modelo (intenção ou entidade) como um recurso
 
 Os recursos devem ser considerados uma parte necessária do seu design de esquema.
 
-## <a name="how-you-find-features-in-your-example-utterances"></a>Como encontrar recursos no seu exemplo declarações
+## <a name="find-features-in-your-example-utterances"></a>Encontre recursos no seu exemplo declarações
 
-Como o LUIS é um aplicativo baseado em linguagem, os recursos serão baseados em texto. Escolha o texto que indica a característica que você deseja distinguir. Para LUIS, a menor unidade baseada em texto é o token. Para o idioma inglês, um token é um Span contíguo, sem espaços ou pontuação, de letras e números. Um espaço não é um token.
+Como o LUIS é um aplicativo baseado em linguagem, os recursos são baseados em texto. Escolha o texto que indica a característica que você deseja distinguir. Para LUIS, a menor unidade é o *token*. Para o idioma inglês, um token é um intervalo contíguo de letras e números que não têm espaços ou pontuação.
 
-Como os espaços e a pontuação não são tokens, concentre-se nas pistas de texto que você pode usar como recursos. Lembre-se de incluir variações de palavra como:
+Como os espaços e a pontuação não são tokens, concentre-se nas pistas de texto que você pode usar como recursos. Lembre-se de incluir variações de palavras, como:
+
 * formulários do plural
-* conjugação de verbo
-* abreviação
-* ortografia e grafia incorreta
+* dezenas de verbos
+* abreviações
+* ortografia e erros de ortografia
 
-O texto, como uma característica diferencial, precisa:
-* Corresponder uma palavra ou frase exata-considere adicionar uma entidade de expressão regular ou uma entidade de lista como um recurso para a entidade ou intenção
-* Corresponder a um conceito bem conhecido, como datas, horários ou nomes de pessoas, usar uma entidade predefinida como um recurso para a entidade ou intenção
-* Aprenda novos exemplos ao longo do tempo – use uma lista de frases de alguns exemplos do conceito como um recurso para a entidade ou intenção
+Determine se o texto, porque ele distingue uma característica, tem de:
+
+* Corresponder uma palavra ou frase exata: Considere adicionar uma entidade de expressão regular ou uma entidade de lista como um recurso para a entidade ou intenção.
+* Corresponda a um conceito bem conhecido, como datas, horários ou nomes de pessoas: Use uma entidade predefinida como um recurso para a entidade ou intenção.
+* Aprenda novos exemplos ao longo do tempo: Use uma lista de frases de alguns exemplos do conceito como um recurso para a entidade ou intenção.
 
 ## <a name="combine-features"></a>Combinar recursos
 
-Como há várias opções de como uma característica é descrita, você pode usar mais de um recurso que ajuda a descrever essa característica ou o conceito. Um emparelhamento comum é usar um recurso de lista de frases e um dos tipos de entidade comumente usados como recursos: entidade predefinida, entidade de expressão regular ou entidade de lista.
+Você pode usar mais de um recurso para descrever uma característica ou um conceito. Um emparelhamento comum é usar um recurso de lista de frases e um tipo de entidade que geralmente é usado como um recurso:
 
-### <a name="ticket-booking-entity-example"></a>Exemplo de entidade de reservas de tíquetes
+ * entidade predefinida
+ * entidade de expressão regular
+ * entidade de lista
 
-Como primeiro exemplo, considere um aplicativo para reservar um vôo com uma tentativa de reserva de voo e uma entidade de reserva de tíquete.
+### <a name="ticket-booking-entity-example"></a>Exemplo de entidade de escrituração de tíquetes
 
-A entidade de reserva de tíquete é uma entidade aprendida pelo computador para o destino do vôo. Para ajudar a extrair o local, use dois recursos para ajudar:
-* Lista de frases de palavras relevantes, como,, `plane` `flight` `reservation` ,`ticket`
-* Entidade predefinida `geographyV2` como recurso para a entidade
+Como primeiro exemplo, considere um aplicativo para reservar um vôo com uma tentativa de reserva de voo e uma entidade de reserva de tíquetes.
+
+A entidade de reserva de tíquetes é uma entidade de aprendizado de máquina para o destino do vôo. Para ajudar a extrair o local, use dois recursos para ajudar:
+
+* Uma lista de frases de palavras relevantes, como **plano**, **vôo**, **reserva**ou **tíquete**
+* Uma entidade **geographyV2** predefinida como um recurso para a entidade
 
 ### <a name="pizza-entity-example"></a>Exemplo de entidade de pizza
 
-Como outro exemplo, considere um aplicativo para solicitar uma pizza com uma intenção criar ordem de pizza e uma entidade de pizza.
+Como outro exemplo, considere um aplicativo para ordenar uma pizza que tenha uma intenção criar-pizza-ordem e uma entidade de pizza.
 
-A entidade de pizza é uma entidade aprendida por máquina para os detalhes de pizza. Para ajudar a extrair os detalhes, use dois recursos para ajudar:
-* Lista de frases de palavras relevantes, como,, `cheese` `crust` `pepperoni` ,`pineapple`
-* Entidade predefinida `number` como recurso para a entidade
+A entidade de pizza é uma entidade de aprendizado de máquina para os detalhes de pizza. Para ajudar a extrair os detalhes, use dois recursos para ajudar:
 
-## <a name="a-phrase-list-for-a-particular-concept"></a>Uma lista de frases para um determinado conceito
+* Uma lista de frases de palavras relevantes, como **queijo**, **crust**, **pepperoni**ou **Pineapple**
+* Uma entidade de **número** predefinida como um recurso para a entidade
 
-Uma lista de frases é uma lista de palavras ou frases que encapsula um determinado conceito e é aplicada como uma correspondência que não diferencia maiúsculas de minúsculas no nível do token.
+## <a name="create-a-phrase-list-for-a-concept"></a>Criar uma lista de frases para um conceito
 
-Ao adicionar uma lista de frases, você pode definir o recurso como:
-* **[Global](#global-features)**. Um recurso global se aplica a todo o aplicativo.
+Uma lista de frases é uma lista de palavras ou frases que descreve um conceito. Uma lista de frases é aplicada como uma correspondência que não diferencia maiúsculas de minúsculas no nível do token.
+
+Ao adicionar uma lista de frases, você pode definir o recurso como **[global](#global-features)**. Um recurso global se aplica a todo o aplicativo.
 
 ### <a name="when-to-use-a-phrase-list"></a>Quando usar uma lista de frases
 
-Quando você precisar que seu aplicativo LUIS seja capaz de generalizar e identificar novos itens para o conceito, use uma lista de frases. Listas de frase são como um vocabulário específico ao domínio que ajudam a melhorar a qualidade da compreensão de intenções e entidades.
+Use uma lista de frases quando precisar que seu aplicativo LUIS para generalizar e identificar novos itens para o conceito. As listas de frases são como vocabulário específico de domínio. Eles aprimoram a qualidade da compreensão para intenções e entidades.
 
 ### <a name="how-to-use-a-phrase-list"></a>Como usar uma lista de frases
 
-Com uma lista de frases, LUIS considera contexto e generalizações para identificar itens semelhantes a, mas não uma correspondência de texto exata.
+Com uma lista de frases, LUIS considera contexto e generalizações para identificar itens semelhantes a, mas não é uma correspondência exata de texto. Siga estas etapas para usar uma lista de frases:
 
-Etapas para usar uma lista de frases:
-* Comece com uma entidade de aprendizado de máquina
-    * Adicionar enunciados de exemplo
-    * Rótulo com uma entidade de aprendizado de máquina
-* Adicionar uma lista de frases
-    * Adicionar palavras com significado semelhante-não **adicione todas** as palavras ou frases possíveis. Em vez disso, adicione algumas palavras ou frases de cada vez e, em seguida, retreine e publique.
-    * Revisar e adicionar palavras sugeridas
+1. Comece com uma entidade de aprendizado de máquina:
+    1. Adicione o exemplo declarações.
+    1. Rótulo com uma entidade de aprendizado de máquina.
+1. Adicionar uma lista de frases:
+    1. Adicione palavras com significado semelhante. Não adicione todas as palavras ou frases possíveis. Em vez disso, adicione algumas palavras ou frases de cada vez. Em seguida, retreine e publique.
+    1. Revise e adicione palavras sugeridas.
 
 ### <a name="a-typical-scenario-for-a-phrase-list"></a>Um cenário típico para uma lista de frases
 
 Um cenário típico para uma lista de frases é impulsionar palavras relacionadas a uma ideia específica.
 
-Um exemplo de palavras que podem precisar de uma lista de frases para impulsionar seus significados são termos médicos. Os termos podem ter significado físico, químico, Therapeutic ou abstrato específico. O LUIS não saberá que os termos são importantes para o domínio do assunto sem uma lista de frases.
+Os termos médicos são um bom exemplo de palavras que podem precisar de uma lista de frases para aumentar sua importância. Esses termos podem ter significados físicos, químicos, Therapeutic ou abstratos específicos. O LUIS não saberá que os termos são importantes para o domínio do assunto sem uma lista de frases.
 
-Se você quiser extrair os termos médicos:
-* Primeiro, crie o exemplo declarações e Rotule os termos médicos dentro desses declarações.
-* Em seguida, crie uma lista de frases com exemplos dos termos dentro do domínio do assunto. Essa lista de frases deve incluir o termo real rotulado e outros termos que descrevam o mesmo conceito.
-* Adicione a lista de frases à entidade ou subentidade que extrai o conceito usado na lista de frases. O cenário mais comum é um componente (filho) de uma entidade de aprendizado de máquina. Se a lista de frases deve ser aplicada em todas as intenções ou entidades, marque a lista de frases como uma lista de frases globais. O `enabledForAllModels` sinalizador controla esse escopo de modelo na API.
+Para extrair os termos médicos:
+
+1. Crie exemplos declarações e Rotule os termos médicos dentro desses declarações.
+2. Crie uma lista de frases com exemplos dos termos dentro do domínio do assunto. Essa lista de frases deve incluir o termo real rotulado e outros termos que descrevam o mesmo conceito.
+3. Adicione a lista de frases à entidade ou subentidade que extrai o conceito usado na lista de frases. O cenário mais comum é um componente (filho) de uma entidade de aprendizado de máquina. Se a lista de frases deve ser aplicada em todas as intenções ou entidades, marque a lista de frases como uma lista de frases globais. O sinalizador **enabledForAllModels** controla esse escopo de modelo na API.
 
 ### <a name="token-matches-for-a-phrase-list"></a>Correspondências de token para uma lista de frases
 
-Uma lista de frases aplica-se ao nível de token, independentemente do caso. O gráfico a seguir mostra como uma lista de frases que contém a palavra `Ann` é aplicada a variações dos mesmos caracteres nessa ordem.
+Uma lista de frases sempre se aplica ao nível do token. A tabela a seguir mostra como uma lista de frases que tem a palavra **Ana** se aplica a variações dos mesmos caracteres nessa ordem.
 
 
-| Variação de token de`Ann` | Correspondência da lista de frases quando o token é encontrado |
+| Variação de token de **Ana** | A lista de frases corresponde quando o token é encontrado |
 |--------------------------|---------------------------------------|
-| Maria<br>Maria<br>           | Sim-o token é`Ann`                  |
-| Ana Maria                    | Sim-o token é`Ann`                  |
-| Anne                     | No-token é`Anne`                  |
-
+| **Maria**<br>**Maria**<br>           | Sim-o token é **Ana**                  |
+| **Ana Maria**                    | Sim-o token é **Ana**                  |
+| **Anne**                     | No-token é **Anne**                  |
 
 <a name="how-to-use-phrase-lists"></a>
 <a name="how-to-use-a-phrase-lists"></a>
@@ -115,7 +120,7 @@ Uma lista de frases aplica-se ao nível de token, independentemente do caso. O g
 
 ## <a name="a-model-as-a-feature-helps-another-model"></a>Um modelo como um recurso ajuda outro modelo
 
-Você pode adicionar um modelo (intenção ou entidade) como um recurso a outro modelo (intenção ou entidade). Ao adicionar uma intenção ou entidade existente como um recurso, a adição de um conceito bem definido com exemplos rotulados.
+Você pode adicionar um modelo (intenção ou entidade) como um recurso a outro modelo (intenção ou entidade). Ao adicionar uma entidade ou uma intenção existente como um recurso, você está adicionando um conceito bem definido que tem exemplos rotulados.
 
 Ao adicionar um modelo como um recurso, você pode definir o recurso como:
 * **[Necessário](#required-features)**. Um recurso necessário deve ser encontrado para que o modelo seja retornado do ponto de extremidade de previsão.
@@ -125,15 +130,16 @@ Ao adicionar um modelo como um recurso, você pode definir o recurso como:
 
 Adicione uma entidade como um recurso a uma intenção quando a detecção dessa entidade for significativa para a intenção.
 
-Por exemplo, se a intenção é para reservar um vôo, `BookFlight` e a entidade é informações de tíquete (como o número de estações, origem e destino), localizar a entidade de informações de tíquete deve adicionar um peso significativo à previsão da `BookFlight` intenção.
+Por exemplo, se a intenção for reservar um vôo, como **BookFlight**, e a entidade for uma informação de tíquete (como o número de estações, origem e destino), localizar a entidade de informações de tíquete deve adicionar um peso significativo à previsão da intenção de **BookFlight** .
 
 ### <a name="when-to-use-an-entity-as-a-feature-to-another-entity"></a>Quando usar uma entidade como um recurso para outra entidade
 
 Uma entidade (A) deve ser adicionada como um recurso a outra entidade (B) quando a detecção dessa entidade (A) é significativa para a previsão da entidade (B).
 
-Por exemplo, se n entidade de endereço de envio contivesse uma subentidade endereço, então localizar a subentidade endereço adiciona um peso significativo à previsão para a entidade endereço de envio.
+Por exemplo, se uma entidade de endereço de envio estiver contida em uma subentidade de endereço de rua, a subentidade de endereço adicionará um peso significativo à previsão para a entidade endereço de envio.
 
-* Endereço de envio (entidade aprendida pelo computador)
+* Endereço de envio (entidade de aprendizado de máquina):
+
     * Número da rua (subentidade)
     * Endereço (subentidade)
     * Cidade (subentidade)
@@ -143,13 +149,14 @@ Por exemplo, se n entidade de endereço de envio contivesse uma subentidade ende
 
 ## <a name="nested-subentities-with-features"></a>Subentidades aninhadas com recursos
 
-Uma subentidade aprendida pelo computador indica que um conceito está presente na entidade pai, se esse pai é outra subentidade ou a entidade superior. O valor da subentidade atua como um recurso para seu pai.
+Uma subentidade de aprendizado de máquina indica que um conceito está presente na entidade pai. O pai pode ser outra subentidade ou a entidade superior. O valor da subentidade atua como um recurso para seu pai.
 
-Uma subentidade pode ter uma lista de frases como um recurso, bem como um modelo (outra entidade) como um recurso.
+Uma subentidade pode ter uma lista de frases e um modelo (outra entidade) como um recurso.
 
-Quando a subentidade tiver uma lista de frases, isso aumentará o vocabulário do conceito, mas não adicionará nenhuma informação à resposta JSON da previsão.
+Quando a subentidade tem uma lista de frases, ela aumenta o vocabulário do conceito, mas não adiciona nenhuma informação à resposta JSON da previsão.
 
 Quando a subentidade tem um recurso de outra entidade, a resposta JSON inclui os dados extraídos dessa outra entidade.
+
 
 ## <a name="required-features"></a>Recursos necessários
 
@@ -157,61 +164,65 @@ Um recurso necessário deve ser encontrado para que o modelo seja retornado do p
 
 Se o texto expressão não corresponder ao recurso necessário, ele não será extraído.
 
-**Um recurso necessário usa uma entidade aprendida não Machine**:
+Um recurso necessário usa uma entidade de aprendizagem que não é de máquina:
+
 * Entidade de expressão regular
 * Entidade de lista
 * Entidade predefinida
 
-Quais são os bons recursos a serem marcados conforme necessário? Se você tiver certeza de que seu modelo será encontrado nos dados, defina o recurso conforme necessário. Um recurso necessário não retorna nada, se não for encontrado.
+Se você tiver certeza de que seu modelo será encontrado nos dados, defina o recurso conforme necessário. Um recurso necessário não retornará nada se não for encontrado.
 
 Continuando com o exemplo do endereço de envio:
-* Endereço de envio (entidade aprendida pelo computador)
-    * Número da rua (subentidade)
-    * Endereço (subentidade)
-    * Nome da rua (subentidade)
-    * Cidade (subentidade)
-    * Estado ou província (subentidade)
-    * País/região (subentidade)
-    * CEP (subentidade)
+
+Endereço de envio (entidade aprendida pelo computador)
+
+ * Número da rua (subentidade) 
+ * Endereço (subentidade) 
+ * Nome da rua (subentidade) 
+ * Cidade (subentidade) 
+ * Estado ou província (subentidade) 
+ * País/região (subentidade) 
+ * CEP (subentidade)
 
 ### <a name="required-feature-using-prebuilt-entities"></a>Recurso necessário usando entidades predefinidas
 
-A cidade, o estado e o país/região geralmente são um conjunto fechado de listas, o que significa que elas não mudam muito ao longo do tempo. Essas entidades podem ter os recursos recomendados relevantes e esses recursos podem ser marcados como obrigatórios. Isso significa que o endereço de remessa inteiro não é retornado é que as entidades com os recursos necessários não foram encontradas.
+A cidade, o estado e o país/região geralmente são um conjunto fechado de listas, o que significa que elas não mudam muito ao longo do tempo. Essas entidades podem ter os recursos recomendados relevantes e esses recursos podem ser marcados como obrigatórios. Isso significa que o endereço de envio inteiro não será retornado se as entidades que têm os recursos necessários não forem encontradas.
 
-E se a cidade, o estado ou o país/região estiverem no expressão, mas em um local ou gírias que o LUIS não espera? Se você quiser fornecer algum pós-processamento para ajudar a resolver a entidade, devido a uma pontuação de confiança baixa do LUIS, não marque o recurso conforme necessário.
+E se a cidade, o estado ou o país/região estiverem no expressão, mas estiverem em um local ou se gíriasrem que o LUIS não espera? Se você quiser fornecer algum pós-processamento para ajudar a resolver a entidade, devido a uma pontuação de baixa confiança do LUIS, não marque o recurso conforme necessário.
 
-Outro exemplo de um recurso necessário para o endereço de envio é tornar o número da rua um número [predefinido](luis-reference-prebuilt-entities.md) necessário. Isso permite que um usuário insira "1 Microsoft Way" ou "One Microsoft Way". Ambos serão resolvidos para um número de "1" para a subentidade número da rua.
+Outro exemplo de um recurso necessário para o endereço de envio é tornar o número da rua um número necessário, [predefinido](luis-reference-prebuilt-entities.md) . Isso permite que um usuário insira "1 Microsoft Way" ou "One Microsoft Way". Ambos resolvem o numeral "1" para a subentidade de número de rua.
 
 ### <a name="required-feature-using-list-entities"></a>Recurso necessário usando entidades de lista
 
 Uma [entidade de lista](reference-entity-list.md) é usada como uma lista de nomes canônicos junto com seus sinônimos. Como um recurso necessário, se o expressão não incluir o nome canônico ou sinônimo, a entidade não será retornada como parte do ponto de extremidade de previsão.
 
-Continuando com o exemplo de endereço de envio, suponha que sua empresa seja enviada apenas para um conjunto limitado de países/regiões. Você pode criar uma entidade de lista que inclui várias maneiras pelas quais o cliente pode referenciar o país. Se LUIS não encontrar uma correspondência exata dentro do texto do expressão, a entidade (que tem o recurso necessário da entidade List) não será retornada na previsão.
+Suponha que sua empresa seja enviada apenas para um conjunto limitado de países/regiões. Você pode criar uma entidade de lista que inclui várias maneiras para o cliente referenciar o país/região. Se LUIS não encontrar uma correspondência exata dentro do texto do expressão, a entidade (que tem o recurso necessário da entidade List) não será retornada na previsão.
 
 |Nome canônico|Sinônimos|
 |--|--|
 |Estados Unidos|EUA<br>U. S. A<br>EUA<br>EUA<br>0|
 
-O aplicativo cliente, como um bot de chat, pode fazer uma pergunta a seguir para que o cliente entenda que a seleção de país/região é limitada e _necessária_.
+Um aplicativo cliente, como um bot de bate-papo, pode fazer uma pergunta de acompanhamento para ajudar. Isso ajuda o cliente a entender que a seleção de país/região é limitada e *necessária*.
 
 ### <a name="required-feature-using-regular-expression-entities"></a>Recurso necessário usando entidades de expressão regular
 
 Uma [entidade de expressão regular](reference-entity-regular-expression.md) usada como um recurso necessário fornece recursos avançados de correspondência de texto.
 
-Continuando com o endereço de envio, você pode criar uma expressão regular que capture as regras de sintaxe dos códigos postais de país/região.
+No exemplo de endereço de envio, você pode criar uma expressão regular que captura regras de sintaxe dos códigos postais de país/região.
 
 ## <a name="global-features"></a>Recursos globais
 
 Embora o uso mais comum seja aplicar um recurso a um modelo específico, você pode configurar o recurso como um **recurso global** para aplicá-lo a todo o seu aplicativo.
 
-O uso mais comum de um recurso global é adicionar um vocabulário adicional, como palavras de outra linguagem, ao aplicativo. Se seus clientes usam um idioma principal, mas esperam poder usar outro idioma dentro do mesmo expressão, você pode adicionar um recurso que inclui palavras do idioma secundário.
+O uso mais comum de um recurso global é adicionar um vocabulário adicional ao aplicativo. Por exemplo, se os clientes usam um idioma principal, mas esperam poder usar outro idioma dentro do mesmo expressão, você pode adicionar um recurso que inclui palavras do idioma secundário.
 
-Como o usuário esperava usar a segunda linguagem em qualquer tentativa ou entidade, ele deve ser adicionado em uma lista de frases com a lista de frases configurada como um recurso global.
+Como o usuário espera usar o idioma secundário em qualquer tentativa ou entidade, adicione palavras do idioma secundário à lista de frases. Configure a lista de frases como um recurso global.
 
 ## <a name="best-practices"></a>Práticas recomendadas
+
 Conheça as [práticas recomendadas](luis-concept-best-practices.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Estenda](schema-change-prediction-runtime.md) seus modelos de aplicativo no tempo de execução de previsão
-* Veja [Adicionar recursos](luis-how-to-add-features.md) para saber como adicionar recursos ao seu aplicativo LUIS.
+* [Estenda](schema-change-prediction-runtime.md) seus modelos de aplicativo no tempo de execução de previsão.
+* Consulte [Adicionar recursos](luis-how-to-add-features.md) para saber mais sobre como adicionar recursos ao seu aplicativo Luis.

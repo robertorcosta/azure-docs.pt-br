@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: 9954e4fe739c055a00c2e3bc52b73200a7824a43
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 0800a287b747a8a421958d20f0b1ce56247d6d01
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85299102"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362152"
 ---
 # <a name="what-is-custom-commands"></a>O que são comandos personalizados?
 
-Os aplicativos de voz, como os [assistentes de voz](voice-assistants.md) , ouvem os usuários e tomam uma ação em resposta, muitas vezes falando de volta. Eles usam a [fala para o texto](speech-to-text.md) para transcrever a fala do usuário e, em seguida, tomar medidas sobre a compreensão do idioma natural do texto. Essa ação geralmente inclui a saída falada do Assistente gerado com [conversão de texto em fala](text-to-speech.md). Os dispositivos se conectam aos assistentes com o objeto do SDK de fala `DialogServiceConnector` .
+Aplicativos como [assistentes de voz](voice-assistants.md) ouvem os usuários e tomam uma ação em resposta, muitas vezes falando de volta. Eles usam a [fala para o texto](speech-to-text.md) para transcrever a fala do usuário e, em seguida, tomar medidas sobre a compreensão do idioma natural do texto. Essa ação geralmente inclui a saída falada do Assistente gerado com [conversão de texto em fala](text-to-speech.md). Os dispositivos se conectam aos assistentes com o objeto do SDK de fala `DialogServiceConnector` .
 
 Os **comandos personalizados** facilitam a criação de aplicativos avançados de comando de voz otimizados para experiências de interação de voz primeiro. Ele fornece uma experiência de criação unificada, um modelo de hospedagem automático e complexidade relativamente menor, ajudando você a se concentrar na criação da melhor solução para seus cenários de comando de voz.
 

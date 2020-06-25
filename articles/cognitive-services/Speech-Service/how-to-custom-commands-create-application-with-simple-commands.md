@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 7f98b2c94659c083f5dbd2c43fd9015f8b60a9db
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 8e0927ccd8c94f589adf6eb11004b728f697b6e1
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307362"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362400"
 ---
 # <a name="create-application-with-simple-commands"></a>Criar aplicativo com comandos simples
 
@@ -27,6 +27,10 @@ Neste artigo, você aprenderá como:
 ## <a name="create-empty-application"></a>Criar aplicativo vazio
 Crie um aplicativo de comandos personalizados vazio. Para obter detalhes, consulte o guia de [início rápido](quickstart-custom-commands-application.md). Desta vez, em vez de importar um projeto, você cria um projeto em branco.
 
+1. Na caixa **nome** , insira o nome do projeto como `Smart-Room-Lite` (ou outra coisa de sua escolha).
+1. Na lista **idioma** , selecione **Inglês (Estados Unidos)**.
+1. Selecione ou crie um recurso LUIS de sua escolha.
+
    > [!div class="mx-imgBorder"]
    > ![Criar um projeto](media/custom-commands/create-new-project.png)
 
@@ -36,7 +40,7 @@ Você pode atualizar o recurso de criação que você selecionou na janela **nov
 
 ## <a name="add-turnon-command"></a>Adicionar comando de ativação
 
-No aplicativo de comandos personalizados do **Smart Room-Lite** , adicione um comando simples que processe um expressão, `turn on the tv` e responda com a mensagem `Ok, turning the tv on` .
+No aplicativo de comandos personalizados do **ambiente inteligente-Lite** vazio que você acabou de criar, adicione um comando simples que processa um expressão, `turn on the tv` e responde com a mensagem `Ok, turning the tv on` .
 
 1. Crie um novo comando selecionando **novo comando** na parte superior do painel esquerdo. A **nova** janela de comando é aberta.
 1. Forneça um valor para o campo **nome** como **ativado**.
@@ -74,7 +78,7 @@ Por enquanto, não temos parâmetros, portanto, podemos mudar para a seção de 
 
 Em seguida, o comando precisa ter uma regra de conclusão. Essa regra informa ao usuário que uma ação de preenchimento está sendo executada. Para ler mais sobre regras e regras de conclusão, acesse [referências](./custom-commands-references.md).
 
-1. Selecione regra de conclusão padrão **concluída** e edite-a da seguinte maneira: 
+1. Selecione regra de conclusão padrão **concluída** e edite-a da seguinte maneira:
 
     
     | Configuração    | Valor sugerido                          | Descrição                                        |
@@ -84,13 +88,7 @@ Em seguida, o comando precisa ter uma regra de conclusão. Essa regra informa ao
     | **Ações**    | Enviar resposta de fala > editor simples > primeira variação >`Ok, turning the tv on` | A ação a ser tomada quando a condição da regra for verdadeira |
     
 
-1. Como alternativa, você pode excluir a regra de conclusão padrão existente e criar uma nova selecionando a opção **Adicionar** na parte superior do painel central.
-1. Forneça o valor na seção **nome** .
-1. Adicione uma ação.
-   1. Crie uma ação selecionando **Adicionar uma ação** na seção **ações** .
-   1. Na janela **nova ação** , na lista **tipo** , selecione **Enviar resposta de fala**.
-   1. Em **resposta**, selecione **editor simples**.
-   1. No primeiro campo de **variação** , forneça valor para resposta como `Ok, turning the tv on` .
+
 
    > [!div class="mx-imgBorder"]
    > ![Criar uma resposta de fala](media/custom-commands/create-speech-response-action.png)
@@ -98,6 +96,9 @@ Em seguida, o comando precisa ter uma regra de conclusão. Essa regra informa ao
 1. Selecione **salvar** para salvar a ação.
 1. De volta à seção **regras de conclusão** , selecione **salvar** para salvar todas as alterações. 
 
+
+ > [!NOTE]
+    > Não é necessário usar a regra de conclusão padrão que vem com o comando. Se necessário, você pode excluir a regra de conclusão padrão existente e adicionar sua própria regra.
 
 ### <a name="try-it-out"></a>Experimentar
 
