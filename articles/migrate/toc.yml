@@ -58,6 +58,8 @@
           href: tutorial-assess-import.md
 - name: Conceitos
   items:
+    - name: Criar um plano de migração com as Migrações para Azure
+      href: concepts-migration-planning.md
     - name: Matrizes de suporte
       items:
         - name: Suporte geral
