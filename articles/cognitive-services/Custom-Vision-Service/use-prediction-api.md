@@ -3,19 +3,19 @@ title: Usar o ponto de extremidade de previsão para testar imagens programatica
 titleSuffix: Azure Cognitive Services
 description: Saiba como usar a API para testar programaticamente imagens com seu classificador de Serviço de Visão Personalizada.
 services: cognitive-services
-author: anrothMSFT
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.author: anroth
-ms.openlocfilehash: 88aaa3d54ea44a15f7900aba093bf28c70c19695
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.author: pafarley
+ms.openlocfilehash: 0766ad38265368a00272eb8abbe974ce94f5dd72
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82129869"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391682"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>Usar seu modelo com a API de previsão
 
@@ -110,8 +110,8 @@ Neste guia, você usará uma imagem local, portanto, copie a URL em **se você t
 
 1. Altere as seguintes informações:
    * Defina o `namespace` campo como o nome do seu projeto.
-   * Substitua o espaço `<Your prediction key>` reservado pelo valor de chave que você recuperou anteriormente.
-   * Substitua o espaço `<Your prediction URL>` reservado pela URL que você recuperou anteriormente.
+   * Substitua o espaço reservado `<Your prediction key>` pelo valor de chave que você recuperou anteriormente.
+   * Substitua o espaço reservado `<Your prediction URL>` pela URL que você recuperou anteriormente.
 
 ## <a name="run-the-application"></a>Executar o aplicativo
 

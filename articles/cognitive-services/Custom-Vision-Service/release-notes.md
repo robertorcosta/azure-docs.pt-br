@@ -3,19 +3,19 @@ title: Notas de versão – Serviço de Visão Personalizada
 titleSuffix: Azure Cognitive Services
 description: Obtenha as informações mais recentes sobre novas versões da equipe de Visão Personalizada.
 services: cognitive-services
-author: anrothMSFT
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.author: anroth
-ms.openlocfilehash: b9606c63ec7b53fb0b69918c21bdd9206f34c555
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.author: pafarley
+ms.openlocfilehash: f7259fe486a473f994d7795de5926b86717bb1b6
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73647568"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391699"
 ---
 # <a name="custom-vision-service-release-notes"></a>Notas de versão do Serviço de Visão Personalizada
 
@@ -62,7 +62,7 @@ ms.locfileid: "73647568"
 - Corrigidos diversos problemas de acessibilidade para aprimorar o suporte para navegação por teclado e leitor de tela.
 - Atualizações da experiência do usuário para o visualizador de imagens e melhor experiência de marcação para detecção de objetos para uma marcação mais rápida.  
 - Atualização do modelo base para o Domínio de detecção de objetos para uma detecção de objetos de melhor qualidade.
-- Correções de bug.
+- Correções de bugs.
 
 ## <a name="november-6-2018"></a>6 de novembro de 2018
 
