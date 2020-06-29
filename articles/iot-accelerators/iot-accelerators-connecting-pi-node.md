@@ -1,5 +1,5 @@
 ---
-title: Conectar o Raspberry Pi à solução de monitoramento remoto-node. js – Azure | Microsoft Docs
+title: Conectar o Raspberry Pi a uma solução de monitoramento remoto – Node.js – Azure | Microsoft Docs
 description: Descreve como conectar um dispositivo Raspberry Pi ao acelerador de solução de Monitoramento Remoto usando um aplicativo escrito em Node.js.
 author: dominicbetts
 manager: timlt
@@ -11,7 +11,7 @@ ms.author: dobett
 ms.custom: mqtt
 ms.openlocfilehash: 9335c45688752ea41801e988157740f4170cfcb4
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81683954"
@@ -28,7 +28,7 @@ Se você preferir simular um dispositivo, consulte [Criar e testar um novo dispo
 
 Um computador desktop para que você possa se conectar remotamente à linha de comando no Raspberry Pi.
 
-[Microsoft IoT Starter Kit para Raspberry Pi 3](https://azure.microsoft.com/develop/iot/starter-kits/) ou componentes equivalentes. Este tutorial usa os seguintes itens do kit:
+[Kit de início de IoT da Microsoft para Raspberry Pi 3](https://azure.microsoft.com/develop/iot/starter-kits/) ou componentes equivalentes. Este tutorial usa os seguintes itens do kit:
 
 - Raspberry Pi 3
 - Cartão MicroSD (com NOOBS)

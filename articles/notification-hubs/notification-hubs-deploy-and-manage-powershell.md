@@ -1,6 +1,6 @@
 ---
-title: Implantar e gerenciar hubs de notificação usando o PowerShell
-description: Como criar e gerenciar hubs de notificação usando o PowerShell para automação
+title: Implantar e gerenciar Hubs de Notificação usando o PowerShell
+description: Como criar e gerenciar os Hubs de Notificação usando o PowerShell para a Automação
 services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
@@ -18,7 +18,7 @@ ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: e6334659d41ba201cfdde190ccc9bfa0d58009e3
 ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/07/2020
 ms.locfileid: "82891191"
@@ -38,7 +38,7 @@ O gerenciamento de hubs de notificação não tem suporte direto dos cmdlets inc
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma assinatura do Azure. O Azure é uma plataforma baseada em assinatura. Para obter mais informações sobre como adquirir uma assinatura, confira [Opções de compra], [Ofertas para membros] ou [Avaliação gratuita].
+- Uma assinatura do Azure. O Azure é uma plataforma baseada em assinatura. Para obter mais informações sobre como adquirir uma assinatura, confira [Opções de compra], [Ofertas para membros] ou [Teste Gratuito].
 - Um computador com o PowerShell do Azure. Para obter instruções, consulte [Instalar e configurar o PowerShell do Azure].
 - Um entendimento geral dos scripts do PowerShell, dos pacotes NuGet e do .NET Framework.
 
@@ -94,10 +94,10 @@ Para provisionar um novo Hub de Notificação, use a [API do .NET para Hubs de N
 
 Nesta parte do script, você configura quatro variáveis locais.
 
-1. `$Namespace`: defina isso para o nome do namespace em que você deseja criar um hub de notificação.
-2. `$Path`: defina esse caminho para o nome do novo hub de notificação.  Por exemplo, "MyHub".
-3. `$WnsPackageSid`: defina isso para o SID do pacote para seu Aplicativo do Windows no [Centro de Desenvolvimento do Windows](https://developer.microsoft.com/en-us/windows).
-4. `$WnsSecretkey`: defina isso para a chave secreta de seu Aplicativo do Windows no [Centro de Desenvolvimento do Windows](https://developer.microsoft.com/en-us/windows).
+1. `$Namespace`: defina como o nome do namespace em que você deseja criar um hub de notificação.
+2. `$Path`: defina esse caminho como o nome do novo hub de notificação.  Por exemplo, "MyHub".
+3. `$WnsPackageSid`: defina como o SID do pacote para seu Aplicativo do Windows no [Centro de Desenvolvimento do Windows](https://developer.microsoft.com/en-us/windows).
+4. `$WnsSecretkey`: defina como a chave secreta de seu Aplicativo do Windows no [Centro de Desenvolvimento do Windows](https://developer.microsoft.com/en-us/windows).
 
 Essas variáveis são usadas para se conectar ao seu namespace e criar um novo hub de notificação configurado para manipular as notificações do WNS (Windows Notification Services) com credenciais dos WNS para um aplicativo do Windows. Para obter informações sobre como obter o SID de pacote e a chave de segredo, consulte o tutorial [Introdução aos Hubs de Notificação](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) .
 
@@ -158,8 +158,8 @@ Alguns scripts prontos também estão disponíveis para download:
 
 [Opções de compra]: https://azure.microsoft.com/pricing/purchase-options/
 [Ofertas para membros]: https://azure.microsoft.com/pricing/member-offers/
-[Avaliação gratuita]: https://azure.microsoft.com/pricing/free-trial/
-[Instalar e configurar Azure PowerShell]: /powershell/azureps-cmdlets-docs
+[Teste Gratuito]: https://azure.microsoft.com/pricing/free-trial/
+[Instalar e configurar o PowerShell do Azure]: /powershell/azureps-cmdlets-docs
 [API do .NET para Hubs de Notificação]: https://docs.microsoft.com/dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
 [Get-AzureSBNamespace]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azuresbnamespace
 [New-AzureSBNamespace]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azuresbnamespace

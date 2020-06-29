@@ -1,7 +1,7 @@
 ---
 title: Referência do portal de registro de aplicativo | Azure
 titleSuffix: Microsoft identity platform
-description: Uma descrição dos recursos no portal de registro de aplicativo da Microsoft.
+description: Uma descrição dos recursos do portal de registro de aplicativo da Microsoft.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -15,26 +15,26 @@ ms.reviewer: lenalepa
 ms.custom: aaddev
 ms.openlocfilehash: 910aaf84d3563d4410826d3c0bdfde3d2dfc75e3
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "80885626"
 ---
 # <a name="app-registration-reference"></a>Referência de registro de aplicativo
 
-Este documento fornece contexto e descrições de vários recursos encontrados na experiência de [registros de aplicativo](https://aka.ms/appregistrations) no portal do Azure.
+Este documento fornece contexto e descrições de vários recursos encontrados na experiência de [Registros de aplicativo](https://aka.ms/appregistrations) do portal do Azure.
 
 ## <a name="my-applications-or-converged-applications"></a>Meus aplicativos ou Aplicativos convergidos
 
-Esta lista contém todos os seus aplicativos registrados para uso com o ponto de extremidade da plataforma Microsoft Identity (v 2.0). Esses aplicativos permitem que usuários com contas pessoais da Microsoft e contas corporativas/de estudante do Azure Active Directory façam logon. Para saber mais sobre o ponto de extremidade da plataforma de identidade, consulte a [visão geral v 2.0](active-directory-appmodel-v2-overview.md). Esses aplicativos também podem ser usados para integração com o ponto de extremidade de autenticação da conta da Microsoft, `https://login.live.com`.
+Esta lista contém todos os aplicativos registrados para uso com o ponto de extremidade da plataforma de identidade da Microsoft (v2.0). Esses aplicativos permitem que usuários com contas pessoais da Microsoft e contas corporativas/de estudante do Azure Active Directory façam logon. Para saber mais sobre o ponto de extremidade da plataforma de identidade, confira a [Visão geral da v2.0](active-directory-appmodel-v2-overview.md). Esses aplicativos também podem ser usados para integração com o ponto de extremidade de autenticação da conta da Microsoft, `https://login.live.com`.
 
 ## <a name="azure-ad-only-applications"></a>Aplicativos somente do Azure AD
 
-Esta lista contém todos os aplicativos registrados para uso com o ponto de extremidade do Azure AD v1.0. Esses aplicativos têm somente a capacidade de fazer logon dos usuários com contas corporativas/de estudante do Azure Active Directory. Essa lista inclui aplicativos que foram registrados usando a experiência de **registros de aplicativo** no [portal do Azure](https://portal.azure.com).
+Esta lista contém todos os aplicativos registrados para uso com o ponto de extremidade do Azure AD v1.0. Esses aplicativos têm somente a capacidade de fazer logon dos usuários com contas corporativas/de estudante do Azure Active Directory. Esta lista inclui os aplicativos que foram registrados por meio da experiência de **Registros de aplicativo** no [portal do Azure](https://portal.azure.com).
 
 ## <a name="live-sdk-applications"></a>Aplicativos do Live SDK
 
-Esta lista contém todos os aplicativos registrados para uso exclusivo com uma conta da Microsoft. Eles não são habilitados para uso com o Azure Active Directory. Nessa lista você encontrará todos os aplicativos registrados anteriormente com o portal do desenvolvedor MSA em `https://account.live.com/developers/applications`. Todas as funções que você executou `https://account.live.com/developers/applications` anteriormente em agora podem ser executadas em [registros de aplicativo](https://aka.ms/appregistrations).
+Esta lista contém todos os aplicativos registrados para uso exclusivo com uma conta da Microsoft. Eles não são habilitados para uso com o Azure Active Directory. Nessa lista você encontrará todos os aplicativos registrados anteriormente com o portal do desenvolvedor MSA em `https://account.live.com/developers/applications`. Todas as funções executadas anteriormente em `https://account.live.com/developers/applications` agora podem ser executadas em [Registros de aplicativo](https://aka.ms/appregistrations).
 
 ## <a name="application-secrets"></a>Segredos do aplicativo
 
@@ -51,8 +51,8 @@ A seção de perfil do portal de registro de aplicativos pode ser usada para per
 
 ## <a name="live-sdk-support"></a>Suporte ao Live SDK
 
-Quando você habilita o "Suporte ao Live SDK", qualquer segredo do aplicativo criado por você será provisionado nos repositórios de dados do Azure AD e da conta da Microsoft. Isso permite que seu aplicativo se integre diretamente com o serviço de Conta da Microsoft (login.live.com). Se você quiser criar um aplicativo usando a conta da Microsoft diretamente (em vez de usar o ponto de extremidade v 2.0), certifique-se de que o suporte ao Live SDK esteja habilitado.
+Quando você habilita o "Suporte ao Live SDK", qualquer segredo do aplicativo criado por você será provisionado nos repositórios de dados do Azure AD e da conta da Microsoft. Isso permite que seu aplicativo se integre diretamente com o serviço de Conta da Microsoft (login.live.com). Caso deseje criar um aplicativo usando a conta Microsoft diretamente (em vez de usar o ponto de extremidade v2.0), verifique se o Suporte do Live SDK está habilitado.
 
 Desativar o suporte do Live SDK garante que o segredo do aplicativo seja gravado apenas nos armazenamentos de dados do Azure AD. Os armazenamentos de dados do Azure AD incorporam regulamentos de nível empresarial que lhes permitem atender a determinados padrões, como a conformidade FISMA. Se você habilitar o suporte ao Live SDK, talvez seu aplicativo não fique em conformidade com alguns desses padrões.
 
-Se você só planeja usar o ponto de extremidade v 2.0, você pode desabilitar com segurança o suporte ao Live SDK.
+Se você só pretende usar o ponto de extremidade v2.0, desabilite com segurança o suporte ao Live SDK.

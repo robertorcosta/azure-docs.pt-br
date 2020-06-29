@@ -14,7 +14,7 @@ ms.custom:
 - mqtt
 ms.openlocfilehash: c568dddcbbf57ebd6ed5906bb83af01a84dafa41
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81683823"
@@ -152,7 +152,7 @@ O serviço de simulação pode enviar vários tipos de telemetria para cada disp
 ],
 ```
 
-Os espaços reservados usam uma sintaxe especial **$ {NAME}**, onde **NAME** é uma chave do objeto de estado do dispositivo retornado pela função **principal** do JavaScript. As strings devem ser citadas, enquanto os números não devem.
+Os espaços reservados usam uma sintaxe especial **$ {NAME}** , onde **NAME** é uma chave do objeto de estado do dispositivo retornado pela função **principal** do JavaScript. As strings devem ser citadas, enquanto os números não devem.
 
 #### <a name="message-schema"></a>Esquema de mensagem
 
@@ -165,7 +165,7 @@ Os campos listados no esquema podem ser dos tipos a seguir:
 * Objeto - serializado usando JSON
 * Binário - serializado usando base64
 * Texto
-* Booliano
+* Boolean
 * Integer
 * Double
 * Datetime
@@ -258,7 +258,7 @@ Os arquivos JavaScript devem ter uma função **principal**, que aceita dois par
 
 * Um **contexto** objeto que contém três propriedades:
     * **currentTime** como uma cadeia de caracteres com o formato **aaaa-MM-dd'T'HH: mm: sszzz**.
-    * **DeviceID**. Por exemplo, **Simulated.Elevator.123**.
+    * **deviceId**. Por exemplo, **Simulated.Elevator.123**.
     * **deviceModel**. Por exemplo, **elevador**.
 * Um **estado** objeto que é o valor retornado pela função na chamada anterior. Esse estado do dispositivo é mantido pelo serviço de simulação e usado para gerar mensagens de telemetria.
 

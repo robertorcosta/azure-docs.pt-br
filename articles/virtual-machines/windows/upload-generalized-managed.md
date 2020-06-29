@@ -9,7 +9,7 @@ ms.date: 12/12/2019
 ms.author: cynthn
 ms.openlocfilehash: b0947d1cc4e53763c0f31444b8f3d27ba45b19a4
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "82096399"
@@ -28,7 +28,7 @@ Para um exemplo de script, consulte [Script de exemplo para carregar um VHD no A
  
 ## <a name="generalize-the-source-vm-by-using-sysprep"></a>Generalize a VM de origem usando o Sysprep
 
-Se você ainda não fez isso, precisará de Sysprep a VM antes de carregar o VHD no Azure. O Sysprep remove todas as informações pessoais da conta, entre outros itens, e prepara o computador para ser utilizado como uma imagem. Para obter detalhes sobre Sysprep, consulte a [Visão geral do Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
+Se você ainda não tiver feito isso, precisará executar Sysprep da VM antes de carregar o VHD no Azure. O Sysprep remove todas as informações pessoais da conta, entre outros itens, e prepara o computador para ser utilizado como uma imagem. Para obter detalhes sobre Sysprep, consulte a [Visão geral do Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
 Verifique se as funções de servidor em execução no computador são suportadas pelo Sysprep. Para obter mais informações, consulte [Suporte do Sysprep para funções de servidor](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
@@ -49,7 +49,7 @@ Verifique se as funções de servidor em execução no computador são suportada
 
 ## <a name="upload-the-vhd"></a>Carregar o VHD 
 
-Agora você pode carregar um VHD diretamente em um disco gerenciado. Para obter instruções, consulte [carregar um VHD no Azure usando Azure PowerShell](disks-upload-vhd-to-managed-disk-powershell.md).
+Agora você pode carregar um VHD diretamente em um disco gerenciado. Para obter instruções, confira [Carregar um VHD no Azure usando o Azure PowerShell](disks-upload-vhd-to-managed-disk-powershell.md).
 
 
 
@@ -60,9 +60,9 @@ $disk = Get-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'myDiskName'
 ```
 
 ## <a name="create-the-image"></a>Criar a imagem
-Crie uma imagem gerenciada do seu disco de gerenciamento generalizado do sistema operacional. Substitua os valores a seguir com suas próprias informações.
+Crie uma imagem gerenciada com base em seu disco gerenciado do sistema operacional generalizado. Substitua os valores a seguir com suas próprias informações.
 
-Primeiro, defina algumas variáveis:
+Primeiro defina algumas variáveis:
 
 ```powershell
 $location = 'East US'

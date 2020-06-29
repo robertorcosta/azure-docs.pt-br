@@ -1,5 +1,5 @@
 ---
-title: Gerenciar conjuntos de dimensionamento de máquinas virtuais com o CLI do Azure
+title: Gerenciar Conjuntos de Dimensionamento de Máquinas Virtuais com a CLI do Azure
 description: 'Comandos comuns da CLI do Azure para gerenciar conjuntos de dimensionamento de máquinas virtuais, por exemplo: como iniciar e parar uma instância ou alterar a capacidade do conjunto de dimensionamento.'
 author: ju-shim
 ms.author: jushiman
@@ -11,7 +11,7 @@ ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: 2742b0b73d4143159fd1ed1338988b01a2171041
 ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/12/2020
 ms.locfileid: "83124322"

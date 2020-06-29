@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: implantar seu aplicativo ASP.NET e o código do banco de dados SQL do Azure usando o Azure DevOps Starter'
-description: O iniciante do DevOps facilita a introdução ao Azure. Com o DevOps Starter, você pode implantar seu aplicativo ASP.NET e o código do banco de dados SQL do Azure em algumas etapas rápidas.
+title: 'Tutorial: Implantar o aplicativo ASP.NET e código do Banco de Dados SQL do Azure usando o Azure DevOps Starter'
+description: Com o DevOps Starter, é mais fácil começar a usar o Azure. Com ele, é possível implantar seu aplicativo ASP.NET e o código do Banco de Dados SQL do Azure em algumas etapas.
 ms.author: mlearned
 ms.manager: gwallace
 ms.prod: devops
@@ -10,16 +10,16 @@ ms.date: 03/24/2020
 author: mlearned
 ms.openlocfilehash: 93b150d47f1703662ebda5b017e1824cf74b7ab0
 ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "82233696"
 ---
-# <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-starter"></a>Tutorial: implantar seu aplicativo ASP.NET e o código do banco de dados SQL do Azure usando o Azure DevOps Starter
+# <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-starter"></a>Tutorial: Implantar o aplicativo ASP.NET e código do Banco de Dados SQL do Azure usando o Azure DevOps Starter
 
-O Azure DevOps Starter apresenta uma experiência simplificada em que você pode colocar seu código existente e o repositório git ou escolher um aplicativo de exemplo para criar um pipeline de CI (integração contínua) e CD (entrega contínua) para o Azure. 
+O Azure DevOps Starter apresenta uma experiência simplificada na qual é possível trazer seu código e seu repositório Git existentes ou escolher um aplicativo de exemplo para criar um pipeline de CI (integração contínua) e CD (entrega contínua) para o Azure. 
 
-DevOps iniciador também:
+Além disso, o DevOps Starter:
 * Cria automaticamente os recursos do Azure, como um banco de dados SQL do Azure.
 * Cria e configura um pipeline de lançamento no Azure Pipelines que inclui um pipeline de build de CI.
 * Configura um pipeline de lançamento de CD. 
@@ -28,7 +28,7 @@ DevOps iniciador também:
 Neste tutorial, você irá:
 
 > [!div class="checklist"]
-> * Usar o iniciador DevOps do Azure para implantar seu aplicativo ASP.NET e o código do banco de dados SQL do Azure
+> * Usar o Azure DevOps Starter para implantar seu aplicativo ASP.NET e o código do Banco de Dados SQL do Azure
 > * Configurar o Azure DevOps e uma assinatura do Azure 
 > * Examinar o pipeline de CI
 > * Examinar o pipeline de CD
@@ -36,19 +36,19 @@ Neste tutorial, você irá:
 > * Conectar-se e ao banco de dados SQL do Azure 
 > * Limpar os recursos
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma assinatura do Azure. Você pode obter uma gratuita por meio do [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
 ## <a name="create-a-project-in-devops-projects-for-an-aspnet-app-and-an-azure-sql-database"></a>Criar um projeto do DevOps Projects para um aplicativo ASP.NET e um Banco de Dados SQL do Azure
 
-O iniciador DevOps cria um pipeline de CI/CD no Azure Pipelines. É possível criar uma nova organização do Azure DevOps ou usar uma existente. O iniciador DevOps também cria recursos do Azure, como um banco de dados SQL do Azure, na assinatura do Azure de sua escolha.
+O DevOps Starter cria um pipeline de CI/CD no Azure Pipelines. É possível criar uma nova organização do Azure DevOps ou usar uma existente. O DevOps Starter também cria recursos do Azure, como um Banco de Dados SQL do Azure, na assinatura do Azure de sua escolha.
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 
-1. Na caixa de pesquisa, digite **DevOps Starter**e, em seguida, selecione. Clique em **Adicionar** para criar um novo.
+1. Na caixa de pesquisa, digite **DevOps Starter** e selecione. Clique em **Adicionar** para criar um.
 
-    ![O painel inicial do DevOps](_img/azure-devops-starter-aks/search-devops-starter.png)
+    ![O painel do DevOps Starter](_img/azure-devops-starter-aks/search-devops-starter.png)
 
 1. Selecione **.NET** e selecione **Avançar**.
 
@@ -66,15 +66,15 @@ O iniciador DevOps cria um pipeline de CI/CD no Azure Pipelines. É possível cr
 
 1. Selecione seus serviços de assinatura do Azure. Como opção, para exibir definições adicionais de configuração do Azure e identificar o nome de usuário na seção **Detalhes de logon do servidor de banco de dados**, selecione **Alterar**. Guarde o nome de usuário para etapas futuras deste tutorial. Se executar essa etapa opcional, saia a área de configuração do Azure antes de selecionar **Concluído**.
  
-1. Selecione **Concluído**. Após alguns minutos, o processo é concluído e o painel inicial do DevOps é aberto no portal do Azure. Também é possível navegar até o painel diretamente de **Todos os recursos** no portal do Azure. À direita, selecione **Procurar** para exibir o aplicativo em execução.
+1. Selecione **Concluído**. Depois de alguns minutos, o processo estará concluído e o painel do DevOps Starter será aberto no portal do Azure. Também é possível navegar até o painel diretamente de **Todos os recursos** no portal do Azure. À direita, selecione **Procurar** para exibir o aplicativo em execução.
     
 ## <a name="examine-the-ci-pipeline"></a>Examinar o pipeline de CI
 
 O DevOps Starter configura automaticamente um pipeline de CI/CD completo no Azure Repos. É possível explorar e personalizar o pipeline. Para se familiarizar com os pipelines de build do Azure DevOps, faça o seguinte:
 
-1. Na parte superior do painel inicial do DevOps, selecione **criar pipelines**. Uma guia do navegador exibe o pipeline de build do seu novo projeto.
+1. Na parte superior do painel do DevOps Starter, selecione **Pipelines de build**. Uma guia do navegador exibe o pipeline de build do seu novo projeto.
 
-1. Aponte para o campo **status** e, em seguida, selecione as reticências (...). Um menu exibe várias opções, como enfileirar uma nova compilação, pausar uma compilação e editar o pipeline de compilação.
+1. Aponte para o campo **Status** e selecione as reticências (...). Um menu exibe várias opções, como o enfileiramento de um novo build, pausando um build e editando o pipeline de build.
 
 1. Selecione **Editar**.
 
@@ -82,19 +82,19 @@ O DevOps Starter configura automaticamente um pipeline de CI/CD completo no Azur
 
 1. Na parte superior do pipeline de build, selecione o nome desse pipeline.
 
-1. Altere o nome do pipeline de compilação para algo mais descritivo, selecione **salvar & fila**e, em seguida, selecione **salvar**.
+1. Altere o nome do pipeline de build para algo mais descritivo, selecione **Salvar e enfileirar** e selecione **Salvar**.
 
 1. Embaixo do nome do pipeline de build, selecione **Histórico**. Esse painel exibe uma trilha de auditoria das alterações recentes do build. O Azure Pipelines controla quaisquer alterações feitas no pipeline de build e permite que você compare versões.
 
-1. Selecione **Gatilhos**. O DevOps Starter cria automaticamente um gatilho de CI e todas as confirmações para o repositório iniciam uma nova compilação. Como opção, é possível incluir ou excluir os branches do processo de CI.
+1. Selecione **Gatilhos**. O DevOps Starter cria automaticamente um gatilho de CI e cada confirmação no repositório inicia um novo build. Como opção, é possível incluir ou excluir os branches do processo de CI.
 
 1. Selecione **Retenção**. Dependendo do seu cenário, você pode especificar políticas para manter ou remover um determinado número de compilações.
 
 ## <a name="examine-the-cd-pipeline"></a>Examinar o pipeline de CD
 
-O DevOps Starter cria e configura automaticamente as etapas necessárias para implantar de sua organização do Azure DevOps em sua assinatura do Azure. Essas etapas incluem a configuração de uma conexão de serviço do Azure para autenticar o Azure DevOps em sua assinatura do Azure. A automação também cria um pipeline de CD, o qual fornece a CD para a máquina virtual do Azure. Para saber mais sobre o pipeline de CD do Azure DevOps, faça o seguinte:
+O DevOps Starter cria e configura automaticamente as etapas necessárias para implantar a organização do Azure DevOps na assinatura do Azure. Essas etapas incluem a configuração de uma conexão de serviço do Azure para autenticar o Azure DevOps em sua assinatura do Azure. A automação também cria um pipeline de CD, o qual fornece a CD para a máquina virtual do Azure. Para saber mais sobre o pipeline de CD do Azure DevOps, faça o seguinte:
 
-1. Selecione **Build e Lançamento** e selecione **Lançamentos**. O iniciador DevOps cria um pipeline de liberação para gerenciar implantações no Azure.
+1. Selecione **Build e Lançamento** e selecione **Lançamentos**. O DevOps Starter cria um pipeline de lançamento para gerenciar implantações no Azure.
 
 1. Selecione as reticências (...) ao lado do pipeline de lançamento e selecione **Editar**. O pipeline de lançamento contém um *pipeline* que define o processo de lançamento.
 
@@ -102,7 +102,7 @@ O DevOps Starter cria e configura automaticamente as etapas necessárias para im
 
 1. À direita do ícone **Soltar**, selecione **Gatilho de implantação contínua**. Esse pipeline de lançamento tem um gatilho de CD habilitado, que executa uma implantação sempre que houver um novo artefato de build disponível. Outra opção é desabilitar o gatilho para que suas implantações exijam uma execução manual. 
 
-    O iniciador DevOps configura uma senha SQL aleatória e a usa para o pipeline de lançamento.
+    O DevOps Starter configura uma senha SQL aleatória e a utiliza no pipeline de lançamento.
     
 1. À esquerda, selecione **Variáveis**. 
 
@@ -121,7 +121,7 @@ O DevOps Starter cria e configura automaticamente as etapas necessárias para im
 
 1. Selecione **Confirmações**. Essa exibição mostra as confirmações de código associadas a essa implantação. Compare as versões para exibir as diferenças de confirmação entre implantações.
 
-1. Selecione **logs**. Os logs contêm informações úteis sobre o processo de implantação. É possível exibi-los durante e após as implantações.
+1. Selecione **Logs**. Os logs contêm informações úteis sobre o processo de implantação. É possível exibi-los durante e após as implantações.
 
 ## <a name="commit-changes-to-azure-repos-and-automatically-deploy-them-to-azure"></a>Confirmar alterações no Azure Repos e implantá-las automaticamente no Azure 
 
@@ -136,7 +136,7 @@ Agora você está pronto para colaborar com uma equipe em seu aplicativo usando 
 
 1. Faça uma alteração no arquivo, como adicionar um texto dentro de uma das marcas div. 
 
-1. No canto superior direito, selecione **Confirmar** e selecione **Confirmar** novamente para efetuar push da alteração. Após alguns instantes, um build é iniciado no Azure DevOps e uma versão é executada para implantar as alterações. Monitore o status da compilação no painel inicial do DevOps ou no navegador com sua organização do DevOps do Azure.
+1. No canto superior direito, selecione **Confirmar** e selecione **Confirmar** novamente para efetuar push da alteração. Após alguns instantes, um build é iniciado no Azure DevOps e uma versão é executada para implantar as alterações. Monitore o status do build no painel do DevOps Starter ou no navegador com sua organização do Azure DevOps.
 
 1. Depois de concluir o lançamento, atualize o aplicativo para verificar as alterações.
 
@@ -144,7 +144,7 @@ Agora você está pronto para colaborar com uma equipe em seu aplicativo usando 
 
 Você precisa de permissões apropriadas para se conectar ao banco de dados SQL do Azure.
 
-1. No painel inicial do DevOps, selecione **banco de dados SQL** para ir para a página de gerenciamento do banco de dados SQL.
+1. No painel do DevOps Starter, selecione o **Banco de Dados SQL** para ir até a página de gerenciamento do banco de dados SQL.
    
 1. Selecione **Definir firewall do servidor**, depois selecione **Adicionar IP do cliente**. 
 
@@ -161,16 +161,16 @@ Você precisa de permissões apropriadas para se conectar ao banco de dados SQL 
     Caso não tenha alterado o nome de usuário do banco de dados ao configurar o DevOps Projects inicialmente, seu nome de usuário é a parte local do seu endereço de email. Por exemplo, se o seu endereço de email for *joãosilva\@microsoft.com*, seu nome de usuário será *joãosilva*.
 
    > [!NOTE]
-   > Se você alterar sua senha para o logon do SQL, deverá alterar a senha na variável de pipeline de liberação, conforme descrito na seção [examinar o pipeline de CD](#examine-the-cd-pipeline) .
+   > Se alterar a senha de logon no SQL, você deverá alterar a senha na variável do pipeline de lançamento, conforme descrito na seção [Examinar o pipeline de CD](#examine-the-cd-pipeline).
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Caso esteja fazendo testes, é possível evitar o acúmulo de encargos de cobrança limpando seus recursos. Quando eles não forem mais necessários, será possível excluir o banco de dados SQL do Azure e os recursos relacionados criados neste tutorial. Para fazer isso, use a funcionalidade **excluir** no painel inicial do DevOps.
+Caso esteja fazendo testes, é possível evitar o acúmulo de encargos de cobrança limpando seus recursos. Quando eles não forem mais necessários, será possível excluir o banco de dados SQL do Azure e os recursos relacionados criados neste tutorial. Para fazer isso, use a funcionalidade **Excluir** no painel do DevOps Starter.
 
 > [!IMPORTANT]
-> O procedimento a seguir exclui os recursos permanentemente. A funcionalidade de *exclusão* destrói os dados que são criados pelo projeto no iniciador DevOps no Azure e no Azure DevOps, e você não poderá recuperá-lo. Só use esse procedimento depois de ler os prompts com cuidado.
+> O procedimento a seguir exclui os recursos permanentemente. A funcionalidade *Excluir* destrói os dados criados pelo projeto no DevOps Starter no Azure e no Azure DevOps, e não é possível recuperá-los. Só use esse procedimento depois de ler os prompts com cuidado.
 
-1. Na portal do Azure, vá para o painel inicial do DevOps.
+1. No portal do Azure, vá até o painel do DevOps Starter.
 2. No canto superior direito, selecione **Excluir**. 
 3. No prompt, selecione **Sim** para *excluir permanentemente* os recursos.
 
@@ -179,7 +179,7 @@ Caso esteja fazendo testes, é possível evitar o acúmulo de encargos de cobran
 Como opção, você pode modificar esses pipelines de build e de lançamento para atender às necessidades de sua equipe. Você também pode usar esse padrão de CI/CD como um modelo para outros projetos. Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
-> * Usar o iniciador DevOps do Azure para implantar seu aplicativo ASP.NET e o código do banco de dados SQL do Azure
+> * Usar o Azure DevOps Starter para implantar seu aplicativo ASP.NET e o código do Banco de Dados SQL do Azure
 > * Configurar o Azure DevOps e uma assinatura do Azure 
 > * Examinar o pipeline de CI
 > * Examinar o pipeline de CD

@@ -9,7 +9,7 @@ ms.author: rasquill
 ms.custom: mvc
 ms.openlocfilehash: dfdf6e1f8edfb4dafaf93e62090ed51878f9b2aa
 ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/03/2020
 ms.locfileid: "82734817"
@@ -42,7 +42,7 @@ A [versão canário](https://martinfowler.com/bliki/CanaryRelease.html) é uma e
 
 ## <a name="set-up-vamp"></a>Configurar o Vamp
 
-Agora que você tem um cluster DC/OS em execução, é possível instalar a interface do usuário do DC/so (\/http:/localhost: 80). 
+Agora que você tem um cluster de DC/SO em execução, pode instalar o Vamp da interface do usuário do DC/SO (http:\//localhost:80). 
 
 ![Interface do usuário do DC/OS](./media/container-service-dcos-vamp-canary-release/01_set_up_vamp.png)
 
@@ -197,7 +197,7 @@ Para mesclar o novo serviço sava 1.1 com a implantação em execução:
 
 1. Na interface do usuário do Vamp, clique em **Planos Gráficos**.
 
-2. Clique em **Adicionar** e cole o seguinte plano gráfico YAML: este plano gráfico descreve uma nova variante de serviço (sava: 1.1.0) para implantar no cluster existente (sava_cluster).
+2. Clique em **Adicionar** e cole no seguinte blueprint do YAML: este blueprint descreve uma nova variante de serviço (sava: 1.1.0) para implantar no cluster existente (sava_cluster).
 
    ```YAML
    name: sava:1.1.0      # blueprint name

@@ -12,24 +12,24 @@ ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.openlocfilehash: 4b39aa77ea3895a606ad34a3bc9b70dba924a23f
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "80886085"
 ---
 # <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>Diagnosticando erros com o Serviço Conectado do Azure Active Directory
 
-Ao detectar o código de autenticação anterior, o serviço conectado do Azure Active Directory detectou um tipo de autenticação incompatível.
+Ao detectar o código de autenticação anterior, o servidor conectado do Azure Active Directory detectou um tipo de autenticação incompatível.
 
-Para detectar corretamente o código de autenticação anterior em um projeto, o projeto deve ser recriado. Se você vir esse erro e não tiver um código de autenticação anterior em seu projeto, recompile e tente novamente.
+Para detectar corretamente o código de autenticação anterior em um projeto, o projeto precisa ser recompilado. Se este erro for exibido e você não tiver um código de autenticação anterior no projeto, recompile-o e repita a operação.
 
 ## <a name="project-types"></a>Tipos de projeto
 
-O serviço conectado verifica o tipo de projeto que está sendo desenvolvido para que possa injetar a lógica de autenticação adequada ao projeto. Se houver qualquer controlador que derive de `ApiController` no projeto, o projeto será considerado um projeto WebAPI. Se houver apenas controladores que derivam de `MVC.Controller` no projeto, o projeto será considerado um projeto MVC. O serviço conectado não oferece suporte a qualquer outro tipo de projeto.
+O serviço conectado verifica o tipo de projeto que está sendo desenvolvido para que possa injetar a lógica de autenticação adequada ao projeto. Se houver um controlador derivado de `ApiController` no projeto, o projeto será considerado um projeto de API Web. Se houver apenas controladores que derivam de `MVC.Controller` no projeto, o projeto será considerado um projeto MVC. O serviço conectado não oferece suporte a qualquer outro tipo de projeto.
 
 ## <a name="compatible-authentication-code"></a>Código de autenticação compatível
 
-O serviço conectado também verifica configurações de autenticação configuradas anteriormente ou que são compatíveis com o serviço. Se todas as configurações estiverem presentes, será considerado um caso reentrante e o serviço conectado será aberto para exibir as configurações.  Se apenas algumas das configurações estiverem presentes, ele será considerado um caso de erro.
+O serviço conectado também verifica configurações de autenticação configuradas anteriormente ou que são compatíveis com o serviço. Se todas as configurações estiverem presentes, ele será considerado um caso reentrante, e o serviço conectado será aberto e exibirá as configurações.  Se apenas algumas das configurações estiverem presentes, ele será considerado um caso de erro.
 
 Em um projeto do MVC, o serviço conectado verifica qualquer uma das configurações a seguir, que são resultado do uso anterior do serviço:
 
@@ -38,7 +38,7 @@ Em um projeto do MVC, o serviço conectado verifica qualquer uma das configuraç
     <add key="ida:AADInstance" value="" />
     <add key="ida:PostLogoutRedirectUri" value="" />
 
-Além disso, o serviço conectado verifica qualquer uma das seguintes configurações em um projeto de API da Web, que resulta do uso anterior do serviço:
+Além disso, o serviço conectado verifica uma das seguintes configurações em um projeto de API Web, que são o resultado do uso anterior do serviço:
 
     <add key="ida:ClientId" value="" />
     <add key="ida:Tenant" value="" />

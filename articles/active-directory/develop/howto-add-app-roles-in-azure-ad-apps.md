@@ -15,12 +15,12 @@ ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 144fad249011d547ac6a8cf2d404cb3f8fe74f96
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "80884249"
 ---
-# <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Como adicionar funções de aplicativo em seu aplicativo e recebê-las no token
+# <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Como fazer: adicionar funções de aplicativo em seu aplicativo e recebê-las no token
 
 O RBAC (controle de acesso baseado em função) é um mecanismo comum usado para impor a autorização em aplicativos. Usando o RBAC, o administrador concede permissões a funções, e não a usuários ou grupos individuais. O administrador pode, então, atribuir funções a diferentes usuários e grupos para controlar quem tem acesso a qual conteúdo e funcionalidade.
 
@@ -35,17 +35,17 @@ Essas funções de aplicativo são definidas no [portal do Azure](https://portal
 ### <a name="declare-app-roles-using-azure-portal"></a>Declarar funções de aplicativo usando o portal do Azure
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-1. Selecione o ícone **diretório + assinatura** na barra de ferramentas do Portal.
-1. Na lista **favoritos** ou **todos os diretórios** , escolha o Active Directory locatário no qual você deseja registrar seu aplicativo.
+1. Selecione o ícone **Diretório + Assinatura** na barra de ferramentas do portal.
+1. Na lista **Favoritos** ou **Todos os Diretórios**, escolha o locatário do Active Directory no qual deseja registrar seu aplicativo.
 1. Na portal do Azure, procure e selecione **Azure Active Directory**.
 1. No painel **Azure Active Directory**, selecione **Registros de aplicativo** para exibir uma lista com todos os seus aplicativos.
-1. Selecione o aplicativo no qual deseja definir funções. Em seguida, selecione **manifesto**.
+1. Selecione o aplicativo no qual deseja definir funções. Em seguida, selecione **Manifesto**.
 1. Edite o manifesto do aplicativo localizando a configuração `appRoles` e adicionando todas as suas Funções de aplicativo.
 
      > [!NOTE]
-     > Cada definição de função de aplicativo neste manifesto deve ter um GUID válido diferente no contexto do manifesto para a `id` propriedade.
+     > Cada definição de função de aplicativo neste manifesto precisa ter um GUID válido diferente no contexto do manifesto para a propriedade `id`.
      >
-     > A `value` propriedade de cada definição de função de aplicativo deve corresponder exatamente às cadeias de caracteres usadas no código no aplicativo. A `value` propriedade não pode conter espaços. Se tiver, você receberá um erro ao salvar o manifesto.
+     > A propriedade `value` de cada definição de função de aplicativo deve corresponder exatamente às cadeias de caracteres usadas no código do aplicativo. A propriedade `value` não pode conter espaços. Se ela contiver, você receberá um erro ao salvar o manifesto.
 
 1. Salve o manifesto.
 
@@ -74,7 +74,7 @@ O exemplo a seguir mostra o `appRoles` que você pode atribuir a `users`.
 ```
 
 > [!NOTE]
->O `displayName` não pode conter espaços.
+>O `displayName` não deve conter espaços.
 
 Você pode definir funções de aplicativo para o `users` de destino, para `applications` ou ambos. Quando disponíveis para `applications`, as funções de aplicativo aparecem como permissões de aplicativo na folha **Permissões Necessárias**. O exemplo a seguir mostra uma função de aplicativo destinada a um `Application`.
 
@@ -95,7 +95,7 @@ Você pode definir funções de aplicativo para o `users` de destino, para `appl
 "availableToOtherTenants": false,
 ```
 
-O número de funções definidas afeta os limites que o manifesto do aplicativo tem. Eles foram discutidos em detalhes na página [limites do manifesto](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-limits) .
+O número de funções definidas afeta os limites do manifesto do aplicativo. Eles foram abordados em detalhes na página [Limites de manifesto](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-limits).
 
 ### <a name="assign-users-and-groups-to-roles"></a>Atribuir usuários e grupos a funções
 
@@ -107,7 +107,7 @@ Após adicionar funções de aplicativo em seu aplicativo, você pode atribuir u
      Se não vir o aplicativo desejado na lista, use os diferentes filtros na parte superior da lista **Todos os aplicativos** para restringir a lista ou percorra a lista para localizar o aplicativo.
 
 1. Selecione o aplicativo no qual deseja atribuir funções a usuários ou grupos de segurança.
-1. Selecione o painel **usuários e grupos** no menu de navegação esquerdo do aplicativo.
+1. Escolha o painel **Usuários e grupos** no menu de navegação à esquerda do aplicativo.
 1. Na parte superior da lista **Usuários e grupos**, escolha o botão **Adicionar usuário** para abrir o painel **Adicionar Atribuição**.
 1. Clique no seletor **Usuários e grupos** do painel **Adicionar Atribuição**.
 
@@ -121,9 +121,9 @@ Após adicionar funções de aplicativo em seu aplicativo, você pode atribuir u
 
 ## <a name="more-information"></a>Mais informações
 
-- [Adicionar autorização usando funções de aplicativo & declarações de funções para um aplicativo Web ASP.NET Core](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
+- [Adicionar autorização usando funções de aplicativo e declarações de funções a um aplicativo Web ASP.NET Core](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
 - [Usando grupos de segurança e funções de aplicativo em seus aplicativos (vídeo)](https://www.youtube.com/watch?v=V8VUPixLSiM)
 - [Azure Active Directory, agora com declarações de grupo e funções de aplicativo](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
-- [Manifesto do aplicativo do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)
+- [Manifesto de aplicativo do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)
 - [Tokens de acesso do AAD](access-tokens.md)
-- [AAD`id_tokens`](id-tokens.md)
+- [AAD `id_tokens`](id-tokens.md)

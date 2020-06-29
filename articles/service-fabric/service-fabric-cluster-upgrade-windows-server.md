@@ -1,5 +1,5 @@
 ---
-title: Atualizar a versão de um cluster autônomo
+title: Atualize a versão de um cluster independente
 description: Atualize o código do Azure Service Fabric que executa um cluster do Service Fabric autônomo.
 author: dkkapur
 ms.topic: conceptual
@@ -7,7 +7,7 @@ ms.date: 11/09/2018
 ms.author: dekapur
 ms.openlocfilehash: 5921fc9038e53f34e23f6fd97111c71b29699dc5
 ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/05/2020
 ms.locfileid: "82793135"
@@ -29,7 +29,7 @@ Dois fluxos de trabalho distintos podem atualizar o cluster para a versão mais 
 Para configurar seu cluster para fazer o download das atualizações do Service Fabric quando a Microsoft lança uma nova versão, defina a configuração do cluster `fabricClusterAutoupgradeEnabled` como *verdadeiro*. Para selecionar manualmente uma versão suportada do Service Fabric na qual você deseja que seu cluster esteja, defina a configuração do cluster `fabricClusterAutoupgradeEnabled` como *falso*.
 
 ## <a name="upgrade-clusters-that-have-connectivity-to-download-the-latest-code-and-configuration"></a>Atualizar os clusters com conectividade para baixar o código e a configuração mais recentes
-Use estas etapas para atualizar o cluster para uma versão com suporte se os nós de cluster tiverem conectividade com a Internet para o [centro de download da Microsoft](https://download.microsoft.com).
+Use estas etapas para atualizar seu cluster para uma versão com suporte se os nós de cluster tiverem conectividade com a Internet para acesso ao [Centro de Download da Microsoft](https://download.microsoft.com).
 
 Para clusters que tenham conectividade com o [Centro de Download da Microsoft](https://download.microsoft.com), a Microsoft verifica periodicamente a disponibilidade de novas versões do Service Fabric.
 
@@ -89,7 +89,7 @@ Quando você vir o aviso de integridade do cluster, atualize o cluster:
 Use estas etapas para atualizar seu cluster para uma versão com suporte, se os nós de cluster não tiverem conexão com a Internet para acessar o [Centro de Download da Microsoft](https://download.microsoft.com).
 
 > [!NOTE]
-> Se você estiver executando um cluster que não está conectado à Internet, será necessário monitorar o [blog da equipe do Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/) para saber mais sobre as novas versões. O sistema não mostra nenhum aviso de integridade do cluster para alertá-lo sobre novos lançamentos.  
+> Se você estiver executando um cluster que não esteja conectado à Internet, será necessário monitorar o [blog da equipe do Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/) para saber mais sobre novos lançamentos. O sistema não mostra nenhum aviso de integridade do cluster para alertá-lo sobre novos lançamentos.  
 >
 >
 
@@ -98,7 +98,7 @@ Para permitir o download automático e o registro para a versão mais recente do
 
 Para o processo manual, siga estas instruções.
 
-Modifique a configuração do cluster para definir a seguinte propriedade como *false* antes de iniciar uma atualização de configuração:
+Modifique a configuração do cluster para definir a propriedade a seguir como *false* antes de iniciar uma atualização de configuração:
 
 ```json
 "fabricClusterAutoupgradeEnabled": false,
@@ -160,7 +160,7 @@ Para obter detalhes de uso, consulte o [Start-ServiceFabricClusterConfigurationU
     Depois de corrigir os problemas que resultaram na reversão, você precisará iniciar a atualização novamente, seguindo as mesmas etapas descritas anteriormente.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Atualize a configuração de um cluster independente](service-fabric-cluster-config-upgrade-windows-server.md)
+* [Atualize a configuração de um cluster autônomo](service-fabric-cluster-config-upgrade-windows-server.md)
 * Personalize algumas configurações de cluster do [Service Fabric](service-fabric-cluster-fabric-settings.md).
 * [Dimensionar o cluster e escalar horizontalmente](service-fabric-cluster-scale-in-out.md).
 

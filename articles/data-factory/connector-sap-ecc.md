@@ -13,7 +13,7 @@ ms.custom: seo-lt-2019
 ms.date: 09/02/2019
 ms.openlocfilehash: ad26fca94527864af10bb0051336c372ea65b3e0
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81413793"
@@ -21,42 +21,42 @@ ms.locfileid: "81413793"
 # <a name="copy-data-from-sap-ecc-by-using-azure-data-factory"></a>Copiar dados do SAP ECC usando o Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados do SAP Enterprise central Component (ECC). Para obter mais informações, consulte [visão geral da atividade de cópia](copy-activity-overview.md).
+Este artigo descreve como usar a Atividade de Cópia no Azure Data Factory para copiar dados do SAP ECC (Enterprise Central Component). Para obter mais informações, confira [Visão geral da atividade de cópia](copy-activity-overview.md).
 
 >[!TIP]
->Para aprender o suporte geral do ADF no cenário de integração de dados do SAP, consulte [integração de dados SAP usando Azure data Factory White Paper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) com introdução, análise e diretrizes detalhadas.
+>Para saber mais sobre o suporte geral do ADF no cenário de integração de dados do SAP, confira o [white paper Integração de dados do SAP usando o Azure Data Factory](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) com introdução, comparação e diretrizes detalhadas.
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
-Este conector SAP ECC tem suporte para as seguintes atividades:
+Há suporte para este conector do SAP ECC nas seguintes atividades:
 
-- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de fonte/coletor com suporte](copy-activity-overview.md)
 - [Atividade de pesquisa](control-flow-lookup-activity.md)
 
-Você pode copiar dados de um SAP ECC para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados com suporte como fontes ou coletores pela atividade de cópia, consulte a tabela [armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats) .
+Você pode copiar dados de um SAP ECC para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados que têm suporte como fontes ou coletores da atividade de cópia, confira a tabela [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Especificamente, este conector do SAP ECC dá suporte à:
 
-- Copiando dados do SAP ECC no SAP NetWeaver versão 7,0 e posterior.
-- Copiar dados de qualquer objeto exposto pelos serviços do SAP ECC OData, como:
+- Copiar dados do SAP ECC no SAP NetWeaver versão 7.0 e posterior.
+- Copiar dados de qualquer objeto exposto pelos serviços OData do SAP ECC, como:
 
-  - Tabelas ou exibições SAP.
-  - Objetos de interface de programação de aplicativo de negócios [BAPI].
+  - Tabelas ou exibições do SAP.
+  - Objetos de BAPI [interface de programação de aplicativo de negócios].
   - Extratores de dados.
-  - Dados ou documentos intermediários (IDOCs) enviados à integração de processos SAP (PI) que podem ser recebidos como OData por meio de adaptadores relativos.
+  - Dados ou documentos intermediários (IDOCs) enviados ao SAP PI (Process Integration) que podem ser recebidos como OData por meio de adaptadores relativos.
 
-- Copiar dados usando a autenticação básica.
+- Cópia de dados por meio da autenticação básica.
 
 >[!TIP]
->Para copiar dados do SAP ECC por meio de uma tabela ou exibição do SAP, use o conector de [tabela do SAP](connector-sap-table.md) , que é mais rápido e mais escalonável.
+>Para copiar dados do SAP ECC por meio de uma tabela ou uma exibição do SAP, use o conector de [tabela do SAP](connector-sap-table.md), que é mais rápido e mais escalonável.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Geralmente, o SAP ECC expõe entidades por meio de serviços OData através do Gateway do SAP. Para usar esse conector do SAP ECC, é necessário:
 
-- **Configurar o Gateway do SAP**. Para servidores com versões do SAP NetWeaver posteriores a 7,4, o gateway do SAP já está instalado. Para versões anteriores, você deve instalar o gateway SAP incorporado ou o sistema de Hub de gateway do SAP antes de expor dados de ECC do SAP por meio de serviços OData. Para configurar o gateway SAP, consulte o [Guia de instalação](https://help.sap.com/saphelp_gateway20sp12/helpdata/en/c3/424a2657aa4cf58df949578a56ba80/frameset.htm).
+- **Configurar o Gateway do SAP**. Para os servidores com versões do SAP NetWeaver posteriores a 7.4, o SAP Gateway já está instalado. Para obter as versões anteriores, você precisará instalar o SAP Gateway inserido ou o sistema de hub do SAP Gateway antes de expor os dados do SAP ECC por meio de serviços OData. Para configurar o SAP Gateway, confira o [guia de instalação](https://help.sap.com/saphelp_gateway20sp12/helpdata/en/c3/424a2657aa4cf58df949578a56ba80/frameset.htm).
 
-- **Ative e configure o serviço do SAP OData**. Você pode ativar o serviço OData por meio de TCODE SICF em segundos. Você também pode configurar quais objetos precisam ser expostos. Para obter mais informações, consulte as diretrizes passo a [passo](https://blogs.sap.com/2012/10/26/step-by-step-guide-to-build-an-odata-service-based-on-rfcs-part-1/).
+- **Ativar e configurar o serviço OData do SAP**. Ative o serviço OData por meio do TCODE SICF em poucos segundos. Configure também quais objetos precisam ser expostos. Para obter mais informações, confira as [diretrizes passo a passo](https://blogs.sap.com/2012/10/26/step-by-step-guide-to-build-an-odata-service-based-on-rfcs-part-1/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -66,19 +66,19 @@ Geralmente, o SAP ECC expõe entidades por meio de serviços OData através do G
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-As seções a seguir fornecem detalhes sobre as propriedades que são usadas para definir as entidades de Data Factory específicas para o conector do SAP ECC.
+As seções que a seguir fornecem detalhes sobre as propriedades usadas para definir as entidades do Data Factory específicas ao conector do SAP ECC.
 
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 
-As propriedades a seguir têm suporte para o serviço vinculado do SAP ECC:
+Há suporte para as seguintes propriedades no serviço vinculado do SAP ECC:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| `type` | A propriedade `type` deve ser definida como `SapEcc`. | Sim |
-| `url` | A URL do serviço de OData do SAP ECC. | Sim |
+| `type` | A propriedade `type` precisa ser definida como `SapEcc`. | Sim |
+| `url` | A URL do serviço OData do SAP ECC. | Sim |
 | `username` | O nome de usuário usado para se conectar ao SAP ECC. | Não |
-| `password` | A senha de texto sem formatação usada para se conectar ao SAP ECC. | Não |
-| `connectVia` | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se você não especificar um tempo de execução, o tempo de execução de integração do Azure padrão será usado. | Não |
+| `password` | A senha de texto não criptografado usada para se conectar ao SAP ECC. | Não |
+| `connectVia` | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção [Pré-requisitos](#prerequisites). Se você não especificar um runtime, o Azure Integration Runtime padrão será usado. | Não |
 
 ### <a name="example"></a>Exemplo
 
@@ -105,9 +105,9 @@ As propriedades a seguir têm suporte para o serviço vinculado do SAP ECC:
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de os, consulte [DataSets](concepts-datasets-linked-services.md). A seção a seguir fornece uma lista das propriedades com suporte pelo conjunto de de SAP ECC.
+Para obter uma lista completa das seções e das propriedades disponíveis para definir os conjuntos de dados, confira [Conjuntos de dados](concepts-datasets-linked-services.md). A seção a seguir fornece uma lista das propriedades compatíveis com o conjunto de dados do SAP ECC.
 
-Para copiar os dados do SAP ECC, defina `type` a propriedade do conjunto para `SapEccResource`.
+Para copiar dados do SAP ECC, defina a propriedade `type` do conjunto de dados como `SapEccResource`.
 
 Há suporte para as seguintes propriedades:
 
@@ -136,18 +136,18 @@ Há suporte para as seguintes propriedades:
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, consulte [pipelines](concepts-pipelines-activities.md). A seção a seguir fornece uma lista das propriedades com suporte pela origem do SAP ECC.
+Para obter uma lista completa das seções e das propriedades disponíveis para definir as atividades, confira [Pipelines](concepts-pipelines-activities.md). A seção a seguir fornece uma lista das propriedades compatíveis com a fonte do SAP ECC.
 
-### <a name="sap-ecc-as-a-source"></a>SAP ECC como uma fonte
+### <a name="sap-ecc-as-a-source"></a>SAP ECC como fonte
 
-Para copiar dados do SAP ECC, defina a `type` Propriedade na `source` seção da atividade de cópia como `SapEccSource`.
+Para copiar dados do SAP ECC, defina a propriedade `type` na seção `source` da atividade de cópia como `SapEccSource`.
 
-As propriedades a seguir têm suporte na seção da `source` atividade de cópia:
+Há suporte para as seguintes propriedades na seção `source` da atividade de cópia:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| `type` | A `type` propriedade da seção da `source` atividade de cópia deve ser definida como `SapEccSource`. | Sim |
-| `query` | As opções de consulta OData para filtrar os dados. Por exemplo:<br/><br/>`"$select=Name,Description&$top=10"`<br/><br/>O conector SAP ECC copia dados da URL combinada:<br/><br/>`<URL specified in the linked service>/<path specified in the dataset>?<query specified in the copy activity's source section>`<br/><br/>Para saber mais, confira as [Componentes da URL do OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Não |
+| `type` | A propriedade `type` da seção `source` da atividade de cópia precisa ser definida como `SapEccSource`. | Sim |
+| `query` | As opções de consulta OData para filtrar os dados. Por exemplo:<br/><br/>`"$select=Name,Description&$top=10"`<br/><br/>o conector do SAP ECC copia os dados da URL combinada:<br/><br/>`<URL specified in the linked service>/<path specified in the dataset>?<query specified in the copy activity's source section>`<br/><br/>Para saber mais, confira as [Componentes da URL do OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Não |
 
 ### <a name="example"></a>Exemplo
 
@@ -181,9 +181,9 @@ As propriedades a seguir têm suporte na seção da `source` atividade de cópia
 ]
 ```
 
-## <a name="data-type-mappings-for-sap-ecc"></a>Mapeamentos de tipo de dados para SAP ECC
+## <a name="data-type-mappings-for-sap-ecc"></a>Mapeamentos de tipo de dados do SAP ECC
 
-Quando você está copiando dados do SAP ECC, os seguintes mapeamentos são usados de tipos de dados OData para dados do SAP ECC para Azure Data Factory tipos de dados provisórios. Para saber mais sobre como a atividade de cópia mapeia o tipo de dados e esquema de origem para o coletor, consulte [Mapeamentos de tipo de dados e esquema](copy-activity-schema-and-type-mapping.md).
+Quando você copia dados do SAP ECC, os mapeamentos a seguir são usados dos tipos de dados OData para os dados do SAP ECC para os tipos de dados provisórios do Azure Data Factory. Para saber mais sobre como a atividade de cópia mapeia o tipo de dados e esquema de origem para o coletor, consulte [Mapeamentos de tipo de dados e esquema](copy-activity-schema-and-type-mapping.md).
 
 | Tipo de dados OData | Tipo de dados provisório do Data Factory |
 |:--- |:--- |
@@ -206,10 +206,10 @@ Quando você está copiando dados do SAP ECC, os seguintes mapeamentos são usad
 > [!NOTE]
 > Atualmente, não há suporte para tipos de dados complexos.
 
-## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+## <a name="lookup-activity-properties"></a>Pesquisar propriedades de atividade
 
-Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+Para saber detalhes sobre as propriedades, verifique [Pesquisar atividade](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter uma lista dos armazenamentos de dados com suporte como fontes e coletores pela atividade de cópia no Azure Data Factory, consulte [armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obter uma lista dos armazenamentos de dados compatíveis como fontes e coletores com a atividade de cópia no Azure Data Factory, confira [Armazenamentos de dados compatíveis](copy-activity-overview.md#supported-data-stores-and-formats).

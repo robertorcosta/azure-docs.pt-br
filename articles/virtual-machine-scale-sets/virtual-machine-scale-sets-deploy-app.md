@@ -11,7 +11,7 @@ ms.reviewer: avverma
 ms.custom: avverma
 ms.openlocfilehash: 7c39088890680b6cfc903083283ed09cb7618d16
 ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/12/2020
 ms.locfileid: "83124917"
@@ -31,7 +31,7 @@ Para reduzir o gerenciamento de configuração e a hora para provisionar uma VM,
 
 
 ## <a name="install-an-app-with-the-custom-script-extension"></a><a name="already-provisioned"></a>Instalar um aplicativo com a Extensão de Script Personalizado
-A extensão de script personalizado baixa e executa scripts em VMs do Azure. Essa extensão é útil para a configuração de implantação de postagem, instalação de software ou qualquer outra configuração/tarefa de gerenciamento. Os scripts podem ser baixados do armazenamento do Azure ou do GitHub, ou fornecidos ao Portal do Azure no tempo de execução da extensão. Para obter mais informações sobre como instalar um aplicativo com uma extensão de script personalizado, consulte os seguintes tutoriais:
+A extensão de script personalizado baixa e executa scripts em VMs do Azure. Essa extensão é útil para a configuração de implantação de postagem, instalação de software ou qualquer outra configuração/tarefa de gerenciamento. Os scripts podem ser baixados do armazenamento do Azure ou do GitHub, ou fornecidos ao Portal do Azure no tempo de execução da extensão. Para obter mais informações sobre como instalar um aplicativo com uma Extensão de Script Personalizado, confira os seguintes tutoriais:
 
 - [CLI do Azure](tutorial-install-apps-cli.md)
 - [PowerShell do Azure](tutorial-install-apps-powershell.md)
@@ -43,7 +43,7 @@ A [DSC (Configuração de Estado Desejado) do PowerShell](/powershell/scripting/
 
 A extensão de DSC do PowerShell permite que você personalize as instâncias de VM em um conjunto de dimensionamento com o PowerShell. O exemplo a seguir:
 
-- Instrui as instâncias de VM para baixar um pacote de DSC do GitHub-*https://github.com/Azure-Samples/compute-automation-configurations/raw/master/dsc.zip*
+- Instrui as instâncias da VM a baixar um pacote de DSC do GitHub – *https://github.com/Azure-Samples/compute-automation-configurations/raw/master/dsc.zip*
 - Define a extensão para executar um script de instalação – `configure-http.ps1`
 - Obtém informações sobre um conjunto de dimensionamento com [Get-AzVmss](/powershell/module/az.compute/get-azvmss)
 - Aplica a extensão nas instâncias da VM com [Update-AzVmss](/powershell/module/az.compute/update-azvmss)

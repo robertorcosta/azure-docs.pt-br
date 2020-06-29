@@ -1,5 +1,5 @@
 ---
-title: Transformar dados usando o script U-SQL
+title: Transformar dados usando um script U-SQL
 description: Saiba como processar ou transformar dados executando scripts U-SQL no serviço de computação do Azure Data Lake Analytics.
 services: data-factory
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.custom: seo-lt-2019
 ms.date: 08/01/2018
 ms.openlocfilehash: 427b7fff7b8f76412d7bd9d63aeb64583637779c
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81418959"
@@ -38,7 +38,7 @@ A tabela a seguir apresenta as descrições das propriedades genéricas usadas n
 
 | Propriedade                 | Descrição                              | Obrigatório                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
-| **type**                 | A propriedade de tipo deve ser definida como: **AzureDataLakeAnalytics**. | Sim                                      |
+| **tipo**                 | A propriedade de tipo deve ser configurada como: **AzureDataLakeAnalytics**. | Sim                                      |
 | **accountName**          | Nome da conta da Análise Azure Data Lake.  | Sim                                      |
 | **dataLakeAnalyticsUri** | URI da Análise Azure Data Lake.           | Não                                       |
 | **subscriptionId**       | ID de assinatura do Azure                    | Não                                       |
@@ -59,9 +59,9 @@ Use a autenticação de entidade de serviço especificando as seguintes propried
 | :---------------------- | :--------------------------------------- | :------- |
 | **servicePrincipalId**  | Especifique a ID do cliente do aplicativo.     | Sim      |
 | **servicePrincipalKey** | Especifique a chave do aplicativo.           | Sim      |
-| **vários**              | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. É possível recuperá-las focalizando o mouse no canto superior direito do Portal do Azure. | Sim      |
+| **tenant**              | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. É possível recuperá-las focalizando o mouse no canto superior direito do Portal do Azure. | Sim      |
 
-**Exemplo: autenticação de entidade de serviço**
+**Exemplo: Autenticação de entidade de serviço**
 ```json
 {
     "name": "AzureDataLakeAnalyticsLinkedService",
@@ -122,7 +122,7 @@ A tabela a seguir descreve os nomes e as descrições de propriedades que são e
 | Propriedade            | Descrição                              | Obrigatório |
 | :------------------ | :--------------------------------------- | :------- |
 | name                | Nome da atividade no pipeline     | Sim      |
-| description         | Texto que descreve o que a atividade faz.  | Não       |
+| descrição         | Texto que descreve o que a atividade faz.  | Não       |
 | type                | Para a atividade do U-SQL do Data Lake Analytics, o tipo de atividade é **DataLakeAnalyticsU-SQL**. | Sim      |
 | linkedServiceName   | Serviço vinculado ao Azure Data Lake Analytics. Para saber mais sobre esse serviço vinculado, consulte o artigo [Compute linked services](compute-linked-services.md) (Serviços de computação vinculados).  |Sim       |
 | scriptPath          | Caminho para a pasta que contém o script U-SQL. O nome do arquivo diferencia maiúsculas de minúsculas. | Sim      |
@@ -131,7 +131,7 @@ A tabela a seguir descreve os nomes e as descrições de propriedades que são e
 | priority            | Determina quais trabalhos de todos os que estão na fila devem ser selecionados para serem executados primeiro. Quanto menor o número, maior a prioridade. | Não       |
 | parâmetros          | Parâmetros para passar para o script U-SQL.    | Não       |
 | runtimeVersion      | Versão de runtime do mecanismo U-SQL a ser usado. | Não       |
-| compilationMode     | <p>Modo de compilação do U-SQL. Deve ser um destes valores: **Semantic:** apenas realizar verificações de semântica e as verificações de integridade necessárias, **Full:** executar a compilação completa, incluindo verificação de sintaxe, otimização, geração de código, etc., **SingleBox:** executar a compilação completa, com configuração de TargetType para SingleBox. Se você não especificar um valor para essa propriedade, o servidor determinará o modo de compilação ideal. | Não |
+| compilationMode     | <p>Modo de compilação do U-SQL. Deve ser um destes valores: **Semantic:** realiza apenas as verificações de semântica e as verificações de integridade necessárias; **Full:** realiza a compilação completa, incluindo verificação de sintaxe, otimização, geração de código, etc.; **SingleBox:** executa a compilação completa com a configuração TargetType como SingleBox. Se você não especificar um valor para essa propriedade, o servidor determinará o modo de compilação ideal. | Não |
 
 Consulte [SearchLogProcessing.txt](#sample-u-sql-script) para ver a definição do script. 
 
@@ -164,7 +164,7 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-No exemplo de script acima, a entrada e a saída para o script são ** \@** definidas nos parâmetros in e ** \@out** . Os valores para ** \@** os parâmetros in e ** \@out** no script U-SQL são passados dinamicamente pelo data Factory usando a seção ' Parameters '. 
+No exemplo de script acima, a entrada e a saída para o script são definidas nos parâmetros **\@in** e **\@out**. Os valores dos parâmetros **\@in** e **\@out** no script U-SQL são passados dinamicamente pelo Data Factory por meio da seção ‘parameters’. 
 
 Você pode especificar outras propriedades, por exemplo, degreeOfParallelism e prioridade, bem como em sua definição de pipeline para os trabalhos executados no serviço Data Lake Analytics.
 
@@ -193,10 +193,10 @@ Nesse caso, os arquivos de entrada ainda são obtidos da pasta /datalake/input e
 Consulte os seguintes artigos que explicam como transformar dados de outras maneiras: 
 
 * [Hive activity](transform-data-using-hadoop-hive.md) (Atividade do Hive)
-* [Atividade Pig](transform-data-using-hadoop-pig.md)
+* [Pig activity](transform-data-using-hadoop-pig.md) (Atividade do Pig)
 * [MapReduce activity](transform-data-using-hadoop-map-reduce.md) (Atividade do MapReduce)
 * [Hadoop Streaming activity](transform-data-using-hadoop-streaming.md) (Atividade de streaming do Hadoop)
-* [Atividade do Spark](transform-data-using-spark.md)
+* [Spark activity](transform-data-using-spark.md) (Atividade do Spark)
 * [Atividade personalizada do .NET](transform-data-using-dotnet-custom-activity.md)
-* [Atividade de execução de Machine Learning lote](transform-data-using-machine-learning.md)
-* [Atividade de procedimento armazenado](transform-data-using-stored-procedure.md)
+* [Machine Learning Batch Execution activity](transform-data-using-machine-learning.md) (Atividade de execução em lotes do Machine Learning)
+* [Stored procedure activity](transform-data-using-stored-procedure.md) (Atividade de procedimento armazenado)

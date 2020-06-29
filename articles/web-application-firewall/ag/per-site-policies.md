@@ -1,7 +1,7 @@
 ---
-title: Configurar políticas de WAF por site usando o PowerShell
+title: Configurar políticas do WAF por site usando o PowerShell
 titleSuffix: Azure Web Application Firewall
-description: Saiba como configurar políticas de firewall de aplicativo Web por site em um gateway de aplicativo usando Azure PowerShell.
+description: Saiba como configurar políticas do firewall do aplicativo Web por site em um gateway de aplicativo usando o Azure PowerShell.
 services: web-application-firewall
 author: winthrop28
 ms.service: web-application-firewall
@@ -10,18 +10,18 @@ ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: 1301db56cab36ae623bb94cfac97b8e4bdb934e5
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81682492"
 ---
-# <a name="configure-per-site-waf-policies-using-azure-powershell"></a>Configurar políticas de WAF por site usando Azure PowerShell
+# <a name="configure-per-site-waf-policies-using-azure-powershell"></a>Configurar políticas do WAF por site usando o Azure PowerShell
 
-As configurações do WAF (firewall do aplicativo Web) estão contidas em políticas do WAF e para alterar a configuração do WAF você modifica a política do WAF.
+As configurações do WAF (firewall do aplicativo Web) estão contidas em políticas do WAF e, para alterar a configuração do WAF, você modifica a política do WAF.
 
-Quando associado ao seu gateway de aplicativo, as políticas e todas as configurações são refletidas globalmente. Portanto, se você tiver cinco sites por trás de sua WAF, todos os cinco sites serão protegidos pela mesma política de WAF. Isso é ótimo se você precisar das mesmas configurações de segurança para cada site. Mas você também pode aplicar políticas de WAF a ouvintes individuais para permitir a configuração de WAF específica do site.
+Quando associadas ao Gateway de Aplicativo, as políticas e todas as configurações são refletidas globalmente. Portanto, se você tiver cinco sites por trás do WAF, todos os cinco sites serão protegidos pela mesma política do WAF. Isso será ótimo se você precisar das mesmas configurações de segurança para cada site. Mas você também pode aplicar políticas do WAF a ouvintes individuais a fim de permitir uma configuração do WAF específica do site.
 
-Ao aplicar políticas de WAF a um ouvinte, você pode definir configurações de WAF para sites individuais sem as alterações afetando todos os sites. A política mais específica usa o precedente. Se houver uma política global e uma política por site (uma política de WAF associada a um ouvinte), a política por site substituirá a política de WAF global para esse ouvinte. Outros ouvintes sem suas próprias políticas só serão afetados pela política global de WAF.
+Ao aplicar políticas do WAF a um ouvinte, você pode definir configurações do WAF para sites individuais sem que as alterações afetem todos os sites. A política mais específica tem precedência. Se houver uma política global e uma política por site (uma política do WAF associada a um ouvinte), a política por site substituirá a política do WAF global desse ouvinte. Outros ouvintes sem políticas próprias só serão afetados pela política global do WAF.
 
 Neste artigo, você aprenderá como:
 
@@ -29,7 +29,7 @@ Neste artigo, você aprenderá como:
 > * Configurar a rede
 > * Criar uma política de WAF
 > * Criar um gateway de aplicativo com o WAF habilitado
-> * Aplicar a política WAF globalmente, por site e por URI
+> * Aplicar a política do WAF globalmente, por site e por URI
 > * Criar um conjunto de dimensionamento de máquinas virtuais
 > * Criar uma conta de armazenamento e configurar diagnósticos
 > * Testar o gateway de aplicativo
@@ -132,11 +132,11 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
   -RequestTimeout 120
 ```
 
-### <a name="create-two-waf-policies"></a>Criar duas políticas de WAF
+### <a name="create-two-waf-policies"></a>Criar duas políticas do WAF
 
-Crie duas políticas de WAF, uma global e uma por site e adicione regras personalizadas. 
+Crie duas políticas do WAF, uma global e uma por site, e adicione regras personalizadas. 
 
-A política por site restringe o limite de carregamento de arquivo para 5 MB. Todo o resto é o mesmo.
+A política por site restringe o limite de upload de arquivo a 5 MB. Todo o restante é igual.
 
 ```azurepowershell-interactive
 $variable = New-AzApplicationGatewayFirewallMatchVariable -VariableName RequestUri
@@ -252,7 +252,7 @@ $appgw = New-AzApplicationGateway `
 
 ### <a name="apply-a-per-uri-policy"></a>Aplicar uma política por URI
 
-Para aplicar uma política por URI, basta criar uma nova política e aplicá-la à configuração de regra de caminho. 
+Para aplicar uma política por URI, basta criar uma política e aplicá-la à configuração de regra de caminho. 
 
 ```azurepowershell-interactive
 $policySettingURI = New-AzApplicationGatewayFirewallPolicySetting `
@@ -406,7 +406,7 @@ Set-AzDiagnosticSetting `
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicativo
 
-Use [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) para obter o endereço IP público do gateway de aplicativo. Em seguida, use esse endereço IP para se enrolar (substitua o 1.1.1.1 mostrado abaixo). 
+Use [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) para obter o endereço IP público do gateway de aplicativo. Em seguida, use esse endereço IP para a rotação (substitua o 1.1.1.1 mostrado abaixo). 
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress

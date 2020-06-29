@@ -1,7 +1,7 @@
 ---
 title: Definir um perfil técnico para um emissor SAML em uma política personalizada
 titleSuffix: Azure AD B2C
-description: Defina um perfil técnico para um emissor SAML (Security Assertion Markup Language token) em uma política personalizada no Azure Active Directory B2C.
+description: Defina um perfil técnico para um emissor de token SAML (Security Assertion Markup Language) em uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -13,16 +13,16 @@ ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 8f7beccde92030d1e01633f4e4044849d7e91d05
 ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "82229945"
 ---
-# <a name="define-a-technical-profile-for-a-saml-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico para um emissor de token SAML em uma política personalizada de Azure Active Directory B2C
+# <a name="define-a-technical-profile-for-a-saml-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico para um emissor de token SAML em uma política personalizada do Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-O Azure AD B2C (Azure Active Directory B2C) emite vários tipos de tokens de segurança ao processar cada fluxo de autenticação. Um perfil técnico para um emissor de token SAML emite um token SAML que é retornado para o aplicativo de terceira parte confiável (provedor de serviços). Normalmente, esse perfil técnico é a última etapa de orquestração no percurso do usuário.
+O Azure AD B2C (Azure Active Directory B2C) emite vários tipos de tokens de segurança ao processar cada fluxo de autenticação. Um perfil técnico para um emissor de token SAML emite um token SAML que é retornado para o aplicativo de terceira parte confiável (provedor de serviço). Normalmente, esse perfil técnico é a última etapa de orquestração no percurso do usuário.
 
 ## <a name="protocol"></a>Protocolo
 
@@ -56,7 +56,7 @@ Os elementos **InputClaims**, **OutputClaims** e **PersistClaims** estão vazios
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| IssuerUri | Não | O nome do emissor que aparece na resposta SAML. O valor deve ter o mesmo nome que o configurado no aplicativo de terceira parte confiável. |
+| IssuerUri | Não | O nome do emissor que aparece na resposta SAML. O valor deve ser o nome configurado no aplicativo de terceira parte confiável. |
 
 ## <a name="cryptographic-keys"></a>Chaves de criptografia
 
@@ -65,15 +65,15 @@ O elemento CryptographicKeys contém os seguintes atributos:
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | MetadataSigning | Sim | O certificado X509 (conjunto de chaves RSA) a ser usado para assinar os metadados de SAML. O Azure AD B2C usa essa chave para assinar os metadados. |
-| SamlMessageSigning| Sim| Especifique o certificado X509 (conjunto de chaves RSA) a ser usado para assinar mensagens SAML. Azure AD B2C usa essa chave para assinar a resposta `<samlp:Response>` enviada para a terceira parte confiável.|
+| SamlMessageSigning| Sim| Especifique o certificado X509 (conjunto de chaves RSA) a ser usado para assinar as mensagens SAML. O Azure AD B2C usa essa chave para assinar o envio da resposta `<samlp:Response>` para a terceira parte confiável.|
 
 ## <a name="session-management"></a>Gerenciamento da sessão
 
-Para configurar o Azure AD B2C sessões SAML entre um aplicativo de terceira parte confiável, o atributo do `UseTechnicalProfileForSessionManagement` elemento, referência à sessão de SSO do [SamlSSOSessionProvider](custom-policy-reference-sso.md#samlssosessionprovider) .
+Para configurar as sessões de SAML do Azure AD B2C entre um aplicativo de terceira parte confiável, o atributo do elemento `UseTechnicalProfileForSessionManagement`, consulte a sessão de SSO [SamlSSOSessionProvider](custom-policy-reference-sso.md#samlssosessionprovider).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte o seguinte artigo para obter um exemplo de como usar um perfil técnico do emissor SAML:
+Confira o seguinte artigo para obter exemplos de como usar um perfil técnico de emissor SAML:
 
 - [Registrar um aplicativo SAML no Azure AD B2C](connect-with-saml-service-providers.md)
 

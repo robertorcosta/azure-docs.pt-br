@@ -1,6 +1,6 @@
 ---
-title: Mostrar o tráfego em um mapa | Mapas do Microsoft Azure
-description: Neste artigo, você aprenderá como exibir dados de tráfego em um mapa usando o SDK da Web do Microsoft Azure Maps.
+title: Mostrar o tráfego em um mapa | Microsoft Azure Mapas
+description: Neste artigo, você aprenderá a exibir dados de tráfego em um mapa usando o SDK Web do Microsoft Azure Mapas.
 author: Philmea
 ms.author: philmea
 ms.date: 07/29/2019
@@ -11,20 +11,20 @@ manager: ''
 ms.custom: codepen
 ms.openlocfilehash: 9c17c3cc22d478d81ed3c2b2ae9f61c173aad6cd
 ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/12/2020
 ms.locfileid: "83123914"
 ---
 # <a name="show-traffic-on-the-map"></a>Mostrar tráfego no mapa
 
-Há dois tipos de dados de tráfego disponíveis no Azure Maps:
+Há dois tipos de dados de tráfego disponíveis no Azure Mapas:
 
-- Dados de incidentes – consistem em dados de ponto e de linha para coisas como construção, fechamentos de estrada e acidentes.
-- Dados de fluxo-fornece métricas sobre o fluxo de tráfego nas estradas. Geralmente, os dados de fluxo de tráfego são usados para colorir as estradas. As cores são baseadas na quantidade de tráfego que está diminuindo o fluxo, em relação ao limite de velocidade ou a outra métrica. Os dados de fluxo de tráfego no Azure Maps têm três métricas diferentes de medida:
-    - `relative`-é relativo à velocidade de fluxo livre da estrada.
-    - `absolute`-é a velocidade absoluta de todos os veículos em trânsito.
-    - `relative-delay`-exibe áreas que são mais lentas do que o atraso médio esperado.
+- Dados de incidentes – consistem em dados baseados em ponto e em linha para coisas como obras, fechamentos de estrada e acidentes.
+- Dados de fluxo – fornecem métricas sobre o fluxo do tráfego nas estradas. Os dados de fluxo de tráfego são frequentemente usados para colorir as estradas. As cores são baseadas no quanto o tráfego está diminuindo o fluxo, em relação ao limite de velocidade ou a outra métrica. Os dados de fluxo de tráfego no Azure Mapas têm três métricas diferentes de medida:
+    - `relative` – é relativo à velocidade da estrada com fluxo livre.
+    - `absolute` – é a velocidade absoluta de todos os veículos na estrada.
+    - `relative-delay` – exibe áreas em que o trânsito está mais lento do que o atraso médio esperado.
 
 O código a seguir mostra como exibir dados de tráfego no mapa.
 
@@ -36,7 +36,7 @@ map.setTraffic({
 });
 ```
 
-Abaixo está o exemplo de código completo em execução da funcionalidade acima.
+Veja abaixo o exemplo de código completo em execução da funcionalidade acima.
 
 <br/>
 
@@ -50,7 +50,7 @@ A ferramenta a seguir permite alternar entre as diferentes configurações de so
 <br/>
 
 <iframe height="700" style="width: 100%;" scrolling="no" title="Opções de sobreposição de tráfego" src="//codepen.io/azuremaps/embed/RwbPqRY/?height=700&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Consulte as <a href='https://codepen.io/azuremaps/pen/RwbPqRY/'>Opções de sobreposição de tráfego</a> de caneta pelo Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
+Confira as <a href='https://codepen.io/azuremaps/pen/RwbPqRY/'>Opções de sobreposição de tráfego</a> pelo Azure Mapas (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -58,10 +58,10 @@ Consulte as <a href='https://codepen.io/azuremaps/pen/RwbPqRY/'>Opções de sobr
 Saiba mais sobre as classes e métodos usados neste artigo:
 
 > [!div class="nextstepaction"]
-> [Mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
-> [Trafficoptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.trafficoptions)
+> [TrafficOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.trafficoptions)
 
 Aprimore suas experiências de usuário:
 

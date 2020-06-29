@@ -3,12 +3,12 @@ title: Fazer backup de um farm do SharePoint no Azure com o MABS
 description: Use o Servidor de Backup do Azure para fazer backup e restaurar seus dados do SharePoint. Este artigo fornece informações para configurar seu farm do SharePoint para que os dados desejados possam ser armazenados no Azure. Você pode restaurar dados protegidos do SharePoint do disco ou do Azure.
 ms.topic: conceptual
 ms.date: 04/26/2020
-ms.openlocfilehash: 7e429eeb5319a12c3483510072fd82c69c8d8ab3
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 62fcb434ef00df43ce2950a5df569e346a06903a
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657278"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234799"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>Fazer backup de um farm do SharePoint no Azure com o MABS
 
@@ -68,10 +68,9 @@ Para fazer backup do farm do SharePoint, configure a proteção do SharePoint us
 
     * Insira as credenciais de administrador do farm. Essa conta deve ser um membro do grupo de administradores local no servidor WFE. Se o administrador do farm não for um administrador local, conceda as seguintes permissões no servidor WFE:
 
-        * Conceda ao grupo WPG do \_Administrador\_ do WSS controle total da pasta MABS \(%Program Files%\\Data Protection Manager\\DPM\).
-            -A
+        * Conceda ao grupo **WSS_Admin_WPG** controle total para a pasta MABS (`%Program Files%\Data Protection Manager\DPM\`).
 
-        * Conceda ao grupo WPG do \_Administrador\_ do WSS acesso de leitura à chave do Registro MABS \(HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Microsoft Data Protection Manager\).
+        * Conceda ao grupo **WSS_Admin_WPG** acesso de leitura à chave do Registro MABS (`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager`).
 
         Depois de executar o ConfigureSharePoint.exe, você precisará executá-lo novamente se houver uma alteração nas credenciais de administrador do farm do SharePoint.
 

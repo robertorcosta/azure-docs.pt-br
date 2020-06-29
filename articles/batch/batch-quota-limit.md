@@ -2,22 +2,22 @@
 title: Cotas e limites de serviço
 description: Saiba mais sobre as restrições, limites e cotas padrão do Lote do Azure e como aumentar a cota da solicitação
 ms.topic: conceptual
-ms.date: 08/13/2019
+ms.date: 06/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: b172800e6ed2a28315da3b45eb39f2207f8f1c16
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 4c13df8b537d701400a22cd2871e7f8362f02455
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779998"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417269"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Cotas e limites de serviço do Lote
 
-Como com outros serviços do Azure, há limites em determinados recursos associados ao serviço de Lote. Muitos desses limites são cotas padrão aplicadas pelo Azure no nível da assinatura ou da conta. Este artigo discute esses padrões e como você pode solicitar aumentos de cotas.
+Como com outros serviços do Azure, há limites em determinados recursos associados ao serviço de Lote. Muitos desses limites são cotas padrão aplicadas pelo Azure no nível da assinatura ou da conta.
 
 Lembre-se dessas cotas quando estiver projetando e dimensionando suas cargas de trabalho do Lote. Por exemplo, se seu pool não alcançar o número de destino de nós de computação especificado, talvez você tenha atingido o limite de cota de núcleos para sua conta do Lote.
 
-Você pode executar várias cargas de trabalho do Lote em uma única conta do Lote ou distribuir suas cargas de trabalho entre contas do Lote que estão na mesma assinatura mas em diferentes regiões do Azure.
+Você pode executar várias cargas de trabalho do Lote em uma única conta do Lote ou distribuir suas cargas de trabalho entre contas do Lote que estão na mesma assinatura, mas em diferentes regiões do Azure.
 
 Se você planeja executar cargas de trabalho de produção em Lote, talvez seja necessário aumentar uma ou mais cotas para acima do padrão. Se desejar aumentar a cota, você poderá abrir uma [solicitação de atendimento ao cliente](#increase-a-quota) online gratuitamente.
 
@@ -31,7 +31,9 @@ Observe também que as cotas não são valores garantidos. As cotas podem variar
 
 ### <a name="cores-quotas-in-user-subscription-mode"></a>Cotas de núcleo no modo de assinatura de usuário
 
-Se você tiver criado uma conta de Lote com modo de alocação de pool definido como **assinatura de usuário**, as cotas serão aplicadas de forma diferente. Nesse modo, as VMs do Lote e outros recursos são criados diretamente em sua assinatura, quando um pool é criado. As cotas de núcleos de Lote do Azure não se aplicam a uma conta criada nesse modo. Em vez disso, as cotas em sua assinatura para regionais núcleos de computação e outros recursos são aplicados. Saiba mais sobre a [assinatura do Azure e limites de serviços, cotas e restrições](../azure-resource-manager/management/azure-subscription-service-limits.md).
+Se você tiver criado uma [conta do Lote](accounts.md) com modo de alocação de pool definido como **assinatura de usuário**, as cotas serão aplicadas de modo diferente. Nesse modo, as VMs do Lote e outros recursos são criados diretamente em sua assinatura, quando um pool é criado. As cotas de núcleos de Lote do Azure não se aplicam a uma conta criada nesse modo. Em vez disso, as cotas em sua assinatura para regionais núcleos de computação e outros recursos são aplicados.
+
+Para saber mais sobre essas cotas, confira [Assinatura do Azure e limites de serviços, cotas e restrições](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 ## <a name="pool-size-limits"></a>Limites de tamanho do pool
 
@@ -65,59 +67,57 @@ Limites adicionais definidos pelo serviço de lote. Ao contrário das [cotas de 
 
 ## <a name="view-batch-quotas"></a>Exibir cotas do Lote
 
-Exibir suas cotas de conta do Lote no [portal do Azure][portal].
+Para exibir suas cotas de conta do Lote no [portal do Azure](https://portal.azure.com):
 
-1. Selecione **Contas do Lote** no portal e selecione a conta do Lote na qual você está interessado.
+1. Selecione **Contas do Lote** e selecione a conta do Lote na qual você tem interesse.
 1. Selecione **Cotas** no menu da conta do Lote.
-1. Exibe as cotas atualmente aplicadas à conta do Lote
+1. Exiba as cotas atualmente aplicadas à conta do Lote.
 
     ![Cotas para conta do Lote][account_quotas]
 
 ## <a name="increase-a-quota"></a>Aumentar uma cota
 
-Siga estas etapas para solicitar uma cota aumentam para sua conta de lote ou sua assinatura usando o [portal do Azure][portal]. O tipo de aumento de cota depende do modo de alocação de pool de sua conta do lote. Para solicitar um aumento de cota, você deve incluir a série de VM para a qual deseja aumentar a cota. Quando o aumento da cota é aplicado, ele é aplicado a todas as séries de VMs.
-
-### <a name="increase-cores-quota-in-batch"></a>Aumentar cota de núcleos no lote 
+Você pode solicitar um aumento de cota para sua conta do Lote ou sua assinatura usando o [portal do Azure](https://portal.azure.com). O tipo de aumento de cota depende do modo de alocação de pool de sua conta do lote. Para solicitar um aumento de cota, você deve incluir a série de VM para a qual deseja aumentar a cota. Quando o aumento da cota é aplicado, ele é aplicado a todas as séries de VMs.
 
 1. Selecione o bloco **Ajuda + suporte** no painel do portal ou o ponto de interrogação ( **?** ) no canto superior direito do portal.
 1. Selecione **Nova solicitação de suporte** > **Fundamentos**.
 1. Em **Noções básicas**:
    
-    a. **Tipo de problema** > **Limites de serviço e assinatura (cotas)**
+    1. **Tipo de problema** > **Limites de serviço e assinatura (cotas)**
    
-    b. Selecione sua assinatura.
+    1. Selecione sua assinatura.
    
-    c. **Tipo de cota** > **Lote**
+    1. **Tipo de cota** > **Lote**
       
-    Selecione **Avançar**.
+       Selecione **Avançar**.
     
 1. Em **Detalhes**:
       
-    a. Em **Fornecer detalhes**, especifique o local, o tipo de cota e a conta do Lote.
+    1. Em **Fornecer detalhes**, especifique o local, o tipo de cota e a conta do Lote.
     
-    ![Aumento da cota em lote][quota_increase]
+       ![Aumento da cota em lote][quota_increase]
 
-    Os tipos de cota incluem:
+       Os tipos de cota incluem:
 
-    * **Por conta do Lote**  
-        Valores específicos para uma única conta do Lote, incluindo núcleos dedicados e de baixa prioridade, e número de trabalhos e pools.
+       * **Por conta do Lote**  
+         Valores específicos para uma única conta do Lote, incluindo núcleos dedicados e de baixa prioridade, e número de trabalhos e pools.
         
-    * **Por região**  
-        Valores que se aplicam a todas as contas do Lote em uma região e incluem o número de contas do Lote por região por assinatura.
+       * **Por região**  
+         Valores que se aplicam a todas as contas do Lote em uma região e incluem o número de contas do Lote por região por assinatura.
 
-    A cota de baixa prioridade é um valor único em todas as séries da VM. Se precisar de SKUs restritos, você deverá selecionar **Núcleos de baixa prioridade** e incluir as famílias da VM a serem solicitadas.
+       A cota de baixa prioridade é um valor único em todas as séries da VM. Se precisar de SKUs restritos, você deverá selecionar **Núcleos de baixa prioridade** e incluir as famílias da VM a serem solicitadas.
 
-    b. Selecione uma **Gravidade** de acordo com o [impacto nos negócios][support_sev].
+    1. Selecione uma **Gravidade** de acordo com o [impacto nos negócios](https://aka.ms/supportseverity).
 
-    Selecione **Avançar**.
+       Selecione **Avançar**.
 
 1. Em **Informações de contato**:
    
-    a. Selecione um **método de contato preferencial**.
+    1. Selecione um **método de contato preferencial**.
    
-    b. Verifique e insira os detalhes de contato necessários.
+    1. Verifique e insira os detalhes de contato necessários.
    
-    Selecione **Criar** para enviar a solicitação de suporte.
+       Selecione **Criar** para enviar a solicitação de suporte.
 
 Depois que a solicitação de suporte foi enviada, o suporte do Azure entrará em contato com você. As solicitações de cota podem ser concluídas em alguns minutos ou em até dois dias úteis.
 
@@ -125,21 +125,17 @@ Depois que a solicitação de suporte foi enviada, o suporte do Azure entrará e
 
 Os pools de lota na Configuração de Máquina virtual implantada em uma rede virtual do Azure automaticamente aloca os recursos de rede adicionais do Azure. Os recursos a seguir são necessárias para cada nós de pool de 50 em uma rede virtual:
 
-* Um [grupo de segurança de rede](../virtual-network/security-overview.md#network-security-groups)
-* Um [endereço IP público](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
-* Um [balanceador de carga](../load-balancer/load-balancer-overview.md)
+- Um [grupo de segurança de rede](../virtual-network/security-overview.md#network-security-groups)
+- Um [endereço IP público](../virtual-network/public-ip-addresses.md)
+- Um [balanceador de carga](../load-balancer/load-balancer-overview.md)
 
 Esses recursos são alocados na assinatura que contém a rede virtual fornecida ao criar o pool de Lote. Esses recursos são limitados pelas [cotas de recursos](../azure-resource-manager/management/azure-subscription-service-limits.md) da assinatura. Se você planejar implantações de grande pool em uma rede virtual, verifique as cotas da assinatura para esses recursos. Se necessário, solicite um aumento no portal do Azure, selecionando **Ajuda + suporte**.
 
-
 ## <a name="next-steps"></a>Próximas etapas
+
 * [Crie uma conta do Lote do Azure usando o portal do Azure](batch-account-create-portal.md).
 * Saiba mais sobre o [Fluxo de trabalho e recursos primários do serviço de lote](batch-service-workflow-features.md) como pools, nós, trabalhos e tarefas.
 * Conheça a [Assinatura do Azure e limites de serviços, cotas e restrições](../azure-resource-manager/management/azure-subscription-service-limits.md).
-
-[portal]: https://portal.azure.com
-[portal_classic_increase]: https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/
-[support_sev]: https://aka.ms/supportseverity
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.png
 [quota_increase]: ./media/batch-quota-limit/quota-increase.png

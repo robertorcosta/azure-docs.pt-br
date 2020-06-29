@@ -1,5 +1,5 @@
 ---
-title: Preparar a imagem de VM do Azure para uso com Cloud-init
+title: Preparar a imagem de VM do Azure para uso com cloud-init
 description: Como preparar uma imagem de VM do Azure já existente para implantação com cloud-init
 author: danis
 ms.service: virtual-machines-linux
@@ -9,7 +9,7 @@ ms.date: 06/24/2019
 ms.author: danis
 ms.openlocfilehash: c41368b311708d5ead36d589cf9c320787e596ec
 ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/05/2020
 ms.locfileid: "82792302"
@@ -20,7 +20,7 @@ Este artigo mostra como usar uma máquina virtual do Azure existente e prepará-
 ## <a name="prerequisites"></a>Pré-requisitos
 Este documento assume que você já tem uma máquina virtual do Azure em execução executando uma versão compatível do sistema operacional Linux. Você já configurou o computador para atender às suas necessidades, instalou todos os módulos necessários, processou todas as atualizações necessárias e o testou para garantir que ele atende aos seus requisitos. 
 
-## <a name="preparing-rhel-76--centos-76"></a>Preparando o RHEL 7,6/CentOS 7,6
+## <a name="preparing-rhel-76--centos-76"></a>Preparando o RHEL 7.6 / CentOS 7.6
 Você precisa se conectar por SSH à sua VM Linux e executar os seguintes comandos para instalar a cloud-init.
 
 ```bash
@@ -65,7 +65,7 @@ sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.co
 cloud-init clean
 ```
 
-Permita apenas o Azure como uma fonte de arquivos para o agente Linux do Azure criando `/etc/cloud/cloud.cfg.d/91-azure_datasource.cfg` um novo arquivo usando um editor de sua escolha com a seguinte linha:
+Permita apenas o Azure como uma fonte de dados para o Agente Linux do Azure criando um arquivo `/etc/cloud/cloud.cfg.d/91-azure_datasource.cfg` usando um editor de sua preferência com a seguinte linha:
 
 ```bash
 # Azure Data Source config

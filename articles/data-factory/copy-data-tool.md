@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory ferramenta de Copiar Dados
+title: Ferramenta Copiar Dados do Azure Data Factory
 description: Fornece informações sobre a ferramenta Copiar Dados na interface de usuário do Azure Data Factory
 services: data-factory
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.date: 06/18/2018
 ms.author: yexu
 ms.openlocfilehash: df078673aed60086a88961ff64f9bfa596d96346
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81414093"
@@ -80,7 +80,7 @@ A captura de tela a seguir mostra uma consulta SQL para filtrar os dados.
 ![Filtrar dados em um banco de dados](./media/copy-data-tool/filter-data-in-database.png)
 
 ### <a name="filter-data-in-an-azure-blob-folder"></a>Filtrar dados em uma pasta de blobs do Azure
-Você pode usar variáveis no caminho da pasta para copiar dados de uma pasta. As variáveis com suporte são: **{ano}**, **{mês}**, **{dia}**, **{hora}** e **{minuto}**. Por exemplo: pastadeentrada/{ano}/{mês}/{dia}. 
+Você pode usar variáveis no caminho da pasta para copiar dados de uma pasta. As variáveis com suporte são: **{ano}** , **{mês}** , **{dia}** , **{hora}** e **{minuto}** . Por exemplo: pastadeentrada/{ano}/{mês}/{dia}. 
 
 Suponha que você tenha pastas de entrada no seguinte formato: 
 
@@ -93,7 +93,7 @@ Suponha que você tenha pastas de entrada no seguinte formato:
 
 Clique no botão **Procurar** de **Arquivo ou pasta**, navegue até uma dessas pastas (por exemplo, 2016->03->01->02) e clique em **Escolher**. Você verá 2016/03/01/02 na caixa de texto. 
 
-Em seguida, substitua **2016** por **{ano}**, **03** por **{mês}**, **01** por **{dia}**, **02** por **{hora}** e pressione a tecla **Tab**. Você deverá ver listas suspensas para escolher o formato dessas quatro variáveis:
+Em seguida, substitua **2016** por **{ano}** , **03** por **{mês}** , **01** por **{dia}** , **02** por **{hora}** e pressione a tecla **Tab**. Você deverá ver listas suspensas para escolher o formato dessas quatro variáveis:
 
 ![Filtrar arquivo ou pasta](./media/copy-data-tool/filter-file-or-folder.png)
 

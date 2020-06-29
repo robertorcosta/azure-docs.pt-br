@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.custom: has-adal-ref
 ms.openlocfilehash: 2774fc1374bf7fa3ed171258e8b1b51cfdb4b8b1
 ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/30/2020
 ms.locfileid: "82612938"
@@ -22,11 +22,11 @@ Este artigo fornece informações sobre como configurar os controles de acesso b
 
 ## <a name="default-settings"></a>Configurações padrão
 
-Quando você implantar a solução de monitoramento remoto, há duas funções: **Admin** e **Somente Leitura**.
+Quando você implanta a solução de Monitoramento Remoto pela primeira vez, há duas funções: **Administrador** e **Somente Leitura**.
 
 Qualquer usuário na função **Admin** tem acesso total à solução, incluindo as seguintes permissões abaixo. Um usuário na função **Somente leitura** só terá acesso para visualizar a solução.
 
-| Permissão            | Administrador | Somente leitura |
+| Permissão            | Admin | Somente leitura |
 |----------------       |-------|-----------|
 | Solução de modo de exibição         | Sim   | Sim       |
 | Atualizar alarmes         | Sim   | Não        |
@@ -248,7 +248,7 @@ Neste artigo, você aprendeu que os controles são implementados no acelerador d
 
 Ver [configurar controles de acesso para o Time Series Insights explorer](iot-accelerators-remote-monitoring-rbac-tsi.md) para obter informações sobre como gerenciar o acesso para o Time Series Insights explorer no acelerador de solução de Monitoramento Remoto.
 
-Para obter mais informações conceituais sobre o acelerador de solução de monitoramento remoto, consulte [arquitetura de monitoramento remoto](iot-accelerators-remote-monitoring-sample-walkthrough.md)
+Para obter mais informações conceituais sobre o acelerador da solução de Monitoramento Remoto, veja [Arquitetura de Monitoramento Remoto](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 
 Para saber mais sobre como personalizar a solução de Monitoramento Remoto, veja [Personalizar e reimplantar um microsserviço](iot-accelerators-microservices-example.md)
 <!-- Next tutorials in the sequence -->

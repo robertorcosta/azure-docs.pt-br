@@ -1,6 +1,6 @@
 ---
-title: Substituir comportamento HTTP com a CDN do Azure-mecanismo de regras Premium da Verizon
-description: O mecanismo de regras permite que você personalize como as solicitações HTTP são tratadas pela CDN do Azure da Verizon Premium, como o bloqueio da entrega de determinados tipos de conteúdo, a definição de uma política de cache e a modificação de cabeçalhos HTTP.
+title: Substituir o comportamento do HTTP com a CDN do Azure – mecanismo de regras da Verizon Premium
+description: O mecanismo de regras permite que você personalize como as solicitações HTTP são processadas pela CDN do Azure na Verizon Premium, como o bloqueio da distribuição de certos tipos de conteúdo, definição de uma política de cache e modificação dos cabeçalhos HTTP.
 services: cdn
 author: asudbring
 ms.service: azure-cdn
@@ -9,12 +9,12 @@ ms.date: 05/31/2019
 ms.author: allensu
 ms.openlocfilehash: 2e5e4265f30631f8e68d8f9e7156ea578ae85e7a
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81253468"
 ---
-# <a name="override-http-behavior-using-the-azure-cdn-from-verizon-premium-rules-engine"></a>Substituir o comportamento HTTP usando o mecanismo de regras da CDN do Azure da Verizon Premium
+# <a name="override-http-behavior-using-the-azure-cdn-from-verizon-premium-rules-engine"></a>Substituir o comportamento do HTTP usando a CDN do Azure por meio do mecanismo de regras da Verizon Premium
 
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
@@ -42,7 +42,7 @@ Para acessar o mecanismo de regras, será necessário primeiro selecionar **Gere
 
 ## <a name="tutorial"></a>Tutorial
 
-1. Na página **perfil CDN** , selecione **gerenciar**.
+1. Na página **Perfil CDN**, selecione **Gerenciar**.
    
     ![Botão Gerenciar perfil da CDN](./media/cdn-rules-engine/cdn-manage-btn.png)
    
@@ -73,7 +73,7 @@ Para acessar o mecanismo de regras, será necessário primeiro selecionar **Gere
    >
    >
 
-5. Para adicionar um novo recurso, selecione o **+** botão ao lado de **recursos**.  Na lista suspensa à esquerda, selecione **Force Internal Max-Age**.  Na caixa de texto que aparece, digite **300**. Não altere os valores padrão restantes.
+5. Para adicionar um novo recurso, selecione o botão **+** próximo aos **Recursos**.  Na lista suspensa à esquerda, selecione **Force Internal Max-Age**.  Na caixa de texto que aparece, digite **300**. Não altere os valores padrão restantes.
    
    ![Recurso de regra da CDN](./media/cdn-rules-engine/cdn-new-feature.png)
    
@@ -100,4 +100,4 @@ Para acessar o mecanismo de regras, será necessário primeiro selecionar **Gere
 - [Condições de correspondência do mecanismo de regras](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
 - [Expressões condicionais do mecanismo de regras](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md)
 - [Recursos do mecanismo de regras](cdn-verizon-premium-rules-engine-reference-features.md)
-- [Azure Friday: novos recursos Premium avançados da Rede de Distribuição de Conteúdo do Microsoft Azure](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (vídeo)
+- [Azure Fridays: novos recursos Premium avançados da CDN do Azure](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (vídeo)

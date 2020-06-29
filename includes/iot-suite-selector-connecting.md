@@ -10,7 +10,7 @@ ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: ca4bd3d3b40934323bab8036f3ce72e9281f1de4
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "67172358"
@@ -23,7 +23,7 @@ ms.locfileid: "67172358"
 > * [Node.js no Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-node.md)
 > * [DevKit do IoT do MXChip](../articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md)
 
-Neste tutorial, você implementa um dispositivo **resfriador** que envia a seguinte telemetria para o [acelerador de solução](../articles/iot-accelerators/about-iot-accelerators.md)de monitoramento remoto:
+Neste tutorial, você implementará um dispositivo **Resfriador** que envia a seguinte telemetria para o [acelerador de solução](../articles/iot-accelerators/about-iot-accelerators.md) de Monitoramento Remoto:
 
 * Temperatura
 * Pressão
@@ -37,7 +37,7 @@ O dispositivo de exemplo também:
 * Responde às ações disparadas da página **Dispositivos** na solução.
 * Responde às alterações de configuração da página **Dispositivos** na solução.
 
-Para concluir este tutorial, você precisa de uma conta ativa do Azure. Se não tiver uma conta, você poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+Para concluir este tutorial, você precisa de uma conta ativa do Azure. Se não tiver uma conta, você poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="before-you-start"></a>Antes de começar
 
@@ -45,9 +45,9 @@ Antes de escrever qualquer código para o dispositivo, implante o acelerador de 
 
 ### <a name="deploy-your-remote-monitoring-solution-accelerator"></a>Implantar o acelerador de solução de Monitoramento Remoto
 
-O dispositivo **resfriador** criado neste tutorial envia dados para uma instância do acelerador de solução de [monitoramento remoto](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md) . Se você ainda não tiver provisionado o acelerador de solução de monitoramento remoto em sua conta do Azure, consulte [implantar o acelerador de solução de monitoramento remoto](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md)
+O dispositivo **Resfriador** criado neste tutorial envia os dados para uma instância do acelerador de solução de [Monitoramento Remoto](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md). Caso ainda não tenha provisionado o acelerador de solução de monitoramento remoto em sua conta do Azure, confira [Implantar o acelerador de solução de monitoramento remoto](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md)
 
-Quando o processo de implantação para a solução de monitoramento remoto for concluído, clique em **Iniciar** para abrir o painel da solução em seu navegador.
+Quando o processo de implantação para a solução de Monitoramento Remoto for concluído, clique em **Inicialização** para abrir o painel da solução em seu navegador.
 
 ![O painel da solução](media/iot-suite-selector-connecting/dashboard.png)
 
@@ -58,9 +58,9 @@ Quando o processo de implantação para a solução de monitoramento remoto for 
 
 Para que um dispositivo se conecte ao acelerador de solução, ele precisa se identificar para o Hub IoT usando credenciais válidas. É possível salvar a cadeia de conexão do dispositivo contendo essas credenciais, quando você adicionar o dispositivo à solução. Você incluirá a cadeia de conexão de dispositivo no seu aplicativo cliente, mais adiante neste tutorial.
 
-Para adicionar um dispositivo à solução de monitoramento remoto, conclua as seguintes etapas na página **Device Explorer** na solução:
+Para adicionar um dispositivo à sua solução de Monitoramento Remoto, conclua as seguintes etapas na página **Gerenciador de Dispositivos** na solução:
 
-1. Escolha **+ novo dispositivo**e, em seguida, escolha **real** como o **tipo de dispositivo**:
+1. Escolha **+ Novo dispositivo** e, em seguida, escolha **Real** como o **Tipo de dispositivo**:
 
     ![Adicionar um dispositivo real](media/iot-suite-selector-connecting/devicesprovision.png)
 

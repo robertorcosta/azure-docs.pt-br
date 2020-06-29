@@ -1,6 +1,6 @@
 ---
-title: Manipular mensagens grandes usando agrupamento
-description: Saiba como lidar com tamanhos de mensagens grandes usando o agrupamento em tarefas automatizadas e fluxos de trabalho que você cria com aplicativos lógicos do Azure
+title: Manipular mensagens grandes pelo uso de agrupamento
+description: Saiba como lidar com tamanhos grandes de mensagem usando o agrupamento em tarefas automatizadas e fluxos de trabalho que você cria com os Aplicativos Lógicos do Azure
 services: logic-apps
 ms.suite: integration
 author: DavidCBerry13
@@ -9,7 +9,7 @@ ms.topic: article
 ms.date: 12/03/2019
 ms.openlocfilehash: 54828dded5196c86946d99a9cd8cec7a42533661
 ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/12/2020
 ms.locfileid: "83117556"
@@ -41,7 +41,7 @@ Os serviços que se comunicam com os Aplicativos Lógicos podem ter seus própri
 Para os conectores compatíveis com a divisão em partes, o protocolo de divisão em partes subjacente é invisível para os usuários finais. No entanto, nem todos os conectores são compatíveis com a divisão em partes, portanto, esses conectores geram erros de runtime ao receberem mensagens que excedem seus limites de tamanho.
 
 > [!NOTE]
-> Para ações que usam agrupamento, você não pode passar o corpo do gatilho ou usar expressões como `@triggerBody()?['Content']` nessas ações. Em vez disso, para conteúdo de texto ou arquivo JSON, você pode tentar usar a [ação **compor** ](../logic-apps/logic-apps-perform-data-operations.md#compose-action) ou [criar uma variável](../logic-apps/logic-apps-create-variables-store-values.md) para lidar com esse conteúdo. Se o corpo do gatilho contiver outros tipos de conteúdo, como arquivos de mídia, você precisará executar outras etapas para lidar com esse conteúdo.
+> Para ações que usam agrupamento, você não pode passar o corpo do gatilho nem usar expressões como `@triggerBody()?['Content']` nessas ações. Em vez disso, para texto ou conteúdo de um arquivo JSON, você pode tentar usar a [ação **Compose**](../logic-apps/logic-apps-perform-data-operations.md#compose-action) ou [criar uma variável](../logic-apps/logic-apps-create-variables-store-values.md) para lidar com esse conteúdo. Se o corpo do gatilho contiver outros tipos de conteúdo, como arquivos de mídia, você precisará executar outras etapas para lidar com esse conteúdo.
 
 <a name="set-up-chunking"></a>
 
@@ -53,7 +53,7 @@ Se um ponto de extremidade tiver habilitado a divisão em partes para downloads 
 
 Além disso, se uma ação HTTP já não habilitar a divisão em partes, você também deverá configurar a divisão em partes na propriedade `runTimeConfiguration` da ação. Você pode definir essa propriedade na ação, diretamente no editor de exibição de código conforme descrito posteriormente ou no Designer de Aplicativos Lógicos conforme descrito aqui:
 
-1. No canto superior direito da ação HTTP, escolha o botão de reticências (**... **) e, em seguida, escolha **Configurações**.
+1. No canto superior direito da ação HTTP, escolha o botão de reticências ( **...** ) e, em seguida, escolha **Configurações**.
 
    ![Na ação, abra o menu de configurações](./media/logic-apps-handle-large-messages/http-settings.png)
 
@@ -113,15 +113,15 @@ Estas etapas descrevem o processo detalhado que os Aplicativos Lógicos usam par
 
 1. Seu aplicativo lógico envia uma solicitação HTTP POST ou PUT inicial com o corpo da mensagem vazio. O cabeçalho de solicitação, inclui essas informações sobre o conteúdo que seu aplicativo lógico quer carregar em partes:
 
-   | Campo de cabeçalho de solicitação de Aplicativos Lógicos | Valor | Tipo | Description |
+   | Campo de cabeçalho de solicitação de Aplicativos Lógicos | Valor | Type | Descrição |
    |---------------------------------|-------|------|-------------|
    | **x-ms-transfer-mode** | em partes | String | Indica que o conteúdo é carregado em partes |
-   | **x-ms-content-length** | <*comprimento do conteúdo*> | Integer | O tamanho do conteúdo inteiro em bytes antes da divisão em partes |
+   | **x-ms-content-length** | <*content-length*> | Integer | O tamanho do conteúdo inteiro em bytes antes da divisão em partes |
    ||||
 
 2. O ponto de extremidade responde com o código de status de êxito “200” e essas informações opcionais:
 
-   | Campo de cabeçalho de resposta do ponto de extremidade | Tipo | Necessária | Descrição |
+   | Campo de cabeçalho de resposta do ponto de extremidade | Type | Obrigatório | Descrição |
    |--------------------------------|------|----------|-------------|
    | **x-ms-chunk-size** | Integer | Não | O tamanho da parte sugerido em bytes |
    | **Localidade** | String | Sim | O local da URL para a qual enviar as mensagens HTTP PATCH |
@@ -133,18 +133,18 @@ Estas etapas descrevem o processo detalhado que os Aplicativos Lógicos usam par
 
    * Esses detalhes de cabeçalho sobre a parte do conteúdo enviados em cada mensagem PATCH:
 
-     | Campo de cabeçalho de solicitação de Aplicativos Lógicos | Valor | Tipo | Description |
+     | Campo de cabeçalho de solicitação de Aplicativos Lógicos | Valor | Type | Descrição |
      |---------------------------------|-------|------|-------------|
-     | **Content-Range** | <*amplitude*> | String | O intervalo de bytes da parte do conteúdo atual, incluindo o valor inicial, o valor final e o tamanho total do conteúdo, por exemplo, "bytes=0-1023/10100" |
-     | **Tipo de conteúdo** | <*tipo de conteúdo*> | String | O tipo de conteúdo em partes |
-     | **Comprimento do conteúdo** | <*comprimento do conteúdo*> | String | O comprimento do tamanho em bytes da parte atual |
+     | **Content-Range** | <*range*> | String | O intervalo de bytes da parte do conteúdo atual, incluindo o valor inicial, o valor final e o tamanho total do conteúdo, por exemplo, "bytes=0-1023/10100" |
+     | **Content-Type** | <*content-type*> | String | O tipo de conteúdo em partes |
+     | **Content-Length** | <*content-length*> | String | O comprimento do tamanho em bytes da parte atual |
      |||||
 
-4. Após cada solicitação de PATCH, o ponto de extremidade confirma o recebimento de cada parte respondendo com o código de status "200" e os seguintes cabeçalhos de resposta:
+4. Depois de cada solicitação PATCH, o ponto de extremidade confirma o recebimento para cada parte respondendo com o código de status "200" e os seguintes cabeçalhos de resposta:
 
-   | Campo de cabeçalho de resposta do ponto de extremidade | Tipo | Necessária | Descrição |
+   | Campo de cabeçalho de resposta do ponto de extremidade | Type | Obrigatório | Descrição |
    |--------------------------------|------|----------|-------------|
-   | **Amplitude** | String | Sim | O intervalo de bytes para o conteúdo recebido pelo ponto de extremidade, por exemplo: "bytes = 0-1023" |   
+   | **Range** | String | Sim | O intervalo de bytes para o conteúdo recebido pelo ponto de extremidade, por exemplo: "bytes=0-1023" |   
    | **x-ms-chunk-size** | Integer | Não | O tamanho da parte sugerido em bytes |
    ||||
 

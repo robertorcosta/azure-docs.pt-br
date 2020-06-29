@@ -1,5 +1,5 @@
 ---
-title: Carregar ou copiar uma VM Linux personalizada com CLI do Azure
+title: Carregar ou copiar uma VM personalizada do Linux com a CLI do Azure
 description: Carregue ou copie uma máquina virtual personalizada usando o modelo de implantação do Gerenciador de Recursos e a CLI do Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.date: 10/10/2019
 ms.author: cynthn
 ms.openlocfilehash: 3306647078c46a7c66b3d7b257b213c7a48e690d
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81460419"
@@ -50,7 +50,7 @@ Para concluir as etapas a seguir, você precisará de:
 
 - Certifique-se de que você tenha a versão mais recente [CLI do Azure](/cli/azure/install-az-cli2) instalado e você está conectado a uma conta do Azure com [login az](/cli/azure/reference-index#az-login).
 
-Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo pelos seus próprios valores `myResourceGroup`, `mystorageaccount`como, `mydisks`e.
+Nos exemplos a seguir, substitua os nomes de parâmetros de exemplo por valores próprios, como `myResourceGroup`, `mystorageaccount` e `mydisks`.
 
 <a id="prepimage"> </a>
 
@@ -64,9 +64,9 @@ O Azure dá suporte a várias distribuições do Linux (consulte [Distribuiçõe
 * [Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [SLES e openSUSE](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Outros: As distribuições não endossadas](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Outros: Distribuições não endossadas](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-Veja também as [Observações de instalação do Linux](create-upload-generic.md#general-linux-installation-notes) para obter mais dicas gerais sobre como preparar as imagens do Linux para o Azure.
+Confira também as [Observações de instalação do Linux](create-upload-generic.md#general-linux-installation-notes) para obter mais dicas gerais sobre como preparar as imagens do Linux para o Azure.
 
 > [!NOTE]
 > O [SLA da plataforma Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) se aplica às VMs que executam o Linux somente quando uma das distribuições endossadas é usada com os detalhes da configuração, conforme especificado na seção “Versões com suporte” em [Linux em distribuições endossadas pelo Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -75,15 +75,15 @@ Veja também as [Observações de instalação do Linux](create-upload-generic.m
 
 ## <a name="option-1-upload-a-vhd"></a>Opção 1: Carregar um VHD
 
-Agora você pode carregar o VHD diretamente em um disco gerenciado. Para obter instruções, consulte [carregar um VHD no Azure usando CLI do Azure](disks-upload-vhd-to-managed-disk-cli.md).
+Agora você pode carregar um VHD diretamente em um disco gerenciado. Para obter instruções, confira [Carregar um VHD no Azure usando a CLI do Azure](disks-upload-vhd-to-managed-disk-cli.md).
 
 ## <a name="option-2-copy-an-existing-vm"></a>Opção 2: Copiar uma VM existente
 
 Você pode também criar uma VM personalizada no Azure e, em seguida, copie o disco do sistema operacional e anexe-o a uma nova VM para criar outra cópia. Isso é bom para teste, mas se você quiser usar uma VM do Azure existente como modelo para várias novas VMs, crie uma *imagem* em vez disso. Para obter mais informações sobre como criar uma imagem de uma VM do Azure existente, consulte [Criar uma imagem personalizada de uma VM do Azure usando a CLI](tutorial-custom-images.md).
 
-Se você quiser copiar uma VM existente para outra região, talvez queira usar azcopy para criar [uma cópia de um disco em outra região](disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk). 
+Caso deseje copiar uma VM existente para outra região, use o AzCopy para [criar uma cópia de um disco em outra região](disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk). 
 
-Caso contrário, você deve tirar um instantâneo da VM e, em seguida, criar um novo VHD do sistema operacional a partir do instantâneo.
+Caso contrário, você deverá tirar um instantâneo da VM e criar um VHD do sistema operacional com base no instantâneo.
 
 ### <a name="create-a-snapshot"></a>Criar um instantâneo
 

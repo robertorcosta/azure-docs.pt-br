@@ -1,6 +1,6 @@
 ---
 title: Conectar computadores Windows ao Azure Monitor | Microsoft Docs
-description: Este artigo descreve como conectar computadores Windows hospedados em outras nuvens ou locais para Azure Monitor com o agente do Log Analytics para Windows.
+description: Este artigo descreve como conectar computadores Windows hospedados em outras nuvens ou locais no Azure Monitor com o agente do Log Analytics para Windows.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
@@ -8,16 +8,16 @@ ms.author: bwren
 ms.date: 10/07/2019
 ms.openlocfilehash: 644d1094ec57e148804941297d50398e36b1b068
 ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/09/2020
 ms.locfileid: "82996419"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Conectar computadores Windows ao Azure Monitor
 
-Para monitorar e gerenciar máquinas virtuais ou computadores físicos em seu datacenter local ou em outro ambiente de nuvem com Azure Monitor, você precisa implantar o agente de Log Analytics (também conhecido como o Microsoft Monitoring Agent (MMA)) e configurá-lo para relatar a um ou mais espaços de trabalho do Log Analytics. Adicionalmente, o agente fornece suporte à função do Hybrid Runbook Worker para a Automação do Azure.  
+Para monitorar e gerenciar máquinas virtuais ou computadores físicos em seu datacenter local ou outro ambiente de nuvem com o Azure Monitor, é necessário implantar o agente do Log Analytics (também chamado de MMA (Microsoft Monitoring Agent)) e configurá-lo para relatar a um ou mais workspaces do Log Analytics. Adicionalmente, o agente fornece suporte à função do Hybrid Runbook Worker para a Automação do Azure.  
 
-Em um computador Windows monitorado, o agente está listado como o serviço do Microsoft Monitoring Agent. O serviço do Microsoft Monitoring Agent coleta eventos de arquivos de log e log de eventos do Windows, dados de desempenho e outra telemetria. Mesmo quando o agente não consegue se comunicar com Azure Monitor ele relata, o agente continua a ser executado e enfileira os dados coletados no disco do computador monitorado. Quando a conexão é restaurada, o serviço do Microsoft Monitoring Agent envia os dados coletados para o serviço.
+Em um computador Windows monitorado, o agente está listado como o serviço do Microsoft Monitoring Agent. O serviço do Microsoft Monitoring Agent coleta eventos de arquivos de log e log de eventos do Windows, dados de desempenho e outra telemetria. Mesmo quando o agente está impossibilitado de se comunicar com Azure Monitor ao qual ele relata, o agente continua em execução e coloca em fila os dados coletados no disco do computador monitorado. Quando a conexão é restaurada, o serviço do Microsoft Monitoring Agent envia os dados coletados para o serviço.
 
 O agente pode ser instalado usando um dos seguintes métodos. A maioria das instalações usa uma combinação desses métodos para instalar diferentes conjuntos de computadores, conforme apropriado.  Detalhes sobre como usar cada método são fornecidos posteriormente neste artigo.
 
@@ -27,17 +27,17 @@ O agente pode ser instalado usando um dos seguintes métodos. A maioria das inst
 * Modelo do Resource Manager para máquinas virtuais executando o Windows local no Azure Stack. 
 
 >[!NOTE]
->A central de segurança do Azure (ASC) depende do Microsoft Monitoring Agent (também conhecido como o Log Analytics agente do Windows) e irá instalá-lo e configurá-lo para relatar a um espaço de trabalho Log Analytics como parte de sua implantação. O ASC inclui uma opção de provisionamento automático que habilita a instalação automática do Log Analytics agente do Windows em todas as VMs em sua assinatura e a configura para relatar a um espaço de trabalho específico. Para obter mais informações sobre essa opção, consulte [habilitar o provisionamento automático do agente de log Analytics](../../security-center/security-center-enable-data-collection.md#auto-provision-mma).
+>A ASC (Central de Segurança do Azure) depende do Microsoft Monitoring Agent (também conhecido como o agente do Log Analytics do Windows) e, como parte da implantação dela, vai instalá-lo e configurá-lo para relatar a um workspace do Log Analytics. O ASC inclui uma opção de provisionamento automático que habilita a instalação automática do agente do Log Analytics do Windows em todas as VMs em sua assinatura e o configura para relatar a um workspace específico. Para obter mais informações sobre essa opção, confira [Habilitar o provisionamento automático do agente do Log Analytics](../../security-center/security-center-enable-data-collection.md#auto-provision-mma).
 >
 
-Se você precisar configurar o agente para relatar mais de um espaço de trabalho, isso não poderá ser executado durante a configuração inicial, somente depois atualizando as configurações do painel de controle ou do PowerShell, conforme descrito em [adicionando ou removendo um espaço de trabalho](agent-manage.md#adding-or-removing-a-workspace).  
+Se você precisar configurar o agente para relatar mais de um workspace, isso não poderá ser executado durante a configuração inicial, somente depois, atualizando as configurações do painel de controle ou do PowerShell conforme descrito em [Adicionar ou remover um workspace](agent-manage.md#adding-or-removing-a-workspace).  
 
 Para entender a configuração com suporte, revise [suporte para sistemas operacionais Windows](log-analytics-agent.md#supported-windows-operating-systems) e [configuração de firewall de rede](log-analytics-agent.md#network-requirements).
 
 ## <a name="obtain-workspace-id-and-key"></a>Obter a ID do workspace e a chave
-Antes de instalar o agente do Log Analytics para Windows, você precisa da ID do espaço de trabalho e da chave para o espaço de trabalho do Log Analytics.  Essas informações são necessárias durante a instalação de cada método de instalação para configurar corretamente o agente e garantir que ele possa se comunicar com êxito com Azure Monitor no Azure comercial e na nuvem do governo dos EUA. 
+Antes de instalar o agente do Log Analytics para Windows, você precisa da ID do espaço de trabalho e da chave para o espaço de trabalho do Log Analytics.  Essas informações serão necessárias durante a configuração de cada método de instalação para configurar corretamente o agente e garantir que ele possa se comunicar com êxito com o Azure Monitor no Azure comercial e na nuvem do governo dos EUA. 
 
-1. Na portal do Azure, procure e selecione espaços de **trabalho do log Analytics**.
+1. No portal do Azure, procure e selecione **Workspaces do Log Analytics**.
 2. Na lista de workspaces do Log Analytics, selecione o workspace que pretende configurar o agente a qual relatar.
 3. Selecione **Configurações avançadas**.<br><br> ![Configurações avançadas do Log Analytics](media/agent-windows/log-analytics-advanced-settings-01.png)<br><br>  
 4. Selecione **Fontes Conectadas** e depois **Servidores Windows**.   
@@ -47,31 +47,31 @@ Antes de instalar o agente do Log Analytics para Windows, você precisa da ID do
 Para configurar o uso do protocolo9 [TLS 1.2](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12) para comunicação entre o agente do Windows e o serviço Log Analytics, você pode seguir as etapas abaixo para habilitar antes que o agente seja instalado na máquina virtual ou posteriormente.
 
 >[!NOTE]
->Se você estiver configurando uma VM que executa o Windows Server 2008 SP2 x64 para usar o TLS 1,2, primeiro será necessário instalar a seguinte [atualização de suporte à assinatura de código SHA-2](https://support.microsoft.com/help/4474419/sha-2-code-signing-support-update) antes de executar as etapas abaixo. 
+>Se você estiver configurando uma VM que executa o Windows Server 2008 SP2 x64 para usar o TLS 1.2, primeiro será necessário instalar a [atualização de suporte à assinatura de código SHA-2](https://support.microsoft.com/help/4474419/sha-2-code-signing-support-update) a seguir antes de executar as etapas abaixo. 
 >
 
-1. Localize a seguinte subchave do registro: **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols**
-2. Crie uma subchave em **protocolos** para TLS 1,2 **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1,2**
-3. Criar uma subchave **Cliente** na subchave do protocolo TLS 1.2 que você criou anteriormente. Por exemplo, **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \ Client**.
-4. Crie os seguintes valores DWORD em **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \ Client**:
+1. Localize a seguinte subchave do Registro: **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols**
+2. Crie uma subchave em **Protocolos** para o TLS 1.2 **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2**
+3. Criar uma subchave **Cliente** na subchave do protocolo TLS 1.2 que você criou anteriormente. Por exemplo, **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client**.
+4. Crie os seguintes valores DWORD em **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client**:
 
     * **Habilitado** [Valor = 1]
     * **DisabledByDefault** [Valor = 0]  
 
 Configurar o .NET Framework 4.6 ou posterior para dar suporte à criptografia segura, uma vez que, por padrão, é desabilitado. A [criptografia forte](https://docs.microsoft.com/dotnet/framework/network-programming/tls#schusestrongcrypto) usa mais protocolos de rede seguros como TLS 1.2 e bloqueia os protocolos que não são seguros. 
 
-1. Localize a seguinte subchave do registro: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\\.NETFramework\v4.0.30319**.  
+1. Localize a seguinte subchave do Registro: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\\.NETFramework\v4.0.30319**.  
 2. Crie o valor DWORD **SchUseStrongCrypto** nessa subchave com um valor de **1**.  
-3. Localize a seguinte subchave do registro: **HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\\.NETFramework\v4.0.30319**.  
+3. Localize a seguinte subchave do Registro: **HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\\.NETFramework\v4.0.30319**.  
 4. Crie o valor DWORD **SchUseStrongCrypto** nessa subchave com um valor de **1**. 
 5. Reinicie o sistema para que as configurações entrem em vigor. 
 
 ## <a name="install-the-agent-using-setup-wizard"></a>Instalar o agente usando o assistente de instalação
-As etapas a seguir instalam e configuram o agente de Log Analytics no Azure e a nuvem do Azure governamental usando o assistente de instalação para o agente em seu computador. Se você quiser saber como configurar o agente para também relatar grupo de gerenciamento System Center Operations Manager, consulte [ implantar o agente do Operations Manager com o Assiste de Configuração do Agente](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-manually#to-deploy-the-operations-manager-agent-with-the-agent-setup-wizard).
+As etapas a seguir instalam e configuram o agente do Log Analytics do Azure e a nuvem do Azure Government usando o assistente de instalação em seu computador. Se você quiser saber como configurar o agente para também relatar grupo de gerenciamento System Center Operations Manager, consulte [ implantar o agente do Operations Manager com o Assiste de Configuração do Agente](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-manually#to-deploy-the-operations-manager-agent-with-the-agent-setup-wizard).
 
 1. No seu espaço de trabalho do Log Analytics, na página **Servidores Windows** que você navegou anteriormente, selecione a versão apropriada de **Fazer o download do Agente para Windows** para baixar dependendo da arquitetura do processador do sistema operacional Windows.   
 2. Execute a Instalação para instalar o agente no seu computador.
-2. Na página **Bem-vindo**, clique em **Avançar**.
+2. Na página de **Boas-vindas**, clique em **Avançar**.
 3. Na página **Termos de Licença**, leia a licença e clique em **Aceito**.
 4. Na página **Pasta de Destino**, altere ou mantenha a pasta de instalação padrão e clique em **Avançar**.
 5. Na página **Opções de Instalação do Agente**, escolha a opção de conectar o agente ao Azure Log Analytics e clique em **Avançar**.   
@@ -116,7 +116,7 @@ A tabela a seguir destaca os parâmetros específicos com suporte pela configura
     setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID="<your workspace ID>" OPINSIGHTS_WORKSPACE_KEY="<your workspace key>" AcceptEndUserLicenseAgreement=1
     ```
     >[!NOTE]
-    >Os valores de cadeia de caracteres para os parâmetros *OPINSIGHTS_WORKSPACE_ID* e *OPINSIGHTS_WORKSPACE_KEY* precisam ser encapsulados em aspas duplas para instruir Windows Installer a interprit como opções válidas para o pacote. 
+    >Os valores de cadeia de caracteres para os parâmetros *OPINSIGHTS_WORKSPACE_ID* e *OPINSIGHTS_WORKSPACE_KEY* precisam ser encapsulados em aspas duplas para instruir Windows Installer a interpretá-los como opções válidas para o pacote. 
 
 ## <a name="install-the-agent-using-dsc-in-azure-automation"></a>Instalar o agente usando o DSC na Automação do Azure
 
@@ -135,7 +135,7 @@ As versões de 32 bits e 64 bits do pacote do agente têm códigos de produtos d
 
 Para recuperar o código do produto do pacote do instalador do agente diretamente, você pode usar Orca.exe dos [Componentes SDK do Windows para desenvolvedores do Windows Installer](https://msdn.microsoft.com/library/windows/desktop/aa370834%28v=vs.85%29.aspx) que é um Software Development Kit do Windows ou usando o PowerShell após um [script de exemplo](https://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/) gravado por um MVP (Microsoft Valuable Professional).  Para qualquer abordagem, você primeiro precisa extrair o arquivo **MOMagent.msi** do pacote de instalação MMASetup.  Isso é mostrado anteriormente na primeira etapa na seção [Instalar o agente usando a linha de comando](#install-the-agent-using-the-command-line).  
 
-1. Importe o módulo DSC xPSDesiredStateConfiguration de [https://www.powershellgallery.com/packages/xPSDesiredStateConfiguration](https://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) para a automação do Azure.  
+1. Importar o Módulo DSC xPSDesiredStateConfiguration de [https://www.powershellgallery.com/packages/xPSDesiredStateConfiguration](https://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) na Automação do Azure.  
 2.    Crie ativos de variável da Automação do Azure para *OPSINSIGHTS_WS_ID* e *OPSINSIGHTS_WS_KEY*. Defina *OPSINSIGHTS_WS_ID* para sua ID do espaço de trabalho do Log Analytics e defina *OPSINSIGHTS_WS_KEY* para a chave primária do seu espaço de trabalho.
 3.    Copie o script e salve-o como MMAgent.ps1.
 
@@ -183,13 +183,13 @@ Configuration MMAgent
 
 Quando a instalação do agente for concluída, verifique se está conectado com êxito e se o relatório pode ser realizado de duas maneiras.  
 
-No computador, no **Painel de Controle**, localize o item **Microsoft Monitoring Agent**.  Selecione-o e na guia **Azure Log Analytics**, o agente deve exibir uma mensagem indicando: **o Microsoft Monitoring Agent foi conectado com êxito ao serviço do Microsoft Operations Management Suite.**<br><br> ![Status de conexão do MMA ao Log Analytics](media/agent-windows/log-analytics-mma-laworkspace-status.png)
+No computador, no **Painel de Controle**, localize o item **Microsoft Monitoring Agent**.  Selecione-o e, na guia **Azure Log Analytics**, o agente deverá exibir uma mensagem informando: **O Microsoft Monitoring Agent conectou-se com êxito ao serviço Microsoft Operations Management Suite.**<br><br> ![Status de conexão do MMA ao Log Analytics](media/agent-windows/log-analytics-mma-laworkspace-status.png)
 
-Você também pode executar uma consulta de log simples no portal do Azure.  
+Você também pode realizar uma consulta simples ao log no portal do Azure.  
 
-1. No portal do Azure, procure e selecione **Monitor**.
-1. Selecione **logs** no menu.
-1. No painel **logs** , no campo de consulta tipo:  
+1. No portal do Azure, pesquise e selecione **Monitor**.
+1. Selecione **Logs** no menu.
+1. No painel **Logs**, no tipo de campo de consulta:  
 
     ```
     Heartbeat 
@@ -201,6 +201,6 @@ Nos resultados de pesquisa retornados, você deverá ver os registros de pulsaç
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Examine [o gerenciamento e a manutenção do agente de log Analytics para Windows e Linux](agent-manage.md) para saber mais sobre como reconfigurar, atualizar ou remover o agente da máquina virtual.
+- Examinar [Gerenciar e manter o agente de Log Analytics para o Windows e Linux](agent-manage.md) para aprender sobre como reconfigurar, atualizar ou remover o agente da máquina virtual.
 
-- Examine [a solução de problemas do agente do Windows](agent-windows-troubleshoot.md) se você encontrar problemas ao instalar ou gerenciar o agente.
+- Consulte [Solução de problemas do agente do Windows](agent-windows-troubleshoot.md) se você encontrar problemas ao instalar ou gerenciar o agente.

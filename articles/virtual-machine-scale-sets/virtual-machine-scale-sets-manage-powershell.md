@@ -1,5 +1,5 @@
 ---
-title: Gerenciar conjuntos de dimensionamento de máquinas virtuais com Azure PowerShell
+title: Gerenciar Conjuntos de Dimensionamento de Máquinas Virtuais com o Azure PowerShell
 description: Cmdlets do Azure PowerShell comuns para gerenciar conjuntos de dimensionamento de máquina virtual, tais como, iniciar e parar uma instância ou alterar a capacidade do conjunto de dimensionamento.
 author: ju-shim
 ms.author: jushiman
@@ -11,7 +11,7 @@ ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: 68b5aa21f861009dd78f48428fa0ffdc5b5ae3a3
 ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/12/2020
 ms.locfileid: "83124861"

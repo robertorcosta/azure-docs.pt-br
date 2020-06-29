@@ -1,5 +1,5 @@
 ---
-title: Carregar dados em Azure Data Lake Storage Gen1
+title: Carregar dados no Azure Data Lake Storage Gen1
 description: Usar o Azure Data Factory para copiar dados no Azure Data Lake Storage Gen1
 services: data-factory
 ms.author: jingwang
@@ -13,7 +13,7 @@ ms.custom: seo-lt-2019
 ms.date: 01/17/2018
 ms.openlocfilehash: 1b1b19814709451bdbbea97462c459149484e71f
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81415856"
@@ -28,9 +28,9 @@ O Azure Data Factory é um serviço de integração de dados baseado em nuvem co
 
 O Azure Data Factory oferece os seguintes benefícios para carregar dados no Data Lake Storage Gen1:
 
-* **Fácil de configurar**: assistente intuitivo de 5 etapas sem nenhum script necessário.
-* **Suporte a armazenamento de dados avançado**: suporte interno para um conjunto avançado de armazenamentos de dados locais e baseados em nuvem. Para obter uma lista detalhada, consulte a tabela de [Suporte para repositórios de dados](copy-activity-overview.md#supported-data-stores-and-formats).
-* **Seguro e compatível**: os dados são transferidos por HTTPS, ou ExpressRoute. A presença do serviço global garante que os dados nunca saiam do limite geográfico.
+* **Fácil de configurar**: um assistente intuitivo de cinco etapas sem necessidade de script.
+* **Suporte avançado de armazenamento de dados**: suporte interno para um conjunto avançado de armazenamentos de dados locais e baseados em nuvem. Para obter uma lista detalhada, consulte a tabela de [Suporte para repositórios de dados](copy-activity-overview.md#supported-data-stores-and-formats).
+* **Seguro e em conformidade**: os dados são transferidos via HTTPS ou ExpressRoute. A presença do serviço global garante que os dados nunca saiam do limite geográfico.
 * **Alto desempenho**: velocidade de carregamento de dados de até 1 GB/s no Data Lake Storage Gen1. Para obter detalhes, consulte [Desempenho da atividade de cópia](copy-activity-performance.md).
 
 Este artigo mostra como usar a ferramenta Copiar Dados do Data Factory para _carregar dados do Amazon S3 no Data Lake Storage Gen1_. Você pode seguir as etapas semelhantes para copiar dados de outros tipos de armazenamentos de dados.
@@ -40,13 +40,13 @@ Este artigo mostra como usar a ferramenta Copiar Dados do Data Factory para _car
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Assinatura do Azure: se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* Assinatura do Azure: Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 * Conta do Data Lake Storage Gen1: se você não tem uma conta do Data Lake Storage Gen1, confira as instruções em [Criar uma conta do Data Lake Storage Gen1](../data-lake-store/data-lake-store-get-started-portal.md#create-a-data-lake-storage-gen1-account).
 * Amazon S3: Este artigo mostra como copiar dados do Amazon S3. Você pode usar outros repositórios de dados seguindo as etapas semelhantes.
 
 ## <a name="create-a-data-factory"></a>Criar uma data factory
 
-1. No menu à esquerda, selecione **criar um recurso** > **análise** > **Data Factory**:
+1. No menu à esquerda, selecione **Criar um recurso** > **Analytics** > **Data Factory**:
    
    ![Seleção de Data Factory no painel "Novo"](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
@@ -54,11 +54,11 @@ Este artigo mostra como usar a ferramenta Copiar Dados do Data Factory para _car
       
    ![Página de novo data factory](./media/load-data-into-azure-data-lake-store//new-azure-data-factory.png)
  
-    * **Nome**: insira um nome exclusivo para o seu Azure data factory. Se você receber o erro "Nome do data factory \"LoadADLSG1Demo\" não está disponível", digite outro nome para o data factory. Por exemplo, use o nome _**seunome**_**ADFTutorialDataFactory**. Tente criar o data factory novamente. Para ver as regras de nomenclatura de artefatos do Data Factory, confira [Regras de nomenclatura do Data Factory](naming-rules.md).
-    * **Assinatura**: selecione a assinatura do Azure na qual você deseja criar o data factory. 
-    * **Grupo de Recursos**: Selecione um grupo de recursos existente na lista suspensa ou selecione a opção **Criar novo** e digite o nome de um grupo de recursos. Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/management/overview.md).  
-    * **Versão**: selecione **V2**.
-    * **Local**: selecione um local para o data factory. Somente os locais com suporte são exibidos na lista suspensa. Os armazenamentos de dados que são usados pela data factory podem estar em outros locais e regiões. Esses armazenamentos de dados incluem Azure Data Lake Storage Gen1, Azure Storage, Banco de Dados SQL do Azure e assim por diante.
+    * **Name**: Insira um nome globalmente exclusivo para o Azure Data Factory. Se você receber o erro "Nome do data factory \"LoadADLSG1Demo\" não está disponível", digite outro nome para o data factory. Por exemplo, use o nome _**seunome**_**ADFTutorialDataFactory**. Tente criar o data factory novamente. Para ver as regras de nomenclatura de artefatos do Data Factory, confira [Regras de nomenclatura do Data Factory](naming-rules.md).
+    * **Assinatura**: Selecione a assinatura do Azure para criar o Data Factory. 
+    * **Grupo de Recursos**: Selecione um grupo de recursos existente na lista suspensa ou selecione a opção **Criar novo** e insira o nome de um grupo de recursos. Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/management/overview.md).  
+    * **Versão**: Selecione **V2**.
+    * **Localização**: Selecione o local para o data factory. Somente os locais com suporte são exibidos na lista suspensa. Os armazenamentos de dados que são usados pela data factory podem estar em outros locais e regiões. Esses armazenamentos de dados incluem Azure Data Lake Storage Gen1, Azure Storage, Banco de Dados SQL do Azure e assim por diante.
 
 3. Selecione **Criar**.
 4. Após a conclusão da criação, vá para o seu data factory. Você verá a home page **Data Factory** conforme mostrado na imagem a seguir: 
@@ -106,7 +106,7 @@ Este artigo mostra como usar a ferramenta Copiar Dados do Data Factory para _car
 
     ![Página Armazenamento de dados de destino](./media/load-data-into-azure-data-lake-store/destination-data-storage-page.png)
 
-8. Na página **Novo Serviço Vinculado (Azure Data Lake Storage Gen1)**, execute as seguintes etapas: 
+8. Na página **Novo Serviço Vinculado (Azure Data Lake Storage Gen1)** , execute as seguintes etapas: 
 
    1. Selecione sua conta do Data Lake Storage Gen1 para o **nome da conta do Data Lake Store**.
    2. Especifique o **Locatário** e selecione Concluir.
@@ -129,7 +129,7 @@ Este artigo mostra como usar a ferramenta Copiar Dados do Data Factory para _car
 12. Na **Página Implantação**, selecione **Monitor** para monitorar o pipeline (tarefa):
 
     ![Página Implantação](./media/load-data-into-azure-data-lake-store/deployment-page.png)
-13. Observe que a guia **Monitor** à esquerda é selecionada automaticamente. A coluna **ações** inclui links para exibir detalhes da execução da atividade e executar novamente o pipeline:
+13. Observe que a guia **Monitor** à esquerda é selecionada automaticamente. A coluna **Ações** inclui links para exibir detalhes da execução da atividade e executar o pipeline novamente:
 
     ![Monitorar execuções de pipeline](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
 14. Para exibir as execuções de atividade associadas com a execução do pipeline, selecione o link **Exibir as Execuções de Atividade** na coluna **Ações**. Há apenas uma atividade (atividade de cópia) no pipeline. Assim, você vê apenas uma entrada. Para voltar à exibição de execuções de pipeline, selecione o link **Pipelines** na parte superior. Selecione **Atualizar** para atualizar a lista. 

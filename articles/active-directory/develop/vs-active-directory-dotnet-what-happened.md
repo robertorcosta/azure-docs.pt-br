@@ -12,7 +12,7 @@ ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.openlocfilehash: d42d905bf35c015213e76bc50c4bc339a5c4a062
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "80886102"
@@ -23,13 +23,13 @@ ms.locfileid: "80886102"
 > - [Introdução](vs-active-directory-dotnet-getting-started.md)
 > - [O que aconteceu](vs-active-directory-dotnet-what-happened.md)
 
-Este artigo identifica as alterações exatas feitas em um projeto MVC do ASP.NET ao adicionar o [serviço conectado do Azure Active Directory usando o Visual Studio](vs-active-directory-add-connected-service.md).
+Este artigo identifica as alterações exatas feitas em um projeto ASP.NET MVC ao adicionar o [serviço conectado do Azure Active Directory usando o Visual Studio](vs-active-directory-add-connected-service.md).
 
 Para obter informações sobre como trabalhar com o serviço conectado, consulte [Introdução](vs-active-directory-dotnet-getting-started.md).
 
 ## <a name="added-references"></a>Referências adicionadas
 
-Afeta o arquivo de projeto (referências de *. NET `packages.config` ) e (referências do NuGet).
+Afeta o arquivo de projeto (referências do *.NET) e `packages.config` (referências do NuGet).
 
 | Type | Referência |
 | --- | --- |
@@ -158,9 +158,9 @@ Ao adicionar o serviço conectado, o Visual Studio 2015 faz backup dos arquivos 
 - Criado um Aplicativo do Azure AD no domínio que você selecionou ao adicionar o serviço conectado.
 - Atualizado o aplicativo para incluir a permissão **Ler dados do diretório** se essa opção foi selecionada.
 
-[Saiba mais sobre Azure Active Directory](https://azure.microsoft.com/services/active-directory/).
+[Saiba mais sobre o Azure Active Directory](https://azure.microsoft.com/services/active-directory/).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Cenários de autenticação para Azure Active Directory](authentication-scenarios.md)
-- [Adicionar a opção Entrar com uma Conta da Microsoft a um aplicativo Web ASP.NET](quickstart-v2-aspnet-webapp.md)
+- [Cenários de autenticação do Azure Active Directory](authentication-scenarios.md)
+- [Adicionar entrada com a Microsoft para um aplicativo Web ASP.NET](quickstart-v2-aspnet-webapp.md)

@@ -1,7 +1,7 @@
 ---
-title: Exemplos de transformação de declarações booleanas para políticas personalizadas
+title: Exemplos de transformação de declarações boolianas para políticas personalizadas
 titleSuffix: Azure AD B2C
-description: Exemplos de transformação de declarações booleanas para o esquema IEF (Identity Experience Framework) de Azure Active Directory B2C.
+description: Exemplos de transformação de declarações boolianas para o esquema da IEF (Identity Experience Framework) do Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -13,7 +13,7 @@ ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 007d613a1f170a0ee278a838c92ade2fce9c6dec
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "80529196"
@@ -22,7 +22,7 @@ ms.locfileid: "80529196"
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Este artigo fornece exemplos de como usar as transformações de declarações booleanas do esquema de estrutura de experiência de identidade em Azure Active Directory B2C (Azure AD B2C). Para obter mais informações, confira [ClaimsTransformations](claimstransformations.md).
+Este artigo fornece exemplos para usar as transformações de declarações boolianas do esquema do Identity Experience Framework no Azure AD B2C (Azure Active Directory B2C). Para obter mais informações, confira [ClaimsTransformations](claimstransformations.md).
 
 ## <a name="andclaims"></a>AndClaims
 
@@ -66,7 +66,7 @@ Verifica se os valores boolianos de duas declarações são iguais e gera uma ex
 | InputClaim | InputClaim | booleano | O ClaimType a ser declarado. |
 | InputParameter |valueToCompareTo | booleano | O valor a ser comparado (true ou false). |
 
-A transformação de declarações **AssertBooleanClaimIsEqualToValue** é sempre executada por meio de um [perfil técnico de validação](validation-technical-profile.md) que é chamado por um [perfil técnico autodeclarado](self-asserted-technical-profile.md). Os metadados do perfil técnico autodeclarado **UserMessageIfClaimsTransformationBooleanValueIsNotEqual** controlam a mensagem de erro que o perfil técnico apresenta ao usuário. As mensagens de erro podem ser [localizadas](localization-string-ids.md#claims-transformations-error-messages).
+A transformação de declarações **AssertBooleanClaimIsEqualToValue** é sempre executada por meio de um [perfil técnico de validação](validation-technical-profile.md) que é chamado por um [perfil técnico autodeclarado](self-asserted-technical-profile.md). Os metadados do perfil técnico autodeclarado **UserMessageIfClaimsTransformationBooleanValueIsNotEqual** controlam a mensagem de erro que o perfil técnico apresenta ao usuário. A mensagem de erro pode ser [localizada](localization-string-ids.md#claims-transformations-error-messages).
 
 ![Execução do AssertStringClaimsAreEqual](./media/boolean-transformations/assert-execution.png)
 
@@ -112,11 +112,11 @@ O perfil técnico autodeclarado chama o perfil técnico **login-NonInteractive**
 - Declarações de entrada:
     - **inputClaim**: false
     - **valueToCompareTo**: true
-- Resultado: erro gerado
+- Resultado: Erro gerado
 
 ## <a name="comparebooleanclaimtovalue"></a>CompareBooleanClaimToValue
 
-Verifica se o valor booliano de uma declaração é `true` igual `false`a ou e retorna o resultado da compactação.
+Verifica se o valor booliano de uma declaração é igual a `true` ou `false` e retorna o resultado da compactação.
 
 | Item | TransformationClaimType  | Tipo de Dados  | Observações |
 | ---- | ------------------------ | ---------- | ----- |
@@ -125,7 +125,7 @@ Verifica se o valor booliano de uma declaração é `true` igual `false`a ou e r
 | OutputClaim | compareResult | booleano | O ClaimType produzido depois de invocar esta ClaimsTransformation. |
 
 
-A transformação de declarações a seguir demonstra como verificar o valor de um ClaimType booliano com um valor `true`. Se o valor `IsAgeOver21Years` de ClaimType for igual a `true`, a transformação declarações retornará `true`, caso contrário `false`.
+A transformação de declarações a seguir demonstra como verificar o valor de um ClaimType booliano com um valor `true`. Se o valor do ClaimType `IsAgeOver21Years` for igual a `true`, a transformação de declarações retornará `true`, caso contrário, `false`.
 
 ```XML
 <ClaimsTransformation Id="AssertAccountEnabled" TransformationMethod="CompareBooleanClaimToValue">
