@@ -10,12 +10,12 @@ metadata:
   author: marleva
   ms.author: maevan
   ms.date: 04/02/2020
-  ms.openlocfilehash: 694dd8e2e856c997def8b6af000322d63477d3e4
-  ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+  ms.openlocfilehash: 89c1aba70d6a9cc5b3b7e262b1dda7d5401c4583
+  ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 06/03/2020
-  ms.locfileid: "84340514"
+  ms.lasthandoff: 06/28/2020
+  ms.locfileid: "85513222"
 landingContent:
 - title: Trabalho no marketplace comercial
   linkLists:
@@ -118,17 +118,17 @@ landingContent:
     - text: APIs de serviço de medição do Marketplace
       url: ./partner-center-portal/marketplace-metering-service-apis-faq.md
     - text: Referência de API do Portal do Cloud Partner
-      url: ./cloud-partner-portal-orig/cloud-partner-portal-api-overview.md
+      url: ./cloud-partner-portal-api-overview.md
     - text: Pré-requisitos de API
-      url: ./cloud-partner-portal-orig/cloud-partner-portal-api-prerequisites.md
+      url: ./cloud-partner-portal-api-prerequisites.md
     - text: Recuperar ofertas
-      url: .//cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-offers.md
+      url: ./cloud-partner-portal-api-retrieve-offers.md
     - text: Criar ou modificar uma oferta
-      url: ./cloud-partner-portal-orig/cloud-partner-portal-api-creating-offer.md
+      url: ./cloud-partner-portal-api-creating-offer.md
     - text: Preços das ofertas de máquina virtual
-      url: ./cloud-partner-portal-orig/cloud-partner-portal-api-setting-price.md
+      url: ./cloud-partner-portal-api-setting-price.md
     - text: Entrar no ar
-      url: ./cloud-partner-portal-orig/cloud-partner-portal-api-go-live.md
+      url: ./cloud-partner-portal-api-go-live.md
 - title: Obtenha suporte
   linkLists:
   - linkListType: get-started
@@ -136,6 +136,6 @@ landingContent:
     - text: Opções de suporte
       url: ./partner-center-portal/support.md
     - text: Solucionar problemas dos erros de autenticação
-      url: ./cloud-partner-portal-orig/cloud-partner-portal-api-troubleshooting-authentication-errors.md
+      url: ./cloud-partner-portal-api-troubleshooting-authentication-errors.md
     - text: Disponibilidade geográfica e moedas
       url: ./marketplace-geo-availability-currencies.md
