@@ -68,6 +68,8 @@
               href: connect-windows-security-events.md
         - name: Conectar a soluções externas
           items:
+            - name: Alcide kAudit
+              href: connect-alcide-kaudit.md
             - name: WAF do Barracuda
               href: connect-barracuda.md
             - name: Firewall do Barracuda CloudGen
@@ -78,6 +80,8 @@
               href: connect-f5-big-ip.md
             - name: Forcepoint DLP
               href: connect-forcepoint-dlp.md
+            - name: Logs do Perimeter 81
+              href: connect-perimeter-81-logs.md
             - name: secRMM da Squadra Technologies
               href: connect-squadra-secrmm.md
             - name: Symantec ICDX
@@ -94,6 +98,8 @@
                 - name: 'ETAPA 2: configurar sua solução de segurança'
                   href: connect-cef-solution-config.md
                   items:
+                    - name: Detecção de IA da Vectra
+                      href: connect-ai-vectra-detect.md
                     - name: Ponto de Verificação
                       href: connect-checkpoint.md
                     - name: Cisco ASA

@@ -30,7 +30,9 @@
       href: concepts-identity.md
     - name: Upgrades de nuvem privada
       href: concepts-upgrades.md
-    - name: Gerenciamento de API para VMs do AVS
+    - name: Integração de hub e spoke
+      href: concepts-avs-hub-and-spoke-integration.md
+    - name: Gerenciamento de API
       href: concepts-api-management.md
 - name: Guias de instruções
   items:
@@ -40,8 +42,6 @@
       href: manage-dhcp.md
     - name: Recuperação de desastre
       href: disaster-recovery.md
-    - name: Obter ajuda com a implantação de AVS ou com falhas de provisionamento
-      href: fix-deployment-provisioning-failures.md
     - name: Servidor de Backup do Azure para AVS
       items:
         - name: Configurar o Servidor de Backup do Azure para AVS
@@ -52,5 +52,9 @@
   items: null
 - name: Recursos
   items:
+    - name: Solução de problemas
+      items:
+        - name: Obter ajuda com a implantação de AVS ou com falhas de provisionamento
+          href: fix-deployment-provisioning-failures.md
     - name: Perguntas frequentes
       href: faq.md
