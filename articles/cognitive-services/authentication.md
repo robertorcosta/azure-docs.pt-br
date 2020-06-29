@@ -9,21 +9,20 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: erhopf
-ms.openlocfilehash: d36961a12162a587def76b1ffeb2109f9ed63f4d
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 7c2484892f3de3c8eca3f766793be83bc7a29dc8
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83587673"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445535"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Autenticar solicitações para os Serviços Cognitivos do Azure
 
 Cada solicitação para um Serviço Cognitivo do Azure deve incluir um cabeçalho de autenticação. Esse cabeçalho passa uma chave de assinatura ou token de acesso, que é usado para validar sua assinatura em um serviço ou grupo de serviços. Neste artigo, você aprenderá três maneiras de autenticar uma solicitação e os requisitos para cada uma.
 
-* [Autenticar com uma chave de assinatura para um único serviço](#authenticate-with-a-single-service-subscription-key)
-* [Autenticar com uma chave de assinatura para vários serviços](#authenticate-with-a-multi-service-subscription-key)
-* [Autenticar com um token](#authenticate-with-an-authentication-token)
-* [Autenticar com Azure Active Directory (AAD)](#authenticate-with-azure-active-directory)
+* Autenticar com uma chave de assinatura de [serviço único](#authenticate-with-a-single-service-subscription-key) ou de [vários serviços](#authenticate-with-a-multi-service-subscription-key)
+* Autenticar com um [token](#authenticate-with-an-authentication-token)
+* Autenticar com [Azure Active Directory (AAD)](#authenticate-with-azure-active-directory)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -161,7 +160,7 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 [!INCLUDE [](../../includes/cognitive-services-azure-active-directory-authentication.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 * [O que são Serviços Cognitivos?](welcome.md)
 * [Preço dos Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/)

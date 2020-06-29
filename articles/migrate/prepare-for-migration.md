@@ -4,12 +4,12 @@ description: Saiba como preparar computadores locais para migração com as Migr
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: MVC
-ms.openlocfilehash: a5314e3f06c54921b12c242f884e02073edc773b
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: d5ac4ded59a69e57de02779b0ba8ade9d7b48b26
+ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84769629"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85106363"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Preparar computadores locais para migração para Azure
 
@@ -33,8 +33,8 @@ A tabela resume os limites de descoberta, avaliação e migração para as Migra
 
 **Cenário** | **Projeto** | **Descoberta/Avaliação** | **Migração**
 --- | --- | --- | ---
-**VMs do VMware** | Descubra e avalie até 35.000 VMs do VMware em um único projeto das Migrações para Azure. | Descubra até 10 mil VMs VMware com um único [dispositivo de Migrações para Azure](common-questions-appliance.md) para VMware. | **Migração sem agente**: você pode replicar simultaneamente um máximo de 300 VMs. Para obter o melhor desempenho, é recomendável criar vários lotes de VMs se você tem mais de 50 delas.<br/><br/> **Migração baseada em agente**: você pode [escalar horizontalmente](/agent-based-migration-architecture.md#performance-and-scaling) o [dispositivo de replicação](migrate-replication-appliance.md) para replicar grandes números de VMs.<br/><br/> No portal, você pode selecionar até 10 computadores ao mesmo tempo para replicação. Para replicar mais computadores, adicione lotes de 10.
-**VMs do Hyper-V** | Descubra e avalie até 35.000 VMs do VMware em um único projeto das Migrações para Azure. | Descobrir até 5.000 VMs Hyper-V com um único dispositivo de Migrações para Azure | Um dispositivo não é usado para a migração do Hyper-V. Em vez disso, o Provedor de Replicação do Hyper-V é executado em cada host Hyper-V.<br/><br/> A capacidade de replicação é influenciada por fatores de desempenho, como rotatividade de VM e largura de banda de upload para dados de replicação.<br/><br/> No portal, você pode selecionar até 10 computadores ao mesmo tempo para replicação. Para replicar mais computadores, adicione lotes de 10.
+**VMs VMware** | Descubra e avalie até 35.000 VMs do VMware em um único projeto das Migrações para Azure. | Descubra até 10 mil VMs VMware com um único [dispositivo de Migrações para Azure](common-questions-appliance.md) para VMware. | **Migração sem agente**: você pode replicar simultaneamente um máximo de 300 VMs. Para obter o melhor desempenho, é recomendável criar vários lotes de VMs se você tem mais de 50 delas.<br/><br/> **Migração baseada em agente**: você pode [escalar horizontalmente](./agent-based-migration-architecture.md#performance-and-scaling) o [dispositivo de replicação](migrate-replication-appliance.md) para replicar grandes números de VMs.<br/><br/> No portal, você pode selecionar até 10 computadores ao mesmo tempo para replicação. Para replicar mais computadores, adicione lotes de 10.
+**VMs Hyper-V** | Descubra e avalie até 35.000 VMs do VMware em um único projeto das Migrações para Azure. | Descobrir até 5.000 VMs Hyper-V com um único dispositivo de Migrações para Azure | Um dispositivo não é usado para a migração do Hyper-V. Em vez disso, o Provedor de Replicação do Hyper-V é executado em cada host Hyper-V.<br/><br/> A capacidade de replicação é influenciada por fatores de desempenho, como rotatividade de VM e largura de banda de upload para dados de replicação.<br/><br/> No portal, você pode selecionar até 10 computadores ao mesmo tempo para replicação. Para replicar mais computadores, adicione lotes de 10.
 **Computadores físicos** | Descubra e avalie até 35.000 computadores do VMware em um único projeto das Migrações para Azure. | Descubra até 250 servidores físicos com um único dispositivo de Migrações para Azure para servidores físicos. | Você pode [escalar horizontalmente](/agent-based-migration-architecture.md#performance-and-scaling) o [dispositivo de replicação](migrate-replication-appliance.md) para replicar grandes números de servidores.<br/><br/> No portal, você pode selecionar até 10 computadores ao mesmo tempo para replicação. Para replicar mais computadores, adicione lotes de 10.
 
 ## <a name="select-a-vmware-migration-method"></a>Selecione um método de migração do VMware

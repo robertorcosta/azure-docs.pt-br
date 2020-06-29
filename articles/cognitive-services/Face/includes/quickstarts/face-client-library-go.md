@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.topic: include
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 4a96f0e887bb04aea6d451e08bd5d26d1cc6edca
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 887b9fa62b89c500ef3b2b0164ba0281f911621e
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82587827"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85073389"
 ---
 Comece a usar a biblioteca de clientes de Detecção Facial para Go. Siga estas etapas para instalar a biblioteca e testar nossos exemplos para tarefas básicas. O serviço de Detecção Facial fornece acesso a algoritmos avançados para detectar e reconhecer rostos humanos em imagens.
 
@@ -30,66 +30,14 @@ Use a biblioteca de clientes do serviço de Detecção Facial para Go para:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/)
 * A versão mais recente do [Go](https://golang.org/dl/)
+* Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
+* Depois de obter sua assinatura do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Crie um recurso da Detecção Facial"  target="_blank">crie um recurso da Detecção Facial <span class="docon docon-navigate-external x-hidden-focus"></span></a> no portal do Azure para obter a chave e o ponto de extremidade. Após a implantação, clique em **Ir para o recurso**.
+    * Você precisará da chave e do ponto de extremidade do recurso criado para conectar seu aplicativo à API de Detecção Facial. Cole a chave e o ponto de extremidade no código abaixo mais adiante no guia de início rápido.
+    * Use o tipo de preço gratuito (`F0`) para experimentar o serviço e atualizar mais tarde para um nível pago para produção.
+* Depois de obter uma chave e um ponto de extremidade, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e o ponto de extremidade, chamadas `FACE_SUBSCRIPTION_KEY` e `FACE_ENDPOINT`, respectivamente.
 
-## <a name="set-up"></a>Configuração
-
-### <a name="create-a-face-azure-resource"></a>Criar um recurso de Detecção Facial do Azure 
-
-Comece a usar o serviço de Detecção Facial criando um recurso do Azure. Escolha o tipo de recurso que é ideal para você:
-
-* Um [recurso de avaliação](https://azure.microsoft.com/try/cognitive-services/#decision) (nenhuma assinatura do Azure é necessária): 
-    * Válido por sete dias, gratuitamente. Após a inscrição, um ponto de extremidade e uma chave de avaliação estarão disponíveis no [site do Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/). 
-    * Essa é uma ótima opção se você deseja experimentar o serviço de Detecção Facial, mas não tem uma assinatura do Azure.
-* Um [ recurso de serviço de Detecção Facial](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFace):
-    * Disponível por meio do portal do Azure até que você exclua o recurso.
-    * Use o tipo de preço gratuito para experimentar o serviço e atualize mais tarde para uma camada paga para produção.
-* Um [recurso de vários serviços](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne):
-    * Disponível por meio do portal do Azure até que você exclua o recurso.  
-    * Use a mesma chave e ponto de extremidade para seus aplicativos em vários Serviços Cognitivos.
-
-### <a name="create-an-environment-variable"></a>Criar uma variável de ambiente
-
->[!NOTE]
-> Os pontos de extremidade para recursos que não são de avaliação criados após 1º de julho de 2019 usam o formato de subdomínio personalizado mostrado abaixo. Para saber mais e para obter uma lista completa de pontos de extremidade regionais, confira [Nomes de subdomínio personalizados para Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
-
-Usando a chave e o ponto de extremidade do recurso criado, crie duas variáveis de ambiente para autenticação:
-* `FACE_SUBSCRIPTION_KEY` – a chave de recurso para autenticar as solicitações.
-* `FACE_ENDPOINT` – o ponto de extremidade do recurso para enviar solicitações de API. Ele terá esta aparência: 
-  * `https://<your-custom-subdomain>.api.cognitive.microsoft.com` 
-
-Use as instruções para seu sistema operacional.
-<!-- replace the below endpoint and key examples -->
-#### <a name="windows"></a>[Windows](#tab/windows)
-
-```console
-setx FACE_SUBSCRIPTION_KEY <replace-with-your-product-name-key>
-setx FACE_ENDPOINT <replace-with-your-product-name-endpoint>
-```
-
-Depois de adicionar a variável de ambiente, reinicie a janela do console.
-
-#### <a name="linux"></a>[Linux](#tab/linux)
-
-```bash
-export FACE_SUBSCRIPTION_KEY=<replace-with-your-product-name-key>
-export FACE_ENDPOINT=<replace-with-your-product-name-endpoint>
-```
-
-Depois de adicionar a variável de ambiente, execute `source ~/.bashrc` a partir da janela de console para que as alterações entrem em vigor.
-
-#### <a name="macos"></a>[macOS](#tab/unix)
-
-Edite seu `.bash_profile` e adicione a variável de ambiente:
-
-```bash
-export FACE_SUBSCRIPTION_KEY=<replace-with-your-product-name-key>
-export FACE_ENDPOINT=<replace-with-your-product-name-endpoint>
-```
-
-Depois de adicionar a variável de ambiente, execute `source .bash_profile` a partir da janela de console para que as alterações entrem em vigor.
-***
+## <a name="setting-up"></a>Configurando
 
 ### <a name="create-a-go-project-directory"></a>Criar um diretório do projeto Go
 
@@ -301,13 +249,13 @@ O código a seguir compara cada uma das imagens de origem com a imagem de destin
 
 ## <a name="take-a-snapshot-for-data-migration"></a>Tirar um instantâneo para migração de dados
 
-O recurso de instantâneos permite que você mova os dados de rosto salvos, tais como um **PersonGroup** treinado, para uma assinatura de Detecção Facial dos Serviços Cognitivos do Azure diferente. Talvez convenha usar esse recurso se, por exemplo, você tiver criado um objeto **PersonGroup** usando uma assinatura de avaliação gratuita e agora quiser migrá-lo para uma assinatura paga. Confira [Migrar os dados de rosto](../../Face-API-How-to-Topics/how-to-migrate-face-data.md) para ter uma visão geral ampla do recurso de instantâneos.
+O recurso Instantâneos permite que você mova os dados salvos da Detecção Facial, como um **PersonGroup** treinado, para uma assinatura de Detecção Facial dos Serviços Cognitivos do Azure diferente. Você poderá usar esse recurso se, por exemplo, tiver criado um objeto **PersonGroup** usando uma assinatura gratuita e agora quiser migrá-lo para uma assinatura paga. Confira [Migrar os dados de rosto](../../Face-API-How-to-Topics/how-to-migrate-face-data.md) para ter uma visão geral ampla do recurso de instantâneos.
 
 Neste exemplo, você migrará o **PersonGroup** que criou em [Criar e treinar um grupo de pessoas](#create-and-train-a-person-group). Você pode concluir essa seção primeiro ou usar seus próprios constructos de dados de Detecção Facial.
 
 ### <a name="set-up-target-subscription"></a>Configurar a assinatura de destino
 
-Primeiro, você precisa ter uma segunda assinatura do Azure com um recurso de Detecção Facial; você pode fazer isso repetindo as etapas na seção [Configurar](#set-up). 
+Primeiro, você precisa ter uma segunda assinatura do Azure com um recurso de Detecção Facial; você pode fazer isso repetindo as etapas na seção [Configurar](#setting-up). 
 
 Depois, crie as variáveis a seguir perto da parte superior do seu método **main**. Você também precisará criar variáveis de ambiente para a ID da assinatura da conta do Azure, bem como a chave, o ponto de extremidade e a ID da assinatura da nova conta (de destino).
 

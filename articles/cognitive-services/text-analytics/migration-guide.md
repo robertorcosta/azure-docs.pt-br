@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 05/13/2020
+ms.date: 06/25/2020
 ms.author: aahi
-ms.openlocfilehash: 2fd6c908aa95ef22cbf7ea0b62b925d84d66cd28
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 12c09ad8e1db3914263fcc864c9c2d09069d63a6
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84143266"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85412576"
 ---
 # <a name="migrate-to-version-3x-of-the-text-analytics-api"></a>Migrar para a versão 3. x do API de Análise de Texto
 
@@ -35,7 +35,7 @@ Análise de Sentimento na versão 2,1 retorna pontuações de sentimentos entre 
 
 Se seu aplicativo usar a API REST, atualize seu ponto de extremidade de solicitação para o ponto de extremidade V3 para análise de sentimentos. Por exemplo: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/sentiment` . Também será necessário atualizar o aplicativo para usar os rótulos de sentimentos retornados na [resposta JSON](how-tos/text-analytics-how-to-sentiment-analysis.md#view-the-results). 
 
-### <a name="client-libraries"></a>Bibliotecas de clientes
+### <a name="client-libraries"></a>Bibliotecas de cliente
 
 [!INCLUDE [Client library migration information](includes/client-library-migration-section.md)]
 
@@ -44,7 +44,7 @@ Se seu aplicativo usar a API REST, atualize seu ponto de extremidade de solicita
 ## <a name="feature-changes"></a>Alterações de recurso
 
 > [!NOTE] 
-> Atualmente, as [categorias de entidade v3](named-entity-types.md) são retornadas apenas em texto em inglês. A API retorna resultados da versão 2,1 para solicitações em outras linguagens, desde que elas tenham suporte na versão 2,1.
+> Atualmente, as [categorias de entidade v3](named-entity-types.md) são retornadas apenas em texto em inglês e espanhol. A API retorna resultados da versão 2,1 para solicitações em outras linguagens, desde que elas tenham suporte na versão 2,1.
 
 Na versão 2,1, o API de Análise de Texto usa um ponto de extremidade para NER (reconhecimento de entidade nomeada) e vinculação de entidade. A versão 3 fornece detecção de entidade nomeada expandida e usa pontos de extremidade separados para NER e solicitações de vinculação de entidade. A partir do v 3.1-Preview. 1, o NER também pode detectar `pii` informações pessoais e de saúde `phi` . 
 
@@ -62,7 +62,7 @@ NER
 
 Também será necessário atualizar seu aplicativo para usar as categorias de [entidade](named-entity-types.md) retornadas na [resposta JSON](how-tos/text-analytics-how-to-entity-linking.md#view-results).
 
-### <a name="client-libraries"></a>Bibliotecas de clientes
+### <a name="client-libraries"></a>Bibliotecas de cliente
 
 [!INCLUDE [Client library migration information](includes/client-library-migration-section.md)]
 
@@ -79,7 +79,7 @@ O recurso de detecção de idioma não foi alterado na v3 fora da versão do pon
 
 Se seu aplicativo usar a API REST, atualize seu ponto de extremidade de solicitação para o ponto de extremidade V3 para detecção de idioma. Por exemplo: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/languages` . Também será necessário atualizar o aplicativo para usar em `ConfidenceScore` vez de `score` na [resposta JSON](how-tos/text-analytics-how-to-language-detection.md#step-3-view-the-results). 
 
-### <a name="client-libraries"></a>Bibliotecas de clientes
+### <a name="client-libraries"></a>Bibliotecas de cliente
 
 [!INCLUDE [Client library migration information](includes/client-library-migration-section.md)]
 
@@ -96,16 +96,16 @@ O recurso de extração de frase-chave não foi alterado em v3 fora da versão d
 
 Se seu aplicativo usar a API REST, atualize seu ponto de extremidade de solicitação para o ponto de extremidade V3 para extração de frase de chave. Por exemplo: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`
 
-### <a name="client-libraries"></a>Bibliotecas de clientes
+### <a name="client-libraries"></a>Bibliotecas de cliente
 
 [!INCLUDE [Client library migration information](includes/client-library-migration-section.md)]
 
 ---
 
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 * [Referência de API de Análise de Texto v2](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/)
-* [O que é o API de Análise de Texto](overview.md)
+* [O que é a API de Análise de Texto](overview.md)
 * [Suporte ao idioma](language-support.md)
 * [Controle de versão de modelo](concepts/model-versioning.md)

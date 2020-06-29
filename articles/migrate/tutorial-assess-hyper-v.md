@@ -4,12 +4,12 @@ description: Descreve como avaliar as VMs locais do Hyper-V para migração para
 ms.topic: tutorial
 ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: d87e0d54a62736623483f1929b1979af8efb3a58
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: 53cf4eea4bfe61951be9975bacf9adb2b3fcf435
+ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85052427"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85106485"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Avaliar VMs do Hyper-V usando a avaliação de servidor das Migrações para Azure
 
@@ -54,12 +54,12 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
     - A região do projeto é usada apenas para armazenar os metadados coletados das VMs locais.
     - Você pode selecionar uma região de destino do Azure diferente ao migrar as VMs. Todas as regiões do Azure têm suporte como destino de migração.
 
-    ![Criar um projeto de Migrações para Azure](./media/tutorial-assess-hyper-v/migrate-project.png)
+    ![Criar um projeto das Migrações para Azure](./media/tutorial-assess-hyper-v/migrate-project.png)
 
 7. Clique em **Próximo**.
 8. Em **Selecionar ferramenta de avaliação**, selecione **Migrações para Azure: Avaliação de Servidor** > **Avançar**.
 
-    ![Criar um projeto de Migrações para Azure](./media/tutorial-assess-hyper-v/assessment-tool.png)
+    ![Criar um projeto das Migrações para Azure](./media/tutorial-assess-hyper-v/assessment-tool.png)
 
 9. Em **Selecionar ferramenta de migração**, selecione **Ignorar a adição de uma ferramenta de migração por enquanto** > **Avançar**.
 10. Em **Examinar + adicionar ferramentas**, examine as configurações e clique em **Adicionar ferramentas**.
@@ -124,9 +124,9 @@ Importe o arquivo baixado e crie a VM.
 
     ![Implantar o VHD](./media/tutorial-assess-hyper-v/deploy-vhd.png)
 
-2. No Assistente para Importar Máquina Virtual > **Antes de começar**, clique em **Próximo**.
+2. No Assistente para Importar Máquina Virtual > **Antes de começar**, clique em **Avançar**.
 3. Em **Localizar Pasta**, selecione a pasta **Máquinas Virtuais**. Em seguida, clique em **Próximo**.
-1. Em **Selecionar Máquina Virtual**, clique em **Próximo**.
+1. Em **Selecionar Máquina Virtual**, clique em **Avançar**.
 2. Em **Escolher Tipo de Importação**, clique em **Copiar a máquina virtual (criar uma nova ID exclusiva)** . Em seguida, clique em **Próximo**.
 3. Em **Escolher Destino**, mantenha a configuração padrão. Clique em **Próximo**.
 4. Em **Pastas de Armazenamento**, mantenha a configuração padrão. Clique em **Próximo**.

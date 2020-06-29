@@ -5,16 +5,16 @@ services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 4e717de82c289aacfba2372e77dc932becaf9a5c
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 7df4d917ce25d644003a60b34bc0683ea75299f3
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84764172"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85204873"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Controlar o acesso à conta de armazenamento para SQL sob demanda (versão prévia)
 
@@ -83,7 +83,7 @@ Você pode usar as seguintes combinações de autorização e tipos de Armazenam
 
 |                     | Armazenamento de Blobs   | ADLS Gen1        | ADLS Gen2     |
 | ------------------- | ------------   | --------------   | -----------   |
-| *SAS*               | Com suporte      | Sem suporte   | Com suporte     |
+| *SAS*               | Com suporte      | Não compatível   | Com suporte     |
 | *Identidade Gerenciada* | Com suporte      | Com suporte        | Com suporte     |
 | *Identidade do Usuário*    | Com suporte      | Com suporte        | Com suporte     |
 

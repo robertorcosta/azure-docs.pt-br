@@ -21,6 +21,8 @@
       href: front-door-tutorial-geo-filtering.md
     - name: Configurar um Mecanismo de Regras
       href: front-door-tutorial-rules-engine.md
+    - name: Adicionar cabeçalhos de Segurança com o Mecanismo de Regras
+      href: front-door-security-headers.md
     - name: Firewall do Aplicativo Web e Front Door
       href: front-door-waf.md
 - name: Exemplos
