@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
-ms.date: 05/29/2020
-ms.openlocfilehash: 5b7c7219c15f6c9b687aecd2e9d9f46ea4a71efa
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.date: 06/10/2020
+ms.openlocfilehash: 71fca8f7dd808058e88d5a5ffe9a64e1136ceefc
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84249086"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84736487"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Carregar incrementalmente os dados do banco de dados SQL do Azure para o Armazenamento de Blobs do Azure usando o portal do Azure
 
@@ -149,7 +149,7 @@ WHERE [TableName] = @TableName
 END
 ```
 
-## <a name="create-a-data-factory"></a>Criar uma data factory
+## <a name="create-a-data-factory"></a>Criar um data factory
 
 1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface do usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
 2. No menu à esquerda, selecione **Criar um recurso** > **Analytics** > **Data Factory**:
@@ -208,7 +208,7 @@ Neste tutorial, você cria um pipeline com duas atividades de Pesquisa, uma ativ
 9. Na guia **Conexão**, selecione **[dbo].[watermarktable]** para **Tabela**. Se você quiser visualizar os dados na tabela, clique em **Visualizar dados**.
 
     ![Conjunto de dados de marca d'água - configurações de conexão](./media/tutorial-incremental-copy-portal/watermark-dataset-connection-settings.png)
-10. Alterne para o editor de pipeline clicando na guia pipeline na parte superior ou clicando no nome do pipeline n modo de exibição de árvore à esquerda. Na janela Propriedades para a atividade de **Pesquisa**, confirme se **WatermarkDataset** está selecionado para o campo **Conjunto de Dados de Origem**.
+10. Alterne para o editor de pipeline clicando na guia pipeline na parte superior ou clicando no nome do pipeline no modo de exibição de árvore à esquerda. Na janela Propriedades para a atividade de **Pesquisa**, confirme se **WatermarkDataset** está selecionado para o campo **Conjunto de Dados de Origem**.
 
 11. Na caixa de ferramentas **Atividades**, expanda **Geral** e arraste e solte outra atividade de **Pesquisa** para a superfície do designer de pipeline e defina o nome como  **LookupNewWaterMarkActivity** na guia **Geral** da janela Propriedades. Esta atividade de Pesquisa obtém o novo valor de marca d'água da tabela com os dados de origem a serem copiados para o destino.
 
@@ -218,7 +218,7 @@ Neste tutorial, você cria um pipeline com duas atividades de Pesquisa, uma ativ
 14. Na janela **Definir propriedades**, insira **SourceDataset** como **Nome**. Selecione **AzureSqlDatabaseLinkedService** para **Serviço vinculado**.
 15. Selecione **[dbo].[data_source_table]** para Tabela. Você especificará uma consulta nesse conjunto de dados posteriormente com o tutorial. A consulta tem precedência sobre a tabela que você especificar nesta etapa.
 16. Selecione **Concluir**.
-17. Alterne para o editor de pipeline clicando na guia pipeline na parte superior ou clicando no nome do pipeline n modo de exibição de árvore à esquerda. Na janela Propriedades para a atividade de **Pesquisa**, confirme se **SourceDataset** está selecionado para o campo **Conjunto de dados de origem**.
+17. Alterne para o editor de pipeline clicando na guia pipeline na parte superior ou clicando no nome do pipeline no modo de exibição de árvore à esquerda. Na janela Propriedades para a atividade de **Pesquisa**, confirme se **SourceDataset** está selecionado para o campo **Conjunto de dados de origem**.
 18. Selecione **Consulta** para o campo **Usar consulta** campo e digite a seguinte consulta: você está selecionando apenas o valor máximo de **LastModifytime** do **data_ source_table**. Verifique se você também marcou **Somente a primeira linha**.
 
     ```sql
@@ -260,7 +260,7 @@ Neste tutorial, você cria um pipeline com duas atividades de Pesquisa, uma ativ
     1. Para o campo **Caminho do arquivo**, insira **adftutorial/incrementalcopy**. **adftutorial** é o nome do contêiner de blobs e **incrementalcopy** é o nome da pasta. Esse snippet de código supõe que você tenha um contêiner de blob denominado adftutorial no Armazenamento de Blobs. Crie o contêiner caso ele não exista ou defina-o com o nome de um contêiner existente. O Azure Data Factory cria automaticamente a pasta de saída **incrementalcopy** se ela não existir. Você também pode usar o botão **Procurar** para o **Caminho de arquivo** para navegar até uma pasta em um contêiner de blob.
     2. Para a parte referente ao **Arquivo** do campo **Caminho de arquivo**, selecione **Adicionar conteúdo dinâmico [Alt+P]** e, em seguida, insira `@CONCAT('Incremental-', pipeline().RunId, '.txt')` na janela aberta. Em seguida, selecione **Concluir**. Neste tutorial, o nome do arquivo é gerado dinamicamente pelo uso da expressão. Cada execução de pipeline possui uma ID exclusiva. A atividade de Cópia usa a ID de execução para gerar o nome do arquivo.
 
-28. Alterne para o editor de **pipeline** clicando na guia Pipeline na parte superior ou clicando no nome do pipeline no modo de exibição de árvore à esquerda.
+28. Alterne para o editor de **pipeline** clicando na guia pipeline na parte superior ou clicando no nome do pipeline no modo de exibição de árvore à esquerda.
 29. Na caixa de ferramentas **Atividades**, expanda **Geral** e arraste e solte a atividade de **Procedimento armazenado** da caixa de ferramentas **Atividades** para a superfície de designer do pipeline. **Conecte** a saída verde (Bem-sucedida) da atividade de **Cópia** à atividade de **Procedimento armazenado**.
 
 24. Selecione **Atividade de Procedimento Armazenado** no designer de pipeline, altere seu nome para **StoredProceduretoWriteWatermarkActivity**.
@@ -277,7 +277,7 @@ Neste tutorial, você cria um pipeline com duas atividades de Pesquisa, uma ativ
         | LastModifiedtime | Datetime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | String | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
-    ![Atividade de Procedimento armazenado - configurações de procedimento armazenado](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
+        ![Atividade de Procedimento armazenado - configurações de procedimento armazenado](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
 27. Para validar as configurações de pipeline, clique em **Validar** na barra de ferramentas. Confirme se não houver nenhum erro de validação. Para fechar a janela **Relatório de validação do pipeline** clique em >>.   
 
 28. Publique as entidades (serviços vinculados, conjuntos de dados e pipelines) para o serviço de Azure Data Factory selecionando o botão **Publicar tudo**. Aguarde até que você veja a mensagem informando que a publicação foi bem-sucedida.
@@ -290,9 +290,9 @@ Neste tutorial, você cria um pipeline com duas atividades de Pesquisa, uma ativ
 
 ## <a name="monitor-the-pipeline-run"></a>Monitorar a execução de pipeline
 
-1. Alterne para a guia **Monitorar** à esquerda. Você pode ver o status da execução do pipeline disparado pelo gatilho manual. Clique no botão **Atualizar** para atualizar a lista.
+1. Alterne para a guia **Monitorar** à esquerda. Você vê o status da execução do pipeline disparado por um gatilho manual. Você pode usar os links na coluna **PIPELINE NAME** para ver detalhes de execução e executar o pipeline novamente.
 
-2. Para exibir execuções de atividade associadas a esta execução de pipeline, clique no primeiro link (**Visualizar execuções de atividade**) na coluna **Ações**. Você pode alternar para o modo de exibição anterior clicando em **Pipelines** na parte superior. Clique no botão **Atualizar** para atualizar a lista.
+2. Para ver as execuções de atividade associadas à execução do pipeline, selecione o link na coluna **PIPELINE NAME**. Para obter detalhes sobre as execuções de atividade, selecione o link **Detalhes** (ícone de óculos) na coluna **ACTIVITY NAME**. Selecione **Todas as execuções de pipeline** na parte superior para voltar à exibição Execuções de Pipeline. Para atualizar a exibição, selecione **Atualizar**.
 
 
 ## <a name="review-the-results"></a>Revise os resultados
@@ -355,9 +355,9 @@ PersonID | Name | LastModifytime
 
 ## <a name="monitor-the-second-pipeline-run"></a>Monitorar a segunda execução do pipeline
 
-1. Alterne para a guia **Monitorar** à esquerda. Você pode ver o status da execução do pipeline disparado pelo gatilho manual. Clique no botão **Atualizar** para atualizar a lista.
+1. Alterne para a guia **Monitorar** à esquerda. Você vê o status da execução do pipeline disparado por um gatilho manual. Você pode usar os links na coluna **PIPELINE NAME** para ver detalhes da atividade e executar o pipeline novamente.
 
-2. Para exibir execuções de atividade associadas a esta execução de pipeline, clique no primeiro link (**Visualizar execuções de atividade**) na coluna **Ações**. Você pode alternar para o modo de exibição anterior clicando em **Pipelines** na parte superior. Clique no botão **Atualizar** para atualizar a lista.
+2. Para ver as execuções de atividade associadas à execução do pipeline, selecione o link na coluna **PIPELINE NAME**. Para obter detalhes sobre as execuções de atividade, selecione o link **Detalhes** (ícone de óculos) na coluna **ACTIVITY NAME**. Selecione **Todas as execuções de pipeline** na parte superior para voltar à exibição Execuções de Pipeline. Para atualizar a exibição, selecione **Atualizar**.
 
 
 ## <a name="verify-the-second-output"></a>Verifique a segunda saída

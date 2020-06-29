@@ -9,12 +9,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 30c024aafc1cf8f479de77107b7f0aaaa262d47c
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 8c17351c049ef419ab95f46a54aa9f8cc523f7cf
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235089"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84887449"
 ---
 # <a name="install-software-and-set-up-resources-for-the-tutorial"></a>Instalar software e configurar recursos para o tutorial
 
@@ -30,6 +30,7 @@ Neste tutorial de três partes, você criará um modelo de machine learning para
 4. Instalar o [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio/)
 5. Abra o Azure Data Studio e configure o Python para notebooks. Para obter detalhes, consulte [Configurar Python para notebooks](/sql/azure-data-studio/sql-notebooks#configure-python-for-notebooks). Esta etapa pode levar vários minutos.
 6. Instale a [versão mais recente](https://github.com/Azure/azure-powershell/releases/tag/v3.5.0-February2020) da CLI do Azure. Os scripts a seguir exigem que o PowerShell do AZ seja da versão mais recente (3.5.0, fevereiro de 2020).
+7. Baixe os [arquivos de imagem do Docker AMD/ARM](https://github.com/microsoft/sql-server-samples/tree/master/samples/demos/azure-sql-edge-demos/iron-ore-silica-impurities/DACPAC) e [DACPAC](https://github.com/microsoft/sql-server-samples/tree/master/samples/demos/azure-sql-edge-demos/iron-ore-silica-impurities/tar-files) que serão utilizados no tutorial.
 
 ## <a name="deploy-azure-resources-using-powershell-script"></a>Implantar os recursos do Azure usando o script do PowerShell
 

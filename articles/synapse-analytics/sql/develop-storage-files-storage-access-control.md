@@ -6,15 +6,15 @@ author: filippopovic
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 7d9157993e8cdbb6f7976ee2d4ce67b9039e7b52
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 4e717de82c289aacfba2372e77dc932becaf9a5c
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835828"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764172"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Controlar o acesso à conta de armazenamento para SQL sob demanda (versão prévia)
 
@@ -29,7 +29,18 @@ Este artigo descreve os tipos de credenciais que você pode usar e como a pesqui
 Um usuário que fez logon em um recurso SQL sob demanda deverá estar autorizado a acessar e consultar os arquivos no Armazenamento do Azure se os arquivos não estiverem disponíveis publicamente. Você pode usar três tipos de autorização para acessar um armazenamento não público: [Identidade do Usuário](?tabs=user-identity), [Assinatura de acesso compartilhado](?tabs=shared-access-signature) e [Identidade Gerenciada](?tabs=managed-identity).
 
 > [!NOTE]
-> [Passagem do Azure AD](#force-azure-ad-pass-through) é o comportamento padrão quando você cria um workspace. Se você usá-la, não precisará criar credenciais para cada conta de armazenamento acessada usando os logons do Azure AD. É possível [desabilitar esse comportamento](#disable-forcing-azure-ad-pass-through).
+> **Passagem do Azure AD** é o comportamento padrão quando você cria um workspace.
+
+### <a name="user-identity"></a>[Identidade do Usuário](#tab/user-identity)
+
+A **Identidade do Usuário**, também conhecida como "passagem do Azure AD", é um tipo de autorização em que a identidade do usuário do Azure AD que fez logon no SQL sob demanda é usada para autorizar o acesso a dados. Antes de acessar os dados, o administrador do Armazenamento do Azure deve conceder permissões ao usuário do Azure AD. Conforme indicado na tabela a seguir, não é compatível para o tipo de usuário do SQL.
+
+> [!IMPORTANT]
+> Você precisa ter uma função de Proprietário/Colaborador/Leitor de dados do blob de armazenamento para usar sua identidade para acessar os dados.
+> Mesmo se você for um Proprietário de uma Conta de Armazenamento, ainda precisará se adicionar a uma das funções de dados do blob de armazenamento.
+>
+> Para saber mais sobre o controle de acesso no Azure Data Lake Storage Gen2, examine o artigo [Controle de acesso no Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-access-control.md).
+>
 
 ### <a name="shared-access-signature"></a>[Assinatura de acesso compartilhado](#tab/shared-access-signature)
 
@@ -43,49 +54,6 @@ Você pode obter um token SAS navegando até o **Portal do Azure -> Conta de Arm
 > Token SAS: ?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D
 
 Você precisa criar uma credencial no escopo do banco de dados ou no escopo do servidor para permitir o acesso usando o token SAS.
-
-### <a name="user-identity"></a>[Identidade do Usuário](#tab/user-identity)
-
-A **Identidade do Usuário**, também conhecida como "passagem", é um tipo de autorização em que a identidade do usuário do Azure AD que fez logon no SQL sob demanda é usada para autorizar o acesso a dados. Antes de acessar os dados, o administrador do Armazenamento do Azure deve conceder permissões ao usuário do Azure AD. Conforme indicado na tabela acima, não é compatível para o tipo de usuário do SQL.
-
-> [!IMPORTANT]
-> Você precisa ter uma função de Proprietário/Colaborador/Leitor de dados do blob de armazenamento para usar sua identidade para acessar os dados.
-> Mesmo se você for um Proprietário de uma Conta de Armazenamento, ainda precisará se adicionar a uma das funções de dados do blob de armazenamento.
->
-> Para saber mais sobre o controle de acesso no Azure Data Lake Storage Gen2, examine o artigo [Controle de acesso no Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-access-control.md).
->
-
-Você precisa habilitar explicitamente a autenticação de passagem do Azure AD para permitir que os usuários do Azure AD acessem o armazenamento usando as identidades deles.
-
-#### <a name="force-azure-ad-pass-through"></a>Forçar passagem do Azure AD
-
-Forçar uma passagem do Azure AD é um comportamento padrão obtido por um CREDENTIAL NAME especial, `UserIdentity`, que é criado automaticamente durante o provisionamento do workspace do Azure Synapse. Ele força o uso de uma passagem do Azure AD para cada consulta de cada logon do Azure AD, o que ocorrerá apesar da existência de outras credenciais.
-
-> [!NOTE]
-> A passagem do Azure AD é um comportamento padrão. Você não precisa criar credenciais para cada conta de armazenamento acessada pelos logons do AD.
-
-Caso você tenha [desabilitado forçar a passagem do Azure AD para cada consulta](#disable-forcing-azure-ad-pass-through) e deseja habilitá-la novamente, execute:
-
-```sql
-CREATE CREDENTIAL [UserIdentity]
-WITH IDENTITY = 'User Identity';
-```
-
-Para habilitar forçar uma passagem do Azure AD para um usuário específico, você pode conceder permissão REFERENCE na credencial `UserIdentity` para esse usuário específico. O seguinte exemplo permite forçar uma passagem do Azure AD para um user_name:
-
-```sql
-GRANT REFERENCES ON CREDENTIAL::[UserIdentity] TO USER [user_name];
-```
-
-#### <a name="disable-forcing-azure-ad-pass-through"></a>Desabilitar forçar passagem do Azure AD
-
-Você pode desabilitar [forçar a passagem do Azure AD para cada consulta](#force-azure-ad-pass-through). Para desabilitá-la, descarte a credencial `Userdentity` usando:
-
-```sql
-DROP CREDENTIAL [UserIdentity];
-```
-
-Se você quiser reabilitá-la, veja a seção [Forçar passagem do Azure AD](#force-azure-ad-pass-through).
 
 ### <a name="managed-identity"></a>[Identidade gerenciada](#tab/managed-identity)
 
@@ -115,7 +83,7 @@ Você pode usar as seguintes combinações de autorização e tipos de Armazenam
 
 |                     | Armazenamento de Blobs   | ADLS Gen1        | ADLS Gen2     |
 | ------------------- | ------------   | --------------   | -----------   |
-| *SAS*               | Com suporte      | Não compatível   | Com suporte     |
+| *SAS*               | Com suporte      | Sem suporte   | Com suporte     |
 | *Identidade Gerenciada* | Com suporte      | Com suporte        | Com suporte     |
 | *Identidade do Usuário*    | Com suporte      | Com suporte        | Com suporte     |
 
@@ -152,7 +120,7 @@ GRANT REFERENCES ON CREDENTIAL::[UserIdentity] TO [public];
 As credenciais no escopo do servidor são usadas quando o logon do SQL chama a função `OPENROWSET` sem `DATA_SOURCE` para ler arquivos em alguma conta de armazenamento. O nome da credencial no escopo do servidor **precisa** corresponder à URL do Armazenamento do Azure. Uma credencial é adicionada executando [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). Você precisará fornecer um argumento CREDENTIAL NAME. Ele deve corresponder a parte ou a todo o caminho para os dados no Armazenamento (veja abaixo).
 
 > [!NOTE]
-> Não há compatibilidade para o argumento FOR CRYPTOGRAPHIC PROVIDER.
+> Não há suporte para o argumento `FOR CRYPTOGRAPHIC PROVIDER`.
 
 O nome do argumento CREDENTIAL no nível do servidor deve corresponder ao caminho completo da conta de armazenamento (e, opcionalmente, do contêiner), no seguinte formato: `<prefix>://<storage_account_path>/<storage_path>`. Os caminhos de contas de armazenamento são descritos na tabela a seguir:
 
@@ -162,10 +130,13 @@ O nome do argumento CREDENTIAL no nível do servidor deve corresponder ao caminh
 | Azure Data Lake Storage Gen1 | HTTPS  | <conta_de_armazenamento>.azuredatalakestore.net/webhdfs/v1 |
 | Azure Data Lake Storage Gen2 | HTTPS  | <conta_de_armazenamento>.dfs.core.windows.net              |
 
-> [!NOTE]
-> Há um CREDENTIAL `UserIdentity` especial no nível do servidor que [força a passagem do Azure AD](?tabs=user-identity#force-azure-ad-pass-through).
-
 As credenciais no escopo do servidor permitem o acesso ao Armazenamento do Azure usando os seguintes tipos de autenticação:
+
+### <a name="user-identity"></a>[Identidade do Usuário](#tab/user-identity)
+
+Os usuários do Azure AD podem acessar qualquer arquivo no armazenamento do Azure quando eles têm a função `Storage Blob Data Owner`, `Storage Blob Data Contributor` ou `Storage Blob Data Reader`. Os usuários do Azure AD não precisam de credenciais para acessar o armazenamento. 
+
+Os usuários do SQL não podem usar a autenticação do Azure AD para acessar o armazenamento.
 
 ### <a name="shared-access-signature"></a>[Assinatura de acesso compartilhado](#tab/shared-access-signature)
 
@@ -180,15 +151,6 @@ WITH IDENTITY='SHARED ACCESS SIGNATURE'
 GO
 ```
 
-### <a name="user-identity"></a>[Identidade do Usuário](#tab/user-identity)
-
-O script a seguir cria uma credencial no nível do servidor que permite ao usuário representar alguém usando a identidade do Azure AD.
-
-```sql
-CREATE CREDENTIAL [UserIdentity]
-WITH IDENTITY = 'User Identity';
-```
-
 ### <a name="managed-identity"></a>[Identidade gerenciada](#tab/managed-identity)
 
 O script a seguir cria uma credencial no nível do servidor que pode ser usada pela função `OPENROWSET` para acessar qualquer arquivo no Armazenamento do Azure usando a identidade gerenciada do workspace.
@@ -200,16 +162,8 @@ WITH IDENTITY='Managed Identity'
 
 ### <a name="public-access"></a>[Acesso público](#tab/public-access)
 
-O script a seguir cria uma credencial no nível do servidor que pode ser usada pela função `OPENROWSET` para acessar qualquer arquivo no Armazenamento do Azure disponível publicamente. Crie essa credencial para habilitar a entidade de segurança SQL que executa a função `OPENROWSET` a fim de ler arquivos disponíveis publicamente no Armazenamento do Azure que corresponde à URL no nome da credencial.
+A credencial no escopo do banco de dados não é necessária para permitir o acesso a arquivos disponíveis publicamente. Crie uma [fonte de dados sem credencial no escopo do banco de dados](develop-tables-external-tables.md?tabs=sql-ondemand#example-for-create-external-data-source) para acessar arquivos publicamente disponíveis no Armazenamento do Azure.
 
-Você precisaria substituir <*mystorageaccountname*> pelo nome real da conta de armazenamento e <*mystorageaccountcontainername*> pelo nome real do contêiner:
-
-```sql
-CREATE CREDENTIAL [https://<mystorageaccountname>.blob.core.windows.net/<mystorageaccountcontainername>]
-WITH IDENTITY='SHARED ACCESS SIGNATURE'
-, SECRET = '';
-GO
-```
 ---
 
 ## <a name="database-scoped-credential"></a>Credencial no escopo do banco de dados
@@ -218,23 +172,20 @@ As credenciais no escopo do banco de dados são usadas quando qualquer entidade 
 
 As credenciais no escopo do banco de dados permitem o acesso ao Armazenamento do Azure usando os seguintes tipos de autenticação:
 
+### <a name="azure-ad-identity"></a>[Identidade do Azure AD](#tab/user-identity)
+
+Os usuários do Azure AD podem acessar qualquer arquivo no armazenamento do Azure quando eles têm, pelo menos, a função `Storage Blob Data Owner`, `Storage Blob Data Contributor` ou `Storage Blob Data Reader`. Os usuários do Azure AD não precisam de credenciais para acessar o armazenamento.
+
+Os usuários do SQL não podem usar a autenticação do Azure AD para acessar o armazenamento.
+
 ### <a name="shared-access-signature"></a>[Assinatura de acesso compartilhado](#tab/shared-access-signature)
 
 O script a seguir cria uma credencial que é usada para acessar arquivos no armazenamento usando o token SAS especificado na credencial.
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL [SasToken]
-WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D';
-GO
-```
-
-### <a name="azure-ad-identity"></a>[Identidade do Azure AD](#tab/user-identity)
-
-O script a seguir cria uma credencial no escopo do banco de dados que é usada pela [tabela externa](develop-tables-external-tables.md) e funções `OPENROWSET` que usam a fonte de dados com a credencial para acessar arquivos de armazenamento usando a identidade do Azure AD de cada função.
-
-```sql
-CREATE DATABASE SCOPED CREDENTIAL [AzureAD]
-WITH IDENTITY = 'User Identity';
+WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
+     SECRET = 'sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D';
 GO
 ```
 
@@ -272,14 +223,17 @@ WITH (    LOCATION   = 'https://*******.blob.core.windows.net/samples',
 Use o script a seguir para criar uma tabela que acessa uma fonte de dados disponível publicamente.
 
 ```sql
-CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] WITH ( FORMAT_TYPE = PARQUET)
+CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat]
+       WITH ( FORMAT_TYPE = PARQUET)
 GO
 CREATE EXTERNAL DATA SOURCE publicData
 WITH (    LOCATION   = 'https://****.blob.core.windows.net/public-access' )
 GO
 
 CREATE EXTERNAL TABLE dbo.userPublicData ( [id] int, [first_name] varchar(8000), [last_name] varchar(8000) )
-WITH ( LOCATION = 'parquet/user-data/*.parquet', DATA_SOURCE = [publicData], FILE_FORMAT = [SynapseParquetFormat] )
+WITH ( LOCATION = 'parquet/user-data/*.parquet',
+       DATA_SOURCE = [publicData],
+       FILE_FORMAT = [SynapseParquetFormat] )
 ```
 
 O usuário do banco de dados pode ler o conteúdo dos arquivos da fonte de dados usando a tabela externa ou a função [OPENROWSET](develop-openrowset.md) que faz referência à fonte de dados:
@@ -287,7 +241,9 @@ O usuário do banco de dados pode ler o conteúdo dos arquivos da fonte de dados
 ```sql
 SELECT TOP 10 * FROM dbo.userPublicData;
 GO
-SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet', DATA_SOURCE = [mysample], FORMAT=PARQUET) as rows;
+SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet',
+                                DATA_SOURCE = [mysample],
+                                FORMAT=PARQUET) as rows;
 GO
 ```
 
@@ -300,13 +256,13 @@ Modifique o script a seguir para criar uma tabela externa que acessa o Armazenam
 CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'Y*********0'
 GO
 
--- Create databases scoped credential that use User Identity, Managed Identity, or SAS. User needs to create only database-scoped credentials that should be used to access data source:
+-- Create databases scoped credential that use Managed Identity or SAS token. User needs to create only database-scoped credentials that should be used to access data source:
 
-CREATE DATABASE SCOPED CREDENTIAL MyIdentity WITH IDENTITY = 'User Identity'
+CREATE DATABASE SCOPED CREDENTIAL WorkspaceIdentity
+WITH IDENTITY = 'Managed Identity'
 GO
-CREATE DATABASE SCOPED CREDENTIAL WorkspaceIdentity WITH IDENTITY = 'Managed Identity'
-GO
-CREATE DATABASE SCOPED CREDENTIAL SasCredential WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sv=2019-10-1********ZVsTOL0ltEGhf54N8KhDCRfLRI%3D'
+CREATE DATABASE SCOPED CREDENTIAL SasCredential
+WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sv=2019-10-1********ZVsTOL0ltEGhf54N8KhDCRfLRI%3D'
 
 -- Create data source that one of the credentials above, external file format, and external tables that reference this data source and file format:
 
@@ -316,13 +272,14 @@ GO
 CREATE EXTERNAL DATA SOURCE mysample
 WITH (    LOCATION   = 'https://*******.blob.core.windows.net/samples'
 -- Uncomment one of these options depending on authentication method that you want to use to access data source:
---,CREDENTIAL = MyIdentity 
 --,CREDENTIAL = WorkspaceIdentity 
 --,CREDENTIAL = SasCredential 
 )
 
 CREATE EXTERNAL TABLE dbo.userData ( [id] int, [first_name] varchar(8000), [last_name] varchar(8000) )
-WITH ( LOCATION = 'parquet/user-data/*.parquet', DATA_SOURCE = [mysample], FILE_FORMAT = [SynapseParquetFormat] )
+WITH ( LOCATION = 'parquet/user-data/*.parquet',
+       DATA_SOURCE = [mysample],
+       FILE_FORMAT = [SynapseParquetFormat] );
 
 ```
 

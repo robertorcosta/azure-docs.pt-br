@@ -5,18 +5,18 @@ author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 06/11/2020
 ms.author: banders
-ms.openlocfilehash: da16e0898f08e1cca602ca5927bce82ed32353fe
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 379f7a0ef60020566de9edfcafb0809d1955cac8
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437855"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84752130"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Obter a propriedade de cobrança das assinaturas do Azure para sua conta do MPA
 
-A fim de fornecer uma única fatura consolidada para os serviços gerenciados e o consumo do Azure, o CSP (Provedor de Soluções na Nuvem) pode assumir a propriedade de cobrança das assinaturas do Azure dos clientes dele com o EA (Contrato Enterprise) Direto.
+A fim de fornecer uma só fatura combinada para os serviços gerenciados e o consumo do Azure, o CSP (Provedor de Soluções na Nuvem) pode assumir a propriedade da cobrança das assinaturas do Azure dos clientes dele com o EA (Contrato Enterprise) Direto.
 
 Esse recurso só está disponível para Parceiros de Cobrança Direta do CSP certificados como [MSP Especialista do Azure](https://partner.microsoft.com/membership/azure-expert-msp). Ele está sujeito à governança e às políticas da Microsoft e pode exigir análise e aprovação para determinados clientes.
 
@@ -26,57 +26,40 @@ Este artigo se aplica às contas de cobrança para Contratos de Parceiro da Micr
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. Estabelecer um [relacionamento de revendedor](https://docs.microsoft.com/partner-center/request-a-relationship-with-a-customer) com um cliente. Verificar a [Visão Geral da Autorização Regional do CSP](https://docs.microsoft.com/partner-center/regional-authorization-overview) para garantir que o cliente e o locatário do Parceiro estejam dentro das mesmas regiões autorizadas.  
-
-2. [Confirmar a aceitação pelo cliente do Contrato de Cliente da Microsoft](https://docs.microsoft.com/partner-center/confirm-customer-agreement).
-
-3. Configurar o [plano do Azure](https://docs.microsoft.com/partner-center/purchase-azure-plan) para o cliente. Se o cliente estiver fazendo a compra por meio de vários revendedores, você precisará configurar o plano do Azure para cada combinação de cliente e revendedor.
+1. Estabelecer um [relacionamento de revendedor](https://docs.microsoft.com/partner-center/request-a-relationship-with-a-customer) com um cliente. Verificar a [Visão Geral da Autorização Regional do CSP](https://docs.microsoft.com/partner-center/regional-authorization-overview) para garantir que o cliente e o locatário do Parceiro estejam dentro das mesmas regiões autorizadas.
+1. [Confirmar a aceitação pelo cliente do Contrato de Cliente da Microsoft](https://docs.microsoft.com/partner-center/confirm-customer-agreement).
+1. Configurar um [plano do Azure](https://docs.microsoft.com/partner-center/purchase-azure-plan) para o cliente. Se o cliente estiver fazendo a compra por meio de vários revendedores, você precisará configurar um plano do Azure para cada combinação de cliente e revendedor.
 
 ## <a name="request-billing-ownership"></a>Solicitar propriedade de cobrança
 
-1. Entre no [portal do Azure](https://portal.azure.com) usando as credenciais de Agente Administrativo do CSP.
-
-2. Pesquise **Gerenciamento de Custos + Cobrança**.
-
-   ![Captura de tela que mostra a pesquisa do portal do Azure para gerenciamento de custos + cobrança](./media/mpa-request-ownership/search-cmb.png)
-
-3. Selecione **Clientes** do lado esquerdo e, em seguida, selecione um cliente na lista.
-
-   ![Captura de tela que mostra a seleção de clientes](./media/mpa-request-ownership/mpa-select-customers.png)        
-
-4. Selecione **Solicitações de transferência** no lado inferior esquerdo e, em seguida, selecione **Adicionar uma nova solicitação**.
-
-   ![Captura de tela que mostra a seleção de solicitações de transferência](./media/mpa-request-ownership/mpa-select-transfer-requests.png)
-
-5. Insira o endereço de email do usuário na organização do cliente que aceitará a solicitação de transferência. O usuário precisa ser um proprietário da conta em um Contrato Enterprise. Selecione **Enviar solicitação de transferência**.
-
-   ![Captura de tela que mostra o envio de uma solicitação de transferência](./media/mpa-request-ownership/mpa-send-transfer-requests.png)
-
-6. O usuário recebe um email com instruções para revisar sua solicitação de transferência.
-
-   ![Captura de tela que mostra o email de análise da solicitação de transferência](./media/mpa-request-ownership/mpa-review-transfer-request-email.png)
-
-7. Para aprovar a solicitação de transferência, o usuário seleciona o link no email e segue as instruções.
-
-    ![Captura de tela que mostra o email de análise da solicitação de transferência](./media/mpa-request-ownership/mpa-review-transfer-request.png)
+1. Entre no [portal do Azure](https://portal.azure.com) usando as credenciais de Agente Administrativo do CSP no locatário do CSP.
+1. Pesquise **Gerenciamento de Custos + Cobrança**.  
+    ![Captura de tela que mostra a pesquisa do portal do Azure para gerenciamento de custos + cobrança](./media/mpa-request-ownership/search-cmb.png)
+1. Selecione **Clientes** do lado esquerdo e, em seguida, selecione um cliente na lista.  
+    [![Captura de tela que mostra a seleção de clientes](./media/mpa-request-ownership/mpa-select-customers.png)](./media/mpa-request-ownership/mpa-select-customers.png#lightbox)
+1. Selecione **Solicitações de transferência** no lado inferior esquerdo e, em seguida, selecione **Adicionar uma nova solicitação**.  
+    [![Captura de tela que mostra a seleção de solicitações de transferência](./media/mpa-request-ownership/mpa-select-transfer-requests.png)](./media/mpa-request-ownership/mpa-select-transfer-requests.png#lightbox)
+1. Insira o endereço de email do usuário na organização do cliente que aceitará a solicitação de transferência. O usuário precisa ser um proprietário da conta em um Contrato Enterprise. Selecione **Enviar solicitação de transferência**.  
+    [![Captura de tela que mostra o envio de uma solicitação de transferência](./media/mpa-request-ownership/mpa-send-transfer-requests.png)](./media/mpa-request-ownership/mpa-send-transfer-requests.png#lightbox)
+1. O usuário recebe um email com instruções para revisar sua solicitação de transferência.  
+    ![Captura de tela que mostra o email de análise da solicitação de transferência](./media/mpa-request-ownership/mpa-review-transfer-request-email.png)
+1. Para aprovar a solicitação de transferência, o usuário seleciona o link no email e segue as instruções.  
+    [![Captura de tela que mostra a revisão da solicitação de transferência](./media/mpa-request-ownership/review-transfer-requests.png)](./media/mpa-request-ownership/review-transfer-requests.png#lightbox) O usuário pode selecionar a conta de cobrança da qual deseja transferir produtos do Azure. Depois de selecionados, os produtos qualificados que podem ser transferidos são mostrados. **Observação:** assinaturas desabilitadas não podem ser transferidas e aparecerão na lista "Produtos não transferíveis do Azure", se aplicável. Depois que os produtos do Azure a serem transferidos estiverem selecionados, selecione **Validar**.
+1. A área **Resultado da validação da transferência** mostrará o impacto dos produtos do Azure que serão transferidos. Estes são os estados possíveis:
+    * **Aprovado** – a validação deste produto do Azure foi aprovada e pode ser transferida.
+    * **Aviso** – há um aviso relacionado ao produto do Azure selecionado. Embora o produto ainda possa ser transferido, fazer isso causará algum impacto do qual o usuário precisa estar ciente caso queira adotar medidas de mitigação. Por exemplo, a assinatura do Azure que está sendo transferida é beneficiada por uma RI. Após a transferência, a assinatura não terá mais esse benefício. Para maximizar a economia, verifique se a RI está associada a outra assinatura que pode aproveitar os benefícios. Em vez disso, o usuário também pode optar por voltar à página de seleção e desmarcar essa assinatura do Azure.
+    * **Falha** – o produto do Azure selecionado não pode ser transferido devido a um erro. O usuário precisará voltar à página de seleção e desmarcar este produto para transferir outros produtos do Azure selecionados.  
+    ![Captura de tela que mostra a experiência de validação](./media/mpa-request-ownership/validate-transfer-request.png)
 
 ## <a name="check-the-transfer-request-status"></a>Verifique o status da solicitação de transferência
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-
-2. Pesquise **Gerenciamento de Custos + Cobrança**.
-
-   ![Captura de tela que mostra a pesquisa do portal do Azure para gerenciamento de custos + cobrança](./media/mpa-request-ownership/billing-search-cost-management-billing.png)
-
-3. Selecione **Clientes** no lado esquerdo.
-
-   ![Captura de tela que mostra a seleção de clientes](./media/mpa-request-ownership/mpa-select-customers.png)
-
-4. Selecione o cliente na lista para a qual você enviou a solicitação de transferência.
-
-5. Selecione **Solicitações de transferência** no lado inferior esquerdo. A página Solicitações de transferência exibe as seguintes informações:
-
-    ![Captura de tela que mostra uma lista de solicitações de transferência](./media/mpa-request-ownership/mpa-select-transfer-requests-for-status.png)
+1. Pesquise **Gerenciamento de Custos + Cobrança**.  
+    ![Captura de tela que mostra a pesquisa do portal do Azure para gerenciamento de custos + cobrança](./media/mpa-request-ownership/billing-search-cost-management-billing.png)
+1. Selecione **Clientes** no lado esquerdo.  
+    [![Captura de tela que mostra a seleção de clientes](./media/mpa-request-ownership/mpa-select-customers.png)](./media/mpa-request-ownership/mpa-select-customers.png#lightbox)
+1. Selecione o cliente na lista para a qual você enviou a solicitação de transferência.
+1. Selecione **Solicitações de transferência** no lado inferior esquerdo. A página Solicitações de transferência exibe as seguintes informações: [![Captura de tela que mostra uma lista de solicitações de transferência](./media/mpa-request-ownership/mpa-select-transfer-requests-for-status.png)](./media/mpa-request-ownership/mpa-select-transfer-requests-for-status.png#lightbox)
 
    |Coluna|Definição|
    |---------|---------|
@@ -97,7 +80,7 @@ Este artigo se aplica às contas de cobrança para Contratos de Parceiro da Micr
    |Canceled|Alguém com acesso à solicitação de transferência cancelou a solicitação|
    |Recusado|O usuário recusou a solicitação de transferência|
 
-6. Selecione uma solicitação de transferência para exibir detalhes. A página de detalhes da transferência exibe as seguintes informações: ![Captura de tela que mostra a lista de assinaturas transferidas](./media/mpa-request-ownership/mpa-transfer-completed.png)
+1. Selecione uma solicitação de transferência para exibir detalhes. A página de detalhes da transferência exibe as seguintes informações: [![Captura de tela que mostra a lista de assinaturas transferidas](./media/mpa-request-ownership/mpa-transfer-completed.png)](./media/mpa-request-ownership/mpa-transfer-completed.png#lightbox)
 
    |Coluna  |Definição|
    |---------|---------|
@@ -112,10 +95,10 @@ Este artigo se aplica às contas de cobrança para Contratos de Parceiro da Micr
 
 É possível solicitar a propriedade de cobrança dos tipos de assinatura listados abaixo.
 
-- [Desenvolvimento/Teste Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/)\*
-- [Contrato Enterprise da Microsoft](https://azure.microsoft.com/pricing/enterprise-agreement/)
+* [Desenvolvimento/Teste Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/)\*
+* [Contrato Enterprise da Microsoft](https://azure.microsoft.com/pricing/enterprise-agreement/)
 
-\* Uma assinatura de Desenvolvimento/Teste precisa primeiro ser convertida em uma oferta do EA Enterprise por meio de um tíquete de suporte. Uma assinatura de Desenvolvimento/Teste Enterprise será cobrada com base em uma taxa paga conforme o uso após a transferência. Qualquer desconto oferecido por meio da oferta de Desenvolvimento/Teste Enterprise por meio do EA do cliente não ficará disponível para o parceiro CSP.
+\* Você precisa converter uma assinatura de Desenvolvimento/Teste em uma oferta do EA Enterprise por meio de um tíquete de suporte. Uma assinatura de Desenvolvimento/Teste Enterprise será cobrada com base em uma taxa paga conforme o uso após a transferência. Qualquer desconto oferecido por meio da oferta de Desenvolvimento/Teste Enterprise por meio do EA do cliente não ficará disponível para o parceiro CSP.
 
 ## <a name="additional-information"></a>Informações adicionais
 
@@ -135,17 +118,17 @@ Todos os recursos de assinaturas como VMs, discos e sites são transferidos.
 
 ### <a name="azure-marketplace-products-transfer"></a>Transferência de produtos do Azure Marketplace
 
-Os produtos do Azure Marketplace que estão disponíveis para assinaturas gerenciadas por CSPs (Provedores de Soluções na Nuvem) são transferidos juntamente com as respectivas assinaturas. As assinaturas que têm produtos do Azure Marketplace que não estão habilitados para CSPs não podem ser transferidas.
+Os produtos do Azure Marketplace disponíveis para assinaturas gerenciadas por CSPs (Provedores de Soluções na Nuvem) são transferidos juntamente com as respectivas assinaturas. As assinaturas que têm produtos do Azure Marketplace não habilitados para CSPs não podem ser transferidas.
 
 ### <a name="azure-reservations-transfer"></a>Transferência de Reservas do Azure
 
-As Reservas do Azure não são movidas automaticamente com as assinaturas. Você pode manter a Reserva em EA para outras assinaturas ou [cancelar a reserva](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations), que pode então ser comprada novamente por um parceiro no CSP. 
+As Reservas do Azure não são movidas automaticamente com as assinaturas. Você pode manter a Reserva em EA para outras assinaturas ou [cancelar a reserva](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations), que pode então ser comprada novamente por um parceiro no CSP.
 
 ### <a name="access-to-azure-services"></a>Acesso aos serviços do Azure
 
-O acesso de usuários, grupos ou entidades de serviço existentes que foi atribuído usando [Azure RBAC (controle de acesso baseado em função)](../../role-based-access-control/overview.md) não é afetado durante a transição. O parceiro não obterá nenhum novo acesso RBAC às assinaturas.  
+O acesso de usuários, grupos ou entidades de serviço existentes que foi atribuído usando o [Azure RBAC (controle de acesso baseado em função)](../../role-based-access-control/overview.md) não é afetado durante a transição. O parceiro não obterá nenhum novo acesso RBAC às assinaturas.
 
-Os parceiros devem trabalhar com o cliente para obter acesso às assinaturas.  Os parceiros precisam obter tíquetes de suporte aberto de acesso [Administrador em Nome de – AOBO](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) ou [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/concepts/cloud-solution-provider).
+Os parceiros devem trabalhar com o cliente para ter acesso às assinaturas. Os parceiros precisam obter tíquetes de suporte aberto de acesso de [Administrador em Nome de – AOBO](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) ou [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/concepts/cloud-solution-provider).
 
 ### <a name="azure-support-plan"></a>Plano de Suporte do Azure
 
@@ -165,15 +148,16 @@ Os produtos SaaS não são transferidos com as assinaturas. Peça ao usuário pa
 
 ### <a name="additional-approval-for-certain-customers"></a>Aprovação adicional para determinados clientes
 
-Algumas das solicitações de transição do cliente podem exigir um processo de análise adicional com a Microsoft devido à natureza da estrutura do Registro Enterprise atual do cliente. O parceiro será notificado desses requisitos ao tentar enviar um convite aos clientes. Os parceiros são solicitados a trabalhar com o Gerente de Desenvolvimento do Parceiro e a equipe de contas do cliente para concluir esse processo de análise.
+Algumas das solicitações de transição do cliente podem exigir um processo de análise adicional com a Microsoft devido à natureza da estrutura do registro Enterprise atual do cliente. O parceiro será notificado desses requisitos ao tentar enviar um convite aos clientes. Os parceiros são solicitados a trabalhar com o Gerente de Desenvolvimento do Parceiro e a equipe de contas do cliente para concluir esse processo de análise.
 
 ### <a name="azure-subscription-directory"></a>Diretório da assinatura do Azure
+
 O diretório das assinaturas do Azure que são transferidas precisa corresponder ao diretório do cliente que foi selecionado ao estabelecer o relacionamento do CSP.
 
 Se esses dois diretórios não forem correspondentes, as assinaturas não poderão ser transferidas. Você precisa estabelecer um novo relacionamento de revendedor CSP com o cliente selecionando o diretório das assinaturas do Azure ou alterando o diretório das assinaturas do Azure para que correspondam ao diretório de relacionamento entre o CSP e o cliente. Para obter mais informações, confira [Associar uma assinatura existente ao Azure AD Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory#to-associate-an-existing-subscription-to-your-azure-ad-directory).
 
-
 ## <a name="check-access-to-a-microsoft-partner-agreement"></a>Verificar o acesso a um Contrato de Parceiro da Microsoft
+
 [!INCLUDE [billing-check-mpa](../../../includes/billing-check-mpa.md)]
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contate o suporte
@@ -182,6 +166,5 @@ Se precisar de ajuda, [contate o suporte](https://portal.azure.com/?#blade/Micro
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- A propriedade de cobrança das assinaturas do Azure é transferida para você. Controle os encargos dessas assinaturas no [portal do Azure](https://portal.azure.com).
-
-- Trabalhe com o cliente para obter acesso às assinaturas transferidas do Azure. [Gerencie o acesso aos recursos do Azure usando o RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+* A propriedade de cobrança das assinaturas do Azure é transferida para você. Controle os encargos dessas assinaturas no [portal do Azure](https://portal.azure.com).
+* Trabalhe com o cliente para obter acesso às assinaturas transferidas do Azure. [Gerencie o acesso aos recursos do Azure usando o RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).

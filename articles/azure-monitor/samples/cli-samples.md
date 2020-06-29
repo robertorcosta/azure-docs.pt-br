@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/16/2018
-ms.openlocfilehash: 3c55becb098c9d93688b59f1db4f702acbff3f72
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: bb61f6146e588673038fae9f41b770c4865cefb7
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837261"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84945283"
 ---
 # <a name="azure-monitor-cli-samples"></a>Exemplos de CLI do Azure Monitor
 Este artigo mostra um exemplo de CLI (interface de linha de comando) que ajudará você a acessar os recursos do Azure Monitor. O Azure Monitor permite que você dimensione automaticamente Serviços de Nuvem, Máquinas Virtuais e Aplicativos Web e envie notificações de alerta ou chame URLs da Web com base em valores de dados de telemetria configurados.
@@ -29,51 +29,51 @@ az login
 
 Depois de executar esse comando, será necessário entrar usando as instruções na tela. Todos os comandos funcionam no contexto de sua assinatura padrão.
 
-Para listar os detalhes da sua assinatura atual, use o comando a seguir.
+Listar os detalhes da sua assinatura atual.
 
 ```azurecli
 az account show
 ```
 
-Para alterar o contexto de trabalho para uma assinatura diferente, use o comando a seguir.
+Alterar o contexto de trabalho para uma assinatura diferente.
 
 ```azurecli
 az account set -s <Subscription ID or name>
 ```
 
-Para exibir uma lista de todos os comandos compatíveis do Azure Monitor, execute o seguinte comando.
+Exibir uma lista de todos os comandos do Azure Monitor com suporte.
 
 ```azurecli
 az monitor -h
 ```
 
-## <a name="view-activity-log-for-a-subscription"></a>Exibir o log de atividade para uma assinatura
+## <a name="view-activity-log"></a>Exibir log de atividades
 
-Para exibir uma lista de eventos de log de atividades, execute o seguinte comando.
+Exibir uma lista de eventos do log de atividades.
 
 ```azurecli
 az monitor activity-log list
 ```
 
-Tente o seguinte para exibir todas as opções disponíveis:
+Veja todas as opções disponíveis.
 
 ```azurecli
 az monitor activity-log list -h
 ```
 
-Veja um exemplo para listar logs por resourceGroup
+Listar logs por um resourceGroup.
 
 ```azurecli
 az monitor activity-log list --resource-group <group name>
 ```
 
-Exemplo para listar logs por chamador
+Listar logs por chamador.
 
 ```azurecli
 az monitor activity-log list --caller myname@company.com
 ```
 
-Exemplo para listar logs por chamador em um tipo de recurso, dentro de um intervalo de datas
+Listar logs por chamador em um tipo de recurso, dentro de um intervalo de datas.
 
 ```azurecli
 az monitor activity-log list --resource-provider Microsoft.Web \

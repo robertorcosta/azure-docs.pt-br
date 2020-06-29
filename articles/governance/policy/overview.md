@@ -1,14 +1,14 @@
 ---
 title: Visão geral do Azure Policy
 description: O Azure Policy é um serviço no Azure que você pode usar para criar, atribuir e gerenciar definições de política em seu ambiente do Azure.
-ms.date: 04/21/2020
+ms.date: 06/17/2020
 ms.topic: overview
-ms.openlocfilehash: 4ec09c8a38e22fc14980422bfe9a80a2bf3edda4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e204a4eeff547877a48789eba6f1b8cac017d08e
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82097363"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84944654"
 ---
 # <a name="what-is-azure-policy"></a>O que é o Azure Policy?
 
@@ -106,7 +106,7 @@ Aqui estão alguns ponteiros e dicas para ter em mente:
 
 A jornada de criação e implementação de uma política no Azure Policy começa com a criação de uma definição de política. Cada definição de política tem condições sob as quais ela é imposta. E ela tem um efeito definido que ocorre se as condições são atendidas.
 
-No Azure Policy, oferecemos algumas políticas internas que estão disponíveis para você por padrão. Por exemplo: 
+No Azure Policy, oferecemos algumas políticas internas que estão disponíveis para você por padrão. Por exemplo:
 
 - **SKUs de Conta de Armazenamento Permitidas** (Negar): Determina se uma conta de armazenamento que está sendo implantada está dentro de um conjunto de tamanhos de SKU. Seu efeito é negar todas as contas de armazenamento que não estão de acordo com o conjunto de tamanhos de SKU definido.
 - **Tipo de Recurso Permitido** (Negar): Define os tipos de recursos que você pode implantar. Seu efeito é negar a todos os recursos que não fazem parte dessa lista definida.
@@ -158,6 +158,8 @@ Nesse cenário, ao definir os parâmetros de iniciativa para **initiativeC**, vo
 
 Ao criar opções de valor em uma definição de iniciativa, você não consegue inserir um valor diferente durante a atribuição da iniciativa, porque ele não é parte da lista.
 
+Para saber mais sobre as estruturas de definições de iniciativa, examine [Estrutura de definição de iniciativa](./concepts/initiative-definition-structure.md).
+
 ### <a name="assignments"></a>Atribuições
 
 Uma atribuição é uma definição ou iniciativa de política que foi atribuída para entrar em vigor em um escopo específico. Esse escopo pode variar de um [grupo de gerenciamento](../management-groups/overview.md) a um recurso individual. O termo _escopo_ se refere a todos os recursos, grupos de recursos, assinaturas ou grupos de gerenciamento aos quais a definição está atribuída. As atribuições são herdadas por todos os recursos filho. Esse design significa que se uma definição for aplicada a um grupo de recursos, ela será aplicada a todos os recursos desse grupo de recursos. No entanto, você pode excluir um subescopo da atribuição.
@@ -166,7 +168,7 @@ Por exemplo, no escopo da assinatura, você pode atribuir uma definição que im
 
 Em outro exemplo, convém atribuir uma definição de lista de permissões de tipo de recurso no nível do grupo de gerenciamento. Então você atribui uma política mais permissiva (permitindo mais tipos de recurso) em um grupo de gerenciamento filho ou até mesmo diretamente em assinaturas. No entanto, este exemplo não funcionaria, pois o Azure Policy é um sistema de negação explícito. Em vez disso, você precisa excluir o grupo de gerenciamento filho ou a assinatura da atribuição no nível do grupo de gerenciamento. Depois, atribua a definição mais permissiva no grupo de gerenciamento filho ou no nível da assinatura. Se qualquer atribuição resultar na negação de um recurso, a única maneira de permitir o recurso será modificar a atribuição de negação.
 
-Para obter mais informações sobre como configurar atribuições de política por meio do portal, consulte [Criar uma atribuição de política para identificar recursos que não estão em conformidade em seu ambiente do Azure](assign-policy-portal.md). Etapas para o [PowerShell](assign-policy-powershell.md) e [CLI do Azure](assign-policy-azurecli.md) também estão disponíveis.
+Para obter mais informações sobre como configurar atribuições de política por meio do portal, consulte [Criar uma atribuição de política para identificar recursos que não estão em conformidade em seu ambiente do Azure](./assign-policy-portal.md). Etapas para o [PowerShell](./assign-policy-powershell.md) e [CLI do Azure](./assign-policy-azurecli.md) também estão disponíveis. Para obter informações sobre a estrutura de atribuição, confira [Estrutura de atribuições](./concepts/assignment-structure.md).
 
 ## <a name="maximum-count-of-azure-policy-objects"></a>Contagem máxima de objetos do Azure Policy
 

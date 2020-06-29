@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: overview
 ms.custom: mvc
 ms.date: 03/11/2020
-ms.openlocfilehash: 0ba41d63195c906b57046dc6c9fd57c9f08399ab
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 789ddf39e4493d11d63a07f2341ab36ac161f32d
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79290544"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84659605"
 ---
 # <a name="overview---what-is-azure-logic-apps"></a>Visão geral – O que são Aplicativos Lógicos do Azure?
 
@@ -102,9 +102,9 @@ Crie seus aplicativos lógicos como modelos do Azure Resource Manager para que v
 
 ### <a name="access-resources-inside-azure-virtual-networks"></a>Acessar recursos dentro de redes virtuais do Azure
 
-Os aplicativos lógicos podem acessar recursos protegidos, como VMs (máquinas virtuais) e outros sistemas ou serviços que estão dentro de uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md) quando você cria um [*ISE (ambiente do serviço de integração*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)). Um ISE é uma instância isolada do serviço de Aplicativos Lógicos que usa recursos dedicados e é executado separadamente do serviço de Aplicativos Lógicos multilocatários "globais".
+Os aplicativos lógicos podem acessar recursos protegidos, como VMs (máquinas virtuais) e outros sistemas ou serviços que estão dentro de uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md) quando você cria um [*ISE (ambiente do serviço de integração*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)). Um ISE é uma instância dedicada do serviço de Aplicativos Lógicos que usa recursos dedicados e é executado separadamente do serviço de Aplicativos Lógicos multilocatários "globais".
 
-A execução de aplicativos lógicos em sua própria instância isolada separada ajuda a reduzir o impacto que outros locatários do Azure podem ter sobre o desempenho de seus aplicativos, também conhecido como o efeito ["vizinhos com ruído"](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors). Um ISE proporciona estes benefícios:
+A execução de aplicativos lógicos em sua própria instância dedicada separada ajuda a reduzir o impacto que outros locatários do Azure podem ter sobre o desempenho de seus aplicativos, também conhecido como o [efeito "vizinhos com ruído"](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors). Um ISE proporciona estes benefícios:
 
 * Seus próprios endereços IP estáticos, que são separados dos endereços IP estáticos compartilhados pelos aplicativos lógicos no serviço multilocatário. Você também pode configurar um único endereço IP de saída público, estático e previsível para se comunicar com os sistemas de destino. Dessa forma, você não precisa configurar aberturas adicionais do firewall nesses sistemas de destino para cada ISE.
 

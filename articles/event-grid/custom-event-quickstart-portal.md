@@ -5,27 +5,22 @@ services: event-grid
 keywords: ''
 author: spelluru
 ms.author: spelluru
-ms.date: 11/05/2019
+ms.date: 06/16/2020
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 9edeecdfb0c0e7ef0ef6e9d1704d81b844ac8c53
-ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
+ms.openlocfilehash: 70f2277e1094a269b18911cc6bf037c4eb5e4731
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80293763"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84907602"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>Início Rápido: Encaminhar eventos personalizados ao ponto de extremidade Web com o portal do Azure e a Grade de Eventos
 
 A Grade de Eventos do Azure é um serviço de eventos para a nuvem. Neste artigo, você pode usar o portal do Azure para criar um tópico personalizado, assinar o tópico personalizado e disparar o evento para exibir o resultado. Normalmente, você envia eventos para um ponto de extremidade que processa os dados de evento e realiza ações. No entanto, para simplificar este artigo, você enviará os eventos para um aplicativo Web que coleta e exibe as mensagens.
 
-Ao concluir, você verá que os dados do evento foram enviados para um aplicativo Web.
-
-![Exibir os resultados](./media/custom-event-quickstart-portal/view-result.png)
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
+## <a name="prerequisites"></a>Pré-requisitos
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
@@ -35,30 +30,30 @@ Ao concluir, você verá que os dados do evento foram enviados para um aplicativ
 Um tópico de grade de evento fornece um ponto de extremidade definido pelo usuário no qual você posta seus eventos. 
 
 1. Entre no [Portal do Azure](https://portal.azure.com/).
-2. Selecione **Todos os serviços** no menu de navegação à esquerda, pesquise **Grade de Eventos** e selecione **Tópicos da Grade de Eventos**. 
+2. Na barra de pesquisa no tópico, digite **Tópicos da Grade de Eventos** e selecione **Tópicos da Grade de Eventos** na lista suspensa. 
 
-    ![Selecionar tópicos da Grade de Eventos](./media/custom-event-quickstart-portal/select-event-grid-topics.png)
+    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topics.png" alt-text="Pesquise e selecione Tópicos da Grade de Eventos":::
 3. Na página **Tópicos da Grade de Eventos**, selecione **+ Adicionar** na barra de ferramentas. 
 
-    ![Botão Adicionar Tópico da Grade de Eventos](./media/custom-event-quickstart-portal/add-event-grid-topic-button.png)
+    :::image type="content" source="./media/custom-event-quickstart-portal/add-event-grid-topic-button.png" alt-text="Botão Adicionar Tópico da Grade de Eventos":::
 4. Na página **Criar Tópico**, siga estas etapas:
-    1. Informe um **nome** exclusivo para o tópico personalizado. O nome do tópico deve ser exclusivo, pois é representado por uma entrada DNS. Não use o nome mostrado na imagem. Em vez disso, crie seu próprio nome – ele deve ter entre 3 e 50 caracteres e conter apenas valores a-z, A-Z, 0-9 e "-".
-    2. Selecione sua **assinatura**do Azure.
-    3. Selecione um grupo de recursos existente ou selecione **Criar novo** e insira um **nome** para o **grupo de recursos**.
+    1. Selecione sua **assinatura**do Azure.
+    2. Selecione um grupo de recursos existente ou selecione **Criar novo** e insira um **nome** para o **grupo de recursos**.
+    3. Informe um **nome** exclusivo para o tópico personalizado. O nome do tópico deve ser exclusivo, pois é representado por uma entrada DNS. Não use o nome mostrado na imagem. Em vez disso, crie seu próprio nome – ele deve ter entre 3 e 50 caracteres e conter apenas valores a-z, A-Z, 0-9 e "-".
     4. Selecione um **local** para o tópico de grade de eventos.
-    5. Mantenha o valor padrão **Esquema de Grade de Eventos** para o campo **Esquema de Eventos**. 
+    5. Selecione **Revisar + criar** na parte inferior da página. 
 
-       ![Página Criar Tópico](./media/custom-event-quickstart-portal/create-custom-topic.png)
-    6. Selecione **Criar**. 
-5. Depois que o tópico personalizado tiver sido criado, você verá a notificação de êxito. Selecione **Ir para grupo de recursos**. 
+        :::image type="content" source="./media/custom-event-quickstart-portal/create-custom-topic.png" alt-text="Página Criar Tópico":::
+    6. Na guia **Examinar + criar** da página **Criar tópico**, selecione **Criar**. 
+    
+        :::image type="content" source="./media/custom-event-quickstart-portal/review-create-page.png" alt-text="Examinar as configurações e criar":::
+5. Depois que a implantação for realizada com sucesso, digite **Tópicos da Grade de Eventos** na barra de pesquisa novamente e selecione **Tópicos da Grade de Eventos** na lista suspensa como antes. 
+6. Selecione o tópico que você criou na lista. 
 
-   ![Confira a notificação de êxito](./media/custom-event-quickstart-portal/success-notification.png)
-6. Na página **Grupo de Recursos**, selecione o tópico de grade de eventos. 
+    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topic.png" alt-text="Selecione seu tópico na lista":::  
+7. Você vê a página **Tópico de Grade de Eventos** para seu tópico. Mantenha essa página aberta. Você a usará posteriormente no início rápido. 
 
-   ![Selecione o recurso de tópico de grade de eventos](./media/custom-event-quickstart-portal/select-event-grid-topic.png)
-7. Você vê a página **Tópico de Grade de Eventos** para sua grade de eventos. Mantenha essa página aberta. Você a usará posteriormente no início rápido. 
-
-    ![Página inicial do Tópico de Grade de Eventos](./media/custom-event-quickstart-portal/event-grid-topic-home-page.png)
+    :::image type="content" source="./media/custom-event-quickstart-portal/event-grid-topic-home-page.png" alt-text="Home page do Tópico de Grade de Eventos":::
 
 ## <a name="create-a-message-endpoint"></a>Criar um ponto de extremidade de mensagem
 Antes de criar uma assinatura para o tópico personalizado, crie um ponto de extremidade para a mensagem de evento. Normalmente, o ponto de extremidade executa ações com base nos dados de evento. Para simplificar este início rápido, você implanta um [aplicativo Web criado previamente](https://github.com/Azure-Samples/azure-event-grid-viewer) que exibe as mensagens de eventos. A solução implantada inclui um plano do Serviço de Aplicativo, um aplicativo Web do Aplicativo do Serviço de e o código-fonte do GitHub.
@@ -67,6 +62,8 @@ Antes de criar uma assinatura para o tópico personalizado, crie um ponto de ext
 
    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 1. A implantação pode levar alguns minutos para ser concluída. Depois que a implantação for bem-sucedida, exiba seu aplicativo Web para garantir que ele esteja em execução. Em um navegador da Web, navegue até: `https://<your-site-name>.azurewebsites.net`
+
+    Se a implantação falhar, verifique a mensagem de erro. Talvez o nome do site já esteja em uso. Implante o modelo novamente e escolha outro nome para o site. 
 1. Você verá o site, mas nenhum evento ainda estará publicado.
 
    ![Exibir novo site](./media/custom-event-quickstart-portal/view-site.png)
@@ -77,16 +74,16 @@ Você assina um tópico da grade de eventos para indicar à Grade de Eventos qua
 
 1. Agora, na página **Tópico de Grade de Eventos** para seu tópico personalizado, selecione **+ Assinatura de Evento** na barra de ferramentas.
 
-   ![Adicionar assinatura de evento](./media/custom-event-quickstart-portal/new-event-subscription.png)
+    :::image type="content" source="./media/custom-event-quickstart-portal/new-event-subscription.png" alt-text="Botão Adicionar assinatura de evento":::
 2. Na página **Criar Assinatura de Eventos**, siga estas etapas:
     1. Insira um **nome** para a assinatura de evento.
     3. Selecione **Web Hook** para o **Tipo de ponto de extremidade**. 
     4. Escolha **Selecionar um ponto de extremidade**. 
 
-       ![Fornecer valores de assinatura de evento](./media/custom-event-quickstart-portal/provide-subscription-values.png)
+        :::image type="content" source="./media/custom-event-quickstart-portal/provide-subscription-values.png" alt-text="Fornecer valores de assinatura de evento":::
     5. Para o ponto de extremidade do web hook, forneça a URL do seu aplicativo Web e adicione `api/updates` à URL da página inicial. Selecione **Confirmar seleção**.
 
-       ![Fornecer URL de ponto de extremidade](./media/custom-event-quickstart-portal/provide-endpoint.png)
+        :::image type="content" source="./media/custom-event-quickstart-portal/provide-endpoint.png" alt-text="Fornecer URL de ponto de extremidade":::
     6. Volte para a página **Criar Assinatura de Evento** e selecione **Criar**.
 
 3. Exiba novamente o seu aplicativo Web e observe que um evento de validação de assinatura foi enviado a ele. Selecione o ícone de olho para expandir os dados de evento. A Grade de Eventos envia o evento de validação de modo que o ponto de extremidade possa verificar se ele deseja receber os dados de evento. O aplicativo Web inclui o código para validar a assinatura.
@@ -101,15 +98,18 @@ O primeiro exemplo usa a CLI do Azure. Ele obtém a URL e a chave do tópico per
 
 
 ### <a name="azure-cli"></a>CLI do Azure
-1. No portal do Azure, selecione **Cloud Shell**. Selecione **Bash** no canto superior esquerdo da janela do Cloud Shell. 
+1. No portal do Azure, selecione **Cloud Shell**. O Cloud Shell é aberto no painel inferior do navegador da Web. 
+
+    :::image type="content" source="./media/custom-event-quickstart-portal/select-cloud-shell.png" alt-text="Ícone Selecionar Cloud Shell":::
+1. Selecione **Bash** no canto superior esquerdo da janela do Cloud Shell. 
 
     ![Cloud Shell – Bash](./media/custom-event-quickstart-portal/cloud-shell-bash.png)
-1. Execute o seguinte comando para obter o **ponto de extremidade** para o tópico: Depois de copiar e colar o comando, atualize o **nome do tópico** e o **nome do grupo de recursos** antes de executar o comando. 
+1. Execute o seguinte comando para obter o **ponto de extremidade** para o tópico: Depois de copiar e colar o comando, atualize o **nome do tópico** e o **nome do grupo de recursos** antes de executar o comando. Você publicará eventos de exemplo neste ponto de extremidade do tópico. 
 
     ```azurecli
     endpoint=$(az eventgrid topic show --name <topic name> -g <resource group name> --query "endpoint" --output tsv)
     ```
-2. Execute o seguinte comando para obter a **chave** para o tópico personalizado: Depois de copiar e colar o comando, atualize o **nome do tópico** e o **nome do grupo de recursos** antes de executar o comando. 
+2. Execute o seguinte comando para obter a **chave** para o tópico personalizado: Depois de copiar e colar o comando, atualize o **nome do tópico** e o **nome do grupo de recursos** antes de executar o comando. Essa é a chave primária do tópico da Grade de Eventos. Para obter essa chave do portal do Azure, alterne para a guia **Chaves de acesso** da página **Tópico da Grade de Eventos**. Para postar um evento em um tópico personalizado, você precisará da chave de acesso. 
 
     ```azurecli
     key=$(az eventgrid topic key list --name <topic name> -g <resource group name> --query "key1" --output tsv)
@@ -119,7 +119,7 @@ O primeiro exemplo usa a CLI do Azure. Ele obtém a URL e a chave do tópico per
     ```json
     event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/vehicles/motorcycles", "eventTime": "'`date +%Y-%m-%dT%H:%M:%S%z`'", "data":{ "make": "Ducati", "model": "Monster"},"dataVersion": "1.0"} ]'
     ```
-4. Execute o seguinte comando **Curl** para publicar o evento:
+4. Execute o seguinte comando **Curl** para publicar o evento: No comando, o cabeçalho `aeg-sas-key` é definido como a chave de acesso que você obteve anteriormente. 
 
     ```
     curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
@@ -128,12 +128,20 @@ O primeiro exemplo usa a CLI do Azure. Ele obtém a URL e a chave do tópico per
 ### <a name="azure-powershell"></a>Azure PowerShell
 O segundo exemplo usa o PowerShell para realizar etapas semelhantes.
 
-1. No portal do Azure, selecione **Cloud Shell** (como alternativa, acesse `https://shell.azure.com/`). Selecione **PowerShell** no canto superior esquerdo da janela do Cloud Shell. Veja a imagem da janela **Cloud Shell** de exemplo na seção da CLI do Azure.
+1. No portal do Azure, selecione **Cloud Shell** (como alternativa, acesse `https://shell.azure.com/`). O Cloud Shell é aberto no painel inferior do navegador da Web. 
+
+    :::image type="content" source="./media/custom-event-quickstart-portal/select-cloud-shell.png" alt-text="Ícone Selecionar Cloud Shell":::
+1. No **Cloud Shell**, selecione **PowerShell** no canto superior esquerdo da janela do Cloud Shell. Veja a imagem da janela **Cloud Shell** de exemplo na seção da CLI do Azure.
 2. Defina as variáveis a seguir. Depois de copiar e colar cada comando, atualize o **nome do tópico** e o **nome do grupo de recursos** antes de executar o comando:
 
+    **Grupo de recursos**:
     ```powershell
-    $resourceGroupName = <resource group name>
-    $topicName = <topic name>
+    $resourceGroupName = "<resource group name>"
+    ```
+
+    **Nome do tópico da Grade de Eventos**:    
+    ```powershell
+    $topicName = "<topic name>"
     ```
 3. Execute os seguintes comandos para obter o **ponto de extremidade** e as **chaves** para o tópico:
 
@@ -175,31 +183,17 @@ O segundo exemplo usa o PowerShell para realizar etapas semelhantes.
 ### <a name="verify-in-the-event-grid-viewer"></a>Verifique se no Visualizador de Grade de Eventos
 Você disparou o evento, e a Grade de Eventos enviou a mensagem para o ponto de extremidade configurado durante a assinatura. Exiba seu aplicativo Web para ver o evento que você acabou de enviar.
 
-```json
-{
-  "id": "974",
-  "eventType": "recordInserted",
-  "subject": "myapp/vehicles/motorcycles",
-  "eventTime": "2019-03-28T01:11:59+00:00",
-  "data": {
-    "make": "Ducati",
-    "model": "Monster"
-  },
-  "dataVersion": "1.0",
-  "metadataVersion": "1",
-  "topic": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/myegridrg/providers/Microsoft.EventGrid/topics/myegridtopic"
-}
-```
+:::image type="content" source="./media/custom-event-quickstart-portal/event-grid-viewer-end.png" alt-text="Visualizador da Grade de Eventos":::
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 Caso planeje continuar a trabalhar com esse evento, não limpe os recursos criados neste artigo. Caso contrário, exclua os recursos criados neste artigo.
 
 1. Selecione **Grupos de Recursos** no menu esquerdo. Se você não o visualizar no menu à esquerda, selecione **Todos os Serviços** no menu à esquerda e selecione **Grupos de Recursos**. 
-2. Selecione o grupo de recursos para iniciar a página **Grupo de Recursos**. 
-3. Selecione **Excluir grupo de recursos** na barra de ferramentas. 
-4. Confirme a exclusão inserindo o nome do grupo de recursos e selecione **Excluir**. 
 
     ![Grupos de recursos](./media/custom-event-quickstart-portal/delete-resource-groups.png)
+1. Selecione o grupo de recursos para iniciar a página **Grupo de Recursos**. 
+1. Selecione **Excluir grupo de recursos** na barra de ferramentas. 
+1. Confirme a exclusão inserindo o nome do grupo de recursos e selecione **Excluir**. 
 
     O outro grupo de recursos que você vê na imagem foi criado e usado pela janela do Cloud Shell. Exclua-o se você não planeja usar a janela do Cloud Shell mais tarde. 
 

@@ -3,156 +3,174 @@ title: Detectar movimento e gravar vídeo em dispositivos de borda – Azure
 description: Este início rápido mostra como usar a Análise de Vídeo ao vivo no IoT Edge para analisar o feed de vídeo ao vivo de uma câmera de IP (simulada), para detectar se qualquer movimento está presente; em caso afirmativo, registre um clipe de vídeo MP4 no sistema de arquivos local no dispositivo de borda.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: d824870ea95922bbbdbf01cf2c95692522936f85
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 32f1ae5e9edbdbe522afb39bd56584cd2423dd33
+ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84261681"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84817085"
 ---
-# <a name="quickstart-detect-motion-record-video-on-edge-devices"></a>Início Rápido: Detectar movimento e gravar vídeo em dispositivos de borda
+# <a name="quickstart-detect-motion-and-record-video-on-edge-devices"></a>Início Rápido: Detectar movimento e gravar vídeo em dispositivos de borda
  
-Este início rápido mostra como usar a Análise de Vídeo ao vivo no IoT Edge para analisar o feed de vídeo ao vivo de uma câmera de IP (simulada), para detectar se qualquer movimento está presente; em caso afirmativo, registre um clipe de vídeo MP4 no sistema de arquivos local no dispositivo de borda. Ele usa uma VM do Azure como dispositivo IoT Edge e uma transmissão de vídeo ao vivo simulada. Este artigo é baseado no código de exemplo escrito em C#.
+Este início rápido mostra como usar a Análise Dinâmica de Vídeo no IoT Edge para analisar o feed de vídeo ao vivo de uma câmera IP (simulada). Ele mostra como detectar se há movimento e, caso houver, gravar um clipe de vídeo MP4 no sistema de arquivos local no dispositivo de borda. Este início rápido usa uma VM do Azure como dispositivo do IoT Edge e um fluxo de vídeo ao vivo simulado. 
 
-Este artigo se baseia [neste](detect-motion-emit-events-quickstart.md) guia de início rápido. 
+Este artigo é baseado no código de exemplo escrito em C#. Ele se baseia no início rápido [Detectar movimento e emitir eventos](detect-motion-emit-events-quickstart.md). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Visual Studio Code](https://code.visualstudio.com/) em seu computador com as seguintes extensões:
+* Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) se não tiver uma.
+* [Visual Studio Code](https://code.visualstudio.com/) com as extensões a seguir:
     * [Ferramentas do Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
     * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
-* [SDK do .NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1) instalado em seu sistema
-* Se você não concluiu [este](detect-motion-emit-events-quickstart.md) guia de início rápido anteriormente, conclua as seguintes etapas:
-     * [Configurar recursos do Azure](detect-motion-emit-events-quickstart.md#set-up-azure-resources)
-     * [Configurar o ambiente de desenvolvimento](detect-motion-emit-events-quickstart.md#set-up-your-development-environment)
-     * [Gerar e implantar o manifesto de implantação do IoT Edge](detect-motion-emit-events-quickstart.md#generate-and-deploy-the-iot-edge-deployment-manifest)
-     * [Preparar-se para eventos de monitoramento](detect-motion-emit-events-quickstart.md#prepare-for-monitoring-events)
+* [SDK do .NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1).
+* Se ainda não tiver concluído o início rápido [Detectar movimento e emitir eventos](detect-motion-emit-events-quickstart.md), siga estas etapas:
+     1. [Configurar recursos do Azure](detect-motion-emit-events-quickstart.md#set-up-azure-resources)
+     1. [Configurar seu ambiente de desenvolvimento](detect-motion-emit-events-quickstart.md#set-up-your-development-environment)
+     1. [Gerar e implantar o manifesto de implantação do IoT Edge](detect-motion-emit-events-quickstart.md#generate-and-deploy-the-deployment-manifest)
+     1. [Preparar-se para monitorar eventos](detect-motion-emit-events-quickstart.md#prepare-to-monitor-events)
 
 > [!TIP]
-> Ao instalar o Azure IoT Tools, você receberá uma solicitação para instalar o docker. Fique à vontade para ignorá-la.
+> Ao instalar o Azure IoT Tools, talvez você receba um prompt para instalar o Docker. Fique à vontade para ignorá-lo.
 
 ## <a name="review-the-sample-video"></a>Examinar o vídeo de exemplo
-Como parte das etapas acima para configurar os recursos do Azure, um vídeo (curto) de um estacionamento será copiado para a VM Linux no Azure que está sendo usada como o dispositivo IoT Edge. Esse arquivo de vídeo será usado para simular uma transmissão ao vivo para este tutorial.
+Quando você configura os recursos do Azure para este início rápido, um vídeo curto de um estacionamento é copiado para a VM Linux no Azure usada como o dispositivo do IoT Edge. Esse arquivo de vídeo será usado para simular uma transmissão ao vivo para este tutorial.
 
-Você pode usar um aplicativo como [VLC Player](https://www.videolan.org/vlc/), iniciá-lo, pressionar Control + N e colar [este](https://lvamedia.blob.core.windows.net/public/lots_015.mkv) link para o vídeo de estacionamento iniciar a reprodução. Na marca de aproximadamente 5 segundos, um carro branco percorre o estacionamento.
+Abra um aplicativo como o [VLC media player](https://www.videolan.org/vlc/), selecione Ctrl+N e cole [este link](https://lvamedia.blob.core.windows.net/public/lots_015.mkv) para o vídeo de estacionamento começar a ser reproduzido. Na marca de aproximadamente 5 segundos, um carro branco percorre o estacionamento.
 
-Ao concluir as etapas abaixo, você terá usado a Análise de Vídeo ao vivo no IoT Edge para detectar esse movimento do carro e gravar um clipe de vídeo começando na marca de cerca de 5 segundos.
+Conclua as etapas abaixo para usar a Análise Dinâmica de Vídeo no IoT Edge para detectar o movimento do carro e gravar um clipe de vídeo começando na marca de cerca de 5 segundos.
 
 ## <a name="overview"></a>Visão geral
 
 ![visão geral](./media/quickstarts/overview-qs4.png)
 
-O diagrama acima mostra como os sinais fluem neste guia de início rápido. Um módulo de borda (detalhado [aqui](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555)) simula uma câmera IP que hospeda um servidor RTSP. Um nó de [origem RTSP](media-graph-concept.md#rtsp-source) efetua pull do feed de vídeo desse servidor e envia quadros de vídeo para o nó do [processador de detecção de movimento](media-graph-concept.md#motion-detection-processor). A origem RTSP envia os mesmos quadros de vídeo para um nó do [processador de porta de sinal](media-graph-concept.md#signal-gate-processor), que permanece fechado até que seja disparado por um evento.
+O diagrama anterior mostra como os sinais fluem neste guia de início rápido. [Um módulo de borda](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simula uma câmera IP que hospeda um servidor RTSP (Real-Time Streaming Protocol). Um nó de [origem RTSP](media-graph-concept.md#rtsp-source) efetua pull do feed de vídeo desse servidor e envia quadros de vídeo para o nó do [processador de detecção de movimento](media-graph-concept.md#motion-detection-processor). A origem RTSP envia os mesmos quadros de vídeo para um nó do [processador de porta de sinal](media-graph-concept.md#signal-gate-processor), que permanece fechado até que seja disparado por um evento.
 
-Quando o processador de detecção de movimento determina esse movimento está presente no vídeo, ele envia um evento para o nó do processador de porta de sinal, disparando-o. A porta é aberta durante o tempo configurado, enviando quadros de vídeo para o nó do [coletor de arquivos](media-graph-concept.md#file-sink). O nó do coletor grava o vídeo como um arquivo MP4 no sistema de arquivos local do seu dispositivo de borda, no local configurado.
+Quando o processador de detecção de movimento detecta o movimento no vídeo, ele envia um evento para o nó do processador de porta de sinal, disparando-o. A porta é aberta durante o tempo configurado, enviando quadros de vídeo para o nó do [coletor de arquivos](media-graph-concept.md#file-sink). O nó do coletor grava o vídeo como um arquivo MP4 no sistema de arquivos local de seu dispositivo de borda. O arquivo é salvo no local configurado.
 
 Neste guia de início rápido, você vai:
 
-1. Criar e implantar o grafo de mídia
-1. Interpretar os resultados
-1. Limpar os recursos
+1. Criar e implantar o grafo de mídia.
+1. Interpretar os resultados.
+1. Limpar os recursos.
 
 ## <a name="examine-and-edit-the-sample-files"></a>Examinar e editar os arquivos de exemplo
-Como parte dos pré-requisitos, você baixou o código de exemplo para uma pasta. Inicie o Visual Studio Code e abra a pasta.
+Como parte dos pré-requisitos deste início rápido, você baixou o código de exemplo para uma pasta. Siga estas etapas para examinar e editar o código de exemplo.
 
-1. No Visual Studio Code, navegue até "src/edge". Você verá o arquivo .env criado junto com alguns arquivos do modelo de implantação
-    * O modelo de implantação refere-se ao manifesto de implantação para o dispositivo de borda com alguns valores de espaço reservado. O arquivo .env tem os valores para essas variáveis.
-1. Em seguida, navegue até a pasta "src/cloud-to-device-console-app". Aqui você verá o arquivo appsettings.json criado junto com alguns outros arquivos:
-    * c2d-console-app.csproj – este é o arquivo de projeto para o Visual Studio Code
-    * operations.json – esse arquivo listará as diferentes operações que você gostaria que o programa executasse
-    * Program.cs – este é o código de exemplo do programa, que faz o seguinte:
+1. No Visual Studio Code, vá até *src/edge*. Você verá seu arquivo *.env* e alguns arquivos do modelo de implantação.
 
-        * Carrega as configurações do aplicativo
-        * Invoca métodos diretos expostos pela Análise de Vídeo ao vivo no módulo do IoT Edge. Você pode usar o módulo para analisar transmissões de vídeo ao vivo invocando [métodos diretos](direct-methods.md) 
-        * Pausa para você examinar a saída do programa na janela TERMINAL e os eventos gerados pelo módulo na janela SAÍDA
-        * Invoca métodos diretos para limpar recursos   
+    O modelo de implantação refere-se ao manifesto de implantação do dispositivo de borda, onde são usadas variáveis para algumas propriedades. O arquivo *.env* inclui os valores dessas variáveis.
+1. Vá até a pasta *src/cloud-to-device-console-app*. Aqui, você vê o arquivo *appsettings.json* e alguns outros arquivos:
+    * ***c2d-console-app.csproj*** – o arquivo de projeto para o Visual Studio Code.
+    * ***operations.json*** – a lista de operações que você deseja que o programa execute.
+    * ***Program.cs*** – o código do programa de exemplo. Esse código:
 
-1. Fazer as edições a seguir no arquivo operations.json
-    * Altere o link para a topologia do grafo: `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/evr-motion-files/topology.json"`
-    * Em GraphInstanceSet, edite o nome da topologia de grafo para corresponder ao valor no link acima `"topologyName" : "EVRToFilesOnMotionDetection"`
-    * Edite também a URL RTSP para apontar para o arquivo de vídeo desejado `"value": "rtsp://rtspsim:554/media/lots_015.mkv"`
-    * Em GraphTopologyDelete, edite o nome `"name": "EVRToFilesOnMotionDetection"`
+        * Carrega as configurações do aplicativo.
+        * Invoca métodos diretos expostos pelo módulo da Análise Dinâmica de Vídeo no IoT Edge. Use o módulo para analisar fluxos de vídeo ao vivo invocando seus [métodos diretos](direct-methods.md). 
+        * Pausa para você examinar a saída do programa na janela **TERMINAL** e os eventos gerados pelo módulo na janela **SAÍDA**.
+        * Invoca métodos diretos para limpar recursos.
 
-## <a name="review---check-status-of-the-modules"></a>Examinar – verificar o status dos módulos
-Na etapa [Gerar e implantar o manifesto de implantação do IoT Edge](detect-motion-emit-events-quickstart.md#generate-and-deploy-the-iot-edge-deployment-manifest), no Visual Studio Code; se você expandir o nó “lva-sample-device” em HUB IOT DO AZURE (na seção inferior esquerda), deverá ver os módulos a seguir implantados
+1. Edite o arquivo *operations.json*:
+    * Altere o link para a topologia do grafo:
 
-    1. O módulo Análise de Vídeo ao vivo, chamado de “lvaEdge”
-    1. Um módulo chamado "rtspsim" que simula um servidor RTSP, agindo como a origem de um feed de vídeo ao vivo
+        `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/evr-motion-files/topology.json"`
+    * Em `GraphInstanceSet`, edite o nome da topologia de grafo para corresponder ao valor no link anterior:
+    
+      `"topologyName" : "EVRToFilesOnMotionDetection"`
 
-        ![Módulos](./media/quickstarts/lva-sample-device-node.png)
+    * Edite também a URL RTSP para apontar para o arquivo de vídeo:
+
+        `"value": "rtsp://rtspsim:554/media/lots_015.mkv"`
+
+    * Em `GraphTopologyDelete`, edite o nome:
+
+        `"name": "EVRToFilesOnMotionDetection"`
+
+## <a name="review---check-the-modules-status"></a>Revisão – verificar o status dos módulos
+
+Na etapa [Gerar e implantar o manifesto de implantação do IoT Edge](detect-motion-emit-events-quickstart.md#generate-and-deploy-the-deployment-manifest), no Visual Studio Code, expanda o nó **lva-sample-device** em **HUB IOT DO AZURE** (na seção inferior esquerda). Você deverá ver os seguintes módulos implantados:
+
+* O módulo da Análise Dinâmica de Vídeo, chamado **lvaEdge**
+* Um módulo chamado **rtspsim**, que simula um servidor RTSP que atua como a origem de um feed de vídeo ao vivo
+
+  ![Módulos](./media/quickstarts/lva-sample-device-node.png)
 
 
-## <a name="review---prepare-for-monitoring-events"></a>Examinar – preparar-se para eventos de monitoramento
-Verifique se você concluiu as etapas para [Preparar-se para eventos de monitoramento](detect-motion-emit-events-quickstart.md#prepare-for-monitoring-events)
+## <a name="review---prepare-for-monitoring-events"></a>Revisão – preparar-se para eventos de monitoramento
+Verifique se você concluiu as etapas para [Preparar-se para monitorar eventos](detect-motion-emit-events-quickstart.md#prepare-to-monitor-events).
 
 ![Iniciar Monitoramento de Ponto de Extremidade de Evento Interno](./media/quickstarts/start-monitoring-iothub-events.png)
 
 ## <a name="run-the-sample-program"></a>Executar o programa de exemplo
 
-1. Inicie uma sessão de depuração (pressione F5). Você começará a ver algumas mensagens impressas na janela TERMINAL.
-1. O operations.json começa com chamadas aos métodos diretos GraphTopologyList e GraphInstanceList. Se você tiver limpado os recursos após os guias de início rápido anteriores, isso retornará listas vazias e, em seguida, pausará para que você pressione Enter
-```
---------------------------------------------------------------------------
-Executing operation GraphTopologyList
------------------------  Request: GraphTopologyList  --------------------------------------------------
-{
-  "@apiVersion": "1.0"
-}
----------------  Response: GraphTopologyList - Status: 200  ---------------
-{
-  "value": []
-}
---------------------------------------------------------------------------
-Executing operation WaitForInput
-Press Enter to continue
-```
-1. Quando você pressiona a tecla "Enter" na janela TERMINAL, o próximo conjunto de chamadas de método direto é feito
-     * Uma chamada para GraphTopologySet usando a topologyUrl acima
-     * Uma chamada para GraphInstanceSet usando o corpo a seguir
-     ```
-     {
-       "@apiVersion": "1.0",
-       "name": "Sample-Graph",
-       "properties": {
-         "topologyName": "EVRToFilesOnMotionDetection",
-         "description": "Sample graph description",
-         "parameters": [
-           {
-             "name": "rtspUrl",
-             "value": "rtsp://rtspsim:554/media/lots_015.mkv"
-           },
-           {
-             "name": "rtspUserName",
-             "value": "testuser"
-           },
-           {
-             "name": "rtspPassword",
-             "value": "testpassword"
+1. Inicie uma sessão de depuração pressionando F5. A janela **TERMINAL** imprime algumas mensagens.
+1. O código *operations.json* chama os métodos diretos `GraphTopologyList` e `GraphInstanceList`. Se você limpou os recursos após os inícios rápidos anteriores, esse processo retornará listas vazias e, em seguida, pausará. Pressione Enter.
+
+    ```
+    --------------------------------------------------------------------------
+    Executing operation GraphTopologyList
+    -----------------------  Request: GraphTopologyList  --------------------------------------------------
+    {
+      "@apiVersion": "1.0"
+    }
+    ---------------  Response: GraphTopologyList - Status: 200  ---------------
+    {
+      "value": []
+    }
+    --------------------------------------------------------------------------
+    Executing operation WaitForInput
+    Press Enter to continue
+    ```
+
+    A janela **TERMINAL** mostra o próximo conjunto de chamadas de método direto:
+
+     * Uma chamada para `GraphTopologySet` que usa o `topologyUrl` 
+     * Uma chamada para `GraphInstanceSet` que usa o seguinte corpo:
+
+         ```
+         {
+           "@apiVersion": "1.0",
+           "name": "Sample-Graph",
+           "properties": {
+             "topologyName": "EVRToFilesOnMotionDetection",
+             "description": "Sample graph description",
+             "parameters": [
+               {
+                 "name": "rtspUrl",
+                 "value": "rtsp://rtspsim:554/media/lots_015.mkv"
+               },
+               {
+                 "name": "rtspUserName",
+                 "value": "testuser"
+               },
+               {
+                 "name": "rtspPassword",
+                 "value": "testpassword"
+               }
+             ]
            }
-         ]
-       }
-     }
-     ```
-     * Uma chamada para GraphInstanceActivate para iniciar a instância do grafo e iniciar a transmissão do vídeo
-     * Uma segunda chamada para GraphInstanceList para mostrar que a instância de grafo está realmente no estado de execução
-1. A saída na janela TERMINAL será pausada agora com o prompt "Pressione Enter para continuar". Não pressione "Enter" no momento. Você pode rolar para cima para ver o conteúdo da resposta JSON para os métodos diretos que você invocou
-1. Se agora você alternar para a janela SAÍDA no Visual Studio Code, verá as mensagens que estão sendo enviadas para o Hub IoT, pela Análise de Vídeo ao vivo no módulo do IoT Edge.
-     * Estas mensagens são discutidas na seção abaixo
-1. O grafo de mídia continuará sendo executado e imprimirá os resultados – o simulador RTSP continuará fazendo loop do vídeo de origem. Para parar o grafo de mídia, volte para a janela TERMINAL e pressione "Enter". A próxima série de chamadas é feita para limpar os recursos:
-     * Uma chamada para GraphInstanceDeactivate para desativar a instância de grafo
-     * Uma chamada para GraphInstanceDelete para excluir a instância
-     * Uma chamada para GraphTopologyDelete para excluir a topologia
-     * Uma chamada final para GraphTopologyList para mostrar que a lista está vazia agora
+         }
+         ```
+     * Uma chamada para `GraphInstanceActivate` que inicia a instância do grafo e o fluxo de vídeo
+     * Uma segunda chamada para `GraphInstanceList` que mostra que a instância do grafo está em estado de execução
+1. A saída na janela **TERMINAL** pausa em `Press Enter to continue`. Não pressione Enter ainda. Role para cima para ver os conteúdos da resposta JSON para os métodos diretos que você invocou.
+1. Alterne para a janela **SAÍDA** no Visual Studio Code. Você verá as mensagens que o módulo da Análise Dinâmica de Vídeo no IoT Edge está enviando para o Hub IoT. A próxima seção deste início rápido aborda essas mensagens.
+
+1. O grafo de mídia continua sendo executado e imprimindo resultados. O simulador RTSP mantém o loop do vídeo de origem. Para interromper o grafo de mídia, volte para a janela **TERMINAL** e selecione Enter. 
+
+    A próxima série de chamadas limpa os recursos:
+     * Uma chamada para `GraphInstanceDeactivate` desativa a instância do grafo.
+     * Uma chamada para `GraphInstanceDelete` exclui a instância.
+     * Uma chamada para `GraphTopologyDelete` exclui a topologia.
+     * Uma chamada final para `GraphTopologyList` mostra que agora a lista está vazia.
 
 ## <a name="interpret-results"></a>Interpretar os resultados 
-Quando você executa o grafo de mídia, os resultados do nó do processador de detecção de movimento são enviados por meio do nó do coletor do Hub IoT para o Hub IoT. As mensagens que você vê na janela SAÍDA do Visual Studio Code contêm uma seção "body" e uma seção "applicationProperties". Para entender o que essas seções representam, leia [este](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct) artigo.
+Quando você executa o grafo de mídia, os resultados do nó do processador de detecção de movimento passam para o Hub IoT por meio do nó do coletor do Hub IoT. As mensagens que você vê na janela **SAÍDA** do Visual Studio Code contêm uma seção `body` e uma seção `applicationProperties`. Para obter mais informações, confira [Criar e ler mensagens do Hub IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
 
-Nas mensagens abaixo, as propriedades do aplicativo e o conteúdo do corpo são definidos pelo módulo Análise de Vídeo ao vivo.
+Nas mensagens a seguir, o módulo da Análise Dinâmica de Vídeo define as propriedades do aplicativo e o conteúdo do corpo.
 
-## <a name="mediasession-established-event"></a>Evento MediaSessionEstablished
+### <a name="mediasessionestablished-event"></a>Evento MediaSessionEstablished
 
-Quando a instância de um grafo de mídia é criada, o nó de origem RTSP tenta se conectar com o servidor RTSP em execução no contêiner rtspsim-live555. Se for bem-sucedido, ele imprimirá este evento:
+Quando a instância de um grafo de mídia é criada, o nó de origem RTSP tenta se conectar com o servidor RTSP em execução no contêiner rtspsim-live555. Se a conexão for bem-sucedida, o evento a seguir será impresso.
 
 ```
 [IoTHubMonitor] [05:37:21 AM] Message received from [lva-sample-device/lvaEdge]:
@@ -170,16 +188,19 @@ Quando a instância de um grafo de mídia é criada, o nó de origem RTSP tenta 
 }
 ```
 
-* A mensagem é um Evento de diagnóstico, MediaSessionEstablished, que indica que o nó de origem RTSP (o assunto) foi capaz de estabelecer uma conexão com o simulador RTSP e começar a receber um feed ao vivo (simulado).
-* O "assunto" em applicationProperties faz referência ao nó na topologia do grafo da qual a mensagem foi gerada. Nesse caso, a mensagem é originada do nó de origem RTSP.
-* "eventType" em applicationProperties indica que se trata de um Evento de diagnóstico.
-* "eventTime" indica a hora em que o evento ocorreu.
-* "body" contém dados sobre o evento de diagnóstico, que, nesse caso, são os detalhes de [SDP](https://en.wikipedia.org/wiki/Session_Description_Protocol).
+Na saída anterior: 
 
+* A mensagem é um evento de diagnóstico, `MediaSessionEstablished`. Ela indica que o nó de origem RTSP (o assunto) estabeleceu uma conexão com o simulador RTSP e começou a receber um feed ao vivo (simulado).
+* Em `applicationProperties`, `subject` faz referência ao nó na topologia do grafo do qual a mensagem foi gerada. Nesse caso, a mensagem é originada do nó de origem RTSP.
+* Em `applicationProperties`, `eventType` indica que este é um evento de diagnóstico.
+* O valor `eventTime` é a hora em que o evento ocorreu.
+* A seção `body` contém dados sobre o evento de diagnóstico. Nesse caso, os dados compreendem os detalhes do [SDP (Session Description Protocol)](https://en.wikipedia.org/wiki/Session_Description_Protocol).
 
-## <a name="recording-started-event"></a>Evento Gravação Iniciada
+### <a name="recordingstarted-event"></a>Evento RecordingStarted
 
-Conforme explicado [aqui](#overview), quando o movimento é detectado, o nó do processador da porta do sinal é ativado e o nó do coletor de arquivos no grafo de mídia começa a gravar um arquivo MP4. O nó do coletor do arquivo envia um Evento operacional. O tipo é definido como “movimento” para indicar que é resultado do Processador de Detecção de Movimento, e o eventTime informa você em que horário (UTC) o movimento ocorreu. Veja um exemplo:
+Quando o movimento é detectado, o nó do processador da porta do sinal é ativado e o nó do coletor de arquivos no grafo de mídia começa a gravar um arquivo MP4. O nó do coletor do arquivo envia um evento operacional. O `type` é definido como `motion` para indicar que se trata de um resultado do processador de detecção de movimento. O valor de `eventTime` é a hora, em UTC, em que o movimento ocorreu. Para obter mais informações sobre esse processo, confira a seção [Visão geral](#overview) deste início rápido.
+
+Veja um exemplo dessa mensagem:
 
 ```
 [IoTHubMonitor] [05:37:27 AM] Message received from [lva-sample-device/lvaEdge]:
@@ -198,41 +219,52 @@ Conforme explicado [aqui](#overview), quando o movimento é detectado, o nó do 
 }
 ```
 
-* "subject" em applicationProperties faz referência ao nó no grafo de mídia do qual a mensagem foi gerada. Nesse caso, a mensagem é originada no nó do coletor do arquivo.
-* "eventType" em applicationProperties indica que se trata de um Evento operacional.
-* "eventTime" indica a hora em que o evento ocorreu. Observe que isso ocorre de 5 a 6 segundos após o MediaSessionEstablished e o vídeo começa a fluir. Isso corresponde à marca de 5 a 6 segundos quando [carro começou a percorrer](#review-the-sample-video) o estacionamento
-* "body" contém dados sobre o evento operacional que, nesse caso, são os dados "outputType" e "outputLocation".
-* "outputType" indica que essas informações são sobre o caminho do arquivo
-* "outputLocation" fornece o local do arquivo MP4, de dentro do módulo de borda
+Na mensagem anterior: 
 
-## <a name="recording-stopped-and-available-events"></a>Gravar eventos Interrompidos e Disponíveis
+* Em `applicationProperties`, `subject` faz referência ao nó do grafo de mídia no qual a mensagem foi gerada. Nesse caso, a mensagem é originada do nó do coletor do arquivo.
+* Em `applicationProperties`, `eventType` indica que este é um evento operacional.
+* O valor `eventTime` é a hora em que o evento ocorreu. Essa hora é de 5 a 6 segundos após `MediaSessionEstablished`, e após o início do fluxo de vídeo. Isso corresponde à marca de 5 a 6 segundos quando [carro começou entrar](#review-the-sample-video) no estacionamento.
+* A seção `body` contém dados sobre o evento operacional. Nesse caso, os dados são compostos por `outputType` e `outputLocation`.
+* A variável `outputType` indica que essas informações são sobre o caminho do arquivo.
+* O valor `outputLocation` é o local do arquivo MP4 no módulo de borda.
 
-Se você examinar as propriedades do nó processador da porta de sinal na [topologia do grafo](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/evr-motion-files/topology.json), verá que os tempos de ativação foram definidos como 5 segundos. Portanto, cerca de 5 segundos após o evento RecordingStarted ser recebido, você receberá um
-* Evento RecordingStopped, indicando que a gravação foi interrompida
-* Evento RecordingAvailable, indicando que o arquivo MP4 agora pode ser usado para exibição
+### <a name="recordingstopped-and-recordingavailable-events"></a>Eventos RecordingStopped e RecordingAvailable
 
-Os dois eventos geralmente são emitidos com segundos entre si.
+Se você examinar as propriedades do nó processador da porta de sinal na [topologia do grafo](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/evr-motion-files/topology.json), verá que os tempos de ativação foram definidos como 5 segundos. Portanto, cerca de 5 segundos após o evento `RecordingStarted` ser recebido, você tem:
 
-### <a name="playing-back-the-mp4-clip"></a>Reproduzir o clipe MP4
+* Um evento `RecordingStopped`, indicando que a gravação foi interrompida.
+* Um evento `RecordingAvailable`, indicando que o arquivo MP4 agora pode ser usado para exibição.
 
-1. Os arquivos MP4 são gravados em um diretório no dispositivo de borda que você configurou no arquivo .env por meio desta chave – OUTPUT_VIDEO_FOLDER_ON_DEVICE. Se você tiver mantido o valor padrão, os resultados deverão estar em /home/lvaadmin/samples/output/
-1. Acesse o grupo de recursos, localize a VM e conecte-se usando o Bastion
+Os dois eventos geralmente são emitidos em um intervalo de segundos entre si.
+
+## <a name="play-the-mp4-clip"></a>Reproduzir o clipe MP4
+
+Os arquivos MP4 são gravados em um diretório no dispositivo de borda que você configurou no arquivo *.env* usando a chave OUTPUT_VIDEO_FOLDER_ON_DEVICE. Se você usou o valor padrão, os resultados devem estar na pasta */home/lvaadmin/samples/output/* .
+
+Para reproduzir o clipe MP4:
+
+1. Acesse o grupo de recursos, localize a VM e conecte-se usando o Azure Bastion.
 
     ![Resource group](./media/quickstarts/resource-group.png)
- 
+    
     ![VM](./media/quickstarts/virtual-machine.png)
-1. Após entrar (usando credenciais que foram geradas durante [esta](detect-motion-emit-events-quickstart.md#set-up-azure-resources) etapa), no prompt de comando, acesse o respectivo diretório (padrão: /home/lvaadmin/samples/output) e você deverá ver os arquivos MP4 lá. Você pode fazer [scp dos arquivos](https://docs.microsoft.com/azure/virtual-machines/linux/copy-files-to-linux-vm-using-scp) em seu computador local e reproduzi-los de volta por meio do [VLC Player](https://www.videolan.org/vlc/) ou de qualquer outro player MP4.
 
-    ![Saída](./media/quickstarts/samples-output.png)
+1. Entre usando as credenciais que foram geradas quando você [configurou os recursos do Azure](detect-motion-emit-events-quickstart.md#set-up-azure-resources). 
+1. No prompt de comando, vá para o diretório relevante. O local padrão é */home/lvaadmin/samples/output*. Você deve ver os arquivos MP4 no diretório.
+
+    ![Saída](./media/quickstarts/samples-output.png) 
+
+1. Use a [Cópia Segura (CSP)](https://docs.microsoft.com/azure/virtual-machines/linux/copy-files-to-linux-vm-using-scp) para copiar os arquivos para o computador local. 
+1. Execute os arquivos usando o [VLC media player](https://www.videolan.org/vlc/) ou qualquer outro player de MP4.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Se você pretende experimentar outros guias de início rápido, deve ater-se aos recursos criados. Caso contrário, acesse o portal do Azure, navegue até os grupos de recursos, selecione o grupo de recursos no qual você executou este guia de início rápido e exclua todos os recursos.
+Se você pretende experimentar outros inícios rápidos, mantenha os recursos criados. Caso contrário, no portal do Azure, navegue até seus grupos de recursos, selecione o grupo de recursos no qual você executou este início rápido e exclua todos os recursos.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Execute o guia de início rápido [Executar a Análise de Vídeo ao vivo com seu próprio modelo](use-your-model-quickstart.md), que mostra como aplicar a IA aos feeds de vídeo ao vivo.
+* Siga o guia de início rápido [Executar a Análise de Vídeo ao vivo com seu próprio modelo](use-your-model-quickstart.md), para aplicar a IA aos feeds de vídeo ao vivo.
 * Examine os desafios adicionais para usuários avançados:
 
-    * Use uma [câmera IP](https://en.wikipedia.org/wiki/IP_camera) compatível com RTSP em vez de usar o simulador RTSP. Você pode pesquisar por câmeras IP compatíveis com RTSP na [página de produtos compatíveis com ONVIF](https://en.wikipedia.org/wiki/IP_camera) ao procurar por dispositivos que estejam de acordo com os perfis G, S ou T.
-    * Use um dispositivo Linux AMD64 ou x64 (em vez de usar uma VM Linux do Azure). Esse dispositivo precisa estar na mesma rede que a câmera IP. Você pode seguir as instruções em [Instalar o runtime do Azure IoT Edge no Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) e seguir as instruções no guia de início rápido [Implantar seu primeiro módulo do IoT Edge em um dispositivo Linux virtual](https://docs.microsoft.com/azure/iot-edge/quickstart-linux) para registrar o dispositivo no Hub IoT do Azure.
+    * Use uma [câmera IP](https://en.wikipedia.org/wiki/IP_camera) compatível com RTSP em vez de usar o simulador RTSP. Veja as câmeras IP compatíveis com RTSP na página [Produtos em conformidade com ONVIF](https://www.onvif.org/conformant-products). Procure dispositivos em conformidade com os perfis G, S ou T.
+    * Use um dispositivo AMD64 ou x64 do Linux em vez de usar uma VM do Linux no Azure. Esse dispositivo precisa estar na mesma rede que a câmera IP. Siga as instruções em [Instalar o runtime do Azure IoT Edge no Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux). Depois, siga as instruções em [Implantar seu primeiro módulo do IoT Edge em um dispositivo virtual Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux) para registrar o dispositivo no Hub IoT do Azure.

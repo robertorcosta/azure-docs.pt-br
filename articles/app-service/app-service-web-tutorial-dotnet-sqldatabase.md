@@ -6,12 +6,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.custom: mvc, devcenter, vs-azure, seodec18
-ms.openlocfilehash: f6c8b388a9d1261e08314b8f8c607e5ee16362ae
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 57701218186266e897e8312d01372fd36ddee715
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84013781"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84906098"
 ---
 # <a name="tutorial-deploy-an-aspnet-app-to-azure-with-azure-sql-database"></a>Tutorial: Implantar um aplicativo ASP.NET no Azure com o Banco de Dados SQL do Azure
 
@@ -90,7 +90,7 @@ Você pode manter o nome do aplicativo Web gerado ou alterá-lo para outro nome 
 
 [!INCLUDE [resource-group](../../includes/resource-group.md)]
 
-1. Lado do **Grupo de Recursos**, clique em **Novo**.
+1. Ao lado de **Grupo de Recursos**, clique em **Novo**.
 
    ![Ao lado do Grupo de Recursos, clique em Novo.](media/app-service-web-tutorial-dotnet-sqldatabase/new_rg2.png)
 
@@ -299,7 +299,7 @@ Clique em **Configurar** para abrir as configurações de publicação.
 
 ![Abrir as configurações de publicação](./media/app-service-web-tutorial-dotnet-sqldatabase/publish-settings.png)
 
-No assistente, clique em **Avançar**.
+No assistente, clique em **Próximo**.
 
 Certifique-se de que a cadeia de conexão do banco de dados SQL está preenchida em **MyDatabaseContext (MyDbConnection)** . Talvez seja necessário selecionar o banco de dados **myToDoAppDb** da lista suspensa.
 
@@ -311,7 +311,7 @@ Selecione **Executar o Migrations do Code First (executado na inicialização do
 
 Agora que você habilitou as Migrações do Code First no aplicativo do Azure, publique as alterações de código.
 
-Na página de publicação, clique em **Publicar**.
+Na página Publicar, clique em **Publicar**.
 
 Tente adicionar os itens pendentes outra vez, selecione **Concluído** e os itens deverão aparecer na sua página inicial como um item concluído.
 
@@ -353,7 +353,7 @@ Para alterar os níveis de rastreamento e exibir outras mensagens de rastreament
 
 Clique com o botão direito do mouse no aplicativo do Azure novamente e selecione **Exibir Configurações**.
 
-Na lista suspensa **Log de Aplicativo (Sistema de Arquivos)** , selecione **detalhado**. Clique em **Save** (Salvar).
+Na lista suspensa **Log de Aplicativo (Sistema de Arquivos)** , selecione **detalhado**. Clique em **Salvar**.
 
 ![Alterar nível de rastreamento para Detalhado](./media/app-service-web-tutorial-dotnet-sqldatabase/trace-level-verbose.png)
 
@@ -410,3 +410,8 @@ Avance para o próximo tutorial para aprender a aprimorar a segurança da sua co
 
 > [!div class="nextstepaction"]
 > [Acessar o Banco de Dados SQL com segurança usando identidades gerenciadas para recursos do Azure](app-service-web-tutorial-connect-msi.md)
+
+Mais recursos:
+
+> [!div class="nextstepaction"]
+> [Configurar o aplicativo ASP.NET](configure-language-dotnet-framework.md)

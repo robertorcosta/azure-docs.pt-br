@@ -1,29 +1,29 @@
 ---
-title: Início rápido experimentos de exemplos
+title: Experimentos de início rápido de exemplos
 titleSuffix: ML Studio (classic) - Azure
-description: Saiba como usar os experimentos de aprendizado de máquina de exemplo para criar novos experimentos com Galeria de IA do Azure e Azure Machine Learning Studio (clássico).
+description: Saiba como usar os experimentos de exemplo do machine learning para criar experimentos com a Galeria de IA do Azure e o Azure Machine Learning Studio (clássico).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: sample
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/05/2018
-ms.openlocfilehash: a8743aeea6278588da308feb37016b679a4f0509
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.openlocfilehash: 79251257e38c9a9b59f759192d3d536185396291
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929257"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84706011"
 ---
-# <a name="create-azure-machine-learning-studio-classic-experiments-from-working-examples-in-azure-ai-gallery"></a>Crie Azure Machine Learning Studio (clássico) experimentos de exemplos de trabalho em Galeria de IA do Azure
+# <a name="create-azure-machine-learning-studio-classic-experiments-from-working-examples-in-azure-ai-gallery"></a>Criar experiências do Azure Machine Learning Studio (clássico) dos exemplos de trabalho na Galeria de IA do Azure
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Saiba como usar os experimentos de exemplo na [Galeria de IA do Azure](https://gallery.azure.ai/), em vez de criar experimentos de machine learning a partir do zero. Use os exemplos para compilar sua própria solução de machine learning.
 
-A galeria tem experimentos de exemplo da equipe de Microsoft Azure Machine Learning Studio (clássicas), bem como exemplos compartilhados pela comunidade de Machine Learning. Você pode fazer perguntas ou postar comentários sobre os experimentos
+A galeria contém experimentos de exemplo da equipe do Microsoft Azure Machine Learning Studio (clássico), bem como exemplos compartilhados pela comunidade do Machine Learning. Você pode fazer perguntas ou postar comentários sobre os experimentos
 
 Para saber como usar a galeria, assista ao vídeo de 3 minutos [Copiar o trabalho de outras pessoas para fazer a ciência de dados](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) da série [Ciência de Dados para Iniciantes](data-science-for-beginners-the-5-questions-data-science-answers.md).
 
@@ -41,9 +41,9 @@ Para procurar todos os experimentos:
 1. Clique em **Procurar tudo** na parte superior da página.
 2. No lado esquerdo, em **Refinar por**, na seção **Categorias**, selecione **Experimento** para ver todos os experimentos na Galeria.
 3. Você pode encontrar os experimentos que atendem aos seus requisitos de duas maneiras diferentes:
-   * **Selecione os filtros à esquerda.** Por exemplo, para procurar experimentos que usem um algoritmo de detecção de anomalias baseado em PCA: em **Categorias**, clique em **Experimento**. Em seguida, em **Algoritmos Usados**, clique em **Mostrar tudo** e, na caixa de diálogo, escolha **Detecção de Anomalias Baseada em PCA**. Talvez seja necessário rolar para vê-lo.<br></br>
+   * **Selecione os filtros à esquerda.** Por exemplo, para procurar experimentos que usem um algoritmo de detecção de anomalias baseado em PCA: Em **Categorias**, clique em **Experimento**. Em seguida, em **Algoritmos Usados**, clique em **Mostrar tudo** e, na caixa de diálogo, escolha **Detecção de Anomalias Baseada em PCA**. Talvez seja necessário rolar para vê-lo.<br></br>
      ![Selecionar filtros](./media/sample-experiments/choose-an-algorithm.png)
-   * **Use a caixa de pesquisa.**  Por exemplo, para encontrar os experimentos fornecidos pela Microsoft relacionados ao reconhecimento de dígito e que usam um algoritmo de máquina do vetor com suporte de duas classes, digite "reconhecimento de dígito" na caixa de pesquisa. Em seguida, selecione os filtros **teste**, **somente conteúdo da Microsoft**e computador de vetor de **suporte de duas classes**:<br></br>
+   * **Use a caixa de pesquisa.** Por exemplo, para encontrar os experimentos fornecidos pela Microsoft relacionados ao reconhecimento de dígito e que usam um algoritmo de máquina do vetor com suporte de duas classes, digite "reconhecimento de dígito" na caixa de pesquisa. Em seguida, selecione os filtros **Experimento**, **Apenas o conteúdo da Microsoft** e **Máquina do Vetor com Suporte de Duas Classes**:<br></br>
      ![Usar a caixa de pesquisa](./media/sample-experiments/search-for-experiments.png)
 4. Clique em um experimento para saber mais sobre ele.
 5. Para executar e/ou modificar o experimento, clique em **Abrir no Estúdio** na página do experimento. <br></br>
@@ -51,12 +51,12 @@ Para procurar todos os experimentos:
     ![Teste de exemplo](./media/sample-experiments/example-experiment.png)
 
 ## <a name="create-a-new-experiment-using-an-example-as-a-template"></a>Criar um novo experimento usando um exemplo como modelo
-Você também pode criar um novo experimento no Machine Learning Studio (clássico) usando um exemplo de galeria como um modelo.
+Você também pode criar um experimento no Machine Learning Studio (clássico) usando um exemplo da galeria como modelo.
 
 1. Entre com suas credenciais de conta da Microsoft no [Estúdio](https://studio.azureml.net) e clique em **Novo** para criar um experimento.
 2. Navegue pelo conteúdo de exemplo e clique em um.
 
-Um novo experimento é criado no seu espaço de trabalho Machine Learning Studio (clássico) usando o teste de exemplo como um modelo.
+Um experimento é criado em seu workspace do Machine Learning Studio (clássico) usando o experimento de exemplo como modelo.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Importar dados de várias fontes](import-data.md)

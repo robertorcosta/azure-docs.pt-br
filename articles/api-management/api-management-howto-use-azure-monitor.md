@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: bee93cf84f4beda0684127102942447630219881
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 989608b9a087599ab73864ae2605fbffcf3221d9
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82128839"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84982043"
 ---
 # <a name="monitor-published-apis"></a>Monitorar APIs publicadas
 
@@ -43,14 +43,13 @@ O vídeo a seguir mostra como monitorar o Gerenciamento de API usando o Azure Mo
 
 ## <a name="view-metrics-of-your-apis"></a>Exibir métricas das APIs
 
-O Gerenciamento de API emite métricas a cada minuto, permitindo uma visibilidade quase em tempo real do estado e da integridade de suas APIs. A seguir está um resumo de algumas das métricas disponíveis:
+O Gerenciamento de API emite métricas a cada minuto, permitindo uma visibilidade quase em tempo real do estado e da integridade de suas APIs. Abaixo estão as duas métricas usadas com mais frequência. Para obter uma lista de todas as métricas disponíveis, confira [métricas com suporte](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftapimanagementservice).
 
 * Capacidade: ajuda a tomar decisões relacionadas a atualizar/fazer downgrade de seus serviços do APIM. A métrica é emitida por minuto e reflete a capacidade do gateway no momento da emissão dos relatórios. A métrica varia de 0 a 100 e é calculada com base nos recursos corretos do gateway, como a utilização da CPU e a memória.
-* Total de solicitações de gateway: o número de solicitações de API no período. 
-* Solicitações de gateway bem-sucedidas: o número de solicitações de API que recebeu códigos de resposta HTTP bem-sucedidos, incluindo 304, 307 e unidades menores que 301 (por exemplo, 200).
-* Solicitações de gateway com falha: o número de solicitações de API que recebeu códigos de resposta HTTP errôneos, incluindo 400 e qualquer coisa maior do que 500.
-* Solicitações de gateway não autorizadas: o número de solicitações de API que recebeu códigos de resposta HTTP, incluindo 401, 403 e 429.
-* Outras solicitações de gateway: o número de solicitações de API que recebeu códigos de resposta HTTP que não pertencem a nenhuma das categorias acima (por exemplo, 418).
+* Solicitações: ajuda você a analisar o tráfego de API que passa pelos serviços de APIM. A métrica é emitida por minuto e relata o número de solicitações de gateway com dimensões, incluindo códigos de resposta, localização, nome de host e erros. 
+
+> [!IMPORTANT]
+> As seguintes métricas foram preteridas em maio de 2019 e serão desativadas em agosto de 2023: Total de solicitações de gateway, solicitações de gateway bem-sucedidas, solicitações de gateway não autorizadas, solicitações de gateway com falha, outras solicitações de gateway. Migre para a métrica de solicitações, que fornece funcionalidade equivalente.
 
 ![gráfico de métricas](./media/api-management-azure-monitor/apim-monitor-metrics.png)
 
@@ -60,9 +59,9 @@ Para acessar as métricas:
 
     ![Métricas](./media/api-management-azure-monitor/api-management-metrics-blade.png)
 
-1. Na lista suspensa, selecione as métricas em que você está interessado. Por exemplo, **Solicitações**. 
-1. O gráfico mostra o número total de chamadas à API.
-1. O gráfico pode ser filtrado usando as dimensões da métrica **Solicitações**. Por exemplo, clique em **Adicionar filtro**, escolha **Código de Resposta de Back-end** e insira 500 como o valor. Agora, o gráfico mostra o número de solicitações que falharam no back-end da API.   
+2. Na lista suspensa, selecione as métricas em que você está interessado. Por exemplo, **Solicitações**. 
+3. O gráfico mostra o número total de chamadas à API.
+4. O gráfico pode ser filtrado usando as dimensões da métrica **Solicitações**. Por exemplo, clique em **Adicionar filtro**, escolha **Código de Resposta de Back-end** e insira 500 como o valor. Agora, o gráfico mostra o número de solicitações que falharam no back-end da API.   
 
 ## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>Configurar uma regra de alerta para a solicitação não autorizada
 
@@ -188,7 +187,7 @@ No momento, o Gerenciamento de API oferece logs de recursos (agrupados por hora)
 | correlationId | string | Identificador da solicitação HTTP exclusivo atribuído pelo Gerenciamento de API |
 | local | string | Nome da região do Azure em que o gateway que processou a solicitação está localizado |
 | httpStatusCodeCategory | string | Categoria do código de status da resposta HTTP: Bem-sucedido (301 ou menos, 304 ou 307), Não Autorizado (401, 403 e 429) Incorreto (400, entre 500 e 600) e Outros |
-| resourceId | string | ID do recurso de Gerenciamento de API /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
+| resourceId | string | ID do recurso Gerenciamento de API /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
 | properties | objeto | Propriedades da solicitação atual |
 | method | string | Método HTTP da solicitação de entrada |
 | url | string | URL da solicitação de entrada |

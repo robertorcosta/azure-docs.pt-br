@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: tracking-python
-ms.openlocfilehash: ebc30f995c44685dfd58e627706e4ca60e8ecfd5
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: c4969628bb80d63cafc9537ec511ac218ff87ca7
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84556829"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84738287"
 ---
 # <a name="what-is-azure-machine-learning"></a>O que é o Azure Machine Learning?
 
@@ -124,16 +124,11 @@ Sua conta de Armazenamento do Azure, os destinos de computação e outros recurs
 ## <a name="basic--enterprise-editions"></a><a name="sku"></a>Edições Básico e Enterprise
 
 O Azure Machine Learning oferece duas edições personalizadas para suas necessidades de aprendizado de máquina:
-+ Básico (geralmente disponível)
-+ Enterprise (versão prévia)
++ **Básico**: ótimo para o desenvolvimento de software livre em escala de nuvem com uma experiência Code-First.
 
-Essas edições determinam quais ferramentas de aprendizado de máquina estão disponíveis para desenvolvedores e cientistas de dados no workspace deles.   
++ **Enterprise**: tudo que está disponível no Básico mais uma interface Web (estúdio) + gerenciamento de ciclo de vida de ML seguro e abrangente para todos os níveis de habilidade.
 
-Os workspaces do plano Básico permitem que você continue usando o Azure Machine Learning e pague apenas pelos recursos do Azure consumidos durante o processo de aprendizado de máquina. Os workspaces da edição Enterprise serão cobrados somente pelo consumo do Azure enquanto a edição estiver em versão prévia. Saiba mais sobre o que está disponível [ na visão geral e na página de preços](https://azure.microsoft.com/pricing/details/machine-learning/) do Azure Machine Learning. 
-
-Você atribui a edição sempre que cria um workspace. E os workspaces já existentes foram convertidos para o plano Básico para você. O Básico inclui todos os recursos que já estavam disponíveis de modo geral a partir de outubro de 2019. Quaisquer experimentos nesses workspaces criados com os recursos da edição Enterprise continuarão disponíveis para você em somente leitura até que você atualize para a Enterprise. Saiba como [atualizar um workspace de Básico para Enterprise](how-to-manage-workspace.md#upgrade). 
-
-Os clientes são responsáveis pelos custos relacionados a computação e a outros recursos do Azure durante esse período.
+Para saber mais sobre essas edições e quais funcionalidades elas desbloqueiam, leia o [artigo "Edições do Azure Machine Learning"](concept-editions.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

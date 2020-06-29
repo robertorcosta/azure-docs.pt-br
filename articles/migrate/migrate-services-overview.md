@@ -4,23 +4,21 @@ description: Saiba mais sobre o serviço Migrações para Azure.
 ms.topic: overview
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: c0fe4293b4e07152ff41ae946faf703aacc42d89
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: d90c40447dc4928a34332685aea728b13c3775b1
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193587"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84771250"
 ---
 # <a name="about-azure-migrate"></a>Sobre as Migrações para Azure
 
 Este artigo fornece uma visão geral rápida do serviço de Migrações para Azure.
 
-As Migrações para Azure oferecem um hub centralizado para avaliar e migrar para o Azure os servidores, a infraestrutura, os aplicativos e os dados locais.
-
-As Migrações para Azure oferecem os seguintes recursos:
+As Migrações para Azure oferecem um hub centralizado para avaliar e migrar para o Azure os servidores, a infraestrutura, os aplicativos e os dados locais. Elas fornecem o seguinte:
 
 - **Plataforma de migração unificada**: Um único portal para iniciar, executar e acompanhar sua migração para o Azure.
-- **Variedade de ferramentas**: Uma variedade de ferramentas para avaliação e migração. As ferramentas incluem as Migrações para Azure: Avaliação de Servidor e Migrações para Azure: Migração de Servidor. As Migrações para Azure integram-se a outros serviços do Azure e a outras ferramentas e ofertas de ISVs (fornecedores independentes de software).
+- **Variedade de ferramentas**: Uma variedade de ferramentas para avaliação e migração. As ferramentas de Migrações para Azure incluem a Avaliação do Servidor e as Migrações para Azure: Migração de Servidor. As Migrações para Azure também integram-se a outros serviços do Azure e a outras ferramentas, bem como com ofertas de ISVs (fornecedores independentes de software).
 - **Avaliação e de migração**: no hub de Migrações para Azure, você pode avaliar e migrar:
     - **Servidores**: Avalie servidores locais e migre-os para máquinas virtuais do Azure.
     - **Bancos de dados**: Avalie bancos de dados locais e migre-os para o Banco de Dados SQL do Azure ou a Instância Gerenciada de SQL.
@@ -82,15 +80,12 @@ A Avaliação de Servidor usa um [dispositivo das Migrações para Azure](migrat
 
 As Migrações para Azure: A ferramenta de migração de servidor ajuda a migrar para o Azure:
 
-- VMs VMware locais
-- VMs Hyper-V
-- Servidores físicos
-- Outros computadores virtualizados
-- VMs de nuvem pública
+**Migrar** | **Detalhes**
+--- | ---
+VMs VMware locais | Migre VMs para o Azure usando a migração sem agente ou baseada em agente.<br/><br/> Para a migração sem agente, a Migração de Servidor usa um dispositivo das Migrações para Azure que você implanta no local. É o mesmo tipo de dispositivo que você usa para a Avaliação do Servidor.<br/><br/> Para migração baseada em agente, a Avaliação do Servidor usa um dispositivo de replicação.
+VMs do Hyper-V locais | Migre VMs para o Azure.<br/><br/> A Avaliação do Servidor usa agentes do provedor instalados no host Hyper-V para a migração.
+Servidores físicos locais | Você pode migrar computadores físicos para o Azure. Você também pode migrar outras máquinas virtualizadas e VMs de outras nuvens públicas, tratando-as como máquinas virtuais para fins de migração. | A Avaliação do Servidor usa um dispositivo de replicação para a migração.
 
-Você pode migrar computadores depois de avaliá-los ou migrá-los sem uma avaliação.
-
-Para a migração sem agente de VMs do VMware e a migração de VMs do Hyper-V, a Migração de Servidor usa um dispositivo das Migrações para Azure que você implanta no local. O dispositivo também será usado se você configurar a avaliação do servidor. Ele é descrito na seção anterior.
 
 ## <a name="selecting-assessment-and-migration-tools"></a>Selecionando ferramentas de avaliação e migração
 

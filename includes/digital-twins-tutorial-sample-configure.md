@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: f7b3bf347b15ebad2403f3aa64c0f3fd6c4be052
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 463fb7860eb35a7ff45d3794d200c69685825827
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84611787"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737182"
 ---
 ## <a name="configure-the-sample-project"></a>Configurar o projeto de exemplo
 
@@ -22,7 +22,7 @@ Na pasta descompactada, navegue até _digital-twins-samples-master/AdtSampleApp/
 
 No Visual Studio, use o painel do *Gerenciador de Soluções* para criar uma cópia do arquivo _SampleClientApp > **serviceConfig.json.TEMPLATE**_ (você pode usar os menus de seleção com o botão direito do mouse para copiar e colar). Renomeie a cópia como *serviceConfig.json*. Ele funcionará como um arquivo JSON predefinido com as variáveis de configuração necessárias para executar o projeto.
 
-Selecione o novo arquivo para abri-lo na janela de edição. Altere o `tenantId` para a *ID do diretório*, `clientId` para a *ID do aplicativo* e `instanceUrl` para a URL do *nome do host* de sua instância dos Gêmeos Digitais do Azure (com *https://* na frente, conforme mostrado abaixo).
+Selecione o arquivo *serviceConfig.json* para abri-lo na janela de edição. Altere o `tenantId` para a *ID do diretório*, `clientId` para a *ID do aplicativo* e `instanceUrl` para a URL do *nome do host* de sua instância dos Gêmeos Digitais do Azure (com *https://* na frente, conforme mostrado abaixo).
 
 ```json
 {

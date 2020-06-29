@@ -3,16 +3,16 @@ title: Analisar os custos do Azure com o Aplicativo Power BI
 description: Este artigo explica como instalar e usar o aplicativo Power BI do Gerenciamento de Custos do Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/15/2020
+ms.date: 06/16/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
-ms.openlocfilehash: 050df590827b94888c44826ac6391ff79ada1cfc
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 53340c72a6456b24b52cff6d7eda9d4a34db6564
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81461592"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888197"
 ---
 # <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Analisar os custos com o aplicativo Power BI do Gerenciamento de Custos do Azure para EA (Enterprise Agreements)
 
@@ -41,7 +41,7 @@ Para instalar o aplicativo:
 8. Em **Introdução ao seu novo aplicativo**, em **Conectar seus dados**, selecione **Conectar**.  
   ![Introdução ao seu novo aplicativo – Conectar](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/connect-data2.png)
 9. Na caixa de diálogo exibida, digite seu número de registro no EA para **BillingProfileIdOrEnrollmentNumber**. Especifique o número de meses de dados a serem obtidos. Deixe o valor padrão do **Escopo** de **Número de registro** e selecione **Próximo**.  
-  ![Inserir informações de inscrição no EA](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png)  
+  ![Inserir informações de registro no EA](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png)  
 10. A próxima caixa de diálogo se conecta ao Azure e obtém os dados necessários para recomendações de instâncias reservadas. *Mantenha os valores padrão configurados* e selecione **Entrar**.  
   ![Conecte-se ao Azure](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png)  
 11. A etapa final da instalação se conecta à sua inscrição no EA e requer uma conta [Enterprise Administrator](../manage/understand-ea-roles.md). Selecione **Entrar** para autenticar com seu registro do EA. Essa etapa também inicia uma ação de atualização de dados no Power BI.  
@@ -127,6 +127,27 @@ Para obter detalhes sobre como usar o relatório, confira a seção [Cobertura d
 ## <a name="troubleshoot-problems"></a>Solução de problemas
 
 Se você estiver tendo problemas com o aplicativo do Power BI, as informações sobre a solução de problemas a seguir poderão ser úteis.
+
+### <a name="error-processing-the-data-in-the-dataset"></a>Erro ao processar os dados no conjunto de dados
+
+Você poderá receber um erro que indica:
+
+```
+There was an error when processing the data in the dataset.
+Data source error: {"error":{"code":"ModelRefresh_ShortMessage_ProcessingError","pbi.error":{"code":"ModelRefresh_ShortMessage_ProcessingError","parameters":{},"details":[{"code":"Message","detail":{"type":1,"value":"We cannot convert the value \"Required Field: 'Enr...\" to type List."}}],"exceptionCulprit":1}}} Table: <TableName>.
+```
+
+Um nome de tabela apareceria em vez de `<TableName>`.
+
+#### <a name="cause"></a>Causa
+
+O valor de **Escopo** padrão de `Enrollment Number` foi alterado na conexão com o Gerenciamento de Custos.
+
+#### <a name="solution"></a>Solução
+
+Reconecte-se ao Gerenciamento de Custos e defina o valor do **Escopo** como `Enrollment Number`. Não insira o número de registro da sua organização, em vez disso, digite `Enrollment Number` exatamente como ele aparece na imagem a seguir.
+
+![Inserir informações de registro no EA](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png)  
 
 ### <a name="budgetamount-error"></a>Erro de BudgetAmount
 

@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-ms.openlocfilehash: 0e9ce74d62bb45c84f8bca2d71579b05c0ba656a
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: 7fc7e4d5d402bfb21a30798f64e31cbbef8ccdd0
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84485705"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677943"
 ---
 # <a name="quickstart-create-an-ubuntu-linux-virtual-machine-using-a-resource-manager-template"></a>Início Rápido: Criar uma máquina virtual Ubuntu Linux usando um modelo do Resource Manager
 
@@ -23,8 +23,13 @@ Este guia de início rápido mostra como usar um modelo do Resource Manager para
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
+## <a name="prerequisites"></a>Pré-requisitos
 
-## <a name="review-the-template"></a>Examinar o modelo
+Nenhum.
+
+## <a name="create-an-ubuntu-linux-virtual-machine"></a>Criar uma máquina virtual Ubuntu Linux
+
+### <a name="review-the-template"></a>Examinar o modelo
 
 O modelo usado neste início rápido é proveniente dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-vm-simple-linux/).
 
@@ -35,19 +40,17 @@ Vários recursos do Azure estão definidos no modelo:
 
 - [**Microsoft.Network/virtualNetworks/subnets**](/azure/templates/Microsoft.Network/virtualNetworks/subnets): criar uma sub-rede.
 - [**Microsoft.Storage/storageAccounts**](/azure/templates/Microsoft.Storage/storageAccounts): criar uma conta de armazenamento.
-- [**Microsoft.Network/publicIPAddresses**](/azure/templates/Microsoft.Network/publicIPAddresses): criar um endereço IP público.
+- [**Microsoft.Network/networkInterfaces**](/azure/templates/Microsoft.Network/networkInterfaces): criar um NIC.
 - [**Microsoft.Network/networkSecurityGroups**](/azure/templates/Microsoft.Network/networkSecurityGroups): criar um grupo de segurança de rede.
 - [**Microsoft.Network/virtualNetworks**](/azure/templates/Microsoft.Network/virtualNetworks): criar uma rede virtual.
-- [**Microsoft.Network/networkInterfaces**](/azure/templates/Microsoft.Network/networkInterfaces): criar um NIC.
+- [**Microsoft.Network/publicIPAddresses**](/azure/templates/Microsoft.Network/publicIPAddresses): criar um endereço IP público.
 - [**Microsoft.Compute/virtualMachines**](/azure/templates/Microsoft.Compute/virtualMachines): criar uma máquina virtual.
 
-
-
-## <a name="deploy-the-template"></a>Implantar o modelo
+### <a name="deploy-the-template"></a>Implantar o modelo
 
 1. Selecione a imagem a seguir para entrar no Azure e abrir um modelo. O modelo cria um cofre de chaves e um segredo.
 
-    [![Implantar no Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-vm-simple-linux%2fazuredeploy.json)
+    [![Implantar no Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-vm-simple-linux%2fazuredeploy.json)
 
 1. Selecione ou insira os seguintes valores. Use os valores padrão, quando disponíveis.
 

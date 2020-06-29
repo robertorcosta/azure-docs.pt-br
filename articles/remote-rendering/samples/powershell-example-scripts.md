@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2020
 ms.topic: sample
-ms.openlocfilehash: c45d2fc34ccbab6d813f12563678d036f9f35753
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.openlocfilehash: 831f09ecf7550a847c483fbe1678f1e4c3cecb61
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80891485"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052293"
 ---
 # <a name="example-powershell-scripts"></a>Scripts de exemplo do PowerShell
 
@@ -75,6 +75,9 @@ Ao lado dos arquivos `.ps1` há um `arrconfig.json` que você precisa preencher:
 
 > [!CAUTION]
 > Certifique-se de escapar as barras invertidas corretamente no caminho LocalAssetDirectoryPath usando barras invertidas duplas: "\\\\" e usar barras "/" em todos os outros caminhos, como inputFolderPath e inputAssetPath.
+
+> [!CAUTION]
+> Os valores opcionais precisam ser preenchidos ou você precisará remover a chave e o valor por completo. Por exemplo, se você não usar o parâmetro `"outputAssetFileName"`, precisará excluir a linha inteira dentro de `arrconfig.json`.
 
 ### <a name="accountsettings"></a>accountSettings
 

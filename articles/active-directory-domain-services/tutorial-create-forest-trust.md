@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 9a76f72d3f01ab9253c452e49dde171280fe481d
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 37f1f129122a64dc27227bee8a267702c7f9d903
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654406"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84733663"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>Tutorial: Criar uma relação de confiança de floresta de saída com um domínio local no Azure Active Directory Domain Services (versão prévia)
 
-Em ambientes em que você não pode sincronizar hashes de senha ou tem usuários que entram exclusivamente usando cartões inteligentes para que não conheçam a senha deles, você pode usar uma floresta de recursos no AD DS (Azure Active Directory Domain Services). Uma floresta de recursos usa uma relação de confiança de saída unidirecional do Azure AD DS com um ou mais ambientes do AD DS locais. Essa relação de confiança permite que usuários, aplicativos e computadores se autentiquem em um domínio local por meio do domínio gerenciado do Azure AD DS. No momento, as florestas de recursos do Azure AD DS estão em versão prévia.
+Em ambientes em que você não pode sincronizar hashes de senha ou tem usuários que entram exclusivamente usando cartões inteligentes para que não conheçam a senha deles, você pode usar uma floresta de recursos no Azure AD DS (Azure Active Directory Domain Services). Uma floresta de recursos usa uma relação de confiança de saída unidirecional do Azure AD DS com um ou mais ambientes do AD DS locais. Essa relação de confiança permite que usuários, aplicativos e computadores se autentiquem em um domínio local por meio do domínio gerenciado do Azure AD DS. No momento, as florestas de recursos do Azure AD DS estão em versão prévia.
 
 ![Diagrama da relação de confiança de floresta do Azure AD DS com o AD DS local](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
 
@@ -42,10 +42,10 @@ Para concluir este tutorial, você precisará dos seguintes recursos e privilég
 * Um locatário do Azure Active Directory associado com a assinatura, sincronizado com um diretório local ou somente em nuvem.
     * Se necessário, [crie um locatário do Azure Active Directory][create-azure-ad-tenant] ou [associe uma assinatura do Azure à sua conta][associate-azure-ad-tenant].
 * Um domínio gerenciado do Azure Active Directory Domain Services criado usando uma floresta de recursos e configurado no locatário do Azure AD.
-    * Se necessário, [crie e configure uma instância do Azure Active Directory Domain Services][create-azure-ad-ds-instance-advanced].
+    * Se necessário, [crie e configure um domínio gerenciado do Azure Active Directory Domain Services][create-azure-ad-ds-instance-advanced].
     
     > [!IMPORTANT]
-    > Crie um domínio gerenciado do Azure AD DS usando uma floresta de *recursos*. A opção padrão cria uma floresta de *usuários*. Somente as florestas de recursos podem criar relações de confiança com ambientes do AD DS locais. Você também precisa usar o mínimo do SKU *Enterprise* para seu domínio gerenciado. Se necessário, [altere o SKU de um domínio gerenciado do Azure AD DS][howto-change-sku].
+    > Crie um domínio gerenciado usando uma floresta de *recursos*. A opção padrão cria uma floresta de *usuários*. Somente as florestas de recursos podem criar relações de confiança com ambientes do AD DS locais. Você também precisa usar o mínimo do SKU *Enterprise* para seu domínio gerenciado. Se necessário, [altere o SKU de um domínio gerenciado][howto-change-sku].
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
@@ -69,16 +69,16 @@ Antes de configurar uma relação de confiança de floresta no Azure AD DS, veri
 
 ## <a name="configure-dns-in-the-on-premises-domain"></a>Configurar a DNS no domínio local
 
-Para resolver corretamente o domínio gerenciado do Azure AD DS do ambiente local, talvez seja necessário adicionar encaminhadores aos servidores DNS existentes. Se você não configurou o ambiente local para se comunicar com o domínio gerenciado do Azure AD DS, conclua as seguintes etapas de uma estação de trabalho de gerenciamento para o domínio do AD DS local:
+Para resolver corretamente o domínio gerenciado do ambiente local, talvez seja necessário adicionar encaminhadores aos servidores DNS existentes. Se você não configurou o ambiente local para se comunicar com o domínio gerenciado, conclua as seguintes etapas de uma estação de trabalho de gerenciamento para o domínio do AD DS local:
 
 1. Selecione **Iniciar | Ferramentas Administrativas | DNS**
 1. Selecione com o botão direito do mouse o servidor DNS, como *myAD01* e selecione **Propriedades**
 1. Escolha **Encaminhadores**e **Editar** para adicionar encaminhadores adicionais.
-1. Adicione os endereços IP do domínio gerenciado do Azure AD DS, como *10.0.2.4* e *10.0.2.5*.
+1. Adicione os endereços IP do domínio gerenciado, como *10.0.2.4* e *10.0.2.5*.
 
 ## <a name="create-inbound-forest-trust-in-the-on-premises-domain"></a>Criar a relação de confiança de floresta de entrada no domínio local
 
-O domínio do AD DS local precisa de uma relação de confiança de floresta de entrada para o domínio gerenciado do Azure AD DS. Essa relação de confiança deve ser criada manualmente no domínio do AD DS local, não pode ser criada no portal do Azure.
+O domínio do AD DS local precisa de uma relação de confiança de floresta de entrada para o domínio gerenciado. Essa relação de confiança deve ser criada manualmente no domínio do AD DS local, não pode ser criada no portal do Azure.
 
 Para configurar a relação de confiança de entrada no domínio do AD DS local, conclua as seguintes etapas em uma estação de trabalho de gerenciamento para o domínio do AD DS local:
 
@@ -87,22 +87,22 @@ Para configurar a relação de confiança de entrada no domínio do AD DS local,
 1. Escolha **Relações de Confiança** e, em seguida, **Nova Relação de Confiança**
 1. Insira o nome no nome de domínio do Azure AD DS, como *aaddscontoso.com* e, em seguida, selecione **Avançar**
 1. Selecione a opção para criar uma **Relação de confiança de floresta** e, em seguida, para criar uma relação de confiança **Unidirecional: entrada**.
-1. Escolha criar a relação de confiança para **Somente este domínio**. Na próxima etapa, você criará a relação de confiança no portal do Azure para o domínio gerenciado do Azure AD DS.
+1. Escolha criar a relação de confiança para **Somente este domínio**. Na próxima etapa, você criará a relação de confiança no portal do Azure para o domínio gerenciado.
 1. Escolha usar a **Autenticação em toda a floresta**; em seguida, insira a senha da relação de confiança e confirme-a. Essa mesma senha também é inserida no portal do Azure na próxima seção.
 1. Percorra as próximas janelas com as opções padrão e, em seguida, escolha a opção **Não, não confirme a relação de confiança de saída**.
 1. Selecione **Concluir**
 
 ## <a name="create-outbound-forest-trust-in-azure-ad-ds"></a>Criar uma relação de confiança de floresta de saída no Azure AD DS
 
-Com o domínio do AD DS local configurado para resolver o domínio gerenciado do Azure AD DS e uma relação de confiança de floresta de entrada criada, agora crie a relação de confiança de floresta de saída. Essa relação de confiança de floresta de saída conclui a relação de confiança entre o domínio do AD DS local e o domínio gerenciado do Azure AD DS.
+Com o domínio do AD DS local configurado para resolver o domínio gerenciado e uma relação de confiança de floresta de entrada criada, agora crie a relação de confiança de floresta de saída. Essa relação de confiança de floresta de saída conclui a relação de confiança entre o domínio do AD DS local e o domínio gerenciado.
 
-Para criar a relação de confiança de saída para o domínio gerenciado do Azure AD DS no portal do Azure, conclua as seguintes etapas:
+Para criar a relação de confiança de saída para o domínio gerenciado no portal do Azure, conclua as seguintes etapas:
 
 1. Na portal do Azure, pesquise e selecione **Azure AD Domain Services** e, em seguida, selecione seu domínio gerenciado, como *aaddscontoso.com*
-1. No menu esquerdo do domínio gerenciado do Azure AD DS, selecione **Relações de confiança** e, em seguida, escolha para **+ Adicionar** uma relação de confiança.
+1. No menu esquerdo do domínio gerenciado, selecione **Relações de confiança** e, em seguida, escolha para **+ Adicionar** uma relação de confiança.
 
    > [!NOTE]
-   > Se você não vir a opção de menu **Relações de confiança**, verifique em **Propriedades** o *Tipo de floresta*. Somente florestas de *recursos* podem criar relações de confiança. Se o tipo de floresta for *Usuário*, você não poderá criar relações de confiança. No momento, não há como alterar o tipo de floresta de um domínio gerenciado do Azure AD DS. Você precisa excluir e recriar o domínio gerenciado como uma floresta de recursos.
+   > Se você não vir a opção de menu **Relações de confiança**, verifique em **Propriedades** o *Tipo de floresta*. Somente florestas de *recursos* podem criar relações de confiança. Se o tipo de floresta for *Usuário*, você não poderá criar relações de confiança. No momento, não há como alterar o tipo de floresta de um domínio gerenciado. Você precisa excluir e recriar o domínio gerenciado como uma floresta de recursos.
 
 1. Insira um nome de exibição que identifique sua relação de confiança e, em seguida, o nome DNS de floresta confiável local, como *onprem.contoso.com*
 1. Forneça a mesma senha da relação de confiança que foi usada ao configurar a relação de confiança de floresta de entrada para o domínio do AD DS local na seção anterior.

@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 04/22/2020
 ms.author: sudbalas
-ms.openlocfilehash: 78ae393c47de7a9d03d7b3de9b3dcd315d228f05
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 19a7cf2ec3a8a7a95952fcebfcf3a127c4dfd013
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84605418"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84792176"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Configurar redes virtuais e firewalls do Azure Key Vault
 
@@ -22,6 +22,13 @@ Este guia fornece instruções passo a passo para configurar redes virtuais e fi
 
 > [!IMPORTANT]
 > Depois que as regras de firewall estiverem ativas, os usuários podem realizar apenas operações de [plano de dados](secure-your-key-vault.md#data-plane-access-control) do Key Vault quando as solicitações deles originarem-se de redes virtuais ou intervalos de endereços IPv4 permitidos. Isso também aplica-se ao acessar o Key Vault a partir do portal do Azure. Embora os usuários possam navegar em um cofre de chaves a partir do portal do Azure, eles talvez não consigam listar chaves, segredos ou certificados se o computador cliente deles não estiver na lista permitida. Isso também afeta o Seletor do Cofre de Chaves de outros serviços do Azure. Os usuários poderão ver a lista de cofres de chaves, mas não listar chaves, se as regras de firewall impedirem o computador cliente.
+
+> [!NOTE]
+> Esteja ciente das seguintes limitações de configuração:
+> * Um máximo de 127 regras da rede virtual e 127 regras de IPv4 são permitidas. 
+> * Intervalos de endereços pequenos que usam tamanhos de prefixo "/31" ou "/32" não têm suporte. Em vez disso, esses intervalos devem ser configurados usando regras de endereço IP individuais.
+> * Regras de rede IP somente são permitidas para endereços IP públicos. Os intervalos de endereços IP reservados para redes privadas (conforme definido na RFC 1918) não são permitidos em regras de IP. Redes privadas incluem endereços que começam com **10.** , **172.16-31** e **192.168.** . 
+> * Atualmente, somente há suporte para endereços IPv4.
 
 ## <a name="use-the-azure-portal"></a>Use o Portal do Azure
 
@@ -115,7 +122,7 @@ Segue como configurar redes virtuais e firewalls do Key Vault usando o PowerShel
    ```
 
 ## <a name="references"></a>Referências
-
+* Referência de modelo ARM: [Referência de modelo ARM do Azure Key Vault](https://docs.microsoft.com/azure/templates/Microsoft.KeyVault/vaults)
 * Comandos da CLI do Azure: [az keyvault network-rule](https://docs.microsoft.com/cli/azure/keyvault/network-rule?view=azure-cli-latest)
 * Cmdlets do Azure PowerShell: [Get-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/get-azkeyvault), [Add-AzKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/az.KeyVault/Add-azKeyVaultNetworkRule), [Remove-AzKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/az.KeyVault/Remove-azKeyVaultNetworkRule), [Update-AzKeyVaultNetworkRuleSet](https://docs.microsoft.com/powershell/module/az.KeyVault/Update-azKeyVaultNetworkRuleSet)
 

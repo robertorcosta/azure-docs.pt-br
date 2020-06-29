@@ -1,24 +1,24 @@
 ---
 title: Definições de políticas internas para Conjuntos de Dimensionamento de Máquinas Virtuais do Azure
 description: Lista as definições de políticas internas do Azure Policy para Conjuntos de Dimensionamento de Máquinas Virtuais do Azure. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 05/29/2020
+ms.date: 06/10/2020
 ms.topic: sample
 author: ju-shim
 ms.author: jushiman
 ms.service: virtual-machine-scale-sets
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 5d7a4a036690f67313fa20558382b660a811bc88
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 37cbd246476058a736fa2df3fda7abcaa0bb5ab6
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235596"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888008"
 ---
-# <a name="azure-policy-built-in-policy-definitions-for-azure-virtual-machine-scale-sets"></a>Definições de políticas internas do Azure Policy para Conjuntos de Dimensionamento de Máquinas Virtuais do Azure
+# <a name="azure-policy-built-in-definitions-for-azure-virtual-machine-scale-sets"></a>Definições internas do Azure Policy para Conjuntos de Dimensionamento de Máquinas Virtuais do Azure
 
 Esta página é um índice de definições de políticas internas do [Azure Policy](../governance/policy/overview.md) para Conjuntos de Dimensionamento de Máquinas Virtuais do Azure. Para obter políticas internas adicionais do Azure Policy para outros serviços, confira [Definições internas do Azure Policy](../governance/policy/samples/built-in-policies.md).
 
-O nome de cada definição de política interna leva à definição da política no portal do Azure. Use o link na coluna **GitHub** para ver a origem no [repositório GitHub do Azure Policy](https://github.com/Azure/azure-policy).
+O nome de cada definição de política interna leva à definição da política no portal do Azure. Use o link na coluna **Versão** para exibir a origem no [repositório GitHub do Azure Policy](https://github.com/Azure/azure-policy).
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 

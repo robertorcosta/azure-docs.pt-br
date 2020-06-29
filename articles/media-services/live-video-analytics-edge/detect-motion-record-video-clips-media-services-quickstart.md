@@ -3,12 +3,12 @@ title: Detectar movimento, gravar vídeo nos Serviços de Mídia do Azure
 description: Este guia de início rápido mostra como usar a Análise de Vídeo ao vivo no IoT Edge para detectar o movimento em uma transmissão de vídeo ao vivo e gravar clipes de vídeo nos Serviços de Mídia do Azure.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: f0045f7fddfe6c544f10d280450cdafe8dca9e2d
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 0a81bebe7333266e1b70f97f8c712fccf392a464
+ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84261615"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84817313"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>Início Rápido: Detectar movimento e gravar vídeo em Serviços de Mídia
 
@@ -21,9 +21,9 @@ Este artigo se baseia no [início rápido Introdução](get-started-detect-motio
 * Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Visual Studio Code](https://code.visualstudio.com/) em seu computador com a [extensão do Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * Se você não tiver concluído o [início rápido de Introdução](get-started-detect-motion-emit-events-quickstart.md) anteriormente, siga as etapas abaixo:
-    * Conclua [Configurar os recursos do Azure](get-started-detect-motion-emit-events-quickstart.md#set-up-azure-resources)
+    * [Configurar recursos do Azure](get-started-detect-motion-emit-events-quickstart.md#set-up-azure-resources)
     * [Implantar módulos](get-started-detect-motion-emit-events-quickstart.md#deploy-modules-on-your-edge-device)
-    * [Configurar o Visual Studio Code](get-started-detect-motion-emit-events-quickstart.md#configure-azure-iot-tools-extension-in-visual-studio-code)
+    * [Configurar o Visual Studio Code](get-started-detect-motion-emit-events-quickstart.md#configure-the-azure-iot-tools-extension)
 
 ## <a name="review-the-sample-video"></a>Examinar o vídeo de exemplo
 
@@ -658,7 +658,7 @@ Observe as propriedades a seguir nas mensagens acima
 * Cada mensagem contém uma seção “body” e uma seção “applicationproperties”. Para entender o que essas seções representam, leia o artigo [Criar e ler mensagem do Hub IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
 * A primeira mensagem é um Evento de diagnóstico, MediaSessionEstablished, informando que o nó de Origem RTSP (assunto) foi capaz de estabelecer conexão com o simulador RTSP e começar a receber um feed ao vivo (simulado).
 * O "assunto" em applicationProperties faz referência ao nó na topologia do grafo da qual a mensagem foi gerada. Nesse caso, a mensagem é originada do nó de origem RTSP.
-* "eventType" em applicationProperties indica que se trata de um Evento de diagnóstico.
+* "eventType" em applicationProperties indica que se trata de um evento de diagnóstico.
 * "eventTime" indica a hora em que o evento ocorreu.
 * "body" contém dados sobre o evento de diagnóstico – é a mensagem [SDP](https://en.wikipedia.org/wiki/Session_Description_Protocol).
 * A segunda mensagem é um evento de Análise. Você pode verificar se ela é enviada aproximadamente 5 segundos após a mensagem MediaSessionEstablished, que corresponde ao atraso entre o início do vídeo e quando o carro percorre o estacionamento.
@@ -781,7 +781,7 @@ Invoque o método direto GraphInstanceDelete com o conteúdo a seguir
 }
 ```
 
-Em poucos segundos, você deverá ver a seguinte resposta na janela SAÍDA:
+Em poucos segundos, você deverá ver a reposta a seguir na janela de SAÍDA.
 
 ```
 [DirectMethod] Invoking Direct Method [GraphInstanceDelete] to [lva-sample-device/lvaEdge] ...

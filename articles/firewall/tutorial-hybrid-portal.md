@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 7da5e6fa3c977d309ad028cb446cd411a9d4fbaf
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 5ba9bb723ab7b052440eea2ac509692200b80f6e
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298951"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84750694"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Tutorial: Implantar e configurar o Firewall do Azure em uma rede híbrida usando o portal do Azure
 
@@ -54,7 +54,7 @@ Uma rede híbrida usa o modelo de arquitetura hub e spoke para rotear o tráfego
    Além disso, as rotas para as redes virtuais conectadas pelo gateway ou das redes locais serão propagadas automaticamente às tabelas de roteiros para as redes virtuais emparelhadas usando o trânsito de gateway. Para saber mais, confira [Configurar o trânsito de gateway de VPN para o emparelhamento de rede virtual](../vpn-gateway/vpn-gateway-peering-gateway-transit.md).
 
 - Defina **UseRemoteGateways** quando você emparelhar VNet-Spoke com VNet-Hub. Se **UseRemoteGateways** estiver definido e **AllowGatewayTransit** no emparelhamento remoto também estiver definido, a rede virtual spoke usará gateways da rede virtual remota para trânsito.
-- Para rotear o tráfego de sub-rede spoke por meio do firewall do hub, você precisa de uma UDR (Rota Definida pelo Usuário) que aponte para o firewall com a opção **Propagação de rotas de gateway de rede virtual** desabilitada. A opção **Propagação de rotas de gateway de rede virtual** desabilitada impede a distribuição de rota para as sub-redes spoke. Isso impede que as rotas aprendidas entrem em conflito com sua UDR.
+- Para rotear o tráfego da sub-rede spoke por meio do firewall do hub, você pode usar uma UDR (Rota Definida pelo Usuário) que aponte para o firewall com a opção **Propagação de rotas de gateway de rede virtual** desabilitada. A opção **Propagação de rotas de gateway de rede virtual** desabilitada impede a distribuição de rota para as sub-redes spoke. Isso impede que as rotas aprendidas entrem em conflito com sua UDR. Se quiser manter a **propagação de rota de gateway de rede virtual** habilitada, defina rotas específicas para o firewall para substituir aquelas publicadas do local sobre o BGP.
 - Configure uma UDR na sub-rede do gateway do hub que aponta para o endereço IP do firewall como o próximo salto para as redes spoke. Nenhuma UDR é necessária na sub-rede do Firewall do Azure, já que ela aprende as rotas com o BGP.
 
 Consulte a seção [Criar Rotas](#create-the-routes) deste tutorial para ver como essas rotas são criadas.

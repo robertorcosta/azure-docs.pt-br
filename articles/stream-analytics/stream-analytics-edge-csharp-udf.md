@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1d71f4c5616efb05efe2733c49507b085ca2dcf6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7bcf656b1fa0a73021a92113eb5879312d100823
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75426289"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84974493"
 ---
 # <a name="tutorial-write-a-c-user-defined-function-for-azure-stream-analytics-job-preview"></a>Tutorial: Escrever uma função em C# definida pelo usuário para um trabalho do Azure Stream Analytics (versão prévia)
 
@@ -32,7 +32,7 @@ Antes de começar, verifique se que você concluiu os pré-requisitos a seguir:
 
 * Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Instale as ferramentas [Stream Analytics para o Visual Studio](stream-analytics-tools-for-visual-studio-install.md) e as cargas de trabalho do **desenvolvimento do Azure** ou **do Armazenamento e Processamento de Dados**.
-* Dê uma olhada no [guia de desenvolvimento do Stream Analytics Edge] existente se você estiver criando um trabalho do IoT Edge (stream-analytics-tools-for-visual-studio-edge-jobs.md).
+* Veja o [guia de desenvolvimento do Stream Analytics Edge](stream-analytics-tools-for-visual-studio-edge-jobs.md) se você estiver criando um trabalho do IoT Edge.
 
 ## <a name="create-a-container-in-your-azure-storage-account"></a>Criar um contêiner na sua conta de armazenamento do Azure
 
@@ -138,7 +138,7 @@ Você pode depurar seu c# UDF localmente da mesma maneira que você depura o có
 
     ![Exibir resultados de depuração da função de definida pelo usuário no Stream Analytics](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-debug.png)
 
-## <a name="publish-your-job-to-azure"></a>Publicar seu trabalho no Azure
+## <a name="publish-your-job-to-azure"></a>Publique seu trabalho no Azure
 Depois de testar sua consulta localmente, selecione **enviar para o Azure** no editor de scripts para publicar o trabalho no Azure.
 
 ![Enviar o trabalho de borda do Stream Analytics do Azure do Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-submit-job.png)

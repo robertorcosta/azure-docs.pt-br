@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: mvc, seodec18, tracking-python
-ms.openlocfilehash: d9c7b9b296aaf287d185cd3e7544e40d9cdef2f5
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 88ca971986119b3612c79d0bee381d3a0fc9a977
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561100"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84906829"
 ---
 # <a name="tutorial-build-a-custom-image-and-run-in-app-service-from-a-private-registry"></a>Tutorial: Criar uma imagem personalizada e executá-la no Serviço de Aplicativo por meio de um registro particular
 
@@ -236,23 +236,33 @@ Verifique se o aplicativo Web funciona procurando por ele (`http://<app-name>.az
 
 ## <a name="change-web-app-and-redeploy"></a>Alterar o aplicativo Web e reimplantá-lo
 
-No seu repositório Git local, abra app/templates/app/index.html. Localize o primeiro elemento HTML e altere-o para:
+No seu repositório Git local, abra *app/templates/app/index.html*. Altere o primeiro elemento HTML para corresponder ao código a seguir.
 
-```python
+```html
 <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">Azure App Service - Updated Here!</a>
-      </div>
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Azure App Service - Updated Here!</a>
     </div>
-  </nav>
+  </div>
+</nav>
 ```
 
-Depois de modificar o arquivo do Python e salvá-lo, recrie e envie por push a nova imagem do Docker. Em seguida, reinicie o aplicativo Web para que as alterações entrem em vigor. Use os mesmos comandos usados anteriormente neste tutorial. Veja [Criar a imagem com base no arquivo do Docker](#build-the-image-from-the-docker-file) e [Enviar uma imagem por push para o Registro de Contêiner do Azure](#push-image-to-azure-container-registry). Teste o aplicativo Web, seguindo as instruções em [Testar o aplicativo Web](#test-the-web-app).
+Depois de salvar as alterações, recompile e envie por push a nova imagem do Docker usando os mesmos comandos que você usou anteriormente neste tutorial. Veja [Criar a imagem com base no arquivo do Docker](#build-the-image-from-the-docker-file) e [Enviar uma imagem por push para o Registro de Contêiner do Azure](#push-image-to-azure-container-registry).
+
+Depois de enviar a nova imagem por push, reinicie o aplicativo Web para que as alterações entrem em vigor usando o seguinte comando:
+
+```azurecli-interactive
+az webapp restart --name <app_name> --resource-group myResourceGroup
+```
+
+Substitua `<app_name>` pelo nome específico usado anteriormente.
+
+Depois que o aplicativo for reiniciado, teste-o seguindo as instruções em [Testar o aplicativo Web](#test-the-web-app).
 
 ## <a name="access-diagnostic-logs"></a>Acessar logs de diagnóstico
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 ## <a name="enable-ssh-connections"></a>Habilitar conexões SSH
 

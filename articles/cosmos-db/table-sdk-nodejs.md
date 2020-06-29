@@ -8,14 +8,14 @@ ms.topic: reference
 ms.date: 11/20/2018
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: 0f94ae4a4b5ad7806658c4ae54146d4ac940750e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 52aebf5a4f2e5ea7b3b09ae105c9ea632416c27e
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76771305"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84167971"
 ---
-# <a name="azure-cosmos-db-table-api-for-nodejs-release-notes-and-resources"></a>API de tabela do Azure Cosmos DB para Node.js: notas de versão e recursos
+# <a name="azure-cosmos-db-table-api-for-nodejs-release-notes-and-resources"></a>API de Tabela do Azure Cosmos DB para Node.js: Notas sobre a versão e recursos
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
 > * [.NET Standard](table-sdk-dotnet-standard.md)
@@ -26,7 +26,7 @@ ms.locfileid: "76771305"
 
 |   |   |
 |---|---|
-|**Download do SDK**|[NPM](https://www.npmjs.com/package/azure-storage)|
+|**Baixe o SDK**|[NPM](https://www.npmjs.com/package/azure-storage)|
 |**Documentação da API**|[Documentação de referência da API do Node.js](https://azure.github.io/azure-storage-node/)|
 |**Contribuir para o SDK**|[GitHub](https://github.com/Azure/azure-storage-node#contribute)|
 
@@ -36,7 +36,7 @@ ms.locfileid: "76771305"
 
 ## <a name="release-notes"></a>Notas de versão
 
-### <a name="100"></a><a name="1.0.0"/>1.0.0
+### <a name="100"></a><a name="1.0.0"></a>1.0.0
 * Versão de disponibilidade geral
 
 ## <a name="release-and-retirement-dates"></a>Datas de lançamento e desativação

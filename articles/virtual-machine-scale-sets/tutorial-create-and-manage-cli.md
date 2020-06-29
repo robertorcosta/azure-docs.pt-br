@@ -9,15 +9,15 @@ ms.subservice: management
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 252b3b3ecf2de24410d046473ee2cfd2215254a9
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: ff4a2b9cb66013900b5b9969a4281d1a20d9c122
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198219"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84736434"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Criar e gerenciar um conjunto de dimensionamento de máquinas virtuais definido com a CLI do Azure
-Um conjunto de dimensionamento de máquinas virtuais permite implantar e gerenciar um conjunto de máquinas virtuais idênticas de dimensionamento automático. Durante todo o ciclo de vida do conjunto de dimensionamento de uma máquina virtual, você poderá precisar executar uma ou mais tarefas de gerenciamento. Neste tutorial, você aprenderá a:
+Um conjunto de dimensionamento de máquinas virtuais permite implantar e gerenciar um conjunto de máquinas virtuais idênticas de dimensionamento automático. Durante todo o ciclo de vida do conjunto de dimensionamento de uma máquina virtual, você poderá precisar executar uma ou mais tarefas de gerenciamento. Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 > * Criar e se conectar a um conjunto de dimensionamento de máquinas virtuais
@@ -166,6 +166,9 @@ CentOS   OpenLogic   7.3   OpenLogic:CentOS:7.3:7.3.20170925   7.3.20170925
 ```
 
 Para implantar um conjunto de dimensionamento que usa uma imagem específica, use o valor na coluna *Urn*. Na hora de especificar a imagem, o número de versão da imagem pode ser substituído por *mais recente*, que seleciona a versão mais recente da distribuição. No exemplo a seguir, o `--image` argumento é usado para especificar a versão mais recente de uma imagem do CentOS 7.3.
+
+> [!IMPORTANT]
+> É recomendável usar a versão *mais recente* da imagem. Especifique 'mais recente' para usar a versão mais recente de uma imagem disponível no momento da implantação. Observe que, mesmo que você use 'mais recente', a imagem da VM não será atualizada automaticamente após o tempo de implantação, mesmo se uma nova versão ficar disponível.
 
 Como demora alguns minutos para criar e configurar todos os recursos do conjunto de dimensionamento e as instâncias de VM, você não precisa implantar o seguinte conjunto de dimensionamento:
 

@@ -1,6 +1,6 @@
 ---
 title: Tutorial – Configurar a rede virtual para o Azure AD Domain Services | Microsoft Docs
-description: Neste tutorial, você aprenderá a criar e configurar uma sub-rede da rede virtual do Azure ou um emparelhamento de rede para uma instância do Azure Active Directory Domain Services usando o portal do Azure.
+description: Neste tutorial, você aprenderá a criar e configurar uma sub-rede da rede virtual do Azure ou um emparelhamento de rede para um domínio gerenciado do Azure Active Directory Domain Services usando o portal do Azure.
 author: iainfoulds
 manager: daveba
 ms.service: active-directory
@@ -9,14 +9,14 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: af284e4c10487123c8c2a2105a25a2285ae0aa99
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 1e3b94208c3ead6e7ed4e15dac7c32b50025064a
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80474384"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84733799"
 ---
-# <a name="tutorial-configure-virtual-networking-for-an-azure-active-directory-domain-services-instance"></a>Tutorial: Configurar um emparelhamento de rede para uma instância do Azure Active Directory Domain Services
+# <a name="tutorial-configure-virtual-networking-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configurar um emparelhamento de rede para um domínio gerenciado do Azure Active Directory Domain Services
 
 Para fornecer conectividade a usuários e aplicativos, um domínio gerenciado do Azure AD DS (Azure Active Directory Domain Services) é implantado em uma sub-rede da rede virtual do Azure. Essa sub-rede da rede virtual só deve ser usada para os recursos do domínio gerenciado fornecidos pela plataforma Azure. À medida que você cria suas próprias VMs e seus próprios aplicativos, eles não devem ser implantados na mesma sub-rede da rede virtual. Em vez disso, você deverá criar e implantar seus aplicativos em uma sub-rede da rede virtual separada ou em uma rede virtual separada que esteja emparelhada com a rede virtual do Azure AD DS.
 
@@ -42,21 +42,21 @@ Para concluir este tutorial, você precisará dos seguintes recursos e privilég
 * É necessário ter privilégios de *administrador global* no locatário do Azure AD para habilitar o Azure AD DS.
 * Você precisa de privilégios de *Colaborador* em sua assinatura do Azure para criar os recursos necessários do Azure AD DS.
 * Um domínio gerenciado do Azure Active Directory Domain Services habilitado e configurado no locatário do Azure AD.
-    * Se necessário, o primeiro tutorial [cria e configura uma instância do Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+    * Se necessário, o primeiro tutorial [cria e configura um domínio gerenciado do Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-Neste tutorial, você criará e configurará uma instância do Azure AD DS usando o portal do Azure. Para começar, primeiro entre no [portal do Azure](https://portal.azure.com).
+Neste tutorial, você cria e configura o domínio gerenciado usando o portal do Azure. Para começar, primeiro entre no [portal do Azure](https://portal.azure.com).
 
 ## <a name="application-workload-connectivity-options"></a>Opções de conectividade da carga de trabalho do aplicativo
 
-No tutorial anterior, foi criado um domínio gerenciado do Azure AD DS que usava algumas opções de configuração padrão para a rede virtual. Essas opções padrão criaram uma rede virtual do Azure e uma sub-rede da rede virtual. Os controladores de domínio do Azure AD DS que fornecem os serviços de domínio gerenciado estão conectados a essa sub-rede da rede virtual.
+No tutorial anterior, foi criado um domínio gerenciado que usava algumas opções de configuração padrão para a rede virtual. Essas opções padrão criaram uma rede virtual do Azure e uma sub-rede da rede virtual. Os controladores de domínio do Azure AD DS que fornecem os serviços de domínio gerenciado estão conectados a essa sub-rede da rede virtual.
 
-Quando você cria e executa VMs que precisam usar o domínio gerenciado do Azure AD DS, a conectividade de rede precisa ser fornecida. Essa conectividade de rede pode ser fornecida de uma das seguintes maneiras:
+Quando você cria e executa VMs que precisam usar o domínio gerenciado, a conectividade de rede precisa ser fornecida. Essa conectividade de rede pode ser fornecida de uma das seguintes maneiras:
 
-* Criar uma sub-rede da rede virtual adicional na rede virtual padrão do domínio gerenciado do Azure AD DS. Essa sub-rede adicional é o local em que você cria e conecta suas VMs.
+* Criar uma sub-rede da rede virtual adicional na rede virtual padrão do domínio gerenciado. Essa sub-rede adicional é o local em que você cria e conecta suas VMs.
     * Como as VMs fazem parte da mesma rede virtual, elas podem executar automaticamente a resolução de nomes e se comunicar com os controladores de domínio do Azure AD DS.
-* Configurar o emparelhamento de rede virtual do Azure na rede virtual do domínio gerenciado do Azure AD DS para uma ou mais redes virtuais separadas. Essas redes virtuais separadas são o local em que você cria e conecta suas VMs.
+* Configurar o emparelhamento de rede virtual do Azure na rede virtual do domínio gerenciado para uma ou mais redes virtuais separadas. Essas redes virtuais separadas são o local em que você cria e conecta suas VMs.
     * Ao configurar o emparelhamento de rede virtual, você também precisa definir as configurações do DNS para usar a resolução de nomes novamente para os controladores de domínio do Azure AD DS.
 
 Normalmente, apenas uma dessas opções de conectividade de rede é usada. Muitas vezes, a escolha depende de como você deseja gerenciar separadamente seus recursos do Azure. Caso deseje gerenciar o Azure AD DS e as VMs conectadas como um grupo de recursos, crie uma sub-rede da rede virtual adicional para as VMs. Caso deseje separar o gerenciamento do Azure AD DS e, em seguida, de qualquer VM conectada, use o emparelhamento de rede virtual. Opte também por usar o emparelhamento de rede virtual para fornecer conectividade às VMs existentes no ambiente do Azure que estão conectadas a uma rede virtual existente.
@@ -67,11 +67,11 @@ Para obter mais informações sobre como planejar e configurar a rede virtual, c
 
 ## <a name="create-a-virtual-network-subnet"></a>Criar uma sub-rede da rede virtual
 
-Por padrão, a rede virtual do Azure criada com o domínio gerenciado do Azure AD DS contém uma única sub-rede da rede virtual. Essa sub-rede da rede virtual só deve ser usada pela plataforma Azure para fornecer serviços de domínio gerenciado. Para criar e usar suas próprias VMs nessa rede virtual do Azure, crie uma sub-rede adicional.
+Por padrão, a rede virtual do Azure criada com o domínio gerenciado contém uma única sub-rede da rede virtual. Essa sub-rede da rede virtual só deve ser usada pela plataforma Azure para fornecer serviços de domínio gerenciado. Para criar e usar suas próprias VMs nessa rede virtual do Azure, crie uma sub-rede adicional.
 
 Para criar uma sub-rede da rede virtual para VMs e cargas de trabalho de aplicativo, conclua as seguintes etapas:
 
-1. No portal do Azure, selecione o grupo de recursos do domínio gerenciado do Azure AD DS, como *myResourceGroup*. Na lista de recursos, escolha a rede virtual padrão, como *aadds-vnet*.
+1. No portal do Azure, selecione o grupo de recursos do domínio gerenciado, como *myResourceGroup*. Na lista de recursos, escolha a rede virtual padrão, como *aadds-vnet*.
 1. No menu à esquerda da janela da rede virtual, selecione **Espaço de endereço**. A rede virtual é criada com um só espaço de endereço *10.0.2.0/24*, que é usado pela sub-rede padrão.
 
     Adicione um intervalo de endereços IP adicional à rede virtual. O tamanho desse intervalo de endereços e do intervalo de endereços IP real a ser usado depende de outros recursos de rede já implantados. O intervalo de endereços IP não deve se sobrepor a nenhum intervalo de endereços existente no ambiente local ou do Azure. Dimensione o intervalo de endereços IP com um tamanho grande o suficiente para o número de VMs que espera implantar na sub-rede.
@@ -89,17 +89,17 @@ Para criar uma sub-rede da rede virtual para VMs e cargas de trabalho de aplicat
 
 1. Quando estiver pronto, selecione **OK**. São necessários alguns instantes para a criação da sub-rede da rede virtual.
 
-Ao criar uma VM que precisa usar o domínio gerenciado do Azure AD DS, selecione essa sub-rede da rede virtual. Não crie VMs na *aadds-subnet* padrão. Se você selecionar outra rede virtual, não haverá conectividade de rede nem resolução do DNS para acessar o domínio gerenciado do Azure AD DS, a menos que você configure o emparelhamento de rede virtual.
+Ao criar uma VM que precisa usar o domínio gerenciado, selecione essa sub-rede da rede virtual. Não crie VMs na *aadds-subnet* padrão. Se você selecionar outra rede virtual, não haverá conectividade de rede nem resolução do DNS para acessar o domínio gerenciado, a menos que você configure o emparelhamento de rede virtual.
 
 ## <a name="configure-virtual-network-peering"></a>Configure emparelhamento de rede virtual
 
-Talvez você já tenha uma rede virtual do Azure para VMs ou deseje manter a rede virtual de domínio gerenciado do Azure AD DS separada. Para usar o domínio gerenciado, as VMs de outras redes virtuais precisam ter uma maneira de se comunicar com os controladores de domínio do Azure AD DS. Essa conectividade pode ser fornecida usando o emparelhamento de rede virtual do Azure.
+Talvez você já tenha uma rede virtual do Azure para VMs ou deseje manter a rede virtual de domínio gerenciado separada. Para usar o domínio gerenciado, as VMs de outras redes virtuais precisam ter uma maneira de se comunicar com os controladores de domínio do Azure AD DS. Essa conectividade pode ser fornecida usando o emparelhamento de rede virtual do Azure.
 
 Com o emparelhamento de rede virtual do Azure, duas redes virtuais são conectadas, sem a necessidade de um dispositivo VPN (rede virtual privada). O emparelhamento de rede permite que você conecte rapidamente redes virtuais e defina fluxos de tráfego no ambiente do Azure. Para obter mais informações sobre o emparelhamento, confira a [Visão geral do emparelhamento de rede virtual do Azure][peering-overview].
 
-Para emparelhar uma rede virtual com a rede virtual de domínio gerenciado do Azure AD DS, conclua as seguintes etapas:
+Para emparelhar uma rede virtual com a rede virtual de domínio gerenciado, conclua as seguintes etapas:
 
-1. Escolha a rede virtual padrão criada para a instância do Azure AD DS chamada *aadds-vnet*.
+1. Escolha a rede virtual padrão criada para o domínio gerenciado chamado *aadds-vnet*.
 1. No menu à esquerda da janela da rede virtual, selecione **Emparelhamentos**.
 1. Para criar um emparelhamento, selecione **+ Adicionar**. No exemplo a seguir, a *aadds-vnet* padrão é emparelhada com uma rede virtual chamada *myVnet*. Defina as seguintes configurações com seus próprios valores:
 
@@ -117,27 +117,27 @@ Para emparelhar uma rede virtual com a rede virtual de domínio gerenciado do Az
 
     ![Redes emparelhadas conectadas com êxito no portal do Azure](./media/tutorial-configure-networking/connected-peering.png)
 
-Antes que as VMs da rede virtual emparelhada possam usar o domínio gerenciado do Azure AD DS, configure os servidores DNS para permitir a resolução correta de nomes.
+Antes que as VMs da rede virtual emparelhada possam usar o domínio gerenciado, configure os servidores DNS para permitir a resolução correta de nomes.
 
 ### <a name="configure-dns-servers-in-the-peered-virtual-network"></a>Configurar servidores DNS na rede virtual emparelhada
 
-Para que as VMs e os aplicativos da rede virtual emparelhada se comuniquem com êxito com o domínio gerenciado do Azure AD DS, as configurações do DNS precisam ser atualizadas. Os endereços IP dos controladores de domínio do Azure AD DS precisam ser configurados como os servidores DNS na rede virtual emparelhada. Há duas maneiras de configurar os controladores de domínio como servidores DNS para a rede virtual emparelhada:
+Para que as VMs e os aplicativos da rede virtual emparelhada se comuniquem com êxito com o domínio gerenciado, as configurações do DNS precisam ser atualizadas. Os endereços IP dos controladores de domínio do Azure AD DS precisam ser configurados como os servidores DNS na rede virtual emparelhada. Há duas maneiras de configurar os controladores de domínio como servidores DNS para a rede virtual emparelhada:
 
 * Configurar os servidores DNS da rede virtual do Azure para usarem os controladores de domínio do Azure AD DS.
-* Configurar o servidor DNS existente em uso na rede virtual emparelhada para usar o encaminhamento do DNS condicional para direcionar consultas para o domínio gerenciado do Azure AD DS. Essas etapas variam de acordo com o servidor DNS existente em uso.
+* Configurar o servidor DNS existente em uso na rede virtual emparelhada para usar o encaminhamento do DNS condicional para direcionar consultas para o domínio gerenciado. Essas etapas variam de acordo com o servidor DNS existente em uso.
 
 Neste tutorial, vamos configurar os servidores DNS da rede virtual do Azure para direcionar todas as consultas para os controladores de domínio do Azure AD DS.
 
 1. No portal do Azure, selecione o grupo de recursos da rede virtual emparelhada, como *myResourceGroup*. Na lista de recursos, escolha a rede virtual emparelhada, como *myVnet*.
 1. No menu à esquerda da janela da rede virtual, selecione **Servidores DNS**.
-1. Por padrão, uma rede virtual usa os servidores DNS internos fornecidos pelo Azure. Opte por usar servidores DNS **Personalizados**. Insira os endereços IP para os controladores de domínio do Azure AD DS, que geralmente são *10.0.2.4* e *10.0.2.5*. Confirme esses endereços IP na janela **Visão geral** do domínio gerenciado do Azure AD DS no portal.
+1. Por padrão, uma rede virtual usa os servidores DNS internos fornecidos pelo Azure. Opte por usar servidores DNS **Personalizados**. Insira os endereços IP para os controladores de domínio do Azure AD DS, que geralmente são *10.0.2.4* e *10.0.2.5*. Confirme esses endereços IP na janela **Visão geral** do domínio gerenciado no portal.
 
     ![Configurar os servidores DNS da rede virtual para usarem os controladores de domínio do Azure AD DS](./media/tutorial-configure-networking/custom-dns.png)
 
 1. Quando estiver pronto, selecione **Salvar**. São necessários alguns instantes para atualizar os servidores DNS para a rede virtual.
 1. Para aplicar as configurações do DNS atualizadas às VMs, reinicie as VMs conectadas à rede virtual emparelhada.
 
-Ao criar uma VM que precisa usar o domínio gerenciado do Azure AD DS, selecione essa rede virtual emparelhada. Se você selecionar outra rede virtual, não haverá conectividade de rede nem resolução do DNS para acessar o domínio gerenciado do Azure AD DS.
+Ao criar uma VM que precisa usar o domínio gerenciado, selecione essa rede virtual emparelhada. Se você selecionar outra rede virtual, não haverá conectividade de rede nem resolução do DNS para acessar o domínio gerenciado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

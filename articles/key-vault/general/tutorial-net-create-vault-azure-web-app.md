@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
-ms.openlocfilehash: dca7392c35c398ae3d9da62114c991ee4c0e57ca
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: f6e70caaedf906142b19ba45f0eb4d818e2955e7
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996998"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85051894"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-with-net"></a>Tutorial: Usar uma identidade gerenciada para conectar o Key Vault a um Aplicativo Web do Azure com o .NET
 
@@ -113,7 +113,7 @@ A saída JSON mostra a senha como `null`. Se receber um erro `'Conflict'. Detail
 
 Registre seu nome de usuário e senha para usá-los na implantação de aplicativos Web.
 
-### <a name="create-an-app-service-plan"></a>Criar um plano do serviço de aplicativo
+### <a name="create-an-app-service-plan"></a>Criar um plano de Serviço de Aplicativo
 
 Criar um plano do Serviço de Aplicativo com o comando [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest) da CLI do Azure. O seguinte exemplo cria um plano do Serviço de Aplicativo denominado `myAppServicePlan` usando o tipo de preço **Gratuita**:
 
@@ -147,7 +147,7 @@ Quando o Plano do Serviço de Aplicativo for criado, a CLI do Azure mostrará in
 Crie um [Aplicativo Web do Azure](../../app-service/containers/app-service-linux-intro.md) no plano do serviço de aplicativo `myAppServicePlan`. 
 
 > [!Important]
-> Semelhante ao Key Vault, um aplicativo Web do Azure deve ter um nome exclusivo. Substitua \<your-webapp-name\> pelo nome do seu aplicativo Web nos exemplos a seguir.
+> Semelhante ao Key Vault, um aplicativo Web do Azure deve ter um nome exclusivo. Substitua \<your-webapp-name\> pelo nome do aplicativo Web como nos exemplos a seguir.
 
 
 ```azurecli-interactive
@@ -186,7 +186,7 @@ Você verá a página da Web padrão para um aplicativo Web do Azure recém-cria
 
 ### <a name="deploy-your-local-app"></a>Implantar seu aplicativo local
 
-De volta à janela do terminal local, adicione um remoto do Azure ao repositório git local, substituindo *\<deploymentLocalGitUrl-from-create-step>* pela URL do Git remoto que você salvou da etapa [Criar um aplicativo Web remoto](#create-a-remote-web-app).
+De volta à janela do terminal local, adicione um repositório remoto do Azure ao repositório Git local, substituindo *\<deploymentLocalGitUrl-from-create-step>* pela URL do repositório remoto Git que você salvou na etapa [Criar um aplicativo Web remoto](#create-a-remote-web-app).
 
 ```bash
 git remote add azure <deploymentLocalGitUrl-from-create-step>
@@ -279,6 +279,7 @@ Adicione estas duas linhas ao cabeçalho:
 ```csharp
 using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
+using Azure.Core;
 ```
 
 Adicione essas linhas antes da chamada de `app.UseEndpoints`, atualizando o URI para refletir a `vaultUri` do cofre de chaves. O código abaixo está usando ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) para autenticação no cofre de chaves, que está usando o token da identidade gerenciada do aplicativo para autenticar. Ele também está usando retirada exponencial para novas tentativas, caso o cofre de chaves esteja sendo limitado.
@@ -325,7 +326,7 @@ git push azure master
 http://<your-webapp-name>.azurewebsites.net
 ```
 
-Em que, antes de ver **Olá, Mundo**, agora você deve ver o valor do seu segredo exibido: **Sucesso!**
+Em que, antes de ver **Olá, Mundo**, agora você deve ver o valor do seu segredo exibido: **Êxito!**
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 79d8cb4b09ef547bf1c0b01f48872ddcb4f964ee
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: f883b8527fff97ea3e16e7ffa7637c432dc33c2f
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81616534"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84783343"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Como usar a exclusão reversível do Key Vault com o PowerShell
 
@@ -265,7 +265,7 @@ A listagem de objetos de cofre de chaves excluídos também mostra quando eles e
 
 ## <a name="enabling-purge-protection"></a>Habilitando a proteção de limpeza
 
-Quando a proteção de limpeza está ativada, um cofre ou um objeto no estado excluído não pode ser limpo até que tenha passado o período de retenção de 90 dias. Ainda é possível recuperar tal cofre ou objeto. Esse recurso fornece uma garantia extra de que um cofre ou objeto não pode ser excluído permanentemente até que tenha passado o período de retenção.
+Quando a proteção de limpeza está ativada, um cofre ou um objeto no estado excluído não pode ser limpo até que tenha passado o período de retenção. Ainda é possível recuperar tal cofre ou objeto. Esse recurso fornece uma garantia extra de que um cofre ou objeto não pode ser excluído permanentemente até que tenha passado o período de retenção. O período de retenção padrão é de 90 dias, mas durante a criação do cofre de chaves, é possível definir o intervalo da política de retenção para um valor de 7 a 90 dias. A política de retenção de proteção de limpeza usa o mesmo intervalo. Uma vez definido, o intervalo da política de retenção não pode ser alterado.
 
 Você poderá habilitar a proteção de limpeza somente se a exclusão reversível também estiver habilitada. 
 

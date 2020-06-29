@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: sample
 ms.date: 09/05/2019
 ms.author: iainfou
-ms.openlocfilehash: e99ad2d53bc26b4e13a34097baaec929058a61a0
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 9dbb8a6011b4f2aebc73df7d37e6f43e7f27b747
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654798"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84734513"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Habilitar o Azure Active Directory Domain Services usando PowerShell
 
@@ -51,7 +51,7 @@ Crie uma entidade de serviço do Azure AD usando o cmdlet [New-AzureADServicePri
 New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 ```
 
-Agora crie um grupo do Azure AD chamado *Administradores do AAD DC*. Os usuários adicionados a esse grupo recebem permissões para executar tarefas de administração no domínio gerenciado do Azure AD DS.
+Agora crie um grupo do Azure AD chamado *Administradores do AAD DC*. Os usuários adicionados a esse grupo recebem permissões para executar tarefas de administração no domínio gerenciado.
 
 Crie o grupo *Administradores do AAD DC* usando o cmdlet [New-AzureADGroup][New-AzureADGroup]:
 
@@ -126,15 +126,15 @@ $Vnet= New-AzVirtualNetwork `
   -Subnet $AaddsSubnet,$WorkloadSubnet
 ```
 
-## <a name="create-an-azure-ad-ds-managed-domain"></a>Criar um domínio gerenciado do Azure AD DS
+## <a name="create-a-managed-domain"></a>Criar um domínio gerenciado
 
-Agora vamos criar um domínio gerenciado do Azure AD DS. Defina sua ID de assinatura do Azure e forneça um nome para o domínio gerenciado, como *aaddscontoso.com*. Você pode obter a ID da assinatura usando o cmdlet [Get-AzSubscription][Get-AzSubscription].
+Agora, vamos criar um domínio gerenciado. Defina sua ID de assinatura do Azure e forneça um nome para o domínio gerenciado, como *aaddscontoso.com*. Você pode obter a ID da assinatura usando o cmdlet [Get-AzSubscription][Get-AzSubscription].
 
 Se você escolher uma região com suporte a Zonas de Disponibilidade, os recursos do Azure AD DS serão distribuídos entre as zonas para proporcionar redundância adicional.
 
 As Zonas de Disponibilidade são locais físicos exclusivos em uma região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, resfriamento e rede independentes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas.
 
-Não é preciso configurar nada para que o Azure AD DS seja distribuído entre as zonas. A plataforma do Azure lida automaticamente com a distribuição de recursos na zona. Para obter mais informações e ver a disponibilidade da região, confira [O que são as Zonas de Disponibilidade no Azure?][availability-zones].
+Não é preciso configurar nada para que o Azure AD DS seja distribuído entre as zonas. A plataforma do Azure lida automaticamente com a distribuição de recursos na zona. Para saber mais e ver a disponibilidade da região, consulte [O que são as Zonas de Disponibilidade no Azure?][availability-zones].
 
 ```powershell
 $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
@@ -148,14 +148,14 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
   -Force -Verbose
 ```
 
-Leva alguns minutos para criar o recurso e retornar o controle para o prompt do PowerShell. O domínio gerenciado do Azure AD DS continua sendo provisionado em segundo plano e a implantação pode levar até uma hora para ser concluída. No portal do Azure, a página **Visão Geral** do seu domínio gerenciado do Azure AD DS mostra o status atual durante essa fase de implantação.
+Leva alguns minutos para criar o recurso e retornar o controle para o prompt do PowerShell. O domínio gerenciado continua sendo provisionado em segundo plano e a implantação pode levar até uma hora para ser concluída. No portal do Azure, a página **Visão Geral** do seu domínio gerenciado mostra o status atual durante essa fase de implantação.
 
-Quando o portal do Azure mostra que o domínio gerenciado do Azure AD DS concluiu o provisionamento, as seguintes tarefas precisam ser concluídas:
+Quando o portal do Azure mostra que o domínio gerenciado concluiu o provisionamento, as seguintes tarefas precisam ser concluídas:
 
 * Atualize as configurações de DNS da rede virtual, de modo que as máquinas virtuais possam encontrar o domínio gerenciado para ingresso no domínio ou autenticação.
-    * Para configurar o DNS, selecione o domínio gerenciado do Azure AD DS no portal. Na janela **Visão Geral**, você deve definir automaticamente essas configurações de DNS.
-* Se você tiver criado um domínio gerenciado do Azure AD DS em uma região que dê suporte a Zonas de Disponibilidade, crie um grupo de segurança de rede para restringir o tráfego na rede virtual para o domínio gerenciado do Azure AD DS. Um Azure Standard Load Balancer é criado e exige que essas regras sejam implementadas. Esse grupo de segurança de rede protege o Azure AD DS e é necessário para que o domínio gerenciado funcione corretamente.
-    * Para criar o grupo de segurança de rede e as regras necessárias, selecione seu domínio gerenciado do Azure AD DS no portal. Na janela **Visão Geral**, você deve criar e configurar automaticamente o grupo de segurança de rede.
+    * Para configurar o DNS, selecione o domínio gerenciado no portal. Na janela **Visão Geral**, você deve definir automaticamente essas configurações de DNS.
+* Se você tiver criado um domínio gerenciado em uma região que dê suporte a Zonas de Disponibilidade, crie um grupo de segurança de rede para restringir o tráfego na rede virtual para o domínio gerenciado. Um Azure Standard Load Balancer é criado e exige que essas regras sejam implementadas. Esse grupo de segurança de rede protege o Azure AD DS e é necessário para que o domínio gerenciado funcione corretamente.
+    * Para criar o grupo de segurança de rede e as regras necessárias, selecione seu domínio gerenciado no portal. Na janela **Visão Geral**, você deve criar e configurar automaticamente o grupo de segurança de rede.
 * [Habilite a sincronização de senha para o Azure AD Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) para que os usuários possam entrar no domínio gerenciado usando as credenciais corporativas deles.
 
 ## <a name="complete-powershell-script"></a>Concluir script do PowerShell
@@ -235,19 +235,19 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
   -Force -Verbose
 ```
 
-Leva alguns minutos para criar o recurso e retornar o controle para o prompt do PowerShell. O domínio gerenciado do Azure AD DS continua sendo provisionado em segundo plano e a implantação pode levar até uma hora para ser concluída. No portal do Azure, a página **Visão Geral** do seu domínio gerenciado do Azure AD DS mostra o status atual durante essa fase de implantação.
+Leva alguns minutos para criar o recurso e retornar o controle para o prompt do PowerShell. O domínio gerenciado continua sendo provisionado em segundo plano e a implantação pode levar até uma hora para ser concluída. No portal do Azure, a página **Visão Geral** do seu domínio gerenciado mostra o status atual durante essa fase de implantação.
 
-Quando o portal do Azure mostra que o domínio gerenciado do Azure AD DS concluiu o provisionamento, as seguintes tarefas precisam ser concluídas:
+Quando o portal do Azure mostra que o domínio gerenciado concluiu o provisionamento, as seguintes tarefas precisam ser concluídas:
 
 * Atualize as configurações de DNS da rede virtual, de modo que as máquinas virtuais possam encontrar o domínio gerenciado para ingresso no domínio ou autenticação.
-    * Para configurar o DNS, selecione o domínio gerenciado do Azure AD DS no portal. Na janela **Visão Geral**, você deve definir automaticamente essas configurações de DNS.
-* Se você tiver criado um domínio gerenciado do Azure AD DS em uma região que dê suporte a Zonas de Disponibilidade, crie um grupo de segurança de rede para restringir o tráfego na rede virtual para o domínio gerenciado do Azure AD DS. Um Azure Standard Load Balancer é criado e exige que essas regras sejam implementadas. Esse grupo de segurança de rede protege o Azure AD DS e é necessário para que o domínio gerenciado funcione corretamente.
-    * Para criar o grupo de segurança de rede e as regras necessárias, selecione seu domínio gerenciado do Azure AD DS no portal. Na janela **Visão Geral**, você deve criar e configurar automaticamente o grupo de segurança de rede.
+    * Para configurar o DNS, selecione o domínio gerenciado no portal. Na janela **Visão Geral**, você deve definir automaticamente essas configurações de DNS.
+* Se você tiver criado um domínio gerenciado em uma região que dê suporte a Zonas de Disponibilidade, crie um grupo de segurança de rede para restringir o tráfego na rede virtual para o domínio gerenciado. Um Azure Standard Load Balancer é criado e exige que essas regras sejam implementadas. Esse grupo de segurança de rede protege o Azure AD DS e é necessário para que o domínio gerenciado funcione corretamente.
+    * Para criar o grupo de segurança de rede e as regras necessárias, selecione seu domínio gerenciado no portal. Na janela **Visão Geral**, você deve criar e configurar automaticamente o grupo de segurança de rede.
 * [Habilite a sincronização de senha para o Azure AD Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) para que os usuários possam entrar no domínio gerenciado usando as credenciais corporativas deles.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para ver o domínio gerenciado do Azure AD DS em ação, você pode [ingressar uma VM do Windows em domínio][windows-join], [configurar o LDAP Seguro][tutorial-ldaps] e [configurar a sincronização de hash de senha][tutorial-phs].
+Para ver o domínio gerenciado em ação, você pode [ingressar uma VM do Windows em domínio][windows-join], [configurar o LDAP Seguro][tutorial-ldaps] e [configurar a sincronização de hash de senha][tutorial-phs].
 
 <!-- INTERNAL LINKS -->
 [windows-join]: join-windows-vm.md

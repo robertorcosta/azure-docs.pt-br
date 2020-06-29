@@ -5,12 +5,12 @@ author: christophermanthei
 ms.author: chmant
 ms.date: 03/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 59b235a32ae9363cc5fc804385867e140be502e2
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 4e9ddeddf616c581b116d48738e110dd8cdac2d3
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758989"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84659931"
 ---
 # <a name="quickstart-deploy-unity-sample-to-desktop"></a>Início Rápido: Implantar a amostra de Unity na Área de Trabalho
 
@@ -46,7 +46,7 @@ No momento, há suporte apenas para aplicativos da área de trabalho simples no 
 ## <a name="build-the-sample-project"></a>Criar o projeto de exemplo
 
 1. Abra *Arquivo > Configurações de Build*.
-1. Altere a *Plataforma* para a **Plataforma Universal do Windows** (**PC autônomo** também tem suporte, mas não é usado aqui).
+1. Altere a *Plataforma* para a **Plataforma Universal do Windows** (**PC autônomo** também tem suporte, mas não é usado aqui. Consulte as [limitações de plataforma](../reference/limits.md#platform-limitations)).
 1. Defina o *Dispositivo de Destino* como **PC**.
 1. Defina *Arquitetura* como **x86**.
 1. Defina *Tipo de Build* como **Projeto D3D**.
@@ -60,7 +60,7 @@ No momento, há suporte apenas para aplicativos da área de trabalho simples no 
 1. Crie a solução (F7).
 
 > [!WARNING]
-> Selecione **x86**. O **x64** não é compatível no momento, confira as [limitações de plataforma](../reference/limits.md#platform-limitations).
+> Selecione **x86**. O **UWP/x64** não é compatível no momento. Confira as [limitações de plataforma](../reference/limits.md#platform-limitations).
 
 ## <a name="launch-the-sample-project"></a>Iniciar o projeto de exemplo
 

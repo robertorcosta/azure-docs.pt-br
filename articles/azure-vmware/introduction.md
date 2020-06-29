@@ -3,16 +3,16 @@ title: Introdução
 description: Conheça os recursos e os benefícios da AVS (Solução VMware no Azure) para implantar e gerenciar cargas de trabalho baseadas no VMware no Azure.
 ms.topic: overview
 ms.date: 05/04/2020
-ms.openlocfilehash: e227b6c7c2f25fbf62f11c17dc62293e4fbd5267
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.openlocfilehash: 9e3ab0abfdaa613a08675356bc5b01949e0381ae
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82740987"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84749685"
 ---
 # <a name="what-is-azure-vmware-solution-avs-preview"></a>O que é a Versão prévia da AVS (Solução VMware no Azure)?
 
-A AVS (Solução VMware no Azure) fornece nuvens privadas no Azure. As nuvens privadas contêm clusters de vSphere, criados com base na infraestrutura bare-metal dedicada do Azure. Você pode escalar clusters da nuvem privada de 3 para 16 hosts, com a capacidade de ter vários clusters em uma só nuvem privada. Todas as nuvens privadas são provisionadas com vCenter Server, vSAN, vSphere e NSX-T. Você pode migrar cargas de trabalho de seus ambientes locais, criar ou implantar máquinas virtuais e consumir serviços do Azure de suas nuvens privadas.
+A AVS (Solução VMware no Azure) fornece nuvens privadas no Azure. As nuvens privadas contêm clusters de vSphere, criados com base na infraestrutura bare-metal dedicada do Azure. Você pode escalar clusters da nuvem privada de 3 para 16 hosts, com a capacidade de ter vários clusters em uma só nuvem privada. Todas as nuvens privadas são provisionadas com o vCenter Server, o vSAN, o vSphere e o NSX-T. Você pode migrar cargas de trabalho de seus ambientes locais, criar ou implantar máquinas virtuais e consumir serviços do Azure de suas nuvens privadas.
 
 A AVS é uma solução validada pela VMware, com validação contínua e testes de aprimoramentos e atualizações. O software e a infraestrutura de nuvem privada são gerenciados e mantidos pela Microsoft, permitindo que você se concentre no desenvolvimento e na execução das cargas de trabalho em suas nuvens privadas.
 

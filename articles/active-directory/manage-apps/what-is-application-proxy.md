@@ -2,23 +2,22 @@
 title: Publicar aplicativos locais com o Proxy de Aplicativo do Azure AD
 description: Entenda por que usar o Proxy de Aplicativo para publicar aplicativos Web locais externamente para usuários remotos. Saiba mais sobre a arquitetura, conectores, métodos de autenticação e benefícios de segurança do Proxy de Aplicativo.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: overview
 ms.workload: identity
 ms.date: 05/31/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.custom: has-adal-ref
-ms.openlocfilehash: d38cf25bb3b7622a0d444e4a71a4d62aafc053b6
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: a5c9ba026819a542ccd0a7ae41316c0f1d325004
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196460"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976499"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Usar o Proxy de Aplicativo do Azure AD para publicar aplicativos locais para usuários remotos
 
@@ -89,7 +88,7 @@ Há várias maneiras de configurar um aplicativo para logon único e o método e
 * Aplicativos Web
 * APIs Web que você deseja expor a aplicativos avançados em diferentes dispositivos
 * Aplicativos hospedados por trás de um Gateway de Área de Trabalho Remota
-* Aplicativos cliente avançados que são integrados com a ADAL (Biblioteca de autenticação do Active Directory)
+* Aplicativos cliente avançados integrados com a [MSAL (Biblioteca de Autenticação da Microsoft)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)
 
 O Proxy de Aplicativo funciona com aplicativos que usam o seguinte protocolo de autenticação nativa:
 

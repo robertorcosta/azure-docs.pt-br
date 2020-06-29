@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ab1d0318464f6b44e1f46bd30dc76272584fde64
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 61162a0e2e95a08547848f286f2db489f4b9d963
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929818"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737012"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>O que é a Área de Trabalho Virtual do Windows? 
 
@@ -22,7 +22,7 @@ A Área de Trabalho Virtual do Windows é um serviço de virtualização de apli
 Veja o que você pode fazer ao executar a Área de Trabalho Virtual do Windows no Azure:
 
 * Configurar uma implantação do Windows 10 de várias sessões que fornece uma escalabilidade completa do Windows 10
-* Virtualizar o Office 365 ProPlus e otimizá-lo para execução em cenários virtuais de vários usuários
+* Virtualizar os Aplicativos do Microsoft 365 para Empresas e otimizá-los para execução em cenários virtuais de vários usuários
 * Fornecer áreas de trabalho virtuais do Windows 7 com Atualizações de Segurança Estendida gratuitas
 * Trazer seu RDS (Serviços de Área de Trabalho Remota) existente, além de aplicativos e áreas de trabalho do Windows Server para qualquer computador
 * Virtualizar aplicativos e áreas de trabalho
@@ -109,11 +109,11 @@ A seguinte tabela lista as URLs opcionais às quais suas máquinas virtuais do A
 
 |Endereço|Porta TCP de saída|Finalidade|Marca de serviço|
 |---|---|---|---|
-|*.microsoftonline.com|443|Autenticação no MS Online Services|Nenhum|
+|*.microsoftonline.com|443|Autenticação no Microsoft Online Services|Nenhum|
 |*.events.data.microsoft.com|443|Serviço de telemetria|Nenhum|
 |www.msftconnecttest.com|443|Detecta se o sistema operacional está conectado à Internet|Nenhum|
 |*.prod.do.dsp.mp.microsoft.com|443|Windows Update|Nenhum|
-|login.windows.net|443|Fazer logon no MS Online Services, Office 365|Nenhum|
+|login.windows.net|443|Entrar nos Serviços Online da Microsoft, como o Office 365|Nenhum|
 |*.sfx.ms|443|Atualizações do software cliente do OneDrive|Nenhum|
 |*.digicert.com|443|Verificação de revogação do certificado|Nenhum|
 

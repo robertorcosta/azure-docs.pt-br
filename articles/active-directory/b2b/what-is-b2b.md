@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0effb6bb6e3d3f80775a3cee1ad8a63013a78805
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 89e1868d8e9a346d5a791c9fa8ae7682ca2b6807
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585803"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84905129"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>O que é o acesso de usuários convidados na colaboração B2B do Azure Active Directory?
 
@@ -98,9 +98,12 @@ O Azure AD dá suporte a provedores de identidade externos como Facebook, contas
 
 ## <a name="create-a-self-service-sign-up-user-flow-preview"></a>Criar um fluxo de usuários com inscrição por autoatendimento (Versão Prévia)
 
-Com um fluxo de usuários com inscrição por autoatendimento, você pode criar uma experiência de inscrição para usuários externos que desejam acessar seus aplicativos. Como parte do fluxo de inscrição, é possível fornecer opções para diferentes provedores de identidade social ou corporativa, e coletar informações sobre o usuário. Saiba mais sobre a inscrição por autoatendimento e como configurá-la.
+Com um fluxo de usuários com inscrição por autoatendimento, você pode criar uma experiência de inscrição para usuários externos que desejam acessar seus aplicativos. Como parte do fluxo de inscrição, é possível fornecer opções para diferentes provedores de identidade social ou corporativa, e coletar informações sobre o usuário. Saiba mais sobre a [inscrição por autoatendimento e como configurá-la](self-service-sign-up-overview.md).
 
-![Captura de tela mostrando a página Fluxos de usuário](media/what-is-b2b/self-service-sign-up-user-flow-overview.png)
+Você também pode usar [conectores de API](api-connectors-overview.md) para integrar seus fluxos dos usuários de inscrição por autoatendimento a sistemas de nuvem externos. Você pode se conectar a fluxos de trabalho de aprovação personalizados, executar a verificação de identidade, validar informações fornecidas pelo usuário e muito mais.
+
+![Captura de tela mostrando a página Fluxos dos usuários](media/what-is-b2b/self-service-sign-up-user-flow-overview.png)
+<!--TODO: Add screenshot with API connectors -->
 
 ## <a name="next-steps"></a>Próximas etapas
 

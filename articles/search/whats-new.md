@@ -7,19 +7,23 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 05/19/2020
-ms.openlocfilehash: f8ddc3ef56aefc6ea613af19d91cd0122435efd7
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.date: 06/08/2020
+ms.openlocfilehash: 97defe2af5b82cccbaf289ccbd805b608b978a43
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344196"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84736077"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novidades no Azure Cognitive Search
 
 Conheça o que há de novo no serviço. Marque esta página para manter-se atualizado quanto ao serviço.
 
 ## <a name="feature-announcements"></a>Comunicados de recursos
+
+### <a name="june-2020"></a>Junho de 2020
+
+A habilidade do Azure Machine Learning é um novo tipo de habilidade para integrar um ponto de extremidade de inferência por meio do Azure Machine Learning. A experiência do portal dá suporte à descoberta e à integração do seu ponto de extremidade do Azure Machine Learning em um conjunto de habilidades do Cognitive Search. A descoberta exige que o Cognitive Search e os serviços do Azure ML sejam implantados na mesma assinatura. Para se inscrever para a versão prévia das habilidades do AML, [preencha o formulário](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0jK7x7HQYdDm__YfEsbtcZUMTFGTFVTOE5XMkVUMFlDVFBTTlYzSlpLTi4u). Veja uma introdução [neste tutorial](cognitive-search-tutorial-aml-custom-skill.md).
 
 ### <a name="may-2020-microsoft-build"></a>Maio de 2020 (Microsoft Build)
 

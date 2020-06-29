@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 05/28/2020
-ms.openlocfilehash: a59fafccecaf2fc266a6c7864174c477e1831186
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.date: 06/08/2020
+ms.openlocfilehash: 4e39d4e106a399f0105ee4ec3f3606354f113165
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561162"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84661058"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Copiar várias tabelas em massa usando o Azure Data Factory no portal do Azure
 
@@ -72,7 +72,7 @@ Para o Banco de Dados SQL e o Azure Synapse Analytics (anteriormente conhecido c
 
 Para verificar e ativar essa configuração, acesse seu servidor > Segurança > Firewalls e redes virtuais > defina a opção **Permitir que os serviços e recursos do Azure acessem este servidor** como **ATIVADA**.
 
-## <a name="create-a-data-factory"></a>Criar uma data factory
+## <a name="create-a-data-factory"></a>Criar um data factory
 
 1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface do usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
 1. Vá para o [Portal do Azure](https://portal.azure.com). 
@@ -108,13 +108,16 @@ Neste tutorial, você vinculará o Banco de Dados SQL do Azure, o Azure Synapse 
 ### <a name="create-the-source-azure-sql-database-linked-service"></a>Criar o serviço vinculado do Banco de Dados SQL do Azure de origem
 Nesta etapa, você criará um serviço vinculado para vincular seu banco de dados SQL do Azure ao data factory. 
 
-1. Clique em **Conexões** e, na parte inferior da janela, clique em **+ Novo** na barra de ferramentas (o botão **Conexões** fica localizado na parte inferior da coluna esquerda, sob **Recursos de Fábrica**). 
+1. Abra a [guia Gerenciar](https://docs.microsoft.com/azure/data-factory/author-management-hub) no painel esquerdo.
 
+1. Na página Serviços vinculados, selecione **+Novo** para criar um serviço vinculado.
+
+   ![Novo serviço vinculado](./media/doc-common-process/new-linked-service.png)
 1. Na janela **Novo Serviço Vinculado**, selecione **Banco de Dados SQL do Azure** e clique em **Continuar**. 
 1. Na janela **Novo serviço vinculado (Banco de Dados SQL do Azure)** , execute as etapas a seguir: 
 
     a. Insira **AzureSqlDatabaseLinkedService** para o **Nome**.
-    
+
     b. Selecione o seu servidor para o **Nome do servidor**
     
     c. Selecione o seu banco de dados SQL do Azure para o **Nome do banco de dados**. 
@@ -159,7 +162,6 @@ Neste tutorial, você usa o Armazenamento de Blobs do Azure como uma área de pr
     b. Selecione sua **conta de Armazenamento do Azure** como o **Nome da conta de armazenamento**.
     
     c. Clique em **Criar**.
-
 
 ## <a name="create-datasets"></a>Criar conjuntos de dados
 Neste tutorial você cria os conjuntos de dados de origem e do coletor, que especificam o local onde os dados são armazenados. 
@@ -220,7 +222,7 @@ O pipeline **IterateAndCopySQLTables** usa uma lista de tabelas como um parâmet
 
     a. Clique em **+ Novo**. 
     
-    b. Insira **tableList** para o parâmetro **Name**.
+    b. Digite **tableList** para o parâmetro **Nome**.
     
     c. Selecione **Matriz** para **Tipo**.
 

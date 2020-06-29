@@ -7,14 +7,17 @@ ms.author: cschorm
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 7e057d6d973eedd3ac53fd7b2ea228470e9123d7
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: f36a41a1151255e792281ae959d40ce183040cb5
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84611479"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737131"
 ---
 # <a name="coding-with-the-azure-digital-twins-apis"></a>Codificação com as APIs dos Gêmeos Digitais do Azure
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 É comum que os desenvolvedores que trabalham com os Gêmeos Digitais do Azure escrevam um aplicativo cliente para interagir com a instância do serviço Gêmeos Digitais do Azure. Este tutorial voltado para o desenvolvedor fornece uma introdução à programação no serviço Gêmeos Digitais do Azure usando a [biblioteca de clientes dos Gêmeos Digitais do IoT do Azure para .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). Ele mostra como escrever um aplicativo cliente de console C# passo a passo do zero.
 
@@ -99,8 +102,8 @@ A primeira coisa que o seu aplicativo precisará fazer é se autenticar no servi
 
 Para se autenticar, você precisará de três informações:
 * A *ID de Diretório (locatário)* da sua assinatura
-* A *ID do Aplicativo (cliente)* criada quando você configurou a instância de serviço anteriormente
-* O *Nome do host* da instância de serviço
+* A *ID do Aplicativo (cliente)* criada quando você configurou a instância dos Gêmeos Digitais do Azure anteriormente
+* O *nome do host* da sua instância dos Gêmeos Digitais do Azure
 
 >[!TIP]
 > Se você não sabe a *ID de Diretório (locatário)* , obtenha-a executando este comando no [Azure Cloud Shell](https://shell.azure.com):

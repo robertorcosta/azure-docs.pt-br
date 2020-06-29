@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.author: brendm
 author: bmitchell287
 ms.date: 10/06/2019
-ms.openlocfilehash: f08a3b5d0a03b0e898457bbb783dd5031c4b0f27
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 93cefd0c71e2d51187e68c6f5f02777d158e95a4
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76277470"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84792057"
 ---
 # <a name="scale-an-application-in-azure-spring-cloud"></a>Dimensionar um aplicativo no Azure Spring Cloud
 
@@ -58,6 +58,9 @@ Selecione **Salvar** para aplicar as configurações de dimensionamento.
 ![O serviço de escala no portal do Azure](media/spring-cloud-tutorial-scale-manual/scale-up-out.png)
 
 Depois de alguns segundos, as alterações feitas são exibidas na página **Visão Geral**, com mais detalhes disponíveis na guia **Instâncias do aplicativo**. O dimensionamento não exige nenhuma alteração de código ou reimplantação.
+
+## <a name="upgrade-to-the-standard-tier"></a>Atualizar para a camada Standard
+Se você estiver na camada básica e restringido por um ou mais desses [limites](spring-cloud-quotas.md), poderá atualizar para a camada Standard. Para fazer isso, vá para o menu Tipo de preço selecionando primeiro a coluna Camada Standard e clicando no botão **Atualizar**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

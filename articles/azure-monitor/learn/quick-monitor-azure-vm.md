@@ -7,12 +7,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 03/10/2020
-ms.openlocfilehash: 12616fbc80468d35ebb8b0bc5cd12bfd5871e788
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 99e8afa0a92ba8bb53505e2519efec7baafbcf48
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79503187"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84805112"
 ---
 # <a name="quickstart-monitor-an-azure-virtual-machine-with-azure-monitor"></a>Início Rápido: Monitorar uma máquina virtual do Azure com o Azure Monitor
 O [Azure Monitor](../overview.md) inicia a coleta de dados das máquinas virtuais do Azure no momento em que elas são criadas. Neste guia de início rápido você obterá uma breve explicação dos dados que são coletados automaticamente para uma VM do Azure e como exibi-los no portal do Azure. Em seguida, você habilitará o [Azure Monitor para VMs](../insights/vminsights-overview.md) para sua VM, o que permitirá que os agentes na VM coletem e analisem dados do sistema operacional convidado, incluindo processos e suas dependências.
@@ -40,7 +40,7 @@ Embora os logs de atividades e as métricas sejam coletados para a VM do host, v
 
 4. Se a máquina virtual ainda não estiver anexada a um workspace do Log Analytics, você será solicitado a selecionar um workspace existente ou criar um. Selecione o padrão que é um workspace com um nome exclusivo na mesma região que sua máquina virtual.
 
-    ![Selecione o workspace](media/quick-monitor-azure-vm/select-workspace.png)
+    ![Selecione workspace](media/quick-monitor-azure-vm/select-workspace.png)
 
 5. A integração levará alguns minutos, pois as extensões serão habilitadas e os agentes serão instalados em sua máquina virtual. Quando estiver concluído, você receberá uma mensagem informando que o Insights foi implantado com êxito. Clique em **Azure Monitor** para abrir o Azure Monitor para VMs.
 
@@ -83,7 +83,7 @@ Quando você cria um workspace do Log Analytics, ele precisa ser configurado par
 
 ## <a name="view-data-collected"></a>Exibir os dados coletados
 
-7. Clique em sua máquina virtual e selecione a guia **Desempenho**. Isso mostra um grupo selecionado de contadores de desempenho coletados do sistema operacional convidado de sua VM. Role para baixo para exibir mais contadores e mova o mouse sobre um gráfico para exibir a média e os percentis em momentos diferentes.
+7. Clique em sua máquina virtual e selecione a guia **Desempenho**, que fica no bloco **Insights** no menu **Monitoramento**. Isso mostra um grupo selecionado de contadores de desempenho coletados do sistema operacional convidado de sua VM. Role para baixo para exibir mais contadores e mova o mouse sobre um gráfico para exibir a média e os percentis em momentos diferentes.
 
     ![Desempenho](media/quick-monitor-azure-vm/performance.png)
 

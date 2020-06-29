@@ -8,18 +8,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: overview
 ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab6be101e33fb29f96e2e5ea0fd2e79aa1cf0d09
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 3370a2631a81ce36fd994da73c871fb1e409c667
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744688"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84728360"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Associação dinâmica do Azure Active Directory para grupos
 
@@ -377,14 +377,14 @@ Os seguintes atributos de dispositivo podem ser usados.
  Atributo do dispositivo  | Valores | Exemplo
  ----- | ----- | ----------------
  accountEnabled | verdadeiro, falso | (device.accountEnabled -eq true)
- displayName | Um valor de cadeia de caracteres. |(device.displayName -eq "Rob iPhone")
- deviceOSType | Um valor de cadeia de caracteres. | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")<br>(device.deviceOSType -contains "AndroidEnterprise")<br>(device.deviceOSType -eq "AndroidForWork")
- deviceOSVersion | Um valor de cadeia de caracteres. | (device.deviceOSVersion -eq "9.1")
+ displayName | qualquer valor de cadeia de caracteres |(device.displayName -eq "Rob iPhone")
+ deviceOSType | qualquer valor de cadeia de caracteres | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")<br>(device.deviceOSType -contains "AndroidEnterprise")<br>(device.deviceOSType -eq "AndroidForWork")
+ deviceOSVersion | qualquer valor de cadeia de caracteres | (device.deviceOSVersion -eq "9.1")
  deviceCategory | o nome de uma categoria de dispositivo válida | (device.deviceCategory -eq "BYOD")
- deviceManufacturer | Um valor de cadeia de caracteres. | (device.deviceManufacturer -eq "Samsung")
- deviceModel | Um valor de cadeia de caracteres. | (device.deviceModel -eq "iPad Air")
+ deviceManufacturer | qualquer valor de cadeia de caracteres | (device.deviceManufacturer -eq "Samsung")
+ deviceModel | qualquer valor de cadeia de caracteres | (device.deviceModel -eq "iPad Air")
  deviceOwnership | Pessoal, Empresa, Desconhecido | (device.deviceOwnership -eq "Company")
- enrollmentProfileName | Perfil de Registro de Dispositivo da Apple, Registro de dispositivo – identificadores de dispositivo corporativo (Android – quiosque) ou nome do perfil do Windows Autopilot | (device.enrollmentProfileName -eq "DEP iPhones")
+ enrollmentProfileName | Nome do Perfil de Registro de Dispositivo Apple, nome do Perfil de Registro de dispositivo dedicado de propriedade do Android Enterprise Corporativo ou nome do perfil do Windows Autopilot | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | verdadeiro, falso | (device.isRooted -eq true)
  managementType | MDM (para dispositivos móveis)<br>PC (para computadores gerenciados pelo agente de PC do Intune) | (device.managementType -eq "MDM")
  deviceId | uma ID de dispositivo do Azure AD válida | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")

@@ -6,12 +6,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 05/04/2017
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 5dd99d9aa7e63066ac4801282e548f2995e57e67
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 36d6e9ce2ab180c49737230de1f8b528f8da8b40
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82085579"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84905928"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>Tutorial: Criar um aplicativo Node.js e MongoDB no Azure
 
@@ -19,7 +19,7 @@ ms.locfileid: "82085579"
 > Este artigo implanta um aplicativo no Serviço de Aplicativo no Windows. Para implantação no Serviço de Aplicativo no _Linux_, confira [Criar um aplicativo Node.js e MongoDB no Serviço de Aplicativo do Azure no Linux](./containers/tutorial-nodejs-mongodb-app.md).
 >
 
-O Serviço de Aplicativo do Azure fornece um serviço de hospedagem Web altamente escalonável e com aplicação automática de patch. Este tutorial mostra como criar um aplicativo Node.js no Serviço de Aplicativo e conectá-lo a um banco de dados MongoDB. Quando terminar, você terá um aplicativo MEAN (MongoDB, Express, AngularJS e Node.js) executando em [Serviço de Aplicativo do Azure](overview.md). Para simplificar, o aplicativo de exemplo usa a [estrutura Web MEAN.js](https://meanjs.org/).
+O Serviço de Aplicativo do Azure fornece um serviço de hospedagem na Web altamente escalonável e com aplicação automática de patches. Este tutorial mostra como criar um aplicativo Node.js no Serviço de Aplicativo e conectá-lo a um banco de dados MongoDB. Quando terminar, você terá um aplicativo MEAN (MongoDB, Express, AngularJS e Node.js) executando em [Serviço de Aplicativo do Azure](overview.md). Para simplificar, o aplicativo de exemplo usa a [estrutura Web MEAN.js](https://meanjs.org/).
 
 ![Aplicativo MEAN.js em execução no Serviço de Aplicativo do Azure](./media/app-service-web-tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
@@ -127,7 +127,7 @@ Para o MongoDB, este tutorial usa o [BD Cosmos do Azure](/azure/documentdb/). O 
 
 No Cloud Shell, crie uma conta do Cosmos DB com o comando [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-create).
 
-No comando a seguir, substitua um nome do Cosmos DB exclusivo quando vir o espaço reservado *\<cosmosdb_name>* . Esse nome exclusivo é usado como parte do seu ponto de extremidade do Cosmos DB, `https://<cosmosdb_name>.documents.azure.com/`, portanto, o nome precisa ser exclusivo em todas as contas do Cosmos DB no Azure. O nome deve conter somente letras minúsculas, números e o caractere hífen (-), e deve ter entre 3 e 50 caracteres.
+No comando a seguir, substitua o espaço reservado *\<cosmosdb_name>* por um nome exclusivo do Cosmos DB. Esse nome exclusivo é usado como parte do seu ponto de extremidade do Cosmos DB, `https://<cosmosdb_name>.documents.azure.com/`, portanto, o nome precisa ser exclusivo em todas as contas do Cosmos DB no Azure. O nome deve conter somente letras minúsculas, números e o caractere hífen (-), e deve ter entre 3 e 50 caracteres.
 
 ```azurecli-interactive
 az cosmosdb create --name <cosmosdb_name> --resource-group myResourceGroup --kind MongoDB
@@ -183,7 +183,7 @@ Copie o valor de `primaryMasterKey`. Essas informações serão necessárias na 
 
 No repositório local do MEAN.js, na pasta _config/env/_ , crie um arquivo chamado _local-production.js_. Por padrão, _.gitignore_ está configurado para manter esse arquivo fora do repositório. 
 
-Copie o seguinte código dentro dele. Substitua os dois espaços reservados *\<cosmosdb_name>* pelo nome de banco de dados do Cosmos DB e o espaço reservado *\<primary_master_key>* pela chave copiada na etapa anterior.
+Copie o seguinte código dentro dele. Substitua os dois espaços reservados *\<cosmosdb_name>* pelo nome do banco de dados Cosmos DB e substitua o espaço reservado *\<primary_master_key>* pela chave copiada na etapa anterior.
 
 ```javascript
 module.exports = {
@@ -254,7 +254,7 @@ Por padrão, o projeto MEAN.js mantém _config/env/local-production.js_ fora do 
 
 Para definir as configurações do aplicativo, use o [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) no Cloud Shell. 
 
-O exemplo a seguir define uma configuração de aplicativo `MONGODB_URI` no aplicativo do Azure. Substitua os espaços reservados *\<app_name >* , *\<cosmosdb_name >* e *\<primary_master_key >* .
+O exemplo a seguir define uma configuração de aplicativo `MONGODB_URI` no aplicativo do Azure. Substitua os espaços reservados *\<app_name>* , *\<cosmosdb_name>* e *\<primary_master_key>* .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true"
@@ -497,3 +497,8 @@ Vá para o próximo tutorial para aprender a mapear um nome DNS personalizado pa
 
 > [!div class="nextstepaction"] 
 > [Mapear um nome DNS personalizado existente para o Serviço de Aplicativo do Azure](app-service-web-tutorial-custom-domain.md)
+
+Mais recursos:
+
+> [!div class="nextstepaction"]
+> [Configurar o aplicativo Node.js](configure-language-nodejs.md)

@@ -2,15 +2,15 @@
 title: Tutorial – criar e implantar um modelo
 description: Criar seu primeiro modelo do Azure Resource Manager. No tutorial, você aprende sobre a sintaxe do arquivo de modelo e como implantar uma conta de armazenamento.
 author: mumian
-ms.date: 05/29/2020
+ms.date: 06/10/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: dff1dd15f7f161f25ef7de54e36fa83e3e0036d2
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: e2419e8ee9f8648ae8f929638ac2c85ea8b67a0f
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235224"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84676141"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Tutorial: Criar e implantar seu primeiro modelo do ARM
 
@@ -34,9 +34,10 @@ Modelos são arquivos JSON. Para criar modelos, você precisa de um bom editor d
 
 Você também precisa do Azure PowerShell ou da CLI do Azure para implantar o modelo. Se você usar CLI do Azure, precisará ter a versão mais recente. Para obter as instruções de instalação, confira:
 
-- [Instale o Azure PowerShell](/powershell/azure/install-az-ps)
+- [Instalar o Azure PowerShell](/powershell/azure/install-az-ps)
 - [Instalar a CLI do Azure no Windows](/cli/azure/install-azure-cli-windows)
 - [Instalar a CLI do Azure no Linux](/cli/azure/install-azure-cli-linux)
+- [Instalar a CLI do Azure no macOS](/cli/azure/install-azure-cli-macos)
 
 Depois de instalar o Azure PowerShell ou a CLI do Azure, é preciso que você entre pela primeira vez. Para obter ajuda, confira [Entrar – PowerShell](/powershell/azure/install-az-ps#sign-in) ou [Entrar – CLI do Azure](/cli/azure/get-started-with-azure-cli#sign-in).
 

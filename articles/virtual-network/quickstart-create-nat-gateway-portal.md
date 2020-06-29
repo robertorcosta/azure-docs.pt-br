@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Criar um gateway da NAT – portal do Azure'
+title: 'Tutorial: Criar um gateway da NAT – portal do Azure'
 titlesuffix: Azure Virtual Network NAT
 description: Este início rápido mostra como criar um gateway da NAT usando o portal do Azure
 services: virtual-network
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: 38cd4e9e7abdfe2d1548a8388a3f160cf3da1f1a
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 5010dc08b695a0376ace5dde935c63caf0c39633
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84341228"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711401"
 ---
-# <a name="quickstart-create-a-nat-gateway-using-the-azure-portal"></a>Início Rápido: Criar um gateway da NAT usando o portal do Azure
+# <a name="tutorial-create-a-nat-gateway-using-the-azure-portal"></a>Tutorial: Criar um gateway da NAT usando o portal do Azure
 
-Este início rápido mostra como usar o serviço NAT de Rede Virtual do Azure. Você criará um gateway da NAT para fornecer conectividade de saída para uma máquina virtual no Azure. 
+Este tutorial mostra como usar o serviço NAT da Rede Virtual do Azure. Você criará um gateway da NAT para fornecer conectividade de saída para uma máquina virtual no Azure. 
 
 Se você preferir, poderá realizar essas etapas usando a [CLI do Azure](quickstart-create-nat-gateway-cli.md), o [Azure PowerShell](quickstart-create-nat-gateway-powershell.md) ou implantar um [Modelo ARM](quickstart-create-nat-gateway-powershell.md) em vez do portal.
 

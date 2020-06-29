@@ -4,12 +4,12 @@ description: Descreve como avaliar as VMs locais do Hyper-V para migração para
 ms.topic: tutorial
 ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: 2c4233df6566f3187c8366188b0eb960189b43c5
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: d87e0d54a62736623483f1929b1979af8efb3a58
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84331756"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052427"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Avaliar VMs do Hyper-V usando a avaliação de servidor das Migrações para Azure
 
@@ -36,7 +36,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 - [Conclua](tutorial-prepare-hyper-v.md) o primeiro tutorial desta série. Caso contrário, as instruções deste tutorial não funcionarão.
 - Veja o que você deve ter feito no primeiro tutorial:
     - [Preparar o Azure](tutorial-prepare-hyper-v.md#prepare-azure) para trabalhar com as Migrações para Azure.
-    - [Preparar a avaliação de hosts](tutorial-prepare-hyper-v.md#prepare-hyper-v-for-assessment) e VMs do Hyper-V.
+    - [Preparar a avaliação de hosts](tutorial-prepare-hyper-v.md#prepare-for-assessment) e VMs do Hyper-V.
     - [Verificar](tutorial-prepare-hyper-v.md#prepare-for-appliance-deployment) o que você precisa para implantar o dispositivo de Migrações para Azure para avaliação do Hyper-V.
 
 ## <a name="set-up-an-azure-migrate-project"></a>Configurar um projeto das Migrações para Azure
@@ -54,12 +54,12 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
     - A região do projeto é usada apenas para armazenar os metadados coletados das VMs locais.
     - Você pode selecionar uma região de destino do Azure diferente ao migrar as VMs. Todas as regiões do Azure têm suporte como destino de migração.
 
-    ![Criar um projeto das Migrações para Azure](./media/tutorial-assess-hyper-v/migrate-project.png)
+    ![Criar um projeto de Migrações para Azure](./media/tutorial-assess-hyper-v/migrate-project.png)
 
 7. Clique em **Próximo**.
 8. Em **Selecionar ferramenta de avaliação**, selecione **Migrações para Azure: Avaliação de Servidor** > **Avançar**.
 
-    ![Criar um projeto das Migrações para Azure](./media/tutorial-assess-hyper-v/assessment-tool.png)
+    ![Criar um projeto de Migrações para Azure](./media/tutorial-assess-hyper-v/assessment-tool.png)
 
 9. Em **Selecionar ferramenta de migração**, selecione **Ignorar a adição de uma ferramenta de migração por enquanto** > **Avançar**.
 10. Em **Examinar + adicionar ferramentas**, examine as configurações e clique em **Adicionar ferramentas**.
@@ -102,7 +102,7 @@ Verifique se o arquivo compactado é seguro antes de implantá-lo.
 
         **Cenário** | **Download** | **SHA256**
         --- | --- | ---
-        Hyper-V (8,93 MB) | [Última versão](https://aka.ms/migrate/appliance/hyperv) |  572be425ea0aca69a9aa8658c950bc319b2bdbeb93b440577264500091c846a1
+        Hyper-V (8,93 GB) | [Última versão](https://aka.ms/migrate/appliance/hyperv) |  572be425ea0aca69a9aa8658c950bc319b2bdbeb93b440577264500091c846a1
 
     - Para o Azure Government:
 
@@ -124,9 +124,9 @@ Importe o arquivo baixado e crie a VM.
 
     ![Implantar o VHD](./media/tutorial-assess-hyper-v/deploy-vhd.png)
 
-2. No Assistente para Importar Máquina Virtual > **Antes de começar**, clique em **Avançar**.
+2. No Assistente para Importar Máquina Virtual > **Antes de começar**, clique em **Próximo**.
 3. Em **Localizar Pasta**, selecione a pasta **Máquinas Virtuais**. Em seguida, clique em **Próximo**.
-1. Em **Selecionar Máquina Virtual**, clique em **Avançar**.
+1. Em **Selecionar Máquina Virtual**, clique em **Próximo**.
 2. Em **Escolher Tipo de Importação**, clique em **Copiar a máquina virtual (criar uma nova ID exclusiva)** . Em seguida, clique em **Próximo**.
 3. Em **Escolher Destino**, mantenha a configuração padrão. Clique em **Próximo**.
 4. Em **Pastas de Armazenamento**, mantenha a configuração padrão. Clique em **Próximo**.
@@ -174,10 +174,7 @@ Configure o dispositivo pela primeira vez.
 
 ### <a name="delegate-credentials-for-smb-vhds"></a>Delegar credenciais para VHDs de SMB
 
-Se estiver executando VHDs em SMBs, você precisará habilitar a delegação de credenciais do dispositivo para os hosts do Hyper-V. Isso exige o seguinte:
-
-- Você permite que cada host atue como um delegado para o dispositivo. Se tiver seguido os tutoriais na ordem, você fez isso no tutorial anterior, quando preparou o Hyper-V para avaliação e migração. Você deve ter configurado o CredSSP para os hosts [manualmente](tutorial-prepare-hyper-v.md#enable-credssp-on-hosts) ou [executando um script](tutorial-prepare-hyper-v.md#prepare-with-a-script) que faz isso.
-- Habilite a delegação de CredSSP para que o dispositivo de Migrações para Azure possa atuar como o cliente, delegando credenciais a um host.
+Se estiver executando VHDs em SMBs, você precisará habilitar a delegação de credenciais do dispositivo para os hosts do Hyper-V. Para fazer isso, permita que cada host funcione como um representante do dispositivo. Se tiver seguido os tutoriais na ordem, você fez isso no tutorial anterior, quando preparou o Hyper-V para avaliação e migração. Você deve ter configurado o CredSSP para os hosts [manualmente](tutorial-prepare-hyper-v.md#enable-credssp-to-delegate-credentials) ou [executando um script](tutorial-prepare-hyper-v.md#run-the-script) que faz isso.
 
 Habilite no dispositivo da seguinte maneira:
 
@@ -186,7 +183,7 @@ Habilite no dispositivo da seguinte maneira:
 Na VM do dispositivo, execute este comando. HyperVHost1/HyperVHost2 são nomes de host de exemplo.
 
 ```
-Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force
+Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com, HyperVHost2.contoso.com, HyperVHost1, HyperVHost2 -Force
 ```
 
 Exemplo: ` Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force `

@@ -6,12 +6,12 @@ ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/25/2019
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: ee5a12b11e36f3d1e08d1154d21f198c0fd1b76e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 792f968f5d6eadd037043b01fa5764f8c3c9e193
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82085155"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84905931"
 ---
 # <a name="tutorial-build-a-php-and-mysql-app-in-azure"></a>Tutorial: Criar um aplicativo Web PHP e MySQL no Azure
 
@@ -130,7 +130,7 @@ Gere uma nova chave de aplicativo do Laravel.
 php artisan key:generate
 ```
 
-Execute o aplicativo.
+Executar o aplicativo.
 
 ```bash
 php artisan serve
@@ -156,7 +156,7 @@ Nesta etapa, você cria um banco de dados MySQL no [Banco de Dados do Azure para
 
 No Cloud Shell, crie um servidor no Banco de Dados do Azure para MySQL com o comando [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create).
 
-No comando a seguir, substitua o espaço reservado *\<mysql_server_name >* por um nome de servidor exclusivo, *\<admin_user>* por um nome de usuário e *\<admin_password>* por uma senha. O nome do servidor é usado como parte de seu ponto de extremidade do MySQL (`https://<mysql_server_name>.mysql.database.azure.com`) e, portanto, precisa ser exclusivo entre todos os servidores no Azure.
+No comando a seguir, substitua um nome do servidor exclusivo pelo espaço reservado *\<mysql_server_name>* , um nome de usuário pelo *\<admin_user>* e uma senha pelo espaço reservado *\<admin_password>* . O nome do servidor é usado como parte de seu ponto de extremidade do MySQL (`https://<mysql_server_name>.mysql.database.azure.com`) e, portanto, precisa ser exclusivo entre todos os servidores no Azure.
 
 ```azurecli-interactive
 az mysql server create --resource-group myResourceGroup --name <mysql_server_name> --location "West Europe" --admin-user <admin_user> --admin-password <admin_password> --sku-name B_Gen5_1
@@ -200,7 +200,7 @@ az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_n
 > Você pode ser ainda mais restritivo na regra de firewall ao [usar somente os endereços de IP de saída que seu aplicativo usa](overview-inbound-outbound-ips.md#find-outbound-ips).
 >
 
-No Cloud Shell, execute o comando novamente para permitir acesso do seu computador local, substituindo *\<you_ip_address>* por [seu endereço IP IPv4 local](https://www.whatsmyip.org/).
+No Cloud Shell, execute o comando novamente para permitir acesso no computador local, substituindo *\<your_ip_address>* pelo [endereço IP IPv4 local](https://www.whatsmyip.org/).
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name AllowLocalClient --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address=<your_ip_address> --end-ip-address=<your_ip_address>
@@ -630,3 +630,8 @@ Vá para o próximo tutorial para aprender a mapear um nome DNS personalizado pa
 
 > [!div class="nextstepaction"]
 > [Mapear um nome DNS personalizado existente para o Serviço de Aplicativo do Azure](app-service-web-tutorial-custom-domain.md)
+
+Mais recursos:
+
+> [!div class="nextstepaction"]
+> [Configurar o aplicativo PHP](configure-language-php.md)

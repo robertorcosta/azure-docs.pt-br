@@ -5,14 +5,14 @@ ms.subservice: application-insights
 ms.topic: tutorial
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 08/13/2019
+ms.date: 06/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 98d7c1552a7b1f2b02ae4df1cad24e20f7ac76e1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6e344908fff54a06f1885774c88b509096c26e08
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79223673"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84783139"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Localizar e diagnosticar problemas de desempenho com o Azure Application Insights
 
@@ -25,7 +25,7 @@ O Azure Application Insights coleta a telemetria do seu aplicativo para ajudar a
 > * Analisar os detalhes de exibições de página usando a linguagem de consulta
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial:
 
@@ -61,7 +61,7 @@ O Application Insights coleta detalhes de desempenho para as diferentes operaç�
     ![Detalhes de ponta a ponta da operação](media/tutorial-performance/4-end-to-end.png)
     
 
-6.  O **Criador de perfil** ajuda a ir além com o diagnóstico de nível de código mostrando o código real que executou a operação e o tempo necessário para cada etapa. Algumas operações podem não ter um rastreamento, já que o criador de perfil é executado periodicamente.  Ao longo do tempo, mais operações devem ter rastreamentos.  Para iniciar o criador de perfil para a operação, clique em **Rastreamentos do criador de perfil**.
+6.  O [**Criador de perfil**](../../azure-monitor/app/profiler-overview.md) ajuda a ir além com o diagnóstico de nível de código, mostrando o código real que executou a operação e o tempo necessário para cada etapa. Algumas operações podem não ter um rastreamento, já que o criador de perfil é executado periodicamente.  Ao longo do tempo, mais operações devem ter rastreamentos.  Para iniciar o criador de perfil para a operação, clique em **Rastreamentos do criador de perfil**.
 5.  O rastreamento mostra os eventos individuais para cada operação para que você possa diagnosticar a causa raiz para a duração da operação geral.  Clique em um dos exemplos principais, que têm a duração mais longa.
 6.  Clique em **Afunilamento** para realçar o caminho específico de eventos que mais contribuem para a duração total da operação.  Neste exemplo, você pode ver que a chamada mais lenta é a do método *FabrikamFiberAzureStorage.GetStorageTableData*. A parte que usa a maior parte do tempo é o método *CloudTable.CreateIfNotExist*. Se esta linha de código for executada sempre que a função for chamada, serão consumidos recursos de CPU e de chamada de rede desnecessários. A melhor maneira de corrigir seu código é colocar essa linha em algum método de inicialização que seja executado somente uma vez.
 

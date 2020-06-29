@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: ''
-ms.openlocfilehash: 2c9287e6f4bda429309dd0041215b271678d03d3
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.openlocfilehash: e71cd5f3989a175f883f3a08b4f55d36a154dcee
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860691"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753484"
 ---
 # <a name="resource-manager-template-samples-for-azure-monitor"></a>Amostras de modelo do Resource Manager para o Azure Monitor
 
@@ -25,7 +25,7 @@ As etapas básicas para usar as amostras são:
 2. Modifique os parâmetros do seu ambiente e salve como um arquivo JSON.
 4. Implante o modelo usando [qualquer método de implantação para recursos do Resource Manager](../../azure-resource-manager/templates/deploy-powershell.md). 
 
-Por exemplo, use os comandos a seguir para implantar o modelo e o arquivo de parâmetros na sua assinatura usando o PowerShell ou a CLI do Azure.
+Por exemplo, use os comandos a seguir para implantar o modelo e o arquivo de parâmetros em um grupo de recursos usando o PowerShell ou a CLI do Azure.
 
 
 ```powershell
@@ -36,7 +36,7 @@ New-AzResourceGroupDeployment -Name AzureMonitorDeployment -ResourceGroupName my
 
 ```azurecli
 az login
-az group deployment create \
+az deployment group create \
     --name AlertDeployment \
     --resource-group ResourceGroupofTargetResource \
     --template-file azure-monitor-deploy.json \

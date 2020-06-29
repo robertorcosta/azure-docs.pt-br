@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: 4bf85a8e38a3cfc46fe4dbaf86639899e7267178
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: ee0c6e67dcf0cf5f85734be3ac53a0417e398654
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80676602"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84733697"
 ---
 # <a name="tutorial-enable-password-synchronization-in-azure-active-directory-domain-services-for-hybrid-environments"></a>Tutorial: Habilitar sincronização de senha no Azure Active Directory Domain Services para ambientes híbridos
 
@@ -30,19 +30,19 @@ Neste tutorial, você aprenderá:
 > * Por que são necessários hashes de senha herdada do Kerberos e NTLM
 > * Como configurar a sincronização de hash de senha herdada para o Azure AD Connect
 
-Se você não tiver uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Caso não tenha uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisará dos seguintes recursos:
 
 * Uma assinatura ativa do Azure.
-    * Se você não tiver uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+    * Caso não tenha uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Um locatário do Azure Active Directory associado à assinatura sincronizada com um diretório local usando o Azure AD Connect.
     * Se necessário, [crie um locatário do Azure Active Directory][create-azure-ad-tenant] ou [associe uma assinatura do Azure à sua conta][associate-azure-ad-tenant].
     * Se necessário, [habilite o Azure AD Connect para sincronização de hash de senha][enable-azure-ad-connect].
 * Um domínio gerenciado do Azure Active Directory Domain Services habilitado e configurado no locatário do Azure AD.
-    * Se necessário, [crie e configure uma instância do Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+    * Se necessário, [crie e configure um domínio gerenciado do Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 
 ## <a name="password-hash-synchronization-using-azure-ad-connect"></a>Sincronização de hash de senha usando o Azure AD Connect
 
@@ -97,7 +97,7 @@ Com o Azure AD Connect instalado e configurado para sincronizar com o Azure AD, 
     Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $azureadConnector -Enable $true
     ```
 
-    Dependendo do tamanho do seu diretório em termos do número de contas e grupos, a sincronização de hashes de senha herdados com o Azure AD pode levar algum tempo. As senhas são sincronizadas com o domínio gerenciado Azure AD DS depois de serem sincronizadas com o Azure AD.
+    Dependendo do tamanho do seu diretório em termos do número de contas e grupos, a sincronização de hashes de senha herdados com o Azure AD pode levar algum tempo. As senhas são sincronizadas com o domínio gerenciado depois de serem sincronizadas com o Azure AD.
 
 ## <a name="next-steps"></a>Próximas etapas
 

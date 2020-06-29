@@ -4,12 +4,12 @@ description: Saiba como se preparar para a avaliação/migração de servidores 
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: b7bde5df943a35bfcf08ace3b454a26dae8c1d89
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: ed648458416bacb091212bb569a27ecdf13fe8ee
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901419"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84771267"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Preparar para a avaliação e a migração de servidores físicos para o Azure
 
@@ -20,7 +20,7 @@ As [Migrações para Azure](migrate-overview.md) fornecem um hub de ferramentas 
 Este tutorial é o primeiro de uma série que mostra como avaliar os servidores físicos com as Migrações para Azure. Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
-> * Prepare o Azure. Configurar permissões para sua conta do Azure e recursos para trabalhar com as Migrações para Azure.
+> * Preparar o Azure. Configurar permissões para sua conta do Azure e recursos para trabalhar com as Migrações para Azure.
 > * Preparar servidores físicos locais para avaliação do servidor.
 
 
@@ -138,7 +138,7 @@ Antes de configurar o dispositivo das Migrações para Azure e iniciar a avalia�
 
 As Migrações para Azure precisam de permissões para descobrir servidores locais.
 
-- **Windows:** configure uma conta de usuário local em todos os servidores Windows que você deseja incluir na descoberta. A conta de usuário precisa ser adicionada aos seguintes grupos: – Usuários de gerenciamento remoto – Usuários do Monitor de Desempenho – Usuários de Log de Desempenho
+- **Windows:** você precisa ser um administrador de domínio ou administrador local em todos os servidores Windows que deseja descobrir. A conta de usuário deve ser adicionada a estes grupos: Usuários de Gerenciamento Remoto, Usuários do Monitor de Desempenho e Usuários do Log de Desempenho.
 - **Linux:** Você precisa de uma conta raiz nos servidores Linux que deseja descobrir.
 
 ## <a name="prepare-for-physical-server-migration"></a>Preparar para migração do servidor físico
@@ -148,12 +148,14 @@ Examine os requisitos para migração de servidores físicos.
 > [!NOTE]
 > Ao migrar computadores físicos, a Migração de Servidor das Migrações para Azure usa a mesma arquitetura de replicação que a recuperação de desastre baseada em agente do serviço de Azure Site Recovery, e alguns dos componentes compartilham a mesma base de código. Alguns conteúdos podem ser vinculados à documentação do Site Recovery.
 
-- [Examine](migrate-support-matrix-physical-migration.md#physical-server-requirements) os requisitos do servidor físico para a migração.
-- A Migração de Servidor das Migrações para Azure usa um servidor de replicação para a migração de servidor físico:
+1. [Examine](migrate-support-matrix-physical-migration.md#physical-server-requirements) os requisitos do servidor físico para a migração.
+2. A Migração de Servidor das Migrações para Azure usa um servidor de replicação para a migração de servidor físico:
     - [Examine](migrate-replication-appliance.md#appliance-requirements) os requisitos de implantação do dispositivo de replicação e as [opções](migrate-replication-appliance.md#mysql-installation) para instalar o MySQL no dispositivo.
     - Examine as [URLs do Azure](migrate-appliance.md#url-access) necessárias para que o dispositivo de replicação acesse as nuvens públicas e governamentais.
     - Examine os requisitos de acesso da [porta] (migrate-replication-appliance.md#port-access) para o dispositivo de replicação.
-
+3. Há algumas alterações necessárias nas VMs antes de migrá-las para o Azure.
+    - É importante fazer essas alterações antes de iniciar a migração. Se você migrar a VM antes de fazer a alteração, ela não poderá ser inicializada no Azure.
+    - Examine as alterações para [Windows](prepare-for-migration.md#windows-machines) e [Linux](prepare-for-migration.md#linux-machines) que você precisa fazer.
 
 
 

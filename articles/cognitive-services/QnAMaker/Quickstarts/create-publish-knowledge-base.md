@@ -150,7 +150,7 @@ Se você não for prosseguir para o próximo início rápido, exclua os recursos
 > [!div class="nextstepaction"]
 > [Adicionar perguntas com metadados](add-question-metadata-portal.md)
 
-Para obter mais informações:
+Para mais informações:
 
 * [Formato de Markdown nas respostas](../reference-markdown-format.md)
 * [Fontes de dados](../concepts/knowledge-base.md) do QnA Maker.

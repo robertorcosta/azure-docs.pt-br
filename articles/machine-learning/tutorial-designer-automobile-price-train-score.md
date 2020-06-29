@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 05/12/2020
 ms.custom: designer
-ms.openlocfilehash: f6d684829092d8be97785c46058186f3ca5542b2
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 2fab23e9f765d9ab4908cc4be69d8b747c6856b9
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84119030"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84790527"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Tutorial: Prever preço de automóvel com o designer (versão prévia)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -38,7 +38,7 @@ Na [segunda parte](tutorial-designer-automobile-price-deploy.md) do tutorial, vo
 >
 >Para encontrá-lo, acesse o designer em seu workspace. Na seção **Novo pipeline**, selecione **Amostra 1 – Regressão: Previsão de Preços de Automóveis (Básica)** .
 
-## <a name="create-a-new-pipeline"></a>Criar um novo pipeline
+## <a name="create-a-new-pipeline"></a>Criar um pipeline
 
 Os pipelines do Azure Machine Learning organizam várias etapas do aprendizado de máquina e do processamento de dados em um só recurso. Os pipelines permitem que você organize, gerencie e reutilize fluxos de trabalho complexos de aprendizado de máquina entre projetos e usuários.
 
@@ -77,7 +77,7 @@ Você pode definir um **Destino de computação padrão** para o pipeline inteir
     Se já tiver um destino de computação disponível, você poderá selecioná-lo para executar esse pipeline.
 
     > [!NOTE]
-    > O designer só pode executar experimentos de treinamento na Computação do Azure Machine Learning e nos destinos da instância da Computação do Azure Machine Learning. Outros destinos de computação não serão mostrados.
+    > O designer só pode executar experimentos de treinamento na Computação do Azure Machine Learning e nas instâncias da computação do Azure Machine Learning, mas outros destinos de computação não são mostrados.
 
 1. Insira um nome para o recurso de computação.
 
@@ -114,7 +114,7 @@ Você pode visualizar os dados para entender o conjunto de dados que será usado
 
     Cada linha representa um automóvel e as variáveis associadas a cada automóvel aparecem como colunas. Há 205 linhas e 26 colunas nesse conjunto de dados.
 
-## <a name="prepare-data"></a>Preparar dados
+## <a name="prepare-data"></a>Preparar os dados
 
 Os conjuntos de dados normalmente exigem algum pré-processamento antes da análise. Talvez você tenha observado alguns valores ausentes quando inspecionou o conjunto de dados. Esses valores ausentes precisam ser limpos para que o modelo possa analisar os dados corretamente.
 
@@ -173,7 +173,7 @@ Seu conjunto de dados ainda tem valores ausentes após a remoção da coluna **n
 
 1. Na janela **Colunas a serem limpas** que é exibida, expanda o menu suspenso ao lado de **Incluir**. Selecione **Todas as colunas**
 
-1. Selecione **Salvar**
+1. Clique em **Salvar**
 
 1. No painel detalhes do módulo à direita da tela, selecione **Remover linha inteira** em **Modo de limpeza**.
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/28/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfaf82cd1c37de4f507f9db235bcd9f898d3cd27
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: c90674ccbbbece59efe34986f320d0a18080399b
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84316235"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764101"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-field-id"></a>Tutorial: Integração de SSO (logon único) do Azure Active Directory ao Field iD
 
@@ -30,11 +30,11 @@ Neste tutorial, você aprenderá como integrar o Field iD ao Azure AD (Azure Act
 * Permitir que os usuários sejam conectados automaticamente ao Field iD com as suas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Para saber mais sobre a integração de aplicativos de SaaS (software como serviço) ao Azure AD, confira [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para começar, você precisará dos seguintes itens:
+Para começar, você precisa do seguinte:
 
 * Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma [conta gratuita](https://azure.microsoft.com/free/).
 * Uma assinatura do Field iD com SSO (logon único) habilitado.
@@ -43,17 +43,17 @@ Para começar, você precisará dos seguintes itens:
 
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
-* O Field iD dá suporte ao SSO iniciado por **IDP**
-* Após configurar o Field iD, você poderá impor controle de sessão, que protege contra exfiltração e infiltração de dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* O Field iD dá suporte ao SSO iniciado por IDP.
+* Depois de configurar o Field iD, você poderá impor o controle de sessão. Isso protege contra exfiltração e infiltração de dados confidenciais de sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
-## <a name="adding-field-id-from-the-gallery"></a>Como adicionar o Field iD por meio da galeria
+## <a name="add-field-id-from-the-gallery"></a>Adicionar o Field iD por meio da galeria
 
 Para configurar a integração do Field iD ao Azure AD, você precisará adicionar o Field iD da galeria à sua lista de aplicativos SaaS gerenciados.
 
-1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
-1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
-1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
-1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
+1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante, ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, escolha **Azure Active Directory**.
+1. Vá para **Aplicativos da empresa**, em seguida, selecione **Todos os Aplicativos**.
+1. Para adicionar o novo aplicativo, escolha **Novo aplicativo**.
 1. Na seção **Adicionar por meio da galeria**, digite **Field iD** na caixa de pesquisa.
 1. Escolha **Field iD** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
@@ -61,85 +61,85 @@ Para configurar a integração do Field iD ao Azure AD, você precisará adicion
 
 Configure e teste o SSO do Azure AD com o Field iD usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Field iD.
 
-Para configurar e testar o SSO do Azure AD com o Field iD, conclua os seguintes blocos de construção:
+Para configurar e testar o SSO do Azure AD com o Field iD, conclua as seguintes etapas:
 
-1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
-    1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
-    1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que B.Fernandes use o logon único do Azure AD.
-1. **[Configurar o SSO do Field iD](#configure-field-id-sso)** – Para definir as configurações de logon único no lado do aplicativo.
-    1. **[Criar um usuário de teste do Field iD](#create-field-id-test-user)** – Para ter uma contraparte de B.Fernandes no Field iD que esteja vinculada à representação de usuário do Azure AD.
-1. **[Testar o SSO](#test-sso)** – para verificar se a configuração funciona.
+1. [Configurar o SSO do Azure AD](#configure-azure-ad-sso) – para permitir que os usuários usem esse recurso.
+    1. [Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user) para testar o logon único do Azure AD com B.Fernandes.
+    1. [Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user) para permitir que B.Fernandes use o logon único do Azure AD.
+1. [Configurar o SSO do Field iD](#configure-field-id-sso) para definir as configurações de logon único no lado do aplicativo.
+    1. [Criar um usuário de teste do Field iD](#create-a-field-id-test-user) para ter uma contraparte de B.Fernandes no Field iD que esteja vinculada à representação do usuário no Azure AD.
+1. [Testar o SSO](#test-sso) para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Field iD**, localize a seção **Gerenciar** e selecione **logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Field iD**, localize a seção **Gerenciar**. Em seguida, selecione **logon único**.
 1. Na página **Selecionar um método de logon único**, escolha **SAML**.
-1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
+1. Na página **Configurar o logon único com o SAML**, selecione o ícone de lápis da **Configuração Básica de SAML** para editar as configurações.
 
-   ![Editar a Configuração Básica de SAML](common/edit-urls.png)
+   ![Captura de tela da página Configurar o Logon Único com SAML, com o ícone de lápis realçado](common/edit-urls.png)
 
 1. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
-   a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<tenantname>.fieldid.com/fieldid`
+   a. Na caixa de texto **Identificador**, digite uma URL que usa o seguinte padrão: `https://<tenantname>.fieldid.com/fieldid`
 
-   b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<tenantname>.fieldid.com/fieldid/saml/SSO/alias/tmna`
+   b. Na caixa de texto **URL de Resposta**, digite uma URL que use o seguinte padrão: `https://<tenantname>.fieldid.com/fieldid/saml/SSO/alias/<Tenant Name>`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Contate a [equipe de suporte do Field iD](mailto:support@ecompliance.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, clique no botão Copiar para copiar a **URL de Metadados de Federação do Aplicativo** e salve-a no computador.
+1. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, selecione o ícone de cópia para copiar a **URL de metadados de federação de aplicativos**. Salve-o no computador.
 
-    ![O link de download do Certificado](common/copy-metadataurl.png)
+    ![Captura de tela do Certificado de Autenticação SAML, com o ícone de cópia realçado](common/copy-metadataurl.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
+1. No painel esquerdo do portal do Azure, selecione **Azure Active Directory** > **Usuários** > **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
 1. Nas propriedades do **Usuário**, siga estas etapas:
-   1. No campo **Nome**, insira `B.Simon`.  
-   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
-   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
-   1. Clique em **Criar**.
+   1. Para **Nome**, insira `B.Simon`.  
+   1. Para **Nome de usuário**, insira o username@companydomain.extension (por exemplo, `B.Simon@contoso.com`).
+   1. Marque a caixa de seleção **Mostrar senha**, em seguida, anote o valor mostrado na caixa **Senha**.
+   1. Selecione **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que B.Fernandes use o logon único do Azure permitindo o acesso ao Field iD.
 
-1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
+1. No portal do Azure, selecione **Aplicativos Empresariais** > **Todos os aplicativos**.
 1. Na lista de aplicativos, selecione **Field iD**.
 1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
 
-   ![O link “Usuários e grupos”](common/users-groups-blade.png)
+   ![Captura de tela da seção Gerenciar, com Usuários e grupos realçados](common/users-groups-blade.png)
 
-1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
+1. Selecione **Adicionar usuário** e, em seguida, selecione **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
-    ![O link Adicionar Usuário](common/add-assign-user.png)
+    ![Captura de tela de Adicionar usuário](common/add-assign-user.png)
 
-1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista **Usuários** e clique em **Selecionar** na parte inferior da tela.
+1. Se você esperar um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, selecione a função apropriada para o usuário na lista. Em seguida, escolha **Selecionar** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar Atribuição**, selecione **Atribuir**.
 
 ## <a name="configure-field-id-sso"></a>Configurar o SSO do Field iD
 
-Para configurar o logon único no lado do **Field iD**, é necessário enviar a **URL de Metadados de Federação do Aplicativo** para a [equipe de suporte do Field iD](mailto:support@ecompliance.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no lado do Field iD, envie a **URL de metadados de federação do aplicativo** para a [equipe de suporte do Field iD](mailto:support@ecompliance.com). Eles garantem que a conexão de SSO do SAML seja definida corretamente em ambos os lados.
 
-### <a name="create-field-id-test-user"></a>Criar usuário de teste do Field iD
+### <a name="create-a-field-id-test-user"></a>Criar um usuário de teste do Field iD
 
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no Field iD. Trabalhe com a [equipe de suporte do Field iD](mailto:support@ecompliance.com) para adicionar os usuários à plataforma do Field iD. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no Field iD. Trabalhe com a [equipe de suporte do Field iD](mailto:support@ecompliance.com) para adicionar os usuários na plataforma do Field iD. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ## <a name="test-sso"></a>Testar o SSO
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+Nesta seção, você testará a configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do Field iD no Painel de Acesso, você deverá ser conectado automaticamente ao Field iD, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao selecionar o bloco do Field iD no Painel de Acesso, você deverá ser conectado automaticamente ao Field iD, para o qual configurou o SSO. Para obter mais informações, confira [Entrar e iniciar aplicativos no portal Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Tutoriais para a integração de aplicativos SaaS ao Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 

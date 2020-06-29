@@ -6,12 +6,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: c08b99b0449608309b42e51c0ffb8d4b71a0621f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8ee1d9747c048a7a7669cb31a389ed9093af7a6d
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82085199"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84906387"
 ---
 # <a name="build-a-nodejs-and-mongodb-app-in-azure-app-service-on-linux"></a>Criar um aplicativo Node.js e MongoDB no Serviço de Aplicativo do Azure no Linux
 
@@ -179,7 +179,7 @@ Copie o valor de `primaryMasterKey`. Essas informações serão necessárias na 
 
 No repositório local do MEAN.js, na pasta _config/env/_ , crie um arquivo chamado _local-production.js_. _.gitignore_ está configurado para manter esse arquivo fora do repositório.
 
-Copie o seguinte código dentro dele. Lembre-se de substituir os dois espaços reservados *\<cosmosdb-name>* pelo nome do banco de dados do Cosmos DB e o espaço reservado *\<primary-master-key>* pela chave copiada na etapa anterior.
+Copie o seguinte código dentro dele. Substitua os dois espaços reservados *\<cosmosdb-name>* pelo nome do banco de dados Cosmos DB e substitua o espaço reservado *\<primary-master-key>* pela chave copiada na etapa anterior.
 
 ```javascript
 module.exports = {
@@ -250,13 +250,13 @@ Por padrão, o projeto MEAN.js mantém _config/env/local-production.js_ fora do 
 
 Para definir as configurações do aplicativo, use o [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) no Cloud Shell.
 
-O exemplo a seguir define uma configuração de aplicativo `MONGODB_URI` no aplicativo do Azure. Substitua os espaços reservados *\<app-name>* , *\<cosmosdb-name>* e *\<primary-master-key>* pelo nome do aplicativo, pelo nome do Cosmos DB e pela chave mestra primária.
+O exemplo a seguir define uma configuração de aplicativo `MONGODB_URI` no aplicativo do Azure. Substitua os espaços reservados *\<app-name>* , *\<cosmosdb-name>* e *\<primary-master-key>* .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb-name>:<primary-master-key>@<cosmosdb-name>.documents.azure.com:10250/mean?ssl=true"
 ```
 
-No código Node.js, você [acessa essa configuração de aplicativo](configure-language-nodejs.md#access-environment-variables) com `process.env.MONGODB_URI`, assim como você acessaria qualquer variável de ambiente.
+No código Node.js, você [acessa essa configuração de aplicativo](configure-language-nodejs.md#access-environment-variables) com `process.env.MONGODB_URI`, assim como você teria acesso a qualquer variável de ambiente.
 
 No repositório local do MEAN.js, abra _config/env/production.js_ (e não _config/env/local-production.js_), que tem a configuração específica ao ambiente de produção. O aplicativo MEAN.js padrão já está configurado para usar a variável de ambiente `MONGODB_URI` que você criou.
 
@@ -444,7 +444,7 @@ Se você adicionou artigos anteriores, ainda será possível vê-los. Dados exis
 
 ## <a name="stream-diagnostic-logs"></a>Logs de diagnóstico de fluxo
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 ## <a name="manage-your-azure-app"></a>Gerenciar o aplicativo do Azure
 

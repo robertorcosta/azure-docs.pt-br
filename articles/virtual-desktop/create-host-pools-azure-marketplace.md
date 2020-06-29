@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a6ac2fd0ef3414f5b9d7f6551628264b4724b037
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: a01d8568c50cca181ec10f91b316715d64d2c37e
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234326"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737828"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutorial: Criar um pool de host com o portal do Azure
 
@@ -111,7 +111,7 @@ Para configurar sua máquina virtual dentro do processo de configuração do poo
 
     - Se você escolher **Galeria**, selecione uma das imagens recomendadas no menu suspenso:
 
-      - Sessão múltipla do Windows 10 Enterprise, versão 1909 + Office 365 ProPlus – Gen 1
+      - Windows 10 Enterprise de várias sessões, versão 1909 + Aplicativos Microsoft 365 para Enterprise – Gen 1
       - Windows 10 Enterprise de várias sessões, versão 1909 – Gen 1
       - Windows Server 2019 Datacenter – Gen 1
 
@@ -154,7 +154,7 @@ O processo de instalação do pool de host cria um grupo de aplicativos de deskt
 
 Para registrar o grupo de aplicativos da área de trabalho em um workspace:
 
-1. Selecione **Sim** na barra superior.
+1. Selecione **Sim**.
 
    Se você selecionar **Não**, poderá registrar o grupo de aplicativos mais tarde, mas recomendamos que você faça o registro do workspace assim que puder para que seu pool de host funcione corretamente.
 

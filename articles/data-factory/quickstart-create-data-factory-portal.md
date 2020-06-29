@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
-ms.date: 05/28/2020
+ms.date: 06/04/2020
 ms.author: jingwang
-ms.openlocfilehash: d6191a5f4dcfc3d25072e0cfa00418fb64311773
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 39f2dad088f3f3eb4a99aa17c1bdde5fe2a2f79c
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248525"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84655821"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Início Rápido: Criar um data factory usando a interface do usuário do Azure Data Factory
 
@@ -37,13 +37,11 @@ Este guia de início rápido descreve como usar a interface do usuário do Azure
 Assistir a este vídeo o ajuda a entender a interface do usuário do Data Factory: 
 >[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Visually-build-pipelines-for-Azure-Data-Factory-v2/Player]
 
-## <a name="create-a-data-factory"></a>Criar uma data factory
+## <a name="create-a-data-factory"></a>Criar um data factory
 
 1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface do usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
 1. Vá para o [Portal do Azure](https://portal.azure.com). 
 1. No menu do portal do Azure, selecione **Criar um recurso**.
-   
-   ![No menu do portal do Azure, selecione Criar um recurso](./media/doc-common-process/create-a-resource.png)
 1. Selecione **Análise** e, em seguida, **Data Factory**. 
    
    ![Seleção de Data Factory no painel "Novo"](./media/doc-common-process/new-azure-data-factory-menu.png)
@@ -80,8 +78,12 @@ Assistir a este vídeo o ajuda a entender a interface do usuário do Data Factor
 ## <a name="create-a-linked-service"></a>Criar um serviço vinculado
 Neste procedimento, você criará um serviço vinculado para vincular sua Conta de Armazenamento do Azure ao Data Factory. O serviço vinculado tem as informações de conexão que o serviço do Data Factory usa no runtime para se conectar a ele.
 
-1. Selecione **Conexões** e, em seguida, selecione o botão **Novo** na barra de ferramentas (o botão **Conexões** fica localizado na parte inferior da coluna esquerda, sob **Recursos de Fábrica**). 
+1. Abra a [guia Gerenciar](https://docs.microsoft.com/azure/data-factory/author-management-hub) no painel esquerdo.
 
+1. Na página Serviços vinculados, selecione **+Novo** para criar um serviço vinculado.
+
+   ![Novo serviço vinculado](./media/doc-common-process/new-linked-service.png)
+   
 1. Na página **Novo Serviço Vinculado**, selecione **Armazenamento de Blobs do Azure** e selecione **Continuar**. 
 
 1. Na página Novo Serviço Vinculado (Armazenamento de Blobs do Azure), conclua as seguintes etapas: 

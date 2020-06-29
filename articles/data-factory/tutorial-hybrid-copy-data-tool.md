@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 04/09/2018
-ms.openlocfilehash: badf6ed4e4a330aae288cd6a2b102941901a0461
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 06/09/2020
+ms.openlocfilehash: 0e3c2d4fe4d9377b6f9a563825a14e10eb724637
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194601"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660931"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Copie dados de um banco de dados do SQL Server para um Armazenamento de Blobs do Azure usando a ferramenta Copiar Dados
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -107,7 +107,7 @@ Nesta seção, você cria um contêiner de blobs chamado **adftutorial** no seu 
 1. Mantenha a janela **Contêiner** aberta para **adftutorial**. Você a usa para verificar a saída no final do tutorial. O Data Factory cria automaticamente a pasta de saída nesse contêiner, portanto você não precisa criar uma.
 
 
-## <a name="create-a-data-factory"></a>Criar uma data factory
+## <a name="create-a-data-factory"></a>Criar um data factory
 
 1. No menu à esquerda, selecione **+ Criar um recurso** > **Analytics** > **Data Factory**.
 
@@ -135,7 +135,7 @@ Nesta seção, você cria um contêiner de blobs chamado **adftutorial** no seu 
      ![Página inicial do data factory](./media/doc-common-process/data-factory-home-page.png)
 1. Selecione **Criar e Monitorar** para iniciar a interface do usuário Data Factory em uma guia separada.
 
-## <a name="use-the-copy-data-tool-to-create-a-pipeline"></a>Use a ferramenta Copy Data para criar um pipeline
+## <a name="use-the-copy-data-tool-to-create-a-pipeline"></a>Usar a ferramenta Copy Data para criar um pipeline
 
 1. Na página **Introdução**, selecione **Copy Data** para iniciar a ferramenta Copy Data.
 
@@ -146,18 +146,15 @@ Nesta seção, você cria um contêiner de blobs chamado **adftutorial** no seu 
 
 1. Na página **Armazenamento de dados de origem**, clique em **Criar nova conexão**.
 
-
 1. Em **Novo serviço vinculado**, procure **SQL Server** e, em seguida, selecione **Continuar**.
 
 1. Na caixa de diálogo **Novo serviço vinculado (SQL Server)** , em **Nome**, insira **SqlServerLinkedService**. Selecione **+Novo** em **Conectar por meio do runtime de integração**. Você deve criar um runtime de integração auto-hospedada, baixá-lo para seu computador e registrá-lo com o Data Factory. O runtime de integração auto-hospedada copia dados entre seu ambiente local e a nuvem.
 
+1. Na caixa de diálogo **Instalação do Integration Runtime**, selecione **Auto-hospedado**. Depois selecione **Continuar**.
 
-1. Na caixa de diálogo **Instalação do Integration Runtime**, selecione **Auto-hospedado**. Em seguida, selecione **Avançar**.
+   ![Criar runtime de integração](./media/tutorial-hybrid-copy-data-tool/create-self-hosted-integration-runtime.png)
 
-   ![Criar runtime de integração](./media/tutorial-hybrid-copy-data-tool/create-integration-runtime-dialog0.png)
-
-1. Na caixa de diálogo **Instalação do Integration Runtime**, em **Nome**, insira **TutorialIntegrationRuntime**. Em seguida, selecione **Avançar**.
-
+1. Na caixa de diálogo **Instalação do Integration Runtime**, em **Nome**, insira **TutorialIntegrationRuntime**. Em seguida, selecione **Criar**.
 
 1. Na caixa de diálogo **Instalação do Integration Runtime**, selecione **Clique aqui para iniciar a instalação expressa para este computador**. Essa ação instala o Integration Runtime em seu computador e o registra com o Data Factory. Como alternativa, você pode usar a opção de baixar o arquivo de instalação manual, executá-lo e usar a chave para registrar o runtime de integração.
 
@@ -216,20 +213,17 @@ Nesta seção, você cria um contêiner de blobs chamado **adftutorial** no seu 
 
 1. Na caixa de diálogo **Resumo**, revise os valores para todas as configurações e selecione **Avançar**.
 
-1. Na página **Implantação**, selecione **Monitorar** para monitorar o pipeline ou a tarefa que você criou.
+1. Na **página Implantação**, selecione **Monitorar** para monitorar o pipeline (tarefa). 
 
-   ![Página Implantação](./media/tutorial-hybrid-copy-data-tool/deployment-page.png)
+1. Quando a execução do pipeline for concluída, será possível exibir o status do pipeline que você criou. 
 
-1. Na guia **Monitorar**, é possível ver o status do pipeline que você criou. É possível usar os links na coluna **Ação** para exibir execuções de atividades associadas à execução e re-execução do pipeline.
+1. Na página Execuções de pipeline, selecione **Atualizar** para atualizar a lista. Clique no link em **NOME DO PIPELINE** para ver os detalhes da execução de atividade ou execute o pipeline novamente. 
 
-1. Selecione **Exibir Execuções da Atividade** na coluna **Ações** para ver a execução de atividade associada à execução de pipeline. Para ver detalhes sobre a operação de cópia, selecione o link **Detalhes** (ícone de óculos) na coluna **Ações**. Para alternar novamente para a exibição de **Execuções de Pipeline**, selecione **Execuções de Pipeline** na parte superior.
+1. Na página Execuções de atividade, selecione o link **Detalhes** (ícone de óculos) na coluna **NOME DA ATIVIDADE** para obter mais detalhes sobre a operação de cópia. Para voltar à exibição Execuções de Pipeline, selecione o link **TODAS as execuções de pipeline** no menu de navegação estrutural. Para atualizar a exibição, selecione **Atualizar**.
 
 1. Confira se existe o arquivo de saída na pasta **fromonprem** do contêiner **adftutorial**.
 
-
 1. Selecione a guia **Editar** à esquerda para alternar para o modo de edição. É possível atualizar serviços vinculados, conjuntos de dados e pipelines criados pela ferramenta usando o editor. Selecione **Código** para exibir o código JSON associado à entidade aberta no editor. Para obter detalhes sobre como editar essas entidades na interface do usuário do Data Factory, confira [a versão do portal do Azure deste tutorial](tutorial-copy-data-portal.md).
-
-   ![Guia Editar](./media/tutorial-hybrid-copy-data-tool/edit-tab.png)
 
 
 ## <a name="next-steps"></a>Próximas etapas

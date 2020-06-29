@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 05/18/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 2e9c027a927d4aba9c174db8dfc5a72f0cc4f214
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 43816c815c206da7e3fec197e54e9e7889c6de47
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195186"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84735346"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Criar e gerenciar um conjunto de dimensionamento de máquinas virtuais usando o Azure PowerShell
 
@@ -191,6 +191,8 @@ New-AzVmss `
   -Credential $cred
 ```
 
+> [!IMPORTANT]
+> É recomendável usar a versão *mais recente* da imagem. Especifique 'mais recente' para usar a versão mais recente de uma imagem disponível no momento da implantação. Observe que, mesmo que você use 'mais recente', a imagem da VM não será atualizada automaticamente após o tempo de implantação, mesmo se uma nova versão ficar disponível.
 
 ## <a name="understand-vm-instance-sizes"></a>Entender tamanhos de instância de VM
 Um tamanho de instância de VM, ou *SKU*, determina a quantidade de recursos de computação, como memória, CPU e GPU que estão disponíveis para a instância de VM. As instâncias de VM em um conjunto de dimensionamento precisam ser dimensionadas apropriadamente para a carga de trabalho esperada.

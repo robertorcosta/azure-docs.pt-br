@@ -1,24 +1,24 @@
 ---
 title: Definições de políticas internas para o Banco de Dados do Azure para PostgreSQL
 description: Lista as definições de políticas internas do Azure Policy para o Banco de Dados do Azure para PostgreSQL. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 05/29/2020
+ms.date: 06/10/2020
 ms.topic: sample
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 148bafe65935ad358184d93cf994866ac87d24bf
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: fdc07730c7b8b1a7ff2c33a7b1625a4e313331a4
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84233038"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84887316"
 ---
-# <a name="azure-policy-built-in-policy-definitions-for-azure-database-for-postgresql"></a>Definições de políticas internas do Azure Policy para o Banco de Dados do Azure para PostgreSQL
+# <a name="azure-policy-built-in-definitions-for-azure-database-for-postgresql"></a>Definições internas do Azure Policy para o Banco de Dados do Azure para PostgreSQL
 
 Esta página é um índice de definições de políticas internas do [Azure Policy](../governance/policy/overview.md) para o Banco de Dados do Azure para PostgreSQL. Para obter políticas internas adicionais do Azure Policy para outros serviços, confira [Definições internas do Azure Policy](../governance/policy/samples/built-in-policies.md).
 
-O nome de cada definição de política interna leva à definição da política no portal do Azure. Use o link na coluna **GitHub** para ver a origem no [repositório GitHub do Azure Policy](https://github.com/Azure/azure-policy).
+O nome de cada definição de política interna leva à definição da política no portal do Azure. Use o link na coluna **Versão** para exibir a origem no [repositório GitHub do Azure Policy](https://github.com/Azure/azure-policy).
 
 ## <a name="azure-database-for-postgresql"></a>Banco de Dados do Azure para PostgreSQL
 

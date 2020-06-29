@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: 3087b964ff5f9754d6552fc95625541ce94a6535
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 555230499ebda106cbca616b779ae632d65349ab
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82147990"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84807865"
 ---
 # <a name="quickstart-create-your-first-workflow-by-using-azure-logic-apps---azure-portal"></a>Início Rápido: Criar seu primeiro fluxo de trabalho usando os Aplicativos Lógicos do Azure – portal do Azure
 
@@ -45,9 +45,9 @@ Entre no [portal do Azure](https://portal.azure.com) com suas credenciais da con
 
    | Propriedade | Valor | Descrição |
    |----------|-------|-------------|
-   | **Nome** | <*logic-app-name*> | O nome do aplicativo lógico, que pode conter apenas letras, números, hifens (`-`), sublinhados (`_`), parênteses(`(`, `)`) e pontos (`.`). Este exemplo usa "My-First-Logic-App". |
+   | **Nome** | <*logic-app-name*> | O nome do aplicativo lógico, que pode conter apenas letras, números, hifens (`-`), sublinhados (`_`), parênteses(`(`, `)`) e pontos (`.`). Este exemplo usa "My-First-Logic-App". <p><p>**Observação**: os nomes dos aplicativos lógicos devem ser exclusivos entre regiões. |
    | **Assinatura** | <*Azure-subscription-name*> | Seu nome da assinatura do Azure |
-   | **Grupo de recursos** | <*Azure-resource-group-name*> | O nome do [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) usado para organizar os recursos relacionados. Este exemplo usa "My-First-LA-RG". |
+   | **Grupo de recursos** | <*Azure-resource-group-name*> | O nome do [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) usado para organizar os recursos relacionados. Este exemplo usa "My-First-LA-RG". <p><p>**Observação**: os nomes de grupos de recursos precisam ser exclusivos entre regiões. |
    | **Localidade** | <*Azure-region*> | A região em que as informações de seu aplicativo lógico serão armazenadas. Este exemplo usa "Oeste dos EUA". |
    | **Log Analytics** | Desativado | Mantenha a configuração **Desligado** para o log de diagnósticos. |
    ||||

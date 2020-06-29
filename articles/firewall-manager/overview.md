@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 03/13/2020
+ms.date: 06/11/2020
 ms.author: victorh
-ms.openlocfilehash: 149782f627d586e927c828506a7d4f1b5437b987
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bef948def487e2b60764641e6cf38a3e122e2f87
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79366267"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84792143"
 ---
 # <a name="what-is-azure-firewall-manager-preview"></a>O que é a Versão prévia do Gerenciador de Firewall do Azure?
 
@@ -22,16 +22,16 @@ A Versão prévia do Gerenciador de Firewall do Azure é um serviço de gerencia
 
 O Gerenciador de Firewall pode fornecer gerenciamento de segurança para dois tipos de arquitetura de rede:
 
-- **hub virtual seguro**
+- **Hub virtual seguro**
 
    Um [Hub de WAN Virtual do Azure](../virtual-wan/virtual-wan-about.md#resources) é um recurso gerenciado pela Microsoft que possibilita criar arquiteturas de hub e spoke facilmente. Quando as políticas de segurança e roteamento são associadas a esse hub, ele é chamado de *[hub virtual seguro](secured-virtual-hub.md)* . 
-- **rede virtual de hub**
+- **Rede virtual de hub**
 
    Essa é uma rede virtual do Azure padrão que você cria e gerencia por conta própria. Quando as políticas de segurança são associadas a um hub como esse, ele é chamado de *rede virtual de hub*. Neste momento, apenas a Política de Firewall do Azure é compatível. Você pode emparelhar redes virtuais que contêm os serviços e servidores da sua carga de trabalho. Você também pode gerenciar firewalls em redes virtuais autônomas que não são emparelhadas com nenhum spoke.
 
 Para obter uma comparação detalhada dos tipos de arquitetura de *hub virtual seguro* e *rede virtual de hub*, confira [Quais são as opções de arquitetura do Gerenciador de Firewall do Azure?](vhubs-and-vnets.md).
 
-![gerenciador de firewall](media/overview/firewallmanagerv5.png)
+![gerenciador de firewall](media/overview/trusted-security-partners.png)
 
 ## <a name="azure-firewall-manager-preview-features"></a>Recursos da Versão prévia do Gerenciador de Firewall do Azure
 
@@ -78,7 +78,7 @@ As Políticas de Firewall do Azure podem ser usadas entre regiões. Por exemplo,
 
 A Versão prévia do Gerenciador de Firewall do Azure tem os seguintes problemas conhecidos:
 
-|Problema  |DESCRIÇÃO  |Atenuação  |
+|Problema  |Descrição  |Atenuação  |
 |---------|---------|---------|
 |Limitações da filtragem de terceiros.|A filtragem de tráfego V2I com provedores de terceiros não tem suporte no Firewall do Azure B2V e V2V.|Investigando|
 |Divisão de tráfego sem suporte no momento.|A divisão de tráfego do Office 365 e PaaS público do Azure não tem suporte no momento. Dessa forma, selecionar um provedor de terceiros para V2I ou B2I também envia todo o tráfego de PaaS público do Azure e do Office 365 por meio do serviço do parceiro.|Investigando a divisão de tráfego no hub.

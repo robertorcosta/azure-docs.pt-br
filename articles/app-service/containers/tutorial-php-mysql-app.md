@@ -5,12 +5,12 @@ ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/25/2019
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: cf4550bae1433f1e751555cd35f8a1ba78747295
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4fdf862b3d87b3afcef9c40296d1e21c82de1902
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82085818"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84906183"
 ---
 # <a name="build-a-php-and-mysql-app-in-azure-app-service-on-linux"></a>Criar um aplicativo em PHP e MySQL no Serviço de Aplicativo do Azure no Linux
 
@@ -129,7 +129,7 @@ Gere uma nova chave de aplicativo do Laravel.
 php artisan key:generate
 ```
 
-Execute o aplicativo.
+Executar o aplicativo.
 
 ```bash
 php artisan serve
@@ -155,7 +155,7 @@ Nesta etapa, você cria um banco de dados MySQL no [Banco de Dados do Azure para
 
 Crie um servidor no Banco de Dados do Azure para MySQL com o comando [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create).
 
-No comando a seguir, substitua o espaço reservado *\<mysql-server-name>* por um nome de servidor exclusivo, *\<admin-user>* por um nome de usuário e *\<admin-password>* por uma senha. O nome do servidor é usado como parte de seu ponto de extremidade do MySQL (`https://<mysql-server-name>.mysql.database.azure.com`) e, portanto, precisa ser exclusivo entre todos os servidores no Azure. Para obter detalhes sobre como selecionar o SKU do banco de dados MySQL, confira [Criar um servidor do Banco de Dados do Azure para MySQL](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli#create-an-azure-database-for-mysql-server).
+No comando a seguir, substitua um nome do servidor exclusivo pelo espaço reservado *\<mysql-server-name>* , um nome de usuário pelo *\<admin-user>* e uma senha pelo espaço reservado *\<admin-password>* . O nome do servidor é usado como parte de seu ponto de extremidade do MySQL (`https://<mysql-server-name>.mysql.database.azure.com`) e, portanto, precisa ser exclusivo entre todos os servidores no Azure. Para obter detalhes sobre como selecionar o SKU do banco de dados MySQL, confira [Criar um servidor do Banco de Dados do Azure para MySQL](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli#create-an-azure-database-for-mysql-server).
 
 ```azurecli-interactive
 az mysql server create --resource-group myResourceGroup --name <mysql-server-name> --location "West Europe" --admin-user <admin-user> --admin-password <admin-password> --sku-name B_Gen5_1
@@ -335,7 +335,7 @@ Para obter mais informações, confira [Alterar raiz do site](configure-language
 
 No Serviço de Aplicativo, defina as variáveis de ambiente como _configurações do aplicativo_ usando o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set).
 
-O comando a seguir define as configurações do aplicativo `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` e `DB_PASSWORD`. Substitua os espaços reservados _&lt;appname>_ e _&lt;mysql-server-name>_ pelo nome do aplicativo e do servidor MySQL.
+O comando a seguir define as configurações do aplicativo `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` e `DB_PASSWORD`. Substitua os espaços reservados _&lt;appname>_ e _&lt;mysql-server-name>_ .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DB_HOST="<mysql-server-name>.mysql.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@<mysql-server-name>" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
@@ -565,7 +565,7 @@ Se você tiver adicionado tarefas, elas serão retidas no banco de dados. As atu
 
 ## <a name="stream-diagnostic-logs"></a>Logs de diagnóstico de fluxo
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 ## <a name="manage-the-azure-app"></a>Gerenciar o aplicativo do Azure
 

@@ -5,16 +5,16 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
 ms.author: mimart
-ms.openlocfilehash: bbbc606497b53a0790d667a63b45101a3c18bbc4
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 3ebe1ec4c0292a530e5ef2c754e9b002e931300e
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84297473"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84680300"
 ---
-#### <a name="app-registrations-preview"></a>[Registros de Aplicativo (versão prévia)](#tab/app-reg-preview/)
+#### <a name="app-registrations"></a>[Registros de aplicativo](#tab/app-reg-ga/) 
 
-1. Selecione **Registros de Aplicativo (versão prévia)** .
+1. Selecione **Registros do Aplicativo**.
 1. Selecione o aplicativo *webapi1* para abrir a página de **Visão Geral**.
 1. Em **Gerenciar**, selecione **Expor uma API**.
 1. Ao lado de **URI do ID do Aplicativo**, selecione o link **Definir**.
@@ -29,9 +29,9 @@ ms.locfileid: "84297473"
     1. **Nome de exibição de consentimento do administrador**: `Write access to demo API`
     1. **Descrição do consentimento do administrador:** `Allows write access to the demo API`
 
-#### <a name="applications"></a>[Aplicativos](#tab/applications/)
+#### <a name="applications-legacy"></a>[Aplicativos (Herdado)](#tab/applications-legacy/)
 
-1. Selecione **Aplicativos**.
+1. Selecione **Aplicativos (Herdado)** .
 1. Selecione o aplicativo *webapi1* para abrir a página de **Propriedades**.
 1. Selecione **Escopos publicados**. Os escopos publicados podem ser usados para conceder a um aplicativo cliente certas permissões da API Web.
 1. Em **ESCOPO**, insira `demo.read` e, na **DESCRIÇÃO**, insira `Read access to the web API`.

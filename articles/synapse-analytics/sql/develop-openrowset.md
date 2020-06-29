@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9c2a2d7059e24b37b0f47d0b568a3929f296d8c6
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: f70c14c424e8aaecbdc1138b52fdd6fb1e9fc265
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560865"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85051808"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Como usar OPENROWSET com o SQL sob demanda (versão prévia)
 
@@ -49,7 +49,7 @@ essa é uma forma rápida e fácil de ler o conteúdo dos arquivos sem pré-conf
     essa opção permite que você configure o local da conta de armazenamento na fonte de dados e especifique o método de autenticação que deve ser usado para acessar o armazenamento. 
     
     > [!IMPORTANT]
-    > `OPENROWSET` sem `DATA_SOURCE` oferece uma forma rápida e fácil de acessar os arquivos de armazenamento, mas oferece opções de autenticação limitadas. Por exemplo, a entidade de segurança do Azure AD pode acessar arquivos somente usando a [identidade do Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#force-azure-ad-pass-through) dela e não pode acessar arquivos publicamente disponíveis. Se você precisar de opções de autenticação mais avançadas, use a opção `DATA_SOURCE` e defina a credencial que deseja usar para acessar o armazenamento.
+    > `OPENROWSET` sem `DATA_SOURCE` oferece uma forma rápida e fácil de acessar os arquivos de armazenamento, mas oferece opções de autenticação limitadas. Por exemplo, as entidades de segurança do Azure AD só podem acessar arquivos usando a respectiva [identidade do Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity) ou arquivos publicamente disponíveis. Se você precisar de opções de autenticação mais avançadas, use a opção `DATA_SOURCE` e defina a credencial que deseja usar para acessar o armazenamento.
 
 
 ## <a name="security"></a>Segurança
@@ -60,7 +60,8 @@ O administrador de armazenamento também deve permitir que um usuário acesse os
 
 `OPENROWSET` usa as regras a seguir para determinar como se autenticar no armazenamento:
 - No `OPENROWSET` sem `DATA_SOURCE`, o mecanismo de autenticação depende do tipo de chamador.
-  - Os logons do Azure AD só poderão acessar arquivos usando as próprias [identidade do Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) se o armazenamento do Azure permitir que o usuário do Azure AD acesse arquivos subjacentes (por exemplo, se o chamador tiver permissão de Leitor de Armazenamento no armazenamento) e se você [habilitar a autenticação de passagem do Azure AD](develop-storage-files-storage-access-control.md#force-azure-ad-pass-through) no serviço do SQL do Synapse.
+  - Qualquer usuário pode usar `OPENROWSET` sem `DATA_SOURCE` para ler arquivos publicamente disponíveis no Armazenamento do Azure.
+  - Os logons do Azure AD podem acessar arquivos protegidos usando as próprias [identidades do Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) se o Armazenamento do Azure permite que o usuário do Azure AD Acesse arquivos subjacentes (por exemplo, se o chamador tem a permissão `Storage Reader` no Armazenamento do Azure).
   - Os logons do SQL também podem usar `OPENROWSET` sem `DATA_SOURCE` para acessar arquivos publicamente disponíveis, arquivos protegidos usando o token SAS ou a Identidade Gerenciada do workspace do Synapse. Você precisaria [criar uma credencial com escopo de servidor](develop-storage-files-storage-access-control.md#examples) para permitir o acesso a arquivos de armazenamento. 
 - Em `OPENROWSET` com `DATA_SOURCE`, o mecanismo de autenticação é definido na credencial no escopo do banco de dados atribuída à fonte de dados referenciada. Essa opção permite que você acesse o armazenamento disponível publicamente ou o armazenamento usando o token SAS, a Identidade Gerenciada do workspace ou a [identidade do Azure AD do chamador](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) (se o chamador for a entidade de segurança do Azure AD). Se `DATA_SOURCE` referenciar ao armazenamento do Azure que não é público, você precisará [criar uma credencial com escopo de banco de dados](develop-storage-files-storage-access-control.md#examples) e referenciá-la no `DATA SOURCE` para permitir o acesso aos arquivos de armazenamento.
 
@@ -238,10 +239,6 @@ FROM
     ) AS [r]
 ```
 
-Se você estiver recebendo um erro informando que os arquivos não podem ser listados, será necessário habilitar o acesso ao armazenamento público no SQL do Synapse sob demanda:
-- Se você estiver usando um logon do SQL, precisará [criar uma credencial com escopo de servidor que permita acesso ao armazenamento público](develop-storage-files-storage-access-control.md#examples).
-- Se você estiver usando uma entidade de segurança do Azure AD para acessar o armazenamento público, precisará [criar uma credencial com escopo de servidor que permita o acesso ao armazenamento público](develop-storage-files-storage-access-control.md#examples) e desabilitar a [autenticação de passagem do Azure AD](develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through).
-
 ## <a name="next-steps"></a>Próximas etapas
 
-Para ver mais exemplos, confira o [início rápido para consultar armazenamento de dados](query-data-storage.md) para saber como usar o `OPENROWSET para ler formatos de arquivo [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md) e [JSON](query-json-files.md). Você também pode aprender a salvar os resultados de sua consulta no Armazenamento do Azure usando [CETAS](develop-tables-cetas.md).
+Para obter mais amostras, confira o [Início Rápido: Consultar o armazenamento de dados](query-data-storage.md) para saber como usar `OPENROWSET` para ler formatos de arquivo [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md) e [JSON](query-json-files.md). Você também pode aprender a salvar os resultados de sua consulta no Armazenamento do Azure usando [CETAS](develop-tables-cetas.md).

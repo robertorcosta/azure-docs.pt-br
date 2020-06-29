@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: b424fe315737b84479283eed2d77398c8ce4f148
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 99a2de4cd8a19d3f05b9dc37f3bcd08cd84b2e68
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78898829"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052751"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Início Rápido: Criar um Load Balancer para balancear a carga de VMs usando o portal do Azure
 
@@ -162,7 +162,7 @@ Os SKUs do IP público e os SKUs do Load Balancer devem coincidir. Para o Standa
     | Zona de disponibilidade | 2 |3|
     |IP público| SKU **Standard**|SKU **Standard**|
     | IP público – Zona de disponibilidade| **Redundância de zona** |**Redundância de zona**|
-    | Grupo de segurança de rede | Selecionar o *Grupo myNetworkSecurity* existente| Selecionar o *Grupo myNetworkSecurity* existente|
+    | Grupo de segurança de rede | Selecionar o *myNetworkSecurityGroup* existente| Selecionar o *myNetworkSecurityGroup* existente|
 
  ### <a name="create-nsg-rule"></a>Como criar regra NSG
 

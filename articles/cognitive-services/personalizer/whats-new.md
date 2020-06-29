@@ -48,7 +48,7 @@ Os seguintes recursos de visualização foram lançados na conferência Build 20
 
 * [Classificar e recompensar o loop de aprendizado](what-is-personalizer.md)
 
-## <a name="videos"></a>Vídeos
+## <a name="videos"></a>vídeos
 
 ### <a name="2019-build-videos"></a>Vídeos da Build 2019
 

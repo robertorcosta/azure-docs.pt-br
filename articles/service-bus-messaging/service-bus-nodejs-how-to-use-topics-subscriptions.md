@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 01/16/2020
 ms.author: aschhab
-ms.openlocfilehash: c85b63b4a56e74b0fef9a122ec995b4106496cbe
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 91fae982f53af8da359baaff685996c0d1cb57c2
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78330439"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976550"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>Início Rápido: Como usar tópicos e assinaturas do Barramento de Serviço do Azure com o Node.js e o pacote azure-sb
 Neste tutorial, você aprenderá a criar aplicativos Node.js para enviar mensagens para um tópico do Barramento de Serviço e receber mensagens de uma assinatura do Barramento de Serviço usando o pacote [azure-sb](https://www.npmjs.com/package/azure-sb). As amostras são escritas em JavaScript e usam o [módulo do Azure](https://www.npmjs.com/package/azure) do Node.js que usa internamente o pacote `azure-sb`.
@@ -80,7 +80,7 @@ var azure = require('azure');
 ```
 
 ### <a name="set-up-a-service-bus-connection"></a>Configurar uma conexão do Barramento de Serviço
-O módulo do Azure lê a variável de ambiente `AZURE_SERVICEBUS_CONNECTION_STRING` para a cadeia de conexão que você obteve na etapa anterior, "Obter as credenciais." Se essa variável de ambiente não estiver definida, você deverá especificar as informações da conta chamando `createServiceBusService`.
+O módulo do Azure lê a variável de ambiente `AZURE_SERVICEBUS_CONNECTION_STRING` para a cadeia de conexão que você obteve como parte dos [pré-requisitos](#prerequisites). Se você precisar de instruções para obter a cadeia de conexão novamente, confira [Obter a cadeia de conexão](service-bus-quickstart-topics-subscriptions-portal.md#get-the-connection-string). Se essa variável de ambiente não estiver definida, você deverá especificar as informações da conta chamando `createServiceBusService`.
 
 Para ver um exemplo de como definir as variáveis de ambiente para um Serviço de Nuvem do Azure, confira [Definir variáveis de ambiente](../container-instances/container-instances-environment-variables.md#azure-cli-example).
 

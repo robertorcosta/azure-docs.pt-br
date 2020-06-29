@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 08/30/2019
+ms.date: 06/16/2020
 ms.author: jmprieur
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 1dd0bc589b8290172d18482b36baf30c24d099b4
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 0f712dbee6218ce8e012639b82a3a2ee7c177bb3
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83640562"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84904755"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-or-macos-app"></a>Conectar usuários e chamar o Microsoft Graph de um aplicativo iOS ou macOS
 
@@ -48,7 +48,7 @@ Este tutorial é aplicável a aplicativos iOS e macOS. Observe que algumas etapa
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- O XCode versão 11.x ou superior é necessário para criar o aplicativo neste guia. Você pode fazer baixar o XCode no [site do iTunes](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "URL de download do XCode").
+- O XCode versão 11.x ou superior é necessário para criar o aplicativo neste guia. Você pode baixar o XCode da [Mac App Store](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "URL de download do XCode").
 - Biblioteca de Autenticação da Microsoft ([MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)). Você pode usar um gerenciador de dependência ou adicionar a biblioteca manualmente. As instruções abaixo mostram como fazer isso.
 
 Este tutorial irá criar um novo projeto. Se, em vez disso, você quiser baixar o tutorial concluído, baixe o código:
@@ -626,7 +626,7 @@ Depois que você obtiver um token, seu aplicativo poderá usá-lo no cabeçalho 
 
 | chave de cabeçalho    | value                 |
 | ------------- | --------------------- |
-| Autorização | Bearer \<access-token> |
+| Autorização | Portador \<access-token> |
 
 Adicione o código a seguir à classe `ViewController`:
 

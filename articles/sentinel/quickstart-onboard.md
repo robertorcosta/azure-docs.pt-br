@@ -9,12 +9,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 149ac61e4737faa81e55fac3e07133c73bbc00d5
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.openlocfilehash: a581288259a521f8f2f93ff3fbc16f4926486643
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488113"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84771165"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Início Rápido: Integração do Azure Sentinel
 
@@ -58,7 +58,7 @@ Depois de conectar suas fontes de dados, escolha em uma galeria de pastas de tra
    > - O Azure Sentinel pode ser executado em workspaces em qualquer [região de GA do Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor), exceto nas regiões China e Alemanha (soberanas). Os dados gerados pelo Azure Sentinel (como incidentes, indicadores e regras de alerta, que podem conter alguns dados do cliente provenientes desses workspaces) são salvos na Europa (para workspaces localizados na Europa), na Austrália (para workspaces localizados na Austrália) ou no Leste dos EUA (para os workspaces localizados em qualquer outra região).
 
    >[!IMPORTANT]
-   > - Depois que o Azure Sentinel tiver sido habilitado em um workspace, não haverá suporte à migração desse workspace para outros grupos de recursos ou assinaturas. Se você precisar migrar o workspace, entre em contato com o suporte para obter diretrizes.
+   > - Depois que o Azure Sentinel tiver sido habilitado em um workspace, não haverá suporte à migração desse workspace para outros grupos de recursos ou assinaturas. Se você precisar migrar o workspace, entre em contato com o [Azure Sentinel](mailto:AzureSentinel@microsoft.com).
 
 1. Selecione **Adicionar o Azure Sentinel**.
   

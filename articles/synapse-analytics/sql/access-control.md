@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 555e4bf9dfa2318796cde124d07867d09adc229d
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: e5db52d1e28a7db5594b3b2a16bc145d0a50e2e3
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310250"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84765073"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Gerenciar o acesso a workspaces, dados e pipelines
 
@@ -169,14 +169,7 @@ Para permitir acesso a um usuário a um Banco de Dados SQL **individual**, siga 
 > *db_datareader* e *db_datawriter* poderão funcionar para permissões de leitura/gravação se a concessão da permissão *db_owner* não for desejada.
 > Para que um usuário do Spark faça leituras e gravações diretamente no Spark de maneira bidirecional em um pool de SQL, a permissão *db_owner* é necessária.
 
-Depois de criar os usuários, verifique se o SQL sob demanda pode consultar a conta de armazenamento:
-
-- Execute o seguinte comando tendo como destino o banco de dados **mestre** do SQL sob demanda:
-
-    ```sql
-    CREATE CREDENTIAL [https://<storageaccountname>.dfs.core.windows.net]
-    WITH IDENTITY='User Identity';
-    ```
+Depois de criar os usuários, verifique se o SQL sob demanda pode consultar a conta de armazenamento.
 
 ## <a name="access-control-to-workspace-pipeline-runs"></a>Controle de acesso às execuções de pipeline do workspace
 

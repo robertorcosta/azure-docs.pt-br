@@ -3,25 +3,25 @@ title: Configuração de SSO (logon único) com um clique do aplicativo do Azure
 description: Etapas para a configuração de SSO com um clique para seu aplicativo do Azure Marketplace.
 services: active-directory
 documentationCenter: na
-author: jeevansd
-manager: mtillman
-ms.reviewer: celested
+author: kenwith
+manager: celestedg
+ms.reviewer: kenwith
 ms.assetid: e0416991-4b5d-4b18-89bb-91b6070ed3ba
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 06/11/2019
-ms.author: jeedes
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a83d27af4fd783b95c53ef3a9169cb72bfc29d34
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3c7e72718e13106b9d895921a2335f1525a7b88c
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67872438"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763118"
 ---
 # <a name="one-click-app-configuration-of-single-sign-on"></a>Configuração de aplicativos de logon único com um clique
 
@@ -37,7 +37,7 @@ O recurso SSO com um clique foi projetado para configurar o logon único para ap
 - Configuração de SSO mais eficiente e precisa.
 - Nenhuma comunicação de parceiro ou suporte necessário para a instalação. O aplicativo fornece a interface do usuário para a configuração do SAML.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma assinatura ativa do aplicativo a ser configurado com o SSO. Você também precisa ter credenciais de administrador.
 - A **extensão Entrada Segura dos Meus Aplicativos** da Microsoft instalada no navegador. Para obter mais informações, confira [Acessar e usar aplicativos no portal Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
@@ -59,7 +59,7 @@ O recurso SSO com um clique foi projetado para configurar o logon único para ap
 
    ![Instalar a extensão de navegador Entrada Segura dos Meus Aplicativos](./media/one-click-sso-tutorial/install-myappssecure-extension.png)
 
-6. Depois de adicionar a extensão ao navegador, selecione **Configurar \<Nome do Aplicativo\>** . Depois de ser redirecionado para o portal de administração do aplicativo, entre como administrador.
+6. Depois de adicionar a extensão ao navegador, selecione **Configurar \<Application Name\>** . Depois de ser redirecionado para o portal de administração do aplicativo, entre como administrador.
 
    ![Configurar o nome do aplicativo](./media/one-click-sso-tutorial/setup-sso.png)
 
@@ -84,6 +84,6 @@ O recurso SSO com um clique foi projetado para configurar o logon único para ap
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS ao Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
+* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
 * [O que é a extensão do navegador Entrada Segura dos Meus Aplicativos?](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access)
  

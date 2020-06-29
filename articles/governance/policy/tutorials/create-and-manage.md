@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Criar políticas para impor conformidade'
 description: Neste tutorial, você usa políticas para impor padrões, controlar custos, manter a segurança e impor princípios de design empresariais.
-ms.date: 03/24/2020
+ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: dcebbbfcc2f86ace7ea4400a2fdb6f1392f4efe6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 90ac6d1c4121b8672e561ff633263775bbad5357
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82190819"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84781120"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Tutorial: Criar e gerenciar políticas para impor a conformidade
 
@@ -78,7 +78,7 @@ A primeira etapa para impor a conformidade com a Política do Azure é atribuir 
 
 ## <a name="implement-a-new-custom-policy"></a>Implementar uma nova política personalizada
 
-Agora que você atribuiu uma definição de política interna, você pode fazer muito mais com o Azure Policy. Em seguida, crie uma nova política personalizada para economizar custos, validando que as VMs criadas em seu ambiente não podem estar na série G. Dessa forma, sempre que um usuário na sua organização tentar criar uma VM na série G, a solicitação é negada.
+Agora que você atribuiu uma definição de política interna, você pode fazer muito mais com o Azure Policy. Em seguida, crie uma política personalizada para economizar custos, validando que as máquinas virtuais criadas em seu ambiente não podem estar na série G. Dessa forma, sempre que um usuário na sua organização tentar criar uma máquina virtual na série G, a solicitação é negada.
 
 1. Selecione **Definições** em **Criação** no lado esquerdo da página Azure Policy.
 
@@ -93,8 +93,8 @@ Agora que você atribuiu uma definição de política interna, você pode fazer 
      > [!NOTE]
      > Se você planeja aplicar esta definição de política a várias assinaturas, o local deve ser um grupo de gerenciamento que contém as assinaturas para as quais você atribuirá a política. O mesmo é verdadeiro para uma definição de iniciativa.
 
-   - O nome da definição de política – _*_Exigir SKUs de VM menores que a série G_
-   - A descrição do que a definição de política se destina a fazer – _Esta definição de política impõe que todas as VMs criadas nesse escopo tenham SKUs menores que a série G para reduzir o custo._
+   - O nome da definição de política – _Exigir SKUs de VM que não sejam da série G_
+   - A descrição do que a definição de política se destina a fazer – _Esta definição de política impõe que todas as máquinas virtuais criadas nesse escopo tenham SKUs que não sejam da série G para reduzir o custo._
    - Escolha entre as opções existentes (como _Computação_) ou crie uma nova categoria para esta definição de política.
    - Copie o seguinte código JSON e, em seguida, atualize-o de acordo com suas necessidades com:
       - Os parâmetros da política.
@@ -359,7 +359,7 @@ Com uma definição de iniciativa, você pode agrupar várias definições de po
 1. Percorra a lista de **Definições Disponíveis** (metade direita da página **Definição de iniciativa**) e selecione as definições de política que você deseja adicionar a essa iniciativa. Para a iniciativa **Ficar Seguro**, adicione as seguintes definições de política interna selecionando **+** próximo às informações de definição de política ou selecionando uma linha de definição de política e, em seguida, opção **+ Adicionar** na página de detalhes:
 
    - Locais permitidos
-   - monitora o Endpoint Protection ausente na Central de Segurança do Azure
+   - Monitorar o Endpoint Protection ausente na Central de Segurança do Azure
    - As regras do grupo de segurança de rede para máquinas virtuais para a Internet devem ser protegidas
    - O Backup do Azure deve ser habilitado para máquinas virtuais
    - A criptografia de disco deve ser aplicada em máquinas virtuais

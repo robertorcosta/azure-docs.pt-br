@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.author: banders
-ms.openlocfilehash: 15c686e0d33d7341d16097f32e1c69077c319a12
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: e38271b3a56894380ca5456146a7ab36fb09e08c
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84295296"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678011"
 ---
 # <a name="managing-azure-enterprise-roles"></a>Gerenciando funções do Azure Enterprise
 
@@ -27,6 +27,10 @@ Para ajudar a gerenciar o uso e o gasto de sua organização, os clientes do Azu
 <sup>1</sup> O contato de cobrança do contrato EA estará sob essa função.
 
 <sup>2</sup> O contato para cobrança não pode ser adicionado nem alterado no Portal do EA do Azure e será adicionado ao registro do EA com base no usuário que está configurado como o contato para cobrança no nível do contrato. Para alterar o contato para cobrança, uma solicitação precisa ser feita por meio de um consultor de software/parceiro para o ROC (Centro de Operações Regional).
+
+O primeiro administrador de registro que é configurado durante o provisionamento de registro determina o tipo de autenticação da conta de contato de cobrança. Quando o contato de cobrança é adicionado ao Portal do EA como um administrador somente leitura, ele recebe a autenticação da conta Microsoft. 
+
+Por exemplo, se o tipo de autenticação inicial for definido como Misto, o EA será adicionado como uma conta Microsoft e o contato de cobrança terá privilégios de administrador de EA somente leitura. Se o administrador de EA não aprovar a autorização da conta Microsoft para um contato de cobrança existente, o administrador de EA poderá excluir o usuário em questão e pedir ao cliente para adicionar o usuário novamente como um administrador somente leitura com uma conta corporativa ou de estudante definida apenas no nível de registro no Portal do EA.
 
 Essas funções são específicas para gerenciar os Contratos Enterprise do Azure e são complementares às funções internas que o Azure controla para acessar os recursos. Para obter mais informações, consulte [Funções internas dos recursos do Azure](../../role-based-access-control/built-in-roles.md).
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: tracking-python
-ms.openlocfilehash: c5ab718fdccfebe852c1522a0cb07303a541a3dd
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: c24b934af17dab4f263de504da81d5ccd22d7fb9
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84554254"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84975305"
 ---
 # <a name="quickstart-manage-blobs-with-python-v12-sdk"></a>Início Rápido: Gerenciar blobs com o SDK do Python v12
 
@@ -123,7 +123,7 @@ Esses exemplos de trechos de código mostram como executar o seguinte com a bibl
 * [Baixar blobs](#download-blobs)
 * [Excluir um contêiner](#delete-a-container)
 
-### <a name="get-the-connection-string"></a>Obtenha a cadeia de conexão
+### <a name="get-the-connection-string"></a>Obter a cadeia de conexão
 
 O código a seguir recupera a cadeia de conexão da conta de armazenamento a partir da variável de ambiente criada na seção [Configurar a cadeia de conexão do armazenamento](#configure-your-storage-connection-string).
 
@@ -290,5 +290,5 @@ Para ver os aplicativos de exemplo de armazenamento de blobs, acesse:
 > [!div class="nextstepaction"]
 > [Exemplos do SDK do Armazenamento de Blobs do Azure v12 Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
 
-* Para saber mais, confira o [SDK do Azure para Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/README.md).
+* Para saber mais, confira as [bibliotecas de cliente do Armazenamento do Azure para Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v12).
 * Para acessar tutoriais, exemplos, inícios rápidos e outras documentações, acesse [Azure para Desenvolvedores de Python](/azure/python/).

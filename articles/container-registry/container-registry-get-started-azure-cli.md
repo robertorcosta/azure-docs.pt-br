@@ -2,14 +2,14 @@
 title: Início rápido – Criar registro – CLI do Azure
 description: Aprenda rapidamente a criar um registro de contêiner particular do Docker com a CLI do Azure.
 ms.topic: quickstart
-ms.date: 01/22/2019
+ms.date: 06/12/2020
 ms.custom: seodec18, H1Hack27Feb2017, mvc
-ms.openlocfilehash: 888daa53b719151b4362597c7a300e82fe26860e
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 31e917fa306330ca579266e21560d7d42c7f2bc7
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682746"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84752455"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>Início Rápido: criar um registro de contêiner privado usando a CLI do Azure
 
@@ -38,7 +38,8 @@ Neste início rápido você criará um Registro *Básico*, que é uma opção co
 Crie uma instância ACR usando o comando [az acr create][az-acr-create]. O nome do registro deve ser exclusivo no Azure e conter de 5 a 50 caracteres alfanuméricos. No exemplo a seguir o nome *myContainerRegistry007* é usado. Atualize-o para um valor exclusivo.
 
 ```azurecli
-az acr create --resource-group myResourceGroup --name myContainerRegistry007 --sku Basic
+az acr create --resource-group myResourceGroup \
+  --name myContainerRegistry007 --sku Basic
 ```
 
 Quando o registro é criado, o resultado é semelhante ao seguinte:
@@ -64,14 +65,14 @@ Quando o registro é criado, o resultado é semelhante ao seguinte:
 }
 ```
 
-Anote `loginServer` na saída, que é o nome totalmente qualificado do Registro (todo em minúsculas). No restante deste início rápido, `<acrName>` é um espaço reservado para o nome do registro de contêiner.
+Anote `loginServer` na saída, que é o nome totalmente qualificado do Registro (todo em minúsculas). No restante deste início rápido, `<registry-name>` é um espaço reservado para o nome do registro de contêiner e `<login-server>` é um espaço reservado para o nome do servidor de logon do registro.
 
 ## <a name="log-in-to-registry"></a>Fazer logon no registro
 
 Antes de efetuar push e pull nas imagens de contêiner, você deverá fazer logon no Registro. Para fazer isso, use o comando [az acr login][az-acr-login].
 
 ```azurecli
-az acr login --name <acrName>
+az acr login --name <registry-name>
 ```
 
 O comando retorna uma mensagem `Login Succeeded` na conclusão.
@@ -83,7 +84,7 @@ O comando retorna uma mensagem `Login Succeeded` na conclusão.
 O exemplo a seguir lista os repositórios em seu Registro:
 
 ```azurecli
-az acr repository list --name <acrName> --output table
+az acr repository list --name <registry-name> --output table
 ```
 
 Saída:
@@ -97,7 +98,7 @@ hello-world
 O exemplo a seguir lista as marcas no repositório **hello-world**.
 
 ```azurecli
-az acr repository show-tags --name <acrName> --repository hello-world --output table
+az acr repository show-tags --name <registry-name> --repository hello-world --output table
 ```
 
 Saída:
@@ -123,7 +124,10 @@ az group delete --name myResourceGroup
 Neste início rápido, você criou um Registro de Contêiner do Azure com a CLI do Azure, efetuou push de uma imagem de contêiner para o Registro e extraiu e executou a imagem do Registro. Prossiga para os tutoriais de Registro de Contêiner do Azure para uma análise mais profunda do ACR.
 
 > [!div class="nextstepaction"]
-> [Tutoriais de Registro de Contêiner do Azure][container-registry-tutorial-quick-task]
+> [Tutoriais de Registro de Contêiner do Azure][container-registry-tutorial-prepare-registry]
+
+> [!div class="nextstepaction"]
+> [Tutoriais das Tarefas do Registro de Contêiner do Azure][container-registry-tutorial-quick-task]
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
@@ -143,3 +147,4 @@ Neste início rápido, você criou um Registro de Contêiner do Azure com a CLI 
 [azure-cli]: /cli/azure/install-azure-cli
 [container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md
 [container-registry-skus]: container-registry-skus.md
+[container-registry-tutorial-prepare-registry]: container-registry-tutorial-prepare-registry.md

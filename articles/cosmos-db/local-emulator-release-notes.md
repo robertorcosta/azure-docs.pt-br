@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: milismsft
 ms.author: adrianmi
 ms.date: 06/20/2019
-ms.openlocfilehash: 6dad625bbbcb8279e83ac42e1492c251d5b0299c
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: ab31daafe496f1aaad2bbc8075b2514d9e57e997
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747001"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84687167"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Emulador do Azure Cosmos – Notas sobre a versão e informações de download
 
@@ -25,6 +25,10 @@ Este artigo mostra as notas de versão do emulador do Azure Cosmos com uma lista
 |**Introdução**|[Desenvolver localmente com o emulador do Azure Cosmos](local-emulator.md)|
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="2111"></a>2.11.1
+
+- Esta versão corrige alguns bugs relacionados ao Data Explorer do emulador. Em determinados casos, ao usar o Data Explorer do emulador por meio de um navegador da Web, não será possível a conexão com o ponto de extremidade do emulador do Cosmos, e todas as ações relacionadas, como a criação de um banco de dados ou um contêiner, terão erros. O segundo problema corrigido está relacionado à criação de um item usando um arquivo JSON com a ação de upload do Data Explorer.
 
 ### <a name="2110"></a>2.11.0
 

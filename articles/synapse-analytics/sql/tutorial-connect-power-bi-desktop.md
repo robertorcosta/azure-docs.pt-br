@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: conectar o SQL sob demanda (versão prévia) ao Power BI Desktop e criar um relatório'
-description: Neste tutorial, saiba como conectar o SQL sob demanda (versão prévia) no Azure Synapse Analytics ao Power BI Desktop e criar um relatório de demonstração com base em uma exibição.
+title: 'Tutorial: conectar o SQL sob demanda ao Power BI Desktop e criar um relatório'
+description: Neste tutorial, saiba como conectar o SQL sob demanda no Azure Synapse Analytics ao Power BI Desktop e criar um relatório de demonstração com base em uma exibição.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 1b71e8108ecab0f6d420e404bd602a900ebfcfb2
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 3f32dc14163df6694c69258be365fcbb1390c926
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84258276"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660225"
 ---
-# <a name="tutorial-use-sql-on-demand-preview-with-power-bi-desktop--create-a-report"></a>Tutorial: Usar o SQL sob demanda (versão prévia) com o Power BI Desktop e criar um relatório
+# <a name="tutorial-use-sql-on-demand-with-power-bi-desktop--create-a-report"></a>Tutorial: usar o SQL sob demanda com o Power BI Desktop e criar um relatório
 
 Neste tutorial, você aprenderá como:
 

@@ -4,12 +4,12 @@ description: Implante seu primeiro contêiner personalizado do Windows no Servi�
 ms.topic: quickstart
 ms.date: 08/30/2019
 ms.custom: mvc, seodec18
-ms.openlocfilehash: cd6b78e5fd824cc013cc946d23677237923f485e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 44ade8b0b218f028cf6f211e37824ffc43a191ac
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80047112"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764070"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>Executar um contêiner personalizado do Windows no Azure (Versão prévia)
 
@@ -37,7 +37,7 @@ Crie um aplicativo Web ASP.NET seguindo estas etapas:
 
 1. Em **Criar novo projeto**, localize e escolha **Aplicativo Web ASP.NET (.NET Framework)** para C# e, em seguida, selecione **Avançar**.
 
-1. Em **Configurar seu novo projeto**, dê ao aplicativo o nome _myFirstAzureWebApp_ e, em seguida, selecione, **Criar**.
+1. Em **Configurar seu novo projeto**, dê ao aplicativo o nome _myfirstazurewebapp_ e, em seguida, selecione, **Criar**.
 
    ![Configurar seu projeto de aplicativo Web](./media/app-service-web-get-started-windows-container/configure-web-app-project-container.png)
 
@@ -61,7 +61,7 @@ Crie um aplicativo Web ASP.NET seguindo estas etapas:
 
 ## <a name="publish-to-docker-hub"></a>Publicar no Docker Hub
 
-1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto **myFirstAzureWebApp** e selecione **Publicar**.
+1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto **myfirstazurewebapp** e selecione **Publicar**.
 
 1. Escolha **Serviço de Aplicativo** e selecione **Publicar**.
 
@@ -149,7 +149,7 @@ Os logs transmitidos têm esta aparência:
    </div>
    ```
 
-1. Para implantar novamente no Azure, clique com o botão direito do mouse no projeto **myFirstAzureWebApp**, no **Gerenciador de Soluções** e escolha **Publicar**.
+1. Para implantar novamente no Azure, clique com o botão direito do mouse no projeto **myfirstazurewebapp** no **Gerenciador de Soluções** e escolha **Publicar**.
 
 1. Na página de publicação, selecione **Publicar** e aguarde até que a publicação seja concluída.
 

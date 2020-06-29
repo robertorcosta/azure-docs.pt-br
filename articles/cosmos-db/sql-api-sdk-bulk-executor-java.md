@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 6fe075d2679ec13217200bc8b0da132e8f4d9b57
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c826b9f813c30a50d8b88b2cca1b188c328465b0
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660449"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171643"
 ---
 # <a name="java-bulk-executor-library-download-information"></a>Biblioteca do executor em massa Java: Fazer o download das informações
 
@@ -22,7 +22,7 @@ ms.locfileid: "83660449"
 > * [Feed de alterações do .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [Java SDK v4](sql-api-sdk-java-v4.md)
+> * [SDK do Java v4](sql-api-sdk-java-v4.md)
 > * [SDK do Java Assíncrono v2](sql-api-sdk-async-java.md)
 > * [SDK do Java Síncrono v2](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
@@ -43,23 +43,23 @@ ms.locfileid: "83660449"
 
 ## <a name="release-notes"></a>Notas de versão
 
-### <a name="2100"></a><a name="2.10.0"/>2.10.0
+### <a name="2100"></a><a name="2.10.0"></a>2.10.0
 
 * Corrigir DocumentAnalyzer.java para extrair corretamente valores de chave de partição aninhados do JSON.
 
-### <a name="294"></a><a name="2.9.4"/>2.9.4
+### <a name="294"></a><a name="2.9.4"></a>2.9.4
 
 * Adicionar funcionalidade em operações BulkDelete para tentar novamente em caso de falhas específicas e também retornar uma lista de falhas que podem ser recuperadas para o usuário.
 
-### <a name="293"></a><a name="2.9.3"/>2.9.3
+### <a name="293"></a><a name="2.9.3"></a>2.9.3
 
 * Atualizar para o SDK do Cosmos versão 2.4.7.
 
-### <a name="292"></a><a name="2.9.2"/>2.9.2
+### <a name="292"></a><a name="2.9.2"></a>2.9.2
 
 * Corrigir 'mergeAll' para continuar em 'id' e valor de chave de partição para que qualquer propriedade de documento com patch que seja colocada após 'id' e o valor de chave de partição seja adicionada à lista de itens atualizados.
 
-### <a name="291"></a><a name="2.9.1"/>2.9.1
+### <a name="291"></a><a name="2.9.1"></a>2.9.1
 
 * Atualizar o grau inicial de simultaneidade para 1 e adicionar logs de depuração para minilote.
 
