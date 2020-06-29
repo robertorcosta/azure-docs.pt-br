@@ -10,18 +10,18 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: pasta
-ms.openlocfilehash: 876379a211038933cf665bd1a4a4daae9c9b2787
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: ae4812a69a1e6833224dc4dedf36566167ae4796
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267062"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483407"
 ---
 # <a name="how-to-set-the-cookie-policy-for-the-immersive-reader"></a>Como definir a política de cookie para o leitor de imersão
 
 O leitor de imersão desabilitará o uso do cookie por padrão. Se você habilitar o uso do cookie, o leitor de imersão poderá usar cookies para manter as preferências do usuário e controlar o uso do recurso. Se você habilitar o uso de cookies no leitor de imersão, considere os requisitos da política de conformidade do cookie da UE. É responsabilidade do aplicativo host obter qualquer consentimento do usuário necessário de acordo com a política de conformidade do cookie da UE.
 
-A política de cookie pode ser definida por meio das [Opções](../reference.md#options)de leitura imersiva. Consulte [CookiePolicy enum](../reference.md#cookiepolicy-enum) para obter mais informações.
+A política de cookie pode ser definida por meio das [Opções](../reference.md#options)de leitura imersiva.
 
 ## <a name="enable-cookie-usage"></a>Habilitar uso de cookie
 
