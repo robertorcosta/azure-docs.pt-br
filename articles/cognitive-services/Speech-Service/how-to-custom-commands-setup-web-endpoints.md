@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 5bdb77d27b01f576ca06aa5b6d3df0572b3b1ea6
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: eb2a7d4f83b3d8bda0d06e14b4dab9bb4872885e
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307388"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85414276"
 ---
 # <a name="set-up-web-endpoints"></a>Configurar pontos de extremidade da Web
 
-Neste artigo, você aprende a configurar pontos de extremidade da Web em um aplicativo de comandos personalizados que permite fazer solicitações HTTP de um aplicativo cliente. Você conclui as seguintes tarefas:
+Neste artigo, você aprenderá a configurar pontos de extremidade da Web em um aplicativo de comandos personalizados que permitem fazer solicitações HTTP de um aplicativo cliente. Você concluirá as seguintes tarefas:
 
 - Configurar pontos de extremidade da Web no aplicativo de comandos personalizados
 - Chamar pontos de extremidade da Web no aplicativo de comandos personalizados
@@ -43,17 +43,17 @@ Neste artigo, você aprende a configurar pontos de extremidade da Web em um apli
 
    | Configuração | Valor sugerido | Descrição |
    | ------- | --------------- | ----------- |
-   | Nome | UpdateDeviceState | Nome para o ponto de extremidade da Web. |
+   | Name | UpdateDeviceState | Nome para o ponto de extremidade da Web. |
    | URL | https://webendpointexample.azurewebsites.net/api/DeviceState | A URL do ponto de extremidade ao qual você deseja que seu aplicativo de comando personalizado se comunique. |
    | Método | POST | As interações permitidas (como GET, POST) com o ponto de extremidade.|
-   | Cabeçalhos | Chave: aplicativo, valor: um nome exclusivo para seu aplicativo | Os parâmetros de cabeçalho a serem incluídos no cabeçalho da solicitação.|
+   | headers | Chave: aplicativo, valor: um nome exclusivo para seu aplicativo | Os parâmetros de cabeçalho a serem incluídos no cabeçalho da solicitação.|
 
     > [!NOTE]
     > - O ponto de extremidade da Web de exemplo criado usando o [Azure function](https://docs.microsoft.com/azure/azure-functions/), que se conecta ao banco de dados que salva o estado do dispositivo da TV e do ventilador
     > - O cabeçalho sugerido só é necessário para o ponto de extremidade de exemplo
     > - No mundo real, o ponto de extremidade da Web pode ser o ponto de extremidade para o [Hub IOT](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) que gerencia seus dispositivos
 
-1. Clique em **Save** (Salvar).
+1. Clique em **Salvar**.
 
 ## <a name="call-web-endpoints"></a>Chamar pontos de extremidade da Web
 

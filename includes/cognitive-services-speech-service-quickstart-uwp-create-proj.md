@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: 5ab0b9abd32ef2e5eb7ea02d6118e387ef753348
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: a24c0a3129a851eb94c43158424f786b1df5a532
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609260"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85414344"
 ---
 Para criar um projeto do Visual Studio para desenvolvimento da UWP (Plataforma Universal do Windows), você precisa configurar as opções de desenvolvimento do Visual Studio, criar o projeto, selecionar a arquitetura de destino, configurar a captura de áudio e instalar o SDK de Fala.
 
@@ -70,7 +70,7 @@ Agora, selecione a arquitetura da plataforma de destino. Na barra de ferramentas
 
 ### <a name="set-up-audio-capture"></a>Configurar a captura de áudio
 
-Em seguida, permitir que o projeto capture a entrada de áudio:
+Permitir que o projeto Capture a entrada de áudio:
 
 1. No **Gerenciador de Soluções**, clique duas vezes em **Package.appxmanifest** para abrir o manifesto do aplicativo de pacotes.
 

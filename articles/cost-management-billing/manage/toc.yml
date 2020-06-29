@@ -121,6 +121,8 @@
       href: troubleshoot-sign-in-issue.md
     - name: Exibição do custo da empresa desabilitado
       href: enterprise-mgmt-grp-troubleshoot-cost-view.md
+    - name: Conta de cobrança não encontrada
+      href: troubleshoot-account-not-found.md
     - name: Contate o suporte
       href: ../../azure-portal/supportability/how-to-create-azure-support-request.md
 - name: Exemplos

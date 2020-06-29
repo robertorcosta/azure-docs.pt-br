@@ -1,96 +1,98 @@
 ---
-title: Impresso, reconhecimento de texto manuscrito-Pesquisa Visual Computacional
+title: Ler texto de imagens e documentos-Pesquisa Visual Computacional
 titleSuffix: Azure Cognitive Services
-description: Conceitos relacionados ao reconhecimento de texto impresso e manuscrito em imagens usando a API da Pesquisa Visual Computacional.
+description: Conceitos relacionados ao OCR (reconhecimento óptico de caracteres) e texto de imagens e documentos para impressão e texto manuscrito usando o API da Pesquisa Visual Computacional.
 services: cognitive-services
-author: PatrickFarley
-manager: nitinme
+author: msbbonsu
+manager: netahw
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/17/2019
-ms.author: pafarley
+ms.date: 06/23/2020
+ms.author: t-bebon
 ms.custom: seodec18
-ms.openlocfilehash: 5d0a9771e5b999028996676ea72f8def3c5d63cf
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 65e1613eb8fda934899afe692f45a38fca04bff2
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589849"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85413987"
 ---
-# <a name="recognize-printed-and-handwritten-text"></a>Reconhecer texto impresso e manuscrito
+# <a name="read-text-from-images-and-documents"></a>Ler texto de imagens e documentos
 
-O Pesquisa Visual Computacional fornece vários serviços que detectam e extraem texto impresso ou manuscrito que aparece em imagens. Isso é útil em uma variedade de cenários, como a criação de observações, registros médicos, segurança e serviços bancários. As três seções a seguir detalham três APIs de reconhecimento de texto diferentes, cada uma otimizada para diferentes casos de uso.
+O Pesquisa Visual Computacional inclui novos recursos de OCR (reconhecimento ótico de caracteres ópticos) baseados em aprendizado profundo que extraem texto impresso ou manuscrito de imagens e documentos em PDF. Pesquisa Visual Computacional extrai texto de documentos analógicos (imagens, documentos digitalizados) e documentos digitalizados. Você pode extrair texto de imagens no mesmo, como fotos de chapas de licença ou contêineres com números de série, bem como de documentos-faturas, títulos, relatórios financeiros, artigos e muito mais. Essa funcionalidade de OCR está disponível como parte do serviço gerenciado na nuvem ou localmente (contêineres). Além disso, ele dá suporte a redes virtuais e pontos de extremidade privados para atender às suas necessidades de privacidade e conformidade de nível empresarial.
 
-## <a name="read-api"></a>API de leitura
+## <a name="read-api"></a>API de leitura 
 
-A API de leitura detecta o conteúdo de texto em uma imagem usando nossos modelos de reconhecimento mais recentes e converte o texto identificado em um fluxo de caracteres legível por máquina. Ele é otimizado para imagens com texto pesado (como documentos que foram digitalizados digitalmente) e para imagens com muitos ruídos visuais. Ele determinará qual modelo de reconhecimento usar para cada linha de texto, dando suporte a imagens com texto impresso e manuscrito. A API de leitura é executada de forma assíncrona porque documentos maiores podem levar vários minutos para retornar um resultado.
+A [API de leitura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) do pesquisa Visual computacional é a tecnologia de OCR mais recente da Microsoft que extrai texto impresso, texto manuscrito (somente em inglês), dígitos e símbolos de moeda de imagens e documentos em PDF. Ele é otimizado para extrair texto de imagens internas, imagens com ruído visual, documentos PDF que são digitais ou digitalizados e imagens pesadas de texto. Ele dá suporte a texto impresso e manuscrito (inglês) e a idiomas mistos na mesma imagem ou documento. A lista completa de idiomas com suporte pode ser encontrada na página [suporte de idioma para pesquisa Visual computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition) .
 
-A operação de leitura mantém os agrupamentos de linhas originais de palavras reconhecidas em sua saída. Cada linha vem com coordenadas de caixa delimitadora, e cada palavra dentro da linha também tem suas próprias coordenadas. Se uma palavra tiver sido reconhecida com baixa confiança, essas informações também serão transmitidas. Consulte os documentos de referência de [documentos de referência da API de leitura v 2.0](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) ou [ler API v 3.0](https://aka.ms/computer-vision-v3-ref) para saber mais.
 
-A operação de leitura pode reconhecer texto em inglês, espanhol, alemão, francês, italiano, Português e holandês.
+### <a name="how-it-works"></a>Como ele funciona
 
-### <a name="image-requirements"></a>Requisitos de imagem
+A [API de leitura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) é assíncrona. A primeira etapa é chamar a operação de leitura. A operação de leitura usa um documento de imagem ou PDF como entrada e retorna uma ID de operação. 
 
-A API de leitura funciona com imagens que atendem aos seguintes requisitos:
+A segunda etapa é chamar a operação [obter resultados](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) . Essa operação usa a ID da operação que foi criada pela operação de leitura. Em seguida, ele retorna o conteúdo de texto extraído de sua imagem ou documento na forma de JSON. A resposta JSON mantém os agrupamentos de linhas originais de palavras reconhecidas. Ele inclui as linhas de texto extraídas e suas coordenadas de caixa delimitadora. Cada linha de texto inclui todas as palavras extraídas com suas coordenadas e uma pontuação de confiança.
 
-- A imagem deve ser apresentada no formato JPEG, PNG, BMP, PDF ou TIFF.
-- As dimensões da imagem devem estar entre 50 x 50 e 10000 x 10000 pixels. As páginas PDF devem ter 17 x 17 polegadas ou menos.
-- O tamanho do arquivo da imagem deve ser inferior a 20 megabytes (MB).
+Se necessário, a leitura corrige a rotação da página reconhecida retornando o deslocamento rotacional em graus sobre o eixo horizontal da imagem, como mostrado na ilustração a seguir.
 
-### <a name="limitations"></a>Limitações
+![Uma imagem sendo girada e seu texto sendo lido e delimitado](./Images/vision-overview-ocr-read.png)
 
-Se você estiver usando uma assinatura de camada gratuita, a API de leitura só processará as duas primeiras páginas de um documento PDF ou TIFF. Com uma assinatura paga, ele processará até 200 páginas. Observe também que a API detectará, no máximo, 300 linhas por página.
+Siga o guia de início rápido de [extrair texto impresso e manuscrito](./QuickStarts/CSharp-hand-text.md) para implementar o OCR usando C# e a API REST.
 
-## <a name="ocr-optical-character-recognition-api"></a>API de OCR (reconhecimento óptico de caracteres)
+### <a name="input-requirements"></a>Requisitos de entrada
 
-A API de OCR (reconhecimento óptico de caracteres) do Pesquisa Visual Computacional é semelhante à API de leitura, mas é executada de forma síncrona e não é otimizada para documentos grandes. Ele usa um modelo de reconhecimento anterior, mas funciona com mais idiomas; consulte [suporte a idiomas](language-support.md#text-recognition) para obter uma lista completa dos idiomas com suporte.
+A API de leitura usa as seguintes entradas:
+* Formatos de arquivo com suporte: JPEG, PNG, BMP, PDF e TIFF
+* Para PDF e TIFF, até 2000 páginas são processadas. Para assinantes de camada gratuita, somente as duas primeiras páginas são processadas.
+* O tamanho do arquivo deve ser menor que 50 MB e dimensões, pelo menos, 50 x 50 pixels e no máximo 10000 x 10000 pixels.
+* As dimensões de PDF devem ter no máximo 17 x 17 polegadas, correspondendo a tamanhos de papel ofício ou a3 e menores.
 
-Se necessário, o OCR corrige a rotação do texto reconhecido, retornando o deslocamento de rotação em graus do eixo horizontal da imagem. O OCR também fornece as coordenadas de quadro de cada palavra, como mostrado na ilustração a seguir.
 
-![Uma imagem sendo girada e seu texto sendo lido e delimitado](./Images/vision-overview-ocr.png)
+### <a name="text-from-images"></a>Texto de imagens
 
-Consulte os [documentos de referência do OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) para saber mais.
+A seguinte saída da API de leitura mostra as linhas e palavras de texto extraídas de uma imagem com texto em diferentes ângulos, cores e fontes
 
-### <a name="image-requirements"></a>Requisitos de imagem
+![Uma imagem sendo girada e seu texto sendo lido e delimitado](./Images/text-from-images-example.png)
 
-A API de OCR funciona em imagens que atendem aos seguintes requisitos:
+### <a name="text-from-documents"></a>Texto de documentos
 
-* A imagem deve ser apresentada no formato JPEG, PNG, GIF ou BMP.
-* O tamanho da imagem de entrada deve estar entre 50 x 50 e 4200 x 4200 pixels.
-* O texto na imagem pode ser girado por um ângulo múltiplo de 90 graus mais um ângulo múltiplo de 40 graus.
+Além das imagens, a API de leitura usa um documento PDF como entrada.
 
-### <a name="limitations"></a>Limitações
+![Uma imagem sendo girada e seu texto sendo lido e delimitado](./Images/text-from-documents-example.png)
 
-Em fotografias em que o texto é dominante, falsos positivos podem vir de palavras reconhecidas parcialmente. Em algumas fotografias, especialmente fotos sem qualquer texto, a precisão pode variar dependendo do tipo de imagem.
 
-## <a name="recognize-text-api"></a>API de Reconhecimento de Texto
+### <a name="handwritten-text-in-english"></a>Texto manuscrito em inglês
 
-> [!NOTE]
-> A API de Reconhecimento de Texto está sendo preterida em favor da API de leitura. A API de leitura tem recursos semelhantes e é atualizada para manipular arquivos PDF, TIFF e de várias páginas.
+Agora, a operação de leitura dá suporte à extração de texto manuscrito exclusivamente em inglês.
 
-A API de Reconhecimento de Texto é semelhante ao OCR, mas é executada de forma assíncrona e usa modelos de reconhecimento atualizados. Consulte os [documentos de referência da API reconhecimento de texto](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) para saber mais.
+![Uma imagem sendo girada e seu texto sendo lido e delimitado](./Images/handwritten-example.png)
 
-### <a name="image-requirements"></a>Requisitos de imagem
+### <a name="printed-text-in-supported-languages"></a>Texto impresso em idiomas com suporte
 
-A API Reconhecimento de Texto funciona com imagens que atendem aos seguintes requisitos:
+A API de leitura dá suporte à extração de texto impresso nos idiomas inglês, espanhol, alemão, francês, italiano, Português e holandês. Se seu cenário exigir suporte a mais idiomas, consulte a visão geral da API de OCR neste documento. Consulte a lista de todos os [idiomas com suporte](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition)
 
-- A imagem deve ser apresentada no formato JPEG, PNG ou BMP.
-- As dimensões da imagem devem estar entre 50 x 50 e 4200 x 4200 pixels.
-- O tamanho do arquivo da imagem deve ser inferior a 4 megabytes (MB).
+![Uma imagem sendo girada e seu texto sendo lido e delimitado](./Images/supported-languages-example.png)
 
-## <a name="limitations"></a>Limitações
+### <a name="mixed-languages-support"></a>Suporte a idiomas mistos
 
-A precisão das operações de reconhecimento de texto depende da qualidade das imagens. Os fatores a seguir podem causar uma leitura imprecisa:
+A API de leitura dá suporte a imagens e documentos com vários idiomas, comumente conhecidos como documentos de idioma misto. Ele faz isso classificando cada linha de texto do documento no idioma detectado antes de extrair o conteúdo do texto.
 
-* Imagens desfocadas.
-* Texto manuscrito ou cursivo.
-* Estilos de fonte artísticos.
-* Tamanho de texto pequeno.
-* Telas de fundo complexas, sombras, brilho sobre o texto ou distorção da perspectiva.
-* Letras maiúsculas Superdimensionadas ou ausentes no início das palavras.
-* Texto subscrito, sobrescrito ou tachado.
+![Uma imagem sendo girada e seu texto sendo lido e delimitado](./Images/mixed-language-example.png)
+
+### <a name="data-privacy-and-security"></a>Segurança e privacidade de dados
+
+Assim como acontece com todos os serviços cognitivas, os desenvolvedores que usam o serviço de leitura devem estar cientes das políticas da Microsoft nos dados do cliente. Consulte a página serviços cognitivas na [central de confiabilidade da Microsoft](https://www.microsoft.com/en-us/trust-center/product-overview) para saber mais.
+
+### <a name="deploy-on-premises"></a>Implantar no local
+
+Ler também está disponível como um contêiner do Docker (versão prévia) para permitir que você implante os novos recursos de OCR em seu próprio ambiente. Os contêineres são ótimos para requisitos específicos de segurança e governança de dados. Consulte [como instalar e executar os contêineres de leitura.](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers)
+
+
+## <a name="ocr-api"></a>API DE OCR
+
+A [API de OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) usa um modelo de reconhecimento mais antigo. Ele dá suporte apenas a imagens únicas, não a PDFs e retorna uma resposta imediata. Ele dá suporte a [mais idiomas](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition) do que a API de leitura.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Siga o início rápido [extrair texto (ler)](./QuickStarts/CSharp-hand-text.md) para implementar o reconhecimento de texto em um aplicativo C# simples.
+- Saiba mais sobre a [API REST de leitura 3,0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005).
+- Siga o guia de início rápido [extrair texto](./QuickStarts/CSharp-hand-text.md) para implementar o OCR usando C#, Java, JavaScript ou Python juntamente com a API REST.

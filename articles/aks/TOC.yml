@@ -132,6 +132,8 @@
           href: upgrade-cluster.md
         - name: Usar o SLA de Tempo de Atividade
           href: uptime-sla.md
+        - name: Usar grupos de posicionamento de proximidade (versão prévia)
+          href: reduce-latency-ppg.md
         - name: Atualizar a imagem do nó (versão prévia)
           href: node-image-upgrade.md
         - name: Atualizações do SO para nó do processo

@@ -1,5 +1,5 @@
 ---
-title: Integrar com um aplicativo cliente usando o SDK de fala
+title: Integrar com um aplicativo cliente usando o SDK de Fala
 titleSuffix: Azure Cognitive Services
 description: Neste artigo, você aprende a fazer solicitações para um aplicativo de comandos personalizados publicados do SDK de fala em execução em um aplicativo UWP.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: d87301f09665062a1b56fa33443f1178b42fb42f
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 6aa63c49328848ca707e938dada6ce3af9f75694
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307372"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85414345"
 ---
 # <a name="integrate-with-a-client-application-using-speech-sdk"></a>Integrar com um aplicativo cliente usando o SDK de fala
 
@@ -38,7 +38,7 @@ Você também precisará de:
 
 ## <a name="step-1-publish-custom-commands-application"></a>Etapa 1: publicar o aplicativo de comandos personalizados
 
-1. Abra o aplicativo de comandos personalizados criado anteriormente (versão prévia) e selecione **publicar**
+1. Abra o aplicativo de comandos personalizados criado anteriormente e selecione **publicar**
 
    > [!div class="mx-imgBorder"]
    > ![aplicativo Publicar](media/custom-commands/setup-speech-sdk-publish-application.png)

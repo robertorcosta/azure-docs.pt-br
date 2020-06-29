@@ -8,9 +8,13 @@
       href: lab-services-overview.md
 - name: Tutoriais
   items:
-    - name: 1. Configurar um laboratório
-      href: tutorial-create-custom-lab.md
-    - name: 2. Acessar um laboratório
+    - name: Configurar um laboratório
+      items:
+        - name: Usar o portal do Azure
+          href: tutorial-create-custom-lab.md
+        - name: Usar modelo do Resource Manager
+          href: create-lab-windows-vm-template.md
+    - name: Acessar um laboratório
       href: tutorial-use-custom-lab.md
 - name: Exemplos
   items:

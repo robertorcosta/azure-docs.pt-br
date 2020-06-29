@@ -7,13 +7,14 @@ ms.author: jejiang
 ms.reviewer: jrasnick, carlrab
 ms.service: synapse-analytics
 ms.topic: tutorial
+ms.subservice: spark
 ms.date: 04/15/2020
-ms.openlocfilehash: 6f71b9ecc5dc0279d2053f6212f685968309284e
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: cd180996434463959cd6f40a115902db358a3091
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84976788"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85194920"
 ---
 # <a name="tutorial-create-an-apache-spark-applications-with-intellij-using-a-synapse-workspace"></a>Tutorial: Criar um aplicativo Apache Spark com IntelliJ usando um workspace do Synapse
 
@@ -103,7 +104,7 @@ Entre na assinatura do Azure para se conectar aos seus pools do Spark.
 
    ![Logon no dispositivo do Azure pelo IntelliJ IDEA](./media/intellij-tool-synapse/intellij-view-explorer5.png)
 
-5. Na interface do navegador, cole o código e clique em **Próximo**.
+5. Na interface do navegador, cole o código e clique em **Avançar**.
 
    ![Caixa de diálogo de inserção de código da Microsoft para HDI](./media/intellij-tool-synapse/intellij-view-explorer6.png)
 
@@ -144,7 +145,7 @@ Depois de criar um aplicativo Scala, você poderá executá-lo remotamente.
     |Nome da classe principal|O valor padrão é a classe principal do arquivo selecionado. Você pode alterar a classe selecionando as reticência ( **...** ) e escolhendo outra classe.|
     |Configurações de trabalho|Você pode alterar os valores e as chaves padrão. Para obter mais informações, confira [API REST do Apache Livy](http://livy.incubator.apache.org./docs/latest/rest-api.html).|
     |Argumentos de linha de comando|Você pode inserir argumentos separados por espaço para a classe principal se necessário.|
-    |Arquivos Referenciados e Jars Referenciados|você pode inserir os caminhos para os Jars e os arquivos referenciados, se houver. Você também pode procurar arquivos no sistema de arquivos virtual do Azure, que atualmente dá suporte apenas ao cluster ADLS Gen2. Para obter mais informações: [Configuração do Apache Spark](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) e [Como carregar recursos no cluster](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).|
+    |Arquivos Referenciados e Jars Referenciados|você pode inserir os caminhos para os Jars e os arquivos referenciados, se houver. Você também pode procurar arquivos no sistema de arquivos virtual do Azure, que atualmente dá suporte apenas ao cluster ADLS Gen2. Para mais informações: [Configuração do Apache Spark](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) e [Como carregar recursos no cluster](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).|
     |Armazenamento de Upload de Trabalho|Expanda para revelar opções adicionais.|
     |Tipo de armazenamento|Selecione **Usar o blob do Azure para carregar** ou **Usar a conta de armazenamento padrão do cluster para carregar** na lista suspensa.|
     |Conta de Armazenamento|Insira sua conta de armazenamento.|
@@ -171,7 +172,7 @@ Você pode seguir as instruções abaixo para configurar a execução e a depura
 
     - As variáveis de ambiente e a localização de WinUtils.exe são apenas para usuários do Windows.
     - Variáveis de ambiente: A variável de ambiente do sistema poderá ser detectada automaticamente se você a tiver definido antes e não precisar adicioná-la manualmente.
-    - [Localização de WinUtils.exe](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe): Você pode especificar a localização de WinUtils clicando no ícone de pasta à direita.
+    - [Local de WinUtils.exe](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe): Você pode especificar a localização de WinUtils clicando no ícone de pasta à direita.
 
 2. Em seguida, clique no botão de execução local.
 
