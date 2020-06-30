@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 4f874bd77432ba9ee110a7304629a80f1ce5d0dd
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e40dc59cf1e8fe3302c59f1067c285bc37141465
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655364"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85115194"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-from-azure-cosmos-db-sql-api-account"></a>Início Rápido: Usar o Node.js para se conectar e consultar dados de uma conta da API SQL do Azure Cosmos DB
 
@@ -59,7 +59,7 @@ Agora, você pode usar a ferramenta Data Explorer no portal do Azure para criar 
 
    A área **Adicionar Contêiner** é exibida à extrema direita; talvez seja necessário rolar a página para a direita para vê-la.
 
-   ![O Data Explorer do portal do Azure, painel Adicionar Contêiner](./media/create-sql-api-nodejs/azure-cosmosdb-data-explorer.png)
+   :::image type="content" source="./media/create-sql-api-nodejs/azure-cosmosdb-data-explorer.png" alt-text="O Data Explorer do portal do Azure, painel Adicionar Contêiner":::
 
 2. Na página **Adicionar contêiner**, insira as configurações do novo contêiner.
 
@@ -175,7 +175,7 @@ Agora, volte para a portal do Azure para obter os detalhes da cadeia de conexão
 
 1. Na sua conta do Azure Cosmos DB no [portal do Azure](https://portal.azure.com/), selecione **Chaves** no painel de navegação esquerdo e, em seguida, selecione **Chaves de leitura/gravação**. Use os botões de cópia no lado direito da tela para copiar o URI e a Chave Primária no arquivo _app.js_ na próxima etapa.
 
-   ![Exibir e copiar uma chave de acesso no Portal do Azure, folha Chaves](./media/create-sql-api-dotnet/keys.png)
+   :::image type="content" source="./media/create-sql-api-dotnet/keys.png" alt-text="Exibir e copiar uma chave de acesso no portal do Azure, folha Chaves":::
 
 2. Abra o arquivo _config.js_.
 

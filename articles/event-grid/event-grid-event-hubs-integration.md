@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: spelluru
-ms.openlocfilehash: e6733bdc91ba26d52366de09ed6bc255dcd4ff98
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 76d63b508705bf426b8fc86b3d27d75241d6f246
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84610645"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212166"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Tutorial: Transmitir Big Data para um data warehouse
 A [Grade de Eventos](overview.md) do Azure é um serviço de roteamento de evento inteligente que permite que você reaja às notificações (eventos) de aplicativos e serviços. Por exemplo, ele pode disparar uma função do Azure para processar dados de Hubs de Eventos que foram capturados em um Armazenamento de Blobs do Azure ou Azure Data Lake Storage e migrar os dados para outros repositórios de dados. Este [Exemplo de integração de Hubs de Eventos e Grade de Eventos](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) mostra como usar a Hubs de Eventos com a Grade de Eventos para migrar com perfeição dados dos Hubs de Eventos capturados do Armazenamento de Blobs para um SQL Data Warehouse.
@@ -173,7 +173,7 @@ Crie uma tabela no data warehouse executando o script [CreateDataWarehouseTable.
 2. Na página SQL data warehouse, selecione **Editor de consulta (versão prévia)** no menu à esquerda. 
 
     ![Página do SQL data warehouse](media/event-grid-event-hubs-integration/sql-data-warehouse-page.png)
-2. Insira o nome de **usuário** e **senha** para o SQL Server e selecione **OK**. Talvez você precise fornecer seu endereço IP de cliente ao firewall para fazer logon com êxito no SQL Server. 
+2. Insira o nome de **usuário** e **senha** para o SQL Server e selecione **OK**. Talvez você precise adicionar seu endereço IP de cliente ao firewall para fazer logon com êxito no SQL Server. 
 
     ![Autenticação do SQL Server](media/event-grid-event-hubs-integration/sql-server-authentication.png)
 4. Na janela de consulta, copie e execute o seguinte script SQL: 

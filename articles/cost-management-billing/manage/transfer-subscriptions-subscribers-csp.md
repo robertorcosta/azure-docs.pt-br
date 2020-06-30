@@ -5,20 +5,20 @@ author: bandersmsft
 ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 06/19/2020
 ms.author: banders
-ms.openlocfilehash: b198a781da6e18c363e90d8bd5314dafc563dcca
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 91f11502a136ca08d62072808d270f8e840a8710
+ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791146"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85106441"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Transferir assinaturas do Azure entre assinantes e CSPs
 
-Este artigo fornece as etapas de alto nível usadas para transferir assinaturas do Azure entre parceiros CSP (provedor de soluções de nuvem) e seus clientes.
+Este artigo fornece as etapas de alto nível usadas para transferir assinaturas do Azure de/para parceiros CSP (provedor de soluções de nuvem) e seus clientes.
 
-## <a name="transfer-ea-subscriptions"></a>Transferir assinaturas de EA
+## <a name="transfer-ea-subscriptions-to-a-csp-partner"></a>Transferir assinaturas EA para um parceiro CSP
 
 Os parceiros CSP de cobrança direta certificados como um [Provedor de Serviços Gerenciados (MSP) Especialista em Azure](https://partner.microsoft.com/membership/azure-expert-msp) podem solicitar a transferência de assinaturas do Azure para seus clientes que têm um EA (Contrato Enterprise) direto. Transferências de assinatura são permitidas somente para clientes que aceitaram um MCA (Contrato de Cliente da Microsoft) e compraram um plano do Azure.
 
@@ -44,7 +44,7 @@ Para transferir qualquer outra assinatura do Azure para um parceiro CSP, o assin
     > [!IMPORTANT]
     >  - Mover recursos do Azure entre assinaturas pode resultar em tempo de inatividade do serviço, dependendo dos recursos presentes nas assinaturas.
 
-## <a name="all-subscription-transfers-from-a-csp-partner"></a>Todas as transferências de assinatura de um parceiro CSP
+## <a name="transfer-csp-subscription-to-other-offer"></a>Transferir assinatura do CSP para outra oferta
 
 Para transferir qualquer outra assinatura de um parceiro CSP para outra oferta do Azure, o assinante precisa mover recursos entre assinaturas de CSP de origem e as assinaturas de destino.
 

@@ -6,12 +6,12 @@ ms.assetid: b48d1137-8c04-46e0-b430-101e07d7e470
 ms.topic: sample
 ms.date: 03/08/2017
 ms.custom: mvc
-ms.openlocfilehash: f289bd453f2387282402394c807fe9700151f221
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 6300b9fe10d7b12d71f87adec85d3a86658a8c97
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81532418"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254473"
 ---
 # <a name="powershell-samples-for-azure-app-service"></a>Amostras do PowerShell para o Serviço de Aplicativo do Azure
 
@@ -32,7 +32,7 @@ A tabela a seguir inclui links para scripts do PowerShell compilados usando-se o
 | [Dimensionar manualmente um aplicativo](./scripts/powershell-scale-manual.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Cria um aplicativo do Serviço de Aplicativo e dimensiona-o em duas instâncias. |
 | [Escalar um aplicativo em todo o mundo com uma arquitetura de alta disponibilidade](./scripts/powershell-scale-high-availability.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Cria dois aplicativos do Serviço de Aplicativo em duas regiões geográficas diferentes e disponibiliza-os por meio de um único ponto de extremidade usando o Gerenciador de Tráfego do Azure. |
 |**Como conectar o aplicativo aos recursos**||
-| [Conectar um aplicativo a um Banco de Dados SQL](./scripts/powershell-connect-to-sql.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria um aplicativo do Serviço de Aplicativo e um Banco de Dados SQL e, em seguida, adiciona a cadeia de conexão de banco de dados às configurações do aplicativo. |
+| [Conectar um aplicativo a um Banco de Dados SQL](./scripts/powershell-connect-to-sql.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria um aplicativo do Serviço de Aplicativo e um banco de dados no Banco de Dados SQL do Azure e adiciona a cadeia de conexão de banco de dados às configurações do aplicativo. |
 | [Conectar um aplicativo a uma conta de armazenamento](./scripts/powershell-connect-to-storage.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria um aplicativo do Serviço de Aplicativo e uma conta de armazenamento e, em seguida, adiciona a cadeia de conexão de armazenamento às configurações do aplicativo. |
 |**Aplicativo de backup e restauração**||
 | [Fazer backup de um aplicativo](./scripts/powershell-backup-onetime.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Cria um aplicativo do Serviço de Aplicativo e um backup avulso para ele. |

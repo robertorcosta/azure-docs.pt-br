@@ -5,14 +5,14 @@ author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 06/22/2020
 ms.author: banders
-ms.openlocfilehash: 6f571d323a06b64f79c3f97ae8717be7eb8968d3
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 75529d03435e92dfff26dac81f4f7e59585b6fe9
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84434540"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255238"
 ---
 # <a name="billing-accounts-and-scopes-in-the-azure-portal"></a>Escopos do orçamento e contas de cobrança no portal do Azure
 
@@ -22,7 +22,7 @@ O portal do Azure dá suporte aos seguintes tipos de contas de cobrança:
 
 - **Programa Microsoft Online Services**: Uma conta de cobrança para um Programa Microsoft Online Services é criada quando você se inscreve no Azure por meio do site do Azure. Por exemplo, quando você se inscreve em uma [conta gratuita do Azure](https://azure.microsoft.com/offers/ms-azr-0044p/), uma [conta com taxas pagas conforme o uso](https://azure.microsoft.com/offers/ms-azr-0003p/) ou como [assinante do Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
 
-- **Contrato Enterprise**: Uma conta de cobrança para um Contrato Enterprise é criada quando sua organização assina um [EA (Contrato Enterprise)](https://azure.microsoft.com/pricing/enterprise-agreement/) para usar o Azure. Você pode ter um máximo de 500 assinaturas em um Contrato Enterprise.
+- **Contrato Enterprise**: Uma conta de cobrança para um Contrato Enterprise é criada quando sua organização assina um [EA (Contrato Enterprise)](https://azure.microsoft.com/pricing/enterprise-agreement/) para usar o Azure. Você pode ter um máximo de 2.000 assinaturas em um Contrato Enterprise.
 
 - **Contrato de Cliente da Microsoft**: Uma conta de cobrança para um Contrato de Cliente da Microsoft é criada quando sua organização decide assinar um Contrato de Cliente da Microsoft por meio de um representante da Microsoft. Alguns clientes em regiões selecionadas, que se inscrevem por meio do site do Azure em uma [conta com taxas pagas conforme o uso](https://azure.microsoft.com/offers/ms-azr-0003p/) ou uma [conta gratuita do Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) também podem ter uma conta de cobrança para um Contrato de Cliente da Microsoft. Você pode ter um máximo de 20 assinaturas em um Contrato de Cliente da Microsoft. Para obter mais informações, confira [Introdução à conta de cobrança para o Contrato de Cliente da Microsoft](../understand/mca-overview.md).
 

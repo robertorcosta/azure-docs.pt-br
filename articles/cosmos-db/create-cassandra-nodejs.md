@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/18/2020
-ms.openlocfilehash: 39bdd2d34260b9adb12b25adff9d661083d51fe4
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: fbb24ac1974c23bf5292a987fc64a84dff69bf7d
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310046"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118348"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-sdk-and-azure-cosmos-db"></a>Início Rápido: compilar um aplicativo do Cassandra com o SDK do Node.js e o Azure Cosmos DB
 
@@ -170,31 +170,31 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
 
 1. Em sua conta do Azure Cosmos DB no [portal do Azure](https://portal.azure.com/), selecione **Cadeia de Conexão**. 
 
-    Use o ![botão Copiar](./media/create-cassandra-nodejs/copy.png) no lado direito da tela para copiar o valor superior, o PONTO DE CONTATO.
+1. Use o ![botão Copiar](./media/create-cassandra-nodejs/copy.png) no lado direito da tela para copiar o valor superior, o PONTO DE CONTATO.
 
-    ![Exibir e copiar o PONTO DE CONTATO, o NOME DE USUÁRIO e a SENHA da página de cadeia de conexão do Portal do Azure](./media/create-cassandra-nodejs/keys.png)
+    :::image type="content" source="./media/create-cassandra-nodejs/keys.png" alt-text="Exibir e copiar o PONTO DE CONTATO, o NOME DE USUÁRIO e a SENHA da página de cadeia de conexão do Portal do Azure":::
 
-2. Abra o arquivo `config.js` . 
+1. Abra o arquivo `config.js` . 
 
-3. Cole o valor PONTO DE CONTATO do portal sobre `<FillMEIN>` na linha 4.
+1. Cole o valor PONTO DE CONTATO do portal sobre `<FillMEIN>` na linha 4.
 
     Agora a linha 4 deve ser semelhante a 
 
     `config.contactPoint = "cosmos-db-quickstarts.cassandra.cosmosdb.azure.com:10350"`
 
-4. Copie o valor NOME DE USUÁRIO do portal e cole-o sobre `<FillMEIN>` na linha 2.
+1. Copie o valor NOME DE USUÁRIO do portal e cole-o sobre `<FillMEIN>` na linha 2.
 
     Agora a linha 2 deve ser semelhante a 
 
     `config.username = 'cosmos-db-quickstart';`
     
-5. Copie o valor SENHA do portal e cole-o sobre `<FillMEIN>` na linha 3.
+1. Copie o valor SENHA do portal e cole-o sobre `<FillMEIN>` na linha 3.
 
     Agora a linha 3 deve ser semelhante a
 
     `config.password = '2Ggkr662ifxz2Mg==';`
 
-6. Salve o arquivo `config.js`.
+1. Salve o arquivo `config.js`.
     
 ## <a name="use-the-x509-certificate"></a>Use o certificado X509
 
@@ -211,11 +211,11 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
 > 
 > Clique duas vezes no arquivo .crt para abri-lo na exibição do certificado. 
 >
-> ![Exibir e verificar a saída](./media/create-cassandra-nodejs/crtcer1.gif)
+> :::image type="content" source="./media/create-cassandra-nodejs/crtcer1.gif" alt-text="Exibir e verificar a saída":::
 >
 > Clique em Avançar no Assistente de Certificado. Selecione X.509 de codificação de Base 64 (.CER) e, em seguida, Avançar.
 >
-> ![Exibir e verificar a saída](./media/create-cassandra-nodejs/crtcer2.gif)
+> :::image type="content" source="./media/create-cassandra-nodejs/crtcer2.gif" alt-text="Exibir e verificar a saída":::
 >
 > Selecione Procurar (para localizar um destino) e digite um nome de arquivo.
 > Selecione Avançar e, em seguida, Concluir.
@@ -236,13 +236,13 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
 
 4. Verifique se os resultados estão conforme o esperado na linha de comando.
 
-    ![Exibir e verificar a saída](./media/create-cassandra-nodejs/output.png)
+    :::image type="content" source="./media/create-cassandra-nodejs/output.png" alt-text="Exibir e verificar a saída":::
 
     Pressione CTRL+C para interromper a execução do programa e feche a janela do console. 
 
 5. No portal do Azure, abra **Data Explorer** para consultar, modificar e trabalhar com esses novos dados. 
 
-    ![Exibir os dados no Data Explorer](./media/create-cassandra-nodejs/data-explorer.png) 
+    :::image type="content" source="./media/create-cassandra-nodejs/data-explorer.png" alt-text="Exibir os dados no Data Explorer"::: 
 
 ## <a name="review-slas-in-the-azure-portal"></a>Examinar SLAs no Portal do Azure
 

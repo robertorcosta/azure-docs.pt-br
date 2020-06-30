@@ -1,6 +1,6 @@
 ---
 title: Usar o portal do Azure para criar um pipeline do data factory
-description: Este tutorial fornece instruções passo a passo para usar o portal do Azure a fim de criar um data factory com um pipeline. O pipeline usa a atividade de cópia para copiar dados do Armazenamento de Blobs do Azure para um Banco de Dados SQL do Azure.
+description: Este tutorial fornece instruções passo a passo para usar o portal do Azure a fim de criar um data factory com um pipeline. O pipeline usa a atividade de cópia para copiar dados do Armazenamento de Blobs do Azure para o Banco de Dados SQL do Azure.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,18 +12,18 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 05/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 8372683c1463fe3443730bd004c013666deb4100
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 16b5eeb33f8be07d6257d8d7957ea2526ab9d3f1
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248610"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253954"
 ---
-# <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Copiar dados do Armazenamento de Blobs do Azure para um banco de dados SQL usando o Azure Data Factory
+# <a name="copy-data-from-azure-blob-storage-to-a-database-in-azure-sql-database-by-using-azure-data-factory"></a>Copiar dados do Armazenamento de Blobs do Azure para um banco de dados no Banco de Dados SQL do Azure usando o Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Neste tutorial, você criará um data factory ao usar a interface do usuário do Azure Data Factory. O pipeline neste data factory copia dados do Armazenamento de Blobs do Azure para um Banco de Dados SQL do Azure. O padrão de configuração neste tutorial aplica-se a cópia de um armazenamento de dados baseado em arquivo para um armazenamento de dados relacional. Para obter uma lista de armazenamentos de dados com suporte como origens e coletores, confira a tabela [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
+Neste tutorial, você criará um data factory ao usar a interface do usuário do Azure Data Factory. O pipeline neste data factory copia dados do Armazenamento de Blobs do Azure para um banco de dados no Banco de Dados SQL do Azure. O padrão de configuração neste tutorial aplica-se a cópia de um armazenamento de dados baseado em arquivo para um armazenamento de dados relacional. Para obter uma lista de armazenamentos de dados com suporte como origens e coletores, confira a tabela [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
 
 > [!NOTE]
 > - Se estiver se familiarizando com o Data Factory, confira a [Introdução ao Azure Data Factory](introduction.md).
@@ -41,7 +41,7 @@ Neste tutorial, você executa as seguintes etapas:
 ## <a name="prerequisites"></a>Pré-requisitos
 * **Assinatura do Azure**. Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
 * **Conta de Armazenamento do Azure**. Você usa o armazenamento de blobs como um armazenamento de dados de *origem*. Se você não tiver uma conta de armazenamento, confira [Criar uma conta de armazenamento do Azure](../storage/common/storage-account-create.md) a fim de conhecer as etapas para criar uma.
-* **Banco de dados SQL do Azure**. Você usa o banco de dados como um armazenamento de dados de *coletor*. Se você não tiver um Banco de Dados SQL do Azure, confira [Criar um banco de dados SQL](../azure-sql/database/single-database-create-quickstart.md) para saber as etapas para criar um.
+* **Banco de dados SQL do Azure**. Você usa o banco de dados como um armazenamento de dados de *coletor*. Se você não tiver um banco de dados no Banco de Dados SQL do Azure, confira [Criar um banco de dados no Banco de Dados SQL do Azure](../azure-sql/database/single-database-create-quickstart.md) para ver as etapas para a criação de um.
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Criar um blob e uma tabela SQL
 
@@ -61,7 +61,7 @@ Agora, prepare seu armazenamento de blobs e o banco de dados SQL para o tutorial
 
 #### <a name="create-a-sink-sql-table"></a>Criar uma tabela do SQL de coletor
 
-1. Use o script SQL a seguir para criar a tabela **dbo.emp** em seu banco de dados SQL:
+1. Use o seguinte script SQL para criar a tabela **dbo.emp** em seu banco de dados:
 
     ```sql
     CREATE TABLE dbo.emp
@@ -154,7 +154,7 @@ Neste tutorial, inicie com a criação do pipeline. Em seguida, crie conjuntos d
 
 1. Na caixa de diálogo **Novo conjunto de dados**, insira "SQL" na caixa de pesquisa para filtrar os conectores, selecione **Banco de Dados SQL do Azure** e, em seguida, selecione **Continuar**. Neste tutorial, você copia dados para um banco de dados SQL.
 
-1. Na caixa de diálogo **Definir propriedades**, insira **OutputSqlDataset** como o nome. Na lista suspensa **Serviço vinculado**, selecione **+ Novo**. Um conjunto de dados deve ser associado um serviço vinculado. O serviço vinculado tem a cadeia de conexão que o Data Factory usa para se conectar ao banco de dados SQL no runtime. O conjunto de dados especifica o contêiner, pasta e arquivo (opcional) para o qual os dados são copiados.
+1. Na caixa de diálogo **Definir propriedades**, insira **OutputSqlDataset** como o nome. Na lista suspensa **Serviço vinculado**, selecione **+ Novo**. Um conjunto de dados deve ser associado um serviço vinculado. O serviço vinculado tem a cadeia de conexão que o Data Factory usa para se conectar ao Banco de Dados SQL no runtime. O conjunto de dados especifica o contêiner, pasta e arquivo (opcional) para o qual os dados são copiados.
 
 1. Na caixa de diálogo **Novo serviço vinculado (Banco de Dados SQL do Azure)** , execute as etapas a seguir:
 
@@ -162,7 +162,7 @@ Neste tutorial, inicie com a criação do pipeline. Em seguida, crie conjuntos d
 
     b. Em **Nome do servidor**, selecione sua instância do SQL Server.
 
-    c. Em **Nome do banco de dados**, selecione seu banco de dados SQL.
+    c. Em **Nome do banco de dados**, selecione seu banco de dados.
 
     d. Em **Nome de usuário**, insira o nome do usuário.
 
@@ -209,7 +209,7 @@ Nesta etapa, você aciona manualmente o pipeline publicado na etapa anterior.
 
     [![Monitorar execuções de atividade](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png)](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png#lightbox)
 
-1. Verifique se mais duas linhas são adicionadas à tabela **emp** no banco de dados SQL.
+1. Verifique se mais duas linhas são adicionadas à tabela **emp** no banco de dados.
 
 ## <a name="trigger-the-pipeline-on-a-schedule"></a>Disparar o pipeline em um cronograma
 Nesse cronograma, você criará um gatilho de agenda para o pipeline. O gatilho dispara o pipeline conforme a agenda especificada, como por hora ou por dia. Aqui você definirá o gatilho para executar a cada minuto até o datetime de término especificado.

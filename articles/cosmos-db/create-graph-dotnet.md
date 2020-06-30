@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 02/21/2020
 ms.author: lbosq
-ms.openlocfilehash: bf453587b354b5db3f3ef1a80f974bcb8f8f4e14
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a85df3e437f2c1ec93996cdaacfccadeaa47cc99
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81730027"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118246"
 ---
 # <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>Início Rápido: Compilar um aplicativo .NET Framework ou Core usando a conta da API do Gremlin do Azure Cosmos DB
 
@@ -109,7 +109,7 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
 
    **Ponto de Extremidade do Gremlin** - Esse valor é usado ao se conectar à conta do Graph usando a biblioteca Gremlin.Net.
 
-    ![Copiar o ponto de extremidade](./media/create-graph-dotnet/endpoint.png)
+    :::image type="content" source="./media/create-graph-dotnet/endpoint.png" alt-text="Copiar o ponto de extremidade":::
 
    Para executar este exemplo, copie o valor do **Ponto de Extremidade do Gremlin**, exclua o número da porta no final e o URI se tornará `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com`. O valor de ponto de extremidade deve ter esta aparência: `testgraphacct.gremlin.cosmosdb.azure.com`
 
@@ -146,7 +146,7 @@ Agora você pode voltar ao Data Explorer no Portal do Azure e procurar e consult
 
     É possível ampliar e diminuir o zoom do grafo, expandir o espaço de exibição do grafo, adicionar outros vértices e mover vértices na superfície de exibição.
 
-    ![Exibir o grafo no Data Explorer no Portal do Azure](./media/create-graph-dotnet/graph-explorer.png)
+    :::image type="content" source="./media/create-graph-dotnet/graph-explorer.png" alt-text="Exibir o grafo no Data Explorer no portal do Azure":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Examinar SLAs no Portal do Azure
 

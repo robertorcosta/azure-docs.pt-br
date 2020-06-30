@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
-ms.openlocfilehash: 9257a87c69e98db1107528551fe9ce0553c50f75
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: b85a70b6d2feba68ed5a766ad05bc6aa22f597f8
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858160"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85114683"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Tutorial: Compilar um aplicativo Web do Node.js usando o SDK do JavaScript para gerenciar uma conta de API do SQL no Azure Cosmos DB 
 
@@ -84,7 +84,7 @@ Agora vamos aprender a criar um projeto Olá, Mundo em Node.js básico usando a 
 
 1. No navegador, veja seu novo aplicativo acessando `http://localhost:3000`.
    
-   ![Saiba mais sobre o Node.js — captura de tela do aplicativo Hello World em uma janela do navegador](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
+   :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-express.png" alt-text="Aprender Node.js – captura de tela do aplicativo Olá, Mundo em uma janela do navegador":::
 
    Interrompa o aplicativo usando CTRL+C na janela do terminal e marque **y** para finalizar o trabalho em lotes.
 
@@ -438,7 +438,7 @@ Agora que você criou o aplicativo, pode executá-lo localmente usando as seguin
 
 1. Para testar o aplicativo no computador local, execute `npm start` no terminal para iniciar o aplicativo e atualize a página do navegador `http://localhost:3000`. A página agora deve se parecer com a seguinte captura de tela:
    
-    ![Captura de tela do aplicativo MyTodo List em uma janela do navegador](./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png)
+    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png" alt-text="Captura de tela do aplicativo MyTodo List em uma janela do navegador":::
 
     > [!TIP]
     > Se receber um erro sobre o recuo no arquivo layout.jade ou o arquivo index.jade, verifique se as duas primeiras linhas em ambos os arquivos estão justificadas à esquerda, sem espaços. Se houver espaços antes das duas primeiras linhas, remova-os, salve os dois arquivos e atualize a janela do navegador. 
@@ -447,7 +447,7 @@ Agora que você criou o aplicativo, pode executá-lo localmente usando as seguin
 
 3. A página deverá ser atualizada para exibir o item recém-criado na lista de Tarefas Pendentes.
    
-    ![Captura de tela do aplicativo com um novo item na lista de Tarefas pendentes](./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png)
+    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png" alt-text="Captura de tela do aplicativo com um novo item na lista de Tarefas pendentes":::
 
 4. Para concluir uma tarefa, marque a caixa de seleção na coluna Concluir e escolha **Atualizar tarefas**. Isso atualiza o documento que você já criou e o remove da exibição.
 

@@ -4,20 +4,19 @@ description: Saiba como configurar os Hubs de Notificação do Azure no portal d
 services: notification-hubs
 author: sethmanheim
 manager: femila
-editor: dbradish-microsoft
 ms.service: notification-hubs
 ms.workload: mobile
 ms.topic: quickstart
-ms.date: 02/14/2019
+ms.date: 06/22/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 02/14/2019
-ms.openlocfilehash: 78afb124ee1d1ab9b212197fb7a7140f88de9940
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: af792ccfe8e00c26abc6aab2e4a96d7ef9ff5122
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349525"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85252042"
 ---
 # <a name="quickstart-set-up-push-notifications-in-a-notification-hub"></a>Início Rápido: Configurar notificações por push em um hub de notificação
 
@@ -49,7 +48,7 @@ Para configurar p Apple Push Notification Service (APNS):
 
      ![Captura de tela de uma configuração de token APNS no portal do Azure](./media/configure-notification-hub-portal-pns-settings/notification-hubs-apple-config-token.png)
 
-Para obter mais informações, confira [Enviar notificações por push para iOS usando os Hubs de Notificação do Microsoft Azure](notification-hubs-ios-apple-push-notification-apns-get-started.md).
+Para obter mais informações, confira [Enviar notificações por push para aplicativos iOS usando os Hubs de Notificação do Microsoft Azure](ios-sdk-get-started.md).
 
 ## <a name="google-firebase-cloud-messaging-fcm"></a>Google FCM (Firebase Cloud Messaging)
 
@@ -166,8 +165,8 @@ Neste Início Rápido, você aprendeu a configurar as definições de sistema de
 
 Para saber mais sobre como enviar notificações por push para várias plataformas, consulte estes tutoriais:
 
--[Enviar notificações por push para dispositivos iOS usando Hubs de Notificação e APNS](notification-hubs-ios-apple-push-notification-apns-get-started.md)
--[Enviar notificações por push para dispositivos Android usando Hubs de Notificação e o Google FCM](notification-hubs-android-push-notification-google-fcm-get-started.md)
--[Enviar notificações por push para um aplicativo UWP em execução em um dispositivo Windows](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)
--[Enviar notificações por push para um aplicativo do Windows Phone 8 usando MPNS](notification-hubs-windows-mobile-push-notifications-mpns.md)
--[Enviar notificações por push usando os Hubs de Notificação e o push da nuvem Baidu](notification-hubs-baidu-china-android-notifications-get-started.md)
+* [Enviar notificações por push para aplicativos iOS usando os Hubs de Notificação do Microsoft Azure](ios-sdk-get-started.md)
+* [Enviar notificações para os dispositivos Android usando os Hubs de Notificação do Microsoft Azure e o Google FCM](notification-hubs-android-push-notification-google-fcm-get-started.md)
+* [Enviar notificações para um aplicativo UWP em um dispositivo Windows](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)
+* [Enviar notificações para um aplicativo Windows Phone 8 usando o MPNS](notification-hubs-windows-mobile-push-notifications-mpns.md)
+* [Enviar notificações usando os Hubs de Notificação e o push da nuvem Baidu](notification-hubs-baidu-china-android-notifications-get-started.md)

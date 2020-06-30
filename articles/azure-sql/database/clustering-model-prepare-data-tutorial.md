@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Preparar dados para executar o clustering no R'
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: Na primeira parte desta série de tutoriais de três partes, você preparará os dados de um banco de dados SQL do Azure para executar o clustering no R com os Serviços de Machine Learning do Banco de Dados SQL do Azure (versão prévia).
+description: Na primeira parte desta série de tutoriais de três partes, você preparará os dados de um banco de dados no Banco de Dados SQL do Azure para executar o clustering no R com os Serviços de Machine Learning do Banco de Dados SQL do Azure (versão prévia).
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -14,17 +14,17 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: c06e1b13f87972cbcd50e888edf55158b77881d8
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: a23dbd150dbe8ab05e0d4cf1f3decd67a856cbf4
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84024092"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85251243"
 ---
 # <a name="tutorial-prepare-data-to-perform-clustering-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutorial: Preparar dados para executar o clustering no R com os Serviços de Machine Learning do Banco de Dados SQL do Azure (versão prévia)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Na primeira parte desta série de tutoriais com três partes, você importará e preparará os dados de um Banco de Dados SQL do Azure usando o R. Mais adiante nesta série, você usará esses dados para treinar e implantar um modelo de clustering no R com os Serviços do Machine Learning do Banco de Dados SQL do Azure (versão prévia).
+Na primeira parte desta série de tutoriais com três partes, você importará e preparará os dados de um banco de dados no Banco de Dados SQL do Azure usando o R. Mais adiante nesta série, você usará esses dados para treinar e implantar um modelo de clustering no R com os Serviços de Machine Learning do Banco de Dados SQL do Azure (versão prévia).
 
 [!INCLUDE[ml-preview-note](../../../includes/sql-database-ml-preview-note.md)]
 
@@ -32,7 +32,7 @@ O *clustering* pode ser explicado como organizador de dados em grupos, nos quais
 Você usará o algoritmo **K-Means** para executar o clustering de clientes em um conjunto de dados de compras e devoluções de produtos. Ao realizar o clustering de clientes, você pode concentrar seus esforços de marketing com mais eficiência, direcionando-os a grupos específicos.
 O clustering de K-Means é um algoritmo de *aprendizado não supervisionado* que procura padrões em dados com base em semelhanças.
 
-Na primeira e na segunda parte desta série, você desenvolverá alguns scripts do R no RStudio para preparar os dados e treinar um modelo de machine learning. Em seguida, na terceira parte, você executará esses scripts do R em um banco de dados SQL usando os procedimentos armazenados.
+Na primeira e na segunda parte desta série, você desenvolverá alguns scripts do R no RStudio para preparar os dados e treinar um modelo de machine learning. Em seguida, na terceira parte, você executará esses scripts do R no banco de dados usando os procedimentos armazenados.
 
 Neste artigo, você aprenderá a:
 
@@ -40,11 +40,11 @@ Neste artigo, você aprenderá a:
 >
 > * Importar um banco de dados de exemplo para o Banco de Dados SQL do Azure
 > * Clientes separados em dimensões diferentes usando o R
-> * Carregar os dados do Banco de Dados SQL do Azure em um dataframe do R
+> * Carregar os dados do banco de dados em uma estrutura de dados do R
 
 Na [segunda parte](clustering-model-build-tutorial.md), você aprenderá a criar e treinar um modelo de clustering K-Means no R.
 
-Na [terceira parte](clustering-model-deploy-tutorial.md), você aprenderá a criar um procedimento armazenado em um banco de dados SQL do Azure que pode executar o clustering em R com base em dados novos.
+Na [parte três](clustering-model-deploy-tutorial.md), você aprenderá a criar um procedimento armazenado capaz de executar o clustering em R com base em dados novos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -68,7 +68,7 @@ O conjunto de dados de exemplo usado neste tutorial foi salvo em um arquivo de b
 
 1. Baixe o arquivo [tpcxbb_1gb.bacpac](https://sqlchoice.blob.core.windows.net/sqlchoice/static/tpcxbb_1gb.bacpac).
 
-1. Siga as instruções em [Importar um arquivo BACPAC para criar um Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-import) usando estes detalhes:
+1. Siga as instruções em [Importar um arquivo BACPAC para um banco de dados no Banco de Dados SQL do Azure ou Instância Gerenciada de SQL do Azure](../../azure-sql/database/database-import.md) usando estes detalhes:
 
    * Importe do arquivo **tpcxbb_1gb.bacpac** que você baixou
    * Durante a versão prévia pública, escolha a configuração **Gen5/vCore** para o novo banco de dados
@@ -211,9 +211,9 @@ No portal do Azure, siga estas etapas:
 
 Na parte um desta série de tutoriais, você concluiu estas etapas:
 
-* Importar um banco de dados de exemplo para um Banco de Dados SQL do Azure
+* Importar um banco de dados de exemplo para um banco de dados no Banco de Dados SQL do Azure
 * Clientes separados em dimensões diferentes usando o R
-* Carregar os dados do Banco de Dados SQL do Azure em um dataframe do R
+* Carregar os dados do banco de dados em uma estrutura de dados do R
 
 Para criar um modelo de machine learning que usa esses dados do cliente, siga a segunda parte desta série de tutoriais:
 

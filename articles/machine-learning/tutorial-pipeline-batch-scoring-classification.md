@@ -11,12 +11,12 @@ ms.author: trbye
 ms.reviewer: laobri
 ms.date: 03/11/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 6abfeb1601c85f9202611b914f9dfd47ac50ea1a
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: de1d548be7f426f42b369ae7607bd6f798b42317
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560971"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85296161"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Tutorial: Criar um pipeline do Azure Machine Learning para pontuação de lote
 
@@ -45,23 +45,25 @@ Caso não tenha uma assinatura do Azure, crie uma conta gratuita antes de começ
 * Caso você ainda não tenha um Workspace do Azure Machine Learning ou máquina virtual de notebook, conclua a [Parte 1 do tutorial de instalação](tutorial-1st-experiment-sdk-setup.md).
 * Quando concluir o tutorial de instalação, use o mesmo servidor de notebook para abrir o notebook *tutorials/machine-learning-pipelines-advanced/tutorial-pipeline-batch-scoring-classification.ipynb*.
 
-Se você desejar executar o tutorial de instalação em seu próprio [ambiente local](how-to-configure-environment.md#local), poderá acessar o tutorial no [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials). Execute `pip install azureml-sdk[notebooks] azureml-pipeline-core azureml-contrib-pipeline-steps pandas requests` para obter os pacotes necessários.
+Se você desejar executar o tutorial de instalação em seu próprio [ambiente local](how-to-configure-environment.md#local), poderá acessar o tutorial no [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials). Execute `pip install azureml-sdk[notebooks] azureml-pipeline-core azureml-pipeline-steps pandas requests` para obter os pacotes necessários.
 
 ## <a name="configure-workspace-and-create-a-datastore"></a>Configurar um workspace e criar um armazenamento de dados
 
 Crie um objeto de workspace do Workspace do Azure Machine Learning existente.
-
-- Um [workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) é uma classe que aceita suas informações de recursos e assinatura do Azure. O workspace também cria um recurso de nuvem que pode ser usado para monitorar e acompanhar a execução do seu modelo. 
-- `Workspace.from_config()` lê o arquivo `config.json` e carrega os detalhes de autenticação para um objeto chamado `ws`. O objeto `ws` é usado no código ao longo deste tutorial.
 
 ```python
 from azureml.core import Workspace
 ws = Workspace.from_config()
 ```
 
+> [!IMPORTANT]
+> Esse snippet de código espera que a configuração do workspace seja salva no diretório atual ou no pai dele. Para obter mais informações sobre como criar um workspace, confira [Criar e gerenciar workspaces do Azure Machine Learning](how-to-manage-workspace.md). Para obter mais informações sobre como salvar a configuração no arquivo, confira [Criar um arquivo de configuração de workspace](how-to-configure-environment.md#workspace).
+
 ## <a name="create-a-datastore-for-sample-images"></a>Criar um armazenamento de dados para imagens de exemplo
 
 Na conta `pipelinedata`, obtenha a amostra de dados públicos de avaliação do ImageNet do contêiner de blobs público `sampledata`. Chamar `register_azure_blob_container()` disponibiliza os dados para o workspace com o nome `images_datastore`. Em seguida, defina o armazenamento de dados padrão do workspace como o armazenamento de dados de saída. Use o armazenamento de dados de saída para pontuar a saída no pipeline.
+
+Para obter mais informações sobre como acessar dados, confira [Como acessar dados](https://docs.microsoft.com/azure/machine-learning/how-to-access-data#python-sdk).
 
 ```python
 from azureml.core.datastore import Datastore
@@ -93,7 +95,7 @@ from azureml.core.dataset import Dataset
 from azureml.pipeline.core import PipelineData
 
 input_images = Dataset.File.from_files((batchscore_blob, "batchscoring/images/"))
-label_ds = Dataset.File.from_files((batchscore_blob, "batchscoring/labels/*.txt"))
+label_ds = Dataset.File.from_files((batchscore_blob, "batchscoring/labels/"))
 output_dir = PipelineData(name="scores", 
                           datastore=def_data_store, 
                           output_path_on_compute="batchscoring/results")
@@ -168,7 +170,7 @@ Para fazer a pontuação, crie um script de pontuação de lote chamado `batch_s
 O script `batch_scoring.py` usa os seguintes parâmetros, que são transmitidos da `ParallelRunStep` que será criada mais tarde:
 
 - `--model_name`: o nome do modelo que está sendo usado.
-- `--labels_name`: o nome do `Dataset` que contém o arquivo `labels.txt`.
+- `--labels_dir`: a localização do arquivo `labels.txt`.
 
 A infraestrutura de pipelines usa a classe `ArgumentParser` para passar parâmetros em etapas de pipeline. Por exemplo, no código a seguir, o primeiro argumento `--model_name` recebe o identificador de propriedade `model_name`. Na função `init()`, `Model.get_model_path(args.model_name)` é usado para acessar esta propriedade.
 
@@ -196,9 +198,10 @@ image_size = 299
 num_channel = 3
 
 
-def get_class_label_dict():
+def get_class_label_dict(labels_dir):
     label = []
-    proto_as_ascii_lines = tf.gfile.GFile("labels.txt").readlines()
+    labels_path = os.path.join(labels_dir, 'labels.txt')
+    proto_as_ascii_lines = tf.gfile.GFile(labels_path).readlines()
     for l in proto_as_ascii_lines:
         label.append(l.rstrip())
     return label
@@ -209,14 +212,10 @@ def init():
 
     parser = argparse.ArgumentParser(description="Start a tensorflow model serving")
     parser.add_argument('--model_name', dest="model_name", required=True)
-    parser.add_argument('--labels_name', dest="labels_name", required=True)
+    parser.add_argument('--labels_dir', dest="labels_dir", required=True)
     args, _ = parser.parse_known_args()
 
-    workspace = Run.get_context(allow_offline=False).experiment.workspace
-    label_ds = Dataset.get_by_name(workspace=workspace, name=args.labels_name)
-    label_ds.download(target_path='.', overwrite=True)
-
-    label_dict = get_class_label_dict()
+    label_dict = get_class_label_dict(args.labels_dir)
     classes_num = len(label_dict)
 
     with slim.arg_scope(inception_v3.inception_v3_arg_scope()):
@@ -263,14 +262,15 @@ def run(mini_batch):
 
 ## <a name="build-the-pipeline"></a>Criar o pipeline
 
-Antes de executar o pipeline, crie um objeto que define o ambiente Python e as dependências que seu script `batch_scoring.py` requer. A principal dependência necessária é o TensorFlow, mas você também instalará o `azureml-defaults` para processos em segundo plano. Crie um objeto `RunConfiguration` usando as dependências. Além disso, especifique o Docker e o suporte Docker-GPU.
+Antes de executar o pipeline, crie um objeto que define o ambiente Python e as dependências que seu script `batch_scoring.py` requer. A principal dependência necessária é o TensorFlow, mas também é possível instalar `azureml-core` e `azureml-dataprep[fuse]` que são exigidos por ParallelRunStep. Além disso, especifique o Docker e o suporte Docker-GPU.
 
 ```python
 from azureml.core import Environment
 from azureml.core.conda_dependencies import CondaDependencies
 from azureml.core.runconfig import DEFAULT_GPU_IMAGE
 
-cd = CondaDependencies.create(pip_packages=["tensorflow-gpu==1.13.1", "azureml-defaults"])
+cd = CondaDependencies.create(pip_packages=["tensorflow-gpu==1.15.2",
+                                            "azureml-core", "azureml-dataprep[fuse]"])
 env = Environment(name="parallelenv")
 env.python.conda_dependencies = cd
 env.docker.base_image = DEFAULT_GPU_IMAGE
@@ -281,12 +281,12 @@ env.docker.base_image = DEFAULT_GPU_IMAGE
 Crie a etapa do pipeline usando o script, a configuração do ambiente e os parâmetros. Especifique o destino de computação que você já anexou ao workspace.
 
 ```python
-from azureml.contrib.pipeline.steps import ParallelRunConfig
+from azureml.pipeline.steps import ParallelRunConfig
 
 parallel_run_config = ParallelRunConfig(
     environment=env,
     entry_script="batch_scoring.py",
-    source_directory=".",
+    source_directory="scripts",
     output_action="append_row",
     mini_batch_size="20",
     error_threshold=1,
@@ -310,15 +310,20 @@ Várias classes herdam da classe pai [`PipelineStep`](https://docs.microsoft.com
 Nos cenários em que há mais de uma etapa, uma referência de objeto na matriz `outputs` torna-se disponível como uma *entrada* para uma etapa de pipeline seguinte.
 
 ```python
-from azureml.contrib.pipeline.steps import ParallelRunStep
+from azureml.pipeline.steps import ParallelRunStep
+from datetime import datetime
+
+parallel_step_name = "batchscoring-" + datetime.now().strftime("%Y%m%d%H%M")
+
+label_config = label_ds.as_named_input("labels_input")
 
 batch_score_step = ParallelRunStep(
-    name="parallel-step-test",
+    name=parallel_step_name,
     inputs=[input_images.as_named_input("input_images")],
     output=output_dir,
-    models=[model],
     arguments=["--model_name", "inception",
-               "--labels_name", "label_ds"],
+               "--labels_dir", label_config],
+    side_inputs=[label_config],
     parallel_run_config=parallel_run_config,
     allow_reuse=False
 )
@@ -330,7 +335,7 @@ Para obter uma lista de todas as classes que podem ser usadas para diferentes ti
 
 Agora execute o pipeline. Primeiro, crie um objeto `Pipeline` usando a referência do workspace e a etapa de pipeline que você criou. O parâmetro `steps` é uma matriz de etapas. Nesse caso, há apenas uma etapa para a pontuação do lote. Para criar pipelines que têm várias etapas, coloque as etapas em ordem nesta matriz.
 
-Em seguida, use a função `Experiment.submit()` para enviar o pipeline para execução. Especifique também o parâmetro personalizado `param_batch_size`. A função `wait_for_completion` gera logs durante o processo de build do pipeline. É possível usar os logs para ver o progresso atual.
+Em seguida, use a função `Experiment.submit()` para enviar o pipeline para execução. A função `wait_for_completion` gera logs durante o processo de build do pipeline. É possível usar os logs para ver o progresso atual.
 
 > [!IMPORTANT]
 > A primeira execução do pipeline leva aproximadamente *15 minutos*. Todas as dependências precisam ser baixadas, uma imagem do Docker é criada e o ambiente do Python é provisionado e criado. Executar o pipeline novamente leva significativamente menos tempo, porque esses recursos são reutilizados, em vez de serem criados. No entanto, o tempo de execução total do pipeline depende da carga de trabalho dos seus scripts e dos processos sendo executados em cada etapa de pipeline.
@@ -394,7 +399,7 @@ auth_header = interactive_auth.get_authentication_header()
 
 Obtenha a URL REST da propriedade `endpoint` do objeto de pipeline publicado. Encontre também a URL REST no workspace do estúdio do Azure Machine Learning. 
 
-Crie uma solicitação HTTP POST para o ponto de extremidade. Especifique o cabeçalho de autenticação na solicitação. Adicione um objeto de conteúdo JSON com o nome do experimento e o parâmetro do tamanho do lote. Como observado anteriormente no tutorial, o `param_batch_size` é passado para o script `batch_scoring.py` porque você o definiu como um objeto `PipelineParameter` na configuração da etapa.
+Crie uma solicitação HTTP POST para o ponto de extremidade. Especifique o cabeçalho de autenticação na solicitação. Adicione um objeto de conteúdo JSON com o nome do experimento.
 
 Faça a solicitação para disparar a execução. Inclua o código para acessar a chave `Id` do dicionário de respostas para obter o valor da ID de execução.
 
@@ -405,7 +410,7 @@ rest_endpoint = published_pipeline.endpoint
 response = requests.post(rest_endpoint, 
                          headers=auth_header, 
                          json={"ExperimentName": "batch_scoring",
-                               "ParameterAssignments": {"param_batch_size": 50}})
+                               "ParameterAssignments": {"process_count_per_node": 6}})
 run_id = response.json()["Id"]
 ```
 

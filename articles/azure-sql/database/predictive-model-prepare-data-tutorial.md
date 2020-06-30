@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Preparar os dados para treinar um modelo preditivo no R'
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: Na primeira parte deste tutorial com três partes, você preparará os dados de um Banco de Dados SQL do Azure para treinar um modelo preditivo no R com os Serviços do Machine Learning do Banco de Dados SQL do Azure (versão prévia).
+description: Na primeira parte deste tutorial com três partes, você preparará os dados de um banco de dados no Banco de Dados SQL do Azure para treinar um modelo preditivo no R com os Serviços de Machine Learning do Banco de Dados SQL do Azure (versão prévia).
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -14,35 +14,36 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/26/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: a82467a097c50314e8f26f4a5cc4507f867ad504
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 698cc089f770d60b6399864c9832fbc8d104c16f
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84024785"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253793"
 ---
 # <a name="tutorial-prepare-data-to-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutorial: Preparar dados para treinar um modelo preditivo em R com os Serviços do Machine Learning do Banco de Dados SQL do Azure (versão prévia)
+
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Na primeira parte deste tutorial com três partes, você importará e preparará os dados de um Banco de Dados SQL do Azure usando o R. Mais adiante nesta série, você usará esses dados para treinar e implantar um modelo de machine learning no R com os Serviços do Machine Learning do Banco de Dados SQL do Azure (versão prévia).
+Na primeira parte deste tutorial com três partes, você importará e preparará os dados de um banco de dados no Banco de Dados SQL do Azure usando o R. Mais adiante nesta série, você usará esses dados para treinar e implantar um modelo de machine learning no R com os Serviços de Machine Learning do Banco de Dados SQL do Azure (versão prévia).
 
 [!INCLUDE[ml-preview-note](../../../includes/sql-database-ml-preview-note.md)]
 
 Nesta série de tutoriais, imagine que você tem uma empresa de aluguel de esquis e quer prever a quantidade de aluguéis em uma data futura. Essas informações ajudarão você a preparar seu estoque, sua equipe e suas instalações.
 
-Na primeira e na segunda parte desta série, você desenvolverá alguns scripts do R no RStudio para preparar os dados e treinar um modelo de machine learning. Em seguida, na terceira parte, você executará esses scripts do R em um banco de dados SQL usando os procedimentos armazenados.
+Na primeira e na segunda parte desta série, você desenvolverá alguns scripts do R no RStudio para preparar os dados e treinar um modelo de machine learning. Em seguida, na terceira parte, você executará esses scripts do R em um banco de dados usando os procedimentos armazenados.
 
 Neste artigo, você aprenderá a:
 
 > [!div class="checklist"]
 >
-> * Importar um banco de dados de exemplo para um Banco de Dados SQL do Azure usando o R
-> * Carregar os dados do Banco de Dados SQL do Azure em um dataframe do R
+> * Importar um banco de dados de exemplo para um banco de dados no Banco de Dados SQL do Azure usando o R
+> * Carregar os dados do banco de dados em uma estrutura de dados do R
 > * Preparar os dados no R identificando algumas colunas como categóricas
 
 Na [parte 2](predictive-model-build-compare-tutorial.md), você aprenderá a criar e treinar vários modelos de machine learning em R e, em seguida, escolher o mais preciso.
 
-Na [parte três](predictive-model-deploy-tutorial.md), você aprenderá a armazenar o modelo em um banco de dados e, em seguida, criar um procedimento armazenado dos scripts do R desenvolvidos nas partes anteriores. Os procedimentos armazenados serão executados em um banco de dados SQL para fazer previsões com base em novos dados.
+Na [parte três](predictive-model-deploy-tutorial.md), você aprenderá a armazenar o modelo em um banco de dados e, em seguida, criar um procedimento armazenado dos scripts do R desenvolvidos nas partes anteriores. Os procedimentos armazenados serão executados em um banco de dados para fazer previsões com base em novos dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -66,7 +67,7 @@ O conjunto de dados de exemplo usado neste tutorial foi salvo em um arquivo de b
 
 1. Baixe o arquivo [TutorialDB.bacpac](https://sqlchoice.blob.core.windows.net/sqlchoice/static/TutorialDB.bacpac).
 
-1. Siga as instruções em [Importar um arquivo BACPAC para criar um Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-import) usando estes detalhes:
+1. Siga as instruções em [Importar um arquivo BACPAC para um banco de dados no Banco de Dados SQL do Azure ou Instância Gerenciada de SQL do Azure](../../azure-sql/database/database-import.md) usando estes detalhes:
 
    * Importar do arquivo **TutorialDB.bacpac** que você baixou
    * Durante a versão prévia pública, escolha a configuração **Gen5/vCore** para o novo banco de dados
@@ -74,7 +75,7 @@ O conjunto de dados de exemplo usado neste tutorial foi salvo em um arquivo de b
 
 ## <a name="load-the-data-into-a-data-frame"></a>Carregar os dados em um quadro de dados
 
-Para usar os dados no R, é necessário carregá-los do Banco de Dados SQL do Azure para o dataframe (`rentaldata`).
+Para usar os dados no R, é necessário carregá-los do banco de dados para a estrutura de dados (`rentaldata`).
 
 Crie um novo arquivo RScript no RStudio e execute o script a seguir. Substitua **Servidor**, **UID** e **PWD** com suas próprias informações de conexão.
 
@@ -163,8 +164,8 @@ No portal do Azure, siga estas etapas:
 
 Na parte um desta série de tutoriais, você concluiu estas etapas:
 
-* Importar um banco de dados de exemplo para um Banco de Dados SQL do Azure usando o R
-* Carregar os dados do Banco de Dados SQL do Azure em um dataframe do R
+* Importar um banco de dados de exemplo para um banco de dados no Banco de Dados SQL do Azure usando o R
+* Carregar os dados do banco de dados em uma estrutura de dados do R
 * Preparar os dados no R identificando algumas colunas como categóricas
 
 Para criar um modelo de machine learning que usa dados do banco de dados TutorialDB, siga a parte 2 desta série de tutoriais:

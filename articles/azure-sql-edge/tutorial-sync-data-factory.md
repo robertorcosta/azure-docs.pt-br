@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: cc81784d4ad3613cf46176912625cf980c44f064
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 91bf2ba0957104b7ccba330f914734a362c3e309
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235041"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255425"
 ---
 # <a name="tutorial-sync-data-from-sql-edge-to-azure-blob-storage-by-using-azure-data-factory"></a>Tutorial: Sincronizar dados do SQL do Azure no Edge para o Armazenamento de Blobs do Azure usando o Azure Data Factory
 
@@ -25,7 +25,7 @@ Neste tutorial, você usa o Azure Data Factory para sincronizar dados de maneira
 Se você ainda não criou um banco de dados ou uma tabela em sua implantação do SQL do Azure no Edge, use um destes métodos para criar um:
 
 * Use o [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms/) ou o [Azure Data Studio](/sql/azure-data-studio/download/) para conectar-se a um SQL do Azure no Edge. Execute um script SQL para criar o banco de dados e a tabela.
-* Crie um banco de dados SQL e uma tabela usando [SQLCMD](/sql/tools/sqlcmd-utility/), conectando-se diretamente ao módulo do SQL do Azure no Edge. Para obter mais informações, confira [Conectar-se ao Mecanismo de Banco de Dados usando SQLCMD](/sql/ssms/scripting/sqlcmd-connect-to-the-database-engine/).
+* Crie um banco de dados e uma tabela usando [SQLCMD](/sql/tools/sqlcmd-utility/), conectando-se diretamente ao módulo do SQL no Edge. Para obter mais informações, confira [Conectar-se ao Mecanismo de Banco de Dados usando SQLCMD](/sql/ssms/scripting/sqlcmd-connect-to-the-database-engine/).
 * Use SQLPackage.exe para implantar um arquivo do pacote de DAC no contêiner do SQL do Azure no Edge. Você pode automatizar esse processo especificando o URI do arquivo SqlPackage como parte da configuração das propriedades desejadas do módulo. Você também pode usar diretamente a ferramenta de cliente SqlPackage.exe para implantar um pacote de DAC no SQL do Azure no Edge.
 
     Para obter informações sobre como baixar o SqlPackage.exe, confira [Baixar e instalar o sqlpackage](/sql/tools/sqlpackage-download/). A seguir estão alguns comandos de exemplo para o SqlPackage.exe. Para obter mais informações, confira a documentação do SqlPackage.exe.

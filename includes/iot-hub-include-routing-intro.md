@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 9a20dca71727e83db98c4c97567949bd127fc7fb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 552a40be0c069d1002ebc7ea4dafe0d6f93a5755
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77111227"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85128215"
 ---
 O [roteamento de mensagens](../articles/iot-hub/iot-hub-devguide-messages-d2c.md) permite enviar dados de telemetria de seus dispositivos IoT para pontos de extremidade internos compatíveis com o Hub de Eventos ou para pontos de extremidade personalizados, como Armazenamento de Blobs, Filas do Barramento de Serviço, Tópicos do Barramento de Serviço e Hubs de Eventos. Para configurar o roteamento de mensagens personalizado, crie [consultas de roteamento](../articles/iot-hub/iot-hub-devguide-routing-query-syntax.md) para personalizar a rota que corresponde a uma determinada condição. Uma vez configurado, os dados de entrada são roteados automaticamente para os pontos de extremidade pelo Hub IoT. Se uma mensagem não corresponder a nenhuma das consultas de roteamentos definidas, ela será roteada para o ponto de extremidade padrão.
 
@@ -45,7 +45,7 @@ Para concluir as Partes 1 e 2 deste tutorial, execute as seguintes tarefas:
   - Você deve ter concluído a Parte 1 deste tutorial e ter os recursos ainda disponíveis.
   - Instalar o [Visual Studio](https://www.visualstudio.com/).
   - Tenha acesso a uma conta do Power BI para analisar a análise de fluxo do ponto de extremidade padrão. ([Experimente o Power BI gratuitamente](https://app.powerbi.com/signupredirect?pbi_source=web).)
-  - Ter uma conta do Office 365 para enviar e-mails de notificação.
+  - Tenha uma conta corporativa ou de estudante para enviar emails de notificação.
   - Verifique se a porta 8883 está aberta no firewall. A amostra deste tutorial usa o protocolo MQTT, que se comunica pela porta 8883. Essa porta poderá ser bloqueada em alguns ambientes de rede corporativos e educacionais. Para obter mais informações e maneiras de resolver esse problema, confira [Como se conectar ao Hub IoT (MQTT)](../articles/iot-hub/iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 [!INCLUDE [cloud-shell-try-it.md](cloud-shell-try-it.md)]

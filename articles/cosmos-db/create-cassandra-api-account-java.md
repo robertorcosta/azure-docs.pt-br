@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4122e575fc7823fd2e79a26f210f06e5c1b0a835
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: e114bf3a87f3018cc51c5752d57ce5911053542f
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857979"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118399"
 ---
 # <a name="tutorial-create-a-cassandra-api-account-in-azure-cosmos-db-by-using-a-java-application-to-store-keyvalue-data"></a>Tutorial: Criar uma conta de API do Cassandra no Azure Cosmos DB por meio de um aplicativo Java para armazenar dados de chave/valor
 
@@ -54,7 +54,7 @@ Este tutorial cobre as seguintes tarefas:
    |Grupo de recursos   | Insira um nome    |  Selecione **Criar** e, em seguida, insira um novo nome de grupo de recursos para sua conta. Para simplificar, você pode usar um nome igual à sua ID.    |
    |Location    |  Selecione a região mais próxima de seus usuários    |  Selecione a localização geográfica na qual hospedar a sua conta do Azure Cosmos. Use a localização mais próxima dos usuários para fornecer a eles acesso mais rápido aos dados.    |
 
-   ![Criar conta com o portal](./media/create-cassandra-api-account-java/create-account.png)
+   :::image type="content" source="./media/create-cassandra-api-account-java/create-account.png" alt-text="Criar conta com o portal":::
 
 4. Selecione **Criar**. <br/>A criação da conta leva alguns minutos. Depois que o recurso for criado, você pode ver a notificação **Implantação bem-sucedida** no lado direito do portal.
 

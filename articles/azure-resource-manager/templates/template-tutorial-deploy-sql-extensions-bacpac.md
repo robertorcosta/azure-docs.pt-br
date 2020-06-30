@@ -5,12 +5,12 @@ author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 69e2b25a16a984445a32f884fab5caec6651df32
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: e17bad915fd913f6e3894ed386e914e65aa46c01
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84018371"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85250325"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>Tutorial: Importar arquivos BACPAC do SQL com modelos do ARM
 
@@ -45,7 +45,7 @@ Para concluir este artigo, você precisa do seguinte:
 
 ## <a name="prepare-a-bacpac-file"></a>Preparar um arquivo BACPAC
 
-Um arquivo BACPAC é compartilhado no [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac). Para criar seus próprio arquivo, confira [Exportar um Banco de Dados SQL do Azure para um arquivo BACPAC](../../azure-sql/database/database-export.md). Se você optar por publicar o arquivo em seu próprio local, deverá atualizar o modelo posteriormente no tutorial.
+Um arquivo BACPAC é compartilhado no [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac). Para criar seus próprio arquivo, confira [Exportar um banco de dados do Banco de Dados SQL do Azure para um arquivo BACPAC](../../azure-sql/database/database-export.md). Se você optar por publicar o arquivo em seu próprio local, deverá atualizar o modelo posteriormente no tutorial.
 
 O arquivo BACPAC deve ser armazenado em uma conta de Armazenamento do Azure antes que possa ser importado usando um modelo do ARM. O script do PowerShell a seguir prepara o arquivo BACPAC com estas etapas:
 
@@ -196,7 +196,7 @@ O modelo usado neste tutorial é armazenado no [GitHub](https://raw.githubuserco
 
         Para entender a definição de recurso, confira a [referência de extensão de Banco de Dados SQL](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases/extensions). Abaixo estão alguns elementos importantes:
 
-        * **dependsOn**: o recurso de extensão deve ser criado depois que o Banco de Dados SQL foi criado.
+        * **dependsOn**: o recurso de extensão precisa ser criado depois da criação do banco de dados.
         * **storageKeyType**: Especifique o tipo da chave de armazenamento a ser usada. O valor pode ser `StorageAccessKey` ou `SharedAccessKey`. Use `StorageAccessKey` neste tutorial.
         * **storageKey**: Especifique a chave para a conta de armazenamento em que o arquivo BACPAC está armazenado. Se o tipo de chave de armazenamento for `SharedAccessKey`, ela deverá ser precedida por um "?".
         * **storageUri**: Especifique a URL do arquivo BACPAC armazenado em uma conta de armazenamento.
@@ -241,7 +241,7 @@ Use a senha gerada. Consulte [Pré-requisitos](#prerequisites).
 
 Para acessar o servidor no computador cliente, você precisará adicionar uma regra de firewall extra. Para obter mais informações, confira [Criar e gerenciar regras de firewall de IP](../../azure-sql/database/firewall-configure.md#create-and-manage-ip-firewall-rules).
 
-No portal do Azure, selecione o banco de dados SQL no grupo de recursos implantado recentemente. Selecione **Editor de consultas (versão prévia)** e insira as credenciais de administrador. Você verá duas tabelas importadas para o banco de dados.
+No portal do Azure, selecione o banco de dados no grupo de recursos implantado recentemente. Selecione **Editor de consultas (versão prévia)** e insira as credenciais de administrador. Você verá duas tabelas importadas para o banco de dados.
 
 ![Editor de consultas (versão prévia)](./media/template-tutorial-deploy-sql-extensions-bacpac/resource-manager-tutorial-deploy-sql-extensions-bacpac-query-editor.png)
 

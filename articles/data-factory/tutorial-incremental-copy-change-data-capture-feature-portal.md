@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: ''
 ms.date: 05/04/2020
-ms.openlocfilehash: 754fb27d03aebf6029d3ae2f22e748db87a89753
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: ca6b0ff197c21dd41521d2aa6106aa3b0df2d177
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84325220"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85249476"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>Carregar incrementalmente dados da Instância Gerenciada de SQL do Azure para o Armazenamento do Azure usando CDA (captura de dados de alterações)
 
@@ -55,7 +55,8 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 * **Instância Gerenciada do Banco de Dados SQL do Azure**. Você usa o banco de dados como um armazenamento de dados de **origem**. Se você não tiver um Instância Gerenciada do Banco de Dados SQL do Azure, confira o artigo [Criar um Instância Gerenciada do Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started) para conhecer as etapas para criar uma.
 * **Conta de Armazenamento do Azure**. Você usa o Armazenamento de Blobs como um armazenamento de dados de **coletor**. Se você não tiver uma conta de Armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/common/storage-account-create.md) para conhecer as etapas para criar uma. Crie um contêiner chamado **raw**. 
 
-### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Criar uma tabela de fonte de dados no Banco de Dados SQL do Azure
+### <a name="create-a-data-source-table-in-azure-sql-database"></a>Criar uma tabela de fonte de dados no Banco de Dados SQL do Azure
+
 1. Inicie o **SQL Server Management Studio** e conecte-se ao servidor de Instâncias Gerenciadas do SQL do Azure.
 2. No **Gerenciador de Servidores**, clique com o botão direito do mouse no **banco de dados** e escolha **Nova Consulta**.
 3. Execute o comando SQL a seguir no banco de dados de Instâncias Gerenciadas do SQL do Azure para criar uma tabela chamada `customers` como o repositório de fonte de dados.  

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 07/23/2019
 ms.author: lbosq
-ms.openlocfilehash: c3e6524f8e43036c4b4c28c679c281c143731471
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 25ad14ac8922a4284833cab28dc3e4aa8b478397
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81450200"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118327"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Início Rápido: Criar, consultar e percorrer um banco de dados de grafo do Azure Cosmos DB usando o console do Gremlin
 
@@ -29,7 +29,7 @@ O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globa
 
 Este início rápido demonstra como criar uma conta de [API do Gremlin](graph-introduction.md) do Azure Cosmos DB, um banco de dados e um grafo (contêiner) usando o portal do Azure e, depois, use o [console do Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) do [Apache TinkerPop](https://tinkerpop.apache.org) para trabalhar com os dados da API do Gremlin. Neste tutorial, você criará e consultará vértices e bordas ao atualizar uma propriedade de vértice, consultar vértices, percorrer o grafo e remover um vértice.
 
-![BD Cosmos do Azure do console do Apache Gremlin](./media/create-graph-gremlin-console/gremlin-console.png)
+:::image type="content" source="./media/create-graph-gremlin-console/gremlin-console.png" alt-text="Azure Cosmos DB no console do Apache Gremlin":::
 
 O console Gremlin é baseado em Groovy/Java e é executado no Linux, Mac e Windows. Você pode baixá-lo no [site do Apache TinkerPop](https://tinkerpop.apache.org/downloads.html).
 
@@ -63,26 +63,31 @@ Também é necessário instalar o [Console do Gremlin](https://tinkerpop.apache.
     connectionPool|{enableSsl: true}|Sua configuração do pool de conexão para TLS.
     serializador|{ className: org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV2d0,<br> config: { serializeResultToString: true }}|Defina para esse valor e exclua todas as quebras de linha `\n` ao colar o valor.
 
-    Para obter o valor de hosts, copie o valor **URI do Gremlin** na página **Visão geral**: ![Exibir e copiar o valor URI do Gremlin na página Visão geral no portal do Azure](./media/create-graph-gremlin-console/gremlin-uri.png)
+   Para obter o valor de hosts, copie o valor **URI do Gremlin** na página **Visão geral**:
 
-    Para obter o valor da senha, copie a **Chave Primária** da página **Chaves**: ![Exibir e copiar sua chave primária no portal do Azure, página Chaves](./media/create-graph-gremlin-console/keys.png)
+   :::image type="content" source="./media/create-graph-gremlin-console/gremlin-uri.png" alt-text="Exibir e copiar o valor URI do Gremlin na página Visão geral no portal do Azure":::
 
-O arquivo remote-secure.yaml deve ter esta aparência:
+   Para obter o valor da senha, copie a **Chave Primária** da página **Chaves**:
 
-```
-hosts: [your_database_server.gremlin.cosmos.azure.com] 
-port: 443
-username: /dbs/your_database_account/colls/your_collection
-password: your_primary_key
-connectionPool: {
-  enableSsl: true
-}
-serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV2d0, config: { serializeResultToString: true }}
-```
+   :::image type="content" source="./media/create-graph-gremlin-console/keys.png" alt-text="Exibir e copiar sua chave primária no portal do Azure, página Chaves":::
 
-certifique-se de colocar o valor dos parâmetros de host dentro de colchetes []. 
+   O arquivo remote-secure.yaml deve ter esta aparência:
+
+   ```
+   hosts: [your_database_server.gremlin.cosmos.azure.com] 
+   port: 443
+   username: /dbs/your_database_account/colls/your_collection
+   password: your_primary_key
+   connectionPool: {
+     enableSsl: true
+   }
+   serializer: { className: org.apache.tinkerpop.gremlin.driver.   ser.GraphSONMessageSerializerV2d0, config: {    serializeResultToString: true }}
+   ```
+
+   certifique-se de colocar o valor dos parâmetros de host dentro de colchetes []. 
 
 1. No seu terminal, execute `bin/gremlin.bat` ou `bin/gremlin.sh` para iniciar o [Gremlin Console](https://tinkerpop.apache.org/docs/3.2.5/tutorials/getting-started/).
+
 1. No seu terminal, execute `:remote connect tinkerpop.server conf/remote-secure.yaml` para se conectar ao seu serviço de aplicativo.
 
     > [!TIP]

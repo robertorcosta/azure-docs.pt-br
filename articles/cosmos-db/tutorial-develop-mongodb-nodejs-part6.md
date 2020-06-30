@@ -10,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: 103545225b15a74d8c2ea0be5e88caa18f3c31cc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: de9e7fd605a1d53d1078523c77cd33065c03ca85
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82184768"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118960"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---add-crud-functions-to-the-app"></a>Criar um aplicativo Angular com a API do Azure Cosmos DB para MongoDB – adicionar funções de CRUD ao aplicativo
 
@@ -40,7 +40,7 @@ Antes de iniciar esta parte do tutorial, verifique se você concluiu as etapas n
 
     Veja que a linha 7 de routes.js etá chamando a função `getHeroes` na linha 5 do **hero.service.js**.  Precisamos criar esse mesmo emparelhamento para as funções post, put e delete. 
 
-    ![routes.js e hero.service.js no Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/routes-heroservicejs.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/routes-heroservicejs.png" alt-text="routes.js and hero.service.js no Visual Studio Code":::
     
     Vamos iniciar codificando o serviço hero. 
 
@@ -88,11 +88,11 @@ Antes de iniciar esta parte do tutorial, verifique se você concluiu as etapas n
 
 6. Agora volte para o navegador da Internet e abra a guia Rede de ferramentas de Desenvolvedor pressionando F12 na maioria dos computadores. Navegue até `http://localhost:3000` para observar as chamadas feitas pela rede.
 
-    ![Guia Rede no Chrome que mostra a atividade de rede](./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png" alt-text="Guia Rede no Chrome que mostra a atividade de rede":::
 
 7. Adicione um novo hero selecionando o botão **Adicionar Novo Hero**. Insira uma ID "999", o nome "Vinicius" dizendo "Olá" e clique em **Salvar**. Você deve ver na guia Rede que enviou uma solicitação POST para um novo hero. 
 
-    ![Guia Rede no Chrome que mostra a atividade de rede para as funções Get e Post](./media/tutorial-develop-mongodb-nodejs-part6/post-new-hero.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/post-new-hero.png" alt-text="Guia Rede no Chrome que mostra a atividade de rede para as funções Get e Post":::
 
     Agora vamos voltar e adicionar as funções Put e Delete ao aplicativo.
 
@@ -177,11 +177,11 @@ Antes de iniciar esta parte do tutorial, verifique se você concluiu as etapas n
 
     Agora você pode selecionar a ID na guia Rede para mostrar a carga. Você pode ver na carga que a fala agora está definida como "Tchau".
 
-    ![Aplicativo Heroes e guia Rede mostrando a carga](./media/tutorial-develop-mongodb-nodejs-part6/put-hero-function.png) 
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/put-hero-function.png" alt-text="Aplicativo Heroes e guia Rede mostrando o conteúdo"::: 
 
     Você também pode excluir um hero na interface de usuário e ver o tempo que leva para concluir a operação de exclusão. Tente isso selecionando o botão "Excluir" para o hero chamado "Vinicius".
 
-    ![Aplicativo Heroes e guia Rede mostrando o tempo que leva para concluir as funções](./media/tutorial-develop-mongodb-nodejs-part6/times.png) 
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/times.png" alt-text="Aplicativo Heroes e guia Rede mostrando o tempo que leva para concluir as funções"::: 
 
     Se você atualizar a página, a guia Rede mostrará o tempo necessário para obter os heroes. Quando leva pouco tempo, grande parte disso depende de onde seus dados estão localizados no mundo e da sua capacidade de replicá-lo geograficamente em uma área perto de seus usuários. Você pode encontrar mais informações sobre a replicação geográfica no próximo tutorial que será lançado em breve.
 

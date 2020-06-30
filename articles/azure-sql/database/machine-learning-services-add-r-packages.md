@@ -14,12 +14,12 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 764d0131b0b8074a210bd9eb7f806f5d1a32fa1f
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: b42dba59e061eee0472d39f324b7474d7d829310
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324225"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85250682"
 ---
 # <a name="add-an-r-package-to-azure-sql-database-machine-learning-services-preview"></a>Adicionar um pacote R aos Serviços de Machine Learning do Banco de Dados SQL do Azure (versão prévia)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,7 +39,7 @@ Este artigo explica como adicionar um pacote R aos Serviços de Machine Learning
 
 ## <a name="list-r-packages"></a>Listar pacotes do R
 
-A Microsoft fornece inúmeros pacotes R pré-instalados com os Serviços do Machine Learning em seu banco de dados SQL do Azure.
+A Microsoft fornece inúmeros pacotes R pré-instalados com os Serviços de Machine Learning no Banco de Dados SQL do Azure.
 É possível ver uma lista de pacotes R instalados executando o seguinte comando no Azure Data Studio ou no SSMS.
 
 1. Abra o Azure Data Studio ou o SSMS e conecte-se ao Banco de Dados SQL do Azure.
@@ -166,7 +166,7 @@ sql_remove.packages(connectionString = connection, pkgs = "glue", scope = "PUBLI
 ```
 
 > [!TIP]
-> Outra maneira de instalar um pacote R em seu banco de dados SQL do Azure é carregá-lo de um fluxo de bytes usando a instrução T-SQL **CREATE EXTERNAL LIBRARY**. Confira [Criar uma biblioteca de um fluxo de bytes](/sql/t-sql/statements/create-external-library-transact-sql#create-a-library-from-a-byte-stream) na documentação de referência [CREATE EXTERNAL LIBRARY](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql).
+> Outra maneira de instalar um pacote R no Banco de Dados SQL do Azure é carregá-lo de um fluxo de bytes usando a instrução T-SQL **CREATE EXTERNAL LIBRARY**. Confira [Criar uma biblioteca de um fluxo de bytes](/sql/t-sql/statements/create-external-library-transact-sql#create-a-library-from-a-byte-stream) na documentação de referência [CREATE EXTERNAL LIBRARY](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql).
 
 ## <a name="next-steps"></a>Próximas etapas
 

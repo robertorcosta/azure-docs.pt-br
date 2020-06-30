@@ -6,16 +6,16 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: tutorial
 ms.date: 08/01/2019
-ms.openlocfilehash: 1c3987e4f2f31dd0c2395f9b40cc40780c40a518
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 10733dc59d7b143657c67e24d45d4a7c920cbd03
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021595"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255187"
 ---
 # <a name="tutorial-register-data-assets-in-azure-data-catalog"></a>Tutorial: Gerenciar ativos de dados no Catálogo de Dados do Azure
 
-Neste tutorial, você usa a ferramenta de registro para registrar ativos de dados da amostra de Banco de Dados SQL do Azure com o catálogo. O registro é o processo de extração de metadados estruturais chave, como nomes, tipos e locais, da fonte de dados e dos ativos que ela contém, copiando os metadados para o catálogo. As fontes de dados e seus dados permanecem onde estão, porém os metadados são usados pelo catálogo para torná-los mais facilmente identificáveis e compreensíveis.
+Neste tutorial, você usa a ferramenta de registro para registrar ativos de dados da amostra de banco de dados com o catálogo. O registro é o processo de extração de metadados estruturais chave, como nomes, tipos e locais, da fonte de dados e dos ativos que ela contém, copiando os metadados para o catálogo. As fontes de dados e seus dados permanecem onde estão, porém os metadados são usados pelo catálogo para torná-los mais facilmente identificáveis e compreensíveis.
 
 Neste tutorial, você aprenderá como:
 > [!div class="checklist"]
@@ -39,11 +39,11 @@ Para configurar o Catálogo de Dados, você deve ser o proprietário ou o coprop
 
 ### <a name="register-a-data-source"></a>Registrar uma fonte de dados
 
-Você registra ativos de dados (tabelas) de uma [amostra de Banco de Dados SQL do Azure](../azure-sql/database/single-database-create-quickstart.md), mas pode usar qualquer fonte de dados com suporte caso prefira trabalhar usando dados familiares e relevantes para sua função. Para obter uma lista das fontes de dados com suporte, confira [Fontes de dados com suporte](data-catalog-dsr.md).
+Você registra ativos de dados (tabelas) de uma [amostra de banco de dados](../azure-sql/database/single-database-create-quickstart.md) para o Banco de Dados SQL do Azure, mas pode usar qualquer fonte de dados compatível caso prefira trabalhar usando dados familiares e relevantes para sua função. Para obter uma lista das fontes de dados com suporte, confira [Fontes de dados com suporte](data-catalog-dsr.md).
 
-O nome do Banco de Dados SQL do Azure que estamos usando neste tutorial é *RLSTest*.
+O nome do banco de dados que estamos usando neste tutorial é *RLSTest*.
 
-Agora você pode registrar ativos de dados da amostra de Banco de Dados SQL do Azure usando o Catálogo de Dados do Azure.
+Agora, registre ativos de dados da amostra de banco de dados usando o Catálogo de Dados do Azure.
 
 1. Vá para a [página inicial do Catálogo de Dados do Azure](http://azuredatacatalog.com) e clique em **Publicar Dados**.
 
@@ -61,13 +61,13 @@ Agora você pode registrar ativos de dados da amostra de Banco de Dados SQL do A
 
     ![Catálogo de Dados do Azure – fontes de dados](media/register-data-assets-tutorial/data-catalog-data-sources.png)
 
-5. Insira as propriedades de conexão do SQL Server para sua amostra de Banco de Dados SQL do Azure e selecione **CONECTAR**.
+5. Insira as propriedades de conexão do SQL Server para sua amostra de banco de dados no Banco de Dados SQL do Azure e selecione **CONECTAR**.
 
    ![Catálogo de Dados do Azure – configurações de conexão do SQL Server](media/register-data-assets-tutorial/data-catalog-sql-server-connection.png)
 
-6. Registre os metadados do seu ativo de dados. Neste exemplo, você registra objetos de **Produto** do namespace de amostra do Banco de Dados SQL do Azure:
+6. Registre os metadados do seu ativo de dados. Neste exemplo, você registra objetos de **Produto** do namespace de amostra:
 
-    1. Na árvore **Hierarquia de Servidores**, expanda sua amostra de Banco de Dados SQL do Azure e selecione **SalesLT**.
+    1. Na árvore **Hierarquia de Servidores**, expanda sua amostra de banco de dados e selecione **SalesLT**.
 
     2. Selecione **Product**, **ProductCategory**, **ProductDescription** e **ProductModel** usando Ctrl+selecionar.
 
@@ -85,7 +85,7 @@ Agora você pode registrar ativos de dados da amostra de Banco de Dados SQL do A
 
           ![Tutorial do Catálogo de Dados do Azure – objetos para registrar](media/register-data-assets-tutorial/data-catalog-objects-register.png)
 
-    8. Selecione **REGISTRAR**. O Catálogo de Dados do Azure registra os objetos selecionados. Neste exercício, os objetos selecionados da sua amostra de Banco de Dados SQL do Azure são registrados. A ferramenta de registro extrai metadados de ativo de dados e copia esses dados no serviço Catálogo de Dados do Azure. Os dados permanecem no local em que estão no momento. Os dados permanecem sob o controle dos administradores e das políticas do sistema de origem.
+    8. Selecione **REGISTRAR**. O Catálogo de Dados do Azure registra os objetos selecionados. Neste exercício, os objetos selecionados da sua amostra de banco de dados são registrados. A ferramenta de registro extrai metadados de ativo de dados e copia esses dados no serviço Catálogo de Dados do Azure. Os dados permanecem no local em que estão no momento. Os dados permanecem sob o controle dos administradores e das políticas do sistema de origem.
 
           ![Catálogo de Dados do Azure – objetos registrados](media/register-data-assets-tutorial/data-catalog-registered-objects.png)
 
@@ -93,7 +93,7 @@ Agora você pode registrar ativos de dados da amostra de Banco de Dados SQL do A
 
         ![Objetos no portal do Catálogo de Dados do Azure](media/register-data-assets-tutorial/data-catalog-view-portal.png)
 
-Neste exercício, você registrou objetos da amostra de Banco de dados SQL do Azure para que eles pudessem ser facilmente descobertos por usuários na sua organização.
+Neste exercício, você registrou objetos da amostra de banco de dados para Banco de Dados SQL do Azure para que eles pudessem ser facilmente descobertos por usuários na sua organização.
 
 No próximo exercício, você aprenderá como descobrir ativos de dados registrados.
 
@@ -178,7 +178,7 @@ Com operadores de comparação, você pode usar comparações que não sejam de 
 
 3. Pressione **ENTER**.
 
-4. Confirme que você vê as tabelas **Product**, **ProductCategory** e **ProductDescription** e o banco de dados SQL do Azure que você registrou nos resultados da pesquisa.
+4. Confirme que você vê as tabelas **Product**, **ProductCategory** e **ProductDescription** e o Banco de Dados SQL que você registrou nos resultados da pesquisa.
 
     ![Catálogo de Dados do Azure – resultados da pequisa de comparação](media/register-data-assets-tutorial/data-catalog-comparison-operator-results.png)
 
@@ -251,7 +251,7 @@ Neste exercício, você abre os ativos de dados em uma ferramenta de cliente int
 
 ### <a name="sql-server-management-studio"></a>SQL Server Management Studio
 
-Neste exercício, você se conectou aos ativos de dados descobertos usando o Catálogo de Dados do Azure. Com o portal do Catálogo de Dados do Azure, você pode se conectar diretamente usando os aplicativos clientes integrados ao menu **Abrir no** . Você também pode se conectar a qualquer aplicativo escolhido usando as informações de conexão local incluídas nos metadados do ativo. Por exemplo: você pode usar o SQL Server Management Studio para se conectar ao Banco de Dados SQL do Azure para acessar os dados nos ativos de dados registrados neste tutorial.
+Neste exercício, você se conectou aos ativos de dados descobertos usando o Catálogo de Dados do Azure. Com o portal do Catálogo de Dados do Azure, você pode se conectar diretamente usando os aplicativos clientes integrados ao menu **Abrir no** . Você também pode se conectar a qualquer aplicativo escolhido usando as informações de conexão local incluídas nos metadados do ativo. Por exemplo, é possível usar o SQL Server Management Studio para se conectar ao Banco de Dados SQL do Azure para acessar os dados nos ativos de dados registrados neste tutorial.
 
 1. Abra o **SQL Server Management Studio**.
 

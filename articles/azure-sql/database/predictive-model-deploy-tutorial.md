@@ -14,21 +14,22 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/26/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 86c73944753126aa3fb5c14c8d6626a449365c64
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 84c0f6564fc9ab8abc43205b58d9445cda82a2da
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84023971"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253810"
 ---
 # <a name="tutorial-deploy-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutorial: Implantar um modelo preditivo no R com os Serviços do Machine Learning do Banco de Dados SQL do Azure (versão prévia)
+
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Na terceira parte deste tutorial, você implantará um modelo preditivo desenvolvido no R em um banco de dados SQL com os Serviços do Machine Learning do Banco de Dados SQL do Azure (versão prévia).
+Na terceira parte deste tutorial, você implantará um modelo preditivo desenvolvido no R em um banco de dados no Banco de Dados SQL do Azure com os Serviços de Machine Learning do Banco de Dados SQL do Azure (versão prévia).
 
 [!INCLUDE[ml-preview-note](../../../includes/sql-database-ml-preview-note.md)]
 
-Você criará um procedimento armazenado com um script de R incorporado que faz previsões usando o modelo. Como seu modelo é executado no Banco de Dados SQL do Azure, ele pode ser facilmente treinado nos dados armazenados no banco de dados.
+Você criará um procedimento armazenado com um script de R incorporado que faz previsões usando o modelo. Como seu modelo é executado no banco de dados, ele pode ser facilmente treinado em relação aos dados armazenados no banco de dados.
 
 Neste artigo, usando os scripts R que você desenvolveu nas partes anteriores, você aprenderá a:
 
@@ -200,7 +201,7 @@ RentalCount_Predicted
 332.571428571429
 ```
 
-Você criou, treinou e implantou com êxito um modelo em um Banco de Dados SQL do Azure. Em seguida, você usou esse modelo em um procedimento armazenado para prever valores com base em novos dados.
+Você criou, treinou e implantou com êxito um modelo em um banco de dados no Banco de Dados SQL do Azure. Em seguida, você usou esse modelo em um procedimento armazenado para prever valores com base em novos dados.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

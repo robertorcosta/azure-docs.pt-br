@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: 978dbf3d8e6a92242c0a984b26bb35cf911a3369
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: e7384237f91bf3af8ccad1a97b27fb62a1845a88
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83590411"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118977"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Recursos do Apache Cassandra compatíveis com a API do Cassandra do Azure Cosmos DB 
 
@@ -108,7 +108,7 @@ A API do Cassandra do Azure Cosmos DB é uma plataforma de serviço gerenciado. 
 
 Você pode abrir um shell Cassandra nativo hospedado (CQLSH v5.0.1) diretamente do Data Explorer no [portal do Azure](data-explorer.md) ou no [Azure Cosmos Explorer](https://cosmos.azure.com/). Antes de habilitar o shell CQL, você deve [habilitar o recurso](enable-notebooks.md) Notebooks em sua conta (se ainda não estiver habilitado, será solicitado ao clicar em `Open Cassandra Shell`). Marque a nota destacada em [Habilitar notebooks para as contas Azure Cosmos DB](enable-notebooks.md) para as Regiões do Azure.
 
-![CQLSH](./media/cassandra-support/cqlsh.png)
+:::image type="content" source="./media/cassandra-support/cqlsh.png" alt-text="CQLSH":::
 
 Você também pode conectar a API do Cassandra no Azure Cosmos DB usando o CQLSH instalado em um computador local. Ele vem com o Apache Cassandra 3.1.1 e fica pronto para o uso definindo as variáveis de ambiente. As seções a seguir incluem instruções para instalar, configurar e conectar a API do Cassandra no Azure Cosmos DB, no Windows ou no Linux usando o CQLSH.
 

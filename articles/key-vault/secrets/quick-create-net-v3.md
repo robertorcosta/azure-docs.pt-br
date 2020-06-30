@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 056dc7bbe29c3c963818ee2fca626be4e2be9645
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 0dba746379a6b5338c9e67fe312c392f37399012
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983475"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85125780"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net-sdk-v3"></a>Início Rápido: Biblioteca de clientes do Azure Key Vault para .NET (SDK v3)
 
@@ -101,12 +101,12 @@ az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
 
 A maneira mais simples de autenticar um aplicativo .NET baseado em nuvem é com uma identidade gerenciada; confira [Usar uma identidade gerenciada do Serviço de Aplicativo para acessar o Azure Key Vault](../general/managed-identity.md) para obter detalhes. 
 
-Para simplificar, no entanto, este início rápido cria um aplicativo de console do .NET, que requer o uso de uma entidade de serviço e uma política de controle de acesso. Sua entidade de serviço requer um nome exclusivo no formato "http://&lt;meu-nome-exclusivo-de-entidade-de-serviço&gt;".
+Para simplificar, no entanto, este início rápido cria um aplicativo de console do .NET, que requer o uso de uma entidade de serviço e uma política de controle de acesso. Sua entidade de serviço requer um nome exclusivo no formato "http://&lt;my-unique-service-principal-name&gt;".
 
 Crie uma entidade de serviço usando o comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) da CLI do Azure:
 
 ```azurecli
-az ad sp create-for-rbac -n "http://&lt;my-unique-service-principle-name&gt;" --sdk-auth
+az ad sp create-for-rbac -n "http://&lt;my-unique-service-principal-name&gt;" --sdk-auth
 ```
 
 Essa operação retornará uma série de pares de chave/valor. 

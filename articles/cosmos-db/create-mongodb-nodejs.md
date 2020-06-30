@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.custom: seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 3a6a20b4f92a7e78f7ed82210bb46d8bf1081628
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 33154293d095857ebfb1525dd433ded57b70e882
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659186"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85115543"
 ---
 # <a name="quickstart-migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>Início Rápido: Migre um aplicativo Web Node.js do MongoDB existente para o Azure Cosmos DB 
 
@@ -202,7 +202,7 @@ Vá para `http://localhost:3000` em um navegador. Selecione **Inscrever-se** no 
 
 O aplicativo de exemplo MEAN.js armazena dados do usuário no banco de dados. Se você tiver êxito e o MEAN.js entrar automaticamente no usuário criado, então a conexão do BD Cosmos do Azure estará funcionando. 
 
-![O MEAN.js conecta-se com êxito ao MongoDB](./media/create-mongodb-nodejs/mongodb-connect-success.png)
+:::image type="content" source="./media/create-mongodb-nodejs/mongodb-connect-success.png" alt-text="O MEAN.js conecta-se com êxito ao MongoDB":::
 
 ## <a name="view-data-in-data-explorer"></a>Exibir dados no Data Explorer
 
@@ -212,7 +212,7 @@ Para exibir, consultar e trabalhar com os dados de usuário criados na etapa ant
 
 Na caixa Pesquisa superior, insira **Azure Cosmos DB**. Quando a folha da conta do Cosmos abrir, selecione sua conta do Cosmos. No painel de navegação esquerdo, clique em **Data Explorer**. Expanda a coleção no painel Coleções e, em seguida, será possível exibir os documentos na coleção, consultar os dados e até mesmo criar e executar gatilhos, UDFs e procedimentos armazenados. 
 
-![Data Explorer no Portal do Azure](./media/create-mongodb-nodejs/cosmosdb-connect-mongodb-data-explorer.png)
+:::image type="content" source="./media/create-mongodb-nodejs/cosmosdb-connect-mongodb-data-explorer.png" alt-text="Data Explorer no portal do Azure":::
 
 
 ## <a name="deploy-the-nodejs-application-to-azure"></a>Implantar o aplicativo Node.js no Azure

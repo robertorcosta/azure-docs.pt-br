@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 01/24/2020
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: 2001d0621a340cbdb04c0bb5eea1166ce8b88eab
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 5015371afc67574a214097f8d3eef661df29c22f
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77212653"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85115024"
 ---
 1. Em uma nova janela do navegador, entre no [Portal do Azure](https://portal.azure.com/).
 
 2. No menu esquerdo, selecione **Criar um recurso**.
    
-   ![Crie um recurso no portal do Azure](./media/cosmos-db-create-dbaccount-table/create-nosql-db-databases-json-tutorial-0.png)
+   :::image type="content" source="./media/cosmos-db-create-dbaccount-table/create-nosql-db-databases-json-tutorial-0.png" alt-text="Crie um recurso no portal do Azure":::
    
 3. Na página **Novo**, selecione **Bancos de dados** > **Azure Cosmos DB**.
    
-   ![O painel Bancos de Dados do portal do Azure](./media/cosmos-db-create-dbaccount-table/create-nosql-db-databases-json-tutorial-1.png)
+   :::image type="content" source="./media/cosmos-db-create-dbaccount-table/create-nosql-db-databases-json-tutorial-1.png" alt-text="O painel Bancos de Dados do portal do Azure":::
    
 3. Na página **Criar Conta do Azure Cosmos DB**, insira as configurações da nova conta do Azure Cosmos DB. 
  
@@ -39,9 +39,9 @@ ms.locfileid: "77212653"
 
 5. Selecione **Revisar + Criar**. Após a concluir a validação, selecione **Criar** para criar a conta. 
  
-   ![A página da nova conta do Azure Cosmos DB](./media/cosmos-db-create-dbaccount-table/azure-cosmos-db-create-new-account.png)
+   :::image type="content" source="./media/cosmos-db-create-dbaccount-table/azure-cosmos-db-create-new-account.png" alt-text="A página da nova conta do Azure Cosmos DB":::
 
 6. São necessários alguns minutos para criar a conta. Um mensagem informando **A implantação está em andamento** será exibida. Aguarde a conclusão da implantação e, em seguida, selecione **Ir para o recurso**.
 
-    ![O painel de notificações do portal do Azure](./media/cosmos-db-create-dbaccount-table/azure-cosmos-db-account-created.png)
+    :::image type="content" source="./media/cosmos-db-create-dbaccount-table/azure-cosmos-db-account-created.png" alt-text="O painel de notificações do portal do Azure":::
 

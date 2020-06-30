@@ -7,12 +7,12 @@ ms.date: 03/12/2020
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 8c0507f4c91c4394da0efc3d8567c52db85fdfe0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 57832060fee9010f21eeb77723cf6058f169a4ee
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652296"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85125525"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net-sdk-v4"></a>Início Rápido: biblioteca de clientes do Azure Key Vault para .NET (SDK v4)
 
@@ -97,12 +97,12 @@ New-AzKeyVault -Name <your-unique-keyvault-name> -ResourceGroupName myResourceGr
 
 A maneira mais simples de autenticar um aplicativo .NET baseado em nuvem é com uma identidade gerenciada; confira [Usar uma identidade gerenciada do Serviço de Aplicativo para acessar o Azure Key Vault](../general/managed-identity.md) para obter detalhes. 
 
-Para simplificar, no entanto, este início rápido cria um aplicativo de console do .NET, que requer o uso de uma entidade de serviço e uma política de controle de acesso. Sua entidade de serviço requer um nome exclusivo no formato "http://&lt;my-unique-service-principle-name&gt;".
+Para simplificar, no entanto, este início rápido cria um aplicativo de console do .NET, que requer o uso de uma entidade de serviço e uma política de controle de acesso. Sua entidade de serviço requer um nome exclusivo no formato "http://&lt;my-unique-service-principal-name&gt;".
 
 Crie uma entidade de serviço usando o comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) da CLI do Azure:
 
 ```azurecli
-az ad sp create-for-rbac -n "http://&lt;my-unique-service-principle-name&gt;" --sdk-auth
+az ad sp create-for-rbac -n "http://&lt;my-unique-service-principal-name&gt;" --sdk-auth
 ```
 
 Essa operação retornará uma série de pares de chave/valor. 
@@ -125,7 +125,7 @@ Crie uma entidade de serviço usando o comando [New-AzADServicePrincipal](/power
 
 ```azurepowershell
 # Create a new service principal
-$spn = New-AzADServicePrincipal -DisplayName "http://&lt;my-unique-service-principle-name&gt;"
+$spn = New-AzADServicePrincipal -DisplayName "http://&lt;my-unique-service-principal-name&gt;"
 
 # Get the tenant ID and subscription ID of the service principal
 $tenantId = (Get-AzContext).Tenant.Id
@@ -200,7 +200,7 @@ Adicione as seguintes diretivas à parte superior de seu código:
 
 ### <a name="authenticate-and-create-a-client"></a>Autenticar e criar um cliente
 
-A autenticação no cofre de chaves e a criação de um cliente de cofre de chaves dependem das variáveis ambientais na etapa [Definir variáveis de ambiente](#set-environmental-variables) acima. O nome do cofre de chaves é expandido para o URI do cofre de chaves, no formato "https://\<o-nome-do-seu-cofre-de-chaves\>.vault.azure.net". O código abaixo está usando ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) para autenticação no cofre de chaves, que está lendo as variáveis de ambiente para recuperar o token de acesso. 
+A autenticação no cofre de chaves e a criação de um cliente de cofre de chaves dependem das variáveis ambientais na etapa [Definir variáveis de ambiente](#set-environmental-variables) acima. O nome do cofre de chaves é expandido para o URI do cofre de chaves, no formato "https://\<your-key-vault-name\>.vault.azure.net". O código abaixo está usando ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) para autenticação no cofre de chaves, que está lendo as variáveis de ambiente para recuperar o token de acesso. 
 
 [!code-csharp[Directives](~/samples-key-vault-dotnet-quickstart/key-vault-console-app/Program.cs?name=authenticate)]
 
@@ -247,6 +247,26 @@ az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, você poderá usar a CLI do Azure ou o Azure PowerShell para remover seu cofre de chaves e o grupo de recursos correspondente.
+
+### <a name="delete-a-key-vault"></a>Excluir um Key Vault
+```azurecli
+az keyvault delete --name <your-unique-keyvault-name>
+```
+
+```powershell
+Remove-AzKeyVault -VaultName <your-unique-keyvault-name>
+```
+
+### <a name="purge-a-key-vault"></a>Limpar um Key Vault
+```azurecli
+az keyvault purge --location eastus --name <your-unique-keyvault-name>
+```
+
+```powershell
+Remove-AzKeyVault -VaultName <your-unique-keyvault-name> -InRemovedState -Location eastus
+```
+
+### <a name="delete-a-resource-group"></a>Excluir um grupo de recursos
 
 ```azurecli
 az group delete -g "myResourceGroup"

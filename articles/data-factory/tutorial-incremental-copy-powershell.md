@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: bb2679d0f681ae82bbe1a50671bd2ff70a239dfb
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 3bd2744c651544fc7dfe41b350168a7f387c0928
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194515"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254439"
 ---
-# <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-powershell"></a>Carregar incrementalmente os dados do banco de dados SQL do Azure para o Armazenamento de Blobs do Azure usando o PowerShell
+# <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-powershell"></a>Carregar incrementalmente os dados do Banco de Dados SQL do Azure para o Armazenamento de Blobs do Azure usando o PowerShell
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Neste tutorial, você cria um Azure Data Factory com um pipeline que carrega dados delta de uma tabela em um banco de dados SQL do Azure para um Armazenamento de Blobs do Azure.
+Neste tutorial, você cria um Azure Data Factory com um pipeline que carrega dados delta de uma tabela no Banco de Dados SQL do Azure para um Armazenamento de Blobs do Azure.
 
 Neste tutorial, você realizará os seguintes procedimentos:
 
@@ -63,7 +63,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* **Banco de dados SQL do Azure**. Você usa o banco de dados como um armazenamento de dados de origem. Se você não tiver um banco de dados SQL, consulte [Criar um banco de dados SQL do Azure](../azure-sql/database/single-database-create-quickstart.md) para saber as etapas para criar um.
+* **Banco de dados SQL do Azure**. Você usa o banco de dados como um armazenamento de dados de origem. Se você não tiver um banco de dados no Banco de Dados SQL do Azure, confira [Criar um banco de dados no Banco de Dados SQL do Azure](../azure-sql/database/single-database-create-quickstart.md) para ver as etapas para criar um.
 * **Armazenamento do Azure**. Você usa o Armazenamento de Blobs como um armazenamento de dados de coletor. Se você não tiver uma conta de armazenamento, consulte [Criar uma conta de armazenamento](../storage/common/storage-account-create.md) para saber as etapas para criar uma. Crie um contêiner denominado adftutorial. 
 * **Azure PowerShell**. Siga as instruções em [Instalar e configurar o Azure PowerShell](/powershell/azure/install-Az-ps).
 
@@ -192,11 +192,11 @@ Observe os seguintes pontos:
     ```
 
 * Para criar instâncias de Data Factory, a conta de usuário usada para entrar no Azure deve ser um membro das funções colaborador ou proprietário, ou um administrador da assinatura do Azure.
-* Para obter uma lista de regiões do Azure no qual o Data Factory está disponível no momento, selecione as regiões que relevantes para você na página a seguir e, em seguida, expanda **Análise** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os armazenamentos de dados (Armazenamento, Banco de Dados SQL, etc.) e serviços de computação (Azure HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
+* Para obter uma lista de regiões do Azure no qual o Data Factory está disponível no momento, selecione as regiões que relevantes para você na página a seguir e, em seguida, expanda **Análise** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os armazenamentos de dados (Armazenamento, Banco de Dados SQL, Instância Gerenciada de SQL do Azure etc.) e serviços de computação (Azure HDInsight etc.) usados pelo data factory podem estar em outras regiões.
 
 
 ## <a name="create-linked-services"></a>Criar serviços vinculados
-Os serviços vinculados são criados em um data factory para vincular seus armazenamentos de dados e serviços de computação ao data factory. Nesta seção, você cria serviços vinculados para sua conta de armazenamento e banco de dados SQL.
+Os serviços vinculados são criados em um data factory para vincular seus armazenamentos de dados e serviços de computação ao data factory. Nesta seção, você cria serviços vinculados para sua conta de armazenamento e para o Banco de Dados SQL.
 
 ### <a name="create-a-storage-linked-service"></a>Criar um serviço vinculado do Armazenamento
 1. Crie um arquivo JSON denominado AzureStorageLinkedService.json na pasta C:\ADF, com o conteúdo a seguir. (Crie a pasta ADF se ela não existir). Substitua `<accountName>` e `<accountKey>` pelo nome e a chave da sua conta de armazenamento antes de salvar o arquivo.
@@ -732,7 +732,7 @@ Neste tutorial, você realizará os seguintes procedimentos:
 > * Execute o pipeline.
 > * Monitorar a execução de pipeline.
 
-Neste tutorial, o pipeline copiou dados de uma única tabela em um banco de dados SQL para um Armazenamento de Blobs. Avance para o tutorial a seguir para saber mais sobre como copiar dados de várias tabelas em um banco de dados do SQL Server para um Banco de Dados SQL.
+Neste tutorial, o pipeline copiou dados de uma tabela no Banco de Dados SQL do Azure para um Armazenamento de Blobs. Avance para o tutorial a seguir para saber mais sobre como copiar dados de várias tabelas em um banco de dados do SQL Server para um Banco de Dados SQL.
 
 > [!div class="nextstepaction"]
 >[Carregar incrementalmente os dados de várias tabelas no SQL Server para o Banco de Dados SQL do Azure](tutorial-incremental-copy-multiple-tables-powershell.md)

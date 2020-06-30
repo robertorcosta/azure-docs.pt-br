@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: 340017a121d12c95c7c04bbfe67b336638209e9c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4b291dcc95e0beecb1fd9fbf038055d8a77c7b79
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75439005"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254966"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Tutorial: Criar seu primeiro data factory usando o portal do Azure
 > [!div class="op_single_selector"]
@@ -432,7 +432,7 @@ Neste tutorial, você criou um data factory para processar dados executando um s
 * Foi criado um pipeline com uma atividade de Hive do HDInsight.
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste artigo, você criou um pipeline com uma atividade de transformação (atividade do HDInsight) que executa um script de Hive em um cluster do HDInsight sob demanda. Para ver como usar uma Atividade de cópia para copiar dados do armazenamento de blobs para um banco de dados SQL, confira [Tutorial: Copiar dados do armazenamento de Blobs para o Banco de Dados SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+Neste artigo, você criou um pipeline com uma atividade de transformação (atividade do HDInsight) que executa um script de Hive em um cluster do HDInsight sob demanda. Para ver como usar uma Atividade de cópia para copiar dados do Armazenamento de Blobs para o Banco de Dados SQL do Azure, confira [Tutorial: Copiar dados do armazenamento de Blobs para o Banco de Dados SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="see-also"></a>Confira também
 | Tópico | Descrição |

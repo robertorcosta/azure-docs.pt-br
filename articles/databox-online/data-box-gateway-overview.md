@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: overview
 ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: 8911c1099db36b7e4e6d568ea64ae4afa3cc826e
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: aa68b746ef5c22c97fcfdcca889bf71577c19479
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561067"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85100749"
 ---
 # <a name="what-is-azure-data-box-gateway"></a>O que é o Azure Data Box Gateway?
 
@@ -49,7 +49,7 @@ O Data Box Gateway tem os seguintes benefícios:
 
 O Data Box Gateway tem as seguintes funcionalidades:
 
-|Recurso |DESCRIÇÃO  |
+|Recurso |Descrição  |
 |---------|---------|
 |Velocidade     | Largura de banda e transferência de dados totalmente automatizada e altamente otimizada.|
 |Protocolos com suporte     | Suporte para os protocolos SMB e NFS padrão para ingestão de dados. <br> Para obter mais informações sobre as versões com suporte, acesse [Data Box Gateway system requirements](data-box-gateway-system-requirements.md) (Requisitos do sistema do Gateway do Data Box).|
@@ -64,12 +64,12 @@ O Data Box Gateway tem as seguintes funcionalidades:
 
 O dispositivo virtual Data Box Gateway tem as seguintes especificações:
 
-| Especificações                                          | DESCRIÇÃO              |
+| Especificações                                          | Descrição              |
 |---------------------------------------------------------|--------------------------|
 | Processadores virtuais (núcleos)   | Mínimo de 4 |
 | Memória  |Mínimo de 8 GB|
 | Disponibilidade|Nó único|
-| Discos|Disco do sistema operacional: 250 GB <br> Disco de dados: mínimo de 2 TB, com provisionamento dinâmico e deve ser ativado por SSDs|
+| Discos|Disco do sistema operacional: 250 GB <br> Disco de dados: Mínimo de 2 TB, com provisionamento dinâmico e deve ser ativado por SSDs|
 | Interfaces de rede |1 ou mais adaptadores de rede virtual|
 | Protocolos de compartilhamento de arquivo nativo|SMB e NFS  |
 | Segurança|Autenticação para desbloquear o acesso ao dispositivo e aos dados <br> Dados em trânsito criptografados usando a criptografia AES de 256 bits|
@@ -89,7 +89,7 @@ A solução Data Box Gateway é composta pelo recurso de Data Box Gateway, dispo
 
 O dispositivo físico Data Box Gateway, o recurso do Azure e a conta de armazenamento de destino para a qual os dados são transferidos não precisam estar todos na mesma região.
 
-- **Disponibilidade de recursos** – Para obter uma lista de todas as regiões em que o recurso Azure Stack Edge está disponível, vá para [Produtos do Microsoft Azure disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=databox). O Data Box Gateway também pode ser implantado na Nuvem do Azure Governamental. Para obter mais informações, confira [O que é o Azure Governamental?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
+- **Disponibilidade de recursos** – para obter uma lista de todas as regiões em que o recurso Azure Data Box Gateway está disponível, acesse [Produtos do Azure disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=databox). O Data Box Gateway também pode ser implantado na Nuvem do Azure Governamental. Para obter mais informações, confira [O que é o Azure Governamental?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
 
 - **Contas de Armazenamento de destino** – as contas de armazenamento que armazenam os dados estão disponíveis em todas as regiões do Azure.
 

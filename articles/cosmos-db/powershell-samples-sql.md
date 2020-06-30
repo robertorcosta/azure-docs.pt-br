@@ -4,14 +4,14 @@ description: Obtenha os exemplos de Azure PowerShell para executar várias taref
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/13/2020
+ms.date: 06/12/2020
 ms.author: mjbrown
-ms.openlocfilehash: 7cd14151d8cb0fbef7593d62eee050be7987ab18
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 82d709567e75540a865758162ac87f55dfa84bea
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83713532"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85126086"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db---sql-core-api"></a>Amostras do Azure PowerShell para o Azure Cosmos DB – API do SQL (Core)
 
@@ -35,4 +35,5 @@ Para obter mais amostras do PowerShell para o Cosmos DB para a API do SQL (Core)
 |[Alterar a prioridade de failover ou disparar um failover](scripts/powershell/common/ps-account-failover-priority-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Altere a prioridade de failover regional de uma conta do Azure Cosmos ou dispare um failover manual. |
 |[Chaves de conta ou cadeias de conexão](scripts/powershell/common/ps-account-keys-connection-strings.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Obtenha chaves primárias e secundárias, cadeias de conexão ou regenere uma chave de conta de uma conta do Azure Cosmos DB. |
 |[Criar uma conta do Cosmos com o firewall de IP](scripts/powershell/common/ps-account-firewall-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crie uma conta do Azure Cosmos DB com o firewall de IP habilitado. |
+|[Bloquear recursos da exclusão](scripts/powershell/sql/powershell-sql-lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Impedir que os recursos sejam excluídos com bloqueios de recursos. |
 |||

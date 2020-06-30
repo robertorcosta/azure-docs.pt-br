@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: ed46859184dd17141892373943ac43e407b21eb6
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: d8f03d714ab44dc01d9e138a63a89892ead60fe9
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84817679"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85249458"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-windows"></a>Início Rápido: Criar um aplicativo Java no Serviço de Aplicativo do Azure no Windows
 
@@ -38,7 +38,7 @@ O [Serviço de Aplicativo do Azure](overview.md) fornece um serviço de hospedag
 Execute o seguinte comando do Maven no prompt do Cloud Shell para criar um aplicativo chamado `helloworld`:
 
 ```bash
-mvn archetype:generate -DgroupId=example.demo -DartifactId=helloworld -DarchetypeArtifactId=maven-archetype-webapp -Dversion=1.0-SNAPSHOT
+mvn archetype:generate "-DgroupId=example.demo" "-DartifactId=helloworld" "-DarchetypeArtifactId=maven-archetype-webapp" "-Dversion=1.0-SNAPSHOT"
 ```
 
 Em seguida, altere o diretório de trabalho para a pasta do projeto:
@@ -59,7 +59,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 
 Um processo de exemplo é semelhante a este:
 
-```cmd
+```console
 ~@Azure:~/helloworld$ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 [INFO] Scanning for projects...
 [INFO]
@@ -179,7 +179,7 @@ Após a conclusão da implantação, navegue até o aplicativo implantado usando
 
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]
-> [Conectar-se a Banco de Dados SQL do Azure com Java](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
+> [Conectar-se ao Banco de Dados SQL do Azure com Java](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
 
 > [!div class="nextstepaction"]
 > [Conectar-se ao BD do Azure para MySQL com Java](/azure/mysql/connect-java)

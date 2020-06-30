@@ -6,12 +6,12 @@ ms.assetid: 53e6a15a-370a-48df-8618-c6737e26acec
 ms.topic: sample
 ms.date: 12/12/2017
 ms.custom: mvc
-ms.openlocfilehash: 499bf25f06030ae9fc5c1f8381ef4cd6ff6873dc
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 857d6cdc26e41f5ea7b1d66aaff6efb4056c47c4
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535614"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254490"
 ---
 # <a name="cli-samples-for-azure-app-service"></a>Exemplos de CLI para o Serviço de Aplicativo do Azure
 
@@ -35,7 +35,7 @@ A tabela a seguir inclui links para bash scripts criados usando a CLI do Azure.
 |**Proteger o aplicativo**||
 | [Integrar com o Gateway de Aplicativo do Azure](./scripts/cli-integrate-app-service-with-application-gateway.md?toc=%2fcli%2fazure%2ftoc.json) | Cria um aplicativo do Serviço de Aplicativo e o integra com o Gateway de Aplicativo usando restrições de acesso e ponto de extremidade de serviço. |
 |**Como conectar o aplicativo aos recursos**||
-| [Conectar um aplicativo a um Banco de Dados SQL](./scripts/cli-connect-to-sql.md?toc=%2fcli%2fazure%2ftoc.json)| Cria um aplicativo do Serviço de Aplicativo e um Banco de Dados SQL e, em seguida, adiciona a cadeia de conexão de banco de dados às configurações do aplicativo. |
+| [Conectar um aplicativo a um Banco de Dados SQL](./scripts/cli-connect-to-sql.md?toc=%2fcli%2fazure%2ftoc.json)| Cria um aplicativo do Serviço de Aplicativo e um banco de dados no Banco de Dados SQL do Azure e adiciona a cadeia de conexão de banco de dados às configurações do aplicativo. |
 | [Conectar um aplicativo a uma conta de armazenamento](./scripts/cli-connect-to-storage.md?toc=%2fcli%2fazure%2ftoc.json)| Cria um aplicativo do Serviço de Aplicativo e uma conta de armazenamento e, em seguida, adiciona a cadeia de conexão de armazenamento às configurações do aplicativo. |
 | [Conectar um aplicativo a um Cache do Azure para Redis](./scripts/cli-connect-to-redis.md?toc=%2fcli%2fazure%2ftoc.json) | Cria um aplicativo de Serviço de Aplicativo e um Cache do Azure para Redis e, em seguida, adiciona detalhes da conexão redis às configurações do aplicativo. |
 | [Conectar um aplicativo ao Cosmos DB](./scripts/cli-connect-to-documentdb.md?toc=%2fcli%2fazure%2ftoc.json) | Cria um aplicativo de Serviço de Aplicativo e um Cosmos DB e, em seguida, adiciona os detalhes da conexão do BD Cosmos às configurações do aplicativo. |

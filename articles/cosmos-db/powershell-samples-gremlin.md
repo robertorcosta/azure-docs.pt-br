@@ -3,15 +3,15 @@ title: Amostras do Azure PowerShell para o Azure Cosmos DB – API do Gremlin
 description: Obtenha os exemplos de Azure PowerShell para executar várias tarefas comuns em contas da API do Gremlin do Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
-ms.date: 05/13/2020
+ms.topic: how-to
+ms.date: 06/12/2020
 ms.author: mjbrown
-ms.openlocfilehash: 175e527e46bc15b894f7beec7c6c95d56e8c6d17
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 30a3e4be070d0bdc628fbf891755049e1979e503
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649731"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85263374"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db-gremlin-api"></a>Amostras do Azure PowerShell para o Azure Cosmos DB – API do Gremlin
 
@@ -30,4 +30,5 @@ A tabela a seguir inclui links para scripts de exemplo do Azure PowerShell para 
 |[Alterar a prioridade de failover ou disparar um failover](scripts/powershell/common/ps-account-failover-priority-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Altere a prioridade de failover regional de uma conta do Azure Cosmos ou dispare um failover manual. |
 |[Chaves de conta ou cadeias de conexão](scripts/powershell/common/ps-account-keys-connection-strings.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Obtenha chaves primárias e secundárias, cadeias de conexão ou regenere uma chave de conta de uma conta do Azure Cosmos. |
 |[Criar uma conta do Cosmos com o firewall de IP](scripts/powershell/common/ps-account-firewall-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crie uma conta do Azure Cosmos com o firewall de IP habilitado. |
+|[Bloquear recursos da exclusão](scripts/powershell/gremlin/powershell-gremlin-lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Impedir que os recursos sejam excluídos com bloqueios de recursos. |
 |||

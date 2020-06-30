@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: tracking-python
-ms.openlocfilehash: 6a25f3393a3c99273f12af0c5ff5047dfe373581
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 7c67bc77984af8a25c3514931ed0983df1751d5e
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84554908"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85126120"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-python"></a>Início Rápido: Biblioteca de clientes do Azure Key Vault para Python
 
@@ -27,7 +27,7 @@ O Cofre da Chave do Azure ajuda a proteger chaves criptográficas e segredos usa
 - Simplifique e automatize tarefas para certificados TLS/SSL.
 - Usar HSMs validados para os padrões FIPS 140-2 Nível 2.
 
-[Documentação de referência da API](/python/api/overview/azure/key-vault?view=azure-python) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault) | [Pacote (Índice de Pacote do Python)](https://pypi.org/project/azure-keyvault/)
+[Documentação de referência da API](/python/api/overview/azure/keyvault-certificates-readme?view=azure-python) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault) | [Pacote (Índice de Pacote do Python)](https://pypi.org/project/azure-keyvault/)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -70,12 +70,12 @@ az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
 
 A maneira mais simples de autenticar um aplicativo .NET baseado em nuvem é com uma identidade gerenciada; confira [Usar uma identidade gerenciada do Serviço de Aplicativo para acessar o Azure Key Vault](../general/managed-identity.md) para obter detalhes.
 
-Para simplificar, no entanto, este início rápido cria um aplicativo de área de trabalho, que requer o uso de uma entidade de serviço e uma política de controle de acesso. Sua entidade de serviço requer um nome exclusivo no formato "http://&lt;meu-nome-exclusivo-de-entidade-de-serviço&gt;".
+Para simplificar, no entanto, este início rápido cria um aplicativo de área de trabalho, que requer o uso de uma entidade de serviço e uma política de controle de acesso. Sua entidade de serviço requer um nome exclusivo no formato "http://&lt;my-unique-service-principal-name&gt;".
 
 Crie uma entidade de serviço usando o comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) da CLI do Azure:
 
 ```azurecli
-az ad sp create-for-rbac -n "http://&lt;my-unique-service-principle-name&gt;" --sdk-auth
+az ad sp create-for-rbac -n "http://&lt;my-unique-service-principal-name&gt;" --sdk-auth
 ```
 
 Essa operação retornará uma série de pares de chave/valor. 

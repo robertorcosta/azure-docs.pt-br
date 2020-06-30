@@ -1,6 +1,6 @@
 ---
 title: Copiar incrementalmente várias tabelas usando o PowerShell
-description: Neste tutorial, você criará um pipeline do Azure Data Factory que copia os dados delta de maneira incremental de várias tabelas em um banco de dados do SQL Server para um Banco de Dados SQL do Azure.
+description: Neste tutorial, você criará um pipeline do Azure Data Factory que copia os dados delta de maneira incremental de várias tabelas em um banco de dados do SQL Server para um banco de dados no Banco de Dados SQL do Azure.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: 18f004b88a2b79f057ce3bf2fcc4cbe73e2b46da
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: e7846ae0f52dfee4260838302d55213d2791eb07
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84736588"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85250954"
 ---
-# <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database-using-powershell"></a>Carregar dados de maneira incremental de várias tabelas no SQL Server para um Banco de Dados SQL do Azure usando o PowerShell
+# <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-azure-sql-database-using-powershell"></a>Carregar dados de maneira incremental de várias tabelas no SQL Server para o Banco de Dados SQL do Azure usando o PowerShell
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Neste tutorial, você criará um Azure Data Factory com um pipeline que carrega os dados delta de várias tabelas em um banco de dados do SQL Server para um Banco de Dados SQL do Azure.    
+Neste tutorial, você criará um Azure Data Factory com um pipeline que carrega os dados delta de várias tabelas em um banco de dados do SQL Server para o Banco de Dados SQL do Azure.    
 
 Neste tutorial, você realizará os seguintes procedimentos:
 
@@ -70,7 +70,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **SQL Server**. Você usa um banco de dados do SQL Server como o armazenamento de dados de origem neste tutorial. 
-* **Banco de dados SQL do Azure**. Use um banco de dados SQL do Azure como o armazenamento de dados do coletor. Se você não tiver um banco de dados SQL, consulte [Criar um banco de dados SQL do Azure](../azure-sql/database/single-database-create-quickstart.md) para saber as etapas para criar um. 
+* **Banco de dados SQL do Azure**. Você usa um banco de dados no Banco de Dados SQL do Azure como o armazenamento de dados do coletor. Se você não tiver um Banco de Dados SQL, confira [Criar um banco de dados no Banco de Dados SQL do Azure](../azure-sql/database/single-database-create-quickstart.md) para saber as etapas para criar um. 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Criar tabelas de origem no banco de dados do SQL Server
 
@@ -117,7 +117,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 2. No **SSMS (Gerenciador de Servidores)** ou no **painel Conexões (Azure Data Studio)** , clique com o botão direito do mouse no banco de dados e escolha **Nova Consulta**.
 
-3. Execute o seguinte comando SQL no banco de dados SQL para criar as tabelas `customer_table` e `project_table`:  
+3. Execute o seguinte comando SQL no banco de dados para criar as tabelas `customer_table` e `project_table`:  
 
     ```sql
     create table customer_table
@@ -134,9 +134,9 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
     );
     ```
 
-### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>Criar outra tabela no Banco de Dados SQL do Azure para armazenar o valor de marca d'água alta
+### <a name="create-another-table-in-azure-sql-database-to-store-the-high-watermark-value"></a>Criar outra tabela no Banco de Dados SQL do Azure para armazenar o valor de marca d'água alta
 
-1. Execute o comando SQL a seguir no banco de dados SQL para criar uma tabela chamada `watermarktable` para armazenar o valor de marca-d'água: 
+1. Execute o seguinte comando SQL no banco de dados para criar uma tabela chamada `watermarktable` para armazenar o valor de marca-d'água: 
     
     ```sql
     create table watermarktable
@@ -159,7 +159,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 ### <a name="create-a-stored-procedure-in-the-azure-sql-database"></a>Criar um procedimento armazenado no Banco de Dados SQL do Azure 
 
-Execute o comando a seguir para criar um procedimento armazenado no banco de dados SQL. Esse procedimento armazenado atualiza o valor de marca d'água após cada execução de pipeline. 
+Execute o comando a seguir para criar um procedimento armazenado no banco de dados. Esse procedimento armazenado atualiza o valor de marca d'água após cada execução de pipeline. 
 
 ```sql
 CREATE PROCEDURE usp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
@@ -175,9 +175,9 @@ END
 
 ```
 
-### <a name="create-data-types-and-additional-stored-procedures-in-the-azure-sql-database"></a>Criar tipos de dados e procedimentos armazenados adicionais no Banco de Dados SQL do Azure
+### <a name="create-data-types-and-additional-stored-procedures-in-azure-sql-database"></a>Criar tipos de dados e procedimentos armazenados adicionais no Banco de Dados SQL do Azure
 
-Execute a consulta a seguir para criar dois tipos de dados e dois procedimentos armazenados no banco de dados SQL. Eles são usados para mesclar os dados das tabelas de origem nas tabelas de destino. 
+Execute a consulta a seguir para criar dois tipos de dados e dois procedimentos armazenados no banco de dados. Eles são usados para mesclar os dados das tabelas de origem nas tabelas de destino. 
 
 Para facilitar a jornada de introdução, usamos diretamente esses procedimentos armazenados passando os dados delta por meio de uma variável de tabela e, em seguida, mesclamos esses dados no repositório de destino. Tenha cuidado, pois ele não espera que um número "grande" de linhas delta (mais de 100) seja armazenado na variável de tabela.  
 
@@ -283,13 +283,13 @@ Observe os seguintes pontos:
 
 * Para criar instâncias de Data Factory, a conta de usuário usada para entrar no Azure deve ser um membro das funções colaborador ou proprietário, ou um administrador da assinatura do Azure.
 
-* Para obter uma lista de regiões do Azure no qual o Data Factory está disponível no momento, selecione as regiões que relevantes para você na página a seguir e, em seguida, expanda **Análise** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL, etc.) e serviços de computação (Azure HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
+* Para obter uma lista de regiões do Azure no qual o Data Factory está disponível no momento, selecione as regiões que relevantes para você na página a seguir e, em seguida, expanda **Análise** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os armazenamentos de dados (Banco de Dados SQL, Instância Gerenciada de SQL, Armazenamento do Azure etc.) e serviços de computação (Azure HDInsight etc.) usados pelo data factory podem estar em outras regiões.
 
 [!INCLUDE [data-factory-create-install-integration-runtime](../../includes/data-factory-create-install-integration-runtime.md)]
 
 ## <a name="create-linked-services"></a>Criar serviços vinculados
 
-Os serviços vinculados são criados em um data factory para vincular seus armazenamentos de dados e serviços de computação ao data factory. Nesta seção, você criará serviços vinculados para o banco de dados do SQL Server e o Banco de Dados SQL do Azure. 
+Os serviços vinculados são criados em um data factory para vincular seus armazenamentos de dados e serviços de computação ao data factory. Nesta seção, você criará serviços vinculados para o banco de dados do SQL Server e o seu banco de dados no Banco de Dados SQL do Azure. 
 
 ### <a name="create-the-sql-server-linked-service"></a>Criar um serviço vinculado do SQL Server
 
@@ -372,7 +372,7 @@ Nesta etapa, você vincula seu banco de dados do SQL Server ao data factory.
     Properties        : Microsoft.Azure.Management.DataFactory.Models.SqlServerLinkedService
     ```
 
-### <a name="create-the-sql-database-linked-service"></a>Criar um serviço vinculado do banco de dados SQL
+### <a name="create-the-sql-database-linked-service"></a>Criar um serviço vinculado do Banco de Dados SQL
 
 1. Crie um arquivo JSON chamado **AzureSQLDatabaseLinkedService.json** na pasta C:\ADFTutorials\IncCopyMultiTableTutorial com o conteúdo a seguir. (Crie a pasta ADF se ela não existir). Substitua &lt;nome do servidor&gt;, &lt;nome do banco de dados&gt;, &lt;nome de usuário&gt; e &lt;senha&gt; pelo nome do banco de dados do SQL Server, pelo nome do banco de dados, pelo nome de usuário e pela senha antes de salvar o arquivo. 
 

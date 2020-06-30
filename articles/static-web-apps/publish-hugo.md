@@ -7,16 +7,16 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: 44472981e48a7018fcdf55f28d33d0dda9479d44
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: 250be11f498e825c3e487abfac1c0acc585e5317
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84669895"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85297934"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Tutorial: Publicar um site do Hugo na Versão Prévia dos Aplicativos Web Estáticos do Azure
 
-Este artigo demonstra como criar e implantar um aplicativo web [Hugo](https://gohugo.io/) para [Aplicativos Web Estáticos do Azure](overview.md). O resultado final são novos Aplicativos Web Estáticos do Azure com GitHub Actions associadas que lhe dão controle sobre como o aplicativo é criado e publicado.
+Este artigo demonstra como criar e implantar um aplicativo Web [Hugo](https://gohugo.io/) para [Aplicativos Web Estáticos do Azure](overview.md). O resultado final são novos Aplicativos Web Estáticos do Azure com o GitHub Actions associado que dão controle a você sobre como o aplicativo é criado e publicado.
 
 Neste tutorial, você aprenderá como:
 
@@ -144,42 +144,6 @@ Em seguida, você adiciona as definições de configuração que o processo de c
 1. Clique no botão **Revisar + Criar** para verificar se os detalhes estão corretos.
 
 1. Clique em **Criar** para iniciar a criação dos Aplicativos Web Estáticos do Azure e provisionar uma GitHub Action para a implantação.
-
-1. Quando a implantação for concluída, navegue até o terminal e receba a confirmação com a GitHub Action em seu computador.
-
-   ```bash
-   git pull
-   ```
-
-1. Abra o aplicativo Hugo em um editor de texto e abra o arquivo _.github/workflows/azure-pages-<NOME_FLUXO_TRABALHO>.yml_.
-
-1. Substitua a linha `- uses: actions/checkout@v2` (linha 18) pelo seguinte para compilar o aplicativo Hugo. Se você precisar do Hugo estendido, remova a marca de comentário `extended: true`.
-
-   ```yml
-   - uses: actions/checkout@v2
-     with:
-       submodules: true  # Fetch Hugo themes (true OR recursive)
-       fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
-
-   - name: Setup Hugo
-     uses: peaceiris/actions-hugo@v2.4.11
-     with:
-       hugo-version: "latest"  # Hugo version: latest OR x.y.z
-       # extended: true
-
-   - name: Build
-     run: hugo
-   ```
-   
-   Para obter mais detalhes sobre como instalar o Hugo no executor do GitHub Actions, confira [peaceiris/actions-hugo](https://github.com/peaceiris/actions-hugo).
-
-1. Confirme o fluxo de trabalho atualizado e envie por push para o GitHub.
-
-   ```bash
-   git add -A
-   git commit -m "Updating GitHub Actions workflow"
-   git push
-   ```
 
 1. Aguarde a conclusão da GitHub Action.
 

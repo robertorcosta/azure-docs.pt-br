@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 12/03/2019
-ms.openlocfilehash: f4d6e1bb0d5db0dbfc30e14abc58321bce8d0baf
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 6e1dc5f0016c27d987361aa52e59682806a31c95
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84693168"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118909"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Introdução à API de Tabela do Azure Cosmos DB e armazenamento de Tabelas do Azure usando SDK do .NET
 
@@ -25,7 +25,7 @@ ms.locfileid: "84693168"
 
 Este tutorial descreve um exemplo que mostra como usar a [Biblioteca de Tabelas do Microsoft Azure Cosmos DB para .NET](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) com cenários de API de Tabela do Azure Cosmos DB e Armazenamento de Tabelas do Azure. Você deverá usar a conexão específica para o serviço do Azure. Esses cenários são explorados usando exemplos em C# que ilustram como criar tabelas, inserir/atualizar dados, consultar dados e excluir tabelas.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Você precisará do seguinte para concluir este exemplo com sucesso:
 
@@ -67,7 +67,7 @@ Para obter o pacote NuGet, siga estas etapas:
 
 1. Abra o painel **Cadeia de Conexão** ou **Chaves de acesso** painel. Use o botão de cópia no lado direito da tela para copiar a **CADEIA DE CONEXÃO PRIMÁRIA**.
 
-   ![Exiba e copie a CADEIA DE CONEXÃO PRIMÁRIA no painel Cadeia de Conexão](./media/create-table-dotnet/connection-string.png)
+   :::image type="content" source="./media/create-table-dotnet/connection-string.png" alt-text="Exibir e copiar a CADEIA DE CONEXÃO PRIMÁRIA no painel Cadeia de Conexão":::
    
 1. Para configurar a cadeia de conexão, no Visual Studio clique com o botão direito do mouse no projeto **CosmosTableSamples**.
 
@@ -422,7 +422,7 @@ namespace CosmosTableSamples
 
 Agora, compile a solução e pressione F5 para executar o projeto. Quando o projeto for executado, a seguinte saída no prompt de comando será exibida:
 
-![Saída do prompt de comando](./media/tutorial-develop-table-standard/output-from-sample.png)
+:::image type="content" source="./media/tutorial-develop-table-standard/output-from-sample.png" alt-text="Saída do prompt de comando":::
 
 Se você receber um erro informando que o arquivo Settings.json não pode ser encontrado ao executar o projeto, será possível resolvê-lo adicionando a seguinte entrada XML às configurações do projeto. Clique com o botão direito do mouse em CosmosTableSamples, selecione Editar CosmosTableSamples.csproj e adicione o seguinte itemGroup: 
 
@@ -435,7 +435,7 @@ Se você receber um erro informando que o arquivo Settings.json não pode ser en
 ```
 Agora, você pode entrar no portal do Azure e verificar se os dados existem na tabela. 
 
-![Resultados no portal](./media/tutorial-develop-table-standard/results-in-portal.png)
+:::image type="content" source="./media/tutorial-develop-table-standard/results-in-portal.png" alt-text="Resultados no portal":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

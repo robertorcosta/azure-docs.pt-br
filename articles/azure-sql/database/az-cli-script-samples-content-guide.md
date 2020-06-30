@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/03/2019
-ms.openlocfilehash: ecd78cdc534b68d913b6b5114a04ad2720796665
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 1f63b8adfabb9de427fd19a992f913d032aa9d8b
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84658174"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85251498"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database-and-sql-managed-instance"></a>Exemplos da CLI do Azure para Banco de Dados SQL do Azure e Instância Gerenciada de SQL 
  
@@ -39,15 +39,15 @@ A tabela a seguir inclui links para exemplos de scripts da CLI do Azure para ger
 |---|---|
 |**Criar bancos de dados no Banco de dados SQL do Azure**||
 | [Criar um Banco de Dados individual e configurar uma regra de firewall](scripts/create-and-configure-database-cli.md) | Cria um Banco de Dados SQL e configura uma regra de firewall no nível do servidor. |
-| [Criar pools Elásticos e mover bancos de dados em pools](scripts/move-database-between-elastic-pools-cli.md) | Cria pools elásticos, move bancos de dados SQL em pool e altera os tamanhos da computação. |
+| [Criar pools Elásticos e mover bancos de dados em pools](scripts/move-database-between-elastic-pools-cli.md) | Cria pools elásticos, move bancos de dados em pool e altera os tamanhos da computação. |
 |**Escalar bancos de dados no Banco de dados SQL do Azure**||
 | [Dimensionar um banco de dados individual](scripts/monitor-and-scale-database-cli.md) | Escala um banco de dados no Banco de Dados SQL do Azure para um tamanho da computação diferente depois de consultar as informações de tamanho do banco de dados. |
 | [Dimensionar um pool elástico](scripts/scale-pool-cli.md) | Dimensiona um pool elástico do SQL para um tamanho da computação diferente. |
 |**Configurar a replicação geográfica e o failover**||
 | [Adicionar um banco de dados individual a um grupo de failover](scripts/add-database-to-failover-group-cli.md)| Cria um banco de dados e um grupo de failover, adiciona o banco de dados ao grupo de failover e testa o failover no servidor secundário. |
 | [Configurar um grupo de failover para um pool elástico](../../sql-database/scripts/sql-database-add-elastic-pool-to-failover-group-cli.md) | Cria um banco de dados, adiciona-o a um pool elástico, adiciona o pool elástico ao grupo de failover e testa o failover para o servidor secundário. |
-| [Configurar e fazer failover de um banco de dados individual usando a replicação geográfica ativa](../../sql-database/scripts/sql-database-setup-geodr-and-failover-database-cli.md)| Configura a replicação geográfica ativa para um Banco de dados SQL do Azure e faz o failover desse banco de dados para a réplica secundária. |
-| [Configurar e fazer failover de um banco de dados em pool usando a replicação geográfica ativa](../../sql-database/scripts/sql-database-setup-geodr-and-failover-pool-cli.md)| Configura a replicação geográfica ativa para um Banco de dados SQL do Azure em um pool elástico SQL e faz o failover desse banco de dados para a réplica secundária. |
+| [Configurar e fazer failover de um banco de dados individual usando a replicação geográfica ativa](../../sql-database/scripts/sql-database-setup-geodr-and-failover-database-cli.md)| Configura a replicação geográfica ativa para um banco de dados no Banco de Dados SQL do Azure e faz o failover desse banco de dados para a réplica secundária. |
+| [Configurar e fazer failover de um banco de dados em pool usando a replicação geográfica ativa](../../sql-database/scripts/sql-database-setup-geodr-and-failover-pool-cli.md)| Configura a replicação geográfica ativa para um banco de dados em um pool elástico e faz o failover desse banco de dados para a réplica secundária. |
 | **Auditoria e detecção de ameaças** |
 | [Configurar auditoria e detecção de ameaças](../../sql-database/scripts/sql-database-auditing-and-threat-detection-cli.md)| Configura políticas de detecção de ameaças e auditoria para um banco de dados no Banco de Dados SQL do Azure. |
 | **Fazer backup, restaurar, copiar e importar um banco de dados**||

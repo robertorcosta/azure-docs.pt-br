@@ -1,6 +1,6 @@
 ---
-title: 'CLI: Conectar um aplicativo a um Banco de Dados SQL'
-description: Saiba como usar a CLI do Azure para automatizar a implantação e o gerenciamento do seu aplicativo do Serviço de Aplicativo. Esta amostra descreve como conectar um aplicativo a um Banco de Dados SQL.
+title: 'CLI: conectar um aplicativo a um Banco de Dados SQL'
+description: Saiba como usar a CLI do Azure para automatizar a implantação e o gerenciamento do seu aplicativo do Serviço de Aplicativo. Este exemplo descreve como conectar um aplicativo a um Banco de Dados SQL.
 author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 7c2efdd0-f553-4038-a77a-e953021b3f77
@@ -9,16 +9,16 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18
-ms.openlocfilehash: aa922930314d630e1aece004bab0c74adaf8eb2f
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 297ef15cbf2b8e261d38dabe3a91cb26f3b449d2
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84015481"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85250733"
 ---
-# <a name="connect-an-app-service-app-to-a-sql-database-using-cli"></a>Conectar um aplicativo do Serviço de Aplicativo a um Banco de Dados SQL usando a CLI
+# <a name="connect-an-app-service-app-to-sql-database-using-cli"></a>Conectar um aplicativo do Serviço de Aplicativo a um Banco de Dados SQL usando a CLI
 
-Este script de exemplo cria um Banco de Dados SQL do Azure e um aplicativo do Serviço de Aplicativo. Em seguida, ele vincula o Banco de Dados SQL ao aplicativo usando as configurações de aplicativo.
+Este script de exemplo cria um banco de dados no Banco de Dados SQL do Azure e um aplicativo do Serviço de Aplicativo. Em seguida, ele vincula o banco de dados ao aplicativo usando as configurações de aplicativo.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

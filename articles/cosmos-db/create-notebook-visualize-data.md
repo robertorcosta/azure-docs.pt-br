@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 3de73156618b0f5234cc8049c4ea70385b790388
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: dfcde775780cdb42f9df1d677ff2f2475de92843
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743588"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85115271"
 ---
 # <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Tutorial: Criar um notebook no Azure Cosmos DB para analisar e visualizar os dados
 
@@ -30,7 +30,7 @@ Nesta seção, você criará o banco de dados do Azure Cosmos e o contêiner e i
 
 1. Acesse a guia **Notebooks**, selecione `…` ao lado de **Meus Notebooks** e crie um **Notebook**. Selecione **Python 3** como o kernel padrão.
 
-   ![Criar um novo notebook](./media/create-notebook-visualize-data/create-new-notebook.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/create-new-notebook.png" alt-text="Crie um notebook":::
 
 1. Depois que um notebook for criado, será possível renomeá-lo para algo como **VisualizeRetailData.ipynb.**
 
@@ -49,7 +49,7 @@ Nesta seção, você criará o banco de dados do Azure Cosmos e o contêiner e i
 
    Para executar uma célula, selecione `Shift + Enter` ou selecione a célula e escolha a opção **Executar Célula Ativa** na barra de navegação do Data Explorer.
 
-   ![Executar a célula ativa](./media/create-notebook-visualize-data/run-active-cell.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/run-active-cell.png" alt-text="Executar a célula ativa":::
 
    O banco de dados e o contêiner são criados em sua conta atual do Azure Cosmos. O contêiner é provisionado com 400 RU/s. Você verá a saída a seguir depois que o banco de dados e o contêiner forem criados. 
 
@@ -60,7 +60,7 @@ Nesta seção, você criará o banco de dados do Azure Cosmos e o contêiner e i
 
    Também é possível atualizar a guia **Dados** e ver os recursos recém-criados:
 
-   ![Atualize a guia dados para ver o novo contêiner](media/create-notebook-visualize-data/refresh-data-tab.png)
+   :::image type="content" source="media/create-notebook-visualize-data/refresh-data-tab.png" alt-text="Atualize a guia dados para ver o novo contêiner":::
 
 1. Em seguida, você importará os dados de varejo de exemplo para o contêiner do Azure Cosmos. Veja o formato de um item dos dados de varejo:
 
@@ -135,7 +135,7 @@ Em uma nova célula de notebook, execute o código a seguir para ler os 10 prime
 df_cosmos.head(10)
 ```
 
-![Executar consulta para obter os 10 primeiros itens](./media/create-notebook-visualize-data/run-query-get-top10-items.png)
+:::image type="content" source="./media/create-notebook-visualize-data/run-query-get-top10-items.png" alt-text="Executar consulta para obter os 10 primeiros itens":::
 
 ## <a name="run-queries-and-analyze-your-data"></a>Executar as consultas e analisar seus dados
 
@@ -148,7 +148,7 @@ Nesta seção, você executará algumas consultas nos dados recuperados.
    display(df_revenue.head(5))
    ```
 
-   ![Saída da receita de vendas total](./media/create-notebook-visualize-data/total-sales-revenue-output.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/total-sales-revenue-output.png" alt-text="Saída da receita de vendas total":::
 
 * **Consulta2:** para obter uma lista dos cinco principais itens comprados, abra uma nova célula de notebook e execute o seguinte código:
 
@@ -159,7 +159,7 @@ Nesta seção, você executará algumas consultas nos dados recuperados.
    pd.DataFrame(df_cosmos[df_cosmos['Action']=='Purchased'].groupby('Item').size().sort_values(ascending=False).head(5), columns=['Count'])
    ```
 
-   ![Cinco itens mais comprados](./media/create-notebook-visualize-data/top5-purchased-items.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/top5-purchased-items.png" alt-text="Cinco itens mais comprados":::
 
 ## <a name="visualize-your-data"></a>Visualize seus dados  
 
@@ -286,7 +286,7 @@ Nesta seção, você executará algumas consultas nos dados recuperados.
    show(p)
    ```
 
-   ![Visualizar taxa de conversão de compra](./media/create-notebook-visualize-data/visualize-purchase-conversion-rate.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/visualize-purchase-conversion-rate.png" alt-text="Visualizar taxa de conversão de compra":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -13,12 +13,12 @@ ms.custom:
 - seo-javascript-september2019
 - seo-python-october2019
 - tracking-python
-ms.openlocfilehash: b140371c42fffd55b271fa0215db89ea9d07da0c
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 1b3a97a11c8d5782b8b7577d6afccbbdaadea0e7
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559827"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85116563"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>Início Rápido: criar um aplicativo do Python usando uma conta de API de SQL do Azure Cosmos DB
 
@@ -52,7 +52,7 @@ Agora, você pode usar a ferramenta Data Explorer no portal do Azure para criar 
     
     A área **Adicionar Contêiner** é exibida à extrema direita; talvez seja necessário rolar a página para a direita para vê-la.
 
-    ![O Data Explorer do portal do Azure, painel Adicionar Contêiner](./media/create-sql-api-python/azure-cosmosdb-data-explorer.png)
+    :::image type="content" source="./media/create-sql-api-python/azure-cosmosdb-data-explorer.png" alt-text="O Data Explorer do portal do Azure, painel Adicionar Contêiner":::
 
 2. Na página **Adicionar contêiner**, insira as configurações do novo contêiner.
 
@@ -108,7 +108,7 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
 
 1. Em sua conta do Azure Cosmos DB no [portal do Azure](https://portal.azure.com/), selecione **Chaves** no painel de navegação esquerdo. Use os botões de cópia do lado direito da tela para copiar o **URI** e a **Chave Primária** para o arquivo *cosmos_get_started.py* na próxima etapa.
 
-    ![Obter uma chave de acesso e um URI nas configurações de chaves no portal do Azure](./media/create-sql-api-dotnet/access-key-and-uri-in-keys-settings-in-the-azure-portal.png)
+    :::image type="content" source="./media/create-sql-api-dotnet/access-key-and-uri-in-keys-settings-in-the-azure-portal.png" alt-text="Obter uma chave de acesso e um URI nas configurações de chaves no portal do Azure":::
 
 2. No Visual Studio Code, abra o arquivo *cosmos_get_started.py* em *\git-samples\azure-cosmos-db-python-getting-started*.
 

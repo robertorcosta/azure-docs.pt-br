@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: criar um pipeline usando o Assistente de Cópia '
+title: 'Tutorial: Criar um pipeline usando o Assistente de Cópia '
 description: Neste tutorial, você cria um pipeline do Azure Data Factory com uma Atividade de Cópia usando o Assistente de Cópia com suporte do Data Factory
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8bbe32a202af3b8684c16cc2e56d5a111511bef5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d1b17a3e4556f6a963f3ecacd31472ce3f75b0fe
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75438909"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85248540"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Tutorial: Criar um pipeline com a Atividade de Cópia usando o Assistente de Cópia do Data Factory
 > [!div class="op_single_selector"]
@@ -33,13 +33,13 @@ ms.locfileid: "75438909"
 > Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte o [tutorial de atividade de cópia](../quickstart-create-data-factory-dot-net.md). 
 
 
-Este tutorial mostra como usar o **assistente de cópia** para copiar dados de um armazenamento de blobs do Azure para um Banco de Dados SQL do Azure. 
+Este tutorial mostra como usar o **Assistente de Cópia** para copiar dados de um Armazenamento de Blobs do Azure para o Banco de Dados SQL do Azure. 
 
 O **assistente de cópia** permite que você crie rapidamente um pipeline de dados que copia dados de um armazenamento de dados de origem com suporte para um armazenamento de dados de destino com suporte. Portanto, recomendamos que você use o assistente como uma primeira etapa para criar um pipeline de exemplo no cenário de movimentação de dados. Para obter uma lista de armazenamentos de dados com suporte como origens e destinos, consulte [Armazenamentos de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats).  
 
-Este tutorial mostra como criar um Azure Data Factory, iniciar o Assistente de Cópia, seguir uma série de etapas para fornecer detalhes sobre seu cenário de ingestão/movimentação de dados. Quando você concluir as etapas no assistente, ele criará um pipeline com Atividade de Cópia a fim de copiar dados de um armazenamento de blobs do Azure para um banco de dados SQL do Azure automaticamente. Para saber mais sobre a atividade de cópia, confira [Atividades de movimentação de dados](data-factory-data-movement-activities.md).
+Este tutorial mostra como criar um Azure Data Factory, iniciar o Assistente de Cópia, seguir uma série de etapas para fornecer detalhes sobre seu cenário de ingestão/movimentação de dados. Quando você concluir as etapas no assistente, ele criará um pipeline com Atividade de Cópia a fim de copiar dados de um Armazenamento de Blobs do Azure para o Banco de Dados SQL do Azure automaticamente. Para saber mais sobre a atividade de cópia, confira [Atividades de movimentação de dados](data-factory-data-movement-activities.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 Conclua os pré-requisitos listados no artigo [Visão geral do tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) antes de executar este tutorial.
 
 ## <a name="create-data-factory"></a>Criar um data factory
@@ -61,7 +61,7 @@ Nesta etapa, você usa o Portal do Azure para criar um data factory do Azure den
       - Selecione **Usar existente** para selecionar um grupo de recursos existente.
       - Selecione **Criar novo** e insira um nome para um grupo de recursos.
           
-        Algumas das etapas neste tutorial supõem que você usa o nome: **ADFTutorialResourceGroup** para o grupo de recursos. Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../../azure-resource-manager/management/overview.md).
+        Algumas das etapas deste tutorial pressupõem que você esteja usando o nome: **ADFTutorialResourceGroup** para o grupo de recursos. Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../../azure-resource-manager/management/overview.md).
    4. Selecione um **local** para o data factory.
    5. Marque a caixa de seleção **Fixar no painel** na parte inferior da folha.  
    6. Clique em **Criar**.
@@ -119,7 +119,7 @@ Nesta etapa, você usa o Portal do Azure para criar um data factory do Azure den
    5. Insira o **Nome de usuário** e a **Senha**.
    6. Clique em **Próximo**.  
       
-      ![Ferramenta de Cópia - especifique o banco de dados SQL do Azure](./media/data-factory-copy-data-wizard-tutorial/specify-azure-sql-database.png)
+      ![Ferramenta de Cópia – especifique o Banco de Dados SQL do Azure](./media/data-factory-copy-data-wizard-tutorial/specify-azure-sql-database.png)
 10. Na página **Mapeamento de tabela**, selecione **emp** para o campo **Destino** na lista suspensa e clique em **seta para baixo** (opcional) para ver o esquema e visualizar os dados.
     
      ![Ferramenta de Cópia - mapeamento de tabela](./media/data-factory-copy-data-wizard-tutorial/copy-tool-table-mapping-page.png) 
@@ -150,7 +150,7 @@ Nesta etapa, você usa o Portal do Azure para criar um data factory do Azure den
     Para saber mais sobre como usar o aplicativo, confira [Monitorar e gerenciar o pipeline usando o aplicativo de monitoramento](data-factory-monitor-manage-app.md) artigo.
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste tutorial, você usou o armazenamento de blobs do Azure como um armazenamento de dados de origem e um banco de dados SQL do Azure como um armazenamento de dados de destino em uma operação de cópia. A tabela a seguir fornece uma lista de armazenamentos de dados com suporte como origens ou destinos na atividade de cópia: 
+Neste tutorial, você usou o Armazenamento de Blobs do Azure como um armazenamento de dados de origem e o Banco de Dados SQL do Azure como um armazenamento de dados de destino em uma operação de cópia. A tabela a seguir fornece uma lista de armazenamentos de dados com suporte como origens ou destinos na atividade de cópia: 
 
 [!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
 

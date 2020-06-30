@@ -8,12 +8,12 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 03/25/2020
-ms.openlocfilehash: 5577a9847ff405397c553028a6dfdf2df80d03fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 065fd166fb2ce82a3338322d55ef1ee5886ac56b
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371831"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85210364"
 ---
 # <a name="azure-machine-learning-vs-machine-learning-studio-classic"></a>Azure Machine Learning versus Machine Learning Studio (clássico)
 
@@ -29,7 +29,7 @@ A seguinte tabela resume algumas das principais diferenças entre o Azure Machin
 
 | | Machine Learning Studio (clássico) | Azure Machine Learning |
 |---| --- | --- |
-| Interface de "arrastar e soltar" | Com suporte | Compatível – [designer do Azure Machine Learning (versão prévia)](concept-designer.md) | 
+| Interface de "arrastar e soltar" | Com suporte | Compatível – [designer do Azure Machine Learning (versão prévia)](concept-designer.md) <br/>(Requer o workspace Enterprise) | 
 | Experimento | Escalável (limite de 10 GB para dados de treinamento) | Escala com destino de computação |
 | Destinos de computação de treinamento | Destino de computação proprietário, apenas suporte à CPU | Ampla gama de [destinos de computação de treinamento](concept-compute-target.md#train) personalizáveis. Inclui suporte à GPU e à CPU | 
 | Destinos de computação de implantação | Formato do serviço Web proprietário, não personalizável | Ampla gama de [destinos de computação de implantação](concept-compute-target.md#deploy) personalizáveis. Inclui suporte à GPU e à CPU |

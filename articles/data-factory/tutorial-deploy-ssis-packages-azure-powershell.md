@@ -14,12 +14,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 6ffc1aa6e28bf17d0de3783e5e03b6a2df541e4a
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 2c3f2ccd80f2f329a7495beda1a002d84d769802
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194641"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253912"
 ---
 # <a name="set-up-an-azure-ssis-ir-in-azure-data-factory-by-using-powershell"></a>Configurar um Azure-SSIS IR no Azure Data Factory usando o PowerShell
 
@@ -55,7 +55,7 @@ Neste tutorial, você irá:
     - Com base no servidor de banco de dados selecionado, o SSISDB pode ser criado em seu nome como um banco de dados individual ou parte de um pool elástico no Banco de Dados SQL, ou em uma Instância Gerenciada de SQL, e acessível na rede pública ou ingressando em uma rede virtual. Para obter diretrizes sobre como escolher o tipo de servidor de banco de dados para hospedar o SSISDB, veja [Comparar um Banco de Dados SQL e a Instância Gerenciada de SQL](create-azure-ssis-integration-runtime.md#comparison-of-sql-database-and-sql-managed-instance).
     
       Se você usar um Banco de Dados SQL com um firewall de IP ou com pontos de extremidade de serviço de rede virtual, ou uma Instância Gerenciada de SQL com um ponto de extremidade privado para hospedar o SSISDB, ou se você exigir acesso a dados locais sem configurar um IR auto-hospedado, associe o Azure-SSIS IR a uma rede virtual. Para obter mais informações, confira [Criar o Azure-SSIS IR em uma rede virtual](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
-    - Confirme se a configuração **Permitir acesso aos serviços do Azure** está habilitada para o Banco de Dados SQL. Essa configuração não é aplicável quando você usa o Banco de Dados SQL com regras de firewall de IP ou pontos de extremidade de serviço de rede virtual, ou uma Instância Gerenciada de SQL com um ponto de extremidade privado, para hospedar o SSISDB. Para saber mais, confira [Proteger seu banco de dados SQL do Azure](../azure-sql/database/secure-database-tutorial.md#create-firewall-rules). Para habilitar essa configuração usando o PowerShell, veja [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule).
+    - Confirme se a configuração **Permitir acesso aos serviços do Azure** está habilitada para o Banco de Dados SQL. Essa configuração não é aplicável quando você usa o Banco de Dados SQL com regras de firewall de IP ou pontos de extremidade de serviço de rede virtual, ou uma Instância Gerenciada de SQL com um ponto de extremidade privado, para hospedar o SSISDB. Para saber mais, confira [Proteger seu Banco de Dados SQL do Azure](../azure-sql/database/secure-database-tutorial.md#create-firewall-rules). Para habilitar essa configuração usando o PowerShell, veja [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule).
     - Adicione o endereço IP do computador cliente, ou um intervalo de endereços IP que inclua o endereço IP do computador cliente, à lista de endereços IP do cliente nas configurações do firewall para o Banco de Dados SQL. Para obter mais informações, veja [Regras de firewall no nível de servidor e de banco de dados](../azure-sql/database/firewall-configure.md).
     - Você pode se conectar ao Banco de Dados SQL ou à Instância Gerenciada de SQL usando a autenticação SQL com suas credenciais de administrador de servidor, ou a autenticação do Azure AD (Azure Active Directory), com a identidade gerenciada para seu data factory. Na autenticação do Azure AD, para adicionar a identidade gerenciada do seu data factory a um grupo do Azure AD com permissões de acesso ao servidor de banco de dados, confira [Criar Azure-SSIS IR com a autenticação do AAD](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
     - Confirme se o Banco de Dados SQL ou a Instância Gerenciada de SQL ainda não tem um SSISDB. A configuração do Azure-SSIS IR não dá suporte ao uso de um SSISDB existente.

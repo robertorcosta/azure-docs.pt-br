@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Criar um pipeline usando um modelo do Resource Manager '
-description: Neste tutorial, você criará um pipeline do Azure Data Factory usando um modelo do Azure Resource Manager. Esse pipeline copia dados de um armazenamento de blobs do Azure para um banco de dados SQL do Azure.
+description: Neste tutorial, você criará um pipeline do Azure Data Factory usando um modelo do Azure Resource Manager. Esse pipeline copia dados de um Armazenamento de Blobs do Azure para o Banco de Dados SQL do Azure.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3800460c7b17adf1a10c1efc3adc12d65bbeb670
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 549c85f92434504b931f0325959beb17ae92afba
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021966"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254881"
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Tutorial: Usar um modelo do Azure Resource Manager para criar um pipeline do Data Factory para copiar dados 
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ Neste tutorial, você pode criar um data factory com as seguintes entidades de D
 | Entidade | Descrição |
 | --- | --- |
 | Serviço vinculado de armazenamento do Azure |Vincula sua conta de Armazenamento do Azure Data Factory. O Armazenamento do Azure é o armazenamento de dados de origem e o Banco de Dados SQL do Azure é o armazenamento de dados do coletor para a atividade de cópia descrita no tutorial. Ele especifica a conta de armazenamento que contém os dados de entrada para a atividade de cópia. |
-| Serviço vinculado para o Banco de Dados SQL do Azure |Vincula o Banco de Dados SQL do Azure ao data factory. Especifica o Banco de Dados SQL do Azure que contém os dados de saída para a atividade de cópia. |
+| Serviço vinculado para o Banco de Dados SQL do Azure |Vincula nosso banco de dados no Banco de Dados SQL do Azure ao data factory. Especifica o banco de dados que contém os dados de saída para a atividade de cópia. |
 | Conjunto de dados de entrada de Blob do Azure |Refere-se ao serviço vinculado do Armazenamento do Azure. O serviço vinculado refere-se a uma conta de Armazenamento do Azure e o conjunto de dados de Blob do Azure especifica o contêiner, a pasta e o nome do arquivo no armazenamento que contém os dados de entrada. |
 | Conjunto de dados de saída do SQL Azure |Refere-se ao serviço vinculado do SQL do Azure. O serviço vinculado do SQL do Azure refere-se a um servidor SQL lógico e o conjunto de dados do SQL do Azure especifica o nome da tabela que contém os dados de saída. |
 | Pipeline de dados |O pipeline tem uma atividade do tipo Cópia que usa o conjunto de dados de blob do Azure como uma entrada e o conjunto de dados do SQL do Azure como uma saída. A atividade de cópia copia dados de um blob do Azure para uma tabela no Banco de Dados SQL do Azure. |
@@ -302,8 +302,8 @@ Crie um arquivo JSON chamado **ADFCopyTutorialARM-Parameters.json** que contenha
         "sourceBlobContainer": { "value": "adftutorial" },
         "sourceBlobName": { "value": "emp.txt" },
         "sqlServerName": { "value": "<Name of the logical SQL server>" },
-        "databaseName": { "value": "<Name of the Azure SQL database>" },
-        "sqlServerUserName": { "value": "<Name of the user who has access to the Azure SQL database>" },
+        "databaseName": { "value": "<Name of the database>" },
+        "sqlServerUserName": { "value": "<Name of the user who has access to the database>" },
         "sqlServerPassword": { "value": "<password for the user>" },
         "targetSQLTable": { "value": "emp" }
     }
@@ -351,7 +351,7 @@ Crie um arquivo JSON chamado **ADFCopyTutorialARM-Parameters.json** que contenha
    
     ![Home page do data factory](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factory-home-page.png)  
 6. Siga as instruções de [Monitorar conjuntos de dados e pipeline](data-factory-monitor-manage-pipelines.md) para monitorar o pipeline e os conjuntos de dados criados neste tutorial. Atualmente, o Visual Studio não dá suporte a monitoramento de pipelines do Data Factory.
-7. Quando a fatia estiver no estado **Pronto**, verifique se que os dados são copiados para a tabela **emp** no Banco de Dados SQL do Azure.
+7. Quando uma fatia estiver no estado **Pronto**, verifique se os dados serão copiados para a tabela **emp** no Banco de Dados SQL do Azure.
 
 
 Para obter instruções sobre como usar as folhas do portal do Azure para monitorar o pipeline e os conjuntos de dados que você criou neste tutorial, confira [Monitorar os conjuntos de dados e o pipeline](data-factory-monitor-manage-pipelines.md).
@@ -413,7 +413,7 @@ O AzureStorageLinkedService vincula sua conta do armazenamento do Azure ao data 
 A connectionString usa os parâmetros storageAccountName e storageAccountKey. Os valores para esses parâmetros são passados pelo uso de um arquivo de configuração. A definição também usa variáveis: azureStorageLinkedService e dataFactoryName definidos no modelo. 
 
 #### <a name="azure-sql-database-linked-service"></a>Serviço vinculado para o Banco de Dados SQL do Azure
-O AzureSqlLinkedService vincula seu banco de dados SQL do Azure ao data factory. Os dados copiados do armazenamento de blobs são armazenados no banco de dados. Você criou a tabela emp no banco de dados como parte dos [pré-requisitos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). Especifique o nome do servidor SQL lógico, o nome do banco de dados, o nome de usuário e a senha do usuário nesta seção. Consulte [Serviço vinculado do SQL do Azure](data-factory-azure-sql-connector.md#linked-service-properties) para obter detalhes sobre os propriedades JSON usadas para definir um serviço vinculado do SQL do Azure.  
+O AzureSqlLinkedService vincula seu banco de dados no Banco de Dados SQL do Azure ao data factory. Os dados copiados do armazenamento de blobs são armazenados no banco de dados. Você criou a tabela emp no banco de dados como parte dos [pré-requisitos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). Especifique o nome do servidor SQL lógico, o nome do banco de dados, o nome de usuário e a senha do usuário nesta seção. Consulte [Serviço vinculado do SQL do Azure](data-factory-azure-sql-connector.md#linked-service-properties) para obter detalhes sobre os propriedades JSON usadas para definir um serviço vinculado do SQL do Azure.  
 
 ```json
 {
@@ -478,7 +478,7 @@ O serviço vinculado do Armazenamento do Azure especifica a cadeia de conexão q
 ```
 
 #### <a name="azure-sql-dataset"></a>Conjunto de dados do SQL do Azure
-Você pode especificar o nome da tabela no Banco de Dados SQL do Azure que contém os dados copiados do Armazenamento de Blobs do Azure. Veja [Propriedades de conjunto de dados do SQL do Azure](data-factory-azure-sql-connector.md#dataset-properties) para obter detalhes sobre os propriedades JSON usadas para definir um conjunto de dados do SQL do Azure. 
+Você especifica o nome da tabela no Banco de Dados SQL do Azure que contém os dados copiados do Armazenamento de Blobs do Azure. Veja [Propriedades de conjunto de dados do SQL do Azure](data-factory-azure-sql-connector.md#dataset-properties) para obter detalhes sobre os propriedades JSON usadas para definir um conjunto de dados do SQL do Azure. 
 
 ```json
 {
@@ -572,7 +572,7 @@ Definir um pipeline que copia dados do conjunto de dados de blob do Azure para o
 ```
 
 ## <a name="reuse-the-template"></a>Reutilizar o modelo
-No tutorial, você criou um modelo para definir entidades de Data Factory e um modelo para passar valores para parâmetros. O pipeline copia dados de uma conta do Armazenamento do Azure para um Banco de Dados SQL do Azure especificado por meio de parâmetros. Para usar o mesmo modelo para implantar as entidades de Data Factory em ambientes diferentes, você cria um arquivo de parâmetro para cada ambiente e usa-o ao implantar esse ambiente.     
+No tutorial, você criou um modelo para definir entidades de Data Factory e um modelo para passar valores para parâmetros. O pipeline copia dados de uma conta do Armazenamento do Azure para o Banco de Dados SQL do Azure especificado por meio de parâmetros. Para usar o mesmo modelo para implantar as entidades de Data Factory em ambientes diferentes, você cria um arquivo de parâmetro para cada ambiente e usa-o ao implantar esse ambiente.     
 
 Exemplo:  
 
@@ -591,7 +591,7 @@ Observe que o primeiro comando usa o arquivo de parâmetro para o ambiente de de
 Também é possível reutilizar o modelo para executar tarefas repetidas. Por exemplo, você precisa criar vários data factories com um ou mais pipelines que implementam a mesma lógica, mas cada data factory usa contas de Armazenamento e do Banco de Dados SQL diferentes. Nesse cenário, você usa o mesmo modelo no mesmo ambiente (desenvolvimento, teste ou produção) com arquivos de parâmetros diferentes para criar data factories.   
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste tutorial, você usou o armazenamento de blobs do Azure como um armazenamento de dados de origem e um banco de dados SQL do Azure como um armazenamento de dados de destino em uma operação de cópia. A tabela a seguir fornece uma lista de armazenamentos de dados com suporte como origens ou destinos na atividade de cópia: 
+Neste tutorial, você usou o Armazenamento de Blobs do Azure como um armazenamento de dados de origem e o Banco de Dados SQL do Azure como um armazenamento de dados de destino em uma operação de cópia. A tabela a seguir fornece uma lista de armazenamentos de dados com suporte como origens ou destinos na atividade de cópia: 
 
 [!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
 

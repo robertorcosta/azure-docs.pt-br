@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 0d2666e2b56e73b809a0480d45fa3a4a63f06490
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 28765d3a4a0812f6f3631427432105fdc4650808
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652210"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85126222"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Fornecer a autenticação do Key Vault com uma política de controle de acesso
 
@@ -60,10 +60,10 @@ A objectId de um aplicativo corresponde à sua entidade de serviço associada. P
 
 Há duas maneiras de obter uma objectId para um aplicativo.  A primeira é registrar o aplicativo no Azure Active Directory. Para fazer isso, siga as etapas do início rápido [Registrar um aplicativo na plataforma de identidade da Microsoft](../../active-directory/develop/quickstart-register-app.md). Quando o registro for concluído, a objectID será listada como a "ID do Aplicativo (cliente)".
 
-A segunda é criar uma entidade de serviço em uma janela de terminal. Com a CLI do Azure, use o comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) e forneça um nome de entidade de serviço exclusivo para o sinalizador -n no formato "http://&lt;my-unique-service-principle-name&gt;".
+A segunda é criar uma entidade de serviço em uma janela de terminal. Com a CLI do Azure, use o comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) e forneça um nome da entidade de serviço exclusivo para o sinalizador -n no formato "http://&lt;my-unique-service-principal-name&gt;".
 
 ```azurecli-interactive
-az ad sp create-for-rbac -n "http://<my-unique-service-principle-name"
+az ad sp create-for-rbac -n "http://<my-unique-service-principal-name"
 ```
 
 A objectId será listada na saída como `clientID`.
@@ -72,7 +72,7 @@ Com o Azure PowerShell, use o cmdlet [New-AzADServicePrincipal](/powershell/modu
 
 
 ```azurepowershell-interactive
-New-AzADServicePrincipal -DisplayName <my-unique-service-principle-name>
+New-AzADServicePrincipal -DisplayName <my-unique-service-principal-name>
 ```
 
 A objectId será listada na saída como `Id` (não `ApplicationId`).

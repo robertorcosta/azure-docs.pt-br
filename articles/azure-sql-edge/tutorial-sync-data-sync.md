@@ -9,15 +9,14 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 7aa7c33a94980081efa3bc54422389aef7defa61
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 6c0518e12a2c654b8f971db3a6733b0e64f80a1f
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235011"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254043"
 ---
 # <a name="tutorial-sync-data-from-sql-edge-to-azure-sql-database-by-using-sql-data-sync"></a>Tutorial: Sincronizar dados do SQL do Azure no Edge para o Banco de Dados SQL do Azure usando a Sincronização de Dados SQL
-
 
 Neste tutorial, você aprenderá a usar o *grupo de sincronização* da Sincronização de Dados SQL do Azure para sincronizar de forma incremental dados do SQL do Azure no Edge para o Banco de Dados SQL do Azure. Sincronização de Dados SQL é um serviço baseado no Banco de Dados SQL do Azure que lhe permite sincronizar os dados que você selecionar bidirecionalmente em vários bancos de dados no Banco de Dados SQL do Azure e em instâncias do SQL Server. Para obter mais informações sobre a Sincronização de Dados SQL, confira [Sincronização de Dados SQL do Azure](../azure-sql/database/sql-data-sync-data-sql-server-sql-database.md).
 
@@ -29,7 +28,7 @@ Este tutorial requer um computador Windows configurado com o [Data Sync Agent pa
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-* Criar um banco de dados SQL do Azure. Para saber como criar um Banco de Dados SQL do Azure usando o portal do Azure, confira [Criar um banco de dados individual no Banco de Dados SQL do Azure](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal).
+* Crie um banco de dados no Banco de Dados SQL do Azure. Para saber como criar um banco de dados usando o portal do Azure, confira [Criar um banco de dados individual no Banco de Dados SQL do Azure](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal).
 
 * Crie as tabelas e outros objetos necessários na implantação do Banco de Dados SQL do Azure.
 
@@ -37,9 +36,9 @@ Este tutorial requer um computador Windows configurado com o [Data Sync Agent pa
 
 * Registre a instância do SQL do Azure no Edge com o Data Sync Agent para a Sincronização de Dados SQL do Azure. Para obter mais informações, confira [Adicionar um banco de dados do SQL Server](../azure-sql/database/sql-data-sync-sql-server-configure.md#add-on-prem).
 
-## <a name="sync-data-between-an-azure-sql-database-and-sql-edge"></a>Sincronizar dados entre o Banco de Dados SQL do Azure e o SQL do Azure no Edge
+## <a name="sync-data-between-a-database-in-azure-sql-database-and-sql-edge"></a>Sincronizar dados entre um banco de dados no Banco de Dados SQL do Azure e o SQL no Edge
 
-A configuração da sincronização entre um Banco de Dados SQL do Azure e uma instância do SQL do Azure no Edge usando a Sincronização de Dados SQL envolve três etapas fundamentais:  
+A configuração da sincronização entre um banco de dados no Banco de Dados SQL do Azure e uma instância do SQL no Edge usando a Sincronização de Dados SQL envolve três etapas fundamentais:  
 
 
 1. Use o portal do Azure para criar um grupo de sincronização. Para saber mais, confira [Criar um grupo de sincronização](../azure-sql/database/sql-data-sync-sql-server-configure.md#create-sync-group). Você pode usar um banco de dados de *hub* para criar vários grupos de sincronização para sincronizar dados de instâncias diferentes do SQL no Edge para um ou mais bancos de dados no Banco de Dados SQL do Azure. 
@@ -48,7 +47,7 @@ A configuração da sincronização entre um Banco de Dados SQL do Azure e uma i
 
 3. Configure o grupo de sincronização para escolher as tabelas que farão parte da sincronização. Para obter mais informações, confira [Configurar um grupo de sincronização](../azure-sql/database/sql-data-sync-sql-server-configure.md#add-sync-members).
 
-Depois de concluir as etapas acima, você terá um grupo de sincronização que incluirá um Banco de Dados SQL do Azure e uma instância do SQL do Azure no Edge.
+Depois de concluir as etapas acima, você terá um grupo de sincronização que incluirá um banco de dados no Banco de Dados SQL do Azure e uma instância do SQL no Edge.
 
 Para saber mais informações sobre a Sincronização de Dados SQL, confira estes artigos:
 

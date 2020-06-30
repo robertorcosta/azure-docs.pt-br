@@ -5,15 +5,15 @@ author: ramonarguelles
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
-ms.date: 04/03/2019
+ms.date: 06/22/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e1773ef81a5b727187a9a69ccc7ce7ad0421fb2c
-ms.sourcegitcommit: 940e16ff194d5163f277f98d038833b1055a1a3e
+ms.openlocfilehash: 3ef24e29e5dde90aa829c46d789256e6e5f3233b
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80246765"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85296195"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-android-app-using-azure-spatial-anchors"></a>Tutorial: Instruções passo a passo para criar um novo aplicativo Android usando Âncoras Espaciais do Azure
 
@@ -117,7 +117,7 @@ Depois, adicione o código a seguir ao método `app\java\<PackageName>\MainActiv
 
 Por fim, adicione o método `handleTap()` a seguir, que juntará tudo. Ele criará uma esfera e a colocará na localização tocada. A esfera inicialmente será preta, já que `this.recommendedSessionProgress` está definido como zero no momento. Esse valor será ajustado posteriormente.
 
-[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=150-158,170-171,174-182,198-199)]
+[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=151-159,171-172,175-183,199-200)]
 
 [Reimplante](#trying-it-out) seu aplicativo no dispositivo para validá-lo mais uma vez. Neste momento, você pode mover em torno de seu dispositivo para fazer com que o ARCore comece a reconhecer o seu ambiente. Em seguida, toque na tela para criar e colocar seu círculo preto sobre a superfície de sua escolha.
 
@@ -169,7 +169,7 @@ Em seguida, adicione as seguintes variáveis de membro na classe `MainActivity`:
 
 Em seguida, adicionaremos o método `initializeSession()` a seguir dentro da classe `mainActivity`. Quando chamado, ele garantirá que uma sessão das Âncoras Espaciais do Azure seja criada e inicializada corretamente durante a inicialização do aplicativo.
 
-[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=89-97,146)]
+[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=89-97,147)]
 
 Agora, vamos conectar o método `initializeSession()` ao método `onCreate()`. Além disso, nós garantiremos que quadros do feed da câmera sejam enviados ao SDK das Âncoras Espaciais do Azure para processamento.
 
@@ -177,17 +177,17 @@ Agora, vamos conectar o método `initializeSession()` ao método `onCreate()`. A
 
 Por fim, adicione o código a seguir ao método `handleTap()`. Ele anexará uma âncora espacial do Azure local à esfera preta que estamos colocando no mundo real.
 
-[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=150-158,170-182,198-199&highlight=12-13)]
+[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=151-159,171-183,199-200&highlight=12-13)]
 
 [Reimplante](#trying-it-out) o aplicativo mais uma vez. Mova seu dispositivo, toque na tela e posicione uma esfera preta. Neste momento, no entanto, seu código criará e anexará uma âncora espacial do Azure local à esfera.
 
-Antes de Avançar, você precisará criar um identificador e chave de conta das Âncoras Espaciais do Azure, se ainda não os tiver. Siga a seção a seguir para obtê-los.
+Antes de avançar, será necessário criar uma conta das Âncoras Espaciais do Azure para obter o Identificador, a Chave e o Domínio da conta, caso você ainda não os tenha. Siga a seção a seguir para obtê-los.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
 ## <a name="upload-your-local-anchor-into-the-cloud"></a>Carregar sua âncora local na nuvem
 
-Depois que tiver seu identificador e chave de conta das Âncoras Espaciais do Azure, podemos voltar para `app\java\<PackageName>\MainActivity`. Adicione as seguintes importações a ele:
+Depois que você tiver o Identificador, a Chave e o Domínio de conta das Âncoras Espaciais do Azure, poderemos voltar para `app\java\<PackageName>\MainActivity` e adicionar as seguintes importações a ela:
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=40-45&highlight=3-6)]
 
@@ -195,9 +195,9 @@ Em seguida, adicione as seguintes variáveis de membro na classe `MainActivity`:
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=60-65&highlight=3-6)]
 
-Agora, adicione o código a seguir ao método `initializeSession()`. Primeiro, este código permitirá que seu aplicativo monitore o progresso que o SDK das Âncoras Espaciais do Azure faz conforme ele coleta quadros do feed da câmera. Conforme ele o faz, a cor de sua esfera começará a se alterar de seu preto original para cinza. Em seguida, ela se tornará branca depois que quadros suficientes tiverem sido coletados para enviar sua âncora para a nuvem. Em segundo lugar, esse código fornecerá as credenciais necessárias para se comunicar com o back-end de nuvem. É aqui que você configurará seu aplicativo para usar seu identificador e chave de conta. Você os copiou em um editor de texto ao [configurar o recurso Âncoras Espaciais](#create-a-spatial-anchors-resource).
+Agora, adicione o código a seguir ao método `initializeSession()`. Primeiro, este código permitirá que seu aplicativo monitore o progresso que o SDK das Âncoras Espaciais do Azure faz conforme ele coleta quadros do feed da câmera. Conforme ele o faz, a cor de sua esfera começará a se alterar de seu preto original para cinza. Em seguida, ela se tornará branca depois que quadros suficientes tiverem sido coletados para enviar sua âncora para a nuvem. Em segundo lugar, esse código fornecerá as credenciais necessárias para se comunicar com o back-end de nuvem. É aqui que você vai configurar seu aplicativo para usar o Identificador, a Chave e o Domínio de conta. Você os copiou em um editor de texto ao [configurar o recurso Âncoras Espaciais](#create-a-spatial-anchors-resource).
 
-[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=89-120,142-146&highlight=11-36)]
+[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=89-120,142-148&highlight=11-37)]
 
 Em seguida, adicione o método `uploadCloudAnchorAsync()` a seguir dentro da classe `mainActivity`. Quando chamado, esse método aguardará assincronamente até que quadros suficientes tenham sido coletados do seu dispositivo. Assim que isso acontecer, ele mudará a cor de sua esfera para amarelo e, em seguida, iniciará o upload de sua âncora espacial do Azure local para a nuvem. Depois que o upload for concluído, o código retornará um identificador da âncora.
 
@@ -205,7 +205,7 @@ Em seguida, adicione o método `uploadCloudAnchorAsync()` a seguir dentro da cla
 
 Por fim, vamos interligar tudo. Em seu método `handleTap()`, adicione o código a seguir. Ele invocará o método `uploadCloudAnchorAsync()` assim que a esfera for criada. Depois que o método retornar, o código a seguir executará uma atualização final à esfera, alterando sua cor para azul.
 
-[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=150-158,170-199&highlight=24-37)]
+[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=151-159,171-200&highlight=24-37)]
 
 [Reimplante](#trying-it-out) o aplicativo mais uma vez. Mova seu dispositivo, toque na tela e posicione a esfera. Neste momento, no entanto, a cor da esfera mudará de preto para branco, conforme os quadros da câmera forem coletados. Assim que tivermos quadros suficientes, a esfera ficará amarela e o upload para a nuvem começará. Depois que o upload for concluído, a esfera ficará azul. Opcionalmente, você também pode usar a janela `Logcat` dentro do Android Studio para monitorar as mensagens de log que o aplicativo está enviando. Por exemplo, o progresso da sessão durante capturas de quadro, bem como o identificador de âncora que a nuvem retorna uma vez que o upload é concluído.
 

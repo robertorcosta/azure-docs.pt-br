@@ -7,12 +7,12 @@ ms.topic: sample
 ms.date: 01/04/2019
 ms.author: tomfitz
 ms.custom: mvc, fasttrack-edit
-ms.openlocfilehash: 2d77dcbd07a67e3ba50d70770515416b45fbc7a3
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.openlocfilehash: 2caaadd0da9d62128d04962fa1f2ff7eade907b0
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80637916"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254422"
 ---
 # <a name="azure-resource-manager-templates-for-app-service"></a>Modelos do Azure Resource Manager para o Serviço de Aplicativo
 
@@ -29,7 +29,6 @@ Para saber mais sobre a sintaxe JSON e as propriedades dos recursos de Serviços
 | [Aplicativo com slots de implantação personalizados](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-custom-deployment-slots)| Implanta um aplicativo do Serviço de Aplicativo com ambientes/slots de implantação personalizados. |
 |**Configurando um aplicativo**||
 | [Certificado de aplicativo do Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-certificate-from-key-vault)| Implanta um certificado de aplicativo do Serviço de Aplicativo de um segredo do Azure Key Vault e o usa para uma associação TLS/SSL. |
-| [Aplicativo com um domínio personalizado](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-custom-domain)| Implanta um aplicativo do Serviço de Aplicativo com um nome do host personalizado. |
 | [Aplicativo com um domínio personalizado e o SSL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-custom-domain-and-ssl)| Implanta um aplicativo do Serviço de Aplicativo com um nome do host personalizado e obtém o certificado de aplicativo do Key Vault para uma associação TLS/SSL. |
 | [Aplicativo com uma extensão do GoLang](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-with-golang)| Implanta um aplicativo do Serviço de Aplicativo com a extensão de site do Golang. Assim, você pode executar aplicativos Web desenvolvidos em GoLang no Azure. |
 | [Aplicativo com Java 8 e Tomcat 8](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-java-tomcat)| Implanta um aplicativo do Serviço de Aplicativo com o Java 8 e o Tomcat 8 habilitados. Assim, você pode executar aplicativos Java no Azure. |
@@ -42,7 +41,7 @@ Para saber mais sobre a sintaxe JSON e as propriedades dos recursos de Serviços
 |**Aplicativo com recursos conectados**||
 | [Aplicativo com MySQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-managed-mysql)| Implanta um aplicativo do Serviço de Aplicativo no Windows com o Banco de Dados do Azure para MySQL. |
 | [Aplicativo com PostgreSQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-managed-postgresql)| Implanta um aplicativo do Serviço de Aplicativo no Windows com o Banco de Dados do Azure para PostgreSQL. |
-| [Aplicativo com um Banco de Dados SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database)| Implanta um aplicativo do Serviço de Aplicativo e um Banco de Dados SQL no nível de serviço Básico. |
+| [Aplicativo com um banco de dados no Banco de Dados SQL do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database)| Implanta um aplicativo do Serviço de Aplicativo e um banco de dados no Banco de Dados SQL do Azure no nível de serviço Básico. |
 | [Aplicativo com uma conexão do Armazenamento de Blobs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-blob-connection)| Implanta um aplicativo do Serviço de Aplicativo com uma cadeia de conexão do Armazenamento de Blobs do Azure. Em seguida, você poderá usar o Armazenamento de Blobs no aplicativo. |
 | [Aplicativo com um Cache Redis do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-with-redis-cache)| Implanta um aplicativo do Serviço de Aplicativo com um Cache Redis do Azure. |
 |**Ambiente do Serviço de Aplicativo**||

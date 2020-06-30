@@ -3,15 +3,15 @@ title: Amostras do Azure PowerShell para o Azure Cosmos DB – API do MongoDB
 description: Obtenha os exemplos do Azure PowerShell para executar várias tarefas comuns na API do Azure Cosmos DB para MongoDB
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
-ms.date: 05/13/2020
+ms.topic: how-to
+ms.date: 06/12/2020
 ms.author: mjbrown
-ms.openlocfilehash: c8e0a7a60a3512d19a1dfdfdb07b20e523ce7b92
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 368883a7eded17180a4a4259d452be09ebd221d9
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649721"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262439"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db-mongodb-api"></a>Amostras do Azure PowerShell para o Azure Cosmos DB – API do MongoDB
 
@@ -33,4 +33,5 @@ A tabela a seguir inclui links para scripts de exemplo do Azure PowerShell para 
 |[Alterar a prioridade de failover ou disparar um failover](scripts/powershell/common/ps-account-failover-priority-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Altere a prioridade de failover regional de uma conta do Azure Cosmos ou dispare um failover manual. |
 |[Chaves de conta ou cadeias de conexão](scripts/powershell/common/ps-account-keys-connection-strings.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Obtenha chaves primárias e secundárias, cadeias de conexão ou regenere uma chave de conta de uma conta do Azure Cosmos. |
 |[Criar uma conta do Cosmos com o firewall de IP](scripts/powershell/common/ps-account-firewall-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crie uma conta do Azure Cosmos com o firewall de IP habilitado. |
+|[Bloquear recursos da exclusão](scripts/powershell/mongodb/powershell-mongodb-lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Impedir que os recursos sejam excluídos com bloqueios de recursos. |
 |||

@@ -7,12 +7,12 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 45097b948c76413785ca5ec48c31faa83b3883ee
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: f514c33f2c39e205ac186b70711b478f67fcb4e5
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629620"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85211997"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Criar um projeto de rotulagem de dados e exportar rótulos 
 
@@ -176,7 +176,10 @@ Depois que um modelo de machine learning for treinado nos dados rotulados manual
 
 ## <a name="initialize-the-labeling-project"></a>Inicializar o projeto de rotulagem
 
-Depois que o projeto de rotulagem for inicializado, alguns aspectos do projeto serão imutáveis. Não será possível alterar o tipo de tarefa nem o conjunto de dados. Você *poderá* modificar os rótulos e a URL para a descrição da tarefa. Examine cuidadosamente as configurações antes de criar o projeto. Depois de enviar o projeto, você será direcionado novamente para a home page **Rotulagem de Dados**, que mostrará o projeto como **Inicializando**. Essa página não é atualizada automaticamente. Portanto, após uma pausa, atualize manualmente a página para ver o status do projeto como **Criado**.
+Depois que o projeto de rotulagem for inicializado, alguns aspectos do projeto serão imutáveis. Não será possível alterar o tipo de tarefa nem o conjunto de dados. Você *poderá* modificar os rótulos e a URL para a descrição da tarefa. Examine cuidadosamente as configurações antes de criar o projeto. Depois de enviar o projeto, você será direcionado novamente para a home page **Rotulagem de Dados**, que mostrará o projeto como **Inicializando**.
+
+> [!NOTE]
+> Essa página talvez não seja atualizada automaticamente. Portanto, após uma pausa, atualize manualmente a página para ver o status do projeto como **Criado**.
 
 ## <a name="run-and-monitor-the-project"></a>Executar e monitorar o projeto
 

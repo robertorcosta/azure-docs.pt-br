@@ -14,17 +14,17 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/26/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4a5936501f45694febe284d9747bdefdfeae6aeb
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: ca0af9a34587f8d3a3c0502c77556975b1d8df4e
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84023982"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253827"
 ---
 # <a name="tutorial-create-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutorial: Criar um modelo preditivo no R com os Serviços do Machine Learning do Banco de Dados SQL do Azure (versão prévia)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Na segunda das três partes desta série de tutoriais, você criará dois modelos de previsão em R e selecionará o modelo mais preciso. Na próxima parte desta série, você implantará esse modelo em um banco de dados SQL com os Serviços do Machine Learning do Banco de Dados SQL do Azure (versão prévia).
+Na segunda das três partes desta série de tutoriais, você criará dois modelos de previsão em R e selecionará o modelo mais preciso. Na próxima parte desta série, você implantará esse modelo em um banco de dados no Banco de Dados SQL do Azure com os Serviços de Machine Learning do Banco de Dados SQL do Azure (versão prévia).
 
 [!INCLUDE[ml-preview-note](../../../includes/sql-database-ml-preview-note.md)]
 
@@ -38,7 +38,7 @@ Neste artigo, você aprenderá a:
 
 Na [parte 1](predictive-model-prepare-data-tutorial.md), você aprendeu a importar um banco de dados de exemplo e, em seguida, a preparar os dados para serem usados no treinamento de um modelo preditivo em R.
 
-Na [parte três](predictive-model-deploy-tutorial.md), você aprenderá a armazenar o modelo em um banco de dados e, em seguida, criar um procedimento armazenado dos scripts do R desenvolvidos nas partes anteriores. Os procedimentos armazenados serão executados em um banco de dados SQL para fazer previsões com base em novos dados.
+Na [parte três](predictive-model-deploy-tutorial.md), você aprenderá a armazenar o modelo em um banco de dados e, em seguida, criar um procedimento armazenado dos scripts do R desenvolvidos nas partes anteriores. Os procedimentos armazenados serão executados em um banco de dados para fazer previsões com base em novos dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

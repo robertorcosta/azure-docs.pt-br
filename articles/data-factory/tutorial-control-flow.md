@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: 7746726775cd5230f48842ad9a9260efe0e540b5
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: fd006e836432ce775be8cbbefea6d9219e8b13b3
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022105"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253453"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Ramificação e encadeamento de atividades em um pipeline de Data Factory
 
@@ -48,7 +48,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 * Conta de Armazenamento do Azure. Você usa o Armazenamento de Blobs como um armazenamento de dados de origem. Se você não tiver uma conta de armazenamento do Azure, consulte o artigo [Criar uma conta de armazenamento](../storage/common/storage-account-create.md).
 * Gerenciador de Armazenamento do Azure. Para instalar essa ferramenta, confira o [Gerenciador de Armazenamento do Azure](https://storageexplorer.com/).
-* Banco de Dados SQL do Azure. Você usa o banco de dados como um armazenamento de dados de coletor. Se você não tiver um Banco de Dados SQL do Azure, confira [Criar um Banco de Dados SQL do Azure](../azure-sql/database/single-database-create-quickstart.md).
+* Banco de Dados SQL do Azure. Você usa o banco de dados como um armazenamento de dados de coletor. Se você não tiver um banco de dados no Banco de Dados SQL do Azure, confira [Criar um banco de dados no Banco de Dados SQL do Azure](../azure-sql/database/single-database-create-quickstart.md).
 * Visual Studio. Este artigo usa o Visual Studio 2019.
 * SDK do .NET do Azure. Baixar e instalar o [SDK do .NET do Azure](https://azure.microsoft.com/downloads/).
 
@@ -366,7 +366,7 @@ Volte ao seu projeto no Visual Studio. Agora, adicionaremos o código que cria u
 
 Nesse pipeline, você deve usar os seguintes recursos:
 
-* parâmetros
+* Parâmetros
 * Atividade da Web
 * Dependência de atividade
 * Usando a saída de uma atividade como uma entrada para outra atividade
@@ -451,7 +451,7 @@ Nesse pipeline, você deve usar os seguintes recursos:
    client.Pipelines.CreateOrUpdate(resourceGroup, dataFactoryName, pipelineName, PipelineDefinition(client));
    ```
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
 A primeira seção do nosso código de pipeline define parâmetros.
 

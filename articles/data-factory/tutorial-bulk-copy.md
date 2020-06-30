@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: c150972c2804b12ac436a0dd10cdf13f92f43478
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: b1601bf095b5898de965d42a16e63f278499a9bf
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561003"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85251500"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-using-powershell"></a>Copiar várias tabelas em massa usando o Azure Data Factory usando o PowerShell
 
@@ -59,7 +59,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 **Prepare o Banco de Dados SQL do Azure de origem**:
 
-Crie um Banco de Dados SQL do Azure contendo dados de exemplo do Adventure Works LT, seguindo o artigo [Criar um Banco de Dados SQL do Azure](../azure-sql/database/single-database-create-quickstart.md). Esse tutorial copia todas as tabelas dessa amostra de banco de dados para um SQL data warehouse.
+Crie um banco de dados contendo dados de exemplo do Adventure Works LT no Banco de Dados SQL, seguindo o artigo [Criar um banco de dados no Banco de Dados SQL do Azure](../azure-sql/database/single-database-create-quickstart.md) a seguir. Esse tutorial copia todas as tabelas dessa amostra de banco de dados para um SQL data warehouse.
 
 **Preparar o SQL Data Warehouse do Azure de coletor**:
 
@@ -334,7 +334,7 @@ Esse pipeline usa uma lista de tabelas como um parâmetro. Para cada tabela na l
                         "activities": [
                             {
                                 "name": "CopyData",
-                                "description": "Copy data from SQL database to SQL DW",
+                                "description": "Copy data from Azure SQL Database to SQL DW",
                                 "type": "Copy",
                                 "inputs": [
                                     {

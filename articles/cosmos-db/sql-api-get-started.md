@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: kirankk
-ms.openlocfilehash: 2681b2199f321f695bc621ed5580319a5e907b34
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 10a630aa04f51dc96b948b01e5fc01cfad4356fd
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78274024"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118807"
 ---
 # <a name="tutorial-build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Tutorial: Criar um aplicativo de console .NET para gerenciar dados na conta da API do SQL do Azure Cosmos DB
 
@@ -64,12 +64,12 @@ Vamos criar uma conta do Azure Cosmos DB. Se já tiver uma conta que deseja usar
 1. Em **Criar um novo projeto**, escolha **Aplicativo de Console (.NET Framework)** para C# e, em seguida, selecione **Avançar**.
 1. Nomeie seu projeto *CosmosGettingStartedTutorial* e, em seguida, selecione **Criar**.
 
-    ![Configurar seu projeto](./media/sql-api-get-started/configure-cosmos-getting-started-2019.png)
+    :::image type="content" source="./media/sql-api-get-started/configure-cosmos-getting-started-2019.png" alt-text="Configurar o projeto":::
 
 1. No **Gerenciador de Soluções**, clique com o botão direito do mouse em seu novo aplicativo de console, que está na solução do Visual Studio, e selecione **Gerenciar pacotes NuGet**.
 1. No **Gerenciador de Pacotes NuGet**, selecione **Procurar** e pesquise por *Microsoft.Azure.Cosmos*. Escolha **Microsoft. Azure. Cosmos** e selecione **Instalar**.
 
-   ![Instalar o NuGet para o SDK do cliente do Azure Cosmos DB](./media/sql-api-get-started/cosmos-getting-started-manage-nuget-2019.png)
+   :::image type="content" source="./media/sql-api-get-started/cosmos-getting-started-manage-nuget-2019.png" alt-text="Instalar o NuGet para o SDK de cliente do Azure Cosmos DB":::
 
    A ID do pacote para a Biblioteca de Clientes do API do SQL do Azure Cosmos DB é [Biblioteca de Clientes do Microsoft Azure Cosmos DB](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/).
 
@@ -120,7 +120,7 @@ Vamos criar uma conta do Azure Cosmos DB. Se já tiver uma conta que deseja usar
 
 1. Abra o [Portal do Azure](https://portal.azure.com). Encontre sua conta do Azure Cosmos DB e selecione **Chaves**.
 
-   ![Obter chaves do Azure Cosmos DB no portal do Azure](./media/sql-api-get-started/cosmos-getting-started-portal-keys.png)
+   :::image type="content" source="./media/sql-api-get-started/cosmos-getting-started-portal-keys.png" alt-text="Obter chaves do Azure Cosmos DB no portal do Azure":::
 
 1. Em *Program.cs*, substitua `<your endpoint URL>` pelo valor do **URI**. Substitua `<your primary key>` pelo valor da **CHAVE PRIMÁRIA**.
 
@@ -309,7 +309,7 @@ Primeiro, vamos criar uma classe `Family` que representa os objetos armazenados 
 
 1. Selecione Ctrl + Shift + A para abrir **Adicionar Novo Item**. Adicione uma nova classe `Family.cs` ao seu projeto.
 
-    ![Captura de tela da adição de uma nova classe Family.cs no projeto](./media/sql-api-get-started/cosmos-getting-started-add-family-class-2019.png)
+    :::image type="content" source="./media/sql-api-get-started/cosmos-getting-started-add-family-class-2019.png" alt-text="Captura de tela da adição de uma nova classe Family.cs no projeto":::
 
 1. Copie e cole a classe `Family`, `Parent`, `Child`, `Pet` e `Address` em `Family.cs`.
 

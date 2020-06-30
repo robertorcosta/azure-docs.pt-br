@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: a709d0d4aa9b7c4e3ab06e6d34bbb199cb1b5917
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: c658283ed610dcd14fca82b14217cba979388fc2
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84323919"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85252909"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Tutorial: Proteger um banco de dados no Banco de Dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -301,7 +301,7 @@ Para habilitar a auditoria:
     ![Registros de auditoria](./media/secure-database-tutorial/audit-records.png)
 
 > [!IMPORTANT]
-> Confira [Auditoria do banco de dados SQL](../../azure-sql/database/auditing-overview.md) para saber como personalizar ainda mais os eventos de auditoria usando o PowerShell ou a API REST.
+> Confira [Auditoria do Banco de Dados SQL](../../azure-sql/database/auditing-overview.md) para saber como personalizar ainda mais os eventos de auditoria usando o PowerShell ou a API REST.
 
 ### <a name="dynamic-data-masking"></a>Mascaramento de dados dinâmicos
 

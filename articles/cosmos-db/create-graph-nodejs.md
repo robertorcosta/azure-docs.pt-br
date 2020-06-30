@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/05/2019
 ms.author: lbosq
-ms.openlocfilehash: e6456c79dbce1f8bb874ce4c88b932e592235a82
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 852c48d03b3cce785fa87a40afebe37818d91fa6
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80244419"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118229"
 ---
 # <a name="quickstart-build-a-nodejs-application-by-using-azure-cosmos-db-gremlin-api-account"></a>Início Rápido: Criar um aplicativo Node.js usando a conta de API do Gremlin do Azure Cosmos DB
 
@@ -154,7 +154,7 @@ Este aplicativo de console usa o driver [Gremlin Node.js](https://www.npmjs.com/
 
     `config.endpoint = "https://<your_Gremlin_account_name>.gremlin.cosmosdb.azure.com:443/";`
 
-    ![Exibir e copiar uma chave de acesso no portal do Azure, página Visão geral](./media/create-graph-nodejs/gremlin-uri.png)
+    :::image type="content" source="./media/create-graph-nodejs/gremlin-uri.png" alt-text="Exibir e copiar uma chave de acesso no portal do Azure, página Visão geral":::
 
 3. Em *config.js*, preencha o valor config.primaryKey com o valor da **Chave Primária** da página **Chaves** da sua conta do Cosmos DB no portal do Azure. 
 

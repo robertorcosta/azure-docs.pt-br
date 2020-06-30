@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: lbosq
 ms.custom: tracking-python
-ms.openlocfilehash: fd266dd4e75915c0710acce1a2a49f24049c4e9d
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 0f96cbd86921428a85aa69f3561252aeb7fd67b5
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559858"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118212"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>Início Rápido: Criar um banco de dados de grafo no Azure Cosmos DB usando o Python e o portal do Azure
 
@@ -98,7 +98,7 @@ Agora, volte ao Portal do Azure para obter as informações de conexão e copiá
 
     Copie a primeira parte do valor do URI.
 
-    ![Exibir e copiar uma chave de acesso no Portal do Azure, página Chaves](./media/create-graph-python/keys.png)
+    :::image type="content" source="./media/create-graph-python/keys.png" alt-text="Exibir e copiar uma chave de acesso no Portal do Azure, na página Chaves":::
 
 2. Abra o arquivo *connect.py* e, na linha 104, cole o valor de URI em `<YOUR_ENDPOINT>` aqui:
 
@@ -172,15 +172,15 @@ Após a inserção dos vértices e das bordas, você pode voltar para o Data Exp
 
 1. Em sua conta do Azure Cosmos DB no portal do Azure, selecione **Data Explorer**, expanda **sample-graph**, selecione **Grafo** e, em seguida, selecione **Aplicar Filtro**. 
 
-   ![Criar novos documentos no Data Explorer no portal do Azure](./media/create-graph-python/azure-cosmosdb-data-explorer-expanded.png)
+   :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-expanded.png" alt-text="Criar documentos no Data Explorer no portal do Azure":::
 
 2. Na lista **Resultados**, observe que três novos usuários são adicionados ao grafo. Você pode mover os vértices arrastando e soltando, ampliar e reduzir rolando o botão de rolagem do mouse e expandir o tamanho do grafo com a seta dupla. 
 
-   ![Novos vértices no grafo no Data Explorer no portal do Azure](./media/create-graph-python/azure-cosmosdb-graph-explorer-new.png)
+   :::image type="content" source="./media/create-graph-python/azure-cosmosdb-graph-explorer-new.png" alt-text="Novos vértices no grafo no Data Explorer no portal do Azure":::
 
 3. Vamos adicionar alguns novos usuários. Selecione o botão **Novo Vértice** para adicionar dados ao grafo.
 
-   ![Criar novos documentos no Data Explorer no portal do Azure](./media/create-graph-python/azure-cosmosdb-data-explorer-new-vertex.png)
+   :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="Criar documentos no Data Explorer no portal do Azure":::
 
 4. Digite um rótulo de *pessoa*.
 
@@ -219,15 +219,15 @@ Após a inserção dos vértices e das bordas, você pode voltar para o Data Exp
 
 12. Agora, podemos conectar rakesh e ashley. Verifique se **ashley** está selecionada na lista **Resultados** e, em seguida, selecione o botão Editar ao lado de **Destinos** no canto inferior direito. Talvez seja necessário ampliar a janela para ver a área **Propriedades**.
 
-    ![Alterar o destino de um vértice em um grafo](./media/create-graph-python/azure-cosmosdb-data-explorer-edit-target.png)
+    :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Alterar o destino de um vértice em um grafo":::
 
 13. Na caixa **Destino**, digite *rakesh* e, na caixa **Rótulo de borda**, digite *conhece* e, em seguida, selecione a marca de seleção.
 
-    ![Adicionar uma conexão entre ashley e rakesh no Data Explorer](./media/create-graph-python/azure-cosmosdb-data-explorer-set-target.png)
+    :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-set-target.png" alt-text="Adicionar uma conexão entre ashley e rakesh no Data Explorer":::
 
 14. Agora, selecione **rakesh** na lista de resultados e veja se ashley e rakesh estão conectados. 
 
-    ![Dois vértices conectados no Data Explorer](./media/create-graph-python/azure-cosmosdb-graph-explorer.png)
+    :::image type="content" source="./media/create-graph-python/azure-cosmosdb-graph-explorer.png" alt-text="Dois vértices conectados no Data Explorer":::
 
 Isso conclui a parte da criação de recursos deste tutorial. Você pode continuar a adicionar vértices ao seu grafo, modificar os vértices existentes ou alterar as consultas. Agora vamos examinar as métricas que o Azure Cosmos DB fornece e, em seguida, limpar os recursos. 
 

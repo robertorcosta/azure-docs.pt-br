@@ -4,12 +4,12 @@ description: Criar um aplicativo de funções em um plano Premium escalonável n
 ms.service: azure-functions
 ms.topic: sample
 ms.date: 11/23/2019
-ms.openlocfilehash: dd31dbadce4f0a55853607504b4322277784f27f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3587e5b5e46867ff3abe97b3593c9732be3afa22
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74534583"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85117211"
 ---
 # <a name="create-a-function-app-in-a-premium-plan---azure-cli"></a>Criar um aplicativo de funções em um plano Premium – CLI do Azure
 
@@ -37,7 +37,7 @@ Cada comando da tabela é vinculado à documentação específica do comando. Es
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Cria uma conta de armazenamento do Azure. |
-| [az functionapp plan create](/cli/azure/functionapp/plan#az-functionapp-plan-create) | Cria um plano Premium. |
+| [az functionapp plan create](/cli/azure/functionapp/plan#az-functionapp-plan-create) | Cria um plano Premium em um [SKU específico](../functions-premium-plan.md#available-instance-skus). |
 | [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Implante um aplicativo de funções no plano do Serviço de Aplicativo. |
 
 ## <a name="next-steps"></a>Próximas etapas

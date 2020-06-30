@@ -5,16 +5,16 @@ services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: c2e18919b287713f59ba8785006c952134994be0
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: bfea79fe232fbb6f1b39c03a5cc8e9fe06bee867
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84258361"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85204932"
 ---
 # <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Consultar arquivos de armazenamento usando recursos de SQL sob demanda (versão prévia) no Synapse SQL
 
@@ -90,7 +90,7 @@ Esses parâmetros adicionais são introduzidos para trabalhar com arquivos CSV (
 ```
 
 - ESCAPE_CHAR = 'char' especifica o caractere que é usado no arquivo para escapar a si mesmo e todos os valores de delimitador no arquivo. Se o caractere de escape for seguido por um valor diferente dele mesmo ou de qualquer um dos valores delimitadores, o caractere de escape será descartado durante a leitura do valor.
-O parâmetro ESCAPE_CHAR será aplicado quer FIELDQUOTE esteja habilitado ou não. Ele não será usado para fazer escape do caractere de aspas. O escape do caractere de aspas é feito com aspas duplas em alinhamento com o comportamento CSV do Excel.
+O parâmetro ESCAPE_CHAR será aplicado quer FIELDQUOTE esteja habilitado ou não. Ele não será usado para fazer escape do caractere de aspas. O caractere de aspas deve ter escape com outro caractere de aspas. O caractere de aspas poderá aparecer no valor da coluna somente se o valor for encapsulado com caracteres de aspas.
 - FIELDTERMINATOR ='field_terminator' especifica o terminador de campo a ser usado. O terminador de campo padrão é uma vírgula (" **,** ")
 - ROWTERMINATOR ='row_terminator' especifica o terminador de linha a ser usado. O terminador de linha padrão um caractere de nova linha: **\r\n**.
 

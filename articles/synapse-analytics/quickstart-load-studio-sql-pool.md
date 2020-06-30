@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 05/06/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 96e79fdfeed5b56a4e0a33229f419f439b20b04c
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 4ae13dc51b4621dc3d8be39049dcade87c105cbc
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124414"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262609"
 ---
 # <a name="bulk-loading-with-synapse-sql"></a>Carregar em massa com o SQL do Synapse
 
@@ -28,7 +28,7 @@ Agora você pode carregar dados em massa facilmente usando pools de SQL com um s
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Você deve ter acesso ao workspace com, pelo menos, a função RBAC de Colaborador de Dados do Blob de Armazenamento para a conta ADLS Gen2.
+- Este assistente gera uma instrução COPY que usa a passagem do AAD para autenticação. Seu [usuário do AAD deve ter acesso](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples#d-azure-active-directory-authentication-aad) ao workspace com, pelo menos, a função RBAC de Colaborador de Dados do Blob de Armazenamento para a conta ADLS Gen2.
 
 - Você deve ter as permissões [necessárias para usar a instrução COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#permissions) e as permissões Create Table se estiver criando uma tabela na qual carregar.
 

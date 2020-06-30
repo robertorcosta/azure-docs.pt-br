@@ -3,16 +3,16 @@ title: Criar e gerenciar o Azure Cosmos DB usando o PowerShell
 description: Use o Azure PowerShell para gerenciar suas contas do Azure Cosmos, os bancos de dados, os contêineres e a taxa de transferência.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: how-to
 ms.date: 05/13/2020
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 0ae3ff54e1060255913d8155b297c5d412ce345f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 494c5f0c3d7d0a4c8a388ce06143795fe5f12f20
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656293"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262252"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>Gerenciar recursos da API de SQL do Azure Cosmos DB usando PowerShell
 
@@ -21,7 +21,7 @@ O guia a seguir descreve como usar o PowerShell para criar script e automatizar 
 > [!NOTE]
 > Os exemplos neste artigo usam cmdlets de gerenciamento [Az.CosmosDB](https://docs.microsoft.com/powershell/module/az.cosmosdb). Confira na página de referência da API [Az.CosmosDB](https://docs.microsoft.com/powershell/module/az.cosmosdb) as alterações mais recentes.
 
-Para o gerenciamento multiplataforma do Azure Cosmos DB, você pode usar os cmdlets `Az` e `Az.CosmosDB` com o [PowerShell multiplataforma](https://docs.microsoft.com/powershell/scripting/install/installing-powershell), bem como a [CLI do Azure](manage-with-cli.md), a [API REST][rp-rest-api] ou o [portal do Azure](create-sql-api-dotnet.md#create-account).
+Para o gerenciamento multiplataforma do Azure Cosmos DB, é possível usar os cmdlets `Az` e `Az.CosmosDB` com o [PowerShell multiplataforma](https://docs.microsoft.com/powershell/scripting/install/installing-powershell), bem como a [CLI do Azure](manage-with-cli.md), a [API REST][rp-rest-api] ou o [portal do Azure](create-sql-api-dotnet.md#create-account).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -44,6 +44,7 @@ As seções a seguir demonstram como gerenciar a conta do Azure Cosmos, incluind
 * [Listar as cadeias de conexão para uma conta do Azure Cosmos](#list-connection-strings)
 * [Modificar a prioridade de failover para uma conta do Azure Cosmos](#modify-failover-priority)
 * [Disparar um failover manual para uma conta do Azure Cosmos](#trigger-manual-failover)
+* [Listar bloqueios de recursos em uma conta do Azure Cosmos DB](#list-account-locks)
 
 ### <a name="create-an-azure-cosmos-account"></a><a id="create-account"></a> Criar uma conta do Azure Cosmos
 
@@ -327,6 +328,21 @@ Update-AzCosmosDBAccountFailoverPriority `
     -FailoverPolicy $locations
 ```
 
+### <a name="list-resource-locks-on-an-azure-cosmos-db-account"></a><a id="list-account-locks"></a> Listar bloqueios de recursos em uma conta do Azure Cosmos DB
+
+Os bloqueios de recursos podem ser colocados em recursos do Azure Cosmos DB, incluindo bancos de dados e coleções. O exemplo abaixo mostra como listar todos os bloqueios de recursos do Azure em uma conta do Azure Cosmos DB.
+
+```azurepowershell-interactive
+$resourceGroupName = "myResourceGroup"
+$resourceTypeAccount = "Microsoft.DocumentDB/databaseAccounts"
+$accountName = "mycosmosaccount"
+
+Get-AzResourceLock `
+    -ResourceGroupName $resourceGroupName `
+    -ResourceType $resourceTypeAccount `
+    -ResourceName $accountName
+```
+
 ## <a name="azure-cosmos-db-database"></a>Banco de dados do Azure Cosmos DB
 
 As seguintes seções demonstram como gerenciar o banco de dados do Azure Cosmos DB, incluindo:
@@ -337,6 +353,8 @@ As seguintes seções demonstram como gerenciar o banco de dados do Azure Cosmos
 * [Listar todos os bancos de dados do Azure Cosmos DB em uma conta](#list-db)
 * [Obter um único banco de dados do Azure Cosmos DB](#get-db)
 * [Excluir um banco de dados do Azure Cosmos DB](#delete-db)
+* [Criar um bloqueio de recurso em um banco de dados do Azure Cosmos DB para impedir a exclusão](#create-db-lock)
+* [Remover um bloqueio de recurso em um banco de dados do Azure Cosmos DB](#remove-db-lock)
 
 ### <a name="create-an-azure-cosmos-db-database"></a><a id="create-db">Criar um banco de dados do Azure Cosmos DB</a>
 
@@ -416,6 +434,42 @@ Remove-AzCosmosDBSqlDatabase `
     -Name $databaseName
 ```
 
+### <a name="create-a-resource-lock-on-an-azure-cosmos-db-database-to-prevent-delete"></a><a id="create-db-lock"></a>Criar um bloqueio de recurso em um banco de dados do Azure Cosmos DB para impedir a exclusão
+
+```azurepowershell-interactive
+$resourceGroupName = "myResourceGroup"
+$resourceType = "Microsoft.DocumentDB/databaseAccounts/sqlDatabases"
+$accountName = "mycosmosaccount"
+$databaseName = "myDatabase"
+$resourceName = "$accountName/$databaseName"
+$lockName = "myResourceLock"
+$lockLevel = "CanNotDelete"
+
+New-AzResourceLock `
+    -ResourceGroupName $resourceGroupName `
+    -ResourceType $resourceType `
+    -ResourceName $resourceName `
+    -LockName $lockName `
+    -LockLevel $lockLevel
+```
+
+### <a name="remove-a-resource-lock-on-an-azure-cosmos-db-database"></a><a id="remove-db-lock"></a>Remover um bloqueio de recurso em um banco de dados do Azure Cosmos DB
+
+```azurepowershell-interactive
+$resourceGroupName = "myResourceGroup"
+$resourceType = "Microsoft.DocumentDB/databaseAccounts/sqlDatabases"
+$accountName = "mycosmosaccount"
+$databaseName = "myDatabase"
+$resourceName = "$accountName/$databaseName"
+$lockName = "myResourceLock"
+
+Remove-AzResourceLock `
+    -ResourceGroupName $resourceGroupName `
+    -ResourceType $resourceType `
+    -ResourceName $resourceName `
+    -LockName $lockName
+```
+
 ## <a name="azure-cosmos-db-container"></a>Contêiner do Azure Cosmos DB
 
 As seguintes seções demonstram como gerenciar o contêiner do Azure Cosmos DB, incluindo:
@@ -430,6 +484,8 @@ As seguintes seções demonstram como gerenciar o contêiner do Azure Cosmos DB,
 * [Listar todos os contêineres do Azure Cosmos DB em um banco de dados](#list-containers)
 * [Obter um único contêiner do Azure Cosmos DB em um banco de dados](#get-container)
 * [Excluir um contêiner do Azure Cosmos DB](#delete-container)
+* [Criar um bloqueio de recurso em um contêiner do Azure Cosmos DB para impedir a exclusão](#create-container-lock)
+* [Remover um bloqueio de recurso em um contêiner do Azure Cosmos DB](#remove-container-lock)
 
 ### <a name="create-an-azure-cosmos-db-container"></a><a id="create-container"></a>Criar um contêiner do Azure Cosmos DB
 
@@ -667,6 +723,43 @@ Remove-AzCosmosDBSqlContainer `
     -AccountName $accountName `
     -DatabaseName $databaseName `
     -Name $containerName
+```
+### <a name="create-a-resource-lock-on-an-azure-cosmos-db-container-to-prevent-delete"></a><a id="create-container-lock"></a>Criar um bloqueio de recurso em um contêiner do Azure Cosmos DB para impedir a exclusão
+
+```azurepowershell-interactive
+$resourceGroupName = "myResourceGroup"
+$resourceType = "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers"
+$accountName = "mycosmosaccount"
+$databaseName = "myDatabase"
+$containerName = "myContainer"
+$resourceName = "$accountName/$databaseName/$containerName"
+$lockName = "myResourceLock"
+$lockLevel = "CanNotDelete"
+
+New-AzResourceLock `
+    -ResourceGroupName $resourceGroupName `
+    -ResourceType $resourceType `
+    -ResourceName $resourceName `
+    -LockName $lockName `
+    -LockLevel $lockLevel
+```
+
+### <a name="remove-a-resource-lock-on-an-azure-cosmos-db-container"></a><a id="remove-container-lock"></a>Remover um bloqueio de recurso em um contêiner do Azure Cosmos DB
+
+```azurepowershell-interactive
+$resourceGroupName = "myResourceGroup"
+$resourceType = "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers"
+$accountName = "mycosmosaccount"
+$databaseName = "myDatabase"
+$containerName = "myContainer"
+$resourceName = "$accountName/$databaseName/$containerName"
+$lockName = "myResourceLock"
+
+Remove-AzResourceLock `
+    -ResourceGroupName $resourceGroupName `
+    -ResourceType $resourceType `
+    -ResourceName $resourceName `
+    -LockName $lockName
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

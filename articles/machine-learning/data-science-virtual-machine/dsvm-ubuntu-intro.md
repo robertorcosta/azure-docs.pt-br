@@ -8,12 +8,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: quickstart
 ms.date: 03/10/2020
-ms.openlocfilehash: f7629b4724e85f93a8dfe3e37ac2b2155288d235
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 375149047d51574e14df15b6385b8c296d49a8ec
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79290504"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254694"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Início Rápido: Configurar a Máquina Virtual de Ciência de Dados para Linux (Ubuntu)
 
@@ -22,16 +22,18 @@ Coloque tudo em funcionamento com a Máquina Virtual de Ciência de Dados do Ubu
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para criar uma Máquina Virtual de Ciência de Dados do Ubuntu 18.04, é necessário ter uma assinatura do Azure. [Experimentar o Azure gratuitamente](https://azure.com/free).
-Observe que as contas gratuitas do Azure não dão suporte a SKUs de máquina virtual habilitada para GPU.
+
+>[!NOTE]
+>As contas gratuitas do Azure não dão suporte a SKUs de máquina virtual habilitada para GPU.
 
 ## <a name="create-your-data-science-virtual-machine-for-linux"></a>Criar sua Máquina Virtual de Ciência de Dados para Linux
 
 Veja as etapas para criar uma instância da Máquina Virtual de Ciência de Dados do Ubuntu 18.04:
 
-1. Acesse o [portal do Azure](https://portal.azure.com). Você pode ser solicitado a entrar na sua conta do Azure, caso ainda não esteja conectado.
+1. Vá para o [Portal do Azure](https://portal.azure.com). Você pode ser solicitado a entrar na sua conta do Azure, caso ainda não esteja conectado.
 1. Localize a listagem de máquinas virtuais digitando "máquina virtual de ciência de dados" e selecionando "Máquina Virtual de Ciência de Dados – Ubuntu 18.04"
 
-1. Na janela subsequente, selecione **Criar**.
+1. Na próxima janela, selecione **Criar**.
 
 1. Você deve ser redirecionado para a folha "Criar uma máquina virtual".
    
@@ -41,21 +43,21 @@ Veja as etapas para criar uma instância da Máquina Virtual de Ciência de Dado
     
        * **Assinatura**: se você tiver mais de uma assinatura, selecione aquela em que o computador será criado e cobrado. Você deve ter privilégios de criação de recurso nessa assinatura.
        * **Grupo de recursos**: crie um novo grupo ou use um existente.
-       * **Nome da máquina virtual**: Insira o nome da máquina virtual. É assim que ela aparecerá no seu portal do Azure.
+       * **Nome da máquina virtual**: Insira o nome da máquina virtual. Esse nome será usado em seu portal do Azure.
        * **Região**: selecione o datacenter mais apropriado. Para um acesso mais rápido à rede, é o data center que contém a maioria dos seus dados ou que está mais próximo de sua localização física. Leia mais sobre as [Regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/).
        * **Imagem**: Mantenha o valor padrão.
-       * **Size**: Isso deve ser preenchido automaticamente com um tamanho apropriado para cargas de trabalho gerais. Leia mais sobre os [tamanhos de VM do Linux no Azure](../../virtual-machines/linux/sizes.md).
+       * **Size**: essa opção deve ser populada automaticamente com um tamanho apropriado para cargas de trabalho gerais. Leia mais sobre os [tamanhos de VM do Linux no Azure](../../virtual-machines/linux/sizes.md).
        * **Tipo de autenticação**: Para configuração mais rápida, selecione "Senha". 
          
          > [!NOTE]
          > Caso pretenda usar o JupyterHub, selecione "Senha", pois o JupyterHub *não* é configurado para usar chaves públicas SSH.
 
-       * **Nome de usuário**: Insira o nome de usuário do administrador. Esse é o nome de usuário que você usará para fazer logon em sua máquina virtual e não precisa ser o mesmo que o seu nome de usuário do Azure. *Não* use letras em maiúsculas.
+       * **Nome de usuário**: Insira o nome de usuário do administrador. Você usará esse nome de usuário para fazer logon em sua máquina virtual. Esse nome de usuário não precisa ser igual ao seu nome de usuário do Azure. *Não* use letras em maiúsculas.
          
-         > [!NOTE]
+         > [!IMPORTANT]
          > Se você usar letras em maiúsculas em seu nome de usuário, o JupyterHub não funcionará e você obterá um erro de servidor interno 500.
 
-       * **Senha**: Insira a senha que você usará para fazer logon em sua máquina virtual.    
+       * **Senha**: insira a senha que você usará para fazer logon em sua máquina virtual.    
     
    1. Selecione **Examinar + criar**.
    1. **Examinar + criar**
@@ -76,7 +78,7 @@ Também é possível anexar uma Máquina Virtual de Ciência de Dados ao Azure N
 
 ### <a name="ssh"></a>SSH
 
-Depois que a VM for criada, se ela tiver sido configurada com acesso SSH, você poderá entrar nela usando SSH. Use as credenciais da conta criada na seção **Noções básicas** da etapa 3 para a interface shell de texto. No Windows, é possível baixar uma ferramenta de cliente SSH, como o [PuTTY](https://www.putty.org). Se preferir uma área de trabalho gráfica (Sistema Windows X), você poderá usar o encaminhamento X11 no PuTTY.
+Se você configurou sua VM com a autenticação SSH, poderá fazer logon usando as credenciais da conta que você criou na seção **Noções básicas** da etapa 3 para a interface do shell de texto. No Windows, é possível baixar uma ferramenta de cliente SSH, como o [PuTTY](https://www.putty.org). Se preferir uma área de trabalho gráfica (Sistema Windows X), você poderá usar o encaminhamento X11 no PuTTY.
 
 > [!NOTE]
 > O cliente X2Go apresentou desempenho melhor do que o encaminhamento X11 em testes. Recomendamos o uso do cliente X2Go para uma interface gráfica de área de trabalho.
@@ -86,11 +88,11 @@ Depois que a VM for criada, se ela tiver sido configurada com acesso SSH, você 
 A VM Linux já está provisionada com um servidor X2Go e pronta para aceitar conexões de cliente. Para se conectar à área de trabalho gráfica da VM do Linux, realize o seguinte procedimento em seu cliente:
 
 1. Baixe e instale o cliente X2Go para sua plataforma de cliente [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).
-1. Anote o endereço IP público da máquina virtual, que pode ser encontrado no portal do Azure abrindo a máquina virtual que você acabou de criar.
+1. Anote o endereço IP público da máquina virtual, que pode ser encontrado no portal do Azure abrindo a máquina virtual que você criou.
 
    ![Endereço IP do computador Ubuntu](./media/dsvm-ubuntu-intro/ubuntu-ip-address.png)
 
-1. Execute o cliente X2Go. Se a janela "Nova sessão" não aparecer automaticamente, vá para Sessão-> Nova sessão.
+1. Execute o cliente X2Go. Se a janela "Nova Sessão" não aparecer automaticamente, vá para Sessão -> Nova Sessão.
 
 1. Na janela de configuração resultante, insira os seguintes parâmetros de configuração:
    * **Guia Sessão**:
@@ -99,7 +101,7 @@ A VM Linux já está provisionada com um servidor X2Go e pronta para aceitar con
      * **Porta SSH**: Deixe em 22, o valor padrão.
      * **Tipo de Sessão**: Altere o valor para **XFCE**. No momento, a VM Linux dá suporte apenas à área de trabalho XFCE.
    * **Guia Mídia**: Você poderá desligar o suporte a som e impressão de cliente se não precisar usá-los.
-   * **Pastas compartilhadas**: Caso você queira que os diretórios de seus computadores cliente sejam montados na VM Linux, adicione os diretórios de computador cliente que você deseja compartilhar com a VM nesta guia.
+   * **Pastas compartilhadas**: use essa guia para adicionar o diretório de computador cliente que você deseja montar na VM. 
 
    ![Configuração do X2Go](./media/dsvm-ubuntu-intro/x2go-ubuntu.png)
 1. Selecione **OK**.
@@ -123,6 +125,9 @@ A DSVM do Ubuntu executa o [JupyterHub](https://github.com/jupyterhub/jupyterhub
 
       ![Insira o logon do Jupyter](./media/dsvm-ubuntu-intro/jupyter-login.png)
 
+>[!NOTE]
+> Se você receber um erro 500 neste estágio, é provável que tenha usado letras maiúsculas em seu nome de usuário. Essa é uma interação conhecida entre o Jupyter Hub e o PAMAuthenticator que ele usa. 
+
    1. Procure os vários notebooks de exemplo disponíveis.
 
 O JupyterLab, a próxima geração de notebooks Jupyter e JupyterHub, também está disponível. Para acessá-lo, entre no JupyterHub e navegue até a URL https: \//seu-IP-de-VM:8000/usuário/seu-nome-de-usuário/lab, substituindo "seu-nome-de-usuário" pelo nome de usuário que você escolheu ao configurar a VM. Novamente, você pode estar bloqueado inicialmente para acessar o site devido a um erro de certificado.
@@ -139,6 +144,6 @@ Veja como você pode continuar seu aprendizado e exploração:
 
 * O passo a passo [Ciência de dados na Máquina Virtual de Ciência de Dados para Linux](linux-dsvm-walkthrough.md) mostra como executar várias tarefas comuns de ciência de dados com a DSVM Linux provisionada aqui. 
 * Explore as várias ferramentas de ciência de dados na DSVM experimentando as ferramentas descritas neste artigo. Você também pode executar `dsvm-more-info` no shell contido na máquina virtual para uma introdução básica e ponteiros para obter mais informações sobre as ferramentas instaladas na VM.  
-* Saiba como criar soluções completas de análise sistematicamente usando o [Processo de Ciência de Dados de Equipe](https://aka.ms/tdsp).
+* Saiba como criar soluções de análise sistematicamente usando o [Processo de Ciência de Dados de Equipe](https://aka.ms/tdsp).
 * Visite a [Galeria de IA do Azure](https://gallery.azure.ai/) para obter exemplos de análise de dados e aprendizado de máquina que usam os serviços de IA do Azure.
 * Consulte a [documentação de referência](./reference-ubuntu-vm.md) apropriada para esta máquina virtual.

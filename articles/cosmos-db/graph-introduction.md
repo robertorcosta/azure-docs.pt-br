@@ -7,18 +7,18 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 07/18/2019
 ms.author: lbosq
-ms.openlocfilehash: 9151b54d7fa0b64a465aa8384cb4bfdb8e72c482
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0eb778d1fc2dca522bef675709b5241f214e2b86
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75500013"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118110"
 ---
 # <a name="introduction-to-azure-cosmos-db-gremlin-api"></a>Introdução ao Azure Cosmos DB: API do Gremlin
 
 O [Azure Cosmos DB](introduction.md) é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft para aplicativos de missão crítica. Ele é um banco de dados multimodelo e é compatível com modelos de dados de documentos, de chave-valor, de grafos e de família de colunas. A API do Gremlin do Azure Cosmos DB é usada para armazenar e operar com os dados de grafo em um serviço de banco de dados totalmente gerenciado criado para qualquer escala.  
 
-![Arquitetura de grafo do Azure Cosmos DB](./media/graph-introduction/cosmosdb-graph-architecture.png)
+:::image type="content" source="./media/graph-introduction/cosmosdb-graph-architecture.png" alt-text="Arquitetura de grafo do Azure Cosmos DB" border="false":::
 
 Este artigo fornece uma visão geral da API do Gremlin do Azure Cosmos DB e explica como você pode usá-lo para armazenar grandes grafos com bilhões de vértices e bordas. Você pode consultar os grafos com latência de milissegundo e desenvolver a estrutura do grafo facilmente. API do Gremlin do Azure Cosmos DB se baseia no padrão do banco de dados de grafo do [Apache TinkerPop](https://tinkerpop.apache.org)  e usa a linguagem de consulta Gremlin. 
 
@@ -101,7 +101,7 @@ Os bancos de dados de grafo costumam ser incluídos na categoria de banco de dad
 ### <a name="gremlin-by-example"></a>Gremlin pelo exemplo
 Vamos usar um grafo de exemplo para entender como as consultas podem ser expressas no Gremlin. A figura a seguir mostra um aplicativo de negócios que gerencia dados sobre usuários, interesses e dispositivos na forma de um grafo.  
 
-![Banco de dados de exemplo mostrando interesses, dispositivos e pessoas](./media/gremlin-support/sample-graph.png) 
+:::image type="content" source="./media/gremlin-support/sample-graph.png" alt-text="Banco de dados de exemplo mostrando interesses, dispositivos e pessoas" border="false"::: 
 
 Este grafo tem os seguintes tipos de *vértice* (chamados de "rótulo" no Gremlin):
 

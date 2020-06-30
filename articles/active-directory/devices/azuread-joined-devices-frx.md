@@ -4,23 +4,23 @@ description: Como os usuários podem configurar o ingresso no Azure AD durante a
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 384157828e9c816b150e40bf3f09b74578c4a98e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: da37316724bf6ef166f08faa7208ad196000bb00
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67482087"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253096"
 ---
-# <a name="tutorial-join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>Tutorial: Adicionar um novo dispositivo do Windows 10 com o Azure AD durante a primeira execução
+# <a name="tutorial-join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>Tutorial: Ingressar em um novo dispositivo Windows 10 com o Azure AD durante uma primeira execução
 
-Com o gerenciamento de dispositivos no Azure AD (Azure Active Directory), você pode garantir que os usuários acessem recursos usando dispositivos que atendam aos padrões de segurança e conformidade. Para obter mais informações, consulte a [introdução ao gerenciamento de dispositivos no Azure Active Directory](overview.md).
+Com o gerenciamento de dispositivos no Azure AD (Azure Active Directory), você pode garantir que os usuários acessem recursos usando dispositivos que atendam aos padrões de segurança e conformidade. Para obter mais informações, consulte a [introdução ao gerenciamento de dispositivos no Active Directory do Azure](overview.md).
 
 Com o Windows 10, você pode adicionar um novo dispositivo ao Azure AD durante a FRX (experiência de primeira execução).  
 Isso permite que você distribua dispositivos compactados aos seus funcionários ou alunos.
@@ -37,15 +37,15 @@ Neste tutorial, você aprenderá a adicionar um dispositivo ao Azure AD durante 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para ingressar em um dispositivo Windows 10, o serviço de registro do dispositivo deverá ser configurado para permitir que você registre dispositivos. Além de ter permissão para ingressar em dispositivos em seu locatário do Azure AD, você deverá ter menos dispositivos registrados que o máximo configurado. Para obter mais informações, consulte [definir configurações do dispositivo](device-management-azure-portal.md#configure-device-settings).
+Para ingressar em um dispositivo Windows 10, o serviço de registro do dispositivo deverá ser configurado para permitir que você registre dispositivos. Além de ter permissão para ingressar em dispositivos em seu locatário do Azure AD, você deverá ter menos dispositivos registrados que o máximo configurado. Para mais informações, consulte [Definir configurações do dispositivo](device-management-azure-portal.md#configure-device-settings).
 
-Além disso, se seu locatário for federado, seu provedor de identidade PRECISARÁ dar suporte aos pontos de extremidade de nome de usuário/senha WS-Fed e WS-Trust. Pode ser a versão 1.3 ou 2005. Esse suporte de protocolo é necessário para associar o dispositivo ao Azure AD e entrar no dispositivo com uma senha.
+Além disso, se seu locatário for federado, seu provedor de identidade PRECISARÁ dar suporte aos pontos de extremidade de nome de usuário/senha WS-Fed e WS-Trust. Pode ser a versão 1.3 ou 2005. O suporte deste protocolo é necessário para ingressar o dispositivo no Azure AD e para entrar no dispositivo com uma senha.
 
 ## <a name="joining-a-device"></a>Ingressar em um dispositivo
 
 **Para ingressar em um dispositivo Windows 10 ao Azure AD durante a FRX:**
 
-1. Ao ligar o novo dispositivo e iniciar o processo de instalação, você deverá ver a mensagem **preparando** -se. Siga os prompts para configurar o dispositivo.
+1. Ao ligar o novo dispositivo e iniciar o processo de instalação, você deverá ver a mensagem **Preparando-se** . Siga os prompts para configurar o dispositivo.
 1. Inicie personalizando a região e o idioma. Em seguida, aceite os Termos de Licença para Software Microsoft.
  
     ![Personalizar a região](./media/azuread-joined-devices-frx/01.png)
@@ -76,5 +76,5 @@ Para verificar se um dispositivo é associado ao seu Azure AD, examine a caixa d
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter mais informações, consulte a [introdução ao gerenciamento de dispositivos no Azure Active Directory](overview.md).
+- Para obter mais informações, consulte a [introdução ao gerenciamento de dispositivos no Active Directory do Azure](overview.md).
 - Para obter mais informações sobre como gerenciar dispositivos no portal do Azure AD, consulte [gerenciamento de dispositivos usando o portal do Azure](device-management-azure-portal.md).

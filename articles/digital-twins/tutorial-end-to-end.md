@@ -8,12 +8,12 @@ ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 0f9ddf2f4fba9e216ef0b5a5747fc32f4288cf67
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: f83eb6a0cab8bdf2f26888f895aeac8a8fa796bb
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84737267"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85296977"
 ---
 # <a name="build-out-an-end-to-end-solution"></a>Criar uma solução de ponta a ponta
 
@@ -136,6 +136,8 @@ No painel *Publicar* que é aberto na janela principal do Visual Studio, verifiq
 > [!NOTE]
 > Você poderá ver um pop-up como este: :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="Publicar função do Azure no Visual Studio: publicar credenciais" border="false":::
 > Se isso acontecer, selecione **Tentativa de recuperar credenciais do Azure** e escolha **Salvar**.
+>
+> Se você vir um aviso de que *Sua versão do runtime do Functions não corresponde à versão em execução no Azure*, siga os prompts para atualizar para a versão mais recente do Azure Functions Runtime. Esse problema poderá ocorrer se você estiver usando uma versão mais antiga do Visual Studio do que a recomendada na seção *Pré-requisitos* no início deste tutorial.
 
 ### <a name="assign-permissions-to-the-function-app"></a>Atribuir permissões ao aplicativo de funções
 

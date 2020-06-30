@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/12/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9804a44a29f4540c28ec4e1eb6927e65af70218c
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: fbfa16223484928dda1004011d2e92295edd8b89
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682955"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85297250"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>Tutorial: Integração do Azure Active Directory ao Palo Alto Networks – Admin UI
 
@@ -106,14 +106,14 @@ Para configurar o logon único do Azure AD com o Palo Alto Networks – Admin UI
 
     > A porta 443 é necessária no **Identificador** e na **URL de Resposta**, pois esses valores são embutidos em código no Firewall do Palo Alto. A remoção do número da porta resultará em um erro durante o logon, se for removido.
 
-1. O aplicativo PureCloud by Genesys espera as declarações SAML em um formato específico, o que exige a adição de mapeamentos de atributo personalizado à configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
+1. O aplicativo Palo Alto Networks – interface do usuário do administrador espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
 
     ![image](common/default-attributes.png)
 
    > [!NOTE]
    > Como os valores de atributo são apenas exemplos, mapeie os valores apropriados para *username* e *adminrole*. Há outro atributo opcional, *accessdomain*, que é usado para restringir o acesso de administrador para sistemas virtuais específicos no firewall.
 
-1. Além do indicado acima, o aplicativo PureCloud by Genesys espera que mais alguns atributos sejam passados novamente na resposta SAML, que são mostrados abaixo. Esses atributos também são pré-populados, mas você pode examiná-los de acordo com seus requisitos.
+1. Além do indicado acima, o aplicativo Palo Alto Networks – interface do usuário do administrador espera que mais alguns atributos sejam passados novamente na resposta SAML, que são mostrados abaixo. Esses atributos também são pré-populados, mas você pode examiná-los de acordo com seus requisitos.
 
     | Nome |  Atributo de Origem|
     | --- | --- |

@@ -14,17 +14,17 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: a7d0bc787f1ae4444849a1483d6323f8a098ae1e
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 115688eeccab3a48bf4234f00124bcd6bc950853
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84024125"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85251430"
 ---
 # <a name="tutorial-build-a-clustering-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutorial: Criar um modelo de clustering no R com os Serviços de Machine Learning do Banco de Dados SQL do Azure (versão prévia)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Na parte dois desta série de tutoriais de três partes, você criará um modelo K-Means em R para executar o clustering. Na próxima parte desta série, você implantará esse modelo em um banco de dados SQL com os Serviços do Machine Learning do Banco de Dados SQL do Azure (versão prévia).
+Na parte dois desta série de tutoriais de três partes, você criará um modelo K-Means em R para executar o clustering. Na próxima parte desta série, você implantará esse modelo em um banco de dados no Banco de Dados SQL do Azure com os Serviços de Machine Learning do Banco de Dados SQL do Azure (versão prévia).
 
 [!INCLUDE[ml-preview-note](../../../includes/sql-database-ml-preview-note.md)]
 
@@ -36,9 +36,9 @@ Neste artigo, você aprenderá a:
 > * Executar clustering
 > * Analisar os resultados
 
-Na [primeira parte](clustering-model-prepare-data-tutorial.md), você aprendeu a preparar os dados de um banco de dados SQL do Azure para executar o clustering.
+Na [parte um](clustering-model-prepare-data-tutorial.md), você aprendeu a preparar os dados de um banco de dados para executar clustering.
 
-Na [terceira parte](clustering-model-deploy-tutorial.md), você aprenderá a criar um procedimento armazenado em um banco de dados SQL do Azure que pode executar o clustering em R com base em dados novos.
+Na [parte três](clustering-model-deploy-tutorial.md), você aprenderá a criar um procedimento armazenado capaz de executar o clustering em R com base em dados novos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

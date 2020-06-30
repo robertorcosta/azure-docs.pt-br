@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 69f63615d3c5f10bdcef071e18a7379ecf52338e
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 013f82c33b149d754e059bbc4c9933f917a2555a
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84119298"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85248614"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Tutorial: Criar um pipeline com a Atividade de Cópia usando o Visual Studio
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ ms.locfileid: "84119298"
 > [!NOTE]
 > Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte o [tutorial de atividade de cópia](../quickstart-create-data-factory-dot-net.md). 
 
-Neste artigo, você aprenderá a usar o Microsoft Visual Studio para criar um data factory com um pipeline que copia dados de um armazenamento de blobs do Azure para um Banco de Dados SQL do Azure. Se você ainda está se familiarizando com o Azure Data Factory, leia o artigo [Introdução ao Azure Data Factory](data-factory-introduction.md) antes de fazer este tutorial.   
+Neste artigo, você aprenderá a usar o Microsoft Visual Studio para criar um data factory com um pipeline que copia dados de um Armazenamento de Blobs do Azure para o Banco de Dados SQL do Azure. Se você ainda está se familiarizando com o Azure Data Factory, leia o artigo [Introdução ao Azure Data Factory](data-factory-introduction.md) antes de fazer este tutorial.   
 
 Neste tutorial, você criará um pipeline com uma atividade: Atividade de cópia. A atividade de cópia copia dados de um armazenamento de dados com suporte para um armazenamento de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados com suporte como origens e coletores, confira [Armazenamentos de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats). A atividade é habilitada por um serviço globalmente disponível que pode copiar dados entre vários repositórios de dados de forma segura, confiável e escalonável. Para saber mais sobre a atividade de cópia, confira [Atividades de movimentação de dados](data-factory-data-movement-activities.md).
 
@@ -62,15 +62,15 @@ Eis as etapas executadas como parte deste tutorial:
     
     O AzureStorageLinkedService vincula sua conta do armazenamento do Azure ao data factory. Você criou um contêiner e carregou dados nessa conta de armazenamento como parte dos [pré-requisitos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
 
-    O AzureSqlLinkedService vincula seu banco de dados SQL do Azure ao data factory. Os dados copiados do armazenamento de blobs são armazenados no banco de dados. Você criou uma tabela SQL no banco de dados como parte dos [pré-requisitos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).     
+    O AzureSqlLinkedService vincula o Banco de Dados SQL do Azure ao data factory. Os dados copiados do armazenamento de blobs são armazenados no banco de dados. Você criou uma tabela SQL no banco de dados como parte dos [pré-requisitos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).     
 2. Crie **conjuntos de dados** de entrada e saída no data factory.  
     
     O serviço vinculado do Armazenamento do Azure especifica a cadeia de conexão que o serviço Data Factory usa no tempo de execução para se conectar à sua conta do Armazenamento do Azure. E o conjunto de dados de blob especifica o contêiner e a pasta que contém os dados.  
 
-    Da mesma forma, o serviço vinculado do Banco de Dados SQL especifica a cadeia de conexão que o serviço Data Factory usa no tempo de execução para se conectar ao seu Banco de Dados SQL do Azure. Além disso, o conjunto de dados da tabela SQL de saída especifica a tabela no banco de dados na qual os dados do armazenamento de blobs são copiados.
+    Da mesma forma, o serviço vinculado do Banco de Dados SQL do Azure especifica a cadeia de conexão que o serviço Data Factory usa no tempo de execução para se conectar ao seu Banco de Dados SQL do Azure. Além disso, o conjunto de dados da tabela SQL de saída especifica a tabela no banco de dados na qual os dados do armazenamento de blobs são copiados.
 3. Crie um **pipeline** na fábrica de dados. Nesta etapa, você cria um pipeline com a atividade de cópia.   
     
-    A atividade de cópia copia dados de um blob no armazenamento de blobs do Azure em uma tabela no Banco de Dados SQL do Azure. Você pode usar uma atividade de cópia em um pipeline para copiar dados de qualquer fonte com suporte para qualquer destino com suporte. Para obter uma lista de armazenamentos de dados com suporte, confira o artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md#supported-data-stores-and-formats). 
+    A atividade de cópia copia dados de um blob no Armazenamento de Blobs do Azure para uma tabela no Banco de Dados SQL do Azure. Você pode usar uma atividade de cópia em um pipeline para copiar dados de qualquer fonte com suporte para qualquer destino com suporte. Para obter uma lista de armazenamentos de dados com suporte, confira o artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md#supported-data-stores-and-formats). 
 4. Crie um **data factory** do Azure ao implantar entidades de Data Factory (serviços vinculados, conjuntos de dados/tabelas e pipelines). 
 
 ## <a name="create-visual-studio-project"></a>Criar um projeto do Visual Studio
@@ -89,7 +89,7 @@ Portanto, você criará dois serviços vinculados dos tipos: AzureStorage e Azur
 
 O serviço vinculado ao Armazenamento do Azure vincula sua conta de armazenamento do Azure ao data factory. Essa conta de armazenamento é aquela na qual você criou um contêiner e carregou os dados como parte dos [pré-requisitos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
 
-Um serviço vinculado do SQL do Azure vincula seu banco de dados SQL do Azure ao data factory. Os dados copiados do armazenamento de blobs são armazenados no banco de dados. Você criou a tabela emp no banco de dados como parte dos [pré-requisitos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+Um serviço vinculado do SQL do Azure vincula o Banco de Dados SQL do Azure ao data factory. Os dados copiados do armazenamento de blobs são armazenados no banco de dados. Você criou a tabela emp no banco de dados como parte dos [pré-requisitos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Serviços vinculados vinculam armazenamentos de dados ou serviços de computação para uma data factory do Azure. Confira [repositórios de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats) para ver todas as fontes e coletores com suporte da Atividade de Cópia. Confira os [serviços vinculados de computação](data-factory-compute-linked-services.md) para ver uma lista dos serviços de computação com suporte do Data Factory. Neste tutorial, você não usa nenhum serviço de computação. 
 
@@ -115,11 +115,11 @@ Serviços vinculados vinculam armazenamentos de dados ou serviços de computaç�
 
 
 ## <a name="create-datasets"></a>Criar conjuntos de dados
-Na etapa anterior, você criou serviços vinculados para vincular a conta do Armazenamento do Azure e um banco de dados SQL do Azure ao data factory. Nesta etapa, você define dois conjuntos de dados, InputDataset e OutputDataset, que representam os dados de entrada/saída armazenados nos repositórios de dados referidos por AzureStorageLinkedService1 e AzureSqlLinkedService1, respectivamente.
+Na etapa anterior, você criou serviços vinculados para vincular a conta do Armazenamento do Azure e o Banco de Dados SQL do Azure ao data factory. Nesta etapa, você define dois conjuntos de dados, InputDataset e OutputDataset, que representam os dados de entrada/saída armazenados nos repositórios de dados referidos por AzureStorageLinkedService1 e AzureSqlLinkedService1, respectivamente.
 
 O serviço vinculado do Armazenamento do Azure especifica a cadeia de conexão que o serviço Data Factory usa no tempo de execução para se conectar à sua conta do Armazenamento do Azure. E o conjunto de dados de blob de entrada (InputDataset) especifica o contêiner e a pasta que contém os dados.  
 
-Da mesma forma, o serviço vinculado do Banco de Dados SQL especifica a cadeia de conexão que o serviço Data Factory usa no tempo de execução para se conectar ao seu Banco de Dados SQL do Azure. Além disso, o conjunto de dados da tabela SQL de saída (OutputDataset) especifica a tabela no banco de dados na qual os dados do armazenamento de blobs são copiados. 
+Da mesma forma, o serviço vinculado do Banco de Dados SQL do Azure especifica a cadeia de conexão que o serviço Data Factory usa no tempo de execução para se conectar ao seu Banco de Dados SQL do Azure. Além disso, o conjunto de dados da tabela SQL de saída (OutputDataset) especifica a tabela no banco de dados na qual os dados do armazenamento de blobs são copiados. 
 
 ### <a name="create-input-dataset"></a>Criar conjunto de dados de entrada
 Nesta etapa, você criará um conjunto de dados denominado InputDataset que aponta para um contêiner de blob no Armazenamento do Azure representado pelo serviço vinculado AzureStorageLinkedService1. Se você não especificar um valor para fileName (ou ignorá-lo), os dados de todos os blobs na pasta de entrada serão copiados no destino. Neste tutorial, você deve especificar um valor para o fileName. 
@@ -177,7 +177,7 @@ Aqui, você usa o termo "tabelas" em vez de "conjuntos de dados". Uma tabela é 
     Para saber mais sobre essas propriedades JSON, confira o [artigo sobre o conector do Blob do Azure](data-factory-azure-blob-connector.md#dataset-properties).   
 
 ### <a name="create-output-dataset"></a>Criar conjunto de dados de saída
-Nesta etapa, você cria um conjunto de dados de saída denominado **OutputDataset**. Esse conjunto de dados aponta para uma tabela SQL no banco de dados SQL do Azure representada por **AzureSqlLinkedService1**. 
+Nesta etapa, você cria um conjunto de dados de saída denominado **OutputDataset**. Esse conjunto de dados aponta para uma tabela SQL no Banco de Dados SQL do Azure representada por **AzureSqlLinkedService1**. 
 
 1. Clique com o botão direito do mouse em **Tabelas** no **Gerenciador de Soluções** novamente, aponte para **Adicionar** e clique em **Novo Item**.
 2. Na caixa de diálogo **Adicionar Novo Item**, selecione **SQL do Azure** e clique em **Adicionar**. 
@@ -213,7 +213,7 @@ Nesta etapa, você cria um conjunto de dados de saída denominado **OutputDatase
 
     | Propriedade | Descrição |
     |:--- |:--- |
-    | type | A propriedade type é definida como **AzureSqlTable** porque os dados são copiados para uma tabela em um banco de dados SQL do Azure. |
+    | type | A propriedade type é definida como **AzureSqlTable** porque os dados são copiados para uma tabela no Banco de Dados SQL do Azure. |
     | linkedServiceName | Refere-se ao **AzureSqlLinkedService** que você criou anteriormente. |
     | tableName | Especifica a **tabela** para a qual os dados são copiados. | 
     | frequency/interval | A frequência é definida como **Hora** e o intervalo é de **1**, o que significa que as fatias de saída são produzidas **a cada hora** entre as horas de início e término do pipeline, não antes ou depois delas.  |
@@ -363,12 +363,12 @@ Navegue até a home page do seu data factory:
 5. Siga as instruções de [Monitorar conjuntos de dados e pipeline](data-factory-monitor-manage-pipelines.md) para monitorar o pipeline e os conjuntos de dados criados neste tutorial. Atualmente, o Visual Studio não dá suporte a monitoramento de pipelines do Data Factory. 
 
 ## <a name="summary"></a>Resumo
-Neste tutorial, você criou uma data factory do Azure para copiar dados de um blob do Azure para um banco de dados SQL do Azure. Você utilizou o Visual Studio para criar a data factory, os serviços vinculados, os conjuntos de dados e um pipeline. Aqui estão as etapas de alto nível executadas nesse tutorial:  
+Neste tutorial, você criou um Azure Data Factory para copiar dados de um blob do Azure para o Banco de Dados SQL do Azure. Você utilizou o Visual Studio para criar a data factory, os serviços vinculados, os conjuntos de dados e um pipeline. Aqui estão as etapas de alto nível executadas nesse tutorial:  
 
 1. Foi criada uma **data factory**do Azure.
 2. Foram criados **serviços vinculados**:
    1. Um serviço vinculado do **Armazenamento do Azure** para vincular sua conta do Armazenamento do Azure que contém os dados de entrada.     
-   2. Um serviço vinculado do **SQL Azure** para vincular o banco de dados SQL do Azure que contém os dados de saída. 
+   2. Um serviço vinculado do **SQL do Azure** para vincular o banco de dados que contém os dados de saída. 
 3. Foram criados **conjuntos de dados**que descrevem os dados de entrada e de saída para os pipelines.
 4. Foi criado um **pipeline** com uma **Atividade de Cópia** com **BlobSource** como origem e **SqlSink** como coletor. 
 
@@ -511,7 +511,7 @@ Não é aconselhável e costuma ser contra a política de segurança confirmar d
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste tutorial, você usou o armazenamento de blobs do Azure como um armazenamento de dados de origem e um banco de dados SQL do Azure como um armazenamento de dados de destino em uma operação de cópia. A tabela a seguir fornece uma lista de armazenamentos de dados com suporte como origens ou destinos na atividade de cópia: 
+Neste tutorial, você usou o Armazenamento de Blobs do Azure como um armazenamento de dados de origem e o Banco de Dados SQL do Azure como um armazenamento de dados de destino em uma operação de cópia. A tabela a seguir fornece uma lista de armazenamentos de dados com suporte como origens ou destinos na atividade de cópia: 
 
 [!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
 

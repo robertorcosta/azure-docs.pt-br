@@ -5,20 +5,20 @@ services: synapse-analytics
 author: ArnoMicrosoft
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: ''
+ms.subservice: synapse-link
 ms.date: 05/06/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5c19a3f808b85ba9e34d3304251fe8acb21204ce
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 399aa00be3d585b1d37bab95d8108ee8a09a8791
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83700193"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85195004"
 ---
 # <a name="query-azure-cosmos-db-analytical-store-preview-with-apache-spark-for-azure-synapse-analytics"></a>Consultar Repositório Analítico do Azure Cosmos DB (versão prévia) com o Apache Spark para Azure Synapse Analytics
 
-Este artigo fornece alguns exemplos de como você pode interagir com o repositório analítico usando gestos do Synapse. Os gestos são vistos quando você clica com o botão direito do mouse em um contêiner. Com gestos, você pode gerar código rapidamente e ajustá-lo às suas necessidades. Os gestos também são perfeitos para descobrir dados com um único clique.
+Este artigo fornece exemplos de como você pode interagir com o repositório analítico usando gestos do Synapse. Os gestos são vistos quando você clica com o botão direito do mouse em um contêiner. Com gestos, você pode gerar código rapidamente e ajustá-lo às suas necessidades. Os gestos também são perfeitos para descobrir dados com um único clique.
 
 ## <a name="load-to-dataframe"></a>Carregar em DataFrame
 

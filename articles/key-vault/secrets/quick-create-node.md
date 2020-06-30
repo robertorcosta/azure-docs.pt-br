@@ -7,12 +7,12 @@ ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: d21ec8d025070bd748550cdfbc2aca5ae1f55c08
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 21add865818d73937aec241f8f60e20158202348
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983135"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85125286"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-nodejs-v4"></a>Início Rápido: biblioteca de clientes do Azure Key Vault para Node.js (v4)
 
@@ -69,12 +69,12 @@ az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
 
 A maneira mais simples de autenticar um aplicativo baseado em nuvem é com uma identidade gerenciada; confira [Usar uma identidade gerenciada do Serviço de Aplicativo para acessar o Azure Key Vault](../general/managed-identity.md) para obter detalhes.
 
-Para simplificar, no entanto, este início rápido cria um aplicativo de área de trabalho, que requer o uso de uma entidade de serviço e uma política de controle de acesso. Sua entidade de serviço requer um nome exclusivo no formato "http://&lt;meu-nome-exclusivo-de-entidade-de-serviço&gt;".
+Para simplificar, no entanto, este início rápido cria um aplicativo de área de trabalho, que requer o uso de uma entidade de serviço e uma política de controle de acesso. Sua entidade de serviço requer um nome exclusivo no formato "http://&lt;my-unique-service-principal-name&gt;".
 
 Crie uma entidade de serviço usando o comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) da CLI do Azure:
 
 ```azurecli
-az ad sp create-for-rbac -n "http://&lt;my-unique-service-principle-name&gt;" --sdk-auth
+az ad sp create-for-rbac -n "http://&lt;my-unique-service-principal-name&gt;" --sdk-auth
 ```
 
 Essa operação retornará uma série de pares de chave/valor. 

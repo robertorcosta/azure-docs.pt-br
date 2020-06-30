@@ -11,15 +11,15 @@ ms.date: 12/05/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83e172e61411c7c1c098706b5ff4566f565d6bf1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 568f284a22f170c2a6a0d60d9e2cfed0645937ba
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "66253850"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261368"
 ---
 # <a name="what-is-password-hash-synchronization-with-azure-ad"></a>O que é sincronização de hash da senha com o Azure AD?
-A sincronização de hash de senha é um dos métodos de entrada usados para atingir a identidade híbrida. O Azure AD Connect sincroniza um hash do hash da senha do usuário de uma instância do Active Directory local para uma instância do Azure AD baseada em nuvem.
+A sincronização de hash de senha é um dos métodos de entrada usados para atingir a identidade híbrida. O Azure AD Connect sincroniza um hash, do hash, da senha de um usuário de uma instância do Active Directory local para uma instância do Azure AD baseada em nuvem.
 
 A sincronização de hash de senha é uma extensão para o recurso de sincronização de diretório, implementado pelo Azure AD Connect Sync. Você pode usar esse recurso para entrar em serviços do Azure AD como o Office 365. Você entra no serviço usando a mesma senha que usa para entrar sua instância do Active Directory local.
 

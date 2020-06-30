@@ -14,17 +14,17 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: d5227fc89d99257f3390820d4930c3d57b63f03d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 2a90003c9de2cf0e942b518c6d4e9c3569039caf
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84024103"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85251413"
 ---
 # <a name="tutorial-deploy-a-clustering-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutorial: Implantar um modelo de clustering no R com os Serviços de Machine Learning do Banco de Dados SQL do Azure (versão prévia)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Na terceira parte desta série de tutoriais de três partes, você implantará um modelo de clustering desenvolvido no R em um banco de dados SQL com os Serviços do Machine Learning do Banco de Dados SQL do Azure (versão prévia).
+Na terceira parte desta série de tutoriais de três partes, você implantará um modelo de clustering desenvolvido no R em um banco de dados no Banco de Dados SQL do Azure com os Serviços de Machine Learning do Banco de Dados SQL do Azure (versão prévia).
 
 [!INCLUDE[ml-preview-note](../../../includes/sql-database-ml-preview-note.md)]
 
@@ -38,7 +38,7 @@ Neste artigo, você aprenderá a:
 > * Executar clustering no Banco de Dados SQL
 > * Usar as informações de clustering
 
-Na [primeira parte](clustering-model-prepare-data-tutorial.md), você aprendeu a preparar os dados de um banco de dados SQL do Azure para executar o clustering.
+Na [parte um](clustering-model-prepare-data-tutorial.md), você aprendeu a preparar os dados de um banco de dados para executar clustering.
 
 Na [segunda parte](clustering-model-build-tutorial.md), você aprendeu a criar e treinar um modelo de clustering K-Means no R.
 

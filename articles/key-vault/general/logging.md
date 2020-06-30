@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 9b6589d2045d9bb7bdfb38f9872acd8366481106
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: b62d69220a931bef8d91a85bcbbaedfbce86110a
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84790462"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85211384"
 ---
 # <a name="azure-key-vault-logging"></a>Log do Azure Key Vault
 
@@ -95,7 +95,7 @@ No [tutorial de introdução](../secrets/quick-create-cli.md), o nome do cofre d
 $kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
 ```
 
-## <a name="enable-logging"></a><a id="enable"></a>Habilitar o registro em log
+## <a name="enable-logging-using-azure-powershell"></a><a id="enable"></a>Habilitar o registro em log usando o Azure PowerShell
 
 Para habilitar o registro em log para o Key Vault, usaremos o cmdlet **Set-AzDiagnosticSetting**, juntamente com as variáveis que criamos para a nova conta de armazenamento e o cofre de chaves. Também definiremos o sinalizador **-Enabled** como **$true** e definiremos a categoria como **AuditEvent** (a única categoria para o registro em log do Key Vault):
 
@@ -131,6 +131,25 @@ O que é registrado em log:
   * A criação, modificação ou exclusão dessas chaves ou segredos.
   * A assinatura, verificação, criptografia, descriptografia, encapsulamento e desencapsulamento de chaves, obtenção de segredos e listagem de chaves e segredos (e suas versões).
 * Solicitações não autenticadas que resultam em uma resposta 401. Por exemplo, solicitações que não têm um token de portador estão malformadas ou expiradas ou têm um token inválido.  
+
+## <a name="enable-logging-using-azure-cli"></a>Habilitar o registro em log usando a CLI do Azure
+
+```azurecli
+az login
+
+az account set --subscription {AZURE SUBSCRIPTION ID}
+
+az provider register -n Microsoft.KeyVault
+
+az monitor diagnostic-settings create  \
+--name KeyVault-Diagnostics \
+--resource /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault \
+--logs    '[{"category": "AuditEvent","enabled": true}]' \
+--metrics '[{"category": "AllMetrics","enabled": true}]' \
+--storage-account /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount \
+--workspace /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/myworkspace \
+--event-hub-rule /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhub/authorizationrules/RootManageSharedAccessKey
+```
 
 ## <a name="access-your-logs"></a><a id="access"></a>Acessar seus logs
 
@@ -213,6 +232,7 @@ Agora você está pronto para começar a examinar o conteúdo dos logs. Mas, ant
 
 * Para consultar o status das configurações de diagnóstico do recurso cofre de chaves: `Get-AzDiagnosticSetting -ResourceId $kv.ResourceId`
 * Para desabilitar o log do recurso cofre de chaves: `Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Category AuditEvent`
+
 
 ## <a name="interpret-your-key-vault-logs"></a><a id="interpret"></a>Interpretar os logs do Cofre de Chave
 

@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 04/24/2020
-ms.openlocfilehash: ad7baea087cd6073659929cc41f626b597bbae63
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 0c03c4f163ef36335dacdc3c28340164dcd23fba
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650349"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85299187"
 ---
 # <a name="quickstart-connect-a-go-application-to-azure-cosmos-dbs-api-for-mongodb"></a>Início Rápido: Conectar um aplicativo Go à API do Azure Cosmos DB para MongoDB
 
@@ -422,7 +422,7 @@ Para exibir, consultar e trabalhar com os dados de usuário criados na etapa ant
 
 Na caixa Pesquisa superior, insira **Azure Cosmos DB**. Quando a folha da conta do Cosmos abrir, selecione sua conta do Cosmos. No painel de navegação esquerdo, clique em **Data Explorer**. Expanda a coleção no painel Coleções e, em seguida, será possível exibir os documentos na coleção, consultar os dados e até mesmo criar e executar gatilhos, UDFs e procedimentos armazenados. 
 
-![Data Explorer mostrando o documento recém-criado](./media/create-mongodb-go/go-cosmos-db-data-explorer.jpg)
+:::image type="content" source="./media/create-mongodb-go/go-cosmos-db-data-explorer.png" alt-text="Data Explorer mostrando o documento recém-criado":::
 
 
 Excluir um `todo` usando sua ID

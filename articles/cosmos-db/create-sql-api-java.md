@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 236cff59ffbef835b5a57a3d5a0d223cfebf34ae
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: bb711dc67df51edc569f23bd1e6c54eef55012d2
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647695"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85115374"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-sql-api-data"></a>Início Rápido: Criar um aplicativo Java para gerenciar os dados de API de SQL do Azure Cosmos DB
 
@@ -44,7 +44,7 @@ Neste início rápido, você criará e gerenciará uma conta da API do SQL para 
 
 *A estrutura de uma conta do Cosmos DB.* Independentemente da API ou da linguagem de programação, uma *conta* do Cosmos DB contém zero ou mais *bancos de dados*, um *DB* (banco de dados) contém zero ou mais *contêineres* e um *contêiner* contém zero ou mais itens, conforme mostrado no diagrama abaixo:
 
-![Entidades de conta do Azure Cosmos](./media/databases-containers-items/cosmos-entities.png)
+:::image type="content" source="./media/databases-containers-items/cosmos-entities.png" alt-text="Entidades de conta do Azure Cosmos" border="false":::
 
 Você pode ler mais sobre bancos de dados, contêineres e itens [aqui.](databases-containers-items.md) Algumas propriedades importantes são definidas no nível do contêiner, entre elas a *taxa de transferência provisionada* e a *chave de partição*. 
 

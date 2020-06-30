@@ -10,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: 693222f4c1abd9bda128d18dc4dd67703a245bc8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f9ce90a64ca038c99fe4ba63e66f7e5abbd196f6
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75441140"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85119164"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-nodejs-express-app"></a>Criar um aplicativo Angular com a API do Azure Cosmos DB para MongoDB – criar um aplicativo Node.js Express
 
@@ -33,7 +33,7 @@ A Parte 2 do tutorial se baseia na [introdução](tutorial-develop-mongodb-nodej
 
 > [!VIDEO https://www.youtube.com/embed/lIwJIYcGSUg]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de iniciar esta parte do tutorial, não deixe de assistir ao [vídeo de introdução](tutorial-develop-mongodb-nodejs.md).
 
@@ -163,7 +163,7 @@ Este tutorial também requer:
 
     Essa resposta mostra que o aplicativo está em execução localmente. 
 
-    ![Postman mostrando a solicitação e a resposta](./media/tutorial-develop-mongodb-nodejs-part2/azure-cosmos-db-postman.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part2/azure-cosmos-db-postman.png" alt-text="Postman mostrando a solicitação e a resposta":::
 
 
 ## <a name="next-steps"></a>Próximas etapas

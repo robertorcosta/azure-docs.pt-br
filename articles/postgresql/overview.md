@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 11/25/2019
-ms.openlocfilehash: 9ea0610811f6906526afe55d577e04a8decd5f49
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: deb720638e0921762eb9c5800d218c3cfccb7f55
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74481656"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213594"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>O que é o Banco de Dados do Azure para PostgreSQL?
 O Banco de Dados do Azure para PostgreSQL é um serviço de banco de dados relacional na nuvem da Microsoft projetado para desenvolvedores. Ele se baseia na versão da comunidade do mecanismo de banco de dados do [PostgreSQL](https://www.postgresql.org/) de software livre e está disponível em duas opções de implantação: Servidor único e Hiperescala (Citus).
@@ -52,6 +52,6 @@ Além disso, considere esses pontos de contato conforme apropriado:
 - Para fornecer comentários ou solicitar novos recursos, crie uma entrada por meio do [UserVoice](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).
 
 ## <a name="next-steps"></a>Próximas etapas
-- Consultar a [página de preços](https://azure.microsoft.com/pricing/details/postgresql/) para ver comparações de custo e calculadoras.
+- Consultar a [página de preços](https://azure.microsoft.com/pricing/details/postgresql/) para ver comparações de custo e calculadoras. As opções de implantação de Servidor Único e de Hiperescala (Citus) também oferecem descontos de instância reservada pré-paga. Confira as páginas de [Preços de RI de Servidor Único](concept-reserved-pricing.md) e [Preços de RI de Hiperescala](concepts-hyperscale-reserved-pricing.md) para obter mais detalhes.
 - Comece pela criação de seu primeiro [Servidor único](./quickstart-create-server-database-portal.md) ou [Hiperescala (Citus)](./quickstart-create-hyperscale-portal.md) do Banco de Dados do Azure para PostgreSQL
 - Crie seu primeiro aplicativo no Python, PHP, Ruby, C\#, Java, Node.js: [Bibliotecas de conexão](./concepts-connection-libraries.md)

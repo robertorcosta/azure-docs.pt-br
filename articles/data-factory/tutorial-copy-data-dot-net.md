@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 11/08/2019
 ms.author: jingwang
-ms.openlocfilehash: ad257d0bea38d03803bf2be44313a3e086e7654c
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 182c5b4059874b6e03092481c68b39cf55bc7e62
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118159"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253929"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Copiar dados do Blob do Azure para o Banco de Dados SQL do Azure usando o Azure Data Factory
 
@@ -41,7 +41,7 @@ Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * *Conta de Armazenamento do Azure*. Você usa o Armazenamento de Blobs como um armazenamento de dados de *origem*. Se você não tiver uma conta de armazenamento do Azure, confira [Criar uma conta de armazenamento para uso geral](../storage/common/storage-account-create.md).
-* *Banco de dados SQL do Azure*. Você usa o banco de dados como um armazenamento de dados de *coletor*. Se você não tiver um Banco de Dados SQL do Azure, confira [Criar um Banco de Dados SQL do Azure](../azure-sql/database/single-database-create-quickstart.md).
+* *Banco de dados SQL do Azure*. Você usa o banco de dados como um armazenamento de dados de *coletor*. Se você não tiver um banco de dados no Banco de Dados SQL do Azure, confira [Criar um banco de dados no Banco de Dados SQL do Azure](../azure-sql/database/single-database-create-quickstart.md).
 * *Do Visual Studio*. As instruções passo a passo neste artigo usam o Visual Studio 2019.
 * *[SDK do Azure para .NET](/dotnet/azure/dotnet-tools)* .
 * *Aplicativo do Azure Active Directory*. Se você não tiver um aplicativo do Azure Active Directory, confira a seção [Criar um aplicativo do Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) em [Como Use o portal para criar um aplicativo do Azure AD](../active-directory/develop/howto-create-service-principal-portal.md). Copie os seguintes valores para uso em etapas posteriores: **ID do aplicativo (cliente)** , **chave de autenticação** e **ID do Diretório (locatário)** . Seguindo as instruções no mesmo artigo, atribua o aplicativo à função **Colaborador**.

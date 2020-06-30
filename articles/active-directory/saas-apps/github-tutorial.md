@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 06/17/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1da910cbf700845bdb6d5c07a6ee375a73579e75
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 1ade9e3200909c781dc00cf4e3713395f55f173d
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84456837"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253725"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao GitHub
 
@@ -58,7 +58,6 @@ Para configurar a integração do GitHub ao Azure AD, você precisará adicionar
 1. Na seção **Adicionar da galeria**, digite **GitHub** na caixa de pesquisa.
 1. Selecione **GitHub** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-github"></a>Configurar e testar o logon único do Azure AD para o GitHub
 
 Configure e teste o SSO do Azure AD com o GitHub usando uma usuária de teste chamada **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do GitHub.
@@ -84,14 +83,17 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na seção **Configuração Básica do SAML**, insira os valores para os seguintes campos:
 
-   a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://github.com/orgs/<entity-id>/sso`
+   a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://github.com/orgs/<Organization ID>/sso`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://github.com/orgs/<entity-id>`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://github.com/orgs/<Organization ID>`
+
+    c. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://github.com/orgs/<Organization ID>/saml/consume`
+
 
     > [!NOTE]
-    > Observe que esses não são os valores reais. É necessário atualizar esses valores com a URL de Entrada e o Identificador reais. Aqui, sugerimos que você use o valor exclusivo de cadeia de caracteres no Identificador. Acesse a seção Administração do GitHub para recuperar esses valores.
+    > Observe que esses não são os valores reais. Você precisa atualizar esses valores com a URL de Entrada, o Identificador e a URL de Resposta reais. Aqui, sugerimos que você use o valor exclusivo de cadeia de caracteres no Identificador. Acesse a seção Administração do GitHub para recuperar esses valores.
 
-5. Seu aplicativo GitHub espera as declarações de SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com sua configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão, em que **nameidentifier** é mapeado com **user.userprincipalname**. O aplicativo do GitHub espera que **nameidentifier** seja mapeado com **user.mail**. Portanto, você precisa editar o mapeamento de atributo clicando no ícone **Editar** e alterar o mapeamento de atributo.
+5. Seu aplicativo GitHub espera as declarações de SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com sua configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão, em que o **Identificador de Usuário Único (ID de nome)** é mapeada com **user.userprincipalname**. O aplicativo GitHub espera que o **Identificador de Usuário Único (ID de nome)** seja mapeado com **user.mail**. Portanto, você precisa editar o mapeamento de atributos clicando no ícone **Editar** e alterando-o.
 
     ![image](common/edit-attribute.png)
 
@@ -147,9 +149,13 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
     ![Configurações](./media/github-tutorial/tutorial_github_config_github_03.png)
 
-3. Marque a caixa **Habilitar autenticação SAML**, revelando os campos de configuração de Logon Único. Em seguida, use o valor de URL de logon único para atualizar a URL de Logon Único na configuração do Azure AD.
+3. Marque a caixa **Habilitar autenticação SAML**, revelando os campos de configuração de Logon Único. Execute as seguintes etapas:
 
     ![Configurações](./media/github-tutorial/tutorial_github_config_github_13.png)
+
+    a. Copie o valor da **URL de logon único** e cole esse valor na caixa de texto **URL de Logon** na seção **Configuração Básica de SAML** no portal do Azure.
+    
+    b. Copie o valor da **URL do serviço do consumidor de declaração** e cole-o na caixa de texto **URL de Resposta** da **Configuração Básica de SAML** do portal do Azure.
 
 4. Configure os seguintes campos:
 

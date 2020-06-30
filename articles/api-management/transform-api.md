@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 9a9c6897937b73786367accc33e985a268907226
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 6b446fe83ad37dfe9edbe55fcb1b5b42aa578274
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81258738"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85100368"
 ---
 # <a name="transform-and-protect-your-api"></a>Transformar e proteger sua API
 
@@ -80,7 +80,7 @@ A resposta original deve se parecer com esta:
 
    ![Políticas](./media/transform-api/transform-api.png)
 
-7. Modifique seu código **\<outbound>** para que se pareça com este:
+7. Modifique seu código **\<outbound>** para ter a seguinte aparência:
 
        <set-header name="X-Powered-By" exists-action="delete" />
        <set-header name="X-AspNet-Version" exists-action="delete" />
@@ -112,11 +112,8 @@ Para ver a resposta original:
 2.  Selecione **Todas as operações**.
 3.  Na parte superior da tela, selecione a guia **Design**.
 4.  Na seção **Processamento de saída**, clique no ícone **</>** .
-5.  Posicione o cursor dentro do elemento de **&lt;saída&gt;** e clique no botão **Inserir política** no canto superior direito.
-6.  Na janela à direita, em **Políticas de transformação**, clique em **+ Localizar e substituir cadeia de caracteres no corpo**.
-7.  Modifique seu código **find-and-replace** (no elemento **\<outbound\>** ) para substituir a URL para corresponder ao gateway de APIM. Por exemplo:
-
-        <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
+5.  Posicione o cursor dentro do elemento de **&lt;saída&gt;** e clique no botão **Mostrar snippets** no canto superior direito.
+6.  Na janela à direita, em **Políticas de transformação**, clique em **Mascarar URLs no conteúdo**.
 
 ## <a name="protect-an-api-by-adding-rate-limit-policy-throttling"></a>Proteger uma API adicionando a política de limite de taxa (limitação)
 
@@ -130,7 +127,7 @@ Esta seção mostra como adicionar a proteção para a API de back-end configura
 4.  Na seção **Processamento de entrada**, clique no ícone **</>** .
 5.  Posicione o cursor dentro do elemento **&lt;inbound&gt;** .
 6.  Na janela à direita, em **Políticas de restrição de acesso**, clique em **+ Limit call rate per key (+ Limitar taxa de chamada por chave)** .
-7.  Mude o código **rate-limit-by-key** (no elemento **\<inbound\>** ) para o código a seguir:
+7.  Modifique o código **rate-limit-by-key** (no elemento **\<inbound\>** ) para o seguinte código:
 
         <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
 

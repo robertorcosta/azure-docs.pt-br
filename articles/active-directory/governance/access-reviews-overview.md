@@ -1,6 +1,6 @@
 ---
 title: O que são revisões de acesso? - Active Directory do Azure | Microsoft Docs
-description: Usando as revisões de Azure Active Directory acesso, você pode controlar a associação de grupo e o acesso ao aplicativo para atender às iniciativas de governança, gerenciamento de riscos e conformidade em sua organização.
+description: Usando as revisões de acesso do Azure Active Directory, você pode controlar a associação a grupos e o acesso a aplicativos para atender às iniciativas de governança, gerenciamento de riscos e conformidade da sua organização.
 services: active-directory
 documentationcenter: ''
 author: msaburnley
@@ -10,22 +10,22 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.subservice: compliance
-ms.date: 01/10/2020
+ms.date: 06/17/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5499c8808c3916842071df1f03a865efd98719f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 22a7cafbf8223c3d9e7641851d02f61bc2ad16ae
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79262081"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85078890"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Quais são as revisões de acesso do Azure AD?
 
-As revisões de acesso do Azure Active Directory (Azure AD) permitem que as organizações gerenciem com eficiência as associações de grupo, o acesso aos aplicativos empresariais e as atribuições de função. O acesso do usuário pode ser examinado regularmente para garantir que somente as pessoas corretas tenham acesso contínuo.
+As Revisões de Acesso do Microsoft Azure Active Directory (Azure AD) permitem que as organizações gerenciem com eficiência as associações a grupos, o acesso a aplicativos empresariais e atribuições de função. O acesso do usuário pode ser examinado regularmente para garantir que somente as pessoas corretas tenham acesso contínuo.
 
 Aqui está um vídeo que fornece uma visão geral das revisões de acesso:
 
@@ -42,44 +42,50 @@ O Microsoft Azure Active Directory permite que você colabore internamente em su
 
 ## <a name="when-to-use-access-reviews"></a>Quando usar as revisões de acesso?
 
-- **Muitos usuários em funções privilegiadas:** É uma boa ideia verificar quantos usuários têm acesso administrativo, quantos deles são administradores globais e se há algum convidado ou parceiro que não tenha sido removido depois de ser atribuído a uma tarefa de administração. Você pode recertificar os usuários de atribuição de função nas [funções do Azure ad](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) , como administradores globais, ou [funções de recursos do Azure](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) , como administrador de acesso do usuário na experiência do [Azure ad Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) .
-- **Quando a automação é inviável:** Você pode criar regras para associação dinâmica em grupos de segurança ou grupos do Office 365, mas e se os dados de RH não estiverem no Azure AD ou se os usuários ainda precisarem de acesso depois de deixar o grupo para treinar sua substituição? Em seguida, você pode criar uma revisão nesse grupo para garantir que aqueles que ainda precisam de acesso devem ter acesso contínuo.
-- **Quando um grupo é usado para uma nova finalidade:** se você tiver um grupo que será sincronizado ao Azure Active Directory, ou se você planeja habilitar o aplicativo Salesforce para qualquer pessoa no grupo de equipe de vendas, seria útil pedir ao proprietário do grupo para examinar a associação do grupo antes de o grupo ser usado em um conteúdo de risco diferente.
-- **Acesso a dados críticos para os negócios:** para determinados recursos, pode ser necessário pedir às pessoas fora dele para sair regularmente e dar uma justificativa sobre por que eles precisam de acesso para fins de auditoria.
-- **Para manter a lista de exceções de uma política:** Em um mundo ideal, todos os usuários seguirão as políticas de acesso para proteger o acesso aos recursos da sua organização. No entanto, às vezes, há casos comerciais em que é necessário fazer exceções. Como o administrador de TI, você pode gerenciar essa tarefa, evitar supervisão de exceções à política e fornecer os auditores a comprovação de que essas exceções são revisadas regularmente.
-- **Peça aos proprietários do grupo para confirmar que eles ainda precisam de convidados em seus grupos:** O acesso do funcionário pode ser automatizado com algum IAM local, mas não convidados. Se um grupo oferece acesso de convidados para conteúdo confidencial da empresa, em seguida, é responsabilidade do proprietário do grupo se confirmar os convidados ainda terão uma necessidade comercial legítima de acesso.
-- **Realizar revisões periodicamente:** você pode configurar revisões de acesso recorrente de usuários no conjunto de frequências como mensal, trimestral de semanalmente, ou anualmente e os revisores serão notificados no início de cada revisão. Os revisores podem aprovar ou negar acesso com uma interface amigável e com a ajuda de recomendações inteligentes.
+- **Muitos usuários em funções com privilégios:** é recomendável verificar quantos usuários têm acesso administrativo, quantos deles são Administradores Globais e se há convidados ou parceiros que não foram removidos após serem atribuídos para executar uma tarefa administrativa. Você pode renovar os usuários de atribuição de função nas [funções do Azure AD](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json), como administradores globais ou [funções de recursos do Azure](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json), como o administrador de acesso do usuário na experiência do [Azure AD PIM (Privileged Identity Management)](../privileged-identity-management/pim-configure.md).
+- **Quando a automação é inviável:** Você pode criar regras para associação dinâmica em grupos de segurança ou grupos do Office 365, mas e se os dados de RH não estiverem no Azure AD ou se os usuários ainda precisarem de acesso após deixar o grupo para treinar a substituição deles? Em seguida, você pode criar uma revisão nesse grupo para garantir que aqueles que ainda precisam de acesso devem ter acesso contínuo.
+- **Quando um grupo é usado para uma nova finalidade:** Se você tiver um grupo que será sincronizado com o Azure AD, ou se planeja habilitar o aplicativo Salesforce para todos no grupo de equipe de Vendas, será útil solicitar ao proprietário do grupo para revisar a associação ao grupo antes que o grupo seja utilizado em um conteúdo de risco diferente.
+- **Acesso a dados comercialmente críticos:** para certos recursos, talvez seja necessário pedir que as pessoas fora do departamento de TI desconectem-se regularmente e forneçam uma justificativa sobre por que eles precisam de acesso para fins de auditoria.
+- **Para manter a lista de exceções de uma política:** em um mundo ideal, todos os usuários seguiriam as políticas de acesso para proteger o acesso aos recursos de sua organização. No entanto, às vezes, há casos comerciais em que é necessário fazer exceções. Como o administrador de TI, você pode gerenciar essa tarefa, evitar supervisão de exceções à política e fornecer os auditores a comprovação de que essas exceções são revisadas regularmente.
+- **Solicite aos proprietários do grupo para confirmar se ainda precisam de convidados em seus grupos:** o acesso dos funcionários pode ser automatizado com algum IAM local, mas não como convidados. Se um grupo oferece acesso de convidados para conteúdo confidencial da empresa, em seguida, é responsabilidade do proprietário do grupo se confirmar os convidados ainda terão uma necessidade comercial legítima de acesso.
+- **Realizar revisões periodicamente:** É possível configurar revisões de acesso recorrentes de usuários em frequências definidas como semanal, mensal, trimestral ou anual e os revisores serão notificados no início de cada revisão. Os revisores podem aprovar ou negar acesso com uma interface amigável e com a ajuda de recomendações inteligentes.
 
 ## <a name="where-do-you-create-reviews"></a>Onde você cria as revisões?
 
-Dependendo do que você deseja examinar, você criará sua análise de acesso nas revisões de acesso do Azure AD, nos aplicativos do Azure AD Enterprise (em versão prévia) ou no Azure AD PIM.
+Dependendo do que você deseja revisar, você criará sua revisão de acesso nas revisões de acesso do Azure AD, nos aplicativos empresariais do Azure AD (em versão prévia) ou no Azure AD PIM.
 
 | Direitos de acesso de usuários | Os revisores podem ser | Revisão criada em | Experiência do revisor |
 | --- | --- | --- | --- |
-| Membros do grupo de segurança</br>Membros do grupo do escritório | Revisores especificados</br>Proprietários do grupo</br>Análise automática | Revisões de acesso do Azure AD</br>Grupos do Azure AD | Painel de acesso |
-| Atribuído a um aplicativo conectado | Revisores especificados</br>Análise automática | Revisões de acesso do Azure AD</br>Aplicativos corporativos do Azure Active Directory (visualização) | Painel de acesso |
-| Função de AD do Azure | Revisores especificados</br>Análise automática | [Azure AD PIM](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Portal do Azure |
-| Função de recurso do Azure | Revisores especificados</br>Análise automática | [Azure AD PIM](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Portal do Azure |
+| Membros do grupo de segurança</br>Membros do grupo do escritório | Revisores especificados</br>Proprietários do grupo</br>Autorrevisão | Revisões de acesso do Azure AD</br>Grupos do Azure AD | Painel de acesso |
+| Atribuído a um aplicativo conectado | Revisores especificados</br>Autorrevisão | Revisões de acesso do Azure AD</br>Aplicativos corporativos do Azure Active Directory (visualização) | Painel de acesso |
+| Função do Azure AD | Revisores especificados</br>Autorrevisão | [Azure AD PIM](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Portal do Azure |
+| Função de recurso do Azure | Revisores especificados</br>Autorrevisão | [Azure AD PIM](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Portal do Azure |
 
 
 ## <a name="create-access-reviews"></a>Criar revisões de acesso
 
-Para criar revisões de acesso, siga estas etapas:
+Para criar uma revisão de acesso, siga estas etapas:
 
-1. Vá para o [portal do Azure](https://portal.azure.com) para gerenciar as revisões de acesso e entre como administrador global ou administrador de usuários.
+1. Entrar no [portal do Azure](https://portal.azure.com) para gerenciar revisões de acesso e entrar como administrador global ou administrador de usuários.
 
 1. Pesquise **Azure Active Directory** e selecione-o.
 
-      ![portal do Azure Pesquisar Azure Active Directory](media/access-reviews-overview/search-azure-active-directory.png)
+      ![Pesquisa do portal do Azure para o Azure Active Directory](media/access-reviews-overview/search-azure-active-directory.png)
 
-1. Selecione **governança de identidade**.
+1. Selecione **Governança de Identidade**.
 
-1. Na página guia de introdução, clique no botão **criar uma revisão de acesso** .
+1. Na página de Introdução, clique no botão **Criar uma revisão de acesso**.
 
-   ![Página inicial de revisões de acesso](./media/access-reviews-overview/access-reviews-overview-create-access-reviews.png) 
+   ![Página inicial das revisões de acesso](./media/access-reviews-overview/access-reviews-overview-create-access-reviews.png) 
 
+### <a name="creating-access-review-on-a-group-that-can-be-assigned-to-azure-ad-role"></a>Como criar uma revisão de acesso em um grupo que pode ser atribuído a uma função do Azure AD
+Se você estiver na versão mais recente das Revisões de Acesso (os revisores são direcionados para **Meus Acessos** por padrão), somente o administrador global poderá criar a revisão de acesso em grupos atribuíveis a uma função. No entanto, se você estiver em uma versão mais antiga das Revisões de Acesso (os revisores são direcionados para o **Painel de Acesso** por padrão), o administrador global e o administrador do usuário poderão criar a revisão de acesso em grupos atribuíveis a uma função.  
 
-## <a name="learn-about-access-reviews"></a>Saiba mais sobre as revisões de acesso
+A nova experiência será distribuída para todos os clientes em 1º de agosto de 2020, mas se você quiser atualizar mais cedo, faça uma solicitação aqui: [Revisões de Acesso do Azure AD – Inscrição para experiência de revisor atualizada nos Meus Acessos](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR5dv-S62099HtxdeKIcgO-NUOFJaRDFDWUpHRk8zQ1BWVU1MMTcyQ1FFUi4u).
+
+[Saiba mais sobre como atribuir grupos a funções do Azure AD](https://go.microsoft.com/fwlink/?linkid=2103037).
+
+## <a name="learn-about-access-reviews"></a>Saiba mais sobre revisões de acesso
 
 Para saber mais sobre como criar e executar as revisões de acesso, assista a este breve demonstração:
 
@@ -95,32 +101,32 @@ Se você estiver pronto para implantar as revisões de acesso em sua organizaç�
 
 ### <a name="how-many-licenses-must-you-have"></a>Quantas licenças você precisa ter?
 
-Certifique-se de que seu diretório tenha pelo menos tantas licenças Azure AD Premium P2, pois você tem funcionários que executarão as seguintes tarefas:
+Verifique se o seu diretório tem um número de licenças do Azure AD Premium P2 igual ou superior ao número dos seus funcionários que executarão as seguintes tarefas:
 
-- Membros e usuários convidados que são atribuídos como revisores
-- Membros e usuários convidados que executam uma autorevisão
+- Usuários membros e convidados que são atribuídos como revisores
+- Usuários membros e convidados que executam uma autorrevisão
 - Proprietários de grupo que executam uma revisão de acesso
-- Proprietários de aplicativos que realizam uma revisão de acesso
+- Proprietários de aplicativo que executam uma revisão de acesso
 
 As licenças do Azure AD Premium P2 **não** são necessárias para as seguintes tarefas:
 
 - Nenhuma licença é necessária para os usuários com funções de administrador global ou de administrador de usuários que configuram revisões de acesso, definem configurações ou aplicam as decisões das revisões.
 
-Para cada licença paga do Azure AD Premium P2 que você atribui a um dos usuários da sua organização, você pode usar o B2B (Business-to-Business) do Azure AD para convidar até cinco usuários convidados sob a concessão do usuário externo. Esses usuários convidados também poderão usar os recursos do Azure AD Premium P2. Para obter mais informações, consulte [diretrizes de licenciamento da colaboração B2B do Azure ad](../b2b/licensing-guidance.md).
+Para cada licença paga do Azure AD Premium P2 atribuída a um dos usuários de sua organização, você poderá usar o Azure AD B2B (entre empresas) para convidar até cinco usuários convidados sob a Provisão de Usuário Externo. Esses usuários convidados também poderão usar os recursos do Azure AD Premium P2. Para obter mais informações, confira [Diretrizes de licenciamento de colaboração B2B do Azure AD](../b2b/licensing-guidance.md).
 
-Para obter mais informações sobre licenças, consulte [atribuir ou remover licenças usando o portal de Azure Active Directory](../fundamentals/license-users-groups.md).
+Para obter mais informações sobre licenças, confira [Atribuir ou remover licenças usando o portal do Azure Active Directory](../fundamentals/license-users-groups.md).
 
 ### <a name="example-license-scenarios"></a>Cenários de licença de exemplo
 
-Aqui estão alguns exemplos de cenários de licença para ajudá-lo a determinar o número de licenças que você deve ter.
+Aqui estão alguns exemplos de cenários de licença para ajudá-lo a determinar o número de licenças que você precisa ter.
 
 | Cenário | Cálculo | Número de licenças |
 | --- | --- | --- |
-| Um administrador cria uma revisão de acesso do grupo A com 75 usuários e um proprietário do grupo e atribui o proprietário do grupo como o revisor. | 1 licença para o proprietário do grupo como revisor | 1 |
-| Um administrador cria uma revisão de acesso do grupo B com 500 usuários e três proprietários de grupo e atribui os 3 proprietários do grupo como revisores. | 3 licenças para cada proprietário do grupo como revisores | 3 |
-| Um administrador cria uma revisão de acesso do grupo B com 500 usuários. O torna uma análise automática. | 500 licenças para cada usuário como autoviewers | 500 |
-| Um administrador cria uma revisão de acesso do grupo C com 50 usuários Membros e 25 usuários convidados. O torna uma análise automática. | 50 licenças para cada usuário como revisores automáticos.<br/>(os usuários convidados são abordados na proporção 1:5 necessária) | 50 |
-| Um administrador cria uma revisão de acesso do Grupo D com 6 usuários Membros e usuários convidados de 108. O torna uma análise automática. | 6 licenças para cada usuário como autoviewers + 16 licenças adicionais para cobrir todos os usuários convidados de 108 na proporção 1:5 necessária. 6 licenças, que abrangem\*6 5 = 30 usuários convidados. Para o restante (108-6\*5) = 78 usuários convidados, 78/5 = 16 licenças adicionais são necessárias. Portanto, no total, são necessárias 6 + 16 = 22 licenças. | 22 |
+| Um administrador cria uma revisão de acesso do grupo A com 75 usuários e um proprietário do grupo e atribui o proprietário do grupo como o revisor. | Uma licença para o proprietário do grupo como revisor | 1 |
+| Um administrador cria uma revisão de acesso do grupo A com 500 usuários e três proprietários do grupo e atribui os três como revisores. | Três licenças para cada proprietário do grupo como revisores | 3 |
+| Um administrador cria uma revisão de acesso do grupo B com 500 usuários. Ele a torna uma autorrevisão. | 500 licenças para cada usuário como autorrevisores | 500 |
+| Um administrador cria uma revisão de acesso do grupo C com 50 usuários membros e 25 usuários convidados. Ele a torna uma autorrevisão. | 50 licenças para cada usuário como autorrevisores.<br/>(as licenças são atribuídas aos usuários convidados na proporção 1:5 necessária) | 50 |
+| Um administrador cria uma revisão de acesso do grupo D com seis usuários membros e 108 usuários convidados. Ele a torna uma autorrevisão. | Seis licenças para cada usuário como autorrevisores + 16 licenças adicionais para atender a todos os 108 usuários convidados, na proporção 1:5 necessária. Seis licenças, que atendem a 6\*5 = 30 usuários convidados. Para os (108-6\*5) = 78 usuários convidados restantes, 78/5 = 16 licenças adicionais são necessárias. Portanto, no total, são necessárias 6 + 16 = 22 licenças. | 22 |
 
 ## <a name="next-steps"></a>Próximas etapas
 
