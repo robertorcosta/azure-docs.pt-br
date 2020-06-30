@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 61162a0e2e95a08547848f286f2db489f4b9d963
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 289cc463732ee6b612b67f6c408d9d7260016137
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84737012"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85125797"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>O que é a Área de Trabalho Virtual do Windows? 
 
@@ -113,7 +113,7 @@ A seguinte tabela lista as URLs opcionais às quais suas máquinas virtuais do A
 |*.events.data.microsoft.com|443|Serviço de telemetria|Nenhum|
 |www.msftconnecttest.com|443|Detecta se o sistema operacional está conectado à Internet|Nenhum|
 |*.prod.do.dsp.mp.microsoft.com|443|Windows Update|Nenhum|
-|login.windows.net|443|Entrar nos Serviços Online da Microsoft, como o Office 365|Nenhum|
+|login.windows.net|443|Entrar nos Serviços Online da Microsoft, Microsoft 365|Nenhum|
 |*.sfx.ms|443|Atualizações do software cliente do OneDrive|Nenhum|
 |*.digicert.com|443|Verificação de revogação do certificado|Nenhum|
 

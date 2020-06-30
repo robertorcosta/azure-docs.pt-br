@@ -5,16 +5,16 @@ services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: f70c14c424e8aaecbdc1138b52fdd6fb1e9fc265
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: 2c5f65993909e142de6017b07591529cd7cb7b86
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85051808"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85200572"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Como usar OPENROWSET com o SQL sob demanda (versão prévia)
 
@@ -178,7 +178,7 @@ ESCAPE_CHAR = 'char'
 
 Especifica o caractere no arquivo que é usado para fazer escape dele mesmo e de todos os valores delimitadores no arquivo. Se o caractere de escape for seguido por um valor diferente dele mesmo ou por um dos valores delimitadores, o caractere de escape será removido durante a leitura do valor. 
 
-O parâmetro ESCAPE_CHAR será aplicado independentemente de FIELDQUOTE estar ou não habilitado. Ele não será usado para fazer escape do caractere de aspas. O escape do caractere de aspas é feito com aspas duplas em alinhamento com o comportamento CSV do Excel.
+O parâmetro ESCAPE_CHAR será aplicado independentemente de FIELDQUOTE estar ou não habilitado. Ele não será usado para fazer escape do caractere de aspas. O caractere de aspas deve ter escape com outro caractere de aspas. O caractere de aspas poderá aparecer no valor da coluna somente se o valor for encapsulado com caracteres de aspas.
 
 FIRSTROW = 'first_row' 
 

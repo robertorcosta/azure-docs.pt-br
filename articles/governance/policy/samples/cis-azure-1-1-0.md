@@ -1,23 +1,25 @@
 ---
 title: Detalhes de Conformidade Regulatória para CIS Microsoft Azure Foundations Benchmark
 description: Detalhes da iniciativa interna de Conformidade Regulatória do CIS Microsoft Azure Foundations Benchmark. Cada controle é mapeado para uma ou mais definições do Azure Policy que auxiliam na avaliação.
-ms.date: 06/10/2020
+ms.date: 06/23/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 1e3c2baec1186e29da45c6395123e2f5aab9165a
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 214d50c790f9976b96bf29906d4db64a111e859f
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84736825"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85299017"
 ---
 # <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-regulatory-compliance-built-in-initiative"></a>Detalhes da iniciativa interna de Conformidade Regulatória do CIS Microsoft Azure Foundations Benchmark
 
-O artigo a seguir fornece detalhes sobre como a definição da iniciativa interna de Conformidade Regulatória do Azure Policy é mapeada para **domínios de conformidade** e **controles** do CIS Microsoft Azure Foundations Benchmark.
+O artigo a seguir fornece detalhes sobre como a definição da iniciativa interna de Conformidade Regulatória do Azure Policy é mapeada para **domínios de conformidade** e **controles** no CIS Microsoft Azure Foundations Benchmark.
 Para saber mais sobre esse padrão de conformidade, confira [CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/). Para entender a _Propriedade_, confira [Definição de política do Azure Policy](../concepts/definition-structure.md#type) e [Responsabilidade compartilhada na nuvem](../../../security/fundamentals/shared-responsibility.md).
 
 Os mapeamentos a seguir são para as recomendações do **CIS Microsoft Azure Foundations Benchmark**. Use a navegação no lado direito para ir diretamente para um **domínio de conformidade** específico. Muitos dos controles são implementados com uma definição de iniciativa do [Azure Policy](../overview.md). Para examinar a definição da iniciativa completa, abra **Política** no portal do Azure e selecione a página **Definições**.
 Em seguida, encontre e selecione a definição da iniciativa interna de Conformidade Regulatória do **CIS Microsoft Azure Foundations Benchmark 1.1.0**.
+
+Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS Microsoft Azure Foundations Benchmark](../../blueprints/samples/cis-azure-1-1-0.md).
 
 > [!IMPORTANT]
 > Cada controle abaixo está associado com uma ou mais definições do [Azure Policy](../overview.md).
@@ -606,7 +608,6 @@ Em seguida, encontre e selecione a definição da iniciativa interna de Conformi
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[O tipo de preço Standard da Central de Segurança deve ser selecionado](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa1181c5f-672a-477a-979a-7d58aa086233) |O tipo de preço standard habilita a detecção de ameaças para redes e máquinas virtuais, fornecendo inteligência contra ameaças, detecção de anomalias e análise de comportamento na Central de Segurança do Azure |Audit, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_Standard_pricing_tier.json) |
 
 ## <a name="storage-accounts"></a>Contas de armazenamento
 

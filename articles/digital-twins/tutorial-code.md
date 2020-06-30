@@ -8,12 +8,12 @@ ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: f36a41a1151255e792281ae959d40ce183040cb5
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 170901f3410c85ab53a306529053e611b36fa8ec
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84737131"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85298388"
 ---
 # <a name="coding-with-the-azure-digital-twins-apis"></a>Codificação com as APIs dos Gêmeos Digitais do Azure
 
@@ -177,7 +177,7 @@ No diretório em que você criou o projeto, crie um arquivo *.json* chamado *Sam
 > Se você estiver usando o Visual Studio para este tutorial, o ideal será selecionar o arquivo JSON recém-criado e definir a propriedade *Copiar para o Diretório de Saída* na inspeção de propriedade como *Copiar se for o Mais Recente* ou *Sempre Copiar*. Isso permitirá que o Visual Studio localize o arquivo JSON com o caminho padrão quando você executar o programa com **F5** durante o restante do tutorial.
 
 > [!TIP] 
-> Há uma [amostra de Validador DTDL](https://github.com/Azure-Samples/DTDL-Validator) independente de linguagem que pode ser usada para verificar os documentos do modelo e ver se a DTDL é válida. Ela se baseia na biblioteca do analisador de DTDL, que é explicada mais detalhadamente em [Como: analisar e validar modelos](how-to-use-parser.md).
+> Há uma [amostra de Validador DTDL](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) independente de linguagem que pode ser usada para verificar os documentos do modelo e ver se a DTDL é válida. Ela se baseia na biblioteca do analisador de DTDL, que é explicada mais detalhadamente em [Como: analisar e validar modelos](how-to-use-parser.md).
 
 Em seguida, adicione mais um código a *Program.cs* para carregar o modelo recém-criado na sua instância dos Gêmeos Digitais do Azure.
 
@@ -219,8 +219,7 @@ Na janela Comando, execute o programa com este comando:
 ```cmd/sh
 dotnet run
 ```
-
-Você observará que, agora, não há nenhuma saída indicando que a chamada foi bem-sucedida. 
+"Carregar um modelo" será impresso na saída, mas ainda não há nenhuma saída para indicar se os modelos foram carregados com êxito ou não.
 
 Para adicionar uma instrução print que indica se os modelos foram realmente carregados com êxito, adicione o seguinte código logo após a seção anterior:
 
@@ -294,24 +293,19 @@ using System.Text.Json;
 Em seguida, adicione o código a seguir ao final do método `Main` para criar e inicializar três gêmeos digitais com base nesse modelo.
 
 ```csharp
-// Initialize twin metadata
-var meta = new Dictionary<string, object>
-{
-    { "$model", "dtmi:com:contoso:SampleModel;1" },
-};
-// Initialize the twin properties
-var initData = new Dictionary<string, object>
-{
-    { "$metadata", meta },
-    { "data", "Hello World!" }
-};
+// Initialize twin data
+BasicDigitalTwin twinData = new BasicDigitalTwin();
+twinData.Metadata.ModelId = "dtmi:com:contoso:SampleModel;1";
+twinData.CustomProperties.Add("data", $"Hello World!");
+
 string prefix="sampleTwin-";
 for(int i=0; i<3; i++) {
     try {
-        await client.CreateDigitalTwinAsync($"{prefix}{i}", JsonSerializer.Serialize(initData));
+        twinData.Id = $"{prefix}{i}";
+        await client.CreateDigitalTwinAsync($"{prefix}{i}", JsonSerializer.Serialize(twinData));
         Console.WriteLine($"Created twin: {prefix}{i}");
     } catch(RequestFailedException rex) {
-        Console.WriteLine($"Create twin: {rex.Status}:{rex.Message}");  
+        Console.WriteLine($"Create twin error: {rex.Status}:{rex.Message}");  
     }
 }
 ```
@@ -452,6 +446,7 @@ namespace minimal
             var typeList = new List<string>();
             string dtdl = File.ReadAllText("SampleModel.json");
             typeList.Add(dtdl);
+
             // Upload the model to the service
             try {
                 await client.CreateModelsAsync(typeList);
@@ -465,21 +460,16 @@ namespace minimal
                 Console.WriteLine($"Type name: {md.DisplayName}: {md.Id}");
             }
 
-            // Initialize twin metadata
-            var meta = new Dictionary<string, object>
-            {
-                { "$model", "dtmi:com:contoso:SampleModel;1" },
-            };
-            // Initialize the twin properties
-            var initData = new Dictionary<string, object>
-            {
-                { "$metadata", meta },
-                { "data", "Hello World!" }
-            };
+            // Initialize twin data
+            BasicDigitalTwin twinData = new BasicDigitalTwin();
+            twinData.Metadata.ModelId = "dtmi:com:contoso:SampleModel;1";
+            twinData.CustomProperties.Add("data", $"Hello World!");
+    
             string prefix="sampleTwin-";
             for(int i=0; i<3; i++) {
                 try {
-                    await client.CreateDigitalTwinAsync($"{prefix}{i}", JsonSerializer.Serialize(initData));
+                    twinData.Id = $"{prefix}{i}";
+                    await client.CreateDigitalTwinAsync($"{prefix}{i}", JsonSerializer.Serialize(twinData));
                     Console.WriteLine($"Created twin: {prefix}{i}");
                 } catch(RequestFailedException rex) {
                     Console.WriteLine($"Create twin error: {rex.Status}:{rex.Message}");  

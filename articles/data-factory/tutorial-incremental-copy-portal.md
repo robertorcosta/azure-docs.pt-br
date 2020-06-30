@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: 71fca8f7dd808058e88d5a5ffe9a64e1136ceefc
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: df185f8b75af6a845306fccc18d7d3cce74d0815
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84736487"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85249139"
 ---
-# <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Carregar incrementalmente os dados do banco de dados SQL do Azure para o Armazenamento de Blobs do Azure usando o portal do Azure
+# <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Carregar incrementalmente os dados do Banco de Dados SQL do Azure para o Armazenamento de Blobs do Azure usando o portal do Azure
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Neste tutorial, você cria um Azure Data Factory com um pipeline que carrega dados delta de uma tabela em um banco de dados SQL do Azure para um Armazenamento de Blobs do Azure.
+Neste tutorial, você cria um Azure Data Factory com um pipeline que carrega dados delta de uma tabela no Banco de Dados SQL do Azure para um Armazenamento de Blobs do Azure.
 
 Neste tutorial, você realizará os seguintes procedimentos:
 
@@ -65,7 +65,7 @@ Aqui estão as etapas importantes ao criar essa solução:
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* **Banco de dados SQL do Azure**. Você usa o banco de dados como um armazenamento de dados de origem. Se você não tiver um banco de dados SQL, consulte [Criar um banco de dados SQL do Azure](../azure-sql/database/single-database-create-quickstart.md) para saber as etapas para criar um.
+* **Banco de dados SQL do Azure**. Você usa o banco de dados como um armazenamento de dados de origem. Se você não tiver um banco de dados no Banco de Dados SQL do Azure, confira [Criar um banco de dados no Banco de Dados SQL do Azure](../azure-sql/database/single-database-create-quickstart.md) para ver as etapas de criação.
 * **Armazenamento do Azure**. Você usa o Armazenamento de Blobs como um armazenamento de dados de coletor. Se você não tiver uma conta de armazenamento, consulte [Criar uma conta de armazenamento](../storage/common/storage-account-create.md) para saber as etapas para criar uma. Crie um contêiner denominado adftutorial. 
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>Criar uma tabela de fonte de dados no banco de dados SQL
@@ -103,6 +103,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
     ```
 
 ### <a name="create-another-table-in-your-sql-database-to-store-the-high-watermark-value"></a>Criar outra tabela no banco de dados SQL para armazenar o valor de marca d'água alta
+
 1. Execute o comando SQL a seguir no banco de dados SQL para criar uma tabela chamada `watermarktable` para armazenar o valor de marca-d'água:  
 
     ```sql
@@ -149,7 +150,7 @@ WHERE [TableName] = @TableName
 END
 ```
 
-## <a name="create-a-data-factory"></a>Criar um data factory
+## <a name="create-a-data-factory"></a>Criar uma data factory
 
 1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface do usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
 2. No menu à esquerda, selecione **Criar um recurso** > **Analytics** > **Data Factory**:
@@ -169,7 +170,7 @@ END
          
         Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/management/overview.md).  
 6. Selecione **V2** para a **versão**.
-7. Selecione o **local** do data factory. Apenas os locais com suporte são exibidos na lista suspensa. Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure, etc.) e serviços de computação (HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
+7. Selecione o **local** do data factory. Apenas os locais com suporte são exibidos na lista suspensa. Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure, Instância Gerenciada de SQL do Azure etc.) e serviços de computação (HDInsight etc.) usados pelo data factory podem estar em outras regiões.
 8. Clique em **Criar**.      
 9. Após a criação, a página do **Data Factory** será exibida conforme mostrado na imagem.
 
@@ -199,7 +200,7 @@ Neste tutorial, você cria um pipeline com duas atividades de Pesquisa, uma ativ
     2. Selecione o seu servidor para o **Nome do servidor**.
     3. Selecione o **Nome do banco de dados** na lista suspensa.
     4. Insira os valores para **Nome de usuário** & **Senha**.
-    5. Para testar a conexão ao Banco de Dados SQL do Azure, clique em **Testar conectividade**.
+    5. Para testar a conexão ao Banco de Dados SQL, clique em **Testar conectividade**.
     6. Clique em **Concluir**.
     7. Confirme se **AzureSqlDatabaseLinkedService** está selecionado como **Serviço vinculado**.
 
@@ -208,7 +209,7 @@ Neste tutorial, você cria um pipeline com duas atividades de Pesquisa, uma ativ
 9. Na guia **Conexão**, selecione **[dbo].[watermarktable]** para **Tabela**. Se você quiser visualizar os dados na tabela, clique em **Visualizar dados**.
 
     ![Conjunto de dados de marca d'água - configurações de conexão](./media/tutorial-incremental-copy-portal/watermark-dataset-connection-settings.png)
-10. Alterne para o editor de pipeline clicando na guia pipeline na parte superior ou clicando no nome do pipeline no modo de exibição de árvore à esquerda. Na janela Propriedades para a atividade de **Pesquisa**, confirme se **WatermarkDataset** está selecionado para o campo **Conjunto de Dados de Origem**.
+10. Alterne para o editor de pipeline clicando na guia pipeline na parte superior ou clicando no nome do pipeline n modo de exibição de árvore à esquerda. Na janela Propriedades para a atividade de **Pesquisa**, confirme se **WatermarkDataset** está selecionado para o campo **Conjunto de Dados de Origem**.
 
 11. Na caixa de ferramentas **Atividades**, expanda **Geral** e arraste e solte outra atividade de **Pesquisa** para a superfície do designer de pipeline e defina o nome como  **LookupNewWaterMarkActivity** na guia **Geral** da janela Propriedades. Esta atividade de Pesquisa obtém o novo valor de marca d'água da tabela com os dados de origem a serem copiados para o destino.
 
@@ -218,7 +219,7 @@ Neste tutorial, você cria um pipeline com duas atividades de Pesquisa, uma ativ
 14. Na janela **Definir propriedades**, insira **SourceDataset** como **Nome**. Selecione **AzureSqlDatabaseLinkedService** para **Serviço vinculado**.
 15. Selecione **[dbo].[data_source_table]** para Tabela. Você especificará uma consulta nesse conjunto de dados posteriormente com o tutorial. A consulta tem precedência sobre a tabela que você especificar nesta etapa.
 16. Selecione **Concluir**.
-17. Alterne para o editor de pipeline clicando na guia pipeline na parte superior ou clicando no nome do pipeline no modo de exibição de árvore à esquerda. Na janela Propriedades para a atividade de **Pesquisa**, confirme se **SourceDataset** está selecionado para o campo **Conjunto de dados de origem**.
+17. Alterne para o editor de pipeline clicando na guia pipeline na parte superior ou clicando no nome do pipeline n modo de exibição de árvore à esquerda. Na janela Propriedades para a atividade de **Pesquisa**, confirme se **SourceDataset** está selecionado para o campo **Conjunto de dados de origem**.
 18. Selecione **Consulta** para o campo **Usar consulta** campo e digite a seguinte consulta: você está selecionando apenas o valor máximo de **LastModifytime** do **data_ source_table**. Verifique se você também marcou **Somente a primeira linha**.
 
     ```sql
@@ -260,7 +261,7 @@ Neste tutorial, você cria um pipeline com duas atividades de Pesquisa, uma ativ
     1. Para o campo **Caminho do arquivo**, insira **adftutorial/incrementalcopy**. **adftutorial** é o nome do contêiner de blobs e **incrementalcopy** é o nome da pasta. Esse snippet de código supõe que você tenha um contêiner de blob denominado adftutorial no Armazenamento de Blobs. Crie o contêiner caso ele não exista ou defina-o com o nome de um contêiner existente. O Azure Data Factory cria automaticamente a pasta de saída **incrementalcopy** se ela não existir. Você também pode usar o botão **Procurar** para o **Caminho de arquivo** para navegar até uma pasta em um contêiner de blob.
     2. Para a parte referente ao **Arquivo** do campo **Caminho de arquivo**, selecione **Adicionar conteúdo dinâmico [Alt+P]** e, em seguida, insira `@CONCAT('Incremental-', pipeline().RunId, '.txt')` na janela aberta. Em seguida, selecione **Concluir**. Neste tutorial, o nome do arquivo é gerado dinamicamente pelo uso da expressão. Cada execução de pipeline possui uma ID exclusiva. A atividade de Cópia usa a ID de execução para gerar o nome do arquivo.
 
-28. Alterne para o editor de **pipeline** clicando na guia pipeline na parte superior ou clicando no nome do pipeline no modo de exibição de árvore à esquerda.
+28. Alterne para o editor de **pipeline** clicando na guia Pipeline na parte superior ou clicando no nome do pipeline no modo de exibição de árvore à esquerda.
 29. Na caixa de ferramentas **Atividades**, expanda **Geral** e arraste e solte a atividade de **Procedimento armazenado** da caixa de ferramentas **Atividades** para a superfície de designer do pipeline. **Conecte** a saída verde (Bem-sucedida) da atividade de **Cópia** à atividade de **Procedimento armazenado**.
 
 24. Selecione **Atividade de Procedimento Armazenado** no designer de pipeline, altere seu nome para **StoredProceduretoWriteWatermarkActivity**.
@@ -322,7 +323,7 @@ Neste tutorial, você cria um pipeline com duas atividades de Pesquisa, uma ativ
 
 ## <a name="add-more-data-to-source"></a>Adicionar mais dados à origem
 
-Insira novos dados no banco de dados SQL (repositório de fonte de dados).
+Insira novos dados no banco de dados (repositório de fonte de dados).
 
 ```sql
 INSERT INTO data_source_table
@@ -332,7 +333,7 @@ INSERT INTO data_source_table
 VALUES (7, 'newdata','9/7/2017 9:01:00 AM')
 ```
 
-Os dados atualizados no banco de dados SQL são:
+Os dados atualizados no banco de dados são:
 
 ```
 PersonID | Name | LastModifytime
@@ -346,8 +347,8 @@ PersonID | Name | LastModifytime
 7 | newdata | 2017-09-07 09:01:00.000
 ```
 
-
 ## <a name="trigger-another-pipeline-run"></a>Disparar outra execução de pipeline
+
 1. Alterne para a guia **Editar**. Clique no pipeline no modo de exibição de árvore caso ele não esteja aberto no designer.
 
 2. Clique em **Adicionar Gatilho** na barra de ferramentas e, depois, em **Gatilho agora**.
@@ -398,7 +399,7 @@ Neste tutorial, você realizará os seguintes procedimentos:
 > * Monitorar a segunda execução do pipeline
 > * Examinar os resultados da segunda execução
 
-Neste tutorial, o pipeline copiou dados de uma única tabela em um banco de dados SQL para um Armazenamento de Blobs. Avance para o tutorial a seguir para saber mais sobre como copiar dados de várias tabelas em um banco de dados do SQL Server para um Banco de Dados SQL.
+Neste tutorial, o pipeline copiou dados de uma única tabela em um Banco de Dados SQL para um Armazenamento de Blobs. Avance para o tutorial a seguir para saber mais sobre como copiar dados de várias tabelas em um banco de dados do SQL Server para um Banco de Dados SQL.
 
 > [!div class="nextstepaction"]
 >[Carregar incrementalmente os dados de várias tabelas no SQL Server para o Banco de Dados SQL do Azure](tutorial-incremental-copy-multiple-tables-portal.md)
