@@ -4,20 +4,16 @@ ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/08/2020
-ms.openlocfilehash: b99b012cfe4ce7ace1bd4e179fd6c8baf89bc854
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 230f1b51d0c2aae18c0fa002d6fa348d392adb5e
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83118699"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85603257"
 ---
 ## <a name="create-an-azure-resource"></a>Criar um recurso do Azure
 
 Comece a usar a API de Pesquisa de Imagem do Bing criando um dos recursos do Azure a seguir.
-
-### <a name="trial-resource"></a>[Recurso de avaliação](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)
-   * Não é necessário ter uma assinatura do Azure.
-   * Válido por sete dias, gratuitamente. Após a inscrição, um ponto de extremidade e uma chave de avaliação estarão disponíveis no [site do Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).
 
 ### <a name="bing-search-v7-resource"></a>[Recurso de Pesquisa do Bing v7](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7)
    * Disponível por meio do portal do Azure até que você exclua o recurso.

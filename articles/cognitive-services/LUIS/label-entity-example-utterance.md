@@ -3,12 +3,12 @@ title: Rotular o enunciado de exemplo da entidade
 description: Saiba como rotular uma entidade de aprendizado de máquina com subentidades em um exemplo expressão em uma página de detalhes da intenção do portal do LUIS.
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 959b9c6b25a7a76a87112fcbd1a10e7da12db1dd
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: f576f42f46930d81212ff754a14ee30c75b79624
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83722636"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85610482"
 ---
 # <a name="label-machine-learning-entity-in-an-example-utterance"></a>Rotular entidade Machine-Learning em um exemplo de expressão
 
@@ -16,13 +16,13 @@ A rotulagem de uma entidade em um enunciado de exemplo dá ao LUIS um exemplo do
 
 Você pode rotular entidades e subentidades aprendidas por computador.
 
-Como não é possível rotular expressões regulares, listas ou entidades predefinidas, criar uma entidade ou subentidade, então adicionar essas entidades são recursos, quando aplicável, à entidade ou subentidade.
+Como não é possível rotular expressão regular, lista ou entidades predefinidas, crie uma entidade ou subentidade e, em seguida, adicione essas entidades como recursos, quando aplicável, à entidade ou subentidade.
 
 ## <a name="label-example-utterances-from-the-intent-detail-page"></a>Exemplo de rótulo declarações da página de detalhes da intenção
 
 Para rotular exemplos de entidades dentro do expressão, selecione a intenção do expressão.
 
-1. Entre no portal do [Luis](https://www.luis.ai)e selecione sua **assinatura** e recurso de **criação** para ver os aplicativos atribuídos a esse recurso de criação.
+1. Entre no [portal do LUIS](https://www.luis.ai) selecione sua **Assinatura** e **Recurso de criação** para ver os aplicativos atribuídos a esse recurso.
 1. Abra seu aplicativo selecionando seu nome na página **meus aplicativos** .
 1. Selecione a intenção que tem o exemplo declarações que você deseja rotular para extração com uma entidade.
 1. Selecione o texto que você deseja rotular e, em seguida, selecione a entidade.
