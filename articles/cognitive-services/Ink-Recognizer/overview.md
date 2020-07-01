@@ -28,7 +28,7 @@ O Serviço Cognitivo do Reconhecimento de Tinta Digital fornece uma API REST bas
 
 Com a API de Reconhecimento de Tinta Digital, você pode reconhecer com facilidade o conteúdo manuscrito em seus aplicativos. 
 
-|Recurso  |DESCRIÇÃO  |
+|Recurso  |Descrição  |
 |---------|---------|
 | Reconhecimento de manuscrito | Reconheça o conteúdo manuscrito nos 63 [idiomas e localidades](language-support.md) principais. | 
 | Reconhecimento de layout | Obtenha informações estruturais sobre o conteúdo de tinta digital. Divida o conteúdo em regiões de escrita, parágrafos, linhas, palavras e listas com marcadores. Em seguida, seus aplicativos podem usar as informações de layout para criar recursos adicionais, como formatação automática de lista e alinhamento de formas. |

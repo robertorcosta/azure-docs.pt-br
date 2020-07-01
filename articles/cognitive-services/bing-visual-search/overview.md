@@ -30,7 +30,7 @@ Se você usar a [API de Pesquisa de Imagem do Bing](../bing-image-search/overvie
 
 Você pode descobrir as seguintes informações usando a Pesquisa Visual do Bing:
 
-| Insight                              | DESCRIÇÃO |
+| Insight                              | Descrição |
 |--------------------------------------|-------------|
 | Imagens visualmente semelhantes              | Uma lista de imagens que são visualmente semelhantes à imagem de entrada. |
 | Produtos visualmente semelhantes            | Produtos visualmente similares ao produto mostrado.            |
@@ -57,7 +57,7 @@ A API da Pesquisa Visual do Bing é um serviço Web RESTful, facilitando a chama
 Primeiro, experimente a [demonstração interativa](https://azure.microsoft.com/services/cognitive-services/bing-visual-search/) da API da Pesquisa Visual do Bing.
 A demonstração mostra como você pode, de modo rápido, personalizar uma consulta de pesquisa e vasculhar a Web em busca de imagens.
 
-Para se familiarizar rapidamente com sua primeira solicitação, confira os inícios rápidos: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md).
+Para uma introdução rápida à primeira solicitação, consulte os guias de início rápido: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md).
 
 ## <a name="see-also"></a>Confira também
 
