@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: overview
 ms.date: 12/18/2019
 ms.author: scottwhi
-ms.openlocfilehash: a90fa0a66fb32b2a885599f09458964188353880
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: b68bc2eca25c35395d9a31f3a80e45d1595815bf
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75448840"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85601965"
 ---
 # <a name="what-is-bing-autosuggest"></a>O que é a Sugestão Automática do Bing?
 
@@ -29,9 +29,9 @@ Se o aplicativo enviar consultas para uma das APIs de Pesquisa do Bing, você po
 
 ## <a name="workflow"></a>Fluxo de trabalho
 
-A API de Sugestão Automática do Bing é um serviço Web RESTful, fácil de ser chamado em qualquer linguagem de programação que possa fazer solicitações HTTP e analisar JSON. 
+A API de Sugestão Automática do Bing é um serviço Web RESTful, fácil de ser chamado em qualquer linguagem de programação que possa fazer solicitações HTTP e analisar JSON.
 
-1. Crie uma [Conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com acesso às APIs de Pesquisa do Bing. Caso não tenha uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) gratuitamente.
+1. Crie uma [Conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com acesso às APIs de Pesquisa do Bing. Caso não tenha uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/cognitive-services/) gratuitamente.
 2. Envie uma solicitação a essa API sempre que um usuário digitar um novo caractere na caixa de pesquisa de seu aplicativo.
 3. Processe a resposta da API analisando a mensagem JSON retornada.
 

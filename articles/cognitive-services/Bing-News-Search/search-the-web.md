@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 12/18/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: e0e99c7f677173c64afad3109b2f4accd7cb3cb9
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: d44fe58eb17e7f11dc64ee1426df7f356cb91aef
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75448439"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85602747"
 ---
 # <a name="what-is-the-bing-news-search-api"></a>O que é a API de Pesquisa de Notícias do Bing?
 
@@ -40,10 +40,8 @@ Embora a API de Pesquisa de Notícias do Bing encontre e retorne principalmente 
 
 A API de Pesquisa de Notícias do Bing é um serviço Web RESTful, facilitando a chamada em qualquer linguagem de programação que possa fazer solicitações HTTP e analisar JSON. É possível usar o serviço usando a API REST ou o SDK.
 
-1. Crie uma conta da API dos Serviços Cognitivos com acesso às APIs de Pesquisa do Bing. Caso não tenha uma assinatura do Azure, [crie uma conta gratuitamente](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-news-api).
-
+1. Crie uma [Conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com acesso às APIs de Pesquisa do Bing. Caso não tenha uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/cognitive-services/) gratuitamente.
 2. Envie uma solicitação para a API, com uma consulta de pesquisa válida.
-
 3. Processe a resposta da API analisando a mensagem JSON retornada.
 
 ## <a name="next-steps"></a>Próximas etapas

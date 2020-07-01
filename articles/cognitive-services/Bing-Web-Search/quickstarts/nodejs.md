@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 4a96f31588e199d5696e2d9eff351051d46c1f96
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 872a90a0b4f5b348e45b04998067f9e97a3ae987
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873955"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611315"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-nodejs"></a>Início Rápido: Pesquise na Web usando a API REST de Pesquisa na Web do Bing e Node.js
 
@@ -43,7 +43,7 @@ const https = require('https')
 
 ## <a name="set-the-subscription-key"></a>Definir a chave de assinatura
 
-Este snippet de código usa a variável de ambiente `AZURE_SUBSCRIPTION_KEY` para armazenar sua chave de assinatura; é uma boa prática para evitar a exposição acidental das suas chaves no momento de implantar código. Para pesquisar sua chave de assinatura, confira [Suas APIs](https://azure.microsoft.com/try/cognitive-services/my-apis/?apiSlug=search-api-v7).
+Este snippet de código usa a variável de ambiente `AZURE_SUBSCRIPTION_KEY` para armazenar sua chave de assinatura; é uma boa prática para evitar a exposição acidental das suas chaves no momento de implantar código.
 
 Se não estiver familiarizado com o uso de variáveis de ambiente ou se desejar executar esse aplicativo o mais rápido possível, substitua `process.env['AZURE_SUBSCRIPTION_KEY']` pelo seu conjunto de chaves de assinatura como uma cadeia de caracteres.
 

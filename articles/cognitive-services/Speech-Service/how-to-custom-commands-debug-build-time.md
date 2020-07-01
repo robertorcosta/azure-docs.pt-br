@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: b0a26b4d3f0f59f8e05c5990bbc64ee55f12f124
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 6624c8072c60793771d4f4b9943e15f1b276cd34
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307387"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85604685"
 ---
 # <a name="debug-errors-when-authoring-a-custom-commands-application"></a>Erros de depuração ao criar um aplicativo de comandos personalizados
 
@@ -26,7 +26,7 @@ Comandos personalizados também criam um aplicativo no [Luis](https://www.luis.a
 
 [Luis limita 500 aplicativos por recurso de criação](https://docs.microsoft.com/azure/cognitive-services/luis/luis-limits). A criação do aplicativo LUIS poderá falhar se você estiver usando um recurso de criação que já tenha 500 aplicativos. 
 
-Verifique se o recurso de criação de LUIS selecionado tem menos de 500. Caso contrário, você pode criar um novo recurso de criação de LUIS, alternar para outro ou tentar limpar seus aplicativos LUIS.  
+Verifique se o recurso de criação de LUIS selecionado tem menos de 500 aplicativos. Caso contrário, você pode criar um novo recurso de criação de LUIS, alternar para outro ou tentar limpar seus aplicativos LUIS.  
 
 ## <a name="errors-when-deleting-an-application"></a>Erros ao excluir um aplicativo
 ### <a name="cant-delete-luis-application"></a>Não é possível excluir o aplicativo LUIS
@@ -48,13 +48,13 @@ Você não tem permissão para excluir um parâmetro quando ele está sendo usad
 Você não tem permissão para excluir um ponto de extremidade da Web quando ele está sendo usado. Remova qualquer ação de **ponto de extremidade da Web de chamada** que use este ponto de extremidade da Web antes de remover um ponto de extremidade da Web
 
 ## <a name="errors-when-training-an-application"></a>Erros ao treinar um aplicativo
-### <a name="build-in-intents"></a>Criar em tentativas
-LUIS tem tentativas de compilação Sim/não. Ter frases de amostra com apenas "Sim", "não", falharia no treinamento. 
+### <a name="built-in-intents"></a>Propósitos internos
+LUIS tem intenções internas Sim/não. Ter frases de amostra com apenas "Sim", "não", falharia no treinamento. 
 
 | Palavra-chave | Variações | 
 | ------- | --------- | 
-| Yes | Certo, OK |
-| No | Verão, não | 
+| Sim | Certo, OK |
+| Não | Verão, não | 
 
 ### <a name="common-sample-sentences"></a>Sentenças de exemplo comuns
 Os comandos personalizados não permitem frases de exemplo comuns compartilhadas entre comandos diferentes. O treinamento de um aplicativo poderá falhar se algumas frases de exemplo em um comando já estiverem definidas em outro comando. 

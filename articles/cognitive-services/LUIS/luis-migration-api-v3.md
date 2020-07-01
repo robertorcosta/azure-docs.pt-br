@@ -2,14 +2,14 @@
 title: Alterações de ponto de extremidade de previsão na API v3
 description: As APIs de ponto de extremidade de previsão de consulta foram alteradas. Use este guia para entender como migrar para as APIs de ponto de extremidade da versão 3.
 ms.topic: how-to
-ms.date: 05/15/2020
+ms.date: 06/30/2020
 ms.author: diberry
-ms.openlocfilehash: 293cbd583e1493c5f142604457a00a8055c7a802
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: d3d8f4d77793390484c64b03393fb528dfa643b7
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84338185"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85610873"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Alterações de ponto de extremidade de previsão para v3
 
@@ -86,17 +86,7 @@ Se desejar consultar por versão, primeiro você precisará [publicar via API](h
 
 ### <a name="query-string-changes"></a>Alterações na cadeia de consulta
 
-A API v3 tem parâmetros de cadeia de caracteres de consulta diferentes.
-
-|Nome do parâmetro|Type|Versão|Padrão|Finalidade|
-|--|--|--|--|--|
-|`log`|booleano|V2 & V3|false|Armazenar consulta no arquivo de log. O valor padrão é falso.|
-|`query`|string|Somente V3|Nenhum padrão-ele é necessário na solicitação GET|**Em v2**, o expressão a ser previsto está no `q` parâmetro. <br><br>**No v3**, a funcionalidade é passada no `query` parâmetro.|
-|`show-all-intents`|booleano|Somente V3|false|Retorne todas as intenções com a pontuação correspondente no objeto **preditiva. retenções** . As intenções são retornadas como objetos em um `intents` objeto pai. Isso permite o acesso programático sem a necessidade de encontrar a intenção em uma matriz: `prediction.intents.give` . Em v2, elas foram retornadas em uma matriz. |
-|`verbose`|booleano|V2 & V3|false|**Em v2**, quando definido como true, todas as intenções previstas foram retornadas. Se você precisar de todas as intenções previstas, use o parâmetro v3 de `show-all-intents` .<br><br>**No v3**, esse parâmetro fornece apenas detalhes de metadados de entidade de previsão de entidade.  |
-|`timezoneOffset`|string|V2|-|Fuso horário aplicado às entidades datetimeV2.|
-|`datetimeReference`|string|V3|-|[Fuso horário](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) aplicado às entidades datetimeV2. Substitui `timezoneOffset` de v2.|
-
+[!INCLUDE [V3 query params](./includes/v3-prediction-query-params.md)]
 
 ### <a name="v3-post-body"></a>Corpo da POSTAgem v3
 
@@ -114,8 +104,8 @@ A API v3 tem parâmetros de cadeia de caracteres de consulta diferentes.
 
 |Propriedade|Type|Versão|Padrão|Finalidade|
 |--|--|--|--|--|
-|`dynamicLists`|matriz|Somente V3|Não obrigatório.|As [listas dinâmicas](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time) permitem que você estenda uma entidade de lista treinada e publicada existente, já no aplicativo Luis.|
-|`externalEntities`|matriz|Somente V3|Não obrigatório.|[Entidades externas](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time) dão ao seu aplicativo Luis a capacidade de identificar e rotular entidades durante o tempo de execução, que pode ser usado como recursos para entidades existentes. |
+|`dynamicLists`|matriz|Somente V3|Não necessário.|As [listas dinâmicas](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time) permitem que você estenda uma entidade de lista treinada e publicada existente, já no aplicativo Luis.|
+|`externalEntities`|matriz|Somente V3|Não necessário.|[Entidades externas](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time) dão ao seu aplicativo Luis a capacidade de identificar e rotular entidades durante o tempo de execução, que pode ser usado como recursos para entidades existentes. |
 |`options.datetimeReference`|string|Somente V3|Nenhum padrão|Usado para determinar o [deslocamento de datetimeV2](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity). O formato para o datetimeReference é [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).|
 |`options.preferExternalEntities`|booleano|Somente V3|false|Especifica se a [entidade externa do usuário (com o mesmo nome da entidade existente)](schema-change-prediction-runtime.md#override-existing-model-predictions) é usada ou a entidade existente no modelo é usada para previsão. |
 |`query`|string|Somente V3|Obrigatórios.|**Em v2**, o expressão a ser previsto está no `q` parâmetro. <br><br>**No v3**, a funcionalidade é passada no `query` parâmetro.|

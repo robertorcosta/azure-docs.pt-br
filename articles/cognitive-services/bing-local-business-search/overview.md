@@ -10,12 +10,12 @@ ms.subservice: bing-local-business
 ms.topic: overview
 ms.date: 03/24/2020
 ms.author: aahi
-ms.openlocfilehash: 0006761126eb1d561da7eeff97e8a9928d62ddb0
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 685ee0c616234563981e55f14213e424daae32f5
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478942"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611264"
 ---
 # <a name="what-is-bing-local-business-search"></a>O que é o Bing Local Business Search?
 A API da Pesquisa de empresa local do Bing é um serviço RESTful que permite que seus aplicativos localizem informações sobre empresas locais com base em consultas de pesquisa. Por exemplo, `q=<business-name> in Redmond, Washington`, ou `q=Italian restaurants near me`. 
@@ -30,7 +30,7 @@ A API da Pesquisa de empresa local do Bing é um serviço RESTful que permite qu
 ## <a name="workflow"></a>Fluxo de trabalho
 Chame a API de Pesquisa de Empresa Local do Bing em qualquer linguagem de programação que possa fazer solicitações HTTP e analisar respostas JSON. Esse serviço é acessível por meio da API REST.
  
-1. Crie uma [conta da API de serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com acesso às APIs de Pesquisa do Bing. Caso não tenha uma assinatura do Azure, é possível criar uma [conta gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).   
+1. Crie uma [conta da API de serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com acesso às APIs de Pesquisa do Bing. Caso não tenha uma assinatura do Azure, é possível criar uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/).   
 2. URL codifique seus termos de pesquisa para o parâmetro de consulta `q=""`. Por exemplo, `q=nearby+restaurant` ou `q=nearby%20restaurant`. Defina a paginação também, se necessário. 
 3. Envie uma [solicitação para a API da Pesquisa de empresa local do Bing](quickstarts/local-quickstart.md) 
 4. Analisar a resposta JSON 

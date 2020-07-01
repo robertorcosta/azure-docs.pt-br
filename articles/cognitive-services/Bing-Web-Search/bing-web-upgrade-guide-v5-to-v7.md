@@ -11,18 +11,18 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: 2133cd59c524112ae8a77c0a20cbce1d1336a38d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7ee8d05a542c6906d4ebe70f7e2a461752c6e3f3
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68881313"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85609445"
 ---
 # <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Atualizar a API de Pesquisa na Web do Bing da v5 para v7
 
 Este guia de atualização identifica as alterações entre a versão 5 e a versão 7 da API de Pesquisa na Web do Bing. Use este guia para ajudá-lo a identificar as partes do aplicativo que você precisa atualizar para usar a versão 7.
 
-## <a name="breaking-changes"></a>Alterações de quebra
+## <a name="breaking-changes"></a>Alterações da falha
 
 ### <a name="endpoints"></a>Pontos de extremidade
 
@@ -81,7 +81,7 @@ Bloqueado|InvalidRequest.Blocked
 
 - Adição do parâmetro de consulta [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount). Use esse parâmetro para especificar o número de respostas que a resposta deve incluir. As respostas são escolhidas com base na classificação. Por exemplo, se você definir esse parâmetro como três (3), a resposta incluirá as três principais respostas classificadas.  
 
-- Adição do parâmetro de consulta [promote](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote). Use esse parâmetro junto com `answerCount` para incluir explicitamente um ou mais tipos de resposta, seja qual for a classificação. Por exemplo, para promover vídeos e imagens na resposta, defina promote como *vídeos, imagens*. A lista de respostas que você deseja promover não é contada em relação ao limite `answerCount`. Por exemplo, se `answerCount` é 2 e `promote` é definido como *vídeos, imagens*, a resposta pode incluir páginas da Web, notícias, vídeos e imagens.
+- Adição do parâmetro de consulta [promote](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote). Use esse parâmetro junto com `answerCount` para incluir explicitamente um ou mais tipos de resposta, seja qual for a classificação. Por exemplo, para promover vídeos e imagens na resposta, você definirá promover para *vídeos, imagens*. A lista de respostas que você deseja promover não é contada em relação ao limite `answerCount`. Por exemplo, se `answerCount` for 2 e `promote` for definido como *vídeos, imagens*, a resposta poderá incluir páginas da Web, notícias, vídeos e imagens.
 
 ### <a name="object-changes"></a>Alterações de objeto
 

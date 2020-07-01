@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: 5d1b0b19523eb37aa83aa59b24114be9f76ffa55
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d459222327ef3535202e82f640f5b513f0426d54
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68882759"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85609462"
 ---
 # <a name="add-analytics-to-the-bing-search-apis"></a>Adicionar análise ao APIs de Pesquisa do Bing
 
 As estatísticas do Bing fornecem análises para o APIs de Pesquisa do Bing. Essas análises incluem o volume de chamada, as principais cadeias de caracteres de consulta, a distribuição geográfica e muito mais. Você pode habilitar as estatísticas do Bing no [portal do Azure](https://ms.portal.azure.com) navegando até o recurso do Azure e clicando em **habilitar estatísticas do Bing**.
 
 > [!IMPORTANT]
-> * As estatísticas do Bing não estão disponíveis com assinaturas de avaliação gratuitas ou recursos no tipo `F0` de preço gratuito.
+> * As estatísticas do Bing não estão disponíveis com recursos no `F0` tipo de preço gratuito.
 > * Não é possível usar dados disponíveis por meio do painel das Estatísticas do Bing para criar aplicativos para distribuição a terceiros.
 > * A habilitação das estatísticas do Bing aumenta um pouco sua taxa de assinatura. Consulte os [preços](https://aka.ms/bingstatisticspricing) para obter detalhes.
 
@@ -86,7 +86,7 @@ A seguir estão as possíveis métricas e restrições de ponto de extremidade.
   > [!NOTE]  
   > Alguns termos de consulta podem ser suprimidos para remover informações confidenciais, como emails, números de telefone, SSN etc.
 
-- **Distribuição geográfica**: os mercados nos quais os resultados da pesquisa são originados. Por exemplo, `en-us` (inglês, Estados Unidos). O Bing usa o parâmetro de consulta `mkt` para determinar o mercado, se especificado. Caso contrário, o Bing usa sinais como o endereço IP do chamador para determinar o mercado.
+- **Distribuição geográfica**: os mercados nos quais os resultados da pesquisa são originados. Por exemplo, `en-us` (Inglês, Estados Unidos). O Bing usa o parâmetro de consulta `mkt` para determinar o mercado, se especificado. Caso contrário, o Bing usa sinais como o endereço IP do chamador para determinar o mercado.
 
 - **Distribuição de código de resposta**: os códigos de status HTTP de todas as chamadas durante o período do relatório.
 
@@ -94,7 +94,7 @@ A seguir estão as possíveis métricas e restrições de ponto de extremidade.
 
 - **Distribuição de pesquisa segura**: a distribuição de valores de pesquisa segura. Por exemplo, desativado, moderado ou estrito. O parâmetro de consulta `safeSearch` contém o valor, se especificado. Caso contrário, o Bing padroniza o valor para moderado.  
 
-- **Respostas de distribuição solicitada**: a API de pesquisa na Web responde que você `responseFilter` solicitou no parâmetro de consulta.  
+- **Respostas de distribuição solicitada**: a API de pesquisa na Web responde que você solicitou no `responseFilter` parâmetro de consulta.  
 
 - **Distribuição de respostas retornadas**: as respostas que a API de Pesquisa da Web retornou na resposta.
 
