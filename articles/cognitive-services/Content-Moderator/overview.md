@@ -48,7 +48,7 @@ O serviço Content Moderator inclui APIs de Moderação que verificam se o conte
 
 A tabela a seguir descreve os diferentes tipos de APIs de moderação.
 
-| Grupo de APIs | DESCRIÇÃO |
+| Grupo de APIs | Descrição |
 | ------ | ----------- |
 |[**Moderação de texto**](text-moderation-api.md)| Examina o texto quanto a conteúdo ofensivo, conteúdo sexualmente explícito ou sugestivo, conteúdo ofensivo e dados pessoais.|
 |[**Listas de termos personalizadas**](try-terms-list-api.md)| Examina o texto em relação a uma lista de termos personalizados juntamente com os termos internos. Use listas personalizadas para bloquear ou permitir conteúdo de acordo com suas próprias políticas de conteúdo.|  
