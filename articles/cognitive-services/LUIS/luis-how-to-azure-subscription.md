@@ -3,25 +3,148 @@ title: Como usar as chaves de criação e tempo de execução-LUIS
 description: Ao usar o Reconhecimento vocal (LUIS) pela primeira vez, você não precisa criar uma chave de criação. Quando você pretende publicar o aplicativo, use o ponto de extremidade do tempo de execução, você precisa criar e atribuir a chave de tempo de execução ao aplicativo.
 services: cognitive-services
 ms.topic: how-to
-ms.date: 04/06/2020
-ms.openlocfilehash: c566e8fe56d19856f5a577e472929b7610497d7c
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.date: 06/26/2020
+ms.openlocfilehash: 5f6d62a63ea5ae0d3e4ca5913d6e7834ba07692a
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344451"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85560430"
 ---
 # <a name="create-luis-resources"></a>Criar recursos do LUIS
 
-Os recursos de criação e tempo de execução fornecem autenticação para seu aplicativo LUIS e ponto de extremidade de previsão.
+Os recursos de tempo de execução de previsão de criação e consulta fornecem autenticação para o aplicativo LUIS e o ponto de extremidade de previsão.
 
-<a name="create-luis-service"></a>
-<a name="create-language-understanding-endpoint-key-in-the-azure-portal"></a>
+<a name="programmatic-key" ></a>
+<a name="endpoint-key"></a>
+<a name="authoring-key"></a>
 
-Ao entrar no portal do LUIS, você pode optar por continuar com:
+## <a name="luis-resources"></a>Recursos do LUIS
 
-* uma [chave de avaliação](#trial-key) gratuita-fornecendo criação e algumas consultas de ponto de extremidade de previsão.
-* um recurso de [criação de Luis](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) do Azure.
+O LUIS permite três tipos de recursos do Azure e um recurso não Azure:
+
+|Chave|Finalidade|Serviço cognitiva`kind`|Serviço cognitiva`type`|
+|--|--|--|--|
+|Chave de criação|Acesse e gerencie dados de aplicativos com criação, treinamento, publicação e teste. Crie uma chave de criação do LUIS se você pretende criar aplicativos LUIS programaticamente.<br><br>A finalidade da `LUIS.Authoring` chave é permitir que você:<br>* gerenciar programaticamente aplicativos e modelos Reconhecimento vocal, incluindo treinamento e publicação<br> * controle permissões para o recurso de criação atribuindo pessoas à [função colaborador](#contributions-from-other-authors).|`LUIS.Authoring`|`Cognitive Services`|
+|Chave de previsão de consulta| Solicitações de ponto de extremidade de previsão de consulta. Crie uma chave de previsão LUIS antes que seu aplicativo cliente solicite previsões além das 1.000 solicitações fornecidas pelo recurso de início. |`LUIS`|`Cognitive Services`|
+|[Chave de recurso de vários serviços cognitivas do serviço](../cognitive-services-apis-create-account-cli.md?tabs=windows#create-a-cognitive-services-resource)|Solicitações de ponto de extremidade de previsão de consulta compartilhadas com LUIS e outros serviços cognitivas com suporte.|`CognitiveServices`|`Cognitive Services`|
+|Inicial|Criação gratuita (sem controle de acesso baseado em função) por meio do portal LUIS ou de APIs (incluindo SDKs), solicitações gratuitas de ponto de extremidade 1.000 de previsão por mês por meio de um navegador, API ou SDKs|-|Não é um recurso do Azure|
+
+Quando o processo de criação de recursos do Azure for concluído, [atribua a chave](#assign-a-resource-to-an-app) ao aplicativo no portal do Luis.
+
+É importante criar aplicativos LUIS em [regiões](luis-reference-regions.md#publishing-regions) em que você deseja publicar e consultar.
+
+## <a name="resource-ownership"></a>Propriedade do recurso
+
+Um recurso do Azure, como um LUIS, pertence à assinatura que contém o recurso.
+
+Para transferir a propriedade de um recurso, a ou pode:
+* Transferir a [Propriedade](../../cost-management-billing/manage/billing-subscription-transfer.md) de sua assinatura
+* Exporte o aplicativo LUIS como um arquivo e, em seguida, importe o aplicativo em uma assinatura diferente. A exportação está disponível na página **meus aplicativos** no portal do Luis.
+
+
+## <a name="resource-limits"></a>Limites de recursos
+
+### <a name="authoring-key-creation-limits"></a>Limites de criação de chave de criação
+
+Você pode criar até 10 chaves de criação por região por assinatura.
+
+Consulte [limites de chave](luis-limits.md#key-limits) e [regiões do Azure](luis-reference-regions.md).
+
+Regiões de publicação são diferentes de regiões de criação. Certifique-se de criar um aplicativo na região de criação correspondente à região de publicação que você deseja que seu aplicativo cliente esteja localizado.
+
+### <a name="key-usage-limit-errors"></a>Erros de limite de uso de chave
+
+Os limites de uso são baseados no tipo de preço.
+
+Se você exceder sua cota de transações por segundo (TPS), receberá um erro HTTP 429. Se você exceder sua cota de transação por mês (TPS), receberá um erro HTTP 403.
+
+
+### <a name="reset-authoring-key"></a>Redefinir a chave de criador
+
+Para a criação de aplicativos [migrados](luis-migration-authoring.md) : se a sua chave de criação estiver comprometida, redefina a chave no portal do Azure na página **chaves** desse recurso de criação.
+
+Para aplicativos que ainda não foram migrados: a chave é redefinida em todos os seus aplicativos no portal do LUIS. Se você criar seus aplicativos por meio de APIs de criação, precisará alterar o valor de OCP-APIM-Subscription-Key para a nova chave.
+
+### <a name="regenerate-azure-key"></a>Regenerar chave do Azure
+
+Gere novamente as chaves do Azure no portal do Azure, na página **chaves** .
+
+
+## <a name="app-ownership-access-and-security"></a>Propriedade, acesso e segurança do aplicativo
+
+Um aplicativo é definido por seus recursos do Azure, que é determinado pela assinatura do proprietário.
+
+Você pode mover seu aplicativo LUIS. Use os seguintes recursos de documentação no portal do Azure ou CLI do Azure:
+
+* [Mover o aplicativo entre os recursos de criação do LUIS](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-move-app-to-another-luis-authoring-azure-resource)
+* [Mover recurso para novo grupo de recursos ou assinatura](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
+* [Mover recurso na mesma assinatura ou em assinaturas](../../azure-resource-manager/management/move-limitations/app-service-move-limitations.md)
+
+
+### <a name="contributions-from-other-authors"></a>Contribuições de outros autores
+
+Para [criar aplicativos migrados de recursos](luis-migration-authoring.md) : os _colaboradores_ são gerenciados no portal do Azure para o recurso de criação, usando a página de **controle de acesso (iam)** . Saiba [como adicionar um usuário](luis-how-to-collaborate.md), usando o endereço de email da colaboração e a função _colaborador_ .
+
+Para aplicativos que ainda não foram migrados: todos os _colaboradores_ são gerenciados no portal do Luis a partir da página **gerenciar > colaboradores** .
+
+### <a name="query-prediction-access-for-private-and-public-apps"></a>Acesso de previsão de consulta para aplicativos públicos e privados
+
+Para um aplicativo **privado** , o acesso ao tempo de execução de previsão de consulta está disponível para proprietários e colaboradores. Para um aplicativo **público** , o acesso ao tempo de execução está disponível para todos que têm seu próprio [serviço cognitiva](../cognitive-services-apis-create-account.md) do Azure ou recurso de tempo de execução [Luis](#create-resources-in-the-azure-portal) e tem a ID do aplicativo público.
+
+Atualmente, não há um catálogo de aplicativos públicos.
+
+### <a name="authoring-permissions-and-access"></a>Permissões de criação e acesso
+O acesso ao aplicativo no portal do [Luis](luis-reference-regions.md#luis-website) ou nas [APIs de criação](https://go.microsoft.com/fwlink/?linkid=2092087) é controlado pelo recurso de criação do Azure.
+
+O proprietário e todos os colaboradores têm acesso para criar o aplicativo.
+
+|O acesso de criação inclui|Observações|
+|--|--|
+|Adicionar ou remover chaves de ponto de extremidade||
+|Versão de exportação||
+|Exportar logs de ponto de extremidade||
+|Versão de importação||
+|Tornar um aplicativo público|Quando um aplicativo for público, qualquer pessoa com uma chave de criação ou de ponto de extremidade poderá consultá-lo.|
+|Modificar modelo|
+|Publicar|
+|Examinar declarações de ponto de extremidade para [aprendizado ativo](luis-how-to-review-endpoint-utterances.md)|
+|Treinar|
+
+<a name="prediction-endpoint-runtime-key"></a>
+
+### <a name="prediction-endpoint-runtime-access"></a>Acesso ao tempo de execução de ponto de extremidade de previsão
+
+O acesso para consultar o ponto de extremidade de previsão é controlado por uma configuração na página de **informações do aplicativo** na seção **gerenciar** .
+
+|[Ponto de extremidade privado](#runtime-security-for-private-apps)|[Ponto de extremidade público](#runtime-security-for-public-apps)|
+|:--|:--|
+|Disponível para o proprietário e os colaboradores|Disponível para o proprietário, colaboradores e qualquer outra pessoa que conheça a ID do aplicativo|
+
+Você pode controlar quem vê sua chave de tempo de execução LUIS chamando-a em um ambiente de servidor para servidor. Se você estiver usando o LUIS de um bot, a conexão entre o bot e o LUIS já estará segura. Se você estiver chamando o ponto de extremidade LUIS diretamente, deverá criar a API do servidor (como uma [função](https://azure.microsoft.com/services/functions/) do Azure) com acesso controlado (como [AAD](https://azure.microsoft.com/services/active-directory/)). Quando a API do lado do servidor for chamada e autenticada e a autorização for verificada, passe a chamada para LUIS. Embora essa estratégia não impeça ataques man-in-the-Middle, ela ofusca sua chave e a URL do ponto de extremidade dos usuários, permite que você acompanhe o acesso e permite que você adicione o log de resposta do ponto de extremidade (como [Application insights](https://azure.microsoft.com/services/application-insights/)).
+
+### <a name="runtime-security-for-private-apps"></a>Segurança de tempo de execução para aplicativos privados
+
+O tempo de execução de um aplicativo privado só está disponível para o seguinte:
+
+|Chave e usuário|Explicação|
+|--|--|
+|Chave de criação do proprietário| Até 1000 ocorrências de ponto de extremidade|
+|Colaboradores/chaves de criação de colaborador| Até 1000 ocorrências de ponto de extremidade|
+|Qualquer chave atribuída a LUIS por um autor ou colaboração/colaborador|Com base na camada de uso da chave|
+
+### <a name="runtime-security-for-public-apps"></a>Segurança de tempo de execução para aplicativos públicos
+
+Depois que um aplicativo for configurado como público, _qualquer_ chave de criação LUIS válida ou chave do ponto de extremidade LUIS poderá consultar seu aplicativo, desde que a chave não tenha usado toda a cota de ponto de extremidade.
+
+Um usuário que não seja um proprietário ou colaborador, só poderá acessar o tempo de execução de um aplicativo público se a ID do aplicativo for fornecida. O LUIS não tem um _mercado_ público ou outra maneira de pesquisar um aplicativo público.
+
+Um aplicativo público é publicado em todas as regiões para que um usuário com uma chave de recurso do LUIS baseada em região possa acessar o aplicativo em qualquer região associada com a chave de recurso.
+
+
+### <a name="securing-the-query-prediction-endpoint"></a>Protegendo o ponto de extremidade de previsão de consulta
+
+Você pode controlar quem pode ver sua chave de ponto de extremidade do LUIS de tempo de execução de previsão chamando-a em um ambiente de servidor para servidor. Se você estiver usando o LUIS de um bot, a conexão entre o bot e o LUIS já estará segura. Se você estiver chamando o ponto de extremidade LUIS diretamente, deverá criar a API do servidor (como uma [função](https://azure.microsoft.com/services/functions/) do Azure) com acesso controlado (como [AAD](https://azure.microsoft.com/services/active-directory/)). Quando a API do servidor for chamada e a autenticação e a autorização forem verificadas, passe a chamada para o LUIS. Embora essa estratégia não impeça ataques "man-in-the-middle", ela oculta seu ponto de extremidade dos usuários, permite que você controle o acesso e que você adicione um log de resposta de ponto de extremidade (como o [Application Insights](https://azure.microsoft.com/services/application-insights/)).
 
 <a name="starter-key"></a>
 
@@ -34,20 +157,14 @@ Ao entrar no portal do LUIS, você pode optar por continuar com:
 
 1. Quando você terminar com o processo de seleção de recursos, [crie um novo aplicativo](luis-how-to-start-new-app.md#create-new-app-in-luis).
 
-## <a name="trial-key"></a>Chave de avaliação
 
-A chave de avaliação (inicial) é fornecida para você. Ele é usado como sua chave de autenticação para consultar o tempo de execução de ponto de extremidade de previsão, até 1000 consultas por mês.
-
-Ele é visível na página de **configurações do usuário** e nas páginas de **recursos do Azure Manage->** no portal do Luis.
-
-Quando você estiver pronto para publicar seu ponto de extremidade de previsão, [crie](#create-luis-resources) e [atribua](#assign-a-resource-to-an-app) chaves de criação e de tempo de execução de previsão para substituir a funcionalidade de chave inicial.
+## <a name="create-azure-resources"></a>Criar recursos do Azure
 
 <a name="create-resources-in-the-azure-portal"></a>
 
+[!INCLUDE [Create LUIS resource in Azure Portal](includes/create-luis-resource.md)]
 
-[!INCLUDE [Create LUIS resource](includes/create-luis-resource.md)]
-
-## <a name="create-resources-in-azure-cli"></a>Criar recursos no CLI do Azure
+### <a name="create-resources-in-azure-cli"></a>Criar recursos no CLI do Azure
 
 Use o [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para criar cada recurso individualmente.
 
@@ -79,17 +196,19 @@ Recurso `kind` :
     > [!Note]
     > Essas chaves **não** são usadas pelo portal do Luis até que sejam atribuídas no portal do Luis nos **recursos do Azure gerenciar->**.
 
-## <a name="assign-an-authoring-resource-in-the-luis-portal-for-all-apps"></a>Atribuir um recurso de criação no portal do LUIS para todos os aplicativos
+<a name="assign-an-authoring-resource-in-the-luis-portal-for-all-apps"></a>
+
+### <a name="assign-resource-in-the-luis-portal"></a>Atribuir recurso no portal do LUIS
 
 Você pode atribuir um recurso de criação para um único aplicativo ou para todos os aplicativos no LUIS. O procedimento a seguir atribui todos os aplicativos a um único recurso de criação.
 
-1. Entre no portal do [Luis](https://www.luis.ai).
+1. Entre no portal do [LUIS](https://www.luis.ai).
 1. Na barra de navegação superior, à extrema direita, selecione sua conta de usuário e, em seguida, selecione **configurações**.
 1. Na página **configurações do usuário** , selecione **Adicionar recurso de criação** e, em seguida, selecione um recurso de criação existente. Clique em **Salvar**.
 
 ## <a name="assign-a-resource-to-an-app"></a>Atribuir um recurso a um aplicativo
 
-Você pode atribuir um único recurso, criação ou tempo de execução de ponto de extremidade de previsão a um aplicativo com o procedimento a seguir.
+Você pode atribuir um a um aplicativo com o procedimento a seguir.
 
 1. Entre no portal do [Luis](https://www.luis.ai)e selecione um aplicativo na lista **meus aplicativos** .
 1. Navegue até a página **gerenciar > recursos do Azure** .
@@ -99,7 +218,7 @@ Você pode atribuir um único recurso, criação ou tempo de execução de ponto
 1. Selecione a guia Previsão ou recurso de criação e, em seguida, selecione o botão **Adicionar recurso de previsão** ou **Adicionar recurso de criação** .
 1. Selecione os campos no formulário para localizar o recurso correto e, em seguida, selecione **salvar**.
 
-### <a name="assign-runtime-resource-without-using-luis-portal"></a>Atribuir recurso de tempo de execução sem usar o portal do LUIS
+### <a name="assign-query-prediction-runtime-resource-without-using-luis-portal"></a>Atribuir recurso de tempo de execução de previsão de consulta sem usar o portal do LUIS
 
 Para fins de automação, como um pipeline de CI/CD, talvez você queira automatizar a atribuição de um recurso de tempo de execução LUIS para um aplicativo LUIS. Para fazer isso, é necessário executar as seguintes etapas:
 
@@ -124,9 +243,9 @@ Para fins de automação, como um pipeline de CI/CD, talvez você queira automat
 
     |Type|Configuração|Valor|
     |--|--|--|
-    |parâmetro|`Authorization`|O valor de `Authorization` é `Bearer {token}`. Observe que o valor do token deve ser precedido pela palavra `Bearer` e um espaço.|
-    |parâmetro|`Ocp-Apim-Subscription-Key`|Sua chave de criação.|
-    |parâmetro|`Content-type`|`application/json`|
+    |Cabeçalho|`Authorization`|O valor de `Authorization` é `Bearer {token}`. Observe que o valor do token deve ser precedido pela palavra `Bearer` e um espaço.|
+    |Cabeçalho|`Ocp-Apim-Subscription-Key`|Sua chave de criação.|
+    |Cabeçalho|`Content-type`|`application/json`|
     |Querystring|`appid`|A ID do aplicativo de LUIS.
     |Corpo||{"AzureSubscriptionId":"ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "resourcegroup-2",<br>"AccountName": "luis-uswest-S0-2"}|
 
@@ -140,15 +259,6 @@ Para fins de automação, como um pipeline de CI/CD, talvez você queira automat
 
 Quando você cancelar a atribuição de um recurso, ele não será excluído do Azure. Ela é apenas desvinculada do LUIS.
 
-## <a name="reset-authoring-key"></a>Redefinir a chave de criador
-
-**Para a criação de aplicativos [migrados](luis-migration-authoring.md) **: se a sua chave de criação estiver comprometida, redefina a chave no portal do Azure na página **chaves** desse recurso de criação.
-
-**Para aplicativos que ainda não foram migrados**: a chave é redefinida em todos os seus aplicativos no portal do Luis. Se você criar seus aplicativos por meio de APIs de criação, precisará alterar o valor de OCP-APIM-Subscription-Key para a nova chave.
-
-## <a name="regenerate-azure-key"></a>Regenerar chave do Azure
-
-Gere novamente as chaves do Azure no portal do Azure, na página **chaves** .
 
 ## <a name="delete-account"></a>Excluir conta
 
@@ -192,6 +302,4 @@ Adicionar um alerta de métrica para a métrica **total de chamadas** para um de
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba [como usar versões](luis-how-to-manage-versions.md) para controlar o ciclo de vida do aplicativo.
-* Entenda os conceitos, incluindo o [recurso de criação](luis-concept-keys.md#authoring-key) e os [colaboradores](luis-concept-keys.md#contributions-from-other-authors) nesse recurso.
-* Saiba [como criar](luis-how-to-azure-subscription.md) recursos de criação e tempo de execução
 * Migrar para o novo [recurso de criação](luis-migration-authoring.md)

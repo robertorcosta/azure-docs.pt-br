@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/4/2019
 ms.author: panosper
-ms.openlocfilehash: a279aebdd19ebd3a41ddad0c1c279937e00838c2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c572c03936a809ce2f5ccb0071352d6c84c2ee90
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77168453"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85561567"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Perguntas frequentes sobre Conversão de Fala em Texto
 
@@ -100,7 +100,7 @@ Para aumentar a simultaneidade para um ***modelo personalizado***, precisamos da
   - entrar (se necessário),
   - Selecione seu projeto e implantação,
   - Selecione o ponto de extremidade para o qual você precisa do aumento de simultaneidade,
-  - Copie o `Endpoint ID`.
+  - Copie o `Endpoint ID` .
 
 Para aumentar a simultaneidade para um ***modelo base***, precisamos das seguintes informações:
 
@@ -110,14 +110,17 @@ e
 
 - um token de acesso para sua assinatura (veja [aqui](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token)),
 
-ou
+ou o
 
 - a ID de recurso para sua assinatura:
   - Vá para a [portal do Azure](https://portal.azure.com),
   - Selecione `Cognitive Services` na caixa de pesquisa,
   - nos serviços exibidos, escolha o serviço de fala para o qual você deseja aumentar a simultaneidade,
   - exibir o `Properties` para este serviço,
-  - Copie o completo `Resource ID`.
+  - Copie o completo `Resource ID` .
+  
+>[!NOTE]
+>Os [contêineres](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-container-howto) não exigem aumentos nos limites de simultaneidade, pois os contêineres são restritos somente pelas CPUs do hardware no qual estão hospedados.
 
 ## <a name="importing-data"></a>Importando dados
 

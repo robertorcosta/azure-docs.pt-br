@@ -13,6 +13,7 @@
     - name: Criar um perfil e um ponto de extremidade
       href: cdn-create-new-endpoint.md
     - name: Criar um perfil e um ponto de extremidade – Modelo ARM
+      displayName: Resource Manager
       href: create-profile-endpoint-template.md
 - name: Tutoriais
   items:

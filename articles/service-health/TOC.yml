@@ -7,7 +7,11 @@
 - name: Inícios rápidos
   items:
     - name: Configurar alertas para eventos da Integridade do Serviço
-      href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md
+      items:
+        - name: Portal do Azure
+          href: alerts-activity-log-service-notifications-portal.md
+        - name: Modelo de ARM
+          href: alerts-activity-log-service-notifications-arm.md
 - name: Conceitos
   items:
     - name: Página de status do Azure
