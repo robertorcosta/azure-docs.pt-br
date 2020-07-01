@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
-ms.openlocfilehash: 0b1cf99fe6e2aa4d7fcb12c3fb96b10b42c7c0b7
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 248bae81db1bc8cb69bac4618bd7593658336636
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76169909"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84986715"
 ---
 # <a name="example-identify-faces-in-images"></a>Exemplo: Identificar faces em imagens
 
@@ -50,7 +50,11 @@ private readonly IFaceClient faceClient = new FaceClient(
             new System.Net.Http.DelegatingHandler[] { });
 ```
  
-Para obter a chave de assinatura, acesse o Azure Marketplace no portal do Azure. Para saber mais, confira [Assinaturas](https://azure.microsoft.com/try/cognitive-services/).
+Siga estas instruções para obter uma chave.
+
+1. Criar uma [conta do Azure](https://azure.microsoft.com/free/cognitive-services/). Caso já tenha uma, vá para a próxima etapa.
+2. Crie um [recurso de Detecção Facial ](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace) no portal do Azure para obter sua chave. Lembre-se de selecionar a Camada gratuita (F0) durante a instalação. 
+3. Depois que os recursos forem implantados, clique em **Ir para o recurso** para coletar sua chave. 
 
 ## <a name="step-2-create-the-persongroup"></a>Etapa 2: Criar o PersonGroup
 

@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 18b158b7a4881619b93ab404de67f7bb25f92b6a
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 700c53c8fee61ce6e3c9a65bc3815fabfc5b2baa
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76166824"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84983515"
 ---
 # <a name="analyze-videos-in-near-real-time"></a>Analise vídeos quase em tempo real
 
@@ -230,12 +230,12 @@ Usando essa abordagem, você pode visualizar o rosto detectado imediatamente. Em
 
 Para começar a usar este exemplo, faça o seguinte:
 
-1. Obtenha chaves de API para as APIs da Pesquisa Visual em [Assinaturas](https://azure.microsoft.com/try/cognitive-services/). Para a análise de quadros de vídeo, os serviços aplicáveis são:
-    - [Pesquisa Visual Computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)
-    - [Detecção Facial](https://docs.microsoft.com/azure/cognitive-services/face/overview)
-2. Clone o repositório do GitHub [Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/).
-
-3. Abra a amostra no Visual Studio 2015 ou posterior e crie e execute os aplicativos de exemplo:
+1. Criar uma [conta do Azure](https://azure.microsoft.com/free/cognitive-services/). Caso já tenha uma, vá para a próxima etapa.
+2. Crie recursos para a Pesquisa Visual Computacional e a Detecção Facial no portal do Azure para obter a chave e o ponto de extremidade. Lembre-se de selecionar a Camada gratuita (F0) durante a instalação.
+   - [Pesquisa Visual Computacional](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)
+   - [Detecção Facial](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace) Depois que os recursos forem implantados, clique em **Ir para o recurso** para coletar a chave e o ponto de extremidade de cada recurso. 
+3. Clone o repositório do GitHub [Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/).
+4. Abra a amostra no Visual Studio 2015 ou posterior e crie e execute os aplicativos de exemplo:
     - Para BasicConsoleSample, a chave da Detecção Facial é embutida em código diretamente em [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
     - Para LiveCameraSample, insira as chaves no painel **Configurações** do aplicativo. As chaves serão persistentes entre as sessões como dados de usuário.
 
@@ -245,7 +245,7 @@ As funcionalidades de reconhecimento de imagem, voz, vídeo e texto do VideoFram
 
 ## <a name="summary"></a>Resumo
 
-Neste artigo, você aprendeu a executar uma análise quase em tempo real em fluxos de vídeo ao vivo usando os serviços de Detecção Facial e Pesquisa Visual Computacional. Você também aprendeu como é possível usar nosso código de exemplo para começar. Para começar a criar o aplicativo com as chaves de API gratuitas, acesse a [página de entrada dos Serviços Cognitivos do Azure](https://azure.microsoft.com/try/cognitive-services/).
+Neste artigo, você aprendeu a executar uma análise quase em tempo real em fluxos de vídeo ao vivo usando os serviços de Detecção Facial e Pesquisa Visual Computacional. Você também aprendeu como é possível usar nosso código de exemplo para começar.
 
 Sinta-se à vontade para fazer comentários e sugestões no [repositório do GitHub](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/). Para fazer comentários mais amplos sobre a API, acesse nosso [site UserVoice](https://cognitive.uservoice.com/).
 

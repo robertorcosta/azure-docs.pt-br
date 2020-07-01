@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 298228eedb73298f00654f4f72c201d9ed671090
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 44e5823ed3989dc092104d75d415524dac2c9622
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72177055"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84983451"
 ---
 # <a name="call-the-computer-vision-api"></a>Chamar a API da Pesquisa Visual Computacional
 
@@ -25,14 +25,6 @@ Este artigo demonstra como chamar a API da Pesquisa Visual Computacional usando 
 - Como obter marcas, uma descrição e categorias
 - Como obter informações específicas do domínio ou "celebridades"
 
-## <a name="prerequisites"></a>Pré-requisitos
-
-- Uma URL de imagem ou um caminho para uma imagem armazenada localmente
-- Métodos de entrada compatíveis: binário da imagem bruta na forma de um aplicativo/fluxo de octeto ou uma URL da imagem
-- Formatos de arquivo de imagem compatíveis: JPEG, PNG, GIF e BMP
-- Tamanho do arquivo de imagem: 4 MB ou menos
-- Dimensões da imagem: 50 &times; 50 pixels ou mais
-  
 Os exemplos neste artigo demonstram os seguintes recursos:
 
 * Analisando uma imagem para retornar uma matriz de marcas e uma descrição
@@ -42,14 +34,22 @@ Os recursos oferecem as seguintes opções:
 
 - **Opção 1**: Análise de Escopo – analisar apenas um modelo especificado
 - **Opção 2**: Análise Avançada – analisar para fornecer mais detalhes usando a [taxonomia de 86 categorias](../Category-Taxonomy.md)
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+* Uma assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
+* Depois de obter sua assinatura do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Crie um recurso da Pesquisa Visual Computacional"  target="_blank">crie um recurso da Pesquisa Visual Computacional <span class="docon docon-navigate-external x-hidden-focus"></span></a> no portal do Azure para obter a chave e o ponto de extremidade. Após a implantação, clique em **Ir para o recurso**.
+    * Você precisará da chave e do ponto de extremidade do recurso criado para conectar seu aplicativo ao serviço de Pesquisa Visual Computacional. Cole a chave e o ponto de extremidade no código abaixo mais adiante no guia de início rápido.
+    * Use o tipo de preço gratuito (`F0`) para experimentar o serviço e atualizar mais tarde para um nível pago para produção.
+* Uma URL de imagem ou um caminho para uma imagem armazenada localmente
+* Métodos de entrada compatíveis: binário da imagem bruta na forma de um aplicativo/fluxo de octeto ou uma URL da imagem
+* Formatos de arquivo de imagem compatíveis: JPEG, PNG, GIF e BMP
+* Tamanho do arquivo de imagem: 4 MB ou menos
+* Dimensões da imagem: 50 &times; 50 pixels ou mais
   
 ## <a name="authorize-the-api-call"></a>Autorizar a chamada à API
 
 Toda chamada à API da Pesquisa Visual Computacional requer uma chave de assinatura. Essa chave deve ser passada por um parâmetro de cadeia de caracteres de consulta ou especificada no cabeçalho da solicitação.
-
-Para obter uma chave de avaliação gratuita, siga um destes procedimentos:
-* Vá até a página [Experimentar os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). 
-* Vá para a página [Criar uma conta de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar Pesquisa Visual Computacional.
 
 Você pode passar a chave de assinatura seguindo qualquer um destes procedimentos:
 
@@ -180,12 +180,12 @@ Aqui está um exemplo:
 Campo | Type | Conteúdo
 ------|------|------|
 Marcas  | `object` | O objeto de nível superior para uma matriz de marcas.
-tags[].Name | `string`  | A palavra-chave do classificador de marcas.
-tags[].Score    | `number`  | A pontuação de confiança, entre 0 e 1.
-descrição  | `object` | Objeto de nível superior de uma descrição.
+tags[].Name | `string`    | A palavra-chave do classificador de marcas.
+tags[].Score    | `number`    | A pontuação de confiança, entre 0 e 1.
+descrição     | `object`    | Objeto de nível superior de uma descrição.
 description.tags[] |    `string`    | Lista de marcas.  Se houver confiança insuficiente na capacidade de produzir uma legenda, talvez as marcas sejam as únicas informações disponíveis para o chamador.
-description.captions[].text | `string`  | Uma frase que descreve a imagem.
-description.captions[].confidence   | `number`  | A pontuação de confiança para a frase.
+description.captions[].text    | `string`    | Uma frase que descreve a imagem.
+description.captions[].confidence    | `number`    | A pontuação de confiança para a frase.
 
 ## <a name="retrieve-and-understand-the-json-output-of-domain-specific-models"></a>Recuperar e compreender a saída JSON de modelos específicos de domínio
 
@@ -239,12 +239,12 @@ Para modelos específicos de domínio usando a opção 2 (análise avançada), o
 
 O campo de categorias é uma lista de uma ou mais das [86 categorias](../Category-Taxonomy.md) na taxonomia original. As categorias que terminam em um sublinhado correspondem a essa categoria e seus filhos (por exemplo, people_" ou people_group, para o modelo celebridades).
 
-Campo   | Type  | Conteúdo
+Campo    | Type    | Conteúdo
 ------|------|------|
-Categorias | `object`   | Objeto de nível superior.
-categories[].name    | `string` | O nome da lista de taxonomia de 86 categorias.
-categories[].score  | `number`  | A pontuação de confiança, entre 0 e 1.
-categories[].detail  | `object?`      | (Opcional) O objeto de detalhe.
+Categorias | `object`    | Objeto de nível superior.
+categories[].name     | `string`    | O nome da lista de taxonomia de 86 categorias.
+categories[].score    | `number`    | A pontuação de confiança, entre 0 e 1.
+categories[].detail     | `object?`      | (Opcional) O objeto de detalhe.
 
 Se várias categorias forem correspondentes (por exemplo, o classificador de 86 categorias retorna uma pontuação para people_ e people_young se model=celebrities), os detalhes serão anexados à correspondência de nível mais geral ("people_", neste exemplo).
 

@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 0962afb360df0ec6a414f676a2c280b3837c687d
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 2bd17e10e6123c48087116e947dc21f4cf788ef3
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81403660"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987859"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Tutorial: Reconhecer logotipos de serviços do Azure em imagens da câmera
 
@@ -28,7 +28,7 @@ Este tutorial mostrará como:
 > - Conectar seu aplicativo à Pesquisa Visual Computacional e à Visão Personalizada do Azure.
 > - Criar uma conta de entidade de serviço do Azure para implantar serviços do Azure por meio do aplicativo.
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. 
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -175,7 +175,7 @@ Siga estas etapas para executar o aplicativo:
 
 Se você seguiu todas as etapas deste cenário e usou o aplicativo para implantar serviços do Azure em sua conta, acesse o [portal do Azure](https://ms.portal.azure.com/). No portal, cancele os serviços que você não deseja usar.
 
-Se você pretende criar seu próprio projeto de detecção de objetos com a Visão Personalizada, talvez queira excluir o projeto de detecção de logotipos criado neste tutorial. Uma avaliação gratuita da Visão Personalizada permite apenas dois projetos. Para excluir o projeto de detecção de logotipos, no [site da Visão Personalizada](https://customvision.ai), abra **Projetos** e, em seguida, selecione o ícone de Lixeira em **Meu Novo Projeto**.
+Se você pretende criar seu próprio projeto de detecção de objetos com a Visão Personalizada, talvez queira excluir o projeto de detecção de logotipos criado neste tutorial. Uma assinatura gratuita da Visão Personalizada permite apenas dois projetos. Para excluir o projeto de detecção de logotipos, no [site da Visão Personalizada](https://customvision.ai), abra **Projetos** e, em seguida, selecione o ícone de Lixeira em **Meu Novo Projeto**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

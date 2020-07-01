@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: f2584892bb349d126b73c3f8df211f745a362bd8
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: f4d848eae23023d55ad41b7893610f246eddefd9
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81403358"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987820"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Início Rápido: Detectar rostos em uma imagem usando a API REST e PHP
 
@@ -23,10 +23,13 @@ Neste Início Rápido, você usará a API REST de Detecção Facial do Azure com
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma chave de assinatura da Detecção Facial. É possível obter uma chave de assinatura de avaliação gratuita em [Experimente os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Ou siga as instruções descritas em [Criar uma conta dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar o serviço de Detecção Facial e obter a sua chave.
-- Um editor de códigos como o [Visual Studio Code](https://code.visualstudio.com/download).
-- O pacote PHP [HTTP_Request2](https://pear.php.net/package/HTTP_Request2).
-- Um navegador da Web habilitado para PHP. Se ainda não tiver configurado isso, você poderá fazer isso instalando e configurando o [XAMPP](https://www.apachefriends.org/) em seu computador.
+* Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
+* Depois de obter sua assinatura do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Crie um recurso da Detecção Facial"  target="_blank">crie um recurso da Detecção Facial <span class="docon docon-navigate-external x-hidden-focus"></span></a> no portal do Azure para obter a chave e o ponto de extremidade. Após a implantação, clique em **Ir para o recurso**.
+    * Você precisará da chave e do ponto de extremidade do recurso criado para conectar seu aplicativo à API de Detecção Facial. Cole a chave e o ponto de extremidade no código abaixo mais adiante no guia de início rápido.
+    * Use o tipo de preço gratuito (`F0`) para experimentar o serviço e atualizar mais tarde para um nível pago para produção.
+* Um editor de códigos como o [Visual Studio Code](https://code.visualstudio.com/download).
+* O pacote PHP [HTTP_Request2](https://pear.php.net/package/HTTP_Request2).
+* Um navegador da Web habilitado para PHP. Se ainda não tiver configurado isso, você poderá fazer isso instalando e configurando o [XAMPP](https://www.apachefriends.org/) em seu computador.
 
 ## <a name="initialize-the-html-file"></a>Inicializar o arquivo HTML
 

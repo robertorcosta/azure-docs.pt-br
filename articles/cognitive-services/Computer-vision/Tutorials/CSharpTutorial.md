@@ -11,16 +11,16 @@ ms.topic: sample
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: b492d8e3bdcf6d9a41df3eb79ef159985cc715cf
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 4445fd893027f21adfcf6a273d1ba6360087ec49
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76168875"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84983614"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>Exemplo: Explorar um aplicativo de processamento de imagens com o C#
 
-Explore um aplicativo básico do Windows que usa o Computer Vision para executar o reconhecimento ótico de caracteres (OCR), criar miniaturas com recorte inteligente, além de detectar, categorizar, marcar e descrever recursos visuais, incluindo rostos, em uma imagem. O exemplo abaixo permite que você envie uma URL de imagem ou um arquivo armazenado localmente. Você pode usar este exemplo de software livre como modelo para criar seu próprio aplicativo para Windows usando a API do Computer Vision e o Windows Presentation Foundation (WPF), uma parte do .NET Framework.
+Explore um aplicativo do Windows que usa a Pesquisa Visual Computacional para executar o OCR (reconhecimento óptico de caracteres), criar miniaturas com recorte inteligente e detectar, categorizar, marcar e descrever recursos visuais, incluindo rostos, em uma imagem. O exemplo abaixo permite que você envie uma URL de imagem ou um arquivo armazenado localmente. Você pode usar este exemplo de software livre como modelo para criar seu próprio aplicativo para Windows usando a API do Computer Vision e o Windows Presentation Foundation (WPF), uma parte do .NET Framework.
 
 > [!div class="checklist"]
 > * Obter o aplicativo de amostra do GitHub
@@ -33,7 +33,10 @@ Explore um aplicativo básico do Windows que usa o Computer Vision para executar
 Antes de explorar o aplicativo de amostra, verifique se você atendeu aos seguintes pré-requisitos:
 
 * É necessário ter o [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) ou posterior.
-* Você precisa ter uma chave de assinatura para a Pesquisa Visual Computacional. É possível obter uma chave de avaliação gratuita em [Experimente os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [Criar uma conta dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar a Pesquisa Visual Computacional e obter sua chave. Anote a URL do ponto de extremidade de serviço também.
+* Uma assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
+* Depois de obter sua assinatura do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Crie um recurso da Pesquisa Visual Computacional"  target="_blank">crie um recurso da Pesquisa Visual Computacional <span class="docon docon-navigate-external x-hidden-focus"></span></a> no portal do Azure para obter a chave e o ponto de extremidade. Após a implantação, clique em **Ir para o recurso**.
+    * Você precisará da chave e do ponto de extremidade do recurso criado para conectar seu aplicativo ao serviço de Pesquisa Visual Computacional. Cole a chave e o ponto de extremidade no código abaixo mais adiante no guia de início rápido.
+    * Use o tipo de preço gratuito (`F0`) para experimentar o serviço e atualizar mais tarde para um nível pago para produção.
 
 ## <a name="get-the-sample-app"></a>Obter o aplicativo de exemplo
 
@@ -80,7 +83,6 @@ Você pode executar o aplicativo de amostra para ver como ele interage com você
    ![Página de gerenciamento de chaves de assinatura](../Images/Vision_UI_Subscription.PNG)  
 1. Digite sua chave de assinatura na **Chave de assinatura**.
 1. Insira a URL do ponto de extremidade no **Ponto de extremidade**.  
-   Por exemplo, se você estiver usando a chave de assinatura na avaliação gratuita da Pesquisa Visual Computacional, insira a seguinte URL de ponto de extremidade: `https://westcentralus.api.cognitive.microsoft.com`  
    [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 1. Se você não quiser inserir sua chave de assinatura e o URL do endpoint na próxima vez que executar o aplicativo de amostra, escolha **Save Setting** para salvar a chave de assinatura e o URL do endpoint em seu computador. Se você deseja excluir sua chave de assinatura e URL de ponto de extremidade previamente salvas, escolha **Excluir configuração**.
 
