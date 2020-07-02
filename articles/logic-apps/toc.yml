@@ -7,12 +7,15 @@
 - name: Inícios rápidos
   expanded: true
   items:
-    - name: Criar aplicativos lógicos - Portal do Azure
+    - name: Criar aplicativos lógicos – Portal
       href: quickstart-create-first-logic-app-workflow.md
     - name: Criar aplicativos lógicos - Visual Studio
       href: quickstart-create-logic-apps-with-visual-studio.md
     - name: Criar aplicativos lógicos - Visual Studio Code
       href: quickstart-create-logic-apps-visual-studio-code.md
+    - name: Criar aplicativos lógicos – Modelo do ARM
+      displayName: Resource Manager
+      href: quickstart-create-deploy-azure-resource-manager-template.md
 - name: Tutoriais
   items:
     - name: Criar fluxos de trabalho baseados em agendamento

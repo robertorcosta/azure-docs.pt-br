@@ -4,6 +4,14 @@
   items:
     - name: O que é o Azure Advisor?
       href: advisor-overview.md
+- name: Inícios rápidos
+  items:
+    - name: Configurar alertas para novas recomendações
+      items:
+        - name: Portal do Azure
+          href: advisor-alerts-portal.md
+        - name: Modelo de ARM
+          href: advisor-alerts-arm.md
 - name: Tutoriais
   items:
     - name: Introdução ao Assistente
@@ -25,7 +33,7 @@
     - name: Permissões e ações bloqueadas
       href: permissions.md
     - name: Configurar alertas para recomendações
-      href: advisor-alerts.md
+      href: advisor-alerts-portal.md
     - name: Correção em massa para recomendações
       href: advisor-quick-fix.md
     - name: Dados do Assistente no Azure Resource Graph
