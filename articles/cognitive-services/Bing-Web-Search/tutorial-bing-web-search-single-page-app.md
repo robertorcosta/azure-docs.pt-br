@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: criar um aplicativo Web de página única – API de Pesquisa na Web do Bing'
+title: 'Tutorial: Criar um aplicativo Web de página única – API de Pesquisa na Web do Bing'
 titleSuffix: Azure Cognitive Services
 description: Este aplicativo de página única demonstra como a API de Pesquisa na Web do Bing pode ser usada para recuperar, analisar e exibir resultados da pesquisa relevantes em um aplicativo de página única.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: bing-web-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: f692367ad431dc8f1623e1b3d5109c313e351934
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 085bfd51ae6eabfc26201897a124a6272e0221fa
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78943887"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85603580"
 ---
-# <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Tutorial: criar um aplicativo de página única usando a API de Pesquisa na Web do Bing
+# <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Tutorial: Criar um aplicativo de página única usando a API de Pesquisa na Web do Bing
 
 Este aplicativo de página única demonstra como recuperar, analisar e exibir os resultados da pesquisa com base na API de Pesquisa na Web do Bing. O tutorial usa o HTML e CSS clichês e concentra-se no código JavaScript. Arquivos HTML, CSS e JS estão disponíveis no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Web-Search) com instruções de início rápido.
 
@@ -30,15 +30,16 @@ Este aplicativo de exemplo pode:
 > * Gerenciar chaves de assinatura
 > * Tratar erros
 
-Para usar este aplicativo, é necessária uma [conta dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com APIs de Pesquisa do Bing. Se não tiver uma conta, você poderá usar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) para obter uma chave de assinatura.
+Para usar este aplicativo, é necessária uma [conta dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com APIs de Pesquisa do Bing.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Veja algumas coisas de que você precisará para executar o aplicativo:
 
+* Uma assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
+* Depois de obter a assinatura do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Criar um recurso de Pesquisa do Bing"  target="_blank">crie um recurso de Pesquisa do Bing <span class="docon docon-navigate-external x-hidden-focus"></span></a> no portal do Azure para obter a chave e o ponto de extremidade. Após a implantação, clique em **Ir para o recurso**.
+
 * Node.js 8 ou posterior
-* Uma chave de assinatura para a API de Pesquisa do Bing. Se você não tiver uma, [crie um recurso da Pesquisa do Bing v7](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Você também pode usar uma [chave de avaliação](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
-## <a name="get-the-source-code-and-install-dependencies"></a>Obtenha o código-fonte e instale as dependências
 
 A primeira etapa é clonar o repositório com o código-fonte do aplicativo de exemplo.
 
@@ -81,7 +82,7 @@ O `index.html` inclui um formulário que permite que os usuários pesquisem e se
 
 O formulário HTML inclui opções mapeadas para parâmetros de consulta na [API de Pesquisa na Web do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters). Esta tabela fornece um detalhamento de como os usuários podem filtrar os resultados da pesquisa usando o aplicativo de exemplo:
 
-| Parâmetro | DESCRIÇÃO |
+| Parâmetro | Descrição |
 |-----------|-------------|
 | `query` | Um campo de texto para inserir uma cadeia de consulta. |
 | `where` | Um menu suspenso para selecionar o mercado (local e idioma). |
@@ -385,7 +386,7 @@ Algumas das funções de renderização aceitam apenas o parâmetro `item`. Outr
 
 Os argumentos de contexto são:
 
-| Parâmetro  | DESCRIÇÃO |
+| Parâmetro  | Descrição |
 |------------|-------------|
 | `section` | A seção de resultados (`pole`, `mainline` ou `sidebar`) na qual o item é exibido. |
 | `index`<br>`count` | Disponível quando o item `RankingResponse` especifica que todos os resultados de determinada coleção devem ser exibidos; caso contrário, `undefined`. O índice do item na coleção e o número total de itens nessa coleção. É possível usar essas informações para numerar os resultados, gerar um HTML diferente para o primeiro ou o último resultado e assim por diante. |

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 03/12/2020
+ms.date: 06/25/2020
 ms.author: trbye
-ms.openlocfilehash: 664b71c56ae63ea73478923171731e343dfa5cbe
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: 43efc770f3a3b29a1b0fc214d2927c8c153dff96
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84417218"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391631"
 ---
 # <a name="what-is-the-speech-service"></a>O que é Serviço de fala?
 
@@ -55,7 +55,7 @@ Nós oferecemos guias de início rápido nas linguagens de programação mais po
 > [!NOTE]
 > A conversão de fala em texto e de texto em fala também tem pontos de extremidade REST e inícios rápidos associados.
 
-Depois que tiver a oportunidade de usar o serviço de Fala, experimente nosso tutorial que ensina a reconhecer intenções de fala usando o SDK de Fala e o LUIS.
+Após ter tido a chance de usar o serviço de Fala, experimente os tutoriais que ensinam como abordar diferentes cenários.
 
 - [Tutorial: Reconhecer intenções de fala com o SDK de Fala e o LUIS, C#](how-to-recognize-intents-from-speech-csharp.md)
 - [Tutorial: Habilitar por voz o bot com o SDK de Fala, C#](tutorial-voice-enable-your-bot-speech-sdk.md)

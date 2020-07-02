@@ -2,13 +2,13 @@
 title: 'Tutorial: Bot de Reconhecimento Vocal C# v4'
 description: Usando C#, crie um bot de bate-papo integrado com reconhecimento vocal (LUIS). O bot é criado com o Bot Framework versão 4 e o serviço de bot do aplicativo Web do Azure.
 ms.topic: tutorial
-ms.date: 02/03/2020
-ms.openlocfilehash: 2381f4cba39f81ab593f3149a2708f442156f30d
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 06/22/2020
+ms.openlocfilehash: b9da1d1fecbb251ebf27833cc381eb658a9df46b
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76987982"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445892"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>Tutorial: Use um Bot de aplicativo Web habilitado com Reconhecimento Vocal em C#
 
@@ -27,7 +27,6 @@ Use C# para criar um bot de bate-papo integrado com reconhecimento vocal (LUIS).
 * [Emulador de bot](https://aka.ms/abs/build/emulatordownload)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/)
 
-
 ## <a name="create-a-web-app-bot-resource"></a>Criar um recurso de bot do aplicativo Web
 
 1. No [Portal do Azure](https://portal.azure.com), selecione **Criar novo recurso**.
@@ -38,7 +37,7 @@ Use C# para criar um bot de bate-papo integrado com reconhecimento vocal (LUIS).
 
     |Configuração|Finalidade|Configuração sugerida|
     |--|--|--|
-    |Nome do bot|Nome do recurso|`luis-csharp-bot-` + `<your-name>`, por exemplo, `luis-csharp-bot-johnsmith`|
+    |Identificador de Bot|Nome do recurso|`luis-csharp-bot-` + `<your-name>`, por exemplo, `luis-csharp-bot-johnsmith`|
     |Subscription|Assinatura na qual criar o bot.|Sua assinatura primária.
     |Resource group|Grupo lógico de recursos do Azure|Crie um novo grupo para armazenar todos os recursos usados com este bot, dê um nome ao grupo `luis-csharp-bot-resource-group`.|
     |Location|Região do Azure – não precisa ser a mesma que a região de publicação ou criação do LUIS.|`westus`|
@@ -54,7 +53,6 @@ Use C# para criar um bot de bate-papo integrado com reconhecimento vocal (LUIS).
 
     |Configuração|Finalidade|Seleção|
     |--|--|--|
-    |Versão do SDK|Versão do Bot framework|**SDK v4**|
     |Linguagem do SDK|Linguagem de programação do bot|**C#**|
     |Bot|Tipo de bot|**Bot básico**|
 
@@ -64,6 +62,8 @@ Use C# para criar um bot de bate-papo integrado com reconhecimento vocal (LUIS).
     > [![Criar um bot de aplicativo Web](./media/bfv4-csharp/create-web-app-service.png)](./media/bfv4-csharp/create-web-app-service.png#lightbox)
 
     Aguarde o serviço de bot ser criado antes de continuar.
+
+1. Selecione `Go to resource` na notificação para ir para a página do bot do aplicativo Web.
 
 ## <a name="the-bot-has-a-language-understanding-model"></a>O bot tem um modelo de Reconhecimento Vocal
 
@@ -86,6 +86,7 @@ O processo de criação do serviço de bot também cria um novo aplicativo LUIS 
     Você pode usar a funcionalidade de teste para testar rapidamente seu bot. Para realizar testes mais completos, o que inclui a depuração, baixe o código de bot e use o Visual Studio.
 
 ## <a name="download-the-web-app-bot-source-code"></a>Baixar o código-fonte do bot do aplicativo Web
+
 Para desenvolver o código de bot do aplicativo Web, baixe o código e use em seu computador local.
 
 1. No portal do Azure, selecione **Build** na seção **Gerenciamento de bot**.
@@ -105,6 +106,9 @@ Para desenvolver o código de bot do aplicativo Web, baixe o código e use em se
 1. Para enviar o enunciado do usuário para o ponto de extremidade de previsão do LUIS, abra o arquivo **FlightBookingRecognizer.cs**. É aí que o enunciado do usuário inserido no bot é enviado para o LUIS. A resposta do LUIS é retornada do método **RecognizeAsync**.
 
     ```csharp
+    // Copyright (c) Microsoft Corporation. All rights reserved.
+    // Licensed under the MIT License.
+
     using System.Threading;
     using System.Threading.Tasks;
     using Microsoft.Bot.Builder;
@@ -142,7 +146,7 @@ Para desenvolver o código de bot do aplicativo Web, baixe o código e use em se
                 => await _recognizer.RecognizeAsync<T>(turnContext, cancellationToken);
         }
     }
-    ````
+    ```
 
 1. Abrir **Diálogos -> MainDialog.cs** captura o enunciado e o envia para executeLuisQuery no método actStep.
 
@@ -311,21 +315,18 @@ No Visual Studio 2019, inicie o bot. Uma janela do navegador é aberta com o sit
 
 1. Inicie o Emulador do Bot e selecione **Abrir Bot**.
 1. Na caixa de diálogo exibida **Abrir um bot**, digite sua URL, como `http://localhost:3978/api/messages`. A rota `/api/messages` é o endereço web do bot.
-1. Insira a **ID do aplicativo Microsoft** e a **senha do Microsoft App**, localizada no arquivo **appsettings.json** na raiz do código do bot que você baixou.
-
+1. Insira a **ID do Aplicativo da Microsoft** e a **senha do Aplicativo da Microsoft**, localizadas no arquivo **appsettings.json** na raiz do código do bot que você baixou, e depois selecione **Conectar**.
 
 1. No emulador do bot, insira `Book a flight from Seattle to Berlin tomorrow` e obtenha a mesma resposta para o bot básico como você recebeu em **Testar no Webchat** na seção anterior.
 
     [![Resposta do bot básico no emulador](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png)](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png#lightbox)
 
 1. Selecione **Sim** na barra superior. O bot responde com um resumo das ações dele.
-1. No log do emulador de bot, selecione a linha que inclui `Luis Trace`. Isso exibe a resposta JSON do LUIS para a intenção e as entidades do enunciado.
+1. No log do emulador de bot, selecione a linha que inclui `<- trace LuisV3 Trace`. Isso exibe a resposta JSON do LUIS para a intenção e as entidades do enunciado.
 
     [![Resposta do bot básico no emulador](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png)](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png#lightbox)
 
-
 [!INCLUDE [Bot Information](../../../includes/cognitive-services-qnamaker-luis-bot-info.md)]
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

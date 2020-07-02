@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 99af09ded8759e7f6e2235ce0c1354982568e19d
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: cfd8dd7474cf7926ef2230e6be53a967a97645db
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117523"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85554394"
 ---
 # <a name="what-is-computer-vision"></a>O que é a Pesquisa Visual Computacional?
 
@@ -48,11 +48,9 @@ Analise imagens para fornecer insights sobre os recursos visuais e as caracterí
 |**[Gerar uma miniatura](concept-generating-thumbnails.md)**|Analise o conteúdo de uma imagem para gerar uma miniatura adequada dessa imagem. A Pesquisa Visual Computacional primeiro gera uma miniatura de alta qualidade e, em seguida, analisa os objetos na imagem para determinar a *área de interesse*. A Pesquisa Visual Computacional corta a imagem para atender aos requisitos da área de interesse. A miniatura gerada pode ser apresentada usando uma taxa de proporção diferente da taxa de proporção da imagem original, dependendo de suas necessidades.|
 |**[Obter a área de interesse](concept-generating-thumbnails.md#area-of-interest)**|Analise o conteúdo de uma imagem para retornar as coordenadas da *área de interesse*. Em vez de cortar a imagem e gerar uma miniatura, a Pesquisa Visual Computacional retorna as coordenadas da caixa delimitadora da região, de modo que o aplicativo de chamada possa modificar a imagem original conforme desejado.|
 
-## <a name="extract-text-from-images"></a>Extrair texto de imagens
+## <a name="detect-text-from-images"></a>Detectar textos de imagens
 
-Use a API de [Leitura](concept-recognizing-text.md#read-api) da Pesquisa Visual Computacional para extrair um texto impresso e manuscrito de imagens em um fluxo de caracteres legível por computador. A API de Leitura usa os modelos mais recentes e funciona com um texto em uma variedade de superfícies e telas de fundo, como recibos, cartazes, cartões de visita, cartas e quadros de comunicações. Atualmente, ela funciona em sete idiomas diferentes (confira [Suporte de idiomas](./language-support.md)).
-
-Use também a API do [OCR (reconhecimento óptico de caracteres)](concept-recognizing-text.md#ocr-optical-character-recognition-api) para extrair um texto impresso em vários idiomas. Se necessário, o OCR corrige a rotação do texto reconhecido e fornece as coordenadas de quadro de cada palavra. O OCR dá suporte a 25 idiomas e detecta automaticamente o idioma do texto reconhecido.
+Use as [APIs de detecção de texto](concept-recognizing-text.md) da Pesquisa Visual Computacional para extrair textos impressos e manuscritos das imagens em um fluxo de caracteres legíveis por computador. A API de Leitura usa os modelos mais recentes e funciona com um texto em uma variedade de superfícies e telas de fundo, como recibos, cartazes, cartões de visita, cartas e quadros de comunicações. As duas APIs de detecção de texto dão suporte à extração de textos impressos em [vários idiomas](./language-support.md).
 
 ## <a name="moderate-content-in-images"></a>Moderar conteúdo em imagens
 

@@ -10,16 +10,16 @@ ms.subservice: bing-custom-search
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
-ms.openlocfilehash: c7b41f77f8eb57c39489f1e5a69b0ac1c3c9c7d4
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 588751c178205ceb21617f8d9271bfa9ed76193d
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78943922"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85603342"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Tutorial: Compilar uma página da Web de pesquisa personalizada
 
-A Pesquisa Personalizada do Bing permite que você crie experiências de pesquisa personalizada para os tópicos importantes para você. Por exemplo, se você possuir um site de artes marciais que fornece uma experiência de pesquisa, será possível especificar os domínios, sites e as páginas da Web que o Bing pesquisará. Os usuários veem os resultados da pesquisa personalizados ao conteúdo importante para eles, em vez de terem que acessar os resultados gerais da pesquisa que podem conter conteúdo irrelevante. 
+A Pesquisa Personalizada do Bing permite que você crie experiências de pesquisa personalizada para os tópicos importantes para você. Por exemplo, se você for proprietário de um site de artes marciais que oferece uma experiência de pesquisa, será possível especificar os domínios, os subsites e as páginas da Web que o Bing pesquisará. Os usuários veem os resultados da pesquisa personalizados ao conteúdo importante para eles, em vez de terem que acessar os resultados gerais da pesquisa que podem conter conteúdo irrelevante. 
 
 Este tutorial demonstra como configurar uma instância de pesquisa personalizada e integrá-la a uma nova página da web.
 
@@ -34,7 +34,7 @@ As tarefas abordadas são:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Para acompanhar o tutorial, você precisa de uma chave de assinatura para a API de Pesquisa Personalizada do Bing.  Para obter uma chave, [crie um recurso da Pesquisa Personalizada do Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) no portal do Azure. Você também pode usar uma [chave de avaliação](https://azure.microsoft.com/try/cognitive-services).
+- Para acompanhar o tutorial, você precisa de uma chave de assinatura para a API de Pesquisa Personalizada do Bing.  Para obter uma chave, [crie um recurso da Pesquisa Personalizada do Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) no portal do Azure.
 - Se você ainda não tem o Visual Studio 2017 ou posterior instalado, baixe e use o [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/) **gratuito**.
 
 ## <a name="create-a-custom-search-instance"></a>Criar uma instância de pesquisa personalizada
@@ -79,7 +79,7 @@ Para excluir resultados de websites ou URLs específicos, adicione-os à guia **
 
 ## <a name="add-pinned-entries"></a>Adicionar entradas fixadas
 
-Para fixar uma página da Web específica na parte superior dos resultados da pesquisa, adicione a página da Web e o termo de consulta à guia **Fixado**. A guia **Fixado** contém uma lista de pares de termos de páginas da Web e consultas que especificam a página da Web que aparece como o resultado principal de uma consulta específica. A página da Web só será fixada se a cadeia de consulta do usuário corresponder à cadeia de consulta do marcador com base na condição de correspondência do marcador. Somente páginas da Web indexadas serão exibidas nas pesquisas. Confira [Definir o modo de exibição personalizado](../define-your-custom-view.md#pin-slices-to-the-top-of-search-results) para obter mais informações.
+Para fixar uma página da Web específica na parte superior dos resultados da pesquisa, adicione a página da Web e o termo de consulta à guia **Fixado**. A guia **Fixado** contém uma lista de pares de termos de páginas da Web e consultas que especificam a página da Web que aparece como o resultado principal de uma consulta específica. A página da Web só será fixada se a cadeia de consulta do usuário corresponder à cadeia de consulta do marcador com base na condição de correspondência do marcador. Somente páginas da Web indexadas serão exibidas nas pesquisas. Para obter mais informações, confira [Definir a exibição personalizada](../define-your-custom-view.md#pin-slices-to-the-top-of-search-results).
 
 1. Na página **Configuração**, clique na guia **Fixado** e insira a página da web e o termo de consulta da página da Web que você deseja que sejam retornados como o resultado principal.  
   
@@ -116,7 +116,7 @@ A Pesquisa personalizada fornece uma interface do usuário hospedada para render
 
    ![Captura de tela da etapa de configurações avançadas da UI hospedada](./media/custom-search-hosted-ui-advanced-configurations.png)  
   
-5. Selecione suas chaves de assinatura nas listas suspensas. Ou você pode inserir a chave de assinatura manualmente. Para obter informações sobre como obter chaves, consulte [Experimentar serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api).  
+5. Selecione suas chaves de assinatura nas listas suspensas. Ou você pode inserir a chave de assinatura manualmente.
   
    ![Captura de tela da etapa de configurações adicionais da UI hospedada](./media/custom-search-hosted-ui-subscription-key.png)
 
@@ -130,7 +130,7 @@ Há duas maneiras de consumir a interface do usuário hospedada.
 - Opção 1: Integre o snippet JavaScript fornecido no aplicativo.
 - Opção 2: Use o Ponto de Extremidade de HTML fornecido.
 
-O restante deste tutorial ilustra a **Opção 1: Snippet de JavaScript**.  
+O restante deste tutorial ilustra a **Opção 1: snippet JavaScript**.  
 
 ## <a name="set-up-your-visual-studio-solution"></a>Configure sua solução do Visual Studio
 

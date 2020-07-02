@@ -3,12 +3,12 @@ title: 'Tutorial: extrair dados estruturados com entidade de aprendizado de máq
 description: Extrair dados estruturados de um enunciado usando a entidade de aprendizado de máquina. Para aumentar a precisão de extração, adicione subentidades com recursos.
 ms.topic: tutorial
 ms.date: 05/08/2020
-ms.openlocfilehash: f9a732d38d2d4557340080d9d1bbdcf789caea08
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: e16badfb2e024c5d82f1aed8a02aa901dca2c2a9
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83676176"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611009"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>Tutorial: Extrair dados estruturados do enunciado do usuário usando entidades de aprendizado de máquina no LUIS (Reconhecimento vocal)
 
@@ -98,7 +98,7 @@ As etapas anteriores criam a entidade e a subentidade. Para aprimorar a extraç�
 
 1. Selecione **Criar lista de frases** no menu suspenso.
 
-1. Na caixa **Criar nova lista de frases**, insira o nome `SizePhraselist` e, em seguida, insira os valores `small`, `medium` e `large`. Quando a caixa **Sugestões** for preenchida, selecione `extra large` e `xl`. Selecione **Salvar** para criar a nova lista de frases.
+1. Na caixa **Criar nova lista de frases**, insira o nome `SizePhraselist` e, em seguida, insira os valores `small`, `medium` e `large`. Quando a caixa **Sugestões** for preenchida, selecione `extra large` e `xl`. Selecione **Criar** para criar a lista de frases.
 
     Essa lista de frases ajuda a subentidade `Size` a localizar palavras relacionadas ao tamanho, fornecendo a ela palavras de exemplo. Essa lista de frases não precisa incluir todas as palavras de tamanho, mas deve incluir palavras que precisam indicar o tamanho.
 
@@ -131,7 +131,7 @@ Adicionar uma lista de tamanhos conhecidos que o aplicativo cliente reconhece ta
 
 1. Na guia **Esquema e recursos**, selecione a entidade **Tamanho** e, em seguida, selecione **+ Adicionar recurso**.
 
-1. Selecione **@ SizeList** na lista suspensa.
+1. Selecione **@ SizeListentity** na lista suspensa.
 
 <a name="add-prebuilt-number-entity-to-app"></a>
 

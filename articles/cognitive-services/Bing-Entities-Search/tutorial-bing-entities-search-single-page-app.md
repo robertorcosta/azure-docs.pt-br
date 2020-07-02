@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: aplicativo Web de página única da Pesquisa de Entidade do Bing'
+title: 'Tutorial: Aplicativo Web de página única da Pesquisa de Entidade do Bing'
 titleSuffix: Azure Cognitive Services
 description: Este tutorial mostra como usar a API de Pesquisa de Entidade do Bing em um aplicativo Web de página única.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: bing-entity-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: d45b9a153b770dd10da9dd61e8a7b3d138345b8a
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 33c5cbd47213d021d374f52c1dadaf20d508ae37
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78943127"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608561"
 ---
-# <a name="tutorial-single-page-web-app"></a>Tutorial: aplicativo Web de página única
+# <a name="tutorial-single-page-web-app"></a>Tutorial: Aplicativo Web de página única
 
 A API de Pesquisa de Entidade do Bing permite pesquisar na Web informações sobre *entidades* e *locais.* É possível solicitar qualquer tipo de resultado, ou ambos, em uma determinada consulta. As definições de entidades e locais são fornecidas abaixo.
 
@@ -56,9 +56,14 @@ Neste tutorial, abordaremos somente as partes selecionadas do código-fonte. O c
 > [!NOTE]
 > Este tutorial é muito semelhante ao [tutorial de aplicativo da Pesquisa na Web do Bing de página única](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md), mas lida apenas com os resultados da pesquisa de entidade.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-Para acompanhar o tutorial, você precisará de chaves de assinatura para a API de Pesquisa do Bing e da API do Bing Mapas. Se você não os tiver, use uma [chave de avaliação](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) e uma [chave básica do Bing Mapas](https://www.microsoft.com/maps/create-a-bing-maps-key).
+Para acompanhar o tutorial, você precisará de chaves de assinatura para a API de Pesquisa do Bing e da API do Bing Mapas. 
+
+* Uma assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
+* Depois de obter a assinatura do Azure:
+  * <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Criar um recurso de Pesquisa do Bing"  target="_blank">Crie um recurso de Pesquisa do Bing <span class="docon docon-navigate-external x-hidden-focus"></span></a> no portal do Azure para obter a chave e o ponto de extremidade. Após a implantação, clique em **Ir para o recurso**.
+  * <a href="https://www.microsoft.com/maps/create-a-bing-maps-key.aspx"  title="Criar um recurso de Pesquisa Visual Computacional"  target="_blank">Crie um recurso do Bing Mapas <span class="docon docon-navigate-external x-hidden-focus"></span></a> no portal do Azure para obter a chave e o ponto de extremidade. Após a implantação, clique em **Ir para o recurso**.
 
 ## <a name="app-components"></a>Componentes do aplicativo
 
@@ -86,7 +91,7 @@ O HTML também contém as divisões (marcas HTML `<div>`) nas quais os resultado
 ## <a name="managing-subscription-keys"></a>Gerenciar a chave de assinatura
 
 > [!NOTE]
-> Este aplicativo exige chaves de assinatura para ambas as API de Pesquisa do Bing e API do Bing Mapas. É possível usar uma [chave de Pesquisa do Bing de avaliação](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) e uma [chave do Bing Mapas básica](https://www.microsoft.com/maps/create-a-bing-maps-key).
+> Este aplicativo exige chaves de assinatura para ambas as API de Pesquisa do Bing e API do Bing Mapas.
 
 Para evitar a necessidade de incluir as chaves de assinatura da Pesquisa do Bing e da API do Bing Mapas no código, usamos o armazenamento persistente do navegador para armazená-las. Se uma das chaves não foi armazenada, solicitamos e armazenamos para uso posterior. Se a chave for posteriormente rejeitada pela API, invalidamos a chave armazenada para que o usuário seja solicitado na próxima pesquisa.
 
@@ -531,7 +536,7 @@ As políticas de segurança do navegador (CORS) podem impedir que o cabeçalho `
 > [!NOTE]
 > Em um aplicativo Web de produção, você deve executar a solicitação do lado do servidor de qualquer maneira. Caso contrário, a chave da API de Pesquisa do Bing deverá ser incluída na página da Web, onde estará disponível para qualquer pessoa que exibir a origem. Você é cobrado por todos os usos em sua chave de assinatura de API, até mesmo por solicitações feitas por partes não autorizadas. Portanto, é importante não expor sua chave.
 
-Para fins de desenvolvimento, você pode fazer a solicitação da API de Pesquisa na Web do Bing por meio de um proxy CORS. A resposta desse proxy tem um cabeçalho `Access-Control-Expose-Headers` que inclui os cabeçalhos de resposta na lista de permissões e disponibiliza-os para o JavaScript.
+Para fins de desenvolvimento, você pode fazer a solicitação da API de Pesquisa na Web do Bing por meio de um proxy CORS. A resposta desse proxy tem um cabeçalho `Access-Control-Expose-Headers` que permite listas de cabeçalhos de resposta e as disponibiliza em JavaScript.
 
 É fácil instalar um proxy CORS para permitir que o aplicativo de tutorial acesse o cabeçalho da ID do cliente. Primeiro, caso ainda não tenha, [instale o Node.js](https://nodejs.org/en/download/). Em seguida, emita o seguinte comando em uma janela de comando:
 

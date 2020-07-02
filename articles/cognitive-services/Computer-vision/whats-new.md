@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 02/28/2020
+ms.date: 06/29/2020
 ms.author: pafarley
-ms.openlocfilehash: bed9424fd7e7dfcb03610fb9d7796cefc5b016be
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 75d191c9d65cc639522c3fbba5b8c438b8b83448
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589084"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85560128"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novidades na Pesquisa Visual Computacional
 
-Conheça o que há de novo no serviço. Esses itens podem ser notas sobre a versão, vídeos, postagens no blog e outros tipos de informações. Marque esta página para manter-se atualizado quanto ao serviço.
+Conheça o que há de novo no serviço. Esses itens podem ser notas sobre a versão, vídeos, postagens no blog e outros tipos de informações. Marque esta página para se manter atualizado quanto ao serviço.
 
 ## <a name="may-2020"></a>Maio de 2020
 API da Pesquisa Visual Computacional v3.0 inserida na Disponibilidade Geral, com atualizações para a [API de Leitura](concept-recognizing-text.md):
