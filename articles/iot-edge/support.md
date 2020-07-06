@@ -10,7 +10,7 @@ ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: ec143fbca94c5423ca67e09fa2932e55c06f418e
 ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/19/2020
 ms.locfileid: "83652779"
@@ -103,7 +103,7 @@ IoT Edge ativos de lançamento e notas de versão estão disponíveis na página
 
 Os componentes do IoT Edge podem ser instalados ou atualizados individualmente, e são compatíveis com versões anteriores de componentes. A tabela a seguir lista os componentes incluídos em cada versão:
 
-| Versão   | Security daemon  | Edge hub<br>Agente do Edge | Libiothsm | Moby  |
+| Versão   | Security daemon  | Hub do Edge<br>Agente do Edge | Libiothsm | Moby  |
 | --------- | ---------------- | ---------------------- | --------- | ----- |
 | **1.0.9** | 1.0.9.1<br>1.0.9            | 1.0.9.1<br>1.0.9                  | 1.0.9.1<br>1.0.9     |       |
 | **1.0.8** | 1.0.8            | 1.0.8.5<br>1.0.8.4<br>1.0.8.3<br>1.0.8.2<br>1.0.8.1<br>1.0.8 | 1.0.8 | 3.0.6 |

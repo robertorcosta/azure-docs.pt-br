@@ -13,7 +13,7 @@ ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4476502896705c2133b09b203bea0d6f5d74f121
 ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/20/2020
 ms.locfileid: "83681405"
@@ -89,7 +89,7 @@ Confira o artigo [Como criar e atribuir políticas de proteção de aplicativo](
 
 ## <a name="scenario-2-browser-apps-require-approved-apps-with-app-protection-policies"></a>Cenário 2: Os aplicativos de navegador exigem aplicativos aprovados com políticas de proteção de aplicativo
 
-Nesse cenário, a Contoso decidiu que todo o acesso de navegação à Web móvel para os recursos do Office 365 deve usar aplicativos cliente aprovados, como o Edge para iOS e Android, protegidos por uma política de proteção de aplicativo antes de receber acesso. Todos os seus usuários já entram com as credenciais do Azure AD e têm licenças atribuídas a eles que incluem o Azure AD Premium P1 ou P2 e o Microsoft Intune.
+Nesse cenário, a Contoso decidiu que todo o acesso de navegação à Web móvel para os recursos do Office 365 deve usar aplicativos cliente aprovados, como o Microsoft Edge para iOS e Android, protegidos por uma política de proteção de aplicativo antes de receber acesso. Todos os seus usuários já entram com as credenciais do Azure AD e têm licenças atribuídas a eles que incluem o Azure AD Premium P1 ou P2 e o Microsoft Intune.
 
 As organizações devem concluir as etapas a seguir para exigir o uso de um aplicativo cliente aprovado em dispositivos móveis.
 

@@ -22,7 +22,7 @@ Na linha de comando, altere para o diretório que contém o arquivo binário da 
 spx translate --microphone --target de-DE --target es-MX
 ```
 
-A CLI de Fala traduzirá o idioma natural falado em inglês para texto impresso em alemão e espanhol (mexicano).
+A CLI de Fala traduzirá o idioma natural falado em inglês para texto impresso em alemão e espanhol (México).
 Pressione ENTER para interromper a ferramenta.
 
 > [!NOTE]
