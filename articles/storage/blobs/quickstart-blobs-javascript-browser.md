@@ -7,12 +7,12 @@ ms.date: 04/18/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 4d486b8ffc921a5ca2f38bef912ba6dc46ecec40
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: af76025317436f7046b857731e4c8af9b504201f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83634083"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85833410"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -285,7 +285,7 @@ No [portal do Azure](https://portal.azure.com), você poderá verificar os resul
 #### <a name="step-4---delete-the-container"></a>Etapa 4: excluir o contêiner
 
 1. No aplicativo Web, selecione **Excluir contêiner**. Esse status indica que o contêiner foi excluído.
-2. No portal do Azure, selecione o link **\<nome da conta\> | Contêineres** na parte superior esquerda do painel do portal.
+2. No portal do Azure, selecione o link **\<account-name\> | Contêineres** na parte superior esquerda do painel do portal.
 3. Selecione **Atualizar**. O novo contêiner desaparece.
 4. Feche o aplicativo Web.
 
@@ -302,7 +302,7 @@ Neste início rápido você aprendeu a carregar, listar e excluir blobs usando J
 Para obter tutoriais, amostras, inícios rápidos e outros tipos de documentação, acesse:
 
 > [!div class="nextstepaction"]
-> [Documentação do Azure para JavaScript](/azure/javascript/)
+> [Documentação do Azure para JavaScript](/azure/developer/javascript/)
 
 * Para saber mais, confira a [Biblioteca de clientes do Armazenamento de Blobs do Azure para JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob).
 * Para ver aplicativos de exemplo do Armazenamento de Blobs, prossiga para [Amostras de JavaScript da biblioteca de clientes do Armazenamento de Blobs do Azure v12](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples).
