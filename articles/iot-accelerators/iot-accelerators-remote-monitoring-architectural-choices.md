@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 11/20/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1bd08596a30db7322a72b4269fddfe0b9df19119
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "61447159"
 ---
 # <a name="remote-monitoring-architectural-choices"></a>Opções de arquitetura de Monitoramento Remoto
@@ -20,7 +20,7 @@ ms.locfileid: "61447159"
 O acelerador de solução de Monitoramento Remoto Azure IoT é um código-fonte aberto, MIT licenciado, acelerador de solução. Para ajudar a acelerar o processo de desenvolvimento de IoT, ele mostra os cenários de IoT comuns, como:
 
 - Conectividade do dispositivo
-- Gerenciamento de dispositivos
+- Gerenciamento de dispositivo
 - Processamento de fluxo
 
 A solução de Monitoramento Remoto segue a arquitetura de referência do [Azure IoT recomendada publicada recomendada](https://aka.ms/iotrefarchitecture).

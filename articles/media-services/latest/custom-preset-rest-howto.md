@@ -13,10 +13,10 @@ ms.custom: ''
 ms.date: 05/14/2019
 ms.author: juliako
 ms.openlocfilehash: 30e22cb786e5dc2a667fe41ca8edf398cf0b7613
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "65761806"
 ---
 # <a name="how-to-encode-with-a-custom-transform---rest"></a>Como codificar com uma transformação personalizada-REST
@@ -39,7 +39,7 @@ Ao criar predefinições personalizadas, as seguintes considerações se aplicam
 
 O exemplo a seguir define o corpo da solicitação de uma nova transformação. Definimos um conjunto de saídas que desejamos gerar quando essa transformação é usada. 
 
-Neste exemplo, primeiro adicionamos uma camada AacAudio para a codificação de áudio e duas camadas H264Video para a codificação de vídeo. Nas camadas de vídeo, atribuímos rótulos para que possam ser usados nos nomes de arquivo de saída. Em seguida, queremos que a saída também inclua miniaturas. No exemplo abaixo, especificamos as imagens no formato PNG, geradas a 50% da resolução do vídeo de entrada e em três carimbos de data/hora-{25%, 50%, 75} do comprimento do vídeo de entrada. Por fim, especificamos o formato dos arquivos de saída-um para vídeo + áudio e outro para as miniaturas. Como temos vários H264Layers, temos que usar macros que produzem nomes exclusivos por camada. Podemos usar uma `{Label}` macro ou `{Bitrate}` , o exemplo mostra o primeiro.
+Neste exemplo, primeiro adicionamos uma camada AacAudio para a codificação de áudio e duas camadas H264Video para a codificação de vídeo. Nas camadas de vídeo, atribuímos rótulos para que possam ser usados nos nomes de arquivo de saída. Em seguida, queremos que a saída também inclua miniaturas. No exemplo abaixo, especificamos as imagens no formato PNG, geradas a 50% da resolução do vídeo de entrada e em três carimbos de data/hora-{25%, 50%, 75} do comprimento do vídeo de entrada. Por fim, especificamos o formato dos arquivos de saída-um para vídeo + áudio e outro para as miniaturas. Como temos vários H264Layers, temos que usar macros que produzem nomes exclusivos por camada. Podemos usar uma `{Label}` `{Bitrate}` macro ou, o exemplo mostra o primeiro.
 
 ```json
 {
@@ -135,7 +135,7 @@ Neste exemplo, primeiro adicionamos uma camada AacAudio para a codificação de 
 
 Neste exemplo, criamos uma **transformação** com base na predefinição personalizada que definimos anteriormente. Ao criar uma transformação, você deve primeiro usar [Get](https://docs.microsoft.com/rest/api/media/transforms/get) para verificar se já existe uma. Se a transformação existir, reutilize-a. 
 
-Na coleção do postmaster que você baixou, selecione **transformações e trabalhos**->**criar ou atualizar transformação**.
+Na coleção do postmaster que você baixou, selecione **transformações e trabalhos** -> **criar ou atualizar transformação**.
 
 O método de solicitação HTTP **PUT** é semelhante a:
 

@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/09/2017
 ms.author: cawa
 ms.openlocfilehash: fe3a8ab5b43c41b7e9f79f92de674515377fa9ec
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60456547"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Uso do Gerenciador de Armazenamento com o armazenamento de arquivos do Azure
@@ -207,7 +207,7 @@ As etapas a seguir ilustram como gerenciar os arquivos (e pastas) dentro de um c
 
         ![Adicionando arquivos](media/vs-azure-tools-storage-explorer-files/image19.png)
 
-        c. Selecione **Carregar**.
+        c. Escolha **Carregar**.
 
     - **Carregar uma pasta em um compartilhamento de arquivos**
         
@@ -219,7 +219,7 @@ As etapas a seguir ilustram como gerenciar os arquivos (e pastas) dentro de um c
 
         c. Como opção, especifique uma pasta de destino na qual o conteúdo da pasta selecionada será carregado. Se a pasta de destino não existir, ela será criada.
 
-        d. Selecione **Carregar**.
+        d. Escolha **Carregar**.
 
     - **Baixar um arquivo em seu computador local**
         

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
 ms.openlocfilehash: e64bf253a73df3a2f8170109dc1dfb9a59613733
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "64685316"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publicar um aplicativo HDInsight no Azure Marketplace
@@ -91,8 +91,8 @@ Para publicar um aplicativo do HDInsight:
 3. Insira um título e selecione **Criar um novo modelo de solução**.
 4. Se você ainda não registrou sua organização, selecione **Criar conta do Centro de Desenvolvimento e ingressar no programa do Azure**.  Para obter mais informações, consulte [Create a Microsoft Developer account](../marketplace/marketplace-publishers-guide.md) (Criar uma conta de Desenvolvedor Microsoft).
 5. Selecione **Definir algumas topologias para começar**. Um modelo de solução é um "pai" para todas as respectivas topologias. É possível definir várias topologias em uma oferta ou modelo de solução. Quando uma oferta é enviada por push para preparo, todas as respectivas topologias a acompanham. 
-6. Insira um nome de topologia e, em **+** seguida, selecione.
-7. Insira uma nova versão e, em seguida **+**, selecione.
+6. Insira um nome de topologia e, em seguida, selecione **+** .
+7. Insira uma nova versão e, em seguida, selecione **+** .
 8. Carregue o arquivo .zip criado quando você empacotou o aplicativo.  
 9. Selecione **Solicitar certificação**. A equipe de certificação da Microsoft examina os arquivos e certifica a topologia.
 

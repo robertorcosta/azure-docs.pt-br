@@ -16,10 +16,10 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 441aa9805f2a453e22f207238315125d2a281838
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60280453"
 ---
 # <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>Tutorial: Configurar Concur para provisionamento automático de usuário
@@ -99,7 +99,7 @@ Essa ação não deve ser feita com o perfil usado para a administração normal
 
 8. Selecione sua instância do Concur e selecione a guia **Provisionamento**.
 
-9. Defina o **modo de provisionamento** como **automático**. 
+9. Defina o **Modo de Provisionamento** como **Automático**. 
  
     ![provisionamento](./media/concur-provisioning-tutorial/provisioning.png)
 
@@ -109,7 +109,7 @@ Essa ação não deve ser feita com o perfil usado para a administração normal
 
 12. Insira o endereço de email de uma pessoa ou um grupo que deve receber notificações de erro de provisionamento no campo **Email de Notificação** e marque a caixa de seleção.
 
-13. Clique em **salvar.**
+13. Clique em **Salvar.**
 
 14. Na seção Mapeamentos, selecione **Sincronizar Usuários do Azure Active Directory com o Concur.**
 
@@ -117,13 +117,13 @@ Essa ação não deve ser feita com o perfil usado para a administração normal
 
 16. Para habilitar o serviço de provisionamento do Azure AD para o Concur, altere o **Status de Provisionamento** para **Ativado** na seção **Configurações**
 
-17. Clique em **salvar.**
+17. Clique em **Salvar.**
 
 Agora você pode criar uma conta de teste. Aguarde 20 minutos para verificar se a conta foi sincronizada com o Concur.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](tutorial-list.md)
+* [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Configurar logon único](concur-tutorial.md)
 

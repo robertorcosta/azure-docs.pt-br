@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 37bf26db5f7ae08734410d36a892aaeb2380bd9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60878878"
 ---
 # <a name="open-source-big-data-applications-that-work-with-azure-data-lake-storage-gen1"></a>Aplicativos de Big Data de software livre que funcionam com o Azure Data Lake Storage Gen1
@@ -28,7 +28,7 @@ Este artigo lista os aplicativos de Big Data de software livre que funcionam com
 | [Apache Sqoop](https://sqoop.apache.org/) |HDInsight 3.2, 3.4, 3.5 e 3.6 |
 | [MapReduce](https://hadoop.apache.org/docs/r1.0.4/mapred_tutorial.html) |HDInsight 3.2, 3.4, 3.5 e 3.6 |
 | [Apache Storm](https://storm.apache.org/) |HDInsight 3.2, 3.4, 3.5 e 3.6 |
-| [O Apache Hive](https://hive.apache.org/) |HDInsight 3.2, 3.4, 3.5 e 3.6 |
+| [Apache Hive](https://hive.apache.org/) |HDInsight 3.2, 3.4, 3.5 e 3.6 |
 | [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog) |HDInsight 3.2, 3.4, 3.5 e 3.6 |
 | [O Apache Mahout](https://mahout.apache.org/) |HDInsight 3.2, 3.4, 3.5 e 3.6 |
 | [Apache Pig/Pig Latin](https://pig.apache.org/) |HDInsight 3.2, 3.4, 3.5 e 3.6 |
@@ -38,6 +38,6 @@ Este artigo lista os aplicativos de Big Data de software livre que funcionam com
 | [Apache Spark](https://spark.apache.org/) |HDInsight 3.4, 3.5 e 3.6 |
 
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 * [Visão Geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 

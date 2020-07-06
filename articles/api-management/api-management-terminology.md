@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 10/11/2017
 ms.author: apimpm
 ms.openlocfilehash: b99ca444532799d21850058eae0e3f40ed871135
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "61074047"
 ---
 # <a name="terminology"></a>Terminologia
@@ -25,7 +25,7 @@ Este artigo fornece definições para termos que são específicos para o APIM (
 ## <a name="term-definitions"></a>Definições de termos
 
 * **API de back-end** – Um serviço HTTP que implementa sua API e suas operações. 
-* **Frontend API**API do frontend API APIM-uma API do APIM não hospeda APIs, cria fachadas para suas APIs para personalizar a fachada de acordo com suas necessidades sem tocar na API de back-end.**APIM API** / Para obter mais informações, consulte [Importar e publicar uma API](import-and-publish.md).
+* API de front- **end** / **API do APIM** -uma API do APIM não hospeda APIs, cria fachadas para suas APIs para personalizar a fachada de acordo com suas necessidades sem tocar na API de back-end. Para obter mais informações, consulte [Importar e publicar uma API](import-and-publish.md).
 * **Produto de APIM** – Um produto contém uma ou mais APIs, bem como uma cota de uso e os termos de uso. Você pode incluir várias APIs e oferecê-las aos desenvolvedores por meio do portal do desenvolvedor. Para obter mais informações, consulte [Criar e publicar um produto](api-management-howto-add-products.md).
 * **Operação da API de APIM** – Cada API de APIM representa um conjunto de operações disponíveis para desenvolvedores. Cada API de APIM contém uma referência para serviço back-end que implementa a API, e suas operações são mapeadas para as operações implementadas pelo serviço de back-end. Para obter mais informações, consulte [Simular respostas de API](mock-api-responses.md).
 * **Versão** – Às vezes, você deseja publicar recursos novos ou diferentes da API para alguns usuários, enquanto outros preferem continuar com a API que funciona no momento para eles. Para obter mais informações, consulte [Publicar várias versões de sua API](api-management-get-started-publish-versions.md).

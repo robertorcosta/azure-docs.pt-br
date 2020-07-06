@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: robinsh
 ms.openlocfilehash: 96c3a7b2cfda23f173f4caeff4fb7a92b1ddc438
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "61440194"
 ---
 # <a name="how-to-upgrade-your-iot-hub"></a>Como fazer upgrade do Hub IoT
@@ -35,7 +35,7 @@ Esses exemplos destinam-se a ajudá-lo a reconhecer como ajustar o Hub IoT na me
 
 ## <a name="upgrade-your-existing-iot-hub"></a>Fazer upgrade do Hub IoT existente
 
-1. Entre no [portal do Azure](https://portal.azure.com/) e navegue até o Hub IOT.
+1. Entre no [Portal do Azure](https://portal.azure.com/) e navegue até o Hub IoT.
 
 2. Selecione **Preço e escala**.
 
@@ -51,7 +51,7 @@ Esses exemplos destinam-se a ajudá-lo a reconhecer como ajustar o Hub IoT na me
 
 O Hub IoT agora está ajustado e as configurações permanecem inalteradas.
 
-O limite máximo de partições para o Hub IOT da camada básica e o Hub IoT da camada Standard é 32. A maioria dos Hubs IoT precisa apenas de 4 partições. O limite de partição é escolhido quando o Hub IoT é criado e se relaciona as mensagens de dispositivo para a nuvem com o número de leitores simultâneos dessas mensagens. Esse valor permanecerá inalterado quando você migrar da camada Básica para a camada Standard.
+O limite máximo de partição para o Hub IoT de camada básica e o Hub IoT de camada padrão é 32. A maioria dos Hubs IoT precisa apenas de 4 partições. O limite de partição é escolhido quando o Hub IoT é criado e se relaciona as mensagens de dispositivo para a nuvem com o número de leitores simultâneos dessas mensagens. Esse valor permanecerá inalterado quando você migrar da camada Básica para a camada Standard.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9ecc90e13f49c231d8d3ab0cff1de91443b80f21
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "65950903"
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Determinar requisitos de identidade para sua solução de identidade híbrida
@@ -29,7 +29,7 @@ A primeira etapa na criação de uma solução de identidade híbrida é determi
 
 Você precisa abordar esses aspectos principais do negócio para entender o que é um requisito agora e quais são os planos da empresa para o futuro. Se você não tiver a visualização da estratégia de longo prazo para o design de identidade híbrida, a probabilidade é a de que sua solução não seja escalonável conforme o crescimento e a mudança nas necessidades dos negócios. O diagrama a seguir mostra um exemplo de uma arquitetura de identidade híbrida e as cargas de trabalho que estão sendo desbloqueadas para os usuários. Isso é apenas um exemplo de todos os recursos novos que podem ser desbloqueados e entregues com uma estratégia de identidade híbrida sólida. 
 
-Alguns componentes que fazem parte da arquitetura de identidade híbrida ![da arquitetura de identidade híbrida](./media/plan-hybrid-identity-design-considerations/hybrid-identity-architechture.png)
+Alguns componentes que fazem parte da arquitetura de identidade híbrida da arquitetura de identidade híbrida ![](./media/plan-hybrid-identity-design-considerations/hybrid-identity-architechture.png)
 
 ## <a name="determine-business-needs"></a>Determinar as necessidades de negócios
 Cada empresa terá requisitos diferentes, mesmo que essas empresas façam parte do mesmo setor; os requisitos reais dos negócios podem variar. Você ainda pode aproveitar as práticas recomendadas do setor, mas acaba sendo as necessidades da empresa que levarão você a definir os requisitos para o design de identidade híbrida. 
@@ -68,7 +68,7 @@ Em seguida, você precisa avaliar os requisitos de integração de identidade. E
 
 * Sua organização usará federação, autenticação padrão ou ambos?
 * A federação é um requisito?  Por causa do seguinte:
-  * SSO baseada em Kerberos
+  * SSO baseado em Kerberos
   * Sua empresa tem um aplicativo local (seja criado internamente ou de terceiros) que usa SAML ou recursos de federação semelhantes.
   * MFA usando cartões inteligentes. RSA SecurID, etc.
   * Regras de acesso para cliente que abordam as perguntas a seguir:

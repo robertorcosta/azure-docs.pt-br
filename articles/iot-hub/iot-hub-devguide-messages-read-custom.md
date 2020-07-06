@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/09/2018
 ms.openlocfilehash: e5e92c40cef15e99431dc9652820c71e87935f67
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "61244337"
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Usar rotas de mensagens e pontos de extremidade personalizados para mensagens de dispositivo para a nuvem
@@ -24,7 +24,7 @@ O [roteamento de mensagens](iot-hub-devguide-routing-query-syntax.md) do Hub IoT
 | Propriedade      | Descrição |
 | ------------- | ----------- |
 | **Nome**      | O nome exclusivo que identifica a consulta. |
-| **Fonte**    | A origem do fluxo de dados a ser afetado. Por exemplo, telemetria do dispositivo. |
+| **Origem**    | A origem do fluxo de dados a ser afetado. Por exemplo, telemetria do dispositivo. |
 | **Condição** | A expressão de consulta para a consulta de roteamento que é executada nas propriedades do aplicativo de mensagens, propriedades do sistema, no corpo da mensagem, nas marcas de dispositivo gêmeo e propriedades de dispositivo gêmeo para determinar se é uma correspondência do ponto de extremidade. Para obter mais informações de como construir uma consulta, confira a [sintaxe de consulta de roteamento da mensagem](iot-hub-devguide-routing-query-syntax.md) |
 | **Ponto de extremidade**  | O nome do ponto de extremidade para o qual o Hub IoT envia as mensagens que correspondem à consulta. É recomendado que você escolha um ponto de extremidade na mesma região que o Hub IoT. |
 

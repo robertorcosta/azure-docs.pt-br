@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/20/2018
 ms.author: marayerm
 ms.openlocfilehash: aa42d6b898a3cc474575f6c8dae65ff420fc8e30
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60457228"
 ---
 # <a name="storage-explorer-accessibility"></a>Acessibilidade do Gerenciador de Armazenamento
@@ -55,7 +55,7 @@ A configuração de tema altera a cor da maioria dos elementos de interface do u
 
 ### <a name="window-commands"></a>Comandos de janela
 
-Comando       | Atalho do teclado
+Comando       | Atalho de teclado
 --------------|--------------------
 Nova Janela    | **Control+Shift+N**
 Fechar Editor  | **Control+F4**
@@ -63,12 +63,12 @@ Sair          | **Control+Shift+W**
 
 ### <a name="navigation-commands"></a>Comandos de navegação
 
-Comando                | Atalho do teclado
+Comando                | Atalho de teclado
 -----------------------|----------------------
 Foco próximo painel       | **F6**
 Foco painel anterior   | **Shift+F6**
 Explorer               | **Control+Shift+E**
-Gerenciamento de Conta     | **Control+Shift+A**
+Gerenciamento de Contas     | **Control+Shift+A**
 Alternar a barra lateral        | **Control+B**
 Log de Atividade           | **Control+Shift+L**
 Ações e Propriedades | **Control+Shift+P**
@@ -78,31 +78,31 @@ Editor anterior        | **Control+Page Up**
 
 ### <a name="zoom-commands"></a>Comandos de zoom
 
-Comando  | Atalho do teclado
+Comando  | Atalho de teclado
 ---------|------------------
 Ampliar  | **Controle + =**
 Reduzir | **Controle +-**
 
 ### <a name="blob-and-file-share-editor-commands"></a>Comandos do Editor de compartilhamento de arquivo e blob
 
-Comando | Atalho do teclado
+Comando | Atalho de teclado
 --------|--------------------
 Voltar    | **Alt + seta para esquerda**
 Avançar | **Alt + seta para a direita**
-Para cima      | **Alt+Up Arrow**
+Up      | **Alt+Up Arrow**
 
 ### <a name="editor-commands"></a>Comandos do editor
 
-Comando | Atalho do teclado
+Comando | Atalho de teclado
 --------|------------------
-Cópia    | **Control+C**
+Copiar    | **Control+C**
 Recortar     | **Control+X**
 Colar   | **Control+V**
 Atualizar  | **Control+R**
 
 ### <a name="other-commands"></a>Outros comandos
 
-Comando                | Atalho do teclado
+Comando                | Atalho de teclado
 -----------------------|------------------
 Alterar ferramentas para desenvolvedores | **F12**
 Recarregar                 | **Alt + Control + R**

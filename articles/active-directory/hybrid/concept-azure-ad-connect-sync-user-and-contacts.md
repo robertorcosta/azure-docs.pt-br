@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 661747754369c17ca98ae69d477e04124b6a2942
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60245488"
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure Active Directory Connect Sync: noções básicas sobre usuários, grupos e contatos
@@ -51,11 +51,11 @@ Pontos importantes a serem considerados durante a sincronização de grupos do A
     
       * Um grupo do Active Directory cujo atributo proxyAddress tenha o valor *{"X500:/0=contoso.com/ou=users/cn=testgroup"}* não será habilitado para e-mail no Azure Active Directory. Ele não tem um endereço SMTP.
       
-      * Um grupo de Active Directory cujo atributo proxyAddress tem os valores *{"X500:/0 = contoso. com/ou = Users/CN = test Group", "\@SMTP: davibarros contoso.com"}* será habilitado para email no Azure AD.
+      * Um grupo de Active Directory cujo atributo proxyAddress tem os valores *{"X500:/0 = contoso. com/ou = Users/CN = test Group", "SMTP: davibarros \@ contoso.com"}* será habilitado para email no Azure AD.
       
-      * Um grupo de Active Directory cujo atributo proxyAddress tem os valores *{"X500:/0 = contoso. com/ou = Users/CN = test Group", "\@smtp: davibarros contoso.com"}* também será habilitado para email no Azure AD.
+      * Um grupo de Active Directory cujo atributo proxyAddress tem os valores *{"X500:/0 = contoso. com/ou = Users/CN = test Group", "SMTP: davibarros \@ contoso.com"}* também será habilitado para email no Azure AD.
 
-## <a name="contacts"></a>Contacts
+## <a name="contacts"></a>Contatos
 Ter contatos que representam um usuário em uma floresta diferente é comum após uma fusão e aquisição em que uma solução GALSync está fazendo a ponte entre duas ou mais florestas do Exchange. O objeto de contato está sempre unindo o espaço do conector ao metaverso, usando o atributo de email. Se já houver um objeto de contato ou um objeto de usuário com o mesmo endereço de email, os objetos serão unidos. Isso é configurado na regra **Entrada do AD – Ingresso do Contato**. Também há uma regra chamada **Entrada do AD – Contato Comum** com um fluxo de atributos para o atributo de metaverso **sourceObjectType** com a constante **Contato**. Essa regra tem precedência muito baixa, de forma que qualquer objeto de usuário será ingressado no mesmo objeto de metaverso, então a regra **Entrada do AD – Usuário Comum** contribuirá com o valor de Usuário para esse atributo. Com essa regra, esse atributo terá o valor Contato, se nenhum usuário tiver sido associado; e o valor Usuário se pelo menos um usuário tiver sido encontrado.
 
 Para o provisionamento de um objeto no Azure AD, a regra **Saída para o AAD – Junção de Contato** criará um objeto de contato se o atributo **sourceObjectType** estiver definido como **Contato**. Se esse atributo estiver definido como **Usuário**, a regra **Saída para o AAD – Junção de Usuário** criará um objeto de usuário, em vez disso.
@@ -75,5 +75,5 @@ Quando um objeto é exportado para o AD do Azure, não é mais permitido alterar
 
 ## <a name="additional-resources"></a>Recursos adicionais
 * [Sincronização de Azure AD Connect: personalizando opções de sincronização](how-to-connect-sync-whatis.md)
-* [Integrando suas identidades locais ao Azure Active Directory](whatis-hybrid-identity.md)
+* [Integração de suas identidades locais com o Active Directory do Azure](whatis-hybrid-identity.md)
 

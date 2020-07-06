@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 10/10/2018
 ms.topic: conceptual
 ms.openlocfilehash: 34222f396ed3c43932371aa9f64a459bb2a5dd0e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "61442829"
 ---
 # <a name="import-an-iot-edge-package-into-your-remote-monitoring-solution-accelerator"></a>Importe um pacote IoT Edge para o acelerador de solução de monitoramento remoto
@@ -20,7 +20,7 @@ ms.locfileid: "61442829"
 Um manifesto de implantação define os módulos para implantar em um dispositivo IoT Edge. Este artigo presume que um desenvolvedor em sua organização já criou o manifesto de implantação. Para saber como um desenvolvedor cria um manifesto, consulte um dos seguintes artigos de instruções do IoT Edge:
 
 - [Implante os módulos do Azure IoT Edge no portal do Azure](../iot-edge/how-to-deploy-modules-portal.md)
-- [Implante os módulos do Azure IoT Edge com a CLI do Azure](../iot-edge/how-to-deploy-modules-cli.md)
+- [Implantar módulos do Azure IoT Edge com CLI do Azure](../iot-edge/how-to-deploy-modules-cli.md)
 - [Implantar módulos do Azure IoT Edge do Visual Studio Code](../iot-edge/how-to-deploy-modules-vscode.md)
 
 Um desenvolvedor cria e testa um manifesto de implantação em um ambiente de desenvolvimento. Quando estiver pronto, você poderá importar o manifesto para o acelerador de solução de monitoramento remoto.
@@ -33,7 +33,7 @@ Use o portal do Azure para exportar o manifesto de implantação do seu ambiente
 
 1. Clique na implantação que tem a configuração de implantação que você deseja usar. A página **Detalhes da Implantação** é exibida: ![Detalhes da implantação do IoT Edge](media/iot-accelerators-remote-monitoring-import-edge-package/deploymentdetails.png)
 
-1. Clique em **baixar manifesto**de ![IOT Edge: baixar manifesto de implantação](media/iot-accelerators-remote-monitoring-import-edge-package/download.png)
+1. Clique em **baixar manifesto de IOT Edge**: ![ baixar manifesto de implantação](media/iot-accelerators-remote-monitoring-import-edge-package/download.png)
 
 1. Salve o arquivo JSON como um arquivo local chamado **deploymentmanifest.json**.
 

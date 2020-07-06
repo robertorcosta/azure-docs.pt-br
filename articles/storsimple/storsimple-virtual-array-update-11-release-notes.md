@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/22/2018
 ms.author: alkohli
 ms.openlocfilehash: 55103d6307614f8796c41c35d6345e1fc3aca261
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60789630"
 ---
 # <a name="storsimple-virtual-array-update-11-release-notes"></a>Notas de versão do StorSimple Virtual Array Update 1.1
@@ -77,7 +77,7 @@ A tabela a seguir fornece um resumo dos problemas conhecidos para a StorSimple V
 | **15.** |Servidor de arquivos |Não há suporte para links simbólicos. | |
 | **16.** |Servidor de arquivos |Os arquivos protegidos pelo EFS (Encrypting File System) do Windows quando copiados ou armazenados no servidor de arquivos da Matriz Virtual StorSimple resultarão em uma configuração sem suporte.  | |
 | **16.** |Atualizações |Se você vir o código de erro: 2359302 (0x240006 hex) ao tentar instalar um hotfix por meio da interface do usuário local, isso indicará que o hotfix já está instalado no dispositivo.   | |
-| **18.** |Atualizações |Se você usar a interface do usuário da Web local para instalar a Atualização 1 na matriz virtual, deverá garantir que está executando a Atualização 0.6. Se você estiver executando uma versão inferior à Atualização 0.6, deverá instalar a Atualização 0.6 primeiro e, em seguida, aplicar a Atualização 1. Se você instalar diretamente a Atualização 1.0 de uma versão anterior à Atualização 0.6, perderá algumas atualizações e os gráficos de monitoramento não funcionarão.   | |
+| **anos.** |Atualizações |Se você usar a interface do usuário da Web local para instalar a Atualização 1 na matriz virtual, deverá garantir que está executando a Atualização 0.6. Se você estiver executando uma versão inferior à Atualização 0.6, deverá instalar a Atualização 0.6 primeiro e, em seguida, aplicar a Atualização 1. Se você instalar diretamente a Atualização 1.0 de uma versão anterior à Atualização 0.6, perderá algumas atualizações e os gráficos de monitoramento não funcionarão.   | |
 
 
 ## <a name="next-steps"></a>Próximas etapas

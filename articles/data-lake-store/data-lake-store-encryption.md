@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
 ms.openlocfilehash: a009f212bd8baaa353d602dc6090aeeccddd4936
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60878347"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Criptografia de dados no Azure Data Lake Storage Gen1
@@ -78,7 +78,7 @@ Há três tipos de chaves que são usadas no design de criptografia de dados. A 
 |-----------------------|--------------|-----------------|----------------------------------------------|------------|---------------------------------------------------------------------------------------------------------|
 | Chave de criptografia mestra | MEK          | Uma conta do Data Lake Storage Gen1 | Key Vault                              | Assimétrica | Pode ser gerenciado pelo Data Lake Storage Gen1 ou por você.                                                              |
 | Chave de criptografia de dados   | DEK          | Uma conta do Data Lake Storage Gen1 | Armazenamento persistente, gerenciado pelo serviço Data Lake Storage Gen1 | Simétrica  | A DEK é criptografada pela MEK. A DEK criptografada é a que está armazenada em mídia persistente. |
-| Chave de criptografia de bloco  | BEK          | Um bloco de dados | Nenhum                                         | Simétrica  | A BEK é derivada da DEK e do bloco de dados.                                                      |
+| Chave de criptografia de bloco  | BEK          | Um bloco de dados | Não                                         | Simétrica  | A BEK é derivada da DEK e do bloco de dados.                                                      |
 
 O diagrama a seguir ilustra esses conceitos:
 

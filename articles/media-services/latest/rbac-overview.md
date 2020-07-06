@@ -13,10 +13,10 @@ ms.date: 05/23/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 93b2cd3a2565b14ea07d6db6b14dd146e4223528
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "66236910"
 ---
 # <a name="role-based-access-control-rbac-for-media-services-accounts"></a>RBAC (controle de acesso baseado em função) para contas de serviços de mídia
@@ -38,7 +38,7 @@ foreach (Microsoft.Azure.Management.Media.Models.Operation a in client.Operation
 
 O artigo [definições de função internas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) informa exatamente o que a função concede. 
 
-Veja os seguintes artigos para obter mais informações:
+Confira os artigos a seguir para saber mais:
 
 - [Funções de administrador da assinatura clássica, funções do Azure RBAC e funções de administrador do Azure AD](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
 - [O que é o RBAC para recursos do Azure?](https://docs.microsoft.com/azure/role-based-access-control/overview)
