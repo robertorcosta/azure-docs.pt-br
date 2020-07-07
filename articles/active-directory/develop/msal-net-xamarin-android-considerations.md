@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: bb5950360734bc46923ef18424e3ad1ce275ad7a
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82652680"
 ---
 # <a name="considerations-for-using-xamarin-android-with-msalnet"></a>Considerações sobre o uso do Xamarin Android com MSAL.NET
@@ -33,7 +33,7 @@ var authResult = AcquireTokenInteractive(scopes)
  .ExecuteAsync();
 ```
 
-No MSAL 4,2 e posterior, você também pode definir essa funcionalidade no nível de `PublicClientApplication`. Para fazer isso, use um retorno de chamada:
+No MSAL 4,2 e posterior, você também pode definir essa funcionalidade no nível de `PublicClientApplication` . Para fazer isso, use um retorno de chamada:
 
 ```csharp
 // Requires MSAL.NET 4.2 or later
@@ -54,7 +54,7 @@ var pca = PublicClientApplicationBuilder
 ```
 
 ## <a name="ensure-that-control-returns-to-msal"></a>Verifique se o controle retorna ao MSAL 
-Quando a parte interativa do fluxo de autenticação terminar, verifique se o controle volta para MSAL. No Android, substitua o `OnActivityResult` método de `Activity`. Em seguida, `SetAuthenticationContinuationEventArgs` chame o método `AuthenticationContinuationHelper` da classe MSAL. 
+Quando a parte interativa do fluxo de autenticação terminar, verifique se o controle volta para MSAL. No Android, substitua o `OnActivityResult` método de `Activity` . Em seguida, chame o `SetAuthenticationContinuationEventArgs` método da `AuthenticationContinuationHelper` classe MSAL. 
 
 Aqui está um exemplo:
 
@@ -73,7 +73,7 @@ protected override void OnActivityResult(int requestCode,
 Essa linha garante que o controle retorne ao MSAL no final da parte interativa do fluxo de autenticação.
 
 ## <a name="update-the-android-manifest"></a>Atualizar o manifesto do Android
-O arquivo *AndroidManifest. xml* deve conter os seguintes valores:
+O arquivo de *AndroidManifest.xml* deve conter os seguintes valores:
 
 <!--Intent filter to capture System Browser or Authenticator calling back to our app after sign-in-->
 ```
@@ -90,9 +90,9 @@ O arquivo *AndroidManifest. xml* deve conter os seguintes valores:
  </activity>
 ```
 
-Substitua o nome do pacote que você registrou no portal do Azure para `android:host=` o valor. Substitua o hash de chave que você registrou no portal do Azure para `android:path=` o valor. O hash de assinatura *não* deve ser codificado em URL. Verifique se uma barra (`/`) à esquerda é exibida no início do hash de assinatura.
+Substitua o nome do pacote que você registrou no portal do Azure para o `android:host=` valor. Substitua o hash de chave que você registrou no portal do Azure para o `android:path=` valor. O hash de assinatura *não* deve ser codificado em URL. Verifique se uma barra () à esquerda `/` é exibida no início do hash de assinatura.
 
-Como alternativa, [crie a atividade em código](https://docs.microsoft.com/xamarin/android/platform/android-manifest#the-basics) em vez de editar manualmente *AndroidManifest. xml*. Para criar a atividade no código, primeiro crie uma classe que inclua o `Activity` atributo e o `IntentFilter` atributo. 
+Como alternativa, [crie a atividade em código](https://docs.microsoft.com/xamarin/android/platform/android-manifest#the-basics) em vez de editar manualmente *AndroidManifest.xml*. Para criar a atividade no código, primeiro crie uma classe que inclua o `Activity` atributo e o `IntentFilter` atributo. 
 
 Aqui está um exemplo de uma classe que representa os valores do arquivo XML:
 
@@ -109,7 +109,7 @@ Aqui está um exemplo de uma classe que representa os valores do arquivo XML:
 
 ### <a name="xamarinforms-43x-manifest"></a>Manifesto do Xamarin. Forms 4.3. X
 
-O Xamarin. Forms 4.3. x gera código que define `package` o atributo `com.companyname.{appName}` como em *AndroidManifest. xml*. Se você usar `DataScheme` as `msal{client_id}`, talvez queira alterar o valor para corresponder ao valor do `MainActivity.cs` namespace.
+O Xamarin. Forms 4.3. x gera código que define o `package` atributo como `com.companyname.{appName}` em *AndroidManifest.xml*. Se você usar `DataScheme` as `msal{client_id}` , talvez queira alterar o valor para corresponder ao valor do `MainActivity.cs` namespace.
 
 ## <a name="use-the-embedded-web-view-optional"></a>Usar a exibição da Web inserida (opcional)
 
@@ -129,7 +129,7 @@ var authResult = AcquireTokenInteractive(scopes)
 Para obter mais informações, consulte [usar navegadores da Web para](msal-net-web-browsers.md) [Considerações sobre o navegador do sistema MSAL.net e Xamarin Android](msal-net-system-browser-android-considerations.md).
 
 
-## <a name="troubleshoot"></a>Solução de problemas
+## <a name="troubleshoot"></a>Solucionar problemas
 Você pode criar um novo aplicativo Xamarin. Forms e adicionar uma referência ao pacote NuGet MSAL.NET.
 Mas você poderá ter problemas de compilação se atualizar um aplicativo Xamarin. Forms existente para o MSAL.NET Preview 1.1.2 ou posterior.
 
@@ -140,12 +140,12 @@ Para solucionar problemas de compilação:
 - Verifique se o Xamarin. Android. support. v4 foi atualizado automaticamente para a versão 25.4.0.2. Se necessário, atualize para a versão 25.4.0.2.
 - Verifique se todos os pacotes Xamarin. Android. support são de destino da versão 25.4.0.2.
 - Limpar ou recompilar o aplicativo.
-- No Visual Studio, tente definir o número máximo de compilações de projetos paralelas como 1. Para fazer isso, selecione **Opções** > **projetos e soluções** > **Compilar e executar** > o**número máximo de compilações de projetos paralelos**.
-- Se você estiver criando a partir da linha de comando e o `/m`comando usar, tente remover esse elemento do comando.
+- No Visual Studio, tente definir o número máximo de compilações de projetos paralelas como 1. Para fazer isso, selecione **Opções**  >  **projetos e soluções**  >  **Compilar e executar**o  >  **número máximo de compilações de projetos paralelos**.
+- Se você estiver criando a partir da linha de comando e o comando usar `/m` , tente remover esse elemento do comando.
 
 ### <a name="error-the-name-authenticationcontinuationhelper-doesnt-exist-in-the-current-context"></a>Erro: o nome AuthenticationContinuationHelper não existe no contexto atual
 
-Se um erro indicar que `AuthenticationContinuationHelper` não existe no contexto atual, o Visual Studio poderá ter atualizado incorretamente o arquivo Android. csproj *. Às vezes, o caminho do * \<arquivo HintPath>* contém incorretamente *netstandard13* em vez de *monoandroid90*.
+Se um erro indicar que `AuthenticationContinuationHelper` não existe no contexto atual, o Visual Studio poderá ter atualizado incorretamente o arquivo Android. csproj *. Às vezes, o *\<HintPath>* caminho do arquivo contém incorretamente *netstandard13* em vez de *monoandroid90*.
 
 Este exemplo contém um caminho de arquivo correto:
 

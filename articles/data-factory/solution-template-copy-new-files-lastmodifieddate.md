@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 3/8/2019
 ms.openlocfilehash: 363af1012b327a55703cc6e35a02dc1f27869bd0
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82629058"
 ---
 # <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>Copiar arquivos novos e alterados por LastModifiedDate com Azure Data Factory
@@ -49,7 +49,7 @@ O modelo define seis parâmetros:
 
     ![Criar uma nova conexão para o destino](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate3.png)
 
-3. Selecione **usar este modelo**.
+3. Selecione **Usar este modelo**.
 
     ![Usar este modelo](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate4.png)
     
@@ -84,12 +84,12 @@ O modelo define seis parâmetros:
     ![Criar gatilho](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate10.png)    
     
 10. Defina o valor para os **parâmetros de execução do gatilho** conforme a seguir e selecione **concluir**.
-    - **FolderPath_Source** = **SourceFolder**.  Você pode substituir por sua pasta no armazenamento de dados de origem.
-    - **Directory_Source** = **Subpasta**Directory_Source.  Você pode substituir pela subpasta no armazenamento de dados de origem.
-    - **FolderPath_Destination** = **DestinationFolder**.  Você pode substituir por sua pasta no armazenamento de dados de destino.
-    - **Directory_Destination** = **Subpasta**Directory_Destination.  Você pode substituir pela subpasta no armazenamento de dados de destino.
-    - **LastModified_From** =  **LastModified_From\@Trigger (). Outputs. windowStartTime**.  É uma variável de sistema do gatilho que determina a hora em que o pipeline foi disparado pela última vez.
-    - **LastModified_To** = **LastModified_To\@Trigger (). Outputs. windowEndTime**.  É uma variável de sistema do gatilho que determina a hora em que o pipeline é disparado desta vez.
+    - **FolderPath_Source**  =  **SourceFolder**.  Você pode substituir por sua pasta no armazenamento de dados de origem.
+    - **Directory_Source**  =  **subpasta**.  Você pode substituir pela subpasta no armazenamento de dados de origem.
+    - **FolderPath_Destination**  =  **DestinationFolder**.  Você pode substituir por sua pasta no armazenamento de dados de destino.
+    - **Directory_Destination**  =  **subpasta**.  Você pode substituir pela subpasta no armazenamento de dados de destino.
+    - **LastModified_From**  =   ** \@ Trigger (). Outputs. windowStartTime**.  É uma variável de sistema do gatilho que determina a hora em que o pipeline foi disparado pela última vez.
+    - **LastModified_To**  =  ** \@ Trigger (). Outputs. windowEndTime**.  É uma variável de sistema do gatilho que determina a hora em que o pipeline é disparado desta vez.
     
     ![Parâmetros de entrada](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate11.png)
     

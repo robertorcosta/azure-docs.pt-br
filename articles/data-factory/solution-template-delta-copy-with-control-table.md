@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/24/2018
 ms.openlocfilehash: 4da54318bea21daf9ec363be61bea18adaa2ce63
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82629024"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>Cópia Delta de um banco de dados com uma tabela de controle
@@ -104,7 +104,7 @@ O modelo define os seguintes parâmetros:
 
     ![Criar uma nova conexão para o armazenamento de dados na tabela de controle](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable6.png)
 
-7. Selecione **usar este modelo**.
+7. Selecione **Usar este modelo**.
     
 8. Você verá o pipeline disponível, conforme mostrado no exemplo a seguir:
   
@@ -114,11 +114,11 @@ O modelo define os seguintes parâmetros:
 
     ![Definir a atividade de procedimento armazenado](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable9.png)  
 
-10. Escreva o conteúdo ** \@{Activity (' LookupCurrentWaterMark '). Output. firstRow. NewWatermarkValue}** e, em seguida, selecione **concluir**.  
+10. Escreva o conteúdo ** \@ {Activity (' LookupCurrentWaterMark '). Output. FirstRow. NewWatermarkValue}** e, em seguida, selecione **concluir**.  
 
     ![Gravar o conteúdo para os parâmetros do procedimento armazenado](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable10.png)       
      
-11. Selecione **depurar**, insira os **parâmetros**e, em seguida, selecione **concluir**.
+11. Selecione **Depurar**, insira os **Parâmetros** e, em seguida, selecione **Concluir**.
 
     ![Selecione * * depurar * *](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable11.png)
 

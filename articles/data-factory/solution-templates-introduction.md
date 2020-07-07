@@ -12,10 +12,10 @@ manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 01/04/2019
 ms.openlocfilehash: b5e4512030431b6d2e5d0f849e82a281c882b177
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82628939"
 ---
 # <a name="templates"></a>Modelos
@@ -52,11 +52,11 @@ O Data Factory usa modelos do Azure Resource Manager para salvar modelos de pipe
 
     -   [Copiar vários contêineres de arquivos entre armazenamentos baseados em arquivo](solution-template-copy-files-multiple-containers.md)
 
-    -   [Mover arquivos](solution-template-move-files.md)
+    -   [Mover os arquivos](solution-template-move-files.md)
 
     -   [Cópia Delta do banco de dados](solution-template-delta-copy-with-control-table.md)
 
-    -   Copiar da \<origem\> para o \<destino\>
+    -   Copiar de \<source\> para\<destination\>
 
         -   [Do Amazon S3 para o Azure Data Lake Store Gen2](solution-template-migration-s3-azure.md)
 
