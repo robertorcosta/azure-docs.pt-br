@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: raynew
 ms.openlocfilehash: c1ae3a9ed8a775161aaf85ab2c91b1e43113d2e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70279447"
 ---
 # <a name="assess-large-numbers-of-hyper-v-vms-for-migration-to-azure"></a>Avaliar grandes números de VMs do Hyper-V para migração para o Azure
@@ -44,12 +43,12 @@ Ao planejar a avaliação de um grande número de VMs do Hyper-V, há algumas co
  
 Use os limites resumidos nesta tabela para planejamento.
 
-**Planejamento** | **limites**
+**Planejamento** | **Limites**
 --- | --- 
-**Projetos de migrações para Azure** | Avalie até 35.000 VMs em um projeto.
-**Dispositivo de Migrações para Azure** | Um dispositivo pode descobrir até 5000 VMs.<br/> Um dispositivo pode se conectar a até 300 hosts Hyper-V.<br/> Um dispositivo só pode ser associado a um único projeto de migrações para Azure.<br/> Qualquer número de dispositivos pode ser associado a um único projeto de migrações para Azure. <br/><br/> 
-**Agrupar** | Você pode adicionar até 35.000 VMs em um único grupo.
-**Avaliação de migrações para Azure** | Você pode avaliar até 35.000 VMs em uma única avaliação.
+**Projetos das Migrações para Azure** | Avalie até 35.000 VMs em um projeto.
+**Dispositivo de Migrações para Azure** | Um dispositivo pode descobrir até 5000 VMs.<br/> Um dispositivo pode se conectar a até 300 hosts do Hyper-V.<br/> Um dispositivo só pode ser associado a um único projeto de migrações para Azure.<br/> Qualquer número de dispositivos pode ser associado a um único projeto de migrações para Azure. <br/><br/> 
+**Group** | Você pode adicionar até 35.000 VMs em um único grupo.
+**Avaliação de migrações para Azure** | É possível avaliar até 35.000 VMs em uma única avaliação.
 
 
 
@@ -58,7 +57,7 @@ Use os limites resumidos nesta tabela para planejamento.
 - Para iniciar a descoberta do dispositivo, você precisa selecionar cada host Hyper-V. 
 - Se você estiver executando um ambiente multilocatário, não será possível descobrir atualmente somente as VMs que pertencem a um locatário específico. 
 
-## <a name="prepare-for-assessment"></a>Preparar para avaliação
+## <a name="prepare-for-assessment"></a>Preparar-se para avaliação
 
 Prepare o Azure e o Hyper-V para avaliação do servidor. 
 
