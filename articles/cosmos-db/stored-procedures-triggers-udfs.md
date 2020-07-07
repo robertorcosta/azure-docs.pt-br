@@ -8,15 +8,15 @@ ms.date: 04/09/2020
 ms.author: tisande
 ms.reviewer: sngun
 ms.openlocfilehash: 5fc74c554cbb283bc6bbfee737ef98e59dd4b0ea
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82509662"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procedimentos armazenados, gatilhos e funções definidas pelo usuário
 
-O Azure Cosmos DB fornece execução transacional e integrada à linguagem de JavaScript. Ao usar a API do SQL no Azure Cosmos DB, você pode gravar **procedimentos armazenados**, **gatilhos**e **UDFs (funções definidas pelo usuário)** na linguagem JavaScript. Escreva sua lógica em JavaScript que é executada dentro do mecanismo de banco de dados. Crie e execute gatilhos, procedimentos armazenados e UDFs usando o [portal do Azure](https://portal.azure.com/), a [API de consulta integrada à linguagem do JavaScript no Azure Cosmos DB](javascript-query-api.md) e os [SDKs de cliente da API do SQL do Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md).
+O Azure Cosmos DB fornece execução transacional e integrada à linguagem de JavaScript. Ao usar a API do SQL no Azure Cosmos DB, você pode gravar **procedimentos armazenados**, **gatilhos**e **UDFs (funções definidas pelo usuário)** na linguagem JavaScript. Escreva sua lógica em JavaScript que é executada dentro do mecanismo de banco de dados. Você pode criar e executar gatilhos, procedimentos armazenados e UDFs usando [portal do Azure](https://portal.azure.com/), a [API de consulta integrada da linguagem JavaScript no Azure Cosmos DB](javascript-query-api.md) ou os [SDKs do cliente Cosmos DB API do SQL](how-to-use-stored-procedures-triggers-udfs.md).
 
 ## <a name="benefits-of-using-server-side-programming"></a>Benefícios do uso da programação do servidor
 
@@ -66,7 +66,7 @@ As transações são nativamente integradas ao modelo de programação do JavaSc
 Os procedimentos armazenados e os gatilhos são sempre executados na réplica primária de um contêiner do Azure Cosmos. Esse recurso garante que as leituras dos procedimentos armazenados ofereçam [coerência forte](consistency-levels-tradeoffs.md). As consultas que usam funções definidas pelo usuário podem ser executadas na réplica primária ou em qualquer réplica secundária. Os procedimentos armazenados e os gatilhos se destinam a dar suporte a gravações transacionais – enquanto a lógica somente leitura é melhor implementada como a lógica do lado do aplicativo – e consultas usando os [SDKs da API do SQL do Azure Cosmos DB](sql-api-dotnet-samples.md) e isso ajudará você a saturar a taxa de transferência de banco de dados. 
 
 > [!TIP]
-> As consultas executadas em um procedimento armazenado ou gatilho podem não ver as alterações nos itens feitos pela mesma transação de script. Essa instrução se aplica a consultas SQL, como `getContent().getCollection.queryDocuments()`, bem como consultas de linguagem integradas, como. `getContext().getCollection().filter()`
+> As consultas executadas em um procedimento armazenado ou gatilho podem não ver as alterações nos itens feitos pela mesma transação de script. Essa instrução se aplica a consultas SQL, como `getContent().getCollection.queryDocuments()` , bem como consultas de linguagem integradas, como `getContext().getCollection().filter()` .
 
 ## <a name="bounded-execution"></a>Execução vinculada
 

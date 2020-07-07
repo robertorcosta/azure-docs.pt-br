@@ -9,10 +9,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/15/2020
 ms.openlocfilehash: 8a1de4ceb42ac86d8f945ec973eaa52d6ddec736
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82208458"
 ---
 # <a name="download-notebookspreview-data"></a>Baixar dados de blocos de anotações (versão prévia)
@@ -25,9 +25,9 @@ Este artigo fornece instruções passo a passo sobre como baixar dados de blocos
     ![Navegue até a guia blocos de anotações!](./media/download-notebooks/notebooks-list.png)
 
 1. Selecione o bloco de anotações que você deseja baixar. Ele será aberto no Jupyter.
-    ![Não há suporte](./media/download-notebooks/select-notebook.png) para selecionar um notebook baixando vários blocos de anotações de uma vez.
+    ![](./media/download-notebooks/select-notebook.png)Não há suporte para selecionar um notebook baixando vários blocos de anotações de uma vez.
 
-1. Vá para **arquivos** -> **baixar como**e selecione uma opção de formato.
+1. Vá para **arquivos**  ->  **baixar como**e selecione uma opção de formato.
     ![Opções de download do notebook](./media/download-notebooks/download-options.PNG)
 
 1. Depois de selecionar uma opção, o arquivo do bloco de anotações começará a ser baixado. Ignorar os erros 500 ou 502 que aparecem, eles não afetarão o download.

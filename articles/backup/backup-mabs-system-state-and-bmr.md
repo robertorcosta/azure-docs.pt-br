@@ -4,10 +4,10 @@ description: Use Servidor de Backup do Azure para fazer backup do estado do sist
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.openlocfilehash: bab55ca607e0641ea0cc597de686f3abbb387598
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82192358"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-by-using-azure-backup-server"></a>Fazer backup do estado do sistema e restaurar para bare-metal usando Servidor de Backup do Azure
@@ -43,18 +43,18 @@ A tabela a seguir resume o que você pode fazer backup e recuperar. Para obter i
 
 ## <a name="how-system-state-backup-works"></a>Como funciona o backup de estado do sistema
 
-Quando um backup de estado do sistema é executado, o Servidor de Backup se comunica com o Backup do Windows Server para solicitar um backup de estado do sistema do servidor. Por padrão, o Servidor de Backup e o Backup do Windows Server usam a unidade que tenha mais espaço livre. As informações sobre essa unidade são salvas no arquivo *PSDataSourceConfig. xml* .
+Quando um backup de estado do sistema é executado, o Servidor de Backup se comunica com o Backup do Windows Server para solicitar um backup de estado do sistema do servidor. Por padrão, o Servidor de Backup e o Backup do Windows Server usam a unidade que tenha mais espaço livre. As informações sobre essa unidade são salvas no arquivo de *PSDataSourceConfig.xml* .
 
 Você pode personalizar a unidade que o servidor de backup usa para o backup de estado do sistema:
 
 1. No servidor protegido, vá para *c:\Arquivos de Programas\microsoft Data Protection Manager\MABS\Datasources*.
-1. Abra o arquivo *PSDataSourceConfig. xml* para edição.
+1. Abra o arquivo *PSDataSourceConfig.xml* para edição.
 1. Altere o valor \<FilesToProtect\> para a letra da unidade.
 1. Salve e feche o arquivo.
 
 Se um grupo de proteção estiver definido para proteger o estado do sistema do computador, execute uma verificação de consistência. Se um alerta for gerado, selecione **Modificar Grupo de proteção** no alerta e, em seguida, conclua as páginas no assistente. Em seguida, execute outra verificação de consistência.
 
-Se o servidor de proteção estiver em um cluster, uma unidade de cluster poderá ser selecionada como a unidade que tem mais espaço livre. Se essa propriedade da unidade for alternada para outro nó e um backup de estado do sistema for executado, a unidade não estará disponível e o backup falhará. Nesse cenário, modifique *PSDataSourceConfig. xml* para apontar para uma unidade local.
+Se o servidor de proteção estiver em um cluster, uma unidade de cluster poderá ser selecionada como a unidade que tem mais espaço livre. Se essa propriedade da unidade for alternada para outro nó e um backup de estado do sistema for executado, a unidade não estará disponível e o backup falhará. Nesse cenário, modifique *PSDataSourceConfig.xml* para apontar para uma unidade local.
 
 Em seguida, Backup do Windows Server cria uma pasta chamada *WindowsImageBackup* na raiz da pasta Restore. À medida que o Backup do Windows Server cria o backup, todos os dados são colocados nessa pasta. Quando o backup for concluído, o arquivo será transferido para o computador do servidor de backup. Observe as seguintes informações:
 
@@ -109,7 +109,7 @@ Quando o backup for concluído, o arquivo será transferido para o computador do
 
 Para fazer backup do estado do sistema e bare-metal:
 
-1. Para abrir o assistente para criar novo grupo de proteção criar, na console do administrador servidor de backup, selecione **Protection** > **ações** > de proteção**Criar grupo de proteção**.
+1. Para abrir o assistente para criar novo grupo de proteção criar, na console do administrador servidor de backup, selecione ações de **proteção**  >  **Actions**  >  **Criar grupo de proteção**.
 
 1. Na página **Selecionar Tipo de Grupo de Proteção**, selecione **Servidores** e, depois, selecione **Avançar**.
 
@@ -233,7 +233,7 @@ Para executar a recuperação no servidor de backup:
 
 Para executar Backup do Windows Server:
 
-1. Selecione **ações** > **recuperar** > **este servidor** > **Avançar**.
+1. Selecione **ações**  >  **recuperar**  >  **este servidor**  >  **Avançar**.
 
 1. Selecione **Outro Servidor**, selecione a página **Especificar Tipo de Local** e, em seguida, selecione **Pasta compartilhada remota**. Digite o caminho para a pasta que contém o ponto de recuperação.
 

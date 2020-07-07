@@ -15,10 +15,10 @@ ms.date: 02/20/2020
 ms.author: wieastbu
 ms.custom: fasttrack-new
 ms.openlocfilehash: 3c5c13b3aae33b098de79a3429a299cc33f1c4f6
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82202869"
 ---
 # <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>Proteger o back-end SPA com OAuth 2,0, Azure Active Directory B2C e gerenciamento de API do Azure
@@ -68,7 +68,7 @@ Abra a folha Azure AD B2C no portal e execute as etapas a seguir.
    * Adicional O portal do desenvolvedor de gerenciamento de API (a menos que você esteja executando o gerenciamento de API do Azure na camada de consumo, mais sobre esse cenário posteriormente).
 1. Defina a API Web/WebApp para todos os 3 aplicativos e defina ' permitir fluxo implícito ' como Sim somente para o cliente de front-end.
 1. Agora, defina o URI da ID do aplicativo, escolha algo exclusivo e relevante para o serviço que está sendo criado.
-1. Use espaços reservados para as URLs de resposta por enquanto https://localhost, atualizaremos essas URLs mais tarde.
+1. Use espaços reservados para as URLs de resposta por enquanto https://localhost , atualizaremos essas URLs mais tarde.
 1. Clique em ' criar ' e repita as etapas de 3 a 2-5 para cada um dos três aplicativos acima, registrando o URI de AppID, o nome e a ID do aplicativo para uso posterior para todos os três aplicativos.
 1. Abra o aplicativo portal do desenvolvedor do gerenciamento de API na lista de aplicativos e selecione a guia *chaves* (em geral) e clique em ' gerar chave ' para gerar uma chave de autenticação
 1. Ao clicar em salvar, registre a chave em um local seguro para uso posterior – Observe que esse local é a única chance de exibir e copiar essa chave.
@@ -148,12 +148,12 @@ Abra a folha Azure AD B2C no portal e execute as etapas a seguir.
 5. Volte para a guia HttpTrigger1, clique em ' obter URL da função ' e copie a URL que aparece.
 
    > [!NOTE]
-   > As associações que você acabou de criar simplesmente informam as funções para responder em solicitações HTTP GET anônimas para a URL que você acabou de copiar. (`https://yourfunctionappname.azurewebsites.net/api/hello?code=secretkey`) Agora temos uma API https sem servidor escalonável, que é capaz de retornar uma carga muito simples.
+   > As associações que você acabou de criar simplesmente informam as funções para responder em solicitações HTTP GET anônimas para a URL que você acabou de copiar. ( `https://yourfunctionappname.azurewebsites.net/api/hello?code=secretkey` ) Agora temos uma API https sem servidor escalonável, que é capaz de retornar uma carga muito simples.
    > Agora você pode testar a chamada dessa API de um navegador da Web usando a URL acima, você também pode remover a parte? código = segredo da URL e provar que Azure Functions retornará um erro 401.
 
 ## <a name="configure-and-secure-the-function-api"></a>Configurar e proteger a API de função
 1. Duas áreas extras no aplicativo de funções precisam ser configuradas (restrições de autenticação e de rede).
-1. Em primeiro lugar, vamos configurar a autenticação/autorização, portanto, clique no nome do aplicativo de funções ( &lt;ao&gt; lado do ícone de funções Z) para mostrar a página Visão geral.
+1. Em primeiro lugar, vamos configurar a autenticação/autorização, portanto, clique no nome do aplicativo de funções (ao lado do &lt; &gt; ícone de funções Z) para mostrar a página Visão geral.
 1. Em seguida, selecione a guia ' recursos da plataforma ' e selecione ' autenticação/autorização '.
 1. Ative o recurso de autenticação do serviço de aplicativo.
 1. Em ' provedores de autenticação ', escolha ' Azure Active Directory ' e escolha ' avançado ' na opção de modo de gerenciamento.
@@ -257,9 +257,9 @@ Você precisará adicionar blocos de endereços formatados por CIDR ao painel re
 1. Abra a folha Azure AD B2C e navegue até o registro do aplicativo para o portal do desenvolvedor
 1. Defina a entrada ' URL de resposta ' como a que você anotou quando configurou o redirect_uri da concessão de código de autenticação no gerenciamento de API anteriormente.
 
-   Agora que a autorização de usuário do OAuth 2,0 está habilitada no `Echo API`, o console do desenvolvedor Obtém um token de acesso para o usuário, antes de chamar a API.
+   Agora que a autorização de usuário do OAuth 2,0 está habilitada no `Echo API` , o console do desenvolvedor Obtém um token de acesso para o usuário, antes de chamar a API.
 
-1. Navegue até qualquer operação `Echo API` no portal do desenvolvedor e selecione Experimente para levá **-lo** para o console do desenvolvedor.
+1. Navegue até qualquer operação no `Echo API` portal do desenvolvedor e selecione Experimente para levá **-lo** para o console do desenvolvedor.
 1. Observe um novo item na seção **autorização** , correspondente ao servidor de autorização que você acabou de adicionar.
 1. Selecione **código de autorização** na lista suspensa autorização e você será solicitado a entrar no locatário do Azure AD. Se você já tiver entrado com a conta, talvez não seja solicitado.
 1. Após a entrada bem-sucedida, um `Authorization: Bearer` cabeçalho é adicionado à solicitação, com um token de acesso de Azure ad B2C codificado em base64. 
@@ -283,7 +283,7 @@ Você precisará adicionar blocos de endereços formatados por CIDR ao painel re
 ## <a name="build-the-javascript-spa-to-consume-the-api"></a>Criar o JavaScript SPA para consumir a API
 1. Abra a folha contas de armazenamento na portal do Azure 
 1. Selecione a conta que você criou e selecione a folha "site estático" na seção Configurações (se você não vir uma opção "site estático", verifique se você criou uma conta v2).
-1. Defina o recurso de hospedagem da Web estática como ' habilitado ' e defina o nome do documento de índice como ' index. html ' e clique em ' salvar '.
+1. Defina o recurso de hospedagem da Web estática como ' habilitado ' e defina o nome do documento de índice como ' index.html ' e clique em ' salvar '.
 1. Anote o conteúdo do ponto de extremidade primário, pois esse local é onde o site de front-end será hospedado. 
 
    > [!NOTE]
@@ -291,7 +291,7 @@ Você precisará adicionar blocos de endereços formatados por CIDR ao painel re
 
 ## <a name="upload-the-js-spa-sample"></a>Carregar o exemplo de SPA do JS
 1. Ainda na folha da conta de armazenamento, selecione a folha ' BLOBs ' na seção serviço BLOB e clique no contêiner $web que aparece no painel à direita.
-1. Salve o código abaixo em um arquivo localmente em seu computador como index. html e, em seguida, carregue o arquivo index. html para o contêiner de $web.
+1. Salve o código abaixo em um arquivo localmente em seu computador como index.html e, em seguida, carregue o arquivo index.html para o contêiner $web.
 
    ```html
    <!doctype html>
@@ -415,7 +415,7 @@ Você precisará adicionar blocos de endereços formatados por CIDR ao painel re
 
 ## <a name="configure-the-js-spa-for-azure-ad-b2c"></a>Configurar o SPA do JS para Azure AD B2C
 1. Agora sabemos onde tudo está: podemos configurar o SPA com o endereço apropriado da API de gerenciamento de API e as IDs de aplicativo/cliente Azure AD B2C corretas
-1. Volte para a folha de armazenamento portal do Azure e clique em index. html e escolha ' Editar BLOB ' 
+1. Volte para a folha de armazenamento portal do Azure e clique em index.html e escolha ' Editar BLOB ' 
 1. Atualize os detalhes de autenticação para corresponder ao seu aplicativo de front-end registrado no B2C anteriormente, observando que os valores de ' b2cScopes ' são para o back-end da API.
 1. A chave webApi e a URL da API podem ser encontradas no painel de teste do gerenciamento de API para a operação de API.
 1. Crie uma chave de assinatura APIM por título para o gerenciamento de API de volta para a folha gerenciamento de API, selecionando "assinaturas" e clicando em "Adicionar assinatura" e salvando o registro. Clicar nas reticências (...) ao lado da linha criada permitirá que você mostre as chaves para que você possa copiar a chave primária.

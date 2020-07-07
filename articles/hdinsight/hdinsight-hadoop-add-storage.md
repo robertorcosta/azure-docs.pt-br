@@ -9,30 +9,30 @@ ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/27/2020
 ms.openlocfilehash: d5dde8c45331cf8c443aba86c96ba12c8277472c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82192477"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Adicionar outras contas de armazenamento ao HDInsight
 
-Saiba como usar ações de script para adicionar mais *contas* de armazenamento do Azure ao HDInsight. As etapas neste documento adicionam uma *conta* de armazenamento a um cluster HDInsight existente. Este artigo se aplica a *contas* de armazenamento (não a conta de armazenamento de cluster padrão) e não a [`Azure Data Lake Storage Gen1`](hdinsight-hadoop-use-data-lake-store.md) armazenamento [`Azure Data Lake Storage Gen2`](hdinsight-hadoop-use-data-lake-storage-gen2.md)adicional, como e.
+Saiba como usar ações de script para adicionar mais *contas* de armazenamento do Azure ao HDInsight. As etapas neste documento adicionam uma *conta* de armazenamento a um cluster HDInsight existente. Este artigo se aplica a *contas* de armazenamento (não a conta de armazenamento de cluster padrão) e não a armazenamento adicional, como [`Azure Data Lake Storage Gen1`](hdinsight-hadoop-use-data-lake-store.md) e [`Azure Data Lake Storage Gen2`](hdinsight-hadoop-use-data-lake-storage-gen2.md) .
 
 > [!IMPORTANT]  
 > As informações neste documento são sobre como adicionar mais contas de armazenamento a um cluster depois que ele tiver sido criado. Para saber mais sobre como adicionar contas de armazenamento durante a criação do cluster, veja [Configurar clusters no HDInsight com Apache Hadoop, Apache Spark, Apache Kafka e mais](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um cluster Hadoop no HDInsight. Consulte [introdução ao HDInsight no Linux](./hadoop/apache-hadoop-linux-tutorial-get-started.md).
+* Um cluster Hadoop no HDInsight. Consulte [Introdução ao HDInsight no Linux](./hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * Nome e chave da conta de armazenamento. Consulte [gerenciar chaves de acesso da conta de armazenamento](../storage/common/storage-account-keys-manage.md).
 * Se estiver usando o PowerShell, você precisará do módulo AZ.  Consulte [visão geral do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
-## <a name="how-it-works"></a>Como ele funciona
+## <a name="how-it-works"></a>Como isso funciona
 
 Durante o processamento, o script executa as seguintes ações:
 
-* Se a conta de armazenamento já existir na configuração Core-site. xml para o cluster, o script será encerrado e nenhuma ação adicional será feita.
+* Se a conta de armazenamento já existir na configuração de core-site.xml para o cluster, o script será encerrado e nenhuma ação adicional será feita.
 
 * Verifica se a conta de armazenamento existe e se pode ser acessada usando a chave.
 
@@ -53,15 +53,15 @@ Use a [ação de script](hdinsight-hadoop-customize-cluster-linux.md#script-acti
 |---|---|
 |URI do script Bash|`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`|
 |Tipo(s) de nó|Head|
-|Parâmetros|`ACCOUNTNAME``ACCOUNTKEY` `-p`|
+|Parâmetros|`ACCOUNTNAME``ACCOUNTKEY` `-p` (opcional)|
 
 * `ACCOUNTNAME`é o nome da conta de armazenamento a ser adicionada ao cluster HDInsight.
-* `ACCOUNTKEY`é a chave de acesso `ACCOUNTNAME`para.
-* `-p` é opcional. Se especificado, a chave não é criptografada e armazenada no arquivo Core-site. xml como texto sem formatação.
+* `ACCOUNTKEY`é a chave de acesso para `ACCOUNTNAME` .
+* `-p` é opcional. Se especificado, a chave não é criptografada e armazenada no arquivo de core-site.xml como texto sem formatação.
 
 ## <a name="verification"></a>Verificação
 
-Ao exibir o cluster HDInsight no portal do Azure, a seleção da entrada __contas de armazenamento__ em __Propriedades__ não exibe as contas de armazenamento adicionadas por meio dessa ação de script. Azure PowerShell e CLI do Azure não exibem também a conta de armazenamento adicional. As informações de armazenamento não são exibidas porque o script modifica apenas `core-site.xml` a configuração do cluster. Essas informações não são usadas ao recuperar as informações de cluster usando as APIs de gerenciamento do Azure.
+Ao exibir o cluster HDInsight no portal do Azure, a seleção da entrada __contas de armazenamento__ em __Propriedades__ não exibe as contas de armazenamento adicionadas por meio dessa ação de script. Azure PowerShell e CLI do Azure não exibem também a conta de armazenamento adicional. As informações de armazenamento não são exibidas porque o script modifica apenas a `core-site.xml` configuração do cluster. Essas informações não são usadas ao recuperar as informações de cluster usando as APIs de gerenciamento do Azure.
 
 Para verificar se o armazenamento adicional usa um dos métodos mostrados abaixo:
 
@@ -95,19 +95,19 @@ foreach ($name in $value ) { $name.Name.Split(".")[4]}
 
 ### <a name="apache-ambari"></a>Apache Ambari
 
-1. Em um navegador da Web, navegue `https://CLUSTERNAME.azurehdinsight.net`até, `CLUSTERNAME` em que é o nome do cluster.
+1. Em um navegador da Web, navegue até `https://CLUSTERNAME.azurehdinsight.net`, em que `CLUSTERNAME` é o nome do cluster.
 
-1. Navegue até o **HDFS** > **configurações** > **avançado** > **personalizado Core-site**.
+1. Navegue até o **HDFS**  >  **configurações**  >  **avançado**  >  **personalizado Core-site**.
 
-1. Observe as chaves que começam com `fs.azure.account.key`. O nome da conta fará parte da chave, como visto nesta imagem de exemplo:
+1. Observe as chaves que começam com `fs.azure.account.key` . O nome da conta fará parte da chave, como visto nesta imagem de exemplo:
 
    ![verificação por meio do Apache Ambari](./media/hdinsight-hadoop-add-storage/apache-ambari-verification.png)
 
 ## <a name="remove-storage-account"></a>Remover conta de armazenamento
 
-1. Em um navegador da Web, navegue `https://CLUSTERNAME.azurehdinsight.net`até, `CLUSTERNAME` em que é o nome do cluster.
+1. Em um navegador da Web, navegue até `https://CLUSTERNAME.azurehdinsight.net`, em que `CLUSTERNAME` é o nome do cluster.
 
-1. Navegue até o **HDFS** > **configurações** > **avançado** > **personalizado Core-site**.
+1. Navegue até o **HDFS**  >  **configurações**  >  **avançado**  >  **personalizado Core-site**.
 
 1. Remova as seguintes chaves:
     * `fs.azure.account.key.<STORAGE_ACCOUNT_NAME>.blob.core.windows.net`

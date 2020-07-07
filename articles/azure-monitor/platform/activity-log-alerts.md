@@ -5,10 +5,10 @@ ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.openlocfilehash: 1a932aba55ec9bd5d92c60338a3c1fc4bb481c1b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82137698"
 ---
 # <a name="alerts-on-activity-log"></a>Alertas no log de atividades
@@ -43,7 +43,7 @@ Os alertas do log de atividades têm algumas opções comuns:
 - **Nome da operação**: o nome da [operação de Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md) utilizado para o controle de acesso baseado em função. As operações não registradas com Azure Resource Manager não podem ser usadas em uma regra de alerta do log de atividades.
 - **Nível**: o nível de severidade do evento (informativo, aviso, erro ou crítico).
 - **Status**: o status do evento, normalmente Iniciado, Falha ou Êxito.
-- **Evento iniciado por**: também conhecido como o "chamador". O endereço de email ou o identificador do Azure Active Directory do usuário que realizou a operação.
+- **Evento iniciado por**: também conhecido como "chamador". O endereço de email ou o identificador do Azure Active Directory do usuário que realizou a operação.
 
 > [!NOTE]
 > Em uma assinatura, é possível criar até 100 regras de alerta para uma atividade de escopo: um único recurso, todos os recursos no grupo de recursos (ou) todo o nível de assinatura.

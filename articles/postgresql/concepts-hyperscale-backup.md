@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.openlocfilehash: bcc94b62812f1668bf8c5e5abb268fddf3da1fa5
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82515437"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---hyperscale-citus"></a>Backup e restauração no banco de dados do Azure para PostgreSQL-Citus (hiperescala)
@@ -49,7 +49,7 @@ As configurações de firewall e os parâmetros do servidor PostgreSQL não são
 > [!IMPORTANT]
 > Você precisará abrir uma solicitação de suporte para executar a restauração pontual do seu cluster de hiperescala (Citus).
 
-### <a name="post-restore-tasks"></a>Post-restore tasks
+### <a name="post-restore-tasks"></a>Tarefas de pós-restauração
 
 Após uma restauração de qualquer mecanismo de recuperação, você deve fazer o seguinte para colocar seus usuários e aplicativos em funcionamento:
 

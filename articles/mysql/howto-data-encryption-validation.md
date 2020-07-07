@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.openlocfilehash: ee80f50e925bf4545f885d701e70bc21208f1d1f
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82515398"
 ---
 # <a name="validating-data-encryption-for-azure-database-for-mysql"></a>Validando a criptografia de dados para o Azure Database para MySQL
@@ -23,7 +23,7 @@ Este artigo ajuda você a validar que a criptografia de dados usando a chave ger
 
 1. Se você quiser verificar se a chave do cliente é usada para criptografia, siga estas etapas:
 
-    * Na portal do Azure, navegue até as**chaves** de **Azure Key Vault** -> 
+    * Na portal do Azure, navegue até as **Azure Key Vault**  ->  **chaves** de Azure Key Vault
     * Selecione a chave usada para criptografia do servidor.
     * Defina o status da chave **habilitada** como **não**.
   

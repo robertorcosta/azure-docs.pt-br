@@ -11,10 +11,10 @@ author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5ede7ddb81bae69d92983e787e779ee9d410bd87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82144079"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Autenticação baseada em certificado do Azure Active Directory no iOS
@@ -33,8 +33,8 @@ Este artigo detalha os requisitos e os cenários com suporte para configurar o C
 | Aplicativos | Suporte |
 | --- | --- |
 | Aplicativo de Proteção de Informações do Azure |![Marca de seleção que significa suporte para este aplicativo][1] |
-| Portal da Empresa do Intune |![Marca de seleção que significa suporte para este aplicativo][1] |
-| Equipes da Microsoft |![Marca de seleção que significa suporte para este aplicativo][1] |
+| Intune Portal da empresa |![Marca de seleção que significa suporte para este aplicativo][1] |
+| Microsoft Teams |![Marca de seleção que significa suporte para este aplicativo][1] |
 | Office (móvel) |![Marca de seleção que significa suporte para este aplicativo][1] |
 | OneNote |![Marca de seleção que significa suporte para este aplicativo][1] |
 | OneDrive |![Marca de seleção que significa suporte para este aplicativo][1] |
@@ -73,7 +73,7 @@ Para obter mais informações, consulte [Personalizando a página de entrada AD 
 
 ## <a name="use-modern-authentication-with-office-apps"></a>Usar autenticação moderna com aplicativos do Office
 
-Alguns aplicativos do Office com autenticação moderna habilitada enviam `prompt=login` para o Azure AD em sua solicitação. Por padrão, o Azure AD se traduz `prompt=login` na solicitação para o ADFS como `wauth=usernamepassworduri` (solicita que o ADFS faça a autenticação U/P `wfresh=0` ) e (solicita que o ADFS ignore o estado do SSO e faça uma nova autenticação). Se você quiser habilitar a autenticação baseada em certificado para esses aplicativos, modifique o comportamento padrão do Azure AD.
+Alguns aplicativos do Office com autenticação moderna habilitada enviam `prompt=login` para o Azure AD em sua solicitação. Por padrão, o Azure AD se traduz `prompt=login` na solicitação para o ADFS como `wauth=usernamepassworduri` (solicita que o ADFS faça a autenticação U/P) e `wfresh=0` (solicita que o ADFS ignore o estado do SSO e faça uma nova autenticação). Se você quiser habilitar a autenticação baseada em certificado para esses aplicativos, modifique o comportamento padrão do Azure AD.
 
 Para atualizar o comportamento padrão, defina '*PromptLoginBehavior*' em suas configurações de domínio federado como *desabilitado*. Você pode usar o cmdlet [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) para executar essa tarefa, conforme mostrado no exemplo a seguir:
 

@@ -7,10 +7,10 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 04/20/2020
 ms.openlocfilehash: 7022c4587b425168fc5bd2182ed65c281633aabf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82177075"
 ---
 # <a name="integrate-azure-spring-cloud-with-azure-load-balance-solutions"></a>Integrar o Azure Spring Cloud com soluções de balanceamento de carga do Azure
@@ -40,7 +40,7 @@ Adicionar pontos de extremidade no Gerenciador de tráfego:
 1.  Insira o nome de domínio totalmente qualificado (FQDN) de cada ponto de extremidade público do Azure Spring Cloud.
 1. Clique em **OK**.
 
-    ![Gerenciador de tráfego](media/spring-cloud-load-balancers/traffic-manager-1.png) ![1 do Traffic Manager 2](media/spring-cloud-load-balancers/traffic-manager-2.png)
+    ![Gerenciador de tráfego 1 do Traffic Manager ](media/spring-cloud-load-balancers/traffic-manager-1.png) ![ 2](media/spring-cloud-load-balancers/traffic-manager-2.png)
 
 ### <a name="configure-custom-domain"></a>Configurar domínio personalizado
 Para concluir a configuração:

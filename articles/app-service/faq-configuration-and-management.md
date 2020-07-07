@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: 867c011cb3086cab736d17501e72bc477d0d2889
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82159993"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Perguntas frequentes sobre configuração e gerenciamento de aplicativos Web no Azure
@@ -63,7 +63,7 @@ Para definir o fuso horário do servidor para o meu aplicativo web:
 2. Em **Configurações do aplicativo**, adicionar essa configuração:
     * Chave = WEBSITE_TIME_ZONE
     * Valor = *o fuso horário que você deseja*
-3. Clique em **Salvar**.
+3. Selecione **Salvar**.
 
 Para os serviços de aplicativos que são executados no Windows, consulte a coluna **timezone** no artigo [fusos horários padrão](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) para obter os valores aceitos. Para os serviços de aplicativos que são executados no Linux, defina o [nome do banco de dados TZ](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) como o valor de fuso horário. Aqui está um exemplo de nome do banco de dados TZ: America/Adak.
 
@@ -105,7 +105,7 @@ Uma causa comum de falha de backup é que alguns arquivos estão em uso pelo apl
 
 ## <a name="how-do-i-remove-a-header-from-the-http-response"></a>Como remover um cabeçalho de resposta HTTP?
 
-Para remover os cabeçalhos da resposta HTTP, atualize o arquivo Web. config do seu site. Para obter mais informações, consulte [Remover cabeçalhos de servidor padrão em seus sites do Azure](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/).
+Para remover os cabeçalhos da resposta HTTP, atualize o arquivo de web.config do seu site. Para obter mais informações, consulte [Remover cabeçalhos de servidor padrão em seus sites do Azure](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/).
 
 ## <a name="is-app-service-compliant-with-pci-standard-30-and-31"></a>O Serviço de Aplicativo é compatível com o PCI Standard 3.0 e 3.1?
 
@@ -125,7 +125,7 @@ Para obter mais informações sobre como usar os slots de implantação, consult
 
 Para examinar os logs do WebJob:
 
-1. Entre no site do **kudu** (`https://*yourwebsitename*.scm.azurewebsites.net`).
+1. Entre no site do **kudu** ( `https://*yourwebsitename*.scm.azurewebsites.net` ).
 2. Selecione o WebJob.
 3. Selecione o botão **Alternar saída**.
 4. Para baixar o arquivo de saída, selecione o link **Baixar**.
@@ -147,7 +147,7 @@ A exceção foi causada por um problema com o Gerenciador de Conexões Híbridas
 
 ## <a name="how-do-i-add-a-url-rewrite-rule"></a>Como fazer adicionar uma regra de regravação de URL?
 
-Para adicionar uma regra de reescrita de URL, crie um arquivo Web. config com as entradas de configuração relevantes na pasta **wwwroot** . Para obter mais informações, consulte [serviços de Azure App: Noções básicas sobre a regravação de URL](https://blogs.msdn.microsoft.com/madhurabharadwaj/2018/06/01/azure-app-services-understanding-url-re-write/).
+Para adicionar uma regra de reescrita de URL, crie um arquivo de web.config com as entradas de configuração relevantes na pasta **wwwroot** . Para obter mais informações, consulte [serviços de Azure App: Noções básicas sobre a regravação de URL](https://blogs.msdn.microsoft.com/madhurabharadwaj/2018/06/01/azure-app-services-understanding-url-re-write/).
 
 ## <a name="how-do-i-control-inbound-traffic-to-app-service"></a>Como controlar o tráfego de entrada para o Serviço de Aplicativo?
 

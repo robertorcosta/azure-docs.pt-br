@@ -1,6 +1,6 @@
 ---
 title: 'Início rápido: criar um pipeline de CI/CD para .NET com o iniciador DevOps do Azure'
-description: O iniciador DevOps do Azure facilita a introdução ao Azure. Ele ajuda você a iniciar um aplicativo .NET em um serviço do Azure de sua escolha com algumas etapas rápidas.
+description: Com o Azure DevOps Starter, é mais fácil começar a usar o Azure. Ele ajuda você a iniciar um aplicativo .NET em um serviço do Azure de sua escolha com algumas etapas rápidas.
 ms.prod: devops
 ms.technology: devops-cicd
 services: azure-devops-project
@@ -16,10 +16,10 @@ ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: mvc
 ms.openlocfilehash: 3f0d937737cb261fb81dc4cdad3579ee593b5981
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82233288"
 ---
 # <a name="create-a-cicd-pipeline-for-net-with-azure-devops-starter"></a>Criar um pipeline de CI/CD para .NET com o iniciador DevOps do Azure
@@ -30,13 +30,13 @@ Caso não tenha uma assinatura do Azure, você pode obter uma gratuita via [Visu
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-O iniciador DevOps cria um pipeline de CI/CD no Azure DevOps. É possível criar uma nova organização do Azure DevOps ou usar uma existente. O iniciador DevOps também cria recursos do Azure na assinatura do Azure de sua escolha.
+O iniciador DevOps cria um pipeline de CI/CD no Azure DevOps. É possível criar uma nova organização do Azure DevOps ou usar uma existente. O DevOps Starter também cria recursos do Azure na assinatura do Azure de sua escolha.
 
 1. Entre no [Portal do Microsoft Azure](https://portal.azure.com).
 
-1. Na caixa de pesquisa, digite **DevOps Starter**e, em seguida, selecione. Clique em **Adicionar** para criar um novo. 
+1. Na caixa de pesquisa, digite **DevOps Starter** e selecione. Clique em **Adicionar** para criar um. 
 
-    ![O painel inicial do DevOps](_img/azure-devops-starter-aks/search-devops-starter.png)
+    ![O painel do DevOps Starter](_img/azure-devops-starter-aks/search-devops-starter.png)
 
 ## <a name="select-a-sample-application-and-azure-service"></a>Selecionar um aplicativo de exemplo e o serviço do Azure
 
@@ -84,7 +84,7 @@ O iniciador DevOps criou um repositório git no Azure Repos ou no GitHub. Para e
 
 Na etapa anterior, o iniciador DevOps do Azure configurou automaticamente um pipeline de CI/CD completo. Explore e personalize o pipeline conforme necessário. Siga as etapas a seguir para se familiarizar com os pipelines de build e de lançamento do Azure DevOps.
 
-1. Na parte superior do painel inicial do DevOps, selecione **criar pipelines**. Esse link abre uma guia de navegador e o pipeline de build do Azure DevOps para seu novo projeto.
+1. Na parte superior do painel do DevOps Starter, selecione **Pipelines de Build**. Esse link abre uma guia de navegador e o pipeline de build do Azure DevOps para seu novo projeto.
 
 1. Selecione as reticências (...).  Essa ação abre um menu no qual você pode iniciar várias atividades, como enfileirar um novo build, pausar um build e editar o pipeline de build.
 
@@ -106,7 +106,7 @@ No painel **Histórico**, é exibida uma trilha de auditoria das alterações re
 1. Selecione **Retenção**. Dependendo do seu cenário, você pode especificar políticas para manter ou remover um determinado número de compilações.
 
 1. Selecione **Build e lançamento**, depois selecione **Lançamentos**.  
-O iniciador DevOps cria um pipeline de liberação para gerenciar implantações no Azure.
+O DevOps Starter cria um pipeline de lançamento para gerenciar implantações no Azure.
 
 1.  À esquerda, selecione as reticências (...) ao lado do pipeline de lançamento, depois selecione **Editar**. O pipeline de lançamento contém um pipeline, o qual define o processo de lançamento.  
 
@@ -126,7 +126,7 @@ O iniciador DevOps cria um pipeline de liberação para gerenciar implantações
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-É possível excluir o Serviço de Aplicativo do Azure e outros recursos criados quando eles não forem mais precisos. Use a funcionalidade **excluir** no painel inicial do DevOps.
+É possível excluir o Serviço de Aplicativo do Azure e outros recursos criados quando eles não forem mais precisos. Use a funcionalidade **Excluir** no painel do DevOps Starter.
 
 ## <a name="next-steps"></a>Próximas etapas
 

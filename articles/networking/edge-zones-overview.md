@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/02/2020
 ms.author: ganesr
 ms.openlocfilehash: 90e796c244950d6d374a02757b608099c229c1ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82146939"
 ---
 # <a name="about-azure-edge-zone-preview"></a>Sobre a visualização da zona do Azure Edge
@@ -30,13 +30,13 @@ Os cenários de caso de uso típicos para zonas de borda incluem:
 
 Há três tipos de zonas de borda do Azure:
 
-- Zonas do Azure Edge
+- Azure Edge Zone
 - Zonas do Azure Edge com a transportadora
 - Zonas de borda privada do Azure
 
-## <a name="azure-edge-zones"></a><a name="edge-zones"></a>Zonas do Azure Edge
+## <a name="azure-edge-zones"></a><a name="edge-zones"></a>Azure Edge Zone
 
-![Zonas do Azure Edge](./media/edge-zones-overview/edge-zones.png "Zonas do Azure Edge")
+![Azure Edge Zone](./media/edge-zones-overview/edge-zones.png "Azure Edge Zone")
 
 As zonas do Azure Edge são extensões de pequena superfície do Azure colocadas em centros de população que estão longe das regiões do Azure. As zonas do Azure Edge dão suporte a VMs, contêineres e um conjunto selecionado de serviços do Azure que permitem que você execute aplicativos sensíveis à latência e com uso intensivo de taxa de transferência próximos aos usuários finais. As zonas do Azure Edge fazem parte da rede global da Microsoft. Eles fornecem conectividade segura, confiável e de alta largura de banda entre aplicativos executados na zona de borda perto do usuário. E eles oferecem o conjunto completo de serviços do Azure em execução nas regiões do Azure. As zonas do Azure Edge são de propriedade e operadas pela Microsoft. Você pode usar o mesmo conjunto de ferramentas do Azure e o mesmo portal para gerenciar e implantar serviços em zonas de borda.
 
@@ -131,7 +131,7 @@ Temos um rico ecossistema de fornecedores de VNF, ISVs e parceiros MSP para perm
 
 ##### <a name="firewall-vendors"></a><a name="firewall-vendors"></a>Fornecedores de firewall
 
-- [Redes Palo Alto](https://www.paloaltonetworks.com/)
+- [Palo Alto Networks](https://www.paloaltonetworks.com/)
 
 ##### <a name="managed-solutions-providers-mobile-operators-and-global-system-integrators-gsis"></a><a name="msp-mobile"></a>Provedores de soluções gerenciadas: operadores móveis e integradores de sistema global (GSIs)
 

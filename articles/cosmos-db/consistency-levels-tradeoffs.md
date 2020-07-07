@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.reviewer: sngun
 ms.openlocfilehash: 4de696e2538bf1fa4823aafe30f931b7852535a7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82191729"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Compensações de consistência, disponibilidade e desempenho
@@ -22,7 +22,7 @@ O Azure Cosmos DB aborda a coerência de dados como um espectro de opções. Ess
 
 - *Forte*
 - *Desatualização limitada*
-- *Session*
+- *Sessão*
 - *Prefixo consistente*
 - *Eventual*
 
@@ -49,11 +49,11 @@ A latência RTT é uma função de distância à velocidade da luz e a topologia
 
 - Para um determinado tipo de operação de gravação, como inserir, substituir, submeter, excluir, a taxa de transferência de gravação para unidades de solicitação é idêntica para todos os níveis de consistência.
 
-|**Nível de Consistência**|**Leituras de quorum**|**Gravações de quorum**|
+|**Nível de consistência**|**Leituras de quorum**|**Gravações de quorum**|
 |--|--|--|
 |**Forte**|Minoria local|Maioria global|
 |**Desatualização Limitada**|Minoria local|Maioria local|
-|**Session**|Réplica única (usando o token de sessão)|Maioria local|
+|**Sessão**|Réplica única (usando o token de sessão)|Maioria local|
 |**Prefixo Coerente**|Réplica única|Maioria local|
 |**Eventual**|Réplica única|Maioria local|
 
@@ -67,10 +67,10 @@ A tabela a seguir define a relação entre o modelo de consistência e a durabil
 |---------|---------|---------|---------|---------|
 |1|Único ou vários mestres|Qualquer nível de consistência|< 240 minutos|< 1 semana|
 |> 1|Único mestre|Sessão, Prefixo Consistente, Eventual|< 15 minutos|< 15 minutos|
-|> 1|Único mestre|Bounded staleness|*K* & *T*|< 15 minutos|
+|> 1|Único mestre|Bounded staleness|*K*  &  *T*|< 15 minutos|
 |> 1|Único mestre|Strong|0|< 15 minutos|
 |> 1|Vários mestres|Sessão, Prefixo Consistente, Eventual|< 15 minutos|0|
-|> 1|Vários mestres|Bounded staleness|*K* & *T*|0|
+|> 1|Vários mestres|Bounded staleness|*K*  &  *T*|0|
 
 *K* = o número de versões *"K"* (ou seja, atualizações) de um item.
 

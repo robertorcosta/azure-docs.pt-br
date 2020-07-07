@@ -1,6 +1,6 @@
 ---
 title: 'Início rápido: criar um pipeline de CI/CD para Ruby on Rails usando o iniciador DevOps do Azure'
-description: O iniciador DevOps do Azure facilita a introdução ao Azure. É possível lançar um aplicativo Web do Ruby em um serviço do Azure em algumas etapas rápidas.
+description: Com o Azure DevOps Starter, é mais fácil começar a usar o Azure. É possível lançar um aplicativo Web do Ruby em um serviço do Azure em algumas etapas rápidas.
 ms.prod: devops
 ms.technology: devops-cicd
 services: vsts
@@ -14,10 +14,10 @@ ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: mvc
 ms.openlocfilehash: cde959d8e075b55cb6cbb37479ca49cdd8a8c0c1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82233730"
 ---
 # <a name="create-a-cicd-pipeline-for-ruby-on-rails-by-using-azure-devops-starter"></a>Criar um pipeline de CI/CD para Ruby on Rails usando o iniciador DevOps do Azure
@@ -28,13 +28,13 @@ Caso não tenha uma assinatura do Azure, você pode obter uma gratuita via [Visu
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-O iniciador DevOps do Azure cria um pipeline de CI/CD no Azure Repos. É possível criar uma nova organização do Azure DevOps ou usar uma existente. O iniciador DevOps também cria recursos do Azure na assinatura do Azure de sua escolha.
+O iniciador DevOps do Azure cria um pipeline de CI/CD no Azure Repos. É possível criar uma nova organização do Azure DevOps ou usar uma existente. O DevOps Starter também cria recursos do Azure na assinatura do Azure de sua escolha.
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 
-1. Na caixa de pesquisa, digite **DevOps Starter**e, em seguida, selecione. Clique em **Adicionar** para criar um novo.
+1. Na caixa de pesquisa, digite **DevOps Starter** e selecione. Clique em **Adicionar** para criar um.
 
-    ![O painel inicial do DevOps](_img/azure-devops-starter-aks/search-devops-starter.png) 
+    ![O painel do DevOps Starter](_img/azure-devops-starter-aks/search-devops-starter.png) 
 
 ## <a name="select-a-sample-app-and-azure-service"></a>Selecionar um aplicativo de exemplo e o serviço do Azure
 
@@ -73,17 +73,17 @@ O iniciador DevOps do Azure cria um repositório git no Azure Pipelines ou no Gi
 
 1. Selecione **Confirmar**, depois salve as alterações.
 
-1. No navegador, vá para o painel inicial do DevOps. Um build deve estar em andamento. As alterações feitas são automaticamente compiladas e implantadas via pipeline de CI/CD.
+1. No navegador, acesse o painel do DevOps Starter. Um build deve estar em andamento. As alterações feitas são automaticamente compiladas e implantadas via pipeline de CI/CD.
 
 ## <a name="examine-the-azure-pipelines-cicd-pipeline"></a>Examinar o pipeline de CI/CD do Azure Pipelines
 
 O Azure DevOps Starter configura automaticamente um pipeline de CI/CD completo em sua organização do DevOps do Azure. Explore e personalize o pipeline conforme necessário. Para se familiarizar com os pipelines de build e de lançamento do Azure DevOps, faça o seguinte:
 
-1. Vá para o painel inicial do DevOps.
+1. Vá até o painel do DevOps Starter.
 
 1. Na parte superior, selecione **Pipeline de build**. Uma guia do navegador exibe o pipeline de build do seu novo projeto.
 
-1. Aponte para o campo **status** e, em seguida, selecione as reticências (...). Um menu exibe várias opções, como enfileirar uma nova compilação, pausar uma compilação e editar o pipeline de compilação.
+1. Aponte para o campo **Status** e selecione as reticências (...). Um menu exibe várias opções, como o enfileiramento de um novo build, pausando um build e editando o pipeline de build.
 
 1. Selecione **Editar**.
 
@@ -91,15 +91,15 @@ O Azure DevOps Starter configura automaticamente um pipeline de CI/CD completo e
 
 1. Na parte superior do pipeline de build, selecione o nome desse pipeline.
 
-1. Altere o nome do pipeline de compilação para algo mais descritivo, selecione **salvar & fila**e, em seguida, selecione **salvar**.
+1. Altere o nome do pipeline de build para algo mais descritivo, selecione **Salvar e enfileirar** e selecione **Salvar**.
 
 1. Embaixo do nome do pipeline de build, selecione **Histórico**. Esse painel exibe uma trilha de auditoria das alterações recentes do build. O Azure DevOps controla quaisquer alterações feitas no pipeline de build e permite que você compare versões.
 
-1. Selecione **Gatilhos**.  O DevOps Starter cria automaticamente um gatilho de CI e cada confirmação para o repositório inicia uma nova compilação. Como opção, é possível incluir ou excluir os branches do processo de CI.
+1. Selecione **Gatilhos**.  O DevOps Starter cria automaticamente um gatilho de CI, e cada confirmação no repositório inicia um novo build. Como opção, é possível incluir ou excluir os branches do processo de CI.
 
 1. Selecione **Retenção**. Dependendo do seu cenário, você pode especificar políticas para manter ou remover um determinado número de compilações.
 
-1. Selecione **Build e Lançamento** e selecione **Lançamentos**.  O iniciador DevOps cria um pipeline de liberação para gerenciar implantações no Azure.
+1. Selecione **Build e Lançamento** e selecione **Lançamentos**.  O DevOps Starter cria um pipeline de lançamento para gerenciar implantações no Azure.
 
 1. Selecione as reticências (...) ao lado do pipeline de lançamento e selecione **Editar**. O pipeline de lançamento contém um *pipeline* que define o processo de lançamento.
 
@@ -115,11 +115,11 @@ O Azure DevOps Starter configura automaticamente um pipeline de CI/CD completo e
 
 1. Selecione **Confirmações**. Essa exibição mostra as confirmações de código associadas a essa implantação. 
 
-1. Selecione **logs**. Os logs contêm informações úteis sobre o processo de implantação. É possível exibi-los durante e após as implantações.
+1. Selecione **Logs**. Os logs contêm informações úteis sobre o processo de implantação. É possível exibi-los durante e após as implantações.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando eles não forem mais necessários, é possível excluir a instância de Serviço de Aplicativo do Azure e recursos relacionados criados neste início rápido. Para fazer isso, use a funcionalidade **excluir** no painel inicial do DevOps.
+Quando eles não forem mais necessários, é possível excluir a instância de Serviço de Aplicativo do Azure e recursos relacionados criados neste início rápido. Para fazer isso, use a funcionalidade **Excluir** no painel do DevOps Starter.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
 ms.openlocfilehash: 726cf362e62f0ef914dfaea090a08c224bd5d8d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82192494"
 ---
 # <a name="access-apache-hadoop-yarn-application-logs-on-linux-based-hdinsight"></a>Acessar logs do aplicativo Apache Hadoop YARN no HDInsight baseado em Linux
@@ -50,15 +50,15 @@ O recurso de agregação de logs permite acessar logs de aplicativos mais determ
 
 No caminho, `user` é o nome do usuário que iniciou o aplicativo. O `applicationId` é o identificador exclusivo atribuído a um aplicativo pelo RM do YARN.
 
-Os logs agregados não são diretamente legíveis, pois são gravados em um formato TFile, binário indexado pelo contêiner. Use os logs `ResourceManager` do yarn ou as ferramentas da CLI para exibir esses logs como texto sem formatação para aplicativos ou contêineres de interesse.
+Os logs agregados não são diretamente legíveis, pois são gravados em um formato TFile, binário indexado pelo contêiner. Use os logs do YARN `ResourceManager` ou as ferramentas da CLI para exibir esses logs como texto sem formatação para aplicativos ou contêineres de interesse.
 
 ## <a name="yarn-logs-in-an-esp-cluster"></a>Yarn logs em um cluster ESP
 
 Duas configurações devem ser adicionadas ao personalizado `mapred-site` no Ambari.
 
-1. Em um navegador da Web, navegue `https://CLUSTERNAME.azurehdinsight.net`até, `CLUSTERNAME` em que é o nome do cluster.
+1. Em um navegador da Web, navegue até `https://CLUSTERNAME.azurehdinsight.net`, em que `CLUSTERNAME` é o nome do cluster.
 
-1. Na interface do usuário do amAmbari, navegue até **MapReduce2** > **configurações** > **avançadas** > **personalizadas mapred-site**.
+1. Na interface do usuário do amAmbari, navegue até **MapReduce2**  >  **configurações**  >  **avançadas**  >  **personalizadas mapred-site**.
 
 1. Adicione *um* dos seguintes conjuntos de propriedades:
 
@@ -79,7 +79,7 @@ Duas configurações devem ser adicionadas ao personalizado `mapred-site` no Amb
 
 ## <a name="yarn-cli-tools"></a>Ferramentas CLI do YARN
 
-1. Use o [comando ssh](./hdinsight-hadoop-linux-use-ssh-unix.md) para se conectar ao cluster. Edite o comando a seguir substituindo CLUSTERname pelo nome do cluster e, em seguida, digite o comando:
+1. Use o [comando ssh](./hdinsight-hadoop-linux-use-ssh-unix.md) para se conectar ao cluster. Edite o comando abaixo substituindo CLUSTERNAME pelo nome do cluster e, em seguida, insira o comando:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -117,7 +117,7 @@ Duas configurações devem ser adicionadas ao personalizado `mapred-site` no Amb
 
 ### <a name="other-sample-commands"></a>Outros comandos de exemplo
 
-1. Baixe os logs de contêineres do yarn para todos os mestres de aplicativo com o comando a seguir. Esta etapa criará o arquivo de log `amlogs.txt` chamado em formato de texto.
+1. Baixe os logs de contêineres do yarn para todos os mestres de aplicativo com o comando a seguir. Esta etapa criará o arquivo de log chamado `amlogs.txt` em formato de texto.
 
     ```bash
     yarn logs -applicationId <application_id> -am ALL > amlogs.txt
@@ -147,9 +147,9 @@ Duas configurações devem ser adicionadas ao personalizado `mapred-site` no Amb
     yarn logs -applicationId <application_id> -containerId <container_id> > containerlogs.txt
     ```
 
-## <a name="yarn-resourcemanager-ui"></a>interface `ResourceManager` do usuário do amYARN
+## <a name="yarn-resourcemanager-ui"></a>`ResourceManager`interface do usuário do AMYARN
 
-A interface `ResourceManager` do usuário do yarn é executada no cabeçalho do cluster. Ele é acessado por meio da interface do usuário do amAmbari Web. Execute as etapas a seguir para exibir os logs do YARN:
+A `ResourceManager` interface do usuário do yarn é executada no cabeçalho do cluster. Ele é acessado por meio da interface do usuário do amAmbari Web. Execute as etapas a seguir para exibir os logs do YARN:
 
 1. No navegador da Web, navegue até `https://CLUSTERNAME.azurehdinsight.net`. Substitua CLUSTERNAME com o nome do cluster HDInsight.
 
@@ -157,7 +157,7 @@ A interface `ResourceManager` do usuário do yarn é executada no cabeçalho do 
 
     ![Serviço yarn do Apache Ambari selecionado](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarn-service-selected.png)
 
-3. Na lista suspensa **links rápidos** , selecione um dos nós de cabeçalho do cluster e, **`ResourceManager Log`** em seguida, selecione.
+3. Na lista suspensa **links rápidos** , selecione um dos nós de cabeçalho do cluster e, em seguida, selecione **`ResourceManager Log`** .
 
     ![Links rápidos do Apache Ambari yarn](./media/hdinsight-hadoop-access-yarn-app-logs-linux/hdi-yarn-quick-links.png)
 

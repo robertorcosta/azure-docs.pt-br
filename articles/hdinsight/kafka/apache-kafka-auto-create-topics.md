@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
 ms.openlocfilehash: 88dc3e4d761f9b4df63dfa07a24298398f7b0187
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82231264"
 ---
 # <a name="how-to-configure-apache-kafka-on-hdinsight-to-automatically-create-topics"></a>Como configurar o Apache Kafka no HDInsight para criar tópicos automaticamente
@@ -29,7 +29,7 @@ Para habilitar a criação automática de tópico em um cluster existente por me
 
     ![Imagem do portal com o painel do cluster selecionado](./media/apache-kafka-auto-create-topics/azure-portal-cluster-dashboard-ambari.png)
 
-    Quando solicitado, autentique-se usando as credenciais de logon (administrador) do cluster. Em vez disso, você pode se conectar ao `https://CLUSTERNAME.azurehdinsight.net/` Amabri `CLUSTERNAME` diretamente de onde é o nome do seu cluster Kafka.
+    Quando solicitado, autentique-se usando as credenciais de logon (administrador) do cluster. Em vez disso, você pode se conectar ao Amabri diretamente de `https://CLUSTERNAME.azurehdinsight.net/` onde `CLUSTERNAME` é o nome do seu cluster Kafka.
 
 1. Selecione o serviço Kafka na lista à esquerda da página.
 
@@ -45,7 +45,7 @@ Para habilitar a criação automática de tópico em um cluster existente por me
 
     Essa configuração filtra a lista de propriedades e exibe a `auto.create.topics.enable` configuração.
 
-1. Altere o valor de `auto.create.topics.enable` para `true`e, em seguida, selecione **salvar**. Adicione uma observação e, em seguida, selecione **salvar** novamente.
+1. Altere o valor de `auto.create.topics.enable` para e, `true` em seguida, selecione **salvar**. Adicione uma observação e, em seguida, selecione **salvar** novamente.
 
     ![Imagem da entrada auto.create.topics.enable](./media/apache-kafka-auto-create-topics/auto-create-topics-enable.png)
 

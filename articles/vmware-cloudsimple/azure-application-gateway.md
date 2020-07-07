@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: b7dce0181987b7e61b243a7eb0e13b7ed687eb08
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82185686"
 ---
 # <a name="use-azure-application-gateway-with-vmware-virtual-machines-in-the-cloudsimple-private-cloud-environment"></a>Usar Aplicativo Azure gateway com máquinas virtuais VMware no ambiente de nuvem privada do CloudSimple
@@ -71,7 +71,7 @@ As instruções detalhadas para isso estão disponíveis em [criar um gateway de
 
 1. Crie uma rede virtual em sua assinatura e grupo de recursos.
 2. Crie uma sub-rede (para ser usada como sub-rede dedicada) em sua rede virtual.
-3. Criar um gateway de aplicativo padrão (opcionalmente, habilitar WAF): na página inicial do portal do Azure, clique em **recursos** > **rede** > **Gateway de aplicativo** no canto superior esquerdo da página. Selecione o SKU e o tamanho padrão e forneça a assinatura do Azure, o grupo de recursos e as informações de local. Se necessário, crie um novo IP público para esse gateway de aplicativo e forneça detalhes sobre a rede virtual e a sub-rede dedicada para o gateway de aplicativo.
+3. Criar um gateway de aplicativo padrão (opcionalmente, habilitar WAF): na página inicial do portal do Azure, clique em **recursos**  >  **rede**  >  **Gateway de aplicativo** no canto superior esquerdo da página. Selecione o SKU e o tamanho padrão e forneça a assinatura do Azure, o grupo de recursos e as informações de local. Se necessário, crie um novo IP público para esse gateway de aplicativo e forneça detalhes sobre a rede virtual e a sub-rede dedicada para o gateway de aplicativo.
 4. Adicione um pool de back-end com máquinas virtuais e adicione-a ao seu gateway de aplicativo.
 
 ## <a name="4-create-and-configure-a-web-server-vm-pool-in-your-private-cloud"></a>4. criar e configurar um pool de VM do servidor Web em sua nuvem privada

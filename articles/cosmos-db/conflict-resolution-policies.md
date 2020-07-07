@@ -8,10 +8,10 @@ ms.date: 04/20/2020
 ms.author: mjbrown
 ms.reviewer: sngun
 ms.openlocfilehash: c3b1cf01cbaa8de8ec33bbf9c19ee991ae898d58
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82182745"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>Tipos e políticas de resolução de conflitos
@@ -35,7 +35,7 @@ O Azure Cosmos DB oferece um mecanismo flexível orientado por políticas para r
   Se dois ou mais itens entram em conflito ou substituem operações, o item com o valor mais alto para o "caminho de resolução de conflitos" torna-se o "vencedor". O sistema determina o ganhador se vários itens tiverem o mesmo valor numérico para o caminho de resolução de conflito. Todas as regiões têm a garantia de convergir para um único vencedor e terminarão com a versão igual do item confirmado. Ao excluir conflitos que estão envolvidos, a versão excluída sempre supera o inserir ou substituir os conflitos. Esse resultado ocorre independentemente do valor do caminho de resolução de conflito.
 
   > [!NOTE]
-  > A última gravação vence é a política de resolução de conflitos padrão `_ts` e usa o carimbo de data/hora para as seguintes APIs: SQL, MongoDB, Cassandra, Gremlin e Table. A propriedade numérica personalizada está disponível somente para a API do SQL.
+  > A última gravação vence é a política de resolução de conflitos padrão e usa o carimbo de data/hora `_ts` para as seguintes APIs: SQL, MongoDB, Cassandra, Gremlin e Table. A propriedade numérica personalizada está disponível somente para a API do SQL.
 
   Para saber mais, confira [exemplos que usam políticas de resolução de conflitos LWW](how-to-manage-conflicts.md).
 

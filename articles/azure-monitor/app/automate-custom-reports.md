@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
 ms.openlocfilehash: cf251d63645efc70ee93e84827db47ae3055ae33
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82161411"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatizar relatórios personalizados com dados do Azure Application Insights
@@ -91,11 +91,11 @@ availabilityResults
 
    ![Screenshot de Configurações de Função](./media/automate-custom-reports/scheduled-digest.png)
 
-6. Selecione sua**configuração**de**recursos** > da plataforma **aplicativo de funções** > .
+6. Selecione sua **Function App**  >  configuração de**recursos da plataforma**aplicativo de funções  >  **Configuration**.
 
     ![Configurações de aplicativo do Azure](./media/automate-custom-reports/config.png)
 
-7. Crie três novas configurações do aplicativo com valores correspondentes apropriados ``AI_APP_ID``, ``AI_APP_KEY``, e ``SendGridAPI``. Clique em **Salvar**.
+7. Crie três novas configurações do aplicativo com valores correspondentes apropriados ``AI_APP_ID``, ``AI_APP_KEY``, e ``SendGridAPI``. Selecione **Salvar**.
 
      ![Captura de tela de interface de integração função](./media/automate-custom-reports/app-settings.png)
     
@@ -136,7 +136,7 @@ Este passos apenas aplicam se você não tiver já uma conta SendGrip configurad
 
      ![Screenshot Chave API Configurações](./media/automate-custom-reports/sendgrid-manage.png)
 
-3. Isto inicializará o site SendGrip. Selecione **configurações** > **chaves de API**.
+3. Isto inicializará o site SendGrip. Selecione **configurações**  >  **chaves de API**.
 
      ![Criar e Ver Screenshot de Aplicativo de Chave API](./media/automate-custom-reports/function-app-15.png)
 

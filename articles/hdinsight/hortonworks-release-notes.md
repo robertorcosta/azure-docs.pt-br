@@ -1,5 +1,5 @@
 ---
-title: Notas de versão do Hortonworks associadas às versões do Azure HDInsight
+title: Notas sobre a versão do Hortonworks associadas a versões do Azure HDInsight
 description: Conheça os componentes e as versões do Apache Hadoop no Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/22/2020
 ms.openlocfilehash: aa20e048db2b68d8f953b06745570759de5f2e9c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82190564"
 ---
 # <a name="hortonworks-release-notes-associated-with-hdinsight-versions"></a>Notas de versão do Hortonworks associadas a versões do HDInsight
@@ -51,7 +51,7 @@ A seção fornece links para notas de versão para as distribuições do Hortonw
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Componentes do Apache Hadoop no HDInsight](./hdinsight-component-versioning.md)
-* [Configuração do cluster para Apache Hadoop, Spark e mais no HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
+* [Configuração de cluster para o Apache Hadoop, Spark e muito mais no HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 
 [hdp-2-2]: https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.2.9/bk_HDP_RelNotes/content/ch_relnotes_v229.html
 

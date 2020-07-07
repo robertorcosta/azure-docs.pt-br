@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
 ms.openlocfilehash: 0ccb87017f962650f099d506e1d200ab408316d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82195138"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Visão geral de Streaming do Apache Spark
 
-[Apache Spark](https://spark.apache.org/) O streaming fornece processamento de fluxo de dados em clusters do HDInsight Spark. Com uma garantia de que qualquer evento de entrada seja processado exatamente uma vez, mesmo se ocorrer uma falha de nó. Um fluxo do Spark é um trabalho de longa execução que recebe dados de entrada de uma ampla variedade de fontes, incluindo hubs de eventos do Azure. Além disso: Hub IoT do Azure, Apache Kafka, Apache Flume, `ZeroMQ`Twitter, soquetes TCP brutos ou monitoramento Apache Hadoop sistemas de de yarn. Ao contrário de um processo exclusivamente controlado por eventos, um fluxo do Spark gera dados de entrada em janelas de tempo. Como uma fatia de 2 segundos e, em seguida, transforma cada lote de dados usando operações de mapear, reduzir, unir e extrair. Em seguida, o Spark Stream grava os dados transformados em sistemas de arquivos, bancos de dados, painéis e no console.
+[Apache Spark](https://spark.apache.org/) O streaming fornece processamento de fluxo de dados em clusters do HDInsight Spark. Com uma garantia de que qualquer evento de entrada seja processado exatamente uma vez, mesmo se ocorrer uma falha de nó. Um fluxo do Spark é um trabalho de longa execução que recebe dados de entrada de uma ampla variedade de fontes, incluindo hubs de eventos do Azure. Além disso: Hub IoT do Azure, Apache Kafka, Apache Flume, Twitter, `ZeroMQ` Soquetes TCP brutos ou monitoramento Apache Hadoop sistemas de de yarn. Ao contrário de um processo exclusivamente controlado por eventos, um fluxo do Spark gera dados de entrada em janelas de tempo. Como uma fatia de 2 segundos e, em seguida, transforma cada lote de dados usando operações de mapear, reduzir, unir e extrair. Em seguida, o Spark Stream grava os dados transformados em sistemas de arquivos, bancos de dados, painéis e no console.
 
 ![Processamento de Stream com o HDInsight e o Spark Streaming](./media/apache-spark-streaming-overview/hdinsight-spark-streaming.png)
 
-Os aplicativos de streaming do Spark devem aguardar uma fração de um `micro-batch` segundo para coletar cada um dos eventos antes de enviar esse lote para processamento. Por outro lado, um aplicativo controlado por evento processa cada evento imediatamente. A latência do Spark Streaming normalmente fica abaixo de alguns segundos. Os benefícios da abordagem de microlote são um processamento de dados mais eficiente e cálculos de agregação mais simples.
+Os aplicativos de streaming do Spark devem aguardar uma fração de um segundo para coletar cada um `micro-batch` dos eventos antes de enviar esse lote para processamento. Por outro lado, um aplicativo controlado por evento processa cada evento imediatamente. A latência do Spark Streaming normalmente fica abaixo de alguns segundos. Os benefícios da abordagem de microlote são um processamento de dados mais eficiente e cálculos de agregação mais simples.
 
 ## <a name="introducing-the-dstream"></a>Introdução ao DStream
 
@@ -167,7 +167,7 @@ Há seis valores, pois a DummySource cria um valor a cada 5 segundos e o aplicat
 
 ## <a name="sliding-windows"></a>Janelas deslizantes
 
-Para fazer cálculos agregados em seu DStream durante um período de tempo, por exemplo, para obter uma temperatura média nos últimos dois segundos, `sliding window` use as operações incluídas no Spark streaming. Uma janela deslizante tem uma duração (a duração da janela) e o intervalo durante o qual o conteúdo da janela é avaliado (o intervalo de deslizamento).
+Para fazer cálculos agregados em seu DStream durante um período de tempo, por exemplo, para obter uma temperatura média nos últimos dois segundos, use as `sliding window` operações incluídas no Spark streaming. Uma janela deslizante tem uma duração (a duração da janela) e o intervalo durante o qual o conteúdo da janela é avaliado (o intervalo de deslizamento).
 
 As janelas deslizantes podem se sobrepor; por exemplo, é possível definir uma janela com uma duração de dois segundos, que desliza a cada segundo. Essa ação significa que sempre que você fizer um cálculo de agregação, a janela incluirá dados do último segundo da janela anterior. E todos os novos dados no próximo segundo.
 

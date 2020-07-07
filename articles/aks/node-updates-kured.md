@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 02/28/2019
 ms.openlocfilehash: 955e5323769a7b9bf80413c045aaa3d55547eb02
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82208067"
 ---
 # <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>Aplicar atualizações de segurança e kernel a nós do Linux no serviço kubernetes do Azure (AKS)
@@ -25,9 +25,9 @@ Este artigo mostra como usar o kured de código-fonte aberto [(KUbernetes reboot
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo considera que já existe um cluster do AKS. Se você precisar de um cluster do AKS, confira o guia de início rápido do AKS [Usando a CLI do Azure][aks-quickstart-cli] ou [Usando o portal do Azure][aks-quickstart-portal].
+Este artigo considera que já existe um cluster do AKS. Se precisar de um cluster do AKS, veja o guia de início rápido do AKS [usando a CLI do Azure][aks-quickstart-cli] ou [usando o portal do Azure][aks-quickstart-portal].
 
-Você também precisa do CLI do Azure versão 2.0.59 ou posterior instalada e configurada. Execute  `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
+A CLI do Azure versão 2.0.59 ou posterior também precisa estar instalada e configurada. Execute  `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
 
 ## <a name="understand-the-aks-node-update-experience"></a>Compreender a experiência de atualização do nó AKS
 
@@ -37,7 +37,7 @@ Em um cluster do AKS, os nós do Kubernetes executam como VMs (máquinas virtuai
 
 Algumas atualizações de segurança, como atualizações de kernel, exigem uma reinicialização do nó para finalizar o processo. Um nó do Linux que requer uma reinicialização cria um arquivo chamado */var/run/reboot-Required*. Esse processo de reinicialização não ocorre automaticamente.
 
-Você pode usar seus próprios fluxos de trabalho e processos para manipular reinicializações de nós ou usar `kured` para orquestrar o processo. Com `kured`o, um [daemonset][DaemonSet] é implantado e executa um pod em cada nó do Linux no cluster. Esses pods no Daemonset observam a existência do arquivo */var/run/reboot-Required* e, em seguida, iniciam um processo para reinicializar os nós.
+Você pode usar seus próprios fluxos de trabalho e processos para manipular reinicializações de nós ou usar `kured` para orquestrar o processo. Com `kured` o, um [daemonset][DaemonSet] é implantado e executa um pod em cada nó do Linux no cluster. Esses pods no Daemonset observam a existência do arquivo */var/run/reboot-Required* e, em seguida, iniciam um processo para reinicializar os nós.
 
 ### <a name="node-upgrades"></a>Upgrades de nós
 
@@ -52,7 +52,7 @@ Não será possível permanecer na mesma versão do Kubernetes durante um evento
 
 ## <a name="deploy-kured-in-an-aks-cluster"></a>Implantar em um cluster do AKS
 
-Para implantar o `kured` daemonset, instale o seguinte gráfico oficial do Kured Helm. Isso cria uma função e uma função de cluster, associações e uma conta de serviço e, em seguida, implanta o `kured`daemonset usando.
+Para implantar o `kured` daemonset, instale o seguinte gráfico oficial do Kured Helm. Isso cria uma função e uma função de cluster, associações e uma conta de serviço e, em seguida, implanta o Daemonset usando `kured` .
 
 ```console
 # Add the stable Helm repository

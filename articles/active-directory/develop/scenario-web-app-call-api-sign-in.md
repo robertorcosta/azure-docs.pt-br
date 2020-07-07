@@ -12,10 +12,10 @@ ms.date: 09/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: e138b3513b42dda47b0a114d866d657e18e3e393
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82181640"
 ---
 # <a name="a-web-app-that-calls-web-apis-remove-accounts-from-the-token-cache-on-global-sign-out"></a>Um aplicativo Web que chama APIs da Web: remover contas do cache de token na saída global
@@ -26,7 +26,7 @@ A saída é diferente para um aplicativo Web que chama APIs da Web. Quando o usu
 
 ## <a name="intercept-the-callback-after-single-sign-out"></a>Interceptar o retorno de chamada após a saída única
 
-Para limpar a entrada de cache de token associada à conta que foi desconectada, seu aplicativo pode interceptar o evento After `logout` . Os aplicativos Web armazenam tokens de acesso para cada usuário em um cache de token. Ao interceptar o retorno `logout` de chamada após, o aplicativo Web pode remover o usuário do cache.
+Para limpar a entrada de cache de token associada à conta que foi desconectada, seu aplicativo pode interceptar o `logout` evento After. Os aplicativos Web armazenam tokens de acesso para cada usuário em um cache de token. Ao interceptar o `logout` retorno de chamada após, o aplicativo Web pode remover o usuário do cache.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 

@@ -4,10 +4,10 @@ description: Um artigo que descreve os SKUs de VM com suporte (por Publicador, o
 ms.topic: conceptual
 ms.date: 11/08/2019
 ms.openlocfilehash: 4658d1beffe707682e173491edea1eac0db9c811
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82183612"
 ---
 # <a name="supported-vm-skus-for-azure-policy"></a>SKUs de VM com suporte para o Azure Policy
@@ -82,7 +82,7 @@ Canônico | UbuntuServer | 14.04.5-LTS
 Canônico | UbuntuServer | 16.04-LTS-DIÁRIO
 Canônico | UbuntuServer | 16.04-LTS
 Canônico | UbuntuServer | 16.04.0-LTS
-Canônico | UbuntuServer | 18, 4-DAILY-LTS
+Canônico | UbuntuServer | 18.04-DAILY-LTS
 Canônico | UbuntuServer | 18.04-LTS
 Oracle | Oracle-Linux | 6,8, 6,9, 6,10, 7,3, 7,4, 7,5, 7,6
 OpenLogic | CentOS | 6. X, 7. X

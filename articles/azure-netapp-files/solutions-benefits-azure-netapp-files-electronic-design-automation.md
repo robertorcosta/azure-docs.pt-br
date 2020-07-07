@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 04/24/2020
 ms.author: b-juche
 ms.openlocfilehash: fcede16619e8488796adc6f4c60af30643c1aadf
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82160146"
 ---
-# <a name="benefits-of-using-azure-netapp-files-for-electronic-design-automation"></a>Benefícios do uso de Azure NetApp Files para automação de design eletrônico
+# <a name="benefits-of-using-azure-netapp-files-for-electronic-design-automation"></a>Benefícios de usar o Azure NetApp Files para automação de design eletrônico
 
 O tempo de colocação no mercado (TTM) é uma consideração crítica para o setor de design de chips e condutores. O setor tem alta largura de banda e necessidades de baixa latência para armazenamento. Este artigo explica a solução que o Azure NetApp Files fornece para atender às necessidades do setor. Ele apresenta cenários de teste que executam um benchmark do setor padrão para EDA (automação de design eletrônico) usando Azure NetApp Files. 
 

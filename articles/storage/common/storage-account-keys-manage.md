@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: tamram
 ms.openlocfilehash: 4ade2c2e60373298eecf4e85df7fffeae4f45207
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82176610"
 ---
 # <a name="manage-storage-account-access-keys"></a>Gerenciar chaves de acesso da conta de armazenamento
@@ -42,7 +42,7 @@ Para exibir e copiar as chaves de acesso ou a cadeia de conexão da conta de arm
 
 Para recuperar as chaves de acesso da conta com o PowerShell, chame o comando [Get-AzStorageAccountKey](/powershell/module/az.Storage/Get-azStorageAccountKey) .
 
-O exemplo a seguir recupera a primeira chave. Para recuperar a segunda chave, use `Value[1]` em vez `Value[0]`de. Lembre-se de substituir os valores de espaço reservado entre colchetes por seus próprios valores.
+O exemplo a seguir recupera a primeira chave. Para recuperar a segunda chave, use `Value[1]` em vez de `Value[0]` . Lembre-se de substituir os valores de espaço reservado entre colchetes por seus próprios valores.
 
 ```powershell
 $storageAccountKey = `
@@ -108,7 +108,7 @@ Para girar as chaves de acesso da conta de armazenamento com o PowerShell:
     ```
 
 1. Atualize as cadeias de conexão em seu código para fazer referência à nova chave de acesso primária.
-1. Regenere a chave de acesso secundária da mesma maneira. Para regenerar a chave secundária, use `key2` como o nome da chave em `key1`vez de.
+1. Regenere a chave de acesso secundária da mesma maneira. Para regenerar a chave secundária, use `key2` como o nome da chave em vez de `key1` .
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -125,7 +125,7 @@ Para girar suas chaves de acesso da conta de armazenamento com CLI do Azure:
     ```
 
 1. Atualize as cadeias de conexão em seu código para fazer referência à nova chave de acesso primária.
-1. Regenere a chave de acesso secundária da mesma maneira. Para regenerar a chave secundária, use `key2` como o nome da chave em `key1`vez de.
+1. Regenere a chave de acesso secundária da mesma maneira. Para regenerar a chave secundária, use `key2` como o nome da chave em vez de `key1` .
 
 ---
 

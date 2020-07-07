@@ -4,10 +4,10 @@ description: Saiba como restaurar a chave e o segredo do Cofre de Chaves no Back
 ms.topic: conceptual
 ms.date: 08/28/2017
 ms.openlocfilehash: 826b3917fda820ed02cde425ca5a394bffec0df1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82186814"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Restaurar chave e segredo do Cofre de Chaves para VMs criptografadas usando o Backup do Azure
@@ -92,7 +92,7 @@ Restore-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -InputFile $sec
 
 > [!NOTE]
 >
-> * O valor de $secretname pode ser obtido referindo-se à saída de $encryptionObject. OsDiskKeyAndSecretDetails. SecretUrl e usando o texto após os segredos/por exemplo, `https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163` a URL secreta de saída é o nome do segredo B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
+> * O valor de $secretname pode ser obtido referindo-se à saída de $encryptionObject. OsDiskKeyAndSecretDetails. SecretUrl e usando o texto após os segredos/por exemplo, a URL secreta de saída é o `https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163` nome do segredo B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
 > * O valor da marca DiskEncryptionKeyFileName é o mesmo que o nome do segredo.
 >
 >

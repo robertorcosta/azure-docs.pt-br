@@ -11,10 +11,10 @@ ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 11c9d66f891e8f5d53fc2a965e75f095417d20d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82184003"
 ---
 # <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect: Referência do PowerShell ADSyncTools
@@ -553,7 +553,7 @@ As consultas de função o histórico de execuções do AAD Connect e exporta to
 #Required Parameters
 ```
 
-$sourcePath = Read-Host -Prompt "Insira o caminho do arquivo de log com o nome do arquivo" #"\<Source_Path\>" $outputPath = Read-Host -Prompt "Insira o caminho do arquivo de saída com o nome do arquivo" #"\<Out_Path\>"
+$sourcePath = Read-Host-prompt "Insira o caminho do arquivo de log com o nome de arquivo" # " \<Source_Path\> " $outputPath = Read-Host-prompt "Insira o caminho do arquivo de saída com o nome de arquivo" # " \<Out_Path\> "
  
  Get-ADSyncToolsUsersSourceAnchorChanged -sourcePath $sourcePath -outputPath $outputPath
 

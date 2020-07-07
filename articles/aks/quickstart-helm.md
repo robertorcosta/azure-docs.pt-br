@@ -7,21 +7,21 @@ ms.topic: article
 ms.date: 04/20/2020
 ms.author: zarhoads
 ms.openlocfilehash: 1f67605918e093e9ab28aa88be777d27acd831ef
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82169561"
 ---
 # <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-helm"></a>Início rápido: desenvolver no serviço de kubernetes do Azure (AKS) com Helm
 
-[Helm][helm] é uma ferramenta de empacotamento de software livre que ajuda a instalar e gerenciar o ciclo de vida de aplicativos Kubernetes. Semelhante a gerenciadores de pacotes do Linux, como *APT* e *Yum*, o Helm é usado para gerenciar gráficos Kubernetes, que são pacotes de recursos de Kubernetes pré-configurados.
+O [Helm][helm] é uma ferramenta de empacotamento de software livre que ajuda você a instalar e gerenciar o ciclo de vida de aplicativos kubernetes. Assim como os gerenciadores de pacotes do Linux, como *apt* e *yum*, o Helm é usado para gerenciar os gráficos do kubernetes, que são pacotes de recursos kubernetes pré-configurados.
 
 Este artigo mostra como usar o Helm para empacotar e executar um aplicativo no AKS. Para obter mais detalhes sobre como instalar um aplicativo existente usando o Helm, consulte [instalar aplicativos existentes com o Helm no AKs][helm-existing].
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, poderá criar uma [conta gratuita](https://azure.microsoft.com/free).
+* Uma assinatura do Azure. Caso não tenha uma assinatura do Azure, é possível criar uma [conta gratuita](https://azure.microsoft.com/free).
 * A [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) instalada.
 * Docker instalado e configurado. O Docker fornece pacotes que o configuram facilmente em qualquer sistema [Mac][docker-for-mac], [Windows][docker-for-windows] ou [Linux][docker-for-linux].
 * [Helm v3 instalado][helm-install].
@@ -94,7 +94,7 @@ az aks get-credentials --resource-group MyResourceGroup --name MyAKS
 
 ## <a name="download-the-sample-application"></a>Baixar o aplicativo de exemplo
 
-Este guia de início rápido usa [um aplicativo node. js de exemplo do repositório de exemplo Azure dev Spaces][example-nodejs]. Clone o aplicativo do GitHub e navegue até o `dev-spaces/samples/nodejs/getting-started/webfrontend` diretório.
+Este guia de início rápido usa [um aplicativo de exemplo Node.js do repositório de exemplo Azure dev Spaces][example-nodejs]. Clone o aplicativo do GitHub e navegue até o `dev-spaces/samples/nodejs/getting-started/webfrontend` diretório.
 
 ```console
 git clone https://github.com/Azure/dev-spaces
@@ -138,7 +138,7 @@ docker push <acrLoginServer>/webfrontend:v1
 
 ## <a name="create-your-helm-chart"></a>Criar seu gráfico do Helm
 
-Gere o gráfico do Helm usando `helm create` o comando.
+Gere o gráfico do Helm usando o `helm create` comando.
 
 ```console
 helm create webfrontend
@@ -168,7 +168,7 @@ service:
 ...
 ```
 
-Atualize `appVersion` para `v1` no *WebFrontEnd/Char. YAML*. Por exemplo
+Atualize `appVersion` para `v1` no *WebFrontEnd/Char. YAML*. Por exemplo,
 
 ```yml
 apiVersion: v2
@@ -198,7 +198,7 @@ webfrontend         LoadBalancer  10.0.141.72   <pending>     80:32150/TCP   2m
 webfrontend         LoadBalancer  10.0.141.72   <EXTERNAL-IP> 80:32150/TCP   7m
 ```
 
-Navegue até o balanceador de carga do seu aplicativo em um navegador usando `<EXTERNAL-IP>` o para ver o aplicativo de exemplo.
+Navegue até o balanceador de carga do seu aplicativo em um navegador usando o `<EXTERNAL-IP>` para ver o aplicativo de exemplo.
 
 ## <a name="delete-the-cluster"></a>Excluir o cluster
 

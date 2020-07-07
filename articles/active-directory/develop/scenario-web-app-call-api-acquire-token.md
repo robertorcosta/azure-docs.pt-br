@@ -12,10 +12,10 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 40e788099a159e1f60c0af02deccd7e3bef82744
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82181725"
 ---
 # <a name="a-web-app-that-calls-web-apis-acquire-a-token-for-the-app"></a>Um aplicativo Web que chama APIs da Web: adquirir um token para o aplicativo
@@ -27,7 +27,7 @@ Você criou o objeto de aplicativo cliente. Agora, você o usará para adquirir 
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Os métodos do controlador são protegidos por `[Authorize]` um atributo que força os usuários que estão sendo autenticados a usar o aplicativo Web. Este é o código que chama Microsoft Graph:
+Os métodos do controlador são protegidos por um `[Authorize]` atributo que força os usuários que estão sendo autenticados a usar o aplicativo Web. Este é o código que chama Microsoft Graph:
 
 ```csharp
 [Authorize]
@@ -47,7 +47,7 @@ public class HomeController : Controller
 
 O `ITokenAcquisition` serviço é injetado por ASP.NET usando injeção de dependência.
 
-Aqui está o código simplificado para a ação `HomeController`do, que obtém um token para chamar Microsoft Graph:
+Aqui está o código simplificado para a ação do `HomeController` , que obtém um token para chamar Microsoft Graph:
 
 ```csharp
 public async Task<IActionResult> Profile()
@@ -76,15 +76,15 @@ Essas etapas avançadas são abordadas no capítulo 3 do tutorial [3-webapp-mult
 
 O código para ASP.NET é semelhante ao código mostrado para ASP.NET Core:
 
-- Uma ação do controlador, protegida por um atributo [Authorize], extrai a ID do locatário e a ID `ClaimsPrincipal` de usuário do membro do controlador. (O ASP.NET `HttpContext.User`usa.)
+- Uma ação do controlador, protegida por um atributo [Authorize], extrai a ID do locatário e a ID de usuário do `ClaimsPrincipal` membro do controlador. (O ASP.NET usa `HttpContext.User` .)
 - A partir daí, ele cria um `IConfidentialClientApplication` objeto MSAL.net.
-- Por fim, ele chama `AcquireTokenSilent` o método do aplicativo cliente confidencial.
+- Por fim, ele chama o `AcquireTokenSilent` método do aplicativo cliente confidencial.
 
 # <a name="java"></a>[Java](#tab/java)
 
 No exemplo de Java, o código que chama uma API está no método getUsersFromGraph em [AuthPageController. java # L62](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthPageController.java#L62).
 
-O método tenta chamar `getAuthResultBySilentFlow`. Se o usuário precisar dar consentimento a mais escopos, o código processará o `MsalInteractionRequiredException` objeto para desafiar o usuário.
+O método tenta chamar `getAuthResultBySilentFlow` . Se o usuário precisar dar consentimento a mais escopos, o código processará o `MsalInteractionRequiredException` objeto para desafiar o usuário.
 
 ```java
 @RequestMapping("/msal4jsample/graph/me")

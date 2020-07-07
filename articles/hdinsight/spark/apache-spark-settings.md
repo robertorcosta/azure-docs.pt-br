@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
 ms.openlocfilehash: cdef21c69e8f05924097d57bbe78b86d38497b86
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82188150"
 ---
 # <a name="configure-apache-spark-settings"></a>Definir configurações do Apache Spark
@@ -96,13 +96,13 @@ Outra fonte de informações sobre os recursos usados pelos executores do Spark 
 
 Ou você pode usar a API REST do amAmbari para verificar programaticamente as definições de configuração do cluster HDInsight e Spark.  Mais informações estão disponíveis na [Referência da API do Apache Ambari no GitHub](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
-Dependendo da carga de trabalho do Spark, você poderá determinar que uma configuração Spark não padrão proporcione execuções de trabalho do Spark mais otimizadas.  Faça testes de parâmetro de comparação com cargas de trabalho de exemplo para validar as configurações de cluster não padrão.  Estes são alguns dos parâmetros comuns que você pode considerar ajustar:
+Dependendo da carga de trabalho do Spark, você poderá determinar que uma configuração Spark não padrão proporcione execuções de trabalho do Spark mais otimizadas.  Execute testes de comparação com cargas de trabalho de exemplo para validar quaisquer configurações não padrão de cluster.  Estes são alguns dos parâmetros comuns que você pode considerar ajustar:
 
 |Parâmetro |Descrição|
 |---|---|
-|--num-executores|Define o número de executores.|
-|--executor-núcleos|Define o número de núcleos para cada executor. É recomendável usar executores de tamanho médio, pois outros processos também consomem parte da memória disponível.|
-|--executor-memória|Controla o tamanho da memória (tamanho do heap) de cada executor em Apache Hadoop YARN, e você precisará deixar alguma memória para a sobrecarga de execução.|
+|--num-executors|Define o número de executores.|
+|--executor-cores|Define o número de núcleos para cada executor. É recomendável usar executores de tamanho médio, pois outros processos também consomem parte da memória disponível.|
+|--executor-memory|Controla o tamanho da memória (tamanho do heap) de cada executor em Apache Hadoop YARN, e você precisará deixar alguma memória para a sobrecarga de execução.|
 
 Aqui está um exemplo de dois nós de trabalho com valores de configuração diferentes:
 

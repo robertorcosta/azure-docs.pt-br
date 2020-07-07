@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seodec18,seoapr2020
 ms.date: 04/17/2020
 ms.openlocfilehash: 2b4756990162817087b0904a764b97526c3545d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82186644"
 ---
 # <a name="enterprise-security-package-configurations-with-azure-active-directory-domain-services-in-hdinsight"></a>Enterprise Security Package configurações com Azure Active Directory Domain Services no HDInsight
@@ -43,7 +43,7 @@ Você pode optar por sincronizar apenas os grupos que precisam de acesso aos clu
 
 Quando você estiver habilitando o LDAP seguro, coloque o nome de domínio no nome da entidade. E o nome alternativo da entidade no certificado. Se o nome de domínio for *contoso100.onmicrosoft.com*, verifique se o nome exato existe no nome da entidade do certificado e no nome alternativo da entidade. Para obter mais informações, consulte [Configurar LDAP seguro para um domínio gerenciado do Azure AD DS](../../active-directory-domain-services/tutorial-configure-ldaps.md).
 
-O exemplo a seguir cria um certificado autoassinado. O nome de domínio *contoso100.onmicrosoft.com* está em `Subject` ambos (nome da entidade `DnsName` ) e (nome alternativo da entidade).
+O exemplo a seguir cria um certificado autoassinado. O nome de domínio *contoso100.onmicrosoft.com* está em ambos `Subject` (nome da entidade) e `DnsName` (nome alternativo da entidade).
 
 ```powershell
 $lifetime=Get-Date
@@ -64,13 +64,13 @@ Use uma *identidade gerenciada atribuída pelo usuário* para simplificar as ope
 
 Determinadas operações de serviços de domínio, como a criação de UOs e entidades de serviço, são necessárias para o Enterprise Security Package do HDInsight. Você pode criar identidades gerenciadas em qualquer assinatura. Para obter mais informações sobre identidades gerenciadas em geral, consulte [identidades gerenciadas para recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md). Para obter mais informações sobre como as identidades gerenciadas funcionam no Azure HDInsight, consulte [identidades gerenciadas no Azure hdinsight](../hdinsight-managed-identities.md).
 
-Para configurar clusters ESP, crie uma identidade gerenciada atribuída pelo usuário se você ainda não tiver uma. Consulte [`Create, list, delete, or assign a role to a user-assigned managed identity by using the Azure portal`](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
+Para configurar clusters ESP, crie uma identidade gerenciada atribuída pelo usuário se você ainda não tiver uma. Confira [`Create, list, delete, or assign a role to a user-assigned managed identity by using the Azure portal`](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
 
 Em seguida, atribua a função **colaborador dos serviços de domínio do HDInsight** à identidade gerenciada no **controle de acesso** para AD DS do Azure. Você precisa de privilégios de administrador de AD DS do Azure para fazer essa atribuição de função.
 
 ![Controle de acesso do Azure Active Directory Domain Services](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-configure-managed-identity.png)
 
-A atribuição da função **colaborador dos serviços de domínio do HDInsight** garante que essa identidade tenha`on behalf of`acesso adequado () às operações de serviços de domínio no domínio AD DS do Azure. Essas operações incluem a criação e a exclusão de UOs.
+A atribuição da função **colaborador dos serviços de domínio do HDInsight** garante que essa identidade tenha `on behalf of` acesso adequado () às operações de serviços de domínio no domínio AD DS do Azure. Essas operações incluem a criação e a exclusão de UOs.
 
 Depois que a identidade gerenciada recebe a função, o administrador de AD DS do Azure gerencia quem a utiliza. Primeiro, o administrador seleciona a identidade gerenciada no Portal. Em seguida, seleciona o **controle de acesso (iam)** em **visão geral**. O administrador atribui a função de **operador de identidade gerenciada** a usuários ou grupos que desejam criar clusters ESP.
 
@@ -93,13 +93,13 @@ Altere a configuração dos servidores DNS na rede virtual AD DS do Azure. Para 
 
 É mais fácil colocar a instância do Azure AD DS e o cluster HDInsight na mesma rede virtual do Azure. Se você planeja usar redes virtuais diferentes, você deve emparelhar essas redes virtuais para que o controlador de domínio fique visível para VMs do HDInsight. Para obter mais informações, consulte [Emparelhamento de rede virtual do Azure](../../virtual-network/virtual-network-peering-overview.md).
 
-Depois que as redes virtuais estiverem emparelhadas, configure a rede virtual do HDInsight para usar um servidor DNS personalizado. E insira os IPs privados do Azure AD DS como os endereços do servidor DNS. Quando ambas as redes virtuais usam os mesmos servidores DNS, seu nome de domínio personalizado será resolvido para o IP correto e poderá ser acessado do HDInsight. Por exemplo, se o nome de domínio `contoso.com`for, após essa etapa, `ping contoso.com` o deverá ser resolvido para o IP de AD DS correto do Azure.
+Depois que as redes virtuais estiverem emparelhadas, configure a rede virtual do HDInsight para usar um servidor DNS personalizado. E insira os IPs privados do Azure AD DS como os endereços do servidor DNS. Quando ambas as redes virtuais usam os mesmos servidores DNS, seu nome de domínio personalizado será resolvido para o IP correto e poderá ser acessado do HDInsight. Por exemplo, se o nome de domínio for `contoso.com` , após essa etapa, `ping contoso.com` o deverá ser resolvido para o IP de AD DS correto do Azure.
 
 ![Configurando servidores DNS personalizados para uma rede virtual emparelhada](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-peered-vnet-configuration.png)
 
 Se você estiver usando regras de NSG (grupo de segurança de rede) em sua sub-rede do HDInsight, deverá permitir os [IPS necessários](../hdinsight-management-ip-addresses.md) para o tráfego de entrada e de saída.
 
-Para testar a configuração de rede, ingresse uma VM do Windows na rede virtual/sub-rede do HDInsight e execute o ping no nome de domínio. (Ele deve ser resolvido para um IP.) Execute o **LDP. exe** para acessar o domínio de AD DS do Azure. Em seguida, ingresse essa VM do Windows no domínio para confirmar que todas as chamadas RPC necessárias são bem sucedidos entre o cliente e o servidor.
+Para testar a configuração de rede, ingresse uma VM do Windows na rede virtual/sub-rede do HDInsight e execute o ping no nome de domínio. (Ele deve ser resolvido para um IP.) Execute **ldp.exe** para acessar o domínio de AD DS do Azure. Em seguida, ingresse essa VM do Windows no domínio para confirmar que todas as chamadas RPC necessárias são bem sucedidos entre o cliente e o servidor.
 
 Use **nslookup** para confirmar o acesso à rede para sua conta de armazenamento. Ou qualquer banco de dados externo que você possa usar (por exemplo, metastore do Hive externo ou o Ranger DB). Verifique se as [portas necessárias](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers) são permitidas nas regras NSG da sub-rede do Azure AD DS, se um NSG proteger o AD DS do Azure. Se o domínio que ingressar nessa VM do Windows for bem-sucedido, você poderá continuar na próxima etapa e criar clusters ESP.
 
@@ -124,7 +124,7 @@ Ao criar um cluster HDInsight com o ESP, você deve fornecer os seguintes parâm
 
 * **Grupos de acesso de cluster**: os grupos de segurança cujos usuários você deseja sincronizar e que têm acesso ao cluster devem estar disponíveis no Azure AD DS. Um exemplo é o grupo HiveUsers. Para obter mais informações, consulte [Criar um grupo e adicionar membros no Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-* **URL de LDAPS**: um exemplo `ldaps://contoso.com:636`é.
+* **URL de LDAPS**: um exemplo é `ldaps://contoso.com:636` .
 
 A identidade gerenciada que você criou pode ser escolhida na lista suspensa **identidade gerenciada atribuída pelo usuário** quando você está criando um novo cluster.
 
