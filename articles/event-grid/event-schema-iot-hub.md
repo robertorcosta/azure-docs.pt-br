@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: spelluru
 ms.openlocfilehash: f9bf807884ab5592fa320532f3ca10a223081263
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81393318"
 ---
 # <a name="azure-iot-hub-as-an-event-grid-source"></a>Hub IoT do Azure como uma fonte de grade de eventos
@@ -148,61 +148,61 @@ Todos os eventos conterão os mesmos dados de nível superior:
 
 | Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
-| id | cadeia de caracteres | Identificador exclusivo do evento. |
-| topic | cadeia de caracteres | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
-| subject | cadeia de caracteres | Caminho definido pelo fornecedor para o assunto do evento. |
-| eventType | cadeia de caracteres | Um dos tipos de evento registrados para a origem do evento. |
-| eventTime | cadeia de caracteres | A hora em que o evento é gerado com base na hora UTC do provedor. |
+| id | string | Identificador exclusivo do evento. |
+| topic | string | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
+| subject | string | Caminho definido pelo fornecedor para o assunto do evento. |
+| eventType | string | Um dos tipos de evento registrados para a origem do evento. |
+| eventTime | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
 | data | objeto | Dados de evento de Hub IoT.  |
-| dataVersion | cadeia de caracteres | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
-| metadataVersion | cadeia de caracteres | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
+| dataVersion | string | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
+| metadataVersion | string | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
 
 Para todos os eventos de Hub IoT, o objeto de dados contém as seguintes propriedades:
 
-| Propriedade | Type | Descrição |
+| Propriedade | Type | Description |
 | -------- | ---- | ----------- |
-| hubName | cadeia de caracteres | Nome do Hub IoT em que o dispositivo foi criado ou excluído. |
-| deviceId | cadeia de caracteres | O identificador exclusivo do dispositivo. Essa cadeia de caracteres que diferencia maiúsculas de minúsculas pode ter até 128 caracteres e suporta caracteres alfanuméricos ASCII de 7 bits, mais os caracteres especiais a seguir: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
+| hubName | string | Nome do Hub IoT em que o dispositivo foi criado ou excluído. |
+| deviceId | string | O identificador exclusivo do dispositivo. Essa cadeia de caracteres que diferencia maiúsculas de minúsculas pode ter até 128 caracteres e suporta caracteres alfanuméricos ASCII de 7 bits, mais os caracteres especiais a seguir: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 
 O conteúdo do objeto de dados é diferente para cada publicador do evento. 
 
 Para os eventos de Hub IoT **Dispositivo Conectado** e **Dispositivo Desconectado**, o objeto de dados contém as seguintes propriedades:
 
-| Propriedade | Type | Descrição |
+| Propriedade | Type | Description |
 | -------- | ---- | ----------- |
-| moduleId | cadeia de caracteres | O identificador exclusivo do módulo. Este campo é a saída somente para dispositivos de módulo. Essa cadeia de caracteres que diferencia maiúsculas de minúsculas pode ter até 128 caracteres e suporta caracteres alfanuméricos ASCII de 7 bits, mais os caracteres especiais a seguir: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
+| moduleId | string | O identificador exclusivo do módulo. Este campo é a saída somente para dispositivos de módulo. Essa cadeia de caracteres que diferencia maiúsculas de minúsculas pode ter até 128 caracteres e suporta caracteres alfanuméricos ASCII de 7 bits, mais os caracteres especiais a seguir: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 | deviceConnectionStateEventInfo | objeto | Informações de evento de estado de conexão do dispositivo
-| sequenceNumber | cadeia de caracteres | Um número que ajuda a indicar a ordem de eventos de dispositivo conectado ou dispositivo desconectado. O evento mais recente terá um número de sequência maior que o evento anterior. Esse número pode se alterar por mais de 1, mas está aumentando estritamente. Veja [como usar o número de sequência](../iot-hub/iot-hub-how-to-order-connection-state-events.md). |
+| sequenceNumber | string | Um número que ajuda a indicar a ordem de eventos de dispositivo conectado ou dispositivo desconectado. O evento mais recente terá um número de sequência maior que o evento anterior. Esse número pode se alterar por mais de 1, mas está aumentando estritamente. Veja [como usar o número de sequência](../iot-hub/iot-hub-how-to-order-connection-state-events.md). |
 
 Para o evento Hub IOT de **telemetria do dispositivo** , o objeto de dados contém a mensagem do dispositivo para a nuvem no [formato de mensagem do Hub IOT](../iot-hub/iot-hub-devguide-messages-construct.md) e tem as seguintes propriedades:
 
-| Propriedade | Type | Descrição |
+| Propriedade | Type | Description |
 | -------- | ---- | ----------- |
-| body | cadeia de caracteres | O conteúdo da mensagem do dispositivo. |
-| properties | cadeia de caracteres | Propriedades do aplicativo são cadeias de caracteres definidas pelo usuário que podem ser adicionadas à mensagem. Esses campos são opcionais. |
-| Propriedades do sistema | cadeia de caracteres | [As propriedades do sistema](../iot-hub/iot-hub-devguide-routing-query-syntax.md#system-properties) ajudam a identificar o conteúdo e a origem das mensagens. A mensagem de telemetria do dispositivo deve estar em um formato JSON válido com o contentType definido como JSON e contentEncoding definido como UTF-8 nas propriedades do sistema de mensagens. Se isso não estiver definido, o Hub IoT gravará as mensagens no formato codificado 64 base.  |
+| body | string | O conteúdo da mensagem do dispositivo. |
+| properties | string | Propriedades do aplicativo são cadeias de caracteres definidas pelo usuário que podem ser adicionadas à mensagem. Esses campos são opcionais. |
+| Propriedades do sistema | string | [As propriedades do sistema](../iot-hub/iot-hub-devguide-routing-query-syntax.md#system-properties) ajudam a identificar o conteúdo e a origem das mensagens. A mensagem de telemetria do dispositivo deve estar em um formato JSON válido com o contentType definido como JSON e contentEncoding definido como UTF-8 nas propriedades do sistema de mensagens. Se isso não estiver definido, o Hub IoT gravará as mensagens no formato codificado 64 base.  |
 
 Para os eventos de Hub IoT **Dispositivo Criado** e **Dispositivo Excluído**, o objeto de dados contém as seguintes propriedades:
 
-| Propriedade | Type | Descrição |
+| Propriedade | Type | Description |
 | -------- | ---- | ----------- |
 | gêmeos | objeto | Informações sobre o dispositivo "or", que é a representação em nuvem dos metadados do dispositivo de aplicativo. | 
-| deviceID | cadeia de caracteres | O identificador exclusivo do dispositivo gêmeo. | 
-| etag | cadeia de caracteres | Um validador para garantir a consistência das atualizações para um dispositivo gêmeo. Cada etag é garantida como sendo exclusivo por dispositivos gêmeos. |  
-| deviceEtag| cadeia de caracteres | Um validador para garantir a consistência das atualizações para um registro de dispositivo. Cada deviceEtag é garantida como sendo exclusivo por registro de dispositivo. |
-| status | cadeia de caracteres | Se os dispositivos gêmeos estão habilitados ou desabilitados. | 
-| statusUpdateTime | cadeia de caracteres | Atualizar o carimbo de data/hora ISO 8601 da ultima atualização de status dos dispositivos gêmeos. |
-| connectionState | cadeia de caracteres | Se o dispositivo está conectado ou desconectado. | 
-| lastActivityTime | cadeia de caracteres | O carimbo de data/hora ISO8601 da última atividade. | 
+| deviceID | string | O identificador exclusivo do dispositivo gêmeo. | 
+| etag | string | Um validador para garantir a consistência das atualizações para um dispositivo gêmeo. Cada etag é garantida como sendo exclusivo por dispositivos gêmeos. |  
+| deviceEtag| string | Um validador para garantir a consistência das atualizações para um registro de dispositivo. Cada deviceEtag é garantida como sendo exclusivo por registro de dispositivo. |
+| status | string | Se os dispositivos gêmeos estão habilitados ou desabilitados. | 
+| statusUpdateTime | string | Atualizar o carimbo de data/hora ISO 8601 da ultima atualização de status dos dispositivos gêmeos. |
+| connectionState | string | Se o dispositivo está conectado ou desconectado. | 
+| lastActivityTime | string | O carimbo de data/hora ISO8601 da última atividade. | 
 | cloudToDeviceMessageCount | inteiro | Contagem de nuvem para mensagens de dispositivo enviadas para este dispositivo. | 
-| authenticationType | cadeia de caracteres | Tipo de autenticação usado para este dispositivo: `SAS`, `SelfSigned`, ou `CertificateAuthority`. |
-| x509Thumbprint | cadeia de caracteres | A impressão digital é um valor exclusivo para o certificado x509, comumente usado para localizar um certificado específico em um repositório de certificados. A impressão digital é gerada dinamicamente usando o algoritmo SHA1 e não existe fisicamente no certificado. | 
-| primaryThumbprint | cadeia de caracteres | A impressão digital primária para o certificado x509. |
-| secondaryThumbprint | cadeia de caracteres | A impressão digital secundária para o certificado x509. | 
+| authenticationType | string | Tipo de autenticação usado para este dispositivo: `SAS`, `SelfSigned`, ou `CertificateAuthority`. |
+| x509Thumbprint | string | A impressão digital é um valor exclusivo para o certificado x509, comumente usado para localizar um certificado específico em um repositório de certificados. A impressão digital é gerada dinamicamente usando o algoritmo SHA1 e não existe fisicamente no certificado. | 
+| primaryThumbprint | string | A impressão digital primária para o certificado x509. |
+| secondaryThumbprint | string | A impressão digital secundária para o certificado x509. | 
 | version | inteiro | Um inteiro que é incrementado em um cada vez que o dispositivo gêmeo é atualizado. |
 | desejado | objeto | Uma parte das propriedades que pode ser gravada apenas pelo back-end do aplicativo e lida pelo dispositivo. | 
 | relatado | objeto | Uma parte das propriedades que pode ser gravada somente pelo dispositivo e lida pelo back-end do aplicativo. |
-| lastUpdated | cadeia de caracteres | Atualizar o carimbo de data/hora ISO 8601 da ultima atualização de propriedade dos dispositivos gêmeos. | 
+| lastUpdated | string | Atualizar o carimbo de data/hora ISO 8601 da ultima atualização de propriedade dos dispositivos gêmeos. | 
 
 ## <a name="tutorials-and-how-tos"></a>Tutoriais e instruções
 |Title  |Descrição  |

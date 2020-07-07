@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: ed93d24bc06a6622a8ace2b0ab6b44582da001c0
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82783741"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemas comuns e resoluções para o Azure IoT Edge
@@ -75,7 +75,7 @@ Por padrão, IoT Edge inicia os módulos em sua própria rede de contêiner isol
 
 **Opção 1: definir o servidor DNS em configurações do mecanismo de contêiner**
 
-Especifique o servidor DNS para seu ambiente nas configurações do mecanismo de contêiner, que será aplicado a todos os módulos de contêiner iniciados pelo mecanismo. Crie um arquivo chamado `daemon.json` especificando o servidor DNS a ser usado. Por exemplo: 
+Especifique o servidor DNS para seu ambiente nas configurações do mecanismo de contêiner, que será aplicado a todos os módulos de contêiner iniciados pelo mecanismo. Crie um arquivo chamado `daemon.json` especificando o servidor DNS a ser usado. Por exemplo:
 
 ```json
 {
@@ -87,12 +87,12 @@ O exemplo acima define o servidor DNS para um serviço DNS acessível publicamen
 
 Coloque `daemon.json` no local certo para sua plataforma:
 
-| Plataforma | Local |
+| Plataforma | Location |
 | --------- | -------- |
 | Linux | `/etc/docker` |
 | Host do Windows com contêineres do Windows | `C:\ProgramData\iotedge-moby\config` |
 
-Se o local já contiver `daemon.json` o arquivo, adicione a chave de **DNS** a ele e salve o arquivo.
+Se o local já contiver o `daemon.json` arquivo, adicione a chave de **DNS** a ele e salve o arquivo.
 
 Reinicie o mecanismo de contêiner para que as atualizações entrem em vigor.
 
@@ -103,7 +103,7 @@ Reinicie o mecanismo de contêiner para que as atualizações entrem em vigor.
 
 **Opção 2: definir o servidor DNS na implantação IoT Edge por módulo**
 
-Você pode definir o servidor DNS para *criaroptions* de cada módulo na implantação do IOT Edge. Por exemplo: 
+Você pode definir o servidor DNS para *criaroptions* de cada módulo na implantação do IOT Edge. Por exemplo:
 
 ```json
 "createOptions": {
@@ -149,7 +149,7 @@ Você pode resolver esse problema de duas maneiras:
 
 Se o dispositivo de IoT Edge estiver funcionando como um dispositivo de gateway, você precisará localizar e parar o processo que está usando a porta 443, 5671 ou 8883. Um erro para a porta 443 geralmente significa que o outro processo é um servidor Web.
 
-Se você não precisar usar o dispositivo IoT Edge como um gateway, poderá remover as associações de porta das opções de criação de módulo do edgeHub. Você pode alterar as opções de criação no portal do Azure ou diretamente no arquivo Deployment. JSON.
+Se você não precisar usar o dispositivo IoT Edge como um gateway, poderá remover as associações de porta das opções de criação de módulo do edgeHub. Você pode alterar as opções de criação no portal do Azure ou diretamente no deployment.jsno arquivo.
 
 No Portal do Azure:
 
@@ -165,9 +165,9 @@ No Portal do Azure:
 
 6. Salve as alterações e crie a implantação.
 
-No arquivo Deployment. JSON:
+Na deployment.jsno arquivo:
 
-1. Abra o arquivo Deployment. JSON que você aplicou ao seu dispositivo IoT Edge.
+1. Abra o deployment.jsno arquivo que você aplicou ao seu dispositivo de IoT Edge.
 
 2. Localize as `edgeHub` configurações na seção de propriedades desejadas do edgeAgent:
 
@@ -222,7 +222,7 @@ Quando você vir esse erro, você pode resolvê-lo a configurar o nome DNS de su
    ![Configurar o nome DNS da máquina virtual](./media/troubleshoot/configure-dns.png)
 
 3. Forneça um valor para **rótulo do nome DNS** e selecione **Salvar**.
-4. Copie o novo nome DNS, que deve estar no formato ** \<DNSnamelabel\>.\< vmlocation\>. cloudapp.Azure.com**.
+4. Copie o novo nome DNS, que deve estar no formato ** \<DNSnamelabel\> . \<vmlocation\> . cloudapp.azure.com**.
 5. Dentro da máquina virtual, use o comando a seguir para configurar o runtime do IoT Edge com seu nome DNS:
 
    * No Linux:
@@ -276,7 +276,7 @@ Para o Hub de IoT Edge, defina uma variável de ambiente **OptimizeForPerformanc
 
 No Portal do Azure:
 
-No Hub IOT, selecione o dispositivo IOT Edge e, na página detalhes do dispositivo e selecione **definir** > **configurações de tempo de execução**de módulos. Crie uma variável de ambiente para o módulo Hub de IoT Edge chamado *OptimizeForPerformance* que está definido como *false*.
+No Hub IOT, selecione o dispositivo IOT Edge e, na página detalhes do dispositivo e selecione **definir**  >  **configurações de tempo de execução**de módulos. Crie uma variável de ambiente para o módulo Hub de IoT Edge chamado *OptimizeForPerformance* que está definido como *false*.
 
 ![OptimizeForPerformance definido como false](./media/troubleshoot/optimizeforperformance-false.png)
 
@@ -300,7 +300,7 @@ No manifesto de implantação:
 
 **Comportamento observado:**
 
-Um módulo de IoT Edge personalizado falha ao enviar uma mensagem para o Hub de IoT Edge com `Module not found` um erro 404. O daemon do IoT Edge imprime a seguinte mensagem nos logs:
+Um módulo de IoT Edge personalizado falha ao enviar uma mensagem para o Hub de IoT Edge com um `Module not found` erro 404. O daemon do IoT Edge imprime a seguinte mensagem nos logs:
 
 ```output
 Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/adapters/hsm_client_http_edge.c Func:on_edge_hsm_http_recv Line:364 executing HTTP request fails, status=404, response_buffer={"message":"Module not found"}u, 04 )
@@ -314,7 +314,7 @@ O daemon do IoT Edge impõe a identificação do processo para todos os módulos
 
 A partir da versão 1.0.7, todos os processos de módulo estão autorizados a se conectar. Para obter mais informações, consulte a [versão de changelog do 1.0.7](https://github.com/Azure/iotedge/blob/master/CHANGELOG.md#iotedged-1).
 
-Se a atualização para 1.0.7 não for possível, conclua as etapas a seguir. Verifique se a mesma ID de processo sempre é usada pelo módulo personalizado do IoT Edge para enviar mensagens ao edgeHub. Por exemplo, certifique-se `ENTRYPOINT` de que `CMD` , em vez do comando no arquivo do Docker. O `CMD` comando leva a uma ID de processo para o módulo e outra ID de processo para o comando bash que executa o programa `ENTRYPOINT` principal, mas leva a uma única ID de processo.
+Se a atualização para 1.0.7 não for possível, conclua as etapas a seguir. Verifique se a mesma ID de processo sempre é usada pelo módulo personalizado do IoT Edge para enviar mensagens ao edgeHub. Por exemplo, certifique-se de que, em `ENTRYPOINT` vez do `CMD` comando no arquivo do Docker. O `CMD` comando leva a uma ID de processo para o módulo e outra ID de processo para o comando bash que executa o programa principal, mas `ENTRYPOINT` leva a uma única ID de processo.
 
 ## <a name="iot-edge-module-deploys-successfully-then-disappears-from-device"></a>IoT Edge módulo é implantado com êxito e desaparece do dispositivo
 
@@ -330,7 +330,7 @@ Se uma implantação automática se destinar a um dispositivo, ela terá priorid
 
 Use apenas um tipo de mecanismo de implantação por dispositivo, uma implantação automática ou implantações de dispositivo individuais. Se você tiver várias implantações automáticas direcionadas a um dispositivo, poderá alterar a prioridade ou as descrições de destino para certificar-se de que a correta se aplica a um determinado dispositivo. Você também pode atualizar o dispositivo de atualização para não corresponder mais à descrição de destino da implantação automática.
 
-Para obter mais informações, consulte [entender IOT Edge implantações automáticas para dispositivos únicos ou em escala](module-deployment-monitoring.md).
+Para saber mais, veja [Noções básicas sobre implantações automáticas do IoT Edge para dispositivos únicos ou em escala](module-deployment-monitoring.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

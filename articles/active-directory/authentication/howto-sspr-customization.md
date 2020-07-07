@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 54a45602b80db965e3cc79d188dd40034a320b79
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81394248"
 ---
 # <a name="customize-the-user-experience-for-azure-active-directory-self-service-password-reset"></a>Personalizar a experiência do usuário para Azure Active Directory redefinição de senha de autoatendimento
@@ -56,8 +56,8 @@ Para obter mais informações sobre as diferentes funções de administrador e s
 
 Se sua organização não deseja notificar os administradores sobre solicitações de redefinição de senha, as seguintes opções de configuração podem ser usadas:
 
-* Personalizar o link de assistência técnica para fornecer uma URL da Web ou um endereço mailto: que os usuários podem usar para obter assistência. Esta opção está em**Customization** > **email ou URL do helpdesk personalizado de** **redefinição** > de senha.
-* Habilite a redefinição de senha de autoatendimento para todos os usuários. Essa opção está em**Propriedades**de **redefinição** > de senha. Se você não quiser que os usuários redefinam as próprias senhas, poderá definir o escopo de acesso como um grupo vazio. *Não recomendamos essa opção.*
+* Personalizar o link de assistência técnica para fornecer uma URL da Web ou um endereço mailto: que os usuários podem usar para obter assistência. Esta opção está em **Password Reset**  >  **Customization**  >  **email ou URL do helpdesk personalizado de**redefinição de senha.
+* Habilite a redefinição de senha de autoatendimento para todos os usuários. Essa opção está em Propriedades de **redefinição de senha**  >  **Properties**. Se você não quiser que os usuários redefinam as próprias senhas, poderá definir o escopo de acesso como um grupo vazio. *Não recomendamos essa opção.*
 
 ## <a name="customize-the-sign-in-page-and-access-panel"></a>Personalizar a página de entrada e o painel de acesso
 
@@ -72,7 +72,7 @@ Os gráficos que escolher são mostrados nas seguintes circunstâncias:
 
 ### <a name="directory-name"></a>Nome do diretório
 
-Para tornar as coisas mais amigáveis para o usuário, você pode alterar o nome da organização no portal e nas comunicações automatizadas. Para alterar o atributo de nome de diretório na portal do Azure, navegue até **Azure Active Directory** > **Propriedades**. Essa opção de nome amigável de organização é a mais visível em emails automatizados, como nos exemplos a seguir:
+Para tornar as coisas mais amigáveis para o usuário, você pode alterar o nome da organização no portal e nas comunicações automatizadas. Para alterar o atributo de nome de diretório na portal do Azure, navegue até **Azure Active Directory**  >  **Propriedades**. Essa opção de nome amigável de organização é a mais visível em emails automatizados, como nos exemplos a seguir:
 
 * O nome amigável no email, por exemplo "*Microsoft em nome da demonstração da Contoso*"
 * A linha de assunto no email, por exemplo "*código de verificação de email da conta de demonstração da Contoso*"
@@ -81,7 +81,7 @@ Para tornar as coisas mais amigáveis para o usuário, você pode alterar o nome
 
 Se você usar Serviços de Federação do Active Directory (AD FS) (AD FS) para eventos de entrada do usuário, poderá adicionar um link à página de entrada usando as diretrizes no artigo para [Adicionar a descrição da página de entrada](/windows-server/identity/ad-fs/operations/add-sign-in-page-description).
 
-Forneça aos usuários um link para a página para que eles insiram o fluxo de trabalho do *https://passwordreset.microsoftonline.com*SSPR, como. Para adicionar um link à página de entrada AD FS, use o seguinte comando no servidor de AD FS:
+Forneça aos usuários um link para a página para que eles insiram o fluxo de trabalho do SSPR, como *https://passwordreset.microsoftonline.com* . Para adicionar um link à página de entrada AD FS, use o seguinte comando no servidor de AD FS:
 
 ``` powershell
 Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><a href='https://passwordreset.microsoftonline.com' target='_blank'>Can't access your account?</a></p>"

@@ -8,17 +8,17 @@ ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: e58df0997c62a131a3c9987369f8e076a62d6654
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81408334"
 ---
 # <a name="security-control-logging-and-monitoring"></a>Controle de segurança: registro em log e monitoramento
 
 O monitoramento e o log de segurança se concentram em atividades relacionadas à habilitação, à aquisição e ao armazenamento de logs de auditoria para os serviços do Azure.
 
-## <a name="21-use-approved-time-synchronization-sources"></a>2,1: usar fontes de sincronização de tempo aprovadas
+## <a name="21-use-approved-time-synchronization-sources"></a>2.1: usar fontes de sincronização de tempo aprovadas
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
@@ -30,37 +30,37 @@ No entanto, a Microsoft mantém fontes de tempo para recursos do Azure. você te
 
 - [Como configurar a sincronização de horário para recursos de computação Linux do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/time-sync)
 
-## <a name="22-configure-central-security-log-management"></a>2,2: configurar o gerenciamento do log de segurança central
+## <a name="22-configure-central-security-log-management"></a>2.2: configurar o gerenciamento central de log de segurança
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
 | 2.2 | 6,5, 6,6 | Cliente |
 
-Os logs de ingestão por meio de Azure Monitor para agregar dados de segurança gerados por dispositivos de ponto de extremidade, recursos de rede e outros sistemas de segurança. Em Azure Monitor, use Log Analytics espaços de trabalho para consultar e executar análises e use contas de armazenamento do Azure para armazenamento de longo prazo/arquivamento.
+Os logs de ingestão por meio de Azure Monitor para agregar dados de segurança gerados por dispositivos de ponto de extremidade, recursos de rede e outros sistemas de segurança. No Azure Monitor, use o Workspace do Log Analytics para consultar e realizar análises, e use contas de Armazenamento do Microsoft Azure para armazenamento de longo prazo/arquivamento.
 
-Como alternativa, você pode habilitar e dados integrados para o Azure Sentinel ou um SIEM de terceiros. 
+Como alternativa, você pode habilitar e integrar dados ao Azure Sentinel ou a um SIEM de terceiros. 
 
-- [Como carregar o Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Como integrar o Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
 
 - [Como coletar logs e métricas de plataforma com Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
 
 - [Como coletar logs de host interno da máquina virtual do Azure com Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-azurevm)
 
-- [Como começar a usar Azure Monitor e integração de SIEM de terceiros](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
+- [Introdução à integração do Azure Monitor e ao SIEM de terceiros](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
-## <a name="23-enable-audit-logging-for-azure-resources"></a>2,3: habilitar o log de auditoria para recursos do Azure
+## <a name="23-enable-audit-logging-for-azure-resources"></a>2.3: habilitar o registro em log de auditoria para recursos do Azure
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
 | 2.3 | 6,2, 6,3 | Cliente |
 
-Habilite as configurações de diagnóstico nos recursos do Azure para acessar logs de auditoria, segurança e diagnóstico. Logs de atividade, que estão disponíveis automaticamente, incluem origem do evento, data, usuário, carimbo de data/hora, endereços de origem, endereços de destino e outros elementos úteis.
+Habilite as configurações de diagnóstico nos recursos do Azure para acessar logs de auditoria, segurança e diagnóstico. Logs de atividade, que estão automaticamente disponíveis, incluem origem do evento, data, usuário, carimbo de data/hora, endereços de origem, endereços de destino e outros elementos úteis.
 
 - [Como coletar logs e métricas de plataforma com Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
 
 - [Entender o registro em log e diferentes tipos de log no Azure](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview)
 
-## <a name="24-collect-security-logs-from-operating-systems"></a>2,4: coletar logs de segurança de sistemas operacionais
+## <a name="24-collect-security-logs-from-operating-systems"></a>2.4: coletar logs de segurança de sistemas operacionais
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
@@ -72,19 +72,19 @@ Se o recurso de computação pertence à Microsoft, a Microsoft é responsável 
 
 - [Entender a coleta de dados da central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection)
 
-## <a name="25-configure-security-log-storage-retention"></a>2,5: configurar retenção de armazenamento de log de segurança
+## <a name="25-configure-security-log-storage-retention"></a>2.5: configurar a retenção de armazenamento do log de segurança
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
 | 2.5 | 6.4 | Cliente |
 
-Em Azure Monitor, defina seu período de retenção de espaço de trabalho de Log Analytics de acordo com os regulamentos de conformidade de sua organização. Use contas de armazenamento do Azure para armazenamento de longo prazo/arquivamento.
+Em Azure Monitor, defina seu período de retenção de espaço de trabalho de Log Analytics de acordo com os regulamentos de conformidade de sua organização. Use contas de Armazenamento do Microsoft Azure para armazenamentos de longo prazo/arquivamento.
 
 - [Alterar o período de retenção de dados em Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
 
 - [Como configurar a política de retenção para logs de conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account#configure-logging)
 
-## <a name="26-monitor-and-review-logs"></a>2,6: monitorar e examinar os logs
+## <a name="26-monitor-and-review-logs"></a>2.6: monitorar e revisar logs
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
@@ -92,13 +92,13 @@ Em Azure Monitor, defina seu período de retenção de espaço de trabalho de Lo
 
 Analise e monitore logs de comportamento anormal e Examine regularmente os resultados. Use o espaço de trabalho Log Analytics do Azure Monitor para examinar os logs e executar consultas nos dados de log.
 
-Como alternativa, você pode habilitar e dados integrados para o Azure Sentinel ou um SIEM de terceiros. 
+Como alternativa, você pode habilitar e integrar dados ao Azure Sentinel ou a um SIEM de terceiros. 
 
-- [Como carregar o Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Como integrar o Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
 
-- [Entender Log Analytics espaço de trabalho](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
+- [Compreender o workspace do Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
 
-- [Como executar consultas personalizadas no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
+- [Como realizar consultas personalizadas no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
 
 ## <a name="27-enable-alerts-for-anomalous-activities"></a>2,7: habilitar alertas para atividades anômalas
 
@@ -110,17 +110,17 @@ Use a central de segurança do Azure com Log Analytics espaço de trabalho para 
 
 Como alternativa, você pode habilitar e dados integrados para o Azure Sentinel.
 
-- [Como carregar o Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Como integrar o Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
 
 - [Como gerenciar alertas na central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)
 
 - [Como alertar sobre dados de log do log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
 
-## <a name="28-centralize-anti-malware-logging"></a>2,8: centralizar o registro em log de anti-malware
+## <a name="28-centralize-anti-malware-logging"></a>2.8: centralizar o registro em log de antimalware
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
-| 2.8 | 8.6 | Cliente |
+| 2,8 | 8.6 | Cliente |
 
 Habilite a coleta de eventos antimalware para máquinas virtuais e serviços de nuvem do Azure.
 
@@ -130,15 +130,15 @@ Habilite a coleta de eventos antimalware para máquinas virtuais e serviços de 
 
 - [Entender o Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
 
-## <a name="29-enable-dns-query-logging"></a>2,9: habilitar o log de consultas DNS
+## <a name="29-enable-dns-query-logging"></a>2.9: habilitar o registro em log de consulta DNS
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
-| 2,9 | 8.7 | Cliente |
+| 2.9 | 8.7 | Cliente |
 
 Implemente uma solução de terceiros do Azure Marketplace para a solução de registro em log DNS de acordo com as necessidades de suas organizações.  
 
-## <a name="210-enable-command-line-audit-logging"></a>2,10: habilitar o log de auditoria de linha de comando
+## <a name="210-enable-command-line-audit-logging"></a>2.10: habilitar o registro em log de auditoria de linha de comando
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
@@ -148,7 +148,7 @@ Use Microsoft Monitoring Agent em todas as máquinas virtuais Windows do Azure c
 
 - [Coleta de dados na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier)
 
-- [Como executar consultas personalizadas no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
+- [Como realizar consultas personalizadas no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
 
 - [Fontes de dados do Syslog no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-syslog)
 

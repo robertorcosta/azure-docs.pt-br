@@ -9,10 +9,10 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 ms.openlocfilehash: 963421fa1ef06599448c9a4197f0d7a6ad2e142d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80159176"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Instalar e usar o Azure IoT Explorer
@@ -73,7 +73,7 @@ Na página lista de **dispositivos** , você pode:
 
 - Selecione **Adicionar** para registrar um novo dispositivo com o Hub. Em seguida, insira uma ID do dispositivo. Use as configurações padrão para gerar automaticamente chaves de autenticação e habilitar a conexão com o Hub.
 - Selecione um dispositivo e, em seguida, selecione **excluir** para excluir uma identidade de dispositivo. Examine os detalhes do dispositivo antes de concluir esta ação para certificar-se de que você está excluindo a identidade correta do dispositivo.
-- Consultar por `capabilityID` e `interfaceID`. Adicione seu `capabilityID` ou `interfaceID` como um parâmetro para consultar seus dispositivos.
+- Consultar por `capabilityID` e `interfaceID` . Adicione seu `capabilityID` ou `interfaceID` como um parâmetro para consultar seus dispositivos.
 
 ## <a name="interact-with-a-device"></a>Interagir com um dispositivo
 
@@ -89,7 +89,7 @@ Esta seção inclui as guias **identidade do dispositivo**, **dispositivo**/ **t
 - Você pode chamar um [método direto](../iot-hub/iot-hub-devguide-direct-methods.md) no dispositivo na guia **método direto** .
 - Você pode enviar uma [mensagem da nuvem para o dispositivo](../iot-hub/iot-hub-devguide-messages-c2d.md) na guia **mensagens da nuvem para o dispositivo** .
 
-### <a name="digital-twin"></a>Entrelaçar digital
+### <a name="digital-twin"></a>Gêmeo digital
 
 Você pode usar a ferramenta para exibir a instância de cópia digital do dispositivo. Para um dispositivo de Plug and Play IoT, todas as interfaces associadas ao modelo de capacidade de dispositivo são exibidas nesta seção da ferramenta. Selecione uma interface para expandir seus [primitivos de plug and Play IOT](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL)correspondentes.
 

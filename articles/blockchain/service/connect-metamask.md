@@ -4,12 +4,12 @@ description: Conectar-se a uma rede do serviço Azure Blockchain usando o MetaMa
 ms.date: 09/12/2019
 ms.topic: quickstart
 ms.reviewer: janders
-ms.openlocfilehash: c0bad9efde44ce53f6b0656af3ac4af32ffe051d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: abb2479b81d4811b311d27fb0be9900f2827e939
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79205107"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920588"
 ---
 # <a name="quickstart-use-metamask-to-connect-and-deploy-a-smart-contract"></a>Início Rápido: Usar o MetaMask para se conectar e implantar um contrato inteligente
 
@@ -128,9 +128,9 @@ O Remix é um ambiente de desenvolvimento do Solidity baseado em navegador. Usan
 
 O painel de depuração do Remix mostra detalhes sobre as transações no blockchain:
 
-    ![Debug history](./media/connect-metamask/debug.png)
+![Histórico de depuração](./media/connect-metamask/debug.png)
 
-    You can see the **simple** contract creation, transaction for **simple.add**, and call to **simple.get**.
+Você poderá ver a criação do contrato **simples**, a transação para **simple.add** e a chamada a **simple.get**.
 
 Para ver o histórico de transações no MetaMask, abra a extensão do navegador do MetaMask e veja se há um registro dos contratos e transações implantados na seção **Histórico**.
 

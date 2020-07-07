@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: seodec18
 ms.openlocfilehash: 667dee6365f38ae058e91c61c24838d8912df26a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80152631"
 ---
 # <a name="diagnose-and-troubleshoot-a-preview-environment"></a>Diagnosticar e solucionar problemas de um ambiente de visualização
@@ -92,7 +92,7 @@ Selecione a origem (s) do evento que tem da qual a ingestão foi interrompida, C
 Verifique se o nome e o valor estão em conformidade com as seguintes regras:
 
 * O nome da propriedade Carimbo de data/hora diferencia maiúsculas de minúsculas.
-* O valor da propriedade Timestamp que vem da origem do evento como uma cadeia de caracteres JSON `yyyy-MM-ddTHH:mm:ss.FFFFFFFK`tem o formato. Um exemplo dessa cadeia de caracteres é `“2008-04-12T12:53Z”`.
+* O valor da propriedade Timestamp que vem da origem do evento como uma cadeia de caracteres JSON tem o formato `yyyy-MM-ddTHH:mm:ss.FFFFFFFK` . Um exemplo dessa cadeia de caracteres é `“2008-04-12T12:53Z”`.
 
 A maneira mais fácil de assegurar que o nome da propriedade Carimbo de data/hora seja capturado e funcione corretamente é usar o gerenciador da Versão prévia do Time Series Insights. No gerenciador da Versão prévia do Time Series Insights, use o gráfico para selecionar um período de tempo após fornecer o nome da propriedade Carimbo de data/hora. Clique com o botão direito do mouse na seleção e escolha a opção **explorar eventos**. O primeiro cabeçalho de coluna é o nome da propriedade Carimbo de data/hora. Ele deve ter `($ts)` ao lado da palavra `Timestamp`, em vez de:
 

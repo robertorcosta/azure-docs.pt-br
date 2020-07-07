@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: tomfitz
 ms.openlocfilehash: ce58fc69496f54c078b0a0a55a8a3c7cad82a051
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81391704"
 ---
 # <a name="quickstart-deploy-service-catalog-app-through-azure-portal"></a>Início rápido: implantar o aplicativo de catálogo de serviços por meio do portal do Azure
@@ -54,7 +54,7 @@ Depois que o serviço de aplicativo do catálogo tiver sido implantado, você te
 
 1. Exiba o grupo de recursos denominado **applicationGroup** para ver o app de catálogo de serviços.
 
-   ![Exibir aplicativo](./media/deploy-service-catalog-quickstart/view-managed-application.png)
+   ![Exibir o aplicativo](./media/deploy-service-catalog-quickstart/view-managed-application.png)
 
 1. Exiba o grupo de recursos denominado **applicationGroup{hash-characters}** para ver os recursos do app de catálogo de serviços.
 

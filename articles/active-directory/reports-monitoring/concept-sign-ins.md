@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2910933e2c57a8bc80a220726462b02915c4a8eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80246510"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividades de entrada no portal do Azure Active Directory
@@ -30,7 +30,7 @@ A arquitetura de relatórios no Azure AD (Azure Active Directory) consiste nos s
 
 - **Atividade** 
     - **Entradas** – Informações sobre o uso de aplicativos gerenciados e atividades de entrada do usuário.
-    - **Audit logs**Os logs de auditoria dos logs de auditoria fornecem informações de atividade do sistema sobre gerenciamento de usuários e de grupos, aplicativos gerenciados e atividades de diretório.[Audit logs](concept-audit-logs.md)  - 
+    - **Logs**  -  de auditoria [Os logs de auditoria](concept-audit-logs.md) fornecem informações de atividade do sistema sobre gerenciamento de usuários e de grupos, aplicativos gerenciados e atividades de diretório.
 - **Segurança** 
     - **Entradas arriscadas** -uma [entrada arriscada](concept-risky-sign-ins.md) é um indicador para uma tentativa de entrada por alguém que não seja o proprietário legítimo de uma conta de usuário.
     - **Usuários sinalizados para risco** – um [usuário arriscado](concept-user-at-risk.md) é um indicador para uma conta de usuário que pode ter sido comprometida.
@@ -117,7 +117,7 @@ Primeiro, restringir os dados relatados a um nível que funciona para você. Em 
  
 **Status** -o status de entrada sobre o qual você se preocupa:
 
-- Êxito
+- Sucesso
 
 - Falha
 
@@ -146,14 +146,14 @@ O **local** -o local do qual a conexão foi iniciada:
 ![Filtro de aplicativo cliente](./media/concept-sign-ins/client-app-filter.png)
 
 
-|Name|Autenticação moderna|Descrição|
+|Nome|Autenticação moderna|Descrição|
 |---|:-:|---|
 |SMTP autenticado| |Usado pelo cliente POP e IMAP para enviar mensagens de email.|
 |Descoberta automática| |Usado pelos clientes do Outlook e do EAS para localizar e conectar-se às caixas de correio no Exchange Online.|
 |Exchange ActiveSync| |Esse filtro mostra todas as tentativas de entrada nas quais o protocolo EAS foi tentado.|
 |Navegador|![Verificação](./media/concept-sign-ins/check.png)|Mostra todas as tentativas de entrada de usuários usando navegadores da Web|
 |Exchange ActiveSync| | Mostra todas as tentativas de entrada de usuários com aplicativos cliente usando o Exchange ActiceSync para se conectar ao Exchange Online|
-|PowerShell do Exchange Online| |Usado para se conectar ao Exchange Online com o PowerShell remoto. Se você bloquear a autenticação básica para o Exchange Online PowerShell, será necessário usar o módulo do PowerShell do Exchange Online para se conectar. Para obter instruções, consulte [conectar-se ao Exchange Online PowerShell usando a autenticação multifator](https://docs.microsoft.com/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).|
+|PowerShell do Exchange Online| |Usado para se conectar ao Exchange Online com o PowerShell remoto. Se você bloquear a autenticação básica para o Exchange Online PowerShell, será necessário usar o módulo do PowerShell do Exchange Online para se conectar. Para obter instruções, confira [Conectar ao Exchange Online PowerShell usando a autenticação multifator](https://docs.microsoft.com/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).|
 |Serviços Web do Exchange| |Uma interface de programação usada pelo Outlook, pelo Outlook para Mac e por aplicativos de terceiros.|
 |IMAP4| |Um cliente de email herdado usando IMAP para recuperar email.|
 |MAPI sobre HTTP| |Usado pelo Outlook 2010 e posterior.|
@@ -230,7 +230,7 @@ Cada linha na lista de atividades de entrada mostra:
 
 Ao clicar em um item, você verá mais detalhes sobre a operação de entrada:
 
-- Id de Usuário
+- ID do Usuário
 - Usuário
 - Nome de Usuário
 - ID do aplicativo

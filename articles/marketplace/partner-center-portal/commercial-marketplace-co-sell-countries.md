@@ -8,10 +8,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.openlocfilehash: 097fe2c394cb48a13fbc9cb253ef4df9c9959713
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80277049"
 ---
 # <a name="co-sell-country-and-region-codes"></a>Co-vender códigos de país e região
@@ -34,7 +34,7 @@ Se um contato abranger mais de um país/região, insira cada um dos dois código
 | Samoa Americana                      | AS        |
 | Andorra                             | AD        |
 | Angola                              | AO        |
-| Antártida                          | AQ        |
+| Antártica                          | AQ        |
 | Antígua e Barbuda                 | AG        |
 | Argentina                           | AR        |
 | Armênia                             | AM        |
@@ -62,7 +62,7 @@ Se um contato abranger mais de um país/região, insira cada um dos dois código
 | Ilhas Virgens Britânicas              | VG        |
 | Brunei                              | BN        |
 | Bulgária                            | BG        |
-| Burquina Faso                        | BF        |
+| Burkina Faso                        | BF        |
 | Burundi                             | BI        |
 | Cabo Verde                          | CV        |
 | Camboja                            | KH        |
@@ -77,15 +77,15 @@ Se um contato abranger mais de um país/região, insira cada um dos dois código
 | Ilha Christmas                    | CX        |
 | Ilhas Cocos (Keeling)             | CC        |
 | Colômbia                            | CO        |
-| Ilhas Comores                             | KM        |
+| Comores                             | KM        |
 | Congo                               | CG        |
-| Congo (República Democrática)                         | CD        |
+| Congo (RDC)                         | CD        |
 | Ilhas Cook                        | CK        |
 | Costa Rica                          | CR        |
 | Côte d’Ivoire                       | CI        |
 | Croácia                             | HR        |
 | Cuba                                | CU        |
-| Curaçao                             | PESO        |
+| Curaçao                             | CW        |
 | Chipre                              | CY        |
 | Dinamarca                             | DK        |
 | Djibuti                            | DJ        |
@@ -113,14 +113,14 @@ Se um contato abranger mais de um país/região, insira cada um dos dois código
 | Gana                               | GH        |
 | Gibraltar                           | GI        |
 | Grécia                              | GR        |
-| Groenlândia                           | GL        |
+| Groelândia                           | GL        |
 | Granada                             | GD        |
 | Guadalupe                          | GP        |
-| Guam                                | GU        |
+| Guão                                | GU        |
 | Guatemala                           | GT        |
 | Guernsey                            | GG        |
 | Guiné                              | GN        |
-| Guiné-Bissau                       | GW        |
+| Guiné Bissau                       | GW        |
 | Guiana                              | GY        |
 | Haiti                               | HT        |
 | Ilhas Heard e McDonald   | HM        |
@@ -135,7 +135,7 @@ Se um contato abranger mais de um país/região, insira cada um dos dois código
 | Irlanda                             | IE        |
 | Ilha de Man                         | IM        |
 | Israel                              | IL        |
-| Itália                               | TI        |
+| Itália                               | IT        |
 | Jamaica                             | JM        |
 | Japão                               | JP        |
 | Jersey                              | JE        |
@@ -143,7 +143,7 @@ Se um contato abranger mais de um país/região, insira cada um dos dois código
 | Cazaquistão                          | KZ        |
 | Quênia                               | KE        |
 | Kiribati                            | KI        |
-| Coreia (Sul)                       | KR        |
+| Coreia (do Sul)                       | KR        |
 | Kuwait                              | KW        |
 | Quirguistão                          | KG        |
 | Laos                                | LA        |
@@ -160,7 +160,7 @@ Se um contato abranger mais de um país/região, insira cada um dos dois código
 | Malaui                              | MW        |
 | Malásia                            | MY        |
 | Maldivas                            | MV        |
-| Máli                                | ML        |
+| Mali                                | ML        |
 | Malta                               | MT        |
 | Ilhas Marshall                    | MH        |
 | Martinica                          | MQ        |
@@ -197,7 +197,7 @@ Se um contato abranger mais de um país/região, insira cada um dos dois código
 | Palau                               | PW        |
 | Autoridade Palestina               | PS        |
 | Panamá                              | PA        |
-| Papua Nova-Guiné                    | PG        |
+| Papua Nova Guiné                    | PG        |
 | Paraguai                            | PY        |
 | Peru                                | PE        |
 | Filipinas                         | PH        |
@@ -213,7 +213,7 @@ Se um contato abranger mais de um país/região, insira cada um dos dois código
 | São Bartolomeu                    | BL        |
 | São Cristóvão e Névis               | KN        |
 | Santa Lúcia                         | LC        |
-| Saint Martin                        | MF        |
+| São Martinho                        | MF        |
 | São Pedro e Miquelon           | PM        |
 | São Vicente e Granadinas    | VC        |
 | Samoa                               | WS        |
@@ -225,7 +225,7 @@ Se um contato abranger mais de um país/região, insira cada um dos dois código
 | Seicheles                          | SC        |
 | Serra Leoa                        | SL        |
 | Singapura                           | SG        |
-| Sint Maarten                        | SX        |
+| São Martinho                        | SX        |
 | Eslováquia                            | SK        |
 | Eslovênia                            | SI        |
 | Ilhas Salomão                     | SB        |
@@ -248,7 +248,7 @@ Se um contato abranger mais de um país/região, insira cada um dos dois código
 | Tailândia                            | TH        |
 | Timor-Leste                         | TL        |
 | Togo                                | TG        |
-| Tokelau                             | TK        |
+| Toquelau                             | TK        |
 | Tonga                               | TO        |
 | Trinidad e Tobago                 | TT        |
 | Tunísia                             | TN        |
@@ -263,7 +263,7 @@ Se um contato abranger mais de um país/região, insira cada um dos dois código
 | Estados Unidos                       | EUA        |
 | Uruguai                             | UY        |
 | Territórios Insulares Ilhas Menores Distantes dos EUA               | UM        |
-| Ilhas Virgens dos Estados Unidos                 | VI        |
+| EUA Virgens Americanas                 | VI        |
 | Uzbequistão                          | UZ        |
 | Vanuatu                             | VU        |
 | Cidade do Vaticano                        | VA        |

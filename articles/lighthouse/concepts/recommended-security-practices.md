@@ -4,10 +4,10 @@ description: Ao usar o gerenciamento de recursos delegado do Azure, é important
 ms.date: 03/24/2020
 ms.topic: conceptual
 ms.openlocfilehash: d9b806aaf988fedfde6ce468f3eff948aa8ce344
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80246901"
 ---
 # <a name="recommended-security-practices"></a>Práticas de segurança recomendadas
@@ -25,13 +25,13 @@ Sugerimos que você solicite que seus clientes implementem a Autenticação Mult
 Para facilitar o gerenciamento, é recomendável usar grupos de usuários do Azure AD para cada função necessária para gerenciar os recursos dos seus clientes. Isso permite que você adicione ou remova usuários individuais do grupo, conforme necessário, em vez de atribuir permissões diretamente a esse usuário.
 
 > [!IMPORTANT]
-> Para adicionar permissões para um grupo do Azure AD, o **tipo de grupo** deve ser **segurança** e não **Office 365**. Essa opção é selecionada quando o grupo é criado. Para obter mais informações, confira [Criar um grupo básico e adicionar membros usando Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+> Para adicionar permissões para um grupo do Azure AD, o **Tipo de grupo** deve ser **Segurança**, e não **Office 365**. Essa opção é selecionada quando o grupo é criado. Para obter mais informações, consulte [Criar um grupo básico e adicionar membros usando o Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 Ao criar a estrutura de permissões, siga o princípio de privilégios mínimos para que os usuários tenham apenas as permissões necessárias para concluir seu trabalho, ajudando a reduzir a chance de erros acidentais.
 
 Por exemplo, convém usar uma estrutura como esta:
 
-|Nome do grupo  |Type  |principalId  |Definição de função  |ID de definição de função  |
+|Nome do grupo  |Tipo  |principalId  |Definição de função  |ID de definição de função  |
 |---------|---------|---------|---------|---------|
 |Arquitetos     |Grupo de usuários         |\<principalId\>         |Colaborador         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 |Avaliação     |Grupo de usuários         |\<principalId\>         |Leitor         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |

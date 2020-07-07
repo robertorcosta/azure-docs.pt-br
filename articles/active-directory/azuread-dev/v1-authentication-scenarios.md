@@ -15,10 +15,10 @@ ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 36b39f3706db615e40ebfadebf36be4d8b29c33e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80154722"
 ---
 # <a name="what-is-authentication"></a>O que é a autenticação?
@@ -60,18 +60,18 @@ No cenário de exemplo acima, você pode classificar os aplicativos de acordo co
 
 ### <a name="how-each-flow-emits-tokens-and-codes"></a>Como cada fluxo emite tokens e códigos
 
-Dependendo de como o cliente é criado, ele pode usar um (ou vários) dos fluxos de autenticação com suporte do Azure AD. Esses fluxos podem produzir uma variedade de tokens (id_tokens, tokens de atualização, tokens de acesso), bem como códigos de autorização, e exigem tokens diferentes para fazê-los funcionar. Este gráfico fornece uma visão geral:
+Dependendo de como o cliente é criado, ele pode usar um (ou vários) dos fluxos de autenticação com suporte do Azure AD. Esses fluxos podem produzir uma variedade de tokens (id_tokens, tokens de atualização, tokens de acesso), bem como códigos de autorização. Além disso, podem exigir tokens diferentes para fazê-los funcionar. Veja uma visão geral neste gráfico:
 
-|Flow | Requisitos | id_token | o token de acesso | token de atualização | código de autorização | 
+|Flow | Exige | id_token | o token de acesso | token de atualização | código de autorização | 
 |-----|----------|----------|--------------|---------------|--------------------|
-|[Fluxo de código de autorização](v1-protocols-oauth-code.md) | | x | x | x | x|  
+|[Fluxo do código de autorização](v1-protocols-oauth-code.md) | | x | x | x | x|  
 |[Fluxo implícito](v1-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
 |[Fluxo de OIDC híbrido](v1-protocols-openid-connect-code.md#get-access-tokens)| | x  | |          |            x   |
 |[Resgate de token de atualização](v1-protocols-oauth-code.md#refreshing-the-access-tokens) | token de atualização | x | x | x| |
-|[Fluxo em nome de](v1-oauth2-on-behalf-of-flow.md) | o token de acesso| x| x| x| |
-|[Credenciais de cliente](v1-oauth2-client-creds-grant-flow.md) | | | x (somente de aplicativo)| | |
+|[Fluxo em-nome-de](v1-oauth2-on-behalf-of-flow.md) | o token de acesso| x| x| x| |
+|[Credenciais do cliente](v1-oauth2-client-creds-grant-flow.md) | | | x (somente de aplicativo)| | |
 
-Tokens emitidos por meio do modo implícito têm uma limitação de comprimento devido a ser passado de volta para o navegador `response_mode` por `query` meio `fragment`da URL (onde é ou).  Alguns navegadores têm um limite no tamanho da URL que pode ser colocado na barra do navegador e falham quando é muito longo.  Portanto, esses tokens não têm `groups` declarações `wids` ou. 
+Tokens emitidos no modo implícito têm uma limitação de comprimento, porque são passados de volta para o navegador por meio da URL (em que `response_mode` é `query` ou `fragment`).  Alguns navegadores têm um limite de tamanho da URL que pode ser digitada na barra do navegador e falham quando ela é muito longa.  Portanto, esses tokens não têm declarações de `groups` ou `wids`. 
 
 Agora que você tem uma visão geral dos conceitos básicos, continue lendo para entender a API e o modelo de aplicativo de identidade, como funciona o provisionamento no Azure AD e obter links para informações detalhadas sobre os cenários comuns aos quais o Azure AD dá suporte.
 

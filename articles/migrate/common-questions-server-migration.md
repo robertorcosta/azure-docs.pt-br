@@ -4,10 +4,10 @@ description: Obtenha respostas para perguntas comuns sobre como usar a migraçã
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: 0cfe23b4e544040fc3ab69796988ca34b1bdcdbf
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82744337"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Migração de servidor de migrações para Azure: perguntas comuns
@@ -21,7 +21,7 @@ Este artigo responde a perguntas comuns sobre o migrações para Azure: ferramen
 
 ## <a name="what-geographies-are-supported-for-migration-with-azure-migrate"></a>Quais geografias têm suporte para migração com migrações para Azure?
 
-Examine as geografias com suporte para [nuvens](migrate-support-matrix.md#supported-geographies-azure-government) [públicas](migrate-support-matrix.md#supported-geographies-public-cloud) e governamentais.
+Examine as geografias compatíveis para [nuvens públicas](migrate-support-matrix.md#supported-geographies-public-cloud) e [governamentais](migrate-support-matrix.md#supported-geographies-azure-government).
 
 ## <a name="how-does-agentless-vmware-replication-work"></a>Como funciona a replicação do VMware sem agente?
 
@@ -81,11 +81,11 @@ No momento, você pode migrar 100 VMs por instância do vCenter Server simultane
 
 ## <a name="how-do-i-throttle-replication-in-using-azure-migrate-appliance-for-agentless-vmware-replication"></a>Como fazer a replicação de limitação no uso do dispositivo de migração do Azure para replicação do VMware sem agente?  
 
-Você pode limitar usando NetQosPolicy. Por exemplo: 
+Você pode limitar usando NetQosPolicy. Por exemplo:
 
-O AppNamePrefix a ser usado no NetQosPolicy é "GatewayWindowsService. exe". Você pode criar uma política no dispositivo de migrações para Azure para limitar o tráfego de replicação do dispositivo criando uma política como esta:
+O AppNamePrefix a ser usado no NetQosPolicy é "GatewayWindowsService.exe". Você pode criar uma política no dispositivo de migrações para Azure para limitar o tráfego de replicação do dispositivo criando uma política como esta:
  
-New-NetQosPolicy-Name "ThrottleReplication"-AppPathNameMatchCondition "GatewayWindowsService. exe"-ThrottleRateActionBitsPerSecond 1MB
+New-NetQosPolicy-Name "ThrottleReplication"-AppPathNameMatchCondition "GatewayWindowsService.exe"-ThrottleRateActionBitsPerSecond 1MB
 
 ## <a name="can-i-migrate-vms-that-are-already-being-replicated-to-azure"></a>Posso migrar VMs que já estão sendo replicadas para o Azure? 
 

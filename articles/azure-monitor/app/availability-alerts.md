@@ -7,10 +7,10 @@ ms.author: lagayhar
 ms.date: 06/19/2019
 ms.reviewer: sdash
 ms.openlocfilehash: 5af6aec2267384c37f664522d075bf26c632e7e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81382877"
 ---
 # <a name="availability-alerts"></a>Alertas de disponibilidade
@@ -69,9 +69,9 @@ Para automatizar esse processo com modelos de Azure Resource Manager, consulte a
 
 ## <a name="troubleshooting"></a>Solução de problemas
 
-[Artigo de solução de problemas](troubleshoot-availability.md)dedicado.
+[Artigo exclusivo para solução de problemas](troubleshoot-availability.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Testes na Web com diversas etapas](availability-multistep.md)
-* [Testes da Web de ping de URL](monitor-web-app-availability.md)
+* [Testes na Web de ping de URL](monitor-web-app-availability.md)

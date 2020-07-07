@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 01/14/2020
 ms.author: anzaman
 ms.openlocfilehash: 79c3a7934e9152a4908f895c20ee6fbdc0f360cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80128002"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-api"></a>Personalizar um modelo de marcas com a API do Video Indexer
@@ -30,7 +30,7 @@ Você pode usar a API do Video Indexer para criar, usar e editar modelos persona
 A API [criar uma marca](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Brand) cria uma nova marca personalizada e a adiciona ao modelo de marcas personalizadas para a conta especificada.
 
 > [!NOTE]
-> A `enabled` configuração (no corpo) como true coloca a marca na lista de *inclusão* para video indexer detectar. A `enabled` configuração como false coloca a marca na lista de *exclusões* , portanto Video indexer não a detectará.
+> A configuração `enabled` (no corpo) como true coloca a marca na lista de *inclusão* para video indexer detectar. A configuração `enabled` como false coloca a marca na lista de *exclusões* , portanto Video indexer não a detectará.
 
 Alguns outros parâmetros que podem ser definidos no corpo:
 

@@ -10,10 +10,10 @@ ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 754c106db42f3f0695ad023e736993bee82e9757
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82133929"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Implantar módulos do Azure IoT Edge do portal do Azure
@@ -24,7 +24,7 @@ Este artigo mostra como o portal do Azure guia você por meio da criação de um
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um [Hub IOT](../iot-hub/iot-hub-create-through-portal.md) em sua assinatura do Azure.
+* Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) na assinatura do Azure.
 * Um [Dispositivo do IoT Edge](how-to-register-device.md#register-in-the-azure-portal) com o runtime do IoT Edge instalado.
 
 ## <a name="configure-a-deployment-manifest"></a>Configurar um manifesto de implantação
@@ -35,7 +35,7 @@ O portal do Azure tem um assistente que ajuda você por meio da criação de man
 
 ### <a name="select-device-and-add-modules"></a>Selecionar dispositivo e adicionar módulos
 
-1. Entre no [portal do Azure](https://portal.azure.com) e navegue até o Hub IOT.
+1. Entre no [Portal do Azure](https://portal.azure.com) e navegue até o Hub IoT.
 1. No painel esquerdo, selecione **IOT Edge** no menu.
 1. Clique no ID do dispositivo alvo da lista de dispositivos.
 1. Na barra superior, selecione **Definir Módulos**.
@@ -43,7 +43,7 @@ O portal do Azure tem um assistente que ajuda você por meio da criação de man
 1. Na seção **módulos IOT Edge** da página, selecione **Adicionar**.
 1. Examine os tipos de módulos no menu suspenso:
 
-   * **Módulo IOT Edge** -você fornece o nome do módulo e o URI da imagem de contêiner. Por exemplo, o URI da imagem para o módulo SimulatedTemperatureSensor de `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`exemplo é. Se a imagem do módulo estiver armazenada em um registro de contêiner privado, adicione as credenciais nesta página para acessar a imagem.
+   * **Módulo IOT Edge** -você fornece o nome do módulo e o URI da imagem de contêiner. Por exemplo, o URI da imagem para o módulo SimulatedTemperatureSensor de exemplo é `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0` . Se a imagem do módulo estiver armazenada em um registro de contêiner privado, adicione as credenciais nesta página para acessar a imagem.
    * **Módulo do Marketplace** -módulos hospedados no Azure Marketplace. Alguns módulos do Marketplace exigem configuração adicional, portanto, examine os detalhes do módulo na lista de [módulos de IOT Edge do Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) .
    * **Módulo Azure Stream Analytics** -módulos gerados de uma carga de trabalho de Azure Stream Analytics.
 
@@ -53,7 +53,7 @@ O portal do Azure tem um assistente que ajuda você por meio da criação de man
 
 ### <a name="specify-routes"></a>Especificar Rotas
 
-Na guia **Rotas**, defina como as mensagens são transmitidas entre os módulos e o Hub IoT. As mensagens são construídas com pares nome/valor. Por padrão, uma rota é chamada de **rota** e definida como **de\* /messages/para $upstream**, o que significa que qualquer saída de mensagens por qualquer módulo é enviada para o Hub IOT.  
+Na guia **Rotas**, defina como as mensagens são transmitidas entre os módulos e o Hub IoT. As mensagens são construídas com pares nome/valor. Por padrão, uma rota é chamada de **rota** e definida como **de/messages/ \* para $upstream**, o que significa que qualquer saída de mensagens por qualquer módulo é enviada para o Hub IOT.  
 
 Adicione ou atualize as rotas com informações de [declarar rotas](module-composition.md#declare-routes)e, em seguida, selecione **Avançar: revisar + criar** para continuar na próxima etapa do assistente.
 

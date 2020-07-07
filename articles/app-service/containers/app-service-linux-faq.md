@@ -8,10 +8,10 @@ ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: f0a8b1758571a9473402d11a4d5141a11f76504d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80245813"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Perguntas frequentes sobre o Serviço de Aplicativo do Azure no Linux
@@ -32,8 +32,8 @@ Se você tiver qualquer dúvida, comente este artigo.
 
 | Pilha           | Valor Esperado                                                                         |
 |-----------------|----------------------------------------------------------------------------------------|
-| Java SE         | o comando para iniciar seu aplicativo JAR (por exemplo, `java -jar /home/site/wwwroot/app.jar --server.port=80`) |
-| Tomcat          | o local de um script para executar as configurações necessárias (por exemplo, `/home/site/deployments/tools/startup_script.sh`)          |
+| Java SE         | o comando para iniciar seu aplicativo JAR (por exemplo, `java -jar /home/site/wwwroot/app.jar --server.port=80` ) |
+| Tomcat          | o local de um script para executar as configurações necessárias (por exemplo, `/home/site/deployments/tools/startup_script.sh` )          |
 | Node.js         | o arquivo de configuração PM2 ou o arquivo de script                                |
 | .NET Core       | o nome da DLL compilada como`dotnet <myapp>.dll`                                 |
 | Ruby            | o script Ruby com o qual você deseja inicializar seu aplicativo                     |
@@ -110,7 +110,7 @@ Sim, durante uma implantação do Git, o Kudu deve detectar que você está impl
 
 **Estou usando meu próprio contêiner personalizado. Quero que a plataforma monte um compartilhamento SMB no `/home/` diretório.**
 
-Se `WEBSITES_ENABLE_APP_SERVICE_STORAGE` a configuração não for **especificada** ou definida *como true*, `/home/` o diretório **será compartilhado** entre as instâncias de escala e os arquivos gravados **persistirão** entre as reinicializações. Definir `WEBSITES_ENABLE_APP_SERVICE_STORAGE` explicitamente como *false* desabilitará a montagem.
+Se `WEBSITES_ENABLE_APP_SERVICE_STORAGE` a configuração não for **especificada** ou definida como *true*, o `/home/` diretório **será compartilhado** entre as instâncias de escala e os arquivos gravados **persistirão** entre as reinicializações. Definir explicitamente `WEBSITES_ENABLE_APP_SERVICE_STORAGE` como *false* desabilitará a montagem.
 
 **Meu contêiner personalizado demora para iniciar e a plataforma o reinicia antes que ele termine a inicialização.**
 
@@ -122,7 +122,7 @@ Forneça a URL completa do registro, incluindo `http://` ou `https://`.
 
 **Qual é o formato do nome da imagem na opção de Registro privado?**
 
-Adicione o nome de imagem completa, incluindo a URL de registro particular (por exemplo, myacr.azurecr.io/dotnet:latest). Os nomes de imagem que usam a porta personalizada [não podem ser inseridos por meio do portal](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Para definir `docker-custom-image-name`, use a [ `az` ferramenta de linha de comando](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set).
+Adicione o nome de imagem completa, incluindo a URL de registro particular (por exemplo, myacr.azurecr.io/dotnet:latest). Os nomes de imagem que usam a porta personalizada [não podem ser inseridos por meio do portal](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Para definir `docker-custom-image-name` , use a [ `az` ferramenta de linha de comando](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set).
 
 **Posso expor mais de uma porta em minha imagem de contêiner personalizados?**
 
@@ -153,7 +153,7 @@ Para usar o ACR com vários contêineres, **todas as imagens de contêiner** pre
 Crie as seguintes configurações de aplicativo:
 
 - DOCKER_REGISTRY_SERVER_USERNAME
-- DOCKER_REGISTRY_SERVER_URL (URL completa, ex: `https://<server-name>.azurecr.io`)
+- DOCKER_REGISTRY_SERVER_URL (URL completa, ex: `https://<server-name>.azurecr.io` )
 - DOCKER_REGISTRY_SERVER_PASSWORD (habilite o acesso de administrador nas configurações do ACR)
 
 No arquivo de configuração, referencie a imagem do ACR como o seguinte exemplo:

@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.openlocfilehash: ad0e0250b32f2bdef4944e6e148be3215f3822f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81390214"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Arquitetura de rede virtual do Azure HDInsight
@@ -36,7 +36,7 @@ Os clusters do Azure HDInsight têm diferentes tipos de máquinas virtuais ou n�
 
 Use nomes de domínio totalmente qualificados (FQDNs) ao endereçar nós em seu cluster. Você pode obter os FQDNs para vários tipos de nó no cluster usando a [API Ambari](hdinsight-hadoop-manage-ambari-rest-api.md).
 
-Esses FQDNs estarão no formato `<node-type-prefix><instance-number>-<abbreviated-clustername>.<unique-identifier>.cx.internal.cloudapp.net`.
+Esses FQDNs estarão no formato `<node-type-prefix><instance-number>-<abbreviated-clustername>.<unique-identifier>.cx.internal.cloudapp.net` .
 
 O `<node-type-prefix>` será *HN* para cabeçalho, *WN* para nós de trabalho e *Zn* para nós Zookeeper.
 
@@ -46,7 +46,7 @@ Se você precisar apenas do nome do host, use apenas a primeira parte do FQDN:`<
 
 O diagrama a seguir mostra o posicionamento de nós do HDInsight e recursos de rede no Azure.
 
-![Diagrama de entidades do HDInsight criadas na VNET personalizada do Azure](./media/hdinsight-virtual-network-architecture/hdinsight-vnet-diagram.png)
+![Diagrama de entidades do HDInsight criadas na rede virtual personalizada do Azure](./media/hdinsight-virtual-network-architecture/hdinsight-vnet-diagram.png)
 
 Os recursos padrão em uma rede virtual do Azure incluem os tipos de nó de cluster mencionados na tabela anterior. E dispositivos de rede que dão suporte à comunicação entre a rede virtual e as redes externas.
 
@@ -71,16 +71,16 @@ Os seguintes recursos de rede presentes são criados automaticamente dentro da r
 
 Você pode acessar o cluster HDInsight de três maneiras:
 
-- Um ponto de extremidade HTTPS fora da rede virtual `CLUSTERNAME.azurehdinsight.net`em.
-- Um ponto de extremidade SSH para se conectar diretamente ao `CLUSTERNAME-ssh.azurehdinsight.net`cabeçalho em.
-- Um ponto de extremidade HTTPS dentro da `CLUSTERNAME-int.azurehdinsight.net`rede virtual. Observe o "`-int`" nesta URL. Esse ponto de extremidade será resolvido para um IP privado nessa rede virtual e não poderá ser acessado pela Internet pública.
+- Um ponto de extremidade HTTPS fora da rede virtual em `CLUSTERNAME.azurehdinsight.net` .
+- Um ponto de extremidade SSH para se conectar diretamente ao cabeçalho em `CLUSTERNAME-ssh.azurehdinsight.net` .
+- Um ponto de extremidade HTTPS dentro da rede virtual `CLUSTERNAME-int.azurehdinsight.net` . Observe o " `-int` " nesta URL. Esse ponto de extremidade será resolvido para um IP privado nessa rede virtual e não poderá ser acessado pela Internet pública.
 
 Esses três pontos de extremidade são atribuídos a cada um balanceador de carga.
 
 Os endereços IP públicos também são fornecidos para os dois pontos de extremidade que permitem a conexão de fora da rede virtual.
 
-1. Um IP público é atribuído ao balanceador de carga para o FQDN (nome de domínio totalmente qualificado) a ser usado ao conectar-se ao cluster `CLUSTERNAME.azurehdinsight.net`da Internet.
-1. O segundo endereço IP público é usado para o nome `CLUSTERNAME-ssh.azurehdinsight.net`de domínio somente SSH.
+1. Um IP público é atribuído ao balanceador de carga para o FQDN (nome de domínio totalmente qualificado) a ser usado ao conectar-se ao cluster da Internet `CLUSTERNAME.azurehdinsight.net` .
+1. O segundo endereço IP público é usado para o nome de domínio somente SSH `CLUSTERNAME-ssh.azurehdinsight.net` .
 
 ## <a name="next-steps"></a>Próximas etapas
 

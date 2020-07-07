@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: Zhchia
 ms.openlocfilehash: 5aa33529a1957b6e7728b3a87bacf6bb91d987ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81378945"
 ---
 # <a name="tutorial-configure-oracle-cloud-infrastructure-console-for-automatic-user-provisioning"></a>Tutorial: configurar o console de infraestrutura de nuvem da Oracle para provisionamento automático de usuário
@@ -40,13 +40,13 @@ Este tutorial descreve as etapas que você precisa executar no console de infrae
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
 * [Um locatário do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
-* Uma conta de usuário no Azure AD com [permissão](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) para configurar o provisionamento (por exemplo, administrador de aplicativos, administrador de aplicativos de nuvem, proprietário do aplicativo ou administrador global). 
+* Uma conta de usuário no Azure AD com [permissão](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) para configurar o provisionamento (por exemplo, Administrador de Aplicativo, Administrador de aplicativos de nuvem, Proprietário de Aplicativo ou Administrador global). 
 * Um [locatário](https://www.oracle.com/cloud/sign-in.html?intcmp=OcomFreeTier&source=:ow:o:p:nav:0916BCButton)de controle de infraestrutura de nuvem da Oracle.
 * Uma conta de usuário no controle de infraestrutura de nuvem da Oracle com permissões de administrador.
 
-## <a name="step-1-plan-your-provisioning-deployment"></a>Etapa 1. Planejar sua implantação de provisionamento
-1. Saiba mais sobre [como o serviço de provisionamento funciona](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
-2. Determine quem estará no [escopo do provisionamento](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+## <a name="step-1-plan-your-provisioning-deployment"></a>Etapa 1. Planeje a implantação do provisionamento
+1. Saiba mais sobre [como funciona o serviço de provisionamento](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+2. Determine quem estará no [escopo de provisionamento](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 3. Determine quais dados [mapear entre o Azure AD e o console de infraestrutura de nuvem da Oracle](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
 ## <a name="step-2-configure-oracle-cloud-infrastructure-console-to-support-provisioning-with-azure-ad"></a>Etapa 2. Configurar o console de infraestrutura de nuvem da Oracle para dar suporte ao provisionamento com o Azure AD
@@ -77,24 +77,24 @@ O cenário descrito neste tutorial pressupõe que você já tem os seguintes pr�
 
 ## <a name="step-3-add-oracle-cloud-infrastructure-console-from-the-azure-ad-application-gallery"></a>Etapa 3. Adicionar o console de infraestrutura de nuvem da Oracle da Galeria de aplicativos do Azure AD
 
-Adicione o console de infraestrutura de nuvem da Oracle da Galeria de aplicativos do Azure AD para começar a gerenciar o provisionamento para o console de infraestrutura de nuvem da Oracle. Se você tiver configurado anteriormente o console de infraestrutura de nuvem do Oracle para SSO, poderá usar o mesmo aplicativo. No entanto, é recomendável que você crie um aplicativo separado ao testar a integração inicialmente. Saiba mais sobre como adicionar um aplicativo da Galeria [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
+Adicione o console de infraestrutura de nuvem da Oracle da Galeria de aplicativos do Azure AD para começar a gerenciar o provisionamento para o console de infraestrutura de nuvem da Oracle. Se você tiver configurado anteriormente o console de infraestrutura de nuvem do Oracle para SSO, poderá usar o mesmo aplicativo. No entanto, recomendamos que você crie um aplicativo diferente ao testar a integração no início. Saiba mais sobre como adicionar um aplicativo da galeria [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
 
-## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Etapa 4. Definir quem estará no escopo para provisionamento 
+## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Etapa 4. Defina quem estará no escopo de provisionamento 
 
-O serviço de provisionamento do Azure AD permite o escopo que será provisionado com base na atribuição ao aplicativo e ou com base em atributos do usuário/grupo. Se você optar por definir o escopo que será provisionado em seu aplicativo com base na atribuição, poderá usar as [etapas](../manage-apps/assign-user-or-group-access-portal.md) a seguir para atribuir usuários e grupos ao aplicativo. Se você escolher o escopo que será provisionado com base apenas em atributos do usuário ou grupo, você poderá usar um filtro de escopo conforme descrito [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+No Azure AD, é possível definir quem estará no escopo de provisionamento com base na atribuição ao aplicativo ou nos atributos do usuário/grupo. Se você optar por definir quem estará no escopo de provisionamento com base na atribuição, poderá usar as [etapas](../manage-apps/assign-user-or-group-access-portal.md) a seguir para atribuir usuários e grupos ao aplicativo. Se você optar por definir quem estará no escopo de provisionamento com base somente em atributos do usuário ou do grupo, poderá usar um filtro de escopo, conforme descrito [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-* Ao atribuir usuários e grupos ao console de infraestrutura de nuvem da Oracle, você deve selecionar uma função diferente de **acesso padrão**. Os usuários com a função de acesso padrão são excluídos do provisionamento e serão marcados como não habilitados com eficiência nos logs de provisionamento. Se a única função disponível no aplicativo for a função de acesso padrão, você poderá [atualizar o manifesto do aplicativo](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) para adicionar outras funções. 
+* Ao atribuir usuários e grupos ao console de infraestrutura de nuvem da Oracle, você deve selecionar uma função diferente de **acesso padrão**. Os usuários com a função Acesso Padrão são excluídos do provisionamento e serão marcados como "Não qualificado efetivamente" nos logs de provisionamento. Se a única função disponível no aplicativo for a de acesso padrão, você poderá [atualizar o manifesto do aplicativo](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) para adicionar outras funções. 
 
-* Comece pequeno. Teste com um pequeno conjunto de usuários e grupos antes de distribuir para todos. Quando o escopo do provisionamento é definido como usuários e grupos atribuídos, você pode controlar isso atribuindo um ou dois usuários ou grupos ao aplicativo. Quando o escopo é definido como todos os usuários e grupos, você pode especificar um [filtro de escopo baseado em atributo](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+* Comece pequeno. Teste com um pequeno conjunto de usuários e grupos antes de implementar para todos. Quando o escopo de provisionamento é definido para usuários e grupos atribuídos, é possível controlar isso atribuindo um ou dois usuários ou grupos ao aplicativo. Quando o escopo é definido para todos os usuários e grupos, é possível especificar um [atributo com base no filtro de escopo](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
 
 ## <a name="step-5-configure-automatic-user-provisioning-to-oracle-cloud-infrastructure-console"></a>Etapa 5. Configurar o provisionamento automático de usuário para o console de infraestrutura de nuvem da Oracle 
 
-Esta seção orienta você pelas etapas para configurar o serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários e/ou grupos no TestApp com base em atribuições de usuário e/ou grupo no Azure AD.
+Nesta seção, você verá orientações para seguir as etapas de configuração do serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários e/ou grupos no TestApp com base em atribuições de usuário e/ou grupo no Azure AD.
 
 ### <a name="to-configure-automatic-user-provisioning-for-oracle-cloud-infrastructure-console-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para o console de infraestrutura de nuvem da Oracle no Azure AD:
 
-1. Entre no [portal do Azure](https://portal.azure.com). Selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Entre no [portal do Azure](https://portal.azure.com). Selecione **Aplicativos Empresariais** e **Todos os Aplicativos**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
@@ -104,21 +104,21 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Guia provisionamento](common/provisioning.png)
+    ![Guia Provisionamento](common/provisioning.png)
 
-4. Defina o **modo de provisionamento** como **automático**.
+4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Guia provisionamento](common/provisioning-automatic.png)
+    ![Guia Provisionamento](common/provisioning-automatic.png)
 
-5. Na seção **credenciais de administrador** , insira a **URL do locatário** no formato `https://<IdP ID>.identity.oraclecloud.com/admin/v1` . Por exemplo, `https://idcs-0bfd023ff2xx4a98a760fa2c31k92b1d.identity.oraclecloud.com/admin/v1`. Insira o valor do token secreto recuperado anteriormente no **token secreto**. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao console de infraestrutura de nuvem da Oracle. Se a conexão falhar, verifique se sua conta do console de infraestrutura de nuvem do Oracle tem permissões de administrador e tente novamente.
+5. Na seção **credenciais de administrador** , insira a **URL do locatário** no formato `https://<IdP ID>.identity.oraclecloud.com/admin/v1` . Por exemplo, `https://idcs-0bfd023ff2xx4a98a760fa2c31k92b1d.identity.oraclecloud.com/admin/v1`. Insira o valor do token secreto recuperado anteriormente em **Token Secreto**. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao console de infraestrutura de nuvem da Oracle. Se a conexão falhar, verifique se sua conta do console de infraestrutura de nuvem do Oracle tem permissões de administrador e tente novamente.
 
     ![provisionamento](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/provisioning.png)
 
-6. No campo **email de notificação** , insira o endereço de email de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento e marque a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha** .
+6. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e marque a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha**.
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-7. Selecione **Salvar**.
+7. Clique em **Salvar**.
 
 8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para o console de infraestrutura de nuvem da Oracle**.
 
@@ -126,28 +126,28 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
       |Atributo|Type|
       |---|---|
-      |displayName|Cadeia de caracteres|
-      |userName|Cadeia de caracteres|
-      |ativo|Booliano|
-      |title|Cadeia de caracteres|
-      |emails[type eq "work"].value|Cadeia de caracteres|
-      |preferredLanguage|Cadeia de caracteres|
-      |name.givenName|Cadeia de caracteres|
-      |name.familyName|Cadeia de caracteres|
-      |endereços [tipo EQ "trabalho"]. formatado|Cadeia de caracteres|
-      |endereços [tipo EQ "trabalho"]. localidade|Cadeia de caracteres|
-      |endereços [tipo EQ "trabalho"]. região|Cadeia de caracteres|
-      |addresses[type eq "work"].postalCode|Cadeia de caracteres|
-      |endereços [tipo EQ "trabalho"]. país|Cadeia de caracteres|
-      |addresses[type eq "work"].streetAddress|Cadeia de caracteres|
-      |urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: employeeNumber|Cadeia de caracteres|
-      |urn: IETF: params: SCIM: esquemas: extensão: Enterprise: 2.0: User: Department|Cadeia de caracteres|
-      |urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: costCenter|Cadeia de caracteres|
-      |urn: IETF: params: SCIM: esquemas: extensão: Enterprise: 2.0: User: Division|Cadeia de caracteres|
-      |urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: Manager|Referência|
-      |urn: IETF: params: SCIM: esquemas: extensão: Enterprise: 2.0: User: Organization|Cadeia de caracteres|
-      |urn: IETF: params: SCIM: schemas: Oracle: IDCs: Extension: User: User: bypassNotification|Booliano|
-      |urn: IETF: params: SCIM: schemas: Oracle: IDCs: Extension: User: User: isFederatedUser|Booliano|
+      |displayName|String|
+      |userName|String|
+      |ativo|Boolean|
+      |título|String|
+      |emails[type eq "work"].value|String|
+      |preferredLanguage|String|
+      |name.givenName|String|
+      |name.familyName|String|
+      |addresses[type eq "work"].formatted|String|
+      |addresses[type eq "work"].locality|String|
+      |addresses[type eq "work"].region|String|
+      |addresses[type eq "work"].postalCode|String|
+      |addresses[type eq "work"].country|String|
+      |addresses[type eq "work"].streetAddress|String|
+      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
+      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
+      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|String|
+      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
+      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Referência|
+      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String|
+      |urn: IETF: params: SCIM: schemas: Oracle: IDCs: Extension: User: User: bypassNotification|Boolean|
+      |urn: IETF: params: SCIM: schemas: Oracle: IDCs: Extension: User: User: isFederatedUser|Boolean|
 
 10. Na seção **mapeamentos** , selecione **sincronizar grupos de Azure Active Directory para o console de infraestrutura de nuvem da Oracle**.
 
@@ -155,8 +155,8 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
       |Atributo|Type|
       |---|---|
-      |displayName|Cadeia de caracteres|
-      |externalId|Cadeia de caracteres|
+      |displayName|String|
+      |externalId|String|
       |membros|Referência|
 
 12. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
@@ -173,18 +173,18 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Salvando a configuração de provisionamento](common/provisioning-configuration-save.png)
 
-Essa operação inicia o ciclo de sincronização inicial de todos os usuários e grupos definidos no **escopo** na seção **configurações** . O ciclo inicial leva mais tempo para ser executado do que os ciclos subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução. 
+Essa operação começa o ciclo de sincronização inicial de todos os usuários e grupos definidos no **Escopo** na seção **Configurações**. O ciclo inicial leva mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução. 
 
 ## <a name="step-6-monitor-your-deployment"></a>Etapa 6. Monitorar a implantação
-Depois de configurar o provisionamento, use os seguintes recursos para monitorar sua implantação:
+Depois de configurar o provisionamento, use os seguintes recursos para monitorar a implantação:
 
-* Use os [logs de provisionamento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) para determinar quais usuários foram provisionados com êxito ou sem êxito
-* Verifique a [barra de progresso](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) para ver o status do ciclo de provisionamento e como fechá-lo para conclusão
-* Se a configuração de provisionamento parecer estar em um estado não íntegro, o aplicativo entrará em quarentena. Saiba mais sobre os Estados de quarentena [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
+* Use os [logs de provisionamento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) para determinar quais usuários foram provisionados com êxito ou não
+* Confira a [barra de progresso](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) para ver o status do ciclo de provisionamento e saber como fechá-la para concluir
+* Se a configuração de provisionamento parecer estar em um estado não íntegro, o aplicativo entrará em quarentena. Saiba mais sobre os estados de quarentena [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Próximas etapas

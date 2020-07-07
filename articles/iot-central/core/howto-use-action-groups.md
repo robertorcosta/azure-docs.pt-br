@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.service: iot-central
 manager: philmea
 ms.openlocfilehash: b447f44d0c95693e560fd5bbfbff8c8daeec964e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80157680"
 ---
 # <a name="group-multiple-actions-to-run-from-one-or-more-rules"></a>Agrupar várias ações para executar a partir de uma ou mais regras
@@ -51,7 +51,7 @@ Escolha um grupo de ação da sua assinatura do Azure:
 
 ![Escolher grupo de ação](media/howto-use-action-groups/chooseactiongroup.png)
 
-Clique em **Salvar**. O grupo de ações agora aparece na lista de ações a serem executadas quando a regra é disparada:
+Selecione **Salvar**. O grupo de ações agora aparece na lista de ações a serem executadas quando a regra é disparada:
 
 ![Grupo de ações salvo](media/howto-use-action-groups/savedactiongroup.png)
 
@@ -60,7 +60,7 @@ A tabela a seguir resume as informações enviadas para os tipos de ação com s
 | Tipo de ação | Formato da saída |
 | ----------- | -------------- |
 | Email       | Modelo de email de IoT Central padrão |
-| sms         | Alerta do Azure IoT Central: $ {applicationName}-"$ {ruleName}" disparado em "$ {DeviceName}" em $ {triggerDate} $ {triggertime} |
+| SMS         | Alerta do Azure IoT Central: $ {applicationName}-"$ {ruleName}" disparado em "$ {DeviceName}" em $ {triggerDate} $ {triggertime} |
 | Voz       | Alerta central do Azure I. O. T: regra "$ {ruleName}" disparada no dispositivo "$ {DeviceName}" em $ {triggerDate} $ {triggertime}, no aplicativo $ {applicationName} |
 | webhook     | {"SchemaId": "AzureIoTCentralRuleWebhook", "data": {[carga regular do webhook](howto-create-webhooks.md#payload)}} |
 

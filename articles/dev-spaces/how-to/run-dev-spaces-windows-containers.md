@@ -6,10 +6,10 @@ ms.topic: conceptual
 description: Saiba como executar Azure Dev Spaces em um cluster existente com contêineres do Windows
 keywords: Azure Dev Spaces, espaços de desenvolvimento, Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, contêineres do Windows
 ms.openlocfilehash: 0b3f221c9e62343a02ba8742e4cf988c7cf26c12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80240479"
 ---
 # <a name="interact-with-windows-containers-using-azure-dev-spaces"></a>Interagir com contêineres do Windows usando Azure Dev Spaces
@@ -54,7 +54,7 @@ kubectl taint node aksnpwin987654 sku=win-node:NoSchedule
 
 Execute o serviço do Windows no cluster AKS e verifique se ele está em estado de *execução* . Este artigo usa um [aplicativo de exemplo][sample-application] para demonstrar um serviço Windows e Linux em execução no cluster.
 
-Clone o aplicativo de exemplo do GitHub e navegue até `dev-spaces/samples/existingWindowsBackend/mywebapi-windows` o diretório:
+Clone o aplicativo de exemplo do GitHub e navegue até o `dev-spaces/samples/existingWindowsBackend/mywebapi-windows` diretório:
 
 ```console
 git clone https://github.com/Azure/dev-spaces
@@ -91,7 +91,7 @@ az aks use-dev-spaces -g myResourceGroup -n myAKSCluster --space dev --yes
 
 ## <a name="update-your-windows-service-for-dev-spaces"></a>Atualizar seu serviço do Windows para espaços de desenvolvimento
 
-Quando você habilita espaços de desenvolvimento em um namespace existente com contêineres que já estão em execução, por padrão, os espaços de desenvolvimento tentarão criar e instrumentar novos contêineres que são executados nesse namespace. Os espaços de desenvolvimento também tentarão criar e instrumentar novos contêineres criados para o serviço já em execução no namespace. Para evitar que os espaços de desenvolvimento instrumentem um contêiner em execução no namespace, adicione o cabeçalho no *-proxy* ao `deployment.yaml`.
+Quando você habilita espaços de desenvolvimento em um namespace existente com contêineres que já estão em execução, por padrão, os espaços de desenvolvimento tentarão criar e instrumentar novos contêineres que são executados nesse namespace. Os espaços de desenvolvimento também tentarão criar e instrumentar novos contêineres criados para o serviço já em execução no namespace. Para evitar que os espaços de desenvolvimento instrumentem um contêiner em execução no namespace, adicione o cabeçalho no *-proxy* ao `deployment.yaml` .
 
 Adicione `azds.io/no-proxy: "true"` ao `existingWindowsBackend/mywebapi-windows/charts/templates/deployment.yaml` arquivo:
 
@@ -120,17 +120,17 @@ NAME              REVISION  UPDATED                     STATUS      CHART       
 windows-service 1           Wed Jul 24 15:45:59 2019    DEPLOYED    mywebapi-0.1.0  1.0         dev  
 ```
 
-No exemplo acima, o nome da sua implantação é *Windows-Service*. Atualize seu serviço do Windows com a nova configuração `helm upgrade`usando:
+No exemplo acima, o nome da sua implantação é *Windows-Service*. Atualize seu serviço do Windows com a nova configuração usando `helm upgrade` :
 
 ```cmd
 helm upgrade windows-service . --namespace dev
 ```
 
-Como você atualizou `deployment.yaml`o, os espaços de desenvolvimento não tentarão instrumentar seu serviço.
+Como você atualizou o `deployment.yaml` , os espaços de desenvolvimento não tentarão instrumentar seu serviço.
 
 ## <a name="run-your-linux-application-with-azure-dev-spaces"></a>Execute seu aplicativo Linux com o Azure Dev Spaces
 
-Navegue até o `webfrontend` diretório e use os `azds prep` comandos `azds up` e para executar seu aplicativo Linux no cluster.
+Navegue até o `webfrontend` diretório e use os `azds prep` `azds up` comandos e para executar seu aplicativo Linux no cluster.
 
 ```console
 cd ../../webfrontend-linux/

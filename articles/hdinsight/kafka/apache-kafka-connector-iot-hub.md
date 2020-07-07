@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/26/2019
 ms.openlocfilehash: 48a72b5ba3819712b9e1d2536ae2dd3a06eaf3f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80238811"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Use o Apache Kafka no HDInsight com o Microsoft Azure Hub IoT
@@ -27,7 +27,7 @@ O diagrama a seguir mostra o fluxo de dados entre o Hub IoT do Microsoft zure e 
 
 ![Imagem mostrando os dados que fluem do Hub IoT para o Kafka através do conector](./media/apache-kafka-connector-iot-hub/iot-hub-kafka-connector-hdinsight.png)
 
-Para obter mais informações sobre a API de conexão [https://kafka.apache.org/documentation/#connect](https://kafka.apache.org/documentation/#connect), consulte.
+Para obter mais informações sobre a API de conexão, consulte [https://kafka.apache.org/documentation/#connect](https://kafka.apache.org/documentation/#connect) .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -43,9 +43,9 @@ Para obter mais informações sobre a API de conexão [https://kafka.apache.org/
 
 ## <a name="build-the-connector"></a>Criar o conector
 
-1. Baixe a origem do conector do [https://github.com/Azure/toketi-kafka-connect-iothub/](https://github.com/Azure/toketi-kafka-connect-iothub/) no seu ambiente local.
+1. Baixe a origem do conector do no [https://github.com/Azure/toketi-kafka-connect-iothub/](https://github.com/Azure/toketi-kafka-connect-iothub/) seu ambiente local.
 
-2. Em um prompt de comando, navegue até `toketi-kafka-connect-iothub-master` o diretório. Em seguida, use o seguinte comando para compilar e empacotar o projeto:
+2. Em um prompt de comando, navegue até o `toketi-kafka-connect-iothub-master` diretório. Em seguida, use o seguinte comando para compilar e empacotar o projeto:
 
     ```cmd
     sbt assembly
@@ -55,7 +55,7 @@ Para obter mais informações sobre a API de conexão [https://kafka.apache.org/
 
 ## <a name="install-the-connector"></a>Instalar o conector
 
-1. Carregue o arquivo. jar no nó de borda do seu Kafka no cluster HDInsight. Edite o comando a seguir `CLUSTERNAME` substituindo pelo nome real do cluster. Os valores padrão para a conta de usuário SSH e o nome do [nó de borda](../hdinsight-apps-use-edge-node.md#access-an-edge-node) são usados abaixo, modifique conforme necessário.
+1. Carregue o arquivo. jar no nó de borda do seu Kafka no cluster HDInsight. Edite o comando a seguir substituindo pelo `CLUSTERNAME` nome real do cluster. Os valores padrão para a conta de usuário SSH e o nome do [nó de borda](../hdinsight-apps-use-edge-node.md#access-an-edge-node) são usados abaixo, modifique conforme necessário.
 
     ```cmd
     scp kafka-connect-iothub-assembly*.jar sshuser@new-edgenode.CLUSTERNAME-ssh.azurehdinsight.net:
@@ -85,7 +85,7 @@ Em sua conexão SSH com o nó de borda, use as seguintes etapas para configurar 
     export password='PASSWORD'
     ```
 
-1. Instale o utilitário [JQ](https://stedolan.github.io/jq/) . JQ torna mais fácil processar documentos JSON retornados de consultas Ambari. Digite o seguinte comando:
+1. Instale o utilitário [JQ](https://stedolan.github.io/jq/) . JQ torna mais fácil processar documentos JSON retornados de consultas Ambari. Insira o seguinte comando:
 
     ```bash
     sudo apt -y install jq
@@ -104,7 +104,7 @@ Em sua conexão SSH com o nó de borda, use as seguintes etapas para configurar 
 
     `wn0-kafka.w5ijyohcxt5uvdhhuaz5ra4u5f.ex.internal.cloudapp.net:9092,wn1-kafka.w5ijyohcxt5uvdhhuaz5ra4u5f.ex.internal.cloudapp.net:9092`
 
-1. Obter o endereço de nós de Apache Zookeeper. Há vários nós do Zookeeper no cluster, mas você só precisa referenciar um ou dois. Use o seguinte comando para armazenar os endereços na variável `KAFKAZKHOSTS`:
+1. Obter o endereço de nós de Apache Zookeeper. Há vários nós do Zookeeper no cluster, mas você só precisa referenciar um ou dois. Use o seguinte comando para armazenar os endereços na variável `KAFKAZKHOSTS` :
 
     ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin:$password -G http://headnodehost:8080/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
@@ -121,9 +121,9 @@ Em sua conexão SSH com o nó de borda, use as seguintes etapas para configurar 
     |Valor atual |Novo valor | Comentário |
     |---|---|---|
     |`bootstrap.servers=localhost:9092`|Substitua o `localhost:9092` valor pelos hosts do agente da etapa anterior|Define a configuração autônoma para o nó de borda para localizar os agentes Kafka.|
-    |`key.converter=org.apache.kafka.connect.json.JsonConverter`|`key.converter=org.apache.kafka.connect.storage.StringConverter`|Essa alteração permite que você teste usando o produtor do console incluído com Kafka. Talvez seja necessário conversores diferentes para outros produtores e consumidores. Para obter informações sobre como usar outros valores de [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md)conversor, consulte.|
+    |`key.converter=org.apache.kafka.connect.json.JsonConverter`|`key.converter=org.apache.kafka.connect.storage.StringConverter`|Essa alteração permite que você teste usando o produtor do console incluído com Kafka. Talvez seja necessário conversores diferentes para outros produtores e consumidores. Para obter informações sobre como usar outros valores de conversor, consulte [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md) .|
     |`value.converter=org.apache.kafka.connect.json.JsonConverter`|`value.converter=org.apache.kafka.connect.storage.StringConverter`|Mesmo que acima.|
-    |N/D|`consumer.max.poll.records=10`|Adicionar ao final do arquivo. Essa alteração é evitar os tempos limite no conector do coletor limitando a 10 registros por vez. Para obter mais informações, [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md)consulte.|
+    |N/D|`consumer.max.poll.records=10`|Adicionar ao final do arquivo. Essa alteração é evitar os tempos limite no conector do coletor limitando a 10 registros por vez. Para obter mais informações, consulte [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).|
 
 1. Para salvar o arquivo, use __Ctrl + X__, __Y__ e, em seguida, __Enter__.
 
@@ -235,7 +235,7 @@ Para configurar a fonte para trabalhar com o Hub IoT, execute as seguintes açõ
 
 1. Para salvar as alterações, use __Ctrl + X__, __Y__ e, em seguida, __Enter__.
 
-Para obter mais informações sobre como configurar a origem do [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md)conector, consulte.
+Para obter mais informações sobre como configurar a origem do conector, consulte [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md) .
 
 ## <a name="configure-the-sink-connection"></a>Configurar a conexão do coletor
 
@@ -264,7 +264,7 @@ Para configurar a conexão do coletor para trabalhar com o Hub IoT, execute as s
 
 1. Para salvar as alterações, use __Ctrl + X__, __Y__ e, em seguida, __Enter__.
 
-Para obter mais informações sobre como configurar o coletor do [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md)conector, consulte.
+Para obter mais informações sobre como configurar o coletor do conector, consulte [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md) .
 
 ## <a name="start-the-source-connector"></a>Iniciar o conector de origem
 
@@ -342,7 +342,7 @@ Para enviar mensagens por meio do conector, use as seguintes etapas:
     {"messageId":"msg1","message":"Turn On","deviceId":"myDeviceId"}
     ```
 
-    O esquema para este documento JSON é descrito em mais detalhes em [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
+    O esquema para este documento JSON é descrito em mais detalhes em [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md) .
 
     Se você estiver usando o dispositivo Simulated Raspberry Pi e ele estiver em execução, a seguinte mensagem será registrada pelo dispositivo:
 
@@ -352,11 +352,11 @@ Para enviar mensagens por meio do conector, use as seguintes etapas:
 
     Reenvie o documento JSON, mas altere o valor da entrada `"message"`. O novo valor é registrado pelo dispositivo.
 
-Para obter mais informações sobre como usar o conector do [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md)coletor, consulte.
+Para obter mais informações sobre como usar o conector do coletor, consulte [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md) .
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste documento, você aprendeu a usar a API do Apache Kafka Connect para iniciar o IoT Kafka Connector no HDInsight. Use os links a seguir para descobrir outras maneiras de trabalhar com Kafka:
 
-* [Usar Apache Spark com Apache Kafka no HDInsight](../hdinsight-apache-spark-with-kafka.md)
-* [Usar o Apache Storm com o Apache Kafka no HDInsight](../hdinsight-apache-storm-with-kafka.md)
+* [Usar o Apache Spark com o Apache Kafka no HDInsight](../hdinsight-apache-spark-with-kafka.md)
+* [Use o Apache Storm com o Apache Kafka no HDInsight](../hdinsight-apache-storm-with-kafka.md)
