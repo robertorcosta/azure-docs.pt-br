@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/18/2020
 ms.author: sideeksh
 ms.openlocfilehash: 3d33b5a89a718a41e5c547551f6e7eb4f7033a63
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79503121"
 ---
 # <a name="configure-mobility-service-proxy-settings-for-azure-to-azure-disaster-recovery"></a>Definir configurações de proxy do serviço de mobilidade para a recuperação de desastre do Azure para o Azure
@@ -51,7 +51,7 @@ O serviço de mobilidade detecta automaticamente as configurações de proxy das
 Nesse caso, o cliente fornece configurações de proxy de aplicativo personalizadas no arquivo de configuração do serviço de mobilidade ProxyInfo. conf. Esse método permite que os clientes forneçam proxy somente para o serviço de mobilidade ou um proxy diferente para Azure Site Recovery serviço de mobilidade do que um proxy (ou nenhum proxy) para o restante dos aplicativos no computador.
 
 ## <a name="proxy-template"></a>Modelo de proxy
-ProxyInfo. conf contém o seguinte modelo [proxy] address =http://1.2.3.4 Port = 5678 BypassList = hypervrecoverymanager. WindowsAzure. com, login. microsoftonline. com, BLOB. Core. Windows. net. O BypassList não dá suporte a curingas como ' *. windows.net ', mas o windows.net é bom o suficiente para ignorar. 
+ProxyInfo. conf contém o seguinte modelo [proxy] address = http://1.2.3.4 Port = 5678 BypassList = hypervrecoverymanager. WindowsAzure. com, login. microsoftonline. com, BLOB. Core. Windows. net. O BypassList não dá suporte a curingas como ' *. windows.net ', mas o windows.net é bom o suficiente para ignorar. 
 
 ## <a name="next-steps"></a>Próximas etapas:
 - Leia as [diretrizes de rede](site-recovery-azure-to-azure-networking-guidance.md) para replicar VMs do Azure.

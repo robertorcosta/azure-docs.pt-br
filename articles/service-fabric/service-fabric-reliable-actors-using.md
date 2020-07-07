@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: vturecek
 ms.openlocfilehash: 9f5f9e00c374b16026f22d4efdee51ec94d2902a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79502276"
 ---
 # <a name="implement-service-level-features-in-your-actor-service"></a>Implementar recursos de nível de serviço em seu serviço de ator
@@ -172,7 +172,7 @@ Essa alteração é uma atualização em duas etapas. Siga as etapas deste tutor
 2. Atualize os clientes de ator depois de concluir a atualização anterior.
    Esta etapa garante que o proxy do ator use a pilha de comunicação remota V2_1.
 
-3. Essa etapa é opcional. Altere o atributo anterior para remover o ouvinte V1.
+3. Esta etapa é opcional. Altere o atributo anterior para remover o ouvinte V1.
 
     ```csharp
     [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
@@ -205,7 +205,7 @@ Essa alteração é uma atualização em duas etapas. Siga as etapas deste tutor
 2. Atualize os clientes de ator depois de concluir a atualização anterior.
    Esta etapa garante que o proxy do ator use a pilha de comunicação remota V2.
 
-3. Essa etapa é opcional. Altere o atributo anterior para remover o ouvinte V1.
+3. Esta etapa é opcional. Altere o atributo anterior para remover o ouvinte V1.
 
     ```csharp
     [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]

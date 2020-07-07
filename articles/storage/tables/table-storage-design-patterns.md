@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
 ms.openlocfilehash: 5478163a6103bcc84b4f3608d7513c6e7cb11c01
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79529332"
 ---
 # <a name="table-design-patterns"></a>Padrões de design de tabela
@@ -155,7 +155,7 @@ Neste exemplo, a etapa 4 insere o funcionário na tabela **Arquivo morto** . Ele
 ### <a name="recovering-from-failures"></a>Recuperando de falhas
 Caso a função de trabalho precise reiniciar a operação de arquivamento, é importante que as operações nas etapas **4** e **5** sejam *idempotentes*. Se estiver usando o serviço Tabela, na etapa **4**, você deverá usar uma operação "inserir ou substituir"; na etapa **5**, você deverá usar uma operação "excluir se existir" na biblioteca de cliente que está usando. Se você estiver usando outro sistema de armazenamento, deve usar uma operação idempotente apropriada.  
 
-Se a função de trabalho nunca concluir a etapa **6**, após um tempo limite a mensagem reaparecerá na fila, pronta para ser reprocessada pela função de trabalho. A função de trabalho pode verificar quantas vezes uma mensagem na fila foi lida e, se necessário, sinalizá-la como uma mensagem "suspeita" para investigação, enviando-a para uma fila separada. Para saber mais sobre a leitura de mensagens da fila e verificar a contagem de remoção da fila, consulte [Obter mensagens](https://msdn.microsoft.com/library/azure/dd179474.aspx).  
+Se a função de trabalho nunca concluir a etapa **6**, após um tempo limite a mensagem reaparecerá na fila, pronta para ser reprocessada pela função de trabalho. A função de trabalho pode verificar quantas vezes uma mensagem na fila foi lida e, se necessário, sinalizá-la como uma mensagem "suspeita" para investigação, enviando-a para uma fila separada. Para obter mais informações sobre como ler mensagens da fila e verificar a contagem da remoção da fila, consulte [obter mensagens](https://msdn.microsoft.com/library/azure/dd179474.aspx).  
 
 Alguns erros dos serviços Tabela e Fila são erros transitórios e o aplicativo cliente deve incluir uma lógica de repetição adequada para lidar com eles.  
 
@@ -191,17 +191,17 @@ O serviço Tabela indexa automaticamente as entidades usando os valores de **Par
 Se você quiser ser capaz de recuperar uma lista de entidades de funcionário com base no valor de outra propriedade não exclusiva, como seu sobrenome, deve usar uma verificação de partição menos eficiente para localizar correspondências em vez de usar um índice para examiná-las diretamente. Isso ocorre porque o serviço Tabela não fornece índices secundários.  
 
 ### <a name="solution"></a>Solução
-Para habilitar a pesquisa por sobrenome com a estrutura de entidade mostrada acima, você deve manter listas de IDs de funcionários. Se você quiser recuperar as entidades de funcionário com um sobrenome específico, como Jones, deverá primeiro localizar a lista de IDs de funcionários para funcionários com Jones como seu sobrenome e, em seguida, recuperar essas entidades de funcionário. Há três opções principais para armazenar as listas de IDs de funcionários:  
+Para habilitar a pesquisa por sobrenome com a estrutura de entidade mostrada acima, você deve manter listas de IDs de funcionários. Para recuperar entidades de funcionário com determinado sobrenome, como Dias, primeiro localize a lista de IDs de funcionário para os funcionários com Dias como sobrenome e recupere essas entidades. Há três opções principais para armazenar listas de IDs de funcionário:  
 
 * Use o armazenamento de blobs.  
 * Crie entidades de índice na mesma partição que as entidades do funcionário.  
 * Crie entidades de índice em uma partição ou tabela separada.  
 
-<u>Opção n°. 1: usar o armazenamento de blob</u>  
+<u>Opção #1: usar o armazenamento de BLOBs</u>  
 
 Para a primeira opção, você cria um blob para cada sobrenome exclusivo e, em cada repositório de BLOB, uma lista dos valores de **PartitionKey** (departamento) e **RowKey** (ID de funcionário) para os funcionários que têm esse sobrenome. Quando você adiciona ou exclui um funcionário, deve garantir que o conteúdo do blob relevante seja eventualmente consistente com as entidades do funcionário.  
 
-<u>Opção 2:</u> Criar entidades de índice na mesma partição  
+<u>Opção #2:</u> Criar entidades de índice na mesma partição  
 
 Para a segunda opção, use as entidades de índice que armazenam os dados a seguir:  
 
@@ -223,7 +223,7 @@ As etapas abaixo descrevem o processo que você deve seguir quando precisar proc
 2. Analise a lista de Ids no campo EmployeeIDs.  
 3. Se precisar de informações adicionais sobre cada um desses funcionários (como endereços de email), recupere cada uma das entidades de funcionário usando o valor de **PartitionKey** igual a "Vendas" e os valores de **RowKey** da lista de funcionários obtida na etapa 2.  
 
-<u>Opção 3:</u> criar entidades de índice em uma partição ou tabela separada  
+<u>Opção #3:</u> Criar entidades de índice em uma partição ou tabela separada  
 
 Para a terceira opção, use as entidades de índice que armazenam os dados a seguir:  
 
@@ -232,7 +232,7 @@ Para a terceira opção, use as entidades de índice que armazenam os dados a se
 
 A propriedade **employeeids** contém uma lista de IDs de funcionários para funcionários com o último nome armazenado no **RowKey**.  
 
-Com a terceira opção, você não pode usar EGTs para manter a consistência porque as entidades de índice estão em uma partição separada das entidades de funcionário. Verifique se as entidades de índice são eventualmente consistentes com as entidades de funcionário.  
+Com a terceira opção, você não pode usar EGTs para manter a consistência porque as entidades de índice estão em uma partição separada das entidades de funcionário. Certifique-se de que as entidades de índice sejam eventualmente consistentes com as entidades de funcionário.  
 
 ### <a name="issues-and-considerations"></a>Problemas e considerações
 Considere os seguintes pontos ao decidir como implementar esse padrão:  
@@ -244,7 +244,7 @@ Considere os seguintes pontos ao decidir como implementar esse padrão:
 * É possível implementar uma solução baseada em fila que fornece consistência eventual (veja [Padrão de transações eventualmente consistentes](#eventually-consistent-transactions-pattern) para obter mais detalhes).  
 
 ### <a name="when-to-use-this-pattern"></a>Quando usar esse padrão
-Use esse padrão quando desejar pesquisar um conjunto de entidades que compartilham um valor de propriedade comum, como todos os funcionários com o sobrenome Jones.  
+Use esse padrão quando quiser pesquisar um conjunto de entidades que compartilham um valor da propriedade comum, como todos os funcionários com o sobrenome Dias.  
 
 ### <a name="related-patterns-and-guidance"></a>Diretrizes e padrões relacionados
 Os padrões e diretrizes a seguir também podem ser relevantes ao implementar esse padrão:  
@@ -588,7 +588,7 @@ using Microsoft.Azure.Cosmos.Table;
 using Microsoft.Azure.Cosmos.Table.Queryable;
 ```
 
-EmployeeTable é um objeto Cloudtable que implementa um método CreateQuery\<ITableEntity> (), que retorna um> ITableEntity\<TableQuery. Objetos desse tipo implementam um IQueryable e permitem o uso de expressões de consulta LINQ e a sintaxe de notação de ponto.
+EmployeeTable é um objeto Cloudtable que implementa um método CreateQuery \<ITableEntity> (), que retorna um TableQuery \<ITableEntity> . Objetos desse tipo implementam um IQueryable e permitem o uso de expressões de consulta LINQ e a sintaxe de notação de ponto.
 
 Recuperar várias entidades e ser obtido especificando uma consulta com uma cláusula **Where** . Para evitar uma verificação de tabela, você sempre deve incluir o valor de **PartitionKey** na cláusula where e, se possível, o valor de **RowKey** para evitar verificações de tabela e de partição. O serviço Tabela dá suporte a um conjunto limitado de operadores de comparação (maior que, maior que ou igual a, menor que, menor que ou igual a, igual a, e diferente de) para usar na cláusula where. 
 
@@ -633,7 +633,7 @@ Uma consulta ideal retorna uma entidade individual com base em um valor de **Par
 
 Você deve sempre testar totalmente o desempenho do seu aplicativo nesses cenários.  
 
-Uma consulta no serviço Tabela pode retornar um máximo de 1.000 entidades de uma só vez e ser executada por um máximo de cinco segundos. Se o conjunto de resultados contiver mais de 1.000 entidades, se a consulta não for concluída em até cinco segundos, ou se a consulta ultrapassar o limite da partição, o serviço Tabela retornará um token de continuação para habilitar o aplicativo cliente a solicitar o próximo conjunto de entidades. Para saber mais sobre como funcionam os tokens de continuação, confira [Tempo limite e paginação de consulta](https://msdn.microsoft.com/library/azure/dd135718.aspx).  
+Uma consulta no serviço Tabela pode retornar um máximo de 1.000 entidades de uma só vez e ser executada por um máximo de cinco segundos. Se o conjunto de resultados contiver mais de 1.000 entidades, se a consulta não for concluída em até cinco segundos, ou se a consulta ultrapassar o limite da partição, o serviço Tabela retornará um token de continuação para habilitar o aplicativo cliente a solicitar o próximo conjunto de entidades. Para obter mais informações sobre como os tokens de continuação funcionam, consulte [tempo limite de consulta e paginação](https://msdn.microsoft.com/library/azure/dd135718.aspx).  
 
 Se você estiver usando a Biblioteca de Cliente de Armazenamento, ela pode automaticamente controlar os tokens de continuação para você, à medida que retorna entidades do serviço Tabela. O seguinte exemplo de código C# usando a Biblioteca de cliente de armazenamento trata automaticamente os tokens de continuação, se o serviço Tabela retorná-los em uma resposta:  
 
@@ -1128,5 +1128,5 @@ O aplicativo cliente pode chamar vários métodos assíncronos como esse, e cada
 
 - [Relações de modelagem](table-storage-design-modeling.md)
 - [Design para consulta](table-storage-design-for-query.md)
-- [Criptografando dados de tabela](table-storage-design-encrypt-data.md)
+- [Criptografando dados da tabela](table-storage-design-encrypt-data.md)
 - [Design para modificação de dados](table-storage-design-for-modification.md)
