@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
 ms.openlocfilehash: 59d1bf08c0680d222710b55c6d6bdb4d5745da56
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82084508"
 ---
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-an-azure-virtual-machine"></a>Mover uma VM Windows do Amazon AWS (Web Services) para uma máquina virtual do Azure
@@ -40,7 +40,7 @@ Você pode carregar VHDs generalizados e especializados no Azure. Cada tipo exig
 
 Exporte a instância do EC2 para um VHD em um bucket do Amazon S3. Execute as etapas no tópico do artigo de documentação da Amazon [Exportar uma instância como VM usando Importação/Exportação de VM](https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) e execute o comando [create-instance-export-task](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) para exportar a instância do EC2 para um arquivo VHD. 
 
-O arquivo VHD exportado é salvo no bucket do Amazon S3 especificado. A sintaxe básica para exportar o VHD está abaixo, basta substituir o texto do espaço \<reservado entre colchetes> com suas informações.
+O arquivo VHD exportado é salvo no bucket do Amazon S3 especificado. A sintaxe básica para exportar o VHD está abaixo, basta substituir o texto de espaço reservado em \<brackets> por suas informações.
 
 ```
 aws ec2 create-instance-export-task --instance-id <instanceID> --target-environment Microsoft \

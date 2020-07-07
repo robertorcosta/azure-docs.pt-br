@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: c6c2067526850ba972f002dc40bbd5d4cb24c9ba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82131024"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Criar e provisionar um dispositivo IoT Edge usando o atestado de chave simétrica
@@ -43,7 +43,7 @@ Depois de executar o Serviço de Provisionamento de Dispositivo, copie o valor d
 
 Uma ID de registro exclusiva deve ser definida para identificar cada dispositivo. Você pode usar o endereço MAC, o número de série ou qualquer informação exclusiva do dispositivo.
 
-Neste exemplo, usamos uma combinação de um endereço MAC e um número de série que formam a seguinte cadeia de caracteres para uma `sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6`ID de registro:.
+Neste exemplo, usamos uma combinação de um endereço MAC e um número de série que formam a seguinte cadeia de caracteres para uma ID de registro: `sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6` .
 
 Crie uma ID de registro exclusiva para seu dispositivo. Os caracteres válidos são alfanuméricos minúsculos e traço ('-').
 
@@ -169,7 +169,7 @@ Você precisará das seguintes informações ao provisionar seu dispositivo:
 
 Siga as instruções para a arquitetura do dispositivo. Certifique-se de configurar o runtime do IoT Edge para provisionamento automático, não manual.
 
-[Instalar o tempo de execução de Azure IoT Edge no Linux](how-to-install-iot-edge-linux.md)
+[Instalar o runtime do Azure IoT Edge no Linux](how-to-install-iot-edge-linux.md)
 
 A seção no arquivo de configuração para provisionamento de chave simétrica tem esta aparência:
 
@@ -185,7 +185,7 @@ provisioning:
       symmetric_key: "<SYMMETRIC_KEY>"
 ```
 
-Substitua os valores de espaço `<SCOPE_ID>`reservado `<REGISTRATION_ID>`para, `<SYMMETRIC_KEY>` e pelos dados coletados anteriormente. Verifique se o **provisionamento:** linha não tem espaço em branco precedente e se os itens aninhados são recuados em dois espaços.
+Substitua os valores de espaço reservado para `<SCOPE_ID>` , `<REGISTRATION_ID>` e `<SYMMETRIC_KEY>` pelos dados coletados anteriormente. Verifique se o **provisionamento:** linha não tem espaço em branco precedente e se os itens aninhados são recuados em dois espaços.
 
 ### <a name="windows-device"></a>Dispositivo Windows
 
@@ -204,9 +204,9 @@ Para obter informações mais detalhadas sobre como instalar o IoT Edge no Windo
 
 1. Neste ponto, os dispositivos IoT Core podem ser reiniciados automaticamente. Outros dispositivos Windows 10 ou Windows Server podem solicitar a reinicialização. Nesse caso, reinicie o dispositivo agora. Quando o dispositivo estiver pronto, execute o PowerShell como administrador novamente.
 
-1. O comando **Initialize-IoTEdge** configura o runtime do IoT Edge em seu computador. O comando usa como padrão o provisionamento manual com contêineres do Windows, a menos `-Dps` que você use o sinalizador para usar o provisionamento automático.
+1. O comando **Initialize-IoTEdge** configura o runtime do IoT Edge em seu computador. O comando usa como padrão o provisionamento manual com contêineres do Windows, a menos que você use o `-Dps` sinalizador para usar o provisionamento automático.
 
-   Substitua os valores de espaço `{scope_id}`reservado `{registration_id}`para, `{symmetric_key}` e pelos dados coletados anteriormente.
+   Substitua os valores de espaço reservado para `{scope_id}` , `{registration_id}` e `{symmetric_key}` pelos dados coletados anteriormente.
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `

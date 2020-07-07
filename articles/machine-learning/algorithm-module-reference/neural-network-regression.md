@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: c260643d7d553e407d0758f286aac76c91ae08d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82137681"
 ---
 # <a name="neural-network-regression-module"></a>Módulo de regressão de rede neural
@@ -24,7 +24,7 @@ ms.locfileid: "82137681"
   
 ## <a name="module-overview"></a>Visão geral do módulo  
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer do Azure Machine Learning (versão prévia).
 
 Use este módulo para criar um modelo de regressão usando um algoritmo de rede neural personalizável.
   
@@ -96,7 +96,7 @@ As redes neurais podem ser amplamente personalizadas. Esta seção descreve como
     > Se você selecionar a opção **intervalo de parâmetros** e inserir um único valor para qualquer parâmetro, esse valor único especificado será usado em toda a varredura, mesmo que outros parâmetros sejam alterados em um intervalo de valores.  
   
    
-14. Envie o pipeline.  
+14. Enviar o pipeline.  
 
 ## <a name="results"></a>Resultados
 
@@ -106,4 +106,4 @@ Após a conclusão do treinamento:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 

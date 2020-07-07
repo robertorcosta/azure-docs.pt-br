@@ -4,10 +4,10 @@ description: Descreve como configurar a integração contínua no Azure Pipeline
 ms.topic: conceptual
 ms.date: 10/17/2019
 ms.openlocfilehash: d8eff1c7efae319106eb8a85af7823a820a0da39
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82084644"
 ---
 # <a name="integrate-arm-templates-with-azure-pipelines"></a>Integrar modelos de ARM com Azure Pipelines
@@ -16,7 +16,7 @@ O Visual Studio fornece o projeto do grupo de recursos do Azure para criar model
 
 Há duas maneiras de implantar modelos com Azure Pipelines:
 
-* **Adicionar tarefa que executa um script de Azure PowerShell**. Essa opção tem a vantagem de fornecer consistência em todo o ciclo de vida de desenvolvimento, pois você usa o mesmo script que está incluído no projeto do Visual Studio (Deploy-azureresourcegroup. ps1). O script prepara os artefatos do seu projeto para uma conta de armazenamento que o Gerenciador de recursos pode acessar. Os artefatos são itens em seu projeto, como modelos vinculados, scripts e binários de aplicativos. Em seguida, o script implanta o modelo.
+* **Adicionar tarefa que executa um script de Azure PowerShell**. Essa opção tem a vantagem de fornecer consistência em todo o ciclo de vida de desenvolvimento, pois você usa o mesmo script que está incluído no projeto do Visual Studio (Deploy-AzureResourceGroup.ps1). O script prepara os artefatos do seu projeto para uma conta de armazenamento que o Gerenciador de recursos pode acessar. Os artefatos são itens em seu projeto, como modelos vinculados, scripts e binários de aplicativos. Em seguida, o script implanta o modelo.
 
 * **Adicionar tarefas para copiar e implantar tarefas**. Essa opção oferece uma alternativa conveniente ao script do projeto. Você configura duas tarefas no pipeline. Uma tarefa prepara os artefatos e a outra tarefa implanta o modelo.
 
@@ -54,7 +54,7 @@ Este artigo pressupõe que seu projeto do Visual Studio e a organização do Azu
 
 Você está pronto para adicionar uma tarefa Azure PowerShell ou copiar arquivo e implantar tarefas.
 
-## <a name="azure-powershell-task"></a>Azure PowerShell tarefa
+## <a name="azure-powershell-task"></a>Tarefa do Azure PowerShell
 
 Esta seção mostra como configurar a implantação contínua usando uma única tarefa que executa o script do PowerShell em seu projeto. O seguinte arquivo YAML cria uma [tarefa Azure PowerShell](/azure/devops/pipelines/tasks/deploy/azure-powershell?view=azure-devops):
 
@@ -72,21 +72,21 @@ steps:
     azurePowerShellVersion: LatestVersion
 ```
 
-Quando você define a tarefa como `AzurePowerShell@3`, o pipeline usa comandos do módulo AzureRM para autenticar a conexão. Por padrão, o script do PowerShell no projeto do Visual Studio usa o módulo AzureRM. Se você atualizou o script para usar o [módulo AZ](/powershell/azure/new-azureps-module-az), defina a tarefa como `AzurePowerShell@4`.
+Quando você define a tarefa como `AzurePowerShell@3` , o pipeline usa comandos do módulo AzureRM para autenticar a conexão. Por padrão, o script do PowerShell no projeto do Visual Studio usa o módulo AzureRM. Se você atualizou o script para usar o [módulo AZ](/powershell/azure/new-azureps-module-az), defina a tarefa como `AzurePowerShell@4` .
 
 ```yaml
 steps:
 - task: AzurePowerShell@4
 ```
 
-Para `azureSubscription`, forneça o nome da conexão de serviço que você criou.
+Para `azureSubscription` , forneça o nome da conexão de serviço que você criou.
 
 ```yaml
 inputs:
     azureSubscription: '<your-connection-name>'
 ```
 
-Para `scriptPath`, forneça o caminho relativo do arquivo de pipeline para o script. Você pode procurar no repositório para ver o caminho.
+Para `scriptPath` , forneça o caminho relativo do arquivo de pipeline para o script. Você pode procurar no repositório para ver o caminho.
 
 ```yaml
 ScriptPath: '<your-relative-path>/<script-file-name>.ps1'
@@ -160,7 +160,7 @@ Há várias partes dessa tarefa a serem revisadas para o seu ambiente. O `Source
 SourcePath: '<path-to-artifacts>'
 ```
 
-Para `azureSubscription`, forneça o nome da conexão de serviço que você criou.
+Para `azureSubscription` , forneça o nome da conexão de serviço que você criou.
 
 ```yaml
 azureSubscription: '<your-connection-name>'
@@ -194,7 +194,7 @@ O YAML a seguir mostra a [tarefa de implantação de modelo de Azure Resource Ma
 
 Há várias partes dessa tarefa a serem revisadas para o seu ambiente.
 
-- `deploymentScope`: Selecione o escopo de implantação nas opções: `Management Group` `Subscription` e. `Resource Group` Use o **grupo de recursos** nesta passagem. Para saber mais sobre os escopos, confira [Escopos de implantação](deploy-rest.md#deployment-scope).
+- `deploymentScope`: Selecione o escopo de implantação nas opções: `Management Group` `Subscription` e `Resource Group` . Use o **grupo de recursos** nesta passagem. Para saber mais sobre os escopos, confira [Escopos de implantação](deploy-rest.md#deployment-scope).
 
 - `ConnectedServiceName`: Forneça o nome da conexão de serviço que você criou.
 
@@ -204,14 +204,14 @@ Há várias partes dessa tarefa a serem revisadas para o seu ambiente.
 
 - `subscriptionName`: Forneça a ID da assinatura de destino. Essa propriedade só se aplica ao escopo de implantação do grupo de recursos e ao escopo de implantação da assinatura.
 
-- `resourceGroupName`e `location`: forneça o nome e o local do grupo de recursos no qual você deseja implantar. A tarefa cria o grupo de recursos, caso ele não exista.
+- `resourceGroupName`e `location` : forneça o nome e o local do grupo de recursos no qual você deseja implantar. A tarefa cria o grupo de recursos, caso ele não exista.
 
     ```yaml
     resourceGroupName: '<resource-group-name>'
     location: '<location>'
     ```
 
-A tarefa de implantação é vinculada a `WebSite.json` um modelo chamado e um arquivo de parâmetros chamado website. Parameters. JSON. Use os nomes dos arquivos de modelo e parâmetro.
+A tarefa de implantação é vinculada a um modelo chamado `WebSite.json` e um arquivo de parâmetros chamado WebSite.parameters.jsem. Use os nomes dos arquivos de modelo e parâmetro.
 
 Agora que você entende como criar as tarefas, vamos percorrer as etapas para editar o pipeline.
 

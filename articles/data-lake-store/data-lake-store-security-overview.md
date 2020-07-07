@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: twooley
 ms.openlocfilehash: 7e987c56c3a125a03e3a90540313ace1f8adf47a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82086565"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Segurança no Azure Data Lake Storage Gen1
@@ -52,7 +52,7 @@ Observe que, embora as funções sejam atribuídas para gerenciamento de conta, 
 
 | Funções | Direitos de gerenciamento | Direitos de acesso a dados | Explicação |
 | --- | --- | --- | --- |
-| Nenhuma função atribuída |Nenhum |Controlado pela ACL |Os usuários não podem usar o portal do Azure ou os cmdlets do Azure PowerShell para percorrer o Azure Data Lake Storage Gen1. O usuário pode usar apenas as ferramentas de linha de comando. |
+| Nenhuma função atribuída |Não |Controlado pela ACL |Os usuários não podem usar o portal do Azure ou os cmdlets do Azure PowerShell para percorrer o Azure Data Lake Storage Gen1. O usuário pode usar apenas as ferramentas de linha de comando. |
 | Proprietário |Todos |Todos |A função Proprietário é um superusuário. Essa função pode gerenciar tudo e tem acesso completo aos dados. |
 | Leitor |Somente leitura |Controlado pela ACL |A função Leitor pode ver tudo sobre o gerenciamento da conta, como qual usuário é atribuído a qual função. A função Leitor não pode fazer alterações. |
 | Colaborador |Tudo, exceto adicionar e remover as funções. |Controlado pela ACL |A função Colaborador pode gerenciar alguns aspectos de uma conta, como implantações e a criação e o gerenciamento de alertas. Um Colaborador não pode adicionar ou remover funções. |
@@ -74,7 +74,7 @@ Use o Azure Data Lake Storage Gen1 para ajudar a controlar o acesso ao seu armaz
 
 ![Configurações do firewall e acesso IP](./media/data-lake-store-security-overview/firewall-ip-access.png "Configurações de firewall e endereço IP")
 
-As marcas de serviço de suporte de VNet (redes virtuais) do Azure para Data Lake Gen 1. Uma marca de serviço representa um grupo de prefixos de endereço IP de um determinado serviço do Azure. A Microsoft gerencia os prefixos de endereço abordados pela marca de serviço e atualiza automaticamente a marca de serviço à medida que os endereços são alterados. Para obter mais informações, consulte [visão geral das marcas de serviço do Azure](../virtual-network/service-tags-overview.md).
+As marcas de serviço de suporte de VNet (redes virtuais) do Azure para Data Lake Gen 1. Uma marca de serviço representa um grupo de prefixos de endereço IP de um determinado serviço do Azure. A Microsoft gerencia os prefixos de endereço englobados pela marca de serviço e atualiza automaticamente a marca de serviço em caso de alteração de endereços. Para obter mais informações, consulte [visão geral das marcas de serviço do Azure](../virtual-network/service-tags-overview.md).
 
 ## <a name="data-protection"></a>Proteção de dados
 
@@ -117,7 +117,7 @@ Os clientes corporativos exigem uma plataforma de nuvem da análise de dados que
 
 Se você quer ver os novos recursos incluídos no Azure Data Lake Storage Gen1, envie seus comentários para o [Fórum UserVoice do Azure Data Lake Storage Gen1](https://feedback.azure.com/forums/327234-data-lake).
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 * [Visão Geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Introdução ao Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)

@@ -9,10 +9,10 @@ ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 81ee07eb41df6d8d663510913572b829feffd995
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82133791"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>Introdução aos principais serviços de armazenamento do Azure
@@ -23,7 +23,7 @@ A plataforma de armazenamento do Azure é a solução de armazenamento em nuvem 
 - **Soquete.** Todos os dados gravados em uma conta de armazenamento do Azure são criptografados pelo serviço. O Armazenamento do Azure oferece um controle refinado sobre quem possui acesso aos seus dados.
 - **Chegar.** O Armazenamento do Azure foi concebido para ser altamente escalonável e atender às necessidades de desempenho e armazenamento de dados dos aplicativos atuais.
 - **Administra.** O Azure lida com a manutenção de hardware, atualizações e problemas críticos para você.
-- **Acessível.** Os dados no Armazenamento do Azure são acessíveis de qualquer lugar no mundo por HTTP ou HTTPS. A Microsoft fornece bibliotecas de cliente para o armazenamento do Azure em uma variedade de linguagens, incluindo .NET, Java, Node. js, Python, PHP, Ruby, Go e outros, bem como uma API REST madura. O Armazenamento do Azure oferece suporte para scripts no Azure PowerShell ou na CLI do Azure. E o Portal do Azure e o Gerenciador de Armazenamento do Azure oferecem soluções visualmente fáceis para o trabalho com os seus dados.  
+- **Acessível.** Os dados no Armazenamento do Azure são acessíveis de qualquer lugar no mundo por HTTP ou HTTPS. A Microsoft fornece bibliotecas de cliente para o armazenamento do Azure em uma variedade de linguagens, incluindo .NET, Java, Node.js, Python, PHP, Ruby, Go e outros, bem como uma API REST madura. O Armazenamento do Azure oferece suporte para scripts no Azure PowerShell ou na CLI do Azure. E o Portal do Azure e o Gerenciador de Armazenamento do Azure oferecem soluções visualmente fáceis para o trabalho com os seus dados.  
 
 ## <a name="core-storage-services"></a>Serviços de armazenamento de núcleo
 
@@ -49,7 +49,7 @@ A tabela a seguir compara arquivos, BLOBs, discos, filas e tabelas e mostra cen�
 | **Filas do Azure** | Permite o enfileiramento de mensagens assíncronas entre componentes do aplicativo. | Você deseja desacoplar componentes de aplicativos e usar mensagens assíncronas para se comunicar entre eles.<br><br>Para obter orientação sobre quando usar o armazenamento de filas versus filas do barramento de serviço, consulte [filas de armazenamento e filas do barramento de serviço – comparações e contrastes](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted). |
 | **Tabelas do Azure** | Permitir que você armazene dados NoSQL estruturados na nuvem, fornecendo um repositório de chaves/atributos com um design sem esquema. | Você deseja armazenar conjuntos de dados flexíveis, como os de usuário para aplicativos Web, catálogos de endereços, informações de dispositivo ou outros tipos de metadados que seu serviço requer. <br/><br/>Para obter orientação sobre quando usar o armazenamento de tabela versus o Azure Cosmos DB API de Tabela, consulte [desenvolvendo com Azure Cosmos DB API de tabela e armazenamento de tabelas do Azure](../../cosmos-db/table-support.md). |
 
-## <a name="blob-storage"></a>Armazenamento de Blobs
+## <a name="blob-storage"></a>Armazenamento de blobs
 
 O Armazenamento de Blobs do Azure é uma solução de armazenamento de objetos da Microsoft para a nuvem. O armazenamento de Blobs é otimizado para armazenar grandes quantidades de dados não estruturados, como texto ou dados binários.
 
@@ -123,7 +123,7 @@ Há dois tipos básicos de criptografia disponíveis para os serviços de armaze
 
 ### <a name="encryption-at-rest"></a>Criptografia em repouso
 
-A criptografia de armazenamento do Azure protege e protege seus dados para atender aos compromissos de segurança e conformidade da organização. O armazenamento do Azure criptografa automaticamente todos os dados antes de persistir para a conta de armazenamento e descriptografá-los antes da recuperação. Os processos de criptografia, descriptografia e gerenciamento de chaves são transparentes para os usuários. Os clientes também podem optar por gerenciar suas próprias chaves usando Azure Key Vault. Para obter mais informações, consulte [criptografia de armazenamento do Azure para dados em repouso](storage-service-encryption.md).
+A criptografia de armazenamento do Azure protege e protege seus dados para atender aos compromissos de segurança e conformidade da organização. O armazenamento do Azure criptografa automaticamente todos os dados antes de persistir para a conta de armazenamento e descriptografá-los antes da recuperação. Os processos de criptografia, descriptografia e gerenciamento de chaves são transparentes para os usuários. Os clientes também podem optar por gerenciar suas próprias chaves usando Azure Key Vault. Para obter mais informações, consulte [Criptografia do Armazenamento do Azure para dados em repouso](storage-service-encryption.md).
 
 ### <a name="client-side-encryption"></a>Criptografia do cliente
 
@@ -131,7 +131,7 @@ As bibliotecas de cliente de armazenamento do Azure fornecem métodos para cript
 
 ## <a name="redundancy"></a>Redundância
 
-Para garantir que seus dados sejam duráveis, o armazenamento do Azure armazena várias cópias de seus dados. Quando você configura sua conta de armazenamento, você seleciona uma opção de redundância. Para mais informações, confira [Redundância do Armazenamento do Microsoft Azure](/azure/storage/common/storage-redundancy?toc=/azure/storage/blobs/toc.json).
+Para garantir que seus dados sejam duráveis, o armazenamento do Azure armazena várias cópias de seus dados. Quando você configura sua conta de armazenamento, você seleciona uma opção de redundância. Para obter mais informações, consulte [Redundância do Armazenamento do Azure](/azure/storage/common/storage-redundancy?toc=/azure/storage/blobs/toc.json).
 
 ## <a name="transfer-data-to-and-from-azure-storage"></a>Transferir dados de e para o armazenamento do Azure
 
@@ -150,7 +150,7 @@ Você pode acessar recursos em uma conta de armazenamento por qualquer linguagem
 - [API REST do armazenamento do Azure](https://docs.microsoft.com/rest/api/storageservices/)
 - [Biblioteca de cliente de armazenamento do Azure para .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
 - [Biblioteca de cliente de armazenamento do Azure para Java/Android](https://docs.microsoft.com/java/api/overview/azure/storage)
-- [Biblioteca de cliente de armazenamento do Azure para node. js](https://docs.microsoft.com/javascript/api/overview/azure/storage-overview)
+- [Biblioteca de cliente de armazenamento do Azure para Node.js](https://docs.microsoft.com/javascript/api/overview/azure/storage-overview)
 - [Biblioteca de cliente de armazenamento do Azure para Python](https://github.com/Azure/azure-storage-python)
 - [Biblioteca de cliente de armazenamento do Azure para PHP](https://github.com/Azure/azure-storage-php)
 - [Biblioteca de cliente de armazenamento do Azure para Ruby](https://github.com/Azure/azure-storage-ruby)

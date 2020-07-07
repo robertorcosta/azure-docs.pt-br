@@ -10,15 +10,15 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: d746b942f624fc83515ba29b0a092c2e592f1f25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82137613"
 ---
 # <a name="two-class-logistic-regression-module"></a>Módulo de regressão logística de duas classes
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer do Azure Machine Learning (versão prévia).
 
 Use este módulo para criar um modelo de regressão logística que pode ser usado para prever dois (e apenas dois) resultados. 
 
@@ -55,7 +55,7 @@ Por exemplo, a coluna de rótulo pode ser [voto] com os valores possíveis de "S
   
     -   Por outro lado, a regularização L2 é preferível para dados que não são esparsos.  
   
-     Este algoritmo dá suporte a uma combinação linear de valores de regularização L1 e L2: ou <code>x = L1</code> seja <code>y = L2</code>, se <code>ax + by = c</code> e, define o intervalo linear dos termos de regularização.  
+     Este algoritmo dá suporte a uma combinação linear de valores de regularização L1 e L2: ou seja, se <code>x = L1</code> e <code>y = L2</code> , <code>ax + by = c</code> define o intervalo linear dos termos de regularização.  
   
     > [!NOTE]
     >  Quer saber mais sobre a regularização de L1 e L2? O artigo a seguir fornece uma discussão de como a regularização L1 e L2 é diferente e como elas afetam o ajuste de modelo, com exemplos de código para a regressão logística e modelos de rede neural: a [regularização L1 e L2 para Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)  
@@ -85,7 +85,7 @@ Por exemplo, a coluna de rótulo pode ser [voto] com os valores possíveis de "S
     > 
     > Se você selecionar a opção **intervalo de parâmetros** e inserir um único valor para qualquer parâmetro, esse valor único especificado será usado em toda a varredura, mesmo que outros parâmetros sejam alterados em um intervalo de valores.  
   
-9. Envie o pipeline.  
+9. Enviar o pipeline.  
   
 ## <a name="results"></a>Resultados
 
@@ -97,4 +97,4 @@ Após a conclusão do treinamento:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 

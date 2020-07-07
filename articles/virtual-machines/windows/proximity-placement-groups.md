@@ -9,10 +9,10 @@ ms.date: 01/27/2020
 ms.author: cynthn
 ms.reviewer: zivr
 ms.openlocfilehash: 2401e8c160fd1c2ee3a734f374f1d4409c52ed16
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82098519"
 ---
 # <a name="deploy-vms-to-proximity-placement-groups-using-powershell"></a>Implantar VMs em grupos de posicionamento de proximidade usando o PowerShell
@@ -20,11 +20,11 @@ ms.locfileid: "82098519"
 
 Para obter as VMs o mais próximo possível, alcançando a menor latência possível, você deve implantá-las em um [grupo de posicionamento de proximidade](co-location.md#proximity-placement-groups).
 
-Um grupo de posicionamento de proximidade é um agrupamento lógico usado para garantir que os recursos de computação do Azure estejam fisicamente localizados próximos um do outro. Os grupos de posicionamento de proximidade são úteis para cargas de trabalho em que a baixa latência é um requisito.
+Um grupo de posicionamento por proximidade é um agrupamento lógico usado para garantir que os recursos de computação do Azure estejam fisicamente localizados próximos uns dos outros. Os grupos de posicionamento por proximidade são úteis para cargas de trabalho em que a baixa latência é um requisito.
 
 
 ## <a name="create-a-proximity-placement-group"></a>Criar um grupo de posicionamento de proximidade
-Crie um grupo de posicionamento de proximidade usando o cmdlet [New-AzProximityPlacementGroup](https://docs.microsoft.com/powershell/module/az.compute/new-azproximityplacementgroup) . 
+Crie um grupo de posicionamento por proximidade usando o cmdlet [New-AzProximityPlacementGroup](https://docs.microsoft.com/powershell/module/az.compute/new-azproximityplacementgroup). 
 
 ```azurepowershell-interactive
 $resourceGroup = "myPPGResourceGroup"
@@ -38,9 +38,9 @@ $ppg = New-AzProximityPlacementGroup `
    -ProximityPlacementGroupType Standard
 ```
 
-## <a name="list-proximity-placement-groups"></a>Listar grupos de posicionamento de proximidade
+## <a name="list-proximity-placement-groups"></a>Lista de grupos de posicionamento por proximidade
 
-Você pode listar todos os grupos de posicionamento de proximidade usando o cmdlet [Get-AzProximityPlacementGroup](/powershell/module/az.compute/get-azproximityplacementgroup) .
+Liste todos os grupos de posicionamento por proximidade usando o cmdlet [Get-AzProximityPlacementGroup](/powershell/module/az.compute/get-azproximityplacementgroup).
 
 ```azurepowershell-interactive
 Get-AzProximityPlacementGroup
@@ -49,7 +49,7 @@ Get-AzProximityPlacementGroup
 
 ## <a name="create-a-vm"></a>Criar uma máquina virtual
 
-Crie uma VM no grupo de posicionamento de proximidade `-ProximityPlacementGroup $ppg.Id` usando para se referir à ID do grupo de posicionamento de proximidade ao usar [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) para criar a VM.
+Crie uma VM no grupo de posicionamento de proximidade usando `-ProximityPlacementGroup $ppg.Id` para se referir à ID do grupo de posicionamento de proximidade ao usar [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) para criar a VM.
 
 ```azurepowershell-interactive
 $vmName = "myVM"
@@ -173,4 +173,4 @@ Start-AzVmss -VMScaleSetName $vmss.Name -ResourceGroupName $vmss.ResourceGroupNa
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você também pode usar o [CLI do Azure](../linux/proximity-placement-groups.md) para criar grupos de posicionamento de proximidade.
+Você também pode usar a [CLI do Azure](../linux/proximity-placement-groups.md) para criar grupos de posicionamento por proximidade.

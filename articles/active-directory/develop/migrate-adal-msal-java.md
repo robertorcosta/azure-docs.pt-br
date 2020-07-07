@@ -15,10 +15,10 @@ ms.author: sagonzal
 ms.reviewer: nacanuma, twhitney
 ms.custom: aaddev
 ms.openlocfilehash: 7729a30acb1b191378960887164bb4b32e225c36
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82128018"
 ---
 # <a name="adal-to-msal-migration-guide-for-java"></a>Guia de migração do ADAL para o MSAL para Java
@@ -43,13 +43,13 @@ Se você esteve trabalhando com o ponto de extremidade do Azure AD para desenvol
 
 O ADAL4J adquire tokens para recursos, enquanto MSAL para Java adquire tokens para escopos. Um número de MSAL para classes Java requer um parâmetro de escopos. Esse parâmetro é uma lista de cadeias de caracteres que declaram as permissões e os recursos desejados que são solicitados. Consulte [escopos de Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference) para ver os escopos de exemplo.
 
-Você pode adicionar o `/.default` sufixo de escopo ao recurso para ajudar a migrar seus aplicativos do ponto de extremidade v 1.0 (Adal) para o ponto de extremidade da plataforma de identidade da Microsoft (MSAL). Por exemplo, para o valor do recurso `https://graph.microsoft.com`de, o valor de escopo `https://graph.microsoft.com/.default`equivalente é.  Se o recurso não estiver no formato de URL, mas uma ID de recurso do formulário `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX`, você ainda poderá usar o valor de escopo `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default`como.
+Você pode adicionar o `/.default` sufixo de escopo ao recurso para ajudar a migrar seus aplicativos do ponto de extremidade v 1.0 (Adal) para o ponto de extremidade da plataforma de identidade da Microsoft (MSAL). Por exemplo, para o valor do recurso de `https://graph.microsoft.com` , o valor de escopo equivalente é `https://graph.microsoft.com/.default` .  Se o recurso não estiver no formato de URL, mas uma ID de recurso do formulário `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX` , você ainda poderá usar o valor de escopo como `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default` .
 
 Para obter mais detalhes sobre os diferentes tipos de escopos, consulte [permissões e consentimento na plataforma de identidade da Microsoft](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent) e os [escopos para uma API Web aceitando os artigos de tokens v 1.0](https://docs.microsoft.com/azure/active-directory/develop/msal-v1-app-scopes) .
 
 ## <a name="core-classes"></a>Classes de núcleo
 
-No ADAL4J, a `AuthenticationContext` classe representa sua conexão com o serviço de token de segurança (STS) ou servidor de autorização por meio de uma autoridade. No entanto, o MSAL para Java foi projetado em relação aos aplicativos cliente. Ele fornece duas classes separadas: `PublicClientApplication` e `ConfidentialClientApplication` para representar aplicativos cliente.  O último, `ConfidentialClientApplication`, representa um aplicativo projetado para manter um segredo com segurança, como um identificador de aplicativo para um aplicativo daemon.
+No ADAL4J, a `AuthenticationContext` classe representa sua conexão com o serviço de token de segurança (STS) ou servidor de autorização por meio de uma autoridade. No entanto, o MSAL para Java foi projetado em relação aos aplicativos cliente. Ele fornece duas classes separadas: `PublicClientApplication` e `ConfidentialClientApplication` para representar aplicativos cliente.  O último, `ConfidentialClientApplication` , representa um aplicativo projetado para manter um segredo com segurança, como um identificador de aplicativo para um aplicativo daemon.
 
 A tabela a seguir mostra como o ADAL4J Functions é mapeado para o novo MSAL para funções Java:
 
@@ -69,7 +69,7 @@ A tabela a seguir mostra como o ADAL4J Functions é mapeado para o novo MSAL par
 
 ADAL4J os usuários manipulados. Embora um usuário represente um único agente humano ou de software, ele pode ter uma ou mais contas no sistema de identidade da Microsoft. Por exemplo, um usuário pode ter várias contas pessoais do Azure AD, Azure AD B2C ou Microsoft.
 
-MSAL para Java define o conceito de conta por meio `IAccount` da interface. Essa é uma alteração significativa do ADAL4J, mas é uma boa porque captura o fato de que o mesmo usuário pode ter várias contas, e talvez até mesmo em diretórios diferentes do Azure AD. O MSAL para Java fornece mais informações em cenários de convidado, pois as informações da conta residencial são fornecidas.
+MSAL para Java define o conceito de conta por meio da `IAccount` interface. Essa é uma alteração significativa do ADAL4J, mas é uma boa porque captura o fato de que o mesmo usuário pode ter várias contas, e talvez até mesmo em diretórios diferentes do Azure AD. O MSAL para Java fornece mais informações em cenários de convidado, pois as informações da conta residencial são fornecidas.
 
 ## <a name="cache-persistence"></a>Persistência de cache
 
@@ -92,7 +92,7 @@ Para obter mais informações sobre tokens v 1.0 e v 2.0, consulte [Azure Active
 
 ## <a name="adal-to-msal-migration"></a>Migração de ADAL para MSAL
 
-No ADAL4J, os tokens de atualização foram expostos, que permitiam aos desenvolvedores armazená-los em cache. Em seguida, eles `AcquireTokenByRefreshToken()` seriam usados para habilitar soluções como a implementação de serviços de longa execução que atualizam painéis em nome do usuário quando o usuário não está mais conectado.
+No ADAL4J, os tokens de atualização foram expostos, que permitiam aos desenvolvedores armazená-los em cache. Em seguida, eles seriam usados `AcquireTokenByRefreshToken()` para habilitar soluções como a implementação de serviços de longa execução que atualizam painéis em nome do usuário quando o usuário não está mais conectado.
 
 O MSAL para Java não expõe tokens de atualização por motivos de segurança. Em vez disso, o MSAL lida com a atualização de tokens para você.
 

@@ -6,10 +6,10 @@ author: tugup
 ms.author: tugup
 ms.date: 3/12/2020
 ms.openlocfilehash: 07a1b836ca7ea79244e303f54654dfcaa6e5fcb9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82137579"
 ---
 # <a name="liveness-probe"></a>Investigação de tempo de vida
@@ -40,15 +40,15 @@ Além disso, Service Fabric gerará os seguintes [relatórios de integridade][he
 
 * `OK`: A investigação é realizada com sucesso para o valor definido em **successThreshold**.
 
-* `Error`: A investigação **failureCount** ==  **limite**, antes da reinicialização do contêiner.
+* `Error`: A investigação **failureCount**  ==   **limite**, antes da reinicialização do contêiner.
 
 * `Warning`: 
-    * A investigação falha e **failureCount** < **limite**. Esse relatório de integridade permanece até que **failureCount** atinja o valor definido em **limite** ou **successThreshold**.
+    * A investigação falha e **failureCount**  <  **limite**. Esse relatório de integridade permanece até que **failureCount** atinja o valor definido em **limite** ou **successThreshold**.
     * Em caso de êxito após a falha, o aviso permanece, mas com sucessos consecutivos atualizados.
 
 ## <a name="specifying-a-liveness-probe"></a>Especificando uma investigação de tempo de vida
 
-Você pode especificar uma investigação no arquivo ApplicationManifest. xml em **ServiceManifestImport**.
+Você pode especificar uma investigação no arquivo de ApplicationManifest.xml em **ServiceManifestImport**.
 
 A investigação pode ser para qualquer um dos seguintes:
 

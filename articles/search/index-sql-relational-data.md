@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 2ebeb7f6fee77c43c9da97b922fc215d75196145
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82117562"
 ---
 # <a name="how-to-model-relational-sql-data-for-import-and-indexing-in-azure-cognitive-search"></a>Como modelar dados SQL relacionais para importação e indexação no Azure Pesquisa Cognitiva
@@ -84,7 +84,7 @@ A solução é capturar os detalhes da sala como JSON aninhado e, em seguida, in
     GO
     ```
 
-2. Crie uma exibição composta de todos os campos na tabela pai (`SELECT * from dbo.Hotels$`), com a adição de um novo campo de *salas* que contenha a saída de uma consulta aninhada. Uma cláusula **for JSON auto** em `SELECT * from dbo.Rooms$` estrutura a saída como JSON. 
+2. Crie uma exibição composta de todos os campos na tabela pai ( `SELECT * from dbo.Hotels$` ), com a adição de um novo campo de *salas* que contenha a saída de uma consulta aninhada. Uma cláusula **for JSON auto** em `SELECT * from dbo.Rooms$` estrutura a saída como JSON. 
 
      ```sql
    CREATE VIEW [dbo].[HotelRooms]

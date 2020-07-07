@@ -9,10 +9,10 @@ ms.author: glenga
 ms.reviewer: msangapu;suwatch;pbatum;naren.soni
 ms.custom: seodec18
 ms.openlocfilehash: 028551f04b2e44e9456e2f7343159ad9b52fd25f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82085137"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Executar tarefas em segundo plano com trabalhos Web no serviço Azure App
@@ -75,7 +75,7 @@ when making changes in one don't forget the other two.
 
    ![Página Adicionar WebJob](./media/web-sites-create-web-jobs/addwjcontinuous.png)
 
-   | Setting      | Valor de exemplo   | Descrição  |
+   | Configuração      | Valor de exemplo   | Descrição  |
    | ------------ | ----------------- | ------------ |
    | **Nome** | myContinuousWebJob | Um nome que seja exclusivo em um aplicativo do Serviço de Aplicativo. Deve começar com uma letra ou um número e não pode conter caracteres especiais além de “-” e “_”. |
    | **Upload de arquivo** | ConsoleApp.zip | Um arquivo *.zip* que contém o executável ou o arquivo de script, bem como os arquivos de suporte necessários para executar o programa ou o script. Os tipos de executável ou arquivo de script com suporte são listados na seção [Tipos de arquivo com suporte](#acceptablefiles). |
@@ -113,7 +113,7 @@ when making changes in one don't forget the other two.
 
    ![Página Adicionar WebJob](./media/web-sites-create-web-jobs/addwjtriggered.png)
 
-   | Setting      | Valor de exemplo   | Descrição  |
+   | Configuração      | Valor de exemplo   | Descrição  |
    | ------------ | ----------------- | ------------ |
    | **Nome** | myTriggeredWebJob | Um nome que seja exclusivo em um aplicativo do Serviço de Aplicativo. Deve começar com uma letra ou um número e não pode conter caracteres especiais além de “-” e “_”.|
    | **Upload de arquivo** | ConsoleApp.zip | Um arquivo *.zip* que contém o executável ou o arquivo de script, bem como os arquivos de suporte necessários para executar o programa ou o script. Os tipos de executável ou arquivo de script com suporte são listados na seção [Tipos de arquivo com suporte](#acceptablefiles). |
@@ -151,7 +151,7 @@ when making changes in one don't forget the other two.
 
    ![Página Adicionar WebJob](./media/web-sites-create-web-jobs/addwjscheduled.png)
 
-   | Setting      | Valor de exemplo   | Descrição  |
+   | Configuração      | Valor de exemplo   | Descrição  |
    | ------------ | ----------------- | ------------ |
    | **Nome** | myScheduledWebJob | Um nome que seja exclusivo em um aplicativo do Serviço de Aplicativo. Deve começar com uma letra ou um número e não pode conter caracteres especiais além de “-” e “_”. |
    | **Upload de arquivo** | ConsoleApp.zip | Um arquivo *.zip* que contém o executável ou o arquivo de script, bem como os arquivos de suporte necessários para executar o programa ou o script. Os tipos de executável ou arquivo de script com suporte são listados na seção [Tipos de arquivo com suporte](#acceptablefiles). |

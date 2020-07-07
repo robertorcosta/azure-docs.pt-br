@@ -7,10 +7,10 @@ ms.service: media-services
 ms.topic: article
 ms.date: 04/24/2020
 ms.openlocfilehash: 584748b23f526e6f03b543b8298927e3f202f743
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82139297"
 ---
 # <a name="azure-media-player-demos"></a>Demonstrações do Player de Mídia do Azure
@@ -43,7 +43,7 @@ Opções para mostrar como exibir o menu faixas de áudio na aparência padrão.
 | Eventos, registro em log e diagnóstico |
 | Registrar eventos | [Dinâmico](https://amp.azure.net/libs/amp/latest/samples/dynamic_registerEvents.html) | N/D | Reprodução com ouvintes de evento. |
 | Registrando em log | [Dinâmico](https://amp.azure.net/libs/amp/latest/samples/dynamic_logging.html) | [Estático](https://amp.azure.net/libs/amp/latest/samples/videotag_logging.html) | Ativar o log detalhado para o console. |
-| Diagnóstico | [Dinâmico](https://amp.azure.net/libs/amp/latest/samples/dynamic_diagnostics.html) | N/D | Obtendo dados de diagnóstico. Este exemplo funciona apenas em alguns techs. |
+| Diagnósticos | [Dinâmico](https://amp.azure.net/libs/amp/latest/samples/dynamic_diagnostics.html) | N/D | Obtendo dados de diagnóstico. Este exemplo funciona apenas em alguns techs. |
 | AES |
 | AES sem token | [Dinâmico](https://amp.azure.net/libs/amp/latest/samples/dynamic_aes_notoken.html) | [Estático](https://amp.azure.net/libs/amp/latest/samples/videotag_aes_notoken.html) | Reprodução de conteúdo AES sem token. |
 | Token AES | [Dinâmico](https://amp.azure.net/libs/amp/latest/samples/dynamic_aes_token.html) | [Estático](https://amp.azure.net/libs/amp/latest/samples/videotag_aes_token.html) | Reprodução de conteúdo AES com token. |
@@ -68,4 +68,4 @@ Opções para mostrar como exibir o menu faixas de áudio na aparência padrão.
 ## <a name="next-steps"></a>Próximas etapas
 
 <!---Some context for the following links goes here--->
-- [Guia de início rápido Player de Mídia do Azure](azure-media-player-quickstart.md)
+- [Início rápido do Player de Mídia do Azure](azure-media-player-quickstart.md)

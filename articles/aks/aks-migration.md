@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 02/25/2020
 ms.custom: mvc
 ms.openlocfilehash: 9a5e2c1e36a742115ed2f5c690c81a186a86dee7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82129095"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Migrar para o serviço kubernetes do Azure (AKS)
@@ -53,7 +53,7 @@ Recomendamos o uso de clusters AKS apoiados por [conjuntos de dimensionamento de
 
 Os clusters AKS apoiados por [conjuntos de disponibilidade de máquina virtual](https://docs.microsoft.com/azure/virtual-machine-scale-sets/availability#availability-sets) não têm suporte para muitos desses recursos.
 
-O exemplo a seguir cria um cluster AKS com um pool de nós único apoiado por um conjunto de dimensionamento de máquinas virtuais. Ele usa um balanceador de carga padrão. Ele também habilita o dimensionador do cluster em conjunto de nós para o cluster e define um mínimo de *1* e o máximo de *3* nós:
+O exemplo a seguir cria um cluster AKS com um pool de nós único apoiado por um conjunto de dimensionamento de máquinas virtuais. Ele usa um balanceador de carga padrão. Ele também habilita o dimensionador automático de cluster no pool de nós e define o mínimo de *1* o máximo de *3* nós:
 
 ```azurecli-interactive
 # First create a resource group
@@ -94,7 +94,7 @@ Para obter mais informações, consulte [limites de serviço e assinatura do Azu
 
 Se seu aplicativo não puder lidar com o tempo de inatividade, será necessário seguir as práticas recomendadas para cenários de migração de alta disponibilidade.  As práticas recomendadas para planejamento de continuidade de negócios complexos, recuperação de desastres e maximização do tempo de atividade estão além do escopo deste documento.  Leia mais sobre [as práticas recomendadas para continuidade dos negócios e recuperação de desastres no AKs (serviço kubernetes do Azure)](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region) para saber mais.
 
-Para aplicativos complexos, geralmente a migração ocorre ao longo do tempo em vez de uma só vez. Isso significa que os ambientes novos e antigos podem precisar se comunicar pela rede. Os aplicativos que usaram `ClusterIP` anteriormente serviços para comunicação podem precisar ser expostos como tipo `LoadBalancer` e ser protegidos adequadamente.
+Para aplicativos complexos, geralmente a migração ocorre ao longo do tempo em vez de uma só vez. Isso significa que os ambientes novos e antigos podem precisar se comunicar pela rede. Os aplicativos que usaram anteriormente `ClusterIP` serviços para comunicação podem precisar ser expostos como tipo `LoadBalancer` e ser protegidos adequadamente.
 
 Para concluir a migração, você desejará apontar os clientes para os novos serviços em execução no AKS. Recomendamos que você redirecione o tráfego atualizando o DNS para apontar para o Load Balancer que fica na frente do cluster AKS.
 
@@ -158,7 +158,7 @@ Algumas ferramentas de código-fonte aberto podem ajudá-lo a criar discos geren
 
 ### <a name="deployment-of-your-cluster-configuration"></a>Implantação de sua configuração de cluster
 
-Recomendamos que você use seu pipeline de integração contínua (CI) e entrega contínua (CD) para implantar uma configuração válida em AKS. Você pode usar Azure Pipelines para [Compilar e implantar seus aplicativos no AKs](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops). Clone suas tarefas de implantação existentes e certifique `kubeconfig` -se de que aponta para o novo cluster AKs.
+Recomendamos que você use seu pipeline de integração contínua (CI) e entrega contínua (CD) para implantar uma configuração válida em AKS. Você pode usar Azure Pipelines para [Compilar e implantar seus aplicativos no AKs](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops). Clone suas tarefas de implantação existentes e certifique-se de que `kubeconfig` aponta para o novo cluster AKs.
 
 Se isso não for possível, exporte as definições de recursos do cluster kubernetes existente e aplique-as ao AKS. É possível usar `kubectl` para exportar objetos.
 
