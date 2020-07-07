@@ -12,10 +12,10 @@ ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
 ms.openlocfilehash: 261f75344d250ae8a8d9687f4bcd80535d11716b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81429038"
 ---
 # <a name="group-by-options-in-synapse-sql"></a>Opções de agrupar por no Synapse SQL
@@ -57,7 +57,7 @@ GROUP BY ROLLUP (
 Usando ROLLUP, o exemplo anterior solicita as agregações a seguir:
 
 * país e região
-* País/Região
+* País
 * Grande Total
 
 Para substituir o ROLLUP e retornar os mesmos resultados, você pode usar UNION ALL e especificar explicitamente as agregações necessárias:

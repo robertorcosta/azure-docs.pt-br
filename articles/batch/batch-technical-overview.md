@@ -3,12 +3,12 @@ title: O Lote do Azure executa grandes trabalhos paralelos na nuvem
 description: Saiba mais sobre o uso do serviço Lote do Azure para cargas de trabalho paralelas e HPC em larga escala.
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: c78aec238664520c8c8c02a793298cdc1d3ac7e1
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: HT
+ms.openlocfilehash: 134706622655029c6673aea5dd04a9284155be6f
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779558"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965069"
 ---
 # <a name="what-is-azure-batch"></a>O que é o Lote do Azure?
 
@@ -18,7 +18,7 @@ Os desenvolvedores podem de usar o Lote como um serviço de plataforma para cria
 
 Não há custos adicionais para usar o Lote. Você paga apenas pelos recursos subjacentes consumidos, como máquinas virtuais, armazenamento e rede.
 
-Para obter uma comparação entre o Lote e outras opções de solução HPC no Azure, confira [HPC (Computação de alto desempenho) no Azure](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/).
+Para obter uma comparação entre o Lote e outras opções de solução HPC no Azure, confira [HPC (Computação de alto desempenho) no Azure](/azure/architecture/topics/high-performance-computing/).
 
 ## <a name="run-parallel-workloads"></a>Executar cargas de trabalho paralelas
 O Lote funciona bem com cargas de trabalho intrinsecamente paralelas (também conhecidas como "excessivamente paralelas"). Cargas de trabalho intrinsecamente paralelas são aquelas em que os aplicativos podem ser executados independentemente, e cada instância conclui parte do trabalho. Quando os aplicativos estão em execução, eles podem acessar alguns dados comuns, mas não se comunicam com outras instâncias do aplicativo. Cargas de trabalho podem, portanto, ser executadas em grande escala, determinada pela quantidade de recursos de computação disponíveis para executar aplicativos simultaneamente.
@@ -34,7 +34,7 @@ Alguns exemplos de cargas de trabalho intrinsecamente paralelas que você pode c
 * Ingestão de dados, processamento e operações de ETL
 * Execução de teste de software
 
-Você também pode usar o Lote para [executar cargas de trabalho firmemente acopladas](batch-mpi.md); essas são cargas de trabalho em que os aplicativos que você executa precisam se comunicar entre si, ou seja, não são executadas independentemente. Aplicativos firmemente acoplados normalmente usam a API MPI (Message Passing Interface). Você pode executar suas cargas de trabalho firmemente acopladas no Lote usando [MPI Microsoft](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx) ou MPI Intel. Melhore o desempenho de aplicativos com tamanhos de VM [HPC](../virtual-machines/linux/sizes-hpc.md) e [otimizado para GPU](../virtual-machines/linux/sizes-gpu.md) especializados.
+Você também pode usar o Lote para [executar cargas de trabalho firmemente acopladas](batch-mpi.md); essas são cargas de trabalho em que os aplicativos que você executa precisam se comunicar entre si, ou seja, não são executadas independentemente. Aplicativos firmemente acoplados normalmente usam a API MPI (Message Passing Interface). Você pode executar suas cargas de trabalho firmemente acopladas no Lote usando [MPI Microsoft](/message-passing-interface/microsoft-mpi) ou MPI Intel. Melhore o desempenho de aplicativos com tamanhos de VM [HPC](../virtual-machines/linux/sizes-hpc.md) e [otimizado para GPU](../virtual-machines/linux/sizes-gpu.md) especializados.
 
 Alguns exemplos de cargas de trabalho firmemente acopladas:
 * Análise de elemento finito

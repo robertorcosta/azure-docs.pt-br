@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 0b8fe1b319dc480879944d28f10645025a8cb38e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80371450"
 ---
 # <a name="core-io-operations"></a>Operações de e/s básica
@@ -28,33 +28,33 @@ A `atlas.io.core.CsvReader` classe lê cadeias de caracteres que contêm conjunt
 - A `read` função lerá o conjunto de dados completo e retornará uma matriz bidimensional de cadeias de caracteres representando todas as células do conjunto de dados delimitado.
 - A `getNextRow` função lê cada linha de texto em um conjunto de dados delimitado e retorna uma matriz de cadeia de caracteres que representa todas as células nessa linha de conjunto de dados. O usuário pode processar a linha e descartar a memória desnecessária dessa linha antes de processar a próxima linha. Portanto, a função é mais eficiente na memória.
 
-Por padrão, o leitor usará o caractere de vírgula como o delimitador. No entanto, o delimitador pode ser alterado para qualquer caractere `'auto'`único ou definido como. Quando definido como `'auto'`, o leitor analisará a primeira linha de texto na cadeia de caracteres. Em seguida, ele selecionará o caractere mais comum da tabela abaixo para usar como o delimitador.
+Por padrão, o leitor usará o caractere de vírgula como o delimitador. No entanto, o delimitador pode ser alterado para qualquer caractere único ou definido como `'auto'` . Quando definido como `'auto'` , o leitor analisará a primeira linha de texto na cadeia de caracteres. Em seguida, ele selecionará o caractere mais comum da tabela abaixo para usar como o delimitador.
 
 | | |
 | :-- | :-- |
 | Vírgula | `,` |
-| Guia | `\t` |
+| Tab | `\t` |
 | Pipe | `|` |
 
-Esse leitor também dá suporte a qualificadores de texto que são usados para manipular células que contêm o caractere delimitador. O caractere quote`'"'`() é o qualificador de texto padrão, mas pode ser alterado para qualquer caractere único.
+Esse leitor também dá suporte a qualificadores de texto que são usados para manipular células que contêm o caractere delimitador. O caractere quote ( `'"'` ) é o qualificador de texto padrão, mas pode ser alterado para qualquer caractere único.
 
 ## <a name="write-delimited-files"></a>Gravar arquivos delimitados
 
-O `atlas.io.core.CsvWriter` grava uma matriz de objetos como uma cadeia de caracteres delimitada. Qualquer caractere único pode ser usado como um delimitador ou um qualificador de texto. O delimitador padrão é`','`vírgula () e o qualificador de texto padrão`'"'`é o caractere de aspas ().
+O `atlas.io.core.CsvWriter` grava uma matriz de objetos como uma cadeia de caracteres delimitada. Qualquer caractere único pode ser usado como um delimitador ou um qualificador de texto. O delimitador padrão é vírgula ( `','` ) e o qualificador de texto padrão é o caractere de aspas ( `'"'` ).
 
 Para usar essa classe, siga as etapas abaixo:
 
 - Crie uma instância da classe e, opcionalmente, defina um delimitador personalizado ou um qualificador de texto.
 - Grave dados na classe usando a `write` função ou a `writeRow` função. Para a `write` função, passe uma matriz bidimensional de objetos representando várias linhas e células. Para usar a `writeRow` função, passe uma matriz de objetos representando uma linha de dados com várias colunas.
 - Chame a `toString` função para recuperar a cadeia de caracteres delimitada. 
-- Opcionalmente, chame o `clear` método para tornar o gravador reutilizável e reduzir sua alocação de recursos ou chame `delete` o método para descartar a instância do gravador.
+- Opcionalmente, chame o `clear` método para tornar o gravador reutilizável e reduzir sua alocação de recursos ou chame o `delete` método para descartar a instância do gravador.
 
 > [!Note]
 > O número de colunas gravadas será restrito ao número de células na primeira linha dos dados passados para o gravador.
 
 ## <a name="read-xml-files"></a>Ler arquivos XML
 
-A `atlas.io.core.SimpleXmlReader` classe é mais rápida na análise de arquivos XML `DOMParser`do que o. No entanto `atlas.io.core.SimpleXmlReader` , a classe requer que os arquivos XML sejam bem formatados. Os arquivos XML que não estão bem formatados, por exemplo, marcas de fechamento ausentes, provavelmente resultarão em um erro.
+A `atlas.io.core.SimpleXmlReader` classe é mais rápida na análise de arquivos XML do que o `DOMParser` . No entanto, a `atlas.io.core.SimpleXmlReader` classe requer que os arquivos XML sejam bem formatados. Os arquivos XML que não estão bem formatados, por exemplo, marcas de fechamento ausentes, provavelmente resultarão em um erro.
 
 O código a seguir demonstra como usar a `SimpleXmlReader` classe para analisar uma cadeia de caracteres XML em um objeto JSON e serializá-la em um formato desejado.
 
@@ -145,4 +145,4 @@ Saiba mais sobre as classes e métodos usados neste artigo:
 Consulte os artigos a seguir para obter mais exemplos de código para adicionar aos seus mapas:
 
 > [!div class="nextstepaction"]
-> [Detalhes de formato de dados com suporte](spatial-io-supported-data-format-details.md)
+> [Detalhes do formato de dados com suporte](spatial-io-supported-data-format-details.md)

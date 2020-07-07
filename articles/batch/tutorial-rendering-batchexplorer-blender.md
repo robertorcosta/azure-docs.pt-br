@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: ca23bbc2b53eaaaf1848a7a98228be23c9ffed0c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 65baff827417cebe2289cc821df94acd38a1ae61
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82117073"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964797"
 ---
 # <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>Tutorial: Renderizar uma cena do Blender usando o Batch Explorer
 
@@ -27,9 +27,9 @@ Neste tutorial, você aprenderá como:
 
 Você precisa de uma assinatura pré-paga ou de outra opção de compra do Azure para usar aplicativos de renderização no Lote e pagar por uso. O licenciamento de pagamento por uso não terá suporte se você usar uma oferta gratuita do Azure que forneça crédito monetário.
 
-Você precisa de uma conta do Lote do Azure com uma conta de armazenamento associada.  Consulte um dos artigos de Início Rápido do Lote, como o [artigo sobre a CLI](https://docs.microsoft.com/azure/batch/quick-create-cli), para criar uma conta do Lote.
+Você precisa de uma conta do Lote do Azure com uma conta de armazenamento associada.  Consulte um dos artigos de Início Rápido do Lote, como o [artigo sobre a CLI](./quick-create-cli.md), para criar uma conta do Lote.
 
-Uma cota de núcleos de baixa prioridade de pelo menos 50 núcleos é necessária para o tamanho da VM e o número de VMs especificados neste tutorial. A cota padrão pode ser usada, mas um tamanho menor de VM terá que ser usado, ou seja, as imagens levarão mais tempo para renderizar. O processo para solicitar uma cota de núcleo maior está detalhado [neste artigo](https://docs.microsoft.com/azure/batch/batch-quota-limit).
+Uma cota de núcleos de baixa prioridade de pelo menos 50 núcleos é necessária para o tamanho da VM e o número de VMs especificados neste tutorial. A cota padrão pode ser usada, mas um tamanho menor de VM terá que ser usado, ou seja, as imagens levarão mais tempo para renderizar. O processo para solicitar uma cota de núcleo maior está detalhado [neste artigo](./batch-quota-limit.md).
 
 Por fim, o [Batch Explorer](https://azure.github.io/BatchExplorer/) deve ser instalado; ele está disponível para Windows, OSX e Linux. Ele é opcional, mas se o [Blender](https://www.blender.org/download/) estiver instalado, o arquivo de modelo de exemplo poderá ser exibido.
 
@@ -139,4 +139,4 @@ Quando todas as tarefas forem concluídas, o trabalho será marcado como conclu�
 ## <a name="next-steps"></a>Próximas etapas
 * Na seção 'Galeria', explore os aplicativos de renderização disponíveis no Batch Explorer.
 * Para cada aplicativo, existem vários modelos disponíveis, e essa lista aumentará com o tempo.  Por exemplo, para o Blender existem modelos que dividem uma única imagem em blocos, ou seja, partes de uma imagem podem ser processadas em paralelo.
-* Para obter uma descrição abrangente das funcionalidades de renderização, confira o conjunto de artigos [aqui](https://docs.microsoft.com/azure/batch/batch-rendering-service).
+* Para obter uma descrição abrangente das funcionalidades de renderização, confira o conjunto de artigos [aqui](./batch-rendering-service.md).

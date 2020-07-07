@@ -9,16 +9,16 @@ ms.topic: include
 ms.date: 10/18/2018
 ms.author: dacurwin
 ms.custom: include file
-ms.openlocfilehash: 2c74783ea8246232cb5c4270691daf3f83fe9a30
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: HT
+ms.openlocfilehash: c0f717e26534151585a51badf4bb1fe1ba58eb00
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82204432"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970511"
 ---
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 
-Um cofre dos Serviços de Recuperação é uma entidade de armazenamento que armazena os pontos de recuperação criados ao longo do tempo. Ele também contém as políticas de backup associadas a itens protegidos.
+Um cofre dos serviços de recuperação é uma entidade de gerenciamento que armazena pontos de recuperação criados ao longo do tempo e fornece uma interface para executar operações relacionadas ao backup. Isso inclui fazer backups sob demanda, executar restaurações e criar políticas de backup.
 
 Para criar um cofre dos Serviços de Recuperação, siga estas etapas.
 
@@ -59,3 +59,6 @@ Para criar um cofre dos Serviços de Recuperação, siga estas etapas.
     Pode levar um tempo para criar o cofre dos Serviços de Recuperação. Monitore as notificações de status na área **Notificações** no canto superior direito do portal. Depois que o cofre tiver sido criado, ele aparecerá na lista de cofres dos Serviços de Recuperação. Se você não encontrar seu cofre, selecione **Atualizar**.
 
      ![Atualizar a lista de cofres de backup](./media/backup-create-rs-vault/refresh-button.png)
+
+>[!IMPORTANT]
+> É altamente recomendável revisar as configurações padrão de **tipo de replicação de armazenamento** e configurações de **segurança** antes de configurar backups no cofre. Para obter mais informações, consulte a seção [definir redundância de armazenamento](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) .

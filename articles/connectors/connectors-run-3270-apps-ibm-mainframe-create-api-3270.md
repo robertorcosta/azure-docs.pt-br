@@ -10,18 +10,18 @@ ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
 ms.openlocfilehash: 808eef5424d678559ae94ffd04e41eacd0f16aee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80371114"
 ---
-# <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Integre aplicativos baseados na tela 3270 em mainframes IBM com o Azure usando o aplicativo lógico do Azure e o conector IBM 3270
+# <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Integre aplicativos baseados na tela 3270 em mainframes IBM com o Azure usando os Aplicativos Lógicos do Azure e o conector IBM 3270
 
 > [!NOTE]
 > Este conector está em [*Visualização pública*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
-Com os aplicativos lógicos do Azure e o conector IBM 3270, você pode acessar e executar aplicativos de mainframe IBM que geralmente conduz Navegando pelas telas de emulador 3270. Dessa forma, você pode integrar seus aplicativos de mainframe IBM com o Azure, a Microsoft e outros aplicativos, serviços e sistemas criando fluxos de trabalho automatizados com aplicativos lógicos do Azure. O conector se comunica com mainframes IBM usando o protocolo TN3270 e está disponível em todas as regiões de aplicativos lógicos do Azure, exceto para Azure governamental e Azure China 21Vianet. Se você for novo em aplicativos lógicos, examine [o que são os aplicativos lógicos do Azure?](../logic-apps/logic-apps-overview.md)
+Com os Aplicativos Lógicos do Azure e o conector IBM 3270, é possível acessar e executar aplicativos de mainframe IBM que você geralmente direciona navegando pelas telas de emulador 3270. Dessa forma, você pode integrar seus aplicativos de mainframe IBM com o Azure, a Microsoft e outros aplicativos, serviços e sistemas criando fluxos de trabalho automatizados com os Aplicativos Lógicos do Azure. O conector se comunica com mainframes IBM usando o protocolo TN3270 e está disponível em todas as regiões de Aplicativos Lógicos do Azure, exceto para Azure Governamental e Azure China 21Vianet. Se ainda não estiver familiarizado com os aplicativos lógicos, veja [O que é o Aplicativo Lógico do Azure?](../logic-apps/logic-apps-overview.md)
 
 Este artigo descreve esses aspectos para usar o conector 3270: 
 
@@ -81,7 +81,7 @@ Em um aplicativo baseado em tela 3270, as telas e os campos de dados são exclus
 
 * **Navegação**: nesse modo, você especifica o plano ou o caminho para como navegar pelas telas do aplicativo de mainframe para a tarefa específica.
 
-* **Métodos**: nesse modo, você define o método, por exemplo `GetBalance`,, que descreve o caminho de navegação da tela. Você também escolhe os campos em cada tela que se tornam os parâmetros de entrada e saída do método.
+* **Métodos**: nesse modo, você define o método, por exemplo,, `GetBalance` que descreve o caminho de navegação da tela. Você também escolhe os campos em cada tela que se tornam os parâmetros de entrada e saída do método.
 
 ### <a name="unsupported-elements"></a>Elementos sem suporte
 
@@ -151,7 +151,7 @@ Para saber mais, consulte o [plano de navegação de exemplo](#example-plan) mai
 
 ## <a name="define-navigation-plans"></a>Definir planos de navegação
 
-Nesse modo, você define o fluxo ou as etapas para navegar pelas telas de seu aplicativo de mainframe para sua tarefa específica. Por exemplo, às vezes, você pode ter mais de um caminho que seu aplicativo pode assumir onde um caminho produz o resultado correto, enquanto o outro caminho produz um erro. Para cada tela, especifique os pressionamentos de tecla necessários para mover para a próxima tela, como `CICSPROD <enter>`.
+Nesse modo, você define o fluxo ou as etapas para navegar pelas telas de seu aplicativo de mainframe para sua tarefa específica. Por exemplo, às vezes, você pode ter mais de um caminho que seu aplicativo pode assumir onde um caminho produz o resultado correto, enquanto o outro caminho produz um erro. Para cada tela, especifique os pressionamentos de tecla necessários para mover para a próxima tela, como `CICSPROD <enter>` .
 
 > [!TIP]
 > Se você estiver automatizando várias tarefas que usam as mesmas telas conectar e desconectar, a ferramenta de design fornecerá tipos especiais de plano de conexão e desconexão. Ao definir esses planos, você pode adicioná-los ao início e ao fim do plano de navegação.
@@ -290,9 +290,9 @@ Nesse modo, você define um método que está associado ao seu plano de navegaç
 
    | Nome da propriedade | Valores possíveis | 
    |---------------|-----------------|
-   | **Tipo de dados** | Byte, data e hora, Decimal, int, longo, curto, Cadeia de caracteres |
+   | **Tipo de Dados** | Byte, data e hora, Decimal, int, longo, curto, Cadeia de caracteres |
    | **Técnica de preenchimento de campo** | Os parâmetros dão suporte a esses tipos de preenchimento, preenchendo com espaços em branco, se necessário: <p><p>- **Tipo**: insira caracteres sequencialmente no campo. <p>- **Preenchimento**: substitua o conteúdo do campo por caracteres, preenchendo com espaços em branco, se necessário. <p>- **EraseEofType**: Limpe o campo e, em seguida, insira os caracteres sequencialmente no campo. |
-   | **Cadeia de formato** | Alguns tipos de dados de parâmetro usam uma cadeia de caracteres de formato, que informa ao conector 3270 como converter o texto da tela em um tipo de dados .NET: <p><p>- **DateTime**: a cadeia de caracteres de formato DateTime segue as [cadeias de formato de data e hora personalizadas do .net](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Por exemplo, a data `06/30/2019` usa a cadeia de `MM/dd/yyyy`caracteres de formato. <p>- **Decimal**: a cadeia de caracteres de formato decimal usa a [cláusula de imagem COBOL](https://www.ibm.com/support/knowledgecenter/SS6SG3_5.2.0/com.ibm.cobol52.ent.doc/PGandLR/ref/rlddepic.html). Por exemplo, o número `100.35` usa a cadeia de `999V99`caracteres de formato. |
+   | **Cadeia de formato** | Alguns tipos de dados de parâmetro usam uma cadeia de caracteres de formato, que informa ao conector 3270 como converter o texto da tela em um tipo de dados .NET: <p><p>- **DateTime**: a cadeia de caracteres de formato DateTime segue as [cadeias de formato de data e hora personalizadas do .net](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Por exemplo, a data `06/30/2019` usa a cadeia de caracteres de formato `MM/dd/yyyy` . <p>- **Decimal**: a cadeia de caracteres de formato decimal usa a [cláusula de imagem COBOL](https://www.ibm.com/support/knowledgecenter/SS6SG3_5.2.0/com.ibm.cobol52.ent.doc/PGandLR/ref/rlddepic.html). Por exemplo, o número `100.35` usa a cadeia de caracteres de formato `999V99` . |
    |||
 
 ## <a name="save-and-view-metadata"></a>Salvar e exibir metadados
@@ -354,19 +354,19 @@ Ao concluir todas essas etapas, você pode usar a ação que você cria em seu a
    ![Selecione a ação 3270](./media/connectors-create-api-3270/select-3270-action.png)
 
    Para adicionar uma ação entre as etapas, mova o ponteiro sobre a seta entre as etapas. 
-   Escolha o sinal de adição**+**() que aparece e, em seguida, selecione **Adicionar uma ação**.
+   Escolha o sinal de adição ( **+** ) que aparece e, em seguida, selecione **Adicionar uma ação**.
 
 1. Se nenhuma conexão ainda existir, forneça as informações necessárias para sua conexão e escolha **criar**.
 
    | Propriedade | Obrigatório | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Nome da Conexão** | Sim | <*nome da conexão*> | O nome para a sua conexão |
+   | **Nome da conexão** | Sim | <*nome da conexão*> | O nome para a sua conexão |
    | **ID da conta de integração** | Sim | <*integração-nome da conta*> | O nome da sua conta de integração |
    | **URL SAS da conta de integração** | Sim | <*integração-conta-SAS-URL*> | A URL da assinatura de acesso compartilhado (SAS) da sua conta de integração, que pode ser gerada com base nas configurações da sua conta de integração no portal do Azure. <p>1. no menu da sua conta de integração, em **configurações**, selecione **URL de retorno de chamada**. <br>2. no painel à direita, copie o valor da **URL de retorno de chamada gerado** . |
    | **Servidor** | Sim | <*TN3270-nome-do-servidor*> | O nome do servidor para o serviço TN3270 |
-   | **Porta** | Não | <*TN3270-servidor-porta*> | A porta usada pelo servidor TN3270. Se for deixado em branco, o `23` conector usará como o valor padrão. |
+   | **Porta** | Não | <*TN3270-servidor-porta*> | A porta usada pelo servidor TN3270. Se for deixado em branco, o conector usará `23` como o valor padrão. |
    | **Tipo de Dispositivo** | Não | <*IBM-terminal-Model*> | O nome do modelo ou o número do terminal IBM a ser emulado. Se for deixado em branco, o conector usará valores padrão. |
-   | **Página de código** | Não | <*código-página-número*> | O número da página de código para o host. Se for deixado em branco, o `37` conector usará como o valor padrão. |
+   | **Página de código** | Não | <*código-página-número*> | O número da página de código para o host. Se for deixado em branco, o conector usará `37` como o valor padrão. |
    | **Nome da unidade lógica** | Não | <*nome da unidade lógica*> | O nome da unidade lógica específica a ser solicitada do host |
    | **Habilitar SSL?** | Não | Ativar ou desativar | Ative ou desative a criptografia TLS. |
    | **Validar o certificado SSL do host?** | Não | Ativar ou desativar | Ative ou desative a validação para o certificado do servidor. |
@@ -392,7 +392,7 @@ Ao concluir todas essas etapas, você pode usar a ação que você cria em seu a
 
    **Selecione o método**
 
-   ![Selecionar método](./media/connectors-create-api-3270/select-method.png)
+   ![Selecione o método](./media/connectors-create-api-3270/select-method.png)
 
    **Selecione os parâmetros**
 

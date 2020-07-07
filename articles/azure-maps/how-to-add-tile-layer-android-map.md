@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: f98598bd1307bb1b46ff23814780c5f809b9ac90
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335571"
 ---
 # <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Adicionar uma camada de bloco a um mapa usando o Azure Maps SDK do Android
@@ -48,7 +48,7 @@ Para concluir o processo neste artigo, você precisa instalar o [Azure Maps SDK 
 
 Você pode adicionar uma camada de bloco ao mapa seguindo as etapas abaixo.
 
-1. Edite o **layout de > res > activity_main. xml** para que ele se pareça com o seguinte:
+1. Edite o **layout de > res > activity_main.xml** para que ele se pareça com o seguinte:
 
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -71,7 +71,7 @@ Você pode adicionar uma camada de bloco ao mapa seguindo as etapas abaixo.
     </FrameLayout>
     ```
 
-2. Copie o trecho de código a seguir para o método **OnCreate ()** da `MainActivity.java` sua classe.
+2. Copie o trecho de código a seguir para o método **OnCreate ()** da sua `MainActivity.java` classe.
 
     ```Java
     mapControl.onReady(map -> {
@@ -84,9 +84,9 @@ Você pode adicionar uma camada de bloco ao mapa seguindo as etapas abaixo.
     });
     ```
     
-    O trecho de código acima Obtém primeiro uma instância de controle de mapa do Azure Maps usando o método de retorno de chamada **Onreadal ()** . Em seguida, ele `TileLayer` cria um objeto e passa uma URL de bloco do `tileUrl` **XYZ** formatado para a opção. A opacidade da camada é definida como `0.8` e como os blocos do serviço de bloco que estão sendo usados são blocos de 256 pixels, essas informações são `tileSize` passadas para a opção. Em seguida, a camada de bloco é passada para o Gerenciador de camadas do Maps.
+    O trecho de código acima Obtém primeiro uma instância de controle de mapa do Azure Maps usando o método de retorno de chamada **Onreadal ()** . Em seguida, ele cria um `TileLayer` objeto e passa uma URL de bloco do **XYZ** formatado para a `tileUrl` opção. A opacidade da camada é definida como `0.8` e como os blocos do serviço de bloco que estão sendo usados são blocos de 256 pixels, essas informações são passadas para a `tileSize` opção. Em seguida, a camada de bloco é passada para o Gerenciador de camadas do Maps.
 
-    Depois de adicionar o trecho de código acima `MainActivity.java` , seu deve se parecer com o seguinte:
+    Depois de adicionar o trecho de código acima, seu `MainActivity.java` deve se parecer com o seguinte:
     
     ```Java
     package com.example.myapplication;
@@ -179,4 +179,4 @@ Se você executar o aplicativo agora, deverá ver uma linha no mapa, como mostra
 Consulte o artigo a seguir para saber mais sobre maneiras de definir estilos de mapa
 
 > [!div class="nextstepaction"]
-> [Alterar estilos de mapa em mapas do Android](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
+> [Alterar estilos de mapa nos mapas do Android](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)

@@ -10,10 +10,10 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: b8d47b69b4aba14c86fb09176b662aee7d5482d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335510"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Renderizar dados personalizados em um mapa de rasterização
@@ -37,13 +37,13 @@ Para concluir os procedimentos deste artigo, primeiro você precisa criar uma co
 > [!Note]
 > O procedimento nesta seção requer uma conta do Azure Maps no tipo de preço S0 ou S1.
 
-A camada S0 da conta do Azure Maps dá suporte a apenas uma `pins` única instância do parâmetro. Ele permite renderizar até cinco anotações, especificadas na solicitação de URL, com uma imagem personalizada.
+A camada S0 da conta do Azure Maps dá suporte a apenas uma única instância do `pins` parâmetro. Ele permite renderizar até cinco anotações, especificadas na solicitação de URL, com uma imagem personalizada.
 
 Para renderizar anotações com rótulos e uma imagem personalizada, conclua estas etapas:
 
-1. Crie uma coleção na qual armazenar as solicitações. No aplicativo de postmaster, selecione **novo**. Na janela **criar nova** , selecione **coleção**. Nomeie a coleção e selecione o botão **criar** . 
+1. Crie uma coleção na qual armazenar as solicitações. No aplicativo de postmaster, selecione **novo**. Na janela **Criar**, selecione **Coleção**. Nomeie a coleção e selecione o botão **Criar**. 
 
-2. Para criar a solicitação, selecione **novo** novamente. Na janela **criar nova** , selecione **solicitação**. Insira um **nome de solicitação** para os pinos. Selecione a coleção que você criou na etapa anterior, como o local para salvar a solicitação. Em seguida, selecione **salvar**.
+2. Para criar a solicitação, selecione **Novo** outra vez. Na janela **Criar**, selecione **Solicitação**. Insira um **nome de solicitação** para os pinos. Selecione a coleção que você criou na etapa anterior, como o local para salvar a solicitação. Em seguida, selecione **Salvar**.
     
     ![Criar uma solicitação no postmaster](./media/how-to-render-custom-data/postman-new.png)
 
@@ -207,7 +207,7 @@ Siga estas etapas para renderizar um círculo e anotações com rótulos persona
 
     ![Renderizar um círculo com anotações personalizadas](./media/how-to-render-custom-data/circle-custom-pins.png)
 
-2. Para alterar a cor das anotações da última etapa, altere o modificador de estilo "co". `pins=default|la15+50|al0.66|lc003C62|co002D62|`Observe que a cor atual seria especificada como #002D62 em CSS. Digamos que você queira alterá-lo para #41d42a. Escreva o novo valor de cor após o especificador "co", desta `pins=default|la15+50|al0.66|lc003C62|co41D42A|`forma:. Faça uma nova solicitação GET:
+2. Para alterar a cor das anotações da última etapa, altere o modificador de estilo "co". Observe `pins=default|la15+50|al0.66|lc003C62|co002D62|` que a cor atual seria especificada como #002D62 em CSS. Digamos que você queira alterá-lo para #41d42a. Escreva o novo valor de cor após o especificador "co", desta forma: `pins=default|la15+50|al0.66|lc003C62|co41D42A|` . Faça uma nova solicitação GET:
 
     ```HTTP
     https://atlas.microsoft.com/map/static/png?api-version=1.0&style=main&layer=basic&zoom=14&height=700&Width=700&center=-122.13230609893799,47.64599069048016&path=lcFF0000|lw2|la0.60|ra1000||-122.13230609893799 47.64599069048016&pins=default|la15+50|al0.66|lc003C62|co41D42A||'Microsoft Corporate Headquarters'-122.14131832122801  47.64690503939462|'Microsoft Visitor Center'-122.136828 47.642224|'Microsoft Conference Center'-122.12552547454833 47.642940335653996|'Microsoft The Commons'-122.13687658309935  47.64452336193245&subscription-key={subscription-key}

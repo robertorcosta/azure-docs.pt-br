@@ -9,19 +9,19 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: b1c5d9b5cd2b6b9bfecf8a0af79699061003eec1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335680"
 ---
 # <a name="change-the-style-of-the-map"></a>Alterar o estilo do mapa
 
-O mapa dá suporte a várias [Opções de estilo](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.styleoptions) diferentes que podem ser definidas quando o mapa está sendo inicializado ou `setStyle` mais tarde usando a função Maps. Este artigo mostra como usar essas opções de estilo para personalizar a aparência dos mapas. Aprenda a definir um estilo ao carregar um mapa e aprender a definir um novo estilo de mapa usando o controle do seletor de estilo.
+O mapa dá suporte a várias [Opções de estilo](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.styleoptions) diferentes que podem ser definidas quando o mapa está sendo inicializado ou mais tarde usando a função Maps `setStyle` . Este artigo mostra como usar essas opções de estilo para personalizar a aparência dos mapas. Aprenda a definir um estilo ao carregar um mapa e aprender a definir um novo estilo de mapa usando o controle do seletor de estilo.
 
 ## <a name="set-the-style-options"></a>Definir as opções de estilo 
 
-As opções de estilo podem ser passadas para o mapa quando ele é inicializado ou atualizado `setStyle` mais tarde usando a função Maps.
+As opções de estilo podem ser passadas para o mapa quando ele é inicializado ou atualizado mais tarde usando a `setStyle` função Maps.
 
 ```javascript
 //Set the style options when creating the map.
@@ -44,7 +44,7 @@ A ferramenta a seguir mostra como as opções de estilo diferentes alteram a for
 <br/>
 
 <iframe height="700" style="width: 100%;" scrolling="no" title="Opções de estilo de mapa" src="https://codepen.io/azuremaps/embed/eYNMjPb?height=700&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Consulte as <a href='https://codepen.io/azuremaps/pen/eYNMjPb'>Opções de estilo de mapa</a> de caneta pelo<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps () em <a href='https://codepen.io'>CodePen</a>.
+Consulte as <a href='https://codepen.io/azuremaps/pen/eYNMjPb'>Opções de estilo de mapa</a> de caneta pelo Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="choose-a-base-map-style"></a>Escolher um estilo de mapa base
@@ -71,13 +71,13 @@ var map = new atlas.Map('map', {
 
 ### <a name="update-the-base-map-style"></a>Atualizar o estilo do mapa base
 
- O estilo de mapa pode ser atualizado usando `setStyle` a função e definindo `style` a opção como o estilo de mapa desejado.
+ O estilo de mapa pode ser atualizado usando a `setStyle` função e definindo a `style` opção como o estilo de mapa desejado.
 
 ```javascript
 map.setStyle({ style: 'satellite' });
 ```
 
-No código a seguir, depois que uma instância de mapa é carregada, o estilo de mapa `road` é `satellite` atualizado de para usando a função [SetStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setstyle-styleoptions-) .
+No código a seguir, depois que uma instância de mapa é carregada, o estilo de mapa é atualizado de `road` para `satellite` usando a função [SetStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setstyle-styleoptions-) .
 
 <br/>
 
@@ -86,13 +86,13 @@ No código a seguir, depois que uma instância de mapa é carregada, o estilo de
 
 ### <a name="add-the-style-picker"></a>Adicionar o selecionador de estilos
 
-O controle de seletor de estilo fornece um botão fácil de usar com o painel flutuante que pode ser usado pelo usuário final para alterar o estilo do mapa. O seletor de estilo tem duas opções de layout diferentes. Por padrão, o seletor de `icons` estilo usa o layout e exibe todo o estilo de mapa como uma linha horizontal de ícones. 
+O controle de seletor de estilo fornece um botão fácil de usar com o painel flutuante que pode ser usado pelo usuário final para alterar o estilo do mapa. O seletor de estilo tem duas opções de layout diferentes. Por padrão, o seletor de estilo usa o `icons` layout e exibe todo o estilo de mapa como uma linha horizontal de ícones. 
 
 <center>
 
 ![Layout do ícone do seletor de estilo](media/choose-map-style/style-picker-icon-layout.png)</center>
 
-A segunda opção de layout é `list` chamada e exibe uma lista rolável de estilos de mapa.  
+A segunda opção de layout é chamada `list` e exibe uma lista rolável de estilos de mapa.  
 
 <center>
 
@@ -119,14 +119,14 @@ O código a seguir adiciona um controle de seletor de estilo com suas configura�
 </iframe>
 
 > [!TIP]
-> Por padrão, ao usar o tipo de preço S0 do Azure Maps, o controle seletor de estilo lista todos os estilos disponíveis. Se você quiser reduzir o número de estilos nessa lista, passe uma matriz dos estilos que você deseja que apareça na lista na `mapStyle` opção do seletor de estilo. Se você estiver usando S1 e quiser mostrar todos os estilos disponíveis, defina a `mapStyles` opção do seletor de estilo como `"all"`.
+> Por padrão, ao usar o tipo de preço S0 do Azure Maps, o controle seletor de estilo lista todos os estilos disponíveis. Se você quiser reduzir o número de estilos nessa lista, passe uma matriz dos estilos que você deseja que apareça na lista na `mapStyle` opção do seletor de estilo. Se você estiver usando S1 e quiser mostrar todos os estilos disponíveis, defina a `mapStyles` opção do seletor de estilo como `"all"` .
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre as classes e os métodos usados neste artigo:
 
 > [!div class="nextstepaction"]
-> [Mapeada](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
 > [Estilo da](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.styleoptions)

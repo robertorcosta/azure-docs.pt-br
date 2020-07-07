@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: owend
 ms.openlocfilehash: 3f6b2194cc422a827bbc7a15c012173b3f814b52
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81428102"
 ---
-# <a name="best-practices-for-long-running-operations"></a>Práticas recomendadas para operações de longa execução
+# <a name="best-practices-for-long-running-operations"></a>Melhores práticas para operações de execução prolongada
 
 No Azure Analysis Services, um *nó* representa uma máquina virtual do host onde um recurso de servidor está em execução. Algumas operações como consultas de longa execução, operações de atualização e sincronização de expansão de consulta poderão falhar se um recurso de servidor for movido para um nó diferente. As mensagens de erro comuns nesse cenário incluem:
 
 - "Ocorreu um erro ao tentar localizar uma solicitação XMLA de execução longa. A solicitação pode ter sido interrompida pela atualização do serviço ou pelo reinício do servidor. "
-- "O trabalho com ID<guid>' para o<database>modelo ' ' foi cancelado devido a um erro de serviço (inatividade) com a mensagem ' cancelando a solicitação de atualização desde que ela foi bloqueada sem nenhuma atualização. Esse é um problema de serviço interno. Envie o trabalho novamente ou registre um tíquete para obter ajuda se esse problema ocorrer repetidamente. "
+- "O trabalho com ID ' <guid> para o modelo ' <database> ' foi cancelado devido a um erro de serviço (inatividade) com a mensagem ' cancelando a solicitação de atualização desde que ela foi bloqueada sem nenhuma atualização. Esse é um problema de serviço interno. Envie o trabalho novamente ou registre um tíquete para obter ajuda se esse problema ocorrer repetidamente. "
 
 Há muitas razões pelas quais as operações de longa execução podem ser interrompidas. Por exemplo, atualizações no Azure, como: 
 - Patches do sistema operacional 
@@ -48,7 +48,7 @@ Usando réplicas de consulta somente leitura, enquanto as atualizações estão 
 ## <a name="next-steps"></a>Próximas etapas
 
 [Atualização assíncrona com a API REST](analysis-services-async-refresh.md)  
-[Escala horizontal do Azure Analysis Services](analysis-services-scale-out.md)  
+[Expansão do Azure Analysis Services](analysis-services-scale-out.md)  
 [Alta disponibilidade do Analysis Services](analysis-services-bcdr.md)  
 [Diretrizes de repetição para serviços do Azure](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific)   
 

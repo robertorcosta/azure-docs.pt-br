@@ -8,10 +8,10 @@ ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: iainfou
 ms.openlocfilehash: 2731693667d2129a72da72455c6bbdd74c277697
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80366486"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Versão prévia: faça logon em uma máquina virtual Linux no Azure usando Azure Active Directory autenticação
@@ -46,7 +46,7 @@ No momento, há suporte para as seguintes distribuições do Linux durante a ver
 | CentOS | CentOS 6, CentOS 7 |
 | Debian | Debian 9 |
 | openSUSE | openSUSE Leap 42.3 |
-| Red Hat Enterprise Linux | RHEL 6, RHEL 7 | 
+| RedHat Enterprise Linux | RHEL 6, RHEL 7 | 
 | SUSE Linux Enterprise Server | SLES 12 |
 | Ubuntu Server | Ubuntu 14.04 LTS, Ubuntu Server 16.04 e Ubuntu Server 18.04 |
 
@@ -69,10 +69,10 @@ Para habilitar a autenticação do Azure AD para suas VMs do Linux no Azure, voc
 
 * https:\//login.microsoftonline.com
 * https:\//login.windows.net
-* https:\//Device.login.microsoftonline.com
-* https:\//Pas.Windows.net
+* https: \/ /Device.login.microsoftonline.com
+* https: \/ /Pas.Windows.net
 * https:\//management.azure.com
-* https:\//Packages.Microsoft.com
+* https: \/ /Packages.Microsoft.com
 
 > [!NOTE]
 > Atualmente, os grupos de segurança de rede do Azure não podem ser configurados para VMs habilitadas com a autenticação do Azure AD.
@@ -154,7 +154,7 @@ Faça logon na máquina virtual do Linux no Azure usando suas credenciais do Azu
 ssh -l azureuser@contoso.onmicrosoft.com 10.11.123.456
 ```
 
-Você será solicitado a entrar no Azure AD com um código de uso único em [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin). Copie e cole o código de uso único na página de logon do dispositivo.
+Você será solicitado a entrar no Azure AD com um código de uso único em [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin) . Copie e cole o código de uso único na página de logon do dispositivo.
 
 Quando solicitado, insira suas credenciais de logon do Azure AD na página de logon. 
 
@@ -162,7 +162,7 @@ A seguinte mensagem é mostrada no navegador da Web quando você se autenticou c
 
 Feche a janela do navegador, retorne para o prompt do SSH e pressione a tecla **Enter**. 
 
-Agora, você está conectado à máquina virtual do Linux no Azure com as permissões de função atribuídas, como *Usuário da VM* ou *Administrador da VM*. Se sua conta de usuário for atribuída à função de *logon de administrador da máquina virtual* , você poderá usar `sudo` o para executar comandos que exigem privilégios de raiz.
+Agora, você está conectado à máquina virtual do Linux no Azure com as permissões de função atribuídas, como *Usuário da VM* ou *Administrador da VM*. Se sua conta de usuário for atribuída à função de *logon de administrador da máquina virtual* , você poderá usar o `sudo` para executar comandos que exigem privilégios de raiz.
 
 ## <a name="sudo-and-aad-login"></a>Logon do AAD e Sudo
 
@@ -200,7 +200,7 @@ Access denied
 
 Ao concluir com êxito a etapa de autenticação em um navegador da Web, você poderá ser imediatamente solicitado a entrar novamente com um novo código. Este erro normalmente é causado por uma incompatibilidade entre o nome de entrada especificado no prompt de SSH e a conta usada para entrar no Azure AD. Para corrigir esse problema:
 
-- Verifique se o nome de entrada especificado no prompt de SSH está correto. Um erro de digitação no nome de entrada pode causar uma incompatibilidade entre o nome de entrada especificado no prompt de SSH e a conta usada para entrar no Azure AD. Por exemplo, você digitou *azuresuer\@contoso.onmicrosoft.com* em vez de *azureuser\@contoso.onmicrosoft.com*.
+- Verifique se o nome de entrada especificado no prompt de SSH está correto. Um erro de digitação no nome de entrada pode causar uma incompatibilidade entre o nome de entrada especificado no prompt de SSH e a conta usada para entrar no Azure AD. Por exemplo, você digitou *azuresuer \@ contoso.onmicrosoft.com* em vez de *azureuser \@ contoso.onmicrosoft.com*.
 - Se você tiver várias contas de usuário, não forneça uma conta de usuário diferente na janela do navegador ao entrar no Azure AD.
 - O Linux é um sistema operacional que diferencia maiúsculas de minúsculas. Há uma diferença entre 'Azureuser@contoso.onmicrosoft.com' e 'azureuser@contoso.onmicrosoft.com', que pode causar uma incompatibilidade. Especifique o UPN com a diferenciação correta de maiúsculas de minúsculas no prompt de SSH.
 

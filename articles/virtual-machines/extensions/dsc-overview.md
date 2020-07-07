@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
 ms.openlocfilehash: 82d268eedd73b8de670da93ad3a601b5e75e6444
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82188528"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introdução ao manipulador de extensão de Desired State Configuration do Azure
@@ -82,7 +82,7 @@ Essas informações podem ser vistas na portal do Azure ou você pode usar o Pow
 
 Para o nome da configuração do nó, verifique se a configuração do nó existe na configuração de estado do Azure.  Caso contrário, a implantação da extensão retornará uma falha.  Verifique também se você está usando o nome da *configuração do nó* e não a configuração.
 Uma configuração é definida em um script que é usado [para compilar a configuração de nó (arquivo MOF)](https://docs.microsoft.com/azure/automation/automation-dsc-compile).
-O nome será sempre a configuração seguida por um ponto `.` e `localhost` um nome de computador específico.
+O nome será sempre a configuração seguida por um ponto `.` e um `localhost` nome de computador específico.
 
 ## <a name="dsc-extension-in-resource-manager-templates"></a>Extensão de DSC nos modelos do Resource Manager
 
@@ -115,7 +115,7 @@ Informações importantes sobre os cmdlets de extensão de DSC do Resource Manag
 
 A extensão de DSC do Azure pode usar documentos de configuração DSC para configurar diretamente VMs do Azure durante a implantação. Essa etapa não registra o nó para Automação. O nó *não* é gerenciado centralmente.
 
-O exemplo a seguir mostra um exemplo simples de configuração. Salve a configuração localmente como iisInstall. ps1.
+O exemplo a seguir mostra um exemplo simples de configuração. Salve a configuração localmente como iisInstall.ps1.
 
 ```powershell
 configuration IISInstall
@@ -131,7 +131,7 @@ configuration IISInstall
 }
 ```
 
-Os comandos a seguir colocam o script iisInstall. ps1 na VM especificada. Os comandos também executar a configuração e, em seguida, reportam o status.
+Os comandos a seguir colocam o script iisInstall.ps1 na VM especificada. Os comandos também executar a configuração e, em seguida, reportam o status.
 
 ```powershell
 $resourceGroup = 'dscVmDemo'
@@ -190,7 +190,7 @@ O portal coleta a seguinte entrada:
 
 - **Arquivo de PSD1 de dados de configuração**: sua configuração requer um arquivo de dados de configuração no. PSD1, use esse campo para selecionar o arquivo de dados e carregá-lo no armazenamento de BLOBs do usuário. O arquivo de dados de configuração é protegido por um token SAS no armazenamento de blob.
 
-- **Versão WMF**: Especifica a versão do Windows Management Framework (WMF) que deve ser instalada em sua VM. Configurar essa propriedade como mais recente instala a versão mais recente de WMF. Atualmente, os únicos valores possíveis para essa propriedade são 4.0, 5.0, 5.1, e a mais recente. Esses valores possíveis estão sujeitos a atualizações. O valor padrão é **mais recente**.
+- **Versão WMF**: Especifica a versão do Windows Management Framework (WMF) que deve ser instalada em sua VM. Configurar essa propriedade como mais recente instala a versão mais recente de WMF. Atualmente, os únicos valores possíveis para essa propriedade são 4.0, 5.0, 5.1, e a mais recente. Esses valores possíveis estão sujeitos a atualizações. O valor padrão é **latest**.
 
 - **Coleta de Dados**: Determina se a extensão coletará temetria. Para obter mais informações, consulte [coleta de dados de extensão de DSC do Azure](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/).
 
