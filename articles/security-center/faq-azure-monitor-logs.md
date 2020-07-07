@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
 ms.openlocfilehash: 2fe306cf7d17f0789c5e134c3fcad3f8f07a0b80
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82612819"
 ---
 # <a name="faq-for-customers-already-using-azure-monitor-logs"></a>Perguntas frequentes para clientes que já estão usando logs de Azure Monitor<a name="existingloganalyticscust"></a>
@@ -34,7 +34,7 @@ Uma solução da central de segurança é instalada no espaço de trabalho selec
 ## <a name="does-security-center-install-solutions-on-my-existing-log-analytics-workspaces-what-are-the-billing-implications"></a>A Central de Segurança instala soluções em meus workspaces existentes do Log Analytics? Quais são as implicações de cobrança?
 Quando a Central de Segurança identificar que uma VM já está conectada a um workspace que você criou, a Central de Segurança habilitará as soluções neste workspace de acordo com seu tipo de preço. As soluções são aplicadas apenas às VMs do Azure relevantes, por meio do [direcionamento de solução](../operations-management-suite/operations-management-suite-solution-targeting.md), portanto, a cobrança permanece igual.
 
-- **Camada gratuita** – A Central de Segurança instala a solução 'SecurityCenterFree' no workspace. Você não será cobrado pela camada gratuita.
+- **Camada gratuita** – A Central de Segurança instala a solução 'SecurityCenterFree' no workspace. Você não será cobrado pela Camada gratuita.
 - **Camada Standard**: a Central de Segurança instala a solução 'Security' no workspace.
 
    ![Soluções no workspace padrão](./media/security-center-platform-migration-faq/solutions.png)

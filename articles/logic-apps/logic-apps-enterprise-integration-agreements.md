@@ -9,16 +9,16 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
 ms.openlocfilehash: c8cbfb619c9eed325161503f705bf5c4c0746265
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82612326"
 ---
-# <a name="create-and-manage-trading-partner-agreements-in-azure-logic-apps"></a>Criar e gerenciar contratos de parceiros comerciais em aplicativos lógicos do Azure
+# <a name="create-and-manage-trading-partner-agreements-in-azure-logic-apps"></a>Criar e gerenciar contratos de parceiros comerciais em Aplicativos Lógicos do Azure
 
-Um 
-*acordo* entre [parceiros comerciais](../logic-apps/logic-apps-enterprise-integration-partners.md)ajuda as organizações e as empresas a se comunicarem diretamente entre si, definindo o protocolo específico do setor padrão a ser usado na troca de mensagens B2B (entre empresas). Os contratos fornecem benefícios comuns, por exemplo:
+Um acordo entre [parceiros comerciais](../logic-apps/logic-apps-enterprise-integration-partners.md)  
+ *agreement* ajuda as organizações e as empresas a se comunicarem diretamente entre si, definindo o protocolo específico do setor padrão a ser usado na troca de mensagens B2B (entre empresas). Os contratos fornecem benefícios comuns, por exemplo:
 
 * Permita que as organizações troquem informações usando um formato bem conhecido.
 * Melhore a eficiência ao conduzir transações B2B.
@@ -36,7 +36,7 @@ Para criar contratos para a troca de mensagens RosettaNet, consulte [Exchange Ro
 
 * Pelo menos dois [parceiros comerciais](../logic-apps/logic-apps-enterprise-integration-partners.md) que você já criou em sua conta de integração. Um contrato requer um parceiro de host e um parceiro convidado. Ambos os parceiros devem usar o mesmo qualificador "identidade de negócios" que o contrato que você deseja criar, como AS2, X12 ou EDIFACT.
 
-* Opcional: o aplicativo lógico no qual você deseja usar seu contrato e um gatilho que inicia o fluxo de trabalho do aplicativo lógico. Para criar apenas sua conta de integração e artefatos B2B, você não precisa de um aplicativo lógico. No entanto, antes que seu aplicativo lógico possa usar os artefatos B2B em sua conta de integração, você deve vincular sua conta de integração ao seu aplicativo lógico. Se você não estiver familiarizado com os Aplicativos Lógicos, examine [O que são Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) e [Início rápido: crie seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Opcional: o aplicativo lógico no qual você deseja usar seu contrato e um gatilho que inicia o fluxo de trabalho do aplicativo lógico. Para criar apenas sua conta de integração e artefatos B2B, você não precisa de um aplicativo lógico. No entanto, antes que seu aplicativo lógico possa usar os artefatos B2B em sua conta de integração, você deve vincular sua conta de integração ao seu aplicativo lógico. Se ainda não estiver familiarizado com aplicativo lógicos, consulte [O que são os Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) e [Início Rápido: criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-agreements"></a>Criar contratos
 

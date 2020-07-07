@@ -1,5 +1,5 @@
 ---
-title: Solução de problemas de dispositivos ingressados no Azure Active Directory híbrido
+title: Solução de problemas do Azure Active Directory híbrido ingressado em dispositivos
 description: Solução de problemas do Azure Active Directory híbrido ingressado em dispositivos do Windows 10 e do Windows Server 2016.
 services: active-directory
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: 08f083fe60076c80b5b7d60f555daac499974254
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82611306"
 ---
-# <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Solução de problemas de dispositivos ingressados no Azure Active Directory híbrido
+# <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Solução de problemas do Azure Active Directory híbrido ingressado em dispositivos
 
 O conteúdo deste artigo é aplicável a dispositivos que executam o Windows 10 ou o Windows Server 2016.
 
@@ -29,7 +29,7 @@ Este artigo pressupõe que você tenha [dispositivos configurados e ingressados 
 
 - Acesso Condicional baseado no dispositivo
 - [Roaming corporativo de configurações](../active-directory-windows-enterprise-state-roaming-overview.md)
-- [Windows Hello para empresas](../active-directory-azureadjoin-passport-deployment.md)
+- [Windows Hello for Business](../active-directory-azureadjoin-passport-deployment.md)
 
 Este documento fornece diretrizes de solução de problemas para resolver possíveis problemas.
 
@@ -132,7 +132,7 @@ O campo ' fase de erro ' denota a fase da falha de junção enquanto ' Client Er
 
 Use logs de Visualizador de Eventos para localizar a fase e o código de erro para as falhas de junção.
 
-1. Abra os logs de eventos de **registro de dispositivo do usuário** no Visualizador de eventos.  > Localizado em **logs de aplicativos e serviços registro de dispositivo de****usuário** **do Microsoft** > **Windows** > 
+1. Abra os logs de eventos de **registro de dispositivo do usuário** no Visualizador de eventos. Localizado em **logs de aplicativos e serviços registro de dispositivo de**  >  **usuário do Microsoft**  >  **Windows**  >  **User Device Registration**
 2. Procure eventos com as seguintes eventIDs 304, 305, 307.
 
 ![Evento log de falhas](./media/troubleshoot-hybrid-join-windows-current/1.png)
@@ -156,10 +156,10 @@ Possíveis motivos para a falha:
    - Um objeto SCP válido é necessário na floresta do AD, à qual o dispositivo pertence, que aponta para um nome de domínio verificado no Azure AD.
    - Os detalhes podem ser encontrados na seção [configurar um ponto de conexão de serviço](hybrid-azuread-join-federated-domains.md#configure-hybrid-azure-ad-join).
 - Falha ao conectar e buscar os metadados de descoberta do ponto de extremidade de descoberta.
-   - O dispositivo deve ser capaz de acessar `https://enterpriseregistration.windows.net`o, no contexto do sistema, para descobrir os pontos de extremidade de registro e autorização.
+   - O dispositivo deve ser capaz de acessar `https://enterpriseregistration.windows.net` o, no contexto do sistema, para descobrir os pontos de extremidade de registro e autorização.
    - Se o ambiente local exigir um proxy de saída, o administrador de ti deverá garantir que a conta de computador do dispositivo seja capaz de descobrir e autenticar silenciosamente no proxy de saída.
 - Falha ao conectar ao ponto de extremidade de realm do usuário e executar a descoberta de realm. (Somente Windows 10 versão 1809 e posterior)
-   - O dispositivo deve ser capaz de acessar `https://login.microsoftonline.com`o, no contexto do sistema, para executar a descoberta de realm para o domínio verificado e determinar o tipo de domínio (gerenciado/federado).
+   - O dispositivo deve ser capaz de acessar o `https://login.microsoftonline.com` , no contexto do sistema, para executar a descoberta de realm para o domínio verificado e determinar o tipo de domínio (gerenciado/federado).
    - Se o ambiente local exigir um proxy de saída, o administrador de ti deverá garantir que o contexto do sistema no dispositivo seja capaz de descobrir e autenticar silenciosamente no proxy de saída.
 
 **Códigos de erro comuns:**
@@ -207,7 +207,7 @@ Procure ' teste de descoberta do DRS ' na seção ' dados de diagnóstico ' da s
 
 Use logs de Visualizador de Eventos para localizar a fase e ErrorCode para as falhas de junção.
 
-1. Abra os logs de eventos de **registro de dispositivo do usuário** no Visualizador de eventos.  > Localizado em **logs de aplicativos e serviços registro de dispositivo de****usuário** **do Microsoft** > **Windows** > 
+1. Abra os logs de eventos de **registro de dispositivo do usuário** no Visualizador de eventos. Localizado em **logs de aplicativos e serviços registro de dispositivo de**  >  **usuário do Microsoft**  >  **Windows**  >  **User Device Registration**
 2. Procure eventos com as seguintes eventIDs 201
 
 ![Evento log de falhas](./media/troubleshoot-hybrid-join-windows-current/5.png)
@@ -252,7 +252,7 @@ Motivos da falha:
 
 Use os logs de Visualizador de Eventos para localizar o código de erro, o código de suberro, o código de erro do servidor e a mensagem de erro do servidor.
 
-1. Abra os logs de eventos de **registro de dispositivo do usuário** no Visualizador de eventos.  > Localizado em **logs de aplicativos e serviços registro de dispositivo de****usuário** **do Microsoft** > **Windows** > 
+1. Abra os logs de eventos de **registro de dispositivo do usuário** no Visualizador de eventos. Localizado em **logs de aplicativos e serviços registro de dispositivo de**  >  **usuário do Microsoft**  >  **Windows**  >  **User Device Registration**
 2. Procure eventos com o seguinte eventID 305
 
 ![Evento log de falhas](./media/troubleshoot-hybrid-join-windows-current/3.png)
@@ -281,8 +281,8 @@ Use os logs de Visualizador de Eventos para localizar o código de erro, o códi
    - Motivo: a TLS (segurança da camada de transporte), anteriormente conhecida como protocolo SSL (SSL), o certificado enviado pelo servidor não pôde ser validado.
    - Resolução: Verifique a distorção de hora do cliente. Tente novamente após algum tempo ou tente ingressar em um local de rede estável alternativo.
 - **ERROR_ADAL_INTERNET_CANNOT_CONNECT** (0xcaa82efd/-894947587)
-   - Motivo: falha na tentativa de conexão `https://login.microsoftonline.com` com.
-   - Resolução: Verifique a conexão de `https://login.microsoftonline.com`rede para.
+   - Motivo: falha na tentativa de conexão com `https://login.microsoftonline.com` .
+   - Resolução: Verifique a conexão de rede para `https://login.microsoftonline.com` .
 
 ##### <a name="other-errors"></a>Outros erros
 
@@ -327,7 +327,7 @@ O campo ' tipo de registro ' denota o tipo de junção executada.
 
 Use logs de Visualizador de Eventos para localizar a fase e ErrorCode para as falhas de junção.
 
-1. Abra os logs de eventos de **registro de dispositivo do usuário** no Visualizador de eventos.  > Localizado em **logs de aplicativos e serviços registro de dispositivo de****usuário** **do Microsoft** > **Windows** > 
+1. Abra os logs de eventos de **registro de dispositivo do usuário** no Visualizador de eventos. Localizado em **logs de aplicativos e serviços registro de dispositivo de**  >  **usuário do Microsoft**  >  **Windows**  >  **User Device Registration**
 2. Procure eventos com as seguintes eventIDs 204
 
 ![Evento log de falhas](./media/troubleshoot-hybrid-join-windows-current/4.png)
@@ -363,10 +363,10 @@ Use logs de Visualizador de Eventos para localizar a fase e ErrorCode para as fa
 
 - **WININET_E_TIMEOUT** (0x80072EE2/-2147012894)
    - Motivo: tempo limite de rede geral ao tentar registrar o dispositivo no DRS
-   - Resolução: Verifique a conectividade de `https://enterpriseregistration.windows.net`rede para.
+   - Resolução: Verifique a conectividade de rede para `https://enterpriseregistration.windows.net` .
 - **WININET_E_NAME_NOT_RESOLVED** (0x80072EE7/-2147012889)
    - Motivo: o nome ou endereço do servidor não pôde ser resolvido.
-   - Resolução: Verifique a conectividade de `https://enterpriseregistration.windows.net`rede para. Verifique se a resolução DNS para o nome de host está correta no n/w e no dispositivo.
+   - Resolução: Verifique a conectividade de rede para `https://enterpriseregistration.windows.net` . Verifique se a resolução DNS para o nome de host está correta no n/w e no dispositivo.
 - **WININET_E_CONNECTION_ABORTED** (0x80072EFE/-2147012866)
    - Motivo: a conexão com o servidor foi encerrada de forma anormal.
    - Resolução: tente novamente após algum tempo ou tente ingressar em um local de rede estável alternativo.
@@ -387,9 +387,9 @@ Use logs de Visualizador de Eventos para localizar a fase e ErrorCode para as fa
 
 ### <a name="step-5-collect-logs-and-contact-microsoft-support"></a>Etapa 5: coletar logs e contatar Suporte da Microsoft
 
-Baixe o arquivo auth. zip de[https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH](https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH)
+Baixar o arquivo Auth.zip de[https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH](https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH)
 
-1. Descompacte os arquivos e renomeie os arquivos incluídos **Start-auth. txt** e **Stop-auth. txt** para **Start-auth. cmd** e **Stop-auth. cmd**.
+1. Descompacte os arquivos e renomeie os arquivos incluídos **start-auth.txt** e **stop-auth.txt** para **Start-auth. cmd** e **Stop-auth. cmd**.
 1. Em um prompt de comandos com privilégios elevados, execute **Start-auth. cmd**.
 1. Use alternar conta para alternar para outra sessão com o problema do usuário.
 1. Reproduza o problema.

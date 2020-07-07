@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 04/30/2020
 ms.openlocfilehash: ead79ca0a37a270f03a305064c80426553db59ca
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82628530"
 ---
 # <a name="scenario-cluster-node-runs-out-of-disk-space-in-azure-hdinsight"></a>Cenário: o nó de cluster é executado sem espaço em disco no Azure HDInsight
@@ -22,7 +22,7 @@ Este artigo descreve as etapas de solução de problemas e as possíveis resolu�
 
 Um trabalho pode falhar com mensagem de erro semelhante a:`/usr/hdp/2.6.3.2-14/hadoop/libexec/hadoop-config.sh: fork: No space left on device.`
 
-Ou você pode receber um alerta do Apache Ambari semelhante `local-dirs usable space is below configured utilization percentage`a:.
+Ou você pode receber um alerta do Apache Ambari semelhante a: `local-dirs usable space is below configured utilization percentage` .
 
 ## <a name="cause"></a>Causa
 
@@ -32,14 +32,14 @@ O cache de aplicativos Apache yarn pode ter consumido todo o espaço em disco di
 
 1. Use a interface do usuário do Ambari para determinar qual nó está ficando sem espaço em disco.
 
-1. Determine qual pasta no nó preocupantes contribui para a maior parte do espaço em disco. Use SSH para o nó primeiro e, `df` em seguida, execute para listar o uso do disco para todas as montagens. Normalmente, é `/mnt` um disco temporário usado pelo OSS. Você pode inserir em uma pasta e, em `sudo du -hs` seguida, digitar para mostrar os tamanhos de arquivo resumidos em uma pasta. Se você vir uma pasta semelhante a `/mnt/resource/hadoop/yarn/local/usercache/livy/appcache/application_1537280705629_0007`, isso significará que o aplicativo ainda está em execução. Isso pode ser devido à persistência de RDD ou a arquivos aleatórios intermediários.
+1. Determine qual pasta no nó preocupantes contribui para a maior parte do espaço em disco. Use SSH para o nó primeiro e, em seguida, execute `df` para listar o uso do disco para todas as montagens. Normalmente, é `/mnt` um disco temporário usado pelo OSS. Você pode inserir em uma pasta e, em seguida, digitar `sudo du -hs` para mostrar os tamanhos de arquivo resumidos em uma pasta. Se você vir uma pasta semelhante a `/mnt/resource/hadoop/yarn/local/usercache/livy/appcache/application_1537280705629_0007` , isso significará que o aplicativo ainda está em execução. Isso pode ser devido à persistência de RDD ou a arquivos aleatórios intermediários.
 
 1. Para atenuar o problema, encerre o aplicativo, que liberará o espaço em disco usado por esse aplicativo.
 
 1. Se o problema ocorrer frequentemente nos nós de trabalho, você poderá ajustar as configurações de cache local YARN no cluster.
 
     Abra a interface do usuário do Ambari navegue até YARN--> configurações--> avançado.  
-    Adicione as duas propriedades a seguir à seção Custom yarn-site. xml e salve:
+    Adicione as duas propriedades a seguir à seção yarn-site.xml personalizada e salve:
 
     ```
     yarn.nodemanager.localizer.cache.target-size-mb=2048
@@ -52,8 +52,8 @@ O cache de aplicativos Apache yarn pode ter consumido todo o espaço em disco di
 
 Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
 
-* Obtenha respostas de especialistas do Azure por meio do [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
+* Obtenha respostas de especialistas do Azure por meio do [Suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
 
-* Conecte- [@AzureSupport](https://twitter.com/azuresupport) se com a conta de Microsoft Azure oficial para melhorar a experiência do cliente conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte-se a [@AzureSupport](https://twitter.com/azuresupport) – a conta oficial do Microsoft Azure para melhorar a experiência do cliente conectando-se à comunidade do Azure para os recursos certos: respostas, suporte e especialistas.
 
-* Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte**. Para obter informações mais detalhadas, confira [Como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao Gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).

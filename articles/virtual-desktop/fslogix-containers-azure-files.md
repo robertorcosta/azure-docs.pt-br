@@ -9,15 +9,15 @@ ms.date: 08/07/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 7728ff96ccc3da5a36d919e61518a3ce3d13581c
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82611969"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Contêineres de perfil FSLogix e arquivos do Azure
 
-O serviço de área de trabalho virtual do Windows recomenda contêineres de perfil FSLogix como uma solução de perfil de usuário. O FSLogix é projetado para perfis de roaming em ambientes de computação remota, como área de trabalho virtual do Windows. Ele armazena um perfil de usuário completo em um único contêiner. Ao entrar, esse contêiner é dinamicamente anexado ao ambiente de computação usando o VHD (disco rígido virtual) com suporte nativo e o VHDX (disco rígido virtual) do Hyper-V. O perfil do usuário fica imediatamente disponível e aparece no sistema exatamente como um perfil de usuário nativo. Este artigo descreve como os contêineres de perfil FSLogix usados com os arquivos do Azure funcionam na área de trabalho virtual do Windows.
+O serviço de área de trabalho virtual do Windows recomenda contêineres de perfil FSLogix como uma solução de perfil de usuário. O FSLogix é projetado para usar perfis móveis em ambientes de computação remota, como área de trabalho virtual do Windows. Ele armazena um perfil de usuário completo em um único contêiner. Ao entrar, esse contêiner é dinamicamente anexado ao ambiente de computação usando o VHD (disco rígido virtual) com suporte nativo e o VHDX (disco rígido virtual) do Hyper-V. O perfil do usuário fica imediatamente disponível e aparece no sistema exatamente como um perfil de usuário nativo. Este artigo descreve como os contêineres de perfil FSLogix usados com os arquivos do Azure funcionam na área de trabalho virtual do Windows.
 
 >[!NOTE]
 >Se você estiver procurando material de comparação sobre as diferentes opções de armazenamento de contêiner de perfil FSLogix no Azure, consulte [Opções de armazenamento para contêineres de perfil FSLogix](store-fslogix-profile.md).
@@ -47,7 +47,7 @@ As soluções da Microsoft existentes e herdadas para perfis de usuário vêm co
 
 A tabela a seguir mostra os benefícios e as limitações das tecnologias de perfil de usuário anteriores.
 
-| Tecnologia | Configurações modernas | Configurações do Win32 | Configurações do so | Dados do usuário | Com suporte no SKU do servidor | Armazenamento de back-end no Azure | Armazenamento de back-end local | Suporte à versão | Hora de entrada subsequente |Anotações|
+| Tecnologia | Configurações modernas | Configurações do Win32 | Configurações do so | Dados do usuário | Com suporte no SKU do servidor | Armazenamento de back-end no Azure | Armazenamento de back-end local | Suporte à versão | Hora de entrada subsequente |Observações|
 | ---------- | :-------------: | :------------: | :---------: | --------: | :---------------------: | :-----------------------: | :--------------------------: | :-------------: | :---------------------: |-----|
 | **Discos de perfil do usuário (UPD)** | Sim | Sim | Sim | Sim | Sim | Não | Sim | Win 7 + | Sim | |
 | **Perfil de usuário de roaming (RUP), modo de manutenção** | Não | Sim | Sim | Sim | Sim| Não | Sim | Win 7 + | Não | |

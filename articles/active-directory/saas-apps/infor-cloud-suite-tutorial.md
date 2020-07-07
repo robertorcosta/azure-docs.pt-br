@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9bb3d260b808e61f15ec85752c299bfeb3ab6fd
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d47a70f2e086c5322e8ecd53cbf352c672528ebc
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67588569"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85798789"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infor-cloudsuite"></a>Tutorial: Integração do Azure Active Directory com o Infor CloudSuite
 
@@ -109,23 +109,21 @@ Para configurar o logon único do Microsoft Azure Active Directory com o Infor C
 
     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
 
-    | | |
-    |-|-|
-    | `http://mingle-sso.inforcloudsuite.com`|
-    | `http://mingle-sso.se1.inforcloudsuite.com`|
-    | `http://mingle-sso.eu1.inforcloudsuite.com`|
-    | `http://mingle-sso.se2.inforcloudsuite.com`|
-    | |
+    ```http
+    http://mingle-sso.inforcloudsuite.com
+    http://mingle-sso.se1.inforcloudsuite.com
+    http://mingle-sso.eu1.inforcloudsuite.com
+    http://mingle-sso.se2.inforcloudsuite.com
+    ```
 
     b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão:
 
-    | | |
-    |-|-|
-    | `https://mingle-sso.inforcloudsuite.com:443/sp/ACS.saml2`|
-    | `https://mingle-sso.se1.inforcloudsuite.com:443/sp/ACS.saml2`|
-    | `https://mingle-sso.se2.inforcloudsuite.com:443/sp/ACS.saml2`|
-    | `https://mingle-sso.eu1.inforcloudsuite.com:443/sp/ACS.saml2`|
-    | |
+    ```http
+    https://mingle-sso.inforcloudsuite.com:443/sp/ACS.saml2
+    https://mingle-sso.se1.inforcloudsuite.com:443/sp/ACS.saml2
+    https://mingle-sso.se2.inforcloudsuite.com:443/sp/ACS.saml2
+    https://mingle-sso.eu1.inforcloudsuite.com:443/sp/ACS.saml2
+    ```
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
@@ -133,12 +131,12 @@ Para configurar o logon único do Microsoft Azure Active Directory com o Infor C
 
     Na caixa de texto **URL de logon**, digite uma URL usando o seguinte padrão:
 
-    | | |
-    |-|-|
-    | `https://mingle-portal.inforcloudsuite.com/Tenant-Name/`|
-    | `https://mingle-portal.eu1.inforcloudsuite.com/Tenant-Name/`|
-    | `https://mingle-portal.se1.inforcloudsuite.com/Tenant-Name/`|
-    | `https://mingle-portal.se2.inforcloudsuite.com/Tenant-Name/`|
+    ```http
+    https://mingle-portal.inforcloudsuite.com/Tenant-Name/
+    https://mingle-portal.eu1.inforcloudsuite.com/Tenant-Name/
+    https://mingle-portal.se1.inforcloudsuite.com/Tenant-Name/
+    https://mingle-portal.se2.inforcloudsuite.com/Tenant-Name/
+    ```
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Entre em contato com a [equipe de suporte ao cliente do Infor CloudSuite](mailto:support@infor.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

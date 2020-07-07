@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64ed7f5d73b4e5a0eb4e7ff4ed6c0ce0788880fd
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f0e41b9578beb68f497c1a0fa7968064b6b91cee
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73157741"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85607983"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-beeline"></a>Tutorial: Integração do Azure Active Directory ao Beeline
 
@@ -109,11 +109,11 @@ Para configurar o logon único do Azure AD com o BeeLine, execute as seguintes e
     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://projects.beeline.net/<instancename>`
 
     b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão:
-    
-    | |
-    |--|
-    | `https://projects.beeline.net/<instancename>/SSO_External.ashx`|
-    | `https://projects.beeline.net/<companyname>/SSO_External.ashx` |
+
+    ```https
+    https://projects.beeline.net/<instancename>/SSO_External.ashx
+    https://projects.beeline.net/<companyname>/SSO_External.ashx
+    ```
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Contate a [equipe de suporte ao cliente do BeeLine](https://www.beeline.com/contact-us/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

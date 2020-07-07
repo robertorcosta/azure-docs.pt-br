@@ -15,16 +15,16 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: has-adal-ref
 ms.openlocfilehash: 8fbe8e0cbf2768af973a0ccc9e237fb770b27a74
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82612292"
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Usar a autenticação do Azure AD para acessar a API dos Serviços de Mídia do Azure com o .NET
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [serviços de mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 A partir do windowsazure.mediaservices 4.0.0.4, os Serviços de Mídia do Azure dão suporte à autenticação baseada no Azure AD (Azure Active Directory). Este tópico mostra como usar a autenticação do Azure AD para acessar a API dos Serviços de Mídia do Azure com o Microsoft .NET.
 

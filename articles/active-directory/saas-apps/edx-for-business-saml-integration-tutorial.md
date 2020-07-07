@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/04/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e17ffa9330da4fec0cfa3260f9bb99fbaffc24f6
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: f396b42e7221863c386ce43cc7350cdbdc338f53
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84466316"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608702"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-edx-for-business-saml-integration"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory integração com o edX for Business SAML Integration
 
@@ -95,9 +95,9 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Além do indicado acima, o aplicativo edX for Business SAML Integration espera que mais alguns atributos sejam passados novamente na resposta SAML, os quais são mostrados abaixo. Esses atributos também são pré-populados, mas você pode examiná-los de acordo com seus requisitos.
     
-    | Nome | |  Atributo de Origem|
-    | ---------------| --------------- | --------- |
-    | country | | user.country  |
+    | Nome | Atributo de Origem|
+    | ---------------| --------- |
+    | country | user.country  |
 
 1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, clique no botão Copiar para copiar a **URL de Metadados de Federação do Aplicativo** e salve-a no computador.
 

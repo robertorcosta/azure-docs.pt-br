@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 04/29/2020
 ms.author: b-juche
 ms.openlocfilehash: b763a734866dd5fed5bf0500d4d52b9324c92a79
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82614584"
 ---
 # <a name="azure-netapp-files-performance-benchmarks-for-linux"></a>Azure NetApp Files benchmarks de desempenho para Linux
@@ -47,31 +47,31 @@ Esse grafo ilustra as diminuições em 10% por vez, de leitura pura para gravaç
 
 ## <a name="linux-scale-up"></a>Expansão do Linux  
 
-O kernel do Linux 5,3 habilita a rede de expansão de cliente único para`nconnect`NFS-. Os grafos nesta seção mostram os resultados do teste de validação para a opção de montagem do lado do cliente com NFSv3. O recurso está disponível no SUSE (a partir do SLES12SP4) e do Ubuntu (começando com a versão 19,10). Ele é semelhante em conceito ao SMB Multichannel e ao Oracle Direct NFS.
+O kernel do Linux 5,3 habilita a rede de expansão de cliente único para NFS- `nconnect` . Os grafos nesta seção mostram os resultados do teste de validação para a opção de montagem do lado do cliente com NFSv3. O recurso está disponível no SUSE (a partir do SLES12SP4) e do Ubuntu (começando com a versão 19,10). Ele é semelhante em conceito ao SMB Multichannel e ao Oracle Direct NFS.
 
-Os grafos comparam as `nconnect` vantagens de um volume montado não conectado. Nos grafos, FIO gerou a carga de trabalho de uma única instância de D32s_v3 na região do Azure US-west2.
+Os grafos comparam as vantagens de `nconnect` um volume montado não conectado. Nos grafos, FIO gerou a carga de trabalho de uma única instância de D32s_v3 na região do Azure US-west2.
 
 ### <a name="linux-read-throughput"></a>Taxa de transferência de leitura do Linux  
 
-Os gráficos a seguir mostram leituras sequenciais de ~ 3.500 leituras de MiB/ `nconnect`s com, aproximadamente 2.3 x`nconnect`não.
+Os gráficos a seguir mostram leituras sequenciais de ~ 3.500 leituras de MiB/s com `nconnect` , aproximadamente 2.3 x não `nconnect` .
 
 ![Taxa de transferência de leitura do Linux](../media/azure-netapp-files/performance-benchmarks-linux-read-throughput.png)  
 
 ### <a name="linux-write-throughput"></a>Produtividade de gravação do Linux  
 
-Os gráficos a seguir mostram gravações sequenciais. Eles indicam que `nconnect` o não tem nenhum benefício perceptível para gravações sequenciais. 1.500 MiB/s é basicamente o limite superior do volume de gravação sequencial e o limite de saída da instância de D32s_v3.
+Os gráficos a seguir mostram gravações sequenciais. Eles indicam que o `nconnect` não tem nenhum benefício perceptível para gravações sequenciais. 1.500 MiB/s é basicamente o limite superior do volume de gravação sequencial e o limite de saída da instância de D32s_v3.
 
 ![Produtividade de gravação do Linux](../media/azure-netapp-files/performance-benchmarks-linux-write-throughput.png)  
 
 ### <a name="linux-read-iops"></a>IOPS de leitura do Linux  
 
-Os gráficos a seguir mostram leituras aleatórias de ~ 200.000 IOPS de `nconnect`leitura com, aproximadamente 3x`nconnect`não-.
+Os gráficos a seguir mostram leituras aleatórias de ~ 200.000 IOPS de leitura com `nconnect` , aproximadamente 3x não- `nconnect` .
 
 ![IOPS de leitura do Linux](../media/azure-netapp-files/performance-benchmarks-linux-read-iops.png)  
 
 ### <a name="linux-write-iops"></a>IOPS de gravação do Linux  
 
-Os gráficos a seguir mostram gravações aleatórias de ~ 135.000 gravação IOPS `nconnect`com, aproximadamente 3x não`nconnect`-.
+Os gráficos a seguir mostram gravações aleatórias de ~ 135.000 gravação IOPS com `nconnect` , aproximadamente 3x não- `nconnect` .
 
 ![IOPS de gravação do Linux](../media/azure-netapp-files/performance-benchmarks-linux-write-iops.png)  
 

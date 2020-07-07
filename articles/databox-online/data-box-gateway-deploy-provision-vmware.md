@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 9cf012df65560a921f2c9f12f6c0362a033300be
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: b62441a4b1307a232ad2f592f13253c0759b5431
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561644"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85564203"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Tutorial: Provisionar o Azure Data Box Gateway no VMware
 
@@ -145,7 +145,7 @@ Execute as etapas a seguir para provisionar um dispositivo virtual no seu hiperv
 
     Na mesma página, clique em **Adicionar disco rígido** e, em seguida, selecione **Disco rígido existente**. Selecione o arquivo VMDK no repositório de dados. Isso adicionará um disco do sistema operacional. 
 
-     !Personalizar a página de configurações[](./media/data-box-gateway-deploy-provision-vmware/image14.png)
+     ![Personalizar a página de configurações](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 
     Role a tela para baixo até ver o **Novo disco rígido** e expanda-o para exibir as configurações. Defina o **Nó do Dispositivo Virtual** como **Controlador IDE 0**.
 

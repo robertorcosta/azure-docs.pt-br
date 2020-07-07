@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/12/2020
 ms.author: mjbrown
-ms.openlocfilehash: 368883a7eded17180a4a4259d452be09ebd221d9
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 697dc68018ced08e22efdc179f84a2c968f953a2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262439"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563870"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db-mongodb-api"></a>Amostras do Azure PowerShell para o Azure Cosmos DB – API do MongoDB
 
@@ -23,7 +23,7 @@ A tabela a seguir inclui links para scripts de exemplo do Azure PowerShell para 
 > [!NOTE]
 > Os exemplos usam cmdlets de gerenciamento do [AZ.CosmosDB](https://docs.microsoft.com/powershell/module/az.cosmosdb). Verifique regularmente se há atualizações ao `Az.CosmosDB`.
 
-| | |
+|Tarefa | Descrição |
 |---|---|
 |[Criar uma conta, um banco de dados e uma coleção](scripts/powershell/mongodb/ps-mongodb-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma conta, um banco de dados e uma coleção do Azure Cosmos. |
 |[Listar ou obter bancos de dados ou coleções](scripts/powershell/mongodb/ps-mongodb-list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Liste ou obtenha um banco de dados ou uma coleção. |

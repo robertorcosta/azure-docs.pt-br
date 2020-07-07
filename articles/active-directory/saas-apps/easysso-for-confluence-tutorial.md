@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/28/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81f33972f80075281b735ad69848631e81d2366e
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.openlocfilehash: 5c7570a21d8135e98024486372aaa49587b0d052
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84905033"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608771"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-confluence"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao EasySSO for Confluence
 
@@ -101,13 +101,13 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Além do indicado acima, o aplicativo EasySSO for Confluence espera que mais alguns atributos sejam passados novamente na resposta SAML, que são mostrados abaixo. Esses atributos também são pré-populados, mas você pode examiná-los de acordo com seus requisitos.
     
-    | Nome |  |  Atributo de Origem|
-    | ---------------| --------------- | --------- |
-    | urn:oid:0.9.2342.19200300.100.1.1 | | user.userprincipalname |
-    | urn:oid:0.9.2342.19200300.100.1.3 | | user.mail |
-    | urn:oid:2.16.840.1.113730.3.1.241 | | user.displayname |
-    | urn: oid:2.5.4.4 | | user.surname |
-    | urn: oid:2.5.4.42 | | user.givenname |
+    | Nome | Atributo de Origem|
+    | ---------------| --------- |
+    | urn:oid:0.9.2342.19200300.100.1.1 | user.userprincipalname |
+    | urn:oid:0.9.2342.19200300.100.1.3 | user.mail |
+    | urn:oid:2.16.840.1.113730.3.1.241 | user.displayname |
+    | urn: oid:2.5.4.4 | user.surname |
+    | urn: oid:2.5.4.42 | user.givenname |
     
     Caso os usuários do Azure AD tenham o **sAMAccountName** configurado, mapeie **urn:oid:0.9.2342.19200300.100.1.1** para o atributo **sAMAccountName**.
     

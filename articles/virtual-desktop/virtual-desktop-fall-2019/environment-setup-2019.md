@@ -9,16 +9,16 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: d666f7e3e43b5429423a5356aa00e074ed020869
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82615325"
 ---
 # <a name="windows-virtual-desktop-environment"></a>Ambiente da Área de Trabalho Virtual do Windows
 
 >[!IMPORTANT]
->Esse conteúdo se aplica à versão 2019 do outono que não dá suporte a Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver tentando gerenciar Azure Resource Manager objetos da área de trabalho virtual do Windows introduzidos na atualização do Spring 2020, consulte [Este artigo](../environment-setup.md).
+>Esse conteúdo se aplica à versão Outono 2019 que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver tentando gerenciar objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager introduzidos na atualização Spring 2020, confira [este artigo](../environment-setup.md).
 
 A área de trabalho virtual do Windows é um serviço que oferece aos usuários acesso fácil e seguro a seus desktops e RemoteApps virtualizados. Este tópico lhe dirá um pouco mais sobre a estrutura geral do ambiente de área de trabalho virtual do Windows.
 

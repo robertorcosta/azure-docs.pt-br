@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3283695c42c5bccf00ca43274d120409646c380f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 719f93db15b72d20120568e87bfd67f0464a9752
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73153954"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85799067"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-agiloft"></a>Tutorial: Integração do Azure Active Directory ao Agiloft
 
@@ -109,19 +109,17 @@ Para configurar o logon único do Azure AD com o Agiloft, siga estas etapas:
 
     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
 
-    | |
-    |-|-|
-    | `https://<subdomain>.saas.enterprisewizard.com/project/<KB_NAME>` |
-    | `https://<subdomain>.agiloft.com/project/<KB_NAME>` |
-    | |
+    ```http
+    https://<subdomain>.saas.enterprisewizard.com/project/<KB_NAME>
+    https://<subdomain>.agiloft.com/project/<KB_NAME>
+    ```
 
     b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão:
 
-    | |
-    |-|-|
-    | `https://<subdomain>.saas.enterprisewizard.com:443/gui2/spsamlsso?project=<KB_NAME>` |
-    | `https://<subdomain>.agiloft.com:443/gui2/spsamlsso?project=<KB_NAME>` |
-    | |
+    ```http
+    https://<subdomain>.saas.enterprisewizard.com:443/gui2/spsamlsso?project=<KB_NAME>
+    https://<subdomain>.agiloft.com:443/gui2/spsamlsso?project=<KB_NAME>
+    ```
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
@@ -129,11 +127,10 @@ Para configurar o logon único do Azure AD com o Agiloft, siga estas etapas:
 
     Na caixa de texto **URL de logon**, digite uma URL usando o seguinte padrão:
 
-    | |
-    |-|-|
-    | `https://<subdomain>.saas.enterprisewizard.com/gui2/samlssologin.jsp?project=<KB_NAME>` |
-    | `https://<subdomain>.agiloft.com/gui2/samlssologin.jsp?project=<KB_NAME>` |
-    | |
+    ```http
+    https://<subdomain>.saas.enterprisewizard.com/gui2/samlssologin.jsp?project=<KB_NAME>
+    https://<subdomain>.agiloft.com/gui2/samlssologin.jsp?project=<KB_NAME>
+    ```
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Contate a [equipe de suporte ao cliente do Agiloft](https://www.agiloft.com/support-login.htm) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

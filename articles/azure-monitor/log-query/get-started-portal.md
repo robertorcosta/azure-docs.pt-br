@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 29e24166218a6757cded9d1b002321800ab0c073
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bfed93a4ed13878448d21b95d265e49bf0260742
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80055639"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85798248"
 ---
 # <a name="tutorial-get-started-with-log-analytics-queries"></a>Tutorial: Introdução às consultas no Log Analytics
 
@@ -37,6 +37,7 @@ Para concluir a maioria das etapas deste tutorial, você pode usar [este ambient
 Se estiver usando o Azure Monitor para coletar dados de log em pelo menos um recurso do Azure, você também poderá usar seu próprio ambiente. Para abrir um workspace do Log Analytics, na navegação à esquerda do Azure Monitor, selecione **Logs**. 
 
 ## <a name="understand-the-schema"></a>Entenda o esquema
+ 
 Um *esquema* é uma coleção de tabelas agrupadas em categorias lógicas. O esquema de demonstração tem várias categorias de monitoramento de soluções. Por exemplo, a categoria **LogManagement** contém eventos do Windows e do Syslog, dados de desempenho e pulsações do agente.
 
 O esquema de tabela aparece na guia **Tabelas** do workspace do Log Analytics. As tabelas contêm colunas, cada uma com um tipo de dados mostrado pelo ícone ao lado do nome da coluna. Por exemplo, a tabela **Evento** contém colunas de texto como **Computador** e colunas numéricas como **EventCategory**.
@@ -50,6 +51,7 @@ O Log Analytics abre com uma nova consulta em branco no **Editor de consultas**.
 ![Log Analytics](media/get-started-portal/homepage.png)
 
 ### <a name="write-a-query"></a>Escreva uma consulta
+
 As consultas de log do Azure Monitor usam uma versão da linguagem de consulta Kusto. As consultas podem começar com um nome de tabela ou um comando [search](/azure/kusto/query/searchoperator). 
 
 A consulta a seguir recupera todos os registros da tabela **Evento**:
@@ -156,6 +158,7 @@ Você pode alterar propriedades da exibição, como eixos x e y, ou preferência
 Você também pode definir a visualização preferencial na própria consulta, usando o operador [render](/azure/kusto/query/renderoperator).
 
 ## <a name="pin-results-to-a-dashboard"></a>Fixar resultados em um painel
+
 Para fixar uma tabela de resultados ou um gráfico do Log Analytics em um painel compartilhado do Azure, selecione **Fixar no painel** na barra superior. 
 
 ![Fixar no painel](media/get-started-portal/pin-dashboard.png)
@@ -171,9 +174,11 @@ Uma tabela ou um gráfico que você fixa em um painel compartilhado tem as segui
 - Gráficos com muitas categorias discretas agrupam automaticamente as categorias menos populadas em um único compartimento **outras**.
 
 ## <a name="save-load-or-export-queries"></a>Salvar, carregar ou exportar consultas
+
 Depois de criar uma consulta, você pode salvar ou compartilhar a consulta ou os resultados com outras pessoas. 
 
 ### <a name="save-queries"></a>Salvar consultas
+
 Para salvar uma consulta:
 
 1. Selecione **Salvar** na barra superior.

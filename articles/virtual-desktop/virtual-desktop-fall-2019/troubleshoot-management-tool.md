@@ -9,16 +9,16 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: bb9206d2c2c15c036b0cf1184b79ed126966eb3b
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82614792"
 ---
 # <a name="troubleshoot-the-windows-virtual-desktop-management-tool"></a>Solucionar problemas da ferramenta de gerenciamento da Área de Trabalho Virtual do Windows
 
 >[!IMPORTANT]
->Esse conteúdo se aplica à versão 2019 do outono que não dá suporte a Azure Resource Manager objetos da área de trabalho virtual do Windows.
+>Esse conteúdo se aplica à versão Outono 2019 que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager.
 
 Este artigo descreve problemas que podem ocorrer durante a implantação da ferramenta de gerenciamento de área de trabalho virtual do Windows e como corrigi-las.
 

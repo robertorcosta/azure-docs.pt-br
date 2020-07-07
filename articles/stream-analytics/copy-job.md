@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.openlocfilehash: 258fc30f3e4a4ba374ada89c03b824ff5e27718e
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82612258"
 ---
 # <a name="copy-or-back-up-azure-stream-analytics-jobs"></a>Copiar ou fazer backup de trabalhos de Azure Stream Analytics
@@ -39,7 +39,7 @@ Você pode copiar ou fazer backup de seus trabalhos de Azure Stream Analytics im
 
     ![Exportar trabalho ASA no Visual Studio Code](./media/stream-analytics-manage-job/copy-backup-stream-analytics-jobs.png)
 
-3. Para publicar o trabalho em outra região ou backup usando outro nome, selecione **selecionar em suas assinaturas para publicar** no editor de consultas (\*. asaql) e siga as instruções.
+3. Para publicar o trabalho em outra região ou backup usando outro nome, selecione **selecionar em suas assinaturas para publicar** no editor de consultas ( \* . asaql) e siga as instruções.
 
     ![Publicar no Azure no Visual Studio Code](./media/quick-create-vs-code/submit-job.png)
 
@@ -47,7 +47,7 @@ Você pode copiar ou fazer backup de seus trabalhos de Azure Stream Analytics im
 
 1. Siga o [trabalho exportar um Azure Stream Analytics implantado para uma instrução de projeto](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-vs-tools#export-jobs-to-a-project).
 
-2. Abra o \*arquivo. Asaql no editor de consultas, selecione **Enviar para o Azure** no editor de scripts e siga as instruções para publicar o trabalho em outra região ou backup usando um novo nome.
+2. Abra o \* arquivo. asaql no editor de consultas, selecione **Enviar para o Azure** no editor de scripts e siga as instruções para publicar o trabalho em outra região ou backup usando um novo nome.
 
 ## <a name="next-steps"></a>Próximas etapas
 

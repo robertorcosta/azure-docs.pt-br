@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3ca4d30786953504218ef09c7c591ff2f46f524
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 556fd1f9fe4ba5753d882fa81c6d5a89051bcd91
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84765231"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85604957"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kisi-physical-security"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Kisi Physical Security
 
@@ -91,7 +91,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
-    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://identity.kms.kisi.io/organizations/sign_in?domain=<DOMAIN>`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://web.kisi.io/organizations/sign_in?domain=<DOMAIN>`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Entre em contato com a [equipe de suporte ao cliente do Kisi Physical Security](mailto:support@getkisi.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -102,11 +102,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Além do indicado acima, o aplicativo Kisi Physical Security espera que mais alguns atributos sejam passados novamente na resposta SAML, os quais são mostrados abaixo. Esses atributos também são pré-populados, mas você pode examiná-los de acordo com seus requisitos.
     
-    | Nome |  |  Atributo de Origem|
-    | ---------------| --------------- | --------- |
-    | Nome | | user.givenname |
-    | LastName | | user.surname |
-    | Email | | user.mail |
+    | Nome | Atributo de Origem|
+    | ---------------| --------- |
+    | Nome | user.givenname |
+    | LastName | user.surname |
+    | Email | user.userprincipalname |
 
 1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, clique no botão Copiar para copiar a **URL de Metadados de Federação do Aplicativo** e salve-a no computador.
 

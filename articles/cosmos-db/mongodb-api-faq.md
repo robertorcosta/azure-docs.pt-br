@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: sngun
 ms.openlocfilehash: de75ea1bc0a1cf63c74be3f7d9e486e1fe38db6f
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82614558"
 ---
 # <a name="frequently-asked-questions-about-the-azure-cosmos-dbs-api-for-mongodb"></a>Perguntas frequentes sobre a API do Azure Cosmos DB para MongoDB
@@ -29,7 +29,7 @@ Para saber mais, veja [Conectar-se ao banco de dados do Cosmos com a API do Azur
 
 Junto com os códigos de erro do MongoDB comuns, a API do Azure Cosmos DB para MongoDB tem seus próprios códigos de erro específicos:
 
-| Erro               | Código  | Descrição  | Solução  |
+| Erro do               | Código  | Descrição  | Solução  |
 |---------------------|-------|--------------|-----------|
 | TooManyRequests     | 16500 | O número total de unidades de solicitação consumidas é maior que a taxa de unidade de solicitação provisionada para o contêiner e foi limitada. | Considere a possibilidade de dimensionar a taxa de transferência atribuída a um contêiner ou um conjunto de contêineres do portal do Azure ou tentar novamente. |
 | ExceededMemoryLimit | 16501 | Como um serviço multilocatário, a operação excedeu a alocação de memória do cliente. | Reduza o escopo da operação por meio de um critério de consulta mais restritivo ou entre em contato com o suporte no [Portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br> Exemplo: `db.getCollection('users').aggregate([{$match: {name: "Andy"}}, {$sort: {age: -1}}]))` |

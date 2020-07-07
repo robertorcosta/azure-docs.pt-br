@@ -2,7 +2,7 @@
 title: Exemplos de script do Azure PowerShell
 description: Use exemplos de script do Azure PowerShell para ajudar você a criar e gerenciar recursos de Instância Gerenciada de SQL do Azure e do Banco de Dados SQL do Azure.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: development
 ms.custom: sqldbrb=2
 ms.devlang: PowerShell
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
-ms.openlocfilehash: cb8abf563834e23472589cd65bfe4196131d0138
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.openlocfilehash: 77220fabc78dd10b4299219ef84c1f6eb32ba82e
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84718539"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85987272"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database-and-azure-sql-managed-instance"></a>Exemplos do Azure PowerShell para Banco de Dados SQL do Azure e Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -32,7 +32,7 @@ Se você optar por instalar e usar o PowerShell localmente, este tutorial exigir
 
 A tabela a seguir inclui links para scripts de exemplo do Azure PowerShell para o Banco de Dados SQL do Azure.
 
-| |  |
+|Link|Descrição|
 |---|---|
 |**Criar e configurar bancos de dados individuais e pools elásticos**||
 | [Criar um banco de dados individual e configurar uma regra de firewall no nível do servidor](scripts/create-and-configure-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell cria um banco de dados individual e configura uma regra de firewall de IP no nível do servidor. |
@@ -64,7 +64,7 @@ Saiba mais sobre a [API do Azure PowerShell de banco de dados individual](single
 
 A tabela a seguir inclui links para scripts de exemplo do Azure PowerShell para a Instância Gerenciada de SQL do Azure.
 
-| |  |
+|Link|Descrição|
 |---|---|
 |**Criar e configurar instâncias gerenciadas**||
 | [Criar e gerenciar uma instância gerenciada](../managed-instance/scripts/create-configure-managed-instance-powershell.md) | Este script do PowerShell mostra como criar e gerenciar uma instância gerenciada usando o Azure PowerShell. |

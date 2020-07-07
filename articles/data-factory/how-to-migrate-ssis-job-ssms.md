@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/7/2020
 ms.openlocfilehash: b27fe2abc50396b527e61487acf9797db59c1cce
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82627578"
 ---
 # <a name="migrate-sql-server-agent-jobs-to-adf-with-ssms"></a>Migrar trabalhos do SQL Server Agent para o ADF com o SSMS
@@ -31,11 +31,11 @@ Em geral, para trabalhos selecionados do SQL Agent com tipos de etapa de trabalh
     > Só há suporte para o local do pacote do sistema de arquivos.
 - Migre trabalhos aplicáveis com etapas de trabalho aplicáveis para os recursos do ADF correspondentes, como mostrado abaixo:
 
-|Objeto de trabalho do SQL Agent  |Recurso do ADF  |Anotações|
+|Objeto de trabalho do SQL Agent  |Recurso do ADF  |Observações|
 |---------|---------|---------|
-|Trabalho do SQL Agent|pipeline     |O nome do pipeline será *gerado para \<o nome do trabalho>*. <br> <br> Os trabalhos internos do agente não são aplicáveis: <li> Trabalho de manutenção do servidor SSIS <li> syspolicy_purge_history <li> collection_set_ * <li> mdw_purge_data_ * <li> sysutility_ *|
-|Etapa de trabalho do SSIS|Atividade executar pacote SSIS|<li> O nome da atividade será o \<nome da etapa>. <li> A conta proxy usada na etapa de trabalho será migrada como autenticação do Windows desta atividade. <li> *As opções de execução* , exceto *usar tempo de execução de 32 bits* definidos na etapa de trabalho, serão ignoradas na migração. <li> A *verificação* definida na etapa de trabalho será ignorada na migração.|
-|schedule      |agendar o gatilho        |O nome do gatilho de agendamento será *gerado para \<o nome da agenda>*. <br> <br> As opções abaixo na agenda de trabalho do SQL Agent serão ignoradas na migração: <li> Intervalo de segundo nível. <li> *Iniciar automaticamente quando o SQL Server Agent for iniciado* <li> *Iniciar sempre que as CPUs estiverem ociosas* <li> dia *útil* e fim de *semana*<time zone> <br> Abaixo estão as diferenças após o agendamento de trabalho do SQL Agent ser migrado para o gatilho de agenda do ADF: <li> O gatilho de agendamento do ADF de execução subsequente é independente do estado de execução da execução disparada por Antecedent. <li> A configuração de recorrência do gatilho de agendamento do ADF difere da frequência diária no trabalho do SQL Agent.|
+|Trabalho do SQL Agent|pipeline     |O nome do pipeline será *gerado para \<job name> *. <br> <br> Os trabalhos internos do agente não são aplicáveis: <li> Trabalho de manutenção do servidor SSIS <li> syspolicy_purge_history <li> collection_set_ * <li> mdw_purge_data_ * <li> sysutility_ *|
+|Etapa de trabalho do SSIS|Atividade executar pacote SSIS|<li> O nome da atividade será \<step name> . <li> A conta proxy usada na etapa de trabalho será migrada como autenticação do Windows desta atividade. <li> *As opções de execução* , exceto *usar tempo de execução de 32 bits* definidos na etapa de trabalho, serão ignoradas na migração. <li> A *verificação* definida na etapa de trabalho será ignorada na migração.|
+|schedule      |agendar o gatilho        |Nome do gatilho de agendamento que será *gerado para \<schedule name> *. <br> <br> As opções abaixo na agenda de trabalho do SQL Agent serão ignoradas na migração: <li> Intervalo de segundo nível. <li> *Iniciar automaticamente quando o SQL Server Agent for iniciado* <li> *Iniciar sempre que as CPUs estiverem ociosas* <li> dia *útil* e fim de *semana*<time zone> <br> Abaixo estão as diferenças após o agendamento de trabalho do SQL Agent ser migrado para o gatilho de agenda do ADF: <li> O gatilho de agendamento do ADF de execução subsequente é independente do estado de execução da execução disparada por Antecedent. <li> A configuração de recorrência do gatilho de agendamento do ADF difere da frequência diária no trabalho do SQL Agent.|
 
 - gere modelos de Azure Resource Manager (ARM) na pasta de saída local e implante em data factory diretamente ou mais tarde manualmente. Para obter mais informações sobre os modelos do Gerenciador de recursos do ADF, consulte [tipos de recurso Microsoft. datafactory](https://docs.microsoft.com/azure/templates/microsoft.datafactory/allversions).
 
@@ -57,8 +57,8 @@ O recurso descrito neste artigo requer SQL Server Management Studio versão 18,5
     1. Caminho da pasta de origem da atualização. Caminhos válidos são caminhos de pasta ou caminhos de pasta pai de pacotes.
     1. Caminho da pasta de destino da atualização. O padrão é o caminho relativo para a conta de armazenamento padrão, que é selecionada na etapa 1.
     1. Exclua um mapeamento selecionado por meio de **mapeamento de exclusão**.
-![etapa 2](media/how-to-migrate-ssis-job-ssms/step2.png)
-![etapa 2-1](media/how-to-migrate-ssis-job-ssms/step2-1.png)
+![etapa 2 ](media/how-to-migrate-ssis-job-ssms/step2.png)
+ ![ etapa 2-1](media/how-to-migrate-ssis-job-ssms/step2-1.png)
 
 1. Selecione os trabalhos aplicáveis a serem migrados e defina as configurações da *atividade de pacote SSIS executada*correspondente.
 

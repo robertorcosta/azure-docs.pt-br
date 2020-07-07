@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed5370fda9be2573f773bd2fe653feb74defeb7d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 208a494c98a5f3eb22742b0ba6748efa0dd59e1a
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68248855"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85798670"
 ---
 # <a name="tutorial-integrate-hyperanna-with-azure-active-directory"></a>Tutorial: Integrar o HyperAnna ao Azure Active Directory
 
@@ -85,19 +85,19 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     Na caixa de texto **URL de Resposta**, digite uma URL usando qualquer um dos seguintes padrões:
 
-    | |
-    |--|
-    | `https://microsoft.hyperanna.com/userservice/auth/saml` |
-    | `https://anna.hyperanna.com/userservice/auth/saml` |
+    ```http
+    https://microsoft.hyperanna.com/userservice/auth/saml
+    https://anna.hyperanna.com/userservice/auth/saml
+    ```
 
 1. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
     Na caixa de texto **URL de Logon**, digite uma URL usando qualquer um dos seguintes padrões:
 
-    | |
-    |--|
-    | `https://microsoft.hyperanna.com/` |
-    | `https://anna.hyperanna.com/` |
+    ```http
+    https://microsoft.hyperanna.com/
+    https://anna.hyperanna.com/
+    ```
 
 4. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e escolha **Baixar** para baixar o certificado e salvá-lo no computador.
 

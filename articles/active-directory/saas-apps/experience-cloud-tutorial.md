@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d044a229764d0d6ce1d0f3b10b95d406ccd3dd5f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 21428738873f60d2173df53f5b9f1d108ee5eff4
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77371441"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85798665"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-experience-cloud"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Experience Cloud
 
@@ -86,33 +86,32 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     a. Na caixa de texto **Identificador**, digite uma URL usando os seguintes padrões:
     
-    |||
-    |-|-|
-    | `https://<cluster>.medallia.com/sso/<company>`|
-    | `https://<cluster>.medallia.ca/sso/<company>`|
-    | `https://<cluster>.medallia.eu/sso/<company>`|
-    | `https://<cluster>.medallia.au/sso/<company>`|
+    ```http
+    https://<cluster>.medallia.com/sso/<company>
+    https://<cluster>.medallia.ca/sso/<company>
+    https://<cluster>.medallia.eu/sso/<company>
+    https://<cluster>.medallia.au/sso/<company>
+    ```
 
     b. Na caixa de texto **URL de Resposta**, digite uma URL usando os seguintes padrões:
 
-    |||
-    |-|-|
-    | `https://<cluster>.medallia.com/sso/<company>/logonSubmit.do`|
-    | `https://<cluster>.medallia.ca/sso/<company>/logonSubmit.do`|
-    | `https://<cluster>.medallia.eu/sso/<company>/logonSubmit.do`|
-    | `https://<cluster>.medallia.au/sso/<company>/logonSubmit.do`|
-
+    ```http
+    https://<cluster>.medallia.com/sso/<company>/logonSubmit.do
+    https://<cluster>.medallia.ca/sso/<company>/logonSubmit.do
+    https://<cluster>.medallia.eu/sso/<company>/logonSubmit.do
+    https://<cluster>.medallia.au/sso/<company>/logonSubmit.do
+    ```
 
 1. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
     Na caixa de texto **URL de Logon**, digite uma URL usando os seguintes padrões:
 
-    |||
-    |-|-|
-    | `https://<cluster>.medallia.com/sso/<company>`|
-    | `https://<cluster>.medallia.ca/sso/<company>`|
-    | `https://<cluster>.medallia.eu/sso/<company>`|
-    | `https://<cluster>.medallia.au/sso/<company>`|
+    ```http
+    https://<cluster>.medallia.com/sso/<company>
+    https://<cluster>.medallia.ca/sso/<company>
+    https://<cluster>.medallia.eu/sso/<company>
+    https://<cluster>.medallia.au/sso/<company>
+    ```
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Contate a [equipe de suporte ao cliente do Experience Cloud](mailto:support@medallia.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

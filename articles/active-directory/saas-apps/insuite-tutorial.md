@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/15/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8b2af6ff99db384586dad359285a08ad187bd5d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b15dcb403b1caac1f317f840f15cd89a3b496705
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83662118"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85798469"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-insuite"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao insuite
 
@@ -84,19 +84,19 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     a. Na caixa de texto **URL de Logon**, digite uma URL usando um dos seguintes padrões:
 
-    | | |
-    |-|-|
-    | `https://<CUSTOMER_NAME>.m.diol.jp/cgi-bin/saml_sso.cgi`|
-    | `https://<CUSTOMER_NAME>.dacl.jp/cgi-bin/saml_sso.cgi`|
+    ```http
+    https://<CUSTOMER_NAME>.m.diol.jp/cgi-bin/saml_sso.cgi
+    https://<CUSTOMER_NAME>.dacl.jp/cgi-bin/saml_sso.cgi
+    ```
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `DreamArts_insuite_TENANTNAME`
 
     c. Na caixa de texto **URL de Resposta**, digite uma URL nos seguintes padrões:
 
-    | | |
-    |-|-|
-    | `https://<CUSTOMER_NAME>.m.diol.jp/cgi-bin/saml_sso.cgi`|
-    | `https://<CUSTOMER_NAME>.dacl.jp/cgi-bin/saml_sso.cgi`|
+    ```http
+    https://<CUSTOMER_NAME>.m.diol.jp/cgi-bin/saml_sso.cgi
+    https://<CUSTOMER_NAME>.dacl.jp/cgi-bin/saml_sso.cgi
+    ```
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Resposta, o Identificador e a URL de Logon reais. Entre em contato com a [equipe de suporte do cliente do insuite](mailto:e-support@dreamarts.co.jp) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

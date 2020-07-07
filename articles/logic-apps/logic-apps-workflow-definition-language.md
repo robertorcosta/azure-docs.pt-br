@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.openlocfilehash: f9eefc40f7bca3f0bc21510a2d8a3d3fe76711b0
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82611408"
 ---
 # <a name="schema-reference-guide-for-the-workflow-definition-language-in-azure-logic-apps"></a>Guia de referência de esquema para a linguagem de definição de fluxo de trabalho em aplicativos lógicos do Azure
@@ -35,7 +35,7 @@ Esta é a estrutura de alto nível de uma definição de fluxo de trabalho:
 }
 ```
 
-| Atributo | Necessária | Descrição |
+| Atributo | Obrigatório | Descrição |
 |-----------|----------|-------------|
 | `definition` | Sim | O elemento inicial da definição de fluxo de trabalho |
 | `$schema` | Somente ao referenciar uma definição de fluxo de trabalho externamente | O local do arquivo de esquema JSON que descreve a versão da Linguagem de Definição de Fluxo de Trabalho, que pode ser encontrado aqui: <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json`</p> |
@@ -43,7 +43,7 @@ Esta é a estrutura de alto nível de uma definição de fluxo de trabalho:
 | `contentVersion` | Não | O número de versão da definição de fluxo de trabalho, que é "1.0.0.0" por padrão. Para ajudar a identificar e confirmar a definição correta ao implantar um fluxo de trabalho, especifique um valor a ser usado. |
 | `outputs` | Não | As definições para as saídas a serem retornadas de uma execução de fluxo de trabalho. Para obter mais informações, consulte [saídas](#outputs). <p><p>Máximo de saídas: 10 |
 | `parameters` | Não | As definições para um ou mais parâmetros que passam os valores a serem usados no tempo de execução do aplicativo lógico. Para obter mais informações, confira [Parâmetros](#parameters). <p><p>Máximo de parâmetros: 50 |
-| `staticResults` | Não | As definições para um ou mais resultados estáticos retornados por ações como saídas de simulação quando os resultados estáticos são habilitados nessas ações. Em cada definição de ação, `runtimeConfiguration.staticResult.name` o atributo faz referência à definição `staticResults`correspondente dentro de. Para obter mais informações, consulte [resultados estáticos](#static-results). |
+| `staticResults` | Não | As definições para um ou mais resultados estáticos retornados por ações como saídas de simulação quando os resultados estáticos são habilitados nessas ações. Em cada definição de ação, o `runtimeConfiguration.staticResult.name` atributo faz referência à definição correspondente dentro de `staticResults` . Para obter mais informações, consulte [resultados estáticos](#static-results). |
 | `triggers` | Não | As definições de um ou mais gatilhos que criam uma instância do fluxo de trabalho. É possível definir mais de um gatilho, mas apenas com a Linguagem de Definição de Fluxo de Trabalho, e não visualmente por meio do Designer de Aplicativos Lógicos. Para obter mais informações, consulte [gatilhos e ações](#triggers-actions). <p><p>Máximo da gatilhos: 10 |
 ||||
 
@@ -57,7 +57,7 @@ Em uma definição de fluxo de trabalho, as seções `triggers` e `actions` defi
 
 ## <a name="parameters"></a>Parâmetros
 
-O ciclo de vida da implantação geralmente tem ambientes diferentes para desenvolvimento, teste, preparo e produção. Ao implantar aplicativos lógicos em vários ambientes, você provavelmente desejará usar valores diferentes, como cadeias de conexão, com base nas suas necessidades de implantação. Ou você pode ter valores que deseja reutilizar em todo o aplicativo lógico sem codificar ou alterar com frequência. Na `parameters` seção de sua definição de fluxo de trabalho, você pode definir ou editar parâmetros para os valores que seu aplicativo lógico usa no tempo de execução. Você deve definir esses parâmetros primeiro antes de poder referenciar esses parâmetros em outro lugar na sua definição de fluxo de trabalho.
+O ciclo de vida da implantação geralmente tem ambientes diferentes para desenvolvimento, teste, preparo e produção. Ao implantar aplicativos lógicos em vários ambientes, você provavelmente desejará usar valores diferentes, como cadeias de conexão, com base nas suas necessidades de implantação. Ou você pode ter valores que deseja reutilizar em todo o aplicativo lógico sem codificar ou alterar com frequência. Na seção de sua definição de fluxo de trabalho `parameters` , você pode definir ou editar parâmetros para os valores que seu aplicativo lógico usa no tempo de execução. Você deve definir esses parâmetros primeiro antes de poder referenciar esses parâmetros em outro lugar na sua definição de fluxo de trabalho.
 
 Esta é a estrutura geral de uma definição de parâmetro:
 
@@ -74,10 +74,10 @@ Esta é a estrutura geral de uma definição de parâmetro:
 },
 ```
 
-| Atributo | Necessária | Type | Description |
+| Atributo | Obrigatório | Type | Description |
 |-----------|----------|------|-------------|
 | <*nome do parâmetro*> | Sim | String | O nome do parâmetro que você deseja definir |
-| <*tipo de parâmetro*> | Sim | int, float, String, bool, array, Object, SecureString, secureobject <p><p>**Observação**: para todas as senhas, chaves e segredos, use os `securestring` tipos `secureobject` ou porque a `GET` operação não retorna esses tipos. Para obter mais informações sobre como proteger os parâmetros, consulte [recomendações de segurança para parâmetros de ação e de entrada](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters). | O tipo do parâmetro |
+| <*tipo de parâmetro*> | Sim | int, float, String, bool, array, Object, SecureString, secureobject <p><p>**Observação**: para todas as senhas, chaves e segredos, use os `securestring` `secureobject` tipos ou porque a `GET` operação não retorna esses tipos. Para obter mais informações sobre como proteger os parâmetros, consulte [recomendações de segurança para parâmetros de ação e de entrada](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters). | O tipo do parâmetro |
 | <*valor de parâmetro-padrão*> | Sim | O mesmo que `type` | O valor de parâmetro padrão a ser usado se nenhum valor for especificado quando o fluxo de trabalho for instanciado. O `defaultValue` atributo é necessário para que o designer do aplicativo lógico possa mostrar corretamente o parâmetro, mas você pode especificar um valor vazio. |
 | <*matriz com-valores-de-parâmetro-permitido*> | Não | Array | Uma matriz com valores que o parâmetro pode aceitar |
 | <*parâmetro-Descrição*> | Não | Objeto JSON | Quaisquer outros detalhes de parâmetro, como uma descrição para o parâmetro |
@@ -89,7 +89,7 @@ Em seguida, crie um [modelo de Azure Resource Manager](../azure-resource-manager
 
 ## <a name="static-results"></a>Resultados estáticos
 
-No `staticResults` atributo, defina a simulação `outputs` de uma ação e `status` a ação retornará quando a configuração de resultado estático da ação estiver ativada. Na definição da ação, o `runtimeConfiguration.staticResult.name` atributo faz referência ao nome da definição de resultado estática dentro `staticResults`. Saiba como você pode [testar aplicativos lógicos com dados fictícios Configurando resultados estáticos](../logic-apps/test-logic-apps-mock-data-static-results.md).
+No `staticResults` atributo, defina a simulação de uma ação `outputs` e `status` a ação retornará quando a configuração de resultado estático da ação estiver ativada. Na definição da ação, o `runtimeConfiguration.staticResult.name` atributo faz referência ao nome da definição de resultado estática dentro `staticResults` . Saiba como você pode [testar aplicativos lógicos com dados fictícios Configurando resultados estáticos](../logic-apps/test-logic-apps-mock-data-static-results.md).
 
 ```json
 "definition": {
@@ -112,16 +112,16 @@ No `staticResults` atributo, defina a simulação `outputs` de uma ação e `sta
 }
 ```
 
-| Atributo | Necessária | Type | Description |
+| Atributo | Obrigatório | Type | Description |
 |-----------|----------|------|-------------|
 | <*static-Result-Definition-Name*> | Sim | String | O nome de uma definição de resultado estático que uma definição de ação pode referenciar por meio de um `runtimeConfiguration.staticResult` objeto. Para obter mais informações, consulte [Configurações de runtime](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options). <p>Você pode usar qualquer nome exclusivo que desejar. Por padrão, esse nome exclusivo é acrescentado com um número, que é incrementado conforme necessário. |
-| <*Output-Attributes-and-Values-retornou*> | Sim | Varia | Os requisitos para esses atributos variam de acordo com as diferentes condições. Por exemplo, quando o `status` é `Succeeded`, o `outputs` atributo inclui atributos e valores retornados como saídas de imitação pela ação. `status` Se `Failed`for, `outputs` o atributo incluirá o `errors` atributo, que é uma matriz com um ou mais objetos `message` de erro que têm informações de erro. |
+| <*Output-Attributes-and-Values-retornou*> | Sim | Varia | Os requisitos para esses atributos variam de acordo com as diferentes condições. Por exemplo, quando o `status` é `Succeeded` , o `outputs` atributo inclui atributos e valores retornados como saídas de imitação pela ação. Se `status` for `Failed` , o `outputs` atributo incluirá o `errors` atributo, que é uma matriz com um ou mais `message` objetos de erro que têm informações de erro. |
 | <*valores de cabeçalho*> | Não | JSON | Todos os valores de cabeçalho retornados pela ação |
 | <*status-código-retornado*> | Sim | String | O código de status retornado pela ação |
 | <*ação-status*> | Sim | String | O status da ação, por exemplo, `Succeeded` ou`Failed` |
 |||||
 
-Por exemplo, nessa definição de ação HTTP, o `runtimeConfiguration.staticResult.name` atributo faz `HTTP0` referência dentro `staticResults` do atributo onde as saídas de simulação para a ação são definidas. O `runtimeConfiguration.staticResult.staticResultOptions` atributo especifica que a configuração de resultado estático `Enabled` está na ação http.
+Por exemplo, nessa definição de ação HTTP, o `runtimeConfiguration.staticResult.name` atributo faz referência `HTTP0` dentro do `staticResults` atributo onde as saídas de simulação para a ação são definidas. O `runtimeConfiguration.staticResult.staticResultOptions` atributo especifica que a configuração de resultado estático está `Enabled` na ação http.
 
 ```json
 "actions": {
@@ -142,7 +142,7 @@ Por exemplo, nessa definição de ação HTTP, o `runtimeConfiguration.staticRes
 },
 ```
 
-A ação HTTP retorna as saídas na definição `HTTP0` dentro `staticResults`de. Neste exemplo, para o código de status, a saída de simulação `OK`é. Para valores de cabeçalho, a saída de `"Content-Type": "application/JSON"`simulação é. Para o status da ação, a saída da simulação `Succeeded`é.
+A ação HTTP retorna as saídas na `HTTP0` definição dentro de `staticResults` . Neste exemplo, para o código de status, a saída de simulação é `OK` . Para valores de cabeçalho, a saída de simulação é `"Content-Type": "application/JSON"` . Para o status da ação, a saída da simulação é `Succeeded` .
 
 ```json
 "definition": {
@@ -257,7 +257,7 @@ Quando você terminar, a expressão será exibida para a propriedade corresponde
 
 <a name="outputs"></a>
 
-## <a name="outputs"></a>outputs
+## <a name="outputs"></a>Saídas
 
 Na seção `outputs`, defina os dados que o fluxo de trabalho pode retornar quando terminar sua execução. Por exemplo, para rastrear um valor ou status específico em cada execução, especifique que a saída do fluxo de trabalho retorne esses dados.
 
@@ -279,7 +279,7 @@ Esta é a estrutura geral de uma definição de saída:
 |-----------|----------|------|-------------|
 | <*nome da chave*> | Sim | String | O nome da chave do valor retornado da saída |
 | <*tipo de chave*> | Sim | int, float, string, securestring, bool, array, objeto JSON | O tipo do valor retornado da saída |
-| <*chave-valor*> | Sim | O mesmo que <*tipo de chave*> | O valor retornado da saída |
+| <*key-value*> | Sim | O mesmo que <*tipo de chave*> | O valor retornado da saída |
 |||||
 
 Para obter a saída de uma execução de fluxo de trabalho, examine o histórico de execução do aplicativo lógico e os detalhes no portal do Azure ou use a [API REST do fluxo de trabalho](https://docs.microsoft.com/rest/api/logic/workflows). Você também pode passar a saída para sistemas externos, por exemplo, o Power BI para que você possa criar painéis.
@@ -292,7 +292,7 @@ No caso de [expressões](#expressions) e [funções](#functions), os operadores 
 
 | Operador | Tarefa |
 |----------|------|
-| ' | Para usar um literal de cadeia de caracteres como entrada ou em expressões e funções, encapsule a cadeia de caracteres somente com aspas simples, por exemplo, `'<myString>'`. Não use aspas duplas (""), que entram em conflito com a formatação JSON ao redor de uma expressão inteira. Por exemplo:  <p>**Sim**: length('Hello') </br>**Não**: length("Hello") <p>Quando passa matrizes ou números, você não precisa de pontuação de encapsulamento. Por exemplo:  <p>**Sim**: length([1, 2, 3]) </br>**Não**: length("[1, 2, 3]") |
+| ' | Para usar um literal de cadeia de caracteres como entrada ou em expressões e funções, encapsule a cadeia de caracteres somente com aspas simples, por exemplo, `'<myString>'`. Não use aspas duplas (""), que entram em conflito com a formatação JSON ao redor de uma expressão inteira. Por exemplo: <p>**Sim**: length('Hello') </br>**Não**: length("Hello") <p>Quando passa matrizes ou números, você não precisa de pontuação de encapsulamento. Por exemplo: <p>**Sim**: length([1, 2, 3]) </br>**Não**: length("[1, 2, 3]") |
 | [] | Para referenciar um valor em uma posição específica (índice) em uma matriz, use colchetes. Por exemplo, para obter o segundo item de uma matriz: <p>`myArray[1]` |
 | . | Para referenciar uma propriedade em um objeto, use o operador de ponto. Por exemplo, para obter a propriedade `name` para um objeto JSON `customer`: <p>`"@parameters('customer').name"` |
 | ? | Para referenciar propriedades nulas em um objeto sem erro de runtime, use o operador de ponto de interrogação. Por exemplo, você pode usar esta expressão para tratar as saídas nulas de um gatilho: <p>`@coalesce(trigger().outputs?.body?.<someProperty>, '<property-default-value>')` |

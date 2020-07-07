@@ -9,20 +9,20 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: de3933b1686b433a720e78d89bd3e50c0ce5e5dd
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82615494"
 ---
 # <a name="windows-virtual-desktop-powershell"></a>PowerShell da Área de Trabalho Virtual do Windows
 
 >[!IMPORTANT]
->Esse conteúdo se aplica à versão 2019 do outono que não dá suporte a Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver tentando gerenciar Azure Resource Manager objetos da área de trabalho virtual do Windows introduzidos na atualização do Spring 2020, consulte [Este artigo](../troubleshoot-powershell.md).
+>Esse conteúdo se aplica à versão Outono 2019 que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver tentando gerenciar objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager introduzidos na atualização Spring 2020, confira [este artigo](../troubleshoot-powershell.md).
 
 Use este artigo para resolver erros e problemas ao usar o PowerShell com a área de trabalho virtual do Windows. Para obter mais informações sobre Serviços de Área de Trabalho Remota PowerShell, consulte [Windows Virtual Desktop PowerShell](/powershell/module/windowsvirtualdesktop/).
 
-## <a name="provide-feedback"></a>Envie comentários
+## <a name="provide-feedback"></a>Fornecer comentários
 
 Visite a [Comunidade Tecnológica da Área de Trabalho Virtual do Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) para comentar sobre o serviço da Área de Trabalho Virtual do Windows com a equipe do produto e membros ativos da comunidade.
 
@@ -62,7 +62,7 @@ Get-RdsDiagnosticActivities -ActivityId <ActivityId>
 
 **Causa:** parâmetro-tenantname
 
-**Correção:** Emita Get-RdsDiagnosticActivities com-Tenantname \<locatárioname>.
+**Correção:** Emita Get-RdsDiagnosticActivities com-Tenantname \<TenantName> .
 
 ### <a name="error-get-rdsdiagnosticactivities----the-user-isnt-authorized-to-query-the-management-service"></a>Erro: Get-RdsDiagnosticActivities--o usuário não está autorizado a consultar o serviço de gerenciamento
 
@@ -72,7 +72,7 @@ Get-RdsDiagnosticActivities -Deployment -username <username>
 
 **Causa:** Usando a opção-Deployment.
 
-**Correção:** -a opção de implantação pode ser usada somente por administradores de implantação. Normalmente, esses administradores são membros da equipe de área de trabalho virtual Serviços de Área de Trabalho Remota/Windows. Substitua a opção-Deployment por-Tenantname \<locatárioname>.
+**Correção:** -a opção de implantação pode ser usada somente por administradores de implantação. Normalmente, esses administradores são membros da equipe de área de trabalho virtual Serviços de Área de Trabalho Remota/Windows. Substitua a opção-Deployment por-Tenantname \<TenantName> .
 
 ### <a name="error-new-rdsroleassignment----the-user-isnt-authorized-to-query-the-management-service"></a>Erro: New-RdsRoleAssignment--o usuário não está autorizado a consultar o serviço de gerenciamento
 
@@ -89,12 +89,12 @@ Get-RdsDiagnosticActivities -Deployment -username <username>
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter uma visão geral da solução de problemas da área de trabalho virtual do Windows e das faixas de escalonamento, consulte [visão geral da solução de problemas, comentários e suporte](troubleshoot-set-up-overview-2019.md).
-- Para solucionar problemas ao criar um pool de locatários e de host em um ambiente de área de trabalho virtual do Windows, confira [criação de locatário e pool de hosts](troubleshoot-set-up-issues-2019.md).
-- Para solucionar problemas durante a configuração de uma VM (máquina virtual) na área de trabalho virtual do Windows, consulte [configuração de máquina virtual do host de sessão](troubleshoot-vm-configuration-2019.md).
+- Confira uma visão geral da solução de problemas da Área de Trabalho Virtual do Windows e das faixas de escalonamento em [Visão geral da solução de problemas, comentários e suporte](troubleshoot-set-up-overview-2019.md).
+- Veja como solucionar problemas ao criar um pool de locatários e de hosts em um ambiente da Área de Trabalho Virtual do Windows em [Criação de pool de locatários e de hosts](troubleshoot-set-up-issues-2019.md).
+- Confira como solucionar problemas ao configurar uma VM (máquina virtual) na Área de Trabalho Virtual do Windows em [Configuração da máquina virtual do host da sessão](troubleshoot-vm-configuration-2019.md).
 - Para solucionar problemas com conexões de cliente de área de trabalho virtual do Windows, consulte [conexões do serviço área de trabalho virtual do Windows](troubleshoot-service-connection-2019.md).
 - Para solucionar problemas com clientes Área de Trabalho Remota, consulte [solucionar problemas do cliente área de trabalho remota](../troubleshoot-client.md)
 - Para saber mais sobre o serviço, consulte [ambiente de área de trabalho virtual do Windows](environment-setup-2019.md).
-- Para percorrer um tutorial de solução de problemas, consulte [tutorial: solucionar problemas de implantações de modelo do Resource Manager](../../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
+- Acompanhe um tutorial de solução de problemas em [Tutorial: Solucionar problemas de implantações de modelos do Resource Manager](../../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
 - Para saber sobre as ações de auditoria, consulte [Auditar operações com o Gerenciador de Recursos](../../azure-resource-manager/management/view-activity-logs.md).
 - Para saber sobre as ações para determinar os erros durante a implantação, consulte [Exibir operações de implantação](../../azure-resource-manager/templates/deployment-history.md).

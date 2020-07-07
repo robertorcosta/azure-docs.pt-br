@@ -5,10 +5,10 @@ ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.openlocfilehash: 39cac84c4a33c1da209d0a0cc7b0f8ac8ee390a0
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82610778"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restaurar o Estado do Sistema para Windows Server
@@ -69,27 +69,27 @@ Se seu Windows Server estiver corrompido ou inacessível e você deseja restaur�
 
 A terminologia usada nessas etapas inclui:
 
-* *Máquina de origem* : a máquina original da qual o backup foi feito e que está indisponível no momento.
+* *Computador de origem* – o computador original do qual o backup foi feito e que não está disponível no momento.
 * *Computador de destino* – O computador para o qual os dados estão sendo recuperados.
-* *Cofre de exemplo* – o cofre Serviços de Recuperação no qual a *Máquina de origem* e a *Máquina de destino* estão registradas. <br/>
+* *Cofre de exemplo* – o cofre dos serviços de recuperação no qual o *computador de origem* e o *computador de destino* estão registrados. <br/>
 
 > [!NOTE]
 > Os backups de um computador não podem ser restaurados em um computador que esteja executando uma versão anterior do sistema operacional. Por exemplo, os backups de um computador Windows Server 2016 não podem ser restaurados para o Windows Server 2012 R2. No entanto, o inverso é possível. Você pode usar os backups do Windows Server 2012 R2 para restaurar o Windows Server 2016.
 >
 
-1. Abra o snap-in do **Backup do Microsoft Azure** no *Computador de destino*.
-2. Verifique se a *Máquina de destino* e a *Máquina de origem* estão registradas no mesmo cofre Serviços de Recuperação.
+1. Abra o snap-in **backup do Microsoft Azure** no *computador de destino*.
+2. Verifique se o *computador de destino* e o *computador de origem* estão registrados no mesmo cofre dos serviços de recuperação.
 3. Clique em **Recuperar Dados** para iniciar o fluxo de trabalho.
 4. Selecione **Outro servidor**
 
     ![Outro servidor](./media/backup-azure-restore-system-state/anotherserver.png)
 
-5. Forneça o arquivo de credencial de cofre que corresponde ao *Cofre de exemplo*. Se o arquivo de credencial de cofre for inválido (ou tiver expirado), baixe um novo arquivo de credencial de cofre do *Cofre de exemplo* no Portal do Azure. Depois que o arquivo de credencial de cofre for fornecido, o cofre de Serviços de Recuperação associado ao arquivo de credencial de cofre é exibido.
+5. Forneça o arquivo de credencial de cofre que corresponde ao *Cofre de exemplo*. Se o arquivo de credencial do cofre for inválido (ou expirado), baixe um novo arquivo de credencial do cofre do *cofre de exemplo* no portal do Azure. Depois que o arquivo de credencial de cofre for fornecido, o cofre de Serviços de Recuperação associado ao arquivo de credencial de cofre é exibido.
 
 6. No painel Selecionar Servidor de Backup, selecione o *Computador de origem* na lista de computadores exibidos.
 7. No painel Selecionar Modo de Recuperação, escolha **Estado do Sistema** e clique em **Avançar**.
 
-    ![Search](./media/backup-azure-restore-system-state/recover-type-selection.png)
+    ![Pesquisar](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
 8. No Calendário no painel **Selecionar Volume e Data**, selecione um ponto de recuperação. Você pode restaurar de qualquer ponto de recuperação. As datas em **negrito** indicam a disponibilidade de pelo menos um ponto de recuperação. Depois de selecionar uma data, se vários pontos de recuperação estiverem disponíveis, escolha o ponto de recuperação específico no menu suspenso **hora** .
 

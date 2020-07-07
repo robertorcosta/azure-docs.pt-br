@@ -4,12 +4,12 @@ description: Neste tutorial, você aprenderá a implantar um cluster do Service 
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 2d170057a85a8e223fa9d1bc2bfc17e0c284afcd
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: dfcee93ffa5eea0b2aa0b9a93ff53ad7b61ea245
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756045"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611655"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Tutorial: Implantar um cluster do Service Fabric executando o Windows em uma rede virtual do Azure
 
@@ -73,8 +73,8 @@ No recurso **Microsoft.ServiceFabric/clusters**, um cluster do Windows é config
 * Certificado protegido (configurável nos parâmetros de modelo).
 * [Proxy reverso](service-fabric-reverseproxy.md) está habilitado.
 * [Serviço DNS](service-fabric-dnsservice.md) está habilitado.
-* [Nível de durabilidade](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) de Bronze (configurável nos parâmetros de modelo).
-* [Nível de confiabilidade](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) de Prata (configurável nos parâmetros de modelo).
+* [Nível de durabilidade](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) de Bronze (configurável nos parâmetros de modelo).
+* [Nível de confiabilidade](service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster) de Prata (configurável nos parâmetros de modelo).
 * Ponto de extremidade de conexão do cliente: 19000 (configurável nos parâmetros de modelo).
 * ponto de extremidade de gateway HTTP: 19080 (configurável nos parâmetros de modelo).
 
