@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: terrylan
 ms.openlocfilehash: 3925e39824d1702ff43a6b981ac997ddab658b96
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80548665"
 ---
 # <a name="security-recommendations-for-azure-marketplace-images"></a>Recomendações de segurança para as imagens do Azure Marketplace
@@ -41,9 +41,9 @@ Sempre execute uma detecção de vulnerabilidade de segurança em sua imagem ant
 | Segurança                                                     | Inclua as versões mais recentes das bibliotecas necessárias: </br> - OpenSSL v1.0 ou superior </br> - Python 2.5 ou superior (Python 2.6+ é altamente recomendável) </br> - Pacote pyasn1 do Python, se já não estiver instalado </br> - d.OpenSSL v 1.0 ou superior                                                                |
 | Segurança                                                     | Limpar entradas de histórico de bash/shell.                                                                                                                                                                                                                                             |
 | Rede                                                   | Inclua o servidor SSH por padrão. Defina SSH Keep Alive para sshd config com a seguinte opção: ClientAliveInterval 180.                                                                                                                                                        |
-| Rede                                                   | Remova qualquer configuração de rede personalizada da imagem. Exclua o botão de resolução. `rm /etc/resolv.conf`conf:.                                                                                                                                                                                |
+| Rede                                                   | Remova qualquer configuração de rede personalizada da imagem. Exclua o botão de resolução. conf: `rm /etc/resolv.conf` .                                                                                                                                                                                |
 | Implantação                                                   | Instale o agente Linux do Azure mais recente.</br> -Instale usando o pacote RPM ou Deb.  </br> - Você também pode usar o processo de instalação manual, mas os pacotes do instalador são recomendados e preferenciais. </br> - Se estiver instalando o agente manualmente por meio do repositório GitHub, primeiro copie o arquivo `waagent` para `/usr/sbin` e execute (como raiz): </br>`# chmod 755 /usr/sbin/waagent` </br>`# /usr/sbin/waagent -install` </br>O arquivo de configuração do agente é colocado em `/etc/waagent.conf`. |
-| Implantação                                                   | Verifique se o suporte do Azure pode fornecer aos nossos parceiros a saída do console serial quando necessário e fornecer tempo limite adequado para a montagem de disco do sistema operacional do armazenamento em nuvem. Adicione os seguintes parâmetros à linha de inicialização do kernel de `console=ttyS0 earlyprintk=ttyS0 rootdelay=300`imagem:. |
+| Implantação                                                   | Verifique se o suporte do Azure pode fornecer aos nossos parceiros a saída do console serial quando necessário e fornecer tempo limite adequado para a montagem de disco do sistema operacional do armazenamento em nuvem. Adicione os seguintes parâmetros à linha de inicialização do kernel de imagem: `console=ttyS0 earlyprintk=ttyS0 rootdelay=300` . |
 | Implantação                                                   | Não troque a partição no disco do sistema operacional. A troca pode ser solicitada para a criação no disco de recurso local pelo Agente do Linux.         |
 | Implantação                                                   | Crie uma única partição raiz para o disco do sistema operacional.      |
 | Implantação                                                   | Somente sistema operacional de 64 bits.                                                                                                                                                                                                                                                          |

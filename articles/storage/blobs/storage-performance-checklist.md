@@ -9,10 +9,10 @@ ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: b94725d4d3eb9fd6f13a39d00486b4ab085b9ef9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80473937"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Lista de verificação de desempenho e escalabilidade do Armazenamento de Blobs
@@ -236,13 +236,13 @@ O armazenamento do Azure fornece uma série de soluções para copiar e mover BL
 
 ### <a name="blob-copy-apis"></a>APIs de cópia de BLOB
 
-Para copiar BLOBs entre contas de armazenamento, use a operação [colocar bloco de URL](/rest/api/storageservices/put-block-from-url) . Esta operação copia dados de forma síncrona de qualquer origem de URL para um blob de blocos. O uso `Put Block from URL` da operação pode reduzir significativamente a largura de banda necessária quando você está migrando dados entre contas de armazenamento. Como a operação de cópia ocorre no lado do serviço, você não precisa baixar e carregar os dados novamente.
+Para copiar BLOBs entre contas de armazenamento, use a operação [colocar bloco de URL](/rest/api/storageservices/put-block-from-url) . Esta operação copia dados de forma síncrona de qualquer origem de URL para um blob de blocos. O uso da `Put Block from URL` operação pode reduzir significativamente a largura de banda necessária quando você está migrando dados entre contas de armazenamento. Como a operação de cópia ocorre no lado do serviço, você não precisa baixar e carregar os dados novamente.
 
 Para copiar dados dentro da mesma conta de armazenamento, use a operação de [cópia de blob](/rest/api/storageservices/Copy-Blob) . A cópia de dados dentro da mesma conta de armazenamento normalmente é concluída rapidamente.  
 
 ### <a name="use-azcopy"></a>Usar o AzCopy
 
-O utilitário de linha de comando AzCopy é uma opção simples e eficiente para a transferência em massa de BLOBs para, de e entre contas de armazenamento. O AzCopy é otimizado para esse cenário e pode alcançar altas taxas de transferência. A versão 10 do AzCopy `Put Block From URL` usa a operação para copiar dados de blob entre contas de armazenamento. Para obter mais informações, consulte [copiar ou mover dados para o armazenamento do Azure usando o AzCopy V10](/azure/storage/common/storage-use-azcopy-v10).  
+O utilitário de linha de comando AzCopy é uma opção simples e eficiente para a transferência em massa de BLOBs para, de e entre contas de armazenamento. O AzCopy é otimizado para esse cenário e pode alcançar altas taxas de transferência. A versão 10 do AzCopy usa a `Put Block From URL` operação para copiar dados de blob entre contas de armazenamento. Para obter mais informações, consulte [copiar ou mover dados para o armazenamento do Azure usando o AzCopy V10](/azure/storage/common/storage-use-azcopy-v10).  
 
 ### <a name="use-azure-data-box"></a>Usar Azure Data Box
 
@@ -285,6 +285,6 @@ Os blobs de páginas são apropriados se o aplicativo precisar executar gravaç�
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Escalabilidade e metas de desempenho para o armazenamento de BLOBs](scalability-targets.md)
+- [Metas de escalabilidade e desempenho do Armazenamento de Blobs](scalability-targets.md)
 - [Metas de escalabilidade e desempenho das contas de Armazenamento Standard](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 - [Status e códigos de erro](/rest/api/storageservices/Status-and-Error-Codes2)

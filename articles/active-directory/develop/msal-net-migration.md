@@ -14,10 +14,10 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: f389943d284c573312473f426048f8aadb79088e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81533965"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migrar aplicativos para MSAL.NET
@@ -59,7 +59,7 @@ Na MSAL.NET, também é possível acessar recursos da versão 1.0. Consulte os d
 
 - A ADAL.NET usa [AuthenticationContext](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext:-the-connection-to-Azure-AD) como representação de sua conexão com o STS (Serviço de Token de Segurança) ou servidor de autorização, por meio de uma autoridade. Já a MSAL.NET é desenvolvida com base em [aplicativos cliente](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications). Ela fornece duas classes separadas: `PublicClientApplication` e `ConfidentialClientApplication`
 
-- Aquisição de tokens: ADAL.NET e MSAL.NET têm as mesmas chamadas de`AcquireTokenAsync` autenticação `AcquireTokenSilentAsync` (e para ADAL.NET `AcquireTokenInteractive` e `AcquireTokenSilent` e em MSAL.net), mas com parâmetros diferentes necessários. Uma diferença é o fato de que, na MSAL.NET, não é mais necessário passar por `ClientID` do aplicativo em todas as chamadas AcquireTokenXX. Na verdade, `ClientID` é definido apenas uma vez ao criar (`IPublicClientApplication` ou `IConfidentialClientApplication`).
+- Aquisição de tokens: ADAL.NET e MSAL.NET têm as mesmas chamadas de autenticação ( `AcquireTokenAsync` e `AcquireTokenSilentAsync` para Adal.net e `AcquireTokenInteractive` e `AcquireTokenSilent` em MSAL.net), mas com parâmetros diferentes necessários. Uma diferença é o fato de que, na MSAL.NET, não é mais necessário passar por `ClientID` do aplicativo em todas as chamadas AcquireTokenXX. Na verdade, `ClientID` é definido apenas uma vez ao criar (`IPublicClientApplication` ou `IConfidentialClientApplication`).
 
 ### <a name="iaccount-not-iuser"></a>IAccount não IUser
 
@@ -102,7 +102,7 @@ catch(MsalUiRequiredException exception)
 Na ADAL.NET, as exceções de desafio de declaração são tratadas da seguinte forma:
 
 - `AdalClaimChallengeException` é uma exceção (derivada de `AdalServiceException`) lançada pelo serviço no caso de um recurso exigir mais declarações do usuário (por exemplo, autenticação de dois fatores). O membro `Claims` contém algum fragmento JSON com as declarações, que são esperadas.
-- Ainda na ADAL.NET, o aplicativo cliente público que recebe essa exceção precisa chamar a substituição `AcquireTokenInteractive` com um parâmetro de declaração. Essa substituição de `AcquireTokenInteractive` não tenta atingir o cache, pois isso não é necessário. O motivo é que o token no cache não tem as declarações corretas (caso contrário, um `AdalClaimChallengeException` não teria sido lançado). Portanto, não há necessidade de examinar o cache. Observe que o `ClaimChallengeException` pode ser recebido em um WEBAPI fazendo OBO, enquanto o `AcquireTokenInteractive` precisa ser chamado em um aplicativo cliente público que chama essa API da Web.
+- Ainda na ADAL.NET, o aplicativo cliente público que recebe essa exceção precisa chamar a substituição `AcquireTokenInteractive` com um parâmetro de declaração. Essa substituição de `AcquireTokenInteractive` não tenta atingir o cache, pois isso não é necessário. O motivo é que o token no cache não tem as declarações corretas (caso contrário, um `AdalClaimChallengeException` não teria sido lançado). Portanto, não há necessidade de examinar o cache. Observe que o `ClaimChallengeException` pode ser recebido em um WebAPI fazendo OBO, enquanto o `AcquireTokenInteractive` precisa ser chamado em um aplicativo cliente público que chama essa API da Web.
 - Para obter detalhes, incluindo exemplos, consulte Tratar [AdalClaimChallengeException](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Exceptions-in-ADAL.NET#handling-adalclaimchallengeexception)
 
 Na MSAL.NET, as exceções de desafio de declaração são tratadas da seguinte forma:
@@ -120,7 +120,7 @@ Veja as seguintes concessões com suporte na ADAL.NET e MSAL.NET para aplicativo
 
 Conceder | ADAL.NET | MSAL.NET
 ----- |----- | -----
-Interactive (Interativo) | [Autenticação Interativa](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-interactively---Public-client-application-flows) | [Adquirir tokens interativamente na MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively)
+Interativo | [Autenticação Interativa](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-interactively---Public-client-application-flows) | [Adquirir tokens interativamente na MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively)
 Autenticação Integrada do Windows | [Autenticação integrada no Windows (Kerberos)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-Integrated-authentication-on-Windows-(Kerberos)) | [Autenticação Integrada do Windows](msal-authentication-flows.md#integrated-windows-authentication)
 Nome de usuário + senha | [Adquirir tokens com nome de usuário e senha](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-with-username-and-password)| [Autenticação de Senha do Nome de Usuário](msal-authentication-flows.md#usernamepassword)
 Fluxo de código do dispositivo | [Perfil de dispositivo para dispositivos sem navegadores web](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Device-profile-for-devices-without-web-browsers) | [Fluxo de código do dispositivo](msal-authentication-flows.md#device-code)
@@ -165,15 +165,15 @@ As permissões do OAuth2 são escopos de permissão que um aplicativo de API Web
 
 ### <a name="scopes-to-request-access-to-specific-oauth2-permissions-of-a-v10-application"></a>Escopos para solicitar acesso a permissões específicas do OAuth2 de um aplicativo v1.0
 
-Se você quiser adquirir tokens para um aplicativo que aceita tokens v 1.0 (por exemplo, a API de https://graph.microsoft.com)Microsoft Graph, ou seja, você `scopes` precisará criar concatenando um identificador de recurso desejado com uma permissão OAuth2 desejada para esse recurso.
+Se você quiser adquirir tokens para um aplicativo que aceita tokens v 1.0 (por exemplo, a API de Microsoft Graph, ou seja https://graph.microsoft.com) , você precisará criar `scopes` concatenando um identificador de recurso desejado com uma permissão OAuth2 desejada para esse recurso.
 
-Por exemplo, para acessar no nome do usuário uma API Web v 1.0 que é `ResourceId`o URI da ID do aplicativo, você desejaria usar:
+Por exemplo, para acessar no nome do usuário uma API Web v 1.0 que é o URI da ID do aplicativo `ResourceId` , você desejaria usar:
 
 ```csharp
 var scopes = new [] {  ResourceId+"/user_impersonation"};
 ```
 
-Se você quiser ler e gravar com MSAL.NET Azure Active Directory usando a API Microsoft Graph (https://graph.microsoft.com/), você criaria uma lista de escopos como no seguinte trecho de código:
+Se você quiser ler e gravar com MSAL.NET Azure Active Directory usando a API Microsoft Graph ( https://graph.microsoft.com/) , você criaria uma lista de escopos como no seguinte trecho de código:
 
 ```csharp
 ResourceId = "https://graph.microsoft.com/";
@@ -221,7 +221,7 @@ Algumas dessas soluções foram usadas em cenários como:
 
 O MSAL.NET não expõe tokens de atualização, por motivos de segurança: MSAL lida com a atualização de tokens para você.
 
-Felizmente, o MSAL.NET agora tem uma API que permite migrar seus tokens de atualização anteriores (adquiridos com a `IConfidentialClientApplication`Adal) para:
+Felizmente, o MSAL.NET agora tem uma API que permite migrar seus tokens de atualização anteriores (adquiridos com a ADAL) para `IConfidentialClientApplication` :
 
 ```csharp
 /// <summary>

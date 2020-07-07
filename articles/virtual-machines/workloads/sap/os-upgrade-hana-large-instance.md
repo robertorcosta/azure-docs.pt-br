@@ -14,10 +14,10 @@ ms.date: 07/04/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8485f3474da18e052bc0eab6c053be084ef884a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82192409"
 ---
 # <a name="operating-system-upgrade"></a>Atualização do Sistema Operacional
@@ -94,9 +94,9 @@ O SAP no Azure HANA em instâncias grandes (tipo I) pode estar em um estado não
 #### <a name="execution-steps"></a>Etapas de execução
 
 
-*   Execute `multipath -ll` o comando.
+*   Execute o `multipath -ll` comando.
 *   Obtenha a ID do LUN cujo tamanho é aproximadamente 50G ou use o comando:`fdisk -l | grep mapper`
-*   Atualize `/etc/default/grub_installdevice` o arquivo com `/dev/mapper/<LUN ID>`a linha. Exemplo:/dev/mapper/3600a09803830372f483f495242534a56
+*   Atualize o `/etc/default/grub_installdevice` arquivo com a linha `/dev/mapper/<LUN ID>` . Exemplo:/dev/mapper/3600a09803830372f483f495242534a56
 >[!NOTE]
 >A ID do LUN varia de servidor para servidor.
 
@@ -119,7 +119,7 @@ Uma reinicialização é necessária para fazer alterações no local. Execute `
 
 
 ### <a name="kernel-parameters"></a>Parâmetros de kernel
-   Certifique-se de que a `transparent_hugepage`configuração `numa_balancing`correta `processor.max_cstate`para `ignore_ce` , `intel_idle.max_cstate` , e seja aplicada.
+   Certifique-se de que a configuração correta para `transparent_hugepage` , `numa_balancing` , `processor.max_cstate` `ignore_ce` e `intel_idle.max_cstate` seja aplicada.
 
 * intel_idle. max_cstate = 1
 * Processor. max_cstate = 1

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: cce99b7d9de09134fd01afb36c41bce3966e8536
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80518180"
 ---
 # <a name="iot-plug-and-play-preview-limits-quotas-and-throttles"></a>Limites, cotas e limitações da visualização do IoT Plug and Play
@@ -22,14 +22,14 @@ Este artigo explica os limites, as cotas e a limitação específicos do Plug an
 
 Para a visualização pública, os limites e as cotas a seguir se aplicam a um hub IoT:
 
-| Limites, restrições e limitação | Valor | Anotações |
+| Limites, restrições e limitação | Valor | Observações |
 |-----|-----|-----|
 | Número de modelos de capacidade de dispositivo (DCMs) ou interfaces que podem ser registrados por Hub | 1500 ||
 | Número máximo de interfaces que podem ser registradas por dispositivo | 40 ||
 | Número máximo de DCMs que podem ser registrados por dispositivo | 1 ||
 | Tamanho máximo do arquivo de interface/DCM | 512 KB ||
 | Tamanho máximo de um nome de interface | caracteres de 256 ||
-| Tamanho máximo de um nome de propriedade  | 64 bytes, 7 níveis em profundidade (e o primeiro nível é reservado para `$iotin`) | Caracteres permitidos: a-z, A-Z, 0-9 (não como o primeiro caractere) e sublinhado. |
+| Tamanho máximo de um nome de propriedade  | 64 bytes, 7 níveis em profundidade (e o primeiro nível é reservado para `$iotin` ) | Caracteres permitidos: a-z, A-Z, 0-9 (não como o primeiro caractere) e sublinhado. |
 | Tamanho máximo de um valor de propriedade | 512 bytes ||
 | Tamanho máximo de um nome de comando | 100 bytes ||
 | Tamanho do dispositivo gêmeo | Mesmo que [os limites do Hub IOT](../iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) ||

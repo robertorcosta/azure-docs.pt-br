@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 95181d0eb23d5956b2c6af52c77f85714b107345
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73100151"
 ---
 # <a name="common-issues"></a>Problemas comuns
@@ -42,7 +42,7 @@ sudo docker logs eventgridmodule
 
 * Se suas comunicações módulo-para-módulo, certifique-se de que você está fazendo a chamada na porta **4438** e o nome do módulo corresponde ao que está implantado. 
 
-  Por exemplo, se o módulo de grade de eventos foi implantado com o nome **eventgridmodule** , a URL deve ser **https://eventgridmodule:4438**. Verifique se o número da porta e a embalagem estão corretos.
+  Por exemplo, se o módulo de grade de eventos foi implantado com o nome **eventgridmodule** , a URL deve ser **https://eventgridmodule:4438** . Verifique se o número da porta e a embalagem estão corretos.
     
 * Se ele for de um módulo não IoT, verifique se a porta da grade de eventos está mapeada na máquina host durante a implantação, por exemplo,
 
@@ -64,7 +64,7 @@ sudo docker logs eventgridmodule
 
 * Se suas comunicações módulo-para-módulo, certifique-se de que você está fazendo a chamada na porta **5888** e o nome do módulo corresponde ao que está implantado. 
 
-  Por exemplo, se o módulo de grade de eventos foi implantado com o nome **eventgridmodule** , a URL deve ser **http://eventgridmodule:5888**. Verifique se o número da porta e a embalagem estão corretos.
+  Por exemplo, se o módulo de grade de eventos foi implantado com o nome **eventgridmodule** , a URL deve ser **http://eventgridmodule:5888** . Verifique se o número da porta e a embalagem estão corretos.
     
 * Se ele for de um módulo não IoT, verifique se a porta da grade de eventos está mapeada na máquina host durante a implantação, por exemplo,
 
@@ -84,7 +84,7 @@ sudo docker logs eventgridmodule
 
 Por padrão, o módulo de grade de eventos está configurado para autenticar clientes com certificado emitido pelo daemon de segurança IoT Edge. Verifique se o cliente está apresentando um certificado com raiz para esta cadeia.
 
-**IoTSecurity** A classe IoTSecurity [https://github.com/Azure/event-grid-iot-edge](https://github.com/Azure/event-grid-iot-edge) no mostra como recuperar certificados do daemon de segurança IOT Edge e usá-los para configurar chamadas de saída.
+A classe **IoTSecurity** no [https://github.com/Azure/event-grid-iot-edge](https://github.com/Azure/event-grid-iot-edge) mostra como recuperar certificados do daemon de segurança IOT Edge e usá-los para configurar chamadas de saída.
 
 Se não for um ambiente de produção, você terá a opção de desativar a autenticação do cliente. Consulte [segurança e autenticação](security-authentication.md) para obter detalhes sobre como fazer isso.
 
@@ -108,4 +108,4 @@ Os motivos típicos para isso são:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Relate quaisquer problemas, sugestões com o uso da grade de [https://github.com/Azure/event-grid-iot-edge/issues](https://github.com/Azure/event-grid-iot-edge/issues)eventos em IOT Edge em.
+Relate quaisquer problemas, sugestões com o uso da grade de eventos em IoT Edge em [https://github.com/Azure/event-grid-iot-edge/issues](https://github.com/Azure/event-grid-iot-edge/issues) .

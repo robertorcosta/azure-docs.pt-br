@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
 ms.openlocfilehash: 72cfdf172e4524e302ef2e22826d4f78ce32daf0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80582724"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Pontos de extremidade de streaming (origem) nos serviços de mídia do Azure
@@ -34,14 +34,14 @@ Certifique-se também de examinar o tópico de [empacotamento dinâmico](dynamic
 
 ## <a name="naming-convention"></a>Convenção de nomenclatura
 
-O formato de nome de host da URL de streaming `{servicename}-{accountname}-{regionname}.streaming.media.azure.net`é: `servicename` , onde = o nome do ponto de extremidade de streaming ou o nome do evento ao vivo.
+O formato de nome de host da URL de streaming é: `{servicename}-{accountname}-{regionname}.streaming.media.azure.net` , onde `servicename` = o nome do ponto de extremidade de streaming ou o nome do evento ao vivo.
 
-Ao usar o ponto de extremidade de `servicename` streaming padrão, é omitido para `{accountname}-{regionname}.streaming.azure.net`que a URL seja:.
+Ao usar o ponto de extremidade de streaming padrão, `servicename` é omitido para que a URL seja: `{accountname}-{regionname}.streaming.azure.net` .
 
 ### <a name="limitations"></a>Limitações
 
 * O nome do ponto de extremidade de streaming tem um valor máximo de 24 caracteres.
-* O nome deve seguir este [regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) padrão de Regex `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`:.
+* O nome deve seguir este padrão de [Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) : `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$` .
 
 ## <a name="types"></a>Tipos
 
@@ -51,7 +51,7 @@ A tabela descreve os tipos:
 
 |Type|Unidades de escala|Descrição|
 |--------|--------|--------|  
-|**Standard**|0|O ponto de extremidade de streaming padrão é um tipo **padrão** — ele pode ser alterado para o tipo `scaleUnits`Premium ajustando.|
+|**Standard**|0|O ponto de extremidade de streaming padrão é um tipo **padrão** — ele pode ser alterado para o tipo Premium ajustando `scaleUnits` .|
 |**Premium**|>0|**Premium** Os pontos de extremidade de streaming são adequados para cargas de trabalho avançadas e para fornecer capacidade de largura de banda dedicada e escalonável. Você passa para um tipo **Premium** ajustando `scaleUnits` (unidades de streaming). `scaleUnits` fornece capacidade de saída dedicada que pode ser comprada em incrementos de 200 Mbps. Ao usar o tipo **Premium** , cada unidade habilitada fornece capacidade de largura de banda adicional para o aplicativo. |
 
 > [!NOTE]
@@ -65,7 +65,7 @@ Recurso|Standard|Premium
 ---|---|---
 Produtividade |Até 600 Mbps e pode fornecer uma taxa de transferência muito mais eficiente quando uma CDN é usada.|200 Mbps por UA (unidade de streaming). Pode fornecer uma taxa de transferência muito mais eficiente quando uma CDN é usada.
 CDN|CDN do Azure, CDN de terceiros ou nenhuma CDN.|CDN do Azure, CDN de terceiros ou nenhuma CDN.
-A cobrança é rateada| Diário|Diário
+A cobrança é rateada| Diariamente|Diariamente
 Criptografia dinâmica|Sim|Sim
 Empacotamento dinâmico|Sim|Sim
 Escala|Escala verticalmente automaticamente com a taxa de transferência de destino.|SUs adicional
@@ -91,11 +91,11 @@ Esta seção fornece detalhes sobre algumas das propriedades do ponto de extremi
     Se você receber esse erro, o data center não oferece suporte a ele. Tente outra data center.
 
 - `cdnProfile`: Quando `cdnEnabled` é definido como true, você também pode passar `cdnProfile` valores. `cdnProfile` é o nome do perfil CDN no qual o ponto de extremidade CDN será criado. Você pode fornecer um cdnProfile existente ou usar um novo. Se o valor for NULL e `cdnEnabled` for verdadeiro, o valor padrão "AzureMediaStreamingPlatformCdnProfile" será usado. Se o perfil `cdnProfile` fornecido já existir, um ponto de extremidade será criado sob ele. Se o perfil não existir, um novo perfil será criado automaticamente.
-- `cdnProvider`: Quando a CDN está habilitada, você também `cdnProvider` pode passar valores. `cdnProvider` controla qual provedor será usado. Atualmente, há suporte para três valores: "StandardVerizon", "PremiumVerizon" e "StandardAkamai". Se nenhum valor for fornecido e `cdnEnabled` for true, "StandardVerizon" será usado (esse é o valor padrão).
+- `cdnProvider`: Quando a CDN está habilitada, você também pode passar `cdnProvider` valores. `cdnProvider` controla qual provedor será usado. Atualmente, há suporte para três valores: "StandardVerizon", "PremiumVerizon" e "StandardAkamai". Se nenhum valor for fornecido e `cdnEnabled` for true, "StandardVerizon" será usado (esse é o valor padrão).
 - `crossSiteAccessPolicies`: Usado para especificar políticas de acesso entre sites para vários clientes. Para obter mais informações, consulte [Especificação de arquivo de política entre domínios](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) e [Disponibilizando um serviço entre limites de domínios](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx). As configurações se aplicam somente a Smooth Streaming.
-- `customHostNames`: Usado para configurar um ponto de extremidade de streaming para aceitar o tráfego direcionado para um nome de host personalizado. Essa propriedade é válida para pontos de extremidade de streaming Standard e Premium e pode ser definida `cdnEnabled`quando: false.
+- `customHostNames`: Usado para configurar um ponto de extremidade de streaming para aceitar o tráfego direcionado para um nome de host personalizado. Essa propriedade é válida para pontos de extremidade de streaming Standard e Premium e pode ser definida quando `cdnEnabled` : false.
 
-    A propriedade do nome de domínio deve ser confirmada pelos serviços de mídia. Os serviços de mídia verificam a propriedade do nome de domínio `CName` exigindo um registro que contém a ID da conta dos serviços de mídia como um componente a ser adicionado ao domínio em uso. Por exemplo, para "sports.contoso.com" ser usado como um nome do host personalizado para o ponto de extremidade de streaming, um registro para `<accountId>.contoso.com` deve ser configurado para apontar para um dos nomes do host de verificação dos Serviços de Mídia. O nome do host de verificação é composto por verifydns.\<mediaservices-dns-zone>.
+    A propriedade do nome de domínio deve ser confirmada pelos serviços de mídia. Os serviços de mídia verificam a propriedade do nome de domínio exigindo um `CName` registro que contém a ID da conta dos serviços de mídia como um componente a ser adicionado ao domínio em uso. Por exemplo, para "sports.contoso.com" ser usado como um nome do host personalizado para o ponto de extremidade de streaming, um registro para `<accountId>.contoso.com` deve ser configurado para apontar para um dos nomes do host de verificação dos Serviços de Mídia. O nome do host de verificação é composto de verifydns. \<mediaservices-dns-zone> .
 
     A seguir estão as zonas DNS esperadas a serem usadas no registro de verificação para diferentes regiões do Azure.
   
@@ -113,12 +113,12 @@ Esta seção fornece detalhes sobre algumas das propriedades do ponto de extremi
 
     Se houver uma tentativa de definir um nome de host personalizado sem uma verificação adequada do `CName` registro, a resposta DNS falhará e será armazenada em cache por algum tempo. Depois que um registro adequado estiver em vigor, poderá demorar um pouco até que a resposta armazenada em cache seja revalidada. Dependendo do provedor DNS para o domínio personalizado, levará de alguns minutos a uma hora para revalidar o registro.
 
-    Além do que mapeia `CName` `<accountId>.<parent domain>` para `verifydns.<mediaservices-dns-zone>`o, você deve criar outro `CName` que mapeie o nome de host personalizado (por exemplo, `sports.contoso.com`) para o nome de host do ponto de extremidade de streaming dos serviços `amstest-usea.streaming.media.azure.net`de mídia (por exemplo,).
+    Além do `CName` que mapeia para o `<accountId>.<parent domain>` `verifydns.<mediaservices-dns-zone>` , você deve criar outro `CName` que mapeie o nome de host personalizado (por exemplo, `sports.contoso.com` ) para o nome de host do ponto de extremidade de streaming dos serviços de mídia (por exemplo, `amstest-usea.streaming.media.azure.net` ).
 
     > [!NOTE]
     > Os pontos de extremidade de streaming localizados no mesmo data center não podem compartilhar o mesmo nome de host personalizado.
 
-    Atualmente, os serviços de mídia não dão suporte a TLS com domínios personalizados.
+    Atualmente, os Serviços de Mídia não são compatíveis com o TLS com domínios personalizados.
 
 - `maxCacheAge`-Substitui o cabeçalho de controle de cache HTTP Max-age padrão definido pelo ponto de extremidade de streaming em fragmentos de mídia e manifestos sob demanda. O valor é definido em segundos.
 - `resourceState` -

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
 ms.openlocfilehash: f19d4adad675cdf95f59aca0f752f46211b75e8f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80436934"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>Migrar clusters de Apache Hadoop locais para o Azure HDInsight
@@ -41,7 +41,7 @@ Um dos formatos a seguir pode ser usado para acessar dados armazenados no Armaze
 
 [Metas de escalabilidade para contas de armazenamento Standard](../../storage/common/scalability-targets-standard-account.md) lista os limites atuais nas contas de armazenamento do Azure. Se as necessidades do aplicativo excederem as metas de escalabilidade de uma única conta de armazenamento, o aplicativo poderá ser criado para usar múltiplas contas de armazenamento e fazer o particionamento dos objetos de dados nessas contas de armazenamento.
 
-[Análise de armazenamento do Azure](../../storage/storage-analytics.md) fornece métricas para todos os serviços de armazenamento e portal do Azure podem ser configuradas para coletar métricas a serem visualizadas por meio de gráficos. Alertas podem ser criados para notificar quando os limites forem atingidos para métricas de recursos de armazenamento.
+[Análise de armazenamento do Azure](../../storage/storage-analytics.md)   fornece métricas para todos os serviços de armazenamento e portal do Azure podem ser configuradas para coletar métricas a serem visualizadas por meio de gráficos. Alertas podem ser criados para notificar quando os limites forem atingidos para métricas de recursos de armazenamento.
 
 O armazenamento do Azure oferece [exclusão reversível para objetos de blob](../../storage/blobs/storage-blob-soft-delete.md) para ajudar a recuperar dados quando ele é modificado acidentalmente ou excluído por um aplicativo ou outro usuário da conta de armazenamento.
 
@@ -74,7 +74,7 @@ Para obter mais informações, consulte os seguintes artigos:
 
 - [Usar o armazenamento do Azure com clusters do Azure HDInsight](../hdinsight-hadoop-use-blob-storage.md)
 - [Metas de escalabilidade para contas de armazenamento Standard](../../storage/common/scalability-targets-standard-account.md)
-- [Escalabilidade e metas de desempenho para o armazenamento de BLOBs](../../storage/blobs/scalability-targets.md)
+- [Metas de escalabilidade e desempenho do Armazenamento de Blobs](../../storage/blobs/scalability-targets.md)
 - [Lista de verificação de desempenho e escalabilidade do Armazenamento do Microsoft Azure](../../storage/common/storage-performance-checklist.md)
 - [Monitoramento, diagnóstico e solução de problemas de Armazenamento do Microsoft Azure](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md)
 - [Monitorar uma conta de armazenamento no portal do Azure](../../storage/common/storage-monitor-storage-account.md)
@@ -94,11 +94,11 @@ Azure Data Lake Storage Gen2 é a oferta de armazenamento mais recente. Ele unif
 
 O ADLS Gen 2 baseia-se na parte superior do [Armazenamento de Blobs do Azure](../../storage/blobs/storage-blobs-introduction.md) e permite que você faça interface com os dados usando os paradigmas de armazenamento de objeto e sistema de arquivos. Os recursos do [Azure Data Lake Storage Gen1](../../data-lake-store/index.yml), como semântica do sistema de arquivos, segurança e escala em nível de arquivo, são combinados com armazenamento em camadas de baixo custo, alta disponibilidade/recursos de recuperação de desastre e um grande SDK/ecossistema de ferramentas do [Armazenamento de Blobs do Azure](../../storage/blobs/storage-blobs-introduction.md). No Data Lake Storage Gen2, todas as qualidades de armazenamento de objetos permanecem enquanto se adicionam as vantagens de uma interface de sistema de arquivos otimizada para cargas de trabalho de análise.
 
-Um recurso fundamental do data Lake Storage Gen2 é a adição de um [namespace](../../storage/data-lake-storage/namespace.md) hierárquico ao serviço de armazenamento de BLOBs, que organiza objetos/arquivos em uma hierarquia de diretórios para acesso a dados de alto desempenho.A estrutura hierárquica permite que operações como renomear ou excluir um diretório sejam operações únicas de metadados atômicos no diretório, em vez de enumerar e processar todos os objetos que compartilham o prefixo de nome do diretório.
+Um recurso fundamental do Data Lake Storage Gen2 é a adição de um [namespace hierárquico](../../storage/data-lake-storage/namespace.md)   ao serviço de armazenamento de BLOBs, que organiza objetos/arquivos em uma hierarquia de diretórios para acesso a dados de alto desempenho.A estrutura hierárquica permite que operações como renomear ou excluir um diretório sejam operações únicas de metadados atômicos no diretório, em vez de enumerar e processar todos os objetos que compartilham o prefixo de nome do diretório.
 
 No passado, a análise baseada na nuvem tinha que se comprometer em áreas de desempenho, gerenciamento e segurança. Os principais recursos do ADLS (Azure Data Lake Storage) Gen2 são os seguintes:
 
-- **Acesso compatível com Hadoop**: O Azure Data Lake Storage Gen2 permite gerenciar e acessar dados como você faria com um [HDFS (Sistema de Arquivos Distribuído do Hadoop)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). O novo [Driver](../../storage/data-lake-storage/abfs-driver.md) ABFS está disponível em todos os ambientes de Apache Hadoop incluídos no [Azure HDInsight](../index.yml). Esse driver permite que você acesse dados armazenados no Data Lake Storage Gen2.
+- **Acesso compatível com Hadoop**: O Azure Data Lake Storage Gen2 permite gerenciar e acessar dados como você faria com um [HDFS (Sistema de Arquivos Distribuído do Hadoop)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). O novo [Driver ABFS](../../storage/data-lake-storage/abfs-driver.md)   está disponível em todos os ambientes de Apache Hadoop incluídos no [Azure HDInsight](../index.yml). Esse driver permite que você acesse dados armazenados no Data Lake Storage Gen2.
 
 - **Um superconjunto de permissões POSIX**: o modelo de segurança para o Data Lake Gen2 é totalmente compatível com as permissões ACL e POSIX, juntamente com alguma granularidade extra específica para o Data Lake Storage Gen2. As configurações podem ser definidas por meio de ferramentas de administração ou por meio de estruturas, como Hive e Spark.
 
@@ -109,14 +109,14 @@ No passado, a análise baseada na nuvem tinha que se comprometer em áreas de de
 - **Driver otimizado**: o driver ABFS (Sistema de Arquivos de Blob do Azure) é [otimizado especificamente](../../storage/data-lake-storage/abfs-driver.md) para análise de Big Data. As APIs REST correspondentes são exibidas por meio do ponto de extremidade DFS, dfs.core.windows.net.
 
 Um dos formatos a seguir pode ser usado para acessar dados armazenados no ADLS Gen2:
-- `abfs:///`: acessar o Data Lake Storage padrão para o cluster.
-- `abfs://file_system@account_name.dfs.core.windows.net`: utilizado ao se comunicar com uma conta do Data Lake Storage não padrão.
+- `abfs:///`: Acessar o Data Lake Storage padrão para o cluster.
+- `abfs://file_system@account_name.dfs.core.windows.net`: Utilizado ao se comunicar com uma conta do Data Lake Storage não padrão.
 
 Para obter mais informações, consulte os seguintes artigos:
 
 - [Introdução ao Azure Data Lake Storage Gen2](../../storage/data-lake-storage/introduction.md)
 - [O driver do Sistema de Arquivos de Blobs do Azure (ABFS.md)](../../storage/data-lake-storage/abfs-driver.md)
-- [Usar Azure Data Lake Storage Gen2 com clusters do Azure HDInsight](../hdinsight-hadoop-use-data-lake-storage-gen2.md)
+- [Usar Gen2 de armazenamento do Azure Data Lake com clusters de HDInsight do Azure](../hdinsight-hadoop-use-data-lake-storage-gen2.md)
 
 ## <a name="secure-azure-storage-keys-within-on-premises-hadoop-cluster-configuration"></a>Proteja as Chaves de Armazenamento do Microsoft Azure dentro de configuração de cluster de Hadoop local
 

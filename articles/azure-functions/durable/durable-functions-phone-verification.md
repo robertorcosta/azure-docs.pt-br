@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
 ms.openlocfilehash: 4e0f71369bc02fdce5625d9c74e1d52264ed86be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335753"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Interação humana nas Funções Duráveis – exemplo de verificação por telefone
@@ -45,7 +45,7 @@ Este artigo aborda as seguintes funções no aplicativo de exemplo:
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs?range=17-70)]
 
 > [!NOTE]
-> Pode não ser óbvio a princípio, mas essa função de orquestrador é totalmente determinística. Ele é determinístico porque a `CurrentUtcDateTime` propriedade é usada para calcular o tempo de expiração do temporizador e retorna o mesmo valor em cada reprodução neste ponto do código do orquestrador. Esse comportamento é importante para garantir que os mesmos `winner` resultados de cada chamada repetida `Task.WhenAny`para.
+> Pode não ser óbvio a princípio, mas essa função de orquestrador é totalmente determinística. Ele é determinístico porque a `CurrentUtcDateTime` propriedade é usada para calcular o tempo de expiração do temporizador e retorna o mesmo valor em cada reprodução neste ponto do código do orquestrador. Esse comportamento é importante para garantir que os mesmos `winner` resultados de cada chamada repetida para `Task.WhenAny` .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -58,7 +58,7 @@ Este é o código que implementa a função:
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/index.js)]
 
 > [!NOTE]
-> Pode não ser óbvio a princípio, mas essa função de orquestrador é totalmente determinística. Ele é determinístico porque a `currentUtcDateTime` propriedade é usada para calcular o tempo de expiração do temporizador e retorna o mesmo valor em cada reprodução neste ponto do código do orquestrador. Esse comportamento é importante para garantir que os mesmos `winner` resultados de cada chamada repetida `context.df.Task.any`para.
+> Pode não ser óbvio a princípio, mas essa função de orquestrador é totalmente determinística. Ele é determinístico porque a `currentUtcDateTime` propriedade é usada para calcular o tempo de expiração do temporizador e retorna o mesmo valor em cada reprodução neste ponto do código do orquestrador. Esse comportamento é importante para garantir que os mesmos `winner` resultados de cada chamada repetida para `context.df.Task.any` .
 
 ---
 
@@ -120,7 +120,7 @@ Location: http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea
 
 A função de orquestrador recebe o número de telefone fornecido e envia imediatamente uma mensagem SMS para ele com um código de verificação de 4 dígitos gerado aleatoriamente &mdash;, por exemplo, *2168*. Em seguida, a função espera durante 90 segundos por uma resposta.
 
-Para responder com o código, você pode usar [ `RaiseEventAsync` (.net) ou `raiseEvent` (JavaScript)](durable-functions-instance-management.md) dentro de outra função ou invocar o webhook **sendEventUrl** http post referenciado na resposta 202 acima `{eventName}` , substituindo pelo nome do evento `SmsChallengeResponse`:
+Para responder com o código, você pode usar [ `RaiseEventAsync` (.net) ou `raiseEvent` (JavaScript)](durable-functions-instance-management.md) dentro de outra função ou invocar o webhook **sendEventUrl** HTTP post referenciado na resposta 202 acima, substituindo `{eventName}` pelo nome do evento `SmsChallengeResponse` :
 
 ```
 POST http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/SmsChallengeResponse?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}

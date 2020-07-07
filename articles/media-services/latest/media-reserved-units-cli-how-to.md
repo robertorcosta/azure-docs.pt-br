@@ -15,10 +15,10 @@ ms.date: 03/09/2020
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 79f2df0f94b212ea45c01c825b23f1dbb4cc40db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80582282"
 ---
 # <a name="scaling-media-processing"></a>Dimensionamento de processamento de mídia
@@ -71,7 +71,7 @@ Você é cobrado com base em quantos minutos as unidades reservadas de mídia s�
 
 [Analisar vídeos](analyze-videos-tutorial-with-api.md) 
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 * [Cotas e limites](limits-quotas-constraints.md)
 * [CLI do Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)

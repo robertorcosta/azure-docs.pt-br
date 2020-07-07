@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: dfed398124ca20771e169f6f9e7d08d4d799ee1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80478294"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Configurar a recuperação de desastre para um aplicativo Web baseado em IIS de várias camadas
@@ -69,7 +69,7 @@ Azure|NA|Sim
 
 Para iniciar a replicação de todas as máquinas virtuais do web farm do IIS para Azure, siga as orientações em [Failover de teste para Azure no Site Recovery](site-recovery-test-failover-to-azure.md).
 
-Se você estiver usando um endereço IP estático, poderá especificar o endereço IP que você deseja que a máquina virtual use. Para definir o endereço IP, vá > para **configurações de computação e rede****IP de destino**.
+Se você estiver usando um endereço IP estático, poderá especificar o endereço IP que você deseja que a máquina virtual use. Para definir o endereço IP, vá para **configurações de computação e rede**  >  **IP de destino**.
 
 ![Captura de tela que mostra como configurar o IP de destino no painel Computação e Rede do Site Recovery](./media/site-recovery-active-directory/dns-target-ip.png)
 

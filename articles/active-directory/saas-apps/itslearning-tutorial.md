@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 9a4a95452c11993f57674bcbd16cf3ed5ea828e4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: df057ec236b32b1a7e7c0e2b089a6df88433e7ba
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67099543"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85799163"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itslearning"></a>Tutorial: Integração do Azure Active Directory ao itslearning
 
@@ -107,11 +107,10 @@ Para configurar o logon único do Azure AD com o itslearning, execute as seguint
 
     a. Na caixa de texto **URL de Logon**, digite a URL:
     
-    | |
-    |--|
-    | `https://www.itslearning.com/index.aspx`|
-    | `https://us1.itslearning.com/index.aspx`|
-    | |
+    ```http
+    https://www.itslearning.com/index.aspx
+    https://us1.itslearning.com/index.aspx
+    ```
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite a URL: `urn:mace:saml2v2.no:services:com.itslearning`
 

@@ -14,10 +14,10 @@ ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: f3bb4dd1c564e5f6c4a8ee1bb5bf7424a74a339e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81533982"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Usar o MSAL em um ambiente de nuvem nacional
@@ -66,7 +66,7 @@ Os tutoriais a seguir demonstram como criar um aplicativo Web MVC do .NET Core 2
 
 ## <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Para habilitar seu aplicativo MSAL. js para nuvens soberanas:
+Para habilitar seu aplicativo MSAL.js para nuvens soberanas:
 
 ### <a name="step-1-register-your-application"></a>Etapa 1: Registre seu aplicativo
 
@@ -77,7 +77,7 @@ Para habilitar seu aplicativo MSAL. js para nuvens soberanas:
 1. Se sua conta fornecer acesso a mais de um locatário, selecione sua conta no canto superior direito e defina a sessão do portal para o locatário do Azure AD desejado.
 1. Vá para a página de [registros de aplicativo](https://aka.ms/ra/ff) na plataforma de identidade da Microsoft para desenvolvedores.
 1. Quando a página **Registrar um aplicativo** aparecer, insira um nome para o seu aplicativo.
-1. Em **tipos de conta com suporte**, selecione **contas em qualquer diretório organizacional**.
+1. Em **Tipos de conta com suporte**, selecione **Contas em qualquer diretório organizacional**.
 1. Na seção **URI de redirecionamento** , selecione a plataforma **da Web** e defina o valor como a URL do aplicativo com base no servidor Web. Consulte as próximas seções para obter instruções sobre como definir e obter a URL de redirecionamento no Visual Studio e no nó.
 1. Selecione **Registrar**.
 1. Na página **Visão geral** do aplicativo, anote o valor de **ID do aplicativo (cliente)**.
@@ -123,9 +123,9 @@ const myMSALObj = new UserAgentApplication(msalConfig);
 Nesse código:
 
 - `Enter_the_Application_Id_here`é o valor da **ID do aplicativo (cliente)** para o aplicativo que você registrou.
-- `Enter_the_Tenant_Info_Here`é definido como uma das seguintes opções:
+- `Enter_the_Tenant_Info_Here` é definido como uma das seguintes opções:
     - Se seu aplicativo der suporte a **contas nesse diretório organizacional**, substitua esse valor pela ID do locatário ou pelo nome do locatário (por exemplo, contoso.Microsoft.com).
-    - Se seu aplicativo oferecer suporte a **contas em qualquer diretório organizacional**, substitua esse `organizations`valor por.
+    - Se seu aplicativo oferecer suporte a **contas em qualquer diretório organizacional**, substitua esse valor por `organizations` .
 
     Para localizar pontos de extremidade de autenticação para todas as nuvens nacionais, consulte [pontos de extremidade de autenticação do Azure ad](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints).
 
@@ -184,7 +184,7 @@ Aqui está um exemplo de um ponto de extremidade de grafo, com escopo:
 
 ## <a name="objective-c"></a>[Objective-C](#tab/objc)
 
-O MSAL para iOS e macOS pode ser usado para adquirir tokens em nuvens nacionais, mas requer configuração adicional ao `MSALPublicClientApplication`criar.
+O MSAL para iOS e macOS pode ser usado para adquirir tokens em nuvens nacionais, mas requer configuração adicional ao criar `MSALPublicClientApplication` .
 
 Por exemplo, se você quiser que seu aplicativo seja um aplicativo multilocatário em uma nuvem nacional (aqui, o governo dos EUA), você poderia escrever:
 
@@ -207,7 +207,7 @@ MSALPublicClientApplication *application =
 
 ## <a name="swift"></a>[Swift](#tab/swift)
 
-O MSAL para iOS e macOS pode ser usado para adquirir tokens em nuvens nacionais, mas requer configuração adicional ao `MSALPublicClientApplication`criar.
+O MSAL para iOS e macOS pode ser usado para adquirir tokens em nuvens nacionais, mas requer configuração adicional ao criar `MSALPublicClientApplication` .
 
 Por exemplo, se você quiser que seu aplicativo seja um aplicativo multilocatário em uma nuvem nacional (aqui, o governo dos EUA), você poderia escrever:
 

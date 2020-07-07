@@ -8,10 +8,10 @@ ms.date: 04/05/2019
 ms.author: rogarana
 ms.subservice: tables
 ms.openlocfilehash: 746044aa835df52e61c234c8b5ca61164fffbbc5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80545960"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Executar operações de armazenamento de Tabelas do Azure com o Azure PowerShell 
@@ -31,7 +31,7 @@ Este artigo de instruções abrange operações comuns do armazenamento de Tabel
 
 Este artigo de instruções mostra como criar uma nova conta de armazenamento do Azure em um novo grupo de recursos, de modo que você possa removê-la facilmente quando terminar. Se preferir usar uma conta de armazenamento existente, faça isso.
 
-Os exemplos exigem os módulos `Az.Storage (1.1.0 or greater)` AZ PowerShell `Az.Resources (1.2.0 or greater)`e. Em uma janela do PowerShell, execute `Get-Module -ListAvailable Az*` para localizar a versão. Se nada for exibido ou você precisar fazer atualização, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps).
+Os exemplos exigem os módulos AZ PowerShell `Az.Storage (1.1.0 or greater)` e `Az.Resources (1.2.0 or greater)` . Em uma janela do PowerShell, execute `Get-Module -ListAvailable Az*` para localizar a versão. Se nada for exibido ou você precisar fazer atualização, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps).
 
 > [!IMPORTANT]
 > Usar esse recurso do Azure do PowerShell exige que você tenha o módulo `Az` instalado. A versão atual do `AzTable` não é compatível com o módulo AzureRM mais antigo.
@@ -40,7 +40,7 @@ Os exemplos exigem os módulos `Az.Storage (1.1.0 or greater)` AZ PowerShell `Az
 Após a instalação ou atualização do Azure PowerShell, você deve instalar o módulo **AzTable**, que tem os comandos para gerenciar as entidades. Para instalar esse módulo, execute o PowerShell como administrador e use o comando **Install-Module**.
 
 > [!IMPORTANT]
-> Para fins de compatibilidade de nome de módulo, ainda estamos publicando esse mesmo módulo `AzureRmStorageTables` com o nome antigo em Galeria do PowerShell. Este documento fará referência apenas ao novo nome.
+> Para fins de compatibilidade de nome de módulo, ainda estamos publicando esse mesmo módulo com o nome antigo `AzureRmStorageTables` em Galeria do PowerShell. Este documento fará referência apenas ao novo nome.
 
 ```powershell
 Install-Module AzTable
