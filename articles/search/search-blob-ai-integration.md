@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 591437eb3951164d53388b6164103948e9ad65e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73496441"
 ---
 # <a name="use-ai-to-understand-blob-storage-data"></a>Usar o ia para entender os dados do armazenamento de BLOBs
@@ -34,7 +34,7 @@ Neste artigo, veremos a sofisticação de AI por meio de uma ampla lente para qu
 
 O *enriquecimento de ia* faz parte da arquitetura de indexação do Azure pesquisa cognitiva que integra o ia interno da Microsoft ou do ia personalizado que você fornece. Ele ajuda a implementar cenários de ponta a ponta em que você precisa processar BLOBs (tanto os existentes como os novos quando eles chegam ou são atualizados), desaparecendo abrir todos os formatos de arquivo para extrair imagens e texto, extrair as informações desejadas usando vários recursos de ia e indexá-los em um índice de pesquisa para pesquisa rápida, recuperação e exploração. 
 
-As entradas são seus BLOBs, em um único contêiner, no armazenamento de BLOBs do Azure. Os BLOBs podem ser praticamente qualquer tipo de dados de texto ou imagem. 
+As entradas são seus blobs, em um único contêiner, no armazenamento de blobs do Azure. Os BLOBs podem ser praticamente qualquer tipo de dados de texto ou imagem. 
 
 A saída é sempre um índice de pesquisa, usado para pesquisa rápida de texto, recuperação e exploração em aplicativos cliente. Além disso, a saída também pode ser uma *loja de conhecimento* que projeta documentos em BLOBs do Azure ou tabelas do Azure para análise downstream em ferramentas como Power bi ou em cargas de trabalho de ciência de dados.
 
@@ -42,25 +42,25 @@ No, between é a própria arquitetura de pipeline. O pipeline é baseado no recu
 
 ## <a name="start-with-services"></a>Iniciar com serviços
 
-Você precisa do Azure Pesquisa Cognitiva e do armazenamento de BLOBs do Azure. No armazenamento de BLOBs, você precisa de um contêiner que forneça o conteúdo de origem.
+Você precisa do Azure Cognitive Search e do armazenamento de Blobs do Azure. No armazenamento de Blobs, você precisa de um contêiner que forneça o conteúdo de origem.
 
-Você pode iniciar diretamente em sua página do portal da conta de armazenamento. Na página de navegação à esquerda, em **serviço blob** , clique em **Adicionar Azure pesquisa cognitiva** para criar um novo serviço ou selecione um existente. 
+Você pode iniciar diretamente em sua página do portal da conta de armazenamento. Na página de navegação à esquerda, em **Serviço Blob** clique em **Adicionar Azure Cognitive Search** para criar um novo serviço ou selecione um existente. 
 
 Depois de adicionar o Azure Pesquisa Cognitiva à sua conta de armazenamento, você pode seguir o processo padrão para enriquecer dados em qualquer fonte de dados do Azure. Recomendamos o assistente de **importação de dados** no Azure pesquisa cognitiva para uma introdução inicial fácil ao enriquecimento de ia. Este guia de início rápido orienta você pelas etapas: [criar um pipeline de enriquecimento de ia no portal](cognitive-search-quickstart-blob.md). 
 
 Nas seções a seguir, exploraremos mais componentes e conceitos.
 
-## <a name="use-a-blob-indexer"></a>Usar um indexador de BLOB
+## <a name="use-a-blob-indexer"></a>Configurar um indexador de Blob
 
 O enriquecimento de ia é um complemento em um pipeline de indexação e, no Azure Pesquisa Cognitiva, esses pipelines são criados sobre um *indexador*. Um indexador é um subserviço com reconhecimento de fonte de dados equipado com lógica interna para dados de amostragem, leitura de dados de metadados, recuperação de dados e serialização de dados de formatos nativos em documentos JSON para importação subsequente. Os indexadores geralmente são usados por si próprios para importação, separados do ia, mas se você quiser criar um pipeline de enriquecimento de ia, precisará de um indexador e de um configurador para seguir. Esta seção destaca o indexador; a próxima seção se concentra em habilidades.
 
-Os BLOBs no armazenamento do Azure são indexados usando o [indexador de armazenamento de Blob pesquisa cognitiva do Azure](search-howto-indexing-azure-blob-storage.md). Você pode invocar esse indexador usando o assistente de **importação de dados** , uma API REST ou o SDK do .net. No código, você usa esse indexador definindo o tipo e fornecendo informações de conexão que incluem uma conta de armazenamento do Azure junto com um contêiner de BLOB. Você pode subagrupar seus BLOBs criando um diretório virtual, que você pode então passar como um parâmetro ou filtrando uma extensão de tipo de arquivo.
+Os blobs no Armazenamento do Azure são indexados usando o [indexador de armazenamento de Blobs do Azure Cognitive Search](search-howto-indexing-azure-blob-storage.md). Você pode invocar esse indexador usando o assistente **Importar dados**, uma API REST ou o SDK do .NET. No código, use esse indexador definindo o tipo e fornecendo informações de conexão que incluem uma conta de Armazenamento do Azure com um contêiner de blobs. É possível subagrupar seus blobs criando um diretório virtual, que você pode então passar como um parâmetro, ou filtrando uma extensão de tipo de arquivo.
 
-Um indexador faz a "quebra de documento", abrindo um blob para inspecionar o conteúdo. Depois de se conectar à fonte de dados, é a primeira etapa no pipeline. Para dados de BLOB, é o local em que os documentos PDF, Office docs, imagem e outros tipos de conteúdo são detectados. A quebra de documentos com a extração de texto não é cobrada. A quebra de documento com extração de imagem é cobrada a taxas que você pode encontrar na [página de preços](https://azure.microsoft.com/pricing/details/search/).
+Um indexador faz a "quebra de documento", abrindo um blob para inspecionar o conteúdo. Depois de se conectar à fonte de dados, é a primeira etapa no pipeline. Para dados de BLOB, é o local em que os documentos PDF, Office docs, imagem e outros tipos de conteúdo são detectados. A quebra de documento com a extração de texto não é cobrada. A quebra de documento com extração de imagem é cobrada a taxas que você pode encontrar na [página de preços](https://azure.microsoft.com/pricing/details/search/).
 
 Embora todos os documentos sejam rachados, o enriquecimento só ocorrerá se você fornecer explicitamente as habilidades para fazer isso. Por exemplo, se o pipeline consistir exclusivamente na análise de imagem, o texto em seu contêiner ou documentos será ignorado.
 
-O indexador de blob vem com parâmetros de configuração e oferece suporte ao controle de alterações se os dados subjacentes fornecerem informações suficientes. Você pode saber mais sobre a funcionalidade básica no [indexador de armazenamento de blobs pesquisa cognitiva do Azure](search-howto-indexing-azure-blob-storage.md).
+O indexador de Blob vem com parâmetros de configuração e oferece suporte ao controle de alterações, caso os dados subjacentes forneçam informações suficientes. Você pode saber mais sobre a funcionalidade básica no [indexar de armazenamento de Blobs do Azure Cognitive Search](search-howto-indexing-azure-blob-storage.md).
 
 ## <a name="add-ai-components"></a>Adicionar componentes de ia
 
@@ -112,8 +112,8 @@ Um documento aprimorado no final do pipeline difere de sua versão de entrada or
 
 Há muito mais que você pode fazer com a enriquecimento de ia para tirar o máximo proveito de seus dados no armazenamento do Azure, incluindo a combinação de serviços cognitivas de maneiras diferentes e a criação de habilidades personalizadas para casos em que não há nenhum serviço de cognitiva existente para o cenário. Você pode aprender mais seguindo os links abaixo.
 
-+ [Carregar, baixar e listar BLOBs com o portal do Azure (armazenamento de BLOBs do Azure)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
-+ [Configurar um indexador de BLOB (Azure Pesquisa Cognitiva)](search-howto-indexing-azure-blob-storage.md) 
++ [Carregar, baixar e listar blobs com o portal do Azure (armazenamento de blobs do Azure)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
++ [Configurar um indexador de blob (Azure Cognitive Search)](search-howto-indexing-azure-blob-storage.md) 
 + [Visão geral de enriquecimento de ia (Azure Pesquisa Cognitiva)](cognitive-search-concept-intro.md) 
 + [Criar um skillset (Pesquisa Cognitiva do Azure)](cognitive-search-defining-skillset.md)
 + [Mapear nós em uma árvore de anotação (Pesquisa Cognitiva do Azure)](cognitive-search-output-field-mapping.md)

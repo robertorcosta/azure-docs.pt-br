@@ -15,10 +15,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/18/2019
 ms.openlocfilehash: 8eb03a42f38c0cc7fe82eda6a81d1c8c1213ec74
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71212389"
 ---
 # <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>Exportar e importar registros de hubs de notificação do Azure em massa
@@ -128,7 +128,7 @@ Quando o trabalho for concluído, você poderá verificar os resultados examinan
 - `/<hub>/<jobid>/Failed.txt`
 - `/<hub>/<jobid>/Output.txt`
 
-Esses arquivos contêm a lista das operações de seu lote que foram bem-sucedidas e falharam. O formato de arquivo `.cvs`é, no qual cada linha tem o número de linha do arquivo de entrada original e a saída da operação (normalmente, a descrição de registro criada ou atualizada).
+Esses arquivos contêm a lista das operações de seu lote que foram bem-sucedidas e falharam. O formato de arquivo é `.cvs` , no qual cada linha tem o número de linha do arquivo de entrada original e a saída da operação (normalmente, a descrição de registro criada ou atualizada).
 
 ### <a name="full-sample-code"></a>Código de exemplo completo
 O código de exemplo a seguir importa os registros para um hub de notificação.

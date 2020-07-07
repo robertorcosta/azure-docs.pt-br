@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/03/2018
 ms.author: apimpm
 ms.openlocfilehash: 467d9cee74567fc0d19031773415675ae7c51818
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71066763"
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Limitação de solicitação avançada com o Gerenciamento de API do Azure
@@ -30,7 +30,7 @@ Até o momento, os recursos de limitação da taxa estavam restritos à assinatu
 ## <a name="custom-key-based-throttling"></a>Limitação baseada em chave personalizada
 
 > [!NOTE]
-> As `rate-limit-by-key` políticas `quota-by-key` e não estão disponíveis no nível de consumo do gerenciamento de API do Azure. 
+> As `rate-limit-by-key` `quota-by-key` políticas e não estão disponíveis no nível de consumo do gerenciamento de API do Azure. 
 
 As novas políticas [rate-limit-by-key](/azure/api-management/api-management-access-restriction-policies#LimitCallRateByKey) e [quota-by-key](/azure/api-management/api-management-access-restriction-policies#SetUsageQuotaByKey) fornecem uma solução mais flexível para o controle de tráfego. Essas novas políticas permitem que você defina expressões a fim de identificar as chaves que são usadas para acompanhar o tráfego. O modo como isso funciona será ilustrado com mais facilidade usando um exemplo. 
 

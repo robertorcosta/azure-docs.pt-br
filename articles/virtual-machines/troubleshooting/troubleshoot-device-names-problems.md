@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: 7d8a7e7e88837214042fb8f1c109c0b93bfe771b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71058214"
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>Solucionar problemas de mudança de nome do dispositivo de VM Linux no Azure
@@ -148,7 +148,7 @@ Para obter as regras de Armazenamento do Azure mais recentes, execute os seguint
     # sudo curl -o /etc/udev/rules.d/66-azure-storage.rules https://raw.githubusercontent.com/Azure/WALinuxAgent/master/config/66-azure-storage.rules
     # sudo udevadm trigger --subsystem-match=block
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 Para obter mais informações, consulte os seguintes artigos:
 

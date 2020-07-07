@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 12/13/2018
 ms.author: genli
 ms.openlocfilehash: 2fd2efa9de3deff1fcf983ac0fa45e412357d312
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71057279"
 ---
 # <a name="troubleshoot-rdp-issues"></a>Solucionar problemas com RDP
@@ -41,7 +41,7 @@ Os seguintes problemas com a criação de um RDP para conexão a uma VM são abo
 - [Solucionar erros de RDP na VM por causa do IP estático](troubleshoot-rdp-static-ip.md)
 - [Solucionar erros de RDP na VM porque a NIC está desativada](troubleshoot-rdp-nic-disabled.md)
 - [Solucionar problemas de erro RDP causado pelo modo de segurança](troubleshoot-rdp-safe-mode.md)
-- [Desativar o firewall do sistema operacional convidado na VM do Azure](disable-guest-os-firewall-windows.md)
+- [Desabilitar o firewall do sistema operacional convidado na VM do Azure](disable-guest-os-firewall-windows.md)
 - [Ativar ou desativar uma regra de firewall em um sistema operacional convidado](enable-disable-firewall-rule-guest-os.md)
 - [O firewall do sistema operacional convidado está bloqueando o tráfego de entrada](guest-os-firewall-blocking-inbound-traffic.md)
 - [O firewall do sistema operacional convidado está configurado incorretamente](guest-os-firewall-misconfigured.md) 

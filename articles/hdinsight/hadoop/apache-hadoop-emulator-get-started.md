@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/29/2019
 ms.author: hrasheed
 ms.openlocfilehash: 47ee66393e3e1678576b12a70b767f35cb3bc635
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73044763"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Introdução a uma área restrita do Apache Hadoop, um emulador em uma máquina virtual
@@ -44,14 +44,14 @@ Para baixar uma área restrita da versão mais antiga do HDP, consulte os links 
 
     ![início normal do VirtualBox Manager](./media/apache-hadoop-emulator-get-started/virtualbox-normal-start.png)
 
-1. Abra um navegador da Web e navegue até a URL exibida ( `http://127.0.0.1:8888`geralmente).
+1. Abra um navegador da Web e navegue até a URL exibida (geralmente `http://127.0.0.1:8888` ).
 
 ## <a name="set-sandbox-passwords"></a>Definir senhas da Área Restrita
 
 1. Na etapa de **introdução** da página da Hortonworks Sandbox, selecione **Exibir Opções Avançadas**. Use as informações desta página para fazer logon na área restrita usando SSH. Use o nome e a senha fornecidos.
 
    > [!NOTE]
-   > Se você não tiver um cliente SSH instalado, poderá usar o SSH baseado na Web fornecido pelo pela máquina virtual em **http://localhost:4200/**.
+   > Se você não tiver um cliente SSH instalado, poderá usar o SSH baseado na Web fornecido pelo pela máquina virtual em **http://localhost:4200/** .
 
     Na primeira vez que você se conectar usando SSH, você receberá uma solicitação para alterar a senha da conta raiz. Insira uma nova senha, que você usa quando faz logon usando SSH.
 

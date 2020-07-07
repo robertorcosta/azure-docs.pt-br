@@ -16,10 +16,10 @@ ms.date: 11/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8679f9a03fded546db68f058bca716ba053aa0fe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73161200"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Guia de administração do Atlassian Jira e Confluence para Azure Active Directory
@@ -28,7 +28,7 @@ ms.locfileid: "73161200"
 
 O plug-in de logon único (SSO) do Azure Active Directory (AD do Azure) permite que os clientes do Microsoft Azure Active Directory usem sua conta corporativa ou de estudante para entrar no Atlassian Jira e produtos com base em Confluence Server. Ele implementa SSO baseado em SAML 2.0.
 
-## <a name="how-it-works"></a>Como ele funciona
+## <a name="how-it-works"></a>Como isso funciona
 
 Quando os usuários desejam entrar no aplicativo Atlassian Jira ou Confluence, eles veem o botão **Logon com Microsoft Azure AD** na página de entrada. Quando eles o selecionam, precisam entrar usando a página de entrada da organização do Microsoft Azure AD (ou seja, sua conta corporativa ou de estudante).
 
@@ -95,7 +95,7 @@ Para instalar o plug-in, siga estas etapas:
 
 2. Vá para o console de administração do Jira/Confluence e selecione **Complementos**.
 
-3. No centro de download da Microsoft, baixe o plug-in Microsoft SAML [SSO para Jira](https://www.microsoft.com/download/details.aspx?id=56506)/ [Microsoft SAML SSO plugin para Confluence](https://www.microsoft.com/download/details.aspx?id=56503).
+3. No centro de download da Microsoft, baixe o plug-in Microsoft SAML [SSO para Jira](https://www.microsoft.com/download/details.aspx?id=56506) /  [Microsoft SAML SSO plugin para Confluence](https://www.microsoft.com/download/details.aspx?id=56503).
 
    A versão apropriada do plug-in é exibida nos resultados da pesquisa.
 
@@ -113,11 +113,11 @@ A imagem a seguir mostra a tela de configuração no JIRA e no Confluence:
 
 * **URL de metadados**: a URL para obter metadados de federação do Microsoft Azure AD.
 
-* **Identificadores**: a URL utilizada pelo Microsoft Azure AD para validar a origem da solicitação. Ela mapeia para o elemento **Identificador** no Microsoft Azure AD. O plug-in deriva automaticamente essa URL como https://*\<domínio: porta>*/.
+* **Identificadores**: a URL utilizada pelo Microsoft Azure AD para validar a origem da solicitação. Ela mapeia para o elemento **Identificador** no Microsoft Azure AD. O plug-in deriva automaticamente essa URL como https:// *\<domain:port>* /.
 
-* **URL de resposta**: a URL de resposta no seu provedor de identidade (IdP) que inicia a entrada do SAML. Ela mapeia para o elemento **URL de Resposta** no Microsoft Azure AD. O plug-in deriva automaticamente essa URL como https://*\<domínio: porta>*/plugins/servlet/SAML/auth.
+* **URL de resposta**: a URL de resposta no seu provedor de identidade (IdP) que inicia a entrada do SAML. Ela mapeia para o elemento **URL de Resposta** no Microsoft Azure AD. O plug-in deriva automaticamente essa URL como https:// *\<domain:port>* /plugins/servlet/SAML/auth.
 
-* **URL de logon**: a URL de logon no seu IdP que inicia a entrada SAML. Ela mapeia para o elemento **Logon** no Microsoft Azure AD. O plug-in deriva automaticamente essa URL como https://*\<domínio: porta>*/plugins/servlet/SAML/auth.
+* **URL de logon**: a URL de logon no seu IdP que inicia a entrada SAML. Ela mapeia para o elemento **Logon** no Microsoft Azure AD. O plug-in deriva automaticamente essa URL como https:// *\<domain:port>* /plugins/servlet/SAML/auth.
 
 * **ID da Entidade do IdP**: a ID de entidade que o IdP usa. Essa caixa é preenchida quando a URL de metadados é resolvida.
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 9bbb7ef46fbde881c8968128870d24a03b046c23
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73176798"
 ---
 # <a name="developer-portal-templates"></a>Modelos de portal do desenvolvedor
@@ -46,7 +46,7 @@ Para saber mais sobre como trabalhar com modelos, consulte [Como personalizar o 
         -   [Ruby](api-management-api-templates.md#Ruby)  
 -   [Produtos](api-management-product-templates.md)  
     -   [Lista de produtos](api-management-product-templates.md#ProductList)  
-    -   [Remessa](api-management-product-templates.md#Product)  
+    -   [Produto](api-management-product-templates.md#Product)  
 -   [Aplicativos](api-management-application-templates.md)  
     -   [Lista de aplicativos](api-management-application-templates.md#ProductList)  
     -   [Aplicativo](api-management-application-templates.md#Application)  

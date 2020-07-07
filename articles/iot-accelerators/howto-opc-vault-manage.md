@@ -9,10 +9,10 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 890a25ed2cf11d657cad930815d78dbf968cc9f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71203661"
 ---
 # <a name="manage-the-opc-vault-certificate-service"></a>Gerenciar o serviço de certificado do cofre do OPC
@@ -25,16 +25,16 @@ Depois de implantar o cofre OPC, você deve criar o certificado de autoridade de
 > [!IMPORTANT]
 > A função Administrador é necessária para criar ou renovar o certificado de autoridade de certificação do emissor.
 
-1. Abra seu serviço de certificado `https://myResourceGroup-app.azurewebsites.net`em e entre.
+1. Abra seu serviço de certificado em `https://myResourceGroup-app.azurewebsites.net` e entre.
 2. Vá para **grupos de certificados**.
 3. Há um grupo de certificados padrão listado. Selecione **Editar**.
 4. Em **Editar detalhes do grupo de certificados**, você pode modificar o nome da entidade e o tempo de vida da autoridade de certificação e dos certificados de aplicativo. O assunto e os tempos de vida devem ser definidos apenas uma vez antes que o primeiro certificado de autoridade de certificação seja emitido. As alterações de tempo de vida durante as operações podem resultar em tempos de vida inconsistentes de certificados e CRLs emitidos.
-5. Insira um assunto válido (por exemplo, `CN=My CA Root, O=MyCompany, OU=MyDepartment`).<br>
+5. Insira um assunto válido (por exemplo, `CN=My CA Root, O=MyCompany, OU=MyDepartment` ).<br>
    > [!IMPORTANT]
    > Se você alterar o assunto, deverá renovar o certificado do emissor ou o serviço falhará ao assinar certificados de aplicativo. O assunto da configuração é verificado em relação ao assunto do certificado do emissor ativo. Se os assuntos não corresponderem, a assinatura de certificado será recusada.
 6. Clique em **Salvar**.
 7. Se você encontrar um erro "proibido" neste ponto, suas credenciais de usuário não terão a permissão de administrador para modificar ou criar um novo certificado raiz. Por padrão, o usuário que implantou o serviço tem funções de administrador e assinatura com o serviço. Outros usuários precisam ser adicionados às funções aprovador, gravador ou administrador, conforme apropriado no registro do aplicativo Azure Active Directory (AD do Azure).
-8. Selecione **detalhes**. Isso deve mostrar as informações atualizadas.
+8. Selecione **Detalhes**. Isso deve mostrar as informações atualizadas.
 9. Selecione **renovar certificado de autoridade de certificação** para emitir o primeiro certificado de autoridade de certificação do emissor ou para renovar o certificado do emissor. Depois, selecione **OK**.
 10. Depois de alguns segundos, você verá os **detalhes do certificado**. Para baixar o certificado de autoridade de certificação e a CRL mais recentes para distribuição para seus aplicativos OPC UA, selecione **emissor** ou **CRL**.
 
@@ -51,9 +51,9 @@ No fluxo de trabalho a seguir, todas as solicitações de certificado nos Estado
 > [!IMPORTANT]
 > A função de administrador é necessária para renovar a CRL do emissor.
 
-1. Abra seu serviço de certificado `https://myResourceGroup.azurewebsites.net`em e entre.
+1. Abra seu serviço de certificado em `https://myResourceGroup.azurewebsites.net` e entre.
 2. Vá para a página **grupos de certificados** .
-3. Selecione **detalhes**. Isso deve mostrar as informações atuais de certificado e CRL.
+3. Selecione **Detalhes**. Isso deve mostrar as informações atuais de certificado e CRL.
 4. Selecione **Atualizar CRL (lista de revogação de CRL)** para emitir uma CRL atualizada para todos os certificados de emissor ativos no armazenamento do cofre OPC.
 5. Depois de alguns segundos, você verá os **detalhes do certificado**. Para baixar o certificado de autoridade de certificação e a CRL mais recentes para distribuição para seus aplicativos OPC UA, selecione **emissor** ou **CRL**.
 
@@ -66,8 +66,8 @@ Por padrão, um usuário autenticado no locatário pode entrar no serviço como 
 ### <a name="add-user"></a>Adicionar usuário
 
 1. Abra o portal do Azure.
-2. Vá para **Azure Active Directory** > **aplicativos empresariais**.
-3. Escolha o registro do microserviço do cofre OPC (por padrão, seu `resourceGroupName-service`).
+2. Vá para **Azure Active Directory**  >  **aplicativos empresariais**.
+3. Escolha o registro do microserviço do cofre OPC (por padrão, seu `resourceGroupName-service` ).
 4. Vá para **usuários e grupos**.
 5. Selecione **Adicionar usuário**.
 6. Selecione ou convide o usuário para atribuição a uma função específica.
@@ -78,8 +78,8 @@ Por padrão, um usuário autenticado no locatário pode entrar no serviço como 
 ### <a name="remove-user"></a>Remover usuário
 
 1. Abra o portal do Azure.
-2. Vá para **Azure Active Directory** > **aplicativos empresariais**.
-3. Escolha o registro do microserviço do cofre OPC (por padrão, seu `resourceGroupName-service`).
+2. Vá para **Azure Active Directory**  >  **aplicativos empresariais**.
+3. Escolha o registro do microserviço do cofre OPC (por padrão, seu `resourceGroupName-service` ).
 4. Vá para **usuários e grupos**.
 5. Selecione um usuário com uma função a ser removida e, em seguida, selecione **remover**.
 6. Para usuários removidos na função Administrador ou aprovador, também remova-os das políticas de Azure Key Vault.
@@ -93,8 +93,8 @@ Por padrão, a identidade do serviço tem apenas permissões limitadas para aces
 #### <a name="for-an-approver-role-the-following-permissions-must-be-added-to-key-vault"></a>Para uma função de aprovador, as permissões a seguir devem ser adicionadas a Key Vault
 
 1. Abra o portal do Azure.
-2. Vá para o cofre `resourceGroupName`do OPC, usado durante a implantação.
-3. Vá para a Key Vault `resourceGroupName-xxxxx`.
+2. Vá para o cofre do OPC `resourceGroupName` , usado durante a implantação.
+3. Vá para a Key Vault `resourceGroupName-xxxxx` .
 4. Acesse **políticas de acesso**.
 5. Selecione **Adicionar nova**.
 6. Ignore o modelo. Não há modelo que corresponda aos requisitos.
@@ -107,8 +107,8 @@ Por padrão, a identidade do serviço tem apenas permissões limitadas para aces
 #### <a name="for-an-administrator-role-the-following-permissions-must-be-added-to-key-vault"></a>Para uma função de administrador, as permissões a seguir devem ser adicionadas a Key Vault
 
 1. Abra o portal do Azure.
-2. Vá para o cofre `resourceGroupName`do OPC, usado durante a implantação.
-3. Vá para a Key Vault `resourceGroupName-xxxxx`.
+2. Vá para o cofre do OPC `resourceGroupName` , usado durante a implantação.
+3. Vá para a Key Vault `resourceGroupName-xxxxx` .
 4. Acesse **políticas de acesso**.
 5. Selecione **Adicionar nova**.
 6. Ignore o modelo. Não há modelo que corresponda aos requisitos.
@@ -121,8 +121,8 @@ Por padrão, a identidade do serviço tem apenas permissões limitadas para aces
 ### <a name="remove-user-access-policy-from-azure-key-vault"></a>Remover política de acesso do usuário da Azure Key Vault
 
 1. Abra o portal do Azure.
-2. Vá para o cofre `resourceGroupName`do OPC, usado durante a implantação.
-3. Vá para a Key Vault `resourceGroupName-xxxxx`.
+2. Vá para o cofre do OPC `resourceGroupName` , usado durante a implantação.
+3. Vá para a Key Vault `resourceGroupName-xxxxx` .
 4. Acesse **políticas de acesso**.
 5. Localize o usuário a ser removido e selecione **excluir**.
 

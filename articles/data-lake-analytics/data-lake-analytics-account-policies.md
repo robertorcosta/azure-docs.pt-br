@@ -10,10 +10,10 @@ ms.assetid: 0a6102d1-7554-4df2-b487-4dae9a7287b6
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.openlocfilehash: 4689714073047e383a53a04bd0069a8a27afdf9d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72966431"
 ---
 # <a name="manage-azure-data-lake-analytics-using-account-policies"></a>Gerenciar Azure Data Lake Analytics usando políticas de conta
@@ -96,7 +96,7 @@ Há uma política padrão definida em cada conta. A política padrão aplica-se 
 1. No portal do Azure, acesse sua conta do Data Lake Analytics.
 2. Clique em **limites e políticas**.
 3. Em **Limites de Envio de Trabalho**, localize a política que deseja editar.
-4.  Para ver as opções de **excluir** e **Editar** , na coluna mais à direita da tabela, `...`clique em.
+4.  Para ver as opções de **excluir** e **Editar** , na coluna mais à direita da tabela, clique em `...` .
 
 ## <a name="additional-resources-for-job-policies"></a>Recursos adicionais para políticas de trabalho
 * [Postagem no blog de visão geral de política](https://blogs.msdn.microsoft.com/azuredatalake/2017/06/08/managing-your-azure-data-lake-analytics-compute-resources-overview/)

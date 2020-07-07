@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 11/19/2018
 ms.author: genli
 ms.openlocfilehash: 4c10a2dcd55c1605cfafe6c67cfefd9d8a3c5f9d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71057980"
 ---
 # <a name="cannot-connect-remotely-to-a-windows-10-or-windows-server-2016-vm-in-azure-because-of-netvscsys"></a>Não é possível se conectar remotamente a uma máquina virtual Windows Server 2016 no Azure por causa de netvsc.sys.
@@ -73,13 +73,13 @@ Conectar-se ao [o Console Serial, abra uma instância do PowerShell](serial-cons
 
 2. Inicie uma conexão de área de trabalho remota para a VM de recuperação.
 
-3. Verifique se o disco está sinalizado como **Online** no console de Gerenciamento de Disco. Anote a letra da unidade atribuída ao disco do sistema operacional anexado.
+3. Verifique se o disco está sinalizado como **online** no console de gerenciamento de disco. Anote a letra da unidade atribuída ao disco do sistema operacional anexado.
 
 4. Criar uma cópia da pasta **\Windows\System32\config** caso uma reversão de alterações seja necessária.
 
 5. Na VM de resgate, inicie o Editor do Registro (regedit.exe).
 
-6. Selecione a chave de **HKEY_LOCAL_MACHINE** e, em seguida, selecione **arquivo** > **Carregar Hive** no menu.
+6. Selecione a chave de **HKEY_LOCAL_MACHINE** e, em seguida, selecione **arquivo**  >  **Carregar Hive** no menu.
 
 7. Localize o arquivo SYSTEM na pasta **\Windows\System32\config**.
 

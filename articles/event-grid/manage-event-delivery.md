@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: spelluru
 ms.openlocfilehash: caed3c077b4df5da5fd8541b2f7e85ef119604b0
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72794030"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Mensagens mortas e tentar novas políticas
@@ -26,7 +26,7 @@ Para definir um local de mensagens mortas, é necessário ter uma conta de armaz
 
 > [!NOTE]
 > - Crie uma conta de armazenamento e um contêiner de blob no armazenamento antes de executar os comandos neste artigo.
-> - O serviço de grade de eventos cria BLOBs neste contêiner. Os nomes dos BLOBs terão o nome da assinatura da grade de eventos com todas as letras em maiúsculas. Por exemplo, se o nome da assinatura for meu-blob-Subscription, os nomes dos BLOBs de mensagens mortas terão meu-BLOB-SUBSCRIPTION (myblobcontainer/meu-BLOB-SUBSCRIPTION/2019/8/8/5/111111111-1111-1111-1111 -111111111111. JSON). Esse comportamento é para proteger contra diferenças na manipulação de casos entre os serviços do Azure.
+> - O serviço de grade de eventos cria BLOBs neste contêiner. Os nomes dos BLOBs terão o nome da assinatura da grade de eventos com todas as letras em maiúsculas. Por exemplo, se o nome da assinatura for meu-blob-Subscription, os nomes dos BLOBs de mensagens mortas terão meu-BLOB-SUBSCRIPTION (myblobcontainer/meu-BLOB-SUBSCRIPTION/2019/8/8/5/111111111-1111-1111-1111-111111111111.jsem). Esse comportamento é para proteger contra diferenças na manipulação de casos entre os serviços do Azure.
 
 
 ### <a name="azure-cli"></a>CLI do Azure

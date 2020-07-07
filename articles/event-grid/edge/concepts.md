@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 73309e10e88c11e639e6ac6fd3bb061e1b5c685b
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72992542"
 ---
 # <a name="event-grid-concepts"></a>Conceitos da Grade de Eventos
@@ -50,7 +50,7 @@ Consulte a [documentação da API REST](api.md) sobre como gerenciar assinaturas
 
 ## <a name="event-handlers"></a>Manipuladores de eventos
 
-Sob a perspectiva de uma Grade de Eventos, um manipulador de eventos é o local em que o evento é enviado. O manipulador executa uma ação adicional para processar o evento. Grade de eventos do Azure dá suporte a vários tipos de manipulador. Você pode usar um serviço do Azure com suporte ou seu próprio gancho da Web como o manipulador. Dependendo do tipo de manipulador, a Grade de Eventos segue diferentes mecanismos para assegurar a entrega do evento. Se o manipulador de eventos de destino for um gancho da Web HTTP, o evento será repetido quando o manipulador retornar `200 – OK`um código de status. Para o Hub do Edge, se o evento for entregue sem nenhuma exceção, ele será considerado com êxito.
+Sob a perspectiva de uma Grade de Eventos, um manipulador de eventos é o local em que o evento é enviado. O manipulador executa uma ação adicional para processar o evento. Grade de eventos do Azure dá suporte a vários tipos de manipulador. Você pode usar um serviço do Azure com suporte ou seu próprio gancho da Web como o manipulador. Dependendo do tipo de manipulador, a Grade de Eventos segue diferentes mecanismos para assegurar a entrega do evento. Se o manipulador de eventos de destino for um gancho da Web HTTP, o evento será repetido quando o manipulador retornar um código de status `200 – OK` . Para o Hub do Edge, se o evento for entregue sem nenhuma exceção, ele será considerado com êxito.
 
 ## <a name="security"></a>Segurança
 

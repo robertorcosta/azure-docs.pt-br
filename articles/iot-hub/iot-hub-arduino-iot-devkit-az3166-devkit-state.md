@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 04/04/2018
 ms.author: liydu
 ms.openlocfilehash: deb1ea8c7b41ad48bddebfbed1b15c667ee0071a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73483943"
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
@@ -89,7 +89,7 @@ Com o MXChip IoT DevKit conectado ao computador:
 
 3. Insira o nome do aplicativo de funções que você anotou anteriormente.
 
-4. Clique no botão **Conectar**
+4. Clique no botão **conectar**
 
 5. Em alguns segundos, a página é atualizada e exibe o status de conexão Wi-Fi do DevKit e o estado de cada um dos sensores integrados.
 
@@ -106,7 +106,7 @@ Com o MXChip IoT DevKit conectado ao computador:
 ![Exemplo de procedimento de teste](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state.gif)
 
 > [!NOTE]
-> Você pode ver dados brutos de dispositivos de entrada no portal do Azure: Hub\> IOT-dispositivos\> IOT- * \<seu\> * dispositivo de dispositivo - \> .
+> Você pode ver dados brutos de dispositivos de entrada no portal do Azure: Hub IOT- \> dispositivos IOT- \> *\<your device\>*  - \> dispositivos.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -117,4 +117,4 @@ Você aprendeu como:
 Aqui estão sugestões para as próximas etapas:
 
 * [Visão geral do acelerador de solução de Monitoramento Remoto do Azure IoT](https://docs.microsoft.com/azure/iot-suite/)
-* [Conectar um dispositivo MXChip IoT DevKit ao aplicativo Azure IoT Central](/azure/iot-central/core/howto-connect-devkit)
+* [Conectar um dispositivo MXChip IoT DevKit ao seu aplicativo Azure IoT Central](/azure/iot-central/core/howto-connect-devkit)
