@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: f54381ddcd11a2e4a24d30d812468da85b5403de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335816"
 ---
 # <a name="annotations-for-application-gateway-ingress-controller"></a>Anotações para o controlador de entrada do gateway de aplicativo 
@@ -22,7 +22,7 @@ O recurso de entrada do kubernetes pode ser anotado com pares de chave/valor arb
 
 ## <a name="list-of-supported-annotations"></a>Lista de anotações com suporte
 
-Para que um recurso de entrada seja observado pelo AGIC, ele **deve ser anotado** `kubernetes.io/ingress.class: azure/application-gateway`. Somente o AGIC funcionará com o recurso de entrada em questão.
+Para que um recurso de entrada seja observado pelo AGIC, ele **deve ser anotado** `kubernetes.io/ingress.class: azure/application-gateway` . Somente o AGIC funcionará com o recurso de entrada em questão.
 
 | Chave de anotação | Tipo de valor | Valor padrão | Valores Permitidos
 | -- | -- | -- | -- |
@@ -65,14 +65,14 @@ spec:
           serviceName: go-server-service
           servicePort: 80
 ```
-No exemplo acima, definimos um recurso de entrada chamado `go-server-ingress-bkprefix` com uma anotação. `appgw.ingress.kubernetes.io/backend-path-prefix: "/test/"` A anotação informa ao gateway de aplicativo para criar uma configuração de HTTP, que terá uma substituição de prefixo de `/hello` caminho `/test/`para o caminho para.
+No exemplo acima, definimos um recurso de entrada chamado `go-server-ingress-bkprefix` com uma anotação `appgw.ingress.kubernetes.io/backend-path-prefix: "/test/"` . A anotação informa ao gateway de aplicativo para criar uma configuração de HTTP, que terá uma substituição de prefixo de caminho para o caminho `/hello` para `/test/` .
 
 > [!NOTE] 
 > No exemplo acima, temos apenas uma regra definida. No entanto, as anotações são aplicáveis a todo o recurso de entrada; portanto, se um usuário tivesse definido várias regras, o prefixo de caminho de back-end seria configurado para cada um dos caminhos especificados. Portanto, se um usuário quiser regras diferentes com prefixos de caminho diferentes (mesmo para o mesmo serviço), precisariam definir recursos de entrada diferentes.
 
 ## <a name="tls-redirect"></a>Redirecionamento de TLS
 
-O gateway de aplicativo [pode ser configurado](https://docs.microsoft.com/azure/application-gateway/application-gateway-redirect-overview) para redirecionar automaticamente URLs HTTP para seus correspondentes HTTPS. Quando essa anotação estiver presente e o TLS estiver configurado corretamente, o controlador de entrada do kubernetes criará uma [regra de roteamento com uma configuração de redirecionamento](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal#add-a-routing-rule-with-a-redirection-configuration) e aplicará as alterações ao seu gateway de aplicativo. O redirecionamento criado será `301 Moved Permanently`o http.
+O gateway de aplicativo [pode ser configurado](https://docs.microsoft.com/azure/application-gateway/application-gateway-redirect-overview) para redirecionar automaticamente URLs HTTP para seus correspondentes HTTPS. Quando essa anotação estiver presente e o TLS estiver configurado corretamente, o controlador de entrada do kubernetes criará uma [regra de roteamento com uma configuração de redirecionamento](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal#add-a-routing-rule-with-a-redirection-configuration) e aplicará as alterações ao seu gateway de aplicativo. O redirecionamento criado será o HTTP `301 Moved Permanently` .
 
 ### <a name="usage"></a>Uso
 
@@ -206,8 +206,8 @@ spec:
 Essa anotação nos permite especificar se deve-se expor esse ponto de extremidade no IP privado do gateway de aplicativo.
 
 > [!NOTE]
-> * O gateway de aplicativo não dá suporte a vários IPs na mesma porta (exemplo: 80/443). A entrada com anotação `appgw.ingress.kubernetes.io/use-private-ip: "false"` e outra com `appgw.ingress.kubernetes.io/use-private-ip: "true"` on `HTTP` fará com que o AGIC falhe ao atualizar o gateway de aplicativo.
-> * Para o gateway de aplicativo que não tem um IP privado, `appgw.ingress.kubernetes.io/use-private-ip: "true"` insere com será ignorado. Isso será refletido nos logs do controlador e nos eventos de entrada para esses `NoPrivateIP` insere com aviso.
+> * O gateway de aplicativo não dá suporte a vários IPs na mesma porta (exemplo: 80/443). A entrada com anotação `appgw.ingress.kubernetes.io/use-private-ip: "false"` e outra com `appgw.ingress.kubernetes.io/use-private-ip: "true"` on fará com `HTTP` que o AGIC falhe ao atualizar o gateway de aplicativo.
+> * Para o gateway de aplicativo que não tem um IP privado, insere com `appgw.ingress.kubernetes.io/use-private-ip: "true"` será ignorado. Isso será refletido nos logs do controlador e nos eventos de entrada para esses insere com `NoPrivateIP` aviso.
 
 
 ### <a name="usage"></a>Uso
@@ -237,10 +237,10 @@ spec:
 
 ## <a name="backend-protocol"></a>Protocolo de back-end
 
-Essa anotação nos permite especificar o protocolo que o gateway de aplicativo deve usar ao conversar com o pods. Protocolos com suporte `http`:,`https`
+Essa anotação nos permite especificar o protocolo que o gateway de aplicativo deve usar ao conversar com o pods. Protocolos com suporte: `http` ,`https`
 
 > [!NOTE]
-> * Embora os certificados autoassinados tenham suporte no gateway de aplicativo, atualmente, o `https` AGIC dá suporte apenas quando o pods está usando um certificado assinado por uma autoridade de certificação conhecida.
+> * Embora os certificados autoassinados tenham suporte no gateway de aplicativo, atualmente, o AGIC dá suporte apenas `https` quando o pods está usando um certificado assinado por uma autoridade de certificação conhecida.
 > * Certifique-se de não usar a porta 80 com HTTPS e a porta 443 com HTTP no pods.
 
 ### <a name="usage"></a>Uso

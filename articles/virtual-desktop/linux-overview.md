@@ -9,10 +9,10 @@ ms.date: 01/23/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 8c5de43ed29856451ad67e02a426b07cc34a0d54
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80422423"
 ---
 # <a name="linux-support"></a>Suporte para Linux
@@ -23,7 +23,7 @@ Os parceiros podem usar o SDK do Linux para área de trabalho virtual do Windows
 
 Os parceiros a seguir aprovaram clientes de área de trabalho virtual do Windows para dispositivos Linux.
 
-|Parceiro|Documentação do parceiro|Suporte a parceiros|
+|Partner (parceiro)|Documentação do parceiro|Suporte a parceiros|
 |:------|:--------------------|:--------------|
 |![Logotipo do IGEL](./media/partners/igel.png)|[Documentação do cliente do IGEL](https://www.igel.com/igel-solution-family/windows-virtual-desktop/)|[Suporte do IGEL](https://www.igel.com/support/)|
 
@@ -34,7 +34,7 @@ Você pode usar as APIs do SDK para recuperar feeds de recursos, conectar-se a s
 > [!NOTE]
 > O SDK está atualmente em desenvolvimento. Atualizaremos este documento com instruções para acessar o SDK quando ele estiver disponível.
 
-### <a name="supported-linux-distributions"></a>Distribuições do Linux com suporte
+### <a name="supported-linux-distributions"></a>Distribuições Linux compatíveis
 
 O SDK é compatível com a maioria dos sistemas operacionais baseados no Ubuntu 18, 4 ou posterior. Se você tiver uma distribuição do Linux diferente, poderemos trabalhar com você para descobrir como oferecer o melhor suporte às suas necessidades.
 
@@ -44,7 +44,7 @@ O SDK dá suporte a várias conexões para desktop e sessões de aplicativos rem
 
 | Redirecionamento       | Com suporte |
 | :---------------- | :-------: |
-| Keyboard          | &#10004;  |
+| Teclado          | &#10004;  |
 | Mouse             | &#10004;  |
 | Entrada de áudio          | &#10004;  |
 | Saída de áudio         | &#10004;  |
@@ -73,4 +73,4 @@ Confira nossa documentação para os seguintes clientes:
 - [Cliente Web](connect-web.md)
 - [Cliente para Android](connect-android.md)
 - [Cliente para macOS](connect-macos.md)
-- [Cliente para iOS](connect-ios.md)
+- [Cliente iOS](connect-ios.md)

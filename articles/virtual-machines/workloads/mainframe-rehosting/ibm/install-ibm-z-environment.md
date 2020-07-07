@@ -13,10 +13,10 @@ ms.date: 04/02/2019
 tags: ''
 keywords: ''
 ms.openlocfilehash: 67af4eae03b773fad9cf38964152c1fb9d623bd5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72025944"
 ---
 # <a name="install-ibm-zdt-devtest-environment-on-azure"></a>Instalar o ambiente de desenvolvimento/teste do IBM zD&T no Azure
@@ -62,11 +62,11 @@ Este artigo mostra como configurar o ambiente de desenvolvimento e teste do Z (z
 
 3. Obtenha as credenciais SSH mostradas na folha **visão geral** da VM por meio do botão **conectar** . Selecione a guia **SSH** e copie o comando logon SSH para a área de transferência.
 
-4. Faça logon em um [shell bash](/azure/cloud-shell/quickstart) do seu computador local e cole o comando. Ele estará no formato **endereço\>\@\<\>IP da\<ID de usuário SSH**. Quando solicitado a fornecer suas credenciais, insira-as para estabelecer uma conexão com o diretório base.
+4. Faça logon em um [shell bash](/azure/cloud-shell/quickstart) do seu computador local e cole o comando. Ele estará no formato **SSH \<user id\> \@ \<IP Address\> **. Quando solicitado a fornecer suas credenciais, insira-as para estabelecer uma conexão com o diretório base.
 
 ## <a name="copy-the-installation-file-to-the-server"></a>Copiar o arquivo de instalação para o servidor
 
-O arquivo de instalação do servidor Web é **ZDT\_instalar\_o\_EE v 12.0.0.1. tgz**. Ele está incluído na mídia fornecida pela IBM. Você deve carregar esse arquivo para a VM do Ubuntu.
+O arquivo de instalação do servidor Web é **ZDT \_ instalar o \_ EE \_ v 12.0.0.1. tgz**. Ele está incluído na mídia fornecida pela IBM. Você deve carregar esse arquivo para a VM do Ubuntu.
 
 1. Na linha de comando, digite o seguinte comando para verificar se tudo está atualizado na imagem recém-criada:
 
@@ -91,7 +91,7 @@ O arquivo de instalação do servidor Web é **ZDT\_instalar\_o\_EE v 12.0.0.1. 
 
 ## <a name="install-the-enterprise-edition"></a>Instalar o Enterprise Edition
 
-1. Vá para o diretório ZDT e descompacte o\_arquivo\_ZDT\_de instalação do EE v 12.0.0.1. tgz usando os seguintes comandos:
+1. Vá para o diretório ZDT e descompacte o \_ arquivo ZDT de instalação do \_ EE \_ v 12.0.0.1. tgz usando os seguintes comandos:
 
     ```
     cd ZDT

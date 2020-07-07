@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
 ms.openlocfilehash: 6edb639cacc48e8b59c458bcf0ac9c9c5e07b030
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82203550"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Fazer upgrade e dimensionar uma instância de Gerenciamento de API do Azure  
@@ -74,7 +74,7 @@ Você pode atualizar e fazer downgrade de e para qualquer camada. A atualizaçã
 1. Navegue até o serviço de gerenciamento de API no [portal do Azure](https://portal.azure.com/).
 2. Clique no **tipo de preço** no menu.
 3. Selecione a camada de serviço desejada na lista suspensa. Use o controle deslizante para especificar a escala do serviço de gerenciamento de API após a alteração.
-4. Clique em **Salvar**.
+4. Clique em **Save** (Salvar).
 
 ## <a name="downtime-during-scaling-up-and-down"></a>Tempo de inatividade durante a expansão e a redução
 Se você estiver dimensionando de ou para a camada de desenvolvedor, haverá tempo de inatividade. Caso contrário, não há nenhum tempo de inatividade. 

@@ -1,24 +1,21 @@
 ---
-title: Criar um repositório de conhecimento (versão prévia) no portal do Azure
+title: Criar um repositório de conhecimento no portal do Azure
 titleSuffix: Azure Cognitive Search
-description: Use o assistente de Importação de dados para criar um repositório de conhecimento usado para persistir conteúdo enriquecido. Conecte-se a um repositório de conhecimento para obter análise de outros aplicativos ou enviar conteúdo enriquecido para processos downstream. Esse recurso está atualmente em visualização pública.
+description: Use o assistente de Importação de dados para criar um repositório de conhecimento usado para persistir conteúdo enriquecido. Conecte-se a um repositório de conhecimento para obter análise de outros aplicativos ou enviar conteúdo enriquecido para processos downstream.
 author: HeidiSteen
 ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/07/2020
-ms.openlocfilehash: 06ddb50173299bbb99518921d1589d2f15b0aa88
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.date: 06/30/2020
+ms.openlocfilehash: 5d21508a794683096009f53314bebca4e4f2ac98
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488674"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565314"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>Início Rápido: Criar um repositório de conhecimento da Pesquisa Cognitiva do Azure no portal do Azure
-
-> [!IMPORTANT] 
-> O repositório de conhecimento está atualmente em versão prévia pública. A funcionalidade de versão prévia é fornecida sem um Contrato de Nível de Serviço e, portanto, não é recomendada para cargas de trabalho de produção. Para obter mais informações, confira [Termos de uso complementares](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 O repositório de conhecimento é um recurso do Azure Cognitive Search que persiste a saída de um pipeline de processamento de conteúdo para análises posteriores ou processamento downstream. 
 

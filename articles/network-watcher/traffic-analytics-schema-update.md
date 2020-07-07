@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/06/2020
 ms.author: vinigam
 ms.openlocfilehash: 4fe981576e3f6e58b0886d9c0d2eb2915d8b7720
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80396617"
 ---
 # <a name="sample-queries-with-new-fields-in-the-traffic-analytics-schema-august-2019-schema-update"></a>Exemplos de consultas com novos campos no esquema de Análise de Tráfego (atualização de esquema de agosto de 2019)
@@ -107,7 +107,7 @@ FlowCountProcessedByRule = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_
 
 Como não preparamos dados em toda a NSG, a **FlowCount_d** é simplesmente:
 
-**AllowedInFlows_d** + **DeniedInFlows_d**DeniedInFlows_d + **AllowedOutFlows_d**AllowedOutFlows_d + **DeniedOutFlows_d**
+**AllowedInFlows_d**  +  **DeniedInFlows_d**  +  **AllowedOutFlows_d**  +  **DeniedOutFlows_d**
 
 Somente um dos quatro campos será diferente de zero. Os outros três campos serão zero. Os campos são preenchidos para indicar o status e a contagem na NIC em que o fluxo foi capturado.
 
@@ -122,5 +122,5 @@ Dependendo das condições, sabemos que um dos quatro campos será preenchido.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter respostas para perguntas frequentes, confira [Perguntas Frequentes sobre Análise de Tráfego](traffic-analytics-faq.md).
+- Para obter respostas para perguntas frequentes, consulte [análise de tráfego perguntas frequentes](traffic-analytics-faq.md).
 - Para ver detalhes sobre a funcionalidade, consulte a [documentação do análise de tráfego](traffic-analytics.md).

@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: 1b80fc997a4b3d2b472717b1ec2f379a4e958d8c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80422551"
 ---
 # <a name="azure-vm-guest-os-firewall-is-blocking-inbound-traffic"></a>O firewall do sistema operacional convidado do Azure VM está bloqueando o tráfego de entrada
@@ -53,7 +53,7 @@ Conecte-se ao [ Console serial e abra uma instância do PowerShell ](serial-cons
 
 #### <a name="mitigation-1"></a>Mitigação 1
 
-1.  Se o agente do Azure estiver instalado e funcionando corretamente na VM, você poderá usar a opção "redefinir somente configuração" em **suporte + solução de problemas** > de**redefinição de senha** no menu da VM.
+1.  Se o agente do Azure estiver instalado e funcionando corretamente na VM, você poderá usar a opção "redefinir somente configuração" em **suporte + solução de problemas**de  >  **redefinição de senha** no menu da VM.
 
 2.  Executando a opção de recuperação faz o seguinte:
 
@@ -138,7 +138,7 @@ Conecte-se ao [ Console serial e abra uma instância do PowerShell ](serial-cons
 
 2.  Inicie uma conexão de área de trabalho remota para a VM de recuperação.
 
-3.  Verifique se o disco está sinalizado como **Online** no console de Gerenciamento de Disco. Anote a letra da unidade atribuída ao disco do sistema operacional anexado.
+3.  Verifique se o disco está sinalizado como **online** no console de gerenciamento de disco. Anote a letra da unidade atribuída ao disco do sistema operacional anexado.
 
 #### <a name="mitigation-1"></a>Mitigação 1
 

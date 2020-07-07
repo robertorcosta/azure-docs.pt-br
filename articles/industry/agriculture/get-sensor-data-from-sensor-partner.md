@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 113ab07af8ada16c0779da510c5f5b1f1f5a290b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80398227"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Obter dados de sensor de parceiros de sensor
@@ -33,7 +33,7 @@ Depois de iniciar o streaming de dados do sensor, você pode começar o processo
 
  - Ponto de extremidade de API
  - ID do locatário
- - ID do cliente
+ - ID do Cliente
  - Segredo do cliente
  - Cadeia de conexão do EventHub
 
@@ -46,7 +46,7 @@ Siga as etapas abaixo para gerar as informações acima:
 
 2. **Se você estiver no FarmBeats versão 1.2.7 ou posterior, pule as etapas a, b e c e vá para a etapa 3.** Você pode verificar a versão do FarmBeats selecionando o ícone de **configurações** no canto superior direito da interface do usuário do FarmBeats.
 
-      a.  Vá para **Azure Active Directory** > **registros de aplicativo**
+      a.  Vá para **Azure Active Directory**  >  **registros de aplicativo**
 
       b. Selecione o **registro do aplicativo** que foi criado como parte de sua implantação do FarmBeats. Ele terá o mesmo nome que o FarmBeats datahub.
 
@@ -74,7 +74,7 @@ Siga as etapas abaixo para gerar as informações acima:
 
     ```
 
-7. Execute o seguinte script. O script solicita a ID do locatário, que pode ser obtida na página de**visão geral** **Azure Active Directory** > .
+7. Execute o seguinte script. O script solicita a ID do locatário, que pode ser obtida na **Azure Active Directory**  >  página de**visão geral** Azure Active Directory.
 
     ```azurepowershell-interactive 
 
@@ -89,7 +89,7 @@ Siga as etapas abaixo para gerar as informações acima:
 Agora você tem as seguintes informações geradas na seção anterior.
  - Ponto de extremidade de API
  - Cadeia de conexão do EventHub
- - ID do cliente
+ - ID do Cliente
  - Segredo do cliente
  - ID do locatário
 

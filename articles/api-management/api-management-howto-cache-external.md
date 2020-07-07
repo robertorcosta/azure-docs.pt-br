@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/26/2020
 ms.author: apimpm
 ms.openlocfilehash: f8ca0caedd438c4ce707a044bc7fa7dd035e8983
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82203226"
 ---
 # <a name="use-an-external-redis-compatible-cache-in-azure-api-management"></a>Usar um cache externo compatível com Redis no gerenciamento de API do Azure
@@ -74,7 +74,7 @@ Siga as etapas abaixo para adicionar um Cache do Azure para Redis externo no Ger
 3. Clique no botão **+ Adicionar**.
 4. Escolha seu cache no campo suspenso **Instância de cache**.
 5. Selecione **padrão** ou especifique a região desejada no campo suspenso **usar de** .
-6. Clique em **Salvar**.
+6. Clique em **Save** (Salvar).
 
 ### <a name="add-an-azure-cache-for-redis-hosted-outside-of-the-current-azure-subscription-or-azure-in-general"></a>Adicionar um Cache do Azure para Redis hospedado fora da assinatura atual do Azure ou do Azure em geral
 
@@ -84,7 +84,7 @@ Siga as etapas abaixo para adicionar um Cache do Azure para Redis externo no Ger
 4. Escolha **Personalizar** no campo suspenso **Instância de cache**.
 5. Selecione **padrão** ou especifique a região desejada no campo suspenso **usar de** .
 6. Forneça a cadeia de conexão do Cache do Azure para Redis no campo **Cadeia de conexão**.
-7. Clique em **Salvar**.
+7. Clique em **Save** (Salvar).
 
 ### <a name="add-a-redis-cache-to-a-self-hosted-gateway"></a>Adicionar um cache Redis a um gateway auto-hospedado
 
@@ -94,7 +94,7 @@ Siga as etapas abaixo para adicionar um Cache do Azure para Redis externo no Ger
 4. Escolha **Personalizar** no campo suspenso **Instância de cache**.
 5. Especifique o local do gateway de hospedagem interna desejado ou o **padrão** no campo de lista suspensa **usar de** .
 6. Forneça a cadeia de conexão do cache Redis no campo **cadeia de conexão**.
-7. Clique em **Salvar**.
+7. Clique em **Save** (Salvar).
 
 ## <a name="use-the-external-cache"></a>Usar o cache externo
 

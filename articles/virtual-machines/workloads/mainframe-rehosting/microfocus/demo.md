@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: db9d6bab2f383102434512aa63d7566cff1f579b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80411069"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Configurar o micro Focus CICS BankDemo para o micro Focus Enterprise Developer 4,0 no Azure
@@ -78,7 +78,7 @@ Depois de instalar o Enterprise Developer 4,0 na VM, você deve configurar a ins
 
 8. Quando você tiver selecionado todas as opções, clique em **Avançar** para instalar.
 
-9. Após os recursos do Windows, vá até **sistema \> do painel de \> controle e ferramentas administrativas de segurança**e selecione **Serviços**. Role para baixo e verifique se os seguintes serviços estão em execução e definidos como **automáticos**:
+9. Após os recursos do Windows, vá até **sistema do painel \> de controle e \> Ferramentas administrativas de segurança**e selecione **Serviços**. Role para baixo e verifique se os seguintes serviços estão em execução e definidos como **automáticos**:
 
     - **NetTcpPortSharing**
     - **Adaptador ouvinte do Net.Pipe**
@@ -98,7 +98,7 @@ Alguns processos do servidor corporativo precisam ser capazes de entrar SQL Serv
 
 2. À esquerda, expanda a pasta **segurança** e selecione **logons**.
 
-3. Selecione **sistema de\\Autoridade NT** e selecione **Propriedades**.
+3. Selecione ** \\ sistema de Autoridade NT** e selecione **Propriedades**.
 
 4. Selecione **funções de servidor** e verifique **sysadmin**.
 
@@ -106,7 +106,7 @@ Alguns processos do servidor corporativo precisam ser capazes de entrar SQL Serv
 
 ## <a name="create-the-bankdemo-database-and-all-its-objects"></a>Criar o banco de dados BankDemo e todos os seus objetos
 
-1. Abra **o Windows Explorer** e navegue **até C\\:\\usuários\\Public\\Documents\\micro Focus\\Enterprise\\Developer Samples mainframe\\CICS\\dotnet\\BankDemo\\SQL**.
+1. Abra o **Windows Explorer** e navegue até **C: \\ usuários \\ Public \\ Documents \\ micro Focus \\ Enterprise Developer \\ Samples \\ mainframe \\ CICS \\ dotnet \\ BankDemo \\ SQL**.
 
 2. Copie o conteúdo do arquivo **BankDemoCreateAll. SQL** para a área de transferência.
 
@@ -132,7 +132,7 @@ A consulta deve ser executada sem erros. Quando estiver concluído, você terá 
 
 1. Abra o Visual Studio e entre.
 
-2. Na opção de menu **arquivo** , selecione **projeto/solução aberta**, navegue até **C:\\usuários\\públicos\\documentos\\micro foco\\\\Enterprise Developer\\exemplos\\de\\mainframe\\CICS dotnet BankDemo**e selecione o arquivo **sln** .
+2. Na opção de menu **arquivo** , selecione **projeto/solução aberta**, navegue até **C: \\ usuários \\ públicos \\ documentos \\ micro foco \\ Enterprise Developer \\ exemplos de \\ mainframe \\ CICS \\ dotnet \\ BankDemo**e selecione o arquivo **sln** .
 
 3. Reserve algum tempo para examinar os objetos. Os programas COBOL são mostrados em Gerenciador de Soluções com a extensão CBL, juntamente com CopyBooks (CPY) e JCL.
 
@@ -154,7 +154,7 @@ A consulta deve ser executada sem erros. Quando estiver concluído, você terá 
 
 1. Abra um prompt de comando do desenvolvedor empresarial (64 bits) como administrador.
 
-2. Navegue até o **% Public%\\\\Documents micro\\Focus Enterprise\\Developer Samples\\mainframe\\CICS\\dotnet\\BankDemo**.
+2. Navegue até o **% Public% \\ Documents \\ micro Focus \\ Enterprise Developer \\ Samples \\ mainframe \\ CICS \\ dotnet \\ BankDemo**.
 
 3. No prompt de comando, execute **bankdemodbdeploy** e inclua o parâmetro do banco de dados no qual implantar, por exemplo:
 
@@ -163,7 +163,7 @@ A consulta deve ser executada sem erros. Quando estiver concluído, você terá 
     ```
 
 > [!NOTE]
-> Certifique-se de usar uma barra (/) não uma barra invertida\\(). Esse script é executado por um tempo.
+> Certifique-se de usar uma barra (/) não uma barra invertida ( \\ ). Esse script é executado por um tempo.
 
 ![Administração: janela do Prompt de Comando do Desenvolvedor empresarial](media/06-demo-cmd.png)
 
@@ -171,7 +171,7 @@ A consulta deve ser executada sem erros. Quando estiver concluído, você terá 
 
 1. Abra o **servidor Enterprise para** a interface do usuário de administração do .net.
 
-2. Para iniciar o snap-in do MMC, no menu **Iniciar** do Windows, escolha **micro Focus Enterprise \> Developer Configuration \> Enterprise Server para .net admin**. (Para o Windows Server, escolha **micro Focus Enterprise \> Developer Enterprise Server para .net admin**).
+2. Para iniciar o snap-in do MMC, no menu **Iniciar** do Windows, escolha **micro Focus Enterprise Developer \> Configuration \> Enterprise Server para .net admin**. (Para o Windows Server, escolha **micro Focus Enterprise Developer \> Enterprise Server para .net admin**).
 
 3. Expanda o contêiner **regiões** no painel esquerdo e clique com o botão direito do mouse em **CICS**.
 
@@ -181,7 +181,7 @@ A consulta deve ser executada sem erros. Quando estiver concluído, você terá 
 
      ![Caixa de diálogo Definir região](media/07-demo-cics.png)
 
-6. Para selecionar o arquivo de definição de região para o banco de dados entre regiões, localize **região\_bankdemo\_DB. config** em **C\\:\\\\usuários\\Public\\Documents\\micro\\Focus\\Enterprise\\Developer Samples mainframe CICS dotnet\\bankdemo**.
+6. Para selecionar o arquivo de definição de região para o banco de dados entre regiões, localize **região \_ bankdemo \_db.config** em **C: \\ usuários \\ público \\ documentos \\ micro Focus \\ Enterprise Developer \\ Samples \\ mainframe \\ CICS \\ dotnet \\ bankdemo**.
 
      ![Definir região-nome da região: BANKDEMO](media/08-demo-cics.png)
 
@@ -195,13 +195,13 @@ A consulta deve ser executada sem erros. Quando estiver concluído, você terá 
 
 3. Na caixa suspensa, selecione **instância do serviço de banco de dados**. Será o computador local SQLExpress.
 
-4. Selecione a instância sob o contêiner de **definições de recursos XA\\(MachineName SQLExpress)** e clique em **Adicionar**.
+4. Selecione a instância sob o contêiner de **definições de recursos XA (MachineName \\ SQLExpress)** e clique em **Adicionar**.
 
 5. Selecione **definição de recurso xa de banco de dados** e digite **BANKDEMO** para o **nome** e a **região**.
 
      ![Tela de definição de recurso XA do novo banco de dados](media/09-demo-xa.png)
 
-6. Clique nas reticências (**...**) para abrir o assistente de cadeia de conexão. Para **nome do servidor**, digite **(local\\) SQLExpress**. Para **logon**, selecione **autenticação do Windows**. Para nome do banco de dados, digite **BANKDEMO**
+6. Clique nas reticências (**...**) para abrir o assistente de cadeia de conexão. Para **nome do servidor**, digite **(local) \\ SQLExpress**. Para **logon**, selecione **autenticação do Windows**. Para nome do banco de dados, digite **BANKDEMO**
 
      ![Tela Editar Cadeia de conexão](media/10-demo-string.png)
 
@@ -230,7 +230,7 @@ Crie um ouvinte para as sessões TN3270 que acessam o aplicativo BankDemo.
 
 1. No painel esquerdo, expanda **Configuration Editors** e selecione **Listener**.
 
-2. Clique no ícone **Abrir arquivo** e selecione o arquivo **seelistener. exe. config** . Esse arquivo será editado e carregado toda vez que o Enterprise Server for iniciado.
+2. Clique no ícone **Abrir arquivo** e selecione o arquivo de **seelistener.exe.config** . Esse arquivo será editado e carregado toda vez que o Enterprise Server for iniciado.
 
 3. Observe as duas regiões definidas anteriormente (ESDEMO e JCLDEMO).
 
@@ -265,8 +265,8 @@ A coisa final que você precisa fazer é configurar uma sessão 3270 usando rumb
 
 6. Para ID de usuário, digite **B0001** e para a senha, digite qualquer coisa. A primeira tela BANK20 é aberta.
 
-![Vídeo de tela](media/14-demo.png)
-![de boas-vindas do mainframe exibição-rumba-tela de demonstração do subsistema](media/15-demo.png)
+![Vídeo de tela de boas-vindas do mainframe exibição ](media/14-demo.png)
+ ![ -rumba-tela de demonstração do subsistema](media/15-demo.png)
 
 Parabéns! Agora você está executando um aplicativo CICS no Azure usando o micro Focus Enterprise Server.
 
@@ -274,6 +274,6 @@ Parabéns! Agora você está executando um aplicativo CICS no Azure usando o mic
 
 - [Executar o servidor corporativo em contêineres do Docker no Azure](run-enterprise-server-container.md)
 - [Migração de mainframe-Portal](https://blogs.msdn.microsoft.com/azurecat/2018/11/16/mainframe-migration-to-azure-portal/)
-- [Máquinas Virtuais](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
+- [Máquinas virtuais](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
 - [Solução de problemas](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/)
 - [Desmistificando a migração do mainframe para o Azure](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/en-us/)

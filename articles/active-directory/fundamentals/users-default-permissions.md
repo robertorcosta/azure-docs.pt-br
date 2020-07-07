@@ -14,10 +14,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 227230f2d6f46fae27e2cec69d99390f5054c7db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80366250"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Quais são as permissões de usuário padrão no Azure Active Directory?
@@ -75,14 +75,14 @@ Os usuários podem executar as seguintes ações em registros de aplicativo de p
 
 | **Ações** | **Descrição** |
 | --- | --- |
-| Microsoft. Directory/Applications/Audience/Update | Atualize a propriedade applications.audience no Azure Active Directory. |
-| Microsoft. Directory/aplicativos/autenticação/atualização | Atualize a propriedade applications.authentication no Azure Active Directory. |
-| Microsoft. Directory/Applications/Basic/Update | Atualize as propriedades básicas dos aplicativos no Active Directory do Azure. |
-| Microsoft. Directory/aplicativos/credenciais/atualização | Atualize a propriedade applications.credentials no Azure Active Directory. |
-| Microsoft. Directory/Applications/Delete | Excluir aplicativos no Active Directory do Azure. |
-| Microsoft. Directory/Applications/Owners/Update | Atualize a propriedade applications.owners no Azure Active Directory. |
-| Microsoft. Directory/Applications/Permissions/Update | Atualize a propriedade applications.permissions no Azure Active Directory. |
-| Microsoft. Directory/Applications/Policies/Update | Atualize a propriedade applications.policies no Azure Active Directory. |
+| microsoft.directory/applications/audience/update | Atualize a propriedade applications.audience no Azure Active Directory. |
+| microsoft.directory/applications/authentication/update | Atualize a propriedade applications.authentication no Azure Active Directory. |
+| microsoft.directory/applications/basic/update | Atualize as propriedades básicas dos aplicativos no Active Directory do Azure. |
+| microsoft.directory/applications/credentials/update | Atualize a propriedade applications.credentials no Azure Active Directory. |
+| microsoft.directory/applications/delete | Excluir aplicativos no Active Directory do Azure. |
+| microsoft.directory/applications/owners/update | Atualize a propriedade applications.owners no Azure Active Directory. |
+| microsoft.directory/applications/permissions/update | Atualize a propriedade applications.permissions no Azure Active Directory. |
+| microsoft.directory/applications/policies/update | Atualize a propriedade applications.policies no Azure Active Directory. |
 | Microsoft. Directory/Applications/Restore | Restaure aplicativos no Azure Active Directory. |
 
 #### <a name="owned-enterprise-applications"></a>Aplicativos empresariais de propriedade
@@ -90,43 +90,43 @@ Os usuários podem executar as seguintes ações em aplicativos corporativos de 
 
 | **Ações** | **Descrição** |
 | --- | --- |
-| Microsoft. Directory/auditLogs/myproperties/Read | Ler todas as propriedades (incluindo as propriedades privilegiadas) em auditLogs no Azure Active Directory. |
-| Microsoft. Directory/Policies/Basic/Update | Atualize as propriedades básicas em políticas no Azure Active Directory. |
-| Microsoft. Directory/Policies/Delete | Exclua policies em Azure Active DirectoryExclua políticas no Azure Active Directory. |
-| Microsoft. Directory/políticas/proprietários/atualização | Atualize a propriedade Owners no Azure Active Directory. |
-| Microsoft. Directory/servicePrincipalName/appRoleAssignedTo/Update | Atualize a propriedade Approleassignedto no Azure Active Directory. |
-| Microsoft. Directory/servicePrincipalName/appRoleAssignments/Update | Atualize a propriedade approleassignments no Azure Active Directory. |
-| Microsoft. Directory/servicePrincipalName/público/atualização | Atualizar a propriedade servicePrincipals.audience no Azure Active Directory. |
-| Microsoft. Directory/servicePrincipalName/autenticação/atualização | Atualizar a propriedade servicePrincipals.authentication no Azure Active Directory. |
-| Microsoft. Directory/servicePrincipalName/Basic/Update | Atualize as propriedades básicas em servicePrincipals no Active Directory do Azure. |
-| Microsoft. Directory/servicePrincipalName/Credentials/Update | Atualizar a propriedade servicePrincipals.credentials no Azure Active Directory. |
-| Microsoft. Directory/servicePrincipalName/Delete | Excluir servicePrincipals em Azure Active Directory. |
-| Microsoft. Directory/servicePrincipalName/Owners/Update | Atualizar servicePrincipals.owners property em Azure Active Directory. |
-| Microsoft. Directory/servicePrincipalName/Permissions/Update | Atualizar a propriedade servicePrincipals.permissions no Azure Active Directory. |
-| Microsoft. Directory/servicePrincipalName/Policies/Update | Atualizar servicePrincipals.policies property in Azure Active Directory. |
-| Microsoft. Directory/signInReports/myproperties/Read | Ler todas as propriedades (incluindo as propriedades privilegiadas) em signInReports no Azure Active Directory. |
+| microsoft.directory/auditLogs/allProperties/read | Ler todas as propriedades (incluindo as propriedades privilegiadas) em auditLogs no Azure Active Directory. |
+| microsoft.directory/policies/basic/update | Atualize as propriedades básicas em políticas no Azure Active Directory. |
+| microsoft.directory/policies/delete | Exclua policies em Azure Active DirectoryExclua políticas no Azure Active Directory. |
+| microsoft.directory/policies/owners/update | Atualize a propriedade Owners no Azure Active Directory. |
+| microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Atualize a propriedade Approleassignedto no Azure Active Directory. |
+| microsoft.directory/servicePrincipals/appRoleAssignments/update | Atualize a propriedade approleassignments no Azure Active Directory. |
+| microsoft.directory/servicePrincipals/audience/update | Atualizar a propriedade servicePrincipals.audience no Azure Active Directory. |
+| microsoft.directory/servicePrincipals/authentication/update | Atualizar a propriedade servicePrincipals.authentication no Azure Active Directory. |
+| microsoft.directory/servicePrincipals/basic/update | Atualize as propriedades básicas em servicePrincipals no Active Directory do Azure. |
+| microsoft.directory/servicePrincipals/credentials/update | Atualizar a propriedade servicePrincipals.credentials no Azure Active Directory. |
+| microsoft.directory/servicePrincipals/delete | Excluir servicePrincipals em Azure Active Directory. |
+| microsoft.directory/servicePrincipals/owners/update | Atualizar servicePrincipals.owners property em Azure Active Directory. |
+| microsoft.directory/servicePrincipals/permissions/update | Atualizar a propriedade servicePrincipals.permissions no Azure Active Directory. |
+| microsoft.directory/servicePrincipals/policies/update | Atualizar servicePrincipals.policies property in Azure Active Directory. |
+| microsoft.directory/signInReports/allProperties/read | Ler todas as propriedades (incluindo as propriedades privilegiadas) em signInReports no Azure Active Directory. |
 
 #### <a name="owned-devices"></a>Dispositivos de propriedade
 Os usuários podem executar as seguintes ações em dispositivos de propriedade.
 
 | **Ações** | **Descrição** |
 | --- | --- |
-| Microsoft. Directory/Devices/bitLockerRecoveryKeys/Read | Ler a propriedade devices.bitLockerRecoveryKeys no Azure Active Directory. |
-| Microsoft. Directory/Devices/Disable | Desabilite dispositivos no Azure Active Directory. |
+| microsoft.directory/devices/bitLockerRecoveryKeys/read | Ler a propriedade devices.bitLockerRecoveryKeys no Azure Active Directory. |
+| microsoft.directory/devices/disable | Desabilite dispositivos no Azure Active Directory. |
 
 #### <a name="owned-groups"></a>Grupos de propriedade
 Os usuários podem executar as seguintes ações em grupos próprios.
 
 | **Ações** | **Descrição** |
 | --- | --- |
-| Microsoft. Directory/groups/appRoleAssignments/Update | Atualize a propriedade approleassignments no Azure Active Directory. |
-| Microsoft. Directory/groups/Basic/Update | Atualize as propriedades básicas nos grupos do Active Directory do Azure. |
-| Microsoft. Directory/groups/Delete | Exclua grupos no Azure Active Directory. |
+| microsoft.directory/groups/appRoleAssignments/update | Atualize a propriedade approleassignments no Azure Active Directory. |
+| microsoft.directory/groups/basic/update | Atualize as propriedades básicas nos grupos do Active Directory do Azure. |
+| microsoft.directory/groups/delete | Exclua grupos no Azure Active Directory. |
 | Microsoft. Directory/groups/dynamicMembershipRule/Update | Atualize a propriedade dynamicmembershiprule no Azure Active Directory. |
-| Microsoft. Directory/groups/Members/Update | Atualize a propriedade Groups no Azure Active Directory. |
-| Microsoft. Directory/groups/Owners/Update | Atualize a propriedade Owners no Azure Active Directory. |
-| Microsoft. Directory/groups/Restore | Restaure grupos no Azure Active Directory. |
-| Microsoft. Directory/groups/Settings/Update | Atualize a propriedade Groups no Azure Active Directory. |
+| microsoft.directory/groups/members/update | Atualize a propriedade Groups no Azure Active Directory. |
+| microsoft.directory/groups/owners/update | Atualize a propriedade Owners no Azure Active Directory. |
+| microsoft.directory/groups/restore | Restaure grupos no Azure Active Directory. |
+| microsoft.directory/groups/settings/update | Atualize a propriedade Groups no Azure Active Directory. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

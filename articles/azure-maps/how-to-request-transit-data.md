@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: f60b66790342874620971c8f15a1e8ace9a3c7cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335466"
 ---
 # <a name="request-public-transit-data-using-the-azure-maps-mobility-service"></a>Solicitar dados de trânsito públicos usando o serviço de mobilidade do Azure Maps 
@@ -38,17 +38,17 @@ Este artigo usa o [aplicativo Postman](https://www.getpostman.com/apps) para cri
 
 ## <a name="get-a-metro-area-id"></a>Obter uma ID de área de metrô
 
-Para solicitar informações de trânsito para uma área metropolitana específica, você precisará `metroId` dessa área. A [API obter área de metrô](https://aka.ms/AzureMapsMobilityMetro) permite que você solicite áreas de metrô, nas quais o serviço de mobilidade do Azure Maps está disponível. A resposta inclui detalhes como `metroId`, `metroName`e a representação da geometria da área de metrô no formato geojson.
+Para solicitar informações de trânsito para uma área metropolitana específica, você precisará `metroId` dessa área. A [API obter área de metrô](https://aka.ms/AzureMapsMobilityMetro) permite que você solicite áreas de metrô, nas quais o serviço de mobilidade do Azure Maps está disponível. A resposta inclui detalhes como `metroId` , `metroName` e a representação da geometria da área de metrô no formato geojson.
 
 Vamos fazer uma solicitação para obter a área de metrô para a ID da área do metro de Seattle-Tacoma. Para solicitar a ID de uma área de metrô, conclua as seguintes etapas:
 
-1. Abra o aplicativo do postmaster e vamos criar uma coleção para armazenar as solicitações. Próximo à parte superior do aplicativo do postmaster, selecione **novo**. Na janela **criar nova** , selecione **coleção**.  Nomeie a coleção e selecione o botão **criar** .
+1. Abra o aplicativo do postmaster e vamos criar uma coleção para armazenar as solicitações. Próximo à parte superior do aplicativo Postman, selecione **Novo**. Na janela **Criar**, selecione **Coleção**.  Nomeie a coleção e selecione o botão **Criar**.
 
-2. Para criar a solicitação, selecione **novo** novamente. Na janela **criar nova** , selecione **solicitação**. Insira um **nome de solicitação** para a solicitação. Selecione a coleção que você criou na etapa anterior como o local no qual salvar a solicitação. Em seguida, selecione **salvar**.
+2. Para criar a solicitação, selecione **Novo** outra vez. Na janela **Criar**, selecione **Solicitação**. Insira um **Nome de solicitação** para a solicitação. Selecione a coleção que você criou na etapa anterior como o local no qual salvar a solicitação. Em seguida, selecione **Salvar**.
     
     ![Criar uma solicitação no postmaster](./media/how-to-request-transit-data/postman-new.png)
 
-3. Selecione o método http **Get** na guia Construtor e insira a URL a seguir para criar uma solicitação get. Substitua `{subscription-key}`, por sua chave primária do Azure Maps.
+3. Selecione o método http **Get** na guia Construtor e insira a URL a seguir para criar uma solicitação get. Substitua `{subscription-key}` , por sua chave primária do Azure Maps.
 
     ```HTTP
     https://atlas.microsoft.com/mobility/metroArea/id/json?subscription-key={subscription-key}&api-version=1.0&query=47.63096,-122.126
@@ -111,7 +111,7 @@ Vamos fazer uma solicitação para obter a área de metrô para a ID da área do
     }
     ```
 
-5. Copie o `metroId`, precisaremos usá-lo mais tarde.
+5. Copie o `metroId` , precisaremos usá-lo mais tarde.
 
 ## <a name="request-nearby-transit-stops"></a>Solicitar paradas de trânsito próximo
 
@@ -119,7 +119,7 @@ O Azure Maps [obter serviço de trânsito próximo](https://aka.ms/AzureMapsMobi
 
 Para fazer uma solicitação para [obter o trânsito próximo](https://aka.ms/AzureMapsMobilityNearbyTransit), siga as etapas abaixo:
 
-1. No postmaster, clique em **nova solicitação** | **obter solicitação** e nomeie-a **para paradas próximas**.
+1. No postmaster, clique em **nova solicitação**  |  **obter solicitação** e nomeie-a **para paradas próximas**.
 
 2. Na guia Construtor, selecione o método http **Get** , insira a URL de solicitação a seguir para seu ponto de extremidade de API e clique em **Enviar**.
 
@@ -214,7 +214,7 @@ Para fazer uma solicitação para [obter o trânsito próximo](https://aka.ms/Az
     }   
     ```
 
-Se você observar a estrutura de resposta com cuidado, verá que ela contém parâmetros para cada objeto de trânsito. Cada objeto de trânsito tem parâmetros como `id`, `type`, `stopName`, `mainTransitType`, `mainAgencyName`e a posição, em coordenadas, do objeto.
+Se você observar a estrutura de resposta com cuidado, verá que ela contém parâmetros para cada objeto de trânsito. Cada objeto de trânsito tem parâmetros como `id` , `type` , `stopName` , `mainTransitType` , `mainAgencyName` e a posição, em coordenadas, do objeto.
 
 Para fins de aprendizado, usaremos um `id` de um barramento paradas como origem, para nossa rota na próxima seção.  
 
@@ -229,7 +229,7 @@ Para obter as coordenadas de localização do espaço de agulha da torre, vamos 
 
 Para fazer uma solicitação para o serviço de pesquisa difusa, siga as etapas abaixo:
 
-1. No postmaster, clique em **nova solicitação** | **obter solicitação** e nomeie-a como **obter coordenadas de localização**.
+1. No postmaster, clique em **nova solicitação**  |  **obter solicitação** e nomeie-a como **obter coordenadas de localização**.
 
 2.  Na guia Construtor, selecione o método http **Get** , insira a URL de solicitação a seguir e clique em **Enviar**.
  
@@ -337,11 +337,11 @@ Para fazer uma solicitação para o serviço de pesquisa difusa, siga as etapas 
 
 Para fazer uma solicitação de rota, conclua as etapas abaixo:
 
-1. No postmaster, clique em **nova solicitação** | **obter solicitação** e nomeie-a **obter informações de rota**.
+1. No postmaster, clique em **nova solicitação**  |  **obter solicitação** e nomeie-a **obter informações de rota**.
 
 2. Na guia Construtor, selecione o método http **Get** , insira a URL de solicitação a seguir para seu ponto de extremidade de API e clique em **Enviar**.
 
-    Solicitaremos rotas de trânsito públicas para um barramento especificando os `modeType` parâmetros e `transitType` . A URL da solicitação contém os locais recuperados nas seções anteriores. Para o `originType`, agora temos um **StopId**. E, para `destionationType`o, temos a **posição**.
+    Solicitaremos rotas de trânsito públicas para um barramento especificando os `modeType` parâmetros e `transitType` . A URL da solicitação contém os locais recuperados nas seções anteriores. Para o `originType` , agora temos um **StopId**. E, para o `destionationType` , temos a **posição**.
 
     Consulte a [lista de parâmetros de URI](https://aka.ms/AzureMapsMobilityTransitRoute#uri-parameters) que você pode usar em sua solicitação para a [API obter rotas de trânsito](https://aka.ms/AzureMapsMobilityTransitRoute). 
   
@@ -500,7 +500,7 @@ Para fazer uma solicitação de rota, conclua as etapas abaixo:
 
 O serviço de [itinerário de obtenção de trânsito](https://aka.ms/AzureMapsMobilityTransitItinerary) do Azure Maps permite solicitar dados para uma rota específica usando a **ID de itinerário** da rota retornada pelo serviço de [API obter rotas de trânsito](https://aka.ms/AzureMapsMobilityTransitRoute) . Para fazer uma solicitação, conclua as etapas abaixo:
 
-1. No postmaster, clique em **nova solicitação** | **obter solicitação** e nomeie-a como **obter informações sobre o trânsito**.
+1. No postmaster, clique em **nova solicitação**  |  **obter solicitação** e nomeie-a como **obter informações sobre o trânsito**.
 
 2. Na guia Construtor, selecione o método http **Get** . Insira a URL de solicitação a seguir para seu ponto de extremidade de API e clique em **Enviar**.
 

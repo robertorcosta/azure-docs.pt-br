@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: rohogue
 ms.openlocfilehash: 292844f611008b6dafbed4e46cad07c45dbecc54
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72255988"
 ---
 # <a name="open-a-support-ticket-for-the-azure-fxt-edge-filer"></a>Abrir um tíquete de suporte para o filer do Azure FXT Edge
@@ -26,7 +26,7 @@ Use o portal do Azure para abrir um tíquete de suporte com atendimento ao clien
    ![Captura de tela do formulário de solicitação de suporte em branco](media/fxt-support-blank.png)
 
 1. Preencha o formulário de solicitação.  
-    1. Na guia **noções básicas** , escolha o **tipo** ``Technical``de problema. 
+    1. Na guia **noções básicas** , escolha o **tipo de problema** ``Technical`` . 
     1. Selecione sua assinatura. 
     1. Em **serviço**, selecione **Azure FXT Edge arquivor**. Talvez seja necessário clicar no controle de filtro **todos os serviços** para localizá-lo. 
     1. Insira um **Resumo** e escolha o **tipo de problema**. 

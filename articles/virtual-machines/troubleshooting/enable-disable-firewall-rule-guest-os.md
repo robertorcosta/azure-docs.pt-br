@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: e93dbd085ce99b8d555d6b9bb04e7eb6f60de0ee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80422886"
 ---
 # <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Habilitar ou desabilitar uma regra de firewall em um sistema operacional convidado da VM do Azure
@@ -51,7 +51,7 @@ A maneira como você configura as regras do firewall depende do nível de acesso
 
 2.  Carregue esse script no portal do Azure usando o recurso [extensão de Script personalizado](../extensions/custom-script-windows.md). 
 
-#### <a name="mitigation-2-remote-powershell"></a>Mitigação 2: PowerShell Remoto
+#### <a name="mitigation-2-remote-powershell"></a>Mitigação 2: PowerShell remoto
 
 Se a VM estiver on-line e puder ser acessada em outra VM na mesma rede virtual, você poderá fazer as mitigações a seguir usando a outra VM.
 
@@ -73,7 +73,7 @@ Se a VM estiver on-line e puder ser acessada em outra VM na mesma rede virtual, 
         exit
         ```
 
-#### <a name="mitigation-3-pstools-commands"></a>Mitigação 3: comandos do PSTools
+#### <a name="mitigation-3-pstools-commands"></a>Mitigação 3: Comandos do PSTools
 
 Se a VM estiver on-line e puder ser acessada em outra VM na mesma rede virtual, você poderá fazer as mitigações a seguir usando a outra VM.
 
@@ -93,11 +93,11 @@ Se a VM estiver on-line e puder ser acessada em outra VM na mesma rede virtual, 
         netsh advfirewall firewall set rule dir=in name="Remote Desktop - User Mode (TCP-In)" new enable=no
         ```
 
-#### <a name="mitigation-4-remote-registry"></a>Mitigation 4: Registro remoto
+#### <a name="mitigation-4-remote-registry"></a>Mitigação 4: Registro remoto
 
 Se a VM estiver on-line e puder ser acessada em outra VM na mesma rede virtual, você poderá usar [Registro Remoto](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry) na outra VM.
 
-1.  Na VM de solução de problemas, inicie o editor do registro (regedit. exe) e selecione **arquivo** > **conectar registro de rede**.
+1.  Na VM de solução de problemas, inicie o editor do registro (regedit.exe) e selecione **arquivo**  >  **conectar registro de rede**.
 
 2.  Abra a ramificação \System do *computador de destino*e especifique os seguintes valores:
 
@@ -107,7 +107,7 @@ Se a VM estiver on-line e puder ser acessada em outra VM na mesma rede virtual, 
     
         Em seguida, altere **Ativo = FALSO** para **Ativo = VERDADEIRO** na sequência:
 
-        **v 2.22 | Ação = permitir | Ativo = verdadeiro | Dir = in | Protocolo = 6 | Perfil = domínio | Perfil = privado | Perfil = público | LPort = 3389 | Aplicativo =%SystemRoot%\system32\svchost.exe | SVC = TermService | Nome =\@FirewallAPI. dll,-28775 | DESC =\@FirewallAPI. dll,-28756 | EmbedCtxt =\@FirewallAPI. dll,-28752 |**
+        **v 2.22 | Ação = permitir | Ativo = verdadeiro | Dir = in | Protocolo = 6 | Perfil = domínio | Perfil = privado | Perfil = público | LPort = 3389 | Aplicativo =% SystemRoot% \system32\svchost.exe| SVC = TermService | Nome = \@FirewallAPI.dll,-28775 | DESC = \@FirewallAPI.dll,-28756 | EmbedCtxt = \@FirewallAPI.dll,-28752 |**
     
     * Para desabilitar uma regra, abra o seguinte valor do Registro:
     
@@ -115,7 +115,7 @@ Se a VM estiver on-line e puder ser acessada em outra VM na mesma rede virtual, 
 
         Em seguida, altere **Ativo = VERDADEIRO** para **Ativo = FALSO**:
         
-        **v 2.22 | Ação = permitir | Ativo = falso | Dir = in | Protocolo = 6 | Perfil = domínio | Perfil = privado | Perfil = público | LPort = 3389 | Aplicativo =%SystemRoot%\system32\svchost.exe | SVC = TermService | Nome =\@FirewallAPI. dll,-28775 | DESC =\@FirewallAPI. dll,-28756 | EmbedCtxt =\@FirewallAPI. dll,-28752 |**
+        **v 2.22 | Ação = permitir | Ativo = falso | Dir = in | Protocolo = 6 | Perfil = domínio | Perfil = privado | Perfil = público | LPort = 3389 | Aplicativo =% SystemRoot% \system32\svchost.exe| SVC = TermService | Nome = \@FirewallAPI.dll,-28775 | DESC = \@FirewallAPI.dll,-28756 | EmbedCtxt = \@FirewallAPI.dll,-28752 |**
 
 3.  Reinicie a VM para aplicar as alterações.
 
@@ -129,13 +129,13 @@ Antes de seguir estas etapas, tire um instantâneo do disco do sistema da VM afe
 
 2.  Inicie uma conexão de área de trabalho remota para a VM de recuperação.
 
-3.  Verifique se o disco está sinalizado como **Online** no console de Gerenciamento de Disco. Observe que a letra da unidade atribuída ao disco do sistema anexado.
+3.  Verifique se o disco está sinalizado como **online** no console de gerenciamento de disco. Observe que a letra da unidade atribuída ao disco do sistema anexado.
 
 4.  Antes de fazer qualquer alteração, crie uma cópia da pasta\windows\system32\config no caso de ser necessária uma reversão das alterações.
 
 5.  Na solução de problemas da VM, inicie o Editor do Registro (regedit.exe).
 
-6.  Realce a chave de **HKEY_LOCAL_MACHINE** e, em seguida, selecione **arquivo** > **Carregar Hive** no menu.
+6.  Realce a chave de **HKEY_LOCAL_MACHINE** e, em seguida, selecione **arquivo**  >  **Carregar Hive** no menu.
 
     ![Regedit](./media/enable-or-disable-firewall-rule-guest-os/load-registry-hive.png)
 
@@ -154,7 +154,7 @@ Antes de seguir estas etapas, tire um instantâneo do disco do sistema da VM afe
         
         Em seguida, altere **Active Directory = FALSO** à **Active = Verdadeiro**.
         
-        **v 2.22 | Ação = permitir | Ativo = verdadeiro | Dir = in | Protocolo = 6 | Perfil = domínio | Perfil = privado | Perfil = público | LPort = 3389 | Aplicativo =%SystemRoot%\system32\svchost.exe | SVC = TermService | Nome =\@FirewallAPI. dll,-28775 | DESC =\@FirewallAPI. dll,-28756 | EmbedCtxt =\@FirewallAPI. dll,-28752 |**
+        **v 2.22 | Ação = permitir | Ativo = verdadeiro | Dir = in | Protocolo = 6 | Perfil = domínio | Perfil = privado | Perfil = público | LPort = 3389 | Aplicativo =% SystemRoot% \system32\svchost.exe| SVC = TermService | Nome = \@FirewallAPI.dll,-28775 | DESC = \@FirewallAPI.dll,-28756 | EmbedCtxt = \@FirewallAPI.dll,-28752 |**
 
     3.  Para desabilitar uma regra, abra a seguinte chave do registro:
 
@@ -162,9 +162,9 @@ Antes de seguir estas etapas, tire um instantâneo do disco do sistema da VM afe
 
         Em seguida, altere **Active Directory = True** à **Active Directory = FALSE**.
         
-        **v 2.22 | Ação = permitir | Ativo = falso | Dir = in | Protocolo = 6 | Perfil = domínio | Perfil = privado | Perfil = público | LPort = 3389 | Aplicativo =%SystemRoot%\system32\svchost.exe | SVC = TermService | Nome =\@FirewallAPI. dll,-28775 | DESC =\@FirewallAPI. dll,-28756 | EmbedCtxt =\@FirewallAPI. dll,-28752 |**
+        **v 2.22 | Ação = permitir | Ativo = falso | Dir = in | Protocolo = 6 | Perfil = domínio | Perfil = privado | Perfil = público | LPort = 3389 | Aplicativo =% SystemRoot% \system32\svchost.exe| SVC = TermService | Nome = \@FirewallAPI.dll,-28775 | DESC = \@FirewallAPI.dll,-28756 | EmbedCtxt = \@FirewallAPI.dll,-28752 |**
 
-9.  Realce **BROKENSYSTEM**e, em seguida, selecione **arquivo** > **Descarregar Hive** no menu.
+9.  Realce **BROKENSYSTEM**e, em seguida, selecione **arquivo**  >  **Descarregar Hive** no menu.
 
 10. [Desanexe o disco do sistema e recrie a VM](troubleshoot-recovery-disks-portal-windows.md).
 

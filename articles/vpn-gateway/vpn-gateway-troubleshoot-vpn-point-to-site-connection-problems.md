@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: genli
 ms.openlocfilehash: 5a273ccad0d30ede3f0ed4ee532d61161074d304
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82188286"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Solução de problemas: problemas de conexão de ponto a site do Azure
@@ -44,7 +44,7 @@ Para resolver esse problema, siga estas etapas:
     | AzureClient.pfx  | Current User\Personal\Certificates |
     | AzureRoot. cer    | Local Computer\Trusted Root Certification Authorities|
 
-3. Acesse C:\Users\<UserName>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID> e instale manualmente o certificado (arquivo *.cer) no repositório do computador e do usuário.
+3. Vá para C:\Users \<UserName> \AppData\Roaming\Microsoft\Network\Connections\Cm \<GUID> , instale manualmente o certificado (arquivo *. cer) no repositório do usuário e do computador.
 
 Para saber mais sobre como instalar o certificado do cliente, confira [Gerar e exportar certificados para conexões ponto a site](vpn-gateway-certificates-point-to-site.md).
 
@@ -168,7 +168,7 @@ Extraia o pacote de configuração do cliente VPN e localize o arquivo .cer. Par
 1. Abra mmc.exe.
 2. Adicione o snap-in **Certificados**.
 3. Selecione a conta **Computador** para o computador local.
-4. Clique com botão direito do mouse no nó **Autoridades de Certificação Confiáveis**. Clique em **tudo-** > **importar**tarefa e navegue até o arquivo. cer extraído do pacote de configuração do cliente VPN.
+4. Clique com botão direito do mouse no nó **Autoridades de Certificação Confiáveis**. Clique em **tudo-**  >  **importar**tarefa e navegue até o arquivo. cer extraído do pacote de configuração do cliente VPN.
 5. Reinicie o computador. 
 6. Tente instalar o cliente VPN.
 
@@ -178,7 +178,7 @@ Extraia o pacote de configuração do cliente VPN e localize o arquivo .cer. Par
 
 Quando você tenta salvar as alterações do gateway de VPN no portal do Azure, recebe a seguinte mensagem de erro:
 
-**Falha ao salvar o &lt; *nome*&gt;do gateway de gateway de rede virtual. Os dados da &lt; *ID* &gt; do certificado de certificado são inválidos.**
+**Falha ao salvar o nome do gateway de gateway de rede virtual &lt; *gateway name* &gt; . Os dados da &lt; *ID do certificado* de certificado &gt; são inválidos.**
 
 ### <a name="cause"></a>Causa 
 
@@ -213,7 +213,7 @@ Verifique se os dados no certificado não contêm caracteres inválidos, como qu
 
 Quando você tenta salvar as alterações do gateway de VPN no portal do Azure, recebe a seguinte mensagem de erro: 
 
-**Falha ao salvar o &lt; *nome*&gt;do gateway de gateway de rede virtual. Nome do recurso *nome do certificado que você tentar carregar* &gt; é inválido. &lt;**
+**Falha ao salvar o nome do gateway de gateway de rede virtual &lt; *gateway name* &gt; . Nome do recurso &lt; *nome do certificado que você tentar carregar* &gt; é inválido**.
 
 ### <a name="cause"></a>Causa
 
@@ -272,7 +272,7 @@ Você remove a conexão VPN ponto a site e reinstala o cliente VPN. Nessa situa�
 
 ### <a name="solution"></a>Solução
 
-Para resolver o problema, exclua os arquivos de configuração do cliente VPN antigos **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<VirtualNetworkId>** e, em seguida, execute novamente o instalador do cliente VPN.
+Para resolver o problema, exclua os arquivos de configuração de cliente VPN antigos de **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections \<VirtualNetworkId> **e execute o instalador do cliente VPN novamente.
 
 ## <a name="point-to-site-vpn-client-cannot-resolve-the-fqdn-of-the-resources-in-the-local-domain"></a>O cliente VPN ponto a site não pode resolver o FQDN dos recursos no domínio local
 
@@ -339,7 +339,7 @@ Atualize o driver NIC:
 4. Se o Windows não localizar um novo driver, você poderá tentar procurar um no site do fabricante do dispositivo e seguir as instruções.
 5. Reinicie o computador e tente novamente a conexão.
 
-## <a name="vpn-client-error-dialing-vpn-connection-vpn-connection-name-status--vpn-platform-did-not-trigger-connection"></a>Erro de cliente VPN: conexão <VPN Connection Name>VPN Dial-up, status = a plataforma VPN não disparava a conexão
+## <a name="vpn-client-error-dialing-vpn-connection-vpn-connection-name-status--vpn-platform-did-not-trigger-connection"></a>Erro de cliente VPN: conexão VPN Dial-up <VPN Connection Name> , status = a plataforma VPN não disparava a conexão
 
 Você também pode ver o seguinte erro em Visualizador de Eventos de RasClient: "o usuário <User> discado uma conexão chamada <VPN Connection Name> que falhou. O código de erro retornado na falha é 1460. "
 
@@ -370,7 +370,7 @@ Esse problema pode ser causado pelas instalações anteriores do cliente VPN.
 
 ### <a name="solution"></a>Solução
 
-Exclua os arquivos de configuração do cliente VPN antigos **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<VirtualNetworkId>** e execute novamente o instalador do cliente VPN. 
+Exclua os arquivos de configuração de cliente VPN antigos de **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections \<VirtualNetworkId> ** e execute o instalador de cliente VPN novamente. 
 
 ## <a name="the-vpn-client-hibernates-or-sleep-after-some-time"></a>O cliente VPN hiberna ou suspende após algum tempo
 

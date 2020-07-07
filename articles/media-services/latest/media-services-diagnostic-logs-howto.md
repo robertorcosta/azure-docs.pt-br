@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
 ms.openlocfilehash: 4d4587c701a054828fc34785e2ae680fef47625d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80382912"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>Monitorar logs de diagnóstico dos serviços de mídia
@@ -55,7 +55,7 @@ Os dados de monitoramento de seu recurso agora estão fluindo para a conta de ar
 
 ## <a name="route-data-to-the-storage-account-using-the-azure-cli"></a>Rotear dados para a conta de armazenamento usando o CLI do Azure
 
-Para habilitar o armazenamento de logs de diagnóstico em uma conta de armazenamento, execute o `az monitor diagnostic-settings` seguinte comando de CLI do Azure:
+Para habilitar o armazenamento de logs de diagnóstico em uma conta de armazenamento, execute o seguinte `az monitor diagnostic-settings` comando de CLI do Azure:
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <diagnostic name> \
@@ -96,7 +96,7 @@ Talvez seja necessário aguardar até cinco minutos antes que o evento seja exib
 
  Agora você pode exibir o evento do JSON armazenado na conta de armazenamento.
 
-### <a name="examples-of-pt1hjson"></a>Exemplos de PT1H. JSON
+### <a name="examples-of-pt1hjson"></a>Exemplos de PT1H.jsem
 
 #### <a name="clear-key-delivery-log"></a>Limpar o log de distribuição de chaves
 
@@ -178,9 +178,9 @@ Talvez seja necessário aguardar até cinco minutos antes que o evento seja exib
 
 * O Widevine é um serviço fornecido pela Google Inc. e está sujeito aos termos de serviço e à política de privacidade da Google, Inc.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
-* [Métricas de Azure Monitor](../../azure-monitor/platform/data-platform.md)
+* [Métricas do Azure Monitor](../../azure-monitor/platform/data-platform.md)
 * [Azure Monitor logs de diagnóstico](../../azure-monitor/platform/platform-logs-overview.md)
 * [Como coletar e consumir dados de log de seus recursos do Azure](../../azure-monitor/platform/platform-logs-overview.md)
 
