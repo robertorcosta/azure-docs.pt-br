@@ -1,18 +1,18 @@
 ---
 title: Definições de políticas internas para o Cache do Azure para Redis
 description: Lista as definições de políticas internas do Azure Policy para o Cache do Azure para Redis. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 06/10/2020
+ms.date: 06/23/2020
 ms.topic: sample
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.custom: subject-policy-samples
-ms.openlocfilehash: a54dfc87937bdeb438b0a84c6385d3876946c546
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: ee64e2200511118d55f3df152b5adaa574a333d3
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84883865"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85313242"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-cache-for-redis"></a>Definições internas do Azure Policy para o Cache do Azure para Redis
 

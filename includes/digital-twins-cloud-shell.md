@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: 4aa016294f0ef3bd26f7f3ef6fa374e9367b672d
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
-ms.translationtype: HT
+ms.openlocfilehash: 8be070826de0334483f4150925c05cb4dfb73f2c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85296960"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85806014"
 ---
 [!INCLUDE [cloud-shell-try-it.md](cloud-shell-try-it.md)]
 
@@ -29,16 +29,33 @@ Se esta é a primeira vez que você usa essa assinatura com os Gêmeos Digitais 
 az provider register --namespace 'Microsoft.DigitalTwins'
 ```
 
-Em seguida, você adicionará a [**Extensão de IoT do Microsoft Azure para a CLI do Azure**](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) ao seu Cloud Shell para habilitar comandos para interagir com os Gêmeos Digitais do Azure e com outros serviços de IoT. Use este comando para adicionar a extensão:
+Em seguida, você adicionará a [**Extensão de IoT do Microsoft Azure para a CLI do Azure**](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) ao seu Cloud Shell para habilitar comandos para interagir com os Gêmeos Digitais do Azure e com outros serviços de IoT. 
 
-   ```azurecli-interactive
-   az extension add --name azure-iot
-   ```
+Primeiro, execute este comando para ver uma lista de todas as extensões que você já instalou.
 
-Se você instalou a extensão no passado, a saída poderá informar "A extensão 'azure-iot' já está instalada". Se isso acontecer, execute o seguinte para verificar se você tem a atualização mais recente: 
+```azurecli-interactive
+az extension list
+```
+
+Na saída, procure o `"name"` campo de cada entrada de lista para ver os nomes das extensões.
+
+Use a saída para determinar quais dos comandos a seguir devem ser executados para a configuração de extensão (você pode executar mais de um).
+* Se a lista contiver `azure-iot` : você já tem a extensão. Execute este comando para verificar se você tem a atualização mais recente:
 
    ```azurecli-interactive
    az extension update --name azure-iot
+   ```
+
+* Se a **lista não contiver** `azure-iot` : você precisa instalar a extensão. Use este comando:
+
+    ```azurecli-interactive
+    az extension add --name azure-iot
+    ```
+
+* Se a lista contiver `azure-iot-cli-ext` : esta é a versão herdada da extensão. Somente uma versão da extensão deve ser instalada de cada vez, portanto, você deve desinstalar a extensão herdada. Use este comando:
+
+   ```azurecli-interactive
+   az extension remove --name azure-cli-iot-ext
    ```
 
 Agora você está pronto para trabalhar com os Gêmeos Digitais do Azure no Cloud Shell.

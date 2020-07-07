@@ -1,19 +1,19 @@
 ---
 title: Definições de políticas internas para o Azure Arc para servidores
 description: Lista as definições de políticas internas do Azure Policy para o Azure Arc para servidores. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 06/10/2020
+ms.date: 06/23/2020
 ms.topic: sample
 ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
 ms.custom: subject-policy-samples
-ms.openlocfilehash: d0a8f0c83cd03edd8435015f090573f7fe4f5f29
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: d4ae07ad44028d847ff43da955460bd11a6b7a6b
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84888773"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85316187"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-arc-for-servers"></a>Definições internas do Azure Policy para o Azure Arc para servidores
 

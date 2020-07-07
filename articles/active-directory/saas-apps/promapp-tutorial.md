@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/30/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 581c850801c153996031378cbf470457264cad3d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3caf67ef436093e63683c270f7121a2861242aec
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76984380"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800874"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-nintex-promapp"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Nintex Promapp
 
@@ -84,14 +84,13 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     1. Na caixa **Identificador**, digite uma URL neste padrão:
 
-        | |
-        |--|
-        | `https://go.promapp.com/TENANTNAME/`|
-        | `https://au.promapp.com/TENANTNAME/`|
-        | `https://us.promapp.com/TENANTNAME/`|
-        | `https://eu.promapp.com/TENANTNAME/`|
-        | `https://ca.promapp.com/TENANTNAME/`|
-        |   |
+        ```https
+        https://go.promapp.com/TENANTNAME/
+        https://au.promapp.com/TENANTNAME/
+        https://us.promapp.com/TENANTNAME/
+        https://eu.promapp.com/TENANTNAME/
+        https://ca.promapp.com/TENANTNAME/
+        ```
 
        > [!NOTE]
        > A integração do Azure AD ao Nintex Promapp está configurada atualmente somente para autenticação iniciada pelo serviço. (Ou seja, o acesso de uma URL do Nintex Promapp inicia o processo de autenticação). No entanto, o campo **URL de Resposta** é um campo obrigatório.

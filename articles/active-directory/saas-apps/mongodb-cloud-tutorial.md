@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef8094464b428f1f46017b0d4abaac5aeb1fa428
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.openlocfilehash: 7a502a8273aef3df3488764ea7b01c21c512ba43
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82024503"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800201"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mongodb-cloud"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao MongoDB Cloud
 
@@ -101,11 +101,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Além dos atributos anteriores, o aplicativo MongoDB Cloud espera que mais alguns atributos sejam passados novamente na resposta SAML. Esses atributos também são pré-populados, mas você pode examiná-los de acordo com seus requisitos.
     
-    | Nome | |  Atributo de origem|
-    | ---------------| --------------- | --------- |
-    | email | | user.userprincipalname |
-    | firstName | | user.givenname |
-    | lastName | | user.surname |
+    | Nome | Atributo de origem|
+    | ---------------| --------- |
+    | email | user.userprincipalname |
+    | firstName | user.givenname |
+    | lastName | user.surname |
 
 1. Na página **Configurar logon único com SAML** na seção **Certificado de Autenticação SAML**, localize **XML de Metadados de Federação**. Selecione **Baixar** para baixar o certificado e salvá-lo em seu computador.
 
@@ -166,7 +166,7 @@ Ao selecionar o bloco do MongoDB Cloud no Painel de Acesso, você é conectado a
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Inscrever-se no MongoDB Atlas no Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/mongodb.mongodb_atlas_azure_08082019?tab=Overview)
+- [Inscrever-se no MongoDB Atlas no Azure](https://azuremarketplace.microsoft.com/marketplace/apps/mongodb.mongodb_atlas_may_2020?tab=Overview)
 
 - [Experimente o MongoDB Cloud com o Azure AD](https://aad.portal.azure.com/)
 
