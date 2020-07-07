@@ -10,10 +10,10 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 04/29/2020
 ms.openlocfilehash: d80972cd200b8f85e14d316c4c06a38f88ac81b5
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82598157"
 ---
 # <a name="manage-logic-apps-in-the-azure-portal"></a>Gerenciar aplicativos lógicos no portal do Azure
@@ -34,7 +34,7 @@ Para localizar e abrir seu aplicativo lógico, siga estas etapas:
 
 1. Entre no [portal do Azure](https://portal.azure.com) com sua conta do Azure.
 
-1. Na barra do Azure Search, insira `logic apps`e selecione **aplicativos lógicos**.
+1. Na barra do Azure Search, insira `logic apps` e selecione **aplicativos lógicos**.
 
    ![Encontrar e selecionar "Aplicativos Lógicos"](./media/manage-logic-apps-with-azure-portal/find-select-logic-apps.png)
 
@@ -55,7 +55,7 @@ Para localizar e abrir seu aplicativo lógico, siga estas etapas:
 1. No painel **Propriedades** , você pode exibir e copiar as seguintes informações sobre seu aplicativo lógico:
 
    * **Nome**
-   * **ID do recurso**
+   * **ID de Recurso**
    * **Grupo de recursos**
    * **Localidade**
    * **Tipo** 
@@ -176,7 +176,7 @@ Excluir seu aplicativo lógico afeta suas instâncias de fluxo de trabalho das s
 
    ![Excluir vários aplicativos lógicos](./media/manage-logic-apps-with-azure-portal/delete-multiple-logic-apps.png)
 
-1. Quando a caixa de confirmação for exibida `yes`, insira e selecione **excluir**.
+1. Quando a caixa de confirmação for exibida, insira `yes` e selecione **excluir**.
 
    ![Confirmar para excluir seus aplicativos lógicos](./media/manage-logic-apps-with-azure-portal/delete-confirmation-multiple-logic-apps.png)
 

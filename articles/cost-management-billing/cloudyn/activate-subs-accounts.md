@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.reviewer: vitavor
 ms.custom: secdec18
 ROBOTS: NOINDEX
-ms.openlocfilehash: 62138163b3c3f94d60c55cf93d84db5dff446823
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 24ff2d2b5855c2624f12c2a1523611933a426ebe
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79474655"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513865"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Ativar assinaturas e contas do Azure com o Cloudyn
 
@@ -65,7 +65,7 @@ Quando você adiciona uma assinatura a uma atualização de conta, você concede
     2. No portal do Azure, selecione **Azure Active Directory**.
     3. Para obter a ID de locatário, selecione **Propriedades** do seu locatário do Azure AD.
     4. Copie o GUID em ID de Diretório. Esse valor é a ID do locatário.
-    Para saber mais, confira [Obter ID do locatário](../../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+    Para saber mais, confira [Obter ID do locatário](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
 3. Se necessário, selecione a ID de taxa. Se você não souber a ID de taxa, use as seguintes etapas para localizá-lo.
     1. No canto superior direito do portal do Azure, clique em suas informações de usuário e, em seguida, clique em **Exibir minha fatura**.
     2. Em **Conta de Cobrança**, clique em **Assinaturas**.

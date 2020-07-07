@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: fd006e836432ce775be8cbbefea6d9219e8b13b3
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 0330e72ad74726f97bfdfd78ef8d5f9b24a5d172
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253453"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513321"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Ramificação e encadeamento de atividades em um pipeline de Data Factory
 
@@ -54,7 +54,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Para obter uma lista de regiões do Azure nas quais o Data Factory está atualmente disponível, confira [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os armazenamentos de dados e as computações podem estar em outras regiões. Os repositórios incluem o Armazenamento do Azure e o Banco de Dados SQL do Azure. As computações incluem o HDInsight, que Data Factory usa.
 
-Crie um aplicativo conforme descrito em [Criar um aplicativo do Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Seguindo as instruções no mesmo artigo, atribua o aplicativo à função **Colaborador**. Você precisará de vários valores para as partes posteriores deste tutorial, como tais como **ID do Aplicativo (cliente)** e **ID do Diretório (locatário)** .
+Crie um aplicativo conforme descrito em [Criar um aplicativo do Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Seguindo as instruções no mesmo artigo, atribua o aplicativo à função **Colaborador**. Você precisará de vários valores para as partes posteriores deste tutorial, como tais como **ID do Aplicativo (cliente)** e **ID do Diretório (locatário)** .
 
 ### <a name="create-a-blob-table"></a>Criar uma tabela de blob
 

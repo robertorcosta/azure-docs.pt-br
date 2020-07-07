@@ -8,10 +8,10 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 04/29/2020
 ms.openlocfilehash: 62807ef25fe6ee70844e72c90751eb383d0ece7c
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82598429"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gerenciar aplicativos lógicos com Visual Studio
@@ -65,7 +65,7 @@ No Visual Studio, é possível localizar todos os aplicativos lógicos associado
 
 1. Abra o Visual Studio. No menu **Exibir**, selecione **Cloud Explorer**.
 
-1. No Cloud Explorer, selecione **Gerenciamento de conta**. Selecione a assinatura do Azure associada aos seus aplicativos lógicos e, em seguida, selecione **aplicar**. Por exemplo: 
+1. No Cloud Explorer, selecione **Gerenciamento de conta**. Selecione a assinatura do Azure associada aos seus aplicativos lógicos e, em seguida, selecione **aplicar**. Por exemplo:
 
    ![Selecione "gerenciamento de contas"](./media/manage-logic-apps-with-visual-studio/account-management-select-Azure-subscription.png)
 
@@ -125,7 +125,7 @@ Para criar aplicativos lógicos para cenários de integração empresarial B2B (
 
 1. No Visual Studio, abra o projeto do grupo de recursos do Azure que contém seu aplicativo lógico.
 
-1. Em Gerenciador de Soluções, abra o menu de atalho **<lógica-app-name>. JSON** e selecione **abrir com o designer de aplicativo lógico**. (Teclado: CTRL + L)
+1. No Gerenciador de Soluções, abra o **<Logic-app-Name # C1.jsno** menu de atalho do arquivo e selecione **abrir com o designer do aplicativo lógico**. (Teclado: CTRL + L)
 
    ![Abrir o arquivo. JSON do aplicativo lógico com o designer de aplicativo lógico](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
@@ -228,7 +228,7 @@ Para verificar o status e diagnosticar problemas com execuções de aplicativos 
 
    ![Abrir o histórico de execução para seu aplicativo lógico](./media/manage-logic-apps-with-visual-studio/open-run-history-for-logic-app.png)
 
-1. Para visualizar os detalhes de uma execução específica, clique duas vezes em uma execução. Por exemplo: 
+1. Para visualizar os detalhes de uma execução específica, clique duas vezes em uma execução. Por exemplo:
 
    ![Exibir informações sobre execução específica](./media/manage-logic-apps-with-visual-studio/view-run-history-details.png)
   

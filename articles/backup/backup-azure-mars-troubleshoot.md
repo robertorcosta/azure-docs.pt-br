@@ -5,10 +5,10 @@ ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/15/2019
 ms.openlocfilehash: 1d1397519b39ffbc439cdd0d3e78d9b553ea302e
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82598004"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Solucionar problemas do agente de Serviços de Recuperação do Microsoft Azure (MARS)
@@ -44,7 +44,7 @@ Recomendamos que você verifique o seguinte antes de iniciar a solução de prob
 | ---     | ---    |
 | **As credenciais do cofre não são válidas** <br/> <br/> Os arquivos de credencial do cofre podem estar corrompidos ou podem ter expirado. (Por exemplo, eles podem ter sido baixados mais de 48 horas antes do horário de registro.)| Baixe novas credenciais do cofre dos serviços de recuperação no portal do Azure. (Consulte a etapa 6 na seção [baixar o agente Mars](https://docs.microsoft.com/azure/backup/install-mars-agent#download-the-mars-agent) .) Em seguida, siga estas etapas, conforme apropriado: <ul><li> Se você já tiver instalado e registrado o MARS, abra o console do MMC do Backup do Microsoft Azure Agent e, em seguida, selecione **registrar servidor** no painel **ações** para concluir o registro com as novas credenciais. <br/> <li> Se a nova instalação falhar, Tente reinstalar com as novas credenciais.</ul> **Observação**: se vários arquivos de credencial de cofre tiverem sido baixados, somente o arquivo mais recente será válido nas próximas 48 horas. Recomendamos que você baixe um novo arquivo de credencial de cofre.
 | **O servidor proxy/firewall está bloqueando o registro** <br/>ou <br/>**Sem conectividade com a Internet** <br/><br/> Se o seu computador ou servidor proxy tiver conectividade limitada com a Internet e você não garantir o acesso às URLs necessárias, o registro falhará.| Siga estas etapas:<br/> <ul><li> Trabalhe com sua equipe de ti para garantir que o sistema tenha conectividade com a Internet.<li> Se você não tiver um servidor proxy, certifique-se de que a opção proxy não esteja selecionada quando você registrar o agente. [Verifique as configurações de proxy](#verifying-proxy-settings-for-windows).<li> Se você tiver um servidor de firewall/proxy, trabalhe com sua equipe de rede para garantir que essas URLs e endereços IP tenham acesso:<br/> <br> **URLs**<br> `www.msftncsi.com` <br> . Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**Endereços IP**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Tente se registrar novamente depois de concluir as etapas de solução de problemas anteriores.<br></br> Se sua conexão for por meio do Azure ExpressRoute, verifique se as configurações estão definidas conforme descrito em [suporte do Azure expressroute](backup-support-matrix-mars-agent.md#azure-expressroute-support).
-| **O software antivírus está bloqueando o registro** | Se você tiver um software antivírus instalado no servidor, adicione as regras de exclusão necessárias à verificação de antivírus para esses arquivos e pastas: <br/><ul> <li> CBengine.exe <li> CSC. exe<li> A pasta de rascunho. Seu local padrão é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch. <li> A pasta bin em C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
+| **O software antivírus está bloqueando o registro** | Se você tiver um software antivírus instalado no servidor, adicione as regras de exclusão necessárias à verificação de antivírus para esses arquivos e pastas: <br/><ul> <li> CBengine.exe <li> CSC.exe<li> A pasta de rascunho. Seu local padrão é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch. <li> A pasta bin em C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
 
 ### <a name="additional-recommendations"></a>Recomendações adicionais
 
@@ -58,7 +58,7 @@ Recomendamos que você verifique o seguinte antes de iniciar a solução de prob
 1. Execute `psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"` em um prompt de comandos com privilégios elevados.
 
    Esse comando abrirá o Internet Explorer.
-1. Vá para **ferramentas** > **Opções** > de Internet**conexões** > **configurações de LAN**.
+1. Vá para **ferramentas**  >  **Opções de Internet**  >  **conexões**  >  **configurações de LAN**.
 1. Verifique as configurações de proxy para a conta do sistema.
 1. Se nenhum proxy estiver configurado e os detalhes do proxy forem fornecidos, remova os detalhes.
 1. Se um proxy estiver configurado e os detalhes do proxy estiverem incorretos, verifique se o **IP do proxy** e os detalhes da **porta** estão corretos.
@@ -66,15 +66,15 @@ Recomendamos que você verifique o seguinte antes de iniciar a solução de prob
 
 ## <a name="unable-to-download-vault-credential-file"></a>Não é possível baixar o arquivo de credenciais do cofre
 
-| Erro   | Ações recomendadas |
+| Erro do   | Ações recomendadas |
 | ---     | ---    |
 |Falha ao baixar o arquivo de credenciais do cofre. (ID: 403) | <ul><li> Tente baixar as credenciais do cofre usando um navegador diferente ou execute estas etapas: <ul><li> Inicie o Internet Explorer. Selecione F12. </li><li> Vá para a guia **rede** e limpe o cache e os cookies. </li> <li> Atualize a página.<br></li></ul> <li> Verifique se a assinatura está desabilitada/expirada.<br></li> <li> Verifique se alguma regra de firewall está bloqueando o download. <br></li> <li> Verifique se você não esgotou o limite do cofre (50 máquinas por cofre).<br></li>  <li> Verifique se o usuário tem as permissões de backup do Azure que são necessárias para baixar as credenciais do cofre e registrar um servidor com o cofre. Consulte [usar o controle de acesso baseado em função para gerenciar pontos de recuperação do backup do Azure](backup-rbac-rs-vault.md).</li></ul> |
 
 ## <a name="the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup"></a>O Agente de Serviços de Recuperação do Microsoft Azure não pôde se conectar ao Backup do Microsoft Azure
 
-| Erro  | Causa possível | Ações recomendadas |
+| Erro do  | Causa possível | Ações recomendadas |
 | ---     | ---     | ---    |
-| <br /><ul><li>O agente de serviço de recuperação Microsoft Azure não pôde se conectar ao Backup do Microsoft Azure. (ID: 100050) Verifique as configurações de rede e certifique-se de que você possa se conectar à Internet.<li>(407) Autenticação de Proxy Necessária. |Um proxy está bloqueando a conexão. |  <ul><li>No Internet Explorer, vá para **ferramentas** > **Internet opções** > **segurança** > **Internet**. Selecione **nível personalizado** e role para baixo até a seção **download de arquivo** . Selecione **Habilitar**.<p>Você também pode ter que adicionar [URLs e endereços IP](install-mars-agent.md#verify-internet-access) aos seus sites confiáveis no Internet Explorer.<li>Altere as configurações para usar um servidor proxy. Em seguida, forneça os detalhes do servidor proxy.<li> Se o seu computador tiver acesso limitado à Internet, verifique se as configurações de firewall no computador ou proxy permitem essas [URLs e endereços IP](install-mars-agent.md#verify-internet-access). <li>Se você tiver um software antivírus instalado no servidor, exclua esses arquivos da verificação antivírus: <ul><li>CBEngine.exe (em vez de dpmra.exe).<li>CSC.exe (relacionado ao .NET Framework). Há um CSC. exe para cada versão de .NET Framework instalada no servidor. Exclua os arquivos CSC. exe para todas as versões do .NET Framework no servidor afetado. <li>A pasta de rascunho ou o local do cache. <br>O local padrão para a pasta de rascunho ou o caminho do cache é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch.<li>A pasta bin em C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
+| <br /><ul><li>O agente de serviço de recuperação Microsoft Azure não pôde se conectar ao Backup do Microsoft Azure. (ID: 100050) Verifique as configurações de rede e certifique-se de que você possa se conectar à Internet.<li>(407) Autenticação de Proxy Necessária. |Um proxy está bloqueando a conexão. |  <ul><li>No Internet Explorer, vá para **ferramentas**  >  **Internet opções**  >  **segurança**  >  **Internet**. Selecione **nível personalizado** e role para baixo até a seção **download de arquivo** . Selecione **Habilitar**.<p>Você também pode ter que adicionar [URLs e endereços IP](install-mars-agent.md#verify-internet-access) aos seus sites confiáveis no Internet Explorer.<li>Altere as configurações para usar um servidor proxy. Em seguida, forneça os detalhes do servidor proxy.<li> Se o seu computador tiver acesso limitado à Internet, verifique se as configurações de firewall no computador ou proxy permitem essas [URLs e endereços IP](install-mars-agent.md#verify-internet-access). <li>Se você tiver um software antivírus instalado no servidor, exclua esses arquivos da verificação antivírus: <ul><li>CBEngine.exe (em vez de dpmra.exe).<li>CSC.exe (relacionado ao .NET Framework). Há um CSC.exe para cada .NET Framework versão instalada no servidor. Exclua CSC.exe arquivos para todas as versões do .NET Framework no servidor afetado. <li>A pasta de rascunho ou o local do cache. <br>O local padrão para a pasta de rascunho ou o caminho do cache é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch.<li>A pasta bin em C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
 
 ## <a name="backup-jobs-completed-with-warning"></a>Trabalhos de backup concluídos com aviso
 
@@ -88,7 +88,7 @@ Recomendamos que você verifique o seguinte antes de iniciar a solução de prob
   - Outro processo está interferindo (por exemplo: o software antivírus que mantém os identificadores nos arquivos pode impedir que o agente MARS acesse os arquivos)
   - Arquivos bloqueados por um aplicativo  
 
-- O serviço de backup Marcará esses arquivos como com falha no arquivo de log, com a seguinte convenção de nomenclatura: *LastBackupFailedFilesxxxx. txt* na pasta *C:\Program Files\Microsoft Azure Recovery Service Agent\temp*
+- O serviço de backup Marcará esses arquivos como com falha no arquivo de log, com a seguinte convenção de nomenclatura: *LastBackupFailedFilesxxxx.txt* na pasta *C:\Program Files\Microsoft Azure Recovery Service Agent\temp*
 - Para resolver o problema, examine o arquivo de log para entender a natureza do problema:
 
   | Código do erro             | Motivos                                             | Recomendações                                              |
@@ -104,19 +104,19 @@ Recomendamos que você verifique o seguinte antes de iniciar a solução de prob
 
 ## <a name="failed-to-set-the-encryption-key-for-secure-backups"></a>Falha ao configurar a chave de criptografia para backups seguros
 
-| Erro | Possíveis causas | Ações recomendadas |
+| Erro do | Possíveis causas | Ações recomendadas |
 | ---     | ---     | ---    |
 | <br />Falha ao definir a chave de criptografia para backups seguros. A ativação não foi concluída com êxito, mas a senha de criptografia foi salva no arquivo a seguir. |<li>O servidor já está registrado com outro cofre.<li>Durante a configuração, a frase secreta foi corrompida.| Cancele o registro do servidor do cofre e registre-o novamente com uma nova senha.
 
 ## <a name="the-activation-did-not-complete-successfully"></a>A ativação não foi concluída com êxito
 
-| Erro  | Possíveis causas | Ações recomendadas |
+| Erro do  | Possíveis causas | Ações recomendadas |
 |---------|---------|---------|
 |<br />A ativação não foi concluída com êxito. A operação atual falhou devido a um erro de serviço interno [0x1FC07]. Repita a operação após algum tempo. Se o problema persistir, contate o suporte da Microsoft.     | <li> A pasta de rascunho está localizada em um volume que não tem espaço suficiente. <li> A pasta de rascunho foi movida incorretamente. <li> O arquivo OnlineBackup.KEK está ausente.         | <li>Atualize para a [versão mais recente](https://aka.ms/azurebackup_agent) do agente Mars.<li>Mova a pasta de rascunho ou o local do cache para um volume com espaço livre entre 5% e 10% do tamanho total dos dados de backup. Para mover corretamente o local do cache, consulte as etapas em [perguntas comuns sobre como fazer backup de arquivos e pastas](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder).<li> Certifique-se de que o arquivo OnlineBackup.KEK está presente. <br>*O local padrão para a pasta de rascunho ou o caminho do cache é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.        |
 
 ## <a name="encryption-passphrase-not-correctly-configured"></a>A frase secreta de criptografia não está configurada corretamente
 
-| Erro  | Possíveis causas | Ações recomendadas |
+| Erro do  | Possíveis causas | Ações recomendadas |
 |---------|---------|---------|
 | <br />Error 34506. A senha de criptografia armazenada neste computador não está configurada corretamente.    | <li> A pasta de rascunho está localizada em um volume que não tem espaço suficiente. <li> A pasta de rascunho foi movida incorretamente. <li> O arquivo OnlineBackup.KEK está ausente.        | <li>Atualize para a [versão mais recente](https://aka.ms/azurebackup_agent) do MARS Agent.<li>Mova a pasta de rascunho ou o local do cache para um volume com espaço livre entre 5% e 10% do tamanho total dos dados de backup. Para mover corretamente o local do cache, consulte as etapas em [perguntas comuns sobre como fazer backup de arquivos e pastas](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder).<li> Certifique-se de que o arquivo OnlineBackup.KEK está presente. <br>*O local padrão para a pasta de rascunho ou o caminho do cache é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.         |
 
@@ -134,7 +134,7 @@ Se os backups agendados não forem disparados automaticamente, mas os backups ma
 
 - Verifique se a conta de usuário selecionada para executar a tarefa é o grupo de **sistema** ou **Administradores locais** no servidor. Para verificar a conta de usuário, vá para a guia **geral** e verifique as opções de **segurança** .
 
-- Verifique se o PowerShell 3,0 ou posterior está instalado no servidor. Para verificar a versão do PowerShell, execute este comando e verifique se `Major` o número da versão é 3 ou posterior:
+- Verifique se o PowerShell 3,0 ou posterior está instalado no servidor. Para verificar a versão do PowerShell, execute este comando e verifique se o `Major` número da versão é 3 ou posterior:
 
   `$PSVersionTable.PSVersion`
 
@@ -142,7 +142,7 @@ Se os backups agendados não forem disparados automaticamente, mas os backups ma
 
   `<MARS agent installation path>\Microsoft Azure Recovery Services Agent\bin\Modules\MSOnlineBackup`
 
-- Se a política de execução do `LocalMachine` PowerShell para for `restricted`definida como, o cmdlet do PowerShell que dispara a tarefa de backup poderá falhar. Execute estes comandos no modo elevado para verificar e definir a política de execução como `Unrestricted` ou `RemoteSigned`:
+- Se a política de execução do PowerShell para `LocalMachine` for definida como `restricted` , o cmdlet do PowerShell que dispara a tarefa de backup poderá falhar. Execute estes comandos no modo elevado para verificar e definir a política de execução como `Unrestricted` ou `RemoteSigned` :
 
  ```PowerShell
  Get-ExecutionPolicy -List
@@ -162,7 +162,7 @@ Set-ExecutionPolicy Unrestricted
 
 ## <a name="resource-not-provisioned-in-service-stamp"></a>Recurso não provisionado no carimbo de serviço
 
-Erro | Possíveis causas | Ações recomendadas
+Erro do | Possíveis causas | Ações recomendadas
 --- | --- | ---
 A operação atual falhou devido a um erro de serviço interno "recurso não provisionado no carimbo de serviço". Repita a operação após algum tempo. (ID: 230006) | O servidor protegido foi renomeado. | <li> Renomeie o servidor de volta para o nome original, conforme registrado no cofre. <br> <li> Registre novamente o servidor no cofre com o novo nome.
 
@@ -174,9 +174,9 @@ O Backup do Azure pode não montar com êxito o volume de recuperação, mesmo d
 
 2. Verifique se você tem a versão mais recente do agente de backup. Para verificar a versão, no painel **ações** do console do Mars, selecione **sobre o agente de serviços de recuperação do Microsoft Azure**. Confirme se o número de **versão** é igual ou maior do que a versão mencionada [neste artigo](https://go.microsoft.com/fwlink/?linkid=229525). Selecione este link para [baixar a versão mais recente](https://go.microsoft.com/fwLink/?LinkID=288905).
 
-3. Vá para **Device Manager** > **controladores de armazenamento** e localize **Microsoft iSCSI Initiator**. Se você o localizar, vá diretamente para a etapa 7.
+3. Vá para **Device Manager**  >  **controladores de armazenamento** e localize **Microsoft iSCSI Initiator**. Se você o localizar, vá diretamente para a etapa 7.
 
-4. Se você não conseguir localizar o serviço Iniciador Microsoft iSCSI, tente encontrar uma entrada em **Device Manager** > **controladores de armazenamento** chamados **dispositivo desconhecido** com a ID de hardware **ROOT\ISCSIPRT**.
+4. Se você não conseguir localizar o serviço Iniciador Microsoft iSCSI, tente encontrar uma entrada em **Device Manager**  >  **controladores de armazenamento** chamados **dispositivo desconhecido** com a ID de hardware **ROOT\ISCSIPRT**.
 
 5. Clique com o botão direito do mouse em **dispositivo desconhecido** e selecione **atualizar software de driver**.
 
@@ -184,7 +184,7 @@ O Backup do Azure pode não montar com êxito o volume de recuperação, mesmo d
 
     ![Captura de tela do Gerenciador de Dispositivos do Backup do Azure, com controladores de Armazenamento realçados](./media/backup-azure-restore-windows-server/UnknowniSCSIDevice.png)
 
-7. Vá para serviços do **Gerenciador** > de tarefas **(local)** > **serviço Iniciador Microsoft iSCSI**:
+7. Vá para serviços do **Gerenciador de tarefas**  >  **(local)**  >  **serviço Iniciador Microsoft iSCSI**:
 
     ![Captura de tela do Gerenciador de Tarefas do Backup do Azure, com Serviços (Local) realçado](./media/backup-azure-restore-windows-server/MicrosoftInitiatorServiceRunning.png)
 
@@ -224,7 +224,7 @@ Se você tiver um software antivírus instalado no servidor, adicione as regras 
 - A pasta de rascunho. Seu local padrão é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch
 - A pasta bin em C:\Program Files\Microsoft Azure Recovery Services Agent\Bin
 - CBengine.exe
-- CSC. exe
+- CSC.exe
 
 ## <a name="common-issues"></a>Problemas comuns
 

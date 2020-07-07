@@ -7,13 +7,13 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 04/29/2020
 ms.openlocfilehash: 41e511bce3599dd341ccf8192612e3f08111245a
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82598412"
 ---
-# <a name="manage-your-integration-service-environment-ise-in-azure-logic-apps"></a>Gerenciar seu ISE (ambiente do serviço de integração) nos aplicativos lógicos do Azure
+# <a name="manage-your-integration-service-environment-ise-in-azure-logic-apps"></a>Gerencie o ambiente do serviço de integração (ISE) nos Aplicativos Lógicos do Azure
 
 Este artigo mostra como executar tarefas de gerenciamento para o [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), por exemplo:
 
@@ -166,7 +166,7 @@ A unidade base do ISE Premium tem capacidade fixa, portanto, se você precisar d
 
 ## <a name="restart-ise"></a>Reiniciar o ISE
 
-Se você alterar as configurações do servidor DNS ou do servidor DNS, será necessário reiniciar o ISE para que o ISE possa pegar essas alterações. Reiniciar um ISE do SKU Premium não resulta em tempo de inatividade devido à redundância e aos componentes que reiniciam um de cada vez durante a reciclagem. No entanto, um ISE de SKU de desenvolvedor experimenta tempo de inatividade porque não existe nenhuma redundância. Para obter mais informações, consulte [SKUs do ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level).
+Se você alterar o servidor DNS ou as configurações desse servidor, terá que reiniciar o ISE para que ele possa utilizar essas alterações. Reiniciar um ISE do SKU Premium não resulta em tempo de inatividade devido à redundância e aos componentes que reiniciam um de cada vez durante a reciclagem. No entanto, um ISE de SKU de desenvolvedor experimenta tempo de inatividade porque não existe nenhuma redundância. Para obter mais informações, consulte [SKUs do ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level).
 
 1. No [portal do Azure](https://portal.azure.com), vá para o ISE.
 
@@ -184,4 +184,4 @@ Depois de excluir o ISE, talvez seja necessário aguardar até 9 horas antes de 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Adicionar recursos a ambientes do serviço de integração](../logic-apps/add-artifacts-integration-service-environment-ise.md)
+* [Adicionar recursos a ambientes de serviço de integração](../logic-apps/add-artifacts-integration-service-environment-ise.md)

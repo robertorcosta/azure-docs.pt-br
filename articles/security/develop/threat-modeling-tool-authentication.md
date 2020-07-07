@@ -17,10 +17,10 @@ ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: has-adal-ref
 ms.openlocfilehash: 569e8d769d56acbb4c7fb4258952ec19e44b58e4
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82607819"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Estrutura de segurança: autenticação | Atenuações
@@ -33,17 +33,17 @@ ms.locfileid: "82607819"
 | **Limite de Confiança do Azure** | <ul><li>[Habilitar Autenticação Multifator do Azure para administradores do Azure](#multi-factor-azure-admin)</li></ul> |
 | **Limite de confiança do Service Fabric** | <ul><li>[Restringir o acesso anônimo ao Cluster Service Fabric](#anon-access-cluster)</li><li>[Verifique se Service Fabric certificado de cliente para nó é diferente do certificado de nó para nó](#fabric-cn-nn)</li><li>[Usar o AAD para autenticar clientes em clusters do Service Fabric](#aad-client-fabric)</li><li>[Verifique se os certificados de service fabric são obtidos de uma CA (autoridade de certificação) aprovada](#fabric-cert-ca)</li></ul> |
 | **Servidor de identidade** | <ul><li>[Usar cenários de autenticação padrão com suporte do servidor de identidade](#standard-authn-id)</li><li>[Substituir o cache de token do servidor de identidade padrão por uma alternativa escalonável](#override-token)</li></ul> |
-| **Limite de confiança de máquina** | <ul><li>[Verifique se os binários do aplicativo implantado são assinados digitalmente](#binaries-signed)</li></ul> |
+| **Limite de confiança de computador** | <ul><li>[Verifique se os binários do aplicativo implantado são assinados digitalmente](#binaries-signed)</li></ul> |
 | **WCF** | <ul><li>[Habilitar a autenticação ao se conectar a filas do MSMQ no WCF](#msmq-queues)</li><li>[WCF - não defina clientCredentialType de mensagem como none](#message-none)</li><li>[WCF-não defina clientCredentialtype de transporte como None](#transport-none)</li></ul> |
-| **API Web** | <ul><li>[Verifique se técnicas de autenticação padrão são usadas para proteger as APIs Web](#authn-secure-api)</li></ul> |
-| **AD do Azure** | <ul><li>[Use cenários de autenticação padrão com suporte no Azure Active Directory](#authn-aad)</li><li>[Substitua o cache de token ADAL padrão por uma alternativa escalonável](#adal-scalable)</li><li>[Verifique se TokenReplayCache é usado para evitar a repetição de tokens de autenticação ADAL](#tokenreplaycache-adal)</li><li>[Usar bibliotecas ADAL para gerenciar solicitações de token de clientes OAuth2 para o AAD (ou AD local)](#adal-oauth2)</li></ul> |
+| **API da Web** | <ul><li>[Verifique se técnicas de autenticação padrão são usadas para proteger as APIs Web](#authn-secure-api)</li></ul> |
+| **Azure AD** | <ul><li>[Use cenários de autenticação padrão com suporte no Azure Active Directory](#authn-aad)</li><li>[Substitua o cache de token ADAL padrão por uma alternativa escalonável](#adal-scalable)</li><li>[Verifique se TokenReplayCache é usado para evitar a repetição de tokens de autenticação ADAL](#tokenreplaycache-adal)</li><li>[Usar bibliotecas ADAL para gerenciar solicitações de token de clientes OAuth2 para o AAD (ou AD local)](#adal-oauth2)</li></ul> |
 | **Gateway de Campo de IoT** | <ul><li>[Autenticar dispositivos que se conectam ao Gateway de Campo](#authn-devices-field)</li></ul> |
 | **Gateway de Nuvem IoT** | <ul><li>[Verifique se os dispositivos conectados ao gateway de nuvem são autenticados](#authn-devices-cloud)</li><li>[Usar credenciais de autenticação por dispositivo](#authn-cred)</li></ul> |
 | **Armazenamento do Azure** | <ul><li>[Verifique se apenas os contêineres necessários e os blobs recebem acesso de leitura anônimo](#req-containers-anon)</li><li>[Conceda acesso limitado a objetos no armazenamento do Azure usando SAS ou SAP](#limited-access-sas)</li></ul> |
 
 ## <a name="consider-using-a-standard-authentication-mechanism-to-authenticate-to-web-application"></a><a id="standard-authn-web-app"></a>Considere o uso de um mecanismo de autenticação padrão para se autenticar no Aplicativo Web
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicativo Web |
 | **Fase do SDL**               | Build |
@@ -54,7 +54,7 @@ ms.locfileid: "82607819"
 
 ## <a name="applications-must-handle-failed-authentication-scenarios-securely"></a><a id="handle-failed-authn"></a>Os aplicativos devem lidar com cenários de autenticação com falha com segurança
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicativo Web |
 | **Fase do SDL**               | Build |
@@ -65,7 +65,7 @@ ms.locfileid: "82607819"
 
 ## <a name="enable-step-up-or-adaptive-authentication"></a><a id="step-up-adaptive-authn"></a>Habilitar upgrade ou autenticação adaptável
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicativo Web |
 | **Fase do SDL**               | Build |
@@ -76,7 +76,7 @@ ms.locfileid: "82607819"
 
 ## <a name="ensure-that-administrative-interfaces-are-appropriately-locked-down"></a><a id="admin-interface-lockdown"></a>Verifique se as interfaces administrativas estão adequadamente bloqueadas
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicativo Web |
 | **Fase do SDL**               | Build |
@@ -87,7 +87,7 @@ ms.locfileid: "82607819"
 
 ## <a name="implement-forgot-password-functionalities-securely"></a><a id="forgot-pword-fxn"></a>Implemente funcionalidades de senha esquecida com segurança
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicativo Web |
 | **Fase do SDL**               | Build |
@@ -98,7 +98,7 @@ ms.locfileid: "82607819"
 
 ## <a name="ensure-that-password-and-account-policy-are-implemented"></a><a id="pword-account-policy"></a>Verifique se as políticas de conta e senha são implementadas
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicativo Web |
 | **Fase do SDL**               | Build |
@@ -109,7 +109,7 @@ ms.locfileid: "82607819"
 
 ## <a name="implement-controls-to-prevent-username-enumeration"></a><a id="controls-username-enum"></a>Implemente controles para impedir a enumeração de nome de usuário
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicativo Web |
 | **Fase do SDL**               | Build |
@@ -120,7 +120,7 @@ ms.locfileid: "82607819"
 
 ## <a name="when-possible-use-windows-authentication-for-connecting-to-sql-server"></a><a id="win-authn-sql"></a>Quando possível, use a Autenticação do Windows para se conectar ao SQL Server
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Banco de dados |
 | **Fase do SDL**               | Build |
@@ -131,7 +131,7 @@ ms.locfileid: "82607819"
 
 ## <a name="when-possible-use-azure-active-directory-authentication-for-connecting-to-sql-database"></a><a id="aad-authn-sql"></a>Quando possível, use a Autenticação do Azure Active Directory para se conectar ao banco de dados SQL
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Banco de dados |
 | **Fase do SDL**               | Build |
@@ -142,7 +142,7 @@ ms.locfileid: "82607819"
 
 ## <a name="when-sql-authentication-mode-is-used-ensure-that-account-and-password-policy-are-enforced-on-sql-server"></a><a id="authn-account-pword"></a>Quando o modo de autenticação do SQL for usado, verifique se as políticas de conta e senha são impostas no SQL server
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Banco de dados |
 | **Fase do SDL**               | Build |
@@ -153,7 +153,7 @@ ms.locfileid: "82607819"
 
 ## <a name="do-not-use-sql-authentication-in-contained-databases"></a><a id="autn-contained-db"></a>Não use a Autenticação do SQL em bancos de dados independentes
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Banco de dados |
 | **Fase do SDL**               | Build |
@@ -164,7 +164,7 @@ ms.locfileid: "82607819"
 
 ## <a name="use-per-device-authentication-credentials-using-sas-tokens"></a><a id="authn-sas-tokens"></a>Use credenciais de autenticação por dispositivo usando tokens SaS
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Hub de Eventos do Azure |
 | **Fase do SDL**               | Build |
@@ -175,7 +175,7 @@ ms.locfileid: "82607819"
 
 ## <a name="enable-azure-multi-factor-authentication-for-azure-administrators"></a><a id="multi-factor-azure-admin"></a>Habilitar Autenticação Multifator do Azure para administradores do Azure
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite de Confiança do Azure |
 | **Fase do SDL**               | Implantação |
@@ -186,7 +186,7 @@ ms.locfileid: "82607819"
 
 ## <a name="restrict-anonymous-access-to-service-fabric-cluster"></a><a id="anon-access-cluster"></a>Restrinja o acesso anônimo ao Cluster de Service Fabric
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite de confiança do Service Fabric |
 | **Fase do SDL**               | Implantação |
@@ -197,7 +197,7 @@ ms.locfileid: "82607819"
 
 ## <a name="ensure-that-service-fabric-client-to-node-certificate-is-different-from-node-to-node-certificate"></a><a id="fabric-cn-nn"></a>Verifique se o certificado de cliente para o nó de Service Fabric serviço é diferente do certificado de nó para nó
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite de confiança do Service Fabric |
 | **Fase do SDL**               | Implantação |
@@ -208,7 +208,7 @@ ms.locfileid: "82607819"
 
 ## <a name="use-aad-to-authenticate-clients-to-service-fabric-clusters"></a><a id="aad-client-fabric"></a>Use o AAD para autenticar clientes para clusters do service fabric
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite de confiança do Service Fabric |
 | **Fase do SDL**               | Implantação |
@@ -219,7 +219,7 @@ ms.locfileid: "82607819"
 
 ## <a name="ensure-that-service-fabric-certificates-are-obtained-from-an-approved-certificate-authority-ca"></a><a id="fabric-cert-ca"></a>Verifique se os certificados de service fabric são obtidos de uma CA (autoridade de certificação) aprovada
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite de confiança do Service Fabric |
 | **Fase do SDL**               | Implantação |
@@ -230,7 +230,7 @@ ms.locfileid: "82607819"
 
 ## <a name="use-standard-authentication-scenarios-supported-by-identity-server"></a><a id="standard-authn-id"></a>Use cenários de autenticação padrão com suporte no Servidor de Identidade
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Servidor de identidade |
 | **Fase do SDL**               | Build |
@@ -241,7 +241,7 @@ ms.locfileid: "82607819"
 
 ## <a name="override-the-default-identity-server-token-cache-with-a-scalable-alternative"></a><a id="override-token"></a>Substitua o cache de token de identidade de servidor padrão por uma alternativa escalonável
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Servidor de identidade |
 | **Fase do SDL**               | Implantação |
@@ -252,7 +252,7 @@ ms.locfileid: "82607819"
 
 ## <a name="ensure-that-deployed-applications-binaries-are-digitally-signed"></a><a id="binaries-signed"></a>Verifique se os binários do aplicativo implantado são assinados digitalmente
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite de confiança de máquina |
 | **Fase do SDL**               | Implantação |
@@ -263,7 +263,7 @@ ms.locfileid: "82607819"
 
 ## <a name="enable-authentication-when-connecting-to-msmq-queues-in-wcf"></a><a id="msmq-queues"></a>Habilite a autenticação ao se conectar às filas MSMQ do WCF
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF |
 | **Fase do SDL**               | Build |
@@ -303,7 +303,7 @@ O elemento `<netMsmqBinding/>` do arquivo de configuração WCF abaixo instrui o
 
 ## <a name="wcf-do-not-set-message-clientcredentialtype-to-none"></a><a id="message-none"></a>WCF - não defina clientCredentialType de mensagem como none
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF |
 | **Fase do SDL**               | Build |
@@ -319,7 +319,7 @@ O elemento `<netMsmqBinding/>` do arquivo de configuração WCF abaixo instrui o
 
 ## <a name="wcf-do-not-set-transport-clientcredentialtype-to-none"></a><a id="transport-none"></a>WCF - não defina clientCredentialType de transporte como none
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF |
 | **Fase do SDL**               | Build |
@@ -335,7 +335,7 @@ O elemento `<netMsmqBinding/>` do arquivo de configuração WCF abaixo instrui o
 
 ## <a name="ensure-that-standard-authentication-techniques-are-used-to-secure-web-apis"></a><a id="authn-secure-api"></a>Verifique se técnicas de autenticação padrão são usadas para proteger as APIs Web
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web |
 | **Fase do SDL**               | Build |
@@ -346,9 +346,9 @@ O elemento `<netMsmqBinding/>` do arquivo de configuração WCF abaixo instrui o
 
 ## <a name="use-standard-authentication-scenarios-supported-by-azure-active-directory"></a><a id="authn-aad"></a>Use cenários de autenticação padrão com suporte no Azure Active Directory
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
-| **Componente**               | AD do Azure |
+| **Componente**               | Azure AD |
 | **Fase do SDL**               | Build |
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
@@ -357,9 +357,9 @@ O elemento `<netMsmqBinding/>` do arquivo de configuração WCF abaixo instrui o
 
 ## <a name="override-the-default-adal-token-cache-with-a-scalable-alternative"></a><a id="adal-scalable"></a>Substitua o cache de token ADAL padrão por uma alternativa escalonável
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
-| **Componente**               | AD do Azure |
+| **Componente**               | Azure AD |
 | **Fase do SDL**               | Build |
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
@@ -368,9 +368,9 @@ O elemento `<netMsmqBinding/>` do arquivo de configuração WCF abaixo instrui o
 
 ## <a name="ensure-that-tokenreplaycache-is-used-to-prevent-the-replay-of-adal-authentication-tokens"></a><a id="tokenreplaycache-adal"></a>Verifique se TokenReplayCache é usado para evitar a repetição de tokens de autenticação ADAL
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
-| **Componente**               | AD do Azure |
+| **Componente**               | Azure AD |
 | **Fase do SDL**               | Build |
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
@@ -429,18 +429,18 @@ Observe que, para testar a eficácia dessa configuração, faça logon no aplica
 
 ## <a name="use-adal-libraries-to-manage-token-requests-from-oauth2-clients-to-aad-or-on-premises-ad"></a><a id="adal-oauth2"></a>Use bibliotecas ADAL para gerenciar solicitações de token de clientes OAuth2 ao AAD (ou AD local)
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
-| **Componente**               | AD do Azure |
+| **Componente**               | Azure AD |
 | **Fase do SDL**               | Build |
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
 | **Referências**              | [ADAL](https://azure.microsoft.com/documentation/articles/active-directory-authentication-libraries/) |
-| **Etapas** | <p>A Biblioteca de autenticação do AD do Azure (ADAL) permite que os desenvolvedores de aplicativo cliente autentiquem facilmente os usuários no Active Directory (AD) local ou em nuvem e daí obtenham tokens de acesso para proteger chamadas de API.</p><p>A ADAL tem muitos recursos que tornam a autenticação mais fácil para os desenvolvedores, como o suporte assíncrono, um cache de token configurável que armazena os tokens de acesso e de atualização, atualização automática de token quando um token de acesso expira e um token de atualização está disponível, e muito mais.</p><p>Controlando a maior parte da complexidade, a ADAL pode ajudar o desenvolvedor a se concentrar na lógica de negócios em seus aplicativos e a proteger facilmente os recursos sem ser um especialista em segurança. Bibliotecas separadas estão disponíveis para .NET, JavaScript (cliente e node. js), Python, iOS, Android e Java.</p>|
+| **Etapas** | <p>A Biblioteca de autenticação do AD do Azure (ADAL) permite que os desenvolvedores de aplicativo cliente autentiquem facilmente os usuários no Active Directory (AD) local ou em nuvem e daí obtenham tokens de acesso para proteger chamadas de API.</p><p>A ADAL tem muitos recursos que tornam a autenticação mais fácil para os desenvolvedores, como o suporte assíncrono, um cache de token configurável que armazena os tokens de acesso e de atualização, atualização automática de token quando um token de acesso expira e um token de atualização está disponível, e muito mais.</p><p>Controlando a maior parte da complexidade, a ADAL pode ajudar o desenvolvedor a se concentrar na lógica de negócios em seus aplicativos e a proteger facilmente os recursos sem ser um especialista em segurança. Bibliotecas separadas estão disponíveis para .NET, JavaScript (cliente e Node.js), Python, iOS, Android e Java.</p>|
 
 ## <a name="authenticate-devices-connecting-to-the-field-gateway"></a><a id="authn-devices-field"></a>Autenticar dispositivos que se conectam ao Gateway de Campo
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway de Campo de IoT |
 | **Fase do SDL**               | Build |
@@ -451,7 +451,7 @@ Observe que, para testar a eficácia dessa configuração, faça logon no aplica
 
 ## <a name="ensure-that-devices-connecting-to-cloud-gateway-are-authenticated"></a><a id="authn-devices-cloud"></a>Verifique se os dispositivos conectados ao gateway de nuvem são autenticados
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway de Nuvem IoT |
 | **Fase do SDL**               | Build |
@@ -551,7 +551,7 @@ await deviceClient.SendEventAsync(message);
 
 ## <a name="use-per-device-authentication-credentials"></a><a id="authn-cred"></a>Usar credenciais de autenticação por dispositivo
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway de Nuvem IoT  |
 | **Fase do SDL**               | Build |
@@ -562,7 +562,7 @@ await deviceClient.SendEventAsync(message);
 
 ## <a name="ensure-that-only-the-required-containers-and-blobs-are-given-anonymous-read-access"></a><a id="req-containers-anon"></a>Verifique se apenas os contêineres necessários e os blobs recebem acesso de leitura anônimo
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Armazenamento do Azure |
 | **Fase do SDL**               | Build |
@@ -573,7 +573,7 @@ await deviceClient.SendEventAsync(message);
 
 ## <a name="grant-limited-access-to-objects-in-azure-storage-using-sas-or-sap"></a><a id="limited-access-sas"></a>Conceda acesso limitado a objetos no armazenamento do Azure usando SAS ou SAP
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Armazenamento do Azure |
 | **Fase do SDL**               | Build |

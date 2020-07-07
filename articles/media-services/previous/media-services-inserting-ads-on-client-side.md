@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 7e5f6b7fa505890dc6bc818d1bd2578e5d974ff0
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82594858"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Inserção de anúncios no lado do cliente
@@ -160,7 +160,7 @@ Anúncios não lineares também são especificados em um elemento de `<Creative>
     </Creative>
 ```
 
-O elemento <**NonLinearAds**> pode conter um ou mais elementos <**NonLinear**>, cada um deles podendo descrever um anúncio não linear. O elemento <**NonLinear**> especifica o recurso para o anúncio não linear. O recurso pode ser um <**StaticResource**>, um <**IFrameResource**>, ou um <**HTMLResource**>. \<**StaticResource**> descreve um recurso não HTML e define um atributo creativeType que especifica como o recurso é exibido:
+O elemento <**NonLinearAds**> pode conter um ou mais elementos <**NonLinear**>, cada um deles podendo descrever um anúncio não linear. O elemento <**NonLinear**> especifica o recurso para o anúncio não linear. O recurso pode ser um <**StaticResource**>, um <**IFrameResource**>, ou um <**HTMLResource**>. \<**StaticResource**>Descreve um recurso não HTML e define um atributo creativetype que especifica como o recurso é exibido:
 
 Image/gif, image/jpeg, image/png – o recurso é exibido em uma marcação HTML <**img**>.
 
@@ -846,5 +846,5 @@ O exemplo a seguir mostra como agendar um anúncio com sobreposição mid-roll.
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Envie comentários
+## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

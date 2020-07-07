@@ -9,10 +9,10 @@ ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: f2cdaafddb14d8b69fd708e4c89a578b60e53317
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82606867"
 ---
 # <a name="overview-of-the-azure-security-benchmark"></a>Visão geral do benchmark de segurança do Azure
@@ -24,7 +24,7 @@ Esse parâmetro de comparação se concentra em áreas de controle centradas na 
 Os seguintes controles são usados no benchmark de segurança do Azure: 
 
 - [Segurança de rede](security-control-network-security.md)
-- [Log e monitoramento](security-control-logging-monitoring.md)
+- [Registro em log e monitoramento](security-control-logging-monitoring.md)
 - [Identidade e controle de acesso](security-control-identity-access-control.md)
 - [Proteção de dados](security-control-data-protection.md)
 - [Gerenciamento de vulnerabilidades](security-control-vulnerability-management.md)
@@ -46,7 +46,7 @@ Cada recomendação inclui as seguintes informações:
 - **Responsabilidade**: se o cliente ou o provedor de serviços (ou ambos) são responsáveis por implementar essa recomendação. As responsabilidades de segurança são compartilhadas na nuvem pública. Alguns controles de segurança só estão disponíveis para o provedor de serviços de nuvem e, portanto, o provedor é responsável por lidar com eles. Essas são observações gerais – para alguns serviços individuais, a responsabilidade será diferente da listada no benchmark de segurança do Azure. Essas diferenças são descritas nas recomendações de linha de base para o serviço individual. 
 - **Detalhes**: a lógica para a recomendação e links para orientação sobre como implementá-la. Se a recomendação for suportada pela central de segurança do Azure, essas informações também serão listadas.
 
-Agradecemos seus comentários detalhados e sua participação ativa no esforço de benchmark de segurança do Azure. Se você quiser fornecer a entrada direta da equipe de benchmark de segurança do Azure, preencha o formulário em [https://aka.ms/AzSecBenchmark](https://aka.ms/AzSecBenchmark).
+Agradecemos seus comentários detalhados e sua participação ativa no esforço de benchmark de segurança do Azure. Se você quiser fornecer a entrada direta da equipe de benchmark de segurança do Azure, preencha o formulário em [https://aka.ms/AzSecBenchmark](https://aka.ms/AzSecBenchmark) .
 
 ## <a name="next-steps"></a>Próximas etapas
 

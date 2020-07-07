@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/24/2020
 ms.openlocfilehash: 05d057be76a1b468f892b3123080e32a948153ae
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82598491"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerenciar clusters do Apache Hadoop no HDInsight usando o portal do Azure
@@ -58,9 +58,9 @@ Selecione o nome do cluster na página [**clusters HDInsight**](#showClusters) .
     |Visão geral|Fornece informações gerais para o cluster.|
     |Log de atividades|Mostra e consulta logs de atividades.|
     |Controle de acesso (IAM)|Utiliza as atribuições de função.  Consulte [Usar as atribuições de função para gerenciar o acesso aos recursos de assinatura do Azure](../role-based-access-control/role-assignments-portal.md).|
-    |Marcas|Permite estabelecer pares de chave/valor para definir uma taxonomia personalizada dos serviços de nuvem. Por exemplo, você pode criar uma chave chamada **projeto**e usar um valor comum para todos os serviços associados a um projeto específico.|
+    |Marcações|Permite estabelecer pares de chave/valor para definir uma taxonomia personalizada dos serviços de nuvem. Por exemplo, você pode criar uma chave chamada **projeto**e usar um valor comum para todos os serviços associados a um projeto específico.|
     |Diagnosticar e resolver problemas|Exibe informações sobre solução de problemas.|
-    |Guia de Início Rápido|Exibe informações que ajudam você a começar a usar o HDInsight.|
+    |Início Rápido|Exibe informações que ajudam você a começar a usar o HDInsight.|
     |Ferramentas|Informações de ajuda para ferramentas relacionadas ao HDInsight.|
 
   - **Menu Configurações**  
@@ -70,9 +70,9 @@ Selecione o nome do cluster na página [**clusters HDInsight**](#showClusters) .
     |Tamanho do cluster|Verifique, aumente e diminua o número de nós do trabalhador do cluster. Ver [Dimensionar clusters](hdinsight-administer-use-portal-linux.md#scale-clusters).|
     |Limites de cota|Exibe os núcleos usados e disponíveis para sua assinatura.|
     |SSH + logon no cluster|Mostra as instruções para se conectar ao cluster usando uma conexão Secure Shell (SSH). Para obter mais informações, consulte [usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).|
-    |Armazenamento do Data Lake Gen1|Configura o acesso ao Data Lake Storage Gen1.  Consulte [Início rápido: Configurar clusters no HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).|
+    |Data Lake Storage Gen1|Configura o acesso ao Data Lake Storage Gen1.  Consulte [Início rápido: Configurar clusters no HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).|
     |Contas de armazenamento|Exibe as contas de armazenamento e as chaves. As contas de armazenamento são configuradas durante o processo de criação do cluster.|
-    |Aplicativo|Adicionar/remove aplicativos do HDInsight.  Consulte [Instalar aplicativos personalizados do HDInsight](hdinsight-apps-install-custom-applications.md).|
+    |Aplicativos|Adicionar/remove aplicativos do HDInsight.  Consulte [Instalar aplicativos personalizados do HDInsight](hdinsight-apps-install-custom-applications.md).|
     |Ações de script|Execute scripts Bash no cluster. Confira [Personalizar clusters HDInsight baseados em Linux usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md).|
     |Metastores externos|Exiba os metastores [Apache Hive](https://hive.apache.org/) e [Apache Oozie](https://oozie.apache.org/). Os metastores só podem ser configurados durante o processo de criação do cluster.|
     |Parceiro HDInsight|Adiciona/remove o parceiro do HDInsight atual.|
@@ -107,7 +107,7 @@ Na [página inicial do cluster](#homePage), em **Configurações**, selecione **
 |Ponto de extremidade privado|O ponto de extremidade privado para o cluster.|
 |SSH (Secure Shell)|O nome de usuário e o nome do host a ser usado para acessar o cluster por meio do SSH.|
 |STATUS|Um dos: abortado, aceito, ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, operacional, em execução, erro, exclusão, excluído, TimedOut, DeleteQueued, DeleteTimedout, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued ou ClusterCustomization.|
-|REGIÃO|Localização do Azure. Para ter acesso à lista de locais do Azure com suporte, veja a caixa de listagem suspensa **Região** em [Preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).|
+|REGION|Localização do Azure. Para ter acesso à lista de locais do Azure com suporte, veja a caixa de listagem suspensa **Região** em [Preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).|
 |DATA DE CRIAÇÃO|A data em que o cluster foi implantado.|
 |SISTEMA OPERACIONAL|**Windows** ou **Linux**.|
 |TYPE|Hadoop, HBase, Storm, Spark.|

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/26/2020
 ms.author: juliako
 ms.openlocfilehash: 545dbcfb1db5595ff5b2047ec44afa8a065d816d
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82594841"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>Inserir Video Indexer widgets em seus aplicativos
@@ -58,7 +58,7 @@ Você pode usar o widget editor para criar novos projetos e gerenciar informaç�
 
 |Nome|Definição|Descrição|
 |---|---|---|
-|`accessToken`<sup>*</sup> | String | Fornece acesso a vídeos que estão apenas na conta que é usada para inserir o widget.<br> O widget do editor requer `accessToken` o parâmetro. |
+|`accessToken`<sup>*</sup> | String | Fornece acesso a vídeos que estão apenas na conta que é usada para inserir o widget.<br> O widget do editor requer o `accessToken` parâmetro. |
 |`language` | Um código de idioma | Controla o idioma do jogador. O valor padrão é `en-US`.<br/>Exemplo: `language=de-DE`. |
 |`locale` | Um código de idioma curto | Controla o idioma do insights. O valor padrão é `en`.<br/>Exemplo: `language=de`. |
 |`location` ||O `location` parâmetro deve ser incluído nos links inseridos, consulte [como obter o nome da sua região](regions.md). Se sua conta estiver em visualização, `trial` deverá ser usada para o valor de local. `trial`é o valor padrão para o `location` paramete.| 
@@ -79,7 +79,7 @@ O `location` parâmetro deve ser incluído nos links inseridos, consulte [como o
 1. Entre no site do [Video indexer](https://www.videoindexer.ai/) .
 1. Selecione o vídeo com o qual você deseja trabalhar e pressione **reproduzir**.
 1. Selecione o tipo de widget que você deseja (**ideias cognitivas**, **Player**ou **Editor**).
-1. Clique ** &lt; / em &gt; inserir**.
+1. Clique em ** &lt; / &gt; Inserir**.
 5. Copie o código de inserção (aparece em **copiar o código inserido** na caixa de diálogo **compartilhar & inserir** ).
 6. Adicione o código ao seu aplicativo.
 
@@ -94,7 +94,7 @@ Para obter o conteúdo do widget do insights cognitiva, use um dos seguintes mé
 - A API do [widget obter insights](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) .<br/>
 - O [token de acesso obter vídeo](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Access-Token?). Adicione-o como um parâmetro de consulta à URL. Especifique essa URL como o `src` valor para o iframe, conforme mostrado anteriormente.
 
-Para fornecer recursos de edição de informações em seu widget inserido, você deve passar um token de acesso que inclui permissões de edição. Use o [widget obter insights](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) ou o token de acesso `&allowEdit=true`de obtenção de [vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Access-Token?) com.
+Para fornecer recursos de edição de informações em seu widget inserido, você deve passar um token de acesso que inclui permissões de edição. Use o [widget obter insights](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) ou o [token de acesso de obtenção de vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Access-Token?) com `&allowEdit=true` .
 
 ## <a name="widgets-interaction"></a>Interação de widgets
 
@@ -106,7 +106,7 @@ O widget cognitiva insights pode interagir com um vídeo em seu aplicativo. Esta
 
 Para obter Video Indexer widgets se comuniquem com outros componentes, o serviço Video Indexer:
 
-- Usa o método `postMessage`HTML5 de comunicação entre origens.
+- Usa o método HTML5 de comunicação entre origens `postMessage` .
 - Valida a mensagem entre a origem do VideoIndexer.ai.
 
 Se você implementar seu próprio código do Player e integrá-lo a widgets cognitivas, é sua responsabilidade validar a origem da mensagem que vem de VideoIndexer.ai.
@@ -193,7 +193,7 @@ Se você usar um player de vídeo diferente de Player de Mídia do Azure, será 
         </video>    
 
 2. Insira o widget de Insights cognitivos.
-3. Implemente a comunicação para seu player escutando o evento de "mensagem". Por exemplo: 
+3. Implemente a comunicação para seu player escutando o evento de "mensagem". Por exemplo:
 
         <script>
     
@@ -228,15 +228,15 @@ Para obter mais informações, consulte a [demonstração do player de mídia do
 
 ## <a name="adding-subtitles"></a>Adicionando legendas
 
-Se você inserir informações de Video Indexer com seu próprio [player de mídia do Azure](https://aka.ms/azuremediaplayer), você poderá usar o `GetVttUrl` método para obter legendas ocultas (legendas). Você também pode chamar um método JavaScript do plug-in `getSubtitlesUrl` Video indexer amp (como mostrado anteriormente).
+Se você inserir informações de Video Indexer com seu próprio [player de mídia do Azure](https://aka.ms/azuremediaplayer), você poderá usar o `GetVttUrl` método para obter legendas ocultas (legendas). Você também pode chamar um método JavaScript do plug-in Video Indexer AMP `getSubtitlesUrl` (como mostrado anteriormente).
 
 ## <a name="customizing-embeddable-widgets"></a>Personalizando widgets que permitem inserção
 
 ### <a name="cognitive-insights-widget"></a>Widget de Insights Cognitivos
 
-Você pode escolher os tipos de informações desejadas. Para fazer isso, especifique-os como um valor para o seguinte parâmetro de URL que é adicionado ao código de inserção que você obtém (da API ou do aplicativo Web): `&widgets=<list of wanted widgets>`.
+Você pode escolher os tipos de informações desejadas. Para fazer isso, especifique-os como um valor para o seguinte parâmetro de URL que é adicionado ao código de inserção que você obtém (da API ou do aplicativo Web): `&widgets=<list of wanted widgets>` .
 
-Os valores possíveis são: `people`, `animatedCharacters` , `keywords`, `labels`, `sentiments`, `emotions`, `topics`, `keyframes`, `transcript`, `ocr`, `speakers`, `scenes`e `namedEntities`.
+Os valores possíveis são: `people` , `animatedCharacters` , `keywords` , `labels` , `sentiments` , `emotions` , `topics` , `keyframes` , `transcript` , `ocr` , `speakers` , `scenes` e `namedEntities` .
 
 Por exemplo, se você quiser inserir um widget que contenha apenas pessoas e ideias de palavras-chave, a URL de inserção do iframe terá a seguinte aparência:
 
@@ -254,7 +254,7 @@ Observe que essa opção será relevante apenas em casos em que for necessário 
 
 Se inserir o player do Video Indexer, você poderá escolher seu tamanho especificando o tamanho do iframe.
 
-Por exemplo: 
+Por exemplo:
 
 `<iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />`
 
