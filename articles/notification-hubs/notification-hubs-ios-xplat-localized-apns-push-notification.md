@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: a8614156be5d516d16aff698b604cf0e661d7311
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72385652"
 ---
 # <a name="tutorial-send-localized-push-notifications-to-ios-using-azure-notification-hubs"></a>Tutorial: enviar notificações por push localizadas para o iOS usando os hubs de notificação do Azure
@@ -82,7 +82,7 @@ Para saber mais sobre o uso de modelos, consulte o artigo [Modelos](notification
 
 Nesta seção, você modificará o aplicativo Últimas notícias que criou no tópico [Usar Hubs de Notificação para enviar as últimas notícias] a fim de enviar as últimas notícias localizadas usando modelos.
 
-No seu `MainStoryboard_iPhone.storyboard`, adicione um controle segmentado com os três idiomas: Inglês, francês e Mandarim.
+No seu `MainStoryboard_iPhone.storyboard` , adicione um controle segmentado com os três idiomas: Inglês, francês e Mandarim.
 
 ![Criar o storyboard de interface do usuário do iOS][13]
 
@@ -92,7 +92,7 @@ Em seguida, adicione um IBOutlet em seu ViewController.h, conforme mostrado na s
 
 ## <a name="build-the-ios-app"></a>Compilar o aplicativo iOS
 
-1. No `Notification.h`, adicione o `retrieveLocale` método e modifique os métodos Store e Subscribe, conforme mostrado no código a seguir:
+1. No `Notification.h` , adicione o `retrieveLocale` método e modifique os métodos Store e Subscribe, conforme mostrado no código a seguir:
 
     ```objc
     - (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet*) categories completion: (void (^)(NSError* error))completion;

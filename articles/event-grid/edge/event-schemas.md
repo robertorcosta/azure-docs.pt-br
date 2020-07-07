@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: ba261aeedf6574f69d3c05f8fd005c912dcc59d1
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73242472"
 ---
 # <a name="event-schemas"></a>Esquemas de evento
@@ -54,16 +54,16 @@ O esquema EventGrid consiste em um conjunto de propriedades necessárias às qua
 
 Todos os eventos têm os seguintes dados de nível superior:
 
-| Propriedade | Tipo | Necessária | Descrição |
+| Propriedade | Tipo | Obrigatório | Descrição |
 | -------- | ---- | ----------- |-----------
-| topic | cadeia de caracteres | Não | Deve corresponder ao tópico no qual ele está publicado. A grade de eventos popula com o nome do tópico no qual ele é publicado, se não for especificado. |
-| subject | cadeia de caracteres | Sim | Caminho definido pelo fornecedor para o assunto do evento. |
-| eventType | cadeia de caracteres | Sim | Tipo de evento para essa origem do evento, por exemplo, BlobCreated. |
-| eventTime | cadeia de caracteres | Sim | A hora em que o evento é gerado com base na hora UTC do provedor. |
-| ID | cadeia de caracteres | Não | Identificador exclusivo do evento. |
+| topic | Cadeia de caracteres | No | Deve corresponder ao tópico no qual ele está publicado. A grade de eventos popula com o nome do tópico no qual ele é publicado, se não for especificado. |
+| subject | string | Sim | Caminho definido pelo fornecedor para o assunto do evento. |
+| eventType | string | Sim | Tipo de evento para essa origem do evento, por exemplo, BlobCreated. |
+| eventTime | string | Sim | A hora em que o evento é gerado com base na hora UTC do provedor. |
+| ID | Cadeia de caracteres | No | Identificador exclusivo do evento. |
 | data | objeto | Não | Usado para capturar dados de evento que são específicos para a entidade de publicação. |
-| dataVersion | cadeia de caracteres | Sim | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
-| metadataVersion | cadeia de caracteres | Não | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
+| dataVersion | string | Sim | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
+| metadataVersion | string | No | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
 
 ### <a name="example--eventgrid-schema-event"></a>Exemplo — evento de esquema EventGrid
 

@@ -7,13 +7,13 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.openlocfilehash: 5c5da26935e489a1b9489f63b83af176921c3a5a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82133797"
 ---
-# <a name="azure-stream-analytics-data-errors"></a>Erros de dados de Azure Stream Analytics
+# <a name="azure-stream-analytics-data-errors"></a>Erros de dados do Azure Stream Analytics
 
 Erros de dados são erros que ocorrem durante o processamento dos dados.  Esses erros ocorrem com mais frequência durante as operações de serialização de dados, serialização e gravação.  Quando ocorrem erros de dados, Stream Analytics grava informações detalhadas e eventos de exemplo nos logs de recursos.  Em alguns casos, o resumo dessas informações também é fornecido por meio de notificações do Portal.
 

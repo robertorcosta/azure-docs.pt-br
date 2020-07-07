@@ -10,10 +10,10 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: 021e680a2ca5f7c00f113c4a17421b2648ca6230
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82159976"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Perguntas frequentes do desempenho do aplicativo para Aplicativos Web no Azure
@@ -46,8 +46,8 @@ Você pode usar os cmdlets do PowerShell para gerenciar e manter os aplicativos 
 
 Para exibir logs de eventos do aplicativo web:
 
-1. Entre no site do **kudu** (`https://*yourwebsitename*.scm.azurewebsites.net`).
-2. No menu, selecione **console** > de depuração**cmd**.
+1. Entre no site do **kudu** ( `https://*yourwebsitename*.scm.azurewebsites.net` ).
+2. No menu, selecione **console de depuração**  >  **cmd**.
 3. Abra a pasta **LogFiles**.
 4. Para exibir logs de eventos, selecione o ícone de lápis ao lado de **eventlog.xml**.
 5. Para baixar os logs, execute o cmdlet do PowerShell `Save-AzureWebSiteLog -Name webappname`.
@@ -56,10 +56,10 @@ Para exibir logs de eventos do aplicativo web:
 
 Para capturar um despejo de memória do modo de usuário do seu aplicativo web:
 
-1. Entre no site do **kudu** (`https://*yourwebsitename*.scm.azurewebsites.net`).
+1. Entre no site do **kudu** ( `https://*yourwebsitename*.scm.azurewebsites.net` ).
 2. Selecione o menu **Process Explorer**.
 3. Clique com botão direito no processo **w3wp.exe** ou no seu processo WebJob.
-4. Selecione **baixar memória** > despejo de despejo**completo**.
+4. Selecione **baixar memória**despejo de despejo  >  **completo**.
 
 ## <a name="how-do-i-view-process-level-info-for-my-web-app"></a>Como exibir informações de nível de processo para meu aplicativo web?
 
@@ -69,7 +69,7 @@ Você tem duas opções para exibir as informações de nível de processo para 
     1. Abra o **Process Explorer** para o aplicativo web.
     2. Para ver os detalhes, selecione o **w3wp.exe** processo.
 *   No console do Kudu:
-    1. Entre no site do **kudu** (`https://*yourwebsitename*.scm.azurewebsites.net`).
+    1. Entre no site do **kudu** ( `https://*yourwebsitename*.scm.azurewebsites.net` ).
     2. Selecione o menu **Process Explorer**.
     3. Para o processo **w3wp.exe**, selecione **Propriedades**.
 
@@ -101,9 +101,9 @@ Por padrão, os aplicativos Web serão descarregados se estiverem ociosos por um
 Para ativar o rastreamento de solicitação com falha:
 
 1. No portal do Azure, vá para seu aplicativo web.
-3. Selecione **todas as configurações** > **logs de diagnóstico**.
+3. Selecione **todas as configurações**  >  **logs de diagnóstico**.
 4. Para **Rastreamento de solicitação com falha**, selecione **On**.
-5. Clique em **Salvar**.
+5. Selecione **Salvar**.
 6. Na folha de aplicativo Web, selecione **Ferramentas**.
 7. Selecione **Visual Studio Online**.
 8. Se a configuração não estiver **On**, selecione **On**.
@@ -142,8 +142,8 @@ Para ativar o rastreamento de solicitação com falha:
     </tracing>
     ```
 13. Para baixar os rastreamentos de solicitação com falha, no [portal](https://portal.azure.com), vá para seu site.
-15. Selecione **ferramentas** > **kudu** > **ir**para.
-18. No menu, selecione **console** > de depuração**cmd**.
+15. Selecione **ferramentas**  >  **kudu**  >  **ir**para.
+18. No menu, selecione **console de depuração**  >  **cmd**.
 19. Selecione a pasta **LogFiles** e, em seguida, selecione a pasta com um nome que começa com **W3SVC**.
 20. Para ver o arquivo XML, selecione o ícone de lápis.
 
@@ -174,7 +174,7 @@ Esse problema foi corrigido no Kestrel versão 1.0.2. Esta versão está incluí
 
 Se você usar o recurso de Cache Local do Serviço de Aplicativo, a estrutura de pasta de arquivos de log e das pastas de dados para a instância do Serviço de Aplicativo serão afetados. Quando o Cache Local é usado, as subpastas são criadas nas pastas de dados e arquivos de log de armazenamento. As subpastas usam padrão de nomenclatura "identificador exclusivo" + carimbo de data/hora. Cada uma das subpastas corresponde a uma instância de VM na qual o aplicativo Web está executando ou foi executado.
 
-Para determinar se você está usando o cache local, verifique a guia **configurações do aplicativo** do serviço de aplicativo. Se o cache local estiver sendo usado, a configuração `WEBSITE_LOCAL_CACHE_OPTION` do aplicativo será `Always`definida como.
+Para determinar se você está usando o cache local, verifique a guia **configurações do aplicativo** do serviço de aplicativo. Se o cache local estiver sendo usado, a configuração do aplicativo `WEBSITE_LOCAL_CACHE_OPTION` será definida como `Always` .
 
 Se você não estiver usando o Cache Local e estiver enfrentando esse problema, envie uma solicitação de suporte.
 

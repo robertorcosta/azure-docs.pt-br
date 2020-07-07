@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: d522d8dd20fb8e1e781f0b13ccdbc4fd98f1727c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: 7ebc3cf8e131efbd8d315942c42325c3720586ae
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80321666"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85853218"
 ---
 > [!NOTE]
-> Este artigo usa a versão mais recente da extensão de IoT do Azure, chamada `azure-iot`. A versão herdada chama-se `azure-iot-cli-ext`. Você deve ter apenas uma versão instalada por vez. Use o comando `az extension list` para validar quais extensões estão instaladas.
+> Este artigo usa a versão mais recente da extensão de IoT do Azure, chamada `azure-iot`. A versão herdada chama-se `azure-cli-iot-ext`. Você deve ter apenas uma versão instalada por vez. Use o comando `az extension list` para validar quais extensões estão instaladas.
 >
 > Use `az extension remove --name azure-cli-iot-ext` para remover a versão herdada da extensão.
 >

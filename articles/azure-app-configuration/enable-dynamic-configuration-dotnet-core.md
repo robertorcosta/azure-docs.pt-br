@@ -14,12 +14,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.author: abarora
-ms.openlocfilehash: afecc84748ae8ce85c07e3b482bd9b596bdca251
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: af9d92c47982a58530a42a4ecdd41032196a9da9
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75433670"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856489"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-core-app"></a>Tutorial: Usar configuração dinâmica em um aplicativo .NET Core
 
@@ -100,23 +100,33 @@ O método `ConfigureRefresh` é usado para especificar as configurações usadas
 
 1. Defina uma variável de ambiente chamada **ConnectionString** e defina-a como a chave de acesso ao repositório de Configuração de Aplicativos. Se você usar o prompt de comando do Windows, execute o comando a seguir e reinicie o prompt de comando para permitir que a alteração entre em vigor:
 
-        setx ConnectionString "connection-string-of-your-app-configuration-store"
+    ```console
+     setx ConnectionString "connection-string-of-your-app-configuration-store"
+    ```
 
     Se você usa o Windows PowerShell, execute o comando a seguir:
 
-        $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    ```powershell
+     $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    ```
 
     Se você usa macOS ou Linux, execute o comando a seguir:
 
-        export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```console
+     export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```
 
 1. Execute o seguinte comando para compilar o aplicativo de console:
 
-        dotnet build
+    ```console
+     dotnet build
+    ```
 
 1. Depois que a construção for concluída com êxito, execute o seguinte comando para executar o aplicativo localmente:
 
-        dotnet run
+    ```console
+     dotnet run
+    ```
 
     ![Inicialização local do aplicativo do Início Rápido](./media/quickstarts/dotnet-core-app-run.png)
 

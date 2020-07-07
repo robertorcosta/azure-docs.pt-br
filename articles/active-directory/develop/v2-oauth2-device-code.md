@@ -14,17 +14,17 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: a0677603f02b429c269c0f93ef348b2b1d717a9f
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82689775"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Plataforma de identidade da Microsoft e o fluxo de concessão de autorização de dispositivo OAuth 2,0
 
 A plataforma de identidade da Microsoft dá suporte à [concessão de autorização de dispositivo](https://tools.ietf.org/html/rfc8628), que permite aos usuários entrar em dispositivos com restrição de entrada, como uma TV inteligente, um dispositivo IOT ou uma impressora.  Para habilitar esse fluxo, o dispositivo faz o usuário acessar uma página da Web em seu navegador em outro dispositivo para entrar.  Depois que o usuário entra, o dispositivo é capaz de obter tokens de acesso e atualizar tokens conforme necessário.
 
-Este artigo descreve como programar diretamente em relação ao protocolo em seu aplicativo.  Quando possível, recomendamos que você use as MSAL (bibliotecas de autenticação da Microsoft) com suporte em vez de [adquirir tokens e chamar APIs da Web protegidas](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Veja também os [aplicativos de exemplo que usam MSAL](sample-v2-code.md).
+Este artigo descreve como programar diretamente no protocolo do seu aplicativo.  Quando possível, recomendamos que você use as MSAL (bibliotecas de autenticação da Microsoft) com suporte para [adquirir tokens e chamar APIs Web seguras](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Confira também os [aplicativos de exemplo que usam MSAL](sample-v2-code.md).
 
 ## <a name="protocol-diagram"></a>Diagrama do protocolo
 
@@ -38,7 +38,7 @@ O cliente deve primeiro verificar o servidor de autenticação para obter um có
 
 > [!TIP]
 > Tente executar a solicitação no Postman!
-> [![Tente executar esta solicitação no postmaster](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> [![Tente executar a solicitação no Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ```HTTP
 // Line breaks are for legibility only.
@@ -54,8 +54,8 @@ scope=user.read%20openid%20profile
 | Parâmetro | Condição | Descrição |
 | --- | --- | --- |
 | `tenant` | Necessária | Pode ser/Common,/consumers ou/Organizations.  Ele também pode ser o locatário de diretório do qual você deseja solicitar permissão no formato GUID ou nome amigável.  |
-| `client_id` | Necessária | A **ID do aplicativo (cliente)** que a [portal do Azure – registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) experiência atribuída ao seu aplicativo. |
-| `scope` | Recomendado | Uma lista separada por espaços de [escopos](v2-permissions-and-consent.md) aos quais você deseja que o usuário concorde.  |
+| `client_id` | Obrigatório | A **ID do Aplicativo (cliente)** que a experiência [Portal do Microsoft Azure - Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) atribui ao seu aplicativo. |
+| `scope` | Recomendado | Uma lista separada por espaços de [escopos](v2-permissions-and-consent.md) para os quais você deseja o consentimento do usuário.  |
 
 ### <a name="device-authorization-response"></a>Resposta de autorização do dispositivo
 
@@ -71,11 +71,11 @@ Uma resposta bem-sucedida será um objeto JSON que contém as informações nece
 | `message`        | String | Uma cadeia de caracteres legível por humanos com instruções para o usuário. Ela pode ser localizada incluindo um **parâmetro de consulta** na solicitação do formulário `?mkt=xx-XX`, preenchendo o código de cultura do idioma apropriado. |
 
 > [!NOTE]
-> O `verification_uri_complete` campo de resposta não está incluído ou tem suporte no momento.  Mencionamos isso porque, se você ler o [padrão](https://tools.ietf.org/html/rfc8628) , verá `verification_uri_complete` que está listado como uma parte opcional do padrão de fluxo de código do dispositivo.
+> O `verification_uri_complete` campo de resposta não está incluído ou tem suporte no momento.  Mencionamos isso porque, se você ler o [padrão](https://tools.ietf.org/html/rfc8628) , verá que `verification_uri_complete` está listado como uma parte opcional do padrão de fluxo de código do dispositivo.
 
 ## <a name="authenticating-the-user"></a>Como autenticar o usuário
 
-Depois de receber `user_code` o `verification_uri`e o, o cliente os exibe para o usuário, instruindo-os a entrar usando seu telefone celular ou navegador de PC.
+Depois de receber o `user_code` e `verification_uri` o, o cliente os exibe para o usuário, instruindo-os a entrar usando seu telefone celular ou navegador de PC.
 
 Se o usuário se autenticar com uma conta pessoal (em/Common ou/consumers), será solicitado que você entre novamente para transferir o estado de autenticação para o dispositivo.  Eles também serão solicitados a fornecer consentimento, para garantir que estejam cientes das permissões que estão sendo concedidas.  Isso não se aplica a contas corporativas ou de estudante usadas para autenticação.
 
@@ -90,18 +90,18 @@ client_id: 6731de76-14a6-49ae-97bc-6eba6914391e
 device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 ```
 
-| Parâmetro | Necessária | Descrição|
+| Parâmetro | Obrigatório | Descrição|
 | -------- | -------- | ---------- |
 | `tenant`  | Necessária | O mesmo alias de locatário ou locatário usado na solicitação inicial. |
-| `grant_type` | Necessária | Precisa ser `urn:ietf:params:oauth:grant-type:device_code`|
-| `client_id`  | Necessária | Precisa corresponder à `client_id` usada na solicitação inicial. |
-| `device_code`| Necessária | O `device_code` retornado na solicitação de autorização de dispositivo.  |
+| `grant_type` | Obrigatório | Precisa ser `urn:ietf:params:oauth:grant-type:device_code`|
+| `client_id`  | Obrigatório | Precisa corresponder à `client_id` usada na solicitação inicial. |
+| `device_code`| Obrigatório | O `device_code` retornado na solicitação de autorização de dispositivo.  |
 
 ### <a name="expected-errors"></a>Erros esperados
 
 O fluxo de código do dispositivo é um protocolo de sondagem, de modo que o cliente deve esperar receber erros antes de concluir a autenticação do usuário.
 
-| Erro | Descrição | Ação do Cliente |
+| Erro do | Descrição | Ação do Cliente |
 | ------ | ----------- | -------------|
 | `authorization_pending` | O usuário não concluiu a autenticação, mas não cancelou o fluxo. | Repita a solicitação depois de pelo menos `interval` segundos. |
 | `authorization_declined` | O usuário final negou a solicitação de autorização.| Interrompa a sondagem e reverta para um estado não autenticado.  |

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/22/2020
 ms.assetid: 3cd520fd-eaf7-4ef9-b4d3-4827057e5028
 ms.openlocfilehash: 944abc62f25473ea52836af7dc1fdcd1e16d9269
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82120776"
 ---
 # <a name="issues-using-vm-extensions-in-python-3-enabled-linux-azure-virtual-machines-systems"></a>Problemas ao usar extensões de VM em sistemas de máquinas virtuais Linux do Azure habilitadas para Python 3
@@ -28,10 +28,10 @@ ms.locfileid: "82120776"
 >
 > Antes de instalar o **Python 2. x** em produção, considere a questão do suporte a longo prazo do Python 2. x, particularmente sua capacidade de receber atualizações de segurança. Como produtos, incluindo parte da extensão mencionada, atualização com suporte a **Python 3,8** , você deve descontinuar o uso do Python 2. x.
 
-Algumas distribuições do Linux passaram para o Python 3,8 e removidam `/usr/bin/python` o ponto de entrada herdado para o Python completamente. Essa transição afeta a implantação automatizada e pronta para uso de determinadas extensões de VM (máquina virtual) com as seguintes condições:
+Algumas distribuições do Linux passaram para o Python 3,8 e removidam o ponto de entrada herdado `/usr/bin/python` para o Python completamente. Essa transição afeta a implantação automatizada e pronta para uso de determinadas extensões de VM (máquina virtual) com as seguintes condições:
 
 - Extensões que ainda estão em transição para o suporte do Python 3. x
-- Extensões que usam o ponto `/usr/bin/python` de entrada herdado
+- Extensões que usam o ponto de entrada herdado `/usr/bin/python`
 
 Os usuários de distribuição do Linux que fizeram a transição para o **Python 3. x** devem garantir que o ponto de entrada herdado `/usr/bin/python` exista antes de tentar implantar essas extensões em suas VMs. Caso contrário, a implantação da extensão poderá falhar. 
 
@@ -45,7 +45,7 @@ As atualizações in-loco, como a atualização do **ubuntu 18, 4 LTS** para o *
 
 Considere as seguintes recomendações gerais antes de implantar extensões nos cenários conhecidos afetados descritos anteriormente no Resumo:
 
-1.  Antes de implantar a extensão, reinstale `/usr/bin/python` o symlink usando o método fornecido pelo fornecedor de distribuição do Linux.
+1.  Antes de implantar a extensão, reinstale o `/usr/bin/python` symlink usando o método fornecido pelo fornecedor de distribuição do Linux.
 
     - Por exemplo, para **Python 2,7**, use:`sudo apt update && sudo apt install python-is-python2`
 

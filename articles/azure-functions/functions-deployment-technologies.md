@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: glenga
 ms.openlocfilehash: ec5e9da2ab80f4728d342303e1eb08c49f765485
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82735293"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologias de implantação no Azure Functions
@@ -21,7 +21,7 @@ Você pode usar algumas tecnologias diferentes para implantar o código do proje
 
 O Azure Functions dá suporte ao desenvolvimento local de plataforma cruzada e à hospedagem no Windows e no Linux. Atualmente, três planos de hospedagem estão disponíveis:
 
-+ [Utilização](functions-scale.md#consumption-plan)
++ [Consumo](functions-scale.md#consumption-plan)
 + [Premium](functions-scale.md#premium-plan)
 + [Dedicado (serviço de aplicativo)](functions-scale.md#app-service-plan)
 
@@ -52,7 +52,7 @@ Quando você altera qualquer um de seus gatilhos, a infraestrutura do Functions 
 
 * Reinicie seu aplicativo de funções no portal do Azure
 * Envie uma solicitação HTTP POST para `https://{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` usando a [chave mestra](functions-bindings-http-webhook-trigger.md#authorization-keys).
-* Envie uma solicitação HTTP POST para `https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01`. Substitua os espaços reservados por sua ID de assinatura, nome do grupo de recursos e o nome do seu aplicativo de funções.
+* Envie uma solicitação HTTP POST para `https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01` . Substitua os espaços reservados por sua ID de assinatura, nome do grupo de recursos e o nome do seu aplicativo de funções.
 
 ### <a name="remote-build"></a>Build remoto
 
@@ -65,7 +65,7 @@ Azure Functions pode executar compilações automaticamente no código que receb
 
 Todos os aplicativos de funções em execução no Windows têm um pequeno aplicativo de gerenciamento, o site do SCM (ou [kudu](https://github.com/projectkudu/kudu)). Esse site manipula grande parte da implantação e da lógica de compilação para Azure Functions.
 
-Quando um aplicativo é implantado no Windows, comandos específicos de idioma `dotnet restore` , como (C# `npm install` ) ou (JavaScript), são executados.
+Quando um aplicativo é implantado no Windows, comandos específicos de idioma, como `dotnet restore` (C#) ou `npm install` (JavaScript), são executados.
 
 #### <a name="remote-build-on-linux"></a>Build remoto no Linux
 
@@ -106,7 +106,7 @@ Use a implantação de zip para enviar por push um arquivo. zip que contém seu 
 
 >__Como usá-lo:__ Implante usando sua ferramenta de cliente favorita: [Visual Studio Code](functions-develop-vs-code.md#publish-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure)ou na linha de comando usando o [Azure Functions Core Tools](functions-run-local.md#project-file-deployment). Por padrão, essas ferramentas usam a implantação zip e são [executadas a partir do pacote](run-functions-from-deployment-package.md). As ferramentas principais e a extensão Visual Studio Code habilitam a [compilação remota](#remote-build) ao implantar no Linux. Para implantar manualmente um arquivo. zip em seu aplicativo de funções, siga as instruções em [implantar de um arquivo. zip ou de uma URL](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
 
->Ao implantar usando a implantação de zip, você pode definir seu aplicativo para ser [executado do pacote](run-functions-from-deployment-package.md). Para executar a partir do pacote, `WEBSITE_RUN_FROM_PACKAGE` defina o valor de `1`configuração do aplicativo como. Recomendamos a implantação de zip. Ele produz tempos de carregamento mais rápidos para seus aplicativos e é o padrão para VS Code, o Visual Studio e o CLI do Azure. 
+>Ao implantar usando a implantação de zip, você pode definir seu aplicativo para ser [executado do pacote](run-functions-from-deployment-package.md). Para executar a partir do pacote, defina o `WEBSITE_RUN_FROM_PACKAGE` valor de configuração do aplicativo como `1` . Recomendamos a implantação de zip. Ele produz tempos de carregamento mais rápidos para seus aplicativos e é o padrão para VS Code, o Visual Studio e o CLI do Azure. 
 
 >__Quando usá-lo:__ A implantação de zip é a tecnologia de implantação recomendada para Azure Functions.
 
@@ -169,7 +169,7 @@ Você pode usar o FTP para transferir arquivos diretamente para o Azure Function
 
 No editor baseado em portal, você pode editar diretamente os arquivos que estão em seu aplicativo de funções (essencialmente implantando sempre que você salvar suas alterações).
 
->__Como usá-lo:__ Para poder editar suas funções no portal do Azure, você deve ter [criado suas funções no portal](functions-create-first-azure-function.md). Para preservar uma única fonte de verdade, usar qualquer outro método de implantação torna sua função somente leitura e impede a edição continuada do Portal. Para retornar a um estado no qual você pode editar os arquivos na portal do Azure, você pode ativar manualmente o modo de edição para `Read/Write` e remover quaisquer configurações de aplicativo relacionadas à implantação (como `WEBSITE_RUN_FROM_PACKAGE`). 
+>__Como usá-lo:__ Para poder editar suas funções no portal do Azure, você deve ter [criado suas funções no portal](functions-create-first-azure-function.md). Para preservar uma única fonte de verdade, usar qualquer outro método de implantação torna sua função somente leitura e impede a edição continuada do Portal. Para retornar a um estado no qual você pode editar os arquivos na portal do Azure, você pode ativar manualmente o modo de edição para `Read/Write` e remover quaisquer configurações de aplicativo relacionadas à implantação (como `WEBSITE_RUN_FROM_PACKAGE` ). 
 
 >__Quando usá-lo:__ O portal é uma boa maneira de começar a usar o Azure Functions. Para um trabalho de desenvolvimento mais intenso, recomendamos que você use uma das seguintes ferramentas de cliente:
 >
@@ -188,7 +188,7 @@ A tabela a seguir mostra os sistemas operacionais e idiomas que dão suporte à 
 | JavaScript (Node.js) |✔|✔|✔| |✔<sup>\*</sup>|✔<sup>\*</sup>|
 | Python (versão prévia) | | | | | | |
 | PowerShell (versão prévia) |✔|✔|✔| | | |
-| TypeScript (Node. js) | | | | | | |
+| TypeScript (Node.js) | | | | | | |
 
 <sup>*</sup>A edição do portal é habilitada apenas para gatilhos HTTP e de temporizador para funções no Linux usando planos Premium e dedicados.
 

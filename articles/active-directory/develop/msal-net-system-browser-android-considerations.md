@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 8e37d443d75dccae8704bc1ff7856e1d24131766
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82652709"
 ---
 #  <a name="xamarin-android-system-browser-considerations-for-using-msalnet"></a>Considerações do navegador do sistema do Xamarin Android para uso do MSAL.NET
@@ -44,8 +44,8 @@ A tabela a seguir lista os dispositivos e navegadores que foram testados quanto 
 
 | Dispositivo | Navegador     |  Result  | 
 | ------------- |:-------------:|:-----:|
-| Huawei/um + | Monocromático\* | Aprovado|
-| Huawei/um + | Perímetro\* | Aprovado|
+| Huawei/um + | Chrome\* | Aprovado|
+| Huawei/um + | Edge\* | Aprovado|
 | Huawei/um + | Firefox\* | Aprovado|
 | Huawei/um + | Corajoso\* | Aprovado|
 | Um + | Ecosia\* | Aprovado|
@@ -64,10 +64,10 @@ A tabela a seguir lista os dispositivos e navegadores que foram testados quanto 
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
-Se o usuário não tiver um navegador habilitado no dispositivo, o MSAL.NET gerará `AndroidActivityNotFound` uma exceção.  
+Se o usuário não tiver um navegador habilitado no dispositivo, o MSAL.NET gerará uma `AndroidActivityNotFound` exceção.  
   - **Mitigação**: peça ao usuário para habilitar um navegador em seu dispositivo. Recomendamos um navegador que dê suporte a guias personalizadas.
 
-Se a autenticação falhar (por exemplo, se a autenticação for iniciada com DuckDuckGo) `AuthenticationCanceled MsalClientException`, MSAL.net retornará. 
+Se a autenticação falhar (por exemplo, se a autenticação for iniciada com DuckDuckGo), MSAL.NET retornará `AuthenticationCanceled MsalClientException` . 
   - **Problema de raiz**: um navegador que dá suporte a guias personalizadas não foi habilitado no dispositivo. A autenticação foi iniciada com um navegador que não pôde concluir a autenticação. 
   - **Mitigação**: peça ao usuário para habilitar um navegador em seu dispositivo. Recomendamos um navegador que dê suporte a guias personalizadas.
 

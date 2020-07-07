@@ -14,21 +14,21 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 0654bce86cf5fb0b5bd117e444721e95f137dd47
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82652688"
 ---
 # <a name="considerations-for-using-universal-windows-platform-with-msalnet"></a>Considerações sobre o uso de Plataforma Universal do Windows com MSAL.NET
 Os desenvolvedores de aplicativos que usam o Plataforma Universal do Windows (UWP) com MSAL.NET devem considerar os conceitos apresentados neste artigo.
 
 ## <a name="the-usecorporatenetwork-property"></a>A propriedade UseCorporateNetwork
-Na plataforma Windows Runtime (WinRT), `PublicClientApplication` tem a propriedade `UseCorporateNetwork`booliana. Essa propriedade permite que aplicativos Windows 8.1 e aplicativos UWP se beneficiem da autenticação integrada do Windows (IWA) se o usuário estiver conectado a uma conta que tenha um locatário do Azure Active Directory do Azure AD (federado). Os usuários que entraram no sistema operacional também podem usar o SSO (logon único). Quando você define a `UseCorporateNetwork` propriedade, MSAL.NET usa um wab (agente de autenticação da Web).
+Na plataforma Windows Runtime (WinRT), `PublicClientApplication` tem a propriedade booliana `UseCorporateNetwork` . Essa propriedade permite que aplicativos Windows 8.1 e aplicativos UWP se beneficiem da autenticação integrada do Windows (IWA) se o usuário estiver conectado a uma conta que tenha um locatário do Azure Active Directory do Azure AD (federado). Os usuários que entraram no sistema operacional também podem usar o SSO (logon único). Quando você define a `UseCorporateNetwork` propriedade, MSAL.NET usa um wab (agente de autenticação da Web).
 
 > [!IMPORTANT]
-> Definir a `UseCorporateNetwork` Propriedade como true pressupõe que o desenvolvedor do aplicativo habilitou o IWA no aplicativo. Para habilitar o IWA:
-> - Nos seus aplicativos UWP `Package.appxmanifest`, na guia **recursos** , habilite os seguintes recursos:
+> Definir a `UseCorporateNetwork` propriedade como true pressupõe que o desenvolvedor do aplicativo habilitou o IWA no aplicativo. Para habilitar o IWA:
+> - Nos seus aplicativos UWP `Package.appxmanifest` , na guia **recursos** , habilite os seguintes recursos:
 >   - **Autenticação de Empresa**
 >   - **Redes Privadas (Cliente e Servidor)**
 >   - **Certificado de usuário compartilhado**

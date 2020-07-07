@@ -4,10 +4,10 @@ description: Fornece instruções para configurar rapidamente o monitoramento co
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.openlocfilehash: 0d47fb1eccdfcfc7b2719825575f06dc85e62452
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82652760"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Adicionar monitoramento contínuo ao seu pipeline de versão
@@ -20,7 +20,7 @@ Com o monitoramento contínuo, os pipelines de versão podem incorporar dados de
 
 1. No [Azure DevOps](https://dev.azure.com), selecione uma organização e um projeto.
    
-1. No menu à esquerda da página do projeto, selecione**lançamentos**de **pipelines** > . 
+1. No menu à esquerda da página do projeto, selecione **Pipelines**  >  **lançamentos**de pipelines. 
    
 1. Solte a seta ao lado de **novo** e selecione **novo pipeline de liberação**. Ou, se você ainda não tiver um pipeline, selecione **novo pipeline** na página que aparece.
    

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 10/21/2019
 ms.author: lcozzens
-ms.openlocfilehash: 5ea9749c07aadc7037e753160e9b053992bebae2
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: bf2ccd93a94036c6ab5b6224456cd1f5a13239c5
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77619309"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855016"
 ---
 # <a name="quickstart-add-feature-flags-to-a-net-framework-app"></a>Início Rápido: Adicionar sinalizadores de recursos a um aplicativo .NET Framework
 
@@ -105,11 +105,15 @@ As bibliotecas do Gerenciamento de Recursos do .NET estendem a estrutura com sup
 
 1. Defina uma variável de ambiente chamada **ConnectionString** como a cadeia de conexão do repositório de Configuração de Aplicativos. Se você usar o prompt de comando do Windows, execute o seguinte comando:
 
+    ```console
         setx ConnectionString "connection-string-of-your-app-configuration-store"
+    ```
 
     Se você usa o Windows PowerShell, execute o comando a seguir:
 
+    ```powershell
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    ```
 
 1. Reinicie o Visual Studio para permitir que a alteração tenha efeito. 
 

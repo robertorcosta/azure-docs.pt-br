@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.author: hrasheed
 ms.openlocfilehash: 2c153d818136c5d8804dae72004dfaf17fd1bf7a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73494528"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Problemas conhecidos do cluster do Apache Spark no HDInsight
@@ -32,7 +32,7 @@ Use o procedimento a seguir para contornar o problema:
 
         yarn application –list
 
-    Os nomes de trabalho padrão serão Livy se os trabalhos foram iniciados com uma sessão interativa Livy sem nenhum nome explícito especificado. Para a sessão Livy iniciada pelo [Jupyter Notebook](https://jupyter.org/), o nome do trabalho `remotesparkmagics_*`começa com.
+    Os nomes de trabalho padrão serão Livy se os trabalhos foram iniciados com uma sessão interativa Livy sem nenhum nome explícito especificado. Para a sessão Livy iniciada pelo [Jupyter Notebook](https://jupyter.org/), o nome do trabalho começa com `remotesparkmagics_*` .
 
 3. Execute o seguinte comando para eliminar esses trabalhos.
 
@@ -91,7 +91,7 @@ Depois de se conectar ao cluster usando o SSH, é possível copiar os blocos de 
 
 Para evitar que esse erro aconteça no futuro, você deve seguir algumas práticas recomendadas:
 
-* É importante manter um tamanho pequeno de bloco de anotações. Qualquer saída de trabalho no Spark que é enviada de volta ao Jupyter é mantida no bloco de anotações.  É uma prática recomendada com Jupyter em geral para evitar a execução `.collect()` em grandes RDDs ou quadros de molduras; em vez disso, se você quiser inspecionar o conteúdo de um RDD, `.take()` considere `.sample()` executar ou para que sua saída não fique muito grande.
+* É importante manter um tamanho pequeno de bloco de anotações. Qualquer saída de trabalho no Spark que é enviada de volta ao Jupyter é mantida no bloco de anotações.  Trata-se de uma prática recomendada com Jupyter em geral para evitar a execução `.collect()` em grandes RDD ou quadros de molduras; em vez disso, se você quiser inspecionar o conteúdo de um RDD, considere executar `.take()` ou `.sample()` para que a saída não fique muito grande.
 * Além disso, quando você salvar um bloco de anotações, limpe todas as células de saída para reduzir o tamanho.
 
 ### <a name="notebook-initial-startup-takes-longer-than-expected"></a>A inicialização inicial do notebook demora mais do que o esperado
@@ -115,7 +115,7 @@ Quando o cluster Spark está sem recursos, os kernels Spark e PySpark no noteboo
 
 2. Reinicie o notebook que você está tentando iniciar. Recursos suficientes devem estar disponíveis para você criar uma sessão agora.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 * [Visão geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 

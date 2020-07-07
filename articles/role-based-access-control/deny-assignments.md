@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
 ms.openlocfilehash: a5f17f009caa9306631debf511f2c890f8f2a450
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82733764"
 ---
 # <a name="understand-azure-deny-assignments"></a>Entender as atribuições de negação do Azure
@@ -39,7 +39,7 @@ As atribuições de negação são criadas e gerenciadas pelo Azure para protege
 
 As atribuições de negação seguem um padrão semelhante como atribuições de função, mas também têm algumas diferenças.
 
-| Capacidade | Atribuição de função | Atribuição de negação |
+| Recurso | Atribuição de função | Atribuição de negação |
 | --- | --- | --- |
 | Conceder acesso | :heavy_check_mark: |  |
 | Negar acesso |  | :heavy_check_mark: |
@@ -65,7 +65,7 @@ As atribuições de negação seguem um padrão semelhante como atribuições de
 > | `Scope` | Não | String | Uma cadeia de caracteres que especifica o escopo ao qual a atribuição de negação se aplica. |
 > | `DoNotApplyToChildScopes` | Não | Boolean | Especifica se a atribuição de negação se aplica a escopos filho. O valor padrão é falso. |
 > | `Principals[i].Id` | Sim | String[] | Uma matriz de IDs de objeto principal do Microsoft Azure Active Directory (usuário, grupo, entidade de serviço ou identidade gerenciada) à qual a atribuição de negação se aplica. Defina como um GUID vazio `00000000-0000-0000-0000-000000000000` para representar todos os principais. |
-> | `Principals[i].Type` | Não | String[] | Uma matriz de tipos de objeto representada por entidades de segurança [i]. ID. `SystemDefined` definido como para representar todas as entidades de segurança. |
+> | `Principals[i].Type` | Não | String[] | Uma matriz de tipos de objeto representada por entidades de segurança [i]. ID. definido como `SystemDefined` para representar todas as entidades de segurança. |
 > | `ExcludePrincipals[i].Id` | Não | String[] | Uma matriz de IDs de objeto principal do Microsoft Azure Active Directory (usuário, grupo, entidade de serviço ou identidade gerenciada) à qual a atribuição de negação não se aplica. |
 > | `ExcludePrincipals[i].Type` | Não | String[] | Uma matriz de tipos de objeto representados por ExcludePrincipals[i].Id. |
 > | `IsSystemProtected` | Não | Boolean | Especifica se esta atribuição de negação foi ou não criada pelo Azure e não pode ser editada ou excluída. Atualmente, todas as atribuições de negação são protegidas pelo sistema. |
@@ -82,7 +82,7 @@ Principals              : {
                           }
 ```
 
-Todas as entidades de segurança podem ser `ExcludePrincipals` combinadas com o para negar a todas as entidades de segurança, exceto alguns usuários. Todas as entidades de segurança têm as seguintes restrições:
+Todas as entidades de segurança podem ser combinadas com o `ExcludePrincipals` para negar a todas as entidades de segurança, exceto alguns usuários. Todas as entidades de segurança têm as seguintes restrições:
 
 - Pode ser usada apenas em `Principals` e não pode ser usada em `ExcludePrincipals`.
 - `Principals[i].Type` deve ser definido como `SystemDefined`.

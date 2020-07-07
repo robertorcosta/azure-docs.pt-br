@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
 ms.openlocfilehash: 7cc2b7871c7141a0e466bf8620351c5beed0c684
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82165681"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Criando sua implantação de logs de Azure Monitor
@@ -45,16 +45,16 @@ Hoje, as organizações de ti são modeladas seguindo um híbrido centralizado, 
 * **Descentralizado**: cada equipe tem seu próprio espaço de trabalho criado em um grupo de recursos que ele possui e gerencia, e os dados de log são separados por recurso. Nesse cenário, o espaço de trabalho pode ser mantido seguro e o controle de acesso é consistente com o acesso aos recursos, mas é difícil correlacionar os logs. Os usuários que precisam de uma visão ampla de muitos recursos não podem analisar os dados de uma maneira significativa.
 * **Híbrido**: os requisitos de conformidade de auditoria de segurança complicam ainda mais esse cenário porque muitas organizações implementam ambos os modelos de implantação em paralelo. Isso normalmente resulta em uma configuração complexa, cara e difícil de manter com lacunas na cobertura de logs.
 
-Ao usar os agentes de Log Analytics para coletar dados, você precisa entender o seguinte para planejar a implantação do agente:
+Ao usar os Agentes do Log Analytics para coletar dados, você precisará entender o seguinte para planejar a implantação do agente:
 
-* Para coletar dados de agentes do Windows, você pode [configurar cada agente para reportar para um ou mais espaços de trabalho](../../azure-monitor/platform/agent-windows.md), mesmo enquanto estiver relatando a um grupo de gerenciamento de System Center Operations Manager. O agente do Windows pode relatar até quatro espaços de trabalho.
-* O agente do Linux não dá suporte a hospedagem múltipla e só pode relatar para um único espaço de trabalho.
+* Para coletar dados de agentes do Windows, você poderá [configurar cada agente para relatar a um ou mais espaços de trabalho](../../azure-monitor/platform/agent-windows.md), mesmo que estejam relatando a um grupo de gerenciamento do System Center Operations Manager. O agente do Windows pode relatar a até quatro espaços de trabalho.
+* Não há suporte à hospedagem múltipla em um agente do Linux e ele somente pode relatar a um único espaço de trabalho.
 
 Se você estiver usando o System Center Operations Manager 2012 R2 ou posterior:
 
-* Cada grupo de gerenciamento de Operations Manager pode ser [conectado a apenas um espaço de trabalho](../platform/om-agents.md). 
-* Os computadores Linux que relatam para um grupo de gerenciamento devem ser configurados para relatar diretamente a um espaço de trabalho Log Analytics. Se os computadores Linux já estiverem se reportando diretamente a um espaço de trabalho e você quiser monitorá-los com Operations Manager, siga estas etapas para [relatar a um grupo de gerenciamento de Operations Manager](agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group). 
-* Você pode instalar o Log Analytics agente do Windows no computador Windows e fazer com que ele se reporte a ambos Operations Manager integrados a um espaço de trabalho e a um espaço de trabalho diferente.
+* cada grupo de gerenciamento do Operations Manager pode ser [conectado a apenas um espaço de trabalho](../platform/om-agents.md). 
+* Os computadores Linux que relatam a um grupo de gerenciamento devem ser configurados para relatar diretamente a um workspace do Log Analytics. Se os computadores Linux já estiverem se reportando diretamente a um espaço de trabalho e você quiser monitorá-los com o Operations Manager, siga estas etapas para [Relatar a um grupo de gerenciamento do Operations Manager](agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group). 
+* Você pode instalar o Agente do Windows do Log Analytics no computador Windows e fazer com que ele se reporte tanto ao Operations Manager integrado a um espaço de trabalho quanto a outro espaço de trabalho.
 
 ## <a name="access-control-overview"></a>Visão geral do controle de acesso
 
@@ -129,7 +129,7 @@ Para saber como alterar o modo de controle de acesso no portal, com o PowerShell
 
 O Azure Monitor é um serviço de dados de grande escala que atende milhares de clientes que enviam terabytes de dados por mês em um ritmo cada vez maior. O limite de taxa de ingestão padrão é definido como **6 GB/min** por espaço de trabalho. Esse é um valor aproximado, pois o tamanho real pode variar entre os tipos de dados, dependendo do tamanho do log e de sua taxa de compactação. Esse limite não se aplica aos dados enviados de agentes ou da [API do coletor de dados](data-collector-api.md).
 
-Se você enviar dados a uma taxa mais alta para um único espaço de trabalho, alguns dados serão descartados e um evento será enviado para a tabela de *operações* no seu espaço de trabalho a cada 6 horas, enquanto o limite continuará sendo excedido. Se o volume de ingestão continuar exceder o limite de taxa ou você estiver esperando contatá-lo em breve, poderá solicitar um aumento no espaço de trabalho enviando um email LAIngestionRate@microsoft.com para ou abrindo uma solicitação de suporte.
+Se você enviar dados a uma taxa mais alta para um único espaço de trabalho, alguns dados serão descartados e um evento será enviado para a tabela de *operações* no seu espaço de trabalho a cada 6 horas, enquanto o limite continuará sendo excedido. Se o volume de ingestão continuar exceder o limite de taxa ou você estiver esperando contatá-lo em breve, poderá solicitar um aumento no espaço de trabalho enviando um email para LAIngestionRate@microsoft.com ou abrindo uma solicitação de suporte.
  
 Para ser notificado sobre esse evento em seu espaço de trabalho, crie uma [regra de alerta de log](alerts-log.md) usando a consulta a seguir com a base de lógica de alerta no número de resultados mais rígidos que zero.
 

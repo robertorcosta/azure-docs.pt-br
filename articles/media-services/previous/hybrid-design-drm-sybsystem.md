@@ -16,10 +16,10 @@ ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: juliako
 ms.openlocfilehash: 44095cb85c62fd40032263d96ad678bdeb5effc0
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82159396"
 ---
 # <a name="hybrid-design-of-drm-subsystems"></a>Design híbrido de subsistemas DRM 
@@ -93,7 +93,7 @@ Por meio da configuração de uma política de entrega de ativos, você pode con
 
 ## <a name="scenarios-and-samples"></a>Cenários e exemplos
 
-Com base nas explicações na seção anterior, os cinco cenários híbridos a seguir usam combinações de configuração da**política de entrega de ativos** de chave-de **conteúdo**(os exemplos mencionados na última coluna seguem a tabela):
+Com base nas explicações na seção anterior, os cinco cenários híbridos a seguir usam combinações de configuração da política de entrega de ativos de **chave de conteúdo** - **Asset delivery policy** (os exemplos mencionados na última coluna seguem a tabela):
 
 |**Hospedagem e origem de conteúdo**|**Criptografia do DRM**|**Entrega de licença do DRM**|**Configurar chave de conteúdo**|**Configurar política de entrega de ativos**|**Amostra**|
 |---|---|---|---|---|---|
@@ -140,6 +140,6 @@ Exibir os roteiros de aprendizagem dos Serviços de Mídia.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Envie comentários
+## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
