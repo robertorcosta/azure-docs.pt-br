@@ -8,10 +8,10 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 2/25/2020
 ms.openlocfilehash: bf97a1eae758778efc8d800666af4a5fcb574429
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80056831"
 ---
 # <a name="integrate-with-azure-managed-identities"></a>Integração às Identidades Gerenciadas do Azure
@@ -38,7 +38,7 @@ Neste artigo, você aprenderá como:
 Para concluir este tutorial, você deve ter:
 
 * [SDK do .Net Core](https://www.microsoft.com/net/download/windows).
-* [Azure Cloud Shell configurado](https://docs.microsoft.com/azure/cloud-shell/quickstart).
+* [Azure cloud shell configurado](https://docs.microsoft.com/azure/cloud-shell/quickstart).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -60,7 +60,7 @@ Para configurar uma identidade gerenciada no portal, primeiro crie um aplicativo
 
 1. Na [portal do Azure](https://portal.azure.com), selecione **todos os recursos** e selecione o repositório de configuração de aplicativo que você criou no guia de início rápido.
 
-1. Selecione **controle de acesso (iam)**.
+1. Selecione **IAM (Controle de acesso)** .
 
 1. Na guia **Verificar acesso**, selecione **Adicionar** na interface do usuário de cartão **Adicionar uma atribuição de função**.
 
@@ -84,7 +84,7 @@ Para configurar uma identidade gerenciada no portal, primeiro crie um aplicativo
 
 1. Localize o ponto de extremidade para seu repositório de configuração de aplicativo. Essa URL é listada na guia **chaves de acesso** para a loja no portal do Azure.
 
-1. Abra *appsettings.json* e adicione o seguinte script. Substitua * \<service_endpoint>*, incluindo os colchetes, pela URL para o repositório de configuração do aplicativo. 
+1. Abra *appsettings.json* e adicione o seguinte script. Substitua *\<service_endpoint>* , incluindo os colchetes, pela URL para o repositório de configuração do aplicativo. 
 
     ```json
     "AppConfig": {
@@ -92,13 +92,13 @@ Para configurar uma identidade gerenciada no portal, primeiro crie um aplicativo
     }
     ```
 
-1. Abra *Program.cs*e adicione uma referência aos namespaces `Azure.Identity` e `Microsoft.Azure.Services.AppAuthentication` :
+1. Abra *Program.cs*e adicione uma referência aos `Azure.Identity` `Microsoft.Azure.Services.AppAuthentication` namespaces e:
 
     ```csharp-interactive
     using Azure.Identity;
     ```
 
-1. Se você quiser acessar apenas os valores armazenados diretamente na configuração do aplicativo, atualize `CreateWebHostBuilder` o método substituindo `config.AddAzureAppConfiguration()` o método.
+1. Se você quiser acessar apenas os valores armazenados diretamente na configuração do aplicativo, atualize o `CreateWebHostBuilder` método substituindo o `config.AddAzureAppConfiguration()` método.
 
     > [!IMPORTANT]
     > `CreateHostBuilder` substitui `CreateWebHostBuilder` no .NET Core 3.0.  Selecione a sintaxe correta com base em seu ambiente.
@@ -181,7 +181,7 @@ Para configurar uma identidade gerenciada no portal, primeiro crie um aplicativo
     ```
     ---
 
-    Agora você pode acessar Key Vault referências, assim como qualquer outra chave de configuração de aplicativo. O provedor de configuração usará `KeyVaultClient` o que você configurou para autenticar para Key Vault e recuperar o valor.
+    Agora você pode acessar Key Vault referências, assim como qualquer outra chave de configuração de aplicativo. O provedor de configuração usará o `KeyVaultClient` que você configurou para autenticar para Key Vault e recuperar o valor.
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
@@ -202,7 +202,7 @@ git add .
 git commit -m "Initial version"
 ```
 
-Para habilitar a implantação do git local para seu aplicativo com o servidor de compilação [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) kudu, execute em Cloud Shell.
+Para habilitar a implantação do git local para seu aplicativo com o servidor de compilação kudu, execute [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) em Cloud Shell.
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app_name> --resource-group <group_name>
@@ -218,7 +218,7 @@ Esse comando fornece algo semelhante à seguinte saída:
 
 ### <a name="deploy-your-project"></a>Implante o seu projeto
 
-Na _janela do terminal local_, adicione um remoto do Azure ao repositório git local. Substitua _ \<a URL>_ pela URL do git remoto obtida em [habilitar o Git local com kudu](#enable-local-git-with-kudu).
+Na _janela do terminal local_, adicione um remoto do Azure ao repositório git local. Substitua _\<url>_ pela URL do git remoto que você obteve de habilitar o [git local com kudu](#enable-local-git-with-kudu).
 
 ```bash
 git remote add azure <url>
@@ -244,7 +244,7 @@ http://<app_name>.azurewebsites.net
 
 Os provedores da Configuração de Aplicativo para o .NET Framework e o Java Spring também têm suporte interno para a identidade gerenciada. Você pode usar o ponto de extremidade de URL do repositório em vez de sua cadeia de conexão completa ao configurar um desses provedores. 
 
-Por exemplo, você pode atualizar o aplicativo de console .NET Framework criado no guia de início rápido para especificar as seguintes configurações no arquivo *app. config* :
+Por exemplo, você pode atualizar o aplicativo de console .NET Framework criado no guia de início rápido para especificar as seguintes configurações no arquivo de *App.config* :
 
 ```xml
     <configSections>
@@ -272,4 +272,4 @@ Por exemplo, você pode atualizar o aplicativo de console .NET Framework criado 
 Neste tutorial, você adicionou uma identidade gerenciada do Azure para simplificar o acesso à configuração do aplicativo e melhorar o gerenciamento de credenciais para seu aplicativo. Para saber mais sobre como usar a Configuração de Aplicativo, continue para ver as amostras da CLI do Azure.
 
 > [!div class="nextstepaction"]
-> [Exemplos de CLI](./cli-samples.md)
+> [Exemplos da CLI](./cli-samples.md)

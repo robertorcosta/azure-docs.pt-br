@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/06/2019
 ms.openlocfilehash: d2f794365e15768dbf47647f2d9a8d08d5e8ba3f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80055734"
 ---
 # <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants-legacy"></a>Coletar logs de atividades do Azure em Azure Monitor entre locatários Azure Active Directory (Herdado)
@@ -51,7 +51,7 @@ A seguir estão os requisitos para os recursos do Azure usados neste cenário.
 
 <!-- Follow the steps in [how to create an Event Hubs namespace and Event Hub](../../event-hubs/event-hubs-create.md) to create your event hub. -->
 
-1. Na portal do Azure, selecione **criar um recurso** > **Internet das coisas** > **hubs de eventos**.
+1. Na portal do Azure, selecione **criar um recurso**  >  **Internet das coisas**  >  **hubs de eventos**.
 
    ![Novo hub de eventos do Marketplace](media/collect-activity-logs-subscriptions/marketplace-new-event-hub.png)
 
@@ -78,7 +78,7 @@ Para habilitar a transmissão do Log de Atividades, você pode escolher um Names
 
 Você pode usar um namespace de hub de eventos que não esteja na mesma assinatura que o emissor de logs, no entanto, as assinaturas devem estar no mesmo Active Directory do Azure. O usuário que define a configuração deve ter o devido RBAC para acessar ambas as assinaturas. 
 
-1. Na portal do Azure, selecione **monitorar** > **log de atividades**.
+1. Na portal do Azure, selecione **monitorar**  >  **log de atividades**.
 3. Clique no botão **Exportar** na parte superior da página.
 
    ![imagem do monitor do azure na barra de navegação](media/collect-activity-logs-subscriptions/activity-log-blade.png)
@@ -116,7 +116,7 @@ Para obter o cadeia de conexão e o nome do Hub de Eventos, siga as etapas em [V
 
 ### <a name="create-a-new-blank-logic-app"></a>Criar um aplicativo lógico em branco
 
-1. Na portal do Azure, escolha **criar um recurso** > **Enterprise Integration** > **aplicativo lógico**.
+1. Na portal do Azure, escolha **criar um recurso**  >  **Enterprise Integration**  >  **aplicativo lógico**.
 
     ![Novo aplicativo lógico do Marketplace](media/collect-activity-logs-subscriptions/marketplace-new-logic-app.png)
 
@@ -124,10 +124,10 @@ Para obter o cadeia de conexão e o nome do Hub de Eventos, siga as etapas em [V
 
     ![Criar aplicativo lógico](media/collect-activity-logs-subscriptions/create-logic-app.png)
 
-   |Configuração | Descrição  |
+   |Setting | Descrição  |
    |:---|:---|
-   | Nome           | Nome exclusivo para o aplicativo lógico. |
-   | Assinatura   | Selecione a assinatura do Azure que contém o aplicativo lógico. |
+   | Name           | Nome exclusivo para o aplicativo lógico. |
+   | Subscription   | Selecione a assinatura do Azure que contém o aplicativo lógico. |
    | Grupo de recursos | Selecione um grupo de recursos do Azure existente ou crie um novo para o aplicativo lógico. |
    | Local       | Selecione a região do datacenter para implantar seu aplicativo lógico. |
    | Log Analytics  | Selecione se você deseja registrar em log o status de cada execução do seu aplicativo lógico em um espaço de trabalho Log Analytics.  |
@@ -163,7 +163,7 @@ O Designer de Aplicativos Lógicos agora mostra os conectores disponíveis e seu
 
 A saída do Hub de Eventos contém uma carga JSON com uma matriz de registros. A ação [analisar JSON](../../logic-apps/logic-apps-content-type.md) é usada para extrair apenas a matriz de registros para enviar para log Analytics espaço de trabalho.
 
-1. Clique em **nova etapa** > **Adicionar uma ação**
+1. Clique em **nova etapa**  >  **Adicionar uma ação**
 2. Na caixa de pesquisa, digite *Parse JSON* como filtro. Selecione a ação **Operações de dados - Parse JSON**.
 
    ![Adicionar ação parse json em aplicativos lógicos](media/collect-activity-logs-subscriptions/logic-apps-add-parse-json-action.png)
@@ -275,7 +275,7 @@ A saída do Hub de Eventos contém uma carga JSON com uma matriz de registros. A
 ### <a name="add-compose-action"></a>Adicionar ação compor
 A ação [Compor](../../logic-apps/logic-apps-workflow-actions-triggers.md#compose-action) leva a saída JSON e cria um objeto que pode ser usado pela ação do Log Analytics.
 
-1. Clique em **nova etapa** > **Adicionar uma ação**
+1. Clique em **nova etapa**  >  **Adicionar uma ação**
 2. Digite *Compor* para seu filtro e, em seguida, selecione a ação **Operações de dados - Compor**.
 
     ![Adicionar ação compor](media/collect-activity-logs-subscriptions/logic-apps-add-compose-action.png)
@@ -286,7 +286,7 @@ A ação [Compor](../../logic-apps/logic-apps-workflow-actions-triggers.md#compo
 ### <a name="add-log-analytics-send-data-action"></a>Adicionar ação de enviar dados do Log Analytics
 A ação do [coletor de dados do Azure log Analytics](https://docs.microsoft.com/connectors/azureloganalyticsdatacollector/) usa o objeto da ação compor e o envia para um espaço de trabalho log Analytics.
 
-1. Clique em **nova etapa** > **Adicionar uma ação**
+1. Clique em **nova etapa**  >  **Adicionar uma ação**
 2. Digite *log analytics* para seu filtro e, em seguida, selecione a ação **Coletor de Dados do Log Analytics do Azure - Enviar dados**.
 
    ![Adicionando ação de envio de dados da análise de logs nos aplicativos lógicos](media/collect-activity-logs-subscriptions/logic-apps-send-data-to-log-analytics-connector.png)
@@ -299,7 +299,7 @@ A ação do [coletor de dados do Azure log Analytics](https://docs.microsoft.com
 
     ![Configure a ação de envio de dados](media/collect-activity-logs-subscriptions/logic-apps-send-data-to-log-analytics-configuration.png)
 
-   |Configuração        | Valor           | Descrição  |
+   |Setting        | Valor           | Descrição  |
    |---------------|---------------------------|--------------|
    |Corpo da solicitação JSON  | **Saída** da ação **Compor** | Recupera os registros do corpo da ação Compor. |
    | Campo de Log Personalizado | AzureActivity | Nome da tabela de log Personalizada a ser criada no espaço de trabalho Log Analytics para armazenar os dados importados. |
@@ -322,7 +322,7 @@ Para ver informações detalhadas sobre cada etapa, clique no nome da etapa para
 ## <a name="step-5---view-azure-activity-log-in-log-analytics"></a>Etapa 5 - Exibir o log de atividades do Azure no Log Analytics
 A etapa final é verificar o espaço de trabalho do Log Analytics para certificar-se de que os dados estão sendo coletados conforme o esperado.
 
-1. No portal do Azure, clique em **Todos os serviços**, encontrado no canto superior esquerdo. Na lista de recursos, digite **log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **log Analytics**.
+1. No portal do Azure, clique em **Todos os serviços**, encontrado no canto superior esquerdo. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **log Analytics**.
 2. Na lista de workspaces do Log Analytics, selecione um workspace.
 3.  Clique no bloco **Pesquisa de Logs** e, no painel da Pesquisa de Logs, no campo de consulta, digite `AzureActivity_CL` e, em seguida, pressione Enter ou clique no botão de pesquisa à direita do campo de consulta. Se você não nomeou seu log personalizado *AzureActivity*, digite o nome que você escolheu e acrescente `_CL`.
 

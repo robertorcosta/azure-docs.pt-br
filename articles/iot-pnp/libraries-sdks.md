@@ -9,10 +9,10 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 ms.openlocfilehash: 394edc24cfeefb96cb2f412985cb990a2306bb09
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80064341"
 ---
 # <a name="iot-plug-and-play-libraries-and-sdks"></a>SDKs e bibliotecas de Plug and Play de IoT
@@ -21,7 +21,7 @@ As bibliotecas e SDKs do IoT Plug and Play permitem que os desenvolvedores criem
 
 ## <a name="microsoft-supported-libraries-and-sdks"></a>Bibliotecas e SDKs com suporte da Microsoft
 
-| Plataforma | Biblioteca/pacote | Código-fonte | Amostra | Guia de Início Rápido | Referência |
+| Plataforma | Biblioteca/pacote | Código-fonte | Amostra | Início Rápido | Referência |
 | -------- | ------- | ----------- | ------ | ---------- | --------- |
 | C/Linux  | [SDK do dispositivo em apt-get](https://github.com/Azure/azure-iot-sdk-c/blob/public-preview/iothub_client/readme.md#aptgetpackage) | [GitHub](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview) | [Exemplos de cliente de entrelaçamento digital](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview/digitaltwin_client/samples) | [Conectar ao Hub IoT](./quickstart-connect-pnp-device-c-linux.md) | [Referência](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/) |
 | C/Windows  | [SDK do dispositivo em Vcpkg](https://github.com/Azure/azure-iot-sdk-c/blob/public-preview/doc/setting_up_vcpkg.md#setup-c-sdk-vcpkg-for-windows-development-environment) | [GitHub](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview) | [Exemplos de cliente de entrelaçamento digital](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview/digitaltwin_client/samples) | [Conectar ao Hub IoT](./quickstart-connect-pnp-device-c-windows.md) | [Referência](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/) |

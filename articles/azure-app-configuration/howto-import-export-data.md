@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: lcozzens
 ms.openlocfilehash: 5b3d6d0561d7d6d6b23cb4f579b0988850da9771
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80056876"
 ---
 # <a name="import-or-export-configuration-data"></a>Importar ou exportar dados de configuração
@@ -28,7 +28,7 @@ Importe dados usando o [portal do Azure](https://portal.azure.com) ou o [CLI do 
 
 1. Navegue até o repositório de configuração do aplicativo e selecione **importar/exportar** no menu **operações** .
 
-1. Na guia **importar** , selecione**arquivo de configuração**do **serviço** > de origem.
+1. Na guia **importar** , selecione arquivo de configuração do **serviço de origem**  >  **Configuration File**.
 
 1. Selecione **para idioma** e selecione o tipo de entrada desejado.
 
@@ -52,11 +52,11 @@ Exporte dados usando o [portal do Azure](https://portal.azure.com) ou o [CLI do 
 
 1. Navegue até o repositório de configuração do aplicativo e selecione **importar/exportar**.
 
-1. Na guia **Exportar** , selecione o **Target service** > **arquivo de configuração**do serviço de destino.
+1. Na guia **Exportar** , selecione o **Target service**  >  **arquivo de configuração**do serviço de destino.
 
 1. Opcionalmente, insira um **prefixo** e selecione um **rótulo** e um ponto no tempo para que as chaves sejam exportadas.
 
-1. Selecione um **File type** > **separador**de tipo de arquivo.
+1. Selecione um **File type**  >  **separador**de tipo de arquivo.
 
 1. Selecione **aplicar** para concluir a exportação.
 

@@ -4,17 +4,17 @@ description: Este artigo fornece uma visão geral da proteção do servidor do D
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.openlocfilehash: 0199495e3b0eb002e58c096ed9abf05d46f43f97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80054123"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Fazer backup de um farm do SharePoint no Azure com o DPM
 
 Faça backup de um farm do SharePoint para o Microsoft Azure usando o DPM (System Center Data Protection Manager) da mesma maneira que o backup de outras fontes de dados. O Backup do Azure fornece flexibilidade no agendamento de backup para criar pontos de backup diariamente, semanalmente, mensalmente ou anualmente e fornece opções de política de retenção para diversos pontos de backup. O DPM fornece a capacidade de armazenar cópias de disco locais para obter RTOs (Objetivos de Tempo de Recuperação) rápidos e armazenar cópias no Azure para uma retenção econômica e de longo prazo.
 
-Fazer backup do SharePoint no Azure com o DPM é um processo muito semelhante para fazer backup do SharePoint no DPM localmente. Considerações específicas para o Azure serão observadas neste artigo.
+Fazer backup do SharePoint no Azure com o DPM é um processo muito semelhante para fazer backup do SharePoint no DPM localmente. Neste artigo, serão observadas considerações específicas para o Azure.
 
 ## <a name="sharepoint-supported-versions-and-related-protection-scenarios"></a>Versões do SharePoint com suporte e cenários de proteção relacionados
 
@@ -61,7 +61,7 @@ Para saber como restaurar um item do SharePoint de um disco com o DPM, consulte 
 
     ![Proteção do SharePoint do DPM11](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection13.png)
 
-    Após a catalogação ser concluída, o status é alterado para *Êxito*. Clique em **Fechar**.
+    Após a catalogação ser concluída, o status é alterado para *Êxito*. Clique em **fechar**
 
     ![Proteção do SharePoint do DPM12](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection14.png)
 4. Clique no objeto do SharePoint mostrado na guia **Recuperação** do DPM para obter a estrutura do banco de dados de conteúdo. Clique com o botão direito do mouse no item apropriado e em **Recuperar**.
@@ -69,7 +69,7 @@ Para saber como restaurar um item do SharePoint de um disco com o DPM, consulte 
     ![Proteção do SharePoint do DPM13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 5. Nesse ponto, siga as etapas de recuperação descritas anteriormente neste artigo para recuperar um banco de dados de conteúdo do SharePoint do disco.
 
-## <a name="switching-the-front-end-web-server"></a>Alternar o servidor Web de front-end
+## <a name="switching-the-front-end-web-server"></a>Alternando o servidor Web front-end
 
 Se você tiver mais de um servidor Web front-end e quiser alternar o servidor que o DPM usa para proteger o farm, siga as instruções em [alternando o servidor Web front-end](https://docs.microsoft.com/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#switching-the-front-end-web-server).
 

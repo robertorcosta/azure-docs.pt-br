@@ -8,10 +8,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.openlocfilehash: 012a574887d9980e0c71c3af84ff70ca8d31312c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80275672"
 ---
 # <a name="check-the-publishing-status-of-your-commercial-marketplace-offer"></a>Verificar o status de publicação da sua oferta do Marketplace comercial
@@ -22,11 +22,11 @@ Um dos indicadores de status a seguir deve ser exibido para cada oferta.
 
 | **Status**    | **Descrição**  |
 | :---------- | :-------------------|
-| **Escalação** | A oferta foi criada, mas não está sendo publicada. |
+| **Rascunho** | A oferta foi criada, mas não está sendo publicada. |
 | **Publicação em andamento** | A oferta/plano está trabalhando de sua maneira por meio das etapas do processo de publicação. |
 | **Ação necessária** | Um problema crítico foi descoberto durante a certificação pela Microsoft ou por qualquer uma das etapas de publicação. |
-| **Visualizar** | A oferta foi certificada pela Microsoft e agora aguarda uma verificação final pelo Publicador. Selecione entrar em tempo real para tornar a oferta ativa. |
-| **Ativa** | A oferta está ativa no Marketplace e pode ser vista e adquirida pelos clientes. |
+| **Visualização** | A oferta foi certificada pela Microsoft e agora aguarda uma verificação final pelo Publicador. Selecione entrar em tempo real para tornar a oferta ativa. |
+| **Ao vivo** | A oferta está ativa no Marketplace e pode ser vista e adquirida pelos clientes. |
 | **Venda de parada pendente** | O Publicador selecionou "parar venda" na oferta ou no plano, mas a ação ainda não foi concluída. |
 | **Não disponível no Marketplace** | Uma oferta/plano publicado anteriormente no Marketplace foi removido. |
 

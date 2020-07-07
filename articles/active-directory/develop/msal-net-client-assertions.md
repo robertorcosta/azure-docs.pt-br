@@ -14,10 +14,10 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 8c97387bfd2a362d3bf5a6b8a3252242f061da31
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80050282"
 ---
 # <a name="confidential-client-assertions"></a>Asserções confidenciais do cliente
@@ -35,7 +35,7 @@ O MSAL.NET tem quatro métodos para fornecer credenciais ou asserções ao aplic
 - `.WithClientClaims()`
 
 > [!NOTE]
-> Embora seja possível usar a `WithClientAssertion()` API para adquirir tokens para o cliente confidencial, não recomendamos usá-lo por padrão, pois ele é mais avançado e projetado para lidar com cenários muito específicos que não são comuns. Usar a `.WithCertificate()` API permitirá que o MSAL.net manipule isso para você. Essa API oferece a capacidade de personalizar sua solicitação de autenticação, se necessário, mas a declaração padrão `.WithCertificate()` criada por será suficiente para a maioria dos cenários de autenticação. Essa API também pode ser usada como uma solução alternativa em alguns cenários em que o MSAL.NET falha ao executar a operação de assinatura internamente.
+> Embora seja possível usar a `WithClientAssertion()` API para adquirir tokens para o cliente confidencial, não recomendamos usá-lo por padrão, pois ele é mais avançado e projetado para lidar com cenários muito específicos que não são comuns. Usar a `.WithCertificate()` API permitirá que o MSAL.net manipule isso para você. Essa API oferece a capacidade de personalizar sua solicitação de autenticação, se necessário, mas a declaração padrão criada por `.WithCertificate()` será suficiente para a maioria dos cenários de autenticação. Essa API também pode ser usada como uma solução alternativa em alguns cenários em que o MSAL.NET falha ao executar a operação de assinatura internamente.
 
 ### <a name="signed-assertions"></a>Asserções assinadas
 
@@ -135,7 +135,7 @@ string GetSignedClientAssertion()
 
 ### <a name="alternative-method"></a>Método alternativo
 
-Você também tem a opção de usar [Microsoft. IdentityModel. JsonWebTokens](https://www.nuget.org/packages/Microsoft.IdentityModel.JsonWebTokens/) para criar a asserção para você. O código será mais elegante, conforme mostrado no exemplo abaixo:
+Você também tem a opção de usar [Microsoft.IdentityModel.JsonWebTokens](https://www.nuget.org/packages/Microsoft.IdentityModel.JsonWebTokens/) para criar a asserção para você. O código será mais elegante, conforme mostrado no exemplo abaixo:
 
 ```csharp
         string GetSignedClientAssertion()

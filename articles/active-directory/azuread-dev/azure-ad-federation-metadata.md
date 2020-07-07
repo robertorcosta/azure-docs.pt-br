@@ -14,10 +14,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: bcc44f61ccb7b4a19e7df39ab979669c5aa37da1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80154892"
 ---
 # <a name="federation-metadata"></a>Metadados de federação
@@ -43,7 +43,7 @@ Para **pontos de extremidade específicos de locatário**, o `TenantDomainName` 
 
 Para **pontos de extremidade independentes de locatário**, o `TenantDomainName` é `common`. Este documento lista apenas os elementos de Metadados de Federação que são comuns a todos os locatários do Azure AD hospedados em login.microsoftonline.com.
 
-Por exemplo, um ponto de extremidade específico de locatário pode ser `https://login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`. O ponto de extremidade independente de [https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml)locatário é. Você pode exibir o documento de metadados de federação digitando essa URL em um navegador.
+Por exemplo, um ponto de extremidade específico de locatário pode ser `https://login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`. O ponto de extremidade independente de locatário é [https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml) . Você pode exibir o documento de metadados de federação digitando essa URL em um navegador.
 
 ## <a name="contents-of-federation-metadata"></a>Conteúdo de metadados de federação
 A seção a seguir fornece as informações necessárias para serviços que consomem os tokens emitidos pelo AD do Azure.

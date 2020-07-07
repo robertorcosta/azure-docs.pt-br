@@ -6,10 +6,10 @@ ms.topic: conceptual
 description: Saiba como configurar Azure Dev Spaces para usar um controlador de entrada do NGINX personalizado e configurar o HTTPS usando esse controlador de entrada
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
 ms.openlocfilehash: 0fe9fec263b72ac06839b58fdc5b0142a724718c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80155440"
 ---
 # <a name="use-a-custom-nginx-ingress-controller-and-configure-https"></a>Usar um controlador de entrada do NGINX personalizado e configurar o HTTPS
@@ -47,7 +47,7 @@ Adicione o [repositório Helm estável oficial][helm-stable-repo], que contém o
 helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 ```
 
-Crie um namespace kubernetes para o controlador de entrada NGINX e instale-o `helm`usando.
+Crie um namespace kubernetes para o controlador de entrada NGINX e instale-o usando `helm` .
 
 ```console
 kubectl create ns nginx
@@ -55,7 +55,7 @@ helm install nginx stable/nginx-ingress --namespace nginx --version 1.27.0
 ```
 
 > [!NOTE]
-> O exemplo acima cria um ponto de extremidade público para seu controlador de entrada. Se você precisar usar um ponto de extremidade privado para seu controlador de entrada, adicione o *--set Controller. Service. Annotations. " Service\\. beta\\. kubernetes\\. Io/Azure-Load-balancer-interno "= true* parâmetro para o comando de *instalação Helm* . Por exemplo:
+> O exemplo acima cria um ponto de extremidade público para seu controlador de entrada. Se você precisar usar um ponto de extremidade privado para seu controlador de entrada, adicione o *--set Controller. Service. Annotations. " Service \\ . beta \\ . kubernetes \\ . Io/Azure-Load-balancer-interno "= true* parâmetro para o comando de *instalação Helm* . Por exemplo:
 > ```console
 > helm install nginx stable/nginx-ingress --namespace nginx --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-internal"=true --version 1.27.0
 > ```
@@ -100,7 +100,7 @@ Abra [Values. YAML][values-yaml] e faça as seguintes atualizações:
 * Substitua todas as instâncias de *<REPLACE_ME_WITH_HOST_SUFFIX>* com *nginx. MY_CUSTOM_DOMAIN* usando seu domínio para *MY_CUSTOM_DOMAIN*. 
 * Substitua *kubernetes.Io/ingress.class: traefik-azds # dev Spaces – specific* com *kubernetes.Io/ingress.class: Nginx # entrada personalizada*. 
 
-Abaixo está um exemplo de um arquivo `values.yaml` atualizado:
+Abaixo está um exemplo de um `values.yaml` arquivo atualizado:
 
 ```yaml
 # This is a YAML-formatted file.
@@ -123,13 +123,13 @@ gateway:
 
 Salve suas alterações e feche o arquivo.
 
-Crie o espaço de *desenvolvimento* com o aplicativo de `azds space select`exemplo usando.
+Crie o espaço de *desenvolvimento* com o aplicativo de exemplo usando `azds space select` .
 
 ```console
 azds space select -n dev -y
 ```
 
-Implante o aplicativo de exemplo `helm install`usando.
+Implante o aplicativo de exemplo usando `helm install` .
 
 ```console
 helm install bikesharingsampleapp . --dependency-update --namespace dev --atomic
@@ -137,13 +137,13 @@ helm install bikesharingsampleapp . --dependency-update --namespace dev --atomic
 
 O exemplo acima implanta o aplicativo de exemplo no namespace do *dev* .
 
-Exiba as URLs para acessar o aplicativo de exemplo `azds list-uris`usando.
+Exiba as URLs para acessar o aplicativo de exemplo usando `azds list-uris` .
 
 ```console
 azds list-uris
 ```
 
-A saída abaixo mostra as URLs de exemplo `azds list-uris`de.
+A saída abaixo mostra as URLs de exemplo de `azds list-uris` .
 
 ```console
 Uri                                                  Status
@@ -164,7 +164,7 @@ azds space select -n dev/azureuser1 -y
 azds list-uris
 ```
 
-A saída abaixo mostra as URLs de exemplo `azds list-uris` de para acessar o aplicativo de exemplo no espaço de desenvolvimento de *azureuser1* filho.
+A saída abaixo mostra as URLs de exemplo de `azds list-uris` para acessar o aplicativo de exemplo no espaço de desenvolvimento de *azureuser1* filho.
 
 ```console
 Uri                                                  Status
@@ -173,7 +173,7 @@ http://azureuser1.s.dev.bikesharingweb.nginx.MY_CUSTOM_DOMAIN/  Available
 http://azureuser1.s.dev.gateway.nginx.MY_CUSTOM_DOMAIN/         Available
 ```
 
-Navegue até o serviço *bikesharingweb* no espaço de desenvolvimento filho do *AZUREUSER1* abrindo a URL pública do `azds list-uris` comando. No exemplo acima, a URL pública para o serviço *bikesharingweb* no espaço de desenvolvimento filho *azureuser1* é `http://azureuser1.s.dev.bikesharingweb.nginx.MY_CUSTOM_DOMAIN/`.
+Navegue até o serviço *bikesharingweb* no espaço de desenvolvimento filho do *AZUREUSER1* abrindo a URL pública do `azds list-uris` comando. No exemplo acima, a URL pública para o serviço *bikesharingweb* no espaço de desenvolvimento filho *azureuser1* é `http://azureuser1.s.dev.bikesharingweb.nginx.MY_CUSTOM_DOMAIN/` .
 
 ## <a name="configure-the-nginx-ingress-controller-to-use-https"></a>Configurar o controlador de entrada NGINX para usar HTTPS
 
@@ -209,13 +209,13 @@ spec:
 > [!NOTE]
 > Para teste, também há um [servidor de preparo][letsencrypt-staging-issuer] que você pode usar para seu *ClusterIssuer*.
 
-Use `kubectl` para aplicar `letsencrypt-clusterissuer.yaml`.
+Use `kubectl` para aplicar `letsencrypt-clusterissuer.yaml` .
 
 ```console
 kubectl apply -f letsencrypt-clusterissuer.yaml --namespace nginx
 ```
 
-Atualize [Values. YAML][values-yaml] para incluir os detalhes de uso de *CERT-Manager* e HTTPS. Abaixo está um exemplo de um arquivo `values.yaml` atualizado:
+Atualize [Values. YAML][values-yaml] para incluir os detalhes de uso de *CERT-Manager* e HTTPS. Abaixo está um exemplo de um `values.yaml` arquivo atualizado:
 
 ```yaml
 # This is a YAML-formatted file.
@@ -246,7 +246,7 @@ gateway:
       secretName: dev-gateway-secret
 ```
 
-Atualize o aplicativo de exemplo `helm`usando:
+Atualize o aplicativo de exemplo usando `helm` :
 
 ```console
 helm upgrade bikesharingsampleapp . --namespace dev --atomic
@@ -276,7 +276,7 @@ Para corrigir esse erro, atualize [BikeSharingWeb/azds. YAML][azds-yaml] semelha
 ...
 ```
 
-Atualize [BikeSharingWeb/Package. JSON][package-json] com uma dependência para o pacote de *URL* .
+Atualize [BikeSharingWeb/package.js][package-json] com uma dependência para o pacote de *URL* .
 
 ```json
 {
@@ -288,7 +288,7 @@ Atualize [BikeSharingWeb/Package. JSON][package-json] com uma dependência para 
 ...
 ```
 
-Atualize o método *getApiHostAsync* em [BikeSharingWeb/lib/Helpers. js][helpers-js] para usar https:
+Atualize o método *getApiHostAsync* em [BikeSharingWeb/lib/helpers.js][helpers-js] para usar https:
 
 ```javascript
 ...

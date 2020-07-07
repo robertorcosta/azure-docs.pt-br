@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
 ms.openlocfilehash: 2680304bd73bdbae35b29b89f38ae2665615f5e7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80239929"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Criar clusters do Apache Hadoop usando a API REST do Azure
@@ -30,7 +30,7 @@ A API REST do Azure permite executar operações de gerenciamento de serviços h
 
 Os modelos de Azure Resource Manager são documentos JSON que descrevem um **grupo de recursos** e todos os recursos nele (como o HDInsight). Essa abordagem baseada em modelo permite que você defina os recursos necessários para o HDInsight em um modelo.
 
-O documento JSON a seguir é uma fusão do modelo e dos arquivos de parâmetros [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password)do, que cria um cluster baseado em Linux usando uma senha para proteger a conta de usuário SSH.
+O documento JSON a seguir é uma fusão do modelo e dos arquivos de parâmetros do [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password) , que cria um cluster baseado em Linux usando uma senha para proteger a conta de usuário SSH.
 
    ```json
    {

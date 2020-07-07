@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 01/14/2020
 ms.author: anzaman
 ms.openlocfilehash: fa41fca7f8ad96cf507aa6f04059b1254c8c3961
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80127902"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-api"></a>Personalizar um modelo de Pessoa com a API do Video Indexer
@@ -75,7 +75,7 @@ A resposta fornece uma lista de todos os modelos de pessoa em sua conta (incluin
 ]
 ```
 
-Você pode `id` escolher qual modelo deseja usar para um vídeo usando o valor do modelo Person para o `personModelId` parâmetro ao [carregar um vídeo para indexar](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) ou [reindexar um vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?).
+Você pode escolher qual modelo deseja usar para um vídeo usando o `id` valor do modelo Person para o `personModelId` parâmetro ao [carregar um vídeo para indexar](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) ou [reindexar um vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?).
 
 ## <a name="update-a-face"></a>Atualizar um rosto
 
@@ -87,7 +87,7 @@ Atualize um rosto que o Video Indexer reconheceu como uma celebridade com um nov
 
 Para atualizar a face, use [atualizar uma](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Video-Face?) API de face de vídeo.
 
-Os nomes são exclusivos para modelos de pessoa, portanto, se você fornecer duas faces diferentes no mesmo modelo de `name` pessoa com o mesmo valor de parâmetro, Video indexer exibirá as faces como a mesma pessoa e as convergirá quando você reindexar o vídeo.
+Os nomes são exclusivos para modelos de pessoa, portanto, se você fornecer duas faces diferentes no mesmo modelo de pessoa com o mesmo `name` valor de parâmetro, Video indexer exibirá as faces como a mesma pessoa e as convergirá quando você reindexar o vídeo.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/24/2018
 ms.openlocfilehash: 30b0c7c87f6d55586b931be1445b175ce58565d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80055892"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Monitorar o Status de Replicação do Active Directory com o Azure Monitor
@@ -28,9 +28,9 @@ Use as informações a seguir para instalar e configurar a solução.
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-* A solução Status de Replicação do AD requer uma versão com suporte do .NET Framework 4.6.2 ou superior instalada em cada computador que tenha o agente do Log Analytics para Windows (também conhecido como Microsoft Monitoring Agent (MMA)) instalado.  O agente é usado pelo System Center 2016-Operations Manager, Operations Manager 2012 R2 e Azure Monitor.
+* A solução Status de Replicação do AD requer uma versão com suporte do .NET Framework 4.6.2 ou superior instalada em cada computador que tenha o agente do Log Analytics para Windows (também conhecido como Microsoft Monitoring Agent (MMA)) instalado.  O agente é usado pelo System Center 2016 – Operations Manager, pelo Operations Manager 2012 R2 e pelo Azure Monitor.
 * A solução oferece suporte a controladores de domínio que executam o Windows Server 2008 e 2008 R2, o Windows Server 2012 e 2012 R2 e o Windows Server 2016.
-* Um espaço de trabalho do Log Analytics para adicionar a solução de Verificação de Integridade do Active Directory no Azure marketplace, no Portal do Azure. Não há nenhuma configuração adicional necessária.
+* Um espaço de trabalho do Log Analytics para adicionar a solução de Verificação de Integridade do Active Directory no Azure marketplace, no Portal do Azure. Não é necessário realizar uma configuração adicional.
 
 
 ### <a name="install-agents-on-domain-controllers"></a>Instalar agentes em controladores de domínio
@@ -41,10 +41,10 @@ Se não quiser conectar nenhum de seus controladores de domínio diretamente ao 
 
 1. Verifique se o computador é um membro do domínio que você deseja monitorar usando a solução de Status de Replicação do AD.
 2. [Conecte o computador Windows ao Azure Monitor](../../azure-monitor/platform/om-agents.md) ou [conecte-o usando seu ambiente existente do Operations Manager para Azure Monitor](../../azure-monitor/platform/om-agents.md) se ele ainda não estiver conectado.
-3. Nesse computador, defina a seguinte chave do Registro:<br>Chave: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**<br>Valor: **IsTarget**<br>Dados do Valor: **true**
+3. Nesse computador, defina a seguinte chave do Registro:<br>Chave: **HKEY_LOCAL_MACHINE grupos \System\currentcontrolset\services\healthservice\parameters\management \<ManagementGroupName> \Solutions\ADReplication**<br>Valor: **IsTarget**<br>Dados do Valor: **true**
 
    > [!NOTE]
-   > Essas alterações não entram em vigor até que você reinicie o serviço de Microsoft Monitoring Agent (HealthService. exe).
+   > Essas alterações não entram em vigor até que você reinicie o serviço de Microsoft Monitoring Agent (HealthService.exe).
    > ### <a name="install-solution"></a>Instalar a solução
    > Siga o processo descrito em [Instalar uma solução de monitoramento](solutions.md#install-a-monitoring-solution) para adicionar o **Status de Replicação do Active Directory** ao espaço de trabalho do Log Analytics. Não é necessária nenhuma configuração.
 
@@ -130,7 +130,7 @@ R: As informações são atualizadas a cada cinco dias.
 
 **P: não desejo adicionar nenhum controlador de domínio ao meu espaço de trabalho do Log Analytics. Ainda posso usar a solução Status de Replicação do AD?**
 
-R: Sim. Você pode definir o valor de uma chave do Registro para habilitá-la. Confira [Habilitar o controlador fora do domínio](#enable-non-domain-controller).
+A: Sim. Você pode definir o valor de uma chave do Registro para habilitá-la. Confira [Habilitar o controlador fora do domínio](#enable-non-domain-controller).
 
 **P: Qual é o nome do processo que faz a coleta de dados?**
  R: AdvisorAssessment.exe

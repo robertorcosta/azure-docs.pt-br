@@ -14,10 +14,10 @@ ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: adf3c5b5cd40a9ea3f07ba9c92cfc4544ca60f1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80154739"
 ---
 # <a name="single-page-applications"></a>Aplicativos de página única
@@ -61,7 +61,7 @@ Usar o ADAL.js ajuda a:
 * Atualizar um token expirado
 * Solicitar um token de acesso para chamar um recurso da API Web
 
-Após uma autenticação bem-sucedida, o Azure AD grava um cookie no navegador do usuário para estabelecer uma sessão. A sessão existe entre o usuário e o Azure AD, e não entre o usuário e o aplicativo Web. Quando um token expira, o ADAL.js usa essa sessão para obter silenciosamente outro token. O ADAL.js faz isso usando um iFrame oculto para enviar e receber a solicitação usando o protocolo de concessão implícita OAuth. O ADAL. js também pode usar esse mesmo mecanismo para obter silenciosamente tokens de acesso para outros recursos da API Web que o aplicativo chama, contanto que esses recursos ofereçam suporte ao compartilhamento de recursos entre origens (CORS), sejam registrados no diretório do usuário e qualquer consentimento necessário foi fornecido pelo usuário durante a entrada.
+Após uma autenticação bem-sucedida, o Azure AD grava um cookie no navegador do usuário para estabelecer uma sessão. A sessão existe entre o usuário e o Azure AD, e não entre o usuário e o aplicativo Web. Quando um token expira, o ADAL.js usa essa sessão para obter silenciosamente outro token. O ADAL.js faz isso usando um iFrame oculto para enviar e receber a solicitação usando o protocolo de concessão implícita OAuth. ADAL.js também pode usar esse mesmo mecanismo para obter silenciosamente tokens de acesso para outros recursos da API Web que o aplicativo chama, desde que esses recursos ofereçam suporte ao compartilhamento de recursos entre origens (CORS), sejam registrados no diretório do usuário e qualquer consentimento necessário seja fornecido pelo usuário durante a entrada.
 
 ## <a name="next-steps"></a>Próximas etapas
 

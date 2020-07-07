@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.openlocfilehash: 3b95863c1ae53bd0642aec356f55aba1faf8ef09
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79535775"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Padrões de solução do Azure Stream Analytics
@@ -174,7 +174,7 @@ Para o preenchimento posterior, ainda é importante, pelo menos, provisionar tem
 |**Painéis**   |Cria uma lacuna    |OK para uma interrupção curta    |Usar para interrupção longa |
 |**Alertas**   |Aceitável |OK para uma interrupção curta    |Não é necessário |
 |**Aplicativo de fornecimento de eventos** |Aceitável |OK para uma interrupção curta    |Usar para interrupção longa |
-|**Data Warehousing**   |Perda de dados  |Aceitável |Não é necessário |
+|**Data warehouse**   |Perda de dados  |Aceitável |Não é necessário |
 |**Análise offline**  |Perda de dados  |Aceitável |Não é necessário|
 
 ## <a name="putting-it-all-together"></a>Juntando as peças

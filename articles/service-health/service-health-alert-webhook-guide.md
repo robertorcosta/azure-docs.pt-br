@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.service: service-health
 ms.date: 3/27/2018
 ms.openlocfilehash: 2609a267bd151354f83482ab16c4b9345aa88cc4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80062850"
 ---
 # <a name="use-a-webhook-to-configure-health-notifications-for-problem-management-systems"></a>Usar um webhook para configurar notificações de integridade para sistemas de gerenciamento de problemas
@@ -31,9 +31,9 @@ Se você quiser usar uma integração pré-configurada, consulte:
 ## <a name="configure-a-custom-notification-by-using-the-service-health-webhook-payload"></a>Configurar uma notificação personalizada usando o conteúdo do webhook de integridade do serviço
 Para configurar sua própria integração de webhook personalizada, você precisa analisar a carga JSON que é enviada por meio da notificação de integridade do serviço.
 
-Consulte [um exemplo](../azure-monitor/platform/activity-log-alerts-webhook.md) `ServiceHealth` de carga de webhook.
+Consulte [um exemplo de carga de](../azure-monitor/platform/activity-log-alerts-webhook.md) `ServiceHealth` webhook.
 
-Você pode confirmar se é um alerta de integridade do serviço examinando `context.eventSource == "ServiceHealth"`. As propriedades a seguir são as mais relevantes:
+Você pode confirmar se é um alerta de integridade do serviço examinando `context.eventSource == "ServiceHealth"` . As propriedades a seguir são as mais relevantes:
 - **Data. Context. activityLog. status**
 - **Data. Context. activityLog. Level**
 - **Data. Context. activityLog. SubscriptionId**
@@ -46,17 +46,17 @@ Você pode confirmar se é um alerta de integridade do serviço examinando `cont
 ## <a name="create-a-link-to-the-service-health-dashboard-for-an-incident"></a>Criar um link para o painel de integridade do serviço para um incidente
 Você pode criar um link direto para o painel de integridade do serviço em um desktop ou dispositivo móvel gerando uma URL especializada. Use *TrackingID* e os três primeiros e os três últimos dígitos de sua *SubscriptionId* neste formato:
 
-https<i></i>://app.Azure.com/h/*&lt;&gt;TrackingID*/*&lt;primeiro&gt; três e últimos três dígitos de SubscriptionId*
+https: <i></i> //app.Azure.com/h/* &lt; &gt; TrackingID* / * &lt; primeiro três &gt; e últimos três dígitos de SubscriptionId*
 
 Por exemplo, se sua *SubscriptionId* for bba14129-e895-429B-8809-278e836ecdb3 e o *TrackingID* for 0DET-URB, a URL de integridade do serviço será:
 
-https<i></i>://app.Azure.com/h/0DET-URB/bbadb3
+https <i></i> ://app.Azure.com/h/0DET-URB/bbadb3
 
 ## <a name="use-the-level-to-detect-the-severity-of-the-issue"></a>Use o nível para detectar a gravidade do problema
 Da severidade mais baixa para a mais alta, a propriedade **Level** na carga pode ser *informativa*, *aviso*, *erro*ou *crítico*.
 
 ## <a name="parse-the-impacted-services-to-determine-the-incident-scope"></a>Analisar os serviços afetados para determinar o escopo do incidente
-Os alertas de integridade do serviço podem informá-lo sobre problemas em várias regiões e serviços. Para obter detalhes completos, você precisa analisar o valor de `impactedServices`.
+Os alertas de integridade do serviço podem informá-lo sobre problemas em várias regiões e serviços. Para obter detalhes completos, você precisa analisar o valor de `impactedServices` .
 
 O conteúdo que está dentro é uma cadeia de caracteres [JSON](https://json.org/) de escape que, quando sem escape, contém outro objeto JSON que pode ser analisado regularmente. Por exemplo:
 
@@ -116,4 +116,4 @@ Siga estas etapas:
 ## <a name="next-steps"></a>Próximas etapas
 - Examine o [esquema de webhook de alerta do log de atividades](../azure-monitor/platform/activity-log-alerts-webhook.md). 
 - Saiba mais sobre as [notificações de integridade do serviço](../azure-monitor/platform/service-notifications.md).
-- Saiba mais sobre [grupos de ações](../azure-monitor/platform/action-groups.md).
+- Saiba mais sobre [grupos de ação](../azure-monitor/platform/action-groups.md).

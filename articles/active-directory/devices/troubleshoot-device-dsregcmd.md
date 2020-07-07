@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2cd782cdab625934fe60617142e5ac0baf756398
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80128755"
 ---
 # <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>Solucionando problemas de dispositivos usando o comando dsregcmd
@@ -54,7 +54,7 @@ Esta seção lista os parâmetros de estado de ingresso no dispositivo. A tabela
 +----------------------------------------------------------------------+
 ```
 
-## <a name="device-details"></a>Detalhes do Dispositivo
+## <a name="device-details"></a>Detalhes do dispositivo
 
 Exibido somente quando o dispositivo for ingressado no Azure ad ou ingressado no Azure AD híbrido (não o Azure AD registrado). Esta seção lista os detalhes de identificação de dispositivo armazenados na nuvem.
 
@@ -136,7 +136,7 @@ Esta seção lista o status de vários atributos para o usuário atualmente cone
 - **WorkplaceJoined:** – defina como "Sim" se as contas registradas do Azure ad tiverem sido adicionadas ao dispositivo no contexto Ntuser atual.
 - **WamDefaultSet:** – definido como "Sim" se uma conta Webpadrão WAM for criada para o usuário conectado. Esse campo poderá exibir um erro se dsreg/status for executado em um prompt de comandos com privilégios elevados. 
 - **WamDefaultAuthority:** -definido como "organizações" para o Azure AD.
-- **WamDefaultId:** -sempre "https://login.microsoft.com" para o Azure AD.
+- **WamDefaultId:** -sempre " https://login.microsoft.com " para o Azure AD.
 - **WamDefaultGUID:** -o GUID do provedor de WAM (Azure AD/conta Microsoft) para a conta da webdefault do WAM. 
 
 ### <a name="sample-user-state-output"></a>Saída de estado do usuário de exemplo

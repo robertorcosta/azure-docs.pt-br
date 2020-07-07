@@ -10,10 +10,10 @@ caps.latest.revision: 14
 author: georgewallace
 ms.author: tagore
 ms.openlocfilehash: 6d0e84b6724d9df4162d4be3e06a9952087a53a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79537339"
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Esquema LoadBalancerProbe de definição dos Serviços de Nuvem do Azure
@@ -58,8 +58,8 @@ A tabela a seguir descreve os atributos do elemento `LoadBalancerProbe`:
 |Atributo|Type|Descrição|
 | ------------------- | -------- | -----------------|
 | `name`              | `string` | Obrigatórios. O nome da sonda do balanceador de carga. O nome deve ser exclusivo.|
-| `protocol`          | `string` | Obrigatórios. Especifica o protocolo do ponto de extremidade. Os valores possíveis são `http` ou `tcp`. Se `tcp` for especificado, será necessário um ACK recebido para que a sonda tenha êxito. Se `http` for especificado, uma resposta 200 OK do URI especificado será necessária para que a sonda tenha êxito.|
-| `path`              | `string` | O URI usado para solicitar o status de integridade da VM. `path` será necessário se `protocol` for definido como `http`. Caso contrário, não será permitido.<br /><br /> Não há nenhum valor padrão.|
+| `protocol`          | `string` | Obrigatórios. Especifica o protocolo do ponto de extremidade. Os possíveis valores são `http` ou `tcp`. Se `tcp` for especificado, será necessário um ACK recebido para que a sonda tenha êxito. Se `http` for especificado, uma resposta 200 OK do URI especificado será necessária para que a sonda tenha êxito.|
+| `path`              | `string` | O URI usado para solicitar o status de integridade da VM. `path` será necessário se `protocol` for definido como `http`. Caso contrário, não será permitido.<br /><br /> Sem valor padrão.|
 | `port`              | `integer` | Opcional. A porta para se comunicar com a sonda. Isso é opcional para qualquer ponto de extremidade, uma vez que a mesma porta será usada para a sonda. É possível configurar uma porta diferente para sua investigação também. Os valores possíveis variam de 1 a 65535, inclusive.<br /><br /> O valor padrão é definido pelo ponto de extremidade.|
 | `intervalInSeconds` | `integer` | Opcional. O intervalo, em segundos, para a frequência de investigação do status de integridade no ponto de extremidade. Normalmente, o intervalo é ligeiramente menor do que a metade do período de tempo limite alocado (em segundos) que permite duas sondas completas antes de tirar a instância de rotação.<br /><br /> O valor padrão é 15, o valor mínimo é 5.|
 | `timeoutInSeconds`  | `integer` | Opcional. O período de tempo limite, em segundos, aplicado à sonda em que nenhuma resposta resultará na interrupção adicional da entrega do tráfego ao ponto de extremidade. Este valor permite que pontos de extremidade sejam tirados de rotação mais rapidamente ou mais lentamente do que os tempos normais usados no Azure (os padrões).<br /><br /> O valor padrão é 31, o valor mínimo é 11.|

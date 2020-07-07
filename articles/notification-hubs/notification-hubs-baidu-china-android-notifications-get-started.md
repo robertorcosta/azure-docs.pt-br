@@ -15,10 +15,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 06/19/2019
 ms.openlocfilehash: b9ca241b5deebc4d23e0ff648eddee0782617e0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79536982"
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Introdução aos Hubs de Notificação usando o Baidu
@@ -37,7 +37,7 @@ Este tutorial exige:
 * [SDK do Android Push Baidu]
 
 > [!NOTE]
-> Para concluir este tutorial, você precisa ter uma conta ativa do Azure. Se não tiver uma conta, você poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-baidu-get-started%2F).
+> Para concluir este tutorial, você precisa ter uma conta ativa do Azure. Se não tiver uma conta, você poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-baidu-get-started%2F).
 
 Para começar, faça o seguinte:
 
@@ -68,7 +68,7 @@ Anote `DefaultListenSharedAccessSignature` e `DefaultFullSharedAccessSignature` 
 
 2. Insira um Nome de Aplicativo e verifique se a versão do SDK Mínimo Necessário está definida como API 16: Android 4.1. **Além disso, verifique se o nome do pacote (应用包名) é igual ao do Portal de Push de Nuvem do Baidu**
 
-    ![Hubs de notificação do Azure-Baidu](./media/notification-hubs-baidu-get-started/AndroidMinSDK.png) ![min SDK1 hubs de notificação do Azure-Baidu min SDK2](./media/notification-hubs-baidu-get-started/AndroidMinSDK2.png)
+    ![Hubs de notificação do Azure-Baidu min SDK1 ](./media/notification-hubs-baidu-get-started/AndroidMinSDK.png) ![ hubs de notificação do Azure-BAIDU min SDK2](./media/notification-hubs-baidu-get-started/AndroidMinSDK2.png)
 
 3. Clique em Avançar e continue seguindo o assistente até que a janela Criar Atividade seja exibida. Verifique se Atividade Vazia está selecionada e selecione Concluir para criar um novo Aplicativo do Android.
 

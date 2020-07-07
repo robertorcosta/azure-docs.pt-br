@@ -11,10 +11,10 @@ ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.openlocfilehash: c414087270558e21340e50114c0563ff7e50064c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80282300"
 ---
 # <a name="machine-learning-and-data-science-tools-on-azure-data-science-virtual-machines"></a>Ferramentas de ciência de dados e aprendizado de máquina em máquinas virtuais de ciência de dados do Azure
@@ -67,7 +67,7 @@ Há várias outras bibliotecas de aprendizado de máquina em DSVMs, como o pacot
 | O que é?   |   Uma interface gráfica do usuário para Data Mining usando o R.   |
 | Edições com suporte     | Windows, Linux     |
 | Usos típicos      | Ferramenta de mineração de dados de interface do usuário geral para R    |
-| Como usá-lo ou executá-lo      | Como uma ferramenta de interface do usuário. No Windows, inicie um prompt de comando, execute R e, em seguida, dentro `rattle()`do r, execute. No Linux, conecte-se com o X2Go, inicie um terminal, execute R e, em R `rattle()`, execute. |
+| Como usá-lo ou executá-lo      | Como uma ferramenta de interface do usuário. No Windows, inicie um prompt de comando, execute R e, em seguida, dentro do R, execute `rattle()` . No Linux, conecte-se com o X2Go, inicie um terminal, execute R e, em R, execute `rattle()` . |
 | Link para exemplos      | [Rattle](https://togaware.com/onepager/) |
 | Ferramentas relacionadas      |LightGBM, Weka, XGBoost   |
 
@@ -89,7 +89,7 @@ Há várias outras bibliotecas de aprendizado de máquina em DSVMs, como o pacot
 | O que é?   |  Uma coleção de algoritmos de aprendizado de máquina para tarefas de mineração de dados. Os algoritmos podem ser aplicados diretamente a um conjunto de dados ou chamados do seu próprio código Java. Weka contém ferramentas para o pré-processamento, classificação, regressão, clustering, regras de associação e visualização de dados. |
 | Edições com suporte     | Windows, Linux     |
 | Usos típicos      | Ferramenta de aprendizado de máquina geral     |
-| Como usá-lo ou executá-lo      | No Windows, procure weka no menu **Iniciar** . No Linux, entre com X2Go e, em seguida, vá para **aplicativos** > **desenvolvimento** > **weka**. |
+| Como usá-lo ou executá-lo      | No Windows, procure weka no menu **Iniciar** . No Linux, entre com X2Go e, em seguida, vá para **aplicativos**  >  **desenvolvimento**  >  **weka**. |
 | Link para exemplos      | [Exemplos de Weka](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
 | Ferramentas relacionadas      |LightGBM, Rattle, XGBoost   |
 
@@ -100,7 +100,7 @@ Há várias outras bibliotecas de aprendizado de máquina em DSVMs, como o pacot
 | Edições com suporte     | Windows, Linux     |
 | Usos típicos      | Biblioteca geral de aprendizado de máquina      |
 | Como é configurado ou instalado?      |  Instalada com o suporte a GPU   |
-| Como usá-lo ou executá-lo      | Como uma biblioteca do Python (2,7 e 3,5), pacote R e ferramenta de linha de comando no caminho (`C:\dsvm\tools\xgboost\bin\xgboost.exe` para Windows e `/dsvm/tools/xgboost/xgboost` para Linux)    |
+| Como usá-lo ou executá-lo      | Como uma biblioteca do Python (2,7 e 3,5), pacote R e ferramenta de linha de comando no caminho ( `C:\dsvm\tools\xgboost\bin\xgboost.exe` para Windows e `/dsvm/tools/xgboost/xgboost` para Linux)    |
 | Links para exemplos      | Exemplos são incluídos na VM, em `/dsvm/tools/xgboost/demo` no Linux e em `C:\dsvm\tools\xgboost\demo` no Windows.   |
 | Ferramentas relacionadas      | LightGBM, MXNet   |
 

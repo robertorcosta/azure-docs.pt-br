@@ -10,10 +10,10 @@ services: iot-central
 ms.custom: mvc
 manager: philmea
 ms.openlocfilehash: 0e161cf83662df671b8cfb100ddc12c3b3e7359f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80158139"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Estender IoT Central do Azure com regras personalizadas usando Stream Analytics, Azure Functions e SendGrid
@@ -40,7 +40,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Crie um aplicativo IoT Central no site do [Azure IOT central Application Manager](https://aka.ms/iotcentral) com as seguintes configurações:
 
-| Configuração | Valor |
+| Setting | Valor |
 | ------- | ----- |
 | Plano de preços | Standard |
 | Modelo de aplicativo | Análise na loja – monitoramento de condição |
@@ -62,7 +62,7 @@ Use o [portal do Azure para criar um grupo de recursos](https://portal.azure.com
 
 Use o [portal do Azure para criar um namespace de hubs de eventos](https://portal.azure.com/#create/Microsoft.EventHub) com as seguintes configurações:
 
-| Configuração | Valor |
+| Setting | Valor |
 | ------- | ----- |
 | Nome    | Escolha o nome do namespace |
 | Tipo de preço | Basic |
@@ -75,7 +75,7 @@ Use o [portal do Azure para criar um namespace de hubs de eventos](https://porta
 
 Use o [portal do Azure para criar um trabalho de Stream Analytics](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) com as seguintes configurações:
 
-| Configuração | Valor |
+| Setting | Valor |
 | ------- | ----- |
 | Nome    | Escolha o nome do seu trabalho |
 | Subscription | Sua assinatura |
@@ -88,22 +88,22 @@ Use o [portal do Azure para criar um trabalho de Stream Analytics](https://porta
 
 Use o [portal do Azure para criar um aplicativo de funções](https://portal.azure.com/#create/Microsoft.FunctionApp) com as seguintes configurações:
 
-| Configuração | Valor |
+| Setting | Valor |
 | ------- | ----- |
 | Nome do aplicativo    | Escolha o nome do aplicativo de funções |
 | Subscription | Sua assinatura |
 | Resource group | DetectStoppedDevices |
-| SO | Windows |
+| Sistema operacional | Windows |
 | Plano de Hospedagem | Plano de consumo |
 | Local | Leste dos EUA |
 | Pilha de runtime | .NET |
-| Armazenamento | Criar Novo |
+| Armazenamento | Create new |
 
 ### <a name="sendgrid-account"></a>Conta do SendGrid
 
 Use o [portal do Azure para criar uma conta do SendGrid](https://portal.azure.com/#create/Sendgrid.sendgrid) com as seguintes configurações:
 
-| Configuração | Valor |
+| Setting | Valor |
 | ------- | ----- |
 | Nome    | Escolha o nome da conta do SendGrid |
 | Senha | Criar uma senha |
@@ -244,7 +244,7 @@ Essa solução usa uma consulta Stream Analytics para detectar quando um disposi
 1. Na portal do Azure, navegue até o trabalho de Stream Analytics, em **topologia de trabalhos** selecione **entradas**, escolha **+ Adicionar entrada de fluxo**e, em seguida, escolha Hub de **eventos**.
 1. Use as informações na tabela a seguir para configurar a entrada usando o Hub de eventos que você criou anteriormente e, em seguida, escolha **salvar**:
 
-    | Configuração | Valor |
+    | Setting | Valor |
     | ------- | ----- |
     | Alias de entrada | centraltelemetry |
     | Subscription | Sua assinatura |
@@ -254,7 +254,7 @@ Essa solução usa uma consulta Stream Analytics para detectar quando um disposi
 1. Em **topologia de trabalhos**, **selecione saídas**, escolha **+ Adicionar**e, em seguida, escolha **Azure function**.
 1. Use as informações na tabela a seguir para configurar a saída e, em seguida, escolha **salvar**:
 
-    | Configuração | Valor |
+    | Setting | Valor |
     | ------- | ----- |
     | Alias de saída | emailnotification |
     | Subscription | Sua assinatura |
@@ -314,13 +314,13 @@ No site do [Azure IOT central Application Manager](https://aka.ms/iotcentral) , 
 1. Navegue até a página **exportação de dados** , selecione **+ novo**e os **hubs de eventos do Azure**.
 1. Use as configurações a seguir para configurar a exportação e, em seguida, selecione **salvar**:
 
-    | Configuração | Valor |
+    | Setting | Valor |
     | ------- | ----- |
     | Nome de exibição | Exportar para hubs de eventos |
-    | habilitado | Por |
+    | Habilitada | Ativado |
     | Namespace do Hubs de Eventos | Nome do namespace de seus hubs de eventos |
     | Hub de Eventos | centralexport |
-    | Medidas | Por |
+    | Medidas | Ativado |
     | Dispositivos | Desativado |
     | Modelos de Dispositivo | Desativado |
 

@@ -8,10 +8,10 @@ ms.author: lcozzens
 ms.topic: conceptual
 ms.date: 3/9/2020
 ms.openlocfilehash: 181c97615985283011834dcf9145810b1563fb4a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80057007"
 ---
 # <a name="use-feature-filters-to-enable-a-feature-for-a-subset-of-users"></a>Usar filtros de recurso para habilitar um recurso para um subconjunto de usuários
@@ -29,7 +29,7 @@ Você também pode criar seu próprio filtro de recursos que implementa a [inter
 
 ## <a name="registering-a-feature-filter"></a>Registrando um filtro de recurso
 
-Você registra um filtro de recurso chamando o `AddFeatureFilter` método, especificando o nome do filtro de recursos. Por exemplo, o código a seguir `PercentageFilter`registra:
+Você registra um filtro de recurso chamando o `AddFeatureFilter` método, especificando o nome do filtro de recursos. Por exemplo, o código a seguir registra `PercentageFilter` :
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -43,7 +43,7 @@ public void ConfigureServices(IServiceCollection services)
 
 Alguns filtros de recursos têm configurações adicionais. Por exemplo, `PercentageFilter` ativa um recurso com base em uma porcentagem. Ele tem uma configuração que define a porcentagem a ser usada.
 
-Você pode definir essas configurações para sinalizadores de recursos definidos na configuração do Azure App. Por exemplo, siga estas etapas a serem `PercentageFilter` usadas para habilitar o sinalizador de recurso para 50% das solicitações para um aplicativo Web:
+Você pode definir essas configurações para sinalizadores de recursos definidos na configuração do Azure App. Por exemplo, siga estas etapas a serem usadas para `PercentageFilter` habilitar o sinalizador de recurso para 50% das solicitações para um aplicativo Web:
 
 1. Siga as instruções em [início rápido: Adicionar sinalizadores de recurso a um aplicativo ASP.NET Core](./quickstart-feature-flag-aspnet-core.md) para criar um aplicativo Web com um sinalizador de recurso.
 

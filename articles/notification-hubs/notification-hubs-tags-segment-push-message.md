@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 12/04/2019
 ms.openlocfilehash: 2432ac41645e373ea3a87ff7e69ef02a4e30c81d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80062304"
 ---
 # <a name="routing-and-tag-expressions"></a>Expressões de marca e roteamento
@@ -37,9 +37,9 @@ A única maneira de direcionar registros de notificações específicos é assoc
 2. **Marca**: todos os registros que contêm a marca especificada recebem a notificação.
 3. **Expressão de marca**: todos os registros cujos conjuntos de marcas correspondem à expressão especificada recebem a notificação.
 
-## <a name="tags"></a>Marcas
+## <a name="tags"></a>Marcações
 
-Uma marca pode ser qualquer cadeia de caracteres, até 120 caracteres, contendo alfanuméricos e os seguintes caracteres não alfanuméricos`_`: ' '`@`, ' '`#`, ' '`.`, ' '`:`, ' '`-`, ' '. O exemplo a seguir mostra um aplicativo do qual você pode receber notificações de aviso sobre grupos musicais específicos. Nesse cenário, uma maneira simples de rotear notificações é rotular registros com marcas que representam as diferentes faixas, como na figura a seguir:
+Uma marca pode ser qualquer cadeia de caracteres, até 120 caracteres, contendo alfanuméricos e os seguintes caracteres não alfanuméricos: ' `_` ', ' `@` ', ' `#` ', ' `.` ', ' `:` ', ' `-` '. O exemplo a seguir mostra um aplicativo do qual você pode receber notificações de aviso sobre grupos musicais específicos. Nesse cenário, uma maneira simples de rotear notificações é rotular registros com marcas que representam as diferentes faixas, como na figura a seguir:
 
 ![Visão geral de marcas](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags.png)
 
@@ -69,7 +69,7 @@ As marcas não devem ser previamente provisionadas e podem se referir a vários 
 
 Neste exemplo, Alice está interessado em atualizações para o Beatles e Bob está interessado em atualizações para o Wailers. Bob também está interessado nos comentários de Charlie e Charlie está interessado no Wailers. Quando uma notificação é enviada para o comentário de Charlie sobre o Beatles, os hubs de notificação o enviam para Alice e Bob.
 
-Embora você possa codificar várias preocupações em marcas (por exemplo, `band_Beatles` ou `follows_Charlie`), as marcas são cadeias de caracteres simples e não propriedades com valores. Um registro só corresponde à presença ou à ausência de uma marca específica.
+Embora você possa codificar várias preocupações em marcas (por exemplo, `band_Beatles` ou `follows_Charlie` ), as marcas são cadeias de caracteres simples e não propriedades com valores. Um registro só corresponde à presença ou à ausência de uma marca específica.
 
 Para obter um tutorial passo a passo completo sobre como usar marcas para enviar para grupos de interesse, consulte as [Últimas notícias](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md).
 
@@ -82,7 +82,7 @@ Outra maneira de usar marcas é identificar todos os dispositivos associados a u
 
 ![Marcar usuários](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags3.png)
 
-Na figura, a mensagem marcada `user_Alice` atinge todos os dispositivos marcados com `user_Alice`.
+Na figura, a mensagem marcada `user_Alice` atinge todos os dispositivos marcados com `user_Alice` .
 
 ## <a name="tag-expressions"></a>Expressões de marca
 
@@ -96,7 +96,7 @@ Considere um aplicativo de esportes que envia um lembrete para todos em Boston s
 
 ![Expressões de marca](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags4.png)
 
-Expressões de marca dão suporte a operadores boolianos`&&`comuns, `OR` como`||` `AND` (), `NOT` (`!`) e (); Eles também podem conter parênteses. Expressões de marca que `OR` usam somente operadores podem fazer referência a 20 marcas; expressão com `AND` operadores, mas `OR` nenhum operador pode fazer referência a 10 marcas; caso contrário, as expressões de marca são limitadas a 6 marcas.
+As expressões de marca dão suporte a operadores boolianos comuns, como `AND` ( `&&` ), `OR` ( `||` ) e `NOT` ( `!` ); também podem conter parênteses. As expressões de marca que usam somente `OR` operadores podem fazer referência a 20 marcas; expressão com `AND` operadores, mas nenhum `OR` operador pode fazer referência a 10 marcas; caso contrário, as expressões de marca são limitadas a 6 marcas.
 
 Aqui está um exemplo para enviar notificações com expressões de marca usando o SDK:
 

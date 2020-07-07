@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: 501ca51a9542229a14e98a56679837950a82891e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80258287"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Implantar o acelerador de solução de Monitoramento Remoto usando a CLI
@@ -23,7 +23,7 @@ Este guia prático mostra como implantar o acelerador de solução de monitorame
 
 Para implantar o acelerador de solução de Monitoramento Remoto, você precisará de uma assinatura ativa do Azure.
 
-Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 Para executar a CLI, você precisará do [Node.js](https://nodejs.org/) instalado no seu computador local.
 
@@ -68,12 +68,12 @@ Implantação Basic é voltada para a apresentação da solução. Para reduzir 
 
 Uma implantação básica cria os seguintes serviços em sua assinatura do Azure:
 
-| Contagem | Recurso                       | Type         | Usadas para |
+| Contagem | Recurso                       | Tipo         | Usadas para |
 |-------|--------------------------------|--------------|----------|
-| 1     | [Máquina Virtual do Linux](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 V2  | Hospedar microsserviços |
+| 1     | [Máquina virtual do Linux](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 V2  | Hospedar microsserviços |
 | 1     | [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/)                  | S1 – Camada Padrão | Comunicação e gerenciamento de dispositivo |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | Standard        | Armazenamento de dados de configuração, regras, alertas e outros armazenamentos frios |  
-| 1     | [Conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | Standard        | Armazenamento de VM e pontos de verificação de streaming |
+| 1     | [Conta de Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | Standard        | Armazenamento de VM e pontos de verificação de streaming |
 | 1     | [Aplicativo Web](https://azure.microsoft.com/services/app-service/web/)        |                 | Hospedar o aplicativo Web front-end |
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Gerenciando identidades de usuários e segurança |
 | 1     | [Mapas do Azure](https://azure.microsoft.com/services/azure-maps/)        | Standard                | Visualizando locais de ativos |
@@ -94,7 +94,7 @@ Uma implantação padrão cria os seguintes serviços em sua assinatura do Azure
 | 1     | [Serviço de Kubernetes do Azure](https://azure.microsoft.com/services/kubernetes-service)| Use um serviço de orquestração de contêineres do Kubernetes totalmente gerenciado, o padrão é de três agentes|
 | 1     | [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/)                     | S2 – Camada Padrão | Controle, comando e gerenciamento de dispositivos |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Standard        | Armazenar dados de configuração e telemetria do dispositivo como regras, alertas e mensagens |
-| 5     | [Contas de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Standard        | 4 para armazenamento de máquina virtual e 1 para os pontos de verificação de streaming |
+| 5     | [Contas de Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Standard        | 4 para armazenamento de máquina virtual e 1 para os pontos de verificação de streaming |
 | 1     | [Serviço de Aplicativo](https://azure.microsoft.com/services/app-service/web/)             | S1 Standard     | Gateway de aplicativo sobre TLS |
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Gerenciando identidades de usuários e segurança |
 | 1     | [Mapas do Azure](https://azure.microsoft.com/services/azure-maps/)        | Standard                | Visualizando locais de ativos |
@@ -103,7 +103,7 @@ Uma implantação padrão cria os seguintes serviços em sua assinatura do Azure
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 – 1 unidade              | Armazenamento para dados de mensagens e permite análise de telemetria de mergulho profundo |
 
 > [!NOTE]
-> Você pode encontrar informações sobre preços para esses serviços [https://azure.microsoft.com/pricing](https://azure.microsoft.com/pricing)em. Você pode encontrar detalhes de uso e faturamento para sua assinatura no [Portal do Azure](https://portal.azure.com/).
+> Você pode encontrar informações sobre preços para esses serviços em [https://azure.microsoft.com/pricing](https://azure.microsoft.com/pricing) . Você pode encontrar detalhes de uso e faturamento para sua assinatura no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="deploy-the-solution-accelerator"></a>Implantar o acelerador de solução
 

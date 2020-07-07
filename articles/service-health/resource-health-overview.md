@@ -4,10 +4,10 @@ description: Visão geral do Azure Resource Health
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.openlocfilehash: 7a1dfe5e93d0e19aeb343d113a24ed882a5b3f69
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80159244"
 ---
 # <a name="resource-health-overview"></a>Visão geral de Resource Health
@@ -50,7 +50,7 @@ Eventos que não são de plataforma são disparados por ações do usuário. Os 
 
 ![Status de "não disponível" para uma máquina virtual devido a um evento de não plataforma](./media/resource-health-overview/Unavailable_NonPlatform.png)
 
-### <a name="unknown"></a>Unknown
+### <a name="unknown"></a>Unknown (desconhecido)
 
 *Desconhecido* significa que Resource Health não recebeu informações sobre o recurso por mais de 10 minutos. Embora esse status não seja uma indicação definitiva do estado do recurso, ele é um ponto de dados importante para a solução de problemas.
 

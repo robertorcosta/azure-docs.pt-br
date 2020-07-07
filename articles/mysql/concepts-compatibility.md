@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: e8917a0a5678c4c6b72352a0d4c1523bfea3c96d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79537203"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>Drivers MySQL e as ferramentas de gerenciamento compatíveis com o Banco de Dados do Azure para MySQL
@@ -26,7 +26,7 @@ O Banco de Dados do Azure para MySQL usa a edição de comunidade mais popular d
 | .NET | Conector MySQL/NET | https://github.com/mysql/mysql-connector-net | 6.6.3, 7,0, 8,0 |  | Um bug de codificação pode causar falha em alguns sistemas não - UTF8 Windows nas conexões. |
 | Node.js | mysqljs | https://github.com/mysqljs/mysql/ <br> Pacote de instalação do NPM:<br> Executar `npm install mysql` do NPM | 2.15 | 2.14.1 e anterior | |
 | Node.js | nó-mysql2 | https://github.com/sidorares/node-mysql2 | 1.3.4 + | | |
-| Go | Acessar o driver do MySQL | https://github.com/go-sql-driver/mysql/releases | 1,3, 1,4 | 1.2 e anterior | Use `allowNativePasswords=true` na cadeia de conexão para a versão 1,3. A versão 1,4 contém uma correção `allowNativePasswords=true` e não é mais necessária. |
+| Go | Acessar o driver do MySQL | https://github.com/go-sql-driver/mysql/releases | 1,3, 1,4 | 1.2 e anterior | Use `allowNativePasswords=true` na cadeia de conexão para a versão 1,3. A versão 1,4 contém uma correção e `allowNativePasswords=true` não é mais necessária. |
 | Python | Conector do MySQL/Python | https://pypi.python.org/pypi/mysql-connector-python | 1.2.3, 2,0, 2,1, 2,2, use 8.0.16 + com MySQL 8,0  | 1.2.2 e anterior | |
 | Python | PyMySQL | https://pypi.org/project/PyMySQL/ | 0.7.11, 0.8.0, 0.8.1, 0.9.3 + | 0.9.0-0.9.2 (regressão em web2py) | |
 | Java | Conector do MariaDB/J | https://downloads.mariadb.org/connector-java/ | 2.1, 2.0, 1.6 | 1.5.5 e anterior | | 

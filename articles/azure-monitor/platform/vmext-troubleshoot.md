@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/06/2019
 ms.openlocfilehash: e16531484505f055c1383aff5adb40518719d98a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80054588"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension-in-azure-monitor"></a>Solucionar problemas da extensão da VM do Log Analytics no Azure Monitor
@@ -18,8 +18,8 @@ Este artigo fornece ajuda para solucionar erros que você pode encontrar com a e
 
 Para verificar o status da extensão, execute as seguintes etapas no portal do Azure.
 
-1. Entre no [portal do Azure](https://portal.azure.com).
-2. Na portal do Azure, clique em **todos os serviços**. Na lista de recursos, digite **máquinas virtuais**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **máquinas virtuais**.
+1. Faça logon no [Portal do Azure](https://portal.azure.com).
+2. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **máquinas virtuais**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Máquinas virtuais**.
 3. Na lista de máquinas virtuais, localize e selecione-a.
 3. Na máquina virtual, clique em **Extensões**.
 4. Na lista, verifique se a extensão de Log Analytics está habilitada ou não.  Para o Linux, o agente é listado como **OMSAgentforLinux** e, para o Windows, o agente é listado como **MicrosoftMonitoringAgent**.
@@ -37,7 +37,7 @@ Se a extensão da VM *Microsoft Monitoring Agent* não está instalando ou repor
 1. Verifique se o agente de VM do Azure está instalado e funcionando corretamente usando as etapas em [KB 2965986](https://support.microsoft.com/kb/2965986#mt1).
    * Você também pode examinar o arquivo de log do agente de VM `C:\WindowsAzure\logs\WaAppAgent.log`
    * Se o log não existir, isso significará que o agente de VM não está instalado.
-   * [Instalar o Agente de VM do Azure](../../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
+   * [Instalar o agente de VM do Azure](../../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
 2. Examinar os arquivos de log de extensão de VM do Microsoft Monitoring Agent em `C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent`
 3. Certificar-se de que a máquina virtual pode executar scripts do PowerShell
 4. Certificar-se de que as permissões em C:\Windows\temp não foram alteradas

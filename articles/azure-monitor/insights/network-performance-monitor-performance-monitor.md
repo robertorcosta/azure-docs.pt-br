@@ -7,10 +7,10 @@ author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
 ms.openlocfilehash: 126cca9d3606b378e59e4f4e1c5b52d985d19d94
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80055681"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>Solução do Monitor de Desempenho de Rede – Monitoramento de Desempenho
@@ -43,7 +43,7 @@ Para criar uma nova rede:
 1. Selecione a guia **Redes**.
 1. Selecione  **Adicionar rede** e insira o nome e a descrição da rede. 
 2. Selecione uma ou mais sub-redes e selecione **Adicionar**. 
-3. Selecione **Salvar** para salvar a configuração. 
+3. Selecione **salvar** para salvar a configuração. 
 
 
 ### <a name="create-monitoring-rules"></a>Crie regras de monitoramento 
@@ -63,7 +63,7 @@ Para criar regras de monitoramento personalizadas:
 4. Escolha o protocolo TCP ou ICMP para executar transações sintéticas. 
 5. Se não quiser criar eventos de integridade para os itens que você selecionou, desmarque **Ativar o monitoramento de integridade nos links cobertos por essa regra**. 
 6. Escolha as condições de monitoramento. Para definir limites personalizados para geração de eventos de integridade, digite os valores de limite. Sempre que o valor da condição exceder o limite selecionado para o par de rede ou sub-rede selecionado, será gerado um evento de integridade. 
-7. Selecione **Salvar** para salvar a configuração. 
+7. Selecione **salvar** para salvar a configuração. 
 
 Depois de salvar uma regra de monitoramento, você pode integrar essa regra ao Gerenciamento de Alertas selecionando **Criar Alerta**. Uma regra de alerta é criada automaticamente com a consulta de pesquisa. Outros parâmetros necessários são preenchidos automaticamente. Usando uma regra de alerta, você pode receber alertas baseados em email, além de alertas existentes em Monitor de Desempenho de Rede. Os alertas podem disparar ações corretivas com runbooks ou podem integrar soluções de gerenciamento de serviço existentes usando webhooks. Selecione **Gerenciar Alerta** para editar as configurações de alerta. 
 
@@ -94,7 +94,7 @@ Antes de escolher um protocolo, considere as seguintes informações:
 
 Se você optar por usar o ICMP durante a implantação, poderá mudar para TCP a qualquer momento, editando a regra de monitoramento padrão.
 
-1. Vá para **Network Performance** > **Monitor**monitor  > **Monitor**de desempenho de rede configurar monitor. **Configure**> Em seguida, selecione **Regra padrão**. 
+1. Vá para monitor de **desempenho de rede**   >  **Monitor**   >  **Configurar**   >  **Monitor**. Em seguida, selecione **Regra padrão**. 
 2. Role até a seção **Protocolo** e selecione o protocolo que você deseja usar. 
 3. Selecione **Salvar** para aplicar a configuração. 
 

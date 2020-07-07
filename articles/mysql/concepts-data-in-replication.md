@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 20be34191355e6ade40e0f3b218818bfa5345a28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79533225"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Replicar dados no Banco de Dados do Azure para MySQL
@@ -36,12 +36,12 @@ O [*banco de dados de sistema de mysql*](https://dev.mysql.com/doc/refman/5.7/en
 - Cada tabela deve ter uma chave primária.
 - O servidor mestre deve usar o mecanismo MySQL InnoDB.
 - O usuário deve ter permissões para configurar o log binário e criar novos usuários no servidor mestre.
-- Se o servidor mestre tiver o SSL habilitado, verifique se o certificado de autoridade de certificação SSL fornecido para o domínio `mysql.az_replication_change_master` foi incluído no procedimento armazenado. Consulte os [exemplos](https://docs.microsoft.com/azure/mysql/howto-data-in-replication#link-master-and-replica-servers-to-start-data-in-replication) a seguir e o `master_ssl_ca` parâmetro.
+- Se o servidor mestre tiver o SSL habilitado, verifique se o certificado de autoridade de certificação SSL fornecido para o domínio foi incluído no `mysql.az_replication_change_master` procedimento armazenado. Consulte os [exemplos](https://docs.microsoft.com/azure/mysql/howto-data-in-replication#link-master-and-replica-servers-to-start-data-in-replication) a seguir e o `master_ssl_ca` parâmetro.
 - Verifique se o endereço IP do servidor mestre foi adicionado às regras de firewall do servidor de réplica do Banco de Dados do Azure para MySQL. Atualizar regras de firewall usando o [Portal do Azure](https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-portal) ou a [CLI do Azure](https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-cli).
 - Assegure-se de que o computador que hospeda o servidor mestre permita tráfego de entrada e saída na porta 3306.
 - Verifique se o servidor mestre tem um **endereço IP público**, se o DNS está acessível publicamente ou se tem um FQDN (nome de domínio totalmente qualificado).
 
-### <a name="other"></a>Outros
+### <a name="other"></a>Outro
 - A replicação de dados têm suporte apenas em tipos de preços de Uso Geral e Otimizados para Memória.
 - O GTID (identificadores de transação globais) não são compatíveis.
 

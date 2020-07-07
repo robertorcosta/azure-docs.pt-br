@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 02/04/2020
 ms.author: anzaman
 ms.openlocfilehash: 19067bbbaf93c9abc9a9220b09dd482ce9115655
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80127971"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-api"></a>Personalizar um modelo de linguagem com a API de Video Indexer
@@ -105,7 +105,7 @@ A resposta fornece metadados sobre o modelo de linguagem recentemente treinado j
 }
 ```
 
-O retornado `id` é uma ID exclusiva usada para distinguir entre modelos de linguagem, `languageModelId` enquanto é usado para [carregar um vídeo para indexar](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) e [reindexar uma](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) api de vídeo (também conhecido como `linguisticModelId` em video indexer carregar/reindexar APIs).
+O retornado `id` é uma ID exclusiva usada para distinguir entre modelos de linguagem, enquanto `languageModelId` é usado para [carregar um vídeo para indexar](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) e [reindexar uma](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) API de vídeo (também conhecido como `linguisticModelId` em video indexer carregar/reindexar APIs).
 
 ## <a name="delete-a-language-model"></a>Excluir um modelo de Linguagem
 
@@ -161,7 +161,7 @@ Use o `id` dos arquivos retornados na resposta para baixar o conteúdo do arquiv
 
 ## <a name="update-a-file-from-a-language-model"></a>Atualizar um arquivo com base em um modelo de Linguagem
 
-A [atualização de um arquivo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model-file?&pattern=update) permite que você atualize o nome `enable` e o estado de um arquivo em um modelo de idioma personalizado na conta especificada.
+A [atualização de um arquivo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model-file?&pattern=update) permite que você atualize o nome e o `enable` estado de um arquivo em um modelo de idioma personalizado na conta especificada.
 
 ### <a name="response"></a>Resposta
 

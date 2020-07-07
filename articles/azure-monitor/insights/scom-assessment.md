@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/25/2018
 ms.openlocfilehash: 94251dfa2d9fa732912ed20d825e64f542d79188
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80055424"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Otimizar seu ambiente com a solução System Center Operations Manager Health Check (Versão prévia)
@@ -147,13 +147,13 @@ ALTER ROLE [db_owner] ADD MEMBER [UserName]
 
 O pacote de gerenciamento da solução Verificação de Integridade do System Center Operations Manager inclui uma regra chamada *Microsoft System Center Operations Manager executar regra de verificação de integridade*. Essa regra é responsável por executar a verificação de integridade. Para habilitar a regra e configurar a frequência, use os procedimentos a seguir.
 
-Por padrão, a regra de verificação de integridade de execução do Microsoft System Center Operations Manager está desabilitada. Para executar a verificação de integridade, você deve habilitar a regra em um servidor de gerenciamento. Use as etapas a seguir.
+Por padrão, a regra de verificação de integridade de execução do Microsoft System Center Operations Manager está desabilitada. Para executar a verificação de integridade, você deve habilitar a regra em um servidor de gerenciamento. Use as seguintes etapas.
 
 #### <a name="enable-the-rule-for-a-specific-management-server"></a>Habilitar a regra para um servidor de gerenciamento específico
 
 1. No espaço de trabalho **criação** do console de operações Operations Manager, procure a regra *Microsoft System Center Operations Manager executar regra de verificação de integridade* no painel **regras** .
 2. Nos resultados da pesquisa, selecione aquela que inclui o texto *Tipo: Servidor de Gerenciamento*.
-3. Clique com o botão direito do mouse na regra e clique em **substituições** > **para um objeto específico da classe: servidor de gerenciamento**.
+3. Clique com o botão direito do mouse na regra e clique em **substituições**  >  **para um objeto específico da classe: servidor de gerenciamento**.
 4.  Na lista de servidores de gerenciamento disponíveis, selecione o servidor de gerenciamento no qual a regra deve ser executada.  Ele deve ser o mesmo servidor de gerenciamento configurado anteriormente para associar a conta Executar como.
 5.  Verifique se você alterou o valor de substituição para **True** para o valor do parâmetro **Habilitado**.<br><br> ![parâmetro de substituição](./media/scom-assessment/rule.png)
 
@@ -165,7 +165,7 @@ A avaliação está configurada para ser executada a cada 10.080 minutos (ou set
 
 1. No espaço de trabalho **criação** do console do Operations Manager, procure a regra *Microsoft System Center Operations Manager executar a regra de verificação de integridade* na seção **regras** .
 2. Nos resultados da pesquisa, selecione aquela que inclui o texto *Tipo: Servidor de Gerenciamento*.
-3. Clique com o botão direito do mouse na regra e clique em **substituir a regra** > **para todos os objetos da classe: servidor de gerenciamento**.
+3. Clique com o botão direito do mouse na regra e clique em **substituir a regra**  >  **para todos os objetos da classe: servidor de gerenciamento**.
 4. Altere o valor do parâmetro **Intervalo** para o valor de intervalo desejado. No exemplo a seguir, o valor é definido para 1.440 minutos (um dia).<br><br> ![parâmetro do intervalo](./media/scom-assessment/interval.png)<br>  
 
     Se o valor for definido para menos de 1440 minutos, a regra será executada em um intervalo de um dia. Neste exemplo, a regra ignora o valor do intervalo e é executada com uma frequência de um dia.
@@ -180,7 +180,7 @@ Cada recomendação feita recebe um valor de ponderação que identifica a impor
 Os pesos são valores agregados com base em três fatores principais:
 
 - A *probabilidade* que um problema identificado causar problemas. Uma probabilidade mais alta é igual a uma pontuação geral maior para a recomendação.
-- O *impacto* do problema na sua organização se ele causar um problema. Um impacto maior é igual a uma pontuação geral maior para a recomendação.
+- O *impacto* da questão na sua organização se ela causar um problema. Um impacto maior é igual a uma pontuação geral maior para a recomendação.
 - O *esforço* necessário para implementar a recomendação. Um esforço maior é igual a uma pontuação geral menor para a recomendação.
 
 A importância de cada recomendação é expressa como um percentual da pontuação total disponível para todas as áreas de foco. Por exemplo, se uma recomendação na área de foco Disponibilidade e Continuidade de Negócios tiver uma pontuação de 5%, implementar essa recomendação aumentará a pontuação geral da Disponibilidade e Continuidade de Negócios em 5%.
@@ -208,13 +208,13 @@ Antes de usar a solução Health Check no Log Analytics, é necessário tê-la i
 Veja as avaliações de conformidade resumidas para sua infraestrutura e faça uma busca detalhada das recomendações.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Para exibir as recomendações para uma área de foco e tomar uma ação corretiva
-1. Faça logon no portal do Azure em [https://portal.azure.com](https://portal.azure.com).
-2. No portal do Azure, clique em **Mais serviços** encontrado no canto inferior esquerdo. Na lista de recursos, digite **log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **log Analytics**.
+1. Faça logon no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+2. No portal do Azure, clique em **Mais serviços** encontrado no canto inferior esquerdo. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **log Analytics**.
 3. No painel de assinaturas do Log Analytics, selecione um workspace e clique no item de menu **resumo de Workspace**.  
 4. Na página **Visão Geral**, clique no bloco **System Center Operations Manager Health Check**.
 5. Na página **System Center Operations Manager Health Check**, analise as informações de resumo em uma das folhas da área de foco e clique em uma para exibir as recomendações dessa área de foco.
 6. Em qualquer uma das páginas da área de foco, você pode exibir as recomendações priorizadas para seu ambiente. Clique em uma recomendação sob **Objetos Afetados** para exibir detalhes sobre o motivo pelo qual a recomendação foi feita.<br><br> ![área de foco](./media/scom-assessment/log-analytics-scom-healthcheck-dashboard-02.png)<br>
-7. É possível executar as ações corretivas sugeridas em **Ações Sugeridas**. Quando o item tiver sido resolvido, avaliações posteriores gravarão que essas ações recomendadas foram executadas e sua pontuação de conformidade aumentará. Os itens corrigidos aparecem como **Objetos Passados**.
+7. É possível executar as ações corretivas sugeridas em **Ações Sugeridas**. Quando o item tiver sido resolvido, avaliações posteriores gravarão que essas ações recomendadas foram executadas e sua pontuação de conformidade aumentará. Os itens corrigido aparecem como **Objetos Passados**.
 
 ## <a name="ignore-recommendations"></a>Ignorar as recomendações
 

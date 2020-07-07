@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 6a3fa40eaae174d3616fd0318f81576b7c59eac7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80067692"
 ---
 # <a name="azure-database-for-mysql-management-stored-procedures"></a>Procedimentos armazenados de gerenciamento do banco de dados do Azure para MySQL
@@ -41,7 +41,7 @@ Os procedimentos armazenados a seguir estão disponíveis no banco de dados do A
 |-----|-----|-----|-----|
 |*MySQL. az_kill*|processlist_id|N/D|Equivalente a [`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) Command. Encerrará a conexão associada ao processlist_id fornecido depois de encerrar qualquer instrução que a conexão estiver executando.|
 |*MySQL. az_kill_query*|processlist_id|N/D|Equivalente a [`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) Command. Encerrará a instrução que a conexão está executando no momento. Deixa a própria conexão ativa.|
-|*MySQL. az_load_timezone*|N/D|N/D|Carrega tabelas de fuso horário para permitir `time_zone` que o parâmetro seja definido para valores nomeados (ex. "EUA/Pacífico").|
+|*MySQL. az_load_timezone*|N/D|N/D|Carrega tabelas de fuso horário para permitir que o `time_zone` parâmetro seja definido para valores nomeados (ex. "EUA/Pacífico").|
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba como configurar [replicação de dados](howto-data-in-replication.md)

@@ -4,10 +4,10 @@ description: Este artigo fornece conteúdo que descreve a configuração detalha
 ms.topic: conceptual
 ms.date: 12/01/2019
 ms.openlocfilehash: 99ea6e96f5a8a486784cb3d633a6e031b60eaad7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80055711"
 ---
 # <a name="azure-monitor-for-containers-health-monitor-configuration-guide"></a>Guia de configuração do monitor de integridade de Azure Monitor para contêineres

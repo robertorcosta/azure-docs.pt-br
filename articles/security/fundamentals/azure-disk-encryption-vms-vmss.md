@@ -8,10 +8,10 @@ ms.author: mbaldwin
 ms.date: 10/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: c881b2b9743766e4d35e6cb05f6f3469803850bc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80062119"
 ---
 # <a name="azure-disk-encryption-for-virtual-machines-and-virtual-machine-scale-sets"></a>Azure Disk Encryption para máquinas virtuais e conjuntos de dimensionamento de máquinas virtuais
@@ -27,7 +27,7 @@ Os artigos a seguir fornecem orientação para criptografar máquinas virtuais d
 - [Visão geral de Azure Disk Encryption para VMs Linux](../../virtual-machines/linux/disk-encryption-overview.md)
 - [Cenários de Azure Disk Encryption em VMs Linux](../../virtual-machines/linux/disk-encryption-linux.md)
 - [Criar e criptografar uma VM do Linux com a CLI do Azure](../../virtual-machines/linux/disk-encryption-cli-quickstart.md)
-- [Criar e criptografar uma VM Linux com Azure PowerShell](../../virtual-machines/linux/disk-encryption-powershell-quickstart.md)
+- [Criar e criptografar uma VM do Linux com o Azure PowerShell](../../virtual-machines/linux/disk-encryption-powershell-quickstart.md)
 - [Criar e criptografar uma VM do Linux com o portal do Azure](../../virtual-machines/linux/disk-encryption-portal-quickstart.md)
 - [Esquema de extensão de Azure Disk Encryption para Linux](../../virtual-machines/extensions/azure-disk-enc-linux.md)
 - [Criando e configurando um cofre de chaves para Azure Disk Encryption](../../virtual-machines/linux/disk-encryption-key-vault.md)
@@ -64,7 +64,7 @@ Os artigos a seguir fornecem orientação para criptografar máquinas virtuais d
 - [Azure Disk Encryption com cenários do Azure AD em VMs do Windows](../../virtual-machines/windows/disk-encryption-windows.md)
 - [Criando e configurando um cofre de chaves para Azure Disk Encryption com o Azure AD (versão anterior)](../../virtual-machines/windows/disk-encryption-key-vault-aad.md)
 
-## <a name="virtual-machine-scale-sets"></a>Conjuntos de dimensionamento de máquinas virtuais
+## <a name="virtual-machine-scale-sets"></a>conjuntos de escala de máquina virtual
 
 Os artigos a seguir fornecem orientações para criptografar conjuntos de dimensionamento de máquinas virtuais.
 

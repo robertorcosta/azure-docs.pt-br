@@ -8,15 +8,15 @@ ms.date: 03/11/2020
 ms.author: amsriva
 ms.topic: conceptual
 ms.openlocfilehash: 4d945a255dacd35c61c3c80574b7d46b56de4aab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80257403"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hospedagem de vários sites do Gateway de Aplicativo
 
-A hospedagem de vários sites permite que você configure mais de um aplicativo Web na mesma porta de um gateway de aplicativo. Esse recurso permite que você configure a topologia mais eficiente para suas implantações adicionando até 100 sites a um Gateway de Aplicativo. Cada site pode ser direcionado para seu próprio pool de back-end. No exemplo a seguir, o gateway de aplicativo serve `contoso.com` o `fabrikam.com` tráfego para e de dois pools de servidores back-end chamados ContosoServerPool e FabrikamServerPool.
+A hospedagem de vários sites permite que você configure mais de um aplicativo Web na mesma porta de um gateway de aplicativo. Esse recurso permite que você configure a topologia mais eficiente para suas implantações adicionando até 100 sites a um Gateway de Aplicativo. Cada site pode ser direcionado para seu próprio pool de back-end. No exemplo a seguir, o gateway de aplicativo serve o tráfego para `contoso.com` e `fabrikam.com` de dois pools de servidores back-end chamados ContosoServerPool e FabrikamServerPool.
 
 ![imageURLroute](./media/multiple-site-overview/multisite.png)
 

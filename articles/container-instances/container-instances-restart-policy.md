@@ -4,10 +4,10 @@ description: Saiba como usar as Instâncias de Contêiner do Azure para executar
 ms.topic: article
 ms.date: 04/15/2019
 ms.openlocfilehash: 8ef4ef228038242f53abc8041470f7f596ab1157
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80131506"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>Executar tarefas em contêineres com políticas de reinício
@@ -42,7 +42,7 @@ az container create \
 
 ## <a name="run-to-completion-example"></a>Executar o exemplo de conclusão
 
-Para ver a política de reinicialização em ação, crie uma instância de contêiner da imagem do Microsoft [ACI-WordCount][aci-wordcount-image] e especifique a política de `OnFailure` reinicialização. Este contêiner de exemplo executa um script de Python que, por padrão, analisa o texto de Shakespeare [Hamlet](http://shakespeare.mit.edu/hamlet/full.html), grava as 10 palavras mais comuns em STDOUT e, em seguida, sai.
+Para ver a política de reinicialização em ação, crie uma instância de contêiner da imagem do Microsoft [ACI-WordCount][aci-wordcount-image] e especifique a `OnFailure` política de reinicialização. Este contêiner de exemplo executa um script de Python que, por padrão, analisa o texto de Shakespeare [Hamlet](http://shakespeare.mit.edu/hamlet/full.html), grava as 10 palavras mais comuns em STDOUT e, em seguida, sai.
 
 Execute o contêiner de exemplo com o seguinte comando [az container create][az-container-create]:
 

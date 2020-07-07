@@ -10,10 +10,10 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 57b9d46918414cef9e8cbcffb941b98c98f985ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80240357"
 ---
 # <a name="communicate-with-edgeagent-using-built-in-direct-methods"></a>Comunicar-se com o edgeAgent usando métodos diretos internos
@@ -34,7 +34,7 @@ Por exemplo:
 az iot hub invoke-module-method --method-name 'ping' -n <hub name> -d <device name> -m '$edgeAgent'
 ```
 
-Na portal do Azure, invoque o método com o nome `ping` do método e uma carga `{}`JSON vazia.
+Na portal do Azure, invoque o método com o nome do método `ping` e uma carga JSON vazia `{}` .
 
 ![Invocar método direto ' ping ' em portal do Azure](./media/how-to-edgeagent-direct-method/ping-direct-method.png)
 
@@ -58,7 +58,7 @@ az iot hub invoke-module-method --method-name 'RestartModule' -n <hub name> -d <
 '
 ```
 
-Na portal do Azure, invoque o método com o nome `RestartModule` do método e o seguinte conteúdo JSON:
+Na portal do Azure, invoque o método com o nome do método `RestartModule` e o seguinte conteúdo JSON:
 
 ```json
 {

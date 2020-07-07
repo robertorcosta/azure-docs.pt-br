@@ -14,10 +14,10 @@ ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, n
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 67a54a2cd4fa071fd47bcebb9aa53fd11fefd61e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80154909"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Por que atualizar para plataforma de identidade da Microsoft (v2.0)?
@@ -33,7 +33,7 @@ Ao desenvolver um novo aplicativo, é importante conhecer as diferenças entre o
 
 * O ponto de extremidade v1.0 permite que apenas contas do trabalho e da escola entrem no seu aplicativo (Azure AD)
 * O ponto de extremidade da plataforma de identidade da Microsoft permite contas corporativas e de estudante do Azure AD e do MSA (contas pessoais da Microsoft), como hotmail.com, outlook.com e msn.com, para entrar.
-* Os dois pontos de extremidade também aceitam entradas de *[usuários convidados](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* de um diretório do Azure ad para aplicativos configurados como *[locatário único](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)* ou para aplicativos *multilocatários* configurados para apontarem para o`https://login.microsoftonline.com/{TenantId_or_Name}`ponto de extremidade específico do locatário ().
+* Os dois pontos de extremidade também aceitam entradas de *[usuários convidados](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* de um diretório do Azure ad para aplicativos configurados como *[locatário único](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)* ou para aplicativos *multilocatários* configurados para apontarem para o ponto de extremidade específico do locatário ( `https://login.microsoftonline.com/{TenantId_or_Name}` ).
 
 O ponto de extremidade da plataforma de identidade da Microsoft permite que você escreva aplicativos que aceitem entradas de contas pessoais da Microsoft e contas corporativas e de estudante. Isso lhe dá a capacidade de escrever seu aplicativo completamente independente de conta. Por exemplo, se seu aplicativo chamar o [Microsoft Graph](https://graph.microsoft.io), alguns recursos e dados adicionais estarão disponíveis para contas de trabalho, como seus sites do SharePoint ou dados do Diretório. Mas, para muitas ações, como [a leitura de um e-mail de um usuário](https://docs.microsoft.com/graph/api/user-list-messages?view=graph-rest-1.0), o mesmo código pode acessar o e-mail para contas pessoais e de trabalho e escola.
 
@@ -92,11 +92,11 @@ Aqui, parâmetro **escopo** indica para qual recurso e permissões o aplicativo 
 
 ### <a name="offline-access"></a>Acesso offline
 
-Aplicativos que usam o ponto de extremidade da plataforma Microsoft Identity podem exigir o uso de uma nova permissão conhecida para aplicativos `offline_access` – o escopo. Todos os aplicativos terão que solicitar essa permissão se precisarem acessar recursos em nome de um usuário por um longo período de tempo, mesmo quando o usuário pode não estiver usando o aplicativo de maneira ativa. O escopo `offline_access` aparecerá para o usuário em diálogos de consentimento como **Acesse seus dados a qualquer momento**, com os quais o usuário deve concordar. Solicitar a `offline_access` permissão permitirá que seu aplicativo web receba refresh_tokens OAuth 2,0 do ponto de extremidade da plataforma Microsoft Identity. Os tokens de atualização são de longa duração e podem ser trocados por novos tokens de acesso do OAuth 2.0 por longos períodos de acesso.
+Aplicativos que usam o ponto de extremidade da plataforma Microsoft Identity podem exigir o uso de uma nova permissão conhecida para aplicativos – o `offline_access` escopo. Todos os aplicativos terão que solicitar essa permissão se precisarem acessar recursos em nome de um usuário por um longo período de tempo, mesmo quando o usuário pode não estiver usando o aplicativo de maneira ativa. O escopo `offline_access` aparecerá para o usuário em diálogos de consentimento como **Acesse seus dados a qualquer momento**, com os quais o usuário deve concordar. Solicitar a `offline_access` permissão permitirá que seu aplicativo Web receba Refresh_tokens OAuth 2,0 do ponto de extremidade da plataforma Microsoft Identity. Os tokens de atualização são de longa duração e podem ser trocados por novos tokens de acesso do OAuth 2.0 por longos períodos de acesso.
 
 Se seu aplicativo não solicitar o `offline_access` escopo, ele não receberá tokens de atualização. Isso significa que, quando você resgatar um código de autorização no fluxo do código de autorização do OAuth 2.0, receberá apenas um token de acesso do ponto de extremidade `/token`. Esse token de acesso permanecerá válido por um curto período de tempo (geralmente uma hora), mas acabará expirando. Nesse momento, seu aplicativo precisará redirecionar o usuário de volta ao ponto de extremidade `/authorize` para recuperar um novo código de autorização. Durante esse redirecionamento, o usuário pode ou não precisar digitar suas credenciais novamente ou consentir de novo as permissões, dependendo do tipo do aplicativo.
 
-Para saber mais sobre o OAuth 2,0 `refresh_tokens`, o `access_tokens`e o, confira a [referência do protocolo de plataforma de identidade da Microsoft](../develop/active-directory-v2-protocols.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
+Para saber mais sobre o OAuth 2,0, `refresh_tokens` `access_tokens` o e o, confira a referência do protocolo de plataforma de identidade da [Microsoft](../develop/active-directory-v2-protocols.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 
 ### <a name="openid-profile-and-email"></a>OpenID, perfil e email
 
@@ -104,7 +104,7 @@ Historicamente, o fluxo de entrada mais básico do OpenID Connect com a platafor
 
 As informações que o escopo de `openid` permite que seu aplicativo acesse agora estão restritas. O escopo de `openid` apenas permitirá que seu aplicativo faça logon do usuário e receba um identificador específico do aplicativo para o usuário. Se você quiser obter dados pessoais sobre o usuário em seu aplicativo, seu aplicativo precisará solicitar permissões adicionais do usuário. Dois novos escopos `email` e `profile` – permitirão que você solicite permissões adicionais.
 
-* O `email` escopo permite que o aplicativo acesse o endereço de email principal do usuário `email` por meio da declaração no id_token, supondo que o usuário tenha um endereço de email endereçável.
+* O `email` escopo permite que o aplicativo acesse o endereço de email principal do usuário por meio da `email` declaração no id_token, supondo que o usuário tenha um endereço de email endereçável.
 * O `profile` escopo dá ao seu aplicativo acesso a todas as outras informações básicas sobre o usuário, como nome, nome de usuário preferencial, ID de objeto e assim por diante, no id_token.
 
 Esse escopo permite que você codifique seu aplicativo com uma divulgação mínima. Você só pode solicitar ao usuário o conjunto de informações de que seu aplicativo precisa para fazer seu trabalho. Para obter mais informações sobre esses escopos, consulte [a referência de escopo da plataforma de identidade da Microsoft](../develop/v2-permissions-and-consent.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
@@ -180,7 +180,7 @@ Atualmente, o suporte à biblioteca para o ponto de extremidade da plataforma Mi
 * Se você estiver criando um aplicativo móvel ou desktop, poderá usar uma das MSAL (bibliotecas de autenticação da Microsoft). Essas bibliotecas estão geralmente disponíveis ou em uma versão prévia com suporte de produção, portanto, é seguro usá-las em aplicativos de produção. Leia mais sobre os termos da versão prévia e as bibliotecas disponíveis na [referência de bibliotecas de autenticação](../develop/reference-v2-libraries.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 * Para plataformas não cobertas pelas bibliotecas da Microsoft, você pode integrar-se ao ponto de extremidade da plataforma de identidade da Microsoft enviando e recebendo diretamente mensagens de protocolo no código do aplicativo. Os protocolos do OpenID Connect e do OAuth [são documentados explicitamente](../develop/active-directory-v2-protocols.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) para ajudá-lo a fazer essa integração.
 * Por fim, você pode usar o OpenID Connect e as bibliotecas do OAuth de software livre para integrar com o ponto de extremidade da plataforma de identidade da Microsoft. O ponto de extremidade da plataforma de identidade da Microsoft deve ser compatível com muitas bibliotecas de protocolo de código aberto sem alterações. A disponibilidade desses tipos de bibliotecas varia por idioma e plataforma. Os sites do [Open ID Connect](https://openid.net/connect/) e do [OAuth 2.0](https://oauth.net/2/) mantêm uma lista das implementações populares. Para obter mais informações, consulte [plataforma de identidade da Microsoft e bibliotecas de autenticação](../develop/reference-v2-libraries.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)e a lista de bibliotecas de cliente de software livre e exemplos que foram testados com o ponto de extremidade da plataforma Microsoft Identity.
-* Para referência, o `.well-known` ponto de extremidade para o ponto de extremidade comum `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`da plataforma de identidade da Microsoft é. Substitua `common` pela ID do locatário para obter dados específicos para o locatário.  
+* Para referência, o `.well-known` ponto de extremidade para o ponto de extremidade comum da plataforma de identidade da Microsoft é `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration` . Substitua `common` pela ID do locatário para obter dados específicos para o locatário.  
 
 ### <a name="protocol-changes"></a>Alterações do protocolo
 

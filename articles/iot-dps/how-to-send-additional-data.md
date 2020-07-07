@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: de6bb3fe0879a69467283e93a04a355876a02cba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80246680"
 ---
 # <a name="how-to-transfer-a-payload-between-device-and-dps"></a>Como transferir uma carga entre o dispositivo e o DPS
 Às vezes, o DPS precisa de mais dados de dispositivos para provisioná-los corretamente no Hub IoT correto, e esses dados precisam ser fornecidos pelo dispositivo. Vice-versa, o DPS pode retornar dados para o dispositivo para facilitar as lógicas do lado do cliente. 
 
-## <a name="when-to-use-it"></a>Quando usar
+## <a name="when-to-use-it"></a>Quando usar isso
 Esse recurso pode ser usado como um aprimoramento para a [alocação personalizada](https://docs.microsoft.com/azure/iot-dps/how-to-use-custom-allocation-policies). Por exemplo, você deseja alocar seus dispositivos com base no modelo de dispositivo sem intervenção humana. Nesse caso, você usará a [alocação personalizada](https://docs.microsoft.com/azure/iot-dps/how-to-use-custom-allocation-policies). Você pode configurar o dispositivo para relatar as informações do modelo como parte da [chamada do dispositivo de registro](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice). O DPS passará a carga do dispositivo para o webhook de alocação personalizada. E sua função pode decidir a qual Hub IoT este dispositivo será usado quando receber informações de modelo do dispositivo. Da mesma forma, se o webhook quiser retornar alguns dados para o dispositivo, ele passará os dados de volta como uma cadeia de caracteres na resposta do webhook.  
 
 ## <a name="device-sends-data-payload-to-dps"></a>O dispositivo envia a carga de dados para o DPS
@@ -54,7 +54,7 @@ Se o webhook da diretiva de alocação personalizada quiser retornar alguns dado
    ```
 
 ## <a name="sdk-support"></a>Suporte a SDK
-Esse recurso está disponível em [SDKs do cliente](https://docs.microsoft.com/azure/iot-dps/)C, C#, Java e node. js.  
+Esse recurso está disponível em [SDKs de cliente](https://docs.microsoft.com/azure/iot-dps/)em C, C#, JAVA e Node.js.  
 
 ## <a name="next-steps"></a>Próximas etapas
 * Desenvolver usando o [SDK do IoT do Azure]( https://github.com/Azure/azure-iot-sdks) para o Hub IoT do Azure e o Serviço de Provisionamento de Dispositivos Hub IoT do Azure

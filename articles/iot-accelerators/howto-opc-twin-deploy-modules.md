@@ -9,10 +9,10 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 6c8ceeaf49d8ebfa15a83118e8b518190f6ff85e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80241070"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Implantar o módulo OPC e as dependências do zero
@@ -111,13 +111,13 @@ A maneira mais fácil de implantar os módulos em um dispositivo Azure IoT Edge 
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-1. Implante as [dependências](howto-opc-twin-deploy-dependencies.md) do OPC entrelaçado e `.env` obteve o arquivo resultante. Observe a implantação `hub name` da `PCS_IOTHUBREACT_HUB_NAME` variável no arquivo resultante `.env` .
+1. Implante as [dependências](howto-opc-twin-deploy-dependencies.md) do OPC entrelaçado e obteve o `.env` arquivo resultante. Observe a implantação `hub name` da `PCS_IOTHUBREACT_HUB_NAME` variável no `.env` arquivo resultante.
 
-2. Registre e inicie um gateway de IoT Edge do [Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) ou [Windows](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-windows) e `device id`Anote seu.
+2. Registre e inicie um gateway de IoT Edge do [Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) ou [Windows](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-windows) e anote seu `device id` .
 
 ### <a name="deploy-to-an-edge-device"></a>Implantar em um dispositivo de borda
 
-1. Entre no [portal do Azure](https://portal.azure.com/) e navegue até o Hub IOT.
+1. Entre no [Portal do Azure](https://portal.azure.com/) e navegue até o Hub IoT.
 
 2. Selecione **IOT Edge** no menu à esquerda.
 
@@ -127,7 +127,7 @@ A maneira mais fácil de implantar os módulos em um dispositivo Azure IoT Edge 
 
 5. Na seção **módulos de implantação** da página, selecione **Adicionar** e **IOT Edge módulo.**
 
-6. Na caixa de diálogo **IOT Edge módulo personalizado** , use `opctwin` como nome para o módulo e, em seguida, especifique o *URI da imagem* de contêiner como
+6. Na caixa de diálogo **IOT Edge módulo personalizado** `opctwin` , use como nome para o módulo e, em seguida, especifique o *URI da imagem* de contêiner como
 
    ```bash
    mcr.microsoft.com/iotedge/opc-twin:latest
@@ -143,7 +143,7 @@ A maneira mais fácil de implantar os módulos em um dispositivo Azure IoT Edge 
 
 7. Selecione **salvar** e repita a etapa **5**.  
 
-8. Na caixa de diálogo IoT Edge módulo personalizado, `opcpublisher` use como nome para o módulo e o *URI da imagem* de contêiner como 
+8. Na caixa de diálogo IoT Edge módulo personalizado, use `opcpublisher` como nome para o módulo e o *URI da imagem* de contêiner como 
 
    ```bash
    mcr.microsoft.com/iotedge/opc-publisher:latest
@@ -180,9 +180,9 @@ A maneira mais fácil de implantar os módulos em um dispositivo Azure IoT Edge 
 
 1. Instale a versão mais recente da [interface de linha de comando do Azure (AZ)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) [aqui](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-### <a name="quickstart"></a>Guia de Início Rápido
+### <a name="quickstart"></a>Início Rápido
 
-1. Salve o manifesto de implantação acima em `deployment.json` um arquivo.  
+1. Salve o manifesto de implantação acima em um `deployment.json` arquivo.  
 
 2. Use o comando a seguir para aplicar a configuração a um dispositivo do IoT Edge:
 
@@ -199,7 +199,7 @@ A maneira mais fácil de implantar os módulos em um dispositivo Azure IoT Edge 
    az iot hub module-identity list --device-id [device id] --hub-name [hub name]
    ```
 
-   O parâmetro de ID do dispositivo diferencia maiúsculas de minúsculas. ![saída da lista de identidade do módulo hub iot az](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/list-modules.png)
+   O parâmetro da ID do dispositivo diferencia maiúsculas de minúsculas. ![saída da lista de identidade do módulo hub iot az](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/list-modules.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

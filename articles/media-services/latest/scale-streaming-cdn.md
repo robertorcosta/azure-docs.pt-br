@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
 ms.openlocfilehash: 4ed8ada306720b7a8b44ddd59cefe399238c906a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80128065"
 ---
 # <a name="stream-content-with-cdn-integration"></a>Transmitir conteúdo com integração CDN
@@ -35,7 +35,7 @@ Este tópico discute a habilitação da [integração da CDN](#enable-azure-cdn-
 
 ## <a name="considerations"></a>Considerações
 
-* O [ponto de extremidade](streaming-endpoint-concept.md) `hostname` de streaming e a URL de streaming permanecem os mesmos, independentemente de você habilitar ou não a CDN.
+* O [ponto de extremidade de streaming](streaming-endpoint-concept.md) `hostname` e a URL de streaming permanecem os mesmos, independentemente de você habilitar ou não a CDN.
 * Se você precisar da capacidade de testar seu conteúdo com ou sem CDN, crie outro ponto de extremidade de streaming que não esteja habilitado para CDN.
 
 ## <a name="enable-azure-cdn-integration"></a>Habilitar a integração da CDN do Azure
@@ -58,7 +58,7 @@ A integração dos Serviços de Mídia do Azure à CDN do Azure é implementada 
 
 ## <a name="determine-if-a-dns-change-was-made"></a>Determinar se uma alteração de DNS foi feita
 
-Você pode determinar se a alteração de DNS foi feita em um ponto de extremidade de streaming (o tráfego está sendo direcionado para <https://www.digwebinterface.com>a CDN do Azure) usando. Se você vir os nomes de domínio azureedge.net nos resultados, o tráfego agora está sendo apontado para a CDN.
+Você pode determinar se a alteração de DNS foi feita em um ponto de extremidade de streaming (o tráfego está sendo direcionado para a CDN do Azure) usando <https://www.digwebinterface.com> . Se você vir os nomes de domínio azureedge.net nos resultados, o tráfego agora está sendo apontado para a CDN.
 
 ## <a name="origin-assist-cdn-prefetch"></a>Origem-auxiliar CDN-pré-busca
 
@@ -84,17 +84,17 @@ Os benefícios do recurso de *ajuda da CDN-Assist de origem* incluem:
 
 ### <a name="how-it-works"></a>Como isso funciona
 
-O suporte da CDN `Origin-Assist CDN-Prefetch` para os cabeçalhos (para streaming ao vivo e de vídeo sob demanda) está disponível para clientes que têm contrato direto com a Akamai CDN. O recurso envolve as seguintes trocas de cabeçalho HTTP entre o Akamai CDN e a origem dos serviços de mídia:
+O suporte da CDN para os `Origin-Assist CDN-Prefetch` cabeçalhos (para streaming ao vivo e de vídeo sob demanda) está disponível para clientes que têm contrato direto com a AKAMAI CDN. O recurso envolve as seguintes trocas de cabeçalho HTTP entre o Akamai CDN e a origem dos serviços de mídia:
 
 |Cabeçalho HTTP|Valores|Remetente|Receptor|Finalidade|
 | ---- | ---- | ---- | ---- | ----- |
 |`CDN-Origin-Assist-Prefetch-Enabled` | 1 (padrão) ou 0 |CDN|Origem|Para indicar que a CDN está habilitada para pré-busca.|
-|`CDN-Origin-Assist-Prefetch-Path`| Exemplo: <br/>Fragmentos (Video = 1400000000, Format = MPD-time-CMAF)|Origem|CDN|Para fornecer o caminho de pré-busca para a CDN.|
+|`CDN-Origin-Assist-Prefetch-Path`| Exemplo: <br/>Fragments(video=1400000000,format=mpd-time-cmaf)|Origem|CDN|Para fornecer o caminho de pré-busca para a CDN.|
 |`CDN-Origin-Assist-Prefetch-Request`|1 (solicitação de pré-busca) ou 0 (solicitação regular)|CDN|Origem|Para indicar que a solicitação da CDN é uma pré-busca.|
 
 Para ver parte da troca de cabeçalho em ação, você pode tentar as seguintes etapas:
 
-1. Use o postmaster ou a ondulação para emitir uma solicitação para a origem dos serviços de mídia para um segmento ou fragmento de áudio ou vídeo. Certifique-se de adicionar o `CDN-Origin-Assist-Prefetch-Enabled: 1` cabeçalho na solicitação.
+1. Use o postmaster ou a ondulação para emitir uma solicitação para a origem dos serviços de mídia para um segmento ou fragmento de áudio ou vídeo. Certifique-se de adicionar o cabeçalho `CDN-Origin-Assist-Prefetch-Enabled: 1` na solicitação.
 2. Na resposta, você deve ver o cabeçalho `CDN-Origin-Assist-Prefetch-Path` com um caminho relativo como seu valor.
 
 ### <a name="supported-streaming-protocols"></a>Protocolos de streaming com suporte
@@ -124,7 +124,7 @@ O `Origin-Assist CDN-Prefetch` recurso dá suporte aos seguintes protocolos de s
 
 * Para transmissão ao vivo, o que aconteceria-ajudar se o próximo segmento ou fragmento ainda não estiver disponível?
 
-    Nesse caso, a origem dos serviços de mídia não `CDN-Origin-Assist-Prefetch-Path` fornecerá cabeçalho e a CDN-prefetch não ocorrerá.
+    Nesse caso, a origem dos serviços de mídia não fornecerá `CDN-Origin-Assist-Prefetch-Path` cabeçalho e a CDN-prefetch não ocorrerá.
 
 * Como `Origin-Assist CDN-Prefetch` funciona com filtros de manifesto dinâmico?
 
