@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/15/2020
 ms.openlocfilehash: 5608d0cd83e506bc6b30337db5148f344f59f80e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81410863"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>Marcas de serviço NSG para o Azure HDInsight
@@ -30,7 +30,7 @@ Você tem duas opções para usar marcas de serviço em seus grupos de seguranç
 
 ## <a name="use-a-single-global-hdinsight-service-tag"></a>Usar uma única marca de serviço do HDInsight global
 
-A maneira mais fácil de começar a usar marcas de serviço com o cluster HDInsight é adicionar a marca `HDInsight` global a uma regra NSG.
+A maneira mais fácil de começar a usar marcas de serviço com o cluster HDInsight é adicionar a marca global `HDInsight` a uma regra NSG.
 
 1. No [portal do Azure](https://portal.azure.com/), selecione o grupo de segurança de rede.
 
@@ -54,7 +54,7 @@ Para descobrir quais marcas de serviço adicionar para sua região, leia as seç
 
 Se o cluster estiver localizado em uma região listada nesta tabela, você só precisará adicionar uma única marca de serviço regional ao seu NSG.
 
-| País/Região | Região | Marca de serviço |
+| País | Região | Marca de serviço |
 | ---- | ---- | ---- |
 | Austrália | Leste da Austrália | HDInsight. AustraliaEast |
 | &nbsp; | Sudeste da Austrália | HDInsight. AustraliaSoutheast |
@@ -73,7 +73,7 @@ Se o cluster estiver localizado em uma região listada nesta tabela, você só p
 | Japão | Oeste do Japão | HDInsight. JapanWest |
 | França | França Central| HDInsight. FranceCentral |
 | Reino Unido | Sul do Reino Unido | HDInsight. UKSouth |
-| Azure Government | USDoD central | HDInsight. USDoDCentral |
+| Azure Government | USDoD Central | HDInsight. USDoDCentral |
 | &nbsp; | Gov. dos EUA – Texas | HDInsight. USGovTexas |
 | &nbsp; | Leste UsDoD | HDInsight. USDoDEast |
 | &nbsp; | Gov. dos EUA – Arizona | HDInsight. USGovArizona |
@@ -86,7 +86,7 @@ As regiões restantes são divididas em grupos com base nas marcas de serviço r
 
 #### <a name="group-1"></a>Grupo 1
 
-Se o cluster for criado em uma das regiões na tabela a seguir, permita as marcas `HDInsight.WestUS` de serviço e `HDInsight.EastUS`. Além disso, a marca de serviço regional listada. As regiões nesta seção exigem três marcas de serviço.
+Se o cluster for criado em uma das regiões na tabela a seguir, permita as marcas de serviço `HDInsight.WestUS` e `HDInsight.EastUS` . Além disso, a marca de serviço regional listada. As regiões nesta seção exigem três marcas de serviço.
 
 Por exemplo, se o cluster for criado na `East US 2` região, você precisará adicionar as seguintes marcas de serviço ao seu grupo de segurança de rede:
 
@@ -94,7 +94,7 @@ Por exemplo, se o cluster for criado na `East US 2` região, você precisará ad
 - `HDInsight.WestUS`
 - `HDInsight.EastUS`
 
-| País/Região | Região | Marca de serviço |
+| País | Região | Marca de serviço |
 | ---- | ---- | ---- |
 | Estados Unidos | Leste dos EUA 2 | HDInsight. EastUS2 |
 | &nbsp; | Centro dos EUA | HDInsight. Centralus |
@@ -111,15 +111,15 @@ Por exemplo, se o cluster for criado na `East US 2` região, você precisará ad
 
 #### <a name="group-2"></a>Grupo 2
 
-Os clusters nas regiões de *norte da China* e *leste da China* precisam permitir duas marcas de serviço: `HDInsight.ChinaNorth` e `HDInsight.ChinaEast`.
+Os clusters nas regiões de *norte da China* e *leste da China* precisam permitir duas marcas de serviço: `HDInsight.ChinaNorth` e `HDInsight.ChinaEast` .
 
 #### <a name="group-3"></a>Grupo 3
 
-Os clusters nas regiões de *US gov Iowa* e *US gov-Virgínia* precisam permitir duas marcas de serviço: `HDInsight.USGovIowa` e `HDInsight.USGovVirginia`.
+Os clusters nas regiões de *US gov Iowa* e *US gov-Virgínia* precisam permitir duas marcas de serviço: `HDInsight.USGovIowa` e `HDInsight.USGovVirginia` .
 
 #### <a name="group-4"></a>Grupo 4
 
-Os clusters nas regiões da *Alemanha central* e da *Alemanha nordeste* precisam permitir duas marcas de serviço `HDInsight.GermanyCentral` : `HDInsight.GermanyNortheast`e.
+Os clusters nas regiões da *Alemanha central* e da *Alemanha nordeste* precisam permitir duas marcas de serviço: `HDInsight.GermanyCentral` e `HDInsight.GermanyNortheast` .
 
 ## <a name="next-steps"></a>Próximas etapas
 

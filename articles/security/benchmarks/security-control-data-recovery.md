@@ -8,17 +8,17 @@ ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 4f3e8540902809f951a441aa2fe8d00026c44d82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81408585"
 ---
 # <a name="security-control-data-recovery"></a>Controle de segurança: recuperação de dados
 
 Certifique-se de que todos os dados do sistema, configurações e segredos sejam automaticamente submetidos a backup regularmente.
 
-## <a name="91-ensure-regular-automated-back-ups"></a>9,1: garantir backups automatizados regulares
+## <a name="91-ensure-regular-automated-back-ups"></a>9.1: garantir backups automatizados regulares
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
@@ -28,7 +28,7 @@ Habilite o backup do Azure e configure a fonte de backup (VMs do Azure, SQL Serv
 
 - [Como habilitar o backup do Azure](https://docs.microsoft.com/azure/backup/)
 
-## <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9,2: executar backups completos do sistema e fazer backup de qualquer chave gerenciada pelo cliente
+## <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2: realizar backups completos do sistema e fazer backup das chaves gerenciadas pelo cliente
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
@@ -38,9 +38,9 @@ Habilite o backup do Azure e as VMs de destino, bem como os períodos de frequê
 
 - [Como habilitar o backup do Azure](https://docs.microsoft.com/azure/backup/)
 
-- [Como fazer backup de chaves do Key Vault no Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Como fazer backup de chaves do cofre de chaves no Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 
-## <a name="93-validate-all-backups-including-customer-managed-keys"></a>9,3: validar todos os backups, incluindo chaves gerenciadas pelo cliente
+## <a name="93-validate-all-backups-including-customer-managed-keys"></a>9.3: validar todos os backups, incluindo chaves gerenciadas pelo cliente
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
@@ -50,9 +50,9 @@ Garanta a capacidade de executar periodicamente a restauração de dados de cont
 
 - [Como recuperar arquivos do backup de máquina virtual do Azure](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm)
 
-- [Como restaurar chaves do Key Vault no Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Como restaurar chaves do cofre de chaves no Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
-## <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9,4: garantir a proteção de backups e chaves gerenciadas pelo cliente
+## <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: garantir a proteção de backups e chaves gerenciadas pelo cliente
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|

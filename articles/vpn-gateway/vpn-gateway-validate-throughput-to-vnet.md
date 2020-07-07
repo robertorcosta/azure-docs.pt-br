@@ -11,10 +11,10 @@ ms.date: 05/29/2019
 ms.author: radwiv
 ms.reviewer: chadmat;genli
 ms.openlocfilehash: dcf86deda32069bf9711dbeb733dc9361e22a771
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80631779"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Como validar a taxa de transferência VPN para uma rede virtual
@@ -123,27 +123,27 @@ Baixe o [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Para
 
 ## <a name="test-vms-running-windows"></a>Testar VMs que executam o Windows
 
-### <a name="load-latteexe-onto-the-vms"></a>Carregar expresso. exe nas VMs
+### <a name="load-latteexe-onto-the-vms"></a>Carregar Latte.exe nas VMs
 
-Baixe a versão mais recente do [expresso. exe](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
+Baixe a versão mais recente do [Latte.exe](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
 
-Considere colocar o expresso. exe em uma pasta separada, como`c:\tools`
+Considere colocar Latte.exe em uma pasta separada, como`c:\tools`
 
-### <a name="allow-latteexe-through-the-windows-firewall"></a>Permitir expresso. exe por meio do firewall do Windows
+### <a name="allow-latteexe-through-the-windows-firewall"></a>Permitir Latte.exe por meio do firewall do Windows
 
-No receptor, crie uma regra de permissão no firewall do Windows para permitir que o tráfego expresso. exe chegue. É mais fácil permitir todo o programa expresso. exe por nome em vez de permitir portas TCP específicas de entrada.
+No receptor, crie uma regra de permissão no firewall do Windows para permitir que o tráfego de Latte.exe chegue. É mais fácil permitir todo o programa de Latte.exe por nome em vez de permitir portas TCP específicas de entrada.
 
-### <a name="allow-latteexe-through-the-windows-firewall-like-this"></a>Permitir expresso. exe por meio do firewall do Windows como este
+### <a name="allow-latteexe-through-the-windows-firewall-like-this"></a>Permitir Latte.exe por meio do firewall do Windows como este
 
 `netsh advfirewall firewall add rule program=<PATH>\latte.exe name="Latte" protocol=any dir=in action=allow enable=yes profile=ANY`
 
-Por exemplo, se você copiou expresso. exe para a pasta "c:\Tools", esse seria o comando
+Por exemplo, se você copiou latte.exe para a pasta "c:\Tools", esse seria o comando
 
 `netsh advfirewall firewall add rule program=c:\tools\latte.exe name="Latte" protocol=any dir=in action=allow enable=yes profile=ANY`
 
 ### <a name="run-latency-tests"></a>Executar testes de latência
 
-Inicie o expresso. exe no receptor (execute do CMD, não do PowerShell):
+Iniciar latte.exe no receptor (executar do CMD, não do PowerShell):
 
 `latte -a <Receiver IP address>:<port> -i <iterations>`
 
@@ -155,7 +155,7 @@ Se a VM tiver um endereço IP de 10.0.0.4, ela ficaria assim
 
 `latte -c -a 10.0.0.4:5005 -i 65100`
 
-Inicie o expresso. exe no remetente (execute do CMD, não do PowerShell)
+Iniciar latte.exe no remetente (executar do CMD, não do PowerShell)
 
 `latte -c -a <Receiver IP address>:<port> -i <iterations>`
 
@@ -225,7 +225,7 @@ Em particular, a análise dos rastreamentos de captura de pacotes (Wireshark/Mon
 
 Mesmo que a taxa de transferência geral avaliada com as etapas anteriores (iPERF/NTTTCP/etc.) tenha sido boa, você pode experimentar um pouco de ping de arquivo ao usar o Windows Explorer ou arrastar e soltar por uma sessão RDP. Esse problema normalmente ocorre devido a um ou ambos os seguintes fatores:
 
-* Os aplicativos de cópia de arquivo, como o Windows Explorer e o RDP não usam múltiplos threads ao copiar arquivos. Para obter melhor desempenho, use um aplicativo de cópia de arquivo multi-threaded como o [Richcopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx) para copiar arquivos usando 16 ou 32 threads. Para alterar o número de thread para cópia de arquivo em RichCopy, clique em **ação** > **copiar opções** > **Copiar arquivo**.
+* Os aplicativos de cópia de arquivo, como o Windows Explorer e o RDP não usam múltiplos threads ao copiar arquivos. Para obter melhor desempenho, use um aplicativo de cópia de arquivo multi-threaded como o [Richcopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx) para copiar arquivos usando 16 ou 32 threads. Para alterar o número de thread para cópia de arquivo em RichCopy, clique em **ação**  >  **copiar opções**  >  **Copiar arquivo**.
 
    ![Problemas com cópia de arquivo lenta](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
 

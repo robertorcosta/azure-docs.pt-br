@@ -8,10 +8,10 @@ ms.service: web-application-firewall
 ms.date: 04/14/2020
 ms.author: victorh
 ms.openlocfilehash: c0f802f5113e38e811c110ee913099e76fa7be0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81383822"
 ---
 # <a name="custom-rules-for-web-application-firewall-v2-on-azure-application-gateway"></a>Regras personalizadas para o Firewall do aplicativo Web V2 no Aplicativo Azure gateway
@@ -55,7 +55,7 @@ $BlockRule = New-AzApplicationGatewayFirewallCustomRule `
    -Action Block
 ```
 
-Os mapas `$BlockRule` anteriores para a seguinte regra personalizada no Azure Resource Manager:
+Os `$BlockRule` mapas anteriores para a seguinte regra personalizada no Azure Resource Manager:
 
 ```json
 "customRules": [
@@ -161,7 +161,7 @@ Lista de valores a serem correspondidos, que pode ser considerada como sendo *ou
 - Block – bloqueia a transação com base em *SecDefaultAction* (modo de detecção/prevenção). Assim como a ação permitir, depois que a solicitação é avaliada e adicionada à lista de bloqueios, a avaliação é interrompida e a solicitação é bloqueada. Qualquer solicitação após isso atende às mesmas condições não será avaliada e será bloqueada. 
 - Log – permite que a regra grave no log, mas permite que o restante das regras seja executado para avaliação. As outras regras personalizadas são avaliadas em ordem de prioridade, seguidas pelas regras gerenciadas.
 
-## <a name="geomatch-custom-rules-preview"></a>Regras personalizadas de correspondência geocombinadas (versão prévia)
+## <a name="geomatch-custom-rules-preview"></a>Regras personalizadas do Geomatch (versão prévia)
 
 As regras personalizadas permitem que você crie regras adaptadas para atender às necessidades exatas de seus aplicativos e políticas de segurança. Você pode restringir o acesso a seus aplicativos Web por país/região. Para obter mais informações, consulte [regras personalizadas geocombinadoras (versão prévia)](geomatch-custom-rules.md).
 

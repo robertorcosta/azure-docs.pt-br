@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: spelluru
 ms.openlocfilehash: fd65c20f07a091fa1fc8a6cbf003986e1096ebe3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81393348"
 ---
 # <a name="azure-event-hubs-as-an-event-grid-source"></a>Hubs de eventos do Azure como uma fonte de grade de eventos
@@ -59,28 +59,28 @@ Um evento tem os seguintes dados de nível superior:
 
 | Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
-| topic | cadeia de caracteres | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
-| subject | cadeia de caracteres | Caminho definido pelo fornecedor para o assunto do evento. |
-| eventType | cadeia de caracteres | Um dos tipos de evento registrados para a origem do evento. |
-| eventTime | cadeia de caracteres | A hora em que o evento é gerado com base na hora UTC do provedor. |
-| id | cadeia de caracteres | Identificador exclusivo do evento. |
+| topic | string | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
+| subject | string | Caminho definido pelo fornecedor para o assunto do evento. |
+| eventType | string | Um dos tipos de evento registrados para a origem do evento. |
+| eventTime | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
+| id | string | Identificador exclusivo do evento. |
 | data | objeto | Dados de evento de hub de eventos. |
-| dataVersion | cadeia de caracteres | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
-| metadataVersion | cadeia de caracteres | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
+| dataVersion | string | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
+| metadataVersion | string | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Type | Descrição |
+| Propriedade | Type | Description |
 | -------- | ---- | ----------- |
-| fileUrl | cadeia de caracteres | O caminho para o arquivo de captura. |
-| FileType | cadeia de caracteres | O tipo de arquivo para o arquivo de captura. |
-| partitionId | cadeia de caracteres | A ID de fragmento. |
+| fileUrl | string | O caminho para o arquivo de captura. |
+| FileType | string | O tipo de arquivo para o arquivo de captura. |
+| partitionId | string | A ID de fragmento. |
 | sizeInBytes | inteiro | Tamanho do arquivo. |
 | eventCount | inteiro | O número de eventos no arquivo. |
 | firstSequenceNumber | inteiro | O menor número de sequência da fila. |
 | lastSequenceNumber | inteiro | O último número de sequência da fila. |
-| firstEnqueueTime | cadeia de caracteres | A primeira vez da fila. |
-| lastEnqueueTime | cadeia de caracteres | A última vez da fila. |
+| firstEnqueueTime | string | A primeira vez da fila. |
+| lastEnqueueTime | string | A última vez da fila. |
 
 ## <a name="tutorials-and-how-tos"></a>Tutoriais e instruções
 

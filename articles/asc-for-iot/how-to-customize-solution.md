@@ -1,5 +1,5 @@
 ---
-title: Personalizar as configurações
+title: Personalizar configurações
 description: Este guia de instruções explica como personalizar as configurações em sua central de segurança do Azure para a solução de IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 09/25/2019
 ms.author: mlottner
 ms.openlocfilehash: efacec21482704393d4aa6e728377311e2bc5cda
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81311257"
 ---
 # <a name="customize-your-azure-security-center-for-iot-solution"></a>Personalizar sua central de segurança do Azure para a solução de IoT

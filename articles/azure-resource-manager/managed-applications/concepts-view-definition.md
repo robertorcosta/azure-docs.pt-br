@@ -6,10 +6,10 @@ ms.author: lazinnat
 author: lazinnat
 ms.date: 06/12/2019
 ms.openlocfilehash: 7a3d2234a140d1fb2eede50e3fe2eef5575da648
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81391686"
 ---
 # <a name="view-definition-artifact-in-azure-managed-applications"></a>Exibir artefato de definição em aplicativos gerenciados do Azure
@@ -20,11 +20,11 @@ Este artigo fornece uma visão geral do artefato de definição de exibição e 
 
 ## <a name="view-definition-artifact"></a>Exibir artefato de definição
 
-O artefato da definição de exibição deve ser nomeado **viewDefinition. JSON** e colocado no mesmo nível que **createUiDefinition. JSON** e **MainTemplate. JSON** no pacote. zip que cria uma definição de aplicativo gerenciado. Para saber como criar o pacote. zip e publicar uma definição de aplicativo gerenciado, consulte [publicar uma definição de aplicativo gerenciado do Azure](publish-service-catalog-app.md)
+O artefato da definição de exibição deve ser nomeado **viewDefinition.js** e colocado no mesmo nível que **createUiDefinition.js** e **mainTemplate.js** no pacote. zip que cria uma definição de aplicativo gerenciado. Para saber como criar o pacote. zip e publicar uma definição de aplicativo gerenciado, consulte [publicar uma definição de aplicativo gerenciado do Azure](publish-service-catalog-app.md)
 
 ## <a name="view-definition-schema"></a>Exibir esquema de definição
 
-O arquivo **viewDefinition. JSON** tem apenas uma propriedade de `views` nível superior, que é uma matriz de exibições. Cada exibição é mostrada na interface do usuário do aplicativo gerenciado como um item de menu separado no sumário. Cada exibição tem uma `kind` propriedade que define o tipo da exibição. Ele deve ser definido como um dos seguintes valores: [visão geral](#overview), [métricas](#metrics), [CustomResources](#custom-resources), [associações](#associations). Para obter mais informações, consulte [esquema JSON atual para viewDefinition. JSON](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).
+O **viewDefinition.jsno** arquivo tem apenas uma `views` propriedade de nível superior, que é uma matriz de exibições. Cada exibição é mostrada na interface do usuário do aplicativo gerenciado como um item de menu separado no sumário. Cada exibição tem uma `kind` propriedade que define o tipo da exibição. Ele deve ser definido como um dos seguintes valores: [visão geral](#overview), [métricas](#metrics), [CustomResources](#custom-resources), [associações](#associations). Para obter mais informações, consulte [esquema JSON atual para viewDefinition.jsem](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).
 
 Exemplo de JSON para definição de exibição:
 
@@ -107,7 +107,7 @@ Exemplo de JSON para definição de exibição:
 
 `"kind": "Overview"`
 
-Quando você fornece essa exibição em **viewDefinition. JSON**, ela substitui a página de visão geral padrão em seu aplicativo gerenciado.
+Quando você fornece esse modo de exibição no **viewDefinition.jsno**, ele substitui a página de visão geral padrão em seu aplicativo gerenciado.
 
 ```json
 {
@@ -127,8 +127,8 @@ Quando você fornece essa exibição em **viewDefinition. JSON**, ela substitui 
 
 |Propriedade|Obrigatório|Descrição|
 |---------|---------|---------|
-|cabeçalho|Não|O cabeçalho da página de visão geral.|
-|description|Não|A descrição do seu aplicativo gerenciado.|
+|header|Não|O cabeçalho da página de visão geral.|
+|descrição|Não|A descrição do seu aplicativo gerenciado.|
 |comandos|Não|A matriz de botões adicionais da barra de ferramentas da página Visão geral, consulte [comandos](#commands).|
 
 ![Visão geral](./media/view-definition/overview.png)
@@ -167,7 +167,7 @@ A exibição de métricas permite coletar e agregar dados de seus recursos de ap
 |Propriedade|Obrigatório|Descrição|
 |---------|---------|---------|
 |displayName|Não|O título exibido da exibição.|
-|Versão|Não|A versão da plataforma usada para renderizar a exibição.|
+|version|Não|A versão da plataforma usada para renderizar a exibição.|
 |gráficos|Sim|A matriz de gráficos da página de métricas.|
 
 ### <a name="chart"></a>Gráfico
@@ -175,7 +175,7 @@ A exibição de métricas permite coletar e agregar dados de seus recursos de ap
 |Propriedade|Obrigatório|Descrição|
 |---------|---------|---------|
 |displayName|Sim|O título exibido do gráfico.|
-|tipo de gráfico|Não|A visualização a ser usada para este gráfico. Por padrão, ele usa um gráfico de linhas. Tipos de gráfico com `Bar, Line, Area, Scatter`suporte:.|
+|tipo de gráfico|Não|A visualização a ser usada para este gráfico. Por padrão, ele usa um gráfico de linhas. Tipos de gráfico com suporte: `Bar, Line, Area, Scatter` .|
 |Métricas|Sim|A matriz de métricas a ser plotada neste gráfico. Para saber mais sobre as métricas com suporte no portal do Azure, consulte [métricas com suporte com Azure monitor](../../azure-monitor/platform/metrics-supported.md)|
 
 ### <a name="metric"></a>Métrica
@@ -185,7 +185,7 @@ A exibição de métricas permite coletar e agregar dados de seus recursos de ap
 |name|Sim|O nome da métrica.|
 |aggregationType|Sim|O tipo de agregação a ser usado para essa métrica. Tipos de agregação com suporte:`none, sum, min, max, avg, unique, percentile, count`|
 |namespace|Não|Informações adicionais a serem usadas ao determinar o provedor de métricas correto.|
-|resourceTagFilter|Não|A matriz de marcas de recurso (será separada `or` com o Word) para a qual as métricas seriam exibidas. Aplica-se na parte superior do filtro de tipo de recurso.|
+|resourceTagFilter|Não|A matriz de marcas de recurso (será separada com `or` o Word) para a qual as métricas seriam exibidas. Aplica-se na parte superior do filtro de tipo de recurso.|
 |resourceType|Sim|O tipo de recurso para o qual as métricas seriam exibidas.|
 
 ![Métricas](./media/view-definition/metrics.png)
@@ -194,7 +194,7 @@ A exibição de métricas permite coletar e agregar dados de seus recursos de ap
 
 `"kind": "CustomResources"`
 
-Você pode definir várias exibições deste tipo. Cada exibição representa um tipo de recurso personalizado **exclusivo** do provedor personalizado que você definiu em **MainTemplate. JSON**. Para obter uma introdução aos provedores personalizados, confira [Visão geral da Visualização de Provedores Personalizados do Azure](../custom-providers/overview.md).
+Você pode definir várias exibições deste tipo. Cada exibição representa um tipo de recurso personalizado **exclusivo** do provedor personalizado que você definiu no **mainTemplate.jsem**. Para obter uma introdução aos provedores personalizados, confira [Visão geral da Visualização de Provedores Personalizados do Azure](../custom-providers/overview.md).
 
 Nesta exibição, você pode executar operações GET, PUT, DELETE e POST para o tipo de recurso personalizado. Operações POST podem ser ações personalizadas globais ou ações personalizadas em um contexto de seu tipo de recurso personalizado.
 
@@ -226,19 +226,19 @@ Nesta exibição, você pode executar operações GET, PUT, DELETE e POST para o
 
 |Propriedade|Obrigatório|Descrição|
 |---------|---------|---------|
-|displayName|Sim|O título exibido da exibição. O título deve ser **exclusivo** para cada exibição de CustomResources em seu **viewDefinition. JSON**.|
-|Versão|Não|A versão da plataforma usada para renderizar a exibição.|
+|displayName|Sim|O título exibido da exibição. O título deve ser **exclusivo** para cada exibição de CustomResources no seu **viewDefinition.jsem**.|
+|version|Não|A versão da plataforma usada para renderizar a exibição.|
 |resourceType|Sim|O tipo de recurso personalizado. Deve ser um tipo de recurso personalizado **exclusivo** do seu provedor personalizado.|
 |ícone|Não|O ícone da exibição. A lista de ícones de exemplo é definida no [esquema JSON](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).|
 |createUIDefinition|Não|Crie um esquema de definição de interface do usuário para o comando criar recurso personalizado. Para obter uma introdução à criação de definições de interface do usuário, consulte [introdução ao CreateUiDefinition](create-uidefinition-overview.md)|
 |comandos|Não|A matriz de botões adicionais da barra de ferramentas da exibição CustomResources, consulte [comandos](#commands).|
-|colunas|Não|A matriz de colunas do recurso personalizado. Se não estiver definido `name` , a coluna será mostrada por padrão. A coluna deve ter `"key"` e `"displayName"`. Para chave, forneça a chave da propriedade a ser exibida em uma exibição. Se estiver aninhado, use ponto como delimitador `"key": "name"` , `"key": "properties.property1"`por exemplo, ou. Para nome de exibição, forneça o nome de exibição da propriedade a ser exibida em uma exibição. Você também pode fornecer uma `"optional"` propriedade. Quando definido como true, a coluna é ocultada em uma exibição por padrão.|
+|colunas|Não|A matriz de colunas do recurso personalizado. Se não estiver definido `name` , a coluna será mostrada por padrão. A coluna deve ter `"key"` e `"displayName"` . Para chave, forneça a chave da propriedade a ser exibida em uma exibição. Se estiver aninhado, use ponto como delimitador, por exemplo, `"key": "name"` ou `"key": "properties.property1"` . Para nome de exibição, forneça o nome de exibição da propriedade a ser exibida em uma exibição. Você também pode fornecer uma `"optional"` propriedade. Quando definido como true, a coluna é ocultada em uma exibição por padrão.|
 
 ![CustomResources](./media/view-definition/customresources.png)
 
 ## <a name="commands"></a>Comandos
 
-Os comandos são uma matriz de botões adicionais da barra de ferramentas que são exibidos na página. Cada comando representa uma ação POST de seu provedor personalizado do Azure definido em **MainTemplate. JSON**. Para obter uma introdução aos provedores personalizados, consulte [visão geral de provedores personalizados do Azure](../custom-providers/overview.md).
+Os comandos são uma matriz de botões adicionais da barra de ferramentas que são exibidos na página. Cada comando representa uma ação POST de seu provedor personalizado do Azure definido no **mainTemplate.jsem**. Para obter uma introdução aos provedores personalizados, consulte [visão geral de provedores personalizados do Azure](../custom-providers/overview.md).
 
 ```json
 {
@@ -256,7 +256,7 @@ Os comandos são uma matriz de botões adicionais da barra de ferramentas que s�
 |Propriedade|Obrigatório|Descrição|
 |---------|---------|---------|
 |displayName|Sim|O nome exibido do botão de comando.|
-|path|Sim|O nome da ação do provedor personalizado. A ação deve ser definida em **MainTemplate. JSON**.|
+|path|Sim|O nome da ação do provedor personalizado. A ação deve ser definida no **mainTemplate.jsem**.|
 |ícone|Não|O ícone do botão de comando. A lista de ícones de exemplo é definida no [esquema JSON](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).|
 |createUIDefinition|Não|Crie o esquema de definição da interface do usuário para o comando. Para obter uma introdução à criação de definições de interface do usuário, consulte [Introdução ao CreateUiDefinition](create-uidefinition-overview.md).|
 
@@ -264,9 +264,9 @@ Os comandos são uma matriz de botões adicionais da barra de ferramentas que s�
 
 `"kind": "Associations"`
 
-Você pode definir várias exibições deste tipo. Essa exibição permite vincular recursos existentes ao aplicativo gerenciado por meio do provedor personalizado que você definiu em **MainTemplate. JSON**. Para obter uma introdução aos provedores personalizados, confira [Visão geral da Visualização de Provedores Personalizados do Azure](../custom-providers/overview.md).
+Você pode definir várias exibições deste tipo. Essa exibição permite vincular recursos existentes ao aplicativo gerenciado por meio do provedor personalizado que você definiu no **mainTemplate.jsem**. Para obter uma introdução aos provedores personalizados, confira [Visão geral da Visualização de Provedores Personalizados do Azure](../custom-providers/overview.md).
 
-Nessa exibição, você pode estender os `targetResourceType`recursos existentes do Azure com base no. Quando um recurso é selecionado, ele cria uma solicitação de integração ao provedor personalizado **público** , que pode aplicar um efeito colateral ao recurso. 
+Nessa exibição, você pode estender os recursos existentes do Azure com base no `targetResourceType` . Quando um recurso é selecionado, ele cria uma solicitação de integração ao provedor personalizado **público** , que pode aplicar um efeito colateral ao recurso. 
 
 ```json
 {
@@ -282,8 +282,8 @@ Nessa exibição, você pode estender os `targetResourceType`recursos existentes
 
 |Propriedade|Obrigatório|Descrição|
 |---------|---------|---------|
-|displayName|Sim|O título exibido da exibição. O título deve ser **exclusivo** para cada exibição de associações em seu **viewDefinition. JSON**.|
-|Versão|Não|A versão da plataforma usada para renderizar a exibição.|
+|displayName|Sim|O título exibido da exibição. O título deve ser **exclusivo** para cada exibição de associações no seu **viewDefinition.jsem**.|
+|version|Não|A versão da plataforma usada para renderizar a exibição.|
 |targetResourceType|Sim|O tipo de recurso de destino. Esse é o tipo de recurso que será exibido para integração de recursos.|
 |createUIDefinition|Não|Criar esquema de definição de interface do usuário para comando criar recurso de associação. Para obter uma introdução à criação de definições de interface do usuário, consulte [introdução ao CreateUiDefinition](create-uidefinition-overview.md)|
 

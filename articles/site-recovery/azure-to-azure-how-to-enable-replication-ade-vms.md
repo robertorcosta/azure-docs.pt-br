@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: 2bbb02df782439d934e96e7c16f28b9c11cc01fe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81408630"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Replicar máquinas virtuais habilitadas para Azure Disk Encryption para outra região do Azure
@@ -19,7 +19,7 @@ ms.locfileid: "81408630"
 Este artigo descreve como replicar VMs do Azure com o Azure Disk Encryption (ADE) habilitado, de uma região do Azure para outra.
 
 >[!NOTE]
-> O Site Recovery atualmente dá suporte a ADE, com e sem Azure Active Directory (AAD) para VMs que executam sistemas operacionais Windows. Para sistemas operacionais Linux, damos suporte apenas a ADE sem AAD. Além disso, para computadores que executam o ADE 1,1 (sem AAD), as VMs devem usar discos gerenciados. Não há suporte para VMs com discos não gerenciados. Se você alternar de ADE 0,1 (com AAD) para 1,1, será necessário desabilitar a replicação e habilitar a replicação para uma VM depois de habilitar a 1,1.
+> O Site Recovery atualmente dá suporte para ADE, com e sem o ADD (Azure Active Directory) para VMs que executam sistemas operacionais Windows. Para sistemas operacionais Linux, damos suporte apenas a ADE sem AAD. Além disso, para computadores que executam o ADE 1.1 (sem AAD), as VMs devem usar discos gerenciados. Não há suporte para VMs com discos não gerenciados. Se você alternar de ADE 0.1 (com AAD) para 1.1, será necessário desabilitar a replicação e habilitar a replicação para uma VM depois de habilitar a 1.1.
 
 
 ## <a name="required-user-permissions"></a><a id="required-user-permissions"></a>Permissões de usuário necessárias
@@ -42,7 +42,7 @@ Para habilitar a replicação de VMs habilitadas para criptografia de disco do p
 
 Para gerenciar permissões, vá para o recurso do Key Vault no Portal. Adicione as permissões necessárias para o usuário. O exemplo a seguir mostra como habilitar permissões para o Key Vault *ContosoWeb2Keyvault*, que está na região de origem.
 
-1. Vá para **Home** > **Vaults** > **ContosoWeb2KeyVault > políticas de acesso**.
+1. Vá para **Home**  >  **Vaults**  >  **ContosoWeb2KeyVault > políticas de acesso**.
 
    ![Janela de permissões do Key Vault](./media/azure-to-azure-how-to-enable-replication-ade-vms/key-vault-permission-1.png)
 
@@ -60,9 +60,9 @@ Para solucionar problemas de permissões, consulte os [problemas de permissão d
 ## <a name="copy-disk-encryption-keys-to-the-dr-region-by-using-the-powershell-script"></a>Copiar chaves de criptografia de disco para a região de DR usando o script do PowerShell
 
 1. [Abra o código de script bruto "CopyKeys"](https://aka.ms/ade-asr-copy-keys-code).
-2. Copie o script em um arquivo e nomeie-o **Copy-Keys. ps1**.
+2. Copie o script em um arquivo e nomeie-o **Copy-keys.ps1**.
 3. Abra o aplicativo do Windows PowerShell e vá para a pasta em que você salvou o arquivo.
-4. Execute Copy-Keys. ps1.
+4. Execute Copy-keys.ps1.
 5. Forneça as credenciais do Azure para entrar.
 6. Escolha a **assinatura do Azure** de suas VMs.
 7. Aguarde até que os grupos de recursos sejam carregados e, em seguida, selecione o **grupo de recursos** de suas VMs.
@@ -86,7 +86,7 @@ Para este exemplo, a região primária do Azure é Ásia Oriental e a região se
     - **Assinatura de origem**: a assinatura à qual suas máquinas virtuais de origem pertencem. Pode ser qualquer assinatura que esteja no mesmo locatário Azure Active Directory como seu cofre de serviços de recuperação.
     - **Grupo de recursos**: o grupo de recursos ao qual pertencem as máquinas virtuais de origem. Todas as VMs no grupo de recursos selecionado são listadas para proteção na próxima etapa.
 
-3. Em **máquinas** > virtuais**selecione máquinas virtuais**, selecione cada VM que você deseja replicar. Você só pode selecionar computadores para os quais a replicação pode ser habilitada. Em seguida, selecione **OK**.
+3. Em **máquinas virtuais**  >  **selecione máquinas virtuais**, selecione cada VM que você deseja replicar. Você só pode selecionar computadores para os quais a replicação pode ser habilitada. Depois, selecione **OK**.
 
 4. Em **configurações**, você pode definir as seguintes configurações de site de destino.
 
@@ -118,7 +118,7 @@ Siga estas etapas para modificar as Site Recovery configurações de destino pad
    - Para o **cofre de chaves de criptografia de disco de destino**, selecione o cofre de chaves de criptografia de disco de destino na lista de cofres de chaves no local de destino da assinatura.
    - Para o **cofre de chaves de criptografia de chave de destino**, selecione o cofre de chave de criptografia de chave de destino na lista de cofres de chaves no local de destino da assinatura.
 
-3. Selecione **criar recurso** > de destino**habilitar replicação**.
+3. Selecione **criar recurso de destino**  >  **habilitar replicação**.
 4. Depois que as VMs estiverem habilitadas para replicação, você poderá verificar o status de integridade das VMs em **itens replicados**.
 
 >[!NOTE]
@@ -129,7 +129,7 @@ Nos cenários a seguir, será necessário atualizar as configurações de cripto
   - Você habilitou Site Recovery replicação na VM. Posteriormente, você habilitou a criptografia de disco na VM de origem.
   - Você habilitou Site Recovery replicação na VM. Posteriormente, você alterou a chave de criptografia de disco ou a chave de criptografia de chave na VM de origem.
 
-Você pode usar [um script](#copy-disk-encryption-keys-to-the-dr-region-by-using-the-powershell-script) para copiar as chaves de criptografia para a região de destino e, em seguida, atualizar as configurações de criptografia de > destino no **cofre** > dos serviços de recuperação**Propriedades** > do*Item*de**computação e rede**.
+Você pode usar [um script](#copy-disk-encryption-keys-to-the-dr-region-by-using-the-powershell-script) para copiar as chaves de criptografia para a região de destino e, em seguida, atualizar as configurações de criptografia de destino no **cofre dos serviços de recuperação**  >  Propriedades do*Item*de  >  **Properties**  >  **computação e rede**.
 
 ![Janela da caixa de diálogo atualizar configurações de ADE](./media/azure-to-azure-how-to-enable-replication-ade-vms/update-ade-settings.png)
 
@@ -141,7 +141,7 @@ Azure Site Recovery requer pelo menos permissão de leitura no cofre de chaves d
 **Como corrigir:** Independentemente de você ser um administrador de assinatura ou não, é importante que você tenha a permissão Get no cofre de chaves.
 
 1. Acesse o cofre de chaves da região de origem que neste exemplo é "ContososourceKeyvault" > **políticas de acesso** 
-2. Em **selecionar principal** , adicione seu nome de usuário, pordradmin@contoso.comexemplo: ""
+2. Em **selecionar principal** , adicione seu nome de usuário, por exemplo: " dradmin@contoso.com "
 3. Em **permissões de chave** , selecione obter 
 4. Em **permissão de segredo** , selecione obter 
 5. Salvar a política de acesso
@@ -153,7 +153,7 @@ Você tem todas as permissões no cofre de chaves da região de origem. Mas dura
 
 Permissão necessária no [cofre de chaves de destino](#required-user-permissions)
 
-**Como corrigir:** Vá para **Home** > **Vaults** > **ContosotargetKeyvault** > **políticas de acesso** e adicione as permissões apropriadas.
+**Como corrigir:** Vá para **Home**  >  **Vaults**  >  **ContosotargetKeyvault**  >  **políticas de acesso** e adicione as permissões apropriadas.
 
 ## <a name="next-steps"></a>Próximas etapas
 

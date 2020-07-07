@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 04/09/2020
 ms.author: spelluru
 ms.openlocfilehash: fa88fe4e05ac968588a65d67a2f075bcae48ba7a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81393219"
 ---
 # <a name="azure-subscription-as-an-event-grid-source"></a>Assinatura do Azure como uma fonte de grade de eventos
@@ -237,29 +237,29 @@ Um evento tem os seguintes dados de nível superior:
 
 | Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
-| topic | cadeia de caracteres | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Grade de Eventos fornece esse valor. |
-| subject | cadeia de caracteres | Caminho definido pelo fornecedor para o assunto do evento. |
-| eventType | cadeia de caracteres | Um dos tipos de evento registrados para a origem do evento. |
-| eventTime | cadeia de caracteres | A hora em que o evento é gerado com base na hora UTC do provedor. |
-| id | cadeia de caracteres | Identificador exclusivo do evento. |
+| topic | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Grade de Eventos fornece esse valor. |
+| subject | string | Caminho definido pelo fornecedor para o assunto do evento. |
+| eventType | string | Um dos tipos de evento registrados para a origem do evento. |
+| eventTime | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
+| id | string | Identificador exclusivo do evento. |
 | data | objeto | Dados de evento de assinatura. |
-| dataVersion | cadeia de caracteres | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
-| metadataVersion | cadeia de caracteres | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
+| dataVersion | string | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
+| metadataVersion | string | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Type | Descrição |
+| Propriedade | Type | Description |
 | -------- | ---- | ----------- |
 | autorização | objeto | A autorização solicitada para a operação. |
 | declarações | objeto | As propriedades da declaração. Para obter mais informações, consulte [especificação JWT](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
-| correlationId | cadeia de caracteres | Uma ID de operação para solução de problemas. |
+| correlationId | string | Uma ID de operação para solução de problemas. |
 | httpRequest | objeto | Os detalhes da operação. Esse objeto é apenas incluído ao atualizar um recurso existente ou excluir um recurso. |
-| ResourceProvider | cadeia de caracteres | O provedor de recursos para a operação. |
-| resourceUri | cadeia de caracteres | O URI do recurso na operação. |
-| operationName | cadeia de caracteres | A operação que foi feita. |
-| status | cadeia de caracteres | O status da operação. |
-| subscriptionId | cadeia de caracteres | A ID da assinatura do recurso. |
-| tenantId | cadeia de caracteres | A ID do locatário do recurso. |
+| ResourceProvider | string | O provedor de recursos para a operação. |
+| resourceUri | string | O URI do recurso na operação. |
+| operationName | string | A operação que foi feita. |
+| status | string | O status da operação. |
+| subscriptionId | string | A ID da assinatura do recurso. |
+| tenantId | string | A ID do locatário do recurso. |
 
 ## <a name="tutorials-and-how-tos"></a>Tutoriais e instruções
 |Title |Descrição  |

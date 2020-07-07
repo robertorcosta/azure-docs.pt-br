@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/24/2019
 ms.author: mlottner
 ms.openlocfilehash: 213595ac69efc90ec855b2891641e1f00bd1ba92
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81311558"
 ---
 # <a name="security-recommendations"></a>Recomendações de segurança
@@ -33,7 +33,7 @@ Neste artigo, você encontrará uma lista de recomendações que podem ser dispa
 
 As recomendações de dispositivo fornecem ideias e sugestões para melhorar a postura de segurança do dispositivo.
 
-| Severity | Name                                                      | fonte de dados | Descrição                                                                                                                                                                                           |
+| Severity | Nome                                                      | fonte de dados | Descrição                                                                                                                                                                                           |
 |----------|-----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Médio   | Abrir portas no dispositivo                                      | Agente       | Um ponto de extremidade de escuta foi encontrado no dispositivo.                                                                                                                                                        |
 | Médio   | Política de firewall permissiva encontrada em uma das cadeias. | Agente       | Política de firewall permitida encontrada (entrada/saída). A política de firewall deve negar todo o tráfego por padrão e definir regras para permitir a comunicação necessária de/para o dispositivo.                               |
@@ -45,7 +45,7 @@ As recomendações de dispositivo fornecem ideias e sugestões para melhorar a p
 
 As recomendações operacionais fornecem informações e sugestões para melhorar a configuração do agente de segurança.
 
-| Severity | Name                                    | fonte de dados | Descrição                                                                       |
+| Severity | Nome                                    | fonte de dados | Descrição                                                                       |
 |----------|-----------------------------------------|-------------|-----------------------------------------------------------------------------------|
 | Baixo      | O Agent envia mensagens não utilizadas          | Agente       | 10% ou mais de mensagens de segurança foram menores que 4 KB durante as últimas 24 horas.  |
 | Baixo      | Configuração de configurações de segurança não ideal | Agente       | A configuração de configurações de segurança não é ideal.                                        |
@@ -56,7 +56,7 @@ As recomendações operacionais fornecem informações e sugestões para melhora
 
 Alertas de recomendação fornecem Insight e sugestões para ações para melhorar a postura de segurança do seu ambiente.
 
-| Severity | Name                                                     | fonte de dados | Descrição                                                                                                                                                                                                             |
+| Severity | Nome                                                     | fonte de dados | Descrição                                                                                                                                                                                                             |
 |----------|----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Alta     | Credenciais de autenticação idênticas usadas por vários dispositivos | Hub IoT     | As credenciais de autenticação do Hub IoT são usadas por vários dispositivos. Isso pode indicar um dispositivo ilegítimo representando um dispositivo legítimo. O uso de credenciais duplicadas aumenta o risco de representação do dispositivo por um ator mal-intencionado. |
 | Médio   | A política de filtro IP padrão deve ser Deny                  | Hub IoT     | A configuração do filtro IP deve ter regras definidas para tráfego permitido e, por padrão, negar todos os outros tráfego por padrão.                                                                                                     |

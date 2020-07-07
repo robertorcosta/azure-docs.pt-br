@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/27/2019
 ms.openlocfilehash: 9d96e3f7d127f4839592e766537cbdb07cc697dc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81414936"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Noções básicas de preços do Data Factory por meio de exemplos
@@ -24,7 +24,7 @@ ms.locfileid: "81414936"
 Este artigo explica e demonstra o modelo de preços do Azure Data Factory com exemplos detalhados.
 
 > [!NOTE]
-> Os preços usados nestes exemplos abaixo são hipotéticos e não têm o objetivo de implicar no preço real.
+> Os preços usados nestes exemplos abaixo são hipotéticos e não têm o objetivo de sugerir o preço real.
 
 ## <a name="copy-data-from-aws-s3-to-azure-blob-storage-hourly"></a>Copiar dados do AWS S3 para o Armazenamento de Blobs do Azure por hora
 
@@ -163,7 +163,7 @@ Para executar o cenário, você precisará criar um pipeline com os seguintes it
 - Operações do Data Factory = **US$ 0,0001**
   - Leitura/gravação = 10\*00001 = US$ 0,0001 [1 L/G = US$ 0,50/50000 = 0,00001]
   - Monitoramento = 2\*000005 = US$ 0,00001 [1 monitoramento = US$ 0,25/50000 = 0,000005]
-- &amp; Execução de orquestração de Pipeline = **$1.463**
+- Execução de orquestração de pipeline &amp; = **$1.463**
   - Execuções de atividade = 001\*2 = 0,002 [1 execução = US$ 1/1000 = 0,001]
   - Atividades de fluxo de dados = $1.461 rateado por 20 minutos (tempo de execução de 10 min + 10 minutos TTL). $0.274/hora em Azure Integration Runtime com 16 núcleos de computação geral
 

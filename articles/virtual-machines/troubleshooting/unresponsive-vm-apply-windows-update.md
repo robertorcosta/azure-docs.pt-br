@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.author: v-mibufo
 ms.openlocfilehash: 16c8eed3377c2191b4345ec59ec1eba8be01369d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80633951"
 ---
 # <a name="vm-is-unresponsive-with-c01a001d-error-when-applying-windows-update"></a>A VM não está respondendo com o erro "C01A001D" ao aplicar Windows Update
@@ -60,7 +60,7 @@ Se o disco ainda não for de 1 TB, você deverá redimensioná-lo. Depois que o 
 2. Depois que o disco for de 1 TB, execute uma limpeza de disco.
     - [Desanexe o disco de dados da VM quebrada](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk).
     - [Anexe o disco de dados a uma VM em funcionamento](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps#attach-an-existing-data-disk-to-a-vm).
-    - Use a [ferramenta limpeza de disco](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) para liberar espaço.
+    - Use a [ferramenta de limpeza de disco](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) para liberar espaço.
 3. Após o redimensionamento e a limpeza, desfragmente a unidade:
 
     ```
@@ -70,8 +70,8 @@ Se o disco ainda não for de 1 TB, você deverá redimensioná-lo. Depois que o 
 
 ### <a name="recommended-before-rebuilding-the-vm-enable-serial-console-and-memory-dump-collection"></a>Recomendado: antes de recriar a VM, habilite o console serial e a coleção de despejo de memória
 
-1. Abra uma sessão de prompt de comando com privilégios elevados (executar como administrador).
-2. Execute os comandos a seguir:
+1. Abra uma sessão de prompt de comandos com privilégios elevados (Executar como administrador).
+2. Execute os seguintes comandos:
 
     Habilitar console serial:
 
@@ -85,7 +85,7 @@ Se o disco ainda não for de 1 TB, você deverá redimensioná-lo. Depois que o 
 
     **Habilitar a configuração sugerida de despejo de so:**
 
-    Carregar disco do so quebrado:
+    Carregar disco danificado do sistema operacional:
 
     ```
     REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM
@@ -107,12 +107,12 @@ Se o disco ainda não for de 1 TB, você deverá redimensioná-lo. Depois que o 
     REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
     ```
 
-    Descarregar disco do so quebrado:
+    Descarregar disco danificado do sistema operacional:
 
     ```
     REG UNLOAD HKLM\BROKENSYSTEM
     ```
 
-### <a name="rebuild-the-vm"></a>Recriar a VM
+### <a name="rebuild-the-vm"></a>Recompilar a VM
 
 Use [a etapa 5 dos comandos de reparo da VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) para remontar a VM.

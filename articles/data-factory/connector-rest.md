@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: jingwang
 ms.openlocfilehash: 2657f1998e3ca908bc52166154ac3353e1e5a66b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81415038"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Copiar dados de um ponto de extremidade REST usando o Azure Data Factory
@@ -63,7 +63,7 @@ As seguintes propriedades são suportadas para o serviço vinculado REST:
 | url | A URL base do serviço REST. | Sim |
 | enableServerCertificateValidation | Se o certificado TLS/SSL do lado do servidor deve ser validado ao se conectar ao ponto de extremidade. | Não<br /> (o padrão é **true**) |
 | authenticationType | Tipo de autenticação usado para se conectar ao serviço REST. Os valores permitidos são **Anônimo**, **Básico**, **Windows** e **ManagedServiceIdentity**. Consulte respectivamente as seções correspondentes abaixo em mais propriedades e exemplos. | Sim |
-| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não especificado, essa propriedade usará o Azure Integration Runtime padrão. |Não |
+| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção [Pré-requisitos](#prerequisites). Se não especificado, essa propriedade usará o Azure Integration Runtime padrão. |Não |
 
 ### <a name="use-basic-authentication"></a>Usar autenticação básica
 
@@ -174,9 +174,9 @@ Para copiar dados do REST, há suporte para as seguintes propriedades:
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade **tipo** do conjunto de dados deve ser definida como**RestResource**. | Sim |
-| relativeUrl | Uma URL relativa para o recurso que contém os dados. Quando essa propriedade não é especificada, somente o URL especificado na definição de serviço vinculada é usado. O conector HTTP copia dados da URL combinada: `[URL specified in linked service]/[relative URL specified in dataset]`. | Não |
+| relativeUrl | Uma URL relativa para o recurso que contém os dados. Quando essa propriedade não é especificada, somente o URL especificado na definição de serviço vinculada é usado. O conector HTTP copia dados da URL combinada: `[URL specified in linked service]/[relative URL specified in dataset]` . | Não |
 
-Se você definiu `requestMethod`, `additionalHeaders` `requestBody` e `paginationRules` no DataSet, ainda terá suporte como está, enquanto você é sugerido para usar o novo modelo na origem da atividade no futuro.
+Se você definiu `requestMethod` , `additionalHeaders` `requestBody` e `paginationRules` no DataSet, ainda terá suporte como está, enquanto você é sugerido para usar o novo modelo na origem da atividade no futuro.
 
 **Exemplo:**
 
@@ -205,7 +205,7 @@ Para obter uma lista completa de seções e propriedades que estão disponíveis
 
 ### <a name="rest-as-source"></a>REST como fonte
 
-As propriedades a seguir têm suporte na seção **origem** da atividade de cópia:
+As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
@@ -218,7 +218,7 @@ As propriedades a seguir têm suporte na seção **origem** da atividade de cóp
 | requestInterval | O tempo de espera antes de enviar a solicitação para a próxima página. O valor padrão é **00:00:01** |  Não |
 
 >[!NOTE]
->O conector REST ignora qualquer cabeçalho "Accept" especificado em `additionalHeaders`. Como o conector REST só dá suporte à resposta em JSON, ele gerará automaticamente `Accept: application/json`um cabeçalho de.
+>O conector REST ignora qualquer cabeçalho "Accept" especificado em `additionalHeaders` . Como o conector REST só dá suporte à resposta em JSON, ele gerará automaticamente um cabeçalho de `Accept: application/json` .
 
 **Exemplo 1: usando o método Get com paginação**
 
@@ -356,7 +356,7 @@ O API do Graph do Facebook retorna a resposta na próxima estrutura, em cada cas
 }
 ```
 
-A configuração de origem da atividade de cópia REST `paginationRules` correspondente, especialmente, é a seguinte:
+A configuração de origem da atividade de cópia REST correspondente `paginationRules` , especialmente, é a seguinte:
 
 ```json
 "typeProperties": {
@@ -400,10 +400,10 @@ O modelo define dois parâmetros:
 2. Crie uma nova conexão para a conexão de destino.  
     ![Nova conexão Gen2](media/solution-template-copy-from-rest-or-http-using-oauth/destination-connection.png)
 
-3. Selecione **usar este modelo**.
+3. Selecione **Usar este modelo**.
     ![Usar este modelo](media/solution-template-copy-from-rest-or-http-using-oauth/use-this-template.png)
 
-4. Você verá o pipeline criado conforme mostrado no exemplo a seguir: ![pipeline](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png)
+4. Você verá o pipeline criado conforme mostrado no exemplo a seguir: ![ pipeline](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png)
 
 5. Selecione atividade **da Web** . Em **configurações**, especifique a **URL**, o **método**, os **cabeçalhos**e o **corpo** correspondentes para recuperar o token de portador OAuth da API de logon do serviço do qual você deseja copiar dados. O espaço reservado no modelo demonstra um exemplo de OAuth Azure Active Directory (AAD). Observe que a autenticação do AAD tem suporte nativo do conector REST, aqui está apenas um exemplo para o fluxo OAuth. 
 
@@ -411,7 +411,7 @@ O modelo define dois parâmetros:
     |:--- |:--- |:--- |
     | URL |Especifique a URL da qual recuperar o token de portador OAuth. por exemplo, no exemplo, éhttps://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
     | Método | O método HTTP. Os valores permitidos são **post** e **Get**. | 
-    | headers | O cabeçalho é definido pelo usuário, que faz referência a um nome de cabeçalho na solicitação HTTP. | 
+    | Cabeçalhos | O cabeçalho é definido pelo usuário, que faz referência a um nome de cabeçalho na solicitação HTTP. | 
     | Corpo | O corpo da solicitação HTTP. | 
 
     ![Pipeline](media/solution-template-copy-from-rest-or-http-using-oauth/web-settings.png)
@@ -425,10 +425,10 @@ O modelo define dois parâmetros:
 
    ![Autenticação de origem de cópia](media/solution-template-copy-from-rest-or-http-using-oauth/copy-data-settings.png)
 
-7. Selecione **depurar**, insira os **parâmetros**e, em seguida, selecione **concluir**.
-   ![Execução do pipeline](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline-run.png) 
+7. Selecione **Depurar**, insira os **Parâmetros** e, em seguida, selecione **Concluir**.
+   ![Execução de pipeline](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline-run.png) 
 
-8. Quando a execução do pipeline for concluída com êxito, você verá o resultado semelhante ao exemplo a seguir: ![resultado da execução do pipeline](media/solution-template-copy-from-rest-or-http-using-oauth/run-result.png) 
+8. Quando a execução do pipeline for concluída com êxito, você verá o resultado semelhante ao exemplo a seguir: ![ resultado da execução do pipeline](media/solution-template-copy-from-rest-or-http-using-oauth/run-result.png) 
 
 9. Clique no ícone de "saída" do webactivity na coluna **ações** , você verá o access_token retornado pelo serviço.
 

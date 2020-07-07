@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/07/2019
 ms.openlocfilehash: 23d799f84cb3ac3ca911a5669041b0a25394a7ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81414771"
 ---
 # <a name="migrate-data-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Migrar dados do Amazon S3 para o Azure Data Lake Storage Gen2
@@ -50,7 +50,7 @@ O modelo contém dois parâmetros:
 
 ### <a name="for-the-template-to-copy-changed-files-only-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Para o modelo copiar arquivos alterados somente do Amazon S3 para Azure Data Lake Storage Gen2
 
-Este modelo (*nome do modelo: copiar dados Delta do AWS S3 para Azure data Lake Storage Gen2*) usa LastModifiedTime de cada arquivo para copiar os arquivos novos ou atualizados somente do AWS S3 para o Azure. Lembre-se de que os arquivos ou pastas já foram particionados com as informações da fatia de tempo como parte do nome do arquivo ou da pasta no AWS S3 (por exemplo,/yyyy/mm/dd/File.csv), você pode ir para este [tutorial](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md) para obter a abordagem mais eficaz para o carregamento incremental de novos arquivos. Este modelo pressupõe que você escreveu uma lista de partições em uma tabela de controle externa no banco de dados SQL do Azure. Portanto, ele usará uma atividade de *pesquisa* para recuperar a lista de partições da tabela de controle externa, iterar em cada partição e fazer com que cada trabalho de cópia do ADF Copie uma partição por vez. Quando cada trabalho de cópia começa a copiar os arquivos do AWS S3, ele se baseia na propriedade LastModifiedtime para identificar e copiar somente os arquivos novos ou atualizados. Após a conclusão de qualquer trabalho de cópia, ele usa a atividade de *procedimento armazenado* para atualizar o status da cópia de cada partição na tabela de controle.
+Este modelo (*nome do modelo: copiar dados Delta do AWS S3 para Azure data Lake Storage Gen2*) usa LastModifiedTime de cada arquivo para copiar os arquivos novos ou atualizados somente do AWS S3 para o Azure. Lembre-se de que os arquivos ou pastas já foram particionados com as informações da fatia de tempo como parte do nome do arquivo ou da pasta no AWS S3 (por exemplo,/yyyy/mm/dd/file.csv), você pode ir para este [tutorial](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md) para obter a abordagem mais eficaz para o carregamento incremental de novos arquivos. Este modelo pressupõe que você escreveu uma lista de partições em uma tabela de controle externa no banco de dados SQL do Azure. Portanto, ele usará uma atividade de *pesquisa* para recuperar a lista de partições da tabela de controle externa, iterar em cada partição e fazer com que cada trabalho de cópia do ADF Copie uma partição por vez. Quando cada trabalho de cópia começa a copiar os arquivos do AWS S3, ele se baseia na propriedade LastModifiedtime para identificar e copiar somente os arquivos novos ou atualizados. Após a conclusão de qualquer trabalho de cópia, ele usa a atividade de *procedimento armazenado* para atualizar o status da cópia de cada partição na tabela de controle.
 
 O modelo contém sete atividades:
 - A **pesquisa** recupera as partições de uma tabela de controle externa. O nome da tabela é *s3_partition_delta_control_table* e a consulta para carregar dados da tabela é *"selecionar PartitionPrefix distintos do s3_partition_delta_control_table"*.
@@ -109,9 +109,9 @@ O modelo contém dois parâmetros:
 
 3. Vá para o modelo **migrar dados históricos do AWS S3 para Azure data Lake Storage Gen2** . Insira as conexões com sua tabela de controle externa, AWS S3 como o armazenamento de fonte de dados e Azure Data Lake Storage Gen2 como o armazenamento de destino. Lembre-se de que a tabela de controle externo e o procedimento armazenado são referenciados para a mesma conexão.
 
-    ![Crie uma nova conexão](media/solution-template-migration-s3-azure/historical-migration-s3-azure1.png)
+    ![Criar uma conexão](media/solution-template-migration-s3-azure/historical-migration-s3-azure1.png)
 
-4. Selecione **usar este modelo**.
+4. Selecione **Usar este modelo**.
 
     ![Usar este modelo](media/solution-template-migration-s3-azure/historical-migration-s3-azure2.png)
     
@@ -119,11 +119,11 @@ O modelo contém dois parâmetros:
 
     ![Revisar o pipeline](media/solution-template-migration-s3-azure/historical-migration-s3-azure3.png)
 
-6. Selecione **depurar**, insira os **parâmetros**e, em seguida, selecione **concluir**.
+6. Selecione **Depurar**, insira os **Parâmetros** e, em seguida, selecione **Concluir**.
 
-    ![Clique em * * Depurar * *](media/solution-template-migration-s3-azure/historical-migration-s3-azure4.png)
+    ![Clique em **Depurar**](media/solution-template-migration-s3-azure/historical-migration-s3-azure4.png)
 
-7. Você verá resultados semelhantes ao exemplo a seguir:
+7. Você vê resultados semelhantes ao exemplo a seguir:
 
     ![Revisar o resultado](media/solution-template-migration-s3-azure/historical-migration-s3-azure5.png)
 
@@ -172,9 +172,9 @@ O modelo contém dois parâmetros:
 
 3. Vá para o modelo **copiar dados Delta do AWS S3 para Azure data Lake Storage Gen2** . Insira as conexões com sua tabela de controle externa, AWS S3 como o armazenamento de fonte de dados e Azure Data Lake Storage Gen2 como o armazenamento de destino. Lembre-se de que a tabela de controle externo e o procedimento armazenado são referenciados para a mesma conexão.
 
-    ![Crie uma nova conexão](media/solution-template-migration-s3-azure/delta-migration-s3-azure1.png)
+    ![Criar uma conexão](media/solution-template-migration-s3-azure/delta-migration-s3-azure1.png)
 
-4. Selecione **usar este modelo**.
+4. Selecione **Usar este modelo**.
 
     ![Usar este modelo](media/solution-template-migration-s3-azure/delta-migration-s3-azure2.png)
     
@@ -182,11 +182,11 @@ O modelo contém dois parâmetros:
 
     ![Revisar o pipeline](media/solution-template-migration-s3-azure/delta-migration-s3-azure3.png)
 
-6. Selecione **depurar**, insira os **parâmetros**e, em seguida, selecione **concluir**.
+6. Selecione **Depurar**, insira os **Parâmetros** e, em seguida, selecione **Concluir**.
 
-    ![Clique em * * Depurar * *](media/solution-template-migration-s3-azure/delta-migration-s3-azure4.png)
+    ![Clique em **Depurar**](media/solution-template-migration-s3-azure/delta-migration-s3-azure4.png)
 
-7. Você verá resultados semelhantes ao exemplo a seguir:
+7. Você vê resultados semelhantes ao exemplo a seguir:
 
     ![Revisar o resultado](media/solution-template-migration-s3-azure/delta-migration-s3-azure5.png)
 
@@ -197,4 +197,4 @@ O modelo contém dois parâmetros:
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Copiar arquivos de vários contêineres](solution-template-copy-files-multiple-containers.md)
-- [Mover arquivos](solution-template-move-files.md)
+- [Mover os arquivos](solution-template-move-files.md)

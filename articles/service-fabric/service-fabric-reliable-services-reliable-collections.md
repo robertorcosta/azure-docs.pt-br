@@ -4,10 +4,10 @@ description: Os serviços com monitoração de estado do Service Fabric fornecem
 ms.topic: conceptual
 ms.date: 3/10/2020
 ms.openlocfilehash: 78ecc57a4da43bf416839226253e6d0e2f4c1651
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81398425"
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Introdução à Reliable Collections nos serviços com monitoração de estado do Service Fabric do Azure
@@ -35,7 +35,7 @@ Para obter consistência mais fraca, os aplicativos podem confirmar para o clien
 As APIs de Coleções Confiáveis são uma evolução das APIs de coleções simultâneas (encontradas no namespace **System.Collections.Concurrent** ):
 
 * Assíncronas: retorna uma tarefa, já que, ao contrário das coleções concorrentes, as operações são replicadas e mantidas.
-* Nenhum parâmetro de saída: `ConditionalValue<T>` usa para retornar `bool` um e um valor em vez de parâmetros de saída. `ConditionalValue<T>` é como `Nullable<T>`, mas não requer T para ser um struct.
+* Nenhum parâmetro de saída: usa `ConditionalValue<T>` para retornar um `bool` e um valor em vez de parâmetros de saída. `ConditionalValue<T>` é como `Nullable<T>`, mas não requer T para ser um struct.
 * Transações: usam um objeto de transação para permitir que o usuário agrupe as ações em várias Coleções Confiáveis em uma transação.
 
 Hoje, **Microsoft.ServiceFabric.Data.Collections** contém três coleções:

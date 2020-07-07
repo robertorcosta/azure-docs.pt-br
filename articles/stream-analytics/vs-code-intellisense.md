@@ -7,10 +7,10 @@ ms.author: sujie
 ms.date: 4/11/2020
 ms.topic: conceptual
 ms.openlocfilehash: 25ece3174cd65df9c665888d913cf6b9029904b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81394391"
 ---
 # <a name="intellisense-in-azure-stream-analytics-tools-for-visual-studio-code"></a>IntelliSense no Azure Stream Analytics Tools para Visual Studio Code
@@ -21,9 +21,9 @@ O IntelliSense está disponível para [Stream Analytics linguagem de consulta](h
 
 ## <a name="intellisense-features"></a>Recursos do IntelliSense
 
-Os recursos do IntelliSense no Stream Analytics Tools for VS Code são alimentados por um serviço de linguagem. Um serviço de linguagem analisa seu código-fonte e fornece preenchimentos de código inteligentes com base na semântica da linguagem. Se um serviço de linguagem souber possíveis conclusões, as sugestões do IntelliSense pop-up conforme você digita. Se você continuar digitando, uma lista de membros, como variáveis e métodos, será filtrada para incluir somente membros que contenham os caracteres digitados. Quando você pressiona as `Tab` teclas `Enter` ou, o IntelliSense insere o membro que você selecionou.
+Os recursos do IntelliSense no Stream Analytics Tools for VS Code são alimentados por um serviço de linguagem. Um serviço de linguagem analisa seu código-fonte e fornece preenchimentos de código inteligentes com base na semântica da linguagem. Se um serviço de linguagem souber possíveis conclusões, as sugestões do IntelliSense pop-up conforme você digita. Se você continuar digitando, uma lista de membros, como variáveis e métodos, será filtrada para incluir somente membros que contenham os caracteres digitados. Quando você pressiona as `Tab` `Enter` teclas ou, o IntelliSense insere o membro que você selecionou.
 
-Você pode disparar o IntelliSense em qualquer janela do Editor digitando um caractere de gatilho, como o `.`caractere de ponto.
+Você pode disparar o IntelliSense em qualquer janela do Editor digitando um caractere de gatilho, como o caractere de ponto `.` .
 
 ![preenchimento automático do IntelliSense](./media/vs-code-intellisense/auto-completion.gif)
 
@@ -73,5 +73,5 @@ Esse problema é causado pela configuração de entrada ausente que fornece dado
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Início rápido: criar um trabalho de Azure Stream Analytics no Visual Studio Code](quick-create-vs-code.md)
-* [Testar Stream Analytics consultas localmente com dados de exemplo usando Visual Studio Code](visual-studio-code-local-run.md)
+* [Testar consultas do Stream Analytics localmente com os dados de exemplo usando o Visual Studio Code](visual-studio-code-local-run.md)
 * [Testar Stream Analytics consultas localmente contra entrada de fluxo ao vivo usando Visual Studio Code](visual-studio-code-local-run-live-input.md)

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
 ms.openlocfilehash: aedb3df69821d1436b03b2eb1f12873b624d426e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81414169"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>Guia de desempenho e escalabilidade da atividade de cópia
@@ -42,13 +42,13 @@ Depois de ler este artigo, você poderá responder as seguintes perguntas:
 
 ## <a name="copy-performance-and-scalability-achievable-using-adf"></a>Desempenho de cópia e escalabilidade atingíveis usando o ADF
 
-O ADF oferece uma arquitetura sem servidor que permite paralelismo em diferentes níveis, o que permite aos desenvolvedores criar pipelines para utilizar totalmente a largura de banda da rede, bem como IOPS de armazenamento e largura de banda para maximizar a taxa de transferência de movimentação de dados para o seu ambiente.  Isso significa que a taxa de transferência que você pode obter pode ser estimada medindo a taxa de transferência mínima oferecida pelo armazenamento de dados de origem, o armazenamento de dados de destino e a largura de banda de rede entre a origem e o destino.  A tabela a seguir calcula a duração da cópia com base no tamanho dos dados e no limite de largura de banda do seu ambiente. 
+O ADF oferece uma arquitetura sem servidor que permite o paralelismo em diferentes níveis, possibilitando aos desenvolvedores criar pipelines para utilizar totalmente a largura de banda da rede, bem como a IOPS de armazenamento e a largura de banda para maximizar a taxa de transferência da movimentação de dados para o seu ambiente.  Isso significa que a taxa de transferência que você pode obter pode ser estimada medindo a taxa de transferência mínima oferecida pelo armazenamento de dados de origem, o armazenamento de dados de destino e a largura de banda de rede entre a origem e o destino.  A tabela a seguir calcula a duração da cópia com base no tamanho dos dados e no limite de largura de banda do seu ambiente. 
 
 | Tamanho dos dados/ <br/> largura de banda | 50 Mbps    | 100 Mbps  | 500 Mbps  | 1 Gbps   | 5 Gbps   | 10 Gbps  | 50 Gbps   |
 | --------------------------- | ---------- | --------- | --------- | -------- | -------- | -------- | --------- |
 | **1 GB**                    | mínimo de 2,7    | mínimo de 1,4   | mínimo de 0,3   | mínimo de 0,1  | mínimo de 0, 3 | mínimo de 0, 1 | mínimo de 0,0   |
 | **10 GB**                   | mínimo de 27,3   | mínimo de 13,7  | mínimo de 2,7   | mínimo de 1,3  | mínimo de 0,3  | mínimo de 0,1  | mínimo de 0, 3  |
-| **100 GB**                  | 4,6 horas    | 2,3 horas   | 0,5 horas   | 0,2 horas  | 0, 5 horas | 0, 2 horas | 0,0 horas   |
+| **100 GB**                  | 4,6 horas    | 2,3 horas   | 0,5 horas   | 0,2 horas  | 0, 5 horas | 0, 2 horas | 0,0 horas   |
 | **1 TB**                    | 46,6 horas   | 23,3 horas  | 4,7 horas   | 2,3 horas  | 0,5 horas  | 0,2 horas  | 0, 5 horas  |
 | **10 TB**                   | 19,4 dias  | 9,7 dias  | 1,9 dias  | 0,9 dias | 0,2 dias | 0,1 dias | 0, 2 dias |
 | **100 TB**                  | 194,2 dias | 97,1 dias | 19,4 dias | 9,7 dias | 1,9 dias | 1 dia    | 0,2 dias  |
@@ -59,8 +59,8 @@ A cópia do ADF é escalonável em diferentes níveis:
 
 ![como a cópia do ADF é dimensionada](media/copy-activity-performance/adf-copy-scalability.png)
 
-- O fluxo de controle do ADF pode iniciar várias atividades de cópia em paralelo, por exemplo, usando [loop for each](control-flow-for-each-activity.md).
-- Uma única atividade de cópia pode aproveitar os recursos de computação escalonáveis: ao usar Azure Integration Runtime, você pode especificar [até 256 DIUs](#data-integration-units) para cada atividade de cópia de maneira sem servidor; ao usar o Integration Runtime auto-hospedado, você pode escalar verticalmente o computador manualmente ou escalar horizontalmente para vários computadores ([até 4 nós](create-self-hosted-integration-runtime.md#high-availability-and-scalability)) e uma única atividade de cópia particionará seu conjunto de arquivos em todos os nós.
+- O fluxo de controle do ADF pode iniciar várias atividades de cópia em paralelo, por exemplo, usando o [loop For Each](control-flow-for-each-activity.md).
+- Uma só atividade de cópia pode aproveitar os recursos de computação escalonáveis: ao usar o Azure Integration Runtime, você pode especificar [até 256 DIUs](#data-integration-units) para cada atividade de cópia por meio da computação sem servidor; ao usar o runtime de integração auto-hospedada, você pode escalar verticalmente o computador no modo manual ou escalá-lo horizontalmente para vários computadores ([até quatro nós](create-self-hosted-integration-runtime.md#high-availability-and-scalability)) e uma só atividade de cópia particionará o conjunto de arquivos em todos os nós.
 - Uma única atividade de cópia lê e grava no armazenamento de dados usando vários threads [em paralelo](#parallel-copy).
 
 ## <a name="performance-tuning-steps"></a>Etapas de ajuste do desempenho
@@ -118,7 +118,7 @@ Você pode definir a cópia paralela para indicar o paralelismo que você deseja
 Ao copiar dados de um armazenamento de dados de origem para um armazenamento de dados do coletor, você pode escolher usar um armazenamento de Blobs como um armazenamento de preparação provisório. [Saiba mais](copy-activity-performance-features.md#staged-copy).
 
 ## <a name="next-steps"></a>Próximas etapas
-Consulte os outros artigos de atividade de cópia:
+Confira os outros artigos sobre atividade de cópia:
 
 - [Visão geral da atividade de cópia](copy-activity-overview.md)
 - [Solucionar problemas de desempenho da atividade de cópia](copy-activity-performance-troubleshooting.md)

@@ -7,10 +7,10 @@ ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
 ms.openlocfilehash: 95039573c607f516755f08f1ebad8b968416ec8b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80631464"
 ---
 # <a name="using-openfaas-on-aks"></a>Usando o OpenFaaS no AKS
@@ -28,7 +28,7 @@ Para concluir as etapas deste artigo, você precisa dos itens a seguir.
 
 ## <a name="add-the-openfaas-helm-chart-repo"></a>Adicionar o repositório de gráfico OpenFaaS Helm
 
-Vá para [https://shell.azure.com](https://shell.azure.com) para abrir Azure cloud Shell em seu navegador.
+Acesse [https://shell.azure.com](https://shell.azure.com) para abrir o Azure Cloud Shell em seu navegador.
 
 O OpenFaaS mantém seus próprios gráficos de Helm para manter-se atualizado com todas as alterações mais recentes.
 
@@ -58,7 +58,7 @@ kubectl -n openfaas create secret generic basic-auth \
 --from-literal=basic-auth-password="$PASSWORD"
 ```
 
-Você pode obter o valor do segredo com `echo $PASSWORD`.
+Você pode obter o valor do segredo com `echo $PASSWORD` .
 
 A senha que criamos aqui será usada pelo gráfico do Helm para habilitar a autenticação básica no gateway OpenFaaS, que é exposta à Internet por meio de um balanceador de nuvem.
 
@@ -108,7 +108,7 @@ gateway            ClusterIP      10.0.156.194   <none>         8080/TCP        
 gateway-external   LoadBalancer   10.0.28.18     52.186.64.52   8080:30800/TCP   7m
 ```
 
-Para testar o sistema OpenFaaS, navegue para o endereço IP externo na porta 8080, `http://52.186.64.52:8080`, neste exemplo. Você será solicitado a fazer logon. Para buscar sua senha, digite `echo $PASSWORD`.
+Para testar o sistema OpenFaaS, navegue para o endereço IP externo na porta 8080, `http://52.186.64.52:8080`, neste exemplo. Você será solicitado a fazer logon. Para buscar sua senha, digite `echo $PASSWORD` .
 
 ![Interface do usuário do OpenFaaS](media/container-service-serverless/openfaas.png)
 

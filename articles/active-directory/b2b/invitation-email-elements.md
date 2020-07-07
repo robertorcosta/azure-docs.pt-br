@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0429cfb62c319675806d76b4759b776a7b32dbcb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81407195"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Os elementos do email de convite para colaboração B2B – Azure Active Directory
@@ -36,11 +36,11 @@ Vamos examinar alguns elementos do email para que você conheça a melhor maneir
 
 O assunto do email segue este padrão:
 
-&lt;o&gt; nome de usuário convidou você para acessar aplicativos em sua organização.
+&lt;&gt;o nome de usuário convidou você para acessar aplicativos em sua organização.
 
 ### <a name="from-address"></a>Do endereço
 
-Usamos um padrão parecido com o do LinkedIn para o endereço De. Esse padrão deve deixar claro que invites@microsoft.com, embora o email Venha, o convite é de outra organização.  <invites@microsoft.com> O formato é: convites da Microsoft ou convites da Microsoft em &lt;nome de&gt; <invites@microsoft.com>tenantname. 
+Usamos um padrão parecido com o do LinkedIn para o endereço De. Esse padrão deve deixar claro que, embora o email venha invites@microsoft.com , o convite é de outra organização. O formato é: convites  <invites@microsoft.com> da Microsoft ou convites da Microsoft em nome de &lt; tenantname &gt;  <invites@microsoft.com> . 
 
 ### <a name="reply-to"></a>Responder Para
 

@@ -8,10 +8,10 @@ ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: aece7278d134145e00b027c184f3817d5566e1e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81408373"
 ---
 # <a name="security-control-inventory-and-asset-management"></a>Controle de segurança: inventário e gerenciamento de ativos
@@ -24,17 +24,17 @@ As recomendações de gerenciamento de estoque e de ativos concentram-se em reso
 |--|--|--|
 | 6.1 | 1,1, 1,2, 1,3, 1,4, 9,1, 12,1 | Cliente |
 
-Use o grafo de recursos do Azure para consultar/descobrir todos os recursos (como computação, armazenamento, rede, portas e protocolos, etc.) em suas assinaturas.  Verifique as permissões apropriadas (leitura) no seu locatário e enumere todas as assinaturas do Azure, bem como os recursos em suas assinaturas.
+Use o grafo de recursos do Azure para consultar/descobrir todos os recursos (como computação, armazenamento, rede, portas e protocolos, etc.) em suas assinaturas.  Configure permissões apropriadas (leitura) no seu locatário e enumere todas as assinaturas do Azure, bem como os recursos em suas assinaturas.
 
-Embora os recursos clássicos do Azure possam ser descobertos por meio do grafo de recursos, é altamente recomendável criar e usar Azure Resource Manager recursos no futuro.
+Embora os recursos clássicos do Azure possam ser descobertos por meio do Resource Graph, é altamente recomendável criar e usar recursos do Azure Resource Manager no futuro.
 
-- [Como criar consultas com o grafo de recursos do Azure](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Como criar consultas com o Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
 
 - [Como exibir suas assinaturas do Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
 - [Entender o RBAC do Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
-## <a name="62-maintain-asset-metadata"></a>6,2: manter metadados de ativo
+## <a name="62-maintain-asset-metadata"></a>6.2: manter metadados de ativo
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
@@ -44,7 +44,7 @@ Aplique marcas aos recursos do Azure, fornecendo metadados para organizá-los lo
 
 - [Como criar e usar marcas](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
-## <a name="63-delete-unauthorized-azure-resources"></a>6,3: excluir recursos do Azure não autorizados
+## <a name="63-delete-unauthorized-azure-resources"></a>6.3: excluir recursos do Azure não autorizados
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
@@ -66,7 +66,7 @@ Use marcação, grupos de gerenciamento e assinaturas separadas, quando apropria
 
 Crie um inventário dos recursos aprovados do Azure e do software aprovado para recursos de computação de acordo com nossas necessidades organizacionais.
 
-## <a name="65-monitor-for-unapproved-azure-resources"></a>6,5: monitorar os recursos do Azure não aprovados
+## <a name="65-monitor-for-unapproved-azure-resources"></a>6.5: monitorar recursos do Azure não aprovados
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
@@ -74,13 +74,13 @@ Crie um inventário dos recursos aprovados do Azure e do software aprovado para 
 
 Use Azure Policy para colocar restrições no tipo de recursos que podem ser criados em suas assinaturas.
 
-Use o grafo de recursos do Azure para consultar/descobrir recursos em suas assinaturas.  Verifique se todos os recursos do Azure presentes no ambiente foram aprovados.
+Use o Azure Resource Graph para consultar/descobrir recursos em suas assinaturas.  Verifique se todos os recursos do Azure presentes no ambiente foram aprovados.
 
-- [Como configurar e gerenciar Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Como configurar e gerenciar o Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-- [Como criar consultas com o grafo do Azure](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Como criar consultas com o Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
 
-## <a name="66-monitor-for-unapproved-software-applications-within-compute-resources"></a>6,6: monitorar aplicativos de software não aprovados nos recursos de computação
+## <a name="66-monitor-for-unapproved-software-applications-within-compute-resources"></a>6.6: monitorar aplicativos de software não aprovados nos recursos de computação
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
@@ -90,7 +90,7 @@ Use o inventário de máquina virtual do Azure para automatizar a coleta de info
 
 - [Como habilitar o inventário de máquina virtual do Azure](https://docs.microsoft.com/azure/automation/automation-tutorial-installed-software)
 
-## <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6,7: remover os recursos do Azure e os aplicativos de software não aprovados
+## <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7: remover recursos e aplicativos de software não aprovados do Azure
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
@@ -104,7 +104,7 @@ Use o Controle de Alterações (monitoramento de integridade de arquivo) e o inv
 
 - [Como habilitar o inventário de máquina virtual do Azure](https://docs.microsoft.com/azure/automation/automation-tutorial-installed-software)
 
-## <a name="68-use-only-approved-applications"></a>6,8: usar somente aplicativos aprovados
+## <a name="68-use-only-approved-applications"></a>6.8: usar somente aplicativos aprovados
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
@@ -114,7 +114,7 @@ Use os controles de aplicativo adaptáveis da central de segurança do Azure par
 
 - [Como usar os controles de aplicativo adaptáveis da central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
 
-## <a name="69-use-only-approved-azure-services"></a>6,9: usar somente os serviços do Azure aprovados
+## <a name="69-use-only-approved-azure-services"></a>6.9: usar somente serviços do Azure aprovados
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
@@ -122,9 +122,9 @@ Use os controles de aplicativo adaptáveis da central de segurança do Azure par
 
 Use Azure Policy para restringir quais serviços você pode provisionar em seu ambiente.
 
-- [Como configurar e gerenciar Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Como configurar e gerenciar o Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-- [Como negar um tipo de recurso específico com Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+- [Como negar um tipo de recurso específico com o Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
 
 ## <a name="610-maintain-an-inventory-of-approved-software-titles"></a>6,10: manter um inventário de títulos de software aprovados
 
@@ -142,17 +142,17 @@ Implemente uma solução de terceiros se isso não atender ao requisito.
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
-| 6.11 | 2,9 | Cliente |
+| 6.11 | 2.9 | Cliente |
 
 Use o acesso condicional do Azure para limitar a capacidade dos usuários de interagir com o Gerenciador de recursos do Azure Configurando "bloquear acesso" para o aplicativo de "gerenciamento de Microsoft Azure".
 
 - [Como configurar o acesso condicional para bloquear o acesso ao Gerenciador de recursos do Azure](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
 
-## <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6,12: limitar a capacidade dos usuários de executar scripts em recursos de computação
+## <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6.12: limitar a capacidade dos usuários de executar scripts nos recursos de computação
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
-| 6,12 | 2,9 | Cliente |
+| 6.12 | 2.9 | Cliente |
 
 Dependendo do tipo de scripts, você pode usar configurações específicas do sistema operacional ou recursos de terceiros para limitar a capacidade dos usuários de executar scripts nos recursos de computação do Azure.  Você também pode aproveitar os controles de aplicativo adaptáveis da central de segurança do Azure para garantir que apenas o software autorizado seja executado e todos os softwares não autorizados sejam impedidos de serem executados em máquinas virtuais do Azure.
 
@@ -160,11 +160,11 @@ Dependendo do tipo de scripts, você pode usar configurações específicas do s
 
 - [Como usar os controles de aplicativo adaptáveis da central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
 
-## <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6,13: separar fisicamente ou logicamente os aplicativos de alto risco
+## <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6.13: separar física ou logicamente os aplicativos de alto risco
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
-| 6,13 | 2,9 | Cliente |
+| 6.13 | 2.9 | Cliente |
 
 Software necessário para operações de negócios, mas pode incorrer em um risco maior para a organização, deve ser isolado em sua própria máquina virtual e/ou rede virtual e suficientemente protegido com um firewall do Azure ou grupo de segurança de rede.
 

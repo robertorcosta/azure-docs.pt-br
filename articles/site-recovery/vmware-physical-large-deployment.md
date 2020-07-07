@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: a3a2317554f02dc1f1198d8019bbfdb50e3cc71c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81409764"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Configurar a recuperação de desastre em escala para VMs VMware/servidores físicos
@@ -64,7 +64,7 @@ Em seguida, execute o planejador da seguinte maneira:
 5. Analise as [recomendações de relatório](site-recovery-vmware-deployment-planner-analyze-report.md) e as [estimativas de custo](site-recovery-vmware-deployment-planner-cost-estimation.md).
 
 >[!NOTE]
-> Por padrão, a ferramenta está configurada para criar o perfil e gerar um relatório para até 1000 VMs. Você pode alterar esse limite aumentando o valor da chave MaxVMsSupported no arquivo ASRDeploymentPlanner. exe. config.
+> Por padrão, a ferramenta está configurada para criar o perfil e gerar um relatório para até 1000 VMs. Você pode alterar esse limite aumentando o valor da chave MaxVMsSupported no arquivo ASRDeploymentPlanner.exe.config.
 
 ## <a name="plan-target-azure-requirements-and-capacity"></a>Requisitos e capacidade do plano de destino (Azure)
 
@@ -127,7 +127,7 @@ Após o failover para o Azure, você precisa que suas cargas de trabalho operem 
  
 A capacidade do servidor de configuração é afetada pelo número de máquinas que estão replicando e não pela taxa de rotatividade de dados. Para descobrir se você precisa de servidores de configuração adicionais, use esses limites de VM definidos.
 
-**CPUs** | **Memória** | **Disco de cache** | **Limite de máquina replicada**
+**CPU** | **Memória** | **Disco de cache** | **Limite de máquina replicada**
  --- | --- | --- | ---
 8 vCPUs<br> 2 soquetes * 4 núcleos @ 2,5 GHz | 16 GB | 600 GB | Até 550 computadores<br> Pressupõe que cada computador tenha três discos de 100 GB cada.
 
@@ -153,7 +153,7 @@ A capacidade do servidor de processo é afetada pelas taxas de rotatividade de d
 - Recomendamos que você adicione um servidor com a especificação mais alta. 
 
 
-**CPUs** | **Memória** | **Disco de cache** | **Taxa de rotatividade**
+**CPU** | **Memória** | **Disco de cache** | **Taxa de rotatividade**
  --- | --- | --- | --- 
 12 vCPUs<br> 2 soquetes * 6 núcleos @ 2,5 GHz | 24 GB | 1 GB | Até 2 TB por dia
 
