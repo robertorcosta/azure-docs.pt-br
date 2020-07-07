@@ -8,7 +8,6 @@ ms.topic: overview
 ms.date: 04/20/2020
 ms.openlocfilehash: a1a55ceec2679034125ddd202402cabcbf71e17e
 ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/20/2020
 ms.locfileid: "83698316"
@@ -20,9 +19,9 @@ ms.locfileid: "83698316"
 ### <a name="bug-fixes-224"></a>Correções de bug na versão 2.2.4 ###
 
 - [Correção de bug][AMP][Acessibilidade] Remoção de uma guia fantasma acessível quando a tela de erro é exibida
-- [Correção de bug][AMP] Correção da tecla de atalho 'M' no IE11 e no Edge
+- [Correção de bug][AMP] Correção da tecla de atalho 'M' no IE11 e no Microsoft Edge
 - [Correção de bug][AMP] Correção de uma exceção em legendas CEA-708
-- [Correção de bug][AMP] Correção de um problema de congelamento de vídeo no navegador Edge
+- [Correção de bug][AMP] Correção de um problema de congelamento de vídeo no navegador Microsoft Edge
 
 ### <a name="changes-224"></a>Alterações na versão 2.2.4 ###
 
@@ -82,7 +81,7 @@ ms.locfileid: "83698316"
 
 ### <a name="bug-fixes-220"></a>Correções de bug na versão 2.2.0 ###
 
-- [Correção de bug] A detecção de versão do Flash não funciona no Chrome/no Edge
+- [Correção de bug] A detecção de versão do Flash não funciona no Chrome/no Microsoft Edge
 
 ### <a name="changes-220"></a>Alterações na versão 2.2.0 ###
 
@@ -339,7 +338,7 @@ ms.locfileid: "83698316"
 
 ### <a name="changes-173"></a>Alterações na versão 1.7.3 ###
 
-- [Alteração] Habilitação do Webcrypto no Edge para descriptografar o conteúdo AES
+- [Alteração] Habilitação do Webcrypto no Microsoft Edge para descriptografar o conteúdo AES
 - [Alteração] Otimização da heurística do AMP para considerar as partes armazenadas em cache
 - [Alteração][AzureHtml5JS] Otimização da heurística com a redução da latência de estimativa de largura de banda
 
@@ -357,9 +356,9 @@ ms.locfileid: "83698316"
 - [Correção de bug] Exceção é gerada em manifestPlayableWindowLength()
 - [Correção de bug] O espectador não pode sempre clicar em Reproduzir no vídeo após o término dele para assisti-lo novamente
 - [Correção de bug] O dimensionamento dinâmico não está em conformidade com as rápidas alterações de tamanho da janela
-- [Correção de bug][Edge|IE] O dimensionamento dinâmico não tem efeito no carregamento de página para width=x, height=auto
+- [Correção de bug][Microsoft Edge|IE] O dimensionamento dinâmico não tem efeito no carregamento de página para width=x, height=auto
 - [Correção de bug][Android|Chrome] O Chrome pede permissões para reproduzir o conteúdo do DRM quando o conteúdo não está criptografado
-- [Correção de bug][Acessibilidade][Edge] Os controles de teclado não selecionam os itens de menu de contexto corretamente
+- [Correção de bug][Acessibilidade][Microsoft Edge] Os controles de teclado não selecionam os itens de menu de contexto corretamente
 - [Correção de bug][Acessibilidade] Borda ausente no modo de alto contraste
 - [Correção de bug][FlashSS] Ouvinte do evento de liberação do mouse não removido após descarte do player causa uma exceção
 - [Correção de bug][FlashSS] Problema ao analisar a URL do manifesto com espaços codificados
@@ -439,7 +438,7 @@ ms.locfileid: "83698316"
 
 ### <a name="bug-fixes-161"></a>Correções de bug na versão 1.6.1 ###
 
-- [Correção de bug][FlashSS|Edge, IE][SilverlightSS|IE] Não é possível obter o foco em outros elementos da interface do usuário em entradas ou outros no IE/Edge
+- [Correção de bug][FlashSS|Microsoft Edge, IE][SilverlightSS|IE] Não é possível obter o foco em outros elementos da interface do usuário em entradas ou outros no IE/Microsoft Edge
 - [Correção de bug] Falha na reprodução do AES quando o Forge está indefinido
 - [Correção de bug][Android][AzureHtml5JS|Chrome] O controle giratório contínuo não reproduz o conteúdo quando está no loop de verificação de integridade
 - [Correção de bug][IE9] O não suporte de console.log() no IE 9 causa uma exceção
@@ -449,7 +448,7 @@ ms.locfileid: "83698316"
 ### <a name="features-160"></a>Recursos da versão 1.6.0 ###
 
 - [Recurso] Redução de 33% no tamanho de azuremediaplayer.min.js
-- [Recurso][AzureHtml5JS|Edge][Não testado] Suporte para os fluxos de áudio DD+ no Edge (sem alternância de codec após a escolha inicial). O aplicativo precisa selecionar o fluxo de áudio correto neste momento.
+- [Recurso][AzureHtml5JS|Microsoft Edge][Não testado] Suporte para os fluxos de áudio DD+ no Microsoft Edge (sem alternância de codec após a escolha inicial). O aplicativo precisa selecionar o fluxo de áudio correto neste momento.
 - [Recurso] Controles de tecla de atalho (confira a documentação para obter mais detalhes)
 - [Recurso] Focalização da dica de tempo de progresso para a busca precisa do tempo
 - [Recurso] Permissão da detecção assíncrona de plug-ins se o método setupDone existir no plug-in
@@ -460,8 +459,8 @@ ms.locfileid: "83698316"
 - [Correção de bug] A caixa de seleção de taxa de bits é redefinida na movimentação do mouse causando um problema de seleção de taxas de bits inferiores por meio do controle do mouse
 - [Correção de bug] O Mac Office no aplicativo falha ao executar a verificação do DRM
 - [Correção de bug] As classes CSS são facilmente substituídas acidentalmente
-- [Correção de bug][Chrome] A atualização da identificação do navegador de cadeia de caracteres do agente do usuário é o Edge
-- [Correção de bug][AzureHtml5JS] O botão Legendas não é exibido na barra de ferramentas do Edge (Win10) ou do Chrome (Mac)
+- [Correção de bug][Chrome] A atualização da identificação do navegador de cadeia de caracteres do agente do usuário é o Microsoft Edge
+- [Correção de bug][AzureHtml5JS] O botão Legendas não é exibido na barra de ferramentas do Microsoft Edge (Win10) ou do Chrome (Mac)
 - [Correção de bug][Android][AzureHtml5JS|Chrome] Exceção InvalidStateError na chamada endOfStream() em vídeos curtos
 - [Correção de bug][Firefox] Remoção do aviso do DRM causado pelo Firefox ao verificar as funcionalidades do navegador
 - [Correção de bug][HTML5] Subtítulos/legendas não mostrados com conteúdo MP4 progressivo
@@ -488,7 +487,7 @@ ms.locfileid: "83698316"
 - [Correção de bug] Atualização da minificação CSS para usar códigos de fonte de entidade HTML em botões em vez de Unicode
 - [Correção de bug][AzureHtml5JS] O conteúdo de vários DRMs sempre selecionava o token do primeiro elemento de protectionInfo, causando a falha do segundo DRM
 - [Correção de bug][AzureHtml5JS] A busca nunca é concluída em uma área com segmentos ausentes.
-- [Correção de bug][AzureHtml5JS|Edge] Habilitação do EME prefixado na atualização do Edge para reprodução do PlayReady
+- [Correção de bug][AzureHtml5JS|Microsoft Edge] Habilitação do EME prefixado na atualização do Microsoft Edge para reprodução do PlayReady
 - [Correção de bug][AzureHtml5JS|Firefox] Atualização da verificação do EME para permitir que o Firefox v42 e posterior (com MSE) faça fallback para o Silverlight no conteúdo protegido
 - [Correção de bug][FlashSS] Atualização da mensagem de erro de número para cadeia de caracteres detalhada
 
@@ -530,7 +529,7 @@ ms.locfileid: "83698316"
 ### <a name="bug-fixes-120"></a>Correções de bug na versão 1.2.0 ###
 
 - [Correção de bug][AzureHtml5JS|Chrome] Descompassos do player por trás da borda ao vivo quando o player está em segundo plano
-- [Correção de bug][AzureHtml5JS|Edge] A tela inteira não funciona
+- [Correção de bug][AzureHtml5JS|Microsoft Edge] A tela inteira não funciona
 - [Correção de bug][AzureHtml5JS] O log não era habilitado corretamente quando definido nas opções
 - [Correção de bug][Flash] Exibição de "Armazenando em buffer" e o ícone de buffer durante o evento de espera
 - [Correção de bug] Permissão da continuação da reprodução se a solicitação de largura de banda inicial falhar

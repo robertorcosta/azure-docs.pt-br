@@ -14,7 +14,6 @@ ms.date: 03/18/2020
 ms.author: janutter
 ms.openlocfilehash: f457e876cb9484fce29cba35c7570572b2771aed
 ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
-ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/26/2020
 ms.locfileid: "83860045"
@@ -103,7 +102,7 @@ Neste início rápido, você usará um exemplo de código para saber como um SPA
 >|Enter_the_Tenant_Info_Here| Defina como uma das seguintes opções: Se o aplicativo der suporte a *contas neste diretório organizacional*, substitua esse valor pela ID do diretório (locatário) ou pelo nome do locatário (por exemplo, **contoso.microsoft.com**). Se o aplicativo for compatível com as *contas em qualquer diretório organizacional*, substitua esse valor por **organizações**. Se o seu aplicativo for compatível com as *contas em qualquer diretório organizacional e contas pessoais da Microsoft*, substitua esse valor por **comum**. Para restringir o suporte a *contas pessoais da Microsoft*, substitua esse valor por **consumidores**. |
 >|Enter_the_Redirect_Uri_Here|Substitua por **http://localhost:4200** .|
 >|cacheLocation  | (Opcional) Defina o armazenamento do navegador do estado de autenticação. O padrão é **sessionStorage**.   |
->|storeAuthStateInCookie  | (Opcional) Identifique a biblioteca que armazena o estado de solicitação de autenticação. Esse estado é necessário para validar os fluxos de autenticação nos cookies do navegador. Esse cookie é definido para o Internet Explorer e o Edge para acomodar esses dois navegadores. Para obter mais detalhes, confira os [problemas conhecidos](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues->on-IE-and-Edge-Browser#issues). |
+>|storeAuthStateInCookie  | (Opcional) Identifique a biblioteca que armazena o estado de solicitação de autenticação. Esse estado é necessário para validar os fluxos de autenticação nos cookies do navegador. Esse cookie é definido para o Internet Explorer e o Microsoft Edge para acomodar esses dois navegadores. Para obter mais detalhes, confira os [problemas conhecidos](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues->on-IE-and-Edge-Browser#issues). |
 > > [!TIP]
 > > Para encontrar os valores de **ID do aplicativo (cliente)** , **ID de diretório (locatário)** e **Tipos de conta com suporte**, vá para a página **Visão Geral** do aplicativo no portal do Azure.
 
