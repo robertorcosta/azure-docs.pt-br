@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 04/24/2015
 ms.author: gwallace
 ms.openlocfilehash: 22b33d7b4b0ff69a2e751cadff70453f73ed4f8e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "69876815"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-from-azure"></a>Como usar o Twilio para funcionalidades de voz e SMS do Azure
@@ -38,7 +38,7 @@ A API do Twilio é uma API RESTful que fornece os recursos de voz e SMS para apl
 Principais aspectos da API do Twilio são Twilio verbos e linguagem de marcação de Twilio (TwiML).
 
 ### <a name="twilio-verbs"></a><a id="Verbs"></a>Verbos da Twilio
-A API utiliza verbos twilio; por exemplo, o ** &lt;verbo&gt; digamos** instrui o twilio a forma audível a entregar uma mensagem em uma chamada.
+A API utiliza verbos twilio; por exemplo, o verbo ** &lt; digamos &gt; ** instrui o twilio a forma audível a entregar uma mensagem em uma chamada.
 
 A seguir está uma lista de verbos do Twilio.  Saiba mais sobre os outros verbos e recursos na [Documentação da linguagem de marcação da Twilio](https://www.twilio.com/docs/api/twiml).
 
@@ -98,7 +98,7 @@ Os exemplos fornecidos neste guia usam a biblioteca Twilio.API.
 
 As bibliotecas podem ser [instaladas usando a extensão do gerenciador de pacotes NuGet](https://www.twilio.com/docs/csharp/install) disponíveis para o Visual Studio 2010 a 2015.  O código-fonte é hospedado no [GitHub][twilio_github_repo], que inclui um Wiki que contém a documentação completa para usar as bibliotecas.
 
-Por padrão, o Microsoft Visual Studio 2010 instala a versão 1.2 do NuGet. As bibliotecas de Twilio a instalação requer a versão 1.6 do NuGet ou superior. Para obter informações sobre como instalar ou atualizar o [https://nuget.org/][nuget]NuGet, consulte.
+Por padrão, o Microsoft Visual Studio 2010 instala a versão 1.2 do NuGet. As bibliotecas de Twilio a instalação requer a versão 1.6 do NuGet ou superior. Para obter informações sobre como instalar ou atualizar o NuGet, consulte [https://nuget.org/][nuget] .
 
 > [!NOTE]
 > Para instalar a versão mais recente do NuGet, primeiro desinstale a versão carregada usando o Gerenciador de extensões do Visual Studio. Para fazer isso, você deve executar o Visual Studio como administrador. Caso contrário, o botão Desinstalar é desabilitado.
@@ -174,7 +174,7 @@ catch (TwilioException ex)
 Quando o aplicativo iniciar uma chamada para a API do Twilio, por exemplo, por meio do método **CallResource.Create**, o Twilio enviará a solicitação para uma URL que deverá retornar uma resposta em TwiML. O exemplo na [como: fazer uma chamada externa](#howto_make_call) usa a URL fornecida pelo Twilio [https://twimlets.com/message][twimlet_message_url] para retornar a resposta.
 
 > [!NOTE]
-> Enquanto TwiML destina-se ao uso pelos serviços Web, é possível exibir o TwiML no seu navegador. Por exemplo, clique [https://twimlets.com/message][twimlet_message_url] para ver um elemento `<Response>` vazio; como outro exemplo, clique [https://twimlets.com/message?Message%5B0%5D=Hello%20World](https://twimlets.com/message?Message%5B0%5D=Hello%20World) para ver um `<Response>` elemento que contém um &lt;elemento&gt; de digamos.
+> Enquanto TwiML destina-se ao uso pelos serviços Web, é possível exibir o TwiML no seu navegador. Por exemplo, clique [https://twimlets.com/message][twimlet_message_url] para ver um `<Response>` elemento vazio; como outro exemplo, clique [https://twimlets.com/message?Message%5B0%5D=Hello%20World](https://twimlets.com/message?Message%5B0%5D=Hello%20World) para ver um `<Response>` elemento que contém um &lt; elemento de digamos &gt; .
 >
 
 Em vez de contar com a URL fornecida pela Twilio, você pode criar seu próprio site URL que retorna respostas HTTP. Você pode criar o site em qualquer linguagem que retorna respostas HTTP. Este tópico pressupõe que você irá hospedando a URL de um manipulador genérico do ASP.NET.
@@ -251,7 +251,7 @@ namespace WebRole1
 }
 ```
 
-Para obter mais informações sobre TwiML, [https://www.twilio.com/docs/api/twiml](https://www.twilio.com/docs/api/twiml)consulte.
+Para obter mais informações sobre TwiML, consulte [https://www.twilio.com/docs/api/twiml](https://www.twilio.com/docs/api/twiml) .
 
 Depois que você configurar uma forma de fornecer respostas TwiML, você poderá passar essa URL para o método **CallResource.Create**. Por exemplo, se você tiver um aplicativo Web chamado MyTwiML implantado em um serviço de nuvem do Azure e o nome de seu manipulador ASP.NET for mytwiml.ashx, a URL poderá ser passada para **CallResource.Create** conforme mostrado no exemplo de código a seguir:
 

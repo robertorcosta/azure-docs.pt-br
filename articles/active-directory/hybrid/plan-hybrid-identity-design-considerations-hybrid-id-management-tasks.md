@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8a829d39ff21a1abeafd3b4362747894d196d9d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67109380"
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Plano para o ciclo de vida de identidade híbrida
@@ -61,7 +61,7 @@ Ao definir esses requisitos, verifique se pelo menos as seguintes perguntas são
 ## <a name="synchronization-management"></a>Gerenciamento de sincronização
 Um dos objetivos de um gerenciador de identidades é ser capaz de buscar todos os provedores de identidade e mantê-los sincronizados. Você mantém os dados sincronizados baseado em um provedor de identidade mestre autoritativo. Em um cenário de identidade híbrida, com um modelo de gerenciamento sincronizado, você gerencia todas as identidades de usuários e de dispositivos em um servidor local, além de sincronizar contas e, opcionalmente, senhas para a nuvem. O usuário insere a mesma senha local que é inserida na nuvem e, no logon, a senha é verificada pela solução de identidade. Esse modelo usa uma ferramenta de sincronização de diretório.
 
-![sincronização](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png) de diretório para projetar adequadamente a sincronização da sua solução de identidade híbrida certifique-se de que as seguintes perguntas sejam respondidas:
+![sincronização ](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png) de diretório para projetar adequadamente a sincronização da sua solução de identidade híbrida certifique-se de que as seguintes perguntas sejam respondidas:
 *    Quais são as soluções de sincronização disponíveis para a solução de identidade híbrida?
 *    Quais são os recursos de logon único disponíveis?
 *    Quais são as opções de Federação de identidade entre B2B e B2C?

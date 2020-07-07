@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: a1da207a295b40f8d455635d687083bf69e90fdf
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67068904"
 ---
 # <a name="copying-existing-blobs-into-a-media-services-asset"></a>Copiar blobs existentes para um ativo dos Serviços de Mídia
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [serviços de mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 Este artigo mostra como copiar os blobs de uma conta de armazenamento para um novo ativo dos AMS (Serviços de Mídia do Azure) usando as [Extensões do SDK do .NET dos Serviços de Mídia do Azure](https://github.com/Azure/azure-sdk-for-media-services-extensions/).
 
@@ -49,7 +49,7 @@ Duas contas dos Serviços de Mídia. Confira o artigo [Como criar uma conta dos 
 ### <a name="download-sample"></a>Baixar exemplo
 Você pode seguir as etapas deste artigo ou baixar um exemplo que contém o código descrito [neste](https://azure.microsoft.com/documentation/samples/media-services-dotnet-copy-blob-into-asset/) artigo.
 
-### <a name="set-up-your-project"></a>Configurar o seu projeto
+### <a name="set-up-your-project"></a>Configurar o projeto
 
 1. Configure seu ambiente de desenvolvimento, conforme descrito em [Desenvolvimento de Serviços de Mídia com o .NET](media-services-dotnet-how-to-use.md). 
 2. Adicione a seção appSettings ao arquivo .config e atualize os valores com base em suas contas de Serviços de Mídia, na conta de armazenamento de destino e na ID do ativo de origem.  
@@ -165,7 +165,7 @@ namespace CopyExistingBlobsIntoAsset
 - Uma conta de armazenamento do qual você deseja copiar blobs.
 - Uma conta do AMS para qual você deseja copiar blobs.
 
-### <a name="set-up-your-project"></a>Configurar o seu projeto
+### <a name="set-up-your-project"></a>Configurar o projeto
 
 1. Configure seu ambiente de desenvolvimento, conforme descrito em [Desenvolvimento de Serviços de Mídia com o .NET](media-services-dotnet-how-to-use.md). 
 2. Adicione a seção appSettings ao arquivo .config e atualize os valores com base em suas contas do AMS de armazenamento de origem e destino.
@@ -190,7 +190,7 @@ namespace CopyExistingBlobsIntoAsset
 O código a seguir copia blobs de uma conta de armazenamento para um ativo dos Serviços de Mídia. 
 
 >[!NOTE]
->Há um limite de 1.000.000 políticas para diferentes políticas de AMS (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy). Use a mesma ID de política, se você estiver sempre usando os mesmos dias/permissões de acesso, por exemplo, políticas de localizadores que devem permanecer no local por um longo período (políticas de não carregamento). Para obter mais informações, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
+>Há um limite de 1.000.000 políticas para diferentes políticas de AMS (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy). Use a mesma ID de política, se você estiver sempre usando os mesmos dias/permissões de acesso, por exemplo, políticas de localizadores que devem permanecer no local por um longo período (políticas de não carregamento). Para saber mais, confira [este artigo](media-services-dotnet-manage-entities.md#limit-access-policies).
 
 ```csharp
 using System;
@@ -384,6 +384,6 @@ Você também pode usar as Azure Functions para disparar um trabalho de codifica
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Envie comentários
+## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

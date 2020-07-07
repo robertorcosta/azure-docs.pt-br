@@ -16,10 +16,10 @@ ms.date: 10/30/2014
 ms.author: erikre
 ms.reviewer: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
 ms.openlocfilehash: 35307848c09391ae4468afc00adafd8171aaaa7b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67876474"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>Como enviar email usando o SendGrid do Java em uma implantação do Azure
@@ -205,7 +205,7 @@ O código a seguir, que é chamado quando você preenche o formulário em emailf
     </body>
     </html>
 
-Além de enviar o email, o emailform. jsp fornece um resultado para o usuário; um exemplo é a seguinte captura de tela:
+Além de enviar o email, emailform.jsp fornece um resultado para o usuário; um exemplo é a seguinte captura de tela:
 
 ![Resultado de envio de email][emailresult]
 

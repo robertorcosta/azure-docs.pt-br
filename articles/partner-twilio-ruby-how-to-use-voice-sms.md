@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
 ms.openlocfilehash: 4822e6feb29f5a17c653a60937b895ec584e0ee4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "69637192"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-ruby"></a>Como usar o Twilio para recursos de voz e SMS no Ruby
@@ -28,7 +28,7 @@ Twilio é uma API do serviço Web de telefonia que permite usar os idiomas e as 
 **Twilio Voice** permite que seus aplicativos façam e recebam chamadas telefônicas. **Twilio SMS** permite que seus aplicativos façam e recebam mensagens SMS. **Twilio Cliente** permite que seus aplicativos habilitem a comunicação de voz usando as conexões existentes com a Internet, incluindo conexões para celular.
 
 ## <a name="twilio-pricing-and-special-offers"></a><a id="Pricing"></a>Preços e ofertas especiais da Twilio
-A informações sobre os preços do Twilio estão disponíveis em [Preços do Twilio][twilio_pricing]. Os clientes do Azure recebem uma [oferta especial][special_offer]: um crédito de 1.000 mensagens de texto gratuitas ou 1.000 minutos de entrada. Para se inscrever nesta oferta ou obter mais informações, visite [https://ahoy.twilio.com/azure][special_offer].  
+A informações sobre os preços do Twilio estão disponíveis em [Preços do Twilio][twilio_pricing]. Os clientes do Azure recebem uma [oferta especial][special_offer]: um crédito de 1.000 mensagens de texto gratuitas ou 1.000 minutos de entrada. Para se inscrever nesta oferta ou obter mais informações, visite [https://ahoy.twilio.com/azure][special_offer] .  
 
 ## <a name="concepts"></a><a id="Concepts"></a>Conceitos
 A API do Twilio é uma API RESTful que fornece os recursos de voz e SMS para aplicativos. As bibliotecas de cliente estão disponíveis em vários idiomas. Para obter uma lista, consulte [Bibliotecas de API do Twilio][twilio_libraries].
@@ -46,20 +46,20 @@ Por exemplo, o seguinte TwiML converteria a mensagem **Olá, mundo** em fala.
 Todos os documentos do TwiML têm `<Response>` como seu elemento raiz. Por meio disso, você usará os verbos do Twilio para definir o comportamento do seu aplicativo.
 
 ### <a name="twiml-verbs"></a><a id="Verbs"></a>Verbos do TwiML
-Os verbos do Twilio são marcas XML que dizem ao Twilio o que **fazer**. Por exemplo, o ** &lt;verbo&gt; digamos** instrui o twilio a forma audível a entregar uma mensagem em uma chamada. 
+Os verbos do Twilio são marcas XML que dizem ao Twilio o que **fazer**. Por exemplo, o verbo ** &lt; digamos &gt; ** instrui o twilio a forma audível a entregar uma mensagem em uma chamada. 
 
 A seguir está uma lista de verbos do Twilio.
 
-* **Discar&gt;: conecta o chamador a outro &lt;** telefone.
-* Coletar: coleta dígitos numéricos inseridos no teclado do telefone. ** &lt;&gt;**
-* Desligamento: encerra uma chamada. ** &lt;&gt;**
-* Play: reproduz um arquivo de áudio. ** &lt;&gt;**
-* Pausa: aguarda silenciosamente por um número especificado de segundos. ** &lt;&gt;**
-* Registro: registra a voz do chamador e retorna uma URL de um arquivo que contém a gravação. ** &lt;&gt;**
-* Redirect: transfere o controle de uma chamada ou SMS para o TwiML em uma URL diferente. ** &lt;&gt;**
-* Rejeitar: rejeita uma chamada recebida para o número do twilio sem cobrança ** &lt;&gt;**
-* Digamos: converte o texto em fala que é feito em uma chamada. ** &lt;&gt;**
-* SMS: envia uma mensagem SMS. ** &lt;&gt;**
+* ** &lt; Discar &gt; **: conecta o chamador a outro telefone.
+* ** &lt; Coletar &gt; **: coleta dígitos numéricos inseridos no teclado do telefone.
+* ** &lt; Desligamento &gt; **: encerra uma chamada.
+* ** &lt; Play &gt; **: reproduz um arquivo de áudio.
+* ** &lt; Pausa &gt; **: aguarda silenciosamente por um número especificado de segundos.
+* ** &lt; Registro &gt; **: registra a voz do chamador e retorna uma URL de um arquivo que contém a gravação.
+* ** &lt; Redirect &gt; **: transfere o controle de uma chamada ou SMS para o TwiML em uma URL diferente.
+* ** &lt; Rejeitar &gt; **: rejeita uma chamada recebida para o número do twilio sem cobrança
+* ** &lt; Digamos &gt; **: converte o texto em fala que é feito em uma chamada.
+* ** &lt; SMS &gt; **: envia uma mensagem SMS.
 
 Para obter mais informações sobre os verbos do Twilio, seus atributos e o TwiML, consulte [TwiML][twiml]. Para obter mais informações sobre a API do Twilio, consulte [API do Twilio][twilio_api].
 

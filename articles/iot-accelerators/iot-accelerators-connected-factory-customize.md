@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: dobett
 ms.openlocfilehash: 6062f8b3992732e0e0f9bbdae9549e69c393f4ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67080478"
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Personalizar como a solução Connected Factory exibe dados dos servidores OPC UA
@@ -71,7 +71,7 @@ Para saber mais sobre o mapeamento e a agregação dos dados a fim de atender à
 
 ## <a name="deploy-the-changes"></a>Implantar as alterações
 
-Quando terminar de fazer alterações no arquivo **ContosoTopologyDescription. JSON** , você deverá reimplantar a solução de fábrica conectada à sua conta do Azure.
+Quando terminar de fazer alterações na **ContosoTopologyDescription.jsno** arquivo, você deverá reimplantar a solução de fábrica conectada em sua conta do Azure.
 
 O repositório **azure-iot-connected-factory** inclui um script **build.ps1** do PowerShell que pode ser usado para recompilar e implantar a solução.
 
@@ -81,7 +81,7 @@ Saiba mais sobre o acelerador de solução Connected Factory lendo os seguintes 
 
 * [Permissões no site azureiotsolutions.com][lnk-permissions]
 * [Perguntas frequentes da fábrica conectada](iot-accelerators-faq-cf.md)
-* [Perguntas frequentes][lnk-faq]
+* [perguntas frequentes][lnk-faq]
 
 
 [img-oee-kpi]: ./media/iot-accelerators-connected-factory-customize/oeenadkpi.png

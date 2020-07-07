@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
 ms.openlocfilehash: 8c1c96fdb1f4f42c7592791881b855f74d411171
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70018278"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>Dimensionar automaticamente uma instância do Gerenciamento de API do Azure  
@@ -74,7 +74,7 @@ Siga as etapas abaixo para configurar o dimensionamento automático em um servi�
 
    Por exemplo, uma regra de escala horizontal pode disparar uma adição de uma unidade do Gerenciamento de API do Azure, quando a métrica de capacidade média nos últimos 30 minutos exceder 80%. A tabela a seguir fornece a configuração para essa regra.
 
-    | Parâmetro             | Valor             | Anotações                                                                                                                                                                                                                                                                           |
+    | Parâmetro             | Valor             | Observações                                                                                                                                                                                                                                                                           |
     |-----------------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Origem da métrica         | Recurso atual  | Defina a regra com base nas atuais métricas de recursos de Gerenciamento de API do Azure.                                                                                                                                                                                                     |
     | *Aos*            |                   |                                                                                                                                                                                                                                                                                 |
@@ -101,7 +101,7 @@ Siga as etapas abaixo para configurar o dimensionamento automático em um servi�
 
     Por exemplo, uma regra de redução horizontal pode disparar uma remoção de uma unidade do Gerenciamento de API do Azure, quando a métrica de capacidade média nos últimos 30 minutos for menor que 35%. A tabela a seguir fornece a configuração para essa regra.
 
-    | Parâmetro             | Valor             | Anotações                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+    | Parâmetro             | Valor             | Observações                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
     |-----------------------|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Origem da métrica         | Recurso atual  | Defina a regra com base nas atuais métricas de recursos de Gerenciamento de API do Azure.                                                                                                                                                                                                                                                                                                                                                                                                                         |
     | *Aos*            |                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |

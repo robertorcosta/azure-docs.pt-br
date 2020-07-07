@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 05/21/2018
 ms.author: alkohli
 ms.openlocfilehash: 2ffe17bf7ef4f01c18d2c26f4a045add7302272d
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67876112"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Visão geral da solução do Gerenciador de Dados do StorSimple
@@ -72,7 +72,7 @@ Recomendamos que:
     
 A Microsoft se esforça para garantir que os serviços do Azure estejam sempre disponíveis em todas as regiões. No entanto, as interrupções de serviço não planejadas podem ocorrer por períodos curtos em uma determinada região. Nesses casos, você pode abrir uma definição de Gerenciador de Dados e de trabalho em uma região que não é afetada pela interrupção e executar o trabalho de transformação. Você pode encontrar alguma latência adicional nesse cenário, mas essa pode ser a sua estratégia de recuperação no caso raro de uma interrupção regional.
 
-## <a name="security-considerations"></a>Considerações de segurança
+## <a name="security-considerations"></a>Considerações sobre segurança
 
 O Gerenciador de Dados do StorSimple precisa da chave de criptografia de dados de serviço para transformar a partir do formato do StorSimple para um formato nativo. A chave da criptografia de dados do serviço é gerada quando o primeiro dispositivo registra com o serviço do StorSimple. Para obter mais informações sobre essa chave, acesse [Segurança do StorSimple](storsimple-8000-security.md).
 

@@ -16,10 +16,10 @@ ms.date: 04/02/2019
 ms.author: rimayber
 ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank
 ms.openlocfilehash: bb23484903ac3ce129c6e7a7a27e0765c227fb1d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68297780"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>Ajuste de desempenho de TCP/IP para VMs do Azure
@@ -60,7 +60,7 @@ A fragmentação pode ser vista como uma operação negativa, mas o suporte à f
 
 Em geral, você pode criar uma rede mais eficiente aumentando a MTU. Cada pacote transmitido tem informações de cabeçalho que são adicionadas ao pacote original. Quando a fragmentação cria mais pacotes, há mais sobrecarga de cabeçalho e isso torna a rede menos eficiente.
 
-Veja um exemplo. O tamanho do cabeçalho de Ethernet é de 14 bytes mais uma sequência de verificação de quadro de 4 bytes para garantir a consistência do quadro. Se o pacote de 1 2.000 bytes for enviado, 18 bytes de sobrecarga de Ethernet serão adicionados na rede. Se o pacote estiver fragmentado em um pacote de 1.500 bytes e um pacote de 500 bytes, cada pacote terá 18 bytes de cabeçalho Ethernet, um total de 36 bytes.
+Aqui está um exemplo. O tamanho do cabeçalho de Ethernet é de 14 bytes mais uma sequência de verificação de quadro de 4 bytes para garantir a consistência do quadro. Se o pacote de 1 2.000 bytes for enviado, 18 bytes de sobrecarga de Ethernet serão adicionados na rede. Se o pacote estiver fragmentado em um pacote de 1.500 bytes e um pacote de 500 bytes, cada pacote terá 18 bytes de cabeçalho Ethernet, um total de 36 bytes.
 
 Tenha em mente que o aumento da MTU não criará, necessariamente, uma rede mais eficiente. Se um aplicativo enviar somente pacotes de 500 bytes, a mesma sobrecarga de cabeçalho existirá se o MTU for 1.500 bytes ou 9.000 bytes. A rede se tornará mais eficiente apenas se usar tamanhos de pacotes maiores que são afetados pela MTU.
 
@@ -201,7 +201,7 @@ Um fator de escala de 14 resulta em um tamanho de janela TCP de 14 (o deslocamen
 
 #### <a name="support-for-tcp-window-scaling"></a>Suporte para dimensionamento de janela TCP
 
-O Windows pode definir fatores de dimensionamento diferentes para tipos de conexão diferentes. (As classes de conexões incluem datacenter, Internet e assim por diante.) Use o comando `Get-NetTCPConnection` do PowerShell para exibir o tipo de conexão de dimensionamento de janela:
+O Windows pode definir fatores de dimensionamento diferentes para tipos de conexão diferentes. (As classes de conexões incluem datacenter, Internet e assim por diante.) Use o `Get-NetTCPConnection` comando do PowerShell para exibir o tipo de conexão de dimensionamento de janela:
 
 ```powershell
 Get-NetTCPConnection
@@ -213,17 +213,17 @@ Você pode usar o `Get-NetTCPSetting` comando do PowerShell para exibir os valor
 Get-NetTCPSetting
 ```
 
-Você pode definir o tamanho inicial da janela TCP e o fator de dimensionamento TCP no `Set-NetTCPSetting` Windows usando o comando do PowerShell. Para obter mais informações, consulte [set-NetTCPSetting](https://docs.microsoft.com/powershell/module/nettcpip/set-nettcpsetting?view=win10-ps).
+Você pode definir o tamanho inicial da janela TCP e o fator de dimensionamento TCP no Windows usando o `Set-NetTCPSetting` comando do PowerShell. Para obter mais informações, consulte [set-NetTCPSetting](https://docs.microsoft.com/powershell/module/nettcpip/set-nettcpsetting?view=win10-ps).
 
 ```powershell
 Set-NetTCPSetting
 ```
 
-Essas são as configurações de TCP efetivas para `AutoTuningLevel`:
+Essas são as configurações de TCP efetivas para `AutoTuningLevel` :
 
 | | | | |
 |-|-|-|-|
-|**AutoTuningLevel**|**Fator de dimensionamento**|**Multiplicador de dimensionamento**|**Fórmula para<br/>calcular o tamanho máximo da janela**|
+|**AutoTuningLevel**|**Fator de dimensionamento**|**Multiplicador de dimensionamento**|**Fórmula para <br/> calcular o tamanho máximo da janela**|
 |Desabilitado|Nenhum|Nenhum|Tamanho da janela|
 |Restrito|4|2 ^ 4|Tamanho da janela * (2 ^ 4)|
 |Altamente restrito|2|2 ^ 2|Tamanho da janela * (2 ^ 2)|

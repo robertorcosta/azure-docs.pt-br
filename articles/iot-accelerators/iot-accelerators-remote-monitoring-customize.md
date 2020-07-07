@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 11/09/2018
 ms.topic: conceptual
 ms.openlocfilehash: eb3d5fea68b5b1b6e648943cb3dbaab5857e9e07
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68608011"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>Personalizar o acelerador da solução de Monitoramento Remoto
@@ -73,7 +73,7 @@ As etapas a seguir descrevem o processo de configurar um ambiente local para o d
     npm start
     ```
 
-1. O comando anterior executa a interface do usuário localmente em\/http:/localhost: 3000/Dashboard. Você pode editar o código enquanto o site está em execução e vê-lo ser atualizado dinamicamente.
+1. O comando anterior executa a interface do usuário localmente em http: \/ /localhost: 3000/Dashboard. Você pode editar o código enquanto o site está em execução e vê-lo ser atualizado dinamicamente.
 
 ## <a name="customize-the-layout"></a>Personalizar o layout
 
@@ -502,7 +502,7 @@ Neste artigo, você aprendeu sobre os recursos disponíveis para ajudá-lo a per
 * [Adicionar um desdobrável personalizado à interface de usuário da web do acelerador de solução de monitoramento remoto](iot-accelerators-remote-monitoring-customize-flyout.md)
 * [Adicionar um painel personalizado ao dashboard na interface do usuário da Web do acelerador de solução de Monitoramento Remoto](iot-accelerators-remote-monitoring-customize-panel.md)
 
-Para obter mais informações conceituais sobre o acelerador de solução de monitoramento remoto, consulte [arquitetura de monitoramento remoto](iot-accelerators-remote-monitoring-sample-walkthrough.md)
+Para obter mais informações conceituais sobre o acelerador da solução de Monitoramento Remoto, veja [Arquitetura de Monitoramento Remoto](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 
 Para obter mais informações sobre como personalizar os microsserviços de solução de monitoramento remoto, consulte [Personalizar e reimplantar um microsserviço](iot-accelerators-microservices-example.md).
 <!-- Next tutorials in the sequence -->

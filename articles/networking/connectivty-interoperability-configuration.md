@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
 ms.openlocfilehash: 9c4a57111566248d3537cab0d9d85c0c3be874a1
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68335934"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-test-configuration-details"></a>Interoperabilidade em recursos de conectividade de backend do Azure: detalhes da configuração do teste
@@ -25,7 +25,7 @@ Este artigo descreve os detalhes de configuração da [configuração do teste][
 
 A figura a seguir mostra os detalhes de emparelhamento DE Rede Virtual do Azure de uma VNet (rede virtual) do spoke. Para saber como configurar o emparelhamento entre duas VNets, consulte [Gerenciar emparelhamento de VNet][VNet-Config]. Se você quiser que a VNet do spoke use os gateways conectados à VNet do hub, selecione **Usar gateways remotos**.
 
-[![uma]][1]
+[![1]][1]
 
 A figura a seguir mostra os detalhes de emparelhamento VNet da VNet do hub. Se você quiser que a VNet do Hub permita que a VNet do spoke use os gateways do Hub, selecione **Permitir trânsito do gateway**.
 
@@ -36,7 +36,7 @@ A figura a seguir mostra os detalhes de emparelhamento VNet da VNet do hub. Se v
 Configure a conectividade VPN site a site entre as VNets de branch e hub, usando gateways de VPN no Gateway de VPN do Azure. Por padrão, os gateways de VPN e gateways do Azure ExpressRoute usam um valor de ASN (número do sistema autônomo) privado de **65515**. É possível alterar o valor do ASN no Gateway de VPN. Na configuração do teste, o valor do ASN do gateway de VPN da VNet de branch é alterado para **65516** para dar suporte ao roteamento de eBGP entre as VNets de branch e hub.
 
 
-[![3]][3]
+[![Beta]][3]
 
 
 ## <a name="on-premises-location-1-connectivity-by-using-expressroute-and-a-site-to-site-vpn"></a>Conectividade de Localização 1 local usando ExpressRoute e uma VPN site to site
@@ -49,7 +49,7 @@ A figura a seguir mostra a configuração do circuito do ExpressRoute da Região
 
 A figura a seguir mostra a configuração da conexão entre o circuito do ExpressRoute 1 e a VNet do hub:
 
-[![5]][5]
+[![05]][5]
 
 A lista a seguir mostra a configuração do roteador CE primário para conectividade de emparelhamento privado do ExpressRoute. (Roteadores Cisco ASR1000 são usados como roteadores CE na configuração do teste.) Quando os circuitos VPN site a site e ExpressRoute são configurados em paralelo para conectar uma rede local ao Azure, o Azure prioriza o circuito do ExpressRoute por padrão. Para evitar o roteamento assimétrico, a rede local também deverá priorizar a conectividade do ExpressRoute sobre conectividade VPN site a site. A configuração a seguir estabelece a priorização usando o atributo de BGP **local-preference**:
 

@@ -10,10 +10,10 @@ ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.openlocfilehash: 08f0456b6a8b663f0af68fbb179de14b9e3acf79
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70914062"
 ---
 # <a name="install-data-lake-tools-for-visual-studio"></a>Instalar Ferramentas do Data Lake para Visual Studio
@@ -48,7 +48,7 @@ Habilite a carga de trabalho de **Desenvolvimento do Azure** conforme mostrado:
 
 Baixe e instale o [Microsoft Azure data Lake e as ferramentas de Stream Analytics para Visual Studio ](https://aka.ms/adltoolsvs). Após a instalação, o Visual Studio tem as seguintes alterações:
 
-* O nó **Gerenciador de servidores** > **Azure** contém um nó **Data Lake Analytics** .
+* O nó **Gerenciador de servidores**  >  **Azure** contém um nó **Data Lake Analytics** .
 * O menu de **ferramentas** tem um item do **Data Lake**.
 
 ## <a name="next-steps"></a>Próximas etapas

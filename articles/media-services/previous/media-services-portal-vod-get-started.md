@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 4a947c01d63e3842ead91481e480024a54380144
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "69015047"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Introdução ao fornecimento de conteúdo sob demanda usando o portal do Azure
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [serviços de mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 Este tutorial o orienta ao longo das etapas de implementação de um serviço básico de fornecimento de conteúdo de vídeo sob demanda com o aplicativo dos Serviços de Mídia do Azure no portal do Azure.
 
@@ -32,7 +32,7 @@ Este tutorial o orienta ao longo das etapas de implementação de um serviço b�
 Os seguintes itens são necessários para concluir o tutorial:
 
 * Uma conta do Azure. Para obter detalhes, consulte [avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). 
-* Uma conta dos Serviços de Mídia. Para criar uma conta de Serviços de Mídia, confira [Como criar uma conta dos Serviços de Mídia](media-services-portal-create-account.md).
+* Uma conta dos Serviços de Mídia. Para criar uma conta de serviços de mídia, consulte [como criar uma conta de serviços de mídia](media-services-portal-create-account.md).
 
 Este tutorial inclui as seguintes tarefas:
 
@@ -52,8 +52,8 @@ Um dos cenários mais comuns ao se trabalhar com os Serviços de Mídia do Azure
 Para iniciar o ponto de extremidade de streaming:
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
-2. Selecione **configurações** > **pontos de extremidade de streaming**. 
-3. Selecione o ponto de extremidade de streaming padrão. A janela **DETALHES DO PONTO DE EXTREMIDADE DE STREAMING PADRÃO** é exibida.
+2. Selecione **configurações**  >  **pontos de extremidade de streaming**. 
+3. Selecione o ponto de extremidade de streaming padrão. A janela **detalhes do ponto de extremidade de streaming padrão** é exibida.
 4. Selecione o ícone **Iniciar**.
 5. Selecione o botão **Salvar**.
 
@@ -61,7 +61,7 @@ Para iniciar o ponto de extremidade de streaming:
 Para transmitir vídeos usando os Serviços de Mídia do Azure, carregue os vídeos de origem, codifique-os em várias taxas de bits e publique o resultado. A primeira etapa é abordada nesta seção. 
 
 1. No [Portal do Azure](https://portal.azure.com/), selecione sua conta dos Serviços de Mídia do Azure.
-2. Selecione **configurações** > **ativos**. Em seguida, selecione o botão **Carregar**.
+2. Selecione **configurações**  >  **ativos**. Em seguida, selecione o botão **Carregar**.
    
     ![Carregar arquivos](./media/media-services-portal-vod-get-started/media-services-upload.png)
    
@@ -84,7 +84,7 @@ Para aproveitar o empacotamento dinâmico, você deve codificar o arquivo de ori
 Para codificar o conteúdo usando o Media Encoder Standard no portal do Azure:
 
 1. No [Portal do Azure](https://portal.azure.com/), selecione sua conta dos Serviços de Mídia do Azure.
-2. Selecione **configurações** > **ativos**. Selecione o ativo que você deseja codificar.
+2. Selecione **configurações**  >  **ativos**. Selecione o ativo que você deseja codificar.
 3. Selecione o botão **Codificar**.
 4. No painel **Codificar um ativo** , selecione o processador **Media Encoder Standard** e uma predefinição. Para saber mais sobre as predefinições, confira [Gerar automaticamente uma escada de taxa de bits](media-services-autogen-bitrate-ladder-with-mes.md) e [Predefinições de tarefa para Media Encoder Standard](media-services-mes-presets-overview.md). É importante escolher a predefinição que funcione melhor para o vídeo de entrada. Por exemplo, se você souber que o vídeo de entrada tem uma resolução de 1920 x 1080 pixels, poderá usar a predefinição **H264 Taxas de Bits Múltiplas 1080p**. Se você tiver um vídeo de resolução baixa (640 x 360), você não deverá usar a predefinição **H264 Taxas de Bits Múltiplas 1080p**.
    
@@ -132,7 +132,7 @@ Para atualizar uma data de validade em um localizador, você pode usar uma [API 
 
 ### <a name="to-use-the-portal-to-publish-an-asset"></a>Para usar o portal para publicar um ativo
 1. No [Portal do Azure](https://portal.azure.com/), selecione sua conta dos Serviços de Mídia do Azure.
-2. Selecione **configurações** > **ativos**. Selecione o ativo que você deseja publicar.
+2. Selecione **configurações**  >  **ativos**. Selecione o ativo que você deseja publicar.
 3. Clique no botão **Publicar**.
 4. Selecione o tipo de localizador.
 5. Selecione **Adicionar**.
@@ -154,7 +154,7 @@ Algumas considerações se aplicam:
 * Verifique se que o vídeo foi publicado.
 * O player de mídia do Portal do Azure reproduz do ponto de extremidade de streaming padrão. Se você quiser reproduzir de um ponto de extremidade de streaming não padrão, selecione e copie a URL e cole-a em outro player. Por exemplo, você pode testar o vídeo no [Player de Mídia do Azure](https://aka.ms/azuremediaplayer).
 
-## <a name="provide-feedback"></a>Envie comentários
+## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Próximas etapas

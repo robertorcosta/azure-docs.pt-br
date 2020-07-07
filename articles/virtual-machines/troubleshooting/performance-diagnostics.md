@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
 ms.openlocfilehash: 16be3d1695608165405a3490b686a01ba6a2a62c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70080609"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Diagnóstico de desempenho de máquinas virtuais do Azure
@@ -37,10 +37,10 @@ Windows 10, Windows 8, Windows 8 Enterprise, Windows 8 Pro, Windows 8.1, Windows
 
 ### <a name="linux"></a>Linux
 
-Oracle Linux Server 6,10 [`*`], 7,3, 7,6, 7,5 (Oracle-Database-EE 13,8 imagem do Marketplace), CentOS 6,5`*`[], 7,6, RHEL 7,2, 7,5, 8,0`*`[], Ubuntu 14, 4, 16, 4, 18, 4, Debian 8, 9, 10`*`[], SLES 12 SP4`*`[]
+Oracle Linux Server 6,10 [ `*` ], 7,3, 7,6, 7,5 (Oracle-Database-Ee 13,8 imagem do Marketplace), CentOS 6,5 [ `*` ], 7,6, RHEL 7,2, 7,5, 8,0 [ `*` ], Ubuntu 14, 4, 16, 4, 18, 4, Debian 8, 9, 10 [ `*` ], SLES 12 SP4 [ `*` ]
 
 >[!Note]
->[`*`] Consulte os [problemas conhecidos](how-to-use-perfinsights-linux.md#known-issues)
+>[ `*` ] Consulte os [problemas conhecidos](how-to-use-perfinsights-linux.md#known-issues)
 
 ## <a name="install-and-run-performance-diagnostics-on-your-vm"></a>Instalar e executar o diagnóstico de desempenho em sua VM
 
@@ -86,7 +86,7 @@ Os cenários de análise a seguir estão disponíveis no portal do Azure. Seleci
     Inclui todas as verificações na análise de desempenho e captura um rastreamento de rede e contadores de SMB. Use este cenário para solucionar problemas de desempenho de Arquivos do Azure. Essa análise demora 30 segundos para 15 minutos para ser executada, dependendo da duração selecionada. [Saiba mais](https://aka.ms/perfinsights/azurefiles)
 
 >[!Note]
->[`*`] Esses cenários de análise só têm suporte no Windows.
+>[ `*` ] Esses cenários de análise só têm suporte no Windows.
 
 ![Captura de tela do painel Executar diagnóstico na folha Diagnóstico de desempenho](media/performance-diagnostics/run-diagnostics-pane.png)
 
@@ -109,7 +109,7 @@ Uma notificação é exibida quando o diagnóstico de desempenho começa a ser i
 Depois que a análise for concluída, os seguintes itens serão carregados para tabelas do Azure e um contêiner de BLOB (objeto binário grande) na conta de armazenamento especificada:
 
 * Todos os insights e informações relacionadas sobre a execução
-* Um arquivo compactado de saída (. zip) (chamado **PerformanceDiagnostics_yyyy-mm-dd_hh-mm-SS-FFF. zip** ) no Windows e um arquivo de bola tar (chamado **PerformanceDiagnostics_yyyy-mm-dd_hh-mm-SS-FFF. tar. gz** ) no Linux que contém arquivos de log
+* Um arquivo compactado de saída (. zip) (chamado **PerformanceDiagnostics_yyyy-MM-dd_hh-mm-ss-fff.zip** ) no Windows e um arquivo de bola tar (chamado **PerformanceDiagnostics_yyyy-mm-dd_hh-mm-SS-FFF. tar. gz** ) no Linux que contém arquivos de log
 * Um relatório HTML
 
 Após o upload, um novo relatório de diagnóstico é listado no portal do Azure.
@@ -201,4 +201,4 @@ No momento, não há nenhuma maneira fácil de saber exatamente quando a instala
 
 Depois de examinar os insights e o relatório de diagnóstico de desempenho, se você ainda não conseguir determinar a causa do problema e precisar de mais ajuda, poderá abrir um tíquete de suporte com o atendimento ao cliente Microsoft.
 
-Se precisar de mais ajuda a qualquer momento neste artigo, você poderá entrar em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow do MSDN](https://azure.microsoft.com/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/)e selecione **obter suporte**. Para obter informações sobre como usar o suporte do Azure, leia as [perguntas frequentes sobre suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).
+Caso precise de mais ajuda em qualquer ponto deste artigo, entre em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN](https://azure.microsoft.com/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/)e selecione **obter suporte**. Para obter informações sobre como usar o suporte do Azure, leia as [perguntas frequentes sobre suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).

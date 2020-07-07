@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: amverma
 ms.openlocfilehash: 8d4b57fb2fee3849e102868c86fe3cab465fc70d
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67707789"
 ---
 # <a name="known-issues-with-hb-series-and-hc-series-vms"></a>Problemas comuns com VMs série HB e série HC
@@ -53,7 +53,7 @@ Em sistemas HPC, geralmente é útil limpar a memória após a conclusão de um 
 
 ![Captura de tela do prompt de comando](./media/known-issues/cache-cleaning-1.png)
 
-O `numactl -H` uso do mostrará a quais NUMAnode a memória é armazenada em buffer (possivelmente todos). No Linux, os usuários podem limpar os caches de três maneiras para retornar memória armazenada em buffer ou em cache para ' Free '. Você precisa ser root ou ter permissões sudo.
+`numactl -H`O uso do mostrará a quais NUMAnode a memória é armazenada em buffer (possivelmente todos). No Linux, os usuários podem limpar os caches de três maneiras para retornar memória armazenada em buffer ou em cache para ' Free '. Você precisa ser root ou ter permissões sudo.
 
 ```console
 echo 1 > /proc/sys/vm/drop_caches [frees page-cache]
