@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/31/2020
 ms.openlocfilehash: df96ceb47bf33b734f2127bade50af18713a97a0
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82581372"
 ---
 # <a name="azure-monitor-for-vms-generally-available-ga-frequently-asked-questions"></a>Perguntas frequentes de Azure Monitor para VMs disponíveis (GA)
@@ -44,17 +44,17 @@ Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <resource-grou
 
 ## <a name="what-should-i-do-about-the-performance-counters-in-my-workspace-if-i-install-the-vminsights-solution"></a>O que devo fazer sobre os contadores de desempenho em meu espaço de trabalho se eu instalar a solução VMInsights?
 
-O método anterior de habilitar Azure Monitor para VMs contadores de desempenho usados em seu espaço de trabalho. A versão atual armazena esses dados em uma tabela chamada `InsightsMetrics`. Você pode optar por desabilitar esses contadores de desempenho em seu espaço de trabalho se não precisar mais usá-los. 
+O método anterior de habilitar Azure Monitor para VMs contadores de desempenho usados em seu espaço de trabalho. A versão atual armazena esses dados em uma tabela chamada `InsightsMetrics` . Você pode optar por desabilitar esses contadores de desempenho em seu espaço de trabalho se não precisar mais usá-los. 
 
 >[!NOTE]
->Se você tiver regras de alerta que referenciem esses contadores `Perf` na tabela, será necessário atualizá-los para fazer referência a novos `InsightsMetrics` dados armazenados na tabela. Consulte nossa documentação para obter exemplos de consultas de log que você pode usar para fazer referência a esta tabela.
+>Se você tiver regras de alerta que referenciem esses contadores na `Perf` tabela, será necessário atualizá-los para fazer referência a novos dados armazenados na `InsightsMetrics` tabela. Consulte nossa documentação para obter exemplos de consultas de log que você pode usar para fazer referência a esta tabela.
 >
 
-Se você decidir manter os contadores de desempenho habilitados, você será cobrado pelos dados ingeridos e armazenados na `Perf` tabela com base em [preços de log Analytics [https://azure.microsoft.com/pricing/details/monitor/)(.
+Se você decidir manter os contadores de desempenho habilitados, você será cobrado pelos dados ingeridos e armazenados na `Perf` tabela com base em [preços de log Analytics [( https://azure.microsoft.com/pricing/details/monitor/) .
 
 ## <a name="how-will-this-change-affect-my-alert-rules"></a>Como essa alteração afetará minhas regras de alerta?
 
-Se você tiver criado [alertas de log](../platform/alerts-unified-log.md) que consultam a tabela que direciona os `Perf` contadores de desempenho que foram habilitados no espaço de trabalho, você deve `InsightsMetrics` atualizar essas regras para fazer referência à tabela em vez disso. Essa orientação também se aplica a qualquer regra de pesquisa `ServiceMapComputer_CL` de `ServiceMapProcess_CL`log usando e, porque esses conjuntos de `VMComputer` dados `VMProcess` estão sendo movidos para tabelas e.
+Se você tiver criado [alertas de log](../platform/alerts-unified-log.md) que consultam a `Perf` tabela que direciona os contadores de desempenho que foram habilitados no espaço de trabalho, você deve atualizar essas regras para fazer referência à `InsightsMetrics` tabela em vez disso. Essa orientação também se aplica a qualquer regra de pesquisa de log usando `ServiceMapComputer_CL` e `ServiceMapProcess_CL` , porque esses conjuntos de dados estão sendo movidos para `VMComputer` `VMProcess` tabelas e.
 
 Atualizaremos essas perguntas frequentes e nossa documentação para incluir regras de alerta de pesquisa de log de exemplo para os conjuntos de dados que coletamos.
 
@@ -68,25 +68,25 @@ Os dados de desempenho no nível da máquina que coletamos são os mesmos, é de
 
 Tudo bem. Você verá prompts na portal do Azure ao exibir Azure Monitor para VMs sobre a próxima atualização. Depois de liberado, você receberá uma solicitação solicitando que você atualize para a nova versão. Se preferir usar apenas o recurso [Maps](vminsights-maps.md) , você poderá optar por não atualizar e continuar a usar o recurso maps no Azure monitor para VMs e a solução de mapa do serviço acessada do seu espaço de trabalho ou bloco do Dashboard.
 
-Se você optar por habilitar manualmente os contadores de desempenho em seu espaço de trabalho, poderá ver os dados em alguns dos nossos gráficos de desempenho exibidos em Azure Monitor. Depois que a nova solução for lançada, atualizaremos nossos gráficos de desempenho para consultar os dados armazenados `InsightsMetrics` na tabela. Se você quiser ver os dados dessa tabela nesses gráficos, será necessário atualizar para a nova versão do Azure Monitor para VMs.
+Se você optar por habilitar manualmente os contadores de desempenho em seu espaço de trabalho, poderá ver os dados em alguns dos nossos gráficos de desempenho exibidos em Azure Monitor. Depois que a nova solução for lançada, atualizaremos nossos gráficos de desempenho para consultar os dados armazenados na `InsightsMetrics` tabela. Se você quiser ver os dados dessa tabela nesses gráficos, será necessário atualizar para a nova versão do Azure Monitor para VMs.
 
-As alterações para mover dados do `ServiceMapComputer_CL` e `ServiceMapProcess_CL` afetarão mapa do serviço e Azure monitor para VMs, para que você ainda precise planejar essa atualização.
+As alterações para mover dados do `ServiceMapComputer_CL` e `ServiceMapProcess_CL` afetarão Mapa do Serviço e Azure monitor para VMs, para que você ainda precise planejar essa atualização.
 
-Se você optar por não atualizar para a solução **VMInsights** , continuaremos a fornecer versões herdadas de nossas pastas de trabalho de desempenho que se referem `Perf` aos dados na tabela.  
+Se você optar por não atualizar para a solução **VMInsights** , continuaremos a fornecer versões herdadas de nossas pastas de trabalho de desempenho que se referem aos dados na `Perf` tabela.  
 
 ## <a name="will-the-service-map-data-sets-also-be-stored-in-insightsmetrics"></a>Os conjuntos de dados de Mapa do Serviço também serão armazenados em InsightsMetrics?
 
-Os conjuntos de dados não serão duplicados se você usar ambas as soluções. As duas `VMComputer` ofertas compartilham os conjuntos de dados que serão armazenados (anteriormente ServiceMapComputer_CL), `VMProcess` (anteriormente ServiceMapProcess_CL), `VMConnection`e `VMBoundPort` tabelas para armazenar os conjuntos de dados do mapa que coletamos.  
+Os conjuntos de dados não serão duplicados se você usar ambas as soluções. As duas ofertas compartilham os conjuntos de dados que serão armazenados `VMComputer` (anteriormente ServiceMapComputer_CL), `VMProcess` (anteriormente ServiceMapProcess_CL), `VMConnection` e `VMBoundPort` tabelas para armazenar os conjuntos de dados do mapa que coletamos.  
 
 A `InsightsMetrics` tabela armazenará a VM, o processo e os conjuntos de dados de serviço que coletamos e só serão populados se você estiver usando Azure monitor para VMs e a solução de informações de VM. A solução de Mapa do Serviço não coletará ou armazenará dados na `InsightsMetrics` tabela.
 
 ## <a name="will-i-be-double-charged-if-i-have-the-service-map-and-vminsights-solutions-in-my-workspace"></a>Serei uma cobrança dupla se eu tiver as soluções Mapa do Serviço e VMInsights em meu espaço de trabalho?
 
-Não, `VMComputer` as duas soluções compartilham os conjuntos de dados do mapa que armazenamos (anteriormente ServiceMapComputer_CL) `VMProcess` , (anteriormente ServiceMapProcess_CL) `VMConnection`, e `VMBoundPort`. Você não será cobrado duas vezes por esses dados se tiver as duas soluções em seu espaço de trabalho.
+Não, as duas soluções compartilham os conjuntos de dados do mapa que armazenamos `VMComputer` (anteriormente ServiceMapComputer_CL), `VMProcess` (anteriormente ServiceMapProcess_CL), `VMConnection` e `VMBoundPort` . Você não será cobrado duas vezes por esses dados se tiver as duas soluções em seu espaço de trabalho.
 
 ## <a name="if-i-remove-either-the-service-map-or-vminsights-solution-will-it-remove-my-data"></a>Se eu remover a solução Mapa do Serviço ou VMInsights, ela removerá meus dados?
 
-Não, `VMComputer` as duas soluções compartilham os conjuntos de dados do mapa que armazenamos (anteriormente ServiceMapComputer_CL) `VMProcess` , (anteriormente ServiceMapProcess_CL) `VMConnection`, e `VMBoundPort`. Se você remover uma das soluções, esses conjuntos de dados perceberão que ainda há uma solução em vigor que usa os dados e ela permanece no espaço de trabalho Log Analytics. Você precisa remover ambas as soluções do seu espaço de trabalho para que os dados sejam removidos dela.
+Não, as duas soluções compartilham os conjuntos de dados do mapa que armazenamos `VMComputer` (anteriormente ServiceMapComputer_CL), `VMProcess` (anteriormente ServiceMapProcess_CL), `VMConnection` e `VMBoundPort` . Se você remover uma das soluções, esses conjuntos de dados perceberão que ainda há uma solução em vigor que usa os dados e ela permanece no espaço de trabalho Log Analytics. Você precisa remover ambas as soluções do seu espaço de trabalho para que os dados sejam removidos dela.
 
 ## <a name="health-feature-is-in-limited-public-preview"></a>O recurso de integridade está em visualização pública limitada
 
@@ -100,9 +100,9 @@ Planejamos reiniciar esse recurso de integridade no 2020, depois que Azure Monit
 
 Os clientes existentes que estão usando o recurso de integridade continuarão a ter acesso a ele, mas não serão oferecidos a novos clientes.  
 
-Para acessar o recurso, você pode adicionar o seguinte sinalizador `feature.vmhealth=true` de recurso à URL [https://portal.azure.com](https://portal.azure.com)de portal do Azure. Exemplo `https://portal.azure.com/?feature.vmhealth=true`.
+Para acessar o recurso, você pode adicionar o seguinte sinalizador de recurso `feature.vmhealth=true` à URL de portal do Azure [https://portal.azure.com](https://portal.azure.com) . Exemplo `https://portal.azure.com/?feature.vmhealth=true` .
 
-Você também pode usar essa URL curta, que define o sinalizador de recurso automaticamente [https://aka.ms/vmhealthpreview](https://aka.ms/vmhealthpreview):.
+Você também pode usar essa URL curta, que define o sinalizador de recurso automaticamente: [https://aka.ms/vmhealthpreview](https://aka.ms/vmhealthpreview) .
 
 Como um cliente existente, você pode continuar a usar o recurso de integridade em VMs que estão conectadas a uma configuração de espaço de trabalho existente com a funcionalidade de integridade.  
 

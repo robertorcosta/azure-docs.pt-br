@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
 ms.openlocfilehash: 1de7b1412a242e1b658128ba11f482a2d9dc3107
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82594790"
 ---
 # <a name="scaling-hpc-applications"></a>Dimensionamento de aplicativos HPC
@@ -33,11 +33,11 @@ O sistema do compilador AMD de otimização C/C++ (AOCC) oferece um alto nível 
 
 ### <a name="clang"></a>Clang
 
-Clang é um compilador C, C++ e Objective-C que manipula o pré-processamento, a análise, a otimização, a geração de código, o assembly e a vinculação. O `-march=znver1` Clang dá suporte ao sinalizador para permitir a melhor geração de código e ajuste para a arquitetura x86 baseada em Zen da AMD.
+Clang é um compilador C, C++ e Objective-C que manipula o pré-processamento, a análise, a otimização, a geração de código, o assembly e a vinculação. O Clang dá suporte ao `-march=znver1` sinalizador para permitir a melhor geração de código e ajuste para a arquitetura x86 baseada em Zen da AMD.
 
 ### <a name="flang"></a>FLANG
 
-O compilador FLANG é uma adição recente ao AOCC Suite (adicionado em abril de 2018) e atualmente está em pré-lançamento para que os desenvolvedores baixem e testem. Com base no Fortran 2008, o AMD estende a versão do GitHubhttps://github.com/flang-compiler/flang)do Flang (. O compilador FLANG dá suporte a todas as opções do compilador Clang e a um número adicional de opções de compilador específicas do FLANG.
+O compilador FLANG é uma adição recente ao AOCC Suite (adicionado em abril de 2018) e atualmente está em pré-lançamento para que os desenvolvedores baixem e testem. Com base no Fortran 2008, o AMD estende a versão do GitHub do FLANG ( https://github.com/flang-compiler/flang) . O compilador FLANG dá suporte a todas as opções do compilador Clang e a um número adicional de opções de compilador específicas do FLANG.
 
 ### <a name="dragonegg"></a>DragonEgg
 

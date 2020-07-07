@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.openlocfilehash: 774822eae5ab327f57da3eca4499ca14d3e0c7a1
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82584305"
 ---
 # <a name="application-model"></a>Modelo de aplicativo
@@ -76,11 +76,11 @@ Você pode repetir esse processo para locatários adicionais. O locatário A man
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para outros tópicos que abrangem noções básicas de autenticação e autorização:
+Para outros tópicos de noções básicas sobre autenticação e autorização:
 
-* Consulte [autenticação vs. autorização](authentication-vs-authorization.md) para saber mais sobre os conceitos básicos de autenticação e autorização na plataforma Microsoft Identity.
-* Consulte [tokens de segurança](security-tokens.md) para saber como tokens de acesso, tokens de atualização e tokens de ID são usados em autenticação e autorização.
-* Consulte [fluxo de entrada do aplicativo](app-sign-in-flow.md) para saber mais sobre o fluxo de entrada de aplicativos Web, de área de trabalho e móveis na plataforma Microsoft Identity.
+* Confira [Autenticação versus autorização](authentication-vs-authorization.md) para saber mais sobre os conceitos básicos de autenticação e autorização na plataforma de identidade da Microsoft.
+* Confira [Tokens de segurança](security-tokens.md) para saber como os tokens de acesso, de atualização e de ID são usados na autorização e na autenticação.
+* Confira [Fluxo de entrada de aplicativos](app-sign-in-flow.md) para saber mais sobre o fluxo de entrada de aplicativos da Web, de desktop e móveis na plataforma de identidade da Microsoft.
 
 Para saber mais sobre o modelo de aplicativo:
 

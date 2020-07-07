@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/29/2020
 ms.openlocfilehash: 2dae0f662eefa7f7b1f56d057cd47f1cb92244ce
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82592053"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Dimensionar clusters do Azure HDInsight
@@ -80,7 +80,7 @@ O impacto da alteração do número de nós de dados varia em cada tipo de clust
 
     Use as etapas a seguir para redistribuir uma topologia usando a interface do usuário do Storm.
 
-    1. Abra `https://CLUSTERNAME.azurehdinsight.net/stormui` o no navegador da Web, `CLUSTERNAME` em que é o nome do cluster Storm. Se solicitado, insira o nome de administrador (admin) do cluster HDInsight e a senha que você especificou ao criar o cluster.
+    1. Abra o `https://CLUSTERNAME.azurehdinsight.net/stormui` no navegador da Web, em que `CLUSTERNAME` é o nome do cluster Storm. Se solicitado, insira o nome de administrador (admin) do cluster HDInsight e a senha que você especificou ao criar o cluster.
 
     1. Selecione a topologia que você quer rebalancear e selecione o botão **Rebalancear** . Insira o atraso antes que a operação de rebalanceamento seja concluída.
 
@@ -119,14 +119,14 @@ Para evitar que seus trabalhos em execução falhem durante uma operação de re
 
 Para ver uma lista de trabalhos pendentes e em execução, você pode usar a interface do usuário do YARN **Resource Manager**, seguindo estas etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), selecione o cluster.  O cluster é aberto em uma nova página do Portal.
-2. Na exibição principal, navegue até **painéis** > de cluster**Ambari página inicial**. Insira suas credenciais de cluster.
+1. No [portal do Azure](https://portal.azure.com/), selecione o cluster.  O cluster abre em uma nova página do portal.
+2. Na exibição principal, navegue até **painéis de cluster**  >  **Ambari página inicial**. Insira suas credenciais de cluster.
 3. Na interface do usuário do amAmbari, selecione **yarn** na lista de serviços no menu à esquerda.  
 4. Na página YARN, selecione **links rápidos** e passe o mouse sobre o nó principal ativo e, em seguida, selecione **interface do usuário do Gerenciador de recursos**.
 
     ![Interface do usuário do Apache Ambari Quick links Resource Manager](./media/hdinsight-scaling-best-practices/resource-manager-ui1.png)
 
-Você pode acessar diretamente a interface do usuário do `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster`Resource Manager com.
+Você pode acessar diretamente a interface do usuário do Resource Manager com `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster` .
 
 Você vê uma lista de trabalhos, com os respectivos estados atuais. Na captura de tela, há um trabalho em execução no momento:
 
@@ -138,7 +138,7 @@ Para eliminar manualmente o aplicativo que está em execução, execute o seguin
 yarn application -kill <application_id>
 ```
 
-Por exemplo: 
+Por exemplo:
 
 ```bash
 yarn application -kill "application_1499348398273_0003"
@@ -148,7 +148,7 @@ yarn application -kill "application_1499348398273_0003"
 
 Quando você reduz verticalmente um cluster, o HDInsight usa as interfaces de gerenciamento do Apache Ambari para primeiro encerrar os nós de trabalho adicionais. Os nós replicam seus blocos HDFS para outros nós de trabalho online. Depois disso, o HDInsight dimensiona com segurança o cluster para baixo. O HDFS entra em modo de segurança durante a operação de dimensionamento. O HDFS deve sair quando o dimensionamento for concluído. Em alguns casos, no entanto, o HDFS fica preso no modo de segurança durante uma operação de dimensionamento devido à replicação do bloco de arquivos.
 
-Por padrão, o HDFS é configurado com `dfs.replication` uma configuração de 1, que controla quantas cópias de cada bloco de arquivo estão disponíveis. Cada cópia de um bloco de arquivos é armazenada em um nó diferente do cluster.
+Por padrão, o HDFS é configurado com uma `dfs.replication` configuração de 1, que controla quantas cópias de cada bloco de arquivo estão disponíveis. Cada cópia de um bloco de arquivos é armazenada em um nó diferente do cluster.
 
 Quando o número esperado de cópias de bloco não estiver disponível, o HDFS entrará no modo de segurança e o Ambari gerará alertas. O HDFS pode entrar no modo de segurança para uma operação de dimensionamento. O cluster poderá ficar preso no modo de segurança se o número necessário de nós não for detectado para replicação.
 
@@ -187,7 +187,7 @@ Parar os trabalhos do hive antes do dimensionamento, ajuda a minimizar o número
 
 Se o Hive deixou arquivos temporários na pasta, você pode limpar manualmente esses arquivos antes de reduzir verticalmente, evitando o modo de segurança.
 
-1. Verifique qual local está sendo usado para arquivos temporários do hive examinando `hive.exec.scratchdir` a propriedade de configuração. Esse parâmetro é definido em `/etc/hive/conf/hive-site.xml`:
+1. Verifique qual local está sendo usado para arquivos temporários do hive examinando a `hive.exec.scratchdir` propriedade de configuração. Esse parâmetro é definido em `/etc/hive/conf/hive-site.xml` :
 
     ```xml
     <property>

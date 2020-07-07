@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: peshultz
 ms.custom: mvc
-ms.openlocfilehash: 01c3ab167239affa4d7ae94f5649d60072c3c270
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 88937e5bc9870075bfe273c21b11f886d32bf99d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82117158"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963845"
 ---
 # <a name="tutorial-trigger-a-batch-job-using-azure-functions"></a>Tutorial: Disparar um trabalho em lotes usando o Azure Functions
 
@@ -55,7 +55,7 @@ Nesta seção, você usará o Batch Explorer para criar o pool em lotes e o trab
 Aqui você vai criar contêineres de blob que armazenarão arquivos de entrada e saída para o trabalho em lotes de OCR.
 
 1. Entre no Gerenciador de Armazenamento usando suas credenciais do Azure.
-1. Usando a conta de armazenamento vinculada à sua conta do Lote, crie dois contêineres de blob (um para arquivos de entrada, um para arquivos de saída) seguindo as etapas em [Criar um contêiner de blob](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#create-a-blob-container).
+1. Usando a conta de armazenamento vinculada à sua conta do Lote, crie dois contêineres de blob (um para arquivos de entrada, um para arquivos de saída) seguindo as etapas em [Criar um contêiner de blob](../vs-azure-tools-storage-explorer-blobs.md#create-a-blob-container).
 
 Neste exemplo, o contêiner de entrada é denominado `input` e é onde todos os documentos sem OCR inicialmente são carregados para processamento. O contêiner de saída é denominado `output` e é onde o trabalho em lotes grava documentos processados com o OCR.  
     * Neste exemplo, chamaremos nosso contêiner de entrada `input` e nosso contêiner de saída `output`.  
@@ -68,7 +68,7 @@ Crie uma assinatura de acesso compartilhado para seu contêiner de saída no Ger
 
 Nesta seção, você criará a Função do Azure, que dispara o trabalho em lotes de OCR sempre que um arquivo é carregado no seu contêiner de entrada.
 
-1. Siga as etapas em [Criar uma função disparada pelo armazenamento de blob do Azure](https://docs.microsoft.com/azure/azure-functions/functions-create-storage-blob-triggered-function) para criar uma função.
+1. Siga as etapas em [Criar uma função disparada pelo armazenamento de blob do Azure](../azure-functions/functions-create-storage-blob-triggered-function.md) para criar uma função.
     1. Quando uma conta de armazenamento for solicitada, use a mesma conta de armazenamento que você vinculou à sua conta do Lote.
     1. Para **pilha de runtime**, escolha .NET. Gravaremos nossa função em C# para aproveitar o SDK do .NET em Lote.
 1. Depois de criar a função disparada pelo blob, use o [`run.csx`](https://github.com/Azure-Samples/batch-functions-tutorial/blob/master/run.csx) e [`function.proj`](https://github.com/Azure-Samples/batch-functions-tutorial/blob/master/function.proj) do GitHub, na Função.
@@ -111,4 +111,4 @@ Neste tutorial, você aprendeu a:
 
 * Para obter mais exemplos de como usar a API do .NET para agendar e processar cargas de trabalho do Lote, confira [os exemplos no GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp). 
 
-* Para ver mais gatilhos do Azure Functions que você pode usar para executar cargas de trabalho do Lote, confira [a documentação do Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings).
+* Para ver mais gatilhos do Azure Functions que você pode usar para executar cargas de trabalho do Lote, confira [a documentação do Azure Functions](../azure-functions/functions-triggers-bindings.md).

@@ -5,15 +5,15 @@ ms.topic: article
 ms.date: 04/29/2020
 ms.author: danlep
 ms.openlocfilehash: 77fbdb1720e571027f28b5bdca5c0e3c65c3ded2
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82584396"
 ---
 # <a name="virtual-network-scenarios-and-resources"></a>Cenários e recursos de rede virtual
 
-A [rede virtual do Azure](../virtual-network/virtual-networks-overview.md) fornece uma rede segura e privada para seus recursos do Azure e locais. Implantando grupos de contêineres em uma rede virtual do Azure, os contêineres podem se comunicar com segurança com outros recursos na rede virtual. 
+A [Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md) fornece uma rede privada segura para seus recursos locais e do Azure. Implantando grupos de contêineres em uma rede virtual do Azure, os contêineres podem se comunicar com segurança com outros recursos na rede virtual. 
 
 Este artigo fornece informações sobre cenários de rede virtual, limitações e recursos. Para obter exemplos de implantação usando o CLI do Azure, consulte [implantar instâncias de contêiner em uma rede virtual do Azure](container-instances-vnet.md).
 

@@ -10,10 +10,10 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: e00538d1112492c5b7f9fc0f91c86df6d3500701
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82796584"
 ---
 # <a name="migrate-from-a-managed-image-to-a-shared-image-gallery-image"></a>Migrar de uma imagem gerenciada para uma imagem da Galeria de imagens compartilhadas
@@ -33,7 +33,7 @@ Ao trabalhar com este artigo, substitua o grupo de recursos e os nomes de VM qua
 
 ## <a name="get-the-gallery"></a>Obter a Galeria
 
-Você pode listar todas as galerias e definições de imagem por nome. Os resultados estão no formato `gallery\image definition\image version`.
+Você pode listar todas as galerias e definições de imagem por nome. Os resultados estão no formato `gallery\image definition\image version` .
 
 ```azurepowershell-interactive
 Get-AzResource -ResourceType Microsoft.Compute/galleries | Format-Table
@@ -50,13 +50,13 @@ $gallery = Get-AzGallery `
 
 ## <a name="create-an-image-definition"></a>Criar uma definição de imagem 
 
-Definições de imagem crie um agrupamento lógico para imagens. Eles são usados para gerenciar informações sobre a imagem. Os nomes de definição de imagem podem ser compostos de letras maiúsculas ou minúsculas, dígitos, pontos, traços e pontos. 
+As definições de imagem criam um agrupamento lógico para as imagens. Eles são usados para gerenciar informações sobre a imagem. Os nomes das definições de imagem podem ser compostos por letras maiúsculas ou minúsculas, dígitos, pontos, traços e pontos finais. 
 
-Ao fazer a definição de imagem, verifique se o tem todas as informações corretas. Como as imagens gerenciadas são sempre generalizadas, você `-OsState generalized`deve definir. 
+Ao fazer a definição de imagem, verifique se o tem todas as informações corretas. Como as imagens gerenciadas são sempre generalizadas, você deve definir `-OsState generalized` . 
 
-Para obter mais informações sobre os valores que você pode especificar para uma definição de imagem, consulte [definições de imagem](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
+Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, confira [Definições de imagem](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
 
-Crie a definição de imagem usando [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). Neste exemplo, a definição da imagem é chamada *myImageDefinition*e é para um sistema operacional generalizado do Windows. Para criar uma definição para imagens usando um sistema operacional Linux, `-OsType Linux`use. 
+Crie a definição de imagem usando [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). Neste exemplo, a definição da imagem é chamada *myImageDefinition*e é para um sistema operacional generalizado do Windows. Para criar uma definição para imagens usando um sistema operacional Linux, use `-OsType Linux` . 
 
 ```azurepowershell-interactive
 $imageDefinition = New-AzGalleryImageDefinition `
@@ -86,7 +86,7 @@ $managedImage = Get-AzImage `
 
 Crie uma versão de imagem da imagem gerenciada usando [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
 
-Caracteres permitidos para a versão da imagem são números e pontos. Os números devem estar dentro do intervalo de um inteiro de 32 bits. Formato: *MajorVersion*. *MinorVersion*. *Patch*.
+Caracteres permitidos para a versão da imagem são números e pontos. Os números devem estar dentro do intervalo de um inteiro de 32 bits. Formato: *MajorVersion*.*MinorVersion*.*Patch*.
 
 Neste exemplo, a versão da imagem é *1.0.0* e ela é replicado para os datacenters *Centro-Oeste dos EUA* e *Centro-Sul dos EUA*. Ao escolher regiões de destino para replicação, lembre-se de que você também precisa incluir a região de *origem* como um destino para replicação. 
 
@@ -107,7 +107,7 @@ $job = $imageVersion = New-AzGalleryImageVersion `
    -asJob 
 ```
 
-Pode levar um tempo para replicar a imagem para todas as regiões de destino, portanto, criamos um trabalho para podermos acompanhar o progresso. Para ver o progresso, digite `$job.State`.
+Pode levar um tempo para replicar a imagem para todas as regiões de destino, portanto, criamos um trabalho para podermos acompanhar o progresso. Para ver o progresso, digite `$job.State` .
 
 ```azurepowershell-interactive
 $job.State
@@ -115,9 +115,9 @@ $job.State
 
 
 > [!NOTE]
-> Você precisa aguardar que a versão da imagem termine completamente de ser compilada e replicada antes de poder usar a mesma imagem gerenciada para criar outra versão de imagem. 
+> Você precisa esperar que a versão da imagem seja compilada e replicada completamente antes de poder usar a mesma imagem gerenciada para criar outra versão da imagem. 
 >
-> Você também pode armazenar sua imagem no armazenamento Premiun por um armazenamento `-StorageAccountType Premium_LRS`com [redundância de zona](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) ou adição, `-StorageAccountType Standard_ZRS` adicionando ao criar a versão da imagem.
+> Você também pode armazenar a imagem no armazenamento Premium adicionando `-StorageAccountType Premium_LRS`, ou no [Armazenamento com redundância de zona](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) adicionando `-StorageAccountType Standard_ZRS` ao criar a versão da imagem.
 >
 
 ## <a name="delete-the-managed-image"></a>Excluir a imagem gerenciada

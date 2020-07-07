@@ -5,15 +5,15 @@ ms.topic: article
 ms.date: 04/29/2020
 ms.author: danlep
 ms.openlocfilehash: 7e54690efc7955eaaa88ca87a6f7a086dd3e19a4
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82583644"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Implantar instâncias de contêiner em uma rede virtual do Azure
 
-A [rede virtual do Azure](../virtual-network/virtual-networks-overview.md) fornece uma rede segura e privada para seus recursos do Azure e locais. Implantando grupos de contêineres em uma rede virtual do Azure, os contêineres podem se comunicar com segurança com outros recursos na rede virtual.
+A [Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md) fornece uma rede privada segura para seus recursos locais e do Azure. Implantando grupos de contêineres em uma rede virtual do Azure, os contêineres podem se comunicar com segurança com outros recursos na rede virtual.
 
 Este artigo mostra como usar o comando [AZ container Create][az-container-create] no CLI do Azure para implantar grupos de contêineres em uma nova rede virtual ou em uma rede virtual existente. 
 
@@ -40,7 +40,7 @@ Depois de implantar seu primeiro grupo de contêineres com esse método, você p
 
 ### <a name="example"></a>Exemplo
 
-O comando [AZ container Create][az-container-create] a seguir especifica as configurações para uma nova rede virtual e sub-rede. Forneça o nome de um grupo de recursos que foi criado em uma região em que as implantações de grupo de contêineres em uma rede virtual estão [disponíveis](container-instances-region-availability.md#availability---virtual-network-deployment). Este comando implanta o contêiner público do Microsoft [ACI-HelloWorld][aci-helloworld] que executa um pequeno servidor Web node. js que serve uma página da Web estática. Na próxima seção, você implantará um segundo grupo de contêineres na mesma sub-rede e testará a comunicação entre as duas instâncias de contêiner.
+O comando [AZ container Create][az-container-create] a seguir especifica as configurações para uma nova rede virtual e sub-rede. Forneça o nome de um grupo de recursos que foi criado em uma região em que as implantações de grupo de contêineres em uma rede virtual estão [disponíveis](container-instances-region-availability.md#availability---virtual-network-deployment). Esse comando implanta o contêiner público Microsoft [ACI-HelloWorld][aci-helloworld] que executa um pequeno servidor WebNode.js servindo uma página da Web estática. Na próxima seção, você implantará um segundo grupo de contêineres na mesma sub-rede e testará a comunicação entre as duas instâncias de contêiner.
 
 ```azurecli
 az container create \
@@ -77,7 +77,7 @@ az container show --resource-group myResourceGroup \
   --query ipAddress.ip --output tsv
 ```
 
-A saída exibe o endereço IP do grupo de contêineres na sub-rede privada. Por exemplo: 
+A saída exibe o endereço IP do grupo de contêineres na sub-rede privada. Por exemplo:
 
 ```console
 10.0.0.4

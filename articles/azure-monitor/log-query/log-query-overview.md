@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/19/2019
 ms.openlocfilehash: 6cd2a28ddbe970385ff44deec2158c257937982e
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82591645"
 ---
 # <a name="overview-of-log-queries-in-azure-monitor"></a>Visão geral das consultas de log no Azure Monitor
@@ -76,7 +76,7 @@ Consulte Introdução [às consultas de log no Azure monitor](get-started-querie
 
 
 ## <a name="what-is-log-analytics"></a>O que é o Log Analytics?
-Log Analytics é a principal ferramenta na portal do Azure para gravar consultas de log e analisar seus resultados interativamente. Mesmo que uma consulta de log seja usada em outro lugar no Azure Monitor, você normalmente escreverá e testará a consulta primeiro usando o Log Analytics.
+O Log Analytics é a principal ferramenta no portal do Azure para escrever consultas de log e analisar interativamente os resultados. Mesmo que uma consulta de log seja usada em outro lugar no Azure Monitor, você normalmente escreverá e testará a consulta primeiro usando o Log Analytics.
 
 Você pode iniciar o Log Analytics de vários locais na portal do Azure. O escopo dos dados disponíveis para Log Analytics é determinado pelo modo como você o inicia. Consulte [escopo da consulta](scope.md) para obter mais detalhes.
 

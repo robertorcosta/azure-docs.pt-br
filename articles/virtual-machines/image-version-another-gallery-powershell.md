@@ -10,10 +10,10 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: 10cd8514b529f29f68ea3df14cdc208dd8fdd556
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82796922"
 ---
 # <a name="copy-an-image-from-another-gallery"></a>Copiar uma imagem de outra galeria
@@ -39,7 +39,7 @@ Você precisará de informações da definição da imagem de origem para poder 
 
 Liste informações sobre as galerias existentes, as definições de imagem e as versões de imagem usando o cmdlet [Get-AzResource](/powershell/module/az.resources/get-azresource) .
 
-Os resultados estão no formato `gallery\image definition\image version`.
+Os resultados estão no formato `gallery\image definition\image version` .
 
 ```azurepowershell-interactive
 Get-AzResource `
@@ -47,7 +47,7 @@ Get-AzResource `
    Format-Table -Property Name,ResourceGroupName
 ```
 
-Depois de ter todas as informações necessárias, você pode obter a ID da versão da imagem de origem usando [Get-AzGalleryImageVersion](/powershell/module/az.compute/get-azgalleryimageversion). Neste exemplo `1.0.0` , estamos obtendo a versão da imagem, da `myImageDefinition` definição, na Galeria de `myGallery` origem, no grupo de `myResourceGroup` recursos.
+Depois de ter todas as informações necessárias, você pode obter a ID da versão da imagem de origem usando [Get-AzGalleryImageVersion](/powershell/module/az.compute/get-azgalleryimageversion). Neste exemplo, estamos obtendo a versão da `1.0.0` imagem, da `myImageDefinition` definição, na `myGallery` Galeria de origem, no `myResourceGroup` grupo de recursos.
 
 ```azurepowershell-interactive
 $sourceImgVer = Get-AzGalleryImageVersion `
@@ -125,7 +125,7 @@ $destinationImgDef  = New-AzGalleryImageDefinition `
 
 Crie uma versão de imagem usando [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). Será necessário passar a ID da imagem de origem no `--managed-image` parâmetro para criar a versão da imagem na Galeria de destino. 
 
-Caracteres permitidos para a versão da imagem são números e pontos. Os números devem estar dentro do intervalo de um inteiro de 32 bits. Formato: *MajorVersion*. *MinorVersion*. *Patch*.
+Caracteres permitidos para a versão da imagem são números e pontos. Os números devem estar dentro do intervalo de um inteiro de 32 bits. Formato: *MajorVersion*.*MinorVersion*.*Patch*.
 
 Neste exemplo, a Galeria de destino é denominada *myDestinationGallery*, no grupo de recursos *myDestinationRG* , na localização *oeste dos EUA* . A versão da nossa imagem é a *1.0.0* e vamos criar uma réplica na região *do Sul EUA Central* e 2 réplicas na região *oeste dos EUA* . 
 
@@ -154,9 +154,9 @@ $job.State
 ```
 
 > [!NOTE]
-> Você precisa aguardar que a versão da imagem termine completamente de ser compilada e replicada antes de poder usar a mesma imagem gerenciada para criar outra versão de imagem.
+> Você precisa esperar que a versão da imagem seja compilada e replicada completamente antes de poder usar a mesma imagem gerenciada para criar outra versão da imagem.
 >
-> Você também pode armazenar sua imagem no armazenamento Premiun por um armazenamento `-StorageAccountType Premium_LRS`com [redundância de zona](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) ou adição, `-StorageAccountType Standard_ZRS` adicionando ao criar a versão da imagem.
+> Você também pode armazenar a imagem no armazenamento Premium adicionando `-StorageAccountType Premium_LRS`, ou no [Armazenamento com redundância de zona](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) adicionando `-StorageAccountType Standard_ZRS` ao criar a versão da imagem.
 >
 
 

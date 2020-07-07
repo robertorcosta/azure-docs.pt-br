@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/4/2020
 ms.author: inhenkel
 ms.openlocfilehash: e039a240465478e86ce816890219e5dfaa07dfbf
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82791044"
 ---
 # <a name="media-services-live-event-error-codes"></a>Códigos de erro de eventos dinâmicos dos serviços de mídia
@@ -28,7 +28,7 @@ As tabelas nesta seção listam os códigos de erro de [evento ao vivo](live-eve
 
 Ao assinar os eventos da [grade de eventos](https://docs.microsoft.com/azure/event-grid/) para um evento ao vivo, você poderá ver um dos erros a seguir do evento [LiveEventConnectionRejected](media-services-event-schemas.md#liveeventconnectionrejected) .
 
-| Código de resultado | Descrição |
+| Código de Resultado | Descrição |
 | ----------- | ----------- |
 | MPE_RTMP_APPID_AUTH_FAILURE | URL de ingestão incorreta |
 | MPE_INGEST_ENCODER_CONNECTION_DENIED | O IP do codificador não está presente na lista de permissões de IP configurada |
@@ -46,7 +46,7 @@ Ao assinar os eventos da [grade de eventos](https://docs.microsoft.com/azure/eve
 
 Você pode ver um dos erros a seguir do evento [LiveEventEncoderDisconnected](media-services-event-schemas.md#liveeventencoderdisconnected) .
 
-|Código de resultado|Descrição|
+|Código de Resultado|Descrição|
 |---|---|
 |MPE_RTMP_SESSION_IDLE_TIMEOUT|A sessão RTMP atingiu o tempo limite depois de ficar ociosa por um limite de tempo permitido.|
 |MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID|O carimbo de data/hora para FLVTag de áudio ou vídeo é inválido a partir do codificador RTMP.|

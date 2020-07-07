@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
 ms.openlocfilehash: c81d70577c5e7b852d315bdb91993d15624a7336
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82791486"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Otimizar as consultas do Apache Hive no Azure HDInsight
 
 No Azure HDInsight, há vários tipos de cluster e tecnologias que podem executar consultas do Apache Hive. Escolha o tipo de cluster apropriado para ajudar a otimizar o desempenho para suas necessidades de carga de trabalho.
 
-Por exemplo, escolha tipo de cluster de `ad hoc` **consulta interativa** para otimizar consultas interativas. Escolha o tipo de cluster Apache **Hadoop** para otimizar para consultas do Hive usadas como um processo em lote. Os tipos de cluster **Spark** e **HBase** também podem executar consultas Hive. Para saber mais sobre como executar consultas Hive em vários tipos de cluster do HDInsight, confira [O que é o Apache Hive e HiveQL no Azure HDInsight?](hadoop/hdinsight-use-hive.md).
+Por exemplo, escolha tipo de cluster de **consulta interativa** para otimizar `ad hoc` consultas interativas. Escolha o tipo de cluster Apache **Hadoop** para otimizar para consultas do Hive usadas como um processo em lote. Os tipos de cluster **Spark** e **HBase** também podem executar consultas Hive. Para saber mais sobre como executar consultas Hive em vários tipos de cluster do HDInsight, confira [O que é o Apache Hive e HiveQL no Azure HDInsight?](hadoop/hdinsight-use-hive.md).
 
 Os clusters HDInsight do tipo de cluster Hadoop não são otimizados para desempenho por padrão. Este artigo descreve alguns dos métodos de otimização de desempenho do Hive mais comuns que você pode aplicar às suas consultas.
 
@@ -122,7 +122,7 @@ Para obter mais informações, consulte [Partitioned Tables](https://cwiki.apach
 
 ## <a name="use-the-orcfile-format"></a>Use o formato ORCFile
 
-O Hive dá suporte a vários formatos de arquivo. Por exemplo: 
+O Hive dá suporte a vários formatos de arquivo. Por exemplo:
 
 * **Texto**: é o formato de arquivo padrão e funciona com a maioria dos cenários.
 * **Avro**: funciona bem para cenários de interoperabilidade.
@@ -148,7 +148,7 @@ PARTITIONED BY(L_SHIPDATE STRING)
 STORED AS ORC;
 ```
 
-Em seguida, insira dados na tabela ORC a partir da tabela de preparo. Por exemplo: 
+Em seguida, insira dados na tabela ORC a partir da tabela de preparo. Por exemplo:
 
 ```sql
 INSERT INTO TABLE lineitem_orc

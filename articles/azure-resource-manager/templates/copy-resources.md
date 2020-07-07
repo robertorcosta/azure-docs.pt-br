@@ -4,10 +4,10 @@ description: Use a operação de cópia e matrizes em um modelo de Azure Resourc
 ms.topic: conceptual
 ms.date: 04/29/2020
 ms.openlocfilehash: d4f40b606ffd56019b44cc8b67e5629b935bf50c
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82583393"
 ---
 # <a name="resource-iteration-in-arm-templates"></a>Iteração de recurso em modelos ARM
@@ -18,7 +18,7 @@ Você também pode usar copiar com [Propriedades](copy-properties.md), [variáve
 
 Caso precise especificar se um recurso é ou não implantado, confira [Elemento condition](conditional-resource-deployment.md).
 
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
 
 O elemento Copy tem o seguinte formato geral:
 
@@ -189,7 +189,7 @@ A propriedade de modo também aceita **paralelo**, que é o valor padrão.
 
 ## <a name="depend-on-resources-in-a-loop"></a>Depender dos recursos em um loop
 
-Você especifica que um recurso é implantado após outro recurso usando o elemento `dependsOn`. Para implantar um recurso que depende da coleção de recursos em um loop, forneça o nome do loop de cópia no elemento dependsOn. O exemplo a seguir mostra como implantar três contas de armazenamento antes de implantar a máquina virtual. A definição completa da máquina virtual não é mostrada. Observe que o elemento Copy tem o nome definido `storagecopy` como e o elemento dependy da máquina virtual também é definido como `storagecopy`.
+Você especifica que um recurso é implantado após outro recurso usando o elemento `dependsOn`. Para implantar um recurso que depende da coleção de recursos em um loop, forneça o nome do loop de cópia no elemento dependsOn. O exemplo a seguir mostra como implantar três contas de armazenamento antes de implantar a máquina virtual. A definição completa da máquina virtual não é mostrada. Observe que o elemento Copy tem o nome definido como `storagecopy` e o elemento dependy da máquina virtual também é definido como `storagecopy` .
 
 ```json
 {

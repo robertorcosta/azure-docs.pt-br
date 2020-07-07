@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: ce3916ef1155224a91c0736c3dabe907ae8d2611
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82796363"
 ---
 # <a name="optimize-apache-hive-with-apache-ambari-in-azure-hdinsight"></a>Otimizar Apache Hive com o Apache Ambari no Azure HDInsight
@@ -82,7 +82,7 @@ Uma consulta do Hive é executada em uma ou mais etapas. Se as etapas independen
 
 1. Para habilitar a execução de consultas em paralelo, navegue até a guia **Configurações** do Hive e pesquise pela propriedade `hive.exec.parallel`. O valor padrão é false. Altere o valor para true e pressione **Enter** para salvá-lo.
 
-1. Para limitar o número de trabalhos a serem executados em paralelo, modifique `hive.exec.parallel.thread.number` a propriedade. O valor padrão é 8.
+1. Para limitar o número de trabalhos a serem executados em paralelo, modifique a `hive.exec.parallel.thread.number` propriedade. O valor padrão é 8.
 
     ![Exibição paralela Apache Hive exec](./media/optimize-hive-ambari/apache-hive-exec-parallel.png)
 
@@ -100,7 +100,7 @@ O Hive processa dados linha por linha. A vetorização instrui o Hive a processa
 
 Por padrão, o Hive segue um conjunto de regras para encontrar um plano de execução de consulta ideal. A otimização baseada em custo (CBO) avalia vários planos para executar uma consulta. E atribui um custo a cada plano e, em seguida, determina o plano mais barato para executar uma consulta.
 
-Para habilitar o CBO, navegue para**configurações** de**configuração** > do **Hive** > e localize **habilitar otimizador baseado em custo**e, em seguida, alterne o botão de alternância para **ativado**.
+Para habilitar o CBO, navegue para configurações de configuração do **Hive**  >  **Configs**  >  **Settings** e localize **habilitar otimizador baseado em custo**e, em seguida, alterne o botão de alternância para **ativado**.
 
 ![Otimizador baseado em custo do HDInsight](./media/optimize-hive-ambari/hdinsight-cbo-config.png)
 
@@ -152,7 +152,7 @@ Como regra geral, ter o método de compactação divisões é importante; caso c
 
 1. Para adicionar uma configuração personalizada:
 
-    a. Navegue até **Hive** > **configurações** > do hive**avançado** > **personalizado Hive-site**.
+    a. Navegue até configurações do **Hive**  >  **Configs**  >  **avançado**  >  **personalizado Hive-site**.
 
     b. Selecione **Adicionar Propriedade...** na parte inferior do painel Hive-site personalizado.
 

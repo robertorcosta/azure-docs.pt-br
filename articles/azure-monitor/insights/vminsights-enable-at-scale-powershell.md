@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 10/14/2019
 ms.openlocfilehash: 77fe4b4ffbf7c189a5bf64e662f395fc78e53944
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82581511"
 ---
 # <a name="enable-azure-monitor-for-vms-using-azure-powershell-or-resource-manager-templates"></a>Habilitar Azure Monitor para VMs usando modelos de Azure PowerShell ou do Resource Manager
@@ -170,7 +170,7 @@ provisioningState       : Succeeded
 
 ## <a name="enable-with-powershell"></a>Habilitar com o PowerShell
 
-Para habilitar Azure Monitor para VMs para várias VMs ou conjuntos de dimensionamento de máquinas virtuais, use o script do PowerShell [install-VMInsights. ps1](https://www.powershellgallery.com/packages/Install-VMInsights). Ele está disponível na Galeria de Azure PowerShell. Este script itera por meio de:
+Para habilitar Azure Monitor para VMs para várias VMs ou conjuntos de dimensionamento de máquinas virtuais, use o script do PowerShell [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights). Ele está disponível na Galeria de Azure PowerShell. Este script itera por meio de:
 
 - Cada máquina virtual e conjunto de dimensionamento de máquinas virtuais em sua assinatura.
 - O grupo de recursos com escopo especificado pelo *resourcegroup*.
@@ -178,7 +178,7 @@ Para habilitar Azure Monitor para VMs para várias VMs ou conjuntos de dimension
 
 Para cada VM ou conjunto de dimensionamento de máquinas virtuais, o script verifica se a extensão de VM já está instalada. Se a extensão de VM estiver instalada, o script tentará reinstalá-la. Se a extensão da VM não estiver instalada, o script instalará as extensões de VM do Log Analytics e do agente de dependência.
 
-Verifique se você está usando o módulo Azure PowerShell AZ versão 1.0.0 ou `Enable-AzureRM` posterior com aliases de compatibilidade habilitados. Execute `Get-Module -ListAvailable Az` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
+Verifique se você está usando o módulo Azure PowerShell AZ versão 1.0.0 ou posterior com `Enable-AzureRM` aliases de compatibilidade habilitados. Execute `Get-Module -ListAvailable Az` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
 
 Para obter uma lista de detalhes de argumento do script e o uso de exemplo, execute `Get-Help`.
 

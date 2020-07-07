@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: cb984a944067ddb1449f58b464e596fd138dc7c7
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82592002"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Enviar notificações por push com os Hubs de Notificação do Azure e o Node.js
@@ -83,7 +83,7 @@ Obtenha o valor `connectionstring` de conexão do [portal do Azure] executando a
 
 1. No painel de navegação esquerdo, clique em **Procurar**.
 2. Selecione **Hubs de Notificação**e localize o hub que você deseja usar no exemplo. Você pode consultar o [tutorial de introdução da Windows Store](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) se precisar de ajuda com a criação de um novo hub de notificação.
-3. Selecione **Configurações**.
+3. Escolha a opção **Configurações**.
 4. Clique em **Políticas de Acesso**. Você verá as duas cadeias de conexão de acesso compartilhado e completo.
 
 ![Portal do Azure - Hubs de Notificação](./media/notification-hubs-nodejs-how-to-use-notification-hubs/notification-hubs-portal.png)
@@ -154,7 +154,7 @@ O objeto `MpnsService` fornece um método `send` que pode ser usado para enviar 
 
 - **Tags** : o identificador da etiqueta. Se nenhuma marca for fornecida, a notificação será enviada a todos os clientes.
 - **Payload** : o conteúdo XML da mensagem.
-- **TargetName** -  TargetName`toast` para notificações do sistema. `token` para notificações de bloco.
+- **TargetName**  -  TargetName `toast` para notificações do sistema. `token` para notificações de bloco.
 - **NotificationClass** : a prioridade da notificação. Veja a seção **Elementos de cabeçalhos HTTP** do documento [Notificações por push de um servidor](https://msdn.microsoft.com/library/hh221551.aspx) para obter os valores válidos.
 - **Options** : cabeçalhos de solicitação opcionais.
 - **Callback** : a função de retorno de chamada.

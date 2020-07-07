@@ -9,10 +9,10 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.openlocfilehash: 5e59872a4da0136232652008a2980601428eeab6
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82796779"
 ---
 # <a name="create-a-vm-from-a-generalized-image-version-using-the-cli"></a>Criar uma VM com base em uma versão de imagem generalizada usando a CLI
@@ -34,7 +34,7 @@ az sig image-definition list --resource-group $resourceGroup --gallery-name $gal
 
 Crie uma VM usando [az vm create](/cli/azure/vm#az-vm-create). Para usar a versão mais recente da imagem, defina `--image` como a ID da definição da imagem. 
 
-Substitua os nomes de recursos conforme necessário neste exemplo. 
+Substitua os nomes dos recursos conforme necessário no exemplo. 
 
 ```azurecli-interactive 
 imgDef="/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition"
@@ -54,7 +54,7 @@ az vm create\
    --generate-ssh-keys
 ```
 
-Você também pode usar uma versão específica usando a ID da versão da imagem para `--image` o parâmetro. Por exemplo, para usar a versão *1.0.0* de imagem 1.0.0 `--image "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`Type:.
+Você também pode usar uma versão específica usando a ID da versão da imagem para o `--image` parâmetro. Por exemplo, para usar a versão de imagem *1.0.0* Type: `--image "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"` .
 
 ## <a name="next-steps"></a>Próximas etapas
 

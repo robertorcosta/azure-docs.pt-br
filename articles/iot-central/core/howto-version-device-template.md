@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: 772521a8d3181721270d7fe4dbd11b7807c8d90e
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82583661"
 ---
 # <a name="create-a-new-device-template-version"></a>Criar uma nova versão do modelo de dispositivo
@@ -30,7 +30,7 @@ Você deve publicar qualquer alteração de modelo de dispositivo, quer ela prec
 
 ## <a name="versioning-rules"></a>Regras de controle de versão
 
-Esta seção resume as regras de controle de versão que se aplicam aos modelos de dispositivo. DCMs e interfaces têm números de versão. O trecho a seguir mostra o DCM para um dispositivo de sensor ambiental. O DCM tem duas interfaces: **DeviceInformation** e **EnvironmentalSensor**. Você pode ver os números de versão no final dos`@id` campos. Para exibir essas informações na interface do usuário do IoT Central, selecione **Exibir identidade** no editor de modelos de dispositivo.
+Esta seção resume as regras de controle de versão que se aplicam aos modelos de dispositivo. DCMs e interfaces têm números de versão. O trecho a seguir mostra o DCM para um dispositivo de sensor ambiental. O DCM tem duas interfaces: **DeviceInformation** e **EnvironmentalSensor**. Você pode ver os números de versão no final dos `@id` campos. Para exibir essas informações na interface do usuário do IoT Central, selecione **Exibir identidade** no editor de modelos de dispositivo.
 
 ```json
 {

@@ -1,5 +1,5 @@
 ---
-title: Criar um conjunto de dimensionamento de uma imagem especializada
+title: Criar um conjunto de dimensionamento com base em uma imagem personalizada
 description: Crie um conjunto de dimensionamento usando uma imagem especializada em uma galeria de imagens compartilhada.
 author: cynthn
 ms.service: virtual-machine-scale-sets
@@ -10,10 +10,10 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: 8ba9379125917c482ce12cb28b6fa6e5be809203
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82796545"
 ---
 # <a name="create-a-scale-set-from-a-specialized-image-using-powershell"></a>Criar um conjunto de dimensionamento de uma imagem especializada usando o PowerShell 
@@ -22,7 +22,7 @@ Crie uma VM com base em uma versão de imagem especializada armazenada em uma [G
 
 Quando você tiver uma imagem especializada em sua galeria, poderá criar um conjunto de dimensionamento de máquinas virtuais usando o cmdlet [New-AzVmss](/powershell/module/az.compute/new-azvmss) . 
 
-Neste exemplo, estamos usando a ID de definição de imagem para garantir que sua nova VM usará a versão mais recente de uma imagem. Você também pode usar uma versão específica usando a ID de versão da imagem `-ImageReferenceId`para. Por exemplo, para usar a versão *1.0.0* de imagem 1.0.0 `-ImageReferenceId "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`Type:. 
+Neste exemplo, estamos usando a ID de definição de imagem para garantir que sua nova VM usará a versão mais recente de uma imagem. Você também pode usar uma versão específica usando a ID de versão da imagem para `-ImageReferenceId` . Por exemplo, para usar a versão de imagem *1.0.0* Type: `-ImageReferenceId "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"` . 
 
 Lembre-se de que o uso de uma versão de imagem específica significa que a automação poderá falhar se essa versão de imagem específica não estiver disponível porque foi excluída ou removida da região. É recomendável usar a ID de definição de imagem para criar sua nova VM, a menos que uma versão de imagem específica seja necessária.
 
@@ -139,8 +139,8 @@ O [Construtor de imagens do Azure (visualização)](../virtual-machines/linux/im
 Você também pode criar um recurso de Galeria de imagens compartilhadas usando modelos. Há vários Modelos de Início Rápido do Azure disponíveis: 
 
 - [Criar uma Galeria de Imagens Compartilhadas](https://azure.microsoft.com/resources/templates/101-sig-create/)
-- [Criar uma definição de imagem em uma Galeria de Imagens Compartilhadas](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
-- [Criar uma versão de imagem em uma Galeria de Imagens Compartilhadas](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
+- [Criar uma Definição de Imagem em uma Galeria de Imagens Compartilhadas](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
+- [Criar uma Versão da Imagem em uma Galeria de Imagens Compartilhadas](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 
 Para obter mais informações sobre galerias de imagens compartilhadas, confira a [Visão geral](shared-image-galleries.md). Se você enfrentar problemas, confira [Solução de problemas de galerias de imagens compartilhadas](troubleshooting-shared-images.md).
 

@@ -10,10 +10,10 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: 6f49ece874ea52227e6531193fc53b3bea525702
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82796597"
 ---
 # <a name="migrate-from-a-managed-image-to-an-image-version-using-the-azure-cli"></a>Migrar de uma imagem gerenciada para uma versão de imagem usando o CLI do Azure
@@ -36,15 +36,15 @@ Ao trabalhar com este artigo, substitua o grupo de recursos e os nomes de VM qua
 
 ## <a name="create-an-image-definition"></a>Criar uma definição de imagem
 
-Como as imagens gerenciadas são sempre imagens generalizadas, você criará uma definição de `--os-state generalized` imagem usando para uma imagem generalizada.
+Como as imagens gerenciadas são sempre imagens generalizadas, você criará uma definição de imagem usando `--os-state generalized` para uma imagem generalizada.
 
-Os nomes de definição de imagem podem ser compostos de letras maiúsculas ou minúsculas, dígitos, pontos, traços e pontos. 
+Os nomes das definições de imagem podem ser compostos por letras maiúsculas ou minúsculas, dígitos, pontos, traços e pontos finais. 
 
-Para obter mais informações sobre os valores que você pode especificar para uma definição de imagem, consulte [definições de imagem](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions).
+Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, confira [Definições de imagem](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions).
 
-Crie uma definição de imagem na Galeria usando [AZ SIG Image-Definition Create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
+Crie uma definição de imagem na galeria usando [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
 
-Neste exemplo, a definição de imagem é chamada *myImageDefinition*e é para uma imagem [generalizada](./linux/shared-image-galleries.md#generalized-and-specialized-images) do SO Linux. Para criar uma definição para imagens usando um sistema operacional Windows, `--os-type Windows`use. 
+Neste exemplo, a definição de imagem é chamada *myImageDefinition*e é para uma imagem [generalizada](./linux/shared-image-galleries.md#generalized-and-specialized-images) do SO Linux. Para criar uma definição para imagens usando um SO Windows, use `--os-type Windows`. 
 
 ```azurecli-interactive 
 resourceGroup=myGalleryRG
@@ -70,7 +70,7 @@ Crie versões usando [AZ Image Gallery Create-Image-Version](/cli/azure/sig/imag
 az image list --query "[].[name, id]" -o tsv
 ```
 
-Caracteres permitidos para a versão da imagem são números e pontos. Os números devem estar dentro do intervalo de um inteiro de 32 bits. Formato: *MajorVersion*. *MinorVersion*. *Patch*.
+Caracteres permitidos para a versão da imagem são números e pontos. Os números devem estar dentro do intervalo de um inteiro de 32 bits. Formato: *MajorVersion*.*MinorVersion*.*Patch*.
 
 Neste exemplo, a versão da nossa imagem é a *1.0.0* e vamos criar uma réplica na região *do Sul EUA Central* e uma réplica na região *leste dos EUA 2* usando o armazenamento com redundância de zona. Ao escolher regiões de destino para replicação, lembre-se de que você também precisa incluir a região de *origem* como um destino para replicação.
 
@@ -90,9 +90,9 @@ az sig image-version create \
 ```
 
 > [!NOTE]
-> Você precisa aguardar que a versão da imagem termine completamente de ser compilada e replicada antes de poder usar a mesma imagem gerenciada para criar outra versão de imagem.
+> Você precisa esperar que a versão da imagem seja compilada e replicada completamente antes de poder usar a mesma imagem gerenciada para criar outra versão da imagem.
 >
-> Você também pode armazenar todas as réplicas de versão da imagem no [armazenamento com redundância](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) de `--storage-account-type standard_zrs` zona adicionando ao criar a versão da imagem.
+> Você também pode armazenar todas as réplicas de versão da imagem no [armazenamento com redundância de zona](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) adicionando `--storage-account-type standard_zrs` ao criar a versão da imagem.
 >
 
 ## <a name="next-steps"></a>Próximas etapas

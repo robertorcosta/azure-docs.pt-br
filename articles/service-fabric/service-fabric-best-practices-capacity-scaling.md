@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
 ms.openlocfilehash: be0f0a48e2fd334e2000c8a4b8c2e0101b291cef
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82791860"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Planejamento de capacidade e dimensionamento para o Azure Service Fabric
@@ -38,7 +38,7 @@ Usar o dimensionamento automático por meio de conjuntos de dimensionamento de m
 
 ## <a name="vertical-scaling-considerations"></a>Considerações de dimensionamento vertical
 
-[Dimensionamento vertical](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out) um tipo de nó no Azure Service Fabric requer várias etapas e considerações. Por exemplo: 
+[Dimensionamento vertical](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out) um tipo de nó no Azure Service Fabric requer várias etapas e considerações. Por exemplo:
 
 * O cluster deve estar íntegro antes do dimensionamento. Caso contrário, você desestabilizará o cluster.
 * O nível de durabilidade prateada ou maior é necessário para todos os Service Fabric tipos de nó de cluster que hospedam serviços com estado.
@@ -48,7 +48,7 @@ Usar o dimensionamento automático por meio de conjuntos de dimensionamento de m
 
 O dimensionamento vertical de um conjunto de dimensionamento de máquinas virtuais é uma operação destrutiva. Em vez disso, dimensione horizontalmente o cluster adicionando um novo conjunto de dimensionamento com o SKU desejado. Em seguida, migre seus serviços para a SKU desejada para concluir uma operação de dimensionamento vertical segura. A alteração de um SKU de recurso do conjunto de dimensionamento de máquinas virtuais é uma operação destrutiva porque recria a imagem de seus hosts, o que remove todos os Estados persistentes localmente.
 
-O cluster usa [as propriedades do nó Service Fabric e as restrições de posicionamento](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#node-properties-and-placement-constraints) para decidir onde hospedar os serviços do aplicativo. Quando você estiver dimensionando verticalmente seu tipo de nó primário, declare valores de `"nodeTypeRef"`Propriedade idênticos para. Você pode encontrar esses valores na extensão de Service Fabric para conjuntos de dimensionamento de máquinas virtuais. 
+O cluster usa [as propriedades do nó Service Fabric e as restrições de posicionamento](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#node-properties-and-placement-constraints) para decidir onde hospedar os serviços do aplicativo. Quando você estiver dimensionando verticalmente seu tipo de nó primário, declare valores de propriedade idênticos para `"nodeTypeRef"` . Você pode encontrar esses valores na extensão de Service Fabric para conjuntos de dimensionamento de máquinas virtuais. 
 
 O trecho a seguir de um modelo do Resource Manager mostra as propriedades que você irá declarar. Ele tem o mesmo valor para os conjuntos de dimensionamento recém provisionados para os quais você está Dimensionando e tem suporte apenas como um serviço com estado temporário para o cluster.
 
@@ -59,7 +59,7 @@ O trecho a seguir de um modelo do Resource Manager mostra as propriedades que vo
 ```
 
 > [!NOTE]
-> Não deixe o cluster em execução com vários conjuntos de dimensionamento que `nodeTypeRef` usam o mesmo valor de propriedade mais longo do que o necessário para concluir uma operação de dimensionamento vertical bem-sucedida.
+> Não deixe o cluster em execução com vários conjuntos de dimensionamento que usam o mesmo `nodeTypeRef` valor de propriedade mais longo do que o necessário para concluir uma operação de dimensionamento vertical bem-sucedida.
 >
 > Sempre valide as operações em ambientes de teste antes de tentar as alterações no ambiente de produção. Por padrão, Service Fabric serviços do sistema de cluster têm uma restrição de posicionamento apenas para o tipo de nó primário de destino.
 
@@ -70,7 +70,7 @@ Com as propriedades de nó e as restrições de posicionamento declaradas, siga 
 3. Diminua o número de VMs por um nesse tipo de nó. A instância da VM mais alta agora será removida.
 4. Repita as etapas 1 a 3, conforme necessário, mas nunca dimensione o número de instâncias nos tipos de nó primários menos do que a camada de confiabilidade garante. Confira [Planejamento de capacidade do cluster do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) para obter uma lista de instâncias recomendadas.
 5. Depois que todas as VMs estiverem ausentes (representadas como "inativas"), o Fabric:/System/InfrastructureService/[nome do nó] mostrará um estado de erro. Em seguida, você pode atualizar o recurso de cluster para remover o tipo de nó. Você pode usar a implantação de modelo ARM ou editar o recurso de cluster por meio do [Azure Resource Manager](https://resources.azure.com). Isso iniciará uma atualização de cluster, o que removerá o serviço Fabric:/System/InfrastructureService/[nó Type] que está em estado de erro.
- 6. Depois disso, você pode, opcionalmente, excluir o VMScaleSet, você ainda verá os nós como "inativos" do modo de exibição de Service Fabric Explorer no entanto. A última etapa seria limpá-los com `Remove-ServiceFabricNodeState` o comando.
+ 6. Depois disso, você pode, opcionalmente, excluir o VMScaleSet, você ainda verá os nós como "inativos" do modo de exibição de Service Fabric Explorer no entanto. A última etapa seria limpá-los com o `Remove-ServiceFabricNodeState` comando.
 
 ## <a name="horizontal-scaling"></a>Dimensionamento em escala horizontal
 
@@ -123,7 +123,7 @@ Para dimensionar manualmente, atualize a capacidade na propriedade SKU do recurs
 }
 ```
 
-Você deve preparar o nó para que o desligamento seja reduzido de forma programática. Localize o nó a ser removido (o nó de instância mais alta). Por exemplo: 
+Você deve preparar o nó para que o desligamento seja reduzido de forma programática. Localize o nó a ser removido (o nó de instância mais alta). Por exemplo:
 
 ```csharp
 using (var client = new FabricClient())
@@ -140,7 +140,7 @@ using (var client = new FabricClient())
         .FirstOrDefault();
 ```
 
-Desative e remova o nó usando a mesma `FabricClient` instância (`client` nesse caso) e a instância de nó`instanceIdString` (nesse caso) que você usou no código anterior:
+Desative e remova o nó usando a mesma `FabricClient` instância ( `client` nesse caso) e a instância de nó ( `instanceIdString` nesse caso) que você usou no código anterior:
 
 ```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
