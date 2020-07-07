@@ -7,10 +7,10 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
 ms.openlocfilehash: ca4dc888af414ede270118eff72652f098d3306c
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82779035"
 ---
 # <a name="localization"></a>Localização #
@@ -26,12 +26,12 @@ O suporte a vários idiomas permite que os usuários de localidades não inglesa
 
 O Player de Mídia do Azure atualmente dá suporte aos seguintes idiomas com seus códigos de idioma correspondentes:
 
-| Linguagem            | Código | Linguagem                | Código   | Linguagem                | Código         |
+| Language            | Código | Language                | Código   | Language                | Código         |
 |---------------------|------|-------------------------|--------|-------------------------|--------------|
 | Inglês {padrão}   | en   | Croata                | hr     | Romeno                | ro           |
 | Árabe              | ar   | Húngaro               | hu     | Eslovaco                  | sk           |
 | Búlgaro           | bg   | Indonésio              | id     | Slovene                 | sl           |
-| Catalão             | AC   | Islandês               | é     | Sérvio - Cirílico      | Sr-Cyrl-CS   |
+| Catalão             | ca   | Islandês               | é     | Sérvio - Cirílico      | Sr-Cyrl-CS   |
 | Tcheco               | cs   | Italiano                 | it     | Sérvio - latino         | sr-latn-rs   |
 | Dinamarquês              | da   | Japonês                | ja     | Russo                 | ru           |
 | Alemão              | de   | Cazaque                  | kk     | Sueco                 | sv           |

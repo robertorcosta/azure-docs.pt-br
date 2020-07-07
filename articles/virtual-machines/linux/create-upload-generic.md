@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: guybo
 ms.openlocfilehash: f700dec6486bad9e7024d7c908a70dd0ff2b342c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80066771"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informações para distribuições não endossadas
@@ -24,7 +24,7 @@ Todas as distribuições em execução no Azure têm vários pré-requisitos. Es
 
 É recomendável iniciar com uma das [distribuições endossadas do Linux no Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Os artigos a seguir mostram como preparar as várias distribuições endossadas do Linux com suporte no Azure:
 
-* **[Distribuições baseadas em CentOS](create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[Distribuições com base em CentOS](create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Debian Linux](debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Oracle Linux](oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
@@ -64,7 +64,7 @@ O mecanismo para recriar a imagem initrd ou initramfs pode variar dependendo da 
 ### <a name="resizing-vhds"></a>Redimensionando VHDs
 As imagens de VHD no Azure devem ter um tamanho virtual alinhado para 1MB.  Normalmente, os VHDs criados usando o Hyper-V estão alinhados corretamente.  Se o VHD não estiver alinhado corretamente, você poderá receber uma mensagem de erro semelhante à seguinte ao tentar criar uma imagem do VHD.
 
-* O VHD http:\//\<mystorageaccount>. blob.Core.Windows.net/VHDs/MyLinuxVM.VHD tem um tamanho virtual sem suporte de 21475270656 bytes. O tamanho deve ser um número inteiro (em MBs).
+* O VHD http: \/ / \<mystorageaccount> . blob.Core.Windows.net/VHDs/MyLinuxVM.VHD tem um tamanho virtual sem suporte de 21475270656 bytes. O tamanho deve ser um número inteiro (em MBs).
 
 Nesse caso, redimensione a VM usando o console do Gerenciador Hyper-V ou o cmdlet do PowerShell [Resize-VHD](https://technet.microsoft.com/library/hh848535.aspx).  Se você não estiver executando em um ambiente Windows, é recomendável usar `qemu-img` para converter (se necessário) e redimensionar o VHD.
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.custom: seodec18
 ms.openlocfilehash: b33aeeee03fa57d87a60fd4c1904d5e4a86dd004
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80067082"
 ---
 # <a name="perform-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-classic"></a>Executar análise de sentimentos com Azure Stream Analytics e Azure Machine Learning Studio (clássico)
@@ -20,7 +20,7 @@ ms.locfileid: "80067082"
 Este artigo descreve como configurar rapidamente um trabalho simples de Azure Stream Analytics que integra Azure Machine Learning Studio (clássico). Você usa um modelo de análise de sentimento de Machine Learning da Galeria do Cortana Intelligence para analisar dados de texto de streaming e determinar a pontuação de sentimento em tempo real. Usar o Cortana Intelligence Suite permite realizar essa tarefa sem se preocupar com as complexidades de criar um modelo de análise de sentimento.
 
 > [!TIP]
-> É altamente recomendável usar [Azure Machine Learning UDFs](machine-learning-udf.md) em vez de Azure Machine Learning Studio UDF (clássico) para melhorar o desempenho e a confiabilidade.
+> É altamente recomendado usar [UDFs do Azure Machine Learning](machine-learning-udf.md) em vez de UDFs do Azure Machine Learning Studio (clássico) para melhorar o desempenho e a confiabilidade.
 
 Você pode aplicar o que aprendeu com este artigo a cenários como estes:
 
@@ -55,7 +55,7 @@ Em um nível alto, para concluir as tarefas demonstradas neste artigo, você far
 ## <a name="create-a-storage-container-and-upload-the-csv-input-file"></a>Criar um contêiner de armazenamento e carregar o arquivo de entrada CSV
 Nesta etapa, você pode usar qualquer arquivo CSV, como o disponível no GitHub.
 
-1. No portal do Azure, clique em **criar um recurso** > **armazenamento** > **conta de armazenamento**.
+1. No portal do Azure, clique em **criar um recurso**  >  **armazenamento**  >  **conta de armazenamento**.
 
 2. Forneça um nome (`samldemo` no exemplo). O nome pode ter apenas letras minúsculas e números e deve ser exclusivo no Azure. 
 
@@ -63,7 +63,7 @@ Nesta etapa, você pode usar qualquer arquivo CSV, como o disponível no GitHub.
 
     ![informe os detalhes da conta de armazenamento](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account1.png)
 
-4. No portal do Azure, selecione a conta de armazenamento. Na folha da conta de armazenamento, clique em **contêineres** e, em seguida, clique em ** + &nbsp;contêiner** para criar o armazenamento de BLOBs.
+4. No portal do Azure, selecione a conta de armazenamento. Na folha da conta de armazenamento, clique em **contêineres** e, em seguida, clique em ** + &nbsp; contêiner** para criar o armazenamento de BLOBs.
 
     ![Criar um contêiner de armazenamento de blob para entrada](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account2.png)
 
@@ -122,7 +122,7 @@ Agora você pode criar um trabalho do Stream Analytics que leia os tweets de exe
 
 1. Vá para o [Portal do Azure](https://portal.azure.com).  
 
-2. Clique em **criar um recurso** > **Internet das coisas** > **Stream Analytics trabalho**. 
+2. Clique em **criar um recurso**  >  **Internet das coisas**  >  **Stream Analytics trabalho**. 
 
 3. Dê ao trabalho o nome de `azure-sa-ml-demo`, especifique uma assinatura, especifique um grupo de recursos existente ou crie um novo e selecione o local para o trabalho.
 
@@ -178,7 +178,7 @@ Nesta seção do tutorial, você define uma função do trabalho de Stream Analy
 
 1. Verifique se que você tem a URL do serviço Web e a chave de API baixada anteriormente na pasta de trabalho do Excel.
 
-2. Navegue até sua folha de trabalho > **funções** > **+ Adicionar** > **AzureML**
+2. Navegue até sua folha de trabalho > **funções**  >  **+ Adicionar**  >  **AzureML**
 
 3. Preencha a folha **Função do Azure Machine Learning** com estes valores:
 
@@ -257,7 +257,7 @@ Você também pode exibir as métricas relacionadas à função de Azure Machine
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
 * [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Integrar API REST e Machine Learning](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
-* [Referência da API REST de gerenciamento de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 
 

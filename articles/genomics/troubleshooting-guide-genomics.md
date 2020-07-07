@@ -11,10 +11,10 @@ ms.workload: genomics
 ms.topic: troubleshooting
 ms.date: 10/29/2018
 ms.openlocfilehash: c508c10d619cde1a16d89b446c5cfd1a3ce81daf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82100899"
 ---
 # <a name="troubleshooting-guide"></a>Guia de Solução de Problemas
@@ -81,7 +81,7 @@ Para o fluxo de trabalho ID 1001 e o arquivo config.txt localizado no mesmo cami
 msgen status -w 1001 -f "config.txt"
 ```
 
-### <a name="2--examine-the-contents-of-standardoutputtxt"></a>2. Examine o conteúdo de StandardOutput. txt 
+### <a name="2--examine-the-contents-of-standardoutputtxt"></a>2. Examine o conteúdo de standardoutput.txt 
 Localize o contêiner de saída do fluxo de trabalho em questão. O MSGEN cria uma pasta `[workflowfilename].logs.zip` após cada execução de fluxo de trabalho. Descompacte a pasta para exibir seu conteúdo:
 
 * outputFileList.txt - uma lista dos arquivos de saída produzida durante o fluxo de trabalho

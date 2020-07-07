@@ -6,10 +6,10 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/04/2020
 ms.openlocfilehash: 81040adf6cfbb8820ec7f306c7d614830e3a2613
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82791095"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Criar e executar testes de disponibilidade personalizados usando Azure Functions
@@ -45,7 +45,7 @@ Copie o código abaixo no arquivo run. CSX (isso substituirá o código pré-exi
 >![Run. CSX da função do Azure em portal do Azure](media/availability-azure-functions/runcsx.png)
 
 > [!NOTE]
-> Para o endereço do ponto de extremidade que `EndpointAddress= https://dc.services.visualstudio.com/v2/track`você usaria:. A menos que o recurso esteja localizado em uma região como o Azure governamental ou o Azure China, nesse caso, consulte este artigo sobre como [substituir os pontos de extremidade padrão](https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification) e selecionar o apontador de canal de telemetria apropriado para sua região.
+> Para o endereço do ponto de extremidade que você usaria: `EndpointAddress= https://dc.services.visualstudio.com/v2/track` . A menos que o recurso esteja localizado em uma região como o Azure governamental ou o Azure China, nesse caso, consulte este artigo sobre como [substituir os pontos de extremidade padrão](https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification) e selecionar o apontador de canal de telemetria apropriado para sua região.
 
 ```C#
 #load "runAvailabilityTest.csx"
@@ -160,7 +160,7 @@ public async static Task RunAvailbiltyTestAsync(ILogger log)
 Para verificar se tudo está funcionando, você pode examinar o grafo na guia disponibilidade do recurso de Application Insights.
 
 > [!NOTE]
-> Se você implementou sua própria lógica de negócios em runAvailabilityTest. CSX, verá resultados bem-sucedidos como nas capturas de tela abaixo, se você não tiver feito isso, você verá resultados com falha. Os testes criados `TrackAvailability()` com o serão exibidos com o próximo **personalizado** ao nome do teste.
+> Se você implementou sua própria lógica de negócios em runAvailabilityTest. CSX, verá resultados bem-sucedidos como nas capturas de tela abaixo, se você não tiver feito isso, você verá resultados com falha. Os testes criados com `TrackAvailability()` o serão exibidos com o próximo **personalizado** ao nome do teste.
 
 >[!div class="mx-imgBorder"]
 >![Guia disponibilidade com resultados bem-sucedidos](media/availability-azure-functions/availability-custom.png)
@@ -187,5 +187,5 @@ Você pode usar logs (análise) para exibir os resultados de disponibilidade, as
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Mapa de aplicativo](../../azure-monitor/app/app-map.md)
+- [Mapa do aplicativo](../../azure-monitor/app/app-map.md)
 - [Diagnóstico da transação](../../azure-monitor/app/transaction-diagnostics.md)

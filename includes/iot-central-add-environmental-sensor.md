@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 9717c76b42a63479c77f862057bfb141954eacff
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 0381418f20e126f94060b9f495fe1fe8b54e713b
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83673400"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85378522"
 ---
 ## <a name="create-a-device-template"></a>Crie um modelo de dispositivo
 
@@ -21,7 +21,7 @@ Crie uma pasta chamada `environmental-sensor` no computador local.
 
 Baixe o arquivo JSON [Modelo de capacidade do sensor ambiental](https://raw.githubusercontent.com/Azure/IoTPlugandPlay/9004219bff1e958b7cd6ff2a52209f4b7ae19396/samples/EnvironmentalSensorInline.capabilitymodel.json) e salve-o na pasta `environmental-sensor`.
 
-Use um editor de texto para substituir as duas instâncias de `{YOUR_COMPANY_NAME_HERE}` pelo nome da sua empresa no arquivo `EnvironmentalSensorInline.capabilitymodel.json` baixado.
+Use um editor de texto para substituir as duas instâncias de `{YOUR_COMPANY_NAME_HERE}` pelo nome da sua empresa no arquivo `EnvironmentalSensorInline.capabilitymodel.json` baixado. Use somente os caracteres a-z, A-Z, 0-9 e sublinhado.
 
 No aplicativo do Azure IoT Central, crie um modelo de dispositivo chamado *Sensor ambiental* importando o arquivo de modelo de funcionalidade do dispositivo `EnvironmentalSensorInline.capabilitymodel.json`:
 

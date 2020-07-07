@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: ccd8d383db265826d8644ee89d7300128fc3a350
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82131300"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>Criar e provisionar um dispositivo IoT Edge usando certificados X. 509
@@ -137,7 +137,7 @@ Ao criar um grupo de registros, você tem a opção de usar um certificado verif
 
 1. Insira um nome amigável para seu certificado e, em seguida, navegue até o arquivo. cer ou. pem que representa a parte pública do seu certificado X. 509.
 
-   Se você estiver usando os certificados de demonstração, carregue `<wrkdir>/certs/azure-iot-test-only.root.ca.cert.pem` o certificado.
+   Se você estiver usando os certificados de demonstração, carregue o `<wrkdir>/certs/azure-iot-test-only.root.ca.cert.pem` certificado.
 
 1. Selecione **Salvar**.
 
@@ -219,7 +219,7 @@ Você precisará das seguintes informações ao provisionar seu dispositivo:
 
 Use o link a seguir para instalar o Azure IoT Edge tempo de execução em seu dispositivo, usando os comandos apropriados para a arquitetura do dispositivo. Quando você chegar à seção sobre como configurar o daemon de segurança, configure o tempo de execução de IoT Edge para o 509 automático, não manual, provisionamento. Você deve ter todas as informações e os arquivos de certificado necessários depois de concluir as seções anteriores deste artigo.
 
-[Instalar o tempo de execução de Azure IoT Edge no Linux](how-to-install-iot-edge-linux.md)
+[Instalar o runtime do Azure IoT Edge no Linux](how-to-install-iot-edge-linux.md)
 
 Quando você adiciona o certificado X. 509 e as informações de chave ao arquivo config. YAML, os caminhos devem ser fornecidos como URIs de arquivo. Por exemplo:
 
@@ -241,7 +241,7 @@ provisioning:
     identity_pk: "<REQUIRED URI TO DEVICE IDENTITY PRIVATE KEY>"
 ```
 
-Substitua os valores de espaço `scope_id`reservado `identity_cert`para `identity_pk` ,, com a ID de escopo da instância do DPS e os URIs para a cadeia de certificados e os locais de arquivo de chave em seu dispositivo. Forneça um `registration_id` para o dispositivo, se desejar, ou deixe essa linha comentada para registrar o dispositivo com o nome CN do certificado de identidade.
+Substitua os valores de espaço reservado para `scope_id` , `identity_cert` , `identity_pk` com a ID de escopo da instância do DPS e os URIs para a cadeia de certificados e os locais de arquivo de chave em seu dispositivo. Forneça um `registration_id` para o dispositivo, se desejar, ou deixe essa linha comentada para registrar o dispositivo com o nome CN do certificado de identidade.
 
 Sempre reinicie o daemon de segurança depois de atualizar o arquivo config. YAML.
 
@@ -266,9 +266,9 @@ Para obter informações mais detalhadas sobre como instalar o IoT Edge no Windo
 
 1. Neste ponto, os dispositivos IoT Core podem ser reiniciados automaticamente. Outros dispositivos Windows 10 ou Windows Server podem solicitar a reinicialização. Nesse caso, reinicie o dispositivo agora. Quando o dispositivo estiver pronto, execute o PowerShell como administrador novamente.
 
-1. O comando **Initialize-IoTEdge** configura o runtime do IoT Edge em seu computador. O comando usa como padrão o provisionamento manual, a menos que você `-Dps` use o sinalizador para usar o provisionamento automático.
+1. O comando **Initialize-IoTEdge** configura o runtime do IoT Edge em seu computador. O comando usa como padrão o provisionamento manual, a menos que você use o `-Dps` sinalizador para usar o provisionamento automático.
 
-   Substitua os valores de espaço `{scope_id}`reservado `{identity cert chain path}`para, `{identity key path}` e pelos valores apropriados de sua instância de DPS e os caminhos de arquivo em seu dispositivo. Se você quiser especificar a ID de registro, inclua `-RegistrationId {registration_id}` também, substituindo o espaço reservado conforme apropriado.
+   Substitua os valores de espaço reservado para `{scope_id}` , `{identity cert chain path}` e `{identity key path}` pelos valores apropriados de sua instância de DPS e os caminhos de arquivo em seu dispositivo. Se você quiser especificar a ID de registro, inclua `-RegistrationId {registration_id}` também, substituindo o espaço reservado conforme apropriado.
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `

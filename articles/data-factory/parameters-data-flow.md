@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.openlocfilehash: 8e88e5e8a9fbe1881959c5183dc01b11ac681bdf
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82780361"
 ---
 # <a name="parameterizing-mapping-data-flows"></a>Parametrizando os fluxos de dados de mapeamento
@@ -64,14 +64,14 @@ Ao atribuir um parâmetro de expressão de pipeline do tipo cadeia de caracteres
 
 ![Definindo um parâmetro de fluxo de dados](media/data-flow/string-parameter.png "Definindo um parâmetro de fluxo de dados")
 
-Se o parâmetro `stringParam` de fluxo de dados fizer referência a `upper(column1)`um parâmetro de pipeline com valor. 
+Se `stringParam` o parâmetro de fluxo de dados fizer referência a um parâmetro de pipeline com valor `upper(column1)` . 
 
-- Se expression estiver marcado, `$stringParam` será avaliado como o valor de Coluna1 todas as letras maiúsculas.
-- Se a expressão não estiver marcada (comportamento padrão) `$stringParam` , será avaliada como`'upper(column1)'`
+- Se expression estiver marcado, será `$stringParam` avaliado como o valor de Coluna1 todas as letras maiúsculas.
+- Se a expressão não estiver marcada (comportamento padrão), será `$stringParam` avaliada como`'upper(column1)'`
 
 #### <a name="passing-in-timestamps"></a>Passando carimbos de data/hora
 
-Na linguagem de expressão de pipeline, variáveis de sistema `pipeline().TriggerTime` como e Functions como `utcNow()` retornam carimbos de data/hora como cadeias de\'caracteres\'no formato ' aaaa-mm-dd T hh: mm: SS. SSSSSSZ'. Para convertê-los em parâmetros de fluxo de dados do tipo TIMESTAMP, use interpolação de cadeia de `toTimestamp()` caracteres para incluir o carimbo de data/hora desejado em uma função Por exemplo, para converter o tempo de gatilho do pipeline em um parâmetro de fluxo de dados `toTimestamp(left('@{pipeline().TriggerTime}', 23), 'yyyy-MM-dd\'T\'HH:mm:ss.SSS')`, você pode usar. 
+Na linguagem de expressão de pipeline, variáveis de sistema como `pipeline().TriggerTime` e Functions como `utcNow()` retornam carimbos de data/hora como cadeias de caracteres no formato ' aaaa-mm-dd \' T \' hh: mm: SS. SSSSSSZ'. Para convertê-los em parâmetros de fluxo de dados do tipo TIMESTAMP, use interpolação de cadeia de caracteres para incluir o carimbo de data/hora desejado em uma `toTimestamp()` função Por exemplo, para converter o tempo de gatilho do pipeline em um parâmetro de fluxo de dados, você pode usar `toTimestamp(left('@{pipeline().TriggerTime}', 23), 'yyyy-MM-dd\'T\'HH:mm:ss.SSS')` . 
 
 ![Definindo um parâmetro de fluxo de dados](media/data-flow/parameter-timestamp.png "Definindo um parâmetro de fluxo de dados")
 
@@ -80,7 +80,7 @@ Na linguagem de expressão de pipeline, variáveis de sistema `pipeline().Trigge
 
 #### <a name="pipeline-parameter-example"></a>Exemplo de parâmetro de pipeline
 
-Digamos que você tenha um parâmetro `intParam` inteiro que faça referência a um parâmetro de pipeline do `@pipeline.parameters.pipelineParam`tipo cadeia de caracteres,. 
+Digamos que você tenha um parâmetro inteiro `intParam` que faça referência a um parâmetro de pipeline do tipo cadeia de caracteres, `@pipeline.parameters.pipelineParam` . 
 
 ![Definindo um parâmetro de fluxo de dados](media/data-flow/parameter-pipeline-2.png "Definindo um parâmetro de fluxo de dados")
 
@@ -88,7 +88,7 @@ Digamos que você tenha um parâmetro `intParam` inteiro que faça referência a
 
 ![Definindo um parâmetro de fluxo de dados](media/data-flow/parameter-pipeline-4.png "Definindo um parâmetro de fluxo de dados")
 
-Quando `$intParam` é referenciado em uma expressão como uma coluna derivada, ele avaliará `abs(1)` o `1`retorno. 
+Quando `$intParam` é referenciado em uma expressão como uma coluna derivada, ele avaliará o `abs(1)` retorno `1` . 
 
 ![Definindo um parâmetro de fluxo de dados](media/data-flow/parameter-pipeline-3.png "Definindo um parâmetro de fluxo de dados")
 
@@ -102,9 +102,9 @@ A **expressão selecionar fluxo de dados** abrirá o construtor de expressões d
 
 ### <a name="passing-in-a-column-name-as-a-parameter"></a>Passando um nome de coluna como um parâmetro
 
-Um padrão comum é passar um nome de coluna como um valor de parâmetro. Se a coluna for definida no esquema de fluxo de dados, você poderá referenciá-la diretamente como uma expressão de cadeia de caracteres. Se a coluna não estiver definida no esquema, use a `byName()` função. Lembre-se de converter a coluna em seu tipo apropriado com uma função de `toString()`conversão, como.
+Um padrão comum é passar um nome de coluna como um valor de parâmetro. Se a coluna for definida no esquema de fluxo de dados, você poderá referenciá-la diretamente como uma expressão de cadeia de caracteres. Se a coluna não estiver definida no esquema, use a `byName()` função. Lembre-se de converter a coluna em seu tipo apropriado com uma função de conversão, como `toString()` .
 
-Por exemplo, se você quisesse mapear uma coluna de cadeia de caracteres com `columnName`base em um parâmetro, poderá adicionar uma transformação coluna `toString(byName($columnName))`derivada igual a.
+Por exemplo, se você quisesse mapear uma coluna de cadeia de caracteres com base em um parâmetro `columnName` , poderá adicionar uma transformação coluna derivada igual a `toString(byName($columnName))` .
 
 ![Passando um nome de coluna como um parâmetro](media/data-flow/parameterize-column-name.png "Passando um nome de coluna como um parâmetro")
 

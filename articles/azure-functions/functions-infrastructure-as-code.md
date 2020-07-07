@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 7155a3fa9481ef5f2da62d85d4a932ad5e8e8ab1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81382516"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizar a implantação de recursos para seu aplicativo de funções do Azure Functions
@@ -142,7 +142,7 @@ Um aplicativo de funções deve incluir estas configurações de aplicativo:
 | AzureWebJobsStorage          | Uma cadeia de conexão para uma conta de armazenamento que o tempo de execução do Functions usa para a fila interna | Consulte a [conta de armazenamento](#storage)       |
 | FUNCTIONS_EXTENSION_VERSION  | A versão do Azure Functions Runtime                                                | `~2`                                  |
 | FUNCTIONS_WORKER_RUNTIME     | A pilha de idiomas a ser usada para funções neste aplicativo                                   | `dotnet`, `node`, `java`, `python` ou `powershell` |
-| WEBSITE_NODE_DEFAULT_VERSION | Necessário apenas se estiver usando `node` a pilha de idiomas, especifica a versão a ser usada              | `10.14.1`                             |
+| WEBSITE_NODE_DEFAULT_VERSION | Necessário apenas se estiver usando a `node` pilha de idiomas, especifica a versão a ser usada              | `10.14.1`                             |
 
 Essas propriedades são especificadas na `appSettings` coleção na `siteConfig` Propriedade:
 
@@ -183,7 +183,7 @@ Para um exemplo de modelo do Azure Resource Manager, consulte [Aplicativo de fun
 
 Um plano de consumo não precisa ser definido. Uma será criada automaticamente ou selecionada em uma base por região quando você criar o recurso do aplicativo de funções em si.
 
-O plano de consumo é um tipo especial de recurso "ServerFarm". Para o Windows, você pode especificá-lo `Dynamic` usando o valor `computeMode` para `sku` as propriedades e:
+O plano de consumo é um tipo especial de recurso "ServerFarm". Para o Windows, você pode especificá-lo usando o `Dynamic` valor para as `computeMode` `sku` Propriedades e:
 
 ```json
 {  
@@ -208,13 +208,13 @@ O plano de consumo é um tipo especial de recurso "ServerFarm". Para o Windows, 
 > [!NOTE]
 > O plano de consumo não pode ser explicitamente definido para Linux. Ele será criado automaticamente.
 
-Se você definir explicitamente seu plano de consumo, será necessário definir a `serverFarmId` Propriedade no aplicativo para que ele aponte para a ID de recurso do plano. Você deve garantir que o aplicativo de funções também `dependsOn` tenha uma configuração para o plano.
+Se você definir explicitamente seu plano de consumo, será necessário definir a `serverFarmId` propriedade no aplicativo para que ele aponte para a ID de recurso do plano. Você deve garantir que o aplicativo de funções também tenha uma `dependsOn` configuração para o plano.
 
 ### <a name="create-a-function-app"></a>Criar um aplicativo de funções
 
 #### <a name="windows"></a>Windows
 
-No Windows, um plano de consumo requer duas configurações adicionais na configuração do site `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` : `WEBSITE_CONTENTSHARE`e. Essas propriedades configuram a conta de armazenamento e o caminho do arquivo em que o código e as configurações do aplicativo de funções estão armazenados.
+No Windows, um plano de consumo requer duas configurações adicionais na configuração do site: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` e `WEBSITE_CONTENTSHARE` . Essas propriedades configuram a conta de armazenamento e o caminho do arquivo em que o código e as configurações do aplicativo de funções estão armazenados.
 
 ```json
 {
@@ -261,7 +261,7 @@ No Windows, um plano de consumo requer duas configurações adicionais na config
 
 #### <a name="linux"></a>Linux
 
-No Linux, o aplicativo de funções deve ter `kind` seu definido `functionapp,linux`como e deve ter a `reserved` propriedade definida como: `true`
+No Linux, o aplicativo de funções deve ter seu `kind` definido como `functionapp,linux` e deve ter a `reserved` propriedade definida como `true` :
 
 ```json
 {
@@ -309,7 +309,7 @@ O plano Premium oferece o mesmo dimensionamento do plano de consumo, mas inclui 
 
 ### <a name="create-a-premium-plan"></a>Criar um plano Premium
 
-Um plano Premium é um tipo especial de recurso "ServerFarm". Você pode especificá-lo usando `EP1`ou `EP2`, ou `EP3` para o `Name` valor da propriedade no `sku` [objeto Description](https://docs.microsoft.com/azure/templates/microsoft.web/2018-02-01/serverfarms#skudescription-object).
+Um plano Premium é um tipo especial de recurso "ServerFarm". Você pode especificá-lo usando `EP1` `EP2` ou, ou `EP3` para o `Name` valor da propriedade no `sku` [objeto Description](https://docs.microsoft.com/azure/templates/microsoft.web/2018-02-01/serverfarms#skudescription-object).
 
 ```json
 {
@@ -334,7 +334,7 @@ Um plano Premium é um tipo especial de recurso "ServerFarm". Você pode especif
 
 ### <a name="create-a-function-app"></a>Criar um aplicativo de funções
 
-Um aplicativo de funções em um plano Premium deve ter `serverFarmId` a propriedade definida como a ID de recurso do plano criado anteriormente. Além disso, um plano Premium requer duas configurações adicionais na configuração do site: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` e `WEBSITE_CONTENTSHARE`. Essas propriedades configuram a conta de armazenamento e o caminho do arquivo em que o código e as configurações do aplicativo de funções estão armazenados.
+Um aplicativo de funções em um plano Premium deve ter a `serverFarmId` propriedade definida como a ID de recurso do plano criado anteriormente. Além disso, um plano Premium requer duas configurações adicionais na configuração do site: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` e `WEBSITE_CONTENTSHARE` . Essas propriedades configuram a conta de armazenamento e o caminho do arquivo em que o código e as configurações do aplicativo de funções estão armazenados.
 
 ```json
 {
@@ -410,7 +410,7 @@ Um plano do serviço de aplicativo é definido por um recurso "ServerFarm".
 }
 ```
 
-Para executar seu aplicativo no Linux, você também deve definir o `kind` para `Linux`:
+Para executar seu aplicativo no Linux, você também deve definir o `kind` para `Linux` :
 
 ```json
 {
@@ -431,7 +431,7 @@ Para executar seu aplicativo no Linux, você também deve definir o `kind` para 
 
 ### <a name="create-a-function-app"></a>Criar um aplicativo de funções
 
-Um aplicativo de funções em um plano do serviço de aplicativo `serverFarmId` deve ter a propriedade definida como a ID de recurso do plano criado anteriormente.
+Um aplicativo de funções em um plano do serviço de aplicativo deve ter a `serverFarmId` propriedade definida como a ID de recurso do plano criado anteriormente.
 
 ```json
 {
@@ -470,7 +470,7 @@ Um aplicativo de funções em um plano do serviço de aplicativo `serverFarmId` 
 }
 ```
 
-Os aplicativos do Linux também devem `linuxFxVersion` incluir uma `siteConfig`Propriedade em. Se você estiver apenas implantando o código, o valor para isso será determinado pela pilha de tempo de execução desejada:
+Os aplicativos do Linux também devem incluir uma `linuxFxVersion` propriedade em `siteConfig` . Se você estiver apenas implantando o código, o valor para isso será determinado pela pilha de tempo de execução desejada:
 
 | Pilha            | Valor de exemplo                                         |
 |------------------|-------------------------------------------------------|
@@ -516,7 +516,7 @@ Os aplicativos do Linux também devem `linuxFxVersion` incluir uma `siteConfig`P
 }
 ```
 
-Se você estiver [implantando uma imagem de contêiner personalizada](./functions-create-function-linux-custom-image.md), deverá especificá `linuxFxVersion` -la com e incluir a configuração que permite que a imagem seja puxada, como no [aplicativo Web para contêineres](/azure/app-service/containers). Além disso, `WEBSITES_ENABLE_APP_SERVICE_STORAGE` defina `false`como, pois o conteúdo do aplicativo é fornecido no próprio contêiner:
+Se você estiver [implantando uma imagem de contêiner personalizada](./functions-create-function-linux-custom-image.md), deverá especificá-la com `linuxFxVersion` e incluir a configuração que permite que a imagem seja puxada, como no [aplicativo Web para contêineres](/azure/app-service/containers). Além disso, defina `WEBSITES_ENABLE_APP_SERVICE_STORAGE` como `false` , pois o conteúdo do aplicativo é fornecido no próprio contêiner:
 
 ```json
 {

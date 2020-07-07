@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.openlocfilehash: 165e7984c21b74fa7730fc02756b9e75b4b33aa7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82131237"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Log de auditoria no banco de dados do Azure para PostgreSQL-servidor único
@@ -37,7 +37,7 @@ Para saber como configurar o log no armazenamento do Azure, nos hubs de eventos 
 
 ## <a name="installing-pgaudit"></a>Instalando o pgAudit
 
-Para instalar o pgAudit, você precisa incluí-lo nas bibliotecas de pré-carregamento compartilhadas do servidor. Uma alteração no parâmetro de `shared_preload_libraries` postgres requer a reinicialização do servidor para entrar em vigor. Você pode alterar os parâmetros usando o [portal do Azure](howto-configure-server-parameters-using-portal.md), [CLI do Azure](howto-configure-server-parameters-using-cli.md)ou a [API REST](/rest/api/postgresql/configurations/createorupdate).
+Para instalar o pgAudit, você precisa incluí-lo nas bibliotecas de pré-carregamento compartilhadas do servidor. Uma alteração no parâmetro de postgres `shared_preload_libraries` requer a reinicialização do servidor para entrar em vigor. Você pode alterar os parâmetros usando o [portal do Azure](howto-configure-server-parameters-using-portal.md), [CLI do Azure](howto-configure-server-parameters-using-cli.md)ou a [API REST](/rest/api/postgresql/configurations/createorupdate).
 
 Usando o [portal do Azure](https://portal.azure.com):
 
@@ -53,7 +53,7 @@ Usando o [portal do Azure](https://portal.azure.com):
       ```
 
 > [!TIP]
-> Se você vir um erro, confirme que você reiniciou o servidor após salvar `shared_preload_libraries`.
+> Se você vir um erro, confirme que você reiniciou o servidor após salvar `shared_preload_libraries` .
 
 ## <a name="pgaudit-settings"></a>configurações de pgAudit
 
@@ -66,24 +66,24 @@ Depois de [instalar o pgAudit](#installing-pgaudit), você pode configurar seus 
 
 > [!NOTE]
 > Definir `pgaudit.log_client` como on redirecionará os logs para um processo de cliente (como psql) em vez de ser gravado no arquivo. Essa configuração deve ser deixada desabilitada. <br> <br>
-> `pgaudit.log_level`é habilitado somente quando `pgaudit.log_client` o está ativado.
+> `pgaudit.log_level`é habilitado somente quando o `pgaudit.log_client` está ativado.
 
 > [!NOTE]
-> No banco de dados do Azure `pgaudit.log` para PostgreSQL, não pode `-` ser definido usando um atalho de sinal (menos), conforme descrito na documentação do pgAudit. Todas as classes de instrução necessárias (LEITURA, GRAVAÇÃO etc.) devem ser especificadas individualmente.
+> No banco de dados do Azure para PostgreSQL, `pgaudit.log` não pode ser definido usando um `-` atalho de sinal (menos), conforme descrito na documentação do pgAudit. Todas as classes de instrução necessárias (LEITURA, GRAVAÇÃO etc.) devem ser especificadas individualmente.
 
 ### <a name="audit-log-format"></a>Formato do log de auditoria
 Cada entrada de auditoria é indicada `AUDIT:` próximo ao início da linha de log. O formato do restante da entrada é detalhado na [documentação do pgAudit](https://github.com/pgaudit/pgaudit/blob/master/README.md#format).
 
-Se você precisar de outros campos para atender aos seus requisitos de auditoria, use o `log_line_prefix`parâmetro Postgres. `log_line_prefix`é uma cadeia de caracteres que é saída no início de cada linha de log do Postgres. Por exemplo, a configuração `log_line_prefix` a seguir fornece timestamp, username, Database Name e Process ID:
+Se você precisar de outros campos para atender aos seus requisitos de auditoria, use o parâmetro postgres `log_line_prefix` . `log_line_prefix`é uma cadeia de caracteres que é saída no início de cada linha de log do Postgres. Por exemplo, a configuração a seguir `log_line_prefix` fornece timestamp, username, Database Name e Process ID:
 
 ```
 t=%m u=%u db=%d pid=[%p]:
 ```
 
-Para saber mais sobre `log_line_prefix`o, visite a [documentação do PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-LINE-PREFIX).
+Para saber mais sobre `log_line_prefix` o, visite a [documentação do PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-LINE-PREFIX).
 
 ### <a name="getting-started"></a>Introdução
-Para começar rapidamente, defina `pgaudit.log` como `WRITE`e abra seus logs para examinar a saída. 
+Para começar rapidamente, defina `pgaudit.log` como `WRITE` e abra seus logs para examinar a saída. 
 
 ## <a name="viewing-audit-logs"></a>Exibindo logs de auditoria
 Se você estiver usando arquivos. log, os logs de auditoria serão incluídos no mesmo arquivo que os logs de erros do PostgreSQL. Você pode baixar arquivos de log do [portal](howto-configure-server-logs-in-portal.md) do Azure ou da [CLI](howto-configure-server-logs-using-cli.md). 

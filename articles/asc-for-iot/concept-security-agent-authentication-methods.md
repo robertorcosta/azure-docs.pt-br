@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
 ms.openlocfilehash: 0d9d51292c3cae9634af917819b558cdfd2fa04b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81311512"
 ---
 # <a name="security-agent-authentication-methods"></a>Métodos de autenticação do agente de segurança
@@ -62,7 +62,7 @@ Esses argumentos são documentados na tabela a seguir.
 |autenticação-identidade|AuthenticationIdentity|aui|Identidade de autenticação| **SecurityModule** ou **dispositivo**|
 |método de autenticação|AuthenticationMethod|aum|Método de autenticação|**SymmetricKey** ou **SelfSignedCertificate**|
 |caminho do arquivo|FilePath|f|Caminho completo absoluto para o arquivo que contém o certificado ou a chave simétrica| |
-|nome do host|HostName|hn|FQDN do Hub IoT|Exemplo: ContosoIotHub.azure-devices.net|
+|nome do host|HostName|HN|FQDN do Hub IoT|Exemplo: ContosoIotHub.azure-devices.net|
 |ID do dispositivo|DeviceId|di|Id do Dispositivo|Exemplo: MyDevice1|
 |tipo de local de certificado|CertificateLocationKind|l|Local de armazenamento do certificado|**Local** ou **repositório**|
 |
@@ -77,7 +77,7 @@ Para alterar os métodos de autenticação após a implantação, a edição man
 
 ### <a name="c-based-security-agent"></a>Agente de segurança baseado em C#
 
-Edite o _Authentication. config_ com os seguintes parâmetros:
+Edite _Authentication.config_ com os seguintes parâmetros:
 
 ```xml
 <Authentication>
@@ -92,7 +92,7 @@ Edite o _Authentication. config_ com os seguintes parâmetros:
 
 ### <a name="c-based-security-agent"></a>Agente de segurança baseado em C
 
-Edite _LocalConfiguration. JSON_ com os seguintes parâmetros:
+Edite _LocalConfiguration.js_ com os seguintes parâmetros:
 
 ```json
 "Authentication" : {
@@ -104,7 +104,7 @@ Edite _LocalConfiguration. JSON_ com os seguintes parâmetros:
 }
 ```
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 - [Visão geral dos agentes de segurança](security-agent-architecture.md)
 - [Implantar agente de segurança](how-to-deploy-agent.md)

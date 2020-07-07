@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: 9883065993f35054338079c8b9647a8420574414
-ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82738058"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Proteger novamente VMs do Azure que sofreram failover para a região primária
@@ -29,7 +29,7 @@ Quando você faz [failover](site-recovery-failover.md) de VMs do Azure de uma re
 
 ## <a name="reprotect-a-vm"></a>Proteger novamente uma VM
 
-1. Em **cofre** > **itens replicados**, clique com o botão direito do mouse na VM com failover e selecione **proteger novamente**. A direção de nova proteção deve mostrar da secundária para a primária.
+1. Em **cofre**  >  **itens replicados**, clique com o botão direito do mouse na VM com failover e selecione **proteger novamente**. A direção de nova proteção deve mostrar da secundária para a primária.
 
    ![Proteger novamente](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
 
@@ -44,7 +44,7 @@ Você pode personalizar as seguintes propriedades da VM de destino durante a nov
 
 ![Personalizar](./media/site-recovery-how-to-reprotect-azure-to-azure/customizeblade.png)
 
-|Propriedade |Anotações  |
+|Propriedade |Observações  |
 |---------|---------|
 |Grupo de recursos de destino | Modifique o grupo de recursos de destino no qual a VM é criada. Como parte da nova proteção, a VM de destino é excluída. Você pode escolher um novo grupo de recursos sob o qual criar a VM após o failover. |
 |Rede virtual de destino | A rede de destino não pode ser alterada durante o trabalho de nova proteção. Para alterar a rede, refaça o mapeamento de rede. |
@@ -58,7 +58,7 @@ Você pode personalizar as seguintes propriedades da VM de destino durante a nov
 Por padrão, ocorre o seguinte:
 
 1. Uma conta de armazenamento de cache é criada na região onde a VM com failover está em execução.
-1. Se a conta de armazenamento de destino (a conta de armazenamento original na região primária) não existir, uma nova será criada. O nome da conta de armazenamento atribuído é o nome da conta de armazenamento usada pela VM secundária, sufixada com `asr`.
+1. Se a conta de armazenamento de destino (a conta de armazenamento original na região primária) não existir, uma nova será criada. O nome da conta de armazenamento atribuído é o nome da conta de armazenamento usada pela VM secundária, sufixada com `asr` .
 1. Se a sua VM usar discos gerenciados, os discos gerenciados de réplica serão criados na região primária para armazenar os dados replicados dos discos da VM secundária.
 1. Se o conjunto de disponibilidade de destino não existir, um novo será criado como parte do trabalho de nova proteção, se necessário. Se você tiver personalizado as configurações de nova proteção, o conjunto selecionado será usado.
 
@@ -72,7 +72,7 @@ Quando você dispara um trabalho de nova proteção e a VM de destino existe, oc
 
 Quando você dispara um trabalho de nova proteção e a VM de destino e os discos não existem, ocorre o seguinte:
 
-1. Se a VM estiver usando discos gerenciados, os discos de réplica `-ASRReplica` serão criados com o sufixo. As `-ASRReplica` cópias são usadas para replicação.
+1. Se a VM estiver usando discos gerenciados, os discos de réplica serão criados com o `-ASRReplica` sufixo. As `-ASRReplica` cópias são usadas para replicação.
 1. Se a VM estiver usando discos não gerenciados, réplicas dos discos originais serão criadas na conta de armazenamento de destino.
 1. Todos discos são copiados da região com failover para a nova região de destino.
 1. Após a conclusão da sincronização, a replicação delta é iniciada e um ponto de recuperação é criado em linha com a política de replicação.

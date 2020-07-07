@@ -8,10 +8,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/24/2020
 ms.openlocfilehash: e01ac332e61f51909ff1617f1716cd719b67c319
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82127879"
 ---
 # <a name="visualize-azure-cognitive-search-logs-and-metrics-with-power-bi"></a>Visualize os logs e as métricas do Azure Pesquisa Cognitiva com Power BI
@@ -33,7 +33,7 @@ Você pode encontrar o aplicativo de modelo de Power BI **pesquisa cognitiva do 
     1. Verificar o **arquivamento em uma conta de armazenamento**, fornecer as informações da conta de armazenamento e verificar **OperationLogs** e **biométricas**
 
         ![](media/search-monitor-logs-powerbi/add-diagnostic-setting.png)
-    1. Selecione **Salvar**
+    1. Clique em **Salvar**
 
 1. Depois que o registro em log tiver sido habilitado, use o serviço de pesquisa para começar a gerar logs e métricas. Leva até uma hora antes que os contêineres apareçam no armazenamento de BLOBs com esses logs. Você verá um contêiner **insights-logs-operationlogs** para os logs de tráfego de pesquisa e um contêiner **insights-Metrics-PT1M** para métricas.
 
@@ -100,6 +100,6 @@ Se você achar que não consegue ver seus dados, siga estas etapas de solução 
 ## <a name="next-steps"></a>Próximas etapas
 [Saiba mais sobre o Azure Pesquisa Cognitiva](https://docs.microsoft.com/azure/search/)
 
-[O que é Power BI?](https://docs.microsoft.com/power-bi/fundamentals/power-bi-overview)
+[O que é o Power BI?](https://docs.microsoft.com/power-bi/fundamentals/power-bi-overview)
 
 [Conceitos básicos para designers no serviço do Power BI](https://docs.microsoft.com/power-bi/service-basic-concepts)

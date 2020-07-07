@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/14/2020
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: cc53f7ae6eb6254eaa05bf643ecfa0188650df95
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: HT
+ms.openlocfilehash: d7ac494edfb9b1deeceafcac523ac58bccde96b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77461847"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85365332"
 ---
 Esta seção descreve como criar um hub IoT usando o [portal do Azure](https://portal.azure.com).
 
@@ -56,7 +56,7 @@ Esta seção descreve como criar um hub IoT usando o [portal do Azure](https://p
 
 1.  Selecione **Avançar: Marcas** para avançar para a próxima tela.
 
-    Marcas são pares nome/valor. Você pode atribuir a mesma marca a vários recursos e grupos de recursos para categorizá-los e consolidar a cobrança. para obter mais informações, confira [Usar marcas para organizar os recursos do Azure](../articles/azure-resource-manager/management/tag-resources.md).
+    Marcas são pares nome/valor. Você pode atribuir a mesma marca a vários recursos e grupos de recursos para categorizá-los e consolidar a cobrança. Para obter mais informações, veja [Usar marcas para organizar os recursos do Azure](../articles/azure-resource-manager/management/tag-resources.md).
 
     ![Atribuir marcas para o hub usando o portal do Azure](./media/iot-hub-include-create-hub/iot-hub-create-tabs.png)
 

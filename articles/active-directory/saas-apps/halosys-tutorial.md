@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d224f8fa5d696cd55b4f214111280d9210f836e9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3f7cdc8dce8a4b30b543c4e332207354697a9e0d
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73159107"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367658"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-halosys"></a>Tutorial: integração do Azure Active Directory com o Halosys
 
@@ -111,7 +111,7 @@ Para configurar o logon único do Azure AD com o Halosys, execute as seguintes e
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<company-name>.halosys.com/<instance name>`
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Entre em contato com a [equipe de suporte do cliente Halosys](https://halosys.com/halosys#contact) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Entre em contato com a [equipe de suporte do cliente Halosys](https://www.sonata-software.com/form/contact) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
 5. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -129,7 +129,7 @@ Para configurar o logon único do Azure AD com o Halosys, execute as seguintes e
 
 ### <a name="configure-halosys-single-sign-on"></a>Configurar o logon único do Halosys
 
-Para configurar o logon único no lado do **Halosys**, é necessário enviar o **XML de metadados de federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Halosys](https://halosys.com/halosys#contact). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no lado do **Halosys**, é necessário enviar o **XML de metadados de federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Halosys](https://www.sonata-software.com/form/contact). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -184,7 +184,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 ### <a name="create-halosys-test-user"></a>Crie um usuário de teste do Halosys
 
-Nesta seção, você criará um usuário chamado Brenda Fernandes no Halosys. Trabalhe com a  [equipe de suporte do Halosys](https://halosys.com/halosys#contact) para adicionar usuários à plataforma Halosys. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará um usuário chamado Brenda Fernandes no Halosys. Trabalhe com a  [equipe de suporte do Halosys](https://www.sonata-software.com/form/contact) para adicionar usuários à plataforma Halosys. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="test-single-sign-on"></a>Testar logon único
 

@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 4ee89f4bba70bb5e81eef21247d556f65a2a1f16
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80065201"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Gateway de Gerenciamento de Dados – alta disponibilidade e escalabilidade (versão prévia)
@@ -185,7 +185,7 @@ Você pode habilitar as **Configurações Avançadas** na página **Gateway** pa
 
 Propriedade de monitoramento | Descrição
 :------------------ | :---------- 
-Nome | Nome do gateway lógico e nós associada ao gateway.  
+Name | Nome do gateway lógico e nós associada ao gateway.  
 Status | Status do gateway lógico e dos nós de gateway. Exemplo: online/offline/Limited/etc. Para obter informações sobre esses status, consulte a seção [status do gateway](#gateway-status) . 
 Versão | Mostra a versão do gateway lógico e cada nó do gateway. A versão do gateway lógico é determinada com base na versão da maioria dos nós no grupo. Se não há nós com versões diferentes na configuração do gateway lógico, somente os nós com o mesmo número de versão que o gateway lógico funcionam corretamente. Os outros estão no modo limitado e precisam ser atualizados manualmente (somente caso a atualização automática falhe). 
 Memória disponível | Memória disponível em um nó do gateway. Esse valor é um instantâneo quase em tempo real. 
@@ -238,9 +238,9 @@ Quando a memória e a CPU disponíveis não são bem utilizadas mas a capacidade
 
 ## <a name="known-issuesbreaking-changes"></a>Problemas conhecidas/últimas alterações
 
-- No momento, você pode ter até quatro nós de gateway físico para um único gateway lógico. Se você precisar de mais de quatro nós por motivos de desempenho, envie um [DMGHelp@microsoft.com](mailto:DMGHelp@microsoft.com)email para.
+- No momento, você pode ter até quatro nós de gateway físico para um único gateway lógico. Se você precisar de mais de quatro nós por motivos de desempenho, envie um email para [DMGHelp@microsoft.com](mailto:DMGHelp@microsoft.com) .
 - Você não pode registrar novamente um nó de gateway com a chave de autenticação de outro gateway lógico para o qual mudar do gateway lógico atual. Para registrar novamente, desinstale o gateway do nó, reinstale o gateway e registre-o com a chave de autenticação para o gateway lógico. 
-- Se o proxy HTTP for necessário para todos os seus nós de gateway, defina o proxy em diahost. exe. config e diawp. exe. config e use o Gerenciador de servidores para verificar se todos os nós têm o mesmo diahost. exe. config e diawip. exe. config. Consulte a seção [definir configurações de proxy](data-factory-data-management-gateway.md#configure-proxy-server-settings) para obter detalhes. 
+- Se o proxy HTTP for necessário para todos os seus nós de gateway, defina o proxy em diahost.exe.config e diawp.exe.config e use o Gerenciador de servidores para verificar se todos os nós têm o mesmo diahost.exe.config e diawip.exe.config. Consulte a seção [definir configurações de proxy](data-factory-data-management-gateway.md#configure-proxy-server-settings) para obter detalhes. 
 - Para alterar o modo de criptografia para comunicação de nó para nó no Gerenciador de Configurações do Gateway, exclua todos os nós no portal, exceto um. Em seguida, adicione nós novamente depois de alterar o modo de criptografia.
 - Use um certificado TLS oficial se você optar por criptografar o canal de comunicação de nó para nó. Um certificado autoassinado pode causar problemas de conectividade, já que o mesmo certificado pode não ser confiável na lista da autoridade de certificação em outros computadores. 
 - Você não pode registrar um nó de gateway para um gateway lógico quando a versão do nó é inferior à versão do gateway lógico. Excluir todos os nós do gateway lógico do portal de forma que você possa registrar um nó de versão inferior (fazer downgrade dele). Se você excluir todos os nós de um gateway lógico, instale manualmente e registre novos nós nesse gateway lógico. Não há suporte para a instalação expressa nesse caso.

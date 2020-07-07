@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 11/26/2019
 ms.reviewer: sergkanz
 ms.openlocfilehash: 316c1b7ea32f661b009bfee7a89cb7e5ed082f3b
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82690857"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Acompanhar operações personalizadas com o SDK do .NET do Application Insights
@@ -169,7 +169,7 @@ public async Task Enqueue(string payload)
 }
 ```
 
-#### <a name="process"></a>Processo
+#### <a name="process"></a>Processar
 ```csharp
 public async Task Process(BrokeredMessage message)
 {
@@ -300,7 +300,7 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
 }
 ```
 
-#### <a name="process"></a>Processo
+#### <a name="process"></a>Processar
 
 No exemplo a seguir, uma mensagem de entrada é rastreada de forma parecida com a solicitação HTTP de entrada:
 
@@ -346,7 +346,7 @@ Ao instrumentar a exclusão de mensagem, verifique se você definiu os identific
 
 ### <a name="dependency-types"></a>Tipos de dependência
 
-Application Insights usa o tipo de dependência para personalizar experiências de interface do usuário. Para filas, ele reconhece os seguintes tipos `DependencyTelemetry` de que melhoram a [experiência de diagnóstico de transação](/azure/azure-monitor/app/transaction-diagnostics):
+Application Insights usa o tipo de dependência para personalizar experiências de interface do usuário. Para filas, ele reconhece os seguintes tipos de `DependencyTelemetry` que melhoram a [experiência de diagnóstico de transação](/azure/azure-monitor/app/transaction-diagnostics):
 - `Azure queue`para filas do armazenamento do Azure
 - `Azure Event Hubs`para hubs de eventos do Azure
 - `Azure Service Bus`para o barramento de serviço do Azure
@@ -469,11 +469,11 @@ public async Task RunAllTasks()
 ```
 
 ## <a name="applicationinsights-operations-vs-systemdiagnosticsactivity"></a>Operações de ApplicationInsights vs System. Diagnostics. Activity
-`System.Diagnostics.Activity`representa o contexto de rastreamento distribuído e é usado por estruturas e bibliotecas para criar e propagar o contexto dentro e fora do processo e correlacionar os itens de telemetria. A atividade funciona junto `System.Diagnostics.DiagnosticSource` com o mecanismo de notificação entre a estrutura/biblioteca para notificar sobre eventos interessantes (solicitações de entrada ou de saída, exceções, etc.).
+`System.Diagnostics.Activity`representa o contexto de rastreamento distribuído e é usado por estruturas e bibliotecas para criar e propagar o contexto dentro e fora do processo e correlacionar os itens de telemetria. A atividade funciona junto com o `System.Diagnostics.DiagnosticSource` mecanismo de notificação entre a estrutura/biblioteca para notificar sobre eventos interessantes (solicitações de entrada ou de saída, exceções, etc.).
 
-As atividades são cidadãos de primeira classe no Application Insights, e a coleção de solicitações e a dependência automática depende muito `DiagnosticSource` delas junto com os eventos. Se você criar atividade em seu aplicativo, ele não resultará na criação de Application Insights telemetria. Application Insights precisa receber eventos de diagnóstico e conhecer os nomes de eventos e as cargas para converter a atividade na telemetria.
+As atividades são cidadãos de primeira classe no Application Insights, e a coleção de solicitações e a dependência automática depende muito delas junto com os `DiagnosticSource` eventos. Se você criar atividade em seu aplicativo, ele não resultará na criação de Application Insights telemetria. Application Insights precisa receber eventos de diagnóstico e conhecer os nomes de eventos e as cargas para converter a atividade na telemetria.
 
-Cada operação de Application Insights (solicitação ou dependência) `Activity` envolve- `StartOperation` se-quando é chamado, ele cria a atividade abaixo. `StartOperation`é a maneira recomendada para controlar a telemetrias de solicitação ou dependência manualmente e garantir que tudo esteja correlacionado.
+Cada operação de Application Insights (solicitação ou dependência) envolve `Activity` -se-quando `StartOperation` é chamado, ele cria a atividade abaixo. `StartOperation`é a maneira recomendada para controlar a telemetrias de solicitação ou dependência manualmente e garantir que tudo esteja correlacionado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

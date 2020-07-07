@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/03/2020
 ms.openlocfilehash: f1a539096ac1a154ca37bbe6703f820787f927fb
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82778253"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Endereços IP de gerenciamento do HDInsight
@@ -32,7 +32,7 @@ Se você estiver usando o serviço DNS fornecido pelo Azure, permita o acesso de
 
 Permitir o tráfego dos seguintes endereços IP para serviços de integridade e gerenciamento do Azure HDInsight, que se aplicam a todas as regiões do Azure:
 
-| Endereço IP de origem | Destino  | Direção |
+| Endereço IP de origem | Destination  | Direction |
 | ---- | ----- | ----- |
 | 168.61.49.99 | \*: 443 | Entrada |
 | 23.99.5.239 | \*: 443 | Entrada |
@@ -46,7 +46,7 @@ Permita o tráfego dos endereços IP listados para os serviços de integridade e
 > [!IMPORTANT]  
 > Se a região do Azure que você está usando não estiver listada, use o recurso de [marca de serviço](hdinsight-service-tags.md) para grupos de segurança de rede.
 
-| País/Região | Região | Endereços IP de origem permitidos | Destino permitido | Direção |
+| País | Região | Endereços IP de origem permitidos | Destino permitido | Direction |
 | ---- | ---- | ---- | ---- | ----- |
 | Ásia | Leste da Ásia | 23.102.235.122</br>52.175.38.134 | \*: 443 | Entrada |
 | &nbsp; | Sudeste Asiático | 13.76.245.160</br>13.76.136.249 | \*: 443 | Entrada |
@@ -70,7 +70,7 @@ Permita o tráfego dos endereços IP listados para os serviços de integridade e
 | &nbsp; | Oeste do Japão | 40.74.125.69</br>138.91.29.150 | \*: 443 | Entrada |
 | Coreia do Sul | Coreia Central | 52.231.39.142</br>52.231.36.209 | \*: 443 | Entrada |
 | &nbsp; | Sul da Coreia | 52.231.203.16</br>52.231.205.214 | \*: 443 | Entrada
-| United Kingdom | Oeste do Reino Unido | 51.141.13.110</br>51.141.7.20 | \*: 443 | Entrada |
+| Reino Unido | Oeste do Reino Unido | 51.141.13.110</br>51.141.7.20 | \*: 443 | Entrada |
 | &nbsp; | Sul do Reino Unido | 51.140.47.39</br>51.140.52.16 | \*: 443 | Entrada |
 | Estados Unidos | Centro dos EUA | 13.89.171.122</br>13.89.171.124 | \*: 443 | Entrada |
 | &nbsp; | Leste dos EUA | 13.82.225.233</br>40.71.175.99 | \*: 443 | Entrada |

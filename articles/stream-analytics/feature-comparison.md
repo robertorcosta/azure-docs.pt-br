@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.openlocfilehash: b169a067f05de422b714e18a4d7ebb9c9e7f0428
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82133492"
 ---
 # <a name="azure-stream-analytics-feature-comparison"></a>Comparação de recursos do Azure Stream Analytics
@@ -18,7 +18,7 @@ ms.locfileid: "82133492"
 Com o Azure Stream Analytics, você pode criar soluções de streaming na nuvem e no IoT Edge usando [portal do Azure](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md)e [Visual Studio Code](quick-create-vs-code.md). As tabelas neste artigo mostram quais recursos têm suporte em cada plataforma para ambos os tipos de trabalho.
 
 > [!NOTE]
-> As ferramentas do Visual Studio e do Visual Studio Code não dão suporte a trabalhos nas regiões Leste da China, Norte da China, Alemanha Central e nordeste da Alemanha.
+> As ferramentas do Visual Studio e do Visual Studio Code não são compatíveis com trabalhos nas regiões Leste da China, Norte da China, Alemanha Central e Nordeste da Alemanha.
 
 ## <a name="cloud-job-features"></a>Recursos de trabalho de nuvem
 
@@ -43,7 +43,7 @@ Com o Azure Stream Analytics, você pode criar soluções de streaming na nuvem 
 |Propriedades da mensagem personalizada     |Sim         |Sim         |Não       |
 |Função de código personalizado C# e desserializador|Modo somente leitura|Sim|Não|
 |UDF e UDA do JavaScript     |Sim         |Sim         |Somente Windows         |
-|Serviço do Machine Learning     |Sim        |Sim         |Não         |
+|Serviço Machine Learning     |Sim        |Sim         |Não         |
 |Machine Learning Studio     |Sim, mas a consulta não pode ser testada        |Sim |Não         |
 |Nível de Compatibilidade     |1.0</br>1,1</br>1,2 (padrão)         |1.0</br>1,1</br>1,2 (padrão)           |1.0</br>1,1</br>1,2 (padrão)           |
 |Funções internas de detecção de anomalias baseadas em ML     |Sim         |Sim         |Sim         |
@@ -70,7 +70,7 @@ Com o Azure Stream Analytics, você pode criar soluções de streaming na nuvem 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Azure Stream Analytics no IoT Edge](stream-analytics-edge.md)
+* [O Stream Analytics do Azure no IoT Edge](stream-analytics-edge.md)
 * [Tutorial: gravar uma função de C# definida pelo usuário para Azure Stream Analytics trabalho de IoT Edge (versão prévia)](stream-analytics-edge-csharp-udf.md)
 * [Desenvolver Stream Analytics trabalhos de IoT Edge usando as ferramentas do Visual Studio](stream-analytics-tools-for-visual-studio-edge-jobs.md)
 * [Use o Microsoft Visual Studio para visualizar os trabalhos do Azure Stream Analytics](stream-analytics-vs-tools.md)

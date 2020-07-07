@@ -10,23 +10,23 @@ ms.author: trbye
 author: trevorbye
 ms.date: 03/18/2020
 ms.openlocfilehash: 50ddbffd00e0cbbd0641089613aaa40d03658c9e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80064203"
 ---
 # <a name="what-are-azure-machine-learning-environments"></a>O que são ambientes Azure Machine Learning?
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Os ambientes de Azure Machine Learning especificam os pacotes python, as variáveis de ambiente e as configurações de software em relação aos scripts de treinamento e pontuação. Eles também especificam tempos de execução (Python, Spark ou Docker). Os ambientes são entidades gerenciadas e com controle de versão dentro de seu espaço de trabalho de Machine Learning que permitem a reproduzidas, a auditoria e o aprendizado de produção de máquinas portáteis em uma variedade de destinos de computação.
+Os ambientes do Azure Machine Learning especificam os pacotes Python, as variáveis de ambiente e as configurações de software em relação aos scripts de treinamento e pontuação. Eles também especificam tempos de execução (Python, Spark ou Docker). Os ambientes são entidades gerenciadas e com controle de versão dentro de seu espaço de trabalho de Machine Learning que permitem a reproduzidas, a auditoria e o aprendizado de produção de máquinas portáteis em uma variedade de destinos de computação.
 
 Você pode usar um `Environment` objeto em sua computação local para:
-* Desenvolva seu script de treinamento.
-* Reutilize o mesmo ambiente em Azure Machine Learning computação para treinamento de modelo em escala.
+* Desenvolver seu script de treinamento.
+* Reutilizar o mesmo ambiente na Computação do Azure Machine Learning para treinamento de modelos em escala.
 * Implante seu modelo com o mesmo ambiente.
 
-O diagrama a seguir ilustra como você pode usar um `Environment` único objeto em sua configuração de execução, para treinamento e sua configuração de inferência e implantação, para implantações de serviço Web.
+O diagrama a seguir ilustra como você pode usar um único `Environment` objeto em sua configuração de execução, para treinamento e sua configuração de inferência e implantação, para implantações de serviço Web.
 
 ![Diagrama de um ambiente no fluxo de trabalho do Machine Learning](./media/concept-environments/ml-environment.png)
 
@@ -36,7 +36,7 @@ Os ambientes podem ser amplamente divididos em três categorias: *organizadas*, 
 
 Os ambientes organizados são fornecidos por Azure Machine Learning e estão disponíveis em seu espaço de trabalho por padrão. Eles contêm coleções de pacotes e configurações do Python para ajudá-lo a começar com várias estruturas do Machine Learning. 
 
-Em ambientes gerenciados pelo usuário, você é responsável por configurar seu ambiente e instalar cada pacote de que seu script de treinamento precisa no destino de computação. O Conda não verifica seu ambiente nem instala nada para você. Se você estiver definindo seu próprio ambiente, deverá listar `azureml-defaults` com a `>= 1.0.45` versão como uma dependência Pip. Esse pacote contém a funcionalidade necessária para hospedar o modelo como um serviço Web.
+Em ambientes gerenciados pelo usuário, você é responsável por configurar seu ambiente e instalar cada pacote de que seu script de treinamento precisa no destino de computação. O Conda não verifica seu ambiente nem instala nada para você. Se você estiver definindo seu próprio ambiente, deverá listar `azureml-defaults` com a versão `>= 1.0.45` como uma dependência Pip. Esse pacote contém a funcionalidade necessária para hospedar o modelo como um serviço Web.
 
 Você usa ambientes gerenciados pelo sistema quando deseja que o [Conda](https://conda.io/docs/) gerencie o ambiente do Python e as dependências de script para você. O serviço assume esse tipo de ambiente por padrão, devido à sua utilidade em destinos de computação remota que não são configuráveis manualmente.
 
@@ -45,7 +45,7 @@ Você usa ambientes gerenciados pelo sistema quando deseja que o [Conda](https:/
 Você pode criar ambientes:
 
 * Definir novos `Environment` objetos, seja usando um ambiente organizado ou definindo suas próprias dependências.
-* Usando objetos `Environment` existentes do seu espaço de trabalho. Essa abordagem permite a consistência e a reprodução com suas dependências.
+* Usando `Environment` objetos existentes do seu espaço de trabalho. Essa abordagem permite a consistência e a reprodução com suas dependências.
 * Importando de uma definição de ambiente Anaconda existente.
 * Usando a CLI do Azure Machine Learning
 
@@ -93,9 +93,9 @@ Consulte o diagrama a seguir que mostra três definições de ambiente. Dois del
 ![Diagrama de cache de ambiente como imagens do Docker](./media/concept-environments/environment-caching.png)
 
 >[!IMPORTANT]
-> Se você criar um ambiente com uma dependência de pacote desafixada, ```numpy```por exemplo, esse ambiente continuará usando a versão do pacote instalada _no momento da criação do ambiente_. Além disso, qualquer ambiente futuro com definição correspondente continuará usando a versão antiga. 
+> Se você criar um ambiente com uma dependência de pacote desafixada, por exemplo ```numpy``` , esse ambiente continuará usando a versão do pacote instalada _no momento da criação do ambiente_. Além disso, qualquer ambiente futuro com definição correspondente continuará usando a versão antiga. 
 
-Para atualizar o pacote, especifique um número de versão para forçar a recompilação da ```numpy==1.18.1```imagem, por exemplo. Observe que são instaladas novas dependências, incluindo aquelas aninhadas que podem interromper um cenário de trabalho anterior.
+Para atualizar o pacote, especifique um número de versão para forçar a recompilação da imagem, por exemplo ```numpy==1.18.1``` . Observe que são instaladas novas dependências, incluindo aquelas aninhadas que podem interromper um cenário de trabalho anterior.
 
 > [!WARNING]
 >  O método [Environment. Build](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-workspace--image-build-compute-none-) recriará a imagem armazenada em cache, com possível efeito colateral de atualização de pacotes desafixados e interrupção de reprodução para todas as definições de ambiente correspondentes à imagem armazenada em cache.

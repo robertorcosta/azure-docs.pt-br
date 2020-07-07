@@ -4,10 +4,10 @@ description: Saiba mais sobre as opções de bloqueio em plantas do Azure para p
 ms.date: 03/25/2020
 ms.topic: conceptual
 ms.openlocfilehash: 94ed8efd0d6c654cba129dfc69fbfe5add7a0824
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81383601"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Entenda o bloqueio de recursos nos Blueprints do Azure
@@ -47,7 +47,7 @@ Para atribuir o Blueprint a um grupo de gerenciamento em vez de uma assinatura, 
 PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{assignmentMG}/providers/Microsoft.Blueprint/blueprintAssignments/{assignmentName}?api-version=2018-11-01-preview
 ```
 
-O grupo de gerenciamento definido `{assignmentMG}` pelo deve estar dentro da hierarquia do grupo de gerenciamento ou ser o mesmo grupo de gerenciamento em que a definição do Blueprint é salva.
+O grupo de gerenciamento definido pelo `{assignmentMG}` deve estar dentro da hierarquia do grupo de gerenciamento ou ser o mesmo grupo de gerenciamento em que a definição do Blueprint é salva.
 
 O corpo da solicitação da atribuição Blueprint tem esta aparência:
 
@@ -85,7 +85,7 @@ O corpo da solicitação da atribuição Blueprint tem esta aparência:
 }
 ```
 
-A principal diferença nesse corpo de solicitação e um que está sendo atribuído a uma assinatura `properties.scope` é a propriedade. Essa propriedade necessária deve ser definida como a assinatura à qual a atribuição de Blueprint se aplica. A assinatura deve ser um filho direto da hierarquia do grupo de gerenciamento em que a atribuição de Blueprint está armazenada.
+A principal diferença nesse corpo de solicitação e um que está sendo atribuído a uma assinatura é a `properties.scope` propriedade. Essa propriedade necessária deve ser definida como a assinatura à qual a atribuição de Blueprint se aplica. A assinatura deve ser um filho direto da hierarquia do grupo de gerenciamento em que a atribuição de Blueprint está armazenada.
 
 > [!NOTE]
 > Um plano gráfico atribuído ao escopo do grupo de gerenciamento ainda funciona como uma atribuição de plano de nível de assinatura. A única diferença é onde a atribuição Blueprint é armazenada para impedir que os proprietários da assinatura removam a atribuição e os bloqueios associados.
@@ -177,7 +177,7 @@ Semelhante à [exclusão de uma entidade de segurança](#exclude-a-principal-fro
 },
 ```
 
-Embora **excludedPrincipals** deva ser explícito, as entradas de **excludedActions** podem fazer `*` uso de para correspondência de curingas de operações de RBAC.
+Embora **excludedPrincipals** deva ser explícito, as entradas de **excludedActions** podem fazer uso de `*` para correspondência de curingas de operações de RBAC.
 
 ## <a name="next-steps"></a>Próximas etapas
 

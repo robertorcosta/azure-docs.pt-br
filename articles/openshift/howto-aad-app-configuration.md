@@ -7,10 +7,10 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.openlocfilehash: f6c4fb5caf746650f95872d50afe31e5693422be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81382909"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Integração do Azure Active Directory para o Azure Red Hat OpenShift
@@ -23,14 +23,14 @@ Microsoft Azure o Red Hat OpenShift precisa de permissões para executar tarefas
 
 No [portal do Azure](https://portal.azure.com), verifique se seu locatário aparece sob seu nome de usuário no canto superior direito do portal:
 
-![Captura de tela do portal com locatário listado no](./media/howto-create-tenant/tenant-callout.png) canto superior direito se o locatário errado for exibido, clique no seu nome de usuário no canto superior direito, clique em **alternar diretório**e selecione o locatário correto na lista **todos os diretórios** .
+![Captura de tela do portal com locatário listado no canto superior direito ](./media/howto-create-tenant/tenant-callout.png) se o locatário errado for exibido, clique no seu nome de usuário no canto superior direito, clique em **alternar diretório**e selecione o locatário correto na lista **todos os diretórios** .
 
 Crie um novo usuário do Azure Active Directory ' proprietário ' para entrar no cluster do Azure Red Hat OpenShift.
 
 1. Vá para a folha [usuários – todos os usuários](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) .
 2. Clique em **+ novo usuário** para abrir o painel **usuário** .
 3. Insira um **nome** para este usuário.
-4. Crie um **nome de usuário** com base no nome do locatário que você criou, `.onmicrosoft.com` com anexado no final. Por exemplo, `yourUserName@yourTenantName.onmicrosoft.com`. Anote este nome de usuário. Você precisará dela para entrar no cluster.
+4. Crie um **nome de usuário** com base no nome do locatário que você criou, com `.onmicrosoft.com` anexado no final. Por exemplo, `yourUserName@yourTenantName.onmicrosoft.com`. Anote este nome de usuário. Você precisará dela para entrar no cluster.
 5. Clique em **função de diretório** para abrir o painel função de diretório e selecione **proprietário** e, em seguida, clique em **OK** na parte inferior do painel.
 6. No painel **usuário** , clique em **Mostrar senha** e registre a senha temporária. Depois de entrar na primeira vez, você será solicitado a redefini-la.
 7. Na parte inferior do painel, clique em **criar** para criar o usuário.
@@ -54,14 +54,14 @@ Para conceder acesso de administrador de cluster, as associações em um grupo d
     Anote o valor da ID do grupo.
 
 9. Quando o grupo for criado, você o verá na lista de todos os grupos. Clique no novo grupo.
-10. Na página exibida, copie a **ID do objeto**. Iremos nos referir a esse valor `GROUPID` como no tutorial [criar um cluster do Azure Red Hat OpenShift](tutorial-create-cluster.md) .
+10. Na página exibida, copie a **ID do objeto**. Iremos nos referir a esse valor como `GROUPID` no tutorial [criar um cluster do Azure Red Hat OpenShift](tutorial-create-cluster.md) .
 
 > [!IMPORTANT]
 > Para sincronizar esse grupo com o grupo OSA-Customer-admins OpenShift, crie o cluster usando o CLI do Azure. O portal do Azure atualmente não tem um campo para definir esse grupo.
 
 ## <a name="create-an-azure-ad-app-registration"></a>Criar um registro de aplicativo do Azure AD
 
-Você pode criar automaticamente um cliente de registro de aplicativo Azure Active Directory (Azure AD) como parte da criação do cluster omitindo `--aad-client-app-id` o sinalizador para `az openshift create` o comando. Este tutorial mostra como criar o registro de aplicativo do Azure AD para fins de integridade.
+Você pode criar automaticamente um cliente de registro de aplicativo Azure Active Directory (Azure AD) como parte da criação do cluster omitindo o `--aad-client-app-id` sinalizador para o `az openshift create` comando. Este tutorial mostra como criar o registro de aplicativo do Azure AD para fins de integridade.
 
 Se sua organização ainda não tiver um registro de aplicativo Azure Active Directory (Azure AD) para usar como uma entidade de serviço, siga estas instruções para criar um.
 
@@ -69,7 +69,7 @@ Se sua organização ainda não tiver um registro de aplicativo Azure Active Dir
 2. No painel **registrar um aplicativo** , insira um nome para o registro do aplicativo.
 3. Verifique se em **tipos de conta com suporte** que **contas neste diretório organizacional somente** está selecionado. Essa é a opção mais segura.
 4. Adicionaremos um URI de redirecionamento mais tarde, uma vez que soubermos o URI do cluster. Clique no botão **registrar** para criar o registro do aplicativo do Azure AD.
-5. Na página exibida, copie a **ID do aplicativo (cliente)**. Iremos nos referir a esse valor `APPID` como no tutorial [criar um cluster do Azure Red Hat OpenShift](tutorial-create-cluster.md) .
+5. Na página exibida, copie a **ID do aplicativo (cliente)**. Iremos nos referir a esse valor como `APPID` no tutorial [criar um cluster do Azure Red Hat OpenShift](tutorial-create-cluster.md) .
 
 ![Captura de tela da página de objeto do aplicativo](./media/howto-create-tenant/get-app-id.png)
 
@@ -82,7 +82,7 @@ Gere um segredo do cliente para autenticar seu aplicativo para Azure Active Dire
 3. Forneça uma **Descrição**.
 4. Set **expirará** para a duração que você preferir, por exemplo, **em 2 anos**.
 5. Clique em **Adicionar** e o valor da chave será exibido na seção **segredos do cliente** da página.
-6. Copie o valor da chave. Iremos nos referir a esse valor `SECRET` como no tutorial [criar um cluster do Azure Red Hat OpenShift](tutorial-create-cluster.md) .
+6. Copie o valor da chave. Iremos nos referir a esse valor como `SECRET` no tutorial [criar um cluster do Azure Red Hat OpenShift](tutorial-create-cluster.md) .
 
 ![Captura de tela do painel certificados e segredos](./media/howto-create-tenant/create-key.png)
 
