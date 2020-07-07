@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: ramamill
 ms.openlocfilehash: 16214fa07b14c8db2f32fa2c69739b7fa3dc1907
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74083964"
 ---
 # <a name="set-up-a-process-server-in-azure-for-failback"></a>Configurar um servidor em processo no Azure para failback
@@ -28,7 +27,7 @@ Saiba mais sobre o processo de [nova proteção](vmware-azure-reprotect.md) e [f
 
 ## <a name="deploy-a-process-server-in-azure"></a>Implantar um servidor em processo no Azure
 
-1. No cofre > **site Recovery infraestrutura**> **gerenciar** > **servidores de configuração**, selecione o servidor de configuração.
+1. No cofre > **site Recovery infraestrutura** >  **gerenciar**  >  **servidores de configuração**, selecione o servidor de configuração.
 2. Na página do servidor, clique em **+ Servidor em processo**
 3. Na página **Adicionar servidor em processo**, selecione a opção para implantar o servidor em processo no Azure.
 4. Especifique as configurações do Azure, incluindo a assinatura usada para failover, um grupo de recursos, a região do Azure usada para failover e a rede virtual na qual as VMs do Azure estão localizadas. Se você usou várias redes do Azure, você precisa ter um servidor em processo em cada uma.

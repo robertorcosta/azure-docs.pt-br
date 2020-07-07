@@ -20,17 +20,16 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 64f15bf3d262249cdda2760c7ddf768be2590419
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74113106"
 ---
 # <a name="odata-select-syntax-in-azure-cognitive-search"></a>Sintaxe de $select OData no Azure Pesquisa Cognitiva
 
  Você pode usar o [parâmetro **$Select** OData](query-odata-filter-orderby-syntax.md) para escolher quais campos incluir nos resultados da pesquisa do Azure pesquisa cognitiva. Este artigo descreve a sintaxe de **$Select** em detalhes. Para obter mais informações gerais sobre como usar **$Select** ao apresentar os resultados da pesquisa, consulte [como trabalhar com os resultados da pesquisa no Azure pesquisa cognitiva](search-pagination-page-layout.md).
 
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
 
 O parâmetro **$Select** determina quais campos de cada documento são retornados no conjunto de resultados da consulta. O EBNF a seguir ([formulário Backus-Naur Estendido](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) define a gramática para o parâmetro **$Select** :
 
@@ -52,16 +51,16 @@ Um diagrama de sintaxe interativa também está disponível:
 
 O parâmetro **$Select** é fornecido em duas formas:
 
-1. Uma única estrela (`*`), indicando que todos os campos recuperáveis devem ser retornados ou
+1. Uma única estrela ( `*` ), indicando que todos os campos recuperáveis devem ser retornados ou
 1. Uma lista separada por vírgulas de caminhos de campo, identificando quais campos devem ser retornados.
 
 Ao usar o segundo formulário, você só pode especificar campos recuperáveis na lista.
 
-Se você listar um campo complexo sem especificar os subcampos explicitamente, todos os subcampos recuperáveis serão incluídos no conjunto de resultados da consulta. Por exemplo, suponha que o índice tenha `Address` um campo `Street`com `City`os subcampos, e `Country` que são todos recuperáveis. Se você especificar `Address` em **$Select**, os resultados da consulta incluirão todos os três subcampos.
+Se você listar um campo complexo sem especificar os subcampos explicitamente, todos os subcampos recuperáveis serão incluídos no conjunto de resultados da consulta. Por exemplo, suponha que o índice tenha um `Address` campo `Street` com `City` `Country` os subcampos, e que são todos recuperáveis. Se você especificar `Address` em **$Select**, os resultados da consulta incluirão todos os três subcampos.
 
 ## <a name="examples"></a>Exemplos
 
-Inclua os `HotelId`campos `HotelName`, e `Rating` de nível superior nos resultados, bem como o `City` subcampo de: `Address`
+Inclua os `HotelId` `HotelName` campos, e `Rating` de nível superior nos resultados, bem como o `City` subcampo de `Address` :
 
     $select=HotelId, HotelName, Rating, Address/City
 
@@ -78,7 +77,7 @@ Um resultado de exemplo pode ser assim:
 }
 ```
 
-Inclua o `HotelName` `Address`campo de nível superior nos resultados, bem como todos os subcampos de e os `Type` subcampos `BaseRate` e de cada objeto na `Rooms` coleção:
+Inclua o `HotelName` campo de nível superior nos resultados, bem como todos os subcampos de e os subcampos `Address` `Type` e `BaseRate` de cada objeto na `Rooms` coleção:
 
     $select=HotelName, Address, Rooms/Type, Rooms/BaseRate
 

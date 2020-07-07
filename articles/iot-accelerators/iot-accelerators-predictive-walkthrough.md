@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: 0661503dce7ac2707065f60c3952da866ce9dcf3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73827423"
 ---
 # <a name="predictive-maintenance-solution-accelerator-overview"></a>Visão geral do acelerador de solução de Manutenção Preditiva
@@ -77,7 +76,7 @@ O modelo Aprendizado de Máquina está disponível como um modelo que mostra com
 
 O acelerador da solução de Manutenção Preditiva de IoT do Azure usa o modelo de regressão criado com base neste modelo. O modelo é implantado em sua assinatura do Azure e disponibilizado por meio de uma API gerada automaticamente. A solução inclui um subconjunto dos dados de teste para 4 (de um total de 100) motores e os 4 (de um total de 21) fluxos de dados de sensores. Esses dados são suficientes para fornecer um resultado preciso do modelo treinado.
 
-*\[1\] A. Saxena e K. Goebel (2008). "Conjunto de dados de simulação de degradação do mecanismo turbofan", repositório de dadoshttps://c3.nasa.gov/dashlink/resources/139/)de NASA Ames Prognostics (, NASA Ames Research Center, Moffett Field, CA*
+*\[1 \] A. Saxena e K. Goebel (2008). "Conjunto de dados de simulação de degradação do mecanismo turbofan", repositório de dados de NASA Ames Prognostics ( https://c3.nasa.gov/dashlink/resources/139/) , NASA Ames Research Center, Moffett Field, CA*
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora você já viu os principais componentes do acelerador de solução de Manutenção Preditiva, convém personalizá-lo.

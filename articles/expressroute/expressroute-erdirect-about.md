@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jaredro
 ms.openlocfilehash: f26fdd75e0a6c6228d329a8b9be4743072ae54c1
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74083600"
 ---
 # <a name="about-expressroute-direct"></a>Sobre o ExpressRoute Direct
@@ -35,7 +34,7 @@ Antes de usar o ExpressRoute Direct, você deve primeiro registrar sua assinatur
 
 ## <a name="expressroute-using-a-service-provider-and-expressroute-direct"></a>ExpressRoute usando um provedor de serviços e ExpressRoute Direct
 
-| **ExpressRoute usando um provedor de serviços** | **ExpressRoute Direct** | 
+| **ExpressRoute usando um provedor de serviços** | **ExpressRoute direto** | 
 | --- | --- |
 | Utiliza provedores de serviços para permitir integração e conectividade rápidas na infraestrutura existente | Requer infraestrutura de 100 Gbps/10 Gbps e gerenciamento completo de todas as camadas
 | Integra-se a centenas de fornecedores, inclusive Ethernet e MPLS | Capacidade direta/dedicada para setores regulamentados e ingestão de dados em massa |

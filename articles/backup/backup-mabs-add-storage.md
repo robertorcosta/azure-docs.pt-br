@@ -4,10 +4,9 @@ description: Conheça os novos recursos do Servidor de Backup do Azure. Este art
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: c6346d7b0275a00271c1787b378a63b8365edf2d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74172369"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Adicionar armazenamento ao Servidor de Backup do Azure
@@ -36,7 +35,7 @@ O servidor de Backup do Microsoft Azure V2 ou posterior aceita volumes de armaze
 
 Usar o Backup Server V2 ou posterior com volumes como armazenamento em disco pode ajudá-lo a manter o controle sobre o armazenamento. Um volume pode ser um único disco. No entanto, se você quiser estender o armazenamento no futuro, crie um volume fora de um disco criado usando espaços de armazenamento. Isso pode ajudar se você quiser expandir o volume de armazenamento de backup. Esta seção oferece as práticas recomendadas para a criação de um volume com esta instalação.
 
-1. Em Gerenciador do servidor, > selecione **serviços de arquivo e armazenamento****volumes** > **pools de armazenamento**. Em **DISCOS FÍSICOS**, selecione **novo Pool de armazenamento**.
+1. Em Gerenciador do servidor, selecione **serviços de arquivo e armazenamento**  >  **volumes**  >  **pools de armazenamento**. Em **DISCOS FÍSICOS**, selecione **novo Pool de armazenamento**.
 
     ![Crie um novo pool de armazenamento](./media/backup-mabs-add-storage/mabs-add-storage-1.png)
 
@@ -119,7 +118,7 @@ Se você quiser usar armazenamento herdado com o Servidor de Backup, talvez seja
 
 Para adicionar armazenamento em disco:
 
-1. No console do administrador, selecione **Gerenciamento** > **armazenamento em disco** > **Adicionar**.
+1. No console do administrador, selecione **Gerenciamento**  >  **armazenamento em disco**  >  **Adicionar**.
 
     ![Adicionar caixa de diálogo de Armazenamento em Disco](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
 

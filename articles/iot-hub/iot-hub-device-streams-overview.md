@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: robinsh
 ms.openlocfilehash: ff738e56226f7cbb720a754573a9d8607e0e3247
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73890464"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Fluxos de dispositivos do Hub IoT (versão prévia)
@@ -106,7 +105,7 @@ A saída é um objeto JSON com todos os pontos de extremidade que seu dispositiv
 
 Conforme mencionado no início deste artigo, seu dispositivo cria uma conexão de saída para o ponto de extremidade de streaming do Hub IoT durante o processo de inicialização de fluxos de dispositivo. Os firewalls no dispositivo ou em sua rede devem permitir a conectividade de saída para o gateway de streaming pela porta 443 (observe que a comunicação ocorre em uma conexão WebSocket que é criptografada usando TLS).
 
-O nome do host do ponto de extremidade de streaming do dispositivo pode ser encontrado no portal do Hub IoT ![do Azure na guia Visão geral. "pontos de extremidade de fluxo do dispositivo"](./media/iot-hub-device-streams-overview/device-stream-in-portal.png)
+O nome do host do ponto de extremidade de streaming do dispositivo pode ser encontrado no portal do Hub IoT do Azure, na guia Visão geral. ![ " Pontos de extremidade de fluxo do dispositivo "](./media/iot-hub-device-streams-overview/device-stream-in-portal.png)
 
 Como alternativa, você pode encontrar essas informações usando a CLI do Azure:
 
@@ -168,7 +167,7 @@ Aqui estão os exemplos de eco:
 
 * [Programa de serviço e serviço C#](quickstart-device-streams-echo-csharp.md)
 
-* [Programa de serviço node. js](quickstart-device-streams-echo-nodejs.md)
+* [Programa de serviço deNode.js](quickstart-device-streams-echo-nodejs.md)
 
 * [Programa de dispositivo C](quickstart-device-streams-echo-c.md)
 
@@ -204,7 +203,7 @@ Use os links abaixo para obter instruções sobre como executar os programas de 
 
 * [Programa de serviço e serviço C#](quickstart-device-streams-proxy-csharp.md)
 
-* [Programa de serviço node. js](quickstart-device-streams-proxy-nodejs.md)
+* [Programa de serviço deNode.js](quickstart-device-streams-proxy-nodejs.md)
 
 * [Programa de dispositivo C](quickstart-device-streams-proxy-c.md)
 

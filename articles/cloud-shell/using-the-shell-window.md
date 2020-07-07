@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: damaerte
 ms.openlocfilehash: 3435d958049012750e775e2a17f43f463a0cc358
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70860312"
 ---
 # <a name="using-the-azure-cloud-shell-window"></a>Usando a janela do Azure Cloud Shell
@@ -48,7 +47,7 @@ Clique no ícone de configurações na parte superior esquerda da janela, em seg
 Clique no ícone carregar/baixar arquivos na parte superior esquerda da janela e, em seguida, selecione carregar ou baixar.  
 ![Carregar/baixar arquivos](media/using-the-shell-window/uploaddownload.png)
 * Para carregar arquivos, use o pop-up para navegar até o arquivo no computador local, selecione o arquivo desejado e clique no botão "abrir".  O arquivo será carregado no `/home/user` diretório.
-* Para baixar o arquivo, insira o caminho do arquivo totalmente qualificado na janela pop-up (ou seja, basicamente um caminho sob `/home/user` o diretório que aparece por padrão) e selecione o botão "baixar".  
+* Para baixar o arquivo, insira o caminho do arquivo totalmente qualificado na janela pop-up (ou seja, basicamente um caminho sob o `/home/user` diretório que aparece por padrão) e selecione o botão "baixar".  
 > [!NOTE] 
 > Arquivos e caminhos de arquivo diferenciam maiúsculas de minúsculas no Cloud Shell. Verifique novamente sua capitalização no caminho do arquivo.
 

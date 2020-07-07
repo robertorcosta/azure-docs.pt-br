@@ -4,10 +4,9 @@ description: Use o Backup do Azure para fazer backup e recuperar aplicativos e a
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.openlocfilehash: 2bcdf7f720708db1487d7d5cdaee41dc93c05728
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74172329"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Fazer backup de arquivos e aplicativos no Azure Stack
@@ -46,13 +45,13 @@ Para configurar o Servidor de Backup do Azure para proteger máquinas virtuais d
 
     A Microsoft recomenda colocar todos os dados que compartilharão uma política de proteção em um grupo de proteção. Para obter informações completas sobre planejamento e implantação de grupos de proteção, consulte o artigo do System Center DPM, [Implantar Grupos de Proteção](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801).
 
-4. Na tela **Selecionar Método de Proteção de Dados**, digite um nome para o grupo de proteção. Selecione a caixa de seleção para **Desejo proteção a curto prazo usando:** e **Desejo proteção online**. Clique em **Avançar**.
+4. Na tela **Selecionar Método de Proteção de Dados**, digite um nome para o grupo de proteção. Selecione a caixa de seleção para **Desejo proteção a curto prazo usando:** e **Desejo proteção online**. Clique em **Próximo**.
 
     ![O assistente de Novo Grupo de Proteção se abre](./media/backup-mabs-files-applications-azure-stack/6-select-data-protection-method.png)
 
     Para selecionar **Desejo proteção online**, primeiro você deve selecionar **Desejo proteção a curto prazo using:** Disk. O Servidor de Backup do Azure não protege em fita, então o disco é a única opção de proteção a curto prazo.
 
-5. Na tela **Especificar Objetivos De Curto Prazo**, escolha por quanto tempo manter os pontos de recuperação salvos em disco e quando salvar backups incrementais. Clique em **Avançar**.
+5. Na tela **Especificar Objetivos De Curto Prazo**, escolha por quanto tempo manter os pontos de recuperação salvos em disco e quando salvar backups incrementais. Clique em **Próximo**.
 
     > [!IMPORTANT]
     > **Não** retenha os dados de recuperação operacional (backup) nos discos anexados ao Servidor de Backup do Azure por mais de cinco dias.

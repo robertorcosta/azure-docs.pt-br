@@ -10,10 +10,9 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.openlocfilehash: a21e8d6c76c93b3084619c09f6a7664a25c1929c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73682198"
 ---
 # <a name="selecting-the-right-vm-size-for-your-azure-hdinsight-cluster"></a>Selecionando o tamanho correto da VM para o cluster HDInsight do Azure
@@ -55,10 +54,10 @@ A tabela a seguir descreve os tipos de cluster e tipos de nó, que podem ser cri
 
 | Tipo de cluster | Versão | Nó de trabalho | Nó de cabeçalho | Nó Zookeeper |
 |---|---|---|---|---|
-| Spark | Todos | F4 e acima | não | não |
-| O Hadoop | Todos | F4 e acima | não | não |
-| Kafka | Todos | F4 e acima | não | não |
-| HBase | Todos | F4 e acima | não | não |
+| Spark | Tudo | F4 e acima | não | não |
+| O Hadoop | Tudo | F4 e acima | não | não |
+| Kafka | Tudo | F4 e acima | não | não |
+| HBase | Tudo | F4 e acima | não | não |
 | LLAP | desabilitado | não | não | não |
 | Storm | desabilitado | não | não | não |
 | Serviço do Machine Learning | SOMENTE HDI 3,6 | F4 e acima | não | não |

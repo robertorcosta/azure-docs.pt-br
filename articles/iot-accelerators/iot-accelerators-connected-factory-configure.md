@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: 5fa3d4d4fdfa0dd81cd8ab8772ffb3903dda289f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73820126"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Configurar o acelerador da solução Connected Factory
@@ -266,8 +265,8 @@ As propriedades nesta categoria definem a aparência do painel Connected Factory
 
 * Nome
 * Descrição
-* Imagem
-* Local
+* Image
+* Location
 * Unidades
 * Visible
 
@@ -282,7 +281,7 @@ Os números de OEE/KPI para a simulação Connected Factory são parametrizados 
 * Os valores de nó do OPC UA a serem incluídos no cálculo.
 * Como o número é computado por meio dos valores de telemetria.
 
-A fábrica conectada usa as fórmulas OEE como [http://www.oeefoundation.org](http://www.oeefoundation.org)publicadas pelo.
+A fábrica conectada usa as fórmulas OEE como publicadas pelo [http://www.oeefoundation.org](http://www.oeefoundation.org) .
 
 Os objetos de nó do OPC UA nas estações permitem a marcação para uso no cálculo de OEE/KPI. A propriedade **Relevance** indica para qual número de OEE/KPI o valor do nó do OPC UA deve ser usado. A propriedade **OpCode** define como o valor é incluído na computação.
 

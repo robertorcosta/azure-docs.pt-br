@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 2bbd7911a40d6a256d478e2533ad2469b8fd6973
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73889342"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Use as informações do Time Series para visualizar a telemetria enviada a partir do acelerador de solução do Device Simulation
@@ -57,18 +56,18 @@ As etapas a seguir usam a CLI do Azure no Azure Cloud Shell para criar o grupo d
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
 
-1. Selecione **criar um recurso** > **Internet das coisas** > **Time Series insights**:
+1. Selecione **criar um recurso**  >  **Internet das coisas**  >  **Time Series insights**:
 
     ![Novo Time Series Insights](./media/iot-accelerators-device-simulation-time-series-insights/new-time-series-insights.png)
 
 1. Para criar seu ambiente do Time Series Insights no mesmo grupo de recursos do acelerador de solução, use os valores na tabela a seguir:
 
-    | Configuração | Valor |
+    | Setting | Valor |
     | ------- | ----- |
     | Nome do ambiente | A captura de tela a seguir usa o nome **Contoso-TSI**. Ao concluir esta etapa, escolha seu próprio nome exclusivo. |
     | Subscription | Na lista suspensa, selecione sua assinatura do Azure. |
     | Resource group | **contoso-simulation**. Use o nome do seu acelerador de solução. |
-    | Local | Este exemplo usa **Leste dos EUA**. Crie seu ambiente na mesma região que seu acelerador de simulação de dispositivo. |
+    | Location | Este exemplo usa **Leste dos EUA**. Crie seu ambiente na mesma região que seu acelerador de simulação de dispositivo. |
     | Sku |**S1** |
     | Capacity | **1** |
 
@@ -95,10 +94,10 @@ Crie uma nova fonte de evento para se conectar ao hub IoT. Use o grupo de consum
 
 1. Para configurar seu hub IoT como uma nova origem do evento, use os valores da tabela a seguir:
 
-    | Configuração | Valor |
+    | Setting | Valor |
     | ------- | ----- |
     | Nome da Origem do Evento | A captura de tela a seguir usa o nome **contoso-iot-hub**. Ao concluir esta etapa, use seu próprio nome exclusivo. |
-    | Fonte | **Hub IoT** |
+    | Origem | **Hub IoT** |
     | Importar opção | **Usar o Hub IoT nas assinaturas disponíveis** |
     | ID da assinatura | Na lista suspensa, selecione sua assinatura do Azure. |
     | Nome do Hub IoT | **contoso-simulation7d894**. Use o nome do hub IoT do seu acelerador de solução de simulação de dispositivo. |
@@ -163,7 +162,7 @@ O explorador do Time Series Insights é um aplicativo da web que você pode usar
 
     ![Painel do Explorador de análise de séries de tempo](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-dashboard.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se você planejar explorar ainda mais, deixe o acelerador de solução implantado.
 

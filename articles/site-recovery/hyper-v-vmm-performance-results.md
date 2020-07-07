@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
 ms.openlocfilehash: 3edd182e335bc679d95d7be64f45b617a9f54c1a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73663181"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Testar resultados para replicação do Hyper-V para um site secundário
@@ -106,7 +105,7 @@ Os resultados mostram claramente que o Site Recovery, junto com a Réplica do Hy
 
 ![Principais requisitos de hardware](./media/hyper-v-vmm-performance-results/IC744922.png)
 
-| Server (Servidor) | RAM | Modelo | Processador | Número de processadores | NIC | Software |
+| Servidor | RAM | Modelo | Processador | Número de processadores | NIC | Software |
 | --- | --- | --- | --- | --- | --- | --- |
 | Servidores Hyper-V no cluster:  <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128<br />ESTLAB-HOST25 tem 256 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2,20 GHz |4 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + função Hyper-V |
 | Servidor VMM |2 | | |2 |1 Gbps |Windows Server Database 2012 R2 (x64) + VMM 2012 R2 |
@@ -118,7 +117,7 @@ Os resultados mostram claramente que o Site Recovery, junto com a Réplica do Hy
 
 ![Principais especificações de hardware](./media/hyper-v-vmm-performance-results/IC744923.png)
 
-| Server (Servidor) | RAM | Modelo | Processador | Número de processadores | NIC | Software |
+| Servidor | RAM | Modelo | Processador | Número de processadores | NIC | Software |
 | --- | --- | --- | --- | --- | --- | --- |
 | Servidores Hyper-V no cluster:  <br />ESTLAB-HOST07<br />ESTLAB-HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10 |96 |Dell ™ PowerEdge ™ R720 |Intel(R) Xeon(R) CPU E5-2630 0 \@ 2,30 GHz |2 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + função Hyper-V |
 | ESTLAB-HOST17 |128 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2,20 GHz |4 | |Windows Server Datacenter 2012 R2 (x64) + função Hyper-V |
@@ -175,10 +174,10 @@ A tabela resume as métricas e os contadores de desempenho medidos na implantaç
 | CPU |\Processador(_Total)\% Tempo do processador |
 | Memória disponível |\Memória\MBytes disponíveis |
 | IOPS |\Disco físico(_Total)\Transferências do disco/seg |
-| Operações de leitura da VM (IOPS)/seg |\Dispositivo do dispositivo de armazenamento\<virtual (VHD>) \ operações/s |
-| Operações de gravação da VM (IOPS)/seg |\Dispositivo do dispositivo de armazenamento\<virtual (VHD>) \ operações/S |
-| Taxa de transferência de leitura da VM |Dispositivo de armazenamento virtual \Dispositivo\<(VHD>) \ Bytes/s |
-| Taxa de transferência de gravação da VM |Dispositivo de armazenamento virtual \Dispositivo\<(VHD>) \ Bytes/s |
+| Operações de leitura da VM (IOPS)/seg |\Dispositivo de armazenamento virtual do Hyper-V (\<VHD>)\Operações de leitura/Seg |
+| Operações de gravação da VM (IOPS)/seg |\Dispositivo de armazenamento virtual do Hyper-V (\<VHD>)\Operações de gravação/S |
+| Taxa de transferência de leitura da VM |\Dispositivo de armazenamento virtual do Hyper-V (\<VHD>)\Bytes de leitura/seg |
+| Taxa de transferência de gravação da VM |\Dispositivo de armazenamento virtual do Hyper-V (\<VHD>)\Bytes de gravação/seg |
 
 ## <a name="next-steps"></a>Próximas etapas
 

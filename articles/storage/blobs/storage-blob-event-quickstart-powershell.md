@@ -9,10 +9,9 @@ ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.openlocfilehash: f0dae5ae79234ea29e6b17627fc07abcb3b5dfcb
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68847163"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-powershell"></a>Início rápido: rotear eventos de armazenamento para o ponto de extremidade da Web com o PowerShell
@@ -172,5 +171,5 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 Agora que sabe como criar tópicos e assinaturas de evento, saiba mais sobre os Eventos de Armazenamento de Blobs e o que a Grade de Eventos pode fazer por você:
 
-- [Reagir aos eventos de armazenamento de Blobs](storage-blob-event-overview.md)
+- [Reagindo a eventos de Armazenamento de Blobs](storage-blob-event-overview.md)
 - [Sobre a Grade de Eventos](../../event-grid/overview.md)

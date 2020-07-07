@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: mayg
 ms.openlocfilehash: 044e5c5df8e0af67e4717b864de1e31fc2520408
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73953292"
 ---
 # <a name="run-the-deployment-planner-for-vmware-disaster-recovery"></a>Executar o Planejador de Implantações para a recuperação de desastres do VMware
@@ -95,7 +94,7 @@ Por padrão, a ferramenta é configurada para criar o perfil e gerar relatórios
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
 ```
-Com as configurações padrão, para criar o perfil de, digamos, 1500 VMs, crie dois arquivos VMList.txt. Um com 1000 VMs e outro com uma lista de 500 VMs. Execute as duas instâncias do Planejador de Implantações do Azure Site Recovery, uma com VMList1. txt e outra com VMList2. txt. Você pode usar o mesmo caminho de diretório para armazenar os dados analisados das VMs VMList.
+Com as configurações padrão, para criar o perfil de, digamos, 1500 VMs, crie dois arquivos VMList.txt. Um com 1000 VMs e outro com uma lista de 500 VMs. Execute as duas instâncias do Planejador de Implantações do Azure Site Recovery, uma com VMList1.txt e outras com VMList2.txt. Você pode usar o mesmo caminho de diretório para armazenar os dados analisados das VMs VMList.
 
 Já vimos que, com base na configuração de hardware, especialmente o tamanho da RAM do servidor no qual a ferramenta é executada para gerar o relatório, a operação poderá falhar com memória insuficiente. Se você tiver um bom hardware, poderá alterar o MaxVMsSupported para qualquer valor mais alto.  
 

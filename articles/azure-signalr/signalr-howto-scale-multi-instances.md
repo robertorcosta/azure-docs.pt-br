@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: zhshang
 ms.openlocfilehash: 43d703312cbc1fc067a2d51d5623ed028ba01405
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74158165"
 ---
 # <a name="how-to-scale-signalr-service-with-multiple-instances"></a>Como dimensionar o serviço de Signalr com várias instâncias?
@@ -22,9 +21,9 @@ O SDK do serviço de sinalização mais recente dá suporte a vários pontos de 
 
 Configuração com chave `Azure:SignalR:ConnectionString` ou `Azure:SignalR:ConnectionString:` para cadeia de conexão de serviço signalr.
 
-Se a chave começar com `Azure:SignalR:ConnectionString:`, ela deve estar no formato `Azure:SignalR:ConnectionString:{Name}:{EndpointType}`, onde `Name` e `EndpointType` são propriedades do `ServiceEndpoint` objeto e podem ser acessadas do código.
+Se a chave começar com `Azure:SignalR:ConnectionString:` , ela deve estar no formato `Azure:SignalR:ConnectionString:{Name}:{EndpointType}` , onde `Name` e `EndpointType` são propriedades do `ServiceEndpoint` objeto e podem ser acessadas do código.
 
-Você pode adicionar várias cadeias de conexão de instância `dotnet` usando os seguintes comandos:
+Você pode adicionar várias cadeias de conexão de instância usando os seguintes `dotnet` comandos:
 
 ```batch
 dotnet user-secrets set Azure:SignalR:ConnectionString:east-region-a <ConnectionString1>
@@ -34,7 +33,7 @@ dotnet user-secrets set Azure:SignalR:ConnectionString:backup:secondary <Connect
 
 ### <a name="how-to-add-multiple-endpoints-from-code"></a>Como adicionar vários pontos de extremidade do código?
 
-Uma `ServicEndpoint` classe é introduzida para descrever as propriedades de um ponto de extremidade do serviço de Signaler do Azure.
+Uma `ServicEndpoint` classe é introduzida para descrever as propriedades de um ponto de extremidade do serviço de signaler do Azure.
 Você pode configurar vários pontos de extremidade de instância ao usar o SDK do serviço de Signaler do Azure por meio de:
 ```cs
 services.AddSignalR()
@@ -69,7 +68,7 @@ Por padrão, o SDK usa o [DefaultEndpointRouter](https://github.com/Azure/azure-
 #### <a name="customize-routing-algorithm"></a>Personalizar o algoritmo de roteamento
 Você pode criar seu próprio roteador quando tiver conhecimento especial para identificar para quais pontos de extremidade as mensagens devem ir.
 
-Um roteador personalizado é definido abaixo como um exemplo quando os grupos começam `east-` com sempre vão para o ponto `east`de extremidade chamado:
+Um roteador personalizado é definido abaixo como um exemplo quando os grupos começam com `east-` sempre vão para o ponto de extremidade chamado `east` :
 
 ```cs
 private class CustomRouter : EndpointRouterDecorator
@@ -133,9 +132,9 @@ services.AddSignalR()
 
 Configuração com chave `Azure:SignalR:ConnectionString` ou `Azure:SignalR:ConnectionString:` para cadeia de conexão de serviço signalr.
 
-Se a chave começar com `Azure:SignalR:ConnectionString:`, ela deve estar no formato `Azure:SignalR:ConnectionString:{Name}:{EndpointType}`, onde `Name` e `EndpointType` são propriedades do `ServiceEndpoint` objeto e podem ser acessadas do código.
+Se a chave começar com `Azure:SignalR:ConnectionString:` , ela deve estar no formato `Azure:SignalR:ConnectionString:{Name}:{EndpointType}` , onde `Name` e `EndpointType` são propriedades do `ServiceEndpoint` objeto e podem ser acessadas do código.
 
-Você pode adicionar várias cadeias de conexão `web.config`de instância a:
+Você pode adicionar várias cadeias de conexão de instância a `web.config` :
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -152,7 +151,7 @@ Você pode adicionar várias cadeias de conexão `web.config`de instância a:
 
 ### <a name="how-to-add-multiple-endpoints-from-code"></a>Como adicionar vários pontos de extremidade do código?
 
-Uma `ServicEndpoint` classe é introduzida para descrever as propriedades de um ponto de extremidade do serviço de Signaler do Azure.
+Uma `ServicEndpoint` classe é introduzida para descrever as propriedades de um ponto de extremidade do serviço de signaler do Azure.
 Você pode configurar vários pontos de extremidade de instância ao usar o SDK do serviço de Signaler do Azure por meio de:
 
 ```cs
@@ -173,7 +172,7 @@ app.MapAzureSignalR(
 
 ### <a name="how-to-customize-router"></a>Como personalizar o roteador?
 
-A única diferença entre o Signalr ASP.NET e o Signalr ASP.NET Core é o tipo de `GetNegotiateEndpoint`contexto http para. Para o Signalr ASP.NET, é do tipo [IOwinContext](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR.AspNet/EndpointRouters/DefaultEndpointRouter.cs#L19) .
+A única diferença entre o Signalr ASP.NET e o Signalr ASP.NET Core é o tipo de contexto http para `GetNegotiateEndpoint` . Para o Signalr ASP.NET, é do tipo [IOwinContext](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR.AspNet/EndpointRouters/DefaultEndpointRouter.cs#L19) .
 
 Veja abaixo o exemplo de negociação personalizada para o Signalr ASP.NET:
 
@@ -215,15 +214,15 @@ app.MapAzureSignalR(GetType().FullName, hub, options => {
 
 ## <a name="configuration-in-cross-region-scenarios"></a>Configuração em cenários entre regiões
 
-O `ServiceEndpoint` objeto tem uma `EndpointType` Propriedade com valor `primary` ou `secondary`.
+O `ServiceEndpoint` objeto tem uma `EndpointType` propriedade com valor `primary` ou `secondary` .
 
-`primary`os pontos de extremidade são pontos de extremidade preferenciais para receber o tráfego do cliente e são considerados conexões de rede mais confiáveis; `secondary` os pontos de extremidade são considerados como tendo conexões de rede menos confiáveis e são usados apenas para levar o servidor ao tráfego do cliente, por exemplo, transmitir mensagens, não para levar o cliente ao tráfego do servidor.
+`primary`os pontos de extremidade são pontos de extremidade preferenciais para receber o tráfego do cliente e são considerados conexões de rede mais confiáveis; os `secondary` pontos de extremidade são considerados como tendo conexões de rede menos confiáveis e são usados apenas para levar o servidor ao tráfego do cliente, por exemplo, transmitir mensagens, não para levar o cliente ao tráfego do servidor.
 
-Em casos entre regiões, a rede pode ser instável. Para um servidor de aplicativos localizado no *leste dos EUA*, o ponto de extremidade do serviço signalr localizado na mesma região *leste dos EUA* pode ser configurado como `primary` pontos de extremidade em `secondary`outras regiões marcadas como. Nessa configuração, os pontos de extremidade de serviço em outras regiões podem **receber** mensagens desse servidor de aplicativos *leste dos EUA* , mas não haverá clientes **entre regiões** roteados para esse servidor de aplicativos. A arquitetura é mostrada no diagrama a seguir:
+Em casos entre regiões, a rede pode ser instável. Para um servidor de aplicativos localizado no *leste dos EUA*, o ponto de extremidade do serviço signalr localizado na mesma região *leste dos EUA* pode ser configurado como pontos de extremidade `primary` em outras regiões marcadas como `secondary` . Nessa configuração, os pontos de extremidade de serviço em outras regiões podem **receber** mensagens desse servidor de aplicativos *leste dos EUA* , mas não haverá clientes **entre regiões** roteados para esse servidor de aplicativos. A arquitetura é mostrada no diagrama a seguir:
 
 ![Infraestrutura de Geografia cruzado](./media/signalr-howto-scale-multi-instances/cross_geo_infra.png)
 
-Quando um cliente tenta `/negotiate` com o servidor de aplicativos, com o roteador padrão, o SDK **seleciona aleatoriamente** um ponto de extremidade `primary` do conjunto de pontos de extremidade disponíveis. Quando o ponto de extremidade primário não está disponível, o SDK **seleciona aleatoriamente** em todos os pontos de extremidade disponíveis `secondary` . O ponto de extremidade é marcado como **disponível** quando a conexão entre o servidor e o ponto de extremidade de serviço está ativa.
+Quando um cliente tenta `/negotiate` com o servidor de aplicativos, com o roteador padrão, o SDK **seleciona aleatoriamente** um ponto de extremidade do conjunto de pontos de extremidade disponíveis `primary` . Quando o ponto de extremidade primário não está disponível, o SDK **seleciona aleatoriamente** em todos os pontos de extremidade disponíveis `secondary` . O ponto de extremidade é marcado como **disponível** quando a conexão entre o servidor e o ponto de extremidade de serviço está ativa.
 
 No cenário entre regiões, quando um cliente tenta `/negotiate` o servidor de aplicativos hospedado no *leste dos EUA*, por padrão ele sempre retorna o `primary` ponto de extremidade localizado na mesma região. Quando todos os pontos de extremidade do *leste dos EUA* não estiverem disponíveis, o cliente será redirecionado para pontos de extremidade em outras regiões. A seção de failover abaixo descreve o cenário em detalhes.
 
@@ -231,7 +230,7 @@ No cenário entre regiões, quando um cliente tenta `/negotiate` o servidor de a
 
 ## <a name="fail-over"></a>Failover
 
-Quando todos `primary` os pontos de extremidade não estão disponíveis, as `/negotiate` seleções do cliente nos pontos `secondary` de extremidade disponíveis. Esse mecanismo de failover requer que cada ponto de extremidade sirva como `primary` ponto de extremidade para pelo menos um servidor de aplicativos.
+Quando todos os `primary` pontos de extremidade não estão disponíveis, as `/negotiate` seleções do cliente nos `secondary` pontos de extremidade disponíveis. Esse mecanismo de failover requer que cada ponto de extremidade sirva como `primary` ponto de extremidade para pelo menos um servidor de aplicativos.
 
 ![Failover](./media/signalr-howto-scale-multi-instances/failover_negotiate.png)
 

@@ -20,13 +20,12 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 62c8c93e07326e776cbe089042abc481544794bc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74113214"
 ---
-# <a name="odata-comparison-operators-in-azure-cognitive-search---eq-ne-gt-lt-ge-and-le"></a>Operadores de comparação OData no Azure pesquisa cognitiva `eq`- `ne`, `gt`, `lt` `ge`,, e`le`
+# <a name="odata-comparison-operators-in-azure-cognitive-search---eq-ne-gt-lt-ge-and-le"></a>Operadores de comparação OData no Azure pesquisa cognitiva- `eq` ,,,, `ne` `gt` `lt` `ge` e`le`
 
 A operação mais básica em uma [expressão de filtro OData](query-odata-filter-orderby-syntax.md) no Azure pesquisa cognitiva é comparar um campo com um determinado valor. Dois tipos de comparação são possíveis – comparação de igualdade e comparação de intervalo. Você pode usar os seguintes operadores para comparar um campo com um valor constante:
 
@@ -45,9 +44,9 @@ Operadores de intervalo:
 Você pode usar os operadores de intervalo em combinação com os [operadores lógicos](search-query-odata-logical-operators.md) para testar se um campo está dentro de um determinado intervalo de valores. Consulte os [exemplos](#examples) mais adiante neste artigo.
 
 > [!NOTE]
-> Se preferir, você pode colocar o valor constante no lado esquerdo do operador e o nome do campo no lado direito. Para operadores de intervalo, o significado da comparação é invertido. Por exemplo, se o valor constante estiver à esquerda, `gt` o testará se o valor constante é maior que o campo. Você também pode usar os operadores de comparação para comparar o resultado de uma função, como `geo.distance`, com um valor. Para funções booleanas como `search.ismatch`, comparando o resultado `true` para `false` ou é opcional.
+> Se preferir, você pode colocar o valor constante no lado esquerdo do operador e o nome do campo no lado direito. Para operadores de intervalo, o significado da comparação é invertido. Por exemplo, se o valor constante estiver à esquerda, o `gt` testará se o valor constante é maior que o campo. Você também pode usar os operadores de comparação para comparar o resultado de uma função, como `geo.distance` , com um valor. Para funções booleanas como, comparando `search.ismatch` o resultado para `true` ou `false` é opcional.
 
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
 
 O EBNF a seguir ([formulário Backus-Naur Estendido](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) define a gramática de uma expressão OData que usa os operadores de comparação.
 
@@ -75,21 +74,21 @@ Há duas formas de expressões de comparação. A única diferença entre eles �
 
 ## <a name="data-types-for-comparisons"></a>Tipos de dados para comparações
 
-Os tipos de dados em ambos os lados de um operador de comparação devem ser compatíveis. Por exemplo, se o lado esquerdo é um campo do tipo `Edm.DateTimeOffset`, o lado direito deve ser uma constante de data e hora. Os tipos de dados numéricos são mais flexíveis. Você pode comparar variáveis e funções de qualquer tipo numérico com constantes de qualquer outro tipo numérico, com algumas limitações, conforme descrito na tabela a seguir.
+Os tipos de dados em ambos os lados de um operador de comparação devem ser compatíveis. Por exemplo, se o lado esquerdo é um campo do tipo `Edm.DateTimeOffset` , o lado direito deve ser uma constante de data e hora. Os tipos de dados numéricos são mais flexíveis. Você pode comparar variáveis e funções de qualquer tipo numérico com constantes de qualquer outro tipo numérico, com algumas limitações, conforme descrito na tabela a seguir.
 
 | Variável ou tipo de função | Tipo de valor constante | Limitações |
 | --- | --- | --- |
 | `Edm.Double` | `Edm.Double` | A comparação está sujeita a [regras especiais `NaN` para](#special-case-nan) |
-| `Edm.Double` | `Edm.Int64` | A constante é convertida em `Edm.Double`, resultando em uma perda de precisão para valores de grande magnitude |
-| `Edm.Double` | `Edm.Int32` | n/d |
-| `Edm.Int64` | `Edm.Double` | Comparações `NaN`com `-INF`,, `INF` ou não são permitidas |
-| `Edm.Int64` | `Edm.Int64` | n/d |
-| `Edm.Int64` | `Edm.Int32` | A `Edm.Int64` constante é convertida antes da comparação |
-| `Edm.Int32` | `Edm.Double` | Comparações `NaN`com `-INF`,, `INF` ou não são permitidas |
+| `Edm.Double` | `Edm.Int64` | A constante é convertida em `Edm.Double` , resultando em uma perda de precisão para valores de grande magnitude |
+| `Edm.Double` | `Edm.Int32` | N/D |
+| `Edm.Int64` | `Edm.Double` | Comparações com `NaN` , `-INF` , ou `INF` não são permitidas |
+| `Edm.Int64` | `Edm.Int64` | N/D |
+| `Edm.Int64` | `Edm.Int32` | A constante é convertida `Edm.Int64` antes da comparação |
+| `Edm.Int32` | `Edm.Double` | Comparações com `NaN` , `-INF` , ou `INF` não são permitidas |
 | `Edm.Int32` | `Edm.Int64` | n/d |
 | `Edm.Int32` | `Edm.Int32` | n/d |
 
-Para comparações que não são permitidas, como comparar um campo do `Edm.Int64` tipo `NaN`como, a API REST do Azure pesquisa cognitiva retornará um erro "http 400: solicitação inválida".
+Para comparações que não são permitidas, como comparar um campo do tipo `Edm.Int64` como `NaN` , a API REST do Azure pesquisa cognitiva retornará um erro "http 400: solicitação inválida".
 
 > [!IMPORTANT]
 > Embora as comparações de tipo numérico sejam flexíveis, é altamente recomendável escrever comparações em filtros para que o valor constante seja do mesmo tipo de dados que a variável ou função à qual ele está sendo comparado. Isso é especialmente importante ao misturar valores inteiros e de ponto flutuante, em que conversões implícitas que perdem precisão são possíveis.
@@ -98,7 +97,7 @@ Para comparações que não são permitidas, como comparar um campo do `Edm.Int6
 
 ### <a name="special-cases-for-null-and-nan"></a>Casos especiais para `null` e`NaN`
 
-Ao usar operadores de comparação, é importante lembrar que todos os campos que não são de coleção no Azure Pesquisa Cognitiva potencialmente `null`podem ser. A tabela a seguir mostra todos os resultados possíveis para uma expressão de comparação em que um dos lados `null`pode ser:
+Ao usar operadores de comparação, é importante lembrar que todos os campos que não são de coleção no Azure Pesquisa Cognitiva potencialmente podem ser `null` . A tabela a seguir mostra todos os resultados possíveis para uma expressão de comparação em que um dos lados pode ser `null` :
 
 | Operador | Resultado quando apenas o campo ou a variável for`null` | Resultado quando apenas a constante for`null` | Resultado quando o campo ou a variável e a constante são`null` |
 | --- | --- | --- | --- |
@@ -111,7 +110,7 @@ Ao usar operadores de comparação, é importante lembrar que todos os campos qu
 
 Em resumo, `null` é igual apenas a si mesmo e não é menor ou maior que qualquer outro valor.
 
-Se o índice tiver campos do tipo `Edm.Double` e você carregar `NaN` valores para esses campos, será necessário considerar isso ao gravar filtros. O Azure Pesquisa Cognitiva implementa o padrão IEEE 754 para `NaN` manipular valores e as comparações com esses valores produzem resultados não óbvios, conforme mostrado na tabela a seguir.
+Se o índice tiver campos do tipo `Edm.Double` e você carregar `NaN` valores para esses campos, será necessário considerar isso ao gravar filtros. O Azure Pesquisa Cognitiva implementa o padrão IEEE 754 para manipular `NaN` valores e as comparações com esses valores produzem resultados não óbvios, conforme mostrado na tabela a seguir.
 
 | Operador | Resultado quando pelo menos um operando for`NaN` |
 | --- | --- |
@@ -126,31 +125,31 @@ Em resumo, `NaN` não é igual a qualquer valor, incluindo a si mesmo.
 
 ### <a name="comparing-geo-spatial-data"></a>Comparando dados geoespaciais
 
-Não é possível comparar diretamente um campo do `Edm.GeographyPoint` tipo com um valor constante, mas você pode usar `geo.distance` a função. Essa função retorna um valor do tipo `Edm.Double`, de modo que você pode compará-lo com uma constante numérica para filtrar com base na distância das coordenadas geoespaciais constantes. Consulte os [exemplos](#examples) abaixo.
+Não é possível comparar diretamente um campo do tipo `Edm.GeographyPoint` com um valor constante, mas você pode usar a `geo.distance` função. Essa função retorna um valor do tipo `Edm.Double` , de modo que você pode compará-lo com uma constante numérica para filtrar com base na distância das coordenadas geoespaciais constantes. Consulte os [exemplos](#examples) abaixo.
 
 ### <a name="comparing-string-data"></a>Comparando dados de cadeia de caracteres
 
-As cadeias de caracteres podem ser comparadas em `eq` filtros `ne` para correspondências exatas usando os operadores e. Essas comparações diferenciam maiúsculas de minúsculas.
+As cadeias de caracteres podem ser comparadas em filtros para correspondências exatas usando os `eq` `ne` operadores e. Essas comparações diferenciam maiúsculas de minúsculas.
 
 ## <a name="examples"></a>Exemplos
 
-Corresponder documentos em que `Rating` o campo está entre 3 e 5, inclusive:
+Corresponder documentos em que o `Rating` campo está entre 3 e 5, inclusive:
 
     Rating ge 3 and Rating le 5
 
-Corresponder documentos em que `Location` o campo é inferior a 2 quilômetros da latitude e longitude determinada:
+Corresponder documentos em que o `Location` campo é inferior a 2 quilômetros da latitude e longitude determinada:
 
     geo.distance(Location, geography'POINT(-122.031577 47.578581)') lt 2.0
 
-Corresponder documentos em que `LastRenovationDate` o campo é maior ou igual a 1º de janeiro de 2015, meia-noite UTC:
+Corresponder documentos em que o `LastRenovationDate` campo é maior ou igual a 1º de janeiro de 2015, meia-noite UTC:
 
     LastRenovationDate ge 2015-01-01T00:00:00.000Z
 
-Corresponder documentos em que `Details/Sku` o campo não `null`é:
+Corresponder documentos em que o `Details/Sku` campo não é `null` :
 
     Details/Sku ne null
 
-Corresponder documentos para hotéis em que pelo menos uma sala tem o tipo "sala de luxo", em que `Rooms/Type` a cadeia de caracteres do campo corresponde exatamente ao filtro:
+Corresponder documentos para hotéis em que pelo menos uma sala tem o tipo "sala de luxo", em que a cadeia de caracteres do `Rooms/Type` campo corresponde exatamente ao filtro:
 
     Rooms/any(room: room/Type eq 'Deluxe Room')
 

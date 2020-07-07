@@ -12,10 +12,9 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.openlocfilehash: 44aadecfa80524345932c03abb51e8ebd040a902
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73666974"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorar e gerenciar os pipelines do Azure Data Factory usando o Portal do Azure e o PowerShell
@@ -105,7 +104,7 @@ As fatias do conjunto de dados no data factory podem ter um dos seguintes status
 <td>ActivityResume</td><td>A atividade está em pausa e não pode executar as fatias até que a atividades seja retomada.</td>
 </tr>
 <tr>
-<td>Repetir</td><td>A execução da atividade está sendo repetida.</td>
+<td>Tentar novamente</td><td>A execução da atividade está sendo repetida.</td>
 </tr>
 <tr>
 <td>Validação</td><td>A validação ainda não foi iniciada.</td>
@@ -121,7 +120,7 @@ As fatias do conjunto de dados no data factory podem ter um dos seguintes status
 <td>A fatia está sendo processada.</td>
 </tr>
 <tr>
-<td rowspan="4">Failed (Falha)</td><td>TimedOut</td><td>A execução demorou mais do que o permitido pela atividade.</td>
+<td rowspan="4">Falhou</td><td>TimedOut</td><td>A execução demorou mais do que o permitido pela atividade.</td>
 </tr>
 <tr>
 <td>Canceled</td><td>A fatia foi cancelada por ação do usuário.</td>

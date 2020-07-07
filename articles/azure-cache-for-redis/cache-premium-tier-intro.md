@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 07/05/2017
 ms.author: yegu
 ms.openlocfilehash: aadcc13d2397f10ea40f06d1259c86b9a179c38b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74121659"
 ---
 # <a name="introduction-to-the-azure-cache-for-redis-premium-tier"></a>Introdução à camada Premium do Cache do Azure para Redis
@@ -23,10 +22,10 @@ A nova camada Premium é uma camada pronta para Empresas, que inclui todos os re
 
 **A taxa de transferência para o Cache do mesmo tamanho é maior na camada Premium quando comparada à camada Standard.**  Por exemplo, a taxa de transferência para um Cache de 53 GB P4 (Premium) é de 250 mil solicitações por segundo quando comparada a 150 mil do C6 (Standard).
 
-Para obter mais informações sobre tamanho, taxa de transferência e largura de banda com caches premium, consulte [Perguntas frequentes sobre o Cache do Azure para Redis](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
+Para obter mais informações sobre tamanho, taxa de transferência e largura de banda com caches Premium, consulte [perguntas frequentes sobre o cache do Azure para Redis](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
 
 ## <a name="redis-data-persistence"></a>Persistência de dados do Redis
-A camada Premium permite persistir os dados de cache em uma conta do Armazenamento do Azure. Em um cache Básico/Standard, todos os dados são armazenados apenas na memória. Em caso de problemas de infraestrutura subjacente, pode haver uma possível perda de dados. Recomendamos usar o recurso de persistência de dados do Redis na camada Premium para aumentar a resiliência contra a perda de dados. O Cache do Azure para Redis oferece opções de RDB e AOF (em breve) na [Persistência do Redis](https://redis.io/topics/persistence). 
+A camada Premium permite persistir os dados de cache em uma conta do Armazenamento do Azure. Em um cache Básico/Standard, todos os dados são armazenados apenas na memória. Em caso de problemas de infraestrutura subjacente, pode haver uma possível perda de dados. Recomendamos usar o recurso de persistência de dados do Redis na camada Premium para aumentar a resiliência contra a perda de dados. O cache do Azure para Redis oferece opções de RDB e AOF (em breve) no [Redis Persistence](https://redis.io/topics/persistence). 
 
 Para obter instruções sobre como configurar a persistência, consulte [Como configurar a persistência para um Cache do Azure Premium para Redis](cache-how-to-premium-persistence.md).
 

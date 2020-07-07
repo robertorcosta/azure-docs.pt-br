@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 10/29/2019
 ms.author: mayg
 ms.openlocfilehash: f00c7b12accde9df9a5708a2b8b378d70428318d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74091246"
 ---
 # <a name="troubleshoot-vcenter-server-discovery-failures"></a>Solucionar problemas vCenter Server falhas de descoberta
@@ -20,7 +19,7 @@ Este artigo ajuda você a solucionar problemas que ocorrem devido a falhas de de
 
 ## <a name="non-numeric-values-in-the-maxsnapshots-property"></a>Valores não numéricos na propriedade maxSnapShots
 
-Nas versões anteriores à 9,20, o vCenter se desconecta quando recupera um valor não numérico para a Propriedade Property `snapshot.maxSnapShots` em uma VM.
+Nas versões anteriores à 9,20, o vCenter se desconecta quando recupera um valor não numérico para a `snapshot.maxSnapShots` Propriedade Property em uma VM.
 
 Esse problema é identificado pela ID de erro 95126.
 
@@ -46,8 +45,8 @@ Em geral, o proxy é usado para se comunicar com redes públicas; como a comunic
 
 As seguintes situações ocorrem quando esse problema é encontrado:
 
-- A> do \<vCenter do vCenter Server não está acessível devido ao erro: o servidor remoto retornou um erro: (503) servidor não disponível
-- A> do \<vCenter do vCenter Server não está acessível devido ao erro: o servidor remoto retornou um erro: não é possível conectar-se ao servidor remoto.
+- O servidor do vCenter \<vCenter> não está acessível devido ao erro: o servidor remoto retornou um erro: (503) servidor não disponível
+- O servidor do vCenter \<vCenter> não está acessível devido ao erro: o servidor remoto retornou um erro: não é possível conectar-se ao servidor remoto.
 - Não é possível conectar-se ao servidor vCenter/ESXi.
 
 Como resolver o problema:
@@ -60,7 +59,7 @@ Para a configuração de proxy de descoberta:
 
 1. Abra o IE no contexto do usuário do sistema usando a ferramenta PsExec.
     
-    PsExec-s-i "%programfiles%\Internet Explorer\iexplore.exe"
+    psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"
 
 2. Modifique as configurações de proxy no Internet Explorer para ignorar o endereço IP do vCenter.
 3. Reinicie o serviço tmanssvc.
@@ -73,7 +72,7 @@ Para configuração de proxy DRA:
 
 3. No prompt de comando, execute o comando a seguir.
    
-   **DRCONFIGURATOR. EXE/configure/AddBypassUrls [endereço IP/FQDN do vCenter Server fornecido no momento da adição do vCenter]**
+   **DRCONFIGURATOR.EXE/configure/AddBypassUrls [endereço IP/FQDN do vCenter Server fornecido no momento da adição do vCenter]**
 
 4. Reinicie o serviço do provedor DRA.
 

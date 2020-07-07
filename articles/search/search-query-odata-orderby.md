@@ -20,17 +20,16 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 99ec639b88f3334530243242aadfa0ab52a40df0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74113151"
 ---
 # <a name="odata-orderby-syntax-in-azure-cognitive-search"></a>Sintaxe de $orderby OData no Azure Pesquisa Cognitiva
 
  Você pode usar o [parâmetro **$OrderBy** OData](query-odata-filter-orderby-syntax.md) para aplicar uma ordem de classificação personalizada para os resultados da pesquisa no Azure pesquisa cognitiva. Este artigo descreve a sintaxe de **$OrderBy** em detalhes. Para obter mais informações gerais sobre como usar **$OrderBy** ao apresentar os resultados da pesquisa, consulte [como trabalhar com os resultados da pesquisa no Azure pesquisa cognitiva](search-pagination-page-layout.md).
 
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
 
 O parâmetro **$OrderBy** aceita uma lista separada por vírgulas de até 32 **cláusulas de ordenação**. A sintaxe de uma cláusula order by é descrita pelo seguinte EBNF ([formulário Backus-Naur Estendido](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)):
 
@@ -50,11 +49,11 @@ Um diagrama de sintaxe interativa também está disponível:
 > [!NOTE]
 > Consulte [referência de sintaxe de expressão OData para pesquisa cognitiva do Azure](search-query-odata-syntax-reference.md) para o EBNF completo.
 
-Cada cláusula tem critérios de classificação, opcionalmente seguido por uma direção de`asc` classificação (para crescente `desc` ou para decrescente). Se você não especificar uma direção, o padrão será ascendente. Os critérios de classificação podem ser o caminho de um `sortable` campo ou uma chamada para as [`geo.distance`](search-query-odata-geo-spatial-functions.md) [`search.score`](search-query-odata-search-score-function.md) funções ou.
+Cada cláusula tem critérios de classificação, opcionalmente seguido por uma direção de classificação ( `asc` para crescente ou `desc` para decrescente). Se você não especificar uma direção, o padrão será ascendente. Os critérios de classificação podem ser o caminho de um `sortable` campo ou uma chamada para as [`geo.distance`](search-query-odata-geo-spatial-functions.md) [`search.score`](search-query-odata-search-score-function.md) funções ou.
 
-Se vários documentos tiverem os mesmos critérios de classificação e `search.score` a função não for usada (por exemplo, se você classificar por `Rating` um campo numérico e três documentos todos tiverem uma classificação de 4), as ligações serão quebradas pela Pontuação do documento em ordem decrescente. Quando as pontuações de documento são as mesmas (por exemplo, quando não há nenhuma consulta de pesquisa de texto completo especificada na solicitação), a ordem relativa dos documentos vinculados é indeterminada.
+Se vários documentos tiverem os mesmos critérios de classificação e a `search.score` função não for usada (por exemplo, se você classificar por um `Rating` campo numérico e três documentos todos tiverem uma classificação de 4), as ligações serão quebradas pela Pontuação do documento em ordem decrescente. Quando as pontuações de documento são as mesmas (por exemplo, quando não há nenhuma consulta de pesquisa de texto completo especificada na solicitação), a ordem relativa dos documentos vinculados é indeterminada.
 
-Você pode especificar vários critérios de classificação. A ordem das expressões determina a ordem de classificação final. Por exemplo, para classificar em ordem decrescente por Pontuação, seguido por classificação, a `$orderby=search.score() desc,Rating desc`sintaxe seria.
+Você pode especificar vários critérios de classificação. A ordem das expressões determina a ordem de classificação final. Por exemplo, para classificar em ordem decrescente por Pontuação, seguido por classificação, a sintaxe seria `$orderby=search.score() desc,Rating desc` .
 
 A sintaxe para `geo.distance` em **$orderby** é a mesma que em **$filter**. Ao usar `geo.distance` em **$orderby**, o campo ao qual a operação se aplica deve ser do tipo `Edm.GeographyPoint` e também deve ser `sortable`.
 

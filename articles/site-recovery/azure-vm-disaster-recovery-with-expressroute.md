@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: bf12a5b7850a56d945e1082be6c522c31738669c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73954092"
 ---
 # <a name="integrate-expressroute-with-disaster-recovery-for-azure-vms"></a>Integre o ExpressRoute com a recuperação de desastre para VMs do Azure
@@ -38,7 +37,7 @@ Antes de começar, certifique-se de que entender os seguintes conceitos:
 
 - [Circuitos](../expressroute/expressroute-circuit-peerings.md) do ExpressRoute
 - [Domínios de roteamento](../expressroute/expressroute-circuit-peerings.md#routingdomains) do ExpressRoute
-- ExpressRoute [locais](../expressroute/expressroute-locations.md).
+- [Locais](../expressroute/expressroute-locations.md)do ExpressRoute.
 - VM do Azure [arquitetura de replicação](azure-to-azure-architecture.md)
 - Como [configurar a replicação](azure-to-azure-tutorial-enable-replication.md) para VMs do Azure.
 - Como [failover](azure-to-azure-tutorial-failover-failback.md) VMs do Azure.
@@ -106,10 +105,10 @@ Geralmente, as implantações corporativas têm cargas de trabalho divididas em 
 
 **Direção** | **Configuração** | **State**
 --- | --- | ---
-Do spoke para o hub | Permitir que o endereço de rede virtual | habilitado
-Do spoke para o hub | Permitir tráfego encaminhado | habilitado
+Do spoke para o hub | Permitir que o endereço de rede virtual | Habilitada
+Do spoke para o hub | Permitir tráfego encaminhado | Habilitada
 Do spoke para o hub | Permitir trânsito de gateway | Desabilitado
-Do spoke para o hub | Use remover gateways | habilitado
+Do spoke para o hub | Use remover gateways | Habilitada
 
  ![Configuração do emparelhamento spoke-hub](./media/azure-vm-disaster-recovery-with-expressroute/spoke-to-hub-peering-configuration.png)
 
@@ -117,9 +116,9 @@ Do spoke para o hub | Use remover gateways | habilitado
 
 **Direção** | **Configuração** | **State**
 --- | --- | ---
-Do hub para o spoke | Permitir que o endereço de rede virtual | habilitado
-Do hub para o spoke | Permitir tráfego encaminhado | habilitado
-Do hub para o spoke | Permitir trânsito de gateway | habilitado
+Do hub para o spoke | Permitir que o endereço de rede virtual | Habilitada
+Do hub para o spoke | Permitir tráfego encaminhado | Habilitada
+Do hub para o spoke | Permitir trânsito de gateway | Habilitada
 Do hub para o spoke | Use remover gateways | Desabilitado
 
  ![Configuração do emparelhamento hub-spoke](./media/azure-vm-disaster-recovery-with-expressroute/hub-to-spoke-peering-configuration.png)

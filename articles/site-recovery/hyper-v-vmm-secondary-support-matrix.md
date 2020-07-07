@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
 ms.openlocfilehash: 1126a85ed22ee17879767a93ca75dc76dd04b747
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74132952"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matriz de suporte para recuperação de desastres de VMs do Hyper-V para um site secundário
@@ -51,7 +50,7 @@ Somente computadores Linux com o armazenamento a seguir podem ser replicados:
 
 ## <a name="network-configuration---hostguest-vm"></a>Configuração de rede - VM Host/Convidada
 
-**Configuração** | **Com suporte**  
+**Configuration** | **Com suporte**  
 --- | --- 
 Host - Agrupamento NIC | Sim 
 Host - VLAN | Sim 
@@ -77,7 +76,7 @@ Múltiplos caminhos (MPIO) | Sim
 
 ### <a name="guest-or-physical-server-storage"></a>Armazenamento do servidor físico ou convidado
 
-**Configuração** | **Com suporte**
+**Configuration** | **Com suporte**
 --- | --- | 
 VMDK |  N/D
 VHD/VHDX | Sim (até 16 discos)
@@ -106,7 +105,7 @@ Mover armazenamento, rede, VMs do Azure entre grupos de recursos (dentro de uma 
 
 O Provedor coordena as comunicações entre os servidores VMM. 
 
-**Mais recente** | **Atualizações**
+**Mais Recente** | **Atualizações**
 --- | --- 
 5.1.19 ([disponível no portal](https://aka.ms/downloaddra) | [Recursos e correções mais recentes](https://support.microsoft.com/kb/3155002)
 

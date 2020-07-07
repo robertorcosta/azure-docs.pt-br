@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: e27f61239c0631fb248217777a311b13ee48a3f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74113861"
 ---
 # <a name="how-to-reference-annotations-in-an-azure-cognitive-search-skillset"></a>Como fazer referência a anotações em um Azure Pesquisa Cognitiva skillset
@@ -120,7 +119,7 @@ Observe que a cardinalidade de `"/document/people/*/lastname"` é maior do que a
 
 
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 + [Como integrar uma habilidade personalizada a um pipeline de enriquecimento](cognitive-search-custom-skill-interface.md)
 + [Como definir um conjunto de qualificações](cognitive-search-defining-skillset.md)
 + [Criar conjunto de qualificações (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)

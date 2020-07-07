@@ -20,31 +20,30 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: b43c46599cbacaf40bc9583e364d088fa27a3ac9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74113111"
 ---
-# <a name="odata-searchin-function-in-azure-cognitive-search"></a>Função `search.in` OData no Azure pesquisa cognitiva
+# <a name="odata-searchin-function-in-azure-cognitive-search"></a>`search.in`Função OData no Azure pesquisa cognitiva
 
 Um cenário comum em [expressões de filtro OData](query-odata-filter-orderby-syntax.md) é verificar se um único campo em cada documento é igual a um dos muitos valores possíveis. Por exemplo, é assim que alguns aplicativos implementam a [remoção de segurança](search-security-trimming-for-azure-search.md) , verificando um campo que contém uma ou mais IDs de entidade em relação a uma lista de IDs de entidade que representa o usuário que está emitindo a consulta. Uma maneira de escrever uma consulta como esta é usar os [`eq`](search-query-odata-comparison-operators.md) operadores e [`or`](search-query-odata-logical-operators.md) :
 
     group_ids/any(g: g eq '123' or g eq '456' or g eq '789')
 
-No entanto, há uma maneira mais curta de escrever isso, usando `search.in` a função:
+No entanto, há uma maneira mais curta de escrever isso, usando a `search.in` função:
 
     group_ids/any(g: search.in(g, '123, 456, 789'))
 
 > [!IMPORTANT]
-> Além de ser mais curto e fácil de ler, `search.in` o uso do também fornece [benefícios de desempenho](#bkmk_performance) e evita determinadas [limitações de tamanho dos filtros](search-query-odata-filter.md#bkmk_limits) quando há centenas ou até milhares de valores a serem incluídos no filtro. Por esse motivo, é altamente recomendável `search.in` usar em vez de uma disjunção mais complexa de expressões de igualdade.
+> Além de ser mais curto e fácil de ler, o uso `search.in` do também fornece [benefícios de desempenho](#bkmk_performance) e evita determinadas [limitações de tamanho dos filtros](search-query-odata-filter.md#bkmk_limits) quando há centenas ou até milhares de valores a serem incluídos no filtro. Por esse motivo, é altamente recomendável usar `search.in` em vez de uma disjunção mais complexa de expressões de igualdade.
 
 > [!NOTE]
-> A versão 4, 1 do padrão OData introduziu recentemente o [ `in` operador](https://docs.oasis-open.org/odata/odata/v4.01/cs01/part2-url-conventions/odata-v4.01-cs01-part2-url-conventions.html#_Toc505773230), que tem comportamento semelhante à `search.in` função no pesquisa cognitiva do Azure. No entanto, o Azure Pesquisa Cognitiva não oferece suporte a esse operador, portanto `search.in` , você deve usar a função em vez disso.
+> A versão 4, 1 do padrão OData introduziu recentemente o [ `in` operador](https://docs.oasis-open.org/odata/odata/v4.01/cs01/part2-url-conventions/odata-v4.01-cs01-part2-url-conventions.html#_Toc505773230), que tem comportamento semelhante à `search.in` função no pesquisa cognitiva do Azure. No entanto, o Azure Pesquisa Cognitiva não oferece suporte a esse operador, portanto, você deve usar a `search.in` função em vez disso.
 
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
 
-O EBNF a seguir ([formulário Backus-Naur Estendido](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) define a gramática `search.in` da função:
+O EBNF a seguir ([formulário Backus-Naur Estendido](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) define a gramática da `search.in` função:
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -61,7 +60,7 @@ Um diagrama de sintaxe interativa também está disponível:
 > [!NOTE]
 > Consulte [referência de sintaxe de expressão OData para pesquisa cognitiva do Azure](search-query-odata-syntax-reference.md) para o EBNF completo.
 
-A `search.in` função testa se um determinado campo de cadeia de caracteres ou variável de intervalo é igual a uma de uma determinada lista de valores. A igualdade entre a variável e cada valor na lista é determinada de uma maneira que diferencia maiúsculas de minúsculas, da mesma `eq` maneira que para o operador. Portanto, uma expressão como `search.in(myfield, 'a, b, c')` é equivalente a `myfield eq 'a' or myfield eq 'b' or myfield eq 'c'`, exceto que `search.in` produzirá um desempenho muito melhor.
+A `search.in` função testa se um determinado campo de cadeia de caracteres ou variável de intervalo é igual a uma de uma determinada lista de valores. A igualdade entre a variável e cada valor na lista é determinada de uma maneira que diferencia maiúsculas de minúsculas, da mesma maneira que para o `eq` operador. Portanto, uma expressão como `search.in(myfield, 'a, b, c')` é equivalente a `myfield eq 'a' or myfield eq 'b' or myfield eq 'c'`, exceto que `search.in` produzirá um desempenho muito melhor.
 
 Há duas sobrecargas da `search.in` função:
 
@@ -70,17 +69,17 @@ Há duas sobrecargas da `search.in` função:
 
 Os parâmetros são definidos na tabela a seguir:
 
-| Nome do parâmetro | Type | Descrição |
+| Nome do parâmetro | Tipo | Descrição |
 | --- | --- | --- |
-| `variable` | `Edm.String` | Uma referência de campo de cadeia de caracteres (ou uma variável de intervalo em um campo de `search.in` coleção de cadeia de `any` caracteres `all` no caso em que é usada dentro de uma expressão ou). |
-| `valueList` | `Edm.String` | Uma cadeia de caracteres que contém uma lista delimitada de valores para `variable` corresponder ao parâmetro. Se o `delimiters` parâmetro não for especificado, os delimitadores padrão serão espaço e vírgula. |
-| `delimiters` | `Edm.String` | Uma cadeia de caracteres em que cada caractere é tratado como um separador ao analisar o `valueList` parâmetro. O valor padrão desse parâmetro é `' ,'` o que significa que todos os valores com espaços e/ou vírgulas entre eles serão separados. Se você precisar usar separadores diferentes de espaços e vírgulas porque seus valores incluem esses caracteres, você pode especificar delimitadores alternativos, como `'|'` nesse parâmetro. |
+| `variable` | `Edm.String` | Uma referência de campo de cadeia de caracteres (ou uma variável de intervalo em um campo de coleção de cadeia de caracteres no caso em que `search.in` é usada dentro de uma `any` `all` expressão ou). |
+| `valueList` | `Edm.String` | Uma cadeia de caracteres que contém uma lista delimitada de valores para corresponder ao `variable` parâmetro. Se o `delimiters` parâmetro não for especificado, os delimitadores padrão serão espaço e vírgula. |
+| `delimiters` | `Edm.String` | Uma cadeia de caracteres em que cada caractere é tratado como um separador ao analisar o `valueList` parâmetro. O valor padrão desse parâmetro é o `' ,'` que significa que todos os valores com espaços e/ou vírgulas entre eles serão separados. Se você precisar usar separadores diferentes de espaços e vírgulas porque seus valores incluem esses caracteres, você pode especificar delimitadores alternativos, como `'|'` nesse parâmetro. |
 
 <a name="bkmk_performance"></a>
 
 ### <a name="performance-of-searchin"></a>Desempenho de`search.in`
 
-Se você usar `search.in`, espere um tempo de resposta abaixo de um segundo quando o segundo parâmetro contiver uma lista de centenas ou milhares de valores. Não há nenhum limite explícito para `search.in`o número de itens que você pode passar, embora ainda esteja limitado pelo tamanho máximo da solicitação. No entanto, a latência aumenta à medida em que cresce o número de valores.
+Se você usar `search.in`, espere um tempo de resposta abaixo de um segundo quando o segundo parâmetro contiver uma lista de centenas ou milhares de valores. Não há nenhum limite explícito para o número de itens que você pode passar `search.in` , embora ainda esteja limitado pelo tamanho máximo da solicitação. No entanto, a latência aumenta à medida em que cresce o número de valores.
 
 ## <a name="examples"></a>Exemplos
 

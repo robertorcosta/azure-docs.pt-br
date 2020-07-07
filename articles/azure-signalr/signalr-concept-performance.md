@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: 68cad32be177fa20794399157fca89e87c2f8f59
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74157675"
 ---
 # <a name="performance-guide-for-azure-signalr-service"></a>Guia de desempenho para Serviço do Azure SignalR
@@ -127,7 +126,7 @@ O **eco** fornece a largura de banda de entrada máxima porque tem o menor custo
 | Largura de banda de saída | 2 Mbps   | 4 Mbps   | 10 Mbps  | 20 MBps   | 40 MBps   | 100 MBps  | 200 MBps   |
 
 
-|     Broadcast             | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
+|     Transmissão             | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
 | conexões               | 1,000 | 2\.000 | 5\.000  | 10.000 | 20,000 | 50.000  | 100.000 |
 | Largura de banda de entrada  | 4 KBps   | 4 KBps   | 4 KBps    | 4 KBps    | 4 KBps    | 4 KBps     | 4 KBps    |
@@ -157,7 +156,7 @@ O caso de uso real é mais complicado. Ele pode enviar uma mensagem com mais de 
 
 A tabela a seguir mostra um caso de uso real da **difusão**. Mas o tamanho da mensagem, a contagem de conexões e a taxa de envio de mensagens são diferentes do que presumimos na seção anterior. A pergunta é como podemos deduzir qualquer um desses itens (tamanho da mensagem, contagem de conexões ou taxa de envio de mensagens) se soubermos apenas dois deles.
 
-| Broadcast  | Tamanho da mensagem | Mensagens de entrada por segundo | conexões | Intervalos de envio |
+| Transmissão  | Tamanho da mensagem | Mensagens de entrada por segundo | conexões | Intervalos de envio |
 |---|---------------------|--------------------------|-------------|-------------------------|
 | 1 | 20 KB                | 1                        | 100.000     | 5 segundos                      |
 | 2 | 256 KB               | 1                        | 8,000       | 5 segundos                      |
@@ -168,7 +167,7 @@ A fórmula a seguir é fácil de inferir com base na fórmula anterior:
 outboundConnections = outboundBandwidth * sendInterval / messageSize
 ```
 
-Para Unit100, a largura de banda de saída máxima é de 400 MB da tabela anterior. Para um tamanho de mensagem de 20 KB, o máximo de conexões de saída deve \* ser 400 MB 5/20 KB = 100.000, que corresponde ao valor real.
+Para Unit100, a largura de banda de saída máxima é de 400 MB da tabela anterior. Para um tamanho de mensagem de 20 KB, o máximo de conexões de saída deve ser 400 MB \* 5/20 KB = 100.000, que corresponde ao valor real.
 
 ##### <a name="mixed-use-cases"></a>Casos de uso misto
 
@@ -237,7 +236,7 @@ Mesmo para esse Hub simples, a pressão de tráfego no servidor de aplicativos �
 > [!NOTE]
 > O número de conexão do cliente, o tamanho da mensagem, a taxa de envio de mensagens, a camada de SKU e a CPU/memória do servidor de aplicativos afetam o desempenho geral do **eco**.
 
-#### <a name="broadcast"></a>Broadcast
+#### <a name="broadcast"></a>Transmissão
 
 Para **difusão**, quando o aplicativo Web recebe a mensagem, ele é transmitido para todos os clientes. Quanto mais clientes houver para difundir, mais tráfego de mensagens haverá para todos os clientes. Confira o diagrama a seguir.
 
@@ -247,7 +246,7 @@ Um número pequeno de clientes está transmitindo. A largura de banda da mensage
 
 A tabela a seguir resume as conexões de cliente máximas, a contagem de mensagens de entrada/saída e a largura de banda.
 
-|     Broadcast             | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
+|     Transmissão             | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
 | conexões               | 1,000 | 2\.000 | 5\.000  | 10.000 | 20,000 | 50.000  | 100.000 |
 | Mensagens de entrada por segundo  | 2     | 2     | 2      | 2      | 2      | 2       | 2       |
@@ -257,7 +256,7 @@ A tabela a seguir resume as conexões de cliente máximas, a contagem de mensage
 
 Os clientes de difusão que postam mensagens não são mais do que quatro. Eles precisam de menos servidores de aplicativos em comparação com o **eco** porque o valor da mensagem de entrada é pequeno. Dois servidores de aplicativos são suficientes para considerações de desempenho e SLA. Mas você deve aumentar as conexões de servidor padrão para evitar desequilíbrio, especialmente para Unit50 e Unit100.
 
-|   Broadcast      | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
+|   Transmissão      | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
 | conexões      | 1,000 | 2\.000 | 5\.000 | 10.000 | 20,000 | 50.000 | 100.000 |
 | Contagem do servidor de aplicativos | 2     | 2     | 2     | 2      | 2      | 2      | 2       |
@@ -346,7 +345,7 @@ A tabela a seguir é um resumo estatístico após muitas rodadas da execução d
 |   Enviar para conexão   | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50          | Unit100         |
 |------------------------------------|-------|-------|-------|--------|--------|-----------------|-----------------|
 | conexões                        | 1,000 | 2\.000 | 5\.000 | 10.000 | 20,000 | 50.000          | 100.000         |
-| Mensagens de entrada/saída por segundo | 1,000 | 2\.000 | 5\.000 | 8,000  | 9.000  | 20,000 | 20,000 |
+| Mensagens de entrada/saída por segundo | 1,000 | 2\.000 | 5\.000 | 8,000  | 9\.000  | 20,000 | 20,000 |
 | Largura de banda de entrada/saída | 2 Mbps    | 4 Mbps    | 10 Mbps   | 16 MBps    | 18 MBps    | 40 MBps       | 40 MBps       |
 
 Esse caso de uso requer alta carga no lado do servidor de aplicativos. Consulte a contagem sugerida do servidor de aplicativos na tabela a seguir.
@@ -374,7 +373,7 @@ A tabela a seguir fornece a contagem de aplicativos Web sugeridos para **eco**do
 
 A tabela a seguir fornece a contagem de aplicativos Web sugeridos para **difusão**do signalr ASP.net.
 
-|  Broadcast       | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
+|  Transmissão       | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
 | conexões      | 1,000 | 2\.000 | 5\.000 | 10.000 | 20,000 | 50.000 | 100.000 |
 | Contagem do servidor de aplicativos | 2     | 2     | 2     | 2      | 2      | 2      | 2       |

@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 840049265d3b6e4d2fddd794646bfd5691aab9a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74083982"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>Visão geral do suporte multilocatário para recuperação de desastre do VMware para o Azure com o CSP
@@ -120,7 +119,7 @@ Para restringir as operações de recuperação de desastre a somente failover (
 
 1. No portal do Azure, no cofre que você criou anteriormente, registre o servidor vCenter para o servidor de configuração, usando a conta do vCenter que você criou.
 2. Conclua o processo de “Preparação da infraestrutura” para o Site Recovery de acordo com o processo normal.
-3. Agora, as VMs estão prontas para serem replicadas. Verifique se apenas as VMs do locatário são exibidas em **replicar** > **selecionar máquinas virtuais**.
+3. Agora, as VMs estão prontas para serem replicadas. Verifique se apenas as VMs do locatário são exibidas em **replicar**  >  **selecionar máquinas virtuais**.
 
 ## <a name="dedicated-hosting-solution"></a>Solução de hospedagem dedicada
 

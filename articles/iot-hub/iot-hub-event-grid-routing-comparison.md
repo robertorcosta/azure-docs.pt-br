@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
 ms.openlocfilehash: 877467b65d346c871dd93f4b3f96b2c1664fa4b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73906795"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>Comparar roteamento de mensagens e Grade de Eventos para Hub IoT
@@ -32,8 +31,8 @@ Embora o roteamento de mensagens e a Grade de Eventos habilitam a configuração
 | Recurso | Roteamento de mensagens do Hub IoT | Integração do Hub IoT com a Grade de Eventos |
 | ------- | --------------- | ---------- |
 | **Mensagens e eventos do dispositivo** | Sim, o roteamento de mensagens pode ser usado para dados de telemetria, alterações no dispositivo de relatório, eventos de ciclo de vida do dispositivo e eventos de alteração de troca digital (parte da [Visualização pública do IoT plug and Play](../iot-pnp/overview-iot-plug-and-play.md)). | Sim, a grade de eventos pode ser usada para dados de telemetria, mas também pode relatar quando os dispositivos são criados, excluídos, conectados e desconectados do Hub IoT |
-| **Ordering** | Sim, a ordenação de eventos é mantida.  | Não, a ordem dos eventos não é garantida. | 
-| **Aplica** | Filtragem avançada em propriedades do aplicativo de mensagens, propriedades do sistema de mensagens, corpo da mensagem, tags de gêmeos de dispositivo e propriedades de gêmeos de dispositivo. A filtragem não é aplicada a eventos de alteração de troca digital. Para exemplos, consulte [Sintaxe de Consulta de Roteamento de Mensagens](iot-hub-devguide-routing-query-syntax.md). | Filtragem com base no tipo de evento, tipo de assunto e atributos em cada evento. Para obter exemplos, consulte [entender os eventos de filtragem em assinaturas da grade de eventos](../event-grid/event-filtering.md). Ao assinar eventos de telemetria, você pode aplicar filtros adicionais aos dados para filtrar as propriedades da mensagem, o corpo da mensagem e o dispositivo de mensagens no Hub IoT, antes de publicar na grade de eventos. Consulte [como filtrar eventos](../iot-hub/iot-hub-event-grid.md#filter-events). |
+| **Ordenação** | Sim, a ordenação de eventos é mantida.  | Não, a ordem dos eventos não é garantida. | 
+| **Filtragem** | Filtragem avançada em propriedades do aplicativo de mensagens, propriedades do sistema de mensagens, corpo da mensagem, tags de gêmeos de dispositivo e propriedades de gêmeos de dispositivo. A filtragem não é aplicada a eventos de alteração de troca digital. Para exemplos, consulte [Sintaxe de Consulta de Roteamento de Mensagens](iot-hub-devguide-routing-query-syntax.md). | Filtragem com base no tipo de evento, tipo de assunto e atributos em cada evento. Para obter exemplos, consulte [entender os eventos de filtragem em assinaturas da grade de eventos](../event-grid/event-filtering.md). Ao assinar eventos de telemetria, você pode aplicar filtros adicionais aos dados para filtrar as propriedades da mensagem, o corpo da mensagem e o dispositivo de mensagens no Hub IoT, antes de publicar na grade de eventos. Consulte [como filtrar eventos](../iot-hub/iot-hub-event-grid.md#filter-events). |
 | **Pontos de extremidade** | <ul><li>Hubs de Eventos</li> <li>Armazenamento do Blobs do Azure</li> <li>Fila do Barramento de Serviço</li> <li>Tópicos do Barramento de Serviço</li></ul><br>As SKUs do Hub IoT pagas (S1, S2 e S3) estão limitadas a 10 pontos de extremidades personalizados. 100 rotas podem ser criadas por Hub IoT. | <ul><li>Funções do Azure</li> <li>Automação do Azure</li> <li>Hubs de Eventos</li> <li>Aplicativos Lógicos</li> <li>Blob de Armazenamento</li> <li>Tópicos personalizados</li> <li>Armazenamento de Filas</li> <li>Microsoft Flow</li> <li>Serviços de terceiros através de WebHooks</li></ul><br>500 pontos de extremidade por Hub IoT têm suporte. Para obter a lista mais atualizada de pontos de extremidades, consulte [Manipuladores de eventos da Grade de Eventos](../event-grid/overview.md#event-handlers). |
 | **Custo** | Não há encargos separados para roteamento de mensagens. Somente o ingresso de telemetria no Hub IoT é cobrado. Por exemplo, se você tiver uma mensagem roteada para três pontos de extremidades diferentes, você será cobrado por apenas uma mensagem. | Não há nenhum custo do Hub IoT. A grade de eventos oferece as primeiras 100.000 operações por mês gratuitamente e, em seguida, $0.60 por milhão de operações posteriormente. |
 
@@ -46,7 +45,7 @@ O roteamento de mensagens do Hub IoT e a Grade de Eventos também têm semelhan�
 | **Tamanho máximo da mensagem** | 256 KB, dispositivo para nuvem | 256 KB, dispositivo para nuvem |
 | **Confiabilidade** | Alta: entrega cada mensagem ao ponto de extremidade pelo menos uma vez por cada rota. Expira todas as mensagens que não são entregues dentro de uma hora. | Alta: entrega cada mensagem ao webhook pelo menos uma vez por cada assinatura. Expira todos os eventos que não são entregues dentro de 24 horas. | 
 | **Escalabilidade** | Alta: otimizado para suportar milhões de dispositivos conectados simultaneamente enviando bilhões de mensagens. | Alto: capaz de rotear 10.000.000 eventos por segundo por região. |
-| **Latency** | Baixa: quase em tempo real. | Baixa: quase em tempo real. |
+| **Latência** | Baixa: quase em tempo real. | Baixa: quase em tempo real. |
 | **Enviar para vários pontos de extremidade** | Sim, envie uma única mensagem para vários pontos de extremidade. | Sim, envie uma única mensagem para vários pontos de extremidade.  
 | **Segurança** | O HUB Iot fornece identidade por dispositivo e controle de acesso revogável. Para obter mais informações, consulte o [Controle de acesso do Hub IoT](iot-hub-devguide-security.md). | A Grade de Eventos fornece validação em três pontos: assinaturas de eventos, publicação de eventos e entrega de eventos do webhook. Para saber mais, confira [Event Grid security and authentication](../event-grid/security-authentication.md) (Segurança e autenticação da Grade de Eventos). |
 

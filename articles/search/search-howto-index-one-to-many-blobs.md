@@ -10,10 +10,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 1840bda0ecc9462a5d8f796b616d728d0bb412f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74112271"
 ---
 # <a name="indexing-blobs-to-produce-multiple-search-documents"></a>Indexando BLOBs para produzir vários documentos de pesquisa
@@ -25,11 +24,11 @@ Por padrão, um indexador de blob tratará o conteúdo de um blob como um único
 ## <a name="one-to-many-document-key"></a>Chave de documento de um para muitos
 Cada documento que aparece em um índice de Pesquisa Cognitiva do Azure é identificado exclusivamente por uma chave de documento. 
 
-Quando nenhum modo de análise for especificado, e se não houver mapeamento explícito para o campo de chave no índice, o Pesquisa Cognitiva do Azure [mapeará](search-indexer-field-mappings.md) automaticamente a `metadata_storage_path` Propriedade como a chave. Esse mapeamento garante que cada blob apareça como um documento de pesquisa distinto.
+Quando nenhum modo de análise for especificado, e se não houver mapeamento explícito para o campo de chave no índice, o Pesquisa Cognitiva do Azure [mapeará](search-indexer-field-mappings.md) automaticamente a `metadata_storage_path` propriedade como a chave. Esse mapeamento garante que cada blob apareça como um documento de pesquisa distinto.
 
 Ao usar qualquer um dos modos de análise listados acima, um blob é mapeado para "muitos" documentos de pesquisa, tornando uma chave de documento exclusivamente baseada em metadados de blob inadequados. Para superar essa restrição, o Azure Pesquisa Cognitiva é capaz de gerar uma chave de documento "um para muitos" para cada entidade individual extraída de um blob. Essa propriedade é nomeada `AzureSearch_DocumentKey` e adicionada a cada entidade individual extraída do blob. É garantido que o valor dessa propriedade seja exclusivo para cada entidade individual _entre os BLOBs_ e as entidades aparecerão como documentos de pesquisa separados.
 
-Por padrão, quando nenhum mapeamento de campo explícito para o campo de índice de chave é especificado `AzureSearch_DocumentKey` , o é mapeado para ele, `base64Encode` usando a função de mapeamento de campo.
+Por padrão, quando nenhum mapeamento de campo explícito para o campo de índice de chave é especificado, o `AzureSearch_DocumentKey` é mapeado para ele, usando a `base64Encode` função de mapeamento de campo.
 
 ## <a name="example"></a>Exemplo
 Suponha que você tenha uma definição de índice com os seguintes campos:
@@ -40,12 +39,12 @@ Suponha que você tenha uma definição de índice com os seguintes campos:
 
 E seu contêiner de BLOBs tem BLOBs com a seguinte estrutura:
 
-_Blob1. JSON_
+_Blob1.jsem_
 
     { "temperature": 100, "pressure": 100, "timestamp": "2019-02-13T00:00:00Z" }
     { "temperature" : 33, "pressure" : 30, "timestamp": "2019-02-14T00:00:00Z" }
 
-_Blob2. JSON_
+_Blob2.jsem_
 
     { "temperature": 1, "pressure": 1, "timestamp": "2018-01-12T00:00:00Z" }
     { "temperature" : 120, "pressure" : 3, "timestamp": "2013-05-11T00:00:00Z" }
@@ -71,13 +70,13 @@ Essa configuração resultará no índice de Pesquisa Cognitiva do Azure que con
 
 Supondo que a mesma definição de índice do exemplo anterior, digamos que o contêiner de blob tenha BLOBs com a seguinte estrutura:
 
-_Blob1. JSON_
+_Blob1.jsem_
 
     recordid, temperature, pressure, timestamp
     1, 100, 100,"2019-02-13T00:00:00Z" 
     2, 33, 30,"2019-02-14T00:00:00Z" 
 
-_Blob2. JSON_
+_Blob2.jsem_
 
     recordid, temperature, pressure, timestamp
     1, 1, 1,"2018-01-12T00:00:00Z" 
@@ -90,7 +89,7 @@ Quando você cria um indexador com `delimitedText` **parsingMode**, pode parecer
         "targetFieldName": "id"
     }
 
-No entanto, esse mapeamento _não_ resultará em quatro documentos exibidos no índice, pois o `recordid` campo não é exclusivo _entre BLOBs_. Portanto, é recomendável que você use o mapeamento de campo implícito aplicado da `AzureSearch_DocumentKey` Propriedade ao campo de índice de chave para os modos de análise "um para muitos".
+No entanto, esse mapeamento _não_ resultará em quatro documentos exibidos no índice, pois o `recordid` campo não é exclusivo _entre BLOBs_. Portanto, é recomendável que você use o mapeamento de campo implícito aplicado da `AzureSearch_DocumentKey` propriedade ao campo de índice de chave para os modos de análise "um para muitos".
 
 Se você quiser configurar um mapeamento de campo explícito, certifique-se de que _SourceField_ seja distinto para cada entidade individual **em todos os BLOBs**.
 
@@ -102,5 +101,5 @@ Se você quiser configurar um mapeamento de campo explícito, certifique-se de q
 Se você ainda não estiver familiarizado com a estrutura básica e o fluxo de trabalho da indexação de BLOBs, examine a [indexação do armazenamento de BLOBs do Azure com o azure pesquisa cognitiva](search-howto-index-json-blobs.md) primeiro. Para obter mais informações sobre os modos de análise para diferentes tipos de conteúdo de BLOB, examine os artigos a seguir.
 
 > [!div class="nextstepaction"]
-> [Indexando BLOBs](search-howto-index-csv-blobs.md)
-> CSV[indexando BLOBs JSON](search-howto-index-json-blobs.md)
+> [Indexando BLOBs CSV](search-howto-index-csv-blobs.md) 
+>  [Indexando BLOBs JSON](search-howto-index-json-blobs.md)

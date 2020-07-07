@@ -14,10 +14,9 @@ ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: genli
 ms.openlocfilehash: 1b91a39e1297d8952da67a4f8d3b8568cefe04ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73620556"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>Solucionar problemas de uma VM do Linux anexando o disco do SO a uma VM de recuperação com a CLI do Azure
@@ -39,7 +38,7 @@ Para realizar essas etapas de solução de problemas, é preciso ter a [CLI do A
 > [!Important]
 > Os scripts neste artigo se aplicam somente às VMs que usam [Disco Gerenciado](../linux/managed-disks-overview.md). 
 
-Nos exemplos a seguir, substitua os nomes de parâmetro pelos seus próprios valores, `myResourceGroup` como `myVM`e.
+Nos exemplos a seguir, substitua os nomes de parâmetro pelos seus próprios valores, como `myResourceGroup` e `myVM` .
 
 ## <a name="determine-boot-issues"></a>Determinar problemas de inicialização
 Examine a saída serial para determinar por que a VM não pode ser inicializada corretamente. Um exemplo comum é uma entrada inválida em `/etc/fstab` ou a exclusão ou movimentação do disco rígido virtual subjacente.
@@ -105,14 +104,14 @@ az disk create --resource-group $resourceGroup --name $osDisk --sku $storageType
 
 ```
 
-Se o grupo de recursos e o instantâneo de origem não estiverem na mesma região, você receberá o erro "recurso não encontrado" ao executar `az disk create`. Nesse caso, você deve especificar `--location <region>` para criar o disco na mesma região que o instantâneo de origem.
+Se o grupo de recursos e o instantâneo de origem não estiverem na mesma região, você receberá o erro "recurso não encontrado" ao executar `az disk create` . Nesse caso, você deve especificar `--location <region>` para criar o disco na mesma região que o instantâneo de origem.
 
 Agora você tem uma cópia do disco do sistema operacional original. Você pode montar esse novo disco em outra VM do Windows para fins de solução de problemas.
 
 ## <a name="attach-the-new-virtual-hard-disk-to-another-vm"></a>Anexar o novo disco rígido virtual a outra VM
 Para as próximas etapas, você pode usar outra VM para fins de solução de problemas. Você anexa o disco a essa VM de solução de problemas para procurar e editar o conteúdo do disco. Esse processo permite que você corrija quaisquer erros de configuração ou examine arquivos adicionais de log do sistema ou do aplicativo.
 
-Esse script anexa o disco `myNewOSDisk` à VM `MyTroubleshootVM`:
+Esse script anexa o disco `myNewOSDisk` à VM `MyTroubleshootVM` :
 
 ```azurecli
 # Get ID of the OS disk that you just created.

@@ -11,10 +11,9 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 9acc369e24d1bac92dea3fb6ae391a410e5f6c3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73667662"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory - Funções e Variáveis do Sistema
@@ -25,7 +24,7 @@ Este artigo fornece informações sobre funções e variáveis com suporte no Az
 
 ## <a name="data-factory-system-variables"></a>Variáveis do sistema do Data Factory
 
-| Nome de variável | Descrição | Escopo do objeto | Escopo JSON e casos de uso |
+| Nome da variável | Descrição | Escopo do objeto | Escopo JSON e casos de uso |
 | --- | --- | --- | --- |
 | WindowStart |Início do intervalo de tempo para a janela da execução de atividade atual |activity |<ol><li>Especifica consultas de seleção de dados. Veja os artigos sobre o conector referenciados no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md) .</li> |
 | WindowEnd |Fim do intervalo de tempo para a janela da execução de atividade atual |activity |igual a WindowStart. |
@@ -56,7 +55,7 @@ Você pode usar funções no Data Factory junto com as variáveis do sistema par
 
 1. Especificando consultas de seleção de dados (veja os artigos sobre o conector referenciados no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md) .
    
-   A sintaxe para invocar uma função de data Factory é: ** $$ \<função>** para consultas de seleção de dados e outras propriedades na atividade e nos DataSets.  
+   A sintaxe para invocar uma função de data factory é: **$$\<function>** para consultas de seleção de dados e outras propriedades na atividade e nos DataSets.  
 2. Especificar dependências de entrada com funções de data factory na coleção de entradas da atividade.
    
     $$ não é necessário para especificar expressões de dependência de entrada.     

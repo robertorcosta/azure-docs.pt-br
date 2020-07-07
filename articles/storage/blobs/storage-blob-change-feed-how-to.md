@@ -9,10 +9,9 @@ ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
 ms.openlocfilehash: 75995eeb3f8255cb4c60d5be267f9c343edfea89
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74111860"
 ---
 # <a name="process-change-feed-in-azure-blob-storage-preview"></a>Processar feed de alterações no armazenamento de BLOBs do Azure (visualização)
@@ -28,11 +27,11 @@ Para saber mais sobre o feed de alterações, consulte [alterar feed no armazena
 
 1. No Visual Studio, adicione a URL `https://azuresdkartifacts.blob.core.windows.net/azuresdkpartnerdrops/index.json` às suas fontes de pacote NuGet. 
 
-   Para saber como, consulte [origens do pacote](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#package-sources).
+   Para saber como, confira [fontes de pacote](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#package-sources).
 
 2. No Gerenciador de pacotes NuGet, localize o pacote **Microsoft. Azure. Storage. changefeed** e instale-o em seu projeto. 
 
-   Para saber como, consulte [Localizar e instalar um pacote](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package).
+   Para saber como, confira [Localizar e instalar um pacote](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package).
 
 ## <a name="connect-to-the-storage-account"></a>Conecte-se à conta de armazenamento
 
@@ -60,7 +59,7 @@ public bool GetBlobClient(ref CloudBlobClient cloudBlobClient, string storageCon
 
 ## <a name="initialize-the-change-feed"></a>Inicializar o feed de alterações
 
-Adicione as seguintes instruções using à parte superior do seu arquivo de código. 
+Adicione o seguinte usando as instruções na parte superior do seu arquivo de código. 
 
 ```csharp
 using Avro.Generic;

@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: isacabe
 ms.openlocfilehash: 6e9f9c89cf2e5e40d37a1532e688490aae294181
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73888857"
 ---
 # <a name="connect-an-iot-devkit-device-to-the-remote-monitoring-solution-accelerator"></a>Conecte um dispositivo IoT DevKit ao acelerador de solução de monitoramento remoto
@@ -36,7 +35,7 @@ Para abrir o exemplo de monitoramento remoto no código VS:
 
 1. Verifique se o seu IoT DevKit não está no seu computador. Inicie o VS Code primeiro e, em seguida, conecte o kit de desenvolvimento ao computador.
 
-1. Clique `F1` para abrir a paleta de comandos, digite e selecione **Azure IOT Device Workbench: abrir exemplos...**. Em seguida, selecione **IOT devkit** como placa.
+1. Clique em `F1` para abrir a paleta de comandos, digite e selecione **Workbench dos Dispositivos de IoT do Azure: Abrir Exemplos...** . Em seguida, selecione **Kit de Desenvolvimento de IoT** como placa.
 
 1. Encontre **Monitoramento Remoto** e clique em **Exemplo Aberto**. Uma nova janela do VS Code é exibida mostrando a pasta do projeto:
 
@@ -109,7 +108,7 @@ Para alterar a cor de um dos LEDs do DevKit, use o método **LedColor**:
 
     ![LED vermelho do Kit de Desenvolvimento da IoT](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-devkit-led.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se você planeja passar para outros tutoriais, deixe o acelerador de solução de Monitoramento Remoto implantado.
 

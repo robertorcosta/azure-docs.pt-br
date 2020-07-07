@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 0a684151e01b298c60ff17ef1470e0648a425850
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73889244"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Integrar a solução de Monitoramento Remoto com o Azure Data Lake Store
@@ -38,7 +37,7 @@ Crie um grupo de consumidores dedicados no hub IoT de sua solução de Monitoram
 > [!NOTE]
 > Os grupos de consumidores são utilizados pelas aplicações para obter dados do Hub IoT do Azure. Você deve criar um novo grupo de consumidores para cada cinco consumidores. Crie grupos de até 32 consumidores.
 
-1. Entre no portal do Azure.
+1. Entre no Portal do Azure.
 
 1. No Portal do Azure, clique no botão do **Cloud Shell**.
 
@@ -89,7 +88,7 @@ Crie um trabalho do Azure Stream Analytics para transmitir os dados de seu hub I
 
     ![Selecione a entrada](./media/iot-accelerators-integrate-data-lake/stream-analytics-new-input.png)
 
-1. Clique em **Salvar**.
+1. Clique em **Save** (Salvar).
 
 1. Na página Visão geral, clique em **Saídas**.
 
@@ -118,7 +117,7 @@ Crie um trabalho do Azure Stream Analytics para transmitir os dados de seu hub I
     > [!NOTE]
     > Se você vir um erro na janela pop-up, abra uma nova janela de navegador no Modo Anônimo e tente novamente.
 
-1. Clique em **Salvar**.
+1. Clique em **Save** (Salvar).
 
 ## <a name="edit-the-stream-analytics-query"></a>Editar a consulta do Stream Analytics
 
@@ -141,7 +140,7 @@ O Azure Stream Analytics usa uma linguagem de consulta do tipo SQL para especifi
 
     ![Consulta do Stream Analytics](./media/iot-accelerators-integrate-data-lake/stream-analytics-query.png)
 
-1. Clique em **Salvar**.
+1. Clique em **Save** (Salvar).
 1. Clique em **Sim** para aceitar as alterações.
 
 ## <a name="start-the-stream-analytics-job"></a>Iniciar o trabalho do Stream Analytics

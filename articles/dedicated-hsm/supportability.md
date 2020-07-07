@@ -13,10 +13,9 @@ ms.custom: seodec18
 ms.date: 03/27/2019
 ms.author: mbaldwin
 ms.openlocfilehash: d83d688707baf6098d63dfde9b4181eb04fb9729
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70881010"
 ---
 # <a name="azure-dedicated-hsm-supportability"></a>Capacidade de Suporte do HSM Dedicado do Azure
@@ -41,7 +40,7 @@ Vários componentes de software são usados na configuração de dispositivos HS
 * .
 * Ferramentas
 
-### <a name="guidance"></a>Orientação
+### <a name="guidance"></a>Diretrizes
 
 A Gemalto torna a administração disponível e o guia de configuração através do [portal de suporte do cliente](https://supportportal.gemalto.com/csm/). Depois de conectado usando uma ID de cliente válido, esses documentos estão disponíveis para download. A Gemalto também fornece uma série de guias de integração para ajudar os clientes com diferentes cenários e integrações de software. Para obter mais informações, consulte o [site de parceiros Gemalto da Microsoft](https://safenet.gemalto.com/partners/microsoft/).
 

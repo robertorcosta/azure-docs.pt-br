@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: kenchen
 ms.openlocfilehash: cf0f345b0fbf9fea2512f72c1996c9a1597cc0cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73747653"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>Resiliência e recuperação de desastre
@@ -51,7 +50,7 @@ Há duas maneiras de fazer isso:
 
 ### <a name="through-config"></a>Usando a configuração
 
-Você já deve saber como definir a cadeia de conexão do serviço Signalr por meio de variáveis de ambiente/configurações de aplicativo/Web. cofig `Azure:SignalR:ConnectionString`, em uma entrada de configuração denominada.
+Você já deve saber como definir a cadeia de conexão do serviço Signalr por meio de variáveis de ambiente/configurações de aplicativo/Web. cofig, em uma entrada de configuração denominada `Azure:SignalR:ConnectionString` .
 Se você tiver vários pontos de extremidade, você poderá defini-los em várias entradas de configuração, cada uma no seguinte formato:
 
 ```
@@ -63,7 +62,7 @@ O nome é opcional, mas será útil se você quiser personalizar ainda mais o co
 
 ### <a name="through-code"></a>Usando código
 
-Se você preferir armazenar as cadeias de conexão em outro lugar, você também poderá lê-las em seu código e usá-las `AddAzureSignalR()` como parâmetros ao chamar ( `MapAzureSignalR()` em ASP.NET Core) ou (em ASP.net).
+Se você preferir armazenar as cadeias de conexão em outro lugar, você também poderá lê-las em seu código e usá-las como parâmetros ao chamar `AddAzureSignalR()` (em ASP.NET Core) ou `MapAzureSignalR()` (em ASP.net).
 
 Segue o código de exemplo:
 

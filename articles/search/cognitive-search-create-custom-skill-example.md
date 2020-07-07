@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 2994c55b39d30ff16a0ca135e93a116784feb201
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74113807"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Exemplo: criar uma habilidade personalizada usando o API de Pesquisa de Entidade do Bing
@@ -33,7 +32,7 @@ Embora este exemplo use uma função do Azure para hospedar uma API da Web, ele 
 
 ### <a name="create-a-function-app"></a>Criar um aplicativo de funções
 
-1. No Visual Studio, selecione **novo** > **projeto** no menu arquivo.
+1. No Visual Studio, selecione **novo**  >  **projeto** no menu arquivo.
 
 1. Na caixa de diálogo Novo Projeto, selecione **Instalado**, expanda **Visual C#** > **Nuvem**, selecione **Azure Functions**, digite um Nome para seu projeto e selecione **OK**. O nome do aplicativo de funções deve ser válido como um namespace C#, portanto, não use sublinhados, hifens ou quaisquer outros caracteres não alfanuméricos.
 
@@ -311,11 +310,11 @@ namespace SampleSkills
 }
 ```
 
-Certifique-se de inserir seu *key* próprio valor de chave `key` na constante com base na chave que você obteve ao se inscrever na API de pesquisa de entidade do Bing.
+Certifique-se de inserir seu próprio valor de *chave* na `key` constante com base na chave que você obteve ao se INSCREVEr na API de pesquisa de entidade do Bing.
 
 Este exemplo inclui todo o código necessário em um único arquivo para sua conveniência. Você pode encontrar uma versão um pouco mais estruturada dessa mesma habilidade no [repositório de habilidades de energia](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Text/BingEntitySearch).
 
-É claro que você pode renomear o `Function1.cs` arquivo `BingEntitySearch.cs`de para.
+É claro que você pode renomear o arquivo de `Function1.cs` para `BingEntitySearch.cs` .
 
 ## <a name="test-the-function-from-visual-studio"></a>Testar a função do Visual Studio
 
@@ -375,7 +374,7 @@ Você deverá ver uma resposta semelhante ao exemplo a seguir:
 
 Quando estiver satisfeito com o comportamento da função, você poderá publicá-lo.
 
-1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no nome do projeto e selecione **Publicar**. Escolha **criar nova** > **publicação**.
+1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no nome do projeto e selecione **Publicar**. Escolha **criar nova**  >  **publicação**.
 
 1. Se você ainda não conectou o Visual Studio à sua conta do Azure, selecione **Adicionar uma conta...**
 

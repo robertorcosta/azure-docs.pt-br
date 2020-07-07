@@ -13,10 +13,9 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: mbaldwin
 ms.openlocfilehash: 3fde577a6b0efb7584e1c9efd57c95583ebe4ec9
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70881429"
 ---
 # <a name="azure-dedicated-hsm-monitoring"></a>Monitoramento do HSM Dedicado do Azure
@@ -43,4 +42,4 @@ Qualquer técnica disponível permitiria que um cliente identifique problemas e 
 * [Alta disponibilidade](high-availability.md)
 * [Segurança física](physical-security.md)
 * [Rede](networking.md)
-* [Capacidade de suporte](supportability.md)
+* [Suporte](supportability.md)

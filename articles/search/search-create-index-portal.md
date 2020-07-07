@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: f2e875c625431867e6e83cfd1e0b2c6d7a2781f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74112853"
 ---
 # <a name="create-an-azure-cognitive-search-index-in-the-portal"></a>Criar um índice da Pesquisa Cognitiva do Azure no portal
@@ -80,7 +79,7 @@ Depois de criar um índice de Pesquisa Cognitiva do Azure, você pode passar par
 
 Como alternativa, você também poderá [examinar os índices mais detalhadamente](search-what-is-an-index.md). Além da coleção Campos, um índice também especifica analisadores, sugestores, perfis de pontuação e configurações do CORS. O portal fornece páginas com guias para definir os elementos mais comuns: Campos, analisadores e sugestores. Para criar ou modificar outros elementos, use a API REST ou o SDK do .NET.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
  [Como funciona a pesquisa de texto completo](search-lucene-query-architecture.md)  
  [API REST do serviço Search](https://docs.microsoft.com/rest/api/searchservice/) [SDK do .NET](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)

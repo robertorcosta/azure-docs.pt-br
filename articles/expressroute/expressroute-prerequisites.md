@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: cherylmc
 ms.openlocfilehash: a72eba9bde0745e66bdf8e7efd8eaec7d6a0b186
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74083368"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>Pré-requisitos e lista de verificação do ExpressRoute
@@ -42,14 +41,14 @@ Se você planeja habilitar o Office 365 no ExpressRoute, consulte os documentos 
 * [Visão geral do ExpressRoute para o Office 365](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd)
 * [Roteamento com o ExpressRoute para Office 365](https://support.office.com/article/Routing-with-ExpressRoute-for-Office-365-e1da26c6-2d39-4379-af6f-4da213218408)
 * [Alta disponibilidade e failover com o ExpressRoute](https://aka.ms/erhighavailability)
-* [Intervalos de endereços IP e URLs do Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)
+* [URLs e intervalos de endereços IP do Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)
 * [Planejamento da rede e ajuste de desempenho para Office 365](https://support.office.com/article/Network-planning-and-performance-tuning-for-Office-365-e5f1228c-da3c-4654-bf16-d163daee8848)
 * [Ferramentas e calculadoras da largura de banda da rede](https://support.office.com/article/Network-and-migration-planning-for-Office-365-f5ee6c33-bcd7-4b0b-b0f8-dc1d9fb8d132)
 * [Integração do Office 365 com ambientes locais](https://support.office.com/article/Office-365-integration-with-on-premises-environments-263faf8d-aa21-428b-aed3-2021837a4b65)
 * [Vídeos de treinamento avançados do ExpressRoute no Office 365](https://channel9.msdn.com/series/aer/)
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para obter mais informações sobre o ExpressRoute, consulte as [perguntas frequentes](expressroute-faqs.md)sobre o expressroute.
+* Para obter mais informações sobre o ExpressRoute, consulte [Perguntas Frequentes sobre ExpressRoute](expressroute-faqs.md).
 * Localize um provedor de conectividade do ExpressRoute. Consulte [Parceiros e locais de emparelhamento do ExpressRoute](expressroute-locations.md).
 * Consulte os requisitos para [Roteamento](expressroute-routing.md), [NAT](expressroute-nat.md)e [QoS](expressroute-qos.md).
 * Configurar sua conexão do ExpressRoute.

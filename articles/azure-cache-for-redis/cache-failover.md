@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: adsasine
 ms.openlocfilehash: 6ff33bd594181aabc4fd7d55ce33f780a0d06086
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74122192"
 ---
 # <a name="failover-and-patching-for-azure-cache-for-redis"></a>Failover e aplicação de patch para o cache do Azure para Redis
@@ -59,13 +58,13 @@ Como a sincronização de dados completa ocorre antes de o processo ser repetido
 
 ## <a name="additional-cache-load"></a>Carregamento de cache adicional
 
-Sempre que ocorre um failover, os caches padrão e Premium precisam replicar dados de um nó para o outro. Essa replicação causa um aumento de carga na memória do servidor e na CPU. Se a instância de cache já estiver muito carregada, os aplicativos cliente poderão enfrentar maior latência. Em casos extremos, os aplicativos cliente podem receber exceções de tempo limite. Para ajudar a reduzir o impacto dessa carga adicional, [defina](cache-configure.md#memory-policies) a configuração do `maxmemory-reserved` cache.
+Sempre que ocorre um failover, os caches padrão e Premium precisam replicar dados de um nó para o outro. Essa replicação causa um aumento de carga na memória do servidor e na CPU. Se a instância de cache já estiver muito carregada, os aplicativos cliente poderão enfrentar maior latência. Em casos extremos, os aplicativos cliente podem receber exceções de tempo limite. Para ajudar a reduzir o impacto dessa carga adicional, [defina](cache-configure.md#memory-policies) a configuração do cache `maxmemory-reserved` .
 
 ## <a name="how-does-a-failover-affect-my-client-application"></a>Como um failover afeta meu aplicativo cliente?
 
 O número de erros vistos pelo aplicativo cliente depende de quantas operações estavam pendentes na conexão no momento do failover. Qualquer conexão que é roteada através do nó que fechou suas conexões verá erros. Muitas bibliotecas de cliente podem gerar diferentes tipos de erros quando as conexões são interrompidas, incluindo exceções de tempo limite, exceções de conexão ou exceções de soquete. O número e o tipo de exceções dependem de onde no caminho do código a solicitação é quando o cache fecha suas conexões. Por exemplo, uma operação que envia uma solicitação, mas não recebeu uma resposta quando o failover ocorrer pode receber uma exceção de tempo limite. Novas solicitações no objeto de conexão fechado recebem exceções de conexão até que a reconexão ocorra com êxito.
 
-A maioria das bibliotecas de cliente tenta se reconectar ao cache se eles estiverem configurados para fazer isso. No entanto, os bugs imprevistos podem ocasionalmente posicionar os objetos de biblioteca em um estado irrecuperável. Se os erros persistirem por mais tempo do que um período pré-configurado, o objeto de conexão deverá ser recriado. No Microsoft.NET e em outras linguagens orientadas a objeto, a recriação da conexão sem reiniciar o aplicativo pode ser realizada usando [um\<padrão\> T lento](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#reconnecting-with-lazyt-pattern).
+A maioria das bibliotecas de cliente tenta se reconectar ao cache se eles estiverem configurados para fazer isso. No entanto, os bugs imprevistos podem ocasionalmente posicionar os objetos de biblioteca em um estado irrecuperável. Se os erros persistirem por mais tempo do que um período pré-configurado, o objeto de conexão deverá ser recriado. No Microsoft.NET e em outras linguagens orientadas a objeto, a recriação da conexão sem reiniciar o aplicativo pode ser realizada usando [um \<T\> padrão lento](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#reconnecting-with-lazyt-pattern).
 
 ### <a name="how-do-i-make-my-application-resilient"></a>Como fazer tornar meu aplicativo resiliente?
 

@@ -20,19 +20,18 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 54ddc8222816831b5b436297bbb1b40d03230f0c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74113240"
 ---
-# <a name="odata-collection-operators-in-azure-cognitive-search---any-and-all"></a>Operadores de coleção OData no Azure Pesquisa Cognitiva `any` -e`all`
+# <a name="odata-collection-operators-in-azure-cognitive-search---any-and-all"></a>Operadores de coleção OData no Azure Pesquisa Cognitiva- `any` e`all`
 
-Ao escrever uma [expressão de filtro OData](query-odata-filter-orderby-syntax.md) para usar com o Azure pesquisa cognitiva, geralmente é útil filtrar nos campos de coleção. Você pode conseguir isso usando os `any` operadores `all` e.
+Ao escrever uma [expressão de filtro OData](query-odata-filter-orderby-syntax.md) para usar com o Azure pesquisa cognitiva, geralmente é útil filtrar nos campos de coleção. Você pode conseguir isso usando os `any` `all` operadores e.
 
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
 
-O EBNF a seguir ([formulário Backus-Naur Estendido](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) define a gramática de uma expressão OData `any` que `all`usa ou.
+O EBNF a seguir ([formulário Backus-Naur Estendido](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) define a gramática de uma expressão OData que usa `any` ou `all` .
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -56,9 +55,9 @@ Um diagrama de sintaxe interativa também está disponível:
 Há três formas de expressão que filtram coleções.
 
 - As duas primeiras iteram em um campo de coleção, aplicando um predicado fornecido na forma de uma expressão lambda para cada elemento da coleção.
-  - Uma expressão que `all` usa `true` retorna se o predicado é verdadeiro para cada elemento da coleção.
-  - Uma expressão que `any` usa `true` retorna se o predicado é true para pelo menos um elemento da coleção.
-- A terceira forma de filtro de coleção `any` usa sem uma expressão lambda para testar se um campo de coleção está vazio. Se a coleção tiver qualquer elemento, ela retornará `true`. Se a coleção estiver vazia, ela retornará `false`.
+  - Uma expressão `all` que usa retorna `true` se o predicado é verdadeiro para cada elemento da coleção.
+  - Uma expressão `any` que usa retorna `true` se o predicado é true para pelo menos um elemento da coleção.
+- A terceira forma de filtro de coleção usa `any` sem uma expressão lambda para testar se um campo de coleção está vazio. Se a coleção tiver qualquer elemento, ela retornará `true` . Se a coleção estiver vazia, ela retornará `false` .
 
 Uma **expressão lambda** em um filtro de coleção é como o corpo de um loop em uma linguagem de programação. Ele define uma variável, chamada **variável de intervalo**, que contém o elemento atual da coleção durante a iteração. Ele também define outra expressão booliana que é o critério de filtro a ser aplicado à variável de intervalo para cada elemento da coleção.
 
@@ -80,7 +79,7 @@ Corresponder documentos onde o `rooms` campo está vazio:
 
     not rooms/any()
 
-Corresponder documentos em que para todas as salas `rooms/amenities` , o campo conterá " `rooms/baseRate` TV" e menor que 100:
+Corresponder documentos em que para todas as salas, o `rooms/amenities` campo conterá "TV" e `rooms/baseRate` menor que 100:
 
     rooms/all(room: room/amenities/any(a: a eq 'tv') and room/baseRate lt 100.0)
 

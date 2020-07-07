@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: d5b84a9d216457720e9bd4e17b002d6ab9490f9d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73888594"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Carregar arquivos em uma conta dos Serviços de Mídia usando o REST  
@@ -27,7 +26,7 @@ ms.locfileid: "73888594"
 > * [Portal](media-services-portal-upload-files.md)
 > 
 
-Nos serviços de mídia, você pode carregar seus arquivos digitais em um ativo. A entidade [Asset](https://docs.microsoft.com/rest/api/media/operations/asset) pode conter vídeo, áudio, imagens, coleções de miniaturas, faixas de texto e arquivos de legenda codificada (e os metadados sobre esses arquivos).  Depois que os arquivos são carregados no ativo, seu conteúdo é armazenado com segurança na nuvem para processamento e streaming adicionais. 
+Nos serviços de mídia, você pode carregar seus arquivos digitais em um ativo. A entidade [Asset](https://docs.microsoft.com/rest/api/media/operations/asset) pode conter vídeo, áudio, imagens, coleções de miniaturas, sequências de texto e arquivos de legendas (e os metadados sobre esses arquivos).  Depois que os arquivos são carregados no ativo, o conteúdo é armazenado com segurança na nuvem para processamento e transmissão adicionais. 
 
 Neste tutorial, aprenda a carregar um arquivo e outra operação associada a ele:
 
@@ -52,8 +51,8 @@ Neste tutorial, aprenda a carregar um arquivo e outra operação associada a ele
 
 As seguintes considerações se aplicam ao usar a API de REST de Serviços de Mídia:
  
-* Ao acessar entidades nos Serviços de Mídia do REST API, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [configuração para desenvolvimento da API REST dos serviços de mídia](media-services-rest-how-to-use.md). <br/>A coleção do Postman usada neste tutorial se encarrega da configuração de todos os cabeçalhos necessários.
-* Os serviços de mídia usam o valor da propriedade IAssetFile.Name ao compilar URLs para o conteúdo de streaming (por exemplo, http://{AMSAccount}. Origin. mediaservices. Windows. net/{GUID}/{IAssetFile. Name}/streamingparameters.) Por esse motivo, a codificação por porcentagem não é permitida. O valor da propriedade **Name** não pode ter nenhum dos seguintes [caracteres reservados para codificação de porcentagem](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! * ' ();: @ &= + $,/?% # [] ". Além disso, pode haver somente um '.' para a extensão de nome de arquivo.
+* Ao acessar entidades nos Serviços de Mídia do REST API, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md). <br/>A coleção do Postman usada neste tutorial se encarrega da configuração de todos os cabeçalhos necessários.
+* Os serviços de mídia usam o valor da propriedade IAssetFile.Name ao compilar URLs para o conteúdo de streaming (por exemplo, http://{AMSAccount}. Origin. mediaservices. Windows. net/{GUID}/{IAssetFile. Name}/streamingparameters.) Por esse motivo, a codificação por porcentagem não é permitida. O valor da propriedade **Name** não pode ter quaisquer dos seguintes [caracteres reservados para codificação de percentual](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Além disso, pode haver somente um '.' para a extensão de nome de arquivo.
 * O comprimento do nome não deve ser maior do que 260 caracteres.
 * Há um limite no tamanho máximo de arquivo com suporte para o processamento nos Serviços de Mídia. Confira [este](media-services-quotas-and-limitations.md) artigo para obter detalhes sobre a limitação de tamanho do arquivo.
 
@@ -87,7 +86,7 @@ Para obter etapas sobre como configurar o Postman para este tutorial, consulte [
         ]
     }
     ```
-4. À esquerda da janela do **postmaster** , clique em **1. Obter** -> token**de autenticação do AAD obter token do Azure ad para entidade de serviço**.
+4. À esquerda da janela do **postmaster** , clique em **1. Obter**token  ->  **de autenticação do AAD obter token do Azure ad para entidade de serviço**.
 
     A parte da URL é preenchida com a variável de ambiente **AzureADSTSEndpoint** (anteriormente no tutorial, você define os valores das variáveis de ambiente que oferecem suporte à coleção).
 
@@ -104,13 +103,13 @@ Para obter etapas sobre como configurar o Postman para este tutorial, consulte [
 ### <a name="overview"></a>Visão geral 
 
 >[!NOTE]
->Há um limite de 1.000.000 políticas para diferentes políticas de AMS (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy). Use a mesma ID de política, se você estiver sempre usando os mesmos dias/permissões de acesso, por exemplo, políticas de localizadores que devem permanecer no local por um longo período (políticas de não carregamento). Para obter mais informações, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
+>Há um limite de 1.000.000 políticas para diferentes políticas de AMS (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy). Use a mesma ID de política, se você estiver sempre usando os mesmos dias/permissões de acesso, por exemplo, políticas de localizadores que devem permanecer no local por um longo período (políticas de não carregamento). Para saber mais, confira [este artigo](media-services-dotnet-manage-entities.md#limit-access-policies).
 
 Antes de carregar todos os arquivos no armazenamento de blobs, defina os direitos de política de acesso para gravar em um ativo. Para fazer isso, POSTE uma solicitação HTTP para o conjunto de entidade AccessPolicies. Defina um valor de DurationInMinutes durante a criação ou você receberá uma mensagem de erro de servidor interno 500 em resposta. Para saber mais sobre AccessPolicies, consulte [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy).
 
 ### <a name="create-an-access-policy"></a>Crie uma política de acesso
 
-1. Selecione **AccessPolicy** -> **criar AccessPolicy para carregar**.
+1. Selecione **AccessPolicy**  ->  **criar AccessPolicy para carregar**.
 2. Pressione **Enviar**.
 
     ![Carregar um arquivo](./media/media-services-rest-upload-files/postman-access-policy.png)
@@ -131,7 +130,7 @@ Neste exemplo, estamos criando um ativo não criptografado.
 
 ### <a name="create-an-asset"></a>Criar um ativo
 
-1. Selecione **ativos** -> **criar ativo**.
+1. Selecione **ativos**  ->  **criar ativo**.
 2. Pressione **Enviar**.
 
     ![Carregar um arquivo](./media/media-services-rest-upload-files/postman-create-asset.png)
@@ -157,12 +156,12 @@ Uma URL SAS tem o seguinte formato:
 Algumas considerações se aplicam:
 
 * Você não pode ter mais do que cinco localizadores exclusivos associados a um determinado ativo ao mesmo tempo. Para saber mais, consulte Localizador.
-* Se você precisar carregar os arquivos imediatamente, você deve definir o valor StartTime como cinco minutos antes da hora atual. Isso ocorre porque pode haver uma defasagem horária entre o computador do cliente e os serviços de mídia. Além disso, o valor de StartTime deve estar no seguinte formato DateTime: AAAA-MM-DDTHH:mm:ssZ (por exemplo, "2014-05-23T17:53:50Z").    
+* Se você precisar carregar os arquivos imediatamente, você deve definir o valor StartTime como cinco minutos antes da hora atual. Isso ocorre porque pode haver uma defasagem horária entre o computador do cliente e os serviços de mídia. Além disso, seu valor de StartTime deve estar no seguinte formato de data e hora: AAAA-MM-DDTHH:mm:ssZ (por exemplo, “2014-05-23T17:53:50Z”).    
 * Pode haver um 30 a 40 segundos de atraso após a criação de um localizador quando ele está disponível para uso.
 
 ### <a name="create-a-sas-locator"></a>Criar um localizador SAS.
 
-1. Selecione **localizador** -> **criar localizador SAS**.
+1. Selecione **localizador**  ->  **criar localizador SAS**.
 2. Pressione **Enviar**.
 
     O script de "teste" cria a "URL de carregamento" com base no nome do arquivo de mídia especificado as informações de localizador SAS e define a variável de ambiente apropriada.
@@ -200,7 +199,7 @@ Criar e configurar uma nova solicitação:
 
 Depois que o arquivo foi carregado, você precisa criar um metadados no ativo para o arquivo de mídia carregado no armazenamento de blob associado a seu ativo.
 
-1. Selecione **AssetFiles** -> **createfileinfos**.
+1. Selecione **AssetFiles**  ->  **createfileinfos**.
 2. Pressione **Enviar**.
 
     ![Carregar um arquivo](./media/media-services-rest-upload-files/postman-create-file-info.png)

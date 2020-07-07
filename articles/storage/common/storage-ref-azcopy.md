@@ -9,10 +9,9 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: 5da3a2e5d003a191bff66af6599cae4d34ab60c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74038083"
 ---
 # <a name="azcopy"></a>azcopy
@@ -21,9 +20,9 @@ AzCopy é uma ferramenta de linha de comando que move dados para dentro e fora d
 
 ## <a name="synopsis"></a>Sinopse
 
-O formato geral dos comandos é: `azcopy [command] [arguments] --[flag-name]=[flag-value]`.
+O formato geral dos comandos é: `azcopy [command] [arguments] --[flag-name]=[flag-value]` .
 
-Para relatar problemas ou para saber mais sobre a ferramenta, consulte [https://github.com/Azure/azure-storage-azcopy](https://github.com/Azure/azure-storage-azcopy).
+Para relatar problemas ou para saber mais sobre a ferramenta, consulte [https://github.com/Azure/azure-storage-azcopy](https://github.com/Azure/azure-storage-azcopy) .
 
 ## <a name="related-conceptual-articles"></a>Artigos conceituais relacionados
 
@@ -40,7 +39,7 @@ Para relatar problemas ou para saber mais sobre a ferramenta, consulte [https://
       
 **--tipo de saída**  Formato da saída do comando. As opções incluem: Text, JSON. O valor padrão é ' Text '. (padrão "texto")
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 - [Introdução ao AzCopy](storage-use-azcopy-v10.md)
 - [azcopy bench](storage-ref-azcopy-bench.md)

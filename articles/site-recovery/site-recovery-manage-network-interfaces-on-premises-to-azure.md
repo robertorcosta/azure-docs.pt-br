@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: 2a4752b501e40f9e8a4f3bc82cb2533c11f9e526
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73954596"
 ---
 # <a name="manage-vm-network-interfaces-for-on-premises-disaster-recovery-to-azure"></a>Gerenciar interfaces de rede VM para recuperação de desastre local no Azure
@@ -34,7 +33,7 @@ Para o VMware e computadores físicos e para máquinas virtuais Hyper-V (sem o S
 
 3. Em **Propriedades de rede**, escolha uma rede virtual da lista de adaptadores de rede disponíveis.
 
-    ![Configurações da rede](./media/site-recovery-manage-network-interfaces-on-premises-to-azure/compute-and-network.png)
+    ![Configurações de rede](./media/site-recovery-manage-network-interfaces-on-premises-to-azure/compute-and-network.png)
 
 Modificar a rede de destino afeta todos os adaptadores de rede para a máquina virtual específica.
 

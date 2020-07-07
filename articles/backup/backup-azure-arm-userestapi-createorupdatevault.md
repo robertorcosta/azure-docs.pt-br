@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
 ms.openlocfilehash: 1901c35d2b4d8bcd02cc064fcfc844e19969e3b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74173408"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>Criar o Cofre de Serviços de Recuperação do Azure usando a API REST
@@ -38,12 +37,12 @@ Para saber mais sobre como criar a solicitação, confira [Componentes de uma so
 
 As definições comuns a seguir são usadas para criar um corpo de solicitação:
 
-|Nome  |Obrigatório  |Type  |Descrição  |
+|Nome  |Obrigatório  |Tipo  |Description  |
 |---------|---------|---------|---------|
 |eTag     |         |   String      |  eTag Opcional       |
 |local     |  true       |String         |   Localização do recurso      |
 |properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Propriedades do cofre       |
-|sku     |         |  [SKU](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#sku)       |    Identifica o identificador exclusivo do sistema para cada recurso do Azure     |
+|sku     |         |  [Sku](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#sku)       |    Identifica o identificador exclusivo do sistema para cada recurso do Azure     |
 |marcas     |         | Objeto        |     Marcações de recursos    |
 
 Observe que o nome do vault e o nome do grupo de recursos são fornecidos no PUT URI. O corpo da solicitação define o local.
@@ -66,7 +65,7 @@ O corpo do exemplo a seguir é usado para criar um cofre no "Oeste dos EUA". Esp
 
 Há duas respostas bem-sucedidas para a operação para criar ou atualizar um cofre do Recovery Services:
 
-|Nome  |Type  |Descrição  |
+|Nome  |Tipo  |Description  |
 |---------|---------|---------|
 |200 OK     |   [Armazenadas](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)      | OK        |
 |201 Criado     | [Armazenadas](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)        |   Criado      |

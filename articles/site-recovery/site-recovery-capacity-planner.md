@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: 843d5da26d6791cea880e5dfb654fe27b74f5d9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73936037"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Planejar a capacidade de recuperação de desastre de VM do Hyper-V 
@@ -101,7 +100,7 @@ Você pode executar a ferramenta em dois modos:
 
    f. Em **Utilização da capacidade do disco (%)**, especifique a utilização média.
 
-   g. Em **Taxa de alteração de dados diária (%)**, especifique a taxa diária de alteração de dados de um servidor de origem.
+   (por exemplo, Em **Taxa de alteração de dados diária (%)**, especifique a taxa diária de alteração de dados de um servidor de origem.
 
    h. Em **Mapeando o tamanho da VM do Azure**, insira o tamanho da VM do Azure que você deseja mapear. Se você não quiser fazer isso manualmente, selecione **Computar VMs IaaS**. Se você inserir uma configuração manual e selecionar **Computar VMs IaaS**, a configuração manual poderá ser substituída. O processo de computação identifica automaticamente a melhor correspondência no tamanho da VM do Azure.
 

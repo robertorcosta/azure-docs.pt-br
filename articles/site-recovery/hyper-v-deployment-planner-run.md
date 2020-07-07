@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: mayg
 ms.openlocfilehash: ba1979c940d4a92b3d1a7a52a4f356b2896ece55
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74082613"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Execute o planejador de implantação do Azure Site Recovery para recuperação de desastre do Hyper-V no Azure
@@ -29,7 +28,7 @@ Primeiro, você precisa de uma lista de VMs para a criação de perfil. Use o mo
 
 Você pode gerar a lista de VMs apontando a ferramenta para um cluster do Hyper-V ou um host do Hyper-V autônomo, ou uma combinação de ambos.
 
-### <a name="command-line-parameters"></a>Parâmetros de linha de comando
+### <a name="command-line-parameters"></a>Parâmetros da linha de comando
 A tabela a seguir contém uma lista de parâmetros obrigatórios e opcionais da ferramenta para execução no modo GetVMList. 
 ```
 ASRDeploymentPlanner.exe -Operation GetVMList /?
@@ -79,7 +78,7 @@ Para criar uma lista de VMs para criação de perfil, confira a operação GetVM
 
 Após obter a lista de VMs para criação de perfil, você pode executar a ferramenta no modo de criação de perfil. 
 
-### <a name="command-line-parameters"></a>Parâmetros de linha de comando
+### <a name="command-line-parameters"></a>Parâmetros da linha de comando
 A tabela a seguir lista os parâmetros obrigatórios e opcionais da ferramenta para execução no modo de criação de perfil. A ferramenta é comum para cenários de movimentação de VMware para o Azure e do Hyper-V para o Azure. Esses parâmetros são aplicáveis ao Hyper-V. 
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
@@ -97,7 +96,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Directory|(Opcional) O caminho de diretório local ou UNC para armazenar os dados de criação de perfil gerados durante a criação de perfil. Se um nome não for especificado, o diretório chamado ProfiledData no caminho atual será usado como o diretório padrão.|
 |-Password|(Opcional) A senha para se conectar ao host do Hyper-V. Se você não especificá-la como um parâmetro, ela será solicitada quando você executar o comando.|
 |-StorageAccountName|(Opcional) O nome da conta de armazenamento que é usado para localizar a taxa de transferência possível para replicação de dados do local do Azure. A ferramenta carrega dados de teste nessa conta de armazenamento para calcular a taxa de transferência. A conta de armazenamento deve ser do tipo v1 para fins gerais (GPv1).|
-|-StorageAccountKey|(Opcional) A chave que é usada para acessar a conta de armazenamento. Vá para a Portal do Azure > **contas** > *de armazenamento nome* > da conta de armazenamento**configurações** > **chaves** > de acesso**key1** (ou a chave de acesso primária para uma conta de armazenamento clássico).|
+|-StorageAccountKey|(Opcional) A chave que é usada para acessar a conta de armazenamento. Vá para a Portal do Azure > **contas**  >  *de armazenamento nome da conta de armazenamento*  >  **configurações**  >  **chaves de acesso**  >  **key1** (ou a chave de acesso primária para uma conta de armazenamento clássico).|
 |-Ambiente|(Opcional) O seu ambiente de destino para a conta de armazenamento do Azure. Pode ser um dos três seguintes valores: AzureCloud, AzureUSGovernment ou AzureChinaCloud. O padrão é AzureCloud. Use o parâmetro quando sua região de destino for o governo dos EUA do Azure ou o Azure China 21Vianet.|
 
 É recomendável que você analise suas VMs por mais de sete dias. Se o padrão de variação oscilar muito em um mês, recomendamos a análise durante a semana quando você vir a variação máxima. A melhor maneira é analisar por 31 dias para obter a melhor recomendação. 
@@ -161,7 +160,7 @@ A ferramenta gera um arquivo do Microsoft Excel com macros habilitadas (arquivo 
 
 Após a conclusão da criação de perfil, você poderá executar a ferramenta no modo de geração de relatório. 
 
-### <a name="command-line-parameters"></a>Parâmetros de linha de comando
+### <a name="command-line-parameters"></a>Parâmetros da linha de comando
 A tabela a seguir contém uma lista de parâmetros obrigatórios e opcionais da ferramenta para execução no modo de geração de relatórios. A ferramenta é comum para movimentação de VMware para o Azure e do Hyper-V para o Azure. Os parâmetros a seguir são aplicáveis ao Hyper-V.
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport /?
@@ -269,7 +268,7 @@ O relatório gerado do Microsoft Excel contém as seguintes informações:
 ## <a name="get-throughput"></a>Obter taxa de transferência
 Para estimar a taxa de transferência que o Azure Site Recovery pode obter do local para o Azure durante a replicação, execute a ferramenta no modo GetThroughput. A ferramenta calcula a taxa de transferência do servidor em que a ferramenta está em execução. Idealmente, esse servidor é o servidor do Hyper-V cujas VMs serão protegidas. 
 
-### <a name="command-line-parameters"></a>Parâmetros de linha de comando 
+### <a name="command-line-parameters"></a>Parâmetros da linha de comando 
 Abra um console de linha de comando e acesse a pasta da ferramenta de planejamento de implantação do Azure Site Recovery. Execute ASRDeploymentPlanner.exe com os parâmetros a seguir.
 ```
 ASRDeploymentPlanner.exe -Operation GetThroughput /?
@@ -281,7 +280,7 @@ ASRDeploymentPlanner.exe -Operation GetThroughput /?
 |-Virtualization|O tipo de virtualização (Hyper-V ou VMware).|
 |-Directory|(Opcional) A UNC o ou caminho do diretório local em que os dados com perfil gerado (arquivos gerados durante a criação de perfil) são armazenados. Esses dados são necessários para gerar o relatório. Se um nome não for especificado, o diretório chamado ProfiledData no caminho atual será usado como o diretório padrão.|
 | -StorageAccountName | O nome de conta de armazenamento usada para obter a largura de banda consumida para replicação de dados do local para o Azure. A ferramenta carrega dados de teste nessa conta de armazenamento para obter a largura de banda consumida. A conta de armazenamento deve ser do tipo v1 para fins gerais (GPv1).|
-| -StorageAccountKey | A chave da conta de armazenamento usada para acessar a conta de armazenamento. Vá para a Portal do Azure > **contas** > *de armazenamento nome* > da conta de armazenamento**configurações** > **chaves** > de acesso**key1**.|
+| -StorageAccountKey | A chave da conta de armazenamento usada para acessar a conta de armazenamento. Vá para a Portal do Azure > **contas**  >  *de armazenamento nome da conta de armazenamento*  >  **configurações**  >  **chaves de acesso**  >  **key1**.|
 | -VMListFile | O arquivo que contém a lista de VMs para criação de perfil para calcular a largura de banda consumida. O caminho do arquivo pode ser absoluto ou relativo. Para o Hyper-V, esse é o arquivo de saída da operação GetVMList. Se você estiver preparando manualmente, o arquivo deverá conter um nome de servidor ou endereço IP, seguido pelo nome da VM (separado por uma \ por linha). O nome da VM especificado no arquivo deve ser o mesmo que o nome da VM no host do Hyper-V.<br><br>**Exemplo:** O arquivo VMList.txt contém as seguintes VMs:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
 |-Ambiente|(Opcional) O seu ambiente de destino para a conta de armazenamento do Azure. Pode ser um dos três seguintes valores: AzureCloud, AzureUSGovernment ou AzureChinaCloud. O padrão é AzureCloud. Use o parâmetro quando sua região do Azure de destino for o governo dos EUA do Azure ou o Azure China 21Vianet.|
 

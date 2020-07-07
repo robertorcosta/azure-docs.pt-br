@@ -9,10 +9,9 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: b971ec13c71ccfd7d28ae6987593d09201b9b764
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73824112"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>Implantar o OPC "an" em um projeto existente
@@ -52,7 +51,7 @@ cd azure-iiot-components
 
    A saída inclui a URL do ponto de extremidade público. 
 
-3. Quando o script for concluído com êxito, selecione se deseja salvar o `.env` arquivo.  Você precisará `.env` do arquivo de ambiente se quiser se conectar ao ponto de extremidade de nuvem usando ferramentas como o console ou implantar módulos para desenvolvimento e depuração.
+3. Quando o script for concluído com êxito, selecione se deseja salvar o `.env` arquivo.  Você precisará do `.env` arquivo de ambiente se quiser se conectar ao ponto de extremidade de nuvem usando ferramentas como o console ou implantar módulos para desenvolvimento e depuração.
 
 ## <a name="troubleshooting-deployment-failures"></a>Solucionando problemas de falhas de implantação
 

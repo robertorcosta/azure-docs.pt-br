@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 05/25/2019
 ms.author: rambala
 ms.openlocfilehash: 726a014983c0da959d72b7976fef2ebb2c6e9b9e
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74076698"
 ---
 # <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>Criando para recuperação de desastre com o emparelhamento privado do ExpressRoute
@@ -41,7 +40,7 @@ No entanto, se você balancear a carga do tráfego entre caminhos paralelos com 
 
 Vamos considerar a rede de exemplo ilustrada no diagrama a seguir. No exemplo, a conectividade de ExpressRoute com redundância geográfica é estabelecida entre a localização local da Contoso e a VNet da Contoso em uma região do Azure. No diagrama, uma linha verde sólida indica o caminho preferencial (via ExpressRoute 1) e o pontilhado representa o caminho de espera (via ExpressRoute 2).
 
-[![uma]][1]
+[![1]][1]
 
 Ao criar a conectividade de ExpressRoute para recuperação de desastres, você precisa considerar:
 
@@ -72,7 +71,7 @@ Como/25 é mais específico, comparado a/24, o Azure enviaria o tráfego destina
 
 A captura de tela a seguir ilustra a configuração do peso de uma conexão do ExpressRoute por meio de portal do Azure.
 
-[![3]][3]
+[![Beta]][3]
 
 O diagrama a seguir ilustra a influência da seleção de caminho do ExpressRoute usando o peso da conexão. O peso de conexão padrão é 0. No exemplo a seguir, o peso da conexão para o ExpressRoute 1 é configurado como 100. Quando uma VNet recebe um prefixo de rota anunciado por mais de um circuito de ExpressRoute, a VNet prefere a conexão com o peso mais alto.
 
@@ -84,7 +83,7 @@ Se ambas as conexões do ExpressRoute 1 ficarem inativas, a VNet veria o anúnci
 
 O diagrama a seguir ilustra influência na seleção de caminho do ExpressRoute usando AS precedes de caminho. No diagrama, o anúncio de rota no ExpressRoute 1 indica o comportamento padrão do eBGP. No anúncio de rota no ExpressRoute 2, o ASN da rede local é anexado adicionalmente na rota como caminho. Quando a mesma rota é recebida por meio de vários circuitos de ExpressRoute, de acordo com o processo de seleção de rota eBGP, a VNet prefere a rota com o caminho mais curto. 
 
-[![5]][5]
+[![05]][5]
 
 Se ambas as conexões do ExpressRoute 1 ficarem inativas, a VNet veria o anúncio de rota 10.1.11.0/24 somente por meio do ExpressRoute 2. De modo seqüencial, o caminho mais longo como se tornaria irrelevante. Portanto, o circuito em espera seria usado nesse estado de falha.
 

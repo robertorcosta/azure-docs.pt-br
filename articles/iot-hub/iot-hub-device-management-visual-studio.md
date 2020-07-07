@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: xshi
 ms.openlocfilehash: 6fe5a45dda6632c56b3c6714827950e25e7d26af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73953191"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-for-azure-iot-hub-device-management"></a>Usar o Cloud Explorer para Visual Studio para gerenciamento de dispositivo do Hub IoT do Azure
@@ -59,7 +58,7 @@ O componente Cloud Explorer da Instalador do Visual Studio para Visual Studio 20
 
 ## <a name="sign-in-to-access-your-hub"></a>Entre para acessar seu hub
 
-1. No Visual Studio, selecione **Exibir** > **Cloud Explorer** para abrir o Cloud Explorer.
+1. No Visual Studio, selecione **Exibir**  >  **Cloud Explorer** para abrir o Cloud Explorer.
 
 1. Selecione o ícone gerenciamento de contas para mostrar suas assinaturas.
 
@@ -89,9 +88,9 @@ Para editar um dispositivo, execute as seguintes etapas:
 
 1. Clique com o botão direito e selecione **Editar Gêmeo de Dispositivo**.
 
-   Um arquivo **Azure-IOT-Device-entrelaça. JSON** é aberto com o conteúdo do dispositivo.
+   Um **azure-iot-device-twin.jsno** arquivo é aberto com o conteúdo do dispositivo.
 
-1. Faça algumas edições de **marcas** ou **Propriedades. os campos desejados** para o arquivo **Azure-IOT-Device-entrelaça. JSON** .
+1. Faça algumas edições de **marcas** ou **Propriedades. os campos desejados** para o **azure-iot-device-twin.jsno** arquivo.
 
 1. Pressione **Ctrl+S** para atualizar o dispositivo gêmeo.
 

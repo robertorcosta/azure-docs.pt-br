@@ -9,10 +9,9 @@ services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
 ms.openlocfilehash: a1eba1fceb959bd475d205176c2c53f6409fdc77
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73890880"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>Implantar o acelerador da solução de monitoramento remoto localmente - Visual Studio
@@ -27,7 +26,7 @@ Se você quiser executar o acelerador de solução de Monitoramento Remoto no Do
 
 Para implantar os serviços do Azure usados pelo acelerador de solução de Monitoramento Remoto, você precisará de uma assinatura ativa do Azure.
 
-Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ### <a name="machine-setup"></a>Configuração do computador
 
@@ -96,7 +95,7 @@ npm install
 npm start
 ```
 
-Quando o início for concluído, o navegador exibirá a página **http\/:/localhost: 3000/Dashboard**. São esperados erros nessa página. Para exibir o aplicativo sem erros, conclua a etapa a seguir.
+Quando o início for concluído, o navegador exibirá a página **http: \/ /localhost: 3000/Dashboard**. São esperados erros nessa página. Para exibir o aplicativo sem erros, conclua a etapa a seguir.
 
 ### <a name="configure-and-run-nginx"></a>Configurar e executar o NGINX
 
@@ -109,7 +108,7 @@ Para saber mais sobre como executar **nginx**, confira [nginx para Windows](http
 
 ### <a name="connect-to-the-dashboard"></a>Conectar-se ao painel
 
-Para acessar o painel da solução de monitoramento remoto, navegue até\/http:/localhost: 9000 em seu navegador.
+Para acessar o painel da solução de monitoramento remoto, navegue até http: \/ /localhost: 9000 em seu navegador.
 
 ## <a name="clean-up"></a>Limpar
 

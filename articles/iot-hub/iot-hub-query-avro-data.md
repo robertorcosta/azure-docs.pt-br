@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
 ms.openlocfilehash: 92fc5bb88ff5efd8fe1a8cd61be833b3984b673a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73605610"
 ---
 # <a name="query-avro-data-by-using-azure-data-lake-analytics"></a>Consultar dados Avro usando a análise do Azure Data Lake Analytics
@@ -173,6 +172,6 @@ Neste tutorial, você aprendeu como consultar dados Avro para roteamento eficien
 
 Para obter exemplos de soluções completas de ponta a ponta que usam o IoT Hub, consulte a documentação [ de aceleraores de soluções de IoT do Azure](/azure/iot-accelerators).
 
-Para saber mais sobre como desenvolver soluções com o Hub IoT, confira o [Guia do desenvolvedor do Hub IOT](iot-hub-devguide.md).
+Para saber mais sobre como desenvolver soluções com o Hub IoT, consulte o [Guia do desenvolvedor do Hub IoT](iot-hub-devguide.md).
 
 Para saber mais sobre o roteamento de mensagens no Hub IoT, confira [Enviar e receber mensagens com o Hub IoT](iot-hub-devguide-messaging.md).

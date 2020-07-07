@@ -9,10 +9,9 @@ ms.date: 11/13/2019
 ms.topic: conceptual
 ms.service: signalr
 ms.openlocfilehash: a8e25907b40b910f2b91884d355b6ac85eeaa250
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74158198"
 ---
 # <a name="reacting-to-azure-signalr-service-events"></a>Reagindo aos eventos do Serviço do Azure SignalR
@@ -29,7 +28,7 @@ Os eventos do serviço de Signaler do Azure estão ativos somente quando as cone
 ## <a name="available-azure-signalr-service-events"></a>Eventos do serviço de Signaler do Azure disponíveis
 A Grade de eventos usa [assinaturas de evento](../event-grid/concepts.md#event-subscriptions) para rotear mensagens de evento para os assinantes. As assinaturas de evento do serviço de Signaler do Azure dão suporte a dois tipos de eventos:  
 
-|Nome do evento|Descrição|
+|Nome do Evento|Descrição|
 |----------|-----------|
 |`Microsoft.SignalRService.ClientConnectionConnected`|Gerado quando uma conexão de cliente é conectada.|
 |`Microsoft.SignalRService.ClientConnectionDisconnected`|Gerado quando uma conexão de cliente é desconectada.|
@@ -63,5 +62,5 @@ Para obter mais informações, consulte [esquema de eventos do serviço signalr]
 Saiba mais sobre a grade de eventos e dê uma tentativa aos eventos do serviço Signaler do Azure:
 
 > [!div class="nextstepaction"]
-> [Experimente uma integração de grade de eventos de exemplo com o serviço](./signalr-howto-event-grid-integration.md)
-> de signalr do Azure[sobre a grade de eventos](../event-grid/overview.md)
+> [Experimente uma integração da grade de eventos de exemplo com o serviço](./signalr-howto-event-grid-integration.md) 
+>  de Signaler do Azure [Sobre a grade de eventos](../event-grid/overview.md)
