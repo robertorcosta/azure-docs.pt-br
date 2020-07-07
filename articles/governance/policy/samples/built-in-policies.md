@@ -1,21 +1,25 @@
 ---
 title: Lista de definições de políticas internas
 description: Liste as definições de políticas internas para o Azure Policy. As categorias incluem Marcas, Conformidade a normas, Key Vault, Kubernetes, Configuração de convidado e muito mais.
-ms.date: 06/10/2020
+ms.date: 06/23/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 0ab717e4246112152b9a497c51d2a630bc48dfd1
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 94f69754ab51728a18da10b45e05770f1271760b
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84709287"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85313776"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Definições de política interna do Azure Policy
 
 Esta página é um índice de definições de política interna do Azure Policy.
 
 O nome de cada link interno para a definição de política no portal do Azure. Use o link da coluna **Origem** para ver a origem no [repositório GitHub do Azure Policy](https://github.com/Azure/azure-policy). Os internos são agrupados pela propriedade **categoria** nos **metadados**. Para pular para uma **categoria** específica, use o menu no lado direito da página. Caso contrário, use <kbd>Ctrl</kbd>-<kbd>F</kbd> para usar o recurso de pesquisa do seu navegador.
+
+## <a name="api-for-fhir"></a>API para FHIR
+
+[!INCLUDE [azure-policy-samples-policies-api-for-fhir](../../../../includes/policy/samples/bycat/policies-api-for-fhir.md)]
 
 ## <a name="api-management"></a>Gerenciamento de API
 
