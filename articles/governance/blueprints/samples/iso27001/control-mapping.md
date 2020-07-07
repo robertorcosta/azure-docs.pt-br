@@ -3,12 +3,12 @@ title: Exemplo de controles de blueprint da ISO 27001
 description: Mapeamento de controles da amostra de blueprint da ISO 27001. Cada controle é mapeado para uma ou mais Políticas do Azure que auxiliam na avaliação.
 ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: 501884491dbef85cdf8a29cb5fdcef44a68235a9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1f4998a84d7079b55e2668a43b7e7359429d54d8
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75920565"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85919211"
 ---
 # <a name="control-mapping-of-the-iso-27001-blueprint-sample"></a>Mapeamento de controles da amostra de blueprint ISO 27001
 
@@ -28,7 +28,7 @@ Ter apenas um proprietário de assinatura do Azure não permite a redundância a
 
 ## <a name="a821-classification-of-information"></a>A.8.2.1 Classificação de informações
 
-O [serviço de Avaliação de Vulnerabilidades de SQL](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) do Azure pode ajudá-lo a descobrir dados confidenciais armazenados em seus bancos de dados e inclui recomendações para classificar os dados. Esta blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) para auditar se as vulnerabilidades identificadas durante o exame de Avaliação de Vulnerabilidades de SQL são corrigidas.
+O [serviço de Avaliação de Vulnerabilidades de SQL](/azure/sql-database/sql-vulnerability-assessment) do Azure pode ajudá-lo a descobrir dados confidenciais armazenados em seus bancos de dados e inclui recomendações para classificar os dados. Esta blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) para auditar se as vulnerabilidades identificadas durante o exame de Avaliação de Vulnerabilidades de SQL são corrigidas.
 
 - \[Versão Prévia\]: Monitora os resultados da avaliação de vulnerabilidade do SQL na Central de Segurança do Azure
 
