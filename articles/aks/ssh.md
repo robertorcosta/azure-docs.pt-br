@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 07/31/2019
 ms.openlocfilehash: 70ebcb1f340ba28cf80ad3e24a464aad5584b3a4
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82207149"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Conectar com SSH aos nós de cluster do Serviço de Kubernetes do Azure (AKS) para manutenção ou solução de problemas
@@ -19,13 +19,13 @@ Este artigo mostra como criar uma conexão SSH com um nó do AKS usando seus end
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo considera que já existe um cluster do AKS. Se você precisar de um cluster do AKS, confira o guia de início rápido do AKS [Usando a CLI do Azure][aks-quickstart-cli] ou [Usando o portal do Azure][aks-quickstart-portal].
+Este artigo considera que já existe um cluster do AKS. Se precisar de um cluster do AKS, veja o guia de início rápido do AKS [usando a CLI do Azure][aks-quickstart-cli] ou [usando o portal do Azure][aks-quickstart-portal].
 
 Por padrão, as chaves SSH são obtidas ou geradas e, em seguida, adicionadas aos nós quando você cria um cluster AKS. Este artigo mostra como especificar chaves SSH diferentes das chaves SSH usadas quando você criou o cluster AKS. O artigo também mostra como determinar o endereço IP privado do seu nó e conectar-se a ele usando o SSH. Se você não precisar especificar uma chave SSH diferente, poderá ignorar a etapa para adicionar a chave pública SSH ao nó.
 
 Este artigo também pressupõe que você tenha uma chave SSH. Você pode criar uma chave SSH usando [MacOS ou Linux][ssh-nix] ou [Windows][ssh-windows]. Se você usar gen de geração para criar o par de chaves, salve o par de chaves em um formato OpenSSH em vez do formato de chave privada de geração padrão (arquivo. PPK).
 
-Você também precisa do CLI do Azure versão 2.0.64 ou posterior instalada e configurada. Execute  `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
+Você também precisa do CLI do Azure versão 2.0.64 ou posterior instalada e configurada. Execute  `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
 
 ## <a name="configure-virtual-machine-scale-set-based-aks-clusters-for-ssh-access"></a>Configurar clusters AKS baseados em conjunto de dimensionamento de máquinas virtuais para acesso SSH
 
@@ -149,7 +149,7 @@ Para criar uma conexão SSH para um nó do AKS, execute um pod auxiliar no clust
     >
     > `kubectl run -it --rm aks-ssh --image=debian --overrides='{"apiVersion":"apps/v1","spec":{"template":{"spec":{"nodeSelector":{"beta.kubernetes.io/os":"linux"}}}}}'`
 
-1. Depois que a sessão de terminal estiver conectada ao contêiner, instale um cliente `apt-get`SSH usando:
+1. Depois que a sessão de terminal estiver conectada ao contêiner, instale um cliente SSH usando `apt-get` :
 
     ```console
     apt-get update && apt-get install openssh-client -y
@@ -163,7 +163,7 @@ Para criar uma conexão SSH para um nó do AKS, execute um pod auxiliar no clust
     kubectl cp ~/.ssh/id_rsa $(kubectl get pod -l run=aks-ssh -o jsonpath='{.items[0].metadata.name}'):/id_rsa
     ```
 
-1. Retorne à sessão de terminal para seu contêiner, atualize as permissões na chave `id_rsa` SSH privada copiada para que ela seja somente leitura do usuário:
+1. Retorne à sessão de terminal para seu contêiner, atualize as permissões na `id_rsa` chave SSH privada copiada para que ela seja somente leitura do usuário:
 
     ```console
     chmod 0600 id_rsa

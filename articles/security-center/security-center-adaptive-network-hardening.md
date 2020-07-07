@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
 ms.openlocfilehash: a75be23e2e8215d86aebcfd7f4317f2f597d3c5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80385071"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Proteção de rede adaptável na central de segurança do Azure
@@ -39,7 +39,7 @@ Por exemplo, digamos que a regra NSG existente seja permitir o tráfego de 140.2
 
 ## <a name="view-adaptive-network-hardening-alerts-and-rules"></a>Exibir alertas e regras de proteção de rede adaptável
 
-1. Na central de segurança, selecione rede **sistema** -> de**rede adaptável**. As VMs de rede são listadas em três guias separadas:
+1. Na central de segurança, selecione rede **sistema**de  ->  **rede adaptável**. As VMs de rede são listadas em três guias separadas:
    * **Recursos não íntegros**: VMs que atualmente têm recomendações e alertas que foram disparados executando o algoritmo de proteção de rede adaptável. 
    * **Recursos íntegros**: VMs sem alertas e recomendações.
    * **Recursos não verificados**: VMs para as quais o algoritmo de proteção de rede adaptável não pode ser executado devido a um dos seguintes motivos:

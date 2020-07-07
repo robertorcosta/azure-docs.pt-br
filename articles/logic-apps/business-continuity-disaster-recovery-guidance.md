@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.openlocfilehash: 7bf71ce7c44229ccf19022e9cfb0162f9d77cd97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80437709"
 ---
 # <a name="business-continuity-and-disaster-recovery-for-azure-logic-apps"></a>Continuidade dos negócios e recuperação de desastre para aplicativos lógicos do Azure
@@ -234,7 +234,7 @@ Para evitar a leitura repetida dos mesmos dados, seu aplicativo lógico precisa 
 
 * Os aplicativos lógicos que funcionam com o servidor, serviço ou estado do lado do sistema usam valores de propriedade ou configurações que estão no servidor, no serviço ou no lado do sistema.
 
-  Por exemplo, um gatilho baseado em consulta que lê uma linha de um banco de dados requer que a linha `isRead` tenha uma coluna definida como `FALSE`. Toda vez que o gatilho lê uma linha, o aplicativo lógico atualiza essa linha alterando a `isRead` coluna de `FALSE` para `TRUE`.
+  Por exemplo, um gatilho baseado em consulta que lê uma linha de um banco de dados requer que a linha tenha uma `isRead` coluna definida como `FALSE` . Toda vez que o gatilho lê uma linha, o aplicativo lógico atualiza essa linha alterando a `isRead` coluna de `FALSE` para `TRUE` .
 
   Essa abordagem do lado do servidor funciona de forma semelhante para filas ou tópicos do barramento de serviço que têm semântica de enfileiramento em que um gatilho pode ler e bloquear uma mensagem enquanto o aplicativo lógico processa a mensagem. Quando o aplicativo lógico conclui o processamento, o gatilho exclui a mensagem da fila ou do tópico.
 

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: shsha
 ms.openlocfilehash: adf4b11412aa752144d4ed4fef06d2de1d76598d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81431287"
 ---
 # <a name="runtocompletion"></a>RunToCompletion
@@ -22,7 +22,7 @@ Antes de prosseguir com este artigo, recomendamos familiarizar-se com o [modelo 
 > Atualmente, não há suporte para semântica RunToCompletion para serviços gravados usando o modelo de programação [Reliable Services][reliable-services-link] .
  
 ## <a name="runtocompletion-semantics-and-specification"></a>Semântica e especificação do RunToCompletion
-A semântica RunToCompletion pode ser especificada como um **ExecutionPolicy** ao [importar o manifesto][application-and-service-manifests-link]. A política especificada é herdada por todos os CodePackages que compõem o manifesto. O trecho de código ApplicationManifest. XML a seguir fornece um exemplo.
+A semântica RunToCompletion pode ser especificada como um **ExecutionPolicy** ao [importar o manifesto][application-and-service-manifests-link]. A política especificada é herdada por todos os CodePackages que compõem o manifesto. O trecho de ApplicationManifest.xml a seguir fornece um exemplo.
 
 ```xml
 <ServiceManifestImport>
@@ -47,7 +47,7 @@ Vejamos um exemplo completo usando a semântica RunToCompletion.
 >
 > Este exemplo faz referência a mcr.microsoft.com/windows/nanoserver:1809. Os contêineres do Windows Server não são compatíveis em todas as versões de um sistema operacional do host. Para obter mais informações, consulte [Compatibilidade de versão de contêiner do Windows](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
-O seguinte manifesto. XML descreve um pacote de pacotes que consiste em dois CodePackages, que representam contêineres. *RunToCompletionCodePackage1* apenas registra em log uma mensagem para **stdout** e sai. *RunToCompletionCodePackage2* executa ping no endereço de loopback por um tempo e, em seguida, sai com um código de saída de **0**, **1** ou **2**.
+O ServiceManifest.xml a seguir descreve um pacote de pacotes que consiste em dois CodePackages, que representam contêineres. *RunToCompletionCodePackage1* apenas registra em log uma mensagem para **stdout** e sai. *RunToCompletionCodePackage2* executa ping no endereço de loopback por um tempo e, em seguida, sai com um código de saída de **0**, **1** ou **2**.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -78,7 +78,7 @@ O seguinte manifesto. XML descreve um pacote de pacotes que consiste em dois Cod
 </ServiceManifest>
 ```
 
-O ApplicationManifest. XML a seguir descreve um aplicativo baseado no manifesto. xml discutido acima. Ele especifica **RunToCompletion** **ExecutionPolicy** para *WindowsRunToCompletionServicePackage* com uma política de reinicialização de **OnFailure**. Após a ativação do *WindowsRunToCompletionServicePackage*, seu constituinte CodePackages será iniciado. *RunToCompletionCodePackage1* deve sair com êxito na primeira ativação. No entanto, o *RunToCompletionCodePackage2* pode falhar **(código de saída diferente de zero)**. nesse caso, ele será reiniciado, pois a política de reinicialização é **OnFailure**.
+O ApplicationManifest.xml a seguir descreve um aplicativo baseado no ServiceManifest.xml discutido acima. Ele especifica **RunToCompletion** **ExecutionPolicy** para *WindowsRunToCompletionServicePackage* com uma política de reinicialização de **OnFailure**. Após a ativação do *WindowsRunToCompletionServicePackage*, seu constituinte CodePackages será iniciado. *RunToCompletionCodePackage1* deve sair com êxito na primeira ativação. No entanto, o *RunToCompletionCodePackage2* pode falhar **(código de saída diferente de zero)**. nesse caso, ele será reiniciado, pois a política de reinicialização é **OnFailure**.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

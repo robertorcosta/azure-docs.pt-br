@@ -13,10 +13,10 @@ ms.custom: ''
 ms.date: 09/25/2019
 ms.author: juliako
 ms.openlocfilehash: 0d8f88e6c2fe273efa969278146de67ba18eaecf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72392183"
 ---
 # <a name="signal-descriptive-audio-tracks"></a>Sinalizar faixas de áudio descritivas
@@ -48,7 +48,7 @@ A função a seguir realiza essas ações:
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
 
-Se você precisar passar o nome do ativo de entrada criado para outros métodos, certifique-se de usar a `Name` Propriedade no objeto de ativo retornado `CreateInputAssetAsync`, por exemplo, inputAsset.Name. 
+Se você precisar passar o nome do ativo de entrada criado para outros métodos, certifique-se de usar a `Name` propriedade no objeto de ativo retornado `CreateInputAssetAsync` , por exemplo, inputAsset.Name. 
 
 ## <a name="create-an-output-asset-to-store-the-result-of-the-encoding-job"></a>Criar um ativo de saída para armazenar o resultado do trabalho de codificação
 
@@ -56,9 +56,9 @@ O [Ativo](https://docs.microsoft.com/rest/api/media/assets) de saída armazena o
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateOutputAsset)]
 
-Se você precisar passar o nome do ativo de saída criado para outros métodos, certifique-se de usar a `Name` Propriedade no objeto de ativo retornado `CreateIOutputAssetAsync`, por exemplo, outputAsset.Name. 
+Se você precisar passar o nome do ativo de saída criado para outros métodos, certifique-se de usar a `Name` propriedade no objeto de ativo retornado `CreateIOutputAssetAsync` , por exemplo, outputAsset.Name. 
 
-No caso deste artigo, passe o `outputAsset.Name` valor para as `SubmitJobAsync` funções e. `UploadAudioIntoOutputAsset`
+No caso deste artigo, passe o `outputAsset.Name` valor para as `SubmitJobAsync` `UploadAudioIntoOutputAsset` funções e.
 
 ## <a name="create-a-transform-and-a-job-that-encodes-the-uploaded-file"></a>Criar uma transformação e um trabalho que codifica o arquivo carregado
 

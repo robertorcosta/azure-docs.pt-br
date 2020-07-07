@@ -10,18 +10,18 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: d7fdc5074f3c92eea4f236a9b1f7c823b930f391
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72992555"
 ---
 # <a name="advanced-filtering"></a>Filtragem avançada
-A grade de eventos permite especificar filtros em qualquer propriedade no conteúdo JSON. Esses filtros são modelados como conjunto `AND` de condições, sendo que cada condição externa tem `OR` condições internas opcionais. Para cada `AND` condição, você especifica os seguintes valores:
+A grade de eventos permite especificar filtros em qualquer propriedade no conteúdo JSON. Esses filtros são modelados como conjunto de `AND` condições, sendo que cada condição externa tem condições internas opcionais `OR` . Para cada `AND` condição, você especifica os seguintes valores:
 
 * `OperatorType`-O tipo de comparação.
 * `Key`-O caminho JSON para a propriedade na qual aplicar o filtro.
-* `Value`-O valor de referência no qual o filtro é executado (ou `Values` )-o conjunto de valores de referência no qual o filtro é executado.
+* `Value`-O valor de referência no qual o filtro é executado (ou) `Values` -o conjunto de valores de referência no qual o filtro é executado.
 
 ## <a name="json-syntax"></a>Sintaxe JSON
 
@@ -50,18 +50,18 @@ A grade de eventos não dá suporte à filtragem em uma matriz de valores atualm
 
 ## <a name="and-or-not-semantics"></a>E-ou-não semântica
 
-Observe que, no exemplo de JSON fornecido anteriormente `AdvancedFilters` , é uma matriz. Imagine cada `AdvancedFilter` elemento da matriz como uma `AND` condição.
+Observe que, no exemplo de JSON fornecido anteriormente, `AdvancedFilters` é uma matriz. Imagine cada `AdvancedFilter` elemento da matriz como uma `AND` condição.
 
-Para os operadores que dão suporte a vários valores ( `NumberIn`como `NumberNotIn`, `StringIn`,, etc.), cada valor é tratado como `OR` uma condição. Assim, um `StringBeginsWith("a", "b", "c")` corresponderá a qualquer valor de cadeia de `a` caracteres `b` que `c`comece com ou ou.
+Para os operadores que dão suporte a vários valores (como `NumberIn` ,, `NumberNotIn` `StringIn` , etc.), cada valor é tratado como uma `OR` condição. Assim, um `StringBeginsWith("a", "b", "c")` corresponderá a qualquer valor de cadeia de caracteres que comece com `a` ou `b` ou `c` .
 
 > [!CAUTION]
-> Os operadores NOT `NumberNotIn` e `StringNotIn` se comportam como e condições em cada valor fornecido `Values` no campo.
+> Os operadores NOT `NumberNotIn` e `StringNotIn` se comportam como e condições em cada valor fornecido no `Values` campo.
 >
 > Não fazer isso fará com que o filtro seja aceito – todos os filtros e derrotar a finalidade da filtragem.
 
 ## <a name="floating-point-rounding-behavior"></a>Comportamento de arredondamento de ponto flutuante
 
-A grade de eventos `decimal` usa o tipo .net para lidar com todos os valores numéricos. Os valores numéricos especificados no JSON de assinatura de evento não estão sujeitos ao comportamento de arredondamento de ponto flutuante.
+A grade de eventos usa o `decimal` tipo .net para lidar com todos os valores numéricos. Os valores numéricos especificados no JSON de assinatura de evento não estão sujeitos ao comportamento de arredondamento de ponto flutuante.
 
 ## <a name="case-sensitivity-of-string-filters"></a>Distinção entre maiúsculas e minúsculas de filtros de cadeia
 
@@ -71,7 +71,7 @@ Todas as comparações de cadeia de caracteres não diferenciam maiúsculas de m
 
 A `Key` propriedade pode ser uma propriedade de nível superior conhecida, ou ser um caminho JSON com vários pontos, em que cada ponto representa a depuração em um objeto JSON aninhado.
 
-A grade de eventos não tem nenhum significado especial `$` para o caractere na chave, diferentemente da especificação JSONPath.
+A grade de eventos não tem nenhum significado especial para o `$` caractere na chave, diferentemente da especificação JSONPath.
 
 ### <a name="event-grid-schema"></a>Esquema de grade de eventos
 

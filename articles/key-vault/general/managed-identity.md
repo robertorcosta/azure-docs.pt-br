@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
 ms.openlocfilehash: bb5288d043ab5638bb33c357cea55c64b03fcf1d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81432119"
 ---
 # <a name="provide-key-vault-authentication-with-a-managed-identity"></a>Fornecer autenticação de Key Vault com uma identidade gerenciada
@@ -28,7 +28,7 @@ Este artigo mostra como criar uma identidade gerenciada para um aplicativo do se
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
-Para concluir este guia, você deve ter os seguintes recursos. 
+Para concluir este guia, você deve ter os recursos a seguir. 
 
 - Um cofre de chaves. Você pode usar um cofre de chaves existente ou criar um seguindo as etapas em um destes inícios rápidos:
    - [Criar um cofre de chaves com a CLI do Azure](../secrets/quick-create-cli.md)
@@ -50,7 +50,7 @@ Para configurar uma identidade gerenciada no portal, primeiro, crie um aplicativ
 
 1. Selecione **Identidade gerenciada**. 
 
-1. Na guia **Sistema atribuído**, alterne o **Status** para **Ligado**. Clique em **Salvar**. 
+1. Na guia **Sistema atribuído**, alterne o **Status** para **Ligado**. Clique em **Save** (Salvar). 
 
     ![](../media/managed-identity-system-assigned.png)
 
@@ -77,7 +77,7 @@ az webapp identity assign --name myApp --resource-group myResourceGroup
 az functionapp identity assign --name myApp --resource-group myResourceGroup
 ```
 
-Anote o `PrincipalId`, que será necessário na próxima seção.
+Anote o `PrincipalId` , que será necessário na próxima seção.
 
 ```json
 {

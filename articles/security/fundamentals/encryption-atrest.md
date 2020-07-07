@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 04/07/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 1e08e758fbba911d3391794f5bab31aaf6a5fc73
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81454672"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Criptografia de dados em repouso no Azure
@@ -117,7 +117,7 @@ O modelo de Criptografia de Cliente refere-se à criptografia que é realizada f
 
 Os modelos de criptografia do lado do servidor referem-se à criptografia que é executada pelo serviço do Azure. Nesse modelo, o Provedor de Recursos executa as operações de criptografia e descriptografia. Por exemplo, o Armazenamento do Azure pode receber dados em operações de texto sem formatação e executará a criptografia e descriptografia internamente. O Provedor de Recursos pode utilizar chave de criptografia que são gerenciadas pela Microsoft ou pelo cliente, dependendo da configuração fornecida.
 
-![Server (Servidor)](./media/encryption-atrest/azure-security-encryption-atrest-fig3.png)
+![Servidor](./media/encryption-atrest/azure-security-encryption-atrest-fig3.png)
 
 ### <a name="server-side-encryption-key-management-models"></a>Modelos de gerenciamento de chave de criptografia do lado do servidor
 
@@ -267,20 +267,20 @@ A criptografia do cliente dos dados do Banco de Dados SQL do Azure tem suporte p
 | Azure Machine Learning           | Sim                | Sim                | -                  |
 | Azure Machine Learning Studio    | Sim                | Versão prévia, RSA de 2048 bits | -               |
 | Content Moderator                | Sim                | Sim                | -                  |
-| Face                             | Sim                | Sim                | -                  |
+| Detecção Facial                             | Sim                | Sim                | -                  |
 | Reconhecimento Vocal           | Sim                | Sim                | -                  |
 | Personalizador                     | Sim                | Sim                | -                  |
 | QnA Maker                        | Sim                | Sim                | -                  |
 | Serviços de Fala                  | Sim                | Sim                | -                  |
-| Conversor de Texto                  | Sim                | Sim                | -                  |
+| Tradução de Texto                  | Sim                | Sim                | -                  |
 | Power BI                         | Sim                | Versão prévia, RSA de 2048 bits | -                  |
-| **Análise**                    |                    |                    |                    |
+| **Analytics**                    |                    |                    |                    |
 | Stream Analytics do Azure           | Sim                | N/D\*            | -                  |
 | Hubs de Eventos                       | Sim                | Sim, todos os comprimentos RSA. | -                  |
 | Funções                        | Sim                | Sim, todos os comprimentos RSA. | -                  |
 | Azure Analysis Services          | Sim                | -                  | -                  |
 | Catálogo de Dados do Azure               | Sim                | -                  | -                  |
-| Azure HDInsight                  | Sim                | Todos                | -                  |
+| Azure HDInsight                  | Sim                | Tudo                | -                  |
 | Azure Monitor Application Insights | Sim                | Sim                | -                  |
 | Azure Monitor Log Analytics      | Sim                | Sim                | -                  |
 | Azure Data Explorer              | Sim                | Sim                | -                  |
@@ -291,7 +291,7 @@ A criptografia do cliente dos dados do Banco de Dados SQL do Azure tem suporte p
 | Instâncias de Contêiner              | Sim                | Sim                | -                  |
 | Registro de Contêiner               | Sim                | Sim                | -                  |
 | **Compute**                      |                    |                    |                    |
-| Máquinas virtuais                 | Sim                | Sim, RSA 2048-bit  | -                  |
+| Máquinas Virtuais                 | Sim                | Sim, RSA 2048-bit  | -                  |
 | Conjunto de dimensionamento de máquinas virtuais        | Sim                | Sim, RSA 2048-bit  | -                  |
 | SAP HANA                         | Sim                | Sim, RSA 2048-bit  | -                  |
 | Serviço de Aplicativo                      | Sim                | Sim\*\*            | -                  |
@@ -300,10 +300,10 @@ A criptografia do cliente dos dados do Banco de Dados SQL do Azure tem suporte p
 | Portal do Azure                     | Sim                | Sim\*\*            | -                  |
 | Aplicativos Lógicos                       | Sim                | Sim                | -                  |
 | Aplicativos gerenciados do Azure       | Sim                | Sim\*\*            | -                  |
-| Service Bus                      | Sim                | Sim                | -                  |
+| Barramento de Serviço                      | Sim                | Sim                | -                  |
 | Site Recovery                    | Sim                | Sim                | -                  |
 | **Bancos de dados**                    |                    |                    |                    |
-| SQL Server em máquinas virtuais   | Sim                | Sim, RSA 2048-bit  | Sim                |
+| SQL Server em Máquinas Virtuais   | Sim                | Sim, RSA 2048-bit  | Sim                |
 | Banco de Dados SQL do Azure               | Sim                | Sim, RSA 2048-bit  | Sim                |
 | Banco de dados SQL do Azure para MariaDB   | Sim                | -                  | -                  |
 | Banco de dados SQL do Azure para MySQL     | Sim                | Sim                | -                  |
@@ -321,13 +321,13 @@ A criptografia do cliente dos dados do Banco de Dados SQL do Azure tem suporte p
 | Azure Active Directory           | Sim                | -                  | -                  |
 | Azure Active Directory Domain Services | Sim          | Sim, RSA 2048-bit  | -                  |
 | **Integração**                  |                    |                    |                    |
-| Service Bus                      | Sim                | Sim                | Sim                |
+| Barramento de Serviço                      | Sim                | Sim                | Sim                |
 | Grade de Eventos                       | Sim                | -                  | -                  |
 | Gerenciamento de API                   | Sim                | -                  | -                  |
 | **Serviços de IoT**                 |                    |                    |                    |
 | Hub IoT                          | Sim                | Sim                | Sim                |
 | Provisionamento de dispositivos no Hub IoT      | Sim                | Sim                | -                  |
-| **Gerenciamento e governança**    |                    |                    |                    |
+| **Gerenciamento e Governança**    |                    |                    |                    |
 | Azure Site Recovery              | Sim                | -                  | -                  |
 | Migrações para Azure                    | Sim                | Sim                | -                  |
 | **Mídia**                        |                    |                    |                    |
@@ -335,10 +335,10 @@ A criptografia do cliente dos dados do Banco de Dados SQL do Azure tem suporte p
 | **Segurança**                     |                    |                    |                    |
 | Central de Segurança do Azure para IoT    | Sim                | Sim                | -                  |
 | Azure Sentinel                   | Sim                | Sim                | -                  |
-| **Armazenamento**                      |                    |                    |                    |
+| **Storage**                      |                    |                    |                    |
 | Armazenamento de Blobs                     | Sim                | Sim, RSA 2048-bit  | Sim                |
 | Armazenamento de blob Premium             | Sim                | Sim, RSA 2048-bit  | Sim                |
-| Armazenamento em disco                     | Sim                | Sim                | -                  |
+| Armazenamento em Disco                     | Sim                | Sim                | -                  |
 | Ultra Armazenamento em Disco               | Sim                | Sim                | -                  |
 | Armazenamento em Disco gerenciados             | Sim                | Sim                | -                  |
 | Armazenamento de Arquivos                     | Sim                | Sim, RSA 2048-bit  | -                  |

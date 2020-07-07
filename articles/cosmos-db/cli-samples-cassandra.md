@@ -7,18 +7,18 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: 04bbfe3ee38c5ce37c36ab2f85467ce68e7335be
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 093d8cdd97f28a419788070e674d80aad595f46a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262966"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85556317"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-cassandra-api"></a>Amostras da CLI do Azure para a API do Cassandra do Azure Cosmos DB
 
 A tabela a seguir inclui links para exemplos de scripts de CLI do Azure para a API do Cassandra do Azure Cosmos DB. As páginas de referência de todos os comandos do Azure Cosmos DB CLI estão disponíveis na [Referência de CLI do Azure](/cli/azure/cosmosdb). Todos os exemplos de scripts da CLI do Azure Cosmos DB podem ser encontrados no [Repositório GitHub da CLI do Azure Cosmos DB](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
 
-| |  |
+|Tarefa | Descrição |
 |---|---|
 | [Criar uma conta, um keyspace e uma tabela do Azure Cosmos](scripts/cli/cassandra/create.md?toc=%2fcli%2fazure%2ftoc.json)| Cria uma conta, um keyspace e uma tabela do Azure Cosmos DB para a API do Cassandra. |
 | [Alterar taxa de transferência](scripts/cli/cassandra/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Atualizar a RU/s em um keyspace e em uma tabela.|

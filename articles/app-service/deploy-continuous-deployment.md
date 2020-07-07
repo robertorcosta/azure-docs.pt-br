@@ -7,10 +7,10 @@ ms.date: 03/20/2020
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: 847de2c2c8916558d542473d9b7c80fd5552dbf7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80437183"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Implantação contínua no Serviço de Aplicativo do Azure
@@ -69,14 +69,14 @@ Você pode usar o servidor de Build do serviço de aplicativo kudu interno para 
    - Para o GitHub, clique na lista suspensa e selecione a **organização**, o **repositório**e a **ramificação** que você deseja implantar continuamente.
      
      > [!NOTE]
-     > Se você não vir nenhum repositório, talvez seja necessário autorizar o serviço Azure App no GitHub. Navegue até o repositório do GitHub e vá para **configurações** > **aplicativo aplicativos** > **OAuth autorizados**. Selecione **Azure app serviço**e, em seguida, selecione **conceder**. Para repositórios da organização, você deve ser um proprietário da organização para conceder as permissões.
+     > Se você não vir nenhum repositório, talvez seja necessário autorizar o serviço Azure App no GitHub. Navegue até o repositório do GitHub e vá para **configurações**  >  **aplicativo aplicativos**  >  **OAuth autorizados**. Selecione **Azure app serviço**e, em seguida, selecione **conceder**. Para repositórios da organização, você deve ser um proprietário da organização para conceder as permissões.
      
    - Para bitbucket, selecione a **equipe**do bitbucket, o **repositório**e a **ramificação** que você deseja implantar continuamente.
      
    - Para Azure Repos, selecione a **organização do Azure DevOps**, o **projeto**, o **repositório**e a **ramificação** que você deseja implantar continuamente.
      
      > [!NOTE]
-     > Se a organização do Azure DevOps não estiver listada, verifique se ela está vinculada à sua assinatura do Azure. Para obter mais informações, consulte [Configurar uma conta de Azure DevOps Services para que ela possa ser implantada em um aplicativo Web](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops).
+     > Se sua organização do Azure DevOps não estiver listada, verifique se ele está vinculada à sua assinatura do Azure. Para obter mais informações, consulte [Configurar uma conta de Azure DevOps Services para que ela possa ser implantada em um aplicativo Web](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops).
      
 1. Selecione **Continuar**.
    
@@ -119,7 +119,7 @@ Para Azure App serviço para criar a entrega contínua usando Azure Pipelines, s
 1. Na página **Configurar** , na seção **código** , selecione a **organização**, o **repositório**e a **ramificação** que você deseja implantar continuamente e selecione **continuar**.
      
      > [!NOTE]
-     > Se você não vir nenhum repositório, talvez seja necessário autorizar o serviço Azure App no GitHub. Navegue até o repositório do GitHub e vá para **configurações** > **aplicativo aplicativos** > **OAuth autorizados**. Selecione **Azure app serviço**e, em seguida, selecione **conceder**. Para repositórios da organização, você deve ser um proprietário da organização para conceder as permissões.
+     > Se você não vir nenhum repositório, talvez seja necessário autorizar o serviço Azure App no GitHub. Navegue até o repositório do GitHub e vá para **configurações**  >  **aplicativo aplicativos**  >  **OAuth autorizados**. Selecione **Azure app serviço**e, em seguida, selecione **conceder**. Para repositórios da organização, você deve ser um proprietário da organização para conceder as permissões.
        
     Na seção **Build** , especifique a organização de DevOps do Azure, o projeto, a estrutura de linguagem que Azure pipelines deve usar para executar tarefas de compilação e, em seguida, selecione **continuar**.
 

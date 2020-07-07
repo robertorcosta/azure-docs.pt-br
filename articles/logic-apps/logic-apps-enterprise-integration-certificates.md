@@ -9,13 +9,13 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/17/2018
 ms.openlocfilehash: 19a1883685193e80da5f1365ec2a30db0b8754f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81450132"
 ---
-# <a name="improve-security-for-b2b-messages-by-using-certificates"></a>Melhorar a segurança de mensagens B2B usando certificados
+# <a name="improve-security-for-b2b-messages-by-using-certificates"></a>Melhorar a segurança de mensagens B2B com certificados
 
 Quando você precisar manter a comunicação B2B confidencial, poderá aumentar a segurança para comunicação B2B em seus aplicativos de integração corporativa, especificamente aplicativos lógicos, adicionando certificados à sua conta de integração. Certificados são documentos digitais que verificam as identidades dos participantes em comunicações eletrônicas e ajudam a proteger a comunicação das seguintes maneiras:
 
@@ -89,7 +89,7 @@ Depois de definir as propriedades nos [contratos](logic-apps-enterprise-integrat
    | **Tipo de certificado** | Particular | O tipo do certificado |
    | **Certificado** | <*nome do arquivo de certificado*> | Para localizar e selecionar o arquivo de certificado que você quer enviar, escolha o ícone da pasta ao lado da caixa **Certificado**. Ao usar um cofre de chaves para a chave privada, o arquivo carregado será o certificado público. | 
    | **Grupo de recursos** | <*integração-conta-grupo de recursos*> | O grupo de recursos da conta de integração, que é "MyResourceGroup" neste exemplo | 
-   | **Cofre da Chave** | <*nome do cofre de chaves*> | O nome do cofre de chaves do Azure |
+   | **Key Vault** | <*nome do cofre de chaves*> | O nome do cofre de chaves do Azure |
    | **Nome da chave** | <*nome da chave*> | O nome da chave |
    ||||
 

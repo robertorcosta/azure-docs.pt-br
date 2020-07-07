@@ -6,18 +6,18 @@ ms.topic: article
 ms.date: 03/12/2020
 author: sabbour
 ms.author: asabbour
-keywords: toa, openshift, AZ aro, Red Hat, CLI
+keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
 ms.openlocfilehash: 6b6248aac35c22b9ffd2cd95df41e84986356259
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82205307"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-portal"></a>Configurar a autenticação de Azure Active Directory para um cluster do Azure Red Hat OpenShift 4 (Portal)
 
-Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando o CLI do Azure versão 2.0.75 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você execute a CLI do Azure versão 2.0.75 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -72,7 +72,7 @@ Siga as instruções na documentação do Azure Active Directory para [atribuir 
 
 ## <a name="configure-openshift-openid-authentication"></a>Configurar a Autenticação OpenID OpenShift
 
-Recupere as `kubeadmin` credenciais. Execute o comando a seguir para localizar a senha do `kubeadmin` usuário.
+Recupere as `kubeadmin` credenciais. Execute o comando a seguir para localizar a senha para o usuário `kubeadmin`.
 
 ```azurecli-interactive
 az aro list-credentials \
@@ -80,7 +80,7 @@ az aro list-credentials \
   --resource-group aro-rg
 ```
 
-A saída de exemplo a seguir mostra que a senha `kubeadminPassword`estará em.
+A saída de exemplo a seguir mostra que a senha estará em `kubeadminPassword`.
 
 ```json
 {
@@ -89,7 +89,7 @@ A saída de exemplo a seguir mostra que a senha `kubeadminPassword`estará em.
 }
 ```
 
-Você pode encontrar a URL do console de cluster executando o comando a seguir, que será semelhante a`https://console-openshift-console.apps.<random>.<region>.aroapp.io/`
+Você pode encontrar a URL do console de cluster executando o comando a seguir, que será semelhante a `https://console-openshift-console.apps.<random>.<region>.aroapp.io/`
 
 ```azurecli-interactive
  az aro show \
@@ -98,14 +98,14 @@ Você pode encontrar a URL do console de cluster executando o comando a seguir, 
     --query "consoleProfile.url" -o tsv
 ```
 
-Inicie a URL do console em um navegador e faça logon `kubeadmin` usando as credenciais.
+Inicie a URL do console em um navegador e faça logon usando as credenciais `kubeadmin`.
 
 Navegue até **Administração**, clique em **configurações de cluster**e selecione a guia **configuração global** . Role para selecionar **OAuth**.
 
 Role para baixo para selecionar **Adicionar** em **provedores de identidade** e selecione **OpenID Connect**.
 ![Selecione OpenID Connect na lista suspensa provedores de identidade](media/aro4-oauth-idpdrop.png)
 
-Preencha o nome como **AAD**, a **ID do cliente** como a **ID do aplicativo** e o segredo do **cliente**. A **URL do emissor** é formatada da seguinte forma `https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`:. Substitua o espaço reservado pela ID de locatário que você recuperou anteriormente.
+Preencha o nome como **AAD**, a **ID do cliente** como a **ID do aplicativo** e o segredo do **cliente**. A **URL do emissor** é formatada da seguinte forma: `https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` . Substitua o espaço reservado pela ID de locatário que você recuperou anteriormente.
 
 ![Preencher detalhes do OAuth](media/aro4-oauth-idp-1.png)
 
