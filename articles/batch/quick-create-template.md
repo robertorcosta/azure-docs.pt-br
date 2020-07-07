@@ -4,12 +4,12 @@ description: Aprenda rapidamente a executar um trabalho do Lote com a CLI do Azu
 ms.topic: quickstart
 ms.date: 05/19/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 1e3becaa8a71fbb0f3c7baea97b57a03722a99cc
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 5f26aeead41fa1ffcebefdeaabae84490dfdae2b
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262677"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959816"
 ---
 # <a name="quickstart-create-a-batch-account-by-using-azure-resource-manager-template"></a>Início Rápido: Criar uma conta do Lote usando um modelo do Azure Resource Manager
 
@@ -33,8 +33,8 @@ O modelo usado neste início rápido é proveniente dos [Modelos de Início Ráp
 
 Há dois recursos do Azure definidos no modelo:
 
-- [Microsoft.Storage/storageAccounts](https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts): Cria uma conta de armazenamento.
-- [Microsoft.Batch/batchAccounts](https://docs.microsoft.com/azure/templates/microsoft.batch/batchaccounts): Cria uma conta do Lote.
+- [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts): Cria uma conta de armazenamento.
+- [Microsoft.Batch/batchAccounts](/azure/templates/microsoft.batch/batchaccounts): Cria uma conta do Lote.
 
 ### <a name="deploy-the-template"></a>Implantar o modelo
 

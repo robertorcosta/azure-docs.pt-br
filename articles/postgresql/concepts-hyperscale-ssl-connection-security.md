@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.openlocfilehash: 791eed9419375c7245488b8ec61a1c5481be382e
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82580572"
 ---
 # <a name="configure-tls-in-azure-database-for-postgresql---hyperscale-citus"></a>Configurar o TLS no banco de dados do Azure para PostgreSQL-Citus (hiperescala)
@@ -26,10 +26,10 @@ Da mesma forma, cadeias de conexão predefinidas nas configurações de "cadeias
 Algumas estruturas de aplicativo que usam o PostgreSQL para seus serviços de banco de dados não habilitam o TLS por padrão durante a instalação. Se o seu servidor PostgreSQL impõe conexões TLS, mas o aplicativo não está configurado para TLS, o aplicativo pode falhar ao se conectar ao seu servidor de banco de dados. Consulte a documentação do aplicativo para saber como habilitar conexões TLS.
 
 ## <a name="applications-that-require-certificate-verification-for-tls-connectivity"></a>Aplicativos que exigem verificação de certificado para conectividade TLS
-Em alguns casos, os aplicativos exigem um arquivo de certificado local gerado de um arquivo de certificado (.cer) de uma Autoridade de Certificação (CA) confiável para se conectar com segurança. O certificado para se conectar a um banco de dados do Azure para PostgreSQL-Citus (hiperescala https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) está localizado em. Baixe o arquivo de certificado e salve-o em seu local preferido.
+Em alguns casos, os aplicativos exigem um arquivo de certificado local gerado de um arquivo de certificado (.cer) de uma Autoridade de Certificação (CA) confiável para se conectar com segurança. O certificado para se conectar a um banco de dados do Azure para PostgreSQL-Citus (hiperescala) está localizado em https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem . Baixe o arquivo de certificado e salve-o em seu local preferido.
 
 ### <a name="connect-using-psql"></a>Conectar usando psql
-O exemplo a seguir mostra como se conectar ao seu nó de coordenador de hiperescala (Citus) usando o utilitário de linha de comando psql. Use a `sslmode=verify-full` configuração cadeia de conexão para impor a verificação de certificado TLS. Passe o caminho do arquivo de certificado local `sslrootcert` para o parâmetro.
+O exemplo a seguir mostra como se conectar ao seu nó de coordenador de hiperescala (Citus) usando o utilitário de linha de comando psql. Use a `sslmode=verify-full` configuração cadeia de conexão para impor a verificação de certificado TLS. Passe o caminho do arquivo de certificado local para o `sslrootcert` parâmetro.
 
 Abaixo está um exemplo da cadeia de conexão do psql:
 ```

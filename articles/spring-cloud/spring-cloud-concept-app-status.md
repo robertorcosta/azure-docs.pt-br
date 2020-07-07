@@ -1,5 +1,5 @@
 ---
-title: Compreendendo o status do aplicativo no Azure Spring Cloud
+title: Noções básicas sobre o status do aplicativo no Azure Spring Cloud
 description: Aprenda as categorias de status do aplicativo no Azure Spring Cloud
 author: MikeDodaro
 ms.service: spring-cloud
@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: brendm
 ms.openlocfilehash: 70a9e6392e21422d7513197fbf7a1a75e1f6ab8f
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82568998"
 ---
-# <a name="understanding-app-status-in-azure-spring-cloud"></a>Compreendendo o status do aplicativo no Azure Spring Cloud
+# <a name="understanding-app-status-in-azure-spring-cloud"></a>Noções básicas sobre o status do aplicativo no Azure Spring Cloud
 
 A interface do usuário do Azure Spring Cloud fornece informações sobre o status dos aplicativos em execução.  Há uma opção de **aplicativos** para cada grupo de recursos em uma assinatura que exibe o status geral dos tipos de aplicativos.  Para cada tipo de aplicativo, há uma exibição das **instâncias do aplicativo**.
 
@@ -29,19 +29,19 @@ Para exibir o status geral de um tipo de aplicativo, selecione **aplicativos** n
 
 **O status da implantação é relatado como um dos seguintes valores:**
 
-| Enum | Definição |
+| Enumeração | Definição |
 |:--:|:----------------:|
 | Executando | A implantação deve estar em execução. |
 | Parado | A implantação deve ser interrompida. |
 
 **O estado de provisionamento é acessível somente da CLI.  Ele é relatado como um dos seguintes valores:**
 
-| Enum | Definição |
+| Enumeração | Definição |
 |:--:|:----------------:|
 | Criando | O recurso está sendo criado. |
 | Atualizar | O recurso está sendo atualizado. |
 | Êxito | Recursos fornecidos com êxito e implantação do binário. |
-| Failed (Falha) | Falha ao obter a meta *bem-sucedida* . |
+| Falhou | Falha ao obter a meta *bem-sucedida* . |
 | Excluindo | O recurso está sendo excluído. Isso impede a operação e o recurso não está disponível nesse status. |
 
 ## <a name="app-instances-status"></a>Status de instâncias do aplicativo
@@ -54,16 +54,16 @@ Para exibir o status de uma instância específica de um aplicativo implantado, 
 
 **O status da instância é relatado como um dos seguintes valores:**
 
-| Enum | Definição |
+| Enumeração | Definição |
 |:--:|:----------------:|
 | Iniciando | O binário é implantado com êxito na instância especificada. A inicialização da instância do arquivo JAR pode falhar porque o jar não pode ser executado corretamente. |
 | Executando | A instância funciona. |
-| Failed (Falha) | A instância do aplicativo não pôde iniciar o binário do usuário após várias tentativas. |
+| Falhou | A instância do aplicativo não pôde iniciar o binário do usuário após várias tentativas. |
 | Final | A instância do aplicativo está sendo desligada. |
 
 **O status de descoberta da instância é relatado como um dos seguintes valores:**
 
-| Enum | Definição |
+| Enumeração | Definição |
 |:--:|:----------------:|
 | UP | A instância do aplicativo está registrada em Eureka e pronta para receber tráfego |
 | OUT_OF_SERVICE | A instância do aplicativo é registrada em Eureka e pode receber tráfego. Mas desliga o tráfego intencionalmente. |

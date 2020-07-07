@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/08/2019
 ms.author: alkohli
 ms.openlocfilehash: aadaedfd2c9ecf544d142e42a0fbeb410324b7d8
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82562433"
 ---
 # <a name="azure-data-box-gateway-system-requirements"></a>Gateway do Azure Data Box requisitos do sistema
@@ -34,7 +34,7 @@ O sistema host subjacente para o Data Box Gateway é capaz de dedicar os seguint
 | Processadores virtuais (núcleos)   | Mínimo de 4 |
 | Memória  | Mínimo de 8 GB|
 | Disponibilidade|Nó único|
-| Discos| Disco do sistema operacional: 250 GB <br> Disco de dados: mínimo de 2 TB, com provisionamento dinâmico e deve ser ativado por SSDs|
+| Discos| Disco do sistema operacional: 250 GB <br> Disco de dados: Mínimo de 2 TB, com provisionamento dinâmico e deve ser ativado por SSDs|
 | Interfaces de rede|1 ou mais adaptadores de rede virtual|
 
 
@@ -50,8 +50,8 @@ O sistema host subjacente para o Data Box Gateway é capaz de dedicar os seguint
 
 | **Sistema operacional/plataforma**  |**Versões**   |**Observações**  |
 |---------|---------|---------|
-|Hyper-v  |  2012 R2 <br> 2016 <br> 2019 |         |
-|VMware ESXi     | 6.0 <br> 6.5 <br> 6.7       |Não há suporte para as ferramentas do VMware.         |
+|Hyper-V  |  2012 R2 <br> 2016 <br> 2019 |         |
+|VMware ESXi     | 6,0 <br> 6.5 <br> 6.7       |Não há suporte para as ferramentas do VMware.         |
 
 
 ## <a name="supported-storage-accounts"></a>Contas de armazenamento com suporte

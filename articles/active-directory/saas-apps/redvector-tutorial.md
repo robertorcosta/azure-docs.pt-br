@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 4edee73e13c0490810706a0f7a028b54f37b287b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f3660956a3e66fc9a632eace378feb8873bceaf8
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67093046"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85506082"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-redvector"></a>Tutorial: Integração do Azure Active Directory com o RedVector
 
@@ -107,7 +107,7 @@ Para configurar o logon único do Azure AD com o RedVector, execute as seguintes
 
     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://sso2.redvector.com/adfs/<Companyname>`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<Companyname>.redvector.com/saml2`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://sso2.redvector.com/saml2`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Entre em contato com a [equipe de suporte do cliente do RedVector](mailto:sso@redvector.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

@@ -6,10 +6,10 @@ author: davidsmatlak
 ms.author: v-dasmat
 ms.date: 05/04/2020
 ms.openlocfilehash: 892b59b3d3e980abfcdb9cd692c2598ceb1284ad
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82780922"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Recursos não limitados a 800 instâncias por grupo de recursos
@@ -76,7 +76,7 @@ Para alguns tipos de recursos, você precisa entrar em contato com o suporte par
 
 * agendas-por padrão, limitadas a 800 instâncias. Esse limite pode ser aumentado entrando em contato com o suporte.
 
-## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft. EnterpriseKnowledgeGraph
+## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
 
 * services
 
@@ -85,7 +85,7 @@ Para alguns tipos de recursos, você precisa entrar em contato com o suporte par
 * clusters
 * namespaces
 
-## <a name="microsoftexperimentation"></a>Microsoft. experimentação
+## <a name="microsoftexperimentation"></a>Microsoft.Experimentation
 
 * experimentWorkspaces
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
 ms.openlocfilehash: f051d02ac06163cf1861ab6bfc6afd0dcbb0ad8a
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82559532"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>Monitorar as métricas dos serviços de mídia e os logs de diagnóstico por meio de Azure Monitor
@@ -46,13 +46,13 @@ Você pode monitorar as seguintes métricas de conta.
 |---|---|---|
 |AssetCount|Contagem de ativos|Ativos em sua conta.|
 |AssetQuota|Cota de ativos|Cota de ativos em sua conta.|
-|AssetQuotaUsedPercentage|Porcentagem de cota de ativos usada|A porcentagem da cota de ativos já usada.|
-|ContentKeyPolicyCount|Contagem de política de chave de conteúdo|Políticas de chave de conteúdo em sua conta.|
-|ContentKeyPolicyQuota|Cota de política de chave de conteúdo|Cota de políticas de chave de conteúdo em sua conta.|
-|ContentKeyPolicyQuotaUsedPercentage|Porcentagem de cota usada da política de chave de conteúdo|A porcentagem da cota de política de chave de conteúdo já usada.|
-|StreamingPolicyCount|Contagem de políticas de streaming|Políticas de streaming em sua conta.|
-|StreamingPolicyQuota|Cota de política de streaming|Cota de políticas de streaming em sua conta.|
-|StreamingPolicyQuotaUsedPercentage|Porcentagem de cota usada da política de streaming|A porcentagem da cota da política de streaming já usada.|
+|AssetQuotaUsedPercentage|Percentual de cota de ativos usado|A porcentagem da cota de ativos já usada.|
+|ContentKeyPolicyCount|Contagem de Política de Chave de Conteúdo|Políticas de chave de conteúdo em sua conta.|
+|ContentKeyPolicyQuota|Cota de Política de Chave de Conteúdo|Cota de políticas de chave de conteúdo em sua conta.|
+|ContentKeyPolicyQuotaUsedPercentage|Percentual de Cota Usada da Política de Chave de Conteúdo|A porcentagem da cota de política de chave de conteúdo já usada.|
+|StreamingPolicyCount|Contagem de Política de Streaming|Políticas de streaming em sua conta.|
+|StreamingPolicyQuota|Cota de Política de Streaming|Cota de políticas de streaming em sua conta.|
+|StreamingPolicyQuotaUsedPercentage|Percentual de cota usada da Política de Streaming|A porcentagem da cota da política de streaming já usada.|
 
 Você também deve examinar as [cotas de conta e os limites](limits-quotas-constraints.md).
 
@@ -64,7 +64,7 @@ As métricas de [pontos de extremidade de streaming](https://docs.microsoft.com/
 |---|---|---|
 |Requests|Requests|Fornece o número total de solicitações HTTP atendidas pelo ponto de extremidade de streaming.|
 |Saída|Saída|Total de bytes de saída por minuto por ponto de extremidade de streaming.|
-|SuccessE2ELatency|Latência de ponta a ponta com êxito|Duração de tempo de quando o ponto de extremidade de streaming recebeu a solicitação para quando o último byte da resposta foi enviado.|
+|SuccessE2ELatency|Latência de ponta a ponta bem-sucedida|Duração de tempo de quando o ponto de extremidade de streaming recebeu a solicitação para quando o último byte da resposta foi enviado.|
 
 ### <a name="why-would-i-want-to-use-metrics"></a>Por que desejo usar métricas?
 

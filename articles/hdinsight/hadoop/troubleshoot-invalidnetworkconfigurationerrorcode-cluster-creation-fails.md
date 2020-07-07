@@ -8,17 +8,17 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
 ms.openlocfilehash: 1fb5b78f210a9bd817a2987dcb30fa25d156d5d2
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82780429"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>Falha na criação do cluster com InvalidNetworkConfigurationErrorCode no Azure HDInsight
 
 Este artigo descreve as etapas de solução de problemas e as possíveis resoluções para problemas ao interagir com clusters do Azure HDInsight.
 
-Se você vir o código `InvalidNetworkConfigurationErrorCode` de erro com a descrição "a configuração de rede virtual não é compatível com o requisito do HDInsight", isso geralmente indica um problema com a [configuração de rede virtual](../hdinsight-plan-virtual-network-deployment.md) para o cluster. Com base no restante da descrição do erro, siga as seções abaixo para resolver o problema.
+Se você vir o código de erro `InvalidNetworkConfigurationErrorCode` com a descrição "a configuração de rede virtual não é compatível com o requisito do HDInsight", isso geralmente indica um problema com a [configuração de rede virtual](../hdinsight-plan-virtual-network-deployment.md) para o cluster. Com base no restante da descrição do erro, siga as seções abaixo para resolver o problema.
 
 ## <a name="hostname-resolution-failed"></a>"Falha na resolução do nome do host"
 
@@ -32,11 +32,11 @@ Esse erro aponta para um problema com a configuração de DNS personalizada. Os 
 
 ### <a name="resolution"></a>Resolução
 
-1. Ssh na VM que faz parte do cluster e execute o comando `hostname -f`. Isso retornará o nome de domínio totalmente qualificado do host (conhecido como `<host_fqdn>` nas instruções abaixo).
+1. Ssh na VM que faz parte do cluster e execute o comando `hostname -f` . Isso retornará o nome de domínio totalmente qualificado do host (conhecido como `<host_fqdn>` nas instruções abaixo).
 
-1. Em seguida, execute o `nslookup <host_fqdn>` comando (por exemplo `nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net`,). Se esse comando resolver o nome para um endereço IP, significa que o servidor DNS está funcionando corretamente. Nesse caso, gere um caso de suporte com o HDInsight e investigaremos seu problema. Em seu caso de suporte, inclua as etapas de solução de problemas que você executou. Isso nos ajudará a resolver o problema mais rapidamente.
+1. Em seguida, execute o comando `nslookup <host_fqdn>` (por exemplo, `nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net` ). Se esse comando resolver o nome para um endereço IP, significa que o servidor DNS está funcionando corretamente. Nesse caso, gere um caso de suporte com o HDInsight e investigaremos seu problema. Em seu caso de suporte, inclua as etapas de solução de problemas que você executou. Isso nos ajudará a resolver o problema mais rapidamente.
 
-1. Se o comando acima não retornar um endereço IP, execute `nslookup <host_fqdn> 168.63.129.16` (por exemplo, `nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net 168.63.129.16`). Se esse comando for capaz de resolver o IP, significa que o servidor DNS não está encaminhando a consulta para o DNS do Azure ou não é uma VM que faça parte da mesma rede virtual que o cluster.
+1. Se o comando acima não retornar um endereço IP, execute `nslookup <host_fqdn> 168.63.129.16` (por exemplo, `nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net 168.63.129.16` ). Se esse comando for capaz de resolver o IP, significa que o servidor DNS não está encaminhando a consulta para o DNS do Azure ou não é uma VM que faça parte da mesma rede virtual que o cluster.
 
 1. Se você não tiver uma VM do Azure que possa atuar como um servidor DNS personalizado na rede virtual do cluster, será necessário adicionar isso primeiro. Crie uma VM na rede virtual, que será configurada como encaminhador DNS.
 
@@ -89,7 +89,7 @@ Provavelmente um problema com a configuração de DNS personalizada.
 
 Valide se 168.63.129.16 está na cadeia DNS personalizada. Os servidores DNS em uma rede virtual podem encaminhar consultas DNS para os resolvedores recursivos do Azure a fim de resolver nomes de host dentro da rede virtual. Para obter mais informações, consulte [resolução de nomes em redes virtuais](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server). O acesso a resolvedores recursivos do Azure é fornecido por meio da IP virtual 168.63.129.16.
 
-1. Use o [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) para se conectar ao cluster. Edite o comando a seguir substituindo CLUSTERname pelo nome do cluster e, em seguida, digite o comando:
+1. Use o [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) para se conectar ao cluster. Edite o comando abaixo substituindo CLUSTERNAME pelo nome do cluster e, em seguida, insira o comando:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -141,8 +141,8 @@ dig @168.63.129.16 <headnode_fqdn> (e.g. dig @168.63.129.16 hn0-hditest.5h6lujo4
 
 Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
 
-* Obtenha respostas de especialistas do Azure por meio do [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
+* Obtenha respostas de especialistas do Azure por meio do [Suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
 
-* Conecte- [@AzureSupport](https://twitter.com/azuresupport) se com a conta de Microsoft Azure oficial para melhorar a experiência do cliente conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte-se a [@AzureSupport](https://twitter.com/azuresupport) – a conta oficial do Microsoft Azure para melhorar a experiência do cliente conectando-se à comunidade do Azure para os recursos certos: respostas, suporte e especialistas.
 
-* Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte**. Para obter informações mais detalhadas, consulte [Como criar uma solicitação de Suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao Gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).

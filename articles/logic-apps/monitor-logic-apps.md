@@ -7,10 +7,10 @@ ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 05/04/2020
 ms.openlocfilehash: c2a609266a77293a0e3a5cb9c973a6eb3f7f72a9
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82731995"
 ---
 # <a name="monitor-run-status-review-trigger-history-and-set-up-alerts-for-azure-logic-apps"></a>Monitorar o status de execução, examinar o histórico de gatilho e configurar alertas para aplicativos lógicos do Azure
@@ -20,7 +20,7 @@ Depois de [criar e executar um aplicativo lógico](../logic-apps/quickstart-crea
 Para monitoramento de eventos em tempo real e depuração mais avançada, configure o log de diagnóstico para seu aplicativo lógico usando [logs de Azure monitor](../azure-monitor/overview.md). Esse serviço do Azure ajuda a monitorar seus ambientes locais e de nuvem para que você possa manter a disponibilidade e o desempenho com mais facilidade. Em seguida, você pode localizar e exibir eventos, como eventos de gatilho, eventos de execução e eventos de ação. Ao armazenar essas informações em [logs de Azure monitor](../azure-monitor/platform/data-platform-logs.md), você pode criar [consultas de log](../azure-monitor/log-query/log-query-overview.md) que ajudam a localizar e analisar essas informações. Você também pode usar esses dados de diagnóstico com outros serviços do Azure, como o armazenamento do Azure e os hubs de eventos do Azure. Para obter mais informações, consulte [monitorar aplicativos lógicos usando Azure monitor](../logic-apps/monitor-logic-apps-log-analytics.md).
 
 > [!NOTE]
-> Se seus aplicativos lógicos forem executados em um [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) que foi criado para usar um [ponto de extremidade de acesso interno](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access), você poderá exibir e acessar entradas e saídas do histórico de execuções do aplicativo lógico *somente de dentro de sua rede virtual*. Verifique se você tem conectividade de rede entre os pontos de extremidade privados e o computador do qual você deseja acessar o histórico de execuções. Por exemplo, o computador cliente pode existir dentro da rede virtual do ISE ou dentro de uma rede virtual conectada à rede virtual do ISE, por exemplo, por meio de emparelhamento ou de uma rede virtual privada. Para obter mais informações, consulte [ISE Endpoint Access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). 
+> Se seus aplicativos lógicos forem executados em um [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) que foi criado para usar um [ponto de extremidade de acesso interno](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access), você poderá exibir e acessar entradas e saídas do histórico de execuções do aplicativo lógico *somente de dentro de sua rede virtual*. Verifique se você tem conectividade de rede entre os pontos de extremidade privados e o computador do qual você deseja acessar o histórico de execuções. Por exemplo, o computador cliente pode existir dentro da rede virtual do ISE ou dentro de uma rede virtual conectada à rede virtual do ISE, por exemplo, por meio de emparelhamento ou de uma rede virtual privada. Para obter mais informações, confira [Acesso do ponto de extremidade do ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). 
 
 <a name="review-runs-history"></a>
 
@@ -28,9 +28,9 @@ Para monitoramento de eventos em tempo real e depuração mais avançada, config
 
 Cada vez que o gatilho é acionado para um item ou evento, o mecanismo de aplicativos lógicos cria e executa uma instância de fluxo de trabalho separada para cada item ou evento. Por padrão, cada instância de fluxo de trabalho é executada em paralelo para que nenhum fluxo de trabalho precise aguardar antes de iniciar uma execução. Você pode examinar o que aconteceu durante essa execução, incluindo o status de cada etapa no fluxo de trabalho, além das entradas e saídas de cada etapa.
 
-1. Na [portal do Azure](https://portal.azure.com), localize e abra seu aplicativo lógico no designer de aplicativo lógico.
+1. No [portal do Azure](https://portal.azure.com), encontre e abra seu aplicativo lógico no Designer de Aplicativo Lógico.
 
-   Para localizar seu aplicativo lógico, na caixa principal do Azure Search, digite `logic apps`e, em seguida, selecione **aplicativos lógicos**.
+   Para localizar seu aplicativo lógico, na caixa principal do Azure Search, digite `logic apps` e, em seguida, selecione **aplicativos lógicos**.
 
    ![Localizar e selecionar o serviço "aplicativos lógicos"](./media/monitor-logic-apps/find-your-logic-app.png)
 
@@ -49,8 +49,8 @@ Cada vez que o gatilho é acionado para um item ou evento, o mecanismo de aplica
    | Status | Descrição |
    |--------|-------------|
    | **Cancelar** | O fluxo de trabalho estava em execução, mas recebeu uma solicitação de cancelamento |
-   | **Falha** | Pelo menos uma ação falhou e nenhuma ação posterior no fluxo de trabalho foi configurada para lidar com a falha |
-   | **Em execução** | O fluxo de trabalho está em execução atualmente. <p>Esse status também pode aparecer para fluxos de trabalho limitados ou devido ao plano de preços atual. Para saber mais, consulte os [limites de ações na página de preço](https://azure.microsoft.com/pricing/details/logic-apps/). Se você configurar o [log de diagnóstico](../logic-apps/monitor-logic-apps.md), poderá obter informações sobre os eventos de restrição que acontecerem. |
+   | **Com falha** | Pelo menos uma ação falhou e nenhuma ação posterior no fluxo de trabalho foi configurada para lidar com a falha |
+   | **Executando** | O fluxo de trabalho está em execução atualmente. <p>Esse status também pode aparecer para fluxos de trabalho limitados ou devido ao plano de preços atual. Para saber mais, consulte os [limites de ações na página de preço](https://azure.microsoft.com/pricing/details/logic-apps/). Se você configurar o [log de diagnóstico](../logic-apps/monitor-logic-apps.md), poderá obter informações sobre os eventos de restrição que acontecerem. |
    | **Êxito** | Todas as ações foram bem sucedidas. <p>**Observação**: se alguma falha ocorreu em uma ação específica, uma ação posterior no fluxo de trabalho tratou dessa falha. |
    | **Aguardando** | O fluxo de trabalho não foi iniciado ou está em pausa, por exemplo, devido a um fluxo de trabalho anterior que ainda está em execução. |
    |||
@@ -94,9 +94,9 @@ Cada vez que o gatilho é acionado para um item ou evento, o mecanismo de aplica
 
 Cada execução de aplicativo lógico começa com um gatilho. O histórico de gatilho lista todas as tentativas de gatilho que seu aplicativo lógico fez e informações sobre as entradas e saídas para cada tentativa de gatilho.
 
-1. Na [portal do Azure](https://portal.azure.com), localize e abra seu aplicativo lógico no designer de aplicativo lógico.
+1. No [portal do Azure](https://portal.azure.com), encontre e abra seu aplicativo lógico no Designer de Aplicativo Lógico.
 
-   Para localizar seu aplicativo lógico, na caixa principal do Azure Search, digite `logic apps`e, em seguida, selecione **aplicativos lógicos**.
+   Para localizar seu aplicativo lógico, na caixa principal do Azure Search, digite `logic apps` e, em seguida, selecione **aplicativos lógicos**.
 
    ![Localizar e selecionar o serviço "aplicativos lógicos"](./media/monitor-logic-apps/find-your-logic-app.png)
 
@@ -118,8 +118,8 @@ Cada execução de aplicativo lógico começa com um gatilho. O histórico de ga
 
    | Status | Descrição |
    |--------|-------------|
-   | **Falha** | Ocorreu um erro. Para examinar as mensagens de erro geradas para um disparador com falha, selecione essa tentativa de disparo e escolha **Saídas**. Por exemplo, você pode descobrir entradas que não são válidas. |
-   | **Ignorada** | O gatilho verificou o ponto de extremidade, mas não encontrou dados disponíveis. |
+   | **Com falha** | Ocorreu um erro. Para examinar as mensagens de erro geradas para um disparador com falha, selecione essa tentativa de disparo e escolha **Saídas**. Por exemplo, você pode descobrir entradas que não são válidas. |
+   | **Ignorado** | O gatilho verificou o ponto de extremidade, mas não encontrou dados disponíveis. |
    | **Êxito** | O gatilho verificou o ponto de extremidade e encontrou dados disponíveis. Normalmente, um status de "Disparado" também é exibida junto com esse status. Caso contrário, a definição do gatilho pode ter uma condição ou comando `SplitOn` que não foi atendido. <p>Esse status pode se aplicar a um gatilho manual, gatilho recorrente ou gatilho de sondagem. Um gatilho pode ser executado com êxito, mas a execução em si ainda pode falhar quando as ações gerarem erros sem tratamento. |
    |||
 
@@ -140,7 +140,7 @@ Cada execução de aplicativo lógico começa com um gatilho. O histórico de ga
 
 Para obter alertas com base em métricas específicas ou limites excedidos para seu aplicativo lógico, configure [alertas no Azure monitor](../azure-monitor/platform/alerts-overview.md). Saiba mais sobre as [métricas no Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md). Para configurar alertas sem usar [Azure monitor](../log-analytics/log-analytics-overview.md), siga estas etapas.
 
-1. No menu do aplicativo lógico, em **monitoramento**, selecione **alertas** > **nova regra de alerta**.
+1. No menu do aplicativo lógico, em **monitoramento**, selecione **alertas**  >  **nova regra de alerta**.
 
    ![Adicionar um alerta ao aplicativo lógico](./media/monitor-logic-apps/add-new-alert-rule.png)
 
@@ -162,7 +162,7 @@ Para obter alertas com base em métricas específicas ou limites excedidos para 
 
    1. Para **tipo de agregação**, selecione **contagem**.
 
-   1. Para **valor de limite**, `1`insira.
+   1. Para **valor de limite**, insira `1` .
 
    1. Em **Visualização da condição**, confirme se sua condição aparece correta.
 

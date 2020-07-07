@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
 ms.openlocfilehash: 5e756258bb92d7def195959d909068e87e765c0f
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82562059"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Trabalhe com Proxies do Azure Functions
@@ -61,7 +61,7 @@ Você pode usar `localhost` para fazer referência a uma função diretamente de
 
  
 >[!Note]  
->Se sua função usar os níveis de autorização *função, administrador ou sys*, você precisará fornecer o código e o clientId, de acordo com a URL da função original. Nesse caso, a referência ficaria assim: `"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"` Recomendamos armazenar essas chaves nas configurações do [aplicativo] e fazer referência a elas em seus proxies. Isso evita o armazenamento de segredos em seu código-fonte. 
+>Se sua função usar os níveis de autorização *função, administrador ou sys*, você precisará fornecer o código e o clientId, de acordo com a URL da função original. Nesse caso, a referência ficaria assim: `"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"` Recomendamos armazenar essas chaves nas [configurações do aplicativo] e fazer referência a elas em seus proxies. Isso evita o armazenamento de segredos em seu código-fonte. 
 
 ### <a name="reference-request-parameters"></a><a name="request-parameters"></a>Parâmetros de solicitação de referência
 
@@ -76,8 +76,8 @@ Por exemplo, se um proxy tem um modelo de rota como `/pets/{petId}`, a URL do ba
 Além dos parâmetros do modelo de rota, os seguintes valores podem ser usados em valores de configuração:
 
 * **{request.method}**: o método HTTP usado na solicitação original.
-* **{request.headers.\<HeaderName\>}**: um cabeçalho que pode ser lido por meio da solicitação original. Substitua * \<HeaderName\> * pelo nome do cabeçalho que você deseja ler. Se o cabeçalho não estiver incluído na solicitação, o valor será a cadeia de caracteres vazia.
-* **{request.querystring.\<ParameterName\>}**: um parâmetro de cadeia de consulta que pode ser lido por meio da solicitação original. Substitua * \<ParameterName\> * pelo nome do parâmetro que você deseja ler. Se o parâmetro não estiver incluído na solicitação, o valor será a cadeia de caracteres vazia.
+* **{Request. Headers. \<HeaderName\> }**: um cabeçalho que pode ser lido da solicitação original. Substituir *\<HeaderName\>* pelo nome do cabeçalho que você deseja ler. Se o cabeçalho não estiver incluído na solicitação, o valor será a cadeia de caracteres vazia.
+* **{Request. QueryString. \<ParameterName\> }**: um parâmetro de cadeia de caracteres de consulta que pode ser lido da solicitação original. Substituir *\<ParameterName\>* pelo nome do parâmetro que você deseja ler. Se o parâmetro não estiver incluído na solicitação, o valor será a cadeia de caracteres vazia.
 
 ### <a name="reference-back-end-response-parameters"></a><a name="response-parameters"></a>Parâmetros de resposta de back-end de referência
 
@@ -85,13 +85,13 @@ Parâmetros de resposta podem ser usados como parte da modificação da resposta
 
 * **{backend.response.statusCode}**: o código de status HTTP retornado na resposta de back-end.
 * **{backend.response.statusReason}**: a frase de motivo HTTP retornada na resposta de back-end.
-* **{backend.response.headers.\<HeaderName\>}**: um cabeçalho que pode ser lido por meio da resposta de back-end. Substitua * \<HeaderName\> * pelo nome do cabeçalho que você deseja ler. Se o cabeçalho não estiver incluído na solicitação, o valor será a cadeia de caracteres vazia.
+* **{back-end. Response. Headers. \<HeaderName\> }**: um cabeçalho que pode ser lido da resposta de back-end. Substituir *\<HeaderName\>* pelo nome do cabeçalho que você deseja ler. Se o cabeçalho não estiver incluído na solicitação, o valor será a cadeia de caracteres vazia.
 
 ### <a name="reference-application-settings"></a><a name="use-appsettings"></a>Configurações do aplicativo de referência
 
 Você também pode referenciar [as configurações do aplicativo definidas para o aplicativo de funções](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings) ao redor do nome da configuração com sinais de porcentagem (%).
 
-Por exemplo, uma URL de back-end *https://%ORDER_PROCESSING_HOST%/api/orders* de teria "% ORDER_PROCESSING_HOST%" substituída pelo valor da configuração de ORDER_PROCESSING_HOST.
+Por exemplo, uma URL de back-end de *https://%ORDER_PROCESSING_HOST%/api/orders* teria "% ORDER_PROCESSING_HOST%" substituída pelo valor da configuração de ORDER_PROCESSING_HOST.
 
 > [!TIP] 
 > Usar configurações do aplicativo para hosts de back-end quando você tem várias implantações ou ambientes de teste. Dessa forma, você pode garantir que está sempre se comunicando com o back-end correto para aquele ambiente.
@@ -184,8 +184,8 @@ Os proxies leem todas as cadeias de caracteres de um arquivo JSON, usando \ como
 O objeto requestOverrides define as alterações feitas à solicitação quando o recurso de back-end é chamado. O objeto é definido pelas seguintes propriedades:
 
 * **backend.request.method**: O método HTTP que é usado para chamar o back-end.
-* **backend.request.querystring.\<ParameterName\>**: Um parâmetro de cadeia de caracteres de consulta que pode ser definido para a chamada ao back-end. Substitua * \<ParameterName\> * pelo nome do parâmetro que você deseja definir. Observe que, se uma cadeia de caracteres vazia for fornecida, o parâmetro ainda será incluído na solicitação de back-end.
-* **backend.Request.headers.\<HeaderName\>**: Um cabeçalho que pode ser definido para a chamada ao back-end. Substitua * \<HeaderName\> * pelo nome do cabeçalho que você deseja definir. Observe que, se uma cadeia de caracteres vazia for fornecida, o parâmetro ainda será incluído na solicitação de back-end.
+* **back-end. Request. \<ParameterName\> QueryString.**: um parâmetro de cadeia de caracteres de consulta que pode ser definido para a chamada para o back-end. Substituir *\<ParameterName\>* pelo nome do parâmetro que você deseja definir. Observe que, se uma cadeia de caracteres vazia for fornecida, o parâmetro ainda será incluído na solicitação de back-end.
+* **back-end. Request. \<HeaderName\> Headers.**: um cabeçalho que pode ser definido para a chamada para o back-end. Substituir *\<HeaderName\>* pelo nome do cabeçalho que você deseja definir. Observe que, se uma cadeia de caracteres vazia for fornecida, o parâmetro ainda será incluído na solicitação de back-end.
 
 Os valores podem referenciar as configurações do aplicativo e os parâmetros da solicitação original do cliente.
 
@@ -217,7 +217,7 @@ O objeto requestOverrides define as alterações feitas à resposta passada nova
 * **response.statusCode**: o código de status HTTP a ser retornado ao cliente.
 * **response.statusReason**: a frase de motivo do HTTP a ser retornada ao cliente.
 * **response.body**: a representação de cadeia de caracteres do corpo a ser retornada ao cliente.
-* **response.headers.\<HeaderName\>**: um cabeçalho que pode ser definido para a resposta ao cliente. Substitua * \<HeaderName\> * pelo nome do cabeçalho que você deseja definir. Se você fornecer a cadeia de caracteres vazia, o cabeçalho não será incluído na resposta.
+* **Response. Headers \<HeaderName\> .**: um cabeçalho que pode ser definido para a resposta ao cliente. Substituir *\<HeaderName\>* pelo nome do cabeçalho que você deseja definir. Se você fornecer a cadeia de caracteres vazia, o cabeçalho não será incluído na resposta.
 
 Os valores podem referenciar as configurações do aplicativo, os parâmetros da solicitação original do cliente e os parâmetros da resposta de back-end.
 

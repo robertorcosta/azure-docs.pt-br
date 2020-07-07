@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dekapur
 ms.openlocfilehash: 8d0279cc323f7eee87feb2a596a4c2df0b4667e1
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82790840"
 ---
 # <a name="upgrade-the-configuration-of-a-standalone-cluster"></a>Atualize a configuração de um cluster independente 
@@ -17,9 +17,9 @@ ms.locfileid: "82790840"
 Para qualquer sistema moderno, a capacidade de atualização é fundamental para o sucesso de seu produto a longo prazo. Um cluster do Azure Service Fabric é um recurso que pertence a você. Este artigo descreve como atualizar as definições de configuração do cluster autônomo do Service Fabric.
 
 ## <a name="customize-cluster-settings-in-the-clusterconfigjson-file"></a>Personalizar configurações de cluster no arquivo ClusterConfig.json
-Os clusters autônomos são configurados por meio do arquivo *ClusterConfig. JSON* . Para saber mais sobre as diferentes configurações, consulte [Definições de configuração para um cluster autônomo do Windows](service-fabric-cluster-manifest.md).
+Os clusters autônomos são configurados por meio do *ClusterConfig.jsno* arquivo. Para saber mais sobre as diferentes configurações, consulte [Definições de configuração para um cluster autônomo do Windows](service-fabric-cluster-manifest.md).
 
-Você pode adicionar, atualizar ou remover as configurações na `fabricSettings` seção na seção Propriedades do [cluster](./service-fabric-cluster-manifest.md#cluster-properties) em *ClusterConfig. JSON*. 
+Você pode adicionar, atualizar ou remover as configurações na `fabricSettings` seção na seção [Propriedades do Cluster](./service-fabric-cluster-manifest.md#cluster-properties) em *ClusterConfig.jsem*. 
 
 Por exemplo, o JSON a seguir adiciona uma nova configuração *MaxDiskQuotaInMB* para a *seção de diagnóstico * em `fabricSettings`:
 

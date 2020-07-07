@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 7f0f18e523368e85d9cea0206e98bb7b1a0e6165
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0c2f840333f066afaa22883fb0f5d67072a5c822
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81419367"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85504858"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Início Rápido: Criar um data factory e um pipeline usando o SDK do .NET
 
@@ -47,9 +47,9 @@ Baixe e instale o [SDK .NET do Azure](https://azure.microsoft.com/downloads/) no
 
 Das seções em *Como usar o portal para criar um aplicativo do Azure AD e uma entidade de serviço que possa acessar recursos*, siga as instruções para executar estas tarefas:
 
-1. Em [Criar um aplicativo no Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application), crie um aplicativo que represente o aplicativo .NET que você está criando neste tutorial. Para a URL de logon, você pode fornecer uma URL fictícia, como mostrado no artigo (`https://contoso.org/exampleapp`).
-2. Em [Obter valores para entrar](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in), obtenha a **ID do aplicativo** e a **ID do locatário** e anote esses valores que você usará posteriormente neste tutorial. 
-3. Em [Certificados e segredos](../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets), obtenha a **chave de autenticação** e anote esse valor que você usa posteriormente neste tutorial.
+1. Em [Criar um aplicativo no Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal), crie um aplicativo que represente o aplicativo .NET que você está criando neste tutorial. Para a URL de logon, você pode fornecer uma URL fictícia, como mostrado no artigo (`https://contoso.org/exampleapp`).
+2. Em [Obter valores para entrar](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), obtenha a **ID do aplicativo** e a **ID do locatário** e anote esses valores que você usará posteriormente neste tutorial. 
+3. Em [Certificados e segredos](../active-directory/develop/howto-create-service-principal-portal.md#upload-a-certificate-or-create-a-secret-for-signing-in), obtenha a **chave de autenticação** e anote esse valor que você usa posteriormente neste tutorial.
 4. Em [Atribuir o aplicativo a uma função](../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application), atribua o aplicativo à função **Colaborador** no nível da assinatura para que o aplicativo possa criar os data factories na assinatura.
 
 ## <a name="create-a-visual-studio-project"></a>Criar um projeto do Visual Studio

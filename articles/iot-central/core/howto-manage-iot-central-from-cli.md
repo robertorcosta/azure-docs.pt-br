@@ -9,10 +9,10 @@ ms.date: 03/27/2020
 ms.topic: how-to
 manager: philmea
 ms.openlocfilehash: c3e0beb9a35b7888787d018b5e3b9c4ceea7e1c9
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82744559"
 ---
 # <a name="manage-iot-central-from-azure-cli"></a>Gerenciar IoT Central de CLI do Azure
@@ -42,7 +42,7 @@ az extension add --name azure-iot
 
 ## <a name="create-an-application"></a>Criar um aplicativo
 
-Use o comando [AZ IOT central app Create](/cli/azure/iot/central/app?view=azure-cli-latest#az-iot-central-app-create) para criar um aplicativo IOT central em sua assinatura do Azure. Por exemplo: 
+Use o comando [AZ IOT central app Create](/cli/azure/iot/central/app?view=azure-cli-latest#az-iot-central-app-create) para criar um aplicativo IOT central em sua assinatura do Azure. Por exemplo:
 
 ```azurecli-interactive
 # Create a resource group for the IoT Central application

@@ -4,10 +4,10 @@ description: Use Azure Resource Manager para mover máquinas virtuais para um no
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.openlocfilehash: e5bd004b6619db9c9882b8e9e6005309317b8ca5
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82744629"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Mover diretrizes para máquinas virtuais
@@ -37,9 +37,9 @@ Se a [exclusão reversível](../../../backup/backup-azure-security-feature-cloud
 2. Para mover as máquinas virtuais configuradas com o backup do Azure, execute as seguintes etapas:
 
    1. Localize o local da sua máquina virtual.
-   2. Localize um grupo de recursos com o seguinte padrão de `AzureBackupRG_<location of your VM>_1`nomenclatura:. Por exemplo, *AzureBackupRG_westus2_1*
+   2. Localize um grupo de recursos com o seguinte padrão de nomenclatura: `AzureBackupRG_<location of your VM>_1` . Por exemplo, *AzureBackupRG_westus2_1*
    3. Na portal do Azure, marque **Mostrar tipos ocultos**.
-   4. Localize o recurso com o tipo **Microsoft. Compute/restorePointCollections** que tem o padrão `AzureBackup_<name of your VM that you're trying to move>_###########`de nomenclatura.
+   4. Localize o recurso com o tipo **Microsoft. Compute/restorePointCollections** que tem o padrão de nomenclatura `AzureBackup_<name of your VM that you're trying to move>_###########` .
    5. Exclua este recurso. Esta operação exclui somente os pontos de recuperação instantânea, não os dados de backup no cofre.
    6. Depois que a operação de exclusão for concluída, você poderá mover sua máquina virtual.
 

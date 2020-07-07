@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 63225f6e6daa6b3cdde7aa505c117b43305a4867
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82569076"
 ---
 # <a name="azure-stack-edge-system-requirements"></a>Requisitos de sistema do Azure Stack Edge
@@ -58,7 +58,7 @@ O Azure IoT Edge permite a comunicação de saíde de um dispositivo do Edge loc
 
 Use a tabela a seguir para a configuração de porta dos servidores que hospedam o runtime do Azure IoT Edge:
 
-| Nº da porta | Entrada ou saída | Escopo da porta | Necessária | Orientação |
+| Nº da porta | Entrada ou saída | Escopo da porta | Obrigatório | Diretrizes |
 |----------|-----------|------------|----------|----------|
 | TCP 443 (HTTPS)| Saída       | WAN        | Sim      | Saída aberta para o provisionamento do IoT Edge. Essa configuração é necessária ao usar scripts manuais ou o DPS (serviço de provisionamento de dispositivos) do Azure IoT.|
 
@@ -82,7 +82,7 @@ Recomendamos que você defina suas regras de firewall para o tráfego de saída,
 
 | Padrão de URL                      | Componente ou funcionalidade                     |   
 |----------------------------------|---------------------------------------------|
-| https:\//MCR.Microsoft.com<br></br>https://\*.cdn.mscr.io | Registro de Contêiner da Microsoft (obrigatório)               |
+| https: \/ /MCR.Microsoft.com<br></br>https://\*.cdn.mscr.io | Registro de Contêiner da Microsoft (obrigatório)               |
 | https://\*.azurecr.io                     | Registros de contêiner pessoal e de terceiros (opcional) | 
 | https://\*.azure-devices.net              | Acesso do Hub IoT (obrigatório)                             | 
 
@@ -94,9 +94,9 @@ Recomendamos que você defina suas regras de firewall para o tráfego de saída,
 
 | Padrão de URL                      | Componente ou funcionalidade                     |  
 |----------------------------------|---------------------------------------------|
-| https:\//MCR.Microsoft.com<br></br>https://\*. cdn.mscr.com | Registro de Contêiner da Microsoft (obrigatório)               |
-| https://\*. Azure-Devices.us              | Acesso do Hub IoT (obrigatório)           |
-| https://\*. azurecr.us                    | Registros de contêiner pessoal e de terceiros (opcional) | 
+| https: \/ /MCR.Microsoft.com<br></br>https:// \* . cdn.mscr.com | Registro de Contêiner da Microsoft (obrigatório)               |
+| https:// \* . Azure-Devices.us              | Acesso do Hub IoT (obrigatório)           |
+| https:// \* . azurecr.us                    | Registros de contêiner pessoal e de terceiros (opcional) | 
 
 ## <a name="internet-bandwidth"></a>Largura de banda de Internet
 
@@ -135,4 +135,4 @@ Por fim, certifique-se de validar sua solução em seu conjunto de e quantificar
 
 ## <a name="next-step"></a>Próxima etapa
 
-- [Implantar sua borda de Azure Stack](azure-stack-edge-deploy-prep.md)
+- [Implantar seu Azure Stack Edge](azure-stack-edge-deploy-prep.md)
