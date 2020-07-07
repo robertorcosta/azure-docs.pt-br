@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 9/03/2019
 ms.openlocfilehash: a0263880262da95f4d26ee8388da464e9a59efca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81416449"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-netezza-server-to-azure"></a>Usar Azure Data Factory para migrar dados de um servidor Netezza local para o Azure 
@@ -30,8 +30,8 @@ Este artigo fornece as seguintes informações para desenvolvedores e engenheiro
 > * Desempenho 
 > * Resiliência de cópia
 > * Segurança de rede
-> * Arquitetura de solução de alto nível 
-> * Práticas recomendadas de implementação  
+> * Arquitetura da solução de alto nível 
+> * Melhores práticas de implementação  
 
 ## <a name="performance"></a>Desempenho
 
@@ -57,7 +57,7 @@ Com Azure Data Factory atividade de cópia, ao copiar dados entre armazenamentos
 
 ## <a name="network-security"></a>Segurança de rede 
 
-Por padrão, o Azure Data Factory transfere os dados do servidor Netezza local para uma conta de armazenamento do Azure ou o Azure SQL Data Warehouse Database usando uma conexão criptografada por HTTPS (Hypertext Transfer Protocol Secure). O HTTPS fornece criptografia de dados em trânsito e impede ataques de interceptação e Man-in-the-Middle.
+Por padrão, o Azure Data Factory transfere os dados do servidor Netezza local para uma conta de armazenamento do Azure ou o Azure SQL Data Warehouse Database usando uma conexão criptografada por HTTPS (Hypertext Transfer Protocol Secure). O HTTPS fornece a criptografia de dados em trânsito e impede ataques de interceptação e man-in-the-middle.
 
 Como alternativa, se você não quiser que os dados sejam transferidos pela Internet pública, poderá ajudar a obter maior segurança transferindo dados por meio de um link de emparelhamento privado por meio da rota expressa do Azure. 
 
@@ -115,7 +115,7 @@ O diagrama anterior pode ser interpretado da seguinte maneira:
    
    - Você também pode usar a [entidade de serviço](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#service-principal-authentication) ou a autenticação do [SQL](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#sql-authentication).
 
-- Quando você não estiver usando identidades gerenciadas para recursos do Azure, é altamente recomendável [armazenar as credenciais em Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) para facilitar o gerenciamento e a rotação centralizado das chaves sem precisar modificar Azure data Factory serviços vinculados. Essa também é uma das [práticas recomendadas para CI/CD](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd). 
+- Quando você não estiver usando identidades gerenciadas para recursos do Azure, é altamente recomendável [armazenar as credenciais em Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) para facilitar o gerenciamento e a rotação centralizado das chaves sem precisar modificar Azure data Factory serviços vinculados. Essa também é uma das [melhores práticas de CI/CD](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd). 
 
 ### <a name="migrate-initial-snapshot-data"></a>Migrar dados de instantâneo inicial 
 
@@ -123,7 +123,7 @@ Para tabelas pequenas (ou seja, tabelas com um volume de menos de 100 GB ou que 
 
 Em cada trabalho de cópia, para executar consultas paralelas e copiar dados por partições, você também pode alcançar algum nível de paralelismo usando a [ `parallelCopies` configuração de propriedade](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#parallel-copy) com uma das seguintes opções de partição de dados:
 
-- Para obter ajuda para obter maior eficiência, recomendamos que você inicie a partir de uma fatia de dados.  Certifique-se de que o valor `parallelCopies` na configuração seja menor que o número total de partições de fatia de dados em sua tabela no servidor Netezza.  
+- Para obter ajuda para obter maior eficiência, recomendamos que você inicie a partir de uma fatia de dados.  Certifique-se de que o valor na `parallelCopies` configuração seja menor que o número total de partições de fatia de dados em sua tabela no servidor Netezza.  
 
 - Se o volume de cada partição de fatia de dados ainda for grande (por exemplo, 10 GB ou mais), recomendamos que você alterne para uma partição de intervalo dinâmico. Essa opção oferece maior flexibilidade para definir o número de partições e o volume de cada partição por coluna de partição, limite superior e limite inferior.
 
@@ -157,7 +157,7 @@ Se ele não puder ser carregado no Azure dentro de duas horas, e a capacidade do
 
 Continue monitorando o uso de CPU e de memória no computador IR auto-hospedado e esteja pronto para escalar verticalmente o computador ou escalar horizontalmente para vários computadores quando você vir que a CPU e a memória são totalmente usadas. 
 
-Quando você encontrar erros de limitação, conforme relatado por Azure Data Factory atividade de cópia, reduza a `parallelCopies` simultaneidade ou a configuração em Azure data Factory ou considere aumentar a largura de banda ou os limites de IOPS (operações por segundo) da rede e dos armazenamentos de dados. 
+Quando você encontrar erros de limitação, conforme relatado por Azure Data Factory atividade de cópia, reduza a simultaneidade ou a `parallelCopies` configuração em Azure data Factory ou considere aumentar a largura de banda ou os limites de IOPS (operações por segundo) da rede e dos armazenamentos de dados. 
 
 
 ### <a name="estimate-your-pricing"></a>Estime seus preços 
@@ -174,7 +174,7 @@ Vamos supor que as seguintes instruções sejam verdadeiras:
 
 - O volume de 50 TB é dividido em 500 partições e cada atividade de cópia move uma partição.
 
-- Cada atividade de cópia é configurada com um IR auto-hospedado em quatro máquinas e atinge uma taxa de transferência de 20 megabytes por segundo (MBps). (Na atividade de cópia `parallelCopies` , é definido como 4, e cada thread para carregar dados da tabela alcança uma taxa de transferência de 5 Mbps.)
+- Cada atividade de cópia é configurada com um IR auto-hospedado em quatro máquinas e atinge uma taxa de transferência de 20 megabytes por segundo (MBps). (Na atividade de cópia, `parallelCopies` é definido como 4, e cada thread para carregar dados da tabela alcança uma taxa de transferência de 5 Mbps.)
 
 - A simultaneidade ForEach é definida como 3 e a taxa de transferência agregada é de 60 MBps.
 
@@ -185,7 +185,7 @@ Com base nas suposições anteriores, aqui está o preço estimado:
 ![A tabela de preços](media/data-migration-guidance-netezza-azure-sqldw/pricing-table.png)
 
 > [!NOTE]
-> O preço mostrado na tabela anterior é hipotético. Seu preço real depende da taxa de transferência real em seu ambiente. O preço do computador com Windows (com o IR hospedado automaticamente instalado) não está incluído. 
+> O preço mostrado na tabela anterior é hipotético. O preço real depende da taxa de transferência real no ambiente. O preço do computador com Windows (com o IR hospedado automaticamente instalado) não está incluído. 
 
 ### <a name="additional-references"></a>Referências adicionais
 
@@ -196,11 +196,11 @@ Para obter mais informações, consulte os seguintes artigos e guias:
 - [Conector do ODBC](https://docs.microsoft.com/azure/data-factory/connector-odbc)
 - [Conector do armazenamento de BLOBs do Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
 - [Conector do Azure Data Lake Store Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
-- [Conector de SQL Data Warehouse do Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse)
+- [Conector do SQL Data Warehouse do Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse)
 - [Guia de ajuste de desempenho da atividade de cópia](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)
 - [Criar e configurar um runtime de integração auto-hospedada](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
-- [Escalabilidade e alta disponibilidade do tempo de execução de integração auto-hospedado](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)
-- [Considerações de segurança da movimentação de dados](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)
+- [HA e escalabilidade do runtime de integração auto-hospedada](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)
+- [Considerações sobre segurança da movimentação de dados](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)
 - [Armazenar credenciais no Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)
 - [Copiar dados incrementalmente de uma tabela](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-portal)
 - [Copiar dados incrementalmente de várias tabelas](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-multiple-tables-portal)

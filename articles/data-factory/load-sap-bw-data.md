@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/22/2019
 ms.openlocfilehash: 96b23696164514ad2f16de72f0f76aa237ffce2e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81415831"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Copiar dados do SAP Business Warehouse usando Azure Data Factory
@@ -81,7 +81,7 @@ No portal do Azure, acesse seu data factory. Selecione **criar & monitor** para 
 
    ![Configurar SAP BW filtro de Hub aberto](media/load-sap-bw-data/configure-sap-bw-open-hub-filter.png)
 
-7. Na página **armazenamento de dados de destino** , selecione **+ criar nova conexão** > **Azure data Lake Storage Gen2** > **continuar**.
+7. Na página **armazenamento de dados de destino** , selecione **+ criar nova conexão**  >  **Azure data Lake Storage Gen2**  >  **continuar**.
 
 8. Na página **especificar conexão Azure data Lake Storage** , siga estas etapas para criar uma conexão.
 
@@ -165,7 +165,7 @@ Na página data factory **vamos começar** , selecione **criar pipeline do model
 
    - **HighWatermarkBlobDirectory**: especifique o caminho da pasta no contêiner para armazenar o valor de marca d' água alta.
 
-   - **HighWatermarkBlobName**: especifique o nome do blob para armazenar o valor de marca d' água `requestIdCache.txt`alta, como. No armazenamento de BLOBs, vá para o caminho correspondente de HighWatermarkBlobContainer + HighWatermarkBlobDirectory + HighWatermarkBlobName, como *container/Path/requestIdCache. txt*. Crie um blob com o conteúdo 0.
+   - **HighWatermarkBlobName**: especifique o nome do blob para armazenar o valor de marca d' água alta, como `requestIdCache.txt` . No armazenamento de BLOBs, vá para o caminho correspondente de HighWatermarkBlobContainer + HighWatermarkBlobDirectory + HighWatermarkBlobName, como *container/Path/requestIdCache.txt*. Crie um blob com o conteúdo 0.
 
       ![Conteúdo do blob](media/load-sap-bw-data/blob.png)
 
@@ -194,7 +194,7 @@ Na página data factory **vamos começar** , selecione **criar pipeline do model
 
       4. Selecione **Salvar**. Em seguida, copie o valor da **URL http post** para usar no pipeline data Factory.
 
-4. Depois de fornecer os parâmetros de pipeline data Factory, selecione **depurar** > **concluir** para invocar uma execução para validar a configuração. Ou selecione **publicar** para publicar todas as alterações e, em seguida, selecione **Adicionar gatilho** para executar uma execução.
+4. Depois de fornecer os parâmetros de pipeline data Factory, selecione **depurar**  >  **concluir** para invocar uma execução para validar a configuração. Ou selecione **publicar** para publicar todas as alterações e, em seguida, selecione **Adicionar gatilho** para executar uma execução.
 
 ## <a name="sap-bw-open-hub-destination-configurations"></a>SAP BW configurações de destino de Hub aberto
 

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
 ms.openlocfilehash: b70db03e03ce914ea1d81d94cd2803a36eccfc88
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81418211"
 ---
 # <a name="copy-data-from-impala-by-using-azure-data-factory"></a>Copiar dados do Impala usando o Azure Data Factory
@@ -28,10 +28,10 @@ Este artigo descreve como usar atividade de cópia no Azure Data Factory para co
 
 Este conector do Impala tem suporte para as seguintes atividades:
 
-- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de fonte/coletor com suporte](copy-activity-overview.md)
 - [Atividade de pesquisa](control-flow-lookup-activity.md)
 
-Você pode copiar dados do Impala para qualquer repositório de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados com suporte como fontes ou coletores pela atividade de cópia, consulte a tabela [armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats) .
+Você pode copiar dados do Impala para qualquer repositório de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados que têm suporte como fontes ou coletores da atividade de cópia, confira a tabela [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Data Factory fornece um driver interno para habilitar a conectividade. Portanto, você não precisa instalar manualmente um driver para usar esse conector.
 
@@ -55,14 +55,14 @@ As propriedades a seguir têm suporte no serviço vinculado do Impala.
 | host | O endereço IP ou nome do host do servidor Impala (que é 192.168.222.160).  | Sim |
 | porta | A porta TCP usada pelo servidor Impala para ouvir conexões de cliente. O valor padrão é 21050.  | Não |
 | authenticationType | O tipo de autenticação a ser usado. <br/>Valores permitidos são: **Anônimo**, **SASLUsername** e **UsernameAndPassword**. | Sim |
-| username | O nome de usuário usado para acessar o servidor Impala. O valor padrão é anônimo quando você usa SASLUsername.  | Não |
-| password | A senha que corresponde ao nome de usuário quando você usa UsernameAndPassword. Marque esse campo como SecureString para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | Não |
+| Nome de Usuário | O nome de usuário usado para acessar o servidor Impala. O valor padrão é anônimo quando você usa SASLUsername.  | Não |
+| password | A senha que corresponde ao nome de usuário quando você usa UsernameAndPassword. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
 | enableSsl | Especifica se as conexões com o servidor são criptografadas usando TLS. O valor padrão é **false**.  | Não |
 | trustedCertPath | O caminho completo do arquivo. pem que contém certificados de AC confiáveis usados para verificar o servidor quando você se conecta por TLS. Essa propriedade só pode ser definida quando você usa o TLS em Integration Runtime hospedados internamente. O valor padrão é o arquivo de cacerts.pem instalado com o runtime de integração.  | Não |
 | useSystemTrustStore | Especifica se deve usar um certificado de autoridade de certificação do repositório de confiança de sistema ou de um arquivo PEM especificado. O valor padrão é **false**.  | Não |
 | allowHostNameCNMismatch | Especifica se deve ser necessário um nome de certificado TLS/SSL emitido pela autoridade de certificação para corresponder ao nome de host do servidor quando você se conectar por TLS. O valor padrão é **false**.  | Não |
 | allowSelfSignedServerCert | Especifica se deve permitir os certificados autoassinados do servidor. O valor padrão é **false**.  | Não |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não |
+| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção [Pré-requisitos](#prerequisites). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não |
 
 **Exemplo:**
 
@@ -100,7 +100,7 @@ Para copiar dados do Impala, defina a propriedade type do conjunto de dados como
 | type | A propriedade Type do conjunto de conjuntos deve ser definida como: **apacheimpalaobject** | Sim |
 | esquema | Nome do esquema. |Não (se "query" na fonte da atividade for especificada)  |
 | tabela | Nome da tabela. |Não (se "query" na fonte da atividade for especificada)  |
-| tableName | Nome da tabela com esquema. Essa propriedade tem suporte para compatibilidade com versões anteriores. Use `schema` e `table` para uma nova carga de trabalho. | Não (se "query" na fonte da atividade for especificada) |
+| tableName | Nome da tabela com esquema. Essa propriedade é compatível com versões anteriores. Use `schema` e `table` para uma nova carga de trabalho. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**
 
@@ -164,9 +164,9 @@ Para copiar dados do Impala, defina o tipo de fonte na atividade de cópia como 
 ]
 ```
 
-## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+## <a name="lookup-activity-properties"></a>Pesquisar propriedades de atividade
 
-Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+Para saber detalhes sobre as propriedades, verifique [Pesquisar atividade](control-flow-lookup-activity.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas

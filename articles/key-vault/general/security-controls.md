@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
 ms.openlocfilehash: cd6602f68b63e2c236e7f3905d33b88fbda36ed2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81429857"
 ---
 # <a name="security-controls-for-azure-key-vault"></a>Controles de segurança para Azure Key Vault
@@ -23,7 +23,7 @@ Este artigo documenta os controles de segurança internos do Azure Key Vault.
 
 ## <a name="network"></a>Rede
 
-| Controle de segurança | Sim/Não | Anotações |
+| Controle de segurança | Sim/Não | Observações |
 |---|---|--|
 | Suporte ao ponto de extremidade de serviço| Sim | Usando pontos de extremidade de serviço de rede virtual (VNet). |
 | Suporte à injeção de VNet| Não |  |
@@ -32,7 +32,7 @@ Este artigo documenta os controles de segurança internos do Azure Key Vault.
 
 ## <a name="monitoring--logging"></a>Monitorando & log
 
-| Controle de segurança | Sim/Não | Anotações|
+| Controle de segurança | Sim/Não | Observações|
 |---|---|--|
 | Suporte ao monitoramento do Azure (log Analytics, app insights, etc.)| Sim | Usando o Log Analytics. |
 | Registro em log e auditoria de plano de controle/gerenciamento| Sim | Usando o Log Analytics. |
@@ -40,14 +40,14 @@ Este artigo documenta os controles de segurança internos do Azure Key Vault.
 
 ## <a name="identity"></a>Identidade
 
-| Controle de segurança | Sim/Não | Anotações|
+| Controle de segurança | Sim/Não | Observações|
 |---|---|--|
 | Autenticação| Sim | A autenticação é feita pelo Azure Active Directory. |
 | Autorização| Sim | Usando a política de acesso ao Key Vault. |
 
 ## <a name="data-protection"></a>Proteção de dados
 
-| Controle de segurança | Sim/Não | Anotações |
+| Controle de segurança | Sim/Não | Observações |
 |---|---|--|
 | Criptografia no lado do servidor em repouso: chaves gerenciadas pela Microsoft | Sim | Todos os objetos são criptografados. |
 | Criptografia no lado do servidor em repouso: chaves gerenciadas pelo cliente (BYOK) | Sim | O cliente controla todas as chaves em seu Key Vault. Quando as chaves com suporte ao módulo de segurança de hardware (HSM) são especificadas, um HSM de nível 2 do FIPS protege a chave, o certificado ou o segredo. |
@@ -57,7 +57,7 @@ Este artigo documenta os controles de segurança internos do Azure Key Vault.
 
 ## <a name="access-controls"></a>Controles de acesso
 
-| Controle de segurança | Sim/Não | Anotações|
+| Controle de segurança | Sim/Não | Observações|
 |---|---|--|
 | Controles de acesso do plano de controle/gerenciamento | Sim | RBAC (Controle de Acesso Baseado em Função) do Azure Resource Manager |
 | Controles de acesso do plano de dados (em cada nível de serviço) | Sim | Política de acesso ao Key Vault |

@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 0bef6b5e87e7f0964989db371014c305b97f1d12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81419299"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Carregar 1 TB no SQL Data Warehouse do Azure em menos de 15 minutos com o Data Factory
@@ -29,7 +29,7 @@ O [Azure SQL data warehouse](../../synapse-analytics/sql-data-warehouse/sql-data
 A introdução ao Azure SQL Data Warehouse agora é mais fácil do que nunca, usando o **Azure Data Factory**.  O Azure Data Factory é um serviço de integração de dados baseado em nuvem totalmente gerenciado, que pode ser usado para popular um SQL Data Warehouse com os dados de seu sistema existente e economizar tempo valioso ao avaliar o SQL Data Warehouse e criar suas soluções de análise. Aqui estão os principais benefícios de carregar dados no Azure SQL Data Warehouse usando o Azure Data Factory:
 
 * **Fácil de configurar**: assistente intuitivo de 5 etapas sem nenhum script necessário.
-* **Suporte de armazenamento de dados avançados**: suporte interno para um conjunto avançado de armazenamentos de dados locais e baseados em nuvem.
+* **Suporte a armazenamento de dados avançado**: suporte interno para um conjunto avançado de armazenamentos de dados locais e baseados em nuvem.
 * **Seguro e compatível**: os dados são transferidos por HTTPS ou ExpressRoute e a presença global do serviço garante que os dados nunca saiam do limite geográfico
 * **Desempenho incomparável usando PolyBase** – usar o Polybase é a maneira mais eficiente para mover dados para o SQL Data Warehouse. Usando o recurso de blob de preparo, você pode obter velocidades de alta carga de todos os tipos de armazenamentos de dados além do Armazenamento de Blobs do Azure, ao qual o Polybase dá suporte por padrão.
 
@@ -124,7 +124,7 @@ Este artigo fornece instruções passo a passo para mover dados no Azure SQL Dat
    4. Selecione um **local** para o data factory.
    5. Marque a caixa de seleção **Fixar no painel** na parte inferior da folha.  
    6. Clique em **Criar**.
-4. Depois que a criação for concluída, você verá a folha **Data Factory** , conforme mostrado na imagem a seguir:
+4. Depois que a criação for concluída, você verá a folha **Data Factory**, conforme mostrado na seguinte imagem:
 
    ![Página inicial do data factory](media/data-factory-load-sql-data-warehouse/data-factory-home-page-copy-data.png)
 5. Na home page do Data Factory, clique no bloco **Copiar dados** para iniciar o **Assistente de Cópia**.

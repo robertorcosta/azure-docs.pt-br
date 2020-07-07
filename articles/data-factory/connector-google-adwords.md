@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/25/2019
 ms.openlocfilehash: 79e277cb3d512ee17da866a61e9d6d66a50cd902
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81415016"
 ---
 # <a name="copy-data-from-google-adwords-using-azure-data-factory"></a>Copiar dados do Google AdWords usando o Azure Data Factory
@@ -29,7 +29,7 @@ Este artigo descreve como usar a atividade de cópia no Azure Data Factory para 
 
 Este conector do Google AdWords tem suporte para as seguintes atividades:
 
-- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de fonte/coletor com suporte](copy-activity-overview.md)
 - [Atividade de pesquisa](control-flow-lookup-activity.md)
 
 
@@ -99,7 +99,7 @@ As propriedades a seguir são compatíveis com o serviço vinculado do Google Ad
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de os, consulte o artigo [conjuntos de valores](concepts-datasets-linked-services.md) . Esta seção fornece uma lista das propriedades compatíveis com o conjunto de dados do Google AdWords.
+Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [conjuntos de dados](concepts-datasets-linked-services.md). Esta seção fornece uma lista das propriedades compatíveis com o conjunto de dados do Google AdWords.
 
 Para copiar dados do Google AdWords, defina a propriedade type do conjunto de dados para **GoogleAdWordsObject**. Há suporte para as seguintes propriedades:
 
@@ -132,7 +132,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 ### <a name="google-adwords-as-source"></a>Google AdWords como origem
 
-Para copiar dados do Google AdWords, defina o tipo de origem na atividade de cópia como **GoogleAdWordsSource**. As propriedades a seguir têm suporte na seção **origem** da atividade de cópia:
+Para copiar dados do Google AdWords, defina o tipo de origem na atividade de cópia como **GoogleAdWordsSource**. As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
@@ -171,9 +171,9 @@ Para copiar dados do Google AdWords, defina o tipo de origem na atividade de có
 ]
 ```
 
-## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+## <a name="lookup-activity-properties"></a>Pesquisar propriedades de atividade
 
-Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+Para saber detalhes sobre as propriedades, verifique [Pesquisar atividade](control-flow-lookup-activity.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas

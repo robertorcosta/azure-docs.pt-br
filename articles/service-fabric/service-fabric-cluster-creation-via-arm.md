@@ -4,10 +4,10 @@ description: Saiba como configurar um cluster do Service Fabric seguro no Azure 
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.openlocfilehash: 24bc80a7ab3ce61b79466cdd943c60efd367ce01
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81458293"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Criar um cluster do Service Fabric usando o Azure Resource Manager 
@@ -63,7 +63,7 @@ O modelo usado está disponível nos [exemplos de modelo do Service Fabric do Az
 O comando a seguir pode criar qualquer um dos clusters Windows ou Linux, você precisa especificar o sistema operacional adequadamente. Os comandos do PowerShell / CLI também exibem o certificado no *CertificateOutputFolder* especificado; no entanto, verifique se a pasta de certificados já foi criada. O comando aceita outros parâmetros, como VM SKU.
 
 > [!NOTE]
-> O comando do PowerShell a seguir funciona apenas com `Az` o módulo Azure PowerShell. Para verificar a versão atual do Azure Resource Manager versão do PowerShell, execute o seguinte comando do PowerShell "Get-Module AZ". Siga [este link](/powershell/azure/install-Az-ps) para atualizar sua versão do PowerShell do Azure Resource Manager. 
+> O comando do PowerShell a seguir funciona apenas com o `Az` módulo Azure PowerShell. Para verificar a versão atual do Azure Resource Manager versão do PowerShell, execute o seguinte comando do PowerShell "Get-Module AZ". Siga [este link](/powershell/azure/install-Az-ps) para atualizar sua versão do PowerShell do Azure Resource Manager. 
 >
 >
 

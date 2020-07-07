@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.openlocfilehash: 3a073c9539f2fb996ae59ef513525c217170f2e7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81428648"
 ---
 # <a name="t-sql-views-using-synapse-sql"></a>Exibições T-SQL usando Synapse SQL
@@ -79,7 +79,7 @@ Exibições em Synapse SQL são armazenadas somente como metadados. Consequentem
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais dicas de desenvolvimento, consulte [visão geral do desenvolvimento do SQL Synapse](develop-overview.md).
+Para obter mais dicas de desenvolvimento, consulte [Visão geral de desenvolvimento do SQL do Synapse](develop-overview.md).
 
 
 

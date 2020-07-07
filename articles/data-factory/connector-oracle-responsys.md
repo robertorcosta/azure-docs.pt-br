@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
 ms.openlocfilehash: cde0e2d118490801aeee3874e220d298fea24598
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81416850"
 ---
 # <a name="copy-data-from-oracle-responsys-using-azure-data-factory-preview"></a>Copiar dados do Oracle Responsys usando o Azure Data Factory (Visualização)
@@ -30,7 +30,7 @@ Este artigo descreve como usar a atividade de cópia no Azure Data Factory para 
 
 Este conector do Oracle Responsys tem suporte para as seguintes atividades:
 
-- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de fonte/coletor com suporte](copy-activity-overview.md)
 - [Atividade de pesquisa](control-flow-lookup-activity.md)
 
 Você pode copiar dados de Oracle Responsys em qualquer armazenamento de dados do coletor com suporte. Para obter uma lista de armazenamentos de dados com suporte como origens/coletores da atividade de cópia, confira a tabela [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -82,7 +82,7 @@ As propriedades a seguir têm suporte para o serviço Oracle Responsys vinculado
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de os, consulte o artigo [conjuntos de valores](concepts-datasets-linked-services.md) . Esta seção fornece uma lista de propriedades com suporte do conjunto de dados Oracle Responsys.
+Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [conjuntos de dados](concepts-datasets-linked-services.md). Esta seção fornece uma lista de propriedades com suporte do conjunto de dados Oracle Responsys.
 
 Para copiar dados de Oracle Responsys, defina a propriedade type do conjunto de dados para **ResponsysObject**. Há suporte para as seguintes propriedades:
 
@@ -115,7 +115,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 ### <a name="oracle-responsys-as-source"></a>Oracle Responsys como fonte
 
-Para copiar dados de Oracle Responsys, defina o tipo de fonte na atividade de cópia para **ResponsysSource**. As propriedades a seguir têm suporte na seção **origem** da atividade de cópia:
+Para copiar dados de Oracle Responsys, defina o tipo de fonte na atividade de cópia para **ResponsysSource**. As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
@@ -154,9 +154,9 @@ Para copiar dados de Oracle Responsys, defina o tipo de fonte na atividade de c�
 ]
 ```
 
-## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+## <a name="lookup-activity-properties"></a>Pesquisar propriedades de atividade
 
-Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+Para saber detalhes sobre as propriedades, verifique [Pesquisar atividade](control-flow-lookup-activity.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas

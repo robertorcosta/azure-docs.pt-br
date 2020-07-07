@@ -11,10 +11,10 @@ ms.workload: big-data
 ms.date: 04/15/2020
 ms.custom: seodec18
 ms.openlocfilehash: 10616c8003d9bbbe42cb70bd1bac4193044907c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81416988"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Compartilhar uma exibição personalizada usando uma URL parametrizada
@@ -29,7 +29,7 @@ O Time Series Insights Explorer dá suporte a parâmetros de consulta de URL par
 
 ## <a name="environment-id"></a>ID do Ambiente
 
-O parâmetro `environmentId=<guid>` especifica a ID do ambiente de destino. É um componente do FQDN de acesso a dados, e você pode encontrá-lo no canto superior direito da visão geral do ambiente na portal do Azure. É tudo o que precede `env.timeseries.azure.com`.
+O parâmetro `environmentId=<guid>` especifica a ID do ambiente de destino. É um componente do FQDN de acesso a dados, e você pode encontrá-lo no canto superior direito da visão geral do ambiente na portal do Azure. É tudo o que precede `env.timeseries.azure.com` .
 
 Um parâmetro de ID do ambiente de exemplo é `?environmentId=10000000-0000-0000-0000-100000000108`.
 
@@ -49,7 +49,7 @@ Para valores de tempo absolutos, use os parâmetros `from=<integer>` e `to=<inte
 
 ### <a name="relative-time-values"></a>Valores de tempo relativos
 
-Para um valor de tempo relativo, `relativeMillis=<value>`use, em que o *valor* está em milissegundos de JavaScript do carimbo de data/hora mais recente recebido da API.
+Para um valor de tempo relativo, use `relativeMillis=<value>` , em que o *valor* está em milissegundos de JavaScript do carimbo de data/hora mais recente recebido da API.
 
 Por exemplo, `&relativeMillis=3600000` exibe os 60 minutos mais recentes dos dados.
 
@@ -87,9 +87,9 @@ O `timeSeriesDefinitions=<collection of term objects>` parâmetro especifica os 
 
 | Par (es) | Descrição |
 | --- | --- |
-| `multiChartStack=false` | `true`é habilitado por padrão, portanto `false` passe para Stack. |
-| `multiChartStack=false&multiChartSameScale=true` | O empilhamento deve estar habilitado para usar a mesma escala de eixo Y entre os termos.  `false` Por padrão, a passagem `true` habilita essa funcionalidade. |
-| `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | Unidades = `days`, `hours`, `minutes`, `seconds`, `milliseconds`.  Sempre colocar em maiuscula a unidade. </br> Defina o número de unidades passando o inteiro desejado para **timeBucketSize**.  |
+| `multiChartStack=false` | `true`é habilitado por padrão, portanto passe `false` para Stack. |
+| `multiChartStack=false&multiChartSameScale=true` | O empilhamento deve estar habilitado para usar a mesma escala de eixo Y entre os termos.  `false`Por padrão, `true` a passagem habilita essa funcionalidade. |
+| `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | Unidades = `days` , `hours` , `minutes` , `seconds` , `milliseconds` .  Sempre colocar em maiuscula a unidade. </br> Defina o número de unidades passando o inteiro desejado para **timeBucketSize**.  |
 | `timezoneOffset=-<integer>` | O inteiro é sempre em milissegundos. |
 
 > [!NOTE]

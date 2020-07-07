@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 01/08/2020
 ms.author: jingwang
 ms.openlocfilehash: 2d60a1b03da6fdf4af6b0d0378456c08d927f451
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81415216"
 ---
 # <a name="copy-data-from-hubspot-using-azure-data-factory-preview"></a>Copiar dados de HubSpot utilizando o Azure Data Factory (versão prévia)
@@ -30,7 +30,7 @@ Este artigo descreve como usar a atividade de cópia no Azure Data Factory para 
 
 Este conector do HubSpot tem suporte para as seguintes atividades:
 
-- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de fonte/coletor com suporte](copy-activity-overview.md)
 - [Atividade de pesquisa](control-flow-lookup-activity.md)
 
 
@@ -52,9 +52,9 @@ As propriedades a seguir têm suporte para o serviço vinculado de HubSpot:
 |:--- |:--- |:--- |
 | type | A propriedade type deve ser definida como: **HubSpot** | Sim |
 | clientId | A ID do cliente associada ao aplicativo HubSpot. Saiba como criar um aplicativo no HubSpot [aqui](https://developers.hubspot.com/docs/faq/how-do-i-create-an-app-in-hubspot). | Sim |
-| clientSecret | O segredo do cliente associado ao seu aplicativo HubSpot. Marque esse campo como SecureString para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | Sim |
-| accessToken | O token de acesso obtido ao autenticar inicialmente sua integração do OAuth. Saiba como obter o token de acesso com a ID e o segredo do cliente [aqui](https://developers.hubspot.com/docs/methods/oauth2/get-access-and-refresh-tokens). Marque esse campo como SecureString para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | Sim |
-| refreshToken | O token de atualização obtido ao autenticar inicialmente sua integração do OAuth. Marque esse campo como SecureString para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | Sim |
+| clientSecret | O segredo do cliente associado ao seu aplicativo HubSpot. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| accessToken | O token de acesso obtido ao autenticar inicialmente sua integração do OAuth. Saiba como obter o token de acesso com a ID e o segredo do cliente [aqui](https://developers.hubspot.com/docs/methods/oauth2/get-access-and-refresh-tokens). Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| refreshToken | O token de atualização obtido ao autenticar inicialmente sua integração do OAuth. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | useEncryptedEndpoints | Especifica se os endpoints de fonte de dados são criptografados usando HTTPS. O valor padrão é verdadeiro.  | Não |
 | useHostVerification | Especifica se deve ser necessário o nome do host no certificado do servidor para corresponder ao nome do host do servidor ao se conectar via TLS. O valor padrão é verdadeiro.  | Não |
 | usePeerVerification | Especifica se a identidade do servidor deve ser verificada ao se conectar via TLS. O valor padrão é verdadeiro.  | Não |
@@ -87,7 +87,7 @@ As propriedades a seguir têm suporte para o serviço vinculado de HubSpot:
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de os, consulte o artigo [conjuntos de valores](concepts-datasets-linked-services.md) . Esta seção fornece uma lista das propriedades com suporte pelo conjunto de dados de HubSpot.
+Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [conjuntos de dados](concepts-datasets-linked-services.md). Esta seção fornece uma lista das propriedades com suporte pelo conjunto de dados de HubSpot.
 
 Para copiar dados de HubSpot, defina a propriedade type do conjunto de dados como **HubspotObject**. Há suporte para as seguintes propriedades:
 
@@ -119,7 +119,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 ### <a name="hubspotsource-as-source"></a>HubspotSource como fonte
 
-Para copiar dados de HubSpot, defina o tipo de fonte na atividade de cópia como **HubspotSource**. As propriedades a seguir têm suporte na seção **origem** da atividade de cópia:
+Para copiar dados de HubSpot, defina o tipo de fonte na atividade de cópia como **HubspotSource**. As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
@@ -158,9 +158,9 @@ Para copiar dados de HubSpot, defina o tipo de fonte na atividade de cópia como
 ]
 ```
 
-## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+## <a name="lookup-activity-properties"></a>Pesquisar propriedades de atividade
 
-Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+Para saber detalhes sobre as propriedades, verifique [Pesquisar atividade](control-flow-lookup-activity.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas

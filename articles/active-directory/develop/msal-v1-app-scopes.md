@@ -13,10 +13,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 61d07c1ba912a0e24b2f4e5fa67243b4525db367
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81536175"
 ---
 # <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>Escopos para uma API Web aceitando tokens v 1.0
@@ -25,7 +25,7 @@ As permissões OAuth2 são escopos de permissão que um Azure Active Directory (
 
 ## <a name="scopes-to-request-access-to-specific-oauth2-permissions-of-a-v10-application"></a>Escopos para solicitar acesso a permissões específicas do OAuth2 de um aplicativo v1.0
 
-Para adquirir tokens para escopos específicos de um aplicativo v 1.0 (por exemplo, a API Microsoft Graph https://graph.microsoft.com), que é, crie escopos concatenando um identificador de recurso desejado com uma permissão OAuth2 desejada para esse recurso.
+Para adquirir tokens para escopos específicos de um aplicativo v 1.0 (por exemplo, a API Microsoft Graph, que é https://graph.microsoft.com) , crie escopos concatenando um identificador de recurso desejado com uma permissão OAuth2 desejada para esse recurso.
 
 Por exemplo, para acessar em nome do usuário uma API Web v 1.0 em que o URI da ID do aplicativo é `ResourceId`:
 
@@ -37,7 +37,7 @@ var scopes = new [] {  ResourceId+"/user_impersonation"};
 var scopes = [ ResourceId + "/user_impersonation"];
 ```
 
-Para ler e gravar com o MSAL.NET Azure AD usando a API de Microsoft Graph (\/https:/Graph.Microsoft.com/), você precisa criar uma lista de escopos, conforme mostrado nos exemplos a seguir:
+Para ler e gravar com o MSAL.NET Azure AD usando a API de Microsoft Graph (https: \/ /Graph.Microsoft.com/), você precisa criar uma lista de escopos, conforme mostrado nos exemplos a seguir:
 
 ```csharp
 string ResourceId = "https://graph.microsoft.com/";
@@ -49,7 +49,7 @@ var ResourceId = "https://graph.microsoft.com/";
 var scopes = [ ResourceId + "Directory.Read", ResourceID + "Directory.Write"];
 ```
 
-Para gravar o escopo correspondente à API de Azure Resource Manager (https:\//Management.Core.Windows.net/), você precisa solicitar o seguinte escopo (Observe as duas barras):
+Para gravar o escopo correspondente à API de Azure Resource Manager (https: \/ /Management.Core.Windows.net/), você precisa solicitar o seguinte escopo (Observe as duas barras):
 
 ```csharp
 var scopes = new[] {"https://management.core.windows.net//user_impersonation"};
@@ -65,7 +65,7 @@ A lógica usada pelo Azure AD é a seguinte:
 
 - Para o ponto de extremidade ADAL (Azure AD v 1.0) com um token de acesso v 1.0 (o único possível), AUD = recurso
 - Para o ponto de extremidade do MSAL (plataforma Microsoft Identity (v 2.0)), solicite um token de acesso para um recurso que aceita tokens v 2.0,`aud=resource.AppId`
-- Para MSAL (ponto de extremidade v 2.0) que solicita um token de acesso para um recurso que aceita um token de acesso v 1.0 (que é o caso acima), o Azure AD analisa o público-alvo desejado do escopo solicitado, levando tudo antes da última barra e usando-o como o identificador de recurso. Portanto, se https:\//Database.Windows.net espera um público de "https:\//Database.Windows.net/", você precisará solicitar um escopo de "https:\//Database.Windows.net//.default". Veja também o problema [do GitHub #747: a barra à direita da URL do recurso é omitida, o que causou uma falha de autenticação do SQL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
+- Para MSAL (ponto de extremidade v 2.0) que solicita um token de acesso para um recurso que aceita um token de acesso v 1.0 (que é o caso acima), o Azure AD analisa o público-alvo desejado do escopo solicitado, levando tudo antes da última barra e usando-o como o identificador de recurso. Portanto, se https: \/ /Database.Windows.net espera um público de "https: \/ /Database.Windows.net/", você precisará solicitar um escopo de "https: \/ /Database.Windows.net//.default". Veja também o problema [do GitHub #747: a barra à direita da URL do recurso é omitida, o que causou uma falha de autenticação do SQL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
 
 ## <a name="scopes-to-request-access-to-all-the-permissions-of-a-v10-application"></a>Escopos para solicitar acesso a todas as permissões de um aplicativo v1.0
 

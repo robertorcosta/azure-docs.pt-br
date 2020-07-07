@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 7/30/2019
 ms.openlocfilehash: 4408546c892299e5bbbc22b00a4b334c36eda616
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81416440"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-your-data-lake-or-data-warehouse-to-azure"></a>Use Azure Data Factory para migrar dados de seu data Lake ou data warehouse para o Azure
@@ -52,7 +52,7 @@ Há três considerações importantes quando você escolhe entre uma abordagem d
 
 Por exemplo, suponha que você planeje usar Azure Data Factory para concluir a migração de dados dentro de duas semanas (a *janela de migração*). Observe a linha de corte rosa/azul na tabela a seguir. A célula rosa mais baixa para qualquer coluna especificada mostra o emparelhamento de tamanho de dados/largura de banda de rede cuja janela de migração está mais próxima que, porém, menos de duas semanas. (Qualquer emparelhamento de tamanho/largura de banda em uma célula azul tem uma janela de migração online de mais de duas semanas.) 
 
-![Online vs. offline](media/data-migration-guidance-overview/online-offline.png) esta tabela ajuda a determinar se você pode atender à sua janela de migração pretendida por meio da migração online (Azure data Factory) com base no tamanho dos seus dados e na largura de banda de rede disponível. Se a janela de migração online tiver mais de duas semanas, você desejará usar a migração offline.
+![Online vs. offline ](media/data-migration-guidance-overview/online-offline.png) esta tabela ajuda a determinar se você pode atender à sua janela de migração pretendida por meio da migração online (Azure data Factory) com base no tamanho dos seus dados e na largura de banda de rede disponível. Se a janela de migração online tiver mais de duas semanas, você desejará usar a migração offline.
 
 > [!NOTE]
 > Usando a migração online, você pode obter o carregamento de dados históricos e os feeds incrementais de ponta a ponta por meio de uma única ferramenta.  Por meio dessa abordagem, os dados podem ser mantidos sincronizados entre o repositório existente e o novo repositório durante toda a janela de migração. Isso significa que você pode recriar sua lógica de ETL na nova loja com dados atualizados.

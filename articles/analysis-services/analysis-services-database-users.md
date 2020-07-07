@@ -8,10 +8,10 @@ ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: b7e3cc2b9d35eafcb875efa167821a8e9ad80146
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81454196"
 ---
 # <a name="manage-database-roles-and-users"></a>Gerenciar usuários e funções de banco de dados
@@ -27,7 +27,7 @@ As permissões de função incluem:
 
 Ao criar um projeto de modelo de tabela, você cria funções e adiciona usuários ou grupos a essas funções usando o Gerenciador de funções no Visual Studio com projetos Analysis Services. Quando implantado em um servidor, use SQL Server Management Studio (SSMS), [Analysis Services cmdlets do PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference)ou TMSL ( [linguagem de script de modelo de tabela](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) ) para adicionar ou remover funções e membros do usuário.
 
-Ao adicionar um **grupo de segurança**, `obj:groupid@tenantid`use.
+Ao adicionar um **grupo de segurança**, use `obj:groupid@tenantid` .
 
 ## <a name="to-add-or-manage-roles-and-users-in-visual-studio"></a>Para adicionar ou gerenciar funções e usuários no Visual Studio  
   
@@ -43,15 +43,15 @@ Ao adicionar um **grupo de segurança**, `obj:groupid@tenantid`use.
   
     |Permissão|Descrição|  
     |----------------|-----------------|  
-    |**Nenhum**|Os membros não podem ler ou modificar o esquema de modelo e não podem consultar dados.|  
+    |**Nenhuma**|Os membros não podem ler ou modificar o esquema de modelo e não podem consultar dados.|  
     |**Ler**|Os membros podem consultar dados (com base em filtros de linha), mas não podem modificar o esquema de modelo.|  
     |**Leitura e processo**|Os membros podem consultar dados (com base em filtros de nível de linha) e executar as operações Processar e Processar Tudo, mas não podem modificar o esquema de modelo.|  
     |**Processo**|Membros podem executar operações de Processar e Processar Tudo. Não é possível ler ou modificar o esquema de modelo e não é possível consultar dados.|  
-    |**Administradores**|Os membros podem modificar o esquema de modelo e consultar todos os dados.|   
+    |**Administrador**|Os membros podem modificar o esquema de modelo e consultar todos os dados.|   
   
 5.  Se a função que você está criando tem a permissão Ler ou Ler e Processar, é possível adicionar filtros de linha usando uma fórmula DAX. Clique na guia **Filtros de Linha**, selecione uma tabela, clique no campo **Filtro DAX** e digite uma fórmula DAX.
   
-6.  Clique em **Membros** > **Adicionar externo**.  
+6.  Clique em **Membros**  >  **Adicionar externo**.  
   
 8.  Em **Adicionar Membro Externo**, insira usuários ou grupos no seu locatário do Azure AD pelo endereço de email. Depois que você clicar em OK e fechar o Gerenciador de Funções, as funções e membros da função aparecem no Gerenciador de Modelos Tabular. 
  
@@ -64,7 +64,7 @@ Ao adicionar um **grupo de segurança**, `obj:groupid@tenantid`use.
 
 Para adicionar funções e usuários a um modelo de banco de dados implantado, você deve estar conectado ao servidor como Administrador do servidor ou já estar em uma função de banco de dados com permissões de administrador.
 
-1. Em objeto explorador, clique com o botão direito do mouse em **funções** > **nova função**.
+1. Em objeto explorador, clique com o botão direito do mouse em **funções**  >  **nova função**.
 
 2. Em **Criar Função**, insira um nome de função e uma descrição.
 

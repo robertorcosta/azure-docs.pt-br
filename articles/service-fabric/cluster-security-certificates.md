@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.custom: sfrev
 ms.openlocfilehash: 699015e322c599dea996b3a8b9dbc0a4589440ab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81429662"
 ---
 # <a name="x509-certificate-based-authentication-in-service-fabric-clusters"></a>Autenticação baseada em certificado X. 509 em clusters Service Fabric
@@ -106,8 +106,8 @@ Primeiro, vamos considerar um trecho de um manifesto de cluster que exemplifica 
 ```
 As declarações referem-se às identidades do servidor e do cluster, respectivamente; Observe que as declarações baseadas em CN têm suas próprias seções no manifesto do cluster, separadas da ' segurança ' padrão. Em ambas as declarações, o ' nome ' representa o nome comum da entidade diferenciada do certificado e o campo ' valor ' representa o emissor esperado, da seguinte maneira:
 
-- no primeiro caso, a declaração declara que o elemento de nome comum do assunto distinto do certificado do servidor deve corresponder à cadeia de caracteres "Server. demo. System. onfabric. Azure-int"; o campo "valor" vazio denota a expectativa de que a raiz da cadeia de certificados é confiável no nó/computador em que o certificado do servidor está sendo validado; no Windows, isso significa que o certificado pode se encadear a qualquer um dos certificados instalados no repositório "AC raiz confiável";
-- no segundo caso, a declaração declara que o apresentador de um certificado é aceito como um nó par no cluster se o nome comum do certificado corresponder à cadeia de caracteres "cluster. demo. System. Service. Azure-int", *e* a impressão digital do emissor direto do certificado corresponder a uma das entradas separadas por vírgula no campo ' valor '. (Esse tipo de regra é coloquialmente conhecido como ' nome comum com fixação do emissor '.)
+- no primeiro caso, a declaração declara que o elemento de nome comum do assunto diferenciado do certificado do servidor deve corresponder à cadeia de caracteres "server.demo.system. Service Fabric. Azure-int"; o campo "valor" vazio denota a expectativa de que a raiz da cadeia de certificados é confiável no nó/computador em que o certificado do servidor está sendo validado; no Windows, isso significa que o certificado pode se encadear a qualquer um dos certificados instalados no repositório "AC raiz confiável";
+- no segundo caso, a declaração declara que o apresentador de um certificado é aceito como um nó par no cluster se o nome comum do certificado corresponder à cadeia de caracteres "cluster.demo.system. Service Fabric. Azure-int", *e* a impressão digital do emissor direto do certificado corresponder a uma das entradas separadas por vírgula no campo ' valor '. (Esse tipo de regra é coloquialmente conhecido como ' nome comum com fixação do emissor '.)
 
 Em ambos os casos, a cadeia do certificado é criada e deve ser livre de erros; ou seja, erros de revogação, cadeia parcial ou tempo-erros de confiança inválidos são considerados fatais e a validação do certificado falhará. Fixar os emissores resultará na consideração do status ' raiz não confiável ' como um erro não fatal; Apesar das aparências, essa é uma forma mais estrita de validação, pois permite que o proprietário do cluster restrinja o conjunto de emissores autorizados/aceitos para sua própria PKI.
 
@@ -156,7 +156,7 @@ Vamos considerar o seguinte trecho de um manifesto de cluster:
     </NodeType>
   </NodeTypes>
 ```
-O elemento ' ClusterCertificate ' demonstra o esquema completo, incluindo parâmetros opcionais (' X509FindValueSecondary ') ou aqueles com padrões apropriados (' X509StoreName '); as outras declarações mostram uma forma abreviada. A declaração de certificado de cluster acima declara que as configurações de segurança de nós do tipo ' nt1vm ' são inicializadas com o certificado ' cc71.. 1984 ' como o primário e o ' 49e2.. 19d6 ' certificado como secundário; Espera-se que os dois certificados sejam encontrados no\'repositório de certificados LocalMachine My (ou no caminho equivalente do Linux, *var/lib/sfcerts*).
+O elemento ' ClusterCertificate ' demonstra o esquema completo, incluindo parâmetros opcionais (' X509FindValueSecondary ') ou aqueles com padrões apropriados (' X509StoreName '); as outras declarações mostram uma forma abreviada. A declaração de certificado de cluster acima declara que as configurações de segurança de nós do tipo ' nt1vm ' são inicializadas com o certificado ' cc71.. 1984 ' como o primário e o ' 49e2.. 19d6 ' certificado como secundário; Espera-se que os dois certificados sejam encontrados no \' repositório de certificados LocalMachine My (ou no caminho equivalente do Linux, *var/lib/sfcerts*).
 
 #### <a name="common-name-based-certificate-presentation-declarations"></a>Declarações de apresentação de certificado com base no nome comum
 Os certificados de tipo de nó também podem ser declarados pelo nome comum da entidade, como exemplificado abaixo:
@@ -210,7 +210,7 @@ Conforme mencionado, a validação de certificado sempre implica na criação e 
   * AcceptExpiredPinnedClusterCertificate – discutido na seção dedicada à validação de certificado baseada em impressão digital; permite aceitar certificados de cluster autoassinados expirados. 
   * CertificateExpirySafetyMargin-Interval, expresso em minutos antes do carimbo de data/hora de não após do certificado, e durante o qual o certificado é considerado em risco de expiração. Service Fabric monitora certificados de cluster e emite periodicamente relatórios de integridade sobre a disponibilidade restante. Dentro do intervalo de ' segurança ', esses relatórios de integridade são elevados para o status ' aviso '. O valor padrão é 30 dias.
   * CertificateHealthReportingInterval-controla a frequência de relatórios de integridade referentes à validade de tempo restante dos certificados de cluster. Os relatórios só serão emitidos uma vez a cada intervalo. O valor é expresso em segundos, com um padrão de 8 horas.
-  * EnforcePrevalidationOnSecurityChanges-booliano, controla o comportamento da atualização do cluster na detecção de alterações de configurações de segurança. Se definido como ' true ', a atualização do cluster tentará garantir que pelo menos um dos certificados correspondentes a qualquer uma das regras de apresentação possa passar uma regra de validação correspondente. A pré-validação é executada antes que as novas configurações sejam aplicadas a qualquer nó, mas são executadas somente no nó que hospeda a réplica primária do serviço do Gerenciador de cluster no momento da inicialização da atualização. No momento da redação deste artigo, a configuração tem um padrão de ' false ' e será definida como ' true ' para novos clusters de Service Fabric do Azure com uma versão de tempo de execução começando com 7,1.
+  * EnforcePrevalidationOnSecurityChanges-booliano, controla o comportamento da atualização do cluster na detecção de alterações de configurações de segurança. Se definido como 'true', a atualização do cluster tentará fazer com que pelo menos um dos certificados que correspondem a uma das regras de apresentação possa transmitir uma regra de validação correspondente. A pré-validação é executada antes que as novas configurações sejam aplicadas a algum nó, mas é executada somente no nó que hospeda a réplica primária do serviço do Gerenciador de Cluster no momento da inicialização da atualização. No momento da redação deste artigo, a configuração tem um padrão de ' false ' e será definida como ' true ' para novos clusters de Service Fabric do Azure com uma versão de tempo de execução começando com 7,1.
  
 ### <a name="end-to-end-scenario-examples"></a>Cenário de ponta a ponta (exemplos)
 Vimos as regras de apresentação, as regras de validação e os sinalizadores de ajuste, mas como tudo isso funciona juntos? Nesta seção, vamos trabalhar com dois exemplos de ponta a ponta demonstrando como as configurações de segurança podem ser aproveitadas para atualizações de clusters seguras. Observe que isso não se destina a ser um dissertação abrangente sobre o gerenciamento de certificado adequado em Service Fabric, procure um artigo complementar sobre esse tópico.

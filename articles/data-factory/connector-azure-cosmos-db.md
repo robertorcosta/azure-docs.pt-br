@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/11/2019
 ms.openlocfilehash: f0aa70333454b327a0ca76beef2985062ce56715
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81415374"
 ---
 # <a name="copy-and-transform-data-in-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Copiar e transformar dados em Azure Cosmos DB (API do SQL) usando Azure Data Factory
@@ -37,8 +37,8 @@ Este artigo descreve como usar a atividade de cópia no Azure Data Factory para 
 
 Esse conector de Azure Cosmos DB (API do SQL) tem suporte para as seguintes atividades:
 
-- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
-- [Mapeando fluxo de dados](concepts-data-flow-overview.md)
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de fonte/coletor compatível](copy-activity-overview.md)
+- [Fluxo de dados de mapeamento](concepts-data-flow-overview.md)
 - [Atividade de pesquisa](control-flow-lookup-activity.md)
 
 Para a atividade de cópia, esse conector de Azure Cosmos DB (API do SQL) dá suporte a:
@@ -152,7 +152,7 @@ Esta seção fornece uma lista das propriedades compatíveis com fonte e coletor
 
 Para copiar dados do Azure Cosmos DB (API do SQL), defina o tipo **source** na Atividade de Cópia como **DocumentDbCollectionSource**. 
 
-As propriedades a seguir têm suporte na seção **origem** da atividade de cópia:
+As seguintes propriedades são suportadas na seção **source** da atividade de cópia:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
@@ -204,7 +204,7 @@ Ao copiar dados de Cosmos DB, a menos que você queira [exportar documentos JSON
 
 Para copiar dados para o Azure Cosmos DB (API do SQL), defina o tipo **sink** na Atividade de Cópia como **DocumentDbCollectionSink**. 
 
-As propriedades a seguir têm suporte na seção **origem** da atividade de cópia:
+As seguintes propriedades são suportadas na seção **source** da atividade de cópia:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
@@ -257,15 +257,15 @@ Se você usar a origem do tipo "DocumentDbCollectionSink", ainda terá suporte c
 
 Para copiar dados de Azure Cosmos DB para o coletor tabular ou vice-versa, consulte [mapeamento de esquema](copy-activity-schema-and-type-mapping.md#schema-mapping).
 
-## <a name="mapping-data-flow-properties"></a>Mapeando Propriedades de fluxo de dados
+## <a name="mapping-data-flow-properties"></a>Propriedades do fluxo de dados de mapeamento
 
-Ao transformar dados no fluxo de dados de mapeamento, você pode ler e gravar em coleções no Cosmos DB. Para obter mais informações, consulte a [transformação origem](data-flow-source.md) e a [transformação coletor](data-flow-sink.md) no mapeamento de fluxos de dados.
+Ao transformar dados no fluxo de dados de mapeamento, você pode ler e gravar em coleções no Cosmos DB. Para obter mais informações, confira [transformação de origem](data-flow-source.md) e [transformação do coletor](data-flow-sink.md) nos fluxos de dados de mapeamento.
 
 ### <a name="source-transformation"></a>Transformação de origem
 
 As configurações específicas para Azure Cosmos DB estão disponíveis na guia **Opções de origem** da transformação origem. 
 
-**Incluir colunas do sistema:** Se true, ```id```, ```_ts```e outras colunas do sistema serão incluídas nos metadados do fluxo de dados do CosmosDB. Ao atualizar as coleções, é importante incluí-las para que você possa obter a ID de linha existente.
+**Incluir colunas do sistema:** Se true, ```id``` , ```_ts``` e outras colunas do sistema serão incluídas nos metadados do fluxo de dados do CosmosDB. Ao atualizar as coleções, é importante incluí-las para que você possa obter a ID de linha existente.
 
 **Tamanho da página:** O número de documentos por página do resultado da consulta. O padrão é "-1", que usa a página dinâmica do serviço até 1000.
 
@@ -285,17 +285,17 @@ As configurações específicas para Azure Cosmos DB estão disponíveis na guia
 
 **Escape de barra invertida:** Se estiver usando barras invertidas em caracteres de escape em seu JSON, escolha essa opção.
 
-### <a name="sink-transformation"></a>Transformação do coletor
+### <a name="sink-transformation"></a>Transformação de coletor
 
 As configurações específicas para Azure Cosmos DB estão disponíveis na guia **configurações** da transformação coletor.
 
-**Método de atualização:** Determina quais operações são permitidas no destino do banco de dados. O padrão é permitir apenas inserções. Para atualizar, upsertr ou excluir linhas, uma transformação ALTER-Row é necessária para marcar linhas para essas ações. Para atualizações, upserts e exclusões, uma coluna ou colunas de chave deve ser definida para determinar qual linha alterar.
+**Método Update:** determina quais operações são permitidas no destino do banco de dados. O padrão é permitir apenas inserções. Para atualizar, fazer upsert ou excluir linhas, uma transformação alter-row é necessária para marcar as linhas para essas ações. Para atualizações, upserts e exclusões, é necessário selecionar uma coluna de chave ou colunas para determinar qual linha alterar.
 
 **Ação de coleta:** Determina se a coleção de destino deve ser recriada antes da gravação.
 * Nenhum: nenhuma ação será feita para a coleção.
 * Recriar: a coleção será descartada e recriada
 
-**Tamanho do lote**: controla quantas linhas estão sendo gravadas em cada Bucket. Tamanhos de lote maiores melhoram a compactação e a otimização de memória, mas não têm risco de exceções de memória ao armazenar dados em cache.
+**Tamanho do lote**: controla quantas linhas estão sendo gravadas em cada bucket. Tamanhos de lote maiores aprimoram a compactação e a otimização de memória, mas geram risco de exceções de memória insuficiente ao armazenar dados em cache.
 
 **Chave de partição:** Insira uma cadeia de caracteres que represente a chave de partição para sua coleção. Exemplo: ```/movies/title```
 
@@ -303,9 +303,9 @@ As configurações específicas para Azure Cosmos DB estão disponíveis na guia
 
 **Orçamento de taxa de transferência de gravação:** Um inteiro que representa o número de RUs que você deseja alocar para o trabalho de ingestão em massa do Spark. Esse número está fora da taxa de transferência total alocada para a coleção.
 
-## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+## <a name="lookup-activity-properties"></a>Pesquisar propriedades de atividade
 
-Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+Para saber detalhes sobre as propriedades, verifique [Pesquisar atividade](control-flow-lookup-activity.md).
 
 ## <a name="import-and-export-json-documents"></a>Importar e exportar documentos JSON
 

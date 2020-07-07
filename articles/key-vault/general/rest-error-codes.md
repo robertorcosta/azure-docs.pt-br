@@ -11,10 +11,10 @@ ms.subservice: general
 ms.topic: reference
 ms.date: 12/16/2019
 ms.openlocfilehash: bbb30c0ad41babca4158391c9e4e5c5d4d25cbf9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81432054"
 ---
 # <a name="azure-key-vault-rest-api-error-codes"></a>Azure Key Vault códigos de erro da API REST
@@ -55,11 +55,11 @@ O cabeçalho "Authorization" é o token de acesso necessário com cada chamada p
 
 ### <a name="the-token-lacks-the-correct-resource-associated-with-it"></a>O token não tem o recurso correto associado a ele. 
 
-Ao solicitar um token de acesso do ponto de extremidade OAUTH do Azure, um parâmetro chamado "Resource" é obrigatório. O valor é importante para o provedor de token porque ele faz o escopo do token para seu uso pretendido. O recurso para **todos os** tokens para acessar uma Key Vault é *https:\//Vault.keyvault.net* (sem barra à direita).
+Ao solicitar um token de acesso do ponto de extremidade OAUTH do Azure, um parâmetro chamado "Resource" é obrigatório. O valor é importante para o provedor de token porque ele faz o escopo do token para seu uso pretendido. O recurso para **todos os** tokens para acessar uma Key Vault é *https: \/ /Vault.keyvault.net* (sem barra à direita).
 
 ### <a name="the-token-is-expired"></a>O token expirou
 
-Os tokens são codificados em Base64 e os valores podem ser decodificados [http://jwt.calebb.net](http://jwt.calebb.net)em sites como. Aqui está o token acima decodificado:
+Os tokens são codificados em Base64 e os valores podem ser decodificados em sites como [http://jwt.calebb.net](http://jwt.calebb.net) . Aqui está o token acima decodificado:
 
 ```
     {
@@ -89,7 +89,7 @@ Os tokens são codificados em Base64 e os valores podem ser decodificados [http:
 
 Podemos ver muitas partes importantes nesse token:
 
-- AUD (Audience): o recurso do token. Observe que isso é <https://vault.azure.net>. Esse token não funcionará para nenhum recurso que não corresponda explicitamente a esse valor, como grafo.
+- AUD (Audience): o recurso do token. Observe que isso é <https://vault.azure.net> . Esse token não funcionará para nenhum recurso que não corresponda explicitamente a esse valor, como grafo.
 - IAT (emitido em): o número de tiques desde o início da época em que o token foi emitido.
 - NBF (não antes): o número de tiques desde o início da época em que esse token se torna válido.
 - exp (expiração): o número de tiques desde o início da época em que esse token expira.
@@ -100,7 +100,7 @@ Podemos ver muitas partes importantes nesse token:
 
 ### <a name="troubleshooting-401"></a>Solução de problemas 401
 
-401s deve ser investigado a partir do ponto de geração de token, antes que a solicitação seja feita ao cofre de chaves. Geralmente, o código está sendo usado para solicitar o token. Depois que o token é recebido, ele é passado para a solicitação de Key Vault. Se o código estiver sendo executado localmente, você poderá usar o Fiddler para capturar a solicitação/ `https://login.microsoftonline.com`resposta para. Uma solicitação é parecida com esta:
+401s deve ser investigado a partir do ponto de geração de token, antes que a solicitação seja feita ao cofre de chaves. Geralmente, o código está sendo usado para solicitar o token. Depois que o token é recebido, ele é passado para a solicitação de Key Vault. Se o código estiver sendo executado localmente, você poderá usar o Fiddler para capturar a solicitação/resposta para `https://login.microsoftonline.com` . Uma solicitação é parecida com esta:
 
 ``` 
 POST https://login.microsoftonline.com/<key vault tenant ID>/oauth2/token HTTP/1.1
@@ -116,7 +116,7 @@ As informações fornecidas pelo usuário a seguir visualiza estar corretas:
 
 - A ID do locatário do cofre de chaves
 - Valor do recurso definido como https %3 A %2 F %2 F Vault. Azure. net (codificação de URL)
-- ID do cliente
+- ID do Cliente
 - Segredo do cliente
 
 Verifique se o restante da solicitação é quase idêntico.

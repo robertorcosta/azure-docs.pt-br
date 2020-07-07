@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
 ms.openlocfilehash: 730efb552ef218cc5a5ce6a984d20b4e23b364ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81416951"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Copiar dados de um ponto de extremidade HTTP usando o Azure Data Factory
@@ -38,7 +38,7 @@ A diferença entre esse conector HTTP, o [conector REST](connector-rest.md) e o 
 
 Este conector HTTP tem suporte para as seguintes atividades:
 
-- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de fonte/coletor com suporte](copy-activity-overview.md)
 - [Atividade de pesquisa](control-flow-lookup-activity.md)
 
 Você pode copiar dados de uma origem HTTP para qualquer repositório de dados do coletor com suporte. Para obter uma lista de armazenamentos de dados que o Copy Activity suporta como fontes e coletores, consulte [Armazenamentos de dados e formatos compatíveis](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -72,7 +72,7 @@ As seguintes propriedades são suportadas para o serviço vinculado HTTP:
 | url | A URL base para o servidor web. | Sim |
 | enableServerCertificateValidation | Especifique se a validação do certificado TLS/SSL do servidor deve ser habilitada quando você se conectar a um ponto de extremidade HTTP. Se seu servidor HTTPS usa um certificado autoassinado, defina essa propriedade como **falsos**. | Não<br /> (o padrão é **true**) |
 | authenticationType | Especifica o tipo de autenticação. Os valores permitidos são **Anonymous**, **Basic**, **Digest**, **Windows** e **ClientCertificate**. <br><br> Veja as seções que seguem esta tabela para mais propriedades e amostras JSON para esses tipos de autenticação. | Sim |
-| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não especificado, o Azure Integration Runtime padrão será usado. |Não |
+| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção [Pré-requisitos](#prerequisites). Se não especificado, o Azure Integration Runtime padrão será usado. |Não |
 
 ### <a name="using-basic-digest-or-windows-authentication"></a>Usando a autenticação Básica, Digest ou Windows
 
@@ -120,8 +120,8 @@ Para usar a autenticação ClientCertificate, defina a propriedade **authenticat
 Se você usar **certThumbprint** para autenticação e o certificado estiver instalado no armazenamento pessoal do computador local, conceda permissões de leitura ao runtime de integração auto-hospedada:
 
 1. Abra o console de gerenciamento Microsoft (MMC). Adicione a **certificados** snap-in que tem como alvo **computador Local**.
-2. Expanda **certificados** > **pessoal**e selecione **certificados**.
-3. Clique com o botão direito do mouse no certificado do repositório pessoal e selecione **todas as tarefas** > **gerenciar chaves privadas**.
+2. Expanda **certificados**  >  **pessoal**e selecione **certificados**.
+3. Clique com o botão direito do mouse no certificado do repositório pessoal e selecione **todas as tarefas**  >  **gerenciar chaves privadas**.
 3. Na guia **Segurança**, adicione a conta de usuário na qual o Serviço de Host do Integration Runtime (DIAHostService) está em execução, com acesso de leitura ao certificado.
 
 **Exemplo 1: usando certThumbprint**
@@ -174,12 +174,12 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-As propriedades a seguir têm suporte para HTTP `location` em configurações no conjunto de conjuntos baseado em formato:
+As propriedades a seguir têm suporte para HTTP em `location` configurações no conjunto de conjuntos baseado em formato:
 
 | Propriedade    | Descrição                                                  | Obrigatório |
 | ----------- | ------------------------------------------------------------ | -------- |
 | type        | A propriedade Type em `location` DataSet deve ser definida como **HttpServerLocation**. | Sim      |
-| relativeUrl | Uma URL relativa para o recurso que contém os dados. O conector HTTP copia dados da URL combinada: `[URL specified in linked service][relative URL specified in dataset]`.   | Não       |
+| relativeUrl | Uma URL relativa para o recurso que contém os dados. O conector HTTP copia dados da URL combinada: `[URL specified in linked service][relative URL specified in dataset]` .   | Não       |
 
 > [!NOTE]
 > O tamanho da carga útil do pedido HTTP suportado é de cerca de 500 KB. Se o tamanho da carga útil que você deseja passar para seu ponto de extremidade da web for maior que 500 KB, considere agrupar a carga útil em partes menores.
@@ -220,7 +220,7 @@ Para obter uma lista completa de seções e propriedades que estão disponíveis
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-As propriedades a seguir têm suporte para HTTP `storeSettings` em configurações na fonte de cópia baseada em formato:
+As propriedades a seguir têm suporte para HTTP em `storeSettings` configurações na fonte de cópia baseada em formato:
 
 | Propriedade                 | Descrição                                                  | Obrigatório |
 | ------------------------ | ------------------------------------------------------------ | -------- |
@@ -229,7 +229,7 @@ As propriedades a seguir têm suporte para HTTP `storeSettings` em configuraçõ
 | addtionalHeaders         | Cabeçalhos de solicitação HTTP adicionais.                             | Não       |
 | requestBody              | O corpo da solicitação HTTP.                               | Não       |
 | httpRequestTimeout           | O tempo limite (o valor **TimeSpan**) para a solicitação HTTP para obter uma resposta. Esse valor é o tempo limite para obter uma resposta, não o tempo limite para ler os dados da resposta. O valor padrão é **01:00:40**. | Não       |
-| maxConcurrentConnections | O número de conexões a serem conectadas ao repositório de armazenamento simultaneamente. Especifique somente quando quiser limitar a conexão simultânea com o armazenamento de dados. | Não       |
+| maxConcurrentConnections | O número das conexões para se conectar ao repositório de armazenamento simultaneamente. Especifique somente quando quiser limitar a conexão simultânea com o armazenamento de dados. | Não       |
 
 **Exemplo:**
 
@@ -272,16 +272,16 @@ As propriedades a seguir têm suporte para HTTP `storeSettings` em configuraçõ
 ]
 ```
 
-## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+## <a name="lookup-activity-properties"></a>Pesquisar propriedades de atividade
 
-Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+Para saber detalhes sobre as propriedades, verifique [Pesquisar atividade](control-flow-lookup-activity.md).
 
 ## <a name="legacy-models"></a>Modelos herdados
 
 >[!NOTE]
->Os modelos a seguir ainda têm suporte como estão para compatibilidade com versões anteriores. É recomendável usar o novo modelo mencionado nas seções acima no futuro e a interface do usuário de criação do ADF mudou para gerar o novo modelo.
+>Os modelos a seguir ainda têm suporte no estado em que se encontram, para compatibilidade com versões anteriores. É recomendável usar o novo modelo mencionado nas seções acima no futuro, e a interface do usuário de criação do ADF mudou para gerar o novo modelo.
 
-### <a name="legacy-dataset-model"></a>Modelo de conjunto de DataSet herdado
+### <a name="legacy-dataset-model"></a>Modelo de conjunto de dados herdado
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
@@ -335,7 +335,7 @@ Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](c
 }
 ```
 
-### <a name="legacy-copy-activity-source-model"></a>Modelo de origem da atividade de cópia herdada
+### <a name="legacy-copy-activity-source-model"></a>Modelo de origem de atividade de cópia herdado
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |

@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.openlocfilehash: ac4753da1405fe6b8cd209bb4899192e9f317aa1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81428700"
 ---
 # <a name="user-defined-schemas-within-synapse-sql"></a>Esquemas definidos pelo usuário dentro de Synapse SQL
@@ -122,4 +122,4 @@ Se forem necessárias permissões mais granulares, você poderá usar funções 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais dicas de desenvolvimento, consulte [visão geral do desenvolvimento do SQL Synapse](develop-overview.md).
+Para obter mais dicas de desenvolvimento, consulte [Visão geral de desenvolvimento do SQL do Synapse](develop-overview.md).

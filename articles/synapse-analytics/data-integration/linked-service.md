@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
 ms.openlocfilehash: 435c3fd6b1e6444fa3a31c68b4d74c2553d2e634
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81430546"
 ---
 # <a name="securing-a-linked-service-with-private-links"></a>Protegendo um serviço vinculado com links privados 
@@ -22,8 +22,8 @@ Neste artigo, você aprenderá a proteger um serviço vinculado no Synapse com u
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Assinatura do Azure**: se você não tiver uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
-* **Conta de armazenamento do Azure**: Use Azure data Lake Gen 2 como um armazenamento de dados de *origem* . Se você não tiver uma conta de armazenamento, consulte [criar uma conta de armazenamento do Azure](../../storage/blobs/data-lake-storage-quickstart-create-account.md) para obter as etapas para criar uma. Verifique se a conta de armazenamento tem a filtragem de IP do Synapse Studio para acessá-la e se você só permite que as **redes selecionadas** acessem a conta de armazenamento. A configuração na folha **firewalls e redes virtuais** deve ser parecida com a imagem abaixo.
+* **Assinatura do Azure**: Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
+* **Conta de Armazenamento do Azure**: Use o Azure Data Lake Gen 2 como uma *fonte* de armazenamento de dados. Se você não tiver uma conta de armazenamento, consulte [Criar uma conta de armazenamento do Azure](../../storage/blobs/data-lake-storage-quickstart-create-account.md) para obter as etapas para criar uma. Verifique se a conta de armazenamento tem a filtragem de IP do Synapse Studio para acessá-la e se você só permite que as **redes selecionadas** acessem a conta de armazenamento. A configuração na folha **firewalls e redes virtuais** deve ser parecida com a imagem abaixo.
 
 ![Conta de armazenamento protegida](./media/secure-storage-account.png)
 
@@ -32,11 +32,11 @@ Neste artigo, você aprenderá a proteger um serviço vinculado no Synapse com u
 No Azure Synapse Analytics, um serviço vinculado é onde você define as informações de conexão com outros serviços. Nesta seção, você adicionará o Azure Synapse Analytics e o Azure Data Lake Gen 2 como serviços vinculados.
 
 1. Abra o Azure Synapse Studio e vá para a guia **gerenciar** .
-1. Em **conexões externas**, selecione **Serviços vinculados**.
-1. Para adicionar um serviço vinculado, clique em **novo**.
-1. Selecione o bloco Azure Data Lake Storage Gen2 na lista e clique em **continuar**.
+1. Em **Conexões externas**, selecione **Serviços vinculados**.
+1. Para adicionar um serviço vinculado, clique em **Novo**.
+1. Selecione a peça do Azure Data Lake Storage Gen2 na lista e clique em **Continuar**.
 1. Certifique-se de habilitar a **criação interativa**. Pode levar cerca de 1 minuto para ser habilitado. 
-1. Insira suas credenciais de autenticação. A chave de conta, a entidade de serviço e a identidade gerenciada são tipos de autenticação com suporte no momento. Clique em testar conexão para verificar se suas credenciais estão corretas.
+1. Insira as credenciais de autenticação. A chave de conta, a entidade de serviço e a identidade gerenciada são tipos de autenticação atualmente suportados. Clique em testar conexão para verificar se suas credenciais estão corretas.
 1. Selecione **testar conexão**, ele deve falhar porque a conta de armazenamento não permite o acesso a ela sem a criação e a aprovação de um ponto de extremidade privado. Na mensagem de erro, você deve ver um link para criar um **ponto de extremidade privado** que você pode seguir para ir para a próxima parte. Se você seguir esse link, ignore a próxima parte.
 1. Selecione **Criar** quando terminar.
 
@@ -49,7 +49,7 @@ Caso você não tenha clicado no hiperlink ao testar a conexão acima, siga o ca
 1. Selecione **+ novo** em ponto de extremidade privado gerenciado.
 1. Selecione o bloco Azure Data Lake Storage Gen2 na lista e selecione **continuar**.
 1. Insira o nome da conta de armazenamento que você criou acima.
-1. Selecione **criar**
+1. Escolha **Criar**
 1. Você deve ver depois de aguardar alguns segundos que o link privado criado precisa de uma aprovação.
 
 ## <a name="approval-of-a-private-link"></a>Aprovação de um link privado

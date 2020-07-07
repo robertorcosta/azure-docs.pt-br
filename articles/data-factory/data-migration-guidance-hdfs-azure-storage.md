@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/30/2019
 ms.openlocfilehash: 63b657e77172282225a9bc890b2f185b0f4d42a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81417126"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-hadoop-cluster-to-azure-storage"></a>Usar Azure Data Factory para migrar dados de um cluster Hadoop local para o armazenamento do Azure 
@@ -34,8 +34,8 @@ Este artigo fornece as seguintes informações sobre as duas abordagens:
 > * Desempenho 
 > * Resiliência de cópia
 > * Segurança de rede
-> * Arquitetura de solução de alto nível 
-> * Práticas recomendadas de implementação  
+> * Arquitetura da solução de alto nível 
+> * Melhores práticas de implementação  
 
 ## <a name="performance"></a>Desempenho
 
@@ -53,7 +53,7 @@ Para obter mais informações, consulte o [Guia de desempenho da atividade de c�
 
 ## <a name="resilience"></a>Resiliência
 
-No modo de Data Factory DistCp, você pode usar diferentes parâmetros de linha de comando do DistCp ( `-i`por exemplo, ignorar `-update`falhas ou gravar dados quando o arquivo de origem e o arquivo de destino diferem no tamanho) para diferentes níveis de resiliência.
+No modo de Data Factory DistCp, você pode usar diferentes parâmetros de linha de comando do DistCp (por exemplo, `-i` ignorar falhas ou `-update` gravar dados quando o arquivo de origem e o arquivo de destino diferem no tamanho) para diferentes níveis de resiliência.
 
 No modo de tempo de execução de integração nativo do Data Factory, em uma única execução da atividade de cópia, Data Factory tem um mecanismo de repetição interno. Ele pode lidar com um certo nível de falhas transitórias nos armazenamentos de dados ou na rede subjacente. 
 
@@ -61,7 +61,7 @@ Ao fazer a cópia binária do HDFS local para o armazenamento de BLOBs e do HDFS
 
 ## <a name="network-security"></a>Segurança de rede 
 
-Por padrão, Data Factory transfere dados do HDFS local para o armazenamento de BLOBs ou Azure Data Lake Storage Gen2 usando uma conexão criptografada sobre o protocolo HTTPS. O HTTPS fornece criptografia de dados em trânsito e impede ataques de interceptação e Man-in-the-Middle. 
+Por padrão, Data Factory transfere dados do HDFS local para o armazenamento de BLOBs ou Azure Data Lake Storage Gen2 usando uma conexão criptografada sobre o protocolo HTTPS. O HTTPS fornece a criptografia de dados em trânsito e impede ataques de interceptação e man-in-the-middle. 
 
 Como alternativa, se você não quiser que os dados sejam transferidos pela Internet pública, para maior segurança, você pode transferir dados por um link de emparelhamento privado por meio do ExpressRoute. 
 
@@ -87,7 +87,7 @@ Esta imagem ilustra a migração de dados por um link privado:
 - Você também pode escalar horizontalmente associando até quatro nós de VM com um único tempo de execução de integração auto-hospedado. Um único trabalho de cópia em execução em um tempo de execução de integração auto-hospedado particiona automaticamente o conjunto de arquivos e usa todos os nós de VM para copiar os arquivos em paralelo. Para alta disponibilidade, recomendamos que você comece com dois nós de VM para evitar um cenário de ponto único de falha durante a migração de dados.
 - Quando você usa essa arquitetura, a migração de dados de instantâneo inicial e a migração de dados Delta estão disponíveis para você.
 
-## <a name="implementation-best-practices"></a>Práticas recomendadas de implementação
+## <a name="implementation-best-practices"></a>Melhores práticas de implementação
 
 Recomendamos que você siga estas práticas recomendadas ao implementar a migração de dados.
 
@@ -106,11 +106,11 @@ Em Data Factory modo de tempo de execução de integração nativo, recomendamos
 
 Se qualquer um dos trabalhos de cópia falhar devido a problemas transitórios de rede ou armazenamento de dados, você poderá executar novamente o trabalho de cópia com falha para recarregar essa partição específica do HDFS. Outros trabalhos de cópia que estão carregando outras partições não são afetados.
 
-### <a name="delta-data-migration"></a>Migração de dados Delta 
+### <a name="delta-data-migration"></a>Migração de dados delta 
 
-No modo de Data Factory DistCp, você pode usar o parâmetro `-update`de linha de comando DistCp, gravar dados quando o arquivo de origem e o arquivo de destino diferem em tamanho, para migração de dados Delta.
+No modo de Data Factory DistCp, você pode usar o parâmetro de linha de comando DistCp `-update` , gravar dados quando o arquivo de origem e o arquivo de destino diferem em tamanho, para migração de dados Delta.
 
-No modo de integração nativa Data Factory, a maneira mais eficaz de identificar arquivos novos ou alterados do HDFS é usando uma Convenção de nomenclatura com particionamento de tempo. Quando os dados no HDFS tiverem sido particionados por tempo com informações de fatia de tempo no nome do arquivo ou da pasta (por exemplo, */yyyy/mm/dd/File.csv*), seu pipeline poderá identificar facilmente quais arquivos e pastas são copiados incrementalmente.
+No modo de integração nativa Data Factory, a maneira mais eficaz de identificar arquivos novos ou alterados do HDFS é usando uma Convenção de nomenclatura com particionamento de tempo. Quando os dados no HDFS tiverem sido particionados por tempo com informações de fatia de tempo no nome do arquivo ou da pasta (por exemplo, */yyyy/mm/dd/file.csv*), seu pipeline poderá identificar facilmente quais arquivos e pastas copiar incrementalmente.
 
 Como alternativa, se os dados no HDFS não tiverem o particionamento de tempo, Data Factory poderá identificar arquivos novos ou alterados usando seu valor **LastModifiedDate** . Data Factory examina todos os arquivos do HDFS e copia somente arquivos novos e atualizados que têm um carimbo de data/hora modificado pela última vez que é maior que um valor definido. 
 
@@ -136,7 +136,7 @@ Este é o preço estimado com base em nossas suposições:
 ![Tabela que mostra os cálculos de preços](media/data-migration-guidance-hdfs-to-azure-storage/pricing-table.png)
 
 > [!NOTE]
-> Este é um exemplo de preço hipotético. Seu preço real depende da taxa de transferência real em seu ambiente.
+> Este é um exemplo de preço hipotético. O preço real depende da taxa de transferência real no ambiente.
 > O preço de uma VM do Windows do Azure (com o tempo de execução de integração auto-hospedado instalado) não está incluído.
 
 ### <a name="additional-references"></a>Referências adicionais
@@ -147,10 +147,10 @@ Este é o preço estimado com base em nossas suposições:
 - [Guia de ajuste de desempenho da atividade de cópia](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)
 - [Criar e configurar um runtime de integração auto-hospedada](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
 - [Alta disponibilidade e escalabilidade do tempo de execução de integração auto-hospedado](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)
-- [Considerações de segurança da movimentação de dados](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)
+- [Considerações sobre segurança da movimentação de dados](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)
 - [Armazenar credenciais no Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)
 - [Copiar um arquivo incrementalmente com base em um nome de arquivo particionado por tempo](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-partitioned-file-name-copy-data-tool)
-- [Copiar arquivos novos e alterados com base em LastModifiedDate](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-lastmodified-copy-data-tool)
+- [Copiar arquivos novos e alterados com base na LastModifiedDate](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-lastmodified-copy-data-tool)
 - [Página de preços do Data Factory](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
 
 ## <a name="next-steps"></a>Próximas etapas

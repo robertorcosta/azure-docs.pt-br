@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
 ms.openlocfilehash: 9adbe7b03283a00f78222ffdc77dca7aaadcbda0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81461694"
 ---
 # <a name="securing-paas-deployments"></a>Proteção de implantações de PaaS
@@ -101,7 +101,7 @@ A tabela a seguir lista as ameaças STRIDE e fornece algumas mitigações de exe
 | Ameaça | Propriedade de segurança | Possível migrações para a plataforma Azure |
 | --- | --- | --- |
 | Falsificação | Autenticação | Exigir conexões HTTPS. |
-| Violação | Integridade | Validar certificados TLS/SSL. |
+| Adulteração | Integridade | Validar certificados TLS/SSL. |
 | Repúdio | Não repúdio | Habilitar o [monitoramento e diagnóstico](/azure/architecture/best-practices/monitoring) do Azure. |
 | Divulgação de informações confidenciais | Confidencialidade | Criptografar dados confidenciais em repouso usando [certificados de serviço](/rest/api/appservice/certificates). |
 | Negação de serviço | Disponibilidade | Monitorar as métricas de desempenho quanto a possíveis condições de negação de serviço. Implementar filtros de conexão. |
@@ -145,7 +145,7 @@ Use o [Azure Application Insights](https://azure.microsoft.com/documentation/ser
 O Application Insights tem ferramentas abrangentes para interagir com os dados que coleta. O Application Insights armazena seus dados em um repositório comum. Ele pode aproveitar a funcionalidade compartilhada, como alertas, painéis e análise profunda com a linguagem de consulta Kusto.
 
 ## <a name="perform-security-penetration-testing"></a>Executar teste de penetração de segurança
-A validação de defesas de segurança é tão importante quanto testar qualquer outra funcionalidade. Faça um [teste de penetração](pen-testing.md) de uma parte padrão do processo de compilação e implantação. Agende testes de segurança regulares e a verificação de vulnerabilidade em aplicativos implantados e monitore para portas abertas, pontos de extremidade e ataques.
+A validação de defesas de segurança é tão importante quanto testar qualquer outra funcionalidade. Faça um [teste de penetração](pen-testing.md) de uma parte padrão do processo de compilação e implantação. Agende testes de segurança e verificações de vulnerabilidade regulares em aplicativos implantados e monitore em busca de ataques e de portas e pontos de extremidade abertos.
 
 O teste de difusão é um método para localizar falhas de programa (erros de código) fornecendo dados de entrada malformados para interfaces de programa (pontos de entrada) que analisam e consomem esses dados. A [detecção de riscos de segurança da Microsoft](https://www.microsoft.com/en-us/security-risk-detection/) é uma ferramenta baseada em nuvem que você pode usar para procurar bugs e outras vulnerabilidades de segurança em seu software antes de implantá-lo no Azure. A ferramenta foi projetada para detectar vulnerabilidades antes de implantar o software para que você não precise corrigir um bug, lidar com panes ou responder a um ataque após o lançamento do software.
 

@@ -13,10 +13,10 @@ ms.date: 12/13/2019
 ms.author: borisb
 ms.custom: ''
 ms.openlocfilehash: bbb6665299ce9b6521eeb8801d8621dfbdc17f4a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81683481"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Arquiteturas de referência para Oracle Database Enterprise Edition no Azure
@@ -154,7 +154,7 @@ A fragmentação do Oracle consiste principalmente nos seguintes componentes. Ma
 
 - **Bancos de dados de fragmentos** -os bancos de dados de fragmentos são seus bancos de dados Oracle. Cada banco de dados é replicado usando o Oracle Data Guard em uma configuração de agente com failover de início rápido (FSFO) habilitado. Você não precisa configurar o failover do Data Guard e a replicação em cada fragmento. Isso é automaticamente configurado e implantado quando o banco de dados compartilhado é criado. Se um fragmento específico falhar, o compartilhamento Oracle fará failover automaticamente das conexões de banco de dados do primário para o em espera.
 
-Você pode implantar e gerenciar bancos de dados fragmentados da Oracle com duas interfaces: GUI do controle de nuvem do Oracle Enterprise Manager `GDSCTL` e/ou o utilitário de linha de comando. Você pode até monitorar os diferentes fragmentos para disponibilidade e desempenho usando o controle de nuvem. O `GDSCTL DEPLOY` comando cria automaticamente os fragmentos e seus respectivos ouvintes. Além disso, esse comando implanta automaticamente a configuração de replicação usada para alta disponibilidade no nível de fragmento especificada pelo administrador.
+Você pode implantar e gerenciar bancos de dados fragmentados da Oracle com duas interfaces: GUI do controle de nuvem do Oracle Enterprise Manager e/ou o `GDSCTL` Utilitário de linha de comando. Você pode até monitorar os diferentes fragmentos para disponibilidade e desempenho usando o controle de nuvem. O `GDSCTL DEPLOY` comando cria automaticamente os fragmentos e seus respectivos ouvintes. Além disso, esse comando implanta automaticamente a configuração de replicação usada para alta disponibilidade no nível de fragmento especificada pelo administrador.
 
 Há diferentes maneiras de fragmentar um banco de dados:
 

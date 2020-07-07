@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: shsha
 ms.openlocfilehash: 8483e00f55d0dd49ba57db58b99b237ce0a169e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81430624"
 ---
 # <a name="initializer-codepackages"></a>Initializer CodePackages
@@ -52,7 +52,7 @@ Vejamos um exemplo completo usando o inicializador CodePackages.
 >
 > Este exemplo faz referência a mcr.microsoft.com/windows/nanoserver:1809. Os contêineres do Windows Server não são compatíveis em todas as versões de um sistema operacional do host. Para obter mais informações, consulte [Compatibilidade de versão de contêiner do Windows](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
-O seguinte manifesto. XML se baseia no trecho de manifesto descrito anteriormente. *InitCodePackage0*, *InitCodePackage1* e *WorkloadCodePackage* são CodePackages que representam contêineres. Após a ativação, *InitCodePackage0* é executado primeiro. Ele registra uma mensagem em um arquivo e sai. Em seguida, *InitCodePackage1* é executado, que também registra uma mensagem em um arquivo e sai. Por fim, o *WorkloadCodePackage* começa a execução. Ele também registra uma mensagem em um arquivo, gera o conteúdo do arquivo para **stdout** e, em seguida, executa pings para sempre.
+A ServiceManifest.xml a seguir baseia-se no trecho de código do manifesto descrito anteriormente. *InitCodePackage0*, *InitCodePackage1* e *WorkloadCodePackage* são CodePackages que representam contêineres. Após a ativação, *InitCodePackage0* é executado primeiro. Ele registra uma mensagem em um arquivo e sai. Em seguida, *InitCodePackage1* é executado, que também registra uma mensagem em um arquivo e sai. Por fim, o *WorkloadCodePackage* começa a execução. Ele também registra uma mensagem em um arquivo, gera o conteúdo do arquivo para **stdout** e, em seguida, executa pings para sempre.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -93,7 +93,7 @@ O seguinte manifesto. XML se baseia no trecho de manifesto descrito anteriorment
 </ServiceManifest>
 ```
 
-O ApplicationManifest. XML a seguir descreve um aplicativo baseado no manifesto. xml discutido acima. Observe que ele especifica a mesma montagem de **volume** para todos os contêineres, ou seja, **C:\WorkspaceOnHost** é montado em **C:\WorkspaceOnContainer** em todos os três contêineres. O efeito líquido é que todos os contêineres gravam no mesmo arquivo de log na ordem em que são ativados.
+O ApplicationManifest.xml a seguir descreve um aplicativo baseado no ServiceManifest.xml discutido acima. Observe que ele especifica a mesma montagem de **volume** para todos os contêineres, ou seja, **C:\WorkspaceOnHost** é montado em **C:\WorkspaceOnContainer** em todos os três contêineres. O efeito líquido é que todos os contêineres gravam no mesmo arquivo de log na ordem em que são ativados.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

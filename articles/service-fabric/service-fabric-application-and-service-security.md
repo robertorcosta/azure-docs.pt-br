@@ -4,10 +4,10 @@ description: Uma visão geral de como executar com segurança aplicativos de mic
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.openlocfilehash: c97c5345a1a18cce8c44508542f12d3642d2b8f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81461422"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Segurança de serviço e aplicativo do Service Fabric

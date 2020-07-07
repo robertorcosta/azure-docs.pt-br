@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
 ms.openlocfilehash: f2d10a6150a6e6957b303ca391c97e166342111c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81417246"
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Copiar dados do HBase usando o Azure Data Factory 
@@ -27,7 +27,7 @@ Este artigo descreve como usar a atividade de cópia no Azure Data Factory para 
 
 Este conector do HBase tem suporte para as seguintes atividades:
 
-- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de fonte/coletor com suporte](copy-activity-overview.md)
 - [Atividade de pesquisa](control-flow-lookup-activity.md)
 
 Você pode copiar dados de um HBase para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados com suporte como origens/coletores da atividade de cópia, confira a tabela [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -51,17 +51,17 @@ As propriedades a seguir têm suporte para o serviço vinculado do HBase:
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade type deve ser definida como: **HBase** | Sim |
-| host | O endereço IP ou nome do host do servidor HBase. ,.  `[clustername].azurehdinsight.net`, `192.168.222.160`)  | Sim |
+| host | O endereço IP ou nome do host do servidor HBase. ,.  `[clustername].azurehdinsight.net`, `192.168.222.160` )  | Sim |
 | porta | A porta TCP que a instância HBase usa para escutar as conexões de clientes. O valor padrão é 9090. Se você conectar ao Microsoft Azure HDInsights, especifique a porta como 443. | Não |
 | httpPath | A URL parcial correspondente ao servidor do HBase, por exemplo, `/hbaserest0` ao usar cluster HDInsights. | Não |
 | authenticationType | O mecanismo de autenticação a ser usado para se conectar ao servidor do HBase. <br/>Os valores permitidos são: **Anônimo**, **Básico** | Sim |
-| username | O nome de usuário usado para se conectar à instância do HBase.  | Não |
-| password | A senha correspondente ao nome de usuário. Marque esse campo como SecureString para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | Não |
+| Nome de Usuário | O nome de usuário usado para se conectar à instância do HBase.  | Não |
+| password | A senha correspondente ao nome de usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
 | enableSsl | Especifica se as conexões com o servidor são criptografadas usando TLS. O valor padrão é false.  | Não |
 | trustedCertPath | O caminho completo do arquivo. pem que contém certificados de AC confiáveis para verificar o servidor ao se conectar via TLS. Essa propriedade só pode ser definida ao usar TLS no IR auto-hospedado. O valor padrão é o arquivo de cacerts.pem instalado com o IR.  | Não |
 | allowHostNameCNMismatch | Especifica se deve ser necessário um nome de certificado TLS/SSL emitido pela autoridade de certificação para corresponder ao nome de host do servidor ao se conectar por TLS. O valor padrão é false.  | Não |
 | allowSelfSignedServerCert | Especifica se deve permitir os certificados autoassinados do servidor. O valor padrão é false.  | Não |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção [Pré-requisitos](#prerequisites). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não |
 
 >[!NOTE]
 >Se o cluster não der suporte para sessão temporária, p. ex., HDInsight, inclua explicitamente o índice do nó no final da configuração do caminho http, p. ex. especifique `/hbaserest0`em vez de`/hbaserest`.
@@ -125,7 +125,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do HBase:
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de os, consulte o artigo [conjuntos de valores](concepts-datasets-linked-services.md) . Esta seção fornece uma lista das propriedades com suporte pelo conjunto de dados do HBase.
+Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [conjuntos de dados](concepts-datasets-linked-services.md). Esta seção fornece uma lista das propriedades com suporte pelo conjunto de dados do HBase.
 
 Para copiar dados de HBase, defina a propriedade type do conjunto de dados como **HBaseObject**. Há suporte para as seguintes propriedades:
 
@@ -157,7 +157,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 ### <a name="hbasesource-as-source"></a>HBaseSource como a fonte
 
-Para copiar dados de HBase, defina o tipo de fonte na atividade de cópia como **HBaseSource**. As propriedades a seguir têm suporte na seção **origem** da atividade de cópia:
+Para copiar dados de HBase, defina o tipo de fonte na atividade de cópia como **HBaseSource**. As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
@@ -197,9 +197,9 @@ Para copiar dados de HBase, defina o tipo de fonte na atividade de cópia como *
 ```
 
 
-## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+## <a name="lookup-activity-properties"></a>Pesquisar propriedades de atividade
 
-Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+Para saber detalhes sobre as propriedades, verifique [Pesquisar atividade](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Azure Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).

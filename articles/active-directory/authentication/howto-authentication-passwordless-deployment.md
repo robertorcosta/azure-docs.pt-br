@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e3ed549e51b911452bca7d4d4a16c7ef45594a8f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81451424"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planejar uma implantação de autenticação com senha no Azure Active Directory
@@ -100,14 +100,14 @@ A tabela a seguir descreve os casos de uso a serem implementados durante este pr
 | **Governança** | O ciclo de vida das atribuições de usuário ao método de autenticação apropriado e aos grupos associados é definido e monitorado. |
 | **Segurança** | O acesso ao método de autenticação apropriado é controlado por meio de atribuições de usuário e grupo. <br> Somente usuários autorizados podem usar a entrada sem senha. |
 | **Desempenho** | As linhas do tempo de propagação de atribuição de acesso são documentadas e monitoradas. <br> As horas de entrada são medidas para facilitar o uso. |
-| **Experiência do usuário** | Os usuários estão cientes da compatibilidade com a mobilidade. <br> Os usuários podem configurar a entrada sem senha do aplicativo autenticador. |
+| **Experiência do Usuário** | Os usuários estão cientes da compatibilidade com a mobilidade. <br> Os usuários podem configurar a entrada sem senha do aplicativo autenticador. |
 | **Suporte** | Os usuários estão cientes de como encontrar suporte para problemas de entrada sem senha. |
 
 ### <a name="engage-the-right-stakeholders"></a>Envolva os participantes certos
 
 Quando os projetos de tecnologia falham, normalmente é devido a expectativas incompatíveis com o impacto, os resultados e as responsabilidades. Para evitar essas armadilhas, [Verifique se você está participando dos participantes certos](../fundamentals/active-directory-deployment-plans.md#include-the-right-stakeholders) e se as funções de Stakeholder no projeto são bem compreendidas.
 
-### <a name="plan-communications"></a>Planejar a comunicação
+### <a name="plan-communications"></a>Planejar comunicações
 
 A comunicação é fundamental para o sucesso de qualquer novo serviço. Comunique-se proativamente como a experiência dos usuários será alterada, quando ele será alterado e como obter suporte se eles tiverem problemas.
 
@@ -118,7 +118,7 @@ Suas comunicações com os usuários finais devem incluir as seguintes informaç
 - [Registrando no aplicativo Microsoft Authenticator](howto-authentication-passwordless-phone.md)
 - [Entrar com seu telefone](../user-help/user-help-auth-app-sign-in.md)
 
-A Microsoft fornece [modelos de comunicação](https://aka.ms/mfatemplates)da autenticação multifator, [modelos de comunicação](https://www.microsoft.com/download/details.aspx?id=56768)de autoatendimento de redefinição de senha (SSPR) e [documentação do usuário final](../user-help/security-info-setup-signin.md) para ajudar a rascunhar suas comunicações. Você pode enviar os usuários [https://myprofile.microsoft.com](https://myprofile.microsoft.com/) para o para se registrar diretamente selecionando os links de **informações de segurança** na página.
+A Microsoft fornece [modelos de comunicação](https://aka.ms/mfatemplates)da autenticação multifator, [modelos de comunicação](https://www.microsoft.com/download/details.aspx?id=56768)de autoatendimento de redefinição de senha (SSPR) e [documentação do usuário final](../user-help/security-info-setup-signin.md) para ajudar a rascunhar suas comunicações. Você pode enviar usuários para [https://myprofile.microsoft.com](https://myprofile.microsoft.com/) a fim de que se registrem diretamente, selecionando os links de **Informações de Segurança** nessa página.
 
 ### <a name="plan-to-pilot"></a>Planejar para o piloto
 
@@ -172,7 +172,7 @@ Para obter uma lista completa dos requisitos, consulte [Habilitar entrada de cha
 As chaves de segurança habilitam o acesso aos seus recursos e você deve planejar o gerenciamento desses dispositivos físicos.
 
 1. **Distribuição de chaves**: planeje como provisionar chaves para sua organização. Você pode ter um processo de provisionamento centralizado ou permitir que os usuários finais adquiram chaves compatíveis com FIDO 2,0.
-1. **Ativação de chave**: os usuários finais devem ativar a chave de segurança automaticamente. Os usuários finais registram suas chaves [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) de segurança em e habilitam o segundo fator (PIN ou biométrica) no primeiro uso.
+1. **Ativação de chave**: os usuários finais devem ativar a chave de segurança automaticamente. Os usuários finais registram suas chaves de segurança em [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) e habilitam o segundo fator (PIN ou biométrica) no primeiro uso.
 1. **Desabilitando uma chave**: embora a funcionalidade de chave de segurança esteja no estágio de visualização, não há como um administrador remover uma chave de uma conta de usuário. O usuário deve removê-lo. Se uma chave for perdida ou roubada:
    1. Remova o usuário de qualquer grupo habilitado para autenticação com senha.
    1. Verifique se eles removeram a chave como um método de autenticação.
@@ -228,7 +228,7 @@ A tabela a seguir fornece alguns exemplos de cenários de relatório típicos:
 
 O **Azure ad mantém a maioria dos dados de auditoria por 30 dias** e disponibiliza os dados por meio do portal de administração do Azure ou da API para que você faça o download em seus sistemas de análise. Se você precisar de mais tempo de retenção, exportação e consumo de logs em uma ferramenta SIEM, como [Azure Sentinel](../../sentinel/connect-azure-active-directory.md), Splunk ou a lógica do sumido. [Saiba mais sobre como exibir seus relatórios de acesso e uso](../reports-monitoring/overview-reports.md).
 
-Os usuários podem registrar e gerenciar suas credenciais navegando [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo)até. Esse link direciona os usuários para a experiência de gerenciamento de credenciais do usuário final que foi habilitada por meio da experiência combinada de registro de autenticação SSPR/multifator. O Azure AD registra o registro de dispositivos de segurança FIDO2 e altera os métodos de autenticação por usuários.
+Os usuários podem registrar e gerenciar suas credenciais navegando até [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) . Esse link direciona os usuários para a experiência de gerenciamento de credenciais do usuário final que foi habilitada por meio da experiência combinada de registro de autenticação SSPR/multifator. O Azure AD registra o registro de dispositivos de segurança FIDO2 e altera os métodos de autenticação por usuários.
 
 ### <a name="plan-security"></a>Segurança do plano
 Como parte desse plano de distribuição, a Microsoft recomenda que a autenticação com senha seja habilitada para todas as contas de administrador privilegiadas.
@@ -324,7 +324,7 @@ Siga as etapas descritas no artigo [habilitar a entrada de chave de segurança s
 | **Mensagem de erro**: detectamos que este navegador ou sistema operacional não dá suporte a chaves de segurança FIDO2. | Os dispositivos de segurança FIDO2 sem senha só podem ser registrados em navegadores com suporte (Microsoft Edge, Firefox versão 67) no Windows 10 versão 1809 ou superior. |
 | **Mensagem de erro**: a política da sua empresa requer que você use um método diferente para entrar. | Não se esqueça de que as chaves de segurança estão habilitadas no locatário. |
 | O usuário não pode gerenciar minha chave de segurança no Windows 10 versão 1809 | A versão 1809 requer que você use o software de gerenciamento de chaves de segurança fornecido pelo fornecedor de chave FIDO2. Contate o fornecedor para obter suporte. |
-| Acho que minha chave de segurança do FIDO2 pode ser defeituosa – como posso testá-la. | Navegue até [https://webauthntest.azurewebsites.net/](https://webauthntest.azurewebsites.net/), insira as credenciais para uma conta de teste, conecte a chave de segurança suspeita, **+** selecione o botão na parte superior direita da tela, clique em criar e passe pelo processo de criação. Se esse cenário falhar, o dispositivo poderá estar com defeito. |
+| Acho que minha chave de segurança do FIDO2 pode ser defeituosa – como posso testá-la. | Navegue até [https://webauthntest.azurewebsites.net/](https://webauthntest.azurewebsites.net/) , insira as credenciais para uma conta de teste, conecte a chave de segurança suspeita, selecione o **+** botão na parte superior direita da tela, clique em criar e passe pelo processo de criação. Se esse cenário falhar, o dispositivo poderá estar com defeito. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

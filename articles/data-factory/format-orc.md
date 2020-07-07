@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: jingwang
 ms.openlocfilehash: 9b68d3724c6390fc5d30745924451e27ef9855b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81417718"
 ---
 # <a name="orc-format-in-azure-data-factory"></a>Formato ORC no Azure Data Factory
@@ -31,7 +31,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 | Propriedade         | Descrição                                                  | Obrigatório |
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | A propriedade Type do conjunto de conjuntos deve ser definida como **Orc**. | Sim      |
-| local         | Configurações de local dos arquivos. Cada conector baseado em arquivo tem seu próprio tipo de local e propriedades com `location`suporte em. **Consulte os detalhes no artigo do conector – > seção Propriedades do conjunto de informações**. | Sim      |
+| local         | Configurações de local dos arquivos. Cada conector baseado em arquivo tem seu próprio tipo de local e propriedades com suporte em `location` . **Consulte os detalhes no artigo do conector – > seção Propriedades do conjunto de informações**. | Sim      |
 
 Veja abaixo um exemplo de conjunto de ORC no armazenamento de BLOBs do Azure:
 
@@ -68,35 +68,35 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 ### <a name="orc-as-source"></a>ORC como fonte
 
-As propriedades a seguir têm suporte na seção *** \*origem\* *** da atividade de cópia.
+As propriedades a seguir têm suporte na seção *** \* origem \* *** da atividade de cópia.
 
 | Propriedade      | Descrição                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | A propriedade Type da fonte da atividade de cópia deve ser definida como **OrcSource**. | Sim      |
-| storeSettings | Um grupo de propriedades sobre como ler dados de um armazenamento de dados. Cada conector baseado em arquivo tem suas próprias configurações de leitura com `storeSettings`suporte em. **Veja os detalhes no artigo do conector – > seção Propriedades da atividade de cópia**. | Não       |
+| storeSettings | Um grupo de propriedades sobre como ler dados de um armazenamento de dados. Cada conector baseado em arquivo tem suas próprias configurações de leitura com suporte em `storeSettings` . **Veja os detalhes no artigo do conector – > seção Propriedades da atividade de cópia**. | Não       |
 
 ### <a name="orc-as-sink"></a>ORC como coletor
 
-As propriedades a seguir têm suporte na seção *** \*coletor\* *** de atividade de cópia.
+As propriedades a seguir têm suporte na seção *** \* coletor \* *** de atividade de cópia.
 
 | Propriedade      | Descrição                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | A propriedade Type da fonte da atividade de cópia deve ser definida como **OrcSink**. | Sim      |
-| storeSettings | Um grupo de propriedades sobre como gravar dados em um armazenamento de dados. Cada conector baseado em arquivo tem suas próprias configurações de gravação com `storeSettings`suporte em. **Veja os detalhes no artigo do conector – > seção Propriedades da atividade de cópia**. | Não       |
+| storeSettings | Um grupo de propriedades sobre como gravar dados em um armazenamento de dados. Cada conector baseado em arquivo tem suas próprias configurações de gravação com suporte em `storeSettings` . **Veja os detalhes no artigo do conector – > seção Propriedades da atividade de cópia**. | Não       |
 
 ## <a name="using-self-hosted-integration-runtime"></a>Usando Integration Runtime auto-hospedados
 
 > [!IMPORTANT]
 > Para a cópia habilitada pelo Integration Runtime auto-hospedado, por exemplo, entre armazenamentos de dados locais e na nuvem, se você não estiver copiando arquivos ORC no estado em que se **encontra**, precisará instalar o **pacote redistribuível** do **JRE 8 de 64 bits (Java Runtime Environment) ou OpenJDK** e Microsoft Visual C++ 2010 no seu computador ir. Verifique o parágrafo a seguir com mais detalhes.
 
-Para a cópia em execução no IR auto-hospedado com a serialização/desserialização de arquivo ORC, o ADF localiza o tempo de execução *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* do Java verificando primeiro o registro do JRE, se *`JAVA_HOME`* não for encontrado, verificando a variável do sistema em segundo lugar para OpenJDK.
+Para a cópia em execução no IR auto-hospedado com a serialização/desserialização de arquivo ORC, o ADF localiza o tempo de execução do Java verificando primeiro o registro do *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* jre, se não for encontrado, verificando a variável do sistema em segundo lugar *`JAVA_HOME`* para OpenJDK.
 
 - **Para usar o JRE**: o IR de 64 bits requer o jre de 64 bits. É possível encontrá-lo [aqui](https://go.microsoft.com/fwlink/?LinkId=808605).
 - **Para usar OpenJDK**: tem suporte desde a versão de ir 3,13. Empacote o jvm.dll com todos os outros assemblies necessários do OpenJDK no IR auto-hospedado do computador e defina a variável de ambiente JAVA_HOME adequadamente.
 - **Para instalar Visual C++ pacote redistribuível 2010**: o pacote redistribuível Visual C++ 2010 não está instalado com instalações de ir de hospedagem interna. É possível encontrá-lo [aqui](https://www.microsoft.com/download/details.aspx?id=14632).
 
 > [!TIP]
-> Se você copiar dados de/para o formato ORC usando o autohospedado Integration Runtime e erro de ocorrência que diz "ocorreu um erro ao invocar Java, mensagem: **Java. lang. OutOfMemoryError: espaço de heap Java**", você pode `_JAVA_OPTIONS` adicionar uma variável de ambiente no computador que hospeda o ir do modo auto-hospedado para ajustar o tamanho de heap mínimo/máximo para a JVM para capacitar tal cópia e
+> Se você copiar dados de/para o formato ORC usando o autohospedado Integration Runtime e erro de ocorrência que diz "ocorreu um erro ao invocar Java, mensagem: **Java. lang. OutOfMemoryError: espaço de heap Java**", você pode adicionar uma variável `_JAVA_OPTIONS` de ambiente no computador que hospeda o ir do modo auto-hospedado para ajustar o tamanho de heap mínimo/máximo para a JVM para capacitar tal cópia e
 
 ![Definir o tamanho do heap da JVM no IR auto-hospedado](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
 

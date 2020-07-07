@@ -4,10 +4,10 @@ description: Saiba mais sobre o dispositivo de replicação de migração do Azu
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.openlocfilehash: 85641f514fc4367f02901eb1dd394cfa204c3ec4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81535206"
 ---
 # <a name="replication-appliance"></a>Dispositivo de replicação
@@ -51,7 +51,7 @@ Espaço livre em disco (cache) | 600 GB
 Espaço livre em disco (disco de retenção) | 600 GB
 **Configurações de software** |
 Sistema operacional | Windows Server 2016 ou Windows Server 2012 R2
-Licença | O dispositivo vem com uma licença de avaliação do Windows Server 2016, que é válida por 180 dias.<br/><br/> Se o período de avaliação estiver próximo da expiração, recomendamos que você baixe e implante um novo dispositivo ou ative a licença do sistema operacional da VM do dispositivo.
+Licença | O dispositivo vem com uma licença de avaliação do Windows Server 2016, que é válida por 180 dias.<br/><br/> Caso o período de avaliação esteja próximo da expiração, recomendamos que você baixe e implante um novo dispositivo ou ative a licença do sistema operacional da VM do dispositivo.
 Localidade do sistema operacional | Inglês (en-us)
 TLS | O TLS 1,2 deve estar habilitado.
 .NET Framework | .NET Framework 4,6 ou posterior deve ser instalado no computador (com criptografia forte habilitada.
@@ -88,7 +88,7 @@ O dispositivo de replicação precisa de acesso a essas URLs na nuvem pública d
 https:\//management.azure.com | Usado para operações de gerenciamento de replicação e coordenação
 *.services.visualstudio.com | Usado para fins de telemetria (é opcional)
 time.windows.com | Usados para verificar a sincronização de horário entre a hora do sistema e a hora global.
-https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.Live.com <br/> https:\//Graph.Windows.net <br/> https:\//login.windows.net <br/> https:\//www.Live.com <br/> https:\//www.Microsoft.com  | A instalação do dispositivo precisa de acesso a essas URLs. Elas são usadas pelo Azure Active Directory para o gerenciamento de identidade e controle de acesso
+https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https: \/ /login.Live.com <br/> https: \/ /Graph.Windows.net <br/> https:\//login.windows.net <br/> https: \/ /www.Live.com <br/> https: \/ /www.Microsoft.com  | A instalação do dispositivo precisa de acesso a essas URLs. Elas são usadas pelo Azure Active Directory para o gerenciamento de identidade e controle de acesso
 https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Para concluir o download do MySQL. Em algumas regiões, o download pode ser redirecionado para a URL da CDN. Verifique se a URL da CDN também é permitida, se necessário.
 
 
@@ -105,7 +105,7 @@ O dispositivo de replicação precisa de acesso a essas URLs no Azure governamen
 https:\//management.usgovcloudapi.net | Usado para operações de gerenciamento de replicação e coordenação
 *.services.visualstudio.com | Usado para fins de telemetria (é opcional)
 time.nist.gov | Usados para verificar a sincronização de horário entre a hora do sistema e a hora global.
-https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.Live.com <br/> https:\//Graph.Windows.net <br/> https:\//login.windows.net <br/> https:\//www.Live.com <br/> https:\//www.Microsoft.com  | A instalação do dispositivo com OVA precisa de acesso a essas URLs. Eles são usados para controle de acesso e gerenciamento de identidade por Azure Active Directory.
+https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https: \/ /login.Live.com <br/> https: \/ /Graph.Windows.net <br/> https:\//login.windows.net <br/> https: \/ /www.Live.com <br/> https: \/ /www.Microsoft.com  | A instalação do dispositivo com OVA precisa de acesso a essas URLs. Eles são usados para controle de acesso e gerenciamento de identidade por Azure Active Directory.
 https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Para concluir o download do MySQL. Em algumas regiões, o download pode ser redirecionado para a URL da CDN. Verifique se a URL da CDN também é permitida, se necessário.
 
 ## <a name="port-access"></a>Acesso à porta

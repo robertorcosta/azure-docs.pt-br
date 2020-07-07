@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.openlocfilehash: 4056550ae0a71138d136878fc7e3aa5f6f8f4180
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81417871"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Atividade de webhook no Azure Data Factory
@@ -53,23 +53,23 @@ Uma atividade de webhook pode controlar a execução de pipelines por meio de se
 
 ## <a name="type-properties"></a>Propriedades de tipo
 
-Propriedade | Descrição | Valores permitidos | Necessária
+Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
 **name** | O nome da atividade de webhook. | String | Sim |
 **type** | Deve ser definido como "webhook". | String | Sim |
 **forma** | O método da API REST para o ponto de extremidade de destino. | Cadeia de caracteres. O tipo com suporte é "POST". | Sim |
 **url** | O ponto de extremidade e o caminho de destino. | Uma cadeia de caracteres ou uma expressão com o valor de **ResultType** de uma cadeia de caracteres. | Sim |
-**conector** | Cabeçalhos que são enviados para a solicitação. Aqui está um exemplo que define o idioma e o tipo em uma solicitação `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`:. | Uma cadeia de caracteres ou uma expressão com o valor de **ResultType** de uma cadeia de caracteres. | Sim. Um `Content-Type` cabeçalho como `"headers":{ "Content-Type":"application/json"}` é necessário. |
+**conector** | Cabeçalhos que são enviados para a solicitação. Aqui está um exemplo que define o idioma e o tipo em uma solicitação: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }` . | Uma cadeia de caracteres ou uma expressão com o valor de **ResultType** de uma cadeia de caracteres. | Sim. Um `Content-Type` cabeçalho como `"headers":{ "Content-Type":"application/json"}` é necessário. |
 **body** | Representa o conteúdo enviado para o ponto de extremidade. | JSON válido ou uma expressão com o valor de **ResultType** de JSON. Consulte [esquema de carga de solicitação](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#request-payload-schema) para o esquema da carga de solicitação. | Sim |
 **Authentication** | O método de autenticação usado para chamar o ponto de extremidade. Os tipos com suporte são "básico" e "ClientCertificate". Para obter mais informações, consulte [Autenticação](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#authentication). Se a autenticação não for necessária, exclua essa propriedade. | Uma cadeia de caracteres ou uma expressão com o valor de **ResultType** de uma cadeia de caracteres. | Não |
-**timeout** | Por quanto tempo a atividade aguarda o retorno de chamada especificado por **callBackUri** ser invocado. O valor padrão é 10 minutos ("00:10:00"). Os valores têm o formato TimeSpan *d*. *hh*:*mm*:*SS*. | Cadeia de caracteres | Não |
-**Relatar status no retorno de chamada** | Permite que um usuário relate o status de falha de uma atividade de webhook. | Booliano | Não |
+**timeout** | Por quanto tempo a atividade aguarda o retorno de chamada especificado por **callBackUri** ser invocado. O valor padrão é 10 minutos ("00:10:00"). Os valores têm o formato TimeSpan *d*. *hh*:*mm*:*SS*. | String | Não |
+**Relatar status no retorno de chamada** | Permite que um usuário relate o status de falha de uma atividade de webhook. | Boolean | Não |
 
 ## <a name="authentication"></a>Autenticação
 
 Uma atividade de webhook dá suporte aos seguintes tipos de autenticação.
 
-### <a name="none"></a>Nenhum
+### <a name="none"></a>Não
 
 Se a autenticação não for necessária, não inclua a propriedade de **autenticação** .
 

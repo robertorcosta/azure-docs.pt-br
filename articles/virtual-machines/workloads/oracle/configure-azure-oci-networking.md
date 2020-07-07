@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 03/16/2020
 ms.author: borisb
 ms.openlocfilehash: 70556cbbfefd6ad22ef96ee16065209031ea456c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81683767"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Configurar uma interconexão direta entre o Azure e a infraestrutura de nuvem do Oracle  
@@ -25,12 +25,12 @@ ms.locfileid: "81683767"
 Para criar uma [experiência integrada de várias nuvens](oracle-oci-overview.md), a Microsoft e a Oracle oferecem interconexão direta entre o Azure e o Oracle Cloud Infrastructure (OCI) por meio do [ExpressRoute](../../../expressroute/expressroute-introduction.md) e do [FastConnect](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm). Por meio da interconexão do ExpressRoute e do FastConnect, os clientes podem experimentar baixa latência, alta taxa de transferência, conectividade direta privada entre as duas nuvens.
 
 > [!IMPORTANT]
-> A Oracle garantirá que esses aplicativos sejam executados no Azure ao usar a solução de interconexão de nuvem do Azure/Oracle de maio de 2020.
+> A Oracle garantirá que esses aplicativos sejam executados no Azure ao usar a solução de interconexão do Azure/Oracle Cloud de maio de 2020.
 > * E-Business Suite
 > * JD Edwards EnterpriseOne
 > * PeopleSoft
-> * Aplicativos de varejo da Oracle
-> * Gerenciamento financeiro do Oracle Hyperion
+> * Aplicativos Oracle Retail
+> * Oracle Hyperion Financial Management
 
 A imagem a seguir mostra uma visão geral de alto nível da interconexão:
 

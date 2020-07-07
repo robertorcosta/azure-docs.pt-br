@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
 ms.openlocfilehash: 80a9397838e90a2af504125b2dc4c4ef39251d4e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81455355"
 ---
 # <a name="virtual-appliance-scenario"></a>Cenário de dispositivo virtual
@@ -77,30 +77,30 @@ Para garantir a comunicação seja feita por meio do dispositivo de firewall cor
 ### <a name="azgwudr"></a>azgwudr
 Nesse cenário, o único tráfego fluindo do local para o Azure será usado para gerenciar os firewalls se conectando ao **AZF3** e esse tráfego deve passar pelo firewall interno, **AZF2**. Portanto, é necessária apenas uma rota no **GatewaySubnet** conforme mostrado abaixo.
 
-| Destino | Próximo salto | Explicação |
+| Destination | Próximo salto | Explicação |
 | --- | --- | --- |
 | 10.0.4.0/24 |10.0.3.11 |Permite que tráfego local alcance o gerenciamento de firewall **AZF3** |
 
 ### <a name="azsn2udr"></a>azsn2udr
-| Destino | Próximo salto | Explicação |
+| Destination | Próximo salto | Explicação |
 | --- | --- | --- |
 | 10.0.3.0/24 |10.0.2.11 |Permite tráfego para a sub-rede de back-end que hospeda o servidor de aplicativos por meio do **AZF2** |
 | 0.0.0.0/0 |10.0.2.10 |Permite que todos os outros tráfegos sejam roteados por meio do **AZF1** |
 
 ### <a name="azsn3udr"></a>azsn3udr
-| Destino | Próximo salto | Explicação |
+| Destination | Próximo salto | Explicação |
 | --- | --- | --- |
 | 10.0.2.0/24 |10.0.3.10 |Permite que o tráfego **azsn2** ao flua do servidor de aplicativos para o servidor Web por meio do **AZF2** |
 
 Você também precisa criar tabelas de rotas para as sub-redes em **onpremvnet** simularem o datacenter local.
 
 ### <a name="onpremsn1udr"></a>onpremsn1udr
-| Destino | Próximo salto | Explicação |
+| Destination | Próximo salto | Explicação |
 | --- | --- | --- |
 | 192.168.2.0/24 |192.168.1.4 |Permite o tráfego para **onpremsn2** por meio do **OPFW** |
 
 ### <a name="onpremsn2udr"></a>onpremsn2udr
-| Destino | Próximo salto | Explicação |
+| Destination | Próximo salto | Explicação |
 | --- | --- | --- |
 | 10.0.3.0/24 |192.168.2.4 |Permite o tráfego para a sub-rede com suporte no Azure por meio de **OPFW** |
 | 192.168.1.0/24 |192.168.2.4 |Permite o tráfego para **onpremsn1** por meio do **OPFW** |
@@ -150,7 +150,7 @@ O AZF2 representa um dispositivo virtual do Azure que contém as seguintes regra
 ## <a name="network-security-groups-nsgs"></a>Grupos de segurança de rede (NSG)
 Nesse cenário, os NSGs não estão sendo usados. No entanto, você pode aplicar NSGs a cada sub-rede para restringir o tráfego de entrada e saído. Por exemplo, você pode aplicar as seguintes regras de NSG à sub-rede FW externa.
 
-**Entrada**
+**Recebidos**
 
 * Permita todo o tráfego TCP da Internet para a porta 80 em qualquer VM na sub-rede.
 * Negue todos os outros tráfegos da Internet.

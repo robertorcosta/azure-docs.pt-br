@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/01/2020
 ms.openlocfilehash: b1fc4bce988b13a9ff76fd961d524ce945876054
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81535393"
 ---
 # <a name="troubleshoot-azure-migrate-projects"></a>Solucionar problemas nos projetos de Migrações para Azure
@@ -19,11 +19,11 @@ Este artigo ajuda a solucionar problemas ao criar e gerenciar projetos de [migra
 
 ## <a name="how-to-add-new-project"></a>Como adicionar um novo projeto?
 
-Você pode ter vários projetos de migrações para Azure em uma assinatura. [Saiba como](how-to-add-tool-first-time.md) criar um projeto pela primeira vez ou [Adicionar outros](create-manage-projects.md#create-additional-projects) projetos.
+Você pode ter vários projetos das Migrações para Azure em uma assinatura. [Saiba como](how-to-add-tool-first-time.md) criar um projeto pela primeira vez ou [Adicionar outros](create-manage-projects.md#create-additional-projects) projetos.
 
 ## <a name="what-azure-permissions-are-needed"></a>Quais permissões do Azure são necessárias?
 
-Você precisa de permissões de colaborador ou de proprietário na assinatura para criar um projeto de migrações para Azure.
+Você precisa de permissões de colaborador ou de proprietário na assinatura para criar um projeto das Migrações para Azure.
 
 ## <a name="cant-find-a-project"></a>Não é possível localizar um projeto
 
@@ -36,7 +36,7 @@ Você pode criar um projeto de migrações para Azure em geografias com suporte 
 
 ## <a name="what-are-vm-limits"></a>O que são limites de VM?
 
-Você pode avaliar até 35.000 VMs VMware ou até 35.000 VMs Hyper-V em um único projeto. Um projeto pode incluir VMs do VMware e VMs do Hyper-V, até os limites de avaliação.
+Você pode avaliar até 35.000 VMs VMware ou até 35.000 VMs Hyper-V em um único projeto. Um projeto pode conter VMs do VMware e do Hyper-V, até os limites da avaliação.
 
 ## <a name="can-i-upgrade-old-project"></a>Posso atualizar o projeto antigo?
 

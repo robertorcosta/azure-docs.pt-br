@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: chlound
 ms.openlocfilehash: f2531ebfd8b1eafc04fa6eda660b0eec3d1147f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81417088"
 ---
 # <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>Usar segredos de Azure Key Vault em atividades de pipeline
@@ -63,9 +63,9 @@ Esse recurso depende da identidade gerenciada data factory.  Saiba como ele func
     > Você deve adicionar **? API-Version = 7.0** ao final do seu URI secreto.  
 
     > [!CAUTION]
-    > Defina a opção de saída segura como true para impedir que o valor secreto seja registrado em texto sem formatação.  Todas as atividades adicionais que consomem esse valor devem ter sua opção de entrada segura definida como true.
+    > Defina a opção de saída segura como true para impedir que o valor secreto seja registrado em texto sem formatação.  Qualquer outra atividade que consumir esse valor deve ter a opção de Entrada segura definida como verdadeira.
 
-5. Para usar o valor em outra atividade, use a seguinte expressão ** @activityde código (' web1 '). Output. Value**.
+5. Para usar o valor em outra atividade, use a seguinte expressão de código ** @activity (' web1 '). Output. Value**.
 
     ![Expressão de código](media/how-to-use-azure-key-vault-secrets-pipeline-activities/usewebactivity.png)
 

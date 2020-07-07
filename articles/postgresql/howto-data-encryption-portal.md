@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.openlocfilehash: 07e103c3e1f56e8a46ea24e750d83e719abab3d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81457970"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-portal"></a>Criptografia de dados para um servidor único para PostgreSQL para Azure usando o portal do Azure
@@ -41,7 +41,7 @@ Saiba como usar o portal do Azure para configurar e gerenciar a criptografia de 
 
 ## <a name="set-the-right-permissions-for-key-operations"></a>Definir as permissões corretas para operações de chave
 
-1. Em Key Vault, selecione **políticas** > de acesso**Adicionar política de acesso**.
+1. Em Key Vault, selecione **políticas de acesso**  >  **Adicionar política de acesso**.
 
    ![Captura de tela de Key Vault, com políticas de acesso e adicionar política de acesso realçado](media/concepts-data-access-and-security-data-encryption/show-access-policy-overview.png)
 
@@ -49,7 +49,7 @@ Saiba como usar o portal do Azure para configurar e gerenciar a criptografia de 
 
    ![Visão geral da política de acesso](media/concepts-data-access-and-security-data-encryption/access-policy-wrap-unwrap.png)
 
-3. Selecione **Salvar**.
+3. Clique em **Salvar**.
 
 ## <a name="set-data-encryption-for-azure-database-for-postgresql-single-server"></a>Definir criptografia de dados para um servidor único do banco de dado do Azure para PostgreSQL
 
@@ -61,15 +61,15 @@ Saiba como usar o portal do Azure para configurar e gerenciar a criptografia de 
 
    ![Captura de tela do banco de dados do Azure para PostgreSQL, com as opções de criptografia realçadas](media/concepts-data-access-and-security-data-encryption/setting-data-encryption.png)
 
-3. Selecione **Salvar**.
+3. Clique em **Salvar**.
 
 4. Para garantir que todos os arquivos (incluindo arquivos temporários) sejam totalmente criptografados, reinicie o servidor.
 
 ## <a name="using-data-encryption-for-restore-or-replica-servers"></a>Usando a criptografia de dados para servidores de restauração ou de réplica
 
-Depois que o banco de dados do Azure para PostgreSQL servidor único é criptografado com a chave gerenciada de um cliente armazenada no Key Vault, qualquer cópia recém-criada do servidor também é criptografada. Você pode fazer essa nova cópia por meio de uma operação local ou de restauração geográfica, ou por meio de uma operação de réplica (local/entre regiões). Portanto, para um servidor PostgreSQL criptografado, você pode usar as etapas a seguir para criar um servidor restaurado criptografado.
+Depois que o servidor único do Banco de Dados do Azure para PostgreSQL é criptografado com uma chave gerenciada pelo cliente armazenada no Key Vault, qualquer cópia recém-criada do servidor também é criptografada. Você pode fazer essa nova cópia por meio de uma operação local ou de restauração geográfica, ou por meio de uma operação de réplica (local/entre regiões). Portanto, para um servidor PostgreSQL criptografado, você pode usar as etapas a seguir para criar um servidor restaurado criptografado.
 
-1. No servidor, selecione **visão geral** > **restaurar**.
+1. No servidor, selecione **visão geral**  >  **restaurar**.
 
    ![Captura de tela do banco de dados do Azure para PostgreSQL, com visão geral e restauração realçadas](media/concepts-data-access-and-security-data-encryption/show-restore.png)
 
@@ -81,7 +81,7 @@ Depois que o banco de dados do Azure para PostgreSQL servidor único é criptogr
 
    ![Captura de tela do banco de dados do Azure para PostgreSQL, com status inacessível realçado](media/concepts-data-access-and-security-data-encryption/show-restore-data-encryption.png)
 
-3. Para tornar o servidor acessível, revalide a chave no servidor restaurado. Selecione a**chave de revalidação**de **criptografia** > de dados.
+3. Para tornar o servidor acessível, revalide a chave no servidor restaurado. Selecione **Data Encryption**a  >  **chave de revalidação**de criptografia de dados.
 
    > [!NOTE]
    > A primeira tentativa de revalidação falhará, pois a entidade de serviço do novo servidor precisa receber acesso ao cofre de chaves. Para gerar a entidade de serviço, selecione **chave de revalidação**, que mostrará um erro, mas gerará a entidade de serviço. Depois disso, consulte [estas etapas](#set-the-right-permissions-for-key-operations) anteriormente neste artigo.

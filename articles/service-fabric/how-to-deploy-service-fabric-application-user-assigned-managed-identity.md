@@ -4,10 +4,10 @@ description: Este artigo mostra como implantar Service Fabric aplicativo com uma
 ms.topic: article
 ms.date: 12/09/2019
 ms.openlocfilehash: 9aef81db7a455b72c83cf96898a0c228f1c382fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81415636"
 ---
 # <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity"></a>Implantar Service Fabric aplicativo com uma identidade gerenciada atribuída pelo usuário
@@ -18,7 +18,7 @@ Para implantar um aplicativo Service Fabric com identidade gerenciada, o aplicat
 > 
 > Os aplicativos que não são implantados como um recurso do Azure **não podem** ter identidades gerenciadas. 
 >
-> Service Fabric implantação de aplicativo com identidade gerenciada tem suporte com `"2019-06-01-preview"`a versão de API. Você também pode usar a mesma versão de API para tipo de aplicativo, versão de tipo de aplicativo e recursos de serviço.
+> Service Fabric implantação de aplicativo com identidade gerenciada tem suporte com a versão de API `"2019-06-01-preview"` . Você também pode usar a mesma versão de API para tipo de aplicativo, versão de tipo de aplicativo e recursos de serviço.
 >
 
 ## <a name="user-assigned-identity"></a>Identidade atribuída pelo usuário
@@ -86,7 +86,7 @@ No exemplo acima, o nome do recurso da identidade atribuída ao usuário está s
       </ServiceManifestImport>
     ```
 
-3. Atualize o manifesto do serviço para adicionar um **ManagedIdentity** dentro da seção de **recursos** com o nome `ServiceIdentityRef` correspondente ao `IdentityBindingPolicy` no do manifesto do aplicativo:
+3. Atualize o manifesto do serviço para adicionar um **ManagedIdentity** dentro da seção de **recursos** com o nome correspondente ao `ServiceIdentityRef` no `IdentityBindingPolicy` do manifesto do aplicativo:
 
     **ServiceManifest.xml**
 

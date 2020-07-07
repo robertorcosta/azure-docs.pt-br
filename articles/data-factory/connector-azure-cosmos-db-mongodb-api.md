@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/20/2019
 ms.openlocfilehash: 9b23f46a418f2663531cc121f00b83d00d84e48d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81415454"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-dbs-api-for-mongodb-by-using-azure-data-factory"></a>Copiar dados de e para o Azure Cosmos DB (API do MongoDB) usando o Azure Data Factory
@@ -50,7 +50,7 @@ As propriedades a seguir têm suporte no serviço vinculado da API do Azure Cosm
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | O **tipo** de propriedade deve ser definido como **CosmosDbMongoDbApi**. | Sim |
-| connectionString |Especifique a cadeia de conexão da API do Azure Cosmos DB para MongoDB. Encontre-a no portal do Azure -> sua folha Cosmos DB -> cadeia de caracteres de conexão primária ou secundária, com o padrão de `mongodb://<cosmosdb-name>:<password>@<cosmosdb-name>.documents.azure.com:10255/?ssl=true&replicaSet=globaldb`. <br/><br />Você também pode colocar uma senha em Azure Key Vault e extrair a `password` configuração da cadeia de conexão.Consulte [armazenar credenciais em Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes.|Sim |
+| connectionString |Especifique a cadeia de conexão da API do Azure Cosmos DB para MongoDB. Encontre-a no portal do Azure -> sua folha Cosmos DB -> cadeia de caracteres de conexão primária ou secundária, com o padrão de `mongodb://<cosmosdb-name>:<password>@<cosmosdb-name>.documents.azure.com:10255/?ssl=true&replicaSet=globaldb`. <br/><br />Você também pode colocar uma senha em Azure Key Vault e extrair a  `password`   configuração da cadeia de conexão.Consulte [armazenar credenciais em Azure Key Vault](store-credentials-in-key-vault.md)   com mais detalhes.|Sim |
 | Banco de Dados | O nome do banco de dados que você deseja criar. | Sim |
 | connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você poderá usar o Azure Integration Runtime ou um tempo de execução da integração auto-hospedada (se o armazenamento de dados estiver localizado em uma rede privada). Se essa propriedade não for especificada, o Azure Integration Runtime padrão será usado. |Não |
 
@@ -109,7 +109,7 @@ Para obter uma lista completa de seções e propriedades que estão disponíveis
 
 ### <a name="azure-cosmos-dbs-api-for-mongodb-as-source"></a>API do Azure Cosmos DB para MongoDB como fonte
 
-As propriedades a seguir têm suporte na seção **origem** da atividade de cópia:
+As seguintes propriedades são suportadas na seção **source** da atividade de cópia:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
@@ -164,12 +164,12 @@ As propriedades a seguir têm suporte na seção **origem** da atividade de cóp
 
 ### <a name="azure-cosmos-dbs-api-for-mongodb-as-sink"></a>API do Azure Cosmos DB para MongoDB como coletor
 
-As propriedades a seguir têm suporte na seção **coletor** de atividade de cópia:
+As seguintes propriedades são suportadas na seção Copy Activity **sink**:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | O **tipo** de propriedade do coletor de atividade de cópia deve ser definido como **CosmosDbMongoDbApiSink**. |Sim |
-| writeBehavior |Descreve como gravar dados no Azure Cosmos DB. Valores permitidos são **insert** e **upsert**.<br/><br/>O comportamento de **Upsert** é substituir o documento se já existir um documento com o `_id` mesmo; caso contrário, insira o documento.<br /><br />**Observação**: data Factory gerará automaticamente `_id` um para um documento se `_id` um não for especificado no documento original ou por mapeamento de coluna. Isso significa que, para **upsert** funcionar conforme esperado, o documento deve ter uma ID. |Não<br />(o padrão é **insert**) |
+| writeBehavior |Descreve como gravar dados no Azure Cosmos DB. Valores permitidos são **insert** e **upsert**.<br/><br/>O comportamento de **Upsert** é substituir o documento se já existir um documento com o mesmo `_id` ; caso contrário, insira o documento.<br /><br />**Observação**: data Factory gerará automaticamente um `_id` para um documento se um `_id` não for especificado no documento original ou por mapeamento de coluna. Isso significa que, para **upsert** funcionar conforme esperado, o documento deve ter uma ID. |Não<br />(o padrão é **insert**) |
 | writeBatchSize | A propriedade **writeBatchSize** controla o tamanho dos documentos que escrevemos em cada lote. Você pode tentar aumentar o valor de **writeBatchSize** para melhorar o desempenho e diminuir o valor se o tamanho do documento for grande. |Não<br />(o padrão é **10.000**) |
 | writeBatchTimeout | O tempo de espera para que a operação de inserção em lote seja concluída antes de atingir o tempo limite. O valor permitido é TimeSpan. | Não<br/>(o padrão é **30:00:00** - 30 minutos) |
 

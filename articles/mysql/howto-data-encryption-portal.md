@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.openlocfilehash: 9d1e89919647d9d94b287618da2f9a77278425a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81459076"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-portal"></a>Criptografia de dados para o Azure Database para MySQL usando o portal do Azure
@@ -41,7 +41,7 @@ Saiba como usar o portal do Azure para configurar e gerenciar a criptografia de 
 
 ## <a name="set-the-right-permissions-for-key-operations"></a>Definir as permissões corretas para operações de chave
 
-1. Em Key Vault, selecione **políticas** > de acesso**Adicionar política de acesso**.
+1. Em Key Vault, selecione **políticas de acesso**  >  **Adicionar política de acesso**.
 
    ![Captura de tela de Key Vault, com políticas de acesso e adicionar política de acesso realçado](media/concepts-data-access-and-security-data-encryption/show-access-policy-overview.png)
 
@@ -67,9 +67,9 @@ Saiba como usar o portal do Azure para configurar e gerenciar a criptografia de 
 
 ## <a name="using-data-encryption-for-restore-or-replica-servers"></a>Usando a criptografia de dados para servidores de restauração ou de réplica
 
-Depois que o banco de dados do Azure para MySQL é criptografado com a chave gerenciada de um cliente armazenada no Key Vault, qualquer cópia recém-criada do servidor também é criptografada. Você pode fazer essa nova cópia por meio de uma operação local ou de restauração geográfica, ou por meio de uma operação de réplica (local/entre regiões). Portanto, para um servidor MySQL criptografado, você pode usar as etapas a seguir para criar um servidor restaurado criptografado.
+Depois que o Banco de Dados do Azure para MySQL é criptografado com uma chave gerenciada pelo cliente armazenada no Key Vault, qualquer cópia recém-criada do servidor também é criptografada. Você pode fazer essa nova cópia por meio de uma operação local ou de restauração geográfica, ou por meio de uma operação de réplica (local/entre regiões). Portanto, para um servidor MySQL criptografado, você pode usar as etapas a seguir para criar um servidor restaurado criptografado.
 
-1. No servidor, selecione **visão geral** > **restaurar**.
+1. No servidor, selecione **visão geral**  >  **restaurar**.
 
    ![Captura de tela do banco de dados do Azure para MySQL, com visão geral e restauração realçadas](media/concepts-data-access-and-security-data-encryption/show-restore.png)
 
@@ -81,7 +81,7 @@ Depois que o banco de dados do Azure para MySQL é criptografado com a chave ger
 
    ![Captura de tela do banco de dados do Azure para MySQL, com status inacessível realçado](media/concepts-data-access-and-security-data-encryption/show-restore-data-encryption.png)
 
-3. Para tornar o servidor acessível, revalide a chave no servidor restaurado. Selecione a**chave de revalidação**de **criptografia** > de dados.
+3. Para tornar o servidor acessível, revalide a chave no servidor restaurado. Selecione **Data encryption**a  >  **chave de revalidação**de criptografia de dados.
 
    > [!NOTE]
    > A primeira tentativa de revalidação falhará, pois a entidade de serviço do novo servidor precisa receber acesso ao cofre de chaves. Para gerar a entidade de serviço, selecione **chave de revalidação**, que mostrará um erro, mas gerará a entidade de serviço. Depois disso, consulte [estas etapas](#set-the-right-permissions-for-key-operations) anteriormente neste artigo.

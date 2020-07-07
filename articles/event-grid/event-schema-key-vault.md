@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: spelluru
 ms.openlocfilehash: 40bff9585e64163039a8847ff868c982ffb20414
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81458242"
 ---
 # <a name="azure-key-vault-as-event-grid-source"></a>Azure Key Vault como fonte da grade de eventos
@@ -69,11 +69,11 @@ Um evento tem os seguintes dados de nível superior:
 
 | Propriedade | Type | Descrição |
 | ---------- | ----------- |---|
-| id | cadeia de caracteres | A ID do objeto que disparou este evento |
-| vaultName | cadeia de caracteres | O nome do cofre de chaves do objeto que disparou este evento |
-| objectType | cadeia de caracteres | O tipo do objeto que disparou este evento |
-| objectName | cadeia de caracteres | O nome do objeto que disparou este evento |
-| version | cadeia de caracteres | A versão do objeto que disparou este evento |
+| id | string | A ID do objeto que disparou este evento |
+| vaultName | string | O nome do cofre de chaves do objeto que disparou este evento |
+| objectType | string | O tipo do objeto que disparou este evento |
+| objectName | string | O nome do objeto que disparou este evento |
+| version | string | A versão do objeto que disparou este evento |
 | nbf | número | A data de não-antes, em segundos, desde 1970-01-01T00:00:00Z do objeto que disparou este evento |
 | exp | número | A data de validade em segundos desde 1970-01-01T00:00:00Z do objeto que disparou este evento |
 
@@ -91,7 +91,7 @@ Um evento tem os seguintes dados de nível superior:
 * Para saber mais sobre a integração de Key Vault com a grade de eventos, consulte [monitorando Key Vault com a grade de eventos do Azure (versão prévia)](../key-vault/general/event-grid-overview.md).
 * Para obter um tutorial sobre a integração Key Vault com a grade de eventos, consulte [receber e responder a notificações do Key Vault com a grade de eventos do Azure (versão prévia)](../key-vault/general/event-grid-tutorial.md).
 * Para obter diretrizes adicionais para Key Vault e a automação do Azure, consulte:
-    - [O que é o Azure Key Vault?](../key-vault/general/overview.md)
+    - [O que é o Cofre da Chave do Azure?](../key-vault/general/overview.md)
     - [Monitoramento do Key Vault com a Grade de Eventos do Azure (versão prévia)](../key-vault/general/event-grid-overview.md)
     - [Receber notificações do cofre de chaves e responder a elas com a Grade de Eventos do Azure (versão prévia)](../key-vault/general/event-grid-tutorial.md)
     - [Visão geral da Automação do Azure](../automation/index.yml)

@@ -7,10 +7,10 @@ ms.date: 09/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: fcc7c5b8fa182cace6e3dae0b1cae4cd41c5dcb9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81532574"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Implantar seu aplicativo no Serviço de Aplicativo do Azure usando FTP/S
@@ -29,7 +29,7 @@ O ponto de extremidade FTP/S para seu aplicativo já está ativo. Nenhuma config
 
     ![Selecione seu aplicativo.](media/app-service-continuous-deployment/select-your-app.png)
 
-3. Selecione **central** > de implantação**painel**de**FTP** > .
+3. Selecione **central de implantação**  >  **FTP**  >  **painel**de FTP.
 
     ![Abrir o painel FTP](./media/app-service-deploy-ftp/open-dashboard.png)
 
@@ -42,11 +42,11 @@ No painel de FTP, selecione **copiar** para copiar o ponto de extremidade de FTP
 É recomendável que você use as **Credenciais do Aplicativo** para implantar seu aplicativo porque ele é exclusivo para cada aplicativo. No entanto, se você clicar em **Credenciais do Usuário**, poderá definir as credenciais de nível de usuário a serem usadas para logon do FTP/S em todos os aplicativos do Serviço de Aplicativo em sua assinatura.
 
 > [!NOTE]
-> A autenticação em um ponto de extremidade de FTP/FTPS usando credenciais de nível de usuário exige um nome de usuário no seguinte formato: 
+> A autenticação em um terminal FTP/FTPS usando credenciais no nível do usuário requer um nome de usuário no seguinte formato:  
 >
 >`<app-name>\<user-name>`
 >
-> Como as credenciais de nível de usuário são vinculadas ao usuário e não a um recurso específico, o nome de usuários deve estar nesse formato para direcionar a ação de entrada para o ponto de extremidade do aplicativo certo.
+> Como as credenciais de usuário estão vinculadas ao usuário e não a um recurso específico, o nome de usuário deve estar neste formato para direcionar a ação de entrada para o ponto de extremidade correto do aplicativo.
 >
 
 ## <a name="deploy-files-to-azure"></a>Implantar arquivos no Azure
@@ -69,7 +69,7 @@ No painel de FTP, selecione **copiar** para copiar o ponto de extremidade de FTP
 
 Para aumentar a segurança, você deve permitir FTP somente em TLS/SSL. Você também pode desabilitar FTP e FTPS se não usa a implantação de FTP.
 
-Na página de recursos do aplicativo no [portal do Azure](https://portal.azure.com), selecione **Configuration** > **configurações gerais** de configuração no painel de navegação esquerdo.
+Na página de recursos do aplicativo no [portal do Azure](https://portal.azure.com), selecione **Configuration**  >  **configurações gerais** de configuração no painel de navegação esquerdo.
 
 Para desabilitar o FTP não criptografado, selecione **FTPS somente** no **estado do FTP**. Para desabilitar totalmente o FTP e a FTPS, selecione **desabilitado**. Ao terminar, clique em **Salvar**. Se estiver usando **apenas FTPS**, você deve impor o TLS 1,2 ou superior navegando até a folha **configurações de TLS/SSL** do seu aplicativo Web. Não há suporte para TLS 1.0 e 1.1 com **FTPS Apenas**.
 
