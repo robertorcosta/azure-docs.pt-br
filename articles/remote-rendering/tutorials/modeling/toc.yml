@@ -1,2 +1,4 @@
-- name: Configurar materiais de renderização de base física no Maya
+- name: Como configurar materiais de renderização baseada fisicamente no Autodesk Maya
   href: maya-material-setup.md
+- name: Como configurar materiais de renderização baseada fisicamente no Autodesk 3DSMax
+  href: 3dsmax-material-setup.md

@@ -4,7 +4,7 @@
   items:
     - name: Sobre as Instâncias de Contêiner do Azure
       href: container-instances-overview.md
-- name: Início rápido
+- name: Inícios rápidos
   expanded: true
   items:
     - name: Implantar uma instância de contêiner – CLI
@@ -86,6 +86,8 @@
           href: container-instances-start-command.md
         - name: Executar um comando (exec)
           href: container-instances-exec.md
+        - name: Executar um contêiner de configuração (init)
+          href: container-instances-init-container.md
         - name: Usar uma identidade gerenciada (versão prévia)
           href: container-instances-managed-identity.md
         - name: Usar recursos da GPU (versão prévia)

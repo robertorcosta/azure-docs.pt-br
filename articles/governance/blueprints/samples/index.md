@@ -1,14 +1,13 @@
 ---
 title: Índice de exemplos de blueprint
 description: Índice de exemplos padrão e de conformidade para implantar ambientes, políticas e fundamentos do Cloud Adoptions Framework com o Azure Blueprints.
-ms.date: 06/02/2020
+ms.date: 07/01/2020
 ms.topic: sample
-ms.openlocfilehash: 0ed5af98644f116622aa44a2503161ce2fd6225b
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: HT
+ms.openlocfilehash: 7e45cbbbf7cf6c2e267156dbb0087a19d8288aa2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84729992"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85832314"
 ---
 # <a name="azure-blueprints-samples"></a>Exemplos do Azure Blueprints
 
@@ -23,6 +22,7 @@ A tabela a seguir contém links para exemplos do Azure Blueprints. Cada exemplo 
 | [PBMM Federal do Canadá](./canada-federal-pbmm/index.md) | Fornece proteções para conformidade com o PBMM (B Protegido, Integridade Média, Disponibilidade Média) Federal do Canadá. |
 | [CIS Microsoft Azure Foundations Benchmark](./cis-azure-1-1-0.md)| Fornece um conjunto de políticas para ajudar a cumprir as recomendações do CIS Microsoft Azure Foundations Benchmark. |
 | [Nível de Impacto 4 do DoD](./dod-impact-level-4/index.md) | Fornece um conjunto de políticas para ajudar a manter a conformidade com o Nível de Impacto 4 do DoD. |
+| [Nível de Impacto 5 do DoD](./dod-impact-level-5/index.md) | Fornece um conjunto de políticas para ajudar a manter a conformidade com o Nível de Impacto 5 do DoD. |
 | [FedRAMP Moderado](./fedramp-m/index.md) | Fornece um conjunto de políticas para ajudar a manter a conformidade com o FedRAMP moderado. |
 | [FedRAMP High](./fedramp-h/index.md) | Fornece um conjunto de políticas para ajudar a manter a conformidade com o FedRAMP High. |
 | [HIPAA/HITRUST](./HIPAA-HITRUST/index.md) | Fornece um conjunto de políticas para ajudar a manter a conformidade com HIPAA/HITRUST. |
@@ -32,6 +32,7 @@ A tabela a seguir contém links para exemplos do Azure Blueprints. Cada exemplo 
 | [Carga de trabalho do Ambiente do Serviço de Aplicativo/Banco de Dados SQL ISO 27001](./iso27001-ase-sql-workload/index.md) | Oferece infraestrutura adicional para o exemplo de blueprint dos [Serviços Compartilhados ISO 27001](./iso27001-shared/index.md). |
 | [Mídia](./media/index.md) | Fornece um conjunto de políticas para ajudar a manter a conformidade com a MPAA de Mídia. |
 | [NIST SP 800-53 R4](./nist-sp-800-53-r4.md) | Fornece as diretrizes para a conformidade com o NIST SP 800-53 R4. |
+| [NIST SP 800-171 R2](./nist-sp-800-171-r2.md) | Fornece as diretrizes para a conformidade com o NIST SP 800-171 R2. |
 | [PCI-DSS v3.2.1](./pci-dss-3.2.1/index.md) | Fornece um conjunto de políticas para auxiliar em conformidade com PCI-DSS v3.2.1. |
 | [SWIFT CSP-CSCF v2020](./swift-2020/index.md) | Auxilia na conformidade com o SWIFT CSP-CSCF v2020. |
 | [Governança de NHS do Reino Unido e OFICIAL do Reino Unido](./ukofficial/index.md) | Oferece um conjunto de padrões de infraestrutura e proteções de política em conformidade que ajudam na certificação OFICIAL do Reuno Unido e da NHS do Reino Unido. |

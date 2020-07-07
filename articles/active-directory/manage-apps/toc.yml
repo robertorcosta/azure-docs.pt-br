@@ -7,10 +7,16 @@
       href: what-is-application-management.md
 - name: Inícios rápidos
   items:
-    - name: Exibir os aplicativos empresariais
+    - name: Exibir seus aplicativos
       href: view-applications-portal.md
-    - name: Adicionar um aplicativo de nuvem da galeria
+    - name: Adicionar um aplicativo
       href: add-application-portal.md
+    - name: Configurar um aplicativo
+      href: add-application-portal-configure.md
+    - name: Configurar logon único
+      href: add-application-portal-setup-sso.md
+    - name: Excluir um aplicativo
+      href: delete-application-portal.md
 - name: Tutoriais
   items:
     - name: 'Aplicativos integrados da galeria (por exemplo, ServiceNow, Salesforce, Dropbox)'

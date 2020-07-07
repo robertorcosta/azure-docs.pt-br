@@ -389,6 +389,8 @@
               href: log-query/unify-app-resource-data.md
         - name: Exemplos e diretrizes
           items:
+            - name: Consultas de exemplo
+              href: log-query/saved-queries.md
             - name: Exemplos de consulta de log
               href: log-query/examples.md
             - name: Exemplos de análise inteligente
@@ -1125,6 +1127,8 @@
               href: learn/tutorial-logs-dashboards.md
             - name: Dashboard usando os dados de aplicativos
               href: learn/tutorial-app-dashboards.md
+            - name: Como atualizar dashboards do Log Analytics
+              href: log-query/dashboard-upgrade.md
         - name: Enviar dados para Grafana
           href: platform/grafana-plugin.md
     - name: Coleta e análise de dados personalizadas
@@ -1200,6 +1204,10 @@
           href: app/custom-endpoints.md
         - name: Funções do Azure
           href: app/azure-functions-supported-features.md
+        - name: Notas de versão
+          items:
+            - name: Extensão de aplicativo Web
+              href: app/web-app-extension-release-notes.md
         - name: Modelo de dados
           items:
             - name: Visão geral

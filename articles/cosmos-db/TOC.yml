@@ -1005,7 +1005,7 @@
               href: performance-tips-async-java.md
             - name: SDK do Java Síncrono v2
               href: performance-tips-java.md
-            - name: SDK do Java Assíncrono v2
+            - name: Solução de problemas – SDK do Java Assíncrono v2
               href: troubleshoot-java-async-sdk.md
         - name: Teste de desempenho - aplicativo de exemplo
           href: performance-testing.md
