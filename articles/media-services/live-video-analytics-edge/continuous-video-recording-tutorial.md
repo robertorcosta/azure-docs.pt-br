@@ -3,12 +3,12 @@ title: Tutorial de gravação contínua de vídeo na nuvem e reprodução com or
 description: Neste tutorial, você aprenderá a usar a Análise Dinâmica de Vídeo do Azure no Azure IoT Edge para gravar vídeo continuamente na nuvem e para transmitir qualquer parte desse vídeo usando os Serviços de Mídia do Azure.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 95182478b75d506526cce28c0d5e446d71140eac
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 008927d607ef2a14e30e8e2090692ccd2bb1e7eb
+ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84765056"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85808005"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Tutorial: Gravação contínua de vídeo baseada na nuvem e reprodução com origem na nuvem
 
@@ -162,7 +162,7 @@ Quando você usa o módulo da Análise Dinâmica de Vídeo no IoT Edge para grav
 1. No Visual Studio Code, navegue até src/cloud-to-device-console-app/operations.json.
 1. No nó **GraphTopologySet**, edite o seguinte:
 
-    `"topologyUrl" : "https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/cvr-asset/topology.json" `
+    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json" `
 1. Em seguida, sob os nós **GraphInstanceSet** e **GraphTopologyDelete**, verifique se o valor de **topologyName** corresponde ao valor da propriedade **name** na topologia do grafo acima:
 
     `"topologyName" : "CVRToAMSAsset"`  

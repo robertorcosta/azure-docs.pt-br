@@ -3,18 +3,18 @@ title: Entrar na versão prévia do Azure Notebooks
 description: Entre rapidamente na versão prévia do Azure Notebooks e defina uma ID de usuário, que oferece a capacidade de acessar os projetos salvos e compartilhar notebooks com outras pessoas.
 ms.topic: quickstart
 ms.date: 04/15/2019
-ms.openlocfilehash: b6572a7c0b965b2b72916db577b47eff4f1921c0
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 8a2d9836cd005ab11106c569929a6776d605da50
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75647009"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85830410"
 ---
 # <a name="quickstart-sign-in-and-set-a-user-id-for-azure-notebooks-preview"></a>Início Rápido: Entrar e definir uma ID de usuário da versão prévia do Azure Notebooks
 
-Embora você sempre possa exibir os blocos de anotações do Azure Notebooks sem precisar entrar, você deve entrar para executar os blocos de anotações, acessar projetos salvos e blocos de anotações e compartilhar seus blocos de anotações com outras pessoas.
-
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+Embora você sempre possa exibir os blocos de anotações do Azure Notebooks sem precisar entrar, você deve entrar para executar os blocos de anotações, acessar projetos salvos e blocos de anotações e compartilhar seus blocos de anotações com outras pessoas.
 
 ## <a name="sign-in"></a>Entrar
 

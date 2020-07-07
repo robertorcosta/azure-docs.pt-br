@@ -4,20 +4,20 @@ description: Saiba como criar e executar um Jupyter Notebook na Versão prévia 
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.custom: tracking-python
-ms.openlocfilehash: e677fca9291bb5247071c3970b7db3f36a6bdceb
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: fd7fc324894595a991074c6d83ffc0f9fa3cff75
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561743"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85834124"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Tutorial: criar e executar um Jupyter Notebook com Python
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Este tutorial orienta você no processo de usar o Azure Notebooks para criar um Jupyter Notebook completo que demonstra uma regressão linear simples. No decorrer deste tutorial, você se familiarizará com a interface do usuário do Jupyter Notebook, que inclui a criação de células diferentes, a execução das células e a apresentação do notebook como uma apresentação de slides.
 
 O notebook completo pode ser encontrado em [GitHub – Exemplos do Azure Notebooks](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps). Este tutorial, no entanto, começa com um novo projeto e um notebook vazio, para que você possa experimentar criá-lo passo a passo.
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Neste tutorial, você aprenderá como:
 

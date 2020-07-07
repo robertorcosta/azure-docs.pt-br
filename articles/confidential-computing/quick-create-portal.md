@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 04/23/2020
 ms.author: JenCook
-ms.openlocfilehash: 49824b324df044ae2883ab6844dd321be27cbcbf
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3cf772fb10ee41887d76976b30e9bebaba51a2f3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82150351"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85830461"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-azure-portal"></a>Início Rápido: Implantar uma VM de computação confidencial do Azure no portal do Azure
 
@@ -84,7 +84,7 @@ Caso não tenha uma assinatura do Azure, [crie uma conta](https://azure.microsof
    * **Tipo de autenticação**: Selecione **Chave pública SSH** se você estiver criando uma VM do Linux. 
 
         > [!NOTE]
-         > Você tem a opção de usar uma chave pública SSH ou uma senha para autenticação. SSH é mais seguro. Para obter instruções sobre como gerar uma chave SSH, confira [Criar chaves SSH em Linux e Mac para VMs Linux no Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys).
+        > Você tem a opção de usar uma chave pública SSH ou uma senha para autenticação. SSH é mais seguro. Para obter instruções sobre como gerar uma chave SSH, confira [Criar chaves SSH em Linux e Mac para VMs Linux no Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys).
 
     * **Nome de usuário**: Insira o nome do Administrador da VM.
 
@@ -127,8 +127,7 @@ ssh azureadmin@40.55.55.555
 
 Você pode localizar o endereço IP público da VM no portal do Azure, na seção Visão geral da máquina virtual.
 
-[!div class="mx-imgBorder"]
-![Endereço IP no portal do Azure](media/quick-create-portal/public-ip-virtual-machine.png)
+:::image type="content" source="media/quick-create-portal/public-ip-virtual-machine.png" alt-text="Endereço IP no portal do Azure":::
 
 Se estiver executando no Windows e não tiver um shell Bash, você poderá instalar um cliente SSH, como o PuTTY.
 

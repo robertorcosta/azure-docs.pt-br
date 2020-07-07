@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 9f3ba0a7e9f7cf72b0eade16679d980fe2207f98
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: a57dc6c57e10c82f9548490c4c2e98fd87f677af
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80297220"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849424"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Tutorial: Copiar dados para o Armazenamento de Blobs do Azure Data Box por meio de APIs REST  
 
@@ -92,7 +92,7 @@ Use o portal do Azure para baixar o certificado.
 
 1. Entre no portal do Azure.
 2. Acesse sua ordem do Data Box e navegue para **Geral > Detalhes do dispositivo**.
-3. Em **Credenciais do dispositivo**, acesse **Acesso à API** no dispositivo. Clique em **Download**. Essa ação baixa um arquivo de certificado **\<nome de seu pedido>.cer**. **Salve** esse arquivo. Você instalará esse certificado no computador cliente ou host que será usado para se conectar ao dispositivo.
+3. Em **Credenciais do dispositivo**, acesse **Acesso à API** no dispositivo. Clique em **Download**. Essa ação baixa um arquivo de certificado **\<your order name>.cer**. **Salve** esse arquivo. Você instalará esse certificado no computador cliente ou host que será usado para se conectar ao dispositivo.
 
     ![Baixar o certificado no portal do Azure](media/data-box-deploy-copy-data-via-rest/download-cert-1.png)
  
@@ -197,16 +197,19 @@ Use o AzCopy para carregar todos os arquivos de uma pasta no Armazenamento de Bl
 
 #### <a name="linux"></a>Linux
 
-    azcopy \
-        --source /mnt/myfolder \
-        --destination https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
-        --dest-key <key> \
-        --recursive
+```azcopy
+azcopy \
+    --source /mnt/myfolder \
+    --destination https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
+    --dest-key <key> \
+    --recursive
+```
 
 #### <a name="windows"></a>Windows
 
-    AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S
-
+```azcopy
+AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S
+```
 
 Substitua `<key>` pela chave da conta. Para obter a chave da conta, no portal do Azure, acesse sua conta de armazenamento. Acesse **Configurações > Chaves de acesso**, selecione uma chave e cole-a no comando do AzCopy.
 
@@ -221,16 +224,21 @@ Use o AzCopy para carregar arquivos com base na hora de sua última modificaçã
 Se você quiser copiar apenas os recursos de origem que não existem no destino, especifique ambos os parâmetros, `--exclude-older` e `--exclude-newer` (Linux), ou `/XO` e `/XN` (Windows), no comando AzCopy. O AzCopy carrega apenas os dados atualizados, com base em seu carimbo de data/hora.
 
 #### <a name="linux"></a>Linux
-    azcopy \
-    --source /mnt/myfolder \
-    --destination https://data-box-heavy-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
-    --dest-key <key> \
-    --recursive \
-    --exclude-older
+
+```azcopy
+azcopy \
+--source /mnt/myfolder \
+--destination https://data-box-heavy-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
+--dest-key <key> \
+--recursive \
+--exclude-older
+```
 
 #### <a name="windows"></a>Windows
 
-    AzCopy /Source:C:\myfolder /Dest:https://data-box-heavy-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
+```azcopy
+AzCopy /Source:C:\myfolder /Dest:https://data-box-heavy-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
+```
 
 Se houver erros durante a operação de conectar ou copiar, consulte [Solucionar problemas com o armazenamento de blobs do Data Box](data-box-troubleshoot-rest.md).
 

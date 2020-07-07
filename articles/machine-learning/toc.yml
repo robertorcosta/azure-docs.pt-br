@@ -335,9 +335,6 @@
         - name: Usar destinos de computação remota
           displayName: automl automated auto ml
           href: how-to-auto-train-remote.md
-        - name: Definir tarefas do ML
-          displayName: 'machine learning, task type, automl'
-          href: how-to-define-task-type.md
         - name: Autotreinar um modelo de previsão
           displayName: time series
           href: how-to-auto-train-forecast.md

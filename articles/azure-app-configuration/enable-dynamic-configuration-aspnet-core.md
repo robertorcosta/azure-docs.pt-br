@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: e9df6d2e7a8219d16e7b60f7c3b8d826a87e6110
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 5ac09aae724cf7481245ba9e898b52945b394cae
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80348849"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856520"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Tutorial: Usar a configuração dinâmica em um aplicativo ASP.NET Core
 
@@ -310,11 +310,16 @@ Uma *chave sentinela* é uma chave especial usada para sinalizar quando a config
 
 1. Para criar o aplicativo usando a CLI do .NET Core, execute o seguinte comando no shell de comando:
 
+```console
         dotnet build
+```
 
 1. Depois que a construção for concluída com êxito, execute o seguinte comando para executar o aplicativo Web localmente:
 
+```console
         dotnet run
+```
+
 1. Abra uma janela do navegador e vá para a URL mostrada na saída `dotnet run`.
 
     ![Como iniciar o aplicativo de início rápido localmente](./media/quickstarts/aspnet-core-app-launch-local-before.png)

@@ -7,12 +7,12 @@ ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
-ms.openlocfilehash: 38efc86d1bdc185f39d3ea502a64d0f3cf7edcc0
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 1befd0cc85044097a64b5988e6f763ce89ca3ec9
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80408257"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849705"
 ---
 # <a name="create-a-support-request-for-cloudyn"></a>Criar uma solicitação de suporte para o Cloudyn
 
@@ -38,7 +38,7 @@ Quando o tíquete de suporte é criado, ele é adicionado à fila de suporte. O 
 
 Se você quiser criar um tíquete de suporte de cobrança para o Gerenciamento de Custos, em **Tipo de problema**, selecione **Gerenciamento de custos do Azure**.
 
-Para verificar o status de um incidente que você tiver preenchido, consulte [Todas as solicitações de suporte](../../azure-portal/supportability/how-to-create-azure-support-request.md#all-support-requests).
+Para verificar o status de um incidente que você tiver preenchido, consulte [Todas as solicitações de suporte](../../azure-portal/supportability/how-to-manage-azure-support-request.md#view-support-requests).
 
 Se for um usuário do Cloudyn herdado sem uma conta do Azure, você poderá abrir uma solicitação de suporte em https://support.microsoft.com/oas/default.aspx?prid=16451.
 

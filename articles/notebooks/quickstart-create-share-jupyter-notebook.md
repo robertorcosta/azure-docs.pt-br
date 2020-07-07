@@ -4,14 +4,16 @@ description: Crie e execute rapidamente um Jupyter notebook na versão prévia d
 ms.topic: quickstart
 ms.date: 12/04/2018
 ms.custom: tracking-python
-ms.openlocfilehash: 01d1035f794287e679b6ebc84fa9498b184b4791
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 809cb006e1ea40e31d079b40febee6a09714731f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561089"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85832093"
 ---
 # <a name="quickstart-create-and-share-a-notebook-in-azure-notebooks-preview"></a>Início Rápido: Criar e compartilhar um notebook na versão prévia do Azure Notebooks
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Neste início rápido, você criará e executará um Jupyter notebook no Azure Notebooks e, em seguida, compartilhará esse notebook com outras pessoas. O Jupyter permite combinar com facilidade o texto Markdown, o código executável, os dados persistentes, os gráficos e as visualizações em uma só tela compartilhável, o notebook. O Azure Notebooks é um serviço hospedado gratuito para desenvolver e executar os notebooks do Jupyter na nuvem sem instalação.
 
@@ -19,8 +21,6 @@ Neste início rápido, você criará e executará um Jupyter notebook no Azure N
 Nenhum.
 
 ## <a name="create-a-new-project-and-notebook"></a>Criar um projeto e um notebook
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 1. Acesse o site do [Azure Notebooks (https://notebooks.azure.com)](https://notebooks.azure.com) e conecte-se. Para obter detalhes, confira [Início Rápido: entrar no Azure Notebooks](quickstart-sign-in-azure-notebooks.md).
 
