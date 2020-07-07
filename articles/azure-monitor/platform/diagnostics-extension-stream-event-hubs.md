@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/18/2020
 ms.openlocfilehash: 979535b1f9a237f6975908178fb1e5ed819181b0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82233458"
 ---
 # <a name="send-data-from-windows-azure-diagnostics-extension-to-azure-event-hubs"></a>Enviar dados da extensão de diagnóstico do Windows Azure para os hubs de eventos do Azure
@@ -39,7 +39,7 @@ O Diagnóstico do Azure sempre envia logs e métricas para uma conta de armazena
 | Propriedade | Descrição |
 |:---|:---|
 | Nome | Nome descritivo do coletor. Usado na configuração para especificar quais fontes de dados enviar para o coletor. |
-| Url  | URL do \<Hub de eventos no formato Event-hubs-namespace\>. ServiceBus.Windows.NET/\<evento-Hub-Name.\>          |
+| Url  | URL do hub de eventos no formato \<event-hubs-namespace\> . ServiceBus.Windows.NET/ \<event-hub-name\> .          |
 | SharedAccessKeyName | Nome de uma política de acesso compartilhado para o Hub de eventos que tem pelo menos a autoridade de **envio** . |
 | SharedAccessKey     | Chave primária ou secundária da política de acesso compartilhado para o Hub de eventos. |
 
@@ -176,9 +176,9 @@ Você pode usar uma variedade de métodos para validar que os dados estão sendo
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Visão geral de Hubs de Evento](../../event-hubs/event-hubs-about.md)
-* [Criar um Hub de Evento](../../event-hubs/event-hubs-create.md)
-* [Perguntas frequentes dos Hubs de Eventos](../../event-hubs/event-hubs-faq.md)
+* [Visão geral de Hubs de Eventos](../../event-hubs/event-hubs-about.md)
+* [Criar um hub de eventos](../../event-hubs/event-hubs-create.md)
+* [Perguntas frequentes sobre os Hubs de Eventos](../../event-hubs/event-hubs-faq.md)
 
 <!-- Images. -->
 [0]: ../../event-hubs/media/event-hubs-streaming-azure-diags-data/dashboard.png

@@ -15,15 +15,15 @@ ms.workload: ''
 ms.date: 03/24/2020
 ms.author: mlearned
 ms.openlocfilehash: 99a1fdb8caff9953041c996d0f5581318ce11c66
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82233679"
 ---
 # <a name="overview-of-azure-devops-starter"></a>Visão geral do Azure DevOps Starter
 
- O iniciador DevOps do Azure facilita a introdução ao Azure. Ele ajuda você a iniciar seu tipo de aplicativo favorito no serviço do Azure de sua escolha em apenas algumas etapas rápidas do portal do Azure. 
+ Com o Azure DevOps Starter, é mais fácil começar a usar o Azure. Ele ajuda você a iniciar seu tipo de aplicativo favorito no serviço do Azure de sua escolha em apenas algumas etapas rápidas do portal do Azure. 
 
  O DevOps Starter configura tudo o que você precisa para desenvolver, implantar e monitorar seu aplicativo. Você pode usar o painel inicial do DevOps para monitorar confirmações, compilações e implantações de código, tudo a partir de uma única exibição no portal do Azure.
 

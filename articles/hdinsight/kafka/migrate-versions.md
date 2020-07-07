@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.openlocfilehash: 0a31c6cf32222277e033aacf7d04622c54aef9ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80437006"
 ---
 # <a name="migrate-apache-kafka-workloads-to-azure-hdinsight-40"></a>Migrar cargas de trabalho de Apache Kafka para o Azure HDInsight 4,0
@@ -54,7 +54,7 @@ Para obter uma lista completa de atualizações, consulte [notas de versão do A
 
 ## <a name="kafka-client-compatibility"></a>Compatibilidade de cliente do Kafka
 
-Novos agentes Kafka dão suporte a clientes mais antigos. [Gnorar-35-a versão de protocolo de recuperação](https://cwiki.apache.org/confluence/display/KAFKA/KIP-35+-+Retrieving+protocol+version) introduziu um mecanismo para determinar dinamicamente a funcionalidade de um agente de Kafka e [gnorar-97: a política de compatibilidade de RPC de cliente de Kafka aprimorada](https://cwiki.apache.org/confluence/display/KAFKA/KIP-97%3A+Improved+Kafka+Client+RPC+Compatibility+Policy) introduziu uma nova política de compatibilidade e garante que o cliente Java. Anteriormente, um cliente Kafka tinha que interagir com um agente da mesma versão ou uma versão mais recente. Agora, as versões mais recentes dos clientes Java e outros clientes que dão suporte a GNORAR- `librdkafka` 35, como o, podem retornar a tipos de solicitação mais antigos ou gerar erros apropriados se a funcionalidade não estiver disponível.
+Novos agentes Kafka dão suporte a clientes mais antigos. [Gnorar-35-a versão de protocolo de recuperação](https://cwiki.apache.org/confluence/display/KAFKA/KIP-35+-+Retrieving+protocol+version) introduziu um mecanismo para determinar dinamicamente a funcionalidade de um agente de Kafka e [gnorar-97: a política de compatibilidade de RPC de cliente de Kafka aprimorada](https://cwiki.apache.org/confluence/display/KAFKA/KIP-97%3A+Improved+Kafka+Client+RPC+Compatibility+Policy) introduziu uma nova política de compatibilidade e garante que o cliente Java. Anteriormente, um cliente Kafka tinha que interagir com um agente da mesma versão ou uma versão mais recente. Agora, as versões mais recentes dos clientes Java e outros clientes que dão suporte a GNORAR-35, como o, `librdkafka` podem retornar a tipos de solicitação mais antigos ou gerar erros apropriados se a funcionalidade não estiver disponível.
 
 ![Atualizar a compatibilidade do cliente Kafka](./media/upgrade-threesix-to-four/apache-kafka-client-compatibility.png)
 
@@ -85,4 +85,4 @@ Para concluir a migração, execute as seguintes etapas:
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Otimização de desempenho para clusters do Apache Kafka HDInsight](apache-kafka-performance-tuning.md)
-* [Início rápido: criar Apache Kafka cluster no Azure HDInsight usando portal do Azure](apache-kafka-get-started.md)
+* [Início Rápido: Criar cluster do Apache Kafka no Azure HDInsight usando o portal do Azure](apache-kafka-get-started.md)

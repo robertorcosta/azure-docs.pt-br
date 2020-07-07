@@ -9,10 +9,10 @@ ms.author: mbaldwin
 ms.date: 02/27/2020
 ms.custom: seodec18
 ms.openlocfilehash: f2b84427b9aad2d18368d808fc618f3bfbe774ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81460113"
 ---
 # <a name="azure-disk-encryption-on-an-isolated-network"></a>Azure Disk Encryption em uma rede isolada
@@ -47,7 +47,7 @@ Quando a criptografia é habilitada com [credenciais do Azure AD](disk-encryptio
 
 ### <a name="azure-instance-metadata-service"></a>Serviço de metadados de instância do Azure 
 
-A máquina virtual deve ser capaz de acessar o ponto de extremidade do [serviço de metadados de instância do Azure](instance-metadata-service.md) , que usa um endereço IP não`169.254.169.254`roteável conhecido () que pode ser acessado somente de dentro da VM.  Não há suporte para as configurações de proxy que alteram o tráfego HTTP local para esse endereço (por exemplo, a adição de um cabeçalho X-Forwardd-for).
+A máquina virtual deve ser capaz de acessar o ponto de extremidade do [serviço de metadados de instância do Azure](instance-metadata-service.md) , que usa um endereço IP não roteável conhecido ( `169.254.169.254` ) que pode ser acessado somente de dentro da VM.  Não há suporte para as configurações de proxy que alteram o tráfego HTTP local para esse endereço (por exemplo, a adição de um cabeçalho X-Forwarded-For).
 
 ## <a name="next-steps"></a>Próximas etapas
 

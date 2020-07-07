@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.openlocfilehash: 732709dbcb5ebe54025a963379128f1a1e74183e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81536294"
 ---
 # <a name="customer-managed-key-disk-encryption"></a>Criptografia de disco de chave gerenciada pelo cliente
@@ -62,7 +62,7 @@ O HDInsight é compatível apenas com o Azure Key Vault. Se você tiver seu pró
 
 ## <a name="create-key"></a>Chave Create
 
-1. Em seu novo cofre de chaves, navegue até **configurações** > **chaves** > **+ gerar/importar**.
+1. Em seu novo cofre de chaves, navegue até **configurações**  >  **chaves**  >  **+ gerar/importar**.
 
     ![Gerar uma nova chave no Azure Key Vault](./media/disk-encryption/create-new-key.png "Gerar uma nova chave no Azure Key Vault")
 
@@ -80,7 +80,7 @@ O HDInsight é compatível apenas com o Azure Key Vault. Se você tiver seu pró
 
 ## <a name="create-access-policy"></a>Criar política de acesso
 
-1. Em seu novo cofre de chaves, navegue até **configurações** > **políticas** > de acesso **+ Adicionar política de acesso**.
+1. Em seu novo cofre de chaves, navegue até **configurações**  >  **políticas de acesso**  >  **+ Adicionar política de acesso**.
 
     ![Criar uma nova política de acesso do Azure Key Vault](./media/disk-encryption/key-vault-access-policy.png)
 
@@ -90,7 +90,7 @@ O HDInsight é compatível apenas com o Azure Key Vault. Se você tiver seu pró
     |---|---|
     |Permissões de chave|Selecione **obter**, **desencapsular chave**e **encapsular chave**.|
     |Permissões de segredo|Selecione **obter**, **definir**e **excluir**.|
-    |Selecionar entidade|Selecione a identidade gerenciada atribuída pelo usuário que você criou anteriormente.|
+    |Selecionar entidade de segurança|Selecione a identidade gerenciada atribuída pelo usuário que você criou anteriormente.|
 
     ![Definir Selecionar Entidade de Segurança para a política de acesso do Azure Key Vault](./media/disk-encryption/azure-portal-add-access-policy.png)
 
@@ -153,7 +153,7 @@ New-AzResourceGroupDeployment `
   -managedIdentityName $managedIdentityName
 ```
 
-O conteúdo do modelo de gerenciamento de recursos `azuredeploy.json`,:
+O conteúdo do modelo de gerenciamento de recursos, `azuredeploy.json` :
 
 ```json
 {

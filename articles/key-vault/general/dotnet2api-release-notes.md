@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/02/2017
 ms.author: mbaldwin
 ms.openlocfilehash: 436b9c1569d7c33f79a126cd4d0513bac9385d8a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81431911"
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>.NET 2.0 para Cofre de Chaves do Azure - Notas de versão e guia de migração
@@ -49,12 +49,12 @@ Certificados do Key Vault x509 certifica e suporta os seguintes comportamentos:
 
 * *Secret* mudou para *SecretBundle*
 * *Dictionary* mudou para *IDictionary*
-* *List\<t>, String []* alterado para *IList\<T>*
+* *List\<T>, cadeia de caracteres []* mudou para *IList\<T>*
 * *NextList* mudou para *NextPageLink*
 
 ## <a name="return-types"></a>Tipos de retorno
 
-* **KeyList** e **secretolist** agora retorna *iPage\<T>* em vez de *ListKeysResponseMessage*
+* **KeyList** e **SecretList** agora retornam *IPage\<T>* em vez de *ListKeysResponseMessage*
 * O **BackupKeyAsync** gerado agora retorna *BackupKeyResult*, que contém *Value* (blob de backup). Anteriormente, o método era encapsulado e retornava somente o valor.
 
 ## <a name="exceptions"></a>Exceções

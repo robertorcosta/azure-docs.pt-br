@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: sumi
 ms.openlocfilehash: 9ba0ad1414a09aec7ec2fb6b8c209b23f3f37050
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82202206"
 ---
 # <a name="what-is-azure-private-link-service"></a>O que é o serviço de vínculo privado do Azure?
@@ -69,7 +69,7 @@ Um serviço de vínculo privado especifica as seguintes propriedades:
  
 - Um único serviço de vínculo privado pode ser acessado de vários pontos de extremidade privados que pertencem a diferentes VNets, assinaturas e/ou locatários Active Directory. A conexão é estabelecida por meio de um fluxo de trabalho de conexão. 
  
-- Vários serviços de vínculo privado podem ser criados no mesmo Standard Load Balancer usando configurações de IP de front-end diferentes. Há limites para o número de serviços de vínculo privado que você pode criar por Standard Load Balancer e por assinatura. Para obter detalhes, consulte [limites do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
+- Vários serviços de vínculo privado podem ser criados no mesmo Standard Load Balancer usando configurações de IP de front-end diferentes. Há limites para o número de serviços de vínculo privado que você pode criar por Standard Load Balancer e por assinatura. Para obter detalhes, confira  [Limites do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
  
 - O serviço de vínculo privado pode ter mais de uma configuração de IP NAT vinculada a ela. A escolha de mais de uma configuração de IP NAT pode ajudar os provedores de serviços a dimensionar. Hoje, os provedores de serviços podem atribuir até oito endereços IP de NAT por serviço de vínculo privado. Com cada endereço IP de NAT, você pode atribuir mais portas para suas conexões TCP e, portanto, escalar horizontalmente. Depois de adicionar vários endereços IP NAT a um serviço de vínculo privado, você não pode excluir os endereços IP de NAT. Isso é feito para garantir que as conexões ativas não sejam afetadas durante a exclusão dos endereços IP de NAT.
 

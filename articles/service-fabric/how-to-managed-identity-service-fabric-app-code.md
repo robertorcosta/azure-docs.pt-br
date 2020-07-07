@@ -4,10 +4,10 @@ description: Como usar identidades gerenciadas no Azure Service Fabric código d
 ms.topic: article
 ms.date: 10/09/2019
 ms.openlocfilehash: 8f1f355d6add16f3b3ec25bc569f9b198a8d6778
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81461558"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Como aproveitar a identidade gerenciada de um aplicativo Service Fabric para acessar os serviços do Azure
@@ -52,8 +52,8 @@ onde:
 | ------- | ----------- |
 | `GET` | O verbo HTTP, indicando que você deseja recuperar os dados do ponto de extremidade. Neste caso, um token de acesso OAuth. | 
 | `https://localhost:2377/metadata/identity/oauth2/token` | O ponto de extremidade de identidade gerenciada para aplicativos Service Fabric, fornecido por meio da variável de ambiente IDENTITY_ENDPOINT. |
-| `api-version` | Um parâmetro de cadeia de caracteres de consulta, especificando a versão de API do serviço de token de identidade gerenciado; Atualmente, o único valor aceito `2019-07-01-preview`é e está sujeito a alterações. |
-| `resource` | Um parâmetro de cadeia de caracteres de consulta que indica o URI da ID do aplicativo do recurso de destino. Isso será refletido como a `aud` declaração (público) do token emitido. Este exemplo solicita um token para acessar Azure Key Vault, cujo URI de ID do aplicativo é https\/:/Vault.Azure.net/. |
+| `api-version` | Um parâmetro de cadeia de caracteres de consulta, especificando a versão de API do serviço de token de identidade gerenciado; Atualmente, o único valor aceito é `2019-07-01-preview` e está sujeito a alterações. |
+| `resource` | Um parâmetro de cadeia de caracteres de consulta que indica o URI da ID do aplicativo do recurso de destino. Isso será refletido como a `aud` declaração (público) do token emitido. Este exemplo solicita um token para acessar Azure Key Vault, cujo URI de ID do aplicativo é https: \/ /Vault.Azure.net/. |
 | `Secret` | Um campo de cabeçalho de solicitação HTTP, exigido pelo Service Fabric serviço de token de identidade gerenciada para serviços de Service Fabric para autenticar o chamador. Esse valor é fornecido pelo tempo de execução da it por meio da variável de ambiente IDENTITY_HEADER. |
 
 
@@ -74,8 +74,8 @@ onde:
 | ------- | ----------- |
 | `token_type` | O tipo de token; Nesse caso, um token de acesso "portador", que significa que o apresentador ("portador") desse token é o assunto pretendido do token. |
 | `access_token` | O token de acesso solicitado. Ao chamar uma API REST protegida, o token é inserido no campo de cabeçalho de solicitação `Authorization` como um token "portador", permitindo que a API autentique o chamador. | 
-| `expires_on` | O carimbo de data/hora da expiração do token de acesso; representado como o número de segundos de "1970-01-01T0:0: 0Z UTC" e corresponde à declaração do `exp` token. Nesse caso, o token expira em 2019-08-08T06:10:11 + 00:00 (em RFC 3339)|
-| `resource` | O recurso para o qual o token de acesso foi emitido, especificado `resource` por meio do parâmetro de cadeia de caracteres de consulta da solicitação; corresponde à declaração ' AUD ' do token. |
+| `expires_on` | O carimbo de data/hora da expiração do token de acesso; representado como o número de segundos de "1970-01-01T0:0: 0Z UTC" e corresponde à declaração do token `exp` . Nesse caso, o token expira em 2019-08-08T06:10:11 + 00:00 (em RFC 3339)|
+| `resource` | O recurso para o qual o token de acesso foi emitido, especificado por meio do `resource` parâmetro de cadeia de caracteres de consulta da solicitação; corresponde à declaração ' AUD ' do token. |
 
 
 ## <a name="acquiring-an-access-token-using-c"></a>Adquirindo um token de acesso usando C #
@@ -336,7 +336,7 @@ Se ocorrer um erro, o corpo da resposta HTTP correspondente conterá um objeto J
 | ------- | ----------- |
 | code | Código do erro. |
 | correlationId | Uma ID de correlação que pode ser usada para depuração. |
-| mensagem | Descrição detalhada do erro. **As descrições de erro podem ser alteradas a qualquer momento. Não dependa da própria mensagem de erro.**|
+| message | Descrição detalhada do erro. **As descrições de erro podem ser alteradas a qualquer momento. Não dependa da própria mensagem de erro.**|
 
 Erro de exemplo:
 ```json

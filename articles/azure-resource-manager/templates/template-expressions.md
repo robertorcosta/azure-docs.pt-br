@@ -4,10 +4,10 @@ description: Descreve a sintaxe JSON declarativa para modelos de Azure Resource 
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.openlocfilehash: baddedae1b918502e579d2ed230e0779960f45e7
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82203821"
 ---
 # <a name="syntax-and-expressions-in-azure-resource-manager-templates"></a>Sintaxe e expressões em modelos de Azure Resource Manager
@@ -47,13 +47,13 @@ A maioria das funções funciona da mesma, seja implantada em um grupo de recurs
 
 ## <a name="escape-characters"></a>Caracteres de escape
 
-Para que uma cadeia de caracteres literal comece com um `[` colchete esquerdo e termine com um `]`colchete direito, mas não a tenha interpretada como uma expressão, adicione um colchete extra para `[[`iniciar a cadeia de caracteres com. Por exemplo, a variável:
+Para que uma cadeia de caracteres literal comece com um colchete esquerdo `[` e termine com um colchete direito `]` , mas não a tenha interpretada como uma expressão, adicione um colchete extra para iniciar a cadeia de caracteres com `[[` . Por exemplo, a variável:
 
 ```json
 "demoVar1": "[[test value]"
 ```
 
-Resolve para `[test value]`.
+Resolve para `[test value]` .
 
 No entanto, se a cadeia de caracteres literal não terminar com um colchete, não Percorra o primeiro colchete. Por exemplo, a variável:
 
@@ -61,7 +61,7 @@ No entanto, se a cadeia de caracteres literal não terminar com um colchete, nã
 "demoVar2": "[test] value"
 ```
 
-Resolve para `[test] value`.
+Resolve para `[test] value` .
 
 Para escapar aspas duplas em uma expressão, como adicionar um objeto JSON no modelo, use a barra invertida.
 
@@ -93,7 +93,7 @@ Ao passar valores de parâmetro, o uso de caracteres de escape depende de onde o
 }
 ```
 
-Se você usar o valor padrão, o modelo retornará `[test value]`.
+Se você usar o valor padrão, o modelo retornará `[test value]` .
 
 No entanto, se você passar um valor de parâmetro por meio da linha de comando, os caracteres serão interpretados literalmente. Implantando o modelo anterior com:
 
@@ -107,7 +107,7 @@ Retorna `[[test value]`. Em vez disso, use:
 New-AzResourceGroupDeployment -ResourceGroupName demoGroup -TemplateFile azuredeploy.json -demoParam1 "[test value]"
 ```
 
-A mesma formatação se aplica ao passar valores de um arquivo de parâmetro. Os caracteres são interpretados literalmente. Quando usado com o modelo anterior, o seguinte arquivo de parâmetro `[test value]`retorna:
+A mesma formatação se aplica ao passar valores de um arquivo de parâmetro. Os caracteres são interpretados literalmente. Quando usado com o modelo anterior, o seguinte arquivo de parâmetro retorna `[test value]` :
 
 ```json
 {

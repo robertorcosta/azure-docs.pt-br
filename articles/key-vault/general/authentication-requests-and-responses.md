@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 33e3bc13e67e268b82bf517033b4b1c7c51c361f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81430884"
 ---
 # <a name="authentication-requests-and-responses"></a>Autenticação, solicitações e respostas
@@ -23,7 +23,7 @@ O Azure Key Vault oferece suporte a solicitações e respostas no formato JSON. 
 
 Este tópico aborda informações específicas para o serviço do Azure Key Vault. Para obter informações gerais sobre o uso de interfaces de REST do Azure, incluindo autenticação/autorização e como adquirir um token de acesso, consulte a [Referência da API REST do Azure](https://docs.microsoft.com/rest/api/azure).
 
-## <a name="request-url"></a>URL de Solicitação  
+## <a name="request-url"></a>URL da solicitação  
  As principais operações de gerenciamento usam HTTP DELETE, GET, PATCH, PUT e HTTP POST e operações criptográficas em relação a objetos de chave existentes usam HTTP POST. Os clientes que não suportam verbos HTTP específicos também podem usar HTTP POST usando o cabeçalho X-HTTP-REQUEST para especificar o verbo pretendido; solicitações que normalmente não exigem um corpo devem incluir um corpo vazio quando usando HTTP POST, por exemplo, ao usar POST em vez de DELETE.  
 
  Para trabalhar com objetos no Azure Key Vault, a seguir estão exemplos de URLs:  
@@ -113,5 +113,5 @@ WWW-Authenticate: Bearer authorization="…", resource="…"
 
 -   authorization: O endereço do serviço de autorização OAuth2 que pode ser usado para obter um token de acesso para a solicitação.  
 
--   recurso: o nome do recurso (`https://vault.azure.net`) a ser usado na solicitação de autorização.  
+-   recurso: o nome do recurso ( `https://vault.azure.net` ) a ser usado na solicitação de autorização.  
 

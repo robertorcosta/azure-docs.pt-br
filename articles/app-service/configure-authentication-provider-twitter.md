@@ -8,10 +8,10 @@ ms.custom:
 - seodec18
 - fasttrack-edit
 ms.openlocfilehash: 11c913b12b4dcb7d2a5ffa532064b347b82904ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80519906"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-twitter-login"></a>Configurar seu serviço de aplicativo ou Azure Functions aplicativo para usar o logon do Twitter
@@ -26,7 +26,7 @@ Para concluir o procedimento neste artigo, você precisa de uma conta do Twitter
 
 1. Entre no [portal do Azure] e vá para seu aplicativo. Copie a **URL**. Você o usará para configurar seu aplicativo do Twitter.
 1. Vá para o site de [desenvolvedores do Twitter] , entre com suas credenciais de conta do Twitter e selecione **criar um aplicativo**.
-1. Insira o **nome do aplicativo** e a **Descrição do aplicativo** para o novo aplicativo. Cole a **URL** do aplicativo no campo **URL do site** . Na seção **URLs de retorno de chamada** , insira a URL https do seu aplicativo do serviço de aplicativo `/.auth/login/twitter/callback`e acrescente o caminho. Por exemplo, `https://contoso.azurewebsites.net/.auth/login/twitter/callback`.
+1. Insira o **nome do aplicativo** e a **Descrição do aplicativo** para o novo aplicativo. Cole a **URL** do aplicativo no campo **URL do site** . Na seção **URLs de retorno de chamada** , insira a URL https do seu aplicativo do serviço de aplicativo e acrescente o caminho `/.auth/login/twitter/callback` . Por exemplo, `https://contoso.azurewebsites.net/.auth/login/twitter/callback`.
 1. Na parte inferior da página, digite pelo menos 100 caracteres em **diga-nos como esse aplicativo será usado**e, em seguida, selecione **criar**. Clique em **criar** novamente no pop-up. Os detalhes do aplicativo são exibidos.
 1. Selecione a guia **Chaves e Tokens de Acesso** .
 
@@ -39,8 +39,8 @@ Para concluir o procedimento neste artigo, você precisa de uma conta do Twitter
 
 ## <a name="add-twitter-information-to-your-application"></a><a name="secrets"> </a>Adicione informações do Twitter ao seu aplicativo
 
-1. Vá para seu aplicativo no [portal do Azure].
-1. Selecione **configurações** > **autenticação/autorização**e verifique se a **autenticação do serviço de aplicativo** está **ativada**.
+1. Acesse o seu aplicativo no [Azure portal].
+1. Selecione **Configurações** > **Autenticação/Autorização** e verifique se a **Autenticação do Serviço de Aplicativo** está **Ativada**.
 1. Selecione **Twitter**.
 1. Cole os `API key` valores e `API secret key` que você obteve anteriormente.
 1. Selecione **OK**.
@@ -52,9 +52,9 @@ Para concluir o procedimento neste artigo, você precisa de uma conta do Twitter
 1. (Opcional) Para restringir o acesso ao seu site somente para usuários autenticados pelo Twitter, defina **Ação a ser executada quando a solicitação não for autenticada** como **Twitter**. Quando você define essa funcionalidade, seu aplicativo requer que todas as solicitações sejam autenticadas. Ele também redireciona todas as solicitações não autenticadas para o Twitter para autenticação.
 
    > [!CAUTION]
-   > Restringir o acesso dessa maneira se aplica a todas as chamadas para seu aplicativo, o que pode não ser desejável para aplicativos que têm um home page publicamente disponível, como em muitos aplicativos de página única. Para tais aplicativos, **Permitir solicitações anônimas (nenhuma ação)** pode ser preferível para que o aplicativo inicie manualmente a autenticação em si. Para obter mais informações, consulte [fluxo de autenticação](overview-authentication-authorization.md#authentication-flow).
+   > Restringir o acesso dessa maneira se aplica a todas as chamadas para seu aplicativo, o que pode não ser desejável para aplicativos que têm uma página inicial publicamente disponível, como em muitos aplicativos de página única. Para esses aplicativos, **Permitir solicitações anônimas (nenhuma ação)** pode ser preferível, para que o aplicativo inicie a autenticação manualmente por conta própria. Para obter mais informações, consulte [Fluxo de autenticação](overview-authentication-authorization.md#authentication-flow).
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 Agora você está pronto para usar o Twitter para autenticação em seu aplicativo.
 

@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.custom: seodec18
 ms.openlocfilehash: 47daf4ecd034c390a1460610e78d4fffd9277ac7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81535699"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Comprar um nome de domínio personalizado para Serviço de Aplicativo do Azure
@@ -106,7 +106,7 @@ Clique em **Informações de Contato** e preencha o formulário de informações
 
 Em seguida, selecione as opções desejadas para seu domínio. Consulte a tabela a seguir para obter explicações:
 
-| Setting | Valor sugerido | Descrição |
+| Configuração | Valor sugerido | Descrição |
 |-|-|-|
 |Proteção de privacidade | Habilitar | Escolha "Proteção de privacidade," que está incluído no preço de compra _gratuitamente_. Alguns domínios de nível superior são gerenciados pelo registradores que não dão suporte à proteção de privacidade e eles são listados na página **Proteção de privacidade**. |
 | Atribuir nomes de host padrão | **www** e **\@** | Se você quiser, selecione as associações de nome do host desejadas. Quando a operação de compra de domínio for concluída, o aplicativo poderá ser acessado nos nomes do host selecionados. Se o aplicativo estiver atrás do [Gerenciador de Tráfego do Microsoft Azure](https://azure.microsoft.com/services/traffic-manager/), você não verá a opção para atribuir o domínio raiz (@) porque o Gerenciador de Tráfego não dá suporte a registros A. Você pode fazer alterações às atribuições de nome do host após a compra de domínio ser concluída. |
@@ -140,7 +140,7 @@ Você também verá os nomes de host selecionados na página **Domínios persona
 > Um rótulo **não seguro** para seu domínio personalizado significa que ele ainda não está associado a um certificado TLS/SSL, e qualquer solicitação HTTPS de um navegador para seu domínio personalizado receberá um erro ou aviso, dependendo do navegador. Para configurar a associação TLS, consulte [proteger um nome DNS personalizado com uma associação TLS/SSL no serviço Azure app](configure-ssl-bindings.md).
 >
 
-Para testar os nomes de host, navegue até os nomes de host listados no navegador. No exemplo na captura de tela anterior, tente navegar até _kontoso.net_ e _www\.kontoso.net_.
+Para testar os nomes de host, navegue até os nomes de host listados no navegador. No exemplo na captura de tela anterior, tente navegar até _kontoso.net_ e _www \. kontoso.net_.
 
 ## <a name="assign-hostnames-to-app"></a>Atribuir nomes do host ao aplicativo
 
@@ -171,7 +171,7 @@ Selecione **Adicionar nome do host**.
 Na caixa de diálogo **Adicionar nome do host**, digite o nome de domínio totalmente qualificado do Domínio do Serviço de Aplicativo ou qualquer subdomínio. Por exemplo:
 
 - kontoso.net
-- kontoso.net\.www
+- \.kontoso.net www
 - abc.kontoso.net
 
 Quando terminar, selecione **Validar**. O tipo de registro de nome do host é selecionado automaticamente para você.
@@ -235,7 +235,7 @@ No Azure, os registros DNS para um Domínio do Serviço de Aplicativo são geren
 
 ### <a name="open-app-service-domain"></a>Abrir o Domínio do Serviço de Aplicativo
 
-No portal do Azure, no menu à esquerda, selecione **todos os serviços** > **domínios do serviço de aplicativo**.
+No portal do Azure, no menu à esquerda, selecione **todos os serviços**  >  **domínios do serviço de aplicativo**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 
@@ -255,7 +255,7 @@ Depois de comprar o Domínio do Serviço de Aplicativo, você tem cinco dias par
 
 ### <a name="open-app-service-domain"></a>Abrir o Domínio do Serviço de Aplicativo
 
-No portal do Azure, no menu à esquerda, selecione **todos os serviços** > **domínios do serviço de aplicativo**.
+No portal do Azure, no menu à esquerda, selecione **todos os serviços**  >  **domínios do serviço de aplicativo**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 

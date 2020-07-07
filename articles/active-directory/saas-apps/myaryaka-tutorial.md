@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fe7ccf4afea1c7ee359f31660914f21e2ab4e90
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4c103cfff2593aa4a40f9370d65a1a2f1c38ba5c
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74534633"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85798163"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-myaryaka"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao MyAryaka
 
@@ -84,10 +84,10 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     a. Na caixa de texto **URL de Logon**, use um dos seguintes padrões:
 
-    | |
-    |-|
-    | `https://my.aryaka.com/`|
-    | `https://kso.aryaka.com/auth/realms/<CUSTOMERID>`|
+    ```https
+    https://my.aryaka.com/
+    https://kso.aryaka.com/auth/realms/<CUSTOMERID>
+    ```
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://kso.aryaka.com/auth/realms/<CUSTOMERID>`
 

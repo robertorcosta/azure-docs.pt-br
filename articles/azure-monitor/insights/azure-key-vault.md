@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/27/2019
 ms.openlocfilehash: 7da2fa2ddfbd9c71563dd8bd2e17b14c6dee62b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81455420"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Solução de análise de Azure Key Vault no Azure Monitor
@@ -50,7 +50,7 @@ Use as instruções a seguir para instalar e configurar a solução de Cofre de 
 8. Clique em *salvar* para habilitar o log de diagnósticos para log Analytics espaço de trabalho.
 
 ### <a name="enable-key-vault-diagnostics-using-powershell"></a>Habilitar o diagnóstico do Key Vault usando o PowerShell
-O script do PowerShell a seguir fornece um exemplo de como `Set-AzDiagnosticSetting` usar o para habilitar o log de recursos para Key Vault:
+O script do PowerShell a seguir fornece um exemplo de como usar o `Set-AzDiagnosticSetting` para habilitar o log de recursos para Key Vault:
 ```
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 

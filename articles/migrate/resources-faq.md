@@ -4,10 +4,10 @@ description: Obtenha respostas para perguntas comuns sobre o serviço migraçõe
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.openlocfilehash: 9b71888b284fd9cc125def4758d1e3800a92acf2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81530310"
 ---
 # <a name="azure-migrate-common-questions"></a>Migrações para Azure: perguntas comuns
@@ -53,7 +53,7 @@ Escolha sua ferramenta com base no que você deseja fazer:
 
 ## <a name="which-geographies-are-supported"></a>Quais regiões têm suporte?
 
-Examine as geografias com suporte para [nuvens](migrate-support-matrix.md#supported-geographies-azure-government) [públicas](migrate-support-matrix.md#supported-geographies-public-cloud) e governamentais.
+Examine as geografias compatíveis para [nuvens públicas](migrate-support-matrix.md#supported-geographies-public-cloud) e [governamentais](migrate-support-matrix.md#supported-geographies-azure-government).
 
 ## <a name="how-do-i-get-started"></a>Como começar?
 

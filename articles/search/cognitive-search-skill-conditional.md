@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: b5f1fc7f877854dd06fbbe09ff82e47208fa12d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72792041"
 ---
 # <a name="conditional-cognitive-skill"></a>Habilidade de cognitiva condicional
@@ -72,7 +72,7 @@ Os seguintes itens são valores válidos de uma expressão:
         "= !true"
     ```
 
--   Expressões que usam operadores numéricos (+,- \*,,/,%) <br/>
+-   Expressões que usam operadores numéricos (+,-, \* ,/,%) <br/>
     Exemplos: 
     ```
         "= $(/document/sentiment) + 0.5"         // addition
@@ -87,9 +87,9 @@ As entradas diferenciam maiúsculas de minúsculas.
 
 | Entrada   | Descrição |
 |-------------|-------------|
-| condition   | Essa entrada é um [campo avaliado](#evaluated-fields) que representa a condição a ser avaliada. Essa condição deve ser avaliada como um valor booliano (*true* ou *false*).   <br/>  Exemplos: <br/> "= true" <br/> "= $ (/Document/Language) = = ' fr '" <br/> "= $ (/Document/Pages/\*/Language) = = $ (/Document/expectedLanguage)" <br/> |
-| whenTrue    | Essa entrada é um [campo avaliado](#evaluated-fields) que representa o valor a ser retornado se a condição for avaliada como *true*. As cadeias de caracteres de constantes devem ser retornadas entre aspas simples (' e '). <br/>Valores de exemplo: <br/> "= ' contrato '"<br/>"= $ (/document/contractType)" <br/> "= $ (/Document/Entities/\*)" <br/> |
-| whenFalse   | Essa entrada é um [campo avaliado](#evaluated-fields) que representa o valor a ser retornado se a condição for avaliada como *false*. <br/>Valores de exemplo: <br/> "= ' contrato '"<br/>"= $ (/document/contractType)" <br/> "= $ (/Document/Entities/\*)" <br/>
+| condition   | Essa entrada é um [campo avaliado](#evaluated-fields) que representa a condição a ser avaliada. Essa condição deve ser avaliada como um valor booliano (*true* ou *false*).   <br/>  Exemplos: <br/> "= true" <br/> "= $ (/Document/Language) = = ' fr '" <br/> "= $ (/Document/Pages/ \* /Language) = = $ (/Document/expectedLanguage)" <br/> |
+| whenTrue    | Essa entrada é um [campo avaliado](#evaluated-fields) que representa o valor a ser retornado se a condição for avaliada como *true*. As cadeias de caracteres de constantes devem ser retornadas entre aspas simples (' e '). <br/>Valores de exemplo: <br/> "= ' contrato '"<br/>"= $ (/document/contractType)" <br/> "= $ (/Document/Entities/ \* )" <br/> |
+| whenFalse   | Essa entrada é um [campo avaliado](#evaluated-fields) que representa o valor a ser retornado se a condição for avaliada como *false*. <br/>Valores de exemplo: <br/> "= ' contrato '"<br/>"= $ (/document/contractType)" <br/> "= $ (/Document/Entities/ \* )" <br/>
 
 ## <a name="skill-outputs"></a>Saídas de habilidades
 Há uma única saída que é simplesmente chamada de "saída". Ele retornará o valor *whenFalse* se a condição for false ou *whenTrue* se a condição for true.

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cc10fb4f9894a355c9eed024ae9f87747214999b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72886994"
 ---
 # <a name="user-experiences-with-azure-ad-identity-protection"></a>Experiências do usuário com o Azure AD Identity Protection
@@ -67,7 +67,7 @@ Quando uma política de risco do usuário tiver sido configurada, os usuários q
 
 1. O usuário é informado de que a segurança da conta está em risco devido à atividade suspeita ou credenciais vazadas.
    
-    ![Correção](./media/concept-identity-protection-user-experience/101.png)
+    ![Remediação](./media/concept-identity-protection-user-experience/101.png)
 
 1. O usuário precisa provar sua identidade concluindo o Azure MFA com um de seus métodos anteriormente registrados. 
 1. Por fim, o usuário é forçado a alterar sua senha usando a redefinição de senha de autoatendimento, já que outra pessoa pode ter tido acesso à sua conta.

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/26/2020
 ms.author: apimpm
 ms.openlocfilehash: b9e990988770e8aca015ae8b1159bb4f5e50df57
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82205086"
 ---
 # <a name="deploy-an-azure-api-management-self-hosted-gateway-to-docker"></a>Implantar um gateway auto-hospedado do gerenciamento de API do Azure para o Docker
@@ -26,7 +26,7 @@ Este artigo fornece as etapas para implantar o componente de gateway auto-hosped
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Conclua o início rápido a seguir: [criar uma instância de gerenciamento de API do Azure](get-started-create-service-instance.md)
+- Conclua o início rápido a seguir: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md)
 - Crie um ambiente do Docker. O [Docker for Desktop](https://www.docker.com/products/docker-desktop) é uma boa opção para fins de desenvolvimento e avaliação. Consulte a [documentação do Docker](https://docs.docker.com) para obter informações sobre todas as edições do Docker, seus recursos e a documentação abrangente do Docker em si.
 - [Provisionar um recurso de gateway em sua instância de gerenciamento de API](api-management-howto-provision-self-hosted-gateway.md)
 
@@ -60,7 +60,7 @@ CONTAINER ID        IMAGE                                                 COMMAN
 > [!TIP]
 > Use <code>console docker container logs <gateway-name></code> o comando para exibir um instantâneo do log de gateway auto-hospedado.
 >
-> Use <code>docker container logs --help</code> o comando para ver todas as opções de exibição de log.
+> Use o <code>docker container logs --help</code> comando para ver todas as opções de exibição de log.
 
 ## <a name="next-steps"></a>Próximas etapas
 

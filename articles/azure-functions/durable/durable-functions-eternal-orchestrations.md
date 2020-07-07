@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: d55e08fecbd1338284607ac59fe354c6fa8cb1ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80478809"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Orquestrações eternas nas Funções Duráveis (Azure Functions)
@@ -22,7 +22,7 @@ Conforme explicado no tópico do [histórico de orquestração](durable-function
 
 ## <a name="resetting-and-restarting"></a>Redefinir e reiniciar
 
-Em vez de usar loops infinitos, as funções de orquestrador redefinem seu estado `ContinueAsNew` chamando `continueAsNew` o método (.net) ou (JavaScript) da [Associação de gatilho de orquestração](durable-functions-bindings.md#orchestration-trigger). Esse método usa um único parâmetro serializável em JSON, que se torna a nova entrada para geração da próxima função de orquestrador.
+Em vez de usar loops infinitos, as funções de orquestrador redefinem seu estado chamando o `ContinueAsNew` método (.net) ou `continueAsNew` (JavaScript) da [Associação de gatilho de orquestração](durable-functions-bindings.md#orchestration-trigger). Esse método usa um único parâmetro serializável em JSON, que se torna a nova entrada para geração da próxima função de orquestrador.
 
 Quando `ContinueAsNew` é chamado, a instância enfileira uma mensagem para si mesma antes de sair. A mensagem reinicia a instância com o novo valor de entrada. A mesma ID de instância é mantida, mas o histórico da função de orquestrador efetivamente é truncado.
 
@@ -51,7 +51,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> O exemplo anterior de C# é para Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `DurableOrchestrationContext` em vez `IDurableOrchestrationContext`de. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
+> O exemplo anterior de C# é para Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext` . Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -97,7 +97,7 @@ public static async Task<HttpResponseMessage> OrchestrationTrigger(
 ```
 
 > [!NOTE]
-> O código anterior é para Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `OrchestrationClient` o atributo em vez `DurableClient` do atributo, e deve usar o `DurableOrchestrationClient` tipo de parâmetro em `IDurableOrchestrationClient`vez de. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
+> O código anterior é para Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `OrchestrationClient` o atributo em vez do `DurableClient` atributo, e deve usar o `DurableOrchestrationClient` tipo de parâmetro em vez de `IDurableOrchestrationClient` . Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -122,7 +122,7 @@ module.exports = async function (context, req) {
 
 Se uma função de orquestrador precisar ser concluída, tudo que você precisa fazer é *não* chamar `ContinueAsNew` e permitir que a função saia.
 
-Se uma função de orquestrador estiver em um loop infinito e precisar ser interrompida, use `TerminateAsync` o método (.NET `terminate` ) ou (JavaScript) da [Associação de cliente de orquestração](durable-functions-bindings.md#orchestration-client) para interrompê-la. Para obter mais informações, consulte [Gerenciamento de Instâncias](durable-functions-instance-management.md).
+Se uma função de orquestrador estiver em um loop infinito e precisar ser interrompida, use o `TerminateAsync` método (.net) ou `terminate` (JavaScript) da [Associação de cliente de orquestração](durable-functions-bindings.md#orchestration-client) para interrompê-la. Para obter mais informações, consulte [Gerenciamento de Instâncias](durable-functions-instance-management.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

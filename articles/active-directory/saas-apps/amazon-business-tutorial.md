@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8218b3dbe09e5ce7e6c28e1084b26c6eec4a16ca
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: b8f5ff42597a457a8849e424e041f1677c28b383
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83772974"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608935"
 ---
 # <a name="tutorial-integrate-amazon-business-with-azure-active-directory"></a>Tutorial: integrar o Amazon Business ao Azure Active Directory
 
@@ -85,7 +85,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     1. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando um dos seguintes padrões:
     
-       | | |
+       | URL | Região |
        |-|-|
        | `https://www.amazon.com`| América do Norte |
        | `https://www.amazon.co.jp`| Leste da Ásia |
@@ -93,7 +93,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     1. Na caixa de texto **URL de Resposta**, digite uma URL nos seguintes padrões:
     
-       | | |
+       | URL | Região |
        |-|-|
        | `https://www.amazon.com/bb/feature/sso/action/3p_redirect?idpid={idpid}`| América do Norte |
        | `https://www.amazon.co.jp/bb/feature/sso/action/3p_redirect?idpid={idpid}`| Leste da Ásia |

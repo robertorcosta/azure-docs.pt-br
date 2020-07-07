@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 06/04/2019
 ms.openlocfilehash: ed849ec928cc09cd0e8911929c4abc6ae54b1536
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82208033"
 ---
 # <a name="connect-with-rdp-to-azure-kubernetes-service-aks-cluster-windows-server-nodes-for-maintenance-or-troubleshooting"></a>Conectar-se ao RDP para os nós do Windows Server do cluster do AKS (serviço de kubernetes do Azure) para manutenção ou solução de problemas
@@ -22,7 +22,7 @@ Este artigo mostra como criar uma conexão RDP com um nó AKS usando seus endere
 
 Este artigo pressupõe que você tenha um cluster AKS existente com um nó do Windows Server. Se você precisar de um cluster AKS, consulte o artigo sobre como [criar um cluster AKs com um contêiner do Windows usando o CLI do Azure][aks-windows-cli]. Você precisa do nome de usuário e senha do administrador do Windows para o nó do Windows Server que você deseja solucionar problemas. Você também precisa de um cliente RDP, como [área de trabalho remota da Microsoft][rdp-mac].
 
-Você também precisa do CLI do Azure versão 2.0.61 ou posterior instalada e configurada. Execute  `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
+Você também precisa do CLI do Azure versão 2.0.61 ou posterior instalada e configurada. Execute  `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
 
 ## <a name="deploy-a-virtual-machine-to-the-same-subnet-as-your-cluster"></a>Implantar uma máquina virtual na mesma sub-rede que o cluster
 

@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 03/12/2020
 author: sabbour
 ms.author: asabbour
-keywords: toa, openshift, AZ aro, Red Hat, CLI
+keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
 ms.openlocfilehash: 45da3034891e5a82fb8423adb6bcd5e867f9d4e2
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82204995"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-cli"></a>Configurar a autenticação de Azure Active Directory para um cluster do Azure Red Hat OpenShift 4 (CLI)
@@ -36,7 +36,7 @@ oauthCallbackURL=https://oauth-openshift.apps.$domain.$location.aroapp.io/oauth2
 
 ## <a name="create-an-azure-active-directory-application-for-authentication"></a>Criar um aplicativo Azure Active Directory para autenticação
 
-Crie um aplicativo Azure Active Directory e recupere o identificador de aplicativo criado. Substitua ** \<ClientSecret>** por uma senha segura.
+Crie um aplicativo Azure Active Directory e recupere o identificador de aplicativo criado. Substituir **\<ClientSecret>** por uma senha segura.
 
 ```azurecli-interactive
 az ad app create \
@@ -76,7 +76,7 @@ Você pode usar declarações opcionais para:
 
 Vamos configurar OpenShift para usar a `email` declaração e voltar para `upn` para definir o nome de usuário preferencial adicionando o `upn` como parte do token de ID retornado por Azure Active Directory.
 
-Crie um arquivo **manifest. JSON** para configurar o aplicativo Azure Active Directory.
+Crie um **manifest.jsno** arquivo para configurar o aplicativo Azure Active Directory.
 
 ```bash
 cat > manifest.json<< EOF
@@ -97,7 +97,7 @@ EOF
 
 ## <a name="update-the-azure-active-directory-applications-optionalclaims-with-a-manifest"></a>Atualizar o optionalClaims do aplicativo de Azure Active Directory com um manifesto
 
-Substitua ** \<o AppID>** pela ID que você obteve anteriormente.
+Substitua **\<AppID>** pela ID que você obteve anteriormente.
 
 ```azurecli-interactive
 az ad app update \
@@ -109,7 +109,7 @@ az ad app update \
 
 Para poder ler as informações do usuário de Azure Active Directory, precisamos definir os escopos adequados.
 
-Substitua ** \<o AppID>** pela ID que você obteve anteriormente.
+Substitua **\<AppID>** pela ID que você obteve anteriormente.
 
 Adicione permissão para o escopo **Azure Active Directory Graph. User. Read** para habilitar a entrada e ler o perfil do usuário.
 
@@ -131,7 +131,7 @@ Siga as instruções na documentação do Azure Active Directory para [atribuir 
 
 ## <a name="configure-openshift-openid-authentication"></a>Configurar a Autenticação OpenID OpenShift
 
-Recupere as `kubeadmin` credenciais. Execute o comando a seguir para localizar a senha do `kubeadmin` usuário.
+Recupere as `kubeadmin` credenciais. Execute o comando a seguir para localizar a senha para o usuário `kubeadmin`.
 
 ```azurecli-interactive
 az aro list-credentials \
@@ -139,7 +139,7 @@ az aro list-credentials \
   --resource-group aro-rg
 ```
 
-A saída de exemplo a seguir mostra que a senha `kubeadminPassword`estará em.
+A saída de exemplo a seguir mostra que a senha estará em `kubeadminPassword`.
 
 ```json
 {
@@ -148,13 +148,13 @@ A saída de exemplo a seguir mostra que a senha `kubeadminPassword`estará em.
 }
 ```
 
-Faça logon no servidor de API do cluster OpenShift usando o comando a seguir. A `$apiServer` variável foi definida [anteriormente](). Substitua ** \<a senha kubeadmin>** pela senha que você recuperou.
+Faça logon no servidor de API do cluster OpenShift usando o comando a seguir. A `$apiServer` variável foi definida [anteriormente](). Substitua **\<kubeadmin password>** pela senha que você recuperou.
 
 ```azurecli-interactive
 oc login $apiServer -u kubeadmin -p <kubeadmin password>
 ```
 
-Crie um segredo OpenShift para armazenar o segredo do aplicativo Azure Active Directory, substituindo ** \<ClientSecret>** pelo segredo que você recuperou anteriormente.
+Crie um segredo OpenShift para armazenar o segredo do aplicativo Azure Active Directory, substituindo **\<ClientSecret>** pelo segredo que você recuperou anteriormente.
 
 ```azurecli-interactive
 oc create secret generic openid-client-secret-azuread \
@@ -162,7 +162,7 @@ oc create secret generic openid-client-secret-azuread \
   --from-literal=clientSecret=<ClientSecret>
 ```    
 
-Crie um arquivo **oidc. YAML** para configurar a autenticação do OpenShift OpenID em relação ao Azure Active Directory. Substitua ** \<AppID>** e ** \<tenantid>** pelos valores recuperados anteriormente.
+Crie um arquivo **oidc. YAML** para configurar a autenticação do OpenShift OpenID em relação ao Azure Active Directory. Substitua **\<AppID>** e **\<TenantId>** pelos valores recuperados anteriormente.
 
 ```bash
 cat > oidc.yaml<< EOF

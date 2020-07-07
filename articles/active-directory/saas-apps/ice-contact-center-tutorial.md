@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/15/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f53b3f8dd2a324e4eb3e4b6c073de478bff97a3
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 9eadaf21705944a5d6aa8ea6d5ca190a21624ee8
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83662129"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85798639"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ice-contact-center"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory com o ice Contact Center
 
@@ -86,19 +86,19 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando um dos seguintes padrões:
 
-    | | |
-    |-|-|
-    | `https://<TENANT>-imrpool.icescape365.com:PORT/identity`|
-    | `https://<TENANT>-imrpool.icescape.com:PORT/identity`|
-    | `https://<TENANT>-imrpool.iceuc.com:PORT/identity`|
+    ```http
+    https://<TENANT>-imrpool.icescape365.com:PORT/identity
+    https://<TENANT>-imrpool.icescape.com:PORT/identity
+    https://<TENANT>-imrpool.iceuc.com:PORT/identity
+    ```
 
     c. Na caixa de texto **URL de Resposta**, digite uma URL usando um dos seguintes padrões:
 
-    | | |
-    |-|-|
-    | `https://<TENANT>-imrpool.icescape365.com:PORT/identity`|
-    | `https://<TENANT>-imrpool.icescape.com:PORT/identity`|
-    | `https://<TENANT>-imrpool.iceuc.com:PORT/identity`|
+    ```http
+    https://<TENANT>-imrpool.icescape365.com:PORT/identity
+    https://<TENANT>-imrpool.icescape.com:PORT/identity
+    https://<TENANT>-imrpool.iceuc.com:PORT/identity
+    ```
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Resposta, o Identificador e a URL de Logon reais. Contate a [equipe de suporte ao cliente do ice Contact Center](mailto:support@computer-talk.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

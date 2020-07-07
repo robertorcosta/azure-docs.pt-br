@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13f6de35400280d68227af1dd7e3a981494d9e61
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: de3ebba84a56a0dd997a2d0309bbc203cd606fa1
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77088280"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85607949"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bic-cloud-design"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao BIC Cloud Design
 
@@ -97,10 +97,10 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     Na caixa de texto **URL de logon**, digite uma URL usando o seguinte padrão:
 
-    |||
-    |-|-|
-    | `https://<customer-specific-name/tenant>.biccloud.com`|
-    | `https://<customer-specific-name/tenant>.biccloud.de` |
+    ```https
+    https://<customer-specific-name/tenant>.biccloud.com
+    https://<customer-specific-name/tenant>.biccloud.de
+    ```
 
     > [!Note]
     > Se o valor de **Identificador** não for preenchido de modo automático, preencha o valor manualmente de acordo com suas necessidades. O valor da URL de logon não é real. Atualize esse valor com a URL de Entrada real. Contate a [equipe de suporte ao cliente do BIC Cloud Design](mailto:bicsupport@gbtec.de) para obter esse valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

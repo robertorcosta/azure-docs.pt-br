@@ -8,22 +8,22 @@ ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 944a84405bd7e03b72b2610278f9f0e4d3cfaf38
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81454230"
 ---
 # <a name="manage-server-administrators"></a>Gerenciar administradores de servidor
 
 Os administradores do servidor devem ser um usuário ou grupo de segurança válido no Azure AD (Azure Active Directory) para o locatário no qual o servidor reside. É possível usar **Administradores do Analysis Services** para o servidor no portal do Azure, Propriedades do Servidor no SSMS, PowerShell ou API REST para gerenciar administradores do servidor. 
 
-Ao adicionar um **grupo de segurança**, `obj:groupid@tenantid`use.
+Ao adicionar um **grupo de segurança**, use `obj:groupid@tenantid` .
 
 ## <a name="to-add-server-administrators-by-using-azure-portal"></a>Para adicionar administradores do servidor usando o Portal do Azure
 
 1. No portal, para o seu servidor, clique em **Administradores do Analysis Services**.
-2. Em ** \<ServerName>-Analysis Services administradores**, clique em **Adicionar**.
+2. ** \<servername> Administradores Analysis Services**, clique em **Adicionar**.
 3. Em **Adicionar Administradores de Servidor**, selecione contas de usuário do seu Azure Active Directory ou convide usuários externos por endereço de email.
 
     ![Administradores de servidor no portal do Azure](./media/analysis-services-server-admins/aas-manage-users-admins.png)
@@ -54,5 +54,5 @@ Use [Atualizar](https://docs.microsoft.com/rest/api/analysisservices/servers/upd
 
 [Autenticação e permissões de usuário](analysis-services-manage-users.md)  
 [Gerenciar usuários e funções de banco de dados](analysis-services-database-users.md)  
-[Controle de Acesso Baseado em Função](../role-based-access-control/overview.md)  
+[Controle de acesso baseado em função](../role-based-access-control/overview.md)  
 

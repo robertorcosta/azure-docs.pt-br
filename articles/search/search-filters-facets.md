@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 082575a67ea43d62f322e177cff087e5bd572c27
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72792891"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-cognitive-search"></a>Como criar um filtro de faceta no Azure Pesquisa Cognitiva 
@@ -36,24 +36,24 @@ Novo com navegação por faceta e deseja mais detalhes? Veja [como implementar a
 
 As facetas podem ser calculadas por campos de valor único e por coleções. Os campos que funcionam melhor na navegação facetada têm baixa cardinalidade: um pequeno número de valores distintos que se repetem em documentos em seu corpus de pesquisa (por exemplo, uma lista de cores, países/regiões ou nomes de marca). 
 
-A facetação é habilitada em uma base de campo por campo quando você cria o índice definindo o `facetable` atributo como `true`. Em geral, você também deve `filterable` definir o `true` atributo como para esses campos para que o aplicativo de pesquisa possa filtrar esses campos com base em facetas que o usuário final seleciona. 
+A facetação é habilitada em uma base de campo por campo quando você cria o índice definindo o `facetable` atributo como `true` . Em geral, você também deve definir o `filterable` atributo como `true` para esses campos para que o aplicativo de pesquisa possa filtrar esses campos com base em facetas que o usuário final seleciona. 
 
-Ao criar um índice usando a API REST, qualquer [tipo de campo](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) que possivelmente possa ser usado na navegação facetada é marcado `facetable` como por padrão:
+Ao criar um índice usando a API REST, qualquer [tipo de campo](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) que possivelmente possa ser usado na navegação facetada é marcado como `facetable` por padrão:
 
 + `Edm.String`
 + `Edm.DateTimeOffset`
 + `Edm.Boolean`
-+ Tipos de campo `Edm.Int32`numéricos `Edm.Int64`:,,`Edm.Double`
-+ Coleções dos tipos acima (por exemplo, `Collection(Edm.String)` ou) `Collection(Edm.Double)`
++ Tipos de campo numéricos: `Edm.Int32` , `Edm.Int64` ,`Edm.Double`
++ Coleções dos tipos acima (por exemplo, `Collection(Edm.String)` ou `Collection(Edm.Double)` )
 
-Você não pode `Edm.GeographyPoint` usar `Collection(Edm.GeographyPoint)` os campos ou na navegação facetada. As facetas funcionam melhor em campos com baixa cardinalidade. Devido à resolução de coordenadas geográficas, é raro que quaisquer dois conjuntos de coestações sejam iguais em um determinado conjunto de dados. Dessa maneira, as facetas não têm suporte para coordenadas geográficas. Seria necessário um campo de cidade ou região para facetar por local.
+Você não pode usar os `Edm.GeographyPoint` `Collection(Edm.GeographyPoint)` campos ou na navegação facetada. As facetas funcionam melhor em campos com baixa cardinalidade. Devido à resolução de coordenadas geográficas, é raro que quaisquer dois conjuntos de coestações sejam iguais em um determinado conjunto de dados. Dessa maneira, as facetas não têm suporte para coordenadas geográficas. Seria necessário um campo de cidade ou região para facetar por local.
 
 ## <a name="set-attributes"></a>Definir atributos
 
-Atributos de índice que controlam como um campo é usado são adicionados às definições de campo individual no índice. No exemplo a seguir, os campos com baixa cardinalidade, úteis para facetar, consistem em `category` : (Hotel, motel, Hostel) `tags`, e `rating`. Esses campos têm os `filterable` atributos `facetable` e definidos explicitamente no exemplo a seguir para fins ilustrativos. 
+Atributos de índice que controlam como um campo é usado são adicionados às definições de campo individual no índice. No exemplo a seguir, os campos com baixa cardinalidade, úteis para facetar, consistem em: `category` (Hotel, motel, Hostel), `tags` e `rating` . Esses campos têm os `filterable` `facetable` atributos e definidos explicitamente no exemplo a seguir para fins ilustrativos. 
 
 > [!Tip]
-> Como uma prática recomendada para o desempenho e otimização de armazenamento, desative a faceta para os campos que nunca devem ser usados como uma faceta. Em particular, os campos de cadeia de caracteres para valores exclusivos, como uma ID ou nome de produto, `"facetable": false` devem ser definidos como para evitar seu uso acidental (e ineficaz) na navegação facetada.
+> Como uma prática recomendada para o desempenho e otimização de armazenamento, desative a faceta para os campos que nunca devem ser usados como uma faceta. Em particular, os campos de cadeia de caracteres para valores exclusivos, como uma ID ou nome de produto, devem ser definidos como `"facetable": false` para evitar seu uso acidental (e ineficaz) na navegação facetada.
 
 
 ```json
@@ -77,7 +77,7 @@ Atributos de índice que controlam como um campo é usado são adicionados às d
 ```
 
 > [!Note]
-> Essa definição de índice é copiada de [criar um índice de pesquisa cognitiva do Azure usando a API REST](https://docs.microsoft.com/azure/search/search-create-index-rest-api). Ela é idêntica, exceto por diferenças superficiais nas definições de campo. Os `filterable` atributos `facetable` e são explicitamente adicionados aos `category`campos `tags`, `parkingIncluded`, `smokingAllowed`, e `rating` . Na prática, `filterable` e `facetable` seria habilitado por padrão nesses campos ao usar a API REST. Ao usar o SDK do .NET, esses atributos devem ser habilitados explicitamente.
+> Essa definição de índice é copiada de [criar um índice de pesquisa cognitiva do Azure usando a API REST](https://docs.microsoft.com/azure/search/search-create-index-rest-api). Ela é idêntica, exceto por diferenças superficiais nas definições de campo. Os `filterable` `facetable` atributos e são explicitamente adicionados aos `category` `tags` campos,, `parkingIncluded` , `smokingAllowed` e `rating` . Na prática, `filterable` e `facetable` seria habilitado por padrão nesses campos ao usar a API REST. Ao usar o SDK do .NET, esses atributos devem ser habilitados explicitamente.
 
 ## <a name="build-and-load-an-index"></a>Criar e carregar um índice
 
@@ -98,7 +98,7 @@ var sp = new SearchParameters()
 
 ### <a name="return-filtered-results-on-click-events"></a>Retornar resultados filtrados em eventos de clique
 
-Quando o usuário final clica em um valor de faceta, o manipulador para o evento de clique deve usar uma expressão de filtro para perceber a intenção do usuário. Dada uma `category` faceta, clicar na categoria "Motel" é implementada com `$filter` uma expressão que seleciona acomodações desse tipo. Quando um usuário clica em "Motel" para indicar que apenas motéis deve ser mostrado, a próxima consulta que o aplicativo `$filter=category eq 'motel'`envia inclui.
+Quando o usuário final clica em um valor de faceta, o manipulador para o evento de clique deve usar uma expressão de filtro para perceber a intenção do usuário. Dada uma `category` faceta, clicar na categoria "Motel" é implementada com uma `$filter` expressão que seleciona acomodações desse tipo. Quando um usuário clica em "Motel" para indicar que apenas motéis deve ser mostrado, a próxima consulta que o aplicativo envia inclui `$filter=category eq 'motel'` .
 
 O seguinte snippet de código adiciona a categoria ao filtro se um usuário seleciona um valor usando a faceta de categoria.
 
@@ -107,7 +107,7 @@ if (!String.IsNullOrEmpty(categoryFacet))
     filter = $"category eq '{categoryFacet}'";
 ```
 
-Se o usuário clicar em um valor de faceta para um campo de `tags`coleção como, por exemplo, o valor "pool", seu aplicativo deverá usar a seguinte sintaxe de filtro:`$filter=tags/any(t: t eq 'pool')`
+Se o usuário clicar em um valor de faceta para um campo de coleção como `tags` , por exemplo, o valor "pool", seu aplicativo deverá usar a seguinte sintaxe de filtro:`$filter=tags/any(t: t eq 'pool')`
 
 ## <a name="tips-and-workarounds"></a>Dicas e soluções alternativas
 
@@ -121,7 +121,7 @@ Um dos desafios da navegação de faceta no Azure Pesquisa Cognitiva é que as f
 
 Embora esse seja um caso de uso comum, não é algo que a estrutura de navegação por faceta atualmente forneça por padrão. Os desenvolvedores que desejam facetas estáticas normalmente contornam a limitação emitindo duas consultas filtradas: uma com escopo para os resultados e a outra usada para criar uma lista estática de facetas para fins de navegação.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 + [Filtros no Azure Pesquisa Cognitiva](search-filters.md)
 + [Criar API REST do índice](https://docs.microsoft.com/rest/api/searchservice/create-index)

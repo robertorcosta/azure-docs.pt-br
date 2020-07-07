@@ -11,10 +11,10 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.openlocfilehash: ba6ceec3064c5c876ca899ab58881e23913b9701
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81429012"
 ---
 # <a name="design-decisions-and-coding-techniques-for-synapse-sql-features-in-azure-synapse-analytics"></a>Decisões de design e técnicas de codificação para recursos do Synapse SQL no Azure Synapse Analytics
@@ -28,11 +28,11 @@ Os artigos abaixo destacam os conceitos e as decisões de design para o desenvol
 |                                                          |   Pool de SQL   | SQL sob demanda |
 | -----------------------------------------------------    | ---- | ---- |
 | [Conexões](connect-overview.md)                    | Sim | Sim |
-| [Classes de recursos e simultaneidade](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Sim    | Não |
-| [Transactions](develop-transactions.md)              | Sim | Não |
+| [Simultaneidade e classes de recursos](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Sim    | Não |
+| [Transações](develop-transactions.md)              | Sim | Não |
 | [Esquemas definidos pelo usuário](develop-user-defined-schemas.md) | Sim | Sim |
-| [Distribuição de tabela](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                 | Sim | Não |
-| [Índices de tabela](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                           | Sim | Não |
+| [Distribuição da tabela](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                 | Sim | Não |
+| [Índices da tabela](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                           | Sim | Não |
 | [Partições de tabela](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                     | Sim | Não |
 | [Estatísticas](develop-tables-statistics.md)            | Sim | Sim |
 | [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                                             | Sim | Não |
@@ -48,7 +48,7 @@ Abaixo você encontrará artigos essenciais que enfatizam técnicas de codifica�
 | ------------------------------------------ | ------------------ | ----------------------- |
 | [Procedimentos armazenados](develop-stored-procedures.md)  | Sim                | Não                      |
 | [Rótulos](develop-label.md)                           | Sim                | Não                      |
-| [Modos de exibição](develop-views.md)                             | Sim                | Sim                     |
+| [Exibições](develop-views.md)                             | Sim                | Sim                     |
 | [Tabelas temporárias](develop-tables-temporary.md)       | Sim                | Sim                     |
 | [SQL dinâmico](develop-dynamic-sql.md)                 | Sim                | Sim                     |
 | [Loop](develop-loops.md)                         | Sim                | Sim                     |

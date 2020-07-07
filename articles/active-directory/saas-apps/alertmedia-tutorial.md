@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/17/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6aaaa24535c95e0a0d3f2b67709374c083ab738
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: bc8a416ac930de24e694107bec4f7ac287e15437
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81725210"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608884"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-alertmedia"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao AlertMedia
 
@@ -96,12 +96,12 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     ![image](common/default-attributes.png)
 
 1. Além do indicado acima, o aplicativo AlertMedia espera que mais alguns atributos sejam passados novamente na resposta SAML, que são mostrados abaixo. Esses atributos também são pré-populados, mas você pode examiná-los de acordo com seus requisitos.
-    
-    | Nome |   |  Atributo de Origem|
-    | ---------------| --------------- | --------- |
-    | email |  | user.userprincipalname |
-    | nome |  | user.givenname |
-    | sobrenome |  | user.surname |
+
+| Nome | Atributo de Origem|
+| ---- | --------------- |
+| email | user.userprincipalname |
+| nome | user.givenname |
+| sobrenome | user.surname |
 
 1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, clique no botão Copiar para copiar a **URL de Metadados de Federação do Aplicativo** e salve-a no computador.
 

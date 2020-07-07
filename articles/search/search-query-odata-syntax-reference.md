@@ -20,15 +20,15 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: f3422fd10e062ae87bc165491e0d01ac2b4943d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72793230"
 ---
 # <a name="odata-expression-syntax-reference-for-azure-cognitive-search"></a>Referência de sintaxe de expressão OData para Pesquisa Cognitiva do Azure
 
-O Azure Pesquisa Cognitiva usa [expressões OData](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html) como parâmetros em toda a API. Normalmente, as expressões OData são usadas para os `$orderby` parâmetros `$filter` e. Essas expressões podem ser complexas, contendo várias cláusulas, funções e operadores. No entanto, até mesmo expressões OData simples como caminhos de propriedade são usadas em muitas partes da API REST do Azure Pesquisa Cognitiva. Por exemplo, as expressões de caminho são usadas para fazer referência a subcampos de campos complexos em todos os lugares na API, como ao listar subcampos em um [Sugestor](index-add-suggesters.md), uma [função de Pontuação](index-add-scoring-profiles.md), o `$select` parâmetro ou até mesmo a [pesquisa em campo em consultas do Lucene](query-lucene-syntax.md).
+O Azure Pesquisa Cognitiva usa [expressões OData](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html) como parâmetros em toda a API. Normalmente, as expressões OData são usadas para os `$orderby` `$filter` parâmetros e. Essas expressões podem ser complexas, contendo várias cláusulas, funções e operadores. No entanto, até mesmo expressões OData simples como caminhos de propriedade são usadas em muitas partes da API REST do Azure Pesquisa Cognitiva. Por exemplo, as expressões de caminho são usadas para fazer referência a subcampos de campos complexos em todos os lugares na API, como ao listar subcampos em um [Sugestor](index-add-suggesters.md), uma [função de Pontuação](index-add-scoring-profiles.md), o `$select` parâmetro ou até mesmo a [pesquisa em campo em consultas do Lucene](query-lucene-syntax.md).
 
 Este artigo descreve todas essas formas de expressões OData usando uma gramática formal. Também há um [Diagrama interativo](#syntax-diagram) para ajudar a explorar visualmente a gramática.
 
@@ -214,7 +214,7 @@ Para explorar visualmente a gramática de linguagem OData suportada pelo Azure P
 > [!div class="nextstepaction"]
 > [Diagrama de sintaxe do OData para Pesquisa Cognitiva do Azure](https://azuresearch.github.io/odata-syntax-diagram/)
 
-## <a name="see-also"></a>Consulte também  
+## <a name="see-also"></a>Veja também  
 
 - [Filtros no Azure Pesquisa Cognitiva](search-filters.md)
 - [Pesquisar documentos &#40;API REST do Azure Pesquisa Cognitiva&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1184129783b448cb2d6dc22e488ffe38401a1218
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0dddb07d394dfd3ec15b6377d283420112233a5e
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "72264118"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608901"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-adp-globalview"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao ADP Globalview
 
@@ -85,11 +85,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     
     Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
 
-    | |
-    |--|
-    | `https://<subdomain>.globalview.adp.com/federate`|
-    | `https://<subdomain>.globalview.adp.com/federate2`|
-    | |
+    ```https
+    https://<subdomain>.globalview.adp.com/federate
+    https://<subdomain>.globalview.adp.com/federate2
+    ```
+
 
     > [!NOTE]
     > Esse valor não é real. Atualize o valor com o identificador real. Contate a [Equipe de suporte ao cliente do ADP Globalview](https://www.adp.com/contact-us/overview.aspx) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

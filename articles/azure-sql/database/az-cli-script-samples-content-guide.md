@@ -3,7 +3,7 @@ title: Exemplos de script da CLI do Azure
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Exemplos de script da CLI do Azure para ajudar você a criar e gerenciar a Instância Gerenciada de SQL do Azure e o Banco de Dados SQL do Azure
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: service
 ms.custom: overview-samples, mvc, sqldbrb=2
 ms.devlang: azurecli
@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/03/2019
-ms.openlocfilehash: 1f63b8adfabb9de427fd19a992f913d032aa9d8b
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: cc762c3c10c087a8c0db5bd17f9c38b8f9d26134
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85251498"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85982738"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database-and-sql-managed-instance"></a>Exemplos da CLI do Azure para Banco de Dados SQL do Azure e Instância Gerenciada de SQL 
  
@@ -35,7 +35,7 @@ Se você optar por instalar e usar a CLI localmente, este tópico exigirá que v
 
 A tabela a seguir inclui links para exemplos de scripts da CLI do Azure para gerenciar bancos de dados em pool e individuais no Banco de Dados SQL do Azure. 
 
-| | |
+|Área|Descrição|
 |---|---|
 |**Criar bancos de dados no Banco de dados SQL do Azure**||
 | [Criar um Banco de Dados individual e configurar uma regra de firewall](scripts/create-and-configure-database-cli.md) | Cria um Banco de Dados SQL e configura uma regra de firewall no nível do servidor. |
@@ -63,7 +63,7 @@ Saiba mais sobre a [API da CLI do Azure de banco de dados individual](single-dat
 
 A tabela a seguir inclui links para exemplos de scripts da CLI do Azure para a Instância Gerenciada de SQL do Azure.
 
-| | |
+|Área|Descrição|
 |---|---|
 | **Criar uma Instância Gerenciada de SQL**||
 | [Criar uma Instância Gerenciada de SQL](../../sql-database/scripts/sql-database-create-configure-managed-instance-cli.md)| Cria uma Instância Gerenciada de SQL. |

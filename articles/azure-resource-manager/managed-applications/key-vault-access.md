@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: tomfitz
 ms.openlocfilehash: 5dc219747b9cc74b6c6aac8ab190ebfbe5ae9b32
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81458276"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Acessar segredo do Azure Key Vault durante a implantação de Aplicativos Gerenciados do Azure
@@ -22,7 +22,7 @@ Este artigo descreve como configurar o Key Vault para trabalhar com os Aplicativ
 
 1. No portal, selecione o Key Vault.
 
-1. Selecione **políticas de acesso**.   
+1. Selecione **Políticas de acesso**.   
 
    ![Selecionar as políticas de acesso](./media/key-vault-access/select-access-policies.png)
 
@@ -30,13 +30,13 @@ Este artigo descreve como configurar o Key Vault para trabalhar com os Aplicativ
 
    ![Mostrar políticas de acesso avançado](./media/key-vault-access/advanced.png)
 
-1. Selecione **Habilitar acesso ao Azure Resource Manager para implantação de modelos**. Em seguida, selecione **salvar**.
+1. Selecione **Habilitar acesso ao Azure Resource Manager para implantação de modelos**. Em seguida, selecione **Salvar**.
 
    ![Habilitar a implantação de modelo](./media/key-vault-access/enable-template.png)
 
 ## <a name="add-service-as-contributor"></a>Adicionar o serviço como colaborador
 
-1. Selecione **controle de acesso (iam)**.
+1. Selecione **IAM (Controle de acesso)** .
 
    ![Selecionar o controle de acesso](./media/key-vault-access/access-control.png)
 

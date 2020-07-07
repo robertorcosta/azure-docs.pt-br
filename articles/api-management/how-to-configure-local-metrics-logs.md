@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 04/30/2020
 ms.author: apimpm
 ms.openlocfilehash: dd49680da6f52e32ddb52dbdb23ad5e8f627a91e
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82205060"
 ---
 # <a name="configure-local-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Configurar métricas locais e logs para o gateway auto-hospedado do gerenciamento de API do Azure
@@ -136,7 +136,7 @@ NAME                                   READY   STATUS    RESTARTS   AGE
 sputnik-metrics-f6d97548f-4xnb7        2/2     Running   0          1m
 ```
 
-Execute o comando abaixo para verificar se os serviços estão em execução. Anote o `CLUSTER-IP` e `PORT` o do serviço de estatísticas, precisamos dele mais tarde. Você pode visitar o painel do Prometheus usando `EXTERNAL-IP` seu `PORT`e.
+Execute o comando abaixo para verificar se os serviços estão em execução. Anote o `CLUSTER-IP` e `PORT` o do serviço de estatísticas, precisamos dele mais tarde. Você pode visitar o painel do Prometheus usando seu `EXTERNAL-IP` e `PORT` .
 
 ```console
 kubectl get services
@@ -147,14 +147,14 @@ sputnik-metrics-statsd       NodePort       10.0.41.179   <none>          8125:3
 
 ### <a name="configure-the-self-hosted-gateway-to-emit-metrics"></a>Configurar o gateway auto-hospedado para emitir métricas
 
-Agora que ambas as estatísticas e Prometheus foram implantadas, podemos atualizar as configurações do gateway auto-hospedado para iniciar a emissão de métricas por meio de estatísticas. O recurso pode ser habilitado ou desabilitado usando `telemetry.metrics.local` a chave no ConfigMap da implantação de gateway de hospedagem interna com opções adicionais. Abaixo está uma análise das opções disponíveis:
+Agora que ambas as estatísticas e Prometheus foram implantadas, podemos atualizar as configurações do gateway auto-hospedado para iniciar a emissão de métricas por meio de estatísticas. O recurso pode ser habilitado ou desabilitado usando a `telemetry.metrics.local` chave no ConfigMap da implantação de gateway de hospedagem interna com opções adicionais. Abaixo está uma análise das opções disponíveis:
 
 | Campo  | Padrão | Descrição |
 | ------------- | ------------- | ------------- |
-| telemetria. métricas. local  | `none` | Habilita o registro em log por meio de estatísticas. O valor pode `none`ser `statsd`,. |
+| telemetria. métricas. local  | `none` | Habilita o registro em log por meio de estatísticas. O valor pode ser `none` , `statsd` . |
 | telemetria. métricas. local. stats. EndPoint  | N/D | Especifica o ponto de extremidade com estatísticas. |
 | telemetria. métricas. local. stats. amostragem  | N/D | Especifica a taxa de amostragem de métricas. O valor pode estar entre 0 e 1. por exemplo,`0.5`|
-| telemetria. Metrics. local. stated. Tag-Format  | N/D | [Formato de marcação](https://github.com/prometheus/statsd_exporter#tagging-extensions)de exportador com estatísticas. O valor pode `none`ser `librato`, `dogStatsD`, `influxDB`,. |
+| telemetria. Metrics. local. stated. Tag-Format  | N/D | [Formato de marcação](https://github.com/prometheus/statsd_exporter#tagging-extensions)de exportador com estatísticas. O valor pode ser `none` , `librato` , `dogStatsD` , `influxDB` . |
 
 Aqui está uma configuração de exemplo:
 
@@ -185,7 +185,7 @@ kubectl rollout restart deployment/<deployment-name>
 
 ### <a name="view-the-metrics"></a>Exibir as métricas
 
-Agora que tudo está implantado e configurado, o gateway auto-hospedado deve relatar métricas por meio de estatísticas. O Prometheus coletará as métricas de estatísticas. Vá para o painel do Prometheus usando `EXTERNAL-IP` o `PORT` e do serviço Prometheus. 
+Agora que tudo está implantado e configurado, o gateway auto-hospedado deve relatar métricas por meio de estatísticas. O Prometheus coletará as métricas de estatísticas. Vá para o painel do Prometheus usando o `EXTERNAL-IP` e `PORT` do serviço Prometheus. 
 
 Faça algumas chamadas à API por meio do gateway auto-hospedado, se tudo estiver configurado corretamente, você poderá exibir as métricas abaixo:
 
@@ -206,12 +206,12 @@ kubectl logs <pod-name>
 
 Se o seu gateway auto-hospedado for implantado no serviço kubernetes do Azure, você poderá habilitar [Azure monitor para contêineres](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview) coletar `stdout` e `stderr` de suas cargas de trabalho e exibir os logs em log Analytics. 
 
-O gateway auto-hospedado também dá suporte a vários protocolos, `localsyslog`incluindo `rfc5424`, e `journal`. A tabela abaixo resume todas as opções com suporte. 
+O gateway auto-hospedado também dá suporte a vários protocolos `localsyslog` , incluindo, `rfc5424` e `journal` . A tabela abaixo resume todas as opções com suporte. 
 
 | Campo  | Padrão | Descrição |
 | ------------- | ------------- | ------------- |
-| telemetria. logs. STD  | `text` | Habilita o registro em log para fluxos padrão. O valor pode `none`ser `text`,,`json` |
-| telemetria. logs. local  | `none` | Habilita o log local. O valor pode `none`ser `auto`, `localsyslog`, `rfc5424`,,`journal`  |
+| telemetria. logs. STD  | `text` | Habilita o registro em log para fluxos padrão. O valor pode ser `none` , `text` ,`json` |
+| telemetria. logs. local  | `none` | Habilita o log local. O valor pode ser `none` , `auto` ,, `localsyslog` `rfc5424` ,`journal`  |
 | telemetria. logs. local. localsyslog. EndPoint  | N/D | Especifica o ponto de extremidade localsyslog.  |
 | telemetria. logs. local. localsyslog. Facility  | N/D | Especifica o [código de instalação](https://en.wikipedia.org/wiki/Syslog#Facility)localsyslog. por exemplo,`7` 
 | telemetria. logs. local. rfc5424. EndPoint  | N/D | Especifica o ponto de extremidade rfc5424.  |

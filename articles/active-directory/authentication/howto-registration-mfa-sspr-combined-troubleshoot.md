@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7c840df2c53554519f62a3d1d7a7d8b305187ffb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81450931"
 ---
 # <a name="troubleshooting-combined-security-information-registration"></a>Solucionando problemas de registro de informações de segurança combinadas
@@ -60,7 +60,7 @@ Quando um usuário registra um número de telefone e/ou aplicativo móvel na nov
 
 Se um administrador habilita a visualização, os usuários se registram pela nova experiência e, em seguida, o administrador desabilita a visualização, os usuários podem ser registrados inadvertidamente para autenticação multifator também.
 
-Se um usuário que concluiu o registro combinado ir para a página de registro SSPR (redefinição de senha de autoatendimento) atual em [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup), será solicitado que o usuário execute a autenticação multifator antes de acessar essa página. Esta etapa é esperada do ponto de vista técnico, mas é nova para os usuários que foram registrados anteriormente apenas para SSPR. Embora essa etapa extra aprimore a postura de segurança do usuário fornecendo outro nível de segurança, os administradores podem querer reverter seus usuários para que eles não possam mais executar a autenticação multifator.  
+Se um usuário que concluiu o registro combinado ir para a página de registro SSPR (redefinição de senha de autoatendimento) atual em [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) , será solicitado que o usuário execute a autenticação multifator antes de acessar essa página. Esta etapa é esperada do ponto de vista técnico, mas é nova para os usuários que foram registrados anteriormente apenas para SSPR. Embora essa etapa extra aprimore a postura de segurança do usuário fornecendo outro nível de segurança, os administradores podem querer reverter seus usuários para que eles não possam mais executar a autenticação multifator.  
 
 ### <a name="how-to-roll-back-users"></a>Como reverter os usuários
 
@@ -150,7 +150,7 @@ Em uma janela do PowerShell, execute o comando a seguir, fornecendo o script e o
 Para desabilitar a experiência atualizada para seus usuários, conclua estas etapas:
 
 1. Entre no portal do Azure como um administrador de usuário.
-2. Vá para **Azure Active Directory** > **configurações** > **do usuário Gerenciar configurações para recursos de visualização do painel de acesso**.
+2. Vá para **Azure Active Directory**  >  **configurações**  >  **do usuário Gerenciar configurações para recursos de visualização do painel de acesso**.
 3. Em **os usuários podem usar os recursos de visualização para registrar e gerenciar informações de segurança**, defina o seletor como **nenhum**e, em seguida, selecione **salvar**.
 
 Os usuários não serão mais solicitados a se registrar usando a experiência atualizada.

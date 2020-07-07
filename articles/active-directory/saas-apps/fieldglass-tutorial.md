@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ada7092fa626987513416f7be0a52f6abeefaeb5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 05a5c405095a3c045a3bf1dd7c62486ffda73825
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73158199"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85798851"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fieldglass"></a>Tutorial: Integração do Azure Active Directory com o FieldGlass
 
@@ -110,10 +110,10 @@ Para configurar o logon único do Azure AD com o FieldGlass, execute as seguinte
 
     b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão:
     
-    | |
-    |--|
-    | `https://www.fieldglass.net/<company name>`|
-    | `https://<company name>.fgvms.com/<company name>`|
+    ```http
+    https://www.fieldglass.net/<company name>
+    https://<company name>.fgvms.com/<company name>
+    ```
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Entre em contato com a [equipe de suporte ao cliente do Fieldglass](https://www.fieldglass.com/customer-support) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

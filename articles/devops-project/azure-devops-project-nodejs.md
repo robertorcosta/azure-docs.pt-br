@@ -1,6 +1,6 @@
 ---
 title: Criar um pipeline de CI/CD para um PWA com o GatsbyJS e o iniciador DevOps do Azure
-description: O iniciante do DevOps facilita a introdução ao Azure. Ele ajuda você a iniciar um aplicativo em um serviço do Azure de sua escolha em algumas etapas rápidas.
+description: Com o DevOps Starter, é mais fácil começar a usar o Azure. Ele ajuda você a iniciar um aplicativo em um serviço do Azure de sua escolha em algumas etapas rápidas.
 ms.prod: devops
 ms.technology: devops-cicd
 services: vsts
@@ -14,13 +14,13 @@ ms.date: 03/24/2020
 ms.author: angrobe
 ms.custom: mvc
 ms.openlocfilehash: 7db4fa2a780a3a1f53ecd73a40c247583cb6a79a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82233800"
 ---
-# <a name="create-a-cicd-pipeline-in-azure-pipelines-for-nodejs-with-azure-devops-starter"></a>Criar um pipeline de CI/CD no Azure Pipelines para node. js com o iniciador DevOps do Azure
+# <a name="create-a-cicd-pipeline-in-azure-pipelines-for-nodejs-with-azure-devops-starter"></a>Criar um pipeline de CI/CD no Azure Pipelines para Node.js com o iniciador DevOps do Azure
 
 Neste guia de início rápido, você cria um aplicativo Web progressivo NodeJS (PWA) usando o [GatsbyJS](https://www.gatsbyjs.org/) e a experiência de criação do Azure DevOps Starter simplificada. Quando terminar, você terá um pipeline de CI/CD (integração contínua e entrega contínua) para o PWA no Azure Pipelines. O iniciador DevOps do Azure configura o que você precisa para desenvolver, implantar e monitorar.
 
@@ -31,25 +31,25 @@ Neste guia de início rápido, você cria um aplicativo Web progressivo NodeJS (
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-O iniciador DevOps cria um pipeline de CI/CD no Azure Pipelines. É possível criar uma nova organização do Azure DevOps ou usar uma existente. O iniciador DevOps também cria recursos do Azure na assinatura do Azure de sua escolha.
+O DevOps Starter cria um pipeline de CI/CD no Azure Pipelines. É possível criar uma nova organização do Azure DevOps ou usar uma existente. O DevOps Starter também cria recursos do Azure na assinatura do Azure de sua escolha.
 
 1. Entre no [portal do Azure](https://portal.azure.com) e, no painel esquerdo, selecione **Criar um recurso**. 
 
    ![Criar um recurso do Azure no portal do Azure](_img/azure-devops-project-nodejs/create-azure-resource.png)
 
-1. Na caixa de pesquisa, digite **DevOps Starter**e, em seguida, selecione. Clique em **Adicionar** para criar um novo.
+1. Na caixa de pesquisa, digite **DevOps Starter** e selecione. Clique em **Adicionar** para criar um.
 
-    ![O painel inicial do DevOps](_img/azure-devops-starter-aks/search-devops-starter.png)
+    ![O painel do DevOps Starter](_img/azure-devops-starter-aks/search-devops-starter.png)
 
 ## <a name="select-a-sample-application-and-azure-service"></a>Selecionar um aplicativo de exemplo e o serviço do Azure
 
 1. Selecione o aplicativo de exemplo do Node.js.   
 
-    ![Selecione o exemplo de Node. js](_img/azure-devops-project-nodejs/select-nodejs.png) 
+    ![Selecione o exemplo de Node.js](_img/azure-devops-project-nodejs/select-nodejs.png) 
 
-1. A estrutura de exemplo padrão é **Express.js**. Altere a seleção para **simples aplicativo node. js** e, em seguida, selecione **Avançar**. 
+1. A estrutura de exemplo padrão é **Express.js**. Altere a seleção para **simples Node.js aplicativo** e, em seguida, selecione **Avançar**. 
 
-    ![Selecione o aplicativo node. js simples](_img/azure-devops-project-nodejs/select-nodejs-framework.png) 
+    ![Selecione o aplicativo Node.js simples](_img/azure-devops-project-nodejs/select-nodejs-framework.png) 
 
 1. Os destinos de implantação disponíveis nesta etapa são determinados pela estrutura de aplicativo selecionada na etapa 2. Neste exemplo, o **aplicativo Web do Windows** é o destino de implantação padrão. Deixe **aplicativo Web para contêineres** definido e selecione **Avançar**.
 
@@ -73,7 +73,7 @@ O iniciador DevOps cria um pipeline de CI/CD no Azure Pipelines. É possível cr
 
     ![Painel do DevOps do Azure](_img/azure-devops-project-nodejs/devops-projects-dashboard.png) 
 
-1. Em seu projeto DevOps do Azure, você pode convidar membros da equipe para colaborar e estabelecer um quadro Kanban para começar a controlar seu trabalho. Para mais informações, consulte [aqui](https://docs.microsoft.com/azure/devops/user-guide/what-is-azure-devops?view=azure-devops).
+1. Em seu projeto DevOps do Azure, você pode convidar membros da equipe para colaborar e estabelecer um quadro Kanban para começar a controlar seu trabalho. Para saber mais, clique [aqui](https://docs.microsoft.com/azure/devops/user-guide/what-is-azure-devops?view=azure-devops).
 
 ![Visão geral do Azure DevOps](_img/azure-devops-project-nodejs/azure-devops-overview.png)
 
@@ -108,7 +108,7 @@ O iniciador DevOps cria um repositório git no Azure Repos ou no GitHub. Este ex
     rmdir Application
     ```
 
-1. Use a CLI do Gatsby para gerar um exemplo do PWA. Execute `gatsby new` a partir do terminal para iniciar o assistente do PWA `gatsby-starter-blog` e selecione para o modelo inicial. Ele deve ser semelhante a este exemplo:
+1. Use a CLI do Gatsby para gerar um exemplo do PWA. Execute a `gatsby new` partir do terminal para iniciar o assistente do PWA e selecione `gatsby-starter-blog` para o modelo inicial. Ele deve ser semelhante a este exemplo:
 
     ```powershell
     c:\myproject> gatsby new
@@ -120,16 +120,16 @@ O iniciador DevOps cria um repositório git no Azure Repos ou no GitHub. Este ex
         (Use a different starter)
     ```
     
-1. Agora você tem uma pasta chamada `my-gatsby-project`. Renomeie `Application` -o para `Dockerfile` e copie o para ele.
+1. Agora você tem uma pasta chamada `my-gatsby-project` . Renomeie- `Application` o para e copie o `Dockerfile` para ele.
     
     ```powershell
     mv my-gatsby-project Application
     mv Dockerfile Application
     ```
     
-1. Em seu editor favorito, abra o Dockerfile e altere a primeira linha de `FROM node:8` para `FROM node:12`. Essa alteração garante que o contêiner esteja usando o Node. js versão 12. x em vez da versão 8. x. O GatsbyJS requer versões mais modernas do node. js.
+1. Em seu editor favorito, abra o Dockerfile e altere a primeira linha de `FROM node:8` para `FROM node:12` . Essa alteração garante que o contêiner esteja usando Node.js versão 12. x em vez da versão 8. x. O GatsbyJS requer versões mais modernas do Node.js.
 
-1. Em seguida, abra o arquivo Package. JSON na pasta do aplicativo e edite o [campo scripts](https://docs.npmjs.com/files/package.json#scripts) para garantir que seus servidores de desenvolvimento e produção escutem em todas as interfaces de rede disponíveis (por exemplo, 0.0.0.0) e a porta 80. Sem essas configurações, o serviço de aplicativo de contêiner não pode rotear o tráfego para o aplicativo node. js em execução dentro do contêiner. O `scripts` campo deve ser semelhante ao que está abaixo. Especificamente, você deseja alterar os `develop`destinos, `serve`e `start` de seus padrões.
+1. Em seguida, abra o package.jsno arquivo na pasta do aplicativo e edite o [campo scripts](https://docs.npmjs.com/files/package.json#scripts) para garantir que seus servidores de desenvolvimento e produção escutem em todas as interfaces de rede disponíveis (por exemplo, 0.0.0.0) e a porta 80. Sem essas configurações, o serviço de aplicativo de contêiner não é capaz de rotear o tráfego para seu aplicativo Node.js em execução dentro do contêiner. O `scripts` campo deve ser semelhante ao que está abaixo. Especificamente, você deseja alterar os `develop` destinos, `serve` e `start` de seus padrões.
 
     ```json
       "scripts": {
@@ -145,9 +145,9 @@ O iniciador DevOps cria um repositório git no Azure Repos ou no GitHub. Este ex
     
 ## <a name="edit-your-cicd-pipelines"></a>Editar seus pipelines de CI/CD
 
-1. Antes de confirmar o código na seção anterior, faça algumas alterações em seus pipelines de compilação e versão. Edite seu ' pipeline de compilação ' e atualize a tarefa do nó para usar o Node. js versão 12. x. Defina o campo **versão da tarefa** como 1. x e o campo **versão** como 12. x.
+1. Antes de confirmar o código na seção anterior, faça algumas alterações em seus pipelines de compilação e versão. Edite seu ' pipeline de compilação ' e atualize a tarefa do nó para usar Node.js versão 12. x. Defina o campo **versão da tarefa** como 1. x e o campo **versão** como 12. x.
 
-    ![Atualizar node. js para 12. x](_img/azure-devops-project-nodejs/build-pipeline-update-node.png)
+    ![Atualizar Node.js para 12. x](_img/azure-devops-project-nodejs/build-pipeline-update-node.png)
 
 1. Neste guia de início rápido, não estamos criando testes de unidade e estamos Desabilitando essas etapas em nosso pipeline de Build. Ao escrever testes, você pode reabilitar essas etapas. Clique com o botão direito do mouse para selecionar as tarefas rotuladas **instalar dependências de teste** e **executar testes de unidade** e desabilitá-las.
 
@@ -167,7 +167,7 @@ O iniciador DevOps cria um repositório git no Azure Repos ou no GitHub. Este ex
 
 1. Selecione **Confirmar**, depois salve as alterações.
 
-1. No navegador, vá para o painel inicial do DevOps.   
+1. No navegador, acesse o painel do DevOps Starter.   
 Agora você deve ver uma compilação em andamento. As alterações feitas são automaticamente compiladas e implantadas por meio de um pipeline de CI/CD.
 
 ## <a name="commit-your-changes-and-examine-the-azure-cicd-pipeline"></a>Confirmar suas alterações e examinar o pipeline do Azure CI/CD
@@ -182,13 +182,13 @@ Nas duas etapas anteriores, você adicionou um PWA Gatsby gerado ao seu reposit�
     git push
     ```
     
-1. Uma compilação é iniciada assim que `git push` é concluída. Você pode seguir o progresso no **painel DevOps do Azure**.
+1. Uma compilação é iniciada assim que é `git push` concluída. Você pode seguir o progresso no **painel DevOps do Azure**.
 
 3. Após alguns minutos, os pipelines de build e lançamento devem ser concluídos e o PWA deve ser implantado em um contêiner. Clique no link **Ponto de extremidade do aplicativo** no painel acima e você verá um projeto inicial do Gatsby para blogs.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Exclua o Serviço de Aplicativo do Azure e outros recursos relacionados que você criou quando eles não forem mais necessários. Use a funcionalidade **excluir** no painel inicial do DevOps.
+Exclua o Serviço de Aplicativo do Azure e outros recursos relacionados que você criou quando eles não forem mais necessários. Use a funcionalidade **Excluir** no painel do DevOps Starter.
 
 ## <a name="next-steps"></a>Próximas etapas
 
