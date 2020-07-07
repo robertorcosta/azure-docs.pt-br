@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/04/2020
 ms.author: juliako
 ms.openlocfilehash: 41b2d0ad1e072fb2bf5860ae80f8f25f886b37f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80582685"
 ---
 # <a name="streaming-locators"></a>Localizadores de Streaming
@@ -24,11 +24,11 @@ Para fazer vídeos na saída do ativo disponível para clientes de reprodução,
 
 O processo de criação de um **Localizador de Streaming** é chamado de publicação. Por padrão, o **localizador de streaming** é válido imediatamente depois que você faz as chamadas à API e dura até que ela seja excluída, a menos que você configure as horas de início e término opcionais. 
 
-Ao criar um **localizador de streaming**, você deve especificar um nome de **ativo** e um nome de **política de streaming** . Para mais informações, consulte os seguintes tópicos:
+Ao criar um **localizador de streaming**, você deve especificar um nome de **ativo** e um nome de **política de streaming** . Para obter mais informações, consulte estes tópicos:
 
 * [Ativos](assets-concept.md)
-* [Políticas de Streaming](streaming-policy-concept.md)
-* [Políticas da Chave de Conteúdo](content-key-policy-concept.md)
+* [Políticas de streaming](streaming-policy-concept.md)
+* [Políticas de chave de conteúdo](content-key-policy-concept.md)
 
 Você também pode especificar a hora de início e de término no seu localizador de streaming, o que permitirá que o usuário execute o conteúdo entre esses horários (por exemplo, entre 5/1/2019 e 5/5/2019).  
 
@@ -90,7 +90,7 @@ Confira [Filtragem, classificação, paginação de entidades dos Serviços de M
 
 Para obter localizadores de streaming com base no nome do ativo associado, use as seguintes operações:
 
-|Linguagem|API|
+|Language|API|
 |---|---|
 |REST|[liststreaminglocators](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators)|
 |CLI|[AZ AMS Asset List – streaming-Locators](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest#az-ams-asset-list-streaming-locators)|
@@ -98,11 +98,11 @@ Para obter localizadores de streaming com base no nome do ativo associado, use a
 |Java|[AssetStreamingLocator](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators#assetstreaminglocator)|
 |Node.js|[listStreamingLocators](https://docs.microsoft.com/javascript/api/@azure/arm-mediaservices/assets#liststreaminglocators-string--string--string--msrest-requestoptionsbase-)|
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 * [Ativos](assets-concept.md)
-* [Políticas de Streaming](streaming-policy-concept.md)
-* [Políticas da Chave de Conteúdo](content-key-policy-concept.md)
+* [Políticas de streaming](streaming-policy-concept.md)
+* [Políticas de chave de conteúdo](content-key-policy-concept.md)
 * [Tutorial: carregar, codificar e transmitir vídeos usando o .NET](stream-files-tutorial-with-api.md)
 
 ## <a name="next-steps"></a>Próximas etapas

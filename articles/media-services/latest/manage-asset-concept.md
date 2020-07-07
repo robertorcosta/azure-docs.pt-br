@@ -14,10 +14,10 @@ ms.date: 03/26/2020
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 9136fd702fad5c12a8ec97a68ff8a592a203d7d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80582209"
 ---
 # <a name="manage-assets"></a>Gerenciar ativos
@@ -45,7 +45,7 @@ Depois que os arquivos digitais são carregados no armazenamento e associados a 
 
 1. Use a API dos Serviços de Mídia do Azure v3 para criar um novo ativo de "entrada". Esta operação cria um contêiner na conta de armazenamento associada com sua conta de Serviços de Mídia do Azure. A API retorna o nome do contêiner (por exemplo, `"container": "asset-b8d8b68a-2d7f-4d8c-81bb-8c7bbbe67ee4"`).
 
-    Se você já tiver um contêiner de BLOB que deseja associar a um ativo, poderá especificar o nome do contêiner ao criar o ativo. Os Serviços de Mídia do Azure atualmente suportam apenas blobs na raiz do contêiner e não com caminhos no nome do arquivo. Portanto, um contêiner com o nome do arquivo "input.mp4" funcionará. No entanto, um contêiner com o nome de arquivo "vídeos/entradas/Input. mp4" não funcionará.
+    Se você já tiver um contêiner de BLOB que deseja associar a um ativo, poderá especificar o nome do contêiner ao criar o ativo. Os Serviços de Mídia do Azure atualmente suportam apenas blobs na raiz do contêiner e não com caminhos no nome do arquivo. Portanto, um contêiner com o nome do arquivo "input.mp4" funcionará. No entanto, um contêiner com o nome de arquivo "vídeos/entradas/input.mp4" não funcionará.
 
     Você pode usar a CLI do Azure para carregar diretamente em qualquer conta de armazenamento e contêiner que você tiver direitos na sua assinatura.
 
@@ -58,7 +58,7 @@ Depois que os arquivos digitais são carregados no armazenamento e associados a 
 
     Você pode usar a API de Serviços de Mídia do Azure [listará as URLs de contêiner do ativo](https://docs.microsoft.com/rest/api/media/assets/listcontainersas).
 
-    **AssetContainerSas. listContainerSas** usa um parâmetro [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) no qual você define `expiryTime`. A hora deve ser definida como < 24 horas.
+    **AssetContainerSas. listContainerSas** usa um parâmetro [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) no qual você define `expiryTime` . A hora deve ser definida como < 24 horas.
 
     [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) retorna várias URLs SAS, pois há duas chaves de conta de armazenamento para cada conta de armazenamento. Uma conta de armazenamento tem duas chaves porque ajuda com failover e rotação direta das chaves da conta de armazenamento. A primeira URL da SAS representa a primeira chave de conta de armazenamento e a segunda URL da SAS representa a segunda chave.
 3. Use as APIs de armazenamento do Azure ou SDKs (por exemplo, a [API REST de armazenamento](../../storage/common/storage-rest-api-auth.md) ou o [SDK do .net](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) para carregar arquivos no contêiner de ativos.
@@ -100,7 +100,7 @@ curl -X PUT \
  Asset asset = await client.Assets.CreateOrUpdateAsync(resourceGroupName, accountName, assetName, new Asset());
 ```
 
-### <a name="see-also"></a>Confira também
+### <a name="see-also"></a>Consulte também
 
 * [Criar uma entrada de trabalho de um arquivo local](job-input-from-local-file-how-to.md)
 * [Criar uma entrada de trabalho de uma URL HTTPS](job-input-from-http-how-to.md)
@@ -129,7 +129,7 @@ Para publicar um ativo para streaming, você precisa criar um [localizador de st
 
 Para obter mais informações, consulte:
 
-[Tutorial: Fazer upload, codificar e transmitir vídeos com os Serviços de Mídia v3](stream-files-tutorial-with-api.md)
+[Tutorial: carregar, codificar e transmitir vídeos com os serviços de mídia v3](stream-files-tutorial-with-api.md)
 
 ## <a name="download-results-of-a-job-from-an-output-asset"></a>Baixar resultados de um trabalho de um ativo de saída
 

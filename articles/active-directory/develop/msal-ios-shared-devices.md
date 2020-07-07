@@ -14,10 +14,10 @@ ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: 7cecbc48eb362c2c0f1741352e6f7f5f6ad40c9e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80550247"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>Modo de dispositivo compartilhado para dispositivos iOS
@@ -45,7 +45,7 @@ Para criar um aplicativo de modo de dispositivo compartilhado, os desenvolvedore
 
 1. [**Necessário somente durante a visualização pública**] Um usuário com a função de [administrador de dispositivo de nuvem](../users-groups-roles/directory-assign-admin-roles.md#cloud-device-administrator) deve iniciar o [aplicativo Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) e ingressar seu dispositivo na organização.
 
-    Para configurar a associação de suas funções organizacionais no portal do Azure: **Azure Active Directory** > **funções e administradores** > **administrador do dispositivo de nuvem**
+    Para configurar a associação de suas funções organizacionais no portal do Azure: **Azure Active Directory**  >  **funções e administradores**  >  **administrador do dispositivo de nuvem**
 
 As seções a seguir ajudam a atualizar seu aplicativo para dar suporte ao modo de dispositivo compartilhado.
 
@@ -92,7 +92,7 @@ Detectar o modo de dispositivo compartilhado é importante para seu aplicativo. 
 
 Use a `getDeviceInformationWithParameters:completionBlock:` API no `MSALPublicClientApplication` para determinar se um aplicativo está sendo executado em um dispositivo no modo de dispositivo compartilhado.
 
-Os trechos de código a seguir mostram exemplos de `getDeviceInformationWithParameters:completionBlock:` como usar a API.
+Os trechos de código a seguir mostram exemplos de como usar a `getDeviceInformationWithParameters:completionBlock:` API.
 
 #### <a name="swift"></a>Swift
 
@@ -128,7 +128,7 @@ application.getDeviceInformation(with: nil, completionBlock: { (deviceInformatio
 
 Outra parte importante do suporte ao modo de dispositivo compartilhado é determinar o estado do usuário no dispositivo e limpar os dados do aplicativo se um usuário tiver mudado ou se não houver nenhum usuário no dispositivo. Você é responsável por garantir que os dados não sejam vazados para outro usuário.
 
-Você pode usar `getCurrentAccountWithParameters:completionBlock:` a API para consultar a conta conectada no momento no dispositivo.
+Você pode usar a `getCurrentAccountWithParameters:completionBlock:` API para consultar a conta conectada no momento no dispositivo.
 
 #### <a name="swift"></a>Swift
 
@@ -180,7 +180,7 @@ O código a seguir remove a conta conectada e limpa os tokens em cache não apen
 > [!NOTE]
 > A etapa a seguir é necessária somente durante a visualização pública.
 
-Nesta versão de visualização pública, o [plug-in Microsoft Enterprise SSO para dispositivos Apple](apple-sso-plugin.md) limpa o estado somente para aplicativos. Ele não limpa o estado no navegador Safari. Recomendamos que você limpe manualmente a sessão do navegador para garantir que nenhum rastreamento do estado do usuário seja deixado para trás. Você pode usar a propriedade `signoutFromBrowser` opcional mostrada abaixo para limpar todos os cookies. Isso fará com que o navegador seja inicializado brevemente no dispositivo.
+Nesta versão de visualização pública, o [plug-in Microsoft Enterprise SSO para dispositivos Apple](apple-sso-plugin.md) limpa o estado somente para aplicativos. Ele não limpa o estado no navegador Safari. Recomendamos que você limpe manualmente a sessão do navegador para garantir que nenhum rastreamento do estado do usuário seja deixado para trás. Você pode usar a `signoutFromBrowser` propriedade opcional mostrada abaixo para limpar todos os cookies. Isso fará com que o navegador seja inicializado brevemente no dispositivo.
 
 #### <a name="swift"></a>Swift
 

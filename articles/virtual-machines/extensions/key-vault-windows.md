@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 8e014e7a1c564377582e4503218c4129619daa91
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80410726"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual de Key Vault para Windows
 
-A extensão de VM Key Vault fornece a atualização automática de certificados armazenados em um cofre de chaves do Azure. Especificamente, os monitores de extensão observado de uma lista de certificados armazenados no cofre de chaves e, ao detectar uma alteração, recupera e instala os certificados correspondentes. Este documento detalha as plataformas com opções de plataformas, configurações e implantação com suporte para a extensão da VM de Key Vault para Windows. 
+A extensão de VM de Key Vault fornece a atualização automática dos certificados armazenados no cofre de chaves do Azure. Especificamente, os monitores de extensão observado de uma lista de certificados armazenados no cofre de chaves e, ao detectar uma alteração, recupera e instala os certificados correspondentes. Este documento detalha as plataformas com opções de plataformas, configurações e implantação com suporte para a extensão da VM de Key Vault para Windows. 
 
 ### <a name="operating-system"></a>Sistema operacional
 
@@ -27,9 +27,9 @@ A extensão de VM Key Vault dá suporte a versões anteriores do Windows:
 - Windows Server 2016
 - Windows Server 2012
 
-### <a name="supported-certificate-content-types"></a>Tipos de conteúdo de certificado com suporte
+### <a name="supported-certificate-content-types"></a>Tipos suportados de conteúdo de certificado
 
-- #12 PKCS
+- PKCS #12
 - PEM
 
 ## <a name="extension-schema"></a>Esquema de extensão
@@ -65,31 +65,31 @@ O JSON a seguir mostra o esquema para a extensão da VM de Key Vault. A extensã
 ```
 
 > [!NOTE]
-> Suas URLs de certificados observadas devem estar no `https://myVaultName.vault.azure.net/secrets/myCertName`formato.
+> Suas URLs de certificado observadas devem estar no formato `https://myVaultName.vault.azure.net/secrets/myCertName`.
 > 
-> Isso ocorre porque o `/secrets` caminho retorna o certificado completo, incluindo a chave privada, enquanto o `/certificates` caminho não tem. Mais informações sobre certificados podem ser encontradas aqui: [Key Vault certificados](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
+> Isso porque o caminho `/secrets` retorna todo o certificado, incluindo a chave privada, enquanto o caminho `/certificates` não faz isso. Mais informações sobre certificados podem ser encontradas aqui: [Certificados do Key Vault](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
 
 ### <a name="property-values"></a>Valores de propriedade
 
-| Name | Valor/Exemplo | Tipo de Dados |
+| Nome | Valor/Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
-| editor | Microsoft.Azure.KeyVault | cadeia de caracteres |
-| type | KeyVaultForWindows | cadeia de caracteres |
+| publicador | Microsoft.Azure.KeyVault | string |
+| type | KeyVaultForWindows | string |
 | typeHandlerVersion | 1.0 | INT |
-| pollingIntervalInS | 3600 | cadeia de caracteres |
-| certificateStoreName | MY | cadeia de caracteres |
+| pollingIntervalInS | 3600 | string |
+| certificateStoreName | MY | string |
 | linkOnRenewal | false | booleano |
-| certificateStoreLocation  | LocalMachine | cadeia de caracteres |
+| certificateStoreLocation  | LocalMachine | string |
 | requiredInitialSync | true | booleano |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | Matriz de cadeia de caracteres
 
 
 ## <a name="template-deployment"></a>Implantação de modelo
 
-Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Manager. Modelos são ideais ao implantar uma ou mais máquinas virtuais que exigem renovação de certificados pós-implantação. A extensão pode ser implantada em VMs individuais ou conjuntos de dimensionamento de máquinas virtuais. O esquema e a configuração são comuns a ambos os tipos de modelo. 
+Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Manager. Modelos são ideais ao implantar uma ou mais máquinas virtuais que exigem renovação de certificados pós-implantação. A extensão pode ser implantada em VMs individuais ou conjunto de dimensionamento de máquinas virtuais. O esquema e a configuração são comuns a ambos os tipos de modelo. 
 
-A configuração JSON para uma extensão de máquina virtual deve ser aninhada dentro do fragmento de recurso de máquina virtual do `"resources": []` modelo, especificamente objeto para o modelo de máquina virtual e, no caso do `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` conjunto de dimensionamento de máquinas virtuais em objeto.
+A configuração JSON para uma extensão de máquina virtual deve ser aninhada dentro do fragmento do recurso de máquina virtual do modelo, especificamente o objeto `"resources": []` para o modelo de máquina virtual e, no caso de conjunto de dimensionamento de máquinas virtuais, no objeto `"virtualMachineProfile":"extensionProfile":{"extensions" :[]`.
 
 ```json
     {
@@ -166,7 +166,7 @@ O Azure PowerShell pode ser usado para implantar a extensão da VM do Diagnósti
 
 ## <a name="azure-cli-deployment"></a>Implantação da CLI do Azure
 
-O CLI do Azure pode ser usado para implantar a extensão de VM Key Vault em uma máquina virtual existente ou em um conjunto de dimensionamento de máquinas virtuais. 
+A CLI do Azure pode ser usada para implantar a extensão da VM do Key Vault em uma máquina virtual existente ou em um conjunto de dimensionamento de máquinas virtuais. 
  
 * Para implantar a extensão em uma VM:
     
@@ -221,4 +221,4 @@ A saída de execução da extensão é registrada no seguinte arquivo:
 
 ### <a name="support"></a>Suporte
 
-Se precisar de mais ajuda a qualquer momento neste artigo, você poderá entrar em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow do MSDN](https://azure.microsoft.com/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione obter suporte. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes sobre o suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).
+Caso precise de mais ajuda em qualquer ponto deste artigo, entre em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN](https://azure.microsoft.com/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione Obter suporte. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes sobre o suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).

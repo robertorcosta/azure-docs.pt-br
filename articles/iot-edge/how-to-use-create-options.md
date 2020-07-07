@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: c07e161042a497a232cbd5e3f11128893a095381
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80550338"
 ---
 # <a name="how-to-configure-container-create-options-for-iot-edge-modules"></a>Como configurar opções de criação de contêiner para módulos de IoT Edge
@@ -52,15 +52,15 @@ O manifesto de implantação do IoT Edge aceita opções de criação formatadas
 
 Este exemplo de edgeHub usa o parâmetro **HostConfig. PortBindings** para mapear portas expostas no contêiner para uma porta no dispositivo host.
 
-Se você usar as extensões das ferramentas do Azure IoT para Visual Studio ou Visual Studio Code, poderá escrever as opções de criação no formato JSON no arquivo **Deployment. Template. JSON** . Em seguida, quando você usar a extensão para criar a solução de IoT Edge ou gerar o manifesto de implantação, ela stringifyá o JSON para você no formato que o tempo de execução IoT Edge espera. Por exemplo:
+Se você usar as extensões das ferramentas do Azure IoT para Visual Studio ou Visual Studio Code, poderá escrever as opções de criação no formato JSON na **deployment.template.jsno** arquivo. Em seguida, quando você usar a extensão para criar a solução de IoT Edge ou gerar o manifesto de implantação, ela stringifyá o JSON para você no formato que o tempo de execução IoT Edge espera. Por exemplo:
 
 ```json
 "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
 ```
 
-Uma dica para escrever opções de criação é usar o `docker inspect` comando. Como parte do seu processo de desenvolvimento, execute o módulo localmente `docker run <container name>`usando. Depois que o módulo estiver funcionando da maneira desejada, execute `docker inspect <container name>`. Esse comando gera os detalhes do módulo no formato JSON. Localize os parâmetros que você configurou e copie o JSON. Por exemplo:
+Uma dica para escrever opções de criação é usar o `docker inspect` comando. Como parte do seu processo de desenvolvimento, execute o módulo localmente usando `docker run <container name>` . Depois que o módulo estiver funcionando da maneira desejada, execute `docker inspect <container name>` . Esse comando gera os detalhes do módulo no formato JSON. Localize os parâmetros que você configurou e copie o JSON. Por exemplo:
 
-[![Resultados da inspeção de edgeHub](./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png) do Docker](./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png#lightbox)
+[![Resultados da inspeção de edgeHub ](./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png) do Docker](./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png#lightbox)
 
 ## <a name="common-scenarios"></a>Cenários comuns
 
@@ -75,11 +75,11 @@ As opções de criação de contêiner habilitam muitos cenários, mas aqui est�
 Se o módulo precisar se comunicar com um serviço fora da solução de IoT Edge e não estiver usando o roteamento de mensagens para fazer isso, você precisará mapear uma porta de host para uma porta de módulo.
 
 >[!TIP]
->Esse mapeamento de porta não é necessário para a comunicação de módulo para módulo no mesmo dispositivo. Se o módulo A precisar consultar uma API hospedada no módulo B, ele poderá fazer isso sem qualquer mapeamento de porta. O módulo B precisa expor uma porta em seu dockerfile, por exemplo: `EXPOSE 8080`. Em seguida, o módulo A pode consultar a API usando o nome do módulo B `http://ModuleB:8080/api`, por exemplo:.
+>Esse mapeamento de porta não é necessário para a comunicação de módulo para módulo no mesmo dispositivo. Se o módulo A precisar consultar uma API hospedada no módulo B, ele poderá fazer isso sem qualquer mapeamento de porta. O módulo B precisa expor uma porta em seu dockerfile, por exemplo: `EXPOSE 8080` . Em seguida, o módulo A pode consultar a API usando o nome do módulo B, por exemplo: `http://ModuleB:8080/api` .
 
 Primeiro, certifique-se de que uma porta dentro do módulo esteja exposta para escutar conexões. Você pode fazer isso usando uma instrução de [exposição](https://docs.docker.com/engine/reference/builder/#expose) no dockerfile. Por exemplo, `EXPOSE 8080`. A instrução Expose usa como padrão o protocolo TCP, se não for especificado, ou você pode especificar o UDP.
 
-Em seguida, use a configuração **PortBindings** no grupo **HostConfig** do [contêiner do Docker criar opções](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) para mapear a porta exposta no módulo para uma porta no dispositivo host. Por exemplo, se você expôs a porta 8080 dentro do módulo e deseja mapeá-la para a porta 80 do dispositivo de host, as opções de criação no arquivo template. JSON seriam parecidas com o exemplo a seguir:
+Em seguida, use a configuração **PortBindings** no grupo **HostConfig** do [contêiner do Docker criar opções](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) para mapear a porta exposta no módulo para uma porta no dispositivo host. Por exemplo, se você expôs a porta 8080 dentro do módulo e deseja mapeá-la para a porta 80 do dispositivo de host, as opções de criação no template.jsno arquivo seriam parecidas com o exemplo a seguir:
 
 ```json
 "createOptions": {
@@ -109,7 +109,7 @@ Você pode declarar a quantidade de recursos de host que um módulo pode usar. E
 * **MemorySwap**: limite de memória total (memória + troca). Por exemplo, 536870912 bytes = 512 MB
 * **CpuPeriod**: o comprimento de um período de CPU em microssegundos. O valor padrão é 100000, portanto, por exemplo, um valor de 25000 limita um contêiner a 25% dos recursos da CPU.
 
-No formato template. JSON, esses valores se parecerão com o exemplo a seguir:
+Na template.jsno formato, esses valores seriam semelhantes ao exemplo a seguir:
 
 ```json
 "createOptions": {

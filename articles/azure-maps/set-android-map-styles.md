@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: a4d761abf54682ed0263922d0a118debc9eccf0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80334361"
 ---
 # <a name="set-map-style-using-azure-maps-android-sdk"></a>Definir o estilo de mapa usando o Azure Maps SDK do Android
@@ -27,7 +27,7 @@ Para concluir o processo neste artigo, você precisa instalar o [Azure Maps SDK 
 
 ## <a name="set-map-style-in-the-layout"></a>Definir o estilo de mapa no layout
 
-Você pode definir um estilo de mapa no arquivo de layout para sua classe de atividade. Edite o **layout de > res > activity_main. xml**, portanto, é semelhante ao seguinte:
+Você pode definir um estilo de mapa no arquivo de layout para sua classe de atividade. Edite o **layout de > res > activity_main.xml**, portanto, é semelhante ao seguinte:
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?>

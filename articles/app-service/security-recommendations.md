@@ -8,10 +8,10 @@ ms.date: 06/17/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
 ms.openlocfilehash: 50e2666aa533a5111055a095c612b58bfe6f9db4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80546696"
 ---
 # <a name="security-recommendations-for-app-service"></a>Recomendações de segurança para o serviço de aplicativo
@@ -41,7 +41,7 @@ Este artigo contém recomendações de segurança para Azure App serviço. Imple
 | Criptografar a comunicação com os recursos do Azure | Quando seu aplicativo se conecta aos recursos do Azure, como o [banco de dados SQL](https://azure.microsoft.com/services/sql-database/) ou o [armazenamento do Azure](/azure/storage/), a conexão permanece no Azure. Como a conexão passa pela rede compartilhada no Azure, você sempre deve criptografar toda a comunicação. |
 | Exigir a versão mais recente do TLS possível | Desde 2018 novos aplicativos de serviço Azure App usam o TLS 1,2. As versões mais recentes do TLS incluem aprimoramentos de segurança em relação às versões de protocolo mais antigas. |
 | Usar FTPS | O Serviço de Aplicativo dá suporte ao FTP e FTPS para implantar os arquivos. Use FTPS em vez de FTP quando possível. Quando um ou ambos os protocolos não estiverem em uso será necessário [desabilitá-los](deploy-ftp.md#enforce-ftps). |
-| Proteger dados do aplicativo | Não armazene segredos do aplicativo, como credenciais de banco de dados, tokens de API ou chaves privadas em seu código ou arquivos de configuração. A abordagem comumente aceita é acessá-los como [variáveis de ambiente](https://wikipedia.org/wiki/Environment_variable) usando o padrão standard na linguagem de sua escolha. No Azure App Service, você pode definir variáveis de ambiente por meio de [configurações de aplicativo](web-sites-configure.md) e [cadeias de conexão](web-sites-configure.md). As configurações do aplicativo e as cadeias de conexão são armazenadas criptografadas no Azure. As configurações do aplicativo são descriptografadas somente antes de serem injetadas na memória do processo do aplicativo quando o aplicativo é iniciado. As chaves de criptografia são giradas regularmente. Como alternativa, você pode integrar seu aplicativo de serviço Azure App com [Azure Key Vault](/azure/key-vault/) para o gerenciamento avançado de segredos. Ao [acessar o Key Vault com uma identidade gerenciada](../key-vault/tutorial-web-application-keyvault.md), o aplicativo do Serviço de Aplicativo poderá acessar com segurança os segredos que você precisa. |
+| Proteger dados do aplicativo | Não armazene segredos do aplicativo, como credenciais de banco de dados, tokens de API ou chaves privadas em seu código ou arquivos de configuração. A abordagem comumente aceita é acessá-los como [variáveis de ambiente](https://wikipedia.org/wiki/Environment_variable) usando o padrão standard na linguagem de sua escolha. No Azure App Service, você pode definir variáveis de ambiente por meio de [configurações de aplicativo](web-sites-configure.md) e [cadeias de conexão](web-sites-configure.md). As configurações do aplicativo e cadeias de conexão são armazenadas e criptografadas no Azure. As configurações do aplicativo são descriptografadas somente antes de serem injetadas na memória do processo do aplicativo quando o aplicativo é iniciado. As chaves de criptografia são giradas regularmente. Como alternativa, você pode integrar seu aplicativo de serviço Azure App com [Azure Key Vault](/azure/key-vault/) para o gerenciamento avançado de segredos. Ao [acessar o Key Vault com uma identidade gerenciada](../key-vault/tutorial-web-application-keyvault.md), o aplicativo do Serviço de Aplicativo poderá acessar com segurança os segredos que você precisa. |
 
 ## <a name="networking"></a>Rede
 
@@ -60,4 +60,4 @@ Este artigo contém recomendações de segurança para Azure App serviço. Imple
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Verifique com seu provedor de aplicativos para ver se há requisitos de segurança adicionais. Para obter mais informações sobre como desenvolver aplicativos seguros, consulte a [documentação de desenvolvimento seguro](../security/fundamentals/abstract-develop-secure-apps.md).
+Verifique com seu provedor de aplicativos se há requisitos de segurança adicionais. Para obter mais informações sobre como desenvolver aplicativos seguros, confira [Documentação de desenvolvimento seguro](../security/fundamentals/abstract-develop-secure-apps.md).

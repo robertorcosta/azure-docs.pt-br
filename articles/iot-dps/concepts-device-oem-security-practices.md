@@ -9,10 +9,10 @@ ms.service: iot-dps
 ms.custom: iot-p0-scenario, iot-devices-deviceOEM
 ms.reviewer: nberdy
 ms.openlocfilehash: 3854f353e4ea0b78c0162681e0b89d37419105d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80529515"
 ---
 # <a name="security-practices-for-azure-iot-device-manufacturers"></a>Práticas de segurança para fabricantes de dispositivos IoT do Azure
@@ -95,7 +95,7 @@ Se você estiver acostumado a usar senhas, poderá perguntar por que não é pos
 Considere as variáveis a seguir e como cada uma afeta o processo de fabricação geral. 
 
 #### <a name="where-the-certificate-root-of-trust-comes-from"></a>De onde provém a raiz do certificado de confiança
-Pode ser dispendioso e complexo gerenciar uma PKI (infraestrutura de chave pública).  Especialmente se sua empresa não tiver nenhuma experiência para gerenciar uma PKI. Suas opções são:
+Pode ser dispendioso e complexo gerenciar uma PKI (infraestrutura de chave pública).  Especialmente se sua empresa não tiver nenhuma experiência para gerenciar uma PKI. As opções são:
 - Use uma PKI de terceiros. Você pode comprar certificados de assinatura intermediários de um fornecedor de certificado de terceiros. Ou você pode usar uma autoridade de certificação (CA) privada. 
 - Use uma PKI autogerenciada. Você pode manter seu próprio sistema PKI e gerar seus próprios certificados.
 - Use o serviço de segurança [Azure Sphere](https://azure.microsoft.com/services/azure-sphere/) . Essa opção se aplica somente a dispositivos Azure Sphere. 

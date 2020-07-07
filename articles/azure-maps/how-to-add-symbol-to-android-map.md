@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 0eca73b5acae715283c05125181e12729ed5a772
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335584"
 ---
 # <a name="add-a-symbol-layer-to-a-map-using-azure-maps-android-sdk"></a>Adicionar uma camada de símbolo a um mapa usando o Azure Maps SDK do Android
@@ -27,7 +27,7 @@ Para seguir as etapas deste artigo, você precisa instalar o [Azure Maps SDK do 
 
 Para adicionar um marcador no mapa usando a camada de símbolo, siga as etapas abaixo:
 
-1. Edite o**layout** >  **res** > **activity_main. xml** para que fique semelhante ao seguinte XML:
+1. Edite **res**  >  o**layout** res  >  **activity_main.xml** para que se pareça com o seguinte XML:
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -74,7 +74,7 @@ Para adicionar um marcador no mapa usando a camada de símbolo, siga as etapas a
     
     O trecho de código acima Obtém primeiro uma instância de controle de mapa do Azure Maps usando o método de retorno de chamada **Onreadal ()** . Em seguida, ele cria um objeto de fonte de dados usando a classe **DataSource** e o adiciona ao mapa. Em seguida, ele adiciona um **recurso** que contém uma geometria de ponto a ele. Uma imagem de marcador vermelho é então definida como ícone para o símbolo. Uma **camada de símbolo** usa texto ou ícones para renderizar dados baseados em pontos encapsulados na fonte de dados como símbolo no mapa. Em seguida, uma camada de símbolo é criada e a fonte de dados é passada para ela para renderização e, em seguida, é adicionada às camadas do mapa.
     
-    Depois de adicionar o trecho de código acima `MainActivity.java` , seu deve se parecer com o seguinte:
+    Depois de adicionar o trecho de código acima, seu `MainActivity.java` deve se parecer com o seguinte:
     
     ```Java
     package com.example.myapplication;

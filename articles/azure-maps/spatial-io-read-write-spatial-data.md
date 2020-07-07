@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 4c47335689401ebce98224992c74c3396821a1dd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80334147"
 ---
 # <a name="read-and-write-spatial-data"></a>Ler e gravar dados espaciais
@@ -45,25 +45,25 @@ O resultado da função de leitura é um `SpatialDataSet` objeto. Esse objeto es
 | `bbox` | `BoundingBox` | Caixa delimitadora de todos os dados no conjunto de dados. |
 | `features` | `Feature[]` | Recursos geojson dentro do conjunto de dados. |
 | `groundOverlays` | `(atlas.layer.ImageLayer | atlas.layers.OgcMapLayer)[]` | Uma matriz de KML GroundOverlays. |
-| `icons` | Cadeia&lt;de caracteres de registro, Cadeia de caracteres&gt; | Um conjunto de URLs de ícone. Chave = nome do ícone, valor = URL. |
+| `icons` | &lt;Cadeia de caracteres de registro, Cadeia de caracteres&gt; | Um conjunto de URLs de ícone. Chave = nome do ícone, valor = URL. |
 | properties | any | Informações de propriedade fornecidas no nível de documento de um conjunto de dados espaciais. |
 | `stats` | `SpatialDataSetStats` | Estatísticas sobre o conteúdo e o tempo de processamento de um conjunto de dados espaciais. |
 | `type` | `'FeatureCollection'` | Valor de tipo geojson de somente leitura. |
 
 ## <a name="examples-of-reading-spatial-data"></a>Exemplos de leitura de dados espaciais
 
-O código a seguir mostra como ler um conjunto de dados espaciais e renderizá-lo no mapa usando `SimpleDataLayer` a classe. O código usa um arquivo GPX apontado por uma URL.
+O código a seguir mostra como ler um conjunto de dados espaciais e renderizá-lo no mapa usando a `SimpleDataLayer` classe. O código usa um arquivo GPX apontado por uma URL.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Carregar dados espaciais simples' src='//codepen.io/azuremaps/embed/yLNXrZx/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/yLNXrZx/'>carregar dados espaciais simples</a> pelo Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() em <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Carregar dados espaciais simples' src='//codepen.io/azuremaps/embed/yLNXrZx/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/yLNXrZx/'>carregar dados espaciais simples</a> pelo Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-A próxima demonstração de código mostra como ler e carregar KML, ou KMZ, no mapa. KML pode conter sobreposições de aterramento, que estarão na forma de um `ImageLyaer` ou `OgcMapLayer`. Essas sobreposições devem ser adicionadas ao mapa separadamente dos recursos. Além disso, se o conjunto de dados tiver ícones personalizados, esses ícones precisarão ser carregados nos recursos de mapas antes de os recursos serem carregados.
+A próxima demonstração de código mostra como ler e carregar KML, ou KMZ, no mapa. KML pode conter sobreposições de aterramento, que estarão na forma de um `ImageLyaer` ou `OgcMapLayer` . Essas sobreposições devem ser adicionadas ao mapa separadamente dos recursos. Além disso, se o conjunto de dados tiver ícones personalizados, esses ícones precisarão ser carregados nos recursos de mapas antes de os recursos serem carregados.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Carregar KML no mapa' src='//codepen.io/azuremaps/embed/XWbgwxX/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/XWbgwxX/'>carregar KML no mapa</a> pelo Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Carregar KML no mapa' src='//codepen.io/azuremaps/embed/XWbgwxX/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/XWbgwxX/'>carregar KML no mapa</a> pelo Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 Opcionalmente, você pode fornecer um serviço de proxy para acessar ativos entre domínios que podem não ter o CORS habilitado. A função de leitura tentará acessar os arquivos em outro domínio usando o CORS primeiro. Após a primeira vez em que falha ao acessar qualquer recurso em outro domínio usando CORS, ele solicitará arquivos adicionais somente se um serviço de proxy tiver sido fornecido. A função Read acrescenta a URL do arquivo ao final da URL do proxy fornecida. Este trecho de código mostra como passar um serviço de proxy para a função de leitura:
@@ -85,18 +85,18 @@ A demonstração a seguir mostra como ler um arquivo delimitado e renderizá-lo 
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Adicionar um arquivo delimitado' src='//codepen.io/azuremaps/embed/ExjXBEb/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/ExjXBEb/'>Adicionar um arquivo delimitado</a> pelo mapas do Azure<a href='https://codepen.io/azuremaps'>@azuremaps</a>() em <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Adicionar um arquivo delimitado' src='//codepen.io/azuremaps/embed/ExjXBEb/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/ExjXBEb/'>Adicionar um arquivo delimitado</a> pelo mapas do Azure ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="write-spatial-data"></a>Gravar dados espaciais
 
-Há duas funções de gravação principais no módulo de e/s espacial. A `atlas.io.write` função gera uma cadeia de caracteres, `atlas.io.writeCompressed` enquanto a função gera um arquivo ZIP compactado. O arquivo ZIP compactado conterá um arquivo baseado em texto com os dados espaciais nele. Essas duas funções retornam uma promessa para adicionar os dados ao arquivo. E ambos podem gravar qualquer um dos seguintes dados `SpatialDataSet`:, `DataSource`, `ImageLayer`, `OgcMapLayer`, coleção de recursos, recurso, geometria ou uma matriz de qualquer combinação desses tipos de dados. Ao escrever usando qualquer uma das funções, você pode especificar o formato de arquivo desejado. Se o formato de arquivo não for especificado, os dados serão gravados como KML.
+Há duas funções de gravação principais no módulo de e/s espacial. A `atlas.io.write` função gera uma cadeia de caracteres, enquanto a `atlas.io.writeCompressed` função gera um arquivo ZIP compactado. O arquivo ZIP compactado conterá um arquivo baseado em texto com os dados espaciais nele. Essas duas funções retornam uma promessa para adicionar os dados ao arquivo. E ambos podem gravar qualquer um dos seguintes dados:,, `SpatialDataSet` `DataSource` `ImageLayer` , `OgcMapLayer` , coleção de recursos, recurso, geometria ou uma matriz de qualquer combinação desses tipos de dados. Ao escrever usando qualquer uma das funções, você pode especificar o formato de arquivo desejado. Se o formato de arquivo não for especificado, os dados serão gravados como KML.
 
-A ferramenta a seguir demonstra a maioria das opções de gravação que podem ser usadas com `atlas.io.write` a função.
+A ferramenta a seguir demonstra a maioria das opções de gravação que podem ser usadas com a `atlas.io.write` função.
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Opções de gravação de dados espaciais' src='//codepen.io/azuremaps/embed/YzXxXPG/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte as <a href='https://codepen.io/azuremaps/pen/YzXxXPG/'>Opções de gravação de dados espaciais</a> da caneta<a href='https://codepen.io/azuremaps'>@azuremaps</a>pelo Azure Maps () em <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Opções de gravação de dados espaciais' src='//codepen.io/azuremaps/embed/YzXxXPG/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte as <a href='https://codepen.io/azuremaps/pen/YzXxXPG/'>Opções de gravação de dados espaciais</a> da caneta pelo Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="example-of-writing-spatial-data"></a>Exemplo de gravação de dados espaciais
@@ -105,7 +105,7 @@ O exemplo a seguir permite arrastar e soltar e, em seguida, carregar arquivos es
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Arrastar e soltar arquivos espaciais no mapa' src='//codepen.io/azuremaps/embed/zYGdGoO/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta, <a href='https://codepen.io/azuremaps/pen/zYGdGoO/'>arrastar e soltar arquivos espaciais em mapear</a> pelo<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps () em <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Arrastar e soltar arquivos espaciais no mapa' src='//codepen.io/azuremaps/embed/zYGdGoO/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta, <a href='https://codepen.io/azuremaps/pen/zYGdGoO/'>arrastar e soltar arquivos espaciais em mapear</a> pelo Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 Opcionalmente, você pode fornecer um serviço de proxy para acessar ativos entre domínios que podem não ter o CORS habilitado. Este trecho de código mostra que você pode incorporar um serviço de proxy:
@@ -130,28 +130,28 @@ O texto bem conhecido pode ser lido usando a `atlas.io.ogc.WKT.read` função e 
 
 ## <a name="examples-of-reading-and-writing-well-known-text-wkt"></a>Exemplos de leitura e gravação de texto bem conhecido (WKT)
 
-O código a seguir mostra como ler a cadeia de caracteres `POINT(-122.34009 47.60995)` de texto bem conhecida e renderizá-la no mapa usando uma camada de bolha.
+O código a seguir mostra como ler a cadeia de caracteres de texto bem conhecida `POINT(-122.34009 47.60995)` e renderizá-la no mapa usando uma camada de bolha.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Ler texto bem conhecido' src='//codepen.io/azuremaps/embed/XWbabLd/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Veja a caneta <a href='https://codepen.io/azuremaps/pen/XWbabLd/'>ler o texto bem conhecido</a> pelo Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Ler texto bem conhecido' src='//codepen.io/azuremaps/embed/XWbabLd/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Veja a caneta <a href='https://codepen.io/azuremaps/pen/XWbabLd/'>ler o texto bem conhecido</a> pelo Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 O código a seguir demonstra como ler e gravar texto bem conhecido de volta e para trás.
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Ler e escrever texto bem conhecido' src='//codepen.io/azuremaps/embed/JjdyYav/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/JjdyYav/'>ler e escrever texto bem conhecido</a> pelo Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Ler e escrever texto bem conhecido' src='//codepen.io/azuremaps/embed/JjdyYav/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/JjdyYav/'>ler e escrever texto bem conhecido</a> pelo Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="read-and-write-gml"></a>Ler e gravar GML
 
-GML é uma especificação de arquivo XML espacial que geralmente é usada como uma extensão para outras especificações de XML. Os dados geojson podem ser gravados como XML com marcas GML `atlas.io.core.GmlWriter.write` usando a função. O XML que contém GML pode ser lido usando a `atlas.io.core.GmlReader.read` função. A função de leitura tem duas opções:
+GML é uma especificação de arquivo XML espacial que geralmente é usada como uma extensão para outras especificações de XML. Os dados geojson podem ser gravados como XML com marcas GML usando a `atlas.io.core.GmlWriter.write` função. O XML que contém GML pode ser lido usando a `atlas.io.core.GmlReader.read` função. A função de leitura tem duas opções:
 
 - A `isAxisOrderLonLat` opção-a ordem do eixo das coordenadas "latitude, longitude" ou "longitude, Latitude" pode variar entre os conjuntos de dados e nem sempre é bem definida. Por padrão, o leitor de GML lê os dados de coordenadas como "latitude, longitude", mas a definição dessa opção como true irá lê-lo como "longitude, Latitude".
-- A `propertyTypes` opção-essa opção é uma tabela de pesquisa de valor de chave em que a chave é o nome de uma propriedade no conjunto de dados. O valor é o tipo de objeto para o qual converter o valor durante a análise. Os valores de tipo com suporte `string`são `number`: `boolean`,, `date`e. Se uma propriedade não estiver na tabela de pesquisa ou o tipo não estiver definido, a propriedade será analisada como uma cadeia de caracteres.
+- A `propertyTypes` opção-essa opção é uma tabela de pesquisa de valor de chave em que a chave é o nome de uma propriedade no conjunto de dados. O valor é o tipo de objeto para o qual converter o valor durante a análise. Os valores de tipo com suporte são: `string` , `number` , `boolean` e `date` . Se uma propriedade não estiver na tabela de pesquisa ou o tipo não estiver definido, a propriedade será analisada como uma cadeia de caracteres.
 
-A `atlas.io.read` função usará como padrão `atlas.io.core.GmlReader.read` a função quando detectar que os dados de entrada são XML, mas os dados não são um dos outros formatos XML espaciais de suporte.
+A `atlas.io.read` função usará como padrão a `atlas.io.core.GmlReader.read` função quando detectar que os dados de entrada são XML, mas os dados não são um dos outros formatos XML espaciais de suporte.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -178,7 +178,7 @@ Saiba mais sobre as classes e métodos usados neste artigo:
 Consulte os artigos a seguir para obter mais exemplos de código para adicionar aos seus mapas:
 
 > [!div class="nextstepaction"]
-> [Adicionar uma camada do mapa do OGC](spatial-io-add-ogc-map-layer.md)
+> [Adicionar uma camada do mapa OGC](spatial-io-add-ogc-map-layer.md)
 
 > [!div class="nextstepaction"]
 > [Conectar-se a um serviço WFS](spatial-io-connect-wfs-service.md)
@@ -187,4 +187,4 @@ Consulte os artigos a seguir para obter mais exemplos de código para adicionar 
 > [Aproveitar as principais operações](spatial-io-core-operations.md)
 
 > [!div class="nextstepaction"]
-> [Detalhes de formato de dados com suporte](spatial-io-supported-data-format-details.md)
+> [Detalhes do formato de dados com suporte](spatial-io-supported-data-format-details.md)

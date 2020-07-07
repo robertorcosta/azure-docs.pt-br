@@ -15,16 +15,16 @@ ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: willzhan; johndeu
 ms.openlocfilehash: a693eb374365670da3fe8c4b2bb8ce664a024217
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80295438"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Usar a autenticação do Azure AD para acessar a API dos Serviços de Mídia com REST
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [serviços de mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 Ao usar a autenticação do Azure AD com os Serviços de Mídia do Azure, você pode fazer a autenticação usando uma destas duas maneiras:
 
@@ -62,7 +62,7 @@ Neste tutorial, você aprenderá como:
 
 Para acessar a API dos Serviços de Mídia, você precisa coletar os seguintes pontos de dados.
 
-|Setting|Exemplo|Descrição|
+|Configuração|Exemplo|Descrição|
 |---|-------|-----|
 |Domínio do locatário do Azure Active Directory|microsoft.onmicrosoft.com|O Azure AD enquanto ponto de extremidade do STS (Serviço de Token de Segurança) é criado usando o seguinte formato: <https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token>. O Azure AD emite um JWT para acessar recursos (um token de acesso).|
 |Ponto de extremidade da API REST|<https://amshelloworld.restv2.westus.media.azure.net/api/>|Este é o ponto de extremidade pelo qual todas as chamadas de API REST dos Serviços de Mídia em seu aplicativo são feitas.|
@@ -124,7 +124,7 @@ Você pode adicionar valores para parâmetros de conexão do AD ao seu arquivo a
 
 Esta seção mostra como usar o **Postman** para executar uma API REST que retorna um Token de Portador JWT (token de acesso). Para chamar qualquer API REST dos Serviços de Mídia, você precisa adicionar o cabeçalho "Authorization" às e adicionar o valor de "Bearer *seu_token_de_acesso*" a cada chamada (conforme mostrado na próxima seção deste tutorial). 
 
-1. Abra o **Postman**.
+1. Abrir o **postmaster**.
 2. Selecione **POST**.
 3. Digite a URL que inclui o nome do locatário usando o seguinte formato: o nome do locatário deve terminar com **.onmicrosoft.com** e a URL deve terminar com **oauth2/token**: 
 
@@ -162,7 +162,7 @@ A resposta retornada contém o **token de acesso** que você precisa usar para a
 
 Esta seção mostra como acessar a API de **Ativos** usando o **Postman**.
 
-1. Abra o **Postman**.
+1. Abrir o **postmaster**.
 2. Selecione **GET**.
 3. Cole o ponto de extremidade da API REST (por exemplo, https://amshelloworld.restv2.westus.media.azure.net/api/Assets)
 4. Selecione a guia **Autorização**. 

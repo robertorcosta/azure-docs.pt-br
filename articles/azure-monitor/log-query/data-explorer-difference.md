@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 04/01/2020
 ms.openlocfilehash: 265179909c8ae4a6fa630b835bc9993f042d6460
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80585706"
 ---
 # <a name="azure-monitor-log-query-language-differences"></a>Diferenças na linguagem de consulta de log do Azure Monitor
@@ -29,7 +29,7 @@ As seções a seguir descrevem os elementos da linguagem de consulta Kusto não 
 
 ### <a name="functions-not-supported-in-azure-monitor"></a>Funções não compatíveis com o Azure Monitor
 
-* [cluster ()](/azure/kusto/query/clusterfunction)
+* [cluster()](/azure/kusto/query/clusterfunction)
 * [cursor_after()](/azure/kusto/query/cursorafterfunction)
 * [cursor_before_or_at()](/azure/kusto/query/cursorbeforeoratfunction)
 * [cursor_current(), current_cursor()](/azure/kusto/query/cursorcurrent)
@@ -45,7 +45,7 @@ As seções a seguir descrevem os elementos da linguagem de consulta Kusto não 
 ### <a name="plugins-not-supported-in-azure-monitor"></a>Plug-ins não compatíveis com o Azure Monitor
 
 * [Plug-in do Python](/azure/kusto/query/pythonplugin)
-* [Plug-in do sql_request](/azure/kusto/query/sqlrequestplugin)
+* [Plug-in sql_request](/azure/kusto/query/sqlrequestplugin)
 
 
 ## <a name="additional-operators-in-azure-monitor"></a>Operadores adicionais no Azure Monitor

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2019
 ms.author: sharadag
 ms.openlocfilehash: 5e3e44c4aee84fe9e2e21174a1d65fdf26b765a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80295468"
 ---
 # <a name="url-redirect"></a>Redirecionamento de URL
@@ -40,13 +40,13 @@ Você pode definir o protocolo que será usado para redirecionamento. Isso permi
 - **Solicitação de correspondência**: essa opção retém o protocolo usado pela solicitação de entrada. Portanto, uma solicitação HTTP permanece HTTP e uma solicitação HTTPS permanece o redirecionamento de HTTPS post.
 
 ## <a name="destination-host"></a>Host de destino
-Como parte da configuração de um roteamento de redirecionamento, você também pode alterar o nome do host ou domínio para a solicitação de redirecionamento. Você pode definir esse campo para alterar o nome do host na URL para o redirecionamento ou preservar o nome do host da solicitação de entrada. Portanto, usando esse campo, você pode redirecionar todas `https://www.contoso.com/*` as `https://www.fabrikam.com/*`solicitações enviadas para.
+Como parte da configuração de um roteamento de redirecionamento, você também pode alterar o nome do host ou domínio para a solicitação de redirecionamento. Você pode definir esse campo para alterar o nome do host na URL para o redirecionamento ou preservar o nome do host da solicitação de entrada. Portanto, usando esse campo, você pode redirecionar todas as solicitações enviadas `https://www.contoso.com/*` para `https://www.fabrikam.com/*` .
 
 ## <a name="destination-path"></a>Caminho de destino
-Para casos em que você deseja substituir o segmento de caminho de uma URL como parte do redirecionamento, você pode definir esse campo com o novo valor de caminho. Caso contrário, você pode optar por preservar o valor do caminho como parte do redirecionamento. Portanto, usando esse campo, você pode redirecionar todas as `https://www.contoso.com/\*` solicitações `https://www.contoso.com/redirected-site`enviadas ao para.
+Para casos em que você deseja substituir o segmento de caminho de uma URL como parte do redirecionamento, você pode definir esse campo com o novo valor de caminho. Caso contrário, você pode optar por preservar o valor do caminho como parte do redirecionamento. Portanto, usando esse campo, você pode redirecionar todas as solicitações enviadas ao `https://www.contoso.com/\*` para `https://www.contoso.com/redirected-site` .
 
 ## <a name="query-string-parameters"></a>Parâmetros de cadeia de caracteres de consulta
-Você também pode substituir os parâmetros da cadeia de caracteres de consulta na URL redirecionada. Para substituir qualquer cadeia de caracteres de consulta existente da URL de solicitação de entrada, defina esse campo como ' replace ' e defina o valor apropriado. Caso contrário, você pode manter o conjunto original de cadeias de consulta definindo o campo como ' preserve '. Como exemplo, usando esse campo, você pode redirecionar todo o tráfego `https://www.contoso.com/foo/bar` enviado `https://www.contoso.com/foo/bar?&utm_referrer=https%3A%2F%2Fwww.bing.com%2F`para o. 
+Você também pode substituir os parâmetros da cadeia de caracteres de consulta na URL redirecionada. Para substituir qualquer cadeia de caracteres de consulta existente da URL de solicitação de entrada, defina esse campo como ' replace ' e defina o valor apropriado. Caso contrário, você pode manter o conjunto original de cadeias de consulta definindo o campo como ' preserve '. Como exemplo, usando esse campo, você pode redirecionar todo o tráfego enviado para o `https://www.contoso.com/foo/bar` `https://www.contoso.com/foo/bar?&utm_referrer=https%3A%2F%2Fwww.bing.com%2F` . 
 
 ## <a name="destination-fragment"></a>Fragmento de destino
 O fragmento de destino é a parte da URL após ' # ', normalmente usado por navegadores para se colocar em uma seção específica em uma página. Você pode definir esse campo para adicionar um fragmento à URL de redirecionamento.

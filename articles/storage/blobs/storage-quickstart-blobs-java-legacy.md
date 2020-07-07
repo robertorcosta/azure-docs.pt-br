@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.openlocfilehash: e7986add466bc42b092763acfeceebc8a6523bbe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80473994"
 ---
 # <a name="quickstart-manage-blobs-with-java-v8-sdk"></a>Início rápido: gerenciar BLOBs com o SDK do Java V8
@@ -36,7 +36,7 @@ git clone https://github.com/Azure-Samples/storage-blobs-java-quickstart.git
 
 Este comando clona o repositório para sua pasta do git local. Para abrir o projeto, inicialize o Eclipse e feche a tela de boas-vindas. Selecione **arquivo** e **Abra projetos do sistema de arquivos**. Certifique-se de que **Detectar e configurar natureza do projeto** esteja marcado. Selecione **Directory** e navegue até onde você armazenou o repositório clonado. Dentro do repositório clonado, selecione a pasta **blobAzureApp**. Verifique se o projeto **javaBlobsQuickstarts** aparece como um projeto do Eclipse e selecione **Concluir**.
 
-Quando o projeto concluir a importação, abra **AzureApp. java** (localizado em **blobQuickstart. blobAzureApp** dentro de **src/main/java**) e substitua `accountname` e `accountkey` por dentro da `storageConnectionString` cadeia de caracteres. Em seguida, execute o aplicativo. As instruções específicas para concluir essas tarefas estão descritas nas seções a seguir.
+Quando o projeto concluir a importação, abra **AzureApp. java** (localizado em **blobQuickstart. blobAzureApp** dentro de **src/main/java**) e substitua e por `accountname` `accountkey` dentro da cadeia de `storageConnectionString` caracteres. Em seguida, execute o aplicativo. As instruções específicas para concluir essas tarefas estão descritas nas seções a seguir.
 
 [!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 
@@ -53,7 +53,7 @@ public static final String storageConnectionString =
 
 ## <a name="run-the-sample"></a>Execute o exemplo
 
-Esse aplicativo de exemplo cria um arquivo de teste em sua diretório padrão (*C:\Usuários\<usuário>\AppData\Local\Temp*, para usuários do Windows), carrega-o para o armazenamento de Blobs, lista os blobs no contêiner e faz o download do arquivo com um novo nome para que você possa comparar o arquivo novo com o antigo.
+Este aplicativo de exemplo cria um arquivo de teste no diretório padrão (*C:\Users \<user> \AppData\Local\Temp*, para usuários do Windows), carrega-o no armazenamento de BLOBs, lista os BLOBs no contêiner e, em seguida, baixa o arquivo com um novo nome para que você possa comparar os arquivos novos e antigos.
 
 Execute o exemplo usando o Maven na linha de comando. Abra um shell e navegue até **blobAzureApp** dentro de seu diretório clonado. Em seguida, digite `mvn compile exec:java`.
 
@@ -72,7 +72,7 @@ Deleting the container
 Deleting the source, and downloaded files
 ```
 
-Antes de continuar, procure o arquivo de exemplo no diretório padrão (*C:\Usuários\<usuário>\AppData\Local\Temp*, para usuários do Windows). Copie a URL para o blob fora da janela do console e cole-a em um navegador para exibir o conteúdo do arquivo no Armazenamento de Blobs. Se você comparar o arquivo de exemplo no diretório com o conteúdo armazenado no armazenamento de blobs, verá que eles são os mesmos.
+Antes de continuar, verifique o diretório padrão (*C:\Users \<user> \AppData\Local\Temp*, para usuários do Windows) para o arquivo de exemplo. Copie a URL para o blob fora da janela do console e cole-a em um navegador para exibir o conteúdo do arquivo no Armazenamento de Blobs. Se você comparar o arquivo de exemplo no diretório com o conteúdo armazenado no armazenamento de blobs, verá que eles são os mesmos.
 
   >[!NOTE]
   >Você também pode usar uma ferramenta como o [Gerenciador de Armazenamento do Azure](https://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para exibir os arquivos no Armazenamento de Blobs. O Gerenciador de Armazenamento do Azure é uma ferramenta gratuita de multiplataforma que permite que você acesse as informações da sua conta de armazenamento.
@@ -197,5 +197,5 @@ sourceFile.deleteOnExit();
 Neste artigo, você aprendeu a transferir arquivos entre um disco local e o Armazenamento de Blobs do Azure usando Java. Para saber mais sobre como trabalhar com Java, prossiga para o nosso repositório de código de origem do GitHub.
 
 > [!div class="nextstepaction"]
-> [Java API Reference](https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy)
-> [Exemplos de código de referência da API Java para Java](../common/storage-samples-java.md)
+> Referência da API do [Java](https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy) 
+>  [Exemplos de código para Java](../common/storage-samples-java.md)

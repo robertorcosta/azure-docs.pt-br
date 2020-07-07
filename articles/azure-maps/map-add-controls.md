@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 094dc9fd01ec71f378a173a2b4fa64cc672d7c97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80334557"
 ---
 # <a name="add-controls-to-a-map"></a>Adicionar controles a um mapa
@@ -30,7 +30,7 @@ map.controls.add(new atlas.control.ZoomControl(), {
 });
 ```
 
-Abaixo está o exemplo de código completo em execução da funcionalidade acima.
+Veja abaixo o exemplo de código completo em execução da funcionalidade acima.
 
 <br/>
 
@@ -48,7 +48,7 @@ map.controls.add(new atlas.control.PitchControl(), {
 });
 ```
 
-Abaixo está o exemplo de código completo em execução da funcionalidade acima.
+Veja abaixo o exemplo de código completo em execução da funcionalidade acima.
 
 <br/>
 
@@ -66,7 +66,7 @@ map.controls.add(new atlas.control.Compass(), {
 });
 ```
 
-Abaixo está o exemplo de código completo em execução da funcionalidade acima.
+Veja abaixo o exemplo de código completo em execução da funcionalidade acima.
 
 <br/>
 
@@ -104,10 +104,10 @@ Aqui está uma ferramenta para testar as várias opções para personalizar os c
 <br/>
 
 <iframe height="700" style="width: 100%;" scrolling="no" title="Opções de controle de navegação" src="//codepen.io/azuremaps/embed/LwBZMx/?height=700&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Consulte as <a href='https://codepen.io/azuremaps/pen/LwBZMx/'>Opções de controle de navegação</a> por caneta pelo<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps () em <a href='https://codepen.io'>CodePen</a>.
+Consulte as <a href='https://codepen.io/azuremaps/pen/LwBZMx/'>Opções de controle de navegação</a> por caneta pelo Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Se você quiser criar controles de navegação personalizados, crie uma classe que se estenda da `atlas.Control` classe ou crie um elemento HTML e posicione-o acima do div do mapa. Fazer com que este controle de interface `setCamera` do usuário chame a função Maps para mover o mapa. 
+Se você quiser criar controles de navegação personalizados, crie uma classe que se estenda da `atlas.Control` classe ou crie um elemento HTML e posicione-o acima do div do mapa. Fazer com que este controle de interface do usuário chame a `setCamera` função Maps para mover o mapa. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -140,5 +140,5 @@ Consulte os seguintes artigos para o código completo:
 > [Adicionar uma camada de polígono](map-add-shape.md)
 
 > [!div class="nextstepaction"]
-> [Adicionar uma camada de bolha](map-add-bubble-layer.md)
+> [Adicionar uma camada de bolhas](map-add-bubble-layer.md)
 

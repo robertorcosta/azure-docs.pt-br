@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
 ms.openlocfilehash: c230e1e950bb924631032940642a6202acf4ade8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80382929"
 ---
 # <a name="monitor-media-services-metrics"></a>Monitorar as métricas dos Serviços de Mídia do Microsoft Azure
@@ -28,7 +28,7 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Criar uma conta dos serviços de mídia](create-account-cli-how-to.md)
+- [Criar uma conta dos Serviços de Mídia](create-account-cli-how-to.md)
 - Examinar [os logs de diagnóstico e as métricas dos serviços de mídia](media-services-metrics-diagnostic-logs.md)
 
 ## <a name="view-metrics-in-azure-portal"></a>Exibir métricas no portal do Azure
@@ -40,7 +40,7 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
     A janela **selecionar um recurso** é exibida à direita com a lista de recursos disponíveis para você. Nesse caso, você verá:
 
     * &lt;Nome da conta dos serviços de mídia&gt;
-    * &lt;Nome da conta&gt;/&lt;de serviços de mídia do ponto de extremidade de streaming&gt;
+    * &lt;Nome da conta de serviços de mídia do &gt; / &lt; ponto de extremidade de streaming&gt;
     * &lt;nome da conta de armazenamento&gt;
 
     Selecione o recurso e pressione **aplicar**. Para obter detalhes sobre os recursos e as métricas com suporte, consulte [monitorar métricas dos serviços de mídia](media-services-metrics-diagnostic-logs.md).
@@ -57,7 +57,7 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 
 ## <a name="view-metrics-with-azure-cli"></a>Exibir métricas com CLI do Azure
 
-Para obter métricas de "egresso" com CLI do Azure, você executaria o `az monitor metrics` seguinte comando:
+Para obter métricas de "egresso" com CLI do Azure, você executaria o seguinte `az monitor metrics` comando:
 
 ```azurecli-interactive
 az monitor metrics list --resource \
@@ -67,9 +67,9 @@ az monitor metrics list --resource \
 
 Para obter outras métricas, substitua "egresso" pelo nome da métrica em que você está interessado.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
-* [Métricas de Azure Monitor](../../azure-monitor/platform/data-platform.md)
+* [Métricas do Azure Monitor](../../azure-monitor/platform/data-platform.md)
 * [Crie, exiba e gerencie alertas de métrica usando Azure monitor](../../azure-monitor/platform/alerts-metric.md).
 
 ## <a name="next-steps"></a>Próximas etapas

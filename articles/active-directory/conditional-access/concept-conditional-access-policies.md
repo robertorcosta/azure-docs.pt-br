@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 907ad8705742e4b2e38b13c3c675ebd333bd27d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80295318"
 ---
 # <a name="building-a-conditional-access-policy"></a>Criando uma política de acesso condicional
@@ -85,7 +85,7 @@ O controle Grant pode disparar a imposição de um ou mais controles.
 - Exigir autenticação multifator (autenticação multifator do Azure)
 - Exigir que o dispositivo seja marcado como compatível (Intune)
 - Exigir um dispositivo ingressado no Azure AD Híbrido
-- Exigir o aplicativo cliente aprovado
+- Exigir um aplicativo cliente aprovado
 - Requer política de proteção do aplicativo
 
 Os administradores podem optar por exigir um dos controles anteriores ou todos os controles selecionados usando as opções a seguir. O padrão para vários controles é exigir todos.
@@ -100,7 +100,7 @@ Os administradores podem optar por exigir um dos controles anteriores ou todos o
 - Usar restrições de aplicativo impostas
    - Atualmente, funciona somente com o Exchange Online e o SharePoint Online.
       - Passa informações do dispositivo para permitir o controle da experiência que concede acesso completo ou limitado.
-- Usar Controle de Aplicativos de Acesso Condicional
+- Usar o Controle de Aplicativos de Acesso Condicional
    - Usa sinais de Microsoft Cloud App Security para fazer coisas como: 
       - Bloquear download, recortar, copiar e imprimir documentos confidenciais.
       - Monitore o comportamento de sessão arriscada.
@@ -115,7 +115,7 @@ Os administradores podem optar por exigir um dos controles anteriores ou todos o
 Uma política de acesso condicional deve conter, no mínimo, o seguinte para ser aplicado:
 
 - **Nome** da política.
-- **Atribuições**
+- **Designa**
    - **Usuários e/ou grupos** aos quais aplicar a política.
    - **Aplicativos de nuvem ou ações** às quais aplicar a política.
 - **Controles de acesso**
@@ -127,7 +127,7 @@ O artigo [políticas de acesso condicional comum](concept-conditional-access-pol
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Simular comportamento de entrada usando a ferramenta de What If de acesso condicional](troubleshoot-conditional-access-what-if.md)
+[Simular comportamento de entrada usando a ferramenta What If de Acesso Condicional](troubleshoot-conditional-access-what-if.md)
 
 [Planejar uma implantação da Autenticação Multifator do Azure baseada em nuvem](../authentication/howto-mfa-getstarted.md)
 

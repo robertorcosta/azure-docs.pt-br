@@ -8,10 +8,10 @@ ms.date: 03/03/2018
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: e4838597c50898748eb4b33e81ff22eaeea37b30
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80476900"
 ---
 # <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>Integrar o Ambiente do Serviço de Aplicativo do ILB com o Gateway de Aplicativo do Azure #
@@ -40,7 +40,7 @@ Para integrar o Gateway de Aplicativo ao Ambiente do Ambiente do Serviço de Apl
 * Um Ambiente do Serviço de Aplicativo do ILB.
 * Um aplicativo em execução no Ambiente do Serviço de Aplicativo do ILB.
 * Um nome de domínio roteável da Internet a ser usado com seu aplicativo no Ambiente do Serviço de Aplicativo do ILB.
-* O endereço ILB que seu Ambiente do Serviço de Aplicativo do ILB usa. Essas informações estão no portal do ambiente do serviço de aplicativo em **configurações** > **endereços IP**:
+* O endereço ILB que seu Ambiente do Serviço de Aplicativo do ILB usa. Essas informações estão no portal do ambiente do serviço de aplicativo em **configurações**  >  **endereços IP**:
 
     ![Lista de exemplos de endereços IP usados pelo Ambiente do Serviço de Aplicativo do ILB][9]
     
@@ -56,7 +56,7 @@ Você também consegue colocar o gateway na sub-rede que usa o Ambiente do Servi
 
 ## <a name="configuration-steps"></a>Etapas de configuração ##
 
-1. Na portal do Azure, vá para **novo** > **rede** > **Gateway de aplicativo**.
+1. Na portal do Azure, vá para **novo**  >  **rede**  >  **Gateway de aplicativo**.
 
 2. Na área **Básico**:
 

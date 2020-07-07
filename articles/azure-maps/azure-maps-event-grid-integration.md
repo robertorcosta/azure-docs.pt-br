@@ -10,10 +10,10 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: 9c9483af191e5439af0c0b5e433187d6475c178c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335727"
 ---
 # <a name="react-to-azure-maps-events-by-using-event-grid"></a>Reagir a eventos do Azure Mapas usando a Grade de Eventos 
@@ -82,7 +82,7 @@ Aplicativos que manipulam eventos de limite geográfico do Azure Mapas devem seg
 
 * Configure várias assinaturas para rotear eventos para o mesmo manipulador de eventos. É importante não presumir que os eventos são de uma fonte específica. Sempre verifique o tópico da mensagem para garantir que a mensagem provém da origem esperada.
 * Use o `X-Correlation-id` campo no cabeçalho de resposta para entender se suas informações sobre objetos estão atualizadas. As mensagens podem chegar fora de ordem ou após um atraso.
-* Quando uma solicitação GET ou uma POST na API de isolamento geométrico é chamada com o parâmetro mode definido `EnterAndExit`como, um evento Enter ou Exit é gerado para cada geometria no limite geográfico para o qual o status foi alterado da chamada à API de limite geográfico anterior.
+* Quando uma solicitação GET ou uma POST na API de isolamento geométrico é chamada com o parâmetro mode definido como `EnterAndExit` , um evento Enter ou Exit é gerado para cada geometria no limite geográfico para o qual o status foi alterado da chamada à API de limite geográfico anterior.
 
 ## <a name="next-steps"></a>Próximas etapas
 

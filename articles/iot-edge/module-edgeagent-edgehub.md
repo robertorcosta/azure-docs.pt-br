@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: f2d6603c264c9da3f2700f460a8c61b24681fac6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80546199"
 ---
 # <a name="properties-of-the-iot-edge-agent-and-iot-edge-hub-module-twins"></a>Propriedades do agente do IoT Edge e dos gêmeos de módulo do hub do IoT Edge
@@ -25,7 +25,7 @@ Um módulo de r inclui:
 
 * **Propriedades desejadas**. O back-end da solução pode definir as propriedades desejadas e o módulo pode lê-las. O módulo também pode receber notificações de alterações nas propriedades desejadas. As propriedades desejadas são usadas junto com as propriedades relatadas para sincronizar a configuração ou as condições do módulo.
 
-* **Propriedades relatadas**. O módulo pode definir as propriedades relatadas e o back-end da solução pode lê-las e consultá-las. As propriedades relatadas são usadas junto com as propriedades desejadas para sincronizar a configuração ou as condições do módulo.
+* **Propriedades reportadas**. O módulo pode definir as propriedades relatadas e o back-end da solução pode lê-las e consultá-las. As propriedades relatadas são usadas junto com as propriedades desejadas para sincronizar a configuração ou as condições do módulo.
 
 ## <a name="edgeagent-desired-properties"></a>Propriedades desejadas do EdgeAgent
 
@@ -53,8 +53,8 @@ O gêmeo do módulo para o agente do IoT Edge se chama `$edgeAgent` e coordena a
 | modules.{moduleId}.version | Uma cadeia definida pelo usuário que representa a versão desse módulo. | Sim |
 | modules.{moduleId}.type | Tem que ser "docker" | Sim |
 | modules.{moduleId}.status | {"running" \| "stopped"} | Sim |
-| modules.{moduleId}.restartPolicy | {"Never \| " "on-Failure \| " "on-não íntegro" \| "Always"} | Sim |
-| módulos. {ModuleID}. imagePullPolicy | {"on-Create" \| "Never"} | Não |
+| modules.{moduleId}.restartPolicy | {"Never" \| "on-Failure" \| "não íntegro" \| "Always}} | Sim |
+| módulos. {ModuleID}. imagePullPolicy | {"na criação" \| "nunca"} | Não |
 | módulos. {ModuleID}. env | Uma lista de variáveis de ambiente a serem passadas para o módulo. Usa o formato`"<name>": {"value": "<value>"}` | Não |
 | modules.{moduleId}.settings.image | O URI para a imagem do módulo. | Sim |
 | modules.{moduleId}.settings.createOptions | Um JSON em cadeias de caracteres que contém as opções para a criação do contêiner do módulo. [Opções de criação de docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Não |

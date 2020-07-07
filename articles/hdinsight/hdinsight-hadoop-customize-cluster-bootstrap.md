@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/01/2020
 ms.openlocfilehash: 796dbc53d1adf310028e06dea319b9a60d5cf54b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80529360"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personalizar clusters do HDInsight usando a Inicialização
@@ -48,7 +48,7 @@ Para obter informações sobre como instalar componentes adicionais no cluster H
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Se estiver usando o PowerShell, você precisará do [módulo AZ](https://docs.microsoft.com/powershell/azure/overview).
+* Se estiver usando o PowerShell, você precisará do [Az Module](https://docs.microsoft.com/powershell/azure/overview).
 
 ## <a name="use-azure-powershell"></a>Usar PowerShell do Azure
 
@@ -86,7 +86,7 @@ Um script do PowerShell completo em funcionamento pode ser encontrado no [Apênd
 **Para verificar a alteração:**
 
 1. Navegue até `https://CLUSTERNAME.azurehdinsight.net/` onde `CLUSTERNAME` é o nome do cluster.
-1. No menu à esquerda, navegue até **Hive** > **configurações** > do hive**avançado**.
+1. No menu à esquerda, navegue até configurações do **Hive**  >  **Configs**  >  **avançado**.
 1. Expanda **avançado Hive-site**.
 1. Localize **Hive. metastore. Client. Socket. Timeout** e confirme se o valor é **anos 90**.
 
@@ -138,7 +138,7 @@ Exemplo de trecho do modelo do Resource Manager para alternar a configuração e
 }
 ```
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 * [Criar clusters Apache Hadoop no HDInsight](hdinsight-hadoop-provision-linux-clusters.md) fornece instruções sobre como criar um cluster HDInsight usando outras opções personalizadas.
 * [Desenvolver scripts de ação de script para o HDInsight](hdinsight-hadoop-script-actions-linux.md)
@@ -147,7 +147,7 @@ Exemplo de trecho do modelo do Resource Manager para alternar a configuração e
 
 ## <a name="appendix-powershell-sample"></a>Apêndice: amostra do PowerShell
 
-Esse script do PowerShell cria um cluster HDInsight e personaliza uma configuração de Hive. Certifique-se de inserir valores `$nameToken`para `$httpPassword`, e `$sshPassword`.
+Esse script do PowerShell cria um cluster HDInsight e personaliza uma configuração de Hive. Certifique-se de inserir valores para `$nameToken` , `$httpPassword` e `$sshPassword` .
 
 ```powershell
 ####################################

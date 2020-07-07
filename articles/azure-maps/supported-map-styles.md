@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 2eafe3c16a89723d55ec52fde785e9ec69e45e0c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80334031"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Categorias compatíveis com o Azure Mapas
@@ -34,12 +34,12 @@ Um **mapa** de estradas é um mapa padrão que exibe estradas, naturais e artifi
 Os estilos de mapa **em branco** e de **blank_accessible** fornecem uma tela em branco na qual os dados são visualizados. O estilo de **blank_accessible** continuará a fornecer atualizações de leitor de tela com detalhes de local do mapa, mesmo que o mapa base não seja exibido.
 
 > [!Note]
-> No SDK da Web, você pode alterar a cor do plano de fundo do mapa definindo `background-color` o estilo CSS do elemento do mapa div.
+> No SDK da Web, você pode alterar a cor do plano de fundo do mapa definindo o `background-color` estilo CSS do elemento do mapa div.
 
 **APIs aplicáveis:**
 * Controle de mapa do SDK da Web
 
-## <a name="satellite"></a>satélite 
+## <a name="satellite"></a>satellite 
 O estilo **satélite** é uma combinação de imagens de satélite e aéreas.
 
 ![estilo de mapa de bloco satélite](./media/supported-map-styles/satellite.png)

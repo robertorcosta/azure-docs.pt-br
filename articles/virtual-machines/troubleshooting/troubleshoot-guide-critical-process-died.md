@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: v-mibufo
 ms.openlocfilehash: 9e4c4b9c809a626c71b4a7e9235d917b442be160
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80373356"
 ---
 # <a name="windows-stop-error---0x000000ef-critical-process-died"></a>Erro de parada do Windows-#0x000000EF "processo crítico morreu"
@@ -39,22 +39,22 @@ Normalmente, isso ocorre devido a um processo de sistema crítico falhar durante
 
 ### <a name="process-overview"></a>Visão geral do processo:
 
-1. Crie e acesse uma VM de reparo.
+1. Criar e acessar uma VM de reparo.
 2. Corrija qualquer dano do sistema operacional.
-3. **Recomendado**: antes de recriar a VM, habilite o console serial e a coleção de despejo de memória.
-4. Reconstrua a VM.
+3. **Recomendado**: antes de recompilar a VM, o console serial e a coleção de despejo de memória deverão ser habilitados.
+4. Recompilar a VM.
 
 > [!NOTE]
 > Ao encontrar esse erro de inicialização, o SO convidado não está operacional. Você estará Solucionando problemas no modo offline para resolver esse problema.
 
 ### <a name="create-and-access-a-repair-vm"></a>Criar e acessar uma VM de reparo
 
-1. Use [as etapas 1-3 dos comandos de reparo da VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) para preparar uma VM de reparo.
-2. Usando Conexão de Área de Trabalho Remota Conecte-se à VM de reparo.
+1. Use as [etapas 1-3 dos comandos de reparo da VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) para preparar uma VM de reparo.
+2. Use a Conexão de Área de Trabalho Remota para conectar-se à VM de reparo.
 
 ### <a name="fix-any-os-corruption"></a>Corrigir qualquer dano do sistema operacional
 
-1. Abra um prompt de comando com privilégios elevados.
+1. Abra um prompt de comandos com privilégios elevados.
 2. Execute o seguinte comando do verificador de arquivos do sistema (SFC):
 
    `sfc /scannow /offbootdir=<BOOT DISK DRIVE>:\ /offwindir=<BROKEN DISK DRIVE>:\windows`
@@ -71,7 +71,7 @@ Se o problema persistir após a execução do SFC, a análise de um arquivo de d
 ### <a name="attach-the-os-disk-to-a-new-repair-vm"></a>Anexar o disco do sistema operacional a uma nova VM de reparo
 
 1. Use [as etapas 1-3 dos comandos de reparo da VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) para preparar uma nova VM de reparo.
-2. Usando Conexão de Área de Trabalho Remota Conecte-se à VM de reparo.
+2. Use a Conexão de Área de Trabalho Remota para conectar-se à VM de reparo.
 
 ### <a name="locate-the-dump-file-and-submit-a-support-ticket"></a>Localizar o arquivo de despejo e enviar um tíquete de suporte
 
@@ -85,8 +85,8 @@ Se o problema persistir após a execução do SFC, a análise de um arquivo de d
 
 Para habilitar a coleta de despejo de memória e o console serial, execute o seguinte script:
 
-1. Abra uma sessão de prompt de comando com privilégios elevados (executar como administrador).
-2. Execute os comandos a seguir:
+1. Abra uma sessão de prompt de comandos com privilégios elevados (Executar como administrador).
+2. Execute os seguintes comandos:
 
    Habilitar console serial
 
@@ -102,7 +102,7 @@ Se não houver espaço suficiente no disco do sistema operacional, você deverá
 
 #### <a name="suggested-configuration-to-enable-os-dump"></a>Configuração sugerida para habilitar o despejo do sistema operacional
 
-**Carregar disco do so quebrado**:
+**Carregar disco do sistema operacional danificado**:
 
 `REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM`
 
@@ -122,10 +122,10 @@ Se não houver espaço suficiente no disco do sistema operacional, você deverá
 
 `REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f`
 
-**Descarregar disco do so quebrado:**
+**Descarregar disco do sistema operacional danificado:**
 
 `REG UNLOAD HKLM\BROKENSYSTEM`
 
 ### <a name="rebuild-the-original-vm"></a>Recriar a VM original
 
-Use [a etapa 5 dos comandos de reparo da VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) para remontar a VM.
+Use a [etapa 5 dos comandos de reparo da VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) para remontar a VM.

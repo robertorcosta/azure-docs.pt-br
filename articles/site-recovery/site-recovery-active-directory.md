@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: mayg
 ms.openlocfilehash: 2cf4f22be2a4407d73fcc7bb340fad647c8aa145
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80546510"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Configurar a recuperação de desastres para Active Directory e DNS
@@ -104,11 +104,11 @@ Ao iniciar um failover de teste, não inclua todos os controladores de domínio 
 
 Começando com o Windows Server 2012, [defesas adicionais foram inseridas no Active Directory Domain Services (AD DS)](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100). Essas proteções ajudam a proteger controladores de domínio virtualizados contra reversões de número de sequência de atualização (USN) se a plataforma de hipervisor subjacente der suporte a **VM-generationid**. O Azure dá suporte a **VM-GenerationID**. Por isso, os controladores de domínio que executam o Windows Server 2012 ou posterior nas máquinas virtuais do Azure têm essas proteções adicionais.
 
-Quando **VM-GenerationID** é redefinido, o valor **InvocationID** do banco de dados AD DS também é redefinido. Além disso, o pool de ID relativa (RID) é Descartado e `SYSVOL` a pasta é marcada como não autoritativa. Para obter mais informações, consulte [introdução à virtualização de Active Directory Domain Services](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) e [virtualizar com segurança sistema de arquivos distribuído a replicação (DFSR)](https://techcommunity.microsoft.com/t5/storage-at-microsoft/safely-virtualizing-dfsr/ba-p/424671).
+Quando **VM-GenerationID** é redefinido, o valor **InvocationID** do banco de dados AD DS também é redefinido. Além disso, o pool de ID relativa (RID) é Descartado e a `SYSVOL` pasta é marcada como não autoritativa. Para obter mais informações, consulte [introdução à virtualização de Active Directory Domain Services](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) e [virtualizar com segurança sistema de arquivos distribuído a replicação (DFSR)](https://techcommunity.microsoft.com/t5/storage-at-microsoft/safely-virtualizing-dfsr/ba-p/424671).
 
 O failover do Azure pode causar a redefinição de **VM-GenerationID**. A redefinição de **VM-GenerationID** dispara garantias adicionais quando a máquina virtual do controlador de domínio é iniciada no Azure. Isso pode resultar em um atraso significativo na capacidade de entrar na máquina virtual do controlador de domínio.
 
-Como esse controlador de domínio é usado apenas um failover de teste, as defesas da virtualização não são necessárias. Para garantir que o valor de **generationid de VM** para a máquina virtual do controlador de domínio não seja alterado, você pode alterar `DWORD` o valor de seguinte para **4** no controlador de domínio local:
+Como esse controlador de domínio é usado apenas um failover de teste, as defesas da virtualização não são necessárias. Para garantir que o valor de **generationid de VM** para a máquina virtual do controlador de domínio não seja alterado, você pode alterar o valor de seguinte `DWORD` para **4** no controlador de domínio local:
 
 `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\gencounter\Start`
 
@@ -124,7 +124,7 @@ Se as defesas da virtualização forem disparadas após um failover de teste, vo
 
   :::image type="content" source="./media/site-recovery-active-directory/Event1109.png" alt-text="Alteração de ID de invocação":::
 
-- `SYSVOL`a pasta `NETLOGON` e os compartilhamentos não estão disponíveis.
+- `SYSVOL`a pasta e os `NETLOGON` compartilhamentos não estão disponíveis.
 
   :::image type="content" source="./media/site-recovery-active-directory/sysvolshare.png" alt-text="Compartilhamento de pasta SYSVOL":::
 
@@ -139,7 +139,7 @@ Se as defesas da virtualização forem disparadas após um failover de teste, vo
 > [!IMPORTANT]
 > Algumas das configurações descritas nesta seção não são as configurações padrão do controlador de domínio. Se não quiser fazer essas alterações em um controlador de domínio de produção, você poderá criar um controlador de domínio dedicado para o failover de teste do Site Recovery. Faça essas alterações somente nesse controlador de domínio dedicado.
 
-1. No prompt de comando, execute o seguinte comando para verificar se `SYSVOL` a pasta `NETLOGON` e a pasta são compartilhadas:
+1. No prompt de comando, execute o seguinte comando para verificar se a `SYSVOL` pasta e a `NETLOGON` pasta são compartilhadas:
 
     `NET SHARE`
 
@@ -181,7 +181,7 @@ Se as condições anteriores forem atendidas, é provável que o controlador de 
 
 Se você estiver executando o controlador de domínio e os DNs na mesma VM, poderá ignorar este procedimento.
 
-Se o DNS não estiver na mesma VM que o controlador de domínio, você precisará criar uma VM DNS para o failover de teste. Você pode usar um servidor DNS atualizado e criar todas as zonas necessárias. Por exemplo, se seu domínio de Active Directory `contoso.com`for, você poderá criar uma zona DNS com o `contoso.com`nome. As entradas correspondentes ao Active Directory devem ser atualizadas no DNS da seguinte maneira:
+Se o DNS não estiver na mesma VM que o controlador de domínio, você precisará criar uma VM DNS para o failover de teste. Você pode usar um servidor DNS atualizado e criar todas as zonas necessárias. Por exemplo, se seu domínio de Active Directory for `contoso.com` , você poderá criar uma zona DNS com o nome `contoso.com` . As entradas correspondentes ao Active Directory devem ser atualizadas no DNS da seguinte maneira:
 
 1. Assegure-se de que essas configurações estejam definidas antes que outra máquina virtual no plano de recuperação seja iniciada:
 

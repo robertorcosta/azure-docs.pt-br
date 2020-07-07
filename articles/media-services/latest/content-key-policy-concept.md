@@ -13,17 +13,17 @@ ms.date: 07/26/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 85a9cad80156dc6ac40e78610c91805d485ff3df
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80585985"
 ---
 # <a name="content-key-policies"></a>Políticas da Chave de Conteúdo
 
-Com os Serviços de Mídia, é possível entregar o conteúdo ao vivo e sob demanda criptografado dinamicamente com a criptografia AES (AES-128) ou qualquer um dos três principais sistemas DRM (Gerenciamento de Direitos Digitais): Microsoft PlayReady, Google Widevine e Apple FairPlay. Os serviços de mídia também fornecem um serviço de distribuição de chaves AES e licenças DRM (PlayReady, Widevine e FairPlay) para os clientes autorizados. 
+Com os Serviços de Mídia, é possível entregar o conteúdo ao vivo e sob demanda criptografado dinamicamente com a criptografia AES (AES-128) ou qualquer um dos três principais sistemas DRM (gerenciamento de direitos digitais): Microsoft PlayReady, Google Widevine e Apple FairPlay. Os serviços de mídia também fornecem um serviço de distribuição de chaves AES e licenças DRM (PlayReady, Widevine e FairPlay) para os clientes autorizados. 
 
-Para especificar as opções de criptografia em seu fluxo, você precisa criar uma [política de streaming](streaming-policy-concept.md) e associá-la ao seu [localizador de streaming](streaming-locators-concept.md). Você cria a [política de chave de conteúdo](https://docs.microsoft.com/rest/api/media/contentkeypolicies) para configurar como a chave de conteúdo (que fornece acesso seguro aos seus [ativos](assets-concept.md)) é entregue aos clientes finais. Você precisa definir os requisitos (restrições) na política de chave de conteúdo que deve ser atendida para que as chaves com a configuração especificada sejam entregues aos clientes. A política de chave de conteúdo não é necessária para streaming ou download claro. 
+Para especificar as opções de criptografia em seu fluxo, você precisa criar uma [política de streaming](streaming-policy-concept.md) e associá-la ao seu [localizador de streaming](streaming-locators-concept.md). Você cria a [política de chave de conteúdo](https://docs.microsoft.com/rest/api/media/contentkeypolicies) para configurar como a chave de conteúdo (que fornece acesso seguro aos seus [ativos](assets-concept.md)) é entregue aos clientes finais. Você precisa definir os requisitos (restrições) na política de chave de conteúdo que deve ser atendida para que as chaves com a configuração especificada sejam entregues aos clientes. A política de chave de conteúdo não é necessária para streaming ou download não criptografado. 
 
 Normalmente, você associa a política de chave de conteúdo ao seu [localizador de streaming](streaming-locators-concept.md). Como alternativa, você pode especificar a política de chave de conteúdo dentro de uma [política de streaming](streaming-policy-concept.md) (ao criar uma política de streaming personalizada para cenários avançados). 
 
@@ -47,7 +47,7 @@ Normalmente, você associa a política de chave de conteúdo ao seu [localizador
 
 ## <a name="example"></a>Exemplo
 
-Para obter a chave, use `GetPolicyPropertiesWithSecretsAsync`, conforme mostrado no exemplo [obter uma chave de assinatura a partir da política existente](get-content-key-policy-dotnet-howto.md#get-contentkeypolicy-with-secrets) .
+Para obter a chave, use `GetPolicyPropertiesWithSecretsAsync` , conforme mostrado no exemplo [obter uma chave de assinatura a partir da política existente](get-content-key-policy-dotnet-howto.md#get-contentkeypolicy-with-secrets) .
 
 ## <a name="filtering-ordering-paging"></a>Filtragem, classificação, paginação
 

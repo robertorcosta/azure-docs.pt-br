@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 18b165d83bfa154348842542bd8323a40330aa2a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80293464"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door"></a>Front-ends e pools de back-end na porta frontal do Azure
@@ -43,7 +43,7 @@ Os back-ends da porta frontal referem-se ao nome do host ou IP público do seu a
 
 As solicitações encaminhadas pela porta frontal para um back-end incluem um campo de cabeçalho de host que o back-end usa para recuperar o recurso de destino. O valor para esse campo geralmente vem do URI de back-end e tem o host e a porta.
 
-Por exemplo, uma solicitação feita para `www.contoso.com` o terá o cabeçalho de host www.contoso.com. Se você usar portal do Azure para configurar o back-end, o valor padrão desse campo será o nome do host do back-end. Se o back-end for contoso-westus.azurewebsites.net, no portal do Azure, o valor preenchido automaticamente para o cabeçalho de host de back-end será contoso-westus.azurewebsites.net. No entanto, se você usar modelos de Azure Resource Manager ou outro método sem definir explicitamente esse campo, a porta frontal enviará o nome de host de entrada como o valor para o cabeçalho de host. Se a solicitação foi feita para www\.contoso.com e o back-end for contoso-westus.azurewebsites.NET que tem um campo de cabeçalho vazio, a porta frontal definirá o cabeçalho\.de host como www contoso.com.
+Por exemplo, uma solicitação feita para `www.contoso.com` o terá o cabeçalho de host www.contoso.com. Se você usar portal do Azure para configurar o back-end, o valor padrão desse campo será o nome do host do back-end. Se o back-end for contoso-westus.azurewebsites.net, no portal do Azure, o valor preenchido automaticamente para o cabeçalho de host de back-end será contoso-westus.azurewebsites.net. No entanto, se você usar modelos de Azure Resource Manager ou outro método sem definir explicitamente esse campo, a porta frontal enviará o nome de host de entrada como o valor para o cabeçalho de host. Se a solicitação foi feita para www \. contoso.com e o back-end for contoso-westus.azurewebsites.NET que tem um campo de cabeçalho vazio, a porta frontal definirá o cabeçalho de host como www \. contoso.com.
 
 A maioria dos back-ends de aplicativo (aplicativos Web do Azure, armazenamento de BLOBs e serviços de nuvem) exige que o cabeçalho de host corresponda ao domínio do back-end. No entanto, o host de front-end que roteia para seu back-end usará um nome de host diferente, como www.contoso.net.
 
@@ -67,7 +67,7 @@ Um pool de back-end define como os back-ends diferentes devem ser avaliados por 
 ### <a name="health-probes"></a>Investigações de integridade
 A porta frontal envia solicitações de investigação HTTP/HTTPS periódicas para cada um dos back-ends configurados. As solicitações de investigação determinam a proximidade e a integridade de cada back-end para balancear a carga de suas solicitações do usuário final. As configurações de investigação de integridade para um pool de back-end definem como Sondamos o status de integridade dos back-ends do aplicativo. As configurações a seguir estão disponíveis para a configuração de balanceamento de carga:
 
-- **Caminho**: a URL usada para solicitações de investigação para todos os back-ends no pool de back-end. Por exemplo, se um dos seus back-ends for contoso-westus.azurewebsites.net e o caminho for definido como/Probe/Test.aspx, os ambientes de porta frontal, supondo que o protocolo está definido como HTTP, enviará solicitações\:de investigação de integridade para http//contoso-westus.azurewebsites.net/Probe/Test.aspx.
+- **Caminho**: a URL usada para solicitações de investigação para todos os back-ends no pool de back-end. Por exemplo, se um dos seus back-ends for contoso-westus.azurewebsites.net e o caminho for definido como/Probe/Test.aspx, os ambientes de porta frontal, supondo que o protocolo está definido como HTTP, enviará solicitações de investigação de integridade para http \: //contoso-westus.azurewebsites.net/Probe/Test.aspx.
 
 - **Protocolo**: define se as solicitações de investigação de integridade devem ser enviadas da porta frontal para seus back-ends com o protocolo http ou HTTPS.
 
@@ -95,5 +95,5 @@ Para obter mais informações, consulte [método de roteamento com base em latê
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Criar um perfil de porta de front-end](quickstart-create-front-door.md)
+- [Criar um perfil de Front Door](quickstart-create-front-door.md)
 - [Como funciona a porta frontal](front-door-routing-architecture.md)

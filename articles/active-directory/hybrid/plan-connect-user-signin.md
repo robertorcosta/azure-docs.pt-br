@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a08120b98c7a08bca50453df59df313b1645c5c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80331261"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Opções de entrada de usuário do Azure AD Connect
@@ -28,9 +28,9 @@ O Azure AD (Azure Active Directory) Connect permite que os usuários se conectem
 
 Se já estiver familiarizado com o modelo de identidade do Azure AD e desejar saber mais sobre um método específico, consulte o link apropriado:
 
-* [Sincronização de hash de senha](#password-hash-synchronization) com [SSO (logon único) contínuo](how-to-connect-sso.md)
-* [Autenticação de passagem](how-to-connect-pta.md) com o [SSO (logon único) contínuo](how-to-connect-sso.md)
-* [SSO federado (com o AD FS [Serviços de Federação do Active Directory])](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
+* [Sincronização de hash de senha](#password-hash-synchronization) com [SSO (Logon Único) Contínuo](how-to-connect-sso.md)
+* [Autenticação de passagem](how-to-connect-pta.md) com [SSO (Logon Único) Contínuo](how-to-connect-sso.md)
+* [SSO federado (com Serviços de Federação do Active Directory (AD FS))](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
 * [Federação com PingFederate](#federation-with-pingfederate)
 
 > [!NOTE] 
@@ -191,5 +191,5 @@ Na página **Entrada de usuário**, selecione a entrada do usuário desejada.
 >
 
 ## <a name="next-steps"></a>Próximas etapas
-- Saiba mais sobre [como integrar suas identidades locais ao Azure Active Directory](whatis-hybrid-identity.md).
+- Saiba mais sobre como [integrar suas identidades locais com o Azure Active Directory](whatis-hybrid-identity.md).
 - Saiba mais sobre os [conceitos de design do Azure AD Connect](plan-connect-design-concepts.md).

@@ -17,10 +17,10 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f0c6484f46731e0ff2d16d00cb0038202511d193
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80331071"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Perguntas frequentes do Azure AD Connect Health
@@ -107,7 +107,7 @@ Leia mais sobre [configurar HTTP Proxy para agentes de integridade](how-to-conne
 
 Se precisar configurar um proxy durante o registro do agente, talvez seja necessário modificar as configurações de proxy do Internet Explorer com antecedência.
 
-1. Abra o Internet Explorer > **configurações** > **Opções** > da Internet**conexões** > **configurações de LAN**.
+1. Abra o Internet Explorer > **configurações**  >  **Opções da Internet**  >  **conexões**  >  **configurações de LAN**.
 2. Selecione **Usar um Servidor Proxy para a LAN**.
 3. Selecione **Avançado** se você tiver portas de proxy diferentes para HTTP e HTTPS/Seguro.
 

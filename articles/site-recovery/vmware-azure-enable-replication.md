@@ -7,10 +7,10 @@ ms.date: 04/01/2020
 ms.topic: conceptual
 ms.author: ramamill
 ms.openlocfilehash: 6547bcf2061213cd01550367171d432900693ea5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80584139"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Habilitar a replicação no Azure de VMs VMware
@@ -49,7 +49,7 @@ Ao replicar máquinas virtuais VMware, tenha em mente estas informações:
 
 Antes de executar as etapas nesta seção, examine as seguintes informações:
 
-- Agora Azure Site Recovery Replica diretamente para o Managed disks para todas as novas replicações. O servidor de processo grava os logs de replicação em uma conta de armazenamento de cache na região de destino. Esses logs são usados para criar pontos de recuperação em discos gerenciados de réplica com Convenção `asrseeddisk`de nomenclatura de.
+- Agora Azure Site Recovery Replica diretamente para o Managed disks para todas as novas replicações. O servidor de processo grava os logs de replicação em uma conta de armazenamento de cache na região de destino. Esses logs são usados para criar pontos de recuperação em discos gerenciados de réplica com Convenção de nomenclatura de `asrseeddisk` .
 - O suporte do PowerShell para replicação para discos gerenciados está disponível a partir do [módulo AZ. recoveryservices versão 2.0.0](https://www.powershellgallery.com/packages/Az.RecoveryServices/2.0.0-preview)
 - No momento do failover, o ponto de recuperação selecionado é usado para criar o disco gerenciado por destino.
 - As VMs que foram configuradas anteriormente para replicar para as contas de armazenamento de destino não são afetadas.
@@ -57,7 +57,7 @@ Antes de executar as etapas nesta seção, examine as seguintes informações:
 
 Para habilitar a replicação, siga estas etapas:
 
-1. Vá para a **etapa 2: replicar** > a**origem**do aplicativo. Depois de habilitar a replicação pela primeira vez, selecione **+ replicar** no cofre para habilitar a replicação para máquinas virtuais adicionais.
+1. Vá para a **etapa 2: replicar**a  >  **origem**do aplicativo. Depois de habilitar a replicação pela primeira vez, selecione **+ replicar** no cofre para habilitar a replicação para máquinas virtuais adicionais.
 1. Na página **Origem** > **Origem**, selecione o servidor de configuração.
 1. Para **tipo de computador**, selecione **máquinas virtuais** ou **máquinas físicas**.
 1. Em **Hipervisor do vCenter/vSphere**, selecione o servidor vCenter que gerencia o host vSphere ou selecione o host. Essa configuração não será relevante se você estiver replicando computadores físicos.
@@ -75,16 +75,16 @@ Para habilitar a replicação, siga estas etapas:
 
    :::image type="content" source="./media/vmware-azure-enable-replication/enable-rep3.png" alt-text="Janela habilitar destino de replicação":::
 
-1. Para **máquinas** > virtuais,**selecione máquinas virtuais**, selecione cada máquina virtual que você deseja replicar. Você só pode selecionar máquinas virtuais para as quais a replicação pode ser habilitada. Em seguida, selecione **OK**. Se você não puder ver ou selecionar nenhuma máquina virtual específica, consulte [o computador de origem não está listado no portal do Azure](vmware-azure-troubleshoot-replication.md#step-3-troubleshoot-source-machines-that-arent-available-for-replication) para resolver o problema.
+1. Para **máquinas virtuais**  >  ,**selecione máquinas virtuais**, selecione cada máquina virtual que você deseja replicar. Você só pode selecionar máquinas virtuais para as quais a replicação pode ser habilitada. Depois, selecione **OK**. Se você não puder ver ou selecionar nenhuma máquina virtual específica, consulte [o computador de origem não está listado no portal do Azure](vmware-azure-troubleshoot-replication.md#step-3-troubleshoot-source-machines-that-arent-available-for-replication) para resolver o problema.
 
    :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication5.png" alt-text="Janela habilitar replicação selecionar máquinas virtuais":::
 
-1. Para **Propriedades** > **Configurar Propriedades**, selecione a conta que o servidor de processo usa para instalar automaticamente o serviço de mobilidade de site Recovery na VM. Além disso, escolha o tipo de disco gerenciado de destino a ser usado para replicação com base em seus padrões de variação de dados.
-1. Por padrão, todos os discos de uma VM de origem são replicados. Para excluir discos da replicação, desmarque a caixa de seleção **incluir** para todos os discos que você não deseja replicar. Em seguida, selecione **OK**. Você pode definir propriedades adicionais posteriormente. [Saiba mais](vmware-azure-exclude-disk.md) sobre a exclusão de discos.
+1. Para **Propriedades**  >  **Configurar Propriedades**, selecione a conta que o servidor de processo usa para instalar automaticamente o serviço de mobilidade de site Recovery na VM. Além disso, escolha o tipo de disco gerenciado de destino a ser usado para replicação com base em seus padrões de variação de dados.
+1. Por padrão, todos os discos de uma VM de origem são replicados. Para excluir discos da replicação, desmarque a caixa de seleção **incluir** para todos os discos que você não deseja replicar. Depois, selecione **OK**. Você pode definir propriedades adicionais posteriormente. [Saiba mais](vmware-azure-exclude-disk.md) sobre a exclusão de discos.
 
    :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication6.png" alt-text="Habilitar a janela de propriedades de configuração de replicação":::
 
-1. Em **configurações** > de replicação**definir configurações de replicação**, verifique se a política de replicação correta está selecionada. Você pode modificar as configurações da política de replicação em **configurações** > **políticas** > de replicação_nome_ > da política**Editar configurações**. As alterações aplicadas a uma política também se aplicam à replicação e novas máquinas virtuais.
+1. Em **configurações de replicação**  >  **definir configurações de replicação**, verifique se a política de replicação correta está selecionada. Você pode modificar as configurações da política de replicação em **configurações**  >  **políticas de replicação**  >  _nome da política_  >  **Editar configurações**. As alterações aplicadas a uma política também se aplicam à replicação e novas máquinas virtuais.
 1. Se você quiser reunir máquinas virtuais em um grupo de replicação, habilite **a consistência de várias VMs**. Especifique um nome para o grupo e, em seguida, selecione **OK**.
 
    > [!NOTE]
@@ -93,15 +93,15 @@ Para habilitar a replicação, siga estas etapas:
 
    :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication7.png" alt-text="Janela habilitar replicação":::
 
-1. Selecione **habilitar replicação**. Você pode acompanhar o progresso do trabalho **habilitar proteção** em **configurações** > **trabalhos** > **site Recovery trabalhos**. Depois que o trabalho **finalizar proteção** for executado, a máquina virtual estará pronta para failover.
+1. Selecione **Habilitar Replicação**. Você pode acompanhar o progresso do trabalho **habilitar proteção** em **configurações**  >  **trabalhos**  >  **site Recovery trabalhos**. Depois que o trabalho **finalizar proteção** for executado, a máquina virtual estará pronta para failover.
 
 ## <a name="view-and-manage-vm-properties"></a>Exibir e gerenciar as propriedades da VM
 
 Em seguida, verifique as propriedades da máquina virtual de origem. Lembre-se de que o nome da VM do Azure precisa estar em conformidade com os [Requisitos de máquina virtual do Azure](vmware-physical-azure-support-matrix.md#replicated-machines).
 
-1. Vá para **configurações** > **itens replicados**e, em seguida, selecione a máquina virtual. A página **Essentials** mostra informações sobre as configurações e o status da VM.
+1. Vá para **configurações**  >  **itens replicados**e, em seguida, selecione a máquina virtual. A página **Essentials** mostra informações sobre as configurações e o status da VM.
 1. Em **Propriedades**, você pode exibir informações de replicação e de failover para a VM.
-1. Em **computação e rede** > **Propriedades de computação**, você pode alterar várias propriedades de VM.
+1. Em **computação e rede**  >  **Propriedades de computação**, você pode alterar várias propriedades de VM.
 
    :::image type="content" source="./media/vmware-azure-enable-replication/vmproperties.png" alt-text="Janela Propriedades de computação e rede":::
 

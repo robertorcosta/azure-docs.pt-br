@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/20/2020
 ms.openlocfilehash: acb96984a49e4ad8535f87a41da11b3b63ae207b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80283847"
 ---
 # <a name="use-the-map-feature-of-azure-monitor-for-vms-to-understand-application-components"></a>Usar o recurso de mapa do Azure Monitor para VMs para entender os componentes do aplicativo
@@ -101,7 +101,7 @@ Por padrão, o mapa mostra os últimos 30 minutos. Se você quiser ver como as d
 
 Para acessar Azure Monitor para VMs diretamente de um conjunto de dimensionamento de máquinas virtuais:
 
-1. Na portal do Azure, selecione **conjuntos de dimensionamento de máquinas virtuais**.
+1. No portal do Azure, selecione **Conjuntos de dimensionamento de máquinas virtuais**.
 2. Na lista, escolha uma VM. Em seguida, na seção **monitoramento** , escolha **insights**.  
 3. Selecione a guia **Mapa**.
 
@@ -114,13 +114,13 @@ Por padrão, o mapa mostra os últimos 30 minutos. Se você quiser ver como as d
 ![Visão geral do mapa de VM direta](./media/vminsights-maps/map-direct-vmss-01.png)
 
 >[!NOTE]
->Você também pode acessar um mapa para uma instância específica do modo de exibição de **instâncias** para o conjunto de dimensionamento de máquinas virtuais. Na seção **configurações** , vá para **instâncias** > **percepções**.
+>Você também pode acessar um mapa para uma instância específica do modo de exibição de **instâncias** para o conjunto de dimensionamento de máquinas virtuais. Na seção **configurações** , vá para **instâncias**  >  **percepções**.
 
 ## <a name="view-a-map-from-azure-monitor"></a>Exibir um mapa do Azure Monitor
 
 No Azure Monitor, o recurso de mapa fornece uma exibição global de suas VMs e suas dependências. Para acessar o recurso de mapa no Azure Monitor:
 
-1. Na portal do Azure, selecione **Monitor**. 
+1. No portal do Azure, selecione **Monitor**. 
 2. Na seção **insights** , escolha **máquinas virtuais**.
 3. Selecione a guia **Mapa**.
 

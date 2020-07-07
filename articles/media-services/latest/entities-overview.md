@@ -14,10 +14,10 @@ ms.date: 01/21/2020
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 7e4f1141a9d4bd58451782e8412063a22565556d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80584528"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtragem, ordenação e paginação de entidades de serviços de mídia
@@ -49,7 +49,7 @@ Operadores de intervalo:
 
 Use `$filter` para fornecer um parâmetro de filtro OData para localizar somente os objetos nos quais você está interessado.
 
-O exemplo de REST a seguir filtra `alternateId` o valor de um ativo:
+O exemplo de REST a seguir filtra o `alternateId` valor de um ativo:
 
 ```
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$filter=properties/alternateId%20eq%20'unique identifier'
@@ -74,7 +74,7 @@ Para classificar os resultados em ordem crescente ou decrescente, acrescente `as
 
 ## <a name="skip-token"></a>Ignorar token
 
-Se uma resposta de consulta contiver muitos itens, o serviço `$skiptoken` retornará`@odata.nextLink`um valor () que você usará para obter a próxima página de resultados. Use-a para paginar todo o conjunto de resultados.
+Se uma resposta de consulta contiver muitos itens, o serviço retornará um `$skiptoken` `@odata.nextLink` valor () que você usará para obter a próxima página de resultados. Use-a para paginar todo o conjunto de resultados.
 
 No Media Services V3, não é possível configurar o tamanho da página. O tamanho da página varia de acordo com o tipo de entidade. Leia as seções individuais a seguir para obter detalhes.
 
@@ -85,7 +85,7 @@ Se as entidades forem criadas ou excluídas enquanto você estiver paginando pel
 >
 > O `nextLink` valor estará presente somente se houver mais de uma página de entidades.
 
-Considere o exemplo a seguir de `$skiptoken` onde é usado. Certifique-se de substituir *amstestaccount* pelo seu nome de conta e defina o valor *api-version* valor para a versão mais recente.
+Considere o exemplo a seguir de onde `$skiptoken` é usado. Certifique-se de substituir *amstestaccount* pelo seu nome de conta e defina o valor *api-version* valor para a versão mais recente.
 
 Se você solicitar uma lista de ativos como esta:
 

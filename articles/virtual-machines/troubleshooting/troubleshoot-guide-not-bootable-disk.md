@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: v-mibufo
 ms.openlocfilehash: 9f0c6350b89dcfecefcadcc166f7af35abc4b128
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80300973"
 ---
 # <a name="boot-error--this-is-not-a-bootable-disk"></a>Erro de inicialização – este não é um disco inicializável
@@ -41,35 +41,35 @@ Essa mensagem de erro significa que o processo de inicialização do sistema ope
 
 ### <a name="process-overview"></a>Visão geral do processo
 
-1. Crie e acesse uma VM de reparo.
+1. Criar e acessar uma VM de reparo.
 2. Defina status da partição como ativo.
 3. Corrija a partição de disco.
-4. **Recomendado**: antes de recriar a VM, habilite o console serial e a coleção de despejo de memória.
+4. **Recomendado**: antes de recompilar a VM, o console serial e a coleção de despejo de memória deverão ser habilitados.
 5. Reconstrua a VM original.
 
    > [!NOTE]
-   > Ao encontrar esse erro de inicialização, o SO convidado não está operacional. Você estará Solucionando problemas no modo offline para resolver esse problema.
+   > Ao encontrar esse erro de inicialização, o SO convidado não está operacional. Você deverá solucionar esse problema no modo offline.
 
 ### <a name="create-and-access-a-repair-vm"></a>Criar e acessar uma VM de reparo
 
-1. Use as etapas 1-3 dos [comandos de reparo da VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) para preparar uma VM de reparo.
-2. Usando Conexão de Área de Trabalho Remota Conecte-se à VM de reparo.
+1. Use as [etapas 1 a 3 dos comandos de reparo da VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) para preparar uma VM de reparo.
+2. Use a Conexão de Área de Trabalho Remota para conectar-se à VM de reparo.
 
 ### <a name="set-partition-status-to-active"></a>Definir status da partição como ativo
 
 As VMs de geração 1 devem primeiro verificar se a partição do sistema operacional, que contém o repositório BCD, está marcada como *ativa*. Se você tiver uma VM de geração 2, pule para [corrigir a partição de disco](#fix-the-disk-partition), pois o sinalizador de *status* foi preterido na geração posterior.
 
-1. Abra um prompt de comando com privilégios elevados *(cmd. exe)*.
-2. Insira *DiskPart* para iniciar a ferramenta diskpart.
+1. Abra um prompt de comando com privilégios elevados *(cmd.exe)*.
+2. Insira *diskpart* para iniciar a ferramenta DISKPART.
 3. Insira o *disco de lista* para listar os discos no sistema e identificar o VHD do sistema operacional anexado.
-4. Quando o VHD do sistema operacional anexado estiver localizado, insira *n º do disco do SEL* para selecionar o disco.  Consulte a Figura 2, em que Disk 1 é o VHD do sistema operacional anexado.
+4. Depois que o VHD do sistema operacional anexado for localizado, digite *sel disk #* para selecionar o disco.  Consulte a Figura 2, em que Disk 1 é o VHD do sistema operacional anexado.
 
    Figura 2
 
    ![A Figura 2 mostra a janela * DISKPART * mostrando a saída do comando listar disco, disco 0 e disco 1 exibidos na tabela.  Também mostra a saída do comando do SEL Disk 1, disco 1 é o disco selecionado](media/troubleshoot-guide-not-bootable-disk/2.jpg)
 
-5. Depois que o disco for selecionado, insira *lista de partição* para listar as partições do disco selecionado.
-6. Depois que a partição de inicialização for identificada, insira *n º de partição SEL* para selecionar a partição.  Normalmente, a partição de inicialização terá cerca de 350 MB de tamanho.  Consulte a Figura 3, em que a partição 1 é a partição de inicialização.
+5. Depois que o disco for selecionado, insira *list partition* para listar as partições do disco selecionado.
+6. Depois que a partição de inicialização for identificada, insira *sel partition #* para selecionar a partição.  Normalmente, a partição de inicialização terá cerca de 350 MB de tamanho.  Consulte a Figura 3, em que a partição 1 é a partição de inicialização.
 
    Figura 3
 
@@ -92,23 +92,23 @@ As VMs de geração 1 devem primeiro verificar se a partição do sistema operac
 
    ![A Figura 6 mostra a janela do DiskPart com a saída do comando * partição de detalhes *, quando a partição 1 é definida como * ativa: Sim *](media/troubleshoot-guide-not-bootable-disk/6.jpg)
 
-10. Insira *sair* para fechar a ferramenta diskpart e salvar as alterações de configuração.
+10. Insira *exit* para fechar a ferramenta DISKPART e salvar as alterações de configuração.
 
 ### <a name="fix-the-disk-partition"></a>Corrigir a partição de disco
 
-1. Abra um prompt de comando com privilégios elevados (cmd. exe).
+1. Abra um prompt de comandos com privilégios elevados (cmd.exe).
 2. Use o comando a seguir para executar *chkdsk* nos discos e corrigir os erros:
 
    `chkdsk <DRIVE LETTER>: /f`
 
-   Adicionar a opção de comando '/f ' corrigirá todos os erros no disco. Certifique-se de <DRIVE LETTER> substituir pela letra do VHD do sistema operacional anexado.
+   Adicionar a opção de comando '/f ' corrigirá todos os erros no disco. Certifique-se de substituir <DRIVE LETTER> pela letra do VHD do sistema operacional anexado.
 
 ### <a name="recommended-before-you-rebuild-the-vm-enable-serial-console-and-memory-dump-collection"></a>Recomendado: antes de recriar a VM, habilite o console serial e a coleção de despejo de memória
 
 Para habilitar a coleta de despejo de memória e o console serial, execute o seguinte script:
 
-1. Abra uma sessão de prompt de comando com privilégios elevados (executar como administrador).
-2. Execute os comandos a seguir:
+1. Abra uma sessão de prompt de comandos com privilégios elevados (Executar como administrador).
+2. Execute os seguintes comandos:
 
    Habilitar console serial
 
@@ -122,7 +122,7 @@ Para habilitar a coleta de despejo de memória e o console serial, execute o seg
 
 #### <a name="suggested-configuration-to-enable-os-dump"></a>Configuração sugerida para habilitar o despejo do sistema operacional
 
-**Carregar disco do so quebrado**:
+**Carregar disco do sistema operacional danificado**:
 
 `REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM`
 
@@ -142,10 +142,10 @@ Para habilitar a coleta de despejo de memória e o console serial, execute o seg
 
 `REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f`
 
-**Descarregar disco do so quebrado:**
+**Descarregar disco do sistema operacional danificado:**
 
 `REG UNLOAD HKLM\BROKENSYSTEM`
 
 ### <a name="rebuild-the-original-vm"></a>Recriar a VM original
 
-Use [a etapa 5 dos comandos de reparo da VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) para remontar a VM.
+Use a [etapa 5 dos comandos de reparo da VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) para remontar a VM.

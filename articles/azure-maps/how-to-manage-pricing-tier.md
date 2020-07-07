@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 35e23d4d5babccb4507473826237997afec5f2cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335491"
 ---
 # <a name="manage-the-pricing-tier-of-your-azure-maps-account"></a>Gerencie o tipo de preço da sua conta do Azure Mapas
@@ -25,13 +25,13 @@ Obtenha mais informações sobre [como escolher o tipo de preço certo no Azure 
 
 Para exibir o tipo de preço escolhido, navegue até a opção **Tipo de Preço** no menu de configurações.
 
-[![Exibir tipo](./media/how-to-manage-pricing-tier/view-pricing-tier.png) de preço escolhido](./media/how-to-manage-pricing-tier/view-pricing-tier.png#lightbox)
+[![Exibir tipo ](./media/how-to-manage-pricing-tier/view-pricing-tier.png) de preço escolhido](./media/how-to-manage-pricing-tier/view-pricing-tier.png#lightbox)
 
 ## <a name="change-a-pricing-tier"></a>Alterar um tipo de preço
 
 Depois de criar uma conta do Azure Mapas, você pode fazer um upgrade ou downgrade do tipo de preço da conta. Para fazer upgrade ou downgrade, navegue até a opção **Tipo de Preço** no menu de configurações. Selecione o tipo de preço que não estiver realçado. Selecione o botão **Salvar** para salvar sua opção de tipo de preço escolhida.
 
-[![Alterar um tipo](./media/how-to-manage-pricing-tier/change-pricing-tier.png) de preço](./media/how-to-manage-pricing-tier/change-pricing-tier.png#lightbox)
+[![Alterar um tipo ](./media/how-to-manage-pricing-tier/change-pricing-tier.png) de preço](./media/how-to-manage-pricing-tier/change-pricing-tier.png#lightbox)
 
 > [!NOTE]
 > Não será necessário gerar novas chaves de assinatura nem ID do cliente (para a autenticação do Azure AD) se você fizer upgrade ou downgrade do tipo de preço da sua conta do Azure Mapas.

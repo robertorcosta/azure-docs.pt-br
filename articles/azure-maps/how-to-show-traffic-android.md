@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: e5611eeb08ac370e12cf452d57a87e449fbd80da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335386"
 ---
 # <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Mostrar dados de tráfego no mapa usando o Azure Maps SDK do Android
@@ -25,13 +25,13 @@ Antes de poder mostrar o tráfego no mapa, você precisa [criar uma conta do Azu
 
 ## <a name="incidents-traffic-data"></a>Dados de tráfego de incidentes 
 
-Você precisará importar as seguintes bibliotecas para chamar `setTraffic` e: `incidents`
+Você precisará importar as seguintes bibliotecas para chamar `setTraffic` e `incidents` :
 
 ```java
 import static com.microsoft.com.azure.maps.mapcontrol.options.TrafficOptions.incidents;
 ```
 
- O trecho de código a seguir mostra como exibir dados de tráfego no mapa. Passamos um valor booliano para `incidents` o método e o passamos para `setTraffic` o método. 
+ O trecho de código a seguir mostra como exibir dados de tráfego no mapa. Passamos um valor booliano para o `incidents` método e o passamos para o `setTraffic` método. 
 
 ```java
 protected void onCreate(Bundle savedInstanceState) {
@@ -44,14 +44,14 @@ protected void onCreate(Bundle savedInstanceState) {
 
 ## <a name="flow-traffic-data"></a>Dados de tráfego de fluxo
 
-Primeiro, você precisará importar as seguintes bibliotecas para chamar `setTraffic` e `flow`:
+Primeiro, você precisará importar as seguintes bibliotecas para chamar `setTraffic` e `flow` :
 
 ```java
 import com.microsoft.azure.maps.mapcontrol.options.TrafficFlow;
 import static com.microsoft.azure.maps.mapcontrol.options.TrafficOptions.flow;
 ```
 
-Use o trecho de código a seguir para definir dados de fluxo de tráfego. Semelhante ao código na seção anterior, passamos o valor de retorno do `flow` método para o `setTraffic` método. Há quatro valores que podem ser passados para `flow`, e cada valor poderia ser disparado `flow` para retornar o respectivo valor. O valor de retorno `flow` de será passado como o argumento para `setTraffic`. Consulte a tabela abaixo para obter estes quatro valores:
+Use o trecho de código a seguir para definir dados de fluxo de tráfego. Semelhante ao código na seção anterior, passamos o valor de retorno do `flow` método para o `setTraffic` método. Há quatro valores que podem ser passados para `flow` , e cada valor poderia ser disparado `flow` para retornar o respectivo valor. O valor de retorno de `flow` será passado como o argumento para `setTraffic` . Consulte a tabela abaixo para obter estes quatro valores:
 
 | | |
 | :-- | :-- |
@@ -73,7 +73,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
 Para obter os incidentes de um recurso específico, você pode usar o código a seguir. Quando um recurso é clicado, a lógica de código verifica incidentes e cria uma mensagem sobre o incidente. Uma mensagem é exibida na parte inferior da tela com os detalhes.
 
-1. Primeiro, você precisa editar o **layout de > res > activity_main. xml**, para que ele se pareça com o mostrado abaixo. Você pode substituir os `mapcontrol_centerLat`, `mapcontrol_centerLng`e `mapcontrol_zoom` pelos valores desejados. Lembre-se de que o nível de zoom é um valor entre 0 e 22. No nível de zoom 0, o mundo inteiro se ajusta em um único bloco.
+1. Primeiro, você precisa editar o **layout de > res > activity_main.xml**, para que ele se pareça com o mostrado abaixo. Você pode substituir os `mapcontrol_centerLat` , `mapcontrol_centerLng` e `mapcontrol_zoom` pelos valores desejados. Lembre-se de que o nível de zoom é um valor entre 0 e 22. No nível de zoom 0, o mundo inteiro se ajusta em um único bloco.
 
    ```XML
    <?xml version="1.0" encoding="utf-8"?>
@@ -221,7 +221,7 @@ Para obter os incidentes de um recurso específico, você pode usar o código a 
    }
    ```
 
-3. Depois de incorporar o código acima em seu aplicativo, você poderá clicar em um recurso e ver os detalhes dos incidentes de tráfego. Dependendo dos valores de latitude, longitude e nível de zoom usados no arquivo **activity_main. xml** , você verá resultados semelhantes à imagem a seguir:
+3. Depois de incorporar o código acima em seu aplicativo, você poderá clicar em um recurso e ver os detalhes dos incidentes de tráfego. Dependendo dos valores de latitude, longitude e nível de zoom usados no arquivo de **activity_main.xml** , você verá resultados semelhantes à imagem a seguir:
 
    <center>
 

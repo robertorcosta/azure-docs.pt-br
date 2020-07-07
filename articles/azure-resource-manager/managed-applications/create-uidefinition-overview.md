@@ -1,20 +1,20 @@
 ---
-title: Arquivo CreateUiDefinition. JSON para o painel do portal
+title: CreateUiDefinition.jsno arquivo para o painel do portal
 description: Descreve como criar definições de interface do usuário para o portal do Azure. Usado ao definir aplicativos gerenciados do Azure.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: tomfitz
 ms.openlocfilehash: 2956c76f5bec353639b39228b982db21b6932deb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80294904"
 ---
 # <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>CreateUiDefinition.json para a experiência de criação do aplicativo gerenciado do Azure
 
-Este documento apresenta os principais conceitos do arquivo **createUiDefinition. JSON** que o portal do Azure usa para definir a interface do usuário ao criar um aplicativo gerenciado.
+Este documento apresenta os conceitos principais do **createUiDefinition.jsno** arquivo que Portal do Azure usa para definir a interface do usuário ao criar um aplicativo gerenciado.
 
 O modelo é o seguinte
 
@@ -35,10 +35,10 @@ O modelo é o seguinte
 Um CreateUiDefinition sempre contém três propriedades: 
 
 * handler
-* Versão
+* version
 * parâmetros
 
-O manipulador deve sempre ser `Microsoft.Azure.CreateUIDef`, e a versão mais recente com `0.1.2-preview`suporte é.
+O manipulador deve sempre ser `Microsoft.Azure.CreateUIDef` , e a versão mais recente com suporte é `0.1.2-preview` .
 
 O esquema da propriedade parameters depende da combinação do manipulador e da versão especificados. Para aplicativos gerenciados, as propriedades com suporte são `basics`, `steps` e `outputs`. As propriedades basic e steps contêm os [elementos](create-uidefinition-elements.md), como caixas de texto e listas suspensas, que serão exibidos no portal do Azure. A propriedade outputs é usada para mapear os valores de saída de elementos especificados para os parâmetros do modelo de implantação do Azure Resource Manager.
 
@@ -46,7 +46,7 @@ A inclusão de `$schema` é opcional, mas recomendada. Se especificado, o valor 
 
 Você pode usar um editor de JSON para criar seu createUiDefinition e testá-lo na [área restrita do createUiDefinition](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade) para visualizá-lo. Para obter mais informações sobre a área restrita, consulte [testar sua interface do portal para aplicativos gerenciados do Azure](test-createuidefinition.md).
 
-## <a name="basics"></a>Noções básicas
+## <a name="basics"></a>Informações básicas
 
 Noções básicas é a primeira etapa gerada quando o portal do Azure analisa o arquivo. Além de exibir os elementos especificados em `basics`, o portal injeta elementos para que os usuários escolham a assinatura, o grupo de recursos e o local da implantação. Quando possível, os elementos que consultam parâmetros de toda a implantação, como o nome de um cluster ou credenciais de administrador, devem ir nesta etapa.
 
@@ -54,7 +54,7 @@ Noções básicas é a primeira etapa gerada quando o portal do Azure analisa o 
 
 A propriedade steps pode conter uma ou mais etapas adicionais para exibir depois de basics, cada uma contendo um ou mais elementos. Considere adicionar etapas por função ou camada do aplicativo que está sendo implantado. Por exemplo, adicione uma etapa para entradas de nó mestre e uma etapa para os nós de trabalho em um cluster.
 
-## <a name="outputs"></a>outputs
+## <a name="outputs"></a>Saídas
 
 O portal do Azure usa a propriedade `outputs` para mapear os elementos de `basics` e `steps` para os parâmetros do modelo de implantação do Azure Resource Manager. As chaves do dicionário são os nomes dos parâmetros do modelo, e os valores são propriedades dos objetos da saída dos elementos referenciados.
 

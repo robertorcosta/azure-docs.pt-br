@@ -9,13 +9,13 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 3353620f1751e939a04543115fe704555fb3bc21
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80334095"
 ---
-# <a name="supported-data-format-details"></a>Detalhes de formato de dados com suporte
+# <a name="supported-data-format-details"></a>Detalhes do formato de dados com suporte
 
 Este artigo fornece informações específicas sobre o suporte de leitura e gravação para todas as marcas XML e tipos de geometria de texto conhecidos. Ele também detalha como os dados espaciais delimitados são analisados no módulo de e/s espacial.
 
@@ -23,7 +23,7 @@ Este artigo fornece informações específicas sobre o suporte de leitura e grav
 
 O módulo de e/s espacial dá suporte a marcas XML dos namespaces a seguir.
 
-| Prefixo do namespace | URI de namespace   | Anotações                                                                    |
+| Prefixo do namespace | URI de namespace   | Observações                                                                    |
 |:------------------|:-----------------|:----------------------------------------|
 | `atom`           | `http://www.w3.org/2005/Atom`   |                                         |
 | `geo`            | `http://www.w3.org/2003/01/geo/wgs84_pos#`  | Suporte somente leitura em arquivos GeoRSS.           |
@@ -45,35 +45,35 @@ O módulo de e/s espacial dá suporte aos seguintes elementos XML. Todas as marc
 
 O módulo de e/s espacial dá suporte aos seguintes elementos KML.
 
-| Nome do elemento         | Ler    | Gravar   | Anotações                                                                                                                      |
+| Nome do elemento         | Ler    | Gravar   | Observações                                                                                                                      |
 |----------------------|---------|---------|----------------------------------------------------------------------------------------------------------------------------|
-| `address`            | parcial | sim     | O objeto é analisado, mas não é usado para posicionar a forma.                                                                    |
-| `AddressDetails`     | parcial | não      | O objeto é analisado, mas não é usado para posicionar a forma.                                                                    |
+| `address`            | partial | sim     | O objeto é analisado, mas não é usado para posicionar a forma.                                                                    |
+| `AddressDetails`     | partial | não      | O objeto é analisado, mas não é usado para posicionar a forma.                                                                    |
 | `atom:author`        | sim     | sim     |                                                                                                                            |
 | `atom:link`          | sim     | sim     |                                                                                                                            |
 | `atom:name`          | sim     | sim     |                                                                                                                            |
-| `BalloonStyle`       | parcial | parcial | Não há suporte para `displayMode`. Convertido em um `PopupTemplate`. Para gravar, adicione uma `popupTemplate` Propriedade como uma propriedade do recurso para a qual você deseja escrevê-la. |
+| `BalloonStyle`       | partial | partial | Não há suporte para `displayMode`. Convertido em um `PopupTemplate` . Para gravar, adicione uma `popupTemplate` propriedade como uma propriedade do recurso para a qual você deseja escrevê-la. |
 | `begin`              | sim     | sim     |                                                                                                                            |
-| `color`              | sim     | sim     | Inclui `#AABBGGRR` e `#BBGGRR`. Analisado em uma cadeia de caracteres de cor CSS                                                           |
+| `color`              | sim     | sim     | Inclui `#AABBGGRR` e `#BBGGRR` . Analisado em uma cadeia de caracteres de cor CSS                                                           |
 | `colorMode`          | sim     | não      |                                                                                                                            |
 | `coordinates`        | sim     | sim     |                                                                                                                            |
 | `Data`               | sim     | sim     |                                                                                                                            |
 | `description`        | sim     | sim     |                                                                                                                            |
 | `displayName`        | sim     | sim     |                                                                                                                            |
 | `Document`           | sim     | sim     |                                                                                                                            |
-| `drawOrder`          | parcial | não      | Leia as sobreposições de aterramento e usadas para classificá-las. 
+| `drawOrder`          | partial | não      | Leia as sobreposições de aterramento e usadas para classificá-las. 
 | `east`               | sim     | sim     |                                                                                                                            |
 | `end`                | sim     | sim     |                                                                                                                            |
-| `ExtendedData`       | sim     | sim     | Dá suporte a substituições `SimpleData` não `Schema`tipadas `Data`, ou e de entidade do formulário `$[dataName]`.                      |
-| `extrude`            | parcial | parcial | Com suporte apenas para polígonos. A multigeometry com polígonos de diferentes alturas será dividida em recursos individuais. Não há suporte para estilos de linha. Polígonos com uma altitude de 0 serão renderizados como um polígono simples. Durante a leitura, a altitude da primeira coordenada no anel exterior será adicionada como uma propriedade de altura do polígono. Em seguida, a altitude da primeira coordenada será usada para renderizar o polígono no mapa. |
+| `ExtendedData`       | sim     | sim     | Dá suporte `Data` a substituições não tipadas, `SimpleData` ou `Schema` e de entidade do formulário `$[dataName]` .                      |
+| `extrude`            | partial | partial | Com suporte apenas para polígonos. A multigeometry com polígonos de diferentes alturas será dividida em recursos individuais. Não há suporte para estilos de linha. Polígonos com uma altitude de 0 serão renderizados como um polígono simples. Durante a leitura, a altitude da primeira coordenada no anel exterior será adicionada como uma propriedade de altura do polígono. Em seguida, a altitude da primeira coordenada será usada para renderizar o polígono no mapa. |
 | `fill`               | sim     | sim     |                                                                                                                            |
 | `Folder`             | sim     | sim     |                                                                                                                            |
 | `GroundOverlay`      | sim     | sim     | `color`Não tem suporte                                                                                                   |
-| `heading`            | parcial | não      | Analisado, mas não renderizado pelo `SimpleDataLayer`. Só grava se os dados são armazenados na propriedade da forma.                 |
-| `hotSpot`            | sim     | parcial | Só grava se os dados são armazenados na propriedade da forma. As unidades são emitidas apenas como "pixels".                         |
+| `heading`            | partial | não      | Analisado, mas não renderizado pelo `SimpleDataLayer` . Só grava se os dados são armazenados na propriedade da forma.                 |
+| `hotSpot`            | sim     | partial | Só grava se os dados são armazenados na propriedade da forma. As unidades são emitidas apenas como "pixels".                         |
 | `href`               | sim     | sim     |                                                                                                                            |
-| `Icon`               | parcial | parcial | Analisado, mas não renderizado pelo `SimpleDataLayer`. Somente gravará a Propriedade Icon da forma se ela contiver dados URI. Apenas `href` tem suporte. |
-| `IconStyle`          | parcial | parcial | `icon`os valores, `heading`, `hotspots` e são analisados, mas não são renderizados por `colorMode``SimpleDataLayer`         |
+| `Icon`               | partial | partial | Analisado, mas não renderizado pelo `SimpleDataLayer` . Somente gravará a Propriedade Icon da forma se ela contiver dados URI. Apenas `href` tem suporte. |
+| `IconStyle`          | partial | partial | `icon``heading` `colorMode` os valores,, e `hotspots` são analisados, mas não são renderizados por`SimpleDataLayer`         |
 | `innerBoundaryIs`    | sim     | sim     |                                                                                                                            |
 | `kml`                | sim     | sim     |                                                                                                                            |
 | `LabelStyle`         | não      | não      |                                                                                                                            |
@@ -83,7 +83,7 @@ O módulo de e/s espacial dá suporte aos seguintes elementos KML.
 | `LineString`         | sim     | sim     |                                                                                                                            |
 | `LineStyle`          | sim     | sim     | Não há suporte para `colorMode`.                                                                                         |
 | `Link`               | sim     | não      | Somente a `href` propriedade tem suporte para links de rede.                                                                   |
-| `MultiGeometry`      | parcial | parcial | Podem ser divididos em recursos individuais quando lidos.                                                                     |
+| `MultiGeometry`      | partial | partial | Podem ser divididos em recursos individuais quando lidos.                                                                     |
 | `name`               | sim     | sim     |                                                                                                                            |
 | `NetworkLink`        | sim     | não      | Os links precisam estar no mesmo domínio que o documento.                                                                  |
 | `NetworkLinkControl` | não      | não      |                                                                                                                            |
@@ -92,36 +92,36 @@ O módulo de e/s espacial dá suporte aos seguintes elementos KML.
 | `outerBoundaryIs`    | sim     | sim     |                                                                                                                            |
 | `outline`            | sim     | sim     |                                                                                                                            |
 | `overlayXY`          | não      | não      |                                                                                                                            |
-| `Pair`               | parcial | não      | Somente o `normal` estilo em um `StyleMap` tem suporte. Não há suporte para `highlight`.                                   |
+| `Pair`               | partial | não      | Somente o `normal` estilo em um `StyleMap` tem suporte. Não há suporte para `highlight`.                                   |
 | `phoneNumber`        | sim     | sim     |                                                                                                                            |
 | `PhotoOverlay`       | não      | não      |                                                                                                                            |
 | `Placemark`          | sim     | sim     |                                                                                                                            |
 | `Point`              | sim     | sim     |                                                                                                                            |
 | `Polygon`            | sim     | sim     |                                                                                                                            |
 | `PolyStyle`          | sim     | sim     |                                                                                                                            |
-| `Region`             | parcial | parcial | `LatLongBox`tem suporte no nível do documento.                                                                      |
+| `Region`             | partial | partial | `LatLongBox`tem suporte no nível do documento.                                                                      |
 | `rotation`           | não      | não      |                                                                                                                            |
 | `rotationXY`         | não      | não      |                                                                                                                            |
 | `scale`              | não      | não      |                                                                                                                            |
 | `Schema`             | sim     | sim     |                                                                                                                            |
 | `SchemaData`         | sim     | sim     |                                                                                                                            |
-| `schemaUrl`          | parcial | sim     | Não dá suporte ao carregamento de estilos de documentos externos que não estão incluídos em um KMZ.                             |
+| `schemaUrl`          | partial | sim     | Não dá suporte ao carregamento de estilos de documentos externos que não estão incluídos em um KMZ.                             |
 | `ScreenOverlay`      | não      | não      |                                                                                                                            |
 | `screenXY`           | não      | não      |                                                                                                                            |
 | `SimpleData`         | sim     | sim     |                                                                                                                            |
 | `SimpleField`        | sim     | sim     |                                                                                                                            |
 | `size`               | não      | não      |                                                                                                                            |
-| `Snippet`            | parcial | parcial | `maxLines`o atributo é ignorado.                                                                                  |
+| `Snippet`            | partial | partial | `maxLines`o atributo é ignorado.                                                                                  |
 | `south`              | sim     | sim     |                                                                                                                            |
 | `Style`              | sim     | sim     |                                                                                                                            |
-| `StyleMap`           | parcial | não      | Há suporte apenas para o estilo `StyleMap` normal em um.                                                                        |
-| `styleUrl`           | parcial | sim     | Não há suporte para URLs de estilo externo.                                                                         |
-| `text`               | sim     | sim     | `$[geDirections]` Não há suporte para a substituição                                                                          |
+| `StyleMap`           | partial | não      | Há suporte apenas para o estilo normal em um `StyleMap` .                                                                        |
+| `styleUrl`           | partial | sim     | Não há suporte para URLs de estilo externo.                                                                         |
+| `text`               | sim     | sim     | `$[geDirections]`Não há suporte para a substituição                                                                          |
 | `textColor`          | sim     | sim     |                                                                                                                            |
 | `TimeSpan`           | sim     | sim     |                                                                                                                            |
 | `TimeStamp`          | sim     | sim     |                                                                                                                            |
 | `value`              | sim     | sim     |                                                                                                                            |
-| `viewRefreshMode`    | parcial | não      |  Se estiver apontando para um serviço do WMS, `onStop` somente o terá suporte para sobreposições de aterramento. Acrescentará `BBOX=[bboxWest],[bboxSouth],[bboxEast],[bboxNorth]` à URL e atualizará à medida que o mapa for movido.  |
+| `viewRefreshMode`    | partial | não      |  Se estiver apontando para um serviço do WMS, somente o `onStop` terá suporte para sobreposições de aterramento. Acrescentará `BBOX=[bboxWest],[bboxSouth],[bboxEast],[bboxNorth]` à URL e atualizará à medida que o mapa for movido.  |
 | `visibility`         | sim     | sim     |                                                                                                                            |
 | `west`               | sim     | sim     |                                                                                                                            |
 | `when`               | sim     | sim     |                                                                                                                            |
@@ -131,7 +131,7 @@ O módulo de e/s espacial dá suporte aos seguintes elementos KML.
 
 O módulo de e/s espacial dá suporte aos seguintes elementos GeoRSS.
 
-| Nome do elemento             | Ler    | Gravar | Anotações                                                                                          |
+| Nome do elemento             | Ler    | Gravar | Observações                                                                                          |
 |--------------------------|---------|-------|------------------------------------------------------------------------------------------------|
 | `atom:author`            | sim     | sim   |                                                                                                |
 | `atom:category`          | sim     | sim   |                                                                                                |
@@ -153,9 +153,9 @@ O módulo de e/s espacial dá suporte aos seguintes elementos GeoRSS.
 | `atom:title`             | sim     | sim   |                                                                                                |
 | `atom:updated`           | sim     | sim   |                                                                                                |
 | `atom:uri`               | sim     | sim   |                                                                                                |
-| `geo:lat`                | sim     | não    | Gravado como um `georss:point`.                                                                   |
-| `geo:lon`                | sim     | não    | Gravado como um `georss:point`.                                                                   |
-| `geo:long`               | sim     | não    | Gravado como um `georss:point`.                                                                   |
+| `geo:lat`                | sim     | não    | Gravado como um `georss:point` .                                                                   |
+| `geo:lon`                | sim     | não    | Gravado como um `georss:point` .                                                                   |
+| `geo:long`               | sim     | não    | Gravado como um `georss:point` .                                                                   |
 | `georss:box`             | sim     | não    | Ler como um polígono e receber uma `subType` propriedade de "Rectangle"                                |
 | `georss:circle`          | sim     | sim   |                                                                                                |
 | `georss:elev`            | sim     | sim   |                                                                                                |
@@ -168,34 +168,34 @@ O módulo de e/s espacial dá suporte aos seguintes elementos GeoRSS.
 | `georss:radius`          | sim     | sim   |                                                                                                |
 | `georss:relationshiptag` | sim     | sim   |                                                                                                |
 | `georss:where`           | sim     | sim   |                                                                                                |
-| `geourl:latitude`        | sim     | não    | Gravado como um `georss:point`.                                                                   |
-| `geourl:longitude`       | sim     | não    | Gravado como um `georss:point`.                                                                   |
-| `position`               | sim     | não    | Alguns feeds XML encapsularão GML com uma marca de posição em vez de encapsulá `georss:where` -lo com uma marca. Lerá essa marca, mas escreverá usando uma `georss:where` marca. |
+| `geourl:latitude`        | sim     | não    | Gravado como um `georss:point` .                                                                   |
+| `geourl:longitude`       | sim     | não    | Gravado como um `georss:point` .                                                                   |
+| `position`               | sim     | não    | Alguns feeds XML encapsularão GML com uma marca de posição em vez de encapsulá-lo com uma `georss:where` marca. Lerá essa marca, mas escreverá usando uma `georss:where` marca. |
 | `rss`                    | sim     | não    | GeoRSS gravado no formato ATOM.                                                                 |
-| `rss:author`             | sim     | parcial | Gravado como um `atom:author`.                                                                 |
-| `rss:category`           | sim     | parcial | Gravado como um `atom:category`.                                                               |
+| `rss:author`             | sim     | partial | Gravado como um `atom:author` .                                                                 |
+| `rss:category`           | sim     | partial | Gravado como um `atom:category` .                                                               |
 | `rss:channel`            | sim     | não    |                                                                                                |
 | `rss:cloud`              | sim     | não    |                                                                                                |
 | `rss:comments`           | sim     | não    |                                                                                                |
-| `rss:copyright`          | sim     | parcial | Escrito como uma `atom:rights` forma if ainda não tem `rights` `properties` uma propriedade.       |
-| `rss:description`        | sim     | parcial | Escrito como uma `atom:content` forma if ainda não tem `content` `properties` uma propriedade.      |
+| `rss:copyright`          | sim     | partial | Escrito como uma `atom:rights` forma if ainda não tem uma `rights` `properties` propriedade.       |
+| `rss:description`        | sim     | partial | Escrito como uma `atom:content` forma if ainda não tem uma `content` `properties` propriedade.      |
 | `rss:docs`               | sim     | não    |                                                                                                |
 | `rss:enclosure`          | sim     | não    |                                                                                                |
 | `rss:generator`          | sim     | não    |                                                                                                |
-| `rss:guid`               | sim     | parcial | Escrito como uma `atom:id` forma if ainda não tem `id` `properties` uma propriedade.         |
-| `rss:image`              | sim     | parcial | Escrito como uma `atom:logo` forma if ainda não tem `logo` `properties` uma propriedade.      |
-| `rss:item`               | sim     | parcial | Gravado como um `atom:entry`.                                                                  |
+| `rss:guid`               | sim     | partial | Escrito como uma `atom:id` forma if ainda não tem uma `id` `properties` propriedade.         |
+| `rss:image`              | sim     | partial | Escrito como uma `atom:logo` forma if ainda não tem uma `logo` `properties` propriedade.      |
+| `rss:item`               | sim     | partial | Gravado como um `atom:entry` .                                                                  |
 | `rss:language`           | sim     | não    |                                                                                                |
-| `rss:lastBuildDate`      | sim     | parcial | Escrito como uma `atom:updated` forma if ainda não tem `updated` `properties` uma propriedade.     |
-| `rss:link`               | sim     | parcial | Gravado como um `atom:link`.                                                                   |
-| `rss:managingEditor`     | sim     | parcial | Gravado como um `atom:contributor`.                                                            |
-| `rss:pubDate`            | sim     | parcial | Escrito como uma `atom:published` forma if ainda não tem `published` `properties` uma propriedade.  |
+| `rss:lastBuildDate`      | sim     | partial | Escrito como uma `atom:updated` forma if ainda não tem uma `updated` `properties` propriedade.     |
+| `rss:link`               | sim     | partial | Gravado como um `atom:link` .                                                                   |
+| `rss:managingEditor`     | sim     | partial | Gravado como um `atom:contributor` .                                                            |
+| `rss:pubDate`            | sim     | partial | Escrito como uma `atom:published` forma if ainda não tem uma `published` `properties` propriedade.  |
 | `rss:rating`             | sim     | não    |                                                                                                |
 | `rss:skipDays`           | sim     | não    |                                                                                                |
 | `rss:skipHours`          | sim     | não    |                                                                                                |
-| `rss:source`             | sim     | parcial | Escrito como um `atom:source` que contém `atom:link`um.                                       |
+| `rss:source`             | sim     | partial | Escrito como um `atom:source` que contém um `atom:link` .                                       |
 | `rss:textInput`          | sim     | não    |                                                                                                |
-| `rss:title`              | sim     | parcial | Gravado como um `atom:title`.                                                                  |
+| `rss:title`              | sim     | partial | Gravado como um `atom:title` .                                                                  |
 | `rss:ttl`                | sim     | não    |                                                                                                |
 | `rss:webMaster`          | sim     | não    |                                                                                                |
 
@@ -203,12 +203,12 @@ O módulo de e/s espacial dá suporte aos seguintes elementos GeoRSS.
 
 O módulo de e/s espacial dá suporte aos seguintes elementos GML. 
 
-| Nome do elemento            | Ler | Gravar | Anotações                                                                                  |
+| Nome do elemento            | Ler | Gravar | Observações                                                                                  |
 |-------------------------|------|-------|----------------------------------------------------------------------------------------|
-| `gml:coordinates`       | sim  | não    | Escrito como `gml:posList`.                                                              |
+| `gml:coordinates`       | sim  | não    | Escrito como `gml:posList` .                                                              |
 | `gml:curveMember`       | sim  | não    |                                                                                        |
 | `gml:curveMembers`      | sim  | não    |                                                                                        |
-| `gml:Box`               | sim  | não    | Escrito como `gml:Envelope`.                                                             |
+| `gml:Box`               | sim  | não    | Escrito como `gml:Envelope` .                                                             |
 | `gml:description`       | sim  | sim   |                                                                                        |
 | `gml:Envelope`          | sim  | sim   |                                                                                        |
 | `gml:exterior`          | sim  | sim   |                                                                                        |
@@ -219,20 +219,20 @@ O módulo de e/s espacial dá suporte aos seguintes elementos GML.
 | `gml:geometryMember`    | sim  | sim   |                                                                                        |
 | `gml:geometryMembers`   | sim  | sim   |                                                                                        |
 | `gml:identifier`        | sim  | sim   |                                                                                        |
-| `gml:innerBoundaryIs`   | sim  | não    | Escrito usando `gml.interior`.                                                          |
+| `gml:innerBoundaryIs`   | sim  | não    | Escrito usando `gml.interior` .                                                          |
 | `gml:interior`          | sim  | sim   |                                                                                        |
 | `gml:LinearRing`        | sim  | sim   |                                                                                        |
 | `gml:LineString`        | sim  | sim   |                                                                                        |
 | `gml:lineStringMember`  | sim  | sim   |                                                                                        |
 | `gml:lineStringMembers` | sim  | não    |                                                                                        |
 | `gml:MultiCurve`        | sim  | não    | Somente lê `gml:LineString` Membros. Escrito como`gml.MultiLineString`                  |
-| `gml:MultiGeometry`     | parcial  | parcial   | Somente leitura como uma Featurecollection.                                              |
+| `gml:MultiGeometry`     | partial  | partial   | Somente leitura como uma Featurecollection.                                              |
 | `gml:MultiLineString`   | sim  | sim   |                                                                                        |
 | `gml:MultiPoint`        | sim  | sim   |                                                                                        |
 | `gml:MultiPolygon`      | sim  | sim   |                                                                                        |
 | `gml:MultiSurface`      | sim  | não    | Somente lê `gml:Polygon` Membros. Escrito como`gml.MultiPolygon`                        |
 | `gml:name`              | sim  | sim   |                                                                                        |
-| `gml:outerBoundaryIs`   | sim  | não    | Escrito usando `gml.exterior`.                                                          |
+| `gml:outerBoundaryIs`   | sim  | não    | Escrito usando `gml.exterior` .                                                          |
 | `gml:Point`             | sim  | sim   |                                                                                        |
 | `gml:pointMember`       | sim  | sim   |                                                                                        |
 | `gml:pointMembers`      | sim  | não    |                                                                                        |
@@ -254,7 +254,7 @@ O módulo de e/s espacial dá suporte aos seguintes elementos GML.
 
 O módulo de e/s espacial dá suporte aos seguintes elementos GPX.
 
-| Nome do elemento             | Ler    | Gravar   | Anotações                                                                                       |
+| Nome do elemento             | Ler    | Gravar   | Observações                                                                                       |
 |--------------------------|---------|---------|---------------------------------------------------------------------------------------------|
 | `gpx:ageofdgpsdata`      | sim     | sim     |                                                                                             |
 | `gpx:author`             | sim     | sim     |                                                                                             |
@@ -264,7 +264,7 @@ O módulo de e/s espacial dá suporte aos seguintes elementos GPX.
 | `gpx:desc`               | sim     | sim     | Copiado para uma propriedade de descrição quando Read para alinhar com outros formatos XML.               |
 | `gpx:dgpsid`             | sim     | sim     |                                                                                             |
 | `gpx:ele`                | sim     | sim     |                                                                                             |
-| `gpx:extensions`         | parcial | parcial | Quando lida, as informações de estilo são extraídas. Todas as outras extensões serão mescladas em um objeto JSON simples. Somente as informações de estilo de forma são gravadas. |
+| `gpx:extensions`         | partial | partial | Quando lida, as informações de estilo são extraídas. Todas as outras extensões serão mescladas em um objeto JSON simples. Somente as informações de estilo de forma são gravadas. |
 | `gpx:geoidheight`        | sim     | sim     |                                                                                             |
 | `gpx:gpx`                | sim     | sim     |                                                                                             |
 | `gpx:hdop`               | sim     | sim     |                                                                                             |
@@ -287,13 +287,13 @@ O módulo de e/s espacial dá suporte aos seguintes elementos GPX.
 | `gpx:vdop`               | sim     | sim     |                                                                                             |
 | `gpx:wpt`                | sim     | sim     |                                                                                             |
 | `gpx_style:color`        | sim     | sim     |                                                                                             |
-| `gpx_style:line`         | parcial | parcial | `color`, `opacity`, `width`, `lineCap` têm suporte.                                           |
+| `gpx_style:line`         | partial | partial | `color`, `opacity` , `width` , `lineCap` têm suporte.                                           |
 | `gpx_style:opacity`      | sim     | sim     |                                                                                             |
 | `gpx_style:width`        | sim     | sim     |                                                                                             |
-| `gpxx:DisplayColor`      | sim     | não      | Usado para especificar a cor de uma forma. Ao escrever, `gpx_style:line` a cor será usada em seu lugar.  |
-| `gpxx:RouteExtension`    | parcial | não      | Todas as propriedades são lidas em `properties`. Somente `DisplayColor` é usado.                     |
-| `gpxx:TrackExtension`    | parcial | não      | Todas as propriedades são lidas em `properties`. Somente `DisplayColor` é usado.                     |
-| `gpxx:WaypointExtension` | parcial | não      | Todas as propriedades são lidas em `properties`. Somente `DisplayColor` é usado.                     |
+| `gpxx:DisplayColor`      | sim     | não      | Usado para especificar a cor de uma forma. Ao escrever, a `gpx_style:line` cor será usada em seu lugar.  |
+| `gpxx:RouteExtension`    | partial | não      | Todas as propriedades são lidas em `properties` . Somente `DisplayColor` é usado.                     |
+| `gpxx:TrackExtension`    | partial | não      | Todas as propriedades são lidas em `properties` . Somente `DisplayColor` é usado.                     |
+| `gpxx:WaypointExtension` | partial | não      | Todas as propriedades são lidas em `properties` . Somente `DisplayColor` é usado.                     |
 | `gpx:keywords`           | sim     | sim     |                                                                                             |
 | `gpx:fix`                | sim     | sim     |                                                                                             |
 
@@ -337,9 +337,9 @@ Ao escrever;
 | GEOMETRYCOLLECTION M | x | x<sup>[2]</sup> | 
 | ZM GEOMETRYCOLLECTION | x<sup>[1]</sup><sup>[2]</sup> | x | 
 
-\[1\] somente o parâmetro Z é capturado e adicionado como um terceiro valor no valor da posição.
+\[1 \] somente o parâmetro Z é capturado e adicionado como um terceiro valor no valor da posição.
 
-\[2\] M parâmetro não é capturado.
+\[2 \] M parâmetro não é capturado.
 
 ## <a name="delimited-spatial-data-support"></a>Suporte a dados espaciais delimitados
 

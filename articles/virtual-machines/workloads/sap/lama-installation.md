@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
 ms.openlocfilehash: fda62ff0af29c7cf681d9438b02420d299535701
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80293941"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Conector SAP LaMa para o Azure
@@ -51,7 +51,7 @@ Este guia descreve como configurar o conector do Azure para SAP LaMa, criar máq
 
 As seguintes Notas do SAP estão relacionadas ao tópico do SAP no Azure:
 
-| Número da observação | Título |
+| Número da observação | Title |
 | --- | --- |
 | [2343511] |Conector do Microsoft Azure para gerenciamento de paisagem do SAP (LaMa) |
 | [2350235] |SAP Landscape Management 3.0 - Edição Enterprise |
@@ -153,7 +153,7 @@ Você pode implantar uma nova máquina virtual manualmente ou usar um dos modelo
 > [!NOTE]
 > Se possível, remova todas as extensões de máquina virtual, pois elas podem causar longos runtimes para desanexar discos de uma máquina virtual.
 
-Certifique-se de que o usuário \<hanasid > adm, \<sapsid > adm e o grupo de sapsys existam no computador de destino com a mesma ID e GID ou usam o LDAP. Habilite e inicie o servidor NFS nas máquinas virtuais que deve ser usadas para executar o SAP NetWeaver (A)SCS.
+Verifique se \<hanasid> \<sapsid> os SAPs do usuário ADM, ADM e grupo existem no computador de destino com a mesma ID e GID ou usam LDAP. Habilite e inicie o servidor NFS nas máquinas virtuais que deve ser usadas para executar o SAP NetWeaver (A)SCS.
 
 ### <a name="manual-deployment"></a>Implantação manual
 
@@ -163,7 +163,7 @@ O SAP LaMa se comunica com a máquina virtual usando o agente de Host do SAP. Se
 
 Crie uma nova máquina virtual com um dos sistemas de operação com suporte listados na nota SAP [2343511]. Adicione outras configurações de IP para as instâncias do SAP. Cada instância precisa pelo menos no endereço IP e deve ser instalada usando um nome de host virtual.
 
-A instância do SAP NetWeaver ASCS precisa de discos para /sapmnt/\<SAPSID>, /usr/sap/\<SAPSID>, /usr/sap/trans, and /usr/sap/\<sapsid>adm. Os servidores de aplicativos SAP NetWeaver não são necessários para discos adicionais. Tudo relacionado à instância do SAP deve ser armazenado em ASCS e podem ser exportado por meio de NFS. Caso contrário, no momento, não é possível adicionar servidores de aplicativos adicionais usando o SAP LaMa.
+A instância ASCS do SAP NetWeaver precisa de discos para/sapmnt/ \<SAPSID> ,/usr/SAP/ \<SAPSID> ,/usr/SAP/trans e/usr/SAP/ \<sapsid> ADM. Os servidores de aplicativos SAP NetWeaver não são necessários para discos adicionais. Tudo relacionado à instância do SAP deve ser armazenado em ASCS e podem ser exportado por meio de NFS. Caso contrário, no momento, não é possível adicionar servidores de aplicativos adicionais usando o SAP LaMa.
 
 ![ASCS do SAP NetWeaver no Linux](media/lama/sap-lama-ascs-app-linux.png)
 
@@ -212,7 +212,7 @@ Os componentes são necessários para implantar o modelo. A maneira mais fácil 
 
 Os modelos têm os seguintes parâmetros:
 
-* sapSystemId: ID do sistema SAP. Isso é usado para criar o layout de disco (por exemplo /usr/sap/\<sapsid>).
+* sapSystemId: ID do sistema SAP. Ele é usado para criar o layout do disco (por exemplo,/usr/SAP/ \<sapsid> ).
 
 * computerName: O nome do computador da nova máquina virtual. Esse parâmetro também é usado pelo SAP LaMa. Quando você usa esse modelo para provisionar uma nova máquina virtual como parte de uma cópia do sistema, o SAP LaMa aguarda até que o host com este nome de computador possa ser alcançado.
 
@@ -319,7 +319,7 @@ Na conta do NetApp, o pool de capacidade especifica o tamanho e o tipo de discos
 
 ![Pool de capacidade do SAP LaMa NetApp criado ](media/lama/sap-lama-capacitypool-list.png)
 
-Os volumes de NFS agora podem ser definidos. Como haverá volumes para vários sistemas em um pool, um esquema de nomenclatura autoexplicado deverá ser escolhido. Adicionar o SID ajuda a agrupar volumes relacionados juntos. Para o ASCS e a instância do as, são necessárias as seguintes montagens *:\</sapmnt/\>Sid*, *\</usr/SAP/\>Sid*e */Home/\<SID\>ADM*. Opcionalmente, */usr/SAP/trans* é necessário para o diretório de transporte central, que é pelo menos usado por todos os sistemas de um cenário.
+Os volumes de NFS agora podem ser definidos. Como haverá volumes para vários sistemas em um pool, um esquema de nomenclatura autoexplicado deverá ser escolhido. Adicionar o SID ajuda a agrupar volumes relacionados juntos. Para o ASCS e a instância do as, são necessárias as seguintes montagens *: \<SID\> /sapmnt/*, */usr/SAP/ \<SID\> *e */Home/ \<sid\> ADM*. Opcionalmente, */usr/SAP/trans* é necessário para o diretório de transporte central, que é pelo menos usado por todos os sistemas de um cenário.
 
 > [!NOTE]
 > Durante a fase BETA, o nome dos volumes deve ser exclusivo na assinatura.
@@ -366,7 +366,7 @@ Após a instalação bem-sucedida, o sistema deve ser descoberto no SAP LaMa.
 
 Os pontos de montagem devem ser assim para o ASCS e a instância do as:
 
-![Pontos de montagem do SAP LaMa ](media/lama/sap-lama-ascs.png) no lama (este é um exemplo. Os endereços IP e o caminho de exportação são diferentes dos usados antes)
+![Pontos de montagem do SAP LaMa no LaMa ](media/lama/sap-lama-ascs.png) (este é um exemplo. Os endereços IP e o caminho de exportação são diferentes dos usados antes)
 
 
 #### <a name="install-sap-hana"></a>Instalar SAP HANA
@@ -438,7 +438,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-as
 
 Execute o SWPM e use *as1-ascs* para o *Nome de Host de Instância do ASCS*.
 
-#### <a name="install-sql-server"></a>Instale o SQL Server
+#### <a name="install-sql-server"></a>Instalar o SQL Server
 
 Você precisará adicionar o endereço IP do nome do host virtual do banco de dados para uma interface de rede. A maneira recomendada é usar sapacext. Se você montar o endereço IP usando sapacext, certifique-se de montar novamente o endereço IP após uma reinicialização.
 
@@ -547,12 +547,12 @@ Use *as1-di-0* para o *nome do Host de Instância PAS* na caixa de diálogo *Ins
     Defina o parâmetro de perfil OS_UNICODE=uc no perfil padrão do seu sistema SAP para contornar esse problema.
 
 * Erro ao executar a etapa de SAPinst: dCheckGivenServer
-  * Erro ao executar a etapa de SAPinst: dCheckGivenServer "versão ="1.0" ERRO: (Último erro relatado pela etapa: \<p > Instalação foi cancelada pelo usuário. \</p>
+  * Erro ao executar a etapa SAPinst: dCheckGivenServer "Version =" 1.0 "erro: (último erro relatado pela etapa: \<p> a instalação foi cancelada pelo usuário. \</p>
   * Solução  
     Certifique-se de que o SWPM está em execução com um usuário que tenha acesso ao perfil. Este usuário pode ser configurado no assistente de Instalação do Servidor de Aplicativo
 
 * Erro ao executar a etapa SAPinst: checkClient
-  * Erro ao executar a etapa SAPinst: checkClient" versão="1.0" ERROR: (Último erro relatado pela etapa: \<p> Instalação cancelada pelo usuário. \</p>)
+  * Erro ao executar a etapa SAPinst: checkClient "Version =" 1.0 "erro: (último erro relatado pela etapa: \<p> a instalação foi cancelada pelo usuário. \</p>)
   * Solução  
     Certifique-se de que o Microsoft ODBC driver para SQL Server está instalado na máquina virtual na qual você deseja instalar o servidor de aplicativos
 

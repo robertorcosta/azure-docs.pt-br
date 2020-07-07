@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: hahamil
 ms.custom: aaddev, identitypla | Azuretformtop40
 ms.openlocfilehash: d9874e27c21906512c2f6c841767b4d6591dbeaf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80550260"
 ---
 # <a name="shared-device-mode-for-android-devices"></a>Modo de dispositivo compartilhado para dispositivos Android
@@ -35,8 +35,8 @@ O modo de dispositivo compartilhado também fornece o gerenciamento de Microsoft
 
 Para criar um aplicativo de modo de dispositivo compartilhado, os desenvolvedores e os administradores de dispositivo de nuvem funcionam juntos:
 
-- Os desenvolvedores escrevem um aplicativo de conta única (aplicativos com várias contas não têm suporte no modo de dispositivo compartilhado `"shared_device_mode_supported": true` ), adicionam à configuração do aplicativo e gravam o código para lidar com coisas como a saída do dispositivo compartilhado.
-- Os administradores de dispositivo preparam o dispositivo a ser compartilhado instalando o aplicativo autenticador e definindo o dispositivo para o modo compartilhado usando o aplicativo autenticador. Somente os usuários que estão na função de [administrador de dispositivo de nuvem](../users-groups-roles/directory-assign-admin-roles.md#cloud-device-administrator-permissions) podem colocar um dispositivo no modo compartilhado usando o [aplicativo autenticador](../user-help/user-help-auth-app-overview.md). Você pode configurar a associação de suas funções organizacionais no portal do Azure por meio **Azure Active Directory** > do:**funções de Azure Active Directory e administradores** > **administrador de dispositivo de nuvem**.
+- Os desenvolvedores escrevem um aplicativo de conta única (aplicativos com várias contas não têm suporte no modo de dispositivo compartilhado), adicionam `"shared_device_mode_supported": true` à configuração do aplicativo e gravam o código para lidar com coisas como a saída do dispositivo compartilhado.
+- Os administradores de dispositivo preparam o dispositivo a ser compartilhado instalando o aplicativo autenticador e definindo o dispositivo para o modo compartilhado usando o aplicativo autenticador. Somente os usuários que estão na função de [administrador de dispositivo de nuvem](../users-groups-roles/directory-assign-admin-roles.md#cloud-device-administrator-permissions) podem colocar um dispositivo no modo compartilhado usando o [aplicativo autenticador](../user-help/user-help-auth-app-overview.md). Você pode configurar a associação de suas funções organizacionais no portal do Azure por meio **Azure Active Directory**do:  >  **funções de Azure Active Directory e administradores**  >  **administrador de dispositivo de nuvem**.
 
  Este artigo se concentra principalmente no que os desenvolvedores devem pensar.
 
@@ -63,7 +63,7 @@ O modelo de objeto a seguir ilustra o tipo de objeto que você pode receber e o 
 
 ![modelo de herança de aplicativo cliente público](media/v2-shared-device-mode/ipublic-client-app-inheritance.png)
 
-Você precisará fazer uma verificação de tipo e convertê-la na interface apropriada ao obter `PublicClientApplication` o objeto. O código a seguir verifica o modo de várias contas ou o modo de conta única e converte o objeto de aplicativo adequadamente:
+Você precisará fazer uma verificação de tipo e convertê-la na interface apropriada ao obter o `PublicClientApplication` objeto. O código a seguir verifica o modo de várias contas ou o modo de conta única e converte o objeto de aplicativo adequadamente:
 
 ```java
 private IPublicClientApplication mApplication;

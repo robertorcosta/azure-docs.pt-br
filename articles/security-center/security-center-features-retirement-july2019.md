@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/10/2019
 ms.author: memildin
 ms.openlocfilehash: 4a760fe1e5df7cf614a68f8fa8a05926326d3edf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80583229"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Aposentadoria dos recursos da central de segurança (julho de 2019)
@@ -53,7 +53,7 @@ Desativamos o painel eventos que apareceu quando você selecionou um espaço de 
 
 Incentivamos você a usar os recursos nativos do Azure Log Analytics para exibir eventos notáveis em seus espaços de trabalho.
 
-Se você criou eventos notáveis personalizados na central de segurança, eles estarão acessíveis. Em log Analytics, vá para **selecionar** > **pesquisas salvas**do espaço de trabalho. Seus dados não serão perdidos ou modificados. Os eventos notáveis nativos também estão disponíveis na mesma tela no Log Analytics.
+Se você criou eventos notáveis personalizados na central de segurança, eles estarão acessíveis. Em log Analytics, vá para **selecionar**  >  **pesquisas salvas**do espaço de trabalho. Seus dados não serão perdidos ou modificados. Os eventos notáveis nativos também estão disponíveis na mesma tela no Log Analytics.
 
 ![Pesquisas salvas do espaço de trabalho][3]
 

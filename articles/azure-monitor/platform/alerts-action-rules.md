@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.subservice: alerts
 ms.openlocfilehash: 6585890395d7656f239ac3098cd374ecd4757842
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80618982"
 ---
 # <a name="action-rules-preview"></a>Regras de ação (visualização)
@@ -83,7 +83,7 @@ Em seguida, configure a regra de ação para o suporte de supressão de alerta o
 
 #### <a name="suppression"></a>Supressão
 
-Se você selecionar **supressão**, configure a duração da supressão de ações e notificações. Escolha uma das seguintes opções:
+Se você selecionar **supressão**, configure a duração da supressão de ações e notificações. Selecione uma das seguintes opções:
 * **De agora (sempre)**: suprime todas as notificações indefinidamente.
 * **Em um horário agendado**: suprime notificações dentro de uma duração limitada.
 * **Com uma recorrência**: suprime notificações em uma agenda recorrente diária, semanal ou mensal.
@@ -102,7 +102,7 @@ Se você selecionar **grupo de ações** na alternância, adicione um grupo de a
 ### <a name="action-rule-details"></a>Detalhes da regra de ação
 
 Por fim, configure os seguintes detalhes para a regra de ação:
-* Name
+* Nome
 * Grupo de recursos no qual ele foi salvo
 * Descrição 
 

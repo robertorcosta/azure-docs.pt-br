@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.openlocfilehash: 328ca7cd2c6f76095c8334ae6fdb4aa75fbb867d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80291998"
 ---
 # <a name="implement-cicd-for-stream-analytics-on-iot-edge-using-apis"></a>Implementar CI/CD para Stream Analytics no IoT Edge usando APIs
@@ -55,7 +55,7 @@ echo $response
  
 Para criar o trabalho do Stream Analytics, chame o método PUT usando a API do Stream Analytics.
 
-|Método|URL de Solicitação|
+|Método|URL da solicitação|
 |------|-----------|
 |PUT|`https://management.azure.com/subscriptions/{\**subscription-id**}/resourcegroups/{**resource-group-name**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**job-name**}?api-version=2017-04-01-preview`|
  
@@ -142,7 +142,7 @@ Para obter mais informações, consulte a [Documentação da API](/rest/api/stre
  
 Para publicar um trabalho de Stream Analytics no IoT Edge, chame o método POST usando a API Edge Package Publish.
 
-|Método|URL de Solicitação|
+|Método|URL da solicitação|
 |------|-----------|
 |POST|`https://management.azure.com/subscriptions/{\**subscriptionid**}/resourceGroups/{**resourcegroupname**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**jobname**}/publishedgepackage?api-version=2017-04-01-preview`|
 
@@ -257,6 +257,6 @@ Após a configuração do manifesto de implantação, consulte [Implantar módul
 
 ## <a name="next-steps"></a>Próximas etapas 
  
-* [Azure Stream Analytics no IoT Edge](stream-analytics-edge.md)
+* [O Stream Analytics do Azure no IoT Edge](stream-analytics-edge.md)
 * [ASA no tutorial de IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
 * [Desenvolver trabalhos de Borda do Stream Analytics utilizando ferramentas do Visual Studio](stream-analytics-tools-for-visual-studio-edge-jobs.md)

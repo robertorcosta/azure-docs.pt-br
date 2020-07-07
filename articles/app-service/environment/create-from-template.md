@@ -8,10 +8,10 @@ ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: e06fcdbac097e85c039e34274c61cb51ee06bcd6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80478331"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Criar um ASE usando um modelo do Azure Resource Manager
@@ -38,7 +38,7 @@ Para automatizar a criação do ASE:
 
 2. Depois que o ASE ILB for criado, um certificado TLS/SSL que corresponda ao domínio do ASE ILB será carregado.
 
-3. O certificado TLS/SSL carregado é atribuído ao ASE ILB como seu certificado TLS/SSL "padrão".  Esse certificado é usado para tráfego TLS/SSL para aplicativos no ASE ILB quando eles usam o domínio raiz comum que é atribuído ao ASE (por exemplo, `https://someapp.mycustomrootdomain.com`).
+3. O certificado TLS/SSL carregado é atribuído ao ASE ILB como seu certificado TLS/SSL "padrão".  Esse certificado é usado para tráfego TLS/SSL para aplicativos no ASE ILB quando eles usam o domínio raiz comum que é atribuído ao ASE (por exemplo, `https://someapp.mycustomrootdomain.com` ).
 
 
 ## <a name="create-the-ase"></a>Criar o ASE
@@ -62,7 +62,7 @@ New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-
 Leva aproximadamente uma hora para o ASE ser criado. Em seguida, o ASE aparece no portal na lista de ASEs para a assinatura que disparou a implantação.
 
 ## <a name="upload-and-configure-the-default-tlsssl-certificate"></a>Carregar e configurar o certificado TLS/SSL "padrão"
-Um certificado TLS/SSL deve ser associado ao ASE como o certificado TLS/SSL "padrão" que é usado para estabelecer conexões TLS com aplicativos. Se o sufixo DNS padrão do ASE for *Internal-contoso.com*, uma conexão com `https://some-random-app.internal-contoso.com` o exigirá um certificado TLS/SSL válido para **. Internal-contoso.com*. 
+Um certificado TLS/SSL deve ser associado ao ASE como o certificado TLS/SSL "padrão" que é usado para estabelecer conexões TLS com aplicativos. Se o sufixo DNS padrão do ASE for *Internal-contoso.com*, uma conexão com o `https://some-random-app.internal-contoso.com` exigirá um certificado TLS/SSL válido para **. Internal-contoso.com*. 
 
 Obtenha um certificado TLS/SSL válido usando autoridades de certificação internas, comprando um certificado de um emissor externo ou usando um certificado autoassinado. Independentemente da origem do certificado TLS/SSL, os seguintes atributos de certificado devem ser configurados corretamente:
 
@@ -136,7 +136,7 @@ Um exemplo abreviado de *azuredeploy.parameters.json* é mostrado aqui:
 }
 ```
 
-Depois que o arquivo *azuredeploy. Parameters. JSON* for preenchido, configure o certificado TLS/SSL padrão usando o trecho de código do PowerShell. Altere os caminhos do arquivo para corresponder ao local em que os arquivos do modelo do Resource Manager estão localizados no seu computador. Lembre-se de fornecer seus próprios valores para o nome de implantação do Resource Manager e para o nome do grupo de recursos:
+Depois que o *azuredeploy.parameters.jsno* arquivo for preenchido, configure o certificado TLS/SSL padrão usando o trecho de código do PowerShell. Altere os caminhos do arquivo para corresponder ao local em que os arquivos do modelo do Resource Manager estão localizados no seu computador. Lembre-se de fornecer seus próprios valores para o nome de implantação do Resource Manager e para o nome do grupo de recursos:
 
 ```powershell
 $templatePath="PATH\azuredeploy.json"
@@ -156,7 +156,7 @@ O Ambiente do Serviço de Aplicativo tem duas versões: ASEv1 e ASEv2. As inform
 
 No ASEv1, você gerencia todos os recursos manualmente. Isso inclui os front-ends, as funções de trabalho e os endereços IP usados para o SSL baseado em IP. Antes de poder escalar horizontalmente o plano do Serviço de Aplicativo, primeiro você deve escalar horizontalmente o pool de trabalho que você deseja hospedar.
 
-O ASEv1 usa um modelo de preço diferente do ASEv2. No ASEv1, você paga por cada vCPU alocado. Isso inclui os vCPUs que são usados para front-ends ou funções de trabalho que não hospedam nenhuma carga de trabalho. No ASEv1, o tamanho máximo de escala padrão de um ASE é de 55 hosts no total. Isso inclui funções de trabalho e front-ends. Uma vantagem do ASEv1 é que ele pode ser implantado em uma rede virtual clássica, bem como em uma rede virtual do Resource Manager. Para saber mais sobre o ASEv1, consulte [Introdução ao Ambiente do Serviço de Aplicativo v1][ASEv1Intro].
+O ASEv1 usa um modelo de preço diferente do ASEv2. No ASEv1, você paga por cada vCPU alocado. Isso inclui os vCPUs que são usados para front-ends ou funções de trabalho que não hospedam nenhuma carga de trabalho. No ASEv1, o tamanho máximo de escala padrão de um ASE é de 55 hosts no total. Isso inclui funções de trabalho e front-ends. Uma vantagem do ASEv1 é que ele pode ser implantado em uma rede virtual clássica, bem como em uma rede virtual do Resource Manager. Para saber mais sobre o ASEv1, confira [Introdução ao Ambiente do Serviço de Aplicativo v1][ASEv1Intro].
 
 Para criar um ASEv1 usando um modelo do Resource Manager, consulte [Criar um ASE v1 ILB com um modelo do Resource Manager][ILBASEv1Template].
 

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
 ms.openlocfilehash: a92e96a835f24ac54fa55b05086a35b9a91d609e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80298348"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Conectar computadores sem acesso à Internet usando o gateway de Log Analytics no Azure Monitor
@@ -117,7 +117,7 @@ Para obter o gateway de Log Analytics do portal do Azure, siga estas etapas:
 ou 
 
 1. Na folha do seu workspace em **Configurações**, selecione **Configurações avançadas**.
-1.  > Acesse **fontes conectadas****servidores Windows** e selecione **baixar log Analytics gateway**.
+1. Acesse **fontes conectadas**  >  **servidores Windows** e selecione **baixar log Analytics gateway**.
 
 ## <a name="install-log-analytics-gateway-using-setup-wizard"></a>Instalar Log Analytics gateway usando o assistente para instalação
 
@@ -153,7 +153,7 @@ O arquivo baixado para o gateway é um pacote Windows Installer que dá suporte 
  
 A tabela a seguir realça os parâmetros com suporte na instalação do.
 
-|Parâmetros| Anotações|
+|Parâmetros| Observações|
 |----------|------| 
 |PORTNUMBER | Número da porta TCP para o gateway a ser escutado |
 |ACIONISTA | Endereço IP do servidor proxy |
@@ -256,17 +256,17 @@ Para configurar a integração, atualize a configuração de proxy do sistema us
 
    b. Clique com o botão direito do mouse em **prompt de comando** e selecione **Executar como administrador**.  
 
-1. Digite o seguinte comando:
+1. Insira o seguinte comando:
 
    `netsh winhttp set proxy <proxy>:<port>`
 
-Depois de concluir a integração com o Log Analytics, remova a alteração `netsh winhttp reset proxy`executando. Em seguida, no console de operações, use a opção **Configurar servidor proxy** para especificar o servidor gateway log Analytics. 
+Depois de concluir a integração com o Log Analytics, remova a alteração executando `netsh winhttp reset proxy` . Em seguida, no console de operações, use a opção **Configurar servidor proxy** para especificar o servidor gateway log Analytics. 
 
 1. No console do Operations Manager, em **Operations Management Suite**, selecione **conexão**e, em seguida, selecione **Configurar servidor proxy**.
 
    ![Captura de tela de Operations Manager, mostrando a seleção configurar servidor proxy](./media/gateway/scom01.png)
 
-1. Selecione **usar um servidor proxy para acessar o Operations Management Suite** e, em seguida, insira o endereço IP do servidor de gateway de log Analytics ou o endereço IP virtual do balanceador de carga. Tenha cuidado para começar com o prefixo `http://`.
+1. Selecione **usar um servidor proxy para acessar o Operations Management Suite** e, em seguida, insira o endereço IP do servidor de gateway de log Analytics ou o endereço IP virtual do balanceador de carga. Tenha cuidado para começar com o prefixo `http://` .
 
    ![Captura de tela de Operations Manager, mostrando o endereço do servidor proxy](./media/gateway/scom02.png)
 
@@ -288,7 +288,7 @@ Para configurar servidores ou grupos específicos para usar o servidor gateway L
 1. No campo **procurar** , insira **serviço de integridade** e selecione-o na lista. Selecione **OK**.  
 1. Procure **regra de configuração de proxy do Advisor**. 
 1. Na barra de ferramentas Operations Manager, selecione **substituições** e, em seguida, aponte para **substituir o Rule\For de um objeto específico da classe: serviço de integridade** e selecione um objeto da lista.  Ou crie um grupo personalizado que contenha o objeto de serviço de integridade dos servidores aos quais você deseja aplicar essa substituição. Em seguida, aplique a substituição ao seu grupo personalizado.
-1. Na caixa de diálogo **Propriedades da substituição** , adicione uma marca de seleção na coluna **substituir** ao lado do parâmetro **WebProxyAddress** .  No campo **valor de substituição** , insira a URL do servidor de gateway de log Analytics. Tenha cuidado para começar com o prefixo `http://`.  
+1. Na caixa de diálogo **Propriedades da substituição** , adicione uma marca de seleção na coluna **substituir** ao lado do parâmetro **WebProxyAddress** .  No campo **valor de substituição** , insira a URL do servidor de gateway de log Analytics. Tenha cuidado para começar com o prefixo `http://` .  
 
     >[!NOTE]
     > Você não precisa habilitar a regra. Ele já é gerenciado automaticamente com uma substituição no pacote de gerenciamento de substituição de referência segura do Microsoft System Center Advisor que tem como alvo o grupo de servidores de monitoramento do Microsoft System Center Advisor.
@@ -327,7 +327,7 @@ Você pode usar cmdlets para concluir as tarefas para atualizar as definições 
 
 Um erro na etapa 3 significa que o módulo não foi importado. O erro pode ocorrer quando o PowerShell não consegue localizar o módulo. Você pode encontrar o módulo no caminho de instalação do gateway do OMS: *c:\Arquivos de PROGRAMAS\MICROSOFT OMS Gateway\PowerShell\OmsGateway*.
 
-| **Cmdlet** | **Parameters** | **Descrição** | **Exemplo** |
+| **Cmdlet** | **Parâmetros** | **Descrição** | **Exemplo** |
 | --- | --- | --- | --- |  
 | `Get-OMSGatewayConfig` |Chave |Obtém a configuração do serviço |`Get-OMSGatewayConfig` |  
 | `Set-OMSGatewayConfig` |Chave (obrigatória) <br> Valor |Altera a configuração do serviço |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  

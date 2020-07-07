@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: cf0e5267885df1ace51271c53bb2d68ee5002f00
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335422"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Pesquisar um local usando os serviços de pesquisa do Azure Maps
@@ -39,7 +39,7 @@ Neste exemplo, estamos usando o Azure Maps [obter API de endereço de pesquisa](
 
 Se você tiver um conjunto de endereços para geocódigo, poderá usar a [API do lote do endereço de pesquisa de postagem](https://docs.microsoft.com/rest/api/maps/search/postsearchaddressbatch) para enviar um lote de consultas em uma única chamada à API.
 
-1. No postmaster, clique em **nova solicitação** | **obter solicitação** e nomeie-a **pesquisa de endereço**.
+1. No postmaster, clique em **nova solicitação**  |  **obter solicitação** e nomeie-a **pesquisa de endereço**.
 
 2. Na guia Criador, selecione o método HTTP **GET**, insira a URL de solicitação para o ponto de extremidade de API e selecione um protocolo de autorização, se houver.
 
@@ -48,7 +48,7 @@ Se você tiver um conjunto de endereços para geocódigo, poderá usar a [API do
 | Parâmetro | Valor sugerido |
 |---------------|------------------------------------------------| 
 | Método HTTP | GET |
-| URL de Solicitação | [https://atlas.microsoft.com/search/address/json?](https://atlas.microsoft.com/search/address/json?) | 
+| URL da solicitação | [https://atlas.microsoft.com/search/address/json?](https://atlas.microsoft.com/search/address/json?) | 
 | Autorização | Sem autenticação |
 
 3. Clique em **Params** e digite os seguinte pares Chave/Valor para uso como parâmetros de consulta ou de caminho na URL da solicitação: 
@@ -58,7 +58,7 @@ Se você tiver um conjunto de endereços para geocódigo, poderá usar a [API do
 | Chave | Valor | 
 |------------------|-------------------------| 
 | api-version | 1.0 | 
-| subscription-key | \<sua chave de mapas do Azure\> | 
+| subscription-key | \<your Azure Maps key\> | 
 | Consulta | Rua Cosme Velho, 513, Rio de Janeiro, 22241-090 | 
 
 4. Clique em **Enviar** e analise o corpo da resposta. 
@@ -96,7 +96,7 @@ A maioria das consultas de pesquisa é padronizada para `maxFuzzyLevel=1` para o
     | Parâmetro | Valor sugerido |
     |---------------|------------------------------------------------|
     | Método HTTP | GET |
-    | URL de Solicitação | [https://atlas.microsoft.com/search/fuzzy/json?](https://atlas.microsoft.com/search/fuzzy/json?) |
+    | URL da solicitação | [https://atlas.microsoft.com/search/fuzzy/json?](https://atlas.microsoft.com/search/fuzzy/json?) |
     | Autorização | Sem autenticação |
 
     O atributo **json** no caminho da URL determina o formato da resposta. Este artigo usa o JSON para facilitar o uso e a legibilidade. Você pode encontrar os formatos de resposta disponíveis na **obter pesquisa difusa** definição da [referência da API de mapas funcionais](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy).
@@ -108,7 +108,7 @@ A maioria das consultas de pesquisa é padronizada para `maxFuzzyLevel=1` para o
     | Chave | Valor |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | subscription-key | \<sua chave de mapas do Azure\> |
+    | subscription-key | \<your Azure Maps key\> |
     | Consulta | pizza |
 
 4. Clique em **Enviar** e analise o corpo da resposta.
@@ -143,7 +143,7 @@ A [API de obtenção de endereço de pesquisa]( https://docs.microsoft.com/rest/
 Se você tiver um conjunto de locais de coordenadas para reverter o código, você poderá usar a [API de postagem inversa do endereço de pesquisa](https://docs.microsoft.com/rest/api/maps/search/postsearchaddressreversebatch) para enviar um lote de consultas em uma única chamada à API.
 
 
-1. No postmaster, clique em **nova solicitação** | **obter solicitação** e nomeie-a **pesquisa de endereço inversa**.
+1. No postmaster, clique em **nova solicitação**  |  **obter solicitação** e nomeie-a **pesquisa de endereço inversa**.
 
 2. Na guia Construtor, selecione o método HTTP **GET** e insira a URL de solicitação para o ponto de extremidade de API.
   
@@ -152,7 +152,7 @@ Se você tiver um conjunto de locais de coordenadas para reverter o código, voc
     | Parâmetro | Valor sugerido |
     |---------------|------------------------------------------------|
     | Método HTTP | GET |
-    | URL de Solicitação | [https://atlas.microsoft.com/search/address/reverse/json?](https://atlas.microsoft.com/search/address/reverse/json?) |
+    | URL da solicitação | [https://atlas.microsoft.com/search/address/reverse/json?](https://atlas.microsoft.com/search/address/reverse/json?) |
     | Autorização | Sem autenticação |
   
 3. Clique em **Params** e digite os seguinte pares Chave/Valor para uso como parâmetros de consulta ou de caminho na URL da solicitação:
@@ -162,7 +162,7 @@ Se você tiver um conjunto de locais de coordenadas para reverter o código, voc
     | Chave | Valor |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | subscription-key | \<sua chave de mapas do Azure\> |
+    | subscription-key | \<your Azure Maps key\> |
     | Consulta | 47.591180,-122.332700 |
   
 4. Clique em **Enviar** e analise o corpo da resposta.
@@ -203,7 +203,7 @@ Se você tiver um conjunto de locais de coordenadas para reverter o código, voc
   
 ## <a name="search-for-cross-street-using-reverse-address-cross-street-search"></a>Pesquisar entre as ruas usando a pesquisa de postagem de endereço reverso
 
-1. No postmaster, clique em **nova solicitação** | **obter solicitação** e nomeie-a como **endereço inverso de pesquisa entre ruas**.
+1. No postmaster, clique em **nova solicitação**  |  **obter solicitação** e nomeie-a como **endereço inverso de pesquisa entre ruas**.
 
 2. Na guia Construtor, selecione o método HTTP **GET** e insira a URL de solicitação para o ponto de extremidade de API.
   
@@ -212,7 +212,7 @@ Se você tiver um conjunto de locais de coordenadas para reverter o código, voc
     | Parâmetro | Valor sugerido |
     |---------------|------------------------------------------------|
     | Método HTTP | GET |
-    | URL de Solicitação | [https://atlas.microsoft.com/search/address/reverse/crossstreet/json?](https://atlas.microsoft.com/search/address/reverse/crossstreet/json?) |
+    | URL da solicitação | [https://atlas.microsoft.com/search/address/reverse/crossstreet/json?](https://atlas.microsoft.com/search/address/reverse/crossstreet/json?) |
     | Autorização | Sem autenticação |
   
 3. Clique em **Params** e digite os seguinte pares Chave/Valor para uso como parâmetros de consulta ou de caminho na URL da solicitação:
@@ -220,7 +220,7 @@ Se você tiver um conjunto de locais de coordenadas para reverter o código, voc
     | Chave | Valor |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | subscription-key | \<sua chave de mapas do Azure\> |
+    | subscription-key | \<your Azure Maps key\> |
     | Consulta | 47.591180,-122.332700 |
   
 4. Clique em **Enviar** e analise o corpo da resposta.

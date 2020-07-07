@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: v-mibufo
 ms.openlocfilehash: 5d2fb62870e2c41af635627f5d692f08c67f8394
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80373343"
 ---
 # <a name="windows-vm-cannot-boot-due-to-windows-boot-manager"></a>A VM do Windows não pode ser inicializada devido ao Gerenciador de inicialização do Windows
@@ -44,10 +44,10 @@ O erro ocorre devido a um sinalizador BCD *DISPLAYBOOTMENU* no Gerenciador de in
 Visão geral do processo:
 
 1. Configure o para um tempo de inicialização mais rápido usando o console serial.
-2. Crie e acesse uma VM de reparo.
+2. Criar e acessar uma VM de reparo.
 3. Configure o tempo de inicialização mais rápido em uma VM de reparo.
-4. **Recomendado**: antes de recriar a VM, habilite o console serial e a coleção de despejo de memória.
-5. Reconstrua a VM.
+4. **Recomendado**: antes de recompilar a VM, o console serial e a coleção de despejo de memória deverão ser habilitados.
+5. Recompilar a VM.
 
 ### <a name="configure-for-faster-boot-time-using-serial-console"></a>Configurar para tempo de inicialização mais rápido usando o console serial
 
@@ -77,12 +77,12 @@ Se você tiver acesso ao console serial, há duas maneiras de alcançar tempos d
 
 ### <a name="create-and-access-a-repair-vm"></a>Criar e acessar uma VM de reparo
 
-1. Use [as etapas 1-3 dos comandos de reparo da VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) para preparar uma VM de reparo.
+1. Use as [etapas 1-3 dos comandos de reparo da VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) para preparar uma VM de reparo.
 2. Use Conexão de Área de Trabalho Remota conectar-se à VM de reparo.
 
 ### <a name="configure-for-faster-boot-time-on-a-repair-vm"></a>Configurar o tempo de inicialização mais rápido em uma VM de reparo
 
-1. Abra um prompt de comando com privilégios elevados.
+1. Abra um prompt de comandos com privilégios elevados.
 2. Insira o seguinte para habilitar DisplayBootMenu:
 
    Use este comando para **VMs de geração 1**:
@@ -111,8 +111,8 @@ Se você tiver acesso ao console serial, há duas maneiras de alcançar tempos d
 
 Para habilitar a coleta de despejo de memória e o console serial, execute o seguinte script:
 
-1. Abra uma sessão de prompt de comando com privilégios elevados (executar como administrador).
-2. Execute os comandos a seguir:
+1. Abra uma sessão de prompt de comandos com privilégios elevados (Executar como administrador).
+2. Execute os seguintes comandos:
 
    Habilitar console serial
 
@@ -128,7 +128,7 @@ Para habilitar a coleta de despejo de memória e o console serial, execute o seg
 
 #### <a name="suggested-configuration-to-enable-os-dump"></a>Configuração sugerida para habilitar o despejo do sistema operacional
 
-**Carregar disco do so quebrado**:
+**Carregar disco do sistema operacional danificado**:
 
 `REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM`
 
@@ -148,10 +148,10 @@ Para habilitar a coleta de despejo de memória e o console serial, execute o seg
 
 `REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f`
 
-**Descarregar disco do so quebrado:**
+**Descarregar disco do sistema operacional danificado:**
 
 `REG UNLOAD HKLM\BROKENSYSTEM`
 
 ### <a name="rebuild-the-original-vm"></a>Recriar a VM original
 
-Use [a etapa 5 dos comandos de reparo da VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) para remontar a VM.
+Use a [etapa 5 dos comandos de reparo da VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) para remontar a VM.

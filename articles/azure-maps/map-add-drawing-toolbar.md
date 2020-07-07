@@ -1,5 +1,5 @@
 ---
-title: Adicionar uma barra de ferramentas de desenho a um mapa | Mapas do Microsoft Azure
+title: Adicionar uma barra de ferramentas de desenho a um mapa | Microsoft Azure Mapas
 description: Como adicionar uma barra de ferramentas de desenho a um mapa usando o SDK da Web do Azure Maps
 author: philmea
 ms.author: philmea
@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: bebf1ddfbca3aec5a551193609381cf3510bc3ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80334492"
 ---
 # <a name="add-a-drawing-tools-toolbar-to-a-map"></a>Adicionar uma barra de ferramentas de ferramentas de desenho a um mapa
@@ -38,7 +38,7 @@ Abaixo está o exemplo de código completo em execução da funcionalidade acima
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Adicionar barra de ferramentas de desenho" src="//codepen.io/azuremaps/embed/ZEzLeRg/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Consulte a <a href='https://codepen.io/azuremaps/pen/ZEzLeRg/'>barra de ferramentas Adicionar desenho</a> da caneta pelo<a href='https://codepen.io/azuremaps'>@azuremaps</a>mapas do Azure () em <a href='https://codepen.io'>CodePen</a>.
+Consulte a <a href='https://codepen.io/azuremaps/pen/ZEzLeRg/'>barra de ferramentas Adicionar desenho</a> da caneta pelo mapas do Azure ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
@@ -62,13 +62,13 @@ Abaixo está o exemplo de código completo em execução da funcionalidade acima
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Adicionar uma ferramenta de desenho de polígono" src="//codepen.io/azuremaps/embed/OJLWWMy/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Consulte a caneta <a href='https://codepen.io/azuremaps/pen/OJLWWMy/'>Adicionar uma ferramenta de desenho de polígono</a> pelo Azure<a href='https://codepen.io/azuremaps'>@azuremaps</a>Maps () em <a href='https://codepen.io'>CodePen</a>.
+Consulte a caneta <a href='https://codepen.io/azuremaps/pen/OJLWWMy/'>Adicionar uma ferramenta de desenho de polígono</a> pelo Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
 ## <a name="change-drawing-rendering-style"></a>Alterar o estilo de renderização do desenho
 
-O estilo das formas que são desenhadas pode ser personalizado pela recuperação das camadas subjacentes do Gerenciador de desenho usando a `drawingManager.getLayers()` função e, em seguida, definindo as opções nas camadas individuais. As alças de arrastar que aparecem para coordenadas ao editar uma forma são marcadores HTML. O estilo das alças de arrastar pode ser personalizado passando opções de marcador HTML para `dragHandleStyle` as `secondaryDragHandleStyle` opções e do Gerenciador de desenho.  
+O estilo das formas que são desenhadas pode ser personalizado pela recuperação das camadas subjacentes do Gerenciador de desenho usando a `drawingManager.getLayers()` função e, em seguida, definindo as opções nas camadas individuais. As alças de arrastar que aparecem para coordenadas ao editar uma forma são marcadores HTML. O estilo das alças de arrastar pode ser personalizado passando opções de marcador HTML para `dragHandleStyle` as `secondaryDragHandleStyle` Opções e do Gerenciador de desenho.  
 
 O código a seguir obtém as camadas de renderização do Gerenciador de desenho e modifica suas opções para alterar o estilo de renderização para desenho. Nesse caso, os pontos serão renderizados com um ícone de marcador azul. As linhas serão vermelhas e quatro pixels de largura. Polígonos terão uma cor de preenchimento verde e uma estrutura de tópicos laranja. Em seguida, ele altera os estilos das alças de arrastar para ícones quadrados. 
 
@@ -122,13 +122,13 @@ Abaixo está o exemplo de código completo em execução da funcionalidade acima
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Alterar o estilo de renderização do desenho" src="//codepen.io/azuremaps/embed/OJLWpyj/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Consulte o <a href='https://codepen.io/azuremaps/pen/OJLWpyj/'>estilo de renderização de desenho de alteração</a> de caneta<a href='https://codepen.io/azuremaps'>@azuremaps</a>pelo Azure Maps () em <a href='https://codepen.io'>CodePen</a>.
+Consulte o <a href='https://codepen.io/azuremaps/pen/OJLWpyj/'>estilo de renderização de desenho de alteração</a> de caneta pelo Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como usar recursos adicionais do módulo ferramentas de desenho:
+Saiba como usar recursos adicionais do módulo de ferramentas de desenho:
 
 > [!div class="nextstepaction"]
 > [Obter dados da forma](map-get-shape-data.md)
@@ -142,7 +142,7 @@ Saiba como usar recursos adicionais do módulo ferramentas de desenho:
 Saiba mais sobre as classes e métodos usados neste artigo:
 
 > [!div class="nextstepaction"]
-> [Mapeada](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
 > [Barra de ferramentas desenho](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest)

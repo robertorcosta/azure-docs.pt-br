@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
 ms.openlocfilehash: 986da8980a569583ef454833957ace85dd1bfbb6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80351070"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas sobre a versão do Gerenciador de Armazenamento do Microsoft Azure
@@ -120,7 +120,7 @@ Para baixar versões anteriores do Gerenciador de Armazenamento, você pode visi
 * [Versão 1.7.0](#version-170)
 * [Versão 1.6.2](#version-162)
 * [Versão 1.6.1](#version-161)
-* [Versão 1.6.0](#version-160)
+* [1.6.0 da versão](#version-160)
 * [Versão 1.5.0](#version-150)
 * [Version 1.4.4](#version-144)
 * [Versão 1.4.3](#version-143)
@@ -1037,8 +1037,8 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 ### <a name="fixes"></a>Correções
 *  Em alguns computadores, os processos filho estavam levando muito tempo para iniciar. Quando isso acontecer, um erro "falha na inicialização oportuna do processo filho" será exibido. O tempo alocado para um processo filho iniciar agora aumentou de 20 para 90 segundos. Se você ainda for afetado por esse problema, comente no problema do GitHub vinculado. [#281](https://github.com/Microsoft/AzureStorageExplorer/issues/281)
 * Ao usar uma SAS que não tinha permissões de leitura, não foi possível carregar um blob grande. A lógica do upload foi modificada para funcionar nesse cenário. [#305](https://github.com/Microsoft/AzureStorageExplorer/issues/305)
-* Definir o nível de acesso público para um contêiner removeria todas as políticas de acesso e vice-versa. Agora, o nível de acesso público e as políticas de acesso são preservados ao definir qualquer um dos dois. [Nº 197](https://github.com/Microsoft/AzureStorageExplorer/issues/197)
-* "AccessTierChangeTime" estava truncado na caixa de diálogo Propriedades. Esse problema foi corrigido. [Nº 145](https://github.com/Microsoft/AzureStorageExplorer/issues/145)
+* Definir o nível de acesso público para um contêiner removeria todas as políticas de acesso e vice-versa. Agora, o nível de acesso público e as políticas de acesso são preservados ao definir qualquer um dos dois. [#197](https://github.com/Microsoft/AzureStorageExplorer/issues/197)
+* "AccessTierChangeTime" estava truncado na caixa de diálogo Propriedades. Esse problema foi corrigido. [#145](https://github.com/Microsoft/AzureStorageExplorer/issues/145)
 * O prefixo "Gerenciador de Armazenamento do Microsoft Azure –" estava ausente na caixa de diálogo Criar novo diretório. Esse problema foi corrigido. [#299](https://github.com/Microsoft/AzureStorageExplorer/issues/299)
 * Acessibilidade: a caixa de diálogo Adicionar entidade era difícil navegar usando o VoiceOver. Foram feitas melhorias. [#206](https://github.com/Microsoft/AzureStorageExplorer/issues/206)
 * Acessibilidade: a cor da tela de fundo do botão recolher/expandir do painel Ações e Propriedades estava inconsistente com os controles da interface do usuário semelhantes no tema Preto em alto contraste. A cor mudou. [#123](https://github.com/Microsoft/AzureStorageExplorer/issues/123)
@@ -1201,7 +1201,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * Autenticação aprimorada que permite que o Gerenciador de Armazenamento use o mesmo repositório de contas que o Visual Studio 2017. Para usar esse recurso, você precisará fazer logon novamente em suas contas e definir novamente as assinaturas filtradas.
 * Para contas do Azure Stack com suporte do AAD, o Gerenciador de Armazenamento agora recupera as assinaturas do Azure Stack quando “Azure Stack de Destino” é habilitado. Você não precisa mais criar um ambiente de logon personalizado.
 * Vários atalhos foram adicionados para permitir a navegação mais rápida. Eles incluem a alternância entre vários painéis e o movimento entre editores. Consulte o Menu Exibir para obter mais detalhes.
-* Os comentários do Gerenciador de Armazenamento agora ficam no GitHub. Você pode acessar nossa página de problemas clicando no botão de comentários na parte inferior esquerda ou acessando [https://github.com/Microsoft/AzureStorageExplorer/issues](https://github.com/Microsoft/AzureStorageExplorer/issues). Fique à vontade para fazer sugestões, relatar problemas, fazer perguntas ou deixar qualquer outro tipo de comentário.
+* Os comentários do Gerenciador de Armazenamento agora ficam no GitHub. Você pode acessar nossa página de problemas clicando no botão de comentários na parte inferior esquerda ou acessando [https://github.com/Microsoft/AzureStorageExplorer/issues](https://github.com/Microsoft/AzureStorageExplorer/issues) . Fique à vontade para fazer sugestões, relatar problemas, fazer perguntas ou deixar qualquer outro tipo de comentário.
 * Se você estiver executando problemas de certificado TLS/SSL e não conseguir localizar o certificado transgressor, agora poderá iniciar o Gerenciador de Armazenamento na linha de comando com o `--ignore-certificate-errors` sinalizador. Quando iniciado com esse sinalizador, Gerenciador de Armazenamento ignorará os erros de certificado TLS/SSL.
 * Agora há uma opção de 'Download' no menu de contexto para itens de arquivo e blob.
 * Acessibilidade aprimorada e suporte para leitor de tela. Se você usa recursos de acessibilidade, confira nossa [documentação de acessibilidade](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-accessibility) para obter mais informações.
@@ -1627,7 +1627,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * Agora, você pode entrar em contas do Azure Stack com base no AAD (Azure Active Directory).
 * Agora você pode carregar arquivos com mais de 32 MB em contas de armazenamento Premium
 * Suporte a acessibilidade aprimorado
-* Agora você pode adicionar certificados de TLS/SSL codificados em base de 64 confiáveis, acessando Edit&gt; -SSL Certificates-&gt; Import Certificates
+* Agora você pode adicionar certificados de TLS/SSL codificados em base de 64 confiáveis, acessando Edit- &gt; SSL Certificates- &gt; Import Certificates
 
 #### <a name="fixes"></a>Correções
 
@@ -1756,7 +1756,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * Ter mais de três grupos de blobs ou arquivos carregando ao mesmo tempo pode causar erros
 * Identificadores de pesquisa pesquisar em nós aproximadamente 50.000 – depois disso, o desempenho pode ser afetado ou pode causar exceções sem tratamento
 
-10/03/2016
+03/10/2016
 ### <a name="version-085"></a>Versão 0.8.5
 
 #### <a name="new"></a>Novo

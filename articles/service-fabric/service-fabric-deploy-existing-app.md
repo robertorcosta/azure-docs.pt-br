@@ -4,10 +4,10 @@ description: Aprenda a empacotar um aplicativo existente como um executável de 
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.openlocfilehash: c6c6bc0369593c177b74261da1fd8c15dd73fcb3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80520479"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Empacotar e implantar um executável existente no Service Fabric
@@ -22,7 +22,7 @@ Ao empacotar um executável já existente como [executável convidado](service-f
 
 O Visual Studio fornece um modelo de serviço do Service Fabric para ajudar você a implantar um executável convidado em um cluster do Service Fabric.
 
-1. Escolha **arquivo** > **novo projeto**e crie um Service Fabric aplicativo.
+1. Escolha **arquivo**  >  **novo projeto**e crie um Service Fabric aplicativo.
 2. Escolha **Executável Convidado** como o modelo de serviço.
 3. Clique em **procurar** para selecionar a pasta com seu executável e preencha o restante dos parâmetros para criar o serviço.
    * *Comportamento do Pacote de Código*. Pode ser definido para copiar todo o conteúdo da pasta para o Projeto do Visual Studio, o que será útil se o executável não mudar. Se você espera que o executável mude e se quiser a capacidade de obter novas compilações dinamicamente, poderá optar por vincular para a pasta. Você pode usar pastas vinculadas ao criar o projeto de aplicativo no Visual Studio. Isso cria um vínculo com o local de origem de dentro do projeto, tornando possível atualizar o executável convidado em seu destino de origem. Essas atualizações se tornam parte do pacote de aplicativo no build.
