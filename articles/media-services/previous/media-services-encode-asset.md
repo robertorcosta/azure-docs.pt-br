@@ -14,16 +14,15 @@ ms.topic: article
 ms.date: 06/25/2019
 ms.author: juliako
 ms.openlocfilehash: d5d5b8a7328ee82e94d494795617832cb0258667
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79251096"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84712319"
 ---
 # <a name="overview-of-azure-on-demand-media-encoders"></a>Visão geral dos codificadores de mídia sob demanda do Azure 
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [serviços de mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 Os Serviços de Mídia do Azure fornecem várias opções para a codificação de mídia na nuvem.
 
@@ -32,7 +31,7 @@ Codecs são o software que implementa os algoritmos de compactação/descompacta
 
 Os Serviços de Mídia fornecem empacotamento dinâmico, o que permite distribuir seu conteúdo codificado em Smooth Streaming ou MP4 com taxa de bits adaptável em formatos de streaming com suporte dos Serviços de Mídia (MPEG DASH, HLS, Smooth Streaming), sem a necessidade de empacotar novamente nesses formatos de streaming.
 
-Quando sua conta de serviços de mídia for criada, um ponto de extremidade de streaming **padrão** será adicionado à sua conta no estado **parado** . Para começar a transmitir seu conteúdo e aproveitar o empacotamento dinâmico e a criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar no estado **executando** . A cobrança para pontos de extremidade de streaming ocorre sempre que o ponto de extremidade está em um estado de **execução** .
+Quando sua conta de serviços de mídia for criada, um ponto de extremidade de streaming **padrão** será adicionado à sua conta no estado **parado** . Para iniciar seu conteúdo de streaming e tirar proveito do empacotamento dinâmico e da criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar em estado **Executando**. A cobrança para pontos de extremidade de streaming ocorre sempre que o ponto de extremidade está em um estado de **execução** .
 
 Os Serviços de Mídia são compatíveis com os seguintes codificadores sob demanda descritos neste artigo:
 
@@ -68,7 +67,7 @@ Para obter informações, veja [Como cortar vídeos usando o Codificador de Míd
 ### <a name="create-overlays"></a>Criar sobreposições
 Para obter informações, veja [Como criar sobreposições usando o Codificador de Mídia Padrão](media-services-advanced-encoding-with-mes.md#overlay).
 
-### <a name="see-also"></a>Confira também
+### <a name="see-also"></a>Consulte também
 [O blog Serviços de Mídia](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
 
 ## <a name="media-encoder-premium-workflow"></a>Fluxo de trabalho do Media Encoder Premium
@@ -86,7 +85,7 @@ Se o vídeo de entrada não contiver a legendagem oculta, o ativo de saída aind
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Envie comentários
+## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-articles"></a>Artigos relacionados

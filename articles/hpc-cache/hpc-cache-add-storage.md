@@ -3,15 +3,14 @@ title: Adicionar armazenamento a um cache HPC do Azure
 description: Como definir destinos de armazenamento para que o cache HPC do Azure possa usar seu sistema NFS local ou contêineres de blob do Azure para o armazenamento de arquivos de longo prazo
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/23/2020
 ms.author: v-erkel
-ms.openlocfilehash: dde29d02f3dbf10ca068d6b3f1ef6c326c206370
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4c3ef79806d29b188eb2738919bf912cfedc8ef1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195036"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513877"
 ---
 # <a name="add-storage-targets"></a>Adicionar destinos de armazenamento
 
@@ -22,6 +21,10 @@ Você pode definir até dez destinos de armazenamento diferentes para um cache. 
 Lembre-se de que as exportações de armazenamento devem ser acessíveis da rede virtual do seu cache. Para o armazenamento de hardware local, talvez seja necessário configurar um servidor DNS que possa resolver nomes de host para acesso de armazenamento NFS. Leia mais em [acesso DNS](hpc-cache-prereqs.md#dns-access).
 
 Adicione destinos de armazenamento depois de criar o cache. O procedimento é ligeiramente diferente dependendo se você está adicionando o armazenamento de BLOBs do Azure ou uma exportação de NFS. Os detalhes de cada um estão abaixo.
+
+Clique na imagem abaixo para assistir a uma [demonstração em vídeo](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/) da criação de um cache e da adição de um destino de armazenamento.
+
+[![miniatura de vídeo: cache do HPC do Azure: instalação (clique para visitar a página de vídeo)](media/video-4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/)
 
 ## <a name="open-the-storage-targets-page"></a>Abrir a página destinos de armazenamento
 
@@ -149,8 +152,8 @@ Esta tabela resume as diferenças do modelo de uso:
 
 | Modelo de uso | Modo de cache | Verificação de back-end | Atraso máximo de write-back |
 | ---- | ---- | ---- | ---- |
-| Leia gravações pesadas e frequentes | Ler | Never | Nenhum |
-| Mais de 15% de gravações | Leitura/gravação | Never | 1 hora |
+| Leia gravações pesadas e frequentes | Ler | Nunca | Nenhum |
+| Mais de 15% de gravações | Leitura/gravação | Nunca | 1 hora |
 | Clientes ignoram o cache | Ler | 30 segundos | Nenhum |
 
 ## <a name="next-steps"></a>Próximas etapas

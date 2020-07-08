@@ -9,7 +9,7 @@ editor: ''
 ms.assetid: 0030c5a4-16f0-46f4-ad30-782e7fea7e40
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
@@ -17,12 +17,11 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d1fb4f49e4f9ad41f971d869873200e6180b5cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: eec5c5a3d810fdd2d561313e3a355e872fb525c2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78399289"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608085"
 ---
 # <a name="troubleshoot-errors-in-azure-active-directory-reporting-api"></a>Solucionar erros na API de relatório do Azure Active Directory
 
@@ -50,5 +49,5 @@ Siga as etapas nos [Pré-requisitos para acessar a API de relatório do Azure Ac
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Usar a referência](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit)
-de API de auditoria[usar a referência de API de relatório de atividade de entrada](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
+[Usar a referência](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
+ de API de auditoria [Usar a referência de API de relatório de atividade de entrada](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)

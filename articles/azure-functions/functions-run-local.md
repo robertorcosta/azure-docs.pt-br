@@ -5,12 +5,11 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 19691a654162ee3855cb257fd42e29d2e1fc0157
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 35d408c636e20aef9495e72bc8535e0d7a99431e
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79276654"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955261"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com o Azure Functions Core Tools
 
@@ -35,7 +34,7 @@ Há três versões do Azure Functions Core Tools. A versão usada depende do seu
 
 + **Versão 1. x**: dá suporte à versão 1. x do tempo de execução de Azure functions. Esta versão das ferramentas só tem suporte em computadores Windows e é instalada por meio de um [pacote npm](https://www.npmjs.com/package/azure-functions-core-tools).
 
-+ A [**versão 2. x/3. x**](#v2): oferece suporte à [versão 2. x ou 3. x do tempo de execução de Azure Functions](functions-versions.md). Essas versões dão suporte ao [Windows](/azure/azure-functions/functions-run-local?tabs=windows#v2), [MacOS](/azure/azure-functions/functions-run-local?tabs=macos#v2)e [Linux](/azure/azure-functions/functions-run-local?tabs=linux#v2) e usam gerenciadores de pacotes específicos da plataforma ou NPM para instalação.
++ A [**versão 3. x/2. x**](#v2): oferece suporte à [versão 3. x ou 2. x do tempo de execução de Azure Functions](functions-versions.md). Essas versões dão suporte ao [Windows](/azure/azure-functions/functions-run-local?tabs=windows#v2), [MacOS](/azure/azure-functions/functions-run-local?tabs=macos#v2)e [Linux](/azure/azure-functions/functions-run-local?tabs=linux#v2) e usam gerenciadores de pacotes específicos da plataforma ou NPM para instalação.
 
 Salvo indicação em contrário, os exemplos neste artigo são para a versão 3. x.
 
@@ -46,9 +45,9 @@ O [Azure Functions Core Tools] é uma versão local do Azure Functions runtime q
 >[!IMPORTANT]
 >Você deve ter o [CLI do Azure](/cli/azure/install-azure-cli) instalado localmente para poder publicar no Azure por meio de Azure Functions Core Tools.  
 
-### <a name="version-2x-and-3x"></a><a name="v2"></a>Versão 2. x e 3. x
+### <a name="version-3x-and-2x"></a><a name="v2"></a>Versão 3. x e 2. x
 
-A versão 2. x/3. x das ferramentas usa o Azure Functions Runtime criado no .NET Core. Esta versão tem suporte em todas as plataformas que o .NET Core dá suporte, incluindo [Windows](/azure/azure-functions/functions-run-local?tabs=windows#v2), [MacOS](/azure/azure-functions/functions-run-local?tabs=macos#v2)e [Linux](/azure/azure-functions/functions-run-local?tabs=linux#v2). 
+A versão 3. x/2. x das ferramentas usa o Azure Functions Runtime criado no .NET Core. Esta versão tem suporte em todas as plataformas que o .NET Core dá suporte, incluindo [Windows](/azure/azure-functions/functions-run-local?tabs=windows#v2), [MacOS](/azure/azure-functions/functions-run-local?tabs=macos#v2)e [Linux](/azure/azure-functions/functions-run-local?tabs=linux#v2). 
 
 > [!IMPORTANT]
 > Você pode ignorar o requisito de instalação do SDK do .NET Core usando [pacotes de extensão].
@@ -58,26 +57,26 @@ A versão 2. x/3. x das ferramentas usa o Azure Functions Runtime criado no .NET
 As etapas a seguir usam npm para instalar ferramentas principais no Windows. Você também pode usar [Chocolatey](https://chocolatey.org/). Para obter mais informações, confira o [arquivo Leiame das Ferramentas Principais](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
 1. Instale o [Node.js], que inclui npm.
+    - Para a versão 3. x das ferramentas, há suporte apenas para Node.js 10 e versões posteriores.
     - Para a versão 2.x das ferramentas, somente Node.js 8.5 e versões posteriores têm suporte.
-    - Para a versão 3. x das ferramentas, somente o Node. js 10 e versões posteriores têm suporte.
 
 1. Instale o pacote de ferramentas principais:
 
-    ##### <a name="v2x"></a>v2.x
-
-    ```cmd
-    npm install -g azure-functions-core-tools
-    ```
-
-    ##### <a name="v3x"></a>v3.x
+    ##### <a name="v3x-recommended"></a>v3. x (recomendado)
 
     ```cmd
     npm install -g azure-functions-core-tools@3
     ```
 
+    ##### <a name="v2x"></a>v2.x
+
+    ```cmd
+    npm install -g azure-functions-core-tools@2
+    ```
+
    Pode levar alguns minutos para que o NPM Baixe e instale o pacote de ferramentas principais.
 
-1. Se você não planeja usar [pacotes de extensão], instale o [SDK do .NET Core 2. x para Windows](https://www.microsoft.com/net/download/windows).
+1. Se você não planeja usar [pacotes de extensão](functions-bindings-register.md#extension-bundles), instale o [SDK do .NET Core 3. x para Windows](https://dotnet.microsoft.com/download).
 
 # <a name="macos"></a>[macOS](#tab/macos)
 
@@ -87,14 +86,7 @@ As etapas a seguir usam o Homebrew para instalar as ferramentas principais em ma
 
 1. Instale o pacote de ferramentas principais:
 
-    ##### <a name="v2x"></a>v2.x
-
-    ```bash
-    brew tap azure/functions
-    brew install azure-functions-core-tools
-    ```
-
-    ##### <a name="v3x"></a>v3.x
+    ##### <a name="v3x-recommended"></a>v3. x (recomendado)
 
     ```bash
     brew tap azure/functions
@@ -102,6 +94,15 @@ As etapas a seguir usam o Homebrew para instalar as ferramentas principais em ma
     # if upgrading on a machine that has 2.x installed
     brew link --overwrite azure-functions-core-tools@3
     ```
+    
+    ##### <a name="v2x"></a>v2.x
+
+    ```bash
+    brew tap azure/functions
+    brew install azure-functions-core-tools@2
+    ```
+    
+1. Se você não planeja usar [pacotes de extensão](functions-bindings-register.md#extension-bundles), instale o [SDK do .NET Core 3. x para MacOS](https://dotnet.microsoft.com/download).
 
 # <a name="linux"></a>[Linux](#tab/linux)
 
@@ -114,7 +115,7 @@ As etapas a seguir usma [APT](https://wiki.debian.org/Apt) para instalar as ferr
     sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
     ```
 
-1. Configure a lista de origem de desenvolvimento do .NET antes de fazer uma atualização de APT.
+1. Configure a lista de fontes de desenvolvimento do .NET antes de fazer uma atualização de APT.
 
    Para configurar a lista de origem APT para o Ubuntu, execute este comando:
 
@@ -132,8 +133,9 @@ As etapas a seguir usma [APT](https://wiki.debian.org/Apt) para instalar as ferr
 
     | Distribuição do Linux | Versão |
     | --------------- | ----------- |
-    | Debian 9 | `stretch` |
-    | Debian 8 | `jessie` |
+    | Debian 10 | `buster`  |
+    | Debian 9  | `stretch` |
+    | Ubuntu 19.04    | `disco`     |
     | Ubuntu 18.10    | `cosmic`    |
     | Ubuntu 18.04    | `bionic`    |
     | Ubuntu 17.04    | `zesty`     |
@@ -147,11 +149,19 @@ As etapas a seguir usma [APT](https://wiki.debian.org/Apt) para instalar as ferr
 
 1. Instale o pacote de ferramentas principais:
 
+    ##### <a name="v3x-recommended"></a>v3. x (recomendado)
     ```bash
-    sudo apt-get install azure-functions-core-tools
+    sudo apt-get update
+    sudo apt-get install azure-functions-core-tools-3
+    ```
+    
+    ##### <a name="v2x"></a>v2.x
+    ```bash
+    sudo apt-get update
+    sudo apt-get install azure-functions-core-tools-2
     ```
 
-1. Se você não planeja usar [pacotes de extensão], instale o [SDK do .NET Core 2. x para Linux](https://www.microsoft.com/net/download/linux).
+1. Se você não planeja usar [pacotes de extensão](functions-bindings-register.md#extension-bundles), instale o [SDK do .NET Core 3. x para Linux](https://dotnet.microsoft.com/download).
 
 ---
 
@@ -159,7 +169,7 @@ As etapas a seguir usma [APT](https://wiki.debian.org/Apt) para instalar as ferr
 
 Um diretório de projeto de funções contém os arquivos [host. JSON](functions-host-json.md) e [local.settings.json](#local-settings-file), ao longo de subpastas que contêm o código para funções individuais. Esse diretório é o equivalente ao de um aplicativo de funções no Azure. Para saber mais sobre a estrutura de pastas do Functions, consulte o [guia de desenvolvedores do Azure Functions](functions-reference.md#folder-structure).
 
-A versão 2. x exige que você selecione um idioma padrão para seu projeto quando ele for inicializado. Na versão 2. x, todas as funções adicionadas usam modelos de idioma padrão. Na versão 1.x, você especifica a linguagem cada vez que você criar uma função.
+A versão 3. x/2. x exige que você selecione um idioma padrão para seu projeto quando ele for inicializado. Na versão 3. x/2. x, todas as funções adicionadas usam modelos de idioma padrão. Na versão 1.x, você especifica a linguagem cada vez que você criar uma função.
 
 Na janela do terminal ou em um prompt de comando, execute o seguinte comando para criar o projeto e o repositório Git local:
 
@@ -168,7 +178,7 @@ func init MyFunctionProj
 ```
 
 Quando você fornece um nome de projeto, uma nova pasta com esse nome é criada e inicializada. Caso contrário, a pasta atual é inicializada.  
-Na versão 2.x, quando você executar o comando você deve escolher um runtime para o seu projeto. 
+Na versão 3. x/2. x, ao executar o comando, você deve escolher um tempo de execução para seu projeto. 
 
 <pre>
 Select a worker runtime:
@@ -191,26 +201,26 @@ Writing C:\myfunctions\myMyFunctionProj\.vscode\extensions.json
 Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 </pre>
 
-`func init` dá suporte às seguintes opções, que são somente da versão 2.x, a menos que haja outro tipo de orientação:
+`func init`o oferece suporte às seguintes opções, que são a versão 3. x/2. x-only, salvo indicação em contrário:
 
 | Opção     | Descrição                            |
 | ------------ | -------------------------------------- |
 | **`--csharp`**<br/> **`--dotnet`** | Inicializa um [projeto de biblioteca de classes C# (. cs)](functions-dotnet-class-library.md). |
 | **`--csx`** | Inicializa um [projeto de script C# (. CSX)](functions-reference-csharp.md). Você precisam especificar `--csx` nos próximos comandos. |
 | **`--docker`** | Crie um Dockerfile para um contêiner usando uma imagem base que se baseia no `--worker-runtime` escolhido. Use esta opção quando planejar publicar em um contêiner do Linux personalizado. |
-| **`--docker-only`** |  Adiciona um Dockerfile a um projeto existente. Solicita o tempo de execução de trabalho se não for especificado ou definido em local. Settings. JSON. Use esta opção quando você planeja publicar um projeto existente para um contêiner personalizado do Linux. |
+| **`--docker-only`** |  Adiciona um Dockerfile a um projeto existente. Solicita o tempo de execução de trabalho se não for especificado ou definido em local.settings.jsem. Use esta opção quando você planeja publicar um projeto existente para um contêiner personalizado do Linux. |
 | **`--force`** | Inicializa o projeto mesmo quando há arquivos existentes no projeto. Essa configuração substitui os arquivos existentes pelo mesmo nome. Os outros arquivos na pasta do projeto não serão afetados. |
 | **`--java`**  | Inicializa um [projeto Java](functions-reference-java.md). |
 | **`--javascript`**<br/>**`--node`**  | Inicializa um [projeto JavaScript](functions-reference-node.md). |
-| **`--no-source-control`**<br/>**`-n`** | Impede a criação padrão de um repositório Git na versão 1.x. Na versão 2.x, o repositório git não será criado por padrão. |
+| **`--no-source-control`**<br/>**`-n`** | Impede a criação padrão de um repositório Git na versão 1.x. Na versão 3. x/2. x, o repositório git não é criado por padrão. |
 | **`--powershell`**  | Inicializa um [projeto do PowerShell](functions-reference-powershell.md). |
 | **`--python`**  | Inicializa um [projeto Python](functions-reference-python.md). |
 | **`--source-control`** | Controla se um repositório git é criado. Por padrão, não é criado um repositório. Quando `true`, um repositório é criado. |
 | **`--typescript`**  | Inicializa um [projeto TypeScript](functions-reference-node.md#typescript). |
-| **`--worker-runtime`** | Define o runtime de linguagem para o projeto. Os valores com suporte `csharp`são `dotnet`: `java`, `javascript`,`node` ,, (JavaScript `powershell`) `python`,, `typescript`e. Quando não estiver definido, você será solicitado a escolher o tempo de execução durante a inicialização. |
+| **`--worker-runtime`** | Define o runtime de linguagem para o projeto. Os valores com suporte são: `csharp` , `dotnet` , `java` , `javascript` , `node` (JavaScript),, `powershell` `python` e `typescript` . Quando não estiver definido, você será solicitado a escolher o tempo de execução durante a inicialização. |
 
 > [!IMPORTANT]
-> Por padrão, a versão 2.x das ferramentas do Core cria a função de projetos de aplicativo para o runtime do .NET como [projetos de classes C#](functions-dotnet-class-library.md) (. csproj). Esses projetos C#, que podem ser usados com o Visual Studio ou com Visual Studio Code, são compilados durante o teste e ao publicar no Azure. Se você deseja criar e trabalhar com o os mesmos arquivos de script C# (. CSx) criados na versão 1. x e no portal, você deve incluir o `--csx` parâmetro ao criar e implantar funções.
+> Por padrão, a versão 3. x/2. x das ferramentas principais cria projetos de aplicativo de funções para o tempo de execução do .NET como [projetos de classe C#](functions-dotnet-class-library.md) (. csproj). Esses projetos C#, que podem ser usados com o Visual Studio ou com Visual Studio Code, são compilados durante o teste e ao publicar no Azure. Se você deseja criar e trabalhar com o os mesmos arquivos de script C# (. CSx) criados na versão 1. x e no portal, você deve incluir o `--csx` parâmetro ao criar e implantar funções.
 
 [!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
 
@@ -225,9 +235,9 @@ Os valores de configuração do aplicativo de funções também podem ser lidos 
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
 
-Quando nenhuma cadeia de conexão de armazenamento válida é [`AzureWebJobsStorage`] definida para e o emulador não está sendo usado, a seguinte mensagem de erro é mostrada:
+Quando nenhuma cadeia de conexão de armazenamento válida é definida para [`AzureWebJobsStorage`] e o emulador não está sendo usado, a seguinte mensagem de erro é mostrada:
 
-> Valor ausente para AzureWebJobsStorage em local.settings.json. Isso é necessário para todos os gatilhos diferentes de HTTP. É possível executar o func azure functionapp fetch-app-settings \<functionAppName\>' ou especificar uma cadeia de conexão em local.settings.json.
+> Valor ausente para AzureWebJobsStorage em local.settings.json. Isso é necessário para todos os gatilhos diferentes de HTTP. É possível executar 'func azure functionapp fetch-app-settings \<functionAppName\>' ou especificar uma cadeia de conexão em local.settings.json.
 
 ### <a name="get-your-storage-connection-strings"></a>Obter suas cadeias de conexão de armazenamento
 
@@ -266,7 +276,7 @@ Para criar uma função, execute o seguinte comando:
 func new
 ```
 
-Na versão 2.x, quando você executa `func new` você é solicitado a escolher um modelo no idioma padrão do seu aplicativo de funções, em seguida, você também precisará escolher um nome para sua função. Na versão 1.x, você também precisará escolher o idioma.
+Na versão 3. x/2. x, quando você executar, será `func new` solicitado que você escolha um modelo no idioma padrão do seu aplicativo de funções e, em seguida, você também será solicitado a escolher um nome para a função. Na versão 1.x, você também precisará escolher o idioma.
 
 <pre>
 Select a language: Select a template:
@@ -296,8 +306,8 @@ Você também pode especificar essas opções no comando usando os seguintes arg
 
 | Argumento     | Descrição                            |
 | ------------------------------------------ | -------------------------------------- |
-| **`--csx`** | (Versão 2. x) Gera os mesmos modelos C# (. CSx) de script usados na versão 1. x e no portal. |
-| **`--language`**, **`-l`**| A linguagem de programação modelo, como C#, F# ou JavaScript. Essa opção é necessária na versão 1.x. Na versão 2.x, não use essa opção nem escolha uma linguagem que corresponda ao runtime do trabalho. |
+| **`--csx`** | (Versão 3. x/2. x) Gera os mesmos modelos de script C# (. CSX) usados na versão 1. x e no Portal. |
+| **`--language`**, **`-l`**| A linguagem de programação modelo, como C#, F# ou JavaScript. Essa opção é necessária na versão 1.x. Na versão 3. x/2. x, não use essa opção ou escolha um idioma que corresponda ao tempo de execução do trabalho. |
 | **`--name`**, **`-n`** | O nome da função. |
 | **`--template`**, **`-t`** | Use o `func templates list` comando para ver a lista completa de modelos disponíveis para cada idioma com suporte.   |
 
@@ -317,7 +327,7 @@ func new --template "Queue Trigger" --name QueueTriggerJS
 
 Para executar um projeto de funções, execute o host de funções. O host habilita gatilhos para todas as funções no projeto. O comando start varia, dependendo da linguagem do projeto.
 
-# <a name="c"></a>[&\#](#tab/csharp)
+# <a name="c"></a>[C\#](#tab/csharp)
 
 ```
 func start --build
@@ -345,7 +355,7 @@ npm start
 ---
 
 >[!NOTE]  
-> A versão 1. x do tempo de execução do `host` Functions requer o comando, como no exemplo a seguir:
+> A versão 1. x do tempo de execução do Functions requer o `host` comando, como no exemplo a seguir:
 >
 > ```
 > func host start
@@ -360,7 +370,7 @@ npm start
 | **`--cors-credentials`** | Permitir solicitações autenticadas entre origens (ou seja, cookies e o cabeçalho de autenticação) sem suporte para a versão 1. x. |
 | **`--cors`** | Uma lista separada por vírgulas de origens CORS, sem espaços. |
 | **`--language-worker`** | Argumentos para configurar o trabalhador de idioma. Por exemplo, você pode habilitar a depuração para o trabalho de idioma fornecendo a [porta de depuração e outros argumentos necessários](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers). Sem suporte para a versão 1. x. |
-| **`--nodeDebugPort`**, **`-n`** | A porta do depurador node. js a ser usada. Padrão: um valor de launch.json ou 5858. Versão 1.x somente. |
+| **`--nodeDebugPort`**, **`-n`** | A porta para o depurador de Node.js a ser usado. Padrão: um valor de launch.json ou 5858. Versão 1.x somente. |
 | **`--password`** | A senha ou um arquivo que contém a senha para um arquivo .pfx. Usado somente com `--cert`. Sem suporte para a versão 1. x. |
 | **`--port`**, **`-p`** | A porta local na qual escutar. Valor Padrão: 7071. |
 | **`--pause-on-error`** | Pausar para entrada adicional antes de encerrar o processo. Usado apenas ao iniciar as Core Tools de um IDE (ambiente de desenvolvimento integrado).|
@@ -394,7 +404,9 @@ Para ter informações mais gerais sobre o teste de funções, confira [Estraté
 
 Chame o seguinte ponto de extremidade para executar localmente funções disparadas por HTTP e webhook:
 
-    http://localhost:{port}/api/{function_name}
+```http
+http://localhost:{port}/api/{function_name}
+```
 
 Use o mesmo nome de servidor e porta no qual o host do Functions está escutando. Veja isso na saída gerada ao iniciar o host do Function. Chame essa URL usando qualquer método HTTP com suporte do disparador.
 
@@ -428,7 +440,9 @@ Como alternativa, é possível passar dados de teste para a execução no corpo 
 
 Chame o seguinte ponto de extremidade de administrador para disparar funções que não são HTTP:
 
-    http://localhost:{port}/admin/functions/{function_name}
+```http
+http://localhost:{port}/admin/functions/{function_name}
+```
 
 Para passar dados de teste para o ponto de extremidade administrador de uma função, é necessário fornecer os dados no corpo de uma mensagem de solicitação POST. O corpo da mensagem deve ter o seguinte formato JSON:
 
@@ -453,7 +467,7 @@ curl --request POST -H "Content-Type:application/json" --data "{'input':'sample 
 #### <a name="using-the-func-run-command-version-1x-only"></a>Usando o `func run` comando (somente versão 1. x)
 
 >[!IMPORTANT]
-> Só `func run` há suporte para o comando na versão 1. x das ferramentas. Para saber mais, consulte o tópico [Como direcionar para versões do Azure Functions runtime](set-runtime-version.md).
+> `func run`Só há suporte para o comando na versão 1. x das ferramentas. Para saber mais, consulte o tópico [Como direcionar para versões do Azure Functions runtime](set-runtime-version.md).
 
 Na versão 1. x, você também pode invocar uma função diretamente usando `func run <FunctionName>` e fornecer dados de entrada para a função. Esse comando é semelhante à execução de uma função usando a guia **Testar** no Portal do Azure.
 
@@ -484,26 +498,26 @@ Uma pasta de projeto pode conter arquivos e diretórios específicos do idioma q
 
 ### <a name="deploy-project-files"></a><a name="project-file-deployment"></a>Implantar arquivos de projeto
 
-Para publicar seu código local em um aplicativo de funções no Azure, use `publish` o comando:
+Para publicar seu código local para um aplicativo de funções no Azure, use o comando `publish`:
 
 ```
 func azure functionapp publish <FunctionAppName>
 ```
 
-Esse comando publica a um aplicativo de funções existente no Azure. Você receberá um erro se tentar publicar em um `<FunctionAppName>` que não existe em sua assinatura. Para saber como criar um aplicativo de funções pelo prompt de comando ou pela janela do terminal usando a CLI do Azure, consulte [Criar um aplicativo de funções para execução sem servidor](./scripts/functions-cli-create-serverless.md). Por padrão, esse comando usa a [compilação remota](functions-deployment-technologies.md#remote-build) e implanta seu aplicativo para ser [executado a partir do pacote de implantação](run-functions-from-deployment-package.md). Para desabilitar esse modo de implantação recomendado, use `--nozip` a opção.
+Esse comando publica a um aplicativo de funções existente no Azure. Você receberá um erro se tentar publicar em um `<FunctionAppName>` que não existe em sua assinatura. Para saber como criar um aplicativo de funções pelo prompt de comando ou pela janela do terminal usando a CLI do Azure, consulte [Criar um aplicativo de funções para execução sem servidor](./scripts/functions-cli-create-serverless.md). Por padrão, esse comando usa a [compilação remota](functions-deployment-technologies.md#remote-build) e implanta seu aplicativo para ser [executado a partir do pacote de implantação](run-functions-from-deployment-package.md). Para desabilitar esse modo de implantação recomendado, use a `--nozip` opção.
 
 >[!IMPORTANT]
-> Quando você cria um aplicativo de funções no portal do Azure, ele usa a versão 2.x do runtime do Core Tools por padrão. Para que o aplicativo de funções use a versão 1.x do runtime, siga as instruções em [Executar na versão 1.x](functions-versions.md#creating-1x-apps).
+> Quando você cria um aplicativo de funções no portal do Azure, ele usa a versão 3. x do tempo de execução da função por padrão. Para que o aplicativo de funções use a versão 1.x do runtime, siga as instruções em [Executar na versão 1.x](functions-versions.md#creating-1x-apps).
 > Você não pode alterar a versão do runtime de um aplicativo de funções que tenha funções existentes.
 
-As opções de publicação a seguir se aplicam a ambas as versões, 1. x e 2. x:
+As opções de publicação a seguir se aplicam às versões 3. x, 2. x e 1. x:
 
 | Opção     | Descrição                            |
 | ------------ | -------------------------------------- |
 | **`--publish-local-settings -i`** |  Configurações de publicação em local.settings.json do Azure, a solicitação para substituir se a configuração já existe. Se você estiver usando a Emulador de Armazenamento do Microsoft Azure, primeiro altere a configuração do aplicativo para uma [conexão de armazenamento real](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | Suprima o prompt para substituir as configurações do aplicativo quando `--publish-local-settings -i` for usado.|
 
-Somente há suporte para as seguintes opções de publicação na versão 2.x:
+As opções de publicação a seguir têm suporte apenas na versão 3. x e 2. x:
 
 | Opção     | Descrição                            |
 | ------------ | -------------------------------------- |
@@ -512,7 +526,7 @@ Somente há suporte para as seguintes opções de publicação na versão 2.x:
 | **`--list-included-files`** | Exibe uma lista de arquivos que são publicados, que é baseada no arquivo .funcignore. |
 | **`--nozip`** | Transforma o padrão de `Run-From-Package` modo desativado. |
 | **`--build-native-deps`** | Ignora a geração da pasta. Wheels ao publicar aplicativos de funções do Python. |
-| **`--build`**, **`-b`** | Executa a ação de compilação ao implantar em um aplicativo de funções do Linux. Aceita: `remote` e `local`. |
+| **`--build`**, **`-b`** | Executa a ação de compilação ao implantar em um aplicativo de funções do Linux. Aceita: `remote` e `local` . |
 | **`--additional-packages`** | Lista de pacotes para instalar ao compilar dependências nativas. Por exemplo: `python3-dev libevent-dev`. |
 | **`--force`** | Ignorar a verificação de pré-publicação em determinados cenários. |
 | **`--csx`** | Publicar um projeto de script (.csx) C#. |
@@ -521,7 +535,7 @@ Somente há suporte para as seguintes opções de publicação na versão 2.x:
 
 ### <a name="deploy-custom-container"></a>Implantar contêiner personalizado
 
-Azure Functions permite que você implante seu projeto de função em um [contêiner do Docker personalizado](functions-deployment-technologies.md#docker-container). Para obter mais informações, confira [Criar uma função no Linux usando uma imagem personalizada](functions-create-function-linux-custom-image.md). Os contêineres personalizados precisam ter um Dockerfile. Para criar um aplicativo com um Dockerfile, use a opção--Dockerfile em `func init`.
+Azure Functions permite que você implante seu projeto de função em um [contêiner do Docker personalizado](functions-deployment-technologies.md#docker-container). Para obter mais informações, confira [Criar uma função no Linux usando uma imagem personalizada](functions-create-function-linux-custom-image.md). Os contêineres personalizados precisam ter um Dockerfile. Para criar um aplicativo com um Dockerfile, use a opção--Dockerfile em `func init` .
 
 ```
 func deploy
@@ -566,7 +580,7 @@ Para arquivar uma solicitação de bug ou recurso, [abra um problema do GitHub](
 
 <!-- LINKS -->
 
-[Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
+[Ferramentas básicas do Azure Functions]: https://www.npmjs.com/package/azure-functions-core-tools
 [Azure portal]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime

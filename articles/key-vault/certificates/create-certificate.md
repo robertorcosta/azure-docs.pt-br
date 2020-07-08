@@ -11,10 +11,9 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 7450dd79247078afe02d1bb63727cfd260d674fc
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81866247"
 ---
 # <a name="certificate-creation-methods"></a>Métodos de criação de certificado
@@ -32,7 +31,7 @@ As descrições a seguir correspondem às etapas indicadas em verde no diagrama 
 1. No diagrama acima, o aplicativo está criando um certificado que internamente começa com a criação de uma chave em seu cofre de chaves.
 2. O Key Vault devolve ao seu aplicativo uma Solicitação de Assinatura de Certificado (CSR)
 3. O aplicativo passa a CSR à sua autoridade de certificação escolhida.
-4. A CA escolhida responde com um Certificado X509.
+4. A AC escolhida responde com um certificado X509.
 5. Seu aplicativo conclui a criação do novo certificado com uma fusão do Certificado X509 da autoridade de certificação.
 
 -   **Criar um certificado com um provedor de emissor conhecido:** esse método requer que você faça uma tarefa única de criação de um objeto de emissor. Depois que um objeto de emissor é criado no cofre de chaves, seu nome pode ser referenciado na política do certificado do KV. Uma solicitação para criar um certificado do KV criará um par de chaves no cofre e se comunicará com o serviço do provedor de emissor usando as informações no objeto de emissor referenciado para obter um certificado x509. O certificado x509 é recuperado do serviço de emissor e é mesclado com o par de chaves para concluir a criação do certificado do KV.  
@@ -42,10 +41,10 @@ As descrições a seguir correspondem às etapas indicadas em verde no diagrama 
 As descrições a seguir correspondem às etapas indicadas em verde no diagrama anterior.
 
 1. No diagrama acima, o aplicativo está criando um certificado que internamente começa com a criação de uma chave em seu cofre de chaves.
-2. O Key Vault envia uma solicitação de certificado TLS/SSL para a CA.
+2. Key Vault envia uma solicitação de certificado TLS/SSL para a autoridade de certificação.
 3. Seu aplicativo faz a apuração, em um processo de loop e espera, para seu Key Vault para a conclusão do certificado. A criação do certificado é concluída quando o Key Vault recebe a resposta da autoridade de certificação com o certificado x509.
-4. A CA responde à solicitação de certificado TLS/SSL do Key Vault com um certificado TLS/SSL X.509.
-5. Sua nova criação de certificados é concluída com a fusão do certificado TLS/SSL X.509 para a CA.
+4. A autoridade de certificação responde à solicitação de certificado TLS/SSL de Key Vault com um certificado TLS/SSL X. 509.
+5. A nova criação de certificado é concluída com a fusão do certificado TLS/SSL X. 509 para a autoridade de certificação.
 
 ## <a name="asynchronous-process"></a>Processamento assíncrono
 A criação do certificado do KV é um processo assíncrono. Esta operação criará uma solicitação de certificado do KV e retornará um código de status http 202 (Aceito). O status da solicitação pode ser acompanhado consultando o objeto pendente criado por essa operação. O URI completo do objeto pendente é retornado no cabeçalho de LOCALIZAÇÃO.  
@@ -80,10 +79,10 @@ A chave endereçável e o segredo obtêm seus atributos dos atributos do certifi
 ## <a name="partnered-ca-providers"></a>Provedores de autoridade de certificação parceiros
 A criação de certificado pode ser concluída manualmente ou usando um emissor próprio (“Auto”). O Key Vault também possui parceria com determinados provedores de emissor para simplificar a criação de certificados. Os seguintes tipos de certificados podem ser solicitados ao cofre de chaves com esses provedores de emissor parceiros.  
 
-|Provedor|Tipo de certificado|Configuração de configuração  
+|Provedor|Tipo de certificado|Configuração  
 |--------------|----------------------|------------------|  
-|DigiCert|O Key Vault oferece certificados SSL OV ou EV com DigiCert| [Guia de Integração](https://docs.digicert.com/certificate-tools/azure-key-vault-integration-guide/)
-|GlobalSign|O Key Vault oferece certificados SSL OV ou EV com GlobalSign| [Guia de Integração](https://support.globalsign.com/digital-certificates/digital-certificate-installation/generating-and-importing-certificate-microsoft-azure-key-vault)
+|DigiCert|O Key Vault oferece certificados SSL OV ou EV com DigiCert| [Guia de integração](https://docs.digicert.com/certificate-tools/azure-key-vault-integration-guide/)
+|GlobalSign|O Key Vault oferece certificados SSL OV ou EV com GlobalSign| [Guia de integração](https://support.globalsign.com/digital-certificates/digital-certificate-installation/generating-and-importing-certificate-microsoft-azure-key-vault)
 
  Um emissor do certificado é uma entidade representada no Azure Key Vault (KV) como um recurso CertificateIssuer. Ele é usado para fornecer informações sobre a origem de um certificado KV; nome do emissor, provedor, credenciais e outros detalhes administrativos.
 

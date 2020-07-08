@@ -7,12 +7,11 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: bd973a859ce1fa6a9ce5566b1403331988630960
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 8615a853ea218c0598f33d87d39c9ead15709cc0
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828093"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955447"
 ---
 # <a name="support-for-microsoft-commercial-marketplace"></a>Suporte ao marketplace comercial da Microsoft
 
@@ -43,10 +42,9 @@ Abra um tíquete com o [suporte do editor do marketplace](https://aka.ms/marketp
 | Email: [gtm@microsoft.com](mailto:gtm@microsoft.com) | Suporte para benefícios de entrada no mercado e perguntas sobre o programa. | O horário comercial está no fuso horário do Pacífico. |  
 | Email: [cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Responde perguntas sobre o uso para logotipos e identidade visual do Azure. |  |  
 
-
 ## <a name="next-steps"></a>Próximas etapas
 
-* Visite a página [guia do editor do marketplace comercial](https://docs.microsoft.com/azure/marketplace/).
-* Saiba mais sobre o [suporte para o programa do marketplace comercial no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support).
+* Visite a página [guia do editor do marketplace comercial](index.yml).
+* Saiba mais sobre o [suporte para o programa do marketplace comercial no Partner Center](partner-center-portal/support.md).
 
 ---

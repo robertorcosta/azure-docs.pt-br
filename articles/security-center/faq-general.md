@@ -13,19 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: e2cc04be5a79009f92e275f9de46df60a8e23c8b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 782884f53f0ec17c47b79cf66504d0e3ad3fc29d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106569"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84783207"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>Perguntas frequentes-perguntas gerais sobre a central de segurança do Azure
 
 ## <a name="what-is-azure-security-center"></a>O que é a Central de Segurança do Azure?
 A central de segurança do Azure ajuda você a prevenir, detectar e responder a ameaças com maior visibilidade e controle sobre a segurança de seus recursos. Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança.
 
-A central de segurança usa o agente de Log Analytics para coletar e armazenar dados. Para obter detalhes detalhados, consulte [coleta de dados na central de segurança do Azure](security-center-enable-data-collection.md).
+A Central de Segurança usa o agente do Log Analytics para coletar e armazenar dados. Para obter detalhes detalhados, consulte [coleta de dados na central de segurança do Azure](security-center-enable-data-collection.md).
 
 
 ## <a name="how-do-i-get-azure-security-center"></a>Como posso obter a Central de Segurança do Azure?
@@ -36,15 +35,9 @@ A Central de Segurança do Azure é habilitada com sua assinatura do Microsoft A
 A Central de Segurança do Azure monitora os seguintes recursos do Azure:
 
 * VMs (máquinas virtuais) (incluindo [serviços de nuvem](../cloud-services/cloud-services-choose-me.md))
-* Conjuntos de dimensionamento de máquinas virtuais
-* Redes Virtuais do Azure
-* Contêineres
-* Serviço do SQL Azure
-* Conta de Armazenamento do Azure
-* Aplicativos Web do Azure (em um [Ambiente do Serviço de Aplicativo](../app-service/environment/intro.md))
+* conjuntos de escala de máquina virtual
 * Soluções de parceiros integradas com sua assinatura do Azure, como um firewall de aplicativo Web em VMs e no Ambiente do Serviço de Aplicativo
-
-Além disso, os computadores não Azure (incluindo o local) também podem ser monitorados pela central de segurança do Azure. Há suporte para [máquinas com Windows](./quick-onboard-windows-computer.md) e [computadores Linux](./quick-onboard-linux-computer.md) .
+* [Os vários serviços de PaaS do Azure listados na visão geral do produto](features-paas.md)
 
 
 ## <a name="how-can-i-see-the-current-security-state-of-my-azure-resources"></a>Como é possível ver o estado atual da segurança dos meus recursos do Azure?
@@ -59,7 +52,7 @@ As políticas de segurança habilitadas na Central de Segurança do Azure determ
 
 
 ## <a name="who-can-modify-a-security-policy"></a>Quem pode modificar uma política de segurança?
-Para modificar uma política de segurança, você deve ser um administrador de segurança ou um proprietário ou colaborador dessa assinatura.
+Para modificar uma política de segurança, você deve ser um **administrador de segurança** ou um **proprietário** dessa assinatura.
 
 Para saber como configurar uma política de segurança, consulte a seção [Como configurar de políticas de segurança na Central de segurança do Azure](tutorial-security-policy.md).
 
@@ -87,7 +80,7 @@ A Central de Segurança do Azure automaticamente coleta, analisa e funde os dado
 
 
 ## <a name="why-did-secure-score-values-change"></a>Por que a segurança dos valores de pontuação foi alterada? <a name="secure-score-faq"></a>
-A partir de fevereiro de 2019, a central de segurança ajustou a pontuação de algumas recomendações, a fim de se adequar melhor à sua gravidade. Como resultado desse ajuste, pode haver alterações nos valores gerais de Pontuação segura.  Para obter mais informações sobre Pontuação segura, consulte [cálculo de Pontuação segura](security-center-secure-score.md).
+A partir de fevereiro de 2019, a central de segurança ajustou a pontuação de algumas recomendações, a fim de se adequar melhor à sua gravidade. Como resultado desse ajuste, pode haver alterações nos valores gerais de Pontuação segura.  Para obter mais informações sobre a pontuação segura, consulte [proteção segura aprimorada na central de segurança do Azure](secure-score-security-controls.md).
 
 
 ## <a name="whats-the-difference-between-threats-detected-and-alerted-on-by-microsoft-security-response-center-versus-azure-security-center"></a>Qual é a diferença entre ameaças detectadas e alertadas pelo Microsoft Security Response Center versus pela Central de Segurança do Azure?

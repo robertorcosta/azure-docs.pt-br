@@ -7,12 +7,11 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 3b95863c1ae53bd0642aec356f55aba1faf8ef09
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 49c83fab54b7188c3a3838f3162e71d8495989dd
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79535775"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037504"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Padrões de solução do Azure Stream Analytics
 
@@ -30,13 +29,13 @@ Esse padrão de solução oferece a menor latência da origem do evento para o p
 
 ## <a name="use-sql-for-dashboard"></a>Usar SQL para o painel
 
-O painel de Power BI oferece baixa latência, mas não pode ser usado para produzir relatórios de Power BIs completos. Um padrão de relatório comum é a saída de seus dados para um SQL Database primeiro. Em seguida, use o conector do SQL do Power BI para consultar o SQL para os dados mais recentes.
+O painel de Power BI oferece baixa latência, mas não pode ser usado para produzir relatórios de Power BIs completos. Um padrão de relatório comum é gerar os dados primeiro para o banco de dado SQL. Em seguida, use o conector do SQL do Power BI para consultar o SQL para os dados mais recentes.
 
 ![Painel SQL do ASA](media/stream-analytics-solution-patterns/sqldashboard.png)
 
 O uso do banco de dados SQL proporciona mais flexibilidade, mas às custas de uma latência um pouco mais alta. Essa solução é ideal para trabalhos com requisitos de latência maiores que um segundo. Com esse método, você pode maximizar Power BI recursos para fatiar e refinar os dados para relatórios e muito mais opções de visualização. Você também obterá a flexibilidade de usar outras soluções de painel, como tableau.
 
-O SQL não é um armazenamento de dados de alta taxa de transferência. Atualmente, a taxa de transferência máxima para um banco de dados SQL de Azure Stream Analytics está em cerca de 24 MB/s. Se as origens do evento em sua solução produzirem dados a uma taxa mais alta, você precisará usar a lógica de processamento no Stream Analytics para reduzir a taxa de saída para o SQL. Técnicas como filtragem, agregações em janela, correspondência de padrões com junções temporais e funções analíticas podem ser usadas. A taxa de saída para o SQL pode ser otimizada ainda mais usando técnicas descritas em [Azure Stream Analytics saída para o banco de dados SQL do Azure](stream-analytics-sql-output-perf.md).
+O SQL não é um armazenamento de dados de alta taxa de transferência. Atualmente, a taxa de transferência máxima para o banco de dados SQL de Azure Stream Analytics está em cerca de 24 MB/s. Se as origens do evento em sua solução produzirem dados a uma taxa mais alta, você precisará usar a lógica de processamento no Stream Analytics para reduzir a taxa de saída para o SQL. Técnicas como filtragem, agregações em janela, correspondência de padrões com junções temporais e funções analíticas podem ser usadas. A taxa de saída para o SQL pode ser otimizada ainda mais usando técnicas descritas em [Azure Stream Analytics saída para o banco de dados SQL do Azure](stream-analytics-sql-output-perf.md).
 
 ## <a name="incorporate-real-time-insights-into-your-application-with-event-messaging"></a>Incorpore informações em tempo real em seu aplicativo com mensagens de evento
 
@@ -72,7 +71,7 @@ Esse padrão melhora a resiliência e a capacidade de gerenciamento do sistema. 
 
 ## <a name="use-reference-data-for-application-customization"></a>Usar dados de referência para personalização do aplicativo
 
-O Azure Stream Analytics recurso de dados de referência foi projetado especificamente para personalização do usuário final, como limite de alerta, regras de processamento e [limites](geospatial-scenarios.md)geográficos. A camada de aplicativo pode aceitar alterações de parâmetro e armazená-las em um banco de dados SQL. O trabalho de Stream Analytics consulta periodicamente em busca de alterações do banco de dados e torna os parâmetros de personalização acessíveis por meio de uma junção de dado de referência. Para obter mais informações sobre como usar dados de referência para personalização de aplicativos, consulte [dados de referência do SQL](sql-reference-data.md) e junção de dados de [referência](/stream-analytics-query/reference-data-join-azure-stream-analytics).
+O Azure Stream Analytics recurso de dados de referência foi projetado especificamente para personalização do usuário final, como limite de alerta, regras de processamento e [limites](geospatial-scenarios.md)geográficos. A camada de aplicativo pode aceitar alterações de parâmetro e armazená-las no banco de dados SQL. O trabalho de Stream Analytics consulta periodicamente em busca de alterações do banco de dados e torna os parâmetros de personalização acessíveis por meio de uma junção de dado de referência. Para obter mais informações sobre como usar dados de referência para personalização de aplicativos, consulte [dados de referência do SQL](sql-reference-data.md) e junção de dados de [referência](/stream-analytics-query/reference-data-join-azure-stream-analytics).
 
 Esse padrão também pode ser usado para implementar um mecanismo de regras em que os limites das regras são definidos a partir dos dados de referência. Para obter mais informações sobre regras, consulte [regras baseadas em limites de processos configuráveis no Azure Stream Analytics](stream-analytics-threshold-based-rules.md).
 

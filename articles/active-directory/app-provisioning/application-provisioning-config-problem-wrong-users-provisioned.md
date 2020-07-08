@@ -2,21 +2,20 @@
 title: O conjunto errado de usuários é provisionado em um aplicativo da Galeria do Azure AD
 description: Descubra por que um conjunto diferente de usuários está sendo provisionado para um aplicativo em vez dos usuários esperados
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 09/20/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: 21b61fc26a5bd063c0b440ac22eba852911d1ecc
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: HT
+ms.openlocfilehash: 5a109f1a06e7ee8aff3e455c009217ff670d2781
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593991"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84782204"
 ---
 # <a name="wrong-set-of-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>O conjunto errado de usuários está sendo provisionado para um aplicativo da Galeria do Azure AD
 

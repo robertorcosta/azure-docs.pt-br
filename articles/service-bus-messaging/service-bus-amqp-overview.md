@@ -1,25 +1,13 @@
 ---
 title: Visão geral do AMQP 1,0 no barramento de serviço do Azure
 description: Saiba como o barramento de serviço do Azure dá suporte a Advanced Message Queuing Protocol (AMQP), um protocolo padrão aberto.
-services: service-bus-messaging
-documentationcenter: .net
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: 0e8d19cc-de36-478e-84ae-e089bbc2d515
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: article
-ms.date: 01/23/2019
-ms.author: aschhab
-ms.openlocfilehash: 50d21cfe8136b9c794eae5104bbb34e28f7c1661
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 8ddeadde85e3e0b574c93db0227dcba6ad746f64
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76759305"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85338061"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Suporte ao AMQP 1.0 no Barramento de Serviço
 O serviço de nuvem do Barramento de Serviço do Azure e o [Barramento de Serviço para o Windows Server (Service Bus 1.1)](https://msdn.microsoft.com/library/dn282144.aspx) local oferecem suporte ao AMQP (Advanced Message Queueing Protocol) 1.0. O AMQP permite que você crie várias plataformas, aplicativos híbridos usando um protocolo de padrão aberto. Você pode criar aplicativos que usam componentes que são criados usando estruturas e linguagens diferentes e que são executados em sistemas operacionais diferentes. Todos esses componentes podem se conectar ao Service Bus e perfeitamente trocam mensagens de negócios estruturados com eficiência e fidelidade total.

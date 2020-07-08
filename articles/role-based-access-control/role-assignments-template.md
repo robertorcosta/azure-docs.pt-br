@@ -7,18 +7,17 @@ author: rolyon
 manager: mtillman
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: baf309a93f8ba976cb6511c05ba5032ad07a0fc9
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.openlocfilehash: e26f2ed498b8bfcf6b1518ea34815efb75a8eabe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83874046"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85392447"
 ---
 # <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Adicionar atribuições de função do Azure usando modelos do Azure Resource Manager
 
@@ -68,7 +67,7 @@ objectid=$(az ad sp list --display-name "{name}" --query [].objectId --output ts
 
 Para conceder acesso no Azure RBAC, adicione uma atribuição de função.
 
-### <a name="resource-group-without-parameters"></a>Grupo de recursos (sem parâmetros)
+### <a name="resource-group-scope-without-parameters"></a>Escopo do grupo de recursos (sem parâmetros)
 
 O modelo a seguir mostra uma maneira básica de adicionar uma atribuição de função. Alguns valores são especificados no modelo. O modelo a seguir demonstra:
 
@@ -111,7 +110,7 @@ Confira a seguir um exemplo de atribuição de função de Leitor a um usuário 
 
 ![Atribuição de função no escopo do grupo de recursos](./media/role-assignments-template/role-assignment-template.png)
 
-### <a name="resource-group-or-subscription"></a>Grupo de recursos ou assinatura
+### <a name="resource-group-or-subscription-scope"></a>Escopo do grupo de recursos ou da assinatura
 
 O modelo anterior não é muito flexível. O modelo a seguir usa parâmetros e pode ser usado em diferentes escopos. O modelo a seguir demonstra:
 
@@ -195,7 +194,7 @@ New-AzDeployment -Location centralus -TemplateFile rbac-test.json -principalId $
 az deployment create --location centralus --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Reader
 ```
 
-### <a name="resource"></a>Recurso
+### <a name="resource-scope"></a>Escopo do recurso
 
 Se você precisar adicionar uma atribuição de função no nível de um recurso, o formato da atribuição de função será diferente. Forneça o namespace do provedor de recursos e o tipo do recurso ao qual atribuir a função. Inclua também o nome do recurso no nome da atribuição de função.
 

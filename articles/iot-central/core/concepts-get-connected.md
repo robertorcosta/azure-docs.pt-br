@@ -11,12 +11,11 @@ manager: philmea
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: ddbb1c6fd705e658867c0d594981e87bc8cd6afe
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: HT
+ms.openlocfilehash: aa6aa7a8d98ae756a65a2618371c320118875c42
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930481"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710432"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Conectar-se ao Azure IoT Central
 
@@ -261,7 +260,7 @@ A tabela a seguir resume como os recursos do dispositivo Azure IoT Central são 
 | Propriedade (gravável) | Propriedades desejadas e relatadas do dispositivo gêmeo |
 | Comando | Métodos diretos |
 
-Para saber mais sobre como usar os SDKs do Dispositivo, consulte [Conectar um dispositivo do kit DevDiv ao seu aplicativo do Azure IoT Central](howto-connect-devkit.md) para código de exemplo.
+Para saber mais sobre como usar os SDKs do dispositivo, consulte [conectar um dispositivo MXChip IOT devkit ao aplicativo de IOT central do Azure](howto-connect-devkit.md) para obter o código de exemplo.
 
 ### <a name="protocols"></a>Protocolos
 

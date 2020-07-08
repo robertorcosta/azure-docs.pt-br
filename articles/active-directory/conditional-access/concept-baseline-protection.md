@@ -11,12 +11,11 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55de5a5c604273225a85e49ca682980f83a951d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3e5cc6bbe363e111f5c39147010d6a3d00cb45c8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75767561"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85604600"
 ---
 # <a name="what-are-baseline-policies"></a>O que são políticas de linha de base?
 
@@ -25,7 +24,7 @@ As políticas de linha de base são um conjunto de políticas predefinidas que a
 O gerenciamento de políticas de acesso condicional personalizado requer uma licença de Azure AD Premium.
 
 > [!IMPORTANT]
-> As políticas de linha de base estão sendo preteridas. Veja [o que há de novo no Azure Active Directory?](../fundamentals/whats-new.md#replacement-of-baseline-policies-with-security-defaults) para obter mais informações.
+> As políticas de linha de base estão sendo preteridas. Consulte [arquivo para saber o que há de novo no Azure Active Directory?](../fundamentals/whats-new-archive.md#replacement-of-baseline-policies-with-security-defaults) para obter mais informações.
 
 ## <a name="baseline-policies"></a>Políticas de linha de base
 
@@ -52,14 +51,14 @@ Exigir MFA para administradores (visualização) é uma política de linha de ba
 
 * Administrador global
 * Administrador do SharePoint
-* Administradores do Exchange
+* Administrador do Exchange
 * Administrador de acesso condicional
 * Administrador de segurança
 * Administrador de assistência técnica/administrador de senha
 * Administrador de cobrança
-* Administrador do usuário
+* Administrador de usuários
 
-Se sua empresa tiver essas contas em uso em scripts ou código, considere substituí-las [por identidades gerenciadas](../managed-identities-azure-resources/overview.md).
+Se a sua organização tiver essas contas em uso em scripts ou código, considere substituí-las por [identidades gerenciadas](../managed-identities-azure-resources/overview.md).
 
 ### <a name="end-user-protection-preview"></a>Proteção do usuário final (versão prévia)
 
@@ -80,7 +79,7 @@ A política de linha de base de **autenticação herdada de bloqueio (versão pr
 
 ### <a name="require-mfa-for-service-management-preview"></a>Exigir MFA para gerenciamento de serviços (versão prévia)
 
-As organizações usam uma variedade de serviços do Azure e os gerenciam de ferramentas baseadas em Azure Resource Manager como:
+As organizações usam uma variedade de serviços do Azure e os gerenciam usando ferramentas baseadas no Azure Resource Manager, como:
 
 * Portal do Azure
 * Azure PowerShell
@@ -94,6 +93,6 @@ Para proteger ações privilegiadas, isso **requer MFA para a política de geren
 
 Para obter mais informações, consulte:
 
-* [Habilitando padrões de segurança](../fundamentals/concept-fundamentals-security-defaults.md)
-* [Políticas de acesso condicional comum](concept-conditional-access-policy-common.md)
+* [Habilitar padrões de segurança](../fundamentals/concept-fundamentals-security-defaults.md)
+* [Políticas de acesso condicional comuns](concept-conditional-access-policy-common.md)
 * [Cinco etapas para proteger sua infraestrutura de identidade](../../security/fundamentals/steps-secure-identity.md)

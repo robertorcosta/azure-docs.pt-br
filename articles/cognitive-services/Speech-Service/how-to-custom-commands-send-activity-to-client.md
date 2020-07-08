@@ -10,12 +10,11 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 0a3e3455615006c0e93cf32eebcdaedac9960a79
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
-ms.translationtype: MT
+ms.openlocfilehash: 520b38f4c733e7bf28a2a06429ad14d016c5bd28
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307386"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027606"
 ---
 # <a name="send-custom-commands-activity-to-client-application"></a>Enviar atividade de comandos personalizados para o aplicativo cliente
 
@@ -28,7 +27,7 @@ Você conclui as seguintes tarefas:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 > [!div class = "checklist"]
-> * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) ou superior. Este guia usa o Visual Studio 2019
 > * Uma chave de assinatura do Azure para o serviço de fala: [obtenha uma gratuitamente](get-started.md) ou crie-a no [portal do Azure](https://portal.azure.com)
 > * Um [aplicativo de comandos personalizados criado](quickstart-custom-commands-application.md) anteriormente
 > * Um aplicativo cliente habilitado para SDK de fala: [como integrar com um aplicativo cliente usando o SDK de fala](./how-to-custom-commands-setup-speech-sdk.md)
@@ -46,7 +45,7 @@ Você conclui as seguintes tarefas:
      "device": "{SubjectDevice}"
    }
    ```
-1. Clique em **salvar** para criar uma nova regra com uma ação enviar atividade
+1. Clique em **salvar** para criar uma nova regra com uma ação enviar atividade, **treinar** e **publicar** a alteração
 
    > [!div class="mx-imgBorder"]
    > ![Regra de conclusão de atividade de envio](media/custom-commands/send-activity-to-client-completion-rules.png)
@@ -55,9 +54,12 @@ Você conclui as seguintes tarefas:
 
 Em [como: configurar o aplicativo cliente com o SDK de fala (versão prévia)](./how-to-custom-commands-setup-speech-sdk.md), você criou um aplicativo cliente UWP com o SDK de fala que tratou comandos como `turn on the tv` , `turn off the fan` . Com alguns elementos visuais adicionados, você pode ver o resultado desses comandos.
 
-Adicione caixas rotuladas com texto indicando **Ativar** ou **desativar** usando o seguinte XML adicionado ao`MainPage.xaml`
+Para adicionar caixas rotuladas com texto indicando **Ativar** ou **desativar**, adicione o seguinte bloco XML de StackPanel a `MainPage.xaml` .
 
 ```xml
+<StackPanel Orientation="Vertical" H......>
+......
+</StackPanel>
 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
     <Grid x:Name="Grid_TV" Margin="50, 0" Width="100" Height="100" Background="LightBlue">
         <StackPanel>
@@ -72,6 +74,7 @@ Adicione caixas rotuladas com texto indicando **Ativar** ou **desativar** usando
         </StackPanel>
     </Grid>
 </StackPanel>
+<MediaElement ....../>
 ```
 
 ### <a name="add-reference-libraries"></a>Adicionar bibliotecas de referência
@@ -79,15 +82,21 @@ Adicione caixas rotuladas com texto indicando **Ativar** ou **desativar** usando
 Como você criou uma carga JSON, precisará adicionar uma referência à biblioteca [JSON.net](https://www.newtonsoft.com/json) para lidar com a desserialização.
 
 1. Cliente à sua solução.
-1. Escolha **gerenciar pacotes NuGet para a solução**, selecione **instalar** 
-1. Pesquise por **Newtonsoft.js** na lista de atualizações, atualize **Microsoft. NetCore. UniversalWindowsPlatform** para a versão mais recente
+1. Escolha **gerenciar pacotes NuGet para solução**, selecione **procurar** 
+1. Se você já tiver instalado o **Newtonsoft.jsno**, verifique se sua versão é pelo menos 12.0.3. Caso contrário, vá para **gerenciar pacotes NuGet para solução-atualizações**, procure **Newtonsoft.jsem** para atualizá-lo. Este guia está usando a versão 12.0.3.
 
-> [!div class="mx-imgBorder"]
-> ![Enviar carga da atividade](media/custom-commands/send-activity-to-client-json-nuget.png)
+    > [!div class="mx-imgBorder"]
+    > ![Enviar carga da atividade](media/custom-commands/send-activity-to-client-json-nuget.png)
+
+1. Além disso, verifique se o pacote NuGet **Microsoft. NetCore. UniversalWindowsPlatform** é pelo menos 6.2.10. Este guia está usando a versão 6.2.10.
 
 Em ' MainPage. XAML. cs ', adicione
-- `using Newtonsoft.Json;` 
-- `using Windows.ApplicationModel.Core;`
+
+```C#
+using Newtonsoft.Json; 
+using Windows.ApplicationModel.Core;
+using Windows.UI.Core;
+```
 
 ### <a name="handle-the-received-payload"></a>Manipular a carga recebida
 

@@ -1,25 +1,13 @@
 ---
-title: Comparar filas do armazenamento do Azure e filas do barramento de serviço
+title: Comparar filas do Armazenamento do Azure e filas do Barramento de Serviço
 description: Analisa diferenças e semelhanças entre dois tipos de fila oferecidos pelo Azure.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: f07301dc-ca9b-465c-bd5b-a0f99bab606b
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: tbd
-ms.date: 09/04/2019
-ms.author: aschhab
-ms.openlocfilehash: ffa98e511053edc75fd0e6f25f7b0e21ee9ddda0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: a64000741de68518dd459b105a093ccf4cb6ab7b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414525"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85337642"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Filas do Armazenamento e filas do Barramento de Serviço — comparações e contrastes
 Este artigo analisa as diferenças e semelhanças entre os dois tipos de fila oferecidos pelo Microsoft Azure atualmente: filas do Armazenamento e filas do Barramento de Serviço. Usando essas informações, é possível comparar e contrastar as respectivas tecnologias e tomar uma decisão mais informada sobre qual solução atende melhor às suas necessidades.
@@ -135,8 +123,8 @@ Esta seção compara as filas do Armazenamento e as filas do Barramento de Servi
 | Tamanho máximo da fila |**500 TB**<br/><br/>(limitado a uma [única capacidade de conta de armazenamento](../storage/common/storage-introduction.md#queue-storage)) |**1 GB a 80 GB**<br/><br/>(definido na criação de uma fila e [habilitando particionamento](service-bus-partitioning.md) – confira a seção "Informações adicionais") |
 | Tamanho máximo da mensagem |**64 KB**<br/><br/>(48 KB ao usar a codificação **Base64**)<br/><br/>O Azure oferece suporte a mensagens grandes combinando filas e blobs — nesse ponto, você pode enfileirar até 200 GBs para um único item. |**256 KB** ou **1 MB**<br/><br/>(incluindo cabeçalho e corpo, tamanho máximo do cabeçalho: 64 KB).<br/><br/>Depende da [camada de serviço](service-bus-premium-messaging.md). |
 | TTL máxima da mensagem |**Infinito** (a partir da versão da API de 27/07/2017) |**TimeSpan.Max** |
-| Número máximo de filas |**Inúmeros** |**10.000**<br/><br/>(por namespace do serviço) |
-| Número máximo de clientes simultâneos |**Inúmeros** |**Inúmeros**<br/><br/>(o limite de 100 conexões simultâneas se aplica somente à comunicação baseada no protocolo TCP) |
+| Número máximo de filas |**Ilimitado** |**10.000**<br/><br/>(por namespace do serviço) |
+| Número máximo de clientes simultâneos |**Ilimitado** |**Ilimitado**<br/><br/>(o limite de 100 conexões simultâneas se aplica somente à comunicação baseada no protocolo TCP) |
 
 ### <a name="additional-information"></a>Informações adicionais
 * O Barramento de Serviço impõe limites de tamanho de fila. O tamanho máximo da fila é especificado na criação da fila e pode ter um valor entre 1 e 80 GB. Se o valor do tamanho da fila definido na criação da fila for atingido, mensagens de entrada adicionais serão rejeitadas e uma exceção será recebida pelo código de chamada. Para obter mais informações sobre cotas no Barramento de Serviço, confira [Cotas do Barramento de Serviço](service-bus-quotas.md).

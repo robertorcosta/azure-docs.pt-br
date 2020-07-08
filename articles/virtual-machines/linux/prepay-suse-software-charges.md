@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: banders
 ms.openlocfilehash: a527b75d376f05ab6190187b7a03d6da775055ab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81759292"
 ---
 # <a name="prepay-for-azure-software-plans"></a>Pagar antecipadamente planos de software do Azure
@@ -70,8 +69,8 @@ Para saber como gerenciar uma reserva, consulte [gerenciar reservas do Azure](..
 
 Para saber mais, leia os seguintes artigos:
 
-- [O que são as reservas do Azure?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
-- [Gerenciar reservas no Azure](../../cost-management-billing/reservations/manage-reserved-vm-instance.md)
+- [O que são Reservas do Azure?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
+- [Gerenciar Reservas no Azure](../../cost-management-billing/reservations/manage-reserved-vm-instance.md)
 - [Entender como o desconto de reserva do SUSE é aplicado](../../cost-management-billing/reservations/understand-suse-reservation-charges.md)
 - [Entender o uso de reserva para a sua assinatura paga conforme o uso](../../cost-management-billing/reservations/understand-reserved-instance-usage.md)
 - [Entender o uso de reserva para seu registro de empresa](../../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)

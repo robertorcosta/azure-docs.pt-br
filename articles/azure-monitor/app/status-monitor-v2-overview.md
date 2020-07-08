@@ -6,10 +6,9 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
 ms.openlocfilehash: 626a8c96fdc247db174e2cbcd2e5c99cec43d2ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81770957"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Implantar Azure Monitor agente de Application Insights para servidores locais
@@ -22,11 +21,11 @@ Ele substitui [status monitor](https://docs.microsoft.com/azure/azure-monitor/ap
 A telemetria é enviada para a portal do Azure, onde você pode [monitorar](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) seu aplicativo.
 
 > [!NOTE]
-> Atualmente, o módulo oferece suporte à instrumentação sem código de aplicativos Web .NET hospedados com o IIS. Use um SDK para instrumentar aplicativos ASP.NET Core, Java e node. js.
+> Atualmente, o módulo oferece suporte à instrumentação sem código de aplicativos Web .NET hospedados com o IIS. Use um SDK para instrumentar aplicativos ASP.NET Core, Java e Node.js.
 
 ## <a name="powershell-gallery"></a>Galeria do PowerShell
 
-Application Insights agente está localizado aqui: https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
+Application Insights agente está localizado aqui: https://www.powershellgallery.com/packages/Az.ApplicationMonitor .
 
 ![Galeria do PowerShell](https://img.shields.io/powershellgallery/v/Az.ApplicationMonitor.svg?color=Blue&label=Current%20Version&logo=PowerShell&style=for-the-badge)
 

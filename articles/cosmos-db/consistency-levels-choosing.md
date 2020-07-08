@@ -7,16 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: aa8a020dc4a7e9d4e7de0671b566755e413caeb2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: aa8f2d14124e7cfc5db0025c295f9b38d96bf56c
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82191746"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921838"
 ---
 # <a name="choose-the-right-consistency-level"></a>Escolher nível certo de consistência 
 
-Bancos de dados distribuídos que dependem de replicação para alta disponibilidade, baixa latência ou ambos realizam o equilíbrio fundamental entre a coerência de leitura versus a disponibilidade, a latência e a taxa de transferência. A maioria dos bancos de dados distribuídos comercialmente disponíveis solicita que os desenvolvedores escolham entre os dois modelos de consistência extremos: consistência *forte* e consistência *eventual* . Azure Cosmos DB permite que os desenvolvedores escolham entre os cinco modelos de consistência bem definidos: *forte*, desatualização *limitada*, *sessão*, *prefixo consistente* e *eventual*. Cada um desses modelos de coerência é bem definido, intuitivo e pode ser usado para cenários específicos do mundo real. Cada um dos cinco modelos de consistência fornece [compensações de desempenho e disponibilidade](consistency-levels-tradeoffs.md) precisas e é apoiado por SLAs abrangentes. As considerações simples a seguir lhe ajudarão a fazer a escolha certa em muitos cenários comuns.
+Bancos de dados distribuídos que dependem de replicação para alta disponibilidade, baixa latência ou ambos realizam o equilíbrio fundamental entre a coerência de leitura versus a disponibilidade, a latência e a taxa de transferência. A maioria dos bancos de dados distribuídos comercialmente disponíveis solicita que os desenvolvedores escolham entre os dois modelos de consistência extremos: consistência *forte* e consistência *eventual* . Azure Cosmos DB permite que os desenvolvedores escolham entre os cinco modelos de consistência bem definidos: *forte*, desatualização *limitada*, *sessão*, *prefixo consistente* e *eventual*. Cada um desses modelos de coerência é bem definido, intuitivo e pode ser usado para cenários específicos do mundo real. Cada um dos cinco modelos de consistência fornece [compensações de desempenho e disponibilidade](consistency-levels-tradeoffs.md) precisas e é apoiado por SLAs abrangentes. Você pode configurar uma consistência padrão no nível da conta e [substituí-la no nível da solicitação](how-to-manage-consistency.md#override-the-default-consistency-level). As considerações simples a seguir lhe ajudarão a fazer a escolha certa em muitos cenários comuns.
 
 ## <a name="sql-api-and-table-api"></a>SQL API e a API de Tabela
 

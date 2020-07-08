@@ -10,18 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 03/22/2020
+ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af0f68ca9520c1715463212da80aaabed48f8269
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8576088069f419872db57b063163e8d9b1968b33
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80128693"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85338205"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Controlar o acesso para usuários externos no gerenciamento de direitos do Azure AD
 
@@ -103,13 +102,13 @@ Para garantir que as pessoas fora de sua organização possam solicitar pacotes 
 
 - Verifique se as configurações de nível de site habilitam o acesso de convidado (as mesmas seleções de opção conforme listado anteriormente). Para obter mais informações, consulte [Ativar ou desativar o compartilhamento externo para um site](https://docs.microsoft.com/sharepoint/change-external-sharing-site).
 
-### <a name="review-your-office-365-group-sharing-settings"></a>Examine as configurações de compartilhamento de grupo do Office 365
+### <a name="review-your-microsoft-365-group-sharing-settings"></a>Examine as configurações de compartilhamento de grupo de Microsoft 365
 
-- Se você quiser incluir grupos do Office 365 em seus pacotes de acesso para usuários externos, certifique-se de que a permissão **permitir que os usuários adicionem novos convidados à organização** esteja definida como **ativado** para permitir o acesso de convidado. Para obter mais informações, consulte [gerenciar o acesso de convidado aos grupos do Office 365](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-groups-guest-access).
+- Se você quiser incluir grupos de Microsoft 365 em seus pacotes de acesso para usuários externos, verifique se a permissão **permitir que os usuários adicionem novos convidados à organização** está definida como **ativada** para permitir o acesso de convidado. Para obter mais informações, consulte [gerenciar o acesso de convidado a grupos de Microsoft 365](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-groups-guest-access).
 
-- Se você quiser que usuários externos possam acessar o site do SharePoint Online e os recursos associados a um grupo do Office 365, certifique-se de ativar o compartilhamento externo do SharePoint Online. Para obter mais informações, consulte [Ativar ou desativar o compartilhamento externo](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
+- Se você quiser que usuários externos possam acessar o site do SharePoint Online e os recursos associados a um grupo de Microsoft 365, certifique-se de ativar o compartilhamento externo do SharePoint Online. Para obter mais informações, consulte [Ativar ou desativar o compartilhamento externo](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 
-- Para obter informações sobre como definir a política de convidado para grupos do Office 365 no nível do diretório no PowerShell, consulte [exemplo: configurar a política de convidado para grupos no nível do diretório](../users-groups-roles/groups-settings-cmdlets.md#example-configure-guest-policy-for-groups-at-the-directory-level).
+- Para obter informações sobre como definir a política de convidado para grupos de Microsoft 365 no nível de diretório no PowerShell, consulte [exemplo: configurar a política de convidado para grupos no nível do diretório](../users-groups-roles/groups-settings-cmdlets.md#example-configure-guest-policy-for-groups-at-the-directory-level).
 
 ### <a name="review-your-teams-sharing-settings"></a>Examine as configurações de compartilhamento de suas equipes
 
@@ -143,7 +142,7 @@ Você pode selecionar o que acontece quando um usuário externo, que foi convida
 
 1. Se você quiser remover a conta de usuário convidado nesse diretório, poderá definir o número de dias antes que ele seja removido. Se você quiser remover a conta de usuário convidado assim que perder sua última atribuição para qualquer pacote de acesso, defina o **número de dias antes de remover o usuário externo desse diretório** para **0**.
 
-1. Clique em **Salvar**.
+1. Clique em **Save** (Salvar).
 
 ## <a name="next-steps"></a>Próximas etapas
 

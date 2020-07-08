@@ -3,41 +3,38 @@ title: Exibir métricas em tempo real com Azure Monitor para contêineres | Micr
 description: Este artigo descreve a exibição em tempo real de métricas sem usar o kubectl com Azure Monitor para contêineres.
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 4604635c985057ec0b7f49a0d1cca7111dfc8eec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: references_regions
+ms.openlocfilehash: 81d7210778fd6b5d75fb4b4fa8e066d2e015174f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79216583"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85338025"
 ---
 # <a name="how-to-view-metrics-in-real-time"></a>Como exibir métricas em tempo real
 
-Azure Monitor para contêineres de dados dinâmicos (versão prévia) permite que você visualize métricas sobre o estado de nó e pod em um cluster em tempo real. Ele emula o acesso direto aos comandos `kubectl top nodes`, `kubectl get pods –all-namespaces`e `kubectl get nodes` para chamar, analisar e visualizar os dados em gráficos de desempenho que estão incluídos com essa percepção. 
+Azure Monitor para contêineres de dados dinâmicos (versão prévia) permite que você visualize métricas sobre o estado de nó e pod em um cluster em tempo real. Ele emula o acesso direto aos `kubectl top nodes` comandos, `kubectl get pods –all-namespaces` e `kubectl get nodes` para chamar, analisar e visualizar os dados em gráficos de desempenho que estão incluídos com essa percepção.
 
-Este artigo fornece uma visão geral detalhada e ajuda você a entender como usar esse recurso.  
-
->[!NOTE]
->Os clusters AKS habilitados como [clusters privados](https://azure.microsoft.com/updates/aks-private-cluster/) não têm suporte com esse recurso. Esse recurso depende diretamente do acesso à API kubernetes por meio de um servidor proxy do seu navegador. Habilitar a segurança de rede para bloquear a API do kubernetes desse proxy bloqueará esse tráfego. 
+Este artigo fornece uma visão geral detalhada e ajuda você a entender como usar esse recurso.
 
 >[!NOTE]
->Esse recurso está disponível em todas as regiões do Azure, incluindo o Azure China. No momento, ele não está disponível no Azure no governo dos EUA.
+>Os clusters AKS habilitados como [clusters privados](https://azure.microsoft.com/updates/aks-private-cluster/) não têm suporte com esse recurso. Esse recurso depende diretamente do acesso à API kubernetes por meio de um servidor proxy do seu navegador. Habilitar a segurança de rede para bloquear a API do kubernetes desse proxy bloqueará esse tráfego.
 
 Para obter ajuda com a configuração ou solução de problemas do recurso de dados dinâmicos (versão prévia), examine nosso [Guia de instalação](container-insights-livedata-setup.md).
 
-## <a name="how-it-works"></a>Como funciona 
+## <a name="how-it-works"></a>Como funciona
 
-O recurso de dados dinâmicos (versão prévia) acessa diretamente a API kubernetes e informações adicionais sobre o modelo de autenticação podem ser encontradas [aqui](https://kubernetes.io/docs/concepts/overview/kubernetes-api/). 
+O recurso de dados dinâmicos (versão prévia) acessa diretamente a API kubernetes e informações adicionais sobre o modelo de autenticação podem ser encontradas [aqui](https://kubernetes.io/docs/concepts/overview/kubernetes-api/).
 
-Esse recurso executa uma operação de sondagem em relação aos pontos de extremidade de `/api/v1/nodes`métricas (incluindo, `/apis/metrics.k8s.io/v1beta1/nodes`e `/api/v1/pods`), que é a cada cinco segundos por padrão. Esses dados são armazenados em cache no navegador e são mostrados nos quatro gráficos de desempenho incluídos no Azure Monitor para contêineres na guia **cluster** selecionando **Go Live (visualização)**. Cada sondagem subsequente é inserida em uma janela de visualização de cinco minutos sem interrupção. 
+Esse recurso executa uma operação de sondagem em relação aos pontos de extremidade de métricas (incluindo `/api/v1/nodes` , `/apis/metrics.k8s.io/v1beta1/nodes` e `/api/v1/pods` ), que é a cada cinco segundos por padrão. Esses dados são armazenados em cache no navegador e são mostrados nos quatro gráficos de desempenho incluídos no Azure Monitor para contêineres na guia **cluster** selecionando **Go Live (visualização)**. Cada sondagem subsequente é inserida em uma janela de visualização de cinco minutos sem interrupção.
 
 ![Opção Go Live na exibição do cluster](./media/container-insights-livedata-metrics/cluster-view-go-live-example-01.png)
 
-O intervalo de sondagem é configurado na lista suspensa **definir intervalo** , permitindo que você defina sondagem para novos dados a cada 1, 5, 15 e 30 segundos. 
+O intervalo de sondagem é configurado na lista suspensa **definir intervalo** , permitindo que você defina sondagem para novos dados a cada 1, 5, 15 e 30 segundos.
 
 ![Ir para intervalo de sondagem suspensa de ativação](./media/container-insights-livedata-metrics/cluster-view-polling-interval-dropdown.png)
 
 >[!IMPORTANT]
->É recomendável definir o intervalo de sondagem para um segundo enquanto soluciona um problema por um curto período de tempo. Essas solicitações podem afetar a disponibilidade e a limitação da API kubernetes no cluster. Depois, reconfigure para um intervalo de sondagem mais longo. 
+>É recomendável definir o intervalo de sondagem para um segundo enquanto soluciona um problema por um curto período de tempo. Essas solicitações podem afetar a disponibilidade e a limitação da API kubernetes no cluster. Depois, reconfigure para um intervalo de sondagem mais longo.
 
 >[!IMPORTANT]
 >Nenhum dado é armazenado permanentemente durante a operação deste recurso. Todas as informações capturadas durante essa sessão são excluídas imediatamente quando você fecha o navegador ou navega para fora do recurso. Os dados permanecem presentes apenas para visualização dentro da janela de cinco minutos; todas as métricas com mais de cinco minutos também são excluídas permanentemente.
@@ -46,9 +43,9 @@ Esses gráficos não podem ser fixados no último painel do Azure exibido no mod
 
 ## <a name="metrics-captured"></a>Métricas capturadas
 
-### <a name="node-cpu-utilization---node-memory-utilization-"></a>% De utilização de CPU do nó%/utilização de memória do nó% 
+### <a name="node-cpu-utilization---node-memory-utilization-"></a>% De utilização de CPU do nó%/utilização de memória do nó%
 
-Esses dois gráficos de desempenho são mapeados para um equivalente `kubectl top nodes` de invocar e capturar os resultados das colunas **CPU%** e **% de memória** para o respectivo gráfico. 
+Esses dois gráficos de desempenho são mapeados para um equivalente de invocar `kubectl top nodes` e capturar os resultados das colunas **CPU%** e **% de memória** para o respectivo gráfico.
 
 ![Resultados de exemplo de nós principais do Kubectl](./media/container-insights-livedata-metrics/kubectl-top-nodes-example.png)
 
@@ -62,7 +59,7 @@ Isso também ajuda a entender quais nós estão sendo enviados por push para seu
 
 ### <a name="node-count"></a>Contagem de nós
 
-Esse gráfico de desempenho é mapeado para um equivalente de `kubectl get nodes` invocar e mapear a coluna **status** para um gráfico agrupado por tipos de status.
+Esse gráfico de desempenho é mapeado para um equivalente de invocar `kubectl get nodes` e mapear a coluna **status** para um gráfico agrupado por tipos de status.
 
 ![Resultados de exemplo do Kubectl Get Nodes](./media/container-insights-livedata-metrics/kubectl-get-nodes-example.png)
 
@@ -73,14 +70,14 @@ Por exemplo, para entender se os nós estão se enquadrando em Estados com falha
 
 ### <a name="active-pod-count"></a>Contagem de Pod ativo
 
-Esse gráfico de desempenho é mapeado para um equivalente de `kubectl get pods –all-namespaces` invocar e mapear a coluna de **status** do gráfico agrupado por tipos de status.
+Esse gráfico de desempenho é mapeado para um equivalente de invocar `kubectl get pods –all-namespaces` e mapear a coluna de **status** do gráfico agrupado por tipos de status.
 
 ![Resultados de exemplo do Kubectl Get pods](./media/container-insights-livedata-metrics/kubectl-get-pods-example.png)
 
 ![Gráfico de contagem de pod dos nós](./media/container-insights-livedata-metrics/cluster-view-node-pod-count.png)
 
 >[!NOTE]
->Os nomes de status como interpretados pelo `kubectl` podem não corresponder exatamente ao gráfico. 
+>Os nomes de status como interpretados pelo `kubectl` podem não corresponder exatamente ao gráfico.
 
 ## <a name="next-steps"></a>Próximas etapas
 

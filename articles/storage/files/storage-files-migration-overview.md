@@ -7,12 +7,11 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: d6141d48d67dd44c348961c6e09acf4e2531a61e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 512688345c03ea9d5da0e4933cd6a794eaaf597b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81685981"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84660766"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Migrar para compartilhamentos de Arquivos do Azure
 
@@ -78,7 +77,7 @@ Como usar a tabela:
 
 Um cenário sem um link ainda não tem um guia de migração publicado. Marque esta tabela ocasionalmente para obter atualizações. Novos guias serão publicados quando estiverem disponíveis.
 
-| Fonte | Destino: </br>Implantação híbrida | Destino: </br>Implantação somente em nuvem |
+| Origem | Destino: </br>Implantação híbrida | Destino: </br>Implantação somente em nuvem |
 |:---|:--|:--|
 | | Combinação de ferramentas:| Combinação de ferramentas: |
 | Windows Server 2012 R2 e posterior | <ul><li>[Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md)</li><li>[Sincronização de Arquivos do Azure e Azure Data Box](storage-sync-offline-data-transfer.md)</li><li>Serviço de migração de Sincronização de Arquivos do Azure e armazenamento</li></ul> | <ul><li>Sincronização de Arquivos do Azure</li><li>Sincronização de Arquivos do Azure e Data Box</li><li>Serviço de migração de Sincronização de Arquivos do Azure e armazenamento</li><li>RoboCopy</li></ul> |
@@ -115,15 +114,15 @@ Há várias ferramentas de cópia de arquivos disponíveis da Microsoft e de out
 
 A tabela a seguir classifica as ferramentas da Microsoft e sua adequação atual para compartilhamentos de arquivos do Azure:
 
-| Recomendadas | Ferramenta | Suporte para compartilhamentos de arquivos do Azure | Preservação da fidelidade do arquivo |
+| Recomendado | Ferramenta | Suporte para compartilhamentos de arquivos do Azure | Preservação da fidelidade do arquivo |
 | :-: | :-- | :---- | :---- |
-|![Sim, recomendado](media/storage-files-migration-overview/circle-green-checkmark.png)| RoboCopy |  Com suporte. Os compartilhamentos de arquivos do Azure podem ser montados como unidades de rede. | Fidelidade total. * |
+|![Sim, recomendado](media/storage-files-migration-overview/circle-green-checkmark.png)| RoboCopy | Com suporte. Os compartilhamentos de arquivos do Azure podem ser montados como unidades de rede. | Fidelidade total. * |
 |![Sim, recomendado](media/storage-files-migration-overview/circle-green-checkmark.png)| Sincronização de Arquivos do Azure | Integrado nativamente aos compartilhamentos de arquivos do Azure. | Fidelidade total. * |
 |![Sim, recomendado](media/storage-files-migration-overview/circle-green-checkmark.png)| Serviço de Migração de Armazenamento | Com suporte indiretamente. Os compartilhamentos de arquivos do Azure podem ser montados como unidades de rede em servidores de destino do SMS. | Fidelidade total. * |
-|![Não recomendado totalmente](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Data Box |  Com suporte. | Não copia metadados. [Data box pode ser usado com sincronização de arquivos do Azure](storage-sync-offline-data-transfer.md). |
-|![Não recomendável](media/storage-files-migration-overview/circle-red-x.png)| AzCopy |  Com suporte. | Não copia metadados. |
-|![Não recomendável](media/storage-files-migration-overview/circle-red-x.png)| Gerenciador de Armazenamento do Azure |  Com suporte. | Não copia metadados. |
-|![Não recomendável](media/storage-files-migration-overview/circle-red-x.png)| Fábrica de dados do Azure |  Com suporte. | Não copia metadados. |
+|![Sim, recomendado](media/storage-files-migration-overview/circle-green-checkmark.png)| AzCopy, versão 10,4 ou posterior| Com suporte. | Fidelidade total. * |
+|![Não recomendado totalmente](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Data Box | Com suporte. | Não copia metadados. [Data box pode ser usado com sincronização de arquivos do Azure](storage-sync-offline-data-transfer.md). |
+|![Não recomendado totalmente](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Gerenciador de Armazenamento do Azure, versão 1,14 | Com suporte. | Não copia ACLs. Dá suporte a carimbos de data/hora.  |
+|![Não recomendado](media/storage-files-migration-overview/circle-red-x.png)| Fábrica de dados do Azure | Com suporte. | Não copia metadados. |
 |||||
 
 *\*Fidelidade total: atende ou excede os recursos de compartilhamento de arquivos do Azure.*

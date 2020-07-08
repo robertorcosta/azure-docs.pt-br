@@ -11,10 +11,9 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.custom: amqp
 ms.openlocfilehash: a3258de2ed7269ab50e6feca3c421d55de5a9d91
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81759771"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Introdução à identidade do módulo e ao módulo gêmeo do Hub IoT usando o portal e o dispositivo .NET
@@ -39,7 +38,7 @@ Neste tutorial, você irá aprender:
 
 * Visual Studio.
 
-* Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
+* Uma conta ativa do Azure. Se você não tem uma conta, pode criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
 
 ## <a name="create-a-hub"></a>Criar um hub
 
@@ -83,7 +82,7 @@ Para criar um aplicativo que atualiza as propriedades relatadas do módulo de at
 
 A identidade do módulo e o módulo gêmeo estão em versão prévia pública. Ele só está disponível nos SDKs do dispositivo de pré-lançamento do Hub IoT. Para instalá-lo, siga estas etapas:
 
-1. No Visual Studio, abra **ferramentas** > **Gerenciador** > **de pacotes NuGet gerenciar pacotes NuGet para solução**.
+1. No Visual Studio, abra **ferramentas**  >  **Gerenciador de pacotes NuGet**  >  **gerenciar pacotes NuGet para solução**.
 
 1. Selecione **procurar**e, em seguida, selecione **incluir pré-lançamento**. Procure *Microsoft. Azure. Devices. Client*. Selecione a versão mais recente e instale.
 
@@ -107,7 +106,7 @@ Você precisa da cadeia de conexão do módulo para seu aplicativo de console. S
 
 Para criar seu aplicativo, siga estas etapas:
 
-1. Adicione as seguintes `using` instruções na parte superior do arquivo **Program.cs** :
+1. Adicione as instruções `using` abaixo na parte superior do arquivo **Program.cs** :
 
   ```csharp
   using Microsoft.Azure.Devices.Client;

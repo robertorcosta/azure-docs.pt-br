@@ -1,10 +1,9 @@
 ---
 title: Configuração de armazenamento para VMs do SQL Server | Microsoft Docs
-description: Este tópico descreve como o Azure configura o armazenamento para VMs do SQL Server durante o provisionamento (modelo de implantação do Resource Manager). Também explica como você pode configurar o armazenamento para suas VMs existentes do SQL Server.
+description: Este tópico descreve como o Azure configura o armazenamento para SQL Server VMs durante o provisionamento (modelo de implantação de Azure Resource Manager). Também explica como você pode configurar o armazenamento para suas VMs existentes do SQL Server.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: jroth
 tags: azure-resource-manager
 ms.assetid: 169fc765-3269-48fa-83f1-9fe3e4e40947
 ms.service: virtual-machines-sql
@@ -13,17 +12,16 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: f5f71f342152a1f7d524053f1a2f82937784dbd1
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: HT
+ms.openlocfilehash: 21609e38625d0911476c85a9d6e518f5ff7e9e61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84029997"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84667362"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuração de armazenamento para VMs do SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Quando você configurar uma imagem de máquina virtual do SQL Server no Azure, o Portal ajuda você a automatizar a configuração de armazenamento. Isso inclui a anexação de armazenamento para a VM, tornando o armazenamento acessível para o SQL Server e configurando-o para otimizar seus requisitos específicos de desempenho.
+Quando você configura uma imagem de VM (máquina virtual) SQL Server no Azure, o portal do Azure ajuda a automatizar sua configuração de armazenamento. Isso inclui a anexação de armazenamento para a VM, tornando o armazenamento acessível para o SQL Server e configurando-o para otimizar seus requisitos específicos de desempenho.
 
 Este tópico explica como o Azure configura o armazenamento para suas VMs do SQL Server durante o provisionamento e para VMs existentes. Essa configuração tem base nas [práticas recomendadas de desempenho](performance-guidelines-best-practices.md) para VMs do Azure executando o SQL Server.
 
@@ -57,7 +55,7 @@ Além disso, você tem a capacidade de definir o cache para os discos. As VMs do
 
 O cache de disco para SSD Premium pode ser *ReadOnly*, *ReadWrite* ou *nenhum*. 
 
-- O cache *ReadOnly* é altamente benéfico para arquivos de dados do SQL Server armazenados no Armazenamento Premium. O cache *ReadOnly* traz baixa latência de leitura, IOPS de leitura e taxa de transferência altas, pois as leituras são executadas no cache, que está dentro da memória da VM e do SSD local. Essas leituras são muito mais rápidas do que as leituras no disco de dados, que é do Armazenamento de Blobs do Azure. O armazenamento Premium não leva as leituras atendidas no cache em conta para definir o IOPS e a taxa de transferência do disco. Portanto, o aplicativo é capaz de atingir uma Taxa de Transferência e IOPS total mais altos. 
+- O cache *ReadOnly* é altamente benéfico para arquivos de dados do SQL Server armazenados no Armazenamento Premium. O cache *ReadOnly* traz baixa latência de leitura, IOPS de leitura e taxa de transferência altas, pois as leituras são executadas no cache, que está dentro da memória da VM e do SSD local. Essas leituras são muito mais rápidas do que as leituras do disco de dados, que é do armazenamento de BLOBs do Azure. O armazenamento Premium não leva as leituras atendidas no cache em conta para definir o IOPS e a taxa de transferência do disco. Portanto, o aplicativo é capaz de atingir uma Taxa de Transferência e IOPS total mais altos. 
 - *Nenhuma* configuração de cache deve ser usada para os discos que hospedam o arquivo de log do SQL Server, pois o arquivo de log é escrito em sequência e não se beneficia com o cache *ReadOnly*. 
 - O cache *ReadWrite* não deve ser usado para hospedar arquivos do SQL Server pois o SQL Server não é compatível com a consistência de dados com o cache *ReadWrite*. A capacidade de desperdício de gravação dos cache de blobs *ReadOnly* e as latências serão ligeiramente aumentadas se as gravações passarem por camadas de cache de blobs *ReadOnly*. 
 
@@ -76,7 +74,7 @@ Com base em suas opções, o Azure realiza as seguintes tarefas de configuraçã
 
 Para obter mais detalhes sobre como o Azure define as configurações de armazenamento, confira a [Seção de configuração de armazenamento](#storage-configuration). Para obter uma explicação completa de como criar uma VM do SQL Server no portal do Azure, veja [o tutorial de provisionamento](../../../azure-sql/virtual-machines/windows/create-sql-vm-portal.md).
 
-### <a name="resource-manage-templates"></a>Modelos do Resource Manager
+### <a name="resource-manager-templates"></a>Modelos do Gerenciador de Recursos
 
 Se você usar os modelos do Resource Manager a seguir, dois discos de dados premium são conectados por padrão, sem nenhuma configuração de pool de armazenamento. No entanto, você pode personalizar esses modelos para alterar o número de discos de dados premium anexados à máquina virtual.
 
@@ -113,7 +111,7 @@ Você pode modificar as configurações de disco das unidades que foram configur
 
 ## <a name="storage-configuration"></a>Configuração de armazenamento
 
-Esta seção fornece uma referência para as alterações de configuração de armazenamento realizadas automaticamente pelo Azure durante a configuração ou o provisionamento de VM do SQL no portal do Azure.
+Esta seção fornece uma referência para as alterações de configuração de armazenamento que o Azure executa automaticamente durante SQL Server provisionamento ou configuração de VM no portal do Azure.
 
 * O Azure configura um pool de armazenamento com o armazenamento selecionado em sua VM. A próxima seção deste tópico fornece detalhes sobre a configuração do pool de armazenamento.
 * A configuração de armazenamento automática sempre usa discos de dados P30 dos [SSDs premium](../../../virtual-machines/windows/disks-types.md). Consequentemente, há um mapeamento 1:1 entre o número selecionado de Terabytes e o número de discos de dados anexados à sua VM.
@@ -148,7 +146,7 @@ A tabela a seguir descreve as três opções de tipo de carga de trabalho dispon
 | **Data warehouse** |Otimiza o armazenamento para as cargas de trabalho de análise e emissão de relatórios |Sinalizador de Rastreamento 610<br/>Sinalizador de Rastreamento 1117 |
 
 > [!NOTE]
-> Você só pode especificar o tipo de carga de trabalho quando provisiona uma máquina virtual do SQL, selecionando-o na etapa de configuração de armazenamento.
+> Você só pode especificar o tipo de carga de trabalho ao provisionar um SQL Server máquina virtual selecionando-o na etapa de configuração de armazenamento.
 
 ## <a name="next-steps"></a>Próximas etapas
 

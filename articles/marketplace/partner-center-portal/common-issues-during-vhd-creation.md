@@ -7,12 +7,11 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
 ms.date: 04/09/2020
-ms.openlocfilehash: addf85f3ed966f45472fec6ee15272574a0f840e
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: e96118e3c570faaaffb4cc7ef64e6d2d0e075e47
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83724710"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954169"
 ---
 # <a name="common-issues-during-vhd-creation"></a>Problemas comuns durante a criação do VHD
 
@@ -20,7 +19,7 @@ Essas perguntas frequentes abordam os problemas comuns que você pode encontrar 
 
 ## <a name="how-do-i-create-a-vm-from-the-azure-portal-using-a-vhd-in-premium-storage"></a>Como criar uma VM do portal do Azure usando um VHD no armazenamento Premium?
 
-O Azure Marketplace atualmente não dá suporte para a criação de ofertas de VM de imagens no armazenamento gerenciado ou de Armazenamento Premium do Azure. Para detalhes, confira [Visão geral do Azure Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview).
+O Azure Marketplace atualmente não dá suporte para a criação de ofertas de VM de imagens no armazenamento gerenciado ou de Armazenamento Premium do Azure. Para detalhes, confira [Visão geral do Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md).
 
 ## <a name="can-i-use-generation-2-vms-for-offers"></a>É possível usar VMs de Geração 2 para as ofertas?
 
@@ -45,9 +44,9 @@ A geração de certificados é explicada na [certificação de imagem de VM do A
 
 Se você está usando o Modelo de implantação do Azure Resource Manager, há três opções:
 
-* [Criar um gateway de VPN baseado em rotas usando o portal do Azure](https://docs.microsoft.com/azure/vpn-gateway/create-routebased-vpn-gateway-portal)
-* [Criar um gateway de VPN baseado em rotas usando o Azure PowerShell](https://docs.microsoft.com/azure/vpn-gateway/create-routebased-vpn-gateway-powershell)
-* [Criar um Gateway de VPN baseado em rota usando CLI](https://docs.microsoft.com/azure/vpn-gateway/create-routebased-vpn-gateway-cli)
+* [Criar um gateway de VPN baseado em rotas usando o portal do Azure](../../vpn-gateway/create-routebased-vpn-gateway-portal.md)
+* [Criar um gateway de VPN baseado em rotas usando o Azure PowerShell](../../vpn-gateway/create-routebased-vpn-gateway-powershell.md)
+* [Criar um Gateway de VPN baseado em rota usando CLI](../../vpn-gateway/create-routebased-vpn-gateway-cli.md)
 
 ## <a name="what-are-microsoft-support-policies-for-running-microsoft-server-software-on-azure-based-vms"></a>Quais são as políticas de suporte da Microsoft para a execução de software de servidor Microsoft em VMs do Azure?
 
@@ -75,4 +74,4 @@ Para obter mais informações, consulte estes artigos:
 
 Sempre que estou tento criar uma imagem de minhas VHDs, recebo o erro "O VHD já está registrado no repositório de imagens como o recurso" no Azure PowerShell. Eu não criei uma imagem antes, nem encontrei uma imagem com esse nome no Azure. Como resolver isso?
 
-Esse problema geralmente aparece quando você cria uma VM de um VHD que tem um bloqueio. Confirme se não há VM alocada desse VHD e, em seguida, repita a operação. Se o problema persistir, abra um tíquete de suporte. Confira [Suporte do Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support).
+Esse problema geralmente aparece quando você cria uma VM de um VHD que tem um bloqueio. Confirme se não há VM alocada desse VHD e, em seguida, repita a operação. Se o problema persistir, abra um tíquete de suporte. Confira [Suporte do Partner Center](support.md).

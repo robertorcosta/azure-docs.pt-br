@@ -3,12 +3,11 @@ title: Monitorar um cluster do AKS (serviço kubernetes do Azure) implantado | M
 description: Saiba como habilitar o monitoramento de um cluster AKS (serviço kubernetes do Azure) com Azure Monitor para contêineres já implantados em sua assinatura.
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: 8589ea71b5c7affadc61d5e4543f734a660ab543
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2dabbe7a5c0e183363fe05bc4e75da0b6a346e6b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79275445"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85337971"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Habilitar o monitoramento do cluster AKS (serviço kubernetes do Azure) já implantado
 
@@ -19,7 +18,7 @@ Você pode habilitar o monitoramento de um cluster AKS que já está implantado 
 * CLI do Azure
 * Terraform
 * [De Azure monitor](#enable-from-azure-monitor-in-the-portal) ou [diretamente do cluster AKs](#enable-directly-from-aks-cluster-in-the-portal) no portal do Azure
-* Com o [modelo de Azure Resource Manager fornecido](#enable-using-an-azure-resource-manager-template) usando o cmdlet `New-AzResourceGroupDeployment` Azure PowerShell ou com CLI do Azure.
+* Com o [modelo de Azure Resource Manager fornecido](#enable-using-an-azure-resource-manager-template) usando o cmdlet Azure PowerShell `New-AzResourceGroupDeployment` ou com CLI do Azure.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
@@ -27,10 +26,10 @@ Entre no [portal do Azure](https://portal.azure.com).
 
 ## <a name="enable-using-azure-cli"></a>Habilitar usando a CLI do Azure
 
-A etapa a seguir permite o monitoramento do cluster do AKS usando a CLI do Azure. Neste exemplo, não é necessário criar ou especificar um workspace existente. Esse comando simplificará o processo, criando um workspace padrão no grupo de recursos padrão da assinatura do cluster do AKS, se ainda não existir um na região.  O workspace padrão criado é semelhante ao formato do *DefaultWorkspace-\<GUID>-\<Region>*.  
+A etapa a seguir permite o monitoramento do cluster do AKS usando a CLI do Azure. Neste exemplo, não é necessário criar ou especificar um workspace existente. Esse comando simplificará o processo, criando um workspace padrão no grupo de recursos padrão da assinatura do cluster do AKS, se ainda não existir um na região.  O espaço de trabalho padrão criado é semelhante ao formato de *defaultworkspace- \<GUID> - \<Region> *.
 
 ```azurecli
-az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG  
+az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
 ```
 
 A saída será semelhante à seguinte:
@@ -41,7 +40,7 @@ provisioningState       : Succeeded
 
 ### <a name="integrate-with-an-existing-workspace"></a>Integrar com um espaço de trabalho existente
 
-Se você preferir integrar com um espaço de trabalho existente, execute as etapas a seguir para primeiro identificar a ID de recurso completo do seu espaço de `--workspace-resource-id` trabalho de log Analytics necessário para o parâmetro e, em seguida, execute o comando para habilitar o complemento de monitoramento no espaço de trabalho especificado.  
+Se você preferir integrar com um espaço de trabalho existente, execute as etapas a seguir para primeiro identificar a ID de recurso completo do seu espaço de trabalho de Log Analytics necessário para o `--workspace-resource-id` parâmetro e, em seguida, execute o comando para habilitar o complemento de monitoramento no espaço de trabalho especificado.
 
 1. Liste todas as assinaturas às quais você tem acesso usando o seguinte comando:
 
@@ -73,7 +72,7 @@ Se você preferir integrar com um espaço de trabalho existente, execute as etap
 
     Na saída, localize o nome do espaço de trabalho e copie a ID de recurso completo do espaço de trabalho Log Analytics sob a **ID**do campo.
 
-4. Execute o comando a seguir para habilitar o complemento de monitoramento, substituindo o valor `--workspace-resource-id` do parâmetro. O valor da cadeia de caracteres deve estar entre aspas duplas:
+4. Execute o comando a seguir para habilitar o complemento de monitoramento, substituindo o valor do `--workspace-resource-id` parâmetro. O valor da cadeia de caracteres deve estar entre aspas duplas:
 
     ```azurecli
     az aks enable-addons -a monitoring -n ExistingManagedCluster -g ExistingManagedClusterRG --workspace-resource-id "/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>"
@@ -104,15 +103,15 @@ Se você preferir integrar com um espaço de trabalho existente, execute as etap
 
 Para habilitar o monitoramento do seu contêiner AKS no portal do Azure por meio do Azure Monitor, faça o seguinte:
 
-1. Na portal do Azure, selecione **Monitor**.
+1. No portal do Azure, selecione **Monitor**.
 
 2. Selecione **Contêineres** na lista.
 
-3. Na página **Monitor – contêineres**, selecione **Clusters não monitorados**.
+3. Na página **monitorar contêineres** , selecione **clusters não monitorados**.
 
-4. Na lista de clusters não monitorados, localize o contêiner na lista e clique em **Habilitar**.   
+4. Na lista de clusters não monitorados, localize o contêiner na lista e clique em **habilitar**.
 
-5. Na página **Integração do Azure Monitor para contêineres**, se você tiver um espaço de trabalho do Log Analytics existente na mesma assinatura do cluster, selecione-o na lista suspensa.  
+5. Na página **Integração do Azure Monitor para contêineres**, se você tiver um espaço de trabalho do Log Analytics existente na mesma assinatura do cluster, selecione-o na lista suspensa.
     A lista seleciona previamente o workspace e o local padrão no qual o contêiner do AKS está implantado na assinatura.
 
     ![Habilitar o monitoramento de insights do contêiner do AKS](./media/container-insights-onboard/kubernetes-onboard-brownfield-01.png)
@@ -126,19 +125,19 @@ Depois de habilitar o monitoramento, poderão ser necessários cerca de 15 minut
 
 Para habilitar o monitoramento diretamente de um dos seus clusters AKS no portal do Azure, faça o seguinte:
 
-1. Na portal do Azure, selecione **todos os serviços**.
+1. No portal do Azure, selecione **Todos os serviços**.
 
 2. Na lista de recursos, comece digitando **Contêineres**.  A lista filtra com base na sua entrada.
 
-3. Selecione **Serviços de Kubernetes**.  
+3. Selecione **Serviços de Kubernetes**.
 
     ![O link de serviços do Kubernetes](./media/container-insights-onboard/portal-search-containers-01.png)
 
 4. Na lista de contêineres, selecione um contêiner.
 
-5. Na página de visão geral do contêiner, selecione **Monitorar contêineres**.  
+5. Na página de visão geral do contêiner, selecione **Monitorar contêineres**.
 
-6. Na página **Integração do Azure Monitor para contêineres**, se você tiver um espaço de trabalho do Log Analytics existente na mesma assinatura do cluster, selecione-o na lista suspensa.  
+6. Na página **Integração do Azure Monitor para contêineres**, se você tiver um espaço de trabalho do Log Analytics existente na mesma assinatura do cluster, selecione-o na lista suspensa.
     A lista seleciona previamente o workspace e o local padrão no qual o contêiner do AKS está implantado na assinatura.
 
     ![Habilitar o monitoramento de integridade do contêiner do AKS](./media/container-insights-onboard/kubernetes-onboard-brownfield-02.png)
@@ -310,7 +309,21 @@ A saída deve ser semelhante à seguinte, que indica que ela foi implantada corr
 User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system
 NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
-```  
+```
+
+Se houver nós do Windows Server no cluster, você poderá executar o comando a seguir para verificar se o agente foi implantado com êxito.
+
+```
+kubectl get ds omsagent-win --namespace=kube-system
+```
+
+A saída deve ser semelhante à seguinte, que indica que ela foi implantada corretamente:
+
+```output
+User@aksuser:~$ kubectl get ds omsagent-win --namespace=kube-system
+NAME                   DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                   AGE
+omsagent-win           2         2         2         2            2           beta.kubernetes.io/os=windows   1d
+```
 
 Para verificar a implantação da solução, execute o seguinte comando:
 
@@ -328,23 +341,23 @@ omsagent   1         1         1            1            3h
 
 ### <a name="agent-version-earlier-than-06072018"></a>Versão do agente anterior a 06072018
 
-Para verificar se a versão do agente do Log Analytics liberada antes de *06072018* está implementada corretamente, execute o seguinte comando:  
+Para verificar se a versão do agente do Log Analytics liberada antes de *06072018* está implementada corretamente, execute o seguinte comando:
 
 ```
 kubectl get ds omsagent --namespace=kube-system
 ```
 
-A saída deve ser semelhante à seguinte, que indica que ela foi implantada corretamente:  
+A saída deve ser semelhante à seguinte, que indica que ela foi implantada corretamente:
 
 ```output
 User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system
 NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
-```  
+```
 
 ## <a name="view-configuration-with-cli"></a>Exibir configuração com CLI
 
-Use o comando `aks show` para obter detalhes, como se a solução estivesse habilitada ou não, o que é o resourceID do espaço de trabalho do Log Analytics e detalhes de resumo sobre o cluster.  
+Use o comando `aks show` para obter detalhes, como se a solução estivesse habilitada ou não, o que é o resourceID do espaço de trabalho do Log Analytics e detalhes de resumo sobre o cluster.
 
 ```azurecli
 az aks show -g <resourceGroupofAKSCluster> -n <nameofAksCluster>

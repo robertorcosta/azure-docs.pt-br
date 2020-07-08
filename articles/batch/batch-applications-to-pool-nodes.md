@@ -3,12 +3,11 @@ title: Copiar aplicativos e dados para nós de pool
 description: Saiba como copiar aplicativos e dados para nós de pool.
 ms.topic: how-to
 ms.date: 02/17/2020
-ms.openlocfilehash: dad52a69ee468872c10b3a9e66b967a1c7bd101d
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: e21b8551fb62c4335910fd05bb9590eaf6f7e35a
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726818"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954886"
 ---
 # <a name="copy-applications-and-data-to-pool-nodes"></a>Copiar aplicativos e dados para nós de pool
 
@@ -19,13 +18,13 @@ O Lote do Azure dá suporte a várias maneiras de obter dados e aplicativos em n
 Exemplos: 
 - Use a linha de comando da tarefa de inicialização para mover ou instalar aplicativos
 
-- Especifique uma lista de arquivos ou contêineres específicos em uma conta do Armazenamento do Azure. Para obter mais informações, confira a [add#resourcefile na documentação do REST](https://docs.microsoft.com/rest/api/batchservice/pool/add#resourcefile)
+- Especifique uma lista de arquivos ou contêineres específicos em uma conta do Armazenamento do Azure. Para obter mais informações, confira a [add#resourcefile na documentação do REST](/rest/api/batchservice/pool/add#resourcefile)
 
-- Cada trabalho executado no pool executa MyApplication.exe, que precisa ser instalado primeiro com MyApplication.msi. Se você usar esse mecanismo, precisará definir a propriedade **wait for success** da tarefa como **true**. Para obter mais informações, confira a [add#starttask na documentação do REST](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask).
+- Cada trabalho executado no pool executa MyApplication.exe, que precisa ser instalado primeiro com MyApplication.msi. Se você usar esse mecanismo, precisará definir a propriedade **wait for success** da tarefa como **true**. Para obter mais informações, confira a [add#starttask na documentação do REST](/rest/api/batchservice/pool/add#starttask).
 
-- **Referências do pacote de aplicativos** no pool: Para aplicativos ou dados que precisam ser instalados em todos os nós no pool. Não há nenhum comando de instalação associado a um pacote de aplicativos, mas você pode usar uma tarefa de inicialização para executar qualquer comando de instalação. Se o seu aplicativo não requer instalação ou consiste em um grande número de arquivos, você pode usar esse método. Os pacotes de aplicativos são adequados para grandes quantidades de arquivos porque combinam um grande número de referências de arquivo em um conteúdo pequeno. Se você tentar incluir mais de 100 arquivos de recurso separados em uma tarefa, o serviço de Lote poderá enfrentar limitações internas do sistema para uma tarefa individual. Além disso, use pacotes de aplicativos se você tem requisitos de controle de versão rigorosos em que você pode ter muitas versões diferentes do mesmo aplicativo e precisa escolher entre eles. Para obter mais informações, leia [Implantar aplicativos em nós de computação com pacotes de aplicativos do Lote](https://docs.microsoft.com/azure/batch/batch-application-packages).
+- **Referências do pacote de aplicativos** no pool: Para aplicativos ou dados que precisam ser instalados em todos os nós no pool. Não há nenhum comando de instalação associado a um pacote de aplicativos, mas você pode usar uma tarefa de inicialização para executar qualquer comando de instalação. Se o seu aplicativo não requer instalação ou consiste em um grande número de arquivos, você pode usar esse método. Os pacotes de aplicativos são adequados para grandes quantidades de arquivos porque combinam um grande número de referências de arquivo em um conteúdo pequeno. Se você tentar incluir mais de 100 arquivos de recurso separados em uma tarefa, o serviço de Lote poderá enfrentar limitações internas do sistema para uma tarefa individual. Além disso, use pacotes de aplicativos se você tem requisitos de controle de versão rigorosos em que você pode ter muitas versões diferentes do mesmo aplicativo e precisa escolher entre eles. Para obter mais informações, leia [Implantar aplicativos em nós de computação com pacotes de aplicativos do Lote](./batch-application-packages.md).
 
-- **Arquivos de recurso de tarefa de preparação de trabalho**: Para aplicativos ou dados que precisam ser instalados para que o trabalho seja executado, mas não precisam ser instalados em todo o pool. Por exemplo: se o pool tiver muitos tipos diferentes de trabalhos e apenas um desses tipos precisar de MyApplication.msi para ser executado, faz sentido colocar a etapa de instalação em uma tarefa de preparação de trabalho. Para saber mais sobre tarefas de preparação de trabalho, confira [Executar tarefas de preparação e de liberação de trabalhos em nós de computação do Lote](https://azure.microsoft.com/documentation/articles/batch-job-prep-release/).
+- **Arquivos de recurso de tarefa de preparação de trabalho**: Para aplicativos ou dados que precisam ser instalados para que o trabalho seja executado, mas não precisam ser instalados em todo o pool. Por exemplo: se o pool tiver muitos tipos diferentes de trabalhos e apenas um desses tipos precisar de MyApplication.msi para ser executado, faz sentido colocar a etapa de instalação em uma tarefa de preparação de trabalho. Para saber mais sobre tarefas de preparação de trabalho, confira [Executar tarefas de preparação e de liberação de trabalhos em nós de computação do Lote](./batch-job-prep-release.md).
 
 - **Arquivos de recurso de tarefa**: para quando dados ou um aplicativo são relevantes apenas para uma tarefa individual. Por exemplo:  Você tem cinco tarefas, cada uma processa um arquivo diferente e, em seguida, grava a saída no armazenamento de blobs.  Nesse caso, o arquivo de entrada deve ser especificado na coleção de **arquivos de recurso de tarefas**, pois cada tarefa tem seu próprio arquivo de entrada.
 

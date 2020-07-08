@@ -15,11 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 618acae10b874eb5ebd5b6da7fe081368528dbd8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79251161"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84712489"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Desenvolver o Azure Functions com os Serviços de Mídia
 
@@ -348,6 +347,6 @@ Para obter mais detalhes e amostras/soluções completas de como usar o Azure Fu
 
 Consulte também [Usar o Azure WebHooks para monitorar notificações de trabalho dos Serviços de Mídia com o .NET](media-services-dotnet-check-job-progress-with-webhooks.md). 
 
-## <a name="provide-feedback"></a>Envie comentários
+## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

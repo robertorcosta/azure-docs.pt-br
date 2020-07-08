@@ -4,15 +4,14 @@ description: Etapas para configurar alertas em eventos de log de recursos de dia
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alzam
-ms.openlocfilehash: 95c55242baf2ceb3620ed71026af2bad0195c22d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3417d2b6e105626bceb992db088a4d0113aa798f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82127971"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84983080"
 ---
 # <a name="set-up-alerts-on-resource-log-events-from-vpn-gateway"></a>Configurar alertas em eventos de log de recursos do gateway de VPN
 
@@ -45,7 +44,7 @@ As etapas de exemplo a seguir criam um alerta para um evento de desconexão que 
 
    ![Detalhes para a criação de um espaço de trabalho Log Analytics](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert2.png  "Selecionar")
 
-4. Localize o gateway de VPN na folha**configurações de diagnóstico** do **Monitor** > .
+4. Localize o gateway de VPN na **Monitor**  >  folha**configurações de diagnóstico** do monitor.
 
    ![Seleções para localizar o gateway de VPN nas configurações de diagnóstico](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert3.png  "Selecionar")
 
@@ -73,7 +72,7 @@ As etapas de exemplo a seguir criam um alerta para um evento de desconexão que 
 
    ![Seleções para uma pesquisa de logs personalizada](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert8.png  "Selecionar")
 
-10. Insira a consulta a seguir na caixa de texto **Consulta de pesquisa**. Substitua os valores em <> e TimeGenerated conforme apropriado.
+10. Insira a consulta a seguir na caixa de texto **consulta de pesquisa** . Substitua os valores em <> e TimeGenerated conforme apropriado.
 
     ```
     AzureDiagnostics

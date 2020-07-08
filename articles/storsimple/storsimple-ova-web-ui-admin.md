@@ -9,17 +9,16 @@ editor: ''
 ms.assetid: ea65b4c7-a478-43e6-83df-1d9ea62916a6
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 12/1/2016
 ms.author: alkohli
-ms.openlocfilehash: 92671206a4171ca838423f55b526191ef30e5c35
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6bea9c9b7807ffb32b6071c968d3186965477009
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254723"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513037"
 ---
 # <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>Usar a interface do usuário da Web para administrar o StorSimple Virtual Array
 ![fluxo do processo de instalação](./media/storsimple-ova-web-ui-admin/manage4.png)
@@ -40,7 +39,7 @@ Uma chave de criptografia de dados de serviço é gerada quando você registra o
 Se você esqueceu sua chave de criptografia de dados de serviço e precisa recuperá-la, execute as seguintes etapas na interface do usuário da Web local do dispositivo registrado com o serviço.
 
 #### <a name="to-get-the-service-data-encryption-key"></a>Para obter a chave de criptografia de dados do serviço
-1. Conecte-se à interface do usuário da Web local. Vá para **configuração** > **configurações de nuvem**.
+1. Conecte-se à interface do usuário da Web local. Vá para **configuração**  >  **configurações de nuvem**.
 2. Na parte inferior da página, clique em **Obter chave de criptografia de dados de serviço**. Uma chave será exibida. Copie e salve essa chave.
    
     ![obter chave de criptografia de dados do serviço 1](./media/storsimple-ova-web-ui-admin/image27.png)
@@ -49,7 +48,7 @@ Se você esqueceu sua chave de criptografia de dados de serviço e precisa recup
 Em alguns casos em que você configura o dispositivo por meio da interface do usuário da Web local, você pode encontrar erros. Para diagnosticar e solucionar esses erros, você pode executar os testes de diagnóstico.
 
 #### <a name="to-run-the-diagnostic-tests"></a>Para executar os testes de diagnóstico
-1. Na interface do usuário da Web local, vá para **solução de problemas** > de**testes de diagnóstico**.
+1. Na interface do usuário da Web local, vá para **solução de problemas**de  >  **testes de diagnóstico**.
    
     ![executar dignóstico 1](./media/storsimple-ova-web-ui-admin/image29.png)
 2. Na parte inferior da página, clique em **Executar Testes de Diagnóstico**. Isso iniciará testes para diagnosticar quaisquer possíveis problemas com suas configurações de rede, dispositivo, proxy da Web, de hora ou de nuvem. Você será notificado de que o dispositivo está executando testes.
@@ -61,7 +60,7 @@ Em alguns casos em que você configura o dispositivo por meio da interface do us
 Um pacote de log é composto de todos os logs relevantes que podem ajudar o Suporte da Microsoft na solução de quaisquer problemas do dispositivo. Nesta versão, um pacote de log pode ser gerado por meio da interface do usuário da Web local.
 
 #### <a name="to-generate-the-log-package"></a>Para gerar o pacote de log
-1. Na interface do usuário da Web local, acesse **solução de problemas** > **logs do sistema**.
+1. Na interface do usuário da Web local, acesse **solução de problemas**  >  **logs do sistema**.
    
     ![gerar pacote de log 1](./media/storsimple-ova-web-ui-admin/image31.png)
 2. Na parte inferior da página, clique em **Criar pacote de log**. Será criado um pacote dos logs do sistema. Isso levará alguns minutos.
@@ -80,7 +79,7 @@ Um pacote de log é composto de todos os logs relevantes que podem ajudar o Supo
 Você pode desligar ou reiniciar seu dispositivo virtual usando a interface do usuário da Web local. Nós recomendamos que antes de reiniciar, você execute os volumes ou compartilhamentos offline no host e, em seguida, no dispositivo. Isso minimizará a possibilidade de dados corrompidos. 
 
 #### <a name="to-shut-down-your-virtual-device"></a>Para desligar o dispositivo virtual
-1. Na interface do usuário da Web local, vá para **manutenção** > **configurações de energia**.
+1. Na interface do usuário da Web local, vá para **manutenção**  >  **configurações de energia**.
 2. Na parte inferior da página, clique em **Desligar**.
    
     ![desligamento de dispositivo 1](./media/storsimple-ova-web-ui-admin/image36.png)
@@ -95,7 +94,7 @@ Você pode desligar ou reiniciar seu dispositivo virtual usando a interface do u
     O dispositivo será agora desligado. Se você deseja iniciar o dispositivo, você precisa fazer isso por meio do Gerenciador do Hyper-V.
 
 #### <a name="to-restart-your-virtual-device"></a>Para reiniciar o dispositivo virtual
-1. Na interface do usuário da Web local, vá para **manutenção** > **configurações de energia**.
+1. Na interface do usuário da Web local, vá para **manutenção**  >  **configurações de energia**.
 2. Na parte inferior da página, clique em **Reiniciar**.
    
     ![reinicialização do dispositivo](./media/storsimple-ova-web-ui-admin/image36.png)

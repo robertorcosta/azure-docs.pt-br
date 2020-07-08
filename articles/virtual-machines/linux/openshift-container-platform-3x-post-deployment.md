@@ -10,10 +10,9 @@ ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.openlocfilehash: 8d76588ae9124d34902659cc0149063400b6e766
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81759524"
 ---
 # <a name="post-deployment-tasks"></a>Tarefas de pós-implantação
@@ -34,9 +33,9 @@ Para usar o Azure Active Directory para autenticação, primeiro você precisa c
 Essas etapas usam a CLI do Azure para criar o Registro do aplicativo e a GUI (Portal) para definir as permissões. Para criar o Registro do aplicativo, são necessárias cinco informações:
 
 - Nome de exibição: nome de registro do aplicativo (ex: OCPAzureAD)
-- Home Page: URL do console do OpenShift (por `https://masterdns343khhde.westus.cloudapp.azure.com/console`exemplo,)
-- URI do identificador: URL do console do OpenShift ( `https://masterdns343khhde.westus.cloudapp.azure.com/console`por exemplo,)
-- URL de resposta: URL pública mestre e o nome de registro do aplicativo ( `https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD`por exemplo,)
+- Home Page: URL do console do OpenShift (por exemplo, `https://masterdns343khhde.westus.cloudapp.azure.com/console` )
+- URI do identificador: URL do console do OpenShift (por exemplo, `https://masterdns343khhde.westus.cloudapp.azure.com/console` )
+- URL de resposta: URL pública mestre e o nome de registro do aplicativo (por exemplo, `https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD` )
 - Senha: senha de segurança (use uma senha forte)
 
 O exemplo a seguir criará um Registro de aplicativo usando as informações acima:
@@ -69,7 +68,7 @@ Anote a propriedade appId retornada do comando para uma etapa posterior.
 
 No Portal do Azure:
 
-1. Selecione **Azure Active Directory** > **registro de aplicativo**.
+1. Selecione **Azure Active Directory**  >  **registro de aplicativo**.
 2. Pesquise o Registro do seu aplicativo (ex: OCPAzureAD).
 3. Nos resultados, clique no Registro do aplicativo.
 4. Em **Configurações**, selecione **Permissões necessárias**.

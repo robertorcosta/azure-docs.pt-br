@@ -4,7 +4,6 @@ description: Use os modelos de início rápido do Azure para criar o cluster de 
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
@@ -15,12 +14,11 @@ ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8476029fb189db846eca3eba31fe8cc62d3726f8
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
-ms.translationtype: HT
+ms.openlocfilehash: 1359acfb768f7ac2fa3527afd041595d313249d0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219449"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84669232"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Usar modelos de início rápido do Azure para configurar um grupo de disponibilidade para o SQL Server em uma VM do Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

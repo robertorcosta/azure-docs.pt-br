@@ -2,21 +2,20 @@
 title: Referência de atributo SAP SuccessFactors
 description: Saiba quais atributos de SuccessFactors são suportados pelo provisionamento controlado por SuccessFactors-HR
 services: active-directory
-author: cmmdesai
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.topic: article
+ms.topic: reference
 ms.workload: identity
 ms.date: 12/06/2019
-ms.author: chmutali
+ms.author: kenwith
 ms.reviewer: celested
-ms.openlocfilehash: cdd6abf5d10a529aa4c529d0364b2ba9f1df72e3
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.openlocfilehash: 25541b76dda55db1ec26f4d8e3ec63573a47e7b1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593177"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84781541"
 ---
 # <a name="sap-successfactors-attribute-reference"></a>Referência de atributo SAP SuccessFactors
 
@@ -71,7 +70,7 @@ A tabela a seguir captura a lista de atributos SuccessFactors com suporte nos do
 | 34 | Usuário                                   | apelido                     | Ler           |
 | 35 | Usuário                                   | state                        | Ler           |
 | 36 | Usuário                                   | timeZone                     | Ler           |
-| 37 | Usuário                                   | username                     | Ler           |
+| 37 | Usuário                                   | Nome de Usuário                     | Ler           |
 | 38 | Usuário                                   | zipCode                      | Ler           |
 | 39 | Por telefone                               | areaCode                     | Ler           |
 | 40 | Por telefone                               | countryCode                  | Ler           |
@@ -92,26 +91,26 @@ A tabela a seguir captura a lista de atributos SuccessFactors com suporte nos do
 | 55 | EmpJob                                 | position                     | Ler           |
 | 65 | EmpJob                                 | customString13               | Ler           |
 | 56 | EmpJob                                 | managerId                    | Ler           |
-| 57 | EmpJob\.BusinessUnit                   | businessUnit                 | Ler           |
-| 58 | EmpJob\.BusinessUnit                   | businessUnitId               | Ler           |
-| 59 | Empresa\.EmpJob                        | company                      | Ler           |
-| 60 | Empresa\.EmpJob                        | companyId                    | Ler           |
-| 61 | EmpJob\.Company\.CountryOfRegistration | twoCharCountryCode           | Ler           |
-| 62 | EmpJob\.CostCenter                     | costCenter                   | Ler           |
-| 63 | EmpJob\.CostCenter                     | costCenterId                 | Ler           |
-| 64 | EmpJob\.CostCenter                     | costCenterDescription        | Ler           |
-| 65 | Departamento\.de EmpJob                     | department                   | Ler           |
-| 66 | Departamento\.de EmpJob                     | departmentId                 | Ler           |
-| 67 | Divisão\.de EmpJob                       | division                     | Ler           |
-| 68 | Divisão\.de EmpJob                       | divisionId                   | Ler           |
-| 69 | EmpJob\.JobCode                        | jobCode                      | Ler           |
-| 70 | EmpJob\.JobCode                        | jobCodeId                    | Ler           |
-| 71 | Local\.EmpJob                       | LocalName                 | Ler           |
-| 72 | Local\.EmpJob                       | officeLocationAddress        | Ler           |
-| 73 | Local\.EmpJob                       | officeLocationCity           | Ler           |
-| 74 | Local\.EmpJob                       | officeLocationCustomString4  | Ler           |
-| 75 | Local\.EmpJob                       | officeLocationZipCode        | Ler           |
-| 76 | EmpJob\.PayGrade                       | payGrade                     | Ler           |
+| 57 | EmpJob \. BusinessUnit                   | businessUnit                 | Ler           |
+| 58 | EmpJob \. BusinessUnit                   | businessUnitId               | Ler           |
+| 59 | \.Empresa EmpJob                        | company                      | Ler           |
+| 60 | \.Empresa EmpJob                        | companyId                    | Ler           |
+| 61 | EmpJob \. Company \. CountryOfRegistration | twoCharCountryCode           | Ler           |
+| 62 | EmpJob \. CostCenter                     | costCenter                   | Ler           |
+| 63 | EmpJob \. CostCenter                     | costCenterId                 | Ler           |
+| 64 | EmpJob \. CostCenter                     | costCenterDescription        | Ler           |
+| 65 | Departamento de EmpJob \.                     | department                   | Ler           |
+| 66 | Departamento de EmpJob \.                     | departmentId                 | Ler           |
+| 67 | Divisão de EmpJob \.                       | division                     | Ler           |
+| 68 | Divisão de EmpJob \.                       | divisionId                   | Ler           |
+| 69 | EmpJob \. JobCode                        | jobCode                      | Ler           |
+| 70 | EmpJob \. JobCode                        | jobCodeId                    | Ler           |
+| 71 | \.Local EmpJob                       | LocalName                 | Ler           |
+| 72 | \.Local EmpJob                       | officeLocationAddress        | Ler           |
+| 73 | \.Local EmpJob                       | officeLocationCity           | Ler           |
+| 74 | \.Local EmpJob                       | officeLocationCustomString4  | Ler           |
+| 75 | \.Local EmpJob                       | officeLocationZipCode        | Ler           |
+| 76 | EmpJob \. PayGrade                       | payGrade                     | Ler           |
 | 77 | EmpEmploymentTermination               | activeEmploymentsCount       | Ler           |
 | 78 | EmpEmploymentTermination               | latestTerminationDate        | Ler           |
 
@@ -130,14 +129,14 @@ A tabela a seguir fornece o mapeamento de atributo padrão entre os atributos Su
 | 7  | Usuário                                   | city                     | l                                       | NA                                                                                           |
 | 8  | Usuário                                   | country                  | co                                      | NA                                                                                           |
 | 9  | Usuário                                   | state                    | st                                      | NA                                                                                           |
-| 10 | Usuário                                   | username                 | samAccountName                          | NA                                                                                           |
+| 10 | Usuário                                   | Nome de Usuário                 | samAccountName                          | NA                                                                                           |
 | 11 | Usuário                                   | zipCode                  | postalCode                              | NA                                                                                           |
 | 12 | Enviar por email                               | emailAddress             | mail                                    | NA                                                                                           |
-| 13 | EmpJob                                 | jobTitle                 | title                                   | NA                                                                                           |
+| 13 | EmpJob                                 | jobTitle                 | título                                   | NA                                                                                           |
 | 14 | EmpJob                                 | managerId                | manager                                 | NA                                                                                           |
-| 15 | EmpJob\.Company\.CountryOfRegistration | twoCharCountryCode       | c                                       | NA                                                                                           |
-| 16 | Departamento\.de EmpJob                     | department               | department                              | NA                                                                                           |
-| 17 | Divisão\.de EmpJob                       | division                 | company                                 | NA                                                                                           |
-| 18 | Local\.EmpJob                       | officeLocationAddress    | streetAddress                           | NA                                                                                           |
-| 19 | Local\.EmpJob                       | officeLocationZipCode    | postalCode                              | NA                                                                                           |
+| 15 | EmpJob \. Company \. CountryOfRegistration | twoCharCountryCode       | c                                       | NA                                                                                           |
+| 16 | Departamento de EmpJob \.                     | department               | department                              | NA                                                                                           |
+| 17 | Divisão de EmpJob \.                       | division                 | company                                 | NA                                                                                           |
+| 18 | \.Local EmpJob                       | officeLocationAddress    | streetAddress                           | NA                                                                                           |
+| 19 | \.Local EmpJob                       | officeLocationZipCode    | postalCode                              | NA                                                                                           |
 | 20 | EmpEmploymentTermination               | activeEmploymentsCount   | accountEnabled                          | se activeEmploymentsCount = 0, desabilite o account\.                                           |

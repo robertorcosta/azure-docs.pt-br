@@ -6,13 +6,12 @@ ms.subservice: update-management
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 05/22/2020
-ms.openlocfilehash: 1418b26a2a498c43ff61f42b2761c59cbca5d0f4
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.date: 06/09/2020
+ms.openlocfilehash: 6b26db522db246add48941da9af4784ed2942a0a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837137"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84661035"
 ---
 # <a name="create-an-automation-account-using-an-azure-resource-manager-template"></a>Criar uma conta de Automação usando um modelo do Azure Resource Manager
 
@@ -35,8 +34,8 @@ A tabela a seguir lista a versão de API para os recursos usados neste exemplo.
 
 | Recurso | Tipo de recurso | Versão da API |
 |:---|:---|:---|
-| Workspace | workspaces | 2017-03-15-preview |
-| Conta de automação | automação | 2015-10-31 | 
+| Workspace | workspaces | 2020-03-01-visualização |
+| Conta de automação | automação | 2018-06-30 | 
 
 ## <a name="before-you-use-the-template"></a>Antes de usar o modelo
 
@@ -48,14 +47,14 @@ O modelo JSON está configurado para solicitar:
 
 * O nome do workspace.
 * A região para criar o workspace.
+* Para habilitar permissões de recurso ou espaço de trabalho.
 * O nome da conta de Automação.
-* A região para criar a conta.
+* A região na qual criar a conta de automação.
 
 Os seguintes parâmetros no modelo são definidos com um valor padrão para o espaço de trabalho Log Analytics:
 
 * *sku* assume por padrão o novo tipo de preço por GB lançado no modelo de preço de abril de 2018.
 * *dataRetention* usa como padrão 30 dias.
-* *capacityReservationLevel* é o padrão de 100 GB.
 
 >[!WARNING]
 >Se você deseja criar ou configurar um espaço de trabalho do Log Analytics em uma assinatura que tiver aceitado o modelo de preços de abril de 2018, o único tipo de preço válido do Log Analytics *PerGB2018*.
@@ -63,7 +62,7 @@ Os seguintes parâmetros no modelo são definidos com um valor padrão para o es
 
 O modelo JSON especifica um valor padrão para os outros parâmetros que provavelmente seriam usados como uma configuração padrão em seu ambiente. Você pode armazenar o modelo em uma conta de armazenamento do Azure para acesso compartilhado na sua organização. Para obter mais informações sobre como trabalhar com modelos, veja [Implantar recursos com modelos do Resource Manager e a CLI do Azure](../azure-resource-manager/templates/deploy-cli.md).
 
-Se você for novo na automação do Azure e Azure Monitor, é importante entender os detalhes de configuração a seguir. Eles podem ajudá-lo a evitar erros ao tentar criar, configurar e usar um workspace do Log Analytics vinculado à sua nova conta de automação. 
+Se você for novo na automação do Azure e Azure Monitor, é importante entender os detalhes de configuração a seguir. Eles podem ajudá-lo a evitar erros ao tentar criar, configurar e usar um workspace do Log Analytics vinculado à sua nova conta de automação.
 
 * Examine [detalhes adicionais](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) para entender totalmente as opções de configuração do espaço de trabalho, como modo de controle de acesso, tipo de preço, retenção e nível de reserva de capacidade.
 
@@ -107,14 +106,7 @@ Se você for novo na automação do Azure e Azure Monitor, é importante entende
             "minValue": 7,
             "maxValue": 730,
             "metadata": {
-                "description": "Number of days of retention. Workspaces in the legacy Free pricing tier can have only 7 days."
-            }
-        },
-        "immediatePurgeDataOn30Days": {
-            "type": "bool",
-            "defaultValue": "[bool('false')]",
-            "metadata": {
-                "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. Use this with extreme caution. This applies only when retention is being set to 30 days."
+                "description": "Number of days to retain data."
             }
         },
         "location": {
@@ -122,6 +114,12 @@ Se você for novo na automação do Azure e Azure Monitor, é importante entende
             "metadata": {
                 "description": "Specifies the location in which to create the workspace."
             }
+        },
+        "resourcePermissions": {
+              "type": "bool",
+              "metadata": {
+                "description": "true to use resource or workspace permissions. false to require workspace permissions."
+              }
         },
         "automationAccountName": {
             "type": "string",
@@ -176,13 +174,11 @@ Se você for novo na automação do Azure e Azure Monitor, é importante entende
         {
         "type": "Microsoft.OperationalInsights/workspaces",
             "name": "[parameters('workspaceName')]",
-            "apiVersion": "2017-03-15-preview",
+            "apiVersion": "2020-03-01-preview",
             "location": "[parameters('location')]",
             "properties": {
                 "sku": {
-                    "Name": "[parameters('sku')]",
-                    "name": "CapacityReservation",
-                    "capacityReservationLevel": 100
+                    "name": "[parameters('sku')]",
                 },
                 "retentionInDays": "[parameters('dataRetention')]",
                 "features": {
@@ -194,7 +190,7 @@ Se você for novo na automação do Azure e Azure Monitor, é importante entende
         "resources": [
         {
             "type": "Microsoft.Automation/automationAccounts",
-            "apiVersion": "2015-01-01-preview",
+            "apiVersion": "2018-06-30",
             "name": "[parameters('automationAccountName')]",
             "location": "[parameters('automationAccountLocation')]",
             "dependsOn": [
@@ -209,7 +205,7 @@ Se você for novo na automação do Azure e Azure Monitor, é importante entende
             "resources": [
                     {
                         "type": "runbooks",
-                        "apiVersion": "2015-01-01-preview",
+                        "apiVersion": "2018-06-30",
                         "name": "[parameters('sampleGraphicalRunbookName')]",
                         "location": "[parameters('automationAccountLocation')]",
                         "dependsOn": [
@@ -229,7 +225,7 @@ Se você for novo na automação do Azure e Azure Monitor, é importante entende
                     },
                     {
                         "type": "runbooks",
-                        "apiVersion": "2015-01-01-preview",
+                        "apiVersion": "2018-06-30",
                         "name": "[parameters('samplePowerShellRunbookName')]",
                         "location": "[parameters('automationAccountLocation')]",
                         "dependsOn": [
@@ -249,7 +245,7 @@ Se você for novo na automação do Azure e Azure Monitor, é importante entende
                     },
                     {
                         "type": "runbooks",
-                        "apiVersion": "2015-01-01-preview",
+                        "apiVersion": "2018-06-30",
                         "name": "[parameters('samplePython2RunbookName')]",
                         "location": "[parameters('automationAccountLocation')]",
                         "dependsOn": [
@@ -270,10 +266,10 @@ Se você for novo na automação do Azure e Azure Monitor, é importante entende
                 ]
         },
         {
-            "apiVersion": "2015-11-01-preview",
+            "apiVersion": "2020-03-01-preview",
             "type": "Microsoft.OperationalInsights/workspaces/linkedServices",
             "name": "[concat(parameters('workspaceName'), '/' , 'Automation')]",
-            "location": "[resourceGroup().location]",
+            "location": "[parameters('location')]",
             "dependsOn": [
                 "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]",
                 "[concat('Microsoft.Automation/automationAccounts/', parameters('automationAccountName'))]"

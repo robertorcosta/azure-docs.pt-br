@@ -4,16 +4,15 @@ description: Saiba como criar trabalhos de importação e exportação no Portal
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 120dbe9c4b79755105ba634c68606edfbfdc4ad2
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: MT
+ms.openlocfilehash: a43637071ec1a9962c8aa1b2262e07354293f12b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872441"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85512432"
 ---
 # <a name="what-is-azure-importexport-service"></a>O que é o serviço de Importação/exportação do Azure?
 
@@ -129,7 +128,7 @@ O serviço de Importação/Exportação do Azure dá suporte à cópia dos dados
 |Centro-Sul dos Estados Unidos     | Oeste do Japão        |Coreia Central         | Alemanha Central        |
 |Centro-Oeste dos EUA     |  Leste do Japão       | Gov. dos EUA – Virgínia        | Nordeste da Alemanha        |
 
-## <a name="security-considerations"></a>Considerações sobre segurança
+## <a name="security-considerations"></a>Considerações de segurança
 
 Os dados na unidade são criptografados usando o AES 256-bit Criptografia de Unidade de Disco BitLocker. Essa criptografia protegerá os dados enquanto eles estiverem em trânsito.
 

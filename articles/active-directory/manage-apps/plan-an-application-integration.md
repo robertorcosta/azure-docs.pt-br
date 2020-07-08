@@ -3,8 +3,8 @@ title: Introdução à integração do Azure AD aos aplicativos | Microsoft Docs
 description: Este artigo é um guia de introdução para a integração do AD do Azure (Active Directory do Azure) com aplicativos locais e aplicativos em nuvem.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.devlang: na
@@ -12,15 +12,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89b16a8479f8975d101b8a4e26dcb1885d9730bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0d49c23e5968b0fe1b2d4838978fe1b23931e5e9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77063373"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763084"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Guia de introdução: integrando o Active Directory do Azure com aplicativos
 
@@ -42,7 +41,7 @@ Antes de ir para a integração de aplicativos com o Azure AD, é importante sab
 ### <a name="user-and-group-inventory"></a>Inventário de usuários e grupos
 * Onde residem suas contas de usuário?
   * Active Directory local
-  * AD do Azure
+  * Azure AD
   * Em um banco de dados de aplicativo separado que você possui
   * Em aplicativos não autorizados
   * Todos os itens acima
@@ -96,6 +95,6 @@ Para obter informações detalhadas, você pode baixar os planos de implantaçã
 Para baixar um plano de implantação do portal do Azure:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-2. Selecione **aplicativos** | **empresariais escolher um plano de implantação de aplicativo** | **Deployment Plan**.
+2. Selecione **aplicativos empresariais**  |  **escolher um plano de implantação de aplicativo**  |  **Deployment Plan**.
 
 Forneça comentários sobre planos de implantação executando a [Pesquisa de plano de implantação](https://aka.ms/DeploymentPlanFeedback).

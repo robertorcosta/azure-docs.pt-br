@@ -9,17 +9,16 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2017
 ms.author: alkohli
-ms.openlocfilehash: 5f0be5d8378cd1640d3052f2e56c8161e2c0b203
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.openlocfilehash: 02b85cb90948f35cb6f6c855cfbe81fd58301de0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "62116884"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513584"
 ---
 # <a name="install-update-06-on-your-storsimple-virtual-array"></a>Instalar a Atualização 0.6 em seu StorSimple Virtual Array
 
@@ -30,6 +29,7 @@ Este artigo descreve as etapas necessárias para instalar a Atualização 0.6 no
 Antes de aplicar uma atualização, é recomendável que você deixe os volumes ou compartilhamentos offline no host primeiro e, em seguida, no dispositivo. Isso minimiza a possibilidade de dados corrompidos. Depois que os volumes ou compartilhamentos estiverem offline, você também deverá fazer um backup manual do dispositivo.
 
 > [!IMPORTANT]
+>
 > - A Atualização 0.6 corresponde à versão do software **10.0.10293.0** em seu dispositivo. Para saber mais sobre as novidades nessa atualização, veja as [Notas de versão da Atualização 0.6](storsimple-virtual-array-update-06-release-notes.md).
 >
 > - Caso esteja executando a Atualização 0.2 ou posterior, recomendamos que você instale as atualizações por meio do portal do Azure. Se estiver executando a Atualização 0.1 ou versões de software GA, você deverá usar o método de hotfix por meio da interface do usuário da Web local para instalar a Atualização 0.6.
@@ -57,7 +57,7 @@ Execute as etapas a seguir para baixar a atualização do software do Catálogo 
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>Para baixar a atualização ou o hotfix
 
-1. Inicie o Internet Explorer e navegue [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com)até.
+1. Inicie o Internet Explorer e navegue até [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com) .
 
 2. Se você estiver usando o Catálogo do Microsoft Update pela primeira vez neste computador, clique em **Instalar** quando a instalação do complemento do Catálogo do Microsoft Update for solicitada.
 
@@ -94,7 +94,7 @@ Use esse método para instalar atualizações em um dispositivo que executa as v
 
 #### <a name="to-install-the-update-or-the-hotfix"></a>Para instalar a atualização ou hotfix
 
-1. Na interface do usuário da Web local, vá para **manutenção** > **atualização de software**. Anote a versão do software que você está executando. Se você estiver executando **10.0.10290.0**, não será necessário atualizar o agente MDS na etapa 6.
+1. Na interface do usuário da Web local, vá para **manutenção**  >  **atualização de software**. Anote a versão do software que você está executando. Se você estiver executando **10.0.10290.0**, não será necessário atualizar o agente MDS na etapa 6.
    
     ![atualizar dispositivo](./media/storsimple-virtual-array-install-update-05/update1m.png)
 
@@ -110,7 +110,7 @@ Use esse método para instalar atualizações em um dispositivo que executa as v
    
     ![atualizar dispositivo](./media/storsimple-virtual-array-install-update-05/update5m.png)
 
-5. Depois que a reinicialização for concluída, você será levado à página **Entrar** . Para verificar se o software do dispositivo foi atualizado, na interface do usuário da Web local, vá para **manutenção** > **atualização de software**. A versão de software exibida deve ser **10.0.0.0.0.10293** para a Atualização 0.6.
+5. Depois que a reinicialização for concluída, você será levado à página **Entrar** . Para verificar se o software do dispositivo foi atualizado, na interface do usuário da Web local, vá para **manutenção**  >  **atualização de software**. A versão de software exibida deve ser **10.0.0.0.0.10293** para a Atualização 0.6.
    
    > [!NOTE]
    > Relatamos as versões de software de maneira ligeiramente diferente na interface do usuário da Web local e no portal do Azure. Por exemplo, a interface do usuário da Web local informa **10.0.0.0.0.10293** e o Portal do Azure informa **10.0.10293.0** para a mesma versão.

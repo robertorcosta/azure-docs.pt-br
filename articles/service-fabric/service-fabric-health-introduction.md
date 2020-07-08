@@ -1,16 +1,15 @@
 ---
 title: Monitoramento de integridade no Service Fabric
 description: Uma introdução ao modelo de Monitoramento de integridade do Service Fabric do Azure, que fornece monitoramento do cluster e seus aplicativos e serviços.
-author: oanapl
+author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
-ms.author: oanapl
-ms.openlocfilehash: 473aa2b9a74193a857390cd3e29b2b559b6084d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.author: gwallace
+ms.openlocfilehash: 82e61b2bf127ba86d06aba3110a000ed28a79833
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282413"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85392753"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introdução ao monitoramento da integridade do Service Fabric
 O Service Fabric do Azure introduz um modelo de integridade que fornece avaliação e relatório de integridade avançados, flexíveis e extensíveis. O modelo permite o monitoramento do estado quase em tempo real do cluster e dos serviços que são executados nele. Você pode obter as informações sobre integridade facilmente e corrigir possíveis problemas antes que eles se espalhem e causem interrupções massivas. No modelo comum, os serviços enviam relatórios com base na respectiva exibição local e as informações são agregadas para fornecer uma exibição geral no nível de cluster.
@@ -42,7 +41,7 @@ As entidades de integridade são:
 * **Cluster**. Representa a integridade de um cluster da Malha do Serviço. Os relatórios de integridade do cluster descrevem condições que afetam todo o cluster. Essas condições afetam várias entidades no cluster ou o próprio cluster. Com base na condição, o gerador de relatórios não consegue restringir o problema para um ou mais filhos não íntegros. O exemplo inclui a personalidade do cluster sendo dividida devido ao particionamento da rede ou problemas de comunicação.
 * **Nó**. Representa a integridade de um nó da Malha do Serviço. Os relatórios de integridade do nó descrevem condições que afetam toda a funcionalidade do nó. Normalmente, elas afetam todas as entidades implantadas em execução. Os exemplos incluem um nó sem espaço em disco (ou outras propriedades em todo o computador, como memória, conexões) ou quando o nó está desativado. A entidade de nó é identificada pelo nome do nó (cadeia de caracteres).
 * **Aplicativo**. Representa a integridade de uma instância do aplicativo em execução no cluster. Os relatórios de integridade do aplicativo descrevem condições que afetam a integridade geral do aplicativo. Elas não podem ser limitadas a filhos individuais (serviços ou aplicativos implantados). Os exemplos incluem a interação de ponta a ponta entre diferentes serviços no aplicativo. A entidade de aplicativo é identificada pelo nome do aplicativo (URI).
-* Do **serviço**. Representa a integridade de um serviço em execução no cluster. Os relatórios de integridade do serviço descrevem condições que afetam a integridade geral do serviço. O gerador de relatórios não consegue restringir o problema para uma partição ou réplica não íntegras. Os exemplos incluem uma configuração de serviço (como compartilhamento de arquivos externos ou porta) que está causando problemas em todas as partições. A entidade de serviço é identificada pelo nome do serviço (URI).
+* **Serviço**. Representa a integridade de um serviço em execução no cluster. Os relatórios de integridade do serviço descrevem condições que afetam a integridade geral do serviço. O gerador de relatórios não consegue restringir o problema para uma partição ou réplica não íntegras. Os exemplos incluem uma configuração de serviço (como compartilhamento de arquivos externos ou porta) que está causando problemas em todas as partições. A entidade de serviço é identificada pelo nome do serviço (URI).
 * **Partição**. Representa a integridade de uma partição de serviço. Os relatórios de integridade da partição descrevem condições que afetam todo o conjunto de réplicas. Os exemplos incluem quando o número de réplicas está abaixo da contagem de destino e quando a partição está na perda do quórum. A entidade de partição é identificada pela ID da partição (GUID).
 * **Réplica**. Representa a integridade de uma réplica de serviço com estado ou uma instância de serviço sem estado. A réplica é menor unidade que os watchdogs e os componentes do sistema podem reportar para um aplicativo. Para serviços com estado, os exemplos incluem uma réplica primária que não consegue replicar operações em locais secundários e replicação lenta. Além disso, uma instância sem estado pode relatar quando estiver em execução sem recursos ou tiver problemas de conectividade. A entidade de réplica é identificada pela ID da partição (GUID) e pela ID de réplica ou instância (longo).
 * **DeployedApplication**. Representa a integridade de um *aplicativo que é executado em um nó*. Os relatórios de integridade do aplicativo implantado descrevem condições específicas ao aplicativo no nó que não podem ser limitados aos pacotes de serviço implantados no mesmo nó. Os exemplos incluem erros quando o pacote de aplicativos não pode ser baixado nesse nó e problemas na configuração das entidades de segurança do aplicativo no nó. O aplicativo implantado é identificado pelo nome do aplicativo (URI) e pelo nome do nó (cadeia de caracteres).

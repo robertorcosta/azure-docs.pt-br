@@ -6,11 +6,10 @@ ms.topic: conceptual
 ms.date: 5/24/2019
 ms.author: hrushib
 ms.openlocfilehash: f56fcb7d1dde700d954c3b55bcf8cd7759893521
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259000"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84712455"
 ---
 # <a name="periodic-backup-and-restore-in-an-azure-service-fabric-cluster"></a>Backup e restauração periódicos em um cluster de Service Fabric do Azure
 > [!div class="op_single_selector"]
@@ -68,7 +67,7 @@ O Service Fabric fornece um conjunto de APIs para obter a funcionalidade a segui
 
 ### <a name="using-azure-portal"></a>Usando o Portal do Azure
 
-Habilite `Include backup restore service` a caixa `+ Show optional settings` de `Cluster Configuration` seleção na guia.
+Habilite a `Include backup restore service` caixa `+ Show optional settings` de seleção na `Cluster Configuration` guia.
 
 ![Habilitar serviço de restauração de backup com o portal][1]
 

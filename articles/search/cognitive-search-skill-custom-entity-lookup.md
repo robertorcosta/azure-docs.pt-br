@@ -7,20 +7,19 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/30/2020
-ms.openlocfilehash: 3659070d4ffd4346a8827d2748e67db436fc15b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/17/2020
+ms.openlocfilehash: 00192ab3663944908f282f601396651cdd319df2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82085732"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987471"
 ---
 #     <a name="custom-entity-lookup-cognitive-skill-preview"></a>Habilidade cognitiva de pesquisa de entidade personalizada (versão prévia)
 
 > [!IMPORTANT] 
 > Esta habilidade está atualmente em visualização pública. A funcionalidade de versão prévia é fornecida sem um Contrato de Nível de Serviço e, portanto, não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). No momento, não há suporte para Portal ou SDK do .NET.
 
-A habilidade de **pesquisa de entidade personalizada** procura texto de uma lista personalizada definida pelo usuário de palavras e frases. Usando essa lista, ele rotula todos os documentos com qualquer entidade correspondente. A habilidade também dá suporte a um grau de correspondência difusa que pode ser aplicado para localizar correspondências que são semelhantes, mas não exatamente exatos.  
+A habilidade de **pesquisa de entidade personalizada** procura texto de uma lista personalizada definida pelo usuário de palavras e frases. Usando essa lista, ela rotula todos os documentos com entidades correspondentes. A habilidade também dá suporte a um grau de correspondência difusa que pode ser aplicado para localizar correspondências semelhantes, mas não exatas.  
 
 Essa habilidade não está associada a uma API de serviços cognitivas e pode ser usada gratuitamente durante o período de versão prévia. No entanto, você ainda deve [anexar um recurso de serviços cognitivas](https://docs.microsoft.com/azure/search/cognitive-search-attach-cognitive-services)para substituir o limite de enriquecimento diário. O limite diário se aplica a acesso gratuito aos serviços cognitivas quando acessados por meio do Azure Pesquisa Cognitiva.
 
@@ -38,17 +37,17 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 
 | Nome do parâmetro     | Descrição |
 |--------------------|-------------|
-| entitiesDefinitionUri    | Caminho para um arquivo JSON ou CSV que contém todo o texto de destino para correspondência. Esta definição de entidade é lida no início de uma execução de indexador; as atualizações para esse arquivo mid-Run não serão realizadas até as execuções subsequentes. Essa configuração deve ser acessível via HTTPS. Consulte formato de [definição de entidade personalizada](#custom-entity-definition-format) "abaixo para obter o esquema CSV ou JSON esperado.|
-|inlineEntitiesDefinition | Definições de entidade JSON embutida. Esse parâmetro substitui o parâmetro entitiesDefinitionUri, se presente. No máximo 10 KB de configuração podem ser fornecidos embutidos. Consulte a [definição de entidade personalizada](#custom-entity-definition-format) abaixo para obter o esquema JSON esperado. |
-|defaultLanguageCode |    Adicional Código de idioma do texto de entrada usado para indexar e delinear o texto de entrada. Há suporte para os seguintes idiomas `da, de, en, es, fi, fr, it, ko, pt`:. O padrão é inglês (`en`). Se você passar um formato languagecode-countrycode, somente a parte languagecode do formato é usada.  |
+| `entitiesDefinitionUri`    | Caminho para um arquivo JSON ou CSV que contém todo o texto de destino para correspondência. Esta definição de entidade é lida no início de uma execução de indexador; as atualizações para esse arquivo mid-Run não serão realizadas até as execuções subsequentes. Essa configuração deve ser acessível via HTTPS. Consulte formato de [definição de entidade personalizada](#custom-entity-definition-format) "abaixo para obter o esquema CSV ou JSON esperado.|
+|`inlineEntitiesDefinition` | Definições de entidade JSON embutida. Esse parâmetro substitui o parâmetro entitiesDefinitionUri, se presente. No máximo 10 KB de configuração podem ser fornecidos embutidos. Consulte a [definição de entidade personalizada](#custom-entity-definition-format) abaixo para obter o esquema JSON esperado. |
+|`defaultLanguageCode` |    Adicional Código de idioma do texto de entrada usado para indexar e delinear o texto de entrada. Há suporte para os seguintes idiomas: `da, de, en, es, fi, fr, it, ko, pt` . O padrão é inglês ( `en` ). Se você passar um formato languagecode-countrycode, somente a parte languagecode do formato é usada.  |
 
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
 | Nome de entrada      | Descrição                   |
 |---------------|-------------------------------|
-| text          | O texto para analisar.          |
-| languageCode    | Opcional. O padrão é `"en"`.  |
+| `text`          | O texto para analisar.          |
+| `languageCode`    | Opcional. O padrão é `"en"`.  |
 
 
 ## <a name="skill-outputs"></a>Saídas de habilidades
@@ -56,7 +55,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 
 | Nome de saída      | Descrição                   |
 |---------------|-------------------------------|
-| entidades | Uma matriz de objetos que contém informações sobre as correspondências que foram encontradas e os metadados relacionados. Cada uma das entidades identificadas pode conter os seguintes campos:  <ul> <li> *nome*: a entidade de nível superior identificada. A entidade representa o formulário "normalizado". </li> <li> *ID*: um identificador exclusivo para a entidade, conforme definido pelo usuário no "formato de definição de entidade personalizada".</li> <li> *Descrição*: Descrição da entidade conforme definida pelo usuário no "formato de definição de entidade personalizada". </li> <li> *tipo:* Tipo de entidade, conforme definido pelo usuário no "formato de definição de entidade personalizada".</li> <li> *subtipo:* Subtipo de entidade, conforme definido pelo usuário no "formato de definição de entidade personalizada".</li>  <li> *corresponde*: coleção que descreve cada uma das correspondências para essa entidade no texto de origem. Cada correspondência terá os seguintes membros: </li> <ul> <li> *texto*: a correspondência de texto bruto do documento de origem. </li> <li> *offset*: o local onde a correspondência foi encontrada no texto. </li> <li> *comprimento*: o comprimento do texto correspondente. </li> <li> *matchDistance*: o número de caracteres diferente dessa correspondência era do nome ou alias da entidade original.  </li> </ul> </ul>
+| `entities` | Uma matriz de objetos que contém informações sobre as correspondências que foram encontradas e os metadados relacionados. Cada uma das entidades identificadas pode conter os seguintes campos:  <ul> <li> *nome*: a entidade de nível superior identificada. A entidade representa o formulário "normalizado". </li> <li> *ID*: um identificador exclusivo para a entidade, conforme definido pelo usuário no "formato de definição de entidade personalizada".</li> <li> *Descrição*: Descrição da entidade conforme definida pelo usuário no "formato de definição de entidade personalizada". </li> <li> *tipo:* Tipo de entidade, conforme definido pelo usuário no "formato de definição de entidade personalizada".</li> <li> *subtipo:* Subtipo de entidade, conforme definido pelo usuário no "formato de definição de entidade personalizada".</li>  <li> *corresponde*: coleção que descreve cada uma das correspondências para essa entidade no texto de origem. Cada correspondência terá os seguintes membros: </li> <ul> <li> *texto*: a correspondência de texto bruto do documento de origem. </li> <li> *offset*: o local onde a correspondência foi encontrada no texto. </li> <li> *comprimento*: o comprimento do texto correspondente. </li> <li> *matchDistance*: o número de caracteres diferente dessa correspondência era do nome ou alias da entidade original.  </li> </ul> </ul>
   |
 
 ## <a name="custom-entity-definition-format"></a>Formato de definição de entidade personalizada
@@ -145,22 +144,22 @@ As tabelas a seguir descrevem mais detalhadamente os diferentes parâmetros de c
 
 |  Nome do campo  |        Descrição  |
 |--------------|----------------------|
-| name | O descritor de entidade de nível superior. As correspondências na saída da habilidade serão agrupadas por esse nome e deverão representar a forma "normalizada" do texto que está sendo encontrado.  |
-| description  | Adicional Esse campo pode ser usado como uma passagem para metadados personalizados sobre os textos correspondentes. O valor desse campo será exibido com cada correspondência de sua entidade na saída da habilidade. |
-| type | Adicional Esse campo pode ser usado como uma passagem para metadados personalizados sobre os textos correspondentes. O valor desse campo será exibido com cada correspondência de sua entidade na saída da habilidade. |
-| subtype | Adicional Esse campo pode ser usado como uma passagem para metadados personalizados sobre os textos correspondentes. O valor desse campo será exibido com cada correspondência de sua entidade na saída da habilidade. |
-| id | Adicional Esse campo pode ser usado como uma passagem para metadados personalizados sobre os textos correspondentes. O valor desse campo será exibido com cada correspondência de sua entidade na saída da habilidade. |
-| caseSensitive | Adicional O padrão é false. Valor booliano que indica se as comparações com o nome da entidade devem ser sensíveis à capitalização de caracteres. As correspondências que não diferenciam maiúsculas e minúsculas de "Microsoft" podem ser: Microsoft, microSoft, MICROSOFT |
-| fuzzyEditDistance | Adicional O padrão é 0. Valor máximo de 5. Denota o número aceitável de caracteres divergentes que ainda constituem uma correspondência com o nome da entidade. A menor possibilidade de fuzzização possível para qualquer correspondência fornecida é retornada.  Por exemplo, se a distância de edição for definida como 3, "Windows 10" ainda corresponderia a "Windows", "Windows10" e "Windows 7". <br/> Quando a sensibilidade de maiúsculas e minúsculas é definida como false, as diferenças de maiúsculas e minúsculas não contam para a tolerância de fuzzing, mas sim. |
-| defaultcasesensitive | Adicional Altera o valor de sensibilidade do caso padrão para esta entidade. Ele é usado para alterar o valor padrão de todos os aliases de todos os valores de caseSensitive. |
-| defaultFuzzyEditDistance | Adicional Altera o valor de distância de edição difusa padrão para esta entidade. Ele pode ser usado para alterar o valor padrão de todos os aliases fuzzyEditDistance valores. |
-| aliases | Adicional Uma matriz de objetos complexos que pode ser usada para especificar grafias alternativas ou sinônimos para o nome da entidade raiz. |
+| `name` | O descritor de entidade de nível superior. As correspondências na saída da habilidade serão agrupadas por esse nome e deverão representar a forma "normalizada" do texto que está sendo encontrado.  |
+| `description`  | Adicional Esse campo pode ser usado como uma passagem para metadados personalizados sobre os textos correspondentes. O valor desse campo será exibido com cada correspondência de sua entidade na saída da habilidade. |
+| `type` | Adicional Esse campo pode ser usado como uma passagem para metadados personalizados sobre os textos correspondentes. O valor desse campo será exibido com cada correspondência de sua entidade na saída da habilidade. |
+| `subtype` | Adicional Esse campo pode ser usado como uma passagem para metadados personalizados sobre os textos correspondentes. O valor desse campo será exibido com cada correspondência de sua entidade na saída da habilidade. |
+| `id` | Adicional Esse campo pode ser usado como uma passagem para metadados personalizados sobre os textos correspondentes. O valor desse campo será exibido com cada correspondência de sua entidade na saída da habilidade. |
+| `caseSensitive` | Adicional O padrão é false. Valor booliano que indica se as comparações com o nome da entidade devem ser sensíveis à capitalização de caracteres. As correspondências que não diferenciam maiúsculas e minúsculas de "Microsoft" podem ser: Microsoft, microSoft, MICROSOFT |
+| `fuzzyEditDistance` | Adicional O padrão é 0. Valor máximo de 5. Denota o número aceitável de caracteres divergentes que ainda constituem uma correspondência com o nome da entidade. A menor possibilidade de fuzzização possível para qualquer correspondência fornecida é retornada.  Por exemplo, se a distância de edição for definida como 3, "Windows 10" ainda corresponderia a "Windows", "Windows10" e "Windows 7". <br/> Quando a sensibilidade de maiúsculas e minúsculas é definida como false, as diferenças de maiúsculas e minúsculas não contam para a tolerância de fuzzing, mas sim. |
+| `defaultCaseSensitive` | Adicional Altera o valor de sensibilidade do caso padrão para esta entidade. Ele é usado para alterar o valor padrão de todos os aliases de todos os valores de caseSensitive. |
+| `defaultFuzzyEditDistance` | Adicional Altera o valor de distância de edição difusa padrão para esta entidade. Ele pode ser usado para alterar o valor padrão de todos os aliases fuzzyEditDistance valores. |
+| `aliases` | Adicional Uma matriz de objetos complexos que pode ser usada para especificar grafias alternativas ou sinônimos para o nome da entidade raiz. |
 
 | Propriedades do alias | Descrição |
 |------------------|-------------|
-| text  | A grafia alternativa ou a representação de algum nome de entidade de destino.  |
-| caseSensitive | Adicional Age da mesma forma que o parâmetro "caseSensitive" da entidade raiz acima, mas aplica-se somente a esse alias. |
-| fuzzyEditDistance | Adicional Age da mesma forma que o parâmetro "fuzzyEditDistance" da entidade raiz acima, mas aplica-se somente a esse alias. |
+| `text`  | A grafia alternativa ou a representação de algum nome de entidade de destino.  |
+| `caseSensitive` | Adicional Age da mesma forma que o parâmetro "caseSensitive" da entidade raiz acima, mas aplica-se somente a esse alias. |
+| `fuzzyEditDistance` | Adicional Age da mesma forma que o parâmetro "fuzzyEditDistance" da entidade raiz acima, mas aplica-se somente a esse alias. |
 
 
 ### <a name="inline-format"></a>Formato embutido
@@ -188,7 +187,7 @@ Uma definição de habilidade de exemplo usando um formato embutido é mostrada 
       }, 
       { 
         "name" : "Xbox One", 
-        "type": "Harware",
+        "type": "Hardware",
         "subtype" : "Gaming Device",
         "id" : "4e36bf9d-5550-4396-8647-8e43d7564a76",
         "description" : "The Xbox One product"
@@ -208,7 +207,7 @@ Uma definição de habilidade de exemplo usando um formato embutido é mostrada 
     ]
   }
 ```
-Como alternativa, se você decidir fornecer um ponteiro para o arquivo de definição de entidades, uma definição de habilidade de exemplo usando o formato entitiesDefinitionUri será mostrada abaixo:
+Como alternativa, se você decidir fornecer um ponteiro para o arquivo de definição de entidades, uma definição de habilidade de exemplo usando o `entitiesDefinitionUri` formato será mostrada abaixo:
 
 ```json
   {
@@ -240,7 +239,7 @@ Como alternativa, se você decidir fornecer um ponteiro para o arquivo de defini
         "recordId": "1",
         "data":
            {
-             "text": "The company microsoft was founded by Bill Gates. Microsoft's gaming console is called Xbox",
+             "text": "The company, Microsoft, was founded by Bill Gates. Microsoft's gaming console is called Xbox",
              "languageCode": "en"
            }
       }

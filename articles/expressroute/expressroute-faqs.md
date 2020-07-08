@@ -7,12 +7,11 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: jaredro
-ms.openlocfilehash: 085830ee1c8e7556a7c3390aaf6e638245d20324
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: c9b109fe12b709649adaa05d62b3d1255605986e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745766"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987305"
 ---
 # <a name="expressroute-faq"></a>Perguntas Frequentes sobre ExpressRoute
 
@@ -87,7 +86,6 @@ Se o circuito do ExpressRoute estiver habilitado para o emparelhamento da Micros
 * [Office 365](https://aka.ms/ExpressRouteOffice365)
 * Power BI - Disponível por meio de uma comunidade regional do Azure, confira [aqui](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) para saber como descobrir a região do seu locatário de Power BI.
 * Azure Active Directory
-* [Área de Trabalho Virtual do Windows](https://azure.microsoft.com/services/virtual-desktop/)
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (comunidade de Serviços Globais do Azure)
 * Endereços IP públicos do Azure para IaaS (máquinas virtuais, gateways de rede virtual, balanceadores de carga, etc.)  
 * A maioria dos outros serviços do Azure também recebe suporte. Verifique diretamente o serviço que você deseja utilizar para confirmar o suporte.
@@ -96,6 +94,7 @@ Se o circuito do ExpressRoute estiver habilitado para o emparelhamento da Micros
 
 * CDN
 * Porta da frente do Azure
+* [Área de Trabalho Virtual do Windows](https://azure.microsoft.com/services/virtual-desktop/)
 * Servidor de Autenticação Multifator (herdado)
 * Gerenciador de Tráfego
 
@@ -118,7 +117,7 @@ Se você vir a mensagem "Requer validação", colete os documentos que mostram q
 Os ambientes do Dynamics 365 e do Common Data Service (CDS) são hospedados no Azure e, portanto, os clientes usufruem do suporte do ExpressRoute subjacente para os recursos do Azure. Você pode se conectar aos pontos de extremidade de serviço, se o filtro do roteador incluir as regiões do Azure em que os ambientes do Dynamics 365/CDS estão hospedados.
 
 > [!NOTE]
-> O [ExpressRoute Premium](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#expressroute-premium) não **é** necessário para a conectividade do Dynamics 365 por meio do Azure ExpressRoute.
+> O [Expressroute Premium](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#expressroute-premium) **não** é necessário para a conectividade do Dynamics 365 por meio do Azure expressroute se o circuito do expressroute for implantado na mesma [região geopolítica](https://docs.microsoft.com/azure/expressroute/expressroute-locations-providers#expressroute-locations).
 
 ## <a name="data-and-connections"></a>Dados e conexões
 
@@ -152,7 +151,7 @@ Você não perderá conectividade se uma das conexões cruzadas falhar. Uma cone
 
 ### <a name="how-do-i-implement-redundancy-on-private-peering"></a>Como posso implementar a redundância no emparelhamento privado?
 
-Vários circuitos de ExpressRoute de diferentes locais de emparelhamento podem ser conectados à mesma rede virtual para fornecer alta disponibilidade, no caso de um único circuito ficar indisponível. Então, você pode [atribuir pesos maiores](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) à conexão local para dar preferência a um circuito específico. É extremamente recomendável que os clientes configurem pelo menos dois circuitos de ExpressRoute para evitar pontos de falha únicos. 
+Vários circuitos do ExpressRoute de diferentes locais de emparelhamento ou até quatro conexões do mesmo local de emparelhamento podem ser conectados à mesma rede virtual para fornecer alta disponibilidade no caso de um único circuito ficar indisponível. Em seguida, você pode [atribuir pesos mais altos](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) a uma das conexões locais para preferir um circuito específico. É extremamente recomendável que os clientes configurem pelo menos dois circuitos de ExpressRoute para evitar pontos de falha únicos. 
 
 Confira [aqui](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) para criação de alta disponibilidade e [aqui](https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering) para criação de recuperação de desastres.  
 
@@ -164,7 +163,7 @@ Confira [aqui](https://docs.microsoft.com/azure/expressroute/designing-for-high-
 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Como posso garantir a alta disponibilidade em uma rede virtual conectada ao ExpressRoute?
 
-Você pode obter alta disponibilidade conectando circuitos ExpressRoute em diferentes locais de emparelhamento (por exemplo, Singapura, Singapura2) à sua rede virtual. Se um circuito do ExpressRoute falhar, a conectividade falhará para outro circuito do ExpressRoute. Por padrão, o tráfego que sai da rede virtual é roteado com base no roteamento ECMP (Equal Cost Multi-path). Você pode usar o Peso de conexão para decidir entre um circuito ou outro. Para obter mais informações, consulte [otimizando o roteamento do ExpressRoute](expressroute-optimize-routing.md).
+Você pode obter alta disponibilidade conectando até quatro circuitos do ExpressRoute no mesmo local de emparelhamento para sua rede virtual ou conectando circuitos do ExpressRoute em diferentes locais de emparelhamento (por exemplo, Cingapura, Cingapura2) à sua rede virtual. Se um circuito do ExpressRoute falhar, a conectividade falhará para outro circuito do ExpressRoute. Por padrão, o tráfego que sai da rede virtual é roteado com base no roteamento ECMP (Equal Cost Multi-path). Você pode usar o Peso de conexão para decidir entre um circuito ou outro. Para obter mais informações, consulte [otimizando o roteamento do ExpressRoute](expressroute-optimize-routing.md).
 
 ### <a name="how-do-i-ensure-that-my-traffic-destined-for-azure-public-services-like-azure-storage-and-azure-sql-on-microsoft-peering-or-public-peering-is-preferred-on-the-expressroute-path"></a>Como posso garantir que meu tráfego destinado aos serviços públicos do Azure, como o armazenamento do Azure e o SQL do Azure no emparelhamento da Microsoft ou o emparelhamento público, seja preferencial no caminho do ExpressRoute?
 
@@ -195,7 +194,7 @@ Se o seu provedor de serviços oferecer o ExpressRoute em ambos os sites, você 
 
 ### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>Posso ter vários circuitos do ExpressRoute no mesmo metro? Posso vinculá-los à mesma rede virtual?
 
-Sim. Você pode ter vários circuitos do ExpressRoute com os mesmos provedores de serviço ou com provedores diferentes. Se o metro tiver vários locais de emparelhamento do ExpressRoute e os circuitos forem criados em diferentes locais de emparelhamento, você poderá vinculá-los à mesma rede virtual. Se os circuitos forem criados no mesmo local de emparelhamento, é possível vincular até 4 circuitos à mesma rede virtual.
+Sim. Você pode ter vários circuitos do ExpressRoute com os mesmos provedores de serviço ou com provedores diferentes. Se o metro tiver vários locais de emparelhamento do ExpressRoute e os circuitos forem criados em diferentes locais de emparelhamento, você poderá vinculá-los à mesma rede virtual. Se os circuitos forem criados no mesmo local de emparelhamento, você poderá vincular até quatro circuitos à mesma rede virtual.
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Como conectar minhas redes virtuais a um circuito do ExpressRoute
 

@@ -3,16 +3,15 @@ title: Migrar suas VMs do Linux para o Armazenamento Premium do Azure com o Azur
 description: Migre máquinas virtuais existentes para o Armazenamento Premium do Azure usando o Site Recovery. O Armazenamento Premium dá suporte ao disco de alto desempenho e baixa latência para cargas de trabalho que usam muita E/S em execução em máquinas virtuais do Azure.
 author: luywang
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: 03e26c344284541116a5b98bc330804b71a64e28
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 734d4f9e3c9832d08b61d98c9f9c8fe860998135
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83833768"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84660205"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrar para o Armazenamento Premium usando o Azure Site Recovery
 

@@ -11,12 +11,11 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: tanning
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae8ce24aeb665a7f99326e83dbe18d020e1b6196
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a5043873b18f2d2115fd23e8b52959290393bfb8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78672345"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85604532"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Solucionando problemas de configurações do Enterprise State Roaming no Azure Active Directory
 
@@ -54,7 +53,7 @@ Esta seção fornece sugestões sobre como solucionar e diagnosticar problemas r
 
 ## <a name="verify-sync-and-the-sync-your-settings-settings-page"></a>Verifique a sincronização e a página de configurações "Sincronize suas configurações" 
 
-1. Após associar seu PC com Windows 10 a um domínio que esteja configurado para permitir o Enterprise State Roaming, entre com sua conta do trabalho. Vá para **configurações** > **contas** > **sincronizar suas configurações** e confirme se a sincronização e as configurações individuais estão ativadas e se a parte superior da página Configurações indica que você está sincronizando com sua conta corporativa. Confirme se a mesma conta também é usada como sua conta de logon em **configurações** > **contas** > **suas informações**. 
+1. Após associar seu PC com Windows 10 a um domínio que esteja configurado para permitir o Enterprise State Roaming, entre com sua conta do trabalho. Vá para **configurações**  >  **contas**  >  **sincronizar suas configurações** e confirme se a sincronização e as configurações individuais estão ativadas e se a parte superior da página Configurações indica que você está sincronizando com sua conta corporativa. Confirme se a mesma conta também é usada como sua conta de logon em **configurações**  >  **contas**  >  **suas informações**. 
 1. Verifique se a sincronização funciona em várias máquinas fazendo algumas alterações na máquina original, como mover a barra de tarefas para o lado direito ou superior da tela. Observe a alteração ser propagada para o segundo computador em cinco minutos. 
 
    * Bloquear e desbloquear a tela (Win + L) pode ajudar a disparar uma sincronização.
@@ -72,7 +71,7 @@ O Enterprise State Roaming requer que o dispositivo seja registrado com o AD do 
 
 **Possível problema**: **WamDefaultSet** e **AzureAdJoined** têm "no" no valor do campo, o dispositivo foi ingressado no domínio e registrado no Azure AD, e o dispositivo não é sincronizado. Se ele estiver mostrando isso, talvez o dispositivo precise aguardar a aplicação da política ou a autenticação do dispositivo falhou ao se conectar ao Azure AD. O usuário pode precisar aguardar algumas horas para que a política a seja aplicada. Outras etapas de solução de problemas podem incluir repetir o registro e entrar novamente, ou iniciar a tarefa em Agendador de Tarefas. Em alguns casos, executar "*dsregcmd.exe /leave*" em uma janela de prompt de comando elevado, reinicializar e tentar se registrar novamente pode ajudar com esse problema.
 
-**Possível problema**: o campo para **SettingsUrl** está vazio e o dispositivo não é sincronizado. O usuário pode ter feito o último logon no dispositivo antes de o Enterprise State Roaming ter sido habilitado no portal de Azure Active Directory. Reinicie o dispositivo e faça o logon do usuário. Opcionalmente, no portal, tente fazer com que o administrador de ti navegue até **Azure Active Directory** > **dispositivos** > **Enterprise State roaming** desabilitar e reabilitar **os usuários podem sincronizar configurações e dados de aplicativos entre dispositivos**. Uma vez reativado, reinicie o dispositivo e faça o login do usuário. Se isso não resolver o problema, **SettingsUrl** poderá estar vazio se houver um certificado de dispositivo inválido. Nesse caso, executar “*dsregcmd.exe /leave*” em uma janela de prompt de comandos com privilégios elevados, reinicializar e tentar se registrar novamente pode ajudar com esse problema.
+**Possível problema**: o campo para **SettingsUrl** está vazio e o dispositivo não é sincronizado. O usuário pode ter feito o último logon no dispositivo antes de o Enterprise State Roaming ter sido habilitado no portal de Azure Active Directory. Reinicie o dispositivo e faça o logon do usuário. Opcionalmente, no portal, tente fazer com que o administrador de ti navegue até **Azure Active Directory**  >  **dispositivos**  >  **Enterprise State roaming** desabilitar e reabilitar **os usuários podem sincronizar configurações e dados de aplicativos entre dispositivos**. Uma vez reativado, reinicie o dispositivo e faça o login do usuário. Se isso não resolver o problema, **SettingsUrl** poderá estar vazio se houver um certificado de dispositivo inválido. Nesse caso, executar “*dsregcmd.exe /leave*” em uma janela de prompt de comandos com privilégios elevados, reinicializar e tentar se registrar novamente pode ajudar com esse problema.
 
 ## <a name="enterprise-state-roaming-and-multi-factor-authentication"></a>Enterprise State Roaming e Autenticação Multifator 
 
@@ -84,7 +83,7 @@ Em determinadas condições, o Roaming de Estado de Empresa poderá não sincron
 
 ### <a name="event-viewer"></a>Visualizador de Eventos
 
-Para a solução de problemas avançada, o Visualizador de Eventos pode ser usado para localizar erros específicos. Eles estão documentados na tabela abaixo. Os eventos podem ser encontrados em Visualizador de eventos > logs de aplicativos e serviços > **Microsoft** > **Windows** > **SettingSync-Azure** e para problemas relacionados à identidade com a sincronização **do Microsoft** > **Windows** > **AAD**.
+Para a solução de problemas avançada, o Visualizador de Eventos pode ser usado para localizar erros específicos. Eles estão documentados na tabela abaixo. Os eventos podem ser encontrados em Visualizador de eventos > **logs de aplicativos e serviços**  >  **Microsoft**  >  **Windows**  >  **SettingSync-Azure** e para problemas relacionados à identidade com sincronização de **aplicativos e serviços logs**  >  **do Microsoft**  >  **Windows**  >  **AAD**.
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
@@ -156,7 +155,7 @@ Conecte o computador a uma rede corporativa para que a sincronização possa ser
 Se o usuário tiver um UPN com maiúsculas e minúsculas (por exemplo, nome de usuário em vez de nome de usuário) e o usuário estiver em um dispositivo ingressado no Azure AD, que tenha atualizado do Windows 10 Build 10586 para 14393, o dispositivo do usuário poderá falhar ao sincronizar. 
 
 **Ação recomendada**  
-O usuário precisará remover o dispositivo do domínio e reingressá-lo na nuvem. Para fazer isso, faça logon como o usuário administrador local e desingresse o dispositivo acessando **configurações** > **sistema** > **sobre** e selecione "gerenciar ou desconectar do trabalho ou da escola". Limpe os arquivos abaixo e, em seguida, ingresse o dispositivo novamente em **configurações** > **sistema** > **sobre** e selecionando "conectar-se ao trabalho ou à escola". Continue ingressando o dispositivo no Azure Active Directory e conclua o fluxo.
+O usuário precisará remover o dispositivo do domínio e reingressá-lo na nuvem. Para fazer isso, faça logon como o usuário administrador local e desingresse o dispositivo acessando **configurações**  >  **sistema**  >  **sobre** e selecione "gerenciar ou desconectar do trabalho ou da escola". Limpe os arquivos abaixo e, em seguida, ingresse o dispositivo novamente em **configurações**  >  **sistema**  >  **sobre** e selecionando "conectar-se ao trabalho ou à escola". Continue ingressando o dispositivo no Azure Active Directory e conclua o fluxo.
 
 Na etapa de limpeza, limpe os seguintes arquivos:
 - Settings.dat em `C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\Settings\`

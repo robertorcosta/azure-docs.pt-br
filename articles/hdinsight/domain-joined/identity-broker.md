@@ -7,12 +7,11 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 1e7eaf49fb8b62259b8c619c89edffd629dfde7f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1bea8adbdb39d2ce83cfe7821ef052fdc1f1d512
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81685504"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921335"
 ---
 # <a name="use-id-broker-preview-for-credential-management"></a>Usar o agente de ID (versão prévia) para o gerenciamento de credenciais
 
@@ -90,9 +89,11 @@ Se você adicionar uma nova função chamada `idbrokernode` com os seguintes atr
 
 O [plug-in HDInsight IntelliJ](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#integrate-with-hdinsight-identity-broker-hib) é atualizado para dar suporte ao OAuth. Você pode usar esse plug-in para se conectar ao cluster e enviar trabalhos.
 
+Você também pode usar as [Ferramentas do Spark & Hive para vs Code](https://docs.microsoft.com/azure/hdinsight/hdinsight-for-vscode) para aproveitar o bloco de anotações e enviar trabalhos.
+
 ## <a name="ssh-access-without-a-password-hash-in-azure-ad-ds"></a>Acesso SSH sem um hash de senha no Azure AD DS
 
-Depois que o agente de ID estiver habilitado, você ainda precisará de um hash de senha armazenado no Azure AD DS para cenários SSH com contas de domínio. Para realizar o SSH em uma VM ingressada no domínio ou para `kinit` executar o comando, você precisa fornecer uma senha. 
+Depois que o agente de ID estiver habilitado, você ainda precisará de um hash de senha armazenado no Azure AD DS para cenários SSH com contas de domínio. Para realizar o SSH em uma VM ingressada no domínio ou para executar o `kinit` comando, você precisa fornecer uma senha. 
 
 A autenticação SSH requer que o hash esteja disponível no Azure AD DS. Se você quiser usar o SSH somente para cenários administrativos, poderá criar uma conta somente em nuvem e usá-la para SSH para o cluster. Outros usuários ainda podem usar as ferramentas Ambari ou HDInsight (como o plug-in IntelliJ) sem ter o hash de senha disponível no Azure AD DS.
 
@@ -100,7 +101,7 @@ A autenticação SSH requer que o hash esteja disponível no Azure AD DS. Se voc
 
 Na instalação do agente de ID, os aplicativos personalizados e clientes que se conectam ao gateway podem ser atualizados para adquirir o token OAuth necessário primeiro. Você pode seguir as etapas neste [documento](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app) para adquirir o token com as seguintes informações:
 
-*   URI do recurso OAuth:https://hib.azurehdinsight.net 
+*   URI do recurso OAuth:`https://hib.azurehdinsight.net` 
 * AppId: 7865c1d2-f040-46cc-875f-831a1ef6a28a
 *   Permissão: (nome: cluster. ReadWrite, ID: 8f89faa0-ffef-4007-974d-4989b39ad77d)
 

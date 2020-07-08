@@ -13,11 +13,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: b23be9901df7ca435f412d9f49e1a7ad88382ade
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281646"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711911"
 ---
 # <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Mover dados do Amazon Simple Storage Service usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -62,9 +61,9 @@ As seções seguintes fornecem detalhes sobre as propriedades JSON que são usad
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 Um serviço vinculado vincula um armazenamento de dados a um data factory. Crie um serviço vinculado do tipo **AwsAccessKey** para vincular o armazenamento de dados do Amazon S3 ao data factory. A tabela a seguir fornece a descrição para elementos JSON específicas para o serviço vinculado do Amazon S3 (AwsAccessKey).
 
-| Propriedade | Descrição | Valores permitidos | Obrigatório |
+| Property | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| accessKeyID |ID da chave de acesso secreta. |cadeia de caracteres |Sim |
+| accessKeyID |ID da chave de acesso secreta. |string |Sim |
 | secretAccessKey |A chave de acesso do secreta em si. |Cadeia de caracteres secreta criptografada |Sim |
 
 >[!NOTE]
@@ -91,13 +90,13 @@ Para especificar um conjunto de dados de modo a representar dados de entrada em 
 
 As seções como structure, availability e policy são similares para todos os tipos de conjunto de dados (como banco de dados SQL Azure, Blob do Azure, Tabela do Azure etc.). A seção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção **typeProperties** para o conjunto de dados do tipo **AmazonS3** (que inclui o conjunto de dados do Amazon S3) tem as propriedades a seguir:
 
-| Propriedade | Descrição | Valores permitidos | Obrigatório |
+| Property | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | bucketName |O nome do bucket S3. |String |Sim |
-| chave |A chave do objeto S3. |Cadeia de caracteres |Não |
-| prefixo |Prefixo da chave do objeto S3. Objetos cujas chaves começam com esse prefixo serão selecionados. Aplica-se apenas quando a chave está vazia. |Cadeia de caracteres |Não |
-| Versão |A versão do objeto S3 se o controle de versão do S3 está habilitado. |Cadeia de caracteres |Não |
-| format | Há suporte para os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Defina a propriedade **type** sob formato como um desses valores. Para obter mais informações, consulte as seções [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), formato [Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format)e [formato parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) . <br><br> Se você quiser copiar arquivos no estado em que se encontram entre repositórios com base em arquivo (cópia binária), ignore a seção de formato nas duas definições de conjunto de dados de entrada e de saída. | |Não |
+| chave |A chave do objeto S3. |String |Não |
+| prefixo |Prefixo da chave do objeto S3. Objetos cujas chaves começam com esse prefixo serão selecionados. Aplica-se apenas quando a chave está vazia. |String |Não |
+| version |A versão do objeto S3 se o controle de versão do S3 está habilitado. |String |Não |
+| format | Há suporte para os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Defina a propriedade **type** sob formato como um desses valores. Para saber mais, veja as seções [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format) e [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Se você quiser copiar arquivos no estado em que se encontram entre repositórios com base em arquivo (cópia binária), ignore a seção de formato nas duas definições de conjunto de dados de entrada e de saída. | |Não |
 | compactação | Especifique o tipo e o nível de compactação para os dados. Os tipos com suporte são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. Os níveis com suporte são **Ideal** e **Mais rápido**. Para saber mais, confira [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support) (Formatos de arquivo e de compactação no Azure Data Factory). | |Não |
 
 
@@ -172,7 +171,7 @@ Você pode fazer o mesmo para a propriedade de **prefixo**de um conjunto de dado
 ## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
 Para obter uma lista completa das seções e propriedades disponíveis para definir as atividades, consulte [Criando pipelines](data-factory-create-pipelines.md). As propriedades, como nome, descrição, tabelas de entrada e saída, e políticas, estão disponíveis para todos os tipos de atividade. As propriedades disponíveis na seção **typeProperties** da atividade variam de acordo com cada tipo de atividade. Para a atividade de cópia, as propriedades variam conforme os tipos de fonte e coletor. Quando a origem da atividade de cópia é do tipo **FileSystemSource** (que inclui o Amazon S3), a seguinte propriedade está disponível na seção **typeProperties**:
 
-| Propriedade | Descrição | Valores permitidos | Obrigatório |
+| Property | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | recursiva |Especifica se devemos listar recursivamente objetos S3 no diretório. |true/false |Não |
 

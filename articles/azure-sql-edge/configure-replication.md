@@ -1,64 +1,61 @@
 ---
 title: Configurar replicação para o SQL do Azure no Edge (versão prévia)
-description: Saiba mais sobre como configurar replicação para o SQL do Azure no Edge (versão prévia)
+description: Saiba como configurar a replicação para o Azure SQL Edge (versão prévia).
 keywords: ''
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: e2b37e0f3ccf5fcebe4723c05d644f2cbb7c1d56
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: HT
+ms.openlocfilehash: a33933e63cc7c15de7d60430521f810f8546988c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593985"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84667872"
 ---
 # <a name="configure-replication-to-azure-sql-edge-preview"></a>Configurar replicação para o SQL do Azure no Edge (versão prévia) 
 
-A instância do SQL do Azure no Edge pode ser configurada como assinante de push de uma replicação transacional unidirecional ou replicação de instantâneo. A instância do SQL do Azure no Edge não pode agir como o publicador ou o distribuidor de uma configuração de replicação transacional. Replicação de mesclagem, replicação P2P e Publicação do Oracle não são compatíveis com o SQL do Azure no Edge.
+Você pode configurar uma instância do Azure SQL Edge como o Assinante de push para replicação transacional unidirecional ou replicação de instantâneo. Esta instância não pode atuar como o Publicador ou o distribuidor para uma configuração de replicação transacional. Observe que o Azure SQL Edge não dá suporte à replicação de mesclagem, replicação ponto a ponto ou publicação Oracle.
 
-## <a name="supported-configurations"></a>**Configurações compatíveis**:
+## <a name="supported-configurations"></a>Configurações com suporte
   
-- A instância do SQL do Azure no Edge deve ser um assinante de push de um editor.
-- O editor e o distribuidor podem ser
-   - Uma instância do SQL Server em execução local ou uma instância do SQL Server em execução em uma máquina virtual do Azure. Para obter mais informações, veja [SQL Server na visão geral de Máquinas Virtuais do Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-infrastructure-services/). As instâncias do SQL Server devem estar usando uma versão superior ao SQL Server 2016.
-   - Uma instância da Instância Gerenciada do Banco de Dados SQL do Azure. Uma Instância Gerenciada pode hospedar bancos de dados de editores, distribuidores e assinantes. Para obter mais informações, veja [Replicação com a Instância Gerenciada do Banco de Dados SQL](https://docs.microsoft.com/azure/sql-database/replication-with-sql-database-managed-instance/).
+- A instância do Azure SQL Edge deve ser um assinante de push para um Publicador.
+- O Publicador e o distribuidor podem ser:
+   - Uma instância do SQL Server em execução no local ou uma instância do SQL Server em execução em uma máquina virtual do Azure. Para obter mais informações, veja [SQL Server na visão geral de Máquinas Virtuais do Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-infrastructure-services/). SQL Server instâncias devem estar usando uma versão posterior à SQL Server 2016.
+   - Uma instância do Azure SQL Instância Gerenciada. O SQL Instância Gerenciada pode hospedar bancos de dados de Publicador, distribuidor e Assinante. Para obter mais informações, veja [Replicação com a Instância Gerenciada do Banco de Dados SQL](https://docs.microsoft.com/azure/sql-database/replication-with-sql-database-managed-instance/).
 
-- O banco de dados de distribuição e os agentes de replicação não podem ser colocados em uma instância do SQL do Azure no Edge.  
+- O banco de dados de distribuição e os agentes de replicação não podem ser colocados em uma instância do Azure SQL Edge.  
 
 > [!NOTE]
-> A tentativa de configurar a replicação usando uma versão incompatível pode resultar no erro número MSSQL_REPL20084 (o processo não pôde se conectar ao assinante) e MSSQL_REPL40532 (não é possível abrir o servidor \<name> solicitado pelo logon. Houve falha no logon.).  
-
-Para usar todos os recursos do SQL do Azure no Edge, você deve estar usando as versões mais recentes do [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) e do [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
+> Se você tentar configurar a replicação usando uma versão sem suporte, poderá receber os dois erros a seguir: MSSQL_REPL20084 ("o processo não pôde se conectar ao Assinante.") e MSSQL_REPL40532 ("não é possível abrir o servidor \<name> solicitado pelo logon. Falha no logon. ").  
 
 ## <a name="remarks"></a>Comentários
 
-- A replicação pode ser configurada usando o [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ou executando instruções Transact-SQL no editor, usando o SQL Server Management Studio ou o [Azure Database Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio).
-- A replicação só pode usar logons de autenticação do SQL Server para se conectar a uma instância do SQL do Azure no Edge.
+Os seguintes requisitos e práticas recomendadas são importantes para entender conforme você configura a replicação:
+
+- Você pode configurar a replicação usando [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Você também pode fazer isso executando instruções Transact-SQL no Publicador, usando SQL Server Management Studio ou [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio).
+- Para replicar para uma instância do Azure SQL Edge, você deve usar SQL Server autenticação para entrar.
 - Tabelas replicadas devem ter uma chave primária.
 - Uma única publicação no SQL Server pode dar suporte a assinantes do SQL do Azure no Edge e do SQL Server (local e SQL Server em uma máquina virtual do Azure).  
-- Gerenciamento de replicação, monitoramento e solução de problemas devem ser executados no SQL Server local.  
+- O gerenciamento de replicação, o monitoramento e a solução de problemas devem ser executados na instância do SQL Server.  
 - Há suporte apenas para assinaturas push no SQL do Azure no Edge.  
-- Há suporte apenas para `@subscriber_type = 0` no **sp_addsubscription** do SQL do Azure no Edge.  
-- O SQL do Azure no Edge não dá suporte para replicação bidirecional, imediata, atualizável ou ponto a ponto.
-- O SQL do Azure no Edge só dá suporte para um subconjunto de recursos disponíveis no SQL Server ou na Instância Gerenciada do Banco de Dados SQL do Azure, pois essa tentativa de replicar um banco de dados (ou objetos do banco de dados) que contêm um ou mais recursos sem suporte resultará em uma falha. Por exemplo, a tentativa de replicar um banco de dados que contém objetos com tipos de dado espaciais resultará em um erro. Para obter mais informações sobre os recursos compatíveis do SQL do Azure no Edge, confira [Recursos compatíveis do SQL do Azure no Edge](features.md).
+- Somente tem `@subscriber_type = 0` suporte no procedimento armazenado `sp_addsubscription` para o Azure SQL Edge.  
+- O Azure SQL Edge não dá suporte à replicação bidirecional, imediata, atualizável ou ponto a ponto.
+- O Azure SQL Edge só dá suporte a um subconjunto de recursos disponíveis em SQL Server ou Instância Gerenciada SQL. Se você tentar replicar um banco de dados (ou objetos dentro do banco de dados) que contém um ou mais recursos sem suporte, a tentativa falhará. Por exemplo, se você tentar replicar um banco de dados que contém objetos com tipos de dado espaciais, você receberá um erro. Para obter mais informações, consulte [recursos com suporte do Azure SQL Edge](features.md).
 
-## <a name="scenarios"></a>Cenários  
+## <a name="initialize-reference-data-on-an-instance-of-azure-sql-edge"></a>Inicializar dados de referência em uma instância do Azure SQL Edge
 
-### <a name="initializing-reference-data-on-an-edge-instance"></a>Inicializando dados de referência em uma instância de borda
+Talvez você queira inicializar sua instância com dados de referência que mudam ao longo do tempo. Por exemplo, talvez você queira atualizar modelos de aprendizado de máquina em sua instância do Azure SQL Edge, depois que eles tiverem sido treinados em uma instância de SQL Server. Veja como inicializar sua instância em um cenário como esse:
 
-Um cenário comum em que a replicação pode ser útil é quando há a necessidade de inicializar a instância de borda com dados de referência que mudam com o tempo. Por exemplo, atualizar modelos de ML na instância de borda depois que eles foram treinados em uma instância local do SQL Server.
-
-1. Crie uma publicação de replicação transacional em um banco de dados do SQL Server local.  
-2. No SQL Server local, use o **Assistente para Nova Assinatura** ou instruções Transact-SQL para criar um push para assinatura para o SQL do Azure no Edge.  
-3. O banco de dados replicado no SQL do Azure no Edge pode ser inicializado usando um instantâneo gerado pelo agente de instantâneo e distribuído e entregue pelo agente de distribuição ou usando um backup do banco de dados do editor. Mais uma vez, se o backup do banco de dados contiver objetos/recursos incompatíveis com o SQL do Azure no Edge, a operação de restauração falhará.
+1. Crie uma publicação de replicação transacional em um banco de dados SQL Server.  
+2. Na instância de SQL Server, use o **Assistente para nova assinatura** ou instruções TRANSACT-SQL para criar um push para assinatura para o Azure SQL Edge.  
+3. Você pode inicializar o banco de dados replicado no Azure SQL Edge usando um instantâneo gerado pelo Snapshot Agent e distribuído e entregue pelo Distribution Agent. Como alternativa, você pode inicializar usando um backup do banco de dados do Publicador. Lembre-se de que, se o backup do banco de dados contiver objetos ou recursos sem suporte do Azure SQL Edge, a operação de restauração falhará.
 
 ## <a name="limitations"></a>Limitações
 
-As opções a seguir não são compatíveis com assinaturas do SQL do Azure no Edge:
+As seguintes opções não têm suporte para as assinaturas do Azure SQL Edge:
 
 - Copiar associação de grupos de arquivos  
 - Copiar esquemas de particionamento de tabela  
@@ -74,8 +71,8 @@ As opções a seguir não são compatíveis com assinaturas do SQL do Azure no E
 - Copiar índices filtrados  
 - Copiar atributo de compactação de dados  
 - Copiar atributo de coluna esparsa  
-- Copie os tipos de dados filestream, hierarchyid ou espaciais.
-- Converter hierarchyid em tipos de dados MAX  
+- Copiar tipos de dados de FileStream, `hierarchyid` , ou espaciais
+- Converter `hierarchyid` em tipos de dados Max  
 - Converter espacial em tipos de dados MAX  
 - Copiar propriedades estendidas  
 - Permissões de cópia  
@@ -85,14 +82,14 @@ As opções a seguir não são compatíveis com assinaturas do SQL do Azure no E
 Crie uma publicação e uma assinatura push. Para obter mais informações, consulte:
   
 - [Criar uma publicação](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Crie uma assinatura push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) usando o nome/IP do servidor do SQL do Azure no Edge como assinante (por exemplo, **myEdgeinstance,1433**) e o nome de um banco de dados na instância do SQL do Azure no Edge como banco de dados de destino (por exemplo, **AdventureWorks**).  
+- [Crie uma assinatura push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) usando o nome do servidor do Azure SQL Edge e o IP como o assinante (por exemplo, **myEdgeinstance, 1433**) e um nome de banco de dados na instância do Azure SQL Edge como o banco de dados de destino (por exemplo, **AdventureWorks**).  
 
-## <a name="see-also"></a>Confira também  
+## <a name="next-steps"></a>Próximas etapas  
 
 - [Criar uma publicação](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Criar uma Assinatura Push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
-- [Tipos de Replicação](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)
-- [Monitoramento (Replicação)](https://docs.microsoft.com/sql/relational-databases/replication/monitor/monitoring-replication)
-- [Inicializar uma Assinatura](https://docs.microsoft.com/sql/relational-databases/replication/initialize-a-subscription)  
+- [Criar uma assinatura push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
+- [Tipos de replicação](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)
+- [Monitoramento (replicação)](https://docs.microsoft.com/sql/relational-databases/replication/monitor/monitoring-replication)
+- [Inicializar uma assinatura](https://docs.microsoft.com/sql/relational-databases/replication/initialize-a-subscription)  
 
 

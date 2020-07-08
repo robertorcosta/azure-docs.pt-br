@@ -4,23 +4,22 @@ description: Como publicar aplicativos internos na área de trabalho virtual do 
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3a238a5ae282d5059eee23b4bcaa86a3e84b6656
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
-ms.translationtype: MT
+ms.openlocfilehash: 11416eb06e29b4621c1949f193318d32d76cdde3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82863290"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85212710"
 ---
 # <a name="publish-built-in-apps-in-windows-virtual-desktop"></a>Publicar aplicativos internos na área de trabalho virtual do Windows
 
 >[!IMPORTANT]
->Este conteúdo se aplica à atualização do Spring 2020 com Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver usando a área de trabalho virtual do Windows, a versão 2019 sem Azure Resource Manager objetos, consulte [Este artigo](./virtual-desktop-fall-2019/publish-apps-2019.md).
+>Este conteúdo se aplica à atualização da Spring 2020 com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows na versão 2019, sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/publish-apps-2019.md).
 >
-> A atualização 2020 de área de trabalho virtual do Windows está em visualização pública no momento. Esta versão de visualização é fornecida sem um contrato de nível de serviço e não é recomendável usá-la para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. 
+> A atualização 2020 da Área de Trabalho Virtual do Windows está em versão prévia pública no momento. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendamos usá-la para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
 > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Este artigo lhe dirá como publicar aplicativos em seu ambiente de área de trabalho virtual do Windows.
@@ -31,14 +30,14 @@ Para publicar um aplicativo interno:
 
 1. Conecte-se a uma das máquinas virtuais em seu pool de hosts.
 2. Obtenha o **PackageFamilyName** do aplicativo que você deseja publicar seguindo as instruções neste [artigo](/powershell/module/appx/get-appxpackage?view=win10-ps/).
-3. Por fim, execute o seguinte cmdlet `<PackageFamilyName>` com substituído pelo **PackageFamilyName** encontrado na etapa anterior:
-   
+3. Por fim, execute o seguinte cmdlet com `<PackageFamilyName>` substituído pelo **PackageFamilyName** encontrado na etapa anterior:
+
    ```powershell
    New-AzWvdApplication -Name <applicationname> -ResourceGroupName <resourcegroupname> -ApplicationGroupName <appgroupname> -FilePath "shell:appsFolder\<PackageFamilyName>!App" -CommandLineSetting <Allow|Require|DoNotAllow> -IconIndex 0 -IconPath <iconpath> -ShowInPortal:$true
    ```
 
 >[!NOTE]
-> A área de trabalho virtual do Windows só dá suporte à publicação de `C:\Program Files\WindowsApps`aplicativos com locais de instalação que começam com.
+> A área de trabalho virtual do Windows só dá suporte à publicação de aplicativos com locais de instalação que começam com `C:\Program Files\WindowsApps` .
 
 ## <a name="update-app-icons"></a>Atualizar ícones de aplicativos
 
@@ -49,7 +48,7 @@ Depois de publicar um aplicativo, ele terá o ícone de aplicativo padrão do Wi
 O processo usado para publicar o Microsoft Edge é um pouco diferente do processo de publicação para outros aplicativos. Para publicar o Microsoft Edge com a página inicial padrão, execute este cmdlet:
 
 ```powershell
-New-AzWvdApplication -Name -ResourceGroupName -ApplicationGroupName -FilePath "shell:Appsfolder\Microsoft.MicrosoftEdge_8wekyb3d8bbwe!MicrosoftEdge" -CommandLineSetting <Allow|Require|DoNotAllow> -iconPath "C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\microsoftedge.exe" -iconIndex 0 -ShowInPortal:$true 
+New-AzWvdApplication -Name -ResourceGroupName -ApplicationGroupName -FilePath "shell:Appsfolder\Microsoft.MicrosoftEdge_8wekyb3d8bbwe!MicrosoftEdge" -CommandLineSetting <Allow|Require|DoNotAllow> -iconPath "C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\microsoftedge.exe" -iconIndex 0 -ShowInPortal:$true
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

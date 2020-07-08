@@ -12,10 +12,9 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 5cc8bae0f0245f5c4b45ca0cd446582b04788c21
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81758760"
 ---
 # <a name="403004-devicemaximumqueuedepthexceeded"></a>403004 DeviceMaximumQueueDepthExceeded
@@ -30,7 +29,7 @@ Ao tentar enviar uma mensagem da nuvem para o dispositivo, a solicitação falha
 
 A causa subjacente é que o número de mensagens enfileiradas para o dispositivo excede o [limite da fila (50)](./iot-hub-devguide-quotas-throttling.md#other-limits).
 
-O motivo mais provável que você está executando nesse limite é porque você está usando HTTPS para receber a mensagem, o que leva à sondagem contínua `ReceiveAsync`usando, resultando na limitação do Hub IOT à solicitação.
+O motivo mais provável que você está executando nesse limite é porque você está usando HTTPS para receber a mensagem, o que leva à sondagem contínua usando `ReceiveAsync` , resultando na limitação do Hub IOT à solicitação.
 
 ## <a name="solution"></a>Solução
 

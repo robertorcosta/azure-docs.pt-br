@@ -5,28 +5,27 @@ description: Use o link privado do Azure para acessar com segurança seu espaço
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: 5428f24ea5ab780c4b51e0af37908077ddc32232
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.openlocfilehash: 49565624cee70e40141ca7e8b57b2c26b950d20b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891361"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84666922"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace-preview"></a>Configurar o link privado do Azure para um espaço de trabalho Azure Machine Learning (versão prévia)
 
 Neste documento, você aprenderá a usar o link privado do Azure com seu espaço de trabalho Azure Machine Learning. Esse recurso está atualmente em visualização e está disponível nas regiões do leste dos EUA, oeste dos EUA 2, centro-sul dos EUA. 
 
-O link privado do Azure permite que você se conecte ao seu espaço de trabalho usando um ponto de extremidade privado. O ponto de extremidade privado é um conjunto de endereços IP privados em sua rede virtual. Você pode, então, limitar o acesso ao seu espaço de trabalho para ocorrer somente nos endereços IP privados. O link privado ajuda a reduzir o risco de vazamento de dados. Para saber mais sobre pontos de extremidade privados, confira o artigo [link privado do Azure](/azure/private-link/private-link-overview) .
+O link privado do Azure permite que você se conecte ao seu espaço de trabalho usando um ponto de extremidade privado. O ponto de extremidade privado é um conjunto de endereços IP privados na sua rede virtual. Você pode, então, limitar o acesso ao seu espaço de trabalho para ocorrer somente nos endereços IP privados. O link privado ajuda a reduzir o risco de vazamento de dados. Para saber mais sobre pontos de extremidade privados, confira o artigo [Link Privado do Azure](/azure/private-link/private-link-overview).
 
 > [!IMPORTANT]
 > O link privado do Azure não afeta o plano de controle do Azure (operações de gerenciamento), como excluir o espaço de trabalho ou gerenciar recursos de computação. Por exemplo, criando, atualizando ou excluindo um destino de computação. Essas operações são executadas pela Internet pública normalmente.
 >
-> Não há suporte para a visualização de instâncias de computação Azure Machine Learning em um espaço de trabalho em que o link privado está habilitado.
+> Não há suporte para a versão prévia de instâncias de computação do Azure Machine Learning em um workspace em que o Link Privado está habilitado.
 
 ## <a name="create-a-workspace-that-uses-a-private-endpoint"></a>Criar um espaço de trabalho que usa um ponto de extremidade privado
 
@@ -62,10 +61,10 @@ O espaço de trabalho também contém uma rede virtual do Azure que pode se comu
 1. Siga as etapas em [Implantar recursos do modelo personalizado](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template). Quando você chegar à tela __Editar modelo__ , Cole um dos modelos no final deste documento.
 1. Selecione __Salvar__ para usar o modelo. Forneça as informações a seguir e concorde com os termos e condições listados:
 
-   * Assinatura: selecione a assinatura do Azure a ser usada para esses recursos.
-   * Grupo de recursos: selecione ou crie um grupo de recursos para conter os serviços.
-   * Nome do espaço de trabalho: o nome a ser usado para o espaço de trabalho Azure Machine Learning que será criado. O nome do workspace deverá ter entre 3 e 33 caracteres. E o nome poderá conter apenas caracteres alfanuméricos e '-'.
-   * Local: selecione o local onde os recursos serão criados.
+   * Assinatura: Selecione a assinatura do Azure a ser usada para esses recursos.
+   * Grupo de recursos: Selecione ou crie um grupo de recursos para conter os serviços.
+   * Nome do workspace: O nome a ser usado para o workspace do Azure Machine Learning que será criado. O nome do workspace deverá ter entre 3 e 33 caracteres. E o nome poderá conter apenas caracteres alfanuméricos e '-'.
+   * Localização: Selecione a localização onde os recursos serão criados.
 
 Para obter mais informações, consulte [Implantar recursos de modelo personalizado](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
@@ -99,14 +98,13 @@ Para obter mais informações, consulte [Implantar recursos com modelos do Resou
 
 ## <a name="using-a-workspace-over-a-private-endpoint"></a>Usando um espaço de trabalho em um ponto de extremidade privado
 
-Como a comunicação com o espaço de trabalho só é permitida a partir da rede virtual, todos os ambientes de desenvolvimento que usam o espaço de trabalho devem ser membros da rede virtual. Por exemplo, uma máquina virtual na rede virtual ou um computador conectado à rede virtual usando um gateway de VPN.
+Como a comunicação com o espaço de trabalho só é permitida a partir da rede virtual, todos os ambientes de desenvolvimento que usam o espaço de trabalho devem ser membros da rede virtual. Por exemplo, uma máquina virtual na rede virtual.
 
 > [!IMPORTANT]
 > Para evitar a interrupção temporária da conectividade, a Microsoft recomenda liberar o cache DNS em computadores que se conectam ao espaço de trabalho depois de habilitar o link privado. 
 
 Para obter informações sobre máquinas virtuais do Azure, consulte a [documentação sobre máquinas virtuais](/azure/virtual-machines/).
 
-Para obter informações sobre gateways de VPN, consulte [o que é o gateway de VPN](/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 
 ## <a name="using-azure-storage"></a>Usando o Armazenamento do Azure
 
@@ -127,7 +125,7 @@ Para obter informações sobre como habilitar o link privado para o cofre de cha
 Para proteger os serviços Kubernetess do Azure usados pelo seu espaço de trabalho, coloque-os dentro de uma rede virtual. Para obter mais informações, consulte [usar os serviços Kubernetess do Azure com seu espaço de trabalho](how-to-enable-virtual-network.md#aksvnet).
 
 > [!WARNING]
-> Azure Machine Learning não dá suporte ao uso de um serviço kubernetes do Azure que tenha o link privado habilitado.
+> O Azure Machine Learning não dá suporte ao uso de um Serviço de Kubernetes do Azure que tenha o link privado habilitado.
 
 ## <a name="azure-container-registry"></a>Registro de Contêiner do Azure
 

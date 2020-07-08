@@ -6,16 +6,15 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 03/22/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 558b16fc348728c507af1fa0260a67ccacefed0f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 40a9e5268b7fccc5c01775c10e55eee47f1aaf3d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416139"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213373"
 ---
 # <a name="use-transactions-in-synapse-sql-pool"></a>Usar transações no pool do SQL Synapse
 
@@ -23,13 +22,13 @@ Este artigo inclui dicas para implementar transações e desenvolver soluções 
 
 ## <a name="what-to-expect"></a>O que esperar
 
-Como esperado, o pool do SQL dá suporte a transações como parte da carga de trabalho de data warehouse. No entanto, para garantir que o pool do SQL seja mantido em escala, alguns recursos são limitados em comparação com SQL Server. Este artigo destaca as diferenças.
+Como era esperado, o pool de SQL oferece suporte a transações como parte da carga de trabalho do data warehouse. No entanto, para garantir que o pool do SQL seja mantido em escala, alguns recursos são limitados em comparação com SQL Server. Este artigo destaca as diferenças.
 
 ## <a name="transaction-isolation-levels"></a>Níveis de isolamento da transação
 
-O pool SQL implementa transações ACID. O nível de isolamento do suporte transacional é padrão para leitura não confirmada.  Você pode alterá-lo para ler o isolamento de instantâneo confirmado ativando a opção de banco de dados READ_COMMITTED_SNAPSHOT para um banco de dados de usuário quando conectado ao banco de dados mestre.  
+O pool de SQL implementa transações ACID. O nível de isolamento do suporte transacional usa como padrão READ UNCOMMITTED.  Você pode alterá-lo para to READ COMMITTED SNAPSHOT ISOLATION selecionando ON na opção de banco de dados READ_COMMITTED_SNAPSHOT para um banco de dados do usuário quando conectado ao banco de dados mestre.  
 
-Uma vez habilitada, todas as transações neste banco de dados são executadas em isolamento de instantâneo de leitura confirmada e a configuração leitura não confirmada no nível da sessão não será respeitada. Verifique [as opções ALTER DATABASE SET (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para obter detalhes.
+Após a habilitação, todas as transações nesse banco de dados serão executadas em READ COMMITTED SNAPSHOT ISOLATION, e a configuração READ UNCOMMITTED no nível da sessão não será respeitada. Confira [Opções ALTER DATABASE SET (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para detalhes.
 
 ## <a name="transaction-size"></a>Tamanho da transação
 
@@ -44,45 +43,45 @@ Na tabela a seguir, foram feitas duas suposições:
 
 ## <a name="gen2"></a>Gen2
 
-| [DWU](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Limite por distribuição (GB) | Número de distribuições | Tamanho máximo da transação (GB) | Nº de linhas por distribuição | Máximo de linhas por transação |
+| [DWU](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Limite por distribuição (GB) | Número de distribuições | Tamanho máximo de transações (GB) | Nº de linhas por distribuição | Máximo de linhas por transação |
 | --- | --- | --- | --- | --- | --- |
-| DW100c |1 |60 |60 |4.000.000 |240.000.000 |
-| DW200c |1.5 |60 |90 |6.000.000 |360.000.000 |
-| DW300c |2.25 |60 |135 |9.000.000 |540.000.000 |
+| DW100c |1 |60 |60 |4\.000.000 |240.000.000 |
+| DW200c |1.5 |60 |90 |6\.000.000 |360.000.000 |
+| DW300c |2.25 |60 |135 |9\.000.000 |540.000.000 |
 | DW400c |3 |60 |180 |12.000.000 |720.000.000 |
 | DW500c |3,75 |60 |225 |15.000.000 |900.000.000 |
-| DW1000c |7.5 |60 |450 |30.000.000 |1.800.000.000 |
-| DW1500c |11,25 |60 |675 |45.000.000 |2.700.000.000 |
-| DW2000c |15 |60 |900 |60.000.000 |3.600.000.000 |
-| DW2500c |18,75 |60 |1125 |75 milhões |4.500.000.000 |
-| DW3000c |22,5 |60 |1.350 |90.000.000 |5.400.000.000 |
-| DW5000c |37,5 |60 |2.250 |150 milhões |9.000.000.000 |
-| DW6000c |45 |60 |2.700 |180.000.000 |10.800.000.000 |
-| DW7500c |56,25 |60 |3.375 |225 milhões |13.500.000.000 |
-| DW10000c |75 |60 |4.500 |300.000.000 |18.000.000.000 |
-| DW15000c |112,5 |60 |6.750 |450 milhões |27.000.000.000 |
+| DW1000c |7.5 |60 |450 |30.000.000 |1\.800.000.000 |
+| DW1500c |11,25 |60 |675 |45.000.000 |2\.700.000.000 |
+| DW2000c |15 |60 |900 |60.000.000 |3\.600.000.000 |
+| DW2500c |18,75 |60 |1125 |75.000.000 |4\.500.000.000 |
+| DW3000c |22,5 |60 |1\.350 |90.000.000 |5\.400.000.000 |
+| DW5000c |37,5 |60 |2\.250 |150.000.000 |9\.000.000.000 |
+| DW6000c |45 |60 |2\.700 |180.000.000 |10.800.000.000 |
+| DW7500c |56,25 |60 |3\.375 |225.000.000 |13.500.000.000 |
+| DW10000c |75 |60 |4\.500 |300.000.000 |18.000.000.000 |
+| DW15000c |112,5 |60 |6\.750 |450.000.000 |27.000.000.000 |
 | DW30000c |225 |60 |13.500 |900.000.000 |54.000.000.000 |
 
 ## <a name="gen1"></a>Gen1
 
-| [DWU](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Limite por distribuição (GB) | Número de distribuições | Tamanho máximo da transação (GB) | Nº de linhas por distribuição | Máximo de linhas por transação |
+| [DWU](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Limite por distribuição (GB) | Número de distribuições | Tamanho máximo de transações (GB) | Nº de linhas por distribuição | Máximo de linhas por transação |
 | --- | --- | --- | --- | --- | --- |
-| DW100 |1 |60 |60 |4.000.000 |240.000.000 |
-| DW200 |1.5 |60 |90 |6.000.000 |360.000.000 |
-| DW300 |2.25 |60 |135 |9.000.000 |540.000.000 |
+| DW100 |1 |60 |60 |4\.000.000 |240.000.000 |
+| DW200 |1.5 |60 |90 |6\.000.000 |360.000.000 |
+| DW300 |2.25 |60 |135 |9\.000.000 |540.000.000 |
 | DW400 |3 |60 |180 |12.000.000 |720.000.000 |
 | DW500 |3,75 |60 |225 |15.000.000 |900.000.000 |
-| DW600 |4.5 |60 |270 |18.000.000 |1.080.000.000 |
-| DW1000 |7.5 |60 |450 |30.000.000 |1.800.000.000 |
-| DW1200 |9 |60 |540 |36.000.000 |2.160.000.000 |
-| DW1500 |11,25 |60 |675 |45.000.000 |2.700.000.000 |
-| DW2000 |15 |60 |900 |60.000.000 |3.600.000.000 |
-| DW3000 |22,5 |60 |1.350 |90.000.000 |5.400.000.000 |
-| DW6000 |45 |60 |2.700 |180.000.000 |10.800.000.000 |
+| DW600 |4.5 |60 |270 |18.000.000 |1\.080.000.000 |
+| DW1000 |7.5 |60 |450 |30.000.000 |1\.800.000.000 |
+| DW1200 |9 |60 |540 |36.000.000 |2\.160.000.000 |
+| DW1500 |11,25 |60 |675 |45.000.000 |2\.700.000.000 |
+| DW2000 |15 |60 |900 |60.000.000 |3\.600.000.000 |
+| DW3000 |22,5 |60 |1\.350 |90.000.000 |5\.400.000.000 |
+| DW6000 |45 |60 |2\.700 |180.000.000 |10.800.000.000 |
 
 O limite de tamanho de transação é aplicado por transação ou operação. Ele não é aplicado em todas as transações simultâneas. Portanto, cada transação tem permissão para gravar essa quantidade de dados no log.
 
-Para otimizar e minimizar a quantidade de dados gravados no log, veja o artigo [práticas recomendadas de transações](sql-data-warehouse-develop-best-practices-transactions.md) .
+Para otimizar e minimizar a quantidade de dados gravados no log, consulte o artigo [Transactions best practices](sql-data-warehouse-develop-best-practices-transactions.md)(Melhores práticas de transações).
 
 > [!WARNING]
 > O tamanho máximo de transações só pode ser obtido para tabelas distribuídas HASH ou ROUND_ROBIN nas quais o espalhamento de dados é uniforme. Se a transação estiver gravando dados de maneira distorcida nas distribuições, provavelmente, o limite será alcançado antes do tamanho máximo de transações.
@@ -90,12 +89,12 @@ Para otimizar e minimizar a quantidade de dados gravados no log, veja o artigo [
 
 ## <a name="transaction-state"></a>Estado da transação
 
-O pool SQL usa a função XACT_STATE () para relatar uma transação com falha usando o valor-2. Esse valor significa que a transação falhou e está marcada para reversão somente.
+O pool de SQL usa a função XACT_STATE() para relatar uma transação com falha usando o valor -2. Esse valor significa que a transação falhou e está marcada para reversão somente.
 
 > [!NOTE]
 > O uso de -2 pela função XACT_STATE para denotar uma transação com falha representa um comportamento diferente para o SQL Server. O SQL Server usa o valor -1 para representar uma transação não confirmável. O SQL Server consegue tolerar alguns erros dentro de uma transação sem precisar ser marcado como não confirmável. Por exemplo, `SELECT 1/0` causaria um erro, mas não forçaria uma transação em um estado não confirmado.
 
-O SQL Server também permite leituras na transação não confirmável. No entanto, o pool do SQL não permite que você faça isso. Se ocorrer um erro dentro de uma transação do pool do SQL, ele entrará automaticamente no estado-2 e você não poderá fazer mais instruções SELECT até que a instrução tenha sido revertida.
+O SQL Server também permite leituras na transação não confirmável. No entanto, o pool de SQL não permite que você faça isso. Se ocorrer um erro dentro de uma transação do pool do SQL, ele entrará automaticamente no estado-2 e você não poderá fazer mais instruções SELECT até que a instrução tenha sido revertida.
 
 Como tal, é importante verificar se o código do aplicativo para ver se ele usa XACT_STATE (), pois talvez seja necessário fazer modificações no código.
 
@@ -143,7 +142,7 @@ Msg 111233, Nível 16, Estado 1, Linha 1 111233; a transação atual foi anulada
 
 Você não receberá a saída das funções ERROR_*.
 
-No pool SQL, o código precisa ser ligeiramente alterado:
+No pool de SQL, o código precisa ser ligeiramente alterado:
 
 ```sql
 SET NOCOUNT ON;
@@ -186,13 +185,13 @@ Tudo o que mudou é que o ROLLBACK da transação deve ocorrer antes da leitura 
 
 ## <a name="error_line-function"></a>Função Error_line()
 
-Também vale a pena observar que o pool do SQL não implementa nem dá suporte à função ERROR_LINE (). Se você tiver isso em seu código, será necessário removê-lo para que ele esteja em conformidade com o pool do SQL.
+Também vale a pena observar que o pool de SQL não implementa nem aceita a função ERROR_LINE(). Se você tiver isso em seu código, será necessário removê-lo para que ele fique em conformidade com o pool de SQL.
 
 Em vez disso, use rótulos de consulta em seu código para implementar a funcionalidade equivalente. Para obter mais detalhes, consulte o artigo [LABEL](sql-data-warehouse-develop-label.md).
 
 ## <a name="using-throw-and-raiserror"></a>Uso de THROW e RAISERROR
 
-THROW é a implementação mais moderna para gerar exceções no pool do SQL, mas também há suporte para RAISERROR. No entanto, existem algumas diferenças que valem a pena prestar atenção.
+THROW é a implementação mais moderna para lançar exceções no pool de SQL, mas também há suporte para RAISERROR. No entanto, existem algumas diferenças que valem a pena prestar atenção.
 
 * Os números das mensagens de erro definidas pelo usuário não podem estar no intervalo de 100.000 a 150.000 para THROW
 * As mensagens de erro do RAISERROR são fixadas em 50.000
@@ -200,7 +199,7 @@ THROW é a implementação mais moderna para gerar exceções no pool do SQL, ma
 
 ## <a name="limitations"></a>Limitações
 
-O pool do SQL tem algumas outras restrições relacionadas a transações.
+O pool de SQL tem algumas outras restrições relacionadas a transações.
 
 Elas são as seguintes:
 
@@ -213,4 +212,4 @@ Elas são as seguintes:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre a otimização das transações, confira [Práticas recomendadas das transações](sql-data-warehouse-develop-best-practices-transactions.md). Para saber mais sobre outras práticas recomendadas do pool do SQL, consulte [práticas recomendadas do pool do SQL](sql-data-warehouse-best-practices.md).
+Para saber mais sobre a otimização das transações, consulte [Transactions best practices](sql-data-warehouse-develop-best-practices-transactions.md) (Melhores práticas de transações). Para saber mais sobre outras práticas recomendadas do pool do SQL, consulte [práticas recomendadas do pool do SQL](sql-data-warehouse-best-practices.md).
