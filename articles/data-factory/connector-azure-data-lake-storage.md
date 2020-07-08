@@ -10,13 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/25/2020
-ms.openlocfilehash: efa4ec42396a51cbbc93a53e5892177bad0d87fb
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.date: 06/12/2020
+ms.openlocfilehash: 52a99763e345096dcf379d2e4fd00fa4687ebcd1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649661"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84727079"
 ---
 # <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Copiar e transformar dados no Azure Data Lake Storage Gen2 usando o Azure Data Factory
 
@@ -176,7 +175,7 @@ Para usar identidades gerenciadas para autenticação de recursos do Azure, siga
 >Se você usar a interface do usuário do Data Factory para criar e identidade gerenciada não estiver definida com a função "Leitor de dados de blob de armazenamento/colaborador" no IAM, ao fazer a conexão de teste ou procurar/navegar por pastas, escolha "Testar a conexão com o caminho do arquivo" ou "Procurar do caminho especificado" e especifique um caminho com a permissão **Ler + Executar**.
 
 >[!IMPORTANT]
->Se você usar o PolyBase para carregar dados do Data Lake Storage Gen2 no SQL Data Warehouse, ao usar a autenticação de identidade gerenciada para o Data Lake Storage Gen2, siga as etapas 1 e 2 [nessas diretrizes](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) para 1) registrar o servidor do banco de dados SQL com o Azure Active Directory (Azure AD) e 2) atribuir a função de Colaborador de Dados do Storage Blob ao servidor do banco de dados SQL; o restante são tratados pelo Data Factory. Se o Data Lake Storage Gen2 de origem estiver configurado com o ponto de extremidade de rede virtual do Azure, para usar o PolyBase para carregar dados, você deverá usar a autenticação de identidade gerenciada conforme exigido pelo PolyBase.
+>Se você usar o polybase para carregar dados de Data Lake Storage Gen2 no SQL Data Warehouse, ao usar a autenticação de identidade gerenciada para o Data Lake Storage Gen2, certifique-se de seguir as etapas 1 e 2 nesta [orientação](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) para 1) registrar seu com Azure Active Directory (Azure AD) e 2) atribuir a função de colaborador de dados de blob de armazenamento ao servidor; o restante são tratados por Data Factory. Se o Data Lake Storage Gen2 de origem estiver configurado com o ponto de extremidade de rede virtual do Azure, para usar o PolyBase para carregar dados, você deverá usar a autenticação de identidade gerenciada conforme exigido pelo PolyBase.
 
 Estas propriedades têm suporte para o serviço vinculado:
 
@@ -269,10 +268,11 @@ As propriedades a seguir têm suporte para Data Lake Storage Gen2 em configuraç
 | OPÇÃO 1: caminho estático<br> | Copiar do sistema de arquivos ou caminho de pasta/arquivo especificado no conjunto de dados. Se você quiser copiar todos os arquivos de um sistema de arquivos/pasta, especifique também `wildcardFileName` como `*`. |  |
 | OPÇÃO 2: curinga<br>- wildcardFolderPath | O caminho da pasta com caracteres curinga no sistema de arquivos fornecido configurado no conjunto de dados para filtrar as pastas de origem. <br>Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único); use `^` para escape se o nome de pasta atual tiver curinga ou esse caractere interno de escape. <br>Veja mais exemplos em [Exemplos de filtro de pastas e arquivos](#folder-and-file-filter-examples). | Não                                            |
 | OPÇÃO 2: curinga<br>- wildcardFileName | O nome do arquivo com caracteres curinga sob sistema de arquivos + folderPath/wildcardFolderPath fornecido para filtrar os arquivos de origem. <br>Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único); use `^` para escape se o nome de pasta atual tiver curinga ou esse caractere interno de escape.  Veja mais exemplos em [Exemplos de filtro de pastas e arquivos](#folder-and-file-filter-examples). | Sim |
-| OPÇÃO 3: uma lista de arquivos<br>- fileListPath | Indica a cópia de um determinado conjunto de arquivos. Aponte para um arquivo de texto que inclui uma lista de arquivos que você deseja copiar, um arquivo por linha, que é o caminho relativo para o caminho configurado no conjunto de dados.<br/>Ao usar essa opção, não especifique o nome do arquivo no conjunto de dados. Veja mais exemplos em [Exemplos de lista de arquivos](#file-list-examples). |Não |
+| OPÇÃO 3: uma lista de arquivos<br>- fileListPath | Indica a cópia de um determinado conjunto de arquivos. Aponte para um arquivo de texto que inclui uma lista de arquivos que você deseja copiar, um arquivo por linha, que é o caminho relativo para o caminho configurado no conjunto de um.<br/>Ao usar essa opção, não especifique o nome do arquivo no conjunto de dados. Veja mais exemplos em [Exemplos de lista de arquivos](#file-list-examples). |Não |
 | ***Configurações adicionais:*** |  | |
 | recursiva | Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. Observe que quando recursiva é definida como true e o coletor é um armazenamento baseado em arquivo, uma pasta vazia ou subpasta não é copiada ou criada no coletor. <br>Os valores permitidos são **true** (padrão) e **false**.<br>Essa propriedade não se aplica quando você configura `fileListPath`. |Não |
-| modifiedDatetimeStart    | Filtro de arquivos com base no atributo: Última Modificação. <br>Os arquivos serão selecionados se a hora da última alteração estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. A hora é aplicada ao fuso horário de UTC no formato "2018-12-01T05:00:00Z". <br> As propriedades podem ser NULL, o que significa que nenhum filtro de atributo de arquivo será aplicado ao conjunto de dados.  Quando `modifiedDatetimeStart` tem o valor de data e hora, mas `modifiedDatetimeEnd` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é maior ou igual ao valor de data e hora.  Quando `modifiedDatetimeEnd` tem o valor de data e hora, mas `modifiedDatetimeStart` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é menor que o valor de data e hora.<br/>Essa propriedade não se aplica quando você configura `fileListPath`. | Não                                            |
+| deleteFilesAfterCompletion | Indica se os arquivos binários serão excluídos do repositório de origem após a movimentação com êxito para o repositório de destino. A exclusão do arquivo é por arquivo, portanto, quando a atividade de cópia falhar, você verá que alguns arquivos já foram copiados para o destino e excluídos da origem, enquanto outros ainda permanecem no repositório de origem. <br/>Essa propriedade só é válida em cenário de cópia binária, em que os repositórios de fontes de dados são BLOB, ADLS Gen1, ADLS Gen2, S3, armazenamento em nuvem do Google, arquivo, arquivo do Azure, SFTP ou FTP. O valor padrão: false. |Não |
+| modifiedDatetimeStart    | Filtro de arquivos com base no atributo: Última Modificação. <br>Os arquivos serão escolhidos se a hora da última alteração estiver dentro do período entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. A hora é aplicada ao fuso horário de UTC no formato "2018-12-01T05:00:00Z". <br> As propriedades podem ser nulas, o que significa que nenhum filtro de atributo de arquivo será aplicado ao conjunto de um.  Quando `modifiedDatetimeStart` tem o valor de data e hora, mas `modifiedDatetimeEnd` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é maior ou igual ao valor de data e hora.  Quando `modifiedDatetimeEnd` tem o valor de data e hora, mas `modifiedDatetimeStart` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é menor que o valor de data e hora.<br/>Essa propriedade não se aplica quando você configura `fileListPath`. | Não                                            |
 | modifiedDatetimeEnd      | Mesmo que acima.                                               | Não                                            |
 | maxConcurrentConnections | O número das conexões para se conectar ao repositório de armazenamento simultaneamente. Especifique somente quando quiser limitar a conexão simultânea com o armazenamento de dados. | Não                                            |
 
@@ -327,7 +327,7 @@ As propriedades a seguir têm suporte para Data Lake Storage Gen2 em configuraç
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | A propriedade de tipo em `storeSettings` deve ser configurada com **AzureBlobFSWriteSettings**. | Sim      |
 | copyBehavior             | Define o comportamento de cópia quando a fonte for de arquivos de um armazenamento de dados baseado em arquivo.<br/><br/>Valores permitidos são:<br/><b>– PreserveHierarchy (padrão)</b>: Preserva a hierarquia de arquivos na pasta de destino. O caminho relativo do arquivo de origem para a pasta de origem é idêntico ao caminho relativo do arquivo de destino para a pasta de destino.<br/><b>– FlattenHierarchy</b>: Todos os arquivos da pasta de origem estão no primeiro nível da pasta de destino. Os arquivos de destino têm os nomes gerados automaticamente. <br/><b>– MergeFiles</b>: Mescla todos os arquivos da pasta de origem em um arquivo. Se o nome do arquivo for especificado, o nome do arquivo mesclado será o nome especificado. Caso contrário, ele será um nome de arquivo gerado automaticamente. | Não       |
-| blockSizeInMB | Especifique o tamanho do bloco em MB usado para gravar dados no ADLS Gen2. Saiba mais [sobre Blobs de blocos](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs). <br/>O valor permitido é **entre 4 e 100 MB**. <br/>Por padrão, o ADF determina automaticamente o tamanho do bloco com base no tipo de armazenamento de origem e nos dados. Para cópia não binária no ADLS Gen2, o tamanho de bloco padrão é 100 MB para que caiba no máximo 4,95 TB de dados. Talvez não seja ideal quando os dados não forem grandes, especialmente quando você usar o runtime de integração auto-hospedada com rede deficiente, resultando em tempo limite de operação ou problema de desempenho. Você pode especificar explicitamente um tamanho de bloco, verificando se blockSizeInMB*50000 está grande o suficiente para armazenar os dados, caso contrário, haverá falha na execução da atividade de cópia. | Não |
+| blockSizeInMB | Especifique o tamanho do bloco em MB usado para gravar dados no ADLS Gen2. Saiba mais [sobre Blobs de blocos](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs). <br/>O valor permitido é **entre 4 MB e 100 MB**. <br/>Por padrão, o ADF determina automaticamente o tamanho do bloco com base no tipo de armazenamento de origem e nos dados. Para cópia não binária em ADLS Gen2, o tamanho de bloco padrão é 100 MB para que caiba no máximo de 4,95 TB de dados. Talvez não seja ideal quando os dados não forem grandes, especialmente quando você usar o runtime de integração auto-hospedada com rede deficiente, resultando em tempo limite de operação ou problema de desempenho. Você pode especificar explicitamente um tamanho de bloco, mas verifique se blockSizeInMB*50000 é grande o suficiente para armazenar os dados; caso contrário, haverá falha na execução da atividade de cópia. | Não |
 | maxConcurrentConnections | O número das conexões para se conectar ao armazenamento de dados simultaneamente. Especifique somente quando quiser limitar a conexão simultânea com o armazenamento de dados. | Não       |
 
 **Exemplo:**
@@ -371,8 +371,8 @@ Esta seção descreve o comportamento resultante do caminho da pasta e do nome d
 
 | folderPath | fileName | recursiva | Estrutura da pasta de origem e resultado do filtro (os arquivos em **negrito** são recuperados)|
 |:--- |:--- |:--- |:--- |
-| `Folder*` | (vazio, usar padrão) | false | FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**Arquivo1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;**Arquivo2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5.csv<br/>OutraPastaB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo6.csv |
-| `Folder*` | (vazio, usar padrão) | true | FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**Arquivo1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;**Arquivo2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Arquivo3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Arquivo4.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Arquivo5.csv**<br/>OutraPastaB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo6.csv |
+| `Folder*` | (Vazio, usar padrão) | false | FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**Arquivo1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;**Arquivo2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5.csv<br/>OutraPastaB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo6.csv |
+| `Folder*` | (Vazio, usar padrão) | true | FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**Arquivo1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;**Arquivo2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Arquivo3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Arquivo4.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Arquivo5.csv**<br/>OutraPastaB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo6.csv |
 | `Folder*` | `*.csv` | false | FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**Arquivo1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5.csv<br/>OutraPastaB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo6.csv |
 | `Folder*` | `*.csv` | true | FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**Arquivo1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Arquivo3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Arquivo5.csv**<br/>OutraPastaB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo6.csv |
 
@@ -382,9 +382,9 @@ Esta seção descreve o comportamento resultante do uso do caminho da lista de a
 
 Supondo que você tenha a seguinte estrutura de pasta de origem e queira copiar os arquivos em negrito:
 
-| Estrutura de origem de exemplo                                      | Conteúdo em FileListToCopy.txt                             | Configuração ADF                                            |
+| Exemplo de estrutura de origem                                      | Conteúdo em FileListToCopy.txt                             | Configuração ADF                                            |
 | ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ |
-| filesystem<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Arquivo1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Arquivo3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Arquivo5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Metadados<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **No conjunto de dados:**<br>- Sistema de arquivos: `filesystem`<br>- Caminho da pasta: `FolderA`<br><br>**Origem da atividade de cópia:**<br>- Caminho da lista de arquivos: `filesystem/Metadata/FileListToCopy.txt` <br><br>O caminho da lista de arquivos aponta para um arquivo de texto no mesmo armazenamento de dados, que inclui uma lista de arquivos que você deseja copiar, um arquivo por linha, que é o caminho relativo para o caminho configurado no conjunto de dados. |
+| filesystem<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Arquivo1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Arquivo3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Arquivo5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Metadados<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **No conjunto de dados:**<br>- Sistema de arquivos: `filesystem`<br>- Caminho da pasta: `FolderA`<br><br>**Na origem da atividade de cópia:**<br>- Caminho da lista de arquivos: `filesystem/Metadata/FileListToCopy.txt` <br><br>O caminho da lista de arquivos aponta para um arquivo de texto no mesmo armazenamento de dados que inclui a lista de arquivos que você deseja copiar, um arquivo por linha, com o caminho relativo do caminho configurado no conjunto de dados. |
 
 
 ### <a name="some-recursive-and-copybehavior-examples"></a>Alguns exemplos de recursive e copyBehavior
@@ -402,7 +402,7 @@ Esta seção descreve o comportamento resultante da operação de cópia para di
 
 ## <a name="preserve-metadata-during-copy"></a>Preservar metadados durante a cópia
 
-Ao copiar arquivos do Amazon S3/blob do Azure/Azure Data Lake Storage Gen2 para o Azure Data Lake Storage Gen2/blob do Azure, você pode optar por preservar os metadados do arquivo junto com os dados. Saiba mais em [Preservar metadados](copy-activity-preserve-metadata.md#preserve-metadata).
+Ao copiar arquivos do Amazon S3/blob do Azure/Azure Data Lake Storage Gen2 para o Azure Data Lake Storage Gen2/blob do Azure, você poderá optar por preservar os metadados do arquivo junto com os dados. Saiba mais em [Preservar metadados](copy-activity-preserve-metadata.md#preserve-metadata).
 
 ## <a name="preserve-acls-from-data-lake-storage-gen1gen2"></a><a name="preserve-acls"></a> Preservar ACLs do Data Lake Storage Gen1/Gen2
 
@@ -413,31 +413,38 @@ Ao copiar arquivos do Azure Data Lake Storage Gen1/Gen2 para Gen2, você pode op
 
 ## <a name="mapping-data-flow-properties"></a>Mapeamento de propriedades de fluxo de dados
 
-Ao transformar dados no fluxo de dados de mapeamento, você pode ler e gravar arquivos do Azure Data Lake Storage Gen2 no formato JSON, Avro, texto delimitado ou Parquet. Para saber mais, confira [transformação de origem ](data-flow-source.md) e [transformação do coletor](data-flow-sink.md) no recurso de fluxo de dados de mapeamento.
+Quando estiver transformando dados no mapeamento de fluxos de dados, você pode ler e gravar arquivos de Azure Data Lake Storage Gen2 nos seguintes formatos:
+* [JSON](format-json.md#mapping-data-flow-properties)
+* [Avro](format-avro.md#mapping-data-flow-properties)
+* [Texto delimitado](format-delimited-text.md#mapping-data-flow-properties)
+* [Parquet](format-parquet.md#mapping-data-flow-properties).
+* [Modelo de dados comuns (visualização)](format-common-data-model.md#mapping-data-flow-properties)
+
+As configurações de formato específico estão localizadas na documentação para esse formato. Para obter mais informações, consulte [transformação de origem no mapeamento de fluxo de dados](data-flow-source.md) e [transformação de coletor no fluxo de dados de mapeamento](data-flow-sink.md).
 
 ### <a name="source-transformation"></a>Transformação de origem
 
 Na transformação de origem, você pode ler de um contêiner, pasta ou arquivo individual no Azure Data Lake Storage Gen2. A guia **Opções de origem** permite que você gerencie como os arquivos são lidos. 
 
-![Opções de fonte](media/data-flow/sourceOptions1.png "Opções de fonte")
+![Opções de origem](media/data-flow/sourceOptions1.png "Opções de fonte")
 
-**Caminho curinga:** Usar um padrão curinga instruirá o ADF a executar um loop em cada pasta e arquivo correspondentes em uma única transformação de origem. Essa é uma maneira eficaz de processar vários arquivos dentro de um único fluxo. Adicione vários padrões de correspondência de curingas com o sinal de + que aparece ao passar o mouse sobre o padrão de curinga existente.
+**Caminho curinga:** O uso de um padrão curinga instruirá o ADF a executar um loop em cada pasta e arquivo correspondentes em uma única transformação de origem. Esse é um modo eficaz de processar vários arquivos dentro de um único fluxo. Adicione vários padrões de correspondência de curingas com o sinal de + que aparece ao passar o mouse sobre o padrão de curinga existente.
 
-Em seu contêiner de origem, escolha uma série de arquivos que correspondem a um padrão. Somente o contêiner pode ser especificado no conjunto de dados. O caminho curinga, portanto, também deve incluir o caminho da pasta raiz.
+Em seu contêiner de origem, escolha uma série de arquivos que correspondem a um padrão. Somente o contêiner pode ser especificado no conjunto de dados. O caminho curinga, portanto, também precisa incluir o caminho da pasta raiz.
 
 Exemplos de caracteres curinga:
 
 * ```*``` Representa qualquer conjunto de caracteres
 * ```**``` Representa o aninhamento de diretório recursivo
 * ```?``` Substitui um caractere
-* ```[]``` Corresponde a um ou mais caracteres nos colchetes
+* ```[]``` Corresponde a um ou mais caracteres entre colchetes
 
 * ```/data/sales/**/*.csv``` Obtém todos os arquivos CSV em /data/sales
 * ```/data/sales/20??/**/``` Obtém todos os arquivos no século 20
 * ```/data/sales/*/*/*.csv``` Obtém arquivos CSV dois níveis em /data/sales
-* ```/data/sales/2004/*/12/[XY]1?.csv``` Obtém todos os arquivos CSV em 2004 em dezembro, começando com X ou Y prefixados por um número de dois dígitos
+* ```/data/sales/2004/*/12/[XY]1?.csv``` Obtém todos os arquivos CSV de dezembro de 2004 que começam com X ou Y prefixado por um número de dois dígitos
 
-**Caminho raiz da partição:** se você tiver pastas particionadas em sua fonte de arquivo com um formato ```key=value``` (por exemplo, Year = 2019), poderá atribuir o nível superior da árvore de pastas dessa partição a um nome de coluna no fluxo de dados.
+**Caminho raiz da partição:** se você tiver pastas particionadas em sua fonte de arquivo com um formato ```key=value``` (por exemplo, year=2019), poderá atribuir o nível superior da árvore de pastas dessa partição a um nome de coluna no fluxo de dados.
 
 Primeiro, defina um curinga para incluir todos os caminhos que são as pastas particionadas mais os arquivos folha que você deseja ler.
 
@@ -447,13 +454,13 @@ Use a configuração do caminho raiz da partição para definir qual é o nível
 
 ![Caminho raiz da partição](media/data-flow/partfile1.png "Visualização do caminho raiz da partição")
 
-**Lista de arquivos:** este é um conjunto de arquivos. Crie um arquivo de texto que inclui uma lista de arquivos do caminho relativo para processar. Aponte para este arquivo de texto.
+**Lista de arquivos:** é um conjunto de arquivos. Crie um arquivo de texto que inclui uma lista de arquivos do caminho relativo a serem processados. Aponte para este arquivo de texto.
 
 **Coluna para armazenar o nome do arquivo:** armazene o nome do arquivo de origem em uma coluna em seus dados. Insira um novo nome de coluna para armazenar a cadeia de caracteres de nome de arquivo.
 
-**Após a conclusão:** opte por não fazer nada com o arquivo de origem após a execução de fluxo de dados, excluir o arquivo de origem ou mover o arquivo de origem. Os caminhos para movimentação são relativos.
+**Após a conclusão:** Opte por não fazer nada com o arquivo de origem após a execução de fluxo de dados, excluir o arquivo de origem ou mover o arquivo de origem. Os caminhos para movimentação são relativos.
 
-Para mover os arquivos de origem para outro local após o processamento, primeiro selecione "mover" para a operação de arquivo. Em seguida, defina o diretório "de". Se você não estiver usando curingas para o caminho, a configuração "de" será a mesma pasta que a de origem.
+Para mover os arquivos de origem para outro local após o processamento, primeiro selecione "Mover" para a operação de arquivo. Em seguida, defina o diretório "de". Se você não estiver usando curingas para o caminho, a configuração "de" será a mesma pasta que a de origem.
 
 Se você tiver um caminho de origem com curinga, sua sintaxe terá a seguinte aparência:
 
@@ -470,9 +477,9 @@ E "para" como
 Nesse caso, todos os arquivos que foram originados em /data/sales são movidos para /backup/priorSales.
 
 > [!NOTE]
-> As operações do arquivo são executadas somente quando você inicia o fluxo de dados de uma execução de pipeline (depuração de pipeline ou realização da execução) que usa a atividade Executar Fluxo de Dados me um pipeline. As operações de arquivo *não são* executadas no modo de depuração do Fluxo de Dados.
+> As operações do arquivo são executadas somente quando você inicia o fluxo de dados de uma execução de pipeline (depuração de pipeline ou realização da execução) que usa a atividade Executar Fluxo de Dados em um pipeline. As operações de arquivo *não são* executadas no modo de depuração do Fluxo de Dados.
 
-**Filtrar por última modificação:** você pode filtrar quais arquivos são processados especificando um intervalo de datas de quando eles foram modificados pela última vez. Todas as datas-horas estão em UTC. 
+**Filtrar por última modificação:** você pode filtrar quais arquivos são processados especificando um intervalo de datas de quando eles foram modificados pela última vez. Todos os datetimes estão em UTC. 
 
 ### <a name="sink-properties"></a>Propriedades do coletor
 
@@ -484,14 +491,14 @@ Na transformação do coletor, você pode gravar em um contêiner ou pasta no Az
 
 **Opção do nome do arquivo:** determina como os arquivos de destino são nomeados na pasta de destino. As opções de nome de arquivo são:
    * **Padrão**: permitir que o Spark nomeie arquivos com base nos padrões de PART.
-   * **Pattern**: insira um padrão que enumere os arquivos de saída por partição. Por exemplo, **loans[n].csv** criará loans1.csv, loans2.csv e assim por diante.
+   * **Padrão**: insira um padrão que enumere os arquivos de saída por partição. Por exemplo, **loans[n].csv** criará loans1.csv, loans2.csv e assim por diante.
    * **Por partição**: insira um nome de arquivo por partição.
-   * **Como os dados na coluna**: configure o arquivo de saída para o valor de uma coluna. O caminho é relativo ao contêiner de conjunto de dados, não à pasta de destino. Se você tiver um caminho de pasta em seu conjunto de dados, ele será substituído.
+   * **Como dados na coluna**: defina o arquivo de saída para o valor de uma coluna. O caminho é relativo ao contêiner de conjunto de dados, não à pasta de destino. Se você tiver um caminho de pasta em seu conjunto de dados, ele será substituído.
    * **Saída para um único arquivo**: combine os arquivos de saída particionados em um único arquivo nomeado. O caminho é relativo à pasta do conjunto de dados. Lembre-se de que a operação de mesclagem pode falhar com base no tamanho do nó. Essa opção não é recomendada para conjuntos de dados grandes.
 
 **Citar tudo:** determina se todos os valores devem ser delimitados por aspas
 
-## <a name="lookup-activity-properties"></a>Pesquisar propriedades de arquivo
+## <a name="lookup-activity-properties"></a>Pesquisar propriedades de atividades
 
 Para saber detalhes sobre as propriedades, verifique [Atividade de pesquisa](control-flow-lookup-activity.md).
 
@@ -506,17 +513,17 @@ Para saber mais detalhes sobre as propriedades, marque [Excluir atividade](delet
 ## <a name="legacy-models"></a>Modelos herdados
 
 >[!NOTE]
->Os modelos a seguir ainda têm suporte da maneira como se encontram, para compatibilidade com versões anteriores. É recomendável usar o novo modelo mencionado nas seções acima no futuro, e a interface do usuário de criação do ADF mudou para gerar o novo modelo.
+>Os modelos a seguir ainda têm suporte no estado em que se encontram, para compatibilidade com versões anteriores. É recomendável usar o novo modelo mencionado nas seções acima no futuro, e a interface do usuário de criação do ADF mudou para gerar o novo modelo.
 
 ### <a name="legacy-dataset-model"></a>Modelo de conjunto de dados herdado
 
-| Propriedade | Descrição | Obrigatório |
+| Property | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade type do conjunto de dados deve ser definida como: **AzureBlobFSFile**. |Sim |
 | folderPath | Caminho para a pasta em Data Lake Storage Gen2. Se não especificado, apontará para a raiz. <br/><br/>O filtro curinga tem suporte. Os curingas permitidos são `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único). Use `^` como escape se o nome real da pasta tiver curingas ou esse caractere de escape. <br/><br/>Exemplos: filesystem/folder/. Veja mais exemplos em [Exemplos de filtro de pastas e arquivos](#folder-and-file-filter-examples). |Não |
 | fileName | Filtro de nome ou curinga para os arquivos em "folderPath" especificado. Se você não especificar um valor para essa propriedade, o conjunto de dados apontará para todos os arquivos na pasta. <br/><br/>Para filtro, os curingas permitidos são `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único).<br/>– Exemplo 1: `"fileName": "*.csv"`<br/>– Exemplo 2: `"fileName": "???20180427.txt"`<br/>Use `^` para se seu nome de arquivo real curinga ou esse caractere de escape dentro de escape.<br/><br/>Quando fileName não for especificado para um conjunto de dados de saída e **preserveHierarchy** não for especificada no coletor de atividade, a atividade de cópia gerará automaticamente o nome do arquivo com o seguinte padrão: "*Data.[GUID da ID de execução da atividade].[GUID se FlattenHierarchy].[formato se configurado].[compactação se configurada]* ", por exemplo: "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz". Se você copiar da fonte tabular usando o nome da tabela, em vez da consulta, o nome padrão será " *[nome da tabela].[formato].[compactação se configurada]* ", por exemplo, "MyTable.csv". |Não |
-| modifiedDatetimeStart | Filtro de arquivos com base no atributo Última modificação. Os arquivos são selecionados se a hora da última alteração está dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. A hora é aplicada ao fuso horário de UTC no formato "2018-12-01T05:00:00Z". <br/><br/> O desempenho geral da movimentação de dados será afetado ao habilitar essa configuração, quando você desejar filtrar grandes quantidades de arquivos. <br/><br/> As propriedades podem ser NULL, o que significa que nenhum filtro de atributo de arquivo é aplicado ao conjunto de dados. Quando `modifiedDatetimeStart` tem o valor de data e hora, mas `modifiedDatetimeEnd` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é maior ou igual ao valor de data e hora. Quando `modifiedDatetimeEnd` tem o valor de data e hora, mas `modifiedDatetimeStart` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é menor que o valor de data e hora.| Não |
-| modifiedDatetimeEnd | Filtro de arquivos com base no atributo Última modificação. Os arquivos são selecionados se a hora da última alteração está dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. A hora é aplicada ao fuso horário de UTC no formato "2018-12-01T05:00:00Z". <br/><br/> O desempenho geral da movimentação de dados será afetado ao habilitar essa configuração, quando você desejar filtrar grandes quantidades de arquivos. <br/><br/> As propriedades podem ser NULL, o que significa que nenhum filtro de atributo de arquivo é aplicado ao conjunto de dados. Quando `modifiedDatetimeStart` tem o valor de data e hora, mas `modifiedDatetimeEnd` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é maior ou igual ao valor de data e hora. Quando `modifiedDatetimeEnd` tem o valor de data e hora, mas `modifiedDatetimeStart` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é menor que o valor de data e hora.| Não |
+| modifiedDatetimeStart | Filtro de arquivos com base no atributo Última Modificação. Os arquivos são selecionados se a hora da última modificação está dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. A hora é aplicada ao fuso horário de UTC no formato "2018-12-01T05:00:00Z". <br/><br/> O desempenho geral da movimentação de dados será afetado ao habilitar essa configuração quando você desejar filtrar grandes quantidades de arquivos. <br/><br/> As propriedades podem ser NULL, o que significa que nenhum filtro de atributo de arquivo é aplicado ao conjunto de dados. Quando `modifiedDatetimeStart` tiver o valor de datetime, mas `modifiedDatetimeEnd` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é maior ou igual ao valor de datetime. Quando `modifiedDatetimeEnd` tiver o valor de datetime, mas `modifiedDatetimeStart` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é menor que o valor de datetime.| Não |
+| modifiedDatetimeEnd | Filtro de arquivos com base no atributo Última Modificação. Os arquivos são selecionados se a hora da última modificação está dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. A hora é aplicada ao fuso horário de UTC no formato "2018-12-01T05:00:00Z". <br/><br/> O desempenho geral da movimentação de dados será afetado ao habilitar essa configuração quando você desejar filtrar grandes quantidades de arquivos. <br/><br/> As propriedades podem ser NULL, o que significa que nenhum filtro de atributo de arquivo é aplicado ao conjunto de dados. Quando `modifiedDatetimeStart` tiver o valor de datetime, mas `modifiedDatetimeEnd` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é maior ou igual ao valor de datetime. Quando `modifiedDatetimeEnd` tiver o valor de datetime, mas `modifiedDatetimeStart` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é menor que o valor de datetime.| Não |
 | format | Se você quiser copiar arquivos no estado em que se encontram entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas duas definições de conjunto de dados de entrada e de saída.<br/><br/>Se você quer analisar ou gerar arquivos com um formato específico, os seguintes tipos de formato de arquivo são compatíveis: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Defina a propriedade **type** sob **format** para um desses valores. Para saber mais, veja as seções [Formato de texto](supported-file-formats-and-compression-codecs-legacy.md#text-format), [Formato JSON](supported-file-formats-and-compression-codecs-legacy.md#json-format), [Formato Avro](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [Formato ORC](supported-file-formats-and-compression-codecs-legacy.md#orc-format) e [Formato Parquet](supported-file-formats-and-compression-codecs-legacy.md#parquet-format). |Não (somente para o cenário de cópia binária) |
 | compactação | Especifique o tipo e o nível de compactação para os dados. Para obter mais informações, consulte [Formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>Os tipos com suporte são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**.<br/>Os níveis de suporte são **Ideal** e **Mais rápido**. |Não |
 
@@ -555,7 +562,7 @@ Para saber mais detalhes sobre as propriedades, marque [Excluir atividade](delet
 
 ### <a name="legacy-copy-activity-source-model"></a>Modelo de origem de atividade de cópia herdado
 
-| Propriedade | Descrição | Obrigatório |
+| Property | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade type da origem da atividade de cópia deve ser definida como **AzureBlobFSSource**. |Sim |
 | recursiva | Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. Quando recursiva é definida como true e o coletor é um armazenamento baseado em arquivo, uma pasta vazia ou subpasta não é copiada ou criada no coletor.<br/>Os valores permitidos são **true** (padrão) e **false**. | Não |
@@ -593,7 +600,7 @@ Para saber mais detalhes sobre as propriedades, marque [Excluir atividade](delet
 ]
 ```
 
-### <a name="legacy-copy-activity-sink-model"></a>Modelo de coletor de atividade de cópia herdado
+### <a name="legacy-copy-activity-sink-model"></a>Modelo do coletor de atividade de cópia herdado
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |

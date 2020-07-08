@@ -6,12 +6,11 @@ author: lachie83
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: laevenso
-ms.openlocfilehash: 6ffc9daaf1b87fc9fb6ebbb0f2787f07282afe5e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 041767474fbc56ee7a53bcbd54f27873d17dab77
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80632397"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85413630"
 ---
 # <a name="http-application-routing"></a>Roteamento de aplicativo HTTP
 
@@ -46,16 +45,17 @@ Você também pode ativar o roteamento HTTP em um cluster AKS existente usando o
 az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing
 ```
 
-Depois que o cluster for implementado ou atualizado, use o comando [az aks show][az-aks-show] para recuperar o nome da zona DNS. Esse nome é necessário para implantar aplicativos no cluster do AKS.
+Depois que o cluster for implementado ou atualizado, use o comando [az aks show][az-aks-show] para recuperar o nome da zona DNS. 
 
 ```azurecli
 az aks show --resource-group myResourceGroup --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
 ```
 
-Result
+Esse nome é necessário para implantar aplicativos no cluster AKS e é mostrado na seguinte saída de exemplo:
 
+```console
 9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.io
-
+```
 
 ## <a name="deploy-http-routing-portal"></a>Implantar roteamento HTTP: portal
 
@@ -67,6 +67,22 @@ Depois que o cluster for implantado, navegue até o grupo de recursos do AKS cri
 
 ![Obter o nome da zona DNS](media/http-routing/dns.png)
 
+## <a name="connect-to-your-aks-cluster"></a>Conectar-se ao cluster AKS
+
+Para se conectar ao cluster Kubernetes no computador local, use o [kubectl][kubectl], o cliente de linha de comando do Kubernetes.
+
+Se você usa o Azure Cloud Shell, o `kubectl` já estará instalado. Se você quiser instalá-lo localmente, use o comando [az aks install-cli][]:
+
+```azurecli
+az aks install-cli
+```
+
+Para configurar o `kubectl` para se conectar ao cluster do Kubernetes, use o comando [az aks get-credentials][]. O exemplo a seguir obtém as credenciais para o cluster AKS chamado *MyAKSCluster* no grupo *MyResource*:
+
+```azurecli
+az aks get-credentials --resource-group MyResourceGroup --name MyAKSCluster
+```
+
 ## <a name="use-http-routing"></a>Usar o roteamento de HTTP
 
 A solução de roteamento de aplicativos HTTP somente pode ser disparada nos recursos de Entrada que são anotados da seguinte forma:
@@ -77,7 +93,6 @@ annotations:
 ```
 
 Crie um arquivo nomeado **samples-http-application-routing.yaml** e copie no YAML a seguir. Na linha 43, atualize `<CLUSTER_SPECIFIC_DNS_ZONE>` com o nome da zona DNS coletada na etapa anterior deste artigo.
-
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -136,6 +151,12 @@ spec:
 ```
 
 Use o comando [kubectl apply][kubectl-apply] para criar o segredo.
+
+```bash
+kubectl apply -f samples-http-application-routing.yaml
+```
+
+O exemplo a seguir mostra os recursos criados:
 
 ```bash
 $ kubectl apply -f samples-http-application-routing.yaml
@@ -262,7 +283,13 @@ I0426 21:51:58.042932       9 controller.go:179] ingress backend successfully re
 
 ## <a name="clean-up"></a>Limpar
 
-Remova os objetos do Kubernetes associados criados neste artigo.
+Remova os objetos kubernetes associados criados neste artigo usando `kubectl delete` .
+
+```bash
+kubectl delete -f samples-http-application-routing.yaml
+```
+
+A saída de exemplo mostra que os objetos kubernetes foram removidos.
 
 ```bash
 $ kubectl delete -f samples-http-application-routing.yaml
@@ -281,11 +308,13 @@ Para obter informações sobre como instalar um controlador de Entrada protegido
 [az-aks-show]: /cli/azure/aks?view=azure-cli-latest#az-aks-show
 [ingress-https]: ./ingress-tls.md
 [az-aks-enable-addons]: /cli/azure/aks#az-aks-enable-addons
-
+[az aks install-cli]: /cli/azure/aks#az-aks-install-cli
+[az aks get-credentials]: /cli/azure/aks#az-aks-get-credentials
 
 <!-- LINKS - external -->
 [dns-pricing]: https://azure.microsoft.com/pricing/details/dns/
 [external-dns]: https://github.com/kubernetes-incubator/external-dns
+[kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete

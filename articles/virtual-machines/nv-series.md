@@ -1,18 +1,17 @@
 ---
 title: Série NV-máquinas virtuais do Azure
 description: Especificações para as VMs da série NV.
-services: virtual-machines
-author: vikancha
+author: vikancha-MSFT
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
-ms.author: lahugh
-ms.openlocfilehash: 7fd9fff87564b790915acf01373c078c2012371e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.author: jushiman
+ms.openlocfilehash: e7fdc232d698e3eb2038bb6ec7a4c47a9c49944a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78273866"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84726576"
 ---
 # <a name="nv-series"></a>Série NV
 
@@ -20,13 +19,13 @@ As máquinas virtuais da série NV têm a tecnologia das GPUs [ Tesla M60 da NVI
 
 Cada GPU em instâncias NV vem com uma licença GRID. Esta licença oferece flexibilidade para usar uma instância NV como uma estação de trabalho virtual para um único usuário ou 25 usuários simultâneos podem se conectar à VM para um cenário de aplicativo virtual.
 
-Armazenamento Premium: sem suporte
+Armazenamento Premium:  Sem suporte
 
-Armazenamento em cache Premium: sem suporte
+Cache de Armazenamento Premium:  Sem suporte
 
-Migração ao Vivo: sem suporte
+Migração ao Vivo: Sem suporte
 
-Atualizações de preservação de memória: sem suporte
+Atualizações de preservação de memória: Sem suporte
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | GPU | Memória da GPU: GiB | Discos de dados máximos | Máximo de NICs | Estações de trabalho virtuais | Aplicativos virtuais |
 |---|---|---|---|---|---|---|---|---|---|

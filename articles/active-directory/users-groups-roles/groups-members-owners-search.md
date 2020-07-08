@@ -8,18 +8,17 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/28/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a815446b79b3e5ec0a75e5d179953956643b16c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 92674ed9d39ea9e84d477d19aadbaeda6da6f32c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78206105"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84728258"
 ---
 # <a name="search-groups-and-members-preview-in-azure-active-directory"></a>Pesquisar grupos e Membros (versão prévia) no Azure Active Directory
 
@@ -45,7 +44,7 @@ Se você tiver problemas, poderá voltar à experiência herdada selecionando a 
 
 ## <a name="group-search-and-sorting"></a>Pesquisa e classificação de grupo
 
-A pesquisa da lista de grupos foi aprimorada, de modo que, quando você pode inserir uma cadeia de caracteres `startswith` de pesquisa, a pesquisa executa automaticamente uma pesquisa de e subcadeia de caracteres na lista de nomes de grupos. A pesquisa de subcadeia de caracteres é executada somente em palavras inteiras e não inclui caracteres especiais. A pesquisa de subcadeia de caracteres diferencia maiúsculas de minúsculas.
+A pesquisa da lista de grupos foi aprimorada, de modo que, quando você pode inserir uma cadeia de caracteres de pesquisa, a pesquisa executa automaticamente uma `startswith` pesquisa de e subcadeia de caracteres na lista de nomes de grupos. A pesquisa de subcadeia de caracteres é executada somente em palavras inteiras e não inclui caracteres especiais. A pesquisa de subcadeia de caracteres diferencia maiúsculas de minúsculas.
 
 ![novas pesquisas de subcadeias na página todos os grupos](./media/groups-members-owners-search/groups-search-preview.png)
 

@@ -6,21 +6,20 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/30/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: e681e8ad655c31d5078b56b8f1a49cfd7c664533
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 60f2e3f949a4f627839a07137ebaf77518db87a4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80742644"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213968"
 ---
 # <a name="using-identity-to-create-surrogate-keys-in-synapse-sql-pool"></a>Usando a identidade para criar chaves substitutas no pool SQL Synapse
 
-Recomendações e exemplos para usar a propriedade IDENTITY para criar chaves substitutas em tabelas no pool do SQL Synapse.
+Neste artigo, você encontrará recomendações e exemplos para usar a propriedade IDENTITY para criar chaves substitutas em tabelas no pool do SQL Synapse.
 
 ## <a name="what-is-a-surrogate-key"></a>O que é uma chave substituta
 
@@ -100,7 +99,7 @@ CREATE TABLE AS SELECT (CTAS) segue o mesmo comportamento do SQL Server que est�
 
 ## <a name="explicitly-inserting-values-into-an-identity-column"></a>Inserir explicitamente os valores em uma coluna IDENTITY
 
-O pool SQL Synapse `SET IDENTITY_INSERT <your table> ON|OFF` dá suporte à sintaxe. Você pode usar essa sintaxe para inserir explicitamente os valores na coluna IDENTITY.
+O pool SQL Synapse dá suporte à `SET IDENTITY_INSERT <your table> ON|OFF` sintaxe. Você pode usar essa sintaxe para inserir explicitamente os valores na coluna IDENTITY.
 
 Muitos modeladores de dados gostam de usar valores negativos predefinidos para determinadas linhas em suas dimensões. Um exemplo é de -1 ou a linha "membro desconhecido".
 

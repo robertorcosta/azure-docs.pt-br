@@ -3,15 +3,14 @@ title: Mover uma rede virtual do Azure para outra região do Azure usando Azure 
 description: Mova uma rede virtual do Azure de uma região do Azure para outra usando um modelo do Resource Manager e Azure PowerShell.
 author: asudbring
 ms.service: virtual-network
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/26/2019
 ms.author: allensu
-ms.openlocfilehash: dc316e5bbb88359ff8b1e8a4fc35a56541a577f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e13164c3ec6049a8ae3954528a02d20e313dd883
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75646703"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711452"
 ---
 # <a name="move-an-azure-virtual-network-to-another-region-by-using-azure-powershell"></a>Mover uma rede virtual do Azure para outra região usando Azure PowerShell
 
@@ -60,7 +59,7 @@ Para exportar a rede virtual e implantar a rede virtual de destino usando o Powe
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
    ```
 
-1. O arquivo baixado tem o mesmo nome que o grupo de recursos do qual o recurso foi exportado. Localize o arquivo * \<-Group-Name>. JSON* , que você exportou com o comando e, em seguida, abra-o em seu editor:
+1. O arquivo baixado tem o mesmo nome que o grupo de recursos do qual o recurso foi exportado. Localize o arquivo * \<resource-group-name> . JSON* , que você exportou com o comando e abra-o em seu editor:
    
    ```azurepowershell
    notepad <source-resource-group-name>.json
@@ -98,16 +97,16 @@ Para exportar a rede virtual e implantar a rede virtual de destino usando o Powe
 
     ```
   
-1. Para obter códigos de localização de região, você pode usar o cmdlet Azure PowerShell [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) executando o seguinte comando:
+1. Para obter códigos de localização de região, você pode usar o cmdlet do Azure PowerShell [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) executando o seguinte comando:
 
     ```azurepowershell-interactive
 
     Get-AzLocation | format-table
     ```
 
-1. Adicional Você também pode alterar outros parâmetros no * \<arquivo-Group-Name>. JSON* , dependendo dos seus requisitos:
+1. Adicional Você também pode alterar outros parâmetros no arquivo * \<resource-group-name> . JSON* , dependendo dos seus requisitos:
 
-    * **Espaço de endereço**: antes de salvar o arquivo, você pode alterar o espaço de endereço da rede virtual modificando a seção **recursos** > de**addressSpace** e alterando a propriedade **addressPrefixes** :
+    * **Espaço de endereço**: antes de salvar o arquivo, você pode alterar o espaço de endereço da rede virtual modificando a seção **recursos**de  >  **addressSpace** e alterando a propriedade **addressPrefixes** :
 
         ```json
                 "resources": [
@@ -193,7 +192,7 @@ Para exportar a rede virtual e implantar a rede virtual de destino usando o Powe
          ]
         ```
 
-1. Salve o * \<arquivo-Group-Name>. JSON* .
+1. Salve o arquivo *\<resource-group-name>.json*.
 
 1. Crie um grupo de recursos na região de destino para a rede virtual de destino a ser implantada usando [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0):
     
@@ -201,7 +200,7 @@ Para exportar a rede virtual e implantar a rede virtual de destino usando o Powe
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
     
-1. Implante o arquivo editado * \<-Group-Name>. JSON* no grupo de recursos que você criou na etapa anterior usando [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
+1. Implante o arquivo * \<resource-group-name> . JSON* editado no grupo de recursos que você criou na etapa anterior usando [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
 
     ```azurepowershell-interactive
 

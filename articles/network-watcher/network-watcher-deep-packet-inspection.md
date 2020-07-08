@@ -7,17 +7,16 @@ author: damendo
 ms.assetid: 7b907d00-9c35-40f5-a61e-beb7b782276f
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 7d32043ca73e9cf810b3eab5e65cb4b42b599d18
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2a4debda712636e577639b84845dda6b9b4228a1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77152917"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84725048"
 ---
 # <a name="packet-inspection-with-azure-network-watcher"></a>Inspeção de pacotes com o Observador de Rede do Azure
 
@@ -77,7 +76,7 @@ Neste exemplo, examinaremos uma captura de pacotes executada antes para os proto
 
 ### <a name="step-1"></a>Etapa 1
 
-Usando a mesma captura no cenário anterior, clique em **estatísticas** > **hierarquia de protocolo**
+Usando a mesma captura no cenário anterior, clique em **estatísticas**  >  **hierarquia de protocolo**
 
 ![menu da hierarquia de protocolos][2]
 
@@ -93,7 +92,7 @@ Compreender os tipos de tráfego, pontos de extremidade e portas de comunicaçã
 
 ### <a name="step-1"></a>Etapa 1
 
-Usando a mesma captura no cenário anterior, clique em **estatísticas** > estatísticas**IPv4** > **destinos e portas**
+Usando a mesma captura no cenário anterior, clique em **estatísticas**estatísticas  >  **IPv4**  >  **destinos e portas**
 
 ![janela de captura de pacotes][4]
 

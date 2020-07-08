@@ -3,12 +3,11 @@ title: Exclusão reversível para o backup do Azure
 description: Saiba como usar recursos de segurança no backup do Azure para tornar os backups mais seguros.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: d7831488482ef154ce00685e513b36ed235e335e
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.openlocfilehash: 2b0d7a00bce8dfa427958f6db6d7174b9d5f7a79
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791384"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84116412"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Exclusão reversível para o backup do Azure
 
@@ -16,7 +15,10 @@ Preocupações sobre problemas de segurança, como malware, ransomware e invasã
 
 Um desses recursos é exclusão reversível. Com a exclusão reversível, mesmo que um ator mal-intencionado exclua um backup (ou os dados de backup sejam excluídos acidentalmente), os dados de backup são mantidos por 14 dias adicionais, permitindo a recuperação desse item de backup sem perda de dados. A retenção adicional de 14 dias dos dados de backup no estado de "exclusão reversível" não incorre em nenhum custo para o cliente.
 
-A [proteção de exclusão reversível para máquinas virtuais do Azure](soft-delete-virtual-machines.md) e a [exclusão reversível para o SQL Server na VM do Azure e a exclusão reversível para SAP Hana em cargas de trabalho de VM do Azure](soft-delete-sql-saphana-in-azure-vm.md) estão disponíveis para todos.
+A proteção de exclusão reversível está disponível para esses serviços:
+
+- [Exclusão reversível para máquinas virtuais do Azure](soft-delete-virtual-machines.md)
+- [Exclusão reversível para SQL Server na VM do Azure e exclusão reversível para SAP HANA em cargas de trabalho de VM do Azure](soft-delete-sql-saphana-in-azure-vm.md)
 
 Este gráfico de fluxo mostra as diferentes etapas e Estados de um item de backup quando a exclusão reversível está habilitada:
 
@@ -32,8 +34,8 @@ A exclusão reversível é habilitada por padrão em cofres recém-criados para 
 
 Para desabilitar a exclusão reversível, siga estas etapas:
 
-1. Na portal do Azure, acesse seu cofre e vá para **configurações** -> **Propriedades**.
-2. No painel Propriedades, selecione **configurações** -> de segurança**atualização**.  
+1. Na portal do Azure, acesse seu cofre e vá para **configurações**  ->  **Propriedades**.
+2. No painel Propriedades, selecione **configurações de segurança**  ->  **atualização**.  
 3. No painel configurações de segurança, em **exclusão reversível**, selecione **desabilitar**.
 
 ![Desabilitar exclusão reversível](./media/backup-azure-security-feature-cloud/disable-soft-delete.png)
@@ -177,4 +179,4 @@ As operações de exclusão reversível podem ser executadas usando o PowerShell
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Visão geral dos recursos de segurança no backup do Azure](security-overview.md)
+- [Visão geral dos recursos de segurança no Backup do Azure](security-overview.md)

@@ -7,18 +7,17 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: faa80bf09113786e35a6ce98157f18639e30d210
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
-ms.translationtype: MT
+ms.openlocfilehash: 1c5058e24ee0817ebcc6c5761f7b9e22d1a14203
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582634"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84727187"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Integrar conexões de conta do LinkedIn no Azure Active Directory
 
@@ -91,12 +90,12 @@ Para usar o grupo da etapa dois como o grupo selecionado na configuração de co
 1. Baixe os [arquivos de modelo administrativo do Office 2016 (ADMX/ADML)](https://www.microsoft.com/download/details.aspx?id=49030)
 1. Extraia os arquivos **ADMX** e copie-os para o repositório central.
 1. Abra Gerenciamento de Política de Grupo.
-1. Crie um objeto de política de grupo com a seguinte configuração: **configuração** > do usuário**modelos administrativos** > **Microsoft Office 2016** > **diversos** > **recursos do LinkedIn em aplicativos do Office**.
+1. Crie um objeto de política de grupo com a seguinte configuração: **configuração do usuário**  >  **modelos administrativos**  >  **Microsoft Office 2016**  >  **diversos**  >  **recursos do LinkedIn em aplicativos do Office**.
 1. Selecione **Habilitado** ou **Desabilitado**.
   
    Estado | Efeito
    ------ | ------
-   **Enabled** | A configuração **Mostrar recursos do LinkedIn em aplicativos do Office** nas opções do Office 2016 está habilitada. Os usuários em sua organização podem usar os recursos do LinkedIn em seus aplicativos do Office 2016.
+   **Habilitado** | A configuração **Mostrar recursos do LinkedIn em aplicativos do Office** nas opções do Office 2016 está habilitada. Os usuários em sua organização podem usar os recursos do LinkedIn em seus aplicativos do Office 2016.
    **Desabilitado** | A configuração **Mostrar recursos do LinkedIn em aplicativos do Office** nas opções do Office 2016 está desabilitada e os usuários finais não podem alterar essa configuração. Os usuários em sua organização não podem usar recursos do LinkedIn nos seus aplicativos do Office 2016.
 
 Essa política de grupo afeta somente os aplicativos do Office 2016 para um computador local. Se os usuários desabilitarem o LinkedIn em seus aplicativos do Office 2016, eles ainda poderão ver os recursos do LinkedIn no Office 365.

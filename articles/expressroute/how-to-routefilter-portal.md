@@ -4,16 +4,15 @@ description: Este artigo descreve como configurar filtros de rota para o Emparel
 services: expressroute
 author: charwen
 ms.service: expressroute
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/01/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: f2be9b4e7152c61885b1a41e94ebd328059d437b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 54674be0010bd062cfe6263db4167a24805a9e5a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80618557"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84727119"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Configurar os filtros de rota para o emparelhamento da Microsoft: Portal do Azure
 > [!div class="op_single_selector"]
@@ -86,7 +85,7 @@ Faça uma lista de [valores de comunidade BGP](expressroute-routing.md#bgp) que 
 Um filtro de rota pode ter apenas uma regra, que deve ser do tipo 'Permitir'. Essa regra pode ter uma lista de valores de comunidade BGP associados a ela.
 
 ### <a name="1-create-a-route-filter"></a>1. criar um filtro de rota
-Você pode criar um circuito de rota selecionando a opção de criar um novo recurso. Clique em **criar um recurso** > **rede** > **RouteFilter**, conforme mostrado na imagem a seguir:
+Você pode criar um circuito de rota selecionando a opção de criar um novo recurso. Clique em **criar um recurso**  >  **rede**  >  **RouteFilter**, conforme mostrado na imagem a seguir:
 
 ![Criar um filtro de rota](./media/how-to-routefilter-portal/CreateRouteFilter1.png)
 
@@ -150,6 +149,6 @@ Você pode excluir um filtro de rota selecionando o botão de exclusão.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter mais informações sobre o ExpressRoute, consulte as [perguntas frequentes](expressroute-faqs.md)sobre o expressroute.
+* Para obter mais informações sobre o ExpressRoute, consulte [Perguntas Frequentes sobre ExpressRoute](expressroute-faqs.md).
 
 * Para obter informações sobre exemplos de configuração do roteador, consulte [exemplos de configuração do roteador para configurar e gerenciar o roteamento](expressroute-config-samples-routing.md). 

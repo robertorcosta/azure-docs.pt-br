@@ -8,15 +8,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 02/25/2020
+ms.date: 06/03/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: abf5d0d4aeeb18a11f50220e982448d41a9ac1b4
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: HT
+ms.openlocfilehash: 4b2d79b24263a848d146bbbe8d42f23ec28f49b8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773195"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84415875"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Entrar em suas contas usando o aplicativo Microsoft Authenticator
 
@@ -51,22 +50,11 @@ A entrada com telefone só está disponível em dispositivos iOS e Android que e
 
 Abra o aplicativo Microsoft Authenticator, acesse sua conta corporativa ou de estudante e ative a entrada com telefone.
 
-Em um dispositivo Android:
+- **Ao tocar no bloco da conta**, você verá uma exibição de tela inteira da conta. A opção **Entrada com telefone habilitada** significa que você já está configurado para entrar sem sua senha. Toque na opção **Habilitar entrada com telefone** para ativar a entrada com telefone.
+- **Se você já estiver usando o aplicativo para verificação de dois fatores**, poderá tocar no bloco da conta para ver uma exibição de tela inteira da conta. Em seguida, toque na opção **Habilitar entrada com telefone** para ativar a entrada com telefone.
+- **Se não conseguir encontrar sua conta corporativa ou de estudante** na tela **Contas** do aplicativo, é porque você ainda não a adicionou ao aplicativo. Adicione sua conta corporativa ou de estudante seguindo as etapas na [ajuda adicionar sua conta corporativa ou de estudante](user-help-auth-app-add-work-school-account.md).
 
-- **Se este ícone é exibido ![ícone mostrando que você realizou a configuração](media/user-help-auth-app-sign-in/icon.png).** Se esse ícone é exibido ao lado do nome de sua conta corporativa ou de estudante, isso significa que você já configurou a entrada com telefone para a conta. Talvez você precise adicionar notificações por push à sua conta, de modo a ser notificado sobre solicitações de autenticação fora do aplicativo.
-- **Se você já usa o aplicativo para a verificação de dois fatores.** Se você já usa o aplicativo e a verificação de dois fatores, selecione a seta ao lado do nome da conta e, em seguida, selecione **Habilitar entrada com telefone**.
-- **Se você não consegue encontrar sua conta corporativa ou de estudante.** Se você não consegue encontrar sua conta corporativa ou de estudante na tela **Contas** do aplicativo, isso significa que você ainda não a adicionou ao aplicativo. Adicione sua conta corporativa ou de estudante seguindo as etapas do artigo [Adicionar sua conta corporativa ou de estudante](user-help-auth-app-add-work-school-account.md).
-
-Em um dispositivo iOS:
-
-- **Quando você toca no bloco da conta**, a conta abre em tela inteira. A opção **Entrada com telefone habilitada** significa que você já está configurado para entrar sem sua senha. Toque na opção **Habilitar entrada com telefone** para ativar a entrada com telefone.
-- **Se já estiver usando o aplicativo para a verificação de dois fatores**, toque no bloco da conta que, por sua vez, se expande em uma exibição de tela inteira da conta. Em seguida, toque na opção **Habilitar entrada com telefone** para ativar a entrada com telefone.
-- **Se não conseguir encontrar sua conta corporativa ou de estudante** na tela **Contas** do aplicativo, é porque você ainda não a adicionou ao aplicativo. Adicione sua conta corporativa ou de estudante seguindo as etapas descritas no artigo Adicionar sua conta corporativa ou de estudante.
-
-> [!NOTE]
-> Não há suporte para uma combinação de registro de dispositivo e autenticação baseada em certificado no Authenticator para iOS. O usuário deve usar uma solução alternativa registrando o dispositivo manualmente através das configurações do Authenticator antes de entrar.
-
-Depois de ativar a entrada com telefone, entre usando apenas o aplicativo Microsoft Authenticator.
+Depois de ativar a entrada pelo telefone, você pode entrar usando apenas o aplicativo Microsoft Authenticator. Aqui está como:
 
 1. Entre sua conta corporativa ou de estudante.
 
@@ -93,16 +81,8 @@ Você pode ativar a entrada de telefone para sua conta pessoal da Microsoft, com
 
 Abra o aplicativo Microsoft Authenticator, acesse sua conta corporativa ou de estudante e ative a entrada com telefone.
 
-Em um dispositivo Android:
-
-- **Se este ícone é exibido ![ícone mostrando que você realizou a configuração](media/user-help-auth-app-sign-in/icon.png).** Se esse ícone é exibido ao lado do nome da sua conta Microsoft pessoal, é porque você já configurou a entrada com telefone para a conta. Talvez você precise adicionar notificações por push à sua conta, de modo a ser notificado sobre solicitações de autenticação fora do aplicativo.
-- **Se você usa o aplicativo para a verificação de dois fatores.** Se você já usa o aplicativo e a verificação de dois fatores, selecione a seta ao lado do nome da conta e, em seguida, selecione **Habilitar entrada com telefone**.
-- **Se você não consegue encontrar sua conta corporativa ou de estudante.** Se você não consegue encontrar sua conta na tela **Contas** do aplicativo, isso significa que você ainda não a adicionou ao aplicativo. Adicione sua conta seguindo as etapas descritas no artigo [Adicionar sua conta Microsoft](user-help-auth-app-add-personal-ms-account.md).
-
-Em um dispositivo iOS:
-
-- **Quando você toca no bloco da conta**, a conta abre em tela inteira. A opção **Entrada com telefone habilitada** significa que você já está configurado para entrar sem sua senha. Toque na opção **Habilitar entrada com telefone** para ativar a entrada com telefone.
-- **Se já estiver usando o aplicativo para a verificação de dois fatores**, toque no bloco da conta que, por sua vez, se expande em uma exibição de tela inteira da conta. Em seguida, toque na opção **Habilitar entrada com telefone** para ativar a entrada com telefone.
+- **Ao tocar no bloco da conta**, você verá uma exibição de tela inteira da conta. A opção **Entrada com telefone habilitada** significa que você já está configurado para entrar sem sua senha. Toque na opção **Habilitar entrada com telefone** para ativar a entrada com telefone.
+- **Se você já estiver usando o aplicativo para verificação de dois fatores**, poderá tocar no bloco da conta para ver uma exibição de tela inteira da conta. Em seguida, toque na opção **Habilitar entrada com telefone** para ativar a entrada com telefone.
 - **Se não conseguir encontrar sua conta** na tela **Contas** do aplicativo, é porque você ainda não a adicionou ao aplicativo. Adicione sua conta pessoal Microsoft seguindo as etapas descritas no artigo [Adicionar sua conta pessoal Microsoft](user-help-auth-app-add-personal-ms-account.md).
 
 ### <a name="sign-in-to-your-account-using-phone-sign-in"></a>Entrar em sua conta usando a entrada com telefone
@@ -115,7 +95,7 @@ Em um dispositivo iOS:
 
 ## <a name="sign-in-using-two-factor-verification-for-your-account"></a>Entrar usando a verificação de dois fatores para sua conta
 
-O método padrão de verificação de dois fatores exige que você insira seu nome de usuário e senha no dispositivo no qual você está se conectando. Em seguida, abra seu aplicativo Microsoft Authenticator e digite o código gerado aleatoriamente para sua conta na caixa **Inserir código**. Em um dispositivo Android, esses códigos de verificação podem ser encontrados na tela **Contas**. Em um dispositivo iOS, esses códigos de verificação podem ser encontrados na tela **Contas** ou na exibição de tela inteira de uma conta, dependendo do tipo de conta. Você pode ativar a verificação de dois fatores para sua conta como parte do processo de adicionar a conta ao aplicativo Microsoft Authenticator.
+O método de verificação padrão de dois fatores exige que você insira seu nome de usuário e senha no dispositivo no qual está entrando e, em seguida, escolha se o aplicativo de Microsoft Authenticator recebe uma notificação ou se você deseja copiar o código de verificação do aplicativo autenticador. Em um dispositivo Android, os códigos de verificação podem ser encontrados na tela **contas** . Em um dispositivo iOS, esses códigos de verificação podem ser encontrados na tela **contas** ou na exibição de tela inteira de uma conta, dependendo do tipo de conta. Você ativa a verificação de dois fatores para sua conta ao adicionar a conta ao aplicativo Microsoft Authenticator.
 
 >[!Note]
 >Caso sua conta corporativa ou de estudante ou sua conta pessoal não seja exibida na tela **Contas** do aplicativo Microsoft Authenticator, isso significa que você ainda não adicionou a conta ao aplicativo Microsoft Authenticator. Para adicionar sua conta, confira [Adicionar sua conta corporativa ou de estudante](user-help-auth-app-add-work-school-account.md) ou [Adicionar suas contas pessoais](user-help-auth-app-add-personal-ms-account.md).

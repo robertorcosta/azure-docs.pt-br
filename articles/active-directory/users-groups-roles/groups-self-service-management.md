@@ -9,18 +9,17 @@ editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/10/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 541deb5cf44ad5440e31641b673ed5da5b5d2b26
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7ce5d96d3ca65efb69bf322cf4a5f5563b83d8ce
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81768549"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84727867"
 ---
 # <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Configurar o gerenciamento de grupo de autoatendimento no Azure Active Directory 
 
@@ -66,5 +65,5 @@ Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 * [Gerenciar o acesso a recursos com grupos do Azure Active Directory](../fundamentals/active-directory-manage-groups.md)
 * [Cmdlets do Azure Active Directory para definir configurações de grupo](groups-settings-cmdlets.md)
 * [Gerenciamento de aplicativos no Microsoft Azure Active Directory](../manage-apps/what-is-application-management.md)
-* [O que é o Active Directory do Azure?](../fundamentals/active-directory-whatis.md)
+* [O que é o Azure Active Directory?](../fundamentals/active-directory-whatis.md)
 * [Integrar suas identidades locais com o Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

@@ -6,18 +6,30 @@ author: Daya-Patil
 manager: carmonm
 ms.topic: article
 ms.service: site-recovery
-ms.date: 10/16/2019
+ms.date: 6/4/2020
 ms.author: dapatil
-ms.openlocfilehash: bf32809f426f3bfcabd08ec3bd95e76202aa8f84
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 74b02da51603366f5ec18aa4733117bc2c59faf7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72433418"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84417847"
 ---
 # <a name="azure-site-recovery-deployment-planner-version-history"></a>Histórico de versão do Planejador de Implantações do Azure Site Recovery
 
 Este artigo fornece o histórico de todas as versões do Planejador de Implantações do Azure Site Recovery junto com as correções, limitações conhecidas em cada uma das datas de lançamento.
+
+## <a name="version-252"></a>Versão 2,52
+
+**Data de lançamento: 4 de junho de 2020**
+
+**Contida**
+
+- Adicionado suporte para o vCenter 7,0
+- Adicionado suporte para os seguintes sistemas operacionais:
+
+    - SUSE Linux Enterprise 15 (com todas as versões secundárias)
+    - Red Hat Enterprise Linux 8 (com todas as versões secundárias)
+
 
 ## <a name="version-251"></a>Versão 2,51
 
@@ -109,7 +121,7 @@ Este artigo fornece o histórico de todas as versões do Planejador de Implanta�
 
 **Limitações conhecidas:**
 
-- Para a recuperação de desastre do Hyper-V para o Azure, a VM com o `,`nome `"`que `[`contém `]`os caracteres ``` ` ``` como:,,, e não tem suporte. Se o perfil for criado, a geração de relatórios falhará ou terá um resultado incorreto.
+- Para a recuperação de desastre do Hyper-V para o Azure, a VM com o nome que contém os caracteres como:,,, `,` `"` `[` `]` e ``` ` ``` não tem suporte. Se o perfil for criado, a geração de relatórios falhará ou terá um resultado incorreto.
 - Para a recuperação de desastre do VMware para o Azure, não há suporte para VM com nome contendo vírgula. Se for criado um perfil, a geração de relatórios falhará ou terá um resultado incorreto.
 
 ## <a name="version-131"></a>Versão 1.3.1

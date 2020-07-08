@@ -2,13 +2,12 @@
 title: Preparar as Migrações para Azure para trabalhar com uma ferramenta ISV/Movere
 description: Este artigo descreve como preparar as Migrações para Azure para trabalhar com uma ferramenta ISV ou um Movere e, em seguida, como começar a usar a ferramenta.
 ms.topic: how-to
-ms.date: 05/07/2020
-ms.openlocfilehash: 9513e783d4f9d7be83f1434d4dd9011844af8993
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.date: 06/10/2020
+ms.openlocfilehash: d414c3db92315f7ca1b60bf43fa35b7880c34ccf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682656"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84770366"
 ---
 # <a name="prepare-to-work-with-an-isv-tool-or-movere"></a>Preparar-se para trabalhar com uma ferramenta ISV/Movere
 
@@ -37,7 +36,19 @@ Em sua assinatura do Azure, sua conta precisa do acesso ao **Microsoft.Authoriza
 2. Selecione a assinatura relevante. Se você não o vir, selecione o **filtro de assinaturas globais**. 
 3. Selecionar **Minhas permissões**. Em seguida, selecione **Clique aqui para exibir o acesso completo detalhes para essa assinatura**.
 4. Em **Atribuições de função** > **Exibição**, verifique as permissões. Se sua conta não tiver permissões, peça ao administrador da assinatura que o adicione à função [Administrador de acesso do usuário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) ou à função [Proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner).
- 
+
+## <a name="allow-access-to-urls"></a>Permitir acesso às URLs
+
+Para ferramentas ISV e Assistente de Migração de banco de dados do Azure, permita o acesso às URLs de nuvem pública resumidas na tabela. Se estiver usando um proxy baseado em URL para se conectar à Internet, certifique-se de que o proxy resolva todos os registros CNAME recebidos ao pesquisar as URLs. 
+
+**URL** | **Detalhes**
+--- | ---
+*. portal.azure.com  | Navegue até o Portal do Azure. 
+*.windows.net<br/> *.msftauth.net<br/> *.msauth.net <br/> *.microsoft.com<br/> *.live.com   | Entre em sua assinatura do Azure. 
+*.microsoftonline.com<br/> *.microsoftonline p.com | Crie aplicativos do Azure AD (Active Directory) para que o dispositivo se comunique com as Migrações para Azure. 
+management.azure.com | Faça chamadas Azure Resource Manager para o projeto de migrações para Azure.
+*.servicebus.windows.net | Comunicação entre o dispositivo e o EventHub para enviar as mensagens.
+
 
 ## <a name="start-using-the-tool"></a>Comece a usar a ferramenta
 

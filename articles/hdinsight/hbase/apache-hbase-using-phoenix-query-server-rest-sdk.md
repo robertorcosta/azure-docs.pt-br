@@ -8,12 +8,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
-ms.openlocfilehash: 84c2bad1004029fe61dcfc19321957a170284587
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: fa94b7461907a2337ba448a91d67fe93c5ab2f8f
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75612250"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957555"
 ---
 # <a name="apache-phoenix-query-server-rest-sdk"></a>Apache Phoenix Query Server REST SDK
 
@@ -27,7 +26,9 @@ Para obter mais informações, consulte [Referência de Buffers de Protocolo do 
 
 O driver do Microsoft .NET para o Apache Phoenix Query Server é fornecido como um pacote do NuGet, que pode ser instalado do Visual Studio **NuGet Package Manager Console** com o seguinte comando:
 
-    Install-Package Microsoft.Phoenix.Client
+```console
+Install-Package Microsoft.Phoenix.Client
+```
 
 ## <a name="instantiate-new-phoenixclient-object"></a>Criar novo objeto PhoenixClient
 
@@ -71,7 +72,7 @@ await client.ConnectionSyncRequestAsync(connId, connProperties, options);
 
 Aqui estão algumas propriedades de interesse:
 
-| Propriedade | Descrição |
+| Property | Descrição |
 | -- | -- |
 | Confirmação automática | Um valor booleano que indica se `autoCommit` está habilitado para transações Phoenix. |
 | ReadOnly | Um valor booleano que indica se a conexão é somente leitura. |
@@ -94,7 +95,7 @@ Aqui estão os `TransactionIsolation` valores:
 
 HBase, como outros RDBMS, armazena dados em tabelas. Phoenix usa consultas SQL padrão para criar novas tabelas, ao definir a chave principal e os tipos de coluna.
 
-Este exemplo e todos os exemplos posteriores usam o `PhoenixClient` objeto instanciado conforme definido em [instanciar um novo objeto PhoenixClient](#instantiate-new-phoenixclient-object).
+Este exemplo e todos os exemplos posteriores usam o objeto instanciado `PhoenixClient` conforme definido em [instanciar um novo objeto PhoenixClient](#instantiate-new-phoenixclient-object).
 
 ```csharp
 string connId = Guid.NewGuid().ToString();
@@ -494,7 +495,7 @@ finally
 
 A saída de instruções `select` deve oferecer o seguinte resultado:
 
-```
+```output
 id0 first0
 id1 first1
 id10 first10

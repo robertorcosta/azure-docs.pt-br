@@ -7,12 +7,11 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: c115859c24b2c26ab2c221c4fdc35cb442d652b1
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: fb53b0fe28f48f5f240e470aa5256ac1c277686e
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848000"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957334"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Usar o armazenamento de tabela do Azure para gerenciar clientes potenciais do Marketplace comercial
 
@@ -26,11 +25,11 @@ Se o sistema de gerenciamento de relacionamentos com o cliente (CRM) não for ex
 
     1. Selecione **+ Criar um recurso** na barra de menu esquerda. O painel **Novo** é exibido à direita.
     1. Selecione **Armazenamento** no painel **Novo**. Uma lista **Em destaque** aparece à direita.
-    1. Selecione a **conta de armazenamento**  para iniciar a criação da conta. Siga as instruções para [Criar uma conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
+    1. Selecione a **conta de armazenamento**  para iniciar a criação da conta. Siga as instruções para [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
 
         ![Etapas para criar uma conta de armazenamento do Azure](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-create.png)
 
-        Para obter mais informações sobre contas de armazenamento, veja [Tutorial de Início Rápido](https://docs.microsoft.com/azure/storage/). Para obter mais informações sobre preços de armazenamento, veja [Preço de armazenamento](https://azure.microsoft.com/pricing/details/storage/).
+        Para obter mais informações sobre contas de armazenamento, veja [Tutorial de Início Rápido](../../storage/index.yml). Para obter mais informações sobre preços de armazenamento, veja [Preço de armazenamento](https://azure.microsoft.com/pricing/details/storage/).
 
 1. Aguarde até que sua conta de armazenamento seja provisionada. Esse processo normalmente leva alguns minutos. 
 
@@ -107,7 +106,7 @@ O exemplo cria um fluxo que envia automaticamente uma notificação por email qu
 
    Depois de selecionar **Criar**, a janela **Obter entidades** será exibida. Aqui, selecione **Mostrar opções avançadas** e inclua informações nas seguintes caixas:
 
-   * **Tabela**: Selecione o nome da sua tabela (de [Criar uma tabela](#create-a-table-in-your-storage-account)). A imagem a seguir mostra o prompt quando a tabela "marketplaceleads" é selecionada para este exemplo.
+   * **Tabela**: Selecione o nome da sua tabela (de [Criar uma tabela](#create-a-table-in-your-storage-account)). A imagem a seguir mostra o prompt quando a `marketplaceleads` tabela está selecionada para este exemplo.
 
      ![Obter janela de entidades](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
 

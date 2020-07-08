@@ -6,12 +6,11 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
-ms.openlocfilehash: 08b12bd9d35aaa61c79d35a55068983cdc0f1b83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: bbfc31e810e2c11cde4907c9d5120b66195191af
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77566316"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764971"
 ---
 # <a name="querying-geospatial-data-with-azure-cosmos-db"></a>Consultando dados geoespaciais com Azure Cosmos DB
 
@@ -29,14 +28,14 @@ Aqui está uma lista de funções geoespaciais do sistema úteis para consulta n
 |ST_ISVALID| Retorna um valor Booliano que indica se a expressão especificada de Ponto, Polígono ou LineString GeoJSON é válida.|
 | ST_ISVALIDDETAILED| Retorna um valor JSON que contém um valor booliano se a expressão de ponto geojson, polígono ou LineString especificada é válida. Se for inválido, ele retornará o motivo como um valor de cadeia de caracteres.|
 
-As funções espaciais podem ser usadas para executar consultas de proximidade em consultas espaciais. Por exemplo, aqui está uma consulta que retorna todos os documentos de família que estão dentro de 30 km do local especificado `ST_DISTANCE` usando a função interna.
+As funções espaciais podem ser usadas para executar consultas de proximidade em consultas espaciais. Por exemplo, aqui está uma consulta que retorna todos os documentos de família que estão dentro de 30 km do local especificado usando a `ST_DISTANCE` função interna.
 
 **Consulta**
 
 ```sql
     SELECT f.id
     FROM Families f
-    WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 30000
+    WHERE ST_DISTANCE(f.location, {"type": "Point", "coordinates":[31.9, -4.8]}) < 30000
 ```
 
 **Resultados**
@@ -51,7 +50,7 @@ Se você incluir a indexação espacial em sua política de indexação, as "con
 
 `ST_WITHIN`pode ser usado para verificar se um ponto está dentro de um polígono. Normalmente, os Polígonos são usados para representar limites como códigos postais, fronteiras de estado ou formações naturais. Novamente, se você incluir a indexação espacial em sua política de indexação, as consultas "internas" serão servidas com eficiência por meio do índice.
 
-Os argumentos Polygon `ST_WITHIN` no podem conter apenas um único anel, ou seja, os polígonos não devem conter buracos neles.
+Os argumentos Polygon no `ST_WITHIN` podem conter apenas um único anel, ou seja, os polígonos não devem conter buracos neles.
 
 **Consulta**
 
@@ -59,8 +58,8 @@ Os argumentos Polygon `ST_WITHIN` no podem conter apenas um único anel, ou seja
     SELECT *
     FROM Families f
     WHERE ST_WITHIN(f.location, {
-        'type':'Polygon',
-        'coordinates': [[[31.8, -5], [32, -5], [32, -4.7], [31.8, -4.7], [31.8, -5]]]
+        "type":"Polygon",
+        "coordinates": [[[31.8, -5], [32, -5], [32, -4.7], [31.8, -4.7], [31.8, -5]]]
     })
 ```
 
@@ -73,7 +72,7 @@ Os argumentos Polygon `ST_WITHIN` no podem conter apenas um único anel, ou seja
 ```
 
 > [!NOTE]
-> Da mesma forma como os tipos sem correspondência funcionam na consulta do Azure Cosmos DB, se o valor de localização especificado em um dos argumentos for malformado ou inválido, ele será avaliado como **indefinido** e o documento avaliado será ignorado nos resultados da consulta. Se sua consulta não retornar nenhum resultado, `ST_ISVALIDDETAILED` execute para depurar por que o tipo espacial é inválido.
+> Da mesma forma como os tipos sem correspondência funcionam na consulta do Azure Cosmos DB, se o valor de localização especificado em um dos argumentos for malformado ou inválido, ele será avaliado como **indefinido** e o documento avaliado será ignorado nos resultados da consulta. Se sua consulta não retornar nenhum resultado, execute `ST_ISVALIDDETAILED` para depurar por que o tipo espacial é inválido.
 >
 >
 
@@ -84,7 +83,7 @@ O Azure Cosmos DB também dá suporte à execução de consultas inversas, ou se
 ```sql
     SELECT *
     FROM Areas a
-    WHERE ST_WITHIN({'type': 'Point', 'coordinates':[31.9, -4.8]}, a.location)
+    WHERE ST_WITHIN({"type": "Point", "coordinates":[31.9, -4.8]}, a.location)
 ```
 
 **Resultados**
@@ -140,7 +139,7 @@ Essas funções também podem ser usadas para validar Polígonos. Por exemplo, a
 
 O SDK do .NET do SQL também fornece métodos stub `Distance()` e `Within()` para uso em expressões LINQ. O provedor LINQ do SQL traduz as chamadas desse método nas chamadas de função internas do SQL equivalentes (ST_DISTANCE e ST_WITHIN, respectivamente).
 
-Aqui está um exemplo de uma consulta LINQ que localiza todos os documentos no contêiner Cosmos do Azure `location` cujo valor está dentro de um raio de 30 km do ponto especificado usando LINQ.
+Aqui está um exemplo de uma consulta LINQ que localiza todos os documentos no contêiner Cosmos do Azure cujo `location` valor está dentro de um raio de 30 km do ponto especificado usando LINQ.
 
 **Consulta LINQ para distância**
 
@@ -152,7 +151,7 @@ Aqui está um exemplo de uma consulta LINQ que localiza todos os documentos no c
     }
 ```
 
-Da mesma forma, aqui está uma consulta para localizar todos os `location` documentos cujo está dentro da caixa/polígono especificada.
+Da mesma forma, aqui está uma consulta para localizar todos os documentos cujo `location` está dentro da caixa/polígono especificada.
 
 **Consulta LINQ para dentro**
 

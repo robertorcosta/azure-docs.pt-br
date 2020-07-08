@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2017
 ms.author: alkohli
-ms.openlocfilehash: 3c880cd18e7227a728d7e276e72a5ea8c1e421de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 556a84acb3461fb39b3eb0390b54878254bafabf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80396628"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514545"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>Instalar e operar seu dispositivo StorSimple com segurança
 ![Ícone de aviso](./media/storsimple-safety/IC740879.png)
@@ -30,10 +29,10 @@ Leia todas as informações de segurança e integridade neste artigo, que aplica
 ## <a name="safety-icon-conventions"></a>Convenções de ícones de segurança
 Estes são os ícones que você encontrará ao ler as precauções de segurança a serem observadas ao configurar e executar seu dispositivo Microsoft Azure StorSimple.
 
-| ícone | Descrição |
+| Ícone | Descrição |
 |:--- |:--- |
 | ![Ícone de perigo](./media/storsimple-safety/IC740879.png) **PERIGO!** |Indica uma situação perigosa que, se não for evitada, resultará em morte ou lesões graves. Essa palavra limitas-e às situações mais graves. |
-| ![Aviso de](./media/storsimple-safety/IC740879.png) ícone de aviso **!** |Indica uma situação perigosa que, se não for evitada, pode causar lesões graves ou de morte. |
+| ![Aviso de ícone de aviso ](./media/storsimple-safety/IC740879.png) **!** |Indica uma situação perigosa que, se não for evitada, pode causar lesões graves ou de morte. |
 | ![Ícone de aviso](./media/storsimple-safety/IC740879.png) **CUIDADO!** |Indica uma situação perigosa que, se não for evitada, pode em uma lesão pequena ou moderada. |
 | ![Ícone de observação](./media/storsimple-safety/IC740881.png) **OBSERVAÇÃO:** |Indica informações consideradas importantes, mas não são relacionadas a riscos. |
 | ![Ícone de choque elétrico](./media/storsimple-safety/IC740882.png) **Risco de choque elétrico** |Alta tensão |
@@ -103,10 +102,11 @@ Para reduzir a probabilidade de lesões, choque elétrico ou morte:
 
 Para o resfriamento correto do seu sistema de rack:
 
-* Certifique-se de que o design de rack considere a temperatura ambiente máxima de operação de 35 °C (95 °F).
+* Certifique-se de que o design de rack considere a temperatura ambiente máxima de operação de 35 °C (95 °F). Mantenha a sala onde o sistema de rack é legal e verifique se há um fluxo de ar adequado do ventilação AC no datacenter.
 * O sistema é operado com instalação de exaustor traseiro de baixa pressão (a pressão traseira criada pelas portas e obstáculos do rack não excedem 5 Pascal [0,5 mm no medidor de água]).
 
 ## <a name="power-cooling-module-pcm-precautions"></a>Precauções do PCM (Módulo de Resfriamento de Energia)
+
 Este dispositivo foi projetado para operar com dois PCMs. Cada PCMs tem uma fonte de energia e uma ventoinha de dois eixos. Durante uma condição crítica, o sistema dá suporte à falha de uma fonte de alimentação e continua com suas operações normais. Dois PCMs (e, portanto, duas fontes de alimentação) sempre devem estar instalados. Um único PCM não oferece fontes de alimentação redundantes. Por isso, a falha de um dos PCMs pode resultar em tempo de inatividade ou possível perda de dados.
 
 ![Warning Icon](./media/storsimple-safety/IC740879.png) ![Electrical Shock Icon](./media/storsimple-safety/IC740882.png) **AVISO!**
@@ -123,6 +123,7 @@ Para a operação adequada do seu equipamento e para evitar danos ao produto:
 * Não remova um PCM a menos que um substituto possa ser instalado imediatamente. O compartimento não deve ser operado sem todos os módulos no lugar.
 
 ## <a name="electrostatic-discharge-esd-precautions"></a>Precauções contra ESD (descarga elétrica)
+
 ![Ícone de observação](./media/storsimple-safety/IC740881.png) **OBSERVAÇÃO:**
 
 Observe as seguintes precauções relacionada a ESD.
@@ -133,9 +134,10 @@ Observe as seguintes precauções relacionada a ESD.
 * Danos de ESD não são cobertos pela garantia.
 
 ## <a name="battery-disposal-precautions"></a>Precauções de descarte de bateria
+
 A fonte de alimentação usa uma bateria especial para proteger o conteúdo da memória durante interrupções de energia temporárias e de curto prazo. A bateria está encaixada no PCM. Lembre-se das informações a seguir sobre a bateria.
 
-![Aviso de](./media/storsimple-safety/IC740879.png) ícone de aviso **!**
+![Aviso de ícone de aviso ](./media/storsimple-safety/IC740879.png) **!**
 
 Para reduzir o risco de curto, incêndio, explosão, lesões ou morte:
 
@@ -150,6 +152,6 @@ Ao enviar ou transportar de outra forma as baterias por ar, siga o documento de 
 Depois de revisar esses avisos de segurança, as próximas etapas serão desembalar, montar no rack e cabear o dispositivo.
 
 ## <a name="next-steps"></a>Próximas etapas
+
 * Para um dispositivo 8100, acesse [Instalar o dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md).
 * Para um dispositivo 8600, acesse [Instalar o dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md).
-

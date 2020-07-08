@@ -1,36 +1,51 @@
 ---
-title: Configurar uma resposta personalizada para o WAF com a porta frontal do Azure
-description: Saiba como configurar um código de resposta personalizado e uma mensagem quando o WAF (firewall do aplicativo Web) bloqueia uma solicitação.
+title: Configurar respostas personalizadas para o WAF (firewall do aplicativo Web) com a porta frontal do Azure
+description: Saiba como configurar um código de resposta personalizado e uma mensagem quando o WAF bloqueia uma solicitação.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
-ms.date: 08/21/2019
+ms.date: 06/10/2020
 ms.author: victorh
 ms.reviewer: tyao
-ms.openlocfilehash: 215d4058937ad5fded6bef7a36e873b52a1b5ae9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 14e4ccdf17647823dc9e1005c1c68a9f1f217b9e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74185339"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84726354"
 ---
-# <a name="configure-a-custom-response-for-azure-web-application-firewall"></a>Configurar uma resposta personalizada para o Firewall do aplicativo Web do Azure
+# <a name="configure-a-custom-response-for-azure-web-application-firewall-waf"></a>Configurar uma resposta personalizada para o Firewall do aplicativo Web do Azure (WAF)
 
-Por padrão, quando o WAF (firewall do aplicativo Web) do Azure com a porta frontal do Azure bloqueia uma solicitação devido a uma regra correspondente, ele retorna um código de status 403 com **a solicitação é mensagem bloqueada** . Este artigo descreve como configurar um código de status de resposta personalizado e uma mensagem de resposta quando uma solicitação é bloqueada pelo WAF.
+Por padrão, quando o WAF bloqueia uma solicitação devido a uma regra correspondente, ele retorna um código de status 403 com **a solicitação é mensagem bloqueada** . A mensagem padrão também inclui a cadeia de caracteres de referência de rastreamento que pode ser usada para vincular [entradas de log](https://docs.microsoft.com/azure/web-application-firewall/afds/waf-front-door-monitor) para a solicitação.  Você pode configurar um código de status de resposta personalizado e uma mensagem personalizada com uma cadeia de caracteres de referência para seu caso de uso. Este artigo descreve como configurar uma página de resposta personalizada quando uma solicitação é bloqueada pelo WAF.
 
-## <a name="set-up-your-powershell-environment"></a>Configurar o ambiente do PowerShell
-O Azure PowerShell fornece um conjunto de cmdlets que usam o modelo [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para gerenciar os recursos do Azure. 
+## <a name="configure-custom-response-status-code-and-message-use-portal"></a>Configurar o código de status de resposta personalizado e o portal de uso de mensagens
+
+Você pode configurar um código de status de resposta personalizado e o corpo em "configurações de política" no portal do WAF.
+
+:::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response-settings.png" alt-text="Configurações de política de WAF":::
+
+No exemplo acima, mantivemos o código de resposta como 403 e configuramos uma mensagem curta "entre em contato conosco", conforme mostrado na imagem abaixo:
+
+:::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response.png" alt-text="Exemplo de resposta personalizada":::
+
+"{{Azure-ref}}" insere a cadeia de caracteres de referência exclusiva no corpo da resposta. O valor corresponde ao campo TrackingReference nos `FrontdoorAccessLog` logs e `FrontdoorWebApplicationFirewallLog` .
+
+## <a name="configure-custom-response-status-code-and-message-use-powershell"></a>Configurar o código de status de resposta personalizado e a mensagem usar o PowerShell
+
+### <a name="set-up-your-powershell-environment"></a>Configurar o ambiente do PowerShell
+
+O Azure PowerShell fornece um conjunto de cmdlets que usa o modelo do [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para gerenciar os recursos do Azure. 
 
 Você pode instalar o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) no computador local e usá-lo em qualquer sessão do PowerShell. Siga as instruções na página para entrar com suas credenciais Azure e instale o módulo Az PowerShell.
 
 ### <a name="connect-to-azure-with-an-interactive-dialog-for-sign-in"></a>Conecte-se ao Azure com um diálogo interativo para entrar
+
 ```
 Connect-AzAccount
 Install-Module -Name Az
+
 ```
 Verifique se tem a versão atual do PowerShellGet instalada. Execute o comando abaixo e reabra o PowerShell.
-
 ```
 Install-Module PowerShellGet -Force -AllowClobber
 ``` 
@@ -40,17 +55,17 @@ Install-Module PowerShellGet -Force -AllowClobber
 Install-Module -Name Az.FrontDoor
 ```
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-No Azure, você pode alocar recursos relacionados a um grupo de recursos. Neste exemplo, você cria um grupo de recursos usando [New-AzResourceGroup](/powershell/module/Az.resources/new-Azresourcegroup).
+No Azure, você pode alocar recursos relacionados a um grupo de recursos. Aqui, criamos um grupo de recursos usando [New-AzResourceGroup](/powershell/module/Az.resources/new-Azresourcegroup).
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroupWAF
 ```
 
-## <a name="create-a-new-waf-policy-with-custom-response"></a>Criar uma nova política de WAF com resposta personalizada 
+### <a name="create-a-new-waf-policy-with-custom-response"></a>Criar uma nova política de WAF com resposta personalizada 
 
-Abaixo está um exemplo de como criar uma nova política WAF com o código de status de resposta personalizado definido como 405 e a mensagem para **você está bloqueada.** usando [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
+Abaixo está um exemplo de como criar uma nova política de WAF com o código de status de resposta personalizado definido como 405, e a mensagem para **você está bloqueada.** usando [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy)
 
 ```azurepowershell
 # WAF policy setting
@@ -80,7 +95,7 @@ Update-AzFrontDoorFireWallPolicy `
 Update-AzFrontDoorFireWallPolicy `
 -Name myWAFPolicy `
 -ResourceGroupName myResourceGroupWAF `
--CustomBlockResponseBody "<html><head><title> Forbidden</title></head><body></body></html>"
+-CustomBlockResponseBody "<html><head><title>Forbidden</title></head><body>{{azure-ref}}</body></html>"
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

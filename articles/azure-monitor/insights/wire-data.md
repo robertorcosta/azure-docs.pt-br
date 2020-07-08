@@ -5,13 +5,12 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/03/2018
-ms.openlocfilehash: ee7a2f49641eb0cfe1f8a4bffb44c7f8642408fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 05/29/2020
+ms.openlocfilehash: afcad5df1072f2eb474e54aaeca866735a12c5c8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77670637"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84424458"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Solução Wire Data 2.0 (versão prévia) no Azure Monitor
 
@@ -19,12 +18,15 @@ ms.locfileid: "77670637"
 
 Os dados de transferência são dados consolidados de rede e de desempenho coletados de computadores conectados por Windows e conectados por Linux com o agente do Log Analytics, incluindo aqueles monitorados pelo Operations Manager em seu ambiente. Os dados de rede são combinados a seus outros dados de log para ajudá-lo a correlacionar dados.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
-
 Além do agente do Log Analytics, a solução Wire Data usa os Agentes de Dependência da Microsoft que você instala em computadores na infraestrutura de TI. Os Agentes de Dependência monitoram dados de rede enviados de e para seus computadores para os níveis de rede 2 e 3 no [modelo OSI](https://en.wikipedia.org/wiki/OSI_model), incluindo os diversos protocolos e portas usados. Em seguida, os dados são enviados para Azure Monitor usando agentes.  
 
 >[!NOTE]
->Se você já implantou o Mapa do Serviço ou está considerando Mapa do Serviço ou [Azure monitor para VMs](../../azure-monitor/insights/vminsights-overview.md), há um novo conjunto de dados de métricas de conexão coletado e armazenado no Azure monitor que fornece informações comparáveis para a transmissão de dados.
+>A solução de dados de transmissão foi substituída pela [solução de mapa do serviço](service-map.md).  Ambos usam o agente de Log Analytics e o agente de dependência para coletar dados de conexão de rede em Azure Monitor. 
+> 
+>Os clientes existentes que usam a solução de dados de transmissão podem continuar a usá-la. Publicaremos as diretrizes para uma linha do tempo de migração para mudar para Mapa do Serviço.
+>
+>Os novos clientes devem instalar a [solução mapa do serviço](service-map.md) ou [Azure monitor para VMs](vminsights-overview.md).  O conjunto de dados Mapa do Serviço é comparável a dados de transmissão.  Azure Monitor para VMs inclui o conjunto de dados Mapa do Serviço com recursos e dados de desempenho adicionais para análise. 
+
 
 Por padrão, o Azure Monitor registra dados de CPU, memória, disco e dados de desempenho de rede de contadores criados no Windows e Linux, bem como outros contadores de desempenho que você pode especificar. A coleta de dados de rede e de outros dados é feita em tempo real para cada agente, incluindo sub-redes e protocolos no nível de aplicativo usados pelo computador.  O Wire Data analisa dados de rede no nível do aplicativo, não embaixo na camada de transporte TCP. A solução não examina ACKs e SYNs individuais. Após a conclusão do handshake, ele é considerado uma conexão dinâmica e marcado como Conectado. Essa conexão permanece ativa desde que ambos os lados aceitem que o soquete está aberto e que os dados podem passar em ambas as direções. Quando um dos lados fecha a conexão, ele é marcado como desconectado.  Portanto, ele conta apenas a largura de banda de pacotes concluídos com êxito, não relatando nem reenviando pacotes com falha.
 
@@ -113,7 +115,7 @@ As seções a seguir listam os sistemas operacionais com suporte para o Dependen
 | Versão do SO | Versão do kernel |
 |:--|:--|
 | 7.4 | 3.10.0-693 |
-| 7.5 | 3.10.0-862 |
+| 7,5 | 3.10.0-862 |
 | 7.6 | 3.10.0-957 |
 
 ##### <a name="red-hat-linux-6"></a>Red Hat Linux 6
@@ -153,7 +155,7 @@ As seções a seguir listam os sistemas operacionais com suporte para o Dependen
 
 ### <a name="dependency-agent-downloads"></a>Downloads do Agente de Dependência
 
-| Arquivo | SO | Versão | SHA-256 |
+| Arquivo | Sistema operacional | Versão | SHA-256 |
 |:--|:--|:--|:--|
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.4 | A111B92AB6CF28EB68B696C60FE51F980BFDFF78C36A900575E17083972989E0 |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.4 | AB58F3DB8B1C3DEE7512690E5A65F1DFC41B43831543B5C040FCCE8390F2282C |
@@ -175,7 +177,7 @@ Execute as seguintes etapas para configurar a solução Wire Data para seus work
 
 São necessários privilégios de administrador para instalar ou desinstalar o agente.
 
-O Dependency Agent é instalado em computadores que executam o Windows por meio de Installdependencyagent-Windows. exe. Se você executar o arquivo executável sem opções, ele iniciará um assistente que você poderá seguir para executar a instalação interativamente.
+O Dependency Agent é instalado em computadores que executam o Windows por meio do InstallDependencyAgent-Windows.exe. Se você executar o arquivo executável sem opções, ele iniciará um assistente que você poderá seguir para executar a instalação interativamente.
 
 Use as etapas a seguir para instalar o agente de dependência em cada computador que executa o Windows:
 
@@ -223,7 +225,7 @@ InstallDependencyAgent-Linux64.bin -help
 
 Os arquivos do Agente de Dependência são colocados nos diretórios a seguir:
 
-| **Arquivos** | **Local** |
+| **Arquivos** | **Localidade** |
 | --- | --- |
 | Arquivos de núcleo | /opt/microsoft/dependency-agent |
 | Arquivos de log | /var/opt/microsoft/dependency-agent/log |
@@ -381,7 +383,7 @@ A coleta de dados coleta metadados sobre o tráfego de rede usando os agentes qu
 
 Um registro com um tipo de _WireData_ é criado para cada tipo de dados de entrada. Os registros do WireData têm as propriedades mostradas na tabela a seguir:
 
-| Propriedade | Descrição |
+| Property | Descrição |
 |---|---|
 | Computador | Nome do computador em que os dados foram coletados |
 | TimeGenerated | Hora do registro |

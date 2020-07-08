@@ -4,7 +4,6 @@ description: Saiba como executar uma VM do SQL Server em um Host Dedicado do Azu
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na
@@ -14,12 +13,11 @@ ms.workload: iaas-sql-server
 ms.date: 08/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 1c16c2cdae671a9b18a34b88b9490b5b61c24c8e
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
-ms.translationtype: HT
+ms.openlocfilehash: 40c851e5ff5fc83ccf6b6d67e319bb97bd860bd5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220233"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84669096"
 ---
 # <a name="run-sql-server-vm-on-an-azure-dedicated-host"></a>Executar VM do SQL Server em um Host Dedicado do Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

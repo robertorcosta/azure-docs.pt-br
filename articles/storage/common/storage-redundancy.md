@@ -6,16 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 06/22/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: c4d14c21174f9631a1ad72489d4c0bafe013572c
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: 9502194b2020723801469b511f46d3e806290ba5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681341"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213985"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância do Armazenamento do Azure
 
@@ -62,8 +61,8 @@ A tabela a seguir mostra quais tipos de contas de armazenamento dão suporte ao 
 |    Tipo de conta de armazenamento    |    Regiões com suporte    |    Serviços com suporte    |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 |    Uso geral v2<sup>1</sup>    | Sudeste da Ásia<br /> Leste da Austrália<br /> Norte da Europa<br />  Europa Ocidental<br /> França Central<br /> Leste do Japão<br /> Norte da África do Sul<br /> Sul do Reino Unido<br /> EUA Central<br /> Leste dos EUA<br /> Leste dos EUA 2<br /> Oeste dos EUA 2    |    Blobs de bloco<br /> Blobs de páginas<sup>2</sup><br /> Compartilhamentos de arquivos (padrão)<br /> Tabelas<br /> Filas<br /> |
-|    BlockBlobStorage<sup>1</sup>    | Europa Ocidental<br /> Leste dos EUA    |    Somente blobs de blocos    |
-|    FileStorage    | Europa Ocidental<br /> Leste dos EUA    |    Somente arquivos do Azure    |
+|    BlockBlobStorage<sup>1</sup>    | Sudeste da Ásia<br /> Europa Ocidental<br /> Leste dos EUA    |    Somente blobs de blocos    |
+|    FileStorage    | Sudeste da Ásia<br /> Europa Ocidental<br /> Leste dos EUA    |    Somente arquivos do Azure    |
 
 <sup>1</sup> A camada de arquivamento não tem suporte atualmente para contas de ZRS.<br />
 <sup>2</sup> Contas de armazenamento que contêm discos gerenciados do Azure para máquinas virtuais sempre usam LRS. Os discos não gerenciados do Azure também devem usar LRS. É possível criar uma conta de armazenamento para discos não gerenciados do Azure que usam GRS, mas isso não é recomendável devido a possíveis problemas de consistência em relação à replicação geográfica assíncrona. Os discos gerenciados ou não gerenciados dão suporte a ZRS ou GZRS. Para saber mais sobre discos gerenciados, confira [Preços para discos gerenciados do Azure](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -81,7 +80,7 @@ O Armazenamento do Azure oferece duas opções para copiar seus dados para uma r
 - O **armazenamento com redundância geográfica (GRS)** copia seus dados de forma síncrona três vezes em um único local físico na região primária usando o LRS. Em seguida, ele copia os dados de forma assíncrona para um único local físico na região secundária.
 - O **armazenamento com redundância de zona geográfica (GZRS)** copia seus dados de forma síncrona em três zonas de disponibilidade do Azure na região primária usando o ZRS. Em seguida, ele copia os dados de forma assíncrona para um único local físico na região secundária.
 
-A principal diferença entre o GRS e o GZRS é como os dados são replicados na região primária. No local secundário, os dados são sempre replicados três vezes de forma síncrona, usando o LRS.
+A principal diferença entre o GRS e o GZRS é como os dados são replicados na região primária. No local secundário, os dados são sempre replicados três vezes de forma síncrona, usando o LRS. O LRS na região secundária protege seus dados contra falhas de hardware.
 
 Com o GRS ou o GZRS, os dados no local secundário não estão disponíveis para acesso de leitura ou gravação, a menos que ocorra um failover na região secundária. Para obter acesso de leitura para o local secundário, configure sua conta de armazenamento para usar o armazenamento com redundância geográfica com acesso de leitura (RA-GRS) ou o armazenamento com redundância de zona com acesso de leitura (RA-GZRS). Para saber mais, confira [Acesso de leitura aos dados na região secundária](#read-access-to-data-in-the-secondary-region).
 
@@ -120,13 +119,15 @@ Para obter informações sobre preços, confira detalhes de preços para [Blobs]
 
 ## <a name="read-access-to-data-in-the-secondary-region"></a>Acesso de leitura aos dados na região secundária
 
-O armazenamento com redundância geográfica (com GRS ou GZRS) replica seus dados para outro local físico na região secundária para proteger contra interrupções regionais. No entanto, esses dados estarão disponíveis para serem lidos somente se o cliente ou a Microsoft iniciar um failover da região primária para a secundária. Quando você habilita o acesso de leitura para a região secundária, seus dados ficam disponíveis para serem lidos se a região primária ficar indisponível. Para obter acesso de leitura para o local secundário, habilite o armazenamento com redundância geográfica com acesso de leitura (RA-GRS) ou o armazenamento com redundância de zona com acesso de leitura (RA-GZRS).
+O armazenamento com redundância geográfica (com GRS ou GZRS) replica seus dados para outro local físico na região secundária para proteger contra interrupções regionais. No entanto, esses dados estarão disponíveis para serem lidos somente se o cliente ou a Microsoft iniciar um failover da região primária para a secundária. Quando você habilita o acesso de leitura para a região secundária, seus dados ficam disponíveis para serem lidos em todos os momentos, incluindo em uma situação em que a região primária fica indisponível. Para obter acesso de leitura para o local secundário, habilite o armazenamento com redundância geográfica com acesso de leitura (RA-GRS) ou o armazenamento com redundância de zona com acesso de leitura (RA-GZRS).
 
 ### <a name="design-your-applications-for-read-access-to-the-secondary"></a>Projete seus aplicativos para ter acesso de leitura na região secundária
 
-Se sua conta de armazenamento estiver configurada para o acesso de leitura na região secundária, você poderá projetar seus aplicativos para alternar diretamente para a leitura de dados na região secundária se a região primária ficar indisponível por qualquer motivo. A região secundária está sempre disponível para acesso de leitura, de modo que você pode testar seu aplicativo para certificar-se de que ele será lido na região secundária no caso de uma interrupção. Para saber mais sobre como projetar seus aplicativos para alta disponibilidade, confira [Usar redundância geográfica para criar aplicativos altamente disponíveis](geo-redundant-design.md).
+Se sua conta de armazenamento estiver configurada para o acesso de leitura na região secundária, você poderá projetar seus aplicativos para alternar diretamente para a leitura de dados na região secundária se a região primária ficar indisponível por qualquer motivo. 
 
-Quando o acesso de leitura na região secundária estiver habilitado, seus dados poderão ser lidos do ponto de extremidade secundário, bem como do ponto de extremidade primário para sua conta de armazenamento. O ponto de extremidade secundário acrescenta o sufixo *–secondary* ao nome da conta. Por exemplo, se o ponto de extremidade primário para o blob de armazenamento for `myaccount.blob.core.windows.net`, seu ponto de extremidade secundário será `myaccount-secondary.blob.core.windows.net`. As chaves de acesso para o seu armazenamento são as mesmas para os pontos de extremidade primário e secundário.
+A região secundária está disponível para acesso de leitura depois que você habilita RA-GRS ou RA-GZRS, para que você possa testar seu aplicativo com antecedência para certificar-se de que ele será lido corretamente do secundário no caso de uma interrupção. Para saber mais sobre como projetar seus aplicativos para alta disponibilidade, confira [Usar redundância geográfica para criar aplicativos altamente disponíveis](geo-redundant-design.md).
+
+Quando o acesso de leitura ao secundário está habilitado, seu aplicativo pode ser lido do ponto de extremidade secundário, bem como do ponto de extremidade primário. O ponto de extremidade secundário acrescenta o sufixo *–secondary* ao nome da conta. Por exemplo, se o ponto de extremidade primário para o blob de armazenamento for `myaccount.blob.core.windows.net`, seu ponto de extremidade secundário será `myaccount-secondary.blob.core.windows.net`. As chaves de acesso para o seu armazenamento são as mesmas para os pontos de extremidade primário e secundário.
 
 ### <a name="check-the-last-sync-time-property"></a>Verificar a propriedade Horário da Última Sincronização
 

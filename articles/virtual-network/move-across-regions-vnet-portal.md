@@ -3,15 +3,14 @@ title: Mova uma rede virtual do Azure para outra região do Azure usando o porta
 description: Mova uma rede virtual do Azure de uma região do Azure para outra usando um modelo do Resource Manager e o portal do Azure.
 author: asudbring
 ms.service: virtual-network
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/26/2019
 ms.author: allensu
-ms.openlocfilehash: c54725d9a947b0c912a822686d7b2cffe1a7b5c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ed3da649ba65484a79b42ba5bb45431839e123d4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75640781"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711435"
 ---
 # <a name="move-an-azure-virtual-network-to-another-region-by-using-the-azure-portal"></a>Mover uma rede virtual do Azure para outra região usando o portal do Azure
 
@@ -42,9 +41,9 @@ Para exportar a rede virtual e implantar a rede virtual de destino usando o port
 
 1. Entre no [portal do Azure](https://portal.azure.com)e, em seguida, selecione **grupos de recursos**.
 1. Localize o grupo de recursos que contém a rede virtual de origem e, em seguida, selecione-o.
-1. Selecione **configurações** > **Exportar modelo**.
+1. Selecione **configurações**  >  **Exportar modelo**.
 1. No painel **Exportar modelo** , selecione **implantar**.
-1. Para abrir o arquivo *Parameters. JSON* em seu editor online, selecione **modelo** > **Editar parâmetros**.
+1. Para abrir o *parameters.jsno* arquivo em seu editor online, selecione **modelo**  >  **Editar parâmetros**.
 1. Para editar o parâmetro do nome da rede virtual, altere a propriedade **Value** em **parâmetros**:
 
     ```json
@@ -63,7 +62,7 @@ Para exportar a rede virtual e implantar a rede virtual de destino usando o port
 
 1. Selecione **salvar** no editor.
 
-1. Para abrir o arquivo *Template. JSON* no editor online, selecione **modelo** > **Editar modelo**.
+1. Para abrir o *template.jsno* arquivo no editor online, selecione **modelo**  >  **Editar modelo**.
 
 1. No editor online, para editar a região de destino onde a rede virtual será movida, altere a propriedade **local** em **recursos**:
 
@@ -85,11 +84,11 @@ Para exportar a rede virtual e implantar a rede virtual de destino usando o port
 
     ```
 
-1. Para obter códigos de localização de região, confira [locais do Azure](https://azure.microsoft.com/global-infrastructure/locations/). O código de uma região é o nome da região, sem espaços (por exemplo, **EUA Central** = **centralus**).
+1. Para obter códigos de localização de região, confira [locais do Azure](https://azure.microsoft.com/global-infrastructure/locations/). O código de uma região é o nome da região, sem espaços (por exemplo, **EUA Central**  =  **centralus**).
 
 1. Adicional Você também pode alterar outros parâmetros no modelo, dependendo de seus requisitos:
 
-    * **Espaço de endereço**: antes de salvar o arquivo, você pode alterar o espaço de endereço da rede virtual modificando a seção **recursos** > de**addressSpace** e alterando a propriedade **addressPrefixes** :
+    * **Espaço de endereço**: antes de salvar o arquivo, você pode alterar o espaço de endereço da rede virtual modificando a seção **recursos**de  >  **addressSpace** e alterando a propriedade **addressPrefixes** :
 
         ```json
                 "resources": [
@@ -140,7 +139,7 @@ Para exportar a rede virtual e implantar a rede virtual de destino usando o port
                 ]
         ```
 
-        Para alterar o prefixo de endereço no arquivo *Template. JSON* , edite-o em dois locais: no código da seção anterior e na seção **tipo** do código a seguir. Altere a propriedade **addressPrefix** no código a seguir para corresponder à propriedade **addressPrefix** no código da seção anterior.
+        Para alterar o prefixo de endereço no *template.jsno* arquivo, edite-o em dois locais: no código da seção anterior e na seção **tipo** do código a seguir. Altere a propriedade **addressPrefix** no código a seguir para corresponder à propriedade **addressPrefix** no código da seção anterior.
 
         ```json
          "type": "Microsoft.Network/virtualNetworks/subnets",
@@ -178,13 +177,13 @@ Para exportar a rede virtual e implantar a rede virtual de destino usando o port
 
 1. No editor online, selecione **salvar**.
 
-1. Para escolher a assinatura na qual a rede virtual de destino será implantada, selecione**assinatura** **básica** > .
+1. Para escolher a assinatura na qual a rede virtual de destino será implantada, selecione **Basics**  >  **assinatura**básica.
 
-1. Para escolher o grupo de recursos em que a rede virtual de destino será implantada, selecione**grupo de recursos** **básicos** > . 
+1. Para escolher o grupo de recursos em que a rede virtual de destino será implantada, selecione **Basics**  >  **grupo de recursos**básicos. 
 
     Se você precisar criar um novo grupo de recursos para a rede virtual de destino, selecione **criar novo**. Certifique-se de que o nome não seja o mesmo que o nome do grupo de recursos de origem na rede virtual existente.
 
-1. Verifique se **Basics** > **local** básico está definido como o local de destino onde você deseja que a rede virtual seja implantada.
+1. Verifique se **Basics**  >  **local** básico está definido como o local de destino onde você deseja que a rede virtual seja implantada.
 
 1. Em **configurações**, verifique se o nome corresponde ao nome que você inseriu anteriormente no editor de parâmetros.
 

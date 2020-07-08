@@ -7,12 +7,11 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 65139e0842679f59733c34be838d4aad7f3c63e4
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 555002284b2665a357a28319a400710d66be4604
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847932"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957232"
 ---
 # <a name="configure-lead-management-for-dynamics-365-customer-engagement"></a>Configurar o gerenciamento de clientes potenciais para o Dynamics 365 Customer Engagement
 
@@ -60,7 +59,7 @@ Para gravar clientes potenciais em sua instância do Dynamics 365 Customer Engag
 Use as etapas a seguir para criar a conta de serviço e atribuir permissões. Você pode usar o Azure Active Directory ou o Office 365.
 
 >[!NOTE]
->Pule para as instruções correspondentes com base na opção de autenticação selecionada. Consulte o [Azure Active Directory](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics#azure-active-directory) ou o [Office 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics#office-365).
+>Pule para as instruções correspondentes com base na opção de autenticação selecionada. Consulte o [Azure Active Directory](#azure-active-directory) ou o [Office 365](#office-365).
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 

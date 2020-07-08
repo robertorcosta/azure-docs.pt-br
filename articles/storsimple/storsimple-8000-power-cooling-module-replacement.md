@@ -9,17 +9,16 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 42561570e24aec5edd33248ef1738e53175e480e
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.openlocfilehash: 045cec85174a88d1d608a4adc679461008852768
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60632281"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514587"
 ---
 # <a name="replace-a-power-and-cooling-module-on-your-storsimple-device"></a>Substituir um módulo de energia e resfriamento em seu dispositivo StorSimple
 ## <a name="overview"></a>Visão geral
@@ -61,7 +60,7 @@ Siga estas instruções quando estiver pronto para remover um módulo de energia
    
      **Figura 1** Parte frontal do dispositivo  
    
-   | Rotular | Descrição |
+   | Rótulo | Descrição |
    |:--- |:--- |
    | 1 |Botão silenciar |
    | 2 |Energia do sistema |
@@ -74,7 +73,7 @@ Siga estas instruções quando estiver pronto para remover um módulo de energia
    
      **Figura 2** Parte posterior do PCM com LEDs indicadores
    
-   | Rotular | Descrição |
+   | Rótulo | Descrição |
    |:--- |:--- |
    | 1 |Falha de energia CA |
    | 2 |Falha do ventilador |
@@ -88,7 +87,7 @@ Siga estas instruções quando estiver pronto para remover um módulo de energia
    
      **Figura 3** Parte traseira do dispositivo com módulos de plug-in 
    
-   | Rotular | Descrição |
+   | Rótulo | Descrição |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |

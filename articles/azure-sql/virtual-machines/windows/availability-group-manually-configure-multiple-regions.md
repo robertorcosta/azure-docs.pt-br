@@ -1,10 +1,9 @@
 ---
-title: Configurar o grupo de disponibilidade em regiões diferentes
-description: Este artigo explica como configurar um grupo de disponibilidade do SQL Server em máquinas virtuais do Azure com uma réplica em uma região diferente.
+title: Configurar um grupo de disponibilidade SQL Server Always On em diferentes regiões
+description: Este artigo explica como configurar um grupo de disponibilidade SQL Server Always On em máquinas virtuais do Azure com uma réplica em uma região diferente.
 services: virtual-machines
 documentationCenter: na
 author: MikeRayMSFT
-manager: craigg
 editor: monicar
 tags: azure-service-management
 ms.assetid: 388c464e-a16e-4c9d-a0d5-bb7cf5974689
@@ -15,14 +14,14 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 996b5a59c5c79a045cd396a24778fe0928682c5a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: HT
+ms.openlocfilehash: 8ab62a93546719e172eec34168a0692daccf281a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84030027"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84669300"
 ---
-# <a name="configure-an-availability-group-on-azure-sql-server-virtual-machines-in-different-regions"></a>Configurar um grupo de disponibilidade em máquinas virtuais do Azure SQL Server em diferentes regiões
+# <a name="configure-a-sql-server-always-on-availability-group-across-different-azure-regions"></a>Configurar um grupo de disponibilidade SQL Server Always On em diferentes regiões do Azure
+
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Este artigo explica como configurar uma réplica do SQL Server sempre no grupo de disponibilidade em máquinas virtuais do Azure em uma localização remota do Azure. Use essa configuração para dar suporte à recuperação de desastre.
@@ -100,20 +99,20 @@ Para criar uma réplica em um data center remoto, execute as seguintes etapas:
 
    ![Propriedades do cluster](./media/availability-group-manually-configure-multiple-regions/cluster-name-properties.png)
 
-   Na caixa de diálogo **Propriedades**, selecione **Adicionar** em **Endereço IP** e adicione o endereço IP do nome do cluster da região de rede remota. Selecione **OK** na caixa de diálogo **Endereço IP** e **OK** novamente na caixa de diálogo **Propriedades do cluster** para salvar o novo endereço IP. 
+   Na caixa de diálogo **Propriedades**, selecione **Adicionar** em **Endereço IP** e adicione o endereço IP do nome do cluster da região de rede remota. Selecione **OK** na caixa de diálogo **endereço IP** e, em seguida, selecione **OK** novamente na caixa de diálogo **Propriedades do cluster** para salvar o novo endereço IP. 
 
    ![Adicionar IP do cluster](./media/availability-group-manually-configure-multiple-regions/add-cluster-ip-address.png)
 
 
 1. Adicione o endereço IP como uma dependência do nome do cluster principal.
 
-   Abra as propriedades do cluster mais uma vez e selecione a guia **Dependências**. Configure uma dependência OR para os dois endereços IP: 
+   Abra as propriedades do cluster mais uma vez e selecione a guia **dependências** . Configure uma dependência ou para os dois endereços IP: 
 
    ![Propriedades do cluster](./media/availability-group-manually-configure-multiple-regions/cluster-ip-dependencies.png)
 
 1. Adicione um recurso de endereço IP à função de grupo de disponibilidade no cluster. 
 
-   Clique com o botão direito do mouse na função de grupo de disponibilidade em Gerenciador de cluster de failover, selecione **Adicionar recurso**, **Mais recursos** e selecione **Endereço IP**.
+   Clique com o botão direito do mouse na função de grupo de disponibilidade em Gerenciador de Cluster de Failover, escolha **Adicionar recurso**, **mais recursos**e selecione **endereço IP**.
 
    ![Criar endereço IP](./media/availability-group-manually-configure-multiple-regions/20-add-ip-resource.png)
 
@@ -133,7 +132,7 @@ Para criar uma réplica em um data center remoto, execute as seguintes etapas:
 
 1. [Definir os parâmetros do cluster no PowerShell](availability-group-manually-configure-tutorial.md#setparam).
 
-Execute o script do PowerShell com o nome de rede do cluster, o endereço IP e a porta de investigação configurado no balanceador de carga na nova região.
+   Execute o script do PowerShell com o nome de rede do cluster, o endereço IP e a porta de investigação configurado no balanceador de carga na nova região.
 
    ```powershell
    $ClusterNetworkName = "<MyClusterNetworkName>" # The cluster name for the network in the new region (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name).
@@ -170,16 +169,16 @@ Se você não pode modificar as cadeias de conexão, você pode configurar o cac
 Para testar a conectividade do ouvinte para a região remota, é possível realizar failover da réplica para a região remota. Enquanto a réplica é assíncrona, o failover é vulnerável à perda de dados. Para fazer failover sem perda de dados, alterar o modo de disponibilidade para síncrono e defina o modo de failover como automático. Use as seguintes etapas:
 
 1. Em **Pesquisador**, conecte-se à instância do SQL Server que hospeda a réplica primária.
-1. Em **grupos de disponibilidade do AlwaysOn**, **grupos de disponibilidade**, clique com botão direito seu grupo de disponibilidade e clique em **propriedades**.
+1. Em **grupos de disponibilidade AlwaysOn**, **grupos de disponibilidade**, clique com o botão direito do mouse no grupo de disponibilidade e selecione **Propriedades**.
 1. No **geral** página, em **réplicas de disponibilidade**, definir a réplica secundária no site para usar a recuperação de desastres **confirmação síncrona** modo de disponibilidade e **automáticas** modo de failover.
 1. Se você tiver uma réplica secundária no mesmo site que a réplica primária para alta disponibilidade, definido desta réplica como **confirmação assíncrona** e **Manual**.
-1. Clique em OK.
-1. Em **Pesquisador**, com o botão direito no grupo de disponibilidade e clique em **Mostrar painel**.
+1. Selecione OK.
+1. No Pesquisador de **objetos**, clique com o botão direito do mouse no grupo de disponibilidade e selecione **Mostrar painel**.
 1. No painel, verifique se a réplica no site de recuperação de desastre está sincronizada.
-1. Em **Pesquisador**, com o botão direito no grupo de disponibilidade e clique **Failover...** . SQL Server Management Studio abre um Assistente de failover do SQL Server.  
-1. Clique em **Avançar** e selecione a instância do SQL Server no site de recuperação de desastre. Clique em **Avançar** novamente.
-1. Conecte-se à instância do SQL Server no site de recuperação de desastre e clique em **Avançar**.
-1. Sobre o **resumo** página, verifique as configurações e clique em **concluir**.
+1. No Pesquisador de **objetos**, clique com o botão direito do mouse no grupo de disponibilidade e selecione **failover...**. SQL Server Management estúdios abre um assistente para fazer failover de SQL Server.  
+1. Selecione **Avançar**e selecione a instância de SQL Server no site de recuperação de desastre. Selecione **Avançar** novamente.
+1. Conecte-se à instância de SQL Server no site de recuperação de desastre e selecione **Avançar**.
+1. Na página **Resumo** , verifique as configurações e selecione **concluir**.
 
 Depois de testar a conectividade, mova a réplica primária de volta para seu data center principal e definir o modo de disponibilidade para suas configurações operacionais normais. A tabela a seguir mostra as configurações operacionais normais para a arquitetura descrita neste documento:
 
@@ -197,7 +196,7 @@ Para obter mais informações, consulte estes tópicos:
 - [Executar um failover manual planejado de um grupo de disponibilidade (SQL Server)](https://msdn.microsoft.com/library/hh231018.aspx)
 - [Executar um Failover Manual forçado de um grupo de disponibilidade (SQL Server)](https://msdn.microsoft.com/library/ff877957.aspx)
 
-## <a name="additional-links"></a>Links adicionais
+## <a name="next-steps"></a>Próximas etapas
 
 * [Grupos de disponibilidade AlwaysOn](https://msdn.microsoft.com/library/hh510230.aspx)
 * [Máquinas Virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/)

@@ -14,21 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: allensu
-ms.openlocfilehash: 57a3bab06e4c0a1e4fd8df5d0794a89904a88954
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: f9768d4d20380e8e0c4ca6f7c71fddd68bb93d5c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747645"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84340667"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Variáveis HTTP para o mecanismo de regras de CDN do Azure
 As variáveis HTTP fornecem os meios através dos quais você pode recuperar metadados de solicitação e resposta HTTP. Esses metadados, em seguida, podem ser usados para alterar dinamicamente uma solicitação ou resposta. O uso de variáveis HTTP é restrito aos recursos de mecanismo de regras a seguir:
 
-- [Regravação da Chave de Cache](cdn-verizon-premium-rules-engine-reference-features.md#cache-key-rewrite)
-- [Modificar Cabeçalho de Solicitação do Cliente](cdn-verizon-premium-rules-engine-reference-features.md#modify-client-request-header)
-- [Modificar Cabeçalho de Resposta do Cliente](cdn-verizon-premium-rules-engine-reference-features.md#modify-client-response-header)
-- [Redirecionamento de URL](cdn-verizon-premium-rules-engine-reference-features.md#url-redirect)
-- [Regravação de URL](cdn-verizon-premium-rules-engine-reference-features.md#url-rewrite)
+- [Regravação da Chave de Cache](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Rewrite.htm)
+- [Modificar Cabeçalho de Solicitação do Cliente](https://docs.vdms.com/cdn/Content/HRE/F/Modify-Client-Request-Header.htm)
+- [Modificar Cabeçalho de Resposta do Cliente](https://docs.vdms.com/cdn/Content/HRE/F/Modify-Client-Response-Header.htm)
+- [Redirecionamento de URL](https://docs.vdms.com/cdn/Content/HRE/F/URL-Redirect.htm)
+- [Regravação de URL](https://docs.vdms.com/cdn/Content/HRE/F/URL-Rewrite.htm)
 
 ## <a name="definitions"></a>Definições
 A tabela a seguir descreve as variáveis HTTP compatíveis. Um valor em branco é retornado quando os metadados geográficos (por exemplo, código postal) não estão disponíveis para uma determinada solicitação.

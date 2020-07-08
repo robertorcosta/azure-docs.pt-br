@@ -9,18 +9,17 @@ editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/13/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 562b551bc8a46a45135bf6a9a8e328b4b0e74f98
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 182f51a150c2ef944b0104b73c63028e915c1a4a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80048258"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84728326"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Configurar a política de expiração de grupos do Office 365
 
@@ -134,7 +133,7 @@ Aqui estão exemplos de como você pode usar os cmdlets do PowerShell para defin
    Connect-AzureAD
    ```
 
-1. Definir as configurações de expiração use o cmdlet New-AzureADMSGroupLifecyclePolicy para definir o tempo de vida de todos os grupos do Office 365 na organização do Azure AD como 365 dias. As notificações de renovação para grupos do Office 365 sem proprietários serão enviadasemailaddress@contoso.compara ' '
+1. Definir as configurações de expiração use o cmdlet New-AzureADMSGroupLifecyclePolicy para definir o tempo de vida de todos os grupos do Office 365 na organização do Azure AD como 365 dias. As notificações de renovação para grupos do Office 365 sem proprietários serão enviadas para ' emailaddress@contoso.com '
   
    ``` PowerShell
    New-AzureADMSGroupLifecyclePolicy -GroupLifetimeInDays 365 -ManagedGroupTypes All -AlternateNotificationEmails emailaddress@contoso.com
@@ -144,7 +143,7 @@ Aqui estão exemplos de como você pode usar os cmdlets do PowerShell para defin
 
    - O ID da política
    - O tempo de vida de todos os grupos do Office 365 na organização do Azure AD é definido como 365 dias
-   - As notificações de renovação para grupos do Office 365 sem proprietários serão enviadasemailaddress@contoso.compara '. '
+   - As notificações de renovação para grupos do Office 365 sem proprietários serão enviadas para ' emailaddress@contoso.com . '
   
    ```powershell
    Get-AzureADMSGroupLifecyclePolicy

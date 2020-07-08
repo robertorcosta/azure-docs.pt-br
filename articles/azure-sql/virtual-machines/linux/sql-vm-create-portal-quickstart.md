@@ -3,7 +3,6 @@ title: 'Início Rápido: Criar uma VM Linux do SQL Server no Azure'
 description: Este tutorial mostra como criar uma máquina virtual Linux com SQL Server 2017 no portal do Azure.
 services: virtual-machines-linux
 author: MashaMSFT
-manager: craigg
 ms.date: 10/22/2019
 tags: azure-service-management
 ms.topic: conceptual
@@ -11,14 +10,13 @@ ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ac7a836f339e86ce3705d64d04cad143f1043a81
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: HT
+ms.openlocfilehash: 41f39c7e60e79e034d4c855a77bfee0f6fa2094d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259517"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84669504"
 ---
-# <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Provisionar uma máquina virtual Linux com SQL Server no portal do Azure
+# <a name="provision-a-linux-virtual-machine-running-sql-server-in-the-azure-portal"></a>Provisionar uma máquina virtual Linux executando SQL Server no portal do Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!div class="op_single_selector"]
@@ -28,7 +26,7 @@ ms.locfileid: "84259517"
 Neste tutorial de início rápido, você usará o portal do Azure para criar uma máquina virtual do Linux com o SQL Server 2017 instalado. Você aprenderá o seguinte: 
 
 
-* [Criar uma VM Linux SQL da galeria](#create)
+* [Criar uma VM Linux executando o SQL Server da Galeria](#create)
 * [Conectar-se à nova VM com SSH](#connect)
 * [Alterar a senha SA](#password)
 * [Configurar para conexões remotas](#remote)
@@ -125,7 +123,7 @@ Se estiver executando no Windows e não tiver um shell Bash, você poderá insta
 
 Para saber mais sobre como se conectar às VMs Linux, confira [Criar uma VM Linux no Azure usando o Portal](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-portal).
 
-> [!Note]
+> [!NOTE]
 > Se for exibido um alerta de segurança do PuTTY indicando que a chave do host do servidor não está sendo armazenada em cache no Registro, escolha uma das opções a seguir. Se você confia nesse host, selecione **Sim** para adicionar a chave ao cache do PuTTY e continuar a conexão. Caso deseje continuar a conexão apenas uma vez, sem adicionar a chave ao cache, selecione **Não**. Se você não confia nesse host, selecione **Cancelar** para abandonar a conexão.
 
 ## <a name="change-the-sa-password"></a><a id="password"></a> Alterar a senha SA

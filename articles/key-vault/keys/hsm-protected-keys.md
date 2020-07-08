@@ -8,14 +8,13 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: conceptual
-ms.date: 02/17/2020
+ms.date: 05/29/2020
 ms.author: ambapat
-ms.openlocfilehash: 58cf3358a9e908070ce9003d05dd0b576b1d2d3f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5433d9746cd64d0e942e056cfcd1940eba35c77d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81429688"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84417915"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault"></a>Importar chaves protegidas por HSM para o Key Vault
 
@@ -24,7 +23,7 @@ Para garantia extra, ao usar o Cofre da Chave do Azure, você pode importar ou g
 Essa funcionalidade não está disponível para o Azure China 21Vianet.
 
 > [!NOTE]
-> Para obter mais informações sobre Azure Key Vault, consulte [o que é Azure Key Vault?](../general/overview.md)  
+> Para obter mais informações sobre o Cofre da Chave do Azure, consulte [O que é o Cofre da Chave do Azure?](../general/overview.md)  
 > Para obter um tutorial de Introdução, que inclui a criação de um cofre da chaves para chaves de HSM protegido, confira [O que é o Azure Key Vault?](../general/overview.md).
 
 ## <a name="supported-hsms"></a>HSMs com suporte
@@ -33,11 +32,14 @@ Há suporte para a transferência de chaves protegidas por HSM para Key Vault po
 
 |Nome do Fornecedor|Tipo de fornecedor|Modelos HSM com suporte|Método de transferência de chave HSM com suporte|
 |---|---|---|---|
-|nCipher|Fabricante|<ul><li>família de HSMs nShield</li></ul>|[Usar método BYOK herdado](hsm-protected-keys-legacy.md)|
-|Thales|Fabricante|<ul><li>Família SafeNet Luna HSM 7 com firmware versão 7,3 ou mais recente</li></ul>| [Usar o novo método BYOK (visualização)](hsm-protected-keys-vendor-agnostic-byok.md)|
-|Fortanix|HSM como um serviço|<ul><li>Serviço de gerenciamento de chaves de autodefesa (SDKMS)</li></ul>|[Usar o novo método BYOK (visualização)](hsm-protected-keys-vendor-agnostic-byok.md)|
+|[nCipher](https://www.ncipher.com/products/key-management/cloud-microsoft-azure)|Manufacturer<br/>HSM como um serviço|<ul><li>família de HSMs nShield</li><li>nShield como um serviço</ul>|**Método 1:** [nCipher BYOK](hsm-protected-keys-ncipher.md) (com atestado forte para importação de chave e validação HSM)<br/>**Método 2:** [usar o novo método BYOK](hsm-protected-keys-byok.md) |
+|Thales|Fabricante|<ul><li>Família de HSM 7 da Luna com firmware versão 7,3 ou mais recente</li></ul>| [Usar o novo método BYOK](hsm-protected-keys-byok.md)|
+|Fortanix|Manufacturer<br/>HSM como um serviço|<ul><li>Serviço de gerenciamento de chaves de autodefesa (SDKMS)</li><li>Equinix SmartKey</li></ul>|[Usar o novo método BYOK](hsm-protected-keys-byok.md)|
+|Marvell|Fabricante|Todos os HSMs LiquidSecurity com<ul><li>Firmware versão 2.0.4 ou posterior</li><li>Firmware versão 3,2 ou mais recente</li></ul>|[Usar o novo método BYOK](hsm-protected-keys-byok.md)|
+|Cryptomathic|ISV (sistema de gerenciamento de chaves empresariais)|Várias marcas e modelos HSM, incluindo<ul><li>nCipher</li><li>Thales</li><li>Utimaco</li></ul>Consulte o [site do Cryptomathic para obter detalhes](https://www.cryptomathic.com/azurebyok)|[Usar o novo método BYOK](hsm-protected-keys-byok.md)|
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Siga [Key Vault práticas recomendadas](../general/best-practices.md) para garantir a segurança, durabilidade e monitoramento para suas chaves.
+* Siga [Key Vault práticas recomendadas](../general/best-practices.md) para garantir a segurança, durabilidade e monitoramento para suas chaves.
+* Consulte a [especificação BYOK](https://docs.microsoft.com/azure/key-vault/keys/byok-specification) para obter uma descrição completa do novo método BYOK

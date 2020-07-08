@@ -6,12 +6,11 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: tisande
-ms.openlocfilehash: df9135c39c1ff27abe8915c221185fca517a5614
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 44a51972e459f64f44a791ef1cf40825dddedf91
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849783"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85798146"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Gerenciar indexação no Azure Cosmos DB – Visão geral
 
@@ -41,7 +40,7 @@ Por exemplo, considere este item:
 
 Ele seria representado pela seguinte árvore:
 
-![O item anterior representado como uma árvore](./media/index-overview/item-as-tree.png)
+:::image type="content" source="./media/index-overview/item-as-tree.png" alt-text="O item anterior representado como uma árvore" border="false":::
 
 Observe como as matrizes são codificadas na árvore: toda entrada em uma matriz obtém um nó intermediário rotulado com o índice dessa entrada na matriz (0, 1 etc.).
 
@@ -51,14 +50,14 @@ O motivo pelo qual o Azure Cosmos DB transforma itens em árvores é porque perm
 
 Vejamos os caminhos para cada propriedade do item de exemplo descrito acima:
 
-    /locations/0/country: "Germany"
-    /locations/0/city: "Berlin"
-    /locations/1/country: "France"
-    /locations/1/city: "Paris"
-    /headquarters/country: "Belgium"
-    /headquarters/employees: 250
-    /exports/0/city: "Moscow"
-    /exports/1/city: "Athens"
+- /Locations/0/Country: "Alemanha"
+- /Locations/0/City: "Berlim"
+- /Locations/1/Country: "França"
+- /Locations/1/City: "Paris"
+- /Headquarters/Country: "Bélgica"
+- /Headquarters/Employees: 250
+- /Exports/0/City: "Moscou"
+- /Exports/1/City: "Atenas"
 
 Quando um item é gravado, o Azure Cosmos DB indexa efetivamente o caminho de cada propriedade e seu valor correspondente.
 
@@ -181,7 +180,7 @@ Os caminhos extraídos ao indexar dados facilitam a pesquisa do índice durante 
 
 Por exemplo, considere a consulta abaixo: `SELECT location FROM location IN company.locations WHERE location.country = 'France'`. O predicado de consulta (filtragem em itens, onde qualquer local tenha "França" como seu país/região) corresponderia ao caminho realçado em vermelho abaixo:
 
-![Correspondência de um caminho específico em uma árvore](./media/index-overview/matching-path.png)
+:::image type="content" source="./media/index-overview/matching-path.png" alt-text="Correspondência de um caminho específico em uma árvore" border="false":::
 
 > [!NOTE]
 > Uma cláusula `ORDER BY` ordenada por uma única propriedade *sempre* precisa de um índice de intervalo e falhará se o caminho que ele referencia não tiver um. Da mesma forma, uma consulta `ORDER BY` ordenada por várias propriedades *sempre* precisa de um índice composto.

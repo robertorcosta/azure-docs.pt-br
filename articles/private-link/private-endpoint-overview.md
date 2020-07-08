@@ -5,14 +5,13 @@ services: private-link
 author: malopMSFT
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 01/09/2020
+ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: 51afa118be75c7e9ea2cb6e394d27cc39a58de0b
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: f4e5bbdc50d99eca774dc5b96657ac8bfdebca17
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849647"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85414140"
 ---
 # <a name="what-is-azure-private-endpoint"></a>O que é o Ponto de Extremidade Privado do Azure?
 
@@ -37,7 +36,7 @@ Estes são alguns detalhes importantes sobre os pontos de extremidade privados:
  
 - As conexões de rede só podem ser iniciadas por clientes conectados ao ponto de extremidade privado. Os provedores de serviço não têm configurações de roteamento para iniciar conexões com os consumidores de serviço. As conexões só podem ser estabelecidas em uma única direção.
 
-- Durante a criação de um ponto de extremidade privado, uma interface de rede somente leitura também é criada para o ciclo de vida do recurso. A interface recebe endereços IP privados dinamicamente da sub-rede que mapeia para o recurso do link privado. O valor do endereço IP privado permanece inalterado durante todo o ciclo de vida do ponto de extremidade privado.
+- Durante a criação de um ponto de extremidade privado, uma interface de rede somente leitura também é criada para o ciclo de vida do recurso. A interface recebe endereços IP privados dinamicamente da sub-rede que mapeia para o recurso do link privado. O valor do endereço IP privado permanece inalterado para todo o ciclo de vida do ponto de extremidade privado.
  
 - O ponto de extremidade privado deve ser implantado na mesma região que a rede virtual. 
  
@@ -55,6 +54,7 @@ Um recurso do link privado é o destino pretendido de determinado ponto de extre
 |Nome do recurso do link privado  |Tipo de recurso   |Sub-recursos  |
 |---------|---------|---------|
 |**Serviço do Link Privado** (seu próprio serviço)   |  Microsoft.Network/privateLinkServices       | empty |
+|**Automação do Azure** |  Microsoft.Automation/automationAccounts | Webhook, DSCAndHybridWorker |
 |**Banco de Dados SQL do Azure** | Microsoft.Sql/servers    |  SQL Server (sqlServer)        |
 |**Azure Synapse Analytics** | Microsoft.Sql/servers    |  SQL Server (sqlServer)        | 
 |**Armazenamento do Azure**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)<BR> Tabela (tabela, table_secondary)<BR> Fila (fila, queue_secondary)<BR> Arquivo (arquivo, file_secondary)<BR> Web (Web, web_secondary)        |
@@ -75,7 +75,7 @@ Um recurso do link privado é o destino pretendido de determinado ponto de extre
 |**Retransmissão do Azure** | Microsoft.Relay/namespaces | namespace |
 |**Grade de Eventos do Azure** | Microsoft.EventGrid/topics    | topic |
 |**Grade de Eventos do Azure** | Microsoft.EventGrid/domains    | domínio |
-|**Azure WebApps** | Microsoft.Web/sites    | site |
+|**Azure WebApps** | Microsoft.Web/sites    | sites |
 |**Azure Machine Learning** | Microsoft.MachineLearningServices/workspaces    | workspace |
   
  
@@ -86,7 +86,7 @@ Você pode impedir completamente que as cargas de trabalho acessem os pontos de 
  
 ## <a name="access-to-a-private-link-resource-using-approval-workflow"></a>Acesso a um recurso do link privado usando o fluxo de trabalho de aprovação 
 Você pode se conectar a um recurso do link privado usando os seguintes métodos de aprovação de conexão:
-- Aprovado **automaticamente** quando você detém o recurso do link particular específico ou possui permissão para usá-lo. A permissão necessária é baseada no tipo de recurso do link privado no seguinte formato: Microsoft.\<Provider>/<resource_type>/privateEndpointConnectionApproval/action
+- Aprovado **automaticamente** quando você detém o recurso do link particular específico ou possui permissão para usá-lo. A permissão necessária é baseada no tipo de recurso de link privado no seguinte formato: Microsoft. \<Provider> /<resource_type>/privateEndpointConnectionApproval/action
 - Solicitação **manual** quando você não tem a permissão necessária e deseja solicitar acesso. Um fluxo de trabalho de aprovação será iniciado. O ponto de extremidade privado e a conexão do ponto de extremidade particular subsequente serão criados em um estado "Pendente". O proprietário do recurso de link privado é responsável por aprovar a conexão. Depois de aprovado, o ponto de extremidade privado é habilitado para enviar o tráfego normalmente, conforme mostrado no diagrama de fluxo de trabalho de aprovação a seguir.  
 
 ![aprovação do fluxo de trabalho](media/private-endpoint-overview/private-link-paas-workflow.png)
@@ -124,9 +124,9 @@ A tabela a seguir inclui uma lista de limitações conhecidas ao usar pontos de 
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Criar um Ponto de Extremidade Privado para o Servidor do Banco de Dados SQL usando o portal](create-private-endpoint-portal.md)
-- [Criar um Ponto de Extremidade Privado para o Servidor do Banco de Dados SQL usando o PowerShell](create-private-endpoint-powershell.md)
-- [Criar um Ponto de Extremidade Privado para o Servidor do Banco de Dados SQL usando a CLI ](create-private-endpoint-cli.md)
+- [Criar um ponto de extremidade privado para o banco de dados SQL usando o portal](create-private-endpoint-portal.md)
+- [Criar um ponto de extremidade privado para o banco de dados SQL usando o PowerShell](create-private-endpoint-powershell.md)
+- [Criar um ponto de extremidade privado para o banco de dados SQL usando a CLI](create-private-endpoint-cli.md)
 - [Criar um Ponto de Extremidade Privado para a conta de Armazenamento usando o portal ](create-private-endpoint-storage-portal.md)
 - [Criar um Ponto de Extremidade Privado para a conta do Azure Cosmos usando o portal ](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Criar seu próprio serviço de Link Privado usando o Azure PowerShell](create-private-link-service-powershell.md)

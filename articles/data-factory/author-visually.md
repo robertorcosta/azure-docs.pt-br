@@ -10,12 +10,11 @@ ms.author: daperlov
 ms.reviewer: ''
 manager: anandsub
 ms.date: 05/15/2020
-ms.openlocfilehash: 79b89c6a6a7598dd3fbdfc5030fd59fe1aab6625
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: ac51fd63adcc0328ff67f5fbe13dbfdb768f4bfe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832768"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84343099"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Criação visual no Azure Data Factory
 
@@ -42,6 +41,12 @@ Para recursos de nível superior, como pipelines, conjuntos de dados e fluxos de
 ![Tela de criação](media/author-visually/properties-pane.png)
 
 O painel Propriedades só é aberto, por padrão, na criação de recursos. Para editá-lo, clique no ícone do painel Propriedades localizado no canto superior direito da tela.
+
+## <a name="management-hub"></a>Hub de gerenciamento
+
+O Hub de gerenciamento, acessado pela guia *gerenciar* no Azure data Factory UX, é um portal que hospeda ações de gerenciamento global para seu data Factory. Aqui, você pode gerenciar suas conexões com armazenamentos de dados e computações externas, configuração de controle do código-fonte e configurações de gatilho. Para obter mais informações, saiba mais sobre os recursos do [Hub de gerenciamento](author-management-hub.md).
+
+![Gerenciar serviços vinculados](media/author-management-hub/management-hub-linked-services.png)
 
 ## <a name="expressions-and-functions"></a>Expressões e funções
 

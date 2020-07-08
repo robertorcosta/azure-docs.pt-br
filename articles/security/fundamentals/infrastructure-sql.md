@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2020
 ms.author: terrylan
-ms.openlocfilehash: ad6d3992f03802174eb03aa30b57b8d3dac1d6c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e0e7089e7c674f324c2c3d293661c518b41731b9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78942965"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84021850"
 ---
 # <a name="azure-sql-database-security-features"></a>Recursos de segurança do Banco de Dados SQL do Azure    
 O Banco de Dados SQL do Azure fornece um serviço de banco de dados relacional no Azure. Para proteger os dados do cliente e fornecer recursos de segurança fortes que eles esperam de um serviço de banco de dados relacional, o Banco de Dados SQL tem seus próprios conjuntos de recursos de segurança. Esses recursos se baseiam nos controles que são herdados do Azure.
@@ -31,13 +30,13 @@ O Banco de Dados SQL do Azure fornece um serviço de banco de dados relacional n
 O Banco de Dados SQL do Azure oferece suporte apenas ao protocolo de fluxo de dados tabulares (TDS), que exige que o banco de dados seja acessível somente pela porta padrão do TCP/1433.
 
 ### <a name="azure-sql-database-firewall"></a>Firewall do Banco de Dados SQL do Azure
-Para ajudar a proteger os dados do cliente, o Banco de Dados SQL do Azure inclui uma funcionalidade de firewall que, por padrão, impede todo o acesso ao servidor do Banco de Dados SQL, conforme mostrado a seguir.
+Para ajudar a proteger os dados do cliente, o banco de dado SQL do Azure inclui uma funcionalidade de firewall, que, por padrão, impede todo o acesso ao SQL Database, como mostrado abaixo.
 
 ![Firewall do Banco de Dados SQL do Azure](./media/infrastructure-sql/sql-database-firewall.png)
 
 O firewall do gateway pode limitar endereços, o que permite que o controle granular dos clientes especifique intervalos de endereços IP aceitáveis. O firewall concede acesso com base no endereço IP de origem de cada solicitação.
 
-Os clientes podem obter a configuração de firewall usando um portal de gerenciamento ou programaticamente usando a API REST do Banco de Dados SQL do Azure Management. O firewall do gateway do Banco de Dados SQL do Azure, por padrão, impede que todo o acesso do TDS do cliente às instâncias do banco de dados do Azure SQL. Os clientes devem configurar o acesso usando listas de controle de acesso (ACLs) para permitir conexões do banco de dados SQL do Azure por endereços de Internet, protocolos e números de porta de origem e de destino.
+Os clientes podem obter a configuração de firewall usando um portal de gerenciamento ou programaticamente usando a API REST do Banco de Dados SQL do Azure Management. O Firewall do gateway do banco de dados SQL do Azure, por padrão, impede o acesso de TDS ao banco de dados SQL do Azure. Os clientes devem configurar o acesso usando listas de controle de acesso (ACLs) para permitir conexões do banco de dados SQL do Azure por endereços de Internet, protocolos e números de porta de origem e de destino.
 
 ### <a name="dosguard"></a>DoSGuard
 Ataques de negação de serviço (DoS) são reduzidos por um serviço de gateway de banco de dados SQL chamado DoSGuard. O DoSGuard controla ativamente os logons com falha de endereços IP. Se houver vários logons com falha de um endereço IP específico dentro de um período de tempo, o endereço IP é impedido de acessar todos os recursos no serviço por um período de tempo predefinido.

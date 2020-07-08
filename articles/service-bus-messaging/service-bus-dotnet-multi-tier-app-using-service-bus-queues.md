@@ -1,22 +1,14 @@
 ---
 title: Aplicativo multicamadas .NET usando o Barramento de Serviço do Azure | Microsoft Docs
 description: Um tutorial .NET que ajuda você a desenvolver um aplicativo de várias camadas no Azure que usa filas do barramento de serviço para se comunicar entre camadas.
-services: service-bus-messaging
-documentationcenter: .net
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2019
-ms.author: aschhab
-ms.openlocfilehash: d4d837bb49e4ce80340d59f8a01334f3c80ff413
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: c7a64e708d860fe9e5832ad3f1375f41f9b86724
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "60402848"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85340310"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Aplicativo multicamadas .NET usando filas do Barramento de Serviço do Azure
 
@@ -94,7 +86,7 @@ Depois, adiciona o código que envia os itens para uma fila do Barramento de Ser
    ![][13]
    
    Os assemblies de cliente obrigatórios agora são referenciados e alguns arquivos de código novos foram adicionados.
-10. Em **Gerenciador de Soluções**, clique com o botão direito do mouse em **Modelos**, **Adicionar** e **Classe**. Na caixa **Nome**, digite o nome **OnlineOrder.cs**. Em seguida, clique em **Adicionar**.
+10. Em **Gerenciador de Soluções**, clique com o botão direito do mouse em **Modelos**, **Adicionar** e **Classe**. Na caixa **Nome**, digite o nome **OnlineOrder.cs**. Clique em **Adicionar**.
 
 ### <a name="write-the-code-for-your-web-role"></a>Escreva o código para a função Web
 Nesta seção, você cria várias páginas que exibem seu aplicativo.
@@ -316,7 +308,7 @@ Agora você criará a função de trabalho que processa o envio de pedidos. Este
 4. Na caixa de diálogo **Adicionar Novo Projeto** de Função, clique em **Função de Trabalho com Fila do Barramento de Serviço**.
    
    ![][23]
-5. Na caixa **Nome**, insira **OrderProcessingRole**. Em seguida, clique em **Adicionar**.
+5. Na caixa **Nome**, insira **OrderProcessingRole**. Clique em **Adicionar**.
 6. Copie a cadeia de conexão que você obteve na etapa 9 da seção "Criar um namespace do Barramento de Serviço" para a área de transferência.
 7. No **Gerenciador de Soluções**, clique com botão direito do mouse em **OrderProcessingRole** criado na etapa 5 (não se esqueça de clicar com o botão direito do mouse em **OrderProcessingRole** em **Funções**, e não na classe). A seguir, clique em **Propriedades**.
 8. Na guia **Configurações** da caixa de diálogo **Propriedades**, clique dentro da caixa **Valor** para **Microsoft.ServiceBus.ConnectionString** e cole o valor do ponto de extremidade que você copiou na etapa 6.

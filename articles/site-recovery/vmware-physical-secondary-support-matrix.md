@@ -9,11 +9,10 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: cabd3f7693c6b6b86bf0324bdafdfe1377d1ece8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79256790"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711877"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matriz de suporte para recuperação de desastre de VMs VMware e servidores físicos para um site secundário
 
@@ -66,7 +65,7 @@ Somente computadores Linux com o armazenamento a seguir podem ser replicados:
 
 ## <a name="network-configuration---hostguest-vm"></a>Configuração de rede - VM Host/Convidada
 
-**Configuração** | **Com suporte**  
+**Configuration** | **Com suporte**  
 --- | --- 
 Host - Agrupamento NIC | Sim 
 Host - VLAN | Sim 
@@ -92,7 +91,7 @@ Múltiplos caminhos (MPIO) | Sim
 
 ### <a name="guest-or-physical-server-storage"></a>Armazenamento do servidor físico ou convidado
 
-**Configuração** | **Com suporte** 
+**Configuration** | **Com suporte** 
 --- | --- 
 VMDK | Sim 
 VHD/VHDX | N/D 

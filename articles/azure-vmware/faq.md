@@ -4,12 +4,11 @@ description: Fornece respostas para algumas dúvidas comuns sobre a AVS (Soluç�
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: dikamath
-ms.openlocfilehash: c318a17e433f40b17e3dd9e3e95a655ecb48a160
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.openlocfilehash: 1649b5649bd18b7ab53f3cc0196d7dff0f6f5b2c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873314"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84112698"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution-avs-preview"></a>Perguntas frequentes sobre a versão prévia da AVS (Solução VMware no Azure)
 
@@ -67,34 +66,7 @@ Não há qualquer alteração na Solução VMware da CloudSimple no Azure atual.
 
 Sim, a Solução VMware no Azure dá suporte à migração usando ferramentas conhecidas de VMware, como HCX. Para os clientes interessados em migrar para a nova solução, procure a equipe da sua conta Microsoft para explorar opções e suporte disponíveis.
 
-<a name="how-to-request-a-quota-increase-for-existing-avs"></a>**Como posso solicitar um aumento de cota de host para uma Solução VMware existente no Azure?**
 
-Você pode solicitar um aumento de cota [enviando uma solicitação de suporte](..\azure-portal\supportability\how-to-create-azure-support-request.md). A equipe de Gerenciamento de Cotas avalia a solicitação e a aprova dentro de três dias úteis.  
-
-> [!IMPORTANT]
-> Antes de poder solicitar um aumento de cota, certifique-se de [registrar o **provedor de recursos** Microsoft.AVS](tutorial-create-private-cloud.md) no portal do Azure.  
-> ```azurecli-interactive
-> az provider register -n Microsoft.AVS --subscription <your subscription ID>
-> ```
-> Confira outras maneiras de registrar o provedor de recursos em [Provedores e tipos de recursos do Azure](https://review.docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types).
-
-1. No portal do Azure, em **Ajuda e Suporte**, crie uma **Nova solicitação de suporte** e forneça as seguintes informações para o tíquete:
-   - **Tipo de problema:** técnico
-   - **Assinatura:** o ID da sua assinatura
-   - **Serviço:**  Solução VMware no Azure 
-   - **Resumo:** aumento da cota
-   - **Tipo de problema:** Problemas de Gerenciamento de Capacidade
-   - **Subtipo do problema:** solicitação do cliente para cota/capacidade de host adicional
-
-1. Na Descrição do tíquete de suporte, na guia Detalhes, informe:
-   - O número de nós adicionais   
-   - A SKU do nó
-   - A região
-
-   > [!NOTE] 
-   > Por padrão, será concedido um mínimo de quatro nós.
-
-1. Clique em **Revisar e Criar** para enviar a solicitação.
 
 ## <a name="compute-network-and-storage"></a>Computação, rede e armazenamento
 
@@ -164,7 +136,7 @@ Não, não é necessário usar o NSX no local.
 
 **O que é a atualização e o agendamento de atualização para o software VMware em uma nuvem privada?**
 
-As atualizações do pacote de software de nuvem privada são feitas para manter o software dentro de uma versão do lançamento mais recente do formulário de pacote de software VMware. As versões de software de nuvem privada podem ser diferentes das versões mais recentes dos componentes individuais de software (ESXi, NSX-T, vCenter, VSAN).
+As atualizações do pacote de software de nuvem privada são feitas para manter o software dentro de uma versão da versão mais recente do pacote de software do VMware. As versões de software de nuvem privada podem ser diferentes das versões mais recentes dos componentes individuais de software (ESXi, NSX-T, vCenter, VSAN).
 
 **Com que frequência a pilha de software de nuvem privada será atualizada?**
 
@@ -233,6 +205,35 @@ O suporte para AVS é fornecido pela Microsoft. Observe que, de acordo com nossa
 **De que conta eu preciso para criar uma nuvem privada da AVS?**
 
 Você precisará de uma conta do Azure em uma assinatura do Azure.
+
+<a name="how-to-request-a-quota-increase-for-avs"></a>**Como fazer solicitar um aumento de cota de host para a solução do Azure VMware?**
+
+Você pode solicitar um aumento de cota [enviando uma solicitação de suporte](..\azure-portal\supportability\how-to-create-azure-support-request.md). A equipe de Gerenciamento de Cotas avalia a solicitação e a aprova dentro de três dias úteis.  
+
+> [!IMPORTANT]
+> Antes de poder solicitar um aumento de cota, certifique-se de registrar o **provedor de recursos** Microsoft.AVS no portal do Azure.  
+> ```azurecli-interactive
+> az provider register -n Microsoft.AVS --subscription <your subscription ID>
+> ```
+> Confira outras maneiras de registrar o provedor de recursos em [Provedores e tipos de recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
+
+1. No portal do Azure, em **Ajuda e Suporte**, crie uma **Nova solicitação de suporte** e forneça as seguintes informações para o tíquete:
+   - **Tipo de problema:** técnico
+   - **Assinatura:** o ID da sua assinatura
+   - **Serviço:**  Solução VMware no Azure 
+   - **Resumo:** aumento da cota
+   - **Tipo de problema:** Problemas de Gerenciamento de Capacidade
+   - **Subtipo do problema:** solicitação do cliente para cota/capacidade de host adicional
+
+1. Na Descrição do tíquete de suporte, na guia Detalhes, informe:
+   - O número de nós adicionais   
+   - A SKU do nó
+   - A região
+
+   > [!NOTE] 
+   > Por padrão, será concedido um mínimo de quatro nós.
+
+1. Clique em **Revisar e Criar** para enviar a solicitação.
 
 <!-- LINKS - external -->
 [kb2106952]: https://kb.vmware.com/s/article/2106952

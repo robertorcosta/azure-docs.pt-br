@@ -3,15 +3,14 @@ title: Como auditar Azure Cosmos DB operações do plano de controle
 description: Saiba como auditar as operações do plano de controle, como adicionar uma região, taxa de transferência de atualização, failover de região, adicionar uma VNet, etc. no Azure Cosmos DB
 author: SnehaGunda
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 04/23/2020
+ms.topic: how-to
+ms.date: 06/25/2020
 ms.author: sngun
-ms.openlocfilehash: a5df7866f7897109dbd7a0ea8a52b857ab671875
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: MT
+ms.openlocfilehash: 4c9f02784507ee893b6396fef4ed34a87610166d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735344"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85414157"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Como auditar Azure Cosmos DB operações do plano de controle
 
@@ -27,9 +26,9 @@ Veja a seguir alguns cenários de exemplo em que as operações do plano de cont
 
 ## <a name="disable-key-based-metadata-write-access"></a>Desabilitar acesso de gravação de metadados com base em chave
 
-Antes de auditar as operações do plano de controle no Azure Cosmos DB, desabilite o acesso de gravação de metadados baseado em chave em sua conta. Quando o acesso de gravação de metadados com base em chave está desabilitado, os clientes que se conectam à conta do Azure Cosmos por meio de chaves de conta são impedidos de acessar Você pode desabilitar o acesso de gravação definindo `disableKeyBasedMetadataWriteAccess` a propriedade como true. Depois de definir essa propriedade, as alterações em qualquer recurso podem ocorrer de um usuário com a função e as credenciais adequadas do RBAC (controle de acesso baseado em função). Para saber mais sobre como definir essa propriedade, consulte o artigo [impedindo alterações de SDKs](role-based-access-control.md#preventing-changes-from-cosmos-sdk) . 
+Antes de auditar as operações do plano de controle no Azure Cosmos DB, desabilite o acesso de gravação de metadados baseado em chave em sua conta. Quando o acesso de gravação de metadados com base em chave está desabilitado, os clientes que se conectam à conta do Azure Cosmos por meio de chaves de conta são impedidos de acessar Você pode desabilitar o acesso de gravação definindo a `disableKeyBasedMetadataWriteAccess` propriedade como true. Depois de definir essa propriedade, as alterações em qualquer recurso podem ocorrer de um usuário com a função e as credenciais adequadas do RBAC (controle de acesso baseado em função). Para saber mais sobre como definir essa propriedade, consulte o artigo [impedindo alterações de SDKs](role-based-access-control.md#preventing-changes-from-cosmos-sdk) . 
 
-Depois que `disableKeyBasedMetadataWriteAccess` o for ativado, se os clientes baseados em SDK executarem operações de criação ou atualização, um erro *"operação ' Post ' no recurso ' ContainerNameorDatabaseName ' não será permitido por meio de Azure Cosmos DB ponto de extremidade* será retornado. Você precisa ativar o acesso a essas operações para sua conta ou executar as operações de criação/atualização por meio de Azure Resource Manager, CLI do Azure ou Azure PowerShell. Para alternar de volta, defina disableKeyBasedMetadataWriteAccess como **false** usando CLI do Azure conforme descrito no artigo [impedindo alterações do SDK do cosmos](role-based-access-control.md#preventing-changes-from-cosmos-sdk) . Certifique-se de alterar o valor `disableKeyBasedMetadataWriteAccess` de para falso em vez de true.
+Depois que o `disableKeyBasedMetadataWriteAccess` for ativado, se os clientes baseados em SDK executarem operações de criação ou atualização, um erro *"operação ' Post ' no recurso ' ContainerNameorDatabaseName ' não será permitido por meio de Azure Cosmos DB ponto de extremidade* será retornado. Você precisa ativar o acesso a essas operações para sua conta ou executar as operações de criação/atualização por meio de Azure Resource Manager, CLI do Azure ou Azure PowerShell. Para alternar de volta, defina disableKeyBasedMetadataWriteAccess como **false** usando CLI do Azure conforme descrito no artigo [impedindo alterações do SDK do cosmos](role-based-access-control.md#preventing-changes-from-cosmos-sdk) . Certifique-se de alterar o valor de `disableKeyBasedMetadataWriteAccess` para falso em vez de true.
 
 Considere os seguintes pontos ao desativar o acesso de gravação de metadados:
 
@@ -43,7 +42,7 @@ Você pode habilitar os logs de diagnóstico para operações de plano de contro
 
 Use as etapas a seguir para habilitar o registro em log nas operações do plano de controle:
 
-1. Entre [portal do Azure](https://portal.azure.com) e navegue até sua conta do Azure Cosmos.
+1. Entre no [portal do Azure](https://portal.azure.com) e navegue até sua conta do Azure Cosmos.
 
 1. Abra o painel **configurações de diagnóstico** , forneça um **nome** para os logs a serem criados.
 
@@ -51,7 +50,7 @@ Use as etapas a seguir para habilitar o registro em log nas operações do plano
 
 Você também pode armazenar os logs em uma conta de armazenamento ou transmitir para um hub de eventos. Este artigo mostra como enviar logs para o log Analytics e, em seguida, consultá-los. Depois de habilitar, levará alguns minutos para que os logs de diagnóstico entrem em vigor. Todas as operações do plano de controle executadas após esse ponto podem ser controladas. A captura de tela a seguir mostra como habilitar os logs do plano de controle:
 
-![Habilitar log de solicitações de plano de controle](./media/audit-control-plane-logs/enable-control-plane-requests-logs.png)
+:::image type="content" source="./media/audit-control-plane-logs/enable-control-plane-requests-logs.png" alt-text="Habilitar log de solicitações de plano de controle":::
 
 ## <a name="view-the-control-plane-operations"></a>Exibir as operações do plano de controle
 
@@ -69,17 +68,17 @@ Depois de ativar o registro em log, use as seguintes etapas para rastrear as ope
 
 As capturas de tela a seguir capturam logs quando um nível de consistência é alterado para uma conta do Azure Cosmos:
 
-![Controlar os logs de plano quando uma VNet for adicionada](./media/audit-control-plane-logs/add-ip-filter-logs.png)
+:::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Controlar os logs de plano quando uma VNet for adicionada":::
 
-As capturas de tela a seguir capturam logs quando a taxa de transferência de uma tabela Cassandra é atualizada:
+As capturas de tela a seguir capturam logs quando o keyspace ou uma tabela de uma conta Cassandra são criados e quando a taxa de transferência é atualizada. Os logs do plano de controle para operações de criação e atualização no banco de dados e o contêiner são registrados separadamente, conforme mostrado na seguinte captura de tela:
 
-![Controlar os logs de plano quando a taxa de transferência for atualizada](./media/audit-control-plane-logs/throughput-update-logs.png)
+:::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="Controlar os logs de plano quando a taxa de transferência for atualizada":::
 
 ## <a name="identify-the-identity-associated-to-a-specific-operation"></a>Identificar a identidade associada a uma operação específica
 
 Se você quiser depurar ainda mais, poderá identificar uma operação específica no log de **atividades** usando a ID da atividade ou o carimbo de data/hora da operação. O carimbo de data/hora é usado para alguns clientes do Resource Manager em que a ID da atividade não é aprovada explicitamente. O log de atividades fornece detalhes sobre a identidade com a qual a operação foi iniciada. A captura de tela a seguir mostra como usar a ID da atividade e localizar as operações associadas a ela no log de atividades:
 
-![Usar a ID da atividade e localizar as operações](./media/audit-control-plane-logs/find-operations-with-activity-id.png)
+:::image type="content" source="./media/audit-control-plane-logs/find-operations-with-activity-id.png" alt-text="Usar a ID da atividade e localizar as operações":::
 
 ## <a name="control-plane-operations-for-azure-cosmos-account"></a>Operações do plano de controle para a conta do Azure Cosmos
 
@@ -101,30 +100,39 @@ A seguir estão as operações do plano de controle disponíveis no nível da co
 
 A seguir estão as operações do plano de controle disponíveis no nível do banco de dados e do contêiner. Essas operações estão disponíveis como métricas no Azure monitor:
 
+* Banco de dados SQL criado
 * Banco de dados SQL atualizado
-* Contêiner SQL atualizado
 * Produtividade do banco de dados SQL atualizada
-* Produtividade do contêiner SQL atualizada
 * Banco de dados SQL excluído
+* Contêiner SQL criado
+* Contêiner SQL atualizado
+* Produtividade do contêiner SQL atualizada
 * Contêiner SQL excluído
+* Keyspace Cassandra criado
 * Cassandra keyspace atualizado
-* Tabela Cassandra atualizada
 * Taxa de transferência de keyspace Cassandra atualizada
-* Taxa de transferência de tabela Cassandra atualizada
 * Cassandra keyspace excluído
+* Tabela Cassandra criada
+* Tabela Cassandra atualizada
+* Taxa de transferência de tabela Cassandra atualizada
 * Tabela Cassandra excluída
+* Banco de dados Gremlin criado
 * Banco de dados Gremlin atualizado
-* Grafo Gremlin atualizado
 * Taxa de transferência do banco de dados Gremlin atualizada
-* Taxa de transferência do grafo Gremlin atualizada
 * Banco de dados Gremlin excluído
+* Grafo Gremlin criado
+* Grafo Gremlin atualizado
+* Taxa de transferência do grafo Gremlin atualizada
 * Grafo Gremlin excluído
+* Banco de dados Mongo criado
 * Banco de dados Mongo atualizado
-* Coleção Mongo atualizada
 * Taxa de transferência do banco de dados Mongo atualizada
-* Taxa de transferência de coleção Mongo atualizada
 * Banco de dados Mongo excluído
+* Coleção Mongo criada
+* Coleção Mongo atualizada
+* Taxa de transferência de coleção Mongo atualizada
 * Coleção Mongo excluída
+* Tabela do azuretable criada
 * Tabela do azuretable atualizada
 * Taxa de transferência de tabela do azuretable atualizada
 * Tabela do azuretable excluída
@@ -144,14 +152,15 @@ A seguir estão os nomes de operação nos logs de diagnóstico para operações
 
 Para operações específicas de API, a operação é nomeada com o seguinte formato:
 
-* ApiKind + ApiKindResourceType + OperationType + iniciar/concluir
-* ApiKind + ApiKindResourceType + "taxa de transferência" + OperationType + iniciar/concluir
+* ApiKind + ApiKindResourceType + OperationType
+* ApiKind + ApiKindResourceType + "taxa de transferência" + OperationType
 
 **Exemplo** 
 
-* CassandraKeyspacesUpdateStart, CassandraKeyspacesUpdateComplete
-* CassandraKeyspacesThroughputUpdateStart, CassandraKeyspacesThroughputUpdateComplete
-* SqlContainersUpdateStart, SqlContainersUpdateComplete
+* CassandraKeyspacesCreate
+* CassandraKeyspacesUpdate
+* CassandraKeyspacesThroughputUpdate
+* SqlContainersUpdate
 
 A propriedade *ResourceDetails* contém o corpo do recurso inteiro como uma carga de solicitação e contém todas as propriedades solicitadas para atualização
 
@@ -161,17 +170,31 @@ Veja a seguir alguns exemplos para obter os logs de diagnóstico para operaçõe
 
 ```kusto
 AzureDiagnostics 
-| where Category =="ControlPlaneRequests"
-| where  OperationName startswith "SqlContainersUpdateStart"
+| where Category startswith "ControlPlane"
+| where OperationName contains "Update"
+| project httpstatusCode_s, statusCode_s, OperationName, resourceDetails_s, activityId_g
 ```
 
 ```kusto
 AzureDiagnostics 
 | where Category =="ControlPlaneRequests"
-| where  OperationName startswith "SqlContainersThroughputUpdateStart"
+| where TimeGenerated >= todatetime('2020-05-14T17:37:09.563Z')
+| project TimeGenerated, OperationName, apiKind_s, apiKindResourceType_s, operationType_s, resourceDetails_s
+```
+
+```kusto
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
+| where  OperationName startswith "SqlContainersUpdate"
+```
+
+```kusto
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
+| where  OperationName startswith "SqlContainersThroughputUpdate"
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Explorar Azure Monitor para Azure Cosmos DB](../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json)
+* [Explorar o Azure Monitor para o Azure Cosmos DB](../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json)
 * [Monitorar e depurar com métricas no Azure Cosmos DB](use-metrics.md)

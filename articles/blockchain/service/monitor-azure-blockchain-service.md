@@ -2,14 +2,13 @@
 title: Monitorando o ABS (serviço Blockchain do Azure)
 description: Monitorando o serviço Blockchain do Azure por meio do Azure Monitor
 ms.date: 01/08/2020
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: v-umha
-ms.openlocfilehash: 6f2a91a8ffce67d3c4008a7587f2787f6446c341
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9d5b3cb02f6e4cd0804dc7fb15a4eacc8370bb99
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76293242"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85214036"
 ---
 # <a name="monitor-azure-blockchain-service-through-azure-monitor"></a>Monitorar o serviço Blockchain do Azure por meio do Azure Monitor  
 
@@ -30,7 +29,7 @@ A página de visão geral no portal do Azure para cada recurso de membro do serv
 
 ## <a name="diagnostic-settings"></a>Configurações de Diagnóstico  
 
-As métricas de plataforma e o log de atividades são coletados automaticamente, mas você deve criar uma configuração de diagnóstico para coletar logs de recursos ou encaminhá-los fora do Azure Monitor. Consulte [criar configuração de diagnóstico para coletar logs e métricas de plataforma no Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) para o processo detalhado para criar uma configuração de diagnóstico usando o portal do Azure, a CLI ou o PowerShell.
+As métricas de plataforma e o log de atividades são coletados automaticamente, mas você precisa criar uma configuração de diagnóstico para coletar logs de recursos ou encaminhá-los para fora do Azure Monitor. Consulte [criar configuração de diagnóstico para coletar logs e métricas de plataforma no Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) para o processo detalhado para criar uma configuração de diagnóstico usando o portal do Azure, a CLI ou o PowerShell.
 
 Ao criar uma configuração de diagnóstico, você especifica quais categorias de logs coletar. As categorias do serviço Blockchain do Azure estão listadas abaixo.
 
@@ -89,7 +88,7 @@ A tabela a seguir lista as propriedades dos logs do proxy Blockchain do Azure qu
 | NodeLocation  | Região do Azure onde o membro blockchain é implantado.  |
 | BlockchainNodeName  | O nome do nó do membro do serviço Blockchain do Azure no qual a operação é executada.   |
 | EthMethod  | O método, que é chamado pelo protocolo blockchain subjacente, no quorum, pode ser eth_sendTransactions, eth_getBlockByNumber etc.  |
-| Agente  | O agente do usuário que está agindo em nome de um usuário, como o navegador da Web Mozilla, Edge etc. Exemplos dos valores são: "Mozilla/5.0 (Linux x64) node. js/8.16.0 V8/6.2.414.77"  |
+| Agente  | O agente do usuário que está agindo em nome de um usuário, como o navegador da Web Mozilla, Edge etc. Exemplos dos valores são: "Mozilla/5.0 (Linux x64) node.js/8.16.0 V8/6.2.414.77"  |
 | Código   | Códigos de erro HTTP. Geralmente, 4XX e 5XX são condições de erro.  |
 | NodeHost  | O nome DNS do nó.   |
 | RequestMethodName | O método HTTP chamado, os valores possíveis aqui são colocados para criar membro, obter para obter detalhes do membro existente, excluir para membro de exclusão, PATCH para atualizar o membro.   |
@@ -115,7 +114,7 @@ A tabela a seguir lista as propriedades dos logs do aplicativo Blockchain do Azu
 | NodeLocation  | Região do Azure onde o membro blockchain é implantado.  |
 | BlockchainNodeName  | O nome do nó do membro do serviço Blockchain do Azure no qual a operação é executada.   |
 | BlockchainMessage    | Esse campo conterá o log do aplicativo Blockchain que são os logs simples de dados. Para o quorum de ABS, isso teria logs de quorum. Ele tem informações sobre o tipo de entrada de log que é informativo, erro, aviso e uma cadeia de caracteres que fornece mais informações sobre a ação executada.   |
-| TenantID    | O locatário específico da região do serviço Blockchain do Azure. O formato desse campo é https://westlake-rp-prod. <region>. cloudapp.Azure.com em que Region especifica a região do Azure do membro implantado.       |
+| TenantID    | O locatário específico da região do serviço Blockchain do Azure. O formato deste campo é https://westlake-rp-prod . <region> . cloudapp.azure.com em que Region especifica a região do Azure do membro implantado.       |
 | SourceSystem   | O sistema popula os logs, neste caso é o **Azure**.    |
 
 
@@ -133,10 +132,10 @@ A tabela a seguir especifica a lista de métricas Blockchain que são coletadas 
 
 | Nome da métrica | Unidade  |  Tipo de agregação| Descrição   |
 |---|---|---|---|
-| Transações pendentes   | Contagem  |  Média | O número de transações que estão aguardando para serem extraídas.   |
-| Blocos processados   | Contagem  | SUM  |  O número de blocos processados em cada intervalo de tempo. Atualmente, o tamanho do bloco é de 5 segundos, portanto, em um minuto, cada nó processará 12 blocos e 60 blocos em 5 minutos.   |
-|Transações processadas    | Contagem  | SUM  | O número de transações processadas em um bloco.    |
-|Transações em fila    |  Contagem | Média  | O número de transações que não podem ser imediatamente extraídas. Pode ser porque eles chegaram fora de ordem e o futuro está aguardando a chegada da transação anterior. Ou, pode ser que duas transações tenham o mesmo número usado apenas uma vez (nonce) e o mesmo valor de gás, portanto, o segundo não pode ser minado.   |
+| Transações Pendentes   | Contagem  |  Média | O número de transações que estão aguardando para serem extraídas.   |
+| Blocos Processados   | Contagem  | SUM  |  O número de blocos processados em cada intervalo de tempo. Atualmente, o tamanho do bloco é de 5 segundos, portanto, em um minuto, cada nó processará 12 blocos e 60 blocos em 5 minutos.   |
+|Transações Processadas    | Contagem  | SUM  | O número de transações processadas em um bloco.    |
+|Transações em Fila    |  Contagem | Média  | O número de transações que não podem ser imediatamente extraídas. Pode ser porque eles chegaram fora de ordem e o futuro está aguardando a chegada da transação anterior. Ou, pode ser que duas transações tenham o mesmo número usado apenas uma vez (nonce) e o mesmo valor de gás, portanto, o segundo não pode ser minado.   |
 
 ### <a name="connection-metrics"></a>Métricas de conexão  
 
@@ -145,10 +144,10 @@ A tabela a seguir lista as diferentes métricas de conexão que são coletadas p
 
 | Nome da métrica | Unidade  |  Tipo de agregação| Descrição |
 |---|---|---|---|
-| Conexões aceitas   | Contagem  |  SUM | O número total de conexões de cliente aceitas.   |
+| Conexões Aceitas   | Contagem  |  SUM | O número total de conexões de cliente aceitas.   |
 | Conexões ativas  | Contagem  | Média  |  O número atual de conexões de cliente ativas, incluindo a espera de conexões.    |
-|Conexões manipuladas    | Contagem  | SUM  | O número total de conexões manipuladas. Em geral, o valor do parâmetro é o mesmo que as conexões aceitas, a menos que alguns limites de recursos tenham sido atingidos.     |
-|Solicitações manipuladas     |  Contagem | SUM  | O número total de solicitações do cliente.  |
+|Conexões Manipuladas    | Contagem  | SUM  | O número total de conexões manipuladas. Em geral, o valor do parâmetro é o mesmo que as conexões aceitas, a menos que alguns limites de recursos tenham sido atingidos.     |
+|Solicitações Manipuladas     |  Contagem | SUM  | O número total de solicitações do cliente.  |
 
 
 ### <a name="performance-metrics"></a>Métricas de desempenho
@@ -159,12 +158,12 @@ A tabela a seguir lista as métricas de desempenho que são coletadas para cada 
 | Nome da métrica | Unidade  |  Tipo de agregação| Descrição   |
 |---|---|---|---|
 | Porcentagem de uso da CPU   | Porcentagem  |  Max | A porcentagem do uso da CPU.     |
-| Bytes de leitura de e/s   | Quilobytes   | SUM  |  A soma de bytes de leitura de e/s em todos os nós do recurso de membro blockchain.      |
-|Bytes de gravação de e/s     | Quilobytes   | SUM  | A soma da e/s grava bytes em todos os nós do recurso de membro blockchain.     |
-|Limite de memória       |  Gigabytes   | Média    | Memória máxima disponível para o processo blockchain por nó. |
+| Bytes de Leitura de E/S   | Quilobytes   | SUM  |  A soma de bytes de leitura de e/s em todos os nós do recurso de membro blockchain.      |
+|Bytes de Gravação de E/S     | Quilobytes   | SUM  | A soma da e/s grava bytes em todos os nós do recurso de membro blockchain.     |
+|Limite de Memória       |  Gigabytes   | Média    | Memória máxima disponível para o processo blockchain por nó. |
 |Uso de Memória     | Gigabytes  |  Média | A quantidade de memória usada na média em todos os nós.  |
-| Porcentagem de uso da memória     | Porcentagem   | Média  |  A porcentagem da memória usada na média em todos os nós.       |
-|Uso do armazenamento      | Gigabytes   | Média  | Os GB de armazenamento usados são medidos em média em todos os nós.       |
+| Percentual de Uso de Memória     | Porcentagem   | Média  |  A porcentagem da memória usada na média em todos os nós.       |
+|Uso de Armazenamento      | Gigabytes   | Média  | Os GB de armazenamento usados são medidos em média em todos os nós.       |
 
 
 ## <a name="next-steps"></a>Próximas etapas

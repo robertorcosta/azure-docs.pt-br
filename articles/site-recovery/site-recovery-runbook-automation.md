@@ -7,12 +7,11 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: rajanaki
-ms.openlocfilehash: ecfe993a137ca63c84438870ec54ac1e6d6707da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 123ef7de338bfe872948db60c68c0c5743f5cda1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257479"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84345131"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Adicionar runbooks de Automação do Azure aos planos de recuperação
 
@@ -56,6 +55,9 @@ Quando um script é executado, ele injeta um contexto de plano de recuperação 
 | CloudServiceName |O nome de serviço de nuvem do Azure no qual a VM foi criada. |
 | RoleName |O nome da VM do Azure. |
 | RecoveryPointId|O carimbo de data/hora para a recuperação da VM. |
+
+>[!Note]
+>O valor da variável ' A failoverdirection ' será ' PrimaryToSecondary ' no caso de failover e ' SecondaryToPrimary ' em caso de failback.
 
 O seguinte exemplo mostra uma variável de contexto:
 
@@ -117,7 +119,7 @@ O blog de Aman Sharma na [coleta de nuvens](http://harvestingclouds.com) tem um 
 
     ![Clicar no botão Personalizar](media/site-recovery-runbook-automation-new/custom-rp.png)
 
-2. Clique nas reticências (...) ao lado de **grupo 1: iniciar** > **Adicionar ação de postagem**.
+2. Clique nas reticências (...) ao lado de **grupo 1: iniciar**  >  **Adicionar ação de postagem**.
 3. Em **Inserir ação**, verifique se o **script** está selecionado e especifique um nome para o script (**Olá, mundo**).
 4. Especifique uma conta de automação e selecione um runbook. Para salvar o script, clique em **OK**. O script é adicionado ao **Grupo 1: Pós-etapas**.
 
