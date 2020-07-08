@@ -9,10 +9,10 @@ ms.date: 02/07/2020
 ms.author: jife
 ms.custom: include file
 ms.openlocfilehash: e1416b8b99c66daa4a27fa7f9bd7a20dfa9519e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77087433"
 ---
 O compartilhamento de dados do Azure permite que as organizações compartilhem dados de forma simples e segura com seus clientes e parceiros.

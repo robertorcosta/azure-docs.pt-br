@@ -9,10 +9,10 @@ ms.date: 03/19/2020
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: a00291182059506aeab9cde965fa4cbd5177ecf7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80132286"
 ---
 Se um usuário não tiver o acesso necessário para aplicar marcas, você poderá atribuir a função de **colaborador de marca** ao usuário. Para obter mais informações, consulte [tutorial: conceder a um usuário acesso aos recursos do Azure usando o RBAC e o portal do Azure](../articles/role-based-access-control/quickstart-assign-role-user-portal.md).
@@ -37,7 +37,7 @@ Se um usuário não tiver o acesso necessário para aplicar marcas, você poder�
 
 1. Para adicionar ou excluir uma marca, selecione **alterar**.
 
-1. Para excluir uma marca, selecione o ícone de lixeira. Em seguida, selecione **salvar**.
+1. Para excluir uma marca, selecione o ícone de lixeira. Em seguida, selecione **Salvar**.
 
    ![Excluir marca](./media/resource-manager-tag-resources/delete-tag.png)
 

@@ -9,10 +9,10 @@ ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: e5148ff9e92a2e550a3117356a4e77cbac8fc6f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67673219"
 ---
 *Aquecendo o cache*  
@@ -62,26 +62,26 @@ Um exemplo de especificações de acesso para o cenário de IOPS de gravação m
 
 1. Crie duas especificações de acesso com os valores mostrados abaixo:
 
-   | Name | Tamanho da solicitação | Aleatório % | Leitura % |
+   | Nome | Tamanho da solicitação | Aleatório % | Leitura % |
    | --- | --- | --- | --- |
    | RandomWrites\_1MB |1 MB |100 |0 |
    | RandomReads\_1MB |1 MB |100 |100 |
 1. Execute o teste Iometer para inicializar o disco do cache com os parâmetros a seguir. Use três threads de trabalho para o volume de destino e uma profundidade de fila de 128. Defina a duração do teste "Tempo de execução" como 2 horas na guia "Configuração do teste".
 
-   | Cenário | Volume de destino | Name | Duration |
+   | Cenário | Volume de destino | Nome | Duration |
    | --- | --- | --- | --- |
    | Inicializar disco do cache |CacheReads |RandomWrites\_1MB |2 horas |
 1. Execute o teste Iometer para aquecer o disco do cache com os parâmetros a seguir. Use três threads de trabalho para o volume de destino e uma profundidade de fila de 128. Defina a duração do teste "Tempo de execução" como 2 horas na guia "Configuração do teste".
 
-   | Cenário | Volume de destino | Name | Duration |
+   | Cenário | Volume de destino | Nome | Duration |
    | --- | --- | --- | --- |
    | Aquecer o disco do cache |CacheReads |RandomReads\_1MB |2 horas |
 
 Depois de aquecer o disco do cache, prossiga com os cenários de teste listados abaixo. Para executar o teste Iometer, use pelo menos três threads de trabalho para **cada** volume de destino. Para cada thread de trabalho, selecione o volume de destino, defina a profundidade da fila e selecione uma das especificações de teste salvas, conforme mostrado na tabela a seguir, para executar o cenário de teste correspondente. A tabela também mostra os resultados esperados para IOPS e Taxa de Transferência ao executar esses testes. Todos os cenários usam um tamanho pequeno de E/S, de 8 KB, e uma profundidade de fila alta de 128.
 
-| Cenário de teste | Volume de destino | Name | Result |
+| Cenário de teste | Volume de destino | Nome | Result |
 | --- | --- | --- | --- |
-| Máx. IOPS de leitura |CacheReads |RandomWrites\_8K |50.000 IOPS  |
+| Máx. IOPS de leitura |CacheReads |RandomWrites\_8K |50.000 IOPS |
 | Máx. IOPS de gravação |NoCacheWrites |RandomReads\_8K |64.000 IOPS |
 | Máx. IOPS combinada |CacheReads |RandomWrites\_8K |100.000 IOPS |
 | NoCacheWrites |RandomReads\_8K | &nbsp; | &nbsp; |

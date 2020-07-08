@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 01/28/2020
 ms.author: larryfr
 ms.openlocfilehash: 5102e8f75da14c58e948e81aaa418539dd18869a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80159397"
 ---
 As entradas no `inferenceconfig.json` documento são mapeadas para os parâmetros da classe [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) . A tabela a seguir descreve o mapeamento entre entidades no documento JSON e os parâmetros para o método:
@@ -74,7 +74,7 @@ Você também pode usar um [ambiente](https://docs.microsoft.com/python/api/azur
 }
 ```
 
-O comando a seguir demonstra como implantar um modelo usando o arquivo de configuração de inferência anterior (chamado myInferenceConfig. JSON). 
+O comando a seguir demonstra como implantar um modelo usando o arquivo de configuração de inferência anterior (chamado myInferenceConfig.jsem). 
 
 Ele também usa a versão mais recente de um [ambiente](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) de Azure Machine Learning existente (chamado AzureML-Minimal).
 

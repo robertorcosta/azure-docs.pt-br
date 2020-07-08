@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: 629de079f7cc7d95d10f8ff951a47b8b8fc62dad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77474217"
 ---
 Os erros gerados em um Azure Functions podem vir de qualquer uma das seguintes origens:
@@ -33,8 +33,8 @@ Capturar e publicar erros é essencial para monitorar a integridade do seu aplic
 
 Os seguintes gatilhos têm suporte interno de repetição:
 
-* [Armazenamento de BLOBs do Azure](../articles/azure-functions/functions-bindings-storage-blob.md)
-* [Armazenamento de filas do Azure](../articles/azure-functions/functions-bindings-storage-queue.md)
+* [Armazenamento de Blobs do Azure](../articles/azure-functions/functions-bindings-storage-blob.md)
+* [Armazenamento de Filas do Azure](../articles/azure-functions/functions-bindings-storage-queue.md)
 * [Barramento de Serviço do Azure (fila/tópico)](../articles/azure-functions/functions-bindings-service-bus.md)
 
 Por padrão, esses gatilhos retentam solicitações até cinco vezes. Após a quinta repetição, o armazenamento de fila do Azure e o barramento de serviço do Azure disparam a gravação de uma mensagem em uma [fila de suspeitas](..\articles\azure-functions\functions-bindings-storage-queue-trigger.md#poison-messages).

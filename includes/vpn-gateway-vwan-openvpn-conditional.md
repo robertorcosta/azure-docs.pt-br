@@ -9,10 +9,10 @@ ms.date: 02/14/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 410570302eec418f1e4bcb75d6413936a96b5171
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77471479"
 ---
 O acesso condicional permite o controle de acesso refinado em uma base por aplicativo. Para usar o acesso condicional, você deve ter um licenciamento Azure AD Premium 1 ou superior aplicado aos usuários que estarão sujeitos às regras de acesso condicional.
@@ -39,7 +39,7 @@ O acesso condicional permite o controle de acesso refinado em uma base por aplic
    ![Conceder acesso-MFA](./media/vpn-gateway-vwan-openvpn-azure-ad-mfa/mfa-ca-grant-mfa.png)
 4. Na seção **habilitar política** :
 
-   - Selecione **ativado**.
+   - Selecione **Ativada**.
    - Clique em **Criar**.
 
    ![Habilitar política](./media/vpn-gateway-vwan-openvpn-azure-ad-mfa/mfa-ca-enable-policy.png)

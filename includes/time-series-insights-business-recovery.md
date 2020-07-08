@@ -6,10 +6,10 @@ ms.author: dpalled
 manager: cshankar
 ms.date: 02/03/2020
 ms.openlocfilehash: 6a3837d01815306e469a684404ab76506f547f43
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77013699"
 ---
 ## <a name="business-disaster-recovery"></a>Recuperação de desastre de negócios
@@ -38,7 +38,7 @@ Alguns serviços do Azure IoT também incluem recursos internos de recuperação
 
 - [Recuperação de desastre de alta disponibilidade do Hub IOT do Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr), que inclui redundância de região interna
 - [Políticas de hubs de eventos do Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr)
-- [Redundância de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
+- [Redundância do Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 
 A integração do Time Series Insights com os outros serviços fornece outras oportunidades de recuperação de desastre. Por exemplo, a telemetria enviada ao Hub de eventos pode ser persistida em um banco de dados de armazenamento de BLOBs do Azure de backup.
 

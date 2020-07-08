@@ -9,10 +9,10 @@ ms.date: 01/15/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: cb959b94807678187363d3132ece273584f13a0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77590768"
 ---
 Economize em seu uso de Armazenamento em Disco do Azure com capacidade reservada. Armazenamento em Disco do Azure reservas combinadas com as instâncias de máquinas virtuais reservadas do Azure permitem reduzir os custos totais da VM (máquina virtual). O desconto de reserva é aplicado automaticamente aos discos correspondentes no escopo de reserva selecionado. Devido a esse aplicativo automático, você não precisa atribuir uma reserva a um disco gerenciado para obter os descontos.
@@ -74,7 +74,7 @@ Siga estas etapas para comprar a capacidade reservada:
    | **Região** | A região em que a reserva está em vigor. |
    | **Frequência de cobrança** | Com que frequência a conta é cobrada pela reserva. As opções incluem **mensalmente** e **antecipadamente**. |
 
-    ![Painel para selecionar o produto que você deseja comprar. png](media/disks-reserved-capacity/premium-ssd-reserved-purchase-selection.png)
+    ![Painel para selecionar o produto que você deseja purchase.png](media/disks-reserved-capacity/premium-ssd-reserved-purchase-selection.png)
 
 1. Depois de especificar os valores para sua reserva, o portal do Azure exibirá o custo. O portal também mostra a porcentagem de desconto sobre a cobrança paga conforme o uso. Selecione **Avançar** para continuar no painel **reservas de compra** .
 
@@ -88,7 +88,7 @@ Depois de comprar uma reserva, ela é aplicada automaticamente a todos os recurs
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Cancelar, trocar ou reembolsar reservas
 
-Você pode cancelar, trocar ou reembolsar reservas dentro de determinadas limitações. Para obter mais informações, consulte [trocas e reembolsos de autoatendimento para reservas do Azure](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
+Você pode cancelar, trocar ou reembolsar reservas dentro de determinadas limitações. Para obter mais informações, confira [Trocas e reembolsos via autoatendimento para Reservas do Azure](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
 
 ## <a name="expiration-of-a-reservation"></a>Expiração de uma reserva
 
@@ -96,11 +96,11 @@ Quando uma reserva expira, qualquer capacidade de Armazenamento em Disco do Azur
 
 Você receberá uma notificação por email 30 dias antes da expiração da reserva e novamente na data de expiração. Para continuar aproveitando a economia de custos que uma reserva fornece, renove-a não depois da data de expiração.
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco
 
 Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [O que são as reservas do Azure?](../articles/cost-management-billing/reservations/save-compute-costs-reservations.md)
+- [O que são Reservas do Azure?](../articles/cost-management-billing/reservations/save-compute-costs-reservations.md)
 - [Entenda como o desconto de reserva é aplicado ao Armazenamento em Disco do Azure](../articles/cost-management-billing/reservations/understand-disk-reservations.md)
