@@ -1,25 +1,14 @@
 ---
 title: Visão geral das APIs de Node de Retransmissão do Azure | Microsoft Docs
-description: Este artigo fornece uma visão geral da API do node. js para o serviço de retransmissão do Azure. Ele também mostra como usar o pacote de nó hyco-WS.
-services: service-bus-relay
-documentationcenter: na
-author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: b7d6e822-7c32-4cb5-a4b8-df7d009bdc85
-ms.service: service-bus-relay
-ms.devlang: na
+description: Este artigo fornece uma visão geral da API de Node.js para o serviço de retransmissão do Azure. Ele também mostra como usar o pacote de nó hyco-WS.
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/21/2020
-ms.author: spelluru
-ms.openlocfilehash: 2877284c419da4999e23490fc986e5da44e5d92e
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: 71faa2ee143488483aff4300152aab6d1e2b2a88
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83211834"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85316744"
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>Visão geral da API de Node de Conexões Híbridas de Retransmissão
 
@@ -143,7 +132,7 @@ function(headers)
 
 O evento `headers` é gerado antes de uma conexão de entrada ser aceita, permitindo a modificação dos cabeçalhos a enviar ao cliente. 
 
-##### <a name="connection"></a>connection
+##### <a name="connection"></a>conexão
 
 ```JavaScript
 function(socket)
@@ -211,4 +200,4 @@ WebSocket.relayedConnect(
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre a Retransmissão do Azure, visite estes links:
 * [O que é Retransmissão do Azure?](relay-what-is-it.md)
-* [APIs de Retransmissão Disponíveis](relay-api-overview.md)
+* [APIs de Retransmissão disponíveis](relay-api-overview.md)

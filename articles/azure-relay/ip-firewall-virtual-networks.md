@@ -1,21 +1,14 @@
 ---
 title: Configurar firewall de IP para um namespace de Retransmissão do Azure
 description: Este artigo descreve como usar regras de firewall para permitir conexões de endereços IP específicos para o namespace de Retransmissão do Azure.
-services: service-bus-relay
-documentationcenter: ''
-author: spelluru
-ms.service: service-bus-relay
-ms.devlang: na
-ms.custom: seodec18
 ms.topic: article
-ms.date: 05/13/2020
-ms.author: spelluru
-ms.openlocfilehash: 88eb7acf1e72084a83d6d8631c0ea5d740988640
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.date: 06/23/2020
+ms.openlocfilehash: f5fca44c56982e368b762a0b9b3418f1175f7de0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653445"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85314856"
 ---
 # <a name="configure-ip-firewall-for-an-azure-relay-namespace"></a>Configurar firewall de IP para um namespace de Retransmissão do Azure
 Por padrão, os namespaces de Retransmissão são acessíveis da Internet, desde que a solicitação acompanhe autenticação e autorização válidas. Com o firewall de IP, você pode restringir ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (roteamento entre domínios sem classificação)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).

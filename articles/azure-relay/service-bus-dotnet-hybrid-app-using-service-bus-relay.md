@@ -1,25 +1,14 @@
 ---
 title: Aplicativo híbrido local/na nuvem (.NET) de retransmissão do Azure Windows Communication Foundation (WCF) | Microsoft Docs
 description: Saiba como expor um serviço WCF local a um aplicativo Web na nuvem usando a Retransmissão do Azure
-services: service-bus-relay
-documentationcenter: .net
-author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: 9ed02f7c-ebfb-4f39-9c97-b7dc15bcb4c1
-ms.service: service-bus-relay
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 09/12/2019
-ms.author: spelluru
-ms.openlocfilehash: b86d535e4cbc275b3ee777d7c70146f7711c502c
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: 78d250eb2572f137df4bcfd40c5c85cee9fb61dc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83211587"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85314401"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Expor um serviço WCF local a um aplicativo Web na nuvem usando a Retransmissão do Azure
 
@@ -224,7 +213,7 @@ Faça as seguintes alterações de código em sua solução:
     > [!NOTE]
     > O erro causado por `transportClientEndpointBehavior` é apenas um aviso e não é um problema de bloqueio para este exemplo.
 
-1. Ainda em *app. config*, no `<appSettings>` elemento, substitua o valor da cadeia de conexão pela cadeia de conexão obtida anteriormente no Portal.
+1. Ainda em *App.config*, no `<appSettings>` elemento, substitua o valor da cadeia de conexão pela cadeia de conexão obtida anteriormente no Portal.
 
     ```xml
     <appSettings>
@@ -460,7 +449,7 @@ A próxima etapa é republicar o front-end **portaldeprodutos** do aplicativo We
 1. Selecione **arquivo**  >  **salvar tudo**.
 1. Selecione **criar**  >  **solução de recompilação**.
 
-## <a name="run-the-application"></a>Executar o aplicativo
+## <a name="run-the-application"></a>Execute o aplicativo
 
 Selecione F5 para compilar e executar o aplicativo. O servidor local, que é o aplicativo de console do **servidordeprodutos** , deve iniciar primeiro e, em seguida, o aplicativo **portaldeprodutos** deve ser iniciado em uma janela do navegador, como mostrado aqui:
 

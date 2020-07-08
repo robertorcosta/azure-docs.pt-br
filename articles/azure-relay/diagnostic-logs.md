@@ -1,22 +1,14 @@
 ---
 title: Logs de diagnóstico para Conexões Híbridas
 description: Este artigo fornece uma visão geral de todos os logs de atividade e de diagnóstico que estão disponíveis para a Retransmissão do Azure.
-services: service-bus-messaging
-author: spelluru
-editor: ''
-ms.assetid: ''
-ms.service: service-bus-relay
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.date: 04/27/2020
-ms.author: spelluru
-ms.openlocfilehash: b7ac5f1da70352115bf05df1a61120f46a85ec5d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: HT
+ms.date: 06/23/2020
+ms.openlocfilehash: f79e4aa21fcb9e592f431e252981dc0e7c02817f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83211100"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85314899"
 ---
 # <a name="enable-diagnostics-logs-for-azure-relay-hybrid-connections"></a>Habilitar logs de diagnóstico para conexões híbridas de Retransmissão do Azure
 Ao começar a usar as conexões híbridas de Retransmissão do Azure, convém monitorar como e quando seus ouvintes e remetentes são abertos e fechados e como suas conexões híbridas são criadas e as mensagens são enviadas. Este artigo fornece uma visão geral dos logs de atividade e de diagnóstico fornecidos pelo serviço de Retransmissão do Azure. 

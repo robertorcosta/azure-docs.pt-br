@@ -1,19 +1,14 @@
 ---
 title: Processar dados de hubs de eventos do Azure usando Stream Analytics | Microsoft Docs
 description: Este artigo mostra como processar dados do hub de eventos do Azure usando um trabalho Azure Stream Analytics.
-services: event-hubs
-author: spelluru
-manager: ''
-ms.author: spelluru
-ms.date: 07/09/2019
+ms.date: 06/23/2020
 ms.topic: article
-ms.service: event-hubs
-ms.openlocfilehash: 531426656fe833752c9c4685688c00de3894895b
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 2db4fba59a1a06a24ee2939c51ecdf65aa06cef3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "69991941"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85312887"
 ---
 # <a name="process-data-from-your-event-hub-using-azure-stream-analytics"></a>Processar dados do seu hub de eventos usando Azure Stream Analytics 
 O serviço de Azure Stream Analytics facilita a ingestão, o processamento e a análise de dados de streaming dos hubs de eventos do Azure, possibilitando ideias poderosas para impulsionar as ações em tempo real. Essa integração permite que você crie rapidamente um pipeline de análise de Hot-Path. Você pode usar o portal do Azure para visualizar dados de entrada e gravar uma consulta Stream Analytics. Quando a consulta estiver pronta, você poderá movê-la para a produção em apenas alguns cliques. 
@@ -49,7 +44,7 @@ Aqui estão os principais benefícios dos hubs de eventos do Azure e da integra�
     - Você pode visualizar os dados de entrada no formato de tabela ou no formato bruto. 
     - Se os dados mostrados não estiverem atuais, selecione **Atualizar** para ver os eventos mais recentes. 
 
-        Aqui está um exemplo de dados no **formato de tabela**: ![resulta no formato de tabela](./media/process-data-azure-stream-analytics/snapshot-results.png)
+        Aqui está um exemplo de dados no **formato de tabela**: ![ resulta no formato de tabela](./media/process-data-azure-stream-analytics/snapshot-results.png)
 
         Aqui está um exemplo de dados no **formato bruto**: 
 

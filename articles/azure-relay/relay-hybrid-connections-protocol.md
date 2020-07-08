@@ -1,25 +1,14 @@
 ---
 title: Guia de Protocolo de Conexões Híbridas de Retransmissão do Azure | Microsoft Docs
 description: Este artigo descreve as interações do lado do cliente com a retransmissão das Conexões Híbridas para conectar clientes em funções de ouvinte e de remetente.
-services: service-bus-relay
-documentationcenter: na
-author: clemensv
-manager: timlt
-editor: ''
-ms.assetid: 149f980c-3702-4805-8069-5321275bc3e8
-ms.service: service-bus-relay
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/21/2020
-ms.author: clemensv
-ms.openlocfilehash: 68668452152064584d1c419a3053ccb642b103f8
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: 798be7f0003509aee6ae616ba33fcc41e5c86275
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83211808"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85316647"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protocolo de Conexões Híbridas de Retransmissão do Azure
 
@@ -144,7 +133,7 @@ O `namespace-address` é o nome de domínio totalmente qualificado do namespace 
 
 As opções de parâmetro de cadeia de caracteres de consulta são conforme demonstrado a seguir.
 
-| Parâmetro        | Necessária | Descrição
+| Parâmetro        | Obrigatório | Descrição
 | ---------------- | -------- | -------------------------------------------
 | `sb-hc-action`   | Sim      | Para a função de ouvinte, o parâmetro deve ser **SB-HC-Action = escutar**
 | `{path}`         | Sim      | O caminho de namespace codificado como URL da Conexão Híbrida pré-configurada na qual este ouvinte será registrado. Esta expressão é acrescentada à parte do caminho `$hc/` fixa.
@@ -204,7 +193,7 @@ O mesmo se aplica ao cabeçalho `Sec-WebSocket-Extensions`. Se a estrutura der s
 
 A URL deve ser usada no estado em que se encontra para estabelecer o soquete de aceitação, mas contém os seguintes parâmetros:
 
-| Parâmetro      | Necessária | Descrição
+| Parâmetro      | Obrigatório | Descrição
 | -------------- | -------- | -------------------------------------------------------------------
 | `sb-hc-action` | Sim      | Para aceitar um soquete, o parâmetro deverá ser `sb-hc-action=accept`
 | `{path}`       | Sim      | (confira no parágrafo a seguir)
@@ -241,7 +230,7 @@ Se houver um erro, o serviço poderá responder da seguinte maneira:
 
  Para rejeitar o soquete, o cliente usa o URI de endereço da mensagem `accept` e acrescenta dois parâmetros da cadeia de consulta, da seguinte forma:
 
-| Param                   | Necessária | Descrição                              |
+| Param                   | Obrigatório | Descrição                              |
 | ----------------------- | -------- | ---------------------------------------- |
 | sb-hc-statusCode        | Sim      | Código de status HTTP numérico.                |
 | sb-hc-statusDescription | Sim      | Motivo da rejeição legível por humanos. |
@@ -376,7 +365,7 @@ Para as respostas que excedem 64 KB, a resposta PRECISA ser entregue por um soqu
 
 A URL `address` na `request` precisa ser usada no estado em que se encontra para estabelecer o soquete de reunião, mas contém os seguintes parâmetros:
 
-| Parâmetro      | Necessária | Descrição
+| Parâmetro      | Obrigatório | Descrição
 | -------------- | -------- | -------------------------------------------------------------------
 | `sb-hc-action` | Sim      | Para aceitar um soquete, o parâmetro deverá ser `sb-hc-action=request`
 
@@ -434,7 +423,7 @@ A solicitação pode conter cabeçalhos HTTP adicionais arbitrários, incluindo 
 
 As opções de parâmetro de cadeia de caracteres de consulta são conforme demonstrado a seguir:
 
-| Param          | Necessário? | Descrição
+| Param          | Obrigatório? | Descrição
 | -------------- | --------- | -------------------------- |
 | `sb-hc-action` | Sim       | Para a função de remetente, o parâmetro deve ser `sb-hc-action=connect`.
 | `{path}`       | Sim       | (confira no parágrafo a seguir)
@@ -482,7 +471,7 @@ A solicitação pode conter cabeçalhos HTTP adicionais arbitrários, incluindo 
 
 As opções de parâmetro de cadeia de caracteres de consulta são conforme demonstrado a seguir:
 
-| Param          | Necessário? | Descrição
+| Param          | Obrigatório? | Descrição
 | -------------- | --------- | ---------------- |
 | `sb-hc-token`  | Sim\*     | O ouvinte deve fornecer um Token de Acesso válido, compartilhado com o Barramento de Serviço, em formato codificado de URL para o namespace ou Conexão Híbrida que confere o direito **Send**.
 
@@ -491,7 +480,7 @@ O token também pode estar contido no cabeçalho HTTP `ServiceBusAuthorization` 
 Como o serviço age efetivamente como um proxy, mesmo que não como um proxy HTTP verdadeiro, ele adiciona um cabeçalho `Via` ou anota o cabeçalho `Via` existente compatível com o [RFC7230, Seção 5.7.1](https://tools.ietf.org/html/rfc7230#section-5.7.1).
 O serviço adiciona o nome do host do namespace de retransmissão em `Via`.
 
-| Código | Mensagem  | Descrição                    |
+| Código | Mensagem  | Description                    |
 | ---- | -------- | ------------------------------ |
 | 200  | OK       | A solicitação foi manipulada por pelo menos um ouvinte.  |
 | 202  | Aceita | A solicitação foi aceita por pelo menos um ouvinte. |
@@ -509,7 +498,7 @@ Se houver algum erro, o serviço poderá responder da seguinte maneira. É poss�
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Perguntas frequentes sobre Retransmissão](relay-faq.md)
+* [Perguntas frequentes sobre retransmissão](relay-faq.md)
 * [Criar um namespace](relay-create-namespace-portal.md)
 * [Introdução ao .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Introdução ao Node](relay-hybrid-connections-node-get-started.md)

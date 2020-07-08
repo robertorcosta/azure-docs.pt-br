@@ -1,23 +1,14 @@
 ---
 title: Balancear a carga de partição em várias instâncias – hubs de eventos do Azure | Microsoft Docs
 description: Descreve como balancear a carga de partição entre várias instâncias do seu aplicativo usando um processador de eventos e o SDK dos hubs de eventos do Azure.
-services: event-hubs
-documentationcenter: .net
-author: ShubhaVijayasarathy
-editor: ''
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/16/2020
-ms.author: shvija
-ms.openlocfilehash: e7f17c589b043a055bd541a0850d9efc8e1d96be
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.date: 06/23/2020
+ms.openlocfilehash: d5db1e877c1bfa6fac177e1ff8ed137e0301b709
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628854"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85314993"
 ---
 # <a name="balance-partition-load-across-multiple-instances-of-your-application"></a>Balancear a carga de partição entre várias instâncias do seu aplicativo
 Para dimensionar seu aplicativo de processamento de eventos, você pode executar várias instâncias do aplicativo e fazer com que ele Equilibre a carga entre si. Nas versões mais antigas, o [EventProcessorHost](event-hubs-event-processor-host.md) permitia que você balanceie a carga entre várias instâncias do programa e eventos de ponto de verificação ao receber. Nas versões mais recentes (5,0 em diante), **EventProcessorClient** (.net e Java) ou **EventHubConsumerClient** (Python e JavaScript) permite que você faça o mesmo. O modelo de desenvolvimento é simplificado com o uso de eventos. Você assina os eventos nos quais está interessado registrando um manipulador de eventos.
@@ -44,7 +35,7 @@ Ao projetar o consumidor em um ambiente distribuído, o cenário deve lidar com 
 
 ## <a name="event-processor-or-consumer-client"></a>Processador de eventos ou cliente consumidor
 
-Você não precisa criar sua própria solução para atender a esses requisitos. Os SDKs dos hubs de eventos do Azure fornecem essa funcionalidade. Em SDKs .NET ou Java, você usa um cliente de processador de eventos (EventProcessorClient) e em SDKs de script Java e Python, você usa EventHubConsumerClient. Na versão antiga do SDK, era o host do processador de eventos (EventProcessorHost) que suportava esses recursos.
+Você não precisa criar sua própria solução para atender a esses requisitos. Os SDKs dos hubs de eventos do Azure fornecem essa funcionalidade. Em SDKs .NET ou Java, você usa um cliente de processador de eventos (EventProcessorClient) e em SDKs de JavaScript e Python, você usa o EventHubConsumerClient. Na versão antiga do SDK, era o host do processador de eventos (EventProcessorHost) que suportava esses recursos.
 
 Para a maioria dos cenários de produção, recomendamos que você use o cliente do processador de eventos para ler e processar eventos. O cliente de processador destina-se a fornecer uma experiência robusta para o processamento de eventos em todas as partições de um hub de eventos de maneira eficaz e tolerante a falhas, fornecendo um meio de ponto de verificação do seu progresso. Os clientes do processador de eventos também são capazes de trabalhar de forma cooperativa no contexto de um grupo de consumidores para um determinado Hub de eventos. Os clientes gerenciarão automaticamente a distribuição e o balanceamento de trabalho, pois as instâncias ficam disponíveis ou não estão disponíveis para o grupo.
 
@@ -92,7 +83,7 @@ Quando o ponto de verificação é executado para marcar um evento como processa
 
 ## <a name="thread-safety-and-processor-instances"></a>Instâncias de processador e de segurança do thread
 
-Por padrão, o processador de eventos ou o consumidor é thread-safe e se comporta de maneira síncrona. Quando eventos chegam a uma partição, a função que processa os eventos é chamada. As mensagens e chamadas subsequentes para essa função se enfileiram nos bastidores à medida que a bomba da mensagem continua a ser executada em segundo plano em outros threads. Esse thread-safe elimina a necessidade de coleções thread-safe e aumenta drasticamente o desempenho.
+Por padrão, a função que processa os eventos é chamada sequencialmente para uma determinada partição. Os eventos subsequentes e as chamadas para essa função da mesma fila em diante nos bastidores à medida que a bomba do evento continua a ser executada em segundo plano em outros threads. Observe que os eventos de partições diferentes podem ser processados simultaneamente e qualquer estado compartilhado que seja acessado entre partições deve ser sincronizado.
 
 ## <a name="next-steps"></a>Próximas etapas
 Consulte o seguinte início rápido:

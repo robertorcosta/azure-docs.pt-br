@@ -1,24 +1,14 @@
 ---
 title: Hubs de eventos do Azure-exceções
 description: Este artigo fornece uma lista de exceções de mensagens dos Hubs de Eventos do Azure e ações sugeridas.
-services: event-hubs
-documentationcenter: na
-author: ShubhaVijayasarathy
-manager: timlt
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.custom: seodec18
-ms.date: 01/16/2020
-ms.author: shvija
-ms.openlocfilehash: d7f420b353361bdd4185958a1f66bfb68fd5decc
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: ce9e1bcd1f9e4d196d03d55374af8b1c86651851
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125631"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85314607"
 ---
 # <a name="event-hubs-messaging-exceptions---net"></a>Exceções de mensagens dos hubs de eventos-.NET
 Esta seção lista as exceções .NET geradas por .NET Framework APIs. 
@@ -130,6 +120,6 @@ ExceptionId: 00000000000-00000-0000-a48a-9c908fbe84f6-ServerBusyException: The r
 
 Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 
-* [Visão geral de Hubs de Evento](event-hubs-what-is-event-hubs.md)
-* [Criar um hub de eventos](event-hubs-create.md)
-* [Perguntas frequentes dos Hubs de Eventos](event-hubs-faq.md)
+* [Visão geral de Hubs de Eventos](event-hubs-what-is-event-hubs.md)
+* [Criar um Hub de Eventos](event-hubs-create.md)
+* [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.md)

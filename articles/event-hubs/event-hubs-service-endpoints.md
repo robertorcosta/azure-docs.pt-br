@@ -1,22 +1,14 @@
 ---
 title: Pontos de extremidade de serviço de Rede Virtual - Hubs de Eventos do Azure | Microsoft Docs
 description: Este artigo fornece informações sobre como adicionar um ponto de extremidade de serviço do Microsoft. EventHub a uma rede virtual.
-services: event-hubs
-documentationcenter: ''
-author: ShubhaVijayasarathy
-manager: timlt
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.custom: seodec18
-ms.date: 11/26/2019
-ms.author: shvija
-ms.openlocfilehash: 91b08d6130da640adc28a3b7d85bd33f0e876caf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: cf8b956a38f0b22581da3608cd64219aba484988
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81390277"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85315420"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Usar pontos de extremidade de serviço de Rede Virtual com Hubs de Eventos do Azure
 
@@ -24,7 +16,7 @@ A integração de Hubs de Eventos com [Pontos de extremidade de serviço de VNet
 
 Uma vez configurado para ser associado a pelo menos um ponto de extremidade de serviço de sub-rede de rede virtual, o respectivo namespace de hubs de eventos não aceitará mais o tráfego de qualquer lugar, mas de sub-redes autorizadas em redes virtuais. Da perspectiva da rede virtual, a associação de um namespace de Hubs de Eventos a um ponto de extremidade de serviço configura um túnel de rede isolado da sub-rede da rede virtual para o serviço de sistema de mensagens. 
 
-O resultado é um relacionamento privado e isolado entre as cargas de trabalho associadas à sub-rede e o respectivo namespace de Hubs de Eventos, apesar do endereço de rede observável do ponto de extremidade de serviço de mensagens estar em um intervalo de IP público. Há uma exceção a esse comportamento. Habilitar um ponto de extremidade de serviço, por padrão `denyall` , habilita a regra no [Firewall IP](event-hubs-ip-filtering.md) associado à rede virtual. Você pode adicionar endereços IP específicos no firewall de IP para habilitar o acesso ao ponto de extremidade público do hub de eventos. 
+O resultado é um relacionamento privado e isolado entre as cargas de trabalho associadas à sub-rede e o respectivo namespace de Hubs de Eventos, apesar do endereço de rede observável do ponto de extremidade de serviço de mensagens estar em um intervalo de IP público. Há uma exceção a esse comportamento. Habilitar um ponto de extremidade de serviço, por padrão, habilita a `denyall` regra no [Firewall IP](event-hubs-ip-filtering.md) associado à rede virtual. Você pode adicionar endereços IP específicos no firewall de IP para habilitar o acesso ao ponto de extremidade público do hub de eventos. 
 
 >[!WARNING]
 > Implementar a integração de redes virtuais pode impedir que outros serviços do Azure interajam com Hubs de Eventos.
@@ -38,7 +30,7 @@ O resultado é um relacionamento privado e isolado entre as cargas de trabalho a
 > - Rotas do Hub IoT do Azure
 > - Device Explorer do Azure IoT
 >
-> Os seguintes serviços da Microsoft devem estar em uma rede virtual
+> Os serviços da Microsoft a seguir devem estar em uma rede virtual
 > - Aplicativos Web do Azure
 > - Funções do Azure
 
@@ -65,10 +57,10 @@ A regra da rede virtual é uma associação do namespace de Hubs de Eventos com 
 ## <a name="use-azure-portal"></a>Usar o portal do Azure
 Esta seção mostra como usar portal do Azure para adicionar um ponto de extremidade de serviço de rede virtual. Para limitar o acesso, você precisa integrar o ponto de extremidade de serviço de rede virtual para este namespace de hubs de eventos.
 
-1. Navegue até o **namespace dos hubs de eventos** na [portal do Azure](https://portal.azure.com).
-2. No menu à esquerda, selecione a opção **rede** . Se você selecionar a opção **todas as redes** , o Hub de eventos aceitará conexões de qualquer endereço IP. Essa configuração é equivalente a uma regra que aceita o intervalo de endereços IP 0.0.0.0/0. 
+1. Navegue até o seu **namespace dos Hubs de Eventos** no [portal do Azure](https://portal.azure.com).
+2. No menu à esquerda, selecione a opção **Rede**. Se você selecionar a opção **Todas as redes**, o hub de eventos aceitará conexões de qualquer endereço IP. Essa configuração é equivalente a uma regra que aceita o intervalo de endereço IP 0.0.0.0/0. 
 
-    ![Firewall – opção todas as redes selecionada](./media/event-hubs-firewall/firewall-all-networks-selected.png)
+    ![Firewall – opção "Todas as redes" selecionada](./media/event-hubs-firewall/firewall-all-networks-selected.png)
 1. Para restrct o acesso a redes específicas, selecione a opção **redes selecionadas** na parte superior da página.
 2. Na seção **rede virtual** da página, selecione * * + Adicionar rede virtual existente * * *. Selecione **+ criar nova rede virtual** se desejar criar uma nova VNet. 
 
@@ -83,7 +75,7 @@ Esta seção mostra como usar portal do Azure para adicionar um ponto de extremi
 
     > [!NOTE]
     > Se não for possível habilitar o ponto de extremidade de serviço, você poderá ignorar o ponto de extremidade de serviço de rede virtual ausente usando o modelo do Resource Manager. Essa funcionalidade não está disponível no portal.
-6. Selecione **salvar** na barra de ferramentas para salvar as configurações. Aguarde alguns minutos para que a confirmação seja exibida nas notificações do Portal.
+6. Selecione **Salvar** na barra de ferramentas para salvar as configurações. Aguarde alguns minutos para que a confirmação seja exibida nas notificações do portal.
 
     ![Salvar rede](./media/event-hubs-tutorial-vnet-and-firewalls/save-vnet.png)
 
@@ -99,7 +91,7 @@ Parâmetros de modelo:
 * **virtualNetworkingSubnetId**: caminho do Resource Manager totalmente qualificado para a sub-rede da rede virtual, por exemplo, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` para a sub-rede padrão de uma rede virtual.
 
 > [!NOTE]
-> Embora não haja nenhuma regra de negação possível, o modelo do Azure Resource Manager tem a ação padrão definida como **"Allow"**, que não restringe as conexões.
+> Embora não haja nenhuma regra de negação possível, o modelo do Azure Resource Manager tem a ação padrão definida como **"Allow"** , que não restringe as conexões.
 > Ao criar as regras de rede virtual ou de firewalls, devemos alterar a ***"defaultAction"***
 > 
 > de

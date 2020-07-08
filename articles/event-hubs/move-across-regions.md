@@ -1,20 +1,14 @@
 ---
 title: Mover um namespace de hubs de eventos do Azure para outra região | Microsoft Docs
 description: Este artigo mostra como mover um namespace de hubs de eventos do Azure da região atual para outra região.
-services: event-hubs
-author: spelluru
-ms.service: event-hubs
 ms.topic: how-to
-ms.custom: subject-moving-resources
-ms.date: 04/14/2020
-ms.author: spelluru
-ms.reviewer: shvija
-ms.openlocfilehash: 5b96bf1c538b3c5589a1993a0353292fadd0936d
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.date: 06/23/2020
+ms.openlocfilehash: a70397772d22a65046f87877deab6263d4b2104f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690481"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85312966"
 ---
 # <a name="move-an-azure-event-hubs-namespace-to-another-region"></a>Mover um namespace de hubs de eventos do Azure para outra região
 Há vários cenários em que você deseja mover o namespace de seus hubs de eventos existentes de uma região para outra. Por exemplo, talvez você queira criar um namespace com a mesma configuração para teste. Você também pode querer criar um namespace secundário em outra região como parte do [planejamento de recuperação de desastre](event-hubs-geo-dr.md#setup-and-failover-flow).
@@ -25,7 +19,7 @@ Há vários cenários em que você deseja mover o namespace de seus hubs de even
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Verifique se os serviços e recursos que sua conta usa têm suporte na região de destino.
-- Para recursos de visualização, verifique se sua assinatura está na lista de permissões para a região de destino.
+- Para obter as versões prévias do recurso, verifique se sua assinatura está na lista de permissões para a região de destino.
 - Se você tiver o **recurso de captura** habilitado para hubs de eventos no namespace, mova o [armazenamento do Azure ou Azure data Lake Store gen 2](../storage/common/storage-account-move.md) ou Azure data Lake Store contas [Gen 1](../data-lake-store/data-lake-store-migration-cross-region.md) antes de mover o namespace dos hubs de eventos. Você também pode mover o grupo de recursos que contém os namespaces de armazenamento e hubs de eventos para a outra região seguindo as etapas semelhantes às descritas neste artigo. 
 - Se o namespace de hubs de eventos estiver em um **cluster de hubs de eventos**, [crie um cluster dedicado](event-hubs-dedicated-cluster-create-portal.md) na **região de destino** antes de percorrer as etapas neste artigo. Você também pode usar o [modelo de início rápido no GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-cluster-namespace-eventhub/) para criar um cluster de hubs de eventos. No modelo, remova a parte de namespace do JSON para criar apenas o cluster. 
 
@@ -36,7 +30,7 @@ Para começar, exporte um modelo do Resource Manager. Este modelo contém config
 
 2. Selecione **todos os recursos** e, em seguida, selecione seu namespace de hubs de eventos.
 
-3. Selecione **configurações** > de >**modelo de exportação**.
+3. Selecione **configurações**de >  >  **modelo de exportação**.
 
 4. Escolha **baixar** na página **Exportar modelo** .
 
@@ -54,15 +48,15 @@ Implante o modelo para criar um namespace de hubs de eventos na região de desti
 
 1. Na portal do Azure, selecione **criar um recurso**.
 
-2. Em **Pesquisar no Marketplace**, digite **implantação de modelo** e pressione **ENTER**.
+2. Em **Pesquisar no Marketplace**, digite **implantação de modelo**e pressione **Enter**.
 
-3. Selecione **Implantação de modelo**.
+3. Selecione **implantação de modelo**.
 
 4. Selecione **Criar**.
 
-5. Selecione **Criar seu próprio modelo no editor**.
+5. Selecione **criar seu próprio modelo no editor**.
 
-6. Selecione **carregar arquivo**e siga as instruções para carregar o arquivo **Template. JSON** que você baixou na última seção.
+6. Selecione **carregar arquivo**e siga as instruções para carregar o **template.jsno** arquivo que você baixou na última seção.
 
 7. Selecione **salvar** para salvar o modelo. 
 
@@ -85,7 +79,7 @@ Implante o modelo para criar um namespace de hubs de eventos na região de desti
               ```
               /subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<CLUSTER'S RESOURCE GROUP>/providers/Microsoft.EventHub/clusters/<CLUSTER NAME>
               ```   
-        3. Se o Hub de eventos em seu namespace usar uma conta de armazenamento para capturar eventos, especifique o nome do grupo de recursos `StorageAccounts_<original storage account name>_external` e a conta de armazenamento para o campo. 
+        3. Se o Hub de eventos em seu namespace usar uma conta de armazenamento para capturar eventos, especifique o nome do grupo de recursos e a conta de armazenamento para o `StorageAccounts_<original storage account name>_external` campo. 
             
             ```
             /subscriptions/0000000000-0000-0000-0000-0000000000000/resourceGroups/<STORAGE'S RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>
@@ -111,8 +105,8 @@ Para excluir um namespace de hubs de eventos (origem ou destino) usando o portal
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você moveu um namespace de hubs de eventos do Azure de uma região para outra e limpou os recursos de origem.  Para saber mais sobre como mover recursos entre regiões e recuperação de desastres no Azure, consulte:
+Neste tutorial, você moveu um namespace de hubs de eventos do Azure de uma região para outra e limpou os recursos de origem.  Para saber mais sobre como mover recursos entre regiões e recuperação de desastres no Azure, confira:
 
 
 - [Mover recursos para um novo grupo de recursos ou assinatura](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [Mover VMs do Azure para outra região](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Mover as VMs do Azure para outra região](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)

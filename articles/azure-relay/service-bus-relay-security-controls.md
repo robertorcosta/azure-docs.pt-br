@@ -1,18 +1,14 @@
 ---
 title: Controles de segurança para retransmissão do Azure
 description: Este artigo fornece uma lista de verificação de controles de segurança internos para avaliar a retransmissão do Azure.
-services: service-bus-relay
-ms.service: service-bus-relay
-author: spelluru
 ms.topic: conceptual
-ms.date: 01/21/2020
-ms.author: spelluru
-ms.openlocfilehash: f8165d994e998af4f15cd6aa2fd08b75191b8b64
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: 64abee031bb20e2bdb10bf1cc3cd77e135713550
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83211455"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85316618"
 ---
 # <a name="security-controls-for-azure-relay"></a>Controles de segurança para retransmissão do Azure
 

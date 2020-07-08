@@ -5,14 +5,14 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 11/07/2019
+ms.date: 06/24/2020
 ms.author: abnarain
-ms.openlocfilehash: 94e214c55a0109beb85cd08ce87303e5bd0f8016
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: e77d621d5699c434e691de0a523e58e49166d8d6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835420"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85315145"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Solução de problemas do runtime de integração auto-hospedada
 
@@ -22,7 +22,9 @@ Este artigo explora métodos comuns de solução de problemas para o runtime de 
 
 ## <a name="common-errors-and-resolutions"></a>Erros e resoluções comuns
 
-### <a name="error-message-self-hosted-integration-runtime-cant-connect-to-cloud-service"></a>Mensagem de erro: O runtime de integração auto-hospedada não se conecta ao serviço de nuvem
+### <a name="error-message"></a>Mensagem de erro: 
+
+`Self-hosted integration runtime can't connect to cloud service`
 
 ![Problema de conexão do runtime de integração auto-hospedada](media/self-hosted-integration-runtime-troubleshoot-guide/unable-to-connect-to-cloud-service.png)
 
@@ -86,7 +88,8 @@ A resposta esperada é a seguinte:
 > *    Verifique se o certificado TLS/SSL “wu2.frontend.clouddatahub.net/” é confiável no servidor proxy.
 > *    Se estiver usando a autenticação do Active Directory no proxy, altere a conta de serviço para a conta de usuário que pode acessar o proxy como “Serviço do Runtime de Integração”.
 
-### <a name="error-message-self-hosted-integration-runtime-node-logical-shir-is-in-inactive-running-limited-state"></a>Mensagem de erro: O nó do runtime de integração auto-hospedada/SHIR lógico está no estado Inativo/”Em execução (Limitado)”
+### <a name="error-message"></a>Mensagem de erro: 
+`Self-hosted integration runtime node/ logical SHIR is in Inactive/ "Running (Limited)" state`
 
 #### <a name="cause"></a>Causa 
 
@@ -102,40 +105,184 @@ Esse comportamento ocorre quando os nós não conseguem se comunicar entre si.
 
 1. Verifique se há um dos logs de erros contém o seguinte erro: 
     
-    ```System.ServiceModel.EndpointNotFoundException: Could not connect to net.tcp://xxxxxxx.bwld.com:8060/ExternalService.svc/WorkerManager. The connection attempt lasted for a time span of 00:00:00.9940994. TCP error code 10061: No connection could be made because the target machine actively refused it 10.2.4.10:8060. 
+    ```
+    System.ServiceModel.EndpointNotFoundException: Could not connect to net.tcp://xxxxxxx.bwld.com:8060/ExternalService.svc/WorkerManager. The connection attempt lasted for a time span of 00:00:00.9940994. TCP error code 10061: No connection could be made because the target machine actively refused it 10.2.4.10:8060. 
     System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it. 
     10.2.4.10:8060
-        
     at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
-               
     at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
-               
     at System.ServiceModel.Channels.SocketConnectionInitiator.Connect(Uri uri, TimeSpan timeout)
+    ```
        
-1. If you see this error, run the following on a command line: 
+1. Se você vir esse erro, execute o seguinte em uma linha de comando: 
 
-   **telnet 10.2.4.10 8060**.
-1. If you receive the following error, contact your IT department for help with fixing this issue. After you can successfully telnet, contact Microsoft Support if you still have issues with the integrative runtime node status.
+   ```
+   telnet 10.2.4.10 8060
+   ```
+   
+1. Se você receber o erro a seguir, entre em contato com seu departamento de ti para obter ajuda com a correção desse problema. Depois que você puder fazer o telnet com êxito, entre em contato com Suporte da Microsoft se ainda tiver problemas com o status do nó de tempo de execução integradoras.
         
-   ![Command-line error](media/self-hosted-integration-runtime-troubleshoot-guide/command-line-error.png)
+   ![Erro de linha de comando](media/self-hosted-integration-runtime-troubleshoot-guide/command-line-error.png)
         
-1.    Check whether the error log contains the following:
+1. Verifique se o log de erros contém o seguinte:
 
-    ```Error log: Cannot connect to worker manager: net.tcp://xxxxxx:8060/ExternalService.svc/ No DNS entries exist for host azranlcir01r1. No such host is known Exception detail: System.ServiceModel.EndpointNotFoundException: No DNS entries exist for host xxxxx. ---> System.Net.Sockets.SocketException: No such host is known at System.Net.Dns.GetAddrInfo(String name) at System.Net.Dns.InternalGetHostByName(String hostName, Boolean includeIPv6) at System.Net.Dns.GetHostEntry(String hostNameOrAddress) at System.ServiceModel.Channels.DnsCache.Resolve(Uri uri) --- End of inner exception stack trace --- Server stack trace: at System.ServiceModel.Channels.DnsCache.Resolve(Uri uri)```
+    ```
+    Error log: Cannot connect to worker manager: net.tcp://xxxxxx:8060/ExternalService.svc/ No DNS entries exist for host azranlcir01r1. No such host is known Exception detail: System.ServiceModel.EndpointNotFoundException: No DNS entries exist for host xxxxx. ---> System.Net.Sockets.SocketException: No such host is known at System.Net.Dns.GetAddrInfo(String name) at System.Net.Dns.InternalGetHostByName(String hostName, Boolean includeIPv6) at System.Net.Dns.GetHostEntry(String hostNameOrAddress) at System.ServiceModel.Channels.DnsCache.Resolve(Uri uri) --- End of inner exception stack trace --- Server stack trace: at System.ServiceModel.Channels.DnsCache.Resolve(Uri uri)
+    ```
     
-1. To resolve the issue, try one or both of the following methods:
-    - Put all the nodes in the same domain.
-    - Add the IP to host mapping in all the hosted VM's host files.
+1. Para resolver o problema, tente um ou ambos os métodos a seguir:
+    - Coloque todos os nós no mesmo domínio.
+    - Adicione o IP ao mapeamento de host em todos os arquivos de host da VM hospedada.
 
 
-## Next steps
+## <a name="troubleshoot-connectivity-issue"></a>Solucionar problema de conectividade
 
-For more help with troubleshooting, try the following resources:
+### <a name="troubleshoot-connectivity-issue-between-self-hosted-ir-and-data-factory-or-self-hosted-ir-and-data-sourcesink"></a>Solucionar problemas de conectividade entre o IR e o Data Factory ou a fonte de dados e o coletor auto-hospedados
 
-*  [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-*  [Data Factory feature requests](https://feedback.azure.com/forums/270578-data-factory)
-*  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
-*  [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
-*  [Stack overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
-*  [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
-*  [Mapping data flows performance guide](concepts-data-flow-performance.md)
+Para solucionar o problema de conectividade de rede, você deve saber como [coletar o rastreamento de rede](#how-to-collect-netmon-trace), entender como usá-lo e [analisar o rastreamento do Netmon](#how-to-analyze-netmon-trace) antes de aplicar as ferramentas do Netmon em casos reais do ir hospedado internamente.
+
+Às vezes, quando solucionamos problemas de conectividade, como abaixo, entre o IR e o Data Factory de hospedagem interna: 
+
+![Falha na solicitação HTTP](media/self-hosted-integration-runtime-troubleshoot-guide/http-request-error.png)
+
+Ou o único entre o IR e a fonte de dados/coletor auto-hospedados, encontrará os seguintes erros:
+
+**Mensagem de erro:**
+`Copy failed with error:Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Cannot connect to SQL Server: ‘IP address’`
+
+**Mensagem de erro:**
+`One or more errors occurred. An error occurred while sending the request. The underlying connection was closed: An unexpected error occurred on a receive. Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host. An existing connection was forcibly closed by the remote host Activity ID.`
+
+**Resolução:** Ao encontrar problemas acima, consulte as instruções a seguir para solucionar outros problemas:
+
+Faça o rastreamento do Netmon e analise mais detalhadamente.
+- Em primeiro lugar, você pode definir o filtro para ver qualquer redefinição ali do servidor para o lado do cliente. No exemplo abaixo, você pode ver que o lado do servidor é Data Factory Server.
+
+    ![Servidor do data Factory](media/self-hosted-integration-runtime-troubleshoot-guide/data-factory-server.png)
+
+- Ao obter o pacote de redefinição, você pode encontrar a conversa seguindo o TCP.
+
+    ![Localizar conversa](media/self-hosted-integration-runtime-troubleshoot-guide/find-conversation.png)
+
+- Em seguida, você pode obter a conversão entre o cliente e o servidor de Data Factory abaixo removendo o filtro.
+
+    ![Obter conversa](media/self-hosted-integration-runtime-troubleshoot-guide/get-conversation.png)
+- Com base no rastreamento do Netmon coletado, podemos dizer que o total do TTL (TimeToLive) é 64. De acordo com os **valores de TTL e de limite de salto padrão** mencionados neste [artigo](https://packetpushers.net/ip-time-to-live-and-hop-limit-basics/) (como extraído abaixo), podemos ver que ele é o sistema Linux que redefine o pacote e causa a desconexão.
+
+    Os valores de TTL e limite de salto padrão variam entre sistemas operacionais diferentes, aqui estão os padrões por alguns:
+    - Kernel do Linux 2,4 (em 2001): 255 para TCP, UDP e ICMP
+    - Kernel do Linux 4,10 (2015): 64 para TCP, UDP e ICMP
+    - Windows XP (2001): 128 para TCP, UDP e ICMP
+    - Windows 10 (2015): 128 para TCP, UDP e ICMP
+    - Windows Server 2008:128 para TCP, UDP e ICMP
+    - Windows Server 2019 (2018): 128 para TCP, UDP e ICMP
+    - macOS (2001): 64 para TCP, UDP e ICMP
+
+    ![TTL 61](media/self-hosted-integration-runtime-troubleshoot-guide/ttl-61.png)
+    
+    No entanto, ele é mostrado como 61 em vez de 64 no exemplo acima, porque, quando o pacote de rede chega ao destino, ele precisa passar por saltos diferentes, como roteadores/dispositivos de rede. O número de roteadores/dispositivos de rede será deduzido na TTL final.
+    Nesse caso, podemos ver que a redefinição pode ser enviada do sistema Linux com o TTL 64.
+
+- Precisamos verificar o quarto salto do IR auto-hospedado para confirmar de onde o dispositivo de redefinição pode vir.
+ 
+    *Pacote de rede do sistema Linux A com TTL 64-> B TTL 64 menos 1 = 63-> C TTL 63 menos 1 = 62-> TTL 62 menos 1 = 61 IR auto-hospedado*
+
+- Na situação ideal, o TTL será 128, o que significa que o sistema Windows está executando nossa Data Factory. Conforme mostrado no exemplo abaixo, *128 – 107 = 21 saltos*, o que significa que 21 saltos para o pacote foram enviados de data Factory para ir por hospedagem própria durante o handshake TCP 3.
+ 
+    ![TTL 107](media/self-hosted-integration-runtime-troubleshoot-guide/ttl-107.png)
+
+    Portanto, você precisa envolver a equipe de rede para verificar o que o quarto salto é do IR do tipo auto-hospedado. Se for o firewall como um sistema Linux, verifique todos os logs em que o dispositivo redefine o pacote após o handshake TCP 3. No entanto, se você não tiver certeza de onde fazer a investigação, tente obter o rastreamento de Netmon do IR e do firewall auto-hospedados juntos durante o tempo problemático para descobrir qual dispositivo pode redefinir esse pacote e causar a desconexão. Nesse caso, você também precisa envolver sua equipe de rede para avançar.
+
+### <a name="how-to-collect-netmon-trace"></a>Como coletar rastreamento do Netmon
+
+1.  Baixe as ferramentas do Netmon deste [site](https://www.microsoft.com/en-sg/download/details.aspx?id=4865)e instale-as no computador do servidor (qualquer servidor que tenha o problema) e cliente (como o ir para hospedagem interna).
+
+2.  Crie uma pasta, por exemplo, no seguinte caminho: *D:\netmon*. Verifique se ele tem espaço suficiente para salvar o log.
+
+3.  Capture as informações de IP e porta. 
+    1. Inicie um prompt CMD.
+    2. Selecione executar como administrador e execute o seguinte comando:
+       
+        ```
+        Ipconfig /all >D:\netmon\IP.txt
+        netstat -abno > D:\netmon\ServerNetstat.txt
+        ```
+
+4.  Capture o rastreamento do Netmon (pacote de rede).
+    1. Inicie um prompt CMD.
+    2. Selecione executar como administrador e execute o seguinte comando:
+        
+        ```
+        cd C:\Program Files\Microsoft Network Monitor 3
+        ```
+    3. Você pode usar três comandos diferentes para capturar a página de rede:
+        - Opção A: comando de arquivo RoundRobin (isso capturará apenas um arquivo e substituirá os logs antigos).
+
+            ```
+            nmcap /network * /capture /file D:\netmon\ServerConnection.cap:200M
+            ```         
+        - Opção B: comando de arquivo encadeado (isso criará um novo arquivo se 200 MB for atingido).
+        
+            ```
+            nmcap /network * /capture /file D:\netmon\ServerConnection.chn:200M
+            ```          
+        - Opção C: comando de arquivo agendado.
+
+            ```
+            nmcap /network * /capture /StartWhen /Time 10:30:00 AM 10/28/2011 /StopWhen /Time 11:30:00 AM 10/28/2011 /file D:\netmon\ServerConnection.chn:200M
+            ```  
+
+5.  Pressione **Ctrl + C** para parar a captura do rastreamento do Netmon.
+ 
+> [!NOTE]
+> Se você só puder coletar o rastreamento do Netmon no computador cliente, obtenha o endereço IP do servidor para ajudá-lo a analisar o rastreamento.
+
+### <a name="how-to-analyze-netmon-trace"></a>Como analisar o rastreamento do Netmon
+
+Ao tentar fazer o Telnet **8.8.8.8 888** com o rastreamento do Netmon acima coletado, você deve ver o rastreamento abaixo:
+
+![rastreamento do Netmon 1](media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-1.png)
+
+![rastreamento do Netmon 2](media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-2.png)
+ 
+
+Isso significa que não foi possível fazer a conexão TCP com o lado do servidor **8.8.8.8** com base na porta **888**, para que você veja dois pacotes adicionais do **SynReTransmit** lá. Como a **HOST2** de origem não pôde estabelecer a conexão com o **8.8.8.8** no primeiro pacote, ele continuará fazendo a conexão.
+
+> [!TIP]
+> - Você pode clicar em filtro de **carregamento**  ->  **padrão filtrar**  ->  **endereços**  ->  **IPv4**.
+> - Insira **IPv4. Address = = 8.8.8.8** como filtro e clique em **aplicar**. Depois disso, você verá apenas a comunicação do computador local com o **8.8.8.8**de destino.
+
+![filtrar endereços 1](media/self-hosted-integration-runtime-troubleshoot-guide/filter-addresses-1.png)
+        
+![filtrar endereços 2](media/self-hosted-integration-runtime-troubleshoot-guide/filter-addresses-2.png)
+
+O exemplo abaixo mostra como seria um bom cenário. 
+
+- Se o Telnet **8.8.8.8 53** estiver funcionando bem sem qualquer problema, você poderá ver o handshake TCP 3 acontecer e, em seguida, a sessão será concluída com o handshake TCP 4.
+
+    ![bom exemplo de cenário 1](media/self-hosted-integration-runtime-troubleshoot-guide/good-scenario-1.png)
+     
+    ![bom exemplo de cenário 2](media/self-hosted-integration-runtime-troubleshoot-guide/good-scenario-2.png)
+
+- Com base no handshake TCP 3 acima, você pode ver o fluxo de trabalho abaixo:
+
+    ![Fluxo de trabalho de handshake TCP 3](media/self-hosted-integration-runtime-troubleshoot-guide/tcp-3-handshake-workflow.png)
+ 
+- O handshake TCP 4 para concluir a sessão e seu fluxo de trabalho serão mostrados como a seguir:
+
+    ![Handshake de TCP 4](media/self-hosted-integration-runtime-troubleshoot-guide/tcp-4-handshake.png)
+
+    ![Fluxo de trabalho de handshake TCP 4](media/self-hosted-integration-runtime-troubleshoot-guide/tcp-4-handshake-workflow.png) 
+
+
+## <a name="next-steps"></a>Próximas etapas
+
+Para obter mais ajuda com a solução de problemas, experimente os seguintes recursos:
+
+*  [Blog de Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+*  [Solicitações de recurso do Data Factory](https://feedback.azure.com/forums/270578-data-factory)
+*  [Vídeos do Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
+*  [Página de perguntas e respostas da Microsoft](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
+*  [Fórum do Stack Overflow para Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
+*  [Informações do Twitter sobre o Data Factory](https://twitter.com/hashtag/DataFactory)
+*  [Guia de desempenho de fluxos de dados de mapeamento](concepts-data-flow-performance.md)

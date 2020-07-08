@@ -1,26 +1,14 @@
 ---
 title: Exemplos – Hubs de Eventos do Azure | Microsoft Docs
 description: Este artigo fornece uma lista de exemplos para Hubs de Eventos do Azure que estão no GitHub.
-services: event-hubs
-documentationcenter: na
-author: ShubhaVijayasarathy
-manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: event-hubs
-ms.custom: seodec18
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/15/2020
-ms.author: shvija
-ms.openlocfilehash: da950c2219d3faf679953690d207372b64913ba8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 9529b11d15460c713a0ae14f3bccfa1c2684a3ad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77162051"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85315510"
 ---
 # <a name="git-repositories-with-samples-for-azure-event-hubs"></a>Repositórios Git com exemplos para os Hubs de Eventos do Azure 
 Você pode encontrar as amostras dos Hubs de Eventos no [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples). Esses exemplos demonstram os principais recursos nos [Hubs de Eventos do Azure](/azure/event-hubs/). Este tópico categoriza e descreve os exemplos disponíveis, com links para cada um.
@@ -69,6 +57,6 @@ Você pode encontrar exemplos para os Hubs de Eventos para o recurso Apache Kafk
 ## <a name="next-steps"></a>Próximas etapas
 Você pode saber mais sobre os Hubs de Eventos nestes artigos:
 
-- [Visão geral de Hubs de Evento](event-hubs-what-is-event-hubs.md)
+- [Visão geral de Hubs de Eventos](event-hubs-what-is-event-hubs.md)
 - [Recursos de Hubs de eventos](event-hubs-features.md)
-- [Perguntas frequentes dos Hubs de Eventos](event-hubs-faq.md)
+- [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.md)
