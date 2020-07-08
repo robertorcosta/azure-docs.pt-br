@@ -3,12 +3,12 @@ title: Gerenciador de Recursos e implantação clássica
 description: Descreve as diferenças entre o modelo de implantação do Gerenciador de Recursos e o modelo de implantação clássica (ou do Gerenciamento de Serviços).
 ms.topic: conceptual
 ms.date: 02/06/2020
-ms.openlocfilehash: 85691d562f2b58cdced3264de11f3dd29a7ca168
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9e44128da9b6e180bd2857f4574c0b384fdffef2
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77064505"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057561"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager vs. Implantação clássica: compreenda os modelos de implantação e o estado dos seus recursos
 
@@ -78,6 +78,8 @@ O diagrama a seguir exibe os recursos de computação, rede e armazenamento impl
 
 ![Arquitetura do Resource Manager](./media/deployment-models/arm_arch3.png)
 
+SRP: provedor de recursos de armazenamento, CRP: provedor de recursos de computação, NRP: provedor de recursos de rede
+
 Observe as seguintes relações entre os recursos:
 
 * Todos os recursos existem dentro de um grupo de recursos.
@@ -103,7 +105,7 @@ A tabela a seguir descreve as alterações na forma como interagem os provedores
 | --- | --- | --- |
 | Serviço de Nuvem para Máquinas Virtuais |O Serviço de Nuvem era um contêiner para manter as máquinas virtuais que precisavam de Disponibilidade da plataforma e Balanceamento de Carga. |O Serviço de Nuvem não é mais um objeto necessário para criar uma Máquina Virtual usando o novo modelo. |
 | Redes Virtuais |Uma rede virtual é opcional para a máquina virtual. Se incluído, a rede virtual não pode ser implantada com o Gerenciador de recursos. |A máquina virtual requer uma rede virtual que foi implantada com o Gerenciador de Recursos. |
-| Contas de armazenamento |A máquina virtual requer uma conta de armazenamento que armazena os discos rígidos virtuais para o sistema operacional, o temporário e os discos de dados adicionais. |A máquina virtual requer uma conta de armazenamento para armazenar seus discos no armazenamento de blobs. |
+| Contas de Armazenamento |A máquina virtual requer uma conta de armazenamento que armazena os discos rígidos virtuais para o sistema operacional, o temporário e os discos de dados adicionais. |A máquina virtual requer uma conta de armazenamento para armazenar seus discos no armazenamento de blobs. |
 | Conjuntos de Disponibilidade |A disponibilidade para a plataforma era indicada por meio da configuração do mesmo "AvailabilitySetName" nas Máquinas Virtuais. A contagem máxima de domínios de falha era 2. |O Conjunto de Disponibilidade é um recurso exposto pelo Provedor Microsoft.Compute. Máquinas Virtuais que exigem alta disponibilidade devem ser incluídas no Conjunto de Disponibilidade. A contagem máxima de domínios de falha agora é 3. |
 | Grupos de afinidade |Grupos de Afinidade eram necessários para criar Redes Virtuais. No entanto, com a introdução de redes virtuais regionais, que não eram mais necessárias. |Para simplificar, o conceito de Grupos de Afinidade não existe nas APIs expostas por meio do Gerenciador de Recursos do Azure. |
 | Balanceamento de Carga |A criação de um Serviço de Nuvem fornece um balanceador de carga implícito para as Máquinas Virtuais implantadas. |O Balanceador de Carga é um recurso exposto pelo provedor Microsoft.Network. A interface de rede principal das Máquinas Virtuais que precisam ter o balanceamento de carga deve fazer referência ao balanceador de carga. Os Balanceadores de Carga podem ser internos ou externos. Uma instância do balanceador de carga faz referência ao pool de back-end dos endereços IP que incluem a NIC de uma máquina virtual (opcional) e faz referência a um endereço IP público ou privado de um balanceador de carga (opcional). |
@@ -123,7 +125,7 @@ Se você estiver pronto para migrar seus recursos da implantação clássica par
 1. [Análise técnica aprofundada sobre a migração com suporte da plataforma do clássico para o Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-deep-dive.md)
 2. [Platform supported migration of IaaS resources from Classic to Azure Resource Manager (Migração de recursos de IaaS com suporte da plataforma do Clássico para o Azure Resource Manager)](../../virtual-machines/windows/migration-classic-resource-manager-overview.md)
 3. [Migrar recursos de IaaS do Clássico para o Azure Resource Manager usando o Azure PowerShell](../../virtual-machines/windows/migration-classic-resource-manager-ps.md)
-4. [Migrar recursos de IaaS do modelo clássico para o Azure Resource Manager usando a CLI do Azure](../../virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md)
+4. [Migrar recursos de IaaS do modelo clássico para o Azure Resource Manager usando a CLI do Azure](../../virtual-machines/linux/migration-classic-resource-manager-cli.md)
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
@@ -150,4 +152,3 @@ Um conjunto abrangente de modelos iniciais pode ser encontrado em [Azure Resourc
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para ver os comandos para implantar um modelo, veja [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](../templates/deploy-powershell.md).
-

@@ -4,12 +4,12 @@ description: Saiba como criar seu primeiro modelo do Azure Resource Manager usan
 ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: conceptual
-ms.openlocfilehash: a5015a018f905b4353afd6bf25a48a2d942b3b97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa09fbe8d239bbe10c0762d3aad7e19df23a9044
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80153345"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057442"
 ---
 # <a name="create-and-deploy-arm-templates-by-using-the-intellij-idea"></a>Criar e implantar modelos de ARM usando a ideia IntelliJ
 
@@ -86,4 +86,4 @@ O foco principal deste artigo é usar o IntelliJ IDEA para implantar um modelo e
 > [Tutoriais para iniciante](./template-tutorial-create-first-template.md)
 
 > [!div class="nextstepaction"]
-> [Visite o Java no Centro de Desenvolvimento do Azure](https://docs.microsoft.com/azure/java)
+> [Visite o Java no Centro de Desenvolvimento do Azure](/azure/java)

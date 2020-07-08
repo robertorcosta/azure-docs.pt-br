@@ -4,12 +4,12 @@ description: Este artigo aborda dúvidas comuns sobre o Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 1/24/2020
 ms.author: raynew
-ms.openlocfilehash: 270fa8de3346063d047b38132438f8097d87689d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 9eceb9643a5e8f8eab6b68bb04b322a099b715f3
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744110"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057425"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Perguntas gerais sobre o Azure Site Recovery
 
@@ -22,11 +22,16 @@ Este artigo resume as perguntas frequentes sobre o Azure Site Recovery. Para cen
 ## <a name="general"></a>Geral
 
 ### <a name="what-does-site-recovery-do"></a>O que faz o Site Recovery?
+
 O Site Recovery contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre) administrando e automatizando a replicação de VMs do Azure entre regiões, máquinas virtuais locais e servidores físicos no Azure e máquinas locais em um datacenter secundário. [Saiba mais](site-recovery-overview.md).
 
 ### <a name="can-i-protect-a-virtual-machine-that-has-a-docker-disk"></a>Posso proteger uma máquina virtual que tem um disco do Docker?
 
 Não. Esse é um cenário sem suporte.
+
+### <a name="what-does-site-recovery-do-to-ensure-data-integrity"></a>O que Site Recovery fazer para garantir a integridade dos dados?
+
+Há várias medidas tomadas pelo Site Recovery para garantir a integridade dos dados. Uma conexão segura é estabelecida entre todos os serviços usando o protocolo HTTPS. Isso garante que qualquer malware ou entidades externas não possam adulterar os dados. Outra medida tomada é usar somas de verificação. A transferência de dados entre a origem e o destino é executada por meio da computação de somas de verificação de dados entre eles. Isso garante que os dados transferidos sejam consistentes.
 
 ## <a name="service-providers"></a>Provedores de serviço
 
@@ -128,7 +133,7 @@ Sim. Ao usar o Site Recovery para administrar a replicação e o failover em sua
 
 ### <a name="is-disaster-recovery-supported-for-azure-vms"></a>Há compatibilidade com a recuperação de desastre para VMs do Azure?
 
-Sim, o Site Recovery é compatível com desastres para VMs do Azure entre regiões do Azure. [Examine as perguntas comuns](azure-to-azure-common-questions.md) sobre a recuperação de desastre de VM do Azure.
+Sim, o Site Recovery é compatível com desastres para VMs do Azure entre regiões do Azure. [Examine as perguntas comuns](azure-to-azure-common-questions.md) sobre a recuperação de desastre de VM do Azure. Se você quiser replicar entre duas regiões do Azure no mesmo continente, use nossa oferta de DR do Azure para o Azure. Não é necessário configurar o servidor de configuração/servidor de processo e as conexões de ExpressRoute.
 
 ### <a name="is-disaster-recovery-supported-for-vmware-vms"></a>A recuperação de desastre é compatível com VMs VMware?
 
@@ -195,7 +200,40 @@ Sim. Você pode ler mais sobre a limitação de largura de banda nos artigos:
 * [Planejamento de capacidade para a replicação de VMs VMware e servidores físicos](site-recovery-plan-capacity-vmware.md)
 * [Planejamento de capacidade para a replicação de VMs Hyper-V para o Azure](site-recovery-capacity-planning-for-hyper-v-replication.md)
 
+### <a name="can-i-enable-replication-with-app-consistency-in-linux-servers"></a>Posso habilitar a replicação com consistência de aplicativo em servidores Linux? 
+Sim. O Azure Site Recovery para o sistema operacional Linux dá suporte a scripts personalizados de aplicativo para consistência de aplicativo. O script personalizado com pré e pós-opções será usado pelo agente de mobilidade Azure Site Recovery durante a consistência do aplicativo. Abaixo estão as etapas para habilitá-lo.
 
+1. Entre como raiz no computador.
+2. Altere o diretório para Azure Site Recovery local de instalação do agente de mobilidade. O padrão é "/usr/local/ASR"<br>
+    `# cd /usr/local/ASR`
+3. Altere o diretório para "VX/scripts" em local de instalação<br>
+    `# cd VX/scripts`
+4. Crie um script de shell bash chamado "customscript.sh" com permissões de execução para o usuário raiz.<br>
+    a. O script deve dar suporte às opções de linha de comando "--pre" e "--post" (Observe os traços duplos)<br>
+    b. Quando o script é chamado com a opção pre-Option, ele deve congelar a entrada/saída do aplicativo e, quando chamado com post-Option, ele deve descongelar a entrada/saída do aplicativo.<br>
+    c. Um modelo de exemplo –<br>
+
+    `# cat customscript.sh`<br>
+
+```
+    #!/bin/bash
+
+    if [ $# -ne 1 ]; then
+        echo "Usage: $0 [--pre | --post]"
+        exit 1
+    elif [ "$1" == "--pre" ]; then
+        echo "Freezing app IO"
+        exit 0
+    elif [ "$1" == "--post" ]; then
+        echo "Thawed app IO"
+        exit 0
+    fi
+```
+
+5. Adicione os comandos congelar e descongelar entrada/saída nas etapas anteriores e posteriores para os aplicativos que exigem consistência de aplicativo. Você pode optar por adicionar outro script especificando aqueles e chamá-lo de "customscript.sh" com as opções pre e post.
+
+>[!Note]
+>A versão do agente de Site Recovery deve ser 9,24 ou superior para dar suporte a scripts personalizados.
 
 ## <a name="failover"></a>Failover
 ### <a name="if-im-failing-over-to-azure-how-do-i-access-the-azure-vms-after-failover"></a>Se estou fazendo failover no Azure, como posso acessar as VMs do Azure após o failover?

@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: f00c1725201b0e49f80fec64e5d69b375ec7a233
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2a8683a4c9a2ff3cbe3edce5b101973cde73feb2
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75485527"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057493"
 ---
 # <a name="manage-azure-resources-by-using-azure-cli"></a>Gerenciar recursos do Azure usando o CLI do Azure
 
@@ -142,5 +142,5 @@ O [Controle de acesso baseado em função (RBAC)](../../role-based-access-contro
 
 - Para saber Azure Resource Manager, consulte [Azure Resource Manager visão geral](overview.md).
 - Para saber mais sobre a sintaxe do modelo do Resource Manager, consulte [entender a estrutura e a sintaxe dos modelos de Azure Resource Manager](../templates/template-syntax.md).
-- Para saber como desenvolver modelos, consulte os tutoriais passo a [passo](/azure/azure-resource-manager/).
+- Para saber como desenvolver modelos, consulte os tutoriais passo a [passo](../index.yml).
 - Para exibir os esquemas de modelo de Azure Resource Manager, consulte [referência de modelo](/azure/templates/).

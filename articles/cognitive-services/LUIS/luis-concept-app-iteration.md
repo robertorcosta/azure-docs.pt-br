@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 07/06/2020
 ms.author: diberry
-ms.openlocfilehash: 0545be9ebe067a62b398c6c89b79a8484f0b48d4
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 560a7d9106b9eaef0f82766615253715deb9238a
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683119"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057867"
 ---
 # <a name="iterative-app-design-for-luis"></a>Design de aplicativo iterativo para LUIS
 
@@ -107,11 +107,22 @@ Você pode publicar no estágio e/ou nos slots de produção. Cada slot pode ter
 
 Versões treinadas não estão disponíveis automaticamente no ponto de [extremidade](luis-glossary.md#endpoint)do seu aplicativo Luis. Você deve [publicar](luis-how-to-publish-app.md) ou republicar uma versão para que ela esteja disponível no ponto de extremidade do aplicativo Luis. Você pode publicar para **preparo** e **produção**, fornecendo duas versões do aplicativo disponíveis no ponto de extremidade. Se mais versões do aplicativo precisarem estar disponíveis em um ponto de extremidade, você deverá exportar a versão e importá-la novamente para um novo aplicativo. O novo aplicativo tem uma ID do aplicativo diferente.
 
-### <a name="import-and-export-a-version"></a>Importar e exportar uma versão
+### <a name="import-a-version"></a>Importar uma versão
 
-Uma versão pode ser importada no nível do aplicativo. Essa versão se torna a versão ativa e usa a ID da versão na `versionId` Propriedade do arquivo do aplicativo. Você também pode importar para um aplicativo existente, no nível de versão. A nova versão torna-se a versão ativa.
+Uma versão pode ser **importada** como uma nova:
+* Aplicativo, com uma nova ID do aplicativo
+* Versão de um aplicativo existente
 
-Uma versão pode ser exportada no nível do aplicativo ou da versão também. A única diferença é que a versão exportada do nível do aplicativo é a versão ativa no momento, enquanto no nível da versão, é possível escolher qualquer versão para ser exportada na página **[Configurações](luis-how-to-manage-versions.md)**.
+Essa versão se torna a versão ativa e usa a ID da versão na `versionId` Propriedade do arquivo do aplicativo.
+
+### <a name="export-a-version"></a>Exportar uma versão
+
+Uma versão pode ser **exportada** do portal do Luis no nível do aplicativo ou nível de versão:
+
+* Nível do aplicativo – selecione aplicativo na página **meus aplicativos** e, em seguida, selecione **Exportar**
+* Nível de versão – selecione o link do aplicativo na página **meus aplicativos** , selecione **gerenciar**, selecione **versões**
+
+A única diferença é que o nível de aplicativo, a versão exportada, é a versão ativa no momento no nível de versão, você pode escolher qualquer versão para exportar na página de **[configurações](luis-how-to-manage-versions.md)** .
 
 O arquivo exportado **não** contém:
 
@@ -132,7 +143,7 @@ Comece pela [clonagem](luis-how-to-manage-versions.md#clone-a-version) de uma ve
 
 Cada autor faz alterações em sua própria versão do aplicativo. Quando o autor for satisfeito com o modelo, exporte as novas versões para arquivos JSON.
 
-Os aplicativos exportados,. JSON ou. Lu, podem ser comparados para alterações. Combine os arquivos para criar um único arquivo da nova versão. Altere a `versionId` propriedade para significar a nova versão mesclada. Importe essa versão para o aplicativo original.
+Aplicativos exportados, `.json` ou `.lu` arquivos, podem ser comparados para alterações. Combine os arquivos para criar um único arquivo da nova versão. Altere a `versionId` propriedade para significar a nova versão mesclada. Importe essa versão para o aplicativo original.
 
 Esse método permite que você tenha uma versão ativa, uma versão do estágio e uma versão publicada. Você pode comparar os resultados da versão ativa com uma versão publicada (fase ou produção) no painel de [teste interativo](luis-interactive-test.md).
 
@@ -150,4 +161,4 @@ Quando terminar com um ciclo de iteração, você poderá repetir o processo. Co
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Conheça conceitos sobre [colaboração](luis-concept-keys.md).
+Conheça conceitos sobre [colaboração](luis-how-to-azure-subscription.md).

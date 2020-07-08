@@ -14,12 +14,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: fedec6ea764394d36f5b4d7c883f7cb9f9520a29
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3adbb9471cc501861b65efd0321b3b4f72b07aea
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "64869014"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057850"
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Introdução ao SDK de cliente Java para Serviços de Mídia do Azure  
 
@@ -42,7 +42,7 @@ Para começar a usar o SDK do Media Services para Java, adicione uma referência
 
 Por exemplo, se a ferramenta de compilação é `gradle`, adicione a seguinte dependência ao seu arquivo `build.gradle`:
 
-    compile group: 'com.microsoft.azure', name: 'azure-media', version: '0.9.8'
+`compile group: 'com.microsoft.azure', name: 'azure-media', version: '0.9.8'`
 
 >[!IMPORTANT]
 >Começando com o pacote `azure-media` versão `0.9.8`, o SDK adicionou suporte para autenticação do Azure Active Directory (AAD) e removeu o suporte para autenticação do Serviço de Controle de Acesso do Azure (ACS). Recomendamos que você migre para o modelo de autenticação do Azure AD assim que possível. Para obter detalhes sobre migração, leia o artigo [Acessar a API dos Serviços de Mídia do Azure com autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md).

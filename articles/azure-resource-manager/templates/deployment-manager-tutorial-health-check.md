@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 765c73a3ab8d5fa8939abe597d0141b24b59ac52
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3c7b74d31bc3c4e2276cd52c8e6450630dc99bcd
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76152470"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058020"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Tutorial: Usar a verificação de integridade no Gerenciador de Implantação do Azure (versão prévia pública)
 
@@ -35,7 +35,7 @@ Este tutorial cobre as seguintes tarefas:
 
 Recursos adicionais:
 
-* A [referência à API REST do Gerenciador de Implantação do Azure](https://docs.microsoft.com/rest/api/deploymentmanager/).
+* A [referência à API REST do Gerenciador de Implantação do Azure](/rest/api/deploymentmanager/).
 * [Um exemplo do Gerenciador de Implantação do Azure](https://github.com/Azure-Samples/adm-quickstart).
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
@@ -58,7 +58,7 @@ Abra CreateADMRollout.Parameters.json e atualize os valores de **projectName** e
 
 ## <a name="create-a-health-check-service-simulator"></a>Criar um simulador de serviço de verificação de integridade
 
-Em produção, normalmente, são usados um ou mais provedores de monitoramento. Para facilitar ao máximo a integração de integridade, a Microsoft tem trabalhado com algumas das principais empresas de monitoramento de integridade de serviço para fornecer uma solução copiar/colar simples visando integrar as verificações de integridade às suas implantações. Para obter uma lista dessas empresas, confira [Provedores de monitoramento de integridade](./deployment-manager-health-check.md#health-monitoring-providers). Para fins deste tutorial, você criará uma [Função do Azure](/azure/azure-functions/) para simular um serviço de monitoramento de integridade. Essa função usa um código de status e retorna o mesmo código. O modelo do Gerenciador de Implantação do Azure usa o código de status para determinar como proceder com a implantação.
+Em produção, normalmente, são usados um ou mais provedores de monitoramento. Para facilitar ao máximo a integração de integridade, a Microsoft tem trabalhado com algumas das principais empresas de monitoramento de integridade de serviço para fornecer uma solução copiar/colar simples visando integrar as verificações de integridade às suas implantações. Para obter uma lista dessas empresas, confira [Provedores de monitoramento de integridade](./deployment-manager-health-check.md#health-monitoring-providers). Para fins deste tutorial, você criará uma [Função do Azure](../../azure-functions/index.yml) para simular um serviço de monitoramento de integridade. Essa função usa um código de status e retorna o mesmo código. O modelo do Gerenciador de Implantação do Azure usa o código de status para determinar como proceder com a implantação.
 
 Os dois seguintes arquivos são usados para implantar a Função do Azure. Você não precisa baixar esses arquivos para acompanhar o tutorial.
 
@@ -369,4 +369,4 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos impla
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu a usar o recurso de verificação de integridade do Gerenciador de Implantação do Azure. Para obter mais informações, veja [Documentação do Azure Resource Manager](/azure/azure-resource-manager/).
+Neste tutorial, você aprendeu a usar o recurso de verificação de integridade do Gerenciador de Implantação do Azure. Para obter mais informações, veja [Documentação do Azure Resource Manager](../index.yml).

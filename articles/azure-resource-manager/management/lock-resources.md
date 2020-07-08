@@ -2,19 +2,19 @@
 title: Bloqueio de recursos para prevenir alterações
 description: Impeça que os usuários atualizem ou excluam recursos críticos do Azure ao aplicar um bloqueio a todos os usuários e funções.
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: 2060a7ed2de4956eb15bc85fb1a905705e21f813
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.date: 06/17/2020
+ms.openlocfilehash: 7fe735cf523758f51fd9d6751de8507b2af46737
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847660"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057578"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloquear recursos para evitar alterações inesperadas
 
 Como administrador, talvez você precise bloquear uma assinatura, um recurso ou grupo de recursos para impedir que outros usuários em sua organização excluam ou modifiquem acidentalmente recursos críticos. É possível definir o nível de bloqueio como **CanNotDelete** ou **ReadOnly**. No portal, os bloqueios são chamados **Excluir** e **Somente leitura** respectivamente.
 
-* **CanNotDelete** significa que os usuários autorizados ainda poderão ler e modificar um recurso, mas não poderão excluir o recurso. 
+* **CanNotDelete** significa que os usuários autorizados ainda poderão ler e modificar um recurso, mas não poderão excluir o recurso.
 * **ReadOnly** significa que os usuários autorizados poderão ler um recurso, mas não poderão excluir ou atualizar o recurso. Aplicar esse bloqueio é semelhante ao restringir todos os usuários autorizados para as permissões concedidas pela função **Leitor**.
 
 ## <a name="how-locks-are-applied"></a>Como os bloqueios são aplicados
@@ -35,9 +35,11 @@ A aplicação de bloqueios pode gerar resultados inesperados porque algumas oper
 
 * Um bloqueio do tipo somente leitura em um **grupo de recursos** que contém uma **máquina virtual** impede que qualquer usuário inicie ou reinicie a máquina virtual. Essas operações requerem uma solicitação POST.
 
-* Um bloqueio do tipo somente leitura em uma **assinatura** impede que **Assistente do Azure** funcione corretamente. O Assistente não consegue armazenar os resultados de suas consultas.
+* Um bloqueio de não-exclusão em um **grupo de recursos** impede que Azure Resource Manager [exclua automaticamente as implantações](../templates/deployment-history-deletions.md) no histórico. Se você alcançar as implantações 800 no histórico, suas implantações falharão.
 
 * Um bloqueio do tipo não excluir no **grupo de recursos** criado pelo **Serviço de Backup do Azure** causa falha nos backups. O serviço dá suporte a um máximo de 18 pontos de restauração. Quando bloqueado, o serviço de backup não consegue limpar os pontos de restauração. Para obter mais informações, veja [Perguntas frequentes sobre Backup de VMs do Azure](../../backup/backup-azure-vm-backup-faq.md).
+
+* Um bloqueio do tipo somente leitura em uma **assinatura** impede que **Assistente do Azure** funcione corretamente. O Assistente não consegue armazenar os resultados de suas consultas.
 
 ## <a name="who-can-create-or-delete-locks"></a>Quem pode criar ou excluir bloqueios
 
@@ -85,62 +87,63 @@ O exemplo a seguir mostra um modelo que cria um plano de serviço de aplicativo,
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "hostingPlanName": {
-            "type": "string"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "hostingPlanName": {
+      "type": "string"
+    }
+  },
+  "variables": {
+    "siteName": "[concat('ExampleSite', uniqueString(resourceGroup().id))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Web/serverfarms",
+      "apiVersion": "2019-08-01",
+      "name": "[parameters('hostingPlanName')]",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "tier": "Free",
+        "name": "f1",
+        "capacity": 0
+      },
+      "properties": {
+        "targetWorkerCount": 1
+      }
     },
-    "variables": {
-        "siteName": "[concat('ExampleSite', uniqueString(resourceGroup().id))]"
+    {
+      "type": "Microsoft.Web/sites",
+      "apiVersion": "2019-08-01",
+      "name": "[variables('siteName')]",
+      "location": "[resourceGroup().location]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
+      ],
+      "properties": {
+        "serverFarmId": "[parameters('hostingPlanName')]"
+      }
     },
-    "resources": [
-        {
-            "apiVersion": "2016-09-01",
-            "type": "Microsoft.Web/serverfarms",
-            "name": "[parameters('hostingPlanName')]",
-            "location": "[resourceGroup().location]",
-            "sku": {
-                "tier": "Free",
-                "name": "f1",
-                "capacity": 0
-            },
-            "properties": {
-                "targetWorkerCount": 1
-            }
-        },
-        {
-            "apiVersion": "2016-08-01",
-            "name": "[variables('siteName')]",
-            "type": "Microsoft.Web/sites",
-            "location": "[resourceGroup().location]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
-            ],
-            "properties": {
-                "serverFarmId": "[parameters('hostingPlanName')]"
-            }
-        },
-        {
-            "type": "Microsoft.Web/sites/providers/locks",
-            "apiVersion": "2016-09-01",
-            "name": "[concat(variables('siteName'), '/Microsoft.Authorization/siteLock')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', variables('siteName'))]"
-            ],
-            "properties": {
-                "level": "CanNotDelete",
-                "notes": "Site should not be deleted."
-            }
-        }
-    ]
+    {
+      "type": "Microsoft.Web/sites/providers/locks",
+      "apiVersion": "2016-09-01",
+      "name": "[concat(variables('siteName'), '/Microsoft.Authorization/siteLock')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/sites', variables('siteName'))]"
+      ],
+      "properties": {
+        "level": "CanNotDelete",
+        "notes": "Site should not be deleted."
+      }
+    }
+  ]
 }
 ```
 
-Para obter um exemplo de como definir um bloqueio em um grupo de recursos, veja [Criação e bloqueio de um grupo de recursos](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments/create-rg-lock-role-assignment).
+Para obter um exemplo de como definir um bloqueio em um grupo de recursos, veja [Criação e bloqueio de um grupo de recursos](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-deployments/create-rg-lock-role-assignment).
 
 ## <a name="powershell"></a>PowerShell
+
 Bloqueie recursos implantados com o Azure PowerShell usando o comando [New-AzResourceLock](/powershell/module/az.resources/new-azresourcelock).
 
 Para bloquear um recurso, forneça o nome dele, seu tipo de recurso e o nome do grupo de recursos.
@@ -222,25 +225,30 @@ az lock delete --ids $lockid
 ```
 
 ## <a name="rest-api"></a>API REST
-Você pode bloquear os recursos implantados com a [API REST para bloqueios de gerenciamento](https://docs.microsoft.com/rest/api/resources/managementlocks). A API REST permite que você crie e exclua bloqueios e recupere informações sobre bloqueios existentes.
+
+Você pode bloquear os recursos implantados com a [API REST para bloqueios de gerenciamento](/rest/api/resources/managementlocks). A API REST permite que você crie e exclua bloqueios e recupere informações sobre bloqueios existentes.
 
 Para criar um bloqueio, execute:
 
-    PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/locks/{lock-name}?api-version={api-version}
+```http
+PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/locks/{lock-name}?api-version={api-version}
+```
 
 O escopo pode ser uma assinatura, grupo de recursos ou recurso. O nome do bloqueio é como você deseja chamar o bloqueio. Para a versão da API, use **2016-09-01**.
 
 Na solicitação, inclua um objeto JSON que especifica as propriedades do bloqueio.
 
-    {
-      "properties": {
-        "level": "CanNotDelete",
-        "notes": "Optional text notes."
-      }
-    } 
+```json
+{
+  "properties": {
+  "level": "CanNotDelete",
+  "notes": "Optional text notes."
+  }
+}
+```
 
 ## <a name="next-steps"></a>Próximas etapas
+
 * Para saber mais sobre a organização lógica de recursos, veja [Uso de marcas para organizar os recursos](tag-resources.md).
 * É possível aplicar restrições e convenções em sua assinatura com políticas personalizadas. Para saber mais, veja [O que é o Azure Policy?](../../governance/policy/overview.md).
 * Para obter orientação sobre como as empresas podem usar o Resource Manager para gerenciar assinaturas de forma eficaz, consulte [Azure enterprise scaffold – controle de assinatura prescritivas](/azure/architecture/cloud-adoption-guide/subscription-governance).
-

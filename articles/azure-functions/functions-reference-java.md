@@ -3,12 +3,12 @@ title: Referência do desenvolvedor de Java para o Azure Functions
 description: Entenda como desenvolver funções usando Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 6ce886fd0ca47d728a115427b354442fd259e714
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 339615ac99f231fd293a7ea15c853d43da8f998a
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648241"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057595"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guia do desenvolvedor de Java do Azure Functions
 
@@ -50,20 +50,6 @@ mvn archetype:generate \
 
 Para começar a usar esse arquétipo, confira o [Início rápido do Java](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java). 
 
-## <a name="create-kotlin-functions-preview"></a>Criar funções Kotlin (versão prévia)
-
-Também há um arquétipo Maven para gerar funções Kotlin. Esse arquétipo, atualmente em versão prévia, é publicado na seguinte _groupId_:_artifactId_: [com.microsoft.azure:azure-functions-kotlin-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-kotlin-archetype/). 
-
-O seguinte comando gera um novo projeto de função Java usando esse arquétipo:
-
-```
-mvn archetype:generate \
-    -DarchetypeGroupId=com.microsoft.azure \
-    -DarchetypeArtifactId=azure-functions-kotlin-archetype
-```
-
-Para começar a usar esse arquétipo, confira o [Início rápido do Kotlin](functions-create-first-kotlin-maven.md).
-
 ## <a name="folder-structure"></a>Estrutura de pastas
 
 Aqui está a estrutura de pastas de um projeto Java do Azure Functions:
@@ -89,8 +75,6 @@ FunctionsProject
  | | | | - lib
  | - pom.xml
 ```
-
-_* O projeto Kotlin é bastante semelhante, pois ainda é Maven_
 
 Você pode usar um arquivo [host.json](functions-host-json.md) compartilhado para configurar o aplicativo de funções. Cada função possui seu próprio arquivo de código (.java) e arquivo de configuração de associação (function.json).
 
@@ -391,7 +375,7 @@ No exemplo anterior, o `queryValue` está associado ao parâmetro de cadeia de c
 
 ## <a name="execution-context"></a>Contexto de execução
 
-`ExecutionContext` definido na `azure-functions-java-library` contém métodos auxiliares para se comunicar com o runtime das funções.
+`ExecutionContext` definido na `azure-functions-java-library` contém métodos auxiliares para se comunicar com o runtime das funções. Para obter mais informações, consulte o [artigo de referência do ExecutionContext](/java/api/com.microsoft.azure.functions.executioncontext).
 
 ### <a name="logger"></a>Agente
 

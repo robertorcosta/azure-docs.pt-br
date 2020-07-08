@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 6a1b7a76ef1efda51f09ac733b3d434235ff40ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8e150ec037bab0010c5505c880c4cac456118b35
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74900310"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058003"
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Edição facial com o Azure Media Analytics 
 ## <a name="overview"></a>Visão geral
@@ -129,9 +129,11 @@ O resultado da etapa Analisar não inclui o vídeo original. O vídeo precisa se
 
 foo_IDList.txt de exemplo
  
-     1
-     2
-     3
+```output
+1
+2
+3
+```
 
 ## <a name="blur-types"></a>Tipos de desfoque
 
@@ -145,9 +147,9 @@ Encontre exemplos dos tipos de desfoque abaixo.
     {'version':'1.0', 'options': {'Mode': 'Combined', 'BlurType': 'High'}}
 ```
 
-#### <a name="low"></a>Baixa
+#### <a name="low"></a>Baixo
 
-![Baixa](./media/media-services-face-redaction/blur1.png)
+![Baixo](./media/media-services-face-redaction/blur1.png)
  
 #### <a name="med"></a>Med
 
@@ -191,7 +193,7 @@ O programa a seguir mostra como:
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto do Visual Studio
 
-Configure seu ambiente de desenvolvimento e preencha o arquivo app. config com informações de conexão, conforme descrito em [desenvolvimento de serviços de mídia com o .net](media-services-dotnet-how-to-use.md). 
+Configure seu ambiente de desenvolvimento e preencha o arquivo de app.config com informações de conexão, conforme descrito em [desenvolvimento de serviços de mídia com o .net](media-services-dotnet-how-to-use.md). 
 
 #### <a name="example"></a>Exemplo
 
@@ -367,7 +369,7 @@ namespace FaceRedaction
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Envie comentários
+## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Links relacionados

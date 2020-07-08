@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 25e001927d5c06b4a7e5639faaa054ae18b12bb7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6f18eea697e875cc926e8fbaa0f61cf2d4639be0
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79248353"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057510"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-powershell"></a>Gerenciar Azure Resource Manager grupos de recursos usando Azure PowerShell
 
@@ -74,7 +74,7 @@ Para obter mais informações sobre como Azure Resource Manager ordena a exclus�
 
 Consulte [implantar recursos em um grupo de recursos existente](manage-resources-powershell.md#deploy-resources-to-an-existing-resource-group).
 
-Para validar uma implantação de grupo de recursos, consulte [Test-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/Az.Resources/Test-AzResourceGroupDeployment?view=azps-1.3.0).
+Para validar uma implantação de grupo de recursos, consulte [Test-AzResourceGroupDeployment](/powershell/module/Az.Resources/Test-AzResourceGroupDeployment?view=azps-1.3.0).
 
 ## <a name="deploy-a-resource-group-and-resources"></a>Implantar um grupo de recursos e recursos
 
@@ -223,5 +223,5 @@ O [Controle de acesso baseado em função (RBAC)](../../role-based-access-contro
 
 - Para saber Azure Resource Manager, consulte [Azure Resource Manager visão geral](overview.md).
 - Para saber mais sobre a sintaxe do modelo do Resource Manager, consulte [entender a estrutura e a sintaxe dos modelos de Azure Resource Manager](../templates/template-syntax.md).
-- Para saber como desenvolver modelos, consulte os tutoriais passo a [passo](/azure/azure-resource-manager/).
+- Para saber como desenvolver modelos, consulte os tutoriais passo a [passo](../index.yml).
 - Para exibir os esquemas de modelo de Azure Resource Manager, consulte [referência de modelo](/azure/templates/).

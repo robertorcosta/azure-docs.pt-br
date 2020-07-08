@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: 622c0cb8d58dddcdb13c7dc9412ada3f2e2d93e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a6788651928b631d9298867a140f29b273f14734
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80632983"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057544"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Gerenciar Azure Resource Manager grupos de recursos usando o portal do Azure
 
@@ -44,7 +44,7 @@ O grupo de recursos armazena metadados sobre os recursos. Portanto, quando você
    - **Região**: selecione um local do Azure, como **EUA Central**.
 
      ![Criar grupo de recursos](./media/manage-resource-groups-portal/manage-resource-groups-create-group.png)
-5. Selecione **revisão + criar**
+5. Selecione **Examinar + Criar**
 6. Selecione **Criar**. Leva alguns segundos para criar um grupo de recursos.
 7. Selecione **Atualizar** no menu superior para atualizar a lista grupo de recursos e, em seguida, selecione o grupo de recursos recém-criado para abri-lo. Ou selecione **notificação**(o ícone de sino) na parte superior e, em seguida, selecione **ir para o grupo de recursos** para abrir o grupo de recursos recém-criado
 
@@ -86,7 +86,7 @@ Você pode mover os recursos do grupo para outro grupo de recursos. Para saber m
 
 O bloqueio impede que outros usuários em sua organização excluam ou modifiquem acidentalmente recursos críticos, como assinatura do Azure, grupo de recursos ou recurso. 
 
-1. Abra o grupo de recursos que você deseja excluir.  Consulte [abrir grupos de recursos](#open-resource-groups).
+1. Abra o grupo de recursos que você deseja bloquear.  Consulte [abrir grupos de recursos](#open-resource-groups).
 2. No painel esquerdo, selecione **bloqueios**.
 3. Para adicionar um bloqueio ao grupo de recursos, selecione **Adicionar**.
 4. Insira o **nome do bloqueio**, o tipo de **bloqueio**e as **observações**. Os tipos de bloqueio incluem **somente leitura**e **excluir**.
@@ -111,5 +111,5 @@ O [Controle de acesso baseado em função (RBAC)](../../role-based-access-contro
 
 - Para saber Azure Resource Manager, consulte [Azure Resource Manager visão geral](overview.md).
 - Para saber mais sobre a sintaxe do modelo do Resource Manager, consulte [entender a estrutura e a sintaxe dos modelos de Azure Resource Manager](../templates/template-syntax.md).
-- Para saber como desenvolver modelos, consulte os tutoriais passo a [passo](/azure/azure-resource-manager/).
+- Para saber como desenvolver modelos, consulte os tutoriais passo a [passo](../index.yml).
 - Para exibir os esquemas de modelo de Azure Resource Manager, consulte [referência de modelo](/azure/templates/).

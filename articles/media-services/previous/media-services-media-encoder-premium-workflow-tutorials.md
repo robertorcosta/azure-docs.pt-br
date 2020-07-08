@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: christoc
 ms.reviewer: xpouyat; juliako
-ms.openlocfilehash: 1ab70d56bd3def58d0e814035070cf027a88cd3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 67d3591a22ba68c0ddb5c4e2b467e133ef20102b
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79251005"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057459"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Tutoriais avançados do fluxo de trabalho do Codificador de Mídia Premium
 ## <a name="overview"></a>Visão geral
@@ -187,7 +187,7 @@ Para que o fluxo de trabalho determine automaticamente a propriedade de nome do 
 
 O editor de expressão permite a inserção de qualquer valor literal, combinado com uma ou mais variáveis. As variáveis começam com um sinal de cifrão. Quando você pressiona a tecla $, o editor mostra uma caixa suspensa com as variáveis disponíveis para sua escolha. Em nosso caso, usaremos uma combinação da variável do diretório de saída e da variável básica de nome do arquivo de entrada:
 
-    ${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}.MP4
+`${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}.MP4`
 
 ![Editor de expressão preenchido](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-expression-editor.png)
 
@@ -265,16 +265,16 @@ Mais de um arquivo foi adicionado ao ativo de saída. Com isso, é necessário s
 
 A nomenclatura de saída do arquivo pode ser controlada por meio de expressões no designer. Abra o painel de propriedades de um dos componentes de Saída do arquivo, e abra o editor de expressão para a propriedade Arquivo. Nosso primeiro arquivo de saída foi configurado por meio da seguinte expressão (consulte o tutorial para ir de um [MXF para uma saída MP4 taxa de bits única](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4)):
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}.MP4`
 
 Isso significa que nosso nome de arquivo é determinado por duas variáveis: o diretório de saída para gravação e o nome base do arquivo de origem. O primeiro é exposto como uma propriedade na raiz do fluxo de trabalho, e o último é determinado pelo arquivo de entrada. O diretório de saída é usado para teste local; essa propriedade será substituída pelo mecanismo de fluxo de trabalho, quando o fluxo de trabalho for executado pelo processador de mídia baseado em nuvem nos Serviços de Mídia do Azure.
 Para atribuir aos nossos dois arquivos de saída uma nomenclatura de saída consistente, altere a primeira expressão de nomenclatura de arquivo para:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4`
 
 e a segunda para:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_960x540_2.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_960x540_2.MP4`
 
 Execute uma execução de teste intermediária para se certificar de que os dois arquivos de saída MP4 foram gerados corretamente.
 
@@ -287,7 +287,7 @@ Como veremos posteriormente ao gerarmos um arquivo .ism para acompanhar nossos a
 
 Crie um terceiro componente de Saída do arquivo para mostrar o fluxo de saída do muxer e configurar a expressão de nomenclatura do arquivo como:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_128kbps_audio.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_128kbps_audio.MP4`
 
 ![Criação de Saída do arquivo pelo muxer de áudio](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-audio-muxer-creating-file-output.png)
 
@@ -319,7 +319,7 @@ A geração do arquivo de manifesto para nosso conjunto de MP4s pode ser realiza
 
 Assim como nossos outros componentes de saída do arquivo, configure o nome de saída do arquivo .ism com uma expressão:
 
-    ${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}_manifest.ism
+`${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}_manifest.ism`
 
 Nosso fluxo de trabalho concluído é semelhante ao seguinte:
 
@@ -342,11 +342,11 @@ No fluxo de trabalho anterior, especificamos uma expressão simples como base pa
 
 Por exemplo, nosso componente de saída de arquivo para o primeiro arquivo de vídeo está configurado com esta expressão:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4`
 
 Enquanto no segundo vídeo de saída, temos uma expressão como esta:
 
-    ${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}_960x540_2.MP4
+`${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}_960x540_2.MP4`
 
 Não seria mais claro, menos propenso a erros e mais conveniente se pudéssemos remover algumas essas duplicações e tornar as coisas mais configuráveis? Felizmente, podemos fazer isso: os recursos de expressão do designer em combinação com a capacidade de criar propriedades personalizadas na raiz de nosso fluxo de trabalho nos proporcionará um pouco mais de conveniência.
 
@@ -391,7 +391,7 @@ A alteração de qualquer um desses três valores também reconfigura e altera o
 ### <a name="have-generated-output-file-names-rely-on-published-property-values"></a><a id="MXF_to__multibitrate_MP4_output_files"></a>Faça com que os nomes de arquivo de saída gerados dependam dos valores de propriedade publicados
 Em vez de codificar nossos nomes de arquivo gerados, podemos mudar nossa expressão de nome de arquivo em cada um dos componentes de Arquivo de saída, a fim de depender das propriedades de taxa de bits que publicamos na raiz do grafo. Começando com nossa primeira saída de arquivo, encontre a propriedade Arquivo e edite a expressão da seguinte forma:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video1bitrate}kbps.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video1bitrate}kbps.MP4`
 
 Os parâmetros diferentes nessa expressão podem ser acessados e inseridos pressionando o sinal de cifrão no teclado enquanto estiver na janela de expressão. Um dos parâmetros disponíveis é nossa propriedade video1bitrate que publicamos anteriormente.
 
@@ -401,11 +401,11 @@ Os parâmetros diferentes nessa expressão podem ser acessados e inseridos press
 
 Faça o mesmo para a saída de arquivo de nosso segundo vídeo:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video2bitrate}kbps.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video2bitrate}kbps.MP4`
 
 e para a saída do arquivo somente de áudio:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_audio1bitrate}bps_audio.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_audio1bitrate}bps_audio.MP4`
 
 Se agora alterarmos a taxa de bits de qualquer um dos arquivos de áudio ou de vídeo, o respectivo codificador será reconfigurado e a convenção de nomenclatura de arquivos com base na taxa de bits será respeitada automaticamente.
 
@@ -462,11 +462,11 @@ Diferente do nossos vídeos MP4, o componente do Codificador de JPG produz mais 
 
 *Apresentação do Gravador de arquivo JPG de Pesquisa de cena*
 
-Configure a propriedade Caminho da pasta de saída com a expressão: ${ROOT_outputWriteDirectory}
+Configure a propriedade caminho da pasta de saída com a expressão:`${ROOT_outputWriteDirectory}`
 
 e a propriedade Prefixo de nome de arquivo com:
 
-    ${ROOT_sourceFileBaseName}_thumb_
+`${ROOT_sourceFileBaseName}_thumb_`
 
 O prefixo determina como os arquivos de miniatura estão sendo chamados. Eles recebem um sufixo com um número indicando a posição da miniatura no fluxo.
 
@@ -551,11 +551,11 @@ Agora, abra as propriedades de corte do corte de áudio e configure os horários
 
 Para a hora de início do corte de áudio:
 
-    ${ROOT_TrimmingStartTime}
+`${ROOT_TrimmingStartTime}`
 
 e para a hora de término:
 
-    ${ROOT_TrimmingEndTime}
+`${ROOT_TrimmingEndTime}`
 
 ### <a name="finished-workflow"></a><a id="time_based_trim_finish"></a>Fluxo de trabalho concluído
 ![Fluxo de trabalho concluído](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-finished-workflow-time-base-trimming.png)
@@ -591,7 +591,7 @@ Os scripts são escritos em Groovy, uma linguagem de script compilada dinamicame
 
 Vamos escrever um script Groovy simples de olá, mundo no contexto de nosso realizeScript. Digite o seguinte no editor:
 
-    node.log("hello world");
+`node.log("hello world");`
 
 Agora, realize um teste local. Após essa execução, inspecione a propriedade Logs (por meio da guia Sistema no Componente com Script).
 
@@ -761,7 +761,7 @@ Isso foi feito por meio de operações de manipulação de cadeia de caracteres 
 
 *Registrando em log a lista de clipes resultante*
 
-Faça um teste de execução para ver como os fluxos de áudio e de vídeo foram cortados. Como você fará mais de um teste de execução com valores diferentes para os pontos de corte, perceberá que eles não serão levados em consideração! O motivo para isso é que o designer, ao contrário do runtime do Azure, NÃO substitui o xml de lista de clipes em cada execução. Isso significa que somente a primeira vez que você definir os pontos de entrada e saída fará com que o XML seja transformado, todas as outras vezes, nossa cláusula de`clipListXML.indexOf("<trim>") == -1`proteção (if ()) impedirá que o fluxo de trabalho Adicione outro elemento Trim quando já houver um presente.
+Faça um teste de execução para ver como os fluxos de áudio e de vídeo foram cortados. Como você fará mais de um teste de execução com valores diferentes para os pontos de corte, perceberá que eles não serão levados em consideração! O motivo para isso é que o designer, ao contrário do runtime do Azure, NÃO substitui o xml de lista de clipes em cada execução. Isso significa que somente a primeira vez que você definir os pontos de entrada e saída fará com que o XML seja transformado, todas as outras vezes, nossa cláusula de proteção (if ( `clipListXML.indexOf("<trim>") == -1` )) impedirá que o fluxo de trabalho Adicione outro elemento Trim quando já houver um presente.
 
 Para tornar o teste local do fluxo de trabalho mais conveniente, é melhor adicionarmos algum código de manutenção que verifica se um elemento de corte já está presente. Em caso positivo, podemos removê-lo antes de continuar por meio da modificação do xml com os novos valores. Em vez de usar manipulações de cadeia de caracteres simples, provavelmente será mais seguro fazer isso por meio da análise do modelo de objeto xml real.
 
@@ -955,5 +955,5 @@ Com a cláusula de proteção simples abaixo, podemos verificar se o corte é ne
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Envie comentários
+## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

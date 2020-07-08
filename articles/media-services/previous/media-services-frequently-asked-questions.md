@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 67c7955316d4c9670509affb478813df0768f261
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 73b24de0e66ca8fbe2097f7da39b64aaea8b1ac4
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832547"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057986"
 ---
 # <a name="media-services-v2-frequently-asked-questions"></a>Perguntas frequentes sobre os Serviços de Mídia v2
 
@@ -66,18 +66,20 @@ P: Como fazer para girar um vídeo durante o processo de codificação?
 
 A: O [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) dá suporte à rotação em ângulos de 90/180/270. O comportamento padrão é "Auto", em que ele tentará detectar os metadados de rotação no arquivo MP4/MOV de entrada e compensá-lo. Inclua o seguinte elemento de **Fontes** em uma das predefinições de json definidas [aqui](media-services-mes-presets-overview.md):
 
-    "Version": 1.0,
-    "Sources": [
-    {
-      "Streams": [],
-      "Filters": {
-        "Rotation": "90"
-      }
-    }
-    ],
-    "Codecs": [
+```json
+"Version": 1.0,
+"Sources": [
+{
+  "Streams": [],
+  "Filters": {
+    "Rotation": "90"
+  }
+}
+],
+"Codecs": [
 
-    ...
+...
+```
 
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia

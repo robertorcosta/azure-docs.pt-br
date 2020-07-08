@@ -3,12 +3,12 @@ title: Exportar modelo no portal do Azure
 description: Use portal do Azure para exportar um modelo de Azure Resource Manager de recursos em sua assinatura.
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 8cdba58a7a2ba998bac7fc0225ff957047cd69b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dbdcaa6e6db4a7a4a958f1be2e9977a14e092663
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79273729"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057697"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Exportação única e de vários recursos para um modelo no portal do Azure
 
@@ -105,11 +105,11 @@ Você pode exportar o modelo que foi usado para implantar recursos existentes. O
 
 1. Selecione o grupo de recursos que você deseja exportar.
 
-1. Selecione o link em **implantações**.
+1. Selecione o link em **Implantações**.
 
-   ![Selecionar histórico de implantação](./media/export-template-portal/select-deployment-history.png)
+   ![Selecionar o histórico de implantação](./media/export-template-portal/select-deployment-history.png)
 
-1. Selecione uma das implantações do histórico de implantação.
+1. Selecione uma das implantações do histórico de implantações.
 
    ![Selecionar a implantação](./media/export-template-portal/select-details.png)
 
@@ -121,5 +121,5 @@ Você pode exportar o modelo que foi usado para implantar recursos existentes. O
 
 - Saiba como exportar modelos com [CLI do Azure](../management/manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](../management/manage-resource-groups-powershell.md#export-resource-groups-to-templates)ou [API REST](/rest/api/resources/resourcegroups/exporttemplate).
 - Para saber mais sobre a sintaxe do modelo do Resource Manager, consulte [entender a estrutura e a sintaxe dos modelos de Azure Resource Manager](template-syntax.md).
-- Para saber como desenvolver modelos, consulte os tutoriais passo a [passo](/azure/azure-resource-manager/).
+- Para saber como desenvolver modelos, consulte os tutoriais passo a [passo](../index.yml).
 - Para exibir os esquemas de modelo de Azure Resource Manager, consulte [referência de modelo](/azure/templates/).

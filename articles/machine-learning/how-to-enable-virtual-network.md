@@ -5,40 +5,25 @@ description: Use uma Rede Virtual do Azure isolada com o Azure Machine Learning 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 05/11/2020
-ms.custom: contperfq4
-ms.openlocfilehash: 17c6e10b213cb1f3d2b20433a5511c27960cdb06
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
-ms.translationtype: HT
+ms.date: 06/30/2020
+ms.custom: contperfq4, tracking-python
+ms.openlocfilehash: 94a2f77326487aa4bb180dd62ec05f4e23ca6218
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816294"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057782"
 ---
-# <a name="secure-your-machine-learning-lifecycles-with-private-virtual-networks"></a>Proteja seus ciclos de vida de aprendizado de máquina com o uso de redes virtuais privadas
+# <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Isolamento de rede durante o treinamento & inferência com redes virtuais privadas
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Neste artigo, você aprenderá a isolar trabalhos de experimentação/treinamento e trabalhos de inferência/pontuação no Azure Machine Learning em uma vnet (Rede Virtual) do Azure. Você também aprenderá sobre algumas *configurações de segurança avançadas*. Essas informações não são necessárias para casos de uso básico ou experimental.
+Neste artigo, você aprenderá a proteger seus ciclos de vida de aprendizado de máquina isolando Azure Machine Learning trabalhos de inferência e treinamento em uma vnet (rede virtual) do Azure. Azure Machine Learning se baseia em outros serviços do Azure para recursos de computação, também conhecidos como [destinos de computação](concept-compute-target.md), para treinar e implantar modelos. Os destinos podem ser criados dentro de uma rede virtual. Por exemplo, você pode usar a computação do Azure Machine Learning para treinar um modelo e, em seguida, implantar o modelo no Serviço de Kubernetes do Azure (AKS). 
 
-> [!WARNING]
-> Se o armazenamento subjacente estiver em uma rede virtual, os usuários não poderão usar a experiência da Web de estúdio do Azure Machine Learning, incluindo:
-> - designer do tipo “arrastar e soltar”
-> - IU para machine learning automatizado
-> - IU para rotulagem de dados
-> - IU para conjuntos de dados
-> - Notebooks
-> 
-> Se você tentar, receberá uma mensagem semelhante ao seguinte erro: `__Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.__`
-
-## <a name="what-is-a-vnet"></a>O que é uma VNET?
-
-Uma **rede virtual** atua como um limite de segurança, isolando os recursos do Azure da Internet pública. Além disso, é possível ingressar em uma rede virtual do Azure na rede local. Ao ingressar em redes, você pode treinar com segurança seus modelos e acessar seus modelos implantados para inferência.
-
-O Azure Machine Learning conta com outros serviços do Azure para recursos de computação, também conhecidos como [destinos de computação](concept-compute-target.md), para treinar e implantar modelos. Os destinos podem ser criados dentro de uma rede virtual. Por exemplo, você pode usar a computação do Azure Machine Learning para treinar um modelo e, em seguida, implantar o modelo no Serviço de Kubernetes do Azure (AKS). 
-
+Uma __rede virtual__ atua como um limite de segurança, isolando os recursos do Azure da Internet pública. Além disso, é possível ingressar em uma rede virtual do Azure na rede local. Ao ingressar em redes, você pode treinar com segurança seus modelos e acessar seus modelos implantados para inferência.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -70,16 +55,176 @@ Você também pode [habilitar o Link Privado do Azure](how-to-configure-private-
 > 
 
 > [!WARNING]
-> Não há suporte para a versão prévia de instâncias de computação do Azure Machine Learning em um workspace em que o Link Privado está habilitado.
 > 
+> Não há suporte para a versão prévia de instâncias de computação do Azure Machine Learning em um workspace em que o Link Privado está habilitado.
+>
 > O Azure Machine Learning não dá suporte ao uso de um Serviço de Kubernetes do Azure que tenha o link privado habilitado. Em vez disso, você pode usar o Serviço de Kubernetes do Azure em uma rede virtual. Para obter mais informações, consulte [Proteger trabalhos de experimentação e inferência do Azure ML em uma Rede Virtual do Azure](how-to-enable-virtual-network.md).
 
 
 <a id="amlcompute"></a>
 
-## <a name="compute-clusters--instances"></a><a name="compute-instance"></a>Clusters e instâncias de computação
+## <a name="machine-learning-studio"></a>Machine Learning Studio
 
-Para usar um [destino de computação**do**Azure Machine Learning gerenciado](concept-compute-target.md#azure-machine-learning-compute-managed) ou uma [instância de computação do **Azure Machine Learning**](concept-compute-instance.md) em uma rede virtual, os requisitos de rede a seguir devem ser atendidos:
+Se os dados estiverem armazenados em uma rede virtual, você deverá usar uma [identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md) do espaço de trabalho para conceder ao estúdio acesso aos seus dados.
+
+Se você não conceder acesso ao estúdio, receberá esse erro `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.` e desabilitará as seguintes operações:
+
+* Visualizar dados no estúdio.
+* Visualize dados no designer.
+* Envie um experimento do AutoML.
+* Inicie um projeto de rotulagem.
+
+O estúdio dá suporte à leitura de dados dos seguintes tipos de repositório de armazenamento em uma rede virtual:
+
+* Blob do Azure
+* Azure Data Lake Storage Gen1
+* Azure Data Lake Storage Gen2
+* Banco de Dados SQL do Azure
+
+### <a name="add-resources-to-the-virtual-network"></a>Adicionar recursos à rede virtual 
+
+Adicione seu espaço de trabalho e a conta de armazenamento à mesma rede virtual para que eles possam acessar um ao outro.
+
+1. Para conectar seu espaço de trabalho à rede virtual, [habilite o link privado do Azure](how-to-configure-private-link.md).
+
+1. Para conectar sua conta de armazenamento à rede virtual, [defina as configurações de firewalls e redes virtuais](#use-a-storage-account-for-your-workspace).
+
+### <a name="configure-a-datastore-to-use-managed-identity"></a>Configurar um repositório de armazenamento para usar identidade gerenciada
+
+Depois de adicionar seu espaço de trabalho e a conta de serviço de armazenamento à rede virtual, você precisa configurar os armazenamentos de dados para usar identidade gerenciada para acessar os seus serviços. Essas etapas adicionam a identidade gerenciada do espaço de trabalho como um __leitor__ ao serviço de armazenamento usando o controle de acesso baseado em recursos (RBAC) do Azure. O acesso de __leitor__ permite que o espaço de trabalho recupere as configurações de firewall e verifique se os dados não deixam a rede virtual.
+
+1. No estúdio, selecione __repositórios de armazenamento__.
+
+1. Para criar um novo repositório de armazenamento, selecione __+ novo repositório de armazenamento__. Para atualizar um existente, selecione o repositório de armazenamento e selecione __Atualizar credenciais__.
+
+1. Nas configurações do repositório de armazenamento, selecione __Sim__ para __permitir que o serviço de Azure Machine Learning acesse o armazenamento usando a identidade gerenciada do espaço de trabalho__.
+
+> [!NOTE]
+> Essas alterações podem levar até 10 minutos para entrar em vigor.
+
+### <a name="azure-blob-storage-blob-data-reader"></a>Leitor de dados de blob do armazenamento de BLOBs do Azure
+
+Para o __armazenamento de BLOBs do Azure__, a identidade gerenciada do espaço de trabalho também é adicionada como um [leitor de dados de blob](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) para que possa ler dados do armazenamento de BLOBs.
+
+
+### <a name="azure-data-lake-storage-gen2-access-control"></a>Controle de acesso Azure Data Lake Storage Gen2
+
+Você pode usar as ACLs (listas de controle de acesso) de estilo RBAC e POSIX para controlar o acesso a dados dentro de uma rede virtual.
+
+Para usar o RBAC, adicione a identidade gerenciada do espaço de trabalho à função de [leitor de dados de blob](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) . Para obter mais informações, confira [Controle de acesso baseado em função](../storage/blobs/data-lake-storage-access-control.md#role-based-access-control).
+
+Para usar ACLs, a identidade gerenciada do espaço de trabalho pode ser atribuída ao acesso, assim como qualquer outro princípio de segurança. Para obter mais informações, consulte [listas de controle de acesso em arquivos e diretórios](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
+
+
+### <a name="azure-data-lake-storage-gen1-access-control"></a>Controle de acesso Azure Data Lake Storage Gen1
+
+Azure Data Lake Storage Gen1 oferece suporte apenas a listas de controle de acesso em estilo POSIX. Você pode atribuir o acesso de identidade gerenciada do espaço de trabalho a recursos, assim como qualquer outro princípio de segurança. Para obter mais informações, consulte [controle de acesso em Azure data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md).
+
+
+### <a name="azure-sql-database-contained-user"></a>O banco de dados SQL do Azure continha o usuário
+
+Para acessar os dados armazenados em um Azure SQL Database usando a identidade gerenciada, você deve criar um usuário contido no SQL que mapeia para a identidade gerenciada. Para obter mais informações sobre como criar um usuário de um provedor externo, consulte [criar usuários independentes mapeados para identidades do Azure ad](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities).
+
+Depois de criar um usuário do SQL continha, conceda permissões a ele usando o [comando Grant T-SQL](https://docs.microsoft.com/sql/t-sql/statements/grant-object-permissions-transact-sql).
+
+### <a name="connect-to-the-studio"></a>Conectar-se ao estúdio
+
+Se você estiver acessando o Studio de um recurso dentro de uma rede virtual (por exemplo, uma instância de computação ou máquina virtual), deverá permitir o tráfego de saída da rede virtual para o estúdio. 
+
+Por exemplo, se você estiver usando NSG (grupos de segurança de rede) para restringir o tráfego de saída, adicione uma regra a um destino de __marca de serviço__ de __AzureFrontDoor. frontend__.
+
+## <a name="use-a-storage-account-for-your-workspace"></a>Use a conta de armazenamento para o seu workspace
+
+> [!IMPORTANT]
+> Você pode colocar a _conta de armazenamento padrão_ para o Azure Machine Learning ou as _contas de armazenamento não padrão_ em uma rede virtual.
+>
+> A conta de armazenamento padrão é provisionada automaticamente quando você cria um workspace.
+>
+> O parâmetro `storage_account` na função [`Workspace.create()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) permite que você especifique uma conta de armazenamento personalizada pela ID do recurso do Azure em contas de armazenamento não padrão.
+
+Para usar um serviço de armazenamento do Azure para o espaço de trabalho em uma rede virtual, use as seguintes etapas:
+
+1. Crie um recurso de computação (por exemplo, um cluster ou instância de computação do Machine Learning) atrás de uma rede virtual ou anexe um recurso de computação ao workspace (por exemplo, um cluster HDInsight, uma máquina virtual ou um cluster do Serviço de Contêiner do Azure). O recurso de computação pode ser para experimentação ou implantação de modelo.
+
+   Para obter mais informações, consulte neste artigo as seções [Usar uma computação do Machine Learning](#amlcompute), [Usar uma máquina virtual ou cluster HDInsight](#vmorhdi) e [Usar o Serviço de Kubernetes do Azure](#aksvnet).
+
+1. Na portal do Azure, vá para o serviço de armazenamento que você deseja usar em seu espaço de trabalho.
+
+   [![O armazenamento anexado ao workspace do Azure Machine Learning](./media/how-to-enable-virtual-network/workspace-storage.png)](./media/how-to-enable-virtual-network/workspace-storage.png#lightbox)
+
+1. Na página conta de serviço de armazenamento, selecione __firewalls e redes virtuais__.
+
+   ![A área “Firewalls e redes virtuais” na página Armazenamento do Azure no portal do Azure](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
+
+1. Na página __Firewalls e redes virtuais__, execute as seguintes ações:
+    - Selecione __Redes selecionadas__.
+    - Em __Redes virtuais__, selecione o link __Adicionar rede virtual existente__. Essa ação adiciona a rede virtual onde sua computação reside (consulte a etapa 1).
+
+        > [!IMPORTANT]
+        > A conta de armazenamento deve estar na mesma rede virtual e sub-rede que as instâncias ou clusters de computação usados para treinamento ou inferência.
+
+    - Marque a caixa de seleção __Permitir que serviços confiáveis da Microsoft acessem esta conta de armazenamento__.
+
+    > [!IMPORTANT]
+    > Ao trabalhar com o SDK do Azure Machine Learning, seu ambiente de desenvolvimento deve ter a capacidade de se conectar à Conta de Armazenamento do Azure. O firewall deve permitir o acesso do endereço IP do ambiente de desenvolvimento quando a conta de armazenamento está dentro de uma rede virtual.
+    >
+    > Para habilitar o acesso à conta de armazenamento, acesse __Firewalls e redes virtuais__ para a conta de armazenamento *de um navegador da Web no cliente de desenvolvimento*. Em seguida, use a caixa de seleção __Adicionar endereço IP do seu cliente__ para adicionar o endereço IP do cliente ao __INTERVALO DE ENDEREÇOS__. Você também pode usar o campo __INTERVALO DE ENDEREÇOS__ para inserir manualmente o endereço IP do ambiente de desenvolvimento. Após adicionar o endereço IP do cliente, ele poderá acessar a conta de armazenamento usando o SDK.
+
+   [![O painel “Firewalls e redes virtuais” no portal do Azure](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
+
+## <a name="use-datastores-and-datasets"></a>Usar repositórios de armazenamento e conjuntos de valores
+
+Esta seção aborda o uso do datastore e do conjunto de conhecimento para a experiência do SDK. Para obter mais informações sobre a experiência do estúdio, consulte a seção [Machine Learning Studio](#machine-learning-studio).
+
+Por padrão, Azure Machine Learning executa as verificações de validade e credencial de dados quando você tenta acessar dados usando o SDK. Se seus dados estiverem atrás de uma rede virtual, Azure Machine Learning não poderá acessar os dados e falhará em suas verificações. Para evitar isso, você deve criar repositórios de armazenamento e conjuntos de valores que ignoram a validação.
+
+### <a name="use-a-datastore"></a>Usar um repositório de armazenamento
+
+ Azure Data Lake Store Gen1 e Azure Data Lake Store Gen2 ignoram a validação por padrão, portanto, nenhuma ação adicional é necessária. No entanto, para os seguintes serviços, você pode usar sintaxe semelhante para ignorar a validação do repositório de armazenamento:
+
+- Armazenamento de Blobs do Azure
+- FileShare do Azure
+- PostgreSQL
+- Banco de Dados SQL do Azure
+
+O exemplo de código a seguir cria um novo armazenamento de BLOBs e conjuntos do Azure `skip_validation=True` .
+
+```python
+blob_datastore = Datastore.register_azure_blob_container(workspace=ws,  
+
+                                                         datastore_name=blob_datastore_name,  
+
+                                                         container_name=container_name,  
+
+                                                         account_name=account_name, 
+
+                                                         account_key=account_key, 
+
+                                                         skip_validation=True ) // Set skip_validation to true
+```
+
+### <a name="use-a-dataset"></a>Usar um conjunto de dados
+
+A sintaxe para ignorar a validação de DataSet é semelhante para os seguintes tipos de conjunto de conjuntos:
+- Arquivo delimitado
+- JSON 
+- Parquet
+- SQL
+- Arquivo
+
+O código a seguir cria um novo conjunto de valores e conjuntos de JSON `validate=False` .
+
+```python
+json_ds = Dataset.Tabular.from_json_lines_files(path=datastore_paths, 
+
+validate=False) 
+
+```
+
+
+## <a name="compute-clusters--instances"></a><a name="compute-instance"></a>Clusters e instâncias de computação 
+
+Para usar um [destino de computação__do__Azure Machine Learning gerenciado](concept-compute-target.md#azure-machine-learning-compute-managed) ou uma [instância de computação do __Azure Machine Learning__](concept-compute-instance.md) em uma rede virtual, os requisitos de rede a seguir devem ser atendidos:
 
 > [!div class="checklist"]
 > * A rede virtual deve estar na mesma assinatura e região que o workspace do Azure Machine Learning.
@@ -102,7 +247,9 @@ Para usar um [destino de computação**do**Azure Machine Learning gerenciado](co
 
 ### <a name="required-ports"></a><a id="mlcports"></a> Portas obrigatórias
 
-Atualmente, a Computação do Machine Learning usa o serviço de Lote do Azure para provisionar VMs na rede virtual especificada. A sub-rede deve permitir a comunicação de entrada do serviço Lote. Você usa essa comunicação para agendar execuções nos nós de Computação do Machine Learning e para se comunicar com o Armazenamento do Azure e outros recursos. O serviço de Lote adiciona grupos de segurança de rede (NSGs) no nível dos adaptadores de rede (NICs) anexados às VMs. Esses NSGs configuraram automaticamente as regras de entrada e saída para permitir o tráfego a seguir:
+Se você planeja proteger a rede virtual restringindo o tráfego de rede de/para a Internet pública, você deve permitir comunicações de entrada do serviço de lote do Azure.
+
+O serviço de Lote adiciona grupos de segurança de rede (NSGs) no nível dos adaptadores de rede (NICs) anexados às VMs. Esses NSGs configuraram automaticamente as regras de entrada e saída para permitir o tráfego a seguir:
 
 - Tráfego TCP de entrada nas portas 29876 e 29877 a partir de uma __Marca de serviço__ de __BatchNodeManagement__.
 
@@ -116,9 +263,10 @@ Atualmente, a Computação do Machine Learning usa o serviço de Lote do Azure p
 
 - Para o tráfego TCP de entrada da instância de computação na porta 44224 de uma __Marca de serviço__ do __AzureMachineLearning__.
 
-Tenha cuidado se você modificar ou adicionar regras de entrada ou saída nos NSGs configurados em Lote. Se um NSG bloquear a comunicação com os nós de computação, os serviços de computação definem o estado dos nós de computação como inutilizáveis.
-
-Não é necessário especificar NSGs no nível de sub-rede porque o serviço do Lote do Azure configura seus próprios NSGs. No entanto, se a sub-rede especificada tiver associado NSGs ou um firewall, configure as regras de segurança de entrada e saída conforme mencionado anteriormente.
+> [!IMPORTANT]
+> Tenha cuidado se você modificar ou adicionar regras de entrada ou saída nos NSGs configurados em Lote. Se um NSG bloquear a comunicação com os nós de computação, os serviços de computação definem o estado dos nós de computação como inutilizáveis.
+>
+> Não é necessário especificar NSGs no nível de sub-rede porque o serviço do Lote do Azure configura seus próprios NSGs. No entanto, se a sub-rede que contém o Azure Machine Learning computação tiver associado NSGs ou um firewall, você também deverá permitir o tráfego listado anteriormente.
 
 A configuração da regra de NSG no portal do Azure é mostrada nas seguintes imagens:
 
@@ -146,7 +294,10 @@ A configuração da regra de NSG no portal do Azure é mostrada na seguinte imag
 [![As regras de NSG de saída para Computação do Machine Learning](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png)](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png#lightbox)
 
 > [!NOTE]
-> Se você planeja usar as imagens padrão do Docker fornecidas pela Microsoft e habilitando dependências gerenciadas pelo usuário, você também deve usar uma __Marca de serviço__ de __MicrosoftContainerRegistry.Region_Name__ (por exemplo, MicrosoftContainerRegistry.EastUS).
+> Se você planeja usar imagens padrão do Docker fornecidas pela Microsoft e habilitando dependências gerenciadas pelo usuário, você também deve usar as seguintes __marcas de serviço__:
+>
+> * __MicrosoftContainerRegistry__
+> * __AzureFrontDoor.FirstParty__
 >
 > Essa configuração é necessária quando você tem um código semelhante aos seguintes trechos como parte de seus scripts de treinamento:
 >
@@ -253,45 +404,11 @@ except ComputeTargetException:
 
 Após concluir o processo de criação, você treina seu modelo usando o cluster em um experimento. Para obter mais informações, consulte [Selecionar e usar um destino de computação para treinamento](how-to-set-up-training-targets.md).
 
-## <a name="use-a-storage-account-for-your-workspace"></a>Use a conta de armazenamento para o seu workspace
+### <a name="access-data-in-a-compute-instance-notebook"></a>Acessar dados em um bloco de anotações de instância de computação
 
-Para usar uma conta de armazenamento do Azure para o workspace em uma rede virtual, siga as seguintes etapas:
+Se você estiver usando blocos de anotações em uma instância de computação do Azure, certifique-se de que o bloco de anotações esteja sendo executado em um recurso de computação por trás da mesma rede virtual e sub-rede que seus dados. 
 
-1. Crie um recurso de computação (por exemplo, um cluster ou instância de computação do Machine Learning) atrás de uma rede virtual ou anexe um recurso de computação ao workspace (por exemplo, um cluster HDInsight, uma máquina virtual ou um cluster do Serviço de Contêiner do Azure). O recurso de computação pode ser para experimentação ou implantação de modelo.
-
-   Para obter mais informações, consulte neste artigo as seções [Usar uma computação do Machine Learning](#amlcompute), [Usar uma máquina virtual ou cluster HDInsight](#vmorhdi) e [Usar o Serviço de Kubernetes do Azure](#aksvnet).
-
-1. No portal do Azure, vá para o armazenamento que está anexado ao seu workspace.
-
-   [![O armazenamento anexado ao workspace do Azure Machine Learning](./media/how-to-enable-virtual-network/workspace-storage.png)](./media/how-to-enable-virtual-network/workspace-storage.png#lightbox)
-
-1. Na página **Armazenamento do Azure**, selecione __Firewalls e redes virtuais__.
-
-   ![A área “Firewalls e redes virtuais” na página Armazenamento do Azure no portal do Azure](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
-
-1. Na página __Firewalls e redes virtuais__, execute as seguintes ações:
-    - Selecione __Redes selecionadas__.
-    - Em __Redes virtuais__, selecione o link __Adicionar rede virtual existente__. Essa ação adiciona a rede virtual onde está a computação (consulte a etapa 1).
-
-        > [!IMPORTANT]
-        > A conta de armazenamento deve estar na mesma rede virtual e sub-rede que as instâncias ou clusters de computação usados para treinamento ou inferência.
-
-    - Marque a caixa de seleção __Permitir que serviços confiáveis da Microsoft acessem esta conta de armazenamento__.
-
-    > [!IMPORTANT]
-    > Ao trabalhar com o SDK do Azure Machine Learning, seu ambiente de desenvolvimento deve ter a capacidade de se conectar à Conta de Armazenamento do Azure. O firewall deve permitir o acesso do endereço IP do ambiente de desenvolvimento quando a conta de armazenamento está dentro de uma rede virtual.
-    >
-    > Para habilitar o acesso à conta de armazenamento, acesse __Firewalls e redes virtuais__ para a conta de armazenamento *de um navegador da Web no cliente de desenvolvimento*. Em seguida, use a caixa de seleção __Adicionar endereço IP do seu cliente__ para adicionar o endereço IP do cliente ao __INTERVALO DE ENDEREÇOS__. Você também pode usar o campo __INTERVALO DE ENDEREÇOS__ para inserir manualmente o endereço IP do ambiente de desenvolvimento. Após adicionar o endereço IP do cliente, ele poderá acessar a conta de armazenamento usando o SDK.
-
-   [![O painel “Firewalls e redes virtuais” no portal do Azure](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
-
-> [!IMPORTANT]
-> Você pode colocar a _conta de armazenamento padrão_ para o Azure Machine Learning ou as _contas de armazenamento não padrão_ em uma rede virtual.
->
-> A conta de armazenamento padrão é provisionada automaticamente quando você cria um workspace.
->
-> O parâmetro `storage_account` na função [`Workspace.create()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) permite que você especifique uma conta de armazenamento personalizada pela ID do recurso do Azure em contas de armazenamento não padrão.
-
+Você deve configurar sua instância de computação para estar na mesma rede virtual durante a criação em **Configurações avançadas**  >  **Configurar rede virtual**. Você não pode adicionar uma instância de computação existente a uma rede virtual.
 
 <a id="aksvnet"></a>
 
@@ -363,7 +480,7 @@ Um endereço IP particular é habilitado configurando o AKS para usar um _balanc
 > [!IMPORTANT]
 > Você não pode habilitar o IP particular ao criar o cluster do Serviço de Kubernetes do Azure. Ele deve estar habilitado como uma atualização de um cluster existente.
 
-O trecho de código a seguir demonstra como **criar um novo cluster de AKS** e, em seguida, atualizá-lo para usar um balanceador de carga interno/IP particular:
+O trecho de código a seguir demonstra como __criar um novo cluster de AKS__ e, em seguida, atualizá-lo para usar um balanceador de carga interno/IP particular:
 
 ```python
 import azureml.core
@@ -427,14 +544,69 @@ O conteúdo do arquivo `body.json` referenciado pelo comando é semelhante ao se
 } 
 ```
 
-> [!NOTE]
-> Atualmente não é possível configurar o balanceador de carga ao executar uma operação de __anexar__ em um cluster existente. Primeiro você deve anexar o cluster e depois executar uma operação de atualização para alterar o balanceador de carga.
+Ao __anexar um cluster existente__ ao seu espaço de trabalho, você deve aguardar até que a operação de anexação configure o balanceador de carga.
 
+Para obter informações sobre como anexar um cluster, consulte [anexar um cluster AKs existente](how-to-deploy-azure-kubernetes-service.md#attach-an-existing-aks-cluster).
+
+Depois de anexar o cluster existente, você pode atualizar o cluster para usar um IP privado.
+
+```python
+import azureml.core
+from azureml.core.compute.aks import AksUpdateConfiguration
+from azureml.core.compute import AksCompute
+
+# ws = workspace object. Creation not shown in this snippet
+aks_target = AksCompute(ws,"myaks")
+
+# Change to the name of the subnet that contains AKS
+subnet_name = "default"
+# Update AKS configuration to use an internal load balancer
+update_config = AksUpdateConfiguration(None, "InternalLoadBalancer", subnet_name)
+aks_target.update(update_config)
+# Wait for the operation to complete
+aks_target.wait_for_completion(show_output = True)
+```
+
+__Função de colaborador de rede__
+
+> [!IMPORTANT]
+> Se você criar ou anexar um cluster AKS fornecendo uma rede virtual criada anteriormente, deverá conceder a entidade de serviço (SP) ou a identidade gerenciada para seu cluster AKS a função de _colaborador de rede_ para o grupo de recursos que contém a rede virtual. Isso deve ser feito antes de tentar alterar o balanceador de carga interno para o IP privado.
+>
+> Para adicionar a identidade como colaborador de rede, use as seguintes etapas:
+
+1. Para localizar a entidade de serviço ou a ID de identidade gerenciada para AKS, use os seguintes comandos de CLI do Azure. Substitua `<aks-cluster-name>` pelo nome do cluster. Substitua `<resource-group-name>` pelo nome do grupo de recursos que _contém o cluster AKs_:
+
+    ```azurecli-interactive
+    az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query servicePrincipalProfile.clientId
+    ``` 
+
+    Se esse comando retornar um valor de `msi` , use o seguinte comando para identificar a ID da entidade de segurança para a identidade gerenciada:
+
+    ```azurecli-interactive
+    az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query identity.principalId
+    ```
+
+1. Para localizar a ID do grupo de recursos que contém sua rede virtual, use o comando a seguir. Substitua `<resource-group-name>` pelo nome do grupo de recursos que _contém a rede virtual_:
+
+    ```azurecli-interactive
+    az group show -n <resource-group-name> --query id
+    ```
+
+1. Para adicionar a entidade de serviço ou a identidade gerenciada como um colaborador de rede, use o comando a seguir. Substituir `<SP-or-managed-identity>` pela ID retornada para a entidade de serviço ou identidade gerenciada. Substituir `<resource-group-id>` pela ID retornada para o grupo de recursos que contém a rede virtual:
+
+    ```azurecli-interactive
+    az role assignment create --assignee <SP-or-managed-identity> --role 'Network Contributor' --scope <resource-group-id>
+    ```
 Para obter mais informações sobre como usar o balanceador de carga interno com o AKS, consulte [Usar o balanceador de carga interno com o Serviço de Kubernetes do Azure](/azure/aks/internal-lb).
 
 ## <a name="use-azure-container-instances-aci"></a>Usar Instâncias de Contêiner do Azure (ACI)
 
 As Instâncias de Contêiner do Azure são criadas dinamicamente durante a implantação de um modelo. Para habilitar a Azure Machine Learning para criar ACI dentro da rede virtual, você deve habilitar a __delegação de sub-rede__ para a sub-rede usada pela implantação.
+
+> [!WARNING]
+> Ao usar instâncias de contêiner do Azure em uma rede virtual, a rede virtual deve estar no mesmo grupo de recursos que seu espaço de trabalho do Azure Machine Learning.
+>
+> Ao usar as instâncias de contêiner do Azure dentro da rede virtual, o ACR (registro de contêiner do Azure) para seu espaço de trabalho também não pode estar na rede virtual.
 
 Para usar a ACI em uma rede virtual no seu workspace, siga as seguintes etapas:
 
@@ -547,22 +719,6 @@ Para obter informações sobre como usar o Azure Machine Learning com o Firewall
     ]
     }
     ```
-    
-## <a name="azure-data-lake-storage"></a>Armazenamento do Azure Data Lake
-
-O Azure Data Lake Storage Gen 2 é um conjunto de recursos para análise de Big Data, compilados no armazenamento de Blobs do Azure. Ele pode ser usado para armazenar dados usados para treinar modelos com o Azure Machine Learning. 
-
-Para usar o Azure Data Lake Storage Gen 2 dentro da rede virtual do seu workspace do Azure Machine Learning, siga as seguintes etapas:
-
-1. Criar uma conta do Azure Data Lake Storage Gen 2. Para mais informações, consulte [Criar uma conta de armazenamento do Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-quickstart-create-account.md).
-
-1. Use as etapas 2 a 4 da seção anterior, [Usar uma conta de armazenamento para seu workspace](#use-a-storage-account-for-your-workspace), para colocar a conta na rede virtual.
-
-Ao usar o Azure Machine Learning com o Data Lake Storage Gen 2 dentro de uma rede virtual, siga as seguintes diretrizes:
-
-* Se você usar o __SDK para criar um conjunto de dados__ e o sistema que executa o código __não estiver na rede virtual__, use o parâmetro `validate=False`. Esse parâmetro ignora a validação que falha se o sistema não estiver na mesma rede virtual que a conta de armazenamento. Para obter mais informações, consulte o método [from_files()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-).
-
-* Ao usar a Instância de Computação do Azure Machine Learning ou cluster de cálculo para treinar um modelo usando o conjunto de dados, ela deve estar na mesma rede virtual que a conta de armazenamento.
 
 ## <a name="key-vault-instance"></a>Instância do cofre de chaves 
 
@@ -577,7 +733,7 @@ Para usar os recursos de experimentação do Azure Machine Learning com Azure Ke
 
    [![O cofre de chaves associado ao workspace do Azure Machine Learning](./media/how-to-enable-virtual-network/workspace-key-vault.png)](./media/how-to-enable-virtual-network/workspace-key-vault.png#lightbox)
 
-1. Na página **Key Vault**, no painel esquerdo, selecione __Firewalls e redes virtuais__.
+1. Na página __Key Vault__, no painel esquerdo, selecione __Firewalls e redes virtuais__.
 
    ![A seção “Firewalls e redes virtuais” no painel do Key Vault](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks.png)
 
