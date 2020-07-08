@@ -6,14 +6,14 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: 1fdee9a5d90fc065e198d880f9d0dea10804b881
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a9e6e8276733eeed88561ed39a6702aec76286a4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75972643"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85317780"
 ---
-# <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Criar modelos de Azure Resource Manager para automatizar a implantação para aplicativos lógicos do Azure
+# <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Criar modelos do Azure Resource Manager para automatizar a implantação para Aplicativos Lógicos do Azure
 
 Para ajudá-lo a automatizar a criação e a implantação de seu aplicativo lógico, este artigo descreve as maneiras como você pode criar um [modelo de Azure Resource Manager](../azure-resource-manager/management/overview.md) para seu aplicativo lógico. Para obter uma visão geral sobre a estrutura e a sintaxe de um modelo que inclui sua definição de fluxo de trabalho e outros recursos necessários para a implantação, consulte [visão geral: automatizar a implantação para aplicativos lógicos com modelos de Azure Resource Manager](logic-apps-azure-resource-manager-templates-overview.md).
 
@@ -45,7 +45,7 @@ Ao baixar seu aplicativo lógico, você obtém um modelo que inclui as definiç�
 
 Você pode criar modelos do Resource Manager usando Azure PowerShell com o [módulo LogicAppTemplate](https://github.com/jeffhollan/LogicAppTemplateCreator). Este módulo de software livre primeiro avalia seu aplicativo lógico e todas as conexões que o aplicativo lógico usa. Em seguida, o módulo gera recursos de modelo com os parâmetros necessários para a implantação.
 
-Por exemplo, suponha que você tenha um aplicativo lógico que recebe uma mensagem de uma fila do barramento de serviço do Azure e carrega dados para um banco de dado SQL do Azure. O módulo preserva toda a lógica de orquestração e parametriza as cadeias de conexão SQL e do barramento de serviço para que você possa fornecer e alterar esses valores com base nas suas necessidades de implantação.
+Por exemplo, suponhamos que você tenha um aplicativo lógico que recebe uma mensagem de uma fila do barramento de serviço do Azure e carrega dados no Azure SQL Database. O módulo preserva toda a lógica de orquestração e parametriza as cadeias de conexão SQL e do barramento de serviço para que você possa fornecer e alterar esses valores com base nas suas necessidades de implantação.
 
 Esses exemplos mostram como criar e implantar aplicativos lógicos usando modelos de Azure Resource Manager, Azure Pipelines no Azure DevOps e Azure PowerShell:
 
@@ -86,7 +86,7 @@ Para gerar seu modelo depois de instalar o módulo LogicAppTemplate e [CLI do Az
 PS> Get-LogicAppTemplate -Token (az account get-access-token | ConvertFrom-Json).accessToken -LogicApp <logic-app-name> -ResourceGroup <Azure-resource-group-name> -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json
 ```
 
-Para seguir a recomendação de encanamento em um token da [ferramenta de cliente Azure Resource Manager](https://github.com/projectkudu/ARMClient), execute este comando, em `$SubscriptionId` que é a sua ID de assinatura do Azure:
+Para seguir a recomendação de encanamento em um token da [ferramenta de cliente Azure Resource Manager](https://github.com/projectkudu/ARMClient), execute este comando, em que `$SubscriptionId` é a sua ID de assinatura do Azure:
 
 ```text
 PS> armclient token $SubscriptionId | Get-LogicAppTemplate -LogicApp <logic-app-name> -ResourceGroup <Azure-resource-group-name> -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json

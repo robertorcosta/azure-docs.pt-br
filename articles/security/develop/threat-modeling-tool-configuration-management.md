@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 811feb26e492efeb505f43202bee484d3edfb8a5
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 391851927d03a557483afa2656e315b28c613956
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658612"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322632"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Quadro de segurança: gerenciamento de configurações | Atenuações 
 | Produto/Serviço | Artigo |
@@ -288,7 +288,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 | **Fase do SDL**               | Build |  
 | **Tecnologias aplicáveis** | SQL Azure, OnPrem |
 | **Atributos**              | N/D, Versão do SQL - V12 |
-| **Referências**              | [Como configurar um firewall de banco de dados SQL do Azure](https://azure.microsoft.com/documentation/articles/sql-database-firewall-configure/), [Configurar um Firewall do Windows para conceder acesso ao mecanismo do banco de dados](https://msdn.microsoft.com/library/ms175043) |
+| **Referências**              | [Como configurar um firewall do banco de dados SQL do Azure](https://azure.microsoft.com/documentation/articles/sql-database-firewall-configure/), [configurar um firewall do Windows para acesso mecanismo de banco de dados](https://msdn.microsoft.com/library/ms175043) |
 | **Etapas** | Os sistemas de Firewall ajudam a impedir o acesso não autorizado aos recursos do computador. Para acessar uma instância do mecanismo de banco de dados do SQL Server por meio de um firewall, você precisa configurar o firewall no computador que está executando o SQL Server para permitir o acesso. |
 
 ## <a name="ensure-that-only-trusted-origins-are-allowed-if-cors-is-enabled-on-aspnet-web-api"></a><a id="cors-api"></a>Garantir que apenas fontes confiáveis sejam permitidas se o CORS estiver habilitado na ASP.NET Web API

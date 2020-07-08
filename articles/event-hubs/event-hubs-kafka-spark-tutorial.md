@@ -1,20 +1,14 @@
 ---
 title: Conecte-se com seu aplicativo Apache Spark – Hubs de Eventos do Azure | Microsoft Docs
 description: Este artigo fornece informações sobre como usar o Apache Spark com Hubs de Eventos do Azure para Kafka.
-services: event-hubs
-documentationcenter: .net
-author: ShubhaVijayasarathy
-manager: timlt
-ms.service: event-hubs
 ms.topic: how-to
-ms.date: 04/02/2020
-ms.author: shvija
-ms.openlocfilehash: 1b292f9b894dac7df6b9634ce1bad627c8d24fe6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 00925242d5685749aba27ad2fc537ffb07f4c68d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80632756"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85320097"
 ---
 # <a name="connect-your-apache-spark-application-with-azure-event-hubs"></a>Conectar seu aplicativo Apache Spark com os hubs de eventos do Azure
 Este tutorial orienta você pela conexão do aplicativo Spark aos hubs de eventos para streaming em tempo real. Essa integração permite streaming sem a necessidade de alterar os clientes de protocolo ou executar seus próprios clusters Kafka ou Zookeeper. Este tutorial requer o Apache Spark v2.4+ e o Apache Kafka v2.0+.
@@ -105,6 +99,6 @@ Para saber mais sobre os Hubs de Eventos e Hubs de Eventos para o Kafka, confira
 - [Conectar o Apache Flink a um hub de eventos](event-hubs-kafka-flink-tutorial.md)
 - [Integrar o Kafka Connect a um hub de eventos](event-hubs-kafka-connect-tutorial.md)
 - [Explorar exemplos em nosso GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
-- [Conectar o Akka Streams a um hub de eventos](event-hubs-kafka-akka-streams-tutorial.md)
+- [Conectar fluxos do Akka a um hub de eventos](event-hubs-kafka-akka-streams-tutorial.md)
 - [Guia do desenvolvedor de Apache Kafka para hubs de eventos do Azure](apache-kafka-developer-guide.md)
 

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c26b4e04970dd6c35fc6a71a1aade94d949b520
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
-ms.translationtype: HT
+ms.openlocfilehash: 0339d9d47752c194eeda96cd2df4859d6b97518b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816175"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85338276"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Gerenciar contas de acesso de emergência no Microsoft Azure Active Directory
 
@@ -156,5 +156,5 @@ Essas etapas devem ser realizadas em intervalos regulares e para alterações de
 - [Adicionar um usuário usando o Microsoft Azure Active Directory](../fundamentals/add-users-azure-active-directory.md) e [atribuir ao novo usuário à função de administrador global](../fundamentals/active-directory-users-assign-role-azure-portal.md)
 - [Inscreva-se no Azure AD Premium](../fundamentals/active-directory-get-started-premium.md), se você ainda não tiver se inscrito
 - [Como exigir a verificação em duas etapas para um usuário](../authentication/howto-mfa-userstates.md)
-- [Configurar as proteções adicionais para os Administradores Globais no Office 365](https://docs.microsoft.com/office365/enterprise/protect-your-global-administrator-accounts), se você estiver usando o Office 365
+- [Configurar proteções adicionais para administradores globais no Microsoft 365](https://docs.microsoft.com/office365/enterprise/protect-your-global-administrator-accounts), se você estiver usando Microsoft 365
 - [Executar uma análise de acesso de Administradores Globais](../privileged-identity-management/pim-how-to-start-security-review.md) e [transicionar os Administradores Globais existentes para funções de administrador mais específicas](directory-assign-admin-roles.md)

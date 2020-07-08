@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 09d51de3ae0bd4baca585d2abdd936b1a29567d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5d83f05c16004edc3ad4842b7e4e9d4b9babe577
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80065025"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85319060"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Solucionar problemas usando o Gateway de Gerenciamento de Dados
 Este artigo fornece informações sobre como solucionar problemas com o uso do Gateway de Gerenciamento de Dados.
@@ -24,7 +24,7 @@ Este artigo fornece informações sobre como solucionar problemas com o uso do G
 > [!NOTE]
 > Este artigo aplica-se à versão 1 do Azure Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [IR auto-hospedado no Data Factory](../create-self-hosted-integration-runtime.md).
 
-Consulte o artigo [Gateway de Gerenciamento de Dados](data-factory-data-management-gateway.md) para saber mais sobre o gateway. Consulte o artigo [Mover dados entre local e nuvem](data-factory-move-data-between-onprem-and-cloud.md) para obter um passo a passo de como mover dados de um banco de dados SQL Server local para um armazenamento de blobs do Microsoft Azure usando o gateway.
+Consulte o artigo [Gateway de Gerenciamento de Dados](data-factory-data-management-gateway.md) para saber mais sobre o gateway. Consulte o artigo [mover dados entre o local e a nuvem](data-factory-move-data-between-onprem-and-cloud.md) para obter uma explicação sobre como mover dados de um banco de SQL Server para Microsoft Azure armazenamento de BLOBs usando o gateway.
 
 ## <a name="failed-to-install-or-register-gateway"></a>Falha ao instalar ou registrar o gateway
 ### <a name="1-problem"></a>1. problema
@@ -222,9 +222,9 @@ Você observa a falha “UserErrorFailedToConnectToSqlserver” após configurar
 Isso pode ocorrer por diferentes motivos e a mitigação varia de acordo.
 
 #### <a name="resolution"></a>Resolução
-Permita conexões TCP de saída pela porta TCP/1433 no lado do cliente do Gateway de Gerenciamento de Dados antes de se conectar ao banco de dados SQL.
+Permita conexões TCP de saída pela porta TCP/1433 no lado do cliente Gerenciamento de Dados gateway antes de se conectar a um banco de dados SQL.
 
-Se o banco de dados de destino for um banco de dados SQL do Azure, verifique também as configurações de firewall do SQL Server do Azure.
+Se o banco de dados de destino estiver no banco de dados SQL do Azure, verifique SQL Server configurações de firewall para o Azure também.
 
 Consulte a seção a seguir para testar a conexão com o armazenamento de dados local.
 
@@ -279,7 +279,7 @@ Clique no link **Arquivar logs de gateway** para arquivar e salvar os logs e com
 Você pode encontrar informações detalhadas sobre os logs de gateway nos logs de eventos do Windows.
 
 1. Inicie o **Visualizador de eventos** do Windows.
-2. Localize os logs > nos **logs de aplicativos e serviços****Gerenciamento de dados pasta gateway** .
+2. Localize os logs nos **logs de aplicativos e serviços**  >  **Gerenciamento de dados pasta gateway** .
 
    Ao solucionar problemas relacionados ao gateway, procure eventos no nível de erro no visualizador.
 

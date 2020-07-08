@@ -1,19 +1,14 @@
 ---
 title: Autorizar o acesso com o Azure Active Directory
 description: Este artigo fornece informações sobre como autorizar o acesso aos recursos de hubs de eventos usando Azure Active Directory.
-services: event-hubs
-ms.service: event-hubs
-documentationcenter: ''
-author: spelluru
 ms.topic: conceptual
-ms.date: 02/12/2020
-ms.author: spelluru
-ms.openlocfilehash: 6216b56c8e8f0de4f9cd60306bbf9c5ed49a11ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 734c95f6f26dbb646f641e4446287df52c86be6a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82025196"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85317975"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Autorizar o acesso aos recursos de hubs de eventos usando Azure Active Directory
 Os hubs de eventos do Azure dão suporte ao uso de Azure Active Directory (AD do Azure) para autorizar solicitações para recursos de hubs de eventos. Com o Azure AD, você pode usar o RBAC (controle de acesso baseado em função) para conceder permissões a uma entidade de segurança, que pode ser um usuário ou uma entidade de serviço de aplicativo. Para saber mais sobre funções e atribuições de função, confira [noções básicas sobre as diferentes funções](../role-based-access-control/overview.md).
@@ -21,10 +16,10 @@ Os hubs de eventos do Azure dão suporte ao uso de Azure Active Directory (AD do
 ## <a name="overview"></a>Visão geral
 Quando uma entidade de segurança (um usuário ou um aplicativo) tenta acessar um recurso de hubs de eventos, a solicitação deve ser autorizada. Com o Azure AD, o acesso a um recurso é um processo de duas etapas. 
 
- 1. Primeiro, a identidade da entidade de segurança é autenticada e um token OAuth 2,0 é retornado. O nome do recurso para solicitar um token `https://eventhubs.azure.net/`é. Para clientes Kafka, o recurso para solicitar um token é `https://<namespace>.servicebus.windows.net`.
+ 1. Primeiro, a identidade da entidade de segurança é autenticada e um token OAuth 2,0 é retornado. O nome do recurso para solicitar um token é `https://eventhubs.azure.net/` . Para clientes Kafka, o recurso para solicitar um token é `https://<namespace>.servicebus.windows.net` .
  1. Em seguida, o token é passado como parte de uma solicitação para o serviço de hubs de eventos para autorizar o acesso ao recurso especificado.
 
-A etapa de autenticação requer que uma solicitação de aplicativo contenha um token de acesso OAuth 2,0 em tempo de execução. Se um aplicativo estiver em execução em uma entidade do Azure, como uma VM do Azure, um conjunto de dimensionamento de máquinas virtuais ou um aplicativo de funções do Azure, ele poderá usar uma identidade gerenciada para acessar os recursos. Para saber como autenticar solicitações feitas por uma identidade gerenciada para o serviço de hubs de eventos, consulte [autenticar o acesso aos recursos dos hubs de eventos do Azure com Azure Active Directory e identidades gerenciadas para recursos do Azure](authenticate-managed-identity.md). 
+A etapa de autenticação requer que uma solicitação do aplicativo contenha um token de acesso OAuth 2.0 no runtime. Se um aplicativo estiver em execução em uma entidade do Azure, como uma VM do Azure, um conjunto de dimensionamento de máquinas virtuais ou um aplicativo de funções do Azure, ele poderá usar uma identidade gerenciada para acessar os recursos. Para saber como autenticar solicitações feitas por uma identidade gerenciada para o serviço de hubs de eventos, consulte [autenticar o acesso aos recursos dos hubs de eventos do Azure com Azure Active Directory e identidades gerenciadas para recursos do Azure](authenticate-managed-identity.md). 
 
 A etapa de autorização requer que uma ou mais funções RBAC sejam atribuídas à entidade de segurança. Os hubs de eventos do Azure fornecem funções RBAC que abrangem conjuntos de permissões para recursos de hubs de eventos. As funções atribuídas a uma entidade de segurança determinam as permissões que o principal terá. Para obter mais informações sobre as funções RBAC, consulte [funções RBAC internas para hubs de eventos do Azure](#built-in-rbac-roles-for-azure-event-hubs). 
 
@@ -42,7 +37,7 @@ O Azure fornece as seguintes funções RBAC internas para autorizar o acesso aos
 - [Remetente de dados dos hubs de eventos do Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver): Use essa função para fornecer acesso de envio aos recursos dos hubs de eventos.
 - [Receptor de dados dos hubs de eventos do Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender): Use essa função para fornecer o acesso de consumo/recebimento aos recursos dos hubs de eventos.
 
-## <a name="resource-scope"></a>Escopo de recurso 
+## <a name="resource-scope"></a>Escopo do recurso 
 Antes de atribuir uma função de RBAC a uma entidade de segurança, determine o escopo de acesso que a entidade de segurança deve ter. As práticas recomendadas ditam que é sempre melhor conceder apenas o escopo mais estreito possível.
 
 A lista a seguir descreve os níveis nos quais você pode fazer o escopo de acesso a recursos de hubs de eventos, começando com o escopo mais estreito:

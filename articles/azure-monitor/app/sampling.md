@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f4989f8dce32e2340357e30541548b3e7e9d8a44
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 664e61697c1fb0c339a4c2caf8d0125a73e608c3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82508880"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85319627"
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
 
@@ -62,7 +62,7 @@ A amostragem adaptável afeta o volume de telemetria enviado do seu aplicativo d
 > [!TIP]
 > A amostragem adaptável é habilitada por padrão quando você usa o SDK do ASP.NET ou o SDK do ASP.NET Core e também é habilitada por padrão para Azure Functions.
 
-O volume é ajustado automaticamente para manter dentro de uma taxa máxima de tráfego especificada e é controlado por meio da `MaxTelemetryItemsPerSecond`configuração. Se o aplicativo produzir uma pequena quantidade de telemetria, como durante a depuração ou devido ao baixo uso, os itens não serão descartados pelo processador de amostragem, desde `MaxTelemetryItemsPerSecond`que o volume esteja abaixo. À medida que aumenta o volume de telemetria, a taxa de amostragem é ajustada para alcançar o volume de destino. O ajuste é recalculado em intervalos regulares e tem base em uma média móvel da taxa de transmissão de saída.
+O volume é ajustado automaticamente para manter dentro de uma taxa máxima de tráfego especificada e é controlado por meio da configuração `MaxTelemetryItemsPerSecond` . Se o aplicativo produzir uma pequena quantidade de telemetria, como durante a depuração ou devido ao baixo uso, os itens não serão descartados pelo processador de amostragem, desde que o volume esteja abaixo `MaxTelemetryItemsPerSecond` . À medida que aumenta o volume de telemetria, a taxa de amostragem é ajustada para alcançar o volume de destino. O ajuste é recalculado em intervalos regulares e tem base em uma média móvel da taxa de transmissão de saída.
 
 Para atingir o volume de destino, parte da telemetria gerada é descartada. Assim como os outros tipos de amostragem, o algoritmo retém os itens de telemetria relacionados. Por exemplo, quando você estiver analisando a telemetria na Pesquisa, poderá localizar a solicitação relacionada a uma exceção específica.
 
@@ -73,7 +73,7 @@ As contagens de métrica, como a taxa de solicitações e a taxa de exceções s
 > [!NOTE]
 > Esta seção se aplica a aplicativos ASP.NET, não a ASP.NET Core aplicativos. [Saiba mais sobre como configurar a amostragem adaptável para aplicativos ASP.NET Core mais adiante neste documento.](../../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications)
 
-No [`ApplicationInsights.config`](../../azure-monitor/app/configuration-with-applicationinsights-config.md), você pode ajustar vários parâmetros no `AdaptiveSamplingTelemetryProcessor` nó. Os números mostrados são os valores padrão:
+No [`ApplicationInsights.config`](../../azure-monitor/app/configuration-with-applicationinsights-config.md) , você pode ajustar vários parâmetros no `AdaptiveSamplingTelemetryProcessor` nó. Os números mostrados são os valores padrão:
 
 * `<MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>`
   
@@ -109,17 +109,17 @@ No [`ApplicationInsights.config`](../../azure-monitor/app/configuration-with-app
 
 * `<ExcludedTypes>Trace;Exception</ExcludedTypes>`
   
-    Uma lista delimitada por ponto e vírgula de tipos que você não deseja que estejam sujeitos à amostragem. Os tipos reconhecidos `Event`são `Exception`: `PageView` `Dependency`, `Request`, `Trace`,,,. Toda a telemetria dos tipos especificados é transmitida; os tipos que não forem especificados serão amostrados.
+    Uma lista delimitada por ponto e vírgula de tipos que você não deseja que estejam sujeitos à amostragem. Os tipos reconhecidos são: `Dependency` , `Event` , `Exception` ,, `PageView` `Request` , `Trace` . Toda a telemetria dos tipos especificados é transmitida; os tipos que não forem especificados serão amostrados.
 
 * `<IncludedTypes>Request;Dependency</IncludedTypes>`
   
-    Uma lista delimitada por ponto e vírgula dos tipos que você deseja que sejam sujeitos à amostragem. Os tipos reconhecidos `Event`são `Exception`: `PageView` `Dependency`, `Request`, `Trace`,,,. Os tipos especificados serão amostrados; toda a telemetria dos outros tipos sempre será transmitida.
+    Uma lista delimitada por ponto e vírgula dos tipos que você deseja que sejam sujeitos à amostragem. Os tipos reconhecidos são: `Dependency` , `Event` , `Exception` ,, `PageView` `Request` , `Trace` . Os tipos especificados serão amostrados; toda a telemetria dos outros tipos sempre será transmitida.
 
-**Para desativar** a amostragem adaptável, remova os `AdaptiveSamplingTelemetryProcessor` nós do. `ApplicationInsights.config`
+**Para desativar** a amostragem adaptável, remova os `AdaptiveSamplingTelemetryProcessor` nós do `ApplicationInsights.config` .
 
 #### <a name="alternative-configure-adaptive-sampling-in-code"></a>Alternativa: configurar a amostragem adaptável no código
 
-Em vez de definir o parâmetro de amostragem `.config` no arquivo, você pode definir esses valores programaticamente.
+Em vez de definir o parâmetro de amostragem no `.config` arquivo, você pode definir esses valores programaticamente.
 
 1. Remova todos os `AdaptiveSamplingTelemetryProcessor` nós do `.config` arquivo.
 2. Use o trecho a seguir para configurar a amostragem adaptável:
@@ -161,7 +161,7 @@ A amostragem adaptável está habilitada por padrão para todos os aplicativos A
 
 #### <a name="turning-off-adaptive-sampling"></a>Desativando a amostragem adaptável
 
-O recurso de amostragem padrão pode ser desabilitado ao adicionar Application Insights serviço, no `ConfigureServices`método, `ApplicationInsightsServiceOptions` usando dentro `Startup.cs` do arquivo:
+O recurso de amostragem padrão pode ser desabilitado ao adicionar Application Insights serviço, no método `ConfigureServices` , usando `ApplicationInsightsServiceOptions` dentro do `Startup.cs` arquivo:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -183,7 +183,7 @@ O código acima desabilitará a amostragem adaptável. Siga as etapas abaixo par
 Use os métodos de extensão de `TelemetryProcessorChainBuilder` conforme mostrado abaixo para personalizar o comportamento de amostragem.
 
 > [!IMPORTANT]
-> Se você usar esse método para configurar a amostragem, certifique-se de definir `aiOptions.EnableAdaptiveSampling` a propriedade `false` como ao `AddApplicationInsightsTelemetry()`chamar.
+> Se você usar esse método para configurar a amostragem, certifique-se de definir a `aiOptions.EnableAdaptiveSampling` propriedade como `false` ao chamar `AddApplicationInsightsTelemetry()` .
 
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env, TelemetryConfiguration configuration)
@@ -221,7 +221,7 @@ No Metrics Explorer, as taxas como as contagens de solicitações e de exceçõe
 
 ### <a name="configuring-fixed-rate-sampling-for-aspnet-applications"></a>Configurando a amostragem de taxa fixa para aplicativos ASP.NET
 
-1. **Desabilitar amostragem adaptável**: no [`ApplicationInsights.config`](../../azure-monitor/app/configuration-with-applicationinsights-config.md), remova ou comente o `AdaptiveSamplingTelemetryProcessor` nó.
+1. **Desabilitar amostragem adaptável**: no [`ApplicationInsights.config`](../../azure-monitor/app/configuration-with-applicationinsights-config.md) , remova ou comente o `AdaptiveSamplingTelemetryProcessor` nó.
 
     ```xml
     <TelemetryProcessors>
@@ -232,7 +232,7 @@ No Metrics Explorer, as taxas como as contagens de solicitações e de exceçõe
         -->
     ```
 
-2. **Habilitar o módulo de amostragem de taxa fixa.** Adicione este trecho a [`ApplicationInsights.config`](../../azure-monitor/app/configuration-with-applicationinsights-config.md):
+2. **Habilitar o módulo de amostragem de taxa fixa.** Adicione este trecho a [`ApplicationInsights.config`](../../azure-monitor/app/configuration-with-applicationinsights-config.md) :
    
     ```XML
     <TelemetryProcessors>
@@ -244,7 +244,7 @@ No Metrics Explorer, as taxas como as contagens de solicitações e de exceçõe
     </TelemetryProcessors>
     ```
 
-      Como alternativa, em vez de definir o parâmetro de amostragem `ApplicationInsights.config` no arquivo, você pode definir esses valores programaticamente:
+      Como alternativa, em vez de definir o parâmetro de amostragem no `ApplicationInsights.config` arquivo, você pode definir esses valores programaticamente:
 
     ```csharp
     using Microsoft.ApplicationInsights.Extensibility;
@@ -268,7 +268,7 @@ No Metrics Explorer, as taxas como as contagens de solicitações e de exceçõe
 
 ### <a name="configuring-fixed-rate-sampling-for-aspnet-core-applications"></a>Configurando a amostragem de taxa fixa para aplicativos ASP.NET Core
 
-1. **Desabilitar amostragem adaptável**: as alterações podem ser feitas no `ConfigureServices` método, usando: `ApplicationInsightsServiceOptions`
+1. **Desabilitar amostragem adaptável**: as alterações podem ser feitas no `ConfigureServices` método, usando `ApplicationInsightsServiceOptions` :
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -310,9 +310,9 @@ Por padrão, nenhuma amostragem está habilitada no Java Agent e no SDK. Atualme
 
 #### <a name="configuring-java-agent"></a>Configurando o agente Java
 
-1. Baixar [applicationinsights-Agent-3.0.0-Preview. 4. jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.4/applicationinsights-agent-3.0.0-PREVIEW.4.jar)
+1. Baixe [applicationinsights-Agent-3.0.0-Preview. 5. jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.5/applicationinsights-agent-3.0.0-PREVIEW.5.jar)
 
-1. Para habilitar a amostragem, adicione o seguinte `ApplicationInsights.json` ao seu arquivo:
+1. Para habilitar a amostragem, adicione o seguinte ao seu `ApplicationInsights.json` arquivo:
 
 ```json
 {
@@ -346,7 +346,7 @@ Por padrão, nenhuma amostragem está habilitada no Java Agent e no SDK. Atualme
     </TelemetryProcessors>
     ```
 
-3. Você pode incluir ou excluir tipos específicos de telemetria de amostragem usando as seguintes marcas dentro `Processor` da marca `FixedRateSamplingTelemetryProcessor`:
+3. Você pode incluir ou excluir tipos específicos de telemetria de amostragem usando as seguintes marcas dentro da `Processor` marca `FixedRateSamplingTelemetryProcessor` :
    
     ```XML
     <ExcludedTypes>
@@ -358,7 +358,7 @@ Por padrão, nenhuma amostragem está habilitada no Java Agent e no SDK. Atualme
     </IncludedTypes>
     ```
 
-Os tipos de telemetria que podem ser incluídos ou excluídos da amostragem `Dependency`são `Event`: `Exception`, `PageView`, `Request`,, `Trace`e.
+Os tipos de telemetria que podem ser incluídos ou excluídos da amostragem são: `Dependency` ,, `Event` ,, `Exception` `PageView` `Request` e `Trace` .
 
 > [!NOTE]
 > Para o percentual de amostragem, escolha um percentual que esteja próximo a 100/N, em que N é um inteiro.  Atualmente, a amostragem não dá suporte a outros valores.
@@ -373,7 +373,7 @@ Instrumente seu aplicativo com os mais recentes [OpenCensus Azure monitor export
 #### <a name="fixed-rate-sampling-for-tracing"></a>Amostragem de taxa fixa para rastreamento ####
 Você pode especificar um `sampler` como parte da configuração do `Tracer`. Se nenhum amostra explícito for fornecido, o `ProbabilitySampler` será usado por padrão. O `ProbabilitySampler` usaria uma taxa de 1/10000 por padrão, o que significa que uma das solicitações de 10000 será enviada para Application insights. Se você quiser especificar uma taxa de amostragem, veja abaixo.
 
-Para especificar a taxa de amostragem, verifique se `Tracer` o especifica um amostra com uma taxa de amostragem entre 0,0 e 1,0, inclusive. Uma taxa de amostragem de 1,0 representa 100%, o que significa que todas as suas solicitações serão enviadas como telemetria para Application Insights.
+Para especificar a taxa de amostragem, verifique se o `Tracer` especifica um amostra com uma taxa de amostragem entre 0,0 e 1,0, inclusive. Uma taxa de amostragem de 1,0 representa 100%, o que significa que todas as suas solicitações serão enviadas como telemetria para Application Insights.
 
 ```python
 tracer = Tracer(
@@ -385,7 +385,7 @@ tracer = Tracer(
 ```
 
 #### <a name="fixed-rate-sampling-for-logs"></a>Amostragem de taxa fixa para logs ####
-Você pode configurar a amostragem de taxa fixa `AzureLogHandler` para modificando `logging_sampling_rate` o argumento opcional. Se nenhum argumento for fornecido, uma taxa de amostragem de 1,0 será usada. Uma taxa de amostragem de 1,0 representa 100%, o que significa que todas as suas solicitações serão enviadas como telemetria para Application Insights.
+Você pode configurar a amostragem de taxa fixa para `AzureLogHandler` modificando o `logging_sampling_rate` argumento opcional. Se nenhum argumento for fornecido, uma taxa de amostragem de 1,0 será usada. Uma taxa de amostragem de 1,0 representa 100%, o que significa que todas as suas solicitações serão enviadas como telemetria para Application Insights.
 
 ```python
 handler = AzureLogHandler(
@@ -401,7 +401,7 @@ As páginas da Web baseadas em JavaScript podem ser configuradas para usar Appli
 Ao [configurar suas páginas da Web baseadas em JavaScript para Application insights](javascript.md), modifique o trecho de código JavaScript que você obtém do portal de Application insights.
 
 > [!TIP]
-> Em aplicativos ASP.NET com JavaScript incluído, o trecho de código normalmente `_Layout.cshtml`entra em inglês.
+> Em aplicativos ASP.NET com JavaScript incluído, o trecho de código normalmente entra em inglês `_Layout.cshtml` .
 
 Insira uma linha como `samplingPercentage: 10,` antes da chave de instrumentação:
 
@@ -509,9 +509,9 @@ A precisão da aproximação depende principalmente do percentual de amostragem 
 *Qual é o comportamento de amostragem padrão nos SDKs ASP.NET e ASP.NET Core?*
 
 * Se você estiver usando uma das versões mais recentes do SDK acima, a amostragem adaptável será habilitada por padrão com cinco itens de telemetria por segundo.
-  Há dois `AdaptiveSamplingTelemetryProcessor` nós adicionados por padrão e um inclui o `Event` tipo de amostragem, enquanto o outro exclui o `Event` tipo de amostragem. Essa configuração significa que o SDK tentará limitar os itens de telemetria a cinco itens `Event` de telemetria de tipos e cinco itens de telemetria de todos os outros `Events` tipos combinados, garantindo assim que sejam amostrados separadamente de outros tipos de telemetria. Normalmente, os eventos são usados para telemetria de negócios e provavelmente não devem ser afetados por volumes de telemetria de diagnóstico.
+  Há dois `AdaptiveSamplingTelemetryProcessor` nós adicionados por padrão e um inclui o tipo de `Event` amostragem, enquanto o outro exclui o `Event` tipo de amostragem. Essa configuração significa que o SDK tentará limitar os itens de telemetria a cinco itens de telemetria de `Event` tipos e cinco itens de telemetria de todos os outros tipos combinados, garantindo assim que `Events` sejam amostrados separadamente de outros tipos de telemetria. Normalmente, os eventos são usados para telemetria de negócios e provavelmente não devem ser afetados por volumes de telemetria de diagnóstico.
   
-  O seguinte mostra o arquivo `ApplicationInsights.config` padrão gerado. No ASP.NET Core, o mesmo comportamento padrão é habilitado no código. Use os [exemplos na seção anterior desta página](#configuring-adaptive-sampling-for-aspnet-core-applications) para alterar esse comportamento padrão.
+  O seguinte mostra o `ApplicationInsights.config` arquivo padrão gerado. No ASP.NET Core, o mesmo comportamento padrão é habilitado no código. Use os [exemplos na seção anterior desta página](#configuring-adaptive-sampling-for-aspnet-core-applications) para alterar esse comportamento padrão.
 
     ```xml
     <TelemetryProcessors>
@@ -556,7 +556,7 @@ A precisão da aproximação depende principalmente do percentual de amostragem 
 
 * A amostragem de ingestão pode ocorrer automaticamente para qualquer telemetria acima de um determinado volume, se o SDK não estiver executando a amostragem. Essa configuração funcionaria, por exemplo, se você estiver usando uma versão mais antiga do SDK do ASP.NET ou do SDK do Java.
 * Se você estiver usando os SDKs atuais do ASP.NET ou do ASP.NET Core (hospedados no Azure ou em seu próprio servidor), obterá amostragem adaptável por padrão, mas você pode alternar para a taxa fixa, conforme descrito acima. Com a amostragem de taxa fixa, o SDK do navegador sincroniza automaticamente os eventos relacionados ao exemplo. 
-* Se você estiver usando o agente Java atual, poderá configurar `ApplicationInsights.json` (para o SDK do Java, `ApplicationInsights.xml`configurar) para ativar a amostragem de taxa fixa. A amostragem é desativada por padrão. Com a amostragem de taxa fixa, o SDK do navegador e o servidor são sincronizados automaticamente com os eventos relacionados de exemplo.
+* Se você estiver usando o agente Java atual, poderá configurar `ApplicationInsights.json` (para o SDK do Java, configurar `ApplicationInsights.xml` ) para ativar a amostragem de taxa fixa. A amostragem é desativada por padrão. Com a amostragem de taxa fixa, o SDK do navegador e o servidor são sincronizados automaticamente com os eventos relacionados de exemplo.
 
 *Há alguns eventos raros que sempre desejo ver. Como posso fazê-los passar pelo módulo de amostragem?*
 

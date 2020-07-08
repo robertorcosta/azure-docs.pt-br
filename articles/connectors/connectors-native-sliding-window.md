@@ -3,19 +3,19 @@ title: Agendar tarefas para lidar com dados contíguos
 description: Criar e executar tarefas recorrentes que lidam com dados contíguos usando janelas deslizantes em aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: deli, klam, logicappspm
+ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.openlocfilehash: 3ec71a1ed8d24eb637afbb73b5949b69a1e3c041
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 103805fbf395dc120acc96fbcee273abcf14939d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83004588"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322113"
 ---
 # <a name="schedule-and-run-tasks-for-contiguous-data-by-using-the-sliding-window-trigger-in-azure-logic-apps"></a>Agendar e executar tarefas para dados contíguos usando o gatilho de janela deslizante nos aplicativos lógicos do Azure
 
-Para executar tarefas, processos ou trabalhos regularmente que devem lidar com dados em partes contíguas, você pode iniciar o fluxo de trabalho do aplicativo lógico com o gatilho de **janela deslizante** . Você pode definir uma data e hora, bem como um fuso horário para iniciar o fluxo de trabalho e uma recorrência para repetir esse fluxo de trabalho. Se as recorrências forem perdidas por qualquer motivo, esse gatilho processará essas recorrências perdidas. Por exemplo, durante a sincronização de dados entre o armazenamento de backup e banco de dado, use o gatilho de janela deslizante para que os dados sejam sincronizados sem incorrer em lacunas. Para obter mais informações sobre os gatilhos e ações de agendamento internos, consulte [agendar e executar tarefas automatizadas e automáticas e fluxos de trabalho com aplicativos lógicos do Azure](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
+Para executar tarefas, processos ou trabalhos regularmente que devem lidar com dados em partes contíguas, você pode iniciar o fluxo de trabalho do aplicativo lógico com o gatilho de **janela deslizante** . Você pode definir uma data e hora, bem como um fuso horário para iniciar o fluxo de trabalho e uma recorrência para repetir esse fluxo de trabalho. Se as recorrências forem perdidas por qualquer motivo, por exemplo, devido a interrupções ou fluxos de trabalho desabilitados, esse gatilho processará essas recorrências perdidas. Por exemplo, durante a sincronização de dados entre o armazenamento de backup e banco de dado, use o gatilho de janela deslizante para que os dados sejam sincronizados sem incorrer em lacunas. Para obter mais informações sobre os gatilhos e ações de agendamento internos, consulte [agendar e executar tarefas automatizadas e automáticas e fluxos de trabalho com aplicativos lógicos do Azure](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
 Aqui estão alguns padrões aos quais esse gatilho dá suporte:
 
@@ -32,15 +32,15 @@ Para obter as diferenças entre esse gatilho e o gatilho de recorrência ou para
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Se você não tiver uma assinatura, poderá se [inscrever para uma conta gratuita do Azure](https://azure.microsoft.com/free/).
+* Uma assinatura do Azure. Se você não tem uma assinatura, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
-* Conhecimento básico sobre [aplicativos lógicos](../logic-apps/logic-apps-overview.md). Se você for novo em aplicativos lógicos, saiba [como criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Conhecimento básico sobre [aplicativos lógicos](../logic-apps/logic-apps-overview.md). Se ainda não estiver familiarizado com aplicativos lógicos, aprenda [como criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="add-sliding-window-trigger"></a>Adicionar gatilho de janela deslizante
 
 1. Entre no [portal do Azure](https://portal.azure.com). Criar um aplicativo lógico em branco.
 
-1. Depois que o designer do aplicativo lógico for exibido, na caixa de `sliding window` pesquisa, insira como seu filtro. Na lista de gatilhos, selecione o gatilho de **janela deslizante** como a primeira etapa no fluxo de trabalho do aplicativo lógico.
+1. Depois que o designer do aplicativo lógico for exibido, na caixa de pesquisa, insira `sliding window` como seu filtro. Na lista de gatilhos, selecione o gatilho de **janela deslizante** como a primeira etapa no fluxo de trabalho do aplicativo lógico.
 
    ![Selecione o gatilho "janela deslizante"](./media/connectors-native-sliding-window/add-sliding-window-trigger.png)
 
@@ -48,7 +48,7 @@ Para obter as diferenças entre esse gatilho e o gatilho de recorrência ou para
 
    ![Definir o intervalo e a frequência](./media/connectors-native-sliding-window/sliding-window-trigger-details.png)
 
-   | Propriedade | Nome JSON | Obrigatório | Type | Descrição |
+   | Property | Nome JSON | Obrigatório | Type | Descrição |
    |----------|----------|-----------|------|-------------|
    | **Intervalo** | `interval` | Sim | Integer | Um inteiro positivo que descreve a frequência na qual o fluxo de trabalho é executado com base na frequência. Aqui estão os intervalos mínimos e máximos: <p>– Mês: 1 a 16 meses <br>-Semana: 1-71 semanas <br>–Dia: 1 a 500 dias <br>– Hora: 1 a 12.000 horas <br>– Minuto: 1 a 72.000 minutos <br>– Segundo: 1 a 9.999.999 segundos <p>Por exemplo, se o intervalo for 6 e a frequência for "Mês", a recorrência será a cada 6 meses. |
    | **Frequência** | `frequency` | Sim | String | A unidade de tempo para a recorrência: **Segundo**, **Minuto**, **Hora**, **Dia**, **Semana** ou **Mês** |
@@ -58,7 +58,7 @@ Para obter as diferenças entre esse gatilho e o gatilho de recorrência ou para
 
    Para obter mais opções de recorrência, abra a lista **Adicionar novo parâmetro** . As opções que você selecionar aparecerão no gatilho após a seleção.
 
-   | Propriedade | Obrigatório | Nome JSON | Type | Descrição |
+   | Propriedade | Obrigatório | Nome JSON | Tipo | Descrição |
    |----------|----------|-----------|------|-------------|
    | **Atrasar** | Não | atrasar | String | A duração para atrasar cada recorrência usando a [especificação de data e hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations) |
    | **Fuso horário** | Não | timeZone | String | Aplica-se somente quando você especifica uma hora de início, porque o gatilho não aceita [diferença UTC](https://en.wikipedia.org/wiki/UTC_offset). Selecione o fuso horário que você deseja aplicar. |

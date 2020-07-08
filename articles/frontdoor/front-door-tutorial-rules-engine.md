@@ -1,58 +1,56 @@
 ---
-title: Configurar o mecanismo de regras – Azure Front Door
-description: Este artigo descreve como configurar seus mecanismos de regras para o Azure Front Door
+title: Porta da frente do Azure
+description: Este artigo fornece um tutorial sobre como configurar o mecanismo de regras no portal do Azure e na CLI.
 services: frontdoor
 documentationcenter: ''
 author: megan-beatty
 editor: ''
 ms.service: frontdoor
 ms.devlang: na
-ms.topic: how-to
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
 ms.author: mebeatty
-ms.openlocfilehash: ed54f26f37617d420fae1aaf3f51853b0439a349
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.openlocfilehash: a931a12889cec67baf6ef2db09091c8ec581ef08
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84743551"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85321555"
 ---
-# <a name="configure-your-rules-engine"></a>Configurar o mecanismo de regras 
+# <a name="configure-your-rules-engine"></a>Configurar o mecanismo de regras
 
-> [!IMPORTANT]
-> Essa versão prévia pública é fornecida sem um SLA e não deve ser usada para cargas de trabalho de produção. Determinados recursos podem não ter suporte, podem ter restrição ou podem não estar disponíveis em todos os locais do Azure. Veja os [Termos de Uso Adicionais para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter detalhes.
->
+Este artigo fornece etapas para criar uma configuração de mecanismo de regras e sua primeira regra no portal do Azure e na CLI. 
 
-## <a name="configure-rules-engine-in-azure-portal"></a>Configurar o mecanismo de regras no portal do Azure 
+## <a name="configure-rules-engine-in-azure-portal"></a>Configurar o mecanismo de regras no portal do Azure
 1. Antes de criar uma configuração de mecanismo de regras, [crie uma Front Door](quickstart-create-front-door.md).
 
-2. No recurso de Front Door, acesse **Configurações** e selecione **Configuração do mecanismo de regras**. Clique em **Adicionar**, dê um nome à sua configuração e comece a criar sua primeira configuração do mecanismo de regras. 
+2. No recurso de Front Door, acesse **Configurações** e selecione **Configuração do mecanismo de regras**. Clique em **Adicionar**, dê um nome à sua configuração e comece a criar sua primeira configuração do mecanismo de regras.
 
-![localizar o mecanismo de regras](./media/front-door-rules-engine/rules-engine-tutorial-1.png)
+    ![localizar o mecanismo de regras](./media/front-door-rules-engine/rules-engine-tutorial-1.png)
 
-3. Clique em **Adicionar Regra** para criar sua primeira regra. Em seguida, clicando **Adicionar condição** ou **Adicionar ação**, você pode definir sua regra. 
+3. Clique em **Adicionar Regra** para criar sua primeira regra. Em seguida, clicando **Adicionar condição** ou **Adicionar ação**, você pode definir sua regra.
     
-    *Observações:*
-    - Para excluir uma condição ou ação da regra, use a lixeira no lado direito da condição ou ação específica.
-    - Para criar uma regra que se aplica a todo o tráfego de entrada, não especifique nenhuma condição. 
-    - Para interromper a avaliação de regras depois que a primeira condição de correspondência for atendida, marque **Interromper a avaliação da regra**. 
+    > [!NOTE]
+    >- Para excluir uma condição ou ação da regra, use a lixeira no lado direito da condição ou ação específica.
+    > - Para criar uma regra que se aplica a todo o tráfego de entrada, não especifique nenhuma condição.
+    > - Para interromper a avaliação de regras depois que a primeira condição de correspondência for atendida, marque **parar de avaliar a regra restante**. Se essa opção estiver marcada e todas as condições de correspondência de uma regra específica forem atendidas, as regras restantes na configuração não serão executadas.  
 
-![localizar o mecanismo de regras](./media/front-door-rules-engine/rules-engine-tutorial-4.png)
+    ![localizar o mecanismo de regras](./media/front-door-rules-engine/rules-engine-tutorial-4.png) 
 
-4. Determine a prioridade das regras em sua configuração usando os botões mover para cima, mover para baixo e mover para o topo. A prioridade está em ordem crescente, o que significa que a regra listada primeiro é a mais importante. 
+4. Determine a prioridade das regras em sua configuração usando os botões mover para cima, mover para baixo e mover para o topo. A prioridade está em ordem crescente, o que significa que a regra listada primeiro é a mais importante.
 
-5. Depois de criar uma ou mais regras, pressione **Salvar**. Essa ação cria a configuração do mecanismo de regras. 
+5. Depois de criar uma ou mais regras, pressione **Salvar**. Essa ação cria a configuração do mecanismo de regras.
 
-6. Depois de criar uma ou mais configurações, associe uma configuração de mecanismo de regras a uma regra de rota. Embora uma configuração possa ser aplicada a muitas regras de rota, uma regra de rota pode conter apenas uma configuração de mecanismo de regras. Para fazer a associação, vá para **Designer do Front Door** > **Regras de rota**. Selecione a regra de rota à qual você gostaria de adicionar a configuração do mecanismo de regras, vá para **Detalhes da rota** > **Configuração do mecanismo de regras** e selecione a configuração que você deseja associar. 
+6. Depois de criar uma ou mais configurações, associe uma configuração de mecanismo de regras a uma regra de rota. Embora uma configuração possa ser aplicada a muitas regras de rota, uma regra de rota pode conter apenas uma configuração de mecanismo de regras. Para fazer a associação, vá para **Designer do Front Door** > **Regras de rota**. Selecione a regra de rota à qual você gostaria de adicionar a configuração do mecanismo de regras, vá para **Detalhes da rota** > **Configuração do mecanismo de regras** e selecione a configuração que você deseja associar.
 
-![localizar o mecanismo de regras](./media/front-door-rules-engine/rules-engine-tutorial-5.png)
+    ![localizar o mecanismo de regras](./media/front-door-rules-engine/rules-engine-tutorial-5.png)
 
 
-## <a name="configure-rules-engine-in-azure-cli"></a>Configurar o mecanismo de regras na CLI do Azure 
+## <a name="configure-rules-engine-in-azure-cli"></a>Configurar o mecanismo de regras na CLI do Azure
 
-1. Caso ainda não tenha feito isso, instale a [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Adicione a extensão "front-door":- az extension add --name front-door. Em seguida, faça logon e alterne para sua assinatura az account set --subscription <nome_ou_ID>. 
+1. Caso ainda não tenha feito isso, instale a [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Adicione a extensão "front-door":- az extension add --name front-door. Em seguida, faça logon e alterne para sua assinatura az account set --subscription <nome_ou_ID>.
 
 2. Comece criando um mecanismo de regras – este exemplo mostra uma regra com uma ação baseada em cabeçalho e uma condição de correspondência. 
 
@@ -60,31 +58,31 @@ ms.locfileid: "84743551"
 az network front-door rules-engine rule create -f {front_door} -g {resource_group} --rules-engine-name {rules_engine} --name {rule1} --priority 1 --action-type RequestHeader --header-action Overwrite --header-name Rewrite --header-value True --match-variable RequestFilenameExtension --operator Contains --match-values jpg png --transforms Lowercase
 ```
 
-2.  Listar todas as regras. 
+3. Listar todas as regras. 
 
 ```azurecli-interactive
 az network front-door rules-engine rule list -f {front_door} -g {rg} --name {rules_engine}
 ```
 
-3.  Adicione uma ação de substituição de rota de encaminhamento. 
+4. Adicione uma ação de substituição de rota de encaminhamento. 
 
 ```azurecli-interactive
 az network front-door rules-engine rule action add -f {front_door} -g {rg} --rules-engine-name {rules_engine} --name {rule1} --action-type ForwardRouteOverride --backend-pool {backend_pool_name} --caching Disabled
 ```
 
-4.  Listar todas as ações em uma regra. 
+5. Listar todas as ações em uma regra. 
 
 ```azurecli-interactive
 az network front-door rules-engine rule action list -f {front_door} -g {rg} -r {rules_engine} --name {rule1}
 ```
 
-5. Vincular uma configuração do mecanismo de regras a uma regra de roteamento.  
+6. Vincular uma configuração do mecanismo de regras a uma regra de roteamento.  
 
 ```azurecli-interactive
 az network front-door routing-rule update -g {rg} -f {front_door} -n {routing_rule_name} --rules-engine {rules_engine}
 ```
 
-6. Desvincular mecanismo de regras. 
+7. Desvincular mecanismo de regras. 
 
 ```azurecli-interactive
 az network front-door routing-rule update -g {rg} -f {front_door} -n {routing_rule_name} --remove rulesEngine # case sensitive word ‘rulesEngine’

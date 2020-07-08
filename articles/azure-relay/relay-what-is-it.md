@@ -1,24 +1,14 @@
 ---
 title: O que é Retransmissão do Azure? | Microsoft Docs
 description: Este artigo fornece uma visão geral do serviço de Retransmissão do Azure, que permite que você desenvolva aplicativos de nuvem que consomem serviços locais em execução na sua rede corporativa sem abrir uma conexão de firewall ou fazer mudanças intrusivas na sua rede infraestrutura.
-services: service-bus-relay
-author: spelluru
-manager: ''
-editor: ''
-ms.assetid: 1e3e971d-2a24-4f96-a88a-ce3ea2b1a1cd
-ms.service: service-bus-relay
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 11/13/2018
-ms.author: spelluru
-ms.openlocfilehash: 964a472a5c0a6350090f83755747a12e89a1650e
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: 0c9a67bcad47ad2e7284bcf6e70914d2ffb06a8c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83211626"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322652"
 ---
 # <a name="what-is-azure-relay"></a>O que é Retransmissão do Azure?
 O serviço de Retransmissão do Azure permite que você exponha com segurança os serviços que são executados na sua rede corporativa para a nuvem pública. Você pode expor os serviços sem abrir uma porta no seu firewall e realizar alterações invasivas a uma infraestrutura de rede corporativa. 
@@ -90,5 +80,5 @@ O diagrama a seguir mostra como as solicitações de retransmissão de entrada s
 * [Introdução a Pedidos .NET HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md)
 * [Introdução ao nó WebSockets](relay-hybrid-connections-node-get-started.md)
 * [Introdução a Pedidos Node HTTP](relay-hybrid-connections-http-requests-node-get-started.md)
-* [Perguntas frequentes sobre Retransmissão](relay-faq.md)
+* [Perguntas frequentes sobre retransmissão](relay-faq.md)
 

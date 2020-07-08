@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d05c2b03a0c498144f37c9b6205053120a596b09
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f687901601ba517a50710610d4c827524b8ec565
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74924092"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85320974"
 ---
 # <a name="invoke-stored-procedure-from-copy-activity-in-azure-data-factory"></a>Invocar procedimento armazenado de atividade de cópia no Azure Data Factory
 > [!NOTE]
@@ -29,7 +29,7 @@ Ao copiar dados no [SQL Server](data-factory-sqlserver-connector.md) ou [Banco d
 A amostra a seguir mostra como invocar um procedimento armazenado em um banco de dados do SQL Server de um pipeline de Data Factory (atividade de cópia):  
 
 ## <a name="output-dataset-json"></a>JSON do conjunto de dados de saída
-No JSON do conjunto de dados de saída, defina **tipo** para: **SqlServerTable**. Defina-o como **AzureSqlTable** para usá-lo com um Banco de Dados SQL do Azure. O valor da propriedade **tableName** deve corresponder ao nome do primeiro parâmetro do procedimento armazenado.  
+No JSON do conjunto de dados de saída, defina **tipo** para: **SqlServerTable**. Defina-o como **AzureSqlTable** para usar com o banco de dados SQL do Azure. O valor da propriedade **tableName** deve corresponder ao nome do primeiro parâmetro do procedimento armazenado.  
 
 ```json
 {

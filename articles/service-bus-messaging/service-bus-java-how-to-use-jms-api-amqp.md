@@ -1,25 +1,15 @@
 ---
 title: Usar o AMQP com a API do serviço de mensagens Java & barramento de serviço do Azure
 description: Como usar o Java Message Service (JMS) com o Barramento de Serviço do Microsoft Azure e Advanced Message Queuing Protocol (AMQP) 1.0.
-services: service-bus-messaging
-documentationcenter: java
-author: axisc
-editor: spelluru
-ms.assetid: be766f42-6fd1-410c-b275-8c400c811519
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: Java
 ms.topic: article
-ms.date: 10/22/2019
-ms.author: aschhab
+ms.date: 06/23/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: cd06838abbb69af5684fdea18c42f6a8f95ffe2f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ccea6175d0baec56b609538d15c32892bb2edff0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77371261"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341734"
 ---
 # <a name="use-the-java-message-service-jms-with-azure-service-bus-and-amqp-10"></a>Usar o Java Message Service (JMS) com o barramento de serviço do Azure e o AMQP 1,0
 Este artigo explica como usar os recursos de mensagens do barramento de serviço do Azure (tópicos de filas e publicação/assinatura) de aplicativos Java usando o popular padrão de API JMS (Java Message Service). Há um [artigo complementar](service-bus-amqp-dotnet.md) que explica como fazer o mesmo usando a API .net do barramento de serviço do Azure. Você pode usar esses dois guias em conjunto para saber mais sobre mensagens em plataformas cruzadas usando o AMQP 1.0.
@@ -29,7 +19,7 @@ O AMQP 1.0 é um protocolo de mensagens eficiente, confiável e conectado que po
 O suporte para AMQP 1,0 no barramento de serviço do Azure significa que você pode usar o enfileiramento e publicar/assinar recursos de mensagens orientadas de uma variedade de plataformas usando um protocolo binário eficiente. Além disso, você pode criar aplicativos formados por componentes criados com o uso de uma mistura de linguagens, estruturas e sistemas operacionais.
 
 ## <a name="get-started-with-service-bus"></a>Introdução ao Barramento de serviço
-Este guia pressupõe que você já tenha um namespace do barramento de serviço que contém `basicqueue`uma fila chamada. Se não tiver, você poderá [criar o namespace e a fila](service-bus-create-namespace-portal.md) usando o [portal do Azure](https://portal.azure.com). Para obter mais informações sobre como criar namespaces e filas do Barramento de Serviço, consulte [Introdução às filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md).
+Este guia pressupõe que você já tenha um namespace do barramento de serviço que contém uma fila chamada `basicqueue` . Se não tiver, você poderá [criar o namespace e a fila](service-bus-create-namespace-portal.md) usando o [portal do Azure](https://portal.azure.com). Para obter mais informações sobre como criar namespaces e filas do Barramento de Serviço, consulte [Introdução às filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md).
 
 > [!NOTE]
 > Filas e tópicos particionados também dão suporte ao AMQP. Para saber mais, confira [Entidades de mensagens particionadas](service-bus-partitioning.md) e [Suporte a AMQP 1.0 para filas e tópicos particionados do Barramento de Serviço](service-bus-partitioned-queues-and-topics-amqp-overview.md).
@@ -37,7 +27,7 @@ Este guia pressupõe que você já tenha um namespace do barramento de serviço 
 > 
 
 ## <a name="downloading-the-amqp-10-jms-client-library"></a>Baixando a biblioteca do cliente do JMS do AMQP 1.0
-Para obter informações sobre onde baixar a versão mais recente da biblioteca de cliente Apache QPID JMS AMQP 1,0, [https://qpid.apache.org/download.html](https://qpid.apache.org/download.html)visite.
+Para obter informações sobre onde baixar a versão mais recente da biblioteca de cliente Apache QPID JMS AMQP 1,0, visite [https://qpid.apache.org/download.html](https://qpid.apache.org/download.html) .
 
 Você deve adicionar os seguintes quatro arquivos JAR do arquivamento de distribuição do Apache Qpid JMS do AMQP 1.0 ao CLASSPATH do Java ao criar e executar aplicativos do JMS com o Barramento de Serviço:
 
@@ -297,7 +287,7 @@ public class JmsQueueQuickstart {
 }
 ```
 
-### <a name="run-the-application"></a>Executar o aplicativo
+### <a name="run-the-application"></a>Execute o aplicativo
 Passe a **Cadeia de Conexão** das políticas de acesso compartilhado para executar o aplicativo.
 Abaixo está a saída do formulário, executando o aplicativo:
 

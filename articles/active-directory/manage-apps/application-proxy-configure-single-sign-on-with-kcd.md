@@ -3,25 +3,25 @@ title: Logon único com o Proxy de Aplicativo | Microsoft Docs
 description: Aborda como fornecer o logon único usando o Proxy de Aplicativo Azure AD.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/13/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.custom: H1Hack27Feb2017, it-pro
+ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 521982a5cf09e0da9c52bca2fe367432a1d29e57
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 7ae642df48fbd18d8ead439d89ced88aa3da327c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583127"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85317536"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Delegação restrita de Kerberos para logon único em seus aplicativos com o Proxy de Aplicativo
 
@@ -55,18 +55,18 @@ Antes de começar com o logon único para aplicativos da IWA, verifique se seu a
 A configuração do Active Directory varia, dependendo de se o conector do Proxy do Aplicativo e o servidor de aplicativos estão no mesmo domínio ou não.
 
 #### <a name="connector-and-application-server-in-the-same-domain"></a>O conector e o servidor de aplicativos estão no mesmo domínio
-1. Em Active Directory, vá para **ferramentas** > **usuários e computadores**.
+1. Em Active Directory, vá para **ferramentas**  >  **usuários e computadores**.
 2. Selecione o servidor que executa o conector.
-3. Clique com o botão direito do mouse e selecione **Propriedades** > **delegação**.
+3. Clique com o botão direito do mouse e selecione **Propriedades**  >  **delegação**.
 4. Selecione **Confiar no computador para delegação apenas a serviços especificados**. 
-5. Selecione **usar qualquer protocolo de autenticação**.
+5. Selecione **Usar qualquer protocolo de autenticação**.
 6. Em **Serviços aos quais esta conta pode apresentar credenciais delegadas**, adicione o valor da identidade SPN do servidor de aplicativos. Isso permite que o Conector do Proxy de Aplicativo represente usuários no AD para os aplicativos definidos na lista.
 
    ![Captura de tela da janela Propriedades do Conector SVR](./media/application-proxy-configure-single-sign-on-with-kcd/Properties.jpg)
 
 #### <a name="connector-and-application-server-in-different-domains"></a>O conector e o servidor de aplicativos estão em domínios diferentes
 1. Para obter uma lista de pré-requisitos para trabalhar com o KCD entre domínios, consulte [Delegação restrita de Kerberos nos domínios](https://technet.microsoft.com/library/hh831477.aspx).
-2. Use a `principalsallowedtodelegateto` propriedade da conta de serviço (conta de usuário do computador ou do domínio dedicado) do aplicativo Web para habilitar a delegação de autenticação Kerberos do proxy de aplicativo (conector). O servidor de aplicativos está sendo executado no contexto `webserviceaccount` de e o servidor de delegação `connectorcomputeraccount`é. Execute os comandos abaixo em um controlador de domínio (executando o Windows Server 2012 R2 ou posterior) no domínio `webserviceaccount`de. Use nomes simples (não UPN) para ambas as contas.
+2. Use a `principalsallowedtodelegateto` propriedade da conta de serviço (conta de usuário do computador ou do domínio dedicado) do aplicativo Web para habilitar a delegação de autenticação Kerberos do proxy de aplicativo (conector). O servidor de aplicativos está sendo executado no contexto de `webserviceaccount` e o servidor de delegação é `connectorcomputeraccount` . Execute os comandos abaixo em um controlador de domínio (executando o Windows Server 2012 R2 ou posterior) no domínio de `webserviceaccount` . Use nomes simples (não UPN) para ambas as contas.
 
    Se o `webserviceaccount` for uma conta de computador, use estes comandos:
 
@@ -93,7 +93,7 @@ A configuração do Active Directory varia, dependendo de se o conector do Proxy
 2. Depois que o aplicativo aparecer na lista de aplicativos empresariais, selecione-o e clique em **Logon único**.
 3. Defina o modo de logon único como **Autenticação Integrada do Windows**.  
 4. Insira o **SPN do aplicativo interno** do servidor de aplicativos. Neste exemplo, o SPN para nosso aplicativo publicado é http/www.contoso.com. Esse SPN precisa estar na lista de serviços aos quais o conector pode apresentar credenciais delegadas. 
-5. Escolha a **Identidade de Logon Delegada** para que o conector use em nome de seus usuários. Para obter mais informações, consulte [Trabalhando com identidades diferentes de nuvem e local](#working-with-different-on-premises-and-cloud-identities)
+5. Escolha a **Identidade de Logon Delegada** para que o conector use em nome de seus usuários. Para obter mais informações, consulte [trabalhando com diferentes identidades locais e na nuvem](#working-with-different-on-premises-and-cloud-identities)
 
    ![Configuração de Aplicativo Avançada](./media/application-proxy-configure-single-sign-on-with-kcd/cwap_auth2.png)  
 
@@ -118,8 +118,6 @@ Para habilitar SPNEGO:
     REG ADD "HKLM\SOFTWARE\Microsoft\Microsoft AAD App Proxy Connector" /v UseSpnegoAuthentication /t REG_DWORD /d 1
     net stop WAPCSvc & net start WAPCSvc
     ```
-
-Para obter mais informações sobre o Kerberos, consulte [Tudo o que você deseja saber sobre a delegação restrita de Kerberos (KCD)](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/21/all-you-want-to-know-about-kerberos-constrained-delegation-kcd).
 
 Os aplicativos que não são do Windows normalmente utilizam nomes de usuário ou nomes de conta SAM em vez de endereços de email de domínio. Se essa situação se aplicar aos seus aplicativos, você precisará configurar o campo de identificação de logon delegada para conectar as identidades de nuvem às identidades de aplicativo. 
 
@@ -159,5 +157,3 @@ Porém, em alguns casos, a solicitação será enviada com êxito para o aplicat
 * [Como configurar um aplicativo de Application Proxy para usar a delegação restrita de Kerberos](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
 * [Solucionar problemas que surgirem com o Proxy de Aplicativo](application-proxy-troubleshoot.md)
 
-
-Para obter as últimas notícias e atualizações, confira o [blog do Proxy de Aplicativo](https://blogs.technet.com/b/applicationproxyblog/)

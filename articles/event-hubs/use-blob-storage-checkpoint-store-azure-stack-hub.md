@@ -1,19 +1,14 @@
 ---
 title: Usar armazenamento de BLOBs como armazenamento de ponto de verificação no Hub de Azure Stack (versão prévia)
 description: Este artigo descreve como usar o armazenamento de BLOBs como um armazenamento de ponto de verificação em hubs de eventos no Hub de Azure Stack (versão prévia).
-services: event-hubs
-documentationcenter: na
-author: spelluru
-ms.service: event-hubs
 ms.topic: how-to
-ms.date: 03/18/2020
-ms.author: spelluru
-ms.openlocfilehash: 2938099383c32eac493e4b4bb620f03c76ca5c44
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 0990941191827c66cd51d70216c75e106d0448fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82023642"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322371"
 ---
 # <a name="use-blob-storage-as-checkpoint-store---event-hubs-on-azure-stack-hub-preview"></a>Usar o armazenamento de BLOBs como ponto de verificação do repositório-hubs de eventos no Hub de Azure Stack (versão prévia)
 Se você estiver usando o armazenamento de BLOBs do Azure como o armazenamento de ponto de verificação em um ambiente que dá suporte a uma versão diferente do SDK do Storage blob do que aqueles que estão normalmente disponíveis no Azure, você precisará usar o código para alterar a versão da API do serviço de armazenamento para a versão específica com suporte desse ambiente. Por exemplo, se você estiver executando os [hubs de eventos em um hub de Azure Stack versão 2002](https://docs.microsoft.com/azure-stack/user/event-hubs-overview), a versão mais alta disponível para o serviço de armazenamento é a versão 2017-11-09. Nesse caso, você precisa usar o código para direcionar a versão da API do serviço de armazenamento para 2017-11-09. Para obter um exemplo de como direcionar uma versão de API de armazenamento específica, consulte estes exemplos no GitHub: 
@@ -34,7 +29,7 @@ The value for one of the HTTP headers is not in the correct format
 
 
 ## <a name="sample-error-message-in-python"></a>Mensagem de erro de exemplo no Python
-Para Python, um erro de `azure.core.exceptions.HttpResponseError` é passado para o manipulador `on_error(partition_context, error)` de erro `EventHubConsumerClient.receive()`do. No entanto, `receive()` o método não gera uma exceção. `print(error)`o imprimirá as seguintes informações de exceção:
+Para Python, um erro de `azure.core.exceptions.HttpResponseError` é passado para o manipulador `on_error(partition_context, error)` de erro do `EventHubConsumerClient.receive()` . No entanto, o método `receive()` não gera uma exceção. `print(error)`o imprimirá as seguintes informações de exceção:
 
 ```bash
 The value for one of the HTTP headers is not in the correct format.

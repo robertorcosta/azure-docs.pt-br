@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
-ms.openlocfilehash: b935355cce36a6e26b168db286ab40248f8f0f68
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f57c0353989cfcf924042d202bd80a57b476507b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79471720"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322303"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Monitoramento de métricas e logs na porta frontal do Azure
 
@@ -73,7 +73,7 @@ Para configurar os logs de diagnóstico para sua porta frontal:
 
 Atualmente, a porta frontal fornece logs de diagnóstico (em lote). Os logs de diagnóstico fornecem solicitações de API individuais com cada entrada com o seguinte esquema:
 
-| Propriedade  | Descrição |
+| Property  | Descrição |
 | ------------- | ------------- |
 | BackendHostname | Se a solicitação estava sendo encaminhada para um back-end, esse campo representa o nome do host do back-end. Esse campo ficará em branco se a solicitação tiver sido redirecionada ou encaminhada para um cache regional (quando o Caching estiver habilitado para a regra de roteamento). |
 | CacheStatus | Para cenários de cache, esse campo define o impacto/perda do cache no POP |
@@ -82,16 +82,17 @@ Atualmente, a porta frontal fornece logs de diagnóstico (em lote). Os logs de d
 | HttpMethod | Método HTTP usado pela solicitação. |
 | HttpStatusCode | O código de status HTTP retornado do proxy. |
 | HttpStatusDetails | Status resultante na solicitação. O significado desse valor de cadeia de caracteres pode ser encontrado em uma tabela de referência de status. |
-| HttpVersion | Tipo de solicitação ou conexão. |
+| HttpVersion | O tipo da conexão ou solicitação. |
 | POP | Nome curto da borda em que a solicitação descarregou. |
 | RequestBytes | O tamanho da mensagem de solicitação HTTP em bytes, incluindo os cabeçalhos de solicitação e o corpo da solicitação. |
 | RequestUri | URI da solicitação recebida. |
 | ResponseBytes | Bytes enviados pelo servidor de back-end como a resposta.  |
 | RoutingRuleName | O nome da regra de roteamento com a qual a solicitação foi correspondida. |
+| RulesEngineMatchNames | Os nomes das regras que a solicitação correspondeu. |
 | SecurityProtocol | A versão do protocolo TLS/SSL usada pela solicitação ou NULL se não houver criptografia. |
 | SentToOriginShield | Campo booliano que representa se houve uma perda de cache no primeiro ambiente e a solicitação foi enviada para o cache regional. Ignore este campo se a regra de roteamento for um redirecionamento ou quando o cache não estiver habilitado. |
-| TimeTaken | O período de tempo que a ação levou, em milissegundos. |
-| TrackingReference | A cadeia de caracteres de referência exclusiva que identifica uma solicitação servida pela porta da frente, também enviada como o cabeçalho X-Azure-ref para o cliente. Necessário para pesquisar detalhes nos logs de acesso para uma solicitação específica. |
+| TimeTaken | O período de tempo que a ação tomou em milissegundos. |
+| TrackingReference | A cadeia de caracteres de referência exclusiva que identifica uma solicitação atendida pela Front Door, também enviada como o cabeçalho X-Azure-Ref para o cliente. Necessário para pesquisar detalhes nos logs de acesso para uma solicitação específica. |
 | UserAgent | O tipo de navegador que o cliente usou. |
 
 **Observação:** Para várias configurações de roteamento e comportamentos de tráfego, alguns dos campos como backendHostname, cacheStatus, sentToOriginShield e POP Field podem responder com valores diferentes. A tabela abaixo explica os valores diferentes, que esses campos terão para vários cenários:
@@ -106,5 +107,5 @@ Atualmente, a porta frontal fornece logs de diagnóstico (em lote). Os logs de d
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Criar um perfil de porta de front-end](quickstart-create-front-door.md)
+- [Criar um perfil de Front Door](quickstart-create-front-door.md)
 - [Como funciona a porta frontal](front-door-routing-architecture.md)

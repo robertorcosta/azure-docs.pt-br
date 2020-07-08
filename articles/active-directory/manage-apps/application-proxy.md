@@ -2,23 +2,23 @@
 title: Acesso remoto a aplicativos locais – Azure Proxy de Aplicativo do AD
 description: O Proxy de Aplicativo do Azure Active Directory fornece acesso remoto seguro aos aplicativos Web locais. Após um logon único para o Azure AD, os usuários podem acessar aplicativos locais e de nuvem por meio de uma URL externa ou um portal interno do aplicativo. Por exemplo, o Proxy de Aplicativo pode fornecer acesso remoto e o logon único para a Área de Trabalho Remota, o SharePoint, o Teams, o Tableau, o Qlik e aplicativos LOB (linha de negócios).
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/09/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 24e18f5b1766f0dde5e677ac40d24edd5597a20d
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 84cd6f9d7612cc6cf5829c03c398dd65a6eec412
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82609945"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85318021"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Acesso remoto a aplicativos locais por meio do Proxy de Aplicativo do Azure Active Directory
 
@@ -40,8 +40,8 @@ O Proxy de Aplicativo funciona com:
 * Aplicativos Web que usam a [Autenticação Integrada do Windows](application-proxy-configure-single-sign-on-with-kcd.md) para autenticação
 * Aplicativos Web que usam o acesso baseado em formulário ou [baseado em cabeçalho](application-proxy-configure-single-sign-on-with-ping-access.md)
 * APIs Web que você deseja expor a aplicativos avançados em diferentes dispositivos
-* Aplicativos hospedados por trás de um [Gateway de Área de Trabalho Remota](application-proxy-integrate-with-remote-desktop-services.md)
-* Aplicativos cliente avançados que são integrados com a ADAL (Biblioteca de autenticação do Active Directory)
+* Aplicativos hospedados atrás de um [Gateway de área de trabalho remota](application-proxy-integrate-with-remote-desktop-services.md)
+* Aplicativos cliente avançados integrados com a MSAL (Biblioteca de Autenticação da Microsoft)
 
 O Proxy de Aplicativo é compatível com o logon único. Para obter mais informações sobre métodos com suporte, consulte [Escolhendo um método de logon único](what-is-single-sign-on.md#choosing-a-single-sign-on-method).
 
@@ -72,4 +72,3 @@ O diagrama a seguir mostra como o Azure AD e o Proxy de Aplicativo trabalham jun
 ## <a name="next-steps"></a>Próximas etapas
 Para começar a usar o proxy de aplicativo, consulte [tutorial: adicionar um aplicativo local para acesso remoto por meio do proxy de aplicativo](application-proxy-add-on-premises-application.md).
 
-Para encontrar as últimas notícias e atualizações, confira o [blog do Proxy de Aplicativo](https://blogs.technet.com/b/applicationproxyblog/)

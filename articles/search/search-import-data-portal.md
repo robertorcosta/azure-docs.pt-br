@@ -1,19 +1,19 @@
 ---
 title: Importar dados para um índice de pesquisa usando portal do Azure
 titleSuffix: Azure Cognitive Search
-description: Saiba como usar o Assistente de Importação de Dados no portal do Azure para rastrear dados do Azure do Cosmos DB, do armazenamento de blobs, do armazenamento de tabela, do Banco de Dados SQL e do SQL Server em VMs do Azure.
+description: Saiba como usar o assistente de importação de dados no portal do Azure para rastrear dados do Azure de Cosmos DB, armazenamento de BLOBs, armazenamento de tabelas, banco de dados SQL, SQL Instância Gerenciada e SQL Server em VMs do Azure.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 0ed2bd7f1e03d8d5fa11f7e76010d087605f0fe1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d786f1ebadc961ab367fdcc9b27c4d829a68400
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75460708"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85321374"
 ---
 # <a name="import-data-wizard-for-azure-cognitive-search"></a>Assistente de importação de dados para o Azure Pesquisa Cognitiva
 
@@ -65,7 +65,7 @@ Você deve criar essa tabela ou exibição única antes de executar o assistente
 | ---------- | ----------- |
 | **Fonte de dados existente** |Se você já tiver indexadores definidos em seu serviço de pesquisa, talvez tenha uma definição de fonte de dados existente que possa ser reutilizada. No Azure Pesquisa Cognitiva, os objetos de fonte de dados são usados apenas por indexadores. Você pode criar um objeto de fonte de dados programaticamente ou por meio do assistente de **importação de dados** e reutilizá-los conforme necessário.|
 | **Amostras**| O Azure Pesquisa Cognitiva fornece duas fontes de dados de exemplo internas que são usadas em tutoriais e guias de início rápido: um banco dados SQL de imóveis e um banco de dados de hotéis hospedados no Cosmos DB. Para obter uma orientação com base no exemplo de hotéis, consulte [criar um índice no guia de](search-get-started-portal.md) início rápido portal do Azure. |
-| [**Banco de Dados SQL do Azure**](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) |É possível especificar o nome do serviço, credenciais para um usuário de banco de dados com permissão de leitura e um nome de banco de dados na página ou por meio de uma cadeia de conexão do ADO.NET. Escolha a opção de cadeia de conexão para exibir ou personalizar as propriedades. <br/><br/>A tabela ou exibição que fornece o conjunto de linhas deve ser especificada na página. Essa opção aparece após o êxito da conexão, fornecendo uma lista suspensa para que você possa fazer uma seleção.|
+| [**Banco de dados SQL do Azure ou SQL Instância Gerenciada**](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) |É possível especificar o nome do serviço, credenciais para um usuário de banco de dados com permissão de leitura e um nome de banco de dados na página ou por meio de uma cadeia de conexão do ADO.NET. Escolha a opção de cadeia de conexão para exibir ou personalizar as propriedades. <br/><br/>A tabela ou exibição que fornece o conjunto de linhas deve ser especificada na página. Essa opção aparece após o êxito da conexão, fornecendo uma lista suspensa para que você possa fazer uma seleção.|
 | **SQL Server na VM do Azure** |Especifique um nome de serviço totalmente qualificado, a ID e a senha de usuário e um banco de dados como uma cadeia de conexão. Para usar esta fonte de dados, você deve ter instalado um certificado no repositório local que criptografa a conexão. Para obter instruções, consulte [conexão de VM do SQL para o Azure pesquisa cognitiva](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>A tabela ou exibição que fornece o conjunto de linhas deve ser especificada na página. Essa opção aparece após o êxito da conexão, fornecendo uma lista suspensa para que você possa fazer uma seleção. |
 | [**Azure Cosmos DB**](search-howto-index-cosmosdb.md)|Os requisitos incluem a conta, o banco de dados e a coleção. Todos os documentos na coleção serão incluídos no índice. Você pode definir uma consulta para achatar ou filtrar o conjunto de linhas ou deixar a consulta em branco. Uma consulta não é necessária neste assistente.|
 | [**Armazenamento do Blobs do Azure**](search-howto-indexing-azure-blob-storage.md) |Os requisitos incluem a conta de armazenamento e um contêiner. Como opção, se os nomes de blob seguirem uma convenção de nomenclatura virtual para fins de agrupamento, você poderá especificar a parte do diretório virtual do nome como uma pasta no contêiner. Confira [Indexação do Armazenamento de Blobs](search-howto-indexing-azure-blob-storage.md) para saber mais. |
@@ -78,7 +78,7 @@ Nos bastidores, o assistente cria, configura e invoca os objetos a seguir. Depoi
 | Objeto | Descrição | 
 |--------|-------------|
 | [Fonte de Dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Persiste informações de conexão para dados de origem, incluindo credenciais. Um objeto de fonte de dados é usado exclusivamente com indexadores. | 
-| [Index](https://docs.microsoft.com/rest/api/searchservice/create-index) | Estrutura de dados física usada para pesquisa de texto completo e outras consultas. | 
+| [Índice](https://docs.microsoft.com/rest/api/searchservice/create-index) | Estrutura de dados física usada para pesquisa de texto completo e outras consultas. | 
 | [Conjunto de habilidades](https://docs.microsoft.com/rest/api/searchservice/create-skillset) | Um conjunto completo de instruções para manipular, transformar e formatar conteúdo, incluindo a análise e extração de informações de arquivos de imagem. Exceto por estruturas muito simples e limitadas, ele inclui uma referência a um recurso de serviços cognitivas que fornece enriquecimento. Opcionalmente, ele também pode conter uma definição de repositório de conhecimento.  | 
 | [Indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer)  | Um objeto de configuração que especifica uma fonte de dados, um índice de destino, um conjunto de qualificações opcional, um agendamento opcional e definições de configuração opcionais para a transmissão de erro e a codificação de base 64. |
 
@@ -93,7 +93,7 @@ O assistente de importação de dados é iniciado na barra de comandos na págin
 
    ![Comando importar dados no portal](./media/search-import-data-portal/import-data-cmd2.png "Iniciar o assistente Importar dados")
 
-Você também pode iniciar a **importação de dados** de outros serviços do Azure, incluindo Azure Cosmos DB, banco de dados SQL do Azure e armazenamento de BLOBs do Azure. Procure **adicionar pesquisa cognitiva do Azure** no painel de navegação esquerdo na página Visão geral do serviço.
+Você também pode iniciar a **importação de dados** de outros serviços do Azure, incluindo Azure Cosmos DB, banco de dados SQL do Azure, SQL instância gerenciada e armazenamento de BLOBs do Azure. Procure **adicionar pesquisa cognitiva do Azure** no painel de navegação esquerdo na página Visão geral do serviço.
 
 <a name="index-definition"></a>
 
@@ -105,7 +105,7 @@ O assistente gera um índice incompleto, que será preenchido com documentos obt
 
 1. O tipo de dados é apropriado para os dados de entrada? O Azure Pesquisa Cognitiva dá suporte aos [tipos de dados do EDM (modelo de dados de entidade)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types). Para dados SQL do Azure, há um [gráfico de mapeamento](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#TypeMapping) que apresenta valores equivalentes. Para obter mais informações, consulte [mapeamentos de campo e transformações](search-indexer-field-mappings.md).
 
-1. Você tem um campo que pode servir como *chave*? Esse campo deve ser EDM. String e deve identificar um documento exclusivamente. Para dados relacionais, ele pode ser mapeado para uma chave primária. Para BLOBs, pode ser o `metadata-storage-path`. Se os valores de campo incluírem espaços ou traços, defina a opção **Chave de Codificação de Base 64** na etapa **Criar um indexador**, em **Opções avançadas**, para suprimir a verificação de validação para esses caracteres.
+1. Você tem um campo que pode servir como *chave*? Esse campo deve ser EDM. String e deve identificar um documento exclusivamente. Para dados relacionais, ele pode ser mapeado para uma chave primária. Para BLOBs, pode ser o `metadata-storage-path` . Se os valores de campo incluírem espaços ou traços, defina a opção **Chave de Codificação de Base 64** na etapa **Criar um indexador**, em **Opções avançadas**, para suprimir a verificação de validação para esses caracteres.
 
 1. Defina atributos para determinar como esse campo é usado em um índice. 
 

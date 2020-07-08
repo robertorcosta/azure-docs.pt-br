@@ -1,20 +1,14 @@
 ---
 title: Criar tópicos e filas particionados do Barramento de Serviço | Microsoft Docs
 description: Descreve como particionar filas e tópicos do Barramento de Serviço usando vários agentes de mensagem.
-services: service-bus-messaging
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 02/06/2020
-ms.author: aschhab
-ms.openlocfilehash: 671368993acb43c0d55eca73119effa934e3cff8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 6ea0bee255f489355056f91d82195382153786bb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79260937"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85339633"
 ---
 # <a name="partitioned-queues-and-topics"></a>Filas e tópicos particionados
 
@@ -25,11 +19,13 @@ O Barramento de Serviço do Azure emprega vários agentes de mensagens para proc
  
 Não é possível alterar a opção de particionamento em uma fila ou um tópico existente; você pode definir a opção apenas quando cria a entidade.
 
-## <a name="how-it-works"></a>Como isso funciona
+## <a name="how-it-works"></a>Como funciona
 
 Cada fila ou tópico particionado consiste em várias partições. Cada partição é armazenada em um repositório de mensagens diferente e manipulada por um agente de mensagens diferente. Quando uma mensagem é enviada a uma fila ou tópico particionado, o barramento de serviço atribui a mensagem a uma das partições. A seleção é feita aleatoriamente pelo Barramento de Serviço ou por uma chave de partição que pode ser especificada pelo remetente.
 
 Quando um cliente deseja receber uma mensagem de uma fila particionada ou de uma assinatura para um tópico particionado, o barramento de serviço consulta todas as partições de mensagens e, em seguida, retorna a primeira mensagem que é Obtida de qualquer um dos repositórios de mensagens para o receptor. O Barramento de Serviço armazena em cache as outras mensagens e as retorna ao receber solicitações de recebimento adicionais. Um cliente receptor não está ciente do particionamento; o comportamento voltado para o cliente de uma fila ou um tópico particionado (por exemplo, ler, concluir, adiar, colocar mensagem na fila de mensagens mortas, executar pré-busca) é idêntico ao comportamento de uma entidade regular.
+
+A operação de inspeção em uma entidade não particionada sempre retorna a mensagem mais antiga, mas não em uma entidade particionada. Em vez disso, ele retorna a mensagem mais antiga em uma das partições cujo agente de mensagem respondeu primeiro. Não há nenhuma garantia de que a mensagem retornada é a mais antiga em todas as partições. 
 
 Não há custo adicional ao enviar ou receber uma mensagem de uma fila ou um tópico particionado.
 

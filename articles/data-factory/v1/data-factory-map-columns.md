@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6eb7012e28319ee6cc86de5ee56090743d681068
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: af7a1e40f21b6c9af490abe6f58edcaf798818b4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74923878"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85318868"
 ---
 # <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>Mapear colunas de conjunto de dados de origem para colunas de conjunto de dados de destino
 > [!NOTE]
@@ -39,7 +39,7 @@ Veja a seguir condições de erro que resultam em uma exceção:
 > Os exemplos a seguir são para o Azure SQL e os Blobs do Azure, mas são aplicáveis a qualquer repositório de dados com suporte a conjuntos de dados retangulares. Ajuste o conjunto de dados e as definições de serviço vinculado nos exemplos para apontar para dados na fonte de dados relevante.
 
 ## <a name="sample-1--column-mapping-from-azure-sql-to-azure-blob"></a>Exemplo 1 - mapeamento de coluna do SQL Azure para blobs do Azure
-Neste exemplo, a tabela de entrada tem uma estrutura e ela aponta para uma tabela do SQL em um banco de dados SQL do Azure.
+Neste exemplo, a tabela de entrada tem uma estrutura e aponta para uma tabela SQL no banco de dados SQL do Azure.
 
 ```json
 {

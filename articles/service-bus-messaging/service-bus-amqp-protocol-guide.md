@@ -1,25 +1,14 @@
 ---
 title: AMQP 1.0 no guia de protocolo do Barramento de Serviço e dos Hubs de Eventos do Azure | Microsoft Docs
 description: Guia de protocolo para expressões e a descrição do AMQP 1.0 no Barramento de Serviço e nos Hubs de Eventos do Azure
-services: service-bus-messaging,event-hubs
-documentationcenter: .net
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: d2d3d540-8760-426a-ad10-d5128ce0ae24
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/23/2019
-ms.author: aschhab
-ms.openlocfilehash: d706e9b3351b0693a1f352e15b6b9b0cc5c7a65d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 17f2f6da88e585d770a0a04825dc817f870089f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77086159"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85337887"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 no guia de protocolo do Barramento de Serviço e dos Hubs de Eventos do Azure
 
@@ -88,7 +77,7 @@ Os clientes que usam conexões AMQP sobre TCP exigem que as portas 5671 e 5672 s
 
 ![Lista de portas de destino][4]
 
-Um cliente .NET falharia com uma SocketException ("foi feita uma tentativa de acessar um soquete de uma maneira proibida por suas permissões de acesso") se essas portas estiverem bloqueadas pelo firewall. O recurso pode ser desabilitado pela `EnableAmqpLinkRedirect=false` configuração na cadeia de caracteres se conectar, que força os clientes a se comunicarem com o serviço remoto pela porta 5671.
+Um cliente .NET falharia com uma SocketException ("foi feita uma tentativa de acessar um soquete de uma maneira proibida por suas permissões de acesso") se essas portas estiverem bloqueadas pelo firewall. O recurso pode ser desabilitado pela configuração `EnableAmqpLinkRedirect=false` na cadeia de caracteres se conectar, que força os clientes a se comunicarem com o serviço remoto pela porta 5671.
 
 
 ### <a name="links"></a>Links
@@ -217,7 +206,7 @@ As seções a seguir explicam quais propriedades das seções padrão de mensage
 
 Toda propriedade que o aplicativo precisa definir deve ser mapeada para o mapa de `application-properties` do AMQP.
 
-#### <a name="header"></a>cabeçalho
+#### <a name="header"></a>header
 
 | Nome do campo | Uso | Nome da API |
 | --- | --- | --- |
@@ -298,7 +287,7 @@ O controlador conclui o trabalho transacional enviando uma mensagem `discharge` 
 
 #### <a name="sending-a-message-in-a-transaction"></a>Enviando uma mensagem em uma transação
 
-Todo o trabalho transacional é feito com o estado `transactional-state` de entrega transacional que transporta o TXN. No caso de envio de mensagens, o estado transacional é executado pelo quadro de transferência da mensagem. 
+Todo o trabalho transacional é feito com o estado de entrega transacional `transactional-state` que transporta o TXN. No caso de envio de mensagens, o estado transacional é executado pelo quadro de transferência da mensagem. 
 
 | Cliente (controlador) | | Barramento de Serviço (coordenador) |
 | --- | --- | --- |
@@ -337,9 +326,9 @@ Todos os gestos exigem uma interação de solicitação/resposta entre o cliente
 | Operação Lógica | Cliente | Barramento de Serviço |
 | --- | --- | --- |
 | Criar caminho de resposta de solicitação |--> attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**sender**,<br/>source=**null**,<br/>target=”myentity/$management”<br/>) |Nenhuma ação |
-| Criar caminho de resposta de solicitação |Nenhuma ação |\<-- attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**receiver**,<br/>source=null,<br/>target=”myentity”<br/>) |
+| Criar caminho de resposta de solicitação |Nenhuma ação |\<-- attach(<br/>nome = {*nome do link*},<br/>handle={*numeric handle*},<br/>role=**receiver**,<br/>source=null,<br/>target=”myentity”<br/>) |
 | Criar caminho de resposta de solicitação |--> attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**receiver**,<br/>source=”myentity/$management”,<br/>target=”myclient$id”<br/>) | |
-| Criar caminho de resposta de solicitação |Nenhuma ação |\<-- attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**sender**,<br/>source=”myentity”,<br/>target=”myclient$id”<br/>) |
+| Criar caminho de resposta de solicitação |Nenhuma ação |\<-- attach(<br/>nome = {*nome do link*},<br/>handle={*numeric handle*},<br/>role=**sender**,<br/>source=”myentity”,<br/>target=”myclient$id”<br/>) |
 
 Com esse par de links definido, a implementação de solicitação/resposta é simples: uma solicitação é uma mensagem enviada a uma entidade dentro a infraestrutura de mensagens que compreende esse padrão. Nessa mensagem de solicitação, o campo *reply-to* na seção *properties* é definida como o identificador *target*para o link para o qual será fornecida a resposta. A entidade de tratamento processa a solicitação e então fornece a resposta pelo link cujo identificador *target* corresponda ao identificador *reply-to* indicado.
 
@@ -370,14 +359,14 @@ A mensagem de solicitação tem as seguintes propriedades de aplicativo:
 
 | Chave | Opcional | Tipo de valor | Conteúdo de valor |
 | --- | --- | --- | --- |
-| operação |Não |cadeia de caracteres |**put-token** |
-| type |Não |cadeia de caracteres |O tipo do token colocado. |
-| name |Não |cadeia de caracteres |O "público" ao qual o token se aplica. |
+| operação |Não |string |**put-token** |
+| tipo |Não |string |O tipo do token colocado. |
+| name |Não |string |O "público" ao qual o token se aplica. |
 | expiração |Sim |timestamp |A hora de expiração do token. |
 
 A propriedade *name* identifica a entidade à qual o token deve ser associado. No Barramento de Serviço, é o caminho para a fila ou tópico/assinatura. A propriedade *type* identifica o tipo de token:
 
-| Tipo de token | Descrição do token | Tipo de corpo | Anotações |
+| Tipo de token | Descrição do token | Tipo de corpo | Observações |
 | --- | --- | --- | --- |
 | amqp:jwt |JWT (Token Web JSON) |Valor de AMQP (cadeia de caracteres) |Ainda não está disponível. |
 | amqp:swt |SWT (Token Web Simples) |Valor de AMQP (cadeia de caracteres) |Só tem suporte para tokens SWT emitidos pelo AAD/ACS |
@@ -390,7 +379,7 @@ A mensagem de resposta tem os seguintes valores de *application-properties*
 | Chave | Opcional | Tipo de valor | Conteúdo de valor |
 | --- | --- | --- | --- |
 | status-code |Não |INT |Código de resposta HTTP **[RFC2616]**. |
-| status-description |Sim |cadeia de caracteres |A descrição do status. |
+| status-description |Sim |string |A descrição do status. |
 
 O cliente pode chamar *put-token* repetidamente e para qualquer entidade na infraestrutura de mensagens. Os tokens estão no escopo do cliente atual e ancorados na conexão atual, o que significa que o servidor cancela todos os tokens retidos quando a conexão cair.
 

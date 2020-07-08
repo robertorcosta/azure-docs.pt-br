@@ -1,22 +1,17 @@
 ---
 title: Autenticar um aplicativo para acessar os recursos dos hubs de eventos do Azure
 description: Este artigo fornece informações sobre como autenticar um aplicativo com Azure Active Directory para acessar os recursos dos hubs de eventos do Azure
-services: event-hubs
-ms.service: event-hubs
-documentationcenter: ''
-author: spelluru
 ms.topic: conceptual
-ms.date: 02/12/2020
-ms.author: spelluru
-ms.openlocfilehash: 4cef49f138b96848b8e59cb5b2d0b185d4568aa9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 50566c9405eb203778068b61a03cb9a2d22209b4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80520990"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85318174"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-event-hubs-resources"></a>Autenticar um aplicativo com Azure Active Directory para acessar recursos de hubs de eventos
-O Microsoft Azure fornece gerenciamento de controle de acesso integrado para recursos e aplicativos com base no Azure Active Directory (Azure AD). Uma vantagem importante de usar o Azure AD com os hubs de eventos do Azure é que você não precisa mais armazenar suas credenciais no código. Em vez disso, você pode solicitar um token de acesso OAuth 2,0 da plataforma de identidade da Microsoft. O nome do recurso para solicitar um token `https://eventhubs.azure.net/` é (para clientes Kafka, o recurso para solicitar um token `https://<namespace>.servicebus.windows.net`é). O Azure AD autentica a entidade de segurança (um usuário, grupo ou entidade de serviço) que executa o aplicativo. Se a autenticação for bem sucedido, o Azure AD retornará um token de acesso para o aplicativo e o aplicativo poderá usar o token de acesso para autorizar a solicitação aos recursos dos hubs de eventos do Azure.
+O Microsoft Azure fornece gerenciamento de controle de acesso integrado para recursos e aplicativos com base no Azure Active Directory (Azure AD). Uma vantagem importante de usar o Azure AD com os hubs de eventos do Azure é que você não precisa mais armazenar suas credenciais no código. Em vez disso, você pode solicitar um token de acesso OAuth 2,0 da plataforma de identidade da Microsoft. O nome do recurso para solicitar um token é `https://eventhubs.azure.net/` (para clientes Kafka, o recurso para solicitar um token é `https://<namespace>.servicebus.windows.net` ). O Azure AD autentica a entidade de segurança (um usuário, grupo ou entidade de serviço) que executa o aplicativo. Se a autenticação for bem sucedido, o Azure AD retornará um token de acesso para o aplicativo e o aplicativo poderá usar o token de acesso para autorizar a solicitação aos recursos dos hubs de eventos do Azure.
 
 Quando uma função é atribuída a uma entidade de segurança do Azure AD, o Azure concede acesso a esses recursos para essa entidade de segurança. O acesso pode ser definido para o nível de assinatura, o grupo de recursos, o namespace de hubs de eventos ou qualquer recurso sob ele. Uma segurança do Azure AD pode atribuir funções a um usuário, a um grupo, a uma entidade de serviço de aplicativo ou a uma [identidade gerenciada para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md). 
 
@@ -41,7 +36,7 @@ Depois de determinar o escopo apropriado para uma atribuição de função, nave
 > [!NOTE]
 > As etapas descritas abaixo atribuem uma função ao Hub de eventos nos namespaces dos hubs de eventos, mas você pode seguir as mesmas etapas para atribuir uma função com escopo a qualquer recurso de hubs de eventos.
 
-1. Na [portal do Azure](https://portal.azure.com/), navegue até o namespace de seus hubs de eventos.
+1. No [Portal do Azure](https://portal.azure.com/), navegue até o seu namespace de Hubs de Eventos.
 2. Na página **visão geral** , selecione o Hub de eventos para o qual você deseja atribuir uma função.
 
     ![Selecione seu hub de eventos](./media/authenticate-application/select-event-hub.png)

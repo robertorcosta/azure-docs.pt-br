@@ -1,45 +1,31 @@
 ---
 title: Autenticação e Autorização do Barramento de Serviço do Azure | Microsoft Docs
 description: Autentique aplicativos no Barramento de Serviço com a autenticação SAS (Assinatura de Acesso Compartilhado).
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-editor: spelluru
-ms.assetid: 18bad0ed-1cee-4a5c-a377-facc4785c8c9
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/22/2019
-ms.author: aschhab
-ms.openlocfilehash: 7234e33c04e742c77630f8d87481c7831fb00bf2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 56461c13cf6589b5f66f05837e1bcaa6a49a58c7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "70013240"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85337726"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Autenticação e autorização do Barramento de Serviço
-
-Os aplicativos obtêm acesso aos recursos do Barramento de Serviço do Azure usando a autenticação de token SAS (Assinatura de Acesso Compartilhado). Com o SAS, aplicativos apresentam ao Barramento de Serviço um token que foi assinado com uma chave simétrica conhecida tanto pelo emissor do token quanto pelo Barramento de Serviço (portanto, “compartilhada”) e essa chave é diretamente associada a uma regra que concede direitos de acesso específicos, como a permissão para receber/escutar ou enviar mensagens. As regras de SAS são configuradas no namespace ou diretamente em entidades, como uma fila ou um tópico, permitindo um controle de acesso refinado.
-
-Os tokens SAS podem ser gerados por um cliente do Barramento de Serviço diretamente ou por algum ponto de extremidade intermediário emissor de token com o qual o cliente interage. Por exemplo, um sistema pode exigir que o cliente chame um ponto de extremidade de serviço Web protegido por autorização do Active Directory para provar sua identidade e seus direitos de acesso ao sistema, e o serviço Web retorna em seguida o token do Barramento de Serviço apropriado. Esse token SAS pode ser gerado com facilidade usando o provedor de token do Barramento de Serviço incluído no SDK do Azure. 
-
-> [!IMPORTANT]
-> Se você está usando o Controle de Acesso do Azure Active Directory (também conhecido como Serviço de Controle de Acesso ou ACS) com o Barramento de Serviço, observe que o suporte para esse método agora é limitado e que você deve migrar seu aplicativo para usar o SAS. Para obter mais informações, consulte [esta postagem no blog](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/) e [este artigo](service-bus-migrate-acs-sas.md).
+Há duas maneiras de autenticar e autorizar o acesso aos recursos do barramento de serviço do Azure: diretório de atividades do Azure (Azure AD) e SAS (assinaturas de acesso compartilhado). Este artigo fornece detalhes sobre como usar esses dois tipos de mecanismos de segurança. 
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
-A integração do Azure Active Directory (Azure AD) para recursos do barramento de serviço fornece controle de acesso baseado em função (RBAC) para controle refinado sobre o acesso de um cliente aos recursos. Você pode usar o RBAC (controle de acesso baseado em função) para conceder permissões à entidade de segurança, que pode ser um usuário, um grupo ou uma entidade de serviço de aplicativo. A entidade de segurança é autenticada pelo AD do Azure para retornar um token 2,0 do OAuth. O token pode ser usado para autorizar uma solicitação para acessar um recurso do barramento de serviço (fila, tópico, etc.).
+A integração do Azure AD para recursos do barramento de serviço fornece controle de acesso baseado em função (RBAC) para controle refinado sobre o acesso de um cliente aos recursos. Você pode usar o RBAC (controle de acesso baseado em função) para conceder permissões a uma entidade de segurança, que pode ser um usuário, um grupo ou uma entidade de serviço de aplicativo. A entidade de segurança é autenticada pelo AD do Azure para retornar um token 2,0 do OAuth. O token pode ser usado para autorizar uma solicitação para acessar um recurso do barramento de serviço (fila, tópico, etc.).
 
 Para obter mais informações sobre como autenticar com o Azure AD, consulte os seguintes artigos:
 
 - [Autenticar com identidades gerenciadas](service-bus-managed-service-identity.md)
 - [Autenticar a partir de um aplicativo](authenticate-application.md)
 
+> [!NOTE]
+> A [API REST do barramento de serviço](/rest/api/servicebus/) dá suporte à autenticação OAuth com o Azure AD.
+
 > [!IMPORTANT]
 > A autorização de usuários ou aplicativos usando o token 2,0 do OAuth retornado pelo Azure AD fornece segurança superior e facilidade de uso sobre SAS (assinaturas de acesso compartilhado). Com o Azure AD, não é necessário armazenar os tokens no código e arriscar as vulnerabilidades de segurança potenciais. É recomendável usar o Azure AD com seus aplicativos do barramento de serviço do Azure quando possível. 
-
 
 ## <a name="shared-access-signature"></a>Assinatura de acesso compartilhado
 A [autenticação SAS](service-bus-sas.md) permite que você conceda a um usuário o acesso aos recursos do Barramento de Serviço, com direitos específicos. A autenticação SAS no Barramento de Serviço envolve a configuração de uma chave criptográfica com direitos associados em um recurso do Barramento de Serviço. Os clientes podem obter acesso a esse recurso apresentando um token SAS que consiste em acessar o URI de recurso e assinar uma expiração com a tecla configurada.
@@ -59,10 +45,15 @@ Para acessar uma entidade, o cliente requer um token SAS gerado usando uma deter
 
 O suporte à autenticação SAS para o Barramento de Serviço está incluído no .NET SDK do Azure versão 2.0 e posterior. A SAS dá suporte a uma [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). Todas as APIs que aceitam uma cadeia de conexão como parâmetro incluem suporte para cadeias de conexão SAS.
 
+> [!IMPORTANT]
+> Se você estiver usando o controle de acesso Azure Active Directory (também conhecido como serviço de controle de acesso ou ACS) com o barramento de serviço, observe que o suporte para esse método agora é limitado e você deve [migrar seu aplicativo para usar SAS](service-bus-migrate-acs-sas.md) ou usar a autenticação OAuth 2,0 com o Azure AD (recomendado). Para obter mais informações sobre a substituição do ACS, consulte [esta postagem no blog](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/).
+
 ## <a name="next-steps"></a>Próximas etapas
+Para obter mais informações sobre como autenticar com o Azure AD, consulte os seguintes artigos:
 
-- Continue lendo [Autenticação de Barramento de Serviço com Assinaturas de Acesso Compartilhado](service-bus-sas.md) para obter mais detalhes sobre SAS.
-- Como [migrar da autorização do ACS (Controle de Acesso do Azure Active Directory) para a Assinatura de Acesso Compartilhado](service-bus-migrate-acs-sas.md).
-- [Alterações em namespaces habilitados para ACS](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/).
-- Para informações correspondentes sobre a autenticação e autorização da Retransmissão do Azure, confira [Autenticação e autorização da Retransmissão do Azure](../service-bus-relay/relay-authentication-and-authorization.md). 
+- [Autenticação com identidades gerenciadas](service-bus-managed-service-identity.md)
+- [Autenticação de um aplicativo](authenticate-application.md)
 
+Para obter mais informações sobre como autenticar com SAS, consulte os seguintes artigos:
+
+- [Autenticação com SAS](service-bus-sas.md)

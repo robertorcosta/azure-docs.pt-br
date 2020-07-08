@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: migrar SQL Server online para o banco de dados individual do SQL'
 titleSuffix: Azure Database Migration Service
-description: Saiba como fazer a migração online do SQL Server local para um banco de dados individual ou em pool no Banco de Dados SQL do Azure usando o Serviço de Migração de Banco de Dados do Azure.
+description: Saiba como executar uma migração online do SQL Server para o banco de dados SQL do Azure usando o serviço de migração de banco de dados do Azure.
 services: dms
 author: pochiraju
 ms.author: rajpo
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/21/2020
-ms.openlocfilehash: bc7355dd7e01a30d47e0ca238b8996aab9b4e6b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e923a09eeb15d05a32e99a1e9a46e36b72552736
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80298961"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85318463"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-online-using-dms"></a>Tutorial: migrar SQL Server para um banco de dados individual ou banco de dados em pool no banco de dados SQL do Azure online usando DMS
 
-Você pode usar o Serviço de Migração de Banco de Dados do Azure para migrar os bancos de dados de uma instância do SQL Server local para o [Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/) com o mínimo de tempo de inatividade. Neste artigo, você migra o banco de dados **Adventureworks2012** restaurado em uma instância local do SQL Server 2016 (ou posterior) para um banco de dados individual ou um banco de dados em pool no Banco de Dados SQL do Azure usando o Serviço de Migração de Banco de Dados do Azure.
+Você pode usar o serviço de migração de banco de dados do Azure para migrar os bancos de dados de uma instância SQL Server para o [banco de dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/) com tempo de inatividade mínimo Neste artigo, você migra o banco de dados **Adventureworks2012** restaurado em uma instância local do SQL Server 2016 (ou posterior) para um banco de dados individual ou um banco de dados em pool no Banco de Dados SQL do Azure usando o Serviço de Migração de Banco de Dados do Azure.
 
 Neste tutorial, você aprenderá como:
 > [!div class="checklist"]
@@ -71,7 +71,7 @@ Para concluir este tutorial, você precisará:
 - Abra o Firewall do Windows para permitir que o Serviço de Migração de Banco de Dados do Azure acesse o SQL Server de origem, que por padrão é porta TCP 1433.
 - Caso esteja executando várias instâncias nomeadas do SQL Server usando portas dinâmicas, talvez seja preciso habilitar o serviço do SQL Browser e permitir o acesso à porta UDP 1434 por meio de seus firewalls para que o Serviço de Migração de Banco de Dados do Azure possa se conectar a uma instância nomeada em seu servidor de origem.
 - Ao usar um dispositivo de firewall na frente de seus bancos de dados de origem, talvez seja necessário adicionar regras de firewall para permitir que o Serviço de Migração de Banco de Dados do Azure acesse os bancos de dados de origem para migração.
-- Crie uma [regra de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) no nível de servidor para o servidor do Banco de Dados SQL do Azure para permitir o acesso do Serviço de Migração de Banco de Dados do Azure aos bancos de dados de destino. Forneça o intervalo de sub-rede da rede virtual usada para o serviço de migração de banco de dados do Azure.
+- Crie uma [regra de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) no nível de servidor para o banco de dados SQL do Azure para permitir o acesso ao serviço de migração de banco de dados do Azure aos bancos de dados de destino. Forneça o intervalo de sub-rede da rede virtual usada para o serviço de migração de banco de dados do Azure.
 - Garantir que as credenciais usadas para se conectar à instância de origem do SQL Server tenham as permissões [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql).
 - Verifique se as credenciais usadas para conectar-se à instância de banco de dados SQL do Azure de destino têm a permissão CONTROL DATABASE nas instâncias de destino do banco de dados SQL do Azure.
 - A versão do SQL Server de origem precisa ser o SQL Server 2005 ou posterior. Para determinar a versão que a instância do SQL Server está executando, consulte o artigo [Como determinar a versão, a edição e o nível de atualização do SQL Server e de seus componentes](https://support.microsoft.com/help/321185/how-to-determine-the-version-edition-and-update-level-of-sql-server-an).
@@ -127,7 +127,7 @@ Para concluir este tutorial, você precisará:
 
 ## <a name="assess-your-on-premises-database"></a>Adicionar um Banco de Dados Local
 
-Antes de poder migrar dados de uma instância do SQL Server local para um banco de dados individual ou em pool no Banco de Dados SQL do Azure, é necessário avaliar o banco de dados do SQL Server para ver se há problemas de bloqueio que possam impedir a migração. Usando o Assistente de Migração de Dados v3.3 ou posterior, siga as etapas descritas no artigo [Realizando uma avaliação de migração do SQL Server](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) para concluir a avaliação de banco de dados local.
+Antes de migrar dados de uma instância do SQL Server para o banco de dados SQL do Azure, você precisa avaliar o banco de SQL Server para qualquer problema de bloqueio que possa impedir a migração. Usando o Assistente de Migração de Dados v3.3 ou posterior, siga as etapas descritas no artigo [Realizando uma avaliação de migração do SQL Server](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) para concluir a avaliação de banco de dados local.
 
 Para avaliar um banco de dados local, execute as seguintes etapas:
 
@@ -155,7 +155,7 @@ Para avaliar um banco de dados local, execute as seguintes etapas:
     Para bancos de dados individuais ou em pool no Banco de Dados SQL do Azure, as avaliações identificam problemas de paridade de recursos e de bloqueio de migração para implantar em um banco de dados individual ou em pool.
 
     - A **categoria de paridade de recursos do SQL Server** fornece um conjunto abrangente de recomendações, abordagens alternativas disponíveis no Azure e etapas atenuantes para ajudá-lo a planejar o esforço em seus projetos de migração.
-    - A **categoria de problemas de compatibilidade** fornece parcialmente ou recursos sem suporte que refletem os problemas de compatibilidade que podem bloquear a migração de bancos de dados do SQL Server para bancos de dados SQL do Azure locais. Recomendações também são fornecidas para ajudá-lo a resolver esses problemas.
+    - A categoria de **problemas de compatibilidade** identifica recursos com suporte parcial ou sem suporte que refletem os problemas de compatibilidade que podem bloquear a migração de bancos de dados SQL Server para o banco de dados SQL do Azure. Recomendações também são fornecidas para ajudá-lo a resolver esses problemas.
 
 6. Examine os resultados de avaliação para problemas de bloqueio de migração e paridade recurso selecionando as opções específicas.
 
@@ -164,7 +164,7 @@ Para avaliar um banco de dados local, execute as seguintes etapas:
 Depois que você estiver familiarizado com a avaliação e satisfeito de que o banco de dados selecionado é um candidato viável para a migração para um banco de dados individual ou em pool no Banco de Dados SQL do Azure, use o AMD para migrar o esquema para o Banco de Dados SQL do Azure.
 
 > [!NOTE]
-> Antes de criar um projeto de migração no AMD, verifique se você já possui um banco de dados SQL do Azure conforme mencionado nos pré-requisitos. Para fins deste tutorial, o nome do Banco de Dados SQL do Azure é considerado **AdventureWorksAzure**, mas você poderá renomeá-lo como desejar.
+> Antes de criar um projeto de migração no DMA, verifique se você já provisionou um banco de dados SQL no Azure conforme mencionado nos pré-requisitos. Para fins deste tutorial, o nome do Banco de Dados SQL do Azure é considerado **AdventureWorksAzure**, mas você poderá renomeá-lo como desejar.
 
 > [!IMPORTANT]
 > Se você usa o SSIS, o AMD não dá suporte no momento à migração do SSISDB de origem, mas você pode reimplantar seus projetos/pacotes SSIS no SSISDB de destino hospedado pelo Banco de Dados SQL do Azure. Para saber mais sobre como migrar pacotes SSIS, confira o artigo [Migrar pacotes do SQL Server Integration Services para o Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages).
@@ -212,7 +212,7 @@ Para migrar o esquema **AdventureWorks2012** para um banco de dados individual o
 
     ![Exibir provedores de recursos](media/tutorial-sql-server-to-azure-sql-online/portal-select-resource-provider.png)
 
-3. Procure migração e, à direita de **Microsoft. Datamigration**, selecione **registrar**.
+3. Pesquise por migração e, em seguida, à direita do **Microsoft.DataMigration**, selecione **Registrar**.
 
     ![Registrar provedor de recursos](media/tutorial-sql-server-to-azure-sql-online/portal-register-resource-provider.png)
 
@@ -265,7 +265,7 @@ Depois que o serviço é criado, localize-o no portal do Azure, abra-o e, em seg
     > [!NOTE]
     > Como alternativa, você pode escolher **Criar somente o projeto** para criar o projeto de migração agora e executar a migração posteriormente.
 
-6. Clique em **Salvar**.
+6. Selecione **Salvar**.
 
 7. Selecione **Criar e executar atividade** para criar o projeto e executar a atividade de migração.
 
@@ -291,7 +291,7 @@ Depois que o serviço é criado, localize-o no portal do Azure, abra-o e, em seg
 
 ## <a name="specify-target-details"></a>Detalhes do destino favorito
 
-1. Selecione **Salvar**e, na tela **Detalhes de destino da migração**, especifique os detalhes de conexão para o destino do Servidor de Banco de Dados SQL do Azure, que é o Banco de Dados SQL do Azure pré-provisionado no qual o esquema do **AdventureWorks2012 ** foi implantado usando o AMD.
+1. Selecione **salvar**e, em seguida, na tela **detalhes do destino de migração** , especifique os detalhes de conexão para o banco de dados SQL do Azure de destino, que é o banco de dados SQL do Azure pré-configurado no qual o esquema **AdventureWorks2012** foi implantado usando o DMA.
 
     ![Selecionar o destino](media/tutorial-sql-server-to-azure-sql-online/dms-select-target3.png)
 

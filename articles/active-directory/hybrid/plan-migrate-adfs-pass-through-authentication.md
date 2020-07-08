@@ -7,17 +7,17 @@ manager: daveba
 ms.reviewer: martincoetzer
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
-ms.date: 05/31/2019
+ms.topic: conceptual
+ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13a5fc216abc890c19ce3a2d75335431fe2a6799
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 626bc12b01428b90de1cbafe28bd7493e7ed1743
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79528635"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85356637"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migrar da federação para a autenticação de passagem do Azure Active Directory
 
@@ -25,6 +25,9 @@ Este artigo descreve como mover seus domínios de organização de AD FS (Servi�
 
 > [!NOTE]
 > Alterar seu método de autenticação requer planejamento, teste e potencialmente tempo de inatividade. A [distribuição em etapas](how-to-connect-staged-rollout.md) fornece uma maneira alternativa de testar e migrar gradualmente da Federação para a autenticação na nuvem usando a autenticação de passagem.
+> 
+> Se você planeja usar a distribuição em etapas, lembre-se de desativar os recursos de distribuição em etapas quando terminar de recortar.  Para obter mais informações, consulte [migrar para a autenticação de nuvem usando a distribuição em etapas](how-to-connect-staged-rollout.md)
+
 
 ## <a name="prerequisites-for-migrating-to-pass-through-authentication"></a>Pré-requisitos para a migração para a autenticação de passagem
 
@@ -97,7 +100,7 @@ Get-MsolDomainFederationSettings -DomainName Contoso.com | fl *
 
 Verifique quaisquer configurações que possam ter sido personalizadas para sua documentação de implantação e design de federação. Especificamente, procure as personalizações em **PreferredAuthenticationProtocol**, **SupportsMfa** e **PromptLoginBehavior**.
 
-Para obter mais informações, consulte estes artigos:
+Para obter mais informações, confira estes tópicos:
 
 * [Prompt do AD FS = suporte ao parâmetro de logon](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-prompt-login)
 * [Set-MsolDomainAuthentication](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainauthentication?view=azureadps-1.0)
@@ -223,7 +226,7 @@ Você planejou sua solução. Agora, agora você pode implementá-la. A implemen
 
 Para que todos os seus dispositivos usem o SSO contínuo, você deve adicionar uma URL do Azure AD às configurações de zona da intranet dos usuários usando a política de grupo no Active Directory.
 
-Por padrão, os navegadores da Web calculam automaticamente a zona correta, seja Internet ou intranet, de uma URL. Por exemplo, **http:\/\/contoso/** Maps para a zona da intranet e **http\/\/: intranet.contoso.com** mapeia para a zona da Internet (porque a URL contém um ponto). Os navegadores enviam tíquetes Kerberos para um ponto de extremidade da nuvem, como a URL do Azure AD, a menos que você adicione explicitamente a URL à zona da intranet do navegador.
+Por padrão, os navegadores da Web calculam automaticamente a zona correta, seja Internet ou intranet, de uma URL. Por exemplo, **http: \/ \/ contoso/** Maps para a zona da intranet e **http: \/ \/ intranet.contoso.com** mapeia para a zona da Internet (porque a URL contém um ponto). Os navegadores enviam tíquetes Kerberos para um ponto de extremidade da nuvem, como a URL do Azure AD, a menos que você adicione explicitamente a URL à zona da intranet do navegador.
 
 Conclua as [etapas para distribuir](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start) as alterações necessárias para seus dispositivos.
 
@@ -269,7 +272,7 @@ Primeiro, altere o método de entrada:
 
 Avançar. implantar métodos de autenticação adicionais:
 
-1. Na portal do Azure, vá para **Azure Active Directory** > **Azure ad Connect**e, em seguida, selecione **autenticação de passagem**.
+1. Na portal do Azure, vá para **Azure Active Directory**  >  **Azure ad Connect**e, em seguida, selecione **autenticação de passagem**.
 2. Na página **Autenticação de passagem**, selecione o botão **Baixar**.
 3. Na página **Baixar agente**, selecione **Aceitar os termos e baixar**.
 
@@ -331,7 +334,7 @@ Primeiro, habilite a autenticação de passagem:
 
 Em seguida, implante agentes de autenticação adicionais:
 
-1. Na portal do Azure, vá para **Azure Active Directory** > **Azure ad Connect**e, em seguida, selecione **autenticação de passagem**.
+1. Na portal do Azure, vá para **Azure Active Directory**  >  **Azure ad Connect**e, em seguida, selecione **autenticação de passagem**.
 2. Na página **Autenticação de passagem**, selecione o botão **Baixar**. 
 3. Na página **Baixar agente**, selecione **Aceitar os termos e baixar**.
  
@@ -359,7 +362,7 @@ Conclua a conversão usando o módulo PowerShell do Azure AD:
    Set-MsolDomainAuthentication -Authentication Managed -DomainName <domain name>
    ```
  
-3. No portal do AD do Azure, selecione **Azure Active Directory** > **Azure ad Connect**.
+3. No portal do AD do Azure, selecione **Azure Active Directory**  >  **Azure ad Connect**.
 4. Depois de converter todos os seus domínios federados, verifique estas configurações:
    * **Federação** está definida como **Desabilitada**.
    * **Logon único contínuo** está definido como **Habilitado**.
@@ -378,7 +381,7 @@ Quando seu locatário usava identidade federada, os usuários eram redirecionado
 Para testar a autenticação de passagem:
 
 1. Abra o Internet Explorer no modo InPrivate para que o SSO contínuo não o conecte automaticamente.
-2. Vá para a página de entrada do Office 365 ([https://portal.office.com](https://portal.office.com/)).
+2. Vá para a página de entrada do Office 365 ( [https://portal.office.com](https://portal.office.com/) ).
 3. Insira um nome UPN do usuário e, em seguida, selecione **Avançar**. Insira o nome UPN de um usuário híbrido que foi sincronizado da instância do Active Directory local e que anteriormente usava autenticação federada. Será exibida uma página na qual você insere o nome de usuário e a senha:
 
    ![Captura de tela que mostra a página de entrada em que você insere um nome de usuário](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image27.png)

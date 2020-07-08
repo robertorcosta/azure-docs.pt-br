@@ -3,24 +3,24 @@ title: Aplicativo inesperado em minha lista de aplicativos | Microsoft Docs
 description: Como ver todos os aplicativos em seu locatário e entender como os aplicativos aparecem na lista Todos os Aplicativos em Aplicativos Empresariais
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: mimart
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1cb4eeb52d0680695bda266ad1a563b2ef5ee02
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 97eef1f331d8e6965e378d6a76cfa7a0c50feb9a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "65781104"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85317470"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>Aplicativo inesperado em minha lista de aplicativos
 
@@ -66,7 +66,7 @@ Quando filtrada para **Todos os Aplicativos**, a **Lista** **Todos os Aplicativo
 
 5. Quando você adiciona um novo registro de aplicativo criando um aplicativo personalizado usando o [Portal de Registro de Aplicativos V2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration)
 
-6. Quando você adiciona um aplicativo que está desenvolvendo usando os [Métodos de autenticação do ASP.net](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) ou os [Serviços Conectados](https://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx) do Visual Studio
+6. Quando você adiciona um aplicativo que está desenvolvendo usando os [Métodos de autenticação do ASP.net](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) ou os [Serviços Conectados](https://devblogs.microsoft.com/visualstudio/connecting-to-cloud-services/) do Visual Studio
 
 7. Quando você cria um objeto de entidade de serviço usando o [Módulo do PowerShell do Azure Active Directory](/powershell/azure/install-adv2?view=azureadps-2.0)
 
@@ -100,7 +100,7 @@ Para **excluir um aplicativo**, siga estas etapas:
 
 5. clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
-   * Se você não vir o aplicativo que deseja exibir aqui, use o controle de **filtro** na parte superior da **lista todos os aplicativos** e defina a opção **Mostrar** como **todos os aplicativos.**
+   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
 6. Selecione o aplicativo que deseja excluir.
 
@@ -112,7 +112,7 @@ Desabilitar o consentimento do usuário para todo o seu diretório impede que os
 
 Para **desabilitar todas as futuras operações de consentimento do usuário no diretório inteiro**, siga estas etapas:
 
-1.  Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global.**
+1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 

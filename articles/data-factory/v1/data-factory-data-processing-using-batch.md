@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 2143546e10b413d1492b8734d2594de42fd37cf3
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: ab4e2f480ab0ef2deea3909d56f4fe1da17bbd07
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684411"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85321398"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Processar conjuntos de dados em larga escala usando o Data Factory e o Lote
 > [!NOTE]
@@ -38,8 +38,8 @@ Com o serviço em Lotes, você define os recursos de computação do Azure para 
 
  Caso não esteja familiarizado com o Lote, os seguintes artigos ajudarão você a entender a arquitetura/implementação da solução descrita neste artigo:   
 
-* [Conceitos básicos do Lote](../../batch/batch-technical-overview.md)
-* [Visão geral do recurso de Lote](../../batch/batch-api-basics.md)
+* [Conceitos básicos do Lote](../../azure-sql/database/sql-database-paas-overview.md)
+* [Visão geral do recurso de Lote](../../batch/batch-service-workflow-features.md)
 
 Opcionalmente, para saber mais sobre o Lote, consulte [Documentação do Lote](https://docs.microsoft.com/azure/batch/).
 
@@ -578,7 +578,7 @@ Nesta etapa, você cria um serviço vinculado para sua conta do Lote que é usad
    d. Digite o URI do lote para a propriedade JSON **batchUri** .
 
       > [!IMPORTANT]
-      > A URL da folha **Conta do Lote** está no seguinte formato: \<accountname\>.\<region\>.batch.azure.com. Para a propriedade **batchUri** no script JSON, você precisa remover a88"accountname."** da URL. Um exemplo é `"batchUri": "https://eastus.batch.azure.com"`.
+      > A URL da folha **conta do lote** está no seguinte formato: \<accountname\> . \<region\> . batch.azure.com. Para a propriedade **batchUri** no script JSON, você precisa remover a88"accountname."** da URL. Um exemplo é `"batchUri": "https://eastus.batch.azure.com"`.
       >
       >
 
@@ -793,9 +793,9 @@ Nesta etapa, você cria um pipeline com uma atividade, a atividade personalizada
 
    * Há apenas uma atividade no pipeline e ela é do tipo **DotNetActivity**.
    * **AssemblyName** é definido com o nome da DLL **MyDotNetActivity.dll**.
-   * **EntryPoint** é definido como **MyDotNetActivityNS.MyDotNetActivity**. Ele é basicamente \<namespace\>.\<classname\> no código.
+   * **EntryPoint** é definido como **MyDotNetActivityNS.MyDotNetActivity**. É basicamente \<namespace\> .\<classname\> em seu código.
    * **PackageLinkedService** é definido como **StorageLinkedService**, que aponta para o armazenamento de blobs que contém o arquivo zip da atividade personalizada. Se você usar contas de armazenamento diferentes para arquivos de entrada/saída e o arquivo zip da atividade personalizada, precisará criar outro serviço vinculado do Armazenamento. Este artigo pressupõe que você use a mesma conta de armazenamento.
-   * **PackageFile** é definido como **customactivitycontainer/MyDotNetActivity.zip**. Ele está no formato \<containerforthezip\>/\<nameofthezip.zip\>.
+   * **PackageFile** é definido como **customactivitycontainer/MyDotNetActivity.zip**. Ele está no formato \<containerforthezip\> / \<nameofthezip.zip\> .
    * A atividade personalizada usa **InputDataset** como entrada e **OutputDataset** como saída.
    * A propriedade **linkedServiceName** da atividade personalizada aponta para **AzureBatchLinkedService**, que informa o Data Factory de que a atividade personalizada precisa ser executada no Lote.
    * A configuração **simultaneidade** é importante. Se você usar o valor padrão, que é 1, mesmo que tenha dois ou mais nós de computação no pool do Lote, as fatias serão processadas uma após a outra. Portanto, você não está aproveitando a capacidade de processamento paralelo do Lote. Se você definir **concurrency** com um valor mais alto, digamos 2, isso significa que duas fatias (corresponde a duas tarefas no Lote) podem ser processadas ao mesmo tempo. Nesse caso, ambas as VMs do pool do Lote são utilizadas. Defina a propriedade de simultaneidade adequadamente.
@@ -925,7 +925,7 @@ A depuração consiste em algumas técnicas básicas.
    >
 1. A atividade personalizada não usa o arquivo **app.config** do pacote. Portanto, se o código lê cadeias de conexão do arquivo de configuração, ele não funciona em runtime. A melhor prática para quando você usar o Lote é manter os segredos no Azure Key Vault. Em seguida, use uma entidade de serviço baseada em certificado para proteger o cofre de chaves e distribuir o certificado para o pool do Lote. A atividade personalizada do .NET pode acessar segredos no cofre de chaves em runtime. Essa solução genérica pode ser dimensionada para qualquer tipo de segredo, não apenas para uma cadeia de conexão.
 
-    Há uma solução alternativa mais fácil, mas não é uma melhor prática. Crie um serviço vinculado do banco de dados SQL com configurações da cadeia de conexão. Em seguida, crie um conjunto de dados que usa o serviço vinculado e encadeie o conjunto de dados como um conjunto de dados de entrada fictício com a atividade personalizada do .NET. Você pode então acessar a cadeia de conexão do serviço vinculado no código de atividade personalizada. Isso deve funcionar corretamente em runtime.  
+    Há uma solução alternativa mais fácil, mas não é uma melhor prática. Você pode criar um serviço vinculado do banco de dados SQL com configurações de cadeia de conexão. Em seguida, crie um conjunto de dados que usa o serviço vinculado e encadeie o conjunto de dados como um conjunto de dados de entrada fictício com a atividade personalizada do .NET. Você pode então acessar a cadeia de conexão do serviço vinculado no código de atividade personalizada. Isso deve funcionar corretamente em runtime.  
 
 #### <a name="extend-the-sample"></a>Estender o exemplo
 Estenda esta amostra para saber mais sobre os recursos do Data Factory e do Lote. Por exemplo, para processar fatias em um intervalo de tempo diferente, realize as seguintes etapas:
@@ -972,8 +972,8 @@ Depois de processar dados, consuma-os com ferramentas online como o Power BI. Aq
   * [Usar atividades personalizadas em um pipeline do Data Factory](data-factory-use-custom-activities.md)
 * [Lote do Azure](https://azure.microsoft.com/documentation/services/batch/)
 
-  * [Conceitos básicos do Lote](../../batch/batch-technical-overview.md)
-  * [Visão geral dos recursos do Lote](../../batch/batch-api-basics.md)
+  * [Conceitos básicos do Lote](../../azure-sql/database/sql-database-paas-overview.md)
+  * [Visão geral dos recursos do lote](../../batch/batch-service-workflow-features.md))
   * [Criar e gerenciar uma conta do Lote no portal do Azure](../../batch/batch-account-create-portal.md)
   * [Introdução à biblioteca de clientes do Lote para .NET](../../batch/quick-run-dotnet.md)
 

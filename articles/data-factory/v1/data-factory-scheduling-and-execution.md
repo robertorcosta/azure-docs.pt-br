@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 15a2d6ae5d8b80468ffcdd00d60b1f36843ed677
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e0707f9a7694741f54771699f5aeb3b452b11b8c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281061"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85319713"
 ---
 # <a name="data-factory-scheduling-and-execution"></a>Agendamento e execução com o Data Factory
 > [!NOTE]
@@ -26,7 +26,7 @@ Este artigo explica os aspectos de agendamento e execução do modelo de aplicat
 
 * [Introdução ao Data Factory](data-factory-introduction.md)
 * [Pipelines](data-factory-create-pipelines.md)
-* [Conjuntos de dados](data-factory-create-datasets.md) 
+* [Conjunto de dados](data-factory-create-datasets.md) 
 
 ## <a name="start-and-end-times-of-pipeline"></a>Horas de início e término do pipeline
 Um pipeline está ativo somente entre a hora de **início** e a hora de **término** . Ele não é executado antes da hora de início ou após a hora de término. Se o pipeline estiver em pausa, ele não será executado, independentemente de suas horas de início e término. Para um pipeline ser executado, ele não deve estar pausado. É possível encontrar essas configurações (início, término, em pausa) na definição do pipeline: 
@@ -182,7 +182,7 @@ Você já viu o uso da frequência e das propriedades de intervalo na seção de
 ### <a name="dataset-availability"></a>Disponibilidade do conjunto de dados 
 A tabela a seguir descreve as propriedades que podem ser usadas na seção **disponibilidade** :
 
-| Propriedade | Descrição | Obrigatório | Padrão |
+| Property | Descrição | Obrigatório | Padrão |
 | --- | --- | --- | --- |
 | frequência |Especifica a unidade de tempo para a produção da fatia de conjunto de dados.<br/><br/><b>Frequência com suporte</b>: Minuto, Hora, Dia, Semana, Mês |Sim |NA |
 | intervalo |Especifica um multiplicador para frequência<br/><br/>"Intervalo de frequência x" determina a frequência com que a fatia é produzida.<br/><br/>Se você precisa que o conjunto de dados seja dividido por hora, defina <b>Frequência</b> como <b>Hora</b> e <b>intervalo</b> como <b>1</b>.<br/><br/><b>Observação:</b>: caso você especifique a frequência como minuto, recomendamos que defina o intervalo como não inferior a 15 |Sim |NA |
@@ -233,7 +233,7 @@ A seção **política** na definição do conjunto de dados define os critérios
 | Nome da política | Descrição | Aplicado a | Obrigatório | Padrão |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB | Valida que os dados em um **blob do Azure** atendem aos requisitos de tamanho mínimo (em megabytes). |Blob do Azure |Não |NA |
-| minimumRows | Valida que os dados em um **Banco de Dados SQL do Azure** ou uma **tabela do Azure** contêm o número mínimo de linhas. |<ul><li>Banco de Dados SQL do Azure</li><li>tabela do Azure</li></ul> |Não |NA |
+| minimumRows | Valida que os dados no banco de dados **SQL do Azure** ou na **tabela do Azure** contêm o número mínimo de linhas. |<ul><li>Banco de Dados SQL do Azure</li><li>tabela do Azure</li></ul> |Não |NA |
 
 #### <a name="examples"></a>Exemplos
 **minimumSizeMB:**
@@ -263,10 +263,10 @@ A seção **política** na definição do conjunto de dados define os critérios
 
 Para obter mais informações sobre essas propriedades e exemplos, consulte o artigo [Criar conjuntos de dados](data-factory-create-datasets.md). 
 
-## <a name="activity-policies"></a>Políticas de atividades
+## <a name="activity-policies"></a>Políticas de atividade
 As políticas afetam o comportamento de tempo de execução de uma atividade, especialmente quando a divisão de uma tabela é processada. A tabela a seguir fornece os detalhes.
 
-| Propriedade | Valores permitidos | Valor Padrão | Descrição |
+| Property | Valores permitidos | Valor padrão | Descrição |
 | --- | --- | --- | --- |
 | simultaneidade |Integer <br/><br/>Valor máximo: 10 |1 |Número de execuções simultâneas da atividade.<br/><br/>Determina o número de execuções de atividade paralela que podem ocorrer em divisões diferentes. Por exemplo, se uma atividade precisa passar por um grande conjunto de dados disponíveis, ter um valor de concorrência maior acelera o processamento de dados. |
 | executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |Determina a ordem das divisões de dados que estão sendo processadas.<br/><br/>Por exemplo, se houver duas fatias (uma ocorre às 16h e a outra às 17h),e ambas estiverem com a execução pendente. Se você definir executionPriorityOrder como NewestFirst, a divisão às 17h será processada primeiro. De modo semelhante, se você definir executionPriorityORder como OldestFIrst, a fatia às 16h será processada. |

@@ -1,21 +1,14 @@
 ---
 title: Perguntas frequentes - Hubs de Eventos | Microsoft Docs
 description: Este artigo fornece uma lista de perguntas frequentes (FAQ) para os Hubs de Eventos do Azure e suas respostas.
-services: event-hubs
-documentationcenter: na
-author: ShubhaVijayasarathy
-manager: timlt
-ms.service: event-hubs
 ms.topic: article
-ms.custom: seodec18
-ms.date: 12/02/2019
-ms.author: shvija
-ms.openlocfilehash: e8ae3cbbca926a97bf90f4ac1104d4f082b332fd
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.date: 06/23/2020
+ms.openlocfilehash: 0094be0eef4595662477ef1c7914ae9f118b8e25
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835607"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85320576"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Perguntas frequentes sobre os Hubs de Eventos
 
@@ -97,11 +90,29 @@ Se você usar a redundância de zona para seu namespace, precisará executar alg
 2. Anote o nome na seção **resposta não autoritativa**, que está em um dos seguintes formatos: 
 
     ```
-    <name>-s1.servicebus.windows.net
-    <name>-s2.servicebus.windows.net
-    <name>-s3.servicebus.windows.net
+    <name>-s1.cloudapp.net
+    <name>-s2.cloudapp.net
+    <name>-s3.cloudapp.net
     ```
 3. Execute nslookup para cada um com sufixos s1, s2 e s3 para obter os endereços IP de todas as três instâncias em execução em três zonas de disponibilidade, 
+
+### <a name="where-can-i-find-client-ip-sending-or-receiving-msgs-to-my-namespace"></a>Onde posso encontrar o IP do cliente enviando ou recebendo mensagens para o namespace?
+Primeiro, habilite a [filtragem de IP](event-hubs-ip-filtering.md) no namespace. 
+
+Em seguida, habilite os logs de diagnóstico para [eventos de conexão de rede virtual dos hubs de eventos](event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema) seguindo as instruções em [Habilitar logs de diagnóstico](event-hubs-diagnostic-logs.md#enable-diagnostic-logs). Você verá o endereço IP para o qual a conexão é negada.
+
+```json
+{
+    "SubscriptionId": "0000000-0000-0000-0000-000000000000",
+    "NamespaceName": "namespace-name",
+    "IPAddress": "1.2.3.4",
+    "Action": "Deny Connection",
+    "Reason": "IPAddress doesn't belong to a subnet with Service Endpoint enabled.",
+    "Count": "65",
+    "ResourceId": "/subscriptions/0000000-0000-0000-0000-000000000000/resourcegroups/testrg/providers/microsoft.eventhub/namespaces/namespace-name",
+    "Category": "EventHubVNetConnectionEvent"
+}
+```
 
 ## <a name="apache-kafka-integration"></a>Integração do Apache Kafka
 

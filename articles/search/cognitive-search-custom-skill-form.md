@@ -6,14 +6,14 @@ manager: nitinme
 author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 050848b0bff65b19e2b17bd170e1d3e9ff0176f1
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: c07c00345140d96bf3265fb280fe29b1274bdee6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791996"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85321299"
 ---
 # <a name="example-create-a-form-recognizer-custom-skill"></a>Exemplo: criar uma habilidade personalizada do reconhecedor de formulário
 
@@ -43,9 +43,9 @@ Primeiro, adicione variáveis de ambiente no nível de projeto. Localize o proje
 * `FORMS_RECOGNIZER_RETRY_DELAY`com o valor definido como 1000. Esse valor é o tempo em milissegundos que o programa aguardará antes de repetir a consulta.
 * `FORMS_RECOGNIZER_MAX_ATTEMPTS`com o valor definido como 100. Esse valor é o número de vezes que o programa consultará o serviço ao tentar obter uma resposta bem-sucedida.
 
-Em seguida, abra _AnalyzeForm.cs_ e localize `fieldMappings` a variável, que faz referência ao arquivo de *mapeamentos de campo. JSON* . Esse arquivo (e a variável que faz referência a ele) define a lista de chaves que você deseja extrair de seus formulários e um rótulo personalizado para cada chave. Por exemplo, um valor de `{ "Address:", "address" }, { "Invoice For:", "recipient" }` significa que o script só salvará os valores para os `Address:` campos `Invoice For:` detectados e que rotularão esses valores com `"address"` e `"recipient"`, respectivamente.
+Em seguida, abra _AnalyzeForm.cs_ e localize a `fieldMappings` variável, que faz referência à *field-mappings.jsno* arquivo. Esse arquivo (e a variável que faz referência a ele) define a lista de chaves que você deseja extrair de seus formulários e um rótulo personalizado para cada chave. Por exemplo, um valor de `{ "Address:", "address" }, { "Invoice For:", "recipient" }` significa que o script só salvará os valores para os `Address:` campos detectados e `Invoice For:` que rotularão esses valores com `"address"` e `"recipient"` , respectivamente.
 
-Por fim, observe `contentType` a variável. Esse script executa o modelo de reconhecedor de formulário fornecido em documentos remotos que são referenciados pela URL, `application/json`portanto, o tipo de conteúdo é. Se desejar analisar arquivos locais incluindo seus fluxos de bytes nas solicitações HTTP, você precisará alterar o `contentType` para o [tipo MIME](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types) apropriado para o arquivo.
+Por fim, observe a `contentType` variável. Esse script executa o modelo de reconhecedor de formulário fornecido em documentos remotos que são referenciados pela URL, portanto, o tipo de conteúdo é `application/json` . Se desejar analisar arquivos locais incluindo seus fluxos de bytes nas solicitações HTTP, você precisará alterar o `contentType` para o [tipo MIME](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types) apropriado para o arquivo.
 
 ## <a name="test-the-function-from-visual-studio"></a>Testar a função do Visual Studio
 
@@ -77,12 +77,12 @@ Comece com o modelo de corpo da solicitação abaixo.
 }
 ```
 
-Aqui, você precisará fornecer a URL de um formulário que tenha o mesmo tipo que os formulários com os quais você treinou. Para fins de teste, você pode usar um dos seus formulários de treinamento. Se você seguiu o guia de início rápido da ondulação, seus formulários estarão localizados em uma conta de armazenamento de BLOBs do Azure. Abra Gerenciador de Armazenamento do Azure, localize um arquivo de formulário, clique nele com o botão direito do mouse e selecione **obter assinatura de acesso compartilhado**. A próxima janela de diálogo fornecerá uma URL e um token SAS. Insira essas cadeias de `"formUrl"` caracteres `"formSasToken"` nos campos e do corpo da solicitação, respectivamente.
+Aqui, você precisará fornecer a URL de um formulário que tenha o mesmo tipo que os formulários com os quais você treinou. Para fins de teste, você pode usar um dos seus formulários de treinamento. Se você seguiu o guia de início rápido da ondulação, seus formulários estarão localizados em uma conta de armazenamento de BLOBs do Azure. Abra Gerenciador de Armazenamento do Azure, localize um arquivo de formulário, clique nele com o botão direito do mouse e selecione **obter assinatura de acesso compartilhado**. A próxima janela de diálogo fornecerá uma URL e um token SAS. Insira essas cadeias de caracteres nos `"formUrl"` `"formSasToken"` campos e do corpo da solicitação, respectivamente.
 
 > [!div class="mx-imgBorder"]
 > ![Gerenciador de armazenamento do Azure; um documento PDF está selecionado](media/cognitive-search-skill-form/form-sas.png)
 
-Se você quiser analisar um documento remoto que não está no armazenamento de BLOBs do Azure, Cole sua `"formUrl"` URL no campo e `"formSasToken"` deixe o campo em branco.
+Se você quiser analisar um documento remoto que não está no armazenamento de BLOBs do Azure, Cole sua URL no `"formUrl"` campo e deixe o `"formSasToken"` campo em branco.
 
 > [!NOTE]
 > Quando a habilidade for integrada em um configurador de habilidades, a URL e o token serão fornecidos pelo Pesquisa Cognitiva.
@@ -111,9 +111,9 @@ Você deverá ver uma resposta semelhante ao exemplo a seguir:
 
 Quando estiver satisfeito com o comportamento da função, você poderá publicá-lo.
 
-1. No **Gerenciador de soluções** no Visual Studio, clique com o botão direito do mouse no projeto e selecione **publicar**. Escolha **criar nova** > **publicação**.
+1. No **Gerenciador de soluções** no Visual Studio, clique com o botão direito do mouse no projeto e selecione **publicar**. Escolha **criar nova**  >  **publicação**.
 1. Se você ainda não conectou o Visual Studio à sua conta do Azure, selecione **Adicionar uma conta...**
-1. Siga os prompts na tela. Especifique um nome exclusivo para o serviço de aplicativo, a assinatura do Azure, o grupo de recursos, o plano de hospedagem e a conta de armazenamento que você deseja usar. Você pode criar um novo grupo de recursos, um novo plano de hospedagem e uma nova conta de armazenamento, se ainda não os tiver. Quando tiver terminado, selecione **criar**.
+1. Siga os prompts na tela. Especifique um nome exclusivo para o serviço de aplicativo, a assinatura do Azure, o grupo de recursos, o plano de hospedagem e a conta de armazenamento que você deseja usar. Você pode criar um novo grupo de recursos, um novo plano de hospedagem e uma nova conta de armazenamento, se ainda não os tiver. Ao terminar, selecione **Criar**.
 1. Após a conclusão da implantação, observe a URL do site. Essa URL é o endereço do seu aplicativo de funções no Azure. Salve-o em um local temporário.
 1. No [portal do Azure](https://portal.azure.com), navegue até o grupo de recursos e procure a `AnalyzeForm` função que você publicou. Na seção **Gerenciar**, você deverá ver as chaves do host. Copie a chave de host *padrão* e salve-a em um local temporário.
 

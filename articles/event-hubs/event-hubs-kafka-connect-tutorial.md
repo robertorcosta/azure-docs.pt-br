@@ -1,19 +1,14 @@
 ---
 title: Integrar-se com o Apache Kafka Connect – Hubs de Eventos do Azure | Microsoft Docs
 description: Este artigo fornece informações sobre como usar o Apache Spark com Hubs de Eventos do Azure para Kafka.
-services: event-hubs
-documentationcenter: .net
-author: ShubhaVijayasarathy
-ms.service: event-hubs
 ms.topic: how-to
-ms.date: 04/02/2020
-ms.author: shvija
-ms.openlocfilehash: 60c6207b1c90ca40f02097a1c82d2811a50f664d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 2e7a6b406b6d33c94c6fddea2f73b70c24f45f86
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80632826"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85320165"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview"></a>Integrar o suporte do Apache Kafka Connect aos Hubs de Eventos do Azure (versão prévia)
 Conforme as necessidades de ingestão das empresas vai aumentando, também vai aumentando a necessidade de fazer a ingestão em vários coletores e fontes externas. O [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect) fornece essa estrutura para conectar e importar/exportar dados de ou para qualquer sistema externo, como o MySQL, o HDFS e o sistema de arquivos, por meio de um cluster do Kafka. Este tutorial orienta você pelo uso da estrutura do Kafka Connect com hubs de eventos.
@@ -163,5 +158,5 @@ Para saber mais sobre os hubs de eventos para Kafka, consulte os seguintes artig
 - [Conectar o Apache Spark a um hub de eventos](event-hubs-kafka-spark-tutorial.md)
 - [Conectar o Apache Flink a um hub de eventos](event-hubs-kafka-flink-tutorial.md)
 - [Explorar exemplos em nosso GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
-- [Conectar o Akka Streams a um hub de eventos](event-hubs-kafka-akka-streams-tutorial.md)
+- [Conectar fluxos do Akka a um hub de eventos](event-hubs-kafka-akka-streams-tutorial.md)
 - [Guia do desenvolvedor de Apache Kafka para hubs de eventos do Azure](apache-kafka-developer-guide.md)

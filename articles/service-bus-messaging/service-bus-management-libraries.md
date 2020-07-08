@@ -1,25 +1,15 @@
 ---
 title: Bibliotecas de gerenciamento do Barramento de Serviço do Azure | Microsoft Docs
 description: Este artigo explica como usar as bibliotecas de gerenciamento do barramento de serviço do Azure para provisionar dinamicamente as entidades e namespaces do barramento de serviço.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: ''
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: e1531d9b70860f498a3e38305f26eb862c9513f3
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.date: 06/23/2020
+ms.openlocfilehash: 042edcd1851f86dd2a660673bc87884b68410bfb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901481"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341714"
 ---
 # <a name="service-bus-management-libraries"></a>Bibliotecas de gerenciamento do Barramento de Serviço
 

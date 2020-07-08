@@ -1,21 +1,14 @@
 ---
 title: Obter cadeia de conexão - Hubs de Eventos do Azure | Microsoft Docs
 description: Este artigo fornece instruções para obter uma cadeia de conexão que os clientes podem usar para conectar Hubs de Eventos do Azure.
-services: event-hubs
-documentationcenter: na
-author: spelluru
-manager: timlt
-ms.service: event-hubs
 ms.topic: article
-ms.custom: seodec18
-ms.date: 02/19/2019
-ms.author: spelluru
-ms.openlocfilehash: 77a768f907ad989a457ee498f26ad0f6e004f786
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 271d4dcc1f2fab08dc7f625ce36e021eda225b87
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79264928"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85320486"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Obter uma cadeia de conexão dos Hubs de Eventos
 
@@ -80,5 +73,5 @@ Para obter mais informações sobre os comandos da CLI do Azure para Hubs de Eve
 
 Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 
-* [Visão geral de Hubs de Evento](event-hubs-what-is-event-hubs.md)
-* [Criar um hub de eventos](event-hubs-create.md)
+* [Visão geral de Hubs de Eventos](event-hubs-what-is-event-hubs.md)
+* [Criar um Hub de Eventos](event-hubs-create.md)

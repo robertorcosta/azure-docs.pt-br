@@ -12,12 +12,12 @@ ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75b127f8429650d46af9f171ed7ff03692f1499e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3e5e6afef70ee3d4f4d84cb6b867a916ae57da5a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81379911"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85356297"
 ---
 # <a name="azure-ad-pass-through-authentication-agent-version-release-history"></a>Agente de autenticação de passagem do Azure AD: histórico de lançamento de versão 
  
@@ -30,7 +30,7 @@ Aqui estão os tópicos relacionados:
 
 ## <a name="1517420"></a>1.5.1742.0
 ### <a name="release-status"></a>Status da versão: 
-04/09/2020: liberado para download
+9/4/2020: Liberado para download
 
 ### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos
 

@@ -9,19 +9,19 @@ editor: ''
 ms.assetid: 31f084d8-2b89-478c-9079-76cf92e6618f
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 04/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a3e7373a8b0354a3d08debf944f2f77f1609382
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 7a14249f28da15f04a214c2a1cb4bd415fb59ce9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60347633"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85356620"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: atualização de uma versão anterior para a mais recente
 Este tópico descreve os diferentes métodos que você pode usar para atualizar sua instalação do Azure Active Directory (Azure AD) Connect para a versão mais recente. Recomendamos que você se mantenha atualizado com as versões do Azure AD Connect. Também é possível usar as etapas descritas na seção [migração Swing](#swing-migration) ao fazer uma alteração significativa na configuração.
@@ -104,7 +104,7 @@ Durante a atualização in-loco, poderá haver alterações introduzidas que exi
 
 Pode haver situações em que você não deseja que essas substituições ocorram imediatamente após a atualização. Por exemplo, você tem vários objetos sincronizados e deseja que essas etapas de sincronização ocorram depois do horário comercial. Para remover essas substituições:
 
-1. Durante a atualização, **desmarque** a opção **Iniciar o processo de sincronização ao concluir a configuração**. Isso desabilita o agendador de sincronização e impede que o ciclo de sincronização ocorra automaticamente antes que as substituições sejam removidas.
+1. Durante a atualização, **desmarque** a opção **iniciar o processo de sincronização quando a configuração for concluída**. Isso desabilita o agendador de sincronização e impede que o ciclo de sincronização ocorra automaticamente antes que as substituições sejam removidas.
 
    ![DisableFullSyncAfterUpgrade](./media/how-to-upgrade-previous-version/disablefullsync01.png)
 
@@ -168,4 +168,4 @@ Se você deseja instalar uma versão mais recente do Azure AD Connect: feche o a
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre [como integrar suas identidades locais ao Azure Active Directory](whatis-hybrid-identity.md).
+Saiba mais sobre como [integrar suas identidades locais com o Azure Active Directory](whatis-hybrid-identity.md).

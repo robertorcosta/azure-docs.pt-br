@@ -1,25 +1,15 @@
 ---
 title: Introdução a tópicos e assinaturas do Barramento de Serviço do Azure | Microsoft Docs
 description: Escreva um aplicativo de console em C# .NET Core que usa tópicos e assinaturas de mensagens do Barramento de Serviço.
-services: service-bus-messaging
-documentationcenter: .net
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: ''
-ms.service: service-bus-messaging
-ms.devlang: tbd
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
-ms.workload: na
-ms.date: 11/27/2019
-ms.author: aschhab
-ms.openlocfilehash: 3fba1d62b9347303d630c80733c4fbfa279b5296
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 7b2b8382c11f447237a8f49ee5be1f4989e3f906
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74560108"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85337522"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Introdução aos tópicos do Barramento de Serviço
 
@@ -75,7 +65,7 @@ Inicie o Visual Studio e crie um novo projeto de **Aplicativo de console (.NET C
     static ITopicClient topicClient;
     ``` 
 
-3. Substitua o `Main()` método pelo método **assíncrono** `Main` a seguir, que envia mensagens de forma assíncrona usando o método SendMessagesAsync que você adicionará na próxima etapa. 
+3. Substitua o `Main()` método pelo método **assíncrono** a seguir, `Main` que envia mensagens de forma assíncrona usando o método SendMessagesAsync que você adicionará na próxima etapa. 
 
     ```csharp
     public static async Task Main(string[] args)
@@ -210,7 +200,7 @@ Para receber as mensagens enviadas, crie outro aplicativo de console do .NET Cor
     static ISubscriptionClient subscriptionClient;
     ```
 
-3. Substitua o `Main()` método pelo método **assíncrono** `Main` a seguir. Ele chama o `RegisterOnMessageHandlerAndReceiveMessages()` método que será adicionado na próxima etapa. 
+3. Substitua o `Main()` método pelo método **assíncrono** a seguir `Main` . Ele chama o `RegisterOnMessageHandlerAndReceiveMessages()` método que será adicionado na próxima etapa. 
 
     ```csharp
     public static async Task Main(string[] args)

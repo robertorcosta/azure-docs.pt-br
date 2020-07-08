@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Saiba mais sobre as limitações conhecidas ao executar pools de nós do Windows Server e cargas de trabalho de aplicativo no serviço kubernetes do Azure (AKS)
 services: container-service
 ms.topic: article
-ms.date: 12/18/2019
-ms.openlocfilehash: 935b049ce5e1951952b4af4e7df9574df764b6e8
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 05/28/2020
+ms.openlocfilehash: c420eb850313900d3726b93dd97f911a428d3560
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207999"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85339881"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitações atuais para pools de nós do Windows Server e cargas de trabalho de aplicativo no serviço kubernetes do Azure (AKS)
 
@@ -58,13 +58,26 @@ Os nós do Windows Server no AKS devem ser *atualizados* para obter as correçõ
 > A imagem atualizada do Windows Server será usada somente se uma atualização de cluster (atualização do plano de controle) tiver sido executada antes da atualização do pool de nós
 >
 
+## <a name="why-am-i-seeing-an-error-when-i-try-to-create-a-new-windows-agent-pool"></a>Por que estou vendo um erro ao tentar criar um novo pool do agente do Windows?
+
+Se você criou o cluster antes de fevereiro de 2020 e nunca fez nenhuma operação de atualização de cluster, o cluster ainda usa uma imagem antiga do Windows. Você pode ter visto um erro semelhante a:
+
+"A seguinte lista de imagens referenciadas do modelo de implantação não foi encontrada: Editor: MicrosoftWindowsServer, oferta: WindowsServer, SKU: 2019-datacenter-Core-smalldisk-2004, versão: mais recente. Consulte https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage para obter instruções sobre como localizar imagens disponíveis. "
+
+Para corrigir isso:
+
+1. Atualize o [plano de controle de cluster][upgrade-cluster-cp]. Isso atualizará a oferta de imagem e o Publicador.
+1. Crie novos pools do agente do Windows.
+1. Mova os pods do Windows de pools existentes do agente do Windows para novos pools do agente do Windows.
+1. Exclua pools antigos do agente do Windows.
+
 ## <a name="how-do-i-rotate-the-service-principal-for-my-windows-node-pool"></a>Como fazer girar a entidade de serviço para meu pool de nós do Windows?
 
 Os pools de nós do Windows não dão suporte à rotação de entidade de serviço. Para atualizar a entidade de serviço, crie um novo pool de nós do Windows e migre o pods do pool mais antigo para o novo. Quando isso for concluído, exclua o pool de nós mais antigo.
 
 ## <a name="how-many-node-pools-can-i-create"></a>Quantos pools de nós posso criar?
 
-O cluster AKS pode ter um máximo de 10 pools de nós. Você pode ter um máximo de 1000 nós entre esses pools de nós. [Limitações do pool de nós][nodepool-limitations].
+O cluster AKS pode ter um máximo de dez pools de nós. Você pode ter um máximo de 1000 nós entre esses pools de nós. [Limitações do pool de nós][nodepool-limitations].
 
 ## <a name="what-can-i-name-my-windows-node-pools"></a>O que posso nomear meus pools de nós do Windows?
 
@@ -72,7 +85,7 @@ Você precisa manter o nome em um máximo de 6 (seis) caracteres. Essa é uma li
 
 ## <a name="are-all-features-supported-with-windows-nodes"></a>Todos os recursos têm suporte com nós do Windows?
 
-As políticas de rede e kubenet não têm suporte no momento com nós do Windows. 
+As políticas de rede e kubenet não têm suporte no momento com nós do Windows.
 
 ## <a name="can-i-run-ingress-controllers-on-windows-nodes"></a>Posso executar controladores de entrada em nós do Windows?
 
@@ -88,7 +101,7 @@ O suporte ao grupo de contas de serviço gerenciado (gMSA) não está disponíve
 
 ## <a name="can-i-use-azure-monitor-for-containers-with-windows-nodes-and-containers"></a>Posso usar Azure Monitor para contêineres com nós e contêineres do Windows?
 
-Sim, você pode, no entanto, Azure Monitor não coleta logs (stdout) de contêineres do Windows. Você ainda pode anexar à transmissão ao vivo de logs stdout de um contêiner do Windows.
+Sim, você pode, no entanto, Azure Monitor está em visualização pública para coletar logs (stdout, stderr) e métricas de contêineres do Windows. Você também pode anexar à transmissão ao vivo de logs stdout de um contêiner do Windows.
 
 ## <a name="what-if-i-need-a-feature-which-is-not-supported"></a>E se eu precisar de um recurso que não tenha suporte?
 
@@ -112,7 +125,10 @@ Para começar a usar contêineres do Windows Server no AKS, [crie um pool de nó
 [windows-node-cli]: windows-container-cli.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
+[upgrade-cluster]: upgrade-cluster.md
+[upgrade-cluster-cp]: use-multiple-node-pools.md#upgrade-a-cluster-control-plane-with-multiple-node-pools
 [azure-outbound-traffic]: ../load-balancer/load-balancer-outbound-connections.md#defaultsnat
 [nodepool-limitations]: use-multiple-node-pools.md#limitations
 [windows-container-compat]: /virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-1909
 [maximum-number-of-pods]: configure-azure-cni.md#maximum-pods-per-node
+[azure-monitor]: ../azure-monitor/insights/container-insights-overview.md#what-does-azure-monitor-for-containers-provide

@@ -1,24 +1,14 @@
 ---
 title: Enviar e receber eventos dos hubs de eventos do Azure usando o .NET (antigo)
 description: Este artigo fornece instruções para a criação de um aplicativo .NET Core que envia/recebe eventos de/para os hubs de eventos do Azure usando o pacote Microsoft. Azure. EventHubs antigo.
-services: event-hubs
-documentationcenter: na
-author: spelluru
-editor: ''
-ms.assetid: ''
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/11/2020
-ms.author: spelluru
-ms.openlocfilehash: 2a3b14acad4990059a27201b7e1e6b9e93123194
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: bd8476c89fea94a9d1b4a101841c11137d4dd5be
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82025162"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85320781"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core-microsoftazureeventhubs"></a>Enviar eventos para ou receber eventos de hubs de eventos do Azure usando o .NET Core (Microsoft. Azure. EventHubs)
 Este guia de início rápido mostra como enviar eventos para e receber eventos de um hub de eventos usando a biblioteca do .NET Core **Microsoft. Azure. EventHubs** .
@@ -201,7 +191,7 @@ Adicione o [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsof
 ## <a name="receive-events"></a>Receber eventos
 Esta seção mostra como escrever um aplicativo de console .NET Core que recebe mensagens de um hub de eventos usando o [host do processador de eventos](event-hubs-event-processor-host.md). O [Host do Processador de Eventos](event-hubs-event-processor-host.md) é uma classe do .NET que simplifica o recebimento de eventos de hubs de eventos ao gerenciar pontos de verificação persistentes e recebimentos paralelos desses hubs de eventos. Ao usar o Host do Processador de Eventos, você pode dividir eventos através de vários receptores, mesmo quando hospedados em nós diferentes. Este exemplo mostra como usar o Host do Processador de Eventos para um único destinatário.
 > [!NOTE]
-> Você pode baixar este guia de início rápido como um [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver)exemplo do GitHub `EventHubConnectionString` , `EventHubName`substituir `StorageAccountName`e `StorageAccountKey`,, `StorageContainerName` , e as cadeias de caracteres pelos valores do hub de eventos e executá-lo. Como alternativa, é possível seguir as etapas deste tutorial para criar sua própria solução.
+> Você pode baixar este guia de início rápido como um exemplo do [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver), substituir `EventHubConnectionString` e `EventHubName` , `StorageAccountName` ,, `StorageAccountKey` e `StorageContainerName` as cadeias de caracteres pelos valores do hub de eventos e executá-lo. Como alternativa, é possível seguir as etapas deste tutorial para criar sua própria solução.
 
 [!INCLUDE [event-hubs-create-storage](../../includes/event-hubs-create-storage.md)]
 
@@ -375,7 +365,7 @@ Leia os seguintes artigos:
     
     Esses exemplos usam a antiga biblioteca **Microsoft. Azure. EventHubs** , mas você pode atualizá-lo facilmente para usar a biblioteca **Azure. Messaging. EventHubs** mais recente. Para mover o exemplo do usando a biblioteca antiga para uma nova, consulte o [guia para migrar de Microsoft. Azure. EventHubs para Azure. Messaging. EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).
 - [EventProcessorHost](event-hubs-event-processor-host.md)
-- [Recursos e terminologia nos hubs de eventos do Azure](event-hubs-features.md)
-- [Perguntas frequentes dos Hubs de Eventos](event-hubs-faq.md)
+- [Recursos e terminologia nos Hubs de Eventos do Azure](event-hubs-features.md)
+- [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.md)
 
 

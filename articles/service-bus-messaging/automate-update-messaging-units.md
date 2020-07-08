@@ -1,19 +1,14 @@
 ---
 title: Barramento de Serviço do Azure – Atualizar automaticamente as unidades do sistema de mensagens
 description: Este artigo mostra como você pode usar um runbook de Automação do Azure para atualizar automaticamente as unidades do sistema de mensagens de um namespace do Barramento de Serviço.
-services: service-bus-messaging
-ms.service: service-bus-messaging
-documentationcenter: ''
-author: spelluru
 ms.topic: how-to
-ms.date: 05/14/2020
-ms.author: spelluru
-ms.openlocfilehash: 5ece7beaea709c9b1e52cf2130484663da0aa4ac
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.date: 06/23/2020
+ms.openlocfilehash: 52f5b13b482739bfa56ff606f684fd5a9c7d3b6e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663094"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341486"
 ---
 # <a name="automatically-update-messaging-units-of-an-azure-service-bus-namespace"></a>Atualizar automaticamente as unidades do sistema de mensagens de um namespace do Barramento de Serviço do Azure 
 Este artigo mostra como atualizar automaticamente [unidades do sistema de mensagens](service-bus-premium-messaging.md) de um namespace do Barramento de Serviço do Azure com base no uso de recursos (CPU ou memória). 
@@ -75,10 +70,10 @@ Para obter instruções detalhadas, consulte [Importar um módulo da galeria de 
         if ($schemaId -eq "AzureMonitorMetricAlert") {
 
             # Get the resource group name from the alert context
-            $resourceGroupName = $AlertContext.resourceGroupName
+            $resourceGroupName = $WebhookBody.resourceGroupName
             
             # Get the namespace name from the alert context
-            $namespaceName = $AlertContext.resourceName
+            $namespaceName = $WebhookBody.resourceName
         }
     }
     

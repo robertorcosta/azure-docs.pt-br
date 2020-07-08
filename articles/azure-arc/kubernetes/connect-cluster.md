@@ -8,25 +8,49 @@ author: mlearned
 ms.author: mlearned
 description: Conectar um cluster do Kubernetes habilitado para o Azure Arc com o Azure Arc
 keywords: Kubernetes, Arc, Azure, K8s, containers
-ms.openlocfilehash: 962b6a17743ea2beed1e16503739c55c83babbce
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
-ms.translationtype: HT
+ms.custom: references_regions
+ms.openlocfilehash: ec77609e5ee30cd3451c52635e530eb7153bc9a0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860538"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341385"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Conectar um cluster do Kubernetes habilitado para o Azure Arc (versão prévia)
 
-Conectar um cluster Kubernetes ao Azure Arc. 
+Conectar um cluster Kubernetes ao Azure Arc.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 Verifique se os seguintes requisitos estão prontos:
 
-* Um cluster do Kubernetes em execução
-* Você precisará de acesso com kubeconfig e acesso de administrador de cluster. 
+* Um cluster kubernetes que está em execução. Se você não tiver um cluster kubernetes existente, poderá usar um dos seguintes guias para criar um cluster de teste:
+  * Criar um cluster kubernetes usando [kubernetes no Docker (tipo)](https://kind.sigs.k8s.io/)
+  * Criar um cluster kubernetes usando o Docker para [Mac](https://docs.docker.com/docker-for-mac/#kubernetes) ou [Windows](https://docs.docker.com/docker-for-windows/#kubernetes)
+* Você precisará de um arquivo kubeconfig para acessar o cluster e a função de administrador de cluster no cluster para a implantação de agentes kubernetes habilitados para Arc.
 * O usuário ou a entidade de serviço usada com os comandos `az login` e `az connectedk8s connect` deve ter as permissões 'Ler' e 'Gravar' no tipo de recurso 'Microsoft.Kubernetes/connectedclusters'. A função "Integração do Azure Arc para Kubernetes" que tem essas permissões pode ser usada para atribuições de função no usuário ou na entidade de serviço usada com a CLI do Azure para integração.
-* Versão mais recente das extensões *connectedk8s* e *k8sconfiguration*
+* O Helm 3 é necessário para a integração do cluster usando a extensão connectedk8s. [Instale a versão mais recente do Helm 3](https://helm.sh/docs/intro/install) para atender a esse requisito.
+* CLI do Azure versão 2.3 + é necessária para instalar as extensões da CLI do kubernetes habilitadas para o Arc do Azure. [Instale o CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) ou atualize para a versão mais recente para garantir que você tenha CLI do Azure versão 2.3 +.
+* Instale as extensões da CLI do kubernetes habilitadas para Arc:
+  
+  Instale a extensão `connectedk8s`, que ajuda a conectar clusters do Kubernetes ao Azure:
+  
+  ```console
+  az extension add --name connectedk8s
+  ```
+  
+  Instalar a extensão `k8sconfiguration`:
+  
+  ```console
+  az extension add --name k8sconfiguration
+  ```
+  
+  Se você quiser atualizar essas extensões posteriormente, execute os seguintes comandos:
+  
+  ```console
+  az extension update --name connectedk8s
+  az extension update --name k8sconfiguration
+  ```
 
 ## <a name="supported-regions"></a>Regiões com suporte
 
@@ -53,10 +77,8 @@ Os agentes do Azure Arc exigem que protocolos/portas/URLs de saída a seguir fun
 
 ```console
 az provider register --namespace Microsoft.Kubernetes
-Registering is still on-going. You can monitor using 'az provider show -n Microsoft.Kubernetes'
 
 az provider register --namespace Microsoft.KubernetesConfiguration
-Registering is still on-going. You can monitor using 'az provider show -n Microsoft.KubernetesConfiguration'
 ```
 
 O registro é um processo assíncrono. Ele pode levar aproximadamente 10 minutos. Você pode monitorar o processo de registro com os seguintes comandos:
@@ -67,27 +89,6 @@ az provider show -n Microsoft.Kubernetes -o table
 
 ```console
 az provider show -n Microsoft.KubernetesConfiguration -o table
-```
-
-## <a name="install-azure-cli-extensions"></a>Instalar extensões da CLI do Azure
-
-Instale a extensão `connectedk8s`, que ajuda a conectar clusters do Kubernetes ao Azure:
-
-```console
-az extension add --name connectedk8s
-```
-
-Instalar a extensão `k8sconfiguration`:
-
-```console
-az extension add --name k8sconfiguration
-```
-
-Execute os comandos a seguir para atualizar as extensões para as versões mais recentes.
-
-```console
-az extension update --name connectedk8s
-az extension update --name k8sconfiguration
 ```
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
@@ -166,6 +167,8 @@ Name           Location    ResourceGroup
 AzureArcTest1  eastus      AzureArcTest
 ```
 
+Você também pode exibir esse recurso no [portal do Azure](https://portal.azure.com/). Depois de abrir o portal no navegador, navegue até o grupo de recursos e o recurso kubernetes habilitado para Arc do Azure com base nas entradas de nome do recurso e do grupo de recursos usadas anteriormente no `az connectedk8s connect` comando.
+
 O Kubernetes habilitado para Azure Arc implanta alguns operadores no namespace `azure-arc`. Você pode exibir essas implantações e pods aqui:
 
 ```console
@@ -203,18 +206,25 @@ O Kubernetes habilitado para Azure Arc consiste em alguns agentes (operadores) q
 * `deployment.apps/metrics-agent`: coleta métricas de outros agentes do Arc para garantir que eles estejam apresentando um desempenho ideal
 * `deployment.apps/cluster-metadata-operator`: coleta metadados do cluster - versão do cluster, contagem de nós e versão do agente do Arc
 * `deployment.apps/resource-sync-agent`: sincroniza os metadados de cluster mencionados acima para o Azure
-* `deployment.apps/clusteridentityoperator`: mantém o certificado MSI (Identidade de Serviço Gerenciado) usado por outros agentes para comunicação com o Azure
+* `deployment.apps/clusteridentityoperator`: O kubernetes habilitado para Arc do Azure atualmente dá suporte à identidade atribuída pelo sistema. clusteridentityoperator mantém o certificado MSI (identidade de serviço gerenciado) usado por outros agentes para comunicação com o Azure.
 * `deployment.apps/flux-logs-agent`: coleta logs dos operadores de flux implantados como parte da configuração de controle do código de origem
 
 ## <a name="delete-a-connected-cluster"></a>Excluir um cluster conectado
 
 Você pode excluir um recurso do `Microsoft.Kubernetes/connectedcluster` usando a CLI do Azure ou o portal do Azure.
 
-O comando de CLI do Azure `az connectedk8s delete` remove o recurso `Microsoft.Kubernetes/connectedCluster` no Azure. A CLI do Azure exclui todos os recursos do `sourcecontrolconfiguration` associados no Azure. A CLI do Azure usa a desinstalação do helm para remover os agentes no cluster.
 
-O portal do Azure exclui o recurso do `Microsoft.Kubernetes/connectedcluster` no Azure e exclui todos os recursos do `sourcecontrolconfiguration` associados no Azure.
+* **Exclusão usando CLI do Azure**: o comando CLI do Azure a seguir pode ser usado para iniciar a exclusão do recurso kubernetes habilitado para Arc do Azure.
+  ```console
+  az connectedk8s delete --name AzureArcTest1 --resource-group AzureArcTest
+  ```
+  Isso remove o `Microsoft.Kubernetes/connectedCluster` recurso e todos os `sourcecontrolconfiguration` recursos associados no Azure. O CLI do Azure usa a desinstalação do Helm para remover os agentes em execução no cluster também.
 
-Para remover os agentes no cluster, você precisa executar `az connectedk8s delete` ou `helm uninstall azurearcfork8s`.
+* **Exclusão no portal do Azure**: a exclusão do recurso kubernetes habilitado para Arc do azure em portal do Azure exclui o `Microsoft.Kubernetes/connectedcluster` recurso e todos os `sourcecontrolconfiguration` recursos associados no Azure, mas não exclui os agentes em execução no cluster. Para excluir os agentes em execução no cluster, execute o comando a seguir.
+
+  ```console
+  az connectedk8s delete --name AzureArcTest1 --resource-group AzureArcTest
+  ```
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,24 +1,14 @@
 ---
 title: Recuperação de desastre geográfico – Hubs de Eventos do Azure | Microsoft Docs
 description: Como usar regiões geográficas para fazer failover e executar a recuperação de desastre nos Hubs de Eventos do Azure
-services: event-hubs
-documentationcenter: ''
-author: ShubhaVijayasarathy
-manager: timlt
-editor: ''
-ms.service: event-hubs
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 04/28/2020
-ms.author: shvija
-ms.openlocfilehash: 47e3a27ba9c0b7995f45f38ae4e19941cb4f8c01
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.date: 06/23/2020
+ms.openlocfilehash: 142e2b99376bef24a6477f7b40394ca2b67f292b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659732"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85320539"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hubs de Eventos do Azure – Recuperação de desastre geográfico 
 Quando datacenters ou regiões inteiras do Azure (se nenhuma [zona de disponibilidade](../availability-zones/az-overview.md) for usada) enfrentam tempo de inatividade, é crítico para o processamento de dados continuar a operar em uma região ou datacenter diferente. Como tal, *a recuperação de desastre em área geográfica* e a *replicação geográfica* são recursos importantes para qualquer empresa. Os Hubs de Eventos do Azure dão suporte à recuperação de desastre de área geográfica e à replicação geográfica no nível do namespace. 

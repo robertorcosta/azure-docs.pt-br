@@ -1,23 +1,14 @@
 ---
 title: Filtros de tópico do Barramento de Serviço do Azure | Microsoft Docs
 description: Este artigo explica como os assinantes podem definir quais mensagens desejam receber de um tópico especificando filtros.
-services: service-bus-messaging
-documentationcenter: ''
-author: spelluru
-editor: ''
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/16/2020
-ms.author: spelluru
-ms.openlocfilehash: 6e780268d4b8c1a512ce82b1ca10a2f6b7b894b7
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: b722c040248c199782f6c8dea020ae582762e102
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125750"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85339970"
 ---
 # <a name="topic-filters-and-actions"></a>Ações e filtros de tópico
 
@@ -64,7 +55,7 @@ O roteamento usa filtros para distribuir mensagens através de assinaturas de t�
 
 
 > [!NOTE]
-> Atualmente, a portal do Azure não permite que você especifique regras de filtro para assinaturas. Você pode usar qualquer um dos SDKs com suporte ou modelos de Azure Resource Manager para definir regras de assinatura. 
+> Como o portal do Azure agora dá suporte à funcionalidade do Gerenciador do barramento de serviço, os filtros de assinatura podem ser criados ou editados no Portal. 
 
 ## <a name="next-steps"></a>Próximas etapas
 Consulte os seguintes exemplos: 

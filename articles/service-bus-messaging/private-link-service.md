@@ -1,18 +1,16 @@
 ---
 title: Integração do Barramento de Serviço do Azure com o Serviço de Link Privado do Azure
 description: Saiba como integrar o Barramento de Serviço do Azure com o Serviço de Link Privado do Azure
-services: service-bus-messaging
 author: spelluru
 ms.author: spelluru
-ms.date: 03/13/2020
-ms.service: service-bus-messaging
+ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: a78375a3acf5c56d9a59c0f4b6113a063f8c431a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 4516405472abf733c8ef06fb5ee5855f8e97d396
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650957"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85340436"
 ---
 # <a name="integrate-azure-service-bus-with-azure-private-link"></a>Integrar Barramento de Serviço do Azure com o Link Privado do Azure
 
@@ -231,7 +229,7 @@ Primeiro, crie uma máquina virtual seguindo as etapas em [Criar uma máquina vi
 
 Na guia **Rede**: 
 
-1. Especifique a **Rede virtual** e a **Sub-rede**. Selecione a rede virtual na qual você implantou o ponto de extremidade privado.
+1. Especifique a **Rede virtual** e a **Sub-rede**. Selecione a Rede Virtual na qual você implantou o ponto de extremidade privado.
 2. Especifique um recurso de **IP Público**.
 3. Para o **Grupo de segurança de rede da NIC**, selecione **Nenhum**.
 4. Para o **Balanceamento de carga**, selecione **Não**.

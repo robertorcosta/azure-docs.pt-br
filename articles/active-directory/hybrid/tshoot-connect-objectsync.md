@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e10d00ed90248319801974c7c1e7fadf835024b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 73d4239dd34f2a64aa7b3edbf88bad4348e01291
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81407010"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85356195"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Solução de problemas de sincronização de objetos com a sincronização do Azure AD Connect
 Este artigo descreve as etapas para solucionar problemas com a sincronização de objetos usando a tarefa de solução de problemas. Para ver como a solução de problemas funciona no Azure Active Directory (Azure AD) Connect, assista a [este breve vídeo](https://aka.ms/AADCTSVideo).
@@ -43,7 +43,7 @@ Para executar a tarefa de solução de problemas no assistente, execute as etapa
 Os parâmetros de entrada a seguir são necessários para a tarefa de solução de problemas:
 1.  **Nome distinto do objeto** – este é o nome distinto do objeto que precisa de solução de problemas
 2.  **Nome do Conector AD** – este é o nome da floresta do AD em que reside o objeto acima.
-3.  Credenciais do administrador global de locatário ![do Azure ad credenciais de administrador global](media/tshoot-connect-objectsync/objsynch1.png)
+3.  Credenciais do administrador global de locatário do Azure AD credenciais de ![ administrador global](media/tshoot-connect-objectsync/objsynch1.png)
 
 ### <a name="understand-the-results-of-the-troubleshooting-task"></a>Entender os resultados da tarefa de solução de problemas
 A tarefa de solução de problemas executa as seguintes verificações:
@@ -97,4 +97,4 @@ Além de analisar o objeto, a tarefa de solução de problemas também gera um r
 ![Relatório HTML](media/tshoot-connect-objectsync/objsynch8.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre como [integrar suas identidades locais com o Azure Active Directory](whatis-hybrid-identity.md).
+Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](whatis-hybrid-identity.md).

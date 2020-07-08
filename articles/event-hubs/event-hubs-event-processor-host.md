@@ -1,25 +1,14 @@
 ---
 title: Receber eventos usando o Host do Processador de Eventos - Hubs de Eventos do Azure | Microsoft Docs
 description: Este artigo descreve o Host do Processador de Eventos nos Hubs de Eventos do Azure, que simplifica o gerenciamento de ponto de verificação, aluguel e ler eventos paralelo iônico.
-services: event-hubs
-documentationcenter: .net
-author: ShubhaVijayasarathy
-manager: timlt
-editor: ''
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.custom: seodec18
-ms.date: 01/10/2020
-ms.author: shvija
-ms.openlocfilehash: 485f51e45e342ca28d54d609fd975bef5b204f7e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 338b4e890d61aca0d48287db6f042f9dc088754b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80372220"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85320631"
 ---
 # <a name="event-processor-host"></a>Host do processador de eventos
 > [!NOTE]
@@ -118,7 +107,7 @@ A lista a seguir resume este exemplo:
 
 Propriedade de uma partição para uma instância EPH (ou um consumidor) é controlada por meio da conta de armazenamento do Azure que é fornecida para o rastreamento. Você pode visualizar o rastreamento como uma tabela simples, da seguinte maneira. Você pode ver a implementação real, examinando os blobs na conta de armazenamento fornecida:
 
-| **Nome do grupo de consumidor** | **Partition ID** | **Nome do host (proprietário)** | **Tempo de concessão (ou propriedade) adquirido** | **Deslocamento na partição (ponto de verificação)** |
+| **Nome do grupo de consumidor** | **Identificação da Partição** | **Nome do host (proprietário)** | **Tempo de concessão (ou propriedade) adquirido** | **Deslocamento na partição (ponto de verificação)** |
 | --- | --- | --- | --- | --- |
 | $Default | 0 | Consumidor\_VM3 | 2018-04-15T01:23:45 | 156 |
 | $Default | 1 | Consumidor\_VM4 | 2018-04-15T01:22:13 | 734 |
@@ -206,8 +195,8 @@ Agora que você está familiarizado com o Host do processador de eventos, consul
     - [.NET Core](get-started-dotnet-standard-send-v2.md)
     - [Java](get-started-java-send-v2.md)
     - [Python](get-started-python-send-v2.md)
-    - [JavaScript](get-started-java-send-v2.md)
+    - [JavaScript](get-started-node-send-v2.md)
 * [Guia de programação dos Hubs de Eventos](event-hubs-programming-guide.md)
 * [Disponibilidade e consistência nos Hubs de Eventos](event-hubs-availability-and-consistency.md)
-* [Perguntas frequentes dos Hubs de Eventos](event-hubs-faq.md)
+* [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.md)
 * [Exemplos de Hubs de Eventos no GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples)

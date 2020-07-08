@@ -1,19 +1,14 @@
 ---
 title: Autenticar o acesso aos hubs de eventos do Azure com assinaturas de acesso compartilhado
 description: Este artigo mostra como autenticar o acesso a recursos de hubs de eventos usando assinaturas de acesso compartilhado.
-services: event-hubs
-ms.service: event-hubs
-documentationcenter: ''
-author: spelluru
 ms.topic: conceptual
-ms.date: 11/26/2019
-ms.author: spelluru
-ms.openlocfilehash: cde5992355d274410bb43b1e3e60fbba1afe4e44
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: ed389460cf3461df060df79fb756e73711f693f0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81676366"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85318038"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Autenticar o acesso aos recursos de hubs de eventos usando SAS (assinaturas de acesso compartilhado)
 A SAS (assinatura de acesso compartilhado) oferece controle granular sobre o tipo de acesso que você concede aos clientes que têm a assinatura de acesso compartilhado. Aqui estão alguns dos controles que você pode definir em uma SAS: 
@@ -63,13 +58,13 @@ SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 
 O token contém os valores não hash para que o destinatário possa recalcular o hash com os mesmos parâmetros, verificando se o emissor possui uma chave de assinatura válida.
 
-O URI do recurso é o URI completo do recurso do Barramento de Serviço ao qual o acesso é solicitado. Por exemplo, http://<namespace>. ServiceBus.Windows.NET/<entityPath> ou `sb://<namespace>.servicebus.windows.net/<entityPath>;` isto é, `http://contoso.servicebus.windows.net/eventhubs/eh1`.
+O URI do recurso é o URI completo do recurso do Barramento de Serviço ao qual o acesso é solicitado. Por exemplo, http:// <namespace> . ServiceBus.Windows.NET/ <entityPath> ou `sb://<namespace>.servicebus.windows.net/<entityPath>;` isto é, `http://contoso.servicebus.windows.net/eventhubs/eh1` .
 
 O URI deve ser codificado por percentual.
 
 A regra de autorização de acesso compartilhado usada para assinar deve ser configurada na entidade especificada por esse URI ou por um de seus pais hierárquicos. Por exemplo, `http://contoso.servicebus.windows.net/eventhubs/eh1` ou `http://contoso.servicebus.windows.net` no exemplo anterior.
 
-Um token SAS é válido para todos os recursos prefixados <resourceURI> com o usado na cadeia de caracteres de assinatura.
+Um token SAS é válido para todos os recursos prefixados com o <resourceURI> usado na cadeia de caracteres de assinatura.
 
 > [!NOTE]
 > Você gera um token de acesso para hubs de eventos usando a política de acesso compartilhado. Para obter mais informações, consulte [política de autorização de acesso compartilhado](authorize-access-shared-access-signature.md#shared-access-authorization-policies).

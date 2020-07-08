@@ -1,25 +1,14 @@
 ---
 title: Barramento de Serviço do Azure com o .NET e AMQP 1.0 | Microsoft Docs
 description: Este artigo descreve como usar o barramento de serviço do Azure de um aplicativo .NET usando o AMQP (protocolo de enfileiramento de mensagens avançado).
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: 332bcb13-e287-4715-99ee-3d7d97396487
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: 8157efac5ff1fc135659a84b4f4825ff36307480
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: d969607a28759af3b6ee36d79638bb27d0d53808
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80297661"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85340186"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Usar o Barramento de Serviço do .NET com AMQP 1.0
 
@@ -27,7 +16,7 @@ O suporte do AMQP 1.0 está disponível na versão 2.1 ou posterior do pacote do
 
 ## <a name="configure-net-applications-to-use-amqp-10"></a>Configurar aplicativos .NET para usar o AMQP 1.0
 
-Por padrão, a biblioteca de cliente do .NET do Barramento de Serviço se comunica com o serviço do Barramento de Serviço usando um protocolo dedicado baseado em SOAP. O uso do AMQP 1.0 em vez do protocolo padrão requer a configuração explícita na cadeia de conexão do Service Bus, conforme descrito na próxima seção. Além dessa alteração, o código do aplicativo permanece inalterado ao usar o AMQP 1.0.
+Por padrão, a biblioteca de cliente .NET do barramento de serviço se comunica com o serviço do barramento de serviço usando o protocolo AMQP. Você também pode especificar explicitamente AMQP como o tipo de transporte, conforme mostrado na seção a seguir. 
 
 Na versão atual, existem alguns outros recursos da API que não são suportados com o uso do AMQP. Esses recursos sem suporte são listados na seção [Diferenças de comportamento](#behavioral-differences). Algumas das definições de configuração avançadas também apresentam um significado diferente com o uso do AMQP.
 
@@ -79,7 +68,7 @@ Para facilitar a interoperabilidade com clientes não .NET, use somente tipos .N
 | Datetime |timestamp |Valor do AMQP |
 | Guid |uuid |Valor do AMQP |
 | byte[] |binary |Valor do AMQP |
-| cadeia de caracteres |cadeia de caracteres |Valor do AMQP |
+| string |string |Valor do AMQP |
 | System.Collections.IList |list |Valor AMQP: os itens contidos na coleção só podem ser aqueles definidos nesta tabela. |
 | System.Array |matriz |Valor AMQP: os itens contidos na coleção só podem ser aqueles definidos nesta tabela. |
 | System.Collections.IDictionary |map |Valor AMQP: os itens contidos na coleção só podem ser aqueles definidos nesta tabela. Observação: apenas as chaves de cadeia de caracteres são suportadas. |
@@ -89,7 +78,7 @@ Para facilitar a interoperabilidade com clientes não .NET, use somente tipos .N
 | STREAM |binary |Dados do AMQP (podem ser múltiplos). As seções de Dados contêm os bytes brutos lidos do objeto Stream. |
 | Outro Objeto |binary |Dados do AMQP (podem ser múltiplos). Contém o binário serializado do objeto que usa o DataContractSerializer ou um serializador fornecido pelo aplicativo. |
 
-| Tipo .NET | Tipo descrito do AMQP mapeado | Anotações |
+| Tipo .NET | Tipo descrito do AMQP mapeado | Observações |
 | --- | --- | --- |
 | Uri |`<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type>` |URI.AbsoluteUri |
 | DateTimeOffset |`<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type>` |DateTimeOffset.UtcTicks |

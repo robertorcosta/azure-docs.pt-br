@@ -1,26 +1,14 @@
 ---
 title: Logs de diagnóstico do barramento de serviço do Azure | Microsoft Docs
 description: Este artigo fornece uma visão geral de todos os logs operacionais e de diagnóstico que estão disponíveis para o barramento de serviço do Azure.
-keywords: ''
-documentationcenter: .net
-services: service-bus-messaging
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: ''
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: a80fb97810fee04a4eb50c43178c168e66f29173
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: eeaa7e92488fd59994fc07ea0081b0f00c8768df
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80618723"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85337532"
 ---
 # <a name="enable-diagnostics-logs-for-service-bus"></a>Habilitar logs de diagnóstico para o barramento de serviço
 
@@ -37,7 +25,7 @@ Todos os logs são armazenados no formato JavaScript Object Notation (JSON) nos 
 
 As cadeias de caracteres JSON do log operacional incluem os elementos listados na tabela a seguir:
 
-| Name | Descrição |
+| Nome | Descrição |
 | ------- | ------- |
 | ActivityId | ID interna, usada para identificar a atividade especificada |
 | EventName | Nome da operação |
@@ -79,7 +67,7 @@ As seguintes operações de gerenciamento são capturadas em logs operacionais:
 | Namespace | <ul> <li> Criar um Namespace</li> <li> Atualizar namespace </li> <li> Excluir namespace </li> <li> Atualizar política de SharedAccess de namespace </li> </ul> | 
 | Fila | <ul> <li> Criar fila</li> <li> Atualizar fila</li> <li> Excluir fila </li> <li> Excluir autoexcluir fila </li> </ul> | 
 | Tópico | <ul> <li> Criar tópico </li> <li> Atualizar tópico </li> <li> Excluir tópico </li> <li> Excluir tópico de exclusão de autoexclusão </li> </ul> |
-| Assinatura | <ul> <li> Criar Assinatura </li> <li> Atualizar Assinatura </li> <li> Excluir Assinatura </li> <li> Excluir autoexcluir assinatura </li> </ul> |
+| Subscription | <ul> <li> Criar Assinatura </li> <li> Atualizar Assinatura </li> <li> Excluir Assinatura </li> <li> Excluir autoexcluir assinatura </li> </ul> |
 
 > [!NOTE]
 > Atualmente, as operações de *leitura* não são acompanhadas nos logs operacionais.
@@ -94,13 +82,13 @@ Os logs operacionais são desabilitados por padrão. Para habilitar os logs de d
 
 1. No painel **configurações de diagnóstico** , selecione **Adicionar configuração de diagnóstico**.  
 
-   ![O link "adicionar configuração de diagnóstico"](./media/service-bus-diagnostic-logs/image2.png)
+   ![O link "Adicionar configuração de diagnóstico"](./media/service-bus-diagnostic-logs/image2.png)
 
 1. Defina as configurações de diagnóstico fazendo o seguinte:
 
-   a. Na caixa **nome** , insira um nome para as configurações de diagnóstico.  
+   a. Na caixa **Nome**, insira um nome para as configurações de diagnóstico.  
 
-   b. Selecione um dos três destinos a seguir para seus logs de diagnóstico:  
+   b. Selecione um dos seguintes três destinos para seus logs de diagnóstico:  
    - Se você selecionar **arquivar em uma conta de armazenamento**, precisará configurar a conta de armazenamento onde os logs de diagnóstico serão armazenados.  
    - Se você selecionar **fluxo para um hub de eventos**, precisará configurar o Hub de eventos para o qual deseja transmitir os logs de diagnóstico.
    - Se você selecionar **Enviar para log Analytics**, será necessário especificar a qual instância do log Analytics o diagnóstico será enviado.  
@@ -111,9 +99,9 @@ Os logs operacionais são desabilitados por padrão. Para habilitar os logs de d
 
 1. Selecione **Salvar**.
 
-As novas configurações entram em vigor em cerca de 10 minutos. Os logs são exibidos no destino de arquivamento configurado, no painel **logs de diagnóstico** .
+As novas configurações terão efeito em aproximadamente dez minutos. Os logs aparecerão no destino de arquivamento configurado, no painel **Logs de diagnóstico**.
 
-Para obter mais informações sobre como definir as configurações de diagnóstico, consulte a [visão geral dos logs de diagnóstico do Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
+Para obter mais informações sobre como definir configurações de diagnóstico, confira a [visão geral dos logs de diagnóstico do Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
