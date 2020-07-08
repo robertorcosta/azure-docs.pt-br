@@ -9,55 +9,55 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: b14fed07c9bd9b5fcb6a5489719481902351fc0d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e3e524df2e98229698a86a721b7312a4d054ff70
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80654878"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040037"
 ---
-# <a name="password-and-account-lockout-policies-on-managed-domains"></a>Políticas de senha e de bloqueio de conta em domínios gerenciados
+# <a name="password-and-account-lockout-policies-on-active-directory-domain-services-managed-domains"></a>Políticas de bloqueio de senha e conta em Active Directory Domain Services domínios gerenciados
 
 Para gerenciar a segurança de usuário no Azure Active Directory Domain Services (AD DS do Azure), você pode definir políticas de senha refinadas que controlam as configurações de bloqueio de conta ou a complexidade e o comprimento mínimo da senha. Uma política de senha refinada padrão é criada e aplicada a todos os usuários em um domínio gerenciado AD DS do Azure. Para fornecer controle granular e atender às necessidades específicas de negócios ou de conformidade, políticas adicionais podem ser criadas e aplicadas a grupos de usuários específicos.
 
 Este artigo mostra como criar e configurar uma política de senha refinada no Azure AD DS usando o Centro Administrativo do Active Directory.
 
 > [!NOTE]
-> As políticas de senha só estão disponíveis para os domínios gerenciados AD DS do Azure criados usando o modelo de implantação do Resource Manager. Para domínios gerenciados mais antigos criados usando [o clássico, migre do modelo de rede virtual clássica para o Gerenciador de recursos][migrate-from-classic].
+> As políticas de senha só estão disponíveis para domínios gerenciados criados usando o modelo de implantação do Resource Manager. Para domínios gerenciados mais antigos criados usando [o clássico, migre do modelo de rede virtual clássica para o Gerenciador de recursos][migrate-from-classic].
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Para concluir este artigo, você precisa dos seguintes recursos e privilégios:
+Para concluir este artigo, você precisará dos seguintes recursos e privilégios:
 
 * Uma assinatura ativa do Azure.
   * Caso não tenha uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Um locatário do Azure Active Directory associado com a assinatura, sincronizado com um diretório local ou somente em nuvem.
   * Se necessário, [crie um locatário do Azure Active Directory][create-azure-ad-tenant] ou [associe uma assinatura do Azure à sua conta][associate-azure-ad-tenant].
 * Um domínio gerenciado do Azure Active Directory Domain Services habilitado e configurado no locatário do Azure AD.
-  * Se necessário, conclua o tutorial para [criar e configurar uma instância de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
-  * A instância do AD DS do Azure deve ter sido criada usando o modelo de implantação do Gerenciador de recursos. Se necessário, [migre do modelo de rede virtual clássica para o Gerenciador de recursos][migrate-from-classic].
-* Uma VM de gerenciamento do Windows Server que é unida ao domínio gerenciado AD DS do Azure.
+  * Se necessário, conclua o tutorial para [criar e configurar um Azure Active Directory Domain Services domínio gerenciado][create-azure-ad-ds-instance].
+  * O domínio gerenciado deve ter sido criado usando o modelo de implantação do Gerenciador de recursos. Se necessário, [migre do modelo de rede virtual clássica para o Gerenciador de recursos][migrate-from-classic].
+* Uma VM de gerenciamento do Windows Server que é unida ao domínio gerenciado.
   * Se necessário, conclua o tutorial para [criar uma VM de gerenciamento][tutorial-create-management-vm].
 * Uma conta de usuário que é membro do grupo de *administradores do Azure AD DC* no locatário do Azure AD.
 
 ## <a name="default-password-policy-settings"></a>Configurações de política de senha padrão
 
-As FGPPs (políticas de senha refinadas) permitem que você aplique restrições específicas para políticas de bloqueio de senha e de conta a usuários diferentes em um domínio. Por exemplo, para proteger contas com privilégios, você pode aplicar configurações de bloqueio de conta mais rigorosas do que as contas regulares sem privilégios. Você pode criar vários FGPPs em um domínio gerenciado AD DS do Azure e especificar a ordem de prioridade para aplicá-los aos usuários.
+As FGPPs (políticas de senha refinadas) permitem que você aplique restrições específicas para políticas de bloqueio de senha e de conta a usuários diferentes em um domínio. Por exemplo, para proteger contas com privilégios, você pode aplicar configurações de bloqueio de conta mais rigorosas do que as contas regulares sem privilégios. Você pode criar vários FGPPs em um domínio gerenciado e especificar a ordem de prioridade para aplicá-los aos usuários.
 
 Para obter mais informações sobre políticas de senha e usar o centro de administração do Active Directory, consulte os seguintes artigos:
 
 * [Saiba mais sobre políticas de senha refinadas](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770394(v=ws.10))
 * [Configurar políticas de senha refinadas usando o centro de administração do AD](/windows-server/identity/ad-ds/get-started/adac/introduction-to-active-directory-administrative-center-enhancements--level-100-#fine_grained_pswd_policy_mgmt)
 
-As políticas são distribuídas por meio de associação de grupo em um domínio gerenciado AD DS do Azure, e todas as alterações feitas são aplicadas na próxima entrada do usuário. A alteração da política não desbloqueia uma conta de usuário que já está bloqueada.
+As políticas são distribuídas por meio de associação de grupo em um domínio gerenciado, e todas as alterações feitas são aplicadas na próxima entrada do usuário. A alteração da política não desbloqueia uma conta de usuário que já está bloqueada.
 
 As políticas de senha se comportam de maneira um pouco diferente dependendo de como a conta de usuário à qual elas são aplicadas foi criada. Há duas maneiras pelas quais uma conta de usuário pode ser criada no Azure AD DS:
 
 * A conta de usuário pode ser sincronizada no Azure AD. Isso inclui contas de usuário somente em nuvem criadas diretamente no Azure e contas de usuário híbridos sincronizadas de um ambiente de AD DS local usando Azure AD Connect.
     * A maioria das contas de usuário no Azure AD DS são criadas por meio do processo de sincronização do Azure AD.
-* A conta de usuário pode ser criada manualmente em um domínio gerenciado AD DS do Azure e não existe no Azure AD.
+* A conta de usuário pode ser criada manualmente em um domínio gerenciado e não existe no Azure AD.
 
 Todos os usuários, independentemente de como são criados, têm as seguintes políticas de bloqueio de conta aplicadas pela política de senha padrão no Azure AD DS:
 
@@ -72,7 +72,7 @@ Os bloqueios de conta só ocorrem no domínio gerenciado. As contas de usuário 
 
 Se você tiver uma política de senha do Azure AD que especifique uma duração máxima de senha superior a 90 dias, essa duração de senha será aplicada à política padrão no Azure AD DS. Você pode configurar uma política de senha personalizada para definir uma duração de senha máxima diferente no Azure AD DS. Tome cuidado se você tiver uma idade de senha máxima mais curta configurada em uma política de senha de AD DS do Azure do que no Azure AD ou em um ambiente de AD DS local. Nesse cenário, a senha de um usuário pode expirar no Azure AD DS antes que seja solicitada a alteração no Azure AD ou em um ambiente de AD DS local.
 
-Para contas de usuário criadas manualmente em um domínio gerenciado AD DS do Azure, as configurações de senha adicionais a seguir também são aplicadas a partir da política padrão. Essas configurações não se aplicam a contas de usuário sincronizadas no Azure AD, pois um usuário não pode atualizar sua senha diretamente no Azure AD DS.
+Para contas de usuário criadas manualmente em um domínio gerenciado, as configurações de senha adicionais a seguir também são aplicadas a partir da política padrão. Essas configurações não se aplicam a contas de usuário sincronizadas no Azure AD, pois um usuário não pode atualizar sua senha diretamente no Azure AD DS.
 
 * **Comprimento mínimo da senha (caracteres):** 7
 * **As senhas devem atender a requisitos de complexidade**
@@ -83,19 +83,19 @@ Você não pode modificar as configurações de bloqueio de conta ou senha na po
 
 À medida que você cria e executa aplicativos no Azure, talvez queira configurar uma política de senha personalizada. Por exemplo, você pode criar uma política para definir configurações de política de bloqueio de conta diferentes.
 
-As políticas de senha personalizadas são aplicadas a grupos em um domínio gerenciado AD DS do Azure. Essa configuração substitui efetivamente a política padrão.
+As políticas de senha personalizadas são aplicadas a grupos em um domínio gerenciado. Essa configuração substitui efetivamente a política padrão.
 
-Para criar uma política de senha personalizada, use as ferramentas administrativas Active Directory de uma VM ingressada no domínio. O Centro Administrativo do Active Directory permite exibir, editar e criar recursos em um domínio gerenciado do Azure AD DS, incluindo UOs.
+Para criar uma política de senha personalizada, use as ferramentas administrativas Active Directory de uma VM ingressada no domínio. O Centro Administrativo do Active Directory permite exibir, editar e criar recursos em um domínio gerenciado, incluindo UOs.
 
 > [!NOTE]
-> Para criar uma política de senha personalizada em um domínio gerenciado AD DS do Azure, você deve estar conectado a uma conta de usuário que seja membro do grupo de *Administradores de DC do AAD* .
+> Para criar uma política de senha personalizada em um domínio gerenciado, você deve estar conectado a uma conta de usuário que seja membro do grupo de *Administradores de DC do AAD* .
 
 1. Na tela iniciar, selecione **Ferramentas administrativas**. É mostrada uma lista de ferramentas de gerenciamento disponíveis que foram instaladas no tutorial para [criar uma VM de gerenciamento][tutorial-create-management-vm].
 1. Para criar e gerenciar UOs, selecione **centro administrativo do Active Directory** na lista de ferramentas administrativas.
-1. No painel esquerdo, escolha seu domínio gerenciado AD DS do Azure, como *aaddscontoso.com*.
+1. No painel esquerdo, escolha seu domínio gerenciado, como *aaddscontoso.com*.
 1. Abra o contêiner do **sistema** e, em seguida, o **contêiner de configuração de senha**.
 
-    Uma política de senha interna para o domínio gerenciado do Azure AD DS é mostrada. Você não pode modificar essa política interna. Em vez disso, crie uma política de senha personalizada para substituir a política padrão.
+    Uma política de senha interna para o domínio gerenciado é mostrada. Você não pode modificar essa política interna. Em vez disso, crie uma política de senha personalizada para substituir a política padrão.
 
     ![Criar uma política de senha no Centro Administrativo do Active Directory](./media/password-policy/create-password-policy-adac.png)
 
@@ -107,7 +107,7 @@ Para criar uma política de senha personalizada, use as ferramentas administrati
 
 1. Edite outras configurações de política de senha conforme desejado. Lembre-se dos seguintes pontos principais:
 
-    * Configurações como complexidade de senha, idade ou tempo de expiração somente para usuários criados manualmente em um domínio gerenciado AD DS do Azure.
+    * Configurações como complexidade de senha, idade ou tempo de expiração somente para usuários criados manualmente em um domínio gerenciado.
     * As configurações de bloqueio de conta se aplicam a todos os usuários, mas só entram em vigor dentro do domínio gerenciado e não no próprio Azure AD.
 
     ![Criar uma política de senha refinada personalizada](./media/password-policy/custom-fgpp.png)

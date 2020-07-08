@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/31/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 581963c94129c36acbd8761d93e369281797fa9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6c5e0779ce0dfe2730a60873316c66184e038a35
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80654713"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039867"
 ---
-# <a name="disable-weak-ciphers-and-password-hash-synchronization-to-secure-an-azure-ad-domain-services-managed-domain"></a>Desabilitar codificações fracas e a sincronização de hash de senha para proteger um Azure AD Domain Services domínio gerenciado
+# <a name="disable-weak-ciphers-and-password-hash-synchronization-to-secure-an-azure-active-directory-domain-services-managed-domain"></a>Desabilitar codificações fracas e a sincronização de hash de senha para proteger um Azure Active Directory Domain Services domínio gerenciado
 
 Por padrão, Azure Active Directory Domain Services (Azure AD DS) permite o uso de codificações como NTLM v1 e TLS v1. Essas codificações podem ser necessárias para alguns aplicativos herdados, mas são consideradas fracas e podem ser desabilitadas se você não precisar delas. Se você tiver conectividade híbrida local usando Azure AD Connect, também poderá desabilitar a sincronização de hashes de senha NTLM.
 
@@ -33,7 +33,7 @@ Para concluir este artigo, você precisa dos seguintes recursos:
 * Um locatário do Azure Active Directory associado com a assinatura, sincronizado com um diretório local ou somente em nuvem.
     * Se necessário, [crie um locatário do Azure Active Directory][create-azure-ad-tenant] ou [associe uma assinatura do Azure à sua conta][associate-azure-ad-tenant].
 * Um domínio gerenciado do Azure Active Directory Domain Services habilitado e configurado no locatário do Azure AD.
-    * Se necessário, [crie e configure uma instância do Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+    * Se necessário, [crie e configure um domínio gerenciado do Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 * Instalar e configurar o PowerShell do Azure.
     * Se necessário, siga as instruções para [instalar o módulo do Azure PowerShell e conectar-se à sua assinatura do Azure](/powershell/azure/install-az-ps).
     * Lembre-se de entrar em sua assinatura do Azure usando o cmdlet [Connect-AzAccount][Connect-AzAccount].
@@ -67,17 +67,17 @@ Em seguida, defina *DomainSecuritySettings* para configurar as seguintes opçõe
 $securitySettings = @{"DomainSecuritySettings"=@{"NtlmV1"="Disabled";"SyncNtlmPasswords"="Disabled";"TlsV1"="Disabled"}}
 ```
 
-Por fim, aplique as configurações de segurança definidas ao domínio gerenciado AD DS do Azure usando o cmdlet [set-AzResource][Set-AzResource] . Especifique o recurso de AD DS do Azure na primeira etapa e as configurações de segurança da etapa anterior.
+Por fim, aplique as configurações de segurança definidas ao domínio gerenciado usando o cmdlet [set-AzResource][Set-AzResource] . Especifique o recurso de AD DS do Azure na primeira etapa e as configurações de segurança da etapa anterior.
 
 ```powershell
 Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $securitySettings -Verbose -Force
 ```
 
-Leva alguns minutos para que as configurações de segurança sejam aplicadas ao domínio gerenciado AD DS do Azure.
+Leva alguns minutos para que as configurações de segurança sejam aplicadas ao domínio gerenciado.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre o processo de sincronização, confira [como os objetos e as credenciais são sincronizados em um domínio gerenciado do Azure AD DS][synchronization].
+Para saber mais sobre o processo de sincronização, consulte [como os objetos e as credenciais são sincronizados em um domínio gerenciado][synchronization].
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

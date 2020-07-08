@@ -1,7 +1,7 @@
 ---
 title: Pesquisar em dados SQL do Azure
 titleSuffix: Azure Cognitive Search
-description: Importe dados do banco de dados SQL do Azure usando indexadores, para pesquisa de texto completo no Azure Pesquisa Cognitiva. Este artigo aborda conexões, configuração do indexador e ingestão de dados.
+description: Importe dados do banco de dados SQL do Azure ou do SQL Instância Gerenciada usando indexadores, para pesquisa de texto completo no Azure Pesquisa Cognitiva. Este artigo aborda conexões, configuração do indexador e ingestão de dados.
 manager: nitinme
 author: mgottein
 ms.author: magottei
@@ -9,20 +9,20 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c09727e8d92a449b41124eae6ad8381d66cb2619
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 862b3056445bddb358e6485ce5fec4de4d53eace
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74113312"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039272"
 ---
-# <a name="connect-to-and-index-azure-sql-database-content-using-an-azure-cognitive-search-indexer"></a>Conectar e indexar conteúdo do banco de dados SQL do Azure usando um indexador Pesquisa Cognitiva do Azure
+# <a name="connect-to-and-index-azure-sql-content-using-an-azure-cognitive-search-indexer"></a>Conectar e indexar conteúdo SQL do Azure usando um indexador Pesquisa Cognitiva do Azure
 
-Antes de poder consultar um [índice de pesquisa cognitiva do Azure](search-what-is-an-index.md), você deve preenchê-lo com seus dados. Se os dados residirem em um Azure SQL Database, um **indexador pesquisa cognitiva do Azure para o banco de dados SQL do Azure** (ou o **indexador SQL do Azure** para curto) pode automatizar o processo de indexação, o que significa menos código para escrever e menos infraestrutura para se preocupar.
+Antes de poder consultar um [índice de pesquisa cognitiva do Azure](search-what-is-an-index.md), você deve preenchê-lo com seus dados. Se os dados estiverem no banco de dados SQL do Azure ou no SQL Instância Gerenciada, um **indexador pesquisa cognitiva do Azure para o banco de dados SQL do Azure** (ou o **indexador SQL do Azure** para curto) pode automatizar o processo de indexação, o que significa menos código para escrever e menos infraestrutura para se preocupar.
 
-Este artigo aborda a mecânica do uso de [indexadores](search-indexer-overview.md), mas também descreve os recursos disponíveis apenas nos bancos de dados SQL do Azure (por exemplo, o controle de alterações integrado). 
+Este artigo aborda a mecânica de uso de [indexadores](search-indexer-overview.md), mas também descreve os recursos disponíveis somente com o banco de dados SQL do Azure ou o SQL instância gerenciada (por exemplo, controle de alterações integrado). 
 
-Além dos bancos de dados SQL do Azure, o Azure Pesquisa Cognitiva fornece indexadores para [Azure Cosmos DB](search-howto-index-cosmosdb.md), [armazenamento de BLOBs do Azure](search-howto-indexing-azure-blob-storage.md)e [armazenamento de tabelas do Azure](search-howto-indexing-azure-tables.md). Para solicitar suporte para outras fontes de dados, forneça seus comentários sobre o [Fórum de comentários do Azure pesquisa cognitiva](https://feedback.azure.com/forums/263029-azure-search/).
+Além do banco de dados SQL do Azure e do SQL Instância Gerenciada, o Azure Pesquisa Cognitiva fornece indexadores para [Azure Cosmos DB](search-howto-index-cosmosdb.md), [armazenamento de BLOBs do Azure](search-howto-indexing-azure-blob-storage.md)e [armazenamento de tabelas do Azure](search-howto-indexing-azure-tables.md). Para solicitar suporte para outras fontes de dados, forneça seus comentários sobre o [Fórum de comentários do Azure pesquisa cognitiva](https://feedback.azure.com/forums/263029-azure-search/).
 
 ## <a name="indexers-and-data-sources"></a>Indexadores e fontes de dados
 
@@ -62,7 +62,7 @@ O uso do indexador do SQL Azure pode ou não ser apropriado dependendo de vário
 1. Crie a fonte de dados:
 
    ```
-    POST https://myservice.search.windows.net/datasources?api-version=2019-05-06
+    POST https://myservice.search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: admin-key
 
@@ -80,8 +80,8 @@ O uso do indexador do SQL Azure pode ou não ser apropriado dependendo de vário
 
 3. Crie o indexador dando um nome a ele e referenciando a fonte de dados e o índice de destino:
 
-    ```
-    POST https://myservice.search.windows.net/indexers?api-version=2019-05-06
+   ```
+    POST https://myservice.search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: admin-key
 
@@ -90,12 +90,14 @@ O uso do indexador do SQL Azure pode ou não ser apropriado dependendo de vário
         "dataSourceName" : "myazuresqldatasource",
         "targetIndexName" : "target index name"
     }
-    ```
+   ```
 
 Um indexador criado dessa maneira não tem um agenda. Ele é executado automaticamente assim que é criado. Você pode executá-lo novamente a qualquer momento usando uma solicitação **executar indexador** :
 
-    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2019-05-06
+```
+    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2020-06-30
     api-key: admin-key
+```
 
 Você pode personalizar vários aspectos do comportamento do indexador, como tamanho do lote e quantos documentos podem ser ignorados antes de uma execução do indexador falhar. Para obter mais informações, consulte [Criar API do indexador](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
 
@@ -103,11 +105,14 @@ Talvez seja necessário permitir a conexão dos serviços do Azure ao banco de d
 
 Para monitorar o status do indexador e o histórico de execução (número de itens indexados, falhas etc.), use uma solicitação **status do indexador** :
 
-    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2019-05-06
+```
+    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2020-06-30
     api-key: admin-key
+```
 
 A resposta deve parecer com a seguinte:
 
+```
     {
         "\@odata.context":"https://myservice.search.windows.net/$metadata#Microsoft.Azure.Search.V2015_02_28.IndexerExecutionInfo",
         "status":"running",
@@ -138,14 +143,16 @@ A resposta deve parecer com a seguinte:
             ... earlier history items
         ]
     }
+```
 
 O histórico de execução contém até 50 execuções mais recentes, classificadas em ordem cronológica inversa (de modo que a execução mais recente apareça em primeiro lugar na resposta).
-Informações adicionais sobre a resposta podem ser encontradas em [Obter o status do indexador](https://go.microsoft.com/fwlink/p/?LinkId=528198)
+Informações adicionais sobre a resposta podem ser encontradas em [Obter o status do indexador](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status)
 
 ## <a name="run-indexers-on-a-schedule"></a>Executar indexadores de acordo com uma agenda
 Você também pode organizar o indexador para que execute periodicamente com base em uma agenda. Para fazer isso, adicione a propriedade **schedule** ao criar ou atualizar o indexador. O exemplo a seguir mostra uma solicitação PUT para atualização do indexador:
 
-    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2019-05-06
+```
+    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2020-06-30
     Content-Type: application/json
     api-key: admin-key
 
@@ -154,10 +161,11 @@ Você também pode organizar o indexador para que execute periodicamente com bas
         "targetIndexName" : "target index name",
         "schedule" : { "interval" : "PT10M", "startTime" : "2015-01-01T00:00:00Z" }
     }
+```
 
 O parâmetro **interval** é necessário. O intervalo refere-se ao tempo entre o início de duas execuções consecutivas do indexador. O menor intervalo permitido é de cinco minutos, e o maior é de um dia. Ele deve ser formatado como um valor XSD de "dayTimeDuration" (um subconjunto restrito de um [valor de duração ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). O padrão para isso é: `P(nD)(T(nH)(nM))`. Exemplos: `PT15M` para cada 15 minutos, `PT2H` para cada 2 horas.
 
-Para obter mais informações sobre como definir agendas do indexador, consulte [como agendar indexadores para o Azure pesquisa cognitiva](search-howto-schedule-indexers.md).
+Para obter mais informações sobre como definir as agendas do indexador, confira [Como agendar indexadores para o Azure Cognitive Search](search-howto-schedule-indexers.md).
 
 <a name="CaptureChangedRows"></a>
 
@@ -172,7 +180,7 @@ Se o banco de dados SQL der suporte ao [controle de alterações](https://docs.m
 
 + Requisitos de versão do banco de dados:
   * O SQL Server 2012 SP3 e posterior, se você estiver usando o SQL Server em VMs do Azure.
-  * Banco de Dados SQL do Azure V12, se você estiver usando o Banco de Dados SQL do Azure.
+  * Banco de dados SQL do Azure ou SQL Instância Gerenciada.
 + Apenas tabelas (sem exibições). 
 + No banco de dados, [habilite o controle de alterações](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server) na tabela. 
 + Sem chave primária de composição (uma chave primária que contém mais de uma coluna) na tabela.  
@@ -181,6 +189,7 @@ Se o banco de dados SQL der suporte ao [controle de alterações](https://docs.m
 
 Para usar essa política, crie ou atualize a fonte de dados da seguinte maneira:
 
+```
     {
         "name" : "myazuresqldatasource",
         "type" : "azuresql",
@@ -190,6 +199,7 @@ Para usar essa política, crie ou atualize a fonte de dados da seguinte maneira:
            "@odata.type" : "#Microsoft.Azure.Search.SqlIntegratedChangeTrackingPolicy"
       }
     }
+```
 
 Ao usar a política de controle integrado de alterações do SQL, não especifique uma política separada de detecção de exclusão de dados, pois essa política tem suporte interno para identificação de linhas excluídas. No entanto, para que as exclusões sejam detectadas “de forma mágica”, a chave de documento no índice de pesquisa deve ser o mesmo da chave primária na tabela SQL. 
 
@@ -216,6 +226,7 @@ Essa política de detecção de alteração se baseia em uma coluna de “marca 
 
 Para usar uma política de marca d'água alta, crie ou atualize a fonte de dados da seguinte maneira:
 
+```
     {
         "name" : "myazuresqldatasource",
         "type" : "azuresql",
@@ -226,27 +237,59 @@ Para usar uma política de marca d'água alta, crie ou atualize a fonte de dados
            "highWaterMarkColumnName" : "[a rowversion or last_updated column name]"
       }
     }
+```
 
 > [!WARNING]
 > Se a tabela de origem não tiver um índice na coluna de marca d' água alta, as consultas usadas pelo indexador do SQL poderão atingir o tempo limite. Em particular, a `ORDER BY [High Water Mark Column]` cláusula requer que um índice seja executado com eficiência quando a tabela contiver muitas linhas.
 >
 >
 
+<a name="convertHighWaterMarkToRowVersion"></a>
+
+##### <a name="converthighwatermarktorowversion"></a>convertHighWaterMarkToRowVersion
+
+Se você estiver usando um tipo de dados do [Multiversion](https://docs.microsoft.com/sql/t-sql/data-types/rowversion-transact-sql) para a coluna de marca d' água alta, considere usar a `convertHighWaterMarkToRowVersion` definição de configuração do indexador. `convertHighWaterMarkToRowVersion` faz duas coisas:
+
+* Use o tipo de dados do Subversion para a coluna de marca d' água alta na consulta SQL do indexador. O uso do tipo de dados correto melhora o desempenho da consulta do indexador.
+* Subtraia 1 do valor de objectVersion antes da execução da consulta do indexador. Exibições com 1 a muitas junções podem ter linhas com valores de número de réplicas duplicados. Subtrair 1 garante que a consulta do indexador não perca essas linhas.
+
+Para habilitar esse recurso, crie ou atualize o indexador com a seguinte configuração:
+
+```
+    {
+      ... other indexer definition properties
+     "parameters" : {
+            "configuration" : { "convertHighWaterMarkToRowVersion" : true } }
+    }
+```
+
+<a name="queryTimeout"></a>
+
+##### <a name="querytimeout"></a>queryTimeout
+
 Se você encontrar erros de tempo limite, use a definição da configuração do indexador `queryTimeout` para definir o tempo limite da consulta como um valor maior que o tempo limite padrão de 5 minutos. Por exemplo, para definir o tempo limite de 10 minutos, crie ou atualize o indexador com a seguinte configuração:
 
+```
     {
       ... other indexer definition properties
      "parameters" : {
             "configuration" : { "queryTimeout" : "00:10:00" } }
     }
+```
+
+<a name="disableOrderByHighWaterMarkColumn"></a>
+
+##### <a name="disableorderbyhighwatermarkcolumn"></a>disableOrderByHighWaterMarkColumn
 
 Você também pode desabilitar a cláusula `ORDER BY [High Water Mark Column]`. No entanto, isso não é recomendado porque, se a execução do indexador for interrompida por um erro, o indexador deverá processar novamente todas as linhas se ele for executado mais tarde – mesmo se o indexador já tiver processado quase todas as linhas no momento em que foi interrompido. Para desabilitar a cláusula `ORDER BY`, use a configuração `disableOrderByHighWaterMarkColumn` na definição do indexador:  
 
+```
     {
      ... other indexer definition properties
      "parameters" : {
             "configuration" : { "disableOrderByHighWaterMarkColumn" : true } }
     }
+```
 
 ### <a name="soft-delete-column-deletion-detection-policy"></a>Política de detecção de exclusão de coluna por exclusão reversível
 Quando as linhas são excluídas da tabela de origem, provavelmente você deseja excluí-las também do índice de pesquisa. Se você usar a política de controle integrado de alterações do SQL, isso será resolvido para você. No entanto, a política de controle de alterações de marca d'água alta não ajuda você com relação às linhas excluídas. O que fazer?
@@ -255,6 +298,7 @@ Se as linhas forem fisicamente removidas da tabela, o Azure Pesquisa Cognitiva n
 
 Ao usar a técnica de exclusão reversível, você pode especificar a política de exclusão reversível da seguinte maneira ao criar ou atualizar a fonte de dados:
 
+```
     {
         …,
         "dataDeletionDetectionPolicy" : {
@@ -263,6 +307,7 @@ Ao usar a técnica de exclusão reversível, você pode especificar a política 
            "softDeleteMarkerValue" : "[the value that indicates that a row is deleted]"
         }
     }
+```
 
 O **softDeleteMarkerValue** deve ser uma cadeia de caracteres – use a representação de cadeia de caracteres de seu valor real. Por exemplo, se você tiver uma coluna de inteiros na qual as linhas excluídas são marcadas com o valor 1, use `"1"`. Se você tiver uma coluna BIT na qual as linhas excluídas são marcadas com o valor true booliano, use a cadeia de caracteres literal `True` ou `true`, o caso não importa.
 
@@ -286,18 +331,20 @@ O **softDeleteMarkerValue** deve ser uma cadeia de caracteres – use a represen
 ## <a name="configuration-settings"></a>Definições de configuração
 O indexador do SQL expõe várias definições de configuração:
 
-| Configuração | Tipo de dados | Finalidade | Valor padrão |
+| Setting | Tipo de dados | Finalidade | Valor padrão |
 | --- | --- | --- | --- |
-| queryTimeout |cadeia de caracteres |Define o tempo limite de execução da consulta SQL |5 minutos ("00:05:00") |
+| queryTimeout |string |Define o tempo limite de execução da consulta SQL |5 minutos ("00:05:00") |
 | disableOrderByHighWaterMarkColumn |bool |Faz com que a consulta SQL usada pela política de marca d'água alta omita a cláusula ORDER BY. Consulte [Política de marca d'água alta](#HighWaterMarkPolicy) |false |
 
 Essas configurações são usadas no objeto `parameters.configuration` na definição do indexador. Por exemplo, para definir o tempo limite da consulta para 10 minutos, crie ou atualize o indexador com a seguinte configuração:
 
+```
     {
       ... other indexer definition properties
      "parameters" : {
             "configuration" : { "queryTimeout" : "00:10:00" } }
     }
+```
 
 ## <a name="faq"></a>Perguntas frequentes
 
@@ -323,17 +370,17 @@ Sim. O indexador é executado em um dos nós em seu serviço de pesquisa, e os r
 
 **P: Posso usar uma réplica secundária em um [cluster de failover](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) como fonte de dados?**
 
-Isso depende. Para a indexação completa de uma tabela ou exibição, você pode usar uma réplica secundária. 
+Depende. Para a indexação completa de uma tabela ou exibição, você pode usar uma réplica secundária. 
 
 Para indexação incremental, o Azure Pesquisa Cognitiva dá suporte a duas políticas de detecção de alteração: controle integrado de alterações do SQL e marca d' água alta.
 
 Em réplicas somente leitura, o banco de dados SQL não dá suporte ao controle de alterações integrado. Portanto, você deve usar a política de Marca D'água Alta. 
 
-Nossa recomendação padrão é usar o tipo de dados rowversion para a coluna de marca d'água alta. No entanto, o uso de rowversion depende da função `MIN_ACTIVE_ROWVERSION` do Banco de Dados SQL, para a qual não há suporte em réplicas somente leitura. Portanto, você deve apontar o indexador para uma réplica primária se estiver usando rowversion.
+Nossa recomendação padrão é usar o tipo de dados rowversion para a coluna de marca d'água alta. No entanto, o uso do timeversion depende da `MIN_ACTIVE_ROWVERSION` função, que não tem suporte em réplicas somente leitura. Portanto, você deve apontar o indexador para uma réplica primária se estiver usando rowversion.
 
 Se você tentar usar rowversion em uma réplica somente leitura, verá o seguinte erro: 
 
-    "Using a rowversion column for change tracking is not supported on secondary (read-only) availability replicas. Please update the datasource and specify a connection to the primary availability replica.Current database 'Updateability' property is 'READ_ONLY'".
+"Não há suporte para o uso de uma coluna do Subversion para o controle de alterações em réplicas de disponibilidade secundárias (somente leitura). Atualize a fonte de fontes e especifique uma conexão com a réplica de disponibilidade primária. A propriedade ' data de atualização ' do banco de dados atual é ' READ_ONLY ' ".
 
 **P: Posso usar uma coluna não rowversion alternativa para o controle de alterações de marca d'água alta?**
 
