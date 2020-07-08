@@ -2,13 +2,13 @@
 title: Integrar um cliente no gerenciamento de recursos delegados do Azure
 description: Saiba como integrar um cliente ao gerenciamento de recursos delegado do Azure, permitindo que seus recursos sejam acessados e gerenciados por meio de seu próprio locatário.
 ms.date: 05/26/2020
-ms.topic: conceptual
-ms.openlocfilehash: a6cdfea7e0520aa704e70a12784f7a7ba5d6aa6d
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.topic: how-to
+ms.openlocfilehash: 149398a822d5aa21335be4122e92c96800d94255
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871115"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920927"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Integrar um cliente no gerenciamento de recursos delegados do Azure
 
@@ -189,7 +189,7 @@ O exemplo a seguir mostra um arquivo **delegatedResourceManagement.parameters.js
 }
 ```
 
-A última autorização no exemplo acima adiciona **principalId** com a função de Administrador de Acesso do Usuário (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). Ao atribuir essa função, você deve incluir a propriedade **delegatedRoleDefinitionIds** e uma ou mais funções internas. O usuário criado nessa autorização poderá atribuir essas funções internas às [identidades gerenciadas](../../active-directory/managed-identities-azure-resources/overview.md) no locatário do cliente, necessárias para [implantar políticas que possam ser corrigidas](deploy-policy-remediation.md). Nenhuma outra permissão normalmente associada à função Administrador de Acesso de Usuário será aplicada a esse usuário.
+A última autorização no exemplo acima adiciona **principalId** com a função de Administrador de Acesso do Usuário (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). Ao atribuir essa função, você deve incluir a propriedade **delegatedRoleDefinitionIds** e uma ou mais funções internas. O usuário criado nessa autorização poderá atribuir essas funções internas às [identidades gerenciadas](../../active-directory/managed-identities-azure-resources/overview.md) no locatário do cliente, necessárias para [implantar políticas que possam ser corrigidas](deploy-policy-remediation.md).  O usuário também pode criar incidentes de suporte.  Nenhuma outra permissão normalmente associada à função Administrador de Acesso de Usuário será aplicada a esse usuário.
 
 ## <a name="deploy-the-azure-resource-manager-templates"></a>Implantar os modelos do Azure Resource Manager
 
@@ -198,9 +198,9 @@ Depois de atualizar o arquivo de parâmetros, um usuário no locatário do clien
 Como essa é uma implantação em nível de assinatura, ela não pode ser iniciada no portal do Azure. A implantação pode ser feita usando a CLI do PowerShell ou do Azure, como mostrado abaixo.
 
 > [!IMPORTANT]
-> A implantação de nível de assinatura deve ser feita por uma conta que não seja de convidado no locatário do cliente que tem a [função interna de Proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) na assinatura que está sendo integrada (ou que contém os grupos de recursos a integrar). Para ver todos os usuários que podem delegar a assinatura, um usuário do locatário do cliente poderá selecionar a assinatura no portal do Azure, abrir o **IAM (Controle de acesso)** e [exibir todos os usuários com a função Proprietário](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
+> A implantação de nível de assinatura deve ser feita por uma conta que não seja de convidado no locatário do cliente que tem a [função interna de Proprietário](../../role-based-access-control/built-in-roles.md#owner) na assinatura que está sendo integrada (ou que contém os grupos de recursos a integrar). Para ver todos os usuários que podem delegar a assinatura, um usuário do locatário do cliente poderá selecionar a assinatura no portal do Azure, abrir o **IAM (Controle de acesso)** e [exibir todos os usuários com a função Proprietário](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
 >
-> Se a assinatura foi criada por meio do programa [CSP (provedor de soluções na nuvem)](../concepts/cloud-solution-provider.md), qualquer usuário que tenha a função de [Agente de administração](https://docs.microsoft.com/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) no locatário do provedor de serviços pode executar a implantação.
+> Se a assinatura foi criada por meio do programa [CSP (provedor de soluções na nuvem)](../concepts/cloud-solution-provider.md), qualquer usuário que tenha a função de [Agente de administração](/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) no locatário do provedor de serviços pode executar a implantação.
 
 ### <a name="powershell"></a>PowerShell
 

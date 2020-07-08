@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 470778e5c441bb05ffc7c5e1c5ef97a6c30d3359
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ab6cc71478e80bc3ff9d81a3a91ce90fbb09adb3
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79247534"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921608"
 ---
 # <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-in-azure"></a>Solução de problemas de falha de alocação ao implantar Serviços de Nuvem no Azure
 ## <a name="summary"></a>Resumo
@@ -41,7 +41,7 @@ Quando a solicitação de alocação é fixada a um cluster, é mais provável q
 ### <a name="error-message"></a>Mensagem de erro
 Você pode ver a seguinte mensagem de erro:
 
-    "Azure operation '{operation id}' failed with code Compute.ConstrainedAllocationFailed. Details: Allocation failed; unable to satisfy constraints in request. The requested new service deployment is bound to an Affinity Group, or it targets a Virtual Network, or there is an existing deployment under this hosted service. Any of these conditions constrains the new deployment to specific Azure resources. Please retry later or try reducing the VM size or number of role instances. Alternatively, if possible, remove the aforementioned constraints or try deploying to a different region."
+> "A operação do Azure ' {ID da operação} ' falhou com o código COMPUTE. ConstrainedAllocationFailed. Detalhes: falha na alocação; Não é possível satisfazer as restrições na solicitação. A implantação solicitada do novo serviço está associada a um Grupo de Afinidades ou é destinada a uma Rede Virtual, ou há uma implantação existente para esse serviço hospedado. Essas condições restringem a nova implantação para os recursos específicos do Microsoft Azure. Tente novamente mais tarde ou tente reduzir o tamanho da VM ou o número de instâncias de função. De forma alternativa, remova as restrições mencionadas acima ou tente implantar em uma região diferente, se possível."
 
 ### <a name="common-issues"></a>Problemas comuns
 Estes são os cenários comuns de alocação que causam a fixação de uma solicitação de alocação em um único cluster.
