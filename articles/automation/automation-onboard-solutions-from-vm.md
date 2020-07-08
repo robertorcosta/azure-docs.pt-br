@@ -5,12 +5,11 @@ services: automation
 ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: cab114e50852f293a3d1caf5bdc9a341f75f2557
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 481d59bd2a06103629dee88868d9e33de810fdab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743955"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84204898"
 ---
 # <a name="enable-update-management-from-an-azure-vm"></a>Habilitar o Gerenciamento de Atualizações de uma VM do Azure
 
@@ -29,7 +28,7 @@ Este artigo descreve como você pode usar uma VM do Azure para habilitar o recur
 
 Entre no Portal do Azure em https://portal.azure.com.
 
-## <a name="enable-update-management"></a>Habilitar Gerenciamento de Atualizações
+## <a name="enable-the-feature-for-deployment"></a>Habilitar o recurso para implantação
 
 1. No [portal do Azure](https://portal.azure.com), selecione **Máquinas virtuais** ou procure e selecione **Máquinas virtuais** na página inicial.
 
@@ -43,16 +42,9 @@ Entre no Portal do Azure em https://portal.azure.com.
 
     ![Habilitar Gerenciamento de Atualizações](media/automation-tutorial-update-management/manageupdates-update-enable.png)
 
-## <a name="check-the-scope-configuration"></a><a name="scope-configuration"></a>Verificar a configuração de escopo
-
-O Gerenciamento de Atualizações usa uma configuração de escopo dentro do workspace para definir os computadores a serem habilitados para o recurso. A configuração de escopo é um grupo de uma ou mais pesquisas salvas utilizadas para limitar o escopo do recurso a computadores específicos. Para obter mais informações, consulte [Trabalhar com configurações de escopo para o Gerenciamento de Atualizações](automation-scope-configurations-update-management.md).
-
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para usar o Gerenciamento de Atualizações para VMs, consulte [Gerenciar atualizações e patches para suas VMs do Azure](automation-tutorial-update-management.md).
-* Para configurações de escopo, consulte [Trabalhar com configurações de escopo para o Gerenciamento de Atualizações](automation-scope-configurations-update-management.md).
-* Se você não precisar mais do workspace do Log Analytics, consulte as instruções em [Desvincular workspace da conta da Automação para Gerenciamento de Atualizações](automation-unlink-workspace-update-management.md).
-* Para excluir VMs do Gerenciamento de Atualizações, consulte [Remover VMs do Gerenciamento de Atualizações](automation-remove-vms-from-update-management.md).
-* Para corrigir erros gerais do Gerenciamento de Atualizações, consulte [Solucionar problemas do Gerenciamento de Atualizações](troubleshoot/update-management.md).
-* Para solucionar problemas com o agente de atualização do Windows, consulte [Solucionar problemas do agente de atualização do Windows](troubleshoot/update-agent-issues.md).
-* Para solucionar problemas com o agente de atualização do Linux, consulte[Solucionar problemas do agente de atualização do Linux](troubleshoot/update-agent-issues-linux.md).
+* Para usar o Gerenciamento de Atualizações para VMs, confira [Gerenciar atualizações e patches para suas VMs do Azure](automation-tutorial-update-management.md).
+* Para solucionar problemas gerais do Gerenciamento de Atualizações, confira [Solucionar problemas do Gerenciamento de Atualizações](troubleshoot/update-management.md).
+* Para solucionar problemas com o agente de atualização do Windows, confira [Solucionar problemas do agente de atualização do Windows](troubleshoot/update-agent-issues.md).
+* Para solucionar problemas com o agente de atualização do Linux, confira [Solucionar problemas do agente de atualização do Linux](troubleshoot/update-agent-issues-linux.md).

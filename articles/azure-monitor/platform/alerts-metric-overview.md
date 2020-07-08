@@ -4,12 +4,11 @@ description: Obtenha uma visão geral do que você pode fazer com alertas de mé
 ms.date: 03/17/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 310d484fa1c88b2c54918fff84020a3438db9ae0
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.openlocfilehash: 603df6f9b00c9261885937a3d85052b3806ff4f8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82855047"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84248814"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Entender como funcionam os alertas de métrica no Azure Monitor
 
@@ -34,7 +33,7 @@ Digamos que você tenha criado uma regra de alerta de métrica simples com limit
 
 Desde o momento em que a regra de alerta é criada, o monitor é executado a cada minuto, examina valores de métrica para os últimos 5 minutos e verifica se a média desses valores excede 70. Se a condição for atendida, ou seja, a média de porcentagem de CPU nos últimos 5 minutos exceder 70, a regra de alerta disparará uma notificação de ativação. Se você configurou um email ou uma ação de web hook no grupo de ações associado à regra de alerta, receberá uma notificação de ativação em ambos.
 
-Quando você está usando várias condições em uma regra, a regra "ands" as condições juntas.  Ou seja, o alerta é disparado quando todas as condições no alerta são avaliadas como true e são resolvidas quando uma das condições não é mais verdadeira. E um exemplo desse tipo de alerta seria Alert quando "CPU maior que 90%" e "o comprimento da fila for superior a 300 itens". 
+Quando você está usando várias condições em uma regra, a regra "ands" as condições juntas. Ou seja, um alerta é acionado quando todas as condições na regra de alerta são avaliadas como true e são resolvidas quando uma das condições não é mais verdadeira. Um exemplo para esse tipo de regra de alerta seria monitorar uma máquina virtual do Azure e alertar quando "a CPU percentual for maior que 90%" e "o comprimento da fila for de mais de 300 itens".
 
 ### <a name="alert-rule-with-dynamic-condition-type"></a>Regra de alerta com o tipo de condição dinâmica
 

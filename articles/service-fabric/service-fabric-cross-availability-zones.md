@@ -5,12 +5,11 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 6da9517f822c9c157d26a1bda8dab2c694b08b12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 54382e74899d2cbb56ccf424b0f39bd874e31630
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75609971"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84259364"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Implantar um cluster de Service Fabric do Azure entre Zonas de Disponibilidade
 Zonas de Disponibilidade no Azure é uma oferta de alta disponibilidade que protege seus aplicativos e dados de falhas do datacenter. Uma zona de disponibilidade é um local físico exclusivo equipado com energia, resfriamento e rede independentes em uma região do Azure.
@@ -140,6 +139,10 @@ Standard Load Balancer e IP público Standard introduzem novas capacidades e com
 
 >[!NOTE]
 > O modelo padrão faz referência a um NSG que permite todo o tráfego de saída por padrão. O tráfego de entrada é limitado às portas necessárias para operações de gerenciamento de Service Fabric. As regras de NSG podem ser modificadas para atender às suas necessidades.
+
+>[!NOTE]
+> Qualquer Service Fabric cluster que faz uso de um SLB SKU Standard precisa garantir que cada tipo de nó tenha uma regra que permita o tráfego de saída na porta 443. Isso é necessário para concluir a configuração do cluster e qualquer implantação sem essa regra falhará.
+
 
 ### <a name="enabling-zones-on-a-virtual-machine-scale-set"></a>Habilitando zonas em um conjunto de dimensionamento de máquinas virtuais
 Para habilitar uma zona, em um conjunto de dimensionamento de máquinas virtuais, você deve incluir os três valores a seguir no recurso do conjunto de dimensionamento de máquinas virtuais.

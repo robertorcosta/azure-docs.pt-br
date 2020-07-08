@@ -3,12 +3,11 @@ title: Como trabalhar com seus grupos de gerenciamento – Governança do Azure
 description: Saiba como visualizar, manter, atualizar e excluir sua hierarquia de grupos de gerenciamento.
 ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: e3d92e0785e54c0999b8cc0f055b7de355a4c4f5
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: b60adbdf404f40739d6bcab7a0a3ceaf24c0b59f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747484"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84259398"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gerenciar seus recursos com grupos de gerenciamento
 
@@ -205,7 +204,7 @@ Ao mover um grupo de gerenciamento ou uma assinatura para ser um filho de outro 
 Se você estiver executando a ação de mover, precisará de: 
 
 - Permissões de gravação de Atribuição de função e gravação de grupo de gerenciamento na no grupo de gerenciamento ou assinatura filho.
-  - Exemplo de **Proprietário** de função interna
+  - **Proprietário** de exemplo de função interna
 - Acesso de gravação do grupo de gerenciamento no grupo de gerenciamento pai alvo.
   - Exemplo de função interna: **Proprietário**, **Colaborador**, **Colaborador do Grupo de Gerenciamento**
 - Acesso de gravação do grupo de gerenciamento no grupo de gerenciamento pai existente.

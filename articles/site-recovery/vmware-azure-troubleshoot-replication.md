@@ -7,12 +7,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/2/2019
 ms.author: mayg
-ms.openlocfilehash: 3a3d8ee1d0c1625c9e7d3d83b590f38dcd8847fe
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 1db32d506cc455b020fc6c0f2bba10361e961324
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836406"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84197034"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Solução de problemas de replicação para VMs VMware e servidores físicos
 
@@ -77,7 +76,7 @@ Como resolver o problema:
     - Navegue até a folha Discos da máquina replicada afetada e copie o nome do disco de réplica
     - Navegar até este disco gerenciado de réplica
     - Você poderá ver uma faixa na folha Visão Geral dizendo que uma URL SAS foi gerada. Clique nessa faixa e cancele a exportação. Ignore esta etapa se você não vir a faixa.
-    - Assim que a URL SAS for revogada, vá para a folha Configuração do Disco Gerenciado e aumente o tamanho para que o ASR dê suporte à taxa de rotatividade observada no disco de origem.
+    - Assim que a URL SAS for revogada, vá para a folha de configuração do disco gerenciado e aumente o tamanho para que Azure Site Recovery suporte a taxa de rotatividade observada no disco de origem
 - Se a variação observada for temporária, aguarde algumas horas para que o carregamento de dados pendente seja atualizado e crie pontos de recuperação.
 - Se o disco contiver dados não críticos, como logs temporários, dados de teste, etc., considere mover esses dados para outro lugar ou exclua completamente este disco da replicação.
 - Se o problema persistir, use o [planejador de implantação](site-recovery-deployment-planner.md#overview) do Site Recovery para ajudar a planejar a replicação.
@@ -146,6 +145,8 @@ Alguns dos problemas mais comuns estão listados abaixo
 #### <a name="cause-3-known-issue-in-sql-server-2016-and-2017"></a>Causa 3: Problema conhecido no SQL Server 2016 e 2017
 **Como corrigir**: Consulte o [artigo](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component) da base de dados
 
+#### <a name="cause-4-app-consistency-not-enabled-on-linux-servers"></a>Causa 4: consistência de aplicativo não habilitada em servidores Linux
+**Como corrigir: a** Azure site Recovery para o sistema operacional Linux dá suporte a scripts personalizados de aplicativo para consistência de aplicativo. O script personalizado com as opções pre e post será usado pelo agente de mobilidade Azure Site Recovery para consistência de aplicativo. [Aqui](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#replication) estão as etapas para habilitá-lo.
 
 ### <a name="more-causes-due-to-vss-related-issues"></a>Mais causas devido a problemas relacionados ao VSS:
 
@@ -162,12 +163,12 @@ No exemplo acima **2147754994** é o código de erro que informa sobre a falha, 
 
 #### <a name="vss-writer-is-not-installed---error-2147221164"></a>O gravador VSS não está instalado — erro 2147221164
 
-*Como corrigir*: Para gerar a marca de consistência do aplicativo, o Azure Site Recovery usa o VSS (Serviço de Cópias de Sombra de Volume) da Microsoft. Ele instala um provedor do VSS para sua operação para obter instantâneos da consistência do aplicativo. Este provedor do VSS é instalado como um serviço. Caso o serviço do provedor do VSS não esteja instalado, a criação do instantâneo da consistência do aplicativo falha com a ID de erro 0x80040154 “classe não registrada”. </br>
+*Como corrigir*: Para gerar a marca de consistência do aplicativo, o Azure Site Recovery usa o VSS (Serviço de Cópias de Sombra de Volume) da Microsoft. Ele instala um provedor do VSS para sua operação para obter instantâneos da consistência do aplicativo. Este provedor do VSS é instalado como um serviço. Caso o serviço do provedor do VSS não esteja instalado, a criação do instantâneo de consistência do aplicativo falha com a ID do erro 0x80040154 "classe não registrada". </br>
 Consulte o [artigo para solução de problemas de instalação do gravador VSS](https://docs.microsoft.com/azure/site-recovery/vmware-azure-troubleshoot-push-install#vss-installation-failures)
 
 #### <a name="vss-writer-is-disabled---error-2147943458"></a>O gravador VSS está desabilitado — Erro 2147943458
 
-**Como corrigir**: Para gerar a marca de consistência do aplicativo, o Azure Site Recovery usa o VSS (Serviço de Cópias de Sombra de Volume) da Microsoft. Ele instala um provedor do VSS para sua operação para obter instantâneos da consistência do aplicativo. Este provedor do VSS é instalado como um serviço. Caso o serviço do provedor do VSS esteja desabilitado, a criação do instantâneo de consistência do aplicativo falha com a ID de erro “O serviço especificado está desabilitado e não pode ser iniciado (0x80070422)”. </br>
+**Como corrigir**: Para gerar a marca de consistência do aplicativo, o Azure Site Recovery usa o VSS (Serviço de Cópias de Sombra de Volume) da Microsoft. Ele instala um provedor do VSS para sua operação para obter instantâneos da consistência do aplicativo. Este provedor do VSS é instalado como um serviço. Caso o serviço do provedor do VSS esteja desabilitado, a criação do instantâneo de consistência do aplicativo falha com a ID do erro "o serviço especificado está desabilitado e não pode ser iniciado (0x80070422)". </br>
 
 - Se o VSS estiver desabilitado,
     - Verifique se o tipo de inicialização do serviço do provedor do VSS está definido como **Automático**.

@@ -3,16 +3,15 @@ title: Gerenciar servidores e cofres dos Serviços de Recuperação do Microsoft
 description: Neste artigo, saiba como usar o painel Visão geral do cofre dos serviços de recuperação para monitorar e gerenciar seus cofres dos serviços de recuperação.
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 1a4d23c157700f42422cfe7ca8fa1c49e2cf128a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 598e9198ee7e153d8008389f97c0be399a0186ba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80131966"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84234603"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorar e gerenciar cofres dos Serviços de Recuperação
 
-Este artigo explica como usar o painel de **Visão geral** do cofre dos Serviços de Recuperação para monitorar e gerenciar os cofres dos Serviços de Recuperação. Quando você abre um cofre dos Serviços de Recuperação na lista, o painel de **Visão geral** do cofre selecionado será aberto. O painel fornece vários detalhes sobre o cofre. Há *blocos* que mostram: o status dos alertas críticos e de aviso, trabalhos de backup em andamento e com falha e a quantidade de LRS (armazenamento com redundância local) e GRS (armazenamento com redundância geográfica) utilizada. Se você fizer backup de VMs do Azure no cofre, o bloco [**Status da Pré-Verificação de Backup** exibe todos os itens críticos ou de aviso](https://docs.microsoft.com/azure/backup/backup-azure-manage-windows-server#backup-pre-check-status). A imagem a seguir é o painel de **Visão geral** do **cofre da Contoso**. O bloco **Itens de Backup** mostra que existem nove itens registrados no cofre.
+Este artigo explica como usar o painel de **Visão geral** do cofre dos Serviços de Recuperação para monitorar e gerenciar os cofres dos Serviços de Recuperação. Quando você abre um cofre dos Serviços de Recuperação na lista, o painel de **Visão geral** do cofre selecionado será aberto. O painel fornece vários detalhes sobre o cofre. Há *blocos* que mostram: o status de alertas críticos e de aviso, trabalhos de backup em andamento e com falha e a quantidade de armazenamento com redundância local (LRS) e o armazenamento com redundância geográfica (GRS) usados. Se você fizer backup de VMs do Azure no cofre, o bloco [**Status da Pré-Verificação de Backup** exibe todos os itens críticos ou de aviso](https://docs.microsoft.com/azure/backup/backup-azure-manage-windows-server#backup-pre-check-status). A imagem a seguir é o painel de **Visão geral** do **cofre da Contoso**. O bloco **Itens de Backup** mostra que existem nove itens registrados no cofre.
 
 ![painel do cofre dos serviços de recuperação](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
 
@@ -231,7 +230,7 @@ O Tipo de Item é o tipo de gerenciamento de backup da instância protegida. Há
 É possível exibir uma única operação ou todas as operações. Não é possível selecionar duas ou três operações. As Operações disponíveis são:
 
 * Todas as operações
-* Registrar
+* Registre-se
 * Configurar o backup
 * Backup
 * Restaurar
@@ -245,7 +244,7 @@ O Tipo de Item é o tipo de gerenciamento de backup da instância protegida. Há
 * Todos os status
 * Concluído
 * Em andamento
-* Failed (Falha)
+* Falhou
 * Canceled
 * Concluído com avisos
 

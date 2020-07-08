@@ -1,7 +1,7 @@
 ---
-title: Adquirir tokens de cache & com MSAL | Azure
+title: Adquirir tokens de cache & com MSAL (biblioteca de autenticação da Microsoft) | Azure
 titleSuffix: Microsoft identity platform
-description: Saiba mais sobre a aquisição e o armazenamento em cache de tokens usando a MSAL (Biblioteca de Autenticação da Microsoft).
+description: Saiba mais sobre como adquirir e armazenar em cache tokens usando o MSAL.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -9,66 +9,72 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/07/2019
+ms.date: 05/28/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 647dff9e6401322371ef795a25ca5ced2b517e9c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: bdf9c1ce36921076ab79b2ca501bf008eddfe375
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81534577"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84194042"
 ---
 # <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>Adquirir e armazenar tokens em cache usando a MSAL (biblioteca de autenticação da Microsoft)
 
-Os [tokens de acesso](access-tokens.md) permitem que os clientes chamem com segurança as APIs Web protegidas pelo Azure. Há muitas maneiras de adquirir um token usando a MSAL (Biblioteca de Autenticação da Microsoft). Algumas formas exigem interações do usuário por meio de um navegador da Web. Algumas não exigem interações do usuário. Em geral, a maneira de adquirir um token depende de se o aplicativo é um aplicativo cliente público (desktop ou aplicativo móvel) ou um aplicativo cliente confidencial (aplicativo Web, API da Web ou aplicativos daemon, como um serviço do Windows).
+Os [tokens de acesso](access-tokens.md) permitem que os clientes chamem com segurança as APIs Web protegidas pelo Azure. Há várias maneiras de adquirir um token usando a MSAL (biblioteca de autenticação da Microsoft). Alguns exigem a interação do usuário por meio de um navegador da Web, enquanto outros não exigem interação do usuário. Em geral, o método usado para adquirir um token depende de o aplicativo ser um aplicativo cliente público, como desktop ou aplicativo móvel, ou um aplicativo cliente confidencial, como aplicativo Web, API da Web ou aplicativos daemon.
 
-A MSAL armazena um token em cache após sua aquisição.  Primeiro, o código do aplicativo deve tentar obter um token silenciosamente (a partir do cache), antes de adquirir um token por outros meios.
+MSAL armazena em cache um token depois que ele é adquirido. O código do aplicativo deve primeiro tentar obter um token silenciosamente do cache antes de tentar adquirir um token por outros meios.
 
 Também é possível limpar o cache do token removendo as contas do cache. No entanto, isso não remove o cookie de sessão que está no navegador.
 
 ## <a name="scopes-when-acquiring-tokens"></a>Escopos ao adquirir tokens
 
-Os [escopos](v2-permissions-and-consent.md) são as permissões que uma API da Web expõe para que os aplicativos cliente solicitem acesso. Os aplicativos cliente solicitam o consentimento do usuário para esses escopos quando fazem solicitações de autenticação para obter tokens para acessar as APIs da Web. A MSAL permite que você obtenha tokens para acessar o Azure AD para desenvolvedores (v1.0) e APIs da plataforma de identidade da Microsoft (v2.0). O protocolo v2.0 usa escopos em vez de recursos nas solicitações. Confira mais informações na [comparação entre a v1.0 e a v2.0](active-directory-v2-compare.md). Com base na configuração da API Web da versão do token que ela aceita, o ponto de extremidade da v2.0 retorna o token de acesso à MSAL.
+[Escopos](v2-permissions-and-consent.md) são as permissões que uma API Web expõe para a qual os aplicativos cliente podem solicitar acesso. Os aplicativos cliente solicitam o consentimento do usuário para esses escopos quando fazem solicitações de autenticação para obter tokens para acessar as APIs da Web. A MSAL permite que você obtenha tokens para acessar o Azure AD para desenvolvedores (v1.0) e APIs da plataforma de identidade da Microsoft (v2.0). O protocolo v2.0 usa escopos em vez de recursos nas solicitações. Confira mais informações na [comparação entre a v1.0 e a v2.0](active-directory-v2-compare.md). Com base na configuração da API Web da versão do token que ela aceita, o ponto de extremidade da v2.0 retorna o token de acesso à MSAL.
 
-Vários métodos de token de aquisição da MSAL exigem um parâmetro de *escopos*. Esse parâmetro é uma lista simples de cadeias de caracteres que declaram as permissões e os recursos desejados que são solicitados. As [Permissões do Microsoft Graph](/graph/permissions-reference) são escopos conhecidos.
+Vários métodos de aquisição de token do MSAL exigem um `scopes` parâmetro. O `scopes` parâmetro é uma lista de cadeias de caracteres que declaram as permissões desejadas e os recursos solicitados. Os escopos bem conhecidos são as [permissões de Microsoft Graph](/graph/permissions-reference).
 
-Na MSAL, também é possível acessar recursos da versão 1.0. Veja mais informações em [Escopos de um aplicativo v1.0](msal-v1-app-scopes.md).
+Na MSAL, também é possível acessar recursos da versão 1.0. Para obter mais informações, consulte [escopos para um aplicativo v 1.0](msal-v1-app-scopes.md).
 
-### <a name="request-specific-scopes-for-a-web-api"></a>Solicitar escopos específicos para uma API Web
+### <a name="request-scopes-for-a-web-api"></a>Escopos de solicitação para uma API Web
 
-Quando seu aplicativo precisar solicitar tokens com permissões específicas para uma API de recurso, você precisará passar os escopos que contêm o URI de ID do aplicativo da API no formato abaixo: * &lt;escopo&gt;/&lt;do URI da ID do aplicativo&gt;*
+Quando seu aplicativo precisar solicitar um token de acesso com permissões específicas para uma API de recurso, passe os escopos que contêm o URI de ID do aplicativo da API no formato `<app ID URI>/<scope>` .
 
-Por exemplo, escopos da API do Microsoft Graph: `https://graph.microsoft.com/User.Read`
+Alguns exemplos de valores de escopo para recursos diferentes:
 
-Ou, por exemplo, escopos da API Web personalizada: `api://abscdefgh-1234-abcd-efgh-1234567890/api.read`
+- API de Microsoft Graph:`https://graph.microsoft.com/User.Read`
+- API Web personalizada:`api://11111111-1111-1111-1111-111111111111/api.read`
 
-No caso da API do Microsoft Graph, um valor de escopo `user.read` é mapeado para o formato `https://graph.microsoft.com/User.Read` e pode ser usado de maneira intercambiável.
+O formato do valor do escopo varia de acordo com o recurso (a API) que recebe o token de acesso e os `aud` valores de declaração que ele aceita.
 
-> [!NOTE]
-> Determinadas APIs Web, como a API do Azure Resource Manager (https://management.core.windows.net/)) exigem uma “/” na declaração do público-alvo (aud) do token de acesso. Nesse caso, é importante transmitir o escopo como https://management.core.windows.net//user_impersonation (observe as barras duplas) para que o token seja válido na API.
+Somente para Microsoft Graph, o `user.read` escopo é mapeado para `https://graph.microsoft.com/User.Read` , e ambos os formatos de escopo podem ser usados de forma intercambiável.
+
+Determinadas APIs da Web, como a API de Azure Resource Manager ( https://management.core.windows.net/) espere uma barra "/") na declaração de público ( `aud` ) do token de acesso. Nesse caso, passe o escopo como `https://management.core.windows.net//user_impersonation` , incluindo a barra dupla ('//').
+
+Outras APIs podem exigir que *nenhum esquema ou host* esteja incluído no valor do escopo e espere apenas a ID do aplicativo (um GUID) e o nome do escopo, por exemplo:
+
+`11111111-1111-1111-1111-111111111111/api.read`
+
+> [!TIP]
+> Se o recurso downstream não estiver sob seu controle, talvez seja necessário tentar diferentes formatos de valor de escopo (por exemplo, com/sem esquema e host) se você receber `401` ou outros erros ao passar o token de acesso para o recurso.
 
 ### <a name="request-dynamic-scopes-for-incremental-consent"></a>Solicitar escopos dinâmicos de consentimento incremental
 
-Quando você criava aplicativos com a v1.0, precisava registrar o conjunto completo de permissões (escopos estáticos) exigido pelo aplicativo para que o usuário consentisse durante o login. Na v2.0, você pode solicitar permissões adicionais conforme necessário usando o parâmetro do escopo. Eles são chamados escopos dinâmicos e permitem que o usuário forneça consentimento incremental aos escopos.
+Conforme os recursos fornecidos pelo seu aplicativo ou seus requisitos mudam, você pode solicitar permissões adicionais, conforme necessário, usando o parâmetro de escopo. Esses *escopos dinâmicos* permitem que os usuários forneçam consentimento incremental para os escopos.
 
-Por exemplo, inicialmente você pode conectar o usuário e negar a ele qualquer tipo de acesso. Posteriormente, pode oferecer a ele permissão para ler o calendário do usuário solicitando o escopo do calendário nos métodos de token de aquisição e obter o consentimento do usuário.
-
-Por exemplo: `https://graph.microsoft.com/User.Read` e `https://graph.microsoft.com/Calendar.Read`
+Por exemplo, você pode entrar no usuário, mas inicialmente negar acesso a todos os recursos. Posteriormente, você pode dar a eles a capacidade de exibir seus calendários solicitando o escopo do calendário no método de token de aquisição e obtendo o consentimento do usuário para fazer isso. Por exemplo, solicitando os `https://graph.microsoft.com/User.Read` `https://graph.microsoft.com/Calendar.Read` escopos e.
 
 ## <a name="acquiring-tokens-silently-from-the-cache"></a>Adquirir tokens silenciosamente (do cache)
 
-A MSAL mantém um cache de tokens (ou dois caches para aplicativos cliente confidenciais) e armazena um token em cache após sua aquisição.  Em muitos casos, a tentativa de obter um token silenciosamente adquirirá outro token com mais escopos tendo como base um token armazenado no cache. Além disso, a MSAL também pode atualizar um token quando a expiração estiver próxima (pois o cache de tokens também contém um token de atualização).
+O MSAL mantém um cache de token (ou dois caches para aplicativos cliente confidenciais) e armazena em cache um token depois que ele é adquirido. Em muitos casos, a tentativa de obter um token silenciosamente adquirirá outro token com mais escopos tendo como base um token armazenado no cache. Além disso, a MSAL também pode atualizar um token quando a expiração estiver próxima (pois o cache de tokens também contém um token de atualização).
 
 ### <a name="recommended-call-pattern-for-public-client-applications"></a>Padrão de chamada recomendado para aplicativos cliente públicos
 
-Primeiro, o código do aplicativo deve tentar obter um token silenciosamente (a partir do cache).  Se a chamada do método retornar um erro ou exceção "IU necessária", tente adquirir um token por outros meios.
+O código do aplicativo deve primeiro tentar obter um token silenciosamente do cache. Se a chamada do método retornar um erro ou exceção "IU necessária", tente adquirir um token por outros meios.
 
-No entanto, existem dois fluxos antes dos quais você **não deve** tentar adquirir um token silenciosamente:
+Há dois fluxos, no entanto, em que você **não deve** tentar adquirir um token silenciosamente:
 
-- [fluxo de credenciais de cliente](msal-authentication-flows.md#client-credentials), que não usa o cache de tokens do usuário, mas usa um cache de tokens do aplicativo. Esse método se encarrega de verificar o cache de tokens do aplicativo antes de enviar uma solicitação ao STS.
-- o [fluxo de código de autorização](msal-authentication-flows.md#authorization-code) em aplicativos Web, pois ele resgata um código que o aplicativo obteve ao entrar no usuário e concede-lhes consentimento para mais escopos. Como um código é passado como parâmetro, e não uma conta, o método não pode procurar no cache antes de resgatar o código, o que requer, de qualquer maneira, uma chamada para o serviço.
+- [Fluxo de credenciais de cliente](msal-authentication-flows.md#client-credentials), que não usa o cache de token de usuário, mas um cache de token de aplicativo. Esse método cuida da verificação do cache do token do aplicativo antes de enviar uma solicitação ao serviço de token de segurança (STS).
+- O [fluxo de código de autorização](msal-authentication-flows.md#authorization-code) em aplicativos Web, pois ele resgata um código que o aplicativo obteve ao assinar o usuário e que os consentiu em mais escopos. Como um código e não uma conta é passado como um parâmetro, o método não pode procurar no cache antes de resgatar o código, o que invoca uma chamada para o serviço.
 
 ### <a name="recommended-call-pattern-in-web-apps-using-the-authorization-code-flow"></a>Padrão de chamada recomendado em aplicativos Web usando o fluxo de código de autorização
 
@@ -84,24 +90,26 @@ Em geral, o método de aquisição de um token variará se ele for um aplicativo
 ### <a name="public-client-applications"></a>Aplicativos cliente públicos
 
 Para aplicativos cliente públicos (área de trabalho ou aplicativo móvel), você:
+
 - Geralmente adquire tokens interativamente fazendo com que o usuário faça conexão pela interface do usuário ou por uma janela pop-up.
 - Pode [obter um token silenciosamente para o usuário conectado](msal-authentication-flows.md#integrated-windows-authentication) usando a Autenticação Integrada do Windows (IWA/Kerberos) se o aplicativo da área de trabalho estiver sendo executado em um computador Windows associado a um domínio ou ao Azure.
-- Pode [obter um token com um nome de usuário e senha](msal-authentication-flows.md#usernamepassword) em aplicativos cliente de área de trabalho do .NET Framework, mas isso não é recomendado. Não use o nome de usuário e senha em aplicativos cliente confidenciais.
-- Pode adquirir um token através do [fluxo de código do dispositivo](msal-authentication-flows.md#device-code) em aplicativos executados em dispositivos que não têm um navegador da Web. O usuário recebe uma URL e um código. Depois, ele acessa um navegador da Web em outro dispositivo, insere o código e entra.  Em seguida, o Azure AD envia um token de volta ao dispositivo sem navegador.
+- Pode [obter um token com um nome de usuário e senha](msal-authentication-flows.md#usernamepassword) em aplicativos cliente de desktop do .NET Framework (não recomendado). Não use o nome de usuário e senha em aplicativos cliente confidenciais.
+- O pode adquirir um token por meio do [fluxo de código do dispositivo](msal-authentication-flows.md#device-code) em aplicativos em execução em dispositivos que não têm um navegador da Web. O usuário recebe uma URL e um código. Depois, ele acessa um navegador da Web em outro dispositivo, insere o código e entra. Em seguida, o Azure AD envia um token de volta ao dispositivo sem navegador.
 
 ### <a name="confidential-client-applications"></a>Aplicativos cliente confidenciais
 
-Para aplicativos cliente confidenciais (aplicativo Web, API da Web ou aplicativos daemon, como um serviço do Windows), você:
-- Adquire tokens **para o próprio aplicativo** e não para um usuário utilizando o [fluxo de credenciais de cliente](msal-authentication-flows.md#client-credentials). Isso pode ser usado para ferramentas de sincronização ou ferramentas que processam usuários em geral e não um usuário específico.
-- Use o [fluxo On-behalf-of](msal-authentication-flows.md#on-behalf-of) para uma API Web para chamar uma API em nome do usuário. O aplicativo é identificado com as credenciais do cliente para adquirir um token com base na declaração de um usuário (SAML, por exemplo, ou um token JWT). Esse fluxo é usado por aplicativos que precisam acessar recursos de um usuário específico em chamadas de serviço a serviço.
+Para aplicativos cliente confidenciais (aplicativo Web, API da Web ou um aplicativo daemon como um serviço do Windows), você:
+
+- Adquire tokens **para o próprio aplicativo** e não para um usuário utilizando o [fluxo de credenciais de cliente](msal-authentication-flows.md#client-credentials). Essa técnica pode ser usada para ferramentas de sincronização ou ferramentas que processam usuários em geral e não um usuário específico.
+- Use o [fluxo em nome de](msal-authentication-flows.md#on-behalf-of) de uma API da Web para chamar uma API em nome do usuário. O aplicativo é identificado com credenciais de cliente para adquirir um token com base em uma asserção de usuário (SAML, por exemplo, ou um token JWT). Esse fluxo é usado por aplicativos que precisam acessar recursos de um usuário específico em chamadas de serviço a serviço.
 - Adquira tokens usando o [fluxo de código de autorização](msal-authentication-flows.md#authorization-code) em aplicativos Web depois que o usuário entrar usando a URL de solicitação de autorização. O aplicativo do OpenID Connect geralmente usa esse mecanismo que permite ao usuário entrar usando o Open ID Connect e acessar as APIs Web em nome do usuário.
 
 ## <a name="authentication-results"></a>Resultados da autenticação
 
-Quando seu cliente solicita um token de acesso, o Azure AD também retorna um resultado da autenticação que inclui alguns metadados sobre o token de acesso. Essas informações incluem a data de expiração do token de acesso e os escopos para os quais ele é válido. Esses dados permitem ao aplicativo realizar o cache inteligente dos tokens de acesso sem precisar analisar o token de acesso em si.  O resultado da autenticação expõe:
+Quando o cliente solicita um token de acesso, o AD do Azure também retorna um resultado de autenticação que inclui metadados sobre o token de acesso. Essas informações incluem a data de expiração do token de acesso e os escopos para os quais ele é válido. Esses dados permitem ao aplicativo realizar o cache inteligente dos tokens de acesso sem precisar analisar o token de acesso em si. O resultado da autenticação expõe:
 
-- O [token de acesso](access-tokens.md) da API Web para acessar os recursos. O token é uma cadeia de caracteres, geralmente um JWT codificado em base64. Porém, o cliente não deve explorar o token de acesso. Não há garantias que o formato permanecerá estável e ele pode ser criptografado para o recurso. A gravação de código que depende do conteúdo do token de acesso no cliente é uma das maiores origens de erros e quebras de lógica do cliente.
-- A [ID do token](id-tokens.md) para o usuário (esse é um JWT).
+- O [token de acesso](access-tokens.md) da API Web para acessar os recursos. Essa cadeia de caracteres é geralmente um JWT codificado em base64, mas o cliente nunca deve olhar para dentro do token de acesso. O formato não tem garantia de permanecer estável e pode ser criptografado para o recurso. As pessoas que escrevem código dependendo do conteúdo do token de acesso no cliente são uma das fontes mais comuns de erros e quebra de lógica do cliente.
+- O [token de ID](id-tokens.md) para o usuário (um JWT).
 - A expiração do token, que informa a data/hora da expiração do token.
 - A ID do locatário contém o locatário no qual o usuário foi encontrado. Para usuários convidados (cenários B2B do Azure AD), a ID do locatário é o locatário convidado e não o locatário exclusivo. Quando o token é entregue em nome de um usuário, o resultado da autenticação também contém informações sobre esse usuário. Para fluxos de clientes confidenciais em que os tokens são solicitados sem nenhum usuário (para o aplicativo), essas informações sobre o usuário são nulas.
 - Os escopos para os quais o token foi emitido.

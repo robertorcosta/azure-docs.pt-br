@@ -9,15 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 04/29/2020
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 3ea6c4226a59ba020a477cc5811033ff3dc3c2e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 57a8d308955719be0d84b87fb3a23c6f510c2836
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76772060"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84234889"
 ---
 # <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>Usar a predefinição de codificação com reconhecimento de conteúdo para localizar o valor de taxa de bits ideal para uma determinada resolução
 
@@ -55,9 +54,10 @@ Abaixo estão os resultados de outra categoria de conteúdo de origem, em que o 
 
 Você pode criar transformações que usam essa predefinição da seguinte maneira. 
 
-> [!TIP]
-> Consulte a seção [próximas etapas](#next-steps) para ver tutoriais que usam saídas de transformar. O ativo de saída pode ser entregue de pontos de extremidade de streaming dos serviços de mídia em protocolos como MPEG-DASH e HLS (conforme mostrado nos tutoriais).
+Consulte a seção [próximas etapas](#next-steps) para ver tutoriais que usam saídas de transformar. O ativo de saída pode ser entregue de pontos de extremidade de streaming dos serviços de mídia em protocolos como MPEG-DASH e HLS (conforme mostrado nos tutoriais).
 
+> [!NOTE]
+> Certifique-se de usar a predefinição **ContentAwareEncoding** não ContentAwareEncodingExperimental.
 
 ```csharp
 TransformOutput[] output = new TransformOutput[]
@@ -76,12 +76,12 @@ TransformOutput[] output = new TransformOutput[]
 ```
 
 > [!NOTE]
-> Os trabalhos de codificação `ContentAwareEncoding` usando a predefinição estão sendo cobrados com base nos minutos de saída. 
-
+> Os trabalhos de codificação usando a `ContentAwareEncoding` predefinição estão sendo cobrados com base nos minutos de saída. 
+  
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Tutorial: Fazer upload, codificar e transmitir vídeos com os Serviços de Mídia v3](stream-files-tutorial-with-api.md)
+* [Tutorial: carregar, codificar e transmitir vídeos com os serviços de mídia v3](stream-files-tutorial-with-api.md)
 * [Tutorial: codificar um arquivo remoto com base na URL e transmitir o vídeo-REST](stream-files-tutorial-with-rest.md)
 * [Tutorial: codificar um arquivo remoto com base na URL e transmitir a video-CLI](stream-files-cli-quickstart.md)
 * [Tutorial: codificar um arquivo remoto com base na URL e transmitir o vídeo-.NET](stream-files-dotnet-quickstart.md)
-* [Tutorial: codificar um arquivo remoto com base na URL e transmitir o vídeo-node. js](stream-files-nodejs-quickstart.md)
+* [Tutorial: codificar um arquivo remoto com base na URL e transmitir o vídeo-Node.js](stream-files-nodejs-quickstart.md)

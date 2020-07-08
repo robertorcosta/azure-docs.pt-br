@@ -3,12 +3,11 @@ title: Solucionar problemas SQL Server backup de banco de dados
 description: Informações de solução de problemas para fazer backup de bancos de dados do SQL Server em execução em VMs do Azure com o Backup do Azure.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: cec3f8530d8a48a870c672d418d42d12a62aa2a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a4397f0bfa50990a7ad8080579261ed4587c4958
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183323"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84247947"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Solucionar problemas SQL Server backup de banco de dados usando o backup do Azure
 
@@ -50,9 +49,9 @@ Se a VM do SQL precisar ser registrada no novo cofre, ele deverá ter o registro
 
 1. Exclua os três processos a seguir em execução em uma VM da verificação antivírus:
 
-    - IaasWLPluginSvc. exe
-    - IaasWorkloadCoordinaorService. exe
-    - TriggerExtensionJob. exe
+    - IaasWLPluginSvc.exe
+    - IaasWorkloadCoordinaorService.exe
+    - TriggerExtensionJob.exe
 
 1. O SQL também oferece algumas diretrizes para trabalhar com programas antivírus. Consulte [Este artigo](https://support.microsoft.com/help/309422/choosing-antivirus-software-for-computers-that-run-sql-server) para obter detalhes.
 
@@ -123,7 +122,7 @@ Se a VM do SQL precisar ser registrada no novo cofre, ele deverá ter o registro
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
-| O backup de log usado para a recuperação contém alterações bulk-logged. Ele não pode ser usado para parar em um ponto arbitrário de acordo com as diretrizes do SQL. | Quando um banco de dados está no modo de recuperação bulk-logged, os dados entre uma transação bulk-logged e a próxima transação de log não podem ser recuperados. | Escolha um ponto diferente no tempo para a recuperação. [Saiba mais](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-ver15).
+| O backup de log usado para a recuperação contém alterações bulk-logged. Ele não pode ser usado para parar em um ponto arbitrário no tempo, de acordo com as diretrizes do SQL. | Quando um banco de dados está no modo de recuperação bulk-logged, os dados entre uma transação bulk-logged e a próxima transação de log não podem ser recuperados. | Escolha um ponto diferente no tempo para a recuperação. [Saiba mais](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-ver15).
 
 ### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError
 
@@ -167,12 +166,12 @@ A operação está bloqueada porque o cofre atingiu seu limite máximo para essa
 |---|---|---|
 A VM não é capaz de contatar o serviço de backup do Azure devido a problemas de conectividade com a Internet. | A VM precisa de conectividade de saída para o serviço de backup do Azure, o armazenamento do Azure ou serviços de Azure Active Directory.| -Se você usar NSG para restringir a conectividade, deverá usar a marca de serviço AzureBackup para permitir o acesso de saída ao backup do Azure para o serviço de backup do Azure, armazenamento do Azure ou serviços de Azure Active Directory. Siga estas [etapas](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#allow-access-using-nsg-tags) para conceder acesso.<br>-Verifique se o DNS está resolvendo os pontos de extremidade do Azure.<br>-Verifique se a VM está atrás de um balanceador de carga bloqueando o acesso à Internet. Ao atribuir o IP público às VMs, a descoberta funcionará.<br>-Verifique se não há firewall/antivírus/proxy que esteja bloqueando chamadas para os três serviços de destino acima.
 
-## <a name="re-registration-failures"></a>Falhas de novo registro
+## <a name="re-registration-failures"></a>Falhas no novo registro
 
-Verifique se há um ou mais dos seguintes sintomas antes de disparar a operação de novo registro:
+Verifique se um ou mais dos seguintes sintomas existem, antes de acionar a operação de novo registro:
 
 - Todas as operações (como backup, restauração e configuração de backup) estão falhando na VM com um dos seguintes códigos de erro: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**.
-- Se a área **status de backup** do item de backup estiver mostrando **não acessível**, descartar todas as outras causas que podem resultar no mesmo status:
+- Se a área de **Status de backup** para o item de backup estiver mostrando **Não acessível**, descarte todas as outras causas que possam resultar no mesmo status:
 
   - Falta de permissão para executar operações relacionadas ao backup na VM.
   - Desligamento da VM, portanto, os backups não podem ocorrer.
@@ -182,16 +181,16 @@ Verifique se há um ou mais dos seguintes sintomas antes de disparar a operaçã
 
 - No caso de um grupo de disponibilidade Always On, os backups começaram a falhar após a alteração da preferência de backup ou após um failover.
 
-Esses sintomas podem surgir por um ou mais dos seguintes motivos:
+Esses sintomas podem surgir devido a uma ou mais das seguintes razões:
 
-- Uma extensão foi excluída ou desinstalada do Portal.
+- Uma extensão foi excluída ou desinstalada no portal.
 - Uma extensão foi desinstalada do **painel de controle** na VM em **desinstalar ou alterar um programa**.
-- A VM foi restaurada de volta no tempo por meio da restauração de disco in-loco.
-- A VM foi desligada por um período estendido, portanto, a configuração de extensão nela expirou.
+- A VM foi restaurada retroativamente por meio da restauração de disco in-loco.
+- A VM foi desligada por um período prolongado, portanto, a configuração de extensão expirou.
 - A VM foi excluída e outra VM foi criada com o mesmo nome e no mesmo grupo de recursos que a VM excluída.
 - Um dos nós do grupo de disponibilidade não recebeu a configuração de backup completa. Isso pode acontecer quando o grupo de disponibilidade é registrado no cofre ou quando um novo nó é adicionado.
 
-Nos cenários anteriores, recomendamos que você dispare uma operação de novo registro na VM. Consulte [aqui](https://docs.microsoft.com/azure/backup/backup-azure-sql-automation#enable-backup) para obter instruções sobre como executar essa tarefa no PowerShell.
+Nos cenários anteriores, recomendamos que você acione uma operação de novo registro na VM. Consulte [aqui](https://docs.microsoft.com/azure/backup/backup-azure-sql-automation#enable-backup) para obter instruções sobre como executar essa tarefa no PowerShell.
 
 ## <a name="size-limit-for-files"></a>Limite de tamanho para arquivos
 
@@ -219,7 +218,7 @@ Se o tamanho da cadeia de caracteres do conteúdo exceder 20.000 bytes, os arqui
 
 ### <a name="override-the-default-target-restore-file-path"></a>Substituir o caminho de arquivo de restauração de destino padrão
 
-Você pode substituir o caminho do arquivo de restauração de destino durante a operação de restauração, colocando um arquivo JSON que contém o mapeamento do arquivo de banco de dados para o caminho de restauração de destino. Crie um `database_name.json` arquivo e coloque-o no local `C:\Program Files\Azure Workload Backup\bin\plugins\SQL*`.
+Você pode substituir o caminho do arquivo de restauração de destino durante a operação de restauração, colocando um arquivo JSON que contém o mapeamento do arquivo de banco de dados para o caminho de restauração de destino. Crie um `database_name.json` arquivo e coloque-o no local `C:\Program Files\Azure Workload Backup\bin\plugins\SQL*` .
 
 O conteúdo do arquivo deve estar neste formato:
 
@@ -267,4 +266,4 @@ Esse arquivo deve ser colocado antes de você disparar a operação de restaura�
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o backup do Azure para VMs SQL Server (visualização pública), consulte [backup do Azure para VMs do SQL](../virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md#azbackup).
+Para obter mais informações sobre o backup do Azure para VMs SQL Server (visualização pública), consulte [backup do Azure para VMs do SQL](../azure-sql/virtual-machines/windows/backup-restore.md#azbackup).

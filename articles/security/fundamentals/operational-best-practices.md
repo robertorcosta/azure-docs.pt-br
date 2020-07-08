@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 80b8adfc26cd87e0788852e98fddb0fd3f2e8cd5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 56132eae03a52af425e00bec93a63a697a2a55e6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188579"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84204728"
 ---
 # <a name="azure-operational-security-best-practices"></a>Práticas recomendadas de Segurança Operacional do Azure
 Este artigo fornece um conjunto de práticas recomendadas operacionais para proteger seus dados, aplicativos e outros ativos no Azure.
@@ -215,8 +214,8 @@ Para obter mais informações, consulte [criar e gerenciar políticas para impor
 **Prática recomendada**: identificar as funções responsáveis pelo monitoramento de violações de política e garantir que a ação de correção correta seja executada rapidamente.   
 **Detalhe**: tenha a conformidade do monitor de função atribuída por meio da [portal do Azure](../../governance/policy/how-to/get-compliance-data.md#portal) ou por meio da [linha de comando](../../governance/policy/how-to/get-compliance-data.md#command-line).
 
-**Prática recomendada**: Azure Policy é uma representação técnica das políticas escritas de uma organização. Mapeie todas as políticas do Azure para políticas organizacionais para reduzir a confusão e aumentar a consistência.   
-**Detalhe**: mapeamento de documentos na documentação da sua organização ou na própria definição de Azure Policy adicionando uma referência à política organizacional na definição de [Azure Policy](../../governance/policy/concepts/definition-structure.md#display-name-and-description) ou na descrição da [iniciativa de Azure Policy](../../governance/policy/concepts/definition-structure.md#initiatives) .
+**Prática recomendada**: Azure Policy é uma representação técnica das políticas escritas de uma organização. Mapeie todas as definições de Azure Policy para políticas organizacionais para reduzir a confusão e aumentar a consistência.   
+**Detalhe**: mapeamento de documento na documentação da sua organização ou na própria definição de Azure Policy adicionando uma referência à política organizacional na definição de [política](../../governance/policy/concepts/definition-structure.md#display-name-and-description) ou na descrição de [definição de iniciativa](../../governance/policy/concepts/initiative-definition-structure.md#metadata) .
 
 ## <a name="monitor-azure-ad-risk-reports"></a>Monitorar relatórios de risco do Azure AD
 A grande maioria das violações de segurança ocorre quando os invasores conseguem acessar a um ambiente roubando a identidade de um usuário. Descobrir identidades comprometidas não é uma tarefa fácil. O Azure AD usa algoritmos de aprendizado de máquina e heurística adaptáveis para detectar ações suspeitas relacionadas às contas do usuário. Cada ação suspeita detectada é armazenada em um registro chamado [detecção de risco](../../active-directory/reports-monitoring/concept-risk-events.md). As detecções de risco são registradas nos relatórios de segurança do Azure AD. Para obter mais informações, leia sobre o [relatório de segurança de usuários em risco](../../active-directory/reports-monitoring/concept-user-at-risk.md) e o [relatório de segurança de entradas arriscadas](../../active-directory/reports-monitoring/concept-risky-sign-ins.md).

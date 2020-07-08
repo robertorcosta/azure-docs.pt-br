@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5e4bbe1e6bd944787d47c5e3ed98de582c088a52
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: fe9a50b5557e6165835abf1df67f7486c260c1c5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265760"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84195915"
 ---
-# <a name="move-data-to-and-from-sql-server-on-premises-or-on-iaas-azure-vm-using-azure-data-factory"></a>Mover dados para e do SQL Server local ou em IaaS (VM do Azure) usando o Azure Data Factory
+# <a name="move-data-to-and-from-sql-server-using-azure-data-factory"></a>Mover dados de e para SQL Server usando Azure Data Factory
+
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
 > * [Versão 1](data-factory-sqlserver-connector.md)
 > * [Versão 2 (versão atual)](../connector-sql-server.md)
@@ -27,7 +27,7 @@ ms.locfileid: "79265760"
 > [!NOTE]
 > Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [Conector do SQL Server na V2](../connector-sql-server.md).
 
-Esse artigo explica como usar a Atividade de Cópia no Azure Data Factory para mover dados para/de um banco de dados do SQL Server local. Ele se baseia no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md) , que apresenta uma visão geral da movimentação de dados com a atividade de cópia.
+Este artigo explica como usar a atividade de cópia no Azure Data Factory para mover dados de/para um banco de SQL Server. Ele se baseia no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md) , que apresenta uma visão geral da movimentação de dados com a atividade de cópia.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -51,7 +51,7 @@ Consulte o artigo [movendo dados entre pontos locais e na nuvem](data-factory-mo
 Embora você possa instalar o gateway no mesmo computador local ou instância de VM na nuvem que o SQL Server, para obter melhore desempenho, é recomendável instalá-los em computadores separados. Ter o gateway e o SQL Server em computadores distintos reduz a contenção de recursos.
 
 ## <a name="getting-started"></a>Introdução
-Você pode criar um pipeline com atividade de cópia que move dados de/para um banco de dados SQL Server local por meio de ferramentas/APIs diferentes.
+Você pode criar um pipeline com uma atividade de cópia que move dados de/para um banco de dado SQL Server usando diferentes ferramentas/APIs.
 
 A maneira mais fácil de criar um pipeline é usar o **Assistente de cópia**. Confira [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados.
 
@@ -64,21 +64,21 @@ Ao usar as ferramentas ou APIs, você executa as seguintes etapas para criar um 
 3. Criar **conjuntos de dados** para representar dados de entrada e saída para a operação de cópia. No exemplo mencionado na última etapa, você cria um conjunto de dados para especificar a tabela SQL no banco de dados do SQL Server que contém os dados de entrada. Em seguida, você cria outro conjunto de dados para especificar o contêiner de blob e a pasta que contém os dados copiados do banco de dados do SQL Server. Para propriedades do conjunto de dados que são específicas do banco de dados do SQL Server, consulte a seção [propriedades do conjunto de dados](#dataset-properties).
 4. Criar um **pipeline** com uma atividade de cópia que usa um conjunto de dados como uma entrada e um conjunto de dados como uma saída. No exemplo mencionado anteriormente, você usa SqlSource como fonte e BlobSink como coletor para a atividade de cópia. De modo similar, se você estiver copiando do Armazenamento de Blobs do Azure para o banco de dados do SQL Server, você usará BlobSource e SqlSink na atividade de cópia. Para propriedades da atividade de cópia que são específicas do banco de dados do SQL Server, consulte a seção [propriedades da atividade de cópia](#copy-activity-properties). Para obter detalhes sobre como usar um armazenamento de dados como uma origem ou um coletor, clique no link na seção anterior para o armazenamento de dados.
 
-Ao usar o assistente, as definições de JSON para essas entidades do Data Factory (serviços vinculados, conjuntos de dados e o pipeline) são automaticamente criadas para você. Ao usar ferramentas/APIs (exceto a API .NET), você define essas entidades do Data Factory usando o formato JSON. Para obter exemplos com definições de JSON das entidades do Data Factory usadas para copiar dados bidirecionalmente em um banco de dados do SQL Server local, confira a seção [Exemplos de JSON](#json-examples-for-copying-data-from-and-to-sql-server) neste artigo.
+Ao usar o assistente, as definições de JSON para essas entidades do Data Factory (serviços vinculados, conjuntos de dados e o pipeline) são automaticamente criadas para você. Ao usar ferramentas/APIs (exceto a API .NET), você define essas entidades do Data Factory usando o formato JSON. Para obter exemplos com definições de JSON para entidades de Data Factory que são usadas para copiar dados de/para um banco de SQL Server, consulte a seção [exemplos de JSON](#json-examples-for-copying-data-from-and-to-sql-server) neste artigo.
 
 As seções que se seguem fornecem detalhes sobre as propriedades JSON que são usadas para definir entidades do Data Factory específicas ao SQL Server:
 
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
-Você cria um serviço vinculado do tipo **OnPremisesSqlServer** para vincular um banco de dados do SQL Server local a um data factory. A tabela a seguir fornece a descrição para elementos JSON específicos para o serviço vinculado do SQL Server local.
+Você cria um serviço vinculado do tipo **OnPremisesSqlServer** para vincular um banco de dados SQL Server a um data Factory. A tabela a seguir fornece a descrição para elementos JSON específicos para o serviço vinculado do SQL Server.
 
 A tabela a seguir fornece a descrição para elementos JSON específicos para o serviço vinculado do SQL Server.
 
-| Propriedade | Descrição | Obrigatório |
+| Property | Descrição | Obrigatório |
 | --- | --- | --- |
 | type |A propriedade type deve ser definida como: **OnPremisesSqlServer**. |Sim |
-| connectionString |Especifique as informações de connectionString necessárias para conexão com o banco de dados do SQL Server local usando a autenticação do SQL ou então a autenticação do Windows. |Sim |
-| gatewayName |O nome do gateway que o serviço Data Factory deve usar para se conectar ao banco de dados do SQL Server local. |Sim |
-| username |Especifique o nome de usuário se você estiver usando a Autenticação do Windows. Exemplo: **domainname\\username**. |Não |
+| connectionString |Especifique as informações de connectionString necessárias para conexão com o banco de dados do SQL Server usando a autenticação SQL ou a autenticação do Windows. |Sim |
+| gatewayName |Nome do gateway que o serviço de Data Factory deve usar para se conectar ao banco de dados de SQL Server. |Sim |
+| Nome de Usuário |Especifique o nome de usuário se você estiver usando a Autenticação do Windows. Exemplo: **domainname\\username**. |Não |
 | password |Especifique a senha da conta de usuário que você especificou para o nome de usuário. |Não |
 
 Você pode criptografar credenciais usando o cmdlet **New-AzDataFactoryEncryptValue** e usá-las na cadeia de conexão, conforme mostrado no exemplo a seguir (propriedade**EncryptedCredential** ):
@@ -105,7 +105,7 @@ Você pode criptografar credenciais usando o cmdlet **New-AzDataFactoryEncryptVa
 ```
 **JSON para usar Autenticação Windows**
 
-O Gateway de Gerenciamento de Dados representará a conta de usuário especificada para se conectar ao banco de dados local do SQL Server.
+Gerenciamento de Dados gateway representará a conta de usuário especificada para se conectar ao banco de dados SQL Server.
 
 ```json
 {
@@ -130,7 +130,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 A seção typeProperties é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção **typeProperties** do conjunto de dados do tipo **SqlServerTable** tem as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Property | Descrição | Obrigatório |
 | --- | --- | --- |
 | tableName |Nome da tabela ou exibição na instância do Banco de Dados SQL Server à qual o serviço vinculado se refere. |Sim |
 
@@ -147,7 +147,7 @@ Por outro lado, as propriedades disponíveis na seção typeProperties da ativid
 ### <a name="sqlsource"></a>SqlSource
 Quando a fonte em uma atividade de cópia for do tipo **SqlSource**, as seguintes propriedades estarão disponíveis na seção **typeProperties**:
 
-| Propriedade | Descrição | Valores permitidos | Obrigatório |
+| Property | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | sqlReaderQuery |Utiliza a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta SQL. Por exemplo: select * from MyTable. Pode fazer referência a várias tabelas do banco de dados referenciado pelo conjunto de dados de entrada. Se não for especificada, a instrução SQL que é executada é: select from MyTable. |Não |
 | sqlReaderStoredProcedureName |Nome do procedimento armazenado que lê os dados da tabela de origem. |Nome do procedimento armazenado. A última instrução SQL deve ser uma instrução SELECT no procedimento armazenado. |Não |
@@ -165,7 +165,7 @@ Se você não especificar sqlReaderQuery nem sqlReaderStoredProcedureName, as co
 ### <a name="sqlsink"></a>SqlSink
 **SqlSink** dá suporte às seguintes propriedades:
 
-| Propriedade | Descrição | Valores permitidos | Obrigatório |
+| Property | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | writeBatchTimeout |Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite. |TimeSpan<br/><br/>  Exemplo: "00:30:00" (30 minutos). |Não |
 | writeBatchSize |Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize. |Inteiro (número de linhas) |Não (padrão: 10000) |
@@ -248,7 +248,7 @@ Configurar "external": "true" informa ao serviço Data Factory que o conjunto de
   }
 }
 ```
-**Conjunto de resultados de saída de blob do Azure**
+**Conjunto de dados de saída de Blob do Azure**
 
 Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo: 1). O caminho de pasta para o blob é avaliado dinamicamente com base na hora de início da fatia que está sendo processada. O caminho da pasta usa as partes ano, mês, dia e horas da hora de início.
 
@@ -401,7 +401,7 @@ O exemplo copia dados de série temporal de um Blob do Azure para uma tabela do 
   }
 }
 ```
-**Conjunto de dados de entrada de blob do Azure**
+**Conjunto de dados de entrada de Blob do Azure**
 
 Os dados são coletados de um novo blob a cada hora (frequência: hora, intervalo: 1). O caminho de pasta e nome de arquivo para o blob são avaliados dinamicamente com base na hora de início da fatia que está sendo processada. O caminho da pasta usa a parte do ano, mês e dia da hora de início e o nome de arquivo usa a parte da hora de início. A configuração "external": "true" informa o serviço Data Factory que o conjunto de dados é externo ao Data Factory e não é produzido por uma atividade no Data Factory.
 
@@ -554,7 +554,7 @@ O pipeline contém uma Atividade de Cópia que está configurada para usar os co
 3. Na mesma janela, clique duas vezes em **TCP/IP** para iniciar a janela **Propriedades de TCP/IP**.
 4. Alterne para a guia **endereços IP** . Role para baixo para ver a seção **IPAll** . Anote a **porta TCP**(o padrão é **1433**).
 5. Crie uma **regra para o Firewall do Windows** no computador para permitir a entrada de tráfego por essa porta.
-6. **Verifique a conexão**: para se conectar ao SQL Server usando nome totalmente qualificado, use o SQL Server Management Studio de um computador diferente. Por exemplo: "\<máquina\>.\<domínio\>.corp.\<empresa\>.com,1433”. "
+6. **Verifique a conexão**: para se conectar ao SQL Server usando nome totalmente qualificado, use o SQL Server Management Studio de um computador diferente. Por exemplo: “\<machine\>\<domain\>.corp\<company\>.com,1433”.
 
    > [!IMPORTANT]
    > 

@@ -8,12 +8,11 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: d855019be7f357a35a26d14e68ba3d427d984e17
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d4b43b590b147335a70877a7c3c0b07f8b818e3c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82086021"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84221053"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
@@ -67,7 +66,7 @@ azcopy sync "/path/to/file.txt" "https://[account].blob.core.windows.net/[contai
 ```
 
 > [!NOTE]
-> O blob de destino *deve* existir. Use `azcopy copy` para copiar um único arquivo que ainda não existe no destino. Caso contrário, ocorre o seguinte erro `Cannot perform sync due to error: sync must happen between source and destination of the same type, e.g. either file <-> file, or directory/container <-> directory/container`:.
+> O blob de destino *deve* existir. Use `azcopy copy` para copiar um único arquivo que ainda não existe no destino. Caso contrário, ocorre o seguinte erro: `Cannot perform sync due to error: sync must happen between source and destination of the same type, e.g. either file <-> file, or directory/container <-> directory/container` .
 
 O mesmo que acima, mas desta vez, também calcula o hash MD5 do conteúdo do arquivo e o salva como a propriedade Content-MD5 do blob:
 
@@ -142,15 +141,15 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--Exclude-atributos** String (somente Windows) exclua os arquivos cujos atributos correspondem à lista de atributos. Por exemplo: A; & D
 
-**--Exclude-cadeia de** caracteres de caminho exclua esses caminhos ao copiar. Essa opção não dá suporte a caracteres curinga (*). Verifica o prefixo de caminho relativo (por exemplo: MyFolder; MyFolder/subDirName/File. pdf). Quando usado em combinação com passagem de conta, os caminhos não incluem o nome do contêiner.
+**--Exclude-cadeia de** caracteres de caminho exclua esses caminhos ao copiar. Essa opção não dá suporte a caracteres curinga (*). Verifica o prefixo de caminho relativo (por exemplo: MyFolder; MyFolder/subDirName/file.pdf). Quando usado em combinação com passagem de conta, os caminhos não incluem o nome do contêiner.
 
-**--Exclude-Pattern** cadeia de caracteres excluir arquivos onde o nome corresponde à lista padrão. Por exemplo: \*. jpg; \*. pdf; exatoname
+**--Exclude-Pattern** cadeia de caracteres excluir arquivos onde o nome corresponde à lista padrão. Por exemplo: \* . jpg; \* . PDF; exatoname
 
 **-h,--** ajuda da ajuda para sincronização
 
 **--include-** a cadeia de caracteres de atributos (somente Windows) inclui apenas arquivos cujos atributos correspondem à lista de atributos. Por exemplo: A; & D
 
-**--include-** a cadeia de caracteres de padrão inclui apenas arquivos em que o nome corresponde à lista de padrões. Por exemplo: \*. jpg; \*. pdf; exatoname
+**--include-** a cadeia de caracteres de padrão inclui apenas arquivos em que o nome corresponde à lista de padrões. Por exemplo: \* . jpg; \* . PDF; exatoname
 
 **--** cadeia de caracteres de nível de log defina o detalhamento de log para o arquivo de log, níveis disponíveis: informações (todas as solicitações e respostas), aviso (respostas lentas), erro (somente solicitações com falha) e nenhum (nenhum log de saída). (informações padrão). (padrão "INFO")
 
@@ -164,7 +163,8 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 |---|---|
 |--Cap-Mbps UInt32|Limita a taxa de transferência, em megabits por segundo. A taxa de transferência por minuto pode variar um pouco a partir do limite. Se essa opção for definida como zero ou for omitida, a taxa de transferência não será limitada.|
 |--Cadeia de caracteres de tipo de saída|Formato da saída do comando. As opções incluem: Text, JSON. O valor padrão é "text".|
+|--Cadeia de caracteres de sufixos confiáveis da Microsoft   |Especifica sufixos de domínio adicionais onde Azure Active Directory tokens de logon podem ser enviados.  O padrão é '*. Core.Windows.net;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net '. Todos listados aqui são adicionados ao padrão. Por segurança, você só deve colocar Microsoft Azure domínios aqui. Separe várias entradas com ponto e vírgula.|
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 - [azcopy](storage-ref-azcopy.md)

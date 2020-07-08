@@ -5,15 +5,14 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 06/01/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 4ba54736abe335b53a3b8c6733063efcb34ea29a
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.openlocfilehash: c06bbc412a51fc919b862aeb3f62ec58feec89cf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856833"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84259194"
 ---
 # <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>Otimizar custos para o armazenamento de blobs com capacidade reservada
 
@@ -35,7 +34,7 @@ Você pode comprar a capacidade reservada do armazenamento do Azure em unidades 
 
 A capacidade reservada do armazenamento do Azure está disponível para uma única assinatura ou para várias assinaturas (escopo compartilhado). Quando definido como escopo para uma única assinatura, o desconto de reserva é aplicado somente à assinatura selecionada. Quando com escopo para várias assinaturas, o desconto de reserva é compartilhado entre essas assinaturas no contexto de cobrança do cliente.
 
-Ao comprar a capacidade reservada do armazenamento do Azure, você pode usar sua reserva para dados de BLOB e de Azure Data Lake Storage Gen2 de bloco. Uma reserva é aplicada ao seu uso dentro do escopo comprado e não pode ser limitada a uma conta de armazenamento, contêiner ou objeto específico dentro da assinatura. Uma reserva não pode ser dividida em várias assinaturas.
+Ao comprar a capacidade reservada do armazenamento do Azure, você pode usar sua reserva para dados de BLOB e de Azure Data Lake Storage Gen2 de bloco. Uma reserva é aplicada ao seu uso dentro do escopo comprado e não pode ser limitada a uma conta de armazenamento, contêiner ou objeto específico dentro da assinatura.
 
 Uma reserva de armazenamento do Azure abrange apenas a quantidade de dados armazenados em uma assinatura ou grupo de recursos compartilhado. A exclusão antecipada, as operações, a largura de banda e os encargos de transferência de dados não estão incluídos na reserva. Assim que você comprar uma reserva, os encargos de capacidade que correspondem aos atributos de reserva serão cobrados com as tarifas de desconto em vez de nas tarifas pagas conforme o uso. Para obter mais informações sobre reservas do Azure, consulte [o que são as reservas do Azure?](/azure/billing/billing-save-compute-costs-reservations).
 
@@ -123,7 +122,7 @@ Quando uma reserva expira, qualquer capacidade de armazenamento do Azure que voc
 
 Você receberá uma notificação por email 30 dias antes da expiração da reserva e novamente na data de validade. Para continuar aproveitando a economia de custos que uma reserva fornece, renove-a não depois da data de expiração.
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco
 
 Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 

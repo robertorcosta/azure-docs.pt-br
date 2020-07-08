@@ -4,20 +4,19 @@ titlesuffix: Azure Virtual Network
 description: Saiba mais sobre o emparelhamento de rede virtual no Azure.
 services: virtual-network
 documentationcenter: na
-author: anavinahar
+author: altambaw
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
-ms.author: anavin
-ms.openlocfilehash: 5fb54e812e72b9393ffdf632085d0f32ab8b1988
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.author: kumud
+ms.openlocfilehash: e1a2babef17e23457e1f41d8ec0a20a442452c23
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79279540"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84232962"
 ---
 # <a name="virtual-network-peering"></a>Emparelhamento de rede virtual
 
@@ -110,11 +109,11 @@ O tráfego de gateway é uma propriedade de emparelhamento que permite que uma r
 
 * Você pode criar um emparelhamento entre duas redes virtuais. As redes podem pertencer à mesma assinatura, a modelos de implantação diferentes na mesma assinatura ou a assinaturas diferentes. Conclua um tutorial para um dos seguintes cenários:
 
-    |Modelo de implantação do Azure             | Assinatura  |
+    |Modelo de implantação do Azure             | Subscription  |
     |---------                          |---------|
-    |Ambos Resource Manager              |[Idêntica](tutorial-connect-virtual-networks-portal.md)|
+    |Ambos Resource Manager              |[Idêntico](tutorial-connect-virtual-networks-portal.md)|
     |                                   |[Diferente](create-peering-different-subscriptions.md)|
-    |Um Resource Manager, um clássico  |[Idêntica](create-peering-different-deployment-models.md)|
+    |Um Resource Manager, um clássico  |[Idêntico](create-peering-different-deployment-models.md)|
     |                                   |[Diferente](create-peering-different-deployment-models-subscriptions.md)|
 
 * Para saber como criar uma topologia de rede hub e spoke, confira [topologia de rede hub-spoke no Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json).

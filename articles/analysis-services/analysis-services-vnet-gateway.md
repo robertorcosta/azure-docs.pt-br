@@ -7,12 +7,11 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7622b6b5855850a0150f43863fa117828e23d4bd
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: HT
+ms.openlocfilehash: 912dab16cd854ae940b7bbdfe88a8da7adf1c5e0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83698877"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84197189"
 ---
 # <a name="use-gateway-for-data-sources-on-an-azure-virtual-network-vnet"></a>Usar gateway para fontes de dados em uma VNet (Rede Virtual) do Azure
 
@@ -22,7 +21,7 @@ Este artigo descreve a propriedade da propriedade do servidor **AlwaysUseGateway
 
 Se as fontes de dados forem acessadas por meio de uma VNet, o servidor do Azure Analysis Services deverá conectar essas fontes de dados como se estivessem no local, no próprio ambiente. É possível configurar a propriedade do servidor **AlwaysUseGateway** para especificar o servidor a acessar todas as fontes de dados por meio de um [Gateway local](analysis-services-gateway.md). 
 
-As fontes de dados da Instância Gerenciada do Banco de Dados SQL do Azure são executadas na VNet do Azure com um endereço IP privado. Se o ponto de extremidade público estiver habilitado na instância, não será necessário um gateway. Se o ponto de extremidade público não estiver habilitado, será necessário um gateway de dados local e a propriedade AlwaysUseGateway deverá ser definida como True.
+As fontes de dados do SQL Instância Gerenciada do Azure são executadas na VNet do Azure com um endereço IP privado. Se o ponto de extremidade público estiver habilitado na instância, não será necessário um gateway. Se o ponto de extremidade público não estiver habilitado, será necessário um gateway de dados local e a propriedade AlwaysUseGateway deverá ser definida como True.
 
 > [!NOTE]
 > Esta propriedade será efetiva somente quando um [Gateway de dados local](analysis-services-gateway.md) estiver instalado e configurado. O gateway pode estar na VNet.

@@ -3,12 +3,11 @@ title: Proteger o Azure Functions
 description: Saiba mais sobre como tornar o código de função em execução no modo seguro do Azure contra ataques comuns.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: 07d099ae3ce8a544994208436770674e6674e6f0
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 692e8420bda1e7baa8521dd6caaf5eef183823fb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744057"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84259415"
 ---
 # <a name="securing-azure-functions"></a>Proteger o Azure Functions
 
@@ -83,7 +82,7 @@ Assim como ocorre com qualquer aplicativo ou serviço, a meta é executar seu ap
 
 #### <a name="user-management-permissions"></a>Permissões de gerenciamento do usuário
 
-O Functions dá suporte ao [controle de acesso baseado em função (RBAC) do Azure](../role-based-access-control/overview.md) interno. As funções RBAC compatíveis com o Functions são [Colaborador](../role-based-access-control/built-in-roles.md#contributor), [Proprietário](../role-based-access-control/built-in-roles.md#owner) e [Leitor](../role-based-access-control/built-in-roles.md#owner). 
+O Functions dá suporte ao [RBAC (controle de acesso baseado em função) interno do Azure](../role-based-access-control/overview.md). As funções RBAC compatíveis com o Functions são [Colaborador](../role-based-access-control/built-in-roles.md#contributor), [Proprietário](../role-based-access-control/built-in-roles.md#owner) e [Leitor](../role-based-access-control/built-in-roles.md#owner). 
 
 As permissões são efetivas no nível do aplicativo de funções. A função de Colaborador é necessária para executar a maioria das tarefas de nível de aplicativo de função. Somente a função de Proprietário pode excluir um aplicativo de funções. 
 

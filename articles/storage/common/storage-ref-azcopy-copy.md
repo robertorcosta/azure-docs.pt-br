@@ -8,12 +8,11 @@ ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 0325a71fb069f3d96f05d106afac1639fc38fe42
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7f55b22938bd6f18bae1576a0c64e673996d38bf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81253332"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84220127"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -63,19 +62,19 @@ azcopy copy [source] [destination] [flags]
 
 Carregar um único arquivo usando a autenticação OAuth. Se você ainda não fez logon no AzCopy, execute o comando de logon AzCopy antes de executar o comando a seguir.
 
-- azcopy CP "/Path/to/file.txt" "https://[conta]. blob. Core. Windows. net/[contêiner]/[caminho/para/blob]"
+- azcopy CP "/Path/to/file.txt" "https://[Account]. blob. Core. Windows. net/[contêiner]/[caminho/para/blob]"
 
 O mesmo que acima, mas desta vez também calcula o hash MD5 do conteúdo do arquivo e o salva como a propriedade Content-MD5 do blob:
 
-- azcopy CP "/Path/to/file.txt" "https://[conta]. blob. Core. Windows. net/[contêiner]/[caminho/para/blob]"--Put-MD5
+- azcopy CP "/Path/to/file.txt" "https://[Account]. blob. Core. Windows. net/[contêiner]/[caminho/para/blob]"--Put-MD5
 
 Carregar um único arquivo usando um token SAS:
 
-- azcopy CP "/Path/to/file.txt" "https://[conta]. blob. Core. Windows. net/[contêiner]/[caminho/para/blob]? [SAS] "
+- azcopy CP "/Path/to/file.txt" "https://[Account]. blob. Core. Windows. net/[contêiner]/[caminho/para/blob]? [SAS] "
 
 Carregar um único arquivo usando um token e um pipe SAS (somente blobs de blocos):
   
-- gato "/Path/to/file.txt" | azcopy CP "https://[conta]. blob. Core. Windows. net/[contêiner]/[caminho/para/blob]? [SAS] "
+- Cat "/Path/to/file.txt" | azcopy CP "https://[conta]. blob. Core. Windows. net/[contêiner]/[caminho/para/blob]? [SAS] "
 
 Carregar um diretório inteiro usando um token SAS:
   
@@ -103,7 +102,7 @@ Baixar um único arquivo usando um token SAS:
 
 Baixar um único arquivo usando um token SAS e, em seguida, canalizando a saída para um arquivo (somente blobs de blocos):
   
-- azcopy CP "https://[conta]. blob. Core. Windows. net/[contêiner]/[caminho/para/blob]? [SAS] ">"/Path/to/file.txt "
+- azcopy CP "https://[conta]. blob. Core. Windows. net/[contêiner]/[caminho/para/blob]? [SAS] ">"/Path/to/"file.txt"
 
 Baixe um diretório inteiro usando um token SAS:
   
@@ -147,25 +146,25 @@ Copie todos os contêineres de BLOB, diretórios e blobs da conta de armazenamen
 
 Copie um único objeto para o armazenamento de blobs de Amazon Web Services (AWS) S3 usando uma chave de acesso e um token SAS. Primeiro, defina a variável de ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY para a origem S3 AWS.
   
-- azcopy CP "https://s3.amazonaws.com/[Bucket]/[Object]" "https://[destaccount]. blob. Core. Windows. net/[Container]/[caminho/para/blob]? [SAS] "
+- azcopy CP " https://s3.amazonaws.com/ [Bucket]/[Object]" "https://[destaccount]. blob. Core. Windows. net/[Container]/[caminho/para/blob]? [ SAS] "
 
 Copie um diretório inteiro para o armazenamento de BLOBs do AWS S3 usando uma chave de acesso e um token SAS. Primeiro, defina a variável de ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY para a origem S3 AWS.
 
-- azcopy CP "https://s3.amazonaws.com/[Bucket]/[pasta]" "https://[destaccount]. blob. Core. Windows. net/[Container]/[caminho/para/diretório]? [SAS] "--recursivo = true
+- azcopy CP " https://s3.amazonaws.com/ [Bucket]/[pasta]" "https://[destaccount]. blob. Core. Windows. net/[Container]/[caminho/para/diretório]? [ SAS] "--recursivo = true
 
 Consulte https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html para entender melhor o espaço reservado [pasta].
 
 Copie todos os buckets para o armazenamento de blobs de Amazon Web Services (AWS) usando uma chave de acesso e um token SAS. Primeiro, defina a variável de ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY para a origem S3 AWS.
 
-- azcopy CP "https://s3.amazonaws.com/" "https://[destaccount]. blob. Core. Windows. net? [SAS] "--recursivo = true
+- azcopy CP " https://s3.amazonaws.com/ " "https://[destaccount]. blob. Core. Windows. net? [ SAS] "--recursivo = true
 
 Copie todos os buckets para o armazenamento de blobs de uma região Amazon Web Services (AWS) usando uma chave de acesso e um token SAS. Primeiro, defina a variável de ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY para a origem S3 AWS.
 
-- azcopy CP "https://s3-[Region]. amazonaws. com/" "https://[destaccount]. blob. Core. Windows. net? [SAS] "--recursivo = true
+- azcopy CP " https://s3- [Region]. amazonaws. com/" "https://[destaccount]. blob. Core. Windows. net? [ SAS] "--recursivo = true
 
 Copie um subconjunto de buckets usando um símbolo curinga (*) no nome do Bucket. Como nos exemplos anteriores, você precisará de uma chave de acesso e um token SAS. Certifique-se de definir a variável de ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY para a origem S3 AWS.
 
-- azcopy CP "https://s3.amazonaws.com/[Bucket * Name]/" "https://[destaccount]. blob. Core. Windows. net? [SAS] "--recursivo = true
+- azcopy CP " https://s3.amazonaws.com/ [Bucket * Name]/" "https://[destaccount]. blob. Core. Windows. net? [ SAS] "--recursivo = true
 
 ## <a name="options"></a>Opções
 
@@ -197,7 +196,7 @@ Copie um subconjunto de buckets usando um símbolo curinga (*) no nome do Bucket
 
 **--Exclude-blob-tipo** de cadeia de caracteres especifica opcionalmente o tipo de BLOB (BlockBlob/PageBlob/AppendBlob) a ser excluído ao copiar BLOBs do contêiner ou da conta. O uso desse sinalizador não é aplicável para copiar dados de não Azure-Service para o serviço. Mais de um blob deve ser separado por '; '.
 
-**--Exclude-cadeia de** caracteres de caminho exclua esses caminhos ao copiar. Essa opção não dá suporte a caracteres curinga (*). Verifica o prefixo de caminho relativo (por exemplo: MyFolder; MyFolder/subDirName/File. pdf). Quando usado em combinação com passagem de conta, os caminhos não incluem o nome do contêiner.
+**--Exclude-cadeia de** caracteres de caminho exclua esses caminhos ao copiar. Essa opção não dá suporte a caracteres curinga (*). Verifica o prefixo de caminho relativo (por exemplo: MyFolder; MyFolder/subDirName/file.pdf). Quando usado em combinação com passagem de conta, os caminhos não incluem o nome do contêiner.
 
 **--a cadeia de caracteres de exclusão-padrão** exclui esses arquivos ao copiar. Esta opção dá suporte a caracteres curinga (*)
 
@@ -209,7 +208,7 @@ Copie um subconjunto de buckets usando um símbolo curinga (*) no nome do Bucket
 
 **--include-Attributes** (somente Windows) inclua arquivos cujos atributos correspondam à lista de atributos. Por exemplo: A; & D
 
---a cadeia de caracteres **include-path** inclui apenas esses caminhos ao copiar. Essa opção não dá suporte a caracteres curinga (*). Verifica o prefixo de caminho relativo (por exemplo: MyFolder; MyFolder/subDirName/File. pdf).
+--a cadeia de caracteres **include-path** inclui apenas esses caminhos ao copiar. Essa opção não dá suporte a caracteres curinga (*). Verifica o prefixo de caminho relativo (por exemplo: MyFolder; MyFolder/subDirName/file.pdf).
 
 **--include-a cadeia de caracteres de padrão** inclui apenas esses arquivos ao copiar. Essa opção dá suporte a caracteres curinga (*). Separar arquivos usando um '; '.
 
@@ -225,11 +224,11 @@ Copie um subconjunto de buckets usando um símbolo curinga (*) no nome do Bucket
 
 **--preservar-último-modificado-hora**          Disponível somente quando o destino é sistema de arquivos.
 
-**--preserve-SMB-** cadeia de permissões false por padrão. Preserva ACLs SMB entre recursos de reconhecimento (arquivos do Windows e do Azure). Para downloads, você também precisará usar o `--backup` sinalizador para restaurar permissões em que o novo proprietário não será o usuário que está executando o AzCopy. Esse sinalizador se aplica a arquivos e pastas, a menos que um filtro somente arquivo seja especificado (por `include-pattern`exemplo,).
+**--preserve-SMB-** cadeia de permissões false por padrão. Preserva ACLs SMB entre recursos de reconhecimento (arquivos do Windows e do Azure). Para downloads, você também precisará usar o `--backup` sinalizador para restaurar permissões em que o novo proprietário não será o usuário que está executando o AzCopy. Esse sinalizador se aplica a arquivos e pastas, a menos que um filtro somente arquivo seja especificado (por exemplo, `include-pattern` ).
 
 **--preserve-SMB-info** cadeia de caracteres falsa por padrão. Preserva as informações da propriedade SMB (hora da última gravação, hora de criação, bits de atributo) entre recursos com reconhecimento de SMB (arquivos do Windows e do Azure). Somente os bits de atributo com suporte dos arquivos do Azure serão transferidos; quaisquer outras serão ignoradas. Esse sinalizador se aplica a arquivos e pastas, a menos que um filtro somente arquivo seja especificado (por exemplo, include-Pattern). As informações transferidas para pastas são as mesmas para arquivos, exceto para a hora da última gravação, que nunca é preservada para pastas.
 
-**--preserve-proprietário**                       Só tem efeito no ao baixar dados e somente quando o `--preserve-smb-permissions` é usado. Se true (o padrão), o proprietário e o grupo do arquivo serão preservados nos downloads. Se esse sinalizador for definido como false, `--preserve-smb-permissions` o ainda preservará ACLs, mas o proprietário e o grupo serão baseados no usuário que está executando o AzCopy.
+**--preserve-proprietário**                       Só tem efeito no ao baixar dados e somente quando o `--preserve-smb-permissions` é usado. Se true (o padrão), o proprietário e o grupo do arquivo serão preservados nos downloads. Se esse sinalizador for definido como false, o `--preserve-smb-permissions` ainda preservará ACLs, mas o proprietário e o grupo serão baseados no usuário que está executando o AzCopy.
 
 **--Put-MD5**                             Crie um hash MD5 de cada arquivo e salve o hash como a propriedade Content-MD5 do BLOB ou arquivo de destino. (Por padrão, o hash não é criado.) Disponível somente ao carregar.
 
@@ -249,6 +248,8 @@ Copie um subconjunto de buckets usando um símbolo curinga (*) no nome do Bucket
 
 **--** formato da cadeia de caracteres do tipo de saída da saída do comando. As opções incluem: Text, JSON. O valor padrão é ' Text '. (padrão "texto")
 
-## <a name="see-also"></a>Confira também
+**--a cadeia de caracteres Trusted-Microsoft-suffixs** especifica sufixos de domínio adicionais onde Azure Active Directory tokens de logon podem ser enviados.  O padrão é '*. Core.Windows.net;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net '. Todos listados aqui são adicionados ao padrão. Por segurança, você só deve colocar Microsoft Azure domínios aqui. Separe várias entradas com ponto e vírgula.
+
+## <a name="see-also"></a>Consulte também
 
 - [azcopy](storage-ref-azcopy.md)

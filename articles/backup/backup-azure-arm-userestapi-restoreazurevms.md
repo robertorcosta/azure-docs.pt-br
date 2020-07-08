@@ -4,12 +4,11 @@ description: Neste artigo, saiba como gerenciar operações de restauração do 
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: 4990d815721ddbdde8e6eb6ebf8d6d3b49adc700
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 87e3d75d925968b6521324f5b776cf8df1f6af11
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74173378"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84247792"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Restaurar máquinas virtuais do Azure usando a API REST
 
@@ -31,7 +30,7 @@ O URI *GET* tem todos os parâmetros necessários. Não há necessidade de um co
 
 ### <a name="responses"></a>Respostas
 
-|Nome  |Type  |Descrição  |
+|Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
 |200 OK     |   [RecoveryPointResourceList](https://docs.microsoft.com/rest/api/backup/recoverypoints/list#recoverypointresourcelist)      |       OK  |
 
@@ -117,7 +116,7 @@ O ponto de recuperação é identificado com o campo `{name}` na resposta acima.
 
 ## <a name="restore-disks"></a>Restaurar discos
 
-Se houver necessidade de personalizar a criação de uma VM a partir dos dados de backup, basta restaurar os discos em uma conta de armazenamento escolhida e criar uma VM a partir desses discos de acordo com seus requisitos. A conta de armazenamento deve estar na mesma região que o cofre de serviços de recuperação e não deve ser redundante de zona. Os discos, bem como a configuração da VM de backup ("vmconfig. JSON"), serão armazenados na conta de armazenamento específica.
+Se houver a necessidade de personalizar a criação de uma VM a partir dos dados de backup, será possível apenas restaurar os discos em uma conta de armazenamento escolhida e criar uma VM a partir desses discos de acordo com seus requisitos. A conta de armazenamento deve estar na mesma região que o cofre de serviços de recuperação e não deve ser redundante de zona. Os discos, bem como a configuração da VM de backup ("vmconfig.jsem"), serão armazenados na conta de armazenamento específica.
 
 Disparar a restauração de discos é uma *POST* solicitação. Para saber mais sobre a operação Restaurar discos, consulte a API REST ["acionador de restauração" REST](https://docs.microsoft.com/rest/api/backup/restores/trigger).
 
@@ -131,7 +130,7 @@ O `{containerName}` e `{protectedItemName}` são como construídos [aqui](backup
 
 Para acionar uma restauração de disco a partir de um backup de VM do Azure, a seguir estão os componentes do corpo da solicitação.
 
-|Nome  |Type  |Descrição  |
+|Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
 |properties     | [IaaSVMRestoreRequest](https://docs.microsoft.com/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 
@@ -165,9 +164,9 @@ O disparo de um disco de restauração é um [operação assíncrona](https://do
 
 Ele retorna duas respostas: 202 (Aceito) quando outra operação é criada e, em seguida, 200 (OK) quando a operação é concluída.
 
-|Nome  |Type  |Descrição  |
+|Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
-|202 Aceito     |         |     Aceita    |
+|202 Aceito     |         |     Aceito    |
 
 #### <a name="example-responses"></a>Respostas de exemplo
 

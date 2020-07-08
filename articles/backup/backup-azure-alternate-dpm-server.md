@@ -3,12 +3,11 @@ title: Recuperar dados de um Servidor de Backup do Azure
 description: Recupere os dados que você protegeu em um cofre dos Serviços de Recuperação de qualquer Servidor de Backup do Azure registrado nesse cofre.
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.openlocfilehash: 2a89697899fc244848854978de4b25e79ef6f184
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5531a2a9599465bd5ad3410504cbf341fb6c0c0f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74173492"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84249069"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Recuperar dados do Servidor de Backup do Azure
 
@@ -83,7 +82,7 @@ Para recuperar dados de um Servidor de Backup do Azure:
 | 1. |Este servidor não está registrado no cofre especificado nas credenciais do cofre. |**Causa:** este erro aparece quando o arquivo de credencial do cofre selecionado não pertence ao cofre dos Serviços de Recuperação associado ao Servidor de Backup do Azure em que ocorre a tentativa de recuperação. <br> **Resolução:** baixe o arquivo de credencial de cofre do cofre dos Serviços de Recuperação em que o Servidor de Backup do Azure está registrado. |
 | 2. |Os dados recuperáveis não estão disponíveis ou o servidor selecionado não é um servidor DPM. |**Causa:** Não há nenhum outro servidor de backup do Azure registrado no cofre dos serviços de recuperação ou os servidores ainda não carregaram os metadados, ou o servidor selecionado não é um Servidor de Backup do Azure (usando o Windows Server ou o Windows Client). <br> **Resolução:** se houver outros Servidores de Backup do Azure registrados no cofre dos Serviços de Recuperação, verifique se o agente do Backup do Azure mais recente está instalado. <br>Se houver outros Servidores de Backup do Azure registrados no cofre dos Serviços de Recuperação, aguarde um dia após a instalação para iniciar o processo de recuperação. A tarefa noturna carregará os metadados de todos os backups protegidos para a nuvem. Os dados estarão disponíveis para recuperação. |
 | 3. |Nenhum outro servidor DPM está registrado no cofre. |**Causa:** não há nenhum outro Servidor de Backup do Azure registrado no cofre em que a recuperação está sendo tentada.<br>**Resolução:** se houver outros Servidores de Backup do Azure registrados no cofre dos Serviços de Recuperação, verifique se o agente do Backup do Azure mais recente está instalado.<br>Se houver outros Servidores de Backup do Azure registrados no cofre dos Serviços de Recuperação, aguarde um dia após a instalação para iniciar o processo de recuperação. O trabalho noturno carregará os metadados de todos os backups protegidos para a nuvem. Os dados estarão disponíveis para recuperação. |
-| 4. |A senha de criptografia fornecida não corresponde à senha associada ao seguinte servidor: ** \<nome do servidor>** |**Causa:** a senha de criptografia usada no processo de criptografia de dados dos dados do Servidor de Backup do Azure que estão sendo recuperados não corresponde à senha de criptografia fornecida. O agente não pode descriptografar os dados. Portanto, a recuperação falha.<br>**Resolução:** Forneça exatamente a mesma senha de criptografia associada ao Servidor de Backup do Azure cujos dados serão recuperados. |
+| 4. |A senha de criptografia fornecida não corresponde à senha associada ao seguinte servidor:**\<server name>** |**Causa:** a senha de criptografia usada no processo de criptografia de dados dos dados do Servidor de Backup do Azure que estão sendo recuperados não corresponde à senha de criptografia fornecida. O agente não pode descriptografar os dados e, portanto, a recuperação falha.<br>**Resolução:** Forneça exatamente a mesma senha de criptografia associada ao Servidor de Backup do Azure cujos dados serão recuperados. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

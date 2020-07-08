@@ -9,12 +9,11 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 97bc3c8571793ec8c8b67fe0e7c5cb3b6a56fde4
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: 4ca22c39fcd7b488f527326e4fdeaa56b0485cb9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726036"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84220301"
 ---
 # <a name="monitor-iot-edge-deployments"></a>Monitorar implantações do IoT Edge
 
@@ -101,4 +100,4 @@ Para fazer alterações na implantação, confira [Modificar uma implantação](
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Aprenda a [comunicar-se com o EdgeAgent usando os métodos diretos integrados](how-to-edgeagent-direct-method.md).
+Saiba como [monitorar o módulo gêmeos](how-to-monitor-module-twins.md), principalmente os módulos agente de IoT Edge e IOT Edge tempo de execução de Hub, para a conectividade e a integridade de suas implantações de IOT Edge.

@@ -7,12 +7,11 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 5/11/2020
-ms.openlocfilehash: 524fc747e8e3dc70bdcc594a38b2a083b8381daa
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 8aae9a0ff3ffdbd4f6bc93db5c6f15dcb938080e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124067"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84196432"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Usar dados de referência para pesquisas no Stream Analytics
 
@@ -96,13 +95,13 @@ Com a opção de consulta delta, o Stream Analytics executa a consulta de instan
 
 Para configurar os dados de referência do Banco de Dados SQL, primeiro você precisará criar a entrada **Dados de Referência**. A tabela abaixo explica cada propriedade que você precisará fornecer ao criar a entrada de dados de referência com sua descrição. Para obter mais informações, confira [Usar dados de referência de um Banco de Dados SQL para um trabalho do Azure Stream Analytics](sql-reference-data.md).
 
-Você pode usar [instância gerenciada do banco de dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) como uma entrada de dados de referência. Você precisa [Configurar o ponto de extremidade público em instância gerenciada do banco de dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) e, em seguida, definir manualmente as configurações a seguir em Azure Stream Analytics. A máquina virtual do Azure que executa o SQL Server com um banco de dados anexado também é suportada Configurando manualmente as configurações abaixo.
+Você pode usar o [Azure SQL instância gerenciada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) como uma entrada de dados de referência. Você precisa [configurar um ponto de extremidade público no SQL instância gerenciada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) e, em seguida, definir manualmente as configurações a seguir em Azure Stream Analytics. A máquina virtual do Azure que executando o SQL Server com um banco de dados anexado também tem suporte da definição manual das configurações abaixo.
 
 |**Nome da propriedade**|**Descrição**  |
 |---------|---------|
 |Alias de entrada|Um nome amigável que será usado na consulta de trabalho para fazer referência a essa entrada.|
 |Subscription|Escolha sua assinatura|
-|Banco de dados|O Banco de Dados SQL do Azure que contém os dados de referência. Por Instância Gerenciada do Banco de Dados SQL do Azure, é necessário especificar a porta 3342. Por exemplo, *sampleserver. Public. Database. Windows. net, 3342*|
+|Banco de dados|O Banco de Dados SQL do Azure que contém os dados de referência. Para o SQL Instância Gerenciada, é necessário especificar a porta 3342. Por exemplo, *sampleserver.public.database.windows.net,3342*|
 |Nome de Usuário|O nome de usuário associado ao Banco de Dados SQL do Azure.|
 |Senha|A senha associada ao Banco de Dados SQL do Azure.|
 |Atualizar periodicamente|Essa opção permite que você escolha uma taxa de atualização. A escolha da opção "Ativado" permitirá que você especifique a taxa de atualização em DD:HH:MM.|
@@ -140,7 +139,7 @@ JOIN    refData2 ON refData2.Desc = Step1.Desc
 
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]
-> [Início Rápido: criar um trabalho do Stream Analytics usando o portal do Azure](stream-analytics-quick-create-portal.md)
+> [Início Rápido: Criar um trabalho do Stream Analytics usando o portal do Azure](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

@@ -11,12 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: a664f12843585ac7524cf8d51aef156d15d32504
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3383a16624ecf045753609865931f9d0c44b6b3f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77650974"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84196581"
 ---
 # <a name="faq-about-using-azure-database-migration-service"></a>FAQ sobre como usar o serviço de migração de banco de dados do Azure
 
@@ -49,7 +48,7 @@ Você pode usar o serviço de migração de banco de dados do Azure para realiza
 O serviço de migração de banco de dados do Azure é o método preferencial para a migração de banco de dados para Microsoft Azure em escala. Para obter mais detalhes sobre como o serviço de migração de banco de dados do Azure se compara a outras ferramentas de migração de banco de dados da Microsoft e recomendações sobre como usar o serviço para vários cenários, consulte a postagem de blog [diferenciando ferramentas e serviços de migração de banco de dados](https://techcommunity.microsoft.com/t5/microsoft-data-migration/differentiating-microsoft-s-database-migration-tools-and/ba-p/368529)
 
 **P. como o serviço de migração de banco de dados do Azure se compara à oferta de migrações para Azure?**
-As migrações para Azure auxiliam na migração de máquinas virtuais locais para IaaS do Azure. O serviço avalia a adequação da migração e o dimensionamento com base no desempenho, e fornece estimativas de custo para a execução das máquinas virtuais locais no Azure. As Migrações para Azure são úteis para migrações de lift-and-shift de cargas de trabalho baseadas em VM local para VMs de IaaS do Azure. No entanto, ao contrário do serviço de migração de banco de dados do Azure, Instância Gerenciada do Banco de Dados SQL do Azure as migrações para Azure não são uma oferta de serviço de migração de banco de dados especializada para plataformas de banco de dados relacionais do Azure PaaS
+As migrações para Azure auxiliam na migração de máquinas virtuais locais para IaaS do Azure. O serviço avalia a adequação da migração e o dimensionamento com base no desempenho, e fornece estimativas de custo para a execução das máquinas virtuais locais no Azure. As Migrações para Azure são úteis para migrações de lift-and-shift de cargas de trabalho baseadas em VM local para VMs de IaaS do Azure. No entanto, ao contrário do serviço de migração de banco de dados do Azure, as migrações para Azure não são uma oferta de serviço de migração de banco de dados especializada para plataformas de banco de dados relacionais de PaaS do Azure, Instância Gerenciada como
 
 ## <a name="setup"></a>Instalação
 

@@ -8,12 +8,11 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: ba403c8d823b7ead0414521ebd51dc6f6601ccd8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9f544e479dd21b4c1f7f2e289e91b506aab7eff2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74034168"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84220045"
 ---
 # <a name="azcopy-jobs-remove"></a>azcopy jobs remove
 
@@ -49,6 +48,8 @@ azcopy jobs remove [jobID] [flags]
 
 **--** formato da cadeia de caracteres do tipo de saída da saída do comando. As opções incluem: Text, JSON. O valor padrão é ' Text '. (padrão "texto")
 
-## <a name="see-also"></a>Confira também
+**--a cadeia de caracteres Trusted-Microsoft-suffixs** especifica sufixos de domínio adicionais onde Azure Active Directory tokens de logon podem ser enviados.  O padrão é '*. Core.Windows.net;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net '. Todos listados aqui são adicionados ao padrão. Por segurança, você só deve colocar Microsoft Azure domínios aqui. Separe várias entradas com ponto e vírgula.
+
+## <a name="see-also"></a>Consulte também
 
 - [azcopy jobs](storage-ref-azcopy-jobs.md)

@@ -4,12 +4,11 @@ description: Saiba como gerenciar e monitorar backups de VM do Azure usando o se
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.openlocfilehash: dd4e9dc199048b3faf3da0cadfdf60bdcb26c5bc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6e49d1eed81d15970519299fb6f662c650116d6e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79248145"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84248576"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gerenciar backups de VM do Azure com o serviço de backup do Azure
 
@@ -31,7 +30,7 @@ Você pode gerenciar backups usando o painel e fazendo Drill down para VMs indiv
 Para exibir as VMs no painel do cofre:
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
-2. No menu Hub, selecione **procurar**. Na lista de recursos, digite **Serviços de Recuperação**. Conforme você digita, a lista é filtrada com base em sua entrada. Selecione **Cofres de Serviços de Recuperação**.
+2. No menu Hub, selecione **procurar**. Na lista de recursos, digite **Serviços de Recuperação**. Conforme você digita, a lista é filtrada com base em sua entrada. Selecione **cofres dos serviços de recuperação**.
 
     ![Criar um cofre dos Serviços de Recuperação](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
 

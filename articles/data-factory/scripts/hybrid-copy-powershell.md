@@ -1,6 +1,6 @@
 ---
 title: Copiar dados do local para o Azure usando o PowerShell
-description: O script do PowerShell copia dados de um banco de dados do SQL Server local para outro no Armazenamento de Blobs do Azure.
+description: Este script do PowerShell copia dados de um banco de SQL Server para outro armazenamento de BLOBs do Azure.
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
@@ -10,16 +10,15 @@ author: linda33wj
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 10/31/2017
-ms.openlocfilehash: 10555defc4888af66bb88d19190b6543aa8ae0c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6f0a1509a97d2d860b43146ffaf69bb241105910
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75974699"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84194623"
 ---
-# <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-from-on-premises-to-azure"></a>Usar o PowerShell para criar um pipeline do data factory para copiar dados do local para o Azure
+# <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-from-sql-server-to-azure"></a>Usar o PowerShell para criar um pipeline de data factory para copiar dados do SQL Server para o Azure
 
-Este script de exemplo do PowerShell cria um pipeline no Azure Data Factory que copia dados de um banco de dados do SQL Server local para outro em um Armazenamento de Blobs do Azure.
+Este script do PowerShell de exemplo cria um pipeline no Azure Data Factory que copia dados de um banco de SQL Server para um armazenamento de BLOBs do Azure.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -27,12 +26,12 @@ Este script de exemplo do PowerShell cria um pipeline no Azure Data Factory que 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- **SQL Server**. Um banco de dados do SQL Server local é usado como um armazenamento de dados de **origem** neste exemplo.
-- **Conta de armazenamento do Azure**. O Armazenamento de Blobs do Azure é usado como um armazenamento de dados de **destino/coletor** neste exemplo. Se você não tiver uma conta de armazenamento do Azure, consulte o artigo [criar uma conta de armazenamento](../../storage/common/storage-account-create.md) para obter as etapas para criar uma.
+- **SQL Server**. Você usa um banco de dados SQL Server como um armazenamento de data de **origem** neste exemplo.
+- **Conta de Armazenamento do Azure**. O Armazenamento de Blobs do Azure é usado como um armazenamento de dados de **destino/coletor** neste exemplo. Se você não tiver uma conta de armazenamento do Azure, consulte o artigo [criar uma conta de armazenamento](../../storage/common/storage-account-create.md) para obter as etapas para criar uma.
 - **Tempo de execução de integração auto-hospedado**. Baixe o arquivo MSI do [Centro de Download](https://www.microsoft.com/download/details.aspx?id=39717) e execute-o para instalar um runtime de integração auto-hospedada no seu computador.  
 
 ### <a name="create-sample-database-in-sql-server"></a>Criar o banco de dados de exemplo no SQL Server
-1. No banco de dados do SQL Server local, crie uma tabela chamada **emp** usando o seguinte script SQL:
+1. No banco de dados SQL Server, crie uma tabela chamada **EMP** usando o seguinte script SQL:
 
    ```sql   
      CREATE TABLE dbo.emp
@@ -57,7 +56,7 @@ Este script de exemplo do PowerShell cria um pipeline no Azure Data Factory que 
 > [!IMPORTANT]
 > Esse script cria arquivos JSON que definem as entidades do Data Factory (serviço vinculado, conjunto de dados e pipeline) no disco rígido na pasta c:\.
 
-[!code-powershell[main](../../../powershell_scripts/data-factory/copy-from-onprem-sql-server-to-azure-blob/copy-from-onprem-sql-server-to-azure-blob.ps1 "Copy from on-premises SQL Server -> Azure Blob Storage")]
+[!code-powershell[main](../../../powershell_scripts/data-factory/copy-from-onprem-sql-server-to-azure-blob/copy-from-onprem-sql-server-to-azure-blob.ps1 "Copy from SQL Server -> Azure Blob Storage")]
 
 
 ## <a name="clean-up-deployment"></a>Limpar a implantação

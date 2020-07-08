@@ -3,12 +3,11 @@ title: Usar o PowerShell para fazer backup do Windows Server no Azure
 description: Neste artigo, você aprenderá como usar o PowerShell para configurar o Backup do Azure no Windows Server ou no cliente Windows, e como gerenciar backups e recuperações.
 ms.topic: conceptual
 ms.date: 12/2/2019
-ms.openlocfilehash: 67c80a76720dd544da355ee00540cd11a22bfb10
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 696da2c94a439e5efaebbd148f6e05a9e0e15f37
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848156"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84247743"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Implantar e gerenciar o backup no Azure para o Windows Server/Windows Client usando o PowerShell
 
@@ -42,7 +41,7 @@ As etapas a seguir orientarão você durante a criação de um cofre dos Serviç
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "WestUS"
     ```
 
-4. Especifique o tipo de redundância de armazenamento a usar. Você pode usar o [Armazenamento com Redundância Local (LRS)](../storage/common/storage-redundancy-lrs.md) ou o [Armazenamento com Redundância Geográfica (GRS)](../storage/common/storage-redundancy-grs.md). O exemplo a seguir mostra que a opção BackupStorageRedundancy para o testVault está definida como GeoRedundant.
+4. Especifique o tipo de redundância de armazenamento a ser usado; Você pode usar o [LRS (armazenamento com redundância local)](../storage/common/storage-redundancy-lrs.md) ou o [grs (armazenamento com redundância geográfica)](../storage/common/storage-redundancy-grs.md). O exemplo a seguir mostra que a opção BackupStorageRedundancy para o testVault está definida como GeoRedundant.
 
    > [!TIP]
    > Muitos cmdlets do Backup do Azure exigem o objeto do cofre dos Serviços de Recuperação como entrada. Por esse motivo, pode ser útil armazenar o objeto do cofre dos Serviços de Recuperação de backup em uma variável.
@@ -694,7 +693,7 @@ Antes de desinstalar os binários do agente do computador, é necessário consid
 * Todas as informações de política são removidas do computador, mas as informações de política continuam sendo armazenadas no serviço.
 * Todos os agendamentos de backup são removidos e nenhum backup posterior é realizado.
 
-No entanto, os dados armazenados no Azure permanecem e são mantidos de acordo com a política de retenção configurada por você. Os pontos mais antigos são desatualizados automaticamente.
+No entanto, os dados armazenados no Azure permanecem e são mantidos de acordo com a configuração da política de retenção por você. Os pontos mais antigos são desatualizados automaticamente.
 
 ## <a name="remote-management"></a>Gerenciamento remoto
 

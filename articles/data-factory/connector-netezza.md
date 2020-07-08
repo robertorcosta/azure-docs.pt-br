@@ -9,14 +9,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/09/2020
+ms.date: 05/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 69eef6d8457b183f61bae98c0bc80feb0ff2e263
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 7f98fee687fca6a2b6e746b24ca582671e28391f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83635454"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84216384"
 ---
 # <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Copiar dados do Netezza usando o Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -64,8 +63,8 @@ Uma cadeia de conexão válida é `Server=<server>;Port=<port>;Database=<databas
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| SecurityLevel | O nível de segurança SSL/TLS () que usa o driver para a conexão ao repositório de dados. O driver dá suporte para conexões SSL com autenticação unidirecional usando SSL versão 3. <br>Exemplo: `SecurityLevel=preferredSecured`. Os valores com suporte são:<br/>- **Apenas não seguro** (**onlyUnSecured**): O driver não usa TLS.<br/>- **Preferencial não seguro (preferredUnSecured) (padrão)** : Se o servidor fornece uma opção, o driver não usa TLS. <br/>- **Preferencial seguro (preferredUnSecured) (padrão)** : Se o servidor fornece uma opção, o driver usa TLS. <br/>- **Somente seguro (onlySecured)** : O driver não se conecta a menos que uma conexão TLS esteja disponível. | Não |
-| CaCertFile | O caminho completo para o certificado TLS/SSL que é usado pelo servidor. Exemplo: `CaCertFile=<cert path>;`| Sim, se o TLS estiver habilitado |
+| SecurityLevel | O nível de segurança que o driver usa para a conexão com o armazenamento de dados. O driver dá suporte para conexões SSL com autenticação unidirecional usando SSL versão 3. <br>Exemplo: `SecurityLevel=preferredSecured`. Os valores com suporte são:<br/>- **Apenas inseguro** (**onlyUnSecured**): O driver não usa SSL.<br/>- **Preferencialmente não segura (preferredUnSecured) (padrão)**: se o servidor fornece uma opção, o driver não usa SSL. <br/>- **Seguro preferencial (preferredSecured)**: se o servidor fornecer uma opção, o driver usará SSL. <br/>- **Apenas protegido (onlySecured)**: O driver não se conecta a menos que uma conexão SSL esteja disponível. | Não |
+| CaCertFile | O caminho completo para o certificado SSL que é usado pelo servidor. Exemplo: `CaCertFile=<cert path>;`| Sim, se o SSL estiver habilitado |
 
 **Exemplo**
 

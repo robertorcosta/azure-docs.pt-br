@@ -12,12 +12,11 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: be797f76988c924503e11b6f66cce899b515e3a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7f07f08cd320d94495403b0f5ae65d60d8dc93b5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75982191"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84195988"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Mover dados entre fontes locais e a nuvem com o Gateway de Gerenciamento de Dados
 > [!NOTE]
@@ -47,7 +46,7 @@ Antes de iniciar este passo a passo, é necessário ter os seguintes pré-requis
 
 * **Assinatura do Azure**.  Se você não tiver uma assinatura, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Consulte o artigo [Avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/) para obter detalhes.
 * **Conta de armazenamento do Azure**. Você utiliza o armazenamento de Blobs como um armazenamento de dados **destino/coletor** neste tutorial. Se você não tiver uma conta de armazenamento do Azure, consulte o artigo [criar uma conta de armazenamento](../../storage/common/storage-account-create.md) para obter as etapas para criar uma.
-* **SQL Server**. Neste tutorial, você utiliza um Banco de Dados do SQL Server local como um armazenamento de dados de **origem**.
+* **SQL Server**. Você usa um banco de dados SQL Server como um armazenamento de data de **origem** neste tutorial.
 
 ## <a name="create-data-factory"></a>Criar um data factory
 Nesta etapa, você usa o Portal do Azure para criar uma instância do Azure Data Factory chamada **ADFTutorialOnPremDF**.
@@ -104,7 +103,7 @@ Nesta etapa, você usa o Portal do Azure para criar uma instância do Azure Data
 
     ![Página Gateway – Configurar](./media/data-factory-move-data-between-onprem-and-cloud/OnPremGatewayConfigureBlade.png)
 
-    Essa é a maneira mais fácil (um clique) de baixar, instalar, configurar e registrar o gateway em uma única etapa. Você pode ver que o aplicativo **Gerenciador de Configuração de Gateway de gerenciamento de dados da Microsoft** está instalado no computador. Você também pode encontrar o executável **configmanager. exe** na pasta: **C:\Program Files\Microsoft gerenciamento de dados Gateway\2.0\Shared**.
+    Essa é a maneira mais fácil (um clique) de baixar, instalar, configurar e registrar o gateway em uma única etapa. Você pode ver que o aplicativo **Gerenciador de Configuração de Gateway de gerenciamento de dados da Microsoft** está instalado no computador. Você também pode encontrar o executável **ConfigManager.exe** na pasta: **C:\Program Files\Microsoft gerenciamento de dados Gateway\2.0\Shared**.
 
     Você também pode baixar e instalar o gateway manualmente usando os links nessa página e registrá-lo usando a chave mostrada na caixa de texto **NOVA CHAVE** .
 
@@ -140,7 +139,7 @@ Nesta etapa, você usa o Portal do Azure para criar uma instância do Azure Data
    * Defina um proxy de HTTP para ser usado pelo gateway.     
 9. (opcional) Mude para a guia **Diagnóstico** e marque a opção **Habilitar log detalhado** se você quiser habilitar o log detalhado que pode ser usado para solucionar problemas com o gateway. As informações de log podem ser encontradas no **Visualizador de Eventos** em **Logs de Aplicativos e Serviços** -> **nó Gateway de Gerenciamento de Dados**.
 
-    ![Guia Diagnósticos](./media/data-factory-move-data-between-onprem-and-cloud/diagnostics-tab.png)
+    ![Guia Diagnóstico](./media/data-factory-move-data-between-onprem-and-cloud/diagnostics-tab.png)
 
     Você também pode executar as seguintes ações na guia **Diagnóstico** :
 
@@ -152,9 +151,9 @@ Nesta etapa, você usa o Portal do Azure para criar uma instância do Azure Data
 12. Você deve consultar **adftutorialgateway** em **Gateways de Dados** no modo de exibição de árvore à esquerda.  Se você clicar nisso, verá o JSON associado.
 
 ## <a name="create-linked-services"></a>Criar serviços vinculados
-Nesta etapa, você cria dois serviços vinculados: **AzureStorageLinkedService** e **SqlServerLinkedService**. O **SqlServerLinkedService** vincula um banco de dados local SQL Server e o serviço vinculado **AzureStorageLinkedService** vincula um repositório de blob do Azure ao Data Factory. Você criará um pipeline posteriormente neste passo a passo que copia dados do banco de dados SQL Server local para o repositório de blob do Azure.
+Nesta etapa, você cria dois serviços vinculados: **AzureStorageLinkedService** e **SqlServerLinkedService**. O **SqlServerLinkedService** vincula um banco de dados SQL Server e o serviço vinculado **AzureStorageLinkedService** vincula um repositório de blob do Azure ao data Factory. Você criará um pipeline mais adiante neste guia de explicação que copia dados do banco de SQL Server para o repositório de blob do Azure.
 
-#### <a name="add-a-linked-service-to-an-on-premises-sql-server-database"></a>Adicionar um serviço vinculado a um banco de dados SQL Server local
+#### <a name="add-a-linked-service-to-a-sql-server-database"></a>Adicionar um serviço vinculado a um banco de dados SQL Server
 1. No **Editor do Data Factory**, clique em **Novo armazenamento de dados** na barra de ferramentas e selecione **SQL Server**.
 
    ![Serviço vinculado do SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/NewSQLServer.png)
@@ -189,7 +188,7 @@ Nesta etapa, você cria conjuntos de dados de entrada e saída que representam d
 * Crie um contêiner de blob chamado **adftutorial** na conta de armazenamento de blob do Azure que você adicionou como um serviço vinculado à data factory.
 
 ### <a name="prepare-on-premises-sql-server-for-the-tutorial"></a>Preparar o SQL Server local para o tutorial
-1. No banco de dados especificado para o serviço vinculado do SQL Server local (**SqlServerLinkedService**), use o seguinte script SQL para criar a tabela **emp** no banco de dados.
+1. No banco de dados especificado para o serviço vinculado SQL Server (**SqlServerLinkedService**), use o script SQL a seguir para criar a tabela **EMP** no banco de dados.
 
     ```SQL   
     CREATE TABLE dbo.emp
@@ -279,7 +278,7 @@ Nesta etapa, você cria conjuntos de dados de entrada e saída que representam d
    * **folderPath** é definido como **adftutorial/outfromonpremdf**, em que outfromonpremdf é a pasta no contêiner adftutorial. Crie o contêiner **adftutorial** se ele ainda não existir.
    * A **disponibilidade** é definida como por **hora** (a**frequência** é definida como **hora** e o **intervalo** definido como **1**).  O serviço Data Factory gera uma fatia de dados de saída a cada hora na tabela **emp** no banco de dados SQL do Azure.
 
-   Se você não especificar um **nome de arquivo** para uma **tabela de saída**, os arquivos gerados no **FolderPath** serão nomeados no seguinte formato `Data.<Guid>.txt` : (por exemplo: Data. 0a405f8a-93ff-4c6f-b3be-f69616f1df7a. txt.).
+   Se você não especificar um **nome de arquivo** para uma **tabela de saída**, os arquivos gerados no **FolderPath** serão nomeados no seguinte formato: `Data.<Guid>.txt` (por exemplo:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
    Para definir **folderPath** e **fileName** dinamicamente com base no horário **SliceStart**, use a propriedade partitionedBy. No exemplo a seguir, folderPath usa o ano, mês e dia de SliceStart (hora de início da fatia que está sendo processada) e fileName usa a hora de SliceStart. Por exemplo, se uma fatia é produzida para 2014-10-20T08:00:00, o folderName é definido como wikidatagateway/wikisampledataout/2014/10/20 e o fileName é definido como 08.csv.
 
@@ -363,7 +362,7 @@ Nesta etapa, você criará um **pipeline** com uma **Atividade de Cópia** que u
 
    Ambos os valores de data/hora de início e de término devem estar no [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. A hora **final** é opcional, mas nós a usaremos neste tutorial.
 
-   Se você não especificar o valor para a propriedade **end** , ele será calculado como "**Start + 48 hours**". Para executar o pipeline indefinidamente, especifique **9/9/9999** como o valor para a propriedade **end**.
+   Se você não especificar o valor para a propriedade **end**, ele será calculado como "**início + 48 horas**". Para executar o pipeline indefinidamente, especifique **9/9/9999** como o valor para a propriedade **end**.
 
    Especificando o período ativo de um pipeline, você está definindo a duração de tempo em que as fatias de dados serão processadas com base nas propriedades de **Disponibilidade** que foram definidas para cada conjunto de dados da Azure Data Factory.
 

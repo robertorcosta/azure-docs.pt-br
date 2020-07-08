@@ -12,12 +12,11 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 49ad9be7c70602132436b14234f01a4086d8e1fe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 02d6c11e3880f69f5020fb51f90a72c3233e2f25
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "70139152"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84195879"
 ---
 # <a name="use-case---product-recommendations"></a>Caso de uso - recomendações de produtos
 O Azure Data Factory é um dos muitos serviços usados para implementar o Cortana Intelligence Suite de aceleradores de solução.  Consulte a página [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics) para obter detalhes sobre este pacote. Neste documento, descrevemos um caso de uso comum que usuários do Azure já resolveram e implementaram usando o Azure Data Factory e outros serviços de componente do Cortana Intelligence.
@@ -41,7 +40,7 @@ Por fim, os revendedores devem avaliar a eficiência de sua abordagem acompanhan
 ## <a name="solution-overview"></a>Visão geral da solução
 Esse exemplo de caso de uso foi resolvido e implementado por usuários reais do Azure pelo uso do Azure Data Factory e outros serviços de componente de Cortana Intelligence, inclusive [HDInsight](https://azure.microsoft.com/services/hdinsight/) e [Power BI](https://powerbi.microsoft.com/).
 
-O revendedor online usa um Armazenamento de Blob do Azure, um SQL Server local, um Banco de Dados SQL do Azure e um data mart para dados relacionais como suas opções de armazenamento de dados durante o fluxo de trabalho.  O armazenamento de blob contém dados de informações de produto, dados de comportamento do cliente e informações do produto. Os dados de informações de produto incluem informações sobre a marca do produto e um catálogo de produtos armazenados localmente em um SQL data warehouse. 
+O varejista online usa um repositório de blob do Azure, um SQL Server local, um banco de dados SQL do Azure e um data mart relacional como suas opções de armazenamento de dados em todo o fluxo de trabalho.  O armazenamento de blob contém dados de informações de produto, dados de comportamento do cliente e informações do produto. Os dados de informações de produto incluem informações sobre a marca do produto e um catálogo de produtos armazenados localmente em um SQL data warehouse. 
 
 Todos os dados são combinados alimentados em um sistema de recomendação de produtos para fornecer recomendações personalizadas com base em ações e os interesses do cliente, enquanto o usuário procura produtos no catálogo existente no site. O cliente também vê produtos que estão relacionados ao produto está examinando com base nos padrões de uso geral do site, que não estão relacionadas a nenhum usuário específico.
 

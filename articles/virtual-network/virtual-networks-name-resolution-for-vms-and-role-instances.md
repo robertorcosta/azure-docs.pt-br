@@ -13,12 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 3/2/2020
 ms.author: rohink
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 9ea63192732184ff7a13ff1465a5b393a282f9d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 32ef66c0a6d585e785fccb038a2b499c7f7f66db
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262189"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84204762"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Resolução de nomes para recursos em redes virtuais do Azure
 
@@ -84,9 +83,9 @@ Pontos a serem considerados quando você estiver usando a resolução de nomes f
 
 ### <a name="reverse-dns-considerations"></a>Considerações sobre DNS reverso
 O DNS reverso tem suporte em todas as redes virtuais baseadas em ARM. Você pode emitir consultas DNS reversas (consultas PTR) para mapear endereços IP de máquinas virtuais para FQDNs de máquinas virtuais.
-* Todas as consultas de PTR para endereços IP de máquinas virtuais retornarão FQDNs \[da\]forma vmname. Internal.cloudapp.net
-* A pesquisa direta em FQDNs do \[formulário\]vmname. Internal.cloudapp.net será resolvido para o endereço IP atribuído à máquina virtual.
-* Se a rede virtual estiver vinculada a uma [zona privada de DNS do Azure](../dns/private-dns-overview.md) como uma rede virtual de registro, as consultas de DNS reverso retornarão dois registros. Um registro será o do formato \[vmname.\] [priatednszonename] e outros seriam no formato \[vmname\]. Internal.cloudapp.net
+* Todas as consultas de PTR para endereços IP de máquinas virtuais retornarão FQDNs da forma \[ vmname \] . Internal.cloudapp.net
+* A pesquisa direta em FQDNs do formulário \[ vmname \] . Internal.cloudapp.net será resolvido para o endereço IP atribuído à máquina virtual.
+* Se a rede virtual estiver vinculada a uma [zona privada de DNS do Azure](../dns/private-dns-overview.md) como uma rede virtual de registro, as consultas de DNS reverso retornarão dois registros. Um registro será o do formato \[ vmname \] . [ privatednszonename] e outros seriam no formato \[ vmname \] . Internal.cloudapp.net
 * A pesquisa inversa de DNS tem como escopo uma determinada rede virtual, mesmo se ela estiver emparelhada com outras redes virtuais. Consultas de DNS reverso (consultas de PTR) para endereços IP de máquinas virtuais localizadas em redes virtuais emparelhadas retornarão NXDOMAIN.
 * Se você quiser desativar a função de DNS reverso em uma rede virtual, poderá fazer isso criando uma zona de pesquisa inversa usando [zonas privadas do DNS do Azure](../dns/private-dns-overview.md) e vincular essa zona à sua rede virtual. Por exemplo, se o espaço de endereço IP de sua rede virtual for 10.20.0.0/16, você poderá criar uma zona DNS privada vazia 20.10.in-addr. arpa e vinculá-la à rede virtual. Ao vincular a zona à sua rede virtual, você deve desabilitar o registro automático no link. Essa zona substituirá as zonas de pesquisa inversa padrão para a rede virtual e, como essa zona está vazia, você receberá NXDOMAIN para suas consultas de DNS reverso. Consulte nosso [Guia de início rápido](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal) para obter detalhes sobre como criar uma zona DNS privada e vinculá-la a uma rede virtual.
 
@@ -218,7 +217,7 @@ Quando você estiver usando o Modelo de implantação do Azure Resource Manager,
 Ao usar o modelo de implantação clássica, você pode especificar os servidores DNS para a rede virtual no Portal do Azure ou [arquivo Configuração de Rede](https://msdn.microsoft.com/library/azure/jj157100). Para serviços de nuvem, você pode especificar os servidores DNS por meio do [arquivo Configuração de Serviço](https://msdn.microsoft.com/library/azure/ee758710) ou usando o PowerShell, com [New-AzureVM](/powershell/module/servicemanagement/azure/new-azurevm).
 
 > [!NOTE]
-> Se você alterar as configurações de DNS para uma rede virtual ou máquina virtual que já está implantada, para que as novas configurações de DNS entrem em vigor, você deverá executar uma renovação de concessão DHCP em todas as VMs afetadas na rede virtual. Para VMs que executam o sistema operacional Windows, você pode fazer `ipconfig /renew` isso digitando diretamente na VM. As etapas variam dependendo do sistema operacional. Consulte a documentação relevante para seu tipo de sistema operacional.
+> Se você alterar as configurações de DNS para uma rede virtual ou máquina virtual que já está implantada, para que as novas configurações de DNS entrem em vigor, você deverá executar uma renovação de concessão DHCP em todas as VMs afetadas na rede virtual. Para VMs que executam o sistema operacional Windows, você pode fazer isso digitando `ipconfig /renew` diretamente na VM. As etapas variam dependendo do sistema operacional. Consulte a documentação relevante para seu tipo de sistema operacional.
 
 ## <a name="next-steps"></a>Próximas etapas
 

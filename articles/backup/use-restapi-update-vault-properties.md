@@ -4,12 +4,11 @@ description: Neste artigo, saiba como atualizar a configuração do cofre usando
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: 4c604fe067e73f5f9a17f4b5f810708121cff767
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
-ms.translationtype: MT
+ms.openlocfilehash: eadcebdaf4db3dbe6c0a62b8631ff7d76fa50fad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744574"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84248219"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Atualizar as configurações do cofre dos serviços de recuperação do Azure usando a API REST
 
@@ -21,7 +20,7 @@ Excluir backups de um item protegido é uma operação significativa que deve se
 
 Mas há cenários em que esse recurso não é necessário. Um cofre dos serviços de recuperação do Azure não poderá ser excluído se houver itens de backup dentro dele, até mesmo os excluídos de maneira reversível. Isso pode representar um problema se o cofre precisar ser excluído imediatamente. Por exemplo: as operações de implantação geralmente limpam os recursos criados no mesmo fluxo de trabalho. Uma implantação pode criar um cofre, configurar backups para um item, fazer uma restauração de teste e, em seguida, continuar a excluir os itens de backup e o cofre. Se a exclusão do cofre falhar, a implantação inteira poderá falhar. Desabilitar a exclusão reversível é a única maneira de garantir a exclusão imediata.
 
-Portanto, o cliente precisa escolher cuidadosamente se deseja ou não desabilitar a exclusão reversível para um cofre específico, dependendo do cenário. Para obter mais informações, consulte o [artigo exclusão reversível](backup-azure-security-feature-cloud.md).
+Portanto, você precisa escolher cuidadosamente se deseja ou não desabilitar a exclusão reversível para um cofre específico, dependendo do cenário. Para obter mais informações, consulte o [artigo exclusão reversível](backup-azure-security-feature-cloud.md).
 
 ### <a name="fetch-soft-delete-state-using-rest-api"></a>Buscar o estado de exclusão reversível usando a API REST
 
@@ -33,7 +32,7 @@ Para buscar o estado atual de exclusão reversível para um cofre, use a seguint
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-05-13
 ```
 
-O URI Get tem `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}` parâmetros. Neste exemplo, `{vaultName}` é "testVault" e `{vaultresourceGroupName}` é "testVaultRG". Como todos os parâmetros necessários são fornecidos no URI, não é necessário ter o corpo da solicitação separado.
+O URI Get tem `{subscriptionId}` , `{vaultName}` , `{vaultresourceGroupName}` parâmetros. Neste exemplo, `{vaultName}` é "testVault" e `{vaultresourceGroupName}` é "testVaultRG". Como todos os parâmetros necessários são fornecidos no URI, não é necessário ter o corpo da solicitação separado.
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-05-13
@@ -43,7 +42,7 @@ GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 A resposta bem-sucedida para a operação ' GET ' é mostrada abaixo:
 
-|Nome  |Type  |Descrição  |
+|Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
 |200 OK     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
 
@@ -71,7 +70,7 @@ Para atualizar o estado de exclusão reversível do cofre dos serviços de recup
 PATCH https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-05-13
 ```
 
-O URI do patch `{subscriptionId}`tem `{vaultName}`, `{vaultresourceGroupName}` , parâmetros. Neste exemplo, `{vaultName}` é "testVault" e `{vaultresourceGroupName}` é "testVaultRG". Se substituirmos o URI pelos valores acima, o URI terá a seguinte aparência.
+O URI do patch tem `{subscriptionId}` , `{vaultName}` , `{vaultresourceGroupName}` parâmetros. Neste exemplo, `{vaultName}` é "testVault" e `{vaultresourceGroupName}` é "testVaultRG". Se substituirmos o URI pelos valores acima, o URI terá a seguinte aparência.
 
 ```http
 PATCH https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-05-13
@@ -83,7 +82,7 @@ As seguintes definições comuns são usadas para criar um corpo de solicitaçã
 
 Para obter mais detalhes, consulte [a documentação da API REST](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/update#request-body)
 
-|Nome  |Obrigatório  |Type  |Descrição  |
+|Nome  |Obrigatório  |Tipo  |Descrição  |
 |---------|---------|---------|---------|
 |eTag     |         |   String      |  eTag Opcional       |
 |local     |  true       |String         |   Localização do recurso      |
@@ -107,7 +106,7 @@ O exemplo a seguir é usado para atualizar o estado de exclusão reversível par
 
 A resposta bem-sucedida para a operação ' PATCH ' é mostrada abaixo:
 
-|Nome  |Type  |Descrição  |
+|Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
 |200 OK     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
 

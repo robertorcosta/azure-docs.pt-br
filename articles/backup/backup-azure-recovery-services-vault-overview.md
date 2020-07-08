@@ -3,12 +3,11 @@ title: Visão geral de cofres de Serviços de Recuperação
 description: Uma visão geral e a comparação entre os cofres de Serviços de Recuperação e os cofres de Backup do Azure.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: a0dacd82b7cf4258c0147bbaf9dc39ee6fc0fa25
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
-ms.translationtype: MT
+ms.openlocfilehash: 798f49629ad1012e8cc9ac3ed43f5beddd6eefeb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82597936"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84248899"
 ---
 # <a name="recovery-services-vaults-overview"></a>Visão geral dos cofres dos Serviços de Recuperação
 
@@ -20,7 +19,7 @@ Com uma assinatura do Azure, você pode criar até 500 cofres de Serviços de Re
 
 Se você ainda tiver cofres de backup, eles serão atualizados automaticamente para os cofres dos serviços de recuperação. Até novembro de 2017, todos os cofres de Backup foram atualizados para cofres dos Serviços de Recuperação.
 
-Cofres de Serviços de Recuperação são baseados no modelo do Azure Resource Manager, enquanto os cofres de Backup eram baseados no modelo do Azure Service Manager. Quando você atualiza um cofre de Backup para um cofre de Serviços de Recuperação, os dados de backup permanecem intactos durante e após o processo de atualização. Cofres de Serviços de Recuperação fornecem recursos não disponíveis a cofres de Backup, como:
+Os cofres dos serviços de recuperação são baseados no modelo de Azure Resource Manager do Azure, no entanto, os cofres de backup eram baseados no modelo de Service Manager do Azure. Quando você atualiza um cofre de Backup para um cofre de Serviços de Recuperação, os dados de backup permanecem intactos durante e após o processo de atualização. Cofres de Serviços de Recuperação fornecem recursos não disponíveis a cofres de Backup, como:
 
 - **Recursos aprimorados para ajudar a proteger dados de backup**: com os cofres de Serviços de Recuperação, o Backup do Azure fornece recursos de segurança para proteger backups em nuvem. Esses recursos de segurança asseguram que você possa proteger seus backups e recuperar dados com segurança, mesmo que os servidores de produção e de backup estejam comprometidos. [Saiba mais](backup-azure-security-feature.md)
 

@@ -6,12 +6,11 @@ ms.author: lcozzens
 ms.date: 02/20/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 9cb1149073247b7f5fc3e74a1aef6f96388c7135
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 6d072cd03fa0e5c8da4593d8633a268d3b5a50fb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648120"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84197060"
 ---
 # <a name="sync-your-github-repository-to-app-configuration"></a>Sincronizar o repositório GitHub com a configuração do aplicativo
 
@@ -92,7 +91,7 @@ jobs:
 ```
 ## <a name="sync-multiple-files-in-one-action"></a>Sincronizar vários arquivos em uma ação 
 
-Se sua configuração estiver em vários arquivos, você poderá usar o padrão abaixo para disparar uma sincronização quando o arquivo for modificado. Esse padrão usa a biblioteca glob https://www.npmjs.com/package/glob 
+Se sua configuração estiver em vários arquivos, você poderá usar o padrão abaixo para disparar uma sincronização quando o arquivo for modificado. Esse padrão usa a biblioteca glob https://www.npmjs.com/package/glob . Observe que, se o nome do arquivo de configuração contiver uma vírgula, você poderá usar uma barra invertida para escapar a vírgula. 
 
 ```json
 on:

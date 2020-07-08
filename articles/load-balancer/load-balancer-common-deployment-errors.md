@@ -10,12 +10,11 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 04/27/2020
 ms.author: anavin
-ms.openlocfilehash: b596e349d789584de07943332ede6f6897a1fd22
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 527f71b1980b5a62d3db94fe89a1bce98142e31a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658631"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84221006"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-load-balancer"></a>Solucionar problemas de erros comuns de implantação do Azure com o Azure Load Balancer
 
@@ -28,6 +27,7 @@ Este artigo descreve alguns erros comuns de implantação do Azure Load Balancer
 |DifferentSkuLoadBalancersAndPublicIPAddressNotAllowed| O SKU do IP público e o SKU do Load Balancer devem coincidir. Verifique se os SKUs de IP Público e do Azure Load Balancer correspondem. SKU Standard é recomendado para cargas de trabalho de produção. Saiba mais sobre as [diferenças entre SKUs](./skus.md)  |
 |DifferentSkuLoadBalancerAndPublicIPAddressNotAllowedInVMSS | Os conjuntos de dimensionamento de máquinas virtuais padrão para Load Balancers básicos quando o SKU não é especificado ou implantado sem IPs públicos Standard. Reimplante o conjunto de dimensionamento de máquinas virtuais com IPs públicos Standard nas instâncias individuais para garantir que Standard Load Balancer esteja selecionado ou simplesmente selecione um Standard LB ao implantar o conjunto de dimensionamento de máquinas virtuais do portal do Azure. |
 |MaxAvailabilitySetsInLoadBalancerReached | O pool de back-end de um Load Balancer pode conter um máximo de 150 conjuntos de disponibilidade. Se você não tiver conjuntos de disponibilidade definidos explicitamente para suas VMs no pool de back-end, cada VM entrará em seu próprio conjunto de disponibilidade. Assim, a implantação de 150 VMs autônomas significa que ela teria 150 Conjuntos de disponibilidade, atingindo assim o limite. Você pode implantar um conjunto de disponibilidade e adicionar outras VMs a ele como uma solução alternativa. |
+|NetworkInterfaceAndLoadBalancerAreInDifferentAvailabilitySets | Para o balanceador de carga de SKU básico, a interface de rede e o balanceador de carga precisam estar no mesmo conjunto de disponibilidade. |
 |RulesOfSameLoadBalancerTypeUseSameBackendPortProtocolAndIPConfig| Você não pode ter mais de uma regra em um determinado tipo de balanceador de carga (interno, público) com a mesma porta de back-end e o protocolo referenciados pelo mesmo conjunto de dimensionamento de máquinas virtuais. Atualize sua regra para alterar essa criação de regra duplicada. |
 |RulesOfSameLoadBalancerTypeUseSameBackendPortProtocolAndVmssIPConfig| Você não pode ter mais de uma regra em um determinado tipo de balanceador de carga (interno, público) com a mesma porta de back-end e o protocolo referenciados pelo mesmo conjunto de dimensionamento de máquinas virtuais. Atualize os parâmetros de regra para alterar essa criação de regra duplicada. |
 |AnotherInternalLoadBalancerExists| Você pode ter apenas um Load Balancer do tipo referência interna do mesmo conjunto de VMs/interfaces de rede no back-end do Load Balancer. Atualize a implantação para garantir que você está criando apenas um Load Balancer do mesmo tipo. |

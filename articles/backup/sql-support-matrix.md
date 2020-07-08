@@ -3,12 +3,11 @@ title: Matriz de suporte de backup do Azure para SQL Server Backup em VMs do Azu
 description: Fornece um resumo das configurações de suporte e limitações ao fazer backup de SQL Server em VMs do Azure com o serviço de backup do Azure.
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 79a7e30ab9240c489a66b547ff85bea7887131b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f9594b9157f84a0536ffd4b62f792fd86fb1c243
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79409993"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84234241"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Matriz de suporte para backup SQL Server em VMs do Azure
 
@@ -19,7 +18,7 @@ Você pode usar o backup do Azure para fazer backup de bancos de dados SQL Serve
 **Suporte** | **Detalhes**
 --- | ---
 **Implantações com suporte** | Há suporte para VMs do Azure no Marketplace do SQL e VMs que não são do Marketplace (do SQL Server instaladas manualmente).
-**Áreas geográficas com suporte** | ASE (Sudeste da Austrália), AE (Leste da Austrália), Leste da Austrália, AC (Austrália Central), AC (Austrália Central 2) <br> Sul do Brasil (BRS)<br> Canadá Central (CNC), Leste do Canadá (CE)<br> Sudeste da Ásia (SEA), Leste da Ásia (EA) <br> Leste dos EUA (EUS), Leste dos EUA 2 (EUS2), Centro-Oeste dos EUA (WCUS), Oeste dos EUA (WUS); Oeste dos EUA 2 (WUS 2) Centro-Norte dos EUA (NCUS) EUA Central (CUS) Centro-Sul dos EUA (SCUS) <br> INC (Índia Central), INS (Sul da Índia), Oeste da Índia <br> Oeste do Japão (JPE), Leste do Japão (JPW) <br> Coreia Central (KRC), Sul da Coreia (KRS) <br> Norte da Europa (NE), Oeste da Europa <br> Sul do Reino Unido (UKS), Oeste do Reino Unido (UKW) <br> US Gov – Arizona, US Gov – Virgínia, US Gov – Texas, Região Central do US DoD, Leste do US DoD <br> Norte da Alemanha, Centro-oeste da Alemanha <br> Norte da Suíça, Oeste da Suíça <br> França Central <br> Leste da China, Leste da China 2, Norte da China, Norte da China 2
+**Regiões com suporte** | ASE (Sudeste da Austrália), AE (Leste da Austrália), Leste da Austrália, AC (Austrália Central), AC (Austrália Central 2) <br> Sul do Brasil (BRS)<br> Canadá Central (CNC), Leste do Canadá (CE)<br> Sudeste da Ásia (SEA), Leste da Ásia (EA) <br> Leste dos EUA (EUS), Leste dos EUA 2 (EUS2), Centro-Oeste dos EUA (WCUS), Oeste dos EUA (WUS); Oeste dos EUA 2 (WUS 2) Centro-Norte dos EUA (NCUS) EUA Central (CUS) Centro-Sul dos EUA (SCUS) <br> INC (Índia Central), INS (Sul da Índia), Oeste da Índia <br> Oeste do Japão (JPE), Leste do Japão (JPW) <br> Coreia Central (KRC), Sul da Coreia (KRS) <br> Norte da Europa (NE), Oeste da Europa <br> Sul do Reino Unido (UKS), Oeste do Reino Unido (UKW) <br> US Gov – Arizona, US Gov – Virgínia, US Gov – Texas, Região Central do US DoD, Leste do US DoD <br> Norte da Alemanha, Centro-oeste da Alemanha <br> Norte da Suíça, Oeste da Suíça <br> França Central <br> Leste da China, Leste da China 2, Norte da China, Norte da China 2
 **Sistemas operacionais com suporte** | Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2008 R2 SP1 <br/><br/> Não há suporte para Linux no momento.
 **Versões do SQL Server com suporte** | SQL Server 2019, SQL Server 2017, conforme detalhado na [página Pesquisar ciclo de vida de produto](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 e SPs conforme detalhado na [página Pesquisar ciclo de vida do produto](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012, SQL Server 2008 R2, SQL Server 2008 <br/><br/> Enterprise, Standard, Web, Developer e Express.
 **Versões do .NET com suporte** | .NET Framework 4.5.2 ou posterior instalado na VM
@@ -41,7 +40,7 @@ Você pode usar o backup do Azure para fazer backup de bancos de dados SQL Serve
 * Para ter uma noção de como muitos bancos de dados podem ser protegidos por servidor, considere fatores como largura de banda, tamanho da VM, frequência de backup, tamanho do banco de dados e assim por diante. [Baixe](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) o Resource Planner para calcular o número aproximado de bancos de dados que você pode ter por servidor com base nos recursos da VM e na política de backup.
 * Quando os grupos de disponibilidade são configurados, os backups são obtidos dos diferentes nós com base em alguns fatores. O comportamento de backup para um grupo de disponibilidade está resumido abaixo.
 
-### <a name="back-up-behavior-with-always-on-availability-groups"></a>Fazer backup do comportamento com grupos de disponibilidade AlwaysOn
+### <a name="back-up-behavior-with-always-on-availability-groups"></a>Comportamento de backup com grupos de disponibilidade Always On
 
 Recomendamos que o backup seja configurado em apenas um nó de um AG (grupo de disponibilidade). Sempre configure o backup na mesma região que o nó primário. Em outras palavras, você sempre precisa que o nó primário esteja presente na região em que você está configurando o backup. Se todos os nós do AG estiverem na mesma região em que o backup está configurado, não haverá nenhuma preocupação.
 
@@ -56,17 +55,17 @@ Dependendo da preferência de backup e os tipos de backups (completo/diferencial
 
 **Tipo de backup** | **Nó**
 --- | ---
-Completo | Primária
-Diferencial | Primária
-Log |  Primária
-Completo somente de cópia |  Primária
+Completo | Primário
+Diferencial | Primário
+Log |  Primário
+Completo somente de cópia |  Primário
 
 #### <a name="backup-preference-secondary-only"></a>Preferência de backup: somente secundário
 
 **Tipo de backup** | **Nó**
 --- | ---
-Completo | Primária
-Diferencial | Primária
+Completo | Primário
+Diferencial | Primário
 Log |  Secundário
 Completo somente de cópia |  Secundário
 
@@ -74,8 +73,8 @@ Completo somente de cópia |  Secundário
 
 **Tipo de backup** | **Nó**
 --- | ---
-Completo | Primária
-Diferencial | Primária
+Completo | Primário
+Diferencial | Primário
 Log |  Secundário
 Completo somente de cópia |  Secundário
 
@@ -83,8 +82,8 @@ Completo somente de cópia |  Secundário
 
 **Tipo de backup** | **Nó**
 --- | ---
-Completo | Primária
-Diferencial | Primária
+Completo | Primário
+Diferencial | Primário
 Log |  Secundário
 Completo somente de cópia |  Secundário
 

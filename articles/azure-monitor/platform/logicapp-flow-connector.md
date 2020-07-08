@@ -7,17 +7,25 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
-ms.openlocfilehash: 6961b7bd94c9b3fe70365055851c488efa2cbeca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 193aa168cff436512dc2044d0986df508fd6bfa9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79480004"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84248729"
 ---
 # <a name="azure-monitor-logs-connector-for-logic-apps-and-flow"></a>Conector de logs de Azure Monitor para aplicativos lógicos e fluxo
 Os [aplicativos lógicos do Azure](/azure/logic-apps/) e a [automatização de energia](https://ms.flow.microsoft.com) permitem que você crie fluxos de trabalho automatizados usando centenas de ações para uma variedade de serviços. O conector de logs de Azure Monitor permite que você crie fluxos de trabalho que recuperam dados de um espaço de Log Analytics ou de um aplicativo Application Insights no Azure Monitor. Este artigo descreve as ações incluídas com o conector e fornece uma explicação para criar um fluxo de trabalho usando esses dados.
 
 Por exemplo, você pode criar um aplicativo lógico para usar Azure Monitor dados de log em uma notificação por email do Office 365, criar um bug no Azure DevOps ou postar uma mensagem de margem de atraso.  Você pode disparar um fluxo de trabalho com um agendamento simples ou a partir de alguma ação em um serviço conectado, por exemplo, quando um email ou tweet é recebido. 
+
+## <a name="connector-limits"></a>Limites de conector
+O conector de logs de Azure Monitor tem estes limites:
+* Tamanho máximo dos dados: 16 MB
+* Tamanho máximo de resposta de consulta de 100 MB
+* Número máximo de registros: 500.000
+* Tempo limite máximo de consulta 110 segundo.
+
+Dependendo do tamanho dos dados e da consulta usada, o conector pode atingir seus limites e falhar. Você pode contornar esses casos ao ajustar a recorrência de gatilho para executar com mais frequência e consultar menos dados. Você pode usar consultas que agregam seus dados para retornar menos registros e colunas.
 
 ## <a name="actions"></a>Ações
 A tabela a seguir descreve as ações incluídas com o conector de logs de Azure Monitor. Ambos permitem que você execute uma consulta de log em um espaço de trabalho Log Analytics ou Application Insights aplicativo. A diferença está no modo como os dados são retornados.

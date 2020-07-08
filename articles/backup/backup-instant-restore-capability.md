@@ -4,12 +4,11 @@ description: Funcionalidade de restauração instantânea do Azure e perguntas f
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: fc29d1ac4c2e4c22ce6e6f8356927e768dc274e3
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
-ms.translationtype: MT
+ms.openlocfilehash: 6225a7eb8198ffcca0d1e3e15f64e2b3c977dc16
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82597647"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84248270"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Obter o melhor backup e restaurar o desempenho com a funcionalidade de restauração instantânea do Backup do Azure
 
@@ -48,7 +47,7 @@ Por padrão, os instantâneos são retidos por dois dias. Esse recurso permite a
 * É uma atualização direcional, uma vez atualizada para restauração instantânea, você não pode voltar.
 
 >[!NOTE]
->Com o upgrade da restauração instantânea, a duração da retenção de instantâneos para todos os clientes (**tanto novos quanto existentes**) será definida com um valor padrão de dois dias. No entanto, você pode definir a duração, de acordo com sua necessidade, como qualquer valor entre 1 e 5 dias.
+>Com o upgrade da restauração instantânea, a duração da retenção de instantâneos para todos os clientes (**tanto novos quanto existentes**) será definida com um valor padrão de dois dias. No entanto, você pode definir a duração de acordo com seu requisito para qualquer valor entre 1 e 5 dias.
 
 ## <a name="cost-impact"></a>Impacto de custo
 
@@ -110,15 +109,15 @@ O novo modelo não permite excluir o ponto de restauração (Tier2), a menos que
 
 ### <a name="why-is-my-snapshot-existing-even-after-the-set-retention-period-in-backup-policy"></a>Por que meu instantâneo existe mesmo após o período de retenção definido na política de backup?
 
-Se o ponto de recuperação tem um instantâneo e esse é o período de retenção mais recente disponível, ele é mantido até o momento em que houver um backup bem-sucedido. Isso é de acordo com a política de "coleta de lixo" (GC) projetada hoje que exige pelo menos um RP mais recente para estar sempre presente no caso de falha em todos os backups devido a um problema na VM. Em cenários normais, os períodos de retenção são limpos no máximo 24 horas após sua expiração.
+Se o ponto de recuperação tem um instantâneo e esse é o período de retenção mais recente disponível, ele é mantido até o momento em que houver um backup bem-sucedido. Isso é de acordo com a política de "coleta de lixo" (GC) projetada hoje que exige pelo menos um RP mais recente para estar sempre presente no caso de falha de todos os backups devido a um problema na VM. Em cenários normais, os períodos de retenção são limpos no máximo 24 horas após sua expiração.
 
 ### <a name="i-dont-need-instant-restore-functionality-can-it-be-disabled"></a>Não preciso da funcionalidade de restauração instantânea. Ele pode ser desabilitado?
 
 O recurso de restauração instantânea está habilitado para todos e não pode ser desabilitado. Você pode reduzir a retenção de instantâneo para um mínimo de um dia.
 
 >[!NOTE]
-> **O backup do Azure agora oferece suporte a backup e restauração de disco seletivo usando a solução de backup de máquina virtual do Azure.**
+> **O Backup do Azure agora dá suporte a backup e restauração de disco seletivo usando a solução de backup de Máquina Virtual do Azure.**
 >
->Hoje, o backup do Azure dá suporte ao backup de todos os discos (sistema operacional e dados) em uma VM em conjunto usando a solução de backup de máquina virtual. Com a funcionalidade excluir disco, você obtém uma opção para fazer backup de um ou alguns dos vários discos de dados em uma VM. Isso fornece uma solução eficiente e econômica para suas necessidades de backup e restauração. Cada ponto de recuperação contém dados dos discos incluídos na operação de backup, o que permite que você tenha um subconjunto de discos restaurados do ponto de recuperação fornecido durante a operação de restauração. Isso se aplica à restauração tanto do instantâneo quanto do cofre.
+>Hoje, o Backup do Azure dá suporte ao backup de todos os discos (Sistema Operacional e dados) em uma VM usando a solução de backup de Máquina Virtual. Com a funcionalidade de exclusão de disco, você obtém uma opção para fazer backup de um ou alguns dos vários discos de dados em uma VM. Isso fornece uma solução eficiente e econômica para suas necessidades de backup e restauração. Cada ponto de recuperação contém dados dos discos incluídos na operação de backup, o que permite que você tenha um subconjunto de discos restaurados do ponto de recuperação fornecido durante a operação de restauração. Isso se aplica à restauração tanto do instantâneo quanto do cofre.
 >
->**Para se inscrever na versão prévia, escreva-nos emAskAzureBackupTeam@microsoft.com**
+>**Para se inscrever na versão prévia, escreva-nos em AskAzureBackupTeam@microsoft.com**

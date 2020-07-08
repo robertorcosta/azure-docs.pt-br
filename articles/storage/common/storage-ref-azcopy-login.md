@@ -8,12 +8,11 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: d07d1a706635a7f269a9a51769ae6f8bbf57df3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8d2adca661882ea11d04ebe55afe25f7f9c2ef4e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80295398"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84219961"
 ---
 # <a name="azcopy-login"></a>azcopy login
 
@@ -101,7 +100,7 @@ Certifique-se de tratar/Path/to/My/CERT como um caminho para um arquivo PEM ou P
 
 |Opção|Descrição|
 |--|--|
-|--AAD-ponto de extremidade|O ponto de extremidade Azure Active Directory a ser usado. O padrão (`https://login.microsoftonline.com`) está correto para a nuvem pública do Azure. Defina esse parâmetro ao autenticar em uma nuvem nacional. Consulte [pontos de extremidade de autenticação do Azure ad](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints).
+|--AAD-ponto de extremidade|O ponto de extremidade Azure Active Directory a ser usado. O padrão ( `https://login.microsoftonline.com` ) está correto para a nuvem pública do Azure. Defina esse parâmetro ao autenticar em uma nuvem nacional. Consulte [pontos de extremidade de autenticação do Azure ad](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints).
 Esse sinalizador não é necessário para Identidade de Serviço Gerenciada.|
 |--ID do aplicativo-cadeia de caracteres|ID do aplicativo da identidade atribuída pelo usuário. Necessário para autenticação de entidade de serviço.|
 |--Cadeia de caracteres de caminho do certificado|Caminho para o certificado para autenticação SPN. Necessário para autenticação de entidade de serviço baseada em certificado.|
@@ -119,7 +118,8 @@ Esse sinalizador não é necessário para Identidade de Serviço Gerenciada.|
 |---|---|
 |--Cap-Mbps UInt32|Limita a taxa de transferência, em megabits por segundo. A taxa de transferência por minuto pode variar um pouco a partir do limite. Se essa opção for definida como zero ou for omitida, a taxa de transferência não será limitada.|
 |--Cadeia de caracteres de tipo de saída|Formato da saída do comando. As opções incluem: Text, JSON. O valor padrão é "text".|
+|--Cadeia de caracteres de sufixos confiáveis da Microsoft   |Especifica sufixos de domínio adicionais onde Azure Active Directory tokens de logon podem ser enviados.  O padrão é '*. Core.Windows.net;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net '. Todos listados aqui são adicionados ao padrão. Por segurança, você só deve colocar Microsoft Azure domínios aqui. Separe várias entradas com ponto e vírgula.|
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 - [azcopy](storage-ref-azcopy.md)

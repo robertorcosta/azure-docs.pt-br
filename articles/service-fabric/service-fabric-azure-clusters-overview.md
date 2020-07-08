@@ -7,12 +7,11 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: b6942c2a0647401df0d88b83e1b144ca3207a6db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8c1be30750e6a6d1c541f244c4d0c3875e7dd927
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75614665"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84234686"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Visão geral dos clusters do Service Fabric no Azure
 Um cluster do Service Fabric é um conjunto de computadores físicos ou virtuais conectados via rede, nos quais os microsserviços são implantados e gerenciados. Um computador ou VM que faz parte de um cluster é chamado de nó de cluster. Os clusters podem ser dimensionados para milhares de nós. Se você adiciona novos nós ao cluster, o Service Fabric reequilibra as réplicas de partição de serviço e instâncias entre o número aumentado de nós. O desempenho geral do aplicativo é melhorado e a contenção para o acesso à memória é reduzida. Se os nós no cluster não estiverem sendo usados com eficiência, você poderá diminuir o número de nós no cluster. O Service Fabric redistribui novamente as réplicas de partição e instâncias entre o número reduzido de nós, para fazer melhor uso do hardware em cada nó.
@@ -48,9 +47,9 @@ Você pode usar os conjuntos de dimensionamento para implantar e gerenciar uma c
 Para saber mais, confira os [tipos de nós do Service Fabric e os conjuntos de dimensionamento de máquina virtual](service-fabric-cluster-nodetypes.md).
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
-As instâncias de VM são unidas atrás de um [balanceador de carga do Azure](/azure/load-balancer/load-balancer-overview), que está associado a um [endereço IP público](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses) e a um rótulo de DNS.  Quando você provisiona um cluster com * &lt;ClusterName&gt;*, o nome DNS, * &lt;ClusterName&gt;.&lt; Location&gt;. cloudapp.Azure.com* é o rótulo DNS associado ao balanceador de carga na frente do conjunto de dimensionamento.
+As instâncias de VM são unidas atrás de um [balanceador de carga do Azure](/azure/load-balancer/load-balancer-overview), que está associado a um [endereço IP público](../virtual-network/public-ip-addresses.md) e a um rótulo de DNS.  Quando você provisiona um cluster com * &lt; ClusterName &gt; *, o nome DNS, * &lt; ClusterName &gt; . &lt; Location &gt; . cloudapp.Azure.com* é o rótulo DNS associado ao balanceador de carga na frente do conjunto de dimensionamento.
 
-As VMs em um cluster têm apenas [endereços IP privados](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses).  O tráfego de gerenciamento e de serviço são roteados por meio do balanceador de carga voltado ao público.  O tráfego de rede é roteado para essas máquinas por meio de regras NAT (os clientes se conectam a nós/instâncias específicas) ou de regras de balanceamento de carga (o tráfego vai para as VMs round robin).  Um balanceador de carga tem um IP público associado com um nome DNS no formato: * &lt;ClusterName&gt;.&lt; Location&gt;. cloudapp.Azure.com*.  Um IP público é outro recurso do Azure no grupo de recursos.  Se você definir vários tipos de nós em um cluster, é criado um balanceador de carga para cada tipo de nó/conjunto de dimensionamento. Ou, é possível configurar um balanceador de carga único para vários tipos de nó.  O tipo de nó primário tem o rótulo * &lt;DNS&gt;ClusterName&lt; . Location&gt;. cloudapp.Azure.com*, outros tipos de nó têm o rótulo * &lt;DNS&gt;-&lt;ClusterName&gt;NodeType&lt; . Location&gt;. cloudapp.Azure.com*.
+As VMs em um cluster têm apenas [endereços IP privados](../virtual-network/private-ip-addresses.md).  O tráfego de gerenciamento e de serviço são roteados por meio do balanceador de carga voltado ao público.  O tráfego de rede é roteado para essas máquinas por meio de regras NAT (os clientes se conectam a nós/instâncias específicas) ou de regras de balanceamento de carga (o tráfego vai para as VMs round robin).  Um balanceador de carga tem um IP público associado com um nome DNS no formato: * &lt; ClusterName &gt; . &lt; Location &gt; . cloudapp.Azure.com*.  Um IP público é outro recurso do Azure no grupo de recursos.  Se você definir vários tipos de nós em um cluster, é criado um balanceador de carga para cada tipo de nó/conjunto de dimensionamento. Ou, é possível configurar um balanceador de carga único para vários tipos de nó.  O tipo de nó primário tem o rótulo DNS * &lt; ClusterName &gt; . &lt; Location &gt; . cloudapp.Azure.com*, outros tipos de nó têm o rótulo DNS * &lt; ClusterName &gt; - &lt; NodeType &gt; . &lt; Location &gt; . cloudapp.Azure.com*.
 
 ### <a name="storage-accounts"></a>Contas de armazenamento
 A [conta de armazenamento do Azure](/azure/storage/common/storage-introduction) e os Managed Disks oferecem suporte a cada tipo de nó de cluster.

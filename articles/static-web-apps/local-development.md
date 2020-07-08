@@ -7,12 +7,11 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 36d580b7659325d4bf5f13889f774ddaa2ab0702
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: HT
+ms.openlocfilehash: a7215790a7f052227b08f51dcd7ad5dd337bb4e9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594245"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84259262"
 ---
 # <a name="set-up-local-development-for-azure-static-web-apps-preview"></a>Configurar o desenvolvimento local da Versão para de Aplicativos Web Estáticos do Azure
 
@@ -64,7 +63,7 @@ A extensão Live Server para Visual Studio Code fornece um servidor Web de desen
 
 #### <a name="create-a-repository"></a>Criar um repositório
 
-1. Navegue até [https://github.com/staticwebdev/vanilla-api/generate](https://github.com/staticwebdev/vanilla-api/generate) e crie um novo projeto do GitHub chamado **vanilla-api**, usando o modelo indicado.
+1. Verifique se você está conectado ao GitHub e, navegue até [https://github.com/staticwebdev/vanilla-api/generate](https://github.com/staticwebdev/vanilla-api/generate) e crie um novo projeto do GitHub chamado **baunilha-API**, usando este modelo.
 
     :::image type="content" source="media/local-development/vanilla-api.png" alt-text="Janela do novo repositório do GitHub":::
 

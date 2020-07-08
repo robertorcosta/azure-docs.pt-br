@@ -4,12 +4,11 @@ description: Neste artigo, saiba como configurar, iniciar e gerenciar operaçõe
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 4789ef1e0e09df521f8cab539d972e9e669e0a58
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d037339d9ff9a891fcc595a3eff75097204a77ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79248158"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84248678"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Fazer backup de uma VM do Azure usando o Backup do Azure por meio da API REST
 
@@ -41,10 +40,10 @@ A operação “atualizar” é uma [operação assíncrona](https://docs.micros
 
 Ele retorna duas respostas: 202 (Aceito) quando outra operação é criada e, em seguida, 200 (OK) quando a operação é concluída.
 
-|Nome  |Type  |Descrição  |
+|Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
 |204 Sem Conteúdo     |         |  OK sem conteúdo retornado      |
-|202 Aceito     |         |     Aceita    |
+|202 Aceito     |         |     Aceito    |
 
 ##### <a name="example-responses"></a>Respostas de exemplo
 
@@ -104,7 +103,7 @@ O URI *GET* tem todos os parâmetros necessários. Nenhum corpo da solicitação
 
 #### <a name="responses"></a><a name="responses-1"></a>Respostas
 
-|Nome  |Type  |Descrição  |
+|Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
 |200 OK     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
 
@@ -180,7 +179,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 Para criar um item protegido, confira a seguir os componentes do corpo da solicitação.
 
-|Nome  |Type  |Descrição  |
+|Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
 |properties     | AzureIaaSVMProtectedItem        |Propriedades do recurso ProtectedItem         |
 
@@ -208,10 +207,10 @@ A criação de um item protegido é uma [operação assíncrona](https://docs.mi
 
 Ele retorna duas respostas: 202 (Aceito) quando outra operação é criada e, em seguida, 200 (OK) quando a operação é concluída.
 
-|Nome  |Type  |Descrição  |
+|Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
 |200 OK     |    [ProtectedItemResource](https://docs.microsoft.com/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  OK       |
-|202 Aceito     |         |     Aceita    |
+|202 Aceito     |         |     Aceito    |
 
 ##### <a name="example-responses"></a>Respostas de exemplo
 
@@ -276,7 +275,7 @@ Isso confirma que a proteção está habilitada para a VM e o primeiro backup se
 
 ## <a name="trigger-an-on-demand-backup-for-a-protected-azure-vm"></a>Disparar um backup sob demanda para uma VM do Azure protegida
 
-Após uma VM do Azure ser configurada para backup, os backups ocorrem de acordo com o agendamento da política. Você pode esperar pelo primeiro backup agendado ou disparar um backup sob demanda a qualquer momento. A retenção dos backups sob demanda é separada da retenção da política de backup e pode ser especificada para uma determinada data e hora. Se não for especificada, presume-se que ela ocorra 30 dias a partir do dia em que o backup sob demanda foi disparado.
+Depois que uma VM do Azure é configurada para backup, os backups acontecem de acordo com o agendamento da política. Você pode esperar pelo primeiro backup agendado ou disparar um backup sob demanda a qualquer momento. A retenção dos backups sob demanda é separada da retenção da política de backup e pode ser especificada para uma determinada data e hora. Se não for especificada, presume-se que ela ocorra 30 dias a partir do dia em que o backup sob demanda foi disparado.
 
 Disparar um backup sob demanda é uma operação *POST*.
 
@@ -294,7 +293,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 Para disparar um backup sob demanda, a seguir estão os componentes do corpo da solicitação.
 
-|Nome  |Type  |Descrição  |
+|Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
 |properties     | [IaaSVMBackupRequest](https://docs.microsoft.com/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |Propriedades de BackupRequestResource         |
 
@@ -319,9 +318,9 @@ Disparar um backup sob demanda é uma [operação assíncrona](https://docs.micr
 
 Ele retorna duas respostas: 202 (Aceito) quando outra operação é criada e, em seguida, 200 (OK) quando a operação é concluída.
 
-|Nome  |Type  |Descrição  |
+|Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
-|202 Aceito     |         |     Aceita    |
+|202 Aceito     |         |     Aceito    |
 
 #### <a name="example-responses"></a><a name="example-responses-3"></a>Respostas de exemplo
 
@@ -439,10 +438,10 @@ DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-00000
 
 Ele retorna duas respostas: 202 (Aceito) quando outra operação é criada e, em seguida, 204 (NoContent) quando a operação é concluída.
 
-|Nome  |Type  |Descrição  |
+|Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
 |204 NoContent     |         |  NoContent       |
-|202 Aceito     |         |     Aceita    |
+|202 Aceito     |         |     Aceito    |
 
 > [!IMPORTANT]
 > Para se proteger contra cenários de exclusão acidental, há um [recurso de exclusão reversível disponível](use-restapi-update-vault-properties.md#soft-delete-state) para o cofre dos serviços de recuperação. Se o estado de exclusão reversível do cofre for definido como habilitado, a operação de exclusão não excluirá imediatamente os dados. Ele será mantido por 14 dias e, em seguida, limpo permanentemente. O cliente não é cobrado pelo armazenamento durante este período de 14 dias. Para desfazer a operação de exclusão, consulte a [seção desfazer-excluir](#undo-the-stop-protection-and-delete-data).

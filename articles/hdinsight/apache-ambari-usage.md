@@ -7,12 +7,11 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/05/2020
-ms.openlocfilehash: 466c170985715be52a90d579c19ca23aefefe2e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: fe7d6d4e70bc55a6a91d3c1a1b910db4b5469fe6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77067390"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84197084"
 ---
 # <a name="apache-ambari-usage-in-azure-hdinsight"></a>Uso do Apache Ambari no Azure HDInsight
 
@@ -24,7 +23,7 @@ Toda a configuração de cluster deve ser feita por meio da [interface do usuár
 
 O controlador de failover do HDInsight também é responsável por atualizar o endereço IP do host cabeçalho, que aponta para o nó principal ativo atual. Todos os agentes do Ambari estão configurados para relatar seu estado e pulsação para o host cabeçalho. O controlador de failover é um conjunto de serviços em execução em cada nó do cluster, se eles não estiverem em execução, o failover do cabeçalho poderá não funcionar corretamente e você acabará com o HTTP 502 ao tentar acessar o servidor Ambari.
 
-Para verificar qual cabeçalho está ativo, uma maneira é fazer o ssh para um dos nós no cluster e, em seguida `ping headnodehost` , executar e comparar o IP com aquele dos dois cabeçalho.
+Para verificar qual cabeçalho está ativo, uma maneira é fazer o ssh para um dos nós no cluster e, em seguida, executar `ping headnodehost` e comparar o IP com aquele dos dois cabeçalho.
 
 Se os serviços do controlador de failover não estiverem em execução, o failover do cabeçalho poderá não acontecer corretamente, o que pode acabar sem executar o Ambari Server. Para verificar se os serviços do controlador de failover estão em execução, execute:
 
@@ -56,7 +55,7 @@ Esta é a sequência de serviço iniciar no momento da inicialização:
 
 ## <a name="ambari-database"></a>Banco de dados Ambari
 
-O HDInsight cria SQL Azure banco de dados nos bastidores para servir como o banco de dados do Ambari Server. A [camada de serviço padrão é S0](../sql-database/sql-database-elastic-pool-scale.md).
+O HDInsight cria um banco de dados no banco de dados SQL nos bastidores para servir como o banco de dados do Ambari Server. A [camada de serviço padrão é S0](../azure-sql/database/elastic-pool-scale.md).
 
 Para qualquer cluster com contagem de nós de trabalho maior que 16 ao criar o cluster, S2 é a camada de serviço de banco de dados.
 
@@ -68,13 +67,13 @@ Nunca modifique manualmente nenhum arquivo de configuração em qualquer nó de 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Gerenciar clusters do HDInsight usando a interface do usuário da Web do Apache Ambari](hdinsight-hadoop-manage-ambari.md)
+* [Gerenciar clusters HDInsight usando a interface do usuário da Web do Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Gerenciar clusters HDInsight usando a API REST do Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md)
 
 Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
 
-* Obtenha respostas de especialistas do Azure por meio do [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
+* Obtenha respostas de especialistas do Azure por meio do [Suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
 
-* Conecte- [@AzureSupport](https://twitter.com/azuresupport) se com a conta de Microsoft Azure oficial para melhorar a experiência do cliente. Conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport), a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Como se conectar à comunidade do Azure para os recursos certos: respostas, suporte e especialistas.
 
-* Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte**. Para obter informações mais detalhadas, consulte [Como criar uma solicitação de Suporte do Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). O acesso ao Gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).

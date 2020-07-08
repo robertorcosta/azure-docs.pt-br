@@ -1,17 +1,16 @@
 ---
-title: Instalar o Consul no serviço kubernetes do Azure (AKS)
+title: Instalar o Consul no Serviço Kubernetes do Azure (AKS)
 description: Saiba como instalar e usar o Consul para criar uma malha de serviço em um cluster do AKS (serviço kubernetes do Azure)
 author: dstrebel
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: dastrebe
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 1601ab6d81b888fd2247e95f22c58e1fc91df698
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ef77037526beba1be2e4e8a834dbd09c8a73310c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78273730"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84197224"
 ---
 # <a name="install-and-use-consul-in-azure-kubernetes-service-aks"></a>Instalar e usar o Consul no serviço kubernetes do Azure (AKS)
 
@@ -20,9 +19,9 @@ O [Consul][consul-github] é uma malha de serviço de software livre que fornece
 Este artigo mostra como instalar o Consul. Os componentes do Consul são instalados em um cluster kubernetes no AKS.
 
 > [!NOTE]
-> Estas instruções fazem referência à `1.6.0`versão Consul e usam pelo menos a `2.14.2`versão Helm.
+> Estas instruções fazem referência à versão Consul `1.6.0` e usam pelo menos a versão Helm `2.14.2` .
 >
-> As versões `1.6.x` do Consul podem ser executadas em versões `1.13+`do kubernetes. Você pode encontrar versões adicionais do Consul em [versões do GitHub-Consul][consul-github-releases] e informações sobre cada uma das versões em [Consul-Release Notes][consul-release-notes].
+> As versões do Consul `1.6.x` podem ser executadas em versões do kubernetes `1.13+` . Você pode encontrar versões adicionais do Consul em [versões do GitHub-Consul][consul-github-releases] e informações sobre cada uma das versões em [Consul-Release Notes][consul-release-notes].
 
 Neste artigo, você aprenderá como:
 
@@ -41,7 +40,7 @@ Este artigo separa as diretrizes de instalação do Consul em várias etapas dis
 
 ### <a name="install-the-consul-components-on-aks"></a>Instalar os componentes do Consul no AKS
 
-Começaremos baixando a versão `v0.10.0` do gráfico Consul Helm. Esta versão do gráfico inclui a versão `1.6.0`Consul.
+Começaremos baixando a versão `v0.10.0` do gráfico Consul Helm. Esta versão do gráfico inclui a versão Consul `1.6.0` .
 
 ::: zone pivot="client-operating-system-linux"
 
@@ -61,7 +60,7 @@ Começaremos baixando a versão `v0.10.0` do gráfico Consul Helm. Esta versão 
 
 ::: zone-end
 
-Use Helm e o gráfico `consul-helm` baixado para instalar os componentes do Consul no `consul` namespace em seu cluster AKs. 
+Use Helm e o `consul-helm` gráfico baixado para instalar os componentes do Consul no `consul` namespace em seu cluster AKs. 
 
 > [!NOTE]
 > **Opções de instalação**
@@ -128,7 +127,7 @@ consul-consul-sync-catalog-d846b79c-8ssr8                         1/1     Runnin
 consul-consul-tz2t5                                               1/1     Running   0          3m9s   10.240.0.12   aks-linux-92468653-vmss000000   <none>           <none>
 ```
 
-Todos os pods devem mostrar um status de `Running`. Se os pods não tiverem esses status, aguarde um minuto ou dois até que tenham. Se algum pods reportar um problema, use o comando [kubectl describe pod][kubectl-describe] para revisar a saída e o status.
+Todos os pods devem mostrar um status de `Running` . Se os pods não tiverem esses status, aguarde um minuto ou dois até que tenham. Se algum pods reportar um problema, use o comando [kubectl describe pod][kubectl-describe] para revisar a saída e o status.
 
 ## <a name="accessing-the-consul-ui"></a>Acessando a interface do usuário do Consul
 
@@ -166,6 +165,8 @@ Para explorar mais opções de instalação e configuração para o Consul, cons
 Você também pode seguir cenários adicionais usando:
 
 - [Aplicativo de exemplo Consul][consul-app-example]
+- [Arquitetura de referência do Consul kubernetes][consul-reference]
+- [Gateways de malha Consul][consul-mesh-gateways]
 
 <!-- LINKS - external -->
 [Hashicorp]: https://hashicorp.com
@@ -177,9 +178,11 @@ Você também pode seguir cenários adicionais usando:
 [consul-github-releases]: https://github.com/hashicorp/consul/releases
 [consul-release-notes]: https://github.com/hashicorp/consul/blob/master/CHANGELOG.md
 [consul-install-download]: https://www.consul.io/downloads.html
-[consul-install-k8]: https://www.consul.io/docs/platform/k8s/run.html
+[consul-install-k8]: https://learn.hashicorp.com/consul/kubernetes/kubernetes-deployment-guide
 [consul-install-helm-options]: https://www.consul.io/docs/platform/k8s/helm.html#configuration-values-
-[consul-app-example]: https://github.com/hashicorp/demo-consul-101/tree/master/k8s
+[consul-mesh-gateways]: https://learn.hashicorp.com/consul/kubernetes/mesh-gateways
+[consul-reference]: https://learn.hashicorp.com/consul/kubernetes/kubernetes-reference
+[consul-app-example]: https://learn.hashicorp.com/consul?track=gs-consul-service-mesh#gs-consul-service-mesh
 [install-wsl]: https://docs.microsoft.com/windows/wsl/install-win10
 
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get

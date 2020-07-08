@@ -3,20 +3,20 @@ title: Nuvens e regiões nas quais os serviços de mídia do Azure v3 estão dis
 description: Este artigo discute as nuvens e regiões do Azure em que os Serviços de Mídia do Azure v3 estão disponíveis.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/21/2020
-ms.author: juliako
-ms.openlocfilehash: 1257bf4dfb0d5b2c4995cac760290f97293a0c0f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 5/28/2020
+ms.author: inhenkel
+ms.custom: references_regions
+ms.openlocfilehash: cefd366e29fe1c6f68ec38816247f78bb53cd6e6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80382963"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84196251"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Nuvens e regiões em que os Serviços de Mídia do Azure v3 existem
 
@@ -32,6 +32,19 @@ Os Serviços de Mídia do Azure v3 estão disponíveis por meio do manifesto do 
 | [StandardEncoderPreset](encoding-concept.md) | Disponível | Disponível | Disponível | Disponível |
 | [LiveEvents](live-streaming-overview.md) | Disponível | Disponível | Disponível | Disponível |
 | [StreamingEndpoints](streaming-endpoint-concept.md) | Disponível | Disponível | Disponível | Disponível |
+
+## <a name="feature-availability-in-preview"></a>Disponibilidade de recursos na visualização
+
+O [LiveTranscription](live-transcription.md) está disponível nas seguintes regiões:
+
+- Sudeste Asiático
+- Europa Ocidental
+- Norte da Europa
+- Leste dos EUA
+- Centro dos EUA
+- Centro-Sul dos Estados Unidos
+- Oeste dos EUA 2
+- Sul do Brasil
 
 ## <a name="regionsgeographieslocations"></a>Regiões/geografias/locais
 
@@ -96,7 +109,7 @@ Por exemplo, para a região Oeste dos EUA 2 (exibida abaixo) do Azure, você usa
 | Autenticação | `https://login.chinacloudapi.cn/` |
 | Público do token |  `https://management.core.chinacloudapi.cn/` |
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 * [Regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/)
 * [Geografias do Azure](https://azure.microsoft.com/global-infrastructure/geographies/)

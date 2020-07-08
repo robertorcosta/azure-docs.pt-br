@@ -12,12 +12,11 @@ ms.date: 1/3/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: 5495aa6fda189897985ed2f198f6e92c996f6fef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d513dbd8449dad1d34117e06970f0c0881462aa3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81868377"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84263220"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permissões e consentimento no ponto de extremidade da plataforma de identidade da Microsoft
 
@@ -68,7 +67,9 @@ _Permissões efetivas_ são as permissões que seu aplicativo terá ao fazer sol
 
 ## <a name="openid-connect-scopes"></a>Escopos do OpenID Connect
 
-A implementação da plataforma Microsoft Identity do OpenID Connect tem alguns escopos bem definidos que não se aplicam a um recurso específico `openid`: `email`, `profile`, e `offline_access`. Os escopos `address` e `phone` do OpenID Connect não são compatíveis.
+A implementação da plataforma Microsoft Identity do OpenID Connect tem alguns escopos bem definidos que também são hospedados no Microsoft Graph: `openid` , `email` , `profile` e `offline_access` . Os escopos `address` e `phone` do OpenID Connect não são compatíveis.
+
+Solicitar os escopos OIDC e um token fornecerá um token para chamar o [ponto de extremidade de UserInfo](userinfo.md).
 
 ### <a name="openid"></a>openid
 
@@ -89,7 +90,7 @@ O [ `offline_access` escopo](https://openid.net/specs/openid-connect-core-1_0.ht
 > [!NOTE]
 > Essa permissão aparece em todas as telas de consentimento hoje, mesmo para fluxos que não fornecem um token de atualização (o [fluxo implícito](v2-oauth2-implicit-grant-flow.md)).  Isso é para abranger cenários em que um cliente pode começar dentro do fluxo implícito e, em seguida, ir até o fluxo de código em que um token de atualização é esperado.
 
-Na plataforma de identidade da Microsoft (solicitações feitas ao ponto de extremidade v 2.0), seu aplicativo deve solicitar `offline_access` explicitamente o escopo para receber tokens de atualização. Isso significa que, ao resgatar um código de autorização no [fluxo de código de autorização do OAuth 2.0](active-directory-v2-protocols.md), você só receberá de volta um token de acesso do ponto de extremidade `/token`. O token de acesso é válido por um curto período. Geralmente, o token de acesso expira em uma hora. Nesse ponto, seu aplicativo precisa redirecionar o usuário novamente para o ponto de extremidade `/authorize` para obter um novo código de autorização. Durante esse redirecionamento, dependendo do tipo de aplicativo, o usuário poderá ou não precisar inserir suas credenciais novamente ou consentir de novo as permissões.
+Na plataforma de identidade da Microsoft (solicitações feitas ao ponto de extremidade v 2.0), seu aplicativo deve solicitar explicitamente o `offline_access` escopo para receber tokens de atualização. Isso significa que, ao resgatar um código de autorização no [fluxo de código de autorização do OAuth 2.0](active-directory-v2-protocols.md), você só receberá de volta um token de acesso do ponto de extremidade `/token`. O token de acesso é válido por um curto período. Geralmente, o token de acesso expira em uma hora. Nesse ponto, seu aplicativo precisa redirecionar o usuário novamente para o ponto de extremidade `/authorize` para obter um novo código de autorização. Durante esse redirecionamento, dependendo do tipo de aplicativo, o usuário poderá ou não precisar inserir suas credenciais novamente ou consentir de novo as permissões.
 
 Para obter mais informações sobre como obter e usar tokens de atualização, consulte a [referência de protocolo de plataforma de identidade da Microsoft](active-directory-v2-protocols.md).
 
@@ -136,7 +137,7 @@ Algumas permissões de alto privilégio no ecossistema da Microsoft podem ser de
 * Gravar dados no diretório da organização usando o `Directory.ReadWrite.All`
 * Ler todos os grupos no diretório da organização usando `Groups.Read.All`
 
-Embora um usuário consumidor possa conceder acesso de aplicativo para esse tipo de dados, os usuários organizacionais são impedidos de conceder acesso ao mesmo conjunto de dados confidenciais da empresa. Se seu aplicativo solicitar acesso a uma dessas permissões de um usuário da organização, o usuário receberá uma mensagem de erro informando que elas não estão autorizadas a dar consentimento às permissões do seu aplicativo.
+Embora um usuário consumidor possa conceder acesso de aplicativo para esse tipo de dados, os usuários organizacionais são impedidos de conceder acesso ao mesmo conjunto de dados confidenciais da empresa. Se seu aplicativo solicitar acesso a uma dessas permissões de um usuário organizacional, o usuário receberá uma mensagem de erro que informa que não está autorizado a consentir com as permissões de seu aplicativo.
 
 Se seu aplicativo requer acesso a escopos restritos a administradores para as organizações, você deve solicitá-los diretamente de um administrador da empresa também usando o ponto de extremidade de consentimento do administrador descrito a seguir.
 
@@ -160,7 +161,7 @@ Para obter um exemplo de código que implementa as etapas, veja o [exemplo de es
 Os aplicativos podem observar quais permissões eles precisam (delegadas e de aplicativo) no portal de registro de aplicativo.  Isso permite o uso do `/.default` escopo e a opção "conceder consentimento de administrador" do portal do Azure.  Em geral, é recomendável garantir que as permissões definidas estaticamente para um determinado aplicativo sejam um superconjunto das permissões que serão solicitadas dinamicamente/incrementalmente.
 
 > [!NOTE]
->As permissões de aplicativo só podem ser solicitadas por [`/.default`](#the-default-scope) meio do uso de-portanto, se seu aplicativo precisar de permissões de aplicativo, verifique se elas estão listadas no portal de registro de aplicativo.
+>As permissões de aplicativo só podem ser solicitadas por meio do uso de [`/.default`](#the-default-scope) -portanto, se seu aplicativo precisar de permissões de aplicativo, verifique se elas estão listadas no portal de registro de aplicativo.
 
 #### <a name="to-configure-the-list-of-statically-requested-permissions-for-an-application"></a>Para configurar a lista de permissões solicitadas estaticamente para um aplicativo
 
@@ -193,14 +194,14 @@ https://graph.microsoft.com/mail.send
 
 | Parâmetro        | Condição        | Descrição                                                                                |
 |:--------------|:--------------|:-----------------------------------------------------------------------------------------|
-| `tenant` | Obrigatório | O locatário do diretório para o qual você deseja solicitar permissão. Pode ser fornecido em formato de nome amigável ou GUID ou referenciado genericamente com organizações, como visto no exemplo. Não use ' Common ', pois as contas pessoais não podem fornecer consentimento de administrador, exceto no contexto de um locatário. Para garantir a melhor compatibilidade com contas pessoais que gerenciam locatários, use a ID do locatário quando possível. |
-| `client_id` | Obrigatório | A **ID do aplicativo (cliente)** que a [portal do Azure – registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) experiência atribuída ao seu aplicativo. |
+| `tenant` | Necessária | O locatário do diretório para o qual você deseja solicitar permissão. Pode ser fornecido em formato de nome amigável ou GUID ou referenciado genericamente com organizações, como visto no exemplo. Não use ' Common ', pois as contas pessoais não podem fornecer consentimento de administrador, exceto no contexto de um locatário. Para garantir a melhor compatibilidade com contas pessoais que gerenciam locatários, use a ID do locatário quando possível. |
+| `client_id` | Obrigatório | A **ID do Aplicativo (cliente)** que a experiência [Portal do Microsoft Azure - Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) atribui ao seu aplicativo. |
 | `redirect_uri` | Obrigatório |O URI de redirecionamento onde você deseja que a resposta seja enviada para ser tratada pelo aplicativo. Ela deve corresponder exatamente a um redirecionamento de URIs que você registrou no portal de registro de aplicativo. |
-| `state` | Recomendadas | Um valor incluído na solicitação que também será retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. Use o estado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página ou exibição em que ele estava. |
-|`scope`        | Obrigatório        | Define o conjunto de permissões que estão sendo solicitadas pelo aplicativo. Isso pode ser estático (usando [`/.default`](#the-default-scope)) ou escopos dinâmicos.  Isso pode incluir os escopos OIDC`openid`( `profile`, `email`,). Se você precisar de permissões de aplicativo, deverá `/.default` usar para solicitar a lista de permissões configuradas estaticamente.  |
+| `state` | Recomendado | Um valor incluído na solicitação que também será retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. Use o estado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página ou exibição em que ele estava. |
+|`scope`        | Obrigatório        | Define o conjunto de permissões que estão sendo solicitadas pelo aplicativo. Isso pode ser estático (usando [`/.default`](#the-default-scope) ) ou escopos dinâmicos.  Isso pode incluir os escopos OIDC ( `openid` , `profile` , `email` ). Se você precisar de permissões de aplicativo, deverá usar `/.default` para solicitar a lista de permissões configuradas estaticamente.  |
 
 
-Neste ponto, o Azure AD requer um administrador de locatários para entrar e concluir a solicitação. O administrador é solicitado a aprovar todas as permissões que você solicitou no `scope` parâmetro.  Se você usou um valor estático (`/.default`), ele funcionará como o ponto de extremidade de consentimento do administrador v 1.0 e solicitará o consentimento para todos os escopos encontrados nas permissões necessárias para o aplicativo.
+Neste ponto, o Azure AD requer um administrador de locatários para entrar e concluir a solicitação. O administrador é solicitado a aprovar todas as permissões que você solicitou no `scope` parâmetro.  Se você usou um valor estático ( `/.default` ), ele funcionará como o ponto de extremidade de consentimento do administrador v 1.0 e solicitará o consentimento para todos os escopos encontrados nas permissões necessárias para o aplicativo.
 
 #### <a name="successful-response"></a>Resposta bem-sucedida
 
@@ -256,12 +257,12 @@ Para obter mais informações sobre o protocolo OAuth 2,0 e como obter tokens de
 
 ## <a name="the-default-scope"></a>O escopo /.default
 
-Você pode usar o `/.default` escopo para ajudar a migrar seus aplicativos do ponto de extremidade v 1.0 para o ponto de extremidade da plataforma Microsoft Identity. Esse é o escopo interno para cada aplicativo que se refere à lista estática de permissões configuradas no registro de aplicativo. Um valor `scope` de `https://graph.microsoft.com/.default` tem funcionalidade igual à dos pontos de extremidade v1.0 `resource=https://graph.microsoft.com`, isto é, solicita um token com os escopos no Microsoft Graph para os quais o aplicativo foi registrado no portal do Azure.  Ele é construído usando o URI de recurso `/.default` + (por exemplo, se o URI `https://contosoApp.com`de recurso for, o escopo solicitado `https://contosoApp.com/.default`seria).  Consulte a [seção sobre barras à direita](#trailing-slash-and-default) para casos em que você deve incluir uma segunda barra para solicitar corretamente o token.
+Você pode usar o `/.default` escopo para ajudar a migrar seus aplicativos do ponto de extremidade v 1.0 para o ponto de extremidade da plataforma Microsoft Identity. Esse é o escopo interno para cada aplicativo que se refere à lista estática de permissões configuradas no registro de aplicativo. Um valor `scope` de `https://graph.microsoft.com/.default` tem funcionalidade igual à dos pontos de extremidade v1.0 `resource=https://graph.microsoft.com`, isto é, solicita um token com os escopos no Microsoft Graph para os quais o aplicativo foi registrado no portal do Azure.  Ele é construído usando o URI de recurso + `/.default` (por exemplo, se o URI de recurso for `https://contosoApp.com` , o escopo solicitado seria `https://contosoApp.com/.default` ).  Consulte a [seção sobre barras à direita](#trailing-slash-and-default) para casos em que você deve incluir uma segunda barra para solicitar corretamente o token.
 
 O escopo/.default pode ser usado em qualquer fluxo OAuth 2,0, mas é necessário no fluxo [em nome de](v2-oauth2-on-behalf-of-flow.md) e no fluxo de [credenciais do cliente](v2-oauth2-client-creds-grant-flow.md), bem como ao usar o ponto de extremidade de consentimento do administrador v2 para solicitar permissões de aplicativo.
 
 > [!NOTE]
-> Os clientes não podem combinar`/.default`o consentimento estático () e dinâmico em uma única solicitação. Portanto, `scope=https://graph.microsoft.com/.default+mail.read` resultará em um erro devido à combinação de tipos de escopo.
+> Os clientes não podem combinar `/.default` o consentimento estático () e dinâmico em uma única solicitação. Portanto, `scope=https://graph.microsoft.com/.default+mail.read` resultará em um erro devido à combinação de tipos de escopo.
 
 ### <a name="default-and-consent"></a>/.default e consentimento
 
@@ -273,15 +274,15 @@ Como `/.default` tem funcionalidade idêntica à do comportamento do ponto de ex
 
 #### <a name="example-1-the-user-or-tenant-admin-has-granted-permissions"></a>Exemplo 1: o usuário, ou administrador de locatário, concedeu permissões
 
-Neste exemplo, o usuário (ou um administrador de locatários) concedeu ao cliente as permissões `mail.read` de `user.read`Microsoft Graph e. Se o cliente faz uma solicitação por `scope=https://graph.microsoft.com/.default`, nenhuma solicitação de consentimento é exibida, independentemente do conteúdo das permissões registradas pelos aplicativos cliente para o Microsoft Graph. Um token retorna contendo os escopos `mail.read` e `user.read`.
+Neste exemplo, o usuário (ou um administrador de locatários) concedeu ao cliente as permissões de Microsoft Graph `mail.read` e `user.read` . Se o cliente faz uma solicitação por `scope=https://graph.microsoft.com/.default`, nenhuma solicitação de consentimento é exibida, independentemente do conteúdo das permissões registradas pelos aplicativos cliente para o Microsoft Graph. Um token retorna contendo os escopos `mail.read` e `user.read`.
 
 #### <a name="example-2-the-user-hasnt-granted-permissions-between-the-client-and-the-resource"></a>Exemplo 2: o usuário não concedeu permissões entre o cliente e o recurso
 
-Neste exemplo, não existe nenhum consentimento para o usuário entre o cliente e o Microsoft Graph. O cliente foi registrado para as permissões `user.read` e `contacts.read`, e para o escopo `https://vault.azure.net/user_impersonation` do Azure Key Vault. Quando o cliente solicita um token para `scope=https://graph.microsoft.com/.default`, o usuário vê uma tela de consentimento para `user.read`, `contacts.read` e os escopos `user_impersonation` de Key Vault. O token retornado terá apenas os `user.read` escopos e e `contacts.read` só poderá ser usado em Microsoft Graph.
+Neste exemplo, não existe nenhum consentimento para o usuário entre o cliente e o Microsoft Graph. O cliente foi registrado para as permissões `user.read` e `contacts.read`, e para o escopo `https://vault.azure.net/user_impersonation` do Azure Key Vault. Quando o cliente solicita um token para `scope=https://graph.microsoft.com/.default`, o usuário vê uma tela de consentimento para `user.read`, `contacts.read` e os escopos `user_impersonation` de Key Vault. O token retornado terá apenas os `user.read` `contacts.read` escopos e e só poderá ser usado em Microsoft Graph.
 
 #### <a name="example-3-the-user-has-consented-and-the-client-requests-additional-scopes"></a>Exemplo 3: o usuário consentiu e o cliente solicita escopos adicionais
 
-Neste exemplo, o usuário já consentiu o `mail.read` para o cliente. O cliente foi registrado para o escopo `contacts.read` em seu registro. Quando o cliente faz uma solicitação para um token usando `scope=https://graph.microsoft.com/.default` o e solicita consentimento `prompt=consent`por meio do, o usuário verá uma tela de consentimento para todas (e apenas) as permissões registradas pelo aplicativo. `contacts.read` está presente na tela de consentimento, mas `mail.read`, não. O token retornado é para o Microsoft Graph e contém `mail.read` e `contacts.read`.
+Neste exemplo, o usuário já consentiu o `mail.read` para o cliente. O cliente foi registrado para o escopo `contacts.read` em seu registro. Quando o cliente faz uma solicitação para um token usando `scope=https://graph.microsoft.com/.default` o e solicita consentimento por meio do `prompt=consent` , o usuário verá uma tela de consentimento para todas (e apenas) as permissões registradas pelo aplicativo. `contacts.read` está presente na tela de consentimento, mas `mail.read`, não. O token retornado é para o Microsoft Graph e contém `mail.read` e `contacts.read`.
 
 ### <a name="using-the-default-scope-with-the-client"></a>Usando o escopo /.default com o cliente
 
@@ -302,7 +303,7 @@ Isso gera uma tela de consentimento para todas as permissões registradas (se ap
 
 ### <a name="trailing-slash-and-default"></a>Barra e/.Default à direita
 
-Alguns URIs de recurso têm uma barra à direita`https://contoso.com/` (em oposição `https://contoso.com`a), o que pode causar problemas com a validação de token.  Isso pode ocorrer principalmente ao solicitar um token para o gerenciamento de recursos`https://management.azure.com/`do Azure (), que tem uma barra à direita em seu URI de recurso e requer que ele esteja presente quando o token é solicitado.  Assim, ao solicitar um token para `https://management.azure.com/` e usar `/.default`o, você deve `https://management.azure.com//.default` solicitar-anotar a barra dupla!
+Alguns URIs de recurso têm uma barra à direita ( `https://contoso.com/` em oposição a `https://contoso.com` ), o que pode causar problemas com a validação de token.  Isso pode ocorrer principalmente ao solicitar um token para o gerenciamento de recursos do Azure ( `https://management.azure.com/` ), que tem uma barra à direita em seu URI de recurso e requer que ele esteja presente quando o token é solicitado.  Assim, ao solicitar um token para `https://management.azure.com/` e usar `/.default` o, você deve solicitar `https://management.azure.com//.default` -anotar a barra dupla!
 
 Em geral-se você validou que o token está sendo emitido e o token está sendo rejeitado pela API que deve aceitá-lo, considere adicionar uma segunda barra e tentar novamente. Isso acontece porque o servidor de logon emite um token com o público correspondente aos URIs no `scope` parâmetro-com `/.default` removido do final.  Se isso remover a barra à direita, o servidor de logon continuará processando a solicitação e a validará em relação ao URI do recurso, mesmo que não coincida mais, isso não é padrão e não deve ser confiado pelo seu aplicativo.
 

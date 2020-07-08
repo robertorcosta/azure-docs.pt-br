@@ -8,12 +8,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 8354be28203f1d466df6a22159fef87c9ae6f803
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: ccd729510341a9232764b1c211aa18c197ad5a37
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199732"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84248627"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Dimensionar automaticamente os clusters do Azure HDInsight
 
@@ -42,9 +41,9 @@ O dimensionamento automático monitora o cluster continuamente e coleta as segui
 |Métrica|Descrição|
 |---|---|
 |Total de CPU pendente|o número total de núcleos necessários para iniciar a execução de todos os contêineres pendentes.|
-|Memória total pendente|o total de memória (em MB) necessária para iniciar a execução de todos os contêineres pendentes.|
+|Total de memória pendente|o total de memória (em MB) necessária para iniciar a execução de todos os contêineres pendentes.|
 |Total de CPU livre|a soma de todos os núcleos não utilizados em nós de trabalho ativos.|
-|Memória livre total|A soma de memória não usada (em MB) em nós de trabalho ativos.|
+|Total de memória livre|A soma de memória não usada (em MB) em nós de trabalho ativos.|
 |Memória usada por nó|A carga em um nó de trabalho. Um nó de trabalho no qual 10 GB de memória são usados é considerado como estando sob uma carga maior que um nó de trabalho com 2 GB de memória usada.|
 |Número de mestres de aplicativo por nó|O número de contêineres de aplicativo mestre (AM) em execução em um nó de trabalho. Um nó de trabalho que está hospedando dois contêineres AM é considerado mais importante do que um nó de trabalho que está hospedando zero contêineres AM.|
 
@@ -52,7 +51,7 @@ As métricas acima são verificadas a cada 60 segundos. Você pode configurar op
 
 ### <a name="load-based-scale-conditions"></a>Condições de escala baseadas em carga
 
-Quando as condições a seguir forem detectadas, o dimensionamento automático emitirá uma solicitação de dimensionamento:
+Quando as seguintes condições forem detectadas, o Dimensionamento automático emitirá uma solicitação de dimensionamento:
 
 |Escalar verticalmente|Reduzir verticalmente|
 |---|---|
@@ -61,14 +60,14 @@ Quando as condições a seguir forem detectadas, o dimensionamento automático e
 
 Para expansão, o dimensionamento automático emite uma solicitação de expansão para adicionar o número necessário de nós. A expansão se baseia em quantos novos nós de trabalho são necessários para atender aos requisitos atuais de CPU e memória.
 
-Para reduzir verticalmente, o dimensionamento automático emite uma solicitação para remover um determinado número de nós. A redução vertical é baseada no número de contêineres AM por nó. E os requisitos atuais de CPU e memória. O serviço também detecta quais nós são candidatos para remoção com base na execução do trabalho atual. A operação de redução vertical primeiro encerra os nós e, em seguida, remove-os do cluster.
+Para reduzir verticalmente, o dimensionamento automático emite uma solicitação para remover um determinado número de nós. A redução vertical é baseada no número de contêineres AM por nó. E os requisitos atuais de CPU e memória. O serviço também detecta quais nós são candidatos para remoção com base na execução do trabalho atual. A operação de redução encerra primeiro os nós e, em seguida, remove-os do cluster.
 
 ### <a name="cluster-compatibility"></a>Compatibilidade de cluster
 
 > [!Important]
-> O recurso de dimensionamento automático do Azure HDInsight foi lançado para disponibilidade geral em 7 de novembro de 2019 para clusters Spark e Hadoop e aprimoramentos incluídos não estão disponíveis na versão de visualização do recurso. Se você criou um cluster Spark antes de 7 de novembro de 2019 e deseja usar o recurso de dimensionamento automático em seu cluster, o caminho recomendado é criar um novo cluster e habilitar o dimensionamento automático no novo cluster.
+> O recurso de dimensionamento automático do Azure HDInsight foi lançado para disponibilidade geral em 7 de novembro de 2019, para clusters Spark e Hadoop, e incluía aprimoramentos não estão disponíveis na versão prévia do recurso. Se você criou um cluster Spark antes de 7 de novembro de 2019 e deseja usar o recurso de dimensionamento automático em seu cluster, o caminho recomendado é criar um novo cluster e habilitar o dimensionamento automático no novo cluster.
 >
-> O dimensionamento automático para LLAP (consulta interativa) e clusters HBase ainda está em versão prévia. O dimensionamento automático só está disponível em clusters Spark, Hadoop, consulta interativa e HBase.
+> O dimensionamento automático para clusters Interactive Query (LLAP) e HBase ainda está na versão prévia. O dimensionamento automático só está disponível em clusters Spark, Hadoop, Interactive Query e HBase.
 
 A tabela a seguir descreve os tipos de cluster e as versões que são compatíveis com o recurso de dimensionamento automático.
 
@@ -182,12 +181,12 @@ Você pode criar um cluster HDInsight com dimensionamento automático baseado em
             "minInstanceCount": 10,
             "maxInstanceCount": 10
           }
-        },
+        }
       ]
     }
   },
   "name": "workernode",
-  "targetInstanceCount": 4,
+  "targetInstanceCount": 4
 }
 ```
 
@@ -210,7 +209,7 @@ https://management.azure.com/subscriptions/{subscription Id}/resourceGroups/{res
 Use os parâmetros apropriados na carga de solicitação. A carga JSON abaixo pode ser usada para habilitar o dimensionamento automático. Use a carga `{autoscale: null}` para desabilitar o dimensionamento automático.
 
 ```json
-{ autoscale: { capacity: { minInstanceCount: 3, maxInstanceCount: 2 } } }
+{ "autoscale": { "capacity": { "minInstanceCount": 3, "maxInstanceCount": 5 } } }
 ```
 
 Consulte a seção anterior sobre como [habilitar o dimensionamento automático baseado em carga](#load-based-autoscaling) para obter uma descrição completa de todos os parâmetros de carga.
@@ -245,11 +244,11 @@ Selecione **métricas** em **monitoramento**. Em seguida, selecione **Adicionar 
 
 ## <a name="other-considerations"></a>Outras considerações
 
-### <a name="consider-the-latency-of-scale-up-or-scale-down-operations"></a>Considerar a latência de operações de escala ou redução vertical
+### <a name="consider-the-latency-of-scale-up-or-scale-down-operations"></a>Considerar a latência de operações de aumento ou redução
 
 Pode levar de 10 a 20 minutos para que uma operação de dimensionamento seja concluída. Ao configurar um agendamento personalizado, planeje esse atraso. Por exemplo, se você precisar que o tamanho do cluster seja 20 às 9:00 AM, defina o gatilho de agendamento como um tempo anterior, como 8:30, para que a operação de dimensionamento seja concluída pela 9:00 AM.
 
-### <a name="preparation-for-scaling-down"></a>Preparação para reduzir verticalmente
+### <a name="preparation-for-scaling-down"></a>Preparação para reduzir
 
 Durante o processo de redução do dimensionamento do cluster, o dimensionamento automático encerrará os nós para atender ao tamanho do destino. Se as tarefas estiverem em execução nesses nós, o dimensionamento automático aguardará até que as tarefas sejam concluídas. Como cada nó de trabalho também serve uma função no HDFS, os dados temporários serão deslocados para os nós restantes. Portanto, você deve verificar se há espaço suficiente nos nós restantes para hospedar todos os dados temporários.
 

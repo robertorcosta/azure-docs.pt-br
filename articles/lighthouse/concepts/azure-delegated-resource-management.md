@@ -1,14 +1,13 @@
 ---
 title: Gerenciamento de recursos delegados do Azure
 description: As ofertas de serviços gerenciados permitem que os provedores de serviços vendam ofertas de gerenciamento de recursos a clientes no Azure Marketplace.
-ms.date: 04/01/2020
+ms.date: 05/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: db9f562ca4f42d1c1d85eeac44495a8ec7e01beb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e6f741ccbf0d52e0859722aa304aa6c273fb5acf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80548414"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84219083"
 ---
 # <a name="azure-delegated-resource-management"></a>Gerenciamento de recursos delegados do Azure
 
@@ -40,7 +39,7 @@ Em um alto nível, veja como o gerenciamento de recursos delegados do Azure func
 3. Depois que o cliente tiver sido integrado, os usuários autorizados poderão entrar no seu locatário do provedor de serviços e executar tarefas de gerenciamento no escopo determinado do cliente, com base no acesso que você definiu.
 
 > [!NOTE]
-> Não há suporte para a delegação de uma assinatura entre dois locatários em nuvens separadas.
+> Você pode gerenciar recursos delegados que estão localizados em [regiões](../../availability-zones/az-overview.md#regions)diferentes. No entanto, a delegação de assinaturas em uma [nuvem nacional](../../active-directory/develop/authentication-national-cloud.md) e na nuvem pública do Azure ou em duas nuvens nacionais separadas não tem suporte.
 
 ## <a name="support-for-azure-delegated-resource-management"></a>Suporte para gerenciamento de recursos delegados do Azure
 

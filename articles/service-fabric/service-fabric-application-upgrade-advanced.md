@@ -3,12 +3,11 @@ title: Tópicos avançados de atualização de aplicativos
 description: Este artigo aborda alguns tópicos avançados relativos à atualização de um aplicativo do Service Fabric.
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: a12d2ec55bda95c1c61d4a73c76f4a777f4237f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 98d8213cc50f73ef2c053e1fe5574fe33a2f3cb6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414494"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84263084"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Atualização do aplicativo Service Fabric: Tópicos avançados
 
@@ -20,18 +19,18 @@ Da mesma forma, os tipos de serviços também podem ser removidos de um aplicati
 
 ## <a name="avoid-connection-drops-during-stateless-service-planned-downtime"></a>Evitar quedas de conexão durante o tempo de inatividade planejado do serviço sem estado
 
-Para tempos de inatividade planejados de instância sem monitoração de estado, como atualização de aplicativo/cluster ou desativação de nó, as conexões podem ser descartadas porque o ponto de extremidade exposto é removido após a instância falhar, o que resulta em fechamentos de conexão forçada.
+Para tempos de inatividade planejados de instância sem monitoração de estado, como atualização de aplicativo/cluster ou desativação de nó, as conexões podem ser descartadas conforme o ponto de extremidade exposto é removido após a instância falhar, o que resulta em fechamentos de conexão forçada.
 
-Para evitar isso, configure o recurso *RequestDrain* (versão prévia) adicionando uma *duração de atraso de fechamento de instância* na configuração de serviço para permitir o dreno durante o recebimento de solicitações de outros serviços no cluster e usando o proxy reverso ou usando a API de resolução com o modelo de notificação para atualizar pontos de extremidade. Isso garante que o ponto de extremidade anunciado pela instância sem estado seja removido *antes* de o atraso começar antes de fechar a instância. Esse atraso permite que as solicitações existentes sejam descarregadas normalmente antes que a instância realmente fique inativa. Os clientes são notificados sobre a alteração do ponto de extremidade por uma função de retorno de chamada no momento da inicialização do atraso, para que eles possam reresolver o ponto de extremidade e evitar o envio de novas solicitações para a instância que está sendo desativada.
+Para evitar isso, configure o recurso *RequestDrain* adicionando uma *duração de atraso de fechamento de instância* na configuração de serviço para permitir que as solicitações existentes de dentro do cluster sejam drenadas nos pontos de extremidade expostos. Isso é obtido, pois o ponto de extremidade anunciado pela instância sem estado é removido *antes* de o atraso começar antes de fechar a instância. Esse atraso permite que as solicitações existentes sejam descarregadas normalmente antes que a instância realmente fique inativa. Os clientes são notificados sobre a alteração do ponto de extremidade por uma função de retorno de chamada no momento da inicialização do atraso, para que eles possam reresolver o ponto de extremidade e evitar o envio de novas solicitações para a instância que está sendo desativada. Essas solicitações podem ser originadas de clientes usando [proxy reverso](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) ou usando APIs de resolução de ponto de extremidade de serviço com o modelo de notificação ([ServiceNotificationFilterDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicenotificationfilterdescription)) para atualizar os pontos de extremidade.
 
 ### <a name="service-configuration"></a>Configuração de serviço
 
 Há várias maneiras de configurar o atraso no lado do serviço.
 
- * **Ao criar um novo serviço**, especifique um `-InstanceCloseDelayDuration`:
+ * **Ao criar um novo serviço**, especifique um `-InstanceCloseDelayDuration` :
 
     ```powershell
-    New-ServiceFabricService -Stateless [-ServiceName] <Uri> -InstanceCloseDelayDuration <TimeSpan>`
+    New-ServiceFabricService -Stateless [-ServiceName] <Uri> -InstanceCloseDelayDuration <TimeSpan>
     ```
 
  * **Ao definir o serviço na seção padrões no manifesto do aplicativo**, atribua a `InstanceCloseDelayDurationSeconds` Propriedade:
@@ -42,10 +41,37 @@ Há várias maneiras de configurar o atraso no lado do serviço.
           </StatelessService>
     ```
 
- * **Ao atualizar um serviço existente**, especifique um `-InstanceCloseDelayDuration`:
+ * **Ao atualizar um serviço existente**, especifique um `-InstanceCloseDelayDuration` :
 
     ```powershell
     Update-ServiceFabricService [-Stateless] [-ServiceName] <Uri> [-InstanceCloseDelayDuration <TimeSpan>]`
+    ```
+
+ * **Ao criar ou atualizar um serviço existente por meio do modelo ARM**, especifique o `InstanceCloseDelayDuration` valor (versão mínima da API com suporte: 2019-11-01-Preview):
+
+    ```ARM template to define InstanceCloseDelayDuration of 30seconds
+    {
+      "apiVersion": "2019-11-01-preview",
+      "type": "Microsoft.ServiceFabric/clusters/applications/services",
+      "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'), '/', parameters('serviceName'))]",
+      "location": "[variables('clusterLocation')]",
+      "dependsOn": [
+        "[concat('Microsoft.ServiceFabric/clusters/', parameters('clusterName'), '/applications/', parameters('applicationName'))]"
+      ],
+      "properties": {
+        "provisioningState": "Default",
+        "serviceKind": "Stateless",
+        "serviceTypeName": "[parameters('serviceTypeName')]",
+        "instanceCount": "-1",
+        "partitionDescription": {
+          "partitionScheme": "Singleton"
+        },
+        "serviceLoadMetrics": [],
+        "servicePlacementPolicies": [],
+        "defaultMoveCost": "",
+        "instanceCloseDelayDuration": "00:00:30.0"
+      }
+    }
     ```
 
 ### <a name="client-configuration"></a>Configuração do cliente
@@ -55,7 +81,7 @@ A notificação de alteração é uma indicação de que os pontos de extremidad
 
 ### <a name="optional-upgrade-overrides"></a>Substituições de atualização opcionais
 
-Além de definir as durações de atraso padrão por serviço, você também pode substituir o atraso durante a atualização de aplicativo/cluster usando a`InstanceCloseDelayDurationSec`mesma opção ():
+Além de definir as durações de atraso padrão por serviço, você também pode substituir o atraso durante a atualização de aplicativo/cluster usando a mesma `InstanceCloseDelayDurationSec` opção ():
 
 ```powershell
 Start-ServiceFabricApplicationUpgrade [-ApplicationName] <Uri> [-ApplicationTypeVersion] <String> [-InstanceCloseDelayDurationSec <UInt32>]
@@ -63,15 +89,17 @@ Start-ServiceFabricApplicationUpgrade [-ApplicationName] <Uri> [-ApplicationType
 Start-ServiceFabricClusterUpgrade [-CodePackageVersion] <String> [-ClusterManifestVersion] <String> [-InstanceCloseDelayDurationSec <UInt32>]
 ```
 
-A duração do atraso só se aplica à instância de atualização invocada e não altera as configurações de atraso de serviço individual. Por exemplo, você pode usar isso para especificar um atraso de `0` a fim de ignorar os atrasos de atualização pré-configurados.
+A duração do atraso substituído só se aplica à instância de atualização invocada e não altera as configurações de atraso de serviço individual. Por exemplo, você pode usar isso para especificar um atraso de a fim de `0` ignorar os atrasos de atualização pré-configurados.
 
 > [!NOTE]
-> A configuração para drenar solicitações não é respeitada para solicitações do Azure Load Balancer. A configuração não será respeitada se o serviço de chamada usar a resolução baseada em reclamação.
+> * As configurações para drenar solicitações não poderão impedir que o balanceador de carga do Azure envie novas solicitações para os pontos de extremidade que estão sendo descarregados.
+> * Um mecanismo de resolução baseado em reclamações não resultará em descarga normal de solicitações, pois dispara uma resolução de serviço após uma falha. Conforme descrito anteriormente, isso deve ser aprimorado para assinar as notificações de alteração do ponto de extremidade usando o [ServiceNotificationFilterDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicenotificationfilterdescription).
+> * As configurações não são respeitadas quando a atualização é um dos impactantes, ou seja Quando as réplicas não serão trazidas durante a atualização.
 >
 >
 
 > [!NOTE]
-> Esse recurso pode ser configurado em serviços existentes usando o cmdlet Update-ServiceFabricService, conforme mencionado acima, quando a versão do código do cluster é 7.1.XXX ou superior.
+> Esse recurso pode ser configurado em serviços existentes usando o cmdlet Update-ServiceFabricService ou o modelo ARM, conforme mencionado acima, quando a versão do código do cluster é 7.1.XXX ou superior.
 >
 >
 

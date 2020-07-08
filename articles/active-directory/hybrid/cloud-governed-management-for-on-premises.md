@@ -9,16 +9,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/05/2019
+ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 510a5562740260eb2946ded074a5c37804c55375
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ec74b9391c780cf673fe47bd82cc6d92534eb56d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67109514"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84234040"
 ---
 # <a name="how-azure-ad-delivers-cloud-governed-management-for-on-premises-workloads"></a>Como o Azure AD fornece gerenciamento regido na nuvem para cargas de trabalho locais
 
@@ -93,7 +92,7 @@ Para uma organização que já usa um provedor de identidade local, a movimenta�
 
 ![Evolução do Azure AD](media/cloud-governed-management-for-on-premises/image5.png)
 
-Para começar a migrar aplicativos federados para o Azure AD como o provedor de https://aka.ms/migrateapps identidade, consulte isso inclui links para:
+Para começar a migrar aplicativos federados para o Azure AD como o provedor de identidade, consulte https://aka.ms/migrateapps isso inclui links para:
 
 * O white paper [migrar seus aplicativos para Azure Active Directory](https://aka.ms/migrateapps/whitepaper), que apresenta os benefícios da migração e descreve como planejar a migração em quatro fases claramente destacadas: descoberta, classificação, migração e gerenciamento contínuo. Você será orientado por como pensar sobre o processo e dividir seu projeto em pedaços fáceis de consumir. Ao longo do documento, haverá links para recursos importantes que irão ajudá-lo durante o processo.
 
@@ -117,4 +116,4 @@ Em ambientes híbridos, a estratégia da Microsoft é habilitar implantações e
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre como começar a usar essa jornada, consulte os planos de implantação do Azure AD, <https://aka.ms/deploymentplans> localizados em. Eles fornecem orientação de ponta a ponta sobre como implantar recursos do Azure Active Directory (Azure AD). Cada plano explica o valor comercial, as considerações de planejamento, o design e os procedimentos operacionais necessários para distribuir com êxito os recursos comuns do Azure AD. A Microsoft atualiza continuamente os planos de implantação com as práticas recomendadas aprendidas com implantações de clientes e outros comentários quando adicionamos novos recursos para gerenciar a partir da nuvem com o Azure AD.
+Para obter mais informações sobre como começar a usar essa jornada, consulte os planos de implantação do Azure AD, localizados em <https://aka.ms/deploymentplans> . Eles fornecem orientação de ponta a ponta sobre como implantar recursos do Azure Active Directory (Azure AD). Cada plano explica o valor comercial, as considerações de planejamento, o design e os procedimentos operacionais necessários para distribuir com êxito os recursos comuns do Azure AD. A Microsoft atualiza continuamente os planos de implantação com as práticas recomendadas aprendidas com implantações de clientes e outros comentários quando adicionamos novos recursos para gerenciar a partir da nuvem com o Azure AD.

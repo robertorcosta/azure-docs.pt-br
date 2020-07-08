@@ -11,12 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: aedc7ea3d778d52f6f348837430987568af188ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5347cda14773583bcfe92a702e59d4967ce2ea09
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77649595"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84196274"
 ---
 # <a name="known-issuesmigration-limitations-with-using-hybrid-mode"></a>Problemas conhecidos/limitações de migração com o uso do modo híbrido
 
@@ -24,7 +23,7 @@ Os problemas conhecidos e as limitações associadas ao uso do serviço de migra
 
 ## <a name="installer-fails-to-authenticate"></a>Falha na autenticação do instalador
 
-Depois de carregar o certificado para seu AdApp, há um atraso de até alguns minutos antes que ele possa ser autenticado com o Azure. O instalador tentará repetir com algum atraso, mas é possível que o atraso de propagação seja maior que a repetição, e você verá uma mensagem **FailedToGetAccessTokenException** . Se o certificado foi carregado no AdApp correto e o AppId correto foi fornecido em dmsSettings. JSON, tente executar o comando de instalação novamente.
+Depois de carregar o certificado para seu AdApp, há um atraso de até alguns minutos antes que ele possa ser autenticado com o Azure. O instalador tentará repetir com algum atraso, mas é possível que o atraso de propagação seja maior que a repetição, e você verá uma mensagem **FailedToGetAccessTokenException** . Se o certificado foi carregado no AdApp correto e a AppId correta foi fornecida no dmsSettings.jsem, tente executar o comando de instalação novamente.
 
 ## <a name="service-offline-after-successful-installation"></a>Serviço "offline" após a instalação bem-sucedida
 
@@ -55,7 +54,7 @@ Se o serviço aparecer como offline depois que o processo de instalação for co
 
 ## <a name="using-your-own-signed-certificate"></a>Usando seu próprio certificado assinado
 
-O certificado gerado pela ação GenerateCert é um certificado autoassinado, que pode não ser aceitável com base em suas políticas de segurança interna. Em vez de usar esse certificado, você pode fornecer seu próprio certificado e fornecer a impressão digital em dmsSettings. JSON. Esse certificado precisará ser carregado em seu AdApp e instalado no computador no qual você está instalando o Hybrid Worker do serviço de migração de banco de dados do Azure. Em seguida, instale esse certificado com a chave privada no repositório de certificados do computador local.
+O certificado gerado pela ação GenerateCert é um certificado autoassinado, que pode não ser aceitável com base em suas políticas de segurança interna. Em vez de usar esse certificado, você pode fornecer seu próprio certificado e fornecer a impressão digital no dmsSettings.jsem. Esse certificado precisará ser carregado em seu AdApp e instalado no computador no qual você está instalando o Hybrid Worker do serviço de migração de banco de dados do Azure. Em seguida, instale esse certificado com a chave privada no repositório de certificados do computador local.
 
 ## <a name="running-the-worker-service-as-a-low-privilege-account"></a>Executando o serviço de trabalho como uma conta de baixo privilégio
 
@@ -93,10 +92,10 @@ Se você não tiver mais acesso ao computador de trabalho, poderá cancelar o re
 
 As seções a seguir descrevem problemas específicos do cenário relacionados ao uso do modo híbrido do serviço de migração de banco de dados do Azure para executar uma migração online.
 
-### <a name="online-migrations-to-azure-sql-database-managed-instance"></a>Migrações online para instância gerenciada do banco de dados SQL do Azure
+### <a name="online-migrations-to-azure-sql-managed-instance"></a>Migrações online para o Azure SQL Instância Gerenciada
 
 **Alto uso da CPU**
 
-**Problema**: para migrações online para a instância gerenciada do banco de dados SQL, o computador que executa o Hybrid Worker encontrará alto uso da CPU se houver muitos backups ou se os backups forem muito grandes.
+**Problema**: para migrações online para o SQL instância gerenciada, o computador que executa o Hybrid Worker encontrará alto uso da CPU se houver muitos backups ou se os backups forem muito grandes.
 
 **Mitigação**: para atenuar esse problema, use backups compactados, divida a migração para que ele use vários compartilhamentos ou escale verticalmente o computador que executa o Hybrid Worker.

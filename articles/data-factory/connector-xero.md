@@ -11,12 +11,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 8a704c3891c687edbb7c5aac206f4b6c7766fa8c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ba5105c6183c88ca7e5641cdacaa5d80ea529bc6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81409997"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84263883"
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory"></a>Copiar dados do Xero usando o Azure Data Factory
 
@@ -28,14 +27,14 @@ Este artigo descreve como usar a atividade de cópia no Azure Data Factory para 
 
 Este conector do Xero tem suporte para as seguintes atividades:
 
-- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de fonte/coletor com suporte](copy-activity-overview.md)
 - [Atividade de pesquisa](control-flow-lookup-activity.md)
 
 Você pode copiar dados de um Xero para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados com suporte como origens/coletores da atividade de cópia, confira a tabela [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Especificamente, esse conector do Xero fornece suporte para:
 
-- O [aplicativo privado](https://developer.xero.com/documentation/getting-started/api-application-types) Xero, mas não aplicativo público.
+- O [aplicativo privado](https://developer.xero.com/documentation/getting-started/getting-started-guide) Xero, mas não aplicativo público.
 - Todas as tabelas Xero (pontos de extremidade de API), exceto "Relatórios". 
 
 Azure Data Factory fornece um driver interno para habilitar a conectividade, portanto, não é necessário instalar manualmente qualquer driver usando esse conector.
@@ -50,12 +49,12 @@ As seções a seguir fornecem detalhes sobre as propriedades usadas para definir
 
 As propriedades a seguir têm suporte para o serviço vinculado do Xero:
 
-| Propriedade | Descrição | Obrigatório |
+| Property | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade type deve ser definida como: **Xero** | Sim |
 | host | O ponto de extremidade do servidor Xero (`api.xero.com`).  | Sim |
-| consumerKey | A chave de consumidor associada ao aplicativo Xero. Marque esse campo como SecureString para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | Sim |
-| privateKey | A chave privada do arquivo .pem que foi gerada para o aplicativo privado Xero, consulte [Criar um par de chaves pública/privada](https://developer.xero.com/documentation/api-guides/create-publicprivate-key). Observe **gerar privatekey.pem com numbits de 512** usando `openssl genrsa -out privatekey.pem 512`; não há suporte para a 1024. Inclua todo o texto do arquivo .pem, incluindo as terminações de linha Unix (\n), consulte o exemplo abaixo.<br/><br/>Marque esse campo como SecureString para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | Sim |
+| consumerKey | A chave de consumidor associada ao aplicativo Xero. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| privateKey | A chave privada do arquivo .pem que foi gerada para o aplicativo privado Xero, consulte [Criar um par de chaves pública/privada](https://developer.xero.com/documentation/auth-and-limits/create-publicprivate-key). Observe **gerar privatekey.pem com numbits de 512** usando `openssl genrsa -out privatekey.pem 512`; não há suporte para a 1024. Inclua todo o texto do arquivo .pem, incluindo as terminações de linha Unix (\n), consulte o exemplo abaixo.<br/><br/>Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | useEncryptedEndpoints | Especifica se os endpoints de fonte de dados são criptografados usando HTTPS. O valor padrão é verdadeiro.  | Não |
 | useHostVerification | Especifica se o nome do host é necessário no certificado do servidor para corresponder ao nome do host do servidor ao se conectar via TLS. O valor padrão é verdadeiro.  | Não |
 | usePeerVerification | Especifica se a identidade do servidor deve ser verificada ao se conectar via TLS. O valor padrão é verdadeiro.  | Não |
@@ -92,11 +91,11 @@ Inclua todo o texto do arquivo .pem incluindo as terminações de linha do Unix 
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de os, consulte o artigo [conjuntos de valores](concepts-datasets-linked-services.md) . Esta seção fornece uma lista das propriedades com suporte pelo conjunto de dados do Xero.
+Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [conjuntos de dados](concepts-datasets-linked-services.md). Esta seção fornece uma lista das propriedades com suporte pelo conjunto de dados do Xero.
 
 Para copiar dados do Xero, defina a propriedade type do conjunto de dados como **XeroObject**. Há suporte para as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Property | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade Type do conjunto de conjuntos deve ser definida como: **XeroObject** | Sim |
 | tableName | Nome da tabela. | Não (se "query" na fonte da atividade for especificada) |
@@ -124,7 +123,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 ### <a name="xero-as-source"></a>Xero como fonte
 
-Para copiar dados de Xero, defina o tipo de fonte na atividade de cópia como **XeroSource**. As propriedades a seguir têm suporte na seção **origem** da atividade de cópia:
+Para copiar dados de Xero, defina o tipo de fonte na atividade de cópia como **XeroSource**. As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
@@ -173,7 +172,7 @@ As tabelas a seguir possuem a mesma informação no esquema Mínimo e Completo. 
 
 - Bank_Transactions
 - Contact_Groups 
-- Contacts 
+- Contatos 
 - Contacts_Sales_Tracking_Categories 
 - Contacts_Phones 
 - Contacts_Addresses 
@@ -217,9 +216,9 @@ As tabelas a seguir somente podem ser consultadas com o esquema completo:
 - Complete.Receipt_Line_Item_Tracking 
 - Complete.Tracking_Category_Options
 
-## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+## <a name="lookup-activity-properties"></a>Pesquisar propriedades de atividade
 
-Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+Para saber detalhes sobre as propriedades, verifique [Pesquisar atividade](control-flow-lookup-activity.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -12,12 +12,11 @@ ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fbaa8c3544b35978786404619879f59ab91a6979
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a48a6de406f14c5339a4e6d92cd09a12357b73f5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281880"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84195975"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Mover dados usando a Atividade de Cópia
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -81,7 +80,7 @@ A Atividade de Cópia também lê e grava em arquivos em formatos especificados:
 
 Por exemplo, você pode fazer as seguintes atividades de cópia:
 
-* Copiar dados no SQL Server local e gravar ao no Azure Data Lake Store no formato ORC.
+* Copie dados em um banco de SQL Server e grave em Azure Data Lake Store no formato ORC.
 * Copiar arquivos no formato de texto (CSV) do Sistema de Arquivos local e gravá-los no Blob do Azure no formato Avro.
 * Copiar os arquivos compactados do Sistema de Arquivos local e, em seguida, descompactá-los no Azure Data Lake Store.
 * Copiar dados em formato de texto (CSV) compactado por GZip do Blob do Azure e gravá-los no Banco de Dados SQL do Azure.
@@ -107,7 +106,7 @@ Quando os armazenamentos de dados de origem e de coletor residem na nuvem, o Dat
 | Brasil | Sul do Brasil | Sul do Brasil |
 | Europa | Norte da Europa | Norte da Europa |
 | &nbsp; | Europa Ocidental | Europa Ocidental |
-| United Kingdom | Oeste do Reino Unido | Sul do Reino Unido |
+| Reino Unido | Oeste do Reino Unido | Sul do Reino Unido |
 | &nbsp; | Sul do Reino Unido | Sul do Reino Unido |
 | Pacífico Asiático | Sudeste Asiático | Sudeste Asiático |
 | &nbsp; | Leste da Ásia | Sudeste Asiático |

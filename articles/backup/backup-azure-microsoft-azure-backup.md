@@ -3,12 +3,11 @@ title: Usar o Servidor de Backup do Azure para fazer backup de cargas de trabalh
 description: Neste artigo, veja como preparar o ambiente para proteger e fazer backup de cargas de trabalho usando o MABS (Servidor de Backup do Microsoft Azure).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: bbe3e21840f094fbd3f34d94e7af64ca98d884df
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 2cf6d88ad37ec1368e53c7213ea771c028a56643
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83735864"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84247267"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalar e atualizar o Servidor de Backup do Azure
 
@@ -174,7 +173,7 @@ Após concluir o processo de extração, marque a caixa para iniciar o *setup.ex
 
     ![Servidor de Backup do Azure - verificação do SQL](./media/backup-azure-microsoft-azure-backup/sql/01.png)
 
-    Se ocorrer uma falha com uma recomendação de reiniciar o computador, faça isso e clique em **Verificar Novamente**. Em caso de problemas de configuração do SQL, reconfigure o SQL de acordo com as diretrizes do SQL e tente instalar/atualizar o MABS usando a instância existente do SQL.
+    Se ocorrer uma falha com uma recomendação de reiniciar o computador, faça isso e clique em **Verificar Novamente**. Se houver algum problema de configuração do SQL, reconfigure o SQL de acordo com as diretrizes do SQL e tente novamente instalar/atualizar MABS usando a instância existente do SQL.
 
    **Configuração manual**
 
@@ -186,9 +185,9 @@ Após concluir o processo de extração, marque a caixa para iniciar o *setup.ex
 
     Use os seguintes valores para a configuração do SSRS:
     * Conta de serviço: 'Usar conta interna' deve ser Serviço de Rede
-    * URL do serviço Web: 'Diretório Virtual' deve ser ReportServer_\<SQLInstanceName>
-    * Banco de dados: DatabaseName deve ser ReportServer$\<SQLInstanceName>
-    * URL do portal da Web: 'Diretório Virtual' deve ser Reports_\<SQLInstanceName>
+    * URL do serviço Web: ' diretório virtual ' deve ser ReportServer_\<SQLInstanceName>
+    * Banco de dados: DatabaseName deve ser ReportServer $\<SQLInstanceName>
+    * URL do portal da Web: ' diretório virtual ' deve ser Reports_\<SQLInstanceName>
 
     [Saiba mais](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) sobre a configuração do SSRS.
 
@@ -311,8 +310,8 @@ Se você tiver um firewall ou um proxy que esteja impedindo o acesso do Azure, p
 Se você estiver usando o emparelhamento do ExpressRoute da Microsoft, selecione os seguintes serviços/regiões:
 
 * Azure Active Directory (12076:5060)
-* Região do Microsoft Azure (de acordo com a localização do cofre dos Serviços de Recuperação)
-* Armazenamento do Microsoft Azure (de acordo com a localização do cofre dos Serviços de Recuperação)
+* Região Microsoft Azure (de acordo com o local do cofre dos serviços de recuperação)
+* Armazenamento do Azure (de acordo com o local do cofre dos serviços de recuperação)
 
 Para obter mais detalhes, visite [Requisitos de roteamento do ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
 
@@ -343,7 +342,7 @@ Use as etapas a seguir para fazer upgrade do MABS:
 
    > [!NOTE]
    >
-   > Não saia enquanto a instância do SQL estiver sendo atualizada, a saída desinstalará a instância de relatório do SQL e, portanto, uma tentativa de atualização do MABS falhará.
+   > Não sair enquanto a instância do SQL estiver sendo atualizada, a saída desinstalará a instância de relatórios SQL e, portanto, uma tentativa de atualizar novamente o MABS falhará.
 
    > [!IMPORTANT]
    >

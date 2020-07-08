@@ -3,12 +3,11 @@ title: Adicionar ferramentas de migração nas migrações para Azure
 description: Saiba como adicionar ferramentas de migração nas migrações para Azure.
 ms.topic: article
 ms.date: 04/26/2020
-ms.openlocfilehash: e7d36a642f41b77e3b4c4125bae64f02def3b306
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
-ms.translationtype: MT
+ms.openlocfilehash: 670341adca7ab2958d43132aab164d7bba0f87d0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901462"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84195817"
 ---
 # <a name="add-migration-tools"></a>Adicionar ferramentas de migração
 
@@ -23,7 +22,7 @@ Este artigo descreve como adicionar ferramentas de migração nas [migrações p
 2. Selecione o cenário de migração que você deseja usar:
 
     - Para migrar máquinas e cargas de trabalho para o Azure, selecione **avaliar e migrar servidores**.
-    - Para migrar máquinas SQL locais, selecione **avaliar e migrar bancos de dados**.
+    - Para migrar bancos de dados SQL Server locais, selecione **avaliar e migrar bancos de dados**.
     - Para migrar aplicativos Web locais, selecione **avaliar e migrar aplicativos Web**.
     - Para migrar grandes quantidades de dados locais para o Azure no modo offline, selecione **ordenar um data Box**.
 

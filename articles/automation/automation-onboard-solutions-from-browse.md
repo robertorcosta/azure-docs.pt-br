@@ -1,18 +1,17 @@
 ---
-title: Habilitar o Gerenciamento de Atualizações da Automação do Azure a partir do portal do Azure
+title: Habilitar a Gerenciamento de Atualizações de automação do Azure do portal do Azure
 description: Este artigo informa como habilitar o Gerenciamento de Atualizações do portal do Azure.
 services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: cb3bbf1a7c2e55d152d26c475369f9ccb6fb7d1e
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 6eab9b543bfec90c0c338bdc758d690499f083e3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743979"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84204915"
 ---
-# <a name="enable-update-management-from-azure-portal"></a>Habilitar o Gerenciamento de Atualizações a partir do portal do Azure
+# <a name="enable-update-management-from-the-azure-portal"></a>Habilitar o Gerenciamento de Atualizações do portal do Azure
 
 Este artigo descreve como você pode habilitar o recurso [Gerenciamento de Atualizações](automation-update-management.md) para VMs navegando no portal do Azure. Para habilitar VMs do Azure em escala, você deve habilitar uma VM existente usando o Gerenciamento de Atualizações. 
 
@@ -63,9 +62,6 @@ Entre no Azure em https://portal.azure.com.
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para usar o Gerenciamento de Atualizações para VMs, confira [Gerenciar atualizações e patches para suas VMs do Azure](automation-tutorial-update-management.md).
-* Para configurações de escopo, confira [Trabalhar com configurações de escopo para o Gerenciamento de Atualizações](automation-scope-configurations-update-management.md).
-* Se você não precisar mais do workspace do Log Analytics, confira as instruções em [Desvincular workspace da conta da Automação para Gerenciamento de Atualizações](automation-unlink-workspace-update-management.md).
-* Para excluir VMs do Gerenciamento de Atualizações, confira [Remover VMs do Gerenciamento de Atualizações](automation-remove-vms-from-update-management.md).
 * Para solucionar problemas gerais do Gerenciamento de Atualizações, confira [Solucionar problemas do Gerenciamento de Atualizações](troubleshoot/update-management.md).
 * Para solucionar problemas com o agente de atualização do Windows, confira [Solucionar problemas do agente de atualização do Windows](troubleshoot/update-agent-issues.md).
 * Para solucionar problemas com o agente de atualização do Linux, confira [Solucionar problemas do agente de atualização do Linux](troubleshoot/update-agent-issues-linux.md).

@@ -13,12 +13,11 @@ ms.author: daperlov
 ms.reviewer: maghan
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: 81ae5c3c702108d854e4dfde93001d5c99875666
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 45aa444393ed81bc320a770203ca114c35e16107
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74931574"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84195911"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Solucionar problemas do Data Factory
 > [!NOTE]
@@ -49,7 +48,7 @@ Você provavelmente não está usando a assinatura ou conta do Azure correta com
 
 1. Connect-AzAccount-use a ID de usuário e a senha corretas
 2. Get-AzSubscription-exibe todas as assinaturas da conta.
-3. Select-AzSubscription &lt;nome&gt; da assinatura-selecione a assinatura correta. Use a mesma assinatura usada para criar um data factory no portal do Azure.
+3. Select-AzSubscription &lt; nome &gt; da assinatura-selecione a assinatura correta. Use a mesma assinatura usada para criar um data factory no portal do Azure.
 
 ### <a name="problem-fail-to-launch-data-management-gateway-express-setup-from-azure-portal"></a>Problema: falha ao inicializar a Configura Expressa do Gateway de Gerenciamento de Dados no portal do Azure
 A instalação Expressa do Gateway de Gerenciamento de Dados requer o Internet Explorer ou um navegador da Web compatível com Microsoft ClickOnce. Se a Instalação Expressa não for iniciada, siga um destes procedimentos:
@@ -61,10 +60,10 @@ A instalação Expressa do Gateway de Gerenciamento de Dados requer o Internet E
     Faça o mesmo para o Firefox (instalar o suplemento). Clique no botão Abrir menu na barra de ferramentas (três linhas horizontais no canto superior direito), clique em Complementos, pesquise a palavra-chave "ClickOnce", escolha uma das extensões do ClickOnce e instale-a.
 * Use o link **Configuração Manual** mostrado na mesma folha no portal. Use essa abordagem para baixar o arquivo de instalação e executá-lo manualmente. Depois que a instalação for bem-sucedida, você verá a caixa de diálogo Configuração do Gateway de Gerenciamento de Dados. Copie a **chave** na tela do portal e use-a no gerenciador de configuração para registrar manualmente o gateway com o serviço.  
 
-### <a name="problem-fail-to-connect-to-on-premises-sql-server"></a>Problema: falha ao se conectar ao SQL Server local
+### <a name="problem-fail-to-connect-to-sql-server"></a>Problema: falha ao conectar-se ao SQL Server
 Inicie o **Gerenciador de Configuração de Gateway de Gerenciamento de Dados** no computador do gateway e use a guia **Solução de Problemas** para testar a conexão ao SQL Server do computador do gateway. Consulte [Solucionar problemas de gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) para ver dicas sobre como solucionar os problemas relacionados à conexão/gateway.   
 
-### <a name="problem-input-slices-are-in-waiting-state-for-ever"></a>Problema: as fatias de entrada ficam sempre no estado Aguardando
+### <a name="problem-input-slices-are-in-waiting-state-forever"></a>Problema: as fatias de entrada estão no estado de espera para sempre
 As fatias podem estar no estado **Aguardando** devido a vários motivos. Um dos motivos comuns é que a propriedade **external** não está definida como **true**. Qualquer conjunto de dados que seja produzido fora do escopo do Azure Data Factory deve ser marcado com a propriedade **external** . Essa propriedade indica que os dados são externos e não são compatíveis com pipelines no data factory. As fatias de dados são marcadas como **Pronto** depois que os dados estão disponíveis no respectivo armazenamento.
 
 Consulte o exemplo a seguir para o uso da propriedade **external** . Como opção, você pode especificar **externalData*** quando definir external como true.

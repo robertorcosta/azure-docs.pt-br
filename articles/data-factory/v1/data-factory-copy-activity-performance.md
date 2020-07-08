@@ -12,12 +12,11 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c4ca328aa0ddc61d86a435b93fe775f294287b98
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 12deb51cb2c0efc1bef77a3ff2c8d5150ba13cde
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79527377"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84196100"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guia Desempenho e ajuste da Atividade de Cópia
 
@@ -205,7 +204,7 @@ Atualmente, não é possível copiar dados entre dois armazenamentos de dados lo
 ### <a name="configuration"></a>Configuração
 Configure a definição **enableStaging** na Atividade de Cópia para especificar se deseja que os dados sejam preparados no Armazenamento de Blobs do Azure antes de carregá-los em um armazenamento de dados de destino. Quando você definir **enableStaging** para TRUE, especifique as propriedades adicionais listadas na tabela a seguir. Se não tiver um, também precisará criar um Armazenamento do Azure ou um serviço vinculado de assinatura de acesso compartilhado do Armazenamento para o preparo.
 
-| Propriedade | Descrição | Valor padrão | Necessária |
+| Property | Descrição | Valor padrão | Obrigatório |
 | --- | --- | --- | --- |
 | **enableStaging** |Especifique se você deseja copiar os dados por meio de um armazenamento de preparo provisório. |Falso |Não |
 | **linkedServiceName** |Especifique o nome de um serviço vinculado [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) ou [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service), que se refere à instância do Armazenamento que você usa como um armazenamento de preparo provisório. <br/><br/>  Você não pode usar o Armazenamento com uma assinatura de acesso compartilhado para carregar dados no SQL Data Warehouse via PolyBase. Pode usar em todos os outros cenários. |N/D |Sim, quando **enableStaging** está definido para TRUE |
@@ -263,7 +262,7 @@ Sugerimos que você realize estas etapas para ajustar o desempenho do serviço D
      * [Cópia em etapas](#staged-copy)
      * [Escalabilidade do Gateway de Gerenciamento de Dados](data-factory-data-management-gateway-high-availability-scalability.md)
    * [Gerenciamento de Dados gateway](#considerations-for-data-management-gateway)
-   * [Fonte](#considerations-for-the-source)
+   * [Origem](#considerations-for-the-source)
    * [Coletor](#considerations-for-the-sink)
    * [Serialização e desserialização](#considerations-for-serialization-and-deserialization)
    * [Compactação](#considerations-for-compression)
@@ -366,8 +365,8 @@ Se o tamanho dos dados que você deseja copiar for grande, você poderá ajustar
 
 Tenha cuidado com o número de conjuntos de dados e atividades de cópia que requerem o Data Factory para conectar o mesmo armazenamento de dados ao mesmo tempo. Vários trabalhos de cópia simultâneos pode restringir um armazenamento de dados e levar a um desempenho reduzido, repetições internas do trabalho de cópia e, em alguns casos, falhas de execução.
 
-## <a name="sample-scenario-copy-from-an-on-premises-sql-server-to-blob-storage"></a>Cenário de exemplo: copiar de um SQL Server local para o armazenamento de Blobs
-**Cenário:** um pipeline é criado para copiar os dados de um SQL Server local para um armazenamento de Blobs no formato CSV. Para acelerar o trabalho de cópia, os arquivos CSV devem ser compactados no formato bzip2.
+## <a name="sample-scenario-copy-from-a-sql-server-database-to-blob-storage"></a>Cenário de exemplo: copiar de um banco de dados SQL Server para o armazenamento de BLOBs
+**Cenário**: um pipeline é criado para copiar dados de um banco de dado SQL Server para o armazenamento de BLOBs no formato CSV. Para acelerar o trabalho de cópia, os arquivos CSV devem ser compactados no formato bzip2.
 
 **Análise e teste**: A taxa de transferência da Atividade de Cópia é menor que 2 MBps, que é muito mais lento do que o parâmetro de comparação de desempenho.
 
@@ -384,8 +383,8 @@ Como você pode ver, os dados estão sendo processados e movidos de forma sequen
 Um ou mais dos seguintes fatores pode causar o gargalo do desempenho:
 
 * **Origem:** o próprio SQL Server tem uma baixa taxa de transferência devido às cargas pesadas.
-* **Gateway de Gerenciamento de Dados**:
-  * **LAN**: o Gateway está localizado longe do computador do SQL Server e tem uma conexão de baixa largura de banda.
+* **Gateway de gerenciamento de dados**:
+  * **LAN**: o gateway está localizado longe do computador SQL Server e tem uma conexão de baixa largura de banda.
   * **Gateway**: o Gateway atingiu suas limitações de carga para executar as seguintes operações:
     * **Serialização**: serializar o fluxo de dados para o formato CSV tem a taxa de transferência lenta.
     * **Compactação**: você escolheu um codec de compactação lenta (por exemplo, bzip2, que é 2.8 MBps com Core i7).

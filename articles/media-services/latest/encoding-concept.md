@@ -10,15 +10,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 04/29/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 6e1c9aa5c2e049d5fc1ebd8bf745417f56d232ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 04706de4b1cc18a4f3146f75442de84340319cef
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80366570"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84220171"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Codificando vídeo e áudio com os serviços de mídia
 
@@ -60,7 +59,7 @@ Ao enviar trabalhos para processar seus vídeos, você precisa informar aos serv
 * [Codificar de uma URL HTTPS com .NET](stream-files-dotnet-quickstart.md)
 * [Codificar de uma URL HTTPS com REST](stream-files-tutorial-with-rest.md)
 * [Codificar de uma URL HTTPS com CLI](stream-files-cli-quickstart.md)
-* [Codificar de uma URL HTTPS com node. js](stream-files-nodejs-quickstart.md)
+* [Codificar de uma URL HTTPS com Node.js](stream-files-nodejs-quickstart.md)
 
 ### <a name="creating-job-input-from-a-local-file"></a>Criando entrada de trabalho de um arquivo local
 
@@ -83,8 +82,8 @@ Você pode especificar para criar um [trabalho](https://docs.microsoft.com/rest/
 
 Veja exemplos:
 
-* [Subclipe um vídeo com o .NET](subclip-video-dotnet-howto.md)
-* [Subclipe um vídeo com REST](subclip-video-rest-howto.md)
+* [Sub-recortar um vídeo com .NET](subclip-video-dotnet-howto.md)
+* [Sub-recortar um vídeo com REST](subclip-video-rest-howto.md)
 
 ## <a name="built-in-presets"></a>Predefinições internas
 
@@ -98,7 +97,10 @@ As predefinições a seguir são atualmente têm suporte:
 
 - **EncoderNamedPreset. AACGoodQualityAudio**: produz um único arquivo MP4 contendo apenas áudio estéreo codificado a 192 kbps.
 - **EncoderNamedPreset. AdaptiveStreaming** (recomendado): para obter mais informações, consulte [gerando automaticamente uma escada de taxa de bits](autogen-bitrate-ladder.md).
-- **EncoderNamedPreset. ContentAwareEncodingExperimental**: expõe uma predefinição experimental para codificação com reconhecimento de conteúdo. Dado qualquer conteúdo de entrada, o serviço tenta determinar automaticamente o número ideal de camadas e as configurações apropriadas de taxa de bits e resolução para entrega por streaming adaptável. Os algoritmos subjacentes continuarão a evoluir ao longo do tempo. A saída conterá arquivos MP4 com vídeo e áudio intercalados. Para obter mais informações, consulte [predefinição experimental para codificação com reconhecimento de conteúdo](content-aware-encoding.md).
+- **EncoderNamedPreset. ContentAwareEncoding**: expõe uma predefinição para codificação com reconhecimento de conteúdo. Dado qualquer conteúdo de entrada, o serviço tenta determinar automaticamente o número ideal de camadas e as configurações apropriadas de taxa de bits e resolução para entrega por streaming adaptável. Os algoritmos subjacentes continuarão a evoluir ao longo do tempo. A saída conterá arquivos MP4 com vídeo e áudio intercalados. Para obter mais informações, consulte [codificação com reconhecimento de conteúdo](content-aware-encoding.md).
+
+  > [!NOTE]
+  > Certifique-se de usar **ContentAwareEncoding** não ContentAwareEncodingExperimental.
 - **EncoderNamedPreset. H264MultipleBitrate1080p**: produz um conjunto de oito arquivos MP4 alinhados a GOP, variando de 6000 kbps a 400 Kbps e áudio AAC estéreo. A resolução inicia em 1080p e diminui para 360p.
 - **EncoderNamedPreset. H264MultipleBitrate720p**: produz um conjunto de seis arquivos MP4 alinhados a GOP, variando de 3400 kbps a 400 Kbps e áudio AAC estéreo. A resolução inicia em 720p e diminui para 360p.
 - **EncoderNamedPreset. H264MultipleBitrateSD**: produz um conjunto de cinco arquivos MP4 alinhados a GOP, variando de 1600 kbps a 400 Kbps e áudio AAC estéreo. A resolução inicia em 480p e diminui para 360p.

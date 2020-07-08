@@ -8,12 +8,11 @@ ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5d4fb87ae5edd4919923e66336760aadf23d1888
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: b1822f6a5bf0d3ac4217a43978dfcc739044e812
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657238"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84235558"
 ---
 # <a name="identify-and-diagnose-issues"></a>Identificar e diagnosticar problemas
 
@@ -161,7 +160,7 @@ A tabela a seguir lista os erros comuns que os administradores podem encontrar.
 
 |Código numérico|Código do erro|Solução sugerida|
 |---|---|---|
-|-2147467259|ConnectionFailedAdErrorNoSuchMember|O usuário não é membro do Azure Active Directory. Siga as instruções no [Centro Administrativo do Active Directory](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center) para adicioná-lo.|
+|-2147467259|ConnectionFailedAdErrorNoSuchMember|O usuário não é membro de Active Directory. Siga as instruções no [Centro Administrativo do Active Directory](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center) para adicioná-lo.|
 |-2147467259|ConnectionFailedAdTrustedRelationshipFailure|O host da sessão não entrou corretamente no Active Directory.|
 |-2146233088|ConnectionFailedUserHasValidSessionButRdshIsUnhealthy|As conexões falharam porque o host da sessão não está disponível. Verifique a integridade do host da sessão.|
 |-2146233088|ConnectionFailedClientDisconnect|Se você observar esse erro com frequência, verifique se o computador do usuário está conectado à rede.|
@@ -172,6 +171,7 @@ A tabela a seguir lista os erros comuns que os administradores podem encontrar.
 |8|ConnectionBroken|A conexão entre o cliente e o gateway ou o servidor caiu. Nenhuma ação necessária, a menos que isso ocorra inesperadamente.|
 |14|UnexpectedNetworkDisconnect|A conexão com a rede caiu. Peça ao usuário para se conectar novamente.|
 |24|ReverseConnectFailed|A máquina virtual do host não tem uma linha de visão direta para o gateway de área de trabalho remota. Verifique se o endereço IP do gateway pode ser resolvido.|
+|1322|ConnectionFailedNoMappingOfSIDinAD|O usuário não é membro de Active Directory. Siga as instruções no [Centro Administrativo do Active Directory](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center) para adicioná-lo.|
 
 ## <a name="next-steps"></a>Próximas etapas
 

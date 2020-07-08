@@ -5,12 +5,11 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 7142e3f9aaa25e7ba327194c04ad6a9b5f4e3ad1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a9699eae17657e96b38b3bccc95e8f84326efbb3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258766"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84259466"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Descrever um Cluster Service Fabric usando o Gerenciador de recursos de cluster
 O recurso Gerenciador de recursos de cluster do Azure Service Fabric fornece vários mecanismos para descrever um cluster:
@@ -83,9 +82,9 @@ O diagrama a seguir mostra três domínios de atualização distribuídos em tr�
 
 Há prós e contras para ter um grande número de domínios de atualização. Mais domínios de atualização significam que cada etapa da atualização é mais granular e afeta um número menor de nós ou serviços. Menos serviços precisam ser movidos de cada vez, apresentando menos variação no sistema. Isso tende a melhorar a confiabilidade, pois o menor serviço é afetado por qualquer problema introduzido durante a atualização. Mais domínios de atualização também significam que você precisa de menos buffer disponível em outros nós para lidar com o impacto da atualização. 
 
-Por exemplo, se você tiver cinco domínios de atualização, os nós em cada um serão manuseando aproximadamente 20% do tráfego. Se você precisar reduzir esse domínio de atualização para uma atualização, essa carga normalmente precisará ser executada em algum lugar. Como você tem quatro domínios de atualização restantes, cada um deve ter espaço para cerca de 5% do tráfego total. Mais domínios de atualização significam que você precisa de menos buffer nos nós do cluster. 
+Por exemplo, se você tiver cinco domínios de atualização, os nós em cada um serão manuseando aproximadamente 20% do tráfego. Se você precisar reduzir esse domínio de atualização para uma atualização, essa carga normalmente precisará ser executada em algum lugar. Como você tem quatro domínios de atualização restantes, cada um deve ter espaço para cerca de 25% do tráfego total. Mais domínios de atualização significam que você precisa de menos buffer nos nós do cluster.
 
-Considere se você tinha 10 domínios de atualização em vez disso. Nesse caso, cada domínio de atualização estaria lidando apenas com cerca de 10% do tráfego total. Quando uma atualização percorre o cluster, cada domínio precisaria ter espaço para apenas cerca de 1,1% do tráfego total. Mais domínios de atualização geralmente permitem que você execute seus nós com maior utilização, pois você precisa de menos capacidade reservada. O mesmo é verdadeiro para domínios de falha.  
+Considere se você tinha 10 domínios de atualização em vez disso. Nesse caso, cada domínio de atualização estaria lidando apenas com cerca de 10% do tráfego total. Quando uma atualização percorre o cluster, cada domínio precisaria ter espaço para apenas cerca de 11% do tráfego total. Mais domínios de atualização geralmente permitem que você execute seus nós com maior utilização, pois você precisa de menos capacidade reservada. O mesmo é verdadeiro para domínios de falha.  
 
 A desvantagem de ter muitos domínios de atualização é que as atualizações tendem a demorar mais. Service Fabric aguarda um curto período após a conclusão de um domínio de atualização e executa verificações antes de começar a atualizar o próximo. Esses atrasos permitem detectar problemas introduzidos pela atualização antes que ela continue. Essa compensação é aceitável, pois isso evita que alterações incorretas afetem grande parte do serviço de uma só vez.
 
@@ -247,7 +246,7 @@ No layout anterior, se o valor de **TargetReplicaSetSize** for cinco e N1 for re
 ## <a name="configuring-fault-and-upgrade-domains"></a>Configurando domínios de falha e atualização
 Em implantações de Service Fabric hospedadas pelo Azure, os domínios de falha e os domínios de atualização são definidos automaticamente. O Service Fabric seleciona e usa as informações de ambiente do Azure.
 
-Se você estiver criando seu próprio cluster (ou desejar executar uma topologia específica em desenvolvimento), poderá fornecer o domínio de falha e as informações de domínio de atualização por conta própria. Neste exemplo, definimos um cluster de desenvolvimento local de nove nós que abrange três data centers (cada um com três racks). Esse cluster também tem três domínios de atualização distribuídos entre esses três data centers. Aqui está um exemplo da configuração em ClusterManifest. xml:
+Se você estiver criando seu próprio cluster (ou desejar executar uma topologia específica em desenvolvimento), poderá fornecer o domínio de falha e as informações de domínio de atualização por conta própria. Neste exemplo, definimos um cluster de desenvolvimento local de nove nós que abrange três data centers (cada um com três racks). Esse cluster também tem três domínios de atualização distribuídos entre esses três data centers. Veja um exemplo da configuração no ClusterManifest.xml:
 
 ```xml
   <Infrastructure>
@@ -268,7 +267,7 @@ Se você estiver criando seu próprio cluster (ou desejar executar uma topologia
   </Infrastructure>
 ```
 
-Este exemplo usa ClusterConfig. JSON para implantações autônomas:
+Este exemplo usa ClusterConfig.jspara implantações autônomas:
 
 ```json
 "nodes": [
@@ -363,7 +362,7 @@ Para dar suporte a esses tipos de configuração, Service Fabric inclui marcas q
 ### <a name="built-in-node-properties"></a>Propriedades de nó interno
 Service Fabric define algumas propriedades de nó padrão que podem ser usadas automaticamente para que você não precise defini-las. As propriedades padrão definidas em cada nó são **NodeType** e **NodeName**. 
 
-Por exemplo, você pode escrever uma restrição de posicionamento `"(NodeType == NodeType03)"`como. **NodeType** é uma propriedade comumente usada. Ele é útil porque corresponde a 1:1 com um tipo de computador. Cada tipo de computador corresponde a um tipo de carga de trabalho em um aplicativo de n camadas tradicional.
+Por exemplo, você pode escrever uma restrição de posicionamento como `"(NodeType == NodeType03)"` . **NodeType** é uma propriedade comumente usada. Ele é útil porque corresponde a 1:1 com um tipo de computador. Cada tipo de computador corresponde a um tipo de carga de trabalho em um aplicativo de n camadas tradicional.
 
 <center>
 
@@ -375,7 +374,7 @@ O valor especificado na propriedade node pode ser uma cadeia de caracteres, um b
 
 * Verificações condicionais para a criação de instruções específicas:
 
-  | de | Sintaxe |
+  | de | Syntax |
   | --- |:---:|
   | "igual a" | "==" |
   | "diferente de" | "!=" |
@@ -386,7 +385,7 @@ O valor especificado na propriedade node pode ser uma cadeia de caracteres, um b
 
 * Instruções booleanas para Agrupamento e operações lógicas:
 
-  | de | Sintaxe |
+  | de | Syntax |
   | --- |:---:|
   | "e" | "&&" |
   | "ou" | "&#124;&#124;" |
@@ -401,7 +400,7 @@ Aqui estão alguns exemplos de instruções básicas de restrição:
 
 O serviço pode ser posicionado somente em nós em que a instrução de restrição de posicionamento geral é avaliada como "True". Os nós que não têm uma propriedade definida não correspondem a nenhuma restrição de posicionamento que contenha a propriedade.
 
-Digamos que as seguintes propriedades de nó foram definidas para um tipo de nó em ClusterManifest. xml:
+Digamos que as seguintes propriedades de nó foram definidas para um tipo de nó no ClusterManifest.xml:
 
 ```xml
     <NodeType Name="NodeType01">
@@ -413,7 +412,7 @@ Digamos que as seguintes propriedades de nó foram definidas para um tipo de nó
     </NodeType>
 ```
 
-O exemplo a seguir mostra as propriedades de nó definidas por meio de ClusterConfig. JSON para implantações autônomas ou template. JSON para clusters hospedados no Azure. 
+O exemplo a seguir mostra as propriedades de nó definidas por meio de ClusterConfig.jspara implantações autônomas ou Template.jsem clusters hospedados no Azure. 
 
 > [!NOTE]
 > Em seu modelo de Azure Resource Manager, o tipo de nó geralmente é parametrizado. Seria como `"[parameters('vmNodeType1Name')]"` em vez de NodeType01.
@@ -447,7 +446,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceType -Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementConstraint "HasSSD == true && SomeProperty >= 4"
 ```
 
-Se todos os nós de NodeType01 forem válidos, você também poderá selecionar esse tipo de nó com `"(NodeType == NodeType01)"`a restrição.
+Se todos os nós de NodeType01 forem válidos, você também poderá selecionar esse tipo de nó com a restrição `"(NodeType == NodeType01)"` .
 
 As restrições de posicionamento de um serviço podem ser atualizadas dinamicamente durante o tempo de execução. Se precisar, você pode mover um serviço em um cluster, adicionar e remover requisitos e assim por diante. Service Fabric garante que o serviço permaneça ativo e disponível mesmo quando esses tipos de alterações forem feitos.
 
@@ -505,7 +504,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton –Metric @("ClientConnections,High,1024,0)
 ```
 
-Você pode ver as capacidades definidas no manifesto do cluster. Aqui está um exemplo de ClusterManifest. xml:
+Você pode ver as capacidades definidas no manifesto do cluster. Aqui está um exemplo para ClusterManifest.xml:
 
 ```xml
     <NodeType Name="NodeType03">
@@ -515,7 +514,7 @@ Você pode ver as capacidades definidas no manifesto do cluster. Aqui está um e
     </NodeType>
 ```
 
-Aqui está um exemplo de capacidades definidas por meio de ClusterConfig. JSON para implantações autônomas ou template. JSON para clusters hospedados no Azure: 
+Aqui está um exemplo de capacidades definidas por meio de ClusterConfig.jspara implantações autônomas ou Template.jsem clusters hospedados no Azure: 
 
 ```json
 "nodeTypes": [
@@ -548,7 +547,7 @@ A capacidade em buffer é outro recurso do Gerenciador de recursos de cluster. E
 
 A capacidade em buffer é especificada globalmente por métrica para todos os nós. O valor que você escolhe para a capacidade reservada é uma função do número de domínios de falha e de atualização que você tem no cluster. Mais domínios de falha e atualização significam que você pode escolher um número mais baixo para a capacidade em buffer. Se você tiver mais domínios, poderá esperar que quantidades menores de cluster fiquem indisponíveis durante atualizações e falhas. A especificação da capacidade em buffer faz sentido apenas se você também tiver especificado a capacidade do nó para uma métrica.
 
-Aqui está um exemplo de como especificar a capacidade em buffer em ClusterManifest. xml:
+Veja um exemplo de como especificar a capacidade em buffer no ClusterManifest.xml:
 
 ```xml
         <Section Name="NodeBufferPercentage">
@@ -557,7 +556,7 @@ Aqui está um exemplo de como especificar a capacidade em buffer em ClusterManif
         </Section>
 ```
 
-Aqui está um exemplo de como especificar a capacidade em buffer por meio de ClusterConfig. JSON para implantações autônomas ou template. JSON para clusters hospedados no Azure:
+Aqui está um exemplo de como especificar a capacidade em buffer por meio de ClusterConfig.jspara implantações autônomas ou Template.jsem clusters hospedados no Azure:
 
 ```json
 "fabricSettings": [

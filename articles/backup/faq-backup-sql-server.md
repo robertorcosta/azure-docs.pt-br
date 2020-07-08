@@ -4,12 +4,11 @@ description: Encontre respostas para perguntas comuns sobre como fazer backup de
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: a973761bf16e2d271d718e4a8b29e08624276987
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 11657a5dda79fc550f4c07d4020d75c671335da4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79247703"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84248253"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Perguntas frequentes sobre SQL Server bancos de dados que estão em execução em um backup de VM do Azure
 
@@ -32,8 +31,8 @@ Em algumas circunstâncias, o serviço de backup do Azure dispara backups remedi
 
 A reparo automática como um recurso é habilitado para todos os usuários por padrão; No entanto, caso você opte por recusá-lo, execute o seguinte:
 
-- Na instância de SQL Server, na pasta *C:\Program Programas\azure Workload Backup\bin* , crie ou edite o arquivo **ExtensionSettingsOverrides. JSON** .
-- No **ExtensionSettingsOverrides. JSON**, defina *{"EnableAutoHealer": false}*.
+- Na instância de SQL Server, na pasta *C:\Program Programas\azure Workload Backup\bin* , crie ou edite o **ExtensionSettingsOverrides.jsno** arquivo.
+- No **ExtensionSettingsOverrides.jsem**, defina *{"EnableAutoHealer": false}*.
 - Salve suas alterações e feche o arquivo.
 - Na instância do SQL Server, abra **tarefa gerenciar** e reinicie o serviço **AzureWLBackupCoordinatorSvc** .
 
@@ -41,8 +40,8 @@ A reparo automática como um recurso é habilitado para todos os usuários por p
 
 Sim. Você pode limitar a taxa com que a política de backup é executada para minimizar o impacto em uma instância do SQL Server. Para alterar a configuração:
 
-1. Na instância de SQL Server, na pasta *C:\Program Programas\azure Workload Backup\bin* , crie o arquivo *ExtensionSettingsOverrides. JSON* .
-2. No arquivo *ExtensionSettingsOverrides. JSON* , altere a configuração **DefaultBackupTasksThreshold** para um valor mais baixo (por exemplo, 5). <br>
+1. Na instância de SQL Server, na pasta *C:\Program Programas\azure Workload Backup\bin* , crie o *ExtensionSettingsOverrides.jsno* arquivo.
+2. Na *ExtensionSettingsOverrides.jsno* arquivo, altere a configuração **DefaultBackupTasksThreshold** para um valor mais baixo (por exemplo, 5). <br>
   `{"DefaultBackupTasksThreshold": 5}`
 <br>
 O valor padrão de DefaultBackupTasksThreshold é **20**.
@@ -68,9 +67,9 @@ O cofre dos serviços de recuperação de backup do Azure pode detectar e proteg
 
 ## <a name="do-successful-backup-jobs-create-alerts"></a>Trabalhos de backup bem-sucedidos criam alertas?
 
-Não. Trabalhos de backup bem-sucedidos não geram alertas. Os alertas são enviados somente para trabalhos de backup com falha. O comportamento detalhado para alertas do portal está documentado [aqui](backup-azure-monitoring-built-in-monitor.md). No entanto, caso você esteja interessado em ter alertas mesmo para trabalhos bem-sucedidos, você pode usar o [monitoramento usando Azure monitor](backup-azure-monitoring-use-azuremonitor.md).
+Não. Trabalhos de backup bem-sucedidos não geram alertas. Os alertas são enviados somente para trabalhos de backup com falha. O comportamento detalhado para alertas do portal é documentado [aqui](backup-azure-monitoring-built-in-monitor.md). No entanto, caso você esteja interessado em ter alertas mesmo para trabalhos bem-sucedidos, você pode usar o [monitoramento usando Azure monitor](backup-azure-monitoring-use-azuremonitor.md).
 
-## <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>Posso ver os trabalhos de backup agendados no menu trabalhos de backup?
+## <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>Posso ver trabalhos de backup agendados no menu Trabalhos de Backup?
 
 O menu **trabalho de backup** mostrará apenas os trabalhos de backup sob demanda. Para o trabalho agendado, use [monitoramento usando Azure monitor](backup-azure-monitoring-use-azuremonitor.md).
 
@@ -80,7 +79,7 @@ Sim, você pode obter esse recurso com [proteção automática](backup-sql-serve
 
 ## <a name="if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups"></a>Se eu excluir um banco de dados de uma instância autoprotegida, o que acontecerá com os backups?
 
-Se um banco de dados for descartado de uma instância autoprotegida, os backups de banco de dados ainda serão tentados. Isso significa que o banco de dados excluído começa a aparecer como não íntegro em **itens de backup** e ainda está protegido.
+Se um banco de dados for descartado de uma instância autoprotegida, os backups de banco de dados ainda serão tentados. Isso implica que o banco de dados excluído começa a ser exibido como não íntegro em **Itens de Backup** e ainda está protegido.
 
 A maneira correta de interromper a proteção deste banco de dados é **interromper o backup** com **excluir os**  
 
@@ -92,7 +91,7 @@ Se você **parar o backup com excluir dados**, nenhum backup futuro será realiz
 
 ## <a name="if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior"></a>Se eu alterar o nome do banco de dados após ele ter sido protegido, qual será o comportamento?
 
-Um banco de dados renomeado é tratado como um novo banco de dados. Portanto, o serviço tratará essa situação como se o banco de dados não fosse encontrado e com a falha dos backups.
+Um banco de dados renomeado é tratado como um novo. Portanto, o serviço tratará essa situação como se o banco de dados não fosse encontrado e com a falha dos backups.
 
 Você pode selecionar o banco de dados, que agora é renomeado e configurar a proteção nele. Caso a proteção automática esteja habilitada na instância, o banco de dados renomeado será automaticamente detectado e protegido.
 

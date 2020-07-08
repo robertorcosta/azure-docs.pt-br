@@ -8,23 +8,22 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: ea44355795f0685f42de1306e979707f34d8f142
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 8f8f5a2f605f8e8b7109267e5223593eb1e2cfb9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83742763"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84264359"
 ---
 # <a name="best-practices-for-azure-maps-search-service"></a>Melhores práticas para o Serviço de Pesquisa do Azure Mapas
 
-O [Serviço de Pesquisa](https://docs.microsoft.com/rest/api/maps/search) do Azure Mapas inclui APIs que oferecem vários recursos. Por exemplo, a API de endereço de pesquisa pode encontrar pontos de interesse (POI) ou dados em um local específico. 
+O Azure Maps [serviço de pesquisa](https://docs.microsoft.com/rest/api/maps/search) inclui APIs que oferecem vários recursos para ajudar os desenvolvedores a pesquisar endereços, locais, listagens de negócios por nome ou categoria e outras informações geográficas. Por exemplo, a[API de pesquisa difusa](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) permite que os usuários pesquisem um endereço ou ponto de interesse (POI).
 
 Este artigo explica como aplicar práticas sonoras ao chamar dados do Serviço de Pesquisa do Azure Mapas. Você aprenderá a:
 
-* Criar consultas para retornar correspondências relevantes.
-* Limitar os resultados da pesquisa.
-* Aprender as diferenças entre os tipos de resultados.
-* Ler a estrutura de resposta de pesquisa de endereço.
+* Criar consultas para retornar correspondências relevantes
+* Limitar os resultados da pesquisa
+* Aprenda as diferenças entre os tipos de resultados
+* Ler a estrutura de resposta de pesquisa de endereço
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -33,7 +32,7 @@ Para fazer chamadas para as APIs de serviço do Azure Mapas, você precisa de um
 Para obter mais informações sobre a autenticação nos Azure Mapas, confira [Gerenciar a autenticação nos Azure Mapas](./how-to-manage-authentication.md).
 
 > [!TIP]
-> Para consultar o Serviço de Pesquisa, você pode usar o [Aplicativo Postmaster](https://www.getpostman.com/apps) para criar chamadas REST. Ou então, você pode usar qualquer ambiente de desenvolvimento de API que preferir.
+> Para consultar Serviço de Pesquisa, você pode usar o [aplicativo de postmaster](https://www.getpostman.com/apps) para criar chamadas à API REST. Ou então, você pode usar qualquer ambiente de desenvolvimento de API que preferir.
 
 ## <a name="best-practices-to-geocode-addresses"></a>Melhores práticas para endereços de código geográfico
 
@@ -61,7 +60,7 @@ Para resultados geopolares para a área relevante para seu usuário, sempre adic
 
 #### <a name="fuzzy-search-parameters"></a>Parâmetros de pesquisa difusa
 
-Recomendamos que você use [Pesquisar API difusa](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) do Azure Mapas quando não souber suas entradas de usuário para uma consulta de pesquisa. A API combina a pesquisa de POI e o código geográfico em uma *pesquisa de linha única* canônica: 
+Recomendamos que você use [Pesquisar API difusa](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) do Azure Mapas quando não souber suas entradas de usuário para uma consulta de pesquisa. Por exemplo, a entrada do usuário pode ser um endereço ou o tipo de POI (ponto de interesse), como o *shoppingment*. A API combina a pesquisa de POI e o código geográfico em uma *pesquisa de linha única* canônica: 
 
 * Os parâmetros `minFuzzyLevel` e `maxFuzzyLevel` ajudam a retornar correspondências relevantes mesmo quando os parâmetros de consulta não correspondem exatamente às informações que o usuário deseja. Para maximizar o desempenho e reduzir resultados incomuns, defina consultas de pesquisa para padrões de `minFuzzyLevel=1` e `maxFuzzyLevel=2`. 
 
@@ -85,7 +84,7 @@ Recomendamos que você use [Pesquisar API difusa](https://docs.microsoft.com/res
 
 ### <a name="reverse-geocode-and-filter-for-a-geography-entity-type"></a>Código geográfico reverso e filtro para um tipo de entidade de geografia
 
-Quando você faz uma pesquisa de código geográfico reverso na [Pesquisa de endereço de API reversa](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse), o serviço pode retornar polígonos para áreas administrativas. Para restringir a pesquisa a tipos de entidade de geografia específicos, inclua o parâmetro `entityType` em suas solicitações. 
+Quando você faz uma pesquisa de código geográfico reverso na [Pesquisa de endereço de API reversa](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse), o serviço pode retornar polígonos para áreas administrativas. Por exemplo, Yoi pode querer buscar o polígono da área para uma cidade. Para restringir a pesquisa a tipos de entidade de geografia específicos, inclua o parâmetro `entityType` em suas solicitações. 
 
 A resposta resultante contém a ID de geografia e o tipo de entidade que foi correspondido. Se você fornecer mais de uma entidade, o ponto de extremidade retornará a *menor entidade disponível*. Você pode usar a ID de geometria retornada para obter a geometria da geografia por meio da [Pesquisa de serviço de polígono](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon).
 

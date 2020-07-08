@@ -5,12 +5,11 @@ author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 04/03/2020
-ms.openlocfilehash: 3c7d4f0a6d33a52fd972815923e60b33ce8a7448
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
-ms.translationtype: MT
+ms.openlocfilehash: c27bf9a29bdb6e75e10fcafc597f40a88f995461
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901346"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84196082"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Solucionar problemas de replicação na recuperação de desastre de VM do Azure
 
@@ -28,7 +27,7 @@ As seções a seguir descrevem as causas e soluções.
 
 ## <a name="high-data-change-rate-on-the-source-virtual-machine"></a>Alta taxa de alteração de dados na máquina virtual de origem
 
-Azure Site Recovery criará um evento se a taxa de alteração de dados na máquina virtual de origem for maior do que os limites com suporte. Para ver se o problema é devido à alta rotatividade, acesse **itens** > **VM** > replicados**eventos de VM – últimas 72 horas**.
+Azure Site Recovery criará um evento se a taxa de alteração de dados na máquina virtual de origem for maior do que os limites com suporte. Para ver se o problema é devido à alta rotatividade, acesse **itens replicados**  >  **VM**  >  **eventos de VM – últimas 72 horas**.
 Você deve ver a taxa de alteração de dados do evento **além dos limites com suporte**:
 
 :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/data_change_event.png" alt-text="Azure Site Recovery página que mostra uma alta taxa de alteração de dados que é muito alta.":::
@@ -50,7 +49,7 @@ Disco Premium P10 ou P15 | 8 KB    | 2 MB/s | 168 GB por disco
 Disco Premium P10 ou P15 | 16 KB | 4 MB/s |    336 GB por disco
 Disco Premium P10 ou P15 | 32 KB ou maior | 8 MB/s | 672 GB por disco
 Disco Premium P20 ou P30 ou P40 ou P50 | 8 KB    | 5 MB/s | 421 GB por disco
-Disco Premium P20 ou P30 ou P40 ou P50 | 16 KB ou maior |20 MB/s | 1684 GB por disco
+Disco Premium P20 ou P30 ou P40 ou P50 | 16 KB ou maior |20 MB/s | 1\.684 GB por disco
 
 ### <a name="solution"></a>Solução
 
@@ -106,6 +105,10 @@ A seguir estão alguns dos problemas mais comuns.
 
 **Como corrigir**: Azure site Recovery não é possível criar um ponto de recuperação consistente com o aplicativo para espaços de armazenamento diretos configuração. [Configure a política de replicação](azure-to-azure-how-to-enable-replication-s2d-vms.md).
 
+### <a name="app-consistency-not-enabled-on-linux-servers"></a>Consistência de aplicativo não habilitada em servidores Linux
+
+**Como corrigir: a** Azure site Recovery para o sistema operacional Linux dá suporte a scripts personalizados de aplicativo para consistência de aplicativo. O script personalizado com as opções pre e post será usado pelo agente de mobilidade Azure Site Recovery para consistência de aplicativo. [Aqui](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#replication) estão as etapas para habilitá-lo.
+
 ### <a name="more-causes-because-of-vss-related-issues"></a>Mais causas por causa de problemas relacionados ao VSS:
 
 Para solucionar os problemas, verifique os arquivos no computador de origem para obter o código de erro exato para a falha:
@@ -120,23 +123,23 @@ Ex: vacpError:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRI
 
 No exemplo anterior, **2147754994** é o código de erro que informa sobre a falha após esta sentença.
 
-#### <a name="vss-writer-is-not-installed---error-2147221164"></a>O gravador VSS não está instalado-erro 2147221164
+#### <a name="vss-writer-is-not-installed---error-2147221164"></a>O gravador VSS não está instalado — erro 2147221164
 
 **Como corrigir**: para gerar a marca de consistência do aplicativo, o Azure site Recovery usa o serviço de cópias de sombra de volume (VSS). Site Recovery instala um provedor VSS para sua operação para obter instantâneos de consistência do aplicativo. Azure Site Recovery instala este provedor VSS como um serviço. Se o provedor VSS não estiver instalado, a criação do instantâneo de consistência do aplicativo falhará. Ele mostra a **ID do erro 0X80040154 classe não registrada**. Consulte o artigo para [solucionar problemas de instalação do gravador VSS](vmware-azure-troubleshoot-push-install.md#vss-installation-failures).
 
-#### <a name="vss-writer-is-disabled---error-2147943458"></a>O gravador VSS está desabilitado-erro 2147943458
+#### <a name="vss-writer-is-disabled---error-2147943458"></a>O gravador VSS está desabilitado — Erro 2147943458
 
-**Como corrigir**: para gerar a marca de consistência do aplicativo, Azure site Recovery usa o VSS. Site Recovery instala um provedor VSS para sua operação para obter instantâneos de consistência do aplicativo. Este provedor VSS é instalado como um serviço. Se você não tiver o serviço do provedor VSS habilitado, a criação do instantâneo de consistência do aplicativo falhará. Ele mostra o erro: **o serviço especificado está desabilitado e não pode ser iniciado (0x80070422)**.
+**Como corrigir**: para gerar a marca de consistência do aplicativo, Azure site Recovery usa o VSS. Site Recovery instala um provedor VSS para sua operação para obter instantâneos de consistência do aplicativo. Este provedor do VSS é instalado como um serviço. Se você não tiver o serviço do provedor VSS habilitado, a criação do instantâneo de consistência do aplicativo falhará. Ele mostra o erro: **o serviço especificado está desabilitado e não pode ser iniciado (0x80070422)**.
 
 Se o VSS estiver desabilitado:
 
-- Verifique se o tipo de inicialização do serviço do provedor do VSS está definido como **automático**.
+- Verifique se o tipo de inicialização do serviço do provedor do VSS está definido como **Automático**.
 - Reinicie os seguintes serviços:
   - Serviço VSS.
   - Azure Site Recovery provedor de VSS.
   - Serviço VDS.
 
-#### <a name="vss-provider-not_registered---error-2147754756"></a>PROVEDOR VSS NOT_REGISTERED-erro 2147754756
+#### <a name="vss-provider-not_registered---error-2147754756"></a>VSS PROVIDER NOT_REGISTERED - Error 2147754756
 
 **Como corrigir**: para gerar a marca de consistência do aplicativo, Azure site Recovery usa o VSS. Verifique se o serviço do provedor VSS Azure Site Recovery está instalado.
 
@@ -150,7 +153,7 @@ Use os seguintes comandos para reinstalar o provedor do VSS:
 
    `"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
 
-Verifique se o tipo de inicialização do serviço do provedor do VSS está definido como **automático**.
+Verifique se o tipo de inicialização do serviço do provedor do VSS está definido como **Automático**.
 
 Reinicie os seguintes serviços:
 

@@ -3,13 +3,12 @@ title: Parceiros que se integram com o Azure Monitor
 description: Saiba mais sobre os parceiros do Azure Monitor e como você pode acessar a documentação para a integração com eles.
 ms.subservice: ''
 ms.topic: conceptual
-ms.date: 03/14/2019
-ms.openlocfilehash: a9ba9972bcdd5b7e4bd1c4b489dcea08b5502a72
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.date: 05/29/2020
+ms.openlocfilehash: be309bf6caeb716fee86e4542363f5554b4568fb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854942"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84248964"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrações de parceiros do Azure Monitor
 
@@ -106,7 +105,8 @@ Grafana é um aplicativo de código aberto que permite que você visualize dados
 
 ![Logotipo do InfluxData](./media/partners/Influxdata.png)
 
-InfluxData, o criador do InfluxDB, oferece uma plataforma de software livre moderna criada desde o início para analisar métricas e eventos (dados de série temporal) para aplicativos de IoT e DevOps. Se os dados são originados de seres humanos, sensores ou computadores, o InfluxData capacita os desenvolvedores a criar monitoramento de última geração, análise e aplicativos de IoT com mais rapidez, facilidade e dimensionar oferecendo valor comercial real rapidamente. Com base em San Francisco, mais de 420 clientes do InfluxData incluem Cisco, eBay, IBM e Siemens.
+InfluxData é o criador de InfluxDB, o banco de dados de série temporal de código aberto. Nossa tecnologia é desenvolvida para lidar com os grandes volumes de dados com carimbo de data/hora produzidos por dispositivos IoT, aplicativos, redes, contêineres e computadores. Estamos em uma missão para ajudar desenvolvedores e organizações, como IBM, visa, Siemens, Tesla e NASA, armazenar e analisar dados em tempo real, capacitando-os a criar aplicativos de monitoramento, análise e IoT do transformação de forma mais rápida e escalável. Os recursos de coleta de eventos e métricas do monitor Microsoft Azure podem ser expandidos com o agente Telegraf da InfluxData, permitindo que os usuários da Microsoft se beneficiem de uma solução de banco de dados de série temporal líder e aproveitem as crescentes contribuições de software livre para Telegraf
+
 
 [Vá para a documentação.][influxdata-doc]
 
@@ -115,7 +115,7 @@ InfluxData, o criador do InfluxDB, oferece uma plataforma de software livre mode
 
 ![Logotipo do monitor lógico](./media/partners/logicmonitor.png)
 
-O&reg; LogicMonitor é a principal plataforma de monitoramento de desempenho baseada em SaaS para uma infraestrutura de ti complexa. Com a cobertura para milhares de tecnologias, LogicMonitor fornece visibilidade granular sobre desempenho do aplicativo e infraestrutura. O monitoramento abrangente do Azure na nuvem do LM permite que os usuários correlacionem o desempenho dos recursos de nuvem híbrida, locais e de nuvem do Azure, tudo a partir de uma única plataforma. Detecção automática de recursos, incorporada em modelos de monitoramento, limites de alerta pré-configurado e painéis personalizados são combinados para fornecer à TI a velocidade, flexibilidade e visibilidade necessárias para ser bem-sucedida.
+&reg;O LogicMonitor é a principal plataforma de monitoramento de desempenho baseada em SaaS para uma infraestrutura de ti complexa. Com a cobertura para milhares de tecnologias, LogicMonitor fornece visibilidade granular sobre desempenho do aplicativo e infraestrutura. O monitoramento abrangente do Azure na nuvem do LM permite que os usuários correlacionem o desempenho dos recursos de nuvem híbrida, locais e de nuvem do Azure, tudo a partir de uma única plataforma. Detecção automática de recursos, incorporada em modelos de monitoramento, limites de alerta pré-configurado e painéis personalizados são combinados para fornecer à TI a velocidade, flexibilidade e visibilidade necessárias para ser bem-sucedida.
 
 [Vá para a documentação.][logicmonitor-doc]
 

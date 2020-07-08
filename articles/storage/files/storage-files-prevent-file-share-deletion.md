@@ -4,44 +4,45 @@ description: Saiba mais sobre a exclusão temporária nos compartilhamentos de a
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 05/28/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 96e3d5001d11455337ae092776a1a4c5c3738012
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.openlocfilehash: 6ee38dd6f9a2e254c57d6f79c09eee7bccfcd0aa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83882929"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84204677"
 ---
 # <a name="prevent-accidental-deletion-of-azure-file-shares"></a>Impedir exclusão acidental de compartilhamentos de arquivo do Azure
 
-O Armazenamento do Azure agora oferece exclusão temporária para compartilhamentos de arquivo. A exclusão temporária permite recuperar seus dados quando eles são excluídos de forma incorreta por um aplicativo ou outro usuário da conta de armazenamento.
+O armazenamento do Azure agora oferece exclusão reversível para compartilhamentos de arquivos (versão prévia). A exclusão temporária permite recuperar seus dados quando eles são excluídos de forma incorreta por um aplicativo ou outro usuário da conta de armazenamento.
 
-## <a name="how-soft-delete-works"></a>Como funciona a exclusão temporária
+## <a name="how-soft-delete-preview-works"></a>Como funciona a exclusão reversível (versão prévia)
 
-Quando habilitada, a exclusão temporária permite salvar e recuperar os compartilhamentos de arquivo quando eles são excluídos. Quando dados são excluídos, é feita a transição deles para um estado com exclusão reversível em vez de serem apagados permanentemente. Você pode configurar o tempo durante o qual os dados com exclusão temporária podem ser recuperados antes de serem excluídos permanentemente.
+Quando a exclusão reversível para compartilhamentos de arquivos do Azure estiver habilitada, se um compartilhamento de arquivos for excluído, ele faz a transição para um estado de exclusão reversível em vez de ser apagado permanentemente. Você pode configurar o tempo durante o qual os dados com exclusão temporária podem ser recuperados antes de serem excluídos permanentemente.
 
-A exclusão temporária pode ser habilitada em compartilhamentos de arquivos novos ou existentes. A exclusão temporária também é compatível com versões anteriores. Você não precisa alterar nada nos aplicativos para aproveitar as proteções da exclusão temporária. 
+A exclusão reversível pode ser habilitada em compartilhamentos de arquivos novos ou existentes. A exclusão temporária também é compatível com versões anteriores. Você não precisa alterar nada nos aplicativos para aproveitar as proteções da exclusão temporária. 
+
+Para excluir permanentemente um compartilhamento de arquivos em um estado de exclusão reversível antes da hora de expiração, você deve restaurar o compartilhamento, desabilitar a exclusão reversível e, em seguida, excluir o compartilhamento novamente. Em seguida, você deve reabilitar a exclusão reversível, pois quaisquer outros compartilhamentos de arquivos nessa conta de armazenamento ficarão vulneráveis à exclusão acidental enquanto a exclusão reversível estiver desativada.
 
 Para compartilhamentos de arquivo premium excluídos de maneira temporária, a cota de compartilhamento de arquivo (o tamanho provisionado de um compartilhamento de arquivos) é usada no cálculo da cota de conta de armazenamento total até a data de expiração do compartilhamento com exclusão temporária, quando o compartilhamento é totalmente excluído.
 
-### <a name="availability"></a>Disponibilidade
+## <a name="availability"></a>Disponibilidade
 
-A exclusão temporária para compartilhamentos de arquivo do Azure está disponível em todas as camadas de armazenamento, em todos os tipos de conta de armazenamento e em todas as regiões em que os Arquivos do Azure estão disponíveis.
+A exclusão reversível para compartilhamentos de arquivos do Azure (versão prévia) está disponível em todas as camadas de armazenamento, todos os tipos de conta de armazenamento e em todas as regiões em que os arquivos do Azure estão disponíveis.
 
 ## <a name="configuration-settings"></a>Definições de configuração
 
-A exclusão temporária para compartilhamentos de arquivo está habilitada no nível da conta de armazenamento, as configurações de exclusão temporária se aplicam a todos os compartilhamentos de arquivo em uma conta. Quando você cria uma conta de armazenamento, a exclusão temporária fica desativada por padrão. A exclusão reversível também está desativada por padrão para as contas de armazenamento existentes. Você pode ativar e desativar a exclusão temporária a qualquer momento.
+### <a name="enabling-or-disabling-soft-delete"></a>Habilitando ou desabilitando a exclusão reversível
+
+A exclusão reversível para compartilhamentos de arquivos está habilitada no nível da conta de armazenamento, por isso, as configurações de exclusão reversível se aplicam a todos os compartilhamentos de arquivos em uma conta de armazenamento. Você pode habilitar ou desabilitar a exclusão reversível a qualquer momento. Quando você cria uma nova conta de armazenamento, a exclusão reversível para compartilhamentos de arquivos é desabilitada por padrão. A exclusão reversível também é desabilitada por padrão para contas de armazenamento existentes. Se você tiver configurado o [backup de compartilhamento de arquivos do Azure](../../backup/azure-file-share-backup-overview.md) para um compartilhamento de arquivos do Azure, a exclusão reversível para compartilhamentos de arquivos do Azure será habilitada automaticamente na conta de armazenamento desse compartilhamento.
 
 Se você habilitar a exclusão temporária para compartilhamentos de arquivo, excluir alguns compartilhamentos de arquivo e desabilitar a exclusão temporária, você ainda poderá acessar e recuperar esses compartilhamentos se eles tiverem sido salvos nesse período. Quando habilitar a exclusão temporária, você precisará também configurar o período de retenção.
 
-O período de retenção indica por quanto tempo os compartilhamentos de arquivos de exclusão temporária ficam armazenados e disponíveis para recuperação. Para compartilhamentos de arquivo que são excluídos explicitamente, a contagem do período de retenção se inicia quando os dados são excluídos. No momento, você pode manter os compartilhamentos com exclusão temporária entre 1 e 365 dias.
+### <a name="retention-period"></a>Período de retenção
 
-Você pode alterar o período de retenção de exclusão reversível a qualquer momento. Um período de retenção atualizado será aplicado somente a compartilhamentos excluídos depois que o período de retenção tiver sido atualizado. Os compartilhamentos excluídos antes da atualização do período de retenção expirarão com base no período de retenção que foi configurado quando esses dados foram excluídos.
-
-Para excluir permanentemente um compartilhamento de arquivos em um estado de exclusão temporária antes do tempo de expiração, você deve restaurar o compartilhamento, desabilitar a exclusão temporária e, em seguida, excluir o compartilhamento novamente. Em seguida, você deve reabilitar a exclusão temporária, pois quaisquer outros compartilhamentos de arquivos nessa conta de armazenamento ficarão vulneráveis à exclusão acidental enquanto a exclusão temporária estiver desativada.
+O período de retenção é a quantidade de tempo que os compartilhamentos de arquivos com exclusão reversível são armazenados e estão disponíveis para recuperação. Para compartilhamentos de arquivo que são excluídos explicitamente, a contagem do período de retenção se inicia quando os dados são excluídos. No momento, você pode especificar um período de retenção entre 1 e 365 dias. Você pode alterar o período de retenção de exclusão reversível a qualquer momento. Um período de retenção atualizado será aplicado somente a compartilhamentos excluídos depois que o período de retenção tiver sido atualizado. Os compartilhamentos excluídos antes da atualização do período de retenção expirarão com base no período de retenção que foi configurado quando esses dados foram excluídos.
 
 ## <a name="pricing-and-billing"></a>Preços e cobrança
 
@@ -53,4 +54,4 @@ Quando você habilita inicialmente a exclusão temporária, recomendamos usar um
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber como habilitar e usar a exclusão temporária, continue em [Habilitar exclusão temporária](storage-files-enable-soft-delete.md)
+Para saber como habilitar e usar a exclusão reversível, continue a [habilitar a exclusão reversível](storage-files-enable-soft-delete.md).
