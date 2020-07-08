@@ -6,24 +6,23 @@ ms.topic: reference
 ms.date: 02/28/2019
 ms.author: cshoe
 ms.openlocfilehash: 863620ce6f0af33b05ef290ae95ccdc99a53a54d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77523029"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Associações do Serviço SignalR para o Azure Functions
 
 Este conjunto de artigos explica como autenticar e enviar mensagens em tempo real para clientes conectados ao [serviço de signaler do Azure](https://azure.microsoft.com/services/signalr-service/) usando associações de serviço de sinalização no Azure functions. O Azure Functions dá suporte a associações de entrada e saída para o Serviço SignalR.
 
-| Ação | Type |
+| Ação | Tipo |
 |---------|---------|
 | Retornar a URL do ponto de extremidade de serviço e o token de acesso | [Associação de entrada](./functions-bindings-signalr-service-input.md) |
 | Enviar mensagens do serviço Signalr |[Associação de saída](./functions-bindings-signalr-service-output.md) |
 
 ## <a name="add-to-your-functions-app"></a>Adicionar ao seu aplicativo de funções
 
-### <a name="functions-2x-and-higher"></a>Funções 2. x e posteriores
+### <a name="functions-2x-and-higher"></a>Funções 2.x e posteriores
 
 Trabalhar com o gatilho e as associações exige que você referencie o pacote apropriado. O pacote NuGet é usado para bibliotecas de classes do .NET enquanto o pacote de extensão é usado para todos os outros tipos de aplicativos.
 
@@ -43,7 +42,7 @@ Para obter detalhes sobre como configurar e usar o serviço de sinalização e A
 
 ### <a name="annotations-library-java-only"></a>Biblioteca de anotações (somente Java)
 
-Para usar as anotações do serviço Signalr em funções Java, você precisa adicionar uma dependência ao artefato *do Azure-Functions-Java-library-signalr* (versão 1,0 ou superior) ao seu arquivo *pom. xml* .
+Para usar as anotações do serviço Signalr em funções Java, você precisa adicionar uma dependência ao artefato *do Azure-Functions-Java-library-signalr* (versão 1,0 ou superior) ao arquivo *pom.xml* .
 
 ```xml
 <dependency>

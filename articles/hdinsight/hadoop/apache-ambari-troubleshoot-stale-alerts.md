@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
 ms.openlocfilehash: f9dfcb930e3fe4f862f9f51ff00270d0eb0c66ca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77539103"
 ---
 # <a name="scenario-apache-ambari-stale-alerts-in-azure-hdinsight"></a>Cenário: alertas obsoletos do Apache Ambari no Azure HDInsight
@@ -74,7 +73,7 @@ Para descartar um alerta obsoleto, desabilite-o e habilite-o novamente:
 
 Há um período de carência antes que um agente Ambari relate que um alerta configurado perdeu sua agenda. Se o alerta perdeu sua hora agendada, mas foi executado dentro do período de carência, o alerta obsoleto não é gerado.
 
-O valor `alert_grace_period` padrão é 5 segundos. Você pode definir essa configuração em/etc/ambari-Agent/conf/ambari-Agent.ini. Para hosts nos quais os alertas obsoletos ocorrem em intervalos regulares, tente aumentar o valor para 10. Em seguida, reinicie o agente Ambari.
+O `alert_grace_period` valor padrão é 5 segundos. Você pode definir essa configuração no/etc/ambari-Agent/conf/ambari-agent.ini. Para hosts nos quais os alertas obsoletos ocorrem em intervalos regulares, tente aumentar o valor para 10. Em seguida, reinicie o agente Ambari.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -82,7 +81,7 @@ Se o problema não tiver sido mencionado aqui ou se você não puder solucioná-
 
 * Obtenha respostas de especialistas do Azure no [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
 
-* Conecte- [@AzureSupport](https://twitter.com/azuresupport) se ao no Twitter. Essa é a conta de Microsoft Azure oficial para melhorar a experiência do cliente. Ele conecta a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte-se ao [@AzureSupport](https://twitter.com/azuresupport) no Twitter. Essa é a conta de Microsoft Azure oficial para melhorar a experiência do cliente. Ele conecta a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
 
 * Se precisar de mais ajuda, envie uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Para chegar lá, selecione ajuda (**?**) no menu do portal ou abra o painel **ajuda + suporte** . Para obter mais informações, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). 
 

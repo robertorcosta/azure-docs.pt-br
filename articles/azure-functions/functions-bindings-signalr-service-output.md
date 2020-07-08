@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 02/20/2020
 ms.author: cshoe
 ms.openlocfilehash: d3ba9183cdea752c3e69a41770b6a5319a4a601d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77530244"
 ---
 # <a name="signalr-service-output-binding-for-azure-functions"></a>Associação de saída do serviço signalr para Azure Functions
@@ -21,7 +20,7 @@ Use a associação de saída do *SignalR* para enviar uma ou mais mensagens usan
 
 A associação de saída também permite que você gerencie grupos.
 
-Para obter informações sobre configuração e detalhes de configuração, consulte a [visão geral](functions-bindings-signalr-service.md).
+Para obter informações sobre a instalação e detalhes de configuração, confira a [visão geral](functions-bindings-signalr-service.md).
 
 ## <a name="broadcast-to-all-clients"></a>Difundir para todos os clientes
 
@@ -484,7 +483,7 @@ public static Task RemoveFromGroup(
 
 O exemplo a seguir adiciona um usuário a um grupo.
 
-*Function. JSON* de exemplo
+Exemplo *function.jsem*
 
 ```json
 {
@@ -522,7 +521,7 @@ public static Task Run(
 
 O exemplo a seguir remove um usuário de um grupo.
 
-*Function. JSON* de exemplo
+Exemplo *function.jsem*
 
 ```json
 {
@@ -565,7 +564,7 @@ public static Task Run(
 
 O exemplo a seguir adiciona um usuário a um grupo.
 
-*Function. JSON* de exemplo
+Exemplo *function.jsem*
 
 ```json
 {
@@ -593,7 +592,7 @@ module.exports = async function (context, req) {
 
 O exemplo a seguir remove um usuário de um grupo.
 
-*Function. JSON* de exemplo
+Exemplo *function.jsem*
 
 ```json
 {
@@ -623,7 +622,7 @@ module.exports = async function (context, req) {
 
 O exemplo a seguir adiciona um usuário a um grupo.
 
-*Function. JSON* de exemplo
+Exemplo *function.jsem*
 
 ```json
 {
@@ -650,7 +649,7 @@ def main(req: func.HttpRequest, action: func.Out[str]) -> func.HttpResponse:
 
 O exemplo a seguir remove um usuário de um grupo.
 
-*Function. JSON* de exemplo
+Exemplo *function.jsem*
 
 ```json
 {
@@ -725,26 +724,26 @@ public SignalRGroupAction removeFromGroup(
 
 ### <a name="signalrconnectioninfo"></a>SignalRConnectionInfo
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *Function. JSON* e o `SignalRConnectionInfo` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `SignalRConnectionInfo`.
 
 |Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**tipo**| N/D | Deve ser definido como `signalRConnectionInfo`.|
-|**direção**| N/D | Deve ser definido como `in`.|
-|**name**| N/D | Nome da variável usada no código de função para o objeto de informações de conexão. |
+|**direction**| N/D | Deve ser definido como `in`.|
+|**name**| n/d | Nome da variável usada no código de função para o objeto de informações de conexão. |
 |**hubName**|**HubName**| Esse valor deve ser definido como o nome do hub SignalR para o qual as informações de conexão são geradas.|
-|**ID**|**UserId**| Opcional: o valor da declaração do identificador de usuário a ser definida no token de chave de acesso. |
+|**ID**|**ID**| Opcional: o valor da declaração do identificador de usuário a ser definida no token de chave de acesso. |
 |**connectionStringSetting**|**ConnectionStringSetting**| O nome da configuração do aplicativo que contém a cadeia de conexão do SignalR Service (o padrão é "AzureSignalRConnectionString") |
 
 ### <a name="signalr"></a>SignalR
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *Function. JSON* e o `SignalR` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `SignalR`.
 
 |Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**tipo**| N/D | Deve ser definido como `signalR`.|
-|**direção**| N/D | Deve ser definido como `out`.|
-|**name**| N/D | Nome da variável usada no código de função para o objeto de informações de conexão. |
+|**direction**| N/D | Deve ser definido como `out`.|
+|**name**| n/d | Nome da variável usada no código de função para o objeto de informações de conexão. |
 |**hubName**|**HubName**| Esse valor deve ser definido como o nome do hub SignalR para o qual as informações de conexão são geradas.|
 |**connectionStringSetting**|**ConnectionStringSetting**| O nome da configuração do aplicativo que contém a cadeia de conexão do SignalR Service (o padrão é "AzureSignalRConnectionString") |
 

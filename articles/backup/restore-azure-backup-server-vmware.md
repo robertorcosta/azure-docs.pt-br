@@ -4,19 +4,18 @@ description: Use Servidor de Backup do Azure (MABS) para restaurar VMs VMware em
 ms.topic: conceptual
 ms.date: 08/18/2019
 ms.openlocfilehash: ab2fb4f8f79fa5a664f5cb0ba1bb537c1df658c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77212335"
 ---
 # <a name="restore-vmware-virtual-machines"></a>Restaurar máquinas virtuais VMware
 
 Este artigo explica como usar o MABS (servidor de Backup do Microsoft Azure) para restaurar os pontos de recuperação de VM do VMware. Para obter uma visão geral sobre como usar o MABS para recuperar dados, consulte [recuperar dados protegidos](https://docs.microsoft.com/azure/backup/backup-azure-alternate-dpm-server). No Console do Administrador MABS, há duas maneiras de localizar dados recuperáveis-pesquisa ou navegação. Ao recuperar dados, você pode ou não desejar restaurar os dados ou uma VM no mesmo local. Por esse motivo, o MABS dá suporte a três opções de recuperação para backups de VM VMware:
 
-* **OLR (Recuperação no local original)**: use OLR para restaurar uma máquina virtual protegida no seu local original. Você poderá restaurar uma VM para seu local original somente se nenhum disco tiver sido adicionado ou excluído, desde que o backup ocorreu. Se discos foram adicionados ou excluídos, você deve usar a recuperação em local alternativo.
+* **OLR (Recuperação no local original)** : use OLR para restaurar uma máquina virtual protegida no seu local original. Você poderá restaurar uma VM para seu local original somente se nenhum disco tiver sido adicionado ou excluído, desde que o backup ocorreu. Se discos foram adicionados ou excluídos, você deve usar a recuperação em local alternativo.
 
-* **ALR (Recuperação em local alternativo)**: quando a VM original está ausente ou você não quer interferir na VM original, recupere a VM em um local alternativo. Para recuperar uma VM em um local alternativo, você deve fornecer o local de um host ESXi, um pool de recursos, uma pasta, o repositório de dados de armazenamento e o caminho. Para ajudar a diferenciar a VM restaurada da VM original, MABS acrescenta "-Recovered" ao nome da VM.
+* **ALR (Recuperação em local alternativo)** : quando a VM original está ausente ou você não quer interferir na VM original, recupere a VM em um local alternativo. Para recuperar uma VM em um local alternativo, você deve fornecer o local de um host ESXi, um pool de recursos, uma pasta, o repositório de dados de armazenamento e o caminho. Para ajudar a diferenciar a VM restaurada da VM original, MABS acrescenta "-Recovered" ao nome da VM.
 
 * **ILR (recuperação de local de arquivo individual)** – se a VM protegida for uma VM do Windows Server, os arquivos/pastas individuais dentro da VM poderão ser recuperados usando o recurso ILR do mAbs. Para recuperar arquivos individuais, confira o procedimento neste artigo.
 
@@ -61,7 +60,7 @@ Você pode restaurar arquivos individuais de um ponto de recuperação de VM pro
 
     ![Pontos de recuperação disponíveis](./media/restore-azure-backup-server-vmware/vmware-rp-disk.png)
 
-3. No painel **Pontos de Recuperação para:**, use o calendário para selecionar a data que contém os pontos de recuperação desejados. Dependendo de como a política de backup foi configurada, as datas podem ter mais de um ponto de recuperação. Depois de selecionar o dia em que o ponto de recuperação foi feito, verifique se você escolheu o **tempo de recuperação**correto. Se a data selecionada tiver vários pontos de recuperação, escolha o ponto de recuperação selecionando-o no menu suspenso Tempo de recuperação. Depois de escolher o ponto de recuperação, a lista de itens recuperáveis aparece no painel **Caminho:**.
+3. No painel **Pontos de Recuperação para:** , use o calendário para selecionar a data que contém os pontos de recuperação desejados. Dependendo de como a política de backup foi configurada, as datas podem ter mais de um ponto de recuperação. Depois de selecionar o dia em que o ponto de recuperação foi feito, verifique se você escolheu o **tempo de recuperação**correto. Se a data selecionada tiver vários pontos de recuperação, escolha o ponto de recuperação selecionando-o no menu suspenso Tempo de recuperação. Depois de escolher o ponto de recuperação, a lista de itens recuperáveis aparece no painel **Caminho:** .
 
 4. Para localizar os arquivos que você deseja recuperar, no painel **Caminho**, clique duas vezes no item na coluna **Item recuperável** para abri-lo. Selecione os arquivos ou as pastas que você deseja recuperar. Para selecionar vários itens, pressione a tecla **Ctrl** ao selecionar cada item. Use o painel **Caminho** para pesquisar a lista de arquivos ou pastas que aparecem na coluna **Item recuperável**. A **lista de pesquisa abaixo** não pesquisa em subpastas. Para pesquisar em subpastas, clique duas vezes na pasta. Use o botão **Para cima** a fim de sair de uma pasta filho para a pasta pai. Você pode selecionar vários itens (arquivos e pastas), mas eles devem estar na mesma pasta pai. Não é possível recuperar itens de várias pastas no mesmo trabalho de recuperação.
 

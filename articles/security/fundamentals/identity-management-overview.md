@@ -17,10 +17,9 @@ ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
 ms.openlocfilehash: f61b6193a0d2082296a17128b41d7220f9b7e05f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77565886"
 ---
 # <a name="azure-identity-management-security-overview"></a>Visão geral da segurança de gerenciamento de identidade do Azure
@@ -46,7 +45,7 @@ O artigo se concentra nas seguintes funcionalidades de gerenciamento de identida
 * Gerenciamento de acesso e identidade do consumidor
 * Registro de dispositivos
 * Privileged Identity Management
-* Identity Protection
+* Proteção de identidade
 * Gerenciamento de identidade híbrida/conectar Azure Active Directory
 * Revisões de acesso do Azure AD
 
@@ -93,7 +92,7 @@ O RBAC é um sistema de autorização baseado no Azure Resource Manager que forn
 
 Saiba mais:
 
-* [O que é o controle de acesso baseado em função (RBAC)?](/azure/role-based-access-control/overview)
+* [O que é o RBAC (controle de acesso baseado em função)?](/azure/role-based-access-control/overview)
 * [Funções internas para recursos do Azure](/azure/role-based-access-control/built-in-roles)
 
 ## <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>Relatórios baseados em aprendizado de máquina, alertas e monitoramento de segurança
@@ -158,7 +157,7 @@ Saiba mais:
 * [O que é o Azure AD Privileged Identity Management?](../../active-directory/privileged-identity-management/pim-configure.md)
 * [Atribuir funções de diretório do Azure AD no PIM](../../active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
 
-## <a name="identity-protection"></a>Identity Protection
+## <a name="identity-protection"></a>Proteção de identidade
 
 Azure AD Identity Protection é um serviço de segurança que fornece uma visão consolidada das detecções de risco e das possíveis vulnerabilidades que afetam as identidades da sua organização. O Identity Protection tira proveito das funcionalidades de detecção de anomalias existentes do Azure AD, que estão disponíveis por meio dos Relatórios de atividades anômalas do Azure AD. A proteção de identidade também apresenta novos tipos de detecção de riscos que podem detectar anomalias em tempo real.
 
@@ -171,7 +170,7 @@ Saiba mais:
 
 As soluções de identidade da Microsoft abrangem locais e recursos baseados em nuvem, criando uma identidade de usuário único para autenticação e autorização em todos os recursos, independentemente do local. Chamamos isso de identidade híbrida. O Azure AD Connect é a ferramenta da Microsoft criada para atender e atingir suas metas de identidade híbrida. Isso permite que você forneça uma identidade comum para os usuários dos aplicativos do Office 365, Azure e SaaS integrados ao AD do Azure. Ela fornece os seguintes recursos:
 
-* Synchronization
+* Sincronização
 * AD FS e integração de federação
 * Autenticação de passagem
 * Monitoramento de integridade

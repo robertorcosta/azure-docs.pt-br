@@ -14,10 +14,9 @@ ms.date: 11/26/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 019f462d4264d19bcc4806d91223029a95f9d819
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77617174"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Cenários suportados para instâncias grandes do HANA
@@ -67,10 +66,10 @@ Cada servidor provisionado vem pré-configurado com conjuntos de interfaces Ethe
 | B | TIPO I | eth2.tenant | eno3.tenant | Nó para nó|
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó para armazenamento |
 | D | TIPO I | eth4.tenant | eno4.tenant | STONITH |
-| Um | TIPO II | >\<de VLAN tenantNo | team0.tenant | Cliente a HLI |
-| B | TIPO II | VLAN\<tenantNo + 2> | team0.tenant+2 | Nó para nó|
-| C | TIPO II | VLAN\<tenantNo + 1> | team0.tenant+1 | Nó para armazenamento |
-| D | TIPO II | VLAN\<tenantNo + 3> | team0.tenant+3 | STONITH |
+| Um | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
+| B | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Nó para nó|
+| C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Nó para armazenamento |
+| D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | STONITH |
 
 Você escolhe a interface com base na topologia configurada na unidade HLI. Por exemplo, a interface "B" é configurada para comunicação de nó para nó, que é útil quando você tem uma topologia de expansão configurada. Essa interface não é usada para configurações de expansão de nó único. Para obter mais informações sobre o uso da interface, examine os cenários necessários (mais adiante neste artigo). 
 
@@ -100,7 +99,7 @@ Para replicação de sistema do HANA ou implantação em expansão do HANA, uma 
 O armazenamento é pré-configurado com base na topologia solicitada. Os tamanhos e os pontos de montagem de volume variam dependendo do número de servidores, do número de SKUs e da topologia configurada. Para obter mais informações, examine os cenários necessários (mais adiante neste artigo). Se você precisar de mais armazenamento, poderá comprá-lo em incrementos de 1 TB.
 
 >[!NOTE]
->O> Sid/usr/SAP/\<do ponto de montagem é um link simbólico para o ponto de montagem/Hana/Shared.
+>O ponto de montagem/usr/SAP/ \<SID> é um link simbólico para o ponto de montagem/Hana/Shared.
 
 
 ## <a name="supported-scenarios"></a>Cenários com suporte
@@ -139,10 +138,10 @@ As seguintes interfaces de rede são pré-configuradas:
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurado, mas não em uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó para armazenamento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em uso |
-| Um | TIPO II | >\<de VLAN tenantNo | team0.tenant | Cliente a HLI |
-| B | TIPO II | VLAN\<tenantNo + 2> | team0.tenant+2 | Configurado, mas não em uso |
-| C | TIPO II | VLAN\<tenantNo + 1> | team0.tenant+1 | Nó para armazenamento |
-| D | TIPO II | VLAN\<tenantNo + 3> | team0.tenant+3 | Configurado, mas não em uso |
+| Um | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
+| B | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Configurado, mas não em uso |
+| C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Nó para armazenamento |
+| D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurado, mas não em uso |
 
 ### <a name="storage"></a>Armazenamento
 Os seguintes pontos de montagem são pré-configurados:
@@ -154,7 +153,7 @@ Os seguintes pontos de montagem são pré-configurados:
 |/hana/log/SID/mnt00001 | Instalação de arquivos de log | 
 |/hana/logbackups/SID | Redo logs |
 
-### <a name="key-considerations"></a>Considerações-chave
+### <a name="key-considerations"></a>Principais considerações
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 
 ## <a name="single-node-mcos"></a>Único nó MCOS
@@ -174,10 +173,10 @@ As seguintes interfaces de rede são pré-configuradas:
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurado, mas não em uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó para armazenamento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em uso |
-| Um | TIPO II | >\<de VLAN tenantNo | team0.tenant | Cliente a HLI |
-| B | TIPO II | VLAN\<tenantNo + 2> | team0.tenant+2 | Configurado, mas não em uso |
-| C | TIPO II | VLAN\<tenantNo + 1> | team0.tenant+1 | Nó para armazenamento |
-| D | TIPO II | VLAN\<tenantNo + 3> | team0.tenant+3 | Configurado, mas não em uso |
+| Um | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
+| B | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Configurado, mas não em uso |
+| C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Nó para armazenamento |
+| D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurado, mas não em uso |
 
 ### <a name="storage"></a>Armazenamento
 Os seguintes pontos de montagem são pré-configurados:
@@ -193,7 +192,7 @@ Os seguintes pontos de montagem são pré-configurados:
 |/hana/log/SID2/mnt00001 | Instalação de arquivos de log para SID2 | 
 |/hana/logbackups/SID2 | Redo logs for SID2 |
 
-### <a name="key-considerations"></a>Considerações-chave
+### <a name="key-considerations"></a>Principais considerações
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 - A distribuição do tamanho do volume é baseada no tamanho do banco de dados na memória. Para saber quais tamanhos de banco de dados na memória têm suporte em um ambiente de vários SIDs, consulte [visão geral e arquitetura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
 
@@ -214,10 +213,10 @@ As seguintes interfaces de rede são pré-configuradas:
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurado, mas não em uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó para armazenamento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em uso |
-| Um | TIPO II | >\<de VLAN tenantNo | team0.tenant | Cliente a HLI |
-| B | TIPO II | VLAN\<tenantNo + 2> | team0.tenant+2 | Configurado, mas não em uso |
-| C | TIPO II | VLAN\<tenantNo + 1> | team0.tenant+1 | Nó para armazenamento |
-| D | TIPO II | VLAN\<tenantNo + 3> | team0.tenant+3 | Configurado, mas não em uso |
+| Um | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
+| B | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Configurado, mas não em uso |
+| C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Nó para armazenamento |
+| D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurado, mas não em uso |
 
 ### <a name="storage"></a>Armazenamento
 Os seguintes pontos de montagem são pré-configurados:
@@ -230,7 +229,7 @@ Os seguintes pontos de montagem são pré-configurados:
 |/hana/logbackups/SID | Redo logs for SID |
 
 
-### <a name="key-considerations"></a>Considerações-chave
+### <a name="key-considerations"></a>Principais considerações
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 - Para MCOS: a distribuição do tamanho do volume é baseada no tamanho do banco de dados na memória. Para saber quais tamanhos de banco de dados na memória têm suporte em um ambiente de vários SIDs, consulte [visão geral e arquitetura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
 - No local de recuperação de desastre: os volumes e pontos de montagem são configurados (marcados como "necessários para a instalação do HANA") para a instalação da instância do HANA de produção na unidade de recuperação de desastres. 
@@ -255,10 +254,10 @@ As seguintes interfaces de rede são pré-configuradas:
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurado, mas não em uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó para armazenamento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em uso |
-| Um | TIPO II | >\<de VLAN tenantNo | team0.tenant | Cliente a HLI |
-| B | TIPO II | VLAN\<tenantNo + 2> | team0.tenant+2 | Configurado, mas não em uso |
-| C | TIPO II | VLAN\<tenantNo + 1> | team0.tenant+1 | Nó para armazenamento |
-| D | TIPO II | VLAN\<tenantNo + 3> | team0.tenant+3 | Configurado, mas não em uso |
+| Um | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
+| B | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Configurado, mas não em uso |
+| C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Nó para armazenamento |
+| D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurado, mas não em uso |
 
 ### <a name="storage"></a>Armazenamento
 Os seguintes pontos de montagem são pré-configurados:
@@ -279,7 +278,7 @@ Os seguintes pontos de montagem são pré-configurados:
 |/hana/log/QA-SID/mnt00001 | Instalação de arquivos de log para SID de QA |
 |/hana/logbackups/QA-SID | Redo logs for QA SID |
 
-### <a name="key-considerations"></a>Considerações-chave
+### <a name="key-considerations"></a>Principais considerações
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 - Para MCOS: a distribuição do tamanho do volume é baseada no tamanho do banco de dados na memória. Para saber quais tamanhos de banco de dados na memória têm suporte em um ambiente de vários SIDs, consulte [visão geral e arquitetura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
 - No local de recuperação de desastre: os volumes e pontos de montagem são configurados (marcados como "necessários para a instalação do HANA") para a instalação da instância do HANA de produção na unidade de recuperação de desastres. 
@@ -310,10 +309,10 @@ As seguintes interfaces de rede são pré-configuradas:
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurado, mas não em uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó para armazenamento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Used for STONITH |
-| Um | TIPO II | >\<de VLAN tenantNo | team0.tenant | Cliente a HLI |
-| B | TIPO II | VLAN\<tenantNo + 2> | team0.tenant+2 | Configurado, mas não em uso |
-| C | TIPO II | VLAN\<tenantNo + 1> | team0.tenant+1 | Nó para armazenamento |
-| D | TIPO II | VLAN\<tenantNo + 3> | team0.tenant+3 | Used for STONITH |
+| Um | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
+| B | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Configurado, mas não em uso |
+| C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Nó para armazenamento |
+| D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Used for STONITH |
 
 ### <a name="storage"></a>Armazenamento
 Os seguintes pontos de montagem são pré-configurados:
@@ -331,7 +330,7 @@ Os seguintes pontos de montagem são pré-configurados:
 |/hana/log/SID/mnt00001 | Instalação de arquivos de log para SID secundário | 
 |/hana/logbackups/SID | Redo logs para o secundário SID |
 
-### <a name="key-considerations"></a>Considerações-chave
+### <a name="key-considerations"></a>Principais considerações
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 - Para MCOS: a distribuição do tamanho do volume é baseada no tamanho do banco de dados na memória. Para saber quais tamanhos de banco de dados na memória têm suporte em um ambiente de vários SIDs, consulte [visão geral e arquitetura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
 - STONITH: Um SBD está configurado para a configuração do STONITH. No entanto, o uso de STONITH é opcional.
@@ -356,10 +355,10 @@ As seguintes interfaces de rede são pré-configuradas:
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurado, mas não em uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó para armazenamento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Used for STONITH |
-| Um | TIPO II | >\<de VLAN tenantNo | team0.tenant | Cliente a HLI |
-| B | TIPO II | VLAN\<tenantNo + 2> | team0.tenant+2 | Configurado, mas não em uso |
-| C | TIPO II | VLAN\<tenantNo + 1> | team0.tenant+1 | Nó para armazenamento |
-| D | TIPO II | VLAN\<tenantNo + 3> | team0.tenant+3 | Used for STONITH |
+| Um | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
+| B | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Configurado, mas não em uso |
+| C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Nó para armazenamento |
+| D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Used for STONITH |
 
 ### <a name="storage"></a>Armazenamento
 Os seguintes pontos de montagem são pré-configurados:
@@ -385,7 +384,7 @@ Os seguintes pontos de montagem são pré-configurados:
 |/hana/log/QA-SID/mnt00001 | Instalação de arquivos de log para SID de QA |
 |/hana/logbackups/QA-SID | Redo logs for QA SID |
 
-### <a name="key-considerations"></a>Considerações-chave
+### <a name="key-considerations"></a>Principais considerações
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 - Para MCOS: a distribuição do tamanho do volume é baseada no tamanho do banco de dados na memória. Para saber quais tamanhos de banco de dados na memória têm suporte em um ambiente de vários SIDs, consulte [visão geral e arquitetura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
 - STONITH: Um SBD está configurado para a configuração do STONITH. No entanto, o uso de STONITH é opcional.
@@ -415,10 +414,10 @@ As seguintes interfaces de rede são pré-configuradas:
 | B | TIPO I | eth2.tenant | eno3.tenant | Comunicação de nó para nó |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó para armazenamento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em uso |
-| Um | TIPO II | >\<de VLAN tenantNo | team0.tenant | Cliente a HLI |
-| B | TIPO II | VLAN\<tenantNo + 2> | team0.tenant+2 | Comunicação de nó para nó |
-| C | TIPO II | VLAN\<tenantNo + 1> | team0.tenant+1 | Nó para armazenamento |
-| D | TIPO II | VLAN\<tenantNo + 3> | team0.tenant+3 | Configurado, mas não em uso |
+| Um | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
+| B | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Comunicação de nó para nó |
+| C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Nó para armazenamento |
+| D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurado, mas não em uso |
 
 ### <a name="storage"></a>Armazenamento
 Os seguintes pontos de montagem são pré-configurados:
@@ -433,7 +432,7 @@ Os seguintes pontos de montagem são pré-configurados:
 
 
 
-### <a name="key-considerations"></a>Considerações-chave
+### <a name="key-considerations"></a>Principais considerações
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 - Em espera: os volumes e pontos de montagem são configurados (marcados como "necessários para a instalação do HANA") para a instalação da instância do HANA na unidade em espera.
  
@@ -456,10 +455,10 @@ As seguintes interfaces de rede são pré-configuradas:
 | B | TIPO I | eth2.tenant | eno3.tenant | Comunicação de nó para nó |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó para armazenamento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em uso |
-| Um | TIPO II | >\<de VLAN tenantNo | team0.tenant | Cliente a HLI |
-| B | TIPO II | VLAN\<tenantNo + 2> | team0.tenant+2 | Comunicação de nó para nó |
-| C | TIPO II | VLAN\<tenantNo + 1> | team0.tenant+1 | Nó para armazenamento |
-| D | TIPO II | VLAN\<tenantNo + 3> | team0.tenant+3 | Configurado, mas não em uso |
+| Um | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
+| B | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Comunicação de nó para nó |
+| C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Nó para armazenamento |
+| D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurado, mas não em uso |
 
 ### <a name="storage"></a>Armazenamento
 Os seguintes pontos de montagem são pré-configurados:
@@ -492,10 +491,10 @@ As seguintes interfaces de rede são pré-configuradas:
 | B | TIPO I | eth2.tenant | eno3.tenant | Comunicação de nó para nó |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó para armazenamento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em uso |
-| Um | TIPO II | >\<de VLAN tenantNo | team0.tenant | Cliente a HLI |
-| B | TIPO II | VLAN\<tenantNo + 2> | team0.tenant+2 | Comunicação de nó para nó |
-| C | TIPO II | VLAN\<tenantNo + 1> | team0.tenant+1 | Nó para armazenamento |
-| D | TIPO II | VLAN\<tenantNo + 3> | team0.tenant+3 | Configurado, mas não em uso |
+| Um | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
+| B | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Comunicação de nó para nó |
+| C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Nó para armazenamento |
+| D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurado, mas não em uso |
 
 ### <a name="storage"></a>Armazenamento
 Os seguintes pontos de montagem são pré-configurados:
@@ -509,7 +508,7 @@ Os seguintes pontos de montagem são pré-configurados:
 |/hana/logbackups/SID | Redo logs para produção SID |
 
 
-### <a name="key-considerations"></a>Considerações-chave
+### <a name="key-considerations"></a>Principais considerações
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 
 ## <a name="scale-out-with-dr-using-storage-replication"></a>Escalar horizontalmente com recuperação de desastre usando replicação de armazenamento
@@ -531,10 +530,10 @@ As seguintes interfaces de rede são pré-configuradas:
 | B | TIPO I | eth2.tenant | eno3.tenant | Comunicação de nó para nó |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó para armazenamento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em uso |
-| Um | TIPO II | >\<de VLAN tenantNo | team0.tenant | Cliente a HLI |
-| B | TIPO II | VLAN\<tenantNo + 2> | team0.tenant+2 | Comunicação de nó para nó |
-| C | TIPO II | VLAN\<tenantNo + 1> | team0.tenant+1 | Nó para armazenamento |
-| D | TIPO II | VLAN\<tenantNo + 3> | team0.tenant+3 | Configurado, mas não em uso |
+| Um | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
+| B | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Comunicação de nó para nó |
+| C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Nó para armazenamento |
+| D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurado, mas não em uso |
 
 ### <a name="storage"></a>Armazenamento
 Os seguintes pontos de montagem são pré-configurados:
@@ -552,7 +551,7 @@ Os seguintes pontos de montagem são pré-configurados:
 |/hana/log/SID/mnt00001 | Instalação de arquivos de log para SID de produção | 
 
 
-### <a name="key-considerations"></a>Considerações-chave
+### <a name="key-considerations"></a>Principais considerações
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 -  No local de recuperação de desastre: os volumes e pontos de montagem são configurados (marcados como "necessários para a instalação do HANA") para a instalação da instância do HANA de produção na unidade de recuperação de desastres. 
 - No local de recuperação de desastre: os dados, backups de log e volumes compartilhados (marcados como "replicação de armazenamento") são replicados por meio do instantâneo do site de produção. Esses volumes são montados somente durante o failover. Para obter mais informações, consulte [procedimento de failover de recuperação de desastre](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery). 
@@ -576,10 +575,10 @@ As seguintes interfaces de rede são pré-configuradas:
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurado, mas não em uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó para armazenamento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em uso |
-| Um | TIPO II | >\<de VLAN tenantNo | team0.tenant | Cliente para HLI/HSR |
-| B | TIPO II | VLAN\<tenantNo + 2> | team0.tenant+2 | Configurado, mas não em uso |
-| C | TIPO II | VLAN\<tenantNo + 1> | team0.tenant+1 | Nó para armazenamento |
-| D | TIPO II | VLAN\<tenantNo + 3> | team0.tenant+3 | Configurado, mas não em uso |
+| Um | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente para HLI/HSR |
+| B | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Configurado, mas não em uso |
+| C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Nó para armazenamento |
+| D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurado, mas não em uso |
 
 ### <a name="storage"></a>Armazenamento
 Os seguintes pontos de montagem são pré-configurados em ambas as unidades de HLI (primária e DR):
@@ -592,7 +591,7 @@ Os seguintes pontos de montagem são pré-configurados em ambas as unidades de H
 |/hana/logbackups/SID | Redo logs for SID |
 
 
-### <a name="key-considerations"></a>Considerações-chave
+### <a name="key-considerations"></a>Principais considerações
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 - Para MCOS: a distribuição do tamanho do volume é baseada no tamanho do banco de dados na memória. Para saber quais tamanhos de banco de dados na memória têm suporte em um ambiente de vários SIDs, consulte [visão geral e arquitetura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
 - O nó primário é sincronizado com o nó de recuperação de desastres usando a replicação de sistema do HANA. 
@@ -617,10 +616,10 @@ As seguintes interfaces de rede são pré-configuradas:
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurado, mas não em uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó para armazenamento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em uso |
-| Um | TIPO II | >\<de VLAN tenantNo | team0.tenant | Cliente para HLI/HSR |
-| B | TIPO II | VLAN\<tenantNo + 2> | team0.tenant+2 | Configurado, mas não em uso |
-| C | TIPO II | VLAN\<tenantNo + 1> | team0.tenant+1 | Nó para armazenamento |
-| D | TIPO II | VLAN\<tenantNo + 3> | team0.tenant+3 | Configurado, mas não em uso |
+| Um | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente para HLI/HSR |
+| B | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Configurado, mas não em uso |
+| C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Nó para armazenamento |
+| D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurado, mas não em uso |
 
 ### <a name="storage"></a>Armazenamento
 Os seguintes pontos de montagem são pré-configurados:
@@ -642,7 +641,7 @@ Os seguintes pontos de montagem são pré-configurados:
 |/hana/log/QA-SID/mnt00001 | Instalação de arquivos de log para SID de QA |
 |/hana/logbackups/QA-SID | Redo logs for QA SID |
 
-### <a name="key-considerations"></a>Considerações-chave
+### <a name="key-considerations"></a>Principais considerações
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 - Para MCOS: a distribuição do tamanho do volume é baseada no tamanho do banco de dados na memória. Para saber quais tamanhos de banco de dados na memória têm suporte em um ambiente de vários SIDs, consulte [visão geral e arquitetura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
 - No local de recuperação de desastre: os volumes e pontos de montagem são configurados (marcados como "instância de produção no local de recuperação de desastre") para a instalação da instância do HANA de produção na unidade de recuperação de desastres. 
@@ -667,10 +666,10 @@ As seguintes interfaces de rede são pré-configuradas:
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurado, mas não em uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó para armazenamento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em uso |
-| Um | TIPO II | >\<de VLAN tenantNo | team0.tenant | Cliente para HLI/HSR |
-| B | TIPO II | VLAN\<tenantNo + 2> | team0.tenant+2 | Configurado, mas não em uso |
-| C | TIPO II | VLAN\<tenantNo + 1> | team0.tenant+1 | Nó para armazenamento |
-| D | TIPO II | VLAN\<tenantNo + 3> | team0.tenant+3 | Configurado, mas não em uso |
+| Um | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente para HLI/HSR |
+| B | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Configurado, mas não em uso |
+| C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Nó para armazenamento |
+| D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurado, mas não em uso |
 
 ### <a name="storage"></a>Armazenamento
 Os seguintes pontos de montagem são pré-configurados:
@@ -689,7 +688,7 @@ Os seguintes pontos de montagem são pré-configurados:
 |/hana/logbackups/SID | Redo logs para produção SID |
 
 
-### <a name="key-considerations"></a>Considerações-chave
+### <a name="key-considerations"></a>Principais considerações
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 - No local da recuperação de desastre: os volumes e pontos de montagem são configurados (marcados como "instância de DR de produção") para a instalação da instância do HANA de produção na unidade de DR HLI. 
 - O nó do site primário é sincronizado com o nó de recuperação de desastres usando a replicação do sistema do HANA. 
@@ -712,10 +711,10 @@ As seguintes interfaces de rede são pré-configuradas:
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurado, mas não em uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó para armazenamento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em uso |
-| Um | TIPO II | >\<de VLAN tenantNo | team0.tenant | Cliente para HLI/HSR |
-| B | TIPO II | VLAN\<tenantNo + 2> | team0.tenant+2 | Configurado, mas não em uso |
-| C | TIPO II | VLAN\<tenantNo + 1> | team0.tenant+1 | Nó para armazenamento |
-| D | TIPO II | VLAN\<tenantNo + 3> | team0.tenant+3 | Configurado, mas não em uso |
+| Um | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente para HLI/HSR |
+| B | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Configurado, mas não em uso |
+| C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Nó para armazenamento |
+| D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurado, mas não em uso |
 
 ### <a name="storage"></a>Armazenamento
 Os seguintes pontos de montagem são pré-configurados:
@@ -737,7 +736,7 @@ Os seguintes pontos de montagem são pré-configurados:
 |/hana/log/QA-SID/mnt00001 | Instalação de arquivos de log para SID de QA |
 |/hana/logbackups/QA-SID | Redo logs for QA SID |
 
-### <a name="key-considerations"></a>Considerações-chave
+### <a name="key-considerations"></a>Principais considerações
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 - No local da recuperação de desastre: os volumes e pontos de montagem são configurados (marcados como "instância de DR de produção") para a instalação da instância do HANA de produção na unidade de DR HLI. 
 - No local de recuperação de desastre: os dados, backups de log, log e volumes compartilhados para QA (marcados como "instalação da instância de QA") são configurados para a instalação da instância de QA.
@@ -763,10 +762,10 @@ As seguintes interfaces de rede são pré-configuradas:
 | B | TIPO I | eth2.tenant | eno3.tenant | Comunicação de nó para nó |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó para armazenamento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em uso |
-| Um | TIPO II | >\<de VLAN tenantNo | team0.tenant | Cliente para HLI/HSR |
-| B | TIPO II | VLAN\<tenantNo + 2> | team0.tenant+2 | Comunicação de nó para nó |
-| C | TIPO II | VLAN\<tenantNo + 1> | team0.tenant+1 | Nó para armazenamento |
-| D | TIPO II | VLAN\<tenantNo + 3> | team0.tenant+3 | Configurado, mas não em uso |
+| Um | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente para HLI/HSR |
+| B | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Comunicação de nó para nó |
+| C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Nó para armazenamento |
+| D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurado, mas não em uso |
 
 ### <a name="storage"></a>Armazenamento
 Os seguintes pontos de montagem são pré-configurados:
@@ -785,7 +784,7 @@ Os seguintes pontos de montagem são pré-configurados:
 |/hana/logbackups/SID | Redo logs para produção SID |
 
 
-### <a name="key-considerations"></a>Considerações-chave
+### <a name="key-considerations"></a>Principais considerações
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 - No local de recuperação de desastre: os volumes e pontos de montagem são configurados para a instalação da instância do HANA de produção na unidade de recuperação de desastre. 
 - O nó do site primário é sincronizado com o nó de recuperação de desastres usando a replicação do sistema do HANA. 

@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 12/02/2019
 ms.author: yelevin
 ms.openlocfilehash: 2110d3319cebf693ef06deec26a29fa655e35035
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77585264"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Recursos úteis para trabalhar com o Azure Sentinel
@@ -68,7 +67,7 @@ Você pode exibir esses dados transmitindo-os do log de atividades do Azure para
 
 ## <a name="vendor-documentation"></a>Documentação do fornecedor
 
-| **Fabricante**  | **Usar o incidente no Azure Sentinel** | **Link**|
+| **Fornecedor**  | **Usar o incidente no Azure Sentinel** | **Link**|
 |----|----|----|
 | GitHub| Usado para acessar a página da Comunidade| <https://github.com/Azure/Azure-Sentinel> |
 | PaloAlto| Configurar CEF| <https://www.paloaltonetworks.com/documentation/misc/cef.html>|

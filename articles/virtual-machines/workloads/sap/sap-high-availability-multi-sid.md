@@ -17,10 +17,9 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d7938f7db22f004a0bf6cdf2e22dc8e103896719
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77617389"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>Criar uma configuração multi-SID do SAP NetWeaver
@@ -72,7 +71,7 @@ A meta é instalar várias instâncias clusterizadas do SAP ABAP ASCS ou do SAP 
 >O número máximo de instâncias do SAP ASCS/SCS em um cluster WSFC é igual ao número máximo de IPs de front-end privado para cada balanceador de carga interno do Azure.
 >
 
-Para obter mais informações sobre limites do balanceador de carga, consulte “IP de front-end privado por balanceador de carga” em [Limites de Rede: Azure Resource Manager][networking-limits-azure-resource-manager].
+Para obter mais informações sobre limites do balanceador de carga, confira “IP de front-end privado por balanceador de carga” em [Limites de rede: Azure Resource Manager][networking-limits-azure-resource-manager].
 
 O cenário completo com dois sistemas SAP de alta disponibilidade seria assim:
 
@@ -241,12 +240,12 @@ O processo completo de instalação de um segundo sistema SAP SID2 é descrito n
 
 O procedimento de alto nível é o seguinte:
 
-1. [Instale o primeiro nó do cluster do SAP][sap-ha-guide-9.1.2].  
- Nesta etapa, você está instalando o SAP com uma instância ASCS/SCS de alta disponibilidade no **nó de Cluster WSFC existente 1**.
+1. [Instalar o primeiro nó do cluster do SAP.][sap-ha-guide-9.1.2]  
+ Nesta etapa, instale o SAP com uma instância do ASCS/SCS de alta disponibilidade no **nó de cluster WSFC EXISTENTE 1**.
 
-2. [Modifique o perfil SAP da instância do ASCS/SCS][sap-ha-guide-9.1.3].
+2. [Modificar o perfil SAP da instância do ASCS/SCS.][sap-ha-guide-9.1.3]
 
-3. [Configurar uma investigação][sap-ha-guide-9.1.4].  
+3. [Configurar uma porta de investigação][sap-ha-guide-9.1.4].  
  Nesta etapa, você configurará uma porta de investigação SAP-SID2-IP do recurso do cluster SAP usando o PowerShell. Execute essa configuração em um dos nós do cluster SAP ASCS/SCS.
 
 4. [Instale a instância do banco de dados][sap-ha-guide-9.2].  
@@ -256,16 +255,16 @@ O procedimento de alto nível é o seguinte:
  Nesta etapa, instale o SAP com uma instância do ASCS/SCS de alta disponibilidade no nó de cluster WSFC existente 2.
 
 6. Abra portas do Firewall do Windows para a instância do SAP ASCS /SCS e ProbePort.  
- Em ambos os nós de cluster usados para as instâncias do SAP ASCS/SCS, abra todas as portas do Firewall do Windows usadas pelo SAP ASCS/SCS. Essas portas estão listadas no principal [guia para SAP NetWeaver de alta disponibilidade em VMs do Windows][sap-ha-guide-8.8].  
+ Em ambos os nós de cluster usados para as instâncias do SAP ASCS/SCS, abra todas as portas do Firewall do Windows usadas pelo SAP ASCS/SCS. Essas portas estão listadas no [guia para SAP NetWeaver de alta disponibilidade em VMs do Windows][sap-ha-guide-8.8].  
  Além disso, abra a porta de investigação do balanceador de carga interno do Azure, que, neste cenário, é 62350.
 
-7. [Altere o tipo de início da instância de serviço do Windows ers do SAP][sap-ha-guide-9.4].
+7. [Altere o tipo de início da instância do serviço Windows ERS do SAP][sap-ha-guide-9.4].
 
 8. [Instale o servidor de aplicativos SAP principal][sap-ha-guide-9.5] na nova VM dedicada.
 
 9. [Instale o servidor de aplicativos SAP adicional][sap-ha-guide-9.6] na nova VM dedicada.
 
-10. [Teste o failover da instância do SAP ASCS/SCS e a replicação sios][sap-ha-guide-10].
+10. [Teste o failover da instância do SAP ASCS/SCS e a replicação do SIOS][sap-ha-guide-10].
 
 ## <a name="next-steps"></a>Próximas etapas
 

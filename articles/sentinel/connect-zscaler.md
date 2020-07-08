@@ -15,10 +15,9 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: cc784afe5db64ccc4aad13fae7a2fa748e4befa3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77587984"
 ---
 # <a name="connect-zscaler-internet-access-to-azure-sentinel"></a>Conectar o acesso à Internet do Zscaler ao Azure Sentinel
@@ -43,8 +42,8 @@ Este artigo explica como conectar seu dispositivo de acesso à Internet do Zscal
    > Esta solução oferece suporte a RFC 3164 ou a RFC 5424 do syslog.
 
 
-1. Para usar o esquema relevante em Log Analytics para os eventos CEF, procure `CommonSecurityLog`.
-1. Continue na [etapa 3: validar a conectividade](connect-cef-verify.md).
+1. Para usar o esquema relevante em Log Analytics para os eventos CEF, procure `CommonSecurityLog` .
+1. Prossiga para a [ETAPA 3: Validar a conectividade](connect-cef-verify.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas

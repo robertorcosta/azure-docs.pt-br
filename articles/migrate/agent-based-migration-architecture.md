@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: raynew
 ms.openlocfilehash: d345d707cbf58f48466c3bd830d93250d13397c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77425843"
 ---
 # <a name="agent-based-migration-architecture"></a>Arquitetura de migração baseada em agente
@@ -95,7 +94,7 @@ Use os valores nesta tabela para descobrir se você precisa de um servidor de pr
 - Se sua taxa de alteração diária (taxa de rotatividade) tiver mais de 2 TB, implante um servidor de processo adicional.
 - Se você estiver replicando mais de 200 computadores, implante um dispositivo de replicação adicional.
 
-**CPUs** | **Memória** | **Espaço livre – cache de dados** | **Taxa de rotatividade** | **Limites de replicação**
+**CPU** | **Memória** | **Espaço livre – cache de dados** | **Taxa de rotatividade** | **Limites de replicação**
 --- | --- | --- | --- | ---
 8 vCPUs (2 soquetes * 4 núcleos \@ 2,5 GHz) | 16 GB | 300 GB | 500 GB ou menos | < 100 computadores 
 12 vCPUs (2 soquetes * 6 núcleos \@ 2,5 GHz) | 18 GB | 600 GB | 501 GB a 1 TB | 100-150 computadores.

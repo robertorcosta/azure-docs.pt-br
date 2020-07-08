@@ -6,17 +6,16 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.openlocfilehash: 29b5e9c7673b4a730a41bf7cf2b1c4a2a86209ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77462098"
 ---
 # <a name="azure-functions-http-triggers-and-bindings-overview"></a>Visão geral de gatilhos e associações HTTP Azure Functions
 
 Azure Functions pode ser invocado por meio de solicitações HTTP para criar APIs sem servidor e responder a [WebHooks](https://en.wikipedia.org/wiki/Webhook).
 
-| Ação | Type |
+| Ação | Tipo |
 |---------|---------|
 | Executar uma função de uma solicitação HTTP | [Gatilho](./functions-bindings-http-webhook-trigger.md) |
 | Retornar uma resposta HTTP de uma função |[Associação de saída](./functions-bindings-http-webhook-output.md) |
@@ -25,7 +24,7 @@ O código neste artigo usa como padrão a sintaxe do .NET Core, usada nas funç�
 
 ## <a name="add-to-your-functions-app"></a>Adicionar ao seu aplicativo de funções
 
-### <a name="functions-2x-and-higher"></a>Funções 2. x e posteriores
+### <a name="functions-2x-and-higher"></a>Funções 2.x e posteriores
 
 Trabalhar com o gatilho e as associações exige que você referencie o pacote apropriado. O pacote NuGet é usado para bibliotecas de classes do .NET enquanto o pacote de extensão é usado para todos os outros tipos de aplicativos.
 

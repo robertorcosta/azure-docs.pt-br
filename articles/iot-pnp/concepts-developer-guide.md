@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: 5fda51e6d2f62b9cbef0fcac22d5bb2ea0df905b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77605213"
 ---
 # <a name="iot-plug-and-play-preview-modeling-developer-guide"></a>Guia do desenvolvedor de modelagem da visualização do IoT Plug and Play
@@ -67,7 +66,7 @@ Há outros campos opcionais que você pode usar para adicionar mais detalhes ao 
 
 Com o DTDL, você descreve os recursos do seu dispositivo usando interfaces. As interfaces descrevem as _Propriedades_, a _telemetria_e os _comandos_ que uma parte do seu dispositivo implementa:
 
-- `Properties`. As propriedades são campos de dados que representam o estado do seu dispositivo. Use Propriedades para representar o estado durável do dispositivo, como o estado ligado de uma bomba refrigeração. As propriedades também podem representar as propriedades básicas do dispositivo, como a versão do firmware do dispositivo. Você pode declarar propriedades como somente leitura ou gravável.
+- `Properties`. As propriedades são campos de dados que representam o estado do seu dispositivo. Use Propriedades para representar o estado durável do dispositivo, como o estado ligado de uma bomba refrigeração. As propriedades também podem representar as propriedades básicas do dispositivo, como a versão do firmware do dispositivo. É possível declarar propriedades como somente leitura ou graváveis.
 - `Telemetry`. Campos de telemetria representam medições de sensores. Sempre que o dispositivo toma uma medida de sensor, ele deve enviar um evento de telemetria contendo os dados do sensor.
 - `Commands`. Os comandos representam métodos que os usuários do seu dispositivo podem executar no dispositivo. Por exemplo, um comando de redefinição ou um comando para ativar ou desativar um ventilador.
 
@@ -97,7 +96,7 @@ Uma interface tem alguns campos obrigatórios:
 
 Neste exemplo simples, há apenas um único campo de telemetria. Uma descrição mínima do campo tem um:
 
-- `@type`: especifica o tipo de recurso: `Telemetry`, `Property`ou `Command`.
+- `@type`: especifica o tipo de recurso: `Telemetry` , `Property` ou `Command` .
 - `name`: fornece o nome do valor de telemetria.
 - `schema`: especifica o tipo de dados para a telemetria. Esse valor pode ser um tipo primitivo, como duplo, inteiro, booliano ou cadeia de caracteres. Também há suporte para tipos de objetos complexos, matrizes e mapas.
 
@@ -127,11 +126,11 @@ Os comandos são síncronos ou assíncronos. Um comando síncrono deve ser execu
 
 Use comandos assíncronos para operações de longa execução. O dispositivo envia informações de progresso usando mensagens de telemetria. Essas mensagens de progresso têm as seguintes propriedades de cabeçalho:
 
-- `iothub-command-name`: o nome do comando, por `UpdateFirmware`exemplo.
+- `iothub-command-name`: o nome do comando, por exemplo `UpdateFirmware` .
 - `iothub-command-request-id`: a ID da solicitação gerada no lado do servidor e enviada para o dispositivo na chamada inicial.
-- `iothub-interface-id`: A ID da interface em que esse comando é definido, por exemplo `urn:example:AssetTracker:1`.
- `iothub-interface-name`: o nome da instância dessa interface, por exemplo `myAssetTracker`.
-- `iothub-command-statuscode`: o código de status retornado do dispositivo, por exemplo `202`.
+- `iothub-interface-id`: A ID da interface em que esse comando é definido, por exemplo `urn:example:AssetTracker:1` .
+ `iothub-interface-name`: o nome da instância dessa interface, por exemplo `myAssetTracker` .
+- `iothub-command-statuscode`: o código de status retornado do dispositivo, por exemplo `202` .
 
 ## <a name="register-a-device"></a>Registrar um dispositivo
 
@@ -182,29 +181,29 @@ result = DigitalTwin_DeviceClient_RegisterInterfacesAsync(
 
 O Plug and Play IoT permite usar dispositivos que registraram seus recursos com o Hub IoT. Por exemplo, você pode acessar as propriedades e os comandos de um dispositivo diretamente.
 
-Para usar um dispositivo de Plug and Play IoT conectado ao seu hub IoT, use a API REST do Hub IoT ou um dos SDKs da linguagem IoT. Os exemplos a seguir usam a API REST do Hub IoT. A versão atual da API é `2019-07-01-preview`. Acrescente `?api-version=2019-07-01-preview` às suas chamadas do PI REST.
+Para usar um dispositivo de Plug and Play IoT conectado ao seu hub IoT, use a API REST do Hub IoT ou um dos SDKs da linguagem IoT. Os exemplos a seguir usam a API REST do Hub IoT. A versão atual da API é `2019-07-01-preview` . Acrescente `?api-version=2019-07-01-preview` às suas chamadas do PI REST.
 
-Para obter o valor de uma propriedade de dispositivo, como a versão do firmware`fwVersion`() na `DeviceInformation` interface no termostato, use a API REST do digital gêmeos.
+Para obter o valor de uma propriedade de dispositivo, como a versão do firmware ( `fwVersion` ) na `DeviceInformation` interface no termostato, use a API REST do digital gêmeos.
 
-Se o dispositivo termostato for chamado `t-123`, você obterá todas as propriedades em todas as interfaces implementadas pelo dispositivo com uma chamada Get da API REST:
+Se o dispositivo termostato for chamado `t-123` , você obterá todas as propriedades em todas as interfaces implementadas pelo dispositivo com uma chamada Get da API REST:
 
 ```REST
 GET /digitalTwins/t-123/interfaces
 ```
 
-Em geral, todas as propriedades em todas as interfaces são acessadas com esse `{device-id}` modelo de API REST, em que é o identificador do dispositivo:
+Em geral, todas as propriedades em todas as interfaces são acessadas com esse modelo de API REST, em que `{device-id}` é o identificador do dispositivo:
 
 ```REST
 GET /digitalTwins/{device-id}/interfaces
 ```
 
-Se você souber o nome da interface, como `deviceInformation`, e quiser obter propriedades para essa interface específica, faça o escopo da solicitação para uma interface específica por nome:
+Se você souber o nome da interface, como `deviceInformation` , e quiser obter propriedades para essa interface específica, faça o escopo da solicitação para uma interface específica por nome:
 
 ```REST
 GET /digitalTwins/t-123/interfaces/deviceInformation
 ```
 
-Mais geralmente, as propriedades de uma interface específica podem ser acessadas por meio desse `device-id` modelo de API REST, em que `{interface-name}` é o identificador do dispositivo e é o nome da interface:
+Mais geralmente, as propriedades de uma interface específica podem ser acessadas por meio desse modelo de API REST, em que `device-id` é o identificador do dispositivo e `{interface-name}` é o nome da interface:
 
 ```REST
 GET /digitalTwins/{device-id}/interfaces/{interface-name}

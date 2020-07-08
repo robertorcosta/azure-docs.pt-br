@@ -10,10 +10,9 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: 69bf41f9d88081b9a416b9bee91e8650a84f12c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77209708"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>Adicionar uma camada de imagem ao um mapa
@@ -38,7 +37,7 @@ A camada de imagem dá suporte aos seguintes formatos de imagem:
 
 ## <a name="add-an-image-layer"></a>Adicionar uma camada de imagem
 
-O código a seguir sobrepõe uma imagem de um [mapa de Newark, Nova Jersey, de 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) no mapa. Um [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) é criado passando uma URL para uma imagem e coordena para os quatro cantos no formato `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]`.
+O código a seguir sobrepõe uma imagem de um [mapa de Newark, Nova Jersey, de 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) no mapa. Um [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) é criado passando uma URL para uma imagem e coordena para os quatro cantos no formato `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]` .
 
 ```javascript
 //Create an image layer and add it to the map.
@@ -64,7 +63,7 @@ Aqui está o exemplo de código completo em execução do código anterior.
 
 Este exemplo demonstra como adicionar informações de sobreposição de terra KML como uma camada de imagem no mapa. As sobreposições de aterramento KML fornecem coordenadas norte, Sul, leste e oeste e uma rotação no sentido anti-horário. Porém, a camada de imagem espera coordenadas para cada canto da imagem. A sobreposição de aterramento KML neste exemplo é para o Chartres Cathedral e é originada de [Wikimedia](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml).
 
-O código usa a função `getCoordinatesFromEdges` estática da classe [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) . Ele calcula os quatro cantos da imagem usando as informações do Norte, Sul, leste, oeste e de rotação da sobreposição de aterramento KML.
+O código usa a `getCoordinatesFromEdges` função estática da classe [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) . Ele calcula os quatro cantos da imagem usando as informações do Norte, Sul, leste, oeste e de rotação da sobreposição de aterramento KML.
 
 <br/>
 

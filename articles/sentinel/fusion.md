@@ -13,10 +13,9 @@ ms.workload: na
 ms.date: 02/18/2020
 ms.author: yelevin
 ms.openlocfilehash: 87ca322cbdfdd8a53a3ecefcb120a961ea1bb936
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77587916"
 ---
 # <a name="advanced-multistage-attack-detection-in-azure-sentinel"></a>Detecção avançada de ataques de multiestágio no Azure Sentinel
@@ -38,7 +37,7 @@ Essa detecção é habilitada por padrão no Azure Sentinel. Para verificar o st
 
 1. Se você ainda não fez isso, entre no [portal do Azure](https://portal.azure.com).
 
-2. Navegue até a**análise** de**configuração** >  **do Azure Sentinel** > 
+2. Navegue até **Azure Sentinel**a  >  **Configuration**  >  **análise** de configuração do Azure Sentinel
 
 3. Selecione **regras ativas** e localize **detecção avançada de ataque** de várias etapas na coluna **nome** . Verifique a coluna **status** para confirmar se essa detecção está habilitada ou desabilitada.
 
@@ -49,7 +48,7 @@ Essa detecção é habilitada por padrão no Azure Sentinel. Para verificar o st
 Os modelos de regra não são aplicáveis para a detecção avançada de ataques de multiestágio.
 
 > [!NOTE]
-> Atualmente, o Azure Sentinel usa 30 dias de dados históricos para treinar os sistemas de aprendizado de máquina. Esses dados são sempre criptografados usando as chaves da Microsoft à medida que passam pelo pipeline do Machine Learning. No entanto, os dados de treinamento não serão criptografados usando [CMK (chaves gerenciadas pelo cliente)](customer-managed-keys.md) se você tiver habilitado o CMK em seu espaço de trabalho do Azure Sentinel. Para recusar a fusão, navegue até **Azure Sentinel** \> **Configuration** \> **Analytics \> regras \> ativas detecção de ataque avançado de multiestágio** e na coluna **status** , selecione **desabilitar.**
+> Atualmente, o Azure Sentinel usa 30 dias de dados históricos para treinar os sistemas de aprendizado de máquina. Esses dados são sempre criptografados usando as chaves da Microsoft à medida que passam pelo pipeline do Machine Learning. No entanto, os dados de treinamento não serão criptografados usando [CMK (chaves gerenciadas pelo cliente)](customer-managed-keys.md) se você tiver habilitado o CMK em seu espaço de trabalho do Azure Sentinel. Para recusar a fusão, navegue até **Azure Sentinel**   \>  **Configuration**   \>  **Analytics \> regras ativas \> detecção de ataque avançado de multiestágio** e na coluna **status** , selecione **desabilitar.**
 
 ## <a name="fusion-using-palo-alto-networks-and-microsoft-defender-atp"></a>Fusion usando o Palo Alto Networks e o Microsoft defender ATP
 
@@ -89,7 +88,7 @@ Usando a detecção avançada de ataques de multiestágio, o Azure Sentinel dá 
 
 Você deve ter o [conector de dados Azure ad Identity Protection](connect-azure-ad-identity-protection.md) e os conectores de [Cloud app Security](connect-cloud-app-security.md) configurados.
 
-Nas descrições a seguir, o Azure Sentinel exibirá o valor real de seus dados representados nesta página como variáveis entre colchetes. Por exemplo, o nome de exibição real de uma conta em \<vez do *nome da conta*> e o número real \<em vez de *número*>.
+Nas descrições a seguir, o Azure Sentinel exibirá o valor real de seus dados representados nesta página como variáveis entre colchetes. Por exemplo, o nome de exibição real de uma conta em vez de \<*account name*> e o número real em vez de \<*number*> .
 
 ### <a name="impossible-travel-to-atypical-location-followed-by-anomalous-office-365-activity"></a>Viagem impossível para o local atípicos seguido pela atividade anômala do Office 365
 
@@ -97,45 +96,45 @@ Há sete possíveis incidentes do Azure Sentinel que combinam a viagem impossív
 
 - **Viagem impossível a locais atípicoss que levam ao Office 365 caixa de correio vazamento**
     
-    Esse alerta é uma indicação de um evento de entrada por \< *nome de conta*> de uma viagem impossível para \<o *local*>, um local atípicos, seguido por uma regra de encaminhamento de caixa de entrada suspeita foi definida na caixa de entrada de um usuário.
+    Esse alerta é uma indicação de um evento de entrada por \<*account name*> meio de uma viagem impossível para \<*location*> o, um local atípicos, seguido por uma regra de encaminhamento de caixa de entrada suspeita definida na caixa de entrada de um usuário.
     
-    Isso pode indicar que a conta está comprometida e que a caixa de correio está sendo usada para exfiltrar informações de sua organização. O \< *nome da conta* de usuário> criou ou atualizou uma regra de encaminhamento de caixa de entrada que encaminha todos \<os emails de entrada para o endereço de *email* do endereço externo>.
+    Isso pode indicar que a conta está comprometida e que a caixa de correio está sendo usada para exfiltrar informações de sua organização. O usuário \<*account name*> criou ou atualizou uma regra de encaminhamento de caixa de entrada que encaminha todo o email de entrada para o endereço externo \<*email address*> .
 
 - **Viagem impossível a locais atípicoss que levam à atividade administrativa suspeita do aplicativo de nuvem**
     
-    Esse alerta é uma indicação de um evento de entrada por \< *nome de conta*> de uma viagem impossível para \<o *local*>, um local atípicos.
+    Esse alerta é uma indicação de um evento de entrada por \<*account name*> meio de uma viagem impossível para \<*location*> o, um local atípicos.
     
-    Em seguida, o \< *nome da conta* de conta \<> executado sobre o *número*> atividades administrativas em uma única sessão.
+    Em seguida, a conta \<*account name*> realizou as \<*number*> atividades administrativas em uma única sessão.
 
 - **Viagem impossível a locais atípicoss que levam à exclusão em massa de arquivos**
     
-    Esse alerta é uma indicação de um evento de entrada pelo \< *nome da conta*> para \<o *local*>, um local atípicos. 
+    Esse alerta é uma indicação de um evento de entrada pelo \<*account name*> para \<*location*> , um local atípicos. 
     
-    Em seguida, o \< *nome da conta* de \<conta> *número excluído de*> arquivos exclusivos em uma única sessão.
+    Em seguida, a conta \<*account name*> excluiu \<*number of*> arquivos exclusivos em uma única sessão.
 
 - **Viagem impossível a locais atípicoss que levam ao download de arquivos em massa**
     
-    Esse alerta é uma indicação de um evento de entrada por \< *nome de conta*> de uma viagem impossível para \<o *local*>, um local atípicos. 
+    Esse alerta é uma indicação de um evento de entrada por \<*account name*> meio de uma viagem impossível para \<*location*> o, um local atípicos. 
     
-    Em seguida, o \< *nome da conta* de conta \<> baixado sobre o *número de*> arquivos exclusivos em uma única sessão.
+    Em seguida, a conta \<*account name*> foi baixada em \<*number of*> arquivos exclusivos em uma única sessão.
 
 - **Viagem impossível a locais atípicoss que levam à representação do Office 365**
     
-    Esse alerta é uma indicação de um evento de entrada por \< *nome de conta*> de uma viagem impossível para \<o *local*>, um local atípicos. 
+    Esse alerta é uma indicação de um evento de entrada por \<*account name*> meio de uma viagem impossível para \<*location*> o, um local atípicos. 
     
-    Em seguida, o \< *nome da conta* de conta> realizou uma\<quantidade incomum (*número de atividades*>) de atividades de representação em uma única sessão.
+    Em seguida, a conta \<*account name*> realizou uma quantidade incomum ( \<*number of activities*> ) de atividades de representação em uma única sessão.
 
 - **Viagem impossível a locais atípicoss que levam ao compartilhamento de arquivos em massa**
     
-    Esse alerta é uma indicação de um evento de entrada por \< *nome de conta*> de uma viagem impossível para \<o *local*>, um local atípicos. 
+    Esse alerta é uma indicação de um evento de entrada por \<*account name*> meio de uma viagem impossível para \<*location*> o, um local atípicos. 
     
-    Em seguida, o \< *nome da conta* de conta \<> compartilhado por *número de*> arquivos exclusivos em uma única sessão.
+    Em seguida, a conta é \<*account name*> compartilhada por \<*number of*> arquivos exclusivos em uma única sessão.
 
 - **Viagem impossível a locais atípicoss que levam ao ransomware no aplicativo em nuvem**
     
-    Esse alerta é uma indicação de um evento de entrada por \< *nome de conta*> de uma viagem impossível para \<o *local*>, um local atípicos. 
+    Esse alerta é uma indicação de um evento de entrada por \<*account name*> meio de uma viagem impossível para \<*location*> o, um local atípicos. 
     
-    Em seguida, o \< *nome da conta* da \<conta> o *número carregado de arquivos de*> e \<excluiu um número total de arquivos *de*>. 
+    Em seguida, a conta \<*account name*> carregou \<*number of*> arquivos e excluiu um total de \<*number of*> arquivos. 
     
     Esse padrão de atividade é um indício de um ataque potencial de ransomware.
 
@@ -146,45 +145,45 @@ Há sete possíveis incidentes do Azure Sentinel que combinam a atividade de ent
 
 - **Evento de entrada de um local desconhecido que leva à caixa de correio do Exchange Online vazamento**
     
-    Esse alerta é uma indicação de um evento de entrada por \< *nome de conta*> do \< *local*>, um local desconhecido, seguido por uma regra de encaminhamento de caixa de entrada suspeita foi definida na caixa de entrada de um usuário.
+    Esse alerta é uma indicação de um evento de entrada do \<*account name*> \<*location*> , um local desconhecido, seguido por uma regra de encaminhamento de caixa de entrada suspeita definida na caixa de entrada de um usuário.
     
-    Isso pode indicar que a conta está comprometida e que a caixa de correio está sendo usada para exfiltrar informações de sua organização. O \< *nome da conta* de usuário> criou ou atualizou uma regra de encaminhamento de caixa de entrada que encaminha todos \<os emails de entrada para o endereço de *email* do endereço externo>. 
+    Isso pode indicar que a conta está comprometida e que a caixa de correio está sendo usada para exfiltrar informações de sua organização. O usuário \<*account name*> criou ou atualizou uma regra de encaminhamento de caixa de entrada que encaminha todo o email de entrada para o endereço externo \<*email address*> . 
 
 - **Evento de entrada de um local desconhecido que leva à atividade administrativa do aplicativo de nuvem suspeito**
     
-    Esse alerta é uma indicação de um evento de entrada por \< *nome de conta*> do \< *local*>, um local desconhecido. 
+    Esse alerta é uma indicação de um evento de entrada do \<*account name*> \<*location*> , um local desconhecido. 
     
-    Em seguida, o \< *nome da conta* de conta \<> executado sobre o *número de*> atividades administrativas em uma única sessão.
+    Em seguida, a conta \<*account name*> realizou as \<*number of*> atividades administrativas em uma única sessão.
 
 - **Evento de entrada de um local não familiar que leva à exclusão de arquivos em massa**
     
-    Esse alerta é uma indicação de um evento de entrada por \< *nome de conta*> do \< *local*>, um local desconhecido. 
+    Esse alerta é uma indicação de um evento de entrada do \<*account name*> \<*location*> , um local desconhecido. 
     
-    Em seguida, o \< *nome da conta* de \<conta> *número excluído de*> arquivos exclusivos em uma única sessão.
+    Em seguida, a conta \<*account name*> excluiu \<*number of*> arquivos exclusivos em uma única sessão.
 
 - **Evento de entrada de um local desconhecido que leva ao download de arquivo em massa**
     
-    Esse alerta é uma indicação de um evento de entrada por \< *nome de conta*> do \< *local*>, um local desconhecido. 
+    Esse alerta é uma indicação de um evento de entrada do \<*account name*> \<*location*> , um local desconhecido. 
     
-    Em seguida, o \< *nome da conta* de conta \<> baixado sobre o *número de*> arquivos exclusivos em uma única sessão.
+    Em seguida, a conta \<*account name*> foi baixada em \<*number of*> arquivos exclusivos em uma única sessão.
 
 - **Evento de entrada de um local desconhecido que leva à representação do Office 365**
     
-    Esse alerta é uma indicação de um evento de entrada por \< *nome de conta*> do \< *local*>, um local desconhecido.
+    Esse alerta é uma indicação de um evento de entrada do \<*account name*> \<*location*> , um local desconhecido.
     
-    Em seguida, o \< *nome da conta* de conta> \<representado com o *número de*> contas diferentes em uma única sessão.
+    Em seguida, a conta \<*account name*> representou \<*number of*> contas diferentes em uma única sessão.
 
 - **Evento de entrada de um local desconhecido que leva ao compartilhamento de arquivos em massa**
     
-    Esse alerta é uma indicação de um evento de entrada por \< *nome de conta*> do \< *local*>, um local desconhecido. 
+    Esse alerta é uma indicação de um evento de entrada do \<*account name*> \<*location*> , um local desconhecido. 
     
-    Em seguida, o \< *nome da conta* de conta \<> compartilhado por *número de*> arquivos exclusivos em uma única sessão.
+    Em seguida, a conta é \<*account name*> compartilhada por \<*number of*> arquivos exclusivos em uma única sessão.
 
 - **Evento de entrada de um local desconhecido que leva ao ransomware no aplicativo de nuvem**
     
-    Esse alerta é uma indicação de um evento de entrada por \< *nome de conta*> do \< *local*>, um local desconhecido. 
+    Esse alerta é uma indicação de um evento de entrada do \<*account name*> \<*location*> , um local desconhecido. 
     
-    Em seguida, o \< *nome da conta* da \<conta> o *número carregado de arquivos de*> e \<excluiu um número total de arquivos *de*>. 
+    Em seguida, a conta \<*account name*> carregou \<*number of*> arquivos e excluiu um total de \<*number of*> arquivos. 
     
     Esse padrão de atividade é um indício de um ataque potencial de ransomware.
 
@@ -194,45 +193,45 @@ Há sete possíveis incidentes do Azure sentinela que combinam a atividade de en
 
 - **Evento de entrada de um dispositivo infectado que leva à caixa de correio do Office 365 vazamento**
     
-    Esse alerta é uma indicação de um evento de entrada por \< *nome de conta*> de um dispositivo potencialmente infectado com malware, seguido por uma regra de encaminhamento de caixa de entrada suspeita definida na caixa de entrada de um usuário.
+    Esse alerta é uma indicação de um evento de entrada por \<*account name*> meio de um dispositivo potencialmente infectado com malware, seguido por uma regra de encaminhamento de caixa de entrada suspeita definida na caixa de entrada de um usuário.
     
-    Isso pode indicar que a conta está comprometida e que a caixa de correio está sendo usada para exfiltrar informações de sua organização. O \< *nome da conta* de usuário> criou ou atualizou uma regra de encaminhamento de caixa de entrada que encaminha todos \<os emails de entrada para o endereço de *email* do endereço externo>. 
+    Isso pode indicar que a conta está comprometida e que a caixa de correio está sendo usada para exfiltrar informações de sua organização. O usuário \<*account name*> criou ou atualizou uma regra de encaminhamento de caixa de entrada que encaminha todo o email de entrada para o endereço externo \<*email address*> . 
 
 - **Evento de entrada de um dispositivo infectado que leva à atividade administrativa suspeita do aplicativo de nuvem**
     
-    Esse alerta é uma indicação de um evento de entrada por \< *nome de conta*> de um dispositivo potencialmente infectado com malware.
+    Esse alerta é uma indicação de um evento de entrada por \<*account name*> meio de um dispositivo potencialmente infectado com malware.
     
-    Em seguida, o \< *nome da conta* de conta \<> executado sobre o *número de*> atividades administrativas em uma única sessão.
+    Em seguida, a conta \<*account name*> realizou as \<*number of*> atividades administrativas em uma única sessão.
 
 - **Evento de entrada de um dispositivo infectado que leva à exclusão em massa de arquivos**
     
-    Esse alerta é uma indicação de um evento de entrada por \< *nome de conta*> de um dispositivo potencialmente infectado com malware. 
+    Esse alerta é uma indicação de um evento de entrada por \<*account name*> meio de um dispositivo potencialmente infectado com malware. 
     
-    Em seguida, o \< *nome da conta* de \<conta> *número excluído de*> arquivos exclusivos em uma única sessão.
+    Em seguida, a conta \<*account name*> excluiu \<*number of*> arquivos exclusivos em uma única sessão.
 
 - **Evento de entrada de um dispositivo infectado que leva ao download de arquivo em massa**
     
-    Esse alerta é uma indicação de um evento de entrada por \< *nome de conta*> de um dispositivo potencialmente infectado com malware. 
+    Esse alerta é uma indicação de um evento de entrada por \<*account name*> meio de um dispositivo potencialmente infectado com malware. 
     
-    Em seguida, o \< *nome da conta* de conta \<> baixado sobre o *número de*> arquivos exclusivos em uma única sessão.
+    Em seguida, a conta \<*account name*> foi baixada em \<*number of*> arquivos exclusivos em uma única sessão.
 
 - **Evento de entrada de um dispositivo infectado que leva à representação do Office 365**
     
-    Esse alerta é uma indicação de um evento de entrada por \< *nome de conta*> de um dispositivo potencialmente infectado com malware. 
+    Esse alerta é uma indicação de um evento de entrada por \<*account name*> meio de um dispositivo potencialmente infectado com malware. 
     
-    Em seguida, o \< *nome da conta* de conta> \<representado com o *número de*> contas diferentes em uma única sessão.
+    Em seguida, a conta \<*account name*> representou \<*number of*> contas diferentes em uma única sessão.
 
 - **Evento de entrada de um dispositivo infectado que leva ao compartilhamento de arquivos em massa**
     
-    Esse alerta é uma indicação de um evento de entrada por \< *nome de conta*> de um dispositivo potencialmente infectado com malware. 
+    Esse alerta é uma indicação de um evento de entrada por \<*account name*> meio de um dispositivo potencialmente infectado com malware. 
     
-    Em seguida, o \< *nome da conta* de conta \<> compartilhado por *número de*> arquivos exclusivos em uma única sessão.
+    Em seguida, a conta é \<*account name*> compartilhada por \<*number of*> arquivos exclusivos em uma única sessão.
 
 - **Evento de entrada de um dispositivo infectado que leva ao ransomware no aplicativo de nuvem**
     
-    Esse alerta é uma indicação de um evento de entrada por \< *nome de conta*> de um dispositivo potencialmente infectado com malware. 
+    Esse alerta é uma indicação de um evento de entrada por \<*account name*> meio de um dispositivo potencialmente infectado com malware. 
     
-    Em seguida, o \< *nome da conta* da \<conta> o *número carregado de arquivos de*> e \<excluiu um número total de arquivos *de*>. 
+    Em seguida, a conta \<*account name*> carregou \<*number of*> arquivos e excluiu um total de \<*number of*> arquivos. 
     
     Esse padrão de atividade é um indício de um ataque potencial de ransomware.
 
@@ -242,45 +241,45 @@ Há sete possíveis incidentes do Azure Sentinel que combinam a atividade de ent
 
 - **Evento de entrada de um endereço IP anônimo que leva à caixa de correio do Office 365 vazamento**
     
-    Esse alerta é uma indicação de um evento de entrada por \< *nome de conta*> de um endereço IP de proxy \< *anônimo>,* seguido por uma regra de encaminhamento de caixa de entrada suspeita definida na caixa de entrada de um usuário.
+    Esse alerta é uma indicação de um evento de entrada por \<*account name*> meio de um endereço IP de proxy anônimo \<*IP address*> , seguido por uma regra de encaminhamento de caixa de entrada suspeita definida na caixa de entrada de um usuário.
     
-    Isso pode indicar que a conta está comprometida e que a caixa de correio está sendo usada para exfiltrar informações de sua organização. O \< *nome da conta* de usuário> criou ou atualizou uma regra de encaminhamento de caixa de entrada que encaminha todos \<os emails de entrada para o endereço de *email* do endereço externo>. 
+    Isso pode indicar que a conta está comprometida e que a caixa de correio está sendo usada para exfiltrar informações de sua organização. O usuário \<*account name*> criou ou atualizou uma regra de encaminhamento de caixa de entrada que encaminha todo o email de entrada para o endereço externo \<*email address*> . 
 
 - **Evento de entrada de um endereço IP anônimo que leva à atividade administrativa suspeita do aplicativo de nuvem**
     
-    Esse alerta é uma indicação de um evento de entrada por \< *nome de conta*> de um endereço IP de endereço \<IP de proxy *anônimo>.* 
+    Esse alerta é uma indicação de um evento de entrada por \<*account name*> meio de um endereço IP de proxy anônimo \<*IP address*> . 
     
-    Em seguida, o \< *nome da conta* de conta \<> executado sobre o *número de*> atividades administrativas em uma única sessão.
+    Em seguida, a conta \<*account name*> realizou as \<*number of*> atividades administrativas em uma única sessão.
 
 - **Evento de entrada de um endereço IP anônimo que leva à exclusão de arquivos em massa**
     
-    Esse alerta é uma indicação de um evento de entrada por \< *nome de conta*> de um endereço IP de endereço \<IP de proxy *anônimo>.* 
+    Esse alerta é uma indicação de um evento de entrada por \<*account name*> meio de um endereço IP de proxy anônimo \<*IP address*> . 
     
-    Em seguida, o \< *nome da conta* de \<conta> *número excluído de*> arquivos exclusivos em uma única sessão.
+    Em seguida, a conta \<*account name*> excluiu \<*number of*> arquivos exclusivos em uma única sessão.
 
 - **Evento de entrada de um endereço IP anônimo que leva ao download de arquivo em massa**
     
-    Esse alerta é uma indicação de um evento de entrada por \< *nome de conta*> de um endereço IP de endereço \<IP de proxy *anônimo>.* 
+    Esse alerta é uma indicação de um evento de entrada por \<*account name*> meio de um endereço IP de proxy anônimo \<*IP address*> . 
     
-    Em seguida, o \< *nome da conta* de conta \<> baixado sobre o *número de*> arquivos exclusivos em uma única sessão.
+    Em seguida, a conta \<*account name*> foi baixada em \<*number of*> arquivos exclusivos em uma única sessão.
 
 - **Evento de entrada de um endereço IP anônimo que leva à representação do Office 365**
     
-    Esse alerta é uma indicação de um evento de entrada por \< *nome de conta*> de um endereço IP de endereço \<IP de proxy *anônimo>.* 
+    Esse alerta é uma indicação de um evento de entrada por \<*account name*> meio de um endereço IP de proxy anônimo \<*IP address*> . 
     
-    Em seguida, o \< *nome da conta* de conta> \<representado com o *número de*> contas diferentes em uma única sessão.
+    Em seguida, a conta \<*account name*> representou \<*number of*> contas diferentes em uma única sessão.
 
 - **Evento de entrada de um endereço IP anônimo que leva ao compartilhamento de arquivos em massa**
     
-    Esse alerta é uma indicação de um evento de entrada por \< *nome de conta*> de um endereço IP de endereço \<IP de proxy *anônimo>.* 
+    Esse alerta é uma indicação de um evento de entrada por \<*account name*> meio de um endereço IP de proxy anônimo \<*IP address*> . 
     
-    Em seguida, o \< *nome da conta* de conta \<> compartilhado por *número de*> arquivos exclusivos em uma única sessão.
+    Em seguida, a conta é \<*account name*> compartilhada por \<*number of*> arquivos exclusivos em uma única sessão.
 
 - **Evento de entrada de um endereço IP anônimo para ransomware no aplicativo de nuvem**
     
-    Esse alerta é uma indicação de um evento de entrada por \< *nome de conta*> de um endereço IP de endereço \<IP de proxy *anônimo>.* 
+    Esse alerta é uma indicação de um evento de entrada por \<*account name*> meio de um endereço IP de proxy anônimo \<*IP address*> . 
     
-    Em seguida, o \< *nome da conta* da \<conta> o *número carregado de arquivos de*> e \<excluiu um número total de arquivos *de*>. 
+    Em seguida, a conta \<*account name*> carregou \<*number of*> arquivos e excluiu um total de \<*number of*> arquivos. 
     
     Esse padrão de atividade é um indício de um ataque potencial de ransomware.
 
@@ -290,45 +289,45 @@ Há sete possíveis incidentes do Azure Sentinel que combinam a atividade de ent
 
 - **Evento de entrada do usuário com credenciais vazadas que levam à caixa de correio do Office 365 vazamento**
     
-    Esse alerta é uma indicação de que o evento de entrada por \< *nome de conta*> usou credenciais vazadas, seguido por uma regra de encaminhamento de caixa de entrada suspeita definida na caixa de entrada de um usuário. 
+    Esse alerta é uma indicação de que o evento de entrada \<*account name*> usou credenciais vazadas, seguido por uma regra de encaminhamento de caixa de entrada suspeita definida na caixa de entrada de um usuário. 
     
-    Isso pode indicar que a conta está comprometida e que a caixa de correio está sendo usada para exfiltrar informações de sua organização. O \< *nome da conta* de usuário> criou ou atualizou uma regra de encaminhamento de caixa de entrada que encaminha todos \<os emails de entrada para o endereço de *email* do endereço externo>. 
+    Isso pode indicar que a conta está comprometida e que a caixa de correio está sendo usada para exfiltrar informações de sua organização. O usuário \<*account name*> criou ou atualizou uma regra de encaminhamento de caixa de entrada que encaminha todo o email de entrada para o endereço externo \<*email address*> . 
 
 - **Evento de entrada do usuário com credenciais vazadas que levam à atividade administrativa do aplicativo de nuvem suspeito**
     
-    Esse alerta é uma indicação de que o evento de entrada por \< *nome de conta*> usou credenciais vazadas.
+    Esse alerta é uma indicação de que o evento de entrada \<*account name*> usou credenciais vazadas.
     
-    Em seguida, o \< *nome da conta* de conta \<> executado sobre o *número de*> atividades administrativas em uma única sessão.
+    Em seguida, a conta \<*account name*> realizou as \<*number of*> atividades administrativas em uma única sessão.
 
 - **Evento de entrada do usuário com credenciais vazadas levando à exclusão de arquivos em massa**
     
-    Esse alerta é uma indicação de que o evento de entrada por \< *nome de conta*> usou credenciais vazadas.
+    Esse alerta é uma indicação de que o evento de entrada \<*account name*> usou credenciais vazadas.
     
-    Em seguida, o \< *nome da conta* de \<conta> *número excluído de*> arquivos exclusivos em uma única sessão.
+    Em seguida, a conta \<*account name*> excluiu \<*number of*> arquivos exclusivos em uma única sessão.
 
 - **Evento de entrada do usuário com credenciais vazadas levando ao download de arquivo em massa**
     
-    Esse alerta é uma indicação de que o evento de entrada por \< *nome de conta*> usou credenciais vazadas.
+    Esse alerta é uma indicação de que o evento de entrada \<*account name*> usou credenciais vazadas.
     
-    Em seguida, o \< *nome da conta* de conta \<> baixado sobre o *número de*> arquivos exclusivos em uma única sessão.
+    Em seguida, a conta \<*account name*> foi baixada em \<*number of*> arquivos exclusivos em uma única sessão.
 
 - **Evento de entrada do usuário com credenciais vazadas que levam à representação do Office 365**
     
-    Esse alerta é uma indicação de que o evento de entrada por \< *nome de conta*> usou credenciais vazadas. 
+    Esse alerta é uma indicação de que o evento de entrada \<*account name*> usou credenciais vazadas. 
     
-    Em seguida, o \< *nome da conta* de conta> \<representado com o *número de*> contas diferentes em uma única sessão.
+    Em seguida, a conta \<*account name*> representou \<*number of*> contas diferentes em uma única sessão.
 
 - **Evento de entrada do usuário com credenciais vazadas que levam ao compartilhamento de arquivos em massa**
     
-    Esse alerta é uma indicação de que o evento de entrada por \< *nome de conta*> usou credenciais vazadas.
+    Esse alerta é uma indicação de que o evento de entrada \<*account name*> usou credenciais vazadas.
     
-    Em seguida, o \< *nome da conta* de conta \<> compartilhado por *número de*> arquivos exclusivos em uma única sessão.
+    Em seguida, a conta é \<*account name*> compartilhada por \<*number of*> arquivos exclusivos em uma única sessão.
 
 - **Evento de entrada do usuário com credenciais vazadas para ransomware no aplicativo de nuvem**
     
-    Esse alerta é uma indicação de que o evento de entrada por \< *nome de conta*> usou credenciais vazadas. 
+    Esse alerta é uma indicação de que o evento de entrada \<*account name*> usou credenciais vazadas. 
     
-    Em seguida, o \< *nome da conta* da \<conta> o *número carregado de arquivos de*> e \<excluiu um número total de arquivos *de*>. 
+    Em seguida, a conta \<*account name*> carregou \<*number of*> arquivos e excluiu um total de \<*number of*> arquivos. 
     
     Esse padrão de atividade é um indício de um ataque potencial de ransomware.
 

@@ -6,10 +6,9 @@ manager: rochakm
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.openlocfilehash: a780a42179a0bacf0e4a12ba1e75ae84943539b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77190716"
 ---
 # <a name="troubleshoot-azure-vm-extension-issues"></a>Solucionar problemas de extensão de VM do Azure
@@ -42,7 +41,7 @@ Código de erro: "151099"
 
 Esse erro pode ocorrer se o agente convidado do Azure na máquina virtual não estiver no estado pronto.
 
-Você pode verificar o status do agente convidado do Azure na [portal do Azure](https://portal.azure.com/). Vá para a máquina virtual que você está tentando proteger e verifique o status em **VM** > **configurações** > da VM**status do agente**de**Propriedades** > . Na maioria das vezes, o status do agente estará pronto após a reinicialização da máquina virtual. No entanto, se você não puder reinicializar ou ainda estiver enfrentando o problema, conclua as seguintes etapas de solução de problemas:
+Você pode verificar o status do agente convidado do Azure na [portal do Azure](https://portal.azure.com/). Vá para a máquina virtual que você está tentando proteger e verifique o status em configurações da **VM**  >  **Settings**  >  **Properties**  >  **status do agente**de propriedades. Na maioria das vezes, o status do agente estará pronto após a reinicialização da máquina virtual. No entanto, se você não puder reinicializar ou ainda estiver enfrentando o problema, conclua as seguintes etapas de solução de problemas:
 
 - [O agente é instalado na VM, mas não responde (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
 - [O agente instalado na VM está desatualizado (para VMs Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
@@ -102,10 +101,10 @@ Desinstale a extensão e reinicie a operação novamente.
 Para desinstalar a extensão:
 
 1. Na [portal do Azure](https://portal.azure.com/), vá para a VM que está apresentando falha de backup.
-1. Selecione **Configurações**.
+1. Escolha a opção **Configurações**.
 1. Selecione **extensões**.
 1. Selecione **Extensão Site Recovery**.
-1. Selecionar **Desinstalar**.
+1. Selecione **Desinstalar**.
 
 Para a VM do Linux, se a extensão VMSnapshot não for mostrada no portal do Azure, [atualize o agente Linux do Azure](../virtual-machines/linux/update-agent.md). Em seguida, execute a proteção.
 

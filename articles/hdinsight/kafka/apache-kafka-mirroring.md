@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
 ms.openlocfilehash: 45977f52226fac0a3e23455ce9457a721947a8cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77425877"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Use MirrorMaker para replicar tópicos do Apache Kafka com Kafka no HDInsight
@@ -63,7 +62,7 @@ Essa arquitetura apresenta dois clusters em diferentes grupos de recursos e rede
 
 1. Crie dois novos grupos de recursos:
 
-    |Grupo de recursos | Local |
+    |Grupo de recursos | Location |
     |---|---|
     | Kafka-principal-RG | Centro dos EUA |
     | Kafka-secundário-RG | Centro-Norte dos EUA |
@@ -90,8 +89,8 @@ Essa arquitetura apresenta dois clusters em diferentes grupos de recursos e rede
 
 Configure o anúncio de IP para permitir que um cliente se conecte usando endereços IP do agente em vez de nomes de domínio.
 
-1. Vá para o painel do Ambari para o cluster primário `https://PRIMARYCLUSTERNAME.azurehdinsight.net`:.
-1. Selecione **Serviços** > **Kafka**. CliSelectck a guia **configurações** .
+1. Vá para o painel do Ambari para o cluster primário: `https://PRIMARYCLUSTERNAME.azurehdinsight.net` .
+1. Selecione **Serviços**  >  **Kafka**. CliSelectck a guia **configurações** .
 1. Adicione as seguintes linhas de configuração à seção de **modelo Kafka-env** inferior. Selecione **Salvar**.
 
     ```
@@ -105,13 +104,13 @@ Configure o anúncio de IP para permitir que um cliente se conecte usando endere
 1. Insira uma observação na tela **salvar configuração** e clique em **salvar**.
 1. Se você for solicitado com o aviso de configuração, clique em **continuar mesmo assim**.
 1. Selecione **OK** em **salvar alterações de configuração**.
-1. Selecione **reiniciar** > **reiniciar todos os afetados** na notificação **reinicialização necessária** . Selecione **confirmar reiniciar tudo**.
+1. Selecione **reiniciar**  >  **reiniciar todos os afetados** na notificação **reinicialização necessária** . Selecione **confirmar reiniciar tudo**.
 
     ![O Apache Ambari reinicia todos os afetados](./media/apache-kafka-mirroring/ambari-restart-notification.png)
 
 ### <a name="configure-kafka-to-listen-on-all-network-interfaces"></a>Configure o Kafka para escutar em todas as interfaces de rede.
     
-1. Permaneça na guia **configurações** em **Serviços** > **Kafka**. Na seção **agente Kafka** , defina a propriedade **Listeners** como `PLAINTEXT://0.0.0.0:9092`.
+1. Permaneça na guia **configurações** em **Serviços**  >  **Kafka**. Na seção **agente Kafka** , defina a propriedade **Listeners** como `PLAINTEXT://0.0.0.0:9092` .
 1. Selecione **Salvar**.
 1. Selecione **reiniciar**e **confirme reiniciar tudo**.
 
@@ -136,7 +135,7 @@ Configure o anúncio de IP para permitir que um cliente se conecte usando endere
 
     Para obter informações, consulte [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-1. Use o comando a seguir para criar uma variável com os hosts Apache Zookeeper para o cluster primário. As cadeias `ZOOKEEPER_IP_ADDRESS1` de caracteres como devem ser substituídas pelos endereços IP reais gravados `10.23.0.11` anteriormente `10.23.0.7`, como e. Se você estiver usando a resolução de FQDN com um servidor DNS personalizado, siga [estas etapas](apache-kafka-get-started.md#getkafkainfo) para obter os nomes do agente e do Zookeeper.:
+1. Use o comando a seguir para criar uma variável com os hosts Apache Zookeeper para o cluster primário. As cadeias de caracteres como `ZOOKEEPER_IP_ADDRESS1` devem ser substituídas pelos endereços IP reais gravados anteriormente, como `10.23.0.11` e `10.23.0.7` . Se você estiver usando a resolução de FQDN com um servidor DNS personalizado, siga [estas etapas](apache-kafka-get-started.md#getkafkainfo) para obter os nomes do agente e do Zookeeper.:
 
     ```bash
     # get the zookeeper hosts for the primary cluster
@@ -250,9 +249,9 @@ Configure o anúncio de IP para permitir que um cliente se conecte usando endere
 
         Para configurar o cluster secundário para criar tópicos automaticamente, execute estas etapas:
 
-        1. Vá para o painel do Ambari para o cluster secundário `https://SECONDARYCLUSTERNAME.azurehdinsight.net`:.
-        1. Clique em **Serviços** > **Kafka**. Selecione a guia **Configurações** .
-        1. No campo __filtro__ , insira um valor de `auto.create`. Isso filtrará a lista de propriedades e exibirá a configuração `auto.create.topics.enable`.
+        1. Vá para o painel do Ambari para o cluster secundário: `https://SECONDARYCLUSTERNAME.azurehdinsight.net` .
+        1. Clique em **Serviços**  >  **Kafka**. Selecione a guia **Configurações** .
+        1. No campo __filtro__ , insira um valor de `auto.create` . Isso filtrará a lista de propriedades e exibirá a configuração `auto.create.topics.enable`.
         1. Altere o valor de `auto.create.topics.enable` para true e, em seguida, selecione __Salvar__. Adicione uma observação e, em seguida, selecione __salvar__ novamente.
         1. Selecione o serviço __Kafka__ , selecione __reiniciar__e, em seguida, selecione __reiniciar todos os afetados__. Quando solicitado, selecione __confirmar reiniciar tudo__.
 
@@ -270,8 +269,8 @@ Configure o anúncio de IP para permitir que um cliente se conecte usando endere
 
     |Parâmetro |Descrição |
     |---|---|
-    |--Consumer. config|Especifica o arquivo que contém as propriedades do consumidor. Essas propriedades são usadas para criar um consumidor que lê o cluster *primário* Kafka.|
-    |--produtor. config|Especifica o arquivo que contém as propriedades do produtor. Essas propriedades são usadas para criar um produtor que grava no cluster Kafka *secundário* .|
+    |--consumer.config|Especifica o arquivo que contém as propriedades do consumidor. Essas propriedades são usadas para criar um consumidor que lê o cluster *primário* Kafka.|
+    |--producer.config|Especifica o arquivo que contém as propriedades do produtor. Essas propriedades são usadas para criar um produtor que grava no cluster Kafka *secundário* .|
     |--lista de permissões|Uma lista de tópicos que MirrorMaker Replica do cluster primário para o secundário.|
     |--num. streams|Número de threads de consumidor a serem criados.|
 
@@ -292,7 +291,7 @@ Configure o anúncio de IP para permitir que um cliente se conecte usando endere
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $SECONDARY_ZKHOSTS --topic testtopic --from-beginning
     ```
 
-    A lista de tópicos agora inclui `testtopic`, que é criada quando o espelhador espelha o tópico do cluster primário para o secundário. As mensagens recuperadas do tópico são iguais àquelas que você inseriu no cluster primário.
+    A lista de tópicos agora inclui `testtopic` , que é criada quando o espelhador espelha o tópico do cluster primário para o secundário. As mensagens recuperadas do tópico são iguais àquelas que você inseriu no cluster primário.
 
 ## <a name="delete-the-cluster"></a>Excluir o cluster
 
@@ -307,5 +306,5 @@ Neste documento, você aprendeu a usar o [MirrorMake](https://cwiki.apache.org/c
 * [Documentação do Apache Kafka MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) em cwiki.apache.org.
 * [Práticas recomendadas do Kafka Mirror Maker](https://community.cloudera.com/t5/Community-Articles/Kafka-Mirror-Maker-Best-Practices/ta-p/249269)
 * [Introdução ao Apache Kafka no HDInsight](apache-kafka-get-started.md)
-* [Usar Apache Spark com Apache Kafka no HDInsight](../hdinsight-apache-spark-with-kafka.md)
+* [Usar o Apache Spark com o Apache Kafka no HDInsight](../hdinsight-apache-spark-with-kafka.md)
 * [Conectar-se ao Apache Kafka por meio de uma Rede Virtual do Azure](apache-kafka-connect-vpn-gateway.md)

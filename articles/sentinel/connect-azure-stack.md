@@ -13,10 +13,9 @@ ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
 ms.openlocfilehash: a8213bd57936f95870324950204dbd6c1473739a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77588511"
 ---
 # <a name="connect-azure-stack-virtual-machines-to-azure-sentinel"></a>Conectar Azure Stack máquinas virtuais ao Azure Sentinel
@@ -55,7 +54,7 @@ Para solução de problemas de agente do Linux, confira [Troubleshoot Azure Log 
 
 No portal do Azure Sentinel no Azure, em **máquinas virtuais**, você tem uma visão geral de todas as VMs e computadores junto com seu status. 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 Quando não for mais necessário, será possível remover a extensão da máquina virtual por meio do portal do Azure Stack.
 
 Para remover a extensão:

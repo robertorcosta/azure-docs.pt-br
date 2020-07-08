@@ -10,10 +10,9 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 02/11/2020
 ms.openlocfilehash: 711071e08a52a0075512bc8b3ffe14707238cdfe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77209289"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-powershell"></a>Gerenciar o serviço de Pesquisa Cognitiva do Azure com o PowerShell
@@ -42,7 +41,7 @@ Dentro de um serviço, a criação e o gerenciamento de conteúdo são por meio 
 
 ## <a name="check-versions-and-load-modules"></a>Verificar versões e carregar módulos
 
-Os exemplos neste artigo são interativos e exigem permissões elevadas. Azure PowerShell (o módulo **AZ** ) deve ser instalado. Para obter mais informações, consulte [Install Azure PowerShell](/powershell/azure/overview).
+Os exemplos neste artigo são interativos e exigem permissões elevadas. Azure PowerShell (o módulo **AZ** ) deve ser instalado. Para obter mais informações, consulte [Instalar o Azure PowerShell](/powershell/azure/overview).
 
 ### <a name="powershell-version-check-51-or-later"></a>Verificação de versão do PowerShell (5,1 ou posterior)
 
@@ -193,11 +192,11 @@ Tags
 
 [**New-AzSearchAdminKey**](https://docs.microsoft.com/powershell/module/az.search/new-azsearchadminkey?view=azps-1.4.0) é usado para sobrepor chaves de [API](search-security-api-keys.md)de administração. Duas chaves de administração são criadas com cada serviço para acesso autenticado. As chaves são necessárias em cada solicitação. Ambas as chaves de administração são funcionalmente equivalentes, concedendo acesso de gravação total a um serviço de pesquisa com a capacidade de recuperar qualquer informação ou criar e excluir qualquer objeto. Existem duas chaves para que você possa usar uma enquanto substitui a outra. 
 
-Você só pode gerar um de cada vez, especificado como a `primary` chave ou. `secondary` Para o serviço ininterrupto, lembre-se de atualizar todo o código do cliente para usar uma chave secundária ao reverter a chave primária. Evite alterar as chaves enquanto as operações estiverem em trânsito.
+Você só pode gerar um de cada vez, especificado como a `primary` `secondary` chave ou. Para o serviço ininterrupto, lembre-se de atualizar todo o código do cliente para usar uma chave secundária ao reverter a chave primária. Evite alterar as chaves enquanto as operações estiverem em trânsito.
 
 Como você deve esperar, se você regenerar chaves sem Atualizar o código do cliente, as solicitações que usam a chave antiga falharão. A regeneração de todas as novas chaves não o bloqueia permanentemente de seu serviço e você ainda pode acessar o serviço por meio do Portal. Depois de regenerar chaves primárias e secundárias, você pode atualizar o código do cliente para usar as novas chaves e as operações serão retomadas de acordo.
 
-Os valores para as chaves de API são gerados pelo serviço. Você não pode fornecer uma chave personalizada para uso do Azure Pesquisa Cognitiva. Da mesma forma, não há nenhum nome definido pelo usuário para as chaves de API de administração. As referências à chave são cadeias de caracteres `primary` fixas, ou `secondary`. 
+Os valores para as chaves de API são gerados pelo serviço. Você não pode fornecer uma chave personalizada para uso do Azure Pesquisa Cognitiva. Da mesma forma, não há nenhum nome definido pelo usuário para as chaves de API de administração. As referências à chave são cadeias de caracteres fixas, `primary` ou `secondary` . 
 
 ```azurepowershell-interactive
 New-AzSearchAdminKey -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -KeyKind Primary

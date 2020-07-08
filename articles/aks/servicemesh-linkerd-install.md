@@ -7,22 +7,21 @@ ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
 ms.openlocfilehash: 419b61527b68299c82dec4f2f5da6b0220859cc1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77593695"
 ---
 # <a name="install-linkerd-in-azure-kubernetes-service-aks"></a>Instalar o Linkerd no serviço kubernetes do Azure (AKS)
 
 [Linkerd][linkerd-github] é uma malha de serviço de código aberto e um [projeto incubating CNCF][linkerd-cncf]. Linkerd é uma malha de serviço UltraLight que fornece recursos que incluem gerenciamento de tráfego, identidade de serviço e segurança, confiabilidade e observação. Para obter mais informações sobre Linkerd, consulte a documentação oficial de [perguntas frequentes do Linkerd][linkerd-faq] e da [arquitetura do Linkerd][linkerd-architecture] .
 
-Este artigo mostra como instalar o Linkerd. O binário `linkerd` do cliente Linkerd é instalado no computador cliente e os componentes do Linkerd são instalados em um cluster KUBERNETES no AKs.
+Este artigo mostra como instalar o Linkerd. O `linkerd` binário do cliente Linkerd é instalado no computador cliente e os componentes do Linkerd são instalados em um cluster kubernetes no AKs.
 
 > [!NOTE]
-> Estas instruções fazem referência à `stable-2.6.0`versão do Linkerd.
+> Estas instruções fazem referência à versão do Linkerd `stable-2.6.0` .
 >
-> O Linkerd `stable-2.6.x` pode ser executado em versões `1.13+`do kubernetes. Você pode encontrar versões de Linkerd estáveis e de borda adicionais em [versões do GitHub-Linkerd][linkerd-github-releases].
+> O Linkerd `stable-2.6.x` pode ser executado em versões do kubernetes `1.13+` . Você pode encontrar versões de Linkerd estáveis e de borda adicionais em [versões do GitHub-Linkerd][linkerd-github-releases].
 
 Neste artigo, você aprenderá como:
 
@@ -117,7 +116,7 @@ linkerd-version
 Status check results are √
 ```
 
-Agora é hora de instalar os componentes do Linkerd. Use os `linkerd` binários e `kubectl` para instalar os componentes do Linkerd em seu cluster do AKS. Um `linkerd` namespace será criado automaticamente e os componentes serão instalados nesse namespace.
+Agora é hora de instalar os componentes do Linkerd. Use os `linkerd` `kubectl` binários e para instalar os componentes do Linkerd em seu cluster do AKS. Um `linkerd` namespace será criado automaticamente e os componentes serão instalados nesse namespace.
 
 ```console
 linkerd install | kubectl apply -f -
@@ -163,7 +162,7 @@ linkerd-tap-5cd9fc566-ct988               2/2     Running   0          64s   10.
 linkerd-web-774c79b6d5-dhhwf              2/2     Running   0          65s   10.240.0.70   aks-linux-16165125-vmss000002   <none>           <none>
 ```
 
-O Linkerd fornece um comando por `linkerd` meio do binário do cliente para validar que o plano de controle Linkerd foi instalado e configurado com êxito.
+O Linkerd fornece um comando por meio do `linkerd` binário do cliente para validar que o plano de controle Linkerd foi instalado e configurado com êxito.
 
 ```console
 linkerd check

@@ -11,10 +11,9 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 10/24/2019
 ms.openlocfilehash: eacc104bf7157732f91507f631bcda2cd166bfb3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77588681"
 ---
 # <a name="keep-track-of-data-during-hunting-with-azure-sentinel"></a>Manter o controle dos dados durante a busca com o Azure Sentinel
@@ -36,7 +35,7 @@ Também na visualização, você pode visualizar seus dados marcados, clicando e
 
 ## <a name="add-a-bookmark"></a>Adicionar um indicador
 
-1. No portal do Azure, navegue até **sentinela** > **Threat Management** > **busca** para executar consultas para comportamento suspeito e anormal.
+1. No portal do Azure, navegue até **sentinela**  >  **Threat Management**  >  **busca** para executar consultas para comportamento suspeito e anormal.
 
 2. Selecione uma das consultas de busca e, à direita, nos detalhes da consulta de busca, selecione **Executar consulta**. 
 
@@ -67,11 +66,11 @@ Também na visualização, você pode visualizar seus dados marcados, clicando e
 
  
 > [!NOTE]
-> Os resultados da consulta de log dão suporte a indicadores sempre que esse painel é aberto do Azure Sentinel. Por exemplo, você seleciona **General** > **logs** gerais na barra de navegação, seleciona links de eventos no grafo de investigações ou seleciona uma ID de alerta a partir dos detalhes completos de um incidente (atualmente em visualização). Não é possível criar indicadores quando o painel **logs** é aberto de outros locais, como diretamente do Azure monitor.
+> Os resultados da consulta de log dão suporte a indicadores sempre que esse painel é aberto do Azure Sentinel. Por exemplo, você seleciona **General**  >  **logs** gerais na barra de navegação, seleciona links de eventos no grafo de investigações ou seleciona uma ID de alerta a partir dos detalhes completos de um incidente (atualmente em visualização). Não é possível criar indicadores quando o painel **logs** é aberto de outros locais, como diretamente do Azure monitor.
 
 ## <a name="view-and-update-bookmarks"></a>Exibir e atualizar indicadores 
 
-1. No portal do Azure, navegue até **sentinela** > **Threat Management** > **busca**. 
+1. No portal do Azure, navegue até **sentinela**  >  **Threat Management**  >  **busca**. 
 
 2. Selecione a guia **indicadores** para exibir a lista de indicadores.
 
@@ -88,7 +87,7 @@ Também na visualização, você pode visualizar seus dados marcados, clicando e
 > Esses recursos são fornecidos sem um contrato de nível de serviço e não são recomendados para cargas de trabalho de produção.
 > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-1. Na portal do Azure, navegue até a guia **sentinela** > **Gerenciamento** > de ameaças**procurando** > **indicadores** e selecione o indicador ou indicadores que você deseja investigar.
+1. Na portal do Azure, navegue até a guia **sentinela**de  >  **Gerenciamento de ameaças**  >  **procurando**  >  **indicadores** e selecione o indicador ou indicadores que você deseja investigar.
 
 2. Nos detalhes do indicador, verifique se pelo menos uma entidade está mapeada. Por exemplo, para **entidades**, você vê entradas para **IP**, **máquina**ou **conta**.
 
@@ -103,7 +102,7 @@ Para obter instruções sobre como usar o grafo de investigação, consulte [usa
 > Esse recurso é fornecido sem um contrato de nível de serviço e não é recomendado para cargas de trabalho de produção.
 > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-1. Na portal do Azure, navegue até a guia **sentinela** > **Gerenciamento** > de ameaças**procurando** > **indicadores** e selecione o indicador ou indicadores que você deseja adicionar a um incidente.
+1. Na portal do Azure, navegue até a guia **sentinela**de  >  **Gerenciamento de ameaças**  >  **procurando**  >  **indicadores** e selecione o indicador ou indicadores que você deseja adicionar a um incidente.
 
 2. Selecione **ações de incidente (versão prévia)** na barra de comandos:
     
@@ -115,20 +114,20 @@ Para obter instruções sobre como usar o grafo de investigação, consulte [usa
     - Para um novo incidente: opcionalmente, atualize os detalhes para o incidente e, em seguida, selecione **criar**.
     - Para adicionar um indicador a um incidente existente: selecione um incidente e, em seguida, selecione **Adicionar**. 
 
-Para exibir o indicador dentro do incidente: Navegue até **sentinela** > **Threat management** > **incidentes** de gerenciamento de ameaças e selecione o incidente com seu indicador. Selecione **Exibir detalhes completos**e, em seguida, selecione a guia **indicadores** .
+Para exibir o indicador dentro do incidente: Navegue até **sentinela**  >  **Threat management**  >  **incidentes** de gerenciamento de ameaças e selecione o incidente com seu indicador. Selecione **Exibir detalhes completos**e, em seguida, selecione a guia **indicadores** .
 
 > [!TIP]
 > Como alternativa à opção de **ações de incidente (versão prévia)** na barra de comandos, você pode usar o menu de contexto (**...**) para um ou mais indicadores para selecionar opções para **criar um novo incidente**, **Adicionar a um incidente existente**e **remover do incidente**. 
 
 ## <a name="view-bookmarked-data-in-logs"></a>Exibir dados marcados em logs
 
-Para exibir consultas com indicadores, resultados ou seu histórico, selecione o indicador na guia**indicadores** de **busca** > e use os links fornecidos no painel de detalhes: 
+Para exibir consultas com indicadores, resultados ou seu histórico, selecione o indicador na guia indicadores de **busca**  >  **Bookmarks** e use os links fornecidos no painel de detalhes: 
 
 - **Exiba a consulta de origem** para exibir a consulta de origem no painel **logs** .
 
 - **Exiba os logs de indicadores** para ver todos os metadados de indicador, que incluem quem fez a atualização, os valores atualizados e a hora em que a atualização ocorreu.
 
-Você também pode exibir os dados brutos do indicador para todos os indicadores selecionando **logs de indicadores** na barra de comandos na guia**indicadores** de **busca** > :
+Você também pode exibir os dados brutos do indicador para todos os indicadores selecionando **logs de indicadores** na barra de **Hunting**comandos na  >  guia**indicadores** de busca:
 
 > [!div class="mx-imgBorder"]
 > ![Logs de indicadores](./media/bookmarks/bookmark-logs.png)
@@ -140,7 +139,7 @@ Esta exibição mostra todos os indicadores com metadados associados. Você pode
 
 ## <a name="delete-a-bookmark"></a>Excluir um indicador
  
-1.  Na portal do Azure, navegue até a guia **sentinela** > **Gerenciamento** > de ameaças**procurando** > **indicadores** e selecione o indicador ou indicadores que você deseja excluir. 
+1.  Na portal do Azure, navegue até a guia **sentinela**de  >  **Gerenciamento de ameaças**  >  **procurando**  >  **indicadores** e selecione o indicador ou indicadores que você deseja excluir. 
 
 2. Clique com o botão direito do mouse em suas seleções e selecione a opção para excluir o indicador ou indicadores. Por exemplo, **exclua o indicador** se você selecionou apenas um indicador e **exclua 2 indicadores** se tiver selecionado dois indicadores.
     
@@ -152,5 +151,5 @@ A exclusão do indicador remove o indicador da lista na guia **indicador** . A t
 Neste artigo, você aprendeu a executar uma investigação de busca usando indicadores no Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 
 
-- [Busca de ameaças de forma proativa](hunting.md)
+- [Buscar ameaças proativamente](hunting.md)
 - [Use blocos de anotações para executar campanhas de busca automatizadas](notebooks.md)

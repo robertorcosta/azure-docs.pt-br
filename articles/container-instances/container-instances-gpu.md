@@ -4,10 +4,9 @@ description: Saiba como implantar instâncias de contêiner do Azure para execut
 ms.topic: article
 ms.date: 02/19/2020
 ms.openlocfilehash: 0f1d21c62be5d7ae099faa2c6fcc440829bb451f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77525279"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Implantar instâncias de contêiner que usam recursos GPU
@@ -59,7 +58,7 @@ Ao implantar recursos de GPU, defina os recursos de CPU e memória apropriados p
 
 * **Preços** – semelhante aos grupos de contêiner sem recursos GPU, as cobranças do Azure para recursos consumidos ao longo da *duração* de um grupo de contêiner com recursos GPU. A duração é calculada desde o momento para efetuar pull de sua primeira imagem do contêiner até que o grupo de contêineres termina. Não inclui o tempo de implantação do grupo de contêiner.
 
-  Consulte os [detalhes de preços](https://azure.microsoft.com/pricing/details/container-instances/).
+  Consulte [detalhes de preço](https://azure.microsoft.com/pricing/details/container-instances/).
 
 * **Drivers CUDA** - instâncias de contêiner com os recursos GPU são previamente provisionadas com drivers NVIDIA CUDA e runtimes do contêiner, portanto, você pode usar imagens de contêiner desenvolvido para cargas de trabalho do CUDA.
 
@@ -91,7 +90,7 @@ properties:
   restartPolicy: OnFailure
 ```
 
-Implante o grupo de contêineres com o comando [AZ container Create][az-container-create] , especificando o nome do arquivo `--file` YAML para o parâmetro. Você precisa fornecer o nome de um grupo de recursos e um local para o grupo de contêineres, como *eastus* que dá suporte a recursos GPU.  
+Implante o grupo de contêineres com o comando [AZ container Create][az-container-create] , especificando o nome do arquivo YAML para o `--file` parâmetro. Você precisa fornecer o nome de um grupo de recursos e um local para o grupo de contêineres, como *eastus* que dá suporte a recursos GPU.  
 
 ```azurecli
 az container create --resource-group myResourceGroup --file gpu-deploy-aci.yaml --location eastus

@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 02/24/2020
 ms.author: juliako
 ms.openlocfilehash: dcfc6ea4afe23424e72c625518356be52f62bc81
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77602194"
 ---
 # <a name="compare-azure-media-services-v3-presets-and-video-indexer"></a>Comparar as predefinições do Azure Media Services v3 e o Video Indexer 
@@ -34,7 +33,7 @@ Atualmente, há uma sobreposição entre os recursos oferecidos pelas [APIs de v
 |Insights de mídia|[Avançado](video-indexer-output-json-v2.md) |[Conceitos básicos](../latest/intelligence-concept.md)|
 |Experiências|Consulte a lista completa de recursos com suporte: <br/> [Visão geral](video-indexer-overview.md)|Retorna somente os insights de vídeo|
 |Cobrança|[Preços dos serviços de mídia](https://azure.microsoft.com/pricing/details/media-services/#analytics)|[Preços dos serviços de mídia](https://azure.microsoft.com/pricing/details/media-services/#analytics)|
-|Conformidade|Para obter as atualizações de conformidade mais atuais, visite as [ofertas de conformidade do Azure. pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) e pesquise por "Video indexer" para ver se ele está em conformidade com um certificado de interesse.|Para obter as atualizações de conformidade mais atuais, visite [ofertas de conformidade do Azure. pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) e pesquise por "serviços de mídia" para ver se ele está em conformidade com um certificado de interesse.|
+|Conformidade|Para obter as atualizações de conformidade mais atuais, visite [Offerings.pdfde conformidade do Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) e pesquise "Video indexer" para ver se ele está em conformidade com um certificado de interesse.|Para obter as atualizações de conformidade mais atuais, visite [Offerings.pdfde conformidade do Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) e pesquise "serviços de mídia" para ver se ele está em conformidade com um certificado de interesse.|
 |Avaliação gratuita|Leste dos EUA|Não disponível|
 |Disponibilidade de região|Veja [a disponibilidade de serviços cognitivas por região](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)|Consulte [disponibilidade dos serviços de mídia por região](https://azure.microsoft.com/global-infrastructure/services/?products=media-services).|
 

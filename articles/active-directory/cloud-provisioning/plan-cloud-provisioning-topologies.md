@@ -12,10 +12,9 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 386af46bbee623d37bc914d2ee9130c914c6c885
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77620868"
 ---
 # <a name="azure-ad-connect-cloud-provisioning-supported-topologies-and-scenarios"></a>Azure AD Connect topologias e cenários com suporte de provisionamento em nuvem
@@ -50,7 +49,7 @@ Uma topologia comum é uma várias florestas do AD, com um ou vários domínios 
 Esse cenário é a topologia semelhante ao cenário de várias florestas, no entanto, isso envolve um ambiente de Azure AD Connect existente e, em seguida, colocar uma nova floresta usando o provisionamento de nuvem Azure AD Connect.  Para obter um exemplo desse cenário, consulte [tutorial: uma floresta existente com um único locatário do Azure ad](tutorial-existing-forest.md)
 
 ## <a name="piloting-azure-ad-connect-cloud-provisioning-in-an-existing-hybrid-ad-forest"></a>Piloto Azure AD Connect provisionamento de nuvem em uma floresta híbrida existente do AD
-![Topologia para uma única floresta e um único locatário](media/plan-cloud-provisioning-topologies/migrate.png) o cenário piloto envolve a existência de Azure AD Connect e Azure ad Connect provisionamento de nuvem na mesma floresta e o escopo dos usuários e grupos de acordo. Observação: um objeto deve estar no escopo em apenas uma das ferramentas. 
+![Topologia para uma única floresta e um único locatário ](media/plan-cloud-provisioning-topologies/migrate.png) o cenário piloto envolve a existência de Azure ad Connect e Azure ad Connect provisionamento de nuvem na mesma floresta e o escopo dos usuários e grupos de acordo. Observação: um objeto deve estar no escopo em apenas uma das ferramentas. 
 
 Para obter um exemplo desse cenário, consulte [tutorial: piloto Azure ad Connect provisionamento de nuvem em uma floresta do AD sincronizada existente](tutorial-pilot-aadc-aadccp.md)
 

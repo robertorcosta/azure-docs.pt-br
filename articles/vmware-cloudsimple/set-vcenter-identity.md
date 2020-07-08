@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 5355e43ca6ac075e76a76ceb51be135cf4b62b0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77564016"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Configurar fontes de identidade do vCenter para usar Active Directory
@@ -58,9 +57,9 @@ Use as informações na tabela a seguir ao configurar seu domínio de Active Dir
 | **Nome de domínio** | FQDN do domínio, por exemplo, example.com. Não forneça um endereço IP nesta caixa de texto. |
 | **Alias de domínio** | O nome NetBIOS do domínio. Adicione o nome NetBIOS do domínio Active Directory como um alias da origem de identidade se você estiver usando autenticações SSPI. |
 | **DN de base para grupos** | O nome distinto base para os grupos. |
-| **URL do servidor primário** | Servidor LDAP do controlador de domínio primário para o domínio.<br><br>Use o formato `ldap://hostname:port` ou `ldaps://hostname:port`. A porta geralmente é 389 para conexões LDAP e 636 para conexões LDAPs. Para Active Directory implantações de controlador de vários domínios, a porta geralmente é 3268 para LDAP e 3269 para LDAPs.<br><br>Um certificado que estabelece confiança para o ponto de extremidade LDAPS do servidor Active Directory é necessário quando você usa `ldaps://` o na URL LDAP primária ou secundária. |
+| **URL do servidor primário** | Servidor LDAP do controlador de domínio primário para o domínio.<br><br>Use o formato  `ldap://hostname:port`   ou  `ldaps://hostname:port` . A porta geralmente é 389 para conexões LDAP e 636 para conexões LDAPs. Para Active Directory implantações de controlador de vários domínios, a porta geralmente é 3268 para LDAP e 3269 para LDAPs.<br><br>Um certificado que estabelece confiança para o ponto de extremidade LDAPs do servidor Active Directory é necessário quando você usa  `ldaps://`   o na URL LDAP primária ou secundária. |
 | **URL do servidor secundário** | Endereço de um servidor LDAP do controlador de domínio secundário que é usado para failover. |
-| **Escolher certificado** | Se você quiser usar LDAPS com o servidor LDAP Active Directory ou a origem de identidade do servidor OpenLDAP, um botão escolher certificado será exibido `ldaps://` depois que você digitar na caixa de texto URL. Uma URL secundária não é necessária. |
+| **Escolher certificado** | Se você quiser usar LDAPs com o servidor LDAP Active Directory ou a origem de identidade do servidor OpenLDAP, um botão escolher certificado será exibido depois que você digitar  `ldaps://`   na caixa de texto URL. Uma URL secundária não é necessária. |
 | **Nome de usuário** | ID de um usuário no domínio que tem um mínimo de acesso somente leitura ao DN base para usuários e grupos. |
 | **Senha** | Senha do usuário que é especificada pelo nome de usuário. |
 
@@ -118,7 +117,7 @@ Depois que a conexão de rede for estabelecida, siga as etapas em [adicionar Act
 
     ![Logon Único](media/OnPremAD02.png)
 
-5. Abra a guia **fontes de identidade** e **+** clique para adicionar uma nova fonte de identidade.
+5. Abra a guia **fontes de identidade** e clique **+** para adicionar uma nova fonte de identidade.
 
     ![Fontes de identidade](media/OnPremAD03.png)
 
@@ -130,4 +129,4 @@ Depois que a conexão de rede for estabelecida, siga as etapas em [adicionar Act
 
     ![Active Directory](media/OnPremAD05.png)
 
-8. Examine as configurações e clique em **concluir**.
+8. Revise as configurações e clique em **Concluir**.

@@ -1,6 +1,6 @@
 ---
 title: Armazenar e Exibir Dados de Diagnóstico no Armazenamento do Azure
-description: Saiba como coletar dados de diagnóstico do Azure em uma conta de armazenamento do Azure para que você possa exibi-los com uma das várias ferramentas disponíveis.
+description: Saiba como coletar dados de diagnóstico do Azure em uma conta de armazenamento do Azure para visualizar com uma das várias ferramentas disponíveis.
 services: azure-monitor
 author: bwren
 ms.service: azure-monitor
@@ -9,10 +9,9 @@ ms.date: 08/01/2016
 ms.author: bwren
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: 17430330d068fb55b45f073afecb8ba348286cb5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77472668"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Armazenar e exibir dados de diagnóstico no Armazenamento do Azure
@@ -37,7 +36,7 @@ Dependendo do tipo de dados de diagnóstico que estejam sendo coletados, o diagn
 | Logs do IIS 7.0 |Blob |
 | Logs de infraestrutura do Diagnóstico do Azure |Tabela |
 | Logs de Rastreamento de Solicitação com Falha |Blob |
-| Logs de Eventos do Windows |Tabela |
+| Log de eventos do Windows |Tabela |
 | Contadores de desempenho |Tabela |
 | Despejos de memória |Blob |
 | Logs de erros personalizados |Blob |

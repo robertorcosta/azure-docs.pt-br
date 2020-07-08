@@ -14,10 +14,9 @@ ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4060dbe936af8ff1f9dd8c958f64834cb06525de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77615077"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>Configuração de alta disponibilidade no SUSE usando o STONITH
@@ -145,8 +144,8 @@ Clique em **cancelar**, pois o pacote halk2 já está instalado.
 
 Clique em **continuar**
 
-Valor esperado = número de nós implantados (nesse caso, ![2) YaST-cluster-Security](media/HowToHLI/HASetupWithStonith/yast-Cluster-Security.png) . **Next**
-![png clique em Avançar](media/HowToHLI/HASetupWithStonith/yast-cluster-configure-csync2.png) YaST-cluster-configure-csync2. png adicionar nomes de nó e clique em "adicionar arquivos sugeridos"
+Valor esperado = número de nós implantados (nesse caso, 2) ![yast-Cluster-Security.png](media/HowToHLI/HASetupWithStonith/yast-Cluster-Security.png) clique em **Avançar** 
+ ![yast-cluster-configure-csync2.png](media/HowToHLI/HASetupWithStonith/yast-cluster-configure-csync2.png) Adicionar nomes de nó e clique em "adicionar arquivos sugeridos"
 
 Clique em “Ligar csync2”
 
@@ -160,8 +159,8 @@ A autenticação é realizada usando os endereços IP e as chaves pré-compartil
 
 ![yast-cluster-conntrackd.png](media/HowToHLI/HASetupWithStonith/yast-cluster-conntrackd.png)
 
-Clique em **Avançar**
-![YaST-Cluster-Service. png](media/HowToHLI/HASetupWithStonith/yast-cluster-service.png)
+Clique em **Avançar** 
+ ![yast-cluster-service.png](media/HowToHLI/HASetupWithStonith/yast-cluster-service.png)
 
 Na opção padrão, a Inicialização estava desativada. Altere-a para “ativada” para que o Pacemaker seja iniciado junto com a inicialização. Você pode fazer a escolha de acordo com os requisitos de instalação.
 Clique em **Avançar** para concluir a configuração do cluster.
@@ -257,7 +256,7 @@ Execute o comando *crm_mon* para fazer com que **ambos** os nós fiquem online. 
 ```
 crm_mon
 ```
-![CRM-Mon. png](media/HowToHLI/HASetupWithStonith/crm-mon.png) você também pode fazer logon no Hawk para verificar o status do *cluster\<https://IP do nó>:7630*. O usuário padrão é hacluster e a senha é linux. Se necessário, você pode alterar a senha usando o comando *passwd*.
+![crm-mon.png](media/HowToHLI/HASetupWithStonith/crm-mon.png) Você também pode entrar no Hawk para verificar o status do cluster *https://\<node IP>:7630*. O usuário padrão é hacluster e a senha é linux. Se necessário, você pode alterar a senha usando o comando *passwd*.
 
 ## <a name="7-configure-cluster-properties-and-resources"></a>7. configurar as propriedades e os recursos do cluster 
 Esta seção descreve as etapas para configurar os recursos do cluster.
@@ -322,7 +321,7 @@ crm configure load update crm-vip.txt
 Quando você executa o comando *crm_mon*, pode ver os dois recursos.
 ![crm_mon_command.png](media/HowToHLI/HASetupWithStonith/crm_mon_command.png)
 
-Além disso, você pode ver o status *no\<endereço IP do nó https://>:7630/CIB/Live/State*
+Além disso, você pode ver o status em *https://\<node IP address>:7630/cib/live/state*
 
 ![hawlk-status-page.png](media/HowToHLI/HASetupWithStonith/hawlk-status-page.png)
 
@@ -334,11 +333,11 @@ Service pacemaker stop
 Agora, interrompa o serviço Pacemaker no **node2** e os recursos com failover para o **node1**
 
 **Antes do failover**  
-![Before-failover. png](media/HowToHLI/HASetupWithStonith/Before-failover.png)  
+![Before-failover.png](media/HowToHLI/HASetupWithStonith/Before-failover.png)  
 
 **Após o failover**  
-![After-failover. png](media/HowToHLI/HASetupWithStonith/after-failover.png)  
-![CRM-Mon-After-failover. png](media/HowToHLI/HASetupWithStonith/crm-mon-after-failover.png)  
+![after-failover.png](media/HowToHLI/HASetupWithStonith/after-failover.png)  
+![crm-mon-after-failover.png](media/HowToHLI/HASetupWithStonith/crm-mon-after-failover.png)  
 
 
 ## <a name="9-troubleshooting"></a>9. solução de problemas

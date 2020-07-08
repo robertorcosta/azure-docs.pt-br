@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 02/20/2020
 ms.author: cshoe
 ms.openlocfilehash: 53d336aff3177a76c5e02266ffb8484bd9945119
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77530257"
 ---
 # <a name="signalr-service-input-binding-for-azure-functions"></a>Associação de entrada do serviço signalr para Azure Functions
@@ -18,7 +17,7 @@ Antes que um cliente possa se conectar ao serviço do Azure SignalR, ele deve re
 
 Para obter mais informações sobre como essa associação é usada para criar uma função "Negotiate" que pode ser consumida por um SDK de cliente do Signalr, consulte o [artigo Azure Functions desenvolvimento e configuração](../azure-signalr/signalr-concept-serverless-development-config.md) na documentação conceitos do serviço signalr.
 
-Para obter informações sobre configuração e detalhes de configuração, consulte a [visão geral](functions-bindings-signalr-service.md).
+Para obter informações sobre a instalação e detalhes de configuração, confira a [visão geral](functions-bindings-signalr-service.md).
 
 ## <a name="example"></a>Exemplo
 
@@ -38,7 +37,7 @@ public static SignalRConnectionInfo Negotiate(
 
 # <a name="c-script"></a>[Script do C#](#tab/csharp-script)
 
-O exemplo a seguir mostra uma associação de entrada de informações de conexão do Signalr em um arquivo *Function. JSON* e uma [função de script C#](functions-reference-csharp.md) que usa a associação para retornar as informações de conexão.
+O exemplo a seguir mostra uma associação de entrada de informações de conexão do Signalr em um *function.jsno* arquivo e uma [função de script C#](functions-reference-csharp.md) que usa a associação para retornar as informações de conexão.
 
 Aqui estão os dados de associação no arquivo *function.json*:
 
@@ -94,7 +93,7 @@ module.exports = async function (context, req, connectionInfo) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-O exemplo a seguir mostra uma associação de entrada de informações de conexão do Signalr em um arquivo *Function. JSON* e uma [função do Python](functions-reference-python.md) que usa a associação para retornar as informações de conexão.
+O exemplo a seguir mostra uma associação de entrada de informações de conexão do Signalr em um *function.jsno* arquivo e uma [função do Python](functions-reference-python.md) que usa a associação para retornar as informações de conexão.
 
 Aqui estão os dados de associação no arquivo *function.json*:
 
@@ -151,7 +150,7 @@ Autenticação do Serviço de Aplicativo define os cabeçalhos HTTP denominados 
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Você pode definir a `UserId` propriedade da associação com o valor de um dos cabeçalhos usando uma [expressão](./functions-bindings-expressions-patterns.md)de associação `{headers.x-ms-client-principal-id}` : `{headers.x-ms-client-principal-name}`ou.
+Você pode definir a `UserId` propriedade da associação com o valor de um dos cabeçalhos usando uma [expressão de associação](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` ou `{headers.x-ms-client-principal-name}` .
 
 ```cs
 [FunctionName("negotiate")]
@@ -168,7 +167,7 @@ public static SignalRConnectionInfo Negotiate(
 
 # <a name="c-script"></a>[Script do C#](#tab/csharp-script)
 
-Você pode definir a `userId` propriedade da associação com o valor de um dos cabeçalhos usando uma [expressão](./functions-bindings-expressions-patterns.md)de associação `{headers.x-ms-client-principal-id}` : `{headers.x-ms-client-principal-name}`ou.
+Você pode definir a `userId` propriedade da associação com o valor de um dos cabeçalhos usando uma [expressão de associação](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` ou `{headers.x-ms-client-principal-name}` .
 
 function.json de exemplo:
 
@@ -199,7 +198,7 @@ public static SignalRConnectionInfo Run(HttpRequest req, SignalRConnectionInfo c
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Você pode definir a `userId` propriedade da associação com o valor de um dos cabeçalhos usando uma [expressão](./functions-bindings-expressions-patterns.md)de associação `{headers.x-ms-client-principal-id}` : `{headers.x-ms-client-principal-name}`ou.
+Você pode definir a `userId` propriedade da associação com o valor de um dos cabeçalhos usando uma [expressão de associação](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` ou `{headers.x-ms-client-principal-name}` .
 
 function.json de exemplo:
 
@@ -226,7 +225,7 @@ module.exports = async function (context, req, connectionInfo) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Você pode definir a `userId` propriedade da associação com o valor de um dos cabeçalhos usando uma [expressão](./functions-bindings-expressions-patterns.md)de associação `{headers.x-ms-client-principal-id}` : `{headers.x-ms-client-principal-name}`ou.
+Você pode definir a `userId` propriedade da associação com o valor de um dos cabeçalhos usando uma [expressão de associação](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` ou `{headers.x-ms-client-principal-name}` .
 
 function.json de exemplo:
 
@@ -258,7 +257,7 @@ def main(req: func.HttpRequest, connectionInfoJson: str) -> func.HttpResponse:
 
 # <a name="java"></a>[Java](#tab/java)
 
-Você pode definir a `userId` propriedade da associação com o valor de um dos cabeçalhos usando uma [expressão](./functions-bindings-expressions-patterns.md)de associação `{headers.x-ms-client-principal-id}` : `{headers.x-ms-client-principal-name}`ou.
+Você pode definir a `userId` propriedade da associação com o valor de um dos cabeçalhos usando uma [expressão de associação](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` ou `{headers.x-ms-client-principal-name}` .
 
 ```java
 @FunctionName("negotiate")

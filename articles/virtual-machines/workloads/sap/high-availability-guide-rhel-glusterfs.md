@@ -15,10 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: radeltch
 ms.openlocfilehash: 388a2db2c888be541d89c5f4274bd38b37e4ca28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77591907"
 ---
 # <a name="glusterfs-on-azure-vms-on-red-hat-enterprise-linux-for-sap-netweaver"></a>GlusterFS em VMs do Azure no Red Hat Enterprise Linux para SAP NetWeaver
@@ -62,7 +61,7 @@ Primeiro, leia os seguintes documentos e Notas SAP
 * A Nota SAP [1999351] tem informações de solução de problemas adicionais para a Extensão de Monitoramento Avançado do Azure para SAP.
 * [WIKI da comunidade do SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) tem todas as Notas SAP necessárias para Linux.
 * [Planejamento e implementação de Máquinas Virtuais do Azure para SAP no Linux][planning-guide]
-* [Implantação de máquinas virtuais do Azure para SAP no Linux (este artigo)][deployment-guide]
+* [Implantação de Máquinas Virtuais do Azure para SAP no Linux (este artigo)][deployment-guide]
 * [Implantação de Máquinas Virtuais do Azure do DBMS para SAP no Linux][dbms-guide]
 * [Documentação do produto do Red Hat Gluster Storage](https://access.redhat.com/documentation/red_hat_gluster_storage/)
 * Documentação geral do RHEL
@@ -98,11 +97,11 @@ Você pode usar um dos modelos de início rápido no github para implantar todos
    4. Chave de Admin Username, a senha de administrador ou SSH  
       É criado um novo usuário que pode ser usado para fazer logon no computador.
    5. ID da Sub-rede  
-      Se você deseja implantar a VM em uma rede virtual existente em que você tem uma sub-rede definida para a qual a VM deve ser designada, nomeie a identificação dessa sub-rede específica. A ID geralmente se parece com**&lt;a ID&gt;da assinatura**/subscriptions//resourceGroups/**&lt;nome&gt;do grupo de recursos**,/Providers/Microsoft.Network/virtualNetworks/**&lt;&gt; ** **&lt;nome da rede&gt;virtual**/Subnets/nome da sub-rede
+      Se você deseja implantar a VM em uma rede virtual existente em que você tem uma sub-rede definida para a qual a VM deve ser designada, nomeie a identificação dessa sub-rede específica. A ID geralmente se parece com a** &lt; ID &gt; da assinatura**/subscriptions//resourceGroups/** &lt; &gt; **** &lt; &gt; **nome do grupo de recursos,/Providers/Microsoft.Network/virtualNetworks/nome da rede virtual/Subnets/** &lt; nome &gt; da sub-rede**
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Implantar o Linux manualmente por meio do portal do Azure
 
-Você primeiro precisa criar as máquinas virtuais para este cluster. Posteriormente, você pode cria um balanceador de carga e usar as máquinas virtuais nos pools de back-end. Recomendamos o [balanceador de carga padrão](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).  
+Você primeiro precisa criar as máquinas virtuais para este cluster. Posteriormente, você pode cria um balanceador de carga e usar as máquinas virtuais nos pools de back-end. Recomenda-se o [Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).  
 
 1. Criar um grupo de recursos
 1. Criar uma rede virtual
@@ -136,7 +135,7 @@ Os seguintes itens são prefixados com **[A]** - aplicável a todos os nós, **[
    <b>10.0.0.42 glust-2</b>
    </code></pre>
 
-1. **[A] ** Registrar
+1. **[A]**  Registrar
 
    Registre suas máquinas virtuais e anexe-as a um pool que contenha repositórios para RHEL 7 e GlusterFS
 

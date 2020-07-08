@@ -7,17 +7,16 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: atulmal
 ms.openlocfilehash: 5ee8ee4d2c9e225d82e58daffeef9e5f09e43e6b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77595358"
 ---
 # <a name="github-actions-for-deploying-to-kubernetes-service"></a>Ações do GitHub para implantação no serviço kubernetes
 
-As [ações do GitHub](https://help.github.com/en/articles/about-github-actions) oferecem a flexibilidade para criar um fluxo de trabalho de desenvolvimento automatizado do software. A ação [azure/aks-set-context@v1](https://github.com/Azure/aks-set-context) kubernetes facilita implantações em clusters do serviço kubernetes do Azure. A ação define o contexto de cluster AKS de destino, que pode ser usado por outras ações, como [Azure/K8S-Deploy](https://github.com/Azure/k8s-deploy/tree/master), [Azure/K8S-Create-Secret,](https://github.com/Azure/k8s-create-secret/tree/master) etc. ou executar qualquer comando kubectl.
+O [GitHub Actions](https://help.github.com/en/articles/about-github-actions) oferece a flexibilidade para criar um fluxo de trabalho do ciclo de vida de desenvolvimento de software automatizado. A ação kubernetes [azure/aks-set-context@v1](https://github.com/Azure/aks-set-context) facilita implantações em clusters do serviço kubernetes do Azure. A ação define o contexto de cluster AKS de destino, que pode ser usado por outras ações, como [Azure/K8S-Deploy](https://github.com/Azure/k8s-deploy/tree/master), [Azure/K8S-Create-Secret,](https://github.com/Azure/k8s-create-secret/tree/master) etc. ou executar qualquer comando kubectl.
 
-Um fluxo de trabalho é definido por um arquivo YAML (. yml) `/.github/workflows/` no caminho em seu repositório. Essa definição contém as várias etapas e parâmetros que compõem o fluxo de trabalho.
+Um fluxo de trabalho é definido por um arquivo YAML (.yml) no caminho `/.github/workflows/` no repositório. Essa definição contém as várias etapas e os parâmetros que compõem o fluxo de trabalho.
 
 Para um fluxo de trabalho direcionado a AKS, o arquivo tem três seções:
 
@@ -31,7 +30,7 @@ Para um fluxo de trabalho direcionado a AKS, o arquivo tem três seções:
 
 ## <a name="create-a-service-principal"></a>Criar uma entidade de serviço
 
-Você pode criar uma [entidade de serviço](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) usando o comando [AZ ad SP Create-for-RBAC](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) na [CLI do Azure](https://docs.microsoft.com/cli/azure/). Você pode executar esse comando usando [Azure cloud Shell](https://shell.azure.com/) na portal do Azure ou selecionando o botão **experimentar** .
+Crie uma [entidade de serviço](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) usando o comando [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) na [CLI do Azure](https://docs.microsoft.com/cli/azure/). Execute esse comando com o [Azure Cloud Shell](https://shell.azure.com/) no portal do Azure ou selecionando o botão **Experimentar**.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP> --sdk-auth
@@ -48,7 +47,7 @@ No comando acima, substitua os espaços reservados por sua ID de assinatura e gr
     (...)
   }
 ```
-Copie esse objeto JSON, que você pode usar para autenticar do GitHub.
+Copie esse objeto JSON, que você pode usar para se autenticar por meio do GitHub.
 
 ## <a name="configure-the-github-secrets"></a>Configurar os segredos do GitHub
 
@@ -71,7 +70,7 @@ Siga as etapas para configurar os segredos:
 
 ##  <a name="build-a-container-image-and-deploy-to-azure-kubernetes-service-cluster"></a>Criar uma imagem de contêiner e implantar no cluster do serviço kubernetes do Azure
 
-A compilação e o push das imagens de contêiner são feitas `Azure/docker-login@v1` usando a ação. Para implantar uma imagem de contêiner no AKS, você precisará usar a `Azure/k8s-deploy@v1` ação. Esta ação tem cinco parâmetros:
+A compilação e o push das imagens de contêiner são feitas usando a `Azure/docker-login@v1` ação. Para implantar uma imagem de contêiner no AKS, você precisará usar a `Azure/k8s-deploy@v1` ação. Esta ação tem cinco parâmetros:
 
 | **Parâmetro**  | **Explicação**  |
 |---------|---------|

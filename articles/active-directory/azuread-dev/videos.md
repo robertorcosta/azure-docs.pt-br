@@ -14,17 +14,16 @@ ms.custom: aaddev
 ms.reviewer: celested
 titleSuffix: Microsoft identity platform
 ms.openlocfilehash: e71f555f7a9cefef3aeada79031db3a07e3db49a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77202054"
 ---
 # <a name="azure-active-directory-developer-platform-videos"></a>Vídeos Azure Active Directory plataforma de desenvolvedor
 
 Saiba mais sobre a nova plataforma de identidade da Microsoft e como migrar para ela da plataforma de desenvolvedor do Azure Active Directory (Azure AD). Os vídeos geralmente são de 1-2 minutos de duração.
 
-## <a name="migrate-from-v10-to-v20"></a>Migrar de v 1.0 para v 2.0
+## <a name="migrate-from-v10-to-v20"></a>Migração de v1.0 para v2.0
 
 **Saiba mais sobre como migrar para a versão mais recente da plataforma de identidade da Microsoft**
 
@@ -36,7 +35,7 @@ Saiba mais sobre a nova plataforma de identidade da Microsoft e como migrar para
         > [!VIDEO https://www.youtube.com/embed/bNlcFuIo3r8]
     :::column-end:::
     :::column:::
-        Introdução às bibliotecas de MSAL
+        Introdução às bibliotecas MSAL
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/apbbx2n4tnU]
@@ -44,13 +43,13 @@ Saiba mais sobre a nova plataforma de identidade da Microsoft e como migrar para
 :::row-end:::
 :::row:::
     :::column:::
-        Pontos de extremidade e os benefícios de mudar para o v 2.0
+        Pontos de extremidade e os benefícios de migrar para a v2.0
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/qpdC45tZYDg]
     :::column-end:::
      :::column:::
-        Migrando sua base de código do ADAL para MSAL
+        Migração do código de ADAL para MSAL
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/xgL_z9yCnrE]
@@ -58,13 +57,13 @@ Saiba mais sobre a nova plataforma de identidade da Microsoft e como migrar para
 :::row-end:::
 :::row:::
     :::column:::
-        Por que migrar do ADAL para o MSAL
+        Por que migrar de ADAL para MSAL
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/qpdC45tZYDg]
     :::column-end:::
     :::column:::
-        Vantagens do MSAL sobre a ADAL
+        Vantagens da MSAL sobre a ADAL
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/q-TDszj2O-4]

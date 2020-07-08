@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 02/02/2018
 ms.author: tagore
 ms.openlocfilehash: 3b4028a09f69acd5d7a6579b4610785ed32e227d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77469520"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Coletar contadores de desempenho para o Serviço de Nuvem do Azure
@@ -119,7 +118,7 @@ Para obter mais informações, consulte [Contadores de desempenho do sistema em 
 
 A extensão do Diagnóstico do Azure para os Serviços de Nuvem permite que você especifique quais contadores de desempenho deseja coletar. Para configurar o Diagnóstico do Azure, consulte [Visão geral do monitoramento do serviço de nuvem](cloud-services-how-to-monitor.md#setup-diagnostics-extension).
 
-Os contadores de desempenho que deseja coletar estão definidos no arquivo **diagnostics.wadcfgx**. Abra este arquivo (definido por função) no Visual Studio e localize o elemento **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg** > **DiagnosticMonitorConfiguration** > **PerformanceCounters** . Adicione um novo elemento **PerformanceCounterConfiguration** como um elemento filho. Esse elemento possui dois atributos: `counterSpecifier` e `sampleRate`. O atributo `counterSpecifier` define qual conjunto de contador de desempenho do sistema (descrito na seção anterior) coletar. O valor `sampleRate` indica a frequência de sondagem desse valor. Como um todo, todos os contadores de desempenho são transferidos para o Azure de acordo com o valor do atributo do `PerformanceCounters` elemento`scheduledTransferPeriod` pai.
+Os contadores de desempenho que deseja coletar estão definidos no arquivo **diagnostics.wadcfgx**. Abra este arquivo (definido por função) no Visual Studio e localize o elemento **DiagnosticsConfiguration**  >  **PublicConfig**  >  **WadCfg**  >  **DiagnosticMonitorConfiguration**  >  **PerformanceCounters** . Adicione um novo elemento **PerformanceCounterConfiguration** como um elemento filho. Esse elemento possui dois atributos: `counterSpecifier` e `sampleRate`. O atributo `counterSpecifier` define qual conjunto de contador de desempenho do sistema (descrito na seção anterior) coletar. O valor `sampleRate` indica a frequência de sondagem desse valor. Como um todo, todos os contadores de desempenho são transferidos para o Azure de acordo com o valor do atributo do `PerformanceCounters` elemento`scheduledTransferPeriod` pai.
 
 Para obter mais informações sobre o elemento de esquema `PerformanceCounters`, consulte o [Esquema do Diagnóstico do Azure](../azure-monitor/platform/diagnostics-extension-schema-windows.md#performancecounters-element).
 
@@ -259,7 +258,7 @@ Conforme indicado anteriormente, os contadores de desempenho para o Application 
 
 ### <a name="azure-diagnostics"></a>Diagnóstico do Azure
 
-Como indicado anteriormente, os contadores de desempenho que você deseja coletar estão definidos no arquivo **diagnostics.wadcfgx**. Abra este arquivo (definido por função) no Visual Studio e localize o elemento **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg** > **DiagnosticMonitorConfiguration** > **PerformanceCounters** . Adicione um novo elemento **PerformanceCounterConfiguration** como um elemento filho. Defina o atributo `counterSpecifier` para a categoria e o nome do contador de desempenho que você criou em seu código. 
+Como indicado anteriormente, os contadores de desempenho que você deseja coletar estão definidos no arquivo **diagnostics.wadcfgx**. Abra este arquivo (definido por função) no Visual Studio e localize o elemento **DiagnosticsConfiguration**  >  **PublicConfig**  >  **WadCfg**  >  **DiagnosticMonitorConfiguration**  >  **PerformanceCounters** . Adicione um novo elemento **PerformanceCounterConfiguration** como um elemento filho. Defina o atributo `counterSpecifier` para a categoria e o nome do contador de desempenho que você criou em seu código. 
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -288,7 +287,7 @@ Como indicado anteriormente, os contadores de desempenho que você deseja coleta
 
 ## <a name="more-information"></a>Mais informações
 
-- [Application Insights para Serviços de Nuvem do Azure](../azure-monitor/app/cloudservices.md#performance-counters)
+- [Application Insights para serviços de nuvem do Azure](../azure-monitor/app/cloudservices.md#performance-counters)
 - [Contadores de desempenho do sistema no Application Insights](../azure-monitor/app/performance-counters.md)
 - [Especificar um Caminho do Contador](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85))
 - [Esquema do Diagnóstico do Azure - Contadores de Desempenho](../azure-monitor/platform/diagnostics-extension-schema-windows.md#performancecounters-element)

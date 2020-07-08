@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
 ms.openlocfilehash: c218b5dc8ca3bfa0358a9b6a0d4867696762a8d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77430934"
 ---
 # <a name="configure-a-security-policy-in-azure-policy-using-the-rest-api"></a>Configurar uma política de segurança no Azure Policy usando a API REST
@@ -128,7 +127,7 @@ Este exemplo mostra como remover uma atribuição:
 |Grupos de segurança de rede |monitora o acesso permissivo à rede na Central de Segurança do Azure |networkSecurityGroupsMonitoringEffect| 
 |Configurações de segurança |monitora a vulnerabilidades do sistema operacional na Central de Segurança do Azure |systemConfigurationsMonitoringEffect| 
 |Endpoint Protection |monitora o Endpoint Protection ausente na Central de Segurança do Azure |endpointProtectionMonitoringEffect |
-|Criptografia do disco |monitora discos não criptografados da VM na Central de Segurança do Azure |diskEncryptionMonitoringEffect|
+|Criptografia de disco |monitora discos não criptografados da VM na Central de Segurança do Azure |diskEncryptionMonitoringEffect|
 |Avaliação de vulnerabilidade |monitora vulnerabilidades de máquinas virtuais na Central de Segurança do Azure |vulnerabilityAssessmentMonitoringEffect|
 |Firewall do aplicativo Web |monitora o aplicativo Web desprotegido na Central de Segurança do Azure |webApplicationFirewallMonitoringEffect |
 |Firewall da próxima geração |monitora pontos de extremidade de rede desprotegidos na Central de Segurança do Azure| |
@@ -136,7 +135,7 @@ Este exemplo mostra como remover uma atribuição:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter outros materiais relacionados, consulte os seguintes artigos: 
+Para obter outros materiais relacionados, confira os seguintes artigos: 
 
 - [Políticas de segurança personalizadas](custom-security-policies.md)
 - [Visão geral da política de segurança](tutorial-security-policy.md)

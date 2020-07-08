@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
 ms.openlocfilehash: 583511194fb100add1d5fc4ea9c06a869cf652b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77212276"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Configurar a recuperação de desastre para máquinas virtuais do Azure usando o Azure PowerShell
@@ -38,10 +37,10 @@ Você aprenderá como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de iniciar:
+Antes de começar:
 - Verifique se você entende os [componentes e a arquitetura do cenário](azure-to-azure-architecture.md).
 - Examine os [requisitos de suporte](azure-to-azure-support-matrix.md) para todos os componentes.
-- Você tem o módulo `Az` Azure PowerShell. Se precisar instalar ou atualizar o Azure PowerShell, siga este [Guia para instalar e configurar o Azure PowerShell](/powershell/azure/install-az-ps).
+- Você tem o `Az` módulo Azure PowerShell. Se precisar instalar ou atualizar o Azure PowerShell, siga este [Guia para instalar e configurar o Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="sign-in-to-your-microsoft-azure-subscription"></a>Entrar em sua assinatura do Microsoft Azure
 
@@ -51,7 +50,7 @@ Entre em sua assinatura do Azure com o `Connect-AzAccount` cmdlet.
 Connect-AzAccount
 ```
 
-Selecione sua assinatura do Azure. Use o `Get-AzSubscription` cmdlet para obter a lista de assinaturas do Azure às quais você tem acesso. Selecione a assinatura do Azure com a qual trabalhar `Set-AzContext` usando o cmdlet.
+Selecione sua assinatura do Azure. Use o `Get-AzSubscription` cmdlet para obter a lista de assinaturas do Azure às quais você tem acesso. Selecione a assinatura do Azure com a qual trabalhar usando o `Set-AzContext` cmdlet.
 
 ```azurepowershell
 Set-AzContext -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -59,7 +58,7 @@ Set-AzContext -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 
 ## <a name="get-details-of-the-virtual-machine-to-be-replicated"></a>Obter detalhes da máquina virtual a ser replicada
 
-Neste artigo, uma máquina virtual na região leste dos EUA é replicada e recuperada na região oeste dos EUA 2. A máquina virtual que está sendo replicada tem um disco do sistema operacional e um único disco de dados. O nome da máquina virtual usada no exemplo é `AzureDemoVM`.
+Neste artigo, uma máquina virtual na região leste dos EUA é replicada e recuperada na região oeste dos EUA 2. A máquina virtual que está sendo replicada tem um disco do sistema operacional e um único disco de dados. O nome da máquina virtual usada no exemplo é `AzureDemoVM` .
 
 ```azurepowershell
 # Get details of the virtual machine
@@ -115,7 +114,7 @@ Tags              :
 ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/a2ademorecoveryrg
 ```
 
-Criar um cofre dos Serviços de Recuperação. Neste exemplo, um cofre dos serviços de recuperação `a2aDemoRecoveryVault` chamado é criado na região oeste dos EUA 2.
+Criar um cofre dos Serviços de Recuperação. Neste exemplo, um cofre dos serviços de recuperação chamado `a2aDemoRecoveryVault` é criado na região oeste dos EUA 2.
 
 ```azurepowershell
 #Create a new Recovery services vault in the recovery region
@@ -170,7 +169,7 @@ O objeto de malha no cofre representa uma região do Azure. O objeto de malha pr
 - Apenas um objeto de malha pode ser criado por região.
 - Se você já habilitou a replicação do Site Recovery para uma VM no portal do Azure, o Site Recovery criará um objeto de malha automaticamente. Se um objeto de malha existir para uma região, você não poderá criar um novo.
 
-Antes de começar, entenda que Site Recovery operações são executadas de forma assíncrona. Quando você inicia uma operação, um trabalho do Azure Site Recovery é enviado e um objeto de acompanhamento do trabalho é retornado. Use o objeto de acompanhamento de trabalho para obter o status mais recente do`Get-AzRecoveryServicesAsrJob`trabalho () e para monitorar o status da operação.
+Antes de começar, entenda que Site Recovery operações são executadas de forma assíncrona. Quando você inicia uma operação, um trabalho do Azure Site Recovery é enviado e um objeto de acompanhamento do trabalho é retornado. Use o objeto de acompanhamento de trabalho para obter o status mais recente do trabalho ( `Get-AzRecoveryServicesAsrJob` ) e para monitorar o status da operação.
 
 ```azurepowershell
 #Create Primary ASR fabric
@@ -603,7 +602,7 @@ Errors           : {}
 
 ## <a name="reprotect-and-fail-back-to-the-source-region"></a>Proteger novamente e failback para a região de origem
 
-Após um failover, quando você estiver pronto para voltar para a região original, inicie a replicação inversa para o item de replicação protegida usando `Update-AzRecoveryServicesAsrProtectionDirection` o cmdlet.
+Após um failover, quando você estiver pronto para voltar para a região original, inicie a replicação inversa para o item de replicação protegida usando o `Update-AzRecoveryServicesAsrProtectionDirection` cmdlet.
 
 ```azurepowershell
 #Create Cache storage account for replication logs in the primary region
@@ -620,7 +619,7 @@ Após a conclusão da nova proteção, você pode realizar o failover na direç�
 
 ## <a name="disable-replication"></a>Desabilitar a replicação
 
-Você pode desabilitar a replicação com `Remove-AzRecoveryServicesAsrReplicationProtectedItem` o cmdlet.
+Você pode desabilitar a replicação com o `Remove-AzRecoveryServicesAsrReplicationProtectedItem` cmdlet.
 
 ```azurepowershell
 Remove-AzRecoveryServicesAsrReplicationProtectedItem -ReplicationProtectedItem $ReplicatedItem

@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/17/2020
 ms.openlocfilehash: 3f8ff3cbc24f6e3a7e0eccf1b18e01941c9584b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77471173"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analise logs do Apache Kafka no HDInsight
@@ -23,7 +22,7 @@ Saiba como usar os logs de Azure Monitor para analisar os logs gerados pelo Apac
 
 ## <a name="logs-location"></a>Local dos logs
 
-Os logs de Apache Kafka no cluster estão localizados `/var/log/kafka`em. Os logs do Kafka não são salvos ou persistidos entre os ciclos de vida do cluster, independentemente de os discos gerenciados serem usados. A tabela a seguir mostra os logs disponíveis.
+Os logs de Apache Kafka no cluster estão localizados em `/var/log/kafka` . Os logs do Kafka não são salvos ou persistidos entre os ciclos de vida do cluster, independentemente de os discos gerenciados serem usados. A tabela a seguir mostra os logs disponíveis.
 
 |Log |Descrição |
 |---|---|
@@ -52,7 +51,7 @@ As etapas para habilitar os logs de Azure Monitor para o HDInsight são as mesma
 
 2. No menu à esquerda, em **geral**, selecione **logs**. A partir desse ponto, é possível pesquisar os dados coletados do Kafka. Insira uma consulta na janela de consulta e, em seguida, selecione **executar**. Veja a seguir alguns exemplos de pesquisas:
 
-* Uso do disco: 
+* Uso do disco:
 
     ```kusto
     Perf
@@ -68,7 +67,7 @@ As etapas para habilitar os logs de Azure Monitor para o HDInsight são as mesma
     | summarize AggregatedValue = avg(CounterValue) by Computer, bin(TimeGenerated, 1h)
     ```
 
-* Mensagens de entrada por segundo: ( `your_kafka_cluster_name` substitua pelo nome do cluster.)
+* Mensagens de entrada por segundo: (substitua `your_kafka_cluster_name` pelo nome do cluster.)
 
     ```kusto
     metrics_kafka_CL 
@@ -76,7 +75,7 @@ As etapas para habilitar os logs de Azure Monitor para o HDInsight são as mesma
     | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_MessagesInPerSec_Count_value_d) by HostName_s, bin(TimeGenerated, 1h)
     ```
 
-* Bytes de entrada por segundo: ( `wn0-kafka` substitua por um nome de host do nó de trabalho.)
+* Bytes de entrada por segundo: (substitua `wn0-kafka` por um nome de host do nó de trabalho.)
 
     ```kusto
     metrics_kafka_CL 

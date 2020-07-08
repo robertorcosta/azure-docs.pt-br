@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 752529454a5b6293d9cbfdf8378b46947aed5a0e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77564637"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integrar o Azure Time Series Insights com o Monitoramento Remoto
@@ -51,18 +50,18 @@ Em seguida, implante os Insights do Time Series como um recurso adicional em sua
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
 
-1. Selecione **criar um recurso** > **Internet das coisas** > **Time Series insights**.
+1. Selecione **criar um recurso**  >  **Internet das coisas**  >  **Time Series insights**.
 
     ![Novo Time Series Insights](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/new-time-series-insights.png)
 
 1. Para criar seu ambiente do Time Series Insights, use os valores da tabela a seguir:
 
-    | Configuração | Valor |
+    | Setting | Valor |
     | ------- | ----- |
     | Nome do ambiente | A captura de tela a seguir usa o nome **contorosrmtsi**. Ao concluir esta etapa, escolha seu próprio nome exclusivo. |
-    | Assinatura | Na lista suspensa, selecione sua assinatura do Azure. |
+    | Subscription | Na lista suspensa, selecione sua assinatura do Azure. |
     | Resource group | **Use existente**. Selecione o nome do seu grupo de recursos existente de Monitoramento Remoto. |
-    | Local | Estamos usando **Leste dos EUA**. Crie seu ambiente na mesma região da sua solução de monitoramento remoto, se possível. |
+    | Location | Estamos usando **Leste dos EUA**. Crie seu ambiente na mesma região da sua solução de monitoramento remoto, se possível. |
     | Sku |**S1** |
     | Capacity | **1** |
 
@@ -86,10 +85,10 @@ Crie uma nova fonte de evento para se conectar ao hub IoT. Use o grupo de consum
 
 1. Para configurar seu hub IoT como uma nova origem do evento, use os valores da tabela a seguir:
 
-    | Configuração | Valor |
+    | Setting | Valor |
     | ------- | ----- |
     | Nome da origem do evento | A captura de tela a seguir usa o nome **contosorm-iot-hub**. Ao concluir esta etapa, use seu próprio nome exclusivo. |
-    | Fonte | **Hub IoT** |
+    | Origem | **Hub IoT** |
     | Importar opção | **Usar o Hub IoT nas assinaturas disponíveis** |
     | ID da assinatura | Na lista suspensa, selecione sua assinatura do Azure. |
     | Nome do Hub IoT | **contosorma57a6**. Use o nome do seu hub IoT na solução de Monitoramento Remoto. |
@@ -213,7 +212,7 @@ Configure o ambiente da implementação de `basic` para os microsserviços atual
 
 1. Pesquise e clique no seu aplicativo **ContosoRM**.
 
-1. Navegue até **configurações** > **chaves** e, em seguida, crie uma nova chave para seu aplicativo. Certifique-se de copiar o valor-chave para um local seguro.
+1. Navegue até **configurações**  >  **chaves** e, em seguida, crie uma nova chave para seu aplicativo. Certifique-se de copiar o valor-chave para um local seguro.
 
 1. Faça pull do [arquivo YAML do Docker Compose mais recente](https://github.com/Azure/pcs-cli/tree/5a9b4e0dbe313172eff19236e54a4d461d4f3e51/solutions/remotemonitoring/single-vm) do repositório GitHub usando a marca mais recente. 
 

@@ -7,10 +7,9 @@ ms.date: 12/03/2018
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: 9f18eef607a5f655aecc0b6ebe1c85a239b34192
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77482965"
 ---
 # <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>Sincronizar o conteúdo de uma pasta de nuvem para o Serviço de Aplicativo do Azure
@@ -22,7 +21,7 @@ A implantação de sincronização de conteúdo sob demanda é ativada pelo [mec
 
 Para habilitar a sincronização de conteúdo, navegue até a página do aplicativo do Serviço de Aplicativo no [portal do Azure](https://portal.azure.com).
 
-No menu à esquerda, clique **em Central** > de implantação**onedrive** ou **Dropbox** > **autorizar**. Siga as solicitações de autorização. 
+No menu à esquerda, clique em **central de implantação**  >  **onedrive** ou **Dropbox**  >  **autorizar**. Siga as solicitações de autorização. 
 
 ![](media/app-service-deploy-content-sync/choose-source.png)
 
@@ -54,7 +53,7 @@ Se você quiser sincronizar o conteúdo em sua pasta de nuvem com o Serviço de 
 
 Para desabilitar a sincronização de conteúdo, navegue até sua página do aplicativo de Serviço de Aplicativo no [portal do Azure](https://portal.azure.com).
 
-No menu à esquerda, clique em**Desconectar**da **central** > de implantação.
+No menu à esquerda, clique **Deployment Center**em  >  **Desconectar**da central de implantação.
 
 ![](media/app-service-deploy-content-sync/disable.png)
 

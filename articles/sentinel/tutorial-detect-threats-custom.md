@@ -15,15 +15,14 @@ ms.workload: na
 ms.date: 02/20/2020
 ms.author: yelevin
 ms.openlocfilehash: cea7429ecea105355b0afe306bfa334e55d5d9c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77585100"
 ---
 # <a name="tutorial-create-custom-analytic-rules-to-detect-suspicious-threats"></a>Tutorial: criar regras analíticas personalizadas para detectar ameaças suspeitas
 
-Depois de [conectar suas fontes](quickstart-onboard.md) de dados ao Azure Sentinel, você pode criar regras personalizadas que podem Pesquisar critérios específicos em seu ambiente e gerar incidentes quando os critérios forem correspondidos para que você possa investigar-los. Este tutorial ajuda você a criar regras personalizadas para detectar ameaças com o Azure Sentinel.
+Depois de [conectar suas fontes de dados](quickstart-onboard.md)   ao Azure Sentinel, você pode criar regras personalizadas que podem Pesquisar critérios específicos em seu ambiente e gerar incidentes quando os critérios forem correspondidos para que você possa investigar-los. Este tutorial ajuda você a criar regras personalizadas para detectar ameaças com o Azure Sentinel.
 
 Este tutorial ajuda você a detectar ameaças com o Azure Sentinel.
 > [!div class="checklist"]
@@ -59,7 +58,7 @@ Você pode criar regras analíticas personalizadas para ajudá-lo a Pesquisar os
      \| make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller`
 
       > [!NOTE]
-      > O comprimento da consulta deve ter entre 1 e 10.000 caracteres e não pode conter \*"Search" ou \*"Union".
+      > O comprimento da consulta deve ter entre 1 e 10.000 caracteres e não pode conter "Search \* " ou "Union \* ".
 
     1. Use a seção **mapear entidades** para vincular os parâmetros dos resultados da consulta às entidades reconhecidas do Sentinela do Azure. Essas entidades formam a base para análise adicional, incluindo o agrupamento de alertas em incidentes na guia **configurações de incidentes** .
     1. Na seção **agendamento de consulta** , defina os seguintes parâmetros:

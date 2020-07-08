@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 674ca8bea110d60557d1e50e7b68c9c3f7a92bf2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77564577"
 ---
 # <a name="use-azure-ad-as-an-identity-provider-for-vcenter-on-cloudsimple-private-cloud"></a>Usar o Azure AD como um provedor de identidade para o vCenter na nuvem privada do CloudSimple
@@ -86,13 +85,13 @@ Opcionalmente, você pode configurar outros recursos do Azure AD.  Eles não sã
     | **Opção** | **Descrição** |
     |------------|-----------------|
     | **Nome** | Nome da origem da identidade. |
-    | **DN de base para usuários** | Nome distinto base para os usuários.  Para o Azure AD, use `OU=AADDC Users,DC=<domain>,DC=<domain suffix>` : exemplo `OU=AADDC Users,DC=cloudsimplecustomer,DC=com`:.|
+    | **DN de base para usuários** | Nome distinto base para os usuários.  Para o Azure AD, use: `OU=AADDC Users,DC=<domain>,DC=<domain suffix>` exemplo: `OU=AADDC Users,DC=cloudsimplecustomer,DC=com` .|
     | **Nome de domínio** | FQDN do domínio, por exemplo, example.com. Não forneça um endereço IP nesta caixa de texto. |
     | **Alias de domínio** | *(opcional)* O nome NetBIOS do domínio. Adicione o nome NetBIOS do domínio Active Directory como um alias da origem de identidade se você estiver usando autenticações SSPI. |
-    | **DN de base para grupos** | O nome distinto base para os grupos. Para o Azure AD, use `OU=AADDC Users,DC=<domain>,DC=<domain suffix>` : exemplo:`OU=AADDC Users,DC=cloudsimplecustomer,DC=com`|
-    | **URL do servidor primário** | Servidor LDAP do controlador de domínio primário para o domínio.<br><br>Use o formato `ldaps://hostname:port`. A porta geralmente é 636 para conexões LDAPs. <br><br>Um certificado que estabelece confiança para o ponto de extremidade LDAPS do servidor Active Directory é necessário quando você usa `ldaps://` o na URL LDAP primária ou secundária. |
+    | **DN de base para grupos** | O nome distinto base para os grupos. Para o Azure AD, use: `OU=AADDC Users,DC=<domain>,DC=<domain suffix>` exemplo:`OU=AADDC Users,DC=cloudsimplecustomer,DC=com`|
+    | **URL do servidor primário** | Servidor LDAP do controlador de domínio primário para o domínio.<br><br>Use o formato `ldaps://hostname:port`. A porta geralmente é 636 para conexões LDAPs. <br><br>Um certificado que estabelece confiança para o ponto de extremidade LDAPs do servidor Active Directory é necessário quando você usa  `ldaps://`   o na URL LDAP primária ou secundária. |
     | **URL do servidor secundário** | Endereço de um servidor LDAP do controlador de domínio secundário que é usado para failover. |
-    | **Escolher certificado** | Se você quiser usar LDAPS com o servidor LDAP Active Directory ou a origem de identidade do servidor OpenLDAP, um botão escolher certificado será exibido `ldaps://` depois que você digitar na caixa de texto URL. Uma URL secundária não é necessária. |
+    | **Escolher certificado** | Se você quiser usar LDAPs com o servidor LDAP Active Directory ou a origem de identidade do servidor OpenLDAP, um botão escolher certificado será exibido depois que você digitar  `ldaps://`   na caixa de texto URL. Uma URL secundária não é necessária. |
     | **Nome de usuário** | ID de um usuário no domínio que tem um mínimo de acesso somente leitura ao DN base para usuários e grupos. |
     | **Senha** | Senha do usuário que é especificada pelo nome de usuário. |
 

@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: d61600801286126ea6ffb9a97bc5655b6f233816
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77562183"
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Cenário de fan-out/fan-in nas Funções Duráveis – Exemplo de backup em nuvem
@@ -31,7 +30,7 @@ Uma abordagem com as Funções Duráveis fornece todos os benefícios mencionado
 
 Este artigo explica as seguintes funções no aplicativo de exemplo:
 
-* `E2_BackupSiteContent`: Uma [função de orquestrador](durable-functions-bindings.md#orchestration-trigger) que `E2_GetFileList` chama para obter uma lista de arquivos para fazer backup e, `E2_CopyFileToBlob` em seguida, chama para fazer backup de cada arquivo.
+* `E2_BackupSiteContent`: Uma [função de orquestrador](durable-functions-bindings.md#orchestration-trigger) que chama `E2_GetFileList` para obter uma lista de arquivos para fazer backup e, em seguida, chama `E2_CopyFileToBlob` para fazer backup de cada arquivo.
 * `E2_GetFileList`: Uma [função de atividade](durable-functions-bindings.md#activity-trigger) que retorna uma lista de arquivos em um diretório.
 * `E2_CopyFileToBlob`: Uma função de atividade que faz backup de um único arquivo para o armazenamento de BLOBs do Azure.
 
@@ -57,7 +56,7 @@ Depois de aguardar `Task.WhenAll`, sabemos que todas as chamadas de função for
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-A função usa o *Function. JSON* padrão para funções de orquestrador.
+A função usa o *function.jspadrão no* para funções de orquestrador.
 
 [!code-json[Main](~/samples-durable-functions/samples/javascript/E2_BackupSiteContent/function.json)]
 
@@ -70,7 +69,7 @@ Observe a linha `yield context.df.Task.all(tasks);`. Todas as chamadas individua
 > [!NOTE]
 > Embora as tarefas sejam conceitualmente semelhantes a promessas JavaScript, funções de orquestrador devem usar `context.df.Task.all` e `context.df.Task.any` em vez de `Promise.all` e `Promise.race` para gerenciar a paralelização de tarefa.
 
-Após a concessão de `context.df.Task.all`, sabemos que todas as chamadas de função foram concluídas e retornaram valores de volta para nós. Cada chamada para `E2_CopyFileToBlob` retorna o número de bytes carregados, de forma que calcular a contagem total de bytes é uma questão de adicionar todos esses valores retornados.
+Após a concessão de `context.df.Task.all` , sabemos que todas as chamadas de função foram concluídas e retornaram valores de volta para nós. Cada chamada para `E2_CopyFileToBlob` retorna o número de bytes carregados, de forma que calcular a contagem total de bytes é uma questão de adicionar todos esses valores retornados.
 
 ---
 
@@ -86,7 +85,7 @@ Funções de atividade auxiliares, assim como ocorre com os outros exemplos, sã
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-O arquivo *Function. JSON* `E2_GetFileList` é semelhante ao seguinte:
+O *function.jsno* arquivo para `E2_GetFileList` é semelhante ao seguinte:
 
 [!code-json[Main](~/samples-durable-functions/samples/javascript/E2_GetFileList/function.json)]
 

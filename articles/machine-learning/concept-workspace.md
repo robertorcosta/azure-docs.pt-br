@@ -1,7 +1,7 @@
 ---
 title: O que é um espaço de trabalho
 titleSuffix: Azure Machine Learning
-description: O espaço de trabalho é o recurso de nível superior para Azure Machine Learning. Ele mantém um histórico de todas as execuções de treinamento, incluindo logs, métricas, saída e um instantâneo de seus scripts. Você usa essas informações para determinar qual execução de treinamento produz o melhor modelo
+description: O workspace é o recurso de nível superior do Azure Machine Learning. Ele mantém um histórico de todas as execuções de treinamento, incluindo logs, métricas, saída e um instantâneo de seus scripts. Você usa essas informações para determinar qual execução de treinamento produz o melhor modelo
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,10 +10,9 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
 ms.openlocfilehash: 03bc49c24e3c2d32e97f3e5e03bd39da63428a6e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77505566"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>O que é um espaço de trabalho Azure Machine Learning?
@@ -79,7 +78,7 @@ Você também pode executar as seguintes tarefas de gerenciamento de espaço de 
 | Criar uma VM do notebook |   | **&check;** | |     |
 
 > [!WARNING]
-> Não há suporte para mover o espaço de trabalho Azure Machine Learning para uma assinatura diferente ou mover a assinatura proprietária para um novo locatário. Isso pode causar erros.
+> Não há suporte para a movimentação do workspace do Azure Machine Learning para outra assinatura nem para a movimentação da assinatura proprietária para um novo locatário. Se você fizer isso, poderá causar erros.
 
 ## <a name="create-a-workspace"></a><a name='create-workspace'></a>Criar um espaço de trabalho
 
@@ -93,7 +92,7 @@ Há várias maneiras de criar um espaço de trabalho:
 * Se você trabalhar em Visual Studio Code, use a [extensão vs Code](tutorial-setup-vscode-extension.md).
 
 > [!NOTE]
-> O nome do espaço de trabalho não diferencia maiúsculas de minúsculas.
+> O nome do workspace não diferencia maiúsculas de minúsculas.
 
 ## <a name="upgrade-to-enterprise-edition"></a><a name="upgrade"></a>Atualizar para o Enterprise Edition
 
@@ -113,12 +112,12 @@ Quando você cria um novo workspace, ele automaticamente cria vários recursos d
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para começar a usar o Azure Machine Learning, consulte:
+Para começar a usar o Azure Machine Learning, confira:
 
 + [Visão geral de Azure Machine Learning](overview-what-is-azure-ml.md)
 + [Criar um workspace](how-to-manage-workspace.md)
-+ [Gerenciar um espaço de trabalho](how-to-manage-workspace.md)
-+ [Tutorial: Introdução à criação de seu primeiro experimento de ML com o SDK de Python](tutorial-1st-experiment-sdk-setup.md)
++ [Gerenciar um workspace](how-to-manage-workspace.md)
++ [Tutorial: Introdução à criação de seu primeiro experimento de ML com o SDK do Python](tutorial-1st-experiment-sdk-setup.md)
 + [Tutorial: introdução ao Azure Machine Learning com o SDK do R](tutorial-1st-r-experiment.md)
 + [Tutorial: criar seu primeiro modelo de classificação com o Machine Learning automatizado](tutorial-first-experiment-automated-ml.md) (disponível somente em espaços de trabalho do [Enterprise Edition](overview-what-is-azure-ml.md#sku) )
 + [Tutorial: prever o preço do automóvel com o designer](tutorial-designer-automobile-price-train-score.md) (disponível somente em espaços de trabalho do [Enterprise Edition](overview-what-is-azure-ml.md#sku) )

@@ -14,10 +14,9 @@ ms.date: 05/07/2019
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48a7e5e810e509a97b6010218532f6e7dff0b73f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77425537"
 ---
 # <a name="whats-new-for-azure-active-directory-in-microsoft-365-government"></a>O que há de novo para Azure Active Directory no governo Microsoft 365
@@ -34,9 +33,9 @@ Este artigo não se aplica a clientes Microsoft 365 do governo-GCC.
 
 ## <a name="changes-to-the-initial-domain-name"></a>Alterações no nome de domínio inicial
 
-Durante a inscrição inicial da sua organização para um serviço online governamental Microsoft 365, você foi solicitado a escolher o nome de domínio da sua organização `<your-domain-name>.onmicrosoft.com`,. Se você já tiver um nome de domínio com o sufixo. com, nada será alterado.
+Durante a inscrição inicial da sua organização para um serviço online governamental Microsoft 365, você foi solicitado a escolher o nome de domínio da sua organização, `<your-domain-name>.onmicrosoft.com` . Se você já tiver um nome de domínio com o sufixo. com, nada será alterado.
 
-No entanto, se você estiver se inscrevendo para um novo serviço governamental Microsoft 365, será solicitado que você escolha um nome de `.us` domínio usando o sufixo. Então, será `<your-domain-name>.onmicrosoft.us`.
+No entanto, se você estiver se inscrevendo para um novo serviço governamental Microsoft 365, será solicitado que você escolha um nome de domínio usando o `.us` sufixo. Então, será `<your-domain-name>.onmicrosoft.us` .
 
 >[!Note]
 >Essa alteração não se aplica a clientes que são gerenciados por CSPs (provedores de serviços de nuvem).
@@ -63,7 +62,7 @@ A tabela a seguir mostra os pontos de extremidade para todos os clientes:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações, consulte estes artigos:
+Para obter mais informações, confira estes tópicos:
 
 - [O que é o Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)
 

@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: fa8b2da683d68a337df38e13726f22c5af43540a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77565920"
 ---
 # <a name="set-up-private-cloud-as-a-disaster-recovery-target-with-vmware-site-recovery-manager"></a>Configurar a nuvem privada como um destino de recuperação de desastre com o VMware Site Recovery Manager
@@ -146,7 +145,7 @@ Para obter instruções detalhadas de instalação do vSphere Replication 6,5, c
 
 Entre no vCenter usando as credenciais de usuário do cloudowner depois de escalonar privilégios do portal do CloudSimple.
 
-Crie um novo usuário, `srm-soln-admin`, no vCenter e adicione-o ao grupo Administradores no vCenter.
+Crie um novo usuário, `srm-soln-admin` , no vCenter e adicione-o ao grupo Administradores no vCenter.
 Saia do vCenter como o usuário cloudowner e entre como o usuário *SRM-soln-admin* .
 
 #### <a name="cloudsimple-portal-configure-firewall-rules-for-vra"></a>Portal do CloudSimple: configurar regras de firewall para vRA

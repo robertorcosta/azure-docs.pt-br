@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
 ms.openlocfilehash: ed92156df9d8e1e07b56cea4b1e64edee11d68d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77562115"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Cenário do Monitor em Funções Duráveis - Exemplo de observador meteorológico
@@ -38,7 +37,7 @@ Este exemplo monitora as condições meteorológicas atuais de um local e alerta
 
 Este exemplo envolve o uso da API do Weather Underground para verificar as condições climáticas atuais de um local.
 
-A primeira coisa que você precisa é de uma conta do Weather Underground. Você pode criar um gratuitamente em [https://www.wunderground.com/signup](https://www.wunderground.com/signup). Depois de ter uma conta, será necessário adquirir uma chave de API. Você pode fazer isso visitando [https://www.wunderground.com/weather/api](https://www.wunderground.com/weather/api/?MR=1)e, em seguida, selecionando configurações de chave. O plano do Desenvolvedor Stratus é gratuito e suficiente para executar este exemplo.
+A primeira coisa que você precisa é de uma conta do Weather Underground. Você pode criar um gratuitamente em [https://www.wunderground.com/signup](https://www.wunderground.com/signup) . Depois de ter uma conta, será necessário adquirir uma chave de API. Você pode fazer isso visitando [https://www.wunderground.com/weather/api](https://www.wunderground.com/weather/api/?MR=1) e, em seguida, selecionando configurações de chave. O plano do Desenvolvedor Stratus é gratuito e suficiente para executar este exemplo.
 
 Após ter uma chave de API, adicione a **configuração de aplicativo** a seguir no seu aplicativo de funções.
 
@@ -50,7 +49,7 @@ Após ter uma chave de API, adicione a **configuração de aplicativo** a seguir
 
 Este artigo explica as seguintes funções no aplicativo de exemplo:
 
-* `E3_Monitor`: Uma [função de orquestrador](durable-functions-bindings.md#orchestration-trigger) que `E3_GetIsClear` chama periodicamente. Chamará `E3_SendGoodWeatherAlert` se `E3_GetIsClear` retornar verdadeiro.
+* `E3_Monitor`: Uma [função de orquestrador](durable-functions-bindings.md#orchestration-trigger) que chama `E3_GetIsClear` periodicamente. Chamará `E3_SendGoodWeatherAlert` se `E3_GetIsClear` retornar verdadeiro.
 * `E3_GetIsClear`: Uma [função de atividade](durable-functions-bindings.md#activity-trigger) que verifica as condições do clima atual de um local.
 * `E3_SendGoodWeatherAlert`: uma função de atividade que envia uma mensagem SMS via Twilio.
 
@@ -60,7 +59,7 @@ Este artigo explica as seguintes funções no aplicativo de exemplo:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs?range=41-78,97-115)]
 
-O orquestrador requer um local para monitorar e um número de telefone para o qual enviar uma mensagem quando o se tornar claro no local. Esses dados são passados para o orquestrador como um objeto fortemente `MonitorRequest` tipado.
+O orquestrador requer um local para monitorar e um número de telefone para o qual enviar uma mensagem quando o se tornar claro no local. Esses dados são passados para o orquestrador como um objeto fortemente tipado `MonitorRequest` .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 

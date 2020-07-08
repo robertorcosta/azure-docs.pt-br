@@ -13,10 +13,9 @@ ms.workload: na
 ms.date: 02/20/2020
 ms.author: yelevin
 ms.openlocfilehash: eb099a786a84f9b7d0a6f0dc6e6df9c3459af295
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77588222"
 ---
 # <a name="connect-your-forcepoint-products-to-azure-sentinel"></a>Conectar seus produtos Forcepoint ao Azure Sentinel
@@ -44,7 +43,7 @@ Configure o produto Forcepoint para encaminhar mensagens de syslog no formato CE
 
 2. Pesquise CommonSecurityLog para usar o esquema relevante no Log Analytics com o nome DeviceVendor contém ' Forcepoint '. 
 
-3. Continue na [etapa 3: validar a conectividade](connect-cef-verify.md).
+3. Prossiga para a [ETAPA 3: Validar a conectividade](connect-cef-verify.md).
 
 
 

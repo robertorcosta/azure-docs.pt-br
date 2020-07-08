@@ -6,10 +6,9 @@ ms.topic: how-to
 ms.date: 2/5/2020
 ms.author: ramamill
 ms.openlocfilehash: f24d321e882024d324435498adf11694037547f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77252220"
 ---
 # <a name="automate-mobility-service-installation"></a>Automatizar a instalação do serviço de mobilidade
@@ -77,7 +76,7 @@ A tabela a seguir resume as ferramentas e os processos para automatizar a implan
 
 1. Copie esses arquivos de instalação para o compartilhamento de rede:
 
-   - Para o Windows, copie _Microsoft-ASR_UA_version_Windows_GA_date_Release. exe_ para _MobSvcWindows_.
+   - Para o Windows, copie _Microsoft-ASR_UA_version_Windows_GA_date_Release.exe_ para _MobSvcWindows_.
    - Para o Linux, copie os seguintes arquivos para _MobSvcLinux_:
      - _Microsoft-ASR_UARHEL6 -64release. tar. gz_
      - _Microsoft-ASR_UARHEL7 -64release. tar. gz_
@@ -88,14 +87,14 @@ A tabela a seguir resume as ferramentas e os processos para automatizar a implan
 
 1. Conforme descrito nos procedimentos a seguir, copie o código para as pastas do Windows ou do Linux. Estamos supondo que:
 
-   - O endereço IP do servidor de configuração `192.168.3.121`é.
-   - O compartilhamento de arquivos de rede `\\ContosoSecureFS\MobilityServiceInstallers`segura é.
+   - O endereço IP do servidor de configuração é `192.168.3.121` .
+   - O compartilhamento de arquivos de rede segura é `\\ContosoSecureFS\MobilityServiceInstallers` .
 
 ### <a name="copy-code-to-the-windows-folder"></a>Copiar o código para a pasta do Windows
 
 Copie o código a seguir:
 
-- Salve o código na pasta _MobSvcWindows_ como _install. bat_.
+- Salve o código na pasta _MobSvcWindows_ como _install.bat_.
 - Substitua os `[CSIP]` espaços reservados neste script pelos valores reais do endereço IP do seu servidor de configuração.
 - O script dá suporte a novas instalações do agente do serviço de mobilidade e atualizações para agentes que já estão instalados.
 
@@ -338,15 +337,15 @@ cd /tmp
 
 ### <a name="create-a-package"></a>Criar um pacote
 
-1. Entre no console do Configuration Manager e vá para **biblioteca** > de software**Gerenciamento** > de aplicativos**pacotes**.
-1. Clique com o botão direito do mouse em **pacotes** > **criar pacote**.
+1. Entre no console do Configuration Manager e vá para **biblioteca de software**  >  **Gerenciamento de aplicativos**  >  **pacotes**.
+1. Clique com o botão direito do mouse em **pacotes**  >  **criar pacote**.
 1. Forneça detalhes do pacote, incluindo nome, descrição, fabricante, idioma e versão.
 1. Selecione **Este pacote contém arquivos de origem**.
 1. Clique em **procurar**e selecione o compartilhamento de rede e a pasta que contém o instalador relevante (_MobSvcWindows_ ou _MobSvcLinux_). Em seguida, selecione **Avançar**.
 
    ![Captura de tela do Assistente para Criar Pacote e Programa](./media/vmware-azure-mobility-install-configuration-mgr/create_sccm_package.png)
 
-1. Na página **escolha o tipo de programa que você deseja criar** , selecione **programa** > padrão**Avançar**.
+1. Na página **escolha o tipo de programa que você deseja criar** , selecione **programa padrão**  >  **Avançar**.
 
    ![Captura de tela do Assistente para Criar Pacote e Programa](./media/vmware-azure-mobility-install-configuration-mgr/sccm-standard-program.png)
 
@@ -392,7 +391,7 @@ cd /tmp
    - Para evitar reinicializações desnecessárias, agende a instalação do pacote durante a janela de manutenção mensal ou a janela de atualizações de software.
 
 1. Na página **pontos de distribuição** , defina as configurações e conclua o assistente.
-1. Monitore o progresso da implantação no console do Configuration Manager. Vá para **monitoramento** > **implantações** > _\<seu nome\>de pacote_.
+1. Monitore o progresso da implantação no console do Configuration Manager. Vá para **monitoramento**  >  **implantações**  >  _\<your package name\>_ .
 
 ### <a name="uninstall-the-mobility-service"></a>Desinstalar o serviço de mobilidade
 

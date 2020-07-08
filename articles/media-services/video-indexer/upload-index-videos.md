@@ -11,10 +11,9 @@ ms.topic: article
 ms.date: 02/18/2020
 ms.author: juliako
 ms.openlocfilehash: 245eabdf4d77682c87062c2581239a554112d748
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77468755"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar seus vídeos  
@@ -93,24 +92,24 @@ Uma URL usada para notificar o cliente (usando uma solicitação POST) sobre os 
 - Alteração de estado de indexação: 
     - Propriedades:    
     
-        |Name|Descrição|
+        |Nome|Descrição|
         |---|---|
         |id|A ID do vídeo|
         |state|O estado do vídeo|  
-    - Exemplo: https:\//Test.com/Notifyme?projectName=MyProject&ID = 1234abcd&estado = processado
+    - Exemplo: https: \/ /test.com/notifyme?projectName=MyProject&ID = 1234abcd&estado = processado
 - Pessoa identificada no vídeo:
   - Propriedades
     
-      |Name|Descrição|
+      |Nome|Descrição|
       |---|---|
       |id| A ID do vídeo|
       |faceId|A identificação de face que aparece no índice de vídeo|
       |knownPersonId|A ID da pessoa que é exclusiva dentro de um modelo de detecção facial|
       |personName|O nome da pessoa|
         
-    - Exemplo: https:\//Test.com/Notifyme?projectName=MyProject&ID = 1234abcd&faceid = 12&knownPersonId = CCA84350-89B7-4262-861C-3CAC796542A5&PersonName = Inigo_Montoya 
+    - Exemplo: https: \/ /test.com/notifyme?projectName=MyProject&ID = 1234abcd&faceid = 12&knownPersonId = CCA84350-89B7-4262-861C-3CAC796542A5&PersonName = Inigo_Montoya 
 
-##### <a name="notes"></a>Anotações
+##### <a name="notes"></a>Observações
 
 - O Video Indexer retorna quaisquer parâmetros existentes fornecidos na URL original.
 - A URL fornecida deve ser codificada.
@@ -126,7 +125,7 @@ Use esse parâmetro se gravações brutas ou externas contiverem ruídos de fund
 
 > [!NOTE]
 > Video Indexer abrange até duas faixas de áudio. Se houver mais faixas de áudio no arquivo, elas serão tratadas como uma faixa.<br/>
-Se você quiser indexar as faixas separadamente, será necessário extrair o arquivo de áudio relevante e indexá-lo `AudioOnly`como.
+Se você quiser indexar as faixas separadamente, será necessário extrair o arquivo de áudio relevante e indexá-lo como `AudioOnly` .
 
 O preço depende da opção de indexação selecionada.  
 
@@ -166,7 +165,7 @@ Depois de copiar esse código em sua plataforma de desenvolvimento, você precis
 
     * Navegue até https://api-portal.videoindexer.ai/
     * Logon
-    * Acesse **produtos** -> **Authorization** -> autorização autorização**assinatura**
+    * Acesse **produtos**  ->  **autorização autorização**  ->  **assinatura**
     * Copiar a **chave primária**
 * URL de vídeo – uma URL do arquivo de vídeo/áudio a ser indexada. O URL deve apontar para um arquivo de mídia (as páginas HTML não são suportadas). O arquivo pode ser protegido por um token de acesso fornecido como parte do URI e o terminal que atende ao arquivo deve ser protegido com o TLS 1.2 ou superior. A URL deve ser codificado.
 

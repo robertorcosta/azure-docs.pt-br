@@ -14,10 +14,9 @@ ms.topic: troubleshooting
 ms.date: 08/28/2019
 ms.author: tiag
 ms.openlocfilehash: c24a840716841d04537ac5b77bcaf26fca4b78cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77561942"
 ---
 # <a name="linux-vm-boots-to-grub-rescue"></a>A VM do Linux é inicializada para a resgate grub
@@ -41,13 +40,13 @@ Siga as etapas de mitigação abaixo, dependendo do erro que você receber:
 
 * Se você estiver recebendo o erro de erro **15: arquivo não encontrado ou disco RAM inicial** ou **arquivo initrd/initramfs não encontrado**, siga as etapas abaixo.
 
-    * Para o arquivo `/boot/grub2/grub.cfg` ausente ou `initrd/initramfs` prossiga com o seguinte processo:
+    * Para o arquivo ausente `/boot/grub2/grub.cfg` ou `initrd/initramfs` prossiga com o seguinte processo:
 
-    1. Verifique `/etc/default/grub` se existe e se tem as configurações corretas/desejadas. Se você não souber quais são as configurações padrão, poderá verificar com uma VM em funcionamento.
+    1. Verifique se `/etc/default/grub` existe e se tem as configurações corretas/desejadas. Se você não souber quais são as configurações padrão, poderá verificar com uma VM em funcionamento.
 
     2. Em seguida, execute o seguinte comando para regenerar sua configuração:`grub2-mkconfig -o /boot/grub2/grub.cfg`
 
-   * Se o arquivo ausente for `/boot/grub/menu.lst`, esse erro será para versões mais antigas do sistema operacional (**RHEL 6. x**, **CentOS 6. x** e **Ubuntu 14, 4**) para que os comandos pudessem ser diferentes. Você precisará criar um servidor antigo e testar para garantir que os comandos corretos sejam fornecidos.
+   * Se o arquivo ausente for `/boot/grub/menu.lst` , esse erro será para versões mais antigas do sistema operacional (**RHEL 6. x**, **CentOS 6. x** e **Ubuntu 14, 4**) para que os comandos pudessem ser diferentes. Você precisará criar um servidor antigo e testar para garantir que os comandos corretos sejam fornecidos.
 
 ### <a name="error---no-such-partition"></a>Erro-nenhuma partição desse tipo
 
@@ -57,13 +56,13 @@ Siga as etapas de mitigação abaixo, dependendo do erro que você receber:
 
 * Se você estiver recebendo o erro **/boot/Grub2/grub.cfg arquivo não encontrado**, siga as etapas abaixo.
 
-    * Para o arquivo `/boot/grub2/grub.cfg` ausente ou `initrd/initramfs` prossiga com o seguinte processo:
+    * Para o arquivo ausente `/boot/grub2/grub.cfg` ou `initrd/initramfs` prossiga com o seguinte processo:
 
-    1. Verifique `/etc/default/grub` se existe e se tem as configurações corretas/desejadas. Se você não souber quais são as configurações padrão, poderá verificar com uma VM em funcionamento.
+    1. Verifique se `/etc/default/grub` existe e se tem as configurações corretas/desejadas. Se você não souber quais são as configurações padrão, poderá verificar com uma VM em funcionamento.
 
-    2. Em seguida, execute o seguinte comando para regenerar sua configuração `grub2-mkconfig -o /boot/grub2/grub.cfg`:.
+    2. Em seguida, execute o seguinte comando para regenerar sua configuração: `grub2-mkconfig -o /boot/grub2/grub.cfg` .
 
-   * Se o arquivo ausente for `/boot/grub/menu.lst`, esse erro será para versões mais antigas do sistema operacional (**RHEL 6. x**, **CentOS 6. x** e **Ubuntu 14, 4**) para que os comandos possam ser adiados. Crie um servidor antigo e teste-o para garantir que os comandos corretos sejam fornecidos.
+   * Se o arquivo ausente for `/boot/grub/menu.lst` , esse erro será para versões mais antigas do sistema operacional (**RHEL 6. x**, **CentOS 6. x** e **Ubuntu 14, 4**) para que os comandos possam ser adiados. Crie um servidor antigo e teste-o para garantir que os comandos corretos sejam fornecidos.
 
 ## <a name="next-steps"></a>Próximas etapas
 

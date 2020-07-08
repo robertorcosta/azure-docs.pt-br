@@ -17,10 +17,9 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a393c1ac09283f1570908cea72750ed5ae28f81e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77617324"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Instalar alta disponibilidade do SAP NetWeaver em um cluster de failover do Windows e compartilhamento de arquivos para instâncias ASCS/SCS do SAP no Azure
@@ -231,13 +230,13 @@ Não existem considerações especiais quando vários serviços DBMS interagem c
 
 Crie o seguinte volume e compartilhamento de arquivos no cluster SOFS:
 
-* Estrutura de arquivos `C:\ClusterStorage\Volume1\usr\sap\<SID>\SYS\` SAP GLOBALHOST no volume compartilhado do cluster do SOFS (CSV)
+* Estrutura de arquivos SAP GLOBALHOST `C:\ClusterStorage\Volume1\usr\sap\<SID>\SYS\` no volume compartilhado do cluster do SOFS (CSV)
 
 * Compartilhamento de arquivos SAPMNT
 
 * Defina a segurança na pasta e no compartilhamento de arquivos SAPMNT com controle total para:
-    * O grupo de usuários \<DOMAIN>\SAP_\<SID>_GlobalAdmin
-    * Os objetos de computador de nós do Cluster SAP ASCS/SCS \<DOMAIN>\ClusterNode1$ e \<DOMAIN>\ClusterNode2$
+    * O \<DOMAIN> grupo de usuários do \ SAP_ \<SID> _GlobalAdmin
+    * Os objetos de computador do nó do cluster SAP ASCS/SCS \<DOMAIN> \ClusterNode1 $ e \<DOMAIN> \ClusterNode2 $
 
 Para criar um volume CSV com resiliência de espelho, execute o seguinte cmdlet do PowerShell em um dos nós de cluster SOFS:
 
@@ -299,7 +298,7 @@ Crie um nome de rede de cluster do SAP ASCS/SCS (por exemplo, **pr1-ascs [10.0.6
 
 Instale uma instância do SAP ASCS/SCS no primeiro nó do cluster. Para instalar a instância, na ferramenta de instalação do SAP SWPM, vá para:
 
-**\<O produto>**  >  ** \<DBMS>**  >  **a instalação** > **do servidor de aplicativos ABAP** (ou **Java**) > instância > do sistema > **ASCS/SCS**do**primeiro nó de cluster** **de alta disponibilidade**.
+**\<Product>** > **\<DBMS>** > **Instalação**  >  do **Servidor de aplicativos ABAP** (ou **Java**) > **sistema de alta disponibilidade**  >  **ASCS/SCS instância**do  >  **primeiro nó de cluster**.
 
 ### <a name="add-a-probe-port"></a>Adicionar uma porta de investigação
 
@@ -309,12 +308,12 @@ Configure um recurso de cluster do SAP, a porta de investigação SAP-SID-IP, us
 
 Instale uma instância do SAP ASCS/SCS no segundo nó do cluster. Para instalar a instância, na ferramenta de instalação do SAP SWPM, vá para:
 
-**\<O produto>**  >  ** \<DBMS>**  >  **instalação** > **do servidor de aplicativos ABAP** (ou **Java**) > instância > do sistema > do**ASCS/SCS** **de alta disponibilidade**no**nó de cluster adicional**.
+**\<Product>** > **\<DBMS>** > **Instalação**  >  do **Servidor de aplicativos ABAP** (ou **Java**) > instância de cluster adicional do ASCS/SCS do **sistema de alta disponibilidade**  >  **ASCS/SCS instance**  >  **Additional cluster node**.
 
 
 ## <a name="update-the-sap-ascsscs-instance-profile"></a>Atualizar o perfil da instância do SAP ASCS/SCS
 
-Atualize os parâmetros no SID do perfil \<da instância do SAP ASCS/SCS>_ASCS/SCS\<NR>_ \<host>.
+Atualize os parâmetros no perfil de instância do SAP ASCS/SCS \<SID> _ASCS \<Nr> /SCS_ \<Host> .
 
 
 | Nome do parâmetro | Valor de parâmetro |

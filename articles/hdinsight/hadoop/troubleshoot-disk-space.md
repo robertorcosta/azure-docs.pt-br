@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/17/2020
 ms.openlocfilehash: 577bed7ce342be14a50077a3ffd841cd901b5b31
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77473006"
 ---
 # <a name="manage-disk-space-in-azure-hdinsight"></a>Gerenciar o espaço em disco no Azure HDInsight
@@ -20,11 +19,11 @@ Este artigo descreve as etapas de solução de problemas e as possíveis resolu�
 
 ## <a name="hive-log-configurations"></a>Configurações de log do hive
 
-1. Em um navegador da Web, navegue `https://CLUSTERNAME.azurehdinsight.net`até, `CLUSTERNAME` em que é o nome do cluster.
+1. Em um navegador da Web, navegue até `https://CLUSTERNAME.azurehdinsight.net`, em que `CLUSTERNAME` é o nome do cluster.
 
-1. Navegue até **Hive** > **configurações** > do hive**avançado** > avançado**Hive-Log4J**. Examine as seguintes configurações:
+1. Navegue até configurações do **Hive**  >  **Configs**  >  **avançado**avançado  >  **Hive-Log4J**. Examine as seguintes configurações:
 
-    * `hive.root.logger=DEBUG,RFA`. Esse é o valor padrão, modifique o [nível](https://logging.apache.org/log4j/2.x/log4j-api/apidocs/org/apache/logging/log4j/Level.html) de log `INFO` para para imprimir menos entradas de logs.
+    * `hive.root.logger=DEBUG,RFA`. Esse é o valor padrão, modifique o [nível de log](https://logging.apache.org/log4j/2.x/log4j-api/apidocs/org/apache/logging/log4j/Level.html) para `INFO` para imprimir menos entradas de logs.
 
     * `log4jhive.log.maxfilesize=1024MB`. Esse é o valor padrão, modifique conforme desejado.
 
@@ -36,20 +35,20 @@ Examine as seguintes configurações:
 
 * Apache Ambari
 
-    1. Em um navegador da Web, navegue `https://CLUSTERNAME.azurehdinsight.net`até, `CLUSTERNAME` em que é o nome do cluster.
+    1. Em um navegador da Web, navegue até `https://CLUSTERNAME.azurehdinsight.net`, em que `CLUSTERNAME` é o nome do cluster.
 
-    1. Navegue até **Hive** > **configurações** > do hive**Gerenciador de recursos****avançado** > . Verifique se **habilitar a agregação de log** está marcado. Se desabilitado, os nós de nome manterão os logs localmente e não os agregarão no armazenamento remoto na conclusão ou término do aplicativo.
+    1. Navegue até configurações do **Hive**  >  **Configs**  >  **Advanced**  >  **Gerenciador de recursos**avançado. Verifique se **habilitar a agregação de log** está marcado. Se desabilitado, os nós de nome manterão os logs localmente e não os agregarão no armazenamento remoto na conclusão ou término do aplicativo.
 
 * Verifique se o tamanho do cluster é apropriado para a carga de trabalho. A carga de trabalho pode ter sido alterada recentemente ou o cluster pode ter sido redimensionado. [Escalar verticalmente](../hdinsight-scaling-best-practices.md) o cluster para corresponder a uma carga de trabalho maior.
 
-* `/mnt/resource`pode ser preenchido com arquivos órfãos (como no caso da reinicialização do Resource Manager). Se necessário, limpe `/mnt/resource/hadoop/yarn/log` manualmente e `/mnt/resource/hadoop/yarn/local`.
+* `/mnt/resource`pode ser preenchido com arquivos órfãos (como no caso da reinicialização do Resource Manager). Se necessário, limpe manualmente `/mnt/resource/hadoop/yarn/log` e `/mnt/resource/hadoop/yarn/local` .
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
 
-* Obtenha respostas de especialistas do Azure por meio do [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
+* Obtenha respostas de especialistas do Azure por meio do [Suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
 
-* Conecte- [@AzureSupport](https://twitter.com/azuresupport) se com a conta de Microsoft Azure oficial para melhorar a experiência do cliente. Conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport), a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Como se conectar à comunidade do Azure para os recursos certos: respostas, suporte e especialistas.
 
-* Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte**. Para obter informações mais detalhadas, consulte [Como criar uma solicitação de Suporte do Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). O acesso ao Gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).

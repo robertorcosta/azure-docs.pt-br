@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/14/2020
 ms.openlocfilehash: 5529989384df75b592afa8f5e4960eb9817fb2d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77472512"
 ---
 # <a name="manage-ssh-access-for-domain-accounts-in-azure-hdinsight"></a>Gerenciar o acesso SSH para contas de domínio no Azure HDInsight
@@ -20,15 +19,15 @@ Em clusters seguros, por padrão, todos os usuários de domínio no [Azure AD DS
 
 ## <a name="manage-access"></a>Gerenciar acesso
 
-Para modificar o acesso SSH a usuários ou grupos específicos, `/etc/ssh/sshd_config` atualize em cada um dos nós.
+Para modificar o acesso SSH a usuários ou grupos específicos, atualize `/etc/ssh/sshd_config` em cada um dos nós.
 
-1. Use o [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) para se conectar ao cluster. Edite o comando a seguir substituindo CLUSTERname pelo nome do cluster e, em seguida, digite o comando:
+1. Use o [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) para se conectar ao cluster. Edite o comando abaixo substituindo CLUSTERNAME pelo nome do cluster e, em seguida, insira o comando:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. Abra o `ssh_confi`arquivo g.
+1. Abra o `ssh_confi` arquivo g.
 
     ```bash
     sudo nano /etc/ssh/sshd_config
@@ -54,7 +53,7 @@ Para modificar o acesso SSH a usuários ou grupos específicos, `/etc/ssh/sshd_c
 
 ## <a name="ssh-authentication-log"></a>Log de autenticação SSH
 
-O log de autenticação SSH é `/var/log/auth.log`gravado no. Se você vir falhas de logon por meio de SSH para contas locais ou de domínio, será necessário passar pelo log para depurar os erros. Geralmente, o problema pode estar relacionado a contas de usuário específicas e geralmente é uma boa prática tentar outras contas de usuário ou SSH usando o usuário SSH padrão (conta local) e, em seguida, tentar um kinit.
+O log de autenticação SSH é gravado no `/var/log/auth.log` . Se você vir falhas de logon por meio de SSH para contas locais ou de domínio, será necessário passar pelo log para depurar os erros. Geralmente, o problema pode estar relacionado a contas de usuário específicas e geralmente é uma boa prática tentar outras contas de usuário ou SSH usando o usuário SSH padrão (conta local) e, em seguida, tentar um kinit.
 
 ## <a name="ssh-debug-log"></a>Log de depuração SSH
 

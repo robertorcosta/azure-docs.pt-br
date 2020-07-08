@@ -15,10 +15,9 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: 849087cbbe91be799c51929353b9f020859c85b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77588137"
 ---
 # <a name="connect-one-identity-safeguard"></a>Conectar uma proteção de identidade
@@ -31,7 +30,7 @@ O conector de dados de proteção de uma identidade aprimora o conector CEF (for
 
 ## <a name="connect-azure-sentinel-to-one-identity-safeguard"></a>Conectar o Azure Sentinel a uma proteção de identidade
 
-1. Na portal do Azure, navegue até**conectores de dados** **do Azure Sentinel** > e selecione o conector de **proteção de uma identidade** .
+1. Na portal do Azure, navegue até conectores de dados **do Azure Sentinel**  >  **Data connectors** e selecione o conector de **proteção de uma identidade** .
 
 2. Selecione a **página abrir conector**.
 

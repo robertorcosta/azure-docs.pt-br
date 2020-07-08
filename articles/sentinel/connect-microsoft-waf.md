@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: yelevin
 ms.openlocfilehash: a5cef16694fa2cfae036152d22cfa4473956fc72
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77588171"
 ---
 # <a name="connect-data-from-microsoft-web-application-firewall"></a>Conectar dados do firewall do aplicativo Web da Microsoft
@@ -34,7 +33,7 @@ Depois que o Firewall do aplicativo Web da Microsoft for implantado e estiver ob
     
 1. No portal do Azure Sentinel, selecione **conectores de dados**.
 1. Na página conectores de dados, selecione o bloco **WAF** .
-1. Vá para [recurso](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAllResourcesBlade/resourceType/Microsoft.Network%2FapplicationGateways) de gateway de aplicativo e escolha seu WAF.
+1. Vá para [recurso de gateway de aplicativo](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAllResourcesBlade/resourceType/Microsoft.Network%2FapplicationGateways)   e escolha seu WAF.
     1. Selecione **Configurações de diagnóstico**.
     1. Selecione **+ Adicionar configuração de diagnóstico** na tabela.
     1. Na página **configurações de diagnóstico** , digite um **nome** e selecione **Enviar para log Analytics**.

@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/14/2020
 ms.openlocfilehash: 99bd1ac156b12a5be7b8c5c17eb5b568b7070a25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77463213"
 ---
 # <a name="ldap-sync-in-ranger-and-apache-ambari-in-azure-hdinsight"></a>Sincronização LDAP no Ranger e Apache Ambari no Azure HDInsight
@@ -33,9 +32,9 @@ Quando um cluster seguro é implantado, os membros do grupo são sincronizados t
 
 ## <a name="ambari-user-sync-and-configuration"></a>Sincronização e configuração de usuário do Ambari
 
-Dos nós de cabeçalho, um trabalho cron, `/opt/startup_scripts/start_ambari_ldap_sync.py`, é executado a cada hora para agendar a sincronização do usuário. O trabalho cron chama as APIs REST do Ambari para executar a sincronização. O script envia uma lista de usuários e grupos para sincronização (já que os usuários podem não pertencer aos grupos especificados, ambos são especificados individualmente). O Ambari sincroniza o sAMAccountName como o nome de usuário e todos os membros do grupo, transitivamente.
+Dos nós de cabeçalho, um trabalho cron, `/opt/startup_scripts/start_ambari_ldap_sync.py` , é executado a cada hora para agendar a sincronização do usuário. O trabalho cron chama as APIs REST do Ambari para executar a sincronização. O script envia uma lista de usuários e grupos para sincronização (já que os usuários podem não pertencer aos grupos especificados, ambos são especificados individualmente). O Ambari sincroniza o sAMAccountName como o nome de usuário e todos os membros do grupo, transitivamente.
 
-Os logs devem estar no `/var/log/ambari-server/ambari-server.log`. Para obter mais informações, consulte [Configurar o nível de log Ambari](https://docs.cloudera.com/HDPDocuments/Ambari-latest/administering-ambari/content/amb_configure_ambari_logging_level.html).
+Os logs devem estar no `/var/log/ambari-server/ambari-server.log` . Para obter mais informações, consulte [Configurar o nível de log Ambari](https://docs.cloudera.com/HDPDocuments/Ambari-latest/administering-ambari/content/amb_configure_ambari_logging_level.html).
 
 Em clusters Data Lake, o gancho de criação de usuário post é usado para criar as pastas base para os usuários sincronizados e eles são definidos como os proprietários das pastas base. Se o usuário não estiver sincronizado com o Ambari corretamente, o usuário poderá enfrentar falhas ao acessar o preparo e outras pastas temporárias.
 
@@ -64,16 +63,16 @@ A sincronização incremental funciona apenas para os usuários que já estão s
 
 ### <a name="update-ranger-sync-filter"></a>Atualizar filtro de sincronização do Ranger
 
-O filtro LDAP pode ser encontrado na interface do usuário do amAmbari, na seção de configuração de sincronização de usuários do Ranger. O filtro existente estará no formato `(|(userPrincipalName=bob@contoso.com)(userPrincipalName=hdiwatchdog-core01@CONTOSO.ONMICROSOFT.COM)(memberOf:1.2.840.113556.1.4.1941:=CN=hadoopgroup,OU=AADDC Users,DC=contoso,DC=onmicrosoft,DC=com))`. Certifique-se de adicionar predicado no final e testar o filtro `net ads` usando o comando de pesquisa ou o LDP. exe ou algo semelhante.
+O filtro LDAP pode ser encontrado na interface do usuário do amAmbari, na seção de configuração de sincronização de usuários do Ranger. O filtro existente estará no formato `(|(userPrincipalName=bob@contoso.com)(userPrincipalName=hdiwatchdog-core01@CONTOSO.ONMICROSOFT.COM)(memberOf:1.2.840.113556.1.4.1941:=CN=hadoopgroup,OU=AADDC Users,DC=contoso,DC=onmicrosoft,DC=com))` . Certifique-se de adicionar predicado no final e testar o filtro usando o `net ads` comando de pesquisa ou ldp.exe ou algo semelhante.
 
 ## <a name="ranger-user-sync-logs"></a>Logs de sincronização do usuário do Ranger
 
-A sincronização de usuários do Ranger pode ocorrer fora de um dos cabeçalho. Os logs estão em `/var/log/ranger/usersync/usersync.log`. Para aumentar o nível de detalhes dos logs, execute as seguintes etapas:
+A sincronização de usuários do Ranger pode ocorrer fora de um dos cabeçalho. Os logs estão em `/var/log/ranger/usersync/usersync.log` . Para aumentar o nível de detalhes dos logs, execute as seguintes etapas:
 
 1. Faça logon no Ambari.
 1. Vá para a seção de configuração do Ranger.
 1. Vá para a seção **Log4J avançada de usersync** .
-1. Altere o `log4j.rootLogger` nível `DEBUG` para (após a alteração deve ser semelhante `log4j.rootLogger = DEBUG,logFile,FilterLog`).
+1. Altere o `log4j.rootLogger` `DEBUG` nível para (após a alteração deve ser semelhante `log4j.rootLogger = DEBUG,logFile,FilterLog` ).
 1. Salve a configuração e reinicie o Ranger.
 
 ## <a name="next-steps"></a>Próximas etapas

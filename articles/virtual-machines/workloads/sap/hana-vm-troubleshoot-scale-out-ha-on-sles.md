@@ -13,10 +13,9 @@ ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
 ms.openlocfilehash: e93b3412785817050ac53030be9ff2172a678c06
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77617131"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Verificar e solucionar problemas de instalação de alta disponibilidade de expansão do SAP HANA no SLES 12 SP3 
@@ -656,7 +655,7 @@ Waiting for 7 replies from the CRMd....... OK
 
 ## <a name="failover-or-takeover"></a>Failover ou a tomada de controle
 
-Conforme discutido em [Notas importantes](#important-notes), você não deve usar um desligamento padrão para testar o failover do cluster ou o controle SAP HANA HSR. Em vez disso, recomendamos que você acione um pânico do kernel, forçar uma migração de recurso ou, possivelmente, encerrar todas as redes no nível do SO de uma VM. Outro método é o comando **crm\< node \>standby**. Veja o [documento do SUSE][sles-12-ha-paper]. 
+Conforme discutido em [Notas importantes](#important-notes), você não deve usar um desligamento padrão para testar o failover do cluster ou o controle SAP HANA HSR. Em vez disso, recomendamos que você acione um pânico do kernel, forçar uma migração de recurso ou, possivelmente, encerrar todas as redes no nível do SO de uma VM. Outro método é o comando **CRM \<node\> standby** . Veja o [documento do SUSE][sles-12-ha-paper]. 
 
 Os três comandos de amostra a seguir podem forçar um failover de cluster:
 
@@ -682,7 +681,7 @@ Também ajuda a observar o status da paisagem do SAP HANA proveniente de um scri
 
 Há algumas tentativas para evitar failovers desnecessários. O cluster reage apenas se o status for alterado de **Ok**, retornar valor **4**, para **erro**, retornar valor **1**. Para que ela esteja correta se a saída do **SAPHanaSR showAttr** mostra uma VM com o estado **offline**. Mas ainda não há atividade para alternar entre primário e secundário. Nenhuma atividade do cluster é disparada enquanto o SAP HANA não retornar um erro.
 
-Você pode monitorar o status de integridade do SAP Hana paisagem como ** \<ADM\>do Sid** do usuário ao chamar o script Python do SAP da seguinte maneira. Talvez seja necessário adaptar o caminho:
+Você pode monitorar o status de integridade do SAP HANA Landscape como o ** \<HANA SID\> ADM** do usuário chamando o script do SAP Python da seguinte maneira. Talvez seja necessário adaptar o caminho:
 
 <pre><code>
 watch python /hana/shared/HSO/exe/linuxx86_64/HDB_2.00.032.00.1533114046_eeaf4723ec52ed3935ae0dc9769c9411ed73fec5/python_support/landscapeHostConfiguration.py
@@ -945,7 +944,7 @@ listeninterface = .internal
 ## <a name="hawk"></a>HAWK
 
 A solução de cluster fornece uma interface de navegador que oferece uma GUI para usuários que preferem menus e gráficos para ter todos os comandos no nível do shell.
-Para usar a interface do navegador, ** \<substitua\> o nó** por um nó de SAP Hana real na URL a seguir. Em seguida, insira as credenciais do cluster (cluster **do usuário**):
+Para usar a interface do navegador, substitua **\<node\>** por um nó de SAP Hana real na URL a seguir. Em seguida, insira as credenciais do cluster (cluster **do usuário**):
 
 <pre><code>
 https://&ltnode&gt:7630

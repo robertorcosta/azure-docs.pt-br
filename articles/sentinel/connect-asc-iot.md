@@ -15,10 +15,9 @@ ms.workload: na
 ms.date: 02/18/2020
 ms.author: yelevin
 ms.openlocfilehash: 3af51110a4c4604444573f62be65077c786db606
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77588630"
 ---
 # <a name="connect-your-data-from-azure-security-center-for-iot-to-azure-sentinel"></a>Conecte seus dados da central de segurança do Azure para IoT ao Azure Sentinel 
@@ -45,7 +44,7 @@ Use a central de segurança do Azure para o conector IoT para transmitir todos o
 1. No painel inferior direito, clique na **página abrir conector**. 
 1. Clique em **conectar**, ao lado de cada assinatura do Hub IOT cujos alertas e alertas de dispositivo você deseja transmitir para o Azure Sentinel. 
     - Se a central de segurança do Azure para IoT não estiver habilitada nesse Hub, você verá uma mensagem de aviso de **habilitação** . Clique no link **habilitar** para iniciar o serviço. 
-1. Você pode decidir se deseja que os alertas da central de segurança do Azure para IoT gerem incidentes automaticamente no Azure Sentinel. Em **criar incidentes**, selecione **habilitar** para habilitar a regra analítica padrão para criar incidentes automaticamente a partir de alertas gerados no serviço de segurança conectado. Essa regra pode ser alterada ou editada em regras**ativas** de **análise** > .
+1. Você pode decidir se deseja que os alertas da central de segurança do Azure para IoT gerem incidentes automaticamente no Azure Sentinel. Em **criar incidentes**, selecione **habilitar** para habilitar a regra analítica padrão para criar incidentes automaticamente a partir de alertas gerados no serviço de segurança conectado. Essa regra pode ser alterada ou editada **Analytics**em  >  regras**ativas** de análise.
 
 > [!NOTE]
 > Pode levar algum tempo para a lista de Hub ser atualizada depois de fazer alterações na conexão. 
@@ -54,7 +53,7 @@ Use a central de segurança do Azure para o conector IoT para transmitir todos o
 
 Para usar o esquema relevante no Log Analytics para exibir a central de segurança do Azure para alertas de IoT:
 
-1. Abra **logs** > **SecurityInsights** > **SecurityAlert**ou pesquise por **SecurityAlert**. 
+1. Abra **logs**  >  **SecurityInsights**  >  **SecurityAlert**ou pesquise por **SecurityAlert**. 
 2. Filtre para ver apenas a central de segurança do Azure para alertas gerados por IoT usando o seguinte filtro kql:
 
 ```kusto

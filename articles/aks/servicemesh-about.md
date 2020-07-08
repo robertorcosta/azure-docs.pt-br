@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: eca49a3fac1ea0398ebe1d05bde20fbca3c81232
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77594304"
 ---
 # <a name="about-service-meshes"></a>Sobre malhas de serviço
@@ -38,7 +37,7 @@ O **plano de dados** normalmente consiste em um proxy que é injetado de forma t
 
 ![Arquitetura de malha de serviço típica](media/servicemesh/typical-architecture.png)
 
-## <a name="capabilities"></a>Funcionalidades
+## <a name="capabilities"></a>Capacidades
 
 Cada uma das malhas de serviço tem um ajuste natural e se concentra no suporte a cenários específicos, mas normalmente você descobrirá que a maioria irá implementar um número de, se não todos, dos seguintes recursos.
 
