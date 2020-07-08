@@ -4,10 +4,9 @@ description: Saiba como trabalhar com suas definições de plano gráfico como c
 ms.date: 05/06/2020
 ms.topic: how-to
 ms.openlocfilehash: 7cc6bc241dc6b7b4baa669e64a0d5e43641a55b8
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82864038"
 ---
 # <a name="import-and-export-blueprint-definitions-with-powershell"></a>Importar e exportar definições de Blueprint com o PowerShell
@@ -40,7 +39,7 @@ Antes de examinar a exportação e a importação de plantas, vejamos como os ar
 > [!IMPORTANT]
 > Se nenhum valor for passado para o parâmetro **Name** do `Import-AzBlueprintWithArtifact` cmdlet, o nome da pasta na qual a definição Blueprint é armazenada será usado.
 
-Junto com a definição do Blueprint, que deve ser `blueprint.json`nomeada, são os artefatos dos quais a definição do Blueprint é composta. Cada artefato deve estar na subpasta chamada `artifacts`.
+Junto com a definição do Blueprint, que deve ser nomeada `blueprint.json` , são os artefatos dos quais a definição do Blueprint é composta. Cada artefato deve estar na subpasta chamada `artifacts` .
 Juntas, a estrutura de sua definição de plantas como arquivos JSON em pastas deve ter a seguinte aparência:
 
 ```text
@@ -69,7 +68,7 @@ As etapas para exportar sua definição de planta são simples. A exportação d
 - **Versão** (opcional)
   - Especifica a versão a ser impressa se o objeto de referência **Blueprint** contiver referências a mais de uma versão.
 
-1. Obtenha uma referência à definição do Blueprint para exportar da assinatura representada como `{subId}`:
+1. Obtenha uma referência à definição do Blueprint para exportar da assinatura representada como `{subId}` :
 
    ```azurepowershell-interactive
    # Login first with Connect-AzAccount if not using Cloud Shell

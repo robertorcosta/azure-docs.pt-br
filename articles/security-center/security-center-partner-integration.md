@@ -14,10 +14,9 @@ ms.workload: na
 ms.date: 04/19/2020
 ms.author: memildin
 ms.openlocfilehash: 48869140ba8cd1a9598562b0057b0005d8fcd9c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81758069"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrar soluções de segurança na Central de Segurança do Azure
@@ -40,9 +39,9 @@ Para saber mais sobre a integração das ferramentas de verificação de vulnera
 - [Verificador de vulnerabilidades integrada para máquinas virtuais](built-in-vulnerability-assessment.md).
 - [Implantando uma solução de verificação de vulnerabilidade de parceiro](partner-vulnerability-assessment.md).
 
-A central de segurança também oferece análise de vulnerabilidade para seu:
+A Central de Segurança também oferece análise de vulnerabilidades para:
 
-* Bancos de dados SQL-consulte [explorar relatórios de avaliação de vulnerabilidade no painel de avaliação de vulnerabilidade](security-center-iaas-advanced-data.md#explore-vulnerability-assessment-reports)
+* Bancos de dados SQL - confira [Explorar relatórios de avaliação de vulnerabilidades no painel de avaliação de vulnerabilidades](security-center-iaas-advanced-data.md#explore-vulnerability-assessment-reports)
 * Imagens do registro de contêiner do Azure-consulte [integração do registro de contêiner do Azure com a central de segurança (versão prévia)](azure-container-registry-integration.md)
 
 ## <a name="how-security-solutions-are-integrated"></a>Como as soluções de segurança são integradas

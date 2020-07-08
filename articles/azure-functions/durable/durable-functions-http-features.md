@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 1ffa116f6877b58d54c22f918b4e83574b85860c
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82800712"
 ---
 # <a name="http-features"></a>Recursos de HTTP
@@ -57,7 +56,7 @@ A [Associação de cliente de orquestração](durable-functions-bindings.md#orch
 
 ---
 
-Iniciar uma função de orquestrador usando as funções HTTP-Trigger mostradas anteriormente pode ser feito usando qualquer cliente HTTP. O comando de ondulação a seguir inicia uma função `DoWork`de orquestrador chamada:
+Iniciar uma função de orquestrador usando as funções HTTP-Trigger mostradas anteriormente pode ser feito usando qualquer cliente HTTP. O comando de ondulação a seguir inicia uma função de orquestrador chamada `DoWork` :
 
 ```bash
 curl -X POST https://localhost:7071/orchestrators/DoWork -H "Content-Length: 0" -i
@@ -224,7 +223,7 @@ module.exports = df.orchestrator(function*(context) {
 
 ---
 
-No exemplo anterior, o `tokenSource` parâmetro é configurado para adquirir tokens do Azure AD para [Azure Resource Manager](../../azure-resource-manager/management/overview.md). Os tokens são identificados pelo URI `https://management.core.windows.net`do recurso. O exemplo supõe que o aplicativo de função atual seja executado localmente ou implantado como um aplicativo de funções com uma identidade gerenciada. Pressupõe-se que a identidade local ou a identidade gerenciada tenha permissão para gerenciar VMs no grupo `myRG`de recursos especificado.
+No exemplo anterior, o `tokenSource` parâmetro é configurado para adquirir tokens do Azure ad para [Azure Resource Manager](../../azure-resource-manager/management/overview.md). Os tokens são identificados pelo URI do recurso `https://management.core.windows.net` . O exemplo supõe que o aplicativo de função atual seja executado localmente ou implantado como um aplicativo de funções com uma identidade gerenciada. Pressupõe-se que a identidade local ou a identidade gerenciada tenha permissão para gerenciar VMs no grupo de recursos especificado `myRG` .
 
 Em tempo de execução, a origem do token configurada retorna automaticamente um token de acesso OAuth 2,0. A origem, em seguida, adiciona o token como um token de portador ao cabeçalho de autorização da solicitação de saída. Esse modelo é uma melhoria em relação à adição manual de cabeçalhos de autorização a solicitações HTTP pelos seguintes motivos:
 

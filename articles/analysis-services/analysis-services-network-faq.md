@@ -8,10 +8,9 @@ ms.date: 05/05/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: b60cf34e8efed2ed63b6e35cfaf7445edb701610
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82838494"
 ---
 # <a name="frequently-asked-questions-about-analysis-services-network-connectivity"></a>Perguntas frequentes sobre Analysis Services conectividade de rede
@@ -41,7 +40,7 @@ A **resposta** Azure Analysis Services não usa endereços IP fixos ou marcas de
 ## <a name="azure-apps-with-ip-address"></a>Aplicativos do Azure com endereço IP
 
 **Pergunta** -eu uso um aplicativo baseado no Azure (por exemplo, Azure Functions, Azure data Factory) com um endereço IP que muda de forma dinâmica. Como posso gerenciar as regras de firewall Azure Analysis Services para permitir dinamicamente o endereço IP em que meu aplicativo está sendo executado?   
-O Azure Analysis Services de **resposta** não dá suporte a links privados, VNETs ou marcas de serviço. Há algumas soluções de código-fonte aberto (por exemplo https://github.com/mathwro/Scripts/blob/master/Azure/AllowAzure-AnalysisServer.ps1) , que detectam o endereço IP do aplicativo cliente e atualizam as regras de firewall automaticamente e temporariamente.
+O Azure Analysis Services de **resposta** não dá suporte a links privados, VNETs ou marcas de serviço. Há algumas soluções de código-fonte aberto (por exemplo, https://github.com/mathwro/Scripts/blob/master/Azure/AllowAzure-AnalysisServer.ps1) que detectam o endereço IP do aplicativo cliente e atualizam as regras de firewall automaticamente e temporariamente.
 
 
 ## <a name="next-steps"></a>Próximas etapas

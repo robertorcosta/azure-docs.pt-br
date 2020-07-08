@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.date: 04/30/2020
 ms.openlocfilehash: 4eaa9c4e3d200eedd57c468639c1af3830911d1d
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82889252"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configure os clusters no HDInsight com o Apache Hadoop, o Apache Spark, o Apache Kafka e muito mais
@@ -26,20 +25,20 @@ Um cluster Hadoop é composto por várias máquinas virtuais (nós), usadas para
 > [!IMPORTANT]  
 > A cobrança do cluster HDInsight começa quando um cluster é criado e para quando o cluster é excluído. A cobrança ocorre por minuto, portanto, sempre exclua o cluster quando ele não estiver mais sendo usado. Saiba como [excluir um cluster.](hdinsight-delete-cluster.md)
 
-Se você estiver usando vários clusters juntos, você desejará criar uma rede virtual e, se estiver usando um cluster Spark, você também desejará usar o conector de depósito do hive. Para obter mais informações, consulte [planejar uma rede virtual para o Azure HDInsight](./hdinsight-plan-virtual-network-deployment.md) e [integrar Apache Spark e Apache Hive com o conector do depósito do hive](interactive-query/apache-hive-warehouse-connector.md).
+Se você estiver usando vários clusters juntos, desejará criar uma rede virtual e, se estiver usando um cluster do Spark, também desejará usar o Hive Warehouse Connector. Para obter mais informações, confira [Planejar uma rede virtual para o Azure HDInsight](./hdinsight-plan-virtual-network-deployment.md) e [Integrar o Apache Spark e o Apache Hive com o Hive Warehouse Connector](interactive-query/apache-hive-warehouse-connector.md).
 
 ## <a name="cluster-setup-methods"></a>Métodos de instalação de cluster
 
 A tabela a seguir mostra os diferentes métodos que você pode usar para configurar um cluster HDInsight.
 
-| Clusters criados com | Navegador da Web | Linha de comando | API REST | . |
+| Clusters criados com | Navegador da Web | Linha de Comando | API REST | . |
 | --- |:---:|:---:|:---:|:---:|
 | [Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
 | [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
 | [CLI do Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [PowerShell do Azure](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
-| [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✔ |✔ |&nbsp; |
-| [Modelos do Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
+| [Curl](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✔ |✔ |&nbsp; |
+| [Modelos do Gerenciador de Recursos do Azure](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 
 Este artigo orienta você pela instalação no [portal do Azure](https://portal.azure.com), onde você pode criar um cluster HDInsight.
 
@@ -98,13 +97,13 @@ Com os clusters HDInsight, você pode configurar duas contas de usuário durante
 O nome de usuário HTTP tem as seguintes restrições:
 
 * Caracteres especiais permitidos: `_` e`@`
-* Caracteres não permitidos: #;. "',\/: '! *? $ (){}[] <>|&--= +% ~ ^ de espaço
+* Caracteres não permitidos: #;. "', \/ : '! *? $ () {} [] <>|&--= +% ~ ^ espaço
 * Comprimento máximo: 20
 
 O nome de usuário do SSH tem as seguintes restrições:
 
-* Caracteres especiais permitidos:`_` e`@`
-* Caracteres não permitidos: #;. "',\/: '! *? $ (){}[] <>|&--= +% ~ ^ de espaço
+* Caracteres especiais permitidos: `_` e`@`
+* Caracteres não permitidos: #;. "', \/ : '! *? $ () {} [] <>|&--= +% ~ ^ espaço
 * Comprimento máximo: 64
 * Nomes reservados: Hadoop, usuários, oozie, Hive, mapred, ambari-QA, Zookeeper, tez, HDFS, sqoop, yarn, hcat, AMS, HBase, Storm, administrador, admin, usuário, Usuário1, teste, Usuário2, Test1, usuário3, admin1, 1, 123, a, actuser, ADM, admin2, ASPNET, backup, console, David, convidado, John, proprietário, test3,, Spark, suporte, support_388945a0, sys, test2, User4,, User5,
 
@@ -186,7 +185,7 @@ Para obter um exemplo de como usar dois tipos de cluster em uma rede virtual do 
 
 ### <a name="disk-encryption-setting"></a>Configuração de criptografia de disco
 
-Para obter mais informações, consulte [criptografia de disco de chave gerenciada pelo cliente](./disk-encryption.md).
+Para obter mais informações, confira [Criptografia de disco de chave gerenciada pelo cliente](./disk-encryption.md).
 
 ### <a name="kafka-rest-proxy"></a>Proxy REST do Kafka
 
@@ -206,7 +205,7 @@ Você será cobrado pelo uso do nó desde que o cluster exista. A cobrança é i
 
 Cada tipo de cluster tem seu próprio número de nós, terminologia para nós no cluster e tamanho da VM padrão. Na tabela a seguir, o número de nós para cada tipo de nó está entre parênteses.
 
-| Type | Nós | Diagrama |
+| Tipo | Nós | Diagrama |
 | --- | --- | --- |
 | O Hadoop |Nó de cabeçalho (2), nó de trabalho (1 +) |![Nós de cluster Hadoop do HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
 | HBase |Servidor de cabeçalho (2), Servidor de região (1 +), Nó mestre/do ZooKeeper (3) |![Configuração de tipo de cluster HBase do HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |
@@ -289,4 +288,4 @@ Para saber mais, confira [Personalizar clusters HDInsight usando a Inicializaç�
 * [Solucionar problemas de falhas de criação de cluster com o Azure HDInsight](./hadoop/hdinsight-troubleshoot-cluster-creation-fails.md)
 * [O que são o HDInsight, o ecossistema do Apache Hadoop e os clusters Hadoop?](hadoop/apache-hadoop-introduction.md)
 * [Introdução ao uso do Apache Hadoop no HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
-* [Trabalhar no Apache Hadoop no HDInsight em um computador Windows](hdinsight-hadoop-windows-tools.md)
+* [Trabalhe no Apache Hadoop no HDInsight a partir de um PC Windows](hdinsight-hadoop-windows-tools.md)

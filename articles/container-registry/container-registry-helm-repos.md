@@ -4,10 +4,9 @@ description: Saiba como armazenar gráficos Helm para seus aplicativos kubernete
 ms.topic: article
 ms.date: 03/20/2020
 ms.openlocfilehash: 04ba3aaf312188ab77c04a97ab960cf9b9af078f
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82857618"
 ---
 # <a name="push-and-pull-helm-charts-to-an-azure-container-registry"></a>Enviar por push e efetuar pull de gráficos do Helm para um registro de contêiner do Azure
@@ -25,12 +24,12 @@ Para armazenar, gerenciar e instalar gráficos do Helm, você usa um cliente do 
 
 Você pode usar o Helm 3 ou o Helm 2 para hospedar gráficos Helm no registro de contêiner do Azure, com fluxos de trabalho específicos de cada versão:
 
-* [Helm 3](#use-the-helm-3-client) comandos de uso `helm chart` do cliente na CLI do Helm para gerenciar gráficos em seu registro como [artefatos de OCI](container-registry-image-formats.md#oci-artifacts)
+* [Helm 3](#use-the-helm-3-client) comandos de uso do cliente `helm chart` na CLI do Helm para gerenciar gráficos em seu registro como [artefatos de OCI](container-registry-image-formats.md#oci-artifacts)
 * [Cliente Helm 2](#use-the-helm-2-client) -use os comandos [AZ acr Helm][az-acr-helm] no CLI do Azure para adicionar e gerenciar seu registro de contêiner como um repositório de gráfico de Helm
 
 ### <a name="additional-information"></a>Informações adicionais
 
-* Para a maioria dos cenários, é recomendável usar o fluxo de `helm chart` trabalho Helm 3 com comandos nativos para gerenciar gráficos como artefatos de OCI.
+* Para a maioria dos cenários, é recomendável usar o fluxo de trabalho Helm 3 com `helm chart` comandos nativos para gerenciar gráficos como artefatos de OCI.
 * A partir de Helm 3, os comandos [AZ ACR Helm][az-acr-helm] têm suporte para compatibilidade com o cliente Helm 2 e o formato de gráfico. O desenvolvimento futuro desses comandos não está planejado no momento. Consulte o [roteiro do produto](https://github.com/Azure/acr/blob/master/docs/acr-roadmap.md#acr-helm-ga).
 * Gráficos Helm 2 não podem ser exibidos ou gerenciados usando o portal do Azure.
 
@@ -74,7 +73,7 @@ cd helmtest
 helm create hello-world
 ```
 
-Como um exemplo básico, altere o diretório para `templates` a pasta e primeiro exclua o conteúdo ali:
+Como um exemplo básico, altere o diretório para a `templates` pasta e primeiro exclua o conteúdo ali:
 
 ```console
 cd hello-world/templates
@@ -98,7 +97,7 @@ Para obter mais informações sobre como criar e executar este exemplo, consulte
 
 ### <a name="save-chart-to-local-registry-cache"></a>Salvar gráfico no cache do Registro local
 
-Altere o diretório para `hello-world` o subdiretório. Em seguida, `helm chart save` execute para salvar uma cópia do gráfico localmente e também criar um alias com o nome totalmente qualificado do registro (todas as letras minúsculas) e o repositório e a marca de destino. 
+Altere o diretório para o `hello-world` subdiretório. Em seguida, execute `helm chart save` para salvar uma cópia do gráfico localmente e também criar um alias com o nome totalmente qualificado do registro (todas as letras minúsculas) e o repositório e a marca de destino. 
 
 No exemplo a seguir, o nome do registro é *mycontainerregistry*, o repositório de destino é *Hello-World*e a marca do gráfico de destino é *v1*, mas valores substitutos para o seu ambiente:
 
@@ -120,7 +119,7 @@ mycontainerregistry.azurecr.io/helm/hello-world:v1       hello-world       0.1.0
 
 Execute o `helm registry login` comando na CLI do Helm 3 para [autenticar com o registro](container-registry-authentication.md) usando as credenciais apropriadas para seu cenário.
 
-Por exemplo, crie uma [entidade de serviço Azure Active Directory com as permissões pull e Push](container-registry-auth-service-principal.md#create-a-service-principal) (função AcrPush) para o registro. Em seguida, forneça as credenciais da `helm registry login`entidade de serviço para. O exemplo a seguir fornece a senha usando uma variável de ambiente:
+Por exemplo, crie uma [entidade de serviço Azure Active Directory com as permissões pull e Push](container-registry-auth-service-principal.md#create-a-service-principal) (função AcrPush) para o registro. Em seguida, forneça as credenciais da entidade de serviço para `helm registry login` . O exemplo a seguir fornece a senha usando uma variável de ambiente:
 
 ```console
 echo $spPassword | helm registry login mycontainerregistry.azurecr.io \
@@ -178,7 +177,7 @@ A saída é semelhante a:
 }
 ```
 
-Execute o comando [AZ ACR Repository show-manifestas][az-acr-repository-show-manifests] para ver detalhes do gráfico armazenado no repositório. Por exemplo: 
+Execute o comando [AZ ACR Repository show-manifestas][az-acr-repository-show-manifests] para ver detalhes do gráfico armazenado no repositório. Por exemplo:
 
 ```azurecli
 az acr repository show-manifests \
@@ -186,7 +185,7 @@ az acr repository show-manifests \
   --repository helm/hello-world --detail
 ```
 
-A saída, abreviada neste exemplo, mostra um `configMediaType` de `application/vnd.cncf.helm.config.v1+json`:
+A saída, abreviada neste exemplo, mostra um `configMediaType` de `application/vnd.cncf.helm.config.v1+json` :
 
 ```output
 [
@@ -205,7 +204,7 @@ A saída, abreviada neste exemplo, mostra um `configMediaType` de `application/v
 
 ### <a name="pull-chart-to-local-cache"></a>Gráfico de pull para cache local
 
-Para instalar um gráfico do Helm no kubernetes, o gráfico deve estar no cache local. Neste exemplo, primeiro execute `helm chart remove` para remover o gráfico local existente chamado: `mycontainerregistry.azurecr.io/helm/hello-world:v1`
+Para instalar um gráfico do Helm no kubernetes, o gráfico deve estar no cache local. Neste exemplo, primeiro execute `helm chart remove` para remover o gráfico local existente chamado `mycontainerregistry.azurecr.io/helm/hello-world:v1` :
 
 ```console
 helm chart remove mycontainerregistry.azurecr.io/helm/hello-world:v1
@@ -219,7 +218,7 @@ helm chart pull mycontainerregistry.azurecr.io/helm/hello-world:v1
 
 ### <a name="export-helm-chart"></a>Exportar gráfico Helm
 
-Para trabalhar ainda mais com o gráfico, exporte-o para um `helm chart export`diretório local usando. Por exemplo, exporte o gráfico que você recebeu `install` para o diretório:
+Para trabalhar ainda mais com o gráfico, exporte-o para um diretório local usando `helm chart export` . Por exemplo, exporte o gráfico que você recebeu para o `install` diretório:
 
 ```console
 helm chart export mycontainerregistry.azurecr.io/helm/hello-world:v1 \
@@ -246,7 +245,7 @@ version: 0.1.0
 
 ### <a name="install-helm-chart"></a>Instalar o gráfico do Helm
 
-Execute `helm install` para instalar o gráfico Helm que você recebeu no cache local e exportado. Especifique um nome de versão, como *myhelmtest*, ou passe `--generate-name` o parâmetro. Por exemplo: 
+Execute `helm install` para instalar o gráfico Helm que você recebeu no cache local e exportado. Especifique um nome de versão, como *myhelmtest*, ou passe o `--generate-name` parâmetro. Por exemplo:
 
 ```console
 helm install myhelmtest ./hello-world
@@ -263,7 +262,7 @@ REVISION: 1
 TEST SUITE: None
 ```
 
-Para verificar a instalação, execute o `helm get manifest` comando. O comando retorna os dados de YAML em `configmap.yaml` seu arquivo de modelo.
+Para verificar a instalação, execute o `helm get manifest` comando. O comando retorna os dados de YAML em seu `configmap.yaml` arquivo de modelo.
 
 Execute `helm uninstall` para desinstalar a versão do gráfico em seu cluster:
 
@@ -441,7 +440,7 @@ az acr helm delete --name mycontainerregistry wordpress --version 8.1.0
 
 Se desejar excluir todas as versões do gráfico nomeado, deixe o parâmetro `--version` de fora.
 
-O gráfico continua a ser retornado quando você executa `helm search`. Novamente, o cliente do Helm não atualiza automaticamente a lista de gráficos disponíveis em um repositório. Para atualizar o índice do repositório do cliente do Helm, use o comando [az acr helm repo add][az-acr-helm-repo-add] novamente:
+O gráfico continua a ser retornado quando você executa `helm search` . Novamente, o cliente do Helm não atualiza automaticamente a lista de gráficos disponíveis em um repositório. Para atualizar o índice do repositório do cliente do Helm, use o comando [az acr helm repo add][az-acr-helm-repo-add] novamente:
 
 ```azurecli
 az acr helm repo add --name mycontainerregistry

@@ -6,10 +6,9 @@ ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
 ms.openlocfilehash: 3ee84c0c868f47dca1aee0401865563a326df3db
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82864395"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solucionar problemas de falha do Backup do Azure: problemas com o agente ou a extensão
@@ -45,7 +44,7 @@ Depois de registrar e agendar uma VM para o serviço de backup do Azure, o backu
 
 **Causa 4: [as opções de configuração do agente de VM não estão definidas (para VMs do Linux)](#vm-agent-configuration-options-are-not-set-for-linux-vms)**
 
-**Causa 5: a [solução de controle de aplicativo está bloqueando o IaaSBcdrExtension. exe](#application-control-solution-is-blocking-iaasbcdrextensionexe)**
+**Causa 5: a [solução de controle de aplicativo está bloqueando IaaSBcdrExtension.exe](#application-control-solution-is-blocking-iaasbcdrextensionexe)**
 
 ## <a name="usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state"></a>UserErrorVmProvisioningStateFailed-a VM está em estado de provisionamento com falha
 
@@ -205,13 +204,13 @@ Se você precisar de log detalhado para waagent, siga estas etapas:
 Um arquivo de configuração (/ etc/waagent.conf) controla as ações de waagent. Extensões de opções de arquivo de configuração **. habilitar** deve ser definido como **s** e **provisionamento. o agente** deve ser definido como **auto** para que o backup funcione.
 Para obter uma lista completa das opções de arquivo de configuração do agente de VM, consulte<https://github.com/Azure/WALinuxAgent#configuration-file-options>
 
-### <a name="application-control-solution-is-blocking-iaasbcdrextensionexe"></a>A solução de controle de aplicativo está bloqueando o IaaSBcdrExtension. exe
+### <a name="application-control-solution-is-blocking-iaasbcdrextensionexe"></a>A solução de controle de aplicativo está bloqueando IaaSBcdrExtension.exe
 
-Se você estiver executando o [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/what-is-applocker) (ou outra solução de controle de aplicativo) e as regras forem baseadas no Publicador ou no caminho, elas poderão impedir a execução do executável **IaaSBcdrExtension. exe** .
+Se você estiver executando o [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/what-is-applocker) (ou outra solução de controle de aplicativo) e as regras forem baseadas no Publicador ou no caminho, elas poderão impedir a execução do **IaaSBcdrExtension.exe** executável.
 
 #### <a name="solution"></a>Solução
 
-Exclua `/var/lib` o caminho ou o executável **IaaSBcdrExtension. exe** do AppLocker (ou de outro software de controle de aplicativo).
+Exclua o `/var/lib` caminho ou o **IaaSBcdrExtension.exe** executável do AppLocker (ou de outro software de controle de aplicativo).
 
 ### <a name="the-snapshot-status-cant-be-retrieved-or-a-snapshot-cant-be-taken"></a><a name="the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>O status do instantâneo não pode ser recuperado, ou não é possível obter um instantâneo
 
@@ -229,7 +228,7 @@ As seguintes condições podem causar falha na tarefa de instantâneo:
 ### <a name="remove-lock-from-the-recovery-point-resource-group"></a><a name="remove_lock_from_the_recovery_point_resource_group"></a>Remover o bloqueio do grupo de recursos de ponto de recuperação
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
-2. Opção ir para **todos os recursos**, selecione o grupo de recursos coleção de pontos de restauração no`<Geo>`seguinte`<number>`formato AzureBackupRG_ _.
+2. Opção ir para **todos os recursos**, selecione o grupo de recursos coleção de pontos de restauração no seguinte formato AzureBackupRG_ `<Geo>` _ `<number>` .
 3. Na seção **Configurações**, selecione **Bloqueios** para exibir os bloqueios.
 4. Para remover o bloqueio, selecione as reticências e clique em **Excluir**.
 

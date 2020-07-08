@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
 ms.openlocfilehash: 0d122a56035e58bd5065da8fde56246da6478d54
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82871262"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Como registrar eventos em log para Hubs de Eventos do Azure no Gerenciamento de API do Azure
@@ -46,7 +45,7 @@ Depois que o agente de log estiver configurado no gerenciamento de API, você po
 6. Na janela de Processamento de entrada ou de saída, clique no triângulo (ao lado do lápis).
 7. Selecione o Editor de códigos. Para obter mais informações, consulte [Como definir ou editar políticas](set-edit-policies.md).
 8. Posicione o cursor na seção da política `inbound` ou `outbound`.
-9. Na janela à direita, selecione **políticas** > avançadas**log no EventHub**. Isso insere o modelo de instrução da política `log-to-eventhub`.
+9. Na janela à direita, selecione **políticas avançadas**  >  **log no EventHub**. Isso insere o modelo de instrução da política `log-to-eventhub`.
 
 ```xml
 <log-to-eventhub logger-id="logger-id">

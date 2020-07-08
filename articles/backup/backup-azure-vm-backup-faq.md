@@ -5,10 +5,9 @@ ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.openlocfilehash: 5705b70dd210c336fc2baa4da07f96f2ad249f64
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82800644"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Perguntas frequentes-fazer backup de VMs do Azure
@@ -65,7 +64,7 @@ Sim. Os backups são executados quando um computador é desligado. O ponto de re
 
 Sim. Você pode cancelar o trabalho de backup em um estado de **captura de instantâneo** . Você não poderá cancelar um trabalho se a transferência de dados do instantâneo estiver em andamento.
 
-### <a name="i-enabled-a-lock-on-the-resource-group-created-by-azure-backup-service-for-example-azurebackuprg_geo_number-will-my-backups-continue-to-work"></a>Habilitei um bloqueio no grupo de recursos criado pelo serviço de backup do Azure (por `AzureBackupRG_<geo>_<number>`exemplo,). Meus backups continuarão a funcionar?
+### <a name="i-enabled-a-lock-on-the-resource-group-created-by-azure-backup-service-for-example-azurebackuprg_geo_number-will-my-backups-continue-to-work"></a>Habilitei um bloqueio no grupo de recursos criado pelo serviço de backup do Azure (por exemplo, `AzureBackupRG_<geo>_<number>` ). Meus backups continuarão a funcionar?
 
 Se você bloquear o grupo de recursos criado pelo serviço de backup do Azure, os backups começarão a falhar, pois há um limite máximo de 18 pontos de restauração.
 
@@ -99,11 +98,11 @@ Se você alterar o caso (para superior ou inferior) do seu grupo de recursos de 
 
 ### <a name="can-i-back-up-or-restore-selective-disks-attached-to-a-vm"></a>Posso fazer backup ou restaurar discos seletivos anexados a uma VM?
 
-O backup do Azure agora oferece suporte a backup e restauração de disco seletivo usando a solução de backup de máquina virtual do Azure.
+O Backup do Azure agora dá suporte a backup e restauração de disco seletivo usando a solução de backup de Máquina Virtual do Azure.
 
 Hoje, o backup do Azure dá suporte ao backup de todos os discos (sistema operacional e dados) em uma VM em conjunto usando a solução de backup de máquina virtual. Com a funcionalidade excluir disco, você obtém uma opção para fazer backup de um ou alguns dos vários discos de dados em uma VM. Isso fornece uma solução eficiente e econômica para suas necessidades de backup e restauração. Cada ponto de recuperação contém dados dos discos incluídos na operação de backup, o que permite que você tenha um subconjunto de discos restaurados do ponto de recuperação fornecido durante a operação de restauração. Isso se aplica à restauração tanto do instantâneo quanto do cofre.
 
-Para se inscrever na versão prévia, escreva-nos emAskAzureBackupTeam@microsoft.com
+Para se inscrever na versão prévia, escreva para nós em AskAzureBackupTeam@microsoft.com
 
 ## <a name="restore"></a>Restaurar
 
@@ -149,7 +148,7 @@ Operações como segredo/chave de sobreposição não exigem essa etapa e o mesm
 
 ### <a name="can-i-access-the-vm-once-restored-due-to-a-vm-having-broken-relationship-with-domain-controller"></a>Posso acessar a VM uma vez restaurada devido a uma VM que está tendo uma relação quebrada com o controlador de domínio?
 
-Sim, você acessa a VM uma vez restaurada devido a uma VM que tem uma relação quebrada com o controlador de domínio. Para obter mais informações, consulte este [artigo](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#post-restore-steps)
+Sim, você acessa a VM uma vez restaurada devido a uma VM que tem uma relação quebrada com o controlador de domínio. Para obter mais informações, confira este [artigo](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#post-restore-steps)
 
 ## <a name="manage-vm-backups"></a>Gerenciar backups de VM
 
@@ -166,9 +165,9 @@ O backup da VM é feito usando as configurações de retenção e agendamento na
 2. Para mover as máquinas virtuais configuradas com o backup do Azure, execute as seguintes etapas:
 
    1. Localize o local da sua máquina virtual.
-   2. Localize um grupo de recursos com o seguinte padrão de `AzureBackupRG_<location of your VM>_1`nomenclatura:. Por exemplo, *AzureBackupRG_westus2_1*
+   2. Localize um grupo de recursos com o seguinte padrão de nomenclatura: `AzureBackupRG_<location of your VM>_1` . Por exemplo, *AzureBackupRG_westus2_1*
    3. Na portal do Azure, marque **Mostrar tipos ocultos**.
-   4. Localize o recurso com o tipo **Microsoft. Compute/restorePointCollections** que tem o padrão `AzureBackup_<name of your VM that you're trying to move>_###########`de nomenclatura.
+   4. Localize o recurso com o tipo **Microsoft. Compute/restorePointCollections** que tem o padrão de nomenclatura `AzureBackup_<name of your VM that you're trying to move>_###########` .
    5. Exclua este recurso. Esta operação exclui somente os pontos de recuperação instantânea, não os dados de backup no cofre.
    6. Depois que a operação de exclusão for concluída, você poderá mover sua máquina virtual.
 

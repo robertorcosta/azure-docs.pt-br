@@ -7,10 +7,9 @@ ms.service: media-services
 ms.topic: how-to
 ms.date: 04/20/2020
 ms.openlocfilehash: 7902dfdf81d8e44921a5218d56effc90f433f02d
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82857411"
 ---
 # <a name="writing-plugins-for-azure-media-player"></a>Gravando plug-ins para Player de Mídia do Azure #
@@ -33,7 +32,7 @@ Escreva seu JavaScript em uma função como esta:
     }).call(this);
 ```
 
-Você pode escrever seu código diretamente em sua página HTML dentro `<script>` de marcas ou em um arquivo JavaScript externo. Se você fizer o último, certifique-se de incluir o arquivo JavaScript na `<head>` sua página HTML *após* o script de amp.
+Você pode escrever seu código diretamente em sua página HTML dentro de `<script>` marcas ou em um arquivo JavaScript externo. Se você fizer o último, certifique-se de incluir o arquivo JavaScript na `<head>` sua página HTML *após* o script de amp.
 
 Exemplo:
 

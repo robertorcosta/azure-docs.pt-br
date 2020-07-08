@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: lagayhar
 ms.openlocfilehash: 58a2657f6b9aee101384146c4ebb43023953bfcb
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82892206"
 ---
 # <a name="how-to-use-jsonpath-to-transform-json-data-in-workbooks"></a>Como usar o JSONPath para transformar dados JSON em pastas de trabalho
@@ -27,7 +26,7 @@ Usando a transformação JSONPath, os autores da pasta de trabalho são capazes 
 ## <a name="using-jsonpath"></a>Usando JSONPath
 
 1. Alterne a pasta de trabalho para o modo de edição clicando no item *Editar* barra de ferramentas.
-2. Use o link *Adicionar* > *consulta adicionar* para adicionar um controle de consulta à pasta de trabalho.
+2. Use o link *Adicionar*  >  *consulta adicionar* para adicionar um controle de consulta à pasta de trabalho.
 3. Selecione a fonte de dados como *JSON*.
 4. Use o editor de JSON para inserir o trecho de JSON a seguir
     ```json
@@ -69,7 +68,7 @@ Vamos supor que recebamos o objeto JSON acima como uma representação do invent
 1. Selecione a guia *configurações de resultado* e mude o formato de resultado para *caminho JSON*.
 2. Aplique as seguintes configurações de caminho JSON:
 
-    Tabela de caminho JSON `$.store.books`:. Este campo representa o caminho da raiz da tabela. Nesse caso, nos preocupamos com o inventário de livros da loja. O caminho da tabela filtra o JSON para as informações do livro.
+    Tabela de caminho JSON: `$.store.books` . Este campo representa o caminho da raiz da tabela. Nesse caso, nos preocupamos com o inventário de livros da loja. O caminho da tabela filtra o JSON para as informações do livro.
 
    | IDs de coluna | Caminho JSON da coluna |
    |:-----------|:-----------------|

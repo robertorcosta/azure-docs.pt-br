@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
 ms.openlocfilehash: 6829efa007e9e67866bdc0efbca4d095155c35e2
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82889696"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Integridade de back-end e logs de diagnóstico para o gateway de aplicativo
@@ -39,7 +38,7 @@ O relatório de integridade do back-end reflete o resultado da investigação de
 
 ### <a name="view-back-end-health-through-the-portal"></a>Exibir a integridade do back-end por meio do portal
 
-No portal, a integridade do back-end é fornecida automaticamente. Em um gateway de aplicativo existente, selecione **monitoramento** > **integridade de back-end**.
+No portal, a integridade do back-end é fornecida automaticamente. Em um gateway de aplicativo existente, selecione **monitoramento**  >  **integridade de back-end**.
 
 Cada membro no pool de back-end é listado nesta página (seja uma NIC, um IP ou um FQDN). São mostrados o nome do pool de back-end, a porta, as configurações de HTTP do back-end e o status de integridade. Os valores válidos para o status de integridade são **íntegros**, não **íntegros**e **desconhecidos**.
 
@@ -113,11 +112,11 @@ Você tem três opções para armazenar os logs:
 
 O log de atividade é habilitado automaticamente para todos os recursos do Resource Manager. Você deve habilitar o log de acesso e de desempenho para começar a coletar os dados disponíveis por meio desses logs. Para habilitar o log, use as seguintes etapas:
 
-1. Anote a ID do recurso da conta de armazenamento, na qual os dados de log são armazenados. Esse valor tem o formato /subscriptions/\<subscriptionId\>/resourceGroups/\<grupo de recursos name\>/providers/Microsoft.Storage/storageAccounts/\<nome da conta de armazenamento\>. Use qualquer conta de armazenamento em sua assinatura. Use o portal do Azure para encontrar essas informações.
+1. Anote a ID do recurso da conta de armazenamento, na qual os dados de log são armazenados. Esse valor está no formato:/subscriptions/ \<subscriptionId\> /ResourceGroups/ \<resource group name\> /Providers/Microsoft.Storage/storageAccounts/ \<storage account name\> . Use qualquer conta de armazenamento em sua assinatura. Use o portal do Azure para encontrar essas informações.
 
     ![Portal: ID do recurso da conta de armazenamento](./media/application-gateway-diagnostics/diagnostics1.png)
 
-2. Anote a ID do Recurso do gateway de aplicativo para o qual o log está habilitado. Esse valor tem o formato /subscriptions/\<subscriptionId\>/resourceGroups/\<grupo de recursos name\>/providers/Microsoft.Network/applicationGateways/\<nome do gateway de aplicativo\>. Use o portal para encontrar essas informações.
+2. Anote a ID do Recurso do gateway de aplicativo para o qual o log está habilitado. Esse valor está no formato:/subscriptions/ \<subscriptionId\> /ResourceGroups/ \<resource group name\> /Providers/Microsoft.Network/applicationGateways/ \<application gateway name\> . Use o portal para encontrar essas informações.
 
     ![Portal: ID do recurso do gateway de aplicativo](./media/application-gateway-diagnostics/diagnostics2.png)
 
@@ -302,7 +301,7 @@ O log de firewall é gerado apenas se você o habilitou em cada gateway de aplic
 |ruleSetType     | Tipo de conjunto de regras. O valor disponível é OWASP.        |
 |ruleSetVersion     | Versão utilizada do conjunto de regras. Os valores disponíveis são 2.2.9 e 3.0.     |
 |ruleId     | ID da Regra do evento de gatilho.        |
-|mensagem     | Mensagem amigável para o evento de gatilho. Mais detalhes são fornecidos na seção de detalhes.        |
+|message     | Mensagem amigável para o evento de gatilho. Mais detalhes são fornecidos na seção de detalhes.        |
 |ação     |  Ação executada na solicitação. Os valores disponíveis são MATCHED e blocked.      |
 |site     | Site para o qual o log foi gerado. No momento, somente Global é listado porque as regras são globais.|
 |detalhes     | Detalhes do evento de gatilho.        |

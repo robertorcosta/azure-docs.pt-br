@@ -4,10 +4,9 @@ description: As ofertas de serviço gerenciado permitem que os provedores de ser
 ms.date: 05/04/2020
 ms.topic: conceptual
 ms.openlocfilehash: 975c9ab98229626a513404b2092b266a9e284279
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82792285"
 ---
 # <a name="managed-service-offers-in-azure-marketplace"></a>Ofertas de serviço gerenciado no Azure Marketplace
@@ -31,7 +30,7 @@ Planos públicos permitem que você promova serviços para novos clientes. Norma
 Se apropriado, você pode incluir planos públicos e privados na mesma oferta.
 
 > [!IMPORTANT]
-> Depois que um plano tiver sido publicado como público, você não poderá alterá-lo para privado. Para controlar quais clientes podem aceitar sua oferta e delegar recursos, use um plano privado. Com um plano público, não é possível restringir a disponibilidade para determinados clientes ou até mesmo para um determinado número de clientes (embora você possa deixar de vender completamente o plano se optar por fazê-lo). Você poderá [remover o acesso a uma delegação](../how-to/remove-delegation.md) depois que um cliente aceitar uma oferta somente se você tiver incluído uma **autorização** com a **definição de função** definida para atribuição de [registro de serviços gerenciados excluir função](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) quando você publicou a oferta. Você também pode entrar em contato com o cliente e pedir que eles [removam seu acesso](../how-to/view-manage-service-providers.md#add-or-remove-service-provider-offers).
+> Depois que um plano tiver sido publicado como público, você não poderá alterá-lo para privado. Para controlar quais clientes podem aceitar sua oferta e delegar recursos, use um plano privado. Com um plano público, não é possível restringir a disponibilidade para determinados clientes ou até mesmo para um determinado número de clientes (embora você possa deixar de vender completamente o plano se optar por fazê-lo). Você pode [remover o acesso a uma delegação](../how-to/remove-delegation.md) depois que um cliente aceitar uma oferta somente se você tiver incluído uma **Autorização** com a **Definição de função** definida como [Função de exclusão de registro de serviços gerenciados](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) ao publicar a oferta. Você também pode entrar em contato com o cliente e pedir a eles para [remover seu acesso](../how-to/view-manage-service-providers.md#add-or-remove-service-provider-offers).
 
 ## <a name="publish-managed-service-offers"></a>Publicar ofertas de serviço gerenciado
 

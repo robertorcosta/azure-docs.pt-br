@@ -10,10 +10,9 @@ ms.topic: article
 ms.author: apimpm
 ms.date: 04/23/2020
 ms.openlocfilehash: 38cfab8a3b73eeef28249f53bd2f5c56e26b21a1
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82854100"
 ---
 # <a name="deploy-a-self-hosted-gateway-to-kubernetes"></a>Implantar um gateway auto-hospedado no Kubernetes
@@ -36,7 +35,7 @@ Este artigo descreve as etapas para implantar o componente de gateway auto-hospe
 4. Um token de acesso na caixa de texto de **token** foi gerado automaticamente para você, com base nos valores padrão de **expiração** e **chave secreta** . Se necessário, escolha valores em um ou ambos os controles para gerar um novo token.
 5. Selecione a guia **kubernetes** em **scripts de implantação**.
 6. Selecione o link de arquivo **<gateway-name>. yml** e baixe o arquivo YAML.
-7. Selecione o ícone de **cópia** no canto inferior direito da caixa de texto **implantar** para salvar os `kubectl` comandos na área de transferência.
+7. Selecione o ícone de **cópia** no canto inferior direito da caixa de texto **implantar** para salvar os comandos na `kubectl` área de transferência.
 8. Colar comandos na janela de terminal (ou comando). O primeiro comando cria um segredo kubernetes que contém o token de acesso gerado na etapa 4. O segundo comando aplica o arquivo de configuração baixado na etapa 6 ao cluster kubernetes e espera que o arquivo esteja no diretório atual.
 9. Execute os comandos para criar os objetos kubernetes necessários no [namespace padrão](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) e inicie o pods de gateway auto-hospedado da [imagem de contêiner](https://aka.ms/apim/sputnik/dhub) baixada do registro de contêiner da Microsoft.
 10. Execute o comando a seguir para verificar se a implantação foi bem-sucedida. Observe que pode levar algum tempo para que todos os objetos sejam criados e que os pods sejam inicializados.
@@ -110,7 +109,7 @@ Para saber mais sobre a resolução de nomes no kubernetes, consulte o [site do 
 ### <a name="configuration-backup"></a>Backup de configuração
 Para saber mais sobre o comportamento de gateway auto-hospedado na presença de uma interrupção de conectividade temporária do Azure, consulte [visão geral do gateway de hospedagem interna](self-hosted-gateway-overview.md#connectivity-to-azure).
 
-Configure um volume de armazenamento local para o contêiner de gateway auto-hospedado, para que ele possa persistir uma cópia de backup da última configuração baixada. Se a conectividade estiver inativa, o volume de armazenamento poderá usar a cópia de backup após a reinicialização. O caminho de montagem do volume <code>/apim/config</code>deve ser. Consulte um exemplo no [GitHub](https://github.com/Azure/api-management-self-hosted-gateway/blob/master/examples/self-hosted-gateway-with-configuration-backup.yaml).
+Configure um volume de armazenamento local para o contêiner de gateway auto-hospedado, para que ele possa persistir uma cópia de backup da última configuração baixada. Se a conectividade estiver inativa, o volume de armazenamento poderá usar a cópia de backup após a reinicialização. O caminho de montagem do volume deve ser <code>/apim/config</code> . Consulte um exemplo no [GitHub](https://github.com/Azure/api-management-self-hosted-gateway/blob/master/examples/self-hosted-gateway-with-configuration-backup.yaml).
 Para saber mais sobre o armazenamento no kubernetes, consulte o [site do kubernetes](https://kubernetes.io/docs/concepts/storage/volumes/).
 
 ### <a name="local-logs-and-metrics"></a>Métricas e logs locais

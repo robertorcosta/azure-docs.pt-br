@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
 ms.openlocfilehash: d7fb7b6b409a4e24be97ee61fc7ba1f0c0a93202
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82792625"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Migrar um cluster Apache HBase para uma nova versão
@@ -32,16 +31,16 @@ Aqui está um exemplo de matriz de compatibilidade de versão. Y indica compatib
 
 | Tipo de compatibilidade | Versão principal| Versão secundária | Patch |
 | --- | --- | --- | --- |
-| Compatibilidade de transferência cliente-servidor | N | S | Y |
-| Compatibilidade servidor-servidor | N | S | Y |
-| Compatibilidade de formato de arquivo | N | S | Y |
-| Compatibilidade de API do cliente | N | S | Y |
+| Compatibilidade de transferência cliente-servidor | N | S | S |
+| Compatibilidade servidor-servidor | N | S | S |
+| Compatibilidade de formato de arquivo | N | S | S |
+| Compatibilidade de API do cliente | N | S | S |
 | Compatibilidade de binário do cliente | N | N | S |
 | **Compatibilidade de API limitada ao lado do servidor** |  |  |  |
-| Estável | N | S | Y |
+| Estável | N | S | S |
 | Evoluindo | N | N | S |
 | Instável | N | N | N |
-| Compatibilidade de dependência | N | S | Y |
+| Compatibilidade de dependência | N | S | S |
 | Compatibilidade operacional | N | N | S |
 
 ## <a name="upgrade-with-same-apache-hbase-major-version"></a>Atualizar com a mesma versão principal do Apache HBase
@@ -176,7 +175,7 @@ Para atualizar o cluster do Apache HBase no Azure HDInsight, conclua as seguinte
 
 1. Para garantir que nenhum dado recente do memstore seja liberado, execute novamente o script anterior.
 
-1. Entre no [Apache Ambari](https://ambari.apache.org/) no cluster antigo (`https://OLDCLUSTERNAME.azurehdidnsight.net`) e interrompa os serviços do HBase. Quando você receber uma solicitação para confirmar que deseja parar os serviços, marque a caixa para ativar o modo de manutenção do HBase. Para saber mais sobre como usar e conectar-se ao Ambari, confira [Gerenciar clusters HDInsight usando a interface de usuário do Ambari Web](../hdinsight-hadoop-manage-ambari.md).
+1. Entre no [Apache Ambari](https://ambari.apache.org/) no cluster antigo ( `https://OLDCLUSTERNAME.azurehdidnsight.net` ) e interrompa os serviços do HBase. Quando você receber uma solicitação para confirmar que deseja parar os serviços, marque a caixa para ativar o modo de manutenção do HBase. Para saber mais sobre como usar e conectar-se ao Ambari, confira [Gerenciar clusters HDInsight usando a interface de usuário do Ambari Web](../hdinsight-hadoop-manage-ambari.md).
 
     ![No Ambari, clique em serviços > HBase > parar em ações de serviço](./media/apache-hbase-migrate-new-version/stop-hbase-services1.png)
 
@@ -195,9 +194,9 @@ Para atualizar o cluster do Apache HBase no Azure HDInsight, conclua as seguinte
     ![Em Ambari, altere o nome do contêiner para o HBase rootdir](./media/apache-hbase-migrate-new-version/change-container-name-for-hbase-rootdir.png)
 
 1. Se você estiver atualizando o HDInsight 3,6 para 4,0, siga as etapas abaixo, caso contrário, pule para a etapa 10:
-    1. Reinicie todos os serviços necessários no Ambari selecionando **Serviços** > **reiniciar todos os necessários**.
+    1. Reinicie todos os serviços necessários no Ambari selecionando **Serviços**  >  **reiniciar todos os necessários**.
     1. Interrompa o serviço HBase.
-    1. Use o SSH para o nó Zookeeper e execute [zkCli](https://github.com/go-zkcli/zkcli) o comando `rmr /hbase-unsecure` zkCli para remover o znode raiz do HBase de Zookeeper.
+    1. Use o SSH para o nó Zookeeper e execute o comando [zkCli](https://github.com/go-zkcli/zkcli) `rmr /hbase-unsecure` para remover o Znode raiz do HBase de Zookeeper.
     1. Reinicie o HBase.
 
 1. Se você estiver atualizando para qualquer outra versão do HDInsight além de 4,0, siga estas etapas:

@@ -10,10 +10,9 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 07/12/2019
 ms.openlocfilehash: 052b12817b788ff38f0fab72a5420896b062c732
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82857424"
 ---
 # <a name="failure-spark-job-debugging-with-azure-toolkit-for-intellij-preview"></a>Falha na depuração do trabalho Spark com Azure Toolkit for IntelliJ (versão prévia)
@@ -30,7 +29,7 @@ Este artigo fornece orientações passo a passo sobre como usar as ferramentas d
 
 * Conecte-se ao cluster HDInsight. Consulte [conectar-se ao seu cluster HDInsight](apache-spark-intellij-tool-plugin.md).
 
-* Gerenciador de Armazenamento do Microsoft Azure. Consulte [baixar Gerenciador de armazenamento do Microsoft Azure](https://azure.microsoft.com/features/storage-explorer/).
+* Gerenciador do Armazenamento do Microsoft Azure. Consulte [baixar Gerenciador de armazenamento do Microsoft Azure](https://azure.microsoft.com/features/storage-explorer/).
 
 ## <a name="create-a-project-with-debugging-template"></a>Criar um projeto com o modelo de depuração
 
@@ -58,7 +57,7 @@ Criar um projeto do Spark 2.3.2 para continuar a depuração de falha, escolher 
 
    d. Selecione **Concluir**.
 
-3. Selecione **src** > **Main** > **escalar** para abrir seu código no projeto. Este exemplo usa o script **AgeMean_Div ()** .
+3. Selecione **src**  >  **Main**  >  **escalar** para abrir seu código no projeto. Este exemplo usa o script **AgeMean_Div ()** .
 
 ## <a name="run-a-spark-scalajava-application-on-an-hdinsight-cluster"></a>Executar um aplicativo de escala/Java Spark em um cluster HDInsight
 
@@ -90,7 +89,7 @@ Crie um aplicativo do Spark escala/Java e execute o aplicativo em um cluster Spa
 
 Se o envio do trabalho falhar, você poderá baixar o perfil de trabalho com falha no computador local para uma depuração adicional.
 
-1. Abra **Gerenciador de armazenamento do Microsoft Azure**, localize a conta do HDInsight do cluster para o trabalho com falha, baixe os recursos de trabalho com falha do local correspondente: **\hdp\spark2-Events\\. Spark\\\<-Failures ID do aplicativo>** em uma pasta local. A janela **atividades** mostrará o progresso do download.
+1. Abra **Gerenciador de armazenamento do Microsoft Azure**, localize a conta do HDInsight do cluster para o trabalho com falha, baixe os recursos de trabalho com falha do local correspondente: **\hdp\spark2-Events \\ . Spark \\ \<application ID> -falhas** em uma pasta local. A janela **atividades** mostrará o progresso do download.
 
    ![Falha no download do Gerenciador de Armazenamento do Azure](./media/apache-spark-intellij-tool-failure-debug/hdinsight-find-spark-file-001.png)
 

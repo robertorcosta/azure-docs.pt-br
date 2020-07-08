@@ -15,10 +15,9 @@ ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
 ms.openlocfilehash: f68221666f370f87af7539d9302aaa3ed472d5e8
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82883134"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-fstab-errors"></a>Solucionar problemas de inicialização de VM Linux devido a erros de fstab
@@ -119,7 +118,7 @@ Para resolver esse problema, inicie a VM no modo de emergência usando o console
    > [!Note]
    > * Os campos em cada linha são separados por tabulações ou espaços. Linhas em branco são ignoradas. As linhas que têm um sinal numérico (#) como o primeiro caractere são comentários. As linhas comentadas podem permanecer no arquivo fstab, mas não serão processadas. É recomendável que você comente as linhas fstab que você não tem certeza sobre, em vez de remover as linhas.
    > * Para que a VM seja recuperada e iniciada, as partições do sistema de arquivos devem ser as únicas partições necessárias. A VM pode apresentar erros de aplicativo sobre partições comentadas adicionais. No entanto, a VM deve iniciar sem as partições adicionais. Posteriormente, você poderá remover os comentários das linhas comentadas.
-   > * Recomendamos que você monte discos de dados em VMs do Azure usando o UUID da partição do sistema de arquivos. Por exemplo, execute o seguinte comando:``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
+   > * Recomendamos que você monte discos de dados em VMs do Azure usando o UUID da partição do sistema de arquivos. Por exemplo, execute o seguinte comando: ``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
    > * Para determinar o UUID do sistema de arquivos, execute o comando blkid. Para obter mais informações sobre a sintaxe, execute o comando Man blkid.
    > * A opção nofail ajuda a garantir que a VM seja iniciada mesmo que o sistema de arquivos esteja corrompido ou o sistema de arquivos não exista na inicialização. Recomendamos que você use a opção nofail no arquivo fstab para habilitar a inicialização para continuar após a ocorrência de erros em partições que não são necessárias para que a VM seja iniciada.
 
@@ -172,7 +171,7 @@ Para resolver esse problema, inicie a VM no modo de emergência usando o console
    > [!Note]
    > * Os campos em cada linha são separados por tabulações ou espaços. Linhas em branco são ignoradas. As linhas que têm um sinal numérico (#) como o primeiro caractere são comentários. As linhas comentadas podem permanecer no arquivo fstab, mas não serão processadas. É recomendável que você comente as linhas fstab que você não tem certeza sobre, em vez de remover as linhas.
    > * Para que a VM seja recuperada e iniciada, as partições do sistema de arquivos devem ser as únicas partições necessárias. A VM pode apresentar erros de aplicativo sobre partições comentadas adicionais. No entanto, a VM deve iniciar sem as partições adicionais. Posteriormente, você poderá remover os comentários das linhas comentadas.
-   > * Recomendamos que você monte discos de dados em VMs do Azure usando o UUID da partição do sistema de arquivos. Por exemplo, execute o seguinte comando:``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
+   > * Recomendamos que você monte discos de dados em VMs do Azure usando o UUID da partição do sistema de arquivos. Por exemplo, execute o seguinte comando: ``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
    > * Para determinar o UUID do sistema de arquivos, execute o comando blkid. Para obter mais informações sobre a sintaxe, execute o comando Man blkid.
    > * A opção nofail ajuda a garantir que a VM seja iniciada mesmo que o sistema de arquivos esteja corrompido ou o sistema de arquivos não exista na inicialização. Recomendamos que você use a opção nofail no arquivo fstab para habilitar a inicialização para continuar após a ocorrência de erros em partições que não são necessárias para que a VM seja iniciada.
 
@@ -216,7 +215,7 @@ Para resolver esse problema, inicie a VM no modo de emergência usando o console
    > [!Note]
    > * Os campos em cada linha são separados por tabulações ou espaços. Linhas em branco são ignoradas. As linhas que têm um sinal numérico (#) como o primeiro caractere são comentários. As linhas comentadas podem permanecer no arquivo fstab, mas não serão processadas. É recomendável que você comente as linhas fstab que você não tem certeza sobre, em vez de remover as linhas.
    > * Para que a VM seja recuperada e iniciada, as partições do sistema de arquivos devem ser as únicas partições necessárias. A VM pode apresentar erros de aplicativo sobre partições comentadas adicionais. No entanto, a VM deve iniciar sem as partições adicionais. Posteriormente, você poderá remover os comentários das linhas comentadas.
-   > * Recomendamos que você monte discos de dados em VMs do Azure usando o UUID da partição do sistema de arquivos. Por exemplo, execute o seguinte comando:``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
+   > * Recomendamos que você monte discos de dados em VMs do Azure usando o UUID da partição do sistema de arquivos. Por exemplo, execute o seguinte comando: ``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
    > * Para determinar o UUID do sistema de arquivos, execute o comando blkid. Para obter mais informações sobre a sintaxe, execute o comando Man blkid. Observe que o disco que você deseja recuperar agora está montado em uma nova VM. Embora os UUIDs devam ser consistentes, as IDs de partição de dispositivo (por exemplo, "/dev/sda1") são diferentes nessa VM. As partições do sistema de arquivos da VM com falha original que estão localizadas em um VHD que não são do sistema não estão disponíveis para a VM de recuperação [usando comandos da CLI](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux).
    > * A opção nofail ajuda a garantir que a VM seja iniciada mesmo que o sistema de arquivos esteja corrompido ou o sistema de arquivos não exista na inicialização. Recomendamos que você use a opção nofail no arquivo fstab para habilitar a inicialização para continuar após a ocorrência de erros em partições que não são necessárias para que a VM seja iniciada.
 

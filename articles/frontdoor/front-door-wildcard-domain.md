@@ -11,15 +11,14 @@ ms.workload: infrastructure-services
 ms.date: 03/10/2020
 ms.author: sharadag
 ms.openlocfilehash: 6d8a6d6f0b05b9b7fd0144959c82b6a2c9e659a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81768309"
 ---
 # <a name="wildcard-domains"></a>Domínios curinga
 
-Além de domínios Apex e subdomínios, você pode mapear um nome de domínio curinga para sua lista de hosts de front-end ou domínios personalizados em seu perfil de porta frontal do Azure. Ter domínios curinga na sua configuração de porta frontal do Azure simplifica o comportamento de roteamento de tráfego para vários subdomínios para uma API, um aplicativo ou um site da mesma regra de roteamento. Você não precisa modificar a configuração para adicionar ou especificar cada subdomínio separadamente. Por exemplo `customer1.contoso.com`, você pode definir o roteamento para o, `customer2.contoso.com`o e `customerN.contoso.com` o usando a mesma regra de roteamento e adicionando o domínio `*.contoso.com`curinga.
+Além de domínios Apex e subdomínios, você pode mapear um nome de domínio curinga para sua lista de hosts de front-end ou domínios personalizados em seu perfil de porta frontal do Azure. Ter domínios curinga na sua configuração de porta frontal do Azure simplifica o comportamento de roteamento de tráfego para vários subdomínios para uma API, um aplicativo ou um site da mesma regra de roteamento. Você não precisa modificar a configuração para adicionar ou especificar cada subdomínio separadamente. Por exemplo, você pode definir o roteamento para o `customer1.contoso.com` , o `customer2.contoso.com` e `customerN.contoso.com` o usando a mesma regra de roteamento e adicionando o domínio curinga `*.contoso.com` .
 
 Os principais cenários que são aprimorados com suporte para domínios curinga incluem:
 
@@ -31,7 +30,7 @@ Os principais cenários que são aprimorados com suporte para domínios curinga 
 
 ## <a name="adding-wildcard-domains"></a>Adicionando domínios curinga
 
-Você pode adicionar um domínio curinga na seção para hosts ou domínios de front-end. Semelhante aos subdomínios, a porta frontal do Azure valida que há um mapeamento de registro CNAME para seu domínio curinga. Esse mapeamento de DNS pode ser um mapeamento de registro CNAME `*.contoso.com` direto como `contoso.azurefd.net`mapeado para. Ou você pode usar o mapeamento temporário afdverify. Por exemplo, `afdverify.contoso.com` mapeado para `afdverify.contoso.azurefd.net` valida o mapa de registros CNAME para o curinga.
+Você pode adicionar um domínio curinga na seção para hosts ou domínios de front-end. Semelhante aos subdomínios, a porta frontal do Azure valida que há um mapeamento de registro CNAME para seu domínio curinga. Esse mapeamento de DNS pode ser um mapeamento de registro CNAME direto como `*.contoso.com` mapeado para `contoso.azurefd.net` . Ou você pode usar o mapeamento temporário afdverify. Por exemplo, `afdverify.contoso.com` mapeado para `afdverify.contoso.azurefd.net` valida o mapa de registros CNAME para o curinga.
 
 > [!NOTE]
 > O DNS do Azure dá suporte a registros curinga.
@@ -40,7 +39,7 @@ Você pode adicionar quantos subdomínios de nível único do domínio curinga e
 
 - Definir uma rota diferente para um subdomínio do que o restante dos domínios (do domínio curinga).
 
-- Ter uma política de WAF diferente para um subdomínio específico. Por exemplo, `*.contoso.com` permite adicionar `foo.contoso.com` sem ter que provar novamente a propriedade do domínio. Mas isso não permite `foo.bar.contoso.com` porque não é um subdomínio de nível único `*.contoso.com`do. Para adicionar `foo.bar.contoso.com` sem validação de propriedade de domínio `*.bar.contosonews.com` adicional, é necessário adicionar.
+- Ter uma política de WAF diferente para um subdomínio específico. Por exemplo, `*.contoso.com` permite adicionar `foo.contoso.com` sem ter que provar novamente a propriedade do domínio. Mas isso não permite `foo.bar.contoso.com` porque não é um subdomínio de nível único do `*.contoso.com` . Para adicionar `foo.bar.contoso.com` sem validação de propriedade de domínio adicional, `*.bar.contosonews.com` é necessário adicionar.
 
 Você pode adicionar domínios curinga e seus subdomínios com determinadas limitações:
 
@@ -72,7 +71,7 @@ Se não quiser que uma política de WAF seja executada para um subdomínio, voc�
 Ao configurar uma regra de roteamento, você pode selecionar um domínio curinga como um host de front-end. Você também pode ter um comportamento de rota diferente para domínios e subdomínios curinga. Conforme descrito em [como a porta frontal do Azure faz a correspondência de rota](front-door-route-matching.md), a correspondência mais específica para o domínio em diferentes regras de roteamento é escolhida em tempo de execução.
 
 > [!IMPORTANT]
-> Você deve ter padrões de caminho correspondentes em suas regras de roteamento ou seus clientes verão falhas. Por exemplo, você tem duas regras de roteamento como A rota`*.foo.com/*` 1 (mapeadas para o pool de back-end a`bar.foo.com/somePath/*` ) e a rota 2 (mapeadas para o pool de back-ends B). Em seguida, chega uma solicitação `bar.foo.com/anotherPath/*`para. A porta frontal do Azure seleciona a rota 2 com base em uma correspondência de domínio mais específica, apenas para não encontrar nenhum padrão de caminho correspondente entre as rotas.
+> Você deve ter padrões de caminho correspondentes em suas regras de roteamento ou seus clientes verão falhas. Por exemplo, você tem duas regras de roteamento como A rota 1 ( `*.foo.com/*` mapeadas para o pool de back-end a) e a rota 2 ( `bar.foo.com/somePath/*` mapeadas para o pool de back-ends B). Em seguida, chega uma solicitação para `bar.foo.com/anotherPath/*` . A porta frontal do Azure seleciona a rota 2 com base em uma correspondência de domínio mais específica, apenas para não encontrar nenhum padrão de caminho correspondente entre as rotas.
 
 ## <a name="next-steps"></a>Próximas etapas
 

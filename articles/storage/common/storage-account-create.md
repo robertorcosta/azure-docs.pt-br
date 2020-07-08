@@ -10,10 +10,9 @@ ms.date: 02/07/2020
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 7ff7db383a74ce01f7f1a7bf49a33e41f91decf8
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82853489"
 ---
 # <a name="create-an-azure-storage-account"></a>Criar uma conta de Armazenamento do Azure
@@ -59,7 +58,7 @@ O Azure Cloud Shell é um shell Bash gratuito que pode ser executado diretamente
 
 O botão inicia um shell interativo que você pode usar para executar as etapas descritas neste artigo de instruções:
 
-[![Captura de tela mostrando a janela Cloud Shell no portal](./media/storage-quickstart-create-account/cloud-shell.png)](https://portal.azure.com)
+[![Captura de tela mostrando a janela do Cloud Shell no portal](./media/storage-quickstart-create-account/cloud-shell.png)](https://portal.azure.com)
 
 ### <a name="install-the-cli-locally"></a>Instalar a CLI localmente
 
@@ -142,7 +141,7 @@ New-AzStorageAccount -ResourceGroupName $resourceGroup `
 ```
 
 > [!IMPORTANT]
-> Se você planeja usar [Azure data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), inclua `-EnableHierarchicalNamespace $True` nesta lista de parâmetros.
+> Se você planeja usar [Azure data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), inclua nesta `-EnableHierarchicalNamespace $True` lista de parâmetros.
 
 Para criar uma conta de armazenamento de uso geral V2 com uma opção de replicação diferente, substitua o valor desejado na tabela abaixo para o parâmetro **SkuName** .
 
@@ -153,7 +152,7 @@ Para criar uma conta de armazenamento de uso geral V2 com uma opção de replica
 |Armazenamento com redundância geográfica (GRS)     |Standard_GRS         |
 |Armazenamento com redundância geográfica com acesso de leitura (GRS)     |Standard_RAGRS         |
 |Armazenamento com redundância de zona geográfica (GZRS)    |Standard_GZRS         |
-|Armazenamento com redundância de zona geográfica com acesso de leitura (RA-GZRS)    |Standard_RAGZRS         |
+|RA-GZRS (armazenamento com redundância de zona geográfica com acesso de leitura)    |Standard_RAGZRS         |
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -185,7 +184,7 @@ az storage account create \
 ```
 
 > [!IMPORTANT]
-> Se você planeja usar [Azure data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), inclua `--enable-hierarchical-namespace true` nesta lista de parâmetros. 
+> Se você planeja usar [Azure data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), inclua nesta `--enable-hierarchical-namespace true` lista de parâmetros. 
 
 Para criar uma conta de armazenamento de uso geral V2 com uma opção de replicação diferente, substitua o valor desejado na tabela abaixo para o parâmetro **SKU** .
 
@@ -196,7 +195,7 @@ Para criar uma conta de armazenamento de uso geral V2 com uma opção de replica
 |Armazenamento com redundância geográfica (GRS)     |Standard_GRS         |
 |Armazenamento com redundância geográfica com acesso de leitura (GRS)     |Standard_RAGRS         |
 |Armazenamento com redundância de zona geográfica (GZRS)    |Standard_GZRS         |
-|Armazenamento com redundância de zona geográfica com acesso de leitura (RA-GZRS)    |Standard_RAGZRS         |
+|RA-GZRS (armazenamento com redundância de zona geográfica com acesso de leitura)    |Standard_RAGZRS         |
 
 # <a name="template"></a>[Modelo](#tab/template)
 
@@ -220,7 +219,7 @@ az group deployment create --resource-group $resourceGroupName --template-file "
 ```
 
 > [!NOTE]
-> Este modelo serve apenas como exemplo. Há muitas configurações de conta de armazenamento que não são configuradas como parte deste modelo. Por exemplo, se você quiser usar [Azure data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), modificaria esse modelo definindo a `isHnsEnabledad` Propriedade do `StorageAccountPropertiesCreateParameters` objeto como. `true` 
+> Este modelo serve apenas como exemplo. Há muitas configurações de conta de armazenamento que não são configuradas como parte deste modelo. Por exemplo, se você quiser usar [Azure data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), modificaria esse modelo definindo a `isHnsEnabledad` Propriedade do `StorageAccountPropertiesCreateParameters` objeto como `true` . 
 
 Para saber como modificar esse modelo ou criar novos, consulte:
 

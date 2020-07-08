@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: lagayhar
 ms.openlocfilehash: b6377cdcdb5816426eba62fdbef79eeb42659dcc
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82892076"
 ---
 # <a name="how-to-use-groups-in-workbooks"></a>Como usar grupos em pastas de trabalho
@@ -29,7 +28,7 @@ Os grupos nas pastas de trabalho são úteis para várias coisas:
 - Desempenho
   - Nos casos em que você tem um modelo muito grande com muitas seções ou guias, você pode converter cada seção em seu próprio submodelo e usar grupos para carregar todos os submodelos dentro do modelo de nível superior. O conteúdo dos submodelos não será carregado ou executado até que um usuário torne esses grupos visíveis. Saiba mais sobre [como dividir um modelo grande em vários modelos](#how-to-split-a-large-template-into-many-templates).
 
-## <a name="using-groups"></a>Using groups
+## <a name="using-groups"></a>Usando grupos
 
 Para adicionar um grupo à pasta de trabalho, selecione *Adicionar* e *Adicionar grupo*.
 
@@ -114,21 +113,21 @@ Quando o segundo modelo é carregado no grupo, os parâmetros duplicados serão 
 Considere o modelo de um grupo que tem dois parâmetros na parte superior.
 
 - `TimeRange`-um parâmetro de intervalo de tempo.
-- `FilterB`-um parâmetro de texto, observe que não `Filter` é como o modelo superior tinha.
+- `FilterB`-um parâmetro de texto, observe que não é `Filter` como o modelo superior tinha.
 
 ![Editando um item de grupo com o resultado de parâmetros mesclados fora](./media/workbooks-groups/groups-wont-merge-away.png)
 
-Quando o modelo item's do grupo for carregado, o `TimeRange` parâmetro será mesclado fora do grupo. Em seguida, a pasta de trabalho terá os parâmetros `TimeRange` iniciais `Filter`Step com e, e a etapa do parâmetro do grupo incluirá apenas`FilterB`
+Quando o modelo item's do grupo for carregado, o `TimeRange` parâmetro será mesclado fora do grupo. Em seguida, a pasta de trabalho terá os parâmetros iniciais Step com `TimeRange` e `Filter` , e a etapa do parâmetro do grupo incluirá apenas`FilterB`
 
 ![resultado de parâmetros que não serão mesclados](./media/workbooks-groups/groups-wont-merge-away-result.png)
 
-Se o modelo carregado tivesse sido `TimeRange` contido `Filter` e (em `FilterB`vez de), a pasta de trabalho resultante teria uma etapa de parâmetros e um grupo com apenas a etapa de texto restante.
+Se o modelo carregado tivesse sido contido `TimeRange` e `Filter` (em vez de `FilterB` ), a pasta de trabalho resultante teria uma etapa de parâmetros e um grupo com apenas a etapa de texto restante.
 
 ## <a name="how-to-split-a-large-template-into-many-templates"></a>Como dividir um modelo grande em muitos modelos
 
 Para melhorar o desempenho, é benéfico dividir um modelo grande em vários modelos menores que carregam algum conteúdo lento ou sob demanda pelo usuário. Isso torna a carga inicial mais rápida, pois o modelo de nível superior pode ser muito menor.
 
-Ao dividir um modelo em partes, você precisará efetivamente dividir o modelo em muitos modelos (submodelos) que todos trabalham individualmente. Portanto, se o modelo de nível superior tiver `TimeRange` um parâmetro que outras etapas usam, o submodelo também precisará ter uma etapa de parâmetros que define um parâmetro com o nome exato. Isso permite que os submodelos trabalhem de forma independente e permite que eles sejam carregados dentro de modelos maiores em grupos.
+Ao dividir um modelo em partes, você precisará efetivamente dividir o modelo em muitos modelos (submodelos) que todos trabalham individualmente. Portanto, se o modelo de nível superior tiver um `TimeRange` parâmetro que outras etapas usam, o submodelo também precisará ter uma etapa de parâmetros que define um parâmetro com o nome exato. Isso permite que os submodelos trabalhem de forma independente e permite que eles sejam carregados dentro de modelos maiores em grupos.
 
 Para transformar um modelo maior em vários submodelos:
 

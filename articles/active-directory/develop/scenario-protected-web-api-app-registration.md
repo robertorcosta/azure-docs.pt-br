@@ -13,10 +13,9 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 214d379525f2ee534415d713aa298ec858a84c92
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81868839"
 ---
 # <a name="protected-web-api-app-registration"></a>API Web protegida: registro de aplicativo
@@ -56,7 +55,7 @@ Outras configurações específicas para APIs Web são a API exposta e os escopo
 
 ### <a name="application-id-uri-and-scopes"></a>URI e escopos da ID do aplicativo
 
-Os escopos geralmente têm `resourceURI/scopeName`o formato. Por Microsoft Graph, os escopos têm atalhos. Por exemplo, `User.Read` é um atalho para `https://graph.microsoft.com/user.read`.
+Os escopos geralmente têm o formato `resourceURI/scopeName` . Por Microsoft Graph, os escopos têm atalhos. Por exemplo, `User.Read` é um atalho para `https://graph.microsoft.com/user.read` .
 
 Durante o registro do aplicativo, você precisa definir esses parâmetros:
 
@@ -64,7 +63,7 @@ Durante o registro do aplicativo, você precisa definir esses parâmetros:
 - Um ou mais escopos
 - Uma ou mais funções de aplicativo
 
-Por padrão, o portal de registro de aplicativos recomenda que você use o URI `api://{clientId}`de recurso. Esse URI é exclusivo, mas não é legível por humanos. Se você alterar o URI, verifique se o novo valor é exclusivo.
+Por padrão, o portal de registro de aplicativos recomenda que você use o URI de recurso `api://{clientId}` . Esse URI é exclusivo, mas não é legível por humanos. Se você alterar o URI, verifique se o novo valor é exclusivo.
 
 Para aplicativos cliente, os escopos aparecem como *permissões delegadas e as* funções de aplicativo são exibidas como *permissões de aplicativo* para sua API Web.
 
@@ -77,7 +76,7 @@ Os escopos também aparecem na janela de consentimento que é apresentada aos us
 
 1. Selecione **expor uma API** no registro do aplicativo.
 1. Selecione **Adicionar um escopo**.
-1. Se solicitado, aceite o URI da ID do aplicativo proposto`api://{clientId}`() selecionando **salvar e continuar**.
+1. Se solicitado, aceite o URI da ID do aplicativo proposto ( `api://{clientId}` ) selecionando **salvar e continuar**.
 1. Especifique estes valores:
     - Selecione **nome do escopo** e insira **access_as_user**.
     - Selecione **quem pode consentir** e se certificar de que **Administradores e usuários** está selecionado.
@@ -102,11 +101,11 @@ Para expor permissões de aplicativo, você precisa editar o manifesto.
 1. No registro do aplicativo para seu aplicativo, selecione **manifesto**.
 1. Para editar o manifesto, localize a `appRoles` configuração e adicione funções de aplicativo. As definições de função são fornecidas no bloco JSON de exemplo a seguir.
 1. Deixe `allowedMemberTypes` definido como `"Application"` somente.
-1. Certifique- `id` se de que seja um GUID exclusivo.
-1. Certifique- `displayName` se `value` de que não contêm espaços.
+1. Certifique-se `id` de que seja um GUID exclusivo.
+1. Certifique-se `displayName` de que `value` não contêm espaços.
 1. Salve o manifesto.
 
-O exemplo a seguir mostra o conteúdo `appRoles`de, onde o valor `id` de pode ser qualquer Guid exclusivo.
+O exemplo a seguir mostra o conteúdo de `appRoles` , onde o valor de `id` pode ser qualquer Guid exclusivo.
 
 ```json
 "appRoles": [
@@ -141,13 +140,13 @@ Para adicionar esse aumento de segurança:
 
    > [!IMPORTANT]
    >
-   > Se você definir a **atribuição de usuário necessária?** para **Sim**, o Azure ad verificará as atribuições de função de aplicativo de um cliente quando ele solicitar um token de acesso à API Web. Se o cliente não estiver atribuído a nenhuma função de aplicativo, o Azure AD retornará a mensagem de erro "invalid_client: \<AADSTS501051:\> o nome do aplicativo de aplicativo não está \<atribuído a\>uma função para a API da Web".
+   > Se você definir a **atribuição de usuário necessária?** para **Sim**, o Azure ad verificará as atribuições de função de aplicativo de um cliente quando ele solicitar um token de acesso à API Web. Se o cliente não estiver atribuído a nenhuma função de aplicativo, o Azure AD retornará a mensagem de erro "invalid_client: AADSTS501051: \<application name\> o aplicativo não está atribuído a uma função para o \<web API\> ".
    >
    > Se você mantiver a **atribuição de usuário necessária?** definida como **não**, o Azure ad não verificará as atribuições de função de aplicativo quando um cliente solicitar um token de acesso para sua API Web. Qualquer cliente daemon, ou seja, qualquer cliente que use o fluxo de credenciais do cliente, pode obter um token de acesso para a API apenas especificando seu público-alvo. Qualquer aplicativo pode acessar a API sem precisar solicitar permissões para ela.
    >
-   > Mas, conforme explicado na seção anterior, sua API Web sempre pode verificar se o aplicativo tem a função certa, que é autorizada pelo administrador de locatários. A API executa essa verificação Validando se o token de acesso tem uma declaração de funções e se o valor dessa declaração está correto. No exemplo JSON anterior, o valor é `access_as_application`.
+   > Mas, conforme explicado na seção anterior, sua API Web sempre pode verificar se o aplicativo tem a função certa, que é autorizada pelo administrador de locatários. A API executa essa verificação Validando se o token de acesso tem uma declaração de funções e se o valor dessa declaração está correto. No exemplo JSON anterior, o valor é `access_as_application` .
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

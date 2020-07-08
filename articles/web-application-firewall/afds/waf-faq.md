@@ -9,21 +9,20 @@ ms.topic: article
 ms.date: 05/05/2020
 ms.author: victorh
 ms.openlocfilehash: d129c37c909c630623f8a41c06da9aa80e4e2392
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82837627"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall-on-azure-front-door-service"></a>Perguntas frequentes sobre o Firewall do aplicativo Web do Azure no serviço de porta frontal do Azure
 
 Este artigo responde a perguntas comuns sobre o WAF (firewall do aplicativo Web) do Azure nos recursos e funcionalidades do serviço de porta frontal do Azure. 
 
-## <a name="what-is-azure-waf"></a>O que é o Azure WAF?
+## <a name="what-is-azure-waf"></a>O que é o WAF do Azure?
 
-O Azure WAF é um firewall do aplicativo Web que ajuda a proteger seus aplicativos Web contra ameaças comuns, como injeção de SQL, scripts entre sites e outras explorações da Web. Você pode definir uma política de WAF que consiste em uma combinação de regras personalizadas e gerenciadas para controlar o acesso aos seus aplicativos Web.
+O WAF do Azure é um firewall do aplicativo Web que ajuda a proteger seus aplicativos Web contra ameaças comuns, como injeção de SQL, scripts entre sites e outras explorações da Web. Você pode definir uma política de WAF que consiste em uma combinação de regras personalizadas e gerenciadas para controlar o acesso aos seus aplicativos Web.
 
-Uma política do Azure WAF pode ser aplicada a aplicativos Web hospedados no gateway de aplicativo ou nas portas de front-end do Azure.
+Uma política do WAF do Azure pode ser aplicada aos aplicativos Web hospedados no Gateway de Aplicativo ou no Azure Front Doors.
 
 ## <a name="what-is-waf-on-azure-front-door"></a>O que é o WAF na porta frontal do Azure? 
 
@@ -76,5 +75,5 @@ No entanto, é possível que as solicitações do mesmo cliente possam chegar em
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre o [Firewall do aplicativo Web do Azure](../overview.md).
-- Saiba mais sobre a [porta frontal do Azure](../../frontdoor/front-door-overview.md).
+- Saiba mais sobre o [Firewall do Aplicativo Web do Azure](../overview.md).
+- Saiba mais sobre o [Azure Front Door](../../frontdoor/front-door-overview.md).

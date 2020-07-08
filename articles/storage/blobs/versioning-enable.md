@@ -10,17 +10,16 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 0e24bcb54fd26d4a3d983681b3348ef736b277cf
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82884339"
 ---
-# <a name="enable-and-manage-blob-versioning"></a>Habilitar e gerenciar o controle de versão de BLOB
+# <a name="enable-and-manage-blob-versioning"></a>Habilitar e gerenciar o controle de versão de blob
 
 Você pode habilitar ou desabilitar o controle de versão de BLOB (visualização) para a conta de armazenamento a qualquer momento usando o portal do Azure ou um modelo de Azure Resource Manager.
 
-## <a name="enable-blob-versioning"></a>Habilitar controle de versão de BLOB
+## <a name="enable-blob-versioning"></a>Habilitar controle de versão de blob
 
 # <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
@@ -37,7 +36,7 @@ Para habilitar o controle de versão de blob no portal do Azure:
 Para habilitar o controle de versão de blob com um modelo, crie um modelo com a propriedade **IsVersioningEnabled** como **true**. As etapas a seguir descrevem como criar um modelo no portal do Azure.
 
 1. Na portal do Azure, escolha **criar um recurso**.
-1. Em **Pesquisar no Marketplace**, digite **implantação de modelo** e pressione **ENTER**.
+1. Em **Pesquisar no Marketplace**, digite **implantação de modelo**e pressione **Enter**.
 1. Escolha **implantação de modelo**, escolha **criar**e, em seguida, escolha **criar seu próprio modelo no editor**.
 1. No editor de modelo, Cole o JSON a seguir. Substitua o espaço reservado `<accountName>` pelo nome da sua conta de armazenamento.
 1. Salve o modelo.
@@ -154,5 +153,5 @@ static void PrintMetadata(Response<BlobProperties> propertiesResponse)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Controle de versão de BLOB (visualização)](versioning-overview.md)
+- [Controle de versão de blob (versão prévia)](versioning-overview.md)
 - [Exclusão reversível para blobs do Armazenamento do Azure ](soft-delete-overview.md)

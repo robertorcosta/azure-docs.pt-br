@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 01/07/2020
 ms.custom: sfrev
 ms.openlocfilehash: 9e0c93423b3639fb2bc3739f0d6569c4c4cec8da
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82792861"
 ---
 # <a name="why-use-a-microservices-approach-to-building-applications"></a>Por que usar uma abordagem de microserviços para a criação de aplicativos
@@ -176,7 +175,7 @@ Muitas organizações param aqui. Eles já têm os benefícios dos contêineres,
 **Modernizar**  
 A modernização é a adição de novos serviços junto com o código em contêineres existente. Se você pretende escrever um novo código, é melhor executar etapas pequenas no caminho de microserviços. Isso pode significar adicionar um novo ponto de extremidade de API REST ou uma nova lógica de negócios. Dessa forma, você inicia o processo de criar novos microserviços e praticar o desenvolvimento e a implantação deles.
 
-**Inove**  
+**Inovar**  
 Uma abordagem de microsserviços acomoda as necessidades de negócios em mudança. Neste estágio, você precisa decidir se deseja começar a dividir o aplicativo monolítico em serviços ou inovação. Um exemplo clássico é quando um banco de dados que você está usando como uma fila de fluxo de trabalho se torna um afunilamento de processamento. Conforme o número de solicitações de fluxo de trabalho aumenta o trabalho precisa ser distribuído para dimensionamento. Pegue essa parte específica do aplicativo que não está dimensionando, ou que precisa ser atualizada com mais frequência e divida-a como um microserviço e inovar.
 
 **Transformar aplicativos em microserviços**  

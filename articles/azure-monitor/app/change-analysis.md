@@ -6,10 +6,9 @@ author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
 ms.openlocfilehash: c287a2315f2b2319a6873ce84ee0e4e48bec8444
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82836711"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Usar a análise de alterações do aplicativo (versão prévia) no Azure Monitor
@@ -19,7 +18,7 @@ Quando ocorre um problema ou uma interrupção do site ativo, determinar rapidam
 Aproveitando o poder do [grafo de recursos do Azure](https://docs.microsoft.com/azure/governance/resource-graph/overview), a análise de alterações fornece informações sobre as alterações do aplicativo do Azure para aumentar a capacidade de observação e reduzir o MTTR (tempo médio de reparo).
 
 > [!IMPORTANT]
-> A análise de alterações está atualmente em visualização. Esta versão de visualização é fornecida sem um contrato de nível de serviço. Esta versão não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter recursos restritos. Para obter mais informações, consulte [termos de uso suplementares para visualizações de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> A análise de alterações está atualmente em visualização. Esta versão de visualização é fornecida sem um contrato de nível de serviço. Esta versão não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter recursos restritos. Para obter mais informações, consulte os [Termos de uso complementares de versões prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="overview"></a>Visão geral
 
@@ -79,7 +78,7 @@ Clicando em um recurso para exibir todas as suas alterações. Se necessário, f
 
 ![Captura de tela de detalhes de alteração](./media/change-analysis/change-details.png)
 
-Para qualquer comentário, use o botão enviar comentários na folha ou no email changeanalysisteam@microsoft.com.
+Para qualquer comentário, use o botão enviar comentários na folha ou no email changeanalysisteam@microsoft.com .
 
 ![Captura de tela do botão de comentários na folha de análise de alterações](./media/change-analysis/change-analysis-feedback.png)
 
@@ -109,7 +108,7 @@ A análise de alterações do aplicativo é um detector autônomo nas ferramenta
 
     ![Captura de tela da interface do usuário "Habilitar análise de alteração"](./media/change-analysis/change-analysis-on.png)
 
-5. Para acessar a análise de alterações, selecione **diagnosticar e solucionar problemas** > de**falhas de aplicativo****de desempenho** > e disponibilidade. Você verá um grafo que resume o tipo de alterações ao longo do tempo, juntamente com detalhes sobre essas alterações. Por padrão, as alterações nas últimas 24 horas são exibidas para ajudar com problemas imediatos.
+5. Para acessar a análise de alterações, selecione **diagnosticar e solucionar problemas**  >  **de falhas de aplicativo de desempenho e disponibilidade**  >  **Application Crashes**. Você verá um grafo que resume o tipo de alterações ao longo do tempo, juntamente com detalhes sobre essas alterações. Por padrão, as alterações nas últimas 24 horas são exibidas para ajudar com problemas imediatos.
 
      ![Captura de tela da exibição alterar comparação](./media/change-analysis/change-view.png)
 

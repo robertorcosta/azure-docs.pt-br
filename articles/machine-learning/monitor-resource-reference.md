@@ -11,10 +11,9 @@ ms.author: aashishb
 author: aashishb
 ms.date: 04/27/2020
 ms.openlocfilehash: e9a43f4a7da39869e002e2da9fb9638381e57cb8
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82856022"
 ---
 # <a name="azure-machine-learning-monitoring-data-reference"></a>Referência de dados de monitoramento do Azure Machine Learning
@@ -27,7 +26,7 @@ A tabela a seguir lista as propriedades de Azure Machine Learning logs de recurs
 
 ### <a name="amlcomputejobevents-table"></a>Tabela AmlComputeJobEvents
 
-| Propriedade | Descrição |
+| Property | Descrição |
 |:--- |:---|
 | TimeGenerated | Hora em que a entrada de log foi gerada |
 | OperationName | Nome da operação associada ao evento de log |
@@ -56,7 +55,7 @@ A tabela a seguir lista as propriedades de Azure Machine Learning logs de recurs
 
 ### <a name="amlcomputeclusterevents-table"></a>Tabela AmlComputeClusterEvents
 
-| Propriedade | Descrição |
+| Property | Descrição |
 |:--- |:--- |
 | TimeGenerated | Hora em que a entrada de log foi gerada |
 | OperationName | Nome da operação associada ao evento de log |
@@ -73,7 +72,7 @@ A tabela a seguir lista as propriedades de Azure Machine Learning logs de recurs
 | MinimumNodeCount | Contagem mínima de nós do cluster |
 | MaximumNodeCount | Contagem máxima de nós do cluster |
 | NodeDeallocationOption | Como o nó deve ser desalocado |
-| Publicador | Editor do tipo de cluster |
+| Publisher | Editor do tipo de cluster |
 | Oferta | Oferta com a qual o cluster é criado |
 | Sku | SKU do nó/VM criado dentro do cluster |
 | Versão | Versão da imagem usada enquanto o nó/VM é criado |
@@ -99,7 +98,7 @@ A tabela a seguir lista as propriedades de Azure Machine Learning logs de recurs
 
 ### <a name="amlcomputeclusternodeevents-table"></a>Tabela AmlComputeClusterNodeEvents
 
-| Propriedade | Descrição |
+| Property | Descrição |
 |:--- |:--- |
 | TimeGenerated | Hora em que a entrada de log foi gerada |
 | OperationName | Nome da operação associada ao evento de log |
@@ -109,7 +108,7 @@ A tabela a seguir lista as propriedades de Azure Machine Learning logs de recurs
 | VmSize | Tamanho da VM do nó |
 | VmFamilyName | Família de VMs à qual o nó pertence |
 | VmPriority | Prioridade do nó criado dedicado/LowPriority |
-| Publicador | Editor da imagem da VM, por exemplo, Microsoft-dsvm |
+| Publisher | Editor da imagem da VM, por exemplo, Microsoft-dsvm |
 | Oferta | Oferta associada à criação da VM |
 | Sku | SKU do nó/VM criado |
 | Versão | Versão da imagem usada enquanto o nó/VM é criado |
@@ -149,7 +148,7 @@ As informações de cota são apenas para Azure Machine Learning computação.
 | Deixando núcleos | Contagem | O número de cores de saída. |
 | Saindo de nós | Contagem | O número de nós de saída. |
 | Núcleos preempçãos | Contagem | O número de núcleos admitidos. |
-| Nós admitidos | Contagem | O número de nós admitidos. |
+| Nós com preempção | Contagem | O número de nós admitidos. |
 | Porcentagem de utilização de cota | Porcentagem | A porcentagem da cota usada. |
 | Total de núcleos | Contagem | O total de núcleos. |
 | Total de nós | Contagem | O total de nós. |
@@ -180,7 +179,7 @@ Veja a seguir as dimensões que podem ser usadas para filtrar as métricas de re
 | NodeId | ID do nó criado onde o trabalho está em execução. |
 | RunId | ID da execução/trabalho. |
 
-**Funcionam**
+**Executar**
 
 Informações sobre execuções de treinamento.
 
@@ -194,7 +193,7 @@ Veja a seguir as dimensões que podem ser usadas para filtrar as métricas de ex
 
 | Dimensão | Descrição |
 | ---- | ---- |
-| Computatype | O tipo de computação usado pela execução. |
+| ComputeType | O tipo de computação usado pela execução. |
 | PipelineStepType | O tipo de [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?view=azure-ml-py) usado na execução. |
 | PublishedPipelineId | A ID do pipeline publicado usado na execução. |
 | RunType | O tipo de execução. |
@@ -211,4 +210,4 @@ Os valores válidos para a dimensão RunType são:
 ## <a name="see-also"></a>Consulte Também
 
 - Consulte [monitoramento Azure Machine Learning](monitor-azure-machine-learning.md) para obter uma descrição do Azure Machine Learning de monitoramento.
-- Consulte [monitorando recursos do Azure com Azure monitor](/azure/azure-monitor/insights/monitor-azure-resource) para obter detalhes sobre como monitorar recursos do Azure.
+- Confira [Como monitorar os recursos do Azure com o Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resource) para obter detalhes sobre o monitoramento de recursos do Azure.

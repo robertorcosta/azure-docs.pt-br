@@ -1,5 +1,5 @@
 ---
-title: Iterando e desenvolvendo pipelines do Machine Learning
+title: Iterar e desenvolver pipelines de aprendizado de máquina
 titleSuffix: Azure Machine Learning
 description: Padrões, práticas e dicas para o desenvolvimento rápido
 services: machine-learning
@@ -10,13 +10,12 @@ ms.author: laobri
 author: lobrien
 ms.date: 05/01/2020
 ms.openlocfilehash: 2ea353469ed111eebb591aa6ba86c652683cc2f0
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82858186"
 ---
-# <a name="iterating-and-evolving-machine-learning-pipelines"></a>Iterando e desenvolvendo pipelines do Machine Learning
+# <a name="iterating-and-evolving-machine-learning-pipelines"></a>Iterar e desenvolver pipelines de aprendizado de máquina
 
 Azure Machine Learning pipelines fornecem uma maneira eficiente de modularizar seu código, reutilizar os resultados e otimizar seus recursos de computação. Aqui estão algumas dicas práticas e práticas para trabalhar com pipelines.
 
@@ -30,7 +29,7 @@ Há várias opções para começar se você for novo nos pipelines:
 
 ## <a name="how-do-you-modularize-pipeline-code"></a>Como você modulariza o código do pipeline? 
 
-Os módulos e `ModuleStep` a classe oferecem uma grande oportunidade para modularizar seu código ml. No entanto, é preciso ter em mente que a movimentação entre as etapas do pipeline é muito mais cara do que uma chamada de função. A pergunta que você deve fazer não é muito "são essas funções e dados conceitualmente diferentes daquelas nesta outra seção?" Mas "quero que essas funções e dados evoluam separadamente?" ou "esse cálculo é caro e posso reutilizar sua saída?" Para obter mais informações, consulte thisn'tebook [como criar o módulo, ModuleVersion e usá-los em um pipeline com ModuleStep](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-how-to-use-modulestep.ipynb).
+Os módulos e a `ModuleStep` classe oferecem uma grande oportunidade para modularizar seu código ml. No entanto, é preciso ter em mente que a movimentação entre as etapas do pipeline é muito mais cara do que uma chamada de função. A pergunta que você deve fazer não é muito "são essas funções e dados conceitualmente diferentes daquelas nesta outra seção?" Mas "quero que essas funções e dados evoluam separadamente?" ou "esse cálculo é caro e posso reutilizar sua saída?" Para obter mais informações, consulte thisn'tebook [como criar o módulo, ModuleVersion e usá-los em um pipeline com ModuleStep](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-how-to-use-modulestep.ipynb).
 
 Conforme discutido anteriormente, separar a preparação de dados do treinamento geralmente é uma dessas oportunidades. Às vezes, a preparação de dados é complexa e demorada o suficiente para que você possa dividir o processo em etapas de pipeline separadas. Outras oportunidades incluem teste e análise após o treinamento. 
 
@@ -48,7 +47,7 @@ Quando quiser iterar rapidamente, você pode clonar seu pipeline, criar um pipel
 
 Pipelines separados são linhas naturais ao longo do qual dividir o esforço. Vários desenvolvedores ou até mesmo várias equipes podem trabalhar em etapas diferentes, desde que os dados e os argumentos que fluem entre as etapas sejam acordados. 
 
-Durante o desenvolvimento ativo, você pode `PipelineRun` recuperar `StepRun` e executar os resultados do espaço de trabalho, usar esses objetos para baixar a saída final e intermediária e usar esses artefatos para seu próprio trabalho modularizado.
+Durante o desenvolvimento ativo, você pode recuperar `PipelineRun` e `StepRun` executar os resultados do espaço de trabalho, usar esses objetos para baixar a saída final e intermediária e usar esses artefatos para seu próprio trabalho modularizado.
 
 ## <a name="use-pipelines-to-test-techniques-in-isolation"></a>Usar pipelines para testar técnicas isoladamente
 

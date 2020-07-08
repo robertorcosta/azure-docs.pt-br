@@ -11,10 +11,9 @@ ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.openlocfilehash: 1cf6c7417aa86d47e59e08786e7807e32c175a25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81759583"
 ---
 # <a name="configure-prerequisites"></a>Configurar pré-requisitos
@@ -63,9 +62,9 @@ Insira valores para os parâmetros de entrada e clique em **OK**.
 |-----------------------|-----------------|
 | Nome de usuário do administrador da VM | O usuário administrador a ser criado em todas as instâncias de VM |
 | Chave pública SSH para usuário administrador | Chave pública SSH usada para fazer logon na VM-não deve ter uma frase secreta |
-| Assinatura | Assinatura do Azure na qual implantar o cluster |
+| Subscription | Assinatura do Azure na qual implantar o cluster |
 | Grupo de recursos | Criar um novo grupo de recursos ou selecionar um grupo de recursos vazio existente para recursos de cluster |
-| Local | Região do Azure na qual implantar o cluster |
+| Location | Região do Azure na qual implantar o cluster |
 
    ![Folha noções básicas da oferta](media/openshift-marketplace-self-managed/ocp-basics.png)  
 <br>
@@ -191,7 +190,7 @@ Quando a implantação for concluída, recupere a conexão da seção de saída 
 $ ssh clusteradmin@bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando não for mais necessário, você pode usar o comando [az group delete](/cli/azure/group) para remover o grupo de recursos, o cluster OpenShift e todos os recursos relacionados.
 

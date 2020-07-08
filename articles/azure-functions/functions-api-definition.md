@@ -1,15 +1,14 @@
 ---
-title: Metadados OpenAPI em Funções Azure
+title: OpenAPI metadados no Azure Functions
 description: Visão geral do suporte OpenAPI em Azure Functions
 author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
 ms.openlocfilehash: cbfd0e36307210851070c22e74acb0a858446ce1
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81866710"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Suporte aos metadados de OpenAPI 2.0 no Azure Functions (versão prévia)
@@ -50,10 +49,10 @@ A tabela a seguir representa as configurações do Portal do Azure e dados corre
 
 |Swagger.json|Interface do usuário do portal|Function.json|
 |:----|:-----|:-----|
-|[Host](https://swagger.io/specification/#fixed-fields-15)|**Configurações do aplicativo de função** > **Configurações** > do serviço de aplicativos**Visão geral** > **URL**|*Não está presente*
-|[Caminhos](https://swagger.io/specification/#paths-object-29)|**Integrar** > **métodos HTTP selecionados**|Associações: rota
-|[Item de caminho](https://swagger.io/specification/#path-item-object-32)|**Integrar** > **modelo de rota**|Associações: métodos
-|[Segurança](https://swagger.io/specification/#security-scheme-object-112)|**Chaves**|*Não está presente*|
+|[Host](https://swagger.io/specification/#fixed-fields-15)|Configurações do aplicativo de **funções**  >  Configurações do serviço de **aplicativo**  >  **Visão geral**  >  **URL** do|*Não presente*
+|[Caminhos](https://swagger.io/specification/#paths-object-29)|**Integrar**  >  **Métodos http selecionados**|Associações: rota
+|[Item de caminho](https://swagger.io/specification/#path-item-object-32)|**Integrar**  >  **Modelo de rota**|Associações: métodos
+|[Segurança](https://swagger.io/specification/#security-scheme-object-112)|**Chaves**|*Não presente*|
 |operationID*|**Rota + verbos permitidos**|Rota + verbos permitidos|
 
 \*A ID da operação só é necessário para a integração com PowerApps e Flow.
@@ -76,6 +75,6 @@ A tabela a seguir representa as configurações do Portal do Azure e dados corre
 Agora, as alterações em swagger.json em seu repositório são hospedadas por seu aplicativo de funções na URL e chave de definição de API que você anotou na etapa 1.c.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Começando tutorial](functions-api-definition-getting-started.md). Experimente o nosso passo a passo para exibir uma definição de OpenAPI em ação.
-* [Funções do Azure Repositório GitHub](https://github.com/Azure/Azure-Functions/). Confira o repositório Funções para fornecer comentários sobre a versão prévia de suporte de definição de API. Execute o GitHub para qualquer coisa que você gostaria de ver atualizada.
-* [Referência ao desenvolvedor de funções do Azure](functions-reference.md). Saiba mais sobre a codificação de funções e definição de gatilhos e associações.
+* [Tutorial de introdução](functions-api-definition-getting-started.md). Experimente o nosso passo a passo para exibir uma definição de OpenAPI em ação.
+* [Azure Functions repositório GitHub](https://github.com/Azure/Azure-Functions/). Confira o repositório Funções para fornecer comentários sobre a versão prévia de suporte de definição de API. Execute o GitHub para qualquer coisa que você gostaria de ver atualizada.
+* [Azure Functions referência do desenvolvedor](functions-reference.md). Saiba mais sobre a codificação de funções e definição de gatilhos e associações.

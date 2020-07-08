@@ -8,10 +8,9 @@ ms.workload: infrastructure-services
 ms.date: 08/01/2019
 ms.author: cynthn
 ms.openlocfilehash: e03f31d8a78a0d327278768c3f0b66d2119f8dc8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81870062"
 ---
 # <a name="virtual-machine-isolation-in-azure"></a>Isolamento de máquina virtual no Azure
@@ -22,7 +21,7 @@ ms.locfileid: "81870062"
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Você pode implantar um host dedicado usando [Azure PowerShell](dedicated-hosts-powershell.md), o [portal](dedicated-hosts-portal.md)e o [CLI do Azure](../linux/dedicated-hosts-cli.md). Para obter mais informações, consulte a visão geral dos [hosts dedicados](dedicated-hosts.md) .
+- Você pode implantar um host dedicado usando [Azure PowerShell](dedicated-hosts-powershell.md), o [portal](dedicated-hosts-portal.md)e o [CLI do Azure](../linux/dedicated-hosts-cli.md). Para mais informações, consulte a visão geral de [hosts dedicados](dedicated-hosts.md).
 
 
 

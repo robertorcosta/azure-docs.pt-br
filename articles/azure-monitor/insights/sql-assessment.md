@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
 ms.openlocfilehash: b6b32f9eadc6677bad591f4040981c4c95bf1f76
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82871251"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Otimize seu ambiente SQL com a solução de verificação de integridade SQL Server no Azure Monitor
@@ -126,7 +125,7 @@ Cada recomendação feita recebe um valor de ponderação que identifica a impor
 Os pesos são valores agregados com base em três fatores principais:
 
 * A *probabilidade* que um problema identificado causar problemas. Uma probabilidade mais alta é igual a uma pontuação geral maior para a recomendação.
-* O *impacto* do problema na sua organização se ele causar um problema. Um impacto maior é igual a uma pontuação geral maior para a recomendação.
+* O *impacto* da questão na sua organização se ela causar um problema. Um impacto maior é igual a uma pontuação geral maior para a recomendação.
 * O *esforço* necessário para implementar a recomendação. Um esforço maior é igual a uma pontuação geral menor para a recomendação.
 
 A importância de cada recomendação é expressa como um percentual da pontuação total disponível para todas as áreas de foco. Por exemplo, se uma recomendação na área de foco de segurança e conformidade tiver uma pontuação de 5%, implementar essa recomendação aumentará sua pontuação geral de segurança e conformidade em 5%.
@@ -161,7 +160,7 @@ Veja as avaliações de conformidade resumidas para sua infraestrutura e faça u
 4. Na página **Visão Geral**, clique no bloco **Verificação da Integridade do SQL**.
 5. Na página **Verificação da Integridade**, revise as informações resumidas em uma das folhas da área de foco e clique em uma para exibir as recomendações dessa área de foco.
 6. Em qualquer uma das páginas da área de foco, você pode exibir as recomendações priorizadas para seu ambiente. Clique em uma recomendação sob **Objetos Afetados** para exibir detalhes sobre o motivo pelo qual a recomendação foi feita.<br><br> ![imagem das recomendações de Verificação da Integridade do SQL](./media/sql-assessment/sql-healthcheck-dashboard-02.png)<br>
-7. É possível executar as ações corretivas sugeridas em **Ações Sugeridas**. Quando o item tiver sido resolvido, avaliações posteriores gravarão que essas ações recomendadas foram executadas e sua pontuação de conformidade aumentará. Os itens corrigidos aparecem como **Objetos Passados**.
+7. É possível executar as ações corretivas sugeridas em **Ações Sugeridas**. Quando o item tiver sido resolvido, avaliações posteriores gravarão que essas ações recomendadas foram executadas e sua pontuação de conformidade aumentará. Os itens corrigido aparecem como **Objetos Passados**.
 
 ## <a name="ignore-recommendations"></a>Ignorar as recomendações
 Se houver recomendações que deseja ignorar, você poderá criar um arquivo de texto que será usado pelo Azure Monitor para impedir que as recomendações sejam exibidas nos resultados da avaliação.

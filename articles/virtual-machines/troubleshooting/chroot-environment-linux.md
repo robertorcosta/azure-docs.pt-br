@@ -14,10 +14,9 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 05/05/2020
 ms.author: kaib
 ms.openlocfilehash: d6605aa77cfa746f60fc3b23e120267a2614f7b1
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82864676"
 ---
 # <a name="chroot-environment-in-a-linux-rescue-vm"></a>Ambiente chroot em uma VM de resgate do Linux
@@ -84,7 +83,7 @@ Este artigo descreve como solucionar problemas do ambiente chroot na VM (máquin
       ```
 
       > [!NOTE]
-      > Se você receber o erro `unable to unmount /rescue`, adicione a opção-l ao comando umount.
+      > Se você receber o erro `unable to unmount /rescue` , adicione a opção-l ao comando umount.
       >
       > Exemplo: `umount -l /rescue`
 
@@ -151,7 +150,7 @@ Este artigo descreve como solucionar problemas do ambiente chroot na VM (máquin
       ```
 
       > [!NOTE]
-      > Se você receber o erro `unable to unmount /rescue`, adicione a opção-l ao comando umount.
+      > Se você receber o erro `unable to unmount /rescue` , adicione a opção-l ao comando umount.
       >
       > Exemplo: `umount -l /rescue`
 
@@ -264,7 +263,7 @@ Este artigo descreve como solucionar problemas do ambiente chroot na VM (máquin
       ```
 
       > [!NOTE]
-      > Se você receber o erro `unable to unmount /rescue`, adicione a opção-l ao comando umount.
+      > Se você receber o erro `unable to unmount /rescue` , adicione a opção-l ao comando umount.
       >
       > Exemplo: `umount -l /rescue`
 
@@ -374,7 +373,7 @@ Este artigo descreve como solucionar problemas do ambiente chroot na VM (máquin
       ```
 
       > [!NOTE]
-      > Se você receber o erro `unable to unmount /rescue`, adicione a opção-l ao comando umount.
+      > Se você receber o erro `unable to unmount /rescue` , adicione a opção-l ao comando umount.
       >
       > Exemplo: `umount -l /rescue`
 
@@ -443,7 +442,7 @@ Este artigo descreve como solucionar problemas do ambiente chroot na VM (máquin
       ```
 
       > [!NOTE]
-      > Se você receber o erro `unable to unmount /rescue`, adicione a opção-l ao comando umount.
+      > Se você receber o erro `unable to unmount /rescue` , adicione a opção-l ao comando umount.
       >
       > Exemplo: `umount -l /rescue`
 
@@ -512,7 +511,7 @@ Este artigo descreve como solucionar problemas do ambiente chroot na VM (máquin
       ```
 
       > [!NOTE]
-      > Se você receber o erro `unable to unmount /rescue`, adicione a opção-l ao comando umount.
+      > Se você receber o erro `unable to unmount /rescue` , adicione a opção-l ao comando umount.
       >
       > Exemplo: `umount -l /rescue`
 

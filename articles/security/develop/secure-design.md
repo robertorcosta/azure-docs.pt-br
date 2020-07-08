@@ -14,10 +14,9 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: 533f287693ca8aac76a3233674d95f3f49d4ae22
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82857165"
 ---
 # <a name="design-secure-applications-on-azure"></a>Criar aplicativos seguros no Azure
@@ -128,7 +127,7 @@ Você pode aproveitar os IDEs (ambientes de desenvolvimento integrado) completos
 
 A Microsoft oferece uma variedade de [linguagens, estruturas e ferramentas](https://docs.microsoft.com/azure/index?pivot=sdkstools&panel=sdkstools-all) que você pode usar para desenvolver aplicativos no Azure. Um exemplo é o [Azure para desenvolvedores .net e .NET Core](https://docs.microsoft.com/dotnet/azure/). Para cada idioma e estrutura que oferecemos, você encontrará guias de início rápido, tutoriais e referências de API para ajudá-lo a começar rapidamente.
 
-O Azure oferece uma variedade de serviços que você pode usar para hospedar sites e aplicativos Web. Esses serviços permitem desenvolver em sua linguagem favorita, seja .NET, .NET Core, Java, Ruby, Node. js, PHP ou Python.
+O Azure oferece uma variedade de serviços que você pode usar para hospedar sites e aplicativos Web. Esses serviços permitem desenvolver em sua linguagem favorita, seja .NET, .NET Core, Java, Ruby, Node.js, PHP ou Python.
 Os [aplicativos Web do serviço Azure app](../../app-service/overview.md) (aplicativos Web) são um desses serviços.
 
 Os aplicativos Web adicionam o poder do Microsoft Azure ao seu aplicativo. Ele inclui segurança, balanceamento de carga, dimensionamento automático e gerenciamento automatizado. Você também pode aproveitar os recursos do DevOps em aplicativos Web, como gerenciamento de pacotes, ambientes de preparo, domínios personalizados, certificados SSL/TLS e implantação contínua do Azure DevOps, GitHub, Hub do Docker e outras fontes.
@@ -154,7 +153,7 @@ Modelando o design do aplicativo e enumerando as ameaças [Stride](https://docs.
 | Ameaça | Propriedade de segurança | Mitigação potencial da plataforma Azure |
 | ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Falsificação               | Autenticação        | [Exigir conexões HTTPS](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
-| Violação              | Integridade             | Validar certificados SSL/TLS. Os aplicativos que usam SSL/TLS devem verificar completamente os certificados X. 509 das entidades a que se conectam. Use Azure Key Vault certificados para [gerenciar seus certificados X509](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-certificates). |
+| Adulteração              | Integridade             | Validar certificados SSL/TLS. Os aplicativos que usam SSL/TLS devem verificar completamente os certificados X. 509 das entidades a que se conectam. Use Azure Key Vault certificados para [gerenciar seus certificados X509](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-certificates). |
 | Repúdio            | Não repúdio       | Habilitar o [monitoramento e diagnóstico](https://docs.microsoft.com/azure/architecture/best-practices/monitoring) do Azure.|
 | Revelação de informações | Confidencialidade       | Criptografe dados confidenciais [em repouso](../fundamentals/encryption-atrest.md) e [em trânsito](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit). |
 | Negação de Serviço      | Disponibilidade          | Monitore as métricas de desempenho para possíveis condições de negação de serviço. Implementar filtros de conexão. A [proteção contra DDoS do Azure](../../virtual-network/ddos-protection-overview.md#next-steps), combinada com as práticas recomendadas de design de aplicativo, fornece defesa contra ataques de DDoS.|

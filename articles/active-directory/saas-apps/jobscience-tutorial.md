@@ -16,10 +16,9 @@ ms.date: 07/12/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 23d2694aa4936090367cf881379f81911ae70f9d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81870535"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Tutorial: Integração do Active Directory do Azure com o Jobscience
@@ -172,11 +171,11 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     f. Selecione **A identidade está no elemento NameIdentifier da declaração do Assunto** como **Local da Identidade do SAML**.
 
-    g. Na caixa de texto **URL de Logon do Provedor de Identidade**, cole o valor da **URL do Serviço de Logon Único SAML** copiado do portal do Azure.
+    (por exemplo, Na caixa de texto **URL de Logon do Provedor de Identidade**, cole o valor da **URL do Serviço de Logon Único SAML** copiado do portal do Azure.
 
     h. Na caixa de texto **URL de Logoff do Provedor de Identidade**, cole o valor da **URL de Saída** copiado do portal do Azure.
 
-    i. Clique em **Salvar**.
+    i. Clique em **Save** (Salvar).
 
 1. No painel de navegação à esquerda, na seção **Administrador**, clique em **Gerenciamento de Domínio** para expandir a seção correspondente e clique em **Meu Domínio** para abrir a página **Meu Domínio**. 
     
@@ -268,7 +267,7 @@ Para permitir que os usuários do Azure AD façam logon no Jobscience, eles deve
 
    f. Na caixa de texto **Apelido**, digite um apelido do usuário, como Fernandes.
 
-   g. Clique em **Salvar**.
+   g. Clique em **Save** (Salvar).
 
     
 > [!NOTE]

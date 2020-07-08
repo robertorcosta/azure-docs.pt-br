@@ -12,19 +12,18 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: d755573b53eb63d85165fb73fe4b97298dbeff09
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81868990"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Aplicativo daemon que chama APIs da Web – adquirir um token
 
-Depois de construir um aplicativo cliente confidencial, você pode adquirir um token para o aplicativo chamando `AcquireTokenForClient`, passando o escopo e, opcionalmente, forçando uma atualização do token.
+Depois de construir um aplicativo cliente confidencial, você pode adquirir um token para o aplicativo chamando `AcquireTokenForClient` , passando o escopo e, opcionalmente, forçando uma atualização do token.
 
 ## <a name="scopes-to-request"></a>Escopos a serem solicitados
 
-O escopo a ser solicitado para um fluxo de credenciais de cliente é o nome do recurso `/.default`seguido por. Essa notação informa Azure Active Directory (Azure AD) para usar as *permissões no nível do aplicativo* declaradas estaticamente durante o registro do aplicativo. Além disso, essas permissões de API devem ser concedidas por um administrador de locatários.
+O escopo a ser solicitado para um fluxo de credenciais de cliente é o nome do recurso seguido por `/.default` . Essa notação informa Azure Active Directory (Azure AD) para usar as *permissões no nível do aplicativo* declaradas estaticamente durante o registro do aplicativo. Além disso, essas permissões de API devem ser concedidas por um administrador de locatários.
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -53,11 +52,11 @@ final static String GRAPH_DEFAULT_SCOPE = "https://graph.microsoft.com/.default"
 
 ### <a name="azure-ad-v10-resources"></a>Recursos do Azure AD (v 1.0)
 
-O escopo usado para credenciais de cliente sempre deve ser a ID de recurso `/.default`seguida por.
+O escopo usado para credenciais de cliente sempre deve ser a ID de recurso seguida por `/.default` .
 
 > [!IMPORTANT]
 > Quando o MSAL solicita um token de acesso para um recurso que aceita um token de acesso da versão 1,0, o Azure AD analisa o público-alvo desejado do escopo solicitado, levando tudo antes da última barra e usando-o como o identificador de recurso.
-> Portanto, se, como o banco de dados SQL do Azure (**https:\//Database.Windows.net**), o recurso espera um público que termina com uma barra ( `https://database.windows.net/`para o banco de dados SQL do Azure), `https://database.windows.net//.default`você precisará solicitar um escopo de. (Observe a barra dupla.) Consulte também MSAL.NET Issue [#747: a barra à direita da URL do recurso é omitida, o que causou a falha de autenticação do SQL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
+> Portanto, se, como o banco de dados SQL do Azure (**https: \/ /Database.Windows.net**), o recurso espera um público que termina com uma barra (para o banco de dados SQL do Azure `https://database.windows.net/` ), você precisará solicitar um escopo de `https://database.windows.net//.default` . (Observe a barra dupla.) Consulte também MSAL.NET Issue [#747: a barra à direita da URL do recurso é omitida, o que causou a falha de autenticação do SQL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
 
 ## <a name="acquiretokenforclient-api"></a>API AcquireTokenForClient
 
@@ -202,7 +201,7 @@ Para obter mais informações, consulte a documentação do protocolo: [platafor
 
 ## <a name="application-token-cache"></a>Cache de token de aplicativo
 
-No MSAL.NET, `AcquireTokenForClient` o usa o cache de token de aplicativo. (Todos os outros métodos AcquireToken*XX* usam o cache de token de usuário.) Não chame `AcquireTokenSilent` antes de chamar `AcquireTokenForClient`, porque `AcquireTokenSilent` o usa o cache de token de *usuário* . `AcquireTokenForClient`verifica o cache do token de *aplicativo* e o atualiza.
+No MSAL.NET, `AcquireTokenForClient` o usa o cache de token de aplicativo. (Todos os outros métodos AcquireToken*XX* usam o cache de token de usuário.) Não chame `AcquireTokenSilent` antes de chamar `AcquireTokenForClient` , porque `AcquireTokenSilent` o usa o cache de token de *usuário* . `AcquireTokenForClient`verifica o cache do token de *aplicativo* e o atualiza.
 
 ## <a name="troubleshooting"></a>Solução de problemas
 

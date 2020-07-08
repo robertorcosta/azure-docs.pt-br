@@ -8,10 +8,9 @@ ms.date: 11/15/2019
 ms.author: bwren
 ms.subservice: ''
 ms.openlocfilehash: 915df5d6356e2246c8937cb167c8068b00e0917b
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82854612"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub"></a>Transmitir dados de monitoramento do Azure para um hub de eventos
@@ -34,7 +33,7 @@ Antes de configurar o streaming para qualquer fonte de dados, você precisa [cri
 
 | Camada | Dados | Método |
 |:---|:---|:---|
-| [Locatário do Azure](data-sources.md#azure-tenant) | Azure Active Directory logs de auditoria | Defina uma configuração de diagnóstico de locatário em seu locatário do AAD. Consulte [tutorial: transmitir Azure Active Directory logs para um hub de eventos do Azure](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) para obter detalhes. |
+| [Locatário do Azure](data-sources.md#azure-tenant) | Logs de auditoria do Azure Active Directory | Defina uma configuração de diagnóstico de locatário em seu locatário do AAD. Consulte [tutorial: transmitir Azure Active Directory logs para um hub de eventos do Azure](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) para obter detalhes. |
 | [Assinatura do Azure](data-sources.md#azure-subscription) | Log de Atividades do Azure | Crie um perfil de log para exportar eventos do log de atividades para os hubs de eventos.  Consulte [transmitir logs da plataforma Azure para os hubs de eventos do Azure](resource-logs-stream-event-hubs.md) para obter detalhes. |
 | [Recursos do Azure](data-sources.md#azure-resources) | Métricas de plataforma<br> Logs de recursos |Ambos os tipos de dados são enviados para um hub de eventos usando uma configuração de diagnóstico de recurso. Consulte [transmitir logs de recursos do Azure para um hub de eventos](resource-logs-stream-event-hubs.md) para obter detalhes. |
 | [Sistema operacional (convidado)](data-sources.md#operating-system-guest) | Máquinas Virtuais do Azure | Instale a [extensão de diagnóstico do Azure](diagnostics-extension-overview.md) em máquinas virtuais Windows e Linux no Azure. Consulte [Streaming diagnóstico do Azure dados no Hot Path usando os hubs de eventos](diagnostics-extension-stream-event-hubs.md) para obter detalhes sobre VMs do Windows e [usar a extensão de diagnóstico do Linux para monitorar métricas e logs](../../virtual-machines/extensions/diagnostics-linux.md#protected-settings) para obter detalhes sobre as VMs do Linux. |

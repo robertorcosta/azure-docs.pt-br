@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.custom: seodec18~~~~
 ms.openlocfilehash: 010f7b908ceb9c8d07208db1312d8af8d4e27051
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82838511"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Criar um conjunto de dados de referência para o seu ambiente Time Series Insights usando o Portal do Azure
@@ -64,9 +63,9 @@ Os dados de referência não estão unidos retroativamente. Assim, somente os da
    - Cole os dados no editor de texto. Em seguida, selecione o botão **Analisar dados de referência**.
    - Selecione o botão **Escolher arquivo** para adicionar dados de um arquivo de texto local.
 
-   Por exemplo, colar dados CSV: [ ![dados CSV colados](media/add-reference-data-set/select-csv-and-enter-data.png)](media/add-reference-data-set/select-csv-and-enter-data.png#lightbox)
+   Por exemplo, colar dados CSV: [ ![ dados CSV colados](media/add-reference-data-set/select-csv-and-enter-data.png)](media/add-reference-data-set/select-csv-and-enter-data.png#lightbox)
 
-   Por exemplo, Cole dados da matriz JSON: [ ![colar dados JSON](media/add-reference-data-set/select-json-option-and-enter-data.png)](media/add-reference-data-set/select-json-option-and-enter-data.png#lightbox)
+   Por exemplo, Cole dados da matriz JSON: [ ![ colar dados JSON](media/add-reference-data-set/select-json-option-and-enter-data.png)](media/add-reference-data-set/select-json-option-and-enter-data.png#lightbox)
 
    Se houver um erro ao analisar os valores de dados, o erro aparecerá em vermelho na parte inferior da página, como `CSV parsing error, no rows extracted`.
 
@@ -74,7 +73,7 @@ Os dados de referência não estão unidos retroativamente. Assim, somente os da
 
    [![Examinar dados de referência](media/add-reference-data-set/review-displayed-data-grid.png)](media/add-reference-data-set/review-displayed-data-grid.png#lightbox)
 
-1. Examine cada coluna para entender o tipo de dados assumido e altere o tipo de dados, se necessário.  Selecione o símbolo de tipo de dados no título da **#** coluna: para duplo (dados numéricos), **T | F** para booliano ou **ABC** para cadeia de caracteres.
+1. Examine cada coluna para entender o tipo de dados assumido e altere o tipo de dados, se necessário.  Selecione o símbolo de tipo de dados no título da coluna: **#** para duplo (dados numéricos), **T | F** para booliano ou **ABC** para cadeia de caracteres.
 
    [![Escolha os tipos de dados nos cabeçalhos de coluna.](media/add-reference-data-set/select-column-types.png)](media/add-reference-data-set/select-column-types.png#lightbox)
 

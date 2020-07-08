@@ -1,5 +1,5 @@
 ---
-title: Use a redundância geográfica para criar aplicativos altamente disponíveis
+title: Uso da redundância geográfica para criar aplicativos altamente disponíveis
 titleSuffix: Azure Storage
 description: Saiba como usar o armazenamento com redundância geográfica para criar um aplicativo altamente disponível que seja flexível o suficiente para lidar com interrupções.
 services: storage
@@ -11,13 +11,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.openlocfilehash: e1eb105671883d88d8fe34b9741d402d311556a9
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82859010"
 ---
-# <a name="use-geo-redundancy-to-design-highly-available-applications"></a>Use a redundância geográfica para criar aplicativos altamente disponíveis
+# <a name="use-geo-redundancy-to-design-highly-available-applications"></a>Uso da redundância geográfica para criar aplicativos altamente disponíveis
 
 Um recurso comum de infraestruturas baseadas em nuvem como o armazenamento do Azure é que eles fornecem uma plataforma altamente disponível e durável para hospedar dados e aplicativos. Os desenvolvedores de aplicativos baseados em nuvem devem considerar cuidadosamente como aproveitar essa plataforma para maximizar essas vantagens para seus usuários. O armazenamento do Azure oferece armazenamento com redundância geográfica para garantir a alta disponibilidade, mesmo no caso de uma interrupção regional. As contas de armazenamento configuradas para replicação com redundância geográfica são replicadas de forma síncrona na região primária e, em seguida, replicadas assincronamente para uma região secundária que está a centenas de quilômetros de distância.
 
@@ -45,7 +44,7 @@ Tenha em mente estes pontos-chave ao projetar seu aplicativo para RA-GRS ou RA-G
 
 * Você pode usar a biblioteca de cliente de armazenamento para ler e gravar dados na região primária ou secundária. Você também poderá redirecionar as solicitações de leitura automaticamente para a região secundária se uma solicitação de leitura para a região primária atingir o tempo limite.
 
-* Se a região primária ficar indisponível, você pode iniciar um failover de conta. Quando você executa o failover para a região secundária, as entradas DNS que apontam para a região primária são alteradas para apontar para a região secundária. Após o failover estar concluído, o acesso de gravação é restaurado para as contas GRS e RA-GRS. Para obter mais informações, consulte [recuperação de desastre e failover da conta de armazenamento](storage-disaster-recovery-guidance.md).
+* Se a região primária ficar indisponível, você pode iniciar um failover de conta. Quando você executa o failover para a região secundária, as entradas DNS que apontam para a região primária são alteradas para apontar para a região secundária. Após o failover estar concluído, o acesso de gravação é restaurado para as contas GRS e RA-GRS. Para saber mais, confira [Recuperação de desastre e failover da conta de armazenamento](storage-disaster-recovery-guidance.md).
 
 ### <a name="using-eventually-consistent-data"></a>Usando dados eventualmente consistentes
 
@@ -196,7 +195,7 @@ O armazenamento com redundância geográfica funciona replicando as transações
 
 A tabela a seguir mostra um exemplo do que pode acontecer quando você atualiza os detalhes de um funcionário para torná-los membros da função *Administradores* . Para este exemplo, isso requer que você atualize a entidade **funcionário** e atualize uma entidade **função de administrador** com uma contagem do número total de administradores. Observe como as atualizações são aplicadas fora de ordem na região secundária.
 
-| **Hora** | **Aciona**                                            | **Replicação**                       | **Horário da Última Sincronização** | **Disso** |
+| **Hora** | **Aciona**                                            | **Replicação**                       | **Horário da Última Sincronização** | **Result** |
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
 | T0       | Transação A: <br> Inserir funcionário <br> entidade no principal |                                   |                    | Transação A inserida no primário,<br> ainda não replicada. |
 | T1       |                                                            | Transação A <br> replicada para<br> secundário | T1 | A transação A foi replicada para o secundário. <br>Hora da Última Sincronização atualizada.    |

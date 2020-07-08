@@ -9,10 +9,9 @@ ms.date: 12/20/2019
 ms.author: robinsh
 ms.custom: mqtt
 ms.openlocfilehash: 78aee7829e58feede3360f30f10260903713c52f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81770073"
 ---
 # <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>Tutorial: usar os aprimoramentos de mensagem do Hub IoT do Azure
@@ -39,7 +38,7 @@ Estas são as tarefas que você executa para concluir este tutorial:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Você precisa ter uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-* Instale o [Visual Studio](https://www.visualstudio.com/).
+* Instalar o [Visual Studio](https://www.visualstudio.com/).
 
 * Verifique se a porta 8883 está aberta no firewall. A amostra de dispositivo deste tutorial usa o protocolo MQTT, que se comunica pela porta 8883. Essa porta poderá ser bloqueada em alguns ambientes de rede corporativos e educacionais. Para obter mais informações e maneiras de resolver esse problema, confira [Como se conectar ao Hub IoT (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
@@ -51,7 +50,7 @@ Estas são as tarefas que você executa para concluir este tutorial:
 Baixe os [exemplos do IOT C#](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) do GitHub e descompacte-os. Esse repositório tem vários aplicativos, scripts e modelos do Resource Manager nele. Os itens a serem usados para este tutorial são os seguintes:
 
 * Para o método manual, há um script de CLI que é usado para criar os recursos. Este script está em/azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/iothub_msgenrichment_cli. azcli. Esse script cria os recursos e configura o roteamento de mensagens. Depois de executar esse script, crie os aprimoramentos de mensagem manualmente usando o [portal do Azure](https://portal.azure.com).
-* Para o método automatizado, há um modelo de Azure Resource Manager. O modelo está em/azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/template_msgenrichments. JSON. Este modelo cria os recursos, configura o roteamento de mensagens e, em seguida, configura os aprimoramentos de mensagens.
+* Para o método automatizado, há um modelo de Azure Resource Manager. O modelo está em/azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/template_msgenrichments.jsno. Este modelo cria os recursos, configura o roteamento de mensagens e, em seguida, configura os aprimoramentos de mensagens.
 * O terceiro aplicativo usado é o aplicativo de simulação de dispositivo, que você usa para enviar mensagens ao Hub IoT e testar os aprimoramentos de mensagens.
 
 ## <a name="manually-set-up-and-configure-by-using-the-azure-cli"></a>Configurar e configurar manualmente usando o CLI do Azure
@@ -268,7 +267,7 @@ Neste ponto, os recursos estão todos configurados e o roteamento de mensagens �
    > [!NOTE]
    > Se o dispositivo não tiver um "alto", o valor que você colocar aqui será marcado como uma cadeia de caracteres para o valor nos aprimoramentos da mensagem. Para ver as informações de dados do dispositivo, vá para o Hub no portal e selecione **dispositivos IOT**. Selecione seu dispositivo e, em seguida, selecione o **dispositivo** 10 na parte superior da página.
    >
-   > Você pode editar as informações de entrelaçamento para adicionar marcas, como local, e defini-las como um valor específico. Para obter mais informações, consulte [entender e usar dispositivos gêmeos no Hub IOT](iot-hub-devguide-device-twins.md).
+   > Você pode editar as informações de entrelaçamento para adicionar marcas, como local, e defini-las como um valor específico. Para saber mais, veja [Noções básicas e uso de dispositivos gêmeos no Hub IoT](iot-hub-devguide-device-twins.md).
 
 3. Quando tiver terminado, seu painel deverá ser semelhante a esta imagem:
 
@@ -287,7 +286,7 @@ Você pode usar um modelo do Resource Manager para criar e configurar os recurso
 
 1. No painel **implantação personalizada** , selecione **criar seu próprio modelo no editor**.
 
-1. No painel **Editar modelo** , selecione **carregar arquivo**. O Windows Explorer é exibido. Localize o arquivo **template_messageenrichments. JSON** no arquivo de repositório descompactado em **/IOT-Hub/Tutorials/Routing/SimulatedDevice/Resources**. 
+1. No painel **Editar modelo** , selecione **carregar arquivo**. O Windows Explorer é exibido. Localize o **template_messageenrichments.jsno** arquivo no arquivo de repositório descompactado no **/IOT-Hub/Tutorials/Routing/SimulatedDevice/Resources**. 
 
    ![Selecionar modelo do computador local](./media/tutorial-message-enrichments/template-select.png)
 
@@ -330,13 +329,13 @@ Para exibir os aprimoramentos de mensagem, selecione **grupos de recursos**. Em 
 
 Agora que os aprimoramentos de mensagem estão configurados para o ponto de extremidade, execute o aplicativo de dispositivo simulado para enviar mensagens para o Hub IoT. O Hub foi definido com as configurações que realizam as seguintes tarefas:
 
-* As mensagens roteadas para o ponto de extremidade de armazenamento ContosoStorageEndpointOriginal não serão enriquecedas e serão armazenadas no `original`contêiner de armazenamento.
+* As mensagens roteadas para o ponto de extremidade de armazenamento ContosoStorageEndpointOriginal não serão enriquecedas e serão armazenadas no contêiner de armazenamento `original` .
 
-* As mensagens roteadas para o ponto de extremidade de armazenamento ContosoStorageEndpointEnriched serão enriquecedas e armazenadas no `enriched`contêiner de armazenamento.
+* As mensagens roteadas para o ponto de extremidade de armazenamento ContosoStorageEndpointEnriched serão enriquecedas e armazenadas no contêiner de armazenamento `enriched` .
 
 O aplicativo de dispositivo simulado é um dos aplicativos no download descompactado. O aplicativo envia mensagens para cada um dos diferentes métodos de roteamento de mensagens no [tutorial de roteamento](tutorial-routing.md), que inclui o armazenamento do Azure.
 
-Clique duas vezes no arquivo de solução **IoT_SimulatedDevice. sln** para abrir o código no Visual Studio e, em seguida, abra **Program.cs**. Substitua o nome do Hub IoT pelo marcador `{your hub name}`. O formato do nome de host do Hub IoT é **{Your Hub Name}. Azure-Devices.net**. Para este tutorial, o nome de host do hub é ContosoTestHubMsgEn.azure-devices.net. Em seguida, substitua a chave do dispositivo que você salvou anteriormente quando executou o script para criar os recursos `{your device key}`para o marcador.
+Clique duas vezes no arquivo de solução **IoT_SimulatedDevice. sln** para abrir o código no Visual Studio e, em seguida, abra **Program.cs**. Substitua o nome do Hub IoT pelo marcador `{your hub name}` . O formato do nome de host do Hub IoT é **{Your Hub Name}. Azure-Devices.net**. Para este tutorial, o nome de host do hub é ContosoTestHubMsgEn.azure-devices.net. Em seguida, substitua a chave do dispositivo que você salvou anteriormente quando executou o script para criar os recursos para o marcador `{your device key}` .
 
 Se você não tiver a chave do dispositivo, poderá recuperá-la no Portal. Depois de entrar, vá para **grupos de recursos**, selecione o grupo de recursos e, em seguida, selecione o Hub IOT. Procure em **dispositivos IOT** para seu dispositivo de teste e selecione seu dispositivo. Selecione o ícone de cópia ao lado de **chave primária** para copiá-lo para a área de transferência.
 
@@ -352,7 +351,7 @@ Se você não tiver a chave do dispositivo, poderá recuperá-la no Portal. Depo
 
 Execute o aplicativo de console por alguns minutos. As mensagens que estão sendo enviadas são exibidas na tela do console do aplicativo.
 
-Esse aplicativo envia uma nova mensagem de dispositivo para a nuvem ao Hub IoT a cada segundo. A mensagem contém um objeto serializado para JSON com a ID do dispositivo, temperatura, umidade e nível de mensagem, cujo padrão é `normal`. Ele atribui aleatoriamente um nível de `critical` ou `storage`, o que faz com que a mensagem seja roteada para a conta de armazenamento ou para o ponto de extremidade padrão. As mensagens enviadas para o contêiner **aprimorado** na conta de armazenamento serão aprimoradas.
+Esse aplicativo envia uma nova mensagem de dispositivo para a nuvem ao Hub IoT a cada segundo. A mensagem contém um objeto serializado para JSON com a ID do dispositivo, temperatura, umidade e nível de mensagem, cujo padrão é `normal`. Ele atribui aleatoriamente um nível de `critical` ou `storage` , o que faz com que a mensagem seja roteada para a conta de armazenamento ou para o ponto de extremidade padrão. As mensagens enviadas para o contêiner **aprimorado** na conta de armazenamento serão aprimoradas.
 
 Depois que várias mensagens de armazenamento forem enviadas, exiba os dados.
 
@@ -380,13 +379,13 @@ Esta é uma mensagem não enriqueceda. Observe que "meu Hub IoT", "devicelocatio
 {"EnqueuedTimeUtc":"2019-05-10T06:06:32.7220000Z","Properties":{"level":"storage"},"SystemProperties":{"connectionDeviceId":"Contoso-Test-Device","connectionAuthMethod":"{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}","connectionDeviceGenerationId":"636930642531278483","enqueuedTime":"2019-05-10T06:06:32.7220000Z"},"Body":"eyJkZXZpY2VJZCI6IkNvbnRvc28tVGVzdC1EZXZpY2UiLCJ0ZW1wZXJhdHVyZSI6MjkuMjMyMDE2ODQ4MDQyNjE1LCJodW1pZGl0eSI6NjQuMzA1MzQ5NjkyODQ0NDg3LCJwb2ludEluZm8iOiJUaGlzIGlzIGEgc3RvcmFnZSBtZXNzYWdlLiJ9"}
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Para remover todos os recursos criados neste tutorial, exclua o grupo de recursos. Essa ação também exclui todos os recursos contidos no grupo. Nesse caso, ela remove o hub IoT, a conta de armazenamento e o próprio grupo de recursos.
 
 ### <a name="use-the-azure-cli-to-clean-up-resources"></a>Usar a CLI do Azure para limpar os recursos
 
-Para remover o grupo de recursos, use o comando [excluir grupo az](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete). Lembre- `$resourceGroup` se de que foi definido como **ContosoResourcesMsgEn** no início deste tutorial.
+Para remover o grupo de recursos, use o comando [excluir grupo az](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete). Lembre-se de que `$resourceGroup` foi definido como **ContosoResourcesMsgEn** no início deste tutorial.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup

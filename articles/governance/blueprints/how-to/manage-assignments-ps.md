@@ -4,10 +4,9 @@ description: Saiba como gerenciar atribuições de plano gráfico com o módulo 
 ms.date: 05/06/2020
 ms.topic: how-to
 ms.openlocfilehash: fa0f89df79c4ae1c5b66998089f04575bd53ea37
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82863970"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>Como gerenciar atribuições com o PowerShell
@@ -49,9 +48,9 @@ O módulo de plantas do Azure para PowerShell é **AZ. Blueprint**.
 ## <a name="get-blueprint-definitions"></a>Obter definições de Blueprint
 
 A primeira etapa para trabalhar com uma atribuição geralmente obtém uma referência a uma definição de Blueprint.
-O `Get-AzBlueprint` cmdlet obtém uma ou mais definições de Blueprint. O cmdlet pode obter definições de plano gráfico de um grupo `-ManagementGroupId {mgId}` de gerenciamento com o `-SubscriptionId {subId}`ou uma assinatura com o. O parâmetro **Name** Obtém uma definição de Blueprint, mas deve ser usado com **ManagementGroupId** ou **SubscriptionId**. A **versão** pode ser usada com o **nome** para ser mais explícito sobre qual definição de Blueprint é retornada. Em vez da **versão**, a `-LatestPublished` opção captura a versão publicada mais recentemente.
+O `Get-AzBlueprint` cmdlet obtém uma ou mais definições de Blueprint. O cmdlet pode obter definições de plano gráfico de um grupo de gerenciamento com `-ManagementGroupId {mgId}` o ou uma assinatura com o `-SubscriptionId {subId}` . O parâmetro **Name** Obtém uma definição de Blueprint, mas deve ser usado com **ManagementGroupId** ou **SubscriptionId**. A **versão** pode ser usada com o **nome** para ser mais explícito sobre qual definição de Blueprint é retornada. Em vez da **versão**, a opção `-LatestPublished` captura a versão publicada mais recentemente.
 
-O exemplo a seguir `Get-AzBlueprint` usa para obter todas as versões de uma definição Blueprint denominada ' 101-Blueprints-Definition-Subscription ' de uma assinatura `{subId}`específica representada como:
+O exemplo a seguir usa `Get-AzBlueprint` para obter todas as versões de uma definição Blueprint denominada ' 101-Blueprints-Definition-Subscription ' de uma assinatura específica representada como `{subId}` :
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -97,7 +96,7 @@ allowedlocations_listOfAllowedLocations                Microsoft.Azure.Commands.
 
 Se a atribuição Blueprint já existir, você poderá obter uma referência a ela com o `Get-AzBlueprintAssignment` cmdlet. O cmdlet usa **SubscriptionId** e **nome** como parâmetros opcionais. Se **SubscriptionId** não for especificado, o contexto de assinatura atual será usado.
 
-O exemplo a seguir `Get-AzBlueprintAssignment` usa para obter uma única atribuição de Blueprint chamada "Assignment-Lock-Resource-Groups" de uma assinatura `{subId}`específica representada como:
+O exemplo a seguir usa `Get-AzBlueprintAssignment` para obter uma única atribuição de Blueprint chamada "Assignment-Lock-Resource-Groups" de uma assinatura específica representada como `{subId}` :
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -125,7 +124,7 @@ ResourceGroups    : ResourceGroup
 
 ## <a name="create-blueprint-assignments"></a>Criar atribuições de Blueprint
 
-Se a atribuição Blueprint ainda não existir, você poderá criá-la com `New-AzBlueprintAssignment` o cmdlet. Esse cmdlet usa os seguintes parâmetros:
+Se a atribuição Blueprint ainda não existir, você poderá criá-la com o `New-AzBlueprintAssignment` cmdlet. Esse cmdlet usa os seguintes parâmetros:
 
 - **Nome** [obrigatório]
   - Especifica o nome da atribuição Blueprint
@@ -168,7 +167,7 @@ Se a atribuição Blueprint ainda não existir, você poderá criá-la com `New-
 
 ### <a name="example-1-provide-parameters"></a>Exemplo 1: fornecer parâmetros
 
-O exemplo a seguir cria uma nova atribuição da versão ' 1,1 ' da definição do plano gráfico ' meu plano `Get-AzBlueprint`gráfico ' buscada com, define a identidade gerenciada e o local do objeto de atribuição como ' westus2 ', bloqueia os recursos com _AllResourcesReadOnly_e define as tabelas de hash para o **parâmetro** e `{subId}` **ResourceGroupParameter** na assinatura específica representada como:
+O exemplo a seguir cria uma nova atribuição da versão ' 1,1 ' da definição do plano gráfico ' meu plano gráfico ' buscada com `Get-AzBlueprint` , define a identidade gerenciada e o local do objeto de atribuição como ' westus2 ', bloqueia os recursos com _AllResourcesReadOnly_e define as tabelas de hash para o **parâmetro** e **ResourceGroupParameter** na assinatura específica representada como `{subId}` :
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -320,9 +319,9 @@ ResourceGroups    : ResourceGroup
 
 ## <a name="remove-blueprint-assignments"></a>Remover atribuições de Blueprint
 
-Quando é o momento de uma atribuição de plano gráfico ser removida `Remove-AzBlueprintAssignment` , o cmdlet manipula essa ação. O cmdlet usa **Name** ou **InputObject** para especificar qual atribuição de Blueprint deve ser removida. **SubscriptionId** é _necessário_ e deve ser fornecido em todos os casos.
+Quando é o momento de uma atribuição de plano gráfico ser removida, o `Remove-AzBlueprintAssignment` cmdlet manipula essa ação. O cmdlet usa **Name** ou **InputObject** para especificar qual atribuição de Blueprint deve ser removida. **SubscriptionId** é _necessário_ e deve ser fornecido em todos os casos.
 
-O exemplo a seguir busca uma atribuição de plano gráfico `Get-AzBlueprintAssignment` existente com e, em seguida, a remove da `{subId}`assinatura específica representada como:
+O exemplo a seguir busca uma atribuição de plano gráfico existente com `Get-AzBlueprintAssignment` e, em seguida, a remove da assinatura específica representada como `{subId}` :
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -336,7 +335,7 @@ Remove-AzBlueprintAssignment -InputObject $blueprintAssignment -SubscriptionId '
 
 ## <a name="code-example"></a>Exemplo de código
 
-Reunindo todas as etapas, o exemplo a seguir obtém a definição do plano gráfico, depois cria, atualiza e remove uma atribuição Blueprint na assinatura específica representada `{subId}`como:
+Reunindo todas as etapas, o exemplo a seguir obtém a definição do plano gráfico, depois cria, atualiza e remove uma atribuição Blueprint na assinatura específica representada como `{subId}` :
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell

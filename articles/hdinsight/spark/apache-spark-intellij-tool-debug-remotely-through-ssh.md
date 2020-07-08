@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/23/2019
 ms.openlocfilehash: c032e900cd2f58581517b08905d5b0660ed8bbda
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82857821"
 ---
 # <a name="debug-apache-spark-applications-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Depurar Apache Spark aplicativos em um cluster HDInsight com Azure Toolkit for IntelliJ por meio de SSH
@@ -25,11 +24,11 @@ Este artigo fornece orientações passo a passo sobre como usar as ferramentas d
 
 * Para usuários do Windows: enquanto você está executando o aplicativo local do Spark escalar em um computador Windows, você pode obter uma exceção, conforme explicado no [Spark-2356](https://issues.apache.org/jira/browse/SPARK-2356). A exceção ocorre porque WinUtils.exe está ausente no Windows.
 
-    Para resolver esse erro, baixe [Winutils. exe](https://github.com/steveloughran/winutils) em um local como **C:\WinUtils\bin**. Em seguida, adicione uma variável de ambiente **HADOOP_HOME** e defina o valor da variável para **C\WinUtils**.
+    Para resolver esse erro, baixe [Winutils.exe](https://github.com/steveloughran/winutils) em um local como **C:\WinUtils\bin**. Em seguida, adicione uma variável de ambiente **HADOOP_HOME** e defina o valor da variável para **C\WinUtils**.
 
 * [INTELLIJ Idea](https://www.jetbrains.com/idea/download/#section=windows) (a Community Edition é gratuita).
 
-* [Kit de Ferramentas do Azure para IntelliJ](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/installation).
+* [Azure Toolkit for IntelliJ](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/installation).
 
 * [Plug-in escalar para IntelliJ](../spark/apache-spark-intellij-tool-plugin.md#install-scala-plugin-for-intellij-idea).
 
@@ -54,9 +53,9 @@ Este artigo fornece orientações passo a passo sobre como usar as ferramentas d
 
 1. Na próxima janela **novo projeto** , forneça as seguintes informações:
 
-    |Propriedade |Descrição |
+    |Property |Descrição |
     |---|---|
-    |Nome do projeto|Insira um nome. Essa explicação usa `myApp`.|
+    |Nome do projeto|Insira um nome. Essa explicação usa `myApp` .|
     |Localização do projeto|Insira o local desejado para salvar o projeto.|
     |SDK do projeto|Se estiver em branco, selecione **novo...** e navegue até o JDK.|
     |Versão do Spark|O assistente de criação integra a versão apropriada para o SDK do Spark e o SDK do Scala. Se a versão do cluster do Spark for anterior à 2.0, selecione **Spark 1.x**. Caso contrário, selecione **Spark 2. x.**. Esse exemplo usa o **Spark 2.3.0 (Scala 2.11.8)**.|
@@ -65,13 +64,13 @@ Este artigo fornece orientações passo a passo sobre como usar as ferramentas d
 
 1. Selecione **Concluir**. Pode levar alguns minutos antes que o projeto fique disponível. Observe o canto inferior direito do progresso.
 
-1. Expanda seu projeto e navegue até o**exemplo** **src** > **Main** > **escalar** > . Clique duas vezes em **SparkCore_WasbIOTest**.
+1. Expanda seu projeto e navegue até **src**o exemplo src  >  **Main**  >  **escalar**  >  **sample**. Clique duas vezes em **SparkCore_WasbIOTest**.
 
 ## <a name="perform-local-run"></a>Realizar execução local
 
 1. No script de **SparkCore_WasbIOTest** , clique com o botão direito do mouse no editor de scripts e selecione a opção **Executar ' SparkCore_WasbIOTest '** para executar a execução local.
 
-1. Quando a execução local for concluída, você poderá ver o arquivo de saída salvo em seu **data** > **__padrão__** de dados do explorador de projeto atual.
+1. Quando a execução local for concluída, você poderá ver o arquivo de saída salvo em seu padrão de **dados**do explorador de projeto atual  >  **__default__**.
 
     ![Resultado da execução local do projeto do IntelliJ](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/spark-local-run-result.png)
 
@@ -83,7 +82,7 @@ Este artigo fornece orientações passo a passo sobre como usar as ferramentas d
     - [Local de WinUtils.exe](#prerequisites): se você não tiver definido a variável de ambiente do sistema, poderá encontrar o local clicando em seu botão.
     - Basta escolher uma das duas opções, e elas não são necessárias em MacOS e Linux.
 
-1. Você também pode definir a configuração manualmente antes de executar a depuração e execução local. Na captura de tela anterior, selecione o sinal de**+** adição (). Em seguida, selecione a opção **Apache Spark no HDInsight** . Insira as informações para **Nome**, **Nome da classe principal** para salvar, em seguida, clique no botão de execução local.
+1. Você também pode definir a configuração manualmente antes de executar a depuração e execução local. Na captura de tela anterior, selecione o sinal de adição ( **+** ). Em seguida, selecione a opção **Apache Spark no HDInsight** . Insira as informações para **Nome**, **Nome da classe principal** para salvar, em seguida, clique no botão de execução local.
 
 ## <a name="perform-local-debugging"></a>Executar depuração local
 
@@ -93,7 +92,7 @@ Este artigo fornece orientações passo a passo sobre como usar as ferramentas d
 
 ## <a name="perform-remote-run"></a>Realizar execução remota
 
-1. Navegue para **executar** > **Editar configurações...**. Nesse menu, você pode criar ou editar as configurações para depuração remota.
+1. Navegue para **executar**  >  **Editar configurações...**. Nesse menu, você pode criar ou editar as configurações para depuração remota.
 
 1. Na caixa de diálogo **Configurações de Execução/Depuração**, selecione o sinal de mais (**+**). Em seguida, selecione a opção **Apache Spark no HDInsight** .
 

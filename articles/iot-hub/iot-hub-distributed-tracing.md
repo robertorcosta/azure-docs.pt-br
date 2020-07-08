@@ -12,10 +12,9 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 2b1dc7873140f885ec3efac11dec5fbf6aab7aa9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81732571"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Rastrear mensagens de dispositivo para a nuvem do IoT do Azure com o rastreamento distribuído (versão prévia)
@@ -181,7 +180,7 @@ Essas instruções servem para compilar o exemplo no Windows. Para outros ambien
 
 Não é **trivial** Visualizar o recurso de rastreamento distribuído sem usar o SDK do C. Portanto, essa abordagem não é recomendada.
 
-Primeiro, você deve implementar todos os primitivos de protocolo do Hub IoT em suas mensagens seguindo o guia de desenvolvimento [criar e ler mensagens do Hub IOT](iot-hub-devguide-messages-construct.md). Em seguida, edite as propriedades de protocolo nas mensagens MQTT/AMQP `tracestate` para adicionar como **Propriedade do sistema**. Especificamente:
+Primeiro, você deve implementar todos os primitivos de protocolo do Hub IoT em suas mensagens seguindo o guia de desenvolvimento [criar e ler mensagens do Hub IOT](iot-hub-devguide-messages-construct.md). Em seguida, edite as propriedades de protocolo nas mensagens MQTT/AMQP para adicionar `tracestate` como **Propriedade do sistema**. Especificamente:
 
 * Para MQTT, adicione `%24.tracestate=timestamp%3d1539243209` ao tópico da mensagem, onde `1539243209` deve ser substituído pelo horário de criação da mensagem no formato de carimbo de data/hora do UNIX. Por exemplo, consulte a implementação [no SDK do C](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/iothubtransport_mqtt_common.c#L761)
 * Para AMQP, adicione `key("tracestate")` e `value("timestamp=1539243209")` como anotação de mensagem. Para obter uma implementação de referência, consulte [aqui](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/uamqp_messaging.c#L527).
@@ -204,7 +203,7 @@ Para alterar a porcentagem de mensagens que serão rastreadas na nuvem, você de
 
 1. Escolha uma **taxa de amostragem** entre 0% e 100%.
 
-1. Clique em **Salvar**.
+1. Clique em **Save** (Salvar).
 
 1. Aguarde alguns segundos e pressione **Atualizar**, Em seguida, se for confirmado com sucesso pelo dispositivo, um ícone de sincronização com uma marca de seleção será exibido.
 
@@ -311,8 +310,8 @@ Uma vez habilitado, o suporte ao rastreamento distribuído para o Hub IoT seguir
 1. O dispositivo IoT envia a mensagem ao Hub IoT.
 1. As mensagens chega no gateway do Hub IoT.
 1. O Hub IoT procura o `tracestate` nas propriedades do aplicativo de mensagens e verifica se ele tem o formato correto.
-1. Nesse caso, o Hub IoT gera um globalmente `trace-id` exclusivo para a mensagem, `span-id` um para o "salto" e os registra em Azure monitor logs de diagnóstico na operação `DiagnosticIoTHubD2C`.
-1. Depois que o processamento da mensagem for concluído, o Hub `span-id` IOT gerará outro e o registrará junto com o existente `trace-id` na operação `DiagnosticIoTHubIngress`.
+1. Nesse caso, o Hub IoT gera um globalmente exclusivo `trace-id` para a mensagem, um `span-id` para o "salto" e os registra em Azure monitor logs de diagnóstico na operação `DiagnosticIoTHubD2C` .
+1. Depois que o processamento da mensagem for concluído, o Hub IoT gerará outro `span-id` e o registrará junto com o existente `trace-id` na operação `DiagnosticIoTHubIngress` .
 1. Se o roteamento estiver habilitado para a mensagem, o Hub IoT o registrará no ponto de extremidade personalizado e registrará outro `span-id` com o mesmo `trace-id` na categoria `DiagnosticIoTHubEgress`.
 1. As etapas acima são repetidas para cada mensagem gerada.
 

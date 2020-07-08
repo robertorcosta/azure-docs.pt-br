@@ -9,10 +9,9 @@ ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 43718e992349ff9bcb3635ab1b949c2b2f2c9ec0
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82871994"
 ---
 # <a name="security-baselines-for-azure"></a>Linhas de base de segurança do Azure
@@ -32,4 +31,4 @@ Cada recomendação inclui as seguintes informações:
 Todas as recomendações, incluindo recomendações que não são aplicáveis a esse serviço específico, estão incluídas na linha de base para fornecer a você uma visão completa de como o benchmark de segurança do Azure está relacionado a cada serviço. Ocasionalmente, pode haver controles que não são aplicáveis por vários motivos; por exemplo, os controles de IaaS/computação centrados (como controles específicos do gerenciamento de configuração do SO) podem não ser aplicáveis aos serviços de PaaS.
 
 
-Agradecemos seus comentários sobre as linhas de base de segurança para os serviços do Azure. Incentivamos você a fornecer comentários na área de comentários abaixo. Ou, se você preferir compartilhar sua entrada de forma mais particular com a equipe de benchmark de segurança do Azure, você estará bem-vindo a preencher o https://aka.ms/AzSecBenchmarkformulário em.
+Agradecemos seus comentários sobre as linhas de base de segurança para os serviços do Azure. Incentivamos você a fornecer comentários na área de comentários abaixo. Ou, se você preferir compartilhar sua entrada de forma mais particular com a equipe de benchmark de segurança do Azure, você estará bem-vindo a preencher o formulário em https://aka.ms/AzSecBenchmark .

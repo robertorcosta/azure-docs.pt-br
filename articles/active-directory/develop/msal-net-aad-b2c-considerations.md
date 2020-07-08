@@ -14,10 +14,9 @@ ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 3aac63369dffa5b8ba0b9e55b5063ad8136c95cf
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82883219"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Usar o MSAL.NET para conectar usuários com identidades sociais
@@ -76,9 +75,9 @@ AuthenticationResult ar = await application.AcquireTokenInteractive(scopes)
 
 No trecho de código anterior:
 
-- `policy`é uma cadeia de caracteres que contém o nome do seu Azure AD B2C fluxo de usuário ou política personalizada `PolicySignUpSignIn`(por exemplo,).
+- `policy`é uma cadeia de caracteres que contém o nome do seu Azure AD B2C fluxo de usuário ou política personalizada (por exemplo, `PolicySignUpSignIn` ).
 - `ParentActivityOrWindow`é necessário para o Android (a atividade) e é opcional para outras plataformas que dão suporte a uma interface do usuário pai como Windows no Microsoft Windows e UIViewController no iOS. Para obter mais informações sobre a caixa de diálogo da interface do usuário, consulte [WithParentActivityOrWindow](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively#withparentactivityorwindow) no wiki do MSAL.
-- `GetAccountByPolicy(IEnumerable<IAccount>, string)`é um método que localiza uma conta para uma determinada política. Por exemplo: 
+- `GetAccountByPolicy(IEnumerable<IAccount>, string)`é um método que localiza uma conta para uma determinada política. Por exemplo:
 
   ```csharp
   private IAccount GetAccountByPolicy(IEnumerable<IAccount> accounts, string policy)
@@ -93,7 +92,7 @@ No trecho de código anterior:
   }
   ```
 
-A aplicação de um fluxo de usuário ou de uma política personalizada (por exemplo, permitindo que o usuário edite seu perfil ou redefina `AcquireTokenInteractive`sua senha) é feita no momento chamando. Para essas duas políticas, você não usa o resultado de token/autenticação retornado.
+A aplicação de um fluxo de usuário ou de uma política personalizada (por exemplo, permitindo que o usuário edite seu perfil ou Redefina sua senha) é feita no momento chamando `AcquireTokenInteractive` . Para essas duas políticas, você não usa o resultado de token/autenticação retornado.
 
 ## <a name="profile-edit-policies"></a>Políticas de edição de perfil
 
@@ -174,7 +173,7 @@ Atualmente, o MSAL.NET precisa de duas declarações para criar uma chave de cac
 
 Ambas as declarações podem estar ausentes em cenários de Azure AD B2C porque nem todos os provedores de identidade social (Facebook, Google e outros) os retornam nos tokens que retornam para Azure AD B2C.
 
-Um sintoma desse cenário é que MSAL.NET retorna `Missing from the token response` quando você acessa o `preferred_username` valor da declaração em tokens emitidos por Azure ad B2C. MSAL usa o `Missing from the token response` valor de `preferred_username` para manter a compatibilidade cruzada de cache entre bibliotecas.
+Um sintoma desse cenário é que MSAL.NET retorna `Missing from the token response` quando você acessa o valor da `preferred_username` declaração em tokens emitidos por Azure ad B2C. MSAL usa o `Missing from the token response` valor de `preferred_username` para manter a compatibilidade cruzada de cache entre bibliotecas.
 
 ### <a name="workarounds"></a>Soluções Alternativas
 
@@ -186,7 +185,7 @@ Como alternativa, você pode usar a `tid` declaração se estiver usando [polít
 
 #### <a name="mitigation-for-missing-from-the-token-response"></a>Mitigação para "ausente da resposta do token"
 
-Uma opção é usar a `name` declaração em vez de `preferred_username`. Para incluir a `name` declaração em tokens de ID emitidos por Azure ad B2C, selecione **nome de exibição** ao configurar o fluxo do usuário.
+Uma opção é usar a `name` declaração em vez de `preferred_username` . Para incluir a `name` declaração em tokens de ID emitidos por Azure ad B2C, selecione **nome de exibição** ao configurar o fluxo do usuário.
 
 Para obter mais informações sobre como especificar quais declarações são retornadas por seus fluxos de usuário, consulte [tutorial: criar fluxos de usuário em Azure ad B2C](../../active-directory-b2c/tutorial-create-user-flows.md).
 

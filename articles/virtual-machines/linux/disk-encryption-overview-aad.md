@@ -9,10 +9,9 @@ ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: cc9f3b54d427a30b587d8335f6ce9b013f407374
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82792557"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-previous-release"></a>Azure Disk Encryption com o Azure AD (versão anterior)
@@ -23,14 +22,14 @@ Este artigo fornece suplementos para [Azure Disk Encryption para VMs Linux](disk
 
 As informações contidas nessas seções permanecem as mesmas:
 
-- [VMs e sistemas operacionais com suporte](disk-encryption-overview.md#supported-vms-and-operating-systems)
-- [Requisitos adicionais de VM](disk-encryption-overview.md#additional-vm-requirements)
+- [Sistemas operacionais e VMs com suporte](disk-encryption-overview.md#supported-vms-and-operating-systems)
+- [Requisitos adicionais da VM](disk-encryption-overview.md#additional-vm-requirements)
 
 
 ## <a name="networking-and-group-policy"></a> Sistema de rede e a diretiva de grupo
 
 Para habilitar o recurso de Azure Disk Encryption usando a sintaxe de parâmetro AAD mais antiga, as VMs de IaaS (infraestrutura como serviço) devem atender aos seguintes requisitos de configuração de ponto de extremidade de rede: 
-  - Para obter um token para se conectar ao cofre de chaves, a VM IaaS deve ser capaz de se conectar a um ponto de \[extremidade\]do Azure AD, login.microsoftonline.com.
+  - Para obter um token para se conectar ao cofre de chaves, a VM IaaS deve ser capaz de se conectar a um ponto de extremidade do Azure AD, \[ login.microsoftonline.com \] .
   - Para gravar as chaves de criptografia no cofre de chaves, a VM IaaS deve ser capaz de se conectar ao ponto de extremidade do cofre de chaves.
   - A VM IaaS deve ser capaz de se conectar a um ponto de extremidade do armazenamento do Azure que hospeda o repositório de extensão do Azure e uma conta de armazenamento do Azure que hospeda os arquivos VHD.
   -  Se sua política de segurança limitar o acesso de VMs do Azure à Internet, você poderá resolver o URI anterior e configurar uma regra específica para permitir a conectividade de saída com os IPs. Para obter mais informações, consulte [Azure Key Vault por trás de um firewall](../../key-vault/general/access-behind-firewall.md).
@@ -48,11 +47,11 @@ Para habilitar o recurso de Azure Disk Encryption usando a sintaxe de parâmetro
 ### <a name="group-policy"></a>Política de Grupo
  - A solução de Azure Disk Encryption usa o protetor de chave externa BitLocker para VMs IaaS do Windows. Para VMs ingressadas no domínio, não envie nenhuma política de grupo que imponha protetores de TPM. Para obter informações sobre o Política de Grupo para a opção **permitir BitLocker sem um TPM compatível**, consulte [referência de política de grupo do BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1).
 
-- A política do BitLocker em máquinas virtuais ingressadas no domínio com um Política de Grupo personalizado deve incluir a seguinte configuração: [Configurar o armazenamento do usuário das informações de recuperação do BitLocker-> permitir a chave de recuperação de 256 bits](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Azure Disk Encryption falha quando as configurações de Política de Grupo personalizadas para o BitLocker são incompatíveis. Em computadores que não têm a configuração de política correta, aplique a nova política, force a nova política a ser atualizada (gpupdate. exe/Force) e, em seguida, reinicie se for necessário. 
+- A política do BitLocker em máquinas virtuais ingressadas no domínio com um Política de Grupo personalizado deve incluir a seguinte configuração: [Configurar o armazenamento do usuário das informações de recuperação do BitLocker-> permitir a chave de recuperação de 256 bits](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Azure Disk Encryption falha quando as configurações de Política de Grupo personalizadas para o BitLocker são incompatíveis. Em computadores que não têm a configuração de política correta, aplique a nova política, force a nova política a ser atualizada (gpupdate.exe/Force) e, em seguida, reinicie se for necessário. 
 
 ## <a name="encryption-key-storage-requirements"></a>Requisitos de armazenamento de chave de criptografia 
 
-Azure Disk Encryption requer Azure Key Vault para controlar e gerenciar chaves de criptografia de disco e segredos. O cofre de chaves e as VMs devem residir na mesma região e assinatura do Azure.
+Azure Disk Encryption requer Azure Key Vault para controlar e gerenciar chaves de criptografia de disco e segredos. Seu cofre de chaves e as VMs devem residir na mesma região e assinatura do Azure.
 
 Para obter mais informações, consulte [criando e configurando um cofre de chaves para Azure Disk Encryption com o Azure AD (versão anterior)](disk-encryption-key-vault-aad.md).
  
@@ -60,5 +59,5 @@ Para obter mais informações, consulte [criando e configurando um cofre de chav
 
 - [Criando e configurando um cofre de chaves para Azure Disk Encryption com o Azure AD (versão anterior)](disk-encryption-key-vault-aad.md)
 - [Habilitar Azure Disk Encryption com o Azure AD em VMs do Linux (versão anterior)](disk-encryption-linux-aad.md)
-- [Script da CLI de pré-requisitos Azure Disk Encryption](https://github.com/ejarvi/ade-cli-getting-started)
-- [Script do PowerShell de Azure Disk Encryption pré-requisitos](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts)
+- [Script da CLI dos pré-requisitos do Azure Disk Encryption](https://github.com/ejarvi/ade-cli-getting-started)
+- [Script do PowerShell dos pré-requisitos do Azure Disk Encryption](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts)

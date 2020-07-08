@@ -10,10 +10,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 539665c4756a7dc87078922421b45a88404f58f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81868135"
 ---
 # <a name="accessing-your-cloudsimple-private-cloud-environment-and-applications-from-on-premises"></a>Acessando seu ambiente de nuvem privada do CloudSimple e aplicativos do local
@@ -24,7 +23,7 @@ Uma conexão pode ser configurada da rede local para CloudSimple usando o Azure 
 
 Para acessar sua nuvem privada do vCenter e o Gerenciador do NSX-T, as portas definidas na tabela a seguir devem ser abertas no firewall local.  
 
-| Porta       | Fonte                           | Destino                      | Finalidade                                                                                                                |
+| Porta       | Origem                           | Destino                      | Finalidade                                                                                                                |
 |------------|----------------------------------|----------------------------------|------------------------------------------------------------------------------------------------------------------------|
 | 53 (UDP)   | Servidores locais DNS          | Servidores DNS da nuvem privada        | Necessário para encaminhar a pesquisa DNS de *AZ.cloudsimple.Io* para servidores DNS da nuvem privada da rede local.       |
 | 53 (UDP)   | Servidores DNS da nuvem privada        | Servidores locais DNS          | Necessário para o encaminhamento de DNS pesquisar nomes de domínio locais do vCenter de nuvem privada para servidores DNS locais. |
@@ -37,7 +36,7 @@ Para acessar sua nuvem privada do vCenter e o Gerenciador do NSX-T, as portas de
 
 Para configurar o Active Directory local como uma fonte de identidade no vCenter de nuvem privada, as portas definidas na tabela devem ser abertas.  Consulte [usar o Azure ad como um provedor de identidade para o vCenter na nuvem privada do CloudSimple](https://docs.microsoft.com/azure/vmware-cloudsimple/azure-ad/) para obter as etapas de configuração.
 
-| Porta         | Fonte                           | Destino                                         | Finalidade                                                                                                                                          |
+| Porta         | Origem                           | Destino                                         | Finalidade                                                                                                                                          |
 |--------------|----------------------------------|-----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
 | 53 (UDP)      | Servidores DNS da nuvem privada        | Servidores locais DNS                             | Necessário para o encaminhamento de DNS pesquisar nomes de domínio do Active Directory local do vCenter de nuvem privada para servidores DNS locais.          |
 | 389 (TCP/UDP) | Rede de gerenciamento de nuvem privada | Controladores de domínio do Active Directory local     | Necessário para a comunicação LDAP do servidor vCenter de nuvem privada para controladores de domínio do Active Directory para autenticação de usuário.                |
@@ -49,7 +48,7 @@ Para configurar o Active Directory local como uma fonte de identidade no vCenter
 
 As máquinas virtuais de carga de trabalho de acesso em execução na nuvem privada exigem que as portas sejam abertas no firewall local.  A tabela abaixo mostra algumas das portas comuns necessárias e sua finalidade.  Para qualquer requisito de porta específica do aplicativo, consulte a documentação do aplicativo.
 
-| Porta         | Fonte                         | Destino                          | Finalidade                                                                              |
+| Porta         | Origem                         | Destino                          | Finalidade                                                                              |
 |--------------|--------------------------------|--------------------------------------|--------------------------------------------------------------------------------------|
 | 22 (TCP)      | Rede local            | Rede de carga de trabalho de nuvem privada       | Proteja o acesso do Shell a máquinas virtuais Linux em execução na nuvem privada.              |
 | 3389 (TCP)    | Rede local            | Rede de carga de trabalho de nuvem privada       | Área de trabalho remota para máquinas virtuais do Windows em execução na nuvem privada.                 |

@@ -6,10 +6,9 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: 8f6134e8f8fdb9af3f578afaf0670c32a3896e01
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81766871"
 ---
 # <a name="application-insights-agent-formerly-named-status-monitor-v2-detailed-instructions"></a>Agente de Application Insights (anteriormente denominado Status Monitor v2): instruções detalhadas
@@ -32,7 +31,7 @@ O PowerShell precisa de permissões de nível de administrador para fazer altera
 - Referência: [sobre as políticas de execução](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) e [Set-ExecutionPolicy](
 https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6
 ).
-- Comando: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process`.
+- Comando: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process` .
 - Parâmetro opcional:
     - `-Force`. Ignora o prompt de confirmação.
 
@@ -82,7 +81,7 @@ Essas etapas prepararão o servidor para baixar módulos de Galeria do PowerShel
 2. Instale o provedor de pacote NuGet.
     - Descrição: você precisa desse provedor para interagir com os repositórios baseados em NuGet, como Galeria do PowerShell.
     - Referência: [install-packageprovider](https://docs.microsoft.com/powershell/module/packagemanagement/install-packageprovider?view=powershell-6).
-    - Comando: `Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201`.
+    - Comando: `Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201` .
     - Parâmetros opcionais:
         - `-Proxy`. Especifica um servidor proxy para a solicitação.
         - `-Force`. Ignora o prompt de confirmação.
@@ -100,7 +99,7 @@ Essas etapas prepararão o servidor para baixar módulos de Galeria do PowerShel
 3. Configure Galeria do PowerShell como um repositório confiável.
     - Descrição: por padrão, Galeria do PowerShell é um repositório não confiável.
     - Referência: [set-PSRepository](https://docs.microsoft.com/powershell/module/powershellget/set-psrepository?view=powershell-6).
-    - Comando: `Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted`.
+    - Comando: `Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted` .
     - Parâmetro opcional:
         - `-Proxy`. Especifica um servidor proxy para a solicitação.
 
@@ -112,12 +111,12 @@ Essas etapas prepararão o servidor para baixar módulos de Galeria do PowerShel
         'PSGallery'?
         [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"):
 
-    Você pode confirmar essa alteração e auditar todos os PSRepositories executando `Get-PSRepository` o comando.
+    Você pode confirmar essa alteração e auditar todos os PSRepositories executando o `Get-PSRepository` comando.
 
 4. Instale a versão mais recente do PowerShellGet.
     - Descrição: esse módulo contém as ferramentas usadas para obter outros módulos de Galeria do PowerShell. A versão 1.0.0.1 é fornecida com o Windows 10 e o Windows Server. A versão 1.6.0 ou superior é necessária. Para determinar qual versão está instalada, execute o `Get-Command -Module PowerShellGet` comando.
     - Referência: [instalando o PowerShellGet](/powershell/scripting/gallery/installing-psget).
-    - Comando: `Install-Module -Name PowerShellGet`.
+    - Comando: `Install-Module -Name PowerShellGet` .
     - Parâmetros opcionais:
         - `-Proxy`. Especifica um servidor proxy para a solicitação.
         - `-Force`. Ignora o aviso "já instalado" e instala a versão mais recente.
@@ -141,7 +140,7 @@ Essas etapas baixarão o módulo AZ. ApplicationMonitor de Galeria do PowerShell
 2. Execute o PowerShell como administrador com uma política de execução elevada.
 3. Instale o módulo AZ. ApplicationMonitor.
     - Referência: [install-Module](https://docs.microsoft.com/powershell/module/powershellget/install-module?view=powershell-6).
-    - Comando: `Install-Module -Name Az.ApplicationMonitor`.
+    - Comando: `Install-Module -Name Az.ApplicationMonitor` .
     - Parâmetros opcionais:
         - `-Proxy`. Especifica um servidor proxy para a solicitação.
         - `-AllowPrerelease`. Permite a instalação de versões alfa e beta.
@@ -154,7 +153,7 @@ Se por algum motivo você não puder se conectar ao módulo do PowerShell, poder
 
 ### <a name="manually-download-the-latest-nupkg-file"></a>Baixar manualmente o arquivo nupkg mais recente
 
-1. Acesse https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
+1. Ir para https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
 2. Selecione a versão mais recente do arquivo na tabela de **histórico de versão** .
 3. Em **Opções de instalação**, selecione **download manual**.
 
@@ -200,7 +199,7 @@ Se você estiver instalando o módulo em qualquer outro diretório, importe manu
 > Armazene o conteúdo do pacote em seu diretório de tempo de execução pretendido e confirme se as permissões de acesso permitem leitura, mas não gravação.
 
 1. Altere a extensão para ". zip" e extraia o conteúdo do pacote em seu diretório de instalação pretendido.
-2. Localize o caminho do arquivo AZ. ApplicationMonitor. psd1.
+2. Localize o caminho do arquivo de Az.ApplicationMonitor.psd1.
 3. Execute o PowerShell como administrador com uma política de execução elevada.
 4. Carregue o módulo usando o `Import-Module Az.ApplicationMonitor.psd1` comando.
     
@@ -209,10 +208,10 @@ Se você estiver instalando o módulo em qualquer outro diretório, importe manu
 
 Ao monitorar um computador em sua intranet privada, você precisará rotear o tráfego HTTP por meio de um proxy.
 
-Os comandos do PowerShell para baixar e instalar o AZ. ApplicationMonitor da Galeria do PowerShell dão `-Proxy` suporte a um parâmetro.
+Os comandos do PowerShell para baixar e instalar o AZ. ApplicationMonitor da Galeria do PowerShell dão suporte a um `-Proxy` parâmetro.
 Examine as instruções anteriores ao escrever seus scripts de instalação.
 
-O SDK do Application Insights precisará enviar a telemetria do aplicativo à Microsoft. Recomendamos que você defina as configurações de proxy para seu aplicativo em seu arquivo Web. config. Para obter mais informações, consulte [Application insights perguntas frequentes: passagem de proxy](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#proxy-passthrough).
+O SDK do Application Insights precisará enviar a telemetria do aplicativo à Microsoft. Recomendamos que você defina as configurações de proxy para seu aplicativo no arquivo web.config. Para obter mais informações, consulte [Application insights perguntas frequentes: passagem de proxy](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#proxy-passthrough).
 
 
 ## <a name="enable-monitoring"></a>Habilitar o monitoramento

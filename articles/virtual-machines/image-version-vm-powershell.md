@@ -10,10 +10,9 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: 454ed810f950924d3dd790a2442fe29816bf940d
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82838460"
 ---
 # <a name="preview-create-an-image-from-a-vm"></a>Visualização: criar uma imagem de uma VM
@@ -38,7 +37,7 @@ Ao trabalhar com este artigo, substitua os nomes de recursos onde necessário.
 
 ## <a name="get-the-gallery"></a>Obter a Galeria
 
-Você pode listar todas as galerias e definições de imagem por nome. Os resultados estão no formato `gallery\image definition\image version`.
+Você pode listar todas as galerias e definições de imagem por nome. Os resultados estão no formato `gallery\image definition\image version` .
 
 ```azurepowershell-interactive
 Get-AzResource -ResourceType Microsoft.Compute/galleries | Format-Table
@@ -54,7 +53,7 @@ $gallery = Get-AzGallery `
 
 ## <a name="get-the-vm"></a>Obter a VM
 
-Você pode ver uma lista de VMs que estão disponíveis em um grupo de recursos usando [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). Depois de saber o nome da VM e em qual grupo de recursos ele está, você `Get-AzVM` pode usar novamente para obter o objeto da VM e armazená-lo em uma variável para uso posterior. Este exemplo obtém uma VM chamada *sourceVM* do grupo de recursos "MyResource Group" e a atribui à variável *$sourceVm*. 
+Você pode ver uma lista das VMss que estão disponíveis em um grupo de recursos usando [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). Depois de saber o nome da VM e em qual grupo de recursos ele está, você pode usar `Get-AzVM` novamente para obter o objeto da VM e armazená-lo em uma variável para uso posterior. Este exemplo obtém uma VM chamada *sourceVM* do grupo de recursos "MyResource Group" e a atribui à variável *$sourceVm*. 
 
 ```azurepowershell-interactive
 $sourceVm = Get-AzVM `
@@ -73,15 +72,15 @@ Stop-AzVM `
 
 ## <a name="create-an-image-definition"></a>Criar uma definição de imagem 
 
-Definições de imagem crie um agrupamento lógico para imagens. Eles são usados para gerenciar informações sobre a imagem. Os nomes de definição de imagem podem ser compostos de letras maiúsculas ou minúsculas, dígitos, pontos, traços e pontos. 
+As definições de imagem criam um agrupamento lógico para as imagens. Eles são usados para gerenciar informações sobre a imagem. Os nomes das definições de imagem podem ser compostos por letras maiúsculas ou minúsculas, dígitos, pontos, traços e pontos finais. 
 
-Ao fazer a definição de imagem, verifique se o tem todas as informações corretas. Se você generaliza a VM (usando Sysprep para Windows ou waagent-deprovision para Linux), você deve criar uma definição de imagem usando `-OsState generalized`. Se você não tiver generalizado a VM, crie uma definição de `-OsState specialized`imagem usando.
+Ao fazer a definição de imagem, verifique se o tem todas as informações corretas. Se você generaliza a VM (usando Sysprep para Windows ou waagent-deprovision para Linux), você deve criar uma definição de imagem usando `-OsState generalized` . Se você não tiver generalizado a VM, crie uma definição de imagem usando `-OsState specialized` .
 
-Para obter mais informações sobre os valores que você pode especificar para uma definição de imagem, consulte [definições de imagem](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
+Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, confira [Definições de imagem](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
 
 Crie a definição de imagem usando [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
 
-Neste exemplo, a definição de imagem é chamada *myImageDefinition*e é para uma VM especializada que executa o Windows. Para criar uma definição para imagens usando o Linux, `-OsType Linux`use. 
+Neste exemplo, a definição de imagem é chamada *myImageDefinition*e é para uma VM especializada que executa o Windows. Para criar uma definição para imagens usando o Linux, use `-OsType Linux` . 
 
 ```azurepowershell-interactive
 $imageDefinition = New-AzGalleryImageDefinition `
@@ -101,11 +100,11 @@ $imageDefinition = New-AzGalleryImageDefinition `
 
 Crie uma versão de imagem usando [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
 
-Caracteres permitidos para a versão da imagem são números e pontos. Os números devem estar dentro do intervalo de um inteiro de 32 bits. Formato: *MajorVersion*. *MinorVersion*. *Patch*.
+Caracteres permitidos para a versão da imagem são números e pontos. Os números devem estar dentro do intervalo de um inteiro de 32 bits. Formato: *MajorVersion*.*MinorVersion*.*Patch*.
 
 Neste exemplo, a versão da imagem é *1.0.0* e ela é replicado para os datacenters *Centro-Oeste dos EUA* e *Centro-Sul dos EUA*. Ao escolher regiões de destino para replicação, lembre-se de que você também precisa incluir a região de *origem* como um destino para replicação.
 
-Para criar uma versão de imagem da VM, use `$vm.Id.ToString()` para o `-Source`.
+Para criar uma versão da imagem da VM, use `$vm.Id.ToString()` para o `-Source`.
 
 ```azurepowershell-interactive
    $region1 = @{Name='South Central US';ReplicaCount=1}
@@ -131,9 +130,9 @@ $job.State
 ```
 
 > [!NOTE]
-> Você precisa aguardar que a versão da imagem termine completamente de ser compilada e replicada antes de poder usar a mesma imagem gerenciada para criar outra versão de imagem.
+> Você precisa esperar que a versão da imagem seja compilada e replicada completamente antes de poder usar a mesma imagem gerenciada para criar outra versão da imagem.
 >
-> Você também pode armazenar sua imagem no armazenamento Premiun por um armazenamento `-StorageAccountType Premium_LRS`com [redundância de zona](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) ou adição, `-StorageAccountType Standard_ZRS` adicionando ao criar a versão da imagem.
+> Você também pode armazenar a imagem no armazenamento Premium adicionando `-StorageAccountType Premium_LRS`, ou no [Armazenamento com redundância de zona](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) adicionando `-StorageAccountType Standard_ZRS` ao criar a versão da imagem.
 >
 
 ## <a name="next-steps"></a>Próximas etapas

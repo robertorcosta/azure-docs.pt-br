@@ -10,10 +10,9 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: add08d7b8ef39322f03e0faf78959b08a6ae2a14
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82797052"
 ---
 # <a name="copy-an-image-from-another-gallery"></a>Copiar uma imagem de outra galeria
@@ -135,7 +134,7 @@ az sig image-definition create \
 
 Crie versões usando [AZ Image Gallery Create-Image-Version](/cli/azure/sig/image-version#az-sig-image-version-create). Você precisará passar a ID da imagem gerenciada para usar como uma linha de base para criar a versão da imagem. Você pode usar [az image list](/cli/azure/image?view#az-image-list) para obter informações sobre as imagens que estão em um grupo de recursos. 
 
-Caracteres permitidos para a versão da imagem são números e pontos. Os números devem estar dentro do intervalo de um inteiro de 32 bits. Formato: *MajorVersion*. *MinorVersion*. *Patch*.
+Caracteres permitidos para a versão da imagem são números e pontos. Os números devem estar dentro do intervalo de um inteiro de 32 bits. Formato: *MajorVersion*.*MinorVersion*.*Patch*.
 
 Neste exemplo, a versão da nossa imagem é a *1.0.0* e vamos criar uma réplica na região *do Sul EUA Central* e uma réplica na região *leste dos EUA* usando o armazenamento com redundância de zona.
 
@@ -152,9 +151,9 @@ az sig image-version create \
 ```
 
 > [!NOTE]
-> Você precisa aguardar que a versão da imagem termine completamente de ser compilada e replicada antes de poder usar a mesma imagem gerenciada para criar outra versão de imagem.
+> Você precisa esperar que a versão da imagem seja compilada e replicada completamente antes de poder usar a mesma imagem gerenciada para criar outra versão da imagem.
 >
-> Você também pode armazenar sua imagem no armazenamento Premiun por um armazenamento `--storage-account-type  premium_lrs`com [redundância de zona](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) ou adição, `--storage-account-type  standard_zrs` adicionando ao criar a versão da imagem.
+> Você também pode armazenar a imagem no armazenamento Premium adicionando `--storage-account-type  premium_lrs`, ou no [Armazenamento com redundância de zona](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) adicionando `--storage-account-type  standard_zrs` ao criar a versão da imagem.
 >
 
 ## <a name="next-steps"></a>Próximas etapas

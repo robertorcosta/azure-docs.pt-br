@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: a7da6bc23d797e0e89b2338f446fc850b0fd0577
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82797156"
 ---
 # <a name="optimize-apache-hbase-with-apache-ambari-in-azure-hdinsight"></a>Otimizar o Apache HBase com o Apache Ambari no Azure HDInsight
@@ -79,7 +78,7 @@ Quanto maior o tamanho do arquivo de região, menor o número de divisões. É p
 
 * A propriedade `hbase.hregion.memstore.flush.size` define o tamanho no qual o Memstore é liberado para o disco. O tamanho padrão é 128 MB.
 
-* O multiplicador de bloco de região do HBase `hbase.hregion.memstore.block.multiplier`é definido por. O valor padrão é 4. O máximo permitido é 8.
+* O multiplicador de bloco de região do HBase é definido por `hbase.hregion.memstore.block.multiplier` . O valor padrão é 4. O máximo permitido é 8.
 
 * O HBase bloqueará atualizações se o Memstore tiver (`hbase.hregion.memstore.flush.size` * `hbase.hregion.memstore.block.multiplier`) bytes.
 

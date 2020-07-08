@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 9b6265bed138960a3839091ed1593413fc85710a
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82858603"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>Solucionar problemas de seu dispositivo IoT Edge
@@ -50,9 +49,9 @@ Para obter informações sobre cada uma das verificações de diagnóstico execu
 
 ## <a name="gather-debug-information-with-support-bundle-command"></a>Coletar informações de depuração com o comando ' support-Bundle '
 
-Quando você precisa coletar logs de um dispositivo IoT Edge, a maneira mais conveniente é usar o `support-bundle` comando. Por padrão, esse comando coleta o módulo, IoT Edge Gerenciador de segurança e logs do mecanismo `iotedge check` de contêiner, saída JSON e outras informações de depuração úteis. Ele os compacta em um único arquivo para facilitar o compartilhamento. O `support-bundle` comando está disponível na [versão 1.0.9](https://github.com/Azure/azure-iotedge/releases/tag/1.0.9) e posterior.
+Quando você precisa coletar logs de um dispositivo IoT Edge, a maneira mais conveniente é usar o `support-bundle` comando. Por padrão, esse comando coleta o módulo, IoT Edge Gerenciador de segurança e logs do mecanismo de contêiner, `iotedge check` saída JSON e outras informações de depuração úteis. Ele os compacta em um único arquivo para facilitar o compartilhamento. O `support-bundle` comando está disponível na [versão 1.0.9](https://github.com/Azure/azure-iotedge/releases/tag/1.0.9) e posterior.
 
-Execute o `support-bundle` comando com o `--since` sinalizador para especificar quanto tempo do passado você deseja obter logs. Por exemplo `6h` , os logs serão obtidos desde as últimas seis `6d` horas, desde os últimos seis `6m` dias, desde os últimos seis minutos e assim por diante. Inclua o `--help` sinalizador para ver uma lista completa de opções.
+Execute o `support-bundle` comando com o `--since` sinalizador para especificar quanto tempo do passado você deseja obter logs. Por exemplo, os `6h` logs serão obtidos desde as últimas seis horas, desde os últimos seis `6d` dias, `6m` desde os últimos seis minutos e assim por diante. Inclua o `--help` sinalizador para ver uma lista completa de opções.
 
 No Linux:
 
@@ -67,11 +66,11 @@ iotedge support-bundle --since 6h
 ```
 
 > [!WARNING]
-> A `support-bundle` saída do comando pode conter nomes de host, dispositivo e módulo, informações registradas pelos seus módulos etc. Lembre-se disso se estiver compartilhando a saída em um fórum público.
+> A saída do `support-bundle` comando pode conter nomes de host, dispositivo e módulo, informações registradas pelos seus módulos etc. Lembre-se disso se estiver compartilhando a saída em um fórum público.
 
 ## <a name="check-your-iot-edge-version"></a>Verifique sua versão do IoT Edge
 
-Se você estiver executando uma versão mais antiga do IoT Edge, a atualização poderá resolver o problema. A `iotedge check` ferramenta verifica se o daemon de segurança IOT Edge é a versão mais recente, mas não verifica as versões dos módulos IOT Edge Hub e agente. Para verificar a versão dos módulos de tempo de execução em seu dispositivo, use `iotedge logs edgeAgent` os `iotedge logs edgeHub`comandos e. O número de versão é declarado nos logs quando o módulo é iniciado.
+Se você estiver executando uma versão mais antiga do IoT Edge, a atualização poderá resolver o problema. A `iotedge check` ferramenta verifica se o daemon de segurança IOT Edge é a versão mais recente, mas não verifica as versões dos módulos IOT Edge Hub e agente. Para verificar a versão dos módulos de tempo de execução em seu dispositivo, use os comandos `iotedge logs edgeAgent` e `iotedge logs edgeHub` . O número de versão é declarado nos logs quando o módulo é iniciado.
 
 Para obter instruções sobre como atualizar seu dispositivo, consulte [atualizar o daemon de segurança IOT Edge e o tempo de execução](how-to-update-iot-edge.md).
 
@@ -255,7 +254,7 @@ Azure IoT Edge permite a comunicação de um servidor local para a nuvem do Azur
 
 Embora o IoT Edge forneça configuração avançada para proteger o runtime do Azure IoT Edge e os módulos implantados, ele ainda depende da configuração do computador e da rede subjacente. Portanto, é imperativo garantir que as regras adequadas de rede e firewall sejam configuradas para proteger a comunicação em nuvem. A tabela a seguir pode ser usada como uma diretriz quando as regras de firewall de configuração para os servidores subjacentes em que o tempo de execução Azure IoT Edge está hospedado:
 
-|Protocolo|Porta|Entrada|Saída|Orientação|
+|Protocolo|Porta|Entrada|Saída|Diretrizes|
 |--|--|--|--|--|
 |MQTT|8883|BLOQUEADO (padrão)|BLOQUEADO (padrão)|<ul> <li>Configure a Saída como Aberta ao usar o MQTT como o protocolo de comunicação.<li>Não há suporte para o 1883 para MQTT no IoT Edge. <li>As conexões de Entrada devem ser bloqueadas.</ul>|
 |AMQP|5671|BLOQUEADO (padrão)|ABERTO (padrão)|<ul> <li>Protocolo de comunicação padrão do IoT Edge. <li> Precisa ser configurado como Aberto, quando o Azure IoT Edge não está configurado para outros protocolos com suporte ou quando o AMQP é o protocolo de comunicação desejado.<li>Não há suporte para o 5672 para AMQP no IoT Edge.<li>Bloqueie essa porta quando o Azure IoT Edge usar outro protocolo do Hub IoT com suporte.<li>As conexões de Entrada devem ser bloqueadas.</ul></ul>|

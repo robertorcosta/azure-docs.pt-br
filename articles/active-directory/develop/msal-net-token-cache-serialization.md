@@ -14,10 +14,9 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: abc4836b5e8729eec45a0eb2cd8b5fa7be6b1ce4
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82890569"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>Serialização do cache de token na MSAL.NET
@@ -124,7 +123,7 @@ $"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\{A
  }
 ```
 
-Um serializador baseado em arquivo de cache de token de qualidade de produto para aplicativos cliente públicos (para aplicativos de área de trabalho em execução no Windows, Mac e Linux) está disponível na biblioteca de código-fonte aberto [Microsoft. Identity. cliente. Extensions. MSAL](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Msal) . Você pode incluí-lo em seus aplicativos do seguinte pacote NuGet: [Microsoft. Identity. Client. Extensions. MSAL](https://www.nuget.org/packages/Microsoft.Identity.Client.Extensions.Msal/).
+Um serializador baseado em arquivo de cache de token de qualidade de produto para aplicativos cliente públicos (para aplicativos de área de trabalho em execução no Windows, Mac e Linux) está disponível na biblioteca de código-fonte aberto [Microsoft. Identity. cliente. Extensions. MSAL](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Msal) . É possível incluí-lo nos aplicativos do pacote NuGet a seguir: [Microsoft.Identity.Client.Extensions.Msal](https://www.nuget.org/packages/Microsoft.Identity.Client.Extensions.Msal/).
 
 #### <a name="dual-token-cache-serialization-msal-unified-cache-and-adal-v3"></a>Serialização do cache de token duplo (cache unificado MSAL e ADAL v3)
 
@@ -282,7 +281,7 @@ A biblioteca [Microsoft. Identity. Web](https://github.com/AzureAD/microsoft-ide
 | ---------------- | --------- | ------------ |
 | `AddInMemoryTokenCaches` | `TokenCacheProviders.InMemory` | Em serialização de cache de token de memória. Essa implementação é excelente em exemplos. Também é bom em aplicativos de produção, desde que você não se preocupe se o cache do token for perdido quando o aplicativo Web for reiniciado. `AddInMemoryTokenCaches`usa um parâmetro opcional do tipo `MsalMemoryTokenCacheOptions` que permite que você especifique a duração após a qual a entrada de cache expirará, a menos que seja usada.
 | `AddSessionTokenCaches` | `TokenCacheProviders.Session` | O cache do token está associado à sessão do usuário. Essa opção não será ideal se o token de ID contiver muitas declarações, uma vez que o cookie se tornaria muito grande.
-| `AddDistributedTokenCaches` | `TokenCacheProviders.Distributed` | O cache de token é um adaptador em relação `IDistributedCache` à implementação de ASP.NET Core, permitindo que você escolha entre um cache de memória distribuída, um cache Redis, um NCache distribuído ou um cache SQL Server. Para obter detalhes sobre `IDistributedCache` as implementações https://docs.microsoft.com/aspnet/core/performance/caching/distributed#distributed-memory-cache, consulte.
+| `AddDistributedTokenCaches` | `TokenCacheProviders.Distributed` | O cache de token é um adaptador em relação à implementação de ASP.NET Core `IDistributedCache` , permitindo que você escolha entre um cache de memória distribuída, um cache Redis, um NCache distribuído ou um cache SQL Server. Para obter detalhes sobre as `IDistributedCache` implementações, consulte https://docs.microsoft.com/aspnet/core/performance/caching/distributed#distributed-memory-cache .
 
 Caso simples usando o cache na memória:
 

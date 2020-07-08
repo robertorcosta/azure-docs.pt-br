@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
 ms.openlocfilehash: 9ae0aec6b87a746ed1f141dcf98f599acd20ab3a
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82864242"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Otimizar consultas de log no Azure Monitor
@@ -261,7 +260,7 @@ Perf
 ) on Computer
 ```
 
-Um caso comum em que esse erro ocorre é quando [ARG_MAX ()](/azure/kusto/query/arg-max-aggfunction) é usado para localizar a ocorrência mais recente. Por exemplo: 
+Um caso comum em que esse erro ocorre é quando [ARG_MAX ()](/azure/kusto/query/arg-max-aggfunction) é usado para localizar a ocorrência mais recente. Por exemplo:
 
 ```Kusto
 Perf

@@ -9,10 +9,9 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
 ms.openlocfilehash: 79c4f051318113ebe0c7e0085539d2f24405b4f9
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82857890"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Melhores práticas para utilizar o Microsoft Azure Data Lake Storage Gen2
@@ -39,7 +38,7 @@ As entidades de serviço do Azure Active Directory normalmente são usadas por s
 
 ### <a name="enable-the-data-lake-storage-gen2-firewall-with-azure-service-access"></a>Habilitar o firewall do Data Lake Storage Gen2 com acesso a serviços do Azure
 
-Um Data Lake Storage Gen2 dá suporte para a opção de ativar um firewall e limitar acesso apenas para serviços do Azure, o que é recomendado para limitar o vetor de ataques externos. O firewall pode ser habilitado em uma conta de armazenamento no portal do Azure por meio do **Firewall** > **habilitar o firewall (ativado)** > **permitir acesso às opções de serviços do Azure** .
+Um Data Lake Storage Gen2 dá suporte para a opção de ativar um firewall e limitar acesso apenas para serviços do Azure, o que é recomendado para limitar o vetor de ataques externos. O firewall pode ser habilitado em uma conta de armazenamento no portal do Azure por meio do **Firewall**  >  **habilitar o firewall (ativado)**  >  **permitir acesso às opções de serviços do Azure** .
 
 Para acessar sua conta de armazenamento do Azure Databricks, implante Azure Databricks em sua rede virtual e, em seguida, adicione essa rede virtual ao firewall. Consulte [configurar redes virtuais e firewalls de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 

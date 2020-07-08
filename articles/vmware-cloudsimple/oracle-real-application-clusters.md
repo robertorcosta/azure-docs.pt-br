@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: f657e18d7185d6b3c63ac8f1424da9d36d4189e9
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82793033"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Otimize sua nuvem privada do CloudSimple para instalar o Oracle RAC
@@ -174,8 +173,8 @@ as políticas vSAN definem as falhas a serem toleradas e a distribuição de dis
 3. No menu à esquerda, selecione **políticas de armazenamento de VM** e, em seguida, selecione **criar uma política de armazenamento de VM**.
 4. Insira um nome significativo para a política e clique em **Avançar**.
 5. Na seção **estrutura de política** , selecione **habilitar regras para o armazenamento vSAN** e clique em **Avançar**.
-6. Na seção **vSAN** > **disponibilidade** vSAN, selecione **nenhum** para tolerância a desastres do site. Para falhas a tolerar, selecione a opção de **espelhamento de RAID** para o FTT desejado.
-    ![configurações](media/oracle-rac-storage-wizard-vsan.png)de vSAN.
+6. Na seção **vSAN**  >  **disponibilidade** vSAN, selecione **nenhum** para tolerância a desastres do site. Para falhas a tolerar, selecione a opção de **espelhamento de RAID** para o FTT desejado.
+    ![configurações de vSAN ](media/oracle-rac-storage-wizard-vsan.png) .
 7. Na seção **avançado** , selecione o número de faixas de disco por objeto. Para reserva de espaço de objeto, selecione **espesso provisionado**. Selecione **desabilitar soma de verificação de objeto**. Clique em **Avançar**.
 8. Siga as instruções na tela para exibir a lista de repositórios de armazenamento vSAN compatíveis, examine as configurações e conclua a instalação.
 

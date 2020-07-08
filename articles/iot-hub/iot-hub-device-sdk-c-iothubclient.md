@@ -10,10 +10,9 @@ ms.date: 08/29/2017
 ms.author: robinsh
 ms.custom: amqp
 ms.openlocfilehash: 91527b5f2159a336e8339c6a128e8d61965292a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81732612"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>SDK do dispositivo IoT do Azure para C – mais sobre o IoTHubClient
@@ -77,7 +76,7 @@ Da mesma forma, quando você registra uma função de retorno de chamada para me
 
 As APIs **ll** não criam um thread em segundo plano. Em vez disso, uma nova API deve ser chamada para enviar e receber dados explicitamente do Hub IoT. Isso é demonstrado no exemplo a seguir.
 
-O **aplicativo\_http\_de\_exemplo de cliente iothub** que está incluído no SDK demonstra as APIs de nível inferior. Neste exemplo, enviamos eventos ao Hub IoT com um código como o seguinte:
+O **aplicativo \_ \_ \_ http de exemplo de cliente iothub** que está incluído no SDK demonstra as APIs de nível inferior. Neste exemplo, enviamos eventos ao Hub IoT com um código como o seguinte:
 
 ```C
 EVENT_INSTANCE message;
@@ -103,7 +102,7 @@ Este código (do aplicativo **iothub\_client\_sample\_http** application) chama 
 IoTHubClient_LL_SetMessageCallback(iotHubClientHandle, ReceiveMessageCallback, &receiveContext)
 ```
 
-O motivo pelo **qual\_IoTHubClient\_ll DoWork** geralmente é chamado em um loop é que cada vez que ele é chamado, ele envia *alguns* eventos em buffer ao Hub IOT e recupera *a próxima* mensagem enfileirada para o dispositivo. Cada chamada não é garantida para enviar todos os eventos em buffer ou para recuperar todas as mensagens em fila. Se você deseja enviar todos os eventos no buffer e continuar com outro processamento, é possível substituir esse loop por um código como o seguinte:
+O motivo pelo qual **IoTHubClient \_ ll \_ DoWork** geralmente é chamado em um loop é que cada vez que ele é chamado, ele envia *alguns* eventos em buffer ao Hub IOT e recupera *a próxima* mensagem enfileirada para o dispositivo. Cada chamada não é garantida para enviar todos os eventos em buffer ou para recuperar todas as mensagens em fila. Se você deseja enviar todos os eventos no buffer e continuar com outro processamento, é possível substituir esse loop por um código como o seguinte:
 
 ```C
 IOTHUB_CLIENT_STATUS status;
@@ -197,7 +196,7 @@ Não é preciso usar propriedades em seu aplicativo. Entretanto, caso você prec
 
 ## <a name="message-handling"></a>Manipulação de mensagens
 
-Como declarado anteriormente, quando as mensagens chegam do Hub IoT, a biblioteca **IoTHubClient** responde invocando uma função de retorno de chamada registrada. Há um parâmetro de retorno dessa função que merece uma explicação adicional. Aqui está um trecho da função de retorno de chamada no aplicativo de exemplo de **http\_de exemplo\_\_de cliente iothub** :
+Como declarado anteriormente, quando as mensagens chegam do Hub IoT, a biblioteca **IoTHubClient** responde invocando uma função de retorno de chamada registrada. Há um parâmetro de retorno dessa função que merece uma explicação adicional. Aqui está um trecho da função de retorno de chamada no aplicativo de exemplo de ** \_ http de \_ exemplo \_ de cliente iothub** :
 
 ```C
 static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)

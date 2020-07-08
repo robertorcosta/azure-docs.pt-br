@@ -11,15 +11,14 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.openlocfilehash: 5d047aa3c5c937e3b84b8fa672101bc801221067
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82871371"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Alterar como uma conta de armazenamento é replicada
 
-O armazenamento do Azure sempre armazena várias cópias de seus dados para que eles sejam protegidos contra eventos planejados e não planejados, incluindo falhas transitórias de hardware, interrupções de rede ou energia e desastres naturais em massa. A redundância garante que sua conta de armazenamento atenda ao [SLA (contrato de nível de serviço) do armazenamento do Azure](https://azure.microsoft.com/support/legal/sla/storage/) , mesmo diante de falhas.
+A redundância do Armazenamento do Azure sempre armazena várias cópias dos seus dados para que eles sejam protegidos contra eventos planejados e não planejados, incluindo falhas de hardware transitórias, interrupções de energia ou rede e desastres naturais de grandes proporções. A redundância garante que sua conta de armazenamento atenda ao [SLA (Contrato de Nível de Serviço) do Armazenamento do Azure](https://azure.microsoft.com/support/legal/sla/storage/) mesmo diante de falhas.
 
 O armazenamento do Azure oferece os seguintes tipos de replicação:
 
@@ -67,7 +66,7 @@ Para alterar a opção de redundância para sua conta de armazenamento no portal
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Para alterar a opção de redundância para sua conta de armazenamento com o PowerShell, chame o comando [set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) e `-SkuName` especifique o parâmetro:
+Para alterar a opção de redundância para sua conta de armazenamento com o PowerShell, chame o comando [set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) e especifique o `-SkuName` parâmetro:
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName <resource_group> `
@@ -77,7 +76,7 @@ Set-AzStorageAccount -ResourceGroupName <resource_group> `
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para alterar a opção de redundância para sua conta de armazenamento com CLI do Azure, chame o comando [AZ Storage Account Update](/cli/azure/storage/account#az-storage-account-update) e especifique `--sku` o parâmetro:
+Para alterar a opção de redundância para sua conta de armazenamento com CLI do Azure, chame o comando [AZ Storage Account Update](/cli/azure/storage/account#az-storage-account-update) e especifique o `--sku` parâmetro:
 
 ```azurecli-interactive
 az storage account update \
@@ -105,7 +104,7 @@ Com uma migração manual, você copia os dados de sua conta de armazenamento ex
 
 Se você precisar migrar sua conta de armazenamento de LRS ou GRS para ZRS na região primária sem tempo de inatividade do aplicativo, você pode solicitar uma migração ao vivo da Microsoft. Durante uma migração ao vivo, você pode acessar dados em sua conta de armazenamento e sem perda de durabilidade ou disponibilidade. O SLA do armazenamento do Azure é mantido durante o processo de migração. Não há perda de dados associada a uma migração dinâmica. Pontos de extremidade de serviço, chaves de acesso, assinaturas de acesso compartilhado e outras opções de conta permanecem inalterados após a migração.
 
-O ZRS dá suporte apenas a contas v2 de uso geral, portanto, atualize sua conta de armazenamento antes de enviar uma solicitação para uma migração ao vivo para o ZRS. Para obter mais informações, consulte [atualizar para uma conta de armazenamento v2 de uso geral](storage-account-upgrade.md). Uma conta de armazenamento deve conter dados a serem migrados por meio da migração dinâmica.
+O ZRS dá suporte apenas a contas v2 de uso geral, portanto, atualize sua conta de armazenamento antes de enviar uma solicitação para uma migração ao vivo para o ZRS. Para obter mais informações, confira [Atualizar para uma conta de armazenamento de uso geral v2](storage-account-upgrade.md). Uma conta de armazenamento deve conter dados a serem migrados por meio da migração dinâmica.
 
 A migração ao vivo é suportada apenas para contas de armazenamento que usam a replicação de LRS ou GRS. Se sua conta usa o RA-GRS, você precisa primeiro alterar o tipo de replicação da sua conta para LRS ou GRS antes de prosseguir. Essa etapa intermediária remove o terminal secundário somente leitura fornecido pelo RA-GRS antes da migração.
 
@@ -192,8 +191,8 @@ Se você migrar sua conta de armazenamento de GRS para LRS, não haverá nenhum 
 > [!IMPORTANT]
 > Se você migrar sua conta de armazenamento de RA-GRS para GRS ou LRS, essa conta será cobrada como RA-GRS por um adicional 30 dias além da data em que foi convertida.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
-- [Redundância de armazenamento do Azure](storage-redundancy.md)
-- [Verificar a propriedade hora da última sincronização de uma conta de armazenamento](last-sync-time-get.md)
-- [Use a redundância geográfica para criar aplicativos altamente disponíveis](geo-redundant-design.md)
+- [Redundância do Armazenamento do Azure](storage-redundancy.md)
+- [Verificar a propriedade Horário da Última Sincronização de uma conta de armazenamento](last-sync-time-get.md)
+- [Uso da redundância geográfica para criar aplicativos altamente disponíveis](geo-redundant-design.md)
