@@ -10,18 +10,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 10/27/2019
+ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20ec63efe16f1120ca6e7d07c8917d8ad2b3a0e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78c3c177bfcd5ee969e1430306c7294f0a14b658
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79261717"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85078091"
 ---
 # <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management"></a>Aprovar ou negar solicitações de acesso no gerenciamento de direitos do Azure AD
 
@@ -43,7 +43,7 @@ A primeira etapa para aprovar ou negar solicitações de acesso é localizar e a
 
 Se você não tiver o email, poderá encontrar as solicitações de acesso que aguardam sua aprovação seguindo estas etapas.
 
-1. Entre no portal meu acesso em [https://myaccess.microsoft.com](https://myaccess.microsoft.com).  (Para o governo dos EUA, o domínio no link meu portal de acesso `myaccess.microsoft.us`será.)
+1. Entre no portal meu acesso em [https://myaccess.microsoft.com](https://myaccess.microsoft.com) .  (Para o governo dos EUA, o domínio no link meu portal de acesso será `myaccess.microsoft.us` .)
 
 1. No menu à esquerda, clique em **aprovações** para ver uma lista de solicitações de acesso com aprovação pendente.
 

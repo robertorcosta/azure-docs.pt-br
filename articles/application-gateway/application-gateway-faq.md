@@ -7,12 +7,13 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
-ms.openlocfilehash: fd5617af2da9aa00cb75deb82f83be29db78d79d
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.custom: references_regions
+ms.openlocfilehash: 578d674a197936c6222d4520893fdb1afa00161e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873501"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84981958"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas frequentes sobre o Gateway de Aplicativo
 
@@ -72,7 +73,13 @@ Para a SKU v2, abra o recurso IP público e selecione **Configuração**. O camp
 
 *O tempo limite de Keep-Alive* controla quanto tempo o Gateway de Aplicativo aguardará até que um cliente envie outra solicitação HTTP em uma conexão persistente antes de reusá-lo ou fechá-lo. *O tempo limite de ociosidade de TCP* define quanto tempo uma conexão TCP é mantida aberta no caso de nenhuma atividade. 
 
-*O tempo limite de Keep-Alive* no SKU do Gateway de Aplicativo v1 é de 120 segundos e na SKU V2 é de 75 segundos. O *tempo limite de ociosidade de TCP* é um padrão de 4 minutos no IP virtual de front-end (VIP) do SKU v1 e v2 do Gateway de Aplicativo. Não é possível alterar esses valores
+*O tempo limite de Keep-Alive* no SKU do Gateway de Aplicativo v1 é de 120 segundos e na SKU V2 é de 75 segundos. O *tempo limite de ociosidade de TCP* é um padrão de 4 minutos no IP virtual de front-end (VIP) do SKU v1 e v2 do Gateway de Aplicativo. Você pode configurar o valor de tempo limite de ociosidade de TCP nos gateways de aplicativo v1 e V2 em qualquer lugar entre 4 minutos e 30 minutos. Para os gateways de aplicativo v1 e v2, você precisará navegar até o IP público do gateway de aplicativo e alterar o tempo limite de ociosidade de TCP na folha "configuração" do IP público no Portal. Você pode definir o valor de tempo limite de ociosidade de TCP do IP público por meio do PowerShell executando os seguintes comandos: 
+
+```azurepowershell-interactive
+$publicIP = Get-AzPublicIpAddress -Name MyPublicIP -ResourceGroupName MyResourceGroup
+$publicIP.IdleTimeoutInMinutes = "15"
+Set-AzPublicIpAddress -PublicIpAddress $publicIP
+```
 
 ### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>O nome IP ou DNS muda durante a vida útil do Gateway de Aplicativo?
 
@@ -211,7 +218,7 @@ Consulte a [Ordem das regras de processamento](https://docs.microsoft.com/azure/
 
 ### <a name="for-custom-probes-what-does-the-host-field-signify"></a>O que significa o campo Host para investigações personalizadas?
 
-O campo Host especifica o nome para o qual enviar a investigação quando você configurou vários sites no Gateway de Aplicativo. Caso contrário, use '127.0.0.1'. Este valor é diferente do nome do host de máquina virtual. Seu formato é \<protocolo\>://\<host\>:\<porta\>\<caminho\>.
+O campo Host especifica o nome para o qual enviar a investigação quando você configurou vários sites no Gateway de Aplicativo. Caso contrário, use '127.0.0.1'. Este valor é diferente do nome do host de máquina virtual. Seu formato é \<protocol\> :// \<host\> : \<port\> \<path\> .
 
 ### <a name="can-i-allow-application-gateway-access-to-only-a-few-source-ip-addresses"></a>Posso permitir o acesso do Gateway de Aplicativo a apenas alguns endereços IP de origem?
 
@@ -337,11 +344,31 @@ Não, use apenas caracteres alfanuméricos em sua senha de arquivo. pfx.
 Kubernetes permite a criação dos recursos `deployment` e `service` para expor um grupo de pods internamente no cluster. Para expor o mesmo serviço externamente, um recurso [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/) é definido, o que fornece balanceamento de carga, término de TLS e hospedagem virtual baseada em nome.
 Para atender a esse recurso de `Ingress`, é necessário um Controlador de Entrada que escuta quaisquer alterações em `Ingress` recursos e configura as políticas do balanceador de carga.
 
-O Controlador de Entrada v2 do Gateway de Aplicativo permite [usar o Gateway de Aplicativo do Azure](https://azure.microsoft.com/services/application-gateway/) como a entrada para um [AKS (Serviço de Kubernetes do Azure)](https://azure.microsoft.com/services/kubernetes-service/), conhecido como Cluster de AKS.
+O AGIC (controlador de entrada do gateway de aplicativo) permite que [aplicativo Azure gateway](https://azure.microsoft.com/services/application-gateway/) seja usado como a entrada para um [serviço kubernetes do Azure](https://azure.microsoft.com/services/kubernetes-service/) também conhecido como um cluster AKs.
 
 ### <a name="can-a-single-ingress-controller-instance-manage-multiple-application-gateways"></a>Uma única instância do controlador de entrada pode gerenciar vários Gateways de Aplicativo?
 
 Atualmente, uma instância do Controlador de Entrada só pode ser associada a um gateway de aplicativo.
+
+### <a name="why-is-my-aks-cluster-with-kubenet-not-working-with-agic"></a>Por que meu cluster AKS com kubenet não está funcionando com o AGIC?
+
+O AGIC tenta associar automaticamente o recurso de tabela de rotas à sub-rede do gateway de aplicativo, mas pode falhar ao fazer isso devido à falta de permissões do AGIC. Se AGIC não puder associar a tabela de rotas à sub-rede do gateway de aplicativo, haverá um erro nos logs de AGIC que dizem assim; nesse caso, você terá que associar manualmente a tabela de rotas criada pelo cluster AKS à sub-rede do gateway de aplicativo. Para obter mais informações, consulte as instruções [aqui](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet).
+
+### <a name="can-i-connect-my-aks-cluster-and-application-gateway-in-separate-virtual-networks"></a>Posso conectar meu cluster do AKS e o gateway de aplicativo em redes virtuais separadas? 
+
+Sim, desde que as redes virtuais estejam emparelhadas e não tenham espaços de endereço sobrepostos. Se você estiver executando o AKS com kubenet, certifique-se de associar a tabela de rotas gerada pelo AKS à sub-rede do gateway de aplicativo. 
+
+### <a name="what-features-are-not-supported-on-the-agic-add-on"></a>Quais recursos não têm suporte no complemento AGIC? 
+
+Consulte as diferenças entre o AGIC implantado por meio do Helm versus implantado como um complemento do AKS [aqui](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on)
+
+### <a name="when-should-i-use-the-add-on-versus-the-helm-deployment"></a>Quando devo usar o complemento em vez da implantação do Helm? 
+
+Consulte as diferenças entre o AGIC implantado por meio do Helm versus implantado como um complemento do AKS [aqui](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on), especialmente as tabelas que documentam quais cenários são suportados pelo AGIC implantado por meio de Helm em oposição a um complemento AKs. Em geral, a implantação por meio do Helm permitirá que você teste os recursos beta e libere candidatos antes de uma versão oficial. 
+
+### <a name="can-i-control-which-version-of-agic-will-be-deployed-with-the-add-on"></a>Posso controlar qual versão do AGIC será implantada com o complemento?
+
+Não, o complemento AGIC é um serviço gerenciado, o que significa que a Microsoft atualizará automaticamente o complemento para a versão estável mais recente. 
 
 ## <a name="diagnostics-and-logging"></a>Diagnóstico e registro em log
 
@@ -411,8 +438,6 @@ Mas se você quiser usar o Gateway de Aplicativo v2 somente com o IP privado, vo
 
 Exemplo de configuração de NSG para acesso somente IP privado: ![Configuração de NSG do Gateway de Aplicativo v2 somente para acesso IP privado](./media/application-gateway-faq/appgw-privip-nsg.png)
 
-### <a name="does-application-gateway-affinity-cookie-support-samesite-attribute"></a>O cookie de afinidade do Gateway de Aplicativo dá suporte ao atributo SameSite?
-Sim, o [navegador Chromium](https://www.chromium.org/Home) [atualização de v80](https://chromiumdash.appspot.com/schedule) introduziu uma exigência em cookies HTTP sem que o atributo SameSite seja tratado como SameSite=Lax. Isso significa que o cookie de afinidade do Gateway de Aplicativo não será enviado pelo navegador em um contexto de terceiros. Para dar suporte a esse cenário, o Gateway de Aplicativo injeta outro cookie chamado *ApplicationGatewayAffinityCORS* além do cookie *ApplicationGatewayAffinity* existente.  Esses cookies são semelhantes, mas o cookie *ApplicationGatewayAffinityCORS* tem mais dois atributos adicionados a ele: *SameSite=None; Secure*. Esses atributos mantêm afinidades de sessão mesmo para solicitações entre origens. Consulte a [seção da afinidade baseada em cookie](configuration-overview.md#cookie-based-affinity) para obter mais informações.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/03/2020
 ms.author: tisande
-ms.openlocfilehash: cd96f440c4e8c971d1f1473f667d31e60edef137
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: b06a8737c1ceb538417f966a989ccb39069f4d4c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82839191"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85116291"
 ---
 # <a name="index-geospatial-data-with-azure-cosmos-db"></a>Indexar dados geoespaciais com Azure Cosmos DB
 
@@ -34,13 +34,13 @@ Você pode alternar entre o tipo espacial **geography** e **Geometry** no portal
 
 Veja como definir a **configuração geoespacial** no **Data Explorer** no portal do Azure:
 
-![Definindo configuração geoespacial](./media/sql-query-geospatial-index/geospatial-configuration.png)
+:::image type="content" source="./media/sql-query-geospatial-index/geospatial-configuration.png" alt-text="Definindo configuração geoespacial":::
 
 Você também pode modificar o `geospatialConfig` no SDK do .net para ajustar a **configuração geoespacial**:
 
-Se não for especificado, `geospatialConfig` o padrão será o tipo de dados geography. Quando você modifica o `geospatialConfig`, todos os dados geoespaciais existentes no contêiner serão reindexados.
+Se não for especificado, o `geospatialConfig` padrão será o tipo de dados geography. Quando você modifica o `geospatialConfig` , todos os dados geoespaciais existentes no contêiner serão reindexados.
 
-Aqui está um exemplo para modificar o tipo de dados geoespaciais `geometry` para `geospatialConfig` definindo a propriedade e adicionando um **boundingBox**:
+Aqui está um exemplo para modificar o tipo de dados geoespaciais para `geometry` definindo a `geospatialConfig` propriedade e adicionando um **boundingBox**:
 
 ```csharp
     //Retrieve the container's details
@@ -107,7 +107,7 @@ Você também pode [Modificar a política de indexação](how-to-manage-indexing
 
 ## <a name="geometry-data-indexing-examples"></a>Exemplos de indexação de dados geometry
 
-Com o tipo de dados **Geometry** , semelhante ao tipo de dados geography, você deve especificar caminhos e tipos relevantes para indexar. Além disso, você também deve especificar um `boundingBox` dentro da política de indexação para indicar a área desejada a ser indexada para esse caminho específico. Cada caminho geoespacial exige seu`boundingBox`próprio.
+Com o tipo de dados **Geometry** , semelhante ao tipo de dados geography, você deve especificar caminhos e tipos relevantes para indexar. Além disso, você também deve especificar um `boundingBox` dentro da política de indexação para indicar a área desejada a ser indexada para esse caminho específico. Cada caminho geoespacial exige seu próprio `boundingBox` .
 
 A caixa delimitadora consiste nas seguintes propriedades:
 
@@ -120,7 +120,7 @@ Uma caixa delimitadora é necessária porque os dados geométricos ocupam um pla
 
 Crie uma caixa delimitadora que contenha todos (ou mais) dos seus dados. Somente as operações computadas nos objetos que estão inteiramente dentro da caixa delimitadora poderão utilizar o índice espacial. Tornar a caixa delimitadora maior do que o necessário afetará negativamente o desempenho da consulta.
 
-Aqui está um exemplo de política de indexação que indexa dados de **geometria** com `geometry` **geospatialConfig** definido como:
+Aqui está um exemplo de política de indexação que indexa dados de **geometria** com **geospatialConfig** definido como `geometry` :
 
 ```json
  {
@@ -159,7 +159,7 @@ Aqui está um exemplo de política de indexação que indexa dados de **geometri
 A política de indexação acima tem um **boundingBox** de (-10, 10) para coordenadas x e (-20, 20) para coordenadas y. O contêiner com a política de indexação acima indexará todos os pontos, polígonos, subpolígonos e LineStrings que estão inteiramente dentro dessa região.
 
 > [!NOTE]
-> Se você tentar adicionar uma política de indexação com um **boundingBox** a um contêiner com `geography` tipo de dados, haverá falha. Você deve modificar o **geospatialConfig** do contêiner para que `geometry` ele seja antes de adicionar um **boundingBox**. Você pode adicionar dados e modificar o restante da política de indexação (como os caminhos e tipos) antes ou depois de selecionar o tipo de dados geoespaciais para o contêiner.
+> Se você tentar adicionar uma política de indexação com um **boundingBox** a um contêiner com `geography` tipo de dados, haverá falha. Você deve modificar o **geospatialConfig** do contêiner para que ele seja `geometry` antes de adicionar um **boundingBox**. Você pode adicionar dados e modificar o restante da política de indexação (como os caminhos e tipos) antes ou depois de selecionar o tipo de dados geoespaciais para o contêiner.
 
 ## <a name="next-steps"></a>Próximas etapas
 

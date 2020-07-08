@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 3b390ffa20cf3cf79b8fb6311ad05b2978bd5d24
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 46716cf5bd810225cbfc3b54d246917c9559f78f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77655780"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85124425"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Enviar as métricas do SO convidado aos Serviços de Nuvem clássicos de armazenamento de métricas do Azure Monitor 
 
@@ -32,7 +32,7 @@ O processo descrito neste artigo só funciona para contadores de desempenho nos 
 
 - Sua assinatura deve ser registrada com [Microsoft. Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
-- Você precisa ter o [Azure PowerShell](/powershell/azure) ou [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) instalado.
+- Você precisará ter o [Azure PowerShell](/powershell/azure) ou o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) instalado.
 
 - Seu serviço de nuvem deve estar em uma [região que dá suporte a métricas personalizadas](metrics-custom-overview.md#supported-regions).
 
@@ -46,7 +46,7 @@ O processo descrito neste artigo só funciona para contadores de desempenho nos 
 
 ## <a name="create-a-service-principal"></a>Criar uma entidade de serviço 
 
-Crie uma entidade de serviço em seu locatário do Azure Active Directory usando as instruções em [Usar o portal para criar um aplicativo e uma entidade de serviço do Azure Active Directory que pode acessar recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Observe o seguinte ao percorrer esse processo: 
+Crie uma entidade de serviço em seu locatário do Azure Active Directory usando as instruções em [usar o portal para criar um aplicativo Azure Active Directory e uma entidade de serviço que possa acessar recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Observe o seguinte ao percorrer esse processo: 
 
 - Você pode colocar qualquer URL na URL de entrada.  
 - Crie um novo segredo de cliente para este aplicativo.  
@@ -175,13 +175,13 @@ Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -Sto
 
    ![Métricas do portal do Azure](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/navigate-metrics.png)
 
-2. No menu esquerdo, selecione **Monitor**.
+2. No menu à esquerda, selecione **Monitor.**
 
 3. Na folha **Monitor**, selecione a guia **Métricas (versão prévia)**.
 
 4. No menu suspenso do recurso, selecione seu serviço de nuvem clássico.
 
-5. No menu suspenso namespaces, selecione **azure.vm.windows.guest**. 
+5. No menu suspenso namespaces, selecione **Azure. VM. Windows. Guest**. 
 
 6. No menu suspenso de métricas, selecione **Bytes de Memória\Confirmados em Uso**. 
 

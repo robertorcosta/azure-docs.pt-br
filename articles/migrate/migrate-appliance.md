@@ -3,12 +3,12 @@ title: Dispositivo de Migrações para Azure
 description: Fornece uma visão geral do dispositivo de Migrações para Azure usado na avaliação e migração de servidor.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 98398510acb1eec29ea603d869f1e9ec383cb210
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.openlocfilehash: a57ca67c89078143eba42d94e8d96e004200041a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758938"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85106570"
 ---
 # <a name="azure-migrate-appliance"></a>Dispositivo de Migrações para Azure
 
@@ -47,9 +47,9 @@ A tabela a seguir resume os requisitos do dispositivo de Migrações para Azure 
 **Implantação com suporte** | Implantação como VM do VMware usando o modelo OVA.<br/><br/> Implantação como uma VM do VMware ou computador físico usando um script de instalação do PowerShell.
 **Suporte de projeto** |  Um dispositivo pode ser associado a um único projeto. <br/> Qualquer quantidade de dispositivos pode ser associada a um único projeto.<br/> 
 **Limites de descoberta** | Um dispositivo pode descobrir até 10.000 VMs do VMware em um vCenter Server.<br/> Um dispositivo pode se conectar a um único vCenter Server.
-**Modelo OVA** | Baixe no portal ou em https://aka.ms/migrate/appliance/vmware.<br/><br/> O tamanho do download é de 11,2 GB.<br/><br/> O modelo de dispositivo baixado é fornecido com uma licença de avaliação do Windows Server 2016 que é válida por 180 dias. Caso o período de avaliação esteja próximo da expiração, recomendamos que você baixe e implante um novo dispositivo ou ative a licença do sistema operacional da VM do dispositivo.
-**Script do PowerShell** | [Download](https://go.microsoft.com/fwlink/?linkid=2105112) do script.<br/><br/> 
-**Software/hardware** |  O dispositivo deve ser executado no computador com o Windows Server 2016, 32 GB de RAM, 8 CPUs virtuais, cerca de 80 GB de armazenamento em disco e um comutador virtual externo.<br/> O dispositivo requer acesso à Internet, diretamente ou por meio de um proxy.<br/><br/> Se você executar o dispositivo em uma VM do VMware, precisará de recursos suficientes no vCenter Server para alocar uma VM que atenda aos requisitos.<br/><br/> Se você executar o dispositivo em um computador físico, verifique se ele está executando o Windows Server 2016 e se atende aos requisitos de hardware. 
+**Modelo OVA** | Baixe no portal ou em https://aka.ms/migrate/appliance/vmware.<br/><br/> O tamanho do download é 10,9 GB.<br/><br/> O modelo de dispositivo baixado é fornecido com uma licença de avaliação do Windows Server 2016 que é válida por 180 dias. Caso o período de avaliação esteja próximo da expiração, recomendamos que você baixe e implante um novo dispositivo ou ative a licença do sistema operacional da VM do dispositivo.
+**Script do PowerShell** | Consulte este [artigo](https://docs.microsoft.com/azure/migrate/deploy-appliance-script#set-up-the-appliance-for-vmware).<br/><br/> 
+**Software/hardware** |  O dispositivo deve ser executado no computador com o Windows Server 2016, 32 GB de RAM, 8 CPUs virtuais, cerca de 80 GB de armazenamento em disco e um comutador virtual externo.<br/> O dispositivo requer acesso à Internet, diretamente ou por meio de um proxy.<br/><br/> Se você executar o dispositivo em uma VM do VMware, precisará de recursos suficientes no vCenter Server para alocar uma VM que atenda aos requisitos.<br/><br/> Se você executar o dispositivo em um computador físico, verifique se ele está executando o Windows Server 2016 e se atende aos requisitos de hardware.
 **Requisitos da VMware** | Se você implantar o dispositivo como uma VM do VMware, ele deverá ser implantado em um host ESXi que esteja executando a versão 5.5 ou posterior.<br/><br/> vCenter Server executando 5.5, 6.0, 6.5 ou 6.7.
 **VDDK (migração sem agente)** | Se você implantar o dispositivo como uma VM do VMware e estiver executando uma migração sem agente, o VMware vSphere VDDK deverá ser instalado na VM do dispositivo.
 **Valor de hash – OVA** | [Verifique](tutorial-assess-vmware.md#verify-security) os valores de hash do modelo OVA.
@@ -68,8 +68,8 @@ A tabela a seguir resume os requisitos do dispositivo de Migrações para Azure 
 **Suporte de projeto** |  Um dispositivo pode ser associado a um único projeto. <br/> Qualquer quantidade de dispositivos pode ser associada a um único projeto.<br/> 
 **Limites de descoberta** | Um dispositivo pode descobrir até 5.000 VMs do Hyper-V.<br/> Um dispositivo pode se conectar a até 300 hosts do Hyper-V.
 **Modelo VHD** | Pasta compactada incluindo VHD. Baixe no portal ou em https://aka.ms/migrate/appliance/hyperv.<br/><br/> O tamanho do download é de 10 GB.<br/><br/> O modelo de dispositivo baixado é fornecido com uma licença de avaliação do Windows Server 2016 que é válida por 180 dias. Caso o período de avaliação esteja próximo da expiração, recomendamos que você baixe e implante um novo dispositivo ou ative a licença do sistema operacional da VM do dispositivo.
-**Script do PowerShell** | [Download](https://go.microsoft.com/fwlink/?linkid=2105112) do script.<br/><br/> 
-**Software/hardware***   |  O dispositivo deve ser executado no computador com o Windows Server 2016, 32 GB de RAM, 8 CPUs virtuais, cerca de 80 GB de armazenamento em disco e um comutador virtual externo.<br/> O dispositivo precisa de um endereço IP estático ou dinâmico e requer acesso à Internet, diretamente ou por meio de um proxy.<br/><br/> Se você executar o dispositivo como uma VM do Hyper-V, precisará de recursos suficientes no host do Hyper-V para alocar 16 GB de RAM, 8 CPUs virtuais, cerca de 80 GB de espaço de armazenamento e um comutador externo para a VM do dispositivo.<br/><br/> Se você executar o dispositivo em um computador físico, verifique se ele está executando o Windows Server 2016 e se atende aos requisitos de hardware. 
+**Script do PowerShell** | Consulte este [artigo](https://docs.microsoft.com/azure/migrate/deploy-appliance-script#set-up-the-appliance-for-hyper-v).<br/><br/> 
+**Software/hardware***   |  O dispositivo deve ser executado no computador com o Windows Server 2016, 16 GB de RAM, 8 vCPUs, cerca de 80 GB de armazenamento em disco e um comutador virtual externo.<br/> O dispositivo precisa de um endereço IP estático ou dinâmico e requer acesso à Internet, diretamente ou por meio de um proxy.<br/><br/> Se você executar o dispositivo como uma VM do Hyper-V, precisará de recursos suficientes no host do Hyper-V para alocar 16 GB de RAM, 8 CPUs virtuais, cerca de 80 GB de espaço de armazenamento e um comutador externo para a VM do dispositivo.<br/><br/> Se você executar o dispositivo em um computador físico, verifique se ele está executando o Windows Server 2016 e se atende aos requisitos de hardware. 
 **Requisitos do Hyper-V** | Se você implantar o dispositivo com o modelo VHD, a VM do dispositivo fornecida pelas Migrações para Azure será a versão 5.0 da VM do Hyper-V.<br/><br/> O host do Hyper-V deve estar executando o Windows Server 2012 R2 ou posterior. 
 **Valor de hash – VHD** | [Verifique](tutorial-assess-hyper-v.md#verify-security) os valores de hash do modelo VHD.
 **Valor de hash – script do PowerShell** | [Verifique](deploy-appliance-script.md#verify-file-security) os valores de hash de script do PowerShell.
@@ -83,9 +83,9 @@ A tabela a seguir resume os requisitos do dispositivo de Migrações para Azure 
 **Componentes do dispositivo** | O dispositivo tem os seguintes componentes: <br/><br/> - **Aplicativo de gerenciamento**: é um aplicativo Web para entrada do usuário durante a implantação do dispositivo. Usado ao avaliar computadores para migração para o Azure.<br/> - **Agente de descoberta**: o agente coleta dados de configuração do computador. Usado ao avaliar computadores para migração para o Azure.<br/>- **Agente de avaliação**: coleta dados de desempenho. Usado ao avaliar computadores para migração para o Azure.<br/>- **Serviço de atualização automática**: atualiza os componentes do dispositivo (executado a cada 24 horas).
 **Implantação com suporte** | Implante como computador físico dedicado, ou VM, usando um script de instalação do PowerShell. O script está disponível para download no portal.
 **Suporte de projeto** |  Um dispositivo pode ser associado a um único projeto. <br/> Qualquer quantidade de dispositivos pode ser associada a um único projeto.<br/> 
-**Limites de descoberta** | Um dispositivo pode descobrir até 250 servidores físicos.
-**Script do PowerShell** | Baixe o script (AzureMigrateInstaller.ps1) em uma pasta compactada no portal. [Saiba mais](tutorial-assess-physical.md#set-up-the-appliance). Como alternativa, [baixe diretamente](https://go.microsoft.com/fwlink/?linkid=2105112).<br/><br/> O tamanho do download é de 59,7 MB.
-**Software/hardware** |  O dispositivo deve ser executado no computador com o Windows Server 2016, 32 GB de RAM, 8 CPUs virtuais, cerca de 80 GB de armazenamento em disco e um comutador virtual externo.<br/> O dispositivo precisa de um endereço IP estático ou dinâmico e requer acesso à Internet, diretamente ou por meio de um proxy.<br/><br/> Se você executar o dispositivo em um computador físico, verifique se ele está executando o Windows Server 2016 e se atende aos requisitos de hardware.<br/> Não há suporte para a execução do dispositivo em um computador com o Windows Server 2019.
+**Limites de descoberta** | Um dispositivo pode descobrir até 1000 servidores físicos.
+**Script do PowerShell** | Baixe o script (AzureMigrateInstaller.ps1) em uma pasta compactada no portal. [Saiba mais](tutorial-assess-physical.md#set-up-the-appliance). Como alternativa, [baixe diretamente](https://go.microsoft.com/fwlink/?linkid=2105112).<br/><br/> O tamanho do download é 63,1 MB.
+**Software/hardware** |  O dispositivo deve ser executado no computador com o Windows Server 2016, 16 GB de RAM, 8 vCPUs, cerca de 80 GB de armazenamento em disco e um comutador virtual externo.<br/> O dispositivo precisa de um endereço IP estático ou dinâmico e requer acesso à Internet, diretamente ou por meio de um proxy.<br/><br/> Se você executar o dispositivo em um computador físico, verifique se ele está executando o Windows Server 2016 e se atende aos requisitos de hardware.<br/> Não há suporte para a execução do dispositivo em um computador com o Windows Server 2019.
 **Valor de hash** | [Verifique](deploy-appliance-script.md#verify-file-security) os valores de hash de script do PowerShell.
 
 ## <a name="url-access"></a>acesso à URL
@@ -206,11 +206,77 @@ Operações de gravação do disco por segundo | virtualDisk.numberWriteAveraged
 Taxa de transferência de leitura de NIC (MB por segundo) | net.received.average | Cálculo de tamanho da VM
 Taxa de transferência de gravações de NIC (MB por segundo) | net.transmitted.average  |Cálculo de tamanho da VM
 
+
+### <a name="installed-apps-metadata"></a>Metadados de aplicativos instalados
+
+A descoberta de aplicativos coleta aplicativos instalados e dados do sistema operacional.
+
+#### <a name="windows-vm-apps-data"></a>Dados de aplicativos da VM do Windows
+
+Aqui estão os dados de aplicativo instalados que o dispositivo coleta de cada VM habilitada para descoberta de aplicativos. Estes dados são enviados para o Azure.
+
+**Dados** | **Local do Registro** | **Chave**
+--- | --- | ---
+Nome do Aplicativo  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\* <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayName
+Versão  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayVersion 
+Provedor  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | Publisher
+
+#### <a name="windows-vm-features-data"></a>Dados de recursos de VM do Windows
+
+Aqui estão os dados de recursos que o dispositivo coleta de cada VM habilitada para descoberta de aplicativos. Estes dados são enviados para o Azure.
+
+**Dados**  | **Cmdlet do PowerShell** | **Propriedade**
+--- | --- | ---
+Nome  | Get-WindowsFeature  | Nome
+Tipo de recurso | Get-WindowsFeature  | Recurso de funcionalidade
+Pai  | Get-WindowsFeature  | Pai
+
+#### <a name="windows-vm-sql-server-metadata"></a>Metadados de SQL Server de VM do Windows
+
+Aqui estão os metadados do SQL Server que o dispositivo coleta de VMs que executam o Microsoft SQL Server habilitado para descoberta de aplicativos. Estes dados são enviados para o Azure.
+
+**Dados**  | **Local do Registro**  | **Chave**
+--- | --- | ---
+Nome  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL servidor \ instância Names\SQL  | installedInstance
+Edition  | HKLM: \ \\ SOFTWARE\Microsoft\Microsoft SQL Server \% \<InstanceName>  | Edition 
+Service Pack  | HKLM: \ \\ SOFTWARE\Microsoft\Microsoft SQL Server \% \<InstanceName>  | SP
+Versão  | HKLM: \ \\ SOFTWARE\Microsoft\Microsoft SQL Server \% \<InstanceName>  | Versão 
+
+#### <a name="windows-vm-operating-system-data"></a>Dados do sistema operacional da VM do Windows
+
+Aqui estão os dados do sistema operacional que o dispositivo coleta cada VM habilitada para a descoberta de aplicativos. Estes dados são enviados para o Azure.
+
+Dados  | classe WMI  | Propriedade de classe WMI
+--- | --- | ---
+Nome  | Win32_operatingsystem  | Legenda
+Versão  | Win32_operatingsystem  | Versão
+Arquitetura  | Win32_operatingsystem  | OSArchitecture
+
+#### <a name="linux-vm-apps-data"></a>Dados de aplicativos de VM do Linux
+
+Aqui estão os dados de aplicativo instalados que o dispositivo coleta de cada VM habilitada para descoberta de aplicativos. Com base no sistema operacional da VM, um ou mais comandos são executados. Estes dados são enviados para o Azure.
+
+Dados  | Comando
+--- | --- 
+Nome | rpm, dpkg-Query, snap
+Versão | rpm, dpkg-Query, snap
+Provedor | rpm, dpkg-Query, snap
+
+#### <a name="linux-vm-operating-system-data"></a>Dados do sistema operacional da VM do Linux
+
+Aqui estão os dados do sistema operacional que o dispositivo coleta cada VM habilitada para a descoberta de aplicativos. Estes dados são enviados para o Azure.
+
+**Dados**  | **Comando** 
+--- | --- | ---
+Nome <br/> version | Coletado de um ou mais dos seguintes arquivos:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
+Arquitetura | uname
+
+
 ### <a name="app-dependencies-metadata"></a>Metadados de dependências do aplicativo
 
 A análise de dependência sem agente coleta dados de conexão e de processo.
 
-#### <a name="connection-data"></a>Dados de conexão
+#### <a name="windows-vm-app-dependencies-data"></a>Dados de dependências do aplicativo VM do Windows
 
 Aqui estão os dados de conexão que o dispositivo coleta de cada VM habilitada para análise de dependência sem agente. Estes dados são enviados para o Azure.
 
@@ -224,7 +290,7 @@ Estado de conexão do TCP | netstat
 ID do Processo | netstat
 Quantidade de conexões ativas | netstat
 
-#### <a name="process-data"></a>Processar dados
+
 Aqui estão os dados de processo que o dispositivo coleta de cada VM habilitada para análise de dependência sem agente. Estes dados são enviados para o Azure.
 
 **Dados** | **Classe WMI** | **Propriedade da classe WMI**
@@ -233,7 +299,7 @@ Nome do processo | Win32_Process | ExecutablePath
 Argumentos do processo | Win32_Process | CommandLine
 Nome do aplicativo | Win32_Process | Parâmetro VersionInfo.ProductName da propriedade ExecutablePath
 
-#### <a name="linux-vm-data"></a>Dados da VM do Linux
+#### <a name="linux-vm-app-dependencies-data"></a>Dados de dependências do aplicativo VM do Linux
 
 Aqui estão os dados de conexão e de processo que o dispositivo coleta de cada VM do Linux habilitada para análise de dependência sem agente. Estes dados são enviados para o Azure.
 

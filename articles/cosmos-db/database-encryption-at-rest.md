@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.custom: seodec18
-ms.openlocfilehash: 541c6f4a6c728844524af794f5e2063f4e352cce
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: HT
+ms.openlocfilehash: fb3dda7a2f33fa76ab78a67f86fb015430c64099
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592127"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85114768"
 ---
 # <a name="data-encryption-in-azure-cosmos-db"></a>Criptografia de dados do Azure Cosmos DB 
 
@@ -24,7 +24,7 @@ Como um serviço PaaS, o Azure Cosmos DB é muito fácil de usar. Como todos os 
 
 A criptografia em repouso é implementada usando várias tecnologias de segurança, incluindo sistemas seguros de armazenamento de chaves, redes criptografadas e APIs criptográficas. Os sistemas que descriptografam e processam dados precisam se comunicar com sistemas que gerenciam chaves. O diagrama mostra como o armazenamento de dados criptografados e o gerenciamento de chaves são separados. 
 
-![Diagrama de design](./media/database-encryption-at-rest/design-diagram.png)
+:::image type="content" source="./media/database-encryption-at-rest/design-diagram.png" alt-text="Diagrama de design" border="false":::
 
 O fluxo básico de uma solicitação de usuário é o seguinte:
 - A conta do banco de dados do usuário é preparada e as chaves de armazenamento são recuperadas por meio de uma solicitação ao Provedor de Recursos do Serviço de Gerenciamento.
@@ -46,7 +46,7 @@ A: As chaves são gerenciadas pela Microsoft.
 A: A Microsoft tem um conjunto de diretrizes internas para rotação de chave de criptografia, que o Cosmos DB segue. As diretrizes específicas não são publicadas. A Microsoft publica o [SDL (Security Development Lifecycle)](https://www.microsoft.com/sdl/default.aspx), que é visto como um subconjunto de orientação interna e tem práticas recomendadas úteis para desenvolvedores.
 
 ### <a name="q-can-i-use-my-own-encryption-keys"></a>P: Posso usar minhas próprias chaves de criptografia?
-A: Sim, agora esse recurso está disponível para as novas contas do cosmos e isso deve ser feito no momento da criação da conta. Acesse o documento [Chaves gerenciadas pelo cliente](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk) para obter mais informações.
+R: Sim, este recurso agora está disponível para novas contas de Azure Cosmos DB e isso deve ser feito no momento da criação da conta. Consulte o documento [chaves gerenciadas pelo cliente](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk) para obter mais informações.
 
 ### <a name="q-what-regions-have-encryption-turned-on"></a>P: Em quais regiões a criptografia está ativada?
 A: A criptografia está ativada para todos os dados do usuário em todas as regiões do Azure Cosmos DB.

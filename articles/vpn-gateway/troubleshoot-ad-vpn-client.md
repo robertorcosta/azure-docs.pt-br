@@ -4,15 +4,15 @@ description: Solucionar problemas do gateway de VPN P2S clientes de autenticaç�
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 11/04/2019
 ms.author: cherylmc
-ms.openlocfilehash: 8871e92f0911c4d3cbcc1772bef1daeb5c70b5d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 56a8514fc2531ba0b18925427814e5bfef7d64bf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74151961"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84988106"
 ---
 # <a name="troubleshoot-an-azure-ad-authentication-vpn-client"></a>Solucionar problemas de um cliente VPN de autenticação do Azure AD
 
@@ -35,7 +35,7 @@ Limpe as informações de entrada.
 ![entrar](./media/troubleshoot-ad-vpn-client/2.png)
 
 1. Selecione o... ao lado do perfil que você deseja solucionar problemas. Selecione **Configurar-> limpar conta salva**.
-2. Clique em **Salvar**.
+2. Selecione **Salvar**.
 3. Tente se conectar.
 4. Se a conexão ainda falhar, prossiga para a próxima seção.
 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: rambala
-ms.openlocfilehash: 48ec26cc98310dfeb61aa17018c940b431cfbcee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 646482472caf6aded9142f33fb6bd879938998d3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75644249"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85124946"
 ---
 # <a name="cross-network-connectivity"></a>Conectividade entre redes
 
@@ -20,25 +20,25 @@ A Fabrikam Inc. tem uma grande presença física e implantação do Azure no les
 
 A Fabrikam Inc. adquire a contoso Ltd. Após a fusão, a Fabrikam deseja interconectar as redes. A figura a seguir ilustra o cenário:
 
- [![1]][1]
+![O cenário do aplicativo](./media/cross-network-connectivity/premergerscenario.png)
 
 As setas tracejadas no meio da figura acima indicam as interconexões de rede desejadas. Especificamente, há três tipos de conexões cruzadas desejadas: 1) Fabrikam e contoso VNets Cross connect, 2) entre regiões regionais locais e VNets cruzadas (ou seja, conectando a rede local da Fabrikam à VNet contoso e conectando a rede local da Contoso à Fabrikam VNet) e 3) a Fabrikam e a contoso local rede de conexão cruzada. 
 
 A tabela a seguir mostra a tabela de rotas do emparelhamento privado do ExpressRoute da Contoso Ltd., antes da fusão.
 
-[![2]][2]
+![Tabela de rotas do contoso ExpressRoute antes da fusão](./media/cross-network-connectivity/contosoexr-rt-premerger.png)
 
-A tabela a seguir mostra as rotas efetivas de uma VM na assinatura do contoso, antes da fusão. De acordo com a tabela, a VM na VNet está ciente do espaço de endereço da VNet e da rede local da Contoso, além dos padrões. 
+A tabela a seguir mostra as rotas efetivas de uma VM na assinatura do contoso, antes da fusão. De acordo com a tabela, a VM na VNet está ciente do espaço de endereço da VNet e da rede local da Contoso, além dos padrões.
 
-[![4]][4]
+![Rotas de VM contoso antes da fusão](./media/cross-network-connectivity/contosovm-routes-premerger.png)
 
 A tabela a seguir mostra a tabela de rotas do emparelhamento privado do ExpressRoute da Fabrikam Inc., antes da fusão.
 
-[![3]][3]
+![Tabela de rotas da Fabrikam ExpressRoute antes da fusão](./media/cross-network-connectivity/fabrikamexr-rt-premerger.png)
 
 A tabela a seguir mostra as rotas efetivas de uma VM na assinatura da Fabrikam, antes da fusão. De acordo com a tabela, a VM na VNet está ciente do espaço de endereço da VNet e da rede local da Fabrikam, além dos padrões.
 
-[![5]][5]
+![Rotas de VM da Fabrikam antes da fusão](./media/cross-network-connectivity/fabrikamvm-routes-premerger.png)
 
 Neste artigo, vamos percorrer passo a passo e discutir como obter as conexões cruzadas desejadas usando os seguintes recursos de rede do Azure:
 
@@ -54,15 +54,15 @@ Vamos configurar o emparelhamento de VNet global entre o VNets nas assinaturas c
 
 A imagem a seguir mostra a arquitetura de rede depois de configurar o emparelhamento de VNet global.
 
-[![6]][6]
+![A arquitetura após o emparelhamento de VNet](./media/cross-network-connectivity/vnet-peering.png )
 
 A tabela a seguir mostra as rotas conhecidas para a VM de assinatura contoso. Preste atenção à última entrada da tabela. Essa entrada é o resultado da conexão cruzada das redes virtuais.
 
-[![7]][7]
+![Rotas de VM contoso após o emparelhamento VNet](./media/cross-network-connectivity/contosovm-routes-peering.png)
 
 A tabela a seguir mostra as rotas conhecidas para a VM de assinatura da Fabrikam. Preste atenção à última entrada da tabela. Essa entrada é o resultado da conexão cruzada das redes virtuais.
 
-[![8]][8]
+![Rotas de VM da Fabrikam após o emparelhamento VNet](./media/cross-network-connectivity/fabrikamvm-routes-peering.png)
 
 O emparelhamento VNet vincula duas redes virtuais diretamente (veja que não há um próximo salto para a entrada *VNetGlobalPeering* nas duas tabelas acima)
 
@@ -74,23 +74,23 @@ Vamos conectar o circuito do Fabrikam ExpressRoute à VNet de assinatura contoso
 
 A imagem a seguir mostra a arquitetura de rede depois de configurar a conectividade cruzada do ExpressRoute para as redes virtuais.
 
-[![9]][9]
+![A arquitetura após a conexão cruzada do Expressroute ao qual](./media/cross-network-connectivity/exr-x-connect.png)
 
 A tabela a seguir mostra a tabela de rotas do emparelhamento privado do ExpressRoute da Contoso Ltd., depois de conectar as redes virtuais às redes locais por meio do ExpressRoute. Veja que a tabela de rotas tem rotas que pertencem a ambas as redes virtuais.
 
-[![10]][10]
+![Tabela de rotas do contoso ExpressRoute após a conexão cruzada ExR e VNets](./media/cross-network-connectivity/contosoexr-rt-xconnect.png)
 
 A tabela a seguir mostra a tabela de rotas do emparelhamento privado do ExpressRoute da Fabrikam Inc., depois de conectar as redes virtuais às redes locais por meio do ExpressRoute. Veja que a tabela de rotas tem rotas que pertencem a ambas as redes virtuais.
 
-[![11]][11]
+![Tabela de rotas da Fabrikam ExpressRoute após a conexão cruzada ExR e VNets](./media/cross-network-connectivity/fabrikamexr-rt-xconnect.png)
 
 A tabela a seguir mostra as rotas conhecidas para a VM de assinatura contoso. Preste atenção às entradas de *Gateway de rede virtual* da tabela. A VM vê as rotas para as redes locais.
 
-[![12]][12]
+![Rotas de VM contoso após a conexão cruzada ExR e VNets](./media/cross-network-connectivity/contosovm-routes-xconnect.png)
 
 A tabela a seguir mostra as rotas conhecidas para a VM de assinatura da Fabrikam. Preste atenção às entradas de *Gateway de rede virtual* da tabela. A VM vê as rotas para as redes locais.
 
-[![13]][13]
+![Rotas de VM da Fabrikam após a conexão cruzada ExR e VNets](./media/cross-network-connectivity/fabrikamvm-routes-xconnect.png)
 
 >[!NOTE]
 >Nas assinaturas Fabrikam e/ou contoso, você também pode ter o spoke VNets na VNet do Hub respectivo (um design de Hub e spoke não é ilustrado nos diagramas de arquitetura neste artigo). As conexões cruzadas entre os gateways de VNet de Hub para o ExpressRoute também permitirão a comunicação entre hubs leste e oeste e spokes.
@@ -102,39 +102,21 @@ O ExpressRoute Alcance Global fornece conectividade entre redes locais que estã
 
 A imagem a seguir mostra a arquitetura de rede depois de configurar Alcance Global.
 
-[![140]][14]
+![A arquitetura após a configuração de Alcance Global](./media/cross-network-connectivity/globalreach.png)
 
 A tabela a seguir mostra a tabela de rotas do emparelhamento privado do ExpressRoute da Contoso Ltd. depois de configurar Alcance Global. Veja que a tabela de rotas tem rotas que pertencem a ambas as redes locais. 
 
-[![15]][15]
+![Tabela de rotas do contoso ExpressRoute após Alcance Global](./media/cross-network-connectivity/contosoexr-rt-gr.png)
 
 A tabela a seguir mostra a tabela de rotas do emparelhamento privado do ExpressRoute da Fabrikam Inc., depois de configurar Alcance Global. Veja que a tabela de rotas tem rotas que pertencem a ambas as redes locais.
 
-[![16]][16]
+![Tabela de rotas da Fabrikam ExpressRoute após Alcance Global]( ./media/cross-network-connectivity/fabrikamexr-rt-gr.png )
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Consulte [perguntas frequentes sobre rede virtual][VNet-FAQ], para obter mais perguntas sobre vnet e emparelhamento de vnet. Consulte [perguntas frequentes sobre o expressroute][ER-FAQ] para obter mais perguntas sobre o expressroute e a conectividade de rede virtual.
 
 Alcance Global é distribuído em um país/região por país/região. Para ver se Alcance Global está disponível nos países/regiões que você deseja, consulte [alcance global do ExpressRoute][Global Reach].
-
-<!--Image References-->
-[1]: ./media/cross-network-connectivity/premergerscenario.png "O cenário de aplicação"
-[2]: ./media/cross-network-connectivity/contosoexr-rt-premerger.png "tabela de rota de ExpressRoute da Contoso antes da fusão"
-[3]: ./media/cross-network-connectivity/fabrikamexr-rt-premerger.png "tabela de rotas da Fabrikam ExpressRoute antes da fusão"
-[4]: ./media/cross-network-connectivity/contosovm-routes-premerger.png "rotas de VM contoso antes da fusão"
-[5]: ./media/cross-network-connectivity/fabrikamvm-routes-premerger.pngas "rotas de VM da Fabrikam antes da fusão"
-[6]: ./media/cross-network-connectivity/vnet-peering.png "a arquitetura após o emparelhamento de VNet"
-[7]: ./media/cross-network-connectivity/contosovm-routes-peering.png "rotas de VM contoso após o emparelhamento VNet"
-[8]: ./media/cross-network-connectivity/fabrikamvm-routes-peering.png "rotas de VM da Fabrikam após o emparelhamento de VNet"
-[9]: ./media/cross-network-connectivity/exr-x-connect.png "a arquitetura após a conexão cruzada do expressroute ao qual"
-[10]: ./media/cross-network-connectivity/contosoexr-rt-xconnect.png "tabela de rotas do contoso ExpressRoute após a conexão cruzada ExR e VNets"
-[11]: ./media/cross-network-connectivity/fabrikamexr-rt-xconnect.png "tabela de rotas da Fabrikam ExpressRoute após a conexão cruzada ExR e VNets"
-[12]: ./media/cross-network-connectivity/contosovm-routes-xconnect.png "rotas de VM contoso após a conexão cruzada ExR e VNets"
-[13]: ./media/cross-network-connectivity/fabrikamvm-routes-xconnect.pngas "rotas de VM da Fabrikam após a conexão cruzada ExR e VNets"
-[14]: ./media/cross-network-connectivity/globalreach.png "a arquitetura após a configuração de alcance global"
-[15]: ./media/cross-network-connectivity/contosoexr-rt-gr.png "tabela de rotas do Contoso ExpressRoute após alcance global"
-[16]: ./media/cross-network-connectivity/fabrikamexr-rt-gr.png "tabela de rotas do Fabrikam ExpressRoute após alcance global"
 
 <!--Link References-->
 [Virtual network peering]: https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/24/2020
 ms.reviewer: sngun
-ms.openlocfilehash: b3874bbe7a5830b0a80b658ac32952fe8985c1c3
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 257d7a2e374867f6ff14aeaa633d95521b7ca39e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82161683"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85114751"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Trabalhar com bancos de dados, contêineres e itens no Azure Cosmos DB
 
@@ -20,7 +20,7 @@ Depois de criar uma [conta de Azure Cosmos DB](account-overview.md) em sua assin
 
 A imagem a seguir mostra a hierarquia de entidades diferentes em uma conta de Azure Cosmos DB:
 
-![Entidades de conta do Azure Cosmos](./media/databases-containers-items/cosmos-entities.png)
+:::image type="content" source="./media/databases-containers-items/cosmos-entities.png" alt-text="Entidades de conta do Azure Cosmos" border="false":::
 
 ## <a name="azure-cosmos-databases"></a>Bancos de dados do Azure Cosmos
 
@@ -77,7 +77,7 @@ Um contêiner Cosmos do Azure é especializado em entidades específicas de API,
 |Contêiner do Azure Cosmos | Contêiner | Tabela | Coleção | Grafo | Tabela |
 
 > [!NOTE]
-> Ao criar contêineres, certifique-se de não criar dois contêineres com o mesmo nome, mas com maiúsculas e minúsculas diferentes. Isso porque algumas partes da plataforma Azure não diferenciam maiúsculas de minúsculas e isso pode resultar em confusão/colisão de telemetria e ações em contêineres com tais nomes.
+> Ao criar contêineres, não crie dois contêineres com o mesmo nome, mas com maiúsculas e minúsculas diferentes. Isso porque algumas partes da plataforma Azure não diferenciam maiúsculas de minúsculas, o que pode resultar em confusão/colisão de telemetria e ações em contêineres com tais nomes.
 
 ### <a name="properties-of-an-azure-cosmos-container"></a>Propriedades de um contêiner do Azure Cosmos
 
@@ -87,7 +87,7 @@ Um contêiner Cosmos do Azure tem um conjunto de propriedades definidas pelo sis
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |\_eliminá | Gerado pelo sistema | Identificador exclusivo do contêiner | Sim | Não | Não | Não | Não |
 |\_ETag | Gerado pelo sistema | Marca da entidade usada para controle de simultaneidade otimista | Sim | Não | Não | Não | Não |
-|\_ts | Gerado pelo sistema | Último carimbo de data/hora atualizado do contêiner | Sim | Não | Não | Não | Não |
+|\_CALs | Gerado pelo sistema | Último carimbo de data/hora atualizado do contêiner | Sim | Não | Não | Não | Não |
 |\_auto-restauração | Gerado pelo sistema | URI endereçável do contêiner | Sim | Não | Não | Não | Não |
 |id | Configurável pelo usuário | Nome exclusivo do contêiner definido pelo usuário | Sim | Sim | Sim | Sim | Sim |
 |indexingPolicy | Configurável pelo usuário | Fornece a capacidade de alterar o caminho do índice, o tipo de índice e o modo de índice | Sim | Não | Não | Não | Sim |
@@ -109,7 +109,7 @@ Um contêiner Cosmos do Azure dá suporte às seguintes operações quando você
 
 ## <a name="azure-cosmos-items"></a>Itens do Azure Cosmos
 
-Dependendo de qual API você usa, um item Cosmos do Azure pode representar um documento em uma coleção, uma linha em uma tabela ou um nó ou borda em um grafo. A tabela a seguir mostra o mapeamento de entidades específicas de API para um item Cosmos do Azure:
+Dependendo da API que você usa, um item do Azure Cosmos pode representar um documento em uma coleção, uma linha em uma tabela ou um nó ou borda em um grafo. A tabela a seguir mostra o mapeamento de entidades específicas de API para um item Cosmos do Azure:
 
 | Entidade do Cosmos | API do SQL | API Cassandra | API do Azure Cosmos DB para MongoDB | API do Gremlin | API de Tabela |
 | --- | --- | --- | --- | --- | --- |
@@ -123,13 +123,13 @@ Cada item Cosmos do Azure tem as seguintes propriedades definidas pelo sistema. 
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |\_eliminá | Gerado pelo sistema | Identificador exclusivo do item | Sim | Não | Não | Não | Não |
 |\_ETag | Gerado pelo sistema | Marca da entidade usada para controle de simultaneidade otimista | Sim | Não | Não | Não | Não |
-|\_ts | Gerado pelo sistema | Carimbo de data/hora da última atualização do item | Sim | Não | Não | Não | Não |
+|\_CALs | Gerado pelo sistema | Carimbo de data/hora da última atualização do item | Sim | Não | Não | Não | Não |
 |\_auto-restauração | Gerado pelo sistema | URI endereçável do item | Sim | Não | Não | Não | Não |
 |id | Você pode usar o | Nome exclusivo definido pelo usuário em uma partição lógica. | Sim | Sim | Sim | Sim | Sim |
 |Propriedades arbitrárias definidas pelo usuário | Definido pelo usuário | Propriedades definidas pelo usuário representadas na representação nativa da API (incluindo JSON, BSON e CQL) | Sim | Sim | Sim | Sim | Sim |
 
 > [!NOTE]
-> A `id` exclusividade da propriedade é imposta somente dentro de cada partição lógica. Vários documentos podem ter a mesma `id` Propriedade com valores de chave de partição diferentes.
+> A exclusividade da `id` propriedade é imposta somente dentro de cada partição lógica. Vários documentos podem ter a mesma `id` propriedade com valores de chave de partição diferentes.
 
 ### <a name="operations-on-items"></a>Operações em itens
 

@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: a2c57ca6a1f7eb50c277543e9fbe27a13f839bac
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 03402828720272851f9b74000d5bcb79405885a5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648806"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85117218"
 ---
 # <a name="azure-functions-networking-options"></a>Opções de rede do Azure Functions
 
@@ -28,13 +28,7 @@ Você pode hospedar aplicativos de funções de duas maneiras:
 
 ## <a name="matrix-of-networking-features"></a>Matriz de recursos de rede
 
-|                |[Plano de Consumo](functions-scale.md#consumption-plan)|[Plano Premium](functions-scale.md#premium-plan)|[Plano do Serviço de Aplicativo](functions-scale.md#app-service-plan)|[Ambiente do Serviço de Aplicativo](../app-service/environment/intro.md)|
-|----------------|-----------|----------------|---------|-----------------------|  
-|[Restrições de IP de entrada e acesso ao site privado](#inbound-ip-restrictions)|✅Sim|✅Sim|✅Sim|✅Sim|
-|[Integração de rede virtual](#virtual-network-integration)|❌Não|✅Sim (Regional)|✅Sim (regional e gateway)|✅Sim|
-|[Gatilhos de rede virtual (não HTTP)](#virtual-network-triggers-non-http)|❌Não| ✅Sim |✅Sim|✅Sim|
-|[Conexões híbridas](#hybrid-connections) (somente Windows)|❌Não|✅Sim|✅Sim|✅Sim|
-|[Restrições de IP de saída](#outbound-ip-restrictions)|❌Não| ✅Sim|✅Sim|✅Sim|
+[!INCLUDE [functions-networking-features](../../includes/functions-networking-features.md)]
 
 ## <a name="inbound-ip-restrictions"></a>Restrições de IP de entrada
 
@@ -139,6 +133,12 @@ Para saber mais, confira a [Documentação do Serviço de Aplicativo para Conex�
 As restrições de IP de saída estão disponíveis em um plano Premium, plano do Serviço de Aplicativo ou Ambiente do Serviço de Aplicativo. Você pode configurar as restrições de saída para a rede virtual em que seu Ambiente do Serviço de Aplicativo está implantado.
 
 Quando você integra um aplicativo de funções em um plano Premium ou plano do Serviço de Aplicativo com uma rede virtual, o aplicativo ainda pode fazer chamadas de saída para a Internet por padrão. Ao adicionar a configuração de aplicativo `WEBSITE_VNET_ROUTE_ALL=1`, você força todo o tráfego de saída a ser enviado para sua rede virtual, em que as regras do grupo de segurança de rede podem ser usadas para restringir o tráfego.
+
+## <a name="automation"></a>Automação
+As APIs a seguir permitem gerenciar programaticamente integrações de rede virtual regional:
+
++ **CLI do Azure**: Use os [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) comandos para adicionar, listar ou remover uma integração de rede virtual regional.  
++ **Modelos de ARM**: a integração de rede virtual regional pode ser habilitada usando um modelo de Azure Resource Manager. Para obter um exemplo completo, consulte [este modelo de início rápido do Functions](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/).
 
 ## <a name="troubleshooting"></a>Solução de problemas
 

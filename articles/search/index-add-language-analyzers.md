@@ -1,38 +1,44 @@
 ---
 title: Adicionar analisadores de idioma a campos de cadeia de caracteres
 titleSuffix: Azure Cognitive Search
-description: Análise de texto léxico multilíngue para consultas e índices que não estão em inglês no Azure Pesquisa Cognitiva.
+description: Análise lexical multilíngue para consultas e índices que não estão em inglês no Azure Pesquisa Cognitiva.
+author: HeidiSteen
 manager: nitinme
-author: Yahnoosh
-ms.author: jlembicz
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/10/2019
-translation.priority.mt:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pt-br
-- ru-ru
-- zh-cn
-- zh-tw
-ms.openlocfilehash: a97bee27b74aa211b4d4d56547726555edefa87a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/05/2020
+ms.openlocfilehash: 8f0909ee1cdce1e6180b91a30b2e9b281098c826
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79283141"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85130544"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Adicionar analisadores de idioma a campos de cadeia de caracteres em um índice de Pesquisa Cognitiva do Azure
 
-Um *analisador de idioma* é um tipo específico de [analisador de texto](search-analyzers.md) que executa a análise léxica usando as regras linguísticas do idioma de destino. Cada campo pesquisável tem uma propriedade **analyzer**. Se o índice contém cadeias de caracteres traduzidas, tais como campos separados para texto em inglês e em chinês, você pode especificar analisadores de idioma em cada campo para acessar funcionalidades linguísticas avançados desses analisadores.  
+Um *analisador de idioma* é um tipo específico de [analisador de texto](search-analyzers.md) que executa a análise léxica usando as regras linguísticas do idioma de destino. Cada campo pesquisável tem uma propriedade **analyzer**. Se o conteúdo consistir em cadeias de caracteres traduzidas, como campos separados para texto em inglês e chinês, você poderá especificar analisadores de idioma em cada campo para acessar os recursos lingüísticos avançados desses analisadores.
 
-O Azure Pesquisa Cognitiva dá suporte a analisadores 35 apoiados por Lucene e 50 analisadores apoiados por tecnologia proprietária de processamento de linguagem natural da Microsoft usada no Office e no Bing.
+## <a name="when-to-use-a-language-analyzer"></a>Quando usar um analisador de linguagem
 
-## <a name="comparing-analyzers"></a>Comparar analisadores
+Você deve considerar um analisador de linguagem quando o reconhecimento da estrutura de palavras ou sentenças agrega valor à análise de texto. Um exemplo comum é a associação de formas de verbo irregulares ("trazer" e "trazido) ou substantivos do plural (" mouse "e" mouse "). Sem conscientização lingüística, essas cadeias de caracteres são analisadas apenas em características físicas, o que não captura a conexão. Como grandes partes de texto têm maior probabilidade de ter esse conteúdo, os campos que consistem em descrições, revisões ou resumos são bons candidatos a um analisador de linguagem.
+
+Você também deve considerar analisadores de linguagem quando o conteúdo consiste em cadeias de caracteres que não são do idioma ocidental. Embora o [analisador padrão](search-analyzers.md#default-analyzer) seja independente de linguagem, o conceito de usar espaços e caracteres especiais (hifens e barras) para separar cadeias de caractere é mais aplicável a idiomas ocidentais do que aqueles não ocidentais. 
+
+Por exemplo, em chinês, japonês, coreano (CJK) e em outros idiomas asiáticos, um espaço não é necessariamente um delimitador de palavras. Considere a seguinte cadeia de caracteres japonesas. Como ele não tem espaços, um analisador independente de linguagem provavelmente Analisaria toda a cadeia de caracteres como um token, quando, na verdade, a cadeia de caracteres é realmente uma frase.
+
+```
+これは私たちの銀河系の中ではもっとも重く明るいクラスの球状星団です。
+(This is the heaviest and brightest group of spherical stars in our galaxy.)
+```
+
+Para o exemplo acima, uma consulta bem-sucedida teria que incluir o token completo ou um token parcial usando um curinga de sufixo, resultando em uma experiência de pesquisa innatural e em limitação.
+
+Uma melhor experiência é Pesquisar por palavras individuais: 明るい (brilhante), 私たちの (nossa), 銀河系 (Galaxy). O uso de um dos analisadores japoneses disponíveis em Pesquisa Cognitiva é mais provável de desbloquear esse comportamento porque esses analisadores estão mais bem equipados na divisão da parte do texto em palavras significativas no idioma de destino.
+
+## <a name="comparing-lucene-and-microsoft-analyzers"></a>Comparando o Lucene e os analisadores da Microsoft
+
+O Azure Pesquisa Cognitiva dá suporte a analisadores de linguagem 35 apoiados por Lucene e 50 analisadores de linguagem apoiados por tecnologia proprietária de processamento de linguagem natural da Microsoft usada no Office e no Bing.
 
 Alguns desenvolvedores talvez prefiram a solução mais familiar, simples e aberta da Lucene. Os analisadores de idioma da Lucene são mais rápidos, mas os analisadores da Microsoft têm recursos avançados, como derivação, decomposição de palavras (em idiomas como alemão, dinamarquês, holandês, sueco, norueguês, estoniano, finlandês, húngaro, eslovaco) e reconhecimento de entidade (URLs, emails, datas, números). Se possível, você deve executar comparações entre os analisadores da Microsoft e da Lucene para decidir qual é a melhor opção. 
 
@@ -123,7 +129,7 @@ Para obter mais informações sobre propriedades de índice, consulte [criar ín
 
  Todos os analisadores com nomes anotados com **Lucene** são da plataforma de [analisadores de idioma do Apache Lucene](https://lucene.apache.org/core/6_6_1/core/overview-summary.html ).
 
-## <a name="see-also"></a>Confira também  
+## <a name="see-also"></a>Consulte também  
 
 + [Criar índice &#40;API REST do Azure Pesquisa Cognitiva&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  
 

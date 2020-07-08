@@ -3,12 +3,12 @@ title: Solucionar problemas de backup de compartilhamento de arquivos do Azure
 description: Este artigo tem informações sobre a solução de problemas que ocorrem ao proteger seus compartilhamentos de arquivos no Azure.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: a9b3514b4c1a00cc2f9bb1e1922975bf0bb70d24
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 15cea28ee6c6a969b56e34242e2631b0aa760331
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562076"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85130391"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Solucionar problemas ao fazer backup de compartilhamentos de arquivos do Azure
 
@@ -25,6 +25,7 @@ Este artigo fornece informações de solução de problemas para resolver os pro
   >Todos os compartilhamentos de arquivos em uma conta de armazenamento podem ser protegidos somente em um cofre dos Serviços de Recuperação. Você pode usar [esse script](scripts/backup-powershell-script-find-recovery-services-vault.md) para localizar o cofre dos serviços de recuperação em que sua conta de armazenamento está registrada.
 
 - Verifique se o compartilhamento de arquivos não está presente em nenhuma das contas de armazenamento sem suporte. Você pode consultar a [matriz de suporte para o backup do compartilhamento de arquivos do Azure](azure-file-share-support-matrix.md) para localizar as contas de armazenamento com suporte.
+- Verifique se o comprimento combinado do nome da conta de armazenamento e do nome do grupo de recursos não excede 84 caracteres no caso de novas contas de armazenamento e 77 caracteres no caso de contas de armazenamento clássicas. 
 - Verifique as configurações de firewall da conta de armazenamento para garantir que a opção de permitir que os serviços confiáveis da Microsoft acessem a conta de armazenamento esteja habilitada.
 
 ### <a name="error-in-portal-states-discovery-of-storage-accounts-failed"></a>Erro no portal declara que a descoberta de contas de armazenamento falhou
@@ -50,7 +51,7 @@ Repita o registro. Se o problema persistir, contate o Suporte.
 
 ### <a name="unable-to-delete-the-recovery-services-vault-after-unprotecting-a-file-share"></a>Não é possível excluir o cofre dos serviços de recuperação após desproteger um compartilhamento de arquivos
 
-Na portal do Azure, abra seu **cofre** > **infraestrutura** > de backup**contas de armazenamento** e clique em **Cancelar registro** para remover as contas de armazenamento do cofre dos serviços de recuperação.
+Na portal do Azure, abra seu **cofre**  >  **infraestrutura de backup**  >  **contas de armazenamento** e clique em **Cancelar registro** para remover as contas de armazenamento do cofre dos serviços de recuperação.
 
 >[!NOTE]
 >Um cofre dos serviços de recuperação só pode ser excluído após o cancelamento do registro de todas as contas de armazenamento registradas no cofre.
@@ -276,6 +277,45 @@ Código de erro: BMSUserErrorObjectLocked
 Mensagem de erro: outra operação está em andamento no item selecionado.
 
 Aguarde a conclusão da outra operação em andamento e tente novamente mais tarde.
+
+Do arquivo: troubleshoot-azure-files.md
+
+## <a name="common-soft-delete-related-errors"></a>Erros relacionados à exclusão reversível comum
+
+### <a name="usererrorrestoreafsinsoftdeletestate--this-restore-point-is-not-available-as-the-snapshot-associated-with-this-point-is-in-a-file-share-that-is-in-soft-deleted-state"></a>UserErrorRestoreAFSInSoftDeleteState-este ponto de restauração não está disponível porque o instantâneo associado a esse ponto está em um compartilhamento de arquivos que está no estado de exclusão reversível
+
+Código de erro: UserErrorRestoreAFSInSoftDeleteState
+
+Mensagem de erro: esse ponto de restauração não está disponível, pois o instantâneo associado a esse ponto está em um compartilhamento de arquivo que está em estado de exclusão reversível.
+
+Não é possível executar uma operação de restauração quando o compartilhamento de arquivos está no estado de exclusão reversível. Desexclua o compartilhamento de arquivos do portal do arquivo ou use o [script undelete](scripts/backup-powershell-script-undelete-file-share.md) e tente restaurar.
+
+### <a name="usererrorrestoreafsindeletestate--listed-restore-points-are-not-available-as-the-associated-file-share-containing-the-restore-point-snapshots-has-been-deleted-permanently"></a>UserErrorRestoreAFSInDeleteState-os pontos de restauração listados não estão disponíveis, pois o compartilhamento de arquivos associado que contém os instantâneos do ponto de restauração foi excluído permanentemente
+
+Código de erro: UserErrorRestoreAFSInDeleteState
+
+Mensagem de erro: os pontos de restauração listados não estão disponíveis, pois o compartilhamento de arquivos associado que contém os instantâneos do ponto de restauração foi excluído permanentemente.
+
+Verifique se o compartilhamento de arquivos com backup foi excluído. Se ele estava em um estado de exclusão reversível, verifique se o período de retenção de exclusão flexível está acima e se não foi recuperado novamente. Em qualquer um desses casos, você perderá todos os instantâneos permanentemente e não poderá recuperar os dados.
+
+>[!NOTE]
+> Recomendamos que você não exclua o compartilhamento de arquivos de backup ou, se ele estiver no estado de exclusão reversível, não exclua antes de o período de retenção de exclusão reversível terminar, para evitar perder todos os pontos de restauração.
+
+### <a name="usererrorbackupafsinsoftdeletestate---backup-failed-as-the-azure-file-share-is-in-soft-deleted-state"></a>UserErrorBackupAFSInSoftDeleteState-backup falhou porque o compartilhamento de arquivos do Azure está em estado de exclusão reversível
+
+Código de erro: UserErrorBackupAFSInSoftDeleteState
+
+Mensagem de erro: falha de backup porque o compartilhamento de arquivos do Azure está em estado de exclusão reversível
+
+Restaurar o compartilhamento de arquivos do **portal de arquivos** ou usar o [script de reexclusão](scripts/backup-powershell-script-undelete-file-share.md) para continuar o backup e impedir a exclusão permanente de dados.
+
+### <a name="usererrorbackupafsindeletestate--backup-failed-as-the-associated-azure-file-share-is-permanently-deleted"></a>UserErrorBackupAFSInDeleteState-backup falhou porque o compartilhamento de arquivos do Azure associado é excluído permanentemente
+
+Código de erro: UserErrorBackupAFSInDeleteState
+
+Mensagem de erro: falha de backup porque o compartilhamento de arquivos do Azure associado é excluído permanentemente
+
+Verifique se o compartilhamento de arquivos com backup é excluído permanentemente. Em caso afirmativo, pare o backup do compartilhamento de arquivos para evitar falhas de backup repetidas. Para saber como interromper a proteção, consulte [interromper a proteção para o compartilhamento de arquivos do Azure](https://docs.microsoft.com/azure/backup/manage-afs-backup#stop-protection-on-a-file-share)
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/18/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 16e8f770445218e10ab7e7645a81325d11be55da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ea1fec022227aba1be09e988b5802f0c1ecd4e8e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77505958"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85118926"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Otimizar o custo com a capacidade reservada no Azure Cosmos DB
 
@@ -36,7 +36,7 @@ Calculamos as recomendações de compra com base em seu padrão de uso por hora.
 
 1. Entre no [portal do Azure](https://portal.azure.com).  
 
-2. Selecione **todos os serviços** > **reservas** > **Adicionar**.
+2. Selecione **todos os serviços**  >  **reservas**  >  **Adicionar**.
 
 3. No painel **reservas de compra** , escolha **Azure Cosmos DB**.
 
@@ -52,7 +52,7 @@ Além disso, você pode fazer o escopo de recomendações para estar dentro de u
 
 Aqui está um exemplo de recomendação:
 
-![Recomendações de capacidade reservada](./media/cosmos-db-reserved-capacity/reserved-capacity-recommendation.png)
+:::image type="content" source="./media/cosmos-db-reserved-capacity/reserved-capacity-recommendation.png" alt-text="Recomendações de capacidade reservada":::
 
 Essa recomendação para comprar uma reserva de 30.000 RU/s indica que, entre as reservas de 3 anos, um tamanho de reserva de 30.000 RU/s aumentará a economia. Nesse caso, a recomendação é calculada com base nos últimos 30 dias de uso de Azure Cosmos DB. Se esse cliente esperar que os últimos 30 dias de uso do Azure Cosmos DB sejam representativos de uso futuro, eles maximizarão a economia adquirindo uma reserva de 30.000 RU/s.
 
@@ -60,13 +60,13 @@ Essa recomendação para comprar uma reserva de 30.000 RU/s indica que, entre as
 
 1. Entre no [portal do Azure](https://portal.azure.com).  
 
-2. Selecione **todos os serviços** > **reservas** > **Adicionar**.  
+2. Selecione **todos os serviços**  >  **reservas**  >  **Adicionar**.  
 
 3. No painel **reservas de compra** , escolha **Azure Cosmos DB** para comprar uma nova reserva.  
 
 4. Preencha os campos obrigatórios conforme descrito na tabela a seguir:
 
-   ![Preencher o formulário de capacidade reservada](./media/cosmos-db-reserved-capacity/fill-reserved-capacity-form.png)
+   :::image type="content" source="./media/cosmos-db-reserved-capacity/fill-reserved-capacity-form.png" alt-text="Preencher o formulário de capacidade reservada":::
 
    |Campo  |Descrição  |
    |---------|---------|
@@ -82,7 +82,7 @@ Essa recomendação para comprar uma reserva de 30.000 RU/s indica que, entre as
 
 6. No painel **reservas de compra** , examine o desconto e o preço da reserva. Esse preço de reserva se aplica aos recursos do Azure Cosmos DB com a taxa de transferência provisionada entre todas as regiões.  
 
-   ![Resumo da capacidade reservada](./media/cosmos-db-reserved-capacity/reserved-capacity-summary.png)
+   :::image type="content" source="./media/cosmos-db-reserved-capacity/reserved-capacity-summary.png" alt-text="Resumo da capacidade reservada":::
 
 7. Selecione **revisar + comprar** e **comprar agora**. Quando a compra for bem-sucedida, você verá a seguinte página:
 
@@ -92,7 +92,7 @@ Quando sua reserva expirar, as instâncias do Azure Cosmos DB continuarão sendo
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Cancelar, trocar ou reembolsar reservas
 
-É possível cancelar, trocar ou reembolsar reservas com determinadas limitações. Para obter mais informações, consulte [trocas e reembolsos de autoatendimento para reservas do Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
+É possível cancelar, trocar ou reembolsar reservas com determinadas limitações. Para saber mais, confira [Trocas e reembolsos via autoatendimento para Reservas do Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -110,4 +110,4 @@ O desconto da reserva é aplicado automaticamente aos recursos do Azure Cosmos D
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
-Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Caso tenha dúvidas ou precise de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

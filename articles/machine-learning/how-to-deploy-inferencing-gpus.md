@@ -5,17 +5,18 @@ description: Este artigo ensina como usar Azure Machine Learning para implantar 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
-ms.date: 03/05/2020
-ms.openlocfilehash: b0fd537d1930e7c9d5f7a33f56ec5d00b1556562
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/17/2020
+ms.custom: tracking-python
+ms.openlocfilehash: c115b641ca5c22ebe227af5349d7ef133e198b44
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78398343"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84976737"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Implantar um modelo de aprendizado profundo para inferência com GPU
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -52,7 +53,7 @@ A inferência, ou a Pontuação do modelo, é a fase em que o modelo implantado 
 Para se conectar a um espaço de trabalho existente, use o seguinte código:
 
 > [!IMPORTANT]
-> Esse trecho de código espera que a configuração do espaço de trabalho seja salva no diretório atual ou em seu pai. Para obter mais informações sobre como criar um espaço de trabalho, consulte [criar e gerenciar espaços de trabalho do Azure Machine Learning](how-to-manage-workspace.md).   Para obter mais informações sobre como salvar a configuração no arquivo, consulte [criar um arquivo de configuração de espaço de trabalho](how-to-configure-environment.md#workspace).
+> Esse snippet de código espera que a configuração do workspace seja salva no diretório atual ou no pai dele. Para obter mais informações sobre como criar um workspace, confira [Criar e gerenciar workspaces do Azure Machine Learning](how-to-manage-workspace.md).   Para obter mais informações sobre como salvar a configuração no arquivo, confira [Criar um arquivo de configuração de workspace](how-to-configure-environment.md#workspace).
 
 ```python
 from azureml.core import Workspace
@@ -135,11 +136,11 @@ def run(raw_data):
     return y_hat.tolist()
 ```
 
-Esse arquivo é nomeado `score.py`. Para obter mais informações sobre scripts de entrada, consulte [como e onde implantar](how-to-deploy-and-where.md).
+Esse arquivo é nomeado `score.py` . Para obter mais informações sobre scripts de entrada, consulte [como e onde implantar](how-to-deploy-and-where.md).
 
 ## <a name="define-the-conda-environment"></a>Definir o ambiente Conda
 
-O arquivo de ambiente Conda especifica as dependências para o serviço. Ele inclui dependências exigidas pelo modelo e pelo script de entrada. Observe que você deve indicar os padrões do azureml com a versão >= 1.0.45 como uma dependência Pip, pois ele contém a funcionalidade necessária para hospedar o modelo como um serviço Web. O YAML a seguir define o ambiente para um modelo de Tensorflow. Ele especifica `tensorflow-gpu`, que fará uso da GPU usada nesta implantação:
+O arquivo de ambiente Conda especifica as dependências para o serviço. Ele inclui dependências exigidas pelo modelo e pelo script de entrada. Observe que você deve indicar os padrões do azureml com a versão >= 1.0.45 como uma dependência Pip, pois ele contém a funcionalidade necessária para hospedar o modelo como um serviço Web. O YAML a seguir define o ambiente para um modelo de Tensorflow. Ele especifica `tensorflow-gpu` , que fará uso da GPU usada nesta implantação:
 
 ```yaml
 name: project_environment
@@ -157,7 +158,7 @@ channels:
 - conda-forge
 ```
 
-Para este exemplo, o arquivo é salvo como `myenv.yml`.
+Para este exemplo, o arquivo é salvo como `myenv.yml` .
 
 ## <a name="define-the-deployment-configuration"></a>Definir a configuração de implantação
 
@@ -212,9 +213,6 @@ aks_service = Model.deploy(ws,
 aks_service.wait_for_deployment(show_output=True)
 print(aks_service.state)
 ```
-
-> [!NOTE]
-> Se o `InferenceConfig` objeto tiver `enable_gpu=True`, o `deployment_target` parâmetro deverá fazer referência a um cluster que fornece uma GPU. Caso contrário, a implantação falhará.
 
 Para obter mais informações, consulte a documentação de referência para o [modelo](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 

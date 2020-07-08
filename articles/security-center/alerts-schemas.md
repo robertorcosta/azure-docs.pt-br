@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2020
 ms.author: memildin
-ms.openlocfilehash: 19ca17f66f6818ed4c3ef532e2030cc03f0e73ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9b8d7f241f79b087f318c9c416dcadf92838b084
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062959"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85126205"
 ---
 # <a name="security-alerts-schemas"></a>Esquemas de alertas de segurança
 
@@ -68,7 +68,7 @@ Para obter mais informações sobre o Azure Sentinel, consulte [a documentação
 
 
 
-### <a name="azure-activity-log"></a>[Log de Atividades do Azure](#tab/schema-activitylog)
+### <a name="azure-activity-log"></a>[Log de atividades do Azure](#tab/schema-activitylog)
 
 A central de segurança do Azure audita os alertas de segurança gerados como eventos no log de atividades do Azure.
 
@@ -150,7 +150,7 @@ Você pode exibir os eventos de alertas de segurança no log de atividades pesqu
 |**category**|O valor e os subcampos localizadas são constantes-"segurança"|
 |**eventTimestamp**|Carimbo de data/hora UTC para quando o alerta foi gerado|
 |**id**|A ID do alerta totalmente qualificado|
-|**geral**|Constante, "informativo"|
+|**nível**|Constante, "informativo"|
 |**operationId**|Consulte CorrelationId|
 |**operationName**|O campo valor é constante-"Microsoft. Security/Locations/Alerts/Activate/Action", e o valor localizado será "ativar alerta" (possivelmente pode ser localizado par a localidade do usuário)|
 |**resourceGroupName**|Incluirá o nome do grupo de recursos|
@@ -171,7 +171,7 @@ Você pode exibir os eventos de alertas de segurança no log de atividades pesqu
 
 ### <a name="ms-graph-api"></a>[MS API do Graph](#tab/schema-graphapi)
 
-Microsoft Graph é o gateway para dados e inteligência em Microsoft 365. Ele fornece um modelo de programação unificado que você pode usar para acessar a enorme quantidade de dados no Office 365, Windows 10 e Enterprise Mobility + Security. Use a riqueza de dados em Microsoft Graph para criar aplicativos para organizações e consumidores que interagem com milhões de usuários.
+Microsoft Graph é o gateway para dados e inteligência em Microsoft 365. Ele fornece um modelo de programação unificado que você pode usar para acessar a enorme quantidade de dados em Microsoft 365, Windows 10 e Enterprise Mobility + Security. Use a riqueza de dados em Microsoft Graph para criar aplicativos para organizações e consumidores que interagem com milhões de usuários.
 
 O esquema e uma representação JSON para alertas de segurança enviados ao MS Graph estão disponíveis na [documentação do Microsoft Graph](https://docs.microsoft.com/graph/api/resources/alert?view=graph-rest-1.0).
 

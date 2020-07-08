@@ -4,15 +4,15 @@ description: Como solicitar um aumento no limite de cota de vCPU para uma série
 author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 01/27/2020
-ms.topic: article
+ms.topic: how-to
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: de06375dad5999a29691435317e62585a2ea7f64
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e00b1cf11b906390335f257b20787d394b3a8ed4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76843694"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85117158"
 ---
 # <a name="standard-quota-increase-limits-by-vm-series"></a>Cota padrão: aumentar os limites por série de VMs
 
@@ -26,7 +26,7 @@ A cota de vCPU padrão para instâncias de máquina virtual pagas conforme o uso
 * A primeira camada é o *limite de vCPUs regional total*, em toda a série de VMs.
 * A segunda camada é o *limite de vCPUs por VM da série*, como o vCPUs da série Dv3.
 
-Sempre que você implantar uma nova VM Spot, o uso total de vCPU novo e existente para essa série de VMs não deverá exceder a cota de vCPU aprovada para essa série de VMs específica. Além disso, o número total de vCPUs novas e existentes implantadas em toda a série de VMs não deve exceder a cota de vCPU regional total aprovada para a assinatura. Se uma dessas cotas for excedida, a implantação da VM não será permitida.
+Sempre que você implantar uma nova VM Spot, o uso total de vCPU novo e existente para todas as instâncias de VM Spot não deverá exceder o limite de cota vCPU Spot aprovado. Se a cota de spot for excedida, a implantação da VM Spot não será permitida.
 
 Você pode solicitar um aumento no limite de cota de vCPU para a série de VMs usando o portal do Azure. Um aumento na cota da série de VMs aumenta automaticamente o limite de vCPU regional total pelo mesmo valor.
 
@@ -45,15 +45,15 @@ Para solicitar um aumento de cota de vCPU padrão por série de VMs de **ajuda +
 > [!NOTE]
 > Você também pode solicitar um aumento de limite de cota para várias regiões por meio de um único caso de suporte. Para obter detalhes, consulte a etapa 8.
 
-1. No menu [portal do Azure](https://portal.azure.com) , selecione **ajuda + suporte**.
+1. No menu do [Portal do Azure](https://portal.azure.com), selecione **Ajuda + suporte**.
 
-   ![O link ajuda + suporte](./media/resource-manager-core-quotas-request/help-plus-support.png)
+   ![Link de ajuda + suporte](./media/resource-manager-core-quotas-request/help-plus-support.png)
 
-1. Em **ajuda + suporte**, selecione **nova solicitação de suporte**.
+1. Em **Ajuda + suporte**, selecione **Nova solicitação de suporte**.
 
-    ![Criar uma nova solicitação de suporte](./media/resource-manager-core-quotas-request/new-support-request.png)
+    ![Criar uma solicitação de suporte](./media/resource-manager-core-quotas-request/new-support-request.png)
 
-1. Para **tipo de problema**, selecione **Limites de serviço e assinatura (cotas)**.
+1. Para **tipo de problema**, selecione **limites de serviço e de assinatura (cotas)**.
 
    ![Selecione um tipo de problema](./media/resource-manager-core-quotas-request/select-quota-issue-type.png)
 
@@ -67,7 +67,7 @@ Para solicitar um aumento de cota de vCPU padrão por série de VMs de **ajuda +
 
 1. Selecione **Avançar: soluções** para abrir **detalhes do problema**. Selecione **fornecer detalhes** para inserir informações adicionais.
 
-   ![O link "fornecer detalhes"](./media/resource-manager-core-quotas-request/provide-details-link.png)
+   ![Link "fornecer detalhes"](./media/resource-manager-core-quotas-request/provide-details-link.png)
 
 1. Nos **detalhes da cota**, execute as seguintes etapas:
 

@@ -2,13 +2,13 @@
 title: Criar arquivo de parâmetros
 description: Criar arquivo de parâmetros para passar valores durante a implantação de um modelo do Azure Resource Manager
 ms.topic: conceptual
-ms.date: 04/20/2020
-ms.openlocfilehash: a9845bbb9e14288a01fb7836db260a2baf484395
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.date: 06/19/2020
+ms.openlocfilehash: 7c03e161c7b3a18020de6a06d356720f5e4c31fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873075"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85117498"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Criar um arquivo de parâmetro do Resource Manager
 
@@ -182,12 +182,18 @@ O exemplo a seguir mostra os formatos de tipos de parâmetros diferentes.
 }
 ```
 
+## <a name="deploy-template-with-parameter-file"></a>Implantar modelo com arquivo de parâmetro
+
+Consulte:
+
+- [Implantar recursos com modelos ARM e CLI do Azure](./deploy-powershell.md#pass-parameter-values)
+- [Implantar recursos com modelos ARM e Azure PowerShell](./deploy-cli.md#parameters)
+
 ## <a name="file-name"></a>Nome do arquivo
 
 A convenção geral para nomear o arquivo de parâmetros é adicionar **.parameters** ao nome do modelo. Por exemplo, se seu modelo for nomeado **azuredeploy.json**, o arquivo de parâmetros será nomeado **azuredeploy.parameters.json**. Essa convenção de nomenclatura ajuda a ver a conexão entre o modelo e os parâmetros.
 
 Para implantar em ambientes diferentes, crie mais de um arquivo de parâmetros. Ao nomear o arquivo de parâmetros, adicione uma maneira de identificar seu uso. Por exemplo, use **azuredeploy.parameters-dev.json** e **azuredeploy.parameters-prod.json**
-
 
 ## <a name="parameter-precedence"></a>Precedência de parâmetro
 
@@ -198,6 +204,7 @@ Você pode usar parâmetros embutidos e um arquivo de parâmetro local na mesma 
 ## <a name="parameter-name-conflicts"></a>Conflitos de nome de parâmetro
 
 Se o modelo incluir um parâmetro com o mesmo nome que um dos parâmetros no comando do PowerShell, o PowerShell apresentará o parâmetro do modelo com o postfix **FromTemplate**. Por exemplo, um parâmetro chamado **ResourceGroupName** em seu modelo entra em conflito com o parâmetro **ResourceGroupName** no cmdlet [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). Você é solicitado a fornecer um valor para **ResourceGroupNameFromTemplate**. Você pode evitar essa confusão usando nomes de parâmetros que não são usados para comandos de implantação.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

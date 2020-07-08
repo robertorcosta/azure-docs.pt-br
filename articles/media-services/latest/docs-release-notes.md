@@ -11,22 +11,30 @@ ms.workload: na
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: juliako
-ms.openlocfilehash: b0f01f5f044fd096704683fe67d2068e4ab4c3f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 40a2510fcb6fd5fe51cebc702604e2d09df7b061
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81772139"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84982162"
 ---
 # <a name="azure-media-services-v3-documentation-updates"></a>Atualizações de documentação dos serviços de mídia do Azure v3
 
->Seja notificado sobre quando revisitar esta página para obter atualizações copiando e colando esta URL `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+v3+documentation+updates%22&locale=en-us` : em seu leitor de RSS feed.
+>Seja notificado sobre quando revisitar esta página para atualizações copiando e colando esta URL `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+v3+documentation+updates%22&locale=en-us` no leitor de feed de RSS.
 
 Este artigo fala sobre as atualizações mais recentes da documentação dos serviços de mídia v3.
 
+## <a name="june-2020"></a>Junho de 2020
+
+* A visualização da análise de vídeo ao vivo em IoT Edge ficou pública. Consulte os detalhes na documentação de [análise de vídeo ao vivo na IOT Edge](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/) .
+* Novos guias de início rápido:
+
+    * [Usar o portal para carregar, codificar e transmitir conteúdo](manage-assets-quickstart.md)
+    * [Usar o portal para criptografar o conteúdo](encrypt-content-quickstart.md)
+
 ## <a name="april-2020"></a>Abril de 2020
 
-* Player de Mídia do Azure docs foram migrados para a [documentação do Azure](../azure-media-player/azure-media-player-overview.md).
+* Os documentos do Player de Mídia do Azure foram migrados para a [documentação do Azure](../azure-media-player/azure-media-player-overview.md).
 * O guia de início rápido [transmissão ao vivo com Obs (Open Broadcast Studio)](live-events-obs-quickstart.md) foi adicionado. Ele mostra como criar uma transmissão ao vivo dos serviços de mídia usando o portal do Azure e OBS.
 
 ## <a name="march-2020"></a>Março de 2020

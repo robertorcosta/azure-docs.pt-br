@@ -4,19 +4,19 @@ description: Saiba como as notificações dão suporte às suas atividades de in
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: conceptual
-ms.date: 05/05/2020
+ms.topic: how-to
+ms.date: 06/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 200ede6b4c5565a8eab95b0398abaa1c056c612f
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 9090ca5b8057179b0cbef1d0a87ae563303ed2c1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82853140"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85130425"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Notificações do Azure Active Directory Identity Protection
 
@@ -31,7 +31,11 @@ Este artigo fornece uma visão geral de ambos os emails de notificação.
 
 Em resposta a uma conta detectada em risco, o Azure AD Identity Protection gera um alerta de email com **Usuários em risco detectado** como assunto. O email inclui um link para o relatório **[Usuários sinalizados por risco](../reports-monitoring/concept-user-at-risk.md)**. Como prática recomendada, você deve investigar imediatamente os usuários em risco.
 
-A configuração para esse alerta permite especificar em qual nível de risco de usuário você deseja que o alerta seja gerado. O email será gerado quando o nível de risco do usuário atingir o que você especificou; no entanto, você não receberá novos usuários em risco os alertas de email detectados para esse usuário depois que eles forem movidos para esse nível de risco do usuário. Por exemplo, se você definir a política para alertar sobre o risco de usuário médio e seu usuário João passar para risco médio, você receberá os usuários em risco o email detectado para João. No entanto, você não receberá um segundo usuário em risco detectado alerta se João passar para alto risco ou tiver detecções de risco adicionais.
+A configuração para esse alerta permite especificar em qual nível de risco de usuário você deseja que o alerta seja gerado. O email será gerado quando o nível de risco do usuário atingir o que você especificou. Por exemplo, se você definir a política para alertar sobre o risco de usuário médio e a pontuação de risco de usuário de João do usuário passar para o risco médio devido a um risco de entrada em tempo real, você receberá os usuários em risco de email detectado. Se o usuário tiver as detecções de risco subsequentes que fazem com que o cálculo do nível de risco do usuário seja o nível de risco especificado (ou superior), você receberá emails de risco detectados pelo usuário quando a pontuação de risco do usuário for recalculada. Por exemplo, se um usuário passar para o risco médio em 1º de Janeiro, você receberá uma notificação por email se suas configurações estiverem definidas para alertar sobre o risco médio. Se esse mesmo usuário tiver outra detecção de risco em 5 de Janeiro, que também é de risco médio, e a pontuação de risco do usuário for recalculada e ainda for média, você receberá outra notificação por email. 
+
+No entanto, uma notificação de email adicional só será enviada se a hora em que a detecção de risco ocorreu (que causou a alteração no nível de risco do usuário) for mais recente do que quando o último email foi enviado. Por exemplo, uma entrada de usuário em 1º de janeiro às 17:00 e não há risco em tempo real (o que significa que nenhum email seria gerado devido a essa entrada). Dez minutos depois, às 5:10 A.M., o mesmo usuário entra novamente e tem alto risco em tempo real, fazendo com que o nível de risco do usuário seja movido para alto e um email a ser enviado. Em seguida, às 5:15 A.M., a pontuação de risco offline para a entrada original às 17:00 muda para alto risco devido ao processamento de risco offline. Um usuário adicional sinalizado para o email de risco não seria enviado, pois a hora da primeira entrada era anterior à segunda entrada que já disparou uma notificação por email.
+
+Para evitar uma sobrecarga de emails, você receberá apenas um usuário em risco o email detectado em um período de 5 segundos. Isso significa que, se vários usuários mudarem para o nível de risco especificado durante o mesmo período de 5 segundos, agregaremos e enviaremos um email para representar a alteração no nível de risco para todos eles.
 
 ![Email de usuários em risco detectado](./media/howto-identity-protection-configure-notifications/01.png)
 
@@ -43,12 +47,12 @@ Como administrador, você pode definir:
 - **Os destinatários deste email** -Por padrão, os destinatários incluem todos os administradores globais. Os administradores globais também podem adicionar outros administradores globais, administradores de segurança, leitores de segurança como destinatários.
    - Opcionalmente, você pode **Adicionar emails adicionais para receber notificações de alerta** esse recurso é uma visualização e os usuários definidos devem ter as permissões apropriadas para exibir os relatórios vinculados no portal do Azure.
 
-Configure os usuários em risco email no **portal do Azure** em **Azure Active Directory** > **segurança** > **identidade** > do Security**usuários em risco detectado alertas**.
+Configure os usuários em risco email no **portal do Azure** em **Azure Active Directory**  >  **segurança**  >  **identidade**do Security  >  **usuários em risco detectado alertas**.
 
 ## <a name="weekly-digest-email"></a>Email de resumo semanal
 
 O email de resumo semanal contém um resumo das novas detecções de risco.  
- Ele inclui:
+Ele inclui:
 
 - Novos usuários arriscados detectados
 - Novas entradas arriscadas detectadas (em tempo real)
@@ -62,8 +66,8 @@ Por padrão, os destinatários incluem todos os administradores globais. Os admi
 
 Como administrador, você pode alternar o envio de um email de resumo semanal ou desativá-lo e escolher os usuários atribuídos para receber o email.
 
-Configure o email de resumo semanal no **portal do Azure** em **Azure Active Directory** > **segurança identidade do Security** > **Protection** > **semanalmente Resumo**.
+Configure o email de resumo semanal no **portal do Azure** em **Azure Active Directory**  >  **segurança identidade do Security**  >  **Protection**  >  **semanalmente Resumo**.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 - [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)

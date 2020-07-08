@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2020
 ms.author: terrylan
-ms.openlocfilehash: c5bf62f434b2095f7200b5562c38c252a0195c5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1b6fcf38f9f69976e6ed8d64040cfbcf44f090e1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79243491"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85124044"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Melhores práticas de segurança de dados e criptografia do Azure
 Este artigo descreve as práticas recomendadas para segurança e criptografia de dados.
@@ -119,9 +119,9 @@ As organizações que não protegem dados em trânsito são mais suscetíveis a 
 
 Você deseja controlar e proteger o e-mail, documentos e dados confidenciais que você compartilha fora da sua empresa. [O Azure Information Protection](/azure/information-protection/) é uma solução baseada em nuvem que ajuda uma organização a classificar, rotular e proteger seus documentos e e-mails. Isso pode ser feito automaticamente por administradores que definem regras e condições, manualmente pelos usuários ou uma combinação de onde os usuários obtém recomendações.
 
-A classificação fica identificável o tempo todo, independentemente do local em que os dados são armazenados ou com quem eles são compartilhados. Os rótulos incluem marcas visuais como um cabeçalho, rodapé ou marca d'água. Os metadados são adicionados aos arquivos e cabeçalhos de e-mail em texto não criptografado. O texto não criptografado garante que outros serviços, como soluções para evitar a perda de dados, podem identificar a classificação e tomar as devidas providências.
+A classificação fica identificável o tempo todo, independentemente do local em que os dados são armazenados ou com quem eles são compartilhados. Os rótulos incluem marcas visuais como um cabeçalho, rodapé ou marca d'água. Metadados são adicionados a arquivos e cabeçalhos de email em texto não criptografado. O texto não criptografado garante que outros serviços, como soluções para evitar a perda de dados, podem identificar a classificação e tomar as devidas providências.
 
-A tecnologia de proteção usa o Microsoft Azure AD Rights Management (Azure RMS). Essa tecnologia está integrada com outros serviços de nuvem da Microsoft e aplicativos, como o Office 365 e Azure Active Directory. Essa tecnologia de proteção usa criptografia, identidade e políticas de autorização. A proteção aplicada por meio do Azure RMS permanece com os documentos e e-mails, independentemente da localização — dentro ou fora de sua organização, redes, servidores de arquivos e aplicativos.
+A tecnologia de proteção usa o Microsoft Azure AD Rights Management (Azure RMS). Essa tecnologia é integrada a outros serviços e aplicativos de nuvem da Microsoft, como Microsoft 365 e Azure Active Directory. Essa tecnologia de proteção usa políticas de criptografia, identidade e autorização. A proteção aplicada por meio do Azure RMS permanece com os documentos e e-mails, independentemente da localização — dentro ou fora de sua organização, redes, servidores de arquivos e aplicativos.
 
 Essa solução de proteção de informações mantém você no controle de seus dados, mesmo quando for compartilhado com outras pessoas. Você também pode usar o Azure RMS com seus próprios aplicativos de linha de negócios e soluções de proteção de informações de fornecedores de software, se esses aplicativos e soluções estiverem no local ou na nuvem.
 

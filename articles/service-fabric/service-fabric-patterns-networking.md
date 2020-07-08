@@ -3,12 +3,12 @@ title: Padrões de rede para o Azure Service Fabric
 description: Descreve os padrões de rede comuns do Service Fabric e como criar um cluster usando os recursos de rede do Azure.
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 065c311fffe409b20e02a3fddf1e9e7e6a82a2a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b9114be5498bcb7fdec4e105ad6e3ff9fcc03a7c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75466279"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85106627"
 ---
 # <a name="service-fabric-networking-patterns"></a>Padrões de rede do Service Fabric
 Você pode integrar seu cluster do Azure Service Fabric a outros recursos de rede do Azure. Neste artigo, mostramos como criar clusters que usam os seguintes recursos:
@@ -34,7 +34,7 @@ Se a porta 19080 não estiver acessível no provedor de recursos do Service Fabr
 Todos os modelos do Service Fabric estão em [GitHub](https://github.com/Azure/service-fabric-scripts-and-templates/tree/master/templates/networking). Você deverá conseguir implantar os modelos no estado em que se encontram usando os comandos do PowerShell a seguir. Se você estiver implantando o modelo de rede Virtual do Azure existente ou o modelo de IP público estático, leia primeiro a seção [Instalação inicial](#initialsetup) deste artigo.
 
 <a id="initialsetup"></a>
-## <a name="initial-setup"></a>Configuração inicial
+## <a name="initial-setup"></a>Instalação inicial
 
 ### <a name="existing-virtual-network"></a>Rede virtual existente
 
@@ -171,7 +171,7 @@ Nos exemplos neste artigo, usamos o template.json do Service Fabric. Você pode 
     C:>\Users\users>ping NOde1000000 -n 1
     ```
 
-Para obter outro exemplo, consulte [um que não seja específico para o Service Fabric](https://github.com/gbowerman/azure-myriad/tree/master/existing-vnet).
+Para obter outro exemplo, consulte [um que não seja específico para o Service Fabric](https://github.com/gbowerman/azure-myriad/tree/main/existing-vnet).
 
 
 <a id="staticpublicip"></a>

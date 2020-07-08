@@ -3,12 +3,12 @@ title: Introdução ao Azure Advisor
 description: Introdução ao Azure Advisor.
 ms.topic: article
 ms.date: 02/01/2019
-ms.openlocfilehash: 8c2699030b1a6d428ddc2a4db40a66003824cf10
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e91049077502a6c0eedf0a4f979c073690c214da
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259624"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85117855"
 ---
 # <a name="get-started-with-azure-advisor"></a>Introdução ao Azure Advisor
 
@@ -27,7 +27,7 @@ Saiba como acessar o Assistente por meio do Portal do Azure e obter e implementa
 
 1. O painel Assistente exibirá um resumo das suas recomendações para todas as assinaturas selecionadas.  Você pode escolher as assinaturas para as quais você deseja que as recomendações sejam exibidas usando a lista suspensa de filtro de assinatura.
 
-1. Para obter recomendações para uma categoria específica, clique em uma das guias: **Alta Disponibilidade**, **Segurança**, **Desempenho** ou **Custo**. 
+1. Para obter recomendações para uma categoria específica, clique em uma das guias: **confiabilidade**, **segurança**, **desempenho**ou **custo**. 
 
    ![Painel do Azure Advisor](./media/advisor-overview/advisor-dashboard.png)
 
@@ -124,7 +124,8 @@ A opção de download respeita eventuais filtros que você tenha aplicado no pai
 Para saber mais sobre o Assistente, consulte:
 
 - [Introdução ao Azure Advisor](advisor-overview.md)
-- [Recomendações de alta disponibilidade do Advisor](advisor-high-availability-recommendations.md)
+- [Recomendações de confiabilidade do Advisor](advisor-high-availability-recommendations.md)
 - [Recomendações de segurança do Advisor](advisor-security-recommendations.md)
 - [Recomendações de desempenho do Advisor](advisor-performance-recommendations.md)
-- [Recomendações de custo do Advisor](advisor-performance-recommendations.md)
+- [Recomendações de custo do Advisor](advisor-cost-recommendations.md)
+- [Recomendações de excelência operacional do Advisor](advisor-operational-excellence-recommendations.md)

@@ -4,21 +4,21 @@ description: Este artigo fornece instruções sobre como dimensionar seus pods d
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 1169ed0e9a2b970ee0e30d73ea20c87001b62786
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5e0533a44db269229b2f26fa8d2f2b4f84f4d0b4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80239442"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85125456"
 ---
 # <a name="autoscale-your-aks-pods-using-application-gateway-metrics-beta"></a>Dimensionamento automático de seu pods AKS usando métricas do gateway de aplicativo (beta)
 
 À medida que o tráfego de entrada aumenta, ele se torna crucial para escalar verticalmente seus aplicativos com base na demanda.
 
-No tutorial a seguir, explicamos como você pode usar a métrica do `AvgRequestCountPerHealthyHost` gateway de aplicativo para escalar verticalmente seu aplicativo. `AvgRequestCountPerHealthyHost`mede a média de solicitações enviadas a um pool de back-end específico e à combinação de configurações HTTP de back-end
+No tutorial a seguir, explicamos como você pode usar a métrica do gateway de aplicativo `AvgRequestCountPerHealthyHost` para escalar verticalmente seu aplicativo. `AvgRequestCountPerHealthyHost`mede a média de solicitações enviadas a um pool de back-end específico e à combinação de configurações HTTP de back-end
 
 Vamos usar os dois componentes a seguir:
 
@@ -27,7 +27,7 @@ Vamos usar os dois componentes a seguir:
 
 ## <a name="setting-up-azure-kubernetes-metric-adapter"></a>Configurando o adaptador de métrica do Azure kubernetes
 
-1. Primeiro, criaremos uma entidade de serviço do Azure AAD e `Monitoring Reader` atribuíremos o acesso ao grupo de recursos do gateway de aplicativo. 
+1. Primeiro, criaremos uma entidade de serviço do Azure AAD e atribuíremos o `Monitoring Reader` acesso ao grupo de recursos do gateway de aplicativo. 
 
     ```azurecli
         applicationGatewayGroupName="<application-gateway-group-id>"
@@ -39,7 +39,7 @@ Vamos usar os dois componentes a seguir:
 
     ```bash
     kubectl create namespace custom-metrics
-    # use values from service principle created above to create secret
+    # use values from service principal created above to create secret
     kubectl create secret generic azure-k8s-metrics-adapter -n custom-metrics \
         --from-literal=azure-tenant-id=<tenantid> \
         --from-literal=azure-client-id=<clientid> \
@@ -47,7 +47,7 @@ Vamos usar os dois componentes a seguir:
     kubectl apply -f kubectl apply -f https://raw.githubusercontent.com/Azure/azure-k8s-metrics-adapter/master/deploy/adapter.yaml -n custom-metrics
     ```
 
-1. Criaremos um recurso `ExternalMetric` com o nome `appgw-request-count-metric`. Este recurso instruirá o adaptador de métrica a `AvgRequestCountPerHealthyHost` expor a `myApplicationGateway` métrica para `myResourceGroup` o recurso no grupo de recursos. Você pode usar o `filter` campo para direcionar um pool de back-end específico e uma configuração de http de back-end no gateway de aplicativo.
+1. Criaremos um `ExternalMetric` recurso com o nome `appgw-request-count-metric` . Este recurso instruirá o adaptador de métrica a expor a `AvgRequestCountPerHealthyHost` métrica para o `myApplicationGateway` recurso no `myResourceGroup` grupo de recursos. Você pode usar o `filter` campo para direcionar um pool de back-end específico e uma configuração de http de back-end no gateway de aplicativo.
 
     ```yaml
     apiVersion: azure.com/v1alpha2
@@ -94,7 +94,7 @@ kubectl get --raw "/apis/external.metrics.k8s.io/v1beta1/namespaces/default/appg
 
 Assim que pudermos expor `appgw-request-count-metric` o servidor de métrica, estamos prontos para usar [`Horizontal Pod Autoscaler`](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler) para escalar verticalmente nossa implantação de destino.
 
-No exemplo a seguir, iremos direcionar uma implantação `aspnet`de exemplo. Dimensionaremos os pods quando `appgw-request-count-metric` > 200 por Pod até um máximo de `10` pods.
+No exemplo a seguir, iremos direcionar uma implantação de exemplo `aspnet` . Dimensionaremos os pods quando `appgw-request-count-metric` > 200 por Pod até um máximo de `10` pods.
 
 Substitua o nome da implantação de destino e aplique a seguinte configuração de dimensionamento automático:
 ```yaml

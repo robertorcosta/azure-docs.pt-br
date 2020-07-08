@@ -6,20 +6,21 @@ manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/08/2020
+ms.date: 06/17/2020
 ms.author: asrastog
-ms.openlocfilehash: 609f68c79159c4ce17468fc1df13c0c9eae7f211
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 83d2fa59654e038586a7f23eedbe7c656873f35c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79370569"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84976567"
 ---
 # <a name="encryption-of-data-at-rest-with-customer-managed-keys-for-iot-hub"></a>Criptografia de dados em repouso com chaves gerenciadas pelo cliente para o Hub IoT
 
-O Hub IoT dá suporte à criptografia de dados em repouso com chaves gerenciadas pelo cliente (CMK), também conhecida como traga sua própria chave (BYOK), suporte para o Hub IoT do Azure. O Hub IoT do Azure fornece criptografia de dados em repouso e em trânsito. Por padrão, o Hub IoT usa chaves gerenciadas pela Microsoft para criptografar os dados. Com o suporte do CMK, os clientes agora têm a opção de criptografar os dados em repouso com uma chave de criptografia de chave, gerenciada pelos clientes, usando o [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
+O Hub IoT dá suporte à criptografia de dados em repouso com chaves gerenciadas pelo cliente (CMK), também conhecida como traga sua própria chave (BYOK). O Hub IoT do Azure fornece criptografia de dados em repouso e em trânsito conforme eles são gravados em nossos data centers e descriptografa-os para você à medida que você o acessa. Por padrão, o Hub IoT usa chaves gerenciadas pela Microsoft para criptografar os dados em repouso. Com o CMK, você pode obter outra camada de criptografia na parte superior da criptografia padrão e pode optar por criptografar dados em repouso com uma chave de criptografia de chave, gerenciada por meio de seu [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Isso oferece a flexibilidade para criar, girar, desabilitar e revogar controles de acesso. Se o BYOK estiver configurado para o Hub IoT, também forneceremos a criptografia dupla, que oferece uma segunda camada de proteção, enquanto permite que você controle a chave de criptografia por meio de seu Azure Key Vault.
 
-Esse recurso requer a criação de um novo hub IoT (camada básica ou Standard), em uma das seguintes regiões: leste dos EUA, oeste dos EUA 2, Sul EUA Central ou US Gov. Para experimentar esse recurso, entre em contato conosco por meio [do suporte da Microsoft](https://azure.microsoft.com/support/create-ticket/). Compartilhe o nome da sua empresa e a ID da assinatura ao entrar em contato com o suporte da Microsoft.
+Esse recurso requer a criação de um novo hub IoT (camada básica ou Standard). Para experimentar esse recurso, entre em contato conosco por meio [do suporte da Microsoft](https://azure.microsoft.com/support/create-ticket/). Compartilhe o nome da sua empresa e a ID da assinatura ao entrar em contato com o suporte da Microsoft.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

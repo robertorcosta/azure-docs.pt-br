@@ -6,13 +6,13 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 04/08/2020
-ms.openlocfilehash: dda2812b5e2cc79d53658d568ba0845d593f41d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/20/2020
+ms.openlocfilehash: 7e2b655b344af90c4555beb0af85fa11cbc6d1c8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81605373"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85126154"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>Criar expressões no fluxo de dados de mapeamento
 
@@ -60,7 +60,7 @@ Selecione **Atualizar** para atualizar os resultados da expressão em um exemplo
 
 ![Botão Atualizar](media/data-flow/exp5.png "Visualização de dados de expressão")
 
-## <a name="string-interpolation"></a>Interpolação de cadeias de caracteres
+## <a name="string-interpolation"></a>Interpolação de cadeia de caracteres
 
 Use aspas para colocar o texto da cadeia de caracteres literal junto com expressões. Você pode incluir funções, colunas e parâmetros de expressão. A interpolação de cadeia de caracteres é útil para evitar o uso extensivo da concatenação de cadeia de caracteres quando parâmetros são incluídos em cadeias de consulta. Para usar a sintaxe de expressão, coloque-a entre chaves,
 
@@ -76,16 +76,12 @@ Alguns exemplos de interpolação de cadeia de caracteres:
 
 Adicione comentários às suas expressões usando a sintaxe de linha única e de comentário multilinha.
 
-![Sintaxe de linha única e comentário multilinha](media/data-flow/comments.png "Comentários")
-
 Os exemplos a seguir são comentários válidos:
 
 * ```/* This is my comment */```
 
 * ```/* This is a```
 *   ```multi-line comment */```
-   
-* ```// This is a single line comment```
 
 Se você colocar um comentário na parte superior da expressão, ele aparecerá na caixa de texto transformação para documentar suas expressões de transformação.
 
@@ -93,7 +89,7 @@ Se você colocar um comentário na parte superior da expressão, ele aparecerá 
 
 ## <a name="regular-expressions"></a>Expressões regulares
 
-Muitas funções de linguagem de expressão usam sintaxe de expressão regular. Quando você usa funções de expressão regular, o construtor de expressões tenta interpretar uma barra\\invertida () como uma sequência de caracteres de escape. Quando você usa barras invertidas em sua expressão regular, coloque todo o Regex em backtiques (\`) ou use uma barra invertida dupla.
+Muitas funções de linguagem de expressão usam sintaxe de expressão regular. Quando você usa funções de expressão regular, o construtor de expressões tenta interpretar uma barra invertida ( \\ ) como uma sequência de caracteres de escape. Quando você usa barras invertidas em sua expressão regular, coloque todo o Regex em backtiques ( \` ) ou use uma barra invertida dupla.
 
 Um exemplo que usa marcas de escala:
 
@@ -124,15 +120,19 @@ Com funções de expressão que retornam matrizes, use colchetes ([]) para ender
 
 ## <a name="convert-to-dates-or-timestamps"></a>Converter em datas ou carimbos de data/hora
 
-Para incluir literais de cadeia de caracteres na saída do carimbo de data ```toString()```/hora, empacote a conversão em.
+Para incluir literais de cadeia de caracteres na saída do carimbo de data/hora, empacote a conversão em ```toString()``` .
 
 ```toString(toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss'), 'MM/dd /yyyy\'T\'HH:mm:ss')```
 
-Para converter milissegundos de época em uma data ou timestamp, use `toTimestamp(<number of milliseconds>)`. Se o tempo for lançado em segundos, multiplique por 1.000.
+Para converter milissegundos de época em uma data ou timestamp, use `toTimestamp(<number of milliseconds>)` . Se o tempo for lançado em segundos, multiplique por 1.000.
 
 ```toTimestamp(1574127407*1000l)```
 
 O "l" à direita no final da expressão anterior significa conversão para um tipo longo como sintaxe embutida.
+
+## <a name="find-time-from-epoch-or-unix-time"></a>Localizar tempo da época ou do horário do UNIX
+
+tolong (currentTimestamp ()-notimestamp (' 1970-01-01 00:00:00.000 ', ' AAAA-MM-DD HH: mm: SS. SSS ')) * 1000L
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,5 +1,5 @@
 ---
-title: incluir arquivo
+title: arquivo de inclusão
 description: incluir arquivo
 services: functions
 author: jeffhollan
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2020
 ms.author: jehollan, glenga
 ms.custom: include file
-ms.openlocfilehash: c53486bf3368039f172c7a13420e2291dd9c9892
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 4dc85988d904fdec72e1e6d92f03582a2a8f1427
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83122611"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85121547"
 ---
 1. No menu do portal do Azure ou na **Página Inicial**, selecione **Criar um recurso**.
 
@@ -30,17 +30,17 @@ ms.locfileid: "83122611"
     | **Pilha de runtime** | Linguagem preferencial | Escolha um runtime compatível com sua linguagem de programação de funções favorita. Escolha **.NET** para funções C# e F#. |
     |**Região**| Região preferencial | Escolha uma [região](https://azure.microsoft.com/regions/) perto de você ou perto de outros serviços que suas funções acessam. |
 
-    ![Página de Noções Básicas](./media/functions-premium-create/function-app-create-basics.png)
+    ![Página de informações básicas](./media/functions-premium-create/function-app-create-basics.png)
 
 1. Selecione **Avançar: Hospedagem**. Na página **hospedagem** , insira as seguintes configurações:
 
     | Configuração      | Valor sugerido  | Descrição |
     | ------------ | ---------------- | ----------- |
     | **[Conta de armazenamento](../articles/storage/common/storage-account-create.md)** |  Nome globalmente exclusivo |  Crie uma conta de armazenamento usada pelo seu aplicativo de funções. Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres e podem conter apenas números e letras minúsculas. Use também uma conta existente, que precisará atender aos [requisitos da conta de armazenamento](../articles/azure-functions/functions-scale.md#storage-account-requirements). |
-    |**Sistema operacional**| Sistema operacional preferencial | Um sistema operacional é pré-selecionado para você com base na seleção da pilha de runtime, mas você pode alterar a configuração, se necessário. |
-    | **[Plano](../articles/azure-functions/functions-scale.md)** | Premium | Plano de hospedagem que define como os recursos são alocados para seu aplicativo de funções. Selecione **Premium**e, em seguida, selecione os padrões para plano e **SKU e tamanho**do **Windows** . |
+    |**Sistema operacional**| Sistema operacional preferencial | Um sistema operacional é pré-selecionado para você com base na seleção da pilha de runtime, mas você pode alterar a configuração, se necessário. O Python só tem suporte no Linux. |
+    | **[Plano](../articles/azure-functions/functions-scale.md)** | Premium | Plano de hospedagem que define como os recursos são alocados para seu aplicativo de funções. Selecione **Premium**. Por padrão, um novo plano do serviço de aplicativo é criado. O **SKU e o tamanho** padrão são **ep1**, em que o EP representa o _elástico Premium_. Para saber mais, confira a [lista de SKUs Premium](../articles/azure-functions/functions-premium-plan.md#available-instance-skus).<br/>Ao executar funções de JavaScript em um plano Premium, você deve escolher uma instância que tenha menos vCPUs. Para obter mais informações, consulte [escolher planos Premium de núcleo único](../articles/azure-functions/functions-reference-node.md#considerations-for-javascript-functions).  |
 
-    ![Página de hospedagem](./media/functions-premium-create/function-app-premium-create-hosting.png)
+    ![Plano de hospedagem](./media/functions-premium-create/function-app-premium-create-hosting.png)
 
 1. Selecione **Avançar: monitoramento**. Na página **monitoramento** , insira as seguintes configurações:
 
@@ -48,13 +48,13 @@ ms.locfileid: "83122611"
     | ------------ | ---------------- | ----------- |
     | **[Application Insights](../articles/azure-functions/functions-monitoring.md)** | Padrão | Cria um recurso do Application Insights do mesmo *nome do aplicativo* na região com suporte mais próxima. Ao expandir essa configuração, você pode alterar o **novo nome do recurso** ou escolher um **local** diferente em uma [Geografia do Azure](https://azure.microsoft.com/global-infrastructure/geographies/) para armazenar seus dados. |
 
-    ![Página monitoramento](./media/functions-create-function-app-portal/function-app-create-monitoring.png)
+    ![Página de monitoramento](./media/functions-create-function-app-portal/function-app-create-monitoring.png)
 
 1. Selecione **Examinar + criar** para examinar as seleções de configuração do aplicativo.
 
 1. Na página **Examinar + criar**, examine as configurações e, em seguida, selecione **Criar** para provisionar e implantar o aplicativo de funções.
 
-1. Selecione o ícone **notificações** no canto superior direito do portal e observe a mensagem **implantação bem-sucedida** .
+1. Selecione o ícone **Notificações** no canto superior direito do portal e veja se a mensagem **Implantação concluída com êxito** é exibida.
 
 1. Selecione **Ir para recursos** para exibir o novo aplicativo de funções. Você também pode selecionar **Fixar no painel**. A fixação torna mais fácil retornar a esse recurso de aplicativo de função no seu painel.
 

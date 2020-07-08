@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: ''
-ms.openlocfilehash: 65bb1a3915ece384974da12b4e7a1ad0c1e08133
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7656b60c31e7da7841f9afb723167eb061fe3401
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77655790"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85124462"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>Enviar métricas do sistema operacional convidado para o banco de dados de métricas de Azure Monitor para uma máquina virtual do Windows (clássica)
 
@@ -32,9 +32,9 @@ O processo descrito neste artigo funciona somente em máquinas virtuais clássic
 
 - Sua assinatura deve ser registrada com [Microsoft. Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
-- Você precisa ter o [Azure PowerShell](/powershell/azure) ou [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) instalado.
+- Você precisará ter o [Azure PowerShell](/powershell/azure) ou o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) instalado.
 
-- O recurso da VM deve estar em uma [região que ofereça suporte a métricas personalizadas](metrics-custom-overview.md#supported-regions).
+- O recurso de VM deve estar em uma [região com suporte para métricas personalizadas](metrics-custom-overview.md#supported-regions).
 
 ## <a name="create-a-classic-virtual-machine-and-storage-account"></a>Criar uma conta clássica de máquina virtual e armazenamento
 
@@ -48,7 +48,7 @@ O processo descrito neste artigo funciona somente em máquinas virtuais clássic
 
 ## <a name="create-a-service-principal"></a>Criar uma entidade de serviço
 
-Crie uma entidade de serviço em seu locatário do Active Directory do Azure usando as instruções em [Criar uma entidade de serviço](../../active-directory/develop/howto-create-service-principal-portal.md). Observe o seguinte ao percorrer este processo: 
+Crie uma entidade de serviço em seu locatário do Azure Active Directory usando as instruções em [criar uma entidade de serviço](../../active-directory/develop/howto-create-service-principal-portal.md). Observe o seguinte ao percorrer este processo: 
 - Crie um novo segredo de cliente para este aplicativo.
 - Salve a Chave e a ID do cliente para serem usadas em etapas posteriores.
 
@@ -188,7 +188,7 @@ Conceda a este aplicativo as permissões “Monitoring Metrics Publisher” para
 
 1.  Vá para o portal do Azure. 
 
-1.  No menu esquerdo, selecione **Monitor**.
+1.  No menu à esquerda, selecione **Monitor.**
 
 1.  Sobre o **Monitor** folha, selecione **métricas**.
 
@@ -196,7 +196,7 @@ Conceda a este aplicativo as permissões “Monitoring Metrics Publisher” para
 
 1. No menu suspenso de recursos, selecione sua VM clássica.
 
-1. No menu suspenso namespaces, selecione **azure.vm.windows.guest**.
+1. No menu suspenso namespaces, selecione **Azure. VM. Windows. Guest**.
 
 1. No menu suspenso de métricas, selecione **Bytes de Memória\Confirmados em Uso**.
    ![Plotar as métricas](./media/collect-custom-metrics-guestos-vm-classic/plot-metrics.png)

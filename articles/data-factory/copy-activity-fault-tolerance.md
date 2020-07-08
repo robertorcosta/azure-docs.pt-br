@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 06/22/2020
 ms.author: yexu
-ms.openlocfilehash: a44703aabc35131cf040892999409173638437a7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 6b172a6e15cbb22c3a0a16cb1e238ddfe45048bf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658780"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85130765"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolerância a falhas da atividade de cópia no Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -79,6 +79,21 @@ dataInconsistency | Um dos pares chave-valor dentro do conjunto de propriedades 
 logStorageSettings  | Um grupo de propriedades que poderá ser especificado quando você desejar registrar os nomes dos objetos ignorados. | &nbsp; | Não
 linkedServiceName | O serviço vinculado do [Armazenamento de Blobs do Azure](connector-azure-blob-storage.md#linked-service-properties) ou [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) para armazenar os arquivos de log da sessão. | O nome de um serviço vinculado `AzureBlobStorage` ou `AzureBlobFS`, que se refere à instância de armazenamento que você usa para armazenar o arquivo de log. | Não
 caminho | O caminho dos arquivos de log. | Especifique o caminho que você usa para armazenar os arquivos de log. Se você não fornecer um caminho, o serviço criará um contêiner para você. | Não
+
+> [!NOTE]
+> Os seguintes são os pré-requisitos de habilitar a tolerância a falhas na atividade de cópia ao copiar arquivos binários.
+> Para ignorar arquivos específicos quando eles estão sendo excluídos do repositório de origem:
+> - O conjunto de código de origem e o conjunto de fonte de coletor devem ser do formato binário, e o tipo de compactação não pode ser especificado. 
+> - Os tipos de armazenamento de dados com suporte são armazenamento de BLOBs do Azure, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, armazenamento de arquivos do Azure, sistema de arquivos, FTP, SFTP, Amazon S3, Google Cloud Storage e HDFS.
+> - Somente se você especificar vários arquivos no conjunto de dado de origem, que pode ser uma pasta, curinga ou uma lista de arquivos, a atividade de cópia poderá ignorar os arquivos de erro específicos. Se um único arquivo for especificado no conjunto de fonte de origem a ser copiado para o destino, a atividade de cópia falhará se ocorrer algum erro.
+>
+> Para ignorar arquivos específicos quando seu acesso é proibido do repositório de origem:
+> - O conjunto de código de origem e o conjunto de fonte de coletor devem ser do formato binário, e o tipo de compactação não pode ser especificado. 
+> - Os tipos de armazenamento de dados com suporte são o armazenamento de BLOBs do Azure, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, armazenamento de arquivos do Azure, SFTP, Amazon S3 e HDFS.
+> - Somente se você especificar vários arquivos no conjunto de dado de origem, que pode ser uma pasta, curinga ou uma lista de arquivos, a atividade de cópia poderá ignorar os arquivos de erro específicos. Se um único arquivo for especificado no conjunto de fonte de origem a ser copiado para o destino, a atividade de cópia falhará se ocorrer algum erro.
+>
+> Para ignorar arquivos específicos quando eles são verificados como inconsistentes entre o repositório de origem e de destino:
+> - Você pode obter mais detalhes do documento de consistência de dados [aqui](https://docs.microsoft.com/azure/data-factory/copy-activity-data-consistency).
 
 ### <a name="monitoring"></a>Monitoramento 
 

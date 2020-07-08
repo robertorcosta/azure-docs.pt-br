@@ -4,12 +4,12 @@ description: Saiba mais sobre cenários de segurança para um cluster do Azure S
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.custom: sfrev
-ms.openlocfilehash: c43cfbd4468a64867d50482d9c8055622602f159
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ba1565c31e8a3ce3f25501f0cad321d5413dc962
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461575"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85080678"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Cenários de segurança do cluster do Service Fabric
 
@@ -33,13 +33,18 @@ Os clusters executados em clusters do Azure e clusters autônomos em execução 
 
 O Service Fabric usa os certificados do servidor X.509 que você especifica como parte da configuração de tipo de nó ao criar um cluster. Confira no final deste artigo uma visão geral rápida do que são esses certificados e como você pode adquiri-los ou criá-los.
 
-Configure a segurança de certificado durante a criação do cluster por meio do Portal do Azure, do uso de um modelo do Azure Resource Manager ou do uso de um modelo JSON autônomo. O comportamento padrão do SDK do Service Fabric é implantar e instalar o certificado com o mais distante no futuro certificado de expiração; o comportamento clássico permitia a definição de certificados primários e secundários, permitir rollovers iniciados manualmente e não é recomendado para uso na nova funcionalidade. Os certificados primários que serão utilizados possuem a data de expiração mais longa no futuro, devem ser diferentes dos certificados de cliente admin e de leitura somente que você definiu para [segurança de cliente para nó](#client-to-node-security).
+Configure a segurança de certificado durante a criação do cluster por meio do Portal do Azure, do uso de um modelo do Azure Resource Manager ou do uso de um modelo JSON autônomo. Service Fabric comportamento padrão do SDK é implantar e instalar o certificado com o mais distante na data de expiração futura; o comportamento clássico permitia a definição de certificados primários e secundários, para permitir substituições iniciadas manualmente e não é recomendado para uso sobre a nova funcionalidade. Os certificados primários que serão utilizados possuem a data de expiração mais longa no futuro, devem ser diferentes dos certificados de cliente admin e de leitura somente que você definiu para [segurança de cliente para nó](#client-to-node-security).
 
 Para saber como configurar a segurança de certificado em um cluster para o Azure, consulte [Configurar um cluster usando um modelo do Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 
 Para saber como configurar a segurança de certificado em um cluster para um cluster do Windows Server autônomo, consulte [Proteger um cluster autônomo no Windows usando certificados X.509](service-fabric-windows-cluster-x509-security.md).
 
 ### <a name="node-to-node-windows-security"></a>Segurança do Windows de nó para nó
+
+> [!NOTE]
+> A autenticação do Windows é baseada em Kerberos. Não há suporte para NTLM como um tipo de autenticação.
+>
+> Sempre que possível, use a autenticação de certificado X. 509 para clusters Service Fabric.
 
 Para saber como configurar a segurança do Windows para um cluster do Windows Server autônomo, consulte [Proteger um cluster autônomo no Windows usando a segurança do Windows](service-fabric-windows-cluster-windows-security.md).
 
@@ -49,7 +54,7 @@ A segurança de cliente para nó autentica clientes e ajuda a proteger a comunic
 
 ![Diagrama de comunicação de cliente para nó][Client-to-Node]
 
-Os clusters em execução no Azure e clusters autônomos em execução no Windows podem usar a [segurança de certificado](https://msdn.microsoft.com/library/ff649801.aspx) ou então a [segurança do Windows](https://msdn.microsoft.com/library/ff649396.aspx).
+Os clusters em execução no Azure e clusters autônomos em execução no Windows podem usar a [segurança do certificado](https://msdn.microsoft.com/library/ff649801.aspx) ou a [segurança do Windows](https://msdn.microsoft.com/library/ff649396.aspx), embora a recomendação seja usar a autenticação de certificado X. 509 sempre que possível.
 
 ### <a name="client-to-node-certificate-security"></a>Segurança de certificado de cliente para nó
 
@@ -113,7 +118,7 @@ O certificado deve atender aos seguintes requisitos:
 
 Algumas outras coisas a considerar:
 
-* O campo **Entidade** pode ter vários valores. Cada valor é prefixado com uma inicialização para indicar o tipo de valor. Normalmente, a inicialização é **CN** (para *nome comum*); por exemplo, **CN = www\.contoso.com**.
+* O campo **Entidade** pode ter vários valores. Cada valor é prefixado com uma inicialização para indicar o tipo de valor. Normalmente, a inicialização é **CN** (para *nome comum*); por exemplo, **CN = www \. contoso.com**.
 * O campo **Entidade** pode ficar em branco.
 * Se o campo opcional **Nome Alternativo da Entidade** estiver populado, ele deverá conter o nome comum do certificado e também uma entrada por SAN. Eles são inseridos como valores de **nome DNS** . Para saber como gerar certificados que têm SANs, consulte [Como adicionar um nome alternativo da entidade a um certificado LDAP seguro](https://support.microsoft.com/kb/931351).
 * O valor do campo **finalidades pretendidas** do certificado deve incluir um valor apropriado, como **autenticação de servidor** ou **autenticação de cliente**.

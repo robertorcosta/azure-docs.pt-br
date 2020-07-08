@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d848b92da5d4181832adff8499b3531d020c30c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4e31560126919e4c61b176a6eaa62ee7f9b4a624
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78155466"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85111982"
 ---
 Os discos do sistema operacional efêmero são criados no armazenamento da VM (máquina virtual) local e não são salvos no armazenamento remoto do Azure. Os discos do sistema operacional efêmero funcionam bem para cargas de trabalho sem estado, em que os aplicativos são tolerantes a falhas de VM individuais, mas são mais afetados pelo tempo de implantação da VM ou refazendo a imagem das instâncias de VM individuais. Com o disco do sistema operacional efêmero, você obtém latência de leitura/gravação mais baixa no disco do sistema operacional e uma reimagem de VM mais rápida. 
  
@@ -33,7 +33,7 @@ Principais diferenças entre discos do sistema operacional persistentes e efême
 |                             | Disco do so persistente                          | Disco do SO Efêmero                              |    |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
 | Limite de tamanho para o disco do sistema operacional      | 2 TiB                                                                                        | Tamanho do cache para o tamanho da VM ou 2TiB, o que for menor. Para o **tamanho do cache em GIB**, consulte [DS](../articles/virtual-machines/linux/sizes-general.md), [es](../articles/virtual-machines/linux/sizes-memory.md), [M](../articles/virtual-machines/linux/sizes-memory.md), [FS](../articles/virtual-machines/linux/sizes-compute.md)e [GS](/azure/virtual-machines/linux/sizes-previous-gen#gs-series)              |
-| Tamanhos de VM com suporte          | Todos                                                                                          | DSv1, DSv2, DSv3, Esv3, FS, FsV2, GS, M                                               |
+| Tamanhos de VM com suporte          | Tudo                                                                                          | DSv1, DSv2, DSv3, Esv3, FS, FsV2, GS, M                                               |
 | Suporte a tipo de disco           | Disco do sistema operacional gerenciado e não gerenciado                                                                | Somente disco do sistema operacional gerenciado                                                               |
 | Suporte de regiões              | Todas as regiões                                                                                  | Todas as regiões                              |
 | Persistência de dados            | Os dados do disco do sistema operacional gravados no disco do sistema operacional são armazenados no armazenamento do Azure                                  | Os dados gravados no disco do sistema operacional são armazenados no armazenamento da VM local e não são persistidos no armazenamento do Azure. |
@@ -48,15 +48,18 @@ Você pode implantar as imagens da VM e da instância até o tamanho do cache da
 
 Os discos efêmeros também exigem que o tamanho da VM dê suporte ao armazenamento Premium. Os tamanhos geralmente (mas nem sempre) têm um `s` no nome, como DSv2 e EsV3. Para obter mais informações, consulte [tamanhos de VM do Azure](../articles/virtual-machines/linux/sizes.md) para obter detalhes sobre quais tamanhos dão suporte ao armazenamento Premium.
 
+## <a name="preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks"></a>Visualização-OS discos do sistema operacional efêmero agora podem ser armazenados em discos temporários
+Os discos do sistema operacional efêmero agora podem ser armazenados no disco temporário/de recurso da VM, além do cache da VM. Então, agora você pode usar discos do sistema operacional efêmero com a VM que não tem um cache ou tem cache insuficiente, mas tem um disco temporário/de recursos para armazenar o disco do sistema operacional efêmero, como Dav3, Dav4, Eav4 e Eav3. Se uma VM tiver um espaço temporário e cache suficiente, você também poderá especificar onde deseja armazenar o disco do sistema operacional efêmero usando uma nova propriedade chamada [DiffDiskPlacement](https://docs.microsoft.com/rest/api/compute/virtualmachines/list#diffdiskplacement). Esse recurso atualmente está em versão prévia. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para começar, [solicite o acesso](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6cQw0fZJzdIsnbfbI13601URTBCRUZPMkQwWFlCOTRIMFBSNkM1NVpQQS4u).
+
 ## <a name="powershell"></a>PowerShell
 
-Para usar um disco efêmero para uma implantação de VM do PowerShell, use [set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) em sua configuração de VM. Defina `-DiffDiskSetting` como `Local` e `-Caching` como. `ReadOnly`     
+Para usar um disco efêmero para uma implantação de VM do PowerShell, use [set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) em sua configuração de VM. Defina `-DiffDiskSetting` como `Local` e `-Caching` como `ReadOnly` .     
 
 ```powershell
 Set-AzVMOSDisk -DiffDiskSetting Local -Caching ReadOnly
 ```
 
-Para implantações de conjunto de dimensionamento, use o cmdlet [set-AzVmssStorageProfile](/powershell/module/az.compute/set-azvmssstorageprofile) em sua configuração. Defina `-DiffDiskSetting` como `Local` e `-Caching` como. `ReadOnly`
+Para implantações de conjunto de dimensionamento, use o cmdlet [set-AzVmssStorageProfile](/powershell/module/az.compute/set-azvmssstorageprofile) em sua configuração. Defina `-DiffDiskSetting` como `Local` e `-Caching` como `ReadOnly` .
 
 
 ```powershell
@@ -65,7 +68,7 @@ Set-AzVmssStorageProfile -DiffDiskSetting Local -OsDiskCaching ReadOnly
 
 ## <a name="cli"></a>CLI
 
-Para usar um disco efêmero para uma implantação de VM da CLI, defina `--ephemeral-os-disk` o parâmetro em [AZ VM Create](/cli/azure/vm#az-vm-create) como `true` e `--os-disk-caching` o parâmetro `ReadOnly`para.
+Para usar um disco efêmero para uma implantação de VM da CLI, defina o `--ephemeral-os-disk` parâmetro em [AZ VM Create](/cli/azure/vm#az-vm-create) como `true` e o `--os-disk-caching` parâmetro para `ReadOnly` .
 
 ```azurecli-interactive
 az vm create \
@@ -78,7 +81,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-Para conjuntos de dimensionamento, use o `--ephemeral-os-disk true` mesmo parâmetro para [AZ-vmss-Create](/cli/azure/vmss#az-vmss-create) e defina `--os-disk-caching` o parâmetro `ReadOnly`como.
+Para conjuntos de dimensionamento, use o mesmo `--ephemeral-os-disk true` parâmetro para [AZ-vmss-Create](/cli/azure/vmss#az-vmss-create) e defina o `--os-disk-caching` parâmetro como `ReadOnly` .
 
 ## <a name="portal"></a>Portal   
 
@@ -93,7 +96,7 @@ Você também pode criar conjuntos de dimensionamento com discos do sistema oper
 ![Captura de tela mostrando o botão de opção para escolher usar um disco do so efêmero para seu conjunto de dimensionamento](./media/virtual-machines-common-ephemeral/scale-set.png)
 
 ## <a name="scale-set-template-deployment"></a>Implantação do modelo do conjunto de dimensionamento  
-O processo para criar um conjunto de dimensionamento que usa um disco do sistema operacional efêmero é `diffDiskSettings` adicionar a propriedade `Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile` ao tipo de recurso no modelo. Além disso, a política de cache deve ser `ReadOnly` definida como para o disco do sistema operacional efêmero. 
+O processo para criar um conjunto de dimensionamento que usa um disco do sistema operacional efêmero é adicionar a `diffDiskSettings` propriedade ao `Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile` tipo de recurso no modelo. Além disso, a política de cache deve ser definida como `ReadOnly` para o disco do sistema operacional efêmero. 
 
 
 ```json
@@ -137,7 +140,7 @@ O processo para criar um conjunto de dimensionamento que usa um disco do sistema
 ```
 
 ## <a name="vm-template-deployment"></a>Implantação de modelo de VM 
-Você pode implantar uma VM com um disco do sistema operacional efêmero usando um modelo. O processo para criar uma VM que usa discos do sistema operacional efêmero é adicionar a `diffDiskSettings` Propriedade ao tipo de recurso Microsoft. Compute/virtualMachines no modelo. Além disso, a política de cache deve ser `ReadOnly` definida como para o disco do sistema operacional efêmero. 
+Você pode implantar uma VM com um disco do sistema operacional efêmero usando um modelo. O processo para criar uma VM que usa discos do sistema operacional efêmero é adicionar a `diffDiskSettings` propriedade ao tipo de recurso Microsoft. Compute/virtualMachines no modelo. Além disso, a política de cache deve ser definida como `ReadOnly` para o disco do sistema operacional efêmero. 
 
 ```json
 { 
@@ -198,7 +201,24 @@ R: Sim, você pode anexar um disco de dados gerenciado a uma VM que usa um disco
 
 **P: todos os tamanhos de VM terão suporte para discos do sistema operacional efêmero?**
 
-R: não, todos os tamanhos de VM de armazenamento Premium têm suporte (DS, ES, FS, GS e M), exceto os tamanhos da série B, da série N e da série H.  
+R: não, há suporte para os tamanhos de VM de armazenamento mais Premium (DS, ES, FS, GS, M, etc.). Para saber se um determinado tamanho de VM dá suporte a discos do sistema operacional efêmero, você pode:
+
+Chamar o `Get-AzComputeResourceSku` cmdlet do PowerShell
+```azurepowershell-interactive
+ 
+$vmSizes=Get-AzComputeResourceSku | where{$_.ResourceType -eq 'virtualMachines' -and $_.Locations.Contains('CentralUSEUAP')} 
+
+foreach($vmSize in $vmSizes)
+{
+   foreach($capability in $vmSize.capabilities)
+   {
+       if($capability.Name -eq 'EphemeralOSDiskSupported' -and $capability.Value -eq 'true')
+       {
+           $vmSize
+       }
+   }
+}
+```
  
 **P: o disco do sistema operacional efêmero pode ser aplicado a VMs e conjuntos de dimensionamento existentes?**
 

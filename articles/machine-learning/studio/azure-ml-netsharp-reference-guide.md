@@ -10,16 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: c1912e670a9cf1c178b58cefbd33171f15be2483
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b297a3f975450b7459895ce7c0abc79e9b2fcdea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79218258"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85129510"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio-classic"></a>Guia para a linguagem de especificação de rede neural net # para Azure Machine Learning Studio (clássico)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Net# é uma linguagem desenvolvida pela Microsoft usada para definir arquiteturas de redes neurais complexas, como redes neurais profundas ou convoluções de dimensões arbitrárias. Você pode usar as estruturas complexas para aprimorar o aprendizado sobre dados, como áudio, vídeo ou imagem.
 
@@ -452,7 +450,7 @@ output Digit [10] from Hid3 all;
 + A palavra-chave `convolve` indica que as camadas denominadas `Conv1` e `Conv2` são camadas convolucionais. Cada uma dessas declarações de camada é seguida de uma lista dos atributos de convolução.
 + A rede tem uma terceira camada oculta, `Hid3`, que é totalmente conectada à `Conv2`, a segunda camada oculta.
 + A camada de saída, `Digit`, é conectada somente à terceira camada oculta, `Hid3`. A palavra-chave `all` indica que a camada de saída está totalmente conectada a `Hid3`.
-+ A arity da convolução é três: o comprimento das `InputShape`tuplas, `KernelShape`, `Stride`e. `Sharing`
++ A arity da convolução é três: o comprimento das tuplas `InputShape` , `KernelShape` , `Stride` e `Sharing` .
 + O número de pesos por kernel é `1 + KernelShape\[0] * KernelShape\[1] * KernelShape\[2] = 1 + 1 * 5 * 5 = 26`. Ou `26 * 50 = 1300`.
 + Você pode calcular os nós em cada camada oculta, conforme descrito a seguir:
 

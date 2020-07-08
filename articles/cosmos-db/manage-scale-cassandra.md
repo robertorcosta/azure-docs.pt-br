@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: thvankra
-ms.openlocfilehash: 8f84d611ecdf3fc0f86273498753e550315cd878
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: HT
+ms.openlocfilehash: c9517b6d48f21a2ac2c4b92e68c788a33897511b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83586177"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85119147"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Como escalar de forma elástica uma conta da API do Cassandra do Azure Cosmos DB
 
@@ -19,7 +19,7 @@ Há uma variedade de opções para explorar a natureza elástica da API do Azure
 
 Para a API do Cassandra, você pode recuperar o encargo de unidade de solicitação para consultas individuais usando o [.NET e SDKs Java](https://docs.microsoft.com/azure/cosmos-db/find-request-unit-charge#cassandra-api). Isso é útil para determinar a quantidade de RU/s que você precisará provisionar no serviço.
 
-![Operações do banco de dados consomem Unidades de Solicitação](./media/request-units/request-units.png)
+:::image type="content" source="./media/request-units/request-units.png" alt-text="Operações do banco de dados consomem Unidades de Solicitação" border="false":::
 
 ## <a name="handling-rate-limiting-429-errors"></a>Limitação da taxa de manipulação (erros 429)
 

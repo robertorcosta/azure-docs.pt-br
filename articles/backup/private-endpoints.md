@@ -3,12 +3,12 @@ title: Pontos de extremidade privados
 description: Entenda o processo de criação de pontos de extremidade privados para o backup do Azure e os cenários em que o uso de pontos de extremidade privados ajuda a manter a segurança de seus recursos.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: bc778506819c44291bb2d8f69cdd9ac0aed51399
-ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
+ms.openlocfilehash: 8ce767073e9acfe271e6e57f9e6d1237910b33e0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2020
-ms.locfileid: "83007850"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85124248"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Pontos de extremidade privados para o backup do Azure
 
@@ -21,9 +21,11 @@ Este artigo o ajudará a entender o processo de criação de pontos de extremida
 - Pontos de extremidade privados só podem ser criados para novos cofres de serviços de recuperação (que não têm nenhum item registrado no cofre). Portanto, os pontos de extremidade privados devem ser criados antes de tentar proteger os itens para o cofre.
 - Uma rede virtual pode conter pontos de extremidade privados para vários cofres de serviços de recuperação. Além disso, um cofre dos serviços de recuperação pode ter pontos de extremidade privados para ele em várias redes virtuais. No entanto, o número máximo de pontos de extremidade privados que podem ser criados para um cofre é 12.
 - Depois que um ponto de extremidade privado for criado para um cofre, o cofre será bloqueado. Ele não poderá ser acessado (para backups e restaurações) de redes que contêm um ponto de extremidade privado para o cofre. Se todos os pontos de extremidade privados para o cofre forem removidos, o cofre poderá ser acessado de todas as redes.
+- Uma conexão de ponto de extremidade privada para backup usa um total de 11 IPs privados em sua sub-rede. Esse número pode ser maior (até 15) para determinadas regiões do Azure. Portanto, sugerimos que você tenha IPs privados suficientes disponíveis ao tentar criar pontos de extremidade privados para backup.
 - Embora um cofre dos serviços de recuperação seja usado pelo (ambos) backup e Azure Site Recovery do Azure, este artigo aborda o uso de pontos de extremidade privados somente para o backup do Azure.
 - No momento, o Azure Active Directory não dá suporte a pontos de extremidade privados. Portanto, os IPs e FQDNs necessários para Azure Active Directory trabalhar em uma região precisarão ter acesso de saída da rede protegida ao executar o backup de bancos de dados em VMs do Azure e fazer backup usando o agente MARS. Você também pode usar marcas NSG e marcas de firewall do Azure para permitir o acesso ao Azure AD, conforme aplicável.
 - As redes virtuais com políticas de rede não têm suporte para pontos de extremidade privados. Você precisará desabilitar as políticas de rede antes de continuar.
+- Você precisa registrar novamente o provedor de recursos dos serviços de recuperação com a assinatura se o tiver registrado antes de maio de 1 2020. Para registrar novamente o provedor, acesse sua assinatura no portal do Azure, navegue até provedor de **recursos** na barra de navegação à esquerda, selecione **Microsoft. recoveryservices** e clique em **registrar novamente**.
 
 ## <a name="recommended-and-supported-scenarios"></a>Cenários recomendados e com suporte
 
@@ -40,9 +42,6 @@ Esta seção aborda as etapas envolvidas na criação e no uso de pontos de extr
 
 >[!IMPORTANT]
 > É altamente recomendável que você siga as etapas na mesma sequência mencionada neste documento. Não fazer isso pode levar ao cofre que está sendo renderizado incompatível para usar pontos de extremidade privados e exigir que você reinicie o processo com um novo cofre.
-
->[!NOTE]
-> Determinados elementos da experiência de portal do Azure podem não estar disponíveis no momento. Consulte as experiências alternativas nesses cenários até a disponibilidade total em sua região.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -89,7 +88,7 @@ Há duas zonas DNS obrigatórias que precisam ser criadas:
     - `privatelink.blob.core.windows.net`
     - `privatelink.queue.core.windows.net`
 
-    | **Zone**                           | **Serviço** | **Detalhes de assinatura e grupo de recursos (RG)**                  |
+    | **Zona**                           | **Serviço** | **Detalhes de assinatura e grupo de recursos (RG)**                  |
     | ---------------------------------- | ----------- | ------------------------------------------------------------ |
     | `privatelink.blob.core.windows.net`  | Blob        | **Assinatura**: o mesmo que o ponto de extremidade privado precisa ser criado **RG**: ou o RG da VNET ou o do ponto de extremidade privado |
     | `privatelink.queue.core.windows.net` | Fila       | **RG**: o RG da VNET ou o do ponto de extremidade privado |
@@ -104,13 +103,13 @@ Os clientes podem optar por integrar seus pontos de extremidade privados com zon
 
 Se você quiser criar uma zona DNS privada separada no Azure, poderá fazer o mesmo usando as mesmas etapas usadas para criar zonas DNS obrigatórias. Os detalhes de nomenclatura e assinatura são compartilhados abaixo:
 
-| **Zone**                                                     | **Serviço** | **Detalhes do grupo de recursos e da assinatura**                  |
+| **Zona**                                                     | **Serviço** | **Detalhes do grupo de recursos e da assinatura**                  |
 | ------------------------------------------------------------ | ----------- | ------------------------------------------------------------ |
 | `privatelink.<geo>.backup.windowsazure.com`  <br><br>   **Observação**: a *geografia* aqui refere-se ao código de região. Por exemplo, *wcus* e *ne* para o Oeste EUA Central e Europa setentrional respectivamente. | Backup      | **Assinatura**: o mesmo que o ponto de extremidade privado precisa ser criado **RG**: qualquer RG dentro da assinatura |
 
 Consulte [esta lista](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) para códigos de região.
 
-Para convenções de nomenclatura de URL no National áreas geográficas:
+Para convenções de nomenclatura de URL em regiões nacionais:
 
 - [China](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure)
 - [Alemanha](https://docs.microsoft.com/azure/germany/germany-developer-guide#endpoint-mapping)
@@ -344,7 +343,7 @@ Você pode usar um dos seguintes métodos para criar funções com as permissõe
 
 Crie os seguintes arquivos JSON e use o comando do PowerShell no final da seção para criar funções:
 
-PrivateEndpointContributorRoleDef. JSON
+PrivateEndpointContributorRoleDef.jsem
 
 ```json
 {
@@ -362,7 +361,7 @@ PrivateEndpointContributorRoleDef. JSON
 }
 ```
 
-NetworkInterfaceReaderRoleDef. JSON
+NetworkInterfaceReaderRoleDef.jsem
 
 ```json
 {
@@ -380,7 +379,7 @@ NetworkInterfaceReaderRoleDef. JSON
 }
 ```
 
-PrivateEndpointSubnetContributorRoleDef. JSON
+PrivateEndpointSubnetContributorRoleDef.jsem
 
 ```json
 {
@@ -496,7 +495,7 @@ $privateEndpoint = New-AzPrivateEndpoint `
 
 Você precisa criar três zonas DNS privadas e vinculá-las à sua rede virtual.
 
-| **Zone**                                                     | **Serviço** |
+| **Zona**                                                     | **Serviço** |
 | ------------------------------------------------------------ | ----------- |
 | `privatelink.<geo>.backup.windowsazure.com`      | Backup      |
 | `privatelink.blob.core.windows.net`                            | Blob        |

@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/10/2020
-ms.openlocfilehash: 16fad7f57d3054c193da2571f1b33cfd77fdd51c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 59feabce099087edb011df471561229bfa88a289
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663394"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85118722"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db"></a>Provisionar taxa de transferência de dimensionamento automático em um banco de dados ou contêiner no Azure Cosmos DB
 
@@ -26,7 +26,7 @@ Este artigo explica como provisionar taxa de transferência de dimensionamento a
 
 1. Selecione **Novo contêiner**. Insira um nome para seu banco de dados, contêiner e uma chave de partição. Em **Taxa de transferência**, selecione a opção **dimensionamento automático** e defina a [taxa de transferência máxima (RU/s)](provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works) para a qual você deseja que o banco de dados ou contêiner seja dimensionado.
 
-   ![Criando um contêiner e configurando a taxa de transferência provisionada de dimensionamento automático](./media/how-to-provision-autoscale-throughput/create-new-autoscale-container.png)
+   :::image type="content" source="./media/how-to-provision-autoscale-throughput/create-new-autoscale-container.png" alt-text="Criando um contêiner e configurando a taxa de transferência provisionada de dimensionamento automático":::
 
 1. Selecione **OK**.
 
@@ -45,7 +45,7 @@ Para provisionar o dimensionamento automático no banco de dados de taxa de tran
 
 1. Em **Escala**, selecione a opção **Dimensionamento automático** e **Salvar**.
 
-   ![Habilitando o dimensionamento automático em um contêiner existente](./media/how-to-provision-autoscale-throughput/autoscale-scale-and-settings.png)
+   :::image type="content" source="./media/how-to-provision-autoscale-throughput/autoscale-scale-and-settings.png" alt-text="Habilitando o dimensionamento automático em um contêiner existente":::
 
 > [!NOTE]
 > Quando você habilita o dimensionamento automático em um banco de dados ou contêiner existente, o valor inicial para o máximo de RU/s é determinado pelo sistema com base nas suas configurações e armazenamento de taxa de transferência provisionada manual atual. Após a operação ser concluída, você poderá alterar o máximo de RU/s, se necessário. [Saiba mais.](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) 
