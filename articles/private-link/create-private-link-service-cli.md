@@ -4,15 +4,15 @@ description: Saiba como criar um serviço de vínculo privado do Azure usando o 
 services: private-link
 author: malopMSFT
 ms.service: private-link
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 6e6148d305af26f7933567ae58023d2ba73263eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4312c6b89a7ba3e56e39050d76c673aa532f6f92
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75350232"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737335"
 ---
 # <a name="create-a-private-link-service-using-azure-cli"></a>Criar um serviço de vínculo privado usando CLI do Azure
 Este artigo mostra como criar um serviço de vínculo privado no Azure usando CLI do Azure.
@@ -49,7 +49,7 @@ az network lb create --resource-group myResourceGroup --name myILB --sku standar
 
 ### <a name="create-a-load-balancer-health-probe"></a>Criar uma investigação de integridade do balanceador de carga
 
-Uma investigação de integridade verifica todas as instâncias da máquina virtual para se certificar de que ela pode receber o tráfego de rede. A instância de máquina virtual com verificações de investigação com falha é removida do balanceador de carga até ele ficar online novamente e as verificações de investigação determinarem sua integridade. Crie uma investigação de integridade com [AZ Network lb Probe Create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) para monitorar a integridade das máquinas virtuais. 
+Uma investigação de integridade verifica todas as instâncias da máquina virtual para se certificar de que ela pode receber o tráfego de rede. A instância de máquina virtual com verificações de investigação com falha é removida do balanceador de carga até ele ficar online novamente e as verificações de investigação determinarem sua integridade. Crie uma investigação de integridade com [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) para monitorar a integridade das máquinas virtuais. 
 
 ```azurecli-interactive
   az network lb probe create \
@@ -111,7 +111,7 @@ Em seguida, demonstraremos como mapear esse serviço para um ponto de extremidad
 ## <a name="private-endpoints"></a>Pontos de extremidade privados
 
 ### <a name="create-the-virtual-network"></a>Criar a rede virtual 
-Crie uma rede virtual com [AZ Network vnet Create](/cli/azure/network/vnet#az-network-vnet-create). Este exemplo cria uma rede virtual chamada *myPEVNet* no grupo de recursos chamado *MyResource*Group: 
+Crie uma rede virtual com [AZ Network vnet Create](/cli/azure/network/vnet#az-network-vnet-create). Este exemplo cria uma rede virtual chamada *myPEVNet*   no grupo de recursos chamado *MyResource*Group: 
 ```azurecli-interactive
 az network vnet create \
 --resource-group myResourceGroup \
@@ -119,7 +119,7 @@ az network vnet create \
 --address-prefix 10.0.0.0/16  
 ```
 ### <a name="create-the-subnet"></a>Criar a sub-rede 
-Crie uma sub-rede na rede virtual com [AZ Network vnet subnet Create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). Este exemplo cria uma sub-rede chamada *mysubnet* na rede virtual chamada *myPEVnet* no grupo de recursos chamado *MyResource*Group: 
+Crie uma sub-rede na rede virtual com [AZ Network vnet subnet Create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). Este exemplo cria uma sub-rede chamada *mysubnet*   na rede virtual chamada *myPEVnet* no grupo de recursos chamado *MyResource*Group: 
 
 ```azurecli-interactive 
 az network vnet subnet create \
@@ -151,7 +151,7 @@ az network private-endpoint create \
 --connection-name myPEConnectingPLS \
 --location westcentralus 
 ```
-Você pode obter o *Private-Connection-Resource-ID* com `az network private-link-service show` o serviço de link privado. A ID terá a seguinte aparência:   
+Você pode obter o *Private-Connection-Resource-ID* com o `az network private-link-service show` serviço de link privado. A ID terá a seguinte aparência:   
 /subscriptions/subID/resourceGroups/*resourcegroupname*/Providers/Microsoft.Network/privateLinkServices/**privatelinkservicename** 
  
 ## <a name="show-private-link-service-connections"></a>Mostrar conexões do serviço de vínculo privado 

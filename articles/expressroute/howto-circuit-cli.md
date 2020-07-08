@@ -4,15 +4,15 @@ description: Este artigo mostra como criar, provisionar, verificar, atualizar, e
 services: expressroute
 author: cherylmc
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: b967e1d8751a9c6a5214fef5241d57e954ad9f17
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 56af984ef83d2e237f0aa05af5cfef4dd6205256
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79476144"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84738321"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Criar e modificar um circuito do ExpressRoute usando a CLI
 
@@ -57,7 +57,7 @@ az account set --subscription "<subscription ID>"
 
 ### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. obter a lista de provedores, locais e larguras de banda com suporte
 
-Antes de criar um circuito de ExpressRoute você precisará de uma lista de provedores de conectividade com suporte, dos locais e de opções de largura de banda. O comando `az network express-route list-service-providers` da CLI retorna essas informações, que você usará em etapas posteriores:
+Antes de criar um circuito de ExpressRoute você precisará de uma lista de provedores de conectividade com suporte, dos locais e de opções de largura de banda. O comando da CLI `az network express-route list-service-providers` retorna essas informações, que você usará em etapas posteriores:
 
 ```azurecli-interactive
 az network express-route list-service-providers
@@ -118,7 +118,7 @@ A resposta é semelhante ao seguinte exemplo:
 
 Verifique a resposta para ver se o provedor de conectividade está listado. Anote as informações a seguir, pois você precisará delas quando criar um circuito:
 
-* Name
+* Nome
 * PeeringLocations
 * BandwidthsOffered
 
@@ -155,7 +155,7 @@ A resposta conterá a chave de serviço.
 
 ### <a name="4-list-all-expressroute-circuits"></a>4. listar todos os circuitos de ExpressRoute
 
-Para obter uma lista de todos os circuitos do ExpressRoute que você criou, execute `az network express-route list` o comando. Você pode recuperar essas informações a qualquer momento usando este comando. Para listar todos os circuitos, faça a chamada sem parâmetros.
+Para obter uma lista de todos os circuitos do ExpressRoute que você criou, execute o `az network express-route list` comando. Você pode recuperar essas informações a qualquer momento usando este comando. Para listar todos os circuitos, faça a chamada sem parâmetros.
 
 ```azurecli-interactive
 az network express-route list

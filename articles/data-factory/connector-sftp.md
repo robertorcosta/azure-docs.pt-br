@@ -1,6 +1,6 @@
 ---
 title: Copiar dados de e para o servidor SFTP
-description: Saiba como copiar dados de e para um servidor FTP usando o Azure Data Factory.
+description: Saiba como copiar dados de e para o servidor SFTP usando Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 ms.author: jingwang
@@ -11,36 +11,36 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/15/2020
-ms.openlocfilehash: f61560b01c2ac7bc4db18c31399fcce1743f4824
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.date: 06/12/2020
+ms.openlocfilehash: 32650d44b452b90ffd2935eb31f7c7b958c0f7ae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653749"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737744"
 ---
-# <a name="copy-data-from-and-to-sftp-server-using-azure-data-factory"></a>Copiar dados de e para um servidor SFTP usando o Azure Data Factory
+# <a name="copy-data-from-and-to-the-sftp-server-by-using-azure-data-factory"></a>Copiar dados de e para o servidor SFTP usando Azure Data Factory
 
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-sftp-connector.md)
 > * [Versão atual](connector-sftp.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Este artigo descreve como copiar dados de e para o servidor SFTP. Para saber mais sobre o Azure Data Factory, leia as [artigo introdutório](introduction.md).
+Este artigo descreve como copiar dados de e para o servidor FTP seguro (SFTP). Para saber mais sobre o Azure Data Factory, leia as [artigo introdutório](introduction.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
-Este conector SFTP tem suporte para as seguintes atividades:
+O conector SFTP tem suporte para as seguintes atividades:
 
 - [atividade de cópia](copy-activity-overview.md) de com [matriz de fonte/coletor com suporte](copy-activity-overview.md)
 - [Atividade de pesquisa](control-flow-lookup-activity.md)
 - [Atividade GetMetadata](control-flow-get-metadata-activity.md)
 - [Excluir atividade](delete-activity.md)
 
-Especificamente, este conector de SFTP dá suporte a:
+Especificamente, o conector SFTP dá suporte a:
 
-- Cópia de arquivos de/para SFTP usando a autenticação **Básica** ou **SshPublicKey**.
-- Cópia de arquivos no estado em que se encontram ou análise/geração de arquivos com os [formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs.md).
+- Copiar arquivos de e para o servidor SFTP usando a autenticação *básica* ou *SshPublicKey* .
+- Copiar arquivos como está ou analisando ou gerando arquivos com os [formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -58,22 +58,22 @@ As propriedades a seguir têm suporte para o serviço vinculado do SFTP:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type deve ser definida como: **Sftp**. |Sim |
-| host | Nome ou endereço IP do servidor SFTP. |Sim |
-| porta | Porta na qual o servidor SFTP está escutando.<br/>Os valores permitidos são: inteiro, o valor padrão é **22**. |Não |
-| skipHostKeyValidation | Especifique se deseja ignorar a validação da chave de host.<br/>Os valores permitidos são: **true**, **false** (padrão).  | Não |
-| hostKeyFingerprint | Especifique a impressão digital da chave de host. | Sim se "skipHostKeyValidation" estiver definida como false.  |
-| authenticationType | Especifique o tipo de autenticação.<br/>Valores permitidos são: **Básico**, **SshPublicKey**. Consulte as seções [Usando a autenticação Básica](#using-basic-authentication) e [Usando autenticação de chave pública SSH](#using-ssh-public-key-authentication) para ver mais propriedades e amostras do JSON, respectivamente. |Sim |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção [Pré-requisitos](#prerequisites). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não |
+| type | A propriedade Type deve ser definida como *SFTP*. |Sim |
+| host | O nome ou endereço IP do servidor SFTP. |Sim |
+| porta | A porta na qual o servidor SFTP está escutando.<br/>O valor permitido é um inteiro e o valor padrão é *22*. |Não |
+| skipHostKeyValidation | Especifique se deseja ignorar a validação da chave de host.<br/>Os valores permitidos são *true* e *false* (padrão).  | Não |
+| hostKeyFingerprint | Especifique a impressão digital da chave do host. | Sim, se "skipHostKeyValidation" for definido como false.  |
+| authenticationType | Especifique o tipo de autenticação.<br/>Os valores permitidos são *Basic* e *SshPublicKey*. Para obter mais propriedades, consulte a seção [usar autenticação básica](#use-basic-authentication) . Para obter exemplos de JSON, consulte a seção [usar autenticação de chave pública SSH](#use-ssh-public-key-authentication) . |Sim |
+| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Para saber mais, consulte a seção [pré-requisitos](#prerequisites) . Se o Integration Runtime não for especificado, o serviço usará o Azure Integration Runtime padrão. |Não |
 
-### <a name="using-basic-authentication"></a>Usando a autenticação Básica
+### <a name="use-basic-authentication"></a>Usar autenticação básica
 
-Para usar a autenticação Básica, defina a propriedade "authenticationType" como **Básica** e especifique as propriedades a seguir, além das que são genéricas do conector SFTP apresentadas na última seção:
+Para usar a autenticação básica, defina a propriedade *authenticationType* como *básica*e especifique as propriedades a seguir, além das propriedades genéricas do conector SFTP que foram introduzidas na seção anterior:
 
-| Propriedade | Descrição | Obrigatório |
+| Property | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| userName | Usuário que tem acesso ao servidor SFTP. |Sim |
-| password | Senha do usuário (userName). Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| userName | O usuário que tem acesso ao servidor SFTP. |Sim |
+| password | A senha do usuário (userName). Marque este campo como uma SecureString para armazená-lo com segurança em seu data factory ou [faça referência a um segredo armazenado em um cofre de chaves do Azure](store-credentials-in-key-vault.md). | Sim |
 
 **Exemplo:**
 
@@ -96,26 +96,26 @@ Para usar a autenticação Básica, defina a propriedade "authenticationType" co
             }
         },
         "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
+            "referenceName": "<name of integration runtime>",
             "type": "IntegrationRuntimeReference"
         }
     }
 }
 ```
 
-### <a name="using-ssh-public-key-authentication"></a>Usando a autenticação de chave pública SSH
+### <a name="use-ssh-public-key-authentication"></a>Usar autenticação de chave pública SSH
 
 Para usar a chave pública SSH, defina a propriedade "authenticationType" como **SshPublicKey** e especifique as propriedades a seguir, além das que são genéricas do conector SFTP apresentadas na última seção:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| userName | Usuário que tem acesso ao servidor SFTP |Sim |
-| privateKeyPath | Especifica o caminho absoluto para o arquivo de chave privada que pode ser acessado pelo Integration Runtime. Aplica-se apenas quando o tipo auto-hospedado do Integration Runtime é especificado em "connectVia". | Especifique `privateKeyPath` ou `privateKeyContent`.  |
-| privateKeyContent | Conteúdo da chave privada SSH codificada em Base64. A chave privada SSH deve estar no formato OpenSSH. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Especifique `privateKeyPath` ou `privateKeyContent`. |
-| Senha | Especifique a senha/frase secreta para descriptografar a chave particular se o arquivo de chave for protegido por uma frase secreta. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim, se o arquivo de chave privada for protegido por uma frase secreta. |
+| userName | O usuário que tem acesso ao servidor SFTP. |Sim |
+| privateKeyPath | Especifique o caminho absoluto para o arquivo de chave privada que o Integration Runtime pode acessar. Isso se aplica somente quando o tipo auto-hospedado do tempo de execução de integração é especificado em "connectVia". | Especifique `privateKeyPath` ou `privateKeyContent`.  |
+| privateKeyContent | Conteúdo da chave privada SSH codificada em Base64. A chave privada SSH deve estar no formato OpenSSH. Marque este campo como uma SecureString para armazená-lo com segurança em seu data factory ou [faça referência a um segredo armazenado em um cofre de chaves do Azure](store-credentials-in-key-vault.md). | Especifique `privateKeyPath` ou `privateKeyContent`. |
+| Senha | Especifique a frase secreta ou a senha para descriptografar a chave privada se o arquivo de chave estiver protegido por uma frase secreta. Marque este campo como uma SecureString para armazená-lo com segurança em seu data factory ou [faça referência a um segredo armazenado em um cofre de chaves do Azure](store-credentials-in-key-vault.md). | Sim, se o arquivo de chave privada for protegido por uma frase secreta. |
 
 > [!NOTE]
-> O conector SFTP fornece suporte para a chave OpenSSH RSA/DSA. Certifique-se de que o conteúdo do arquivo da chave inicia com "-----BEGIN [RSA/DSA] PRIVATE KEY-----". Se o arquivo da chave privada for um arquivo ppk-format, utilize a ferramenta Putty para converter de .ppk para o formato OpenSSH. 
+> O conector SFTP dá suporte a uma chave RSA/DSA OpenSSH. Verifique se o conteúdo do arquivo de chave começa com "-----BEGIN [RSA/DSA]-----chave privada". Se o arquivo de chave privada for um arquivo de formato PPK, use a ferramenta de saída para converter de PPK para o formato OpenSSH. 
 
 **Exemplo 1: Autenticação SshPublicKey usando o filePath da chave privada**
 
@@ -138,7 +138,7 @@ Para usar a chave pública SSH, defina a propriedade "authenticationType" como *
             }
         },
         "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
+            "referenceName": "<name of integration runtime>",
             "type": "IntegrationRuntimeReference"
         }
     }
@@ -169,7 +169,7 @@ Para usar a chave pública SSH, defina a propriedade "authenticationType" como *
             }
         },
         "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
+            "referenceName": "<name of integration runtime>",
             "type": "IntegrationRuntimeReference"
         }
     }
@@ -178,17 +178,17 @@ Para usar a chave pública SSH, defina a propriedade "authenticationType" como *
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [Conjuntos de Dados](concepts-datasets-linked-services.md). 
+Para obter uma lista completa das seções e propriedades que estão disponíveis para definir os conjuntos de valores, consulte o artigo [conjuntos de valores](concepts-datasets-linked-services.md) . 
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-As propriedades a seguir têm suporte para SFTP em configurações de `location` no conjunto de conjuntos de base de formato:
+As propriedades a seguir têm suporte para SFTP em `location` configurações no conjunto de entrada baseado em formato:
 
-| Propriedade   | Descrição                                                  | Obrigatório |
+| Property   | Descrição                                                  | Obrigatório |
 | ---------- | ------------------------------------------------------------ | -------- |
-| type       | A propriedade de tipo em `location` no conjunto de dados deve ser definida para **SftpLocation**. | Sim      |
-| folderPath | O caminho para a pasta. Se você quiser usar um caractere curinga para filtrar a pasta, ignore essa configuração e especifique nas configurações de origem da atividade. | Não       |
-| fileName   | O nome do arquivo sob o folderPath fornecido. Se você quiser usar um caractere curinga para filtrar os arquivos, ignore essa configuração e especifique nas configurações de origem da atividade. | Não       |
+| type       | A propriedade *Type* em `location` DataSet deve ser definida como *SftpLocation*. | Sim      |
+| folderPath | O caminho para a pasta. Se você quiser usar um curinga para filtrar a pasta, ignore essa configuração e especifique o caminho nas configurações de origem da atividade. | Não       |
+| fileName   | O nome do arquivo sob o folderPath especificado. Se você quiser usar um curinga para filtrar arquivos, ignore essa configuração e especifique o nome do arquivo nas configurações de origem da atividade. | Não       |
 
 **Exemplo:**
 
@@ -218,27 +218,28 @@ As propriedades a seguir têm suporte para SFTP em configurações de `location`
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, confia o artigo [Pipelines](concepts-pipelines-activities.md). Esta seção fornece uma lista das propriedades com suporte pela fonte SFTP.
+Para obter uma lista completa de seções e propriedades que estão disponíveis para definir atividades, consulte o artigo [pipelines](concepts-pipelines-activities.md) . Esta seção fornece uma lista das propriedades com suporte pela fonte SFTP.
 
 ### <a name="sftp-as-source"></a>SFTP como fonte
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-As propriedades a seguir têm suporte para SFTP em configurações de `storeSettings` na origem de cópia baseada em formato:
+As propriedades a seguir têm suporte para SFTP sob as `storeSettings` configurações na fonte de cópia baseada em formato:
 
-| Propriedade                 | Descrição                                                  | Obrigatório                                      |
+| Property                 | Descrição                                                  | Obrigatório                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| type                     | A propriedade de tipo em `storeSettings` deve ser definida para **SftpReadSettings**. | Sim                                           |
-| ***Localize os arquivos a serem copiados:*** |  |  |
-| OPÇÃO 1: caminho estático<br> | Copiar do caminho de pasta/arquivo especificado no conjunto de dados. Se você quiser copiar todos os arquivos de uma pasta, especifique também `wildcardFileName` como `*`. |  |
-| OPÇÃO 2: curinga<br>- wildcardFolderPath | O caminho da pasta com caracteres curinga para filtrar as pastas de origem. <br>Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único); use `^` para escape se o nome de pasta atual tiver curinga ou esse caractere interno de escape. <br>Veja mais exemplos em [Exemplos de filtro de pastas e arquivos](#folder-and-file-filter-examples). | Não                                            |
-| OPÇÃO 2: curinga<br>- wildcardFileName | O nome do arquivo com caracteres curinga sob folderPath/wildcardFolderPath fornecido para filtrar os arquivos de origem. <br>Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único); use `^` para escape se o nome de pasta atual tiver curinga ou esse caractere interno de escape.  Veja mais exemplos em [Exemplos de filtro de pastas e arquivos](#folder-and-file-filter-examples). | Sim |
-| OPÇÃO 3: uma lista de arquivos<br>- fileListPath | Indica a cópia de um determinado conjunto de arquivos. Aponte para um arquivo de texto que inclui uma lista de arquivos que você deseja copiar, um arquivo por linha, que é o caminho relativo para o caminho configurado no conjunto de dados.<br/>Ao usar essa opção, não especifique o nome do arquivo no conjunto de dados. Veja mais exemplos em [Exemplos de lista de arquivos](#file-list-examples). |Não |
-| ***Configurações adicionais:*** |  | |
-| recursiva | Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. Observe que quando recursiva é definida como true e o coletor é um armazenamento baseado em arquivo, uma pasta vazia ou subpasta não é copiada ou criada no coletor. <br>Os valores permitidos são **true** (padrão) e **false**.<br>Essa propriedade não se aplica quando você configura `fileListPath`. |Não |
-| modifiedDatetimeStart    | Filtro de arquivos com base no atributo: Última Modificação. <br>Os arquivos serão selecionados se a hora da última alteração estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. A hora é aplicada ao fuso horário de UTC no formato "2018-12-01T05:00:00Z". <br> As propriedades podem ser NULL, o que significa que nenhum filtro de atributo de arquivo será aplicado ao conjunto de dados.  Quando `modifiedDatetimeStart` tem o valor de data e hora, mas `modifiedDatetimeEnd` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é maior ou igual ao valor de data e hora.  Quando `modifiedDatetimeEnd` tem o valor de data e hora, mas `modifiedDatetimeStart` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é menor que o valor de data e hora.<br/>Essa propriedade não se aplica quando você configura `fileListPath`. | Não                                            |
+| type                     | A propriedade *Type* em `storeSettings` deve ser definida como *SftpReadSettings*. | Sim                                           |
+| ***Localize os arquivos a serem copiados*** |  |  |
+| OPÇÃO 1: caminho estático<br> | Copiar do caminho de pasta/arquivo especificado no conjunto de um. Se quiser copiar todos os arquivos de uma pasta, especifique também `wildcardFileName` como `*`. |  |
+| OPÇÃO 2: curinga<br>- wildcardFolderPath | O caminho da pasta com caracteres curinga para filtrar as pastas de origem. <br>Curingas permitidos são `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou um único caractere); use `^` para escapar se o nome real da pasta tiver um caractere curinga ou esse caractere de escape dentro. <br>Para obter mais exemplos, consulte [exemplos de filtro de pasta e arquivo](#folder-and-file-filter-examples). | Não                                            |
+| OPÇÃO 2: curinga<br>- wildcardFileName | O nome do arquivo com caracteres curinga no folderPath/wildcardFolderPath especificado para filtrar os arquivos de origem. <br>Curingas permitidos são `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou um único caractere); use `^` para escapar se o nome real da pasta tiver curinga ou este caractere de escape dentro.  Para obter mais exemplos, consulte [exemplos de filtro de pasta e arquivo](#folder-and-file-filter-examples). | Sim |
+| OPÇÃO 3: uma lista de arquivos<br>- fileListPath | Indica a cópia de um conjunto de arquivos especificado. Aponte para um arquivo de texto que inclui uma lista de arquivos que você deseja copiar (um arquivo por linha, com o caminho relativo para o caminho configurado no conjunto de um).<br/>Ao usar essa opção, não especifique o nome do arquivo no conjunto de um. Para obter mais exemplos, consulte [exemplos de lista de arquivos](#file-list-examples). |Não |
+| ***Configurações adicionais*** |  | |
+| recursiva | Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. Quando recursiva é definida como true e o coletor é um armazenamento baseado em arquivo, uma pasta vazia ou subpasta não é copiada ou criada no coletor. <br>Os valores permitidos são *true* (padrão) e *false*.<br>Essa propriedade não se aplica quando você configura `fileListPath`. |Não |
+| deleteFilesAfterCompletion | Indica se os arquivos binários serão excluídos do repositório de origem após a movimentação com êxito para o repositório de destino. A exclusão do arquivo é por arquivo, portanto, quando a atividade de cópia falhar, você verá que alguns arquivos já foram copiados para o destino e excluídos da origem, enquanto outros ainda permanecem no repositório de origem. <br/>Essa propriedade só é válida em cenário de cópia binária, em que os repositórios de fontes de dados são BLOB, ADLS Gen1, ADLS Gen2, S3, armazenamento em nuvem do Google, arquivo, arquivo do Azure, SFTP ou FTP. O valor padrão: false. |Não |
+| modifiedDatetimeStart    | Os arquivos são filtrados com base no atributo *modificado pela última vez*. <br>Os arquivos serão selecionados se a hora da última modificação estiver dentro do intervalo de `modifiedDatetimeStart` a `modifiedDatetimeEnd` . A hora é aplicada ao fuso horário UTC no formato *2018-12-01T05:00:00Z*. <br> As propriedades podem ser nulas, o que significa que nenhum filtro de atributo de arquivo é aplicado ao conjunto de valores.  Quando `modifiedDatetimeStart` tem um valor de DateTime, mas `modifiedDatetimeEnd` é nulo, significa que os arquivos cujo último atributo modificado é maior ou igual ao valor de DateTime são selecionados.  Quando `modifiedDatetimeEnd` tem um valor de DateTime, mas `modifiedDatetimeStart` é nulo, significa que os arquivos cujo último atributo modificado é menor que o valor de data e hora são selecionados.<br/>Essa propriedade não se aplica quando você configura `fileListPath`. | Não                                            |
 | modifiedDatetimeEnd      | Mesmo que acima.                                               | Não                                            |
-| maxConcurrentConnections | O número das conexões para se conectar ao repositório de armazenamento simultaneamente. Especifique somente quando quiser limitar a conexão simultânea com o armazenamento de dados. | Não                                            |
+| maxConcurrentConnections | O número de conexões que podem se conectar ao armazenamento de armazenamento simultaneamente. Especifique um valor somente quando desejar limitar a conexão simultânea com o armazenamento de dados. | Não                                            |
 
 **Exemplo:**
 
@@ -281,22 +282,22 @@ As propriedades a seguir têm suporte para SFTP em configurações de `storeSett
 ]
 ```
 
-### <a name="sftp-as-sink"></a>SFTP como coletor
+### <a name="sftp-as-a-sink"></a>SFTP como um coletor
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-As propriedades a seguir têm suporte para SFTP em configurações de `storeSettings` no coletor de cópia baseado em formato:
+As propriedades a seguir têm suporte para SFTP em `storeSettings` configurações em um coletor de cópia com base em formato:
 
-| Propriedade                 | Descrição                                                  | Obrigatório |
+| Property                 | Descrição                                                  | Obrigatório |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| type                     | A propriedade de tipo em `storeSettings` deve ser definida para **SftpWriteSettings**. | Sim      |
+| type                     | A propriedade *Type* em `storeSettings` deve ser definida como *SftpWriteSettings*. | Sim      |
 | copyBehavior             | Define o comportamento de cópia quando a fonte for de arquivos de um armazenamento de dados baseado em arquivo.<br/><br/>Valores permitidos são:<br/><b>– PreserveHierarchy (padrão)</b>: Preserva a hierarquia de arquivos na pasta de destino. O caminho relativo do arquivo de origem para a pasta de origem é idêntico ao caminho relativo do arquivo de destino para a pasta de destino.<br/><b>– FlattenHierarchy</b>: Todos os arquivos da pasta de origem estão no primeiro nível da pasta de destino. Os arquivos de destino têm os nomes gerados automaticamente. <br/><b>– MergeFiles</b>: Mescla todos os arquivos da pasta de origem em um arquivo. Se o nome do arquivo for especificado, o nome do arquivo mesclado será o nome especificado. Caso contrário, ele será um nome de arquivo gerado automaticamente. | Não       |
-| maxConcurrentConnections | O número das conexões para se conectar ao armazenamento de dados simultaneamente. Especifique somente quando quiser limitar a conexão simultânea com o armazenamento de dados. | Não       |
-| useTempFileRename | Indique se deseja carregar arquivos temporários e renomear ou gravar diretamente no local de arquivo/pasta de destino. Por padrão, o ADF primeiro grava em arquivos temporários e, em seguida, renomeia o arquivo após a conclusão do carregamento, a fim de 1) evitar a gravação de conflitos resultando em um arquivo corrompido se você tiver outro processo de gravação no mesmo arquivo e 2) garantir que a versão original do arquivo exista durante toda a transferência. Se o servidor SFTP não oferecer suporte à operação de renomeação, desabilite essa opção e verifique se você não tem a gravação simultânea no arquivo de destino. Consulte a dica de solução de problemas abaixo desta tabela. | Não. O valor padrão é true. |
+| maxConcurrentConnections | O número de conexões que podem se conectar ao armazenamento de armazenamento simultaneamente. Especifique um valor somente quando desejar limitar a conexão simultânea com o armazenamento de dados. | Não       |
+| useTempFileRename | Indique se deseja carregar arquivos temporários e renomeá-los ou gravar diretamente na pasta de destino ou no local do arquivo. Por padrão, Azure Data Factory primeiro grava em arquivos temporários e, em seguida, os renomeia quando o carregamento é concluído. Essa sequência ajuda a (1) evitar conflitos que podem resultar em um arquivo corrompido se você tiver outros processos gravando no mesmo arquivo e (2) verificar se a versão original do arquivo existe durante a transferência. Se o seu servidor SFTP não oferecer suporte a uma operação de renomeação, desabilite essa opção e verifique se você não tem uma gravação simultânea no arquivo de destino. Para obter mais informações, consulte a dica de solução de problemas no final desta tabela. | Não. O valor padrão é *true*. |
 | operationTimeout | O tempo de espera antes de expirar cada solicitação de gravação para o servidor SFTP. O valor padrão é 60 minutos (01:00:00).|Não |
 
 >[!TIP]
->Se você encontrar o erro de "UserErrorSftpPathNotFound", "UserErrorSftpPermissionDenied" ou "SftpOperationFail" ao gravar dados no SFTP, e o usuário SFTP que você usa tiver a permissão adequada, verifique se o seu servidor SFTP oferece suporte à operação de renomeação de arquivo - se não oferecer, desabilite a opção "Carregar com arquivo temporário" (`useTempFileRename`) e tente novamente. Saiba mais sobre essa propriedade da tabela acima. Se você usar o Integration Runtime auto-hospedado para cópia, use a versão 4.6 ou superior.
+>Se você receber o erro "UserErrorSftpPathNotFound", "UserErrorSftpPermissionDenied" ou "SftpOperationFail" quando estiver gravando dados em SFTP, e o usuário *SFTP usado tiver* as permissões corretas, verifique se a operação de renomeação do arquivo de suporte do servidor SFTP está funcionando. Se não estiver, desabilite a opção **carregar com o arquivo temporário** ( `useTempFileRename` ) e tente novamente. Para saber mais sobre essa propriedade, consulte a tabela anterior. Se você usar um tempo de execução de integração auto-hospedado para a atividade de cópia, certifique-se de usar a versão 4,6 ou posterior.
 
 **Exemplo:**
 
@@ -335,7 +336,7 @@ As propriedades a seguir têm suporte para SFTP em configurações de `storeSett
 
 ### <a name="folder-and-file-filter-examples"></a>Exemplos de filtro de pasta e arquivo
 
-Esta seção descreve o comportamento resultante do caminho da pasta e do nome de arquivo com filtros curinga.
+Esta seção descreve o comportamento que resulta do uso de filtros curinga com caminhos de pasta e nomes de arquivo.
 
 | folderPath | fileName | recursiva | Estrutura da pasta de origem e resultado do filtro (os arquivos em **negrito** são recuperados)|
 |:--- |:--- |:--- |:--- |
@@ -346,48 +347,46 @@ Esta seção descreve o comportamento resultante do caminho da pasta e do nome d
 
 ### <a name="file-list-examples"></a>Exemplos de lista de arquivos
 
-Esta seção descreve o comportamento resultante do uso do caminho da lista de arquivos na origem da atividade de cópia.
+Esta tabela descreve o comportamento resultante do uso de um caminho de lista de arquivos na origem da atividade de cópia. Ele pressupõe que você tem a seguinte estrutura de pasta de origem e deseja copiar os arquivos que estão em negrito:
 
-Supondo que você tenha a seguinte estrutura de pasta de origem e queira copiar os arquivos em negrito:
-
-| Estrutura de origem de exemplo                                      | Conteúdo em FileListToCopy.txt                             | Configuração ADF                                            |
+| Exemplo de estrutura de origem                                      | Conteúdo em FileListToCopy.txt                             | Configuração de Azure Data Factory                                            |
 | ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ |
-| root<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Arquivo1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Arquivo3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Arquivo5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Metadados<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **No conjunto de dados:**<br>- Caminho da pasta: `root/FolderA`<br><br>**Origem da atividade de cópia:**<br>- Caminho da lista de arquivos: `root/Metadata/FileListToCopy.txt` <br><br>O caminho da lista de arquivos aponta para um arquivo de texto no mesmo armazenamento de dados, que inclui uma lista de arquivos que você deseja copiar, um arquivo por linha, que é o caminho relativo para o caminho configurado no conjunto de dados. |
+| root<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Arquivo1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Arquivo3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Arquivo5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Metadados<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **No conjunto de os:**<br>- Caminho da pasta: `root/FolderA`<br><br>**Na fonte da atividade de cópia:**<br>- Caminho da lista de arquivos: `root/Metadata/FileListToCopy.txt` <br><br>O caminho da lista de arquivos aponta para um arquivo de texto no mesmo armazenamento de dados que inclui uma lista de arquivos que você deseja copiar (um arquivo por linha, com o caminho relativo para o caminho configurado no conjunto de dados). |
 
-## <a name="lookup-activity-properties"></a>Pesquisar propriedades de arquivo
+## <a name="lookup-activity-properties"></a>Pesquisar propriedades de atividade
 
-Para saber detalhes sobre as propriedades, verifique [Atividade de pesquisa](control-flow-lookup-activity.md).
+Para obter informações sobre propriedades de atividade de pesquisa, consulte [atividade de pesquisa em Azure data Factory](control-flow-lookup-activity.md).
 
 ## <a name="getmetadata-activity-properties"></a>Propriedades de atividade GetMetadata
 
-Para saber detalhes sobre as propriedades, verifique [Atividade GetMetadata](control-flow-get-metadata-activity.md) 
+Para obter informações sobre as propriedades da atividade GetMetadata, consulte [atividade GetMetadata em Azure data Factory](control-flow-get-metadata-activity.md). 
 
 ## <a name="delete-activity-properties"></a>Excluir propriedades da atividade
 
-Para saber mais detalhes sobre as propriedades, marque [Excluir atividade](delete-activity.md)
+Para obter informações sobre as propriedades de atividade de exclusão, consulte [excluir atividade no Azure data Factory](delete-activity.md).
 
 ## <a name="legacy-models"></a>Modelos herdados
 
 >[!NOTE]
->Os modelos a seguir ainda têm suporte da maneira como se encontram, para compatibilidade com versões anteriores. É recomendável usar o novo modelo mencionado nas seções acima no futuro, e a interface do usuário de criação do ADF mudou para gerar o novo modelo.
+>Os modelos a seguir ainda têm suporte como são para compatibilidade com versões anteriores. É recomendável que você use o novo modelo abordado anteriormente, porque a interface do usuário de criação do Azure Data Factory mudou para gerar o novo modelo.
 
 ### <a name="legacy-dataset-model"></a>Modelo de conjunto de dados herdado
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type do conjunto de dados deve ser definida como: **FileShare** |Sim |
-| folderPath | Caminho para a pasta. O filtro curinga é permitido; os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único); use `^` para escape se o nome de arquivo real tiver curinga ou esse caractere interno de escape. <br/><br/>Exemplos: rootfolder/subfolder/; veja mais exemplos em [Exemplos de filtro de pasta e arquivo](#folder-and-file-filter-examples). |Sim |
-| fileName |  **Filtro de nome ou curinga** para os arquivos em "folderPath" especificado. Se você não especificar um valor para essa propriedade, o conjunto de dados apontará para todos os arquivos na pasta. <br/><br/>Para filtro, os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único).<br/>– Exemplo 1: `"fileName": "*.csv"`<br/>– Exemplo 2: `"fileName": "???20180427.txt"`<br/>Use `^` como escape se o nome real da pasta tiver curingas ou esse caractere de escape. |Não |
-| modifiedDatetimeStart | Filtro de arquivos com base no atributo: Última Modificação. Os arquivos serão selecionados se a hora da última alteração estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. A hora é aplicada ao fuso horário de UTC no formato "2018-12-01T05:00:00Z". <br/><br/> Lembre-se de que o desempenho geral da movimentação de dados será afetado ao habilitar essa configuração, quando você desejar filtrar grandes quantidades de arquivos. <br/><br/> As propriedades podem ser NULL, o que significa que nenhum filtro de atributo de arquivo será aplicado ao conjunto de dados.  Quando `modifiedDatetimeStart` tem o valor de data e hora, mas `modifiedDatetimeEnd` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é maior ou igual ao valor de data e hora.  Quando `modifiedDatetimeEnd` tem o valor de data e hora, mas `modifiedDatetimeStart` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é menor que o valor de data e hora.| Não |
-| modifiedDatetimeEnd | Filtro de arquivos com base no atributo: Última Modificação. Os arquivos serão selecionados se a hora da última alteração estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. A hora é aplicada ao fuso horário de UTC no formato "2018-12-01T05:00:00Z". <br/><br/> Lembre-se de que o desempenho geral da movimentação de dados será afetado ao habilitar essa configuração, quando você desejar filtrar grandes quantidades de arquivos. <br/><br/> As propriedades podem ser NULL, o que significa que nenhum filtro de atributo de arquivo será aplicado ao conjunto de dados.  Quando `modifiedDatetimeStart` tem o valor de data e hora, mas `modifiedDatetimeEnd` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é maior ou igual ao valor de data e hora.  Quando `modifiedDatetimeEnd` tem o valor de data e hora, mas `modifiedDatetimeStart` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é menor que o valor de data e hora.| Não |
-| format | Se você quiser **copiar arquivos no estado em que se encontram** entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas duas definições de conjunto de dados de entrada e de saída.<br/><br/>Se você quer analisar arquivos com um formato específico, os seguintes tipos de formato de arquivo têm suporte: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Defina a propriedade **type** sob formato como um desses valores. Para saber mais, veja as seções [Formato de texto](supported-file-formats-and-compression-codecs-legacy.md#text-format), [Formato Json](supported-file-formats-and-compression-codecs-legacy.md#json-format), [Formato Avro](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [Formato Orc](supported-file-formats-and-compression-codecs-legacy.md#orc-format), e [Formato Parquet](supported-file-formats-and-compression-codecs-legacy.md#parquet-format). |Não (somente para o cenário de cópia binária) |
-| compactação | Especifique o tipo e o nível de compactação para os dados. Para obter mais informações, consulte [Formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>Tipos compatíveis são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**.<br/>Níveis compatíveis são: **Ideal** e **Mais Rápido**. |Não |
+| type | A propriedade *Type* do conjunto de conjuntos deve ser definida como *FileShare*. |Sim |
+| folderPath | O caminho para a pasta. Há suporte para um filtro curinga. Curingas permitidos são `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou um único caractere); use `^` para escapar se o nome real do arquivo tiver um caractere curinga ou esse caractere de escape dentro. <br/><br/>Exemplos: rootfolder/subfolder/; veja mais exemplos em [Exemplos de filtro de pasta e arquivo](#folder-and-file-filter-examples). |Sim |
+| fileName |  **Filtro de nome ou curinga** para os arquivos sob o "FolderPath" especificado. Se você não especificar um valor para essa propriedade, o conjunto de dados apontará para todos os arquivos na pasta. <br/><br/>Para o filtro, os curingas permitidos são `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou a um único caractere).<br/>– Exemplo 1: `"fileName": "*.csv"`<br/>– Exemplo 2: `"fileName": "???20180427.txt"`<br/>Use `^` como escape se o nome real da pasta tiver curingas ou esse caractere de escape. |Não |
+| modifiedDatetimeStart | Os arquivos são filtrados com base no atributo *modificado pela última vez*. Os arquivos serão selecionados se a hora da última modificação estiver dentro do intervalo de `modifiedDatetimeStart` a `modifiedDatetimeEnd` . A hora é aplicada ao fuso horário UTC no formato *2018-12-01T05:00:00Z*. <br/><br/> O desempenho geral da movimentação de dados será afetado com a habilitação dessa configuração quando você desejar fazer o filtro de arquivo de um grande número de arquivos. <br/><br/> As propriedades podem ser nulas, o que significa que nenhum filtro de atributo de arquivo é aplicado ao conjunto de valores.  Quando `modifiedDatetimeStart` tem um valor de DateTime, mas `modifiedDatetimeEnd` é nulo, significa que os arquivos cujo último atributo modificado é maior ou igual ao valor de DateTime são selecionados.  Quando `modifiedDatetimeEnd` tem um valor de DateTime, mas `modifiedDatetimeStart` é nulo, significa que os arquivos cujo último atributo modificado é menor que o valor de data e hora são selecionados.| Não |
+| modifiedDatetimeEnd | Os arquivos são filtrados com base no atributo *modificado pela última vez*. Os arquivos serão selecionados se a hora da última modificação estiver dentro do intervalo de `modifiedDatetimeStart` a `modifiedDatetimeEnd` . A hora é aplicada ao fuso horário UTC no formato *2018-12-01T05:00:00Z*. <br/><br/> O desempenho geral da movimentação de dados será afetado com a habilitação dessa configuração quando você desejar fazer o filtro de arquivo de um grande número de arquivos. <br/><br/> As propriedades podem ser nulas, o que significa que nenhum filtro de atributo de arquivo é aplicado ao conjunto de valores.  Quando `modifiedDatetimeStart` tem um valor de DateTime, mas `modifiedDatetimeEnd` é nulo, significa que os arquivos cujo último atributo modificado é maior ou igual ao valor de DateTime são selecionados.  Quando `modifiedDatetimeEnd` tem um valor de DateTime, mas `modifiedDatetimeStart` é nulo, significa que os arquivos cujo último atributo modificado é menor que o valor de data e hora são selecionados.| Não |
+| format | Se você quiser copiar arquivos no estado em que se encontram entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas definições de conjunto de dados de entrada e de saída.<br/><br/>Se você quiser analisar arquivos com um formato específico, há suporte para os seguintes tipos de formato de arquivo: *TextFormat*, *JsonFormat*, *AvroFormat*, *OrcFormat*e *ParquetFormat*. Defina a propriedade *type* sob formato como um desses valores. Para obter mais informações, consulte [formato de texto](supported-file-formats-and-compression-codecs-legacy.md#text-format), [formato JSON](supported-file-formats-and-compression-codecs-legacy.md#json-format), [formato Avro](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [formato Orc](supported-file-formats-and-compression-codecs-legacy.md#orc-format)e seções de [formato parquet](supported-file-formats-and-compression-codecs-legacy.md#parquet-format) . |Não (somente para o cenário de cópia binária) |
+| compactação | Especifique o tipo e o nível de compactação para os dados. Para obter mais informações, consulte [Formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>Os tipos com suporte são: *GZip*, *Deflate*, *BZip2* e *ZipDeflate*.<br/>Os níveis de suporte são *Ideal* e *Mais rápido*. |Não |
 
 >[!TIP]
->Para copiar todos os arquivos em uma pasta, especifique **folderPath** somente.<br>Para copiar um único arquivo com um determinado nome, especifique **folderPath** com parte da pasta e **fileName** com nome de arquivo.<br>Para copiar um subconjunto de arquivos em uma pasta, especifique **folderPath** com parte da pasta e **fileName** com filtro curinga.
+>Para copiar todos os arquivos em uma pasta, especifique *folderPath* somente.<br>Para copiar um único arquivo com um nome especificado, especifique *FolderPath* com a pasta Part e *filename* com o nome do arquivo.<br>Para copiar um subconjunto de arquivos em uma pasta, especifique *FolderPath* com a parte da pasta e o *nome do arquivo* com o filtro curinga.
 
 >[!NOTE]
->Se você estivesse usando a propriedade "fileFilter" para o filtro de arquivo, ele ainda tem suporte como-é, enquanto são sugeridos para usar o novo recurso de filtro adicionado ao "fileName" no futuro.
+>Se você estiver usando a propriedade *FileFilter* para o filtro de arquivo, ele ainda terá suporte como está, mas recomendamos que você use o novo recurso de filtro adicionado ao *nome de arquivo* de Now on.
 
 **Exemplo:**
 
@@ -420,13 +419,13 @@ Para saber mais detalhes sobre as propriedades, marque [Excluir atividade](delet
 }
 ```
 
-### <a name="legacy-copy-activity-source-model"></a>Modelo de origem de atividade de cópia herdado
+### <a name="legacy-copy-activity-source-model"></a>Modelo de origem da atividade de cópia herdada
 
-| Propriedade | Descrição | Obrigatório |
+| Property | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type da fonte da atividade de cópia deve ser definida como: **FileSystemSource** |Sim |
-| recursiva | Indica se os dados são lidos recursivamente a partir das subpastas ou somente da pasta especificada. Observe que quando o recursivo estiver definido como verdadeiro e o coletor for um armazenamento baseado em arquivo, subpasta/pasta vazia não será copiada/criada no coletor.<br/>Os valores permitidos são: **true** (padrão), **false** | Não |
-| maxConcurrentConnections | O número das conexões para se conectar ao repositório de armazenamento simultaneamente. Especifique somente quando quiser limitar a conexão simultânea com o armazenamento de dados. | Não |
+| type | A propriedade *Type* da fonte da atividade de cópia deve ser definida como *FileSystemName* |Sim |
+| recursiva | Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. Quando recursivo é definido como *true* e o coletor é um armazenamento baseado em arquivo, pastas e subpastas vazias não serão copiadas ou criadas no coletor.<br/>Os valores permitidos são *true* (padrão) e *false* | Não |
+| maxConcurrentConnections | O número de conexões que podem se conectar a um repositório de armazenamento simultaneamente. Especifique um número somente quando desejar limitar as conexões simultâneas ao armazenamento de dados. | Não |
 
 **Exemplo:**
 
@@ -461,4 +460,4 @@ Para saber mais detalhes sobre as propriedades, marque [Excluir atividade](delet
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Azure Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obter uma lista de armazenamentos de dados com suporte como fontes e coletores pela atividade de cópia no Azure Data Factory, consulte [armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).

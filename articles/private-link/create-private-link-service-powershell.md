@@ -4,15 +4,15 @@ description: Saiba como criar um serviço de vínculo privado do Azure usando o 
 services: private-link
 author: malopMSFT
 ms.service: private-link
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 225ae9d07cc6df2fa809e250083ee6007ab2f945
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 89269fe8c291a0c5303ff58cd728e02d4907be0a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76932076"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737301"
 ---
 # <a name="create-a-private-link-service-using-azure-powershell"></a>Criar um serviço de vínculo privado usando Azure PowerShell
 Este artigo mostra como criar um serviço de vínculo privado no Azure usando Azure PowerShell.
@@ -115,7 +115,7 @@ Em seguida, demonstraremos como mapear esse serviço para um ponto de extremidad
 
 ## <a name="create-a-private-endpoint"></a>Criar um ponto de extremidade privado
 ### <a name="create-a-virtual-network"></a>Criar uma rede virtual
-Crie uma rede virtual para seu ponto de extremidade privado com [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). Este exemplo cria uma rede virtual chamada *vnetPE* no grupo de recursos chamado *MyResource*Group:
+Crie uma rede virtual para seu ponto de extremidade privado com [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). Este exemplo cria uma rede virtual chamada *vnetPE*   no grupo de recursos chamado *MyResource*Group:
  
 ```azurepowershell
 $virtualNetworkNamePE = "vnetPE"
@@ -147,7 +147,7 @@ $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $rgName -Name $peNam
 ```
  
 ### <a name="get-private-endpoint"></a>Obter ponto de extremidade privado
-Obtenha o endereço IP do ponto de extremidade privado `Get-AzPrivateEndpoint` com como a seguir:
+Obtenha o endereço IP do ponto de extremidade privado com `Get-AzPrivateEndpoint` como a seguir:
 
 ```azurepowershell
 # Get Private Endpoint and its IP Address 

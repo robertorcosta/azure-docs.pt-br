@@ -4,15 +4,15 @@ description: Configure o monitoramento de rede baseado em nuvem (NPM) para circu
 services: expressroute
 author: cherylmc
 ms.service: expressroute
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/25/2019
 ms.author: cherylmc
-ms.openlocfilehash: 54fa3dcbfbbcb3153f81407a9bc9b52511405390
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 05c21f4f3f0af0de524db75ce9e6feb38d98c24e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74076603"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84738372"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configurar o Monitor de Desempenho de Rede para ExpressRoute
 
@@ -96,18 +96,18 @@ Criar um workspace na assinatura que tem o link das VNETs ao(s) circuito(s) do E
   >
 
 1. Execute a **Instalação** para instalar o agente em cada servidor que deseja usar para o monitoramento de ExpressRoute. O servidor utilizado no monitoramento pode ser uma VM ou local e deve ter acesso à Internet. É necessário instalar pelo menos um agente local e um agente em cada segmento de rede que você deseja monitorar no Azure.
-2. Na página **Bem-vindo**, clique em **Avançar**.
+2. Na página de **Boas-vindas**, clique em **Avançar**.
 3. Na página **termos de licença** , leia a licença e clique em **concordo**.
 4. Na página **pasta de destino** , altere ou mantenha a pasta de instalação padrão e clique em **Avançar**.
 5. Na página **Opções de instalação do agente** , você pode optar por conectar o agente a Azure monitor logs ou Operations Manager. Ou, você poderá deixar as opções em branco se quiser configurar o agente mais tarde. Após fazer suas seleções, clique em **Avançar**.
 
-   * Se você optar por conectar-se ao **Azure Log Analytics**, cole a **ID do Workspace** e a **Chave do Workspace** (Chave Primária) que você copiou para o Bloco de Notas na seção anterior. Em seguida, clique em **Avançar**.
+   * Se você optar por conectar-se ao **Azure Log Analytics**, cole a **ID do Workspace** e a **Chave do Workspace** (Chave Primária) que você copiou para o Bloco de Notas na seção anterior. Em seguida, clique em **Próximo**.
 
      ![ID e a Chave](./media/how-to-npm/8.png)
-   * Se você optar por conectar-se ao **Operations Manager**, na página **Configuração de Grupo de Gerenciamento**, digite o **Nome do Grupo de Gerenciamento**, **Servidor de Gerenciamento** e **Porta do Servidor de Gerenciamento**. Em seguida, clique em **Avançar**.
+   * Se você optar por conectar-se ao **Operations Manager**, na página **Configuração de Grupo de Gerenciamento**, digite o **Nome do Grupo de Gerenciamento**, **Servidor de Gerenciamento** e **Porta do Servidor de Gerenciamento**. Em seguida, clique em **Próximo**.
 
      ![Operations Manager](./media/how-to-npm/9.png)
-   * Na página **Conta de Ação de Agente**, escolha a conta **Sistema Local** ou a **Conta de Computador Local ou Domínio**. Em seguida, clique em **Avançar**.
+   * Na página **Conta de Ação de Agente**, escolha a conta **Sistema Local** ou a **Conta de Computador Local ou Domínio**. Em seguida, clique em **Próximo**.
 
      ![Conta](./media/how-to-npm/10.png)
 6. Na página **pronto para instalar** , examine suas escolhas e clique em **instalar**.
@@ -228,7 +228,7 @@ Depois de ver os blocos de monitoramentos, seus circuitos do ExpressRoute e os r
 
 A página NPM contém uma página para ExpressRoute que mostra uma visão geral da integridade de circuitos e emparelhamentos do ExpressRoute.
 
-![Painel](./media/how-to-npm/dashboard.png)
+![Dashboard](./media/how-to-npm/dashboard.png)
 
 ### <a name="list-of-circuits"></a><a name="circuits"></a>Lista de circuitos
 

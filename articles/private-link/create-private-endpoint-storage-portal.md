@@ -4,15 +4,15 @@ description: Saiba como conectar-se de forma privada a uma conta de armazenament
 services: private-link
 author: malopMSFT
 ms.service: private-link
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 111e6e2f80c3460f363c496b7b32befdca16250d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1ccbb685ceb406fd7a52edf793b53d9e1c32630b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81115103"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737318"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Conectar-se de forma privada a uma conta de armazenamento usando o ponto de extremidade privado do Azure
 O ponto de extremidade privado do Azure é o bloco de construção fundamental para o link privado no Azure. Ele permite que os recursos do Azure, como VMs (máquinas virtuais), se comuniquem de forma privada com recursos de link privado.
@@ -37,20 +37,20 @@ Nesta seção, você precisará substituir os seguintes parâmetros nas etapas p
 | **\<resource-group-name>**  | myResourceGroup |
 | **\<virtual-network-name>** | myVirtualNetwork          |
 | **\<region-name>**          | Centro-Oeste dos EUA      |
-| **\<IPv4-address-space>**   | 10.1.0.0 \ 16          |
+| **\<IPv4-address-space>**   | 10.1.0.0\16          |
 | **\<subnet-name>**          | mySubnet        |
-| **\<subnet-address-range>** | 10.1.0.0 \ 24          |
+| **\<subnet-address-range>** | 10.1.0.0\24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 
 ### <a name="create-virtual-machine"></a>Criar máquina virtual
 
-1. No lado superior esquerdo da tela na portal do Azure, selecione **criar um recurso** > **computação** > **máquina virtual**.
+1. No lado superior esquerdo da tela na portal do Azure, selecione **criar um recurso**  >  **computação**  >  **máquina virtual**.
 
 1. Em **Criar uma máquina virtual – Noções básicas**, insira ou selecione estas informações:
 
-    | Configuração | Valor |
+    | Setting | Valor |
     | ------- | ----- |
     | **DETALHES DO PROJETO** | |
     | Subscription | Selecione sua assinatura. |
@@ -94,11 +94,11 @@ Nesta seção, você precisará substituir os seguintes parâmetros nas etapas p
 ## <a name="create-your-private-endpoint"></a>Criar seu ponto de extremidade privado
 Nesta seção, você criará uma conta de armazenamento particular usando um ponto de extremidade privado para ele. 
 
-1. No lado superior esquerdo da tela na portal do Azure, selecione **criar um recurso** > **armazenamento** > **conta de armazenamento**.
+1. No lado superior esquerdo da tela na portal do Azure, selecione **criar um recurso**  >  **armazenamento**  >  **conta de armazenamento**.
 
 1. Em **criar conta de armazenamento-noções básicas**, insira ou selecione estas informações:
 
-    | Configuração | Valor |
+    | Setting | Valor |
     | ------- | ----- |
     | **DETALHES DO PROJETO** | |
     | Subscription | Selecione sua assinatura. |
@@ -116,12 +116,12 @@ Nesta seção, você criará uma conta de armazenamento particular usando um pon
 5. Em **criar uma conta de armazenamento – rede**, selecione **Adicionar ponto de extremidade privado**. 
 6. Em **criar ponto de extremidade privado**, insira ou selecione estas informações:
 
-    | Configuração | Valor |
+    | Setting | Valor |
     | ------- | ----- |
     | **DETALHES DO PROJETO** | |
     | Subscription | Selecione sua assinatura. |
     | Resource group | Selecione **myResourceGroup**. Você o criou na seção anterior.|
-    |Local|Selecione **WestCentralUS**.|
+    |Location|Selecione **WestCentralUS**.|
     |Nome|Insira *myPrivateEndpoint*.  |
     |Subrecurso de armazenamento|Deixe o **blob**padrão. |
     | **REDE** |  |
@@ -195,11 +195,11 @@ Opções adicionais para acessar a conta de armazenamento:
 - O utilitário AzCopy é outra opção para transferência de dados programável por scripts de alto desempenho para o armazenamento do Azure. Use AzCopy para transferir dados para e do armazenamento de Blobs, Arquivo e Tabela. 
 
 
-## <a name="clean-up-resources"></a>Limpar os recursos 
+## <a name="clean-up-resources"></a>Limpar recursos 
 Quando você terminar de usar o ponto de extremidade privado, a conta de armazenamento e a VM, exclua o grupo de recursos e todos os recursos que ele contém: 
 1. Insira *myResourceGroup* na caixa **Pesquisar** na parte superior do portal e selecione *myResourceGroup* nos resultados da pesquisa. 
 2. Selecione **Excluir grupo de recursos**. 
-3. Insira *MyResource* Group para **digite o nome do grupo de recursos** e selecione **excluir**. 
+3. Insira *myResourceGroup* para **DIGITAR O NOME DO GRUPO DE RECURSOS:** e selecione **Excluir**. 
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste guia de início rápido, você criou uma VM em uma rede virtual e uma conta de armazenamento e um ponto de extremidade privado. Você se conectou a uma VM da Internet e se comunica com segurança à conta de armazenamento usando o link privado. Para saber mais sobre o ponto de extremidade privado, consulte [o que é o ponto de extremidade privado do Azure?](private-endpoint-overview.md).

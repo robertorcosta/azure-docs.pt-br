@@ -4,15 +4,15 @@ description: Este artigo ajuda você a configurar o ExpressRoute direto usando o
 services: expressroute
 author: cherylmc
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/20/2019
 ms.author: cherylmc
-ms.openlocfilehash: dcca1417aec52fb4bf99d5c480d81995154a68b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 343b63f960ccc458b1b1603f924b890366982477
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79481969"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84736264"
 ---
 # <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Configurar o ExpressRoute direto usando o CLI do Azure
 
@@ -49,7 +49,7 @@ Você pode usar o Azure ExpressRoute Direct para conectar-se diretamente à rede
    az network express-route port location list
    ```
 
-   **Exemplo de saída**
+   **Saída de exemplo**
   
    ```output
    [
@@ -116,7 +116,7 @@ Você pode usar o Azure ExpressRoute Direct para conectar-se diretamente à rede
    az network express-route port location show -l "Equinix-Ashburn-DC2"
    ```
 
-   **Exemplo de saída**
+   **Saída de exemplo**
 
    ```output
    {
@@ -154,7 +154,7 @@ Você pode usar o Azure ExpressRoute Direct para conectar-se diretamente à rede
    > Você também pode definir o atributo **Encapsulamento** para **Dot1Q**. 
    >
 
-   **Exemplo de saída**
+   **Saída de exemplo**
 
    ```output
    {
@@ -222,7 +222,7 @@ Use esse processo para conduzir um teste de camada 1. Certifique-se de que cada 
    ```azurecli
    az network express-route port update -n Contoso-Direct -g Contoso-Direct-rg --set links[1].adminState="Enabled"
    ```
-   **Exemplo de saída**
+   **Saída de exemplo**
 
    ```output
    {
@@ -295,7 +295,7 @@ Crie um circuito no recurso ExpressRoute Direct:
 
   Outras larguras de banda incluem: 5 Gbps, 10 Gbps e 40 Gbps.
 
-  **Exemplo de saída**
+  **Saída de exemplo**
 
   ```output
   {

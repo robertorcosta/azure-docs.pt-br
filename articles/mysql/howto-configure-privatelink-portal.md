@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 4a4824a9f8340b12bca7e18562d723eb24e58b71
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b4ac25d6fca78962e9da4f7dd79476b8e8b9c2d5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79371912"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84738253"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>Criar e gerenciar um link privado para o banco de dados do Azure para MySQL usando o portal
 
@@ -32,7 +32,7 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM qu
 ### <a name="create-the-virtual-network"></a>Criar a rede virtual
 Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM usada para acessar o recurso de Link Privado.
 
-1. No lado superior esquerdo da tela, selecione **criar um recurso** > **Networking** > rede redes**virtuais**.
+1. No lado superior esquerdo da tela, selecione **criar um recurso**rede redes  >  **Networking**  >  **virtuais**.
 2. Em **Criar rede virtual**, insira ou selecione estas informações:
 
     | Configuração | Valor |
@@ -41,7 +41,7 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM us
     | Espaço de endereço | Insira *10.1.0.0/16*. |
     | Subscription | Selecione sua assinatura.|
     | Resource group | Selecione **Criar novo** e insira *myResourceGroup*, depois selecione **OK**. |
-    | Local | Selecione **Europa Ocidental**.|
+    | Location | Selecione **Europa Ocidental**.|
     | Sub-rede – Nome | Insira *mySubnet*. |
     | Sub-rede – Intervalo de endereços | Insira *10.1.0.0/24*. |
     |||
@@ -53,7 +53,7 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM us
 
 2. Em **Criar uma máquina virtual – Noções básicas**, insira ou selecione estas informações:
 
-    | Configuração | Valor |
+    | Setting | Valor |
     | ------- | ----- |
     | **DETALHES DO PROJETO** | |
     | Subscription | Selecione sua assinatura. |
@@ -80,7 +80,7 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM us
 
 1. Em **Criar uma máquina virtual – Rede**, selecione estas informações:
 
-    | Configuração | Valor |
+    | Setting | Valor |
     | ------- | ----- |
     | Rede virtual | Deixe o padrão **MyVirtualNetwork**.  |
     | Espaço de endereço | Deixar o padrão **10.1.0.0/24**.|
@@ -99,11 +99,11 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM us
 
 Nesta seção, você criará um servidor de banco de dados do Azure para MySQL no Azure. 
 
-1. No lado superior esquerdo da tela na portal do Azure, selecione **criar um recurso** > **bancos** > de**dados do Azure para MySQL**.
+1. No lado superior esquerdo da tela na portal do Azure, selecione **criar um recurso**  >  **bancos**de  >  **dados do Azure para MySQL**.
 
 1. No **banco de dados do Azure para MySQL** , forneça estas informações:
 
-    | Configuração | Valor |
+    | Setting | Valor |
     | ------- | ----- |
     | **Detalhes do projeto** | |
     | Subscription | Selecione sua assinatura. |
@@ -122,11 +122,15 @@ Nesta seção, você criará um servidor de banco de dados do Azure para MySQL n
 9. Quando você vir a mensagem validação aprovada, selecione **criar**. 
 10. Quando vir a mensagem Validação aprovada, selecione Criar. 
 
+> [!NOTE]
+> Em alguns casos, o Banco de Dados do Azure para MySQL e a sub-rede da VNet estão em assinaturas diferentes. Nesses casos, você deve garantir as seguintes configurações:
+> - Certifique-se de que a assinatura tenha o provedor de recursos **Microsoft. DBforMySQL** registrado. Para obter mais informações, confira [resource-manager-registration][resource-manager-portal]
+
 ## <a name="create-a-private-endpoint"></a>Criar um ponto de extremidade privado
 
 Nesta seção, você criará um servidor MySQL e adicionará um ponto de extremidade privado a ele. 
 
-1. No lado superior esquerdo da tela na portal do Azure, selecione **criar um recurso** > **rede** > **link privado**.
+1. No lado superior esquerdo da tela na portal do Azure, selecione **criar um recurso**  >  **rede**  >  **link privado**.
 
 2. Em **Central de Link Privado – Visão Geral**, na opção **Criar uma conexão privada com um serviço**, selecione **Iniciar**.
 
@@ -134,7 +138,7 @@ Nesta seção, você criará um servidor MySQL e adicionará um ponto de extremi
 
 1. Em **criar um ponto de extremidade privado-noções básicas**, insira ou selecione estas informações:
 
-    | Configuração | Valor |
+    | Setting | Valor |
     | ------- | ----- |
     | **Detalhes do projeto** | |
     | Subscription | Selecione sua assinatura. |
@@ -147,7 +151,7 @@ Nesta seção, você criará um servidor MySQL e adicionará um ponto de extremi
 5. Selecione **Avançar: Recurso**.
 6. Em **Criar um ponto de extremidade privado – Recurso**, insira ou selecione estas informações:
 
-    | Configuração | Valor |
+    | Setting | Valor |
     | ------- | ----- |
     |Método de conexão  | Selecione conectar-se a um recurso do Azure em meu diretório.|
     | Subscription| Selecione sua assinatura. |
@@ -156,7 +160,7 @@ Nesta seção, você criará um servidor MySQL e adicionará um ponto de extremi
     |Sub-recurso de destino |Selecionar *MySqlServer*|
     |||
 7. Selecione **Avançar: configuração**.
-8. Em **criar um ponto de extremidade privado-configuração**, insira ou selecione estas informações:
+8. Em **Criar um ponto de extremidade privado – configuração**, insira ou selecione estas informações:
 
     | Configuração | Valor |
     | ------- | ----- |
@@ -167,6 +171,9 @@ Nesta seção, você criará um servidor MySQL e adicionará um ponto de extremi
     |Integrar com a zona DNS privado |Selecione **Sim** na barra superior. |
     |Zona DNS privado |Selecione *(novo) privatelink. mysql. Database. Azure. com* |
     |||
+
+    > [!Note] 
+    > Use a zona DNS privada predefinida para seu serviço ou forneça seu nome de zona DNS preferencial. Consulte a [configuração da zona DNS dos serviços do Azure](../private-link/private-endpoint-dns.md) para obter detalhes.
 
 1. Selecione **Examinar + criar**. Você é levado até a página **Examinar + criar**, na qual o Azure valida sua configuração. 
 2. Quando vir a mensagem **Validação aprovada**, selecione **Criar**. 
@@ -221,11 +228,11 @@ Depois de criar **myVm**, conecte-se a ela pela Internet da seguinte maneira:
 
 4. Em **nova conexão**, insira ou selecione estas informações:
 
-    | Configuração | Valor |
+    | Setting | Valor |
     | ------- | ----- |
     | Tipo de servidor| Selecione **MySQL**.|
     | Nome do servidor| Selecionar *MyServer.privatelink.mysql.Database.Azure.com* |
-    | Nome de usuário | Insira o nome username@servername de usuário como fornecido durante a criação do servidor MySQL. |
+    | Nome de usuário | Insira o nome de usuário como username@servername fornecido durante a criação do servidor MySQL. |
     |Senha |Insira uma senha fornecida durante a criação do servidor MySQL. |
     |SSL|Selecione **obrigatório**.|
     ||
@@ -238,13 +245,16 @@ Depois de criar **myVm**, conecte-se a ela pela Internet da seguinte maneira:
 
 8. Feche a conexão de área de trabalho remota para myVm.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 Quando você terminar de usar o ponto de extremidade privado, o MySQL Server e a VM, exclua o grupo de recursos e todos os recursos que ele contém:
 
-1. Insira *MyResource* The na caixa de **pesquisa** na parte superior do portal e selecione *MyResource* Bedos resultados da pesquisa.
+1. Insira *MyResource*   The na caixa de **pesquisa** na parte superior do portal e selecione *MyResource*   Bedos resultados da pesquisa.
 2. Selecione **Excluir grupo de recursos**.
 3. Insira MyResource GROUP para **digite o nome do grupo de recursos** e selecione **excluir**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste "como", você criou uma VM em uma rede virtual, um banco de dados do Azure para MySQL e um ponto de extremidade privado para acesso privado. Você se conectou a uma VM da Internet e se comunica com segurança ao servidor MySQL usando o link privado. Para saber mais sobre pontos de extremidade privados, confira [o que é o ponto de extremidades privado do Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).
+
+<!-- Link references, to text, Within this same GitHub repo. -->
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

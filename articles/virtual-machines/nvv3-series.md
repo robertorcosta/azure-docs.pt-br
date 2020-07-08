@@ -2,17 +2,18 @@
 title: Série NVv3-máquinas virtuais do Azure
 description: Especificações para as VMs da série NVv3.
 services: virtual-machines
-author: vikancha
+ms.subservice: sizes
+author: vikancha-MSFT
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
-ms.author: lahugh
-ms.openlocfilehash: d74b00a4bade956d3a511a47b0a6b0011b9fb212
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: jushiman
+ms.openlocfilehash: 9f5d5bd9775507a663a4171faa8b8892357f65b0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78267423"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84736536"
 ---
 # <a name="nvv3-series"></a>Série NVv3
 
@@ -20,13 +21,13 @@ As máquinas virtuais da série NVv3 são alimentadas pelas GPUs [NVIDIA Tesla M
 
 Cada GPU em instâncias de NVv3 vem com uma licença de grade. Esta licença oferece flexibilidade para usar uma instância NV como uma estação de trabalho virtual para um único usuário ou 25 usuários simultâneos podem se conectar à VM para um cenário de aplicativo virtual.
 
-Cache de armazenamento Premium: com suporte
+Cache de Armazenamento Premium:  Com suporte
 
-Migração ao Vivo: sem suporte
+Migração ao Vivo: Sem suporte
 
-Atualizações de preservação de memória: sem suporte
+Atualizações de preservação de memória: Sem suporte
 
-| Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | GPU | Memória da GPU: GiB | Discos de dados máximos | Taxa de transferência máxima do disco não armazenado em cache: IOPS/MBps | Máximo de NICs | Estações de trabalho virtuais | Aplicativos virtuais |
+| Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | GPU | Memória da GPU: GiB | Discos de dados máximos | Taxa de transferência de disco sem cache: IOPS/MBps | Máximo de NICs | Estações de trabalho virtuais | Aplicativos virtuais |
 |---|---|---|---|---|---|---|---|---|---|---|
 | Standard_NV12s_v3 |12 | 112 | 320  | 1 | 8  | 12 | 20000/200 | 4 | 1 | 25  |
 | Standard_NV24s_v3 |24 | 224 | 640  | 2 | 16 | 24 | 40000/400 | 8 | 2 | 50  |

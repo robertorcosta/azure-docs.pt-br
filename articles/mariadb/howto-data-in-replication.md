@@ -5,19 +5,19 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/30/2020
-ms.openlocfilehash: 332feffead74174ba0b9b278d8de1c5957d5b9e6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/11/2020
+ms.openlocfilehash: 0b23b01faf1b6ba09f1c55db2ddabd1696e452be
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80422466"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84738100"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Configurar Replicação de Dados no banco de dados do Azure para MariaDB
 
-Este artigo descreve como configurar o Replicação de Dados no banco de dados do Azure para MariaDB Configurando os servidores mestre e de réplica. Este artigo pressupõe que você tenha alguma experiência anterior com servidores e bancos de dados MariaDB.
+Este artigo descreve como configurar o [replicação de dados](concepts-data-in-replication.md) no banco de dados do Azure para MariaDB Configurando os servidores mestre e de réplica. Este artigo pressupõe que você tenha alguma experiência anterior com servidores e bancos de dados MariaDB.
 
-Para criar uma réplica no banco de dados do Azure para o serviço MariaDB, Replicação de Dados sincroniza dados de um servidor mestre MariaDB no local, em VMs (máquinas virtuais) ou em serviços de banco de dados de nuvem.
+Para criar uma réplica no banco de dados do Azure para o serviço MariaDB, [replicação de dados](concepts-data-in-replication.md) sincroniza dados de um servidor mestre MariaDB no local, em VMS (máquinas virtuais) ou em serviços de banco de dados de nuvem. A Replicação de Dados é baseada na replicação nativa com base na posição do arquivo de log binário (binlog) para o MariaDB. Para saber mais sobre a replicação do binlog, confira a [visão geral da replicação do binlog](https://mariadb.com/kb/en/library/replication-overview/).
 
 Examine as [limitações e os requisitos](concepts-data-in-replication.md#limitations-and-considerations) de replicação de dados antes de executar as etapas neste artigo.
 
@@ -42,6 +42,12 @@ Examine as [limitações e os requisitos](concepts-data-in-replication.md#limita
 
    Atualizar regras de firewall usando o [Portal do Azure](howto-manage-firewall-portal.md) ou a [CLI do Azure](howto-manage-firewall-cli.md).
 
+> [!NOTE]
+> Comunicação sem tendência
+>
+> A Microsoft dá suporte a um ambiente diversificado e de inclusão. Este artigo contém referências à palavra _subordinada_. O [Guia de estilo da Microsoft para comunicação sem tendência](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) reconhece isso como uma palavra de exclusão. A palavra é usada neste artigo para fins de consistência porque, atualmente, ela é a palavra que aparece no software. Quando o software for atualizado para remover a palavra, este artigo será atualizado para estar em alinhamento.
+>
+
 ## <a name="configure-the-master-server"></a>Configurar o servidor mestre
 
 As etapas a seguir preparam e configuram o servidor MariaDB hospedado localmente, em uma VM ou em um serviço de banco de dados de nuvem para Replicação de Dados. O servidor MariaDB é o mestre no Replicação de Dados.
@@ -60,13 +66,13 @@ As etapas a seguir preparam e configuram o servidor MariaDB hospedado localmente
    SHOW VARIABLES LIKE 'log_bin';
    ```
 
-   Se a variável [`log_bin`](https://mariadb.com/kb/en/library/replication-and-binary-log-server-system-variables/#log_bin) retornar o valor `ON`, o log binário será habilitado no servidor.
+   Se a variável [`log_bin`](https://mariadb.com/kb/en/library/replication-and-binary-log-server-system-variables/#log_bin) retornar o valor `ON` , o log binário será habilitado no servidor.
 
-   Se `log_bin` retornar o valor `OFF`, edite o arquivo **My. cnf** para `log_bin=ON` que ative o log binário. Reinicie o servidor para fazer a alteração entrar em vigor.
+   Se `log_bin` retornar o valor `OFF` , edite o arquivo **My. cnf** para que `log_bin=ON` ative o log binário. Reinicie o servidor para fazer a alteração entrar em vigor.
 
 3. Defina as configurações do servidor mestre.
 
-    Replicação de Dados exige que o `lower_case_table_names` parâmetro seja consistente entre os servidores mestre e de réplica. O `lower_case_table_names` parâmetro é definido como `1` por padrão no banco de dados do Azure para MariaDB.
+    Replicação de Dados exige que o parâmetro `lower_case_table_names` seja consistente entre os servidores mestre e de réplica. O `lower_case_table_names` parâmetro é definido como `1` por padrão no banco de dados do Azure para MariaDB.
 
    ```sql
    SET GLOBAL lower_case_table_names = 1;
@@ -78,7 +84,7 @@ As etapas a seguir preparam e configuram o servidor MariaDB hospedado localmente
    
    Para saber como adicionar contas de usuário em seu servidor mestre, consulte a [documentação do MariaDB](https://mariadb.com/kb/en/library/create-user/).
 
-   Usando os comandos a seguir, a nova função de replicação pode acessar o mestre de qualquer computador, não apenas o computador que hospeda o próprio mestre. Para esse acesso, especifique **syncuser\@'% '** no comando para criar um usuário.
+   Usando os comandos a seguir, a nova função de replicação pode acessar o mestre de qualquer computador, não apenas o computador que hospeda o próprio mestre. Para esse acesso, especifique **syncuser \@ '% '** no comando para criar um usuário.
    
    Para saber mais sobre a documentação do MariaDB, consulte [especificando nomes de conta](https://mariadb.com/kb/en/library/create-user/#account-names).
 
@@ -128,7 +134,7 @@ As etapas a seguir preparam e configuram o servidor MariaDB hospedado localmente
 
 6. Obter o nome e o deslocamento do arquivo de log binário atual.
 
-   Para determinar o nome e o deslocamento do arquivo de log binário atual, [`show master status`](https://mariadb.com/kb/en/library/show-master-status/)execute o comando.
+   Para determinar o nome e o deslocamento do arquivo de log binário atual, execute o comando [`show master status`](https://mariadb.com/kb/en/library/show-master-status/) .
     
    ```sql
    show master status;
@@ -177,7 +183,7 @@ As etapas a seguir preparam e configuram o servidor MariaDB hospedado localmente
 
    Todas as funções de replicação nos dados são feitas por procedimentos armazenados. Você pode encontrar todos os procedimentos em [Procedimentos armazenados de replicação nos dados](reference-data-in-stored-procedures.md). Os procedimentos armazenados podem ser executados no Shell do MySQL ou no MySQL Workbench.
 
-   Para vincular dois servidores e iniciar a replicação, entre no servidor de réplica de destino no banco de BD do Azure para o serviço MariaDB. Em seguida, defina a instância externa como o servidor mestre usando o `mysql.az_replication_change_master` procedimento `mysql.az_replication_change_master_with_gtid` armazenado ou no banco de BD do Azure para MariaDB Server.
+   Para vincular dois servidores e iniciar a replicação, entre no servidor de réplica de destino no banco de BD do Azure para o serviço MariaDB. Em seguida, defina a instância externa como o servidor mestre usando o `mysql.az_replication_change_master` `mysql.az_replication_change_master_with_gtid` procedimento armazenado ou no banco de BD do Azure para MariaDB Server.
 
    ```sql
    CALL mysql.az_replication_change_master('<master_host>', '<master_user>', '<master_password>', 3306, '<master_log_file>', <master_log_pos>, '<master_ssl_ca>');
@@ -241,13 +247,13 @@ As etapas a seguir preparam e configuram o servidor MariaDB hospedado localmente
    show slave status;
    ```
 
-   Se `Slave_IO_Running` e `Slave_SQL_Running` estiver no estado `yes`, e o valor de `Seconds_Behind_Master` for `0`, a replicação estará funcionando. `Seconds_Behind_Master` indica o atraso da réplica. Se o valor não `0`for, a réplica estará processando atualizações.
+   Se `Slave_IO_Running` e `Slave_SQL_Running` estiver no estado `yes` , e o valor de `Seconds_Behind_Master` for, a `0` replicação estará funcionando. `Seconds_Behind_Master` indica o atraso da réplica. Se o valor não for `0` , a réplica estará processando atualizações.
 
 4. Atualize as variáveis de servidor correspondentes para tornar a replicação de dados em segurança (necessária somente para replicação sem GTID).
     
-    Devido a uma limitação de replicação nativa no MariaDB, você deve [`sync_master_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_master_info) definir [`sync_relay_log_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_relay_log_info) e variáveis na replicação sem o cenário GTID.
+    Devido a uma limitação de replicação nativa no MariaDB, você deve definir [`sync_master_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_master_info) e [`sync_relay_log_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_relay_log_info) variáveis na replicação sem o cenário GTID.
 
-    Verifique os servidores subordinados `sync_master_info` e `sync_relay_log_info` as variáveis para certificar-se de que a replicação de dados está estável e defina as `1`variáveis como.
+    Verifique os servidores subordinados `sync_master_info` e as `sync_relay_log_info` variáveis para certificar-se de que a replicação de dados está estável e defina as variáveis como `1` .
     
 ## <a name="other-stored-procedures"></a>Outros procedimentos armazenados
 

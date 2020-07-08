@@ -3,21 +3,21 @@ title: Conectar-se a uma conta do Azure cosmos com o link privado do Azure
 description: Saiba como acessar com segurança a conta do Azure Cosmos de uma VM criando um ponto de extremidade privado.
 author: malopMSFT
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/04/2019
 ms.author: allensu
-ms.openlocfilehash: b7a50a2dabc9503ca5dbdd3388e29cfc69963885
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d074128376d481902a203de3d32ef89aa72d7b3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78252594"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737709"
 ---
-# <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Conectar-se de forma privada a uma conta do Azure Cosmos usando o link privado do Azure
+# <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Conectar-se de forma privada a uma conta do Azure Cosmos usando o Link Privado do Azure
 
 O ponto de extremidade privado do Azure é o bloco de construção fundamental para o link privado no Azure. Ele permite que os recursos do Azure, como VMs (máquinas virtuais), se comuniquem de forma privada com recursos de link privado.
 
-Neste artigo, você aprenderá a criar uma VM em uma rede virtual do Azure e uma conta do Azure cosmos com um ponto de extremidade privado usando o portal do Azure. Em seguida, você pode acessar com segurança a conta do Azure Cosmos da VM.
+Neste artigo, você aprenderá a criar uma VM em uma rede virtual do Azure e uma conta do Azure Cosmos com um ponto de extremidade privado do Azure usando o portal do Azure. Em seguida, você pode acessar com segurança a conta do Azure Cosmos na VM.
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -36,19 +36,19 @@ Nesta seção, você precisará substituir os seguintes parâmetros nas etapas p
 | **\<resource-group-name>**  | myResourceGroup|
 | **\<virtual-network-name>** | myVirtualNetwork         |
 | **\<region-name>**          | Centro-Oeste dos EUA     |
-| **\<IPv4-address-space>**   | 10.1.0.0 \ 16          |
+| **\<IPv4-address-space>**   | 10.1.0.0\16          |
 | **\<subnet-name>**          | mySubnet        |
-| **\<subnet-address-range>** | 10.1.0.0 \ 24          |
+| **\<subnet-address-range>** | 10.1.0.0\24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### <a name="create-the-virtual-machine"></a>Criar a máquina virtual
 
-1. No lado superior esquerdo da tela na portal do Azure, selecione **criar um recurso** > **computação** > **máquina virtual**.
+1. No lado superior esquerdo da tela na portal do Azure, selecione **criar um recurso**  >  **computação**  >  **máquina virtual**.
 
 1. Em **Criar uma máquina virtual – Noções básicas**, insira ou selecione estas informações:
 
-    | Configuração | Valor |
+    | Setting | Valor |
     | ------- | ----- |
     | **DETALHES DO PROJETO** | |
     | Subscription | Selecione sua assinatura. |
@@ -126,7 +126,7 @@ Conecte-se à VM *myVm* da Internet da seguinte forma:
 
 Nesta seção, você se conectará de forma privada à conta do Azure Cosmos usando o ponto de extremidade privado. 
 
-1. Para incluir o endereço IP e o mapeamento DNS, entre na sua máquina virtual *myVM*, abra `c:\Windows\System32\Drivers\etc\hosts` o arquivo e inclua as informações de DNS da etapa anterior no seguinte formato:
+1. Para incluir o endereço IP e o mapeamento DNS, entre na sua máquina virtual *myVM*, abra o `c:\Windows\System32\Drivers\etc\hosts` arquivo e inclua as informações de DNS da etapa anterior no seguinte formato:
 
    [Endereço IP privado] [Ponto de extremidade da conta]. Documents. Azure. com
 
@@ -157,7 +157,7 @@ Nesta seção, você se conectará de forma privada à conta do Azure Cosmos usa
 
 1. Feche a conexão de área de trabalho remota para *myVM*.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando você terminar de usar o ponto de extremidade privado, a conta do Azure Cosmos e a VM, exclua o grupo de recursos e todos os recursos que ele contém: 
 
@@ -165,7 +165,7 @@ Quando você terminar de usar o ponto de extremidade privado, a conta do Azure C
 
 1. Selecione **Excluir grupo de recursos**.
 
-1. Insira *MyResource* Group para **digite o nome do grupo de recursos** e selecione **excluir**.
+1. Insira *myResourceGroup* para **DIGITAR O NOME DO GRUPO DE RECURSOS:** e selecione **Excluir**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

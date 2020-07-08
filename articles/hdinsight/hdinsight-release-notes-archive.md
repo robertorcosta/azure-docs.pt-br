@@ -8,30 +8,82 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/08/2019
-ms.openlocfilehash: 094d9fe7425a6192ce2af94c3ea18cac20ff9ded
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aff3ae34f391ac50dc4333fc2dcc3622e1bf479f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76720326"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737998"
 ---
 # <a name="archived-release-notes"></a>Notas de versão arquivadas
-
-> [!IMPORTANT]  
-> O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, confira o [artigo sobre controle de versão do HDInsight](hdinsight-component-versioning.md).
 
 ## <a name="summary"></a>Resumo
 
 O Azure HDInsight é um dos serviços mais populares entre os clientes corporativos para análise de software livre Apache Hadoop e Apache Spark no Azure.
 
+## <a name="release-date-01092020"></a>Data de lançamento: 09/01/2020
+
+Esta versão se aplica tanto ao HDInsight 3.6 quanto ao 4.0. A versão do HDInsight é disponibilizada para todas as regiões durante vários dias. A data de lançamento mostrada aqui indica a data de lançamento da primeira região. Se você não vir as alterações abaixo, aguarde até que a liberação seja ativada em sua região em vários dias.
+
+### <a name="new-features"></a>Novos recursos
+#### <a name="tls-12-enforcement"></a>Imposição do TLS 1.2
+Os protocolos TLS e SSL são protocolos criptográficos que fornecem segurança de comunicações em uma rede de computadores. Saiba mais sobre o [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0). O HDInsight usa o TLS 1.2 em pontos de extremidade HTTPs públicos, mas o TLS 1.1 ainda é compatível com versões anteriores. 
+
+Com esta versão, os clientes podem optar pelo TLS 1.2 apenas para todas as conexões por meio do ponto de extremidade do cluster público. Para dar suporte a isso, a nova propriedade **minSupportedTlsVersion** é introduzida e pode ser especificada durante a criação do cluster. Se a propriedade não estiver definida, o cluster ainda será compatível com TLS 1.0, 1.1 e 1.2, comportamento igual ao atual. Os clientes podem definir o valor dessa propriedade como "1.2", o que significa que o cluster só é compatível com TLS 1.2 e superior. Para obter mais informações, confira [Protocolo TLS](./transport-layer-security.md).
+
+#### <a name="bring-your-own-key-for-disk-encryption"></a>Bring Your Own Key para criptografia de disco
+Todos os discos gerenciados no HDInsight são protegidos com o SSE (Criptografia do Serviço de Armazenamento) do Azure. Por padrão, os dados nesses discos são criptografados usando chaves gerenciadas pela Microsoft. Nesta versão e nas posteriores, você pode usar a criptografia de disco BYOK (Bring Your Own Key) e gerenciá-la usando o Azure Key Vault. A criptografia BYOK é uma configuração de uma etapa realizada durante a criação do cluster sem nenhum custo adicional. Basta registrar o HDInsight como uma identidade gerenciada com o Azure Key Vault e adicionar a chave de criptografia ao criar o cluster. Para obter mais informações, confira [Criptografia de disco de chave gerenciada pelo cliente](https://docs.microsoft.com/azure/hdinsight/disk-encryption).
+
+### <a name="deprecation"></a>Reprovação
+Nenhuma desativação para esta versão. Para se preparar para desativações futuras, confira [Alterações futuras](#upcoming-changes).
+
+### <a name="behavior-changes"></a>Alterações de comportamento
+Nenhuma alteração de comportamento para esta versão. Para se preparar para alterações futuras, confira [Alterações futuras](#upcoming-changes).
+
+### <a name="upcoming-changes"></a>Alterações futuras
+As alterações a seguir ocorrerão em versões futuras. 
+
+#### <a name="deprecation-of-spark-21-and-22-in-hdinsight-36-spark-cluster"></a>Substituição do Spark 2.1 e 2.2 no cluster do Spark do HDInsight 3.6
+A partir de 1º de julho de 2020, os clientes não poderão criar novos clusters Spark com Spark 2.1 e 2.2 no HDInsight 3.6. Os clusters existentes serão executados como estão, sem suporte da Microsoft. Considere a possibilidade de migrar para o Spark 2.3 no HDInsight 3.6 até 30 de junho de 2020 para evitar a interrupção potencial do sistema/suporte. Para obter mais informações, consulte [migrar cargas de trabalho Apache Spark 2,1 e 2,2 para 2,3 e 2,4](./spark/migrate-versions.md).
+
+#### <a name="deprecation-of-spark-23-in-hdinsight-40-spark-cluster"></a>Substituição do Spark 2.3 no cluster do Spark do HDInsight 4.0
+A partir de 1º de julho de 2020, os clientes não poderão criar novos clusters Spark com Spark 2.3 no HDInsight 4.0. Os clusters existentes serão executados como estão, sem suporte da Microsoft. Considere a possibilidade de migrar para o Spark 2.4 no HDInsight 4.0 até 30 de junho de 2020 para evitar a interrupção potencial do sistema/suporte. Para obter mais informações, consulte [migrar cargas de trabalho Apache Spark 2,1 e 2,2 para 2,3 e 2,4](./spark/migrate-versions.md).
+
+#### <a name="deprecation-of-kafka-11-in-hdinsight-40-kafka-cluster"></a>Substituição do Kafka 1.1 no cluster Kafka do HDInsight 4.0
+A partir de julho de 1 2020, os clientes não poderão criar novos clusters Kafka com Kafka 1,1 no HDInsight 4,0. Os clusters existentes serão executados como estão, sem suporte da Microsoft. Considere a possibilidade de migrar para o Kafka 2.1 no HDInsight 4.0 até 30 de junho de 2020 para evitar a interrupção potencial do sistema/suporte. Para obter mais informações, consulte [migrar cargas de trabalho de Apache Kafka para o Azure HDInsight 4,0](./kafka/migrate-versions.md).
+
+#### <a name="hbase-20-to-216"></a>HBase 2.0 para 2.1.6
+Na próxima versão do HDInsight 4.0, a versão do HBase será atualizada da versão 2.0 para a 2.1.6
+
+#### <a name="spark-240-to-244"></a>Spark 2.4.0 para 2.4.4
+Na próxima versão do HDInsight 4.0, a versão do Spark será atualizada da versão 2.4.0 para a 2.4.4
+
+#### <a name="kafka-210-to-211"></a>Kafka 2.1.0 para 2.1.1
+Na próxima versão do HDInsight 4.0, a versão do Kafka será atualizada da versão 2.1.0 para a 2.1.1
+
+#### <a name="a-minimum-4-core-vm-is-required-for-head-node"></a>Uma VM de quatro núcleos mínima é necessária para o nó de cabeçalho 
+Uma VM de quatro núcleos mínima é necessária para o nó de cabeçalho para garantir a alta disponibilidade e a confiabilidade dos clusters do HDInsight. A partir de 6 de abril de 2020, os clientes podem escolher apenas a VM de quatro núcleos ou mais como nó principal para os novos clusters HDInsight. Os clusters existentes continuarão a ser executados conforme o esperado. 
+
+#### <a name="esp-spark-cluster-node-size-change"></a>Alteração do tamanho do nó de cluster do Spark do ESP 
+Na próxima versão, o tamanho mínimo de nó permitido para o cluster do Spark do ESP será alterado para Standard_D13_V2. As VMs da série A podem causar problemas de cluster do ESP devido à capacidade relativamente baixa de CPU e de memória. As VMs da série A serão preteridas para a criação de clusters do ESP.
+
+#### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Migrar para Conjuntos de Dimensionamento de Máquinas Virtuais do Azure
+O HDInsight atualmente usa máquinas virtuais do Azure para provisionar o cluster. Na próxima versão, em vez disso, o HDInsight usará os Conjuntos de Dimensionamento de Máquinas Virtuais do Azure. Saiba mais sobre os Conjuntos de Dimensionamento de Máquinas Virtuais do Azure.
+
+### <a name="bug-fixes"></a>Correções de bug
+O HDInsight continua a fazer aprimoramentos de desempenho e confiabilidade do cluster. 
+
+### <a name="component-version-change"></a>Alteração na versão do componente
+Nenhuma alteração de versão de componente para esta versão. Você pode encontrar as versões de componente atuais para o HDInsight 4.0 e HDInsight 3.6 aqui.
+
 ## <a name="release-date-12172019"></a>Data de lançamento: 12/17/2019
 
-Esta versão se aplica tanto ao HDInsight 3,6 quanto ao 4,0.
+Esta versão se aplica tanto ao HDInsight 3.6 quanto ao 4.0.
 
 ### <a name="new-features"></a>Novos recursos
 
 #### <a name="service-tags"></a>Marcas de serviço
-As marcas de serviço simplificam a segurança para máquinas virtuais do Azure e redes virtuais do Azure, permitindo que você restrinja facilmente o acesso à rede para os serviços do Azure. Você pode usar marcas de serviço em suas regras de NSG (grupo de segurança de rede) para permitir ou negar o tráfego para um serviço específico do Azure globalmente ou por região do Azure. O Azure fornece a manutenção de endereços IP subjacentes a cada marca. As marcas de serviço do HDInsight para NSGs (grupos de segurança de rede) são grupos de endereços IP para serviços de integridade e gerenciamento. Esses grupos ajudam a minimizar a complexidade para a criação de regras de segurança. Os clientes do HDInsight podem habilitar a marca de serviço por meio do portal do Azure, do PowerShell e da API REST. Para obter mais informações, consulte [marcas de serviço do NSG (grupo de segurança de rede) para o Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-service-tags).
+As marcas de serviço simplificam a segurança para máquinas virtuais do Azure e redes virtuais do Azure, permitindo que você restrinja facilmente o acesso à rede para os serviços do Azure. Você pode usar marcas de serviço em suas regras de NSG (grupo de segurança de rede) para permitir ou negar o tráfego para um serviço específico do Azure globalmente ou por região do Azure. O Azure fornece a manutenção de endereços IP subjacentes a cada marca. As marcas de serviço do HDInsight para NSGs (grupos de segurança de rede) são grupos de endereços IP para serviços de integridade e gerenciamento. Esses grupos ajudam a minimizar a complexidade para a criação de regras de segurança. Os clientes do HDInsight podem habilitar a marca de serviço por meio do portal do Azure, do PowerShell e da API REST. Para obter mais informações, veja [Marcas de serviço do grupo de segurança de rede (NSG) para o Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-service-tags).
 
 #### <a name="custom-ambari-db"></a>BD Ambari personalizado
 O HDInsight agora permite que você use seu próprio banco de BD SQL para Apache Ambari. Você pode configurar esse Ambari DB personalizado no portal do Azure ou por meio do modelo do Resource Manager.  Esse recurso permite que você escolha o banco de BD SQL correto para suas necessidades de processamento e capacidade. Você também pode fazer upgrade facilmente para atender aos requisitos de crescimento de negócios. Para obter mais informações, consulte [Configurar clusters do HDInsight com um AMBARI DB personalizado](hdinsight-custom-ambari-db.md).
@@ -39,25 +91,25 @@ O HDInsight agora permite que você use seu próprio banco de BD SQL para Apache
 ![BD Ambari personalizado](./media/hdinsight-release-notes/custom-ambari-db.png)
 
 ### <a name="deprecation"></a>Reprovação
-Nenhuma substituição para esta versão. Para se preparar para [as futuras substituições](#upcoming-changes), confira alterações futuras.
+Nenhuma desativação para esta versão. Para se preparar para desativações futuras, confira [Alterações futuras](#upcoming-changes).
 
 ### <a name="behavior-changes"></a>Alterações de comportamento
 Nenhuma alteração de comportamento para esta versão. Para se preparar para futuras alterações de comportamento, consulte [próximas alterações](#upcoming-changes).
 
 ### <a name="upcoming-changes"></a>Alterações futuras
-As seguintes alterações ocorrerão em versões futuras. 
+As alterações a seguir ocorrerão em versões futuras. 
 
 #### <a name="transport-layer-security-tls-12-enforcement"></a>Imposição de TLS (segurança de camada de transporte) 1,2
-Os protocolos TLS e SSL são protocolos criptográficos que fornecem segurança de comunicações em uma rede de computadores. Para obter mais informações, consulte [segurança da camada de transporte](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0). Embora os clusters do Azure HDInsight aceitem conexões TLS 1,2 em pontos de extremidade HTTPS públicos, o TLS 1,1 ainda tem suporte para compatibilidade com versões anteriores com clientes mais antigos.
+Os protocolos TLS e SSL são protocolos criptográficos que fornecem segurança de comunicações em uma rede de computadores. Para obter mais informações, confira [Protocolo TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0). Embora os clusters do Azure HDInsight aceitem conexões TLS 1,2 em pontos de extremidade HTTPS públicos, o TLS 1,1 ainda tem suporte para compatibilidade com versões anteriores com clientes mais antigos.
 
 A partir da próxima versão, você poderá optar por aceitar e configurar seus novos clusters do HDInsight para apenas as conexões TLS 1,2. 
 
 Posteriormente no ano, a partir do 6/30/2020, o Azure HDInsight impedirá o TLS 1,2 ou versões posteriores para todas as conexões HTTPS. Recomendamos que você verifique se todos os seus clientes estão prontos para lidar com o TLS 1,2 ou versões posteriores.
 
-#### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Migrando para conjuntos de dimensionamento de máquinas virtuais do Azure
-O HDInsight agora usa máquinas virtuais do Azure para provisionar o cluster. A partir de fevereiro de 2020 (a data exata será comunicada posteriormente), o HDInsight usará os conjuntos de dimensionamento de máquinas virtuais do Azure em vez disso. Veja mais sobre os [conjuntos de dimensionamento de máquinas virtuais do Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
+#### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Migrar para Conjuntos de Dimensionamento de Máquinas Virtuais do Azure
+O HDInsight atualmente usa máquinas virtuais do Azure para provisionar o cluster. A partir de fevereiro de 2020 (a data exata será comunicada posteriormente), o HDInsight usará os conjuntos de dimensionamento de máquinas virtuais do Azure em vez disso. Veja mais sobre os [conjuntos de dimensionamento de máquinas virtuais do Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
 
-#### <a name="esp-spark-cluster-node-size-change"></a>Alteração do tamanho do nó do cluster do Spark do ESP 
+#### <a name="esp-spark-cluster-node-size-change"></a>Alteração do tamanho do nó de cluster do Spark do ESP 
 Na próxima versão:
 - O tamanho mínimo de nó permitido para o cluster do Spark do ESP será alterado para Standard_D13_V2. 
 - As VMs da série a serão preteridas para a criação de novos clusters ESP, pois as VMs da série A podem causar problemas de cluster ESP devido a uma capacidade relativamente baixa de CPU e memória.
@@ -66,9 +118,9 @@ Na próxima versão:
 Na próxima versão do HDInsight 4,0, a versão do HBase será atualizada da versão 2,0 para a 2,1.
 
 ### <a name="bug-fixes"></a>Correções de bug
-O HDInsight continua a tornar as melhorias de desempenho e confiabilidade do cluster. 
+O HDInsight continua a fazer aprimoramentos de desempenho e confiabilidade do cluster. 
 
-### <a name="component-version-change"></a>Alteração de versão do componente
+### <a name="component-version-change"></a>Alteração na versão do componente
 Ampliamos o suporte do HDInsight 3,6 para 31 de dezembro de 2020. Você pode encontrar mais detalhes em [versões do HDInsight com suporte](hdinsight-component-versioning.md#supported-hdinsight-versions).
 
 Nenhuma alteração de versão de componente para o HDInsight 4,0.
@@ -80,12 +132,12 @@ Você pode encontrar as versões de componente mais atualizadas [deste documento
 ### <a name="new-regions"></a>Novas regiões
 
 #### <a name="uae-north"></a>Norte dos EAU
-Os IPs de gerenciamento de Norte dos EAU são `65.52.252.96` : `65.52.252.97`e.
+Os IPs de gerenciamento de Norte dos EAU são: `65.52.252.96` e `65.52.252.97` .
 
 
 ## <a name="release-date-11072019"></a>Data de lançamento: 11/07/2019
 
-Esta versão se aplica tanto ao HDInsight 3,6 quanto ao 4,0.
+Esta versão se aplica tanto ao HDInsight 3.6 quanto ao 4.0.
 
 ### <a name="new-features"></a>Novos recursos
 
@@ -133,8 +185,8 @@ O HDInsight fornece o espaço em disco gerenciado com o cluster. A partir desta 
 ### <a name="upcoming-changes"></a>Alterações futuras
 As seguintes alterações ocorrerão nas versões futuras. 
 
-#### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Migrando para conjuntos de dimensionamento de máquinas virtuais do Azure
-O HDInsight agora usa máquinas virtuais do Azure para provisionar o cluster. A partir de dezembro, o HDInsight usará os conjuntos de dimensionamento de máquinas virtuais do Azure em vez disso. Veja mais sobre os [conjuntos de dimensionamento de máquinas virtuais do Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
+#### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Migrar para Conjuntos de Dimensionamento de Máquinas Virtuais do Azure
+O HDInsight atualmente usa máquinas virtuais do Azure para provisionar o cluster. A partir de dezembro, o HDInsight usará os conjuntos de dimensionamento de máquinas virtuais do Azure em vez disso. Veja mais sobre os [conjuntos de dimensionamento de máquinas virtuais do Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
 
 #### <a name="hbase-20-to-21"></a>HBase 2,0 a 2,1
 Na próxima versão do HDInsight 4,0, a versão do HBase será atualizada da versão 2,0 para a 2,1.
@@ -143,9 +195,9 @@ Na próxima versão do HDInsight 4,0, a versão do HBase será atualizada da ver
 As VMs da série a podem causar problemas de cluster ESP devido à capacidade relativamente baixa de CPU e memória. Na próxima versão, as VMs da série A serão preteridas para a criação de novos clusters ESP.
 
 ### <a name="bug-fixes"></a>Correções de bug
-O HDInsight continua a tornar as melhorias de desempenho e confiabilidade do cluster. 
+O HDInsight continua a fazer aprimoramentos de desempenho e confiabilidade do cluster. 
 
-### <a name="component-version-change"></a>Alteração de versão do componente
+### <a name="component-version-change"></a>Alteração na versão do componente
 Não há nenhuma alteração de versão de componente para esta versão. Você pode encontrar as versões de componente atuais para HDInsight 4,0 e HDInsight 3,6 [aqui](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).
 
 
@@ -226,7 +278,7 @@ Para o HDInsight 3,6, faça o seguinte:
     sudo wget https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh
     ```
 1. Digite o comando `sudo kinit -k -t /etc/security/keytabs/hbase.service.keytab hbase/<FQDN>@<DOMAIN>`.
-1. Digite o seguinte comando: 
+1. Digite o seguinte comando:
 
     ```bash
     sudo bash hdi_enable_replication.sh -s <srclusterdns> -d <dstclusterdns> -sp <srcclusterpasswd> -dp <dstclusterpasswd> -copydata
@@ -250,7 +302,7 @@ Execute as seguintes etapas:
 
 Execute as seguintes etapas:
 
-1. Antes de fazer a replicação, vá para o cluster de destino 4,0 `sqlline.py`e execute. Esse comando gerará tabelas Phoenix, `SYSTEM.MUTEX` como `SYSTEM.LOG` e que só existem em 4,0.
+1. Antes de fazer a replicação, vá para o cluster de destino 4,0 e execute `sqlline.py` . Esse comando gerará tabelas Phoenix, como `SYSTEM.MUTEX` e `SYSTEM.LOG` que só existem em 4,0.
 1. Descartar as seguintes tabelas:
     1. `SYSTEM.FUNCTION`
     1. `SYSTEM.SEQUENCE`
@@ -344,7 +396,7 @@ Esta versão oferece Hadoop Common 2.7.3 e os seguintes patches de Apache:
 
 -   [HADOOP-15265](https://issues.apache.org/jira/browse/HADOOP-15265): excluir o json-smart explicitamente do hadoop-auth pom.xml.
 
--   [HDFS-7922](https://issues.apache.org/jira/browse/HDFS-7922): ShortCircuitCache\#Close não está liberando ScheduledThreadPoolExecutors.
+-   [HDFS-7922](https://issues.apache.org/jira/browse/HDFS-7922): ShortCircuitCache \# Close não está liberando ScheduledThreadPoolExecutors.
 
 -   [HDFS-8496](https://issues.apache.org/jira/browse/HDFS-8496): chamar stopWriter() com o bloqueio FSDatasetImpl mantido pode bloquear outros threads (cmccabe).
 
@@ -464,13 +516,13 @@ Esta versão oferece HBase 1.1.2 e os seguintes patches de Apache.
 
 -   [HBASE-19393](https://issues.apache.org/jira/browse/HBASE-19393): cabeçalho completo HTTP 413 acessando HBase da interface do usuário usando SSL.
 
--   [HBASE-19395](https://issues.apache.org/jira/browse/HBASE-19395): \[Branch-1\] TestEndToEndSplitTransaction. testMasterOpsWhileSplitting falha com NPE.
+-   [HBASE-19395](https://issues.apache.org/jira/browse/HBASE-19395): \[ Branch-1 \] TestEndToEndSplitTransaction. testMasterOpsWhileSplitting falha com NPE.
 
 -   [HBASE-19421](https://issues.apache.org/jira/browse/HBASE-19421): branch-1 não é compilado no Hadoop 3.0.0.
 
 -   [HBASE-19934](https://issues.apache.org/jira/browse/HBASE-19934): HBaseSnapshotException ao ler réplicas está habilitado e o instantâneo on-line é tirado após a divisão da região.
 
--   [HBASE-20008](https://issues.apache.org/jira/browse/HBASE-20008): \[backport\] NullPointerException ao restaurar um instantâneo depois de dividir uma região.
+-   [HBASE-20008](https://issues.apache.org/jira/browse/HBASE-20008): \[ backport \] NullPointerException ao restaurar um instantâneo depois de dividir uma região.
 
 #### <a name="hive"></a>Hive
 
@@ -1048,7 +1100,7 @@ Esta versão oferece ZooKeeper 3.4.6 e os seguintes patches de Apache:
 
 -   [ZOOKEEPER-1256](https://issues.apache.org/jira/browse/ZOOKEEPER-1256): ClientPortBindTest está falhando em Mac OS X.
 
--   [ZOOKEEPER-1901](https://issues.apache.org/jira/browse/ZOOKEEPER-1901): \[JDK8\] classificar filhos para comparação em testes AsyncOps.
+-   [ZOOKEEPER-1901](https://issues.apache.org/jira/browse/ZOOKEEPER-1901): \[ JDK8 \] classificar filhos para comparação em testes AsyncOps.
 
 -   [ZOOKEEPER-2423](https://issues.apache.org/jira/browse/ZOOKEEPER-2423): versão de atualização Netty devido à vulnerabilidade de segurança (CVE-2014 3488).
 
@@ -1335,7 +1387,7 @@ Problemas corrigidos representam problemas selecionados que foram registrados an
 | BUG-93512              | [PHOENIX-4466](https://issues.apache.org/jira/browse/PHOENIX-4466)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | código de resposta 500 - executar um trabalho do spark para conectar-se ao servidor de consulta phoenix e carregar dados                         |
 | BUG-93550              | N/D                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Zeppelin %spark.r não funciona com spark1 devido à incompatibilidade de versão do scala                                                                      |
 | BUG-93910              | [HIVE-18293](https://issues.apache.org/jira/browse/HIVE-18293)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Hive está falhando em compactar as tabelas contidas dentro de uma pasta que não é de propriedade ao identificar a execução HiveMetaStore                                |
-| BUG-93926              | [ZEPPELIN-3114](https://issues.apache.org/jira/browse/ZEPPELIN-3114)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Notebooks e intérpretes não estão sendo salvos em Zeppelin &gt;após o teste de estresse de 1D                                                       |
+| BUG-93926              | [ZEPPELIN-3114](https://issues.apache.org/jira/browse/ZEPPELIN-3114)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Notebooks e intérpretes não estão sendo salvos em Zeppelin após o &gt; teste de estresse de 1D                                                       |
 | BUG-93932              | [ATLAS-2320](https://issues.apache.org/jira/browse/ATLAS-2320)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | classificação de "\*" com a consulta gera exceção de servidor interno 500.                                                                           |
 | BUG-93948              | [YARN-7697](https://issues.apache.org/jira/browse/YARN-7697)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | NM falha com OOM devido a vazamento na agregação de registro (parte\#1)                                                                                 |
 | BUG-93965              | [ATLAS-2229](https://issues.apache.org/jira/browse/ATLAS-2229)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Pesquisa DSL: atributo de cadeia de caracteres fora de ordem lança a exceção                                                                                     |
@@ -1402,7 +1454,7 @@ Problemas corrigidos representam problemas selecionados que foram registrados an
 | BUG-99672              | [ATLAS-2524](https://issues.apache.org/jira/browse/ATLAS-2524)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Hive hook com notificações V2 - incorretas de tratamento de operação “alterar exibição como”                                                              |
 | BUG-99809              | [HBASE-20375](https://issues.apache.org/jira/browse/HBASE-20375)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Remova o uso de getCurrentUserCredentials no módulo do hbase spark                                                                                  |
 
-**Capacidade de suporte**
+**Suporte**
 
 | **ID do Bug do Hortonworks** | **Apache JIRA**                                                  | **Resumo**                                                                                   |
 |------------------------|------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
@@ -1426,7 +1478,7 @@ Problemas corrigidos representam problemas selecionados que foram registrados an
 | BUG-99056              | [HADOOP-13556](https://issues.apache.org/jira/browse/HADOOP-13556)                                                             | Alterar Configuration.getPropsWithPrefix para usar getProps em vez de iterador |
 | BUG-99378              | [ATLAS-2461](https://issues.apache.org/jira/browse/ATLAS-2461), [ATLAS-2554](https://issues.apache.org/jira/browse/ATLAS-2554) | Utilitário de migração para exportar dados do Atlas no grafo Titan DB                    |
 
-**Facilidade de uso**
+**Usabilidade**
 
 | **ID do Bug do Hortonworks** | **Apache JIRA**                                                                                                                                                                                                                                                                | **Resumo**                                                                                                                                                  |
 |------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1558,9 +1610,9 @@ Problemas corrigidos representam problemas selecionados que foram registrados an
 
 - **Spark 2.3**
 
-  -   \[[*SPARK-23523*](https://issues.apache.org/jira/browse/SPARK-23523)\]\[Resultado incorreto do\] SQL Spark-23523 causado pela regra OptimizeMetadataOnlyQuery
+  -   \[[*Spark-23523*](https://issues.apache.org/jira/browse/SPARK-23523) \] \[ \]Resultado incorreto do SQL causado pela regra OptimizeMetadataOnlyQuery
 
-  -   \[[*Bugs Spark-23406* ](https://issues.apache.org/jira/browse/SPARK-23406) \] em autojunções do Stream-Stream
+  -   \[[*Spark-23406*](https://issues.apache.org/jira/browse/SPARK-23406) \] Bugs nas autojunções de Stream-Stream
 
   -   Os notebooks de exemplo do Spark não estão disponíveis quando Azure Data Lake Storage (Gen2) é o armazenamento padrão do cluster.
 
@@ -1611,7 +1663,7 @@ Problemas corrigidos representam problemas selecionados que foram registrados an
     
   Se um usuário quiser criar uma política com condições de política personalizada e a expressão ou o texto contiver caracteres especiais, a imposição de política não funcionará. Caracteres especiais são convertidos em ASCII antes de salvar a política no banco de dados.
     
-  **Caracteres especiais:**  &  &lt; &gt; " \` "
+  **Caracteres especiais:**  &  &lt; &gt; " \` '
     
   Por exemplo, a condição tags.attributes \['type'\]= 'abc' seria convertida para o seguinte depois que a política é salva.
     

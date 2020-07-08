@@ -9,17 +9,17 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: damendo
-ms.openlocfilehash: 1e597a81967a8fb6be2959d53e65ad01135e5e25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 406b02ee2e9c2f4e78ce50fc7160b382b9662303
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76842896"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737420"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Gerenciar e analisar os logs de fluxo do grupo de segurança de rede no Azure usando o Observador de Rede e o Graylog
 
@@ -218,7 +218,7 @@ Agora que o Graylog está configurado e em execução, você pode usar algumas d
 
 2. A partir daí, clique no botão verde **Criar painel** e preencha o formulário curto com o título e a descrição do seu painel. Clique no botão **Salvar** para criar um novo painel. Você verá um painel semelhante à seguinte imagem:
 
-    ![Painéis](./media/network-watcher-analyze-nsg-flow-logs-graylog/dashboards.png)
+    ![Dashboards](./media/network-watcher-analyze-nsg-flow-logs-graylog/dashboards.png)
 
 ### <a name="add-widgets"></a>Adicionar widgets
 

@@ -4,15 +4,15 @@ description: Este artigo mostra as etapas para mover o emparelhamento público p
 services: expressroute
 author: cherylmc
 ms.service: expressroute
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: 48ecfcc0d6241e7926892a3ca1c9925b0dc07241
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2f6b3ec93498ab58ba67a2ca08199feaa2da73ef
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75436852"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84738355"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Mover um emparelhamento público para o emparelhamento da Microsoft
 
@@ -33,7 +33,7 @@ Para se conectar ao emparelhamento da Microsoft, você precisa configurar e gere
 
 Consulte [Roteamento Assimétrico com vários caminhos de rede](https://docs.microsoft.com/azure/expressroute/expressroute-asymmetric-routing) para obter as advertências de roteamento assimétrico antes de configurar o emparelhamento da Microsoft.
 
-* Se você estiver usando o emparelhamento público e tiver regras de rede IP para endereços IP públicos que são usados para acessar [armazenamento do Azure](../storage/common/storage-network-security.md) ou [banco de dados SQL do Azure](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md), você precisa certificar-se de que o pool de IP de NAT configurado com o emparelhamento Microsoft está incluído na lista de endereços IP públicos para a conta de armazenamento do Azure ou a conta do SQL Azure.<br>
+* Se você estiver usando o emparelhamento público e tiver regras de rede IP para endereços IP públicos que são usados para acessar [armazenamento do Azure](../storage/common/storage-network-security.md) ou [banco de dados SQL do Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md), você precisa certificar-se de que o pool de IP de NAT configurado com o emparelhamento Microsoft está incluído na lista de endereços IP públicos para a conta de armazenamento do Azure ou a conta do SQL Azure.<br>
 * Para fazer uma movimentação para o emparelhamento da Microsoft sem tempo de inatividade, use as etapas deste artigo na ordem em que são apresentadas.
 
 ## <a name="1-create-microsoft-peering"></a><a name="create"></a>1. criar emparelhamento da Microsoft
@@ -91,4 +91,4 @@ Você pode ver uma lista de todos os circuitos ExpressRoute e emparelhamentos no
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o ExpressRoute, consulte as [perguntas frequentes](expressroute-faqs.md)sobre o expressroute.
+Para obter mais informações sobre o ExpressRoute, consulte [Perguntas Frequentes sobre ExpressRoute](expressroute-faqs.md).

@@ -1,19 +1,19 @@
 ---
-title: Conectar-se de forma privada a um aplicativo Web usando o ponto de extremidade privado do Azure
-description: Conectar-se de forma privada a um aplicativo Web usando o ponto de extremidade privado do Azure
+title: Conecte-se em particular a um aplicativo Web usando o Ponto de extremidade privado do Azure
+description: Conecte-se em particular a um aplicativo Web usando o Ponto de extremidade privado do Azure
 author: ericgre
 ms.assetid: b8c5c7f8-5e90-440e-bc50-38c990ca9f14
-ms.topic: article
-ms.date: 03/12/2020
+ms.topic: how-to
+ms.date: 06/02/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: 2f10c7378ae7681b14df6e96b6a6f1adac832d1b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1b3ac4c79ce92f591e74821a9f355717e4b22ea4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80287808"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737386"
 ---
 # <a name="connect-privately-to-a-web-app-using-azure-private-endpoint-preview"></a>Conectar-se de forma privada a um aplicativo Web usando o ponto de extremidade privado do Azure (versão prévia)
 
@@ -23,7 +23,7 @@ Neste guia de início rápido, você aprenderá como implantar um aplicativo Web
 Para obter mais informações, consulte [usando pontos de extremidade privados para o aplicativo Web do Azure][privatenedpointwebapp].
 
 > [!Note]
->A versão prévia está disponível nas regiões leste dos EUA e oeste dos EUA 2 para todos os aplicativos Web do Windows e do Linux PremiumV2. 
+>A versão prévia está disponível em regiões públicas para aplicativos Web Windows e Linux PremiumV2 e funções Premium elásticos. 
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -37,7 +37,7 @@ Nesta seção, você criará a rede virtual e a sub-rede para hospedar a VM que 
 
 Nesta seção, você criará uma rede virtual e uma sub-rede.
 
-1. No lado superior esquerdo da tela, selecione **criar um recurso** > **Networking** > rede**Virtual Network** ou Pesquisar **rede virtual** na caixa de pesquisa.
+1. No lado superior esquerdo da tela, selecione **criar um recurso**  >  **rede**  >  **Virtual Network** ou Pesquisar **rede virtual** na caixa de pesquisa.
 
 1. Em **criar rede virtual**, insira ou selecione essas informações na guia noções básicas:
 
@@ -60,7 +60,7 @@ Nesta seção, você criará uma rede virtual e uma sub-rede.
 
 ### <a name="create-virtual-machine"></a>Criar máquina virtual
 
-1. No lado superior esquerdo da tela na portal do Azure, selecione **criar um recurso** > **computação** > **máquina virtual**
+1. No lado superior esquerdo da tela na portal do Azure, selecione **criar um recurso**  >  **computação**  >  **máquina virtual**
 
 1. Em Criar uma máquina virtual – Noções básicas, insira ou selecione estas informações:
 
@@ -89,7 +89,7 @@ Nesta seção, você criará um aplicativo Web privado usando um ponto de extrem
 
 ### <a name="web-app"></a>Aplicativo Web
 
-1. No lado superior esquerdo da tela na portal do Azure, selecione **criar um recurso** > **Web** > **aplicativo Web**
+1. No lado superior esquerdo da tela na portal do Azure, selecione **criar um recurso**  >  **Web**  >  **aplicativo Web**
 
 1. Em criar aplicativo Web-noções básicas, insira ou selecione estas informações:
 
@@ -102,7 +102,7 @@ Nesta seção, você criará um aplicativo Web privado usando um ponto de extrem
 
 ### <a name="create-the-private-endpoint"></a>Criar o ponto de extremidade privado
 
-1. Nas propriedades do aplicativo Web, selecione **configurações** > **rede** e clique em **"configurar suas conexões de ponto de extremidade privado"**
+1. Nas propriedades do aplicativo Web, selecione **configurações**  >  **rede** e clique em **"configurar suas conexões de ponto de extremidade privado"**
 
    > [!div class="mx-imgBorder"]
    >![Rede do aplicativo Web][7]
@@ -120,8 +120,8 @@ Nesta seção, você criará um aplicativo Web privado usando um ponto de extrem
 1. Examinar a criação do ponto de extremidade privado
 
    > [!div class="mx-imgBorder"]
-   >![Examinar][10]
-   >![a exibição final do ponto de extremidade privado][11]
+   >![Examinar ][10]
+   > ![ a exibição final do ponto de extremidade privado][11]
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Conecte uma VM a partir da Internet
 
@@ -136,7 +136,7 @@ Nesta seção, você criará um aplicativo Web privado usando um ponto de extrem
    > [!div class="mx-imgBorder"]
    >![Baixar arquivo RDP][13]
 
-1. Abra o arquivo downloaded.rdp.
+1. Abra o arquivo. rdp baixado.
 
 - Se solicitado, selecione Conectar.
 - Insira o nome de usuário e a senha que você especificou ao criar a VM.
@@ -189,7 +189,7 @@ Nesta seção, você se conectará de forma privada ao aplicativo Web usando o p
    > [!div class="mx-imgBorder"]
    >![Hospeda conteúdo][19]
 
-1. Salve o arquivo
+1. Salvar o arquivo
 
 1. Abra um navegador e digite a URL do seu aplicativo Web
 
@@ -198,7 +198,7 @@ Nesta seção, você se conectará de forma privada ao aplicativo Web usando o p
 
 1. Você está acessando seu aplicativo Web por meio do ponto de extremidade privado
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando você terminar de usar o ponto de extremidade privado, o aplicativo Web e a VM, exclua o grupo de recursos e todos os recursos que ele contém:
 

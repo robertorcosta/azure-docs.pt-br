@@ -9,18 +9,18 @@ editor: ''
 tags: azure-resource-manager
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: d926a9f686f0f4c39203b8a217a7c608cfad926e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 52d33e7292ebe7b27eede2b89aa605780f826392
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80548112"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737607"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>Monitoramento de conectividade de rede com o monitor de conexão (versão prévia)
 
@@ -402,9 +402,9 @@ No portal do Azure, para criar um grupo de teste em um monitor de conexão, espe
    
        Você pode fazer uma busca detalhada do nível de assinatura para outros níveis na hierarquia:
 
-      **Subscription** > Grupos > de**recursos**de assinatura**VNETs** > **sub-redes** > **VMs com agentes**
+      **Assinatura**  >  do **Grupos**  >  de recursos **VNETs**  >  **Sub-redes**  >  **VMs com agentes**
 
-      Você também pode alterar o valor do campo **Agrupar por** para iniciar a árvore de qualquer outro nível. Por exemplo, se você agrupar por rede virtual, verá as VMs que têm agentes na hierarquia **VNETs** > **sub-redes** > **VMs com agentes**.
+      Você também pode alterar o valor do campo **Agrupar por** para iniciar a árvore de qualquer outro nível. Por exemplo, se você agrupar por rede virtual, verá as VMs que têm agentes na hierarquia **VNETs**  >  **sub-redes**  >  **VMs com agentes**.
 
       ![Captura de tela do monitor de conexão, mostrando o painel adicionar fontes e a guia agentes do Azure](./media/connection-monitor-2-preview/add-azure-sources.png)
 
@@ -444,7 +444,7 @@ No portal do Azure, para criar um grupo de teste em um monitor de conexão, espe
 
     * **Nome** – nome da configuração de teste.
     * **Protocolo** – escolha TCP, ICMP ou http. Para alterar HTTP para HTTPS, selecione **http** como o protocolo e selecione **443** como a porta.
-        * **Criar configuração de teste de rede** – essa caixa de seleção aparecerá apenas se você selecionar **http** no campo **protocolo** . Selecione esta caixa para criar outra configuração de teste que use as mesmas origens e destinos que você especificou em outro lugar em sua configuração. A configuração de teste recém-criada é denominada `<the name of your test configuration>_networkTestConfig`.
+        * **Criar configuração de teste de rede** – essa caixa de seleção aparecerá apenas se você selecionar **http** no campo **protocolo** . Selecione esta caixa para criar outra configuração de teste que use as mesmas origens e destinos que você especificou em outro lugar em sua configuração. A configuração de teste recém-criada é denominada `<the name of your test configuration>_networkTestConfig` .
         * **Desabilitar traceroute** – este campo se aplica a grupos de teste cujo protocolo é TCP ou ICMP. Selecione esta caixa para impedir que as fontes descubram a topologia e o RTT de salto a salto.
     * **Porta de destino** – você pode personalizar esse campo com uma porta de destino de sua escolha.
     * **Frequência de teste** – Use esse campo para escolher com que frequência as fontes de comando executarão ping no protocolo e na porta que você especificou. Você pode escolher 30 segundos, 1 minuto, 5 minutos, 15 minutos ou 30 minutos. As fontes testarão a conectividade com destinos com base no valor que você escolher.  Por exemplo, se você selecionar 30 segundos, as fontes verificarão a conectividade com o destino pelo menos uma vez em um período de 30 segundos.
@@ -477,7 +477,7 @@ Todas as fontes, destinos e configurações de teste que você adiciona a um gru
 | 11 | C | E | Configuração 1 |
 | 12 | C | E | Configuração 2 |
 
-### <a name="scale-limits"></a> Limites de escala
+### <a name="scale-limits"></a>Limites de escala
 
 Os monitores de conexão têm os seguintes limites de escala:
 
@@ -573,7 +573,7 @@ Para exibir as tendências em RTT e a porcentagem de verificações com falha pa
 
 1. Altere o intervalo de tempo para exibir mais dados.
 1. Altere a exibição para ver origens, destinos ou configurações de teste. 
-1. Escolha uma fonte com base em testes com falha e investigue os cinco principais testes com falha. Por exemplo, escolha **Exibir por** > **fontes** e **Exibir por** > **destinos** para investigar os testes relevantes no monitor de conexão.
+1. Escolha uma fonte com base em testes com falha e investigue os cinco principais testes com falha. Por exemplo, escolha **Exibir por**  >  **fontes** e **Exibir por**  >  **destinos** para investigar os testes relevantes no monitor de conexão.
 
    ![Captura de tela mostrando as métricas de desempenho dos cinco principais testes com falha](./media/connection-monitor-2-preview/cm-drill-select-source.png)
 
@@ -619,7 +619,7 @@ Ao usar as métricas, defina o tipo de recurso como Microsoft. Network/networkWa
 | Métrica | Nome de exibição | Unidade | Tipo de agregação | Descrição | Dimensões |
 | --- | --- | --- | --- | --- | --- |
 | ProbesFailedPercent | Porcentagem de investigações com falha | Porcentagem | Média | Falha na porcentagem de investigações de monitoramento de conectividade. | Sem dimensões |
-| AverageRoundtripMs | Média de tempo de ida e volta (MS) | Milissegundos | Média | RTT de rede médio para investigações de monitoramento de conectividade enviadas entre a origem e o destino. |             Sem dimensões |
+| AverageRoundtripMs | Média Tempo de ida e volta (ms) | Milissegundos | Média | RTT de rede médio para investigações de monitoramento de conectividade enviadas entre a origem e o destino. |             Sem dimensões |
 | ChecksFailedPercent (visualização) | % De verificações com falha (versão prévia) | Porcentagem | Média | Percentual de verificações com falha para um teste. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Região |
 | RoundTripTimeMs (visualização) | Tempo de ida e volta (MS) (visualização) | Milissegundos | Média | RTT para cheques enviados entre a origem e o destino. Esse valor não é médio. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Região |
 

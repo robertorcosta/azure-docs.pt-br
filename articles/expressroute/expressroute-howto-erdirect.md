@@ -4,15 +4,15 @@ description: Esta página ajuda a configurar o ExpressRoute Direct.
 services: expressroute
 author: jaredr80
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/22/2020
 ms.author: jaredro
-ms.openlocfilehash: 2722a852b1119ef619bc414bce5cb3a8ff6f8f00
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d028baef8898ce8d45fa8e2e142a58a1ae3300c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77031605"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84736247"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>Como configurar o ExpressRoute Direct
 
@@ -39,7 +39,7 @@ O ExpressRoute Direct fornece a capacidade de conectar-se diretamente à rede gl
    Get-AzExpressRoutePortsLocation
    ```
 
-   **Exemplo de saída**
+   **Saída de exemplo**
   
    ```powershell
    Name                : Equinix-Ashburn-DC2
@@ -72,7 +72,7 @@ O ExpressRoute Direct fornece a capacidade de conectar-se diretamente à rede gl
    Get-AzExpressRoutePortsLocation -LocationName "Equinix-San-Jose-SV1"
    ```
 
-   **Exemplo de saída**
+   **Saída de exemplo**
 
    ```powershell
    Name                : Equinix-San-Jose-SV1

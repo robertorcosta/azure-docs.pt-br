@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
-ms.date: 05/20/2020
-ms.openlocfilehash: 036548d61dbe6a6465ca28c72eacb48e61386577
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.date: 05/28/2020
+ms.openlocfilehash: 7a6a672cef42eb15cbd8f2f254207e0a9d96ee33
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83846215"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84736196"
 ---
 # <a name="apache-components-and-versions-available-for-azure-hdinsight"></a>Componentes e versões do Apache Hadoop disponíveis para o Azure HDInsight
 
@@ -36,22 +36,22 @@ As versões do componente associadas às versões do cluster HDInsight são list
 | Apache Hive            | 3.1.0         | 1.2.1 (2.1.0 na ESP Interactive Query) |
 | Apache Tez Hive2       | -             | 0.8.4                       |
 | Apache Ranger          | 1.1.0         | 0.7.0                       |
-| HBase no Apache           | 2.0.2         | 1.1.2                       |
+| HBase no Apache           | 2.1.6         | 1.1.2                       |
 | Apache Sqoop           | 1.4.7         | 1.4.6                       |
 | Apache Oozie           | 4.3.1         | 4.2.0                       |
 | O Apache Zookeeper       | 3.4.6         | 3.4.6                       |
 | Apache Storm           | -             | 1.1.0                       |
 | O Apache Mahout          | -             | 0.9.0+                      |
 | Apache Phoenix         | 5             | 4.7.0                       |
-| Apache Spark           | 2.4           | 2.3.0, 2.2.0, 2.1.0         |
+| Apache Spark           | 2.4.4         | 2.3.2, 2.2.0, 2.1.0         |
 | Apache Livy            | 0.5           | 0.4, 0.4, 0.3               |
-| Apache Kafka           | 2.1           | 1,1                        |
+| Apache Kafka           | 2.1.1         | 1,1                        |
 | Apache Ambari          | 2.7.0         | 2.6.0                       |
 | Apache Zeppelin        | 0.8.0         | 0.7.3                       |
 | Mono                   | 4.2.1         | 4.2.1                       |
 
 > [!NOTE]
-> HDInsight 4.0: O Spark 2.4 e o Kafka 2.1 têm suporte completo. No entanto, o Spark 2.3 e o Kafka 1.1 não são mais mantidos. HDInsight 3.6: O Spark 2.3 e o Kafka 1.1 têm suporte completo.  
+> HDInsight 4.0: O Spark 2.4 e o Kafka 2.1 têm suporte completo. No entanto, os tipos de cluster Spark 2,3 e Kafka 1,1 não são atendidos. HDInsight 3.6: O Spark 2.3 e o Kafka 1.1 têm suporte completo.  
 
 ## <a name="check-for-current-apache-component-version-information"></a>Verificar informações atuais de versão do componente do Apache
 
@@ -80,10 +80,10 @@ Esta tabela lista as versões do HDInsight que estão disponíveis no portal do 
 | HDInsight 4.0 |Ubuntu 16.0.4 LTS |24 de setembro de 2018 | | |Sim |Sim |
 | HDInsight 3.6 |Ubuntu 16.0.4 LTS |4 de abril de 2017 | 31 de dezembro de 2020 |31 de dezembro de 2020 |Sim |Sim |
 
-O suporte do Spark 2.1, 2.2 e Kafka 1.0 expira em 30 de junho de 2020.
+O suporte ao cluster Spark 2,1, 2,2 e Kafka 1,0 expira em 30 de junho de 2020.
 
 > [!NOTE]
-> Depois que o suporte para uma versão expirar, ela poderá não estar disponível por meio do portal do Azure. As versões do cluster continuarão disponíveis usando o parâmetro **Version** no comando do Windows PowerShell [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) e o SDK .NET até a data de baixa da versão.
+> Depois que o suporte para uma versão de cluster expirar, ele poderá não estar disponível por meio do portal do Azure. Em alguns casos, as versões do cluster continuam disponíveis usando o parâmetro **version** no comando [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) do Windows PowerShell e o SDK do .net até a data de desativação da versão.
 
 ### <a name="retired-versions"></a>Versões desativadas
 

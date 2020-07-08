@@ -9,14 +9,17 @@ ms.subservice: management
 ms.date: 10/23/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: cbe080b4c2b6e73ae15fd186589bd43535bfc13d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 54515b347a95b9315ca9ba87568fb2104c3b2b45
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198399"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84736995"
 ---
-# <a name="orchestration-mode-preview"></a>Modo de orquestração (versão prévia)
+# <a name="orchestration-modes-preview"></a>Modos de orquestração (versão prévia)
+
+> [!CAUTION]
+> Obrigado a todos que participaram desta visualização pública. Pudemos reunir comentários valiosos de nossa comunidade. Esta versão prévia agora está **fechada** para novos participantes, a fim de integrar os comentários. Atualizaremos esse espaço com todas as novas informações.
 
 Os conjuntos de dimensionamento de máquinas virtuais fornecem um agrupamento lógico de máquinas virtuais gerenciadas por plataforma. Com os conjuntos de dimensionamento, você cria um modelo de configuração de máquina virtual, adiciona ou remove automaticamente instâncias adicionais com base na carga de CPU ou memória e atualiza automaticamente para a versão mais recente do sistema operacional. Tradicionalmente, os conjuntos de dimensionamento permitem que você crie máquinas virtuais usando um modelo de configuração de VM fornecido no momento da criação do conjunto de dimensionamento, e o conjunto de dimensionamento só pode gerenciar máquinas virtuais criadas implicitamente com base no modelo de configuração.
 
@@ -41,7 +44,7 @@ Os conjuntos de dimensionamento de máquinas virtuais oferecerão suporte a dois
 
 |                             | "orchestrationMode": "VM" (VirtualMachine) | "orchestrationMode": "ScaleSetVM" (VirtualMachineScaleSetVM) |
 |-----------------------------|--------------------------------------------|--------------------------------------------------------------|
-| Modelo de configuração de VM      | Não                                       | Necessária |
+| Modelo de configuração de VM      | Nenhum                                       | Obrigatório |
 | Adicionando Nova VM ao conjunto de dimensionamento  | As VMs são adicionadas explicitamente ao conjunto de dimensionamento quando a VM é criada. | As VMs são criadas implicitamente e adicionadas ao conjunto de dimensionamento com base nas regras modelo de configuração de VM, contagem de instâncias e dimensionamento automático | |
 | Excluir VM                   | As VMs precisam ser excluídas individualmente, o conjunto de dimensionamento não será excluído se tiver alguma VM nela. | As VMs podem ser excluídas individualmente, a exclusão do conjunto de dimensionamento excluirá todas as instâncias de VM.  |
 | Anexar/desanexar VMs           | Sem suporte                              | Sem suporte |

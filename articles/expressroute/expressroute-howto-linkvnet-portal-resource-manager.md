@@ -4,16 +4,16 @@ description: Conecte uma VNet a um circuito do Azure ExpressRoute. Etapas de ins
 services: expressroute
 author: cherylmc
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 4c7a24ad692086398059d1afd48c8927e9d18582
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a4ed99d69d1c2389e73c215bccfd6112895e791d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79272910"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737063"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Conectar uma rede virtual a um circuito ExpressRoute usando o portal
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ Este artigo ajuda você a criar uma conexão para vincular uma rede virtual a um
 1. Certifique-se de que o circuito de ExpressRoute e emparelhamento privado do Azure foram configurados com êxito. Siga as instruções em [criar um circuito do expressroute](expressroute-howto-circuit-arm.md) e [criar e modificar o emparelhamento para um circuito do expressroute](expressroute-howto-routing-arm.md). O circuito do ExpressRoute deve se parecer com a imagem a seguir:
 
    [![Captura de tela de circuito do ExpressRoute](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1.png "Exibir circuito")](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1-exp.png#lightbox)
-2. Agora, você pode começar a provisionar uma conexão para vincular seu gateway de rede virtual ao circuito de ExpressRoute. Clique em **conexão** > **Adicionar** para abrir a página **Adicionar conexão** e configure os valores.
+2. Agora, você pode começar a provisionar uma conexão para vincular seu gateway de rede virtual ao circuito de ExpressRoute. Clique em **conexão**  >  **Adicionar** para abrir a página **Adicionar conexão** e configure os valores.
 
    [![Adicionar captura de tela de conexão](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1.png "Adicionar captura de tela de conexão")](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1-exp.png#lightbox)
 3. Depois que sua conexão foi configurada com êxito, seu objeto de conexão mostrará as informações para a conexão.
@@ -120,11 +120,11 @@ O usuário do circuito precisa da ID do recurso e de uma chave de autorização 
 3. Verifique se o **Tipo de conexão** está definido como "ExpressRoute".
 4. Preencha os detalhes e clique em **OK** na página Noções Básicas.
 
-   ![Página de Noções Básicas](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
+   ![Página de informações básicas](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
 5. Na página **Configurações**, selecione **Gateway de rede Virtual** e marque a caixa de seleção **Resgatar autorização**.
 6. Insira a **Chave de autorização** e o **URI do circuito par** e nomeie a conexão. Clique em **OK**. O **URI do circuito de mesmo nível** é a ID de recurso do circuito do expressroute (que pode ser encontrado no painel de configuração Propriedades do circuito do expressroute).
 
-   ![Página Configurações](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
+   ![Página de configurações](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
 7. Revise as informações na página **Resumo** e clique em **OK**.
 
 **Liberar uma autorização de conexão**
@@ -136,4 +136,4 @@ O usuário do circuito precisa da ID do recurso e de uma chave de autorização 
 É possível excluir uma conexão e desvincular a VNet de um circuito ExpressRoute, selecionando o ícone **Excluir** na página da sua conexão.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações sobre o ExpressRoute, consulte as [perguntas frequentes](expressroute-faqs.md)sobre o expressroute.
+Para obter mais informações sobre o ExpressRoute, consulte [Perguntas Frequentes sobre ExpressRoute](expressroute-faqs.md).

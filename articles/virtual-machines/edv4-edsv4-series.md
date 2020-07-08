@@ -1,27 +1,24 @@
 ---
-title: Séries Edv4 e Edsv4 – Máquinas Virtuais do Azure
+title: Séries Edv4 e Edsv4
 description: Especificações para as VMs das séries Ev4, Edv4, Esv4 e Edsv4.
 author: brbell
 ms.author: brbell
-ms.reviewer: cynthn
+ms.reviewer: jushiman
 ms.custom: mimckitt
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: 795891f56985504a3584089d7377f753605ba4dd
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: HT
+ms.openlocfilehash: 7a21fb1c8da365176c27921bd58a5dffae468d2c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84263033"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84735941"
 ---
 # <a name="edv4-and-edsv4-series"></a>Séries Edv4 e Edsv4
 
-As séries Edv4 e Edsv4 são executadas nos processadores Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) em uma configuração hyper-threaded e são ideais para vários aplicativos empresariais com uso intensivo de memória e contam com até 504 GiB de RAM, com Tecnologia [Intel&reg;](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html) Turbo Boost 2.0, Tecnologia [Intel&reg;](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) Hyper-Threading e [Intel&reg; Advanced Vector Extensions 512 (Intel&reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). Esses novos tamanhos de VM terão um armazenamento local 50% maior, bem como um melhor IOPS de disco local para leitura e gravação em comparação com os tamanhos [Ev3/Esv3](https://docs.microsoft.com/azure/virtual-machines/ev3-esv3-series) com [VMs Gen2](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2)
-
-
-> [!IMPORTANT]
-> Se você estiver implantando uma nova Máquina Virtual usando a série Edv4 ou Edsv4 e pretender usar uma imagem do Linux, será necessário usar o RHEL 8.x, o CentOS 8.x, o Oracle 7.x ou mais recente. Se escolher o RHEL 7.x, CentOS 7.x ou Orcale 6.x, haverá um erro Kernel Panic. A Microsoft está implantando ativamente uma correção. Somente o RHEL, o CentOS e o Oracle são afetados.
+As séries Edv4 e Edsv4 são executadas nos processadores Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) em uma configuração hyper-threaded e são ideais para vários aplicativos empresariais com uso intensivo de memória e contam com até 504 GiB de RAM, com Tecnologia [Intel&reg;](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html) Turbo Boost 2.0, Tecnologia [Intel&reg;](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) Hyper-Threading e [Intel&reg; Advanced Vector Extensions 512 (Intel&reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). Eles também dão suporte ao [ &reg; aumento de aprendizado profundo da Intel](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). Esses novos tamanhos de VM terão um armazenamento local 50% maior, bem como um melhor IOPS de disco local para leitura e gravação em comparação com os tamanhos [Ev3/Esv3](https://docs.microsoft.com/azure/virtual-machines/ev3-esv3-series) com [VMs Gen2](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2)
 
 ## <a name="edv4-series"></a>Série Edv4
 
@@ -63,7 +60,7 @@ Migração ao Vivo: Com suporte
 
 Atualizações de preservação de memória: Com suporte
 
-| Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima de armazenamento temporário: IOPS/MBps | Taxa de transferência de disco sem cache: IOPS/MBps | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
+| Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima de armazenamento em cache e temporária: IOPS/MBps (tamanho do cache em GiB) | Taxa de transferência de disco sem cache: IOPS/MBps | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_E2ds_v4  | 2 | 16 | 75 | 4 | 19000/120(50) | 3200/48 | 2/1000 |
 | Standard_E4ds_v4  | 4 | 32 | 150 | 8 | 38500/242(100) | 6400/96 | 2/2000 |

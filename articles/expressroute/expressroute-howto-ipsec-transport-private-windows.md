@@ -4,16 +4,16 @@ description: Como habilitar o modo de transporte IPsec entre as VMs do Windows d
 services: expressroute
 author: fabferri
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/17/2018
 ms.author: fabferri
 ms.custom: seodec18
-ms.openlocfilehash: 1bc33047d31262af443cddc418853fbacd88aec1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 32ad4f643ff0b217460403245cbb4e99f139aef9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74022003"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737250"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>Configurar o modo de transporte IPsec para emparelhamento privado do ExpressRoute
 
@@ -132,7 +132,7 @@ Para aplicar o GPO à UO, o GPO deve não apenas ser vinculado a UO, mas o link 
 3. No **Assistente de Ação de Filtro de Segurança de IP**, clique em **Avançar**.
 
    [![17]][17]
-4. Dê à ação de filtro um nome intuitivo para que você possa encontrá-lo posteriormente. Neste exemplo, a ação de filtro é denominada **myEncryption**. Também é possível adicionar uma descrição. Em seguida, clique em **Avançar**.
+4. Dê à ação de filtro um nome intuitivo para que você possa encontrá-lo posteriormente. Neste exemplo, a ação de filtro é denominada **myEncryption**. Também é possível adicionar uma descrição. Em seguida, clique em **Próximo**.
 
    [![18]][18]
 5. **Negociar segurança** permite que você defina o comportamento caso o IPsec não possa ser estabelecido com outro computador. Selecione **Negociar segurança** e, em seguida, clique em **Avançar**.
@@ -161,7 +161,7 @@ Crie uma lista de filtros que especifica o tráfego HTTP criptografado com a por
 2. No campo **Nome:**, digite um nome para sua lista de filtros IP. Por exemplo, **azure-onpremises-HTTP8080**. Em seguida, clique em **Adicionar**.
 
    [![25]][25]
-3. Na página **Descrição do filtro IP e propriedade espelhada**, selecione **Espelhado**. A configuração espelhada corresponde a pacotes que vão em ambos os sentidos, o que permite comunicação bidirecional. Em seguida, clique em **Próximo**.
+3. Na página **Descrição do filtro IP e propriedade espelhada**, selecione **Espelhado**. A configuração espelhada corresponde a pacotes que vão em ambos os sentidos, o que permite comunicação bidirecional. Clique em **Avançar**.
 
    [![26]][26]
 4. Na página **Origem do Tráfego IP**, na lista suspensa **Endereço de origem:**, escolha **Uma Sub-rede ou Endereço IP Específico**. 
@@ -170,13 +170,13 @@ Crie uma lista de filtros que especifica o tráfego HTTP criptografado com a por
 5. Especifique **Sub-rede ou Endereço IP:** do endereço de origem do tráfego IP e clique em **Avançar**.
 
    [![28]][28]
-6. Especifique a Sub-rede ou o Endereço IP do **Endereço de destino:**. Em seguida, clique em **Avançar**.
+6. Especifique a Sub-rede ou o Endereço IP do **Endereço de destino:**. Em seguida, clique em **Próximo**.
 
    [![29]][29]
-7. Na página **Tipo de Protocolo IP**, selecione **TCP**. Em seguida, clique em **Avançar**.
+7. Na página **Tipo de Protocolo IP**, selecione **TCP**. Em seguida, clique em **Próximo**.
 
    [![30]][30]
-8. Na página **Porta do Protocolo IP**, selecione **De qualquer porta** e **Para esta porta:**. Digite **8080** na caixa de texto. Essas configurações especificam que apenas o tráfego HTTP na porta 8080 do destino será criptografado. Em seguida, clique em **Avançar**.
+8. Na página **Porta do Protocolo IP**, selecione **De qualquer porta** e **Para esta porta:**. Digite **8080** na caixa de texto. Essas configurações especificam que apenas o tráfego HTTP na porta 8080 do destino será criptografado. Em seguida, clique em **Próximo**.
 
    [![31]][31]
 9. Exibir a lista de filtro IP.  A configuração da Lista de Filtro IP **azure-onpremises-HTTP8080** dispara a criptografia para todo o tráfego que corresponde aos critérios a seguir:
@@ -214,7 +214,7 @@ Criar uma Política de IPsec com regras de segurança.
 1. Selecione **Políticas de IPSecurity no Active Directory** associado à UO. Clique com o botão direito do mouse e selecione **Criar Política de Segurança de IP**.
 
    [![37]][37]
-2. Dê um nome à política de segurança. Por exemplo, **policy-azure-onpremises**. Em seguida, clique em **Avançar**.
+2. Dê um nome à política de segurança. Por exemplo, **policy-azure-onpremises**. Em seguida, clique em **Próximo**.
 
    [![38]][38]
 3. Clique em **Avançar** sem marcar a caixa de seleção.
@@ -314,7 +314,7 @@ Se você executar o script PowerShell localmente (cliente HTTP), a captura de re
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o ExpressRoute, consulte as [perguntas frequentes](expressroute-faqs.md)sobre o expressroute.
+Para obter mais informações sobre o ExpressRoute, consulte [Perguntas Frequentes sobre ExpressRoute](expressroute-faqs.md).
 
 <!--Image References-->
 

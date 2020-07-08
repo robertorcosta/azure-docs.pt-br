@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5330c427088734b049b2cb4f7735ac0099a52b47
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: HT
+ms.openlocfilehash: 95f1027f4f5ace6963a38edf0dc028ddca351b7e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82966669"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84736665"
 ---
 # <a name="security-best-practices"></a>Melhores práticas de segurança
 
@@ -137,7 +137,7 @@ Pense nos hosts de sessão como uma extensão da implantação de área de traba
 
 ### <a name="manage-office-pro-plus-security"></a>Gerenciar a segurança do Office Pro Plus
 
-Além de proteger seus hosts de sessão, também é importante proteger os aplicativos em execução dentro deles. O Office Pro Plus é um dos aplicativos implantados em hosts de sessão mais comuns. Para melhorar a segurança da implantação do Office, é recomendável que você use o [Assistente de Política de Segurança](/DeployOffice/overview-of-security-policy-advisor) para aplicativos do Microsoft 365 para Enterprise. Essa ferramenta identifica as políticas que podem ser aplicadas à sua implantação para obter mais segurança. O Assistente de Política de Segurança também recomenda políticas com base no impacto delas na sua segurança e produtividade.
+Além de proteger seus hosts de sessão, também é importante proteger os aplicativos em execução dentro deles. O Office Pro Plus é um dos aplicativos implantados em hosts de sessão mais comuns. Para melhorar a segurança de implantação do Office, recomendamos que você use o [Orientador de política de segurança](/DeployOffice/overview-of-security-policy-advisor) para aplicativos Microsoft 365 para empresas. Essa ferramenta identifica as políticas que podem ser aplicadas à sua implantação para obter mais segurança. O Assistente de Política de Segurança também recomenda políticas com base no impacto delas na sua segurança e produtividade.
 
 ### <a name="other-security-tips-for-session-hosts"></a>Outras dicas de segurança para hosts de sessão
 

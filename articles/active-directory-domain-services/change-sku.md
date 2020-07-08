@@ -10,14 +10,14 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 01/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 32f8f157abaf5076911c3908a83be4a644e09656
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8109b7b1f6cd8477d49bafd114be24b91530d123
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80655595"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84734955"
 ---
-# <a name="change-the-sku-for-an-existing-azure-ad-domain-services-managed-domain"></a>Alterar a SKU de um domínio gerenciado Azure AD Domain Services existente
+# <a name="change-the-sku-for-an-existing-azure-active-directory-domain-services-managed-domain"></a>Alterar a SKU de um domínio gerenciado Azure Active Directory Domain Services existente
 
 No Azure Active Directory Domain Services (AD DS do Azure), o desempenho e os recursos disponíveis são baseados no tipo de SKU. Essas diferenças de recursos incluem a frequência de backup ou o número máximo de relações de confiança de floresta de saída unidirecionais (atualmente em versão prévia). Você seleciona uma SKU ao criar o domínio gerenciado e pode alternar os SKUs para cima ou para baixo conforme suas necessidades de negócios mudam depois que o domínio gerenciado tiver sido implantado. As alterações nos requisitos de negócios podem incluir a necessidade de backups mais frequentes ou a criação de relações de confiança de floresta adicionais. Para obter mais informações sobre os limites e os preços das diferentes SKUs, consulte [conceitos do azure AD DS SKU][concepts-sku] e páginas de [preços do Azure AD DS][pricing] .
 
@@ -25,18 +25,18 @@ Este artigo mostra como alterar a SKU de um domínio gerenciado AD DS do Azure e
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Para concluir este artigo, você precisa dos seguintes recursos e privilégios:
+Para concluir este artigo, você precisará dos seguintes recursos e privilégios:
 
 * Uma assinatura ativa do Azure.
     * Caso não tenha uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Um locatário do Azure Active Directory associado com a assinatura, sincronizado com um diretório local ou somente em nuvem.
     * Se necessário, [crie um locatário do Azure Active Directory][create-azure-ad-tenant] ou [associe uma assinatura do Azure à sua conta][associate-azure-ad-tenant].
 * Um domínio gerenciado do Azure Active Directory Domain Services habilitado e configurado no locatário do Azure AD.
-    * Se necessário, conclua o tutorial para [criar e configurar uma instância de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+    * Se necessário, conclua o tutorial para [criar e configurar um domínio gerenciado][create-azure-ad-ds-instance].
 
 ## <a name="sku-change-limitations"></a>Limitações de alteração de SKU
 
-Você pode alterar os SKUs para cima ou para baixo depois que o domínio gerenciado AD DS do Azure tiver sido implantado. No entanto, se você usar uma floresta de recursos (atualmente em visualização) e tiver criado relações de confiança de uma floresta de saída unidirecional do Azure AD DS para um ambiente de AD DS local, haverá algumas limitações para a operação de alteração de SKU. As SKUs *Premium* e *Enterprise* definem um limite no número de relações de confiança que você pode criar. Não é possível alterar para uma SKU com um limite máximo inferior do que você configurou no momento.
+Você pode alterar os SKUs para cima ou para baixo depois que o domínio gerenciado tiver sido implantado. No entanto, se você usar uma floresta de recursos (atualmente em visualização) e tiver criado relações de confiança de uma floresta de saída unidirecional do Azure AD DS para um ambiente de AD DS local, haverá algumas limitações para a operação de alteração de SKU. As SKUs *Premium* e *Enterprise* definem um limite no número de relações de confiança que você pode criar. Não é possível alterar para uma SKU com um limite máximo inferior do que você configurou no momento.
 
 Por exemplo:
 
@@ -47,14 +47,14 @@ Para obter mais informações sobre esses limites, consulte [recursos e limites 
 
 ## <a name="select-a-new-sku"></a>Selecione um novo SKU
 
-Para alterar a SKU de um domínio gerenciado AD DS do Azure usando o portal do Azure, conclua as seguintes etapas:
+Para alterar a SKU de um domínio gerenciado usando o portal do Azure, conclua as seguintes etapas:
 
 1. Na parte superior da portal do Azure, procure e selecione **Azure AD Domain Services**. Escolha o domínio gerenciado na lista, como *aaddscontoso.com*.
 1. No menu no lado esquerdo da página AD DS do Azure, selecione **configurações > SKU**.
 
     ![Selecione a opção de menu SKU para seu domínio gerenciado AD DS do Azure no portal do Azure](media/change-sku/overview-change-sku.png)
 
-1. No menu suspenso, selecione o SKU que você deseja para seu domínio gerenciado do Azure AD DS. Se você tiver uma floresta de recursos, não poderá selecionar SKU *padrão* , pois as relações de confiança de floresta só estarão disponíveis no SKU *corporativo* ou superior.
+1. No menu suspenso, selecione a SKU que você deseja para o domínio gerenciado. Se você tiver uma floresta de recursos, não poderá selecionar SKU *padrão* , pois as relações de confiança de floresta só estarão disponíveis no SKU *corporativo* ou superior.
 
     Escolha o SKU desejado no menu suspenso e, em seguida, selecione **salvar**.
 

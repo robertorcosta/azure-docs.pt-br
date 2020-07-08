@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 143410f0bf0659161427f4b5391124f53f712972
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: d6aa1fc1e5978f59fc01dd41a89800629fa60ded
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611986"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84735091"
 ---
-# <a name="windows-10-enterprise-multi-session-faq"></a>Perguntas frequentes sobre o Windows 10 Enterprise multissessão
+# <a name="windows-10-enterprise-multi-session-faq"></a>Perguntas frequentes sobre o Windows 10 Enterprise de várias sessões
 
 Este artigo responde a perguntas frequentes e explica as práticas recomendadas para o Windows 10 Enterprise Multi-Session.
  
@@ -53,7 +53,7 @@ O Windows 10 Enterprise Multi-Session tem suporte no momento para ser ingressado
  
 ## <a name="where-can-i-find-the-windows-10-enterprise-multi-session-image"></a>Onde posso encontrar a imagem de várias sessões do Windows 10 Enterprise?
 
-O Windows 10 Enterprise Multi-Session está na galeria do Azure. Para encontrá-lo, navegue até a portal do Azure e procure a versão Windows 10 Enterprise para áreas de trabalho virtuais. Para uma imagem integrada com o Office Pro Plus, vá para a portal do Azure e procure Microsoft Windows 10 + Office 365 ProPlus.
+O Windows 10 Enterprise Multi-Session está na galeria do Azure. Para encontrá-lo, navegue até a portal do Azure e procure a versão Windows 10 Enterprise para áreas de trabalho virtuais. Para uma imagem integrada com Microsoft 365 aplicativos para empresas, vá para a portal do Azure e procure por **aplicativos do Microsoft Windows 10 + Microsoft 365 para empresas**.
 
 ## <a name="which-windows-10-enterprise-multi-session-image-should-i-use"></a>Qual imagem de várias sessões do Windows 10 Enterprise devo usar?
 
@@ -92,7 +92,7 @@ Você pode desabilitar o aplicativo Microsoft Store para garantir que os usuári
 Para desabilitar o aplicativo da loja:
 
 1. Crie um novo Política de Grupo.
-2. Selecione **configuração** > do computador**modelos administrativos** > **componentes do Windows**.
+2. Selecione **configuração do computador**  >  **modelos administrativos**  >  **componentes do Windows**.
 3. Selecione **Repositório**.
 4. Selecione **armazenar aplicativo**.
 5. Selecione **desabilitado**e selecione **OK**.

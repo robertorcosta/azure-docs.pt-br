@@ -4,15 +4,15 @@ description: Este artigo descreve como configurar filtros de rota para o Emparel
 services: expressroute
 author: anzaman
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/07/2018
 ms.author: anzaman
-ms.openlocfilehash: c3c50a005e119890fb17fcf7b3114a747bbe34bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 269cabae276712a1f5b51c09705b7cd3eee5fb9d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74033407"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84738338"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Configurar os filtros de rota para o emparelhamento da Microsoft: CLI do Azure
 
@@ -167,4 +167,4 @@ az network route-filter delete -n MyRouteFilter -g MyResourceGroup
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o ExpressRoute, consulte as [perguntas frequentes](expressroute-faqs.md)sobre o expressroute.
+Para obter mais informações sobre o ExpressRoute, consulte [Perguntas Frequentes sobre ExpressRoute](expressroute-faqs.md).
