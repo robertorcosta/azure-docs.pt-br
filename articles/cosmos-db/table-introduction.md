@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-table
 ms.topic: overview
 ms.date: 07/26/2019
 ms.author: sngun
-ms.openlocfilehash: 5b2e2c51eaa878ba0ce8bc31c001575acebe6919
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 91a6ae308faf31b3d3eb0c9f287dd5bd791f628e
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84695242"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85557527"
 ---
-# <a name="introduction-to-azure-cosmos-db-table-api"></a>Introdução ao BD Cosmos do Azure: API de Tabela
+# <a name="introduction-to-azure-cosmos-db-table-api"></a>Introdução ao Azure Cosmos DB: API de Tabela
 
 O [Azure Cosmos DB](introduction.md) fornece a API de Tabela para aplicativos que são escritos para o Armazenamento de Tabelas do Azure e que precisam de recursos premium como:
 
@@ -32,7 +32,7 @@ Esses aplicativos escritos para o armazenamento de Tabelas do Azure podem migrar
 ## <a name="table-offerings"></a>Ofertas de Tabela
 Caso utilize o Armazenamento de Tabelas do Azure neste momento, você receberá os seguintes benefícios ao mudar para a API de Tabela do Azure Cosmos DB:
 
-| | Armazenamento da tabela do Azure | API de Tabela do Azure Cosmos DB |
+| Recurso | Armazenamento da tabela do Azure | API de Tabela do Azure Cosmos DB |
 | --- | --- | --- |
 | Latency | Rápido, mas não há limites superiores de latência. | Latência de milissegundo de dígito único para leituras e gravações, com suporte latência de leituras e gravações de <10 ms no 99º percentil, em qualquer escala, em qualquer lugar do mundo. |
 | Produtividade | Modelo de taxa de transferência variável. As tabelas têm um limite de escalabilidade de 20.000 operações/s. | Altamente escalonável com [taxa de transferência reservada dedicada por tabela](request-units.md), que é respaldada por SLAs. As contas não têm nenhum limite superior na taxa de transferência e dão suporte para >10 milhões de operações/s por tabela. |

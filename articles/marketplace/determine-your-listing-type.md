@@ -5,14 +5,14 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 06/22/2020
 ms.author: dsindona
-ms.openlocfilehash: 92a24a59038eb74a6a2f6a738005ff8aadf35ff0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 457ff90c21fee2b569fa24d90fffc6ce80cdf969
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658066"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027096"
 ---
 # <a name="determine-your-publishing-option"></a>Determinar a opção de publicação
 
@@ -56,7 +56,7 @@ Os aplicativos do **Microsoft AppSource** são soluções de linha de negócios 
 Os aplicativos do **Azure Marketplace** são soluções técnicas de "bloco de construção", integradas ao Azure ou criadas para ele e destinadas a um público de TI ou de desenvolvedores. Serviços de consultoria do Azure Marketplace são ofertas de serviços profissionais que ajudam os clientes a começarem a usar o Azure, ou a aprenderem a usá-lo mais rápido.
 
 >[!Note]
->Listagem cruzada (somente para aplicativos SaaS): quando uma lista ou oferta baseada em avaliação atende aos critérios tanto para um público de usuários técnicos quanto para usuários comerciais, sua oferta é listada em ambas as vitrines. Saiba mais sobre as opções de publicação abaixo.
+>"Listagem cruzada" (somente para aplicativos SaaS): se sua oferta de SaaS for destinada a um público técnico (Azure Marketplace) e a um público-alvo (AppSource), você poderá selecionar uma categoria e/ou subcategoria aplicável a qualquer uma das lojas. Lembre-se de que a intenção de "listagem cruzada" de sua oferta deve ser baseada em uma proposta de valor que se estenda para ambas as audiências. Clique [aqui](./gtm-offer-listing-best-practices.md#categories) para exibir categorias aplicáveis a cada vitrine.
 
 ## <a name="choose-a-publishing-option"></a>Selecione uma opção de publicação
 

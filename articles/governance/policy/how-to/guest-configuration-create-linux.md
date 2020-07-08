@@ -3,12 +3,12 @@ title: Como criar políticas de Configuração de Convidado para o Linux
 description: Saiba como criar uma política de Configuração de Convidado do Azure Policy para Linux.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: a636b63c80799f8bfe3dfd3a0eb37d1367cdcf0d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 5ce6dce034c9479924901e5a20b38c343dd8bac6
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654870"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026705"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Como criar políticas de Configuração de Convidado para o Linux
 
@@ -81,7 +81,7 @@ Mesmo em ambientes Linux, a Configuração de Convidado usa a Desired State Conf
 
 #### <a name="configuration-requirements"></a>Requisitos de configuração
 
-O nome da configuração personalizada deve ser o mesmo em todos os lugares. Deve-se usar o mesmo nome para o arquivo .zip do pacote de conteúdo, para a configuração no arquivo MOF e para a atribuição de convidado no modelo do Resource Manager.
+O nome da configuração personalizada deve ser o mesmo em todos os lugares. O nome do arquivo. zip para o pacote de conteúdo, o nome da configuração no arquivo MOF e o nome da atribuição de convidado no modelo de Azure Resource Manager (modelo ARM), deve ser o mesmo.
 
 ### <a name="custom-guest-configuration-configuration-on-linux"></a>Personalizar a Configuração de Convidado no Linux
 
@@ -347,7 +347,7 @@ describe file(attr_path) do
 end
 ```
 
-Os cmdlets `New-GuestConfigurationPolicy` e `Test-GuestConfigurationPolicyPackage` incluem um parâmetro denominado **Parâmetros**. Esse parâmetro usa uma tabela de hash que inclui todos os detalhes sobre cada parâmetro e cria automaticamente todas as seções necessárias dos arquivos usados para criar cada definição do Azure Policy.
+Os cmdlets `New-GuestConfigurationPolicy` e `Test-GuestConfigurationPolicyPackage` incluem um parâmetro chamado **Parameter**. Esse parâmetro usa uma tabela de hash que inclui todos os detalhes sobre cada parâmetro e cria automaticamente todas as seções necessárias dos arquivos usados para criar cada definição do Azure Policy.
 
 O exemplo a seguir cria uma definição de política para auditar um caminho de arquivo, no qual o usuário fornece o caminho no momento da atribuição da política.
 
@@ -371,7 +371,7 @@ New-GuestConfigurationPolicy
     -DisplayName 'Audit Linux file path.' `
     -Description 'Audit that a file path exists on a Linux machine.' `
     -Path './policies' `
-    -Parameters $PolicyParameterInfo `
+    -Parameter $PolicyParameterInfo `
     -Version 1.0.0
 ```
 

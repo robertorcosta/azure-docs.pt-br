@@ -3,17 +3,17 @@ title: Criar tabelas do Azure Cosmos DB para dimensionamento e desempenho
 description: 'Guia de design do armazenamento de Tabelas do Azure: Tabelas escalonáveis e de alto desempenho no Azure Cosmos DB e no armazenamento de Tabelas do Azure'
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
-ms.topic: conceptual
-ms.date: 05/21/2019
+ms.topic: how-to
+ms.date: 06/19/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18
-ms.openlocfilehash: 78a38938ad31bb349b7215f0a26dda69f4fec966
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: b5e2dc56ad84504f0bf5ced09d865d7cb4e467fa
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83651926"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027793"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Guia de design de tabela do armazenamento de Tabelas do Azure: Tabelas escalonáveis e de alto desempenho
 
@@ -312,7 +312,7 @@ Relações um-para-muitos entre objetos de domínio de negócios ocorrerem com f
 
 Considere o exemplo de uma grande empresa multinacional com dezenas de milhares departamentos e entidades de funcionário. Cada departamento tem muitos funcionários e cada funcionário é associado a um departamento específico. Uma abordagem é armazenar departamento separado e entidades de funcionário como os seguintes:  
 
-![Gráfico mostrando uma entidade de departamento e uma entidade de funcionário][1]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE01.png" alt-text="Gráfico mostrando uma entidade de departamento e uma entidade de funcionário":::
 
 Este exemplo mostra uma relação implícita de um para muitos entre os tipos com base no valor `PartitionKey`. Cada departamento pode ter muitos funcionários.  
 
@@ -320,7 +320,7 @@ Este exemplo também mostra uma entidade de departamento e suas entidades de fun
 
 Uma abordagem alternativa é desnormalizar seus dados e armazenar apenas entidades de funcionário com dados desnormalizados de departamento, conforme mostrado no exemplo a seguir. Neste cenário específico, essa abordagem desnormalizada pode não ser a melhor se você precisar ser capaz de alterar os detalhes de um gerente de departamento. Para isso, você precisa atualizar todos os funcionários do departamento.  
 
-![Gráfico da entidade de funcionário][2]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE02.png" alt-text="Gráfico da entidade de funcionário":::
 
 Para saber mais, confira [Padrão de desnormalização](#denormalization-pattern) mais adiante neste guia.  
 
@@ -397,18 +397,18 @@ Por exemplo, se você tiver tabelas pequenas que contêm dados que não são alt
 ### <a name="inheritance-relationships"></a>Relações de herança
 Se seu aplicativo cliente usa um conjunto de classes que fazem parte de uma relação de herança para representar entidades de negócios, você poderá persistir facilmente essas entidades no armazenamento de Tabelas. Por exemplo, você pode ter o seguinte conjunto de classes definidas em seu aplicativo cliente, em que `Person` é uma classe abstrata.
 
-![Diagrama das relações de herança][3]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE03.png" alt-text="Diagrama das relações de herança":::
 
 Você pode persistir instâncias das duas classes concretas no armazenamento de Tabelas usando uma única tabela de `Person`. Use entidades parecidas com as seguintes:  
 
-![Diagrama mostrando a entidade de clientes e a entidade de funcionário][4]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE04.png" alt-text="Diagrama mostrando a entidade de clientes e a entidade de funcionário":::
 
 Para saber mais sobre como trabalhar com vários tipos de entidade na mesma tabela no código cliente, confira [Trabalhar com tipos de entidade heterogênea ](#work-with-heterogeneous-entity-types) mais adiante neste guia. Isso fornece exemplos de como reconhecer o tipo de entidade no código do cliente.  
 
 ## <a name="table-design-patterns"></a>Padrões de design de tabela
 Nas seções anteriores, você aprendeu a otimizar o design da tabela para recuperar dados de entidade usando consultas e para inserir, atualizar e excluir dados de entidade. Esta seção descreve alguns padrões adequados para uso com soluções de armazenamento de Tabelas. Além disso, você verá como abordar praticamente alguns dos problemas e compensações gerados anteriormente neste guia. O diagrama a seguir resume as relações entre os diferentes padrões:  
 
-![Diagrama dos padrões de design de tabela][5]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE05.png" alt-text="Diagrama dos padrões de design de tabela":::
 
 O mapa padrão destaca algumas relações entre padrões (azul) e antipadrões (laranja) documentados neste guia. Certamente há muitos outros padrões que vale a pena considerar. Por exemplo, um dos principais cenários para o armazenamento de Tabelas é utilizar o [padrão de exibição materializada](https://msdn.microsoft.com/library/azure/dn589782.aspx) do padrão de [segregação de responsabilidade da consulta de comando](https://msdn.microsoft.com/library/azure/jj554200.aspx).  
 
@@ -418,14 +418,14 @@ Armazene várias cópias de cada entidade usando valores `RowKey` diferentes (na
 #### <a name="context-and-problem"></a>Contexto e problema
 O armazenamento de Tabelas indexa as entidades automaticamente, usando os valores `PartitionKey` e `RowKey`. Isso habilita um aplicativo cliente a recuperar uma entidade com eficiência usando esses valores. Por exemplo, usando a estrutura de tabela a seguir, um aplicativo cliente pode usar uma consulta de ponto para recuperar uma entidade de funcionário individual usando o nome do departamento e a ID do funcionário (os valores `PartitionKey` e `RowKey`). Um cliente também pode recuperar entidades classificadas por ID de funcionário dentro de cada departamento.
 
-![Gráfico da entidade de funcionário][6]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE06.png" alt-text="Gráfico da entidade de funcionário":::
 
 Se você quiser encontrar uma entidade de funcionário com base no valor de outra propriedade, como o endereço de email, deve usar uma verificação de partição menos eficiente para localizar uma correspondência. Isso ocorre porque o armazenamento de Tabelas não fornece índices secundários. Além disso, não há opção para solicitar uma lista de funcionários classificados em uma ordem diferente da ordem `RowKey`.  
 
 #### <a name="solution"></a>Solução
 Para solucionar a falta de índices secundários, armazene várias cópias de cada entidade com cada cópia, usando um valor `RowKey` diferente. Se você armazenar uma entidade com as estruturas a seguir, poderá recuperar com eficiência entidades de funcionário com base na ID do funcionário ou endereço de email. Os valores de prefixo para `RowKey`, `empid_` e `email_` permitem a consulta de um único funcionário ou um intervalo de funcionários usando um intervalo de endereços de email ou IDs de funcionário.  
 
-![Gráfico mostrando a entidade de funcionário com diferentes valores RowKey][7]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE07.png" alt-text="Gráfico mostrando a entidade de funcionário com diferentes valores RowKey":::
 
 Os seguintes dois critérios de filtro (uma pesquisa por ID funcionário e uma por endereço de email) especificam consultas de ponto:  
 
@@ -449,7 +449,7 @@ Considere os seguintes pontos ao decidir como implementar esse padrão:
 * O preenchimento de valores numéricos na `RowKey` (por exemplo, a ID de funcionário 000223), permite classificação e filtragem corretas, com base em limites superiores e inferiores.  
 * Você não precisa necessariamente duplicar todas as propriedades da entidade. Por exemplo, se as consultas que pesquisam as entidades usando o endereço de email em `RowKey` nunca precisarem da idade do funcionário, essas entidades podem ter a seguinte estrutura:
 
-  ![Gráfico da entidade de funcionário][8]
+  :::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE08.png" alt-text="Gráfico da entidade de funcionário":::
 
 * Normalmente, é melhor armazenar dados duplicados e certificar-se de que você possa recuperar todos os dados que precisa com uma única consulta, do que usar uma consulta para localizar uma entidade e outra para pesquisar os dados necessários.  
 
@@ -476,7 +476,7 @@ Armazene várias cópias de cada entidade usando valores `RowKey` diferentes em 
 #### <a name="context-and-problem"></a>Contexto e problema
 O armazenamento de Tabelas indexa as entidades automaticamente, usando os valores `PartitionKey` e `RowKey`. Isso habilita um aplicativo cliente a recuperar uma entidade com eficiência usando esses valores. Por exemplo, usando a estrutura de tabela a seguir, um aplicativo cliente pode usar uma consulta de ponto para recuperar uma entidade de funcionário individual usando o nome do departamento e a ID do funcionário (os valores `PartitionKey` e `RowKey`). Um cliente também pode recuperar entidades classificadas por ID de funcionário dentro de cada departamento.  
 
-![Gráfico da entidade de funcionário][9]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE09.png" alt-text="Gráfico da entidade Employee":::[9]
 
 Se você quiser ser capaz de encontrar uma entidade funcionário com base no valor de outra propriedade, como o endereço de email, deve usar uma verificação de partição menos eficiente para localizar uma correspondência. Isso ocorre porque o armazenamento de Tabelas não fornece índices secundários. Além disso, não há opção para solicitar uma lista de funcionários classificados em uma ordem diferente da ordem `RowKey`.  
 
@@ -485,7 +485,7 @@ Você está prevendo um volume alto de transações em relação a essas entidad
 #### <a name="solution"></a>Solução
 Para solucionar a falta de índices secundários, armazene várias cópias de cada entidade com cada cópia, usando valores `PartitionKey` e `RowKey` diferentes. Se você armazenar uma entidade com as estruturas a seguir, poderá recuperar com eficiência entidades de funcionário com base na ID do funcionário ou endereço de email. Os valores de prefixo para `PartitionKey`, `empid_` e `email_` permitem que você identifique o índice que deseja usar para uma consulta.  
 
-![Gráfico mostrando a entidade de funcionário com o índice primário e a entidade de funcionário com o índice secundário][10]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE10.png" alt-text="Gráfico mostrando a entidade de funcionário com o índice primário e a entidade de funcionário com o índice secundário":::
 
 Os seguintes dois critérios de filtro (uma pesquisa por ID funcionário e uma por endereço de email) especificam consultas de ponto:  
 
@@ -508,7 +508,8 @@ Considere os seguintes pontos ao decidir como implementar esse padrão:
 * O preenchimento de valores numéricos na `RowKey` (por exemplo, a ID de funcionário 000223), permite classificação e filtragem corretas, com base em limites superiores e inferiores.  
 * Você não precisa necessariamente duplicar todas as propriedades da entidade. Por exemplo, se as consultas que pesquisam as entidades usando o endereço de email em `RowKey` nunca precisarem da idade do funcionário, essas entidades podem ter a seguinte estrutura:
   
-  ![Gráfico mostrando a entidade de funcionário com o índice secundário][11]
+  :::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE11.png" alt-text="Gráfico mostrando a entidade de funcionário com o índice secundário":::
+
 * Geralmente, é melhor armazenar dados duplicados e garantir que você possa recuperar todos os dados que precisa com uma única consulta do que usar uma consulta para localizar uma entidade usando o índice secundário e outra para pesquisar os dados necessários no índice primário.  
 
 #### <a name="when-to-use-this-pattern"></a>Quando usar esse padrão
@@ -547,7 +548,7 @@ Para ilustrar essa abordagem, suponha que você tenha de ser capaz de arquivar e
 
 Mas não é possível usar uma EGT para executar essas duas operações. Para evitar o risco de que uma falha faça com que uma entidade seja exibida nas tabelas ou em nenhuma, a operação de arquivamento deve ser eventualmente consistente. O diagrama de sequência a seguir descreve as etapas nesta operação.  
 
-![Diagrama de solução para consistência eventual][12]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE12.png" alt-text="Diagrama de solução para consistência eventual":::
 
 Um cliente inicia a operação de arquivamento colocando uma mensagem em uma fila do Azure (neste exemplo para arquivar funcionário nº 456). Uma função de trabalho controla a fila para novas mensagens; quando encontra uma, lê a mensagem e deixa uma cópia oculta na fila. A função de trabalho, em seguida, busca uma cópia da entidade na tabela **Atual**, insere uma cópia na tabela **Arquivo morto** e exclui o original da tabela **Atual**. Finalmente, se não houve erros das etapas anteriores, a função de trabalho exclui a mensagem oculta da fila.  
 
@@ -587,7 +588,7 @@ Mantenha entidades de índice para habilitar pesquisas eficientes que retornam l
 #### <a name="context-and-problem"></a>Contexto e problema
 O armazenamento de Tabelas indexa as entidades automaticamente, usando os valores `PartitionKey` e `RowKey`. Isso habilita um aplicativo cliente a recuperar uma entidade com eficiência usando uma consulta de ponto. Por exemplo, usando a estrutura de tabela a seguir, um aplicativo cliente pode recuperar com eficiência uma entidade de funcionário individual, usando o nome do departamento e a ID do funcionário (`PartitionKey`e `RowKey`).  
 
-![Gráfico da entidade de funcionário][13]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE13.png" alt-text="Gráfico da entidade de funcionário":::
 
 Se você quiser ser capaz de recuperar uma lista de entidades de funcionário com base no valor de outra propriedade não exclusiva, como seu sobrenome, deve usar uma verificação de partição menos eficiente. Essa verificação encontra as correspondências, em vez de usar um índice para procurá-las diretamente. Isso ocorre porque o armazenamento de Tabelas não fornece índices secundários.  
 
@@ -606,7 +607,7 @@ Opção 2: Criar entidades de índice na mesma partição
 
 Use as entidades de índice que armazenam os dados a seguir:  
 
-![Gráfico mostrando a entidade de funcionário com a cadeia de caracteres que contém uma lista de IDs de funcionário com o mesmo sobrenome][14]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE14.png" alt-text="Gráfico mostrando a entidade de funcionário com a cadeia de caracteres que contém uma lista de IDs de funcionário com o mesmo sobrenome":::
 
 A propriedade `EmployeeIDs` contém uma lista de IDs de funcionário para os funcionários com o sobrenome armazenado em `RowKey`.  
 
@@ -628,9 +629,9 @@ Opção 3: Criar entidades de índice em uma partição ou tabela separada
 
 Para essa opção, use as entidades de índice que armazenam os dados a seguir:  
 
-![Gráfico mostrando a entidade de funcionário com a cadeia de caracteres que contém uma lista de IDs de funcionário com o mesmo sobrenome][15]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE15.png" alt-text="Gráfico mostrando a entidade de funcionário com a cadeia de caracteres que contém uma lista de IDs de funcionário com o mesmo sobrenome":::
 
-A propriedade `EmployeeIDs` contém uma lista de IDs de funcionário para os funcionários com o sobrenome armazenado em `RowKey`.  
+A `EmployeeIDs` propriedade contém uma lista de IDs de funcionários para funcionários com o último nome armazenado no `RowKey` e no `PartitionKey` .  
 
 Você não pode usar EGTs para manter a consistência porque as entidades de índice estão em uma partição separada das entidades de funcionário. Certifique-se de que as entidades de índice sejam eventualmente consistentes com as entidades de funcionário.  
 
@@ -660,12 +661,12 @@ Combine dados relacionados juntos em uma única entidade para que você possa re
 #### <a name="context-and-problem"></a>Contexto e problema
 Em um banco de dados relacional, você geralmente normaliza dados para remover a duplicação, que ocorre quando as consultas recuperam dados de várias tabelas. Se você normalizar dados em tabelas do Azure, terá de ir e voltar várias vezes do cliente ao servidor para recuperar os dados relacionados. Por exemplo, com a estrutura de tabela a seguir, você precisa de duas viagens de ida e volta para recuperar os detalhes de um departamento. Uma viagem busca a entidade de departamento que inclui a ID do gerente e a segunda viagem busca os detalhes do gerente em uma entidade de funcionário.  
 
-![Gráfico das entidade de departamento e de funcionário][16]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE16.png" alt-text="Gráfico das entidade de departamento e de funcionário":::
 
 #### <a name="solution"></a>Solução
 Em vez de armazenar os dados em duas entidades separadas, desnormalize os dados e mantenha uma cópia dos detalhes do gerente na entidade de departamento. Por exemplo:  
 
-![Gráfico da entidade de departamento desnormalizada e combinada][17]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE17.png" alt-text="Gráfico da entidade de departamento desnormalizada e combinada":::
 
 Com entidades de departamento armazenadas com essas propriedades, agora você pode recuperar todos os detalhes de que precisa sobre um departamento usando uma consulta de ponto.  
 
@@ -693,18 +694,18 @@ Em um banco de dados relacional, é neutro usar junções em consultas para reto
 
 Suponhamos que você esteja armazenando entidades de funcionário no armazenando de Tabelas, usando a seguinte estrutura:  
 
-![Gráfico da entidade de funcionário][18]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE18.png" alt-text="Gráfico da entidade de funcionário":::
 
 Você também precisa armazenar dados históricos relacionados a revisões e desempenho de cada ano que o funcionário trabalhou para a sua organização e precisa ser capaz de acessar essas informações por ano. Uma opção é criar outra tabela que armazena entidades com a seguinte estrutura:  
 
-![Gráfico da entidade de revisão de funcionário][19]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE19.png" alt-text="Gráfico da entidade de revisão de funcionário":::
 
 Com essa abordagem você poderá duplicar algumas informações (como nome e sobrenome) na nova entidade para recuperar seus dados com uma única solicitação. No entanto, não é possível manter uma coerência forte porque você não pode usar uma EGT para atualizar as duas entidades atomicamente.  
 
 #### <a name="solution"></a>Solução
 Armazene um novo tipo de entidade em sua tabela original usando entidades com a seguinte estrutura:  
 
-![Gráfico da entidade de funcionário com chave composta][20]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE20.png" alt-text="Gráfico da entidade de funcionário com chave composta":::
 
 Observe como a `RowKey` agora é uma chave composta, que consiste na ID do funcionário e no ano dos dados de revisão. Isso permite recuperar o desempenho do funcionário e examinar os dados com uma única solicitação para uma única entidade.  
 
@@ -776,7 +777,7 @@ Muitos aplicativos excluem dados antigos que não precisam mais estar disponíve
 
 Um design possível é usar a data e a hora da solicitação de entrada na `RowKey`:  
 
-![Gráfico da entidade de tentativa de logon][21]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE21.png" alt-text="Gráfico da entidade de tentativa de logon":::
 
 Essa abordagem evita sobrecargas de partição porque o aplicativo pode inserir e excluir entidades de entrada para cada usuário em uma partição separada. No entanto, essa abordagem pode ser cara e demorada, se você tiver um grande número de entidades. Primeiro, você precisa executar uma verificação de tabela para identificar todas as entidades a serem excluídas e depois deve excluir cada entidade antiga. Você pode reduzir o número de viagens de ida e volta ao servidor, necessário para excluir as entidades antigas por envio em lote de várias solicitações de exclusão para as EGTs.  
 
@@ -806,14 +807,14 @@ Armazene série de dados completa em uma única entidade para minimizar o númer
 #### <a name="context-and-problem"></a>Contexto e problema
 Um cenário comum é um aplicativo armazenar uma série de dados que ele normalmente precisa recuperar uma só vez. Por exemplo, seu aplicativo pode registrar a quantidade de mensagens instantâneas que cada funcionário envia por hora e usar essas informações para avaliar quantas mensagens cada usuário enviou nas 24 horas anteriores. Um design pode ser armazenar 24 entidades para cada funcionário:  
 
-![Gráfico da entidade de estatísticas de mensagem][22]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE22.png" alt-text="Gráfico da entidade de estatísticas de mensagem":::
 
 Com esse design, você pode facilmente localizar e atualizar a entidade a ser atualizada para cada funcionário sempre que o aplicativo precisar atualizar o valor de contagem das mensagem. No entanto, para recuperar as informações e traçar um gráfico de atividades das 24 horas anteriores, você deve recuperar 24 entidades.  
 
 #### <a name="solution"></a>Solução
 Use o design a seguir com uma propriedade separada para armazenar a contagem de mensagens para cada hora:  
 
-![Gráfico mostrando a entidade de estatísticas de mensagem com propriedades separadas][23]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE23.png" alt-text="Gráfico mostrando a entidade de estatísticas de mensagem com propriedades separadas":::
 
 Com esse design, você pode usar uma operação de mesclagem para atualizar a contagem de mensagens de um funcionário, em uma hora específica. Agora, você pode recuperar todas as informações necessárias traçar o gráfico usando uma solicitação para uma única entidade.  
 
@@ -842,7 +843,7 @@ Uma entidade individual pode ter no máximo 252 propriedades (exceto as propried
 #### <a name="solution"></a>Solução
 Usando o armazenamento de Tabelas, você pode armazenar várias entidades para representar um único objeto grande de negócios com mais de 252 propriedades. Por exemplo, para armazenar uma contagem do número de mensagens instantâneas enviadas por cada funcionário nos últimos 365 dias, você pode usar o design a seguir que usa duas entidades com diferentes esquemas:  
 
-![Gráfico mostrando a entidade de estatísticas de mensagem com Rowkey 01 e entidade de estatísticas de mensagem com Rowkey 02][24]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE24.png" alt-text="Gráfico mostrando a entidade de estatísticas de mensagem com Rowkey 01 e entidade de estatísticas de mensagem com Rowkey 02":::
 
 Se você precisar fazer uma alteração que requer a atualização de ambas as entidades para mantê-las sincronizadas entre si, pode usar uma EGT. Caso contrário, você pode usar uma operação de mesclagem única para atualizar a contagem de mensagens de um dia específico. Para recuperar todos os dados de um funcionário individual, você deve recuperar ambas as entidades. Você pode fazer isso com duas solicitações eficientes que usam um valor `PartitionKey` e um valor `RowKey`.  
 
@@ -869,7 +870,7 @@ Uma entidade individual não pode armazenar mais de 1 MB de dados no total. Se u
 #### <a name="solution"></a>Solução
 Se a entidade exceder 1 MB de tamanho porque uma ou mais propriedades contêm uma grande quantidade de dados, você poderá armazenar dados no armazenamento de Blobs e, em seguida, armazenar o endereço do blob em uma propriedade na entidade. Por exemplo, você pode armazenar a foto de um funcionário no armazenamento de Blobs e armazenar um link para a foto na propriedade `Photo` da entidade de funcionário:  
 
-![Gráfico mostrando a entidade de funcionário com a cadeia de caracteres para a Foto que aponta para o armazenamento de Blobs][25]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE25.png" alt-text="Gráfico mostrando a entidade de funcionário com a cadeia de caracteres para a Foto que aponta para o armazenamento de Blobs":::
 
 #### <a name="issues-and-considerations"></a>Problemas e considerações
 Considere os seguintes pontos ao decidir como implementar esse padrão:  
@@ -894,12 +895,12 @@ Quando tiver um alto volume de inserções, aumente a escalabilidade distribuind
 #### <a name="context-and-problem"></a>Contexto e problema
 A prefixação ou o acréscimo de entidades às suas entidades armazenadas normalmente fazem com que o aplicativo adicione novas entidades à primeira ou última partição de uma sequência de partições. Nesse caso, todas as inserções em qualquer momento específico ocorrem na mesma partição, criando um ponto de acesso. Isso impede o armazenamento de Tabelas das inserções de balanceamento de carga em vários nós e, possivelmente, faz com que o aplicativo atinja as metas de escalabilidade para a partição. Por exemplo, considere o caso de um aplicativo que registra o acesso dos funcionários à rede e aos recursos. Uma estrutura de entidade como a seguinte pode fazer com que a partição da hora atual se torne um ponto de acesso, se o volume de transações atingir o destino de escalabilidade para uma partição individual:  
 
-![Gráfico da entidade de funcionário][26]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE26.png" alt-text="Gráfico da entidade de funcionário":::
 
 #### <a name="solution"></a>Solução
 A seguinte estrutura de entidade alternativa evita um ponto de acesso em qualquer partição específica quando o aplicativo registra eventos:  
 
-![Gráfico mostrando a entidade de funcionário com RowKey que consiste em Ano, Mês, Dia, Hora e ID de Evento][27]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE27.png" alt-text="Gráfico mostrando a entidade de funcionário com RowKey que consiste em Ano, Mês, Dia, Hora e ID de Evento":::
 
 Observe com este exemplo como `PartitionKey`e `RowKey` são chaves compostas. A `PartitionKey` usa a ID de funcionário e de departamento para distribuir o registro em log entre várias partições.  
 
@@ -925,13 +926,13 @@ Normalmente, você deveria usar o armazenamento de Blobs em vez do armazenamento
 #### <a name="context-and-problem"></a>Contexto e problema
 Um caso de uso comum para dados de log é recuperar uma seleção de entradas de log para um intervalo de data/hora específico. Por exemplo, você deseja encontrar todas as mensagens de erro e mensagens críticas que o aplicativo registrou entre 15:04 e 15:06, em uma data específica. Você não deseja usar a data e a hora da mensagem de log para determinar a partição em que você salvou as entidades de log. Isso resulta em uma partição ativa, pois a qualquer momento específico, todas as entidades de log compartilham o mesmo valor `PartitionKey` (confira o [Antipadrão prefixar/acrescentar](#prepend-append-anti-pattern)). Por exemplo, o seguinte esquema de entidade para uma mensagem de log resulta em uma partição ativa porque o aplicativo grava todas as mensagens de log na partição para a data e hora atual:  
 
-![Gráfico da entidade de mensagem de log][28]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE28.png" alt-text="Gráfico da entidade de mensagem de log":::
 
 Neste exemplo, a `RowKey` inclui a data e a hora da mensagem de log para garantir que as mensagens de log sejam classificadas em ordem de data/hora. A `RowKey` também inclui uma ID de mensagem, caso várias mensagens de log compartilhem a mesma data e hora.  
 
 Outra abordagem é usar uma `PartitionKey` que garanta que o aplicativo grave mensagens em uma variedade de partições. Por exemplo, se a origem da mensagem de log fornecer uma maneira de distribuir mensagens através de várias partições, você pode usar o seguinte esquema de entidade:  
 
-![Gráfico da entidade de mensagem de log][29]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE29.png" alt-text="Gráfico da entidade de mensagem de log":::
 
 No entanto, o problema com esse esquema é que para recuperar todas as mensagens de log para um período de tempo específico você deve pesquisar cada partição na tabela.
 
@@ -1528,35 +1529,4 @@ Neste exemplo assíncrono, você pode ver as seguintes alterações da versão s
 * Em vez de chamar o método `Execute` para atualizar a entidade, o método agora chama o método `ExecuteAsync`. O método usa o modificador `await` para recuperar os resultados de forma assíncrona.  
 
 O aplicativo cliente pode chamar vários métodos assíncronos como esse, e cada invocação de método é executada em um thread separado.  
-
-
-[1]: ./media/storage-table-design-guide/storage-table-design-IMAGE01.png
-[2]: ./media/storage-table-design-guide/storage-table-design-IMAGE02.png
-[3]: ./media/storage-table-design-guide/storage-table-design-IMAGE03.png
-[4]: ./media/storage-table-design-guide/storage-table-design-IMAGE04.png
-[5]: ./media/storage-table-design-guide/storage-table-design-IMAGE05.png
-[6]: ./media/storage-table-design-guide/storage-table-design-IMAGE06.png
-[7]: ./media/storage-table-design-guide/storage-table-design-IMAGE07.png
-[8]: ./media/storage-table-design-guide/storage-table-design-IMAGE08.png
-[9]: ./media/storage-table-design-guide/storage-table-design-IMAGE09.png
-[10]: ./media/storage-table-design-guide/storage-table-design-IMAGE10.png
-[11]: ./media/storage-table-design-guide/storage-table-design-IMAGE11.png
-[12]: ./media/storage-table-design-guide/storage-table-design-IMAGE12.png
-[13]: ./media/storage-table-design-guide/storage-table-design-IMAGE13.png
-[14]: ./media/storage-table-design-guide/storage-table-design-IMAGE14.png
-[15]: ./media/storage-table-design-guide/storage-table-design-IMAGE15.png
-[16]: ./media/storage-table-design-guide/storage-table-design-IMAGE16.png
-[17]: ./media/storage-table-design-guide/storage-table-design-IMAGE17.png
-[18]: ./media/storage-table-design-guide/storage-table-design-IMAGE18.png
-[19]: ./media/storage-table-design-guide/storage-table-design-IMAGE19.png
-[20]: ./media/storage-table-design-guide/storage-table-design-IMAGE20.png
-[21]: ./media/storage-table-design-guide/storage-table-design-IMAGE21.png
-[22]: ./media/storage-table-design-guide/storage-table-design-IMAGE22.png
-[23]: ./media/storage-table-design-guide/storage-table-design-IMAGE23.png
-[24]: ./media/storage-table-design-guide/storage-table-design-IMAGE24.png
-[25]: ./media/storage-table-design-guide/storage-table-design-IMAGE25.png
-[26]: ./media/storage-table-design-guide/storage-table-design-IMAGE26.png
-[27]: ./media/storage-table-design-guide/storage-table-design-IMAGE27.png
-[28]: ./media/storage-table-design-guide/storage-table-design-IMAGE28.png
-[29]: ./media/storage-table-design-guide/storage-table-design-IMAGE29.png
 

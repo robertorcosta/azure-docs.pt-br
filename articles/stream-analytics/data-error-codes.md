@@ -3,17 +3,17 @@ title: Códigos de erro de dados - Azure Stream Analytics
 description: Solucionar problemas do Azure Stream Analytics com códigos de erro de dados.
 ms.author: mamccrea
 author: mamccrea
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.service: stream-analytics
-ms.openlocfilehash: f7383a56a11ac9b567c80e73cc84944174c30ac8
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: HT
+ms.openlocfilehash: 56d7527eebb91bd09895f6cd0238721574df1015
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594085"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037317"
 ---
-# <a name="azure-stream-analytics-configuration-error-codes"></a>Códigos de erro de configuração do Azure Stream Analytics
+# <a name="azure-stream-analytics-data-error-codes"></a>Azure Stream Analytics códigos de erro de dados
 
 Você pode usar logs de atividade e logs de recursos para ajudar a depurar comportamentos inesperados do seu trabalho do Azure Stream Analytics. Este artigo lista a descrição de cada código de erro de dados. Os erros de dados ocorrem quando há dados inválidos no fluxo, como um esquema de registro inesperado.
 

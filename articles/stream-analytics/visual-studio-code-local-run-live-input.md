@@ -5,13 +5,13 @@ ms.service: stream-analytics
 author: su-jie
 ms.author: sujie
 ms.date: 11/14/2019
-ms.topic: conceptual
-ms.openlocfilehash: 34ce91a1385f951847abeedd3a6b526d3a07af35
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.openlocfilehash: 1b2268426b66ddb9ffdd48d6901ab991e76cb95c
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75660844"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037436"
 ---
 # <a name="test-stream-analytics-queries-locally-against-live-stream-input-by-using-visual-studio-code"></a>Testar Stream Analytics consultas localmente contra entrada de fluxo ao vivo usando Visual Studio Code
 
@@ -25,7 +25,7 @@ Você pode usar as ferramentas de Azure Stream Analytics para Visual Studio Code
 
 ## <a name="define-a-live-stream-input"></a>Definir uma entrada de fluxo ao vivo
 
-1. Clique com o botão direito do mouse na pasta **Entradas** do projeto do Stream Analytics. Em seguida, selecione **asa: Adicionar entrada** no menu de contexto.
+1. Clique com o botão direito do mouse na pasta **Entradas** do projeto do Stream Analytics. Em seguida, selecione **ASA: Adicionar Entrada** no menu de contexto.
 
    ![Adicionar entrada por meio da pasta Entradas](./media/quick-create-vs-code/add-input-from-inputs-folder.png)
 

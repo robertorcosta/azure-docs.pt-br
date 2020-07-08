@@ -7,14 +7,14 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c419c2127b1c5fe3aaa60c6e828ff0c5a6676c07
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: c0008ab89f4599e2ada51b5637a9665a249bc1c4
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77598537"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85340830"
 ---
-# <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Início Rápido: criar e gerenciar um compartilhamento de arquivos do Azure com o Azure PowerShell 
+# <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Início Rápido: Criar e gerenciar um compartilhamento de arquivos do Azure com o Azure PowerShell 
 Este guia oferece orientações básicas sobre como trabalhar com [compartilhamentos de arquivos do Azure](storage-files-introduction.md) usando o PowerShell. Os compartilhamentos de arquivos do Azure são iguais a outros compartilhamentos de arquivos, mas são armazenados na nuvem e compatíveis com a plataforma do Azure. Os compartilhamentos de Arquivos do Azure oferecem suporte ao protocolo SMB padrão do setor e habilitar o compartilhamento de arquivos entre vários computadores, aplicativos e instâncias. 
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
@@ -40,7 +40,7 @@ New-AzResourceGroup `
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 Uma conta de armazenamento é um pool compartilhado de armazenamento que você pode usar para implantar compartilhamentos de arquivo do Azure. Uma conta de armazenamento pode conter um número ilimitado de compartilhamentos, e um compartilhamento pode conter um número ilimitado de arquivos, até os limites de capacidade da conta de armazenamento. Este exemplo cria uma versão de uso geral 2 (conta de armazenamento GPv2), que pode armazenar compartilhamentos de arquivo do Azure padrão ou outros recursos de armazenamento, como blobs ou filas, na mídia de rotação da HD (unidade de disco rígido). Os Arquivos do Azure também dão suporte a SSDs (unidades de disco de estado sólido) Premium; os compartilhamentos de arquivo premium do Azure podem ser criados em contas de armazenamento FileStorage.
 
-Este exemplo cria uma conta de armazenamento usando o cmdlet [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount). A conta de armazenamento é denominada *mystorageaccount\<número aleatório>* e uma referência a essa conta de armazenamento é armazenada na variável **$storageAcct**. Os nomes de conta de armazenamento devem ser exclusivo e, portanto, use `Get-Random` para acrescentar um número ao nome e torná-lo exclusivo. 
+Este exemplo cria uma conta de armazenamento usando o cmdlet [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount). A conta de armazenamento é denominada *mystorageaccount\<random number>* , e uma referência a essa conta de armazenamento na variável é armazenada na variável **$storageAcct**. Os nomes de conta de armazenamento devem ser exclusivo e, portanto, use `Get-Random` para acrescentar um número ao nome e torná-lo exclusivo. 
 
 ```azurepowershell-interactive 
 $storageAccountName = "mystorageacct$(Get-Random)"
@@ -199,7 +199,7 @@ Você pode criar um instantâneo de compartilhamento para um compartilhamento us
 
 ```azurepowershell-interactive
 $share = Get-AzStorageShare -Context $storageAcct.Context -Name $shareName
-$snapshot = $share.Snapshot()
+$snapshot = $share.CloudFileShare.Snapshot()
 ```
 
 ### <a name="browse-share-snapshots"></a>Procurar instantâneos de compartilhamento

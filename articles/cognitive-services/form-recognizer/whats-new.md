@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: ad87c7e3517aad8a611c711773c5e1cc99b24f88
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: bbf098feccaf760718b97b1afb2d24bc55eef9ad
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85562869"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027028"
 ---
 # <a name="whats-new-in-form-recognizer"></a>O que há de novo no Reconhecimento de Formulários?
 
@@ -22,6 +22,19 @@ O serviço do reconhecedor de formulário é atualizado em uma base contínua. U
 
 > [!NOTE]
 > O guia de início rápido e guias do reconhecedor de formulário sempre usam a versão mais recente da API, a menos que especificado.
+
+## <a name="july-2020"></a>Julho de 2020
+
+### <a name="new-features"></a>Novos recursos
+* **referência v 2.0 disponível** Exiba a [referência da API v 2.0](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) e os SDKs atualizados para [.net](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer), [python](https://docs.microsoft.com/python/api/overview/azure/formrecognizer), [Java](https://docs.microsoft.com/java/api/overview/azure/formrecognizer)e [JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer).
+* Aprimoramentos **de tabela e aprimoramentos de extração** incluem melhorias de precisão e aprimoramentos de extrações de tabela, especificamente, a capacidade de aprender cabeçalhos e estruturas de tabelas em treinamento personalizado sem rótulos. 
+* **Suporte de moeda** Detecção e extração de símbolos de moeda global.
+* **Gov do Azure** O reconhecedor de formulário agora também está disponível no Azure gov.
+*   **Recursos de segurança aprimorados**: 
+    *   **Traga sua própria chave**  O reconhecedor de formulário criptografa automaticamente seus dados quando persistidos na nuvem para protegê-los e ajudá-lo a atender aos compromissos de segurança e conformidade da organização. Por padrão, sua assinatura usa chaves de criptografia gerenciadas pela Microsoft. Agora você também pode gerenciar sua assinatura com suas próprias chaves de criptografia. [As chaves gerenciadas pelo cliente (CMK), também conhecidas como traga sua própria chave (BYOK)](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest
+), oferecem maior flexibilidade para criar, girar, desabilitar e revogar controles de acesso. Você também pode auditar as chaves de criptografia usadas para proteger seus dados.  
+    *   **Pontos de extremidade privados** – permite que você em uma rede virtual (VNet) [acesse dados com segurança por meio de um link privado.](https://docs.microsoft.com/azure/private-link/private-link-overview)
+
 
 ## <a name="june-2020"></a>Junho de 2020
 
@@ -46,8 +59,8 @@ O serviço do reconhecedor de formulário é atualizado em uma base contínua. U
   O novo SDK dá suporte a todos os recursos da API REST v 2.0 para o reconhecedor de formulário. Por exemplo, você pode treinar um modelo com ou sem rótulos e extrair texto, pares chave-valor e tabelas de seus formulários, extrair dados de recibos com o serviço de recebimentos pré-criados e extrair texto e tabelas com o serviço de layout de seus documentos. Você pode compartilhar seus comentários sobre os SDKs por meio do [formulário de comentários do SDK](https://aka.ms/FR_SDK_v1_feedback).
  
 * **Copiar modelo personalizado** Agora você pode copiar modelos entre regiões e assinaturas usando o novo recurso de modelo personalizado de cópia. Antes de invocar a API de modelo personalizado de cópia, primeiro você deve obter autorização para copiar no recurso de destino chamando a operação de cópia de autorização no ponto de extremidade do recurso de destino.
-   * [Gerar uma autorização de cópia](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/CopyCustomFormModelAuthorization) API REST
-   * [Copiar um modelo personalizado](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/CopyCustomFormModel) API REST 
+   * [Gerar uma autorização de cópia](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/CopyCustomFormModelAuthorization) API REST
+   * [Copiar um modelo personalizado](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/CopyCustomFormModel) API REST 
 
 ### <a name="security-improvements"></a>Aprimoramentos de segurança
 
@@ -137,4 +150,4 @@ As respostas JSON para todas as chamadas de API têm novos formatos. Algumas cha
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Complete um [início rápido](quickstarts/curl-train-extract.md) para começar a usar as [APIs do Reconhecimento de Formulários](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm).
+Complete um [início rápido](quickstarts/curl-train-extract.md) para começar a usar as [APIs do Reconhecimento de Formulários](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm).

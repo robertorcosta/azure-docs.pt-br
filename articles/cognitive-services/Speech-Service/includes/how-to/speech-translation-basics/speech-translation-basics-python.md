@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/13/2020
 ms.author: trbye
-ms.openlocfilehash: 17d8c0157fcd478d01452167d240fb67daeeda5b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e83536042df1cebb1bb22d6c18d99ae4c3d87873
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81399676"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86035700"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -17,11 +17,11 @@ Este artigo pressupõe que você tem uma conta do Azure e uma assinatura do Serv
 
 ## <a name="install-the-speech-sdk"></a>Instalar o SDK de Fala
 
-Antes de fazer qualquer coisa, você precisará instalar o SDK de Fala. Dependendo de sua plataforma, siga as instruções na seção <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">obter o SDK <span class="docon docon-navigate-external x-hidden-focus"></span> de fala</a> do artigo do SDK de fala.
+Antes de fazer qualquer coisa, você precisará instalar o SDK de Fala. Dependendo de sua plataforma, siga as instruções na seção <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">obter o SDK <span class="docon docon-navigate-external x-hidden-focus"></span> de fala</a> do artigo _sobre o SDK de fala_ .
 
 ## <a name="import-dependencies"></a>Importar dependências
 
-Para executar os exemplos neste artigo, inclua as instruções a `import` seguir na parte superior do arquivo de código do Python.
+Para executar os exemplos neste artigo, inclua as instruções a seguir `import` na parte superior do arquivo de código do Python.
 
 ```python
 import os
@@ -30,7 +30,7 @@ import azure.cognitiveservices.speech as speechsdk
 
 ## <a name="sensitive-data-and-environment-variables"></a>Variáveis de ambiente e dados confidenciais
 
-O código-fonte de exemplo neste artigo depende de variáveis de ambiente para armazenar dados confidenciais, como a chave de assinatura do recurso de fala e a região. O arquivo de código Python contém dois valores que são atribuídos das variáveis de ambiente de máquinas de `SPEECH__SUBSCRIPTION__KEY` host `SPEECH__SERVICE__REGION`, ou seja, e. Ambas as variáveis estão no escopo global, tornando-as acessíveis na definição de função do arquivo de código. Para obter mais informações sobre variáveis de ambiente, consulte [variáveis de ambiente e configuração de aplicativo](../../../../cognitive-services-security.md#environment-variables-and-application-configuration).
+O código-fonte de exemplo neste artigo depende de variáveis de ambiente para armazenar dados confidenciais, como a chave de assinatura do recurso de fala e a região. O arquivo de código Python contém dois valores que são atribuídos das variáveis de ambiente de máquinas de host, ou seja, `SPEECH__SUBSCRIPTION__KEY` e `SPEECH__SERVICE__REGION` . Ambas as variáveis estão no escopo global, tornando-as acessíveis na definição de função do arquivo de código. Para obter mais informações sobre variáveis de ambiente, consulte [variáveis de ambiente e configuração de aplicativo](../../../../cognitive-services-security.md#environment-variables-and-application-configuration).
 
 ```python
 speech_key, service_region = os.environ['SPEECH__SUBSCRIPTION__KEY'], os.environ['SPEECH__SERVICE__REGION']
@@ -77,7 +77,7 @@ A propriedade [`speech_recognition_language`][recognitionlang] espera uma cadeia
 
 ## <a name="add-translation-language"></a>Adicionar idioma de tradução
 
-Outra tarefa comum de tradução de fala é especificar os idiomas de tradução de destino, pelo menos um é necessário, mas há suporte para múltiplos. No trecho de código a seguir, o francês e o alemão como destinos da linguagem de tradução.
+Outra tarefa comum de tradução de fala é especificar os idiomas de tradução de destino, pelo menos um é necessário, mas há suporte para múltiplos. O trecho de código a seguir define o francês e o alemão como destinos da linguagem de tradução.
 
 ```python
 def translate_speech_to_text():
@@ -91,7 +91,7 @@ def translate_speech_to_text():
     translation_config.add_target_language("de")
 ```
 
-Com cada chamada para [`add_target_language`][addlang], um novo idioma de tradução de destino é especificado. Em outras palavras, quando a fala é reconhecida a partir do idioma de origem, cada tradução de destino está disponível como parte da operação de tradução resultante.
+Com cada chamada para [`add_target_language`][addlang] , um novo idioma de tradução de destino é especificado. Em outras palavras, quando a fala é reconhecida a partir do idioma de origem, cada tradução de destino está disponível como parte da operação de tradução resultante.
 
 ## <a name="initialize-a-translation-recognizer"></a>Inicializar um reconhecedor de tradução
 
@@ -132,7 +132,7 @@ def translate_speech_to_text():
             translation_config=translation_config, audio_config=audio_config)
 ```
 
-Se desejar fornecer um arquivo de áudio em vez de usar um microfone, você ainda precisará fornecer um `audioConfig`. No entanto, quando você [`AudioConfig`][audioconfig]cria um, em vez `use_default_microphone=True`de chamar com, você `filename="path-to-file.wav"` chamará e `filename` fornecerá o parâmetro.
+Se desejar fornecer um arquivo de áudio em vez de usar um microfone, você ainda precisará fornecer um `audioConfig`. No entanto, quando você cria um [`AudioConfig`][audioconfig] , em vez de chamar com `use_default_microphone=True` , você chamará `filename="path-to-file.wav"` e fornecerá o `filename` parâmetro.
 
 ```python
 def translate_speech_to_text():
@@ -198,7 +198,7 @@ Após um reconhecimento de fala e uma tradução bem-sucedidos, o resultado cont
 O `TranslationRecognizer` objeto expõe um `Synthesizing` evento. O evento é acionado várias vezes e fornece um mecanismo para recuperar o áudio sintetizado do resultado do reconhecimento de tradução. Se você estiver traduzindo para vários idiomas, consulte [síntese manual](#manual-synthesis). Especifique a voz de síntese atribuindo um [`voice_name`][voicename] e fornecendo um manipulador de eventos para o `Synthesizing` evento, obtenha o áudio. O exemplo a seguir salva o áudio traduzido como um arquivo *. wav* .
 
 > [!IMPORTANT]
-> A síntese baseada em evento funciona apenas com uma única tradução, não adicione vários **idiomas de tradução** de destino. Além disso, [`voice_name`][voicename] o deve ser o mesmo idioma que o idioma de tradução de destino, por exemplo; `"de"` pode mapear `"de-DE-Hedda"`para.
+> A síntese baseada em evento funciona apenas com uma única tradução, não adicione vários **idiomas de tradução** de destino. Além disso, o [`voice_name`][voicename] deve ser o mesmo idioma que o idioma de tradução de destino, por exemplo; `"de"` pode mapear para `"de-DE-Hedda"` .
 
 ```python
 import os

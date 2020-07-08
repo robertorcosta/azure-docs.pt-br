@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 0abc98c95c03e3dd2e12a601188d9c5f7cb4523d
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: f89ab93820770eb8b5485bb7911c60fe2438454a
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85558977"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026812"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Início Rápido: Treinar em um modelo do Reconhecimento de Formulários e extrair dados de formulário usando a API REST com o cURL
 
@@ -39,7 +39,7 @@ Primeiro, você precisará de um conjunto de dados de treinamento em um blob do 
 > [!NOTE]
 > Você pode usar o recurso de dados rotulados para rotular manualmente alguns ou todos os seus dados de treinamento com antecedência. Esse é um processo mais complexo, mas resulta em um modelo melhor treinado. Confira a seção [Treinar com rótulos](../overview.md#train-with-labels) da visão geral para saber mais sobre esse recurso.
 
-Para treinar um modelo do Reconhecimento de Formulários usando os documentos no contêiner de blobs do Azure, chame a API **[Treinar Modelo Personalizado](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync)** executando o comando cURL a seguir. Antes de executar o comando, faça essas alterações:
+Para treinar um modelo do Reconhecimento de Formulários usando os documentos no contêiner de blobs do Azure, chame a API **[Treinar Modelo Personalizado](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync)** executando o comando cURL a seguir. Antes de executar o comando, faça essas alterações:
 
 1. Substitua `<Endpoint>` pelo ponto de extremidade que você obteve com a assinatura do Reconhecimento de Formulários.
 1. Substitua `<subscription key>` pela chave de assinatura que você copiou na etapa anterior.
@@ -53,7 +53,7 @@ Você receberá uma resposta `201 (Success)` com um cabeçalho **Location**. O v
 
 ## <a name="get-training-results"></a>Obter os resultados do treinamento
 
-Depois de iniciar a operação de treinamento, você usa uma nova operação, **[Obter Modelo Personalizado](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetCustomModel)** , para verificar o status de treinamento. Passe a ID do modelo para esta chamada à API para verificar o status de treinamento:
+Depois de iniciar a operação de treinamento, você usa uma nova operação, **[Obter Modelo Personalizado](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/GetCustomModel)** , para verificar o status de treinamento. Passe a ID do modelo para esta chamada à API para verificar o status de treinamento:
 
 1. Substitua `<Endpoint>` pelo ponto de extremidade que você obteve com a chave de assinatura do Reconhecimento de Formulários.
 1. Substitua `<subscription key>` por sua chave de assinatura
@@ -135,7 +135,7 @@ O campo `"modelId"` contém a ID do modelo que você está treinando. Você prec
 
 ## <a name="analyze-forms-for-key-value-pairs-and-tables"></a>Analisar formulários para pares chave-valor e tabelas
 
-Em seguida, você usará seu modelo treinado recentemente para analisar um documento e extrair pares chave-valor e tabelas dele. Chame a API **[Analisar Formulário](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)** executando o comando cURL a seguir. Antes de executar o comando, faça essas alterações:
+Em seguida, você usará seu modelo treinado recentemente para analisar um documento e extrair pares chave-valor e tabelas dele. Chame a API **[Analisar Formulário](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm)** executando o comando cURL a seguir. Antes de executar o comando, faça essas alterações:
 
 1. Substitua `<Endpoint>` pelo ponto de extremidade que você obteve da chave de assinatura do Reconhecimento de Formulários. Encontre-o na guia **Visão geral** de recursos do Reconhecimento de Formulários.
 1. Substitua `<model ID>` pela ID do modelo recebida na seção anterior.
@@ -422,4 +422,4 @@ As principais associações de tabelas e pares chave-valor estão no nó `"pageR
 Neste guia de início rápido, você usou a API REST do Reconhecimento de Formulários com o cURL para treinar em um modelo e executá-lo em um caso de exemplo. Em seguida, confira a documentação de referência para explorar a API de Reconhecimento de Formulários de forma mais aprofundada.
 
 > [!div class="nextstepaction"]
-> [Documentação de referência da API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)
+> [Documentação de referência da API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm)

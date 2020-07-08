@@ -8,37 +8,55 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5825466c099a8c57477f2d9d0420da74ccb2e96d
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: aad3bffeba4395ba415fb99a3667d04d18769a47
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82615390"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026688"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Criação do pool de host e de locatário
 
 >[!IMPORTANT]
->Esse conteúdo se aplica à versão 2019 do outono que não dá suporte a Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver tentando gerenciar Azure Resource Manager objetos da área de trabalho virtual do Windows introduzidos na atualização do Spring 2020, consulte [Este artigo](../troubleshoot-set-up-issues.md).
+>Esse conteúdo se aplica à versão Outono 2019 que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver tentando gerenciar objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager introduzidos na atualização Spring 2020, confira [este artigo](../troubleshoot-set-up-issues.md).
 
 Este artigo aborda problemas durante a configuração inicial do locatário da área de trabalho virtual do Windows e da infraestrutura do pool de hosts da sessão relacionada.
 
-## <a name="provide-feedback"></a>Envie comentários
+## <a name="provide-feedback"></a>Fornecer comentários
 
 Visite a [Comunidade Tecnológica da Área de Trabalho Virtual do Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) para comentar sobre o serviço da Área de Trabalho Virtual do Windows com a equipe do produto e membros ativos da comunidade.
 
 ## <a name="acquiring-the-windows-10-enterprise-multi-session-image"></a>Adquirindo a imagem de várias sessões do Windows 10 Enterprise
 
-Para usar a imagem de várias sessões do Windows 10 Enterprise, vá para o Azure Marketplace, **selecione** > introdução ao**Microsoft Windows 10** > e [Windows 10 Enterprise para áreas de trabalho virtuais, versão 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
+Para usar a imagem de várias sessões do Windows 10 Enterprise, vá para o Azure Marketplace, **selecione introdução**ao  >  **Microsoft Windows 10** > e [Windows 10 Enterprise para áreas de trabalho virtuais, versão 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
 
-![Uma captura de tela de seleção do Windows 10 Enterprise para áreas de trabalho virtuais, versão 1809.](../media/AzureMarketPlace.png)
+> [!div class="mx-imgBorder"]
+> ![Uma captura de tela de seleção do Windows 10 Enterprise para áreas de trabalho virtuais, versão 1809.](../media/AzureMarketPlace.png)
 
 ## <a name="creating-windows-virtual-desktop-tenant"></a>Criando locatário da área de trabalho virtual do Windows
 
 Esta seção aborda possíveis problemas ao criar o locatário da área de trabalho virtual do Windows.
 
+### <a name="error-aadsts650052-the-app-needs-access-to-a-service"></a>Erro: AADSTS650052 o aplicativo precisa de acesso a um serviço.
+
+Exemplo de erro bruto:
+
+```Error
+AADSTS650052 Message The app needs access to a service(\"{name}\") that your organization
+\"{organization}\" has not subscribed to or enabled. Contact your IT Admin to review the 
+configuration of your service subscriptions.650052 Message The app needs access to a service
+(\"{name}\") that your organization \"{organization}\" has not subscribed to or enabled. 
+Contact your IT Admin to review the configuration of your service subscriptions.
+```
+
+**Causa:** Consentimento não concedido à área de trabalho virtual do Windows na instância do Azure Active Directory.
+
+**Correção:** [siga este guia](https://docs.microsoft.com/azure/virtual-desktop/virtual-desktop-fall-2019/tenant-setup-azure-active-directory#grant-permissions-to-windows-virtual-desktop) para conceder consentimento.
+
 ### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Erro: o usuário não está autorizado a consultar o serviço de gerenciamento
 
-![Captura de tela da janela do PowerShell na qual um usuário não está autorizado a consultar o serviço de gerenciamento.](../media/UserNotAuthorizedNewTenant.png)
+> [!div class="mx-imgBorder"]
+> ![Captura de tela da janela do PowerShell na qual um usuário não está autorizado a consultar o serviço de gerenciamento.](../media/UserNotAuthorizedNewTenant.png)
 
 Exemplo de erro bruto:
 
@@ -59,7 +77,8 @@ Exemplo de erro bruto:
 
 **Correção:** Siga as instruções em [atribuir a função de aplicativo TenantCreator a um usuário em seu locatário Azure Active Directory](tenant-setup-azure-active-directory.md#assign-the-tenantcreator-application-role). Depois de seguir as instruções, você terá um usuário atribuído à função TenantCreator.
 
-![Captura de tela da função TenantCreator atribuída.](../media/TenantCreatorRoleAssigned.png)
+> [!div class="mx-imgBorder"]
+> ![Captura de tela da função TenantCreator atribuída.](../media/TenantCreatorRoleAssigned.png)
 
 ## <a name="creating-windows-virtual-desktop-session-host-vms"></a>Criando VMs do host de sessão de área de trabalho virtual do Windows
 
@@ -71,7 +90,8 @@ O modelo de área de trabalho virtual do Windows – provisionar um pool de host
 
 ### <a name="error-when-using-the-link-from-github-the-message-create-a-free-account-appears"></a>Erro: ao usar o link do GitHub, a mensagem "criar uma conta gratuita" aparece
 
-![Captura de tela para criar uma conta gratuita.](../media/be615904ace9832754f0669de28abd94.png)
+> [!div class="mx-imgBorder"]
+> ![Captura de tela para criar uma conta gratuita.](../media/be615904ace9832754f0669de28abd94.png)
 
 **Causa 1:** Não há assinaturas ativas na conta usada para entrar no Azure ou a conta usada não tem permissões para exibir as assinaturas.
 
@@ -94,7 +114,8 @@ O modelo de área de trabalho virtual do Windows – provisionar um pool de host
 
 ### <a name="error-you-receive-template-deployment-is-not-valid-error"></a>Erro: você recebe o erro "a implantação do modelo não é válida"
 
-![Captura de tela de "implantação de modelo... erro inválido "](../media/troubleshooting-marketplace-validation-error-generic.png)
+> [!div class="mx-imgBorder"]
+> ![Captura de tela de "implantação de modelo... erro inválido "](../media/troubleshooting-marketplace-validation-error-generic.png)
 
 Antes de tomar uma ação específica, você precisará verificar o log de atividades para ver o erro detalhado da validação de implantação com falha.
 
@@ -103,10 +124,14 @@ Para exibir o erro no log de atividades:
 1. Saia da oferta de implantação atual do Azure Marketplace.
 2. Na barra de pesquisa superior, procure e selecione **log de atividades**.
 3. Localize uma atividade denominada **validar implantação** que tenha um status de **falha** e selecione a atividade.
-   ![Captura de tela da atividade individual * * validar implantação * * com um * * status * * com falha](../media/troubleshooting-marketplace-validation-error-activity-summary.png)
+   
+   > [!div class="mx-imgBorder"]
+   > ![Captura de tela da atividade individual * * validar implantação * * com um * * status * * com falha](../media/troubleshooting-marketplace-validation-error-activity-summary.png)
 
 4. Selecione JSON e role para baixo até a parte inferior da tela até ver o campo "statusMessage".
-   ![Captura de tela da atividade com falha, com uma caixa vermelha em torno da propriedade statusMessage do texto JSON.](../media/troubleshooting-marketplace-validation-error-json-boxed.png)
+   
+   > [!div class="mx-imgBorder"]
+   > ![Captura de tela da atividade com falha, com uma caixa vermelha em torno da propriedade statusMessage do texto JSON.](../media/troubleshooting-marketplace-validation-error-json-boxed.png)
 
 Se o modelo de operação passar pelo limite de cota, você poderá executar uma das seguintes ações para corrigi-lo:
 
@@ -122,9 +147,10 @@ Siga estas instruções para solucionar problemas de implantações sem êxito d
 3. Depois que o erro for identificado, use a mensagem de erro e os recursos em [solucionar erros comuns de implantação do Azure com o Azure Resource Manager](../../azure-resource-manager/resource-manager-common-deployment-errors.md) para resolver o problema.
 4. Exclua todos os recursos criados durante a implantação anterior e tente novamente implantar o modelo novamente.
 
-### <a name="error-your-deployment-failedhostnamejoindomain"></a>Erro: falha na implantação....\<nome do host>/JoinDomain
+### <a name="error-your-deployment-failedhostnamejoindomain"></a>Erro: falha na implantação... \<hostname> /JoinDomain
 
-![Falha na captura de tela da implantação.](../media/e72df4d5c05d390620e07f0d7328d50f.png)
+> [!div class="mx-imgBorder"]
+> ![Falha na captura de tela da implantação.](../media/e72df4d5c05d390620e07f0d7328d50f.png)
 
 Exemplo de erro bruto:
 
@@ -165,7 +191,8 @@ Para corrigir isso, faça o seguinte:
 
 ### <a name="error-vmextensionprovisioningerror"></a>Erro: VMExtensionProvisioningError
 
-![Falha na captura de tela de sua implantação com o estado de provisionamento do terminal.](../media/7aaf15615309c18a984673be73ac969a.png)
+> [!div class="mx-imgBorder"]
+> ![Falha na captura de tela de sua implantação com o estado de provisionamento do terminal.](../media/7aaf15615309c18a984673be73ac969a.png)
 
 **Causa 1:** Erro transitório com o ambiente de área de trabalho virtual do Windows.
 
@@ -175,7 +202,8 @@ Para corrigir isso, faça o seguinte:
 
 ### <a name="error-the-admin-username-specified-isnt-allowed"></a>Erro: o nome de usuário do administrador especificado não é permitido
 
-![A captura de tela de sua implantação falhou na qual um administrador especificado não é permitido.](../media/f2b3d3700e9517463ef88fa41875bac9.png)
+> [!div class="mx-imgBorder"]
+> ![A captura de tela de sua implantação falhou na qual um administrador especificado não é permitido.](../media/f2b3d3700e9517463ef88fa41875bac9.png)
 
 Exemplo de erro bruto:
 
@@ -194,7 +222,8 @@ Exemplo de erro bruto:
 
 ### <a name="error-vm-has-reported-a-failure-when-processing-extension"></a>Erro: a VM relatou uma falha ao processar a extensão
 
-![Falha na captura de tela da operação de recurso concluída com o estado de provisionamento de terminal em sua implantação.](../media/49c4a1836a55d91cd65125cf227f411f.png)
+> [!div class="mx-imgBorder"]
+> ![Falha na captura de tela da operação de recurso concluída com o estado de provisionamento de terminal em sua implantação.](../media/49c4a1836a55d91cd65125cf227f411f.png)
 
 Exemplo de erro bruto:
 
@@ -220,7 +249,8 @@ Exemplo de erro bruto:
 
 ### <a name="error-deploymentfailed--powershell-dsc-configuration-firstsessionhost-completed-with-errors"></a>Erro: DeploymentFailed – a configuração de DSC do PowerShell ' FirstSessionHost ' foi concluída com erro (s)
 
-![Falha na captura de tela da implantação com a configuração DSC do PowerShell ' FirstSessionHost ' concluída com erro (s).](../media/64870370bcbe1286906f34cf0a8646ab.png)
+> [!div class="mx-imgBorder"]
+> ![Falha na captura de tela da implantação com a configuração DSC do PowerShell ' FirstSessionHost ' concluída com erro (s).](../media/64870370bcbe1286906f34cf0a8646ab.png)
 
 Exemplo de erro bruto:
 
@@ -349,7 +379,8 @@ New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDef
 
 ### <a name="error-user-requires-azure-multi-factor-authentication-mfa"></a>Erro: o usuário requer a MFA (autenticação multifator) do Azure
 
-![Falha na captura de tela de sua implantação devido à falta de autenticação multifator (MFA)](../media/MFARequiredError.png)
+> [!div class="mx-imgBorder"]
+> ![Falha na captura de tela de sua implantação devido à falta de autenticação multifator (MFA)](../media/MFARequiredError.png)
 
 Exemplo de erro bruto:
 
@@ -375,14 +406,20 @@ Se você estiver executando o modelo de Azure Resource Manager do GitHub, forne�
 - IsServicePrincipal: **true**
 - AadTenantId: a ID de locatário do Azure AD da entidade de serviço que você criou
 
+### <a name="error-vmsubnet-not-available-when-configuring-virtual-networks"></a>Erro: vmSubnet não disponível ao configurar redes virtuais
+
+**Causa:** No modelo WVD Marketplace, a interface do usuário exibe apenas as sub-redes que têm pelo menos quantos endereços IP disponíveis como o número total de VMs especificado no modelo. O número real de endereços IP disponíveis na sub-rede só precisa ser igual ao número de novas VMs que estão sendo implantadas, mas isso não pode ser calculado pela interface do usuário atual.
+
+**Correção:** Você pode especificar uma sub-rede com pelo menos tantos endereços IP disponíveis quanto o número de VMs que estão sendo adicionadas não usando a interface do usuário do Marketplace, isso pode ser feito especificando o nome da sub-rede no parâmetro "**existingSubnetName**" ao [reimplantar uma implantação existente](expand-existing-host-pool-2019.md#redeploy-from-azure) ou implantá-la [usando o modelo ARM subjacente do GitHub](create-host-pools-arm-template.md#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool).
+
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter uma visão geral da solução de problemas da área de trabalho virtual do Windows e das faixas de escalonamento, consulte [visão geral da solução de problemas, comentários e suporte](troubleshoot-set-up-overview-2019.md).
-- Para solucionar problemas durante a configuração de uma VM (máquina virtual) na área de trabalho virtual do Windows, consulte [configuração de máquina virtual do host de sessão](troubleshoot-vm-configuration-2019.md).
+- Confira uma visão geral da solução de problemas da Área de Trabalho Virtual do Windows e das faixas de escalonamento em [Visão geral da solução de problemas, comentários e suporte](troubleshoot-set-up-overview-2019.md).
+- Confira como solucionar problemas ao configurar uma VM (máquina virtual) na Área de Trabalho Virtual do Windows em [Configuração da máquina virtual do host da sessão](troubleshoot-vm-configuration-2019.md).
 - Para solucionar problemas com conexões de cliente de área de trabalho virtual do Windows, consulte [conexões do serviço área de trabalho virtual do Windows](troubleshoot-service-connection-2019.md).
 - Para solucionar problemas com clientes Área de Trabalho Remota, consulte [solucionar problemas do cliente área de trabalho remota](../troubleshoot-client.md)
-- Para solucionar problemas ao usar o PowerShell com a área de trabalho virtual do Windows, consulte [PowerShell da área de trabalho virtual do Windows](troubleshoot-powershell-2019.md).
+- Veja como solucionar problemas ao usar o PowerShell com a Área de Trabalho Virtual do Windows em [PowerShell da Área de Trabalho Virtual do Windows](troubleshoot-powershell-2019.md).
 - Para saber mais sobre o serviço, consulte [ambiente de área de trabalho virtual do Windows](environment-setup-2019.md).
-- Para percorrer um tutorial de solução de problemas, consulte [tutorial: solucionar problemas de implantações de modelo do Resource Manager](../../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
+- Acompanhe um tutorial de solução de problemas em [Tutorial: Solucionar problemas de implantações de modelos do Resource Manager](../../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
 - Para saber sobre as ações de auditoria, consulte [Auditar operações com o Gerenciador de Recursos](../../azure-resource-manager/management/view-activity-logs.md).
 - Para saber sobre as ações para determinar os erros durante a implantação, consulte [Exibir operações de implantação](../../azure-resource-manager/templates/deployment-history.md).

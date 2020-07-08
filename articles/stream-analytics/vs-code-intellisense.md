@@ -5,13 +5,13 @@ ms.service: stream-analytics
 author: su-jie
 ms.author: sujie
 ms.date: 4/11/2020
-ms.topic: conceptual
-ms.openlocfilehash: 25ece3174cd65df9c665888d913cf6b9029904b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: how-to
+ms.openlocfilehash: df6e7435d072cc88e82f3dc9a323a5b21145c432
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81394391"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037249"
 ---
 # <a name="intellisense-in-azure-stream-analytics-tools-for-visual-studio-code"></a>IntelliSense no Azure Stream Analytics Tools para Visual Studio Code
 
@@ -34,13 +34,12 @@ Você pode disparar o IntelliSense em qualquer janela do Editor digitando um car
 
 As ferramentas de Stream Analytics para o VS Code IntelliSense oferecem diferentes tipos de conclusões, incluindo sugestões de servidor de linguagem, trechos de código e conclusões textuais baseadas em palavras simples.
 
-|       |         |       |
-| ----- | ------- | ----- |
+|Completion     |  Tipo       |
+| ----- | ------- |
 | Palavras-chave | `keyword`
 | Funções | `build-in function`, `user defined function`  |
 | Nome do conjunto de dados| `input`, `output`, `intermediate result set`|
 | Nome da coluna do conjunto de dados|`input`, `intermediate result set`|
-|
 
 #### <a name="name-completion"></a>Conclusão do nome
 

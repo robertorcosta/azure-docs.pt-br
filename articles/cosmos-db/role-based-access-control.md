@@ -4,14 +4,14 @@ description: Saiba como Azure Cosmos DB fornece proteção de banco de dados com
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: 4e028e7a5e7e7b8f747d7a1cfb36c553a8113544
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: cbb97dd260e5aee53595afc24e577ce08334e2b2
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583723"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027011"
 ---
 # <a name="role-based-access-control-in-azure-cosmos-db"></a>Controle de acesso baseado em função no Azure Cosmos DB
 
@@ -35,7 +35,7 @@ A seguir estão as funções internas com suporte pelo Azure Cosmos DB:
 
 O painel de **controle de acesso (iam)** no portal do Azure é usado para configurar o controle de acesso baseado em função nos recursos de Cosmos do Azure. As funções são aplicadas a usuários, grupos, entidades de serviço e identidades gerenciadas no Active Directory. Você pode usar funções internas ou funções personalizadas para indivíduos e grupos. A captura de tela a seguir mostra o RBAC (integração de Active Directory) usando IAM (controle de acesso) no portal do Azure:
 
-![Controle de acesso (IAM) no portal do Azure – demonstrando a segurança de banco de dados](./media/role-based-access-control/database-security-identity-access-management-rbac.png)
+:::image type="content" source="./media/role-based-access-control/database-security-identity-access-management-rbac.png" alt-text="Controle de acesso (IAM) no portal do Azure – demonstrando a segurança de banco de dados":::
 
 ## <a name="custom-roles"></a>Funções personalizadas
 
@@ -43,14 +43,39 @@ Além das funções internas, os usuários também podem criar [funções person
 
 ## <a name="preventing-changes-from-cosmos-sdk"></a>Impedindo alterações do SDK do cosmos
 
-O provedor de recursos Cosmos pode ser bloqueado para evitar qualquer alteração nos recursos, incluindo conta do cosmos, bancos de dados, contêineres e taxa de transferência de qualquer cliente que se conecte por meio de chaves de conta (ou seja, aplicativos que se conectam via SDK do cosmos). Quando definido, as alterações em qualquer recurso devem ser de um usuário com a função e as credenciais de RBAC adequadas. Esse recurso é definido com `disableKeyBasedMetadataWriteAccess` o valor da propriedade no provedor de recursos Cosmos. Veja abaixo um exemplo de um modelo de Azure Resource Manager com essa configuração de propriedade.
+> [!WARNING]
+> Habilitar esse recurso pode ter um impacto perigoso em seu aplicativo. Leia por completo antes de habilitar esse recurso.
+
+O provedor de recursos de Azure Cosmos DB pode ser bloqueado para evitar qualquer alteração nos recursos feitos de qualquer cliente que se conecte usando chaves de conta (ou seja, aplicativos que se conectam por meio do SDK do cosmos). Isso também inclui alterações feitas no portal do Azure. Isso pode ser desejável para os usuários que desejam maiores graus de controle e governança para ambientes de produção e habilitar recursos como bloqueios de recursos e também Habilitar logs de diagnóstico para operações de plano de controle. Os clientes que se conectam por meio do SDK do Cosmos DB serão impedidos de alterar qualquer propriedade para contas, bancos de dados, contêineres e taxa de transferência do cosmos. As operações que envolvem a leitura e gravação de dados em contêineres Cosmos em si não são afetadas.
+
+Quando definido, as alterações em qualquer recurso só podem ser feitas de um usuário com a função RBAC apropriada e as credenciais de Azure Active Directory, incluindo as identidades de serviço gerenciadas.
+
+### <a name="check-list-before-enabling"></a>Lista de verificação antes de habilitar
+
+Essa configuração impedirá qualquer alteração em qualquer recurso Cosmos de qualquer cliente que se conecte usando chaves de conta, incluindo qualquer Cosmos DB SDK, quaisquer ferramentas que se conectam por meio de chaves de conta ou da portal do Azure. Para evitar problemas ou erros de aplicativos depois de habilitar esse recurso, verifique se os aplicativos ou portal do Azure usuários executam qualquer uma das seguintes ações antes de habilitar esse recurso, incluindo:
+
+- Qualquer alteração na conta Cosmos, incluindo qualquer propriedade ou adição ou remoção de regiões.
+
+- Criação, exclusão de recursos filho, como bancos de dados e contêineres. Isso inclui recursos para outras APIs, como Cassandra, MongoDB, Gremlin e recursos de tabela.
+
+- Atualizando a produtividade em recursos de nível de contêiner ou banco de dados.
+
+- Modificando Propriedades de contêiner, incluindo política de índice, TTL e chaves exclusivas.
+
+- Modificando procedimentos armazenados, gatilhos ou funções definidas pelo usuário.
+
+Se seus aplicativos (ou usuários via portal do Azure) executarem qualquer uma dessas ações, eles precisarão ser migrados para execução por meio de [modelos ARM](manage-sql-with-resource-manager.md), [PowerShell](manage-with-powershell.md), [CLI do Azure](manage-with-cli.md), [REST](/rest/api/cosmos-db-resource-provider/) ou [biblioteca de gerenciamento do Azure](https://github.com/Azure-Samples/cosmos-management-net). Observe que o gerenciamento do Azure está disponível em [vários idiomas](https://docs.microsoft.com/azure/?product=featured#languages-and-tools).
+
+### <a name="set-via-arm-template"></a>Definir por meio do modelo ARM
+
+Para definir essa propriedade usando um modelo ARM, atualize seu modelo existente ou exporte um novo modelo para a implantação atual e, em seguida, inclua o `"disableKeyBasedMetadataWriteAccess": true` para as propriedades dos recursos databaseAccounts. Veja abaixo um exemplo básico de um modelo de Azure Resource Manager com essa configuração de propriedade.
 
 ```json
 {
     {
       "type": "Microsoft.DocumentDB/databaseAccounts",
       "name": "[variables('accountName')]",
-      "apiVersion": "2019-08-01",
+      "apiVersion": "2020-04-01",
       "location": "[parameters('location')]",
       "kind": "GlobalDocumentDB",
       "properties": {
@@ -62,15 +87,29 @@ O provedor de recursos Cosmos pode ser bloqueado para evitar qualquer alteraçã
     }
 }
 ```
-Se você exportar um modelo existente do Resource Manager e atualizá-lo com essa propriedade, ele poderá substituir completamente a funcionalidade do modelo. Portanto, se todos os valores não forem incluídos, eles serão redefinidos para o padrão. Outra maneira de desabilitar o acesso de gravação de metadados baseado em chave é usando CLI do Azure, conforme mostrado no seguinte comando:
 
-```cli
-az cosmosdb update  --name CosmosDBAccountName --resource-group ResourceGroupName  --disable-key-based-metadata-write-access true
+> [!IMPORTANT]
+> Certifique-se de incluir as outras propriedades para sua conta e recursos filho ao redploying com essa propriedade. Não implante este modelo como está ou ele redefinirá todas as suas propriedades de conta.
 
+### <a name="set-via-azure-cli"></a>Definir via CLI do Azure
+
+Para habilitar o uso do CLI do Azure use o comando a seguir:
+
+```azurecli-interactive
+az cosmosdb update  --name [CosmosDBAccountName] --resource-group [ResourceGroupName]  --disable-key-based-metadata-write-access true
+
+```
+
+### <a name="set-via-powershell"></a>Definir por meio do PowerShell
+
+Para habilitar o uso de Azure PowerShell, use o comando a seguir:
+
+```azurepowershell-interactive
+Update-AzCosmosDBAccount -ResourceGroupName [ResourceGroupName] -Name [CosmosDBAccountName] -DisableKeyBasedMetadataWriteAccess true
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [O que é o RBAC (controle de acesso baseado em função) para recursos do Azure](../role-based-access-control/overview.md)
+- [O que é o controle de acesso baseado em função do Azure (RBAC do Azure)](../role-based-access-control/overview.md)
 - [Funções personalizadas para recursos do Azure](../role-based-access-control/custom-roles.md)
 - [Operações do provedor de recursos Azure Cosmos DB](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb)

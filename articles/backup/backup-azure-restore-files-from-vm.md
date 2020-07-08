@@ -3,12 +3,13 @@ title: Recuperar arquivos e pastas de um backup de VM do Azure
 description: Este artigo explica como recuperar arquivos e pastas de um ponto de recuperação de máquina virtual do Azure.
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: c72794999abbbf5d29b376615015fb5778b7d9fe
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.custom: references_regions
+ms.openlocfilehash: ded26718f176629f6c53ae90abf3c7e69b4df893
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83757969"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027157"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar arquivos de um backup de máquina virtual do Azure
 
@@ -228,7 +229,7 @@ Se você executar o script em um computador com acesso restrito, verifique se h�
 
 - `download.microsoft.com`
 - URLs de serviço de recuperação (geo-name refere-se para a região onde reside o cofre dos serviços de recuperação)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.com` (Para as geografias públicas do Azure)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.com`(Para regiões públicas do Azure)
   - `https://pod01-rec2.geo-name.backup.windowsazure.cn` (Para Azure China 21Vianet)
   - `https://pod01-rec2.geo-name.backup.windowsazure.us` (Para Governo dos EUA para Azure)
   - `https://pod01-rec2.geo-name.backup.windowsazure.de` (Para Azure Alemanha)
@@ -236,7 +237,7 @@ Se você executar o script em um computador com acesso restrito, verifique se h�
 
 > [!NOTE]
 >
-> - O nome do arquivo de script baixado terá o **nome geográfico** a ser preenchido na URL. Por exemplo: O nome do script baixado começa com \'VMname\'\_\'geoname\'_\'GUID\', como *ContosoVM_wcus_12345678*
+> - O nome do arquivo de script baixado terá o **nome geográfico** a ser preenchido na URL. Por exemplo: o nome do script baixado começa com \' VMname \' \_ \' geoname \' _ \' GUID \' , como *ContosoVM_wcus_12345678*
 > - A URL seria <https://pod01-rec2.wcus.backup.windowsazure.com>"
 >
 
@@ -246,9 +247,9 @@ Para o Linux, o script exige os componentes 'open-iscsi' e 'lshw' para se conect
 
 ## <a name="file-recovery-from-virtual-machine-backups-having-large-disks"></a>Recuperação de arquivos de backups de VM com discos grandes
 
-Esta seção explica como executar a recuperação de arquivos de backups de VMs do Azure com mais de 16 discos com mais de 32 TB cada.
+Esta seção explica como executar a recuperação de arquivos de backups de máquinas virtuais do Azure com mais de 16 discos ou cada tamanho de disco é maior que 4 TB.
 
-Como o processo de recuperação de arquivo anexa todos os discos do backup, quando um grande número de discos (>16) ou discos grandes (> 32 TB cada) são usados, os seguintes pontos de ação são recomendados:
+Como o processo de recuperação de arquivo anexa todos os discos do backup, quando um grande número de discos (>16) ou discos grandes (> 4 TB cada) são usados, os seguintes pontos de ação são recomendados:
 
 - Mantenha um servidor de restauração separado (máquinas virtuais D2v3 de VM do Azure) para recuperação de arquivos. Você pode usá-lo apenas para recuperação de arquivos e, em seguida, desligá-lo quando não for necessário. A restauração no computador original não é recomendada, pois ela terá um impacto significativo na própria VM.
 - Em seguida, execute o script uma vez para verificar se a operação de recuperação de arquivo foi concluída com sucesso.

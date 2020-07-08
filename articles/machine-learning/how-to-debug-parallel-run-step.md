@@ -5,22 +5,22 @@ description: Depure e solucione problemas do ParallelRunStep em pipelines do Mac
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.reviewer: trbye, jmartens, larryfr, vaidyas
+ms.topic: troubleshooting
+ms.reviewer: trbye, jmartens, larryfr, vaidyas, laobri
 ms.author: trmccorm
 author: tmccrmck
-ms.date: 01/15/2020
-ms.openlocfilehash: c4e2777f59bab8d7d874019004bff2e30395ab1d
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.date: 07/06/2020
+ms.openlocfilehash: 870563a1a27ee00c2f14935e5200f722136011a1
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83723469"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026994"
 ---
 # <a name="debug-and-troubleshoot-parallelrunstep"></a>Como depurar e solucionar problemas de ParallelRunStep
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Neste artigo, você aprenderá a depurar e solucionar problemas da classe [ParallelRunStep](https://docs.microsoft.com/python/api/azureml-contrib-pipeline-steps/azureml.contrib.pipeline.steps.parallel_run_step.parallelrunstep?view=azure-ml-py) do [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
+Neste artigo, você aprenderá a depurar e solucionar problemas da classe [ParallelRunStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep?view=azure-ml-py) do [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
 ## <a name="testing-scripts-locally"></a>Testar scripts localmente
 
@@ -40,7 +40,7 @@ Devido à natureza distribuída dos trabalhos do ParallelRunStep, há logs de v�
 
 Os logs gerados do script de entrada usando o auxiliar EntryScript e as instruções PRINT serão encontrados nos seguintes arquivos:
 
-- `~/logs/user/<ip_address>/<node_name>.log.txt`: Esses são os logs gravados de entry_script usando o auxiliar EntryScript. Também contém a instrução print (stdout) da entry_script.
+- `~/logs/user/<ip_address>/<node_name>.log.txt`: Esses arquivos são os logs gravados de entry_script usando o auxiliar EntryScript. Também contém a instrução print (stdout) da entry_script.
 
 Para uma compreensão concisa dos erros em seu script, há:
 
@@ -52,13 +52,13 @@ Para obter mais informações sobre erros no seu script, há:
 
 Quando você precisar de um entendimento completo de como cada nó executou o script de pontuação, examine os logs de processo individuais para cada nó. Os logs de processo podem ser encontrados na pasta `sys/node`, agrupados por nós de trabalho:
 
-- `~/logs/sys/node/<node_name>.txt`: Esse arquivo fornece informações detalhadas sobre cada mini-lote à medida que ele é selecionado ou concluído por um trabalho. Para cada mini-lote, esse arquivo inclui:
+- `~/logs/sys/node/<node_name>.txt`: Esse arquivo fornece informações detalhadas sobre cada mini-lote conforme ele é selecionado ou concluído por um trabalho. Para cada mini-lote, esse arquivo inclui:
 
     - O endereço IP e o PID do processo de trabalho. 
     - O número total de itens, contagem de itens processados com êxito e contagem de itens com falha.
     - A hora de início, a duração, o tempo de processamento e o tempo do método de execução.
 
-Você também pode encontrar informações sobre o uso de recursos dos processos para cada trabalho. Essas informações estão no formato CSV e estão localizadas em `~/logs/sys/perf/overview.csv`. Para obter informações sobre cada processo, ele está disponível em `~logs/sys/processes.csv`.
+Você também pode encontrar informações sobre o uso de recursos dos processos para cada trabalho. Essas informações estão no formato CSV e estão localizadas em `~/logs/sys/perf/overview.csv`. As informações sobre cada processo estão disponíveis em `~logs/sys/processes.csv` .
 
 ### <a name="how-do-i-log-from-my-user-script-from-a-remote-context"></a>Como fazer log do meu script de usuário a partir de um contexto remoto?
 Você pode obter um agente de EntryScript conforme mostrado no código de exemplo abaixo para fazer os logs aparecerem na pasta **logs/usuário** no Portal.
@@ -87,7 +87,7 @@ def run(mini_batch):
 
 ### <a name="how-could-i-pass-a-side-input-such-as-a-file-or-files-containing-a-lookup-table-to-all-my-workers"></a>Como posso passar uma entrada no lado, como um arquivo ou arquivo(s) contendo uma tabela de pesquisa, para todos os meus trabalhos?
 
-Construa um [conjunto de dados](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) contendo a entrada lateral e registre-o em seu espaço de trabalho. Passe-o para o parâmetro `side_input` do seu `ParallelRunStep`. Além disso, você pode adicionar o caminho na seção `arguments` para acessar facilmente o caminho montado:
+Construa um [conjunto de dados](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) contendo a entrada lateral e registre-o em seu espaço de trabalho. Passe-o para o parâmetro `side_input` do seu `ParallelRunStep`. Além disso, você pode adicionar seu caminho na `arguments` seção para acessar facilmente o caminho montado dele:
 
 ```python
 label_config = label_ds.as_named_input("labels_input")
@@ -113,6 +113,6 @@ labels_path = args.labels_dir
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Consulte a referência do SDK para obter ajuda com o pacote [azureml-contrib-pipeline](https://docs.microsoft.com/python/api/azureml-contrib-pipeline-steps/azureml.contrib.pipeline.steps?view=azure-ml-py) e a [documentação](https://docs.microsoft.com/python/api/azureml-contrib-pipeline-steps/azureml.contrib.pipeline.steps.parallelrunstep?view=azure-ml-py) para a classe ParallelRunStep.
+* Consulte a referência do SDK para obter ajuda com o pacote [azureml-pipeline-Steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py) . Exiba a [documentação](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?view=azure-ml-py) de referência para a classe ParallelRunStep.
 
-* Siga o [tutorial avançado](tutorial-pipeline-batch-scoring-classification.md) sobre como usar pipelines com ParallelRunStep e para obter um exemplo de como passar outro arquivo como uma entrada lateral. 
+* Siga o [tutorial avançado](tutorial-pipeline-batch-scoring-classification.md) sobre como usar pipelines com o ParallelRunStep. O tutorial mostra como passar outro arquivo como uma entrada lateral. 

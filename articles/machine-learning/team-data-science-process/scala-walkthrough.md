@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b36a3faab49ee8d51c25aa18879e6f5d1db8c2fb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 56f266eaba76bb990a4d2bc3d902f4c5911d9c47
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76716768"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026178"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Ciência de Dados usando o Scala e o Spark no Azure
 Este artigo mostra como usar o Scala para tarefas de aprendizado de máquina supervisionadas com a MLlib escalonável do Spark e os pacotes de AM do Spark em um cluster Azure HDInsight Spark. Ele explica as tarefas que constituem o [Processo Ciência de Dados](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/): ingestão e exploração de dados, visualização, engenharia de recursos, modelagem e consumo de modelo. Os modelos no artigo incluem regressão logística e linear, florestas aleatórias e GBTs (árvores com aumento de gradiente), além de duas tarefas comuns de aprendizado de máquina supervisionadas:
@@ -68,10 +68,12 @@ Você pode carregar o notebook diretamente do GitHub para o servidor do Notebook
 
 ## <a name="setup-preset-spark-and-hive-contexts-spark-magics-and-spark-libraries"></a>Configuração: contextos predefinidos de Spark e Hive, palavras mágicas Spark e bibliotecas Spark
 ### <a name="preset-spark-and-hive-contexts"></a>Contextos predefinidos de Spark e Hive
-    # SET THE START TIME
-    import java.util.Calendar
-    val beginningTime = Calendar.getInstance().getTime()
 
+```scala
+# SET THE START TIME
+import java.util.Calendar
+val beginningTime = Calendar.getInstance().getTime()
+```
 
 Os kernels Spark fornecidos com os notebooks Jupyter têm contextos predefinidos. Não é necessário definir explicitamente os contextos Spark ou Hive antes de começar a trabalhar com o aplicativo que você está desenvolvendo. Os contextos de predefinição são:
 
@@ -89,39 +91,40 @@ Para saber mais sobre os kernels para notebooks Jupyter e as "palavras mágicas"
 ### <a name="import-libraries"></a>Importar bibliotecas
 Importe o Spark, a MLlib e outras bibliotecas necessárias usando o código a seguir.
 
-    # IMPORT SPARK AND JAVA LIBRARIES
-    import org.apache.spark.sql.SQLContext
-    import org.apache.spark.sql.functions._
-    import java.text.SimpleDateFormat
-    import java.util.Calendar
-    import sqlContext.implicits._
-    import org.apache.spark.sql.Row
+```scala
+# IMPORT SPARK AND JAVA LIBRARIES
+import org.apache.spark.sql.SQLContext
+import org.apache.spark.sql.functions._
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import sqlContext.implicits._
+import org.apache.spark.sql.Row
 
-    # IMPORT SPARK SQL FUNCTIONS
-    import org.apache.spark.sql.types.{StructType, StructField, StringType, IntegerType, FloatType, DoubleType}
-    import org.apache.spark.sql.functions.rand
+# IMPORT SPARK SQL FUNCTIONS
+import org.apache.spark.sql.types.{StructType, StructField, StringType, IntegerType, FloatType, DoubleType}
+import org.apache.spark.sql.functions.rand
 
-    # IMPORT SPARK ML FUNCTIONS
-    import org.apache.spark.ml.Pipeline
-    import org.apache.spark.ml.feature.{StringIndexer, VectorAssembler, OneHotEncoder, VectorIndexer, Binarizer}
-    import org.apache.spark.ml.tuning.{ParamGridBuilder, TrainValidationSplit, CrossValidator}
-    import org.apache.spark.ml.regression.{LinearRegression, LinearRegressionModel, RandomForestRegressor, RandomForestRegressionModel, GBTRegressor, GBTRegressionModel}
-    import org.apache.spark.ml.classification.{LogisticRegression, LogisticRegressionModel, RandomForestClassifier, RandomForestClassificationModel, GBTClassifier, GBTClassificationModel}
-    import org.apache.spark.ml.evaluation.{BinaryClassificationEvaluator, RegressionEvaluator, MulticlassClassificationEvaluator}
+# IMPORT SPARK ML FUNCTIONS
+import org.apache.spark.ml.Pipeline
+import org.apache.spark.ml.feature.{StringIndexer, VectorAssembler, OneHotEncoder, VectorIndexer, Binarizer}
+import org.apache.spark.ml.tuning.{ParamGridBuilder, TrainValidationSplit, CrossValidator}
+import org.apache.spark.ml.regression.{LinearRegression, LinearRegressionModel, RandomForestRegressor, RandomForestRegressionModel, GBTRegressor, GBTRegressionModel}
+import org.apache.spark.ml.classification.{LogisticRegression, LogisticRegressionModel, RandomForestClassifier, RandomForestClassificationModel, GBTClassifier, GBTClassificationModel}
+import org.apache.spark.ml.evaluation.{BinaryClassificationEvaluator, RegressionEvaluator, MulticlassClassificationEvaluator}
 
-    # IMPORT SPARK MLLIB FUNCTIONS
-    import org.apache.spark.mllib.linalg.{Vector, Vectors}
-    import org.apache.spark.mllib.util.MLUtils
-    import org.apache.spark.mllib.classification.{LogisticRegressionWithLBFGS, LogisticRegressionModel}
-    import org.apache.spark.mllib.regression.{LabeledPoint, LinearRegressionWithSGD, LinearRegressionModel}
-    import org.apache.spark.mllib.tree.{GradientBoostedTrees, RandomForest}
-    import org.apache.spark.mllib.tree.configuration.BoostingStrategy
-    import org.apache.spark.mllib.tree.model.{GradientBoostedTreesModel, RandomForestModel, Predict}
-    import org.apache.spark.mllib.evaluation.{BinaryClassificationMetrics, MulticlassMetrics, RegressionMetrics}
+# IMPORT SPARK MLLIB FUNCTIONS
+import org.apache.spark.mllib.linalg.{Vector, Vectors}
+import org.apache.spark.mllib.util.MLUtils
+import org.apache.spark.mllib.classification.{LogisticRegressionWithLBFGS, LogisticRegressionModel}
+import org.apache.spark.mllib.regression.{LabeledPoint, LinearRegressionWithSGD, LinearRegressionModel}
+import org.apache.spark.mllib.tree.{GradientBoostedTrees, RandomForest}
+import org.apache.spark.mllib.tree.configuration.BoostingStrategy
+import org.apache.spark.mllib.tree.model.{GradientBoostedTreesModel, RandomForestModel, Predict}
+import org.apache.spark.mllib.evaluation.{BinaryClassificationMetrics, MulticlassMetrics, RegressionMetrics}
 
-    # SPECIFY SQLCONTEXT
-    val sqlContext = new SQLContext(sc)
-
+# SPECIFY SQLCONTEXT
+val sqlContext = new SQLContext(sc)
+```
 
 ## <a name="data-ingestion"></a>Ingestão de dados
 A primeira etapa no processo de Ciência de dados é ingerir os dados que você deseja analisar. Traga os dados de fontes ou sistemas externos onde eles residem para seu ambiente de modelagem e a exploração de dados. Neste artigo, os dados ingeridos são uma junção de 0,1% do exemplo arquivo sobre gorjeta e tarifa de táxi (armazenado como um arquivo .tsv). O ambiente de exploração e modelagem de dados é Spark. Esta seção contém o código para concluir a seguinte série de tarefas:
@@ -140,116 +143,121 @@ Para salvar arquivos ou modelos no armazenamento de Blobs, você precisa especif
 
 O exemplo de código a seguir especifica o local dos dados de entrada a serem lidos e o caminho para o armazenamento de blobs que é anexado ao cluster Spark no qual o modelo será salvo.
 
-    # SET PATHS TO DATA AND MODEL FILE LOCATIONS
-    # INGEST DATA AND SPECIFY HEADERS FOR COLUMNS
-    val taxi_train_file = sc.textFile("wasb://mllibwalkthroughs@cdspsparksamples.blob.core.windows.net/Data/NYCTaxi/JoinedTaxiTripFare.Point1Pct.Train.tsv")
-    val header = taxi_train_file.first;
+```scala
+# SET PATHS TO DATA AND MODEL FILE LOCATIONS
+# INGEST DATA AND SPECIFY HEADERS FOR COLUMNS
+val taxi_train_file = sc.textFile("wasb://mllibwalkthroughs@cdspsparksamples.blob.core.windows.net/Data/NYCTaxi/JoinedTaxiTripFare.Point1Pct.Train.tsv")
+val header = taxi_train_file.first;
 
-    # SET THE MODEL STORAGE DIRECTORY PATH
-    # NOTE THAT THE FINAL BACKSLASH IN THE PATH IS REQUIRED.
-    val modelDir = "wasb:///user/remoteuser/NYCTaxi/Models/";
-
+# SET THE MODEL STORAGE DIRECTORY PATH
+# NOTE THAT THE FINAL BACKSLASH IN THE PATH IS REQUIRED.
+val modelDir = "wasb:///user/remoteuser/NYCTaxi/Models/";
+```
 
 ### <a name="import-data-create-an-rdd-and-define-a-data-frame-according-to-the-schema"></a>Importar dados, criar um RDD e definir um quadro de dados de acordo com o esquema
-    # RECORD THE START TIME
-    val starttime = Calendar.getInstance().getTime()
 
-    # DEFINE THE SCHEMA BASED ON THE HEADER OF THE FILE
-    val sqlContext = new SQLContext(sc)
-    val taxi_schema = StructType(
-        Array(
-            StructField("medallion", StringType, true),
-            StructField("hack_license", StringType, true),
-            StructField("vendor_id", StringType, true),
-            StructField("rate_code", DoubleType, true),
-            StructField("store_and_fwd_flag", StringType, true),
-            StructField("pickup_datetime", StringType, true),
-            StructField("dropoff_datetime", StringType, true),
-            StructField("pickup_hour", DoubleType, true),
-            StructField("pickup_week", DoubleType, true),
-            StructField("weekday", DoubleType, true),
-            StructField("passenger_count", DoubleType, true),
-            StructField("trip_time_in_secs", DoubleType, true),
-            StructField("trip_distance", DoubleType, true),
-            StructField("pickup_longitude", DoubleType, true),
-            StructField("pickup_latitude", DoubleType, true),
-            StructField("dropoff_longitude", DoubleType, true),
-            StructField("dropoff_latitude", DoubleType, true),
-            StructField("direct_distance", StringType, true),
-            StructField("payment_type", StringType, true),
-            StructField("fare_amount", DoubleType, true),
-            StructField("surcharge", DoubleType, true),
-            StructField("mta_tax", DoubleType, true),
-            StructField("tip_amount", DoubleType, true),
-            StructField("tolls_amount", DoubleType, true),
-            StructField("total_amount", DoubleType, true),
-            StructField("tipped", DoubleType, true),
-            StructField("tip_class", DoubleType, true)
-            )
+```scala
+# RECORD THE START TIME
+val starttime = Calendar.getInstance().getTime()
+
+# DEFINE THE SCHEMA BASED ON THE HEADER OF THE FILE
+val sqlContext = new SQLContext(sc)
+val taxi_schema = StructType(
+    Array(
+        StructField("medallion", StringType, true),
+        StructField("hack_license", StringType, true),
+        StructField("vendor_id", StringType, true),
+        StructField("rate_code", DoubleType, true),
+        StructField("store_and_fwd_flag", StringType, true),
+        StructField("pickup_datetime", StringType, true),
+        StructField("dropoff_datetime", StringType, true),
+        StructField("pickup_hour", DoubleType, true),
+        StructField("pickup_week", DoubleType, true),
+        StructField("weekday", DoubleType, true),
+        StructField("passenger_count", DoubleType, true),
+        StructField("trip_time_in_secs", DoubleType, true),
+        StructField("trip_distance", DoubleType, true),
+        StructField("pickup_longitude", DoubleType, true),
+        StructField("pickup_latitude", DoubleType, true),
+        StructField("dropoff_longitude", DoubleType, true),
+        StructField("dropoff_latitude", DoubleType, true),
+        StructField("direct_distance", StringType, true),
+        StructField("payment_type", StringType, true),
+        StructField("fare_amount", DoubleType, true),
+        StructField("surcharge", DoubleType, true),
+        StructField("mta_tax", DoubleType, true),
+        StructField("tip_amount", DoubleType, true),
+        StructField("tolls_amount", DoubleType, true),
+        StructField("total_amount", DoubleType, true),
+        StructField("tipped", DoubleType, true),
+        StructField("tip_class", DoubleType, true)
         )
+    )
 
-    # CAST VARIABLES ACCORDING TO THE SCHEMA
-    val taxi_temp = (taxi_train_file.map(_.split("\t"))
-                            .filter((r) => r(0) != "medallion")
-                            .map(p => Row(p(0), p(1), p(2),
-                                p(3).toDouble, p(4), p(5), p(6), p(7).toDouble, p(8).toDouble, p(9).toDouble, p(10).toDouble,
-                                p(11).toDouble, p(12).toDouble, p(13).toDouble, p(14).toDouble, p(15).toDouble, p(16).toDouble,
-                                p(17), p(18), p(19).toDouble, p(20).toDouble, p(21).toDouble, p(22).toDouble,
-                                p(23).toDouble, p(24).toDouble, p(25).toDouble, p(26).toDouble)))
-
-
-    # CREATE AN INITIAL DATA FRAME AND DROP COLUMNS, AND THEN CREATE A CLEANED DATA FRAME BY FILTERING FOR UNWANTED VALUES OR OUTLIERS
-    val taxi_train_df = sqlContext.createDataFrame(taxi_temp, taxi_schema)
-
-    val taxi_df_train_cleaned = (taxi_train_df.drop(taxi_train_df.col("medallion"))
-            .drop(taxi_train_df.col("hack_license")).drop(taxi_train_df.col("store_and_fwd_flag"))
-            .drop(taxi_train_df.col("pickup_datetime")).drop(taxi_train_df.col("dropoff_datetime"))
-            .drop(taxi_train_df.col("pickup_longitude")).drop(taxi_train_df.col("pickup_latitude"))
-            .drop(taxi_train_df.col("dropoff_longitude")).drop(taxi_train_df.col("dropoff_latitude"))
-            .drop(taxi_train_df.col("surcharge")).drop(taxi_train_df.col("mta_tax"))
-            .drop(taxi_train_df.col("direct_distance")).drop(taxi_train_df.col("tolls_amount"))
-            .drop(taxi_train_df.col("total_amount")).drop(taxi_train_df.col("tip_class"))
-            .filter("passenger_count > 0 and passenger_count < 8 AND payment_type in ('CSH', 'CRD') AND tip_amount >= 0 AND tip_amount < 30 AND fare_amount >= 1 AND fare_amount < 150 AND trip_distance > 0 AND trip_distance < 100 AND trip_time_in_secs > 30 AND trip_time_in_secs < 7200"));
-
-    # CACHE AND MATERIALIZE THE CLEANED DATA FRAME IN MEMORY
-    taxi_df_train_cleaned.cache()
-    taxi_df_train_cleaned.count()
-
-    # REGISTER THE DATA FRAME AS A TEMPORARY TABLE IN SQLCONTEXT
-    taxi_df_train_cleaned.registerTempTable("taxi_train")
-
-    # GET THE TIME TO RUN THE CELL
-    val endtime = Calendar.getInstance().getTime()
-    val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
-    println("Time taken to run the above cell: " + elapsedtime + " seconds.");
+# CAST VARIABLES ACCORDING TO THE SCHEMA
+val taxi_temp = (taxi_train_file.map(_.split("\t"))
+                        .filter((r) => r(0) != "medallion")
+                         .map(p => Row(p(0), p(1), p(2),
+                            p(3).toDouble, p(4), p(5), p(6), p(7).toDouble, p(8).toDouble, p(9).toDouble, p(10).toDouble,
+                            p(11).toDouble, p(12).toDouble, p(13).toDouble, p(14).toDouble, p(15).toDouble, p(16).toDouble,
+                            p(17), p(18), p(19).toDouble, p(20).toDouble, p(21).toDouble, p(22).toDouble,
+                            p(23).toDouble, p(24).toDouble, p(25).toDouble, p(26).toDouble)))
 
 
-**Der**
+# CREATE AN INITIAL DATA FRAME AND DROP COLUMNS, AND THEN CREATE A CLEANED DATA FRAME BY FILTERING FOR UNWANTED VALUES OR OUTLIERS
+val taxi_train_df = sqlContext.createDataFrame(taxi_temp, taxi_schema)
+
+val taxi_df_train_cleaned = (taxi_train_df.drop(taxi_train_df.col("medallion"))
+        .drop(taxi_train_df.col("hack_license")).drop(taxi_train_df.col("store_and_fwd_flag"))
+        .drop(taxi_train_df.col("pickup_datetime")).drop(taxi_train_df.col("dropoff_datetime"))
+        .drop(taxi_train_df.col("pickup_longitude")).drop(taxi_train_df.col("pickup_latitude"))
+        .drop(taxi_train_df.col("dropoff_longitude")).drop(taxi_train_df.col("dropoff_latitude"))
+        .drop(taxi_train_df.col("surcharge")).drop(taxi_train_df.col("mta_tax"))
+        .drop(taxi_train_df.col("direct_distance")).drop(taxi_train_df.col("tolls_amount"))
+        .drop(taxi_train_df.col("total_amount")).drop(taxi_train_df.col("tip_class"))
+        .filter("passenger_count > 0 and passenger_count < 8 AND payment_type in ('CSH', 'CRD') AND tip_amount >= 0 AND tip_amount < 30 AND fare_amount >= 1 AND fare_amount < 150 AND trip_distance > 0 AND trip_distance < 100 AND trip_time_in_secs > 30 AND trip_time_in_secs < 7200"));
+
+# CACHE AND MATERIALIZE THE CLEANED DATA FRAME IN MEMORY
+taxi_df_train_cleaned.cache()
+taxi_df_train_cleaned.count()
+
+# REGISTER THE DATA FRAME AS A TEMPORARY TABLE IN SQLCONTEXT
+taxi_df_train_cleaned.registerTempTable("taxi_train")
+
+# GET THE TIME TO RUN THE CELL
+val endtime = Calendar.getInstance().getTime()
+val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
+println("Time taken to run the above cell: " + elapsedtime + " seconds.");
+```
+
+**Saída:**
 
 Tempo de execução da célula: oito segundos.
 
 ### <a name="query-the-table-and-import-results-in-a-data-frame"></a>Consultar a tabela e importar os resultados em um quadro de dados
 Em seguida, consulte a tabela de tarifas, os dados do passageiro e da gorjeta; filtre dados corrompidos e externos e imprima várias linhas.
 
-    # QUERY THE DATA
-    val sqlStatement = """
-        SELECT fare_amount, passenger_count, tip_amount, tipped
-        FROM taxi_train
-        WHERE passenger_count > 0 AND passenger_count < 7
-        AND fare_amount > 0 AND fare_amount < 200
-        AND payment_type in ('CSH', 'CRD')
-        AND tip_amount > 0 AND tip_amount < 25
-    """
-    val sqlResultsDF = sqlContext.sql(sqlStatement)
+```scala
+# QUERY THE DATA
+val sqlStatement = """
+    SELECT fare_amount, passenger_count, tip_amount, tipped
+    FROM taxi_train
+    WHERE passenger_count > 0 AND passenger_count < 7
+    AND fare_amount > 0 AND fare_amount < 200
+    AND payment_type in ('CSH', 'CRD')
+    AND tip_amount > 0 AND tip_amount < 25
+"""
+val sqlResultsDF = sqlContext.sql(sqlStatement)
 
-    # SHOW ONLY THE TOP THREE ROWS
-    sqlResultsDF.show(3)
+# SHOW ONLY THE TOP THREE ROWS
+sqlResultsDF.show(3)
+```
 
-**Der**
+**Saída:**
 
 | fare_amount | passenger_count | tip_amount | tipped |
 | --- | --- | --- | --- |
-|        13,5 |1.0 |2,9 |1.0 |
+|        13,5 |1.0 |2.9 |1.0 |
 |        16,0 |2,0 |3.4 |1.0 |
 |        10.5 |2,0 |1.0 |1.0 |
 
@@ -259,15 +267,17 @@ Depois de trazer os dados para o Spark, a próxima etapa no processo de Ciência
 ### <a name="use-local-and-sql-magic-to-plot-data"></a>Usar local e palavra mágica do SQL para criar gráficos com dados
 Por padrão, a saída de qualquer snippet de código executado em um notebook Jupyter é disponibilizada no contexto da sessão que é persistida nos nós de trabalho. Se desejar salvar uma corrida nos nós de trabalho para cada cálculo e, se todos os dados necessários para o cálculo estiverem disponíveis localmente no nó do servidor do Jupyter (que é o nó de cabeçalho), você poderá usar a palavra mágica `%%local` para executar o snippet de código no servidor do Jupyter.
 
-* **Mágica** do SQL`%%sql`(). O kernel HDInsight Spark dá suporte a consultas do HiveQL fáceis e embutidas no SQLContext. O argumento (`-o VARIABLE_NAME`) persiste a saída da consulta SQL como um quadro de dados do Pandas no servidor do Jupyter. Essa configuração significa que a saída estará disponível no modo local.
-* `%%local` **palavra mágica**. A palavra mágica `%%local` executa o código localmente no servidor do Jupyter, que é o nó de cabeçalho do cluster HDInsight. Normalmente, você usa a palavra mágica `%%local` em conjunto com a palavra mágica `%%sql` com o parâmetro `-o`. O parâmetro `-o` persistiria a saída da consulta SQL localmente e, em seguida, as palavras mágicas `%%local` disparariam o próximo conjunto de snippets de código para serem executados localmente na saída das consultas SQL que é persistida localmente.
+* **Mágica do SQL** ( `%%sql` ). O kernel HDInsight Spark dá suporte a consultas do HiveQL fáceis e embutidas no SQLContext. O argumento (`-o VARIABLE_NAME`) persiste a saída da consulta SQL como um quadro de dados do Pandas no servidor do Jupyter. Essa configuração significa que a saída estará disponível no modo local.
+* `%%local`**mágica**. A palavra mágica `%%local` executa o código localmente no servidor do Jupyter, que é o nó de cabeçalho do cluster HDInsight. Normalmente, você usa a palavra mágica `%%local` em conjunto com a palavra mágica `%%sql` com o parâmetro `-o`. O parâmetro `-o` persistiria a saída da consulta SQL localmente e, em seguida, as palavras mágicas `%%local` disparariam o próximo conjunto de snippets de código para serem executados localmente na saída das consultas SQL que é persistida localmente.
 
 ### <a name="query-the-data-by-using-sql"></a>Consultar os dados usando SQL
 Essa consulta recupera as corridas de táxi por valor da tarifa, contagem de passageiros e valor da gorjeta.
 
-    # RUN THE SQL QUERY
-    %%sql -q -o sqlResults
-    SELECT fare_amount, passenger_count, tip_amount, tipped FROM taxi_train WHERE passenger_count > 0 AND passenger_count < 7 AND fare_amount > 0 AND fare_amount < 200 AND payment_type in ('CSH', 'CRD') AND tip_amount > 0 AND tip_amount < 25
+```scala
+# RUN THE SQL QUERY
+%%sql -q -o sqlResults
+SELECT fare_amount, passenger_count, tip_amount, tipped FROM taxi_train WHERE passenger_count > 0 AND passenger_count < 7 AND fare_amount > 0 AND fare_amount < 200 AND payment_type in ('CSH', 'CRD') AND tip_amount > 0 AND tip_amount < 25
+```
 
 No código a seguir, a palavra mágica `%%local` cria um quadro de dados locais, sqlResults. Você pode usar sqlResults para criar gráficos usando matplotlib.
 
@@ -279,13 +289,14 @@ No código a seguir, a palavra mágica `%%local` cria um quadro de dados locais,
 ### <a name="plot-the-data"></a>Plotar os dados
 Você poderá criar gráficos usando o código Python quando o quadro de dados estiver no contexto local como um quadro de dados Panda.
 
-    # RUN THE CODE LOCALLY ON THE JUPYTER SERVER
-    %%local
+```scala
+# RUN THE CODE LOCALLY ON THE JUPYTER SERVER
+%%local
 
-    # USE THE JUPYTER AUTO-PLOTTING FEATURE TO CREATE INTERACTIVE FIGURES.
-    # CLICK THE TYPE OF PLOT TO GENERATE (LINE, AREA, BAR, ETC.)
-    sqlResults
-
+# USE THE JUPYTER AUTO-PLOTTING FEATURE TO CREATE INTERACTIVE FIGURES.
+# CLICK THE TYPE OF PLOT TO GENERATE (LINE, AREA, BAR, ETC.)
+sqlResults
+```
 
  O kernel do Spark visualiza automaticamente a saída das consultas SQL (HiveQL) depois que você executa o código. Você pode escolher entre vários tipos de visualizações:
 
@@ -293,41 +304,42 @@ Você poderá criar gráficos usando o código Python quando o quadro de dados e
 * Pizza
 * Linha
 * Área
-* Barra
+* Barras
 
 Este é o código para criar gráficos com os dados:
 
-    # RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
-    %%local
-    import matplotlib.pyplot as plt
-    %matplotlib inline
+```scala
+# RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
+%%local
+import matplotlib.pyplot as plt
+%matplotlib inline
 
-    # PLOT TIP BY PAYMENT TYPE AND PASSENGER COUNT
-    ax1 = sqlResults[['tip_amount']].plot(kind='hist', bins=25, facecolor='lightblue')
-    ax1.set_title('Tip amount distribution')
-    ax1.set_xlabel('Tip Amount ($)')
-    ax1.set_ylabel('Counts')
-    plt.suptitle('')
-    plt.show()
+# PLOT TIP BY PAYMENT TYPE AND PASSENGER COUNT
+ax1 = sqlResults[['tip_amount']].plot(kind='hist', bins=25, facecolor='lightblue')
+ax1.set_title('Tip amount distribution')
+ax1.set_xlabel('Tip Amount ($)')
+ax1.set_ylabel('Counts')
+plt.suptitle('')
+plt.show()
 
-    # PLOT TIP BY PASSENGER COUNT
-    ax2 = sqlResults.boxplot(column=['tip_amount'], by=['passenger_count'])
-    ax2.set_title('Tip amount by Passenger count')
-    ax2.set_xlabel('Passenger count')
-    ax2.set_ylabel('Tip Amount ($)')
-    plt.suptitle('')
-    plt.show()
+# PLOT TIP BY PASSENGER COUNT
+ax2 = sqlResults.boxplot(column=['tip_amount'], by=['passenger_count'])
+ax2.set_title('Tip amount by Passenger count')
+ax2.set_xlabel('Passenger count')
+ax2.set_ylabel('Tip Amount ($)')
+plt.suptitle('')
+plt.show()
 
-    # PLOT TIP AMOUNT BY FARE AMOUNT; SCALE POINTS BY PASSENGER COUNT
-    ax = sqlResults.plot(kind='scatter', x= 'fare_amount', y = 'tip_amount', c='blue', alpha = 0.10, s=5*(sqlResults.passenger_count))
-    ax.set_title('Tip amount by Fare amount')
-    ax.set_xlabel('Fare Amount ($)')
-    ax.set_ylabel('Tip Amount ($)')
-    plt.axis([-2, 80, -2, 20])
-    plt.show()
+# PLOT TIP AMOUNT BY FARE AMOUNT; SCALE POINTS BY PASSENGER COUNT
+ax = sqlResults.plot(kind='scatter', x= 'fare_amount', y = 'tip_amount', c='blue', alpha = 0.10, s=5*(sqlResults.passenger_count))
+ax.set_title('Tip amount by Fare amount')
+ax.set_xlabel('Fare Amount ($)')
+ax.set_ylabel('Tip Amount ($)')
+plt.axis([-2, 80, -2, 20])
+plt.show()
+```
 
-
-**Der**
+**Saída:**
 
 ![Histograma do valor da gorjeta](./media/scala-walkthrough/plot-tip-amount-histogram.png)
 
@@ -338,7 +350,7 @@ Este é o código para criar gráficos com os dados:
 ## <a name="create-features-and-transform-features-and-then-prep-data-for-input-into-modeling-functions"></a>Criar recursos, transformar recursos e depois preparar os dados para entrada em funções de modelagem
 Para as funções de modelagem baseadas em árvore no SparkML e na MLlib, você precisa preparar o destino e os recursos usando várias técnicas, como agrupamento, indexação, codificação one-hot e vetorização. Veja os procedimentos desta seção:
 
-1. Criar um novo recurso **reunindo** horários em blocos de tempo de tráfego.
+1. Crie um novo recurso **compartimentalização** horas em buckets de tempo de tráfego.
 2. Aplicar **indexação e codificação one-hot** em recursos categóricos.
 3. **Criar amostras e dividir o conjunto de dados** em frações de teste e treinamento.
 4. **Especificar os recursos e a variável de treinamento**e depois criar RDDs (conjuntos de dados distribuídos e resilientes) de ponto de sinalização de entrada para treinamentos de codificação indexada e one-hot, ou quadros de dados.
@@ -347,23 +359,24 @@ Para as funções de modelagem baseadas em árvore no SparkML e na MLlib, você 
 ### <a name="create-a-new-feature-by-binning-hours-into-traffic-time-buckets"></a>Criar um novo recurso reunindo horários em blocos de tempo de tráfego
 Este código mostra como criar um novo recurso reunindo horários em blocos de tempo de tráfego e como armazenar em cache o quadro de dados resultante na memória. Quando RDDs e quadros de dados são usados repetidamente, o armazenamento em cache leva a tempos de execução melhores. Da mesma forma, você armazenará os RDDs e os quadros de dados em cache em vários estágios nos procedimentos finais.
 
-    # CREATE FOUR BUCKETS FOR TRAFFIC TIMES
-    val sqlStatement = """
-        SELECT *,
-        CASE
-         WHEN (pickup_hour <= 6 OR pickup_hour >= 20) THEN "Night"
-         WHEN (pickup_hour >= 7 AND pickup_hour <= 10) THEN "AMRush"
-         WHEN (pickup_hour >= 11 AND pickup_hour <= 15) THEN "Afternoon"
-         WHEN (pickup_hour >= 16 AND pickup_hour <= 19) THEN "PMRush"
-        END as TrafficTimeBins
-        FROM taxi_train
-    """
-    val taxi_df_train_with_newFeatures = sqlContext.sql(sqlStatement)
+```scala
+# CREATE FOUR BUCKETS FOR TRAFFIC TIMES
+val sqlStatement = """
+    SELECT *,
+    CASE
+     WHEN (pickup_hour <= 6 OR pickup_hour >= 20) THEN "Night"
+     WHEN (pickup_hour >= 7 AND pickup_hour <= 10) THEN "AMRush"
+     WHEN (pickup_hour >= 11 AND pickup_hour <= 15) THEN "Afternoon"
+     WHEN (pickup_hour >= 16 AND pickup_hour <= 19) THEN "PMRush"
+    END as TrafficTimeBins
+    FROM taxi_train
+"""
+val taxi_df_train_with_newFeatures = sqlContext.sql(sqlStatement)
 
-    # CACHE THE DATA FRAME IN MEMORY AND MATERIALIZE THE DATA FRAME IN MEMORY
-    taxi_df_train_with_newFeatures.cache()
-    taxi_df_train_with_newFeatures.count()
-
+# CACHE THE DATA FRAME IN MEMORY AND MATERIALIZE THE DATA FRAME IN MEMORY
+taxi_df_train_with_newFeatures.cache()
+taxi_df_train_with_newFeatures.count()
+```
 
 ### <a name="indexing-and-one-hot-encoding-of-categorical-features"></a>Indexação e codificação one-hot de recursos categóricos
 As funções de modelagem e previsão de MLlib exigem que recursos com dados de entrada categóricos sejam indexados ou codificados antes do uso. Esta seção mostra a você como indexar ou codificar recursos categóricos para entrada nas funções de modelagem.
@@ -374,42 +387,43 @@ Aqui, você transforma apenas quatro variáveis para mostrar exemplos, que são 
 
 Para indexação, use `StringIndexer()` e para codificação one-hot, use as funções `OneHotEncoder()` da MLlib. Aqui está o código para indexar e codificar recursos categóricos:
 
-    # CREATE INDEXES AND ONE-HOT ENCODED VECTORS FOR SEVERAL CATEGORICAL FEATURES
+```scala
+# CREATE INDEXES AND ONE-HOT ENCODED VECTORS FOR SEVERAL CATEGORICAL FEATURES
 
-    # RECORD THE START TIME
-    val starttime = Calendar.getInstance().getTime()
+# RECORD THE START TIME
+val starttime = Calendar.getInstance().getTime()
 
-    # INDEX AND ENCODE VENDOR_ID
-    val stringIndexer = new StringIndexer().setInputCol("vendor_id").setOutputCol("vendorIndex").fit(taxi_df_train_with_newFeatures)
-    val indexed = stringIndexer.transform(taxi_df_train_with_newFeatures)
-    val encoder = new OneHotEncoder().setInputCol("vendorIndex").setOutputCol("vendorVec")
-    val encoded1 = encoder.transform(indexed)
+# INDEX AND ENCODE VENDOR_ID
+val stringIndexer = new StringIndexer().setInputCol("vendor_id").setOutputCol("vendorIndex").fit(taxi_df_train_with_newFeatures)
+val indexed = stringIndexer.transform(taxi_df_train_with_newFeatures)
+val encoder = new OneHotEncoder().setInputCol("vendorIndex").setOutputCol("vendorVec")
+val encoded1 = encoder.transform(indexed)
 
-    # INDEX AND ENCODE RATE_CODE
-    val stringIndexer = new StringIndexer().setInputCol("rate_code").setOutputCol("rateIndex").fit(encoded1)
-    val indexed = stringIndexer.transform(encoded1)
-    val encoder = new OneHotEncoder().setInputCol("rateIndex").setOutputCol("rateVec")
-    val encoded2 = encoder.transform(indexed)
+# INDEX AND ENCODE RATE_CODE
+val stringIndexer = new StringIndexer().setInputCol("rate_code").setOutputCol("rateIndex").fit(encoded1)
+val indexed = stringIndexer.transform(encoded1)
+val encoder = new OneHotEncoder().setInputCol("rateIndex").setOutputCol("rateVec")
+val encoded2 = encoder.transform(indexed)
 
-    # INDEX AND ENCODE PAYMENT_TYPE
-    val stringIndexer = new StringIndexer().setInputCol("payment_type").setOutputCol("paymentIndex").fit(encoded2)
-    val indexed = stringIndexer.transform(encoded2)
-    val encoder = new OneHotEncoder().setInputCol("paymentIndex").setOutputCol("paymentVec")
-    val encoded3 = encoder.transform(indexed)
+# INDEX AND ENCODE PAYMENT_TYPE
+val stringIndexer = new StringIndexer().setInputCol("payment_type").setOutputCol("paymentIndex").fit(encoded2)
+val indexed = stringIndexer.transform(encoded2)
+val encoder = new OneHotEncoder().setInputCol("paymentIndex").setOutputCol("paymentVec")
+val encoded3 = encoder.transform(indexed)
 
-    # INDEX AND TRAFFIC TIME BINS
-    val stringIndexer = new StringIndexer().setInputCol("TrafficTimeBins").setOutputCol("TrafficTimeBinsIndex").fit(encoded3)
-    val indexed = stringIndexer.transform(encoded3)
-    val encoder = new OneHotEncoder().setInputCol("TrafficTimeBinsIndex").setOutputCol("TrafficTimeBinsVec")
-    val encodedFinal = encoder.transform(indexed)
+# INDEX AND TRAFFIC TIME BINS
+val stringIndexer = new StringIndexer().setInputCol("TrafficTimeBins").setOutputCol("TrafficTimeBinsIndex").fit(encoded3)
+val indexed = stringIndexer.transform(encoded3)
+val encoder = new OneHotEncoder().setInputCol("TrafficTimeBinsIndex").setOutputCol("TrafficTimeBinsVec")
+val encodedFinal = encoder.transform(indexed)
 
-    # GET THE TIME TO RUN THE CELL
-    val endtime = Calendar.getInstance().getTime()
-    val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
-    println("Time taken to run the above cell: " + elapsedtime + " seconds.");
+# GET THE TIME TO RUN THE CELL
+val endtime = Calendar.getInstance().getTime()
+val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
+println("Time taken to run the above cell: " + elapsedtime + " seconds.");
+```
 
-
-**Der**
+**Saída:**
 
 Tempo de execução da célula: quatro segundos.
 
@@ -418,37 +432,38 @@ Esse código cria uma amostragem aleatória dos dados (25% neste exemplo). Embor
 
 Adicione um número aleatório (entre 0 e 1) à linha de alcance (em uma coluna "rand") que pode ser usado para selecionar partições de validação cruzada durante o treinamento.
 
-    # RECORD THE START TIME
-    val starttime = Calendar.getInstance().getTime()
+```scala
+# RECORD THE START TIME
+val starttime = Calendar.getInstance().getTime()
 
-    # SPECIFY SAMPLING AND SPLITTING FRACTIONS
-    val samplingFraction = 0.25;
-    val trainingFraction = 0.75;
-    val testingFraction = (1-trainingFraction);
-    val seed = 1234;
-    val encodedFinalSampledTmp = encodedFinal.sample(withReplacement = false, fraction = samplingFraction, seed = seed)
-    val sampledDFcount = encodedFinalSampledTmp.count().toInt
+# SPECIFY SAMPLING AND SPLITTING FRACTIONS
+val samplingFraction = 0.25;
+val trainingFraction = 0.75;
+val testingFraction = (1-trainingFraction);
+val seed = 1234;
+val encodedFinalSampledTmp = encodedFinal.sample(withReplacement = false, fraction = samplingFraction, seed = seed)
+val sampledDFcount = encodedFinalSampledTmp.count().toInt
 
-    val generateRandomDouble = udf(() => {
-        scala.util.Random.nextDouble
-    })
+val generateRandomDouble = udf(() => {
+    scala.util.Random.nextDouble
+})
 
-    # ADD A RANDOM NUMBER FOR CROSS-VALIDATION
-    val encodedFinalSampled = encodedFinalSampledTmp.withColumn("rand", generateRandomDouble());
+# ADD A RANDOM NUMBER FOR CROSS-VALIDATION
+val encodedFinalSampled = encodedFinalSampledTmp.withColumn("rand", generateRandomDouble());
 
-    # SPLIT THE SAMPLED DATA FRAME INTO TRAIN AND TEST, WITH A RANDOM COLUMN ADDED FOR DOING CROSS-VALIDATION (SHOWN LATER)
-    # INCLUDE A RANDOM COLUMN FOR CREATING CROSS-VALIDATION FOLDS
-    val splits = encodedFinalSampled.randomSplit(Array(trainingFraction, testingFraction), seed = seed)
-    val trainData = splits(0)
-    val testData = splits(1)
+# SPLIT THE SAMPLED DATA FRAME INTO TRAIN AND TEST, WITH A RANDOM COLUMN ADDED FOR DOING CROSS-VALIDATION (SHOWN LATER)
+# INCLUDE A RANDOM COLUMN FOR CREATING CROSS-VALIDATION FOLDS
+val splits = encodedFinalSampled.randomSplit(Array(trainingFraction, testingFraction), seed = seed)
+val trainData = splits(0)
+val testData = splits(1)
 
-    # GET THE TIME TO RUN THE CELL
-    val endtime = Calendar.getInstance().getTime()
-    val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
-    println("Time taken to run the above cell: " + elapsedtime + " seconds.");
+# GET THE TIME TO RUN THE CELL
+val endtime = Calendar.getInstance().getTime()
+val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
+println("Time taken to run the above cell: " + elapsedtime + " seconds.");
+```
 
-
-**Der**
+**Saída:**
 
 Tempo de execução da célula: dois segundos.
 
@@ -457,41 +472,42 @@ Esta seção contém código que mostra como indexar dados de texto categóricos
 
 Nesse código, você pode especificar a variável de destino (dependente) e os recursos a serem usados para treinar modelos. Depois, você cria treinamentos de codificação indexada e one-hot e RDDs de ponto de entrada de teste ou quadros de dados.
 
-    # RECORD THE START TIME
-    val starttime = Calendar.getInstance().getTime()
+```scala
+# RECORD THE START TIME
+val starttime = Calendar.getInstance().getTime()
 
-    # MAP NAMES OF FEATURES AND TARGETS FOR CLASSIFICATION AND REGRESSION PROBLEMS
-    val featuresIndOneHot = List("paymentVec", "vendorVec", "rateVec", "TrafficTimeBinsVec", "pickup_hour", "weekday", "passenger_count", "trip_time_in_secs", "trip_distance", "fare_amount").map(encodedFinalSampled.columns.indexOf(_))
-    val featuresIndIndex = List("paymentIndex", "vendorIndex", "rateIndex", "TrafficTimeBinsIndex", "pickup_hour", "weekday", "passenger_count", "trip_time_in_secs", "trip_distance", "fare_amount").map(encodedFinalSampled.columns.indexOf(_))
+# MAP NAMES OF FEATURES AND TARGETS FOR CLASSIFICATION AND REGRESSION PROBLEMS
+val featuresIndOneHot = List("paymentVec", "vendorVec", "rateVec", "TrafficTimeBinsVec", "pickup_hour", "weekday", "passenger_count", "trip_time_in_secs", "trip_distance", "fare_amount").map(encodedFinalSampled.columns.indexOf(_))
+val featuresIndIndex = List("paymentIndex", "vendorIndex", "rateIndex", "TrafficTimeBinsIndex", "pickup_hour", "weekday", "passenger_count", "trip_time_in_secs", "trip_distance", "fare_amount").map(encodedFinalSampled.columns.indexOf(_))
 
-    # SPECIFY THE TARGET FOR CLASSIFICATION ('tipped') AND REGRESSION ('tip_amount') PROBLEMS
-    val targetIndBinary = List("tipped").map(encodedFinalSampled.columns.indexOf(_))
-    val targetIndRegression = List("tip_amount").map(encodedFinalSampled.columns.indexOf(_))
+# SPECIFY THE TARGET FOR CLASSIFICATION ('tipped') AND REGRESSION ('tip_amount') PROBLEMS
+val targetIndBinary = List("tipped").map(encodedFinalSampled.columns.indexOf(_))
+val targetIndRegression = List("tip_amount").map(encodedFinalSampled.columns.indexOf(_))
 
-    # CREATE INDEXED LABELED POINT RDD OBJECTS
-    val indexedTRAINbinary = trainData.rdd.map(r => LabeledPoint(r.getDouble(targetIndBinary(0).toInt), Vectors.dense(featuresIndIndex.map(r.getDouble(_)).toArray)))
-    val indexedTESTbinary = testData.rdd.map(r => LabeledPoint(r.getDouble(targetIndBinary(0).toInt), Vectors.dense(featuresIndIndex.map(r.getDouble(_)).toArray)))
-    val indexedTRAINreg = trainData.rdd.map(r => LabeledPoint(r.getDouble(targetIndRegression(0).toInt), Vectors.dense(featuresIndIndex.map(r.getDouble(_)).toArray)))
-    val indexedTESTreg = testData.rdd.map(r => LabeledPoint(r.getDouble(targetIndRegression(0).toInt), Vectors.dense(featuresIndIndex.map(r.getDouble(_)).toArray)))
+# CREATE INDEXED LABELED POINT RDD OBJECTS
+val indexedTRAINbinary = trainData.rdd.map(r => LabeledPoint(r.getDouble(targetIndBinary(0).toInt), Vectors.dense(featuresIndIndex.map(r.getDouble(_)).toArray)))
+val indexedTESTbinary = testData.rdd.map(r => LabeledPoint(r.getDouble(targetIndBinary(0).toInt), Vectors.dense(featuresIndIndex.map(r.getDouble(_)).toArray)))
+val indexedTRAINreg = trainData.rdd.map(r => LabeledPoint(r.getDouble(targetIndRegression(0).toInt), Vectors.dense(featuresIndIndex.map(r.getDouble(_)).toArray)))
+val indexedTESTreg = testData.rdd.map(r => LabeledPoint(r.getDouble(targetIndRegression(0).toInt), Vectors.dense(featuresIndIndex.map(r.getDouble(_)).toArray)))
 
-    # CREATE INDEXED DATA FRAMES THAT YOU CAN USE TO TRAIN BY USING SPARK ML FUNCTIONS
-    val indexedTRAINbinaryDF = indexedTRAINbinary.toDF()
-    val indexedTESTbinaryDF = indexedTESTbinary.toDF()
-    val indexedTRAINregDF = indexedTRAINreg.toDF()
-    val indexedTESTregDF = indexedTESTreg.toDF()
+# CREATE INDEXED DATA FRAMES THAT YOU CAN USE TO TRAIN BY USING SPARK ML FUNCTIONS
+val indexedTRAINbinaryDF = indexedTRAINbinary.toDF()
+val indexedTESTbinaryDF = indexedTESTbinary.toDF()
+val indexedTRAINregDF = indexedTRAINreg.toDF()
+val indexedTESTregDF = indexedTESTreg.toDF()
 
-    # CREATE ONE-HOT ENCODED (VECTORIZED) DATA FRAMES THAT YOU CAN USE TO TRAIN BY USING SPARK ML FUNCTIONS
-    val assemblerOneHot = new VectorAssembler().setInputCols(Array("paymentVec", "vendorVec", "rateVec", "TrafficTimeBinsVec", "pickup_hour", "weekday", "passenger_count", "trip_time_in_secs", "trip_distance", "fare_amount")).setOutputCol("features")
-    val OneHotTRAIN = assemblerOneHot.transform(trainData)
-    val OneHotTEST = assemblerOneHot.transform(testData)
+# CREATE ONE-HOT ENCODED (VECTORIZED) DATA FRAMES THAT YOU CAN USE TO TRAIN BY USING SPARK ML FUNCTIONS
+val assemblerOneHot = new VectorAssembler().setInputCols(Array("paymentVec", "vendorVec", "rateVec", "TrafficTimeBinsVec", "pickup_hour", "weekday", "passenger_count", "trip_time_in_secs", "trip_distance", "fare_amount")).setOutputCol("features")
+val OneHotTRAIN = assemblerOneHot.transform(trainData)
+val OneHotTEST = assemblerOneHot.transform(testData)
 
-    # GET THE TIME TO RUN THE CELL
-    val endtime = Calendar.getInstance().getTime()
-    val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
-    println("Time taken to run the above cell: " + elapsedtime + " seconds.");
+# GET THE TIME TO RUN THE CELL
+val endtime = Calendar.getInstance().getTime()
+val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
+println("Time taken to run the above cell: " + elapsedtime + " seconds.");
+```
 
-
-**Der**
+**Saída:**
 
 Tempo de execução da célula: quatro segundos.
 
@@ -503,33 +519,34 @@ Use o AM do Spark para categorize o destino e os recursos para uso em funções 
 
 Este é o código para essas duas tarefas.
 
-    # CATEGORIZE FEATURES AND BINARIZE THE TARGET FOR THE BINARY CLASSIFICATION PROBLEM
+```scala
+# CATEGORIZE FEATURES AND BINARIZE THE TARGET FOR THE BINARY CLASSIFICATION PROBLEM
 
-    # TRAIN DATA
-    val indexer = new VectorIndexer().setInputCol("features").setOutputCol("featuresCat").setMaxCategories(32)
-    val indexerModel = indexer.fit(indexedTRAINbinaryDF)
-    val indexedTrainwithCatFeat = indexerModel.transform(indexedTRAINbinaryDF)
-    val binarizer: Binarizer = new Binarizer().setInputCol("label").setOutputCol("labelBin").setThreshold(0.5)
-    val indexedTRAINwithCatFeatBinTarget = binarizer.transform(indexedTrainwithCatFeat)
+# TRAIN DATA
+val indexer = new VectorIndexer().setInputCol("features").setOutputCol("featuresCat").setMaxCategories(32)
+val indexerModel = indexer.fit(indexedTRAINbinaryDF)
+val indexedTrainwithCatFeat = indexerModel.transform(indexedTRAINbinaryDF)
+val binarizer: Binarizer = new Binarizer().setInputCol("label").setOutputCol("labelBin").setThreshold(0.5)
+val indexedTRAINwithCatFeatBinTarget = binarizer.transform(indexedTrainwithCatFeat)
 
-    # TEST DATA
-    val indexerModel = indexer.fit(indexedTESTbinaryDF)
-    val indexedTrainwithCatFeat = indexerModel.transform(indexedTESTbinaryDF)
-    val binarizer: Binarizer = new Binarizer().setInputCol("label").setOutputCol("labelBin").setThreshold(0.5)
-    val indexedTESTwithCatFeatBinTarget = binarizer.transform(indexedTrainwithCatFeat)
+# TEST DATA
+val indexerModel = indexer.fit(indexedTESTbinaryDF)
+val indexedTrainwithCatFeat = indexerModel.transform(indexedTESTbinaryDF)
+val binarizer: Binarizer = new Binarizer().setInputCol("label").setOutputCol("labelBin").setThreshold(0.5)
+val indexedTESTwithCatFeatBinTarget = binarizer.transform(indexedTrainwithCatFeat)
 
-    # CATEGORIZE FEATURES FOR THE REGRESSION PROBLEM
-    # CREATE PROPERLY INDEXED AND CATEGORIZED DATA FRAMES FOR TREE-BASED MODELS
+# CATEGORIZE FEATURES FOR THE REGRESSION PROBLEM
+# CREATE PROPERLY INDEXED AND CATEGORIZED DATA FRAMES FOR TREE-BASED MODELS
 
-    # TRAIN DATA
-    val indexer = new VectorIndexer().setInputCol("features").setOutputCol("featuresCat").setMaxCategories(32)
-    val indexerModel = indexer.fit(indexedTRAINregDF)
-    val indexedTRAINwithCatFeat = indexerModel.transform(indexedTRAINregDF)
+# TRAIN DATA
+val indexer = new VectorIndexer().setInputCol("features").setOutputCol("featuresCat").setMaxCategories(32)
+val indexerModel = indexer.fit(indexedTRAINregDF)
+val indexedTRAINwithCatFeat = indexerModel.transform(indexedTRAINregDF)
 
-    # TEST DATA
-    val indexerModel = indexer.fit(indexedTESTbinaryDF)
-    val indexedTESTwithCatFeat = indexerModel.transform(indexedTESTregDF)
-
+# TEST DATA
+val indexerModel = indexer.fit(indexedTESTbinaryDF)
+val indexedTESTwithCatFeat = indexerModel.transform(indexedTESTregDF)
+```
 
 
 ## <a name="binary-classification-model-predict-whether-a-tip-should-be-paid"></a>Modelo de classificação binária: prevê se uma gorjeta será paga ou não
@@ -550,178 +567,184 @@ Em seguida, crie um modelo de regressão logística usando a função `LogisticR
 
 Veja o código para esses procedimentos:
 
-    # CREATE A LOGISTIC REGRESSION MODEL
-    val lr = new LogisticRegression().setLabelCol("tipped").setFeaturesCol("features").setMaxIter(10).setRegParam(0.3).setElasticNetParam(0.8)
-    val lrModel = lr.fit(OneHotTRAIN)
+```scala
+# CREATE A LOGISTIC REGRESSION MODEL
+val lr = new LogisticRegression().setLabelCol("tipped").setFeaturesCol("features").setMaxIter(10).setRegParam(0.3).setElasticNetParam(0.8)
+val lrModel = lr.fit(OneHotTRAIN)
 
-    # PREDICT ON THE TEST DATA SET
-    val predictions = lrModel.transform(OneHotTEST)
+# PREDICT ON THE TEST DATA SET
+val predictions = lrModel.transform(OneHotTEST)
 
-    # SELECT `BinaryClassificationEvaluator()` TO COMPUTE THE TEST ERROR
-    val evaluator = new BinaryClassificationEvaluator().setLabelCol("tipped").setRawPredictionCol("probability").setMetricName("areaUnderROC")
-    val ROC = evaluator.evaluate(predictions)
-    println("ROC on test data = " + ROC)
+# SELECT `BinaryClassificationEvaluator()` TO COMPUTE THE TEST ERROR
+val evaluator = new BinaryClassificationEvaluator().setLabelCol("tipped").setRawPredictionCol("probability").setMetricName("areaUnderROC")
+val ROC = evaluator.evaluate(predictions)
+println("ROC on test data = " + ROC)
 
-    # SAVE THE MODEL
-    val datestamp = Calendar.getInstance().getTime().toString.replaceAll(" ", ".").replaceAll(":", "_");
-    val modelName = "LogisticRegression__"
-    val filename = modelDir.concat(modelName).concat(datestamp)
-    lrModel.save(filename);
+# SAVE THE MODEL
+val datestamp = Calendar.getInstance().getTime().toString.replaceAll(" ", ".").replaceAll(":", "_");
+val modelName = "LogisticRegression__"
+val filename = modelDir.concat(modelName).concat(datestamp)
+lrModel.save(filename);
+```
 
 Carregue, pontue e salve os resultados.
 
-    # RECORD THE START TIME
-    val starttime = Calendar.getInstance().getTime()
+```scala
+# RECORD THE START TIME
+val starttime = Calendar.getInstance().getTime()
 
-    # LOAD THE SAVED MODEL AND SCORE THE TEST DATA SET
-    val savedModel = org.apache.spark.ml.classification.LogisticRegressionModel.load(filename)
-    println(s"Coefficients: ${savedModel.coefficients} Intercept: ${savedModel.intercept}")
+# LOAD THE SAVED MODEL AND SCORE THE TEST DATA SET
+val savedModel = org.apache.spark.ml.classification.LogisticRegressionModel.load(filename)
+println(s"Coefficients: ${savedModel.coefficients} Intercept: ${savedModel.intercept}")
 
-    # SCORE THE MODEL ON THE TEST DATA
-    val predictions = savedModel.transform(OneHotTEST).select("tipped","probability","rawPrediction")
-    predictions.registerTempTable("testResults")
+# SCORE THE MODEL ON THE TEST DATA
+val predictions = savedModel.transform(OneHotTEST).select("tipped","probability","rawPrediction")
+predictions.registerTempTable("testResults")
 
-    # SELECT `BinaryClassificationEvaluator()` TO COMPUTE THE TEST ERROR
-    val evaluator = new BinaryClassificationEvaluator().setLabelCol("tipped").setRawPredictionCol("probability").setMetricName("areaUnderROC")
-    val ROC = evaluator.evaluate(predictions)
+# SELECT `BinaryClassificationEvaluator()` TO COMPUTE THE TEST ERROR
+val evaluator = new BinaryClassificationEvaluator().setLabelCol("tipped").setRawPredictionCol("probability").setMetricName("areaUnderROC")
+val ROC = evaluator.evaluate(predictions)
 
-    # GET THE TIME TO RUN THE CELL
-    val endtime = Calendar.getInstance().getTime()
-    val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
-    println("Time taken to run the above cell: " + elapsedtime + " seconds.");
+# GET THE TIME TO RUN THE CELL
+val endtime = Calendar.getInstance().getTime()
+val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
+println("Time taken to run the above cell: " + elapsedtime + " seconds.");
 
-    # PRINT THE ROC RESULTS
-    println("ROC on test data = " + ROC)
+# PRINT THE ROC RESULTS
+println("ROC on test data = " + ROC)
+```
 
-
-**Der**
+**Saída:**
 
 ROC nos dados de teste = 0,9827381497557599
 
 Use o Python em quadros de dados locais Panda para criar gráficos com a curva ROC.
 
-    # QUERY THE RESULTS
-    %%sql -q -o sqlResults
-    SELECT tipped, probability from testResults
+```scala
+# QUERY THE RESULTS
+%%sql -q -o sqlResults
+SELECT tipped, probability from testResults
 
 
-    # RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
-    %%local
-    %matplotlib inline
-    from sklearn.metrics import roc_curve,auc
+# RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
+%%local
+%matplotlib inline
+from sklearn.metrics import roc_curve,auc
 
-    sqlResults['probFloat'] = sqlResults.apply(lambda row: row['probability'].values()[0][1], axis=1)
-    predictions_pddf = sqlResults[["tipped","probFloat"]]
+sqlResults['probFloat'] = sqlResults.apply(lambda row: row['probability'].values()[0][1], axis=1)
+predictions_pddf = sqlResults[["tipped","probFloat"]]
 
-    # PREDICT THE ROC CURVE
-    # predictions_pddf = sqlResults.rename(columns={'_1': 'probability', 'tipped': 'label'})
-    prob = predictions_pddf["probFloat"]
-    fpr, tpr, thresholds = roc_curve(predictions_pddf['tipped'], prob, pos_label=1);
-    roc_auc = auc(fpr, tpr)
+# PREDICT THE ROC CURVE
+# predictions_pddf = sqlResults.rename(columns={'_1': 'probability', 'tipped': 'label'})
+prob = predictions_pddf["probFloat"]
+fpr, tpr, thresholds = roc_curve(predictions_pddf['tipped'], prob, pos_label=1);
+roc_auc = auc(fpr, tpr)
 
-    # PLOT THE ROC CURVE
-    plt.figure(figsize=(5,5))
-    plt.plot(fpr, tpr, label='ROC curve (area = %0.2f)' % roc_auc)
-    plt.plot([0, 1], [0, 1], 'k--')
-    plt.xlim([0.0, 1.0])
-    plt.ylim([0.0, 1.05])
-    plt.xlabel('False Positive Rate')
-    plt.ylabel('True Positive Rate')
-    plt.title('ROC Curve')
-    plt.legend(loc="lower right")
-    plt.show()
+# PLOT THE ROC CURVE
+plt.figure(figsize=(5,5))
+plt.plot(fpr, tpr, label='ROC curve (area = %0.2f)' % roc_auc)
+plt.plot([0, 1], [0, 1], 'k--')
+plt.xlim([0.0, 1.0])
+plt.ylim([0.0, 1.05])
+plt.xlabel('False Positive Rate')
+plt.ylabel('True Positive Rate')
+plt.title('ROC Curve')
+plt.legend(loc="lower right")
+plt.show()
+```
 
-
-**Der**
+**Saída:**
 
 ![Curva ROC de gorjeta ou não](./media/scala-walkthrough/plot-roc-curve-tip-or-not.png)
 
 ### <a name="create-a-random-forest-classification-model"></a>Criar um modelo de classificação de floresta aleatória
 Em seguida, criamos um modelo de classificação de floresta aleatória usando a função `RandomForestClassifier()` da AM do Spark e avaliamos o modelo nos dados de teste.
 
-    # RECORD THE START TIME
-    val starttime = Calendar.getInstance().getTime()
+```scala
+# RECORD THE START TIME
+val starttime = Calendar.getInstance().getTime()
 
-    # CREATE THE RANDOM FOREST CLASSIFIER MODEL
-    val rf = new RandomForestClassifier().setLabelCol("labelBin").setFeaturesCol("featuresCat").setNumTrees(10).setSeed(1234)
+# CREATE THE RANDOM FOREST CLASSIFIER MODEL
+val rf = new RandomForestClassifier().setLabelCol("labelBin").setFeaturesCol("featuresCat").setNumTrees(10).setSeed(1234)
 
-    # FIT THE MODEL
-    val rfModel = rf.fit(indexedTRAINwithCatFeatBinTarget)
-    val predictions = rfModel.transform(indexedTESTwithCatFeatBinTarget)
+# FIT THE MODEL
+val rfModel = rf.fit(indexedTRAINwithCatFeatBinTarget)
+val predictions = rfModel.transform(indexedTESTwithCatFeatBinTarget)
 
-    # EVALUATE THE MODEL
-    val evaluator = new MulticlassClassificationEvaluator().setLabelCol("label").setPredictionCol("prediction").setMetricName("f1")
-    val Test_f1Score = evaluator.evaluate(predictions)
-    println("F1 score on test data: " + Test_f1Score);
+# EVALUATE THE MODEL
+val evaluator = new MulticlassClassificationEvaluator().setLabelCol("label").setPredictionCol("prediction").setMetricName("f1")
+val Test_f1Score = evaluator.evaluate(predictions)
+println("F1 score on test data: " + Test_f1Score);
 
-    # GET THE TIME TO RUN THE CELL
-    val endtime = Calendar.getInstance().getTime()
-    val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
-    println("Time taken to run the above cell: " + elapsedtime + " seconds.");
+# GET THE TIME TO RUN THE CELL
+val endtime = Calendar.getInstance().getTime()
+val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
+println("Time taken to run the above cell: " + elapsedtime + " seconds.");
 
-    # CALCULATE BINARY CLASSIFICATION EVALUATION METRICS
-    val evaluator = new BinaryClassificationEvaluator().setLabelCol("label").setRawPredictionCol("probability").setMetricName("areaUnderROC")
-    val ROC = evaluator.evaluate(predictions)
-    println("ROC on test data = " + ROC)
+# CALCULATE BINARY CLASSIFICATION EVALUATION METRICS
+val evaluator = new BinaryClassificationEvaluator().setLabelCol("label").setRawPredictionCol("probability").setMetricName("areaUnderROC")
+val ROC = evaluator.evaluate(predictions)
+println("ROC on test data = " + ROC)
+```
 
-
-**Der**
+**Saída:**
 
 ROC nos dados de teste = 0,9847103571552683
 
 ### <a name="create-a-gbt-classification-model"></a>Criar um modelo de classificação GBT
 Em seguida, criamos um modelo de classificação GBT usando a função `GradientBoostedTrees()` da MLlib e avaliamos o modelo nos dados de teste.
 
-    # TRAIN A GBT CLASSIFICATION MODEL BY USING MLLIB AND A LABELED POINT
+```scala
+# TRAIN A GBT CLASSIFICATION MODEL BY USING MLLIB AND A LABELED POINT
 
-    # RECORD THE START TIME
-    val starttime = Calendar.getInstance().getTime()
+# RECORD THE START TIME
+val starttime = Calendar.getInstance().getTime()
 
-    # DEFINE THE GBT CLASSIFICATION MODEL
-    val boostingStrategy = BoostingStrategy.defaultParams("Classification")
-    boostingStrategy.numIterations = 20
-    boostingStrategy.treeStrategy.numClasses = 2
-    boostingStrategy.treeStrategy.maxDepth = 5
-    boostingStrategy.treeStrategy.categoricalFeaturesInfo = Map[Int, Int]((0,2),(1,2),(2,6),(3,4))
+# DEFINE THE GBT CLASSIFICATION MODEL
+val boostingStrategy = BoostingStrategy.defaultParams("Classification")
+boostingStrategy.numIterations = 20
+boostingStrategy.treeStrategy.numClasses = 2
+boostingStrategy.treeStrategy.maxDepth = 5
+boostingStrategy.treeStrategy.categoricalFeaturesInfo = Map[Int, Int]((0,2),(1,2),(2,6),(3,4))
 
-    # TRAIN THE MODEL
-    val gbtModel = GradientBoostedTrees.train(indexedTRAINbinary, boostingStrategy)
+# TRAIN THE MODEL
+val gbtModel = GradientBoostedTrees.train(indexedTRAINbinary, boostingStrategy)
 
-    # SAVE THE MODEL IN BLOB STORAGE
-    val datestamp = Calendar.getInstance().getTime().toString.replaceAll(" ", ".").replaceAll(":", "_");
-    val modelName = "GBT_Classification__"
-    val filename = modelDir.concat(modelName).concat(datestamp)
-    gbtModel.save(sc, filename);
+# SAVE THE MODEL IN BLOB STORAGE
+val datestamp = Calendar.getInstance().getTime().toString.replaceAll(" ", ".").replaceAll(":", "_");
+val modelName = "GBT_Classification__"
+val filename = modelDir.concat(modelName).concat(datestamp)
+gbtModel.save(sc, filename);
 
-    # EVALUATE THE MODEL ON TEST INSTANCES AND THE COMPUTE TEST ERROR
-    val labelAndPreds = indexedTESTbinary.map { point =>
-      val prediction = gbtModel.predict(point.features)
-      (point.label, prediction)
-    }
-    val testErr = labelAndPreds.filter(r => r._1 != r._2).count.toDouble / indexedTRAINbinary.count()
-    //println("Learned classification GBT model:\n" + gbtModel.toDebugString)
-    println("Test Error = " + testErr)
+# EVALUATE THE MODEL ON TEST INSTANCES AND THE COMPUTE TEST ERROR
+val labelAndPreds = indexedTESTbinary.map { point =>
+  val prediction = gbtModel.predict(point.features)
+  (point.label, prediction)
+}
+val testErr = labelAndPreds.filter(r => r._1 != r._2).count.toDouble / indexedTRAINbinary.count()
+//println("Learned classification GBT model:\n" + gbtModel.toDebugString)
+println("Test Error = " + testErr)
 
-    # USE BINARY AND MULTICLASS METRICS TO EVALUATE THE MODEL ON THE TEST DATA
-    val metrics = new MulticlassMetrics(labelAndPreds)
-    println(s"Precision: ${metrics.precision}")
-    println(s"Recall: ${metrics.recall}")
-    println(s"F1 Score: ${metrics.fMeasure}")
+# USE BINARY AND MULTICLASS METRICS TO EVALUATE THE MODEL ON THE TEST DATA
+val metrics = new MulticlassMetrics(labelAndPreds)
+println(s"Precision: ${metrics.precision}")
+println(s"Recall: ${metrics.recall}")
+println(s"F1 Score: ${metrics.fMeasure}")
 
-    val metrics = new BinaryClassificationMetrics(labelAndPreds)
-    println(s"Area under PR curve: ${metrics.areaUnderPR}")
-    println(s"Area under ROC curve: ${metrics.areaUnderROC}")
+val metrics = new BinaryClassificationMetrics(labelAndPreds)
+println(s"Area under PR curve: ${metrics.areaUnderPR}")
+println(s"Area under ROC curve: ${metrics.areaUnderROC}")
 
-    # GET THE TIME TO RUN THE CELL
-    val endtime = Calendar.getInstance().getTime()
-    val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
-    println("Time taken to run the above cell: " + elapsedtime + " seconds.");
+# GET THE TIME TO RUN THE CELL
+val endtime = Calendar.getInstance().getTime()
+val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
+println("Time taken to run the above cell: " + elapsedtime + " seconds.");
 
-    # PRINT THE ROC METRIC
-    println(s"Area under ROC curve: ${metrics.areaUnderROC}")
+# PRINT THE ROC METRIC
+println(s"Area under ROC curve: ${metrics.areaUnderROC}")
+```
 
-
-**Der**
+**Saída:**
 
 Área sob a curva ROC = 0,9846895479241554
 
@@ -732,94 +755,100 @@ Nesta seção, você criará dois tipos de modelo de regressão para prever o va
 * Um **modelo de regressão de árvore de aumento gradiente** usando a função `GBTRegressor()` da AM do Spark.
 
 ### <a name="create-a-regularized-linear-regression-model"></a>Criar um modelo de regressão linear regularizada
-    # RECORD THE START TIME
-    val starttime = Calendar.getInstance().getTime()
 
-    # CREATE A REGULARIZED LINEAR REGRESSION MODEL BY USING THE SPARK ML FUNCTION AND DATA FRAMES
-    val lr = new LinearRegression().setLabelCol("tip_amount").setFeaturesCol("features").setMaxIter(10).setRegParam(0.3).setElasticNetParam(0.8)
+```scala
+# RECORD THE START TIME
+val starttime = Calendar.getInstance().getTime()
 
-    # FIT THE MODEL BY USING DATA FRAMES
-    val lrModel = lr.fit(OneHotTRAIN)
-    println(s"Coefficients: ${lrModel.coefficients} Intercept: ${lrModel.intercept}")
+# CREATE A REGULARIZED LINEAR REGRESSION MODEL BY USING THE SPARK ML FUNCTION AND DATA FRAMES
+val lr = new LinearRegression().setLabelCol("tip_amount").setFeaturesCol("features").setMaxIter(10).setRegParam(0.3).setElasticNetParam(0.8)
 
-    # SUMMARIZE THE MODEL OVER THE TRAINING SET AND PRINT METRICS
-    val trainingSummary = lrModel.summary
-    println(s"numIterations: ${trainingSummary.totalIterations}")
-    println(s"objectiveHistory: ${trainingSummary.objectiveHistory.toList}")
-    trainingSummary.residuals.show()
-    println(s"RMSE: ${trainingSummary.rootMeanSquaredError}")
-    println(s"r2: ${trainingSummary.r2}")
+# FIT THE MODEL BY USING DATA FRAMES
+val lrModel = lr.fit(OneHotTRAIN)
+println(s"Coefficients: ${lrModel.coefficients} Intercept: ${lrModel.intercept}")
 
-    # SAVE THE MODEL IN AZURE BLOB STORAGE
-    val datestamp = Calendar.getInstance().getTime().toString.replaceAll(" ", ".").replaceAll(":", "_");
-    val modelName = "LinearRegression__"
-    val filename = modelDir.concat(modelName).concat(datestamp)
-    lrModel.save(filename);
+# SUMMARIZE THE MODEL OVER THE TRAINING SET AND PRINT METRICS
+val trainingSummary = lrModel.summary
+println(s"numIterations: ${trainingSummary.totalIterations}")
+println(s"objectiveHistory: ${trainingSummary.objectiveHistory.toList}")
+trainingSummary.residuals.show()
+println(s"RMSE: ${trainingSummary.rootMeanSquaredError}")
+println(s"r2: ${trainingSummary.r2}")
 
-    # PRINT THE COEFFICIENTS
-    println(s"Coefficients: ${lrModel.coefficients} Intercept: ${lrModel.intercept}")
+# SAVE THE MODEL IN AZURE BLOB STORAGE
+val datestamp = Calendar.getInstance().getTime().toString.replaceAll(" ", ".").replaceAll(":", "_");
+val modelName = "LinearRegression__"
+val filename = modelDir.concat(modelName).concat(datestamp)
+lrModel.save(filename);
 
-    # SCORE THE MODEL ON TEST DATA
-    val predictions = lrModel.transform(OneHotTEST)
+# PRINT THE COEFFICIENTS
+println(s"Coefficients: ${lrModel.coefficients} Intercept: ${lrModel.intercept}")
 
-    # EVALUATE THE MODEL ON TEST DATA
-    val evaluator = new RegressionEvaluator().setLabelCol("tip_amount").setPredictionCol("prediction").setMetricName("r2")
-    val r2 = evaluator.evaluate(predictions)
-    println("R-sqr on test data = " + r2)
+# SCORE THE MODEL ON TEST DATA
+val predictions = lrModel.transform(OneHotTEST)
 
-    # GET THE TIME TO RUN THE CELL
-    val endtime = Calendar.getInstance().getTime()
-    val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
-    println("Time taken to run the above cell: " + elapsedtime + " seconds.");
+# EVALUATE THE MODEL ON TEST DATA
+val evaluator = new RegressionEvaluator().setLabelCol("tip_amount").setPredictionCol("prediction").setMetricName("r2")
+val r2 = evaluator.evaluate(predictions)
+println("R-sqr on test data = " + r2)
+
+# GET THE TIME TO RUN THE CELL
+val endtime = Calendar.getInstance().getTime()
+val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
+println("Time taken to run the above cell: " + elapsedtime + " seconds.");
+```
 
 
-**Der**
+**Saída:**
 
 Tempo de execução da célula: 13 segundos.
 
-    # LOAD A SAVED LINEAR REGRESSION MODEL FROM BLOB STORAGE AND SCORE A TEST DATA SET
+```scala
+# LOAD A SAVED LINEAR REGRESSION MODEL FROM BLOB STORAGE AND SCORE A TEST DATA SET
 
-    # RECORD THE START TIME
-    val starttime = Calendar.getInstance().getTime()
+# RECORD THE START TIME
+val starttime = Calendar.getInstance().getTime()
 
-    # LOAD A SAVED LINEAR REGRESSION MODEL FROM AZURE BLOB STORAGE
-    val savedModel = org.apache.spark.ml.regression.LinearRegressionModel.load(filename)
-    println(s"Coefficients: ${savedModel.coefficients} Intercept: ${savedModel.intercept}")
+# LOAD A SAVED LINEAR REGRESSION MODEL FROM AZURE BLOB STORAGE
+val savedModel = org.apache.spark.ml.regression.LinearRegressionModel.load(filename)
+println(s"Coefficients: ${savedModel.coefficients} Intercept: ${savedModel.intercept}")
 
-    # SCORE THE MODEL ON TEST DATA
-    val predictions = savedModel.transform(OneHotTEST).select("tip_amount","prediction")
-    predictions.registerTempTable("testResults")
+# SCORE THE MODEL ON TEST DATA
+val predictions = savedModel.transform(OneHotTEST).select("tip_amount","prediction")
+predictions.registerTempTable("testResults")
 
-    # EVALUATE THE MODEL ON TEST DATA
-    val evaluator = new RegressionEvaluator().setLabelCol("tip_amount").setPredictionCol("prediction").setMetricName("r2")
-    val r2 = evaluator.evaluate(predictions)
-    println("R-sqr on test data = " + r2)
+# EVALUATE THE MODEL ON TEST DATA
+val evaluator = new RegressionEvaluator().setLabelCol("tip_amount").setPredictionCol("prediction").setMetricName("r2")
+val r2 = evaluator.evaluate(predictions)
+println("R-sqr on test data = " + r2)
 
-    # GET THE TIME TO RUN THE CELL
-    val endtime = Calendar.getInstance().getTime()
-    val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
-    println("Time taken to run the above cell: " + elapsedtime + " seconds.");
+# GET THE TIME TO RUN THE CELL
+val endtime = Calendar.getInstance().getTime()
+val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
+println("Time taken to run the above cell: " + elapsedtime + " seconds.");
 
-    # PRINT THE RESULTS
-    println("R-sqr on test data = " + r2)
+# PRINT THE RESULTS
+println("R-sqr on test data = " + r2)
+```
 
-
-**Der**
+**Saída:**
 
 R-sqr nos dados de teste = 0,5960320470835743
 
 Em seguida, consulte os resultados do teste como um quadro de dados e use AutoVizWidget e matplotlib para visualizá-los.
 
-    # RUN A SQL QUERY
-    %%sql -q -o sqlResults
-    select * from testResults
+```sql
+# RUN A SQL QUERY
+%%sql -q -o sqlResults
+select * from testResults
 
-    # RUN THE CODE LOCALLY ON THE JUPYTER SERVER
-    %%local
+# RUN THE CODE LOCALLY ON THE JUPYTER SERVER
+%%local
 
-    # USE THE JUPYTER AUTO-PLOTTING FEATURE TO CREATE INTERACTIVE FIGURES
-    # CLICK THE TYPE OF PLOT TO GENERATE (LINE, AREA, BAR, AND SO ON)
-    sqlResults
+# USE THE JUPYTER AUTO-PLOTTING FEATURE TO CREATE INTERACTIVE FIGURES
+# CLICK THE TYPE OF PLOT TO GENERATE (LINE, AREA, BAR, AND SO ON)
+sqlResults
+```
 
 O código cria um quadro de dados local da saída da consulta e cria gráficos com os dados. A palavra mágica `%%local` cria um quadro de dados local, `sqlResults`, que pode ser usado para criar gráficos com matplotlib.
 
@@ -830,23 +859,25 @@ O código cria um quadro de dados local da saída da consulta e cria gráficos c
 
 Crie gráficos usando matplotlib do Python.
 
-    # RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
-    %%local
-    sqlResults
-    %matplotlib inline
-    import numpy as np
+```scala
+# RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
+%%local
+sqlResults
+%matplotlib inline
+import numpy as np
 
-    # PLOT THE RESULTS
-    ax = sqlResults.plot(kind='scatter', figsize = (6,6), x='tip_amount', y='prediction', color='blue', alpha = 0.25, label='Actual vs. predicted');
-    fit = np.polyfit(sqlResults['tip_amount'], sqlResults['prediction'], deg=1)
-    ax.set_title('Actual vs. Predicted Tip Amounts ($)')
-    ax.set_xlabel("Actual")
-    ax.set_ylabel("Predicted")
-    #ax.plot(sqlResults['tip_amount'], fit[0] * sqlResults['prediction'] + fit[1], color='magenta')
-    plt.axis([-1, 15, -1, 8])
-    plt.show(ax)
+# PLOT THE RESULTS
+ax = sqlResults.plot(kind='scatter', figsize = (6,6), x='tip_amount', y='prediction', color='blue', alpha = 0.25, label='Actual vs. predicted');
+fit = np.polyfit(sqlResults['tip_amount'], sqlResults['prediction'], deg=1)
+ax.set_title('Actual vs. Predicted Tip Amounts ($)')
+ax.set_xlabel("Actual")
+ax.set_ylabel("Predicted")
+#ax.plot(sqlResults['tip_amount'], fit[0] * sqlResults['prediction'] + fit[1], color='magenta')
+plt.axis([-1, 15, -1, 8])
+plt.show(ax)
+```
 
-**Der**
+**Saída:**
 
 ![Valor da gorjeta: real vs. previsto](./media/scala-walkthrough/plot-actual-vs-predicted-tip-amount.png)
 
@@ -855,31 +886,32 @@ Crie um modelo de regressão GBT usando a função `GBTRegressor()` da AM do Spa
 
 As [árvores aumentadas para gradiente](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTS) são conjuntos de árvores de decisão. GBTS treina árvores de decisão iterativamente para minimizar uma função de perda. Você pode usar GBTS para regressão e classificação. Elas podem manipular recursos categóricos, não exigem o dimensionamento de recursos e são capazes de capturar não linearidades e interações de recursos. Use-as também em uma configuração de classificação multiclasse.
 
-    # RECORD THE START TIME
-    val starttime = Calendar.getInstance().getTime()
+```scala
+# RECORD THE START TIME
+val starttime = Calendar.getInstance().getTime()
 
-    # TRAIN A GBT REGRESSION MODEL
-    val gbt = new GBTRegressor().setLabelCol("label").setFeaturesCol("featuresCat").setMaxIter(10)
-    val gbtModel = gbt.fit(indexedTRAINwithCatFeat)
+# TRAIN A GBT REGRESSION MODEL
+val gbt = new GBTRegressor().setLabelCol("label").setFeaturesCol("featuresCat").setMaxIter(10)
+val gbtModel = gbt.fit(indexedTRAINwithCatFeat)
 
-    # MAKE PREDICTIONS
-    val predictions = gbtModel.transform(indexedTESTwithCatFeat)
+# MAKE PREDICTIONS
+val predictions = gbtModel.transform(indexedTESTwithCatFeat)
 
-    # COMPUTE TEST SET R2
-    val evaluator = new RegressionEvaluator().setLabelCol("label").setPredictionCol("prediction").setMetricName("r2")
-    val Test_R2 = evaluator.evaluate(predictions)
-
-
-    # GET THE TIME TO RUN THE CELL
-    val endtime = Calendar.getInstance().getTime()
-    val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
-    println("Time taken to run the above cell: " + elapsedtime + " seconds.");
-
-    # PRINT THE RESULTS
-    println("Test R-sqr is: " + Test_R2);
+# COMPUTE TEST SET R2
+val evaluator = new RegressionEvaluator().setLabelCol("label").setPredictionCol("prediction").setMetricName("r2")
+val Test_R2 = evaluator.evaluate(predictions)
 
 
-**Der**
+# GET THE TIME TO RUN THE CELL
+val endtime = Calendar.getInstance().getTime()
+val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
+println("Time taken to run the above cell: " + elapsedtime + " seconds.");
+
+# PRINT THE RESULTS
+println("Test R-sqr is: " + Test_R2);
+```
+
+**Saída:**
 
 R-sqr do teste é: 0,7655383534596654
 
@@ -892,210 +924,213 @@ Nesta seção, use utilitários de aprendizado de máquina que os desenvolvedore
 
 **Validação cruzada** é uma técnica que avalia quão bem um modelo treinado em um conjunto de dados conhecido será generalizado para prever os recursos dos conjuntos de dados nos quais ele não foi treinado. A ideia geral por trás dessa técnica é que um modelo é treinado em um conjunto de dados conhecidos em e, em seguida, a precisão de suas previsões é testada em relação a um conjunto de dados independente. Uma implementação comum é dividir um conjunto de dados em partições *k*e, em seguida, treinar o modelo em um estilo round-robin em todas, exceto uma das partições.
 
-**Otimização do hiperparâmetro** é o problema de escolher um conjunto de hiperparâmetros para um algoritmo de aprendizado, normalmente com o objetivo de otimizar uma medida de desempenho do algoritmo em um conjunto de dados independente. Um hiperparâmetro é um valor que você deve especificar fora do procedimento de treinamento do modelo. As suposições sobre esses valores de hiperparâmetro podem afetar a flexibilidade e a precisão do modelo. As árvores de decisão têm hiperparâmetros, por exemplo, como a profundidade desejada e o número de folhas na árvore. Configure de um termo de penalidade de classificação incorreta para uma SVM (máquina de vetor de suporte).
+A **otimização do Hyper-Parameter** é o problema de escolher um conjunto de hiperparâmetros para um algoritmo de aprendizado, geralmente com o objetivo de otimizar uma medida do desempenho do algoritmo em um conjunto de dados independente. Um hiperparâmetro é um valor que você deve especificar fora do procedimento de treinamento do modelo. As suposições sobre esses valores de hiperparâmetro podem afetar a flexibilidade e a precisão do modelo. As árvores de decisão têm hiperparâmetros, por exemplo, como a profundidade desejada e o número de folhas na árvore. Configure de um termo de penalidade de classificação incorreta para uma SVM (máquina de vetor de suporte).
 
 Uma maneira comum de executar a otimização de hiperparâmetro é uma pesquisa de grade, também chamada de **parâmetro de limpeza**. Em uma pesquisa de grade, uma pesquisa detalhada é executada nos valores de um subconjunto especificado do espaço do hiperparâmetro para um algoritmo de aprendizado. A validação cruzada pode fornecer uma métrica de desempenho para classificar os resultados ideais produzidos pelo algoritmo de pesquisa de grade. Se você usar a limpeza de hiperparâmetro para validação cruzada, poderá ajudar a limitar problemas como sobreajuste de um modelo aos dados de treinamento. Dessa forma, o modelo retém a capacidade de aplicar ao conjunto geral de dados do qual os dados de treinamento foram extraídos.
 
 ### <a name="optimize-a-linear-regression-model-with-hyper-parameter-sweeping"></a>Otimizar um modelo de regressão linear com a limpeza de hiperparâmetro
 Em seguida, divida os dados em conjuntos de treinamento e validação, use a limpeza de hiperparâmetro em um conjunto de treinamento para otimizar o modelo e avalie um conjunto de validação (regressão linear).
 
-    # RECORD THE START TIME
-    val starttime = Calendar.getInstance().getTime()
+```scala
+# RECORD THE START TIME
+val starttime = Calendar.getInstance().getTime()
 
-    # RENAME `tip_amount` AS A LABEL
-    val OneHotTRAINLabeled = OneHotTRAIN.select("tip_amount","features").withColumnRenamed(existingName="tip_amount",newName="label")
-    val OneHotTESTLabeled = OneHotTEST.select("tip_amount","features").withColumnRenamed(existingName="tip_amount",newName="label")
-    OneHotTRAINLabeled.cache()
-    OneHotTESTLabeled.cache()
+# RENAME `tip_amount` AS A LABEL
+val OneHotTRAINLabeled = OneHotTRAIN.select("tip_amount","features").withColumnRenamed(existingName="tip_amount",newName="label")
+val OneHotTESTLabeled = OneHotTEST.select("tip_amount","features").withColumnRenamed(existingName="tip_amount",newName="label")
+OneHotTRAINLabeled.cache()
+OneHotTESTLabeled.cache()
 
-    # DEFINE THE ESTIMATOR FUNCTION: `THE LinearRegression()` FUNCTION
-    val lr = new LinearRegression().setLabelCol("label").setFeaturesCol("features").setMaxIter(10)
+# DEFINE THE ESTIMATOR FUNCTION: `THE LinearRegression()` FUNCTION
+val lr = new LinearRegression().setLabelCol("label").setFeaturesCol("features").setMaxIter(10)
 
-    # DEFINE THE PARAMETER GRID
-    val paramGrid = new ParamGridBuilder().addGrid(lr.regParam, Array(0.1, 0.01, 0.001)).addGrid(lr.fitIntercept).addGrid(lr.elasticNetParam, Array(0.1, 0.5, 0.9)).build()
+# DEFINE THE PARAMETER GRID
+val paramGrid = new ParamGridBuilder().addGrid(lr.regParam, Array(0.1, 0.01, 0.001)).addGrid(lr.fitIntercept).addGrid(lr.elasticNetParam, Array(0.1, 0.5, 0.9)).build()
 
-    # DEFINE THE PIPELINE WITH A TRAIN/TEST VALIDATION SPLIT (75% IN THE TRAINING SET), AND THEN THE SPECIFY ESTIMATOR, EVALUATOR, AND PARAMETER GRID
-    val trainPct = 0.75
-    val trainValidationSplit = new TrainValidationSplit().setEstimator(lr).setEvaluator(new RegressionEvaluator).setEstimatorParamMaps(paramGrid).setTrainRatio(trainPct)
+# DEFINE THE PIPELINE WITH A TRAIN/TEST VALIDATION SPLIT (75% IN THE TRAINING SET), AND THEN THE SPECIFY ESTIMATOR, EVALUATOR, AND PARAMETER GRID
+val trainPct = 0.75
+val trainValidationSplit = new TrainValidationSplit().setEstimator(lr).setEvaluator(new RegressionEvaluator).setEstimatorParamMaps(paramGrid).setTrainRatio(trainPct)
 
-    # RUN THE TRAIN VALIDATION SPLIT AND CHOOSE THE BEST SET OF PARAMETERS
-    val model = trainValidationSplit.fit(OneHotTRAINLabeled)
+# RUN THE TRAIN VALIDATION SPLIT AND CHOOSE THE BEST SET OF PARAMETERS
+val model = trainValidationSplit.fit(OneHotTRAINLabeled)
 
-    # MAKE PREDICTIONS ON THE TEST DATA BY USING THE MODEL WITH THE COMBINATION OF PARAMETERS THAT PERFORMS THE BEST
-    val testResults = model.transform(OneHotTESTLabeled).select("label", "prediction")
+# MAKE PREDICTIONS ON THE TEST DATA BY USING THE MODEL WITH THE COMBINATION OF PARAMETERS THAT PERFORMS THE BEST
+val testResults = model.transform(OneHotTESTLabeled).select("label", "prediction")
 
-    # COMPUTE TEST SET R2
-    val evaluator = new RegressionEvaluator().setLabelCol("label").setPredictionCol("prediction").setMetricName("r2")
-    val Test_R2 = evaluator.evaluate(testResults)
+# COMPUTE TEST SET R2
+val evaluator = new RegressionEvaluator().setLabelCol("label").setPredictionCol("prediction").setMetricName("r2")
+val Test_R2 = evaluator.evaluate(testResults)
 
-    # GET THE TIME TO RUN THE CELL
-    val endtime = Calendar.getInstance().getTime()
-    val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
-    println("Time taken to run the above cell: " + elapsedtime + " seconds.");
+# GET THE TIME TO RUN THE CELL
+val endtime = Calendar.getInstance().getTime()
+val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
+println("Time taken to run the above cell: " + elapsedtime + " seconds.");
 
-    println("Test R-sqr is: " + Test_R2);
+println("Test R-sqr is: " + Test_R2);
+```
 
-
-**Der**
+**Saída:**
 
 R-sqr do teste é: 0,6226484708501209
 
 ### <a name="optimize-the-binary-classification-model-by-using-cross-validation-and-hyper-parameter-sweeping"></a>Otimizar o modelo de classificação binária usando a limpeza de hiperparâmetro e a validação cruzada
 Esta seção mostra como otimizar um modelo de classificação binária usando a limpeza de hiperparâmetro e a validação cruzada. Isso usa a função `CrossValidator` de AM do Spark.
 
-    # RECORD THE START TIME
-    val starttime = Calendar.getInstance().getTime()
+```scala
+# RECORD THE START TIME
+val starttime = Calendar.getInstance().getTime()
 
-    # CREATE DATA FRAMES WITH PROPERLY LABELED COLUMNS TO USE WITH THE TRAIN AND TEST SPLIT
-    val indexedTRAINwithCatFeatBinTargetRF = indexedTRAINwithCatFeatBinTarget.select("labelBin","featuresCat").withColumnRenamed(existingName="labelBin",newName="label").withColumnRenamed(existingName="featuresCat",newName="features")
-    val indexedTESTwithCatFeatBinTargetRF = indexedTESTwithCatFeatBinTarget.select("labelBin","featuresCat").withColumnRenamed(existingName="labelBin",newName="label").withColumnRenamed(existingName="featuresCat",newName="features")
-    indexedTRAINwithCatFeatBinTargetRF.cache()
-    indexedTESTwithCatFeatBinTargetRF.cache()
+# CREATE DATA FRAMES WITH PROPERLY LABELED COLUMNS TO USE WITH THE TRAIN AND TEST SPLIT
+val indexedTRAINwithCatFeatBinTargetRF = indexedTRAINwithCatFeatBinTarget.select("labelBin","featuresCat").withColumnRenamed(existingName="labelBin",newName="label").withColumnRenamed(existingName="featuresCat",newName="features")
+val indexedTESTwithCatFeatBinTargetRF = indexedTESTwithCatFeatBinTarget.select("labelBin","featuresCat").withColumnRenamed(existingName="labelBin",newName="label").withColumnRenamed(existingName="featuresCat",newName="features")
+indexedTRAINwithCatFeatBinTargetRF.cache()
+indexedTESTwithCatFeatBinTargetRF.cache()
 
-    # DEFINE THE ESTIMATOR FUNCTION
-    val rf = new RandomForestClassifier().setLabelCol("label").setFeaturesCol("features").setImpurity("gini").setSeed(1234).setFeatureSubsetStrategy("auto").setMaxBins(32)
+# DEFINE THE ESTIMATOR FUNCTION
+val rf = new RandomForestClassifier().setLabelCol("label").setFeaturesCol("features").setImpurity("gini").setSeed(1234).setFeatureSubsetStrategy("auto").setMaxBins(32)
 
-    # DEFINE THE PARAMETER GRID
-    val paramGrid = new ParamGridBuilder().addGrid(rf.maxDepth, Array(4,8)).addGrid(rf.numTrees, Array(5,10)).addGrid(rf.minInstancesPerNode, Array(100,300)).build()
+# DEFINE THE PARAMETER GRID
+val paramGrid = new ParamGridBuilder().addGrid(rf.maxDepth, Array(4,8)).addGrid(rf.numTrees, Array(5,10)).addGrid(rf.minInstancesPerNode, Array(100,300)).build()
 
-    # SPECIFY THE NUMBER OF FOLDS
-    val numFolds = 3
+# SPECIFY THE NUMBER OF FOLDS
+val numFolds = 3
 
-    # DEFINE THE TRAIN/TEST VALIDATION SPLIT (75% IN THE TRAINING SET)
-    val CrossValidator = new CrossValidator().setEstimator(rf).setEvaluator(new BinaryClassificationEvaluator).setEstimatorParamMaps(paramGrid).setNumFolds(numFolds)
+# DEFINE THE TRAIN/TEST VALIDATION SPLIT (75% IN THE TRAINING SET)
+val CrossValidator = new CrossValidator().setEstimator(rf).setEvaluator(new BinaryClassificationEvaluator).setEstimatorParamMaps(paramGrid).setNumFolds(numFolds)
 
-    # RUN THE TRAIN VALIDATION SPLIT AND CHOOSE THE BEST SET OF PARAMETERS
-    val model = CrossValidator.fit(indexedTRAINwithCatFeatBinTargetRF)
+# RUN THE TRAIN VALIDATION SPLIT AND CHOOSE THE BEST SET OF PARAMETERS
+val model = CrossValidator.fit(indexedTRAINwithCatFeatBinTargetRF)
 
-    # MAKE PREDICTIONS ON THE TEST DATA BY USING THE MODEL WITH THE COMBINATION OF PARAMETERS THAT PERFORMS THE BEST
-    val testResults = model.transform(indexedTESTwithCatFeatBinTargetRF).select("label", "prediction")
+# MAKE PREDICTIONS ON THE TEST DATA BY USING THE MODEL WITH THE COMBINATION OF PARAMETERS THAT PERFORMS THE BEST
+val testResults = model.transform(indexedTESTwithCatFeatBinTargetRF).select("label", "prediction")
 
-    # COMPUTE THE TEST F1 SCORE
-    val evaluator = new MulticlassClassificationEvaluator().setLabelCol("label").setPredictionCol("prediction").setMetricName("f1")
-    val Test_f1Score = evaluator.evaluate(testResults)
+# COMPUTE THE TEST F1 SCORE
+val evaluator = new MulticlassClassificationEvaluator().setLabelCol("label").setPredictionCol("prediction").setMetricName("f1")
+val Test_f1Score = evaluator.evaluate(testResults)
 
-    # GET THE TIME TO RUN THE CELL
-    val endtime = Calendar.getInstance().getTime()
-    val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
-    println("Time taken to run the above cell: " + elapsedtime + " seconds.");
+# GET THE TIME TO RUN THE CELL
+val endtime = Calendar.getInstance().getTime()
+val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
+println("Time taken to run the above cell: " + elapsedtime + " seconds.");
+```
 
-
-**Der**
+**Saída:**
 
 Tempo de execução da célula: 33 segundos.
 
 ### <a name="optimize-the-linear-regression-model-by-using-custom-cross-validation-and-parameter-sweeping-code"></a>Otimizar o modelo de regressão linear usando código personalizado de validação cruzada e limpeza de parâmetro
 Em seguida, otimize o modelo usando código personalizado e identifique os melhores parâmetros do modelo usando o critério de precisão mais alta. Em seguida, criamos o modelo final, avaliamos o modelo nos dados de teste e salvamos o modelo no armazenamento de Blobs. Por fim, carregue o modelo, pontue os dados de teste e avalie sua precisão.
 
-    # RECORD THE START TIME
-    val starttime = Calendar.getInstance().getTime()
+```scala
+# RECORD THE START TIME
+val starttime = Calendar.getInstance().getTime()
 
-    # DEFINE THE PARAMETER GRID AND THE NUMBER OF FOLDS
-    val paramGrid = new ParamGridBuilder().addGrid(rf.maxDepth, Array(5,10)).addGrid(rf.numTrees, Array(10,25,50)).build()
+# DEFINE THE PARAMETER GRID AND THE NUMBER OF FOLDS
+val paramGrid = new ParamGridBuilder().addGrid(rf.maxDepth, Array(5,10)).addGrid(rf.numTrees, Array(10,25,50)).build()
 
-    val nFolds = 3
-    val numModels = paramGrid.size
-    val numParamsinGrid = 2
+val nFolds = 3
+val numModels = paramGrid.size
+val numParamsinGrid = 2
 
-    # SPECIFY THE NUMBER OF CATEGORIES FOR CATEGORICAL VARIABLES
-    val categoricalFeaturesInfo = Map[Int, Int]((0,2),(1,2),(2,6),(3,4))
+# SPECIFY THE NUMBER OF CATEGORIES FOR CATEGORICAL VARIABLES
+val categoricalFeaturesInfo = Map[Int, Int]((0,2),(1,2),(2,6),(3,4))
 
-    var maxDepth = -1
-    var numTrees = -1
-    var param = ""
-    var paramval = -1
-    var validateLB = -1.0
-    var validateUB = -1.0
-    val h = 1.0 / nFolds;
-    val RMSE  = Array.fill(numModels)(0.0)
+var maxDepth = -1
+var numTrees = -1
+var param = ""
+var paramval = -1
+var validateLB = -1.0
+var validateUB = -1.0
+val h = 1.0 / nFolds;
+val RMSE  = Array.fill(numModels)(0.0)
 
-    # CREATE K-FOLDS
-    val splits = MLUtils.kFold(indexedTRAINbinary, numFolds = nFolds, seed=1234)
+# CREATE K-FOLDS
+val splits = MLUtils.kFold(indexedTRAINbinary, numFolds = nFolds, seed=1234)
 
 
-    # LOOP THROUGH K-FOLDS AND THE PARAMETER GRID TO GET AND IDENTIFY THE BEST PARAMETER SET BY LEVEL OF ACCURACY
-    for (i <- 0 to (nFolds-1)) {
-        validateLB = i * h
-        validateUB = (i + 1) * h
-        val validationCV = trainData.filter($"rand" >= validateLB  && $"rand" < validateUB)
-        val trainCV = trainData.filter($"rand" < validateLB  || $"rand" >= validateUB)
-        val validationLabPt = validationCV.rdd.map(r => LabeledPoint(r.getDouble(targetIndRegression(0).toInt), Vectors.dense(featuresIndIndex.map(r.getDouble(_)).toArray)));
-        val trainCVLabPt = trainCV.rdd.map(r => LabeledPoint(r.getDouble(targetIndRegression(0).toInt), Vectors.dense(featuresIndIndex.map(r.getDouble(_)).toArray)));
-        validationLabPt.cache()
-        trainCVLabPt.cache()
+# LOOP THROUGH K-FOLDS AND THE PARAMETER GRID TO GET AND IDENTIFY THE BEST PARAMETER SET BY LEVEL OF ACCURACY
+for (i <- 0 to (nFolds-1)) {
+    validateLB = i * h
+    validateUB = (i + 1) * h
+    val validationCV = trainData.filter($"rand" >= validateLB  && $"rand" < validateUB)
+    val trainCV = trainData.filter($"rand" < validateLB  || $"rand" >= validateUB)
+    val validationLabPt = validationCV.rdd.map(r => LabeledPoint(r.getDouble(targetIndRegression(0).toInt), Vectors.dense(featuresIndIndex.map(r.getDouble(_)).toArray)));
+    val trainCVLabPt = trainCV.rdd.map(r => LabeledPoint(r.getDouble(targetIndRegression(0).toInt), Vectors.dense(featuresIndIndex.map(r.getDouble(_)).toArray)));
+    validationLabPt.cache()
+    trainCVLabPt.cache()
 
-        for (nParamSets <- 0 to (numModels-1)) {
-            for (nParams <- 0 to (numParamsinGrid-1)) {
-                param = paramGrid(nParamSets).toSeq(nParams).param.toString.split("__")(1)
-                paramval = paramGrid(nParamSets).toSeq(nParams).value.toString.toInt
-                if (param == "maxDepth") {maxDepth = paramval}
-                if (param == "numTrees") {numTrees = paramval}
-            }
-            val rfModel = RandomForest.trainRegressor(trainCVLabPt, categoricalFeaturesInfo=categoricalFeaturesInfo,
-                                                      numTrees=numTrees, maxDepth=maxDepth,
-                                                      featureSubsetStrategy="auto",impurity="variance", maxBins=32)
-            val labelAndPreds = validationLabPt.map { point =>
-                                                     val prediction = rfModel.predict(point.features)
-                                                     ( prediction, point.label )
-                                                    }
-            val validMetrics = new RegressionMetrics(labelAndPreds)
-            val rmse = validMetrics.rootMeanSquaredError
-            RMSE(nParamSets) += rmse
+    for (nParamSets <- 0 to (numModels-1)) {
+        for (nParams <- 0 to (numParamsinGrid-1)) {
+            param = paramGrid(nParamSets).toSeq(nParams).param.toString.split("__")(1)
+            paramval = paramGrid(nParamSets).toSeq(nParams).value.toString.toInt
+            if (param == "maxDepth") {maxDepth = paramval}
+            if (param == "numTrees") {numTrees = paramval}
         }
-        validationLabPt.unpersist();
-        trainCVLabPt.unpersist();
+        val rfModel = RandomForest.trainRegressor(trainCVLabPt, categoricalFeaturesInfo=categoricalFeaturesInfo,
+                                                  numTrees=numTrees, maxDepth=maxDepth,
+                                                  featureSubsetStrategy="auto",impurity="variance", maxBins=32)
+        val labelAndPreds = validationLabPt.map { point =>
+                                                 val prediction = rfModel.predict(point.features)
+                                                  ( prediction, point.label )
+                                                }
+        val validMetrics = new RegressionMetrics(labelAndPreds)
+        val rmse = validMetrics.rootMeanSquaredError
+        RMSE(nParamSets) += rmse
     }
-    val minRMSEindex = RMSE.indexOf(RMSE.min)
+    validationLabPt.unpersist();
+    trainCVLabPt.unpersist();
+}
+val minRMSEindex = RMSE.indexOf(RMSE.min)
 
-    # GET THE BEST PARAMETERS FROM A CROSS-VALIDATION AND PARAMETER SWEEP
-    var best_maxDepth = -1
-    var best_numTrees = -1
-    for (nParams <- 0 to (numParamsinGrid-1)) {
-        param = paramGrid(minRMSEindex).toSeq(nParams).param.toString.split("__")(1)
-        paramval = paramGrid(minRMSEindex).toSeq(nParams).value.toString.toInt
-        if (param == "maxDepth") {best_maxDepth = paramval}
-        if (param == "numTrees") {best_numTrees = paramval}
-    }
+# GET THE BEST PARAMETERS FROM A CROSS-VALIDATION AND PARAMETER SWEEP
+var best_maxDepth = -1
+var best_numTrees = -1
+for (nParams <- 0 to (numParamsinGrid-1)) {
+    param = paramGrid(minRMSEindex).toSeq(nParams).param.toString.split("__")(1)
+    paramval = paramGrid(minRMSEindex).toSeq(nParams).value.toString.toInt
+    if (param == "maxDepth") {best_maxDepth = paramval}
+    if (param == "numTrees") {best_numTrees = paramval}
+}
 
-    # CREATE THE BEST MODEL WITH THE BEST PARAMETERS AND A FULL TRAINING DATA SET
-    val best_rfModel = RandomForest.trainRegressor(indexedTRAINreg, categoricalFeaturesInfo=categoricalFeaturesInfo,
-                                                      numTrees=best_numTrees, maxDepth=best_maxDepth,
-                                                      featureSubsetStrategy="auto",impurity="variance", maxBins=32)
+# CREATE THE BEST MODEL WITH THE BEST PARAMETERS AND A FULL TRAINING DATA SET
+val best_rfModel = RandomForest.trainRegressor(indexedTRAINreg, categoricalFeaturesInfo=categoricalFeaturesInfo,
+                                                  numTrees=best_numTrees, maxDepth=best_maxDepth,
+                                                  featureSubsetStrategy="auto",impurity="variance", maxBins=32)
 
-    # SAVE THE BEST RANDOM FOREST MODEL IN BLOB STORAGE
-    val datestamp = Calendar.getInstance().getTime().toString.replaceAll(" ", ".").replaceAll(":", "_");
-    val modelName = "BestCV_RF_Regression__"
-    val filename = modelDir.concat(modelName).concat(datestamp)
-    best_rfModel.save(sc, filename);
+# SAVE THE BEST RANDOM FOREST MODEL IN BLOB STORAGE
+val datestamp = Calendar.getInstance().getTime().toString.replaceAll(" ", ".").replaceAll(":", "_");
+val modelName = "BestCV_RF_Regression__"
+val filename = modelDir.concat(modelName).concat(datestamp)
+best_rfModel.save(sc, filename);
 
-    # PREDICT ON THE TRAINING SET WITH THE BEST MODEL AND THEN EVALUATE
-    val labelAndPreds = indexedTESTreg.map { point =>
-                                            val prediction = best_rfModel.predict(point.features)
-                                            ( prediction, point.label )
-                                           }
+# PREDICT ON THE TRAINING SET WITH THE BEST MODEL AND THEN EVALUATE
+val labelAndPreds = indexedTESTreg.map { point =>
+                                        val prediction = best_rfModel.predict(point.features)
+                                        ( prediction, point.label )
+                                       }
 
-    val test_rmse = new RegressionMetrics(labelAndPreds).rootMeanSquaredError
-    val test_rsqr = new RegressionMetrics(labelAndPreds).r2
+val test_rmse = new RegressionMetrics(labelAndPreds).rootMeanSquaredError
+val test_rsqr = new RegressionMetrics(labelAndPreds).r2
 
-    # GET THE TIME TO RUN THE CELL
-    val endtime = Calendar.getInstance().getTime()
-    val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
-    println("Time taken to run the above cell: " + elapsedtime + " seconds.");
-
-
-    # LOAD THE MODEL
-    val savedRFModel = RandomForestModel.load(sc, filename)
-
-    val labelAndPreds = indexedTESTreg.map { point =>
-                                            val prediction = savedRFModel.predict(point.features)
-                                            ( prediction, point.label )
-                                           }
-    # TEST THE MODEL
-    val test_rmse = new RegressionMetrics(labelAndPreds).rootMeanSquaredError
-    val test_rsqr = new RegressionMetrics(labelAndPreds).r2
+# GET THE TIME TO RUN THE CELL
+val endtime = Calendar.getInstance().getTime()
+val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
+println("Time taken to run the above cell: " + elapsedtime + " seconds.");
 
 
-**Der**
+# LOAD THE MODEL
+val savedRFModel = RandomForestModel.load(sc, filename)
+
+val labelAndPreds = indexedTESTreg.map { point =>
+                                        val prediction = savedRFModel.predict(point.features)
+                                        ( prediction, point.label )
+                                       }
+# TEST THE MODEL
+val test_rmse = new RegressionMetrics(labelAndPreds).rootMeanSquaredError
+val test_rsqr = new RegressionMetrics(labelAndPreds).r2
+```
+
+**Saída:**
 
 Tempo de execução da célula: 61 segundos.
 

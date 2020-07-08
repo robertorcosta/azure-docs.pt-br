@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: df85edc3de00e2b0342bc3102fe9e85564a9835b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 339273c091a1bcfc4f2de66ef2f79ea8cebbc49b
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76719986"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026042"
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Dados de exemplo nas tabelas Hive do Azure HDInsight
 Este artigo descreve como reduzir os dados de amostra armazenados nas tabelas Hive do Azure HDInsight usando consultas de Hive para reduzir isso a um tamanho mais gerenciável para análise. Ele aborda três métodos de amostragem populares usados:
@@ -38,16 +38,18 @@ A amostragem aleatória uniforme significa que cada linha no conjunto de dados t
 
 Veja um exemplo de consulta:
 
-    SET sampleRate=<sample rate, 0-1>;
+```python
+SET sampleRate=<sample rate, 0-1>;
+select
+    field1, field2, …, fieldN
+from
+    (
     select
-        field1, field2, …, fieldN
-    from
-        (
-        select
-            field1, field2, …, fieldN, rand() as samplekey
-        from <hive table name>
-        )a
-    where samplekey<='${hiveconf:sampleRate}'
+        field1, field2, …, fieldN, rand() as samplekey
+    from <hive table name>
+    )a
+where samplekey<='${hiveconf:sampleRate}'
+```
 
 Aqui, `<sample rate, 0-1>` especifica a proporção de registros que os usuários desejam como amostra.
 
@@ -56,48 +58,51 @@ Ao realizar amostragem de dados categóricos, convém incluir ou excluir todas a
 
 Veja um exemplo de consulta com amostragem por grupo:
 
-    SET sampleRate=<sample rate, 0-1>;
+```python
+SET sampleRate=<sample rate, 0-1>;
+select
+    b.field1, b.field2, …, b.catfield, …, b.fieldN
+from
+    (
     select
-        b.field1, b.field2, …, b.catfield, …, b.fieldN
+        field1, field2, …, catfield, …, fieldN
+    from <table name>
+    )b
+join
+    (
+    select
+        catfield
     from
         (
         select
-            field1, field2, …, catfield, …, fieldN
+            catfield, rand() as samplekey
         from <table name>
-        )b
-    join
-        (
-        select
-            catfield
-        from
-            (
-            select
-                catfield, rand() as samplekey
-            from <table name>
-            group by catfield
-            )a
-        where samplekey<='${hiveconf:sampleRate}'
-        )c
-    on b.catfield=c.catfield
+        group by catfield
+        )a
+    where samplekey<='${hiveconf:sampleRate}'
+    )c
+on b.catfield=c.catfield
+```
 
 ## <a name="stratified-sampling"></a><a name="stratified"></a>Amostragem estratificada
 A amostragem aleatória é estratificada em relação a uma variável categórica quando as amostras obtidas têm valores da categoria em questão que estão na mesma proporção como a população-mãe. Usando o mesmo exemplo anterior, suponha que os dados têm subpopulações por estados: NJ tem 100 observações, NY tem 60 observações e WA tem 300 observações. Se você especificar a taxa de amostragem estratificada para ser 0,5, a amostra obtida deve ter aproximadamente 50, 30 e 150 observações de NJ, NY e WA, respectivamente.
 
 Veja um exemplo de consulta:
 
-    SET sampleRate=<sample rate, 0-1>;
+```hiveql
+SET sampleRate=<sample rate, 0-1>;
+select
+    field1, field2, field3, ..., fieldN, state
+from
+    (
     select
-        field1, field2, field3, ..., fieldN, state
-    from
-        (
-        select
-            field1, field2, field3, ..., fieldN, state,
-            count(*) over (partition by state) as state_cnt,
-              rank() over (partition by state order by rand()) as state_rank
-          from <table name>
-        ) a
-    where state_rank <= state_cnt*'${hiveconf:sampleRate}'
-
+        field1, field2, field3, ..., fieldN, state,
+        count(*) over (partition by state) as state_cnt,
+          rank() over (partition by state order by rand()) as state_rank
+      from <table name>
+    ) a
+where state_rank <= state_cnt*'${hiveconf:sampleRate}'
+```
 
 Para obter informações sobre os métodos de amostragem mais avançados disponíveis no Hive, consulte [Amostragem LanguageManual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling).
 

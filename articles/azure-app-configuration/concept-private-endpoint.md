@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 3/12/2020
 ms.author: lcozzens
-ms.openlocfilehash: f18672b9e3a368a833fc8cba279d748dfe3c2a9e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bbf2039ad695f332b69bd5429ff527a4a2534e26
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79366761"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026977"
 ---
 # <a name="using-private-endpoints-for-azure-app-configuration"></a>Usando pontos de extremidade privados para configuração de Azure App
 
@@ -24,7 +24,7 @@ O uso de pontos de extremidade privados para seu repositório de configuração 
 - Conecte-se com segurança ao repositório de configurações do aplicativo de redes locais que se conectam à VNet usando [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou [expressroute ao qual](../expressroute/expressroute-locations.md) com emparelhamento privado.
 
 > [!NOTE]
-> Azure App configuração oferece o uso de pontos de extremidade privados como uma visualização pública. As ofertas de visualização pública permitem que os clientes experimentem os novos recursos antes do lançamento oficial.  Os serviços e recursos de visualização pública não são destinados ao uso em produção.
+> A funcionalidade de ponto de extremidade privada agora está disponível em todas as regiões *, exceto* na Índia central. Na região da **Índia central** , Azure app configuração oferece o uso de pontos de extremidade privados como uma visualização pública. As ofertas de visualização pública permitem que os clientes experimentem os novos recursos antes do lançamento oficial.  Os serviços e recursos de visualização pública não são destinados ao uso em produção.
 
 ## <a name="conceptual-overview"></a>Visão geral conceitual
 
@@ -36,7 +36,7 @@ Embora a configuração de aplicativo não dê suporte a pontos de extremidade d
 
 Quando você cria um ponto de extremidade privado para um serviço em sua VNet, uma solicitação de consentimento é enviada para aprovação para o proprietário da conta de serviço. Se o usuário que solicita a criação do ponto de extremidade privado também for um proprietário da conta, essa solicitação de consentimento será aprovada automaticamente.
 
-Os proprietários da conta de serviço podem gerenciar solicitações de consentimento e pontos de `Private Endpoints` extremidade privados por meio da guia do repositório de configuração no [portal do Azure](https://portal.azure.com).
+Os proprietários da conta de serviço podem gerenciar solicitações de consentimento e pontos de extremidade privados por meio da `Private Endpoints` Guia do repositório de configuração no [portal do Azure](https://portal.azure.com).
 
 ### <a name="private-endpoints-for-app-configuration"></a>Pontos de extremidade privados para configuração de aplicativo 
 
@@ -44,22 +44,18 @@ Ao criar um ponto de extremidade privado, você deve especificar o repositório 
 
 ### <a name="connecting-to-private-endpoints"></a>Conectando-se a pontos de extremidade privados
 
-O Azure conta com a resolução DNS para rotear conexões da VNet para o armazenamento de configuração por meio de um link privado. Você pode encontrar rapidamente as cadeias de conexão no portal do Azure selecionando seu repositório de configuração de aplicativo e, em seguida, selecionando **configurações** > **chaves de acesso**.  
+O Azure conta com a resolução DNS para rotear conexões da VNet para o armazenamento de configuração por meio de um link privado. Você pode encontrar rapidamente as cadeias de conexão no portal do Azure selecionando seu repositório de configuração de aplicativo e, em seguida, selecionando **configurações**  >  **chaves de acesso**.  
 
 > [!IMPORTANT]
-> Use a mesma cadeia de conexão para se conectar ao armazenamento de configuração do aplicativo usando pontos de extremidade privados como você usaria para um ponto de extremidades público. Não se conecte à conta de armazenamento usando `privatelink` sua URL de subdomínio.
+> Use a mesma cadeia de conexão para se conectar ao armazenamento de configuração do aplicativo usando pontos de extremidade privados como você usaria para um ponto de extremidades público. Não se conecte à loja usando sua `privatelink` URL de subdomínio.
 
 ## <a name="dns-changes-for-private-endpoints"></a>Alterações de DNS para pontos de extremidade particulares
 
-Quando você cria um ponto de extremidade privado, o registro de recurso DNS CNAME para o repositório de configuração é atualizado para um alias em um subdomínio com o prefixo `privatelink`. O Azure também cria uma [zona DNS privada](../dns/private-dns-overview.md) correspondente ao `privatelink` subdomínio, com os registros de recurso de DNS a para os pontos de extremidade privados.
+Quando você cria um ponto de extremidade privado, o registro de recurso DNS CNAME para o repositório de configuração é atualizado para um alias em um subdomínio com o prefixo `privatelink` . O Azure também cria uma [zona DNS privada](../dns/private-dns-overview.md) correspondente ao `privatelink` subdomínio, com os registros de recurso de DNS a para os pontos de extremidade privados.
 
-Quando você resolve a URL do ponto de extremidade de fora da VNet, ela é resolvida para o ponto de extremidade público da loja. Quando resolvido de dentro da VNet que hospeda o ponto de extremidade privado, a URL do ponto de extremidade é resolvida para o ponto de extremidade privado.
+Quando você resolve a URL do ponto de extremidade de dentro da VNet que hospeda o ponto de extremidade privado, ele é resolvido para o ponto de extremidade privado da loja. Quando resolvido de fora da VNet, a URL do ponto de extremidade é resolvida para o ponto de extremidade público. Quando você cria um ponto de extremidade privado, o ponto de extremidade público é desabilitado.
 
-Você pode controlar o acesso para clientes fora da VNet por meio do ponto de extremidade público usando o serviço de firewall do Azure.
-
-Essa abordagem permite o acesso ao armazenamento **usando a mesma cadeia de conexão** para clientes na vnet que hospeda os pontos de extremidade privados, bem como clientes fora da vnet.
-
-Se você estiver usando um servidor DNS personalizado em sua rede, os clientes deverão ser capazes de resolver o FQDN (nome de domínio totalmente qualificado) para o ponto de extremidade de serviço para o endereço IP do ponto de extremidade privado. Configure o servidor DNS para delegar seu subdomínio de link privado para a zona DNS privada para a VNet ou configure os registros a `AppConfigInstanceA.privatelink.azconfig.io` para com o endereço IP do ponto de extremidade privado.
+Se você estiver usando um servidor DNS personalizado em sua rede, os clientes deverão ser capazes de resolver o FQDN (nome de domínio totalmente qualificado) para o ponto de extremidade de serviço para o endereço IP do ponto de extremidade privado. Configure o servidor DNS para delegar seu subdomínio de link privado para a zona DNS privada para a VNet ou configure os registros a para `AppConfigInstanceA.privatelink.azconfig.io` com o endereço IP do ponto de extremidade privado.
 
 > [!TIP]
 > Ao usar um servidor DNS local ou personalizado, você deve configurar o servidor DNS para resolver o nome do repositório no `privatelink` subdomínio para o endereço IP do ponto de extremidade privado. Você pode fazer isso delegando o `privatelink` subdomínio à zona DNS privada da VNet ou configurando a zona DNS no servidor DNS e adicionando os registros a do DNS.

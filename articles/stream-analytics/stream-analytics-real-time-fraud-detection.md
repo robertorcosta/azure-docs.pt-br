@@ -5,15 +5,15 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5e2ba749b64a6d44c9aa6b03352910ab24771084
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 3bfc03dd7a04bea7e69aa1b62cef267a81b650f1
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835641"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037606"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Introdução ao uso do Stream Analytics do Azure: Detecção de fraude em tempo real
 
@@ -47,7 +47,7 @@ Se você quiser analisar os resultados do trabalho do Streaming Analytics, você
 
 ## <a name="create-an-azure-event-hubs-to-ingest-events"></a>Criar Hubs de Eventos do Azure para eventos de ingestão
 
-Para analisar um fluxo de dados, faça a *ingestão* no Azure. Uma forma comum de ingestão de dados é usar [Hubs de eventos do Azure](../event-hubs/event-hubs-what-is-event-hubs.md), que permite ingerir milhões de eventos por segundo e, em seguida, processar e armazenar as informações do evento. Para este tutorial, você criará um hub de eventos e, em seguida, fará com que o aplicativo gerador de evento de chamada envie dados de chamada para esse hub de eventos. Para saber mais sobre Hubs de eventos, consulte [documentação do Barramento de Serviço do Azure](https://docs.microsoft.com/azure/service-bus/).
+Para analisar um fluxo de dados, faça a *ingestão* no Azure. Uma forma comum de ingestão de dados é usar [Hubs de eventos do Azure](../event-hubs/event-hubs-what-is-event-hubs.md), que permite ingerir milhões de eventos por segundo e, em seguida, processar e armazenar as informações do evento. Para este tutorial, você criará um hub de eventos e, em seguida, fará com que o aplicativo gerador de evento de chamada envie dados de chamada para esse hub de eventos.
 
 >[!NOTE]
 >Para obter uma versão mais detalhada deste procedimento, consulte [Criar um namespace de Hubs de eventos e um hub de eventos usando o portal do Azure](../event-hubs/event-hubs-create.md). 
@@ -202,7 +202,7 @@ Agora que você tem um fluxo de eventos de chamada, você pode configurar um tra
    |**Configuração**  |**Valor sugerido**  |**Descrição**  |
    |---------|---------|---------|
    |Alias de entrada  |  CallStream   |  Insira um nome para identificar a entrada do trabalho.   |
-   |Subscription   |  \<Sua assinatura\> |  Selecione a assinatura do Azure com o Hub de Eventos que você criou.   |
+   |Subscription   |  \<Your subscription\> |  Selecione a assinatura do Azure com o Hub de Eventos que você criou.   |
    |Namespace do Hub de Eventos  |  asa-eh-ns-demo |  Insira o nome do namespace de Hub de Eventos.   |
    |Nome do Hub de Eventos  | asa-eh-frauddetection-demo | Selecione o nome do Hub de Eventos.   |
    |Nome da política do Hub de Eventos  | asa-policy-manage-demo | Selecione a política de acesso que você criou anteriormente.   |
@@ -372,7 +372,7 @@ Se você tiver uma conta de armazenamento de Blobs existente, poderá usá-la. P
    |**Configuração**  |**Valor sugerido**  |**Descrição**  |
    |---------|---------|---------|
    |Alias de saída  |  CallStream-FraudulentCalls   |  Insira um nome para identificar a saída do trabalho.   |
-   |Subscription   |  \<Sua assinatura\> |  Selecione a assinatura do Azure que tem a conta de armazenamento criada. A conta de armazenamento pode estar na mesma assinatura ou em uma diferente. Este exemplo pressupõe que você criou a conta de armazenamento na mesma assinatura. |
+   |Subscription   |  \<Your subscription\> |  Selecione a assinatura do Azure que tem a conta de armazenamento criada. A conta de armazenamento pode estar na mesma assinatura ou em uma diferente. Este exemplo pressupõe que você criou a conta de armazenamento na mesma assinatura. |
    |Conta de armazenamento  |  asaehstorage |  Insira o nome da conta de armazenamento criada. |
    |Contêiner  | asa-fraudulentcalls-demo | Escolha Criar novo e insira um nome de contêiner. |
 

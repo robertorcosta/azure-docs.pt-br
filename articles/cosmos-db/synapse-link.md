@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 709b442fde94d88adc7fe4cce16ee1a50bf06c6b
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: ff64f3f4891aac27a32b642b50ebd51dea9bd34a
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83674338"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86025770"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>O que é o Link do Azure Synapse para Azure Cosmos DB (versão prévia)?
 
@@ -25,7 +25,7 @@ Ao usar o [repositório analítico do Azure Cosmos DB](analytical-store-introduc
 
 A imagem a seguir mostra a integração do Link do Azure Synapse com o Azure Cosmos DB e o Azure Synapse Analytics: 
 
-![Diagrama de arquitetura par integração do Azure Synapse Analytics com o Azure Cosmos DB](./media/synapse-link/synapse-analytics-cosmos-db-architecture.png)
+:::image type="content" source="./media/synapse-link/synapse-analytics-cosmos-db-architecture.png" alt-text="Diagrama de arquitetura par integração do Azure Synapse Analytics com o Azure Cosmos DB" border="false":::
 
 ## <a name="benefits"></a><a id="synapse-link-benefits"></a> Benefícios
 
@@ -121,6 +121,8 @@ O Link do Synapse não será recomendado se você estiver procurando requisitos 
 * Durante a versão prévia pública, há suporte para o Link do Azure Synapse apenas para a API de SQL (Core) do Azure Cosmos DB. O suporte para a API do Azure Cosmos DB para o MongoDB e API do Cassandra está em versão prévia restrita atualmente. Para solicitar acesso à versão prévia restrita, envie um email para a [equipe do Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
 
 * No momento, você pode habilitar o repositório analítico apenas para novos contêineres (em contas novas e existentes do Azure Cosmos DB).
+
+* Na visualização, para contas de banco de dados habilitadas para o Synapse link, não há suporte para backup e restauração de contêineres. Se você tiver cargas de trabalho de produção que exigem a funcionalidade de backup e restauração, recomendamos não habilitar o link Synapse nessas contas de banco de dados. 
 
 * O acesso ao repositório analítico do Azure Cosmos DB com o SQL do Synapse sem servidor está atualmente em versão prévia restrita. Para solicitar acesso, envie um email para a [equipe do Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
 
