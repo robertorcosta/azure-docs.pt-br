@@ -1,5 +1,5 @@
 ---
-title: Introdução ao enriquecimento de IA
+title: Conceitos de enriquecimento de ia
 titleSuffix: Azure Cognitive Search
 description: Extração de conteúdo, NLP (processamento de idioma natural) e processamento de imagem são usados para criar conteúdo pesquisável em índices de Pesquisa Cognitiva do Azure com habilidades cognitivas predefinidas e algoritmos de ia personalizados.
 manager: nitinme
@@ -7,17 +7,21 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/24/2020
-ms.openlocfilehash: a41dcc9c7ec86f41c64a69ea1aba762b960b2633
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/18/2020
+ms.openlocfilehash: cb9214dcd79e45b4c587c7ab47e425f2fdd8714c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80283014"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564422"
 ---
-# <a name="getting-started-with-ai-enrichment"></a>Introdução ao enriquecimento de ia
+# <a name="ai-enrichment-in-azure-cognitive-search"></a>Enriquecimento de IA no Azure Cognitive Search
 
-O enriquecimento de ia é um recurso da indexação de Pesquisa Cognitiva do Azure usada para extrair texto de imagens, BLOBs e outras fontes de dados não estruturados. Enriquecimento e extração tornam seu conteúdo mais pesquisável em um [índice](search-what-is-an-index.md) ou [armazenamento de conhecimento](knowledge-store-concept-intro.md). Extração e enriquecimento são implementados usando *habilidades cognitivas* anexadas ao pipeline de indexação. As habilidades cognitivas incorporadas ao serviço se enquadram nessas categorias: 
+O enriquecimento de ia é uma extensão de [indexadores](search-indexer-overview.md) que podem ser usados para extrair texto de imagens, BLOBs e outras fontes de dados não estruturados. Enriquecimento e extração tornam seu conteúdo mais pesquisável nos objetos de saída do indexador, um [índice de pesquisa](search-what-is-an-index.md) ou uma [loja de conhecimento](knowledge-store-concept-intro.md). 
+
+Extração e enriquecimento são implementados usando *habilidades cognitivas* anexadas ao pipeline controlado pelo indexador. Você pode usar habilidades internas da Microsoft ou inserir o processamento externo em uma [*habilidade personalizada*](cognitive-search-create-custom-skill-example.md) que você criar. Exemplos de uma habilidade personalizada podem ser um módulo de entidade personalizado ou classificador de documento direcionado a um domínio específico, como finanças, publicações científicas ou medicina.
+
+As habilidades internas se enquadram nessas categorias: 
 
 + As habilidades de **Processamento de linguagem natural** incluem [reconhecimento de entidade](cognitive-search-skill-entity-recognition.md), [detecção de idioma](cognitive-search-skill-language-detection.md), [extração de frases-chave](cognitive-search-skill-keyphrases.md), manipulação de texto, [detecção de sentimento](cognitive-search-skill-sentiment.md) e [detecção de PII](cognitive-search-skill-pii-detection.md). Com essas habilidades, o texto não estruturado é mapeado como campos pesquisáveis e filtráveis em um índice.
 
@@ -25,9 +29,9 @@ O enriquecimento de ia é um recurso da indexação de Pesquisa Cognitiva do Azu
 
 ![Diagrama do pipeline de enriquecimento](./media/cognitive-search-intro/cogsearch-architecture.png "visão geral do pipeline de enriquecimento")
 
-As habilidades cognitivas no Azure Pesquisa Cognitiva se baseiam em modelos de aprendizado de máquina pré-treinados no API de Serviços Cognitivos: [Pesquisa Visual computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) e [análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview). 
+As habilidades internas no Azure Pesquisa Cognitiva se baseiam em modelos de aprendizado de máquina pré-treinados no API de Serviços Cognitivos: [Pesquisa Visual computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) e [análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview). Você pode anexar um recurso de serviços cognitivas se desejar aproveitar esses recursos durante o processamento de conteúdo.
 
-O processamento de imagens e em idioma natural é aplicada durante a fase de ingestão de dados, com os resultados se tornando parte da composição de um documento em um índice pesquisável na Pesquisa Cognitiva do Azure. Os dados são originados como um conjunto de dados do Azure e, em seguida, enviados por meio de um pipeline de indexação usando o que ocorrer [habilidades internas](cognitive-search-predefined-skills.md) que você precisa. A arquitetura é extensível, portanto, se as habilidades internas não forem suficientes, você pode criar e anexar [habilidades personalizadas](cognitive-search-create-custom-skill-example.md) a integrar o processamento personalizado. Exemplos podem ser um módulo de entidade personalizada ou um classificador de documento direcionado a um domínio específico, como finanças, publicações científicas ou medicina.
+O processamento de imagens e em idioma natural é aplicada durante a fase de ingestão de dados, com os resultados se tornando parte da composição de um documento em um índice pesquisável na Pesquisa Cognitiva do Azure. Os dados são originados como um conjunto de dados do Azure e, em seguida, enviados por meio de um pipeline de indexação usando o que ocorrer [habilidades internas](cognitive-search-predefined-skills.md) que você precisa.  
 
 ## <a name="when-to-use-ai-enrichment"></a>Quando usar o enriquecimento de ia
 
@@ -55,8 +59,7 @@ Um [técnico](cognitive-search-defining-skillset.md) que é montado usando habil
 
 As habilidades personalizadas podem dar suporte a cenários mais complexos, como o reconhecimento de formulários ou a detecção de entidades personalizadas usando um modelo que você fornece e encapsula na [interface da Web de habilidades personalizadas](cognitive-search-custom-skill-interface.md). Vários exemplos de habilidades personalizadas incluem o [Reconhecimento de Formulários](/azure/cognitive-services/form-recognizer/overview), a integração da [API de Pesquisa de Entidade do Bing](https://docs.microsoft.com/azure/search/cognitive-search-create-custom-skill-example) e o [reconhecimento de entidades personalizadas](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
 
-
-## <a name="steps-in-an-enrichment-pipeline"></a>Etapas em um pipeline de enriquecimento
+<a name="enrichment-steps"># # Etapas em um pipeline de enriquecimento</a>
 
 Um pipeline de enriquecimento é baseado em [*indexadores*](search-indexer-overview.md). Os indexadores preenchem um índice com base em mapeamentos de campo para campo entre o índice e sua fonte de dados para decifração de documentos. Habilidades, agora anexadas a indexadores, interceptar e enriquecer documentos de acordo com os conjuntos de qualificações que você definir. Após a indexação, você pode acessar o conteúdo por meio de solicitações de pesquisa em todos os [tipos de consulta compatíveis com a Pesquisa Cognitiva do Azure](search-query-overview.md).  Se você estiver começando a usar indexadores, esta seção o orientará pelas etapas.
 
@@ -80,7 +83,7 @@ Internamente, o pipeline gera uma coleção de documentos enriquecidos. Você po
 
 #### <a name="add-a-knowledgestore-element-to-save-enrichments"></a>Adicionar um elemento knowledgeStore para salvar os enriquecimentos
 
-A [REST de Pesquisa api-version=2019-05-06-Preview](search-api-preview.md) estende os conjuntos de habilidades com uma definição de `knowledgeStore` que fornece uma conexão de armazenamento do Azure e projeções que descrevem como os enriquecimentos são armazenados. Isso é adicional ao índice. Em um pipeline de IA padrão, documentos aprimorados são transitórios, usados apenas durante a indexação e descartados em seguida. Com o repositório de conhecimento, os documentos enriquecidos são preservados. Para obter mais informações, confira [Repositório de conhecimento (versão prévia)](knowledge-store-concept-intro.md).
+[Pesquisar API REST – Version = 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/) estende habilidades com uma `knowledgeStore` definição que fornece uma conexão de armazenamento do Azure e projeções que descrevem como os aprimoramentos são armazenados. Isso é adicional ao índice. Em um pipeline de IA padrão, documentos aprimorados são transitórios, usados apenas durante a indexação e descartados em seguida. Com o repositório de conhecimento, os documentos enriquecidos são preservados. Para obter mais informações, consulte [Knowledge Store](knowledge-store-concept-intro.md).
 
 ### <a name="step-3-search-index-and-query-based-access"></a>Etapa 3: Pesquisar índice e acesso baseado em consulta
 
@@ -102,7 +105,7 @@ Os índice são gerados por meio de um esquema de índice que define os campos, 
 
 1. Defina o [esquema de índice](https://docs.microsoft.com/rest/api/searchservice/create-index). A coleção *Campos* inclui campos da fonte de dados. Você também deve usar stub de campos adicionais para manter os valores gerados para o conteúdo criado durante o enriquecimento.
 
-1. Defina o [indexador](https://docs.microsoft.com/rest/api/searchservice/create-skillset) referenciando a fonte de dados, o conjunto de habilidades e o índice.
+1. Defina o [indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer) referenciando a fonte de dados, o conjunto de habilidades e o índice.
 
 1. Dentro do indexador, adicione *outputFieldMappings*. Esta seção mapeia a saída do conjunto de habilidades (na etapa 3) para os campos de entrada no esquema de índice (na etapa 4).
 
@@ -118,6 +121,6 @@ Os índice são gerados por meio de um esquema de índice que define os campos, 
 + [Exemplo: criando uma habilidade personalizada para o enriquecimento do ia (C#)](cognitive-search-create-custom-skill-example.md)
 + [Início rápido: Experimente o enriquecimento de ia em um passo a passo do portal](cognitive-search-quickstart-blob.md)
 + [Tutorial: Saiba mais sobre as APIs de enriquecimento do ia](cognitive-search-tutorial-blob.md)
-+ [Repositório de conhecimento (versão prévia)](knowledge-store-concept-intro.md)
++ [Repositório de conhecimento](knowledge-store-concept-intro.md)
 + [Criar um repositório de conhecimento no REST](knowledge-store-create-rest.md)
 + [Dicas de solução de problemas](cognitive-search-concept-troubleshooting.md)

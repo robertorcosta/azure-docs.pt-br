@@ -1,7 +1,7 @@
 ---
-title: Configurar uma conexão com um banco de dados SQL do Azure usando uma identidade gerenciada (versão prévia)
+title: Configurar uma conexão com o banco de dados SQL do Azure usando uma identidade gerenciada (versão prévia)
 titleSuffix: Azure Cognitive Search
-description: Saiba como configurar uma conexão de indexador em um banco de dados SQL do Azure usando uma identidade gerenciada (versão prévia)
+description: Saiba como configurar uma conexão de indexador com o banco de dados SQL do Azure usando uma identidade gerenciada (versão prévia)
 manager: luisca
 author: markheff
 ms.author: maheff
@@ -9,22 +9,23 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 87389651707a3bdcc18ae7eb03b88681b5303c4d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: d0933f5305007bc4a8238adb2b6b949ab0c11edf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663454"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559942"
 ---
-# <a name="set-up-an-indexer-connection-to-an-azure-sql-database-using-a-managed-identity-preview"></a>Configurar uma conexão de indexador com um banco de dados SQL do Azure usando uma identidade gerenciada (versão prévia)
+# <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity-preview"></a>Configurar uma conexão do indexador com o banco de dados SQL do Azure usando uma identidade gerenciada (versão prévia)
 
 > [!IMPORTANT] 
 > No momento, o suporte para configurar uma conexão com uma fonte de dados usando uma identidade gerenciada está em uma visualização pública restrita. A funcionalidade de versão prévia é fornecida sem um Contrato de Nível de Serviço e, portanto, não é recomendada para cargas de trabalho de produção.
 > Você pode solicitar acesso à versão prévia preenchendo [este formulário](https://aka.ms/azure-cognitive-search/mi-preview-request).
 
-Esta página descreve como configurar uma conexão de indexador com um banco de dados SQL do Azure usando uma identidade gerenciada, em vez de fornecer credenciais na cadeia de conexão do objeto da fonte de dados.
+Esta página descreve como configurar uma conexão de indexador com o banco de dados SQL do Azure usando uma identidade gerenciada em vez de fornecer credenciais na cadeia de conexão do objeto de fonte de dado.
 
 Antes de saber mais sobre esse recurso, é recomendável compreender o que é um indexador e como configurá-lo para a fonte de dados. Encontre mais informações nos links a seguir:
+
 * [Visão geral do indexador](search-indexer-overview.md)
 * [Indexador do SQL do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 
@@ -39,7 +40,7 @@ Quando uma identidade gerenciada atribuída pelo sistema é habilitada, o Azure 
 Depois de selecionar **Salvar**, você verá uma ID do objeto que foi atribuída ao serviço de pesquisa.
 
 ![ID do objeto](./media/search-managed-identities/system-assigned-identity-object-id.png "ID de objeto")
- 
+
 ### <a name="2---provision-azure-active-directory-admin-for-sql-server"></a>2 – Provisionar o administrador do Azure Active Directory para SQL Server
 
 Ao se conectar ao banco de dados na próxima etapa, será necessário se conectar a uma conta do Azure AD (Azure Active Directory) que tenha acesso de administrador ao banco de dados para dar permissão de acesso no banco de dados ao seu serviço de pesquisa.
@@ -110,7 +111,7 @@ Ao indexar de um banco de dados SQL, a fonte de dados deve ter as seguintes prop
 Exemplo de como criar um objeto de fonte de dados do SQL do Azure usando a [API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source):
 
 ```
-POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
+POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
 Content-Type: application/json
 api-key: [admin key]
 
@@ -131,7 +132,7 @@ O índice especifica os campos em um documento, atributos e outras construções
 Veja como criar um índice com um campo `booktitle` pesquisável:   
 
 ```
-POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
+POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
 Content-Type: application/json
 api-key: [admin key]
 
@@ -155,7 +156,7 @@ Uma vez que o índice e a fonte de dados forem criados, será possível criar o 
 Exemplo de definição de indexador para um indexador de SQL do Azure:
 
 ```
-POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
 Content-Type: application/json
 api-key: [admin key]
 

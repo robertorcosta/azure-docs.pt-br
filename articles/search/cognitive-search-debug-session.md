@@ -1,5 +1,5 @@
 ---
-title: Depurar um conjunto de habilidades de enriquecimento de IA (versão prévia)
+title: Conceitos de sessões de depuração (visualização)
 titleSuffix: Azure Cognitive Search
 description: As Sessões de depuração, acessadas por meio do portal do Azure, fornecem um ambiente do tipo IDE em que você pode identificar e corrigir erros, validar alterações e efetuar push de alterações em conjuntos de habilidades no pipeline de enriquecimento de IA. As Sessões de depuração estão em versão prévia.
 manager: nitinme
@@ -8,21 +8,20 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 04b221d772abf923d7aabfe767a6424b72ed8fb2
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: edce8f3460e92eef4f6665b1b38a61582d6841ad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83662404"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85560383"
 ---
-# <a name="debug-sessions"></a>Sessões de depuração
+# <a name="debug-sessions-in-azure-cognitive-search"></a>Sessões de depuração no Azure Pesquisa Cognitiva
 
 As Sessões de depuração são um editor visual que funciona com um conjunto de habilidades existente no portal do Azure. Em uma Sessão de depuração, você pode identificar e resolver erros, validar alterações e efetuar push de alterações em um conjunto de habilidades de produção no pipeline de enriquecimento de IA.
 
 > [!Important]
-> O suporte a Sessões de depuração no Azure Cognitive Search está disponível [mediante solicitação](https://aka.ms/DebugSessions) como uma versão prévia de acesso limitado. A versão prévia dos recursos é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Sessões de depuração é um recurso de visualização fornecido sem um contrato de nível de serviço e não é recomendado para cargas de trabalho de produção. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> Depois de receber acesso à versão prévia, você poderá acessar e usar as Sessões de depuração do serviço usando o portal do Azure.
 
 ## <a name="using-debug-sessions"></a>Usar as Sessões de depuração
 
@@ -86,6 +85,10 @@ O **Avaliador de expressão** oferece uma noção rápida do valor de qualquer c
 ## <a name="errorswarnings"></a>Erros/Avisos
 
 Essa janela exibe todos os erros e avisos que o conjunto de habilidades produz conforme é executado no documento na Sessão de depuração.
+
+## <a name="limitations"></a>Limitações
+
+Debug sesisons trabalha com todas as fontes de dados geralmente disponíveis AMD mais fontes de dados de visualização. Atualmente, não há suporte para a API do MongoDB (visualização) e API do Cassandra (visualização) de Cosmos DB.
 
 ## <a name="next-steps"></a>Próximas etapas
 

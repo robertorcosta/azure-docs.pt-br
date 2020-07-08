@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 37fc78971124240077a59d4ad99aa06cc408dbae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9448b7df8855f7cf2883f6cf8bd7f2ce465038cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74533963"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563552"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Como indexar BLOBs JSON usando um indexador de blob no Azure Pesquisa Cognitiva
 
@@ -22,7 +22,7 @@ Este artigo mostra como configurar um [indexador](search-indexer-overview.md) de
 
 Você pode usar o [portal](#json-indexer-portal), [APIs REST](#json-indexer-rest), ou [SDK do .NET](#json-indexer-dotnet) para indexar o conteúdo JSON. Comum a todas as abordagens é que os documentos JSON estão localizados em um contêiner de BLOB em uma conta de armazenamento do Azure. Para obter diretrizes sobre o envio de documentos JSON de outras plataformas que não são do Azure, consulte [importação de dados no azure pesquisa cognitiva](search-what-is-data-import.md).
 
-Os BLOBs JSON no armazenamento de BLOBs do Azure normalmente são um único documento JSON (o `json`modo de análise é) ou uma coleção de entidades JSON. Para coleções, o blob poderia ter uma **matriz** de elementos JSON bem formados (o modo de análise `jsonArray`é). Os BLOBs também podem ser compostos por várias entidades JSON individuais separadas por uma nova linha (o modo `jsonLines`de análise é). O parâmetro **parsingMode** na solicitação determina as estruturas de saída.
+Os BLOBs JSON no armazenamento de BLOBs do Azure normalmente são um único documento JSON (o modo de análise é `json` ) ou uma coleção de entidades JSON. Para coleções, o blob poderia ter uma **matriz** de elementos JSON bem formados (o modo de análise é `jsonArray` ). Os BLOBs também podem ser compostos por várias entidades JSON individuais separadas por uma nova linha (o modo de análise é `jsonLines` ). O parâmetro **parsingMode** na solicitação determina as estruturas de saída.
 
 > [!NOTE]
 > Para obter mais informações sobre como indexar vários documentos de pesquisa de um único BLOB, consulte [indexação de um para muitos](search-howto-index-one-to-many-blobs.md).
@@ -145,11 +145,11 @@ Você pode encontrar esses valores no Portal:
 
 ### <a name="2---create-a-data-source"></a>2-criar uma fonte de dados
 
-Esta etapa fornece informações de conexão de fonte de dados usadas pelo indexador. A fonte de dados é um objeto nomeado no Azure Pesquisa Cognitiva que persiste as informações de conexão. O tipo de fonte de `azureblob`dados,, determina quais comportamentos de extração de dados são invocados pelo indexador. 
+Esta etapa fornece informações de conexão de fonte de dados usadas pelo indexador. A fonte de dados é um objeto nomeado no Azure Pesquisa Cognitiva que persiste as informações de conexão. O tipo de fonte de dados, `azureblob` , determina quais comportamentos de extração de dados são invocados pelo indexador. 
 
 Substitua os valores válidos para o nome do serviço, a chave de administração, a conta de armazenamento e os espaços reservados da chave de conta.
 
-    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
+    POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
 
@@ -168,7 +168,7 @@ O índice armazena conteúdo pesquisável no Pesquisa Cognitiva do Azure. Para c
 
 O exemplo a seguir mostra uma solicitação de [Criar índice](https://docs.microsoft.com/rest/api/searchservice/create-index). O índice possuirá um campo `content` pesquisável para armazenar o texto extraído dos blobs:   
 
-    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
 
@@ -185,7 +185,7 @@ O exemplo a seguir mostra uma solicitação de [Criar índice](https://docs.micr
 
 Assim como ocorre com um índice e uma fonte de dados, e o indexador também é um objeto nomeado que você cria e reutiliza em um serviço de Pesquisa Cognitiva do Azure. Uma solicitação totalmente especificada para criar um indexador pode ter a seguinte aparência:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
 
@@ -199,7 +199,7 @@ Assim como ocorre com um índice e uma fonte de dados, e o indexador também é 
 
 A configuração do indexador está no corpo da solicitação. Ele requer uma fonte de dados e um índice de destino vazio que já exista no Azure Pesquisa Cognitiva. 
 
-Agendamento e parâmetros são opcionais. Se você omiti-los, o indexador será executado imediatamente `json` , usando como o modo de análise.
+Agendamento e parâmetros são opcionais. Se você omiti-los, o indexador será executado imediatamente, usando `json` como o modo de análise.
 
 Esse indexador específico não inclui mapeamentos de campo. Dentro da definição do indexador, você pode deixar os **mapeamentos de campo** se as propriedades do documento JSON de origem corresponderem aos campos do índice de pesquisa de destino. 
 
@@ -212,7 +212,7 @@ Esta seção é uma recapitulação de todas as solicitações usadas para criar
 
 Todos os indexadores exigem um objeto de fonte de dados que fornece informações de conexão para os dados existentes. 
 
-    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
+    POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
 
@@ -228,7 +228,7 @@ Todos os indexadores exigem um objeto de fonte de dados que fornece informaçõe
 
 Todos os indexadores exigem um índice de destino que recebe os dados. O corpo da solicitação define o esquema de índice, que consiste em campos, atribuídos para dar suporte aos comportamentos desejados em um índice pesquisável. Esse índice deve estar vazio quando você executa o indexador. 
 
-    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
 
@@ -247,7 +247,7 @@ Essa solicitação mostra um indexador totalmente especificado. Ele inclui mapea
 
 A criação do indexador no Azure Pesquisa Cognitiva dispara a importação de dados. Ele é executado imediatamente e depois de um agendamento, se você tiver fornecido um.
 
-    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
 
@@ -284,16 +284,16 @@ Os BLOBs JSON podem assumir vários formulários. O parâmetro **parsingMode** n
 
 | parsingMode | Descrição |
 |-------------|-------------|
-| `json`  | Indexe cada blob como um único documento. Esse é o padrão. |
+| `json`  | Indexe cada blob como um único documento. Este é o padrão. |
 | `jsonArray` | Escolha esse modo se os BLOBs consistirem em matrizes JSON e você precisar que cada elemento da matriz se torne um documento separado no Azure Pesquisa Cognitiva. |
 |`jsonLines` | Escolha esse modo se seus BLOBs consistirem em várias entidades JSON, que são separadas por uma nova linha, e você precisa que cada entidade se torne um documento separado no Pesquisa Cognitiva do Azure. |
 
-Você pode pensar em um documento como um único item nos resultados da pesquisa. Se você quiser que cada elemento na matriz apareça nos resultados da pesquisa como um item independente, use a `jsonArray` opção ou `jsonLines` conforme apropriado.
+Você pode pensar em um documento como um único item nos resultados da pesquisa. Se você quiser que cada elemento na matriz apareça nos resultados da pesquisa como um item independente, use a `jsonArray` `jsonLines` opção ou conforme apropriado.
 
 Dentro da definição de indexador, use opcionalmente [mapeamentos de campo](search-indexer-field-mappings.md) para selecionar as propriedades do documento JSON de origem usado para preencher o índice de pesquisa de destino. Para `jsonArray` o modo de análise, se a matriz existir como uma propriedade de nível inferior, você poderá definir uma raiz do documento indicando onde a matriz é colocada no BLOB.
 
 > [!IMPORTANT]
-> Quando você usa `json`o `jsonArray` , `jsonLines` ou o modo de análise, o Azure pesquisa cognitiva pressupõe que todos os BLOBs em sua fonte de dados contêm JSON. Se você precisar dar suporte a uma combinação de blobs JSON e não JSON na mesma fonte de dados, informe-nos em nosso [site UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+> Quando você usa o `json` , `jsonArray` ou o `jsonLines` modo de análise, o Azure pesquisa cognitiva pressupõe que todos os BLOBs em sua fonte de dados contêm JSON. Se você precisar dar suporte a uma combinação de blobs JSON e não JSON na mesma fonte de dados, informe-nos em nosso [site UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
 
 <a name="parsing-single-blobs"></a>
@@ -328,7 +328,7 @@ Como alternativa, você pode usar a opção de matriz JSON. Essa opção é úti
 
 Para uma matriz JSON, a definição do indexador deve ser semelhante ao exemplo a seguir. Observe que o parâmetro parsingMode especifica o `jsonArray` analisador. Especificar o analisador correto e ter a entrada de dados correta são os únicos dois requisitos específicos de matriz para indexação de BLOBs JSON.
 
-    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -345,7 +345,7 @@ Novamente, os mapeamentos de campo não são necessários. Dado um índice com n
 <a name="nested-json-arrays"></a>
 
 ## <a name="parse-nested-arrays"></a>Analisar matrizes aninhadas
-Para matrizes JSON com elementos aninhados, você pode `documentRoot` especificar um para indicar uma estrutura de vários níveis. Por exemplo, se o seu blob tiver esta aparência:
+Para matrizes JSON com elementos aninhados, você pode especificar um `documentRoot` para indicar uma estrutura de vários níveis. Por exemplo, se o seu blob tiver esta aparência:
 
     {
         "level1" : {
@@ -375,7 +375,7 @@ Se o seu blob contiver várias entidades JSON separadas por uma nova linha e voc
 
 Para linhas JSON, a definição do indexador deve ser semelhante ao exemplo a seguir. Observe que o parâmetro parsingMode especifica o `jsonLines` analisador. 
 
-    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -387,7 +387,7 @@ Para linhas JSON, a definição do indexador deve ser semelhante ao exemplo a se
       "parameters" : { "configuration" : { "parsingMode" : "jsonLines" } }
     }
 
-Novamente, observe que os mapeamentos de campo podem ser omitidos, `jsonArray` semelhante ao modo de análise.
+Novamente, observe que os mapeamentos de campo podem ser omitidos, semelhante ao `jsonArray` modo de análise.
 
 ## <a name="add-field-mappings"></a>Adicionar mapeamentos de campo
 
@@ -424,7 +424,7 @@ Você também pode se referir a elementos individuais da matriz usando um índic
 >
 >
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 + [Indexadores na Pesquisa Cognitiva do Azure](search-indexer-overview.md)
 + [Indexando o armazenamento de BLOBs do Azure com o Azure Pesquisa Cognitiva](search-howto-index-json-blobs.md)

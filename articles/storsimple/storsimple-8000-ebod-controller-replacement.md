@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: b05d1f36d1e74b3d915e216676859654fbcbacf3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bdafb4288bf818928aba43d09f15d4dd75092b24
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254879"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564244"
 ---
 # <a name="replace-an-ebod-controller-on-your-storsimple-device"></a>Substituir um controlador EBOD em seu dispositivo StorSimple
 
@@ -35,14 +35,14 @@ Antes de começar, considere as seguintes informações:
 * O controlador EBOD é intercambiável e pode ser removido ou substituído. Não remova um módulo com falha até que você tenha uma peça de reposição. Depois de iniciado o processo de substituição, ele precisa ser concluído em até 10 minutos.
 
 > [!IMPORTANT]
-> Antes de tentar remover ou substituir qualquer componente do StorSimple, lembre-se de consultar as [convenções de ícones de segurança](storsimple-safety.md#safety-icon-conventions) e outras [precauções de segurança](storsimple-safety.md).
+> Antes de tentar remover ou substituir qualquer componente do StorSimple, lembre-se de consultar as [convenções de ícones de segurança](storsimple-8000-safety.md#safety-icon-conventions) e outras [precauções de segurança](storsimple-8000-safety.md).
 
 ## <a name="remove-an-ebod-controller"></a>Remover um controlador EBOD
 Antes de substituir o módulo do controlador EBOD com falha em seu dispositivo StorSimple, verifique se o outro módulo do controlador EBOD está ativo e em execução. O procedimento e a tabela a seguir explicam como remover o módulo do controlador EBOD.
 
 #### <a name="to-remove-an-ebod-module"></a>Para remover um módulo EBOD
 1. Abra o portal do Azure.
-2. Vá para o dispositivo e navegue até **configurações** > **integridade do hardware**e verifique se o status do LED do módulo do controlador Ebod ativo está verde e se o LED do módulo do controlador Ebod com falha está vermelho.
+2. Vá para o dispositivo e navegue até **configurações**  >  **integridade do hardware**e verifique se o status do LED do módulo do controlador Ebod ativo está verde e se o LED do módulo do controlador Ebod com falha está vermelho.
 3. Localize o módulo do controlador EBOD na parte posterior do dispositivo.
 4. Remova os cabos que conectam o módulo do controlador EBOD ao controlador antes de remover o módulo EBOD do sistema.
 5. Anote a porta SAS exata do módulo do controlador EBOD que foi conectado ao controlador. Você precisará restaurar o sistema de acordo com essa configuração depois de substituir o módulo EBOD.
@@ -54,7 +54,7 @@ Antes de substituir o módulo do controlador EBOD com falha em seu dispositivo S
    
      **Figura 1** Parte posterior do módulo EBOD
    
-   | Rotular | Descrição |
+   | Rótulo | Descrição |
    |:--- |:--- |
    | 1 |LED de falha |
    | 2 |LED de energia |
@@ -86,7 +86,7 @@ O procedimento e a tabela a seguir explicam como instalar um módulo do controla
    
     **Figura 4**. Reconectando os cabos
    
-   | Rotular | Descrição |
+   | Rótulo | Descrição |
    |:--- |:--- |
    | 1 |Compartimento principal |
    | 2 |PCM 0 |

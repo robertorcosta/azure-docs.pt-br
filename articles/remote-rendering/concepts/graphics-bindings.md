@@ -9,12 +9,12 @@ ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
-ms.openlocfilehash: 4854d5ff9d697a2bf082a788c0e761a2152b0294
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.openlocfilehash: d29500db5efd0abde4c9555fde9a7e3d5bbe070a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758700"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564990"
 ---
 # <a name="graphics-binding"></a>Associações de gráficos
 
@@ -27,7 +27,7 @@ Uma vez configurada, a associação de gráficos fornece acesso a várias funç�
 No Unity, toda a associação é manipulada pelo struct `RemoteUnityClientInit` passado para `RemoteManagerUnity.InitializeManager`. Para definir o modo de gráfico, o campo `GraphicsApiType` deve ser definido como a associação escolhida. O campo será preenchido automaticamente dependendo da presença de um XRDevice. O comportamento pode ser substituído manualmente pelos seguintes comportamentos:
 
 * **HoloLens 2**: a associação de gráficos da [Realidade Misturada do Azure](#windows-mixed-reality) é sempre usada.
-* **Aplicativo da área de trabalho simples da UWP**: [Simulação](#simulation) é sempre usada. Para usar esse modo, siga as etapas no [tutorial: Configurar um projeto do Unity do zero](../tutorials/unity/project-setup.md).
+* **Aplicativo da área de trabalho simples da UWP**: [Simulação](#simulation) é sempre usada.
 * **Editor do Unity**: [Simulação](#simulation) é sempre usada, a menos que um headset de VR do WMR esteja conectado. Nesse caso, o ARR será desabilitado para permitir a depuração das partes do aplicativo não relacionadas ao ARR. Consulte também [comunicação remota holográfica](../how-tos/unity/holographic-remoting.md).
 
 A única outra parte relevante para o Unity é o acesso à [associação básica](#access), e todas as outras seções abaixo podem ser ignoradas.
@@ -233,4 +233,4 @@ else
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Tutorial: Configuração de um projeto do Unity do zero](../tutorials/unity/project-setup.md)
+* [Tutorial: exibindo modelos renderizados remotamente](../tutorials/unity/view-remote-models/view-remote-models.md)

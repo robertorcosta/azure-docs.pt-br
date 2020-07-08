@@ -5,17 +5,17 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 03/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 8e3c595720d8900acbc5f7f18dc01d96d71ffac9
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 00aae3386b3f648eafdef31dccb640d8120f7ad8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82569232"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563998"
 ---
-# <a name="troubleshoot-your-azure-stack-edge-issues"></a>Solucionar problemas de Azure Stack Edge 
+# <a name="troubleshoot-your-azure-stack-edge-issues"></a>Solucionar problemas de Azure Stack Edge
 
 Este artigo descreve como solucionar problemas em seu Azure Stack Edge. 
 

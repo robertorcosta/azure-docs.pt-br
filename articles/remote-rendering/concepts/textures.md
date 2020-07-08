@@ -5,16 +5,16 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: de3f127d97803ea920d61d748a1af0c80a1a1afc
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.openlocfilehash: 4b87008f4172e58440c32e4ff92a3ee1f4d5efae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83759125"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565863"
 ---
 # <a name="textures"></a>Texturas
 
-As texturas são um [recurso compartilhado](../concepts/lifetime.md) imutável. As texturas podem ser carregadas do [armazenamento de blobs](../how-tos/conversion/blob-storage.md) e aplicadas aos modelos diretamente, como demonstrado no [Tutorial: Alteração do ambiente e dos materiais](../tutorials/unity/changing-environment-and-materials.md). No entanto, geralmente as texturas serão parte de um [modelo convertido](../how-tos/conversion/model-conversion.md), em que eles são referenciados por seus [materiais](materials.md).
+As texturas são um [recurso compartilhado](../concepts/lifetime.md) imutável. As texturas podem ser carregadas do [armazenamento de blobs](../how-tos/conversion/blob-storage.md) e aplicadas aos modelos diretamente, como demonstrado no [Tutorial: Alteração do ambiente e dos materiais](../tutorials/unity/materials-lighting-effects/materials-lighting-effects.md). No entanto, geralmente as texturas serão parte de um [modelo convertido](../how-tos/conversion/model-conversion.md), em que eles são referenciados por seus [materiais](materials.md).
 
 ## <a name="texture-types"></a>Tipos de textura
 

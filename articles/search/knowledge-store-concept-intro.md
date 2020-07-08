@@ -1,28 +1,25 @@
 ---
-title: Introdução ao repositório de conhecimento (versão prévia)
+title: Conceitos da loja de conhecimento
 titleSuffix: Azure Cognitive Search
-description: Envie documentos enriquecidos ao Armazenamento do Azure, onde você pode exibir, reformatar e consumir documentos enriquecidos no Azure Cognitive Search e em outros aplicativos. Esse recurso está em uma versão prévia.
+description: Envie documentos enriquecidos ao Armazenamento do Azure, onde você pode exibir, reformatar e consumir documentos enriquecidos no Azure Cognitive Search e em outros aplicativos.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/05/2020
-ms.openlocfilehash: 20819bc6ec091eddf5d65b1c0d7aa57c821b2fc1
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: HT
+ms.date: 06/30/2020
+ms.openlocfilehash: 75ecfcca24aa801c2ec277e810f60dbc0a9167fc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858806"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565277"
 ---
-# <a name="introduction-to-knowledge-stores-in-azure-cognitive-search"></a>Introdução aos repositórios de conhecimento na Pesquisa Cognitiva do Azure
+# <a name="knowledge-store-in-azure-cognitive-search"></a>Repositório de conhecimento no Azure Pesquisa Cognitiva
 
-> [!IMPORTANT] 
-> O repositório de conhecimento está atualmente em versão prévia pública. A funcionalidade de versão prévia é fornecida sem um Contrato de Nível de Serviço e, portanto, não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [API REST versão 2019-05-06-Preview](search-api-preview.md) fornece recursos de versão prévia. Atualmente, há suporte limitado ao portal e não há suporte para o SDK do .NET.
+O repositório de conhecimento é um recurso do Azure Cognitive Search que persiste a saída de um [pipeline de enriquecimento de IA](cognitive-search-concept-intro.md) para análise independente ou processamento downstream. Um *documento enriquecido* é a saída de um pipeline, criado com base no conteúdo que foi extraído, estruturado e analisado usando processos de IA. Em um pipeline de IA padrão, documentos aprimorados são transitórios, usados apenas durante a indexação e descartados em seguida. Optar por criar uma loja de conhecimento permitirá que você preserve os documentos aprimorados. 
 
-O repositório de conhecimento é um recurso do Azure Cognitive Search que persiste a saída de um [pipeline de enriquecimento de IA](cognitive-search-concept-intro.md) para análise independente ou processamento downstream. Um *documento enriquecido* é a saída de um pipeline, criado com base no conteúdo que foi extraído, estruturado e analisado usando processos de IA. Em um pipeline de IA padrão, documentos aprimorados são transitórios, usados apenas durante a indexação e descartados em seguida. Com o repositório de conhecimento, os documentos enriquecidos são preservados. 
-
-Se você já usou a habilidades cognitivas no passado, sabe que os *conjuntos de habilidades* fazem com que um documento passe por uma sequência de enriquecimentos. O resultado pode ser um índice de pesquisa ou projeções (uma novidade nesta versão prévia) em um repositório de conhecimento. As duas saídas, índice de pesquisa e repositório de conhecimento, são estruturadas, armazenadas e usadas de maneiras muito diferentes, apesar de serem produtos do mesmo pipeline e derivadas das mesmas entradas.
+Se você já usou a habilidades cognitivas no passado, sabe que os *conjuntos de habilidades* fazem com que um documento passe por uma sequência de enriquecimentos. O resultado pode ser um índice de pesquisa ou projeções em uma loja de conhecimento. As duas saídas, índice de pesquisa e repositório de conhecimento, são estruturadas, armazenadas e usadas de maneiras muito diferentes, apesar de serem produtos do mesmo pipeline e derivadas das mesmas entradas.
 
 Fisicamente, um repositório de conhecimento é um [Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview), podendo ser o Armazenamento de Tabelas do Azure, o Armazenamento de Blobs do Azure ou ambos. Qualquer ferramenta ou processo que pode se conectar ao Armazenamento do Azure pode consumir o conteúdo de um repositório de conhecimento.
 
@@ -103,7 +100,7 @@ Um [indexador](search-indexer-overview.md) é necessário. Um conjunto de habili
 
 ## <a name="how-to-create-a-knowledge-store"></a>Como criar um repositório de conhecimento
 
-Para criar um repositório de conhecimento, use o portal ou a versão prévia da API REST (`api-version=2019-05-06-Preview`).
+Para criar a loja de conhecimento, use o portal ou a API REST ( `api-version=2020-06-30` ).
 
 ### <a name="use-the-azure-portal"></a>Use o Portal do Azure
 
@@ -117,13 +114,11 @@ O assistente **Importar dados** inclui opções para criar um repositório de co
 
 1. Execute o assistente. A extração, o enriquecimento e o armazenamento ocorrem nesta última etapa.
 
-### <a name="use-create-skillset-and-the-preview-rest-api"></a>Usar Criar Conjunto de Habilidades e a versão prévia da API REST
+### <a name="use-create-skillset-rest-api"></a>Usar CREATE conskillr (API REST)]
 
 Um `knowledgeStore` é definido em um [conjunto de habilidades](cognitive-search-working-with-skillsets.md) que, por sua vez, é invocado por um [indexador](search-indexer-overview.md). Durante o enriquecimento, o Azure Cognitive Search cria um espaço em sua conta do Armazenamento do Azure e projeta os documentos enriquecidos como blobs ou em tabelas, dependendo de sua configuração.
 
-Atualmente, a versão prévia da API REST é o único mecanismo pelo qual você pode criar um repositório de conhecimento programaticamente. Uma forma fácil de explorar é [criar seu primeiro repositório de conhecimento usando o Postman e a API REST](knowledge-store-create-rest.md).
-
-O conteúdo de referência para essa versão prévia do recurso está localizado na seção [referência de API](#kstore-rest-api) deste artigo. 
+A API REST é um mecanismo pelo qual você pode criar uma loja de conhecimento programaticamente. Uma forma fácil de explorar é [criar seu primeiro repositório de conhecimento usando o Postman e a API REST](knowledge-store-create-rest.md).
 
 <a name="tools-and-apps"></a>
 
@@ -141,17 +136,17 @@ Após os enriquecimentos estarem no armazenamento, qualquer ferramenta ou tecnol
 
 ## <a name="api-reference"></a>Referência de API
 
-A API REST versão `2019-05-06-Preview` fornece o repositório de conhecimento por meio de definições adicionais em conjuntos de habilidades. Além da referência, confira [Criar um repositório de conhecimento usando o Postman](knowledge-store-create-rest.md) para obter detalhes sobre como chamar as APIs.
+A API REST versão `2020-06-30` fornece o repositório de conhecimento por meio de definições adicionais em conjuntos de habilidades. Além da referência, confira [Criar um repositório de conhecimento usando o Postman](knowledge-store-create-rest.md) para obter detalhes sobre como chamar as APIs.
 
-+ [Criar conjunto de habilidades (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/create-skillset) 
-+ [Atualizar conjunto de habilidades (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-skillset) 
++ [Criar Qualificable (API-Version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/2020-06-30/create-skillset)
++ [Atualizar o Qualificable (API-Version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/2020-06-30/update-skillset)
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
 O repositório de conhecimento oferece persistência de documentos enriquecidos, que é útil ao criar um conjunto de habilidades ou ao criar novas estruturas e conteúdo para consumo por qualquer aplicativo cliente capaz de acessar uma conta de Armazenamento do Azure.
 
-A abordagem mais simples para a criação de documentos aprimorados é [por meio do portal](knowledge-store-create-portal.md), mas você também pode usar o Postman e a API REST, que é mais útil quando você quer obter informações sobre como os objetos são criados e referenciados.
+A abordagem mais simples para a criação de documentos aprimorados é [por meio do portal](knowledge-store-create-portal.md), mas você também pode usar o postmaster e a API REST, que é mais útil se você quiser obter informações sobre como os objetos são criados e referenciados.
 
 > [!div class="nextstepaction"]
 > [Criar um repositório de conhecimento usando a REST e o Postman](knowledge-store-create-rest.md)

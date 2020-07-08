@@ -9,12 +9,12 @@ tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2edd62825de08becf22f2f953a63a7f89f55e0a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9fe61cf2a53b8e128a6cb58465cbb4785faa89d2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79283050"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85562046"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Como modelar tipos de dados complexos no Azure Pesquisa Cognitiva
 
@@ -27,13 +27,13 @@ O Azure Pesquisa Cognitiva dá suporte nativo a tipos e coleções complexos. Es
 Para começar, recomendamos o [conjunto de dados de hotéis](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md), que pode ser carregado no assistente de importação de **dados** no portal do Azure. O assistente detecta tipos complexos na origem e sugere um esquema de índice baseado nas estruturas detectadas.
 
 > [!Note]
-> O suporte para tipos complexos está geralmente disponível `api-version=2019-05-06`no. 
+> O suporte para tipos complexos tornou-se geralmente disponível a partir do `api-version=2019-05-06` . 
 >
 > Se sua solução de pesquisa tiver sido criada em soluções alternativas anteriores de conjuntos de valores em uma coleção, você deverá alterar o índice para incluir tipos complexos com suporte na versão mais recente da API. Para obter mais informações sobre como atualizar versões de API, consulte [atualizar para a versão mais recente da API REST](search-api-migration.md) ou [atualizar para a versão mais recente do SDK do .net](search-dotnet-sdk-migration-version-9.md).
 
 ## <a name="example-of-a-complex-structure"></a>Exemplo de uma estrutura complexa
 
-O documento JSON a seguir é composto de campos simples e campos complexos. Campos complexos, como `Address` e `Rooms`, têm subcampos. `Address`tem um único conjunto de valores para esses subcampos, pois é um único objeto no documento. Por outro lado `Rooms` , o tem vários conjuntos de valores para seus subcampos, um para cada objeto na coleção.
+O documento JSON a seguir é composto de campos simples e campos complexos. Campos complexos, como `Address` e `Rooms` , têm subcampos. `Address`tem um único conjunto de valores para esses subcampos, pois é um único objeto no documento. Por outro lado, `Rooms` o tem vários conjuntos de valores para seus subcampos, um para cada objeto na coleção.
 
 ```json
 {
@@ -97,13 +97,13 @@ Todas as [regras de reindexação](search-howto-reindex.md) que se aplicam a cam
 
 ### <a name="structural-updates-to-the-definition"></a>Atualizações estruturais para a definição
 
-Você pode adicionar novos subcampos a um campo complexo a qualquer momento sem a necessidade de uma recompilação de índice. Por exemplo, a `Address` `Rooms` adição de "ZipCode" ou "comodidades" é permitida, assim como a adição de um campo de nível superior a um índice. Os documentos existentes têm um valor nulo para novos campos até que você preencha explicitamente esses campos atualizando seus dados.
+Você pode adicionar novos subcampos a um campo complexo a qualquer momento sem a necessidade de uma recompilação de índice. Por exemplo, a adição de "ZipCode" `Address` ou "comodidades" `Rooms` é permitida, assim como a adição de um campo de nível superior a um índice. Os documentos existentes têm um valor nulo para novos campos até que você preencha explicitamente esses campos atualizando seus dados.
 
 Observe que, em um tipo complexo, cada subcampo tem um tipo e pode ter atributos, assim como os campos de nível superior
 
 ### <a name="data-updates"></a>Atualizações de dados
 
-A atualização de documentos existentes em um índice `upload` com a ação funciona da mesma maneira para campos complexos e simples – todos os campos são substituídos. No entanto `merge` , `mergeOrUpload` (ou quando aplicado a um documento existente) não funciona da mesma em todos os campos. Especificamente, `merge` o não dá suporte a elementos de mesclagem dentro de uma coleção. Essa limitação existe para coleções de tipos primitivos e coleções complexas. Para atualizar uma coleção, você precisará recuperar o valor completo da coleção, fazer alterações e, em seguida, incluir a nova coleção na solicitação da API do índice.
+A atualização de documentos existentes em um índice com a `upload` ação funciona da mesma maneira para campos complexos e simples – todos os campos são substituídos. No entanto, `merge` (ou `mergeOrUpload` quando aplicado a um documento existente) não funciona da mesma em todos os campos. Especificamente, o `merge` não dá suporte a elementos de mesclagem dentro de uma coleção. Essa limitação existe para coleções de tipos primitivos e coleções complexas. Para atualizar uma coleção, você precisará recuperar o valor completo da coleção, fazer alterações e, em seguida, incluir a nova coleção na solicitação da API do índice.
 
 ## <a name="searching-complex-fields"></a>Pesquisando campos complexos
 
@@ -117,11 +117,11 @@ Consultas como essa não são *correlacionadas* para pesquisa de texto completo,
 
 ## <a name="selecting-complex-fields"></a>Selecionando campos complexos
 
-O `$select` parâmetro é usado para escolher quais campos são retornados nos resultados da pesquisa. Para usar esse parâmetro para selecionar subcampos específicos de um campo complexo, inclua o campo pai e o subcampo separados por uma barra (`/`).
+O `$select` parâmetro é usado para escolher quais campos são retornados nos resultados da pesquisa. Para usar esse parâmetro para selecionar subcampos específicos de um campo complexo, inclua o campo pai e o subcampo separados por uma barra ( `/` ).
 
     $select=HotelName, Address/City, Rooms/BaseRate
 
-Os campos devem ser marcados como recuperáveis no índice, se você quiser nos resultados da pesquisa. Somente os campos marcados como recuperáveis podem ser usados em `$select` uma instrução.
+Os campos devem ser marcados como recuperáveis no índice, se você quiser nos resultados da pesquisa. Somente os campos marcados como recuperáveis podem ser usados em uma `$select` instrução.
 
 ## <a name="filter-facet-and-sort-complex-fields"></a>Filtrar, facetar e classificar campos complexos
 
@@ -129,15 +129,15 @@ A mesma [sintaxe de caminho OData](query-odata-filter-orderby-syntax.md) usada p
 
 ### <a name="faceting-sub-fields"></a>Subcampos de faceta
 
-Qualquer subcampo pode ser marcado como facetable, a menos que seja do `Edm.GeographyPoint` tipo `Collection(Edm.GeographyPoint)`ou.
+Qualquer subcampo pode ser marcado como facetable, a menos que seja do tipo `Edm.GeographyPoint` ou `Collection(Edm.GeographyPoint)` .
 
-As contagens de documentos retornadas nos resultados da faceta são calculadas para o documento pai (um hotel), não para os subdocumentos em uma coleção complexa (salas). Por exemplo, suponha que um hotel tenha 20 salas do tipo "Suite". Dado esse parâmetro `facet=Rooms/Type`de faceta, a contagem de faceta será uma para o Hotel, e não 20 para as salas.
+As contagens de documentos retornadas nos resultados da faceta são calculadas para o documento pai (um hotel), não para os subdocumentos em uma coleção complexa (salas). Por exemplo, suponha que um hotel tenha 20 salas do tipo "Suite". Dado esse parâmetro de faceta `facet=Rooms/Type` , a contagem de faceta será uma para o Hotel, e não 20 para as salas.
 
 ### <a name="sorting-complex-fields"></a>Classificando campos complexos
 
 As operações de classificação se aplicam a documentos (hotéis) e não a subdocumentos (salas). Quando você tem uma coleção de tipos complexos, como salas, é importante perceber que não é possível classificar em salas. Na verdade, você não pode classificar em nenhuma coleção.
 
-As operações de classificação funcionam quando os campos têm um único valor por documento, se o campo é um campo simples ou um subcampo em um tipo complexo. Por exemplo, `Address/City` pode ser classificável, pois há apenas um endereço por Hotel, portanto `$orderby=Address/City` , classificará Hotéis por cidade.
+As operações de classificação funcionam quando os campos têm um único valor por documento, se o campo é um campo simples ou um subcampo em um tipo complexo. Por exemplo, `Address/City` pode ser classificável, pois há apenas um endereço por Hotel, portanto, `$orderby=Address/City` classificará Hotéis por cidade.
 
 ### <a name="filtering-on-complex-fields"></a>Filtrando em campos complexos
 
@@ -145,7 +145,7 @@ Você pode se referir a subcampos de um campo complexo em uma expressão de filt
 
     $filter=Address/Country eq 'Canada'
 
-Para filtrar em um campo de coleção complexo, você pode usar uma **expressão lambda** com [ `any` os `all` operadores e](search-query-odata-collection-operators.md). Nesse caso, a **variável de intervalo** da expressão lambda é um objeto com subcampos. Você pode consultar esses subcampos com a sintaxe de caminho OData padrão. Por exemplo, o filtro a seguir retornará todos os hotéis com pelo menos uma sala de luxo e todos os quartos não fumantes:
+Para filtrar em um campo de coleção complexo, você pode usar uma **expressão lambda** com os [ `any` `all` operadores e](search-query-odata-collection-operators.md). Nesse caso, a **variável de intervalo** da expressão lambda é um objeto com subcampos. Você pode consultar esses subcampos com a sintaxe de caminho OData padrão. Por exemplo, o filtro a seguir retornará todos os hotéis com pelo menos uma sala de luxo e todos os quartos não fumantes:
 
     $filter=Rooms/any(room: room/Type eq 'Deluxe Room') and Rooms/all(room: not room/SmokingAllowed)
 

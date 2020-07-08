@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e8f6c0454497b1cb1d62417e566e9662469c56d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e0a711b9239e1a76774d8e75f035e6c862218c82
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74113005"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563131"
 ---
 # <a name="how-to-index-tables-from-azure-table-storage-with-azure-cognitive-search"></a>Como indexar tabelas do armazenamento de tabelas do Azure com o Azure Pesquisa Cognitiva
 
@@ -26,7 +26,7 @@ Você pode configurar um indexador de armazenamento de Tabela do Azure usando es
 
 * [Azure portal](https://ms.portal.azure.com)
 * [API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) do Azure pesquisa cognitiva
-* SDK do [.net](https://aka.ms/search-sdk) pesquisa cognitiva do Azure
+* SDK do [.net](https://docs.microsoft.com/dotnet/api/overview/azure/search) pesquisa cognitiva do Azure
 
 Aqui, demonstraremos o fluxo usando a API REST. 
 
@@ -49,7 +49,7 @@ Para a indexação de tabela, a fonte de dados deve ter as seguintes propriedade
 
 Para criar uma fonte de dados:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
+    POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -67,9 +67,9 @@ Para obter mais informações sobre Criar a API da Fonte de Dados, consulte [Cri
 
 Você pode fornecer as credenciais para a tabela de uma das seguintes maneiras: 
 
-- **Cadeia de conexão da conta de armazenamento de acesso completo**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` você pode obter a cadeia de conexão do portal do Azure acessando as**chaves** de**configurações** > da **folha** > da conta de armazenamento (para contas de armazenamento clássicas) ou **configurações** > **chaves de acesso** (para contas de armazenamento de Azure Resource Manager).
+- **Cadeia de conexão da conta de armazenamento de acesso completo**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` você pode obter a cadeia de conexão do portal do Azure acessando as chaves de configurações da **folha da conta de armazenamento**  >  **Settings**  >  **Keys** (para contas de armazenamento clássicas) ou **configurações**  >  **chaves de acesso** (para contas de armazenamento de Azure Resource Manager).
 - **Cadeia de conexão de assinatura de acesso compartilhado da conta de armazenamento**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` a assinatura de acesso compartilhado deve ter as permissões de lista e leitura em contêineres (tabelas neste caso) e objetos (linhas de tabela).
--  **Assinatura de acesso compartilhado**de `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` tabela: a assinatura de acesso compartilhado deve ter permissões de consulta (leitura) na tabela.
+-  **Assinatura de acesso compartilhado de tabela**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` a assinatura de acesso compartilhado deve ter permissões de consulta (leitura) na tabela.
 
 Para saber mais sobre assinaturas de acesso compartilhado, confira [Uso de assinaturas de acesso compartilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
@@ -81,7 +81,7 @@ O índice especifica os campos em um documento, os atributos e outras construç�
 
 Para criar um índice:
 
-    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -100,7 +100,7 @@ Um indexador conecta uma fonte de dados a um índice de pesquisa de destino e fo
 
 Após o índice e a fonte de dados terem sido criados, será possível criar o indexador:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -115,7 +115,7 @@ Esse indexador é executado a cada duas horas. (O intervalo de agendamento é de
 
 Para obter mais informações sobre Criar a API do Indexador, consulte [Criar Indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
-Para obter mais informações sobre como definir agendas do indexador, consulte [como agendar indexadores para o Azure pesquisa cognitiva](search-howto-schedule-indexers.md).
+Para obter mais informações sobre como definir as agendas do indexador, confira [Como agendar indexadores para o Azure Cognitive Search](search-howto-schedule-indexers.md).
 
 ## <a name="deal-with-different-field-names"></a>Lidar com nomes de campos diferentes
 Algumas vezes, os nomes de campos no índice existente são diferentes dos nomes de propriedades na sua tabela. Você pode usar os mapeamentos de campo para mapear os nomes de propriedade da tabela para os nomes de campo em seu índice de pesquisa. Para saber mais sobre mapeamentos de campo, confira [mapeamentos de campo do indexador de pesquisa cognitiva do Azure ponte das diferenças entre fontes de pesquisa e índices](search-indexer-field-mappings.md).
@@ -123,7 +123,7 @@ Algumas vezes, os nomes de campos no índice existente são diferentes dos nomes
 ## <a name="handle-document-keys"></a>Manipular chaves de documento
 No Azure Pesquisa Cognitiva, a chave do documento identifica exclusivamente um documento. Cada índice de pesquisa deve ter exatamente um campo de chave do tipo `Edm.String`. O campo de chave é necessário para cada documento adicionado ao índice. (Na verdade, ele é o único campo obrigatório.)
 
-Como as linhas de tabela têm uma chave composta, o Azure Pesquisa Cognitiva gera um `Key` campo sintético chamado que é uma concatenação dos valores de chave de partição e de linha de coluna. Por exemplo, se a PartitionKey de uma linha for `PK1` e a RowKey for `RK1`, o valor do campo `Key` será `PK1RK1`.
+Como as linhas de tabela têm uma chave composta, o Azure Pesquisa Cognitiva gera um campo sintético chamado `Key` que é uma concatenação dos valores de chave de partição e de linha de coluna. Por exemplo, se a PartitionKey de uma linha for `PK1` e a RowKey for `RK1`, o valor do campo `Key` será `PK1RK1`.
 
 > [!NOTE]
 > O valor `Key` pode conter caracteres inválidos em chaves de documento, como traços. É possível lidar com caracteres inválidos usando a `base64Encode` [função de mapeamento de campo](search-indexer-field-mappings.md#base64EncodeFunction). Se você fizer isso, lembre-se também de usar a codificação de Base 64 protegida por URL ao transmitir as chaves de documento nas chamadas à API como Pesquisa.
@@ -135,7 +135,7 @@ Ao configurar um indexador de tabela para ser executado em um agendamento, ele r
 
 Para indicar que determinados documentos devem ser removidos do índice, você pode usar uma estratégia de exclusão reversível. Em vez de excluir uma linha, adicione uma propriedade para indicar que ela foi excluída e configure uma política de detecção de exclusão reversível na fonte de dados. Por exemplo, a política a seguir considerará que uma linha foi excluída se esta tiver uma propriedade de metadados `IsDeleted` com o valor `"true"`:
 
-    PUT https://[service name].search.windows.net/datasources?api-version=2019-05-06
+    PUT https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -150,7 +150,7 @@ Para indicar que determinados documentos devem ser removidos do índice, você p
 <a name="Performance"></a>
 ## <a name="performance-considerations"></a>Considerações sobre o desempenho
 
-Por padrão, o Azure Pesquisa Cognitiva usa o seguinte filtro de `Timestamp >= HighWaterMarkValue`consulta:. Já que as tabelas do Azure não têm um índice secundário no campo `Timestamp`, esse tipo de consulta requer uma verificação completa e, portanto, é lenta para tabelas grandes.
+Por padrão, o Azure Pesquisa Cognitiva usa o seguinte filtro de consulta: `Timestamp >= HighWaterMarkValue` . Já que as tabelas do Azure não têm um índice secundário no campo `Timestamp`, esse tipo de consulta requer uma verificação completa e, portanto, é lenta para tabelas grandes.
 
 
 Aqui estão duas abordagens possíveis para melhorar o desempenho de indexação de tabela. Ambas as abordagens dependem do uso de partições de tabela: 

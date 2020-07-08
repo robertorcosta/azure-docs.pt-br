@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: b6cb9c70de27e40c62d6a7adeece5cb39554c090
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 2cb143e08e3901b1d0ab7181df68f06887069012
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83844550"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563267"
 ---
 # <a name="troubleshoot"></a>Solucionar problemas
 
@@ -29,7 +29,7 @@ Verifique se os firewalls (no dispositivo, dentro de roteadores etc.) não bloqu
 * **8266 (TCP + UDP)** – necessária para transferência de dados
 * **5000 (TCP)** , **5433 (TCP)** , **8443 (TCP)** – necessárias para o [ArrInspector](tools/arr-inspector.md)
 
-## <a name="error-disconnected-videoformatnotavailable"></a>Erro 'Desconectado: VideoFormatNotAvailable'
+## <a name="error-disconnected-videoformatnotavailable"></a>Erro ' `Disconnected: VideoFormatNotAvailable` '
 
 Verifique se sua GPU é compatível com a decodificação de vídeo por hardware. Confira [PC de Desenvolvimento](../overview/system-requirements.md#development-pc).
 
@@ -37,7 +37,7 @@ Se você estiver trabalhando em um laptop com duas GPUs, é possível que a GPU 
 
 ## <a name="h265-codec-not-available"></a>Codec H265 não disponível
 
-Há dois motivos pelos quais o servidor pode recusar a conexão com um erro **codec não disponível**.
+Há dois motivos pelos quais o servidor pode recusar a conexão com um `codec not available` erro.
 
 **O codec H265 não está instalado:**
 
@@ -105,9 +105,9 @@ Se essas duas etapas não ajudarem, será necessário descobrir se os quadros de
 
 **O modelo excede os limites da VM selecionada, especificamente o número máximo de polígonos:**
 
-Confira as [limitações de tamanho de VM](../reference/limits.md#overall-number-of-polygons) específicas.
+Consulte [limites de tamanho de VM](../reference/limits.md#overall-number-of-polygons)específicos.
 
-**O modelo não está dentro do volume de exibição:**
+**O modelo não está dentro do frustum da câmera:**
 
 Em muitos casos, o modelo é exibido corretamente, mas localizado fora do volume da câmera. Um motivo comum é que o modelo foi exportado com um eixo afastado do centro, de modo que ele é recortado pelo plano de recorte distante da câmera. É útil consultar programaticamente a caixa delimitadora do modelo e visualizar a caixa com o Unity como uma caixa de linha ou, ainda, imprimir os valores dela no log de depuração.
 
@@ -142,9 +142,19 @@ Pode haver dois problemas com essa caixa delimitadora que resultam em uma geomet
 
 **O pipeline de renderização do Unity não inclui os ganchos de renderização:**
 
-O Azure Remote Rendering conecta-se ao pipeline de renderização do Unity para fazer a composição do quadro com o vídeo e para fazer a reprojeção. Para verificar se esses ganchos existem, abra o menu *Janela > Análise > Depurador de quadros*. Habilite-o e verifique se há duas entradas para o `HolographicRemotingCallbackPass` no pipeline:
+O Azure Remote Rendering conecta-se ao pipeline de renderização do Unity para fazer a composição do quadro com o vídeo e para fazer a reprojeção. Para verificar se esses ganchos existem, abra o menu *:::no-loc text="Window > Analysis > Frame debugger":::* . Habilite-o e verifique se há duas entradas para o `HolographicRemotingCallbackPass` no pipeline:
 
 ![Depurador de quadros do Unity](./media/troubleshoot-unity-pipeline.png)
+
+## <a name="checkerboard-pattern-is-rendered-after-model-loading"></a>O padrão quadriculado é renderizado após o carregamento do modelo
+
+Se a imagem renderizada tiver esta aparência: ![ quadriculado ](../reference/media/checkerboard.png) , o renderizador atingirá os [limites do polígono para o tamanho da VM padrão](../reference/vm-sizes.md). Para mitigar, alterne para o tamanho da **VM Premium** ou reduza o número de polígonos visíveis.
+
+## <a name="the-rendered-image-in-unity-is-upside-down"></a>A imagem renderizada no Unity está de cabeça para baixo
+
+Certifique-se de seguir o [tutorial do Unity: exibir modelos remotos](../tutorials/unity/view-remote-models/view-remote-models.md) exatamente. Uma imagem de cabeça para baixo indica que o Unity é necessário para criar um destino de renderização fora da tela. Esse comportamento não tem suporte no momento e cria um enorme impacto no desempenho no HoloLens 2.
+
+Os motivos para esse problema podem ser MSAA, HDR ou habilitar o pós-processamento. Verifique se o perfil de baixa qualidade está selecionado e definido como padrão no Unity. Para fazer isso, vá para *editar > configurações de projeto... > qualidade*.
 
 ## <a name="unity-code-using-the-remote-rendering-api-doesnt-compile"></a>O código do Unity usando a API do Remote Rendering não é compilado
 
@@ -162,6 +172,10 @@ Vimos falhas falsas ao tentar compilar exemplos do Unity (início rápido, ShowC
     reg.exe ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Advanced Threat Protection" /v groupIds /t REG_SZ /d "Unity”
     ```
     
+### <a name="arm64-builds-for-unity-projects-fail-because-audiopluginmshrtfdll-is-missing"></a>As compilações do Arm64 para projetos do Unity falham porque AudioPluginMsHRTF.dll está ausente
+
+O `AudioPluginMsHRTF.dll` para Arm64 foi adicionado ao pacote do *Windows Mixed Reality* *(com. Unity. XR. windowsmr. metro)* na versão 3.0.1. Verifique se você tem a versão 3.0.1 ou posterior instalada por meio do Gerenciador de pacotes do Unity. Na barra de menus do Unity, navegue até *janela > Gerenciador de pacotes* e procure o pacote do *Windows Mixed Reality* .
+
 ## <a name="unstable-holograms"></a>Hologramas instáveis
 
 Caso os objetos renderizados pareçam estar se movendo em conjunto com os movimentos de cabeça, você talvez esteja enfrentando problemas com LSR (*reprojeção de fase tardia*). Veja a seção sobre [Reprojeção de fase tardia](../overview/features/late-stage-reprojection.md) para obter diretrizes sobre como abordar essa situação.
@@ -171,6 +185,56 @@ Outro motivo para hologramas instáveis (com oscilações, distorções, tremula
 Outro valor a ser examinado é `ARRServiceStats.LatencyPoseToReceiveAvg`. Ele deve estar consistentemente abaixo de 100 ms. Se você vir valores mais altos, isso indicará que você está conectado a um data center que está muito longe.
 
 Para obter uma lista de possíveis mitigações, confira as [diretrizes para conectividade de rede](../reference/network-requirements.md#guidelines-for-network-connectivity).
+
+## <a name="z-fighting"></a>Z-fighting
+
+Embora o ARR ofereça [funcionalidade de mitigação de combate z](../overview/features/z-fighting-mitigation.md), o combate a z ainda pode aparecer na cena. Este guia tem como objetivo solucionar esses problemas restantes.
+
+### <a name="recommended-steps"></a>Etapas recomendadas
+
+Use o fluxo de trabalho a seguir para atenuar o combate a z:
+
+1. Testar a cena com as configurações padrão de ARR (mitigação de combate z em)
+
+1. Desabilitar a mitigação de combate ao z por meio de sua [API](../overview/features/z-fighting-mitigation.md) 
+
+1. Alterar a câmera perto e longe do plano para um intervalo mais próximo
+
+1. Solucionar problemas da cena por meio da próxima seção
+
+### <a name="investigating-remaining-z-fighting"></a>Investigando o combate ao z restante
+
+Se as etapas acima tiverem sido esgotadas e o combate a z restante for inaceitável, a causa subjacente do combate a z precisará ser investigada. Conforme mencionado na [página de recursos de mitigação de combate ao z](../overview/features/z-fighting-mitigation.md), há dois motivos principais para combater o z: perda de precisão de profundidade na extremidade extrema do intervalo de profundidade e superfícies que se cruzam ao serem coplanar. A perda de precisão de profundidade é uma eventualidade matemática e só pode ser atenuada seguindo a etapa 3 acima. As superfícies coplanar indicam uma falha de ativo de origem e são mais bem corrigidas nos dados de origem.
+
+O ARR tem um recurso para determinar se as superfícies poderiam ser z-luta: [realce de xadrez](../overview/features/z-fighting-mitigation.md). Você também pode determinar visualmente o que causa o combate ao z. A primeira animação a seguir mostra um exemplo de perda de precisão de profundidade na distância e a segunda mostra um exemplo de superfícies de quase coplanar:
+
+![profundidade-precisão-z-combatendo](./media/depth-precision-z-fighting.gif)  ![coplanar-z-combatendo](./media/coplanar-z-fighting.gif)
+
+Compare esses exemplos com o combate ao z para determinar a causa ou, opcionalmente, seguir este fluxo de trabalho passo a passo:
+
+1. Posicione a câmera acima das superfícies de combate ao z para olhar diretamente na superfície.
+1. Mova lentamente a câmera para trás, afastando-as das superfícies.
+1. Se o combate a z estiver visível o tempo todo, as superfícies serão perfeitamente coplanars. 
+1. Se o combate a z for visível na maioria das vezes, as superfícies serão quase coplanars.
+1. Se o combate ao z estiver visível apenas de longe, a causa será a falta de precisão de profundidade.
+
+As superfícies de coplanar podem ter várias causas diferentes:
+
+* Um objeto foi duplicado pelo aplicativo de exportação devido a um erro ou abordagens de fluxo de trabalho diferentes.
+
+    Verifique esses problemas com o respectivo suporte a aplicativos e aplicativos.
+
+* As superfícies são duplicadas e invertidas para aparecer de lado duplo em renderizadores que usam a remoção de face frontal ou de verso.
+
+    A importação por meio da [conversão de modelo](../how-tos/conversion/model-conversion.md) determina a sidedness principal do modelo. O sidedness duplo é assumido como o padrão. A superfície será renderizada como uma parede fina com iluminação correta de ambos os lados. Single-sidedness pode ser implícito por sinalizadores no ativo de origem ou explicitamente forçado durante a conversão do [modelo](../how-tos/conversion/model-conversion.md). Além disso, opcionalmente, o [modo único](../overview/features/single-sided-rendering.md) pode ser definido como "normal".
+
+* Objetos interseccionam nos ativos de origem.
+
+     Os objetos transformados de forma que algumas de suas superfícies se sobrepõem também criam um combate ao z. A transformação de partes da árvore de cena na cena importada no ARR também pode criar esse problema.
+
+* As superfícies são intencionalmente criadas para toque, como decals ou texto em paredes.
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

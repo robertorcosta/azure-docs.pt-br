@@ -1,33 +1,30 @@
 ---
-title: O que são parceiros de segurança confiáveis do Gerenciador de firewall do Azure (versão prévia)
-description: Saiba mais sobre parceiros de segurança confiáveis do Gerenciador de firewall do Azure
+title: O que são provedores de parceiros de segurança do Azure firewall Manager?
+description: Saiba mais sobre os provedores de parceiros de segurança do Gerenciador de firewall do Azure
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: b92242ce9086579d0397f78853402cfc08453f68
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 34da82510f96ef7bde65ceec397b048c941e3234
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75436782"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563613"
 ---
-# <a name="what-are-trusted-security-partners-preview"></a>O que são parceiros de segurança confiáveis (versão prévia)?
+# <a name="what-are-security-partner-providers"></a>O que são provedores de parceiro de segurança?
 
-> [!IMPORTANT]
-> Essa versão prévia pública é fornecida sem um SLA e não deve ser usada para cargas de trabalho de produção. Determinados recursos podem não ter suporte, podem ter restrição ou podem não estar disponíveis em todos os locais do Azure. Veja os [Termos de Uso Adicionais para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter detalhes.
+Os *provedores de parceiros de segurança* no Gerenciador de firewall do Azure permitem que você use suas ofertas de SECaaS (segurança como serviço) mais conhecidas e de terceiros para proteger o acesso à Internet para seus usuários.
 
-Os *parceiros de segurança confiáveis (versão prévia)* no Gerenciador de firewall do Azure permitem que você use suas ofertas de SECaaS (segurança como serviço) conhecidas e de terceiros para proteger o acesso à Internet para seus usuários.
-
-Com uma configuração rápida, você pode proteger um hub com um parceiro de segurança com suporte e rotear e filtrar o tráfego de Internet de suas redes virtuais (VNets) ou locais de ramificação em uma região. Isso é feito usando o gerenciamento automatizado de rotas, sem configurar e gerenciar UDRs (rotas definidas pelo usuário).
+Com uma configuração rápida, você pode proteger um hub com um parceiro de segurança com suporte e rotear e filtrar o tráfego de Internet de suas redes virtuais (VNets) ou locais de ramificação em uma região. Você pode fazer isso com o gerenciamento automatizado de rotas, sem configurar e gerenciar UDRs (rotas definidas pelo usuário).
 
 Você pode implantar hubs protegidos configurados com o parceiro de segurança de sua escolha em várias regiões do Azure para obter conectividade e segurança para seus usuários em qualquer lugar do mundo nessas regiões. Com a capacidade de usar a oferta do parceiro de segurança para o tráfego de aplicativos de Internet/SaaS e o Firewall do Azure para tráfego privado nos hubs protegidos, agora você pode começar a criar sua borda de segurança no Azure que está perto de seus usuários e aplicativos distribuídos globalmente.
 
-Para esta versão prévia, os parceiros de segurança com suporte são **ZScaler** e **iboss**. As regiões com suporte são WestCentralUS, NorthCentralUS, Westus, WestUS2 e Eastus.
+Os parceiros de segurança com suporte são **ZScaler**, **Check Point** (visualização) e **iboss** (Preview).
 
-![Parceiros de segurança confiáveis](media/trusted-security-partners/trusted-security-partners.png)
+![Provedores de parceiro de segurança](media/trusted-security-partners/trusted-security-partners.png)
 
 ## <a name="key-scenarios"></a>Principais cenários
 
@@ -42,18 +39,8 @@ Você pode usar os parceiros de segurança para filtrar o tráfego de Internet n
    Aproveite sua conectividade do Azure e a distribuição global para adicionar facilmente filtragem de NSaaS de terceiros para cenários de Branch para Internet. Você pode criar sua rede de trânsito global e borda de segurança usando a WAN virtual do Azure.
 
 Os cenários a seguir têm suporte:
--   VNet para a Internet por meio de uma oferta de parceiro de terceiros.
--   Ramificar para a Internet por meio de uma oferta de parceiro de terceiros.
--   Branch para a Internet por meio de uma oferta de parceiro de terceiros, o restante do tráfego privado (spoke a spoke, spoke-to-branches, de ramificação para spokes) por meio do firewall do Azure.
-
-O cenário a seguir não tem suporte:
-
-- A VNet para a Internet por meio de uma oferta de parceiro não pode ser combinada com o Firewall do Azure para tráfego privado. Consulte as limitações a seguir.
-
-## <a name="current-limitations"></a>Limitações atuais
-
-- Para VNet à Internet, você não pode misturar a adição do firewall do Azure para tráfego privado e uma oferta de parceiro para tráfego de Internet. Você pode enviar o tráfego da Internet para o Firewall do Azure ou uma oferta de parceiro de segurança de terceiros no Hub virtual protegido, mas não ambos. 
-- Você pode implantar no máximo um parceiro de segurança por Hub virtual. Se você precisar alterar o provedor, deverá remover o parceiro existente e adicionar um novo.
+- VNet/Branch para a Internet por meio de um provedor de parceiros de segurança e o outro tráfego (spoke para spoke, spoke para Branch, ramificação para spoke) por meio do firewall do Azure.
+- VNet/Branch para Internet por meio do provedor de parceiros de segurança
 
 ## <a name="best-practices-for-internet-traffic-filtering-in-secured-virtual-hubs"></a>Práticas recomendadas para filtragem de tráfego de Internet em hubs virtuais protegidos
 
@@ -75,9 +62,8 @@ Para o Office 365, a latência de rede e o desempenho são essenciais para uma e
 
 Os [princípios de conectividade de rede do office 365](https://docs.microsoft.com/office365/enterprise/office-365-network-connectivity-principles) chamam as principais conexões de rede do Office 365 para serem roteadas localmente da ramificação do usuário ou do dispositivo móvel e diretamente pela Internet para o ponto de presença mais próximo da rede da Microsoft.
 
-Além disso, as conexões do Office 365 são fortemente criptografadas para privacidade e uso de protocolos proprietários e eficientes por motivos de desempenho. Isso torna impraticável e impactado a entidade dessas conexões com soluções de segurança de nível de rede tradicionais. Por esses motivos, é altamente recomendável que os clientes enviem o tráfego do Office 365 diretamente de ramificações, antes de enviar o restante do tráfego por meio do Azure. A Microsoft fez um parceria com vários provedores de soluções SD-WAN, que se integram ao Azure e ao Office 365 e facilitam para os clientes a análise do Office 365 Direct e da Internet local. Para obter detalhes, consulte [como fazer definir minhas políticas de O365 por meio da WAN virtual?](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-office365-overview)
-
+Além disso, as conexões do Office 365 são criptografadas para privacidade e uso de protocolos proprietários e eficientes por motivos de desempenho. Isso torna impraticável e impactado a entidade dessas conexões com soluções de segurança de nível de rede tradicionais. Por esses motivos, é altamente recomendável que os clientes enviem o tráfego do Office 365 diretamente de ramificações, antes de enviar o restante do tráfego por meio do Azure. A Microsoft fez um parceria com vários provedores de soluções SD-WAN, que se integram ao Azure e ao Office 365 e facilitam para os clientes a análise do Office 365 Direct e da Internet local. Para obter detalhes, consulte [como fazer definir minhas políticas de O365 por meio da WAN virtual?](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-office365-overview)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Implantar uma oferta de segurança confiável em um hub protegido usando o Gerenciador de firewall do Azure](deploy-trusted-security-partner.md).
+[Implante uma oferta de parceiro de segurança em um hub protegido usando o Gerenciador de firewall do Azure](deploy-trusted-security-partner.md).

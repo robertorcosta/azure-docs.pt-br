@@ -8,14 +8,14 @@ manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 06/29/2020
 ms.author: mbullwin
-ms.openlocfilehash: d57910ae31d4db9be17b3dc46b5920a925ab4fcf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 897e615234e17cfe36790778d00cd56371afd91f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79248574"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85560141"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Fontes de dados de Azure Monitor pastas de trabalho
 
@@ -42,24 +42,30 @@ Os recursos do Azure emitem [métricas](data-platform-metrics.md) que podem ser 
 
 ![Captura de tela da interface de métricas da pasta de trabalho](./media/workbooks-overview/metrics.png)
 
-## <a name="azure-resource-graph"></a>Gráfico de Recursos do Azure 
+## <a name="azure-resource-graph"></a>Gráfico de Recursos do Azure
 
 As pastas de trabalho dão suporte à consulta de recursos e seus metadados usando o grafo de recursos do Azure (ARG). Essa funcionalidade é usada principalmente para criar escopos de consulta personalizados para relatórios. O escopo do recurso é expresso por meio de um subconjunto de KQL com suporte de ARG, que geralmente é suficiente para casos de uso comuns.
 
 Para fazer com que um controle de consulta Use essa fonte de dados, use a lista suspensa tipo de consulta para escolher o grafo de recursos do Azure e selecione as assinaturas a serem direcionadas. Use o controle de consulta para adicionar o ARG KQL-subconjunto que seleciona um subconjunto de recursos interessante.
 
-
 ![Captura de tela da consulta KQL do grafo de recursos do Azure](./media/workbooks-overview/azure-resource-graph.png)
 
-## <a name="alerts-preview"></a>Alertas (versão prévia)
+## <a name="azure-resource-manager"></a>Azure Resource Manager
 
-As pastas de trabalho permitem que os usuários visualizem os alertas ativos relacionados aos seus recursos. Esse recurso permite a criação de relatórios que reúnem dados de notificação (alerta) e informações de diagnóstico (métricas, logs) em um relatório. Essas informações também podem ser Unidas para criar relatórios avançados que combinam informações entre essas fontes de dados.
+A pasta de trabalho dá suporte a operações REST Azure Resource Manager. Isso permite que a capacidade de consultar o ponto de extremidade do management.azure.com sem a necessidade de fornecer seu próprio token de cabeçalho de autorização.
 
-Para fazer com que um controle de consulta Use essa fonte de dados, use a lista suspensa tipo de consulta para escolher alertas e selecionar as assinaturas, grupos de recursos ou recursos para o destino. Use os menus suspensos de filtro de alerta para selecionar um subconjunto interessante de alertas para suas necessidades analíticas.
+Para fazer com que um controle de consulta Use essa fonte de dados, use a lista suspensa fonte de dados para escolher Azure Resource Manager. Forneça os parâmetros apropriados, como método http, caminho da URL, cabeçalhos, parâmetros de URL e/ou corpo.
 
-![Captura de tela da consulta de alertas](./media/workbooks-overview/alerts.png)
+> [!NOTE]
+> Somente `GET` `POST` `HEAD` as operações, e têm suporte no momento.
 
-## <a name="workload-health-preview"></a>Integridade da carga de trabalho (versão prévia)
+## <a name="azure-data-explorer"></a>Azure Data Explorer
+
+As pastas de trabalho agora têm suporte para a consulta de clusters do [Azure data Explorer](https://docs.microsoft.com/azure/data-explorer/) com a poderosa linguagem de consulta [Kusto](https://docs.microsoft.com/azure/kusto/query/index) .   
+
+![Captura de tela da janela de consulta do Kusto](./media/workbooks-overview/data-explorer.png)
+
+## <a name="workload-health"></a>Integridade da carga de trabalho
 
 Azure Monitor tem funcionalidade que monitora de forma proativa a disponibilidade e o desempenho de sistemas operacionais convidados Windows ou Linux. O Azure Monitor modela os principais componentes e suas relações, critérios de como medir a integridade desses componentes e quais componentes o alertam quando uma condição não íntegra é detectada. As pastas de trabalho permitem que os usuários usem essas informações para criar relatórios interativos sofisticados.
 
@@ -67,7 +73,7 @@ Para fazer com que um controle de consulta Use essa fonte de dados, use a lista 
 
 ![Captura de tela da consulta de alertas](./media/workbooks-overview/workload-health.png)
 
-## <a name="azure-resource-health"></a>Azure Resource Health 
+## <a name="azure-resource-health"></a>Azure Resource Health
 
 As pastas de trabalho dão suporte à obtenção do Azure Resource Health e à combinação deles com outras fontes de dados para criar relatórios de integridade avançados e interativos
 
@@ -75,13 +81,37 @@ Para fazer com que um controle de consulta Use essa fonte de dados, use a lista 
 
 ![Captura de tela da consulta de alertas](./media/workbooks-overview/resource-health.png)
 
-## <a name="azure-data-explorer-preview"></a>Data Explorer do Azure (versão prévia)
+## <a name="json"></a>JSON
 
-As pastas de trabalho agora têm suporte para a consulta de clusters do [Azure data Explorer](https://docs.microsoft.com/azure/data-explorer/) com a poderosa linguagem de consulta [Kusto](https://docs.microsoft.com/azure/kusto/query/index) .   
+O provedor JSON permite que você crie um resultado de consulta de conteúdo JSON estático. Ele é mais comumente usado em parâmetros para criar parâmetros de lista suspensa de valores estáticos. Os objetos ou matrizes JSON simples serão convertidos automaticamente em linhas e colunas de grade.  Para comportamentos mais específicos, você pode usar a guia resultados e as configurações de JSONPath para configurar colunas.
 
-![Captura de tela da janela de consulta do Kusto](./media/workbooks-overview/data-explorer.png)
+## <a name="alerts-preview"></a>Alertas (versão prévia)
+
+> [!NOTE]
+> A maneira sugerida de consultar as informações de alerta do Azure é usando a fonte de dados do [grafo de recursos do Azure](#azure-resource-graph) consultando a `AlertsManagementResources` tabela.
+>
+> Consulte a [referência de tabela do grafo de recursos do Azure](https://docs.microsoft.com/azure/governance/resource-graph/reference/supported-tables-resources)ou o [modelo de alertas](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Azure%20Resources/Alerts/Alerts.workbook) para obter exemplos.
+>
+> A fonte de dados de alertas permanecerá disponível por um período de tempo enquanto os autores fazem a transição para usando ARG. O uso desta fonte de dados em modelos não é recomendado. 
+
+As pastas de trabalho permitem que os usuários visualizem os alertas ativos relacionados aos seus recursos. Limitações: a fonte de dados de alertas requer acesso de leitura à assinatura para consultar recursos e pode não mostrar tipos de alertas mais recentes. 
+
+Para fazer com que um controle de consulta Use essa fonte de dados, use a lista suspensa _fonte de dados_ para escolher _alertas (versão prévia)_ e selecione as assinaturas, grupos de recursos ou recursos para o destino. Use os menus suspensos de filtro de alerta para selecionar um subconjunto interessante de alertas para suas necessidades analíticas.
+
+## <a name="custom-endpoint"></a>Ponto de extremidade personalizado
+
+As pastas de trabalho dão suporte à obtenção de dados de qualquer fonte externa. Se seus dados estiverem fora do Azure, você poderá colocá-los em pastas de trabalho usando esse tipo de fonte de dados.
+
+Para fazer com que um controle de consulta Use essa fonte de dados, use a lista suspensa _fonte de dados_ para escolher _ponto de extremidade personalizado_. Forneça os parâmetros apropriados, como `Http method` , `url` , `headers` `url parameters` e/ou `body` . Verifique se a fonte de dados dá suporte a [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) , caso contrário, a solicitação falhará.
+
+Para evitar fazer chamadas automaticamente para hosts não confiáveis ao usar modelos, o usuário precisa marcar os hosts usados como confiáveis. Isso pode ser feito clicando no botão _Adicionar como confiável_ ou adicionando-o como um host confiável nas configurações da pasta de trabalho. Essas configurações serão salvas em navegadores que dão suporte a IndexDb com Web Workers, mais informações [aqui](https://caniuse.com/#feat=indexeddb).
+
+> [!NOTE]
+> Não grave nenhum segredo em nenhum dos campos (,, `headers` `parameters` `body` , `url` ), pois eles ficarão visíveis para todos os usuários da pasta de trabalho.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Comece a aprender mais](workbooks-visualizations.md) sobre pastas de trabalho muitas opções de visualizações ricas.
 * [Controle](workbooks-access-control.md) e compartilhe o acesso aos recursos da pasta de trabalho.
+* [Dicas de otimização de consulta Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization)
+* 

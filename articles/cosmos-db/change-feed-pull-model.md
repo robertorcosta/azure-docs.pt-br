@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: c47016d0b82a4e4ed084f5d82394d91fd2b46be1
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: HT
+ms.openlocfilehash: 8916f4b9824f88361fdeb9d866f84adb71e8138e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697718"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563787"
 ---
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Alterar o modelo de pull do feed de alterações no Azure Cosmos DB
 
@@ -164,7 +164,7 @@ Você deve considerar o uso do modelo de pull nestes cenários:
 
 Aqui estão algumas diferenças importantes entre o processador do feed de alterações e o modelo de pull:
 
-|  | Alterar o processador de feed| Modelo de pull |
+|Recurso  | Alterar o processador de feed| Modelo de pull |
 | --- | --- | --- |
 | Acompanhar o ponto atual no processamento do feed de alterações | Concessão (armazenada em um contêiner do Azure Cosmos DB) | Token de continuação (armazenado na memória ou persistido manualmente) |
 | Capacidade de reproduzir alterações passadas | Sim, com o modelo de push | Sim, com o modelo de pull|

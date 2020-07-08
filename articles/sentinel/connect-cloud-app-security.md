@@ -1,6 +1,6 @@
 ---
 title: Conectar dados de Cloud App Security ao Azure Sentinel | Microsoft Docs
-description: Saiba como conectar Cloud App Security dados ao Azure Sentinel.
+description: Aprenda a usar o conector do Microsoft Cloud App Security (MCAS) para transmitir alertas e Cloud Discovery logs do MCAS para o Azure Sentinel. 
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,16 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2020
 ms.author: yelevin
-ms.openlocfilehash: 266d97e834247088d40837cbec1436e00d0f4be2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8439c8f7aa4e75abd727d2ce2e80d98e6fce5411
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80422154"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563954"
 ---
 # <a name="connect-data-from-microsoft-cloud-app-security"></a>Conectar dados de Microsoft Cloud App Security 
-
-
 
 O conector do [Microsoft Cloud app Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) (MCAS) permite transmitir alertas e [Cloud Discovery logs](https://docs.microsoft.com/cloud-app-security/tutorial-shadow-it) do MCAS para o Azure Sentinel. Isso permitirá que você ganhe visibilidade em seus aplicativos de nuvem, obtenha análises sofisticadas para identificar e combater o ameaças cibernéticas e controlar como seus dados viajam.
 
@@ -50,7 +48,9 @@ Se Cloud App Security for implantado e ingerir seus dados, os dados de alerta po
 
 1. Clique em **Aplicar Alterações**.
 
-1. Para usar o esquema relevante no Log Analytics para alertas de Cloud App Security, `SecurityAlert` digite na janela de consulta. Para o esquema de logs de Cloud Discovery `McasShadowItReporting`, digite.
+1. Você pode selecionar se deseja que os alertas da central de segurança do Azure gerem incidentes automaticamente no Azure Sentinel. Em **criar incidentes**, selecione **habilitado** para ativar a regra de análise padrão que cria automaticamente incidentes de alertas. Em seguida, você pode editar essa regra em **análise**, na guia **regras ativas** .
+
+1. Para usar o esquema relevante no Log Analytics para alertas de Cloud App Security, digite `SecurityAlert` na janela de consulta. Para o esquema de logs de Cloud Discovery, digite `McasShadowItReporting` .
 
 > [!NOTE]
 > Cloud Discovery ajuda a detectar e identificar tendências agregando os dados das conexões de usuários subjacentes aos aplicativos de nuvem.

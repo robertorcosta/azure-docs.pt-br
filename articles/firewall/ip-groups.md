@@ -5,19 +5,16 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 06/23/2020
 ms.author: victorh
-ms.openlocfilehash: e0638cbccd5e3bc282dbdd7d3b5918e29081a12b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7bfa1ae5bd0f2ffe92fb37494f9fe589e1b2040e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80757170"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565552"
 ---
-# <a name="ip-groups-preview-in-azure-firewall"></a>Grupos de IPS (versão prévia) no firewall do Azure
-
-> [!IMPORTANT]
-> Essa versão prévia pública é fornecida sem um SLA e não deve ser usada para cargas de trabalho de produção. Determinados recursos podem não ter suporte, podem ter restrição ou podem não estar disponíveis em todos os locais do Azure. Veja os [Termos de Uso Adicionais para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter detalhes.
+# <a name="ip-groups-in-azure-firewall"></a>Grupos de IPs no firewall do Azure
 
 Os grupos de IPS permitem agrupar e gerenciar endereços IP para regras de firewall do Azure das seguintes maneiras:
 
@@ -40,7 +37,7 @@ Os exemplos de formato de endereço IPv4 a seguir são válidos para uso em grup
 
 ## <a name="create-an-ip-group"></a>Criar um grupo de IPS
 
-Um grupo de IPS pode ser criado usando o portal do Azure, CLI do Azure ou a API REST. Para obter mais informações, consulte [criar um grupo de IPS (versão prévia)](create-ip-group.md).
+Um grupo de IPS pode ser criado usando o portal do Azure, CLI do Azure ou a API REST. Para obter mais informações, consulte [criar um grupo de IPS](create-ip-group.md).
 
 ## <a name="browse-ip-groups"></a>Procurar grupos de IP
 1. Na barra de pesquisa portal do Azure, digite **grupos de IPS** e selecione-o. Você pode ver a lista de grupos de IPS ou pode selecionar **Adicionar** para criar um novo grupo de IPS.
@@ -64,9 +61,6 @@ Você pode ver todos os endereços IP no grupo de IPS e as regras ou os recursos
 ## <a name="use-an-ip-group"></a>Usar um grupo de IPS
 
 Agora você pode selecionar o **grupo IP** como um tipo de **origem** ou de **destino** para os endereços IP ao criar regras de DNAT, aplicativo ou rede do firewall do Azure.
-
-> [!NOTE]
-> Não há suporte para grupos de IP na política de firewall. Atualmente, ele só tem suporte com regras de firewall tradicionais.
 
 ![Grupos de IPs no firewall](media/ip-groups/fw-ipgroup.png)
 
@@ -128,4 +122,4 @@ Os cmdlets Azure PowerShell a seguir podem ser usados para criar e gerenciar gru
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Aprenda a [Implantar e configurar um Firewall do Azure](tutorial-firewall-deploy-portal.md).
+- Saiba como [implantar e configurar um firewall do Azure](tutorial-firewall-deploy-portal.md).

@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: e05a37122647d4979089f0ba00b1fc15f9b84b0f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 12ab5a9598cc0222f5a3e64985be2e2ea9e7e2fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60321651"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564294"
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Substituir um componente de hardware no dispositivo StorSimple série 8000
 
@@ -28,13 +28,13 @@ ms.locfileid: "60321651"
 Os tutoriais de substituição de componentes de hardware descrevem os componentes de hardware do seu dispositivo da série 8000 do Microsoft Azure StorSimple e as etapas necessárias para removê-los e substituí-los. Este artigo descreve os ícones de segurança, fornece ponteiros para os tutoriais detalhados e lista os componentes que podem ser substituíveis.
 
 > [!IMPORTANT]
-> Antes de tentar remover ou substituir qualquer componente do StorSimple, lembre-se de consultar as [convenções de ícones de segurança](#safety-icon-conventions) e outras [precauções de segurança](storsimple-safety.md).
-
+> Antes de tentar remover ou substituir qualquer componente do StorSimple, lembre-se de consultar as [convenções de ícones de segurança](#safety-icon-conventions) e outras [precauções de segurança](storsimple-8000-safety.md).
 
 ### <a name="safety-icon-conventions"></a>Convenções de ícones de segurança
+
 A tabela a seguir descreve os ícones de segurança usados nestes tutoriais. Preste muita atenção a esses ícones de segurança ao percorrer as etapas para remover e substituir componentes do dispositivo.
 
-| ícone | Texto | Informações adicionais |
+| Ícone | Texto | Informações adicionais |
 |:--- |:--- |:--- |
 | ![Ícone de aviso:](./media/storsimple-hardware-component-replacement/Warning.png) |**RISCO!** |Indica uma situação perigosa que, se não for evitada, resultará em morte ou lesões graves. Essa palavra de sinalização limita-se às situações mais graves. |
 | ![Ícone de aviso:](./media/storsimple-hardware-component-replacement/Warning.png) |**ALERTA!** |Indica uma situação perigosa que, se não for evitada, pode causar lesões graves ou de morte. |
@@ -47,7 +47,8 @@ A tabela a seguir descreve os ícones de segurança usados nestes tutoriais. Pre
 | ![Ícone de risco de tombamento](./media/storsimple-hardware-component-replacement/TipHazard.png) |**Risco de tombamento** | |
 
 ### <a name="before-you-begin"></a>Antes de começar
-Familiarize-se com as informações de segurança sobre o seu dispositivo e com os ícones de segurança usados neste tutorial. Vá para [Instalar e operar seu dispositivo StorSimple com segurança](storsimple-safety.md) para obter informações completas. Examine as [Precauções de segurança](storsimple-safety.md#handling-precautions) antes manusear o seu dispositivo StorSimple.
+
+Familiarize-se com as informações de segurança sobre o seu dispositivo e com os ícones de segurança usados neste tutorial. Vá para [Instalar e operar seu dispositivo StorSimple com segurança](storsimple-8000-safety.md) para obter informações completas. Examine as [Precauções de segurança](storsimple-8000-safety.md#handling-precautions) antes manusear o seu dispositivo StorSimple.
 
 Antes de tentar substituir um componente, considere as seguintes informações.
 
@@ -61,6 +62,7 @@ Antes de tentar substituir um componente, considere as seguintes informações.
 Ao substituir um módulo, **NUNCA deixe um compartimento vazio na parte traseira do compartimento**. Obtenha uma peça de reposição ou um módulo vazio antes de remover a peça com problema.
 
 ## <a name="hardware-component-replacement-procedures"></a>Procedimentos de substituição de componentes de hardware
+
 Seu dispositivo StorSimple da série 8000 consiste de vários módulos de plug-in nos compartimentos primário e/ou EBOD. O 8100 tem um único compartimento primário, enquanto o 8600 é um dispositivo de compartimento duplo com um compartimento primário e um compartimento EBOD.
 
 Os principais componentes de hardware do dispositivo são resumidos nas tabelas a seguir. Clique no link na coluna **Procedimento de substituição** para ir para o tutorial relacionado.
@@ -92,7 +94,7 @@ Os módulos plug-in no dispositivo são realçados nos diagramas frontal e trase
 
 **Figura 1** Parte frontal do dispositivo
 
-| Rotular | Descrição |
+| Rótulo | Descrição |
 |:--- |:--- |
 | 0 - 11 |Unidades de disco (total de 12) |
 
@@ -102,7 +104,7 @@ Tanto compartimento primário como o compartimento EBOD têm módulos de suporte
 
 **Figura 2** Parte posterior do compartimento primário
 
-| Rotular | Descrição |
+| Rótulo | Descrição |
 |:--- |:--- |
 | 1 |PCM 0 |
 | 2 |PCM 1 |
@@ -113,7 +115,7 @@ Tanto compartimento primário como o compartimento EBOD têm módulos de suporte
 
 **Figura 3** Parte posterior do compartimento EBOD
 
-| Rotular | Descrição |
+| Rótulo | Descrição |
 |:--- |:--- |
 | 1 |PCM 0 |
 | 2 |PCM 1 |
@@ -121,6 +123,7 @@ Tanto compartimento primário como o compartimento EBOD têm módulos de suporte
 | 4 |Controlador 1 do EBOD |
 
 ## <a name="field-replaceable-units"></a>Unidades renováveis
+
 As seguintes unidades renováveis (FRUs) estão disponíveis para seu dispositivo StorSimple:
 
 * Chassis (incluindo o painel de operações integrado)
@@ -135,5 +138,5 @@ As seguintes unidades renováveis (FRUs) estão disponíveis para seu dispositiv
 Entre em contato com o [Suporte da Microsoft](storsimple-8000-contact-microsoft-support.md) para pedir qualquer uma dessas unidades de substituição.
 
 ## <a name="next-steps"></a>Próximas etapas
-Examine todas as [informações de segurança](storsimple-safety.md) antes de tentar substituir um componente de hardware do StorSimple.
 
+Examine todas as [informações de segurança](storsimple-8000-safety.md) antes de tentar substituir um componente de hardware do StorSimple.

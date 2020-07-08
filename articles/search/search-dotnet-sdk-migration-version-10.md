@@ -9,20 +9,20 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ad912eb0b26354d40a654a1c8782dfcb960235e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6ce4e308420fc3ea1928b44013a78d0ae57d2c35
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73847516"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85562378"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-10"></a>Atualizar para o Azure Pesquisa Cognitiva SDK do .NET versão 10
 
-Se você estiver usando a versão 9,0 ou anterior do [SDK do .net Azure Search](https://aka.ms/search-sdk), este artigo o ajudará a atualizar seu aplicativo para usar a versão 10.
+Se você estiver usando a versão 9,0 ou anterior do [SDK do .net](https://docs.microsoft.com/dotnet/api/overview/azure/search), este artigo o ajudará a atualizar seu aplicativo para usar a versão 10.
 
 Azure Search é renomeado para o Azure Pesquisa Cognitiva na versão 10, mas os namespaces e nomes de pacote não são alterados. As versões anteriores do SDK (9,0 e anteriores) continuam a usar o nome anterior. Para obter mais informações sobre como usar o SDK, incluindo exemplos, consulte [como usar o Azure pesquisa cognitiva de um aplicativo .net](search-howto-dotnet-sdk.md).
 
-A versão 10 adiciona vários recursos e correções de bugs, trazendo-os para o mesmo nível funcional da versão `2019-05-06`mais recente da API REST. Nos casos em que uma alteração quebra o código existente, vamos orientá-lo pelas [etapas necessárias para resolver o problema](#UpgradeSteps).
+A versão 10 adiciona vários recursos e correções de bugs, trazendo-os para o mesmo nível funcional que a versão da API REST `2019-05-06` . Nos casos em que uma alteração quebra o código existente, vamos orientá-lo pelas [etapas necessárias para resolver o problema](#UpgradeSteps).
 
 > [!NOTE]
 > Se você estiver usando a versão 8,0-Preview ou mais antiga, atualize para a versão 9 primeiro e, em seguida, atualize para a versão 10. Consulte [Atualizando para o SDK do .net Azure Search versão 9](search-dotnet-sdk-migration-version-9.md) para obter instruções.
@@ -32,7 +32,7 @@ A versão 10 adiciona vários recursos e correções de bugs, trazendo-os para o
 <a name="WhatsNew"></a>
 
 ## <a name="whats-new-in-version-10"></a>O que há de novo na versão 10
-A versão 10 do SDK do .NET Pesquisa Cognitiva do Azure destina-se à versão mais recente disponível da`2019-05-06`API REST () com essas atualizações:
+A versão 10 do SDK do .NET Pesquisa Cognitiva do Azure `2019-05-06` tem como destino a API REST com estas atualizações:
 
 * Introdução de duas novas habilidades – habilidades [condicionais](cognitive-search-skill-conditional.md) e [habilidades de tradução de texto](cognitive-search-skill-text-translation.md).
 * As entradas de [habilidade do modelador](cognitive-search-skill-shaper.md) foram reestruturadas para acomodar a consolidação de contextos aninhados. Para obter mais informações, consulte esta [definição de JSON de exemplo](https://docs.microsoft.com/azure/search/cognitive-search-skill-shaper#scenario-3-input-consolidation-from-nested-contexts).
@@ -47,7 +47,7 @@ A versão 10 do SDK do .NET Pesquisa Cognitiva do Azure destina-se à versão ma
 
 ## <a name="steps-to-upgrade"></a>Etapas da atualização
 
-1. Atualize a referência do NuGet `Microsoft.Azure.Search` para usar o console do Gerenciador de pacotes NuGet ou clicando com o botão direito do mouse nas referências do projeto e selecionando "gerenciar pacotes NuGet..." no Visual Studio.
+1. Atualize a referência do NuGet para `Microsoft.Azure.Search` usar o console do Gerenciador de pacotes NuGet ou clicando com o botão direito do mouse nas referências do projeto e selecionando "gerenciar pacotes NuGet..." no Visual Studio.
 
 2. Depois que o NuGet tiver baixado os novos pacotes e suas dependências, recompile o projeto. 
 
@@ -68,7 +68,7 @@ Há várias alterações significativas na versão 10 que podem exigir alteraç�
 
 A definição da [habilidade da API Web personalizada](cognitive-search-custom-skill-web-api.md) foi especificada incorretamente na versão 9 e mais antiga. 
 
-O modelo para `WebApiSkill` especificado `HttpHeaders` como uma propriedade de objeto que _contém_ um dicionário. Criar um conjunto de qualificações `WebApiSkill` com um construído dessa maneira resultaria em uma exceção, pois a API REST consideraria a solicitação mal formada. Esse problema foi corrigido, fazendo `HttpHeaders` **uma propriedade de dicionário de nível superior** no próprio `WebApiSkill` modelo, o que é considerado uma solicitação válida da API REST.
+O modelo para `WebApiSkill` especificado `HttpHeaders` como uma propriedade de objeto que _contém_ um dicionário. Criar um conjunto de qualificações com um `WebApiSkill` construído dessa maneira resultaria em uma exceção, pois a API REST consideraria a solicitação mal formada. Esse problema foi corrigido, fazendo `HttpHeaders` **uma propriedade de dicionário de nível superior** no `WebApiSkill` próprio modelo, o que é considerado uma solicitação válida da API REST.
 
 Por exemplo, se você tentou anteriormente instanciar um `WebApiSkill` da seguinte maneira:
 
@@ -109,12 +109,12 @@ var webApiSkill = new WebApiSkill(
 
 ## <a name="shaper-skill-allows-nested-context-consolidation"></a>Habilidade de Modelador permite consolidação de contexto aninhada
 
-A habilidade de Modelador agora pode permitir a consolidação de entrada de contextos aninhados. Para habilitar essa alteração, modificamos `InputFieldMappingEntry` para que ela possa ser instanciada especificando apenas uma `Source` Propriedade, ou ambas as `SourceContext` Propriedades e `Inputs` .
+A habilidade de Modelador agora pode permitir a consolidação de entrada de contextos aninhados. Para habilitar essa alteração, modificamos `InputFieldMappingEntry` para que ela possa ser instanciada especificando apenas uma `Source` propriedade, ou ambas as `SourceContext` Propriedades e `Inputs` .
 
 Provavelmente, você não precisará fazer nenhuma alteração de código; no entanto, observe que apenas uma dessas duas combinações é permitida. Isso significa que:
 
-- A criação `InputFieldMappingEntry` de um `Source` em que apenas é inicializado é válida.
-- A criação `InputFieldMappingEntry` de um `SourceContext` somente `Inputs` onde e inicializado é válida.
+- A criação de um `InputFieldMappingEntry` em que apenas `Source` é inicializado é válida.
+- A criação de um `InputFieldMappingEntry` somente onde `SourceContext` e `Inputs` inicializado é válida.
 - Todas as outras combinações que envolvem essas três propriedades são inválidas.
 
 Se você decidir começar a usar essa nova funcionalidade, verifique se todos os seus clientes estão atualizados para usar a versão 10 primeiro, antes de distribuir essa alteração. Caso contrário, há uma possibilidade de que uma atualização por um cliente (usando uma versão mais antiga do SDK) para a habilidade do modelador possa resultar em erros de validação.
@@ -124,7 +124,7 @@ Se você decidir começar a usar essa nova funcionalidade, verifique se todos os
 
 ## <a name="skills-can-be-identified-by-a-name"></a>As habilidades podem ser identificadas por um nome
 
-Cada habilidade dentro de um Skill agora tem uma nova propriedade `Name`, que pode ser inicializada em seu código para ajudar a identificar a habilidade. Isso é opcional-quando não especificado (que é o padrão, se nenhuma alteração de código explícita foi feita), ele recebe um nome padrão usando o índice de base 1 da habilidade no conjunto de qualificações, prefixado com o caractere ' # '. Por exemplo, na seguinte definição de qualificable (a maioria das inicializações foi ignorada para fins de brevidade):
+Cada habilidade dentro de um Skill agora tem uma nova propriedade `Name` , que pode ser inicializada em seu código para ajudar a identificar a habilidade. Isso é opcional-quando não especificado (que é o padrão, se nenhuma alteração de código explícita foi feita), ele recebe um nome padrão usando o índice de base 1 da habilidade no conjunto de qualificações, prefixado com o caractere ' # '. Por exemplo, na seguinte definição de qualificable (a maioria das inicializações foi ignorada para fins de brevidade):
 
 ```csharp
 var skillset = new Skillset()
@@ -139,9 +139,9 @@ var skillset = new Skillset()
 }
 ```
 
-`SentimentSkill`é atribuído um nome `#1`, `WebApiSkill` é atribuído `#2`, `ShaperSkill` `#3` e assim por diante.
+`SentimentSkill`é atribuído um nome `#1` , é atribuído `WebApiSkill` `#2` , `ShaperSkill` `#3` e assim por diante.
 
-Se você optar por identificar as habilidades por um nome personalizado, atualize todas as instâncias de seus clientes para a versão 10 do SDK primeiro. Caso contrário, há uma possibilidade de que um cliente que usa uma versão mais antiga do `null` SDK possa `Name` sair da propriedade de uma habilidade, fazendo com que o cliente retorne ao esquema de nomenclatura padrão.
+Se você optar por identificar as habilidades por um nome personalizado, atualize todas as instâncias de seus clientes para a versão 10 do SDK primeiro. Caso contrário, há uma possibilidade de que um cliente que usa uma versão mais antiga do SDK possa `null` sair da `Name` propriedade de uma habilidade, fazendo com que o cliente retorne ao esquema de nomenclatura padrão.
 
 ## <a name="details-about-errors-and-warnings"></a>Detalhes sobre erros e avisos
 

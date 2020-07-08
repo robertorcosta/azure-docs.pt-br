@@ -7,7 +7,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 06/23/2020
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,16 +19,16 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f4c3330b23b8b724cdbf5d7e09eec8a8dd5b8cfa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3bf9dc0e69707eaed8c2a844f6ed3169e65a5342
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81258976"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564085"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Sintaxe de consulta Lucene no Azure Pesquisa Cognitiva
 
-Você pode escrever consultas no Azure Pesquisa Cognitiva com base na sintaxe do [analisador de consulta do Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) avançada para formulários de consulta especializados: curinga, pesquisa difusa, pesquisa por proximidade, expressões regulares são alguns exemplos. Grande parte da sintaxe do analisador de consulta Lucene é [implementada intacta no azure pesquisa cognitiva](search-lucene-query-architecture.md), com exceção das *pesquisas de intervalo* que são construídas no Azure pesquisa cognitiva por meio `$filter` de expressões. 
+Você pode escrever consultas no Azure Pesquisa Cognitiva com base na sintaxe do [analisador de consulta do Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) avançada para formulários de consulta especializados: curinga, pesquisa difusa, pesquisa por proximidade, expressões regulares são alguns exemplos. Grande parte da sintaxe do analisador de consulta Lucene é [implementada intacta no azure pesquisa cognitiva](search-lucene-query-architecture.md), com exceção das *pesquisas de intervalo* que são construídas no Azure pesquisa cognitiva por meio de `$filter` expressões. 
 
 > [!NOTE]
 > A sintaxe Lucene completa é usada para expressões de consulta passadas no parâmetro de **pesquisa** da API de [documentos de pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents) , não deve ser confundida com a [sintaxe OData](query-odata-filter-orderby-syntax.md) usada para o parâmetro [$Filter](search-filters.md) dessa API. Essas sintaxes diferentes têm suas próprias regras para construir consultas, cadeias de caracteres de escape e assim por diante.
@@ -46,13 +46,13 @@ O exemplo a seguir localiza os documentos no índice usando a sintaxe de consult
 O parâmetro `searchMode=all` é relevante neste exemplo. Sempre que os operadores estiverem na consulta, geralmente você deve definir `searchMode=all` para garantir que *todos* os critérios sejam correspondidos.
 
 ```
-GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2019-05-06&querytype=full
+GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2020-06-30&querytype=full
 ```
 
  Como alternativa, use POST:  
 
 ```
-POST /indexes/hotels/docs/search?api-version=2019-05-06
+POST /indexes/hotels/docs/search?api-version=2020-06-30
 {
   "search": "category:budget AND \"recently renovated\"^3",
   "queryType": "full",
@@ -81,7 +81,7 @@ O exemplo acima usa o til (~), mas o mesmo princípio se aplica a todos os opera
 
 ### <a name="escaping-special-characters"></a>Caracteres especiais de escape
 
-Para usar qualquer um dos operadores de pesquisa como parte do texto de pesquisa, escape o caractere prefixando-o com uma barra invertida única`\`(). Por exemplo, para uma pesquisa de curinga `https://`em, `://` em que é parte da cadeia de caracteres de consulta `search=https\:\/\/*`, você especificaria. Da mesma forma, um padrão de número de telefone de `\+1 \(800\) 642\-7676`escape pode ser assim.
+Para usar qualquer um dos operadores de pesquisa como parte do texto de pesquisa, escape o caractere prefixando-o com uma barra invertida única ( `\` ). Por exemplo, para uma pesquisa de curinga em `https://` , em que `://` é parte da cadeia de caracteres de consulta, você especificaria `search=https\:\/\/*` . Da mesma forma, um padrão de número de telefone de escape pode ser assim `\+1 \(800\) 642\-7676` .
 
 Os caracteres especiais que exigem escape incluem o seguinte:  
 `+ - & | ! ( ) { } [ ] ^ " ~ * ? : \ /`  
@@ -119,19 +119,19 @@ O operador AND é um e comercial ou um sinal de adição. Por exemplo: `wifi && 
 
 ### <a name="not-operator-not--or--"></a>Operador NOT `NOT`, `!` ou `-`
 
-O operador NOT é um sinal de subtração. Por exemplo, `wifi –luxury` o procurará documentos que tenham o `wifi` termo e/ou que não tenham `luxury`.
+O operador NOT é um sinal de subtração. Por exemplo, o `wifi –luxury` procurará documentos que tenham o `wifi` termo e/ou que não tenham `luxury` .
 
-O parâmetro **searchmode** em uma solicitação de consulta controla se um termo com o operador NOT é ANDed ou orns com outros termos na consulta (supondo que `+` não `|` haja nenhum operador OR nos outros termos). Os valores válidos incluem `any` ou `all`.
+O parâmetro **searchmode** em uma solicitação de consulta controla se um termo com o operador NOT é ANDed ou orns com outros termos na consulta (supondo que não haja nenhum `+` `|` operador OR nos outros termos). Os valores válidos incluem `any` ou `all`.
 
-`searchMode=any`aumenta a recall de consultas, incluindo mais resultados e, por `-` padrão, será interpretado como "ou não". Por exemplo, `wifi -luxury` corresponderá a documentos que contêm o termo `wifi` ou aqueles que não contêm o termo `luxury`.
+`searchMode=any`aumenta a recall de consultas, incluindo mais resultados e, por padrão, `-` será interpretado como "ou não". Por exemplo, `wifi -luxury` corresponderá a documentos que contêm o termo `wifi` ou aqueles que não contêm o termo `luxury`.
 
-`searchMode=all`aumenta a precisão das consultas, incluindo menos resultados e, por padrão, será interpretado como "e não". Por exemplo, `wifi -luxury` corresponderá a documentos que contêm o termo `wifi` e não contêm o termo "luxo". Esse é indiscutivelmente um comportamento mais intuitivo para o operador `-`. Portanto, você deve considerar o `searchMode=all` uso do `searchMode=any` em vez de se deseja otimizar as pesquisas de precisão em vez de recall, *e* os `-` usuários frequentemente usam o operador em pesquisas.
+`searchMode=all`aumenta a precisão das consultas, incluindo menos resultados e, por padrão, será interpretado como "e não". Por exemplo, `wifi -luxury` corresponderá a documentos que contêm o termo `wifi` e não contêm o termo "luxo". Esse é indiscutivelmente um comportamento mais intuitivo para o operador `-`. Portanto, você deve considerar `searchMode=all` o uso do em vez de `searchMode=any` se deseja otimizar as pesquisas de precisão em vez de recall, *e* os usuários frequentemente usam o `-` operador em pesquisas.
 
 Ao decidir sobre uma configuração de **searchmode** , considere os padrões de interação do usuário para consultas em vários aplicativos. Os usuários que estão pesquisando informações têm mais probabilidade de incluir um operador em uma consulta, em oposição aos sites de comércio eletrônico que têm estruturas de navegação mais internas.
 
 ##  <a name="fielded-search"></a><a name="bkmk_fields"></a>Pesquisa em campo
 
-Você pode definir uma operação de pesquisa em campo com `fieldName:searchExpression` a sintaxe, em que a expressão de pesquisa pode ser uma única palavra ou frase, ou uma expressão mais complexa entre parênteses, opcionalmente com operadores boolianos. Alguns exemplos incluem o seguinte:  
+Você pode definir uma operação de pesquisa em campo com a `fieldName:searchExpression` sintaxe, em que a expressão de pesquisa pode ser uma única palavra ou frase, ou uma expressão mais complexa entre parênteses, opcionalmente com operadores boolianos. Alguns exemplos incluem o seguinte:  
 
 - gênero:jazz NÃO histórico  
 
@@ -142,7 +142,7 @@ Coloque várias cadeias de caracteres entre aspas se quiser que ambas cadeias de
 O campo especificado em `fieldName:searchExpression` deve ser um campo `searchable`.  Confira [Criar Índice](https://docs.microsoft.com/rest/api/searchservice/create-index) para obter detalhes sobre como os atributos de índice são usados em definições de campo.  
 
 > [!NOTE]
-> Ao usar expressões de pesquisa em campo, você não precisa usar o `searchFields` parâmetro porque cada expressão de pesquisa em campo tem um nome de campo especificado explicitamente. No entanto, você ainda poderá `searchFields` usar o parâmetro se quiser executar uma consulta em que algumas partes têm o escopo de um campo específico, e o restante pode se aplicar a vários campos. Por exemplo, a consulta `search=genre:jazz NOT history&searchFields=description` corresponderia `jazz` apenas ao `genre` campo, enquanto ela corresponderia `NOT history` ao `description` campo. O nome do campo fornecido `fieldName:searchExpression` em sempre tem precedência `searchFields` sobre o parâmetro, que é o motivo neste exemplo, não precisamos incluir `genre` no `searchFields` parâmetro.
+> Ao usar expressões de pesquisa em campo, você não precisa usar o `searchFields` parâmetro porque cada expressão de pesquisa em campo tem um nome de campo especificado explicitamente. No entanto, você ainda poderá usar o `searchFields` parâmetro se quiser executar uma consulta em que algumas partes têm o escopo de um campo específico, e o restante pode se aplicar a vários campos. Por exemplo, a consulta `search=genre:jazz NOT history&searchFields=description` corresponderia `jazz` apenas ao `genre` campo, enquanto ela corresponderia ao `NOT history` `description` campo. O nome do campo fornecido em `fieldName:searchExpression` sempre tem precedência sobre o `searchFields` parâmetro, que é o motivo neste exemplo, não precisamos incluir `genre` no `searchFields` parâmetro.
 
 ##  <a name="fuzzy-search"></a><a name="bkmk_fuzzy"></a>Pesquisa difusa
 
@@ -166,28 +166,30 @@ O exemplo a seguir ajuda a ilustrar as diferenças. Considere um perfil de pontu
  Para aumentar um termo, use o sinal de interpolação, "^", com um fator de aumento (um número) no final do termo que você está pesquisando. Você também pode aumentar as frases. Quanto maior o fator de aumento, mais relevante será o termo em relação a outros termos de pesquisa. Por padrão, o fator de aumento é 1. Embora o fator de aumento deva ser positivo, ele pode ser menor do que 1 (por exemplo, 0,20).  
 
 ##  <a name="regular-expression-search"></a><a name="bkmk_regex"></a> Pesquisa com expressão regular  
- Uma pesquisa de expressão regular encontra uma correspondência com base no conteúdo entre as barras "/", como documentado na [classe RegExp](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html).  
+ Uma pesquisa de expressão regular localiza uma correspondência com base em padrões que são válidos no Apache Lucene, conforme documentado na [classe RegExp](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html). No Azure Pesquisa Cognitiva, uma expressão regular é colocada entre barras invertidas `/` .
 
  Por exemplo, para localizar documentos que contenham "motel" ou "hotel", especifique `/[mh]otel/`. As pesquisas com expressões regulares são comparadas com palavras individuais.
 
-Algumas ferramentas e linguagens impõem requisitos adicionais de caractere de escape. Para o JSON, as cadeias de caracteres que incluem uma barra invertida são repassadas com `search=/.*microsoft.com\/azure\/.*/` uma `search=/.* <string-placeholder>.*/` barra invertida: "Microsoft.com/Azure/" `microsoft.com\/azure\/` torna-se o local onde o configura a expressão regular e é a cadeia de caracteres com uma barra de escape.
+Algumas ferramentas e linguagens impõem requisitos adicionais de caractere de escape. Para o JSON, as cadeias de caracteres que incluem uma barra invertida são repassadas com uma barra invertida: "microsoft.com/azure/" torna-se `search=/.*microsoft.com\/azure\/.*/` o local onde `search=/.* <string-placeholder>.*/` o configura a expressão regular e `microsoft.com\/azure\/` é a cadeia de caracteres com uma barra de escape.
 
-##  <a name="wildcard-search"></a><a name="bkmk_wildcard"></a> Pesquisa com curinga  
+##  <a name="wildcard-search"></a><a name="bkmk_wildcard"></a> Pesquisa com curinga
 
-Você pode usar a sintaxe geralmente reconhecida para pesquisas com vários caracteres curinga (*) ou um caractere curinga (?). Observe que o analisador de consulta Lucene oferece suporte ao uso desses símbolos com um único termo e não uma frase.
+Você pode usar a sintaxe geralmente reconhecida para várias `*` pesquisas de curinga de caractere () ou única ( `?` ). Por exemplo, uma expressão de consulta de `search=alpha*` retorna "alfanumérico" ou "alfabética". Observe que o analisador de consulta Lucene oferece suporte ao uso desses símbolos com um único termo e não uma frase.
 
-A pesquisa de prefixo também usa o`*`caractere de asterisco (). Por exemplo, uma expressão de consulta `search=note*` de retorna "Notebook" ou "notepad". A sintaxe Lucene completa não é necessária para a pesquisa de prefixo. A sintaxe simples dá suporte a esse cenário.
+A sintaxe Lucene completa dá suporte à correspondência de prefixo, infixo e sufixo. No entanto, se tudo o que você precisa é de correspondência de prefixo, você pode usar a sintaxe simples (a correspondência de prefixo tem suporte em ambos).
 
-A pesquisa de sufixo `*` , `?` onde ou precede a cadeia de caracteres, requer a sintaxe Lucene completa e uma expressão regular (você não pode usar um * ou? símbolo como o primeiro caractere de uma pesquisa). Dado o termo "alfanumérico", uma expressão de consulta de`search=/.*numeric.*/`() encontrará a correspondência.
+A correspondência de sufixo, onde `*` ou `?` precede a cadeia de caracteres (como em `search=/.*numeric./` ) ou a correspondência de infixos requer a sintaxe Lucene completa, bem como os delimitadores de barra da expressão regular `/` . Não é possível usar um símbolo * ou ? símbolo como o primeiro caractere de um termo ou dentro de um termo, sem o `/` . 
 
 > [!NOTE]  
+> Como regra, a correspondência de padrões é lenta, portanto, talvez você queira explorar métodos alternativos, como a geração de tokens de n-grama de borda, que cria tokens para sequências de caracteres em um termo. O índice será maior, mas as consultas poderão ser executadas mais rapidamente, dependendo da construção do padrão e do comprimento das cadeias de caracteres que estão sendo indexadas.
+>
 > Durante a análise de consulta, as consultas que são formuladas como prefixo, sufixo, curinga ou expressões regulares são passadas como estão para a árvore de consulta, ignorando a [análise léxica](search-lucene-query-architecture.md#stage-2-lexical-analysis). As correspondências só serão encontradas se o índice contiver as cadeias de caracteres no formato especificado pela sua consulta. Na maioria dos casos, você precisará de um analisador alternativo durante a indexação que preserva a integridade da cadeia de caracteres para que a correspondência de termos e padrões parciais seja realizada com sucesso. Para obter mais informações, consulte [pesquisa de termo parcial nas consultas de pesquisa cognitiva do Azure](search-query-partial-matching.md).
 
 ##  <a name="scoring-wildcard-and-regex-queries"></a><a name="bkmk_searchscoreforwildcardandregexqueries"></a> Classificar consultas de caractere curinga e regex
 
 O Azure Pesquisa Cognitiva usa a pontuação baseada em frequência ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)) para consultas de texto. No entanto, para consultas curinga e regex em que o escopo de termos pode ser potencialmente amplo, o fator de frequência é ignorado para impedir que a classificação seja direcionada para correspondências de termos mais raros. Todas as correspondências são tratadas da mesma maneira para as pesquisas de caractere curinga e regex.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 + [Exemplos de consulta para pesquisa simples](search-query-simple-examples.md)
 + [Exemplos de consulta para a pesquisa completa do Lucene](search-query-lucene-examples.md)

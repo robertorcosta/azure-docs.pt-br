@@ -9,24 +9,24 @@ ms.date: 11/18/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: bb66e90f1d835a6341b47bb698cf05bc442e0ac0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 69c921ba67159d28a913173cee5e90fb04dcbf0a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82129243"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85561047"
 ---
-# <a name="store-business-critical-blob-data-with-immutable-storage"></a>Armazene dados de blob críticos para os negócios com armazenamento imutável
+# <a name="store-business-critical-blob-data-with-immutable-storage"></a>Armazenar dados de blob comercialmente críticos com armazenamento imutável
 
-O armazenamento imutável para o armazenamento de BLOBs do Azure permite que os usuários armazenem objetos de dados críticos para os negócios em um estado de WORM (gravar uma vez, ler muitos). Esse estado torna os dados não apagáveis e não modificáveis para um intervalo especificado pelo usuário. Durante a duração do intervalo de retenção, os BLOBs podem ser criados e lidos, mas não podem ser modificados ou excluídos. O armazenamento imutável está disponível para contas de uso geral v1, de uso geral v2, BlobStorage e BlockBlobStorage em todas as regiões do Azure.
+O armazenem imutável para armazenamento de blobs do Azure possibilita que os usuários armazenem objetos de dados críticos baseados em negócios em um estado WORM (Gravar uma vez, reutilizar frequentemente). Esse estado torna os dados não apagáveis e não modificáveis para um intervalo especificado pelo usuário. Durante o intervalo de retenção, os blobs podem ser criados e lidos, mas não modificados ou excluídos. O armazenamento imutável está disponível para contas de uso geral v1, de uso geral v2, BlobStorage e BlockBlobStorage em todas as regiões do Azure.
 
 Para obter informações sobre como definir e limpar as isenções legais ou criar uma política de retenção baseada em tempo usando o portal do Azure, o PowerShell ou o CLI do Azure, consulte [definir e gerenciar políticas de imutabilidade para o armazenamento de BLOBs](storage-blob-immutability-policies-manage.md).
 
-[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="about-immutable-blob-storage"></a>Sobre o armazenamento de BLOBs imutável
 
-O armazenamento imutável ajuda a organização de saúde, instituições financeiras e setores&mdash;relacionados, especialmente as organizações&mdash;do revendedor para armazenar dados com segurança. O armazenamento imutável também pode ser aproveitado em qualquer cenário para proteger dados críticos contra modificação ou exclusão.
+O armazenamento imutável ajuda a organização de saúde, instituições financeiras e setores relacionados, &mdash; especialmente as organizações do revendedor &mdash; para armazenar dados com segurança. O armazenamento imutável também pode ser aproveitado em qualquer cenário para proteger dados críticos contra modificação ou exclusão.
 
 Os aplicativos típicos incluem:
 
@@ -48,7 +48,7 @@ O armazenamento imutável oferece suporte aos seguintes recursos:
 
 - **Suporte ao log de auditoria**: cada contêiner inclui um log de auditoria de política. Ele mostra até sete comandos de retenção baseados em tempo para políticas de retenção baseadas em tempo bloqueadas e contém a ID de usuário, o tipo de comando, os carimbos de data/hora e o intervalo de retenção. Para retenções legais, o log contém as identificações de ID do usuário, tipo de comando, carimbos de tempo e retenção legal. Esse log é retido durante o tempo de vida da política, de acordo com as diretrizes regulatórias da SEC 17a-4 (f). O [log de atividades do Azure](../../azure-monitor/platform/platform-logs-overview.md) mostra um log mais abrangente de todas as atividades do plano de controle; Embora a habilitação dos [logs de recursos do Azure](../../azure-monitor/platform/platform-logs-overview.md) retenha e mostre operações de plano de dados. É responsabilidade do usuário armazenar esses logs de forma persistente, conforme o necessário para regulamentações ou outros fins.
 
-## <a name="how-it-works"></a>Como isso funciona
+## <a name="how-it-works"></a>Como funciona
 
 O armazenamento imutável para armazenamento de Blobs do Azure oferece suporte a dois tipos de políticas WORM ou imutáveis: retenção baseada em tempo e retenções legais. Quando uma política de retenção baseada em tempo ou uma retenção legal é aplicada em um contêiner, todos os BLOBs existentes são movidos para um estado de WORM imutável em menos de 30 segundos. Todos os novos BLOBs que são carregados nesse contêiner de política protegida também serão movidos para um estado imutável. Depois que todos os BLOBs estiverem em um estado imutável, a política imutável será confirmada e quaisquer operações de substituição ou exclusão no contêiner imutável não serão permitidas.
 
@@ -78,15 +78,15 @@ Os seguintes limites se aplicam às políticas de retenção:
 
 Os blobs de acréscimo são compostos de blocos de dados e otimizados para operações de acréscimo de dados exigidas pelos cenários de auditoria e registro em log. Por design, os blobs de acréscimo permitem apenas a adição de novos blocos ao final do blob. Independentemente da imutabilidade, a modificação ou a exclusão de blocos existentes em um blob de acréscimo não é permitida de maneira fundamental. Para saber mais sobre blobs de acréscimo, confira [sobre blobs de acréscimo](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs).
 
-Somente as políticas de retenção baseadas em tempo `allowProtectedAppendWrites` têm uma configuração que permite gravar novos blocos em um blob de acréscimo, mantendo a proteção contra imutabilidade e a conformidade. Se habilitada, você poderá criar um blob de acréscimo diretamente no contêiner protegido por política e continuar a adicionar novos blocos de dados ao final dos BLOBs de acréscimo existentes usando a API *AppendBlock* . Somente novos blocos podem ser adicionados e os blocos existentes não podem ser modificados ou excluídos. A proteção de imutabilidade de retenção de tempo ainda se aplica, impedindo a exclusão do blob de acréscimo até que o período de retenção efetivo tenha decorrido. A habilitação dessa configuração não afeta o comportamento de imutabilidade de blobs de blocos ou BLOBs de páginas.
+Somente as políticas de retenção baseadas em tempo têm uma `allowProtectedAppendWrites` configuração que permite gravar novos blocos em um blob de acréscimo, mantendo a proteção contra imutabilidade e a conformidade. Se habilitada, você poderá criar um blob de acréscimo diretamente no contêiner protegido por política e continuar a adicionar novos blocos de dados ao final dos BLOBs de acréscimo existentes usando a API *AppendBlock* . Somente novos blocos podem ser adicionados e os blocos existentes não podem ser modificados ou excluídos. A proteção de imutabilidade de retenção de tempo ainda se aplica, impedindo a exclusão do blob de acréscimo até que o período de retenção efetivo tenha decorrido. A habilitação dessa configuração não afeta o comportamento de imutabilidade de blobs de blocos ou BLOBs de páginas.
 
 Como essa configuração faz parte de uma política de retenção baseada em tempo, os blobs de acréscimo ainda permanecem no estado imutável pela duração do período de retenção *efetivo* . Como novos dados podem ser acrescentados além da criação inicial do blob de acréscimo, há uma pequena diferença na forma como o período de retenção é determinado. A retenção efetiva é a diferença entre a hora da **última modificação** do blob de acréscimo e o intervalo de retenção especificado pelo usuário. Da mesma forma, quando o intervalo de retenção é estendido, o armazenamento imutável usa o valor mais recente do intervalo de retenção especificado pelo usuário para calcular o período de retenção efetivo.
 
-Por exemplo, suponha que um usuário crie uma política de retenção baseada em tempo `allowProtectedAppendWrites` com habilitado e um intervalo de retenção de 90 dias. Um blob de acréscimo, _logblob1_, é criado no contêiner hoje, novos logs continuam a ser adicionados ao blob de acréscimo pelos próximos 10 dias; Portanto, o período de retenção efetivo para o _logblob1_ é de 100 dias a partir de hoje (a hora de seu último acréscimo + 90 dias).
+Por exemplo, suponha que um usuário crie uma política de retenção baseada em tempo com `allowProtectedAppendWrites` habilitado e um intervalo de retenção de 90 dias. Um blob de acréscimo, _logblob1_, é criado no contêiner hoje, novos logs continuam a ser adicionados ao blob de acréscimo pelos próximos 10 dias; Portanto, o período de retenção efetivo para o _logblob1_ é de 100 dias a partir de hoje (a hora de seu último acréscimo + 90 dias).
 
-Políticas de retenção baseadas em tempo desbloqueadas permitem que a `allowProtectedAppendWrites` configuração seja habilitada e desabilitada a qualquer momento. Quando a política de retenção baseada em tempo estiver bloqueada `allowProtectedAppendWrites` , a configuração não poderá ser alterada.
+Políticas de retenção baseadas em tempo desbloqueadas permitem que a `allowProtectedAppendWrites` configuração seja habilitada e desabilitada a qualquer momento. Quando a política de retenção baseada em tempo estiver bloqueada, a `allowProtectedAppendWrites` configuração não poderá ser alterada.
 
-As políticas de retenção legal `allowProtectedAppendWrites` não podem habilitar e qualquer retenção legal anulará a propriedade ' allowProtectedAppendWrites '. Se uma retenção legal for aplicada a uma política de retenção baseada em tempo `allowProtectedAppendWrites` com habilitada, a API *AppendBlock* falhará até que a retenção legal seja levantada.
+As políticas de retenção legal não podem habilitar `allowProtectedAppendWrites` e qualquer retenção legal anulará a propriedade ' allowProtectedAppendWrites '. Se uma retenção legal for aplicada a uma política de retenção baseada em tempo com `allowProtectedAppendWrites` habilitada, a API *AppendBlock* falhará até que a retenção legal seja levantada.
 
 ## <a name="legal-holds"></a>Retenções legais
 
@@ -112,7 +112,7 @@ A tabela a seguir mostra os tipos de operações de armazenamento de BLOBs que e
 
 <sup>1</sup> o serviço blob permite que essas operações criem um novo BLOB uma vez. Todas as operações de substituição subsequentes em um caminho de blob existente em um contêiner imutável não são permitidas.
 
-<sup>2</sup> o bloco Append só é permitido para políticas de retenção baseadas em tempo `allowProtectedAppendWrites` com a propriedade habilitada. Para obter mais informações, consulte a seção [permitir gravações de blobs de anexação protegidas](#allow-protected-append-blobs-writes) .
+<sup>2</sup> o bloco Append só é permitido para políticas de retenção baseadas em tempo com a `allowProtectedAppendWrites` Propriedade habilitada. Para obter mais informações, consulte a seção [permitir gravações de blobs de anexação protegidas](#allow-protected-append-blobs-writes) .
 
 ## <a name="pricing"></a>Preços
 
@@ -170,7 +170,7 @@ Sim, se os requisitos de conformidade permitirem que a exclusão reversível sej
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Definir e gerenciar políticas de imutabilidade para o armazenamento de BLOBs](storage-blob-immutability-policies-manage.md)
+- [Definir e gerenciar políticas de imutabilidade para o armazenamento de blobs](storage-blob-immutability-policies-manage.md)
 - [Definir regras para camada e exclusão automática de dados de blob com o gerenciamento do ciclo de vida](storage-lifecycle-management-concepts.md)
 - [Exclusão reversível para blobs do Armazenamento do Azure ](../blobs/storage-blob-soft-delete.md)
 - [Proteger assinaturas, grupos de recursos e recursos com bloqueios de Azure Resource Manager](../../azure-resource-manager/management/lock-resources.md).

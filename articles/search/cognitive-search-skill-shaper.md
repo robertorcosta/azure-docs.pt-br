@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 384b79037bb30656934c5e4b596dac2b776593b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 81eb0e60befc544a6c3bee8f04e901b6a5e472bc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75754124"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85560812"
 ---
 # <a name="shaper-cognitive-skill"></a>Habilidades cognitivas do Shaper
 
@@ -251,5 +251,5 @@ Nesse caso, o **modelador** cria um tipo complexo. Essa estrutura existe na mem�
 + [Habilidades internas](cognitive-search-predefined-skills.md)
 + [Como definir um conjunto de qualificações](cognitive-search-defining-skillset.md)
 + [Como usar tipos complexos](search-howto-complex-data-types.md)
-+ [Repositório de conhecimento (versão prévia)](knowledge-store-concept-intro.md)
++ [Repositório de conhecimento](knowledge-store-concept-intro.md)
 + [Criar um repositório de conhecimento no REST](knowledge-store-create-rest.md)

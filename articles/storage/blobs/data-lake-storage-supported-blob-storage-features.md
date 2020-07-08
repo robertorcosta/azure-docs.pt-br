@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/10/2020
+ms.date: 06/29/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 5be7c9800076cfaf361a3e752162e14d10f22655
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 15e6cf7adfda995148a75ec21b8d8e5d8a5cab2e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650750"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559068"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Recursos de armazenamento de blobs no Azure Data Lake Storage Gen2
 
@@ -39,19 +39,20 @@ Esta tabela lista os recursos de armazenamento de blobs que você pode usar com 
 |Comandos da CLI do Azure para armazenamento de blobs|Disponível para o público geral|Visualização|[Início Rápido: Criar, baixar e listar blobs com a CLI do Azure](storage-quickstart-blobs-cli.md)|
 |APIs de armazenamento de Blob|Disponível para o público geral|Visualização|[Início Rápido: Biblioteca de clientes do Armazenamento de blobs v12 para .NET](storage-quickstart-blobs-dotnet.md)<br>[Início Rápido: Gerenciar blobs com o SDK do Java v12](storage-quickstart-blobs-java.md)<br>[Início Rápido: Gerenciar blobs com o SDK do Python v12](storage-quickstart-blobs-python.md)<br>[Início Rápido: Gerenciar blobs com o SDK do JavaScript v12 no Node.js](storage-quickstart-blobs-nodejs.md)|
 |Logs de diagnóstico|Disponível para o público geral|Visualização <div role="complementary" aria-labelledby="diagnostic-logging"><sup>1</sup></div> |[Log da análise do Armazenamento do Azure](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Camada de acesso aos arquivos|Disponível para o público geral|Sem suporte|[Armazenamento de Blobs do Azure: camadas de acesso frequentes, esporádicas e de arquivo](storage-blob-storage-tiers.md)|
 |Logon no Azure Monitor|Visualização |Ainda não compatível|[Monitorar o Armazenamento do Microsoft Azure](../common/monitor-storage.md)|
-|Camada de acesso aos arquivos|Visualização|Sem suporte|[Armazenamento de Blobs do Azure: camadas de acesso frequentes, esporádicas e de arquivo](storage-blob-storage-tiers.md)|
+|Instantâneos|Visualização|Ainda não compatível|[Instantâneos de BLOB](snapshots-overview.md)|
+|Sites estáticos|Visualização|Ainda não compatível|[Hospedagem de site estático no Armazenamento do Azure](storage-blob-static-website.md)|
+|Armazenamento imutável|Visualização|Ainda não compatível|[Armazenar dados de blob comercialmente críticos com armazenamento imutável](storage-blob-immutable-storage.md)|
 |Políticas de gerenciamento do ciclo de vida|Visualização|Ainda não compatível|[Gerenciar o ciclo de vida de armazenamento de BLOBs do Azure](storage-lifecycle-management-concepts.md)|
+|Blobfuse|Visualização|Ainda não compatível|[Como montar o Armazenamento de Blobs como um sistema de arquivos com blobfuse](storage-how-to-mount-container-linux.md)|
 |Feed de alteração|Ainda não compatível|Ainda não compatível|[Suporte ao feed de alterações no armazenamento de blobs do Azure](storage-blob-change-feed.md)|
 |Failover da conta|Ainda não compatível|Ainda não compatível|[Recuperação de desastre e failover de conta](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |ACL do contêiner de blob|Ainda não compatível|Ainda não compatível|[Definir ACL do contêiner](https://docs.microsoft.com/rest/api/storageservices/set-container-acl)|
 |Domínios personalizados|Ainda não compatível|Ainda não compatível|[Mapear um domínio personalizado para um ponto de extremidade do armazenamento de blobs do Azure](storage-custom-domain-name.md)|
-|Armazenamento imutável|Ainda não compatível|Ainda não compatível|[Armazenar dados de blob comercialmente críticos com armazenamento imutável](storage-blob-immutable-storage.md)|
-|Instantâneos|Ainda não compatível|Ainda não compatível|[Criar e gerenciar um instantâneo de blob no .NET](storage-blob-snapshots.md)|
 |Exclusão reversível|Ainda não compatível|Ainda não compatível|[Exclusão reversível para blobs do Armazenamento do Azure ](storage-blob-soft-delete.md)|
-|Sites estáticos|Ainda não compatível|Ainda não compatível|[Hospedagem de site estático no Armazenamento do Azure](storage-blob-static-website.md)|
 
-<div id="diagnostic-logging"><sup>1</sup>Para contas de armazenamento de blobs de blocos Premium, logs de diagnóstico (clássico) não podem ser habilitados usando o portal do Azure. Habilite-os usando o PowerShell.</div>
+<div id="diagnostic-logging"><sup>1</sup> para contas de armazenamento de blob de blocos Premium, os logs de diagnóstico (clássicos) não podem ser habilitados usando o portal do Azure. Habilite-os usando o PowerShell.</div>
 
 ## <a name="see-also"></a>Confira também
 

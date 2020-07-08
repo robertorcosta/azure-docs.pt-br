@@ -4,15 +4,15 @@ description: Saiba mais sobre como gerar e receber vendas potenciais de clientes
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 6234719216c7ef40df99a26153d7677f7a747f55
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: HT
+ms.openlocfilehash: 89b73fd98ca773668d2eb53892d0c21397e9abf3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800926"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559578"
 ---
 # <a name="customer-leads-from-your-commercial-marketplace-offer"></a>Vendas potenciais do cliente da sua oferta do marketplace comercial
 
@@ -87,10 +87,12 @@ As informações do cliente são enviadas usando vários campos. O exemplo a seg
 
 ## <a name="best-practices-for-lead-management"></a>Melhores práticas para o gerenciamento de vendas potenciais
 
+Aqui estão algumas recomendações para orientar os leads pelo seu ciclo de vendas:
+
 - **Processo**: Defina um processo de vendas claro, com marcos, análise e responsabilidade clara da equipe.
 - **Qualificação**: defina os pré-requisitos, que indicam se um cliente potencial foi totalmente qualificado. Os representantes de vendas ou marketing devem qualificar as vendas potenciais cuidadosamente antes de conduzi-las pelo processo de vendas completo.
-- **Acompanhamento**: não se esqueça de acompanhar. Uma transação típica exigirá de 5 a 12 chamadas de acompanhamento.
-- **Incentivo**: incentivá suas vendas potenciais para ajudar você a obter uma margem de lucro mais alta.
+- **Acompanhamento**: não se esqueça de acompanhar em 24 horas. Você obterá o cliente potencial em seu CRM de escolha imediatamente depois que o cliente implantar um test drive; Envie-os por email enquanto eles ainda estiverem em aquecimento. Solicite o agendamento de uma chamada telefônica para entender melhor se o seu produto é uma boa solução para seu problema. Espere que a transação típica exija várias chamadas de acompanhamento.
+- **Incentivo**: incentivá suas vendas potenciais para ajudar você a obter uma margem de lucro mais alta. Fazer check-in, mas não Bombard-los. Recomendamos que você envie um email aos clientes potenciais pelo menos algumas vezes antes de fechá-los; Não desistir após a primeira tentativa. Lembre-se, esses clientes estão diretamente envolvidos em seu produto e gastaram tempo em uma avaliação gratuita; Eles são ótimos clientes potenciais.
 
 ## <a name="common-questions-about-lead-management"></a>Perguntas comuns sobre o gerenciamento de vendas potenciais
 

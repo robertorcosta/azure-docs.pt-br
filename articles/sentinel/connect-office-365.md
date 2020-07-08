@@ -1,6 +1,6 @@
 ---
-title: Conectar dados do Office 365 ao Azure Sentinel | Microsoft Docs
-description: Saiba como conectar dados do Office 365 ao Azure Sentinel.
+title: Conectar logs do Office 365 ao Azure Sentinel | Microsoft Docs
+description: Saiba como usar o conector de log do Office 365 para reunir informações sobre atividades de usuário e administrador em andamento no Exchange e no SharePoint, incluindo o OneDrive.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -9,49 +9,54 @@ editor: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/12/2020
+ms.date: 05/21/2020
 ms.author: yelevin
-ms.openlocfilehash: c3e63063b3ea4e7fba3997ddd645aa59fe857488
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.openlocfilehash: 180b25f80bd27caea20b1c17cd84fda38c172e0f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758564"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559333"
 ---
-# <a name="connect-data-from-office-365-logs"></a>Conectar dados de logs do Office 365
+# <a name="connect-office-365-logs-to-azure-sentinel"></a>Conectar logs do Office 365 ao Azure Sentinel
 
-
-
-Você pode transmitir logs de auditoria do [Office 365](https://docs.microsoft.com/office365/admin/admin-home?view=o365-worldwide) para o Azure Sentinel com um único clique. Você pode transmitir logs de auditoria do Office 365 para o workspace do Azure Sentinel no mesmo locatário. O conector do log de atividades do Office 365 fornece informações sobre as atividades contínuas do usuário. Você receberá informações sobre várias ações de usuário, administrador, sistema e política e eventos do Office 365. Ao conectar os logs do Office 365 ao Azure Sentinel, você poderá usar esses dados para exibir painéis, criar alertas personalizados e melhorar o processo de investigação.
-
-> [!IMPORTANT]
-> Se tiver uma licença E3, você deverá habilitar o log de auditoria unificada para sua organização do Office 365 para conseguir acessar dados por meio da API de Atividade de Gerenciamento do Office 365. Para isso, ative o log de auditoria do Office 365. Para obter instruções, consulte [Ativar ou desativar a pesquisa de logs de auditoria do Office 365](https://docs.microsoft.com/office365/securitycompliance/turn-audit-log-search-on-or-off). Consulte a [referência da API de atividade de gerenciamento do Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-activity-api-reference) para obter mais informações.
+O conector de log do [Office 365](https://docs.microsoft.com/office/) fornece informações do Azure Sentinel sobre atividades de usuário e administrador em andamento no **Exchange** e no **SharePoint** (incluindo o **onedrive**). Essas informações incluem detalhes de ações como downloads de arquivos, solicitações de acesso enviadas, alterações em eventos de grupo e operações de caixa de correio, bem como os detalhes do usuário que realizou as ações. Conectar logs do Office 365 ao Azure Sentinel permite exibir e analisar esses dados em suas pastas de trabalho, consultá-los para criar alertas personalizados e incorporá-los para melhorar o processo de investigação, fornecendo mais informações sobre a segurança do Office 365.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
+- Você deve ter permissões de leitura e gravação em seu espaço de trabalho do Azure Sentinel.
+
 - Você precisa ser um administrador global ou administrador da segurança no seu locatário.
-- Seu locatário precisa ter a auditoria unificada habilitada. Locatários com licenças E3 ou E5 do Office 365 têm a auditoria unificada habilitada por padrão. <br>Se seu locatário não tiver uma dessas licenças, você precisará habilitar a auditoria unificada no seu locatário por um destes métodos:
-    - [Usar o cmdlet Set-AdminAuditLogConfig](https://docs.microsoft.com/powershell/module/exchange/policy-and-compliance-audit/set-adminauditlogconfig?view=exchange-ps) e habilitar o parâmetro “UnifiedAuditLogIngestionEnabled”).
-    - [Usar a interface do usuário do Centro de Segurança e Conformidade](https://docs.microsoft.com/office365/securitycompliance/search-the-audit-log-in-security-and-compliance#before-you-begin).
-   
+
+- Sua implantação do Office 365 deve estar no mesmo locatário que o seu espaço de trabalho do Azure Sentinel.
+
+> [!IMPORTANT]
+> - Para que o conector possa acessar dados por meio da API de atividade de gerenciamento do Office 365, você deve ter o **log de auditoria unificado** habilitado na sua implantação do Office 365. Dependendo do tipo de licença do Office 365/Microsoft 365 que você tem, ela pode ou não ser habilitada por padrão. Consulte o [centro de conformidade e segurança do Office 365](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-securitycompliance-center) para verificar o status do log de auditoria unificado de acordo com seu tipo de licença.
+> - Você também pode habilitar, desabilitar e verificar manualmente o status atual do log de auditoria unificada do Office 365. Para obter instruções, consulte [Ativar ou desativar a pesquisa de logs de auditoria do Office 365](https://docs.microsoft.com/office365/securitycompliance/turn-audit-log-search-on-or-off).
+> - Para obter mais informações, consulte a [referência da API de atividade de gerenciamento do Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-activity-api-reference).
+
+
    > [!NOTE]
-   > Atualmente, o conector de dados do O365 captura automaticamente apenas atividade do Exchange e do SharePoint como mencionamos na página do conector na seção de tipos de dados. Recomendamos conferir [este artigo caso precise de dados de auditoria do Teams e proteja o Teams com o Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/protecting-your-teams-with-azure-sentinel/ba-p/1265761). 
+   > Conforme observado acima, e como você verá na página conector em tipos de **dados**, o conector para Office 365 do Azure Sentinel atualmente dá suporte à ingestão de logs de auditoria somente do Microsoft Exchange e do SharePoint (incluindo o onedrive). No entanto, há algumas soluções externas se você estiver interessado em trazer [dados de equipes ou de](https://techcommunity.microsoft.com/t5/azure-sentinel/protecting-your-teams-with-azure-sentinel/ba-p/1265761) [outros dados do Office](https://techcommunity.microsoft.com/t5/azure-sentinel/ingesting-office-365-alerts-with-graph-security-api/ba-p/984888) para o Azure Sentinel. 
 
-## <a name="connect-to-office-365"></a>Conectar ao Office 365
+## <a name="enable-the-office-365-log-connector"></a>Habilitar o conector de log do Office 365
 
-1. No Azure Sentinel, selecione **Conectores de dados** e, em seguida, clique no bloco **Office 365**.
+1. No menu de navegação do Azure Sentinel, selecione **conectores de dados**.
 
-2. Se ainda tiver habilitado, acesse a folha **Conectores de dados** e selecione o conector **Office 365**. Aqui, você pode clicar na **página Abrir conector** e, na seção de configuração rotulada **Configuração**, selecione todos os logs de atividade do Office 365 que você deseja conectar ao Azure Sentinel. 
+1. Na lista **conectores de dados** , clique em **Office 365**e, em seguida, no botão **abrir página do conector** no canto inferior direito.
+
+1. Na seção rotulada **configuração**, marque as caixas de seleção dos logs de atividade do Office 365 que você deseja conectar ao Azure Sentinel e clique em **aplicar alterações**. 
+
    > [!NOTE]
-   > Se você já conectou vários locatários em uma versão anterior com suporte do conector do Office 365 no Azure Sentinel, poderá exibir e modificar quais logs você coleta de cada locatário. Você não poderá adicionar locatários, mas poderá remover locatários adicionados anteriormente.
-3. Para usar o esquema relevante no Log Analytics para os logs do Office 365, pesquise **OfficeActivity**.
+   > Se você tiver conectado anteriormente vários locatários ao Azure Sentinel, usando uma versão mais antiga do conector do Office 365 com suporte, você poderá exibir e modificar quais logs você coleta de cada locatário. Você não poderá adicionar locatários, mas poderá remover locatários adicionados anteriormente.
 
+1. Para consultar dados de log do Office 365 em Log Analytics, digite `OfficeActivity` a primeira linha da janela de consulta.
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste documento, você aprendeu a conectar o Office 365 ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
-- Saiba como [obter visibilidade dos seus dados e possíveis ameaças](quickstart-get-visibility.md).
-- Comece a [detectar ameaças com o Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Saiba como [obter visibilidade de seus dados e ameaças em potencial](quickstart-get-visibility.md).
+- Comece a detectar ameaças com o Azure Sentinel, usando regras [internas](tutorial-detect-threats-built-in.md) ou [personalizadas](tutorial-detect-threats-custom.md) .
 

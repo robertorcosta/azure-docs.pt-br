@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 73981cb0f124e1577690f893ead60e6375f16298
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78899f44ba6610f17d19b025f61d968a629c8ad6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133141"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565890"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossário de termos do Hub IoT
 
@@ -154,7 +154,7 @@ O Gerenciador de dispositivos foi substituído pelo [Azure IOT Explorer](https:/
 
 A identidade do dispositivo é o identificador exclusivo atribuído a cada dispositivo registrado no [registro de identidade](#identity-registry).
 
-## <a name="device-management"></a>Gerenciamento de dispositivos
+## <a name="device-management"></a>Gerenciamento de dispositivo
 
 O gerenciamento de dispositivos engloba o ciclo de vida completo associado ao gerenciamento dos dispositivos na sua solução de IoT incluindo planejamento, provisionamento, configuração, monitoramento e desativação.
 
@@ -222,7 +222,7 @@ As [métricas do Hub IoT](iot-hub-metrics.md) fornecem dados sobre o estado dos 
 
 ## <a name="iot-hub-query-language"></a>Linguagem de consulta do Hub IoT
 
-A [linguagem de consulta do Hub IoT](iot-hub-devguide-query-language.md) é uma linguagem semelhante ao SQL que permite que você consulte seus [](#job) e dispositivos gêmeos.
+A [linguagem de consulta do Hub IOT](iot-hub-devguide-query-language.md) é uma linguagem semelhante a SQL que permite consultar seu [trabalho](#job) e dispositivo gêmeos.
 
 ## <a name="iot-hub-resource-rest-api"></a>API REST de Recursos do Hub IoT
 
@@ -321,7 +321,7 @@ Para sua conveniência, muitos dos tutoriais do Hub IoT usam dispositivos simula
 ## <a name="solution"></a>Solução
 Uma _solução_ pode se referir a uma solução do Visual Studio que inclua um ou mais projetos. Uma _solução_ também pode se referir a uma solução IoT que inclua elementos como dispositivos, [aplicativos de dispositivo](#device-app), um hub IoT, outros serviços do Azure e [aplicativos de back-end](#back-end-app).
 
-## <a name="subscription"></a>Assinatura
+## <a name="subscription"></a>Subscription
 
 Uma assinatura do Azure é onde ocorre a cobrança. Cada recurso do Azure que você cria ou serviço do Azure que usa está associado a uma única assinatura. Muitas cotas também se aplicam ao nível de uma assinatura.
 
@@ -343,7 +343,7 @@ Você pode usar um serviço de token para implementar um mecanismo de autentica�
 
 ## <a name="twin-queries"></a>Consultas de gêmeos
 
-As [consultas de dispositivo e módulo gêmeo](iot-hub-devguide-query-language.md) usam a linguagem de consulta do Hub IoT semelhante ao SQL para recuperar informações dos seus dispositivos e módulos gêmeos. Você pode usar a mesma linguagem de consulta do Hub IoT para recuperar informações sobre [](#job) em execução em seu hub IoT.
+As [consultas de dispositivo e módulo gêmeo](iot-hub-devguide-query-language.md) usam a linguagem de consulta do Hub IoT semelhante ao SQL para recuperar informações dos seus dispositivos e módulos gêmeos. Você pode usar a mesma linguagem de consulta do Hub IoT para recuperar informações sobre um [trabalho](#job) em execução no Hub IOT.
 
 ## <a name="twin-synchronization"></a>Sincronização gêmea
 

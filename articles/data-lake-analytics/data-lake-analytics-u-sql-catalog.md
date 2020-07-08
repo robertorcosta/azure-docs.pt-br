@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.topic: conceptual
 ms.date: 05/09/2017
-ms.openlocfilehash: f3b9f14be4422373fb30f8c3d4909fd9c9546fdf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 22a15750a353b88d5a9bbff96f9ed080116792db
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71672843"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564188"
 ---
 # <a name="get-started-with-the-u-sql-catalog-in-azure-data-lake-analytics"></a>Introdução ao catálogo de U-SQL no Azure Data Lake Analytics
 
@@ -24,7 +24,7 @@ No script U-SQL anterior, você repetiu o uso de EXTRACT para ler do mesmo arqui
 
 O seguinte script cria um TVF chamado `Searchlog()` no banco de dados e esquema padrão:
 
-```
+```usql
 DROP FUNCTION IF EXISTS Searchlog;
 
 CREATE FUNCTION Searchlog()
@@ -55,7 +55,7 @@ END;
 
 O script a seguir mostra como usar o TVF definido no script anterior:
 
-```
+```usql
 @res =
     SELECT
         Region,
@@ -76,7 +76,7 @@ Se você tiver uma única expressão de consulta, em vez de um TVF, poderá usar
 
 O seguinte script cria uma exibição chamada `SearchlogView` no banco de dados e esquema padrão:
 
-```
+```usql
 DROP VIEW IF EXISTS SearchlogView;
 
 CREATE VIEW SearchlogView AS  
@@ -93,7 +93,7 @@ USING Extractors.Tsv();
 
 O script a seguir demonstra o uso da exibição definida:
 
-```
+```usql
 @res =
     SELECT
         Region,
@@ -113,7 +113,7 @@ Assim como ocorre com tabelas de banco de dados relacional, com o U-SQL você po
 
 Cria um banco de dados e duas tabelas pelo uso do script a seguir:
 
-```
+```usql
 DROP DATABASE IF EXISTS SearchLogDb;
 CREATE DATABASE SearchLogDb;
 USE DATABASE SearchLogDb;
@@ -147,7 +147,7 @@ Você pode consultar tabelas como aquelas criadas no script anterior, da mesma m
 
 Para ler das tabelas, modifique o script de transformação que você usou anteriormente:
 
-```
+```usql
 @rs1 =
     SELECT
         Region,

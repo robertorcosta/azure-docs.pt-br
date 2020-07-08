@@ -1,6 +1,6 @@
 ---
 title: Conectar o AWS CloudTrail ao Azure sentinela | Microsoft Docs
-description: Saiba como conectar dados do AWS CloudTrail ao Azure Sentinel.
+description: Use o conector do AWS para delegar acesso ao Azure Sentinel a logs de recursos do AWS, criando uma relação de confiança entre AWS CloudTrail e sentinela.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -9,21 +9,24 @@ editor: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/30/2019
+ms.date: 05/27/2020
 ms.author: yelevin
-ms.openlocfilehash: 5cbef1f31ea7088d4fab4888f5630af1b765a910
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f8d296e62be9571bdedd5acf40d5547bae8c864e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77588647"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564582"
 ---
 # <a name="connect-azure-sentinel-to-aws-cloudtrail"></a>Conectar o Azure Sentinel ao AWS CloudTrail
 
 Use o conector do AWS para transmitir todos os eventos do AWS CloudTrail para o Azure Sentinel. Esse processo de conexão delega o acesso para o Azure Sentinel aos logs de recursos do AWS, criando uma relação de confiança entre o AWS CloudTrail e o Azure sentinela. Isso é feito em AWS criando uma função que concede permissão ao Azure Sentinel para acessar seus logs do AWS.
+
+> [!NOTE]
+> AWS CloudTrail tem [limitações internas](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) em sua API LookupEvents. Ele não permite mais do que duas operações por segundo (TPS) por conta, e cada consulta pode retornar um máximo de 50 registros. Consequentemente, se um único locatário gerar constantemente mais de 100 registros por segundo em uma região, os registros posteriores e os atrasos na ingestão de dados ocorrerão.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -32,7 +35,7 @@ Você deve ter permissão de gravação no espaço de trabalho do Azure Sentinel
 > [!NOTE]
 > O Azure Sentinel coleta eventos CloudTrail de todas as regiões. É recomendável que você não transmita eventos de uma região para outra.
 
-## <a name="connect-aws"></a>Conectar à AWS 
+## <a name="connect-aws"></a>Conectar o AWS 
 
 
 1. No Azure Sentinel, selecione **conectores de dados** e, em seguida, selecione a linha de **Amazon Web Services** na tabela e, no painel AWS à direita, clique em **abrir página de conector**.

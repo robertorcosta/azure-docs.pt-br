@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 29e675f3ae35df9211f58d45ad8450566d67a588
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b06f39de9f977a9f777b21a53e93ca744fccdd93
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77658227"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85560152"
 ---
 # <a name="azure-monitor-workbooks"></a>Pastas de trabalho do Azure Monitor
 
@@ -31,9 +31,9 @@ As pastas de trabalho são atualmente compatíveis com as seguintes fontes de da
 * [Métricas](workbooks-data-sources.md#metrics)
 * [Gráfico de Recursos do Azure](workbooks-data-sources.md#azure-resource-graph)
 * [Alertas (versão prévia)](workbooks-data-sources.md#alerts-preview)
-* [Integridade da carga de trabalho (versão prévia)](workbooks-data-sources.md#workload-health-preview)
-* [Azure Resource Health (versão prévia)](workbooks-data-sources.md#azure-resource-health)
-* [Data Explorer do Azure (versão prévia)](workbooks-data-sources.md#azure-data-explorer-preview)
+* [Integridade da carga de trabalho](workbooks-data-sources.md#workload-health)
+* [Azure Resource Health](workbooks-data-sources.md#azure-resource-health)
+* [Azure Data Explorer](workbooks-data-sources.md#azure-data-explorer)
 
 ## <a name="visualizations"></a>Visualizações
 

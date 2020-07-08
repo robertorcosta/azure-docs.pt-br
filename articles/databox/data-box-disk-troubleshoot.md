@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 06/14/2019
 ms.author: alkohli
-ms.openlocfilehash: f8116ec0836623adf803991017950ddc7f960923
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 35b4b206de9c16d66387135b0ca75b6aaeb7c744
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67805718"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565007"
 ---
 # <a name="use-logs-to-troubleshoot-validation-issues-in-azure-data-box-disk"></a>Use logs para solucionar problemas de validação no Disco do Azure Data Box
 
@@ -21,13 +21,13 @@ Este artigo se aplica a Microsoft Azure Disco do Data Box. O artigo descreve com
 
 ## <a name="validation-tool-log-files"></a>Arquivos de log da ferramenta de validação
 
-Quando você valida os dados nos discos usando a [ferramenta de validação](data-box-disk-deploy-copy-data.md#validate-data), um *Error. xml* é gerado para registrar quaisquer erros. O arquivo de log está localizado na `Drive:\DataBoxDiskImport\logs` pasta da unidade. Um link para o log de erros é fornecido quando você executa a validação.
+Quando você valida os dados nos discos usando a [ferramenta de validação](data-box-disk-deploy-copy-data.md#validate-data), um *error.xml* é gerado para registrar quaisquer erros. O arquivo de log está localizado na `Drive:\DataBoxDiskImport\logs` pasta da unidade. Um link para o log de erros é fornecido quando você executa a validação.
 
 <!--![Validation tool with link to error log](media/data-box-disk-troubleshoot/validation-tool-link-error-log.png)-->
 
 Se você executar várias sessões para validação, um log de erros será gerado por sessão.
 
-- Aqui está um exemplo do log de erros quando os dados carregados na `PageBlob` pasta não são 512-bytes alinhados. Todos os dados carregados em PageBlob devem ter 512-bytes alinhados, por exemplo, um VHD ou VHDX. Os erros neste arquivo estão nos avisos `<Errors>` e em. `<Warnings>`
+- Aqui está um exemplo do log de erros quando os dados carregados na `PageBlob` pasta não são 512-bytes alinhados. Todos os dados carregados em PageBlob devem ter 512-bytes alinhados, por exemplo, um VHD ou VHDX. Os erros neste arquivo estão nos `<Errors>` avisos e em `<Warnings>` .
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -48,7 +48,7 @@ Se você executar várias sessões para validação, um log de erros será gerad
         </ErrorLog>
     ```
 
-- Aqui está um exemplo do log de erros quando o nome do contêiner não é válido. A pasta que você cria no `BlockBlob`, `PageBlob`ou `AzureFile` pastas no disco, torna-se um contêiner em sua conta de armazenamento do Azure. O nome do contêiner deve seguir as [convenções de nomenclatura do Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions).
+- Aqui está um exemplo do log de erros quando o nome do contêiner não é válido. A pasta que você cria no `BlockBlob` , `PageBlob` ou `AzureFile` pastas no disco, torna-se um contêiner em sua conta de armazenamento do Azure. O nome do contêiner deve seguir as [convenções de nomenclatura do Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions).
 
     ```xml
         <?xml version="1.0" encoding="utf-8"?>
@@ -71,7 +71,7 @@ Se você executar várias sessões para validação, um log de erros será gerad
 
 ## <a name="validation-tool-errors"></a>Erros da ferramenta de validação
 
-Os erros contidos no *Error. xml* com as ações recomendadas correspondentes são resumidos na tabela a seguir.
+Os erros contidos no *error.xml* com as ações recomendadas correspondentes são resumidos na tabela a seguir.
 
 | Código do erro| Descrição                       | Ações recomendadas               |
 |------------|--------------------------|-----------------------------------|
@@ -91,7 +91,7 @@ Os erros contidos no *Error. xml* com as ações recomendadas correspondentes s�
 | `InvalidFileNameFormat` | O caminho do arquivo não é mapeado para um caminho de arquivo válido na nuvem de acordo com as convenções de nomenclatura do arquivo do Azure. |Renomeie o arquivo para que ele esteja em conformidade com as [convenções de nomenclatura do Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Repita a validação. |
 | `InvalidDiskNameFormat` | O caminho do arquivo não é mapeado para um nome de disco válido na nuvem de acordo com as convenções de nomenclatura do disco gerenciado do Azure. |Renomeie o arquivo para que ele esteja em conformidade com as [convenções de nomenclatura do Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Repita a validação.       |
 | `NotPartOfFileShare` | O caminho de carregamento dos arquivos não é válido. Carregue os arquivos em uma pasta nos arquivos do Azure.   | Remova os arquivos com erro e carregue esses arquivos em uma pasta criada. Repita a validação. |
-| `NonVhdFileNotSupportedForManagedDisk` | Um arquivo não VHD não pode ser carregado como um disco gerenciado. |Remova os arquivos não-VHD da `ManagedDisk` pasta, pois eles não têm suporte ou mova esses arquivos para `PageBlob` uma pasta. Repita a validação. |
+| `NonVhdFileNotSupportedForManagedDisk` | Um arquivo não VHD não pode ser carregado como um disco gerenciado. |Remova os arquivos não-VHD da `ManagedDisk` pasta, pois eles não têm suporte ou mova esses arquivos para uma `PageBlob` pasta. Repita a validação. |
 
 
 ## <a name="next-steps"></a>Próximas etapas

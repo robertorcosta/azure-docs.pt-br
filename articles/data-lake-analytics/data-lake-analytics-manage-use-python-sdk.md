@@ -9,12 +9,13 @@ ms.reviewer: jasonwhowell
 ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.openlocfilehash: d40658e1510c9ae8a2e3e1f865df7ac95f61abfb
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.custom: tracking-python
+ms.openlocfilehash: 055d43c4df2b642c55f58ba16eaf7cba02b36bdf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "68355988"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564710"
 ---
 # <a name="manage-azure-data-lake-analytics-using-python"></a>Gerenciar o Azure Data Lake Analytics usando o Python
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -39,7 +40,7 @@ Instale os seguintes módulos:
 
 Primeiro, verifique se você tem a versão mais recente do `pip`, executando o seguinte comando:
 
-```
+```console
 python -m pip install --upgrade pip
 ```
 
@@ -47,7 +48,7 @@ Este documento foi escrito usando `pip version 9.0.1`.
 
 Use os seguintes comandos `pip` para instalar os módulos de linha de comando:
 
-```
+```console
 pip install azure-mgmt-resource
 pip install azure-datalake-store
 pip install azure-mgmt-datalake-store

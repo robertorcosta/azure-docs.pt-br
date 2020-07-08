@@ -3,12 +3,12 @@ title: Visão geral da Integridade de Serviço | Microsoft Docs
 description: Informações personalizadas sobre como seus aplicativos do Azure são afetados pela manutenção e pelos problemas de serviço atuais e futuros do Azure.
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: 2d98a909a45c9dd00b3174f495a15cd18ced11f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bc1d07fdbba6da3540336438973fb1cfbb0c356b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146906"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563435"
 ---
 # <a name="service-health-overview"></a>Visão geral da integridade do serviço
 
@@ -21,7 +21,7 @@ A integridade do serviço rastreia quatro tipos de eventos de integridade que po
 1. **Problemas de serviço** – problemas nos serviços do Azure que lhe afetam imediatamente. 
 2. **Manutenção planejada** – próxima manutenção que poderá afetar a disponibilidade de seus serviços no futuro.  
 3. **Aconselhamento de integridade** – alterações nos serviços do Azure que exigem sua atenção. Os exemplos incluem a substituição de recursos do Azure ou requisitos de atualização (por exemplo, atualizar para uma estrutura PHP com suporte).
-4. **Avisos de segurança (versão prévia)** – notificações relacionadas à segurança que podem afetar a disponibilidade dos serviços do Azure.
+4. **Consultorias de segurança** – notificações ou violações relacionadas à segurança que podem afetar a disponibilidade dos serviços do Azure.
 
 > [!NOTE]
 > Para exibir eventos de integridade do serviço, os usuários devem receber [a função leitor](../role-based-access-control/role-assignments-portal.md) em uma assinatura.
@@ -36,11 +36,11 @@ Para iniciar o painel de Integridade do Serviço, selecione o bloco de Integrida
 
 A exibição **Problemas de serviço** mostra os problemas em andamento nos serviços do Azure que estão afetando seus recursos. Você pode entender quando o problema começou e quais serviços e regiões foram afetadas. Você também pode ler a atualização mais recente para entender o que o Azure está fazendo para resolver o problema. 
 
-![Gerenciar problema de serviço](./media/service-health-overview/azure-service-health-overview-2.png)
+[![Gerenciar problema de serviço](./media/service-health-overview/azure-service-health-overview-2.png)](./media/service-health-overview/azure-service-health-overview-2.png#lightbox)
 
 Escolha a guia **Impacto potencial** para ver a lista específica de recursos que você tem e que podem ser afetados pelo problema. Você pode fazer o download de uma lista em CSV desses recursos para compartilhar com sua equipe.
 
-![Gerenciar o problema de serviço – impacto](./media/service-health-overview/azure-service-health-overview-4.png)
+[![Gerenciar o problema de serviço – impacto](./media/service-health-overview/azure-service-health-overview-4.png)](./media/service-health-overview/azure-service-health-overview-4.png#lightbox)
 
 ## <a name="see-emerging-issues-which-may-impact-your-services"></a>Veja problemas emergentes que podem afetar seus serviços
 
@@ -52,7 +52,7 @@ Há situações em que problemas de serviço generalizados podem ser postados na
 
 Você pode obter um link para o problema a fim de usá-lo em seu sistema de gerenciamento de problemas. Você pode baixar PDF e, às vezes, arquivos CSV para compartilhar com pessoas que não têm acesso ao portal do Azure.   
 
-![Gerenciar problema de serviço – gerenciamento de problemas](./media/service-health-overview/azure-service-health-overview-3.png)
+[![Gerenciar problema de serviço – gerenciamento de problemas](./media/service-health-overview/azure-service-health-overview-3.png)](./media/service-health-overview/azure-service-health-overview-3.png#lightbox)
 
 ## <a name="get-support-from-microsoft"></a>Obter suporte da Microsoft
 
@@ -62,7 +62,7 @@ Contate o suporte se seu recurso foi deixado em um estado incorreto, mesmo depoi
 
 Filtre a Integridade do Serviço para mostrar suas assinaturas, regiões e tipos de recursos essenciais aos negócios. Salve o filtro e fixe um mapa-múndi de integridade personalizado em seu painel do portal. 
 
-![Filtrar mapa de integridade personalizado](./media/service-health-overview/azure-service-health-overview-6a.png)
+[![Filtrar mapa de integridade personalizado](./media/service-health-overview/azure-service-health-overview-6a.png)](./media/service-health-overview/azure-service-health-overview-6a.png#lightbox)
 
 ![Fixar um mapa de integridade personalizado](./media/service-health-overview/azure-service-health-overview-6b.png)
 

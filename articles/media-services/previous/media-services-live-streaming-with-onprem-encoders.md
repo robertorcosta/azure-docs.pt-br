@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: c0d19d68d016a47762fb5d2646ea6ccf74d3ef75
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bb94703a78cd2c025efc1f3c6c16e296fece206e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80476561"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85560005"
 ---
 # <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Trabalhando com canais que recebem transmissão ao vivo de múltiplas taxas de bits de codificadores locais
 
@@ -112,7 +112,7 @@ Um canal fornece um ponto de extremidade de entrada (URL de ingestão) que você
 
 Você pode obter as URLs de ingestão ao criar o canal. Para obter essas URLs, o canal não precisa estar no estado **Executando**. Quando você estiver pronto para começar a enviar dados por push para o canal, ele deve estar no estado **Executando** . Após o canal iniciar a ingestão de dados, você poderá visualizar o fluxo por meio da URL de visualização.
 
-Você tem a opção de ingerir uma transmissão ao vivo com MP4 fragmentado (Smooth Streaming) em uma conexão TLS. Para se ingerir por TLS, atualize a URL de ingestão para HTTPS. No momento, não é possível ingerir RTMP sobre TLS.
+Você tem a opção de ingerir uma transmissão ao vivo com MP4 fragmentado (Smooth Streaming) em uma conexão TLS. Para ingerir por TLS, certifique-se de atualizar a URL de inserção para HTTPS. No momento, não é possível ingerir RTMP sobre TLS.
 
 #### <a name="keyframe-interval"></a><a id="keyframe_interval"></a>Intervalo de quadro-chave
 Quando você usa um codificador ativo local para gerar um fluxo com múltiplas taxas de bits, o intervalo de quadro-chave especifica a duração de GOP (grupo de imagens), conforme usado pelo codificador externo. Após o canal receber esse fluxo de entrada, você poderá entregar sua transmissão ao vivo aos aplicativos de reprodução de cliente em qualquer um dos seguintes formatos: Smooth Streaming, Dynamic Adaptive Streaming sobre HTTP (DASH) e HTTP Live Streaming (HLS). Ao fazer streaming ao vivo, o HLS é sempre empacotado dinamicamente. Por padrão, os Serviços de Mídia calculam automaticamente a taxa de empacotamento de segmento HLS (fragmentos por segmento) com base no intervalo de quadros-chave que é recebido do codificador ativo.
@@ -187,14 +187,14 @@ A tabela a seguir mostra como os estados de canal são mapeados para o modo de c
 | Estado de canal | Indicadores de interface do usuário do portal | Cobrado? |
 | --- | --- | --- |
 | **Iniciando** |**Iniciando** |Nenhum (estado transitório) |
-| **Em execução** |**Pronto** (nenhum programa em execução)<p><p>ou<p>**Streaming** (há pelo menos um programa em execução) |Sim |
+| **Executando** |**Pronto** (nenhum programa em execução)<p><p>ou<p>**Streaming** (há pelo menos um programa em execução) |Sim |
 | **Parando** |**Parando** |Nenhum (estado transitório) |
 | **Parado** |**Parado** |Não |
 
 ## <a name="closed-captioning-and-ad-insertion"></a><a id="cc_and_ads"></a>Legendagem oculta e inserção de anúncio
 A tabela a seguir demonstra os padrões com suporte de legendagem oculta e inserção de anúncios.
 
-| Standard | Anotações |
+| Standard | Observações |
 | --- | --- |
 | CEA-708 e EIA-608 (708/608) |CEA-708 e EIA-608 são padrões de legendagem oculta para os Estados Unidos e o Canadá.<p><p>Atualmente, as legendas têm suporte somente se incluídas no fluxo de entrada codificado. Você precisa usar um codificador de mídia ativo que possa inserir legendas 608 ou 708 no fluxo codificado que é enviado aos Serviços de Mídia. Os Serviços de Mídia entregam o conteúdo com legendas inseridas a seus usuários. |
 | TTML em ismt (faixas de texto de Smooth Streaming) |O empacotamento dinâmico dos Serviços de Mídia habilita os clientes a transmitir conteúdo em qualquer um dos seguintes formatos: DASH, HLS ou Smooth Streaming. No entanto, se ingerir MP4 fragmentado (Smooth Streaming) com legendas em .ismt (faixas de texto de Smooth Streaming), você pode entregar o fluxo apenas a clientes de Smooth Streaming. |
@@ -225,7 +225,8 @@ Confira outras considerações relacionadas ao trabalho com canais e componentes
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="feedback"></a>Comentários
+## <a name="suggestions-and-feedback"></a>Sugestões e comentários
+
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>Tópicos relacionados

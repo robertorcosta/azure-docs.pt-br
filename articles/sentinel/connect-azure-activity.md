@@ -1,6 +1,6 @@
 ---
 title: Conectar dados de atividade do Azure ao Azure Sentinel | Microsoft Docs
-description: Saiba como conectar os dados de atividade do Azure ao Azure Sentinel.
+description: Transmita os logs de atividades do Azure para o Sentinela do Azure com um único clique. O log de atividades registra e exibe eventos de nível de assinatura no Azure.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2020
 ms.author: yelevin
-ms.openlocfilehash: 82dfcaf3394703aae531c828a1b96ad290bab798
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 88f363406ec40dfa439a52ad351501d1c64dce95
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80124982"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564486"
 ---
 # <a name="connect-data-from-azure-activity-log"></a>Conectar dados do log de atividades do Azure
 
@@ -41,7 +41,7 @@ Você pode transmitir logs do [log de atividades do Azure](../azure-monitor/plat
 
 4. No painel assinatura que é aberto à direita, clique em **conectar**.
 
-5. Para usar o esquema relevante no Log Analytics para alertas de atividade do Azure `AzureActivity` , digite na janela de consulta.
+5. Para usar o esquema relevante no Log Analytics para alertas de atividade do Azure, digite `AzureActivity` na janela de consulta.
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste documento, você aprendeu a conectar o log de atividades do Azure ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:

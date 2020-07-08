@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: 254c912114e3f1c7a495f389bc6a6416cbde7e11
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ffb52cd34d56c227fc689ea70146e99983e17c0d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77472444"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564447"
 ---
 # <a name="attach-a-cognitive-services-resource-to-a-skillset-in-azure-cognitive-search"></a>Anexar um recurso de serviços cognitivas a um conconhecimento no Azure Pesquisa Cognitiva 
 
@@ -29,7 +29,7 @@ O Azure Pesquisa Cognitiva tem uma dependência de serviços cognitivas, incluin
 
 + O Azure Pesquisa Cognitiva usa a chave de recurso de serviços cognitivas que você fornece em um contextset para cobrar da imagem e do enriquecimento de texto. A execução de habilidades faturáveis é o [preço pago pelo uso dos serviços cognitivas](https://azure.microsoft.com/pricing/details/cognitive-services/).
 
-+ A extração de imagem é uma operação de Pesquisa Cognitiva do Azure que ocorre quando os documentos são rachados antes do enriquecimento. A extração de imagem é faturável. Para obter os preços de extração de imagem, consulte a [página de preços do Azure pesquisa cognitiva](https://go.microsoft.com/fwlink/?linkid=2042400).
++ A extração de imagem é uma operação de Pesquisa Cognitiva do Azure que ocorre quando os documentos são rachados antes do enriquecimento. A extração de imagem é faturável. Para obter os preços de extração de imagem, consulte a [página de preços do Azure pesquisa cognitiva](https://azure.microsoft.com/pricing/details/search/).
 
 + A extração de texto também ocorre durante a frase de quebra de documento. Não é faturável.
 
@@ -113,7 +113,7 @@ Ao definir o conjunto de habilidades de forma programática, adicione uma seçã
 O exemplo a seguir mostra esse padrão. Observe a `cognitiveServices` seção no final da definição.
 
 ```http
-PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2019-05-06
+PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30
 api-key: [admin key]
 Content-Type: application/json
 ```

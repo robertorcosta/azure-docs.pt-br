@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: de6953b6648613595bc9975b17941b3a453a6d60
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1a3735180d72496d58cdd22d0aa34c8a6f88a6a3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74185973"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559857"
 ---
 # <a name="best-practices-for-creating-assessments"></a>Práticas recomendadas para a criação de avaliações
 
@@ -21,15 +21,24 @@ Este artigo resume as práticas recomendadas ao criar avaliações usando a ferr
 
 ## <a name="about-assessments"></a>Sobre avaliações
 
-As avaliações criadas com a avaliação do servidor de migrações para Azure são um instantâneo de dados pontual. Há dois tipos de avaliações nas migrações para Azure.
+As avaliações criadas com a avaliação do servidor de migrações para Azure são um instantâneo de dados pontual. Há dois tipos de avaliações que você pode criar usando as migrações para Azure: avaliação do servidor:
 
-**Tipo de avaliação** | **Detalhes** | **Dados**
+**Tipo de avaliação** | **Detalhes**
+--- | --- 
+**VM do Azure** | Avaliações para migrar seus servidores locais para máquinas virtuais do Azure. <br/><br/> Você pode avaliar suas [VMs VMware](how-to-set-up-appliance-vmware.md)locais, VMS do [Hyper-V](how-to-set-up-appliance-hyper-v.md)e [servidores físicos](how-to-set-up-appliance-physical.md) para migração para o Azure usando esse tipo de avaliação. [Saiba mais](concepts-assessment-calculation.md)
+**AVS (Solução VMware no Azure)** | Avaliações para migrar seus servidores locais para a [solução VMware do Azure (AVS)](https://docs.microsoft.com/azure/azure-vmware/introduction). <br/><br/> Você pode avaliar suas [VMs do VMware](how-to-set-up-appliance-vmware.md) locais para migração para a solução VMware do Azure (AVS) usando esse tipo de avaliação. [Saiba mais](concepts-azure-vmware-solution-assessment-calculation.md)
+
+
+### <a name="sizing-criteria"></a>Critérios de dimensionamento
+A avaliação do servidor fornece duas opções de critérios de dimensionamento:
+
+**Critérios de dimensionamento** | **Detalhes** | **Dados**
 --- | --- | ---
-**Com base no desempenho** | Avaliações que fazem recomendações com base nos dados de desempenho coletados | A recomendação de tamanho da VM baseia-se nos dados de utilização de CPU e memória.<br/><br/> A recomendação de tipo de disco (HD padrão/SSD ou discos gerenciados Premium) baseia-se na IOPS e na taxa de transferência dos discos locais.
-**No estado em que se encontra no local** | Avaliações que não usam dados de desempenho para fazer recomendações. | A recomendação de tamanho da VM é baseada no tamanho da VM local<br/><br> O tipo de disco recomendado é baseado no que você seleciona na configuração de tipo de armazenamento para a avaliação.
+**Com base no desempenho** | Avaliações que fazem recomendações com base nos dados de desempenho coletados | **Avaliação de VM do Azure**: a recomendação de tamanho de VM baseia-se nos dados de utilização de CPU e memória.<br/><br/> A recomendação de tipo de disco (HD padrão/SSD ou discos gerenciados Premium) baseia-se na IOPS e na taxa de transferência dos discos locais.<br/><br/> **Avaliação da solução de VMware Azure (AVS)**: a recomendação de nós AVS é baseada em dados de utilização de CPU e memória.
+**No estado em que se encontra no local** | Avaliações que não usam dados de desempenho para fazer recomendações. | **Avaliação de VM do Azure**: a recomendação de tamanho da VM é baseada no tamanho da VM local<br/><br> O tipo de disco recomendado é baseado no que você seleciona na configuração de tipo de armazenamento para a avaliação.<br/><br/> **Avaliação da AVS (solução do Azure VMware)**: a recomendação de nós da AVS é baseada no tamanho da VM local.
 
-### <a name="example"></a>Exemplo
-Por exemplo, se você tiver uma VM local com quatro núcleos a 20% de utilização e memória de 8 GB com utilização de 10%, as avaliações serão as seguintes:
+#### <a name="example"></a>Exemplo
+Por exemplo, se você tiver uma VM local com quatro núcleos a 20% de utilização e memória de 8 GB com utilização de 10%, a avaliação de VM do Azure será a seguinte:
 
 - **Avaliação baseada em desempenho**:
     - Identifica os núcleos e a memória efetivos com base na utilização do núcleo (4 x 0,20 = 0,8) e da memória (8 GB x 0,10 = 0,8).
@@ -38,6 +47,7 @@ Por exemplo, se você tiver uma VM local com quatro núcleos a 20% de utilizaç�
 
 - **Avaliação do as (como local)**:
     -  Recomenda uma VM com quatro núcleos; 8 GB de memória.
+
 
 ## <a name="best-practices-for-creating-assessments"></a>Práticas recomendadas para a criação de avaliações
 
@@ -54,6 +64,19 @@ Siga estas práticas recomendadas para avaliações de servidores importados par
 - **Criar como são avaliações**: você pode criar avaliações no estado em que se encontram imediatamente quando os computadores aparecerem no portal de migrações para Azure.
 - **Criar avaliação baseada em desempenho**: isso ajuda a obter uma estimativa de custo melhor, especialmente se você tiver a capacidade de servidor provisionada no local. No entanto, a precisão da avaliação baseada em desempenho depende dos dados de desempenho especificados por você para os servidores. 
 - **Recalcular avaliações**: como as avaliações são instantâneos de ponto no tempo, elas não são atualizadas automaticamente com os dados mais recentes. Para atualizar uma avaliação com os dados importados mais recentes, você precisa recalculá-lo.
+ 
+### <a name="ftt-sizing-parameters-for-avs-assessments"></a>Parâmetros de dimensionamento de FTT para avaliações de AVS
+
+O mecanismo de armazenamento usado na AVS é a vSAN. as políticas de armazenamento vSAN definem os requisitos de armazenamento para suas máquinas virtuais. Essas políticas garantem o nível de serviço necessário para suas VMs, pois elas determinam como o armazenamento é alocado para a VM. Essas são as combinações disponíveis do FTT-RAID: 
+
+**Falhas a tolerar (FTT)** | **Configuração de RAID** | **Hosts mínimos necessários** | **Consideração de dimensionamento**
+--- | --- | --- | --- 
+1 | RAID-1 (espelhamento) | 3 | Uma VM de 100 GB consumiria 200 GB.
+1 | RAID-5 (codificação de eliminação) | 4 | Uma VM de 100 GB consumiria 133.33 GB
+2 | RAID-1 (espelhamento) | 5 | Uma VM de 100 GB consumiria 300 GB.
+2 | RAID-6 (codificação de eliminação) | 6 | Uma VM de 100 GB consumiria 150 GB.
+3 | RAID-1 (espelhamento) | 7 | Uma VM de 100 GB consumiria 400 GB.
+
 
 ## <a name="best-practices-for-confidence-ratings"></a>Práticas recomendadas para classificações de confiança
 
@@ -83,7 +106,18 @@ Se você adicionar ou remover computadores de um grupo depois de criar uma avali
 
 ### <a name="outdated-assessments"></a>Avaliações desatualizadas
 
-Se houver alterações locais nas VMs que estão em um grupo que foi avaliado, a avaliação será marcada como **desatualizada**. Para refletir as alterações, execute a avaliação novamente.
+Se houver alterações locais nas VMs que estão em um grupo que foi avaliado, a avaliação será marcada como **desatualizada**. Uma avaliação pode ser marcada como "desatualizada" devido a uma ou mais alterações nas propriedades abaixo:
+
+- Número de núcleos de processador
+- Memória alocada
+- Tipo de inicialização ou firmware
+- Nome, versão e arquitetura do sistema operacional
+- Número de discos
+- Número de adaptadores de rede
+- Alteração do tamanho do disco (GB alocados)
+- Atualização das propriedades da NIC. Exemplo: alterações de endereço Mac, adição de endereço IP, etc.
+
+Execute a avaliação novamente (**recalcule**) para refletir as alterações.
 
 ### <a name="low-confidence-rating"></a>Classificação de baixa confiança
 
@@ -94,6 +128,12 @@ Uma avaliação pode não ter todos os pontos de dados por vários motivos:
 - Algumas VMs foram desativadas durante o período para o qual a avaliação é calculada. Se algumas VMs foram desligadas por algum tempo, a Avaliação de Servidor não poderá coletar os dados de desempenho daquele período.
 
 - Algumas VMs foram criadas após o início da descoberta na Avaliação de Servidor. Por exemplo, se você estiver criando uma avaliação para o histórico de desempenho do último mês, mas algumas VMs foram criadas no ambiente somente há uma semana. Nesse caso, os dados de desempenho das novas VMs não estariam disponíveis durante todo o período e a classificação de confiança seria baixa.
+
+### <a name="migration-tool-guidance-for-avs-assessments"></a>Diretrizes da ferramenta de migração para avaliações da AVS
+
+No relatório de preparação do Azure para a avaliação da solução VMware do Azure (AVS), você pode ver as seguintes ferramentas sugeridas: 
+- **VMware HCX ou Enterprise**: para máquinas VMware, a solução de HCX (extensão de nuvem híbrida) do VMware é a ferramenta de migração sugerida para migrar sua carga de trabalho local para sua nuvem privada da AVS (solução VMware) do Azure. [Saiba mais](https://docs.microsoft.com/azure/azure-vmware/hybrid-cloud-extension-installation).
+- **Desconhecido**: para computadores importados por meio de um arquivo CSV, a ferramenta de migração padrão é desconhecida. No entanto, para máquinas VMware, é recomendável usar a solução de HCX (extensão de nuvem híbrida) do VMWare.
 
 
 ## <a name="next-steps"></a>Próximas etapas

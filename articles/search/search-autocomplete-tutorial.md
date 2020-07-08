@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 60e9a435d705ee0fee6509e92cdcb056ac7ab609
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 004f1ea55bcda68485d8b11ed472b6cab2ca7545
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81758113"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85562491"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Adicionar preenchimento automático e sugestões aos aplicativos cliente
 
@@ -34,7 +34,7 @@ O restante deste artigo tem como foco as consultas e o código do cliente. Ele u
 Os elementos de uma solicitação incluem uma das APIs de pesquisa conforme o tipo, uma consulta parcial e um Sugestor. O script a seguir ilustra os componentes de uma solicitação, usando a API REST de preenchimento automático como um exemplo.
 
 ```http
-POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2019-05-06
+POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 {
   "search": "minecraf",
   "suggesterName": "sg"
@@ -68,10 +68,10 @@ Para sugestões, você deve refinar ainda mais a resposta para evitar duplicatas
 
 | Parâmetro | Uso |
 |-----------|-------|
-| **$select** | Se você tiver vários **sourceFields** em um Sugestor, use **$Select** para escolher qual campo contribui com`$select=GameTitle`valores (). |
+| **$select** | Se você tiver vários **sourceFields** em um Sugestor, use **$Select** para escolher qual campo contribui com valores ( `$select=GameTitle` ). |
 | **searchFields** | Restringir a consulta a campos específicos. |
-| **$filter** | Aplicar critérios de correspondência no conjunto de resultados`$filter=Category eq 'ActionAdventure'`(). |
-| **$top** | Limitar os resultados a um número específico (`$top=5`).|
+| **$filter** | Aplicar critérios de correspondência no conjunto de resultados ( `$filter=Category eq 'ActionAdventure'` ). |
+| **$top** | Limitar os resultados a um número específico ( `$top=5` ).|
 
 ## <a name="add-user-interaction-code"></a>Adicionar código de interação do usuário
 

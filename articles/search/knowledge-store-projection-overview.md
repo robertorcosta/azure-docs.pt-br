@@ -1,24 +1,21 @@
 ---
-title: Projeções em uma loja de conhecimento (visualização)
+title: Conceitos de projeção
 titleSuffix: Azure Cognitive Search
-description: Salve e formate seus dados aprimorados do pipeline de indexação de reutilização de ia em uma loja de conhecimento para uso em cenários diferentes da pesquisa de texto completo. O repositório de conhecimento está atualmente em versão prévia pública.
+description: Salve e formate seus dados aprimorados do pipeline de indexação de reutilização de ia em uma loja de conhecimento para uso em cenários diferentes da pesquisa de texto completo.
 manager: nitinme
 author: vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/08/2020
-ms.openlocfilehash: d264768bf27967d1a778400ae4e9e6f2e054d746
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/30/2020
+ms.openlocfilehash: 22db4f95bacd926208ac7edf3306cd136d81b00e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78942983"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565193"
 ---
-# <a name="projections-in-a-knowledge-store-in-azure-cognitive-search"></a>Projeções em uma loja de conhecimento no Azure Pesquisa Cognitiva
-
-> [!IMPORTANT] 
-> O repositório de conhecimento está atualmente em versão prévia pública. A funcionalidade de versão prévia é fornecida sem um Contrato de Nível de Serviço e, portanto, não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [API REST versão 2019-05-06-Preview](search-api-preview.md) fornece recursos de versão prévia. Atualmente, há suporte limitado ao portal e não há suporte para o SDK do .NET.
+# <a name="knowledge-store-projections-in-azure-cognitive-search"></a>"Projeções" da loja de conhecimento no Azure Pesquisa Cognitiva
 
 O Azure Pesquisa Cognitiva permite o enriquecimento de conteúdo por meio de habilidades cognitivas internas e habilidades personalizadas como parte da indexação. Os aprimoramentos criam novas informações onde não existiam anteriormente: extraindo informações de imagens, detectando sentimentos, frases-chave e entidades de texto, para citar alguns. Aprimoramentos também adicionam estrutura a texto não diferenciado. Todos esses processos resultam em documentos que tornam a pesquisa de texto completo mais eficiente. Em muitos casos, documentos aprimorados são úteis para cenários diferentes de pesquisa, como para a mineração de conhecimento.
 
@@ -69,7 +66,7 @@ Você pode projetar um único documento em seu índice em várias tabelas, prese
 
 ### <a name="defining-a-table-projection"></a>Definindo uma projeção de tabela
 
-Ao definir uma projeção de tabela `knowledgeStore` dentro do elemento de seu qualificable, comece mapeando um nó na árvore de enriquecimento para a origem da tabela. Normalmente, esse nó é a saída de uma habilidade de **forma** que você adicionou à lista de habilidades para produzir uma forma específica que você precisa projetar em tabelas. O nó escolhido para o projeto pode ser dividido em um projeto em várias tabelas. A definição de tabelas é uma lista de tabelas que você deseja projetar.
+Ao definir uma projeção de tabela dentro do `knowledgeStore` elemento de seu qualificable, comece mapeando um nó na árvore de enriquecimento para a origem da tabela. Normalmente, esse nó é a saída de uma habilidade de **forma** que você adicionou à lista de habilidades para produzir uma forma específica que você precisa projetar em tabelas. O nó escolhido para o projeto pode ser dividido em um projeto em várias tabelas. A definição de tabelas é uma lista de tabelas que você deseja projetar.
 
 Cada tabela requer três propriedades:
 
@@ -157,7 +154,7 @@ A geração de uma projeção de objeto requer alguns atributos específicos do 
 
 ## <a name="file-projection"></a>Projeção de arquivo
 
-As projeções de arquivo são semelhantes às projeções de objeto e só `normalized_images` atuam na coleção. Semelhante às projeções de objeto, as projeções de arquivo são salvas no contêiner de blob com o prefixo de pasta do valor codificado em base64 da ID do documento. As projeções de arquivo não podem compartilhar o mesmo contêiner como projeções de objeto e precisam ser projetadas em um contêiner diferente.
+As projeções de arquivo são semelhantes às projeções de objeto e só atuam na `normalized_images` coleção. Semelhante às projeções de objeto, as projeções de arquivo são salvas no contêiner de blob com o prefixo de pasta do valor codificado em base64 da ID do documento. As projeções de arquivo não podem compartilhar o mesmo contêiner como projeções de objeto e precisam ser projetadas em um contêiner diferente.
 
 ```json
 {
@@ -212,7 +209,7 @@ Como uma próxima etapa, crie sua primeira loja de conhecimento usando dados de 
 > [!div class="nextstepaction"]
 > [Crie um repositório de conhecimento em REST](knowledge-store-create-rest.md).
 
-Para obter um tutorial que aborda conceitos de projeções avançadas como divisão, modelagem embutida e relações, comece com [definir projeções em uma loja de conhecimento](knowledge-store-projections-examples.md)
+Para obter um tutorial que aborda conceitos de projeções avançadas como divisão, formatação embutida e relações, comece com [definir projeções em um repositório de conhecimento](knowledge-store-projections-examples.md)
 
 > [!div class="nextstepaction"]
-> [Definir projeções em uma loja de conhecimento](knowledge-store-projections-examples.md)
+> [Definir projeções em um repositório de conhecimento](knowledge-store-projections-examples.md)

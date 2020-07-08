@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/28/2020
 ms.topic: how-to
-ms.openlocfilehash: a34276c73211c1d9bea291f449cbc7041a3e78a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e55589a388a1883f42284f2e20c6d5619b63f48f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81409865"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565484"
 ---
 # <a name="interact-with-unity-game-objects-and-components"></a>Interagir com componentes e objetos de jogos do Unity
 
@@ -22,7 +22,7 @@ Consequentemente, a integração do Unity do processamento remoto do Azure vem c
 
 ## <a name="load-a-model-in-unity"></a>Carregar um modelo no Unity
 
-Ao carregar um modelo, você obtém uma referência ao objeto raiz do modelo carregado. Essa referência não é um objeto de jogo do Unity, mas você pode transformá-la em uma usando `Entity.GetOrCreateGameObject()`o método de extensão. Essa função espera um argumento do tipo `UnityCreationMode`. Se você passar `CreateUnityComponents`, o objeto de jogo do Unity recém-criado também será populado com componentes de proxy para todos os componentes de renderização remota existentes no host. No entanto, é recomendável preferir `DoNotCreateUnityComponents`manter a sobrecarga mínima.
+Ao carregar um modelo, você obtém uma referência ao objeto raiz do modelo carregado. Essa referência não é um objeto de jogo do Unity, mas você pode transformá-la em uma usando o método de extensão `Entity.GetOrCreateGameObject()` . Essa função espera um argumento do tipo `UnityCreationMode` . Se você passar `CreateUnityComponents` , o objeto de jogo do Unity recém-criado também será populado com componentes de proxy para todos os componentes de renderização remota existentes no host. No entanto, é recomendável preferir `DoNotCreateUnityComponents` manter a sobrecarga mínima.
 
 ### <a name="load-model-with-task"></a>Carregar modelo com tarefa
 
@@ -82,21 +82,21 @@ async void LoadModelWithAwait()
 }
 ```
 
-Os exemplos de código acima usaram o caminho de carregamento do modelo via SAS porque o modelo interno está carregado. Abordar o modelo por meio de contêineres `LoadModelAsync` de `LoadModelParams`BLOB (usando e) funciona de forma totalmente análoga.
+Os exemplos de código acima usaram o caminho de carregamento do modelo via SAS porque o modelo interno está carregado. Abordar o modelo por meio de contêineres de BLOB (usando `LoadModelAsync` e `LoadModelParams` ) funciona de forma totalmente análoga.
 
 ## <a name="remoteentitysyncobject"></a>RemoteEntitySyncObject
 
-A criação de um objeto de jogo Unity adiciona `RemoteEntitySyncObject` implicitamente um componente ao objeto Game. Esse componente é usado para sincronizar a transformação de entidade para o servidor. Por padrão `RemoteEntitySyncObject` , o usuário precisa chamar `SyncToRemote()` explicitamente para sincronizar o estado local do Unity com o servidor. Habilitar `SyncEveryFrame` irá sincronizar o objeto automaticamente.
+A criação de um objeto de jogo Unity adiciona implicitamente um `RemoteEntitySyncObject` componente ao objeto Game. Esse componente é usado para sincronizar a transformação de entidade para o servidor. Por padrão, `RemoteEntitySyncObject` o usuário precisa chamar explicitamente `SyncToRemote()` para sincronizar o estado local do Unity com o servidor. Habilitar `SyncEveryFrame` irá sincronizar o objeto automaticamente.
 
-Os objetos com `RemoteEntitySyncObject` um podem ter seus filhos remotos instanciados e mostrados no editor de Unity por meio do botão **Mostrar filhos** .
+Os objetos com um `RemoteEntitySyncObject` podem ter seus filhos remotos instanciados e mostrados no editor do Unity por meio do **:::no-loc text="Show children":::** botão.
 
 ![RemoteEntitySyncObject](media/remote-entity-sync-object.png)
 
 ## <a name="wrapper-components"></a>Componentes do wrapper
 
-Os [componentes](../../concepts/components.md) anexados às entidades de renderização remota são expostos ao `MonoBehavior`Unity por meio de proxy s. Esses proxies representam o componente remoto no Unity e encaminham todas as modificações para o host.
+Os [componentes](../../concepts/components.md) anexados às entidades de renderização remota são expostos ao Unity por meio de proxy `MonoBehavior` s. Esses proxies representam o componente remoto no Unity e encaminham todas as modificações para o host.
 
-Para criar componentes de renderização remota de proxy, use o `GetOrCreateArrComponent`método de extensão:
+Para criar componentes de renderização remota de proxy, use o método de extensão `GetOrCreateArrComponent` :
 
 ```cs
 var cutplane = gameObject.GetOrCreateArrComponent<ARRCutPlaneComponent>(RemoteManagerUnity.CurrentSession);
@@ -104,9 +104,9 @@ var cutplane = gameObject.GetOrCreateArrComponent<ARRCutPlaneComponent>(RemoteMa
 
 ## <a name="coupled-lifetimes"></a>Tempos de vida acoplados
 
-O tempo de vida de uma [entidade](../../concepts/entities.md) remota e um objeto de jogo do Unity são acoplados enquanto estão `RemoteEntitySyncObject`ligados por meio de um. Se você chamar `UnityEngine.Object.Destroy(...)` com esse objeto de jogo, a entidade remota também será removida.
+O tempo de vida de uma [entidade](../../concepts/entities.md) remota e um objeto de jogo do Unity são acoplados enquanto estão ligados por meio de um `RemoteEntitySyncObject` . Se você chamar `UnityEngine.Object.Destroy(...)` com esse objeto de jogo, a entidade remota também será removida.
 
-Para destruir o objeto de jogo do Unity, sem afetar a entidade remota, primeiro você precisará `Unbind()` chamar `RemoteEntitySyncObject`no.
+Para destruir o objeto de jogo do Unity, sem afetar a entidade remota, primeiro você precisará chamar `Unbind()` no `RemoteEntitySyncObject` .
 
 O mesmo é verdadeiro para todos os componentes de proxy. Para destruir apenas a representação do lado do cliente, você precisa chamar `Unbind()` primeiro o componente de proxy:
 
@@ -122,4 +122,4 @@ if (cutplane != null)
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Configurar o Remote Rendering para o Unity](unity-setup.md)
-* [Tutorial: Trabalho com entidades remotas no Unity](../../tutorials/unity/working-with-remote-entities.md)
+* [Tutorial: manipular entidades remotas no Unity](../../tutorials/unity/manipulate-models/manipulate-models.md)

@@ -8,19 +8,19 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/13/2020
-ms.openlocfilehash: 1975c13162316b4132bae34659b1c5af8e416573
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c5597528d395c2c8facd4a1b916b1378b659a646
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231604"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565286"
 ---
 # <a name="ranking-algorithm-in-azure-cognitive-search"></a>Algoritmo de classificação no Azure Pesquisa Cognitiva
 
 > [!IMPORTANT]
 > A partir de 15 de julho de 2020, os serviços de pesquisa recém-criados usarão a função de classificação BM25 automaticamente, que provou na maioria dos casos para fornecer classificações de pesquisa que se alinham melhor com as expectativas do usuário do que a classificação padrão atual. Além da classificação superior, o BM25 também permite opções de configuração para ajustar os resultados com base em fatores como o tamanho do documento.  
 >
-> Com essa alteração, você provavelmente verá pequenas alterações na ordenação dos resultados da pesquisa. Para aqueles que desejam testar o impacto dessa alteração, o algoritmo BM25 está disponível na versão de API 2019-05-06-Preview.  
+> Com essa alteração, você provavelmente verá pequenas alterações na ordenação dos resultados da pesquisa. Para aqueles que desejam testar o impacto dessa alteração, o algoritmo BM25 está disponível na API – versão 2019-05-06-Preview e em 2020-06-30.  
 
 Este artigo descreve como você pode usar o novo algoritmo de classificação BM25 nos serviços de pesquisa existentes para novos índices criados e consultados usando a API de visualização.
 
@@ -30,7 +30,7 @@ Embora seja conceitualmente semelhante ao algoritmo de similaridade clássico ma
 
 ## <a name="how-to-test-bm25-today"></a>Como testar o BM25 hoje mesmo
 
-Ao criar um novo índice, você pode definir uma propriedade de **similaridade** para especificar o algoritmo. Você precisará usar o `api-version=2019-05-06-Preview`, conforme mostrado abaixo.
+Ao criar um novo índice, você pode definir uma propriedade de **similaridade** para especificar o algoritmo. Você pode usar o `api-version=2019-05-06-Preview` , conforme mostrado abaixo, ou `api-version=2020-06-30` .
 
 ```
 PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=2019-05-06-Preview
@@ -61,7 +61,7 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 
 A propriedade de **similaridade** é útil durante esse período provisório quando ambos os algoritmos estão disponíveis, somente nos serviços existentes. 
 
-| Propriedade | Descrição |
+| Property | Descrição |
 |----------|-------------|
 | similaridade | Opcional. Os valores válidos incluem *"#Microsoft. Azure. Search. ClassicSimilarity"* ou *"#Microsoft. Azure. Search. BM25Similarity"*. <br/> Requer `api-version=2019-05-06-Preview` ou posterior em um serviço de pesquisa criado antes de 15 de julho de 2020. |
 
@@ -103,9 +103,9 @@ O algoritmo de similaridade só pode ser definido no momento da criação do ín
 PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=[api-version]&allowIndexDowntime=true
 ```
 
-## <a name="see-also"></a>Confira também  
+## <a name="see-also"></a>Consulte também  
 
 + [referência da API REST](https://docs.microsoft.com/rest/api/searchservice/)   
 + [Adicionar perfis de pontuação ao índice](index-add-scoring-profiles.md)    
 + [Criar API de índice](https://docs.microsoft.com/rest/api/searchservice/create-index)   
-+ [SDK do .NET Pesquisa Cognitiva do Azure](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  
++ [SDK do .NET do Azure Cognitive Search](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  

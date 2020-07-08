@@ -7,92 +7,91 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: edb45eebc2c4eacc2f30d13988943f097a7190fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/30/2020
+ms.openlocfilehash: 1e5269333de27c146d4b9e2040801c4b14564125
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74112161"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85562614"
 ---
 # <a name="upgrade-to-the-latest-azure-cognitive-search-service-rest-api-version"></a>Atualizar para a versão mais recente da API REST do serviço de Pesquisa Cognitiva do Azure
 
-Se você estiver usando uma versão anterior da [API REST de pesquisa](https://docs.microsoft.com/rest/api/searchservice/), este artigo o ajudará a atualizar seu aplicativo para usar a versão de API mais recente disponível, 2019-05-06.
+Se você estiver usando uma versão anterior da [API REST de pesquisa](https://docs.microsoft.com/rest/api/searchservice/), este artigo o ajudará a atualizar seu aplicativo para usar a versão de API mais recente disponível, 2020-06-30.
 
-A versão 2019-05-06 da API REST contém algumas alterações de versões anteriores. Elas são principalmente compatíveis com versões anteriores. Portanto, a alteração do código deve exigir apenas um mínimo de esforço, dependendo da versão que você estava usando antes. [As etapas para atualizar](#UpgradeSteps) descreve as alterações de código necessárias para o uso de novos recursos.
+A versão 2020-06-30 da API REST contém algumas alterações de versões anteriores. Elas são principalmente compatíveis com versões anteriores. Portanto, a alteração do código deve exigir apenas um mínimo de esforço, dependendo da versão que você estava usando antes. [As etapas para atualizar](#UpgradeSteps) descreve as alterações de código necessárias para o uso de novos recursos.
 
 > [!NOTE]
 > Uma instância do serviço de Pesquisa Cognitiva do Azure dá suporte a uma variedade de versões da API REST, incluindo as anteriores. Você pode continuar a usar essas versões de API, mas é recomendável migrar seu código para a versão mais recente para que você possa acessar novos recursos.
 
-<a name="WhatsNew"></a>
-
-## <a name="whats-new-in-version-2019-05-06"></a>O que há de novo na versão 2019-05-06
-A versão 2019-05-06 é a versão mais recente disponível da API REST. Os recursos que passaram por transição para o status de disponibilidade geral nesta versão de API incluem:
-
-* O [preenchimento automático](index-add-suggesters.md) é um recurso typeahead que conclui uma entrada de termo parcialmente especificada.
-
-* [Tipos complexos](search-howto-complex-data-types.md) fornecem suporte nativo para dados de objeto estruturado no índice de pesquisa.
-
-* Os [modos de análise de JsonLines](search-howto-index-json-blobs.md), parte da indexação de BLOBs do Azure, cria um documento de pesquisa por entidade JSON que é separado por uma nova linha.
-
-* O [enriquecimento de ia](cognitive-search-concept-intro.md) fornece indexação que aproveita os mecanismos de enriquecimento de ia de serviços cognitivas.
-
-Várias versões do recurso de visualização coincidem com essa atualização disponível para o público em geral. Para examinar a lista de novos recursos de visualização, consulte [Pesquisar API REST – versão 2019-05-06-Preview](search-api-preview.md).
-
-## <a name="breaking-changes"></a>Alterações de quebra
-
-O código existente que contém a seguinte funcionalidade será interrompido na API-Version = 2019-05-06.
-
-### <a name="indexer-for-azure-cosmos-db---datasource-is-now-type-cosmosdb"></a>O indexador para Azure Cosmos DB-DataSource agora é "tipo": "cosmosdb"
-
-Se você estiver usando um [indexador Cosmos DB](search-howto-index-cosmosdb.md ), será necessário alterar `"type": "documentdb"` para `"type": "cosmosdb"`.
-
-### <a name="indexer-execution-result-errors-no-longer-have-status"></a>Os erros de resultado da execução do indexador não têm mais status
-
-A estrutura de erros para a execução do indexador `status` anteriormente tinha um elemento. Este elemento foi removido porque não estava fornecendo informações úteis.
-
-### <a name="indexer-data-source-api-no-longer-returns-connection-strings"></a>A API de fonte de dados do indexador não retorna mais cadeias de conexão
-
-Nas versões de API 2019-05-06 e 2019-05-06-preview em diante, a API de fonte de dados não retorna mais cadeias de conexão na resposta de qualquer operação REST. Nas versões anteriores da API, para fontes de dados criadas usando POST, o Azure Pesquisa Cognitiva retornou **201** seguido pela resposta do OData, que continha a cadeia de conexão em texto sem formatação.
-
-### <a name="named-entity-recognition-cognitive-skill-is-now-discontinued"></a>A habilidade cognitiva de reconhecimento de entidade nomeada agora está descontinuada
-
-Se você chamar a habilidade de [reconhecimento de entidade de nome](cognitive-search-skill-named-entity-recognition.md) em seu código, a chamada falhará. A funcionalidade de substituição é o [reconhecimento de entidade](cognitive-search-skill-entity-recognition.md). Você deve ser capaz de substituir a referência de habilidades sem outras alterações. A assinatura de API é a mesma para ambas as versões. 
-
 <a name="UpgradeSteps"></a>
 
-## <a name="steps-to-upgrade"></a>Etapas da atualização
-Se você estiver atualizando de uma versão de GA anterior, 2017-11-11 ou 2016-09-01, provavelmente não precisará fazer nenhuma alteração no código, a não ser alterar o número de versão. As únicas situações em que talvez seja necessário alterar o código ocorrem quando:
+## <a name="how-to-upgrade"></a>Como atualizar
+
+Ao atualizar para novas versões, você provavelmente não precisará fazer nenhuma alteração no código, além de alterar o número de versão. As únicas situações em que talvez seja necessário alterar o código ocorrem quando:
 
 * O código falha quando propriedades não reconhecidas são retornadas em uma resposta da API. Por padrão, o aplicativo deve ignorar propriedades que não entende.
 
 * O código persiste solicitações de API e tenta reenviá-las à nova versão da API. Por exemplo, isso poderá acontecer se o aplicativo persistir tokens de continuação retornados da API de Pesquisa (para obter mais informações, procure `@search.nextPageParameters` na [Referência de API de Pesquisa](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)).
 
-Se alguma dessas situações se aplicar a você, talvez seja necessário alterar o código da maneira adequada. Caso contrário, nenhuma alteração deve ser necessária, a menos que você queira começar a usar os [novos recursos](#WhatsNew) da versão 2019-05-06.
+* Seu código faz referência a uma versão de API que é preactualizada 2019-05-06 e está sujeita a uma ou mais das alterações significativas nessa versão. A seção [atualizar para 2019-05-06](#upgrade-to-2019-05-06) fornece mais detalhes. 
 
-Se você estiver atualizando de uma versão de API de visualização, o acima também se aplicará, mas você também deve estar ciente de que alguns recursos de visualização não estão disponíveis na versão 2019-05-06:
+Se qualquer uma dessas situações se aplicar a você, talvez seja necessário alterar seu código de acordo. Caso contrário, nenhuma alteração deve ser necessária, a menos que você queira começar a usar os recursos adicionados na nova versão.
 
-* [Consultas "Mais como esta"](search-more-like-this.md)
-* [Indexação de blob CSV](search-howto-index-csv-blobs.md)
-* [Suporte à API do MongoDB para indexadores de Cosmos DB](search-howto-index-cosmosdb.md)
+## <a name="upgrade-to-2020-06-30"></a>Atualizar para o 2020-06-30
 
-Se seu código usar esses recursos, você não poderá atualizar para a versão de API 2019-05-06 sem remover o uso deles.
+A versão 2020-06-30 é a nova versão geralmente disponível da API REST. Não há alterações significativas, mas há algumas diferenças comportamentais. 
 
-> [!IMPORTANT]
-> As APIs em visualização servem para teste e avaliação e não devem ser usadas em ambientes de produção.
-> 
+Os recursos agora estão disponíveis para o público em geral nesta versão de API:
+
+* [Loja de conhecimento](knowledge-store-concept-intro.md), armazenamento persistente de conteúdo aprimorado criado por meio de habilidades, criado para análise e processamento downstream por meio de outros aplicativos. Com esse recurso, um pipeline de enriquecimento de ia controlado por indexador pode preencher uma loja de conhecimento além de um índice de pesquisa. Se você usou a versão de visualização desse recurso, ele é equivalente à versão disponível. A única alteração de código necessária é modificar a versão de API.
+
+As alterações de comportamento incluem o seguinte:
+
+* O [algoritmo de classificação BM25](index-ranking-similarity.md) substitui o algoritmo de classificação anterior por uma tecnologia mais nova. Novos serviços usarão esse algoritmo automaticamente. Para os serviços existentes, você deve definir parâmetros para usar o novo algoritmo.
+
+* Os resultados ordenados para valores nulos foram alterados nesta versão, com valores nulos aparecendo primeiro se a classificação for `asc` e a última se a classificação for `desc` . Se você escreveu o código para manipular como os valores nulos são classificados, lembre-se dessa alteração.
+
+## <a name="upgrade-to-2019-05-06"></a>Atualizar para o 2019-05-06
+
+A versão 2019-05-06 é a versão mais antiga disponível da API REST. Os recursos que se tornaram disponíveis em geral nesta versão de API incluem:
+
+* O [preenchimento automático](index-add-suggesters.md) é um recurso typeahead que conclui uma entrada de termo parcialmente especificada.
+* [Tipos complexos](search-howto-complex-data-types.md) fornecem suporte nativo para dados de objeto estruturado no índice de pesquisa.
+* Os [modos de análise de JsonLines](search-howto-index-json-blobs.md), parte da indexação de BLOBs do Azure, cria um documento de pesquisa por entidade JSON que é separado por uma nova linha.
+* O [enriquecimento de ia](cognitive-search-concept-intro.md) fornece indexação que aproveita os mecanismos de enriquecimento de ia de serviços cognitivas.
+
+### <a name="breaking-changes"></a>Alterações de quebra
+
+O código existente escrito em versões anteriores da API será interrompido na API-Version = 2019-05-06 se o código contiver a seguinte funcionalidade:
+
+#### <a name="indexer-for-azure-cosmos-db---datasource-is-now-type-cosmosdb"></a>O indexador para Azure Cosmos DB-DataSource agora é "tipo": "cosmosdb"
+
+Se você estiver usando um [indexador Cosmos DB](search-howto-index-cosmosdb.md ), será necessário alterar `"type": "documentdb"` para `"type": "cosmosdb"` .
+
+#### <a name="indexer-execution-result-errors-no-longer-have-status"></a>Os erros de resultado da execução do indexador não têm mais status
+
+A estrutura de erros para a execução do indexador anteriormente tinha um `status` elemento. Este elemento foi removido porque não estava fornecendo informações úteis.
+
+#### <a name="indexer-data-source-api-no-longer-returns-connection-strings"></a>A API de fonte de dados do indexador não retorna mais cadeias de conexão
+
+Nas versões de API 2019-05-06 e 2019-05-06-preview em diante, a API de fonte de dados não retorna mais cadeias de conexão na resposta de qualquer operação REST. Nas versões anteriores da API, para fontes de dados criadas usando POST, o Azure Pesquisa Cognitiva retornou **201** seguido pela resposta do OData, que continha a cadeia de conexão em texto sem formatação.
+
+#### <a name="named-entity-recognition-cognitive-skill-is-now-discontinued"></a>A habilidade cognitiva de reconhecimento de entidade nomeada agora está descontinuada
+
+Se você chamou a habilidade de [reconhecimento de entidade de nome](cognitive-search-skill-named-entity-recognition.md) em seu código, a chamada falhará. A funcionalidade de substituição é o [reconhecimento de entidade](cognitive-search-skill-entity-recognition.md). Você deve ser capaz de substituir a referência de habilidades sem outras alterações. A assinatura de API é a mesma para ambas as versões. 
 
 ### <a name="upgrading-complex-types"></a>Atualizando tipos complexos
 
-Se seu código usa tipos complexos com as versões mais antigas da API de visualização 2017-11-11-Preview ou 2016-09-01-Preview, há alguns limites novos e alterados na versão 2019-05-06 dos quais você precisa estar ciente:
+A versão de API 2019-05-06 adicionou suporte formal para tipos complexos. Se seu código implementou recomendações anteriores para equivalência de tipo complexo no 2017-11-11-Preview ou 2016-09-01-Preview, há alguns limites novos e alterados a partir da versão 2019-05-06 da qual você precisa estar ciente:
 
 + Os limites na profundidade de subcampos e o número de coleções complexas por índice foram reduzidos. Se você criou índices que excedem esses limites usando as versões de API de visualização, qualquer tentativa de atualizar ou recriá-los usando a versão de API 2019-05-06 falhará. Se isso se aplicar a você, você precisará recriar o esquema para se ajustar aos novos limites e, em seguida, recriar o índice.
 
-+ Há um novo limite na versão de API 2019-05-06 no número de elementos de coleções complexas por documento. Se você criou índices com documentos que excedem esses limites usando as versões de API de visualização, qualquer tentativa de reindexar esses dados usando a versão de API 2019-05-06 falhará. Se isso se aplicar a você, você precisará reduzir o número de elementos de coleção complexos por documento antes de reindexar seus dados.
++ Há um novo limite a partir da versão de API 2019-05-06 no número de elementos de coleções complexas por documento. Se você criou índices com documentos que excedem esses limites usando as versões de API de visualização, qualquer tentativa de reindexar esses dados usando a versão de API 2019-05-06 falhará. Se isso se aplicar a você, você precisará reduzir o número de elementos de coleção complexos por documento antes de reindexar seus dados.
 
 Para obter mais informações, consulte [limites de serviço para o Azure pesquisa cognitiva](search-limits-quotas-capacity.md).
 
-### <a name="how-to-upgrade-an-old-complex-type-structure"></a>Como atualizar uma estrutura antiga de tipo complexo
+#### <a name="how-to-upgrade-an-old-complex-type-structure"></a>Como atualizar uma estrutura antiga de tipo complexo
 
 Se o seu código estiver usando tipos complexos com uma das versões mais antigas da API de visualização, você poderá estar usando um formato de definição de índice parecido com este:
 
@@ -144,8 +143,7 @@ Você pode atualizar índices "simples" para o novo formato com as seguintes eta
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Examine a documentação de referência da API REST de pesquisa. Se você tiver problemas, peça ajuda no [StackOverflow](https://stackoverflow.com/) ou [entre em contato com o suporte](https://azure.microsoft.com/support/community/?product=search).
+Examine a documentação de referência da API REST de pesquisa. Se você tiver problemas, peça ajuda em [Stack Overflow](https://stackoverflow.com/) ou [entre em contato com o suporte](https://azure.microsoft.com/support/community/?product=search).
 
 > [!div class="nextstepaction"]
 > [Referência da API REST do serviço de pesquisa](https://docs.microsoft.com/rest/api/searchservice/)
-

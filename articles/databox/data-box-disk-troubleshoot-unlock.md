@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 06/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 02cbf64261bbfbf50561e1b7466b46b27b688e0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7b49752eeca6a3600830d71a029b6d93c9390b13
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67148277"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85560053"
 ---
 # <a name="troubleshoot-disk-unlocking-issues-in-azure-data-box-disk"></a>Solucionar problemas de desbloqueio de disco no Disco do Azure Data Box
 
@@ -47,7 +47,7 @@ Esta seção detalha alguns dos principais problemas enfrentados durante a impla
 
 ### <a name="issue-could-not-unlock-drive-from-bitlocker"></a>Problema: não foi possível desbloquear a unidade do BitLocker
  
-**Faz** 
+**Causa** 
 
 Você usou a senha na caixa de diálogo do BitLocker e tentou desbloquear o disco usando a caixa de diálogo desbloquear unidades do BitLocker. Isso não funcionaria.
 
@@ -57,7 +57,7 @@ Para desbloquear Data Box Disks, você precisa usar a ferramenta de Desbloqueio 
  
 ### <a name="issue-could-not-unlock-or-verify-some-volumes-contact-microsoft-support"></a>Problema: não foi possível desbloquear ou verificar alguns volumes. Contatar Suporte da Microsoft
  
-**Faz**
+**Causa**
 
 Talvez você veja o seguinte erro no log de erros e não consiga desbloquear nem verificar alguns volumes.
 

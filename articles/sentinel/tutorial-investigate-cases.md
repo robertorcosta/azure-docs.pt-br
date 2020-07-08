@@ -1,6 +1,6 @@
 ---
 title: Investigue incidentes com o Azure Sentinel | Microsoft Docs
-description: Use este tutorial para aprender a investigar incidentes com o Azure Sentinel.
+description: Neste tutorial, saiba como usar o Azure Sentinel para criar regras de alerta avançadas que geram incidentes que você pode atribuir e investigar.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: ecd8c508d05bfeb541a6cb5efbcdf2fffd3c78d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 564041da0be6874acae1bec69e4ab2d744d89323
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77587185"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565240"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Tutorial: investigar incidentes com o Azure Sentinel
 
@@ -97,7 +97,7 @@ Para usar o grafo de investigação:
 
     ![Exibir alertas relacionados](media/tutorial-investigate-cases/related-alerts.png)
 
-1. Para cada consulta de exploração, você pode selecionar a opção para abrir os resultados do evento bruto e a consulta usada em Log Analytics, selecionando **eventos\>**.
+1. Para cada consulta de exploração, você pode selecionar a opção para abrir os resultados do evento bruto e a consulta usada em Log Analytics, selecionando **eventos \> **.
 
 1. Para entender o incidente, o grafo fornece uma linha do tempo paralela.
 
@@ -107,7 +107,21 @@ Para usar o grafo de investigação:
 
     ![Usar linha do tempo no mapa para investigar alertas](media/tutorial-investigate-cases/use-timeline.png)
 
+## <a name="closing-an-incident"></a>Fechando um incidente
 
+Depois de resolver um incidente específico (por exemplo, quando sua investigação tiver atingido sua conclusão), defina o status do incidente como **fechado**. Ao fazer isso, você será solicitado a classificar o incidente especificando o motivo pelo qual está fechando-o. Esta etapa é obrigatória. Clique em **selecionar classificação** e escolha uma das opções a seguir na lista suspensa:
+
+- Verdadeiro positivo – atividade suspeita
+- Benigno positivo-suspeito, mas esperado
+- Falso positivo – lógica de alerta incorreta
+- Falsos positivos-dados incorretos
+- Indeterminado
+
+:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-dropdown.png" alt-text="{Alt-Text}":::
+
+Depois de escolher a classificação apropriada, adicione um texto descritivo no campo **Comentário** . Isso será útil no caso de você precisar fazer referência a esse incidente. Clique em **aplicar** quando terminar e o incidente será fechado.
+
+:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-comment-apply.png" alt-text="{Alt-Text}":::
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste tutorial, você aprendeu como começar a investigar incidentes usando o Azure Sentinel. Continue no tutorial sobre [como responder a ameaças usando guias estratégicos automatizados](tutorial-respond-threats-playbook.md).

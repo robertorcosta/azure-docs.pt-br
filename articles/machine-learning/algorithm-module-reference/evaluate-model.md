@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/24/2020
-ms.openlocfilehash: e522291bdf1982ff65a62f028107b15b3249898c
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 0b7ca2654fb8b7bdcca6dcb5f2fd354a138f2fcf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847405"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564362"
 ---
 # <a name="evaluate-model-module"></a>Módulo Avaliar modelo
 
@@ -122,7 +122,7 @@ As métricas a seguir são relatadas para avaliar modelos de clustering.
   
      Se o número de pontos de dados atribuídos a clusters for menor que o número total de pontos de dados disponíveis, isso significará que não foi possível atribuir os pontos de dados a um cluster.  
   
--   As pontuações na coluna **Distância máxima ao centro do cluster** representam a soma das distâncias entre cada ponto e o centroide do cluster desse ponto.  
+-   As pontuações na coluna, a **distância máxima ao centro de cluster**, representam o máximo de distâncias entre cada ponto e o centróide do cluster desse ponto.  
   
      Se esse número for alto, pode significar que o cluster é amplamente disperso. Você deve examinar essa estatística junto com a **Distância média ao centro de cluster** para determinar o espalhamento do cluster.   
 
