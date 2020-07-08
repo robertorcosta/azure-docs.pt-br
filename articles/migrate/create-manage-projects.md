@@ -4,10 +4,9 @@ description: Localize, crie, gerencie e exclua projetos em migrações para Azur
 ms.topic: how-to
 ms.date: 04/19/2020
 ms.openlocfilehash: f5079ed979d98f2c6f0c654c860c6f176f366497
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81676385"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Criar e gerenciar projetos de Migrações para Azure
@@ -78,8 +77,8 @@ Observe que:
 
 1. Navegue até o espaço de trabalho do Log Analytics associado ao projeto.
 
-    - Se você não tiver excluído o projeto de migrações para Azure, poderá encontrar o link para o espaço de trabalho na avaliação do **Essentials** > **Server**.
-       ![Espaço de](./media/create-manage-projects/loganalytics-workspace.png)trabalho da la.
+    - Se você não tiver excluído o projeto de migrações para Azure, poderá encontrar o link para o espaço de trabalho na avaliação do **Essentials**  >  **Server**.
+       ![Espaço de trabalho da LA ](./media/create-manage-projects/loganalytics-workspace.png) .
        
     - Se você já tiver excluído o projeto de migrações para Azure, selecione **grupos de recursos** no painel esquerdo da portal do Azure e localize o espaço de trabalho.
        

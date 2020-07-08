@@ -13,10 +13,9 @@ manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 04/15/2020
 ms.openlocfilehash: 4cb5b84f3889dcf4e0f28d525afb42cfeac5b54c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81605503"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Configurar um IR auto-hospedado como um proxy para um Azure-SSIS IR no Azure Data Factory
@@ -58,7 +57,7 @@ Se você ainda não tiver feito isso, crie um serviço vinculado do armazenament
 - Para o **método de autenticação**, selecione chave de **conta**, URI de **SAS**ou entidade de **serviço**.  
 
     >[!TIP]
-    >Se você selecionar o método de **entidade de serviço** , conceda à sua entidade de serviço pelo menos uma função de *colaborador* de dados de blob de armazenamento. Para obter mais informações, consulte [conector do armazenamento de BLOBs do Azure](connector-azure-blob-storage.md#linked-service-properties).
+    >Se você selecionar o método de **entidade de serviço** , conceda à sua entidade de serviço pelo menos uma função de colaborador de dados de *blob de armazenamento*   . Para obter mais informações, consulte [conector do armazenamento de BLOBs do Azure](connector-azure-blob-storage.md#linked-service-properties).
 
 ![Preparar o serviço vinculado do armazenamento de BLOBs do Azure para preparo](media/self-hosted-integration-runtime-proxy-ssis/shir-azure-blob-storage-linked-service.png)
 
@@ -118,7 +117,7 @@ Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
 
 ## <a name="enable-ssis-packages-to-connect-by-proxy"></a>Habilitar pacotes SSIS para se conectar por proxy
 
-Usando a extensão mais recente do SSDT com projetos do SSIS para Visual Studio ou um instalador autônomo, você pode encontrar uma `ConnectByProxy` nova propriedade que foi adicionada em gerenciadores de conexões de arquivo simples ou OleDb.
+Usando a extensão mais recente do SSDT com projetos do SSIS para Visual Studio ou um instalador autônomo, você pode encontrar uma nova `ConnectByProxy` propriedade que foi adicionada em gerenciadores de conexões de arquivo simples ou OleDb.
 * [Baixar o SSDT com a extensão de projetos do SSIS para Visual Studio](https://marketplace.visualstudio.com/items?itemName=SSIS.SqlServerIntegrationServicesProjects)
 * [Baixar o instalador autônomo](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017#ssdt-for-vs-2017-standalone-installer)   
 
@@ -135,11 +134,11 @@ Você também pode habilitar essa propriedade ao executar pacotes existentes, se
   
   ![Habilitar ConnectByProxy property3](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssis-activity.png)
 
-- **Opção B:** Reimplante o projeto que contém esses pacotes para executar em seu IR do SSIS. Em seguida, você pode habilitar a propriedade fornecendo seu caminho de `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`Propriedade, e definindo-a como *true* como uma substituição de propriedade na guia **avançado** da janela pop-up **executar pacote** quando estiver executando pacotes do SSMS.
+- **Opção B:** Reimplante o projeto que contém esses pacotes para executar em seu IR do SSIS. Em seguida, você pode habilitar a propriedade fornecendo seu caminho de propriedade, `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]` e definindo-a como *true* como uma substituição de propriedade na guia **avançado** da janela pop-up **executar pacote** quando estiver executando pacotes do SSMS.
 
   ![Habilitar ConnectByProxy property4](media/self-hosted-integration-runtime-proxy-ssis/shir-advanced-tab-ssms.png)
 
-  Você também pode habilitar a propriedade fornecendo seu caminho de propriedade, `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`e definindo-a como *true* como uma substituição de propriedade na guia **substituições de propriedade** da [atividade executar pacote SSIS](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity) quando estiver executando pacotes em pipelines de data Factory.
+  Você também pode habilitar a propriedade fornecendo seu caminho de propriedade, `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]` e definindo-a como *true* como uma substituição de propriedade na guia **substituições de propriedade** da [atividade executar pacote SSIS](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity) quando estiver executando pacotes em pipelines de data Factory.
   
   ![Habilitar ConnectByProxy property5](media/self-hosted-integration-runtime-proxy-ssis/shir-property-overrides-tab-ssis-activity.png)
 
@@ -153,7 +152,7 @@ Em seu IR auto-hospedado, você pode encontrar os logs de tempo de execução na
 
 Se as tarefas de preparo em seu IR de hospedagem interna exigirem autenticação do Windows, [Configure seus pacotes SSIS para usar a mesma autenticação do Windows](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth?view=sql-server-ver15). 
 
-As tarefas de preparo serão invocadas com a conta de serviço IR auto-hospedado (*NT SERVICE\DIAHostService*, por padrão) e seus armazenamentos de dados serão acessados com a conta de autenticação do Windows. Ambas as contas exigem que determinadas políticas de segurança sejam atribuídas a elas. Na máquina ir auto-hospedado, vá para **política** > de segurança local**políticas** > locais**atribuição de direitos de usuário**e, em seguida, faça o seguinte:
+As tarefas de preparo serão invocadas com a conta de serviço IR auto-hospedado (*NT SERVICE\DIAHostService*, por padrão) e seus armazenamentos de dados serão acessados com a conta de autenticação do Windows. Ambas as contas exigem que determinadas políticas de segurança sejam atribuídas a elas. Na máquina ir auto-hospedado, vá para **política de segurança local**  >  **políticas locais**  >  **atribuição de direitos de usuário**e, em seguida, faça o seguinte:
 
 1. Atribua as *cotas de ajuste de memória para um processo* e substitua as políticas de *token de nível de processo* para a conta de serviço ir de hospedagem interna. Isso deve ocorrer automaticamente quando você instala o IR auto-hospedado com a conta de serviço padrão. Caso contrário, atribua essas políticas manualmente. Se você usar uma conta de serviço diferente, atribua as mesmas políticas a ela.
 

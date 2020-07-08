@@ -7,10 +7,9 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 4/13/2020
 ms.openlocfilehash: ffd4ab463080001dbab5b0ed9ece69c4b5f91382
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81272076"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mariadb"></a>Logs de consulta lentos no banco de dados do Azure para MariaDB
@@ -19,7 +18,7 @@ No Banco de Dados do Azure para MariaDB, o log de consultas lentas está dispon�
 Para obter mais informações sobre o log de consulta lenta, leia a documentação do MariaDB para [log de consulta lenta](https://mariadb.com/kb/en/library/slow-query-log-overview/).
 
 ## <a name="configure-slow-query-logging"></a>Configurar o log de consultas lentas
-Por padrão, o log de consultas lentas está desabilitado. Para habilitá-lo `slow_query_log` , defina como ativado. Isso pode ser habilitado usando o portal do Azure ou CLI do Azure. 
+Por padrão, o log de consultas lentas está desabilitado. Para habilitá-lo, defina `slow_query_log` como ativado. Isso pode ser habilitado usando o portal do Azure ou CLI do Azure. 
 
 Outros parâmetros que você pode ajustar incluem:
 
@@ -27,11 +26,11 @@ Outros parâmetros que você pode ajustar incluem:
 - **log_slow_admin_statements**: se ON inclui instruções administrativas como ALTER_TABLE e ANALYZE_TABLE nas instruções gravadas para o slow_query_log.
 - **log_queries_not_using_indexes**: determina se as consultas que não usam índices são ou não registradas para o slow_query_log
 - **log_throttle_queries_not_using_indexes**: este parâmetro limita o número de consultas que não são de índice que podem ser gravadas no log de consultas lentas. Esse parâmetro tem efeito quando log_queries_not_using_indexes está definido como ON.
-- **log_output**: se "File", permite que o log de consultas lentas seja gravado no armazenamento do servidor local e em Azure monitor logs de diagnóstico. Se "None", o log de consultas lentas só será gravado em Azure Monitor logs de diagnóstico. 
+- **log_output**: se "File", permite que o log de consultas lentas seja gravado no armazenamento do servidor local e em Azure monitor logs de diagnóstico. Se for "None", o log de consultas lentas só será gravado em logs de diagnóstico do Azure Monitor. 
 
 > [!IMPORTANT]
 > Se as tabelas não estiverem indexadas, definir `log_queries_not_using_indexes` os `log_throttle_queries_not_using_indexes` parâmetros e como on pode afetar o desempenho do MariaDB, pois todas as consultas em execução nessas tabelas não indexadas serão gravadas no log de consultas lentas.<br><br>
-> Se você planeja registrar em log consultas lentas por um longo período de tempo, é recomendável `log_output` definir como "nenhum". Se definido como "File", esses logs são gravados no armazenamento do servidor local e podem afetar o desempenho do MariaDB. 
+> Se você planeja registrar em log consultas lentas por um longo período de tempo, é recomendável definir `log_output` como "nenhum". Se definido como "File", esses logs são gravados no armazenamento do servidor local e podem afetar o desempenho do MariaDB. 
 
 Consulte a [documentação de log de consulta lenta](https://mariadb.com/kb/en/library/slow-query-log-overview/) do MariaDB para ver descrições completas dos parâmetros de log de consulta lenta.
 
@@ -84,7 +83,7 @@ A tabela a seguir descreve o que está em cada log. Dependendo do método de sa�
 | `\_ResourceId` | URI de recurso |
 
 > [!Note]
-> Para `sql_text`, o log será truncado se exceder 2048 caracteres.
+> Para `sql_text` , o log será truncado se exceder 2048 caracteres.
 
 ## <a name="analyze-logs-in-azure-monitor-logs"></a>Analisar logs em logs de Azure Monitor
 

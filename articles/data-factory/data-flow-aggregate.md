@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/24/2020
 ms.openlocfilehash: 871f2b49e2dce9d762ef8a54923da04b0f24e4be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81606527"
 ---
 # <a name="aggregate-transformation-in-mapping-data-flow"></a>Transformação Agregação no fluxo de dados de mapeamento
@@ -45,18 +44,18 @@ Cada expressão de agregação deve conter pelo menos uma função de agregaçã
 
 As transformações agregadas são semelhantes às consultas SELECT de agregação do SQL. As colunas que não estão incluídas em sua cláusula Group by ou funções de agregação não fluirão para a saída da transformação Agregação. Se você quiser incluir outras colunas em sua saída agregada, execute um dos seguintes métodos:
 
-* Use uma função de agregação `last()` como `first()` ou para incluir essa coluna adicional.
+* Use uma função de agregação como `last()` ou `first()` para incluir essa coluna adicional.
 * Reingresse as colunas no fluxo de saída usando o [padrão de autojunção](https://mssqldude.wordpress.com/2018/12/20/adf-data-flows-self-join/).
 
 ## <a name="removing-duplicate-rows"></a>Removendo linhas duplicadas
 
-Um uso comum da transformação agregação é remover ou identificar entradas duplicadas em dados de origem. Esse processo é conhecido como eliminação de duplicação. Com base em um conjunto de chaves Group by, use uma heurística de sua escolha para determinar qual linha duplicada manter. A heurística comum são `first()`, `last()`, `max()`e `min()`. Use [padrões de coluna](concepts-data-flow-column-pattern.md) para aplicar a regra a cada coluna, exceto para as colunas agrupar por.
+Um uso comum da transformação agregação é remover ou identificar entradas duplicadas em dados de origem. Esse processo é conhecido como eliminação de duplicação. Com base em um conjunto de chaves Group by, use uma heurística de sua escolha para determinar qual linha duplicada manter. A heurística comum são `first()` , `last()` , `max()` e `min()` . Use [padrões de coluna](concepts-data-flow-column-pattern.md) para aplicar a regra a cada coluna, exceto para as colunas agrupar por.
 
 ![Eliminação de duplicação](media/data-flow/agg-dedupe.png "Eliminação de duplicação")
 
-No exemplo acima, colunas `ProductID` e `Name` estão sendo usadas para Agrupamento. Se duas linhas tiverem os mesmos valores para essas duas colunas, elas serão consideradas duplicatas. Nessa transformação Agregação, os valores da primeira linha correspondidos serão mantidos e todos os outros serão removidos. Usando a sintaxe de padrão de coluna, todas as `ProductID` colunas `Name` cujos nomes não são e são mapeadas para o nome de coluna existente e recebem o valor da primeira linha correspondente. O esquema de saída é o mesmo que o esquema de entrada.
+No exemplo acima, colunas `ProductID` e `Name` estão sendo usadas para Agrupamento. Se duas linhas tiverem os mesmos valores para essas duas colunas, elas serão consideradas duplicatas. Nessa transformação Agregação, os valores da primeira linha correspondidos serão mantidos e todos os outros serão removidos. Usando a sintaxe de padrão de coluna, todas as colunas cujos nomes não são `ProductID` e `Name` são mapeadas para o nome de coluna existente e recebem o valor da primeira linha correspondente. O esquema de saída é o mesmo que o esquema de entrada.
 
-Para cenários de validação de dados `count()` , a função pode ser usada para contar quantas duplicatas existem.
+Para cenários de validação de dados, a `count()` função pode ser usada para contar quantas duplicatas existem.
 
 ## <a name="data-flow-script"></a>Script de fluxo de dados
 
@@ -81,9 +80,9 @@ Para cenários de validação de dados `count()` , a função pode ser usada par
 
 ### <a name="example"></a>Exemplo
 
-O exemplo abaixo usa um fluxo `MoviesYear` de entrada e agrupa linhas por `year`coluna. A transformação cria uma coluna `avgrating` de agregação que é avaliada como a `Rating`média da coluna. Essa transformação agregada é `AvgComedyRatingsByYear`nomeada.
+O exemplo abaixo usa um fluxo de entrada `MoviesYear` e agrupa linhas por coluna `year` . A transformação cria uma coluna de agregação `avgrating` que é avaliada como a média da coluna `Rating` . Essa transformação agregada é nomeada `AvgComedyRatingsByYear` .
 
-No Data Factory UX, essa transformação é semelhante à imagem abaixo:
+No UX do Data Factory, essa transformação é semelhante à imagem abaixo:
 
 ![Agrupar por exemplo](media/data-flow/agg-script1.png "Agrupar por exemplo")
 
@@ -100,7 +99,7 @@ MoviesYear aggregate(
 
 ![Script de fluxo de dados de agregação](media/data-flow/aggdfs1.png "Script de fluxo de dados de agregação")
 
-```MoviesYear```: Coluna derivada que define as colunas ```AvgComedyRatingByYear```year e title: transformação agregação para classificação média de Comedies agrupadas por ano ```avgrating```: nome da nova coluna que está sendo criada para conter o valor agregado
+```MoviesYear```: Coluna derivada que define as colunas year e title ```AvgComedyRatingByYear``` : transformação agregação para classificação média de Comedies agrupadas por ano ```avgrating``` : nome da nova coluna que está sendo criada para conter o valor agregado
 
 ```
 MoviesYear aggregate(groupBy(year),

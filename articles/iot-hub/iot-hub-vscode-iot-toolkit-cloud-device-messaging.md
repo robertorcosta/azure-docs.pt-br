@@ -9,10 +9,9 @@ ms.tgt_pltfrm: arduino
 ms.date: 01/18/2019
 ms.author: junhan
 ms.openlocfilehash: 31a5d55d1067b9dd946c1667118d0bde5ee3d59e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81682510"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Use as Ferramentas do Azure IoT para Visual Studio Code para enviar e receber mensagens entre o seu dispositivo e o Hub IoT
@@ -64,7 +63,7 @@ Para monitorar as mensagens enviadas do seu dispositivo ao seu Hub IoT, siga est
 
 1. Clique com o botão direito do mouse no dispositivo e selecione **Iniciar Monitoramento do ponto de extremidade do evento interno**.
 
-2. As mensagens monitoradas serão mostradas na exibição de **saída** > do**Hub IOT do Azure** .
+2. As mensagens monitoradas serão mostradas na exibição de **saída**do  >  **Hub IOT do Azure** .
 
 3. Para interromper o monitoramento, clique com o botão direito do mouse na exibição de **saída** e selecione **parar monitoramento de ponto de extremidade de evento interno**.
 
@@ -76,7 +75,7 @@ Para enviar uma mensagem do Hub IoT para o dispositivo, siga estas etapas:
 
 2. Insira a mensagem na caixa de entrada.
 
-3. Os resultados serão mostrados na exibição de **saída** > **do Hub IOT do Azure** .
+3. Os resultados serão mostrados na exibição de **saída**  >  **do Hub IOT do Azure** .
 
 ## <a name="next-steps"></a>Próximas etapas
 

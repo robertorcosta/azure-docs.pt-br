@@ -10,10 +10,9 @@ ms.date: 03/08/2019
 ms.topic: conceptual
 ms.custom: mqtt
 ms.openlocfilehash: d31e520dac1c7e2a13fbd9e24a0cd3167f69e904
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81682000"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>Criar e testar um novo dispositivo simulado
@@ -54,7 +53,7 @@ A tabela a seguir mostra os dados que a lâmpada relata para a nuvem como um flu
 
 A tabela a seguir mostra as ações com suporte no novo dispositivo:
 
-| Name        |
+| Nome        |
 | ----------- |
 | Ligar   |
 | Desligar  |
@@ -108,11 +107,11 @@ Baixe e descompacte o [microsserviço de adaptador de armazenamento](https://git
 
 Abra a pasta **remote-monitoring-services-dotnet-master\storage-adapter** no Visual Studio Code. Clique em qualquer botão **Restaurar** para corrigir todas as dependências não resolvidas.
 
-Abra o arquivo **Storage-Adapter/WebService/appSettings. ini** e atribua sua cadeia de conexão Cosmos DB à variável **documentDBConnectionString** .
+Abra o arquivo **Storage-Adapter/WebService/appsettings.ini** e atribua sua cadeia de conexão Cosmos DB à variável **documentDBConnectionString** .
 
 Para executar o microsserviço localmente, clique em **Depurar > Iniciar Depuração**.
 
-A janela do **terminal** no Visual Studio Code mostra a saída do microserviço em execução, incluindo uma URL para a verificação de [http://127.0.0.1:9022/v1/status](http://127.0.0.1:9022/v1/status)integridade do serviço Web:. Quando você navegar até esse endereço, o status deverá ser "OK: ativo e em funcionamento".
+A janela do **terminal** no Visual Studio Code mostra a saída do microserviço em execução, incluindo uma URL para a verificação de integridade do serviço Web: [http://127.0.0.1:9022/v1/status](http://127.0.0.1:9022/v1/status) . Quando você navegar até esse endereço, o status deverá ser "OK: ativo e em funcionamento".
 
 Deixe o microsserviço de adaptador de armazenamento em execução nesta instância do Visual Studio Code enquanto você conclui as próximas etapas.
 
@@ -425,7 +424,7 @@ Nesta seção, você testa os tipos de dispositivo que criou nas seções anteri
 
 Abra a pasta **device-simulation-dotnet-master** que você baixou do GitHub em uma nova instância do Visual Studio Code. Clique em qualquer botão **Restaurar** para corrigir todas as dependências não resolvidas.
 
-Abra o arquivo **WebService/appSettings. ini** e atribua sua cadeia de conexão Cosmos DB à variável **documentdb_connstring** e modifique também as configurações da seguinte maneira:
+Abra o arquivo **WebService/appsettings.ini** e atribua sua cadeia de conexão Cosmos DB à variável **documentdb_connstring** e também modifique as configurações da seguinte maneira:
 
 ```ini
 device_models_folder = C:\temp\devicemodels\
@@ -493,7 +492,7 @@ Para configurar e executar a simulação:
 
 Para parar a simulação, selecione a solicitação **Parar a simulação** no Postman e clique em **Enviar**.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Você pode parar de dois microsserviços em execução localmente em suas instâncias do Visual Studio Code (**Depurar > Parar Depuração**).
 

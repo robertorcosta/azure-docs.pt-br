@@ -8,10 +8,9 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.openlocfilehash: aacec8830948e08f66d71da88897670f7ef43788
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81606127"
 ---
 # <a name="using-column-patterns-in-mapping-data-flow"></a>Usando padrões de coluna no fluxo de dados de mapeamento
@@ -31,7 +30,7 @@ Para adicionar um padrão de coluna em uma coluna derivada ou na guia agregaçõ
 
 ![padrões de coluna](media/data-flow/columnpattern.png "Padrões de coluna")
 
-Use o [Construtor de expressões](concepts-data-flow-expression-builder.md) para inserir a condição de correspondência. Crie uma expressão booliana que corresponda a colunas com `name`base `type`em `stream`,, `position` e da coluna. O padrão afetará qualquer coluna, descompasso ou definida, em que a condição retorna true.
+Use o [Construtor de expressões](concepts-data-flow-expression-builder.md) para inserir a condição de correspondência. Crie uma expressão booliana que corresponda a colunas com base em `name` ,, `type` `stream` e `position` da coluna. O padrão afetará qualquer coluna, descompasso ou definida, em que a condição retorna true.
 
 As duas caixas de expressões abaixo da condição de correspondência especificam os novos nomes e valores das colunas afetadas. Use `$$` para fazer referência ao valor existente do campo correspondente. A caixa expressão à esquerda define o nome e a caixa de expressão direita define o valor.
 
@@ -45,7 +44,7 @@ Para verificar se a condição de correspondência está correta, você pode val
 
 ## <a name="rule-based-mapping-in-select-and-sink"></a>Mapeamento baseado em regras em Select e Sink
 
-Ao mapear colunas na origem e selecionar transformações, você pode adicionar mapeamento fixo ou mapeamentos baseados em regras. Corresponder com base nas `name`colunas `type`, `stream`, e `position` . Você pode ter qualquer combinação de mapeamentos fixos e baseados em regras. Por padrão, todas as projeções com mais de 50 colunas serão padronizadas para um mapeamento baseado em regra que corresponde a cada coluna e gera o nome inserido. 
+Ao mapear colunas na origem e selecionar transformações, você pode adicionar mapeamento fixo ou mapeamentos baseados em regras. Corresponder com base nas `name` `type` colunas,, `stream` e `position` . Você pode ter qualquer combinação de mapeamentos fixos e baseados em regras. Por padrão, todas as projeções com mais de 50 colunas serão padronizadas para um mapeamento baseado em regra que corresponde a cada coluna e gera o nome inserido. 
 
 Para adicionar um mapeamento baseado em regras, clique em **Adicionar mapeamento** e selecione **mapeamento baseado em regra**.
 
@@ -55,7 +54,7 @@ Cada mapeamento baseado em regras requer duas entradas: a condição na qual cor
 
 ![mapeamento baseado em regras](media/data-flow/rule-based-mapping.png "mapeamento baseado em regras")
 
-Use `$$` a sintaxe para fazer referência ao nome de entrada de uma coluna correspondente. Usando a imagem acima como um exemplo, digamos que um usuário queira corresponder a todas as colunas de cadeia de caracteres cujos nomes tenham menos de seis caracteres. Se uma coluna de entrada tiver `test`sido nomeada, `$$ + '_short'` a expressão renomeará a coluna `test_short`. Se esse for o único mapeamento existente, todas as colunas que não atenderem à condição serão descartadas dos dados de saída.
+Use a `$$` sintaxe para fazer referência ao nome de entrada de uma coluna correspondente. Usando a imagem acima como um exemplo, digamos que um usuário queira corresponder a todas as colunas de cadeia de caracteres cujos nomes tenham menos de seis caracteres. Se uma coluna de entrada tiver sido nomeada `test` , a expressão `$$ + '_short'` renomeará a coluna `test_short` . Se esse for o único mapeamento existente, todas as colunas que não atenderem à condição serão descartadas dos dados de saída.
 
 Padrões correspondem a colunas descompassos e definidas. Para ver quais colunas definidas são mapeadas por uma regra, clique no ícone de óculos ao lado da regra. Verifique a saída usando a visualização de dados.
 
@@ -65,7 +64,7 @@ Se você clicar no ícone de divisa inferior, poderá especificar uma condição
 
 ![mapeamento baseado em regras](media/data-flow/regex-matching.png "mapeamento baseado em regras")
 
-O exemplo acima corresponde ao padrão `(r)` Regex ou a qualquer nome de coluna que contenha um r com letras minúsculas. Semelhante ao mapeamento baseado em regra padrão, todas as colunas correspondentes são alteradas pela condição à direita usando `$$` a sintaxe.
+O exemplo acima corresponde ao padrão Regex `(r)` ou a qualquer nome de coluna que contenha um r com letras minúsculas. Semelhante ao mapeamento baseado em regra padrão, todas as colunas correspondentes são alteradas pela condição à direita usando a `$$` sintaxe.
 
 ### <a name="rule-based-hierarchies"></a>Hierarquias baseadas em regras
 
@@ -73,7 +72,7 @@ Se a projeção definida tiver uma hierarquia, você poderá usar o mapeamento b
 
 ![mapeamento baseado em regras](media/data-flow/rule-based-hierarchy.png "mapeamento baseado em regras")
 
-O exemplo acima corresponde a todas as Subcolunas de coluna `a`complexa. `a`contém duas Subcolunas `b` e `c`. O esquema de saída incluirá duas `b` colunas `c` e como a condição ' nome como ' `$$`é.
+O exemplo acima corresponde a todas as Subcolunas de coluna complexa `a` . `a`contém duas Subcolunas `b` e `c` . O esquema de saída incluirá duas colunas `b` e `c` como a condição ' nome como ' é `$$` .
 
 ## <a name="pattern-matching-expression-values"></a>Valores de expressão correspondentes de padrões.
 

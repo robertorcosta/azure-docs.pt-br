@@ -10,10 +10,9 @@ ms.topic: article
 ms.date: 04/17/2020
 ms.custom: seodec18
 ms.openlocfilehash: 63a708f80ad18309269e37c354b047c304a260d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81641287"
 ---
 # <a name="shape-json-to-maximize-query-performance"></a>Forma JSON para maximizar o desempenho da consulta
@@ -165,7 +164,7 @@ Carga JSON de exemplo:
 
 * Tabela de dados de referência que tem as propriedades de chave **DeviceID** e **Series. tagId**:
 
-   | deviceId | series.tagId | messageId | deviceLocation | type | unit |
+   | deviceId | series.tagId | messageId | deviceLocation | tipo | unit |
    | --- | --- | --- | --- | --- | --- |
    | FXXX | pumpRate | DADOS\_LINHA | UE | Taxa de Fluxo | ft3/s |
    | FXXX | oilPressure | DADOS\_LINHA | UE | Pressão de óleo do motor | psi |
@@ -174,7 +173,7 @@ Carga JSON de exemplo:
 
 * Time Series Insights tabela de eventos, após o nivelamento:
 
-   | deviceId | series.tagId | messageId | deviceLocation | type | unit | timestamp | series.value |
+   | deviceId | series.tagId | messageId | deviceLocation | tipo | unit | timestamp | series.value |
    | --- | --- | --- | --- | --- | --- | --- | --- |
    | FXXX | pumpRate | DADOS\_LINHA | UE | Taxa de Fluxo | ft3/s | 2018-01-17T01:17:00Z | 1,0172575712203979 | 
    | FXXX | oilPressure | DADOS\_LINHA | UE | Pressão de óleo do motor | psi | 2018-01-17T01:17:00Z | 34,7 |

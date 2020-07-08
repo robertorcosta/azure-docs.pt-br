@@ -11,10 +11,9 @@ ms.topic: article
 ms.date: 04/12/2020
 ms.author: ellbe
 ms.openlocfilehash: 3a71a29fdf4af10162e2f7961fb457d0e99b18e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81687133"
 ---
 # <a name="automatically-identify-the-spoken-language-with-language-identification-model"></a>Identificar automaticamente o idioma falado com o modelo de identificação de idioma
@@ -35,9 +34,9 @@ Ao usar o portal, acesse os vídeos da sua **conta** no [Video indexer](https://
 
 ## <a name="model-output"></a>Saída do modelo
 
-Video Indexer transcreve o vídeo de acordo com a linguagem mais provável se a confiança para esse idioma for `> 0.6`. Se o idioma não puder ser identificado com confiança, ele assumirá que o idioma falado é o inglês. 
+Video Indexer transcreve o vídeo de acordo com a linguagem mais provável se a confiança para esse idioma for `> 0.6` . Se o idioma não puder ser identificado com confiança, ele assumirá que o idioma falado é o inglês. 
 
-O idioma dominante do modelo está disponível no JSON do insights `sourceLanguage` como o atributo (em raiz/vídeos/insights). Uma pontuação de confiança correspondente também está disponível no `sourceLanguageConfidence` atributo.
+O idioma dominante do modelo está disponível no JSON do insights como o `sourceLanguage` atributo (em raiz/vídeos/insights). Uma pontuação de confiança correspondente também está disponível no `sourceLanguageConfidence` atributo.
 
 ```json
 "insights": {
@@ -58,7 +57,7 @@ O idioma dominante do modelo está disponível no JSON do insights `sourceLangua
     Inglês, espanhol, francês, alemão, italiano, mandarim chines, japonês, russo e Português (Brasil).
 * Embora Video Indexer dê suporte a árabe (moderno Standard e Levantine), hindi e coreano, não há suporte para esses idiomas na tampa.
 * Se o áudio contiver idiomas diferentes da lista de suporte acima, o resultado será inesperado.
-* Se Video Indexer não puder identificar o idioma com alta confiança suficiente (`>0.6`), o idioma de fallback será o inglês.
+* Se Video Indexer não puder identificar o idioma com alta confiança suficiente ( `>0.6` ), o idioma de fallback será o inglês.
 * Não há suporte atual para arquivos com áudio de idiomas mistos. Se o áudio contiver idiomas mistos, o resultado será inesperado. 
 * O áudio de baixa qualidade pode afetar os resultados do modelo.
 * O modelo requer pelo menos um minuto de fala no áudio.

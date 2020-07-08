@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 03/15/2018
 ms.custom: mqtt
 ms.openlocfilehash: 307ab47c1f7498f71e61108a616d35ef1d4f61c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81730007"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Enviar mensagens da nuvem para o dispositivo de um hub IoT
@@ -76,7 +75,7 @@ Quando você envia uma mensagem da nuvem para o dispositivo, o serviço pode sol
 
 | Valor da propriedade ACK | Comportamento |
 | ------------ | -------- |
-| none     | O Hub IoT não gera uma mensagem de comentários (comportamento padrão). |
+| nenhum     | O Hub IoT não gera uma mensagem de comentários (comportamento padrão). |
 | positivo | Se a mensagem da nuvem para o dispositivo atingir o estado *concluído* , o Hub IOT gerará uma mensagem de comentários. |
 | negativo | Se a mensagem da nuvem para o dispositivo atingir o estado *inativo* , o Hub IOT gerará uma mensagem de comentários. |
 | completa     | O Hub IoT gera uma mensagem de comentários em ambos os casos. |
@@ -85,7 +84,7 @@ Se o valor de **ACK** estiver *cheio*e você não receber uma mensagem de coment
 
 Conforme explicado em [pontos](iot-hub-devguide-endpoints.md)de extremidade, o Hub IOT entrega comentários por meio de um ponto de extremidades voltado para o serviço, */messages/servicebound/feedback*, como mensagens. A semântica de recebimento dos comentários é a mesma das mensagens da nuvem para o dispositivo. Sempre que possível, os comentários de mensagem são feitos em lotes em uma única mensagem, com o seguinte formato:
 
-| Propriedade     | Descrição |
+| Property     | Descrição |
 | ------------ | ----------- |
 | EnqueuedTime | Um carimbo de data/hora que indica quando a mensagem de comentário foi recebida pelo Hub |
 | UserId       | `{iot hub name}` |
@@ -93,11 +92,11 @@ Conforme explicado em [pontos](iot-hub-devguide-endpoints.md)de extremidade, o H
 
 O corpo é uma matriz de registros serializada em JSON, cada um com as seguintes propriedades:
 
-| Propriedade           | Descrição |
+| Property           | Descrição |
 | ------------------ | ----------- |
 | EnqueuedTimeUtc    | Um carimbo de data/hora que indica quando o resultado da mensagem ocorreu (por exemplo, o Hub recebeu a mensagem de comentário ou a mensagem original expirou) |
 | OriginalMessageId  | A *MessageId* da mensagem da nuvem para o dispositivo à qual essas informações de comentários se relacionam |
-| StatusCode         | Uma cadeia de caracteres necessária, usada em mensagens de comentários que são geradas pelo Hub IoT: <br/> *Êxito* <br/> *Expirado* <br/> *DeliveryCountExceeded* <br/> *Rejeitado* <br/> *Limpos* |
+| StatusCode         | Uma cadeia de caracteres necessária, usada em mensagens de comentários que são geradas pelo Hub IoT: <br/> *Êxito* <br/> *Expirada* <br/> *DeliveryCountExceeded* <br/> *Rejeitado* <br/> *Limpos* |
 | Descrição        | Valores de cadeia de caracteres para *StatusCode* |
 | DeviceId           | A *DeviceID* do dispositivo de destino da mensagem da nuvem para o dispositivo à qual esse comentário se relaciona |
 | DeviceGenerationId | O *DeviceGenerationId* do dispositivo de destino da mensagem da nuvem para o dispositivo à qual esse comentário se relaciona |
@@ -133,7 +132,7 @@ Você pode resolver esse comportamento aguardando um período de tempo para que 
 
 Cada Hub IoT expõe as seguintes opções de configuração para mensagens de nuvem para o dispositivo:
 
-| Propriedade                  | Descrição | Intervalo e padrão |
+| Property                  | Descrição | Intervalo e padrão |
 | ------------------------- | ----------- | ----------------- |
 | defaultTtlAsIso8601       | TTL padrão para mensagens da nuvem para o dispositivo | Intervalo de ISO_8601 de até 2 dias (mínimo de 1 minuto); padrão: 1 hora |
 | maxDeliveryCount          | Contagem máxima de entregas para filas de nuvem para dispositivo por dispositivo | 1 a 100; padrão: 10 |

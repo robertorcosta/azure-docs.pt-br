@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
 ms.openlocfilehash: c04fc82b8b04e474a656a0849177f7aa5d27b427
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81676426"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Esquema de extensão de diagnóstico do Windows
@@ -170,7 +169,7 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 |Elementos filho|Descrição|  
 |--------------------|-----------------|  
 |**DefaultEvents**|Atributo opcional:<br/><br/> **eventDestination** - o nome da tabela para armazenar os eventos|  
-|**Circunstância**|Atributo obrigatório:<br /><br /> **id** - a id do evento.<br /><br /> Atributo opcional:<br /><br /> **eventDestination** - o nome da tabela para armazenar os eventos|  
+|**Evento**|Atributo obrigatório:<br /><br /> **id** - a id do evento.<br /><br /> Atributo opcional:<br /><br /> **eventDestination** - o nome da tabela para armazenar os eventos|  
 
 
 
@@ -180,7 +179,7 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 |Elementos filho|Descrição|  
 |--------------------|-----------------|  
 |**DefaultEvents**|Atributo opcional:<br /><br /> **eventDestination** - o nome da tabela para armazenar os eventos|  
-|**Circunstância**|Atributo obrigatório:<br /><br /> **id** - a id do evento.<br /><br /> Atributo opcional:<br /><br /> **eventDestination** - o nome da tabela para armazenar os eventos|  
+|**Evento**|Atributo obrigatório:<br /><br /> **id** - a id do evento.<br /><br /> Atributo opcional:<br /><br /> **eventDestination** - o nome da tabela para armazenar os eventos|  
 
 
 
@@ -189,7 +188,7 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 
  Permite gerar uma tabela de contador de desempenho otimizada para consultas rápidas. Cada contador de desempenho definido no elemento **PerformanceCounters** é armazenado na tabela Métricas, além de na tabela Contador de Desempenho.  
 
- O atributo **resourceId** é necessário.  A ID de recurso da Máquina Virtual ou Conjunto de Dimensionamento de Máquinas Virtuais na qual o Diagnóstico do Azure está sendo implantado. Obtenha o **resourceID** do [portal do Azure](https://portal.azure.com). Selecione **procurar** -> **grupos**  ->  de recursos **<\>nome**. Clique no bloco **Propriedades** e copie o valor do campo **ID**.  
+ O atributo **resourceId** é necessário.  A ID de recurso da Máquina Virtual ou Conjunto de Dimensionamento de Máquinas Virtuais na qual o Diagnóstico do Azure está sendo implantado. Obtenha o **resourceID** do [portal do Azure](https://portal.azure.com). Selecione **procurar**  ->  **grupos de recursos**  ->  **<\> nome**. Clique no bloco **Propriedades** e copie o valor do campo **ID**.  
 
 |Elementos filho|Descrição|  
 |--------------------|-----------------|  
@@ -223,7 +222,7 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 
 |Elemento filho|Descrição|  
 |-------------------|-----------------|  
-|**DataSource**|Os logs de Eventos do Windows a serem coletados. Atributo obrigatório:<br /><br /> **name** - a consulta XPath que descreve os eventos do windows a serem coletados. Por exemplo:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Para coletar todos os eventos, especifique "*" |
+|**Fonte**|Os logs de Eventos do Windows a serem coletados. Atributo obrigatório:<br /><br /> **name** - a consulta XPath que descreve os eventos do windows a serem coletados. Por exemplo:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Para coletar todos os eventos, especifique "*" |
 |**coletores** | Adicionado em 1.5. Opcional. Aponta para um local do coletor para também enviar dados de diagnóstico para todos os elementos filho que são suporte a coletores. Exemplo de coletor é Application Insights ou Hubs de Eventos.|  
 
 
@@ -266,14 +265,14 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 
  Define os locais para os quais os dados de diagnóstico devem ser enviados. Por exemplo, o serviço Application Insights.  
 
-|Atributo|Type|Descrição|  
+|Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
 |**name**|string|Uma cadeia de caracteres que identifica o nome do coletor.|  
 
 |Elemento|Type|Descrição|  
 |-------------|----------|-----------------|  
-|**Application Insights**|cadeia de caracteres|Usado somente durante o envio de dados para o Application Insights. Contém a Chave de Instrumentação para uma conta ativa do Application Insights a que você tem acesso.|  
-|**Channels**|cadeia de caracteres|Uma para cada filtragem adicional que o fluxo que você|  
+|**Application Insights**|string|Usado somente durante o envio de dados para o Application Insights. Contém a Chave de Instrumentação para uma conta ativa do Application Insights a que você tem acesso.|  
+|**Channels**|string|Uma para cada filtragem adicional que o fluxo que você|  
 
 ## <a name="channels-element"></a>Elemento Channels  
  *Árvore: Raiz - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels*
@@ -284,7 +283,7 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 
 |Elemento|Type|Descrição|  
 |-------------|----------|-----------------|  
-|**Canal**|cadeia de caracteres|Veja a descrição em outro lugar nesta página.|  
+|**Channel**|string|Veja a descrição em outro lugar nesta página.|  
 
 ## <a name="channel-element"></a>Elemento Channel
  *Árvore: Raiz - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels - Channel*
@@ -293,7 +292,7 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 
  Define os locais para os quais os dados de diagnóstico devem ser enviados. Por exemplo, o serviço Application Insights.  
 
-|Atributos|Type|Descrição|  
+|Atributos|Tipo|Descrição|  
 |----------------|----------|-----------------|  
 |**logLevel**|**cadeia de caracteres**|Especifica o nível de severidade mínimo para as entradas de log transferidas. O valor padrão é **Indefinido**, que transfere todos os logs. Outros possíveis valores (na ordem de mais informações para menos) são **Detalhado**, **Informações**, **Aviso**, **Erro**, e **Crítico**.|  
 |**name**|**cadeia de caracteres**|Um nome exclusivo do canal que será mencionado|  

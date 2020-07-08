@@ -7,10 +7,9 @@ ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.openlocfilehash: fbfd52065bc0522668488492de2181f252f86a4e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81272671"
 ---
 # <a name="handle-throttling-problems-429---too-many-requests-errors-in-azure-logic-apps"></a>Lidar com problemas de limitação (429-erros de "excesso de solicitações") nos aplicativos lógicos do Azure
@@ -22,7 +21,7 @@ Em [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md), seu ap
 Aqui estão alguns tipos comuns de limitação que seu aplicativo lógico pode ter:
 
 * [Aplicativo lógico](#logic-app-throttling)
-* [Connector](#connector-throttling)
+* [Conector](#connector-throttling)
 * [Serviço ou sistema de destino](#destination-throttling)
 
 <a name="logic-app-throttling"></a>
@@ -166,7 +165,7 @@ Para lidar com a limitação nesse nível, você tem estas opções:
 
   Por quê? Um gatilho de sondagem continua a verificar o serviço de destino ou o sistema em intervalos específicos. Um intervalo muito frequente, como a cada segundo, pode criar problemas de limitação. No entanto, um gatilho ou ação de webhook, como [webhook http](../connectors/connectors-native-webhook.md), cria apenas uma única chamada para o serviço ou sistema de destino, que ocorre no momento da assinatura e solicita que o destino notifique o gatilho ou a ação somente quando ocorrer um evento. Dessa forma, o gatilho ou a ação não precisa verificar continuamente o destino.
   
-  Portanto, se o serviço ou o sistema de destino oferecer suporte a WebHooks ou fornecer um conector que tenha uma versão de webhook, essa opção será melhor do que usar a versão de sondagem. Para identificar gatilhos e ações de webhook, confirme se eles `ApiConnectionWebhook` têm o tipo ou se eles não exigem que você especifique uma recorrência. Para obter mais informações, consulte [gatilho APIConnectionWebhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) e [ação APIConnectionWebhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-action).
+  Portanto, se o serviço ou o sistema de destino oferecer suporte a WebHooks ou fornecer um conector que tenha uma versão de webhook, essa opção será melhor do que usar a versão de sondagem. Para identificar gatilhos e ações de webhook, confirme se eles têm o `ApiConnectionWebhook` tipo ou se eles não exigem que você especifique uma recorrência. Para obter mais informações, consulte [gatilho APIConnectionWebhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) e [ação APIConnectionWebhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-action).
 
 ## <a name="next-steps"></a>Próximas etapas
 

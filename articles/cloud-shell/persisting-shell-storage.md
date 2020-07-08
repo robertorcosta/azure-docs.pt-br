@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 02/24/2020
 ms.author: damaerte
 ms.openlocfilehash: 37005a722d4a1962b4f6e1ddb8bb1c7a1229d28a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81273283"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Persistir arquivos no Azure Cloud Shell
@@ -62,7 +61,7 @@ Cloud Shell usa um compartilhamento de arquivos do Azure em uma conta de armazen
 Os usuários devem bloquear o acesso aos seus arquivos definindo as permissões na conta de armazenamento ou no nível de assinatura.
 
 ## <a name="supported-storage-regions"></a>Regiões de armazenamento com suporte
-Para localizar sua região atual, você pode `env` executar em bash e localizar a `ACC_LOCATION`variável ou a partir da `$env:ACC_LOCATION`execução do PowerShell. Os compartilhamentos de arquivos recebem uma imagem de 5 GB criada para você manter o diretório `$Home`.
+Para localizar sua região atual, você pode executar `env` em bash e localizar a variável `ACC_LOCATION` ou a partir da execução do PowerShell `$env:ACC_LOCATION` . Os compartilhamentos de arquivos recebem uma imagem de 5 GB criada para você manter o diretório `$Home`.
 
 Há computadores do Cloud Shell nas regiões a seguir:
 
@@ -96,7 +95,7 @@ O Cloud Shell persiste arquivos usando os seguintes métodos:
 ## <a name="clouddrive-commands"></a>comandos CloudDrive
 
 ### <a name="use-the-clouddrive-command"></a>Use o comando `clouddrive`
-No Cloud Shell, você pode executar um comando chamado `clouddrive`, que permite atualizar manualmente o compartilhamento de arquivos que é montado no Cloud Shell.
+No Cloud Shell, você pode executar um comando chamado `clouddrive` , que permite atualizar manualmente o compartilhamento de arquivos que é montado no Cloud Shell.
 
 ![Usando o comando “clouddrive”](media/persisting-shell-storage/clouddrive-h.png)
 
@@ -122,7 +121,7 @@ justin@Azure:~$
 #### <a name="prerequisites-for-manual-mounting"></a>Pré-requisitos para montagem manual
 Você pode atualizar o compartilhamento de arquivos associado ao Cloud Shell usando o comando `clouddrive mount`.
 
-Se estiver montando um compartilhamento de arquivos existente, as contas de armazenamento deverão estar localizadas na sua região selecionada do Cloud Shell. Recupere o local executando `env` e verificando o `ACC_LOCATION`.
+Se estiver montando um compartilhamento de arquivos existente, as contas de armazenamento deverão estar localizadas na sua região selecionada do Cloud Shell. Recupere o local executando `env` e verificando o `ACC_LOCATION` .
 
 #### <a name="the-clouddrive-mount-command"></a>O comando `clouddrive mount`
 

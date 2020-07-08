@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 05/01/2019
 ms.openlocfilehash: 02b64d77a4fb1af25e1022de3ac8e4775f916d9e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81261764"
 ---
 # <a name="set-up-tls-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>Configurar a criptografia e a autenticação TLS para Apache Kafka no Azure HDInsight
@@ -20,7 +19,7 @@ ms.locfileid: "81261764"
 Este artigo mostra como configurar a criptografia TLS, anteriormente conhecida como criptografia de protocolo SSL (SSL), entre Apache Kafka clientes e Apache Kafka agentes. Ele também mostra como configurar a autenticação de clientes (às vezes chamados de TLS bidirecional).
 
 > [!Important]
-> Há dois clientes que você pode usar para aplicativos Kafka: um cliente Java e um cliente de console. Somente o cliente `ProducerConsumer.java` Java pode usar o TLS para produção e consumo. O cliente `console-producer.sh` do produtor do console não funciona com o TLS.
+> Há dois clientes que você pode usar para aplicativos Kafka: um cliente Java e um cliente de console. Somente o cliente Java `ProducerConsumer.java` pode usar o TLS para produção e consumo. O cliente do produtor do console não `console-producer.sh` funciona com o TLS.
 
 > [!Note]
 > O produtor do console Kafka do HDInsight com a versão 1,1 não oferece suporte a SSL.
@@ -52,7 +51,7 @@ O resumo do processo de configuração do agente é o seguinte:
 Use as seguintes instruções detalhadas para concluir a configuração do agente:
 
 > [!Important]
-> Nos trechos de código a seguir, `wn0` `wn1` wnX é uma abreviação de um dos três nós de trabalho e deve ser substituído por ou `wn2` conforme apropriado. `WorkerNode0_Name`e `HeadNode0_Name` devem ser substituídos pelos nomes dos respectivos computadores.
+> Nos trechos de código a seguir, wnX é uma abreviação de um dos três nós de trabalho e deve ser substituído `wn0` por `wn1` ou `wn2` conforme apropriado. `WorkerNode0_Name`e `HeadNode0_Name` devem ser substituídos pelos nomes dos respectivos computadores.
 
 1. Execute a configuração inicial no nó de cabeçalho 0, que para o HDInsight preencherá a função da autoridade de certificação (CA).
 
@@ -228,7 +227,7 @@ As quatro etapas a seguir resumem as tarefas necessárias para concluir a config
 1. Entre no computador cliente (nó de cabeçalho de espera).
 1. Crie um repositório de chaves Java e obtenha um certificado assinado para o agente. Em seguida, copie o certificado para a VM em que a autoridade de certificação está sendo executada.
 1. Alterne para o computador da AC (nó de cabeçalho ativo) para assinar o certificado do cliente.
-1. Vá para o computador cliente (nó de cabeçalho de espera) e navegue `~/ssl` até a pasta. Copie o certificado autoassinado para o computador cliente.
+1. Vá para o computador cliente (nó de cabeçalho de espera) e navegue até a `~/ssl` pasta. Copie o certificado autoassinado para o computador cliente.
 
 Os detalhes de cada etapa são fornecidos abaixo.
 
@@ -323,13 +322,13 @@ Execute estas etapas no computador cliente.
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --zookeeper <ZOOKEEPER_NODE>:2181 --create --topic topic1 --partitions 2 --replication-factor 2
     ```
 
-1. Inicie o produtor do console e forneça o `client-ssl-auth.properties` caminho para como um arquivo de configuração para o produtor.
+1. Inicie o produtor do console e forneça o caminho para `client-ssl-auth.properties` como um arquivo de configuração para o produtor.
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list <FQDN_WORKER_NODE>:9093 --topic topic1 --producer.config ~/ssl/client-ssl-auth.properties
     ```
 
-1. Abra outra conexão SSH para o computador cliente e inicie o consumidor do console e forneça `client-ssl-auth.properties` o caminho para o como um arquivo de configuração para o consumidor.
+1. Abra outra conexão SSH para o computador cliente e inicie o consumidor do console e forneça o caminho para `client-ssl-auth.properties` o como um arquivo de configuração para o consumidor.
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server <FQDN_WORKER_NODE>:9093 --topic topic1 --consumer.config ~/ssl/client-ssl-auth.properties --from-beginning
@@ -349,7 +348,7 @@ Execute estas etapas no computador cliente.
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list <FQDN_WORKER_NODE>:9092 --topic topic1 
     ```
 
-1. Abra outra conexão SSH para o computador cliente e inicie o consumidor do console e forneça `client-ssl-auth.properties` o caminho para o como um arquivo de configuração para o consumidor.
+1. Abra outra conexão SSH para o computador cliente e inicie o consumidor do console e forneça o caminho para `client-ssl-auth.properties` o como um arquivo de configuração para o consumidor.
 
     ```bash
     $ /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server <FQDN_WORKER_NODE>:9093 --topic topic1 --consumer.config ~/ssl/client-ssl-auth.properties --from-beginning

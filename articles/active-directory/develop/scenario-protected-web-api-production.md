@@ -13,10 +13,9 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 86e897547869c917313deeb8d71b361c9e16798b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81537178"
 ---
 # <a name="protected-web-api---move-to-production"></a>API Web protegida-mover para produção
@@ -41,4 +40,4 @@ Saiba mais com tutoriais e exemplos.
 > [Tutorial da API Web do ASP.NET Core](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2)
 
 > [!div class="nextstepaction"]
-> [Exemplo de API Web ASP.NET](https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet)
+> [Amostra de API Web ASP.NET](https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet)

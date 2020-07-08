@@ -12,10 +12,9 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: ac681bb13ccea49c7a2f566a6fcdb6adb8cec5bb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81683737"
 ---
 # <a name="understand-the-device-model-schema"></a>Compreender o esquema de modelo do dispositivo
@@ -82,7 +81,7 @@ A tabela a seguir descreve as entradas de esquema de nível superior:
 
 As seções a seguir descrevem as outras seções no esquema JSON:
 
-## <a name="simulation"></a>Simulação
+## <a name="simulation"></a>Simulation
 
 Na `Simulation` seção, você define o estado interno do dispositivo simulado. Todos os valores de telemetria enviados pelo dispositivo devem ser parte desse estado do dispositivo.
 
@@ -167,7 +166,7 @@ Atualmente, é possível usar somente os esquemas de mensagens JSON. Os campos l
 * Objeto - serializado usando JSON
 * Binário - serializado usando base64
 * Texto
-* Booliano
+* Boolean
 * Integer
 * Double
 * Datetime

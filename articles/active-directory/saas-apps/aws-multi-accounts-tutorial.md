@@ -16,10 +16,9 @@ ms.date: 04/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 51be98654950ba290fa83f77eccdae4d6f549891
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81603835"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws-legacy-tutorial"></a>Tutorial: integração do Azure Active Directory com o Amazon Web Services (AWS) (tutorial herdado)
@@ -68,7 +67,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
 
-* Amazon Web Services (AWS) dá suporte ao **SP e** ao SSO iniciado pelo IDP
+* A AWS (Amazon Web Services) dá suporte ao SSO iniciado por **SP e IDP**
 * Depois de configurar a AWS (Amazon Web Services), você poderá impor o controle de sessão, que fornece proteção contra exportação e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-amazon-web-services-aws-from-the-gallery"></a>Adicionar o AWS (Amazon Web Services) da galeria
@@ -146,9 +145,9 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 
     e. Na lista **Atributo de origem**, digite o valor do atributo mostrado para essa linha.
 
-    f. Clique em **OK**
+    f. Clique em **Ok**
 
-    g. Clique em **Salvar**.
+    g. Clique em **Save** (Salvar).
 
 7. Na página **Configurar logon único com SAML**, na seção **Certificado de assinatura SAML**, clique em **Download** para fazer o download do **XML de metadados de federação** e salve-o no seu computador.
 
@@ -212,7 +211,7 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 
     a. Na caixa de texto **chave** , insira o nome da chave para ex: Azureadtest.
 
-    b. Na caixa de texto **valor (opcional)** , insira o valor da chave usando o `accountname-aws-admin`formato a seguir. O nome da conta deve estar em letras minúsculas.
+    b. Na caixa de texto **valor (opcional)** , insira o valor da chave usando o formato a seguir `accountname-aws-admin` . O nome da conta deve estar em letras minúsculas.
 
     c. Clique em **Avançar: examinar**.
 
@@ -220,7 +219,7 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 
     ![Configurar revisão de logon único][34]
 
-    a. Na caixa de texto **nome da função** , insira o valor no padrão `accountname-aws-admin`a seguir.
+    a. Na caixa de texto **nome da função** , insira o valor no padrão a seguir `accountname-aws-admin` .
 
     b. Na caixa de texto **Descrição da função** , insira o mesmo valor que você usou para o nome da função.
 
@@ -283,7 +282,7 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 
     ![Caixa de diálogo Microsoft Graph Explorer](./media/aws-multi-accounts-tutorial/graph-explorer-new2.png)
 
-    g. Extraia a propriedade appRoles do objeto da entidade de serviço.
+    (por exemplo, Extraia a propriedade appRoles do objeto da entidade de serviço.
 
     ![Caixa de diálogo Microsoft Graph Explorer](./media/aws-multi-accounts-tutorial/graph-explorer-new3.png)
 

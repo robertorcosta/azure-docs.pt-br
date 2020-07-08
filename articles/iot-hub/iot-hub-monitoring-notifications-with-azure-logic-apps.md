@@ -10,10 +10,9 @@ ms.tgt_pltfrm: arduino
 ms.date: 07/18/2019
 ms.author: robinsh
 ms.openlocfilehash: 2720f9acfa308294b30f9203ba80e3f9b426e1e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81680712"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Monitoramento remoto IoT e notificações com os Aplicativos Lógicos do Azure conectando o hub IoT e a caixa de correio
@@ -28,9 +27,9 @@ Os [aplicativos lógicos do Azure](https://docs.microsoft.com/azure/logic-apps/)
 
 Aprenda a criar um aplicativo lógico que conecta o hub IoT e a caixa de correio para monitoramento e notificações de temperatura.
 
-O código do cliente em execução no seu dispositivo define uma propriedade `temperatureAlert`de aplicativo,, em cada mensagem de telemetria que envia para o Hub IOT. Quando o código do cliente detecta uma temperatura acima de 30 C, ele define essa `true`Propriedade como; caso contrário, ele definirá a `false`Propriedade como.
+O código do cliente em execução no seu dispositivo define uma propriedade de aplicativo, `temperatureAlert` , em cada mensagem de telemetria que envia para o Hub IOT. Quando o código do cliente detecta uma temperatura acima de 30 C, ele define essa propriedade como `true` ; caso contrário, ele define a propriedade como `false` .
 
-As mensagens que chegam ao seu hub IoT são semelhantes às seguintes, com os dados de telemetria contidos no corpo `temperatureAlert` e a propriedade contida nas propriedades do aplicativo (as propriedades do sistema não são mostradas):
+As mensagens que chegam ao seu hub IoT são semelhantes às seguintes, com os dados de telemetria contidos no corpo e a `temperatureAlert` Propriedade contida nas propriedades do aplicativo (as propriedades do sistema não são mostradas):
 
 ```json
 {
@@ -48,7 +47,7 @@ As mensagens que chegam ao seu hub IoT são semelhantes às seguintes, com os da
 
 Para saber mais sobre o formato de mensagem do Hub IoT, confira [criar e ler mensagens do Hub IOT](iot-hub-devguide-messages-construct.md).
 
-Neste tópico, você configura o roteamento no Hub IoT para enviar mensagens em que a propriedade é `temperatureAlert` `true` para um ponto de extremidade do barramento de serviço. Em seguida, você configura um aplicativo lógico que dispara as mensagens que chegam ao ponto de extremidade do barramento de serviço e envia uma notificação por email.
+Neste tópico, você configura o roteamento no Hub IoT para enviar mensagens em que a `temperatureAlert` propriedade é `true` para um ponto de extremidade do barramento de serviço. Em seguida, você configura um aplicativo lógico que dispara as mensagens que chegam ao ponto de extremidade do barramento de serviço e envia uma notificação por email.
 
 ## <a name="what-you-do"></a>O que fazer
 
@@ -58,7 +57,7 @@ Neste tópico, você configura o roteamento no Hub IoT para enviar mensagens em 
 
 ## <a name="what-you-need"></a>O que você precisa
 
-* Conclua o tutorial do [simulador online do Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) ou um dos tutoriais do dispositivo; por exemplo, [Raspberry Pi com node. js](iot-hub-raspberry-pi-kit-node-get-started.md). Eles abrangem os seguintes requisitos:
+* Conclua o tutorial do [simulador online Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) ou um dos tutoriais do dispositivo; por exemplo, [Raspberry Pi com Node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Eles cobrem os seguintes requisitos:
 
   * Uma assinatura ativa do Azure.
   * Um hub IoT do Azure em sua assinatura.
@@ -70,7 +69,7 @@ Criar um namespace do Barramento de Serviço e da fila. Posteriormente neste tó
 
 ### <a name="create-a-service-bus-namespace"></a>Criar um namespace do Barramento de Serviço
 
-1. Na [portal do Azure](https://portal.azure.com/), selecione **+ criar um barramento de serviço de** > **integração** > **Service Bus**de recursos.
+1. Na [portal do Azure](https://portal.azure.com/), selecione **+ criar um barramento de serviço de integração de recursos**  >  **Integration**  >  **Service Bus**.
 
 1. No painel **criar namespace** , forneça as seguintes informações:
 
@@ -78,7 +77,7 @@ Criar um namespace do Barramento de Serviço e da fila. Posteriormente neste tó
 
    **Tipo de preço**: selecione **básico** na lista suspensa. A camada básica é suficiente para este tutorial.
 
-   **Grupo de recursos**: Use o mesmo grupo de recursos que o Hub IOT usa.
+   **Grupo de recursos**: Use o mesmo grupo de recursos usado pelo hub IoT.
 
    **Local**: use o mesmo local que o hub IoT usa.
 
@@ -96,7 +95,7 @@ Criar um namespace do Barramento de Serviço e da fila. Posteriormente neste tó
 
    ![Adicionar uma fila do barramento de serviço ao portal do Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-queue.png)
 
-1. De volta ao painel **namespace do barramento de serviço** , em **entidades**, selecione **filas**. Abra a fila do barramento de serviço na lista e, em seguida, selecione **políticas** > de acesso compartilhado **+ Adicionar**.
+1. De volta ao painel **namespace do barramento de serviço** , em **entidades**, selecione **filas**. Abra a fila do barramento de serviço na lista e, em seguida, selecione **políticas de acesso compartilhado**  >  **+ Adicionar**.
 
 1. Insira um nome para a política, marque **gerenciar**e, em seguida, selecione **criar**.
 
@@ -104,7 +103,7 @@ Criar um namespace do Barramento de Serviço e da fila. Posteriormente neste tó
 
 ## <a name="add-a-custom-endpoint-and-routing-rule-to-your-iot-hub"></a>Adicionar um ponto de extremidade personalizado e uma regra de roteamento ao Hub IoT
 
-Adicione um ponto de extremidade personalizado para a fila do barramento de serviço ao Hub IoT e crie uma regra de roteamento de mensagens para direcionar mensagens que contêm um alerta de temperatura para esse ponto de extremidade, onde elas serão selecionadas pelo seu aplicativo lógico. A regra de roteamento usa uma consulta de `temperatureAlert = "true"`roteamento,, para encaminhar mensagens com base no `temperatureAlert` valor da Propriedade do aplicativo definida pelo código do cliente em execução no dispositivo. Para saber mais, consulte [consulta de roteamento de mensagens com base nas propriedades da mensagem](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#message-routing-query-based-on-message-properties).
+Adicione um ponto de extremidade personalizado para a fila do barramento de serviço ao Hub IoT e crie uma regra de roteamento de mensagens para direcionar mensagens que contêm um alerta de temperatura para esse ponto de extremidade, onde elas serão selecionadas pelo seu aplicativo lógico. A regra de roteamento usa uma consulta de roteamento, `temperatureAlert = "true"` , para encaminhar mensagens com base no valor da `temperatureAlert` Propriedade do aplicativo definida pelo código do cliente em execução no dispositivo. Para saber mais, consulte [consulta de roteamento de mensagens com base nas propriedades da mensagem](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#message-routing-query-based-on-message-properties).
 
 ### <a name="add-a-custom-endpoint"></a>Adicionar um ponto de extremidade personalizado
 
@@ -138,7 +137,7 @@ Adicione um ponto de extremidade personalizado para a fila do barramento de serv
 
    **Fonte de dados**: selecione **mensagens de telemetria do dispositivo**.
 
-   **Consulta de roteamento**: `temperatureAlert = "true"`insira.
+   **Consulta de roteamento**: insira `temperatureAlert = "true"` .
 
    ![Adicionar uma regra de roteamento no portal do Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/4-add-routing-rule-azure-portal.png)
 
@@ -150,13 +149,13 @@ Na seção anterior, você configura o Hub IoT para rotear mensagens contendo um
 
 ### <a name="create-a-logic-app"></a>Criar um aplicativo lógico
 
-1. Selecione **criar um recurso** > **Integration** > **aplicativo lógico**de integração.
+1. Selecione **criar um recurso**  >  **Integration**  >  **aplicativo lógico**de integração.
 
 1. Insira as seguintes informações:
 
    **Nome**: o nome do aplicativo lógico.
 
-   **Grupo de recursos**: Use o mesmo grupo de recursos que o Hub IOT usa.
+   **Grupo de recursos**: Use o mesmo grupo de recursos usado pelo hub IoT.
 
    **Local**: use o mesmo local que o hub IoT usa.
 

@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 053b052abf6f23c385dc7447639aa40b6c2c58a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81680197"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>Uso de métodos de autenticação & insights (versão prévia)
@@ -28,22 +27,22 @@ As funções a seguir podem acessar o uso e as informações:
 
 - Administrador global
 - Leitor de segurança
-- Administrador de segurança
+- Administrador de Segurança
 - Leitor de Relatórios
 
 Nenhum licenciamento adicional é necessário para acessar o uso e as informações. A autenticação multifator do Azure e as informações de licenciamento de redefinição de senha de autoatendimento (SSPR) podem ser encontradas no [site de preços Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
-## <a name="how-it-works"></a>Como isso funciona
+## <a name="how-it-works"></a>Como funciona
 
 Para acessar o uso e as informações do método de autenticação:
 
 1. Navegue até o [Portal do Azure](https://portal.azure.com).
-1. Navegue até **Azure Active Directory** > uso de**redefinição** > de senha **& insights**.
+1. Navegue até **Azure Active Directory**  >  uso de**redefinição de senha**  >  **& insights**.
 1. Nas visões gerais de **registro** ou **uso** , você pode optar por abrir os relatórios previamente filtrados para filtrar com base em suas necessidades.
 
 ![Visão geral do uso & insights](./media/howto-authentication-methods-usage-insights/usage-insights-overview.png)
 
-Para acessar o uso do & de informações diretamente, vá [https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade)para. Esse link levará você à visão geral do registro.
+Para acessar o uso do & de informações diretamente, vá para [https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade) . Esse link levará você à visão geral do registro.
 
 Os blocos usuários registrados, usuários habilitados e usuários compatíveis mostram os seguintes dados de registro para seus usuários:
 
@@ -65,7 +64,7 @@ Clicar nos blocos **usuários registrados**, **usuários habilitados**ou **usuá
 
 O relatório detalhes do registro mostra as seguintes informações para cada usuário:
 
-- Name
+- Nome
 - Nome de usuário
 - Status do registro (tudo, registrado, não registrado)
 - Status habilitado (tudo, habilitado, não habilitado)
@@ -80,7 +79,7 @@ Clicar nos gráficos de registros ou redefinições irá levá-lo para os detalh
 
 O relatório detalhes de redefinir mostra o registro e a redefinição dos eventos dos últimos 30 dias, incluindo:
 
-- Name
+- Nome
 - Nome de usuário
 - Recurso (tudo, registro, redefinição)
 - Método de autenticação (notificação do aplicativo, código do aplicativo, chamada telefônica, chamada do Office, SMS, email, perguntas de segurança)

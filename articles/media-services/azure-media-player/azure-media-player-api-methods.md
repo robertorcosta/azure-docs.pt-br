@@ -7,10 +7,9 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
 ms.openlocfilehash: d1ad0cbe30ce20e61a31f0534a47fe031f6f257b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81727262"
 ---
 # <a name="api"></a>API #
@@ -19,7 +18,7 @@ A API Player de Mídia do Azure permite que você interaja com o vídeo por meio
 
 ## <a name="referencing-the-player"></a>Referenciando o Player ##
 
-Para usar as funções de API, você precisa acessar o objeto Player. Felizmente, é fácil obter. Você só precisa ter certeza de que sua marca de vídeo tem uma ID. O código de inserção de exemplo tem uma `vid1`ID de. Se você tiver vários vídeos em uma página, verifique se cada marca de vídeo tem uma ID exclusiva.
+Para usar as funções de API, você precisa acessar o objeto Player. Felizmente, é fácil obter. Você só precisa ter certeza de que sua marca de vídeo tem uma ID. O código de inserção de exemplo tem uma ID de `vid1` . Se você tiver vários vídeos em uma página, verifique se cada marca de vídeo tem uma ID exclusiva.
 
 `var myPlayer = amp('vid1');`
 
@@ -73,4 +72,4 @@ Os eventos devem ser registrados diretamente após inicializar o Player pela pri
 ## <a name="next-steps"></a>Próximas etapas ##
 
 <!---Some context for the following links goes here--->
-- [Guia de início rápido Player de Mídia do Azure](azure-media-player-quickstart.md)
+- [Início rápido do Player de Mídia do Azure](azure-media-player-quickstart.md)

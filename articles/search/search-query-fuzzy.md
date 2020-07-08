@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/08/2020
 ms.openlocfilehash: 32ad34bcfb42bf8fc45ba7fdb7fba5e797ee6106
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81262427"
 ---
 # <a name="fuzzy-search-to-correct-misspellings-and-typos"></a>Pesquisa difusa para corrigir erros ortográficos e erros de digitação
@@ -58,13 +57,13 @@ No entanto, se as consultas de teste não estiverem produzindo as correspondênc
 
 As consultas difusas são construídas usando a sintaxe de consulta Lucene completa, invocando o [analisador de consulta Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html).
 
-1. Defina o analisador Lucene completo na consulta (`queryType=full`).
+1. Defina o analisador Lucene completo na consulta ( `queryType=full` ).
 
-1. Opcionalmente, delimitar a solicitação a campos específicos, usando esse parâmetro`searchFields=<field1,field2>`(). 
+1. Opcionalmente, delimitar a solicitação a campos específicos, usando esse parâmetro ( `searchFields=<field1,field2>` ). 
 
-1. Acrescente o operador til`~`() ao final do termo inteiro (`search=<string>~`).
+1. Acrescente o operador til ( `~` ) ao final do termo inteiro ( `search=<string>~` ).
 
-   Inclua um parâmetro opcional, um número entre 0 e 2 (padrão), se você quiser especificar a distância de edição (`~1`). Por exemplo, "mar~" ou "mar~1" retornaria "mar", "amar" e "maré".
+   Inclua um parâmetro opcional, um número entre 0 e 2 (padrão), se você quiser especificar a distância de edição ( `~1` ). Por exemplo, "mar~" ou "mar~1" retornaria "mar", "amar" e "maré".
 
 No Azure Pesquisa Cognitiva, além do termo e da distância (máximo de 2), não há parâmetros adicionais a serem definidos na consulta.
 
@@ -82,7 +81,7 @@ Quando os resultados são ambíguos, o [realce de ocorrências](search-paginatio
 
 ### <a name="example-1-fuzzy-search-with-the-exact-term"></a>Exemplo 1: pesquisa difusa com o termo exato
 
-Suponha que a cadeia de caracteres a `"Description"` seguir exista em um campo em um documento de pesquisa:`"Test queries with special characters, plus strings for MSFT, SQL and Java."`
+Suponha que a cadeia de caracteres a seguir exista em um `"Description"` campo em um documento de pesquisa:`"Test queries with special characters, plus strings for MSFT, SQL and Java."`
 
 Comece com uma pesquisa difusa em "especial" e adicione o realce de clique ao campo Descrição:
 
@@ -120,7 +119,7 @@ Observe que a mesma resposta é retornada, mas agora, em vez de corresponder ao 
 
 O ponto deste exemplo expandido é ilustrar a clareza de que o realce de pressionamento pode trazer resultados ambíguos. Em todos os casos, o mesmo documento é retornado. Se você confiava em IDs de documento para verificar uma correspondência, talvez tenha perdido a mudança de "especial" para "SQL".
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 + [Como a pesquisa de texto completo funciona no Azure Pesquisa Cognitiva (arquitetura de análise de consulta)](search-lucene-query-architecture.md)
 + [Gerenciador de pesquisa](search-explorer.md)

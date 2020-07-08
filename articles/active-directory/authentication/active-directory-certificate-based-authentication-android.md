@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d9760624afec111a271ae5aa0ebbe5533d6ba8d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81680205"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Autenticação baseada em certificado do Azure Active Directory no Android
@@ -36,8 +35,8 @@ Esse recurso está disponível na visualização em planos do governo federal e 
 | Aplicativos | Suporte |
 | --- | --- |
 | Aplicativo de Proteção de Informações do Azure |![Marca de seleção que significa suporte para este aplicativo][1] |
-| Portal da Empresa do Intune |![Marca de seleção que significa suporte para este aplicativo][1] |
-| Equipes da Microsoft |![Marca de seleção que significa suporte para este aplicativo][1] |
+| Intune Portal da empresa |![Marca de seleção que significa suporte para este aplicativo][1] |
+| Microsoft Teams |![Marca de seleção que significa suporte para este aplicativo][1] |
 | OneNote |![Marca de seleção que significa suporte para este aplicativo][1] |
 | OneDrive |![Marca de seleção que significa suporte para este aplicativo][1] |
 | Outlook |![Marca de seleção que significa suporte para este aplicativo][1] |

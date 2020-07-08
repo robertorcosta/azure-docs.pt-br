@@ -7,10 +7,9 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
 ms.openlocfilehash: e26215115b4c4484e5e05a2fd94a4d2c6680a4d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81727158"
 ---
 # <a name="options"></a>Opções #
@@ -30,12 +29,12 @@ Por fim, se você não estiver usando o atributo de configuração de dados para
 `amp("vid1", { "controls": true, "autoplay": false });`
 
 > [!NOTE]
-> As opções no Construtor são definidas apenas na primeira inicialização antes que a origem seja definida.  Se você quiser modificar as opções no mesmo elemento de Player de Mídia do Azure inicializado, deverá atualizar as opções antes de alterar a origem. Você pode atualizar as opções em JavaScript usando `myPlayer.options({/*updated options*/});`. Observe que apenas as opções alteradas serão afetadas, todas as outras opções definidas anteriormente serão mantidas.
+> As opções no Construtor são definidas apenas na primeira inicialização antes que a origem seja definida.  Se você quiser modificar as opções no mesmo elemento de Player de Mídia do Azure inicializado, deverá atualizar as opções antes de alterar a origem. Você pode atualizar as opções em JavaScript usando `myPlayer.options({/*updated options*/});` . Observe que apenas as opções alteradas serão afetadas, todas as outras opções definidas anteriormente serão mantidas.
 
 ## <a name="individual-options"></a>Opções individuais ##
 
 > [!NOTE]
->Os atributos de marca de vídeo só podem ser verdadeiros ou falsos (boolianos), basta incluir o atributo (sem sinal de igual) para ativá-lo ou excluí-lo para desativá-lo. Por exemplo, para ativar `<video controls="true" ...>` `<video controls ...>` os controles: incorreto, o maior problema que as pessoas executam é tentar definir esses valores como false usando false como o valor (por exemplo, Controls = "false") que realmente faz o oposto e define o valor como true porque o atributo ainda está incluído.
+>Os atributos de marca de vídeo só podem ser verdadeiros ou falsos (boolianos), basta incluir o atributo (sem sinal de igual) para ativá-lo ou excluí-lo para desativá-lo. Por exemplo, para ativar os controles: incorreto, `<video controls="true" ...>` `<video controls ...>` o maior problema que as pessoas executam é tentar definir esses valores como false usando false como o valor (por exemplo, Controls = "false") que realmente faz o oposto e define o valor como true porque o atributo ainda está incluído.
 
 ### <a name="controls"></a>controls ###
 
@@ -92,11 +91,11 @@ Ao definir essa opção como verdadeiro, o elemento de vídeo assumirá a largur
 
 `<video ... data-setup='{"fluid": true}'>`
 
-`fluid`a opção substitui `width` as `height` configurações explícitas e. Essa opção só está disponível na versão `2.0.0` player de mídia do Azure e posterior.
+`fluid`a opção substitui `width` as configurações explícitas e `height` . Essa opção só está disponível na versão Player de Mídia do Azure `2.0.0` e posterior.
 
 ### <a name="playbackspeed"></a>playbackSpeed ###
 
-`playbackSpeed`a opção controla o controle playbackSpeed e o conjunto de configurações de velocidade de reprodução disponíveis para o usuário. `playbackSpeed`usa um objeto. Para habilitar o controle de velocidade de reprodução na barra de controle, `enabled` a propriedade do objeto precisa ser definida como true. Um exemplo de como habilitar a velocidade de reprodução na marcação:
+`playbackSpeed`a opção controla o controle playbackSpeed e o conjunto de configurações de velocidade de reprodução disponíveis para o usuário. `playbackSpeed`usa um objeto. Para habilitar o controle de velocidade de reprodução na barra de controle, a propriedade `enabled` do objeto precisa ser definida como true. Um exemplo de como habilitar a velocidade de reprodução na marcação:
 
 `<video ... data-setup='{"playbackSpeed": {"enabled": true}}'>`
 
@@ -148,4 +147,4 @@ Essa opção só está disponível no Player de Mídia do Azure versão 2.1.1 e 
 
 ## <a name="next-steps"></a>Próximas etapas ##
 
-- [Guia de início rápido Player de Mídia do Azure](azure-media-player-quickstart.md)
+- [Início rápido do Player de Mídia do Azure](azure-media-player-quickstart.md)

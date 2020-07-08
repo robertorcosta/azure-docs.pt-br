@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.date: 04/16/2020
 ms.custom: seodec18
 ms.openlocfilehash: a0a2f703d9224b8b9dd77c80b2b6a7faee70f5bb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81538096"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-time-series-insights-environment"></a>Adicionar uma origem do evento do hub IoT ao seu ambiente do Time Series Insights
@@ -72,7 +71,7 @@ Para adicionar um novo grupo de consumidores ao seu hub IoT:
 
        [![Painel Nova origem do evento – Propriedades a serem definidas na opção Use o Hub IoT de assinaturas disponíveis](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-create-configure-confirm.png)](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-create-configure-confirm.png#lightbox)
 
-       | Propriedade | Descrição |
+       | Property | Descrição |
        | --- | --- |
        | Subscription | A assinatura à qual o Hub IOT desejado pertence. |
        | Nome do Hub IoT | O nome do Hub IOT selecionado. |
@@ -83,7 +82,7 @@ Para adicionar um novo grupo de consumidores ao seu hub IoT:
 
       A tabela a seguir descreve as propriedades necessárias para **Fornecer configurações do Hub IoT manualmente**:
 
-       | Propriedade | Descrição |
+       | Property | Descrição |
        | --- | --- |
        | ID da assinatura | A assinatura à qual o Hub IOT desejado pertence. |
        | Resource group | O nome do grupo de recursos no qual o hub IoT foi criado. |
@@ -93,7 +92,7 @@ Para adicionar um novo grupo de consumidores ao seu hub IoT:
 
     * Ambas as opções compartilham as seguintes opções de configuração:
 
-       | Propriedade | Descrição |
+       | Property | Descrição |
        | --- | --- |
        | Grupo de consumidores do Hub IoT | O grupo de consumidores que lê eventos do hub IoT. Recomendamos que você use um grupo de consumidores dedicado para a origem do evento. |
        | Formato de serialização do evento | No momento, JSON é único o formato de serialização disponível. As mensagens de evento deverão estar no formato a seguir ou nenhum dado poderá ser lido. |

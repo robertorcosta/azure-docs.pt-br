@@ -7,15 +7,14 @@ ms.service: media-services
 ms.topic: error-reference
 ms.date: 04/20/2020
 ms.openlocfilehash: 13d804ec39c3d7753d4ee04962a88d4451fb04d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81727249"
 ---
 # <a name="error-codes"></a>Códigos do Erro #
 
-Quando a reprodução não puder ser iniciada ou interrompida, um evento de erro `error()` será acionado e a função retornará um código e uma mensagem opcional para ajudar o desenvolvedor do aplicativo a obter mais detalhes. `error().message`Não é a mensagem exibida para o usuário.  A mensagem exibida para o usuário é baseada em `error().code` bits 27-20, consulte a tabela abaixo.
+Quando a reprodução não puder ser iniciada ou interrompida, um evento de erro será acionado e a `error()` função retornará um código e uma mensagem opcional para ajudar o desenvolvedor do aplicativo a obter mais detalhes. `error().message`Não é a mensagem exibida para o usuário.  A mensagem exibida para o usuário é baseada em `error().code` bits 27-20, consulte a tabela abaixo.
 
 ```javascript
 
@@ -49,7 +48,7 @@ Descreva os detalhes do erro, o bits 27-20 fornece um alto nível, os bits 19-0 
 | **Intervalo de erros de MEDIA_ERR_ABORTED (0x0100000-0x01FFFFF)** | | |
 | abortedErrUnknown | 0x0100000 | Erro de anulação genérica |
 | abortedErrNotImplemented | 0x0100001 | Anular erro, não implementado |
-| abortedErrHttpMixedContentBlocked | 0x0100002 | Erro de anulação, conteúdo misto bloqueado – geralmente ocorre ao `http://` carregar um fluxo `https://` de uma página |
+| abortedErrHttpMixedContentBlocked | 0x0100002 | Erro de anulação, conteúdo misto bloqueado – geralmente ocorre ao carregar um `http://` fluxo de uma `https://` página |
 | **MEDIA_ERR_NETWORK valor inicial de erros (0x0200000-0x02FFFFF)** | | |
 | networkErrUnknown | 0x0200000 | Erro de rede genérica |
 | networkErrHttpBadUrlFormat | 0x0200190 | Resposta de erro http 400 |
@@ -153,4 +152,4 @@ O código a seguir captura apenas 404 erros:
 
 ## <a name="next-steps"></a>Próximas etapas ##
 
-- [Guia de início rápido Player de Mídia do Azure](azure-media-player-quickstart.md)
+- [Início rápido do Player de Mídia do Azure](azure-media-player-quickstart.md)

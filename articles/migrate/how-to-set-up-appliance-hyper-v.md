@@ -4,10 +4,9 @@ description: Saiba como configurar um dispositivo de migrações para Azure para
 ms.topic: article
 ms.date: 03/23/2020
 ms.openlocfilehash: 77c13a3a8c87d116bd0863324d28669185c53c84
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81538283"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Configurar um dispositivo para VMs do Hyper-V
@@ -19,7 +18,7 @@ O [dispositivo de migrações para Azure](migrate-appliance.md) é um dispositiv
 Você pode implantar o dispositivo usando dois métodos:
 
 - Configurar em uma VM do Hyper-V usando um VHD baixado. Esse é o método descrito neste artigo.
-- Configurar em uma VM ou máquina física do Hyper-V com um script do instalador do PowerShell. [Esse método](deploy-appliance-script.md) deve ser usado se você não puder configurar uma VM usando um VHD ou se estiver no Azure governamental.
+- Configurar em uma VM do Hyper-V ou computador físico com um script do instalador do PowerShell. [Esse método](deploy-appliance-script.md) deve ser usado se você não puder configurar uma VM usando um VHD ou se estiver no Azure governamental.
 
 Depois de criar o dispositivo, você verifica se é possível conectá-lo ao Migrações para Azure: Avaliação do Servidor, configurá-lo pela primeira vez e registrá-lo com o projeto de Migrações para Azure.
 
@@ -64,11 +63,11 @@ Importe o arquivo baixado e crie a VM.
 
     ![Implantar o VHD](./media/how-to-set-up-appliance-hyper-v/deploy-vhd.png)
 
-2. No Assistente para Importar Máquina Virtual > **Antes de começar**, clique em **Avançar**.
-3. Em **Localizar Pasta**, especifique a pasta que contém o VHD extraído. Em seguida, clique em **Próximo**.
-1. Em **Selecionar Máquina Virtual**, clique em **Avançar**.
+2. No Assistente para Importar Máquina Virtual > **Antes de começar**, clique em **Próximo**.
+3. Em **Localizar Pasta**, especifique a pasta que contém o VHD extraído. Clique em **Avançar**.
+1. Em **Selecionar Máquina Virtual**, clique em **Próximo**.
 2. Em **Escolher Tipo de Importação**, clique em **Copiar a máquina virtual (criar uma nova ID exclusiva)** . Em seguida, clique em **Próximo**.
-3. Em **Escolher Destino**, mantenha a configuração padrão. Clique em **Avançar**.
+3. Em **Escolher Destino**, mantenha a configuração padrão. Clique em **Próximo**.
 4. Em **Pastas de Armazenamento**, mantenha a configuração padrão. Clique em **Próximo**.
 5. Em **Escolher Rede**, especifique o comutador virtual que será usado pela VM. O comutador precisa de conectividade com a Internet para enviar dados ao Azure.
 6. Em **Resumo**, examine as configurações. Em seguida, clique em **Concluir**.
@@ -77,7 +76,7 @@ Importe o arquivo baixado e crie a VM.
 
 ### <a name="verify-appliance-access-to-azure"></a>Verificar o acesso do dispositivo ao Azure
 
-Verifique se a VM do dispositivo pode se conectar a URLs do Azure para nuvens [públicas](migrate-appliance.md#public-cloud-urls) e [governamentais](migrate-appliance.md#government-cloud-urls) .
+Verifique se a VM do dispositivo pode se conectar às URLs do Azure para as nuvens [pública](migrate-appliance.md#public-cloud-urls) e [governamental](migrate-appliance.md#government-cloud-urls).
 
 ## <a name="configure-the-appliance"></a>Configurar o dispositivo
 

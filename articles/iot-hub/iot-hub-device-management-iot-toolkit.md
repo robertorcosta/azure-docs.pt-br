@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: junhan
 ms.openlocfilehash: d85e0e967dd802a77ccbc11b884d7a9f2891524d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81688090"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Use as Ferramentas IoT do Azure para Visual Studio Code para gerenciar dispositivos Hub IoT do Azure
@@ -48,7 +47,7 @@ Execute as Ferramentas IoT do Azure para o Visual Studio Code com várias opçõ
 * Uma assinatura ativa do Azure.
 * Um hub IoT do Azure em sua assinatura.
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Ferramentas do Azure IOT para vs Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) ou copie essa URL e cole-a em uma janela`vscode:extension/vsciot-vscode.azure-iot-tools`do navegador:.
+* [Ferramentas do Azure IOT para vs Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) ou copie essa URL e cole-a em uma janela do navegador: `vscode:extension/vsciot-vscode.azure-iot-tools` .
 
 ## <a name="sign-in-to-access-your-iot-hub"></a>Entre para acessar o Hub IoT
 
@@ -71,7 +70,7 @@ Execute as Ferramentas IoT do Azure para o Visual Studio Code com várias opçõ
 
 2. Insira o nome do método e a carga na caixa de entrada.
 
-3. Os resultados serão mostrados na exibição de **saída** > **do Hub IOT do Azure** .
+3. Os resultados serão mostrados na exibição de **saída**  >  **do Hub IOT do Azure** .
 
 ## <a name="read-device-twin"></a>Leitura de dispositivo gêmeo
 
@@ -95,7 +94,7 @@ Para enviar uma mensagem do Hub IoT para o dispositivo, siga estas etapas:
 
 2. Insira a mensagem na caixa de entrada.
 
-3. Os resultados serão mostrados na exibição de **saída** > **do Hub IOT do Azure** .
+3. Os resultados serão mostrados na exibição de **saída**  >  **do Hub IOT do Azure** .
 
 ## <a name="next-steps"></a>Próximas etapas
 

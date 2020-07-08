@@ -4,10 +4,9 @@ description: Saiba como configurar um dispositivo de migrações para Azure para
 ms.topic: article
 ms.date: 04/16/2020
 ms.openlocfilehash: b32c6a9b703e4d341fe353d6b472ea7a18adadf3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81538249"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Configurar um dispositivo para VMs VMware
@@ -18,8 +17,8 @@ O [dispositivo de migrações para Azure](migrate-appliance.md) é um dispositiv
 
 Você pode implantar o dispositivo usando dois métodos:
 
-- Configure em uma VM VMware usando um modelo OVA baixado. Esse é o método descrito neste artigo.
-- Configure em uma VM VMware ou máquina física com um script do instalador do PowerShell. [Esse método](deploy-appliance-script.md) deve ser usado se você não puder configurar uma VM usando um modelo ova ou se você estiver no Azure governamental.
+- Configurar em uma VM do VMware usando um modelo OVA baixado. Esse é o método descrito neste artigo.
+- Configurar em uma VM do VMware ou computador físico com um script do instalador do PowerShell. [Esse método](deploy-appliance-script.md) deverá ser usado se você não puder configurar uma VM usando um modelo OVA ou se você estiver no Azure Government.
 
 Depois de criar o dispositivo, você verifica se é possível conectá-lo ao Migrações para Azure: Avaliação do Servidor, configurá-lo pela primeira vez e registrá-lo com o projeto de Migrações para Azure.
 
@@ -34,7 +33,7 @@ Para configurar o dispositivo usando um modelo OVA, você:
 ## <a name="download-the-ova-template"></a>Baixar o modelo OVA
 
 1. Em **Metas de Migração** > **Servidores** > **Migrações para Azure: Avaliação de Servidor**, clique em **Descobrir**.
-2. Em **descobrir computadores** > **são seus computadores virtualizados?**, clique em **Sim, com o hipervisor do VMware vSphere**.
+2. Em **Descobrir computadores** > **Os computadores estão virtualizados?** , clique em **Sim, com o hipervisor do VMware vSphere**.
 3. Clique em **Baixar** para baixar o arquivo de modelo .OVA.
 
   ![Seleções para baixar um arquivo OVA](./media/tutorial-assess-vmware/download-ova.png)
@@ -55,7 +54,7 @@ Verifique se o arquivo OVA é seguro antes de implantá-lo.
 
 Importe o arquivo baixado e crie uma VM.
 
-1. No console do cliente do vSphere, clique em **arquivo** > **implantar o modelo OVF**.
+1. No console do cliente do vSphere, clique em **arquivo**  >  **implantar o modelo OVF**.
 ![Comando de menu para implantar um modelo de OVF](./media/tutorial-assess-vmware/deploy-ovf.png)
 
 2. No Assistente do Modelo de Implantação de OVF > **Origem**, especifique o local do arquivo OVA.
@@ -69,7 +68,7 @@ Importe o arquivo baixado e crie uma VM.
 
 ## <a name="verify-appliance-access-to-azure"></a>Verificar o acesso do dispositivo ao Azure
 
-Verifique se a VM do dispositivo pode se conectar a URLs do Azure para nuvens [públicas](migrate-appliance.md#public-cloud-urls) e [governamentais](migrate-appliance.md#government-cloud-urls) .
+Verifique se a VM do dispositivo pode se conectar às URLs do Azure para as nuvens [pública](migrate-appliance.md#public-cloud-urls) e [governamental](migrate-appliance.md#government-cloud-urls).
 
 
 ## <a name="configure-the-appliance"></a>Configurar o dispositivo

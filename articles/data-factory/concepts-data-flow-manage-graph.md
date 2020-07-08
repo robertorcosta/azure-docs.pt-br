@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/04/2019
 ms.openlocfilehash: 0d357c4c671070a5c5e9d4587e2f90b6628996f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81605365"
 ---
 # <a name="mapping-data-flow-graphs"></a>Mapeando grafos de fluxo de dados
@@ -44,7 +43,7 @@ Há um botão na extrema direita do painel de configuração inferior, no qual v
 
 Você pode pesquisar o grafo com o botão Pesquisar na superfície de design.
 
-![Pesquisa](media/data-flow/search001.png "Grafo de pesquisa")
+![Pesquisar](media/data-flow/search001.png "Grafo de pesquisa")
 
 ## <a name="next-steps"></a>Próximas etapas
 

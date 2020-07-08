@@ -4,10 +4,9 @@ description: Este artigo descreve como gerenciar e monitorar SQL Server bancos d
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.openlocfilehash: 14e3a4797fe60a3d1857f1e6d947fa0c669bdcfe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81537297"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gerenciar e monitorar backup de bancos de dados do SQL Server
@@ -32,8 +31,8 @@ Para obter detalhes sobre cenários de monitoramento, acesse [monitoramento na p
 
 Uma vez que os backups de log ocorrem a cada 15 minutos, monitorar os trabalhos de backup pode ser entediante. O backup do Azure facilita o monitoramento enviando alertas de email. Os alertas de email são:
 
-- Disparado para todas as falhas de backup.
-- Consolidado no nível do banco de dados por código de erro.
+- Disparados para todas as falhas de backup.
+- Consolidados no nível do banco de dados por código de erro.
 - Enviado somente para a primeira falha de backup de um banco de dados.
 
 Para monitorar alertas de backup de banco de dados:
@@ -58,12 +57,12 @@ Você pode interromper o backup de um banco de dados do SQL Server de duas manei
 Se você optar por deixar os pontos de recuperação, tenha em mente estes detalhes:
 
 - Todos os pontos de recuperação permanecerão intactos para sempre, toda a remoção será interrompida ao parar a proteção com os dados de retenção.
-- Você será cobrado pela instância protegida e pelo armazenamento consumido. Para obter mais informações, consulte [preços do backup do Azure](https://azure.microsoft.com/pricing/details/backup/).
+- Você será cobrado pela instância protegida e pelo armazenamento consumido. Para saber mais, confira [Preços do Backup do Azure](https://azure.microsoft.com/pricing/details/backup/).
 - Se você excluir uma fonte de dados sem interromper os backups, os novos backups falharão. Os pontos de recuperação antigos expirarão de acordo com a política, mas um último ponto de recuperação será sempre mantido até que você interrompa os backups e exclua os dados.
 
 Para interromper a proteção para um banco de dados:
 
-1. No painel do cofre, selecione **itens de backup**.
+1. No painel do cofre, selecione **Itens de Backup**.
 
 2. Em **tipo de gerenciamento de backup**, selecione **SQL na VM do Azure**.
 
@@ -77,11 +76,11 @@ Para interromper a proteção para um banco de dados:
 
     ![Selecionar Parar Backup](./media/backup-azure-sql-database/stop-db-button.png)
 
-5. No menu **parar backup** , selecione se deseja reter ou excluir dados. Se desejar, forneça um motivo e um comentário.
+5. No menu **Parar Backup**, selecione se deseja reter ou excluir dados. Se quiser, insira um motivo e um comentário.
 
     ![Reter ou excluir dados no menu parar backup](./media/backup-azure-sql-database/stop-backup-button.png)
 
-6. Selecione **parar backup**.
+6. Selecionar **Parar Backup**.
 
 > [!NOTE]
 >
@@ -98,7 +97,7 @@ Ao interromper a proteção para o banco de dados SQL, se você selecionar a op�
 
 Para retomar a proteção de um banco de dados SQL:
 
-1. Abra o item de backup e selecione **retomar backup**.
+1. Abra o item de backup e selecione **Retomar o backup**.
 
     ![Selecionar Retomar backup para retomar a proteção do banco de dados](./media/backup-azure-sql-database/resume-backup-button.png)
 
@@ -121,7 +120,7 @@ Para obter mais informações, consulte [SQL Server tipos de backup](backup-arch
 
 Cancele o registro de uma instância de SQL Server depois de desabilitar a proteção, mas antes de excluir o cofre:
 
-1. No painel do cofre, em **gerenciar**, selecione **infraestrutura de backup**.  
+1. No painel de cofres, em **Gerenciar**, selecione **Infraestrutura de Backup**.  
 
    ![Selecionar Infraestrutura de Backup](./media/backup-azure-sql-database/backup-infrastructure-button.png)
 
@@ -142,7 +141,7 @@ Modifique a política para alterar a frequência de backup ou o período de rete
 > [!NOTE]
 > Qualquer alteração no período de retenção será aplicada de forma retrospectiva a todos os pontos de recuperação mais antigos além dos novos.
 
-No painel do cofre, vá para **gerenciar** > **políticas de backup** e escolha a política que você deseja editar.
+No painel do cofre, vá para **gerenciar**  >  **políticas de backup** e escolha a política que você deseja editar.
 
   ![Gerenciar política de backup](./media/backup-azure-sql-database/modify-backup-policy.png)
 
@@ -152,7 +151,7 @@ A modificação da política afetará todos os itens de backup associados e disp
 
 ### <a name="inconsistent-policy"></a>Política inconsistente
 
-Às vezes, uma operação de modificação de política pode levar a uma versão de política **inconsistente** para alguns itens de backup. Isso ocorre quando o trabalho de **configuração de proteção** correspondente falha para o item de backup depois que uma operação de modificação de política é disparada. Ele aparece da seguinte maneira na exibição do item de backup:
+Às vezes, uma operação de modificação de política pode levar a uma versão de política **inconsistente** para alguns itens de backup. Isso ocorre quando ocorre falha no trabalho de **configuração de proteção** correspondente para o item de backup depois que uma operação de modificação de política é disparada. Ele aparece da seguinte maneira na exibição do item de backup:
 
   ![Política inconsistente](./media/backup-azure-sql-database/inconsistent-policy.png)
 

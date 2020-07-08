@@ -15,10 +15,9 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: borisb
 ms.openlocfilehash: c5f02117d3af7fb411c75d783df82f6008d8104e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81687014"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Fazer backup e recuperar um banco de dados Oracle Database 12c em uma máquina virtual Linux do Azure
@@ -508,7 +507,7 @@ Depois que a VM for restaurada, configure o endereço IP público.
 
     ![Lista de endereços IP públicos](./media/oracle-backup-recovery/create_ip_00.png)
 
-2.  Na folha **Endereços IP públicos**, clique em **Adicionar**. Na folha **Criar endereço IP público**, selecione o nome do IP público para **Nome**. Em **Grupo de recursos**, marque **Usar existente**. Em seguida, clique em **criar**.
+2.  Na folha **Endereços IP públicos**, clique em **Adicionar**. Na folha **Criar endereço IP público**, selecione o nome do IP público para **Nome**. Em **Grupo de recursos**, marque **Usar existente**. Em seguida, clique em **Criar**.
 
     ![Criar endereço IP](./media/oracle-backup-recovery/create_ip_01.png)
 

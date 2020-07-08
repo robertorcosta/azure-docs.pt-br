@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
 ms.openlocfilehash: 4877493982671b1b5db686715ef854f25c2966ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81310988"
 ---
 # <a name="send-security-messages-sdk"></a>Enviar mensagens de segurança do SDK
@@ -32,7 +31,7 @@ Neste guia, você aprenderá a:
 > * Enviar mensagens de segurança usando o SDK do Azure IoT C
 > * Enviar mensagens de segurança usando o SDK do C# do Azure IoT
 > * Enviar mensagens de segurança usando o SDK do Python do Azure IoT
-> * Enviar mensagens de segurança usando o SDK do node. js do Azure IoT
+> * Enviar mensagens de segurança usando o SDK de Node.js do Azure IoT
 > * Enviar mensagens de segurança usando o SDK do Java do Azure IoT
 
 ## <a name="azure-security-center-for-iot-capabilities"></a>Central de segurança do Azure para recursos de IoT
@@ -47,7 +46,7 @@ A central de segurança do Azure para IoT define uma mensagem de segurança usan
 - Se a mensagem estiver em conformidade com o [esquema de mensagem de segurança](https://aka.ms/iot-security-schemas)
 - Se a mensagem foi definida como uma mensagem de segurança antes de enviar
 
-Cada mensagem de segurança inclui os metadados do remetente, como `AgentId`, `AgentVersion` `MessageSchemaVersion` e uma lista de eventos de segurança.
+Cada mensagem de segurança inclui os metadados do remetente, como `AgentId` , `AgentVersion` `MessageSchemaVersion` e uma lista de eventos de segurança.
 O esquema define as propriedades válidas e obrigatórias da mensagem de segurança, incluindo os tipos de eventos.
 
 > [!NOTE]
@@ -58,7 +57,7 @@ O esquema define as propriedades válidas e obrigatórias da mensagem de seguran
 
 ## <a name="valid-message-example"></a>Exemplo de mensagem válida
 
-O exemplo a seguir mostra um objeto de mensagem de segurança válido. O exemplo contém os metadados da mensagem e `ProcessCreate` um evento de segurança.
+O exemplo a seguir mostra um objeto de mensagem de segurança válido. O exemplo contém os metadados da mensagem e um `ProcessCreate` evento de segurança.
 
 Uma vez definido como uma mensagem de segurança e enviado, essa mensagem será processada pela central de segurança do Azure para IoT.
 
@@ -92,7 +91,7 @@ Uma vez definido como uma mensagem de segurança e enviado, essa mensagem será 
 
 ## <a name="send-security-messages"></a>Enviar mensagens de segurança
 
-Enviar mensagens de segurança *sem* usar a central de segurança do Azure para agente de IOT, usando o SDK do dispositivo do Azure [IOT C](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview), o [SDK do dispositivo do Azure IOT C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/preview), o [SDK do Azure IOT node. js](https://github.com/Azure/azure-iot-sdk-node), o SDK [do Python do Azure IOT](https://github.com/Azure/azure-iot-sdk-python)ou o [SDK do Java do Azure IOT](https://github.com/Azure/azure-iot-sdk-java).
+Enviar mensagens de segurança *sem* usar a central de segurança do Azure para agente de IOT, usando o [SDK do dispositivo C](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview)do Azure IOT, o [SDK do dispositivo do Azure IOT C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/preview), o [SDK do Azure IOT Node.js](https://github.com/Azure/azure-iot-sdk-node), o SDK [do Python](https://github.com/Azure/azure-iot-sdk-python)do Azure IOT ou o [SDK do Java do Azure IOT](https://github.com/Azure/azure-iot-sdk-java).
 
 Para enviar os dados do dispositivo de seus dispositivos para processamento pela central de segurança do Azure para IoT, use uma das APIs a seguir para marcar as mensagens para o roteamento correto para a central de segurança do Azure para o pipeline de processamento de IoT.
 
@@ -100,7 +99,7 @@ Todos os dados que são enviados, mesmo se marcados com o cabeçalho correto, ta
 
 ### <a name="send-security-message-api"></a>Enviar Mensagem de Segurança de API
 
-A API **enviar mensagens de segurança** está disponível no momento em C e C#, Python, Node. js e Java.
+A API **enviar mensagens de segurança** está disponível no momento em C e C#, Python, Node.js e Java.
 
 #### <a name="c-api"></a>API do C
 

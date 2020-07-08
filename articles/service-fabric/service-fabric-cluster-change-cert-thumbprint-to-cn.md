@@ -4,10 +4,9 @@ description: Saiba fazer um cluster do Service Fabric alternar do uso de impress
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.openlocfilehash: 1926b0501766eb0a5fe086ceada0c9bf45e3dcf6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81272620"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Alterar o cluster de impressão digital do certificado para nome comum
@@ -118,7 +117,7 @@ Em seguida, abra o arquivo de modelo em um editor de texto e faça três atualiz
 
     Além disso, considere remover o *certificateThumbprint*, ele não poderá mais ser referenciado no modelo do Resource Manager.
 
-2. No recurso **Microsoft.Compute/virtualMachineScaleSets**, atualize a extensão de máquina virtual para usar o nome comum em configurações de certificado em vez da impressão digital.  Nas **virtualMachineProfile**->**extensionProfile**->**extensions****Propriedades** `"thumbprint": "[parameters('certificateThumbprint')]",`**settings** `"commonNames": ["[parameters('certificateCommonName')]"],` das extensões->do virtualMachineProfile extensionProfile, adicione e remova o**certificado.**->->
+2. No recurso **Microsoft.Compute/virtualMachineScaleSets**, atualize a extensão de máquina virtual para usar o nome comum em configurações de certificado em vez da impressão digital.  Nas propriedades das extensões do **virtualMachineProfile** -> **extensionProfile** -> **extensions** -> **properties** -> **settings** -> **certificate**, adicione `"commonNames": ["[parameters('certificateCommonName')]"],` e remova o certificado `"thumbprint": "[parameters('certificateThumbprint')]",` .
     ```json
         "virtualMachineProfile": {
         "extensionProfile": {

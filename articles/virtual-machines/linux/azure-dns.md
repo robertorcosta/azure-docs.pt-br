@@ -7,10 +7,9 @@ ms.topic: article
 ms.date: 10/19/2016
 ms.author: rclaus
 ms.openlocfilehash: 0910b31685aa408c319b40ea23782b11724b6237
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81641722"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Opções de resolução de nomes DNS para máquinas virtuais Linux no Azure
@@ -23,7 +22,7 @@ O tipo de resolução de nomes que você usa depende de como as máquinas virtua
 
 A tabela a seguir ilustra os cenários e as soluções de resolução de nomes correspondentes:
 
-| **Cenário** | **Solução** | **Sufixo** |
+| **Cenário** | **Solução** | **Suffix** |
 | --- | --- | --- |
 | Resolução de nomes entre as instâncias de função ou as máquinas virtuais na mesma rede virtual |Resolução de nomes que o Azure fornece |nome de host ou FQDN (nome de domínio totalmente qualificado) |
 | Resolução de nomes entre as instâncias de função ou as máquinas virtuais em redes virtuais diferentes |Servidores DNS gerenciados pelo cliente que encaminham consultas entre redes virtuais para resolução pelo Azure (proxy DNS). Consulte [resolução de nomes usando seu próprio servidor DNS](#name-resolution-using-your-own-dns-server). |Somente FQDN |

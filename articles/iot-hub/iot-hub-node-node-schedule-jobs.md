@@ -11,13 +11,12 @@ ms.topic: conceptual
 ms.date: 08/16/2019
 ms.custom: mqtt
 ms.openlocfilehash: d7f9ce37ad85d39388eea90af263f59ce312a6b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81732260"
 ---
-# <a name="schedule-and-broadcast-jobs-nodejs"></a>Agendar e difundir trabalhos (Node. js)
+# <a name="schedule-and-broadcast-jobs-nodejs"></a>Agendar e difundir trabalhos (Node.js)
 
 [!INCLUDE [iot-hub-selector-schedule-jobs](../../includes/iot-hub-selector-schedule-jobs.md)]
 
@@ -31,7 +30,7 @@ Conceitualmente, um trabalho encapsula uma dessas ações e rastreia o progresso
 
 Saiba mais sobre cada um desses recursos nestes artigos:
 
-* Dispositivo gêmeo e propriedades: [Introdução aos dispositivos gêmeos](iot-hub-node-node-twin-getstarted.md) e [Tutorial: como usar as propriedades de dispositivos gêmeos](tutorial-device-twins.md)
+* Dispositivo gêmeo e propriedades: [Introdução aos dispositivos gêmeos](iot-hub-node-node-twin-getstarted.md) e [Tutorial: Como usar as propriedades do dispositivo gêmeo](tutorial-device-twins.md)
 
 * Métodos diretos: [Guia do desenvolvedor do Hub IoT – métodos diretos](iot-hub-devguide-direct-methods.md) e [Tutorial: métodos diretos](quickstart-control-device-node.md)
 
@@ -45,17 +44,17 @@ Este tutorial mostra como:
 
 Ao fim deste tutorial, você terá dois aplicativos do Node.js:
 
-* **simDevice. js**, que se conecta ao seu hub IOT com a identidade do dispositivo e recebe um método direto **lockDoor** .
+* **simDevice.js**, que se conecta ao seu hub IOT com a identidade do dispositivo e recebe um método direto **lockDoor** .
 
 * **scheduleJobService.js**, que chama um método direto no aplicativo do dispositivo simulado e atualiza as propriedades desejadas do dispositivo gêmeo usando um trabalho.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Node. js versão 10.0. x ou posterior. [Preparar o ambiente de desenvolvimento](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) descreve como instalar o Node.js para este tutorial no Windows ou no Linux.
+* Node.js versão 10.0.x ou posterior. [Preparar o ambiente de desenvolvimento](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) descreve como instalar o Node.js para este tutorial no Windows ou no Linux.
 
-* Uma conta ativa do Azure. (Se você não tem uma conta, pode criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.)
+* Uma conta ativa do Azure. (Se você não tiver uma conta, poderá criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.)
 
-* Verifique se a porta 8883 está aberta no firewall. O exemplo de dispositivo neste artigo usa o protocolo MQTT, que se comunica pela porta 8883. Essa porta poderá ser bloqueada em alguns ambientes de rede corporativos e educacionais. Para obter mais informações e maneiras de resolver esse problema, confira [Como se conectar ao Hub IoT (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Verifique se a porta 8883 está aberta no firewall. O exemplo de dispositivo deste artigo usa o protocolo MQTT, que se comunica pela porta 8883. Essa porta poderá ser bloqueada em alguns ambientes de rede corporativos e educacionais. Para obter mais informações e maneiras de resolver esse problema, confira [Como se conectar ao Hub IoT (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Crie um hub IoT
 
@@ -136,7 +135,7 @@ Nesta seção, você cria um aplicativo de console do Node.js que responde a um 
 > Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, implemente políticas de repetição (como uma retirada exponencial), conforme sugerido no artigo [Tratamento de falhas transitórias](/azure/architecture/best-practices/transient-faults).
 >
 
-## <a name="get-the-iot-hub-connection-string"></a>Obter a cadeia de conexão do Hub IoT
+## <a name="get-the-iot-hub-connection-string"></a>Obter a cadeia de conexão do hub IoT
 
 [!INCLUDE [iot-hub-howto-schedule-jobs-shared-access-policy-text](../../includes/iot-hub-howto-schedule-jobs-shared-access-policy-text.md)]
 
@@ -144,7 +143,7 @@ Nesta seção, você cria um aplicativo de console do Node.js que responde a um 
 
 ## <a name="schedule-jobs-for-calling-a-direct-method-and-updating-a-device-twins-properties"></a>Agendar trabalhos para chamar um método direto e atualizar as propriedades do dispositivo gêmeo
 
-Nesta seção, você cria um aplicativo de console do node. js que inicia um **lockDoor** remoto em um dispositivo usando um método direto e atualiza as propriedades do dispositivo.
+Nesta seção, você cria um aplicativo de console Node.js que inicia um **lockDoor** remoto em um dispositivo usando um método direto e atualiza as propriedades do dispositivo.
 
 1. Crie uma nova pasta vazia denominada **scheduleJobService**.  Na pasta **scheduleJobService**, crie um arquivo package.json usando o comando a seguir no prompt de comando.  Aceite todos os padrões:
 
@@ -160,7 +159,7 @@ Nesta seção, você cria um aplicativo de console do node. js que inicia um **l
 
 3. Usando um editor de texto, crie um novo arquivo **scheduleJobService.js** na pasta **scheduleJobService**.
 
-4. Adicione as seguintes instruções "require" no início do arquivo **scheduleJobService. js** :
+4. Adicione as seguintes instruções ' require ' no início do arquivo de **scheduleJobService.js** :
 
     ```javascript
     'use strict';
@@ -288,7 +287,7 @@ Agora você está pronto para executar os aplicativos.
 
    O seguinte mostra a resposta do dispositivo para o método direto:
 
-   ![Saída de aplicativo de dispositivo simulado](./media/iot-hub-node-node-schedule-jobs/sim-device.png)
+   ![Saída do aplicativo de dispositivo simulado](./media/iot-hub-node-node-schedule-jobs/sim-device.png)
 
    O seguinte mostra os trabalhos de agendamento de serviço para o método direto e a atualização do dispositivo e os trabalhos em execução para a conclusão:
 

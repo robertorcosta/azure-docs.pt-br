@@ -16,10 +16,9 @@ ms.date: 04/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 25d911869c95baba6ac9db3b893292e702e9c0e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81273198"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implantação do DBMS de Máquinas Virtuais do SAP ASE Azure para carga de trabalho do SAP
@@ -50,7 +49,7 @@ Bloquear páginas na memória é uma configuração que impedirá que o buffer d
 
 
 ## <a name="linux-operating-system-specific-settings"></a>Configurações específicas do sistema operacional Linux
-Em VMs do Linux, `saptune` execute com o perfil SAP – as páginas enormes do Linux do ase devem ser habilitadas por padrão e podem ser verificadas com o comando  
+Em VMs do Linux, execute `saptune` com o perfil SAP – as páginas enormes do Linux do ase devem ser habilitadas por padrão e podem ser verificadas com o comando  
 
 `cat /proc/meminfo` 
 
@@ -211,7 +210,7 @@ O Gerenciador de provisionamento de software SAP (SWPM) está fornecendo uma op�
 - Agregar discos usando espaços de armazenamento do Windows ou o LVM2 do Linux com o tamanho de distribuição e o sistema de arquivos corretos
 - Crie um número suficiente de dispositivos para fins de dados, log, temp e backup
 - Considere o uso de UltraDisk para sistemas x-grandes 
-- Executar `saptune` o SAP-ase no sistema operacional Linux 
+- Executar o `saptune` SAP-ase no sistema operacional Linux 
 - Proteger o banco de dados com criptografia de BD – armazene manualmente as chaves no Azure Key Vault 
 - Concluir a [lista de verificação do SAP no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist) 
 - Configurar backup de log e backup completo 
@@ -221,7 +220,7 @@ O Gerenciador de provisionamento de software SAP (SWPM) está fornecendo uma op�
 ## <a name="using-dbacockpit-to-monitor-database-instances"></a>Usando DBACockpit para monitorar instâncias de banco de dados
 Para sistemas SAP que estão usando o SAP ASE como plataforma de banco de dados, o DBACockpit está acessível como janelas de navegador inseridas no DBACockpit da transação ou como Webdynpro. No entanto, a funcionalidade completa para monitorar e administrar o banco de dados está disponível apenas na implementação Webdynpro do DBACockpit.
 
-Como com sistemas locais, são necessárias várias etapas para habilitar toda a funcionalidade do SAP NetWeaver usada pela implementação do Webdynpro do DBACockpit. Siga a [Observação de suporte do SAP #1245200](https://launchpad.support.sap.com/#/notes/1245200) para habilitar o uso de webdynpros e gerar os necessários. Ao seguir as instruções nas observações acima, você também configura o Gerenciador de comunicação da Internet`ICM`() junto com as portas a serem usadas para conexões http e HTTPS. A configuração padrão para http tem esta aparência:
+Como com sistemas locais, são necessárias várias etapas para habilitar toda a funcionalidade do SAP NetWeaver usada pela implementação do Webdynpro do DBACockpit. Siga a [Observação de suporte do SAP #1245200](https://launchpad.support.sap.com/#/notes/1245200) para habilitar o uso de webdynpros e gerar os necessários. Ao seguir as instruções nas observações acima, você também configura o Gerenciador de comunicação da Internet ( `ICM` ) junto com as portas a serem usadas para conexões http e HTTPS. A configuração padrão para http tem esta aparência:
 
 > icm/server_port_0 = PROT=HTTP,PORT=8000,PROCTIMEOUT=600,TIMEOUT=600
 > 
@@ -231,15 +230,15 @@ Como com sistemas locais, são necessárias várias etapas para habilitar toda a
 
 e os links gerados no DBACockpit da transação são semelhantes a este:
 
-> https:\//\<fullyqualifiedhostname>:44300/SAP/BC/Webdynpro/SAP/dba_cockpit
+> https: \/ / \<fullyqualifiedhostname> : 44300/SAP/BC/Webdynpro/SAP/dba_cockpit
 > 
-> http:\//\<fullyqualifiedhostname>:8000/SAP/BC/Webdynpro/SAP/dba_cockpit
+> http: \/ / \<fullyqualifiedhostname> : 8000/SAP/BC/Webdynpro/SAP/dba_cockpit
 > 
 > 
 
 Dependendo de como a máquina virtual do Azure que hospeda o sistema SAP está conectado ao seu AD e DNS, você precisa se certificar de que o ICM esteja usando um nome de host totalmente qualificado que pode ser resolvido na máquina virtual da qual você está abrindo o DBACockpit. Consulte [#773830 de observação de suporte SAP](https://launchpad.support.sap.com/#/notes/773830) para entender como o ICM determina o nome de host totalmente qualificado com base nos parâmetros de perfil e definir o parâmetro ICM/host_name_full explicitamente, se necessário.
 
-Se você implantou a VM em um cenário somente de nuvem sem conectividade entre locais entre o local e o Azure, você precisa definir um endereço IP público e um `domainlabel`. O formato do nome DNS público da VM tem esta aparência:
+Se você implantou a VM em um cenário somente de nuvem sem conectividade entre locais entre o local e o Azure, você precisa definir um endereço IP público e um `domainlabel` . O formato do nome DNS público da VM tem esta aparência:
 
 > `<custom domainlabel`>.`<azure region`>.cloudapp.azure.com
 > 
@@ -249,9 +248,9 @@ Mais detalhes relacionados ao nome DNS podem ser encontrados [aqui] [Virtual-Mac
 
 Definindo o parâmetro de perfil do SAP icm/host_name_full para o nome DNS da VM do Azure, o link pode ser semelhante a:
 
-> https:\//mydomainlabel.westeurope.cloudapp.net:44300/SAP/BC/Webdynpro/SAP/dba_cockpit
+> https: \/ /mydomainlabel.westeurope.cloudapp.net:44300/SAP/BC/Webdynpro/SAP/dba_cockpit
 > 
-> http:\//mydomainlabel.westeurope.cloudapp.net:8000/SAP/BC/Webdynpro/SAP/dba_cockpit
+> http: \/ /mydomainlabel.westeurope.cloudapp.net:8000/SAP/BC/Webdynpro/SAP/dba_cockpit
 
 Nesse caso, você precisa se certificar de:
 

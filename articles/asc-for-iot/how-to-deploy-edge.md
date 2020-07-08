@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
 ms.openlocfilehash: 4dd7ca8f926862487b9505731c0662e68ee3d7c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81311271"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Implantar um módulo de segurança em seu dispositivo IoT Edge
@@ -97,7 +96,7 @@ Conclua cada etapa para concluir sua implantação de IoT Edge para a central de
       "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration"
     ```
 
-1. Selecione **Atualizar**.
+1. Selecione **Atualização**.
 
 #### <a name="step-2-runtime-settings"></a>Etapa 2: configurações de tempo de execução
 
@@ -165,7 +164,7 @@ Se você encontrar um problema, os logs de contêiner serão a melhor maneira de
 
 1. Verifique se os seguintes contêineres estão em execução:
 
-   | Name | IMAGE |
+   | Nome | IMAGE |
    | --- | --- |
    | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.2 |
    | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.8.3 |
@@ -179,7 +178,7 @@ Se você encontrar um problema, os logs de contêiner serão a melhor maneira de
 
    `sudo docker logs azureiotsecurity`
 
-1. Para logs mais detalhados, adicione a seguinte variável de ambiente **azureiotsecurity** à implantação do módulo `logLevel=Debug`azureiotsecurity:.
+1. Para logs mais detalhados, adicione a seguinte variável de ambiente à implantação do módulo **azureiotsecurity** : `logLevel=Debug` .
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: bf69786f56f52874bd9358ae44a6b88b466e77f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81677471"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>O Processo de Ciência de Dados de Equipe em ação: usar clusters Hadoop do Azure HDInsight
@@ -48,7 +47,7 @@ Os dados de Corridas de Táxi em NYC têm aproximadamente de 20 GB de arquivos C
 A chave exclusiva para unir trip\_data e trip\_fare é composta pelos campos: medallion, hack\_license e pickup\_datetime. Para obter todos os detalhes relevantes a uma corrida específica, é suficiente unir essas três chaves.
 
 ## <a name="examples-of-prediction-tasks"></a><a name="mltasks"></a>Exemplos de tarefas de previsão
-Determine o tipo de previsões que você deseja fazer com base na análise de dados para ajudar a esclarecer as tarefas de processo necessárias. Aqui estão três exemplos de problemas de previsão que abordamos neste passo a passos, tudo com base *no\_valor da gorjeta*:
+Determine o tipo de previsões que você deseja fazer com base na análise de dados para ajudar a esclarecer as tarefas de processo necessárias. Aqui estão três exemplos de problemas de previsão que abordamos neste passo a passos, tudo com base *no \_ valor da gorjeta*:
 
 - **Classificação binária**: preveja se uma gorjeta foi ou não paga em uma corrida. Ou seja, um *valor\_de gorjeta* maior do que $0 é um exemplo positivo, enquanto um *valor\_ de gorjeta* de $0 é um exemplo de negativo.
    
@@ -88,11 +87,11 @@ Para copiar o conjunto de dados [Corridas de Táxi em NYC](https://www.andresmh.
 
 Aqui, descrevemos como usar o AzCopy para transferir os arquivos que contêm dados. Para baixar e instalar o AzCopy, siga as instruções em [introdução ao utilitário de linha de comando AzCopy](../../storage/common/storage-use-azcopy.md).
 
-1. Em uma janela de prompt de comando, execute os seguintes comandos AzCopy, substituindo * \<path_to_data_folder>* pelo destino desejado:
+1. Em uma janela de prompt de comando, execute os seguintes comandos AzCopy, substituindo *\<path_to_data_folder>* pelo destino desejado:
 
         "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
 
-1. Quando a cópia for concluída, você verá um total de 24 arquivos compactados na pasta de dados escolhida. Descompacte os arquivos baixados para o mesmo diretório em seu computador local. Tome nota da pasta em que os arquivos descompactados estão. Essa pasta é referida como o * \<caminho\_para unzipped_data\_\_arquivos\> * no que vem a seguir.
+1. Quando a cópia for concluída, você verá um total de 24 arquivos compactados na pasta de dados escolhida. Descompacte os arquivos baixados para o mesmo diretório em seu computador local. Tome nota da pasta em que os arquivos descompactados estão. Essa pasta é referida como a *\<path\_to\_unzipped_data\_files\>* seguir.
 
 ## <a name="upload-the-data-to-the-default-container-of-the-hdinsight-hadoop-cluster"></a><a name="upload"></a>Carregar os dados no contêiner padrão do cluster HDInsight Hadoop
 > [!NOTE]
@@ -102,10 +101,10 @@ Aqui, descrevemos como usar o AzCopy para transferir os arquivos que contêm dad
 
 Nos comandos de AzCopy a seguir, substitua os seguintes parâmetros pelos valores reais especificados ao criar o cluster de Hadoop e extrair os arquivos de dados.
 
-* *** \<path_to_data_folder>*** O diretório (junto com o caminho) em seu computador que contém os arquivos de dados descompactados.  
-* ***nome da conta de armazenamento do cluster do Hadoop>\<*** A conta de armazenamento associada ao cluster HDInsight.
-* ***contêiner padrão de>de cluster do Hadoop \<*** O contêiner padrão usado pelo seu cluster. O nome do contêiner padrão geralmente é o mesmo nome que o próprio cluster. Por exemplo, se o cluster se chamar "abc123.azurehdinsight.net", o contêiner padrão será abc123.
-* >de chave da conta de armazenamento *** \<*** A chave para a conta de armazenamento usada pelo cluster.
+* ***\<path_to_data_folder>*** O diretório (junto com o caminho) em seu computador que contém os arquivos de dados descompactados.  
+* ***\<storage account name of Hadoop cluster>*** A conta de armazenamento associada ao cluster HDInsight.
+* ***\<default container of Hadoop cluster>*** O contêiner padrão usado pelo seu cluster. O nome do contêiner padrão geralmente é o mesmo nome que o próprio cluster. Por exemplo, se o cluster se chamar "abc123.azurehdinsight.net", o contêiner padrão será abc123.
+* ***\<storage account key>*** A chave para a conta de armazenamento usada pelo cluster.
 
 Em um prompt de comando ou uma janela do Windows PowerShell, execute os dois comandos do AzCopy a seguir.
 
@@ -157,7 +156,7 @@ No prompt do diretório do hive, execute o seguinte comando na linha de comando 
 
     hive -f "C:\temp\sample_hive_create_db_and_tables.hql"
 
-Aqui está o conteúdo do arquivo **arquivo c:\Temp\sample\_Hive\_Create\_DB\_e\_Tables. HQL** que cria o banco de dados Hive **nyctaxidb**e as tabelas **Trip** e **Tarifa**.
+Aqui está o conteúdo do arquivo **arquivo c:\Temp\sample \_ Hive \_ Create \_ DB \_ e \_ Tables. HQL** que cria o banco de dados Hive **nyctaxidb**e as tabelas **Trip** e **Tarifa**.
 
     create database if not exists nyctaxidb;
 
@@ -215,7 +214,7 @@ O conjunto de dados de táxi de NYC tem um particionamento natural por mês, que
 
     for /L %i IN (1,1,12) DO (hive -hiveconf MONTH=%i -f "C:\temp\sample_hive_load_data_by_partitions.hql")
 
-O **arquivo\_do\_Hive\_de\_exemplo\_carregar dados por partições. HQL** contém os seguintes comandos de **carregamento** :
+O arquivo do **hive de exemplo \_ \_ carregar \_ dados \_ por \_ partições. HQL** contém os seguintes comandos de **carregamento** :
 
     LOAD DATA INPATH 'wasb:///nyctaxitripraw/trip_data_${hiveconf:MONTH}.csv' INTO TABLE nyctaxidb.trip PARTITION (month=${hiveconf:MONTH});
     LOAD DATA INPATH 'wasb:///nyctaxifareraw/trip_fare_${hiveconf:MONTH}.csv' INTO TABLE nyctaxidb.fare PARTITION (month=${hiveconf:MONTH});
@@ -470,7 +469,7 @@ Para o problema de classificação binária descrito na seção [Exemplos de tar
 * gorjeta oferecida (Classe 1, tip\_amount > $0)  
 * nenhuma gorjeta (Classe 0, tip\_amount = $0)
 
-O arquivo **Sample\_.\_HQL de\_exemplo** a seguir mostra o comando a ser executado:
+O arquivo **Sample \_ \_ \_ . HQL de exemplo** a seguir mostra o comando a ser executado:
 
     SELECT tipped, COUNT(*) AS tip_freq
     FROM
@@ -574,11 +573,11 @@ Uma das principais vantagens de os dados residirem em um blob do Azure é que po
 Após a fase de análise exploratória de dados, agora estamos prontos para reduzir os dados para a criação de modelos no Machine Learning. Nesta seção, mostramos como usar uma consulta do Hive para reduzir os dados de amostra. Em seguida, o Machine Learning acessa-os no módulo [Importar Dados][import-data].
 
 ### <a name="down-sampling-the-data"></a>Reduzindo os dados
-Há duas etapas neste procedimento. Primeiro, juntamos as tabelas **nyctaxidb. Trip** e **nyctaxidb. Tarifa** em três chaves que estão presentes em todos os registros: **Medallion**, **licença de\_hack**e DateTime de **retirada\_**. Em seguida, geramos um rótulo de classificação binária **tipped** e um rótulo de classificação multiclasse **tip\_class**.
+Há duas etapas neste procedimento. Primeiro, juntamos as tabelas **nyctaxidb. Trip** e **nyctaxidb. Tarifa** em três chaves que estão presentes em todos os registros: **Medallion**, ** \_ licença de hack**e ** \_ DateTime de retirada**. Em seguida, geramos um rótulo de classificação binária **tipped** e um rótulo de classificação multiclasse **tip\_class**.
 
 Para usar os dados reduzidos diretamente no módulo [Importar Dados][import-data] do Machine Learning, é necessário armazenar os resultados da consulta anterior em uma tabela interna do Hive. No que vem em seguida, criamos uma tabela interna do Hive e preenchemos seus conteúdos com os dados unidos e reduzidos.
 
-A consulta aplica funções de Hive padrão diretamente para gerar os seguintes parâmetros de tempo do campo de **retirada\_DateTime** :
+A consulta aplica funções de Hive padrão diretamente para gerar os seguintes parâmetros de tempo do campo de **retirada \_ DateTime** :
 - hora do dia
 - semana do ano
 - dia da semana (' 1 ' significa segunda-feira e ' 7 ' significa domingo)
@@ -721,7 +720,7 @@ Para emitir consultas do Hive no módulo [Importar Dados][import-data] do Machin
 
 Estes são alguns detalhes sobre o módulo [Importar Dados][import-data] e os parâmetros a serem inseridos:
 
-**URI do servidor HCatalog**: se o nome do cluster for **abc123**, use: https\/:/abc123.azurehdinsight.net.
+**URI do servidor HCatalog**: se o nome do cluster for **abc123**, use: https: \/ /abc123.azurehdinsight.net.
 
 **Nome da conta de usuário do Hadoop**: o nome de usuário escolhido para o cluster (não o nome de usuário de acesso remoto).
 
@@ -761,7 +760,7 @@ Agora você pode continuar a criação e a implantação do modelo no [Machine L
 
   **Aprendiz usado:** regressão logística de classe dois
 
-  a. Para esse problema, o rótulo (ou a classe) de destino é **tipped**. O conjunto de dados original convertidos tem algumas colunas que são vazamentos de destino para esse teste de classificação. Em particular, **a\_classe Tip**, o **valor\_Tip**e o **valor total\_** revelam informações sobre o rótulo de destino que não está disponível no momento do teste. Deixamos de considerar essas colunas usando o módulo [Selecionar Colunas no Conjunto de Dados][select-columns].
+  a. Para esse problema, o rótulo (ou a classe) de destino é **tipped**. O conjunto de dados original convertidos tem algumas colunas que são vazamentos de destino para esse teste de classificação. Em particular, **a \_ classe Tip**, o ** \_ valor Tip**e o ** \_ valor total** revelam informações sobre o rótulo de destino que não está disponível no momento do teste. Deixamos de considerar essas colunas usando o módulo [Selecionar Colunas no Conjunto de Dados][select-columns].
 
   O seguinte diagrama mostra nosso experimento para prever se uma gorjeta foi paga ou não para determinada corrida:
 
@@ -781,7 +780,7 @@ Agora você pode continuar a criação e a implantação do modelo no [Machine L
 
   **Aprendiz usado:** regressão logística de várias classes
 
-  a. Para esse problema, nosso rótulo de destino (ou classe) **é\_Tip Class**, que pode usar um dos cinco valores (0, 1, 2, 3, 4). Como no caso de classificação binária, temos algumas colunas que são vazamentos de destino para esse experimento. Em particular, **tipped**, **tip\_amount** e **total\_amount** revelam informações sobre o rótulo de destino que não estão disponíveis no momento do teste. Removemos essas colunas usando o módulo [Selecionar Colunas no Conjunto de Dados][select-columns].
+  a. Para esse problema, nosso rótulo de destino (ou classe) é **Tip \_ Class**, que pode usar um dos cinco valores (0, 1, 2, 3, 4). Como no caso de classificação binária, temos algumas colunas que são vazamentos de destino para esse experimento. Em particular, **tipped**, **tip\_amount** e **total\_amount** revelam informações sobre o rótulo de destino que não estão disponíveis no momento do teste. Removemos essas colunas usando o módulo [Selecionar Colunas no Conjunto de Dados][select-columns].
 
   O diagrama a seguir mostra o experimento para prever em qual compartimento uma gorjeta provavelmente se enquadrará. Os compartimentos são: Classe 0: gorjeta = US$ 0, Classe 1: gorjeta > US$ 0 e gorjeta <= US$ 5, Classe 2: gorjeta > US$ 5 e gorjeta <= US$ 10, Classe 3: gorjeta > US$ 10 e gorjeta <= US$ 20 e Classe 4: gorjeta > US$ 20.
 
@@ -819,7 +818,7 @@ Agora você pode continuar a criação e a implantação do modelo no [Machine L
 > 
 
 ## <a name="license-information"></a>Informações de licença
-Este passo a passo do exemplo e os scripts que o acompanham são compartilhados pela Microsoft sob a licença MIT. Para obter mais informações, consulte o arquivo **License. txt** no diretório do código de exemplo no github.
+Este passo a passo do exemplo e os scripts que o acompanham são compartilhados pela Microsoft sob a licença MIT. Para obter mais informações, consulte o arquivo **LICENSE.txt** no diretório do código de exemplo no github.
 
 ## <a name="references"></a>Referências
 •   [Página de download de Viagens de Táxi de NYC, de Andrés Monroy](https://www.andresmh.com/nyctaxitrips/)  

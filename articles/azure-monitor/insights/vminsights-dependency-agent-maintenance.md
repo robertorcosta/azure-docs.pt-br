@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 04/16/2020
 ms.openlocfilehash: 01dd8422658aa0c8982733e48782efd27c1bf5be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81617847"
 ---
 # <a name="how-to-upgrade-the-azure-monitor-for-vms-dependency-agent"></a>Como atualizar o Azure Monitor para VMs agente de dependência
@@ -29,7 +28,7 @@ O Dependency Agent para Windows e Linux pode ser atualizado para a versão mais 
 
 ## <a name="upgrade-windows-agent"></a>Atualizar o agente do Windows 
 
-Para atualizar o agente em uma VM do Windows para a versão mais recente não instalada usando a extensão de VM do agente de dependência, execute no prompt de comando, script ou outra solução de automação ou usando o assistente de instalação do Installdependencyagent-Windows. exe.  
+Para atualizar o agente em uma VM do Windows para a versão mais recente não instalada usando a extensão de VM do agente de dependência, você pode executar no prompt de comando, script ou outra solução de automação ou usando o assistente de instalação InstallDependencyAgent-Windows.exe.  
 
 Você pode baixar a versão mais recente do agente do Windows [aqui](https://aka.ms/dependencyagentwindows).
 
@@ -37,7 +36,7 @@ Você pode baixar a versão mais recente do agente do Windows [aqui](https://aka
 
 1. Faça logon no computador com uma conta que tenha direitos administrativos.
 
-2. Execute **installdependencyagent-Windows. exe** para iniciar o assistente de instalação.
+2. Execute **InstallDependencyAgent-Windows.exe** para iniciar o assistente de instalação.
    
 3. Siga o assistente de **instalação do Dependency Agent** para desinstalar a versão anterior do agente de dependência e, em seguida, instale a versão mais recente.
 
@@ -54,7 +53,7 @@ Você pode baixar a versão mais recente do agente do Windows [aqui](https://aka
 
     O `/RebootMode=manual` parâmetro impede que a atualização reinicie automaticamente o computador se alguns processos estiverem usando arquivos da versão anterior e tiverem um bloqueio neles. 
 
-3. Para confirmar se a atualização foi bem-sucedida, verifique `install.log` as informações de configuração detalhadas. O diretório de log é *%Programfiles%\Microsoft Dependency Agent\logs*.
+3. Para confirmar se a atualização foi bem-sucedida, verifique as `install.log` informações de configuração detalhadas. O diretório de log é *%Programfiles%\Microsoft Dependency Agent\logs*.
 
 ## <a name="upgrade-linux-agent"></a>Atualizar agente do Linux 
 
@@ -64,7 +63,7 @@ Você pode baixar a versão mais recente do agente do Linux [aqui](https://aka.m
 
 1. Faça logon no computador com uma conta que tenha direitos administrativos.
 
-2. Execute o comando a seguir como`sh InstallDependencyAgent-Linux64.bin -s`raiz. 
+2. Execute o comando a seguir como raiz `sh InstallDependencyAgent-Linux64.bin -s` . 
 
 Se o Agente de Dependência não for iniciado, verifique os logs para obter informações de erro detalhadas. Em agentes do Linux, o diretório de log é */var/opt/Microsoft/Dependency-Agent/log*. 
 

@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
 ms.openlocfilehash: 4d7d2f0a423a50f85160a856480eaa973be7e2b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81537603"
 ---
 # <a name="deploy-an-azure-security-center-for-iot-c-based-security-agent-for-windows"></a>Implantar um agente de segurança baseado em C# da Central de Segurança do Azure para IoT para Windows
@@ -104,7 +103,7 @@ Se o agente não conseguir iniciar, ative o log (por padrão, o log fica *desati
 
 Para ativar o log:
 
-1. Abra o arquivo de configuração (General. config) para edição usando um editor de arquivo padrão.
+1. Abra o arquivo de configuração (General.config) para edição usando um editor de arquivo padrão.
 
 1. Edite os valores a seguir:
 

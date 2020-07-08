@@ -6,10 +6,9 @@ ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
 ms.openlocfilehash: fd510f90887353d7486908ee076d5308db72c59d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81687075"
 ---
 # <a name="get-service-access-tokens"></a>Obter tokens de acesso de serviço
@@ -24,7 +23,7 @@ Este artigo descreve como criar esse token de acesso.
 
 ## <a name="token-service-rest-api"></a>API REST do serviço de token
 
-Para criar tokens de acesso, o *Secure token Service* fornece uma única API REST. A URL para o serviço STS ARR é https:\//STS.mixedreality.Azure.com.
+Para criar tokens de acesso, o *Secure token Service* fornece uma única API REST. A URL para o serviço STS ARR é https: \/ /STS.mixedreality.Azure.com.
 
 ### <a name="get-token-request"></a>Solicitação ' Get token '
 
@@ -44,7 +43,7 @@ Substitua *AccountId* e *accountKey* por seus respectivos dados.
 |-----------|:-----------|:-----------|
 | 200 | AccessToken: cadeia de caracteres | Êxito |
 
-| Cabeçalho | Finalidade |
+| parâmetro | Finalidade |
 |--------|:------|
 | MS-CV | Esse valor pode ser usado para rastrear a chamada dentro do serviço |
 

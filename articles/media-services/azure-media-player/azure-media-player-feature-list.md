@@ -7,10 +7,9 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
 ms.openlocfilehash: e5595620a2f888b06ad5b35d2e8a008f23861463
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81727223"
 ---
 # <a name="feature-list"></a>Lista de recursos #
@@ -46,7 +45,7 @@ Aqui está a lista de recursos testados e recursos sem suporte:
 | Acessibilidade – foco na guia               |        | X                |          |             |                                                                                                                      |
 | Mensagens de erro                         |        | X                |          |             | As mensagens de erro são inconsistentes entre os técnicos                                                                         |
 | Gatilho de evento                        | X      |                  |          |             |                                                                                                                      |
-| Diagnóstico                             |        | X                |          |             | As informações de diagnóstico estão disponíveis apenas no AzureHtml5JS Tech e parcialmente disponíveis no Silverlightss Tech. |
+| Diagnósticos                             |        | X                |          |             | As informações de diagnóstico estão disponíveis apenas no AzureHtml5JS Tech e parcialmente disponíveis no Silverlightss Tech. |
 | Ordem tecnológica personalizável                 |        | X                |          |             |                                                                                                                      |
 | Heurística-básica                      | X      |                  |          |             |                                                                                                                      |
 | Heurística-personalização              |        |                  | X        |             | A personalização só está disponível com o AzureHtml5JS Tech.                                                          |
@@ -67,4 +66,4 @@ Aqui está a lista de recursos testados e recursos sem suporte:
 | Velocidade de reprodução                          |        | X                |          |             | A velocidade de reprodução tem suporte na maioria dos cenários, exceto no caso do Mobile devido a um bug parcial no Chrome                 |
 
 ## <a name="next-steps"></a>Próximas etapas ##
-- [Guia de início rápido Player de Mídia do Azure](azure-media-player-quickstart.md)
+- [Início rápido do Player de Mídia do Azure](azure-media-player-quickstart.md)

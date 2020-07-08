@@ -14,20 +14,19 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 8e1aeaf105ce371e965b433ac78e2b257f4bc18b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81682039"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Acessar a API dos Serviços de Mídia do Azure com a autenticação do Azure AD  
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [serviços de mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 A API dos Serviços de Mídia do Azure é uma API RESTful. Você pode usá-la para executar operações em recursos de mídia usando uma API REST ou os SDKs de cliente disponíveis. Os Serviços de Mídia do Azure oferecem um SDK de cliente dos Serviços de Mídia para o Microsoft .NET. Para estar autorizado a acessar os recursos e a API dos Serviços de Mídia, primeiro você deve ser autenticado. 
 
-Os Serviços de Mídia dão suporte à [autenticação baseada no Azure AD (Azure Active Directory)](../../active-directory/fundamentals/active-directory-whatis.md). O serviço REST de Mídia do Azure exige que o usuário ou o aplicativo que faz as solicitações da API REST tenha a função **Colaborador** ou **Proprietário** para acessar os recursos. Para obter mais informações, consulte [Introdução ao Controle de Acesso Baseado em Função no portal do Azure](../../role-based-access-control/overview.md).  
+Os serviços de mídia oferecem suporte à [autenticação baseada no Azure Active Directory (AD do Azure)](../../active-directory/fundamentals/active-directory-whatis.md). O serviço REST de Mídia do Azure exige que o usuário ou o aplicativo que faz as solicitações da API REST tenha a função **Colaborador** ou **Proprietário** para acessar os recursos. Para obter mais informações, consulte [Introdução ao Controle de Acesso Baseado em Função no portal do Azure](../../role-based-access-control/overview.md).  
 
 Este documento fornece uma visão geral de como acessar a API dos Serviços de Mídia usando as APIs REST ou as APIs do .NET.
 
@@ -79,7 +78,7 @@ No diagrama anterior, os números representam o fluxo das solicitações em orde
        As informações do locatário podem ser recuperadas no portal do Azure. Coloque o cursor sobre o nome do usuário conectado no canto superior direito.
    * URI de recurso dos Serviços de Mídia. 
 
-       Esse URI é o mesmo para contas de serviços de mídia que estão no mesmo ambiente do Azure (por exemplo,\/https:/REST.Media.Azure.net).
+       Esse URI é o mesmo para contas de serviços de mídia que estão no mesmo ambiente do Azure (por exemplo, https: \/ /REST.Media.Azure.net).
 
    * ID do cliente do aplicativo (nativo) dos Serviços de Mídia.
    * URI de redirecionamento do aplicativo (nativo) dos Serviços de Mídia.
@@ -109,7 +108,7 @@ Para usar esse método, crie um aplicativo e uma entidade de serviço do Azure A
 
 Depois de criar o aplicativo do Azure AD, você obtém valores para as configurações a seguir. Você precisa destes valores para autenticação:
 
-- ID do cliente 
+- ID do Cliente 
 - Segredo do cliente 
 
 Na figura anterior, os números representam o fluxo das solicitações em ordem cronológica:
@@ -121,7 +120,7 @@ Na figura anterior, os números representam o fluxo das solicitações em ordem 
        As informações do locatário podem ser recuperadas no portal do Azure. Coloque o cursor sobre o nome do usuário conectado no canto superior direito.
    * URI de recurso dos Serviços de Mídia. 
 
-       Esse URI é o mesmo para contas de serviços de mídia que estão localizadas no mesmo ambiente do Azure (por exemplo\/, https:/REST.Media.Azure.net).
+       Esse URI é o mesmo para contas de serviços de mídia que estão localizadas no mesmo ambiente do Azure (por exemplo, https: \/ /REST.Media.Azure.net).
 
    * URI de recurso dos Serviços de Mídia REST.
 
