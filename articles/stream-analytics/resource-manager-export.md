@@ -1,20 +1,20 @@
 ---
-title: Exportar um modelo de Azure Resource Manager de trabalho de Azure Stream Analytics
+title: Exportar um modelo do Azure Resource Manager de um trabalho do Azure Stream Analytics
 description: Este artigo descreve como exportar um modelo de Azure Resource Manager para seu trabalho de Azure Stream Analytics.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 52ea7b45d0dcdb3ae16b8212557ba6ab3344ff15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 76c2cf7164c3e2d683a9294cb500ed05381811b6
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78968920"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043522"
 ---
-# <a name="export-an-azure-stream-analytics-job-azure-resource-manager-template"></a>Exportar um modelo de Azure Resource Manager de trabalho de Azure Stream Analytics
+# <a name="export-an-azure-stream-analytics-job-azure-resource-manager-template"></a>Exportar um modelo do Azure Resource Manager de um trabalho do Azure Stream Analytics
 
 Os [modelos de Azure Resource Manager](../azure-resource-manager/templates/overview.md) permitem implementar a infraestrutura como código. O modelo é um arquivo JavaScript Object Notation (JSON) que define a infraestrutura e a configuração de seus recursos. Você especifica os recursos a serem implantados e as propriedades desses recursos.
 
@@ -42,13 +42,13 @@ A próxima etapa é compilar o script de trabalho para um modelo de Azure Resour
 
 1. Observe que uma pasta de **implantação** aparece em seu espaço de trabalho Stream Analytics trabalho.
 
-1. Explore o arquivo *JobTemplate. JSON* , que é o modelo de gerenciamento de recursos do Azure usado para implantar.
+1. Explore o *JobTemplate.jsno* arquivo, que é o modelo de gerenciamento de recursos do Azure usado para implantar o.
 
 ## <a name="complete-the-parameters-file"></a>Concluir o arquivo de parâmetros
 
 Em seguida, conclua o arquivo de parâmetros do modelo do Azure Resource Management.
 
-1. Abra o arquivo *JobTemplate. Parameters. JSON* localizado na pasta **implantar** do espaço de trabalho Stream Analytics trabalho no Visual Studio Code.
+1. Abra o *JobTemplate.parameters.jsno* arquivo localizado na pasta **implantar** do espaço de trabalho Stream Analytics trabalho no Visual Studio Code.
 
 1. Observe que as chaves de entrada e saída são nulas. Substitua os valores nulos pelas teclas de acesso reais para os recursos de entrada e saída.
 
@@ -58,7 +58,7 @@ Em seguida, conclua o arquivo de parâmetros do modelo do Azure Resource Managem
 
 Você está pronto para implantar seu trabalho de Azure Stream Analytics usando os modelos de Azure Resource Manager gerados na seção anterior.
 
-Em uma janela do PowerShell, execute o comando a seguir. Certifique-se de reaplce o *ResourceGroupName*, o *modelofile*e o *TemplateParameterFile* com o nome real do grupo de recursos e os caminhos de arquivo completos para os arquivos *JobTemplate. JSON* e *JobTemplate. Parameters. JSON* na **pasta implantar** do espaço de trabalho de trabalho.
+Em uma janela do PowerShell, execute o comando a seguir. Certifique-se de reaplce o *ResourceGroupName*, o *modelofile*e o *TemplateParameterFile* com o nome do grupo de recursos real, e os caminhos de arquivo completos para o *JobTemplate.js* e *JobTemplate.parameters.jsem* arquivos na **pasta implantar** do espaço de trabalho de trabalho.
 
 Se você não tiver Azure PowerShell configurado, siga as etapas em [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 

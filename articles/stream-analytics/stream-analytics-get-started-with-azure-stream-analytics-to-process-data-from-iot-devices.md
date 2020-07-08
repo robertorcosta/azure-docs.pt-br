@@ -5,14 +5,14 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/26/2019
-ms.openlocfilehash: 0755131f7d8071e37eadc1339ebc5e122725fa71
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a40f92e88d2d8e5ca253446b9c67ad30df538a5b
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75426238"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043420"
 ---
 # <a name="process-real-time-iot-data-streams-with-azure-stream-analytics"></a>Processar fluxos de dados IoT em tempo real com Azure Stream Analytics
 
@@ -57,8 +57,8 @@ Para facilitar o uso, este guia de Introdução fornece um arquivo de dados de e
 ## <a name="create-an-azure-stream-analytics-query"></a>Criar uma instância do Azure Stream Analytics
 A próxima etapa após a criação do trabalho é escrever uma consulta. Você pode testar consultas em dados de exemplo sem conectar uma entrada ou saída ao seu trabalho.
 
-Baixe o [HelloWorldASA-InputStream. JSON](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json
-) do github. Em seguida, navegue até seu trabalho de Azure Stream Analytics no portal do Azure.
+Baixe o [HelloWorldASA-InputStream.jsno](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json
+) github. Em seguida, navegue até seu trabalho de Azure Stream Analytics no portal do Azure.
 
 Selecione **consulta** em **topologia do trabalho** no menu à esquerda. Em seguida, selecione **carregar entrada de exemplo**. Carregue o `HelloWorldASA-InputStream.json` arquivo e selecione **OK**.
 

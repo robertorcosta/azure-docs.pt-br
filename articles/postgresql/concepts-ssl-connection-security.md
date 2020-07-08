@@ -1,17 +1,17 @@
 ---
-title: TLS-banco de dados do Azure para PostgreSQL-servidor único
+title: SSL/TLS-banco de dados do Azure para PostgreSQL-servidor único
 description: Instruções e informações sobre como configurar a conectividade TLS para o banco de dados do Azure para PostgreSQL-servidor único.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/10/2020
-ms.openlocfilehash: d0482e5205b97b5c57c41e0ba98fb9ca819e5d5f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/30/2020
+ms.openlocfilehash: 6660c5d40ffb8ecb338dd9cdf53f24cfe2911713
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82141736"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043828"
 ---
 # <a name="configure-tls-connectivity-in-azure-database-for-postgresql---single-server"></a>Configurar a conectividade TLS no banco de dados do Azure para PostgreSQL-servidor único
 
@@ -51,11 +51,11 @@ Algumas estruturas de aplicativo que usam o PostgreSQL para seus serviços de ba
 
 ## <a name="applications-that-require-certificate-verification-for-tls-connectivity"></a>Aplicativos que exigem verificação de certificado para conectividade TLS
 
-Em alguns casos, os aplicativos exigem um arquivo de certificado local gerado de um arquivo de certificado (.cer) de uma Autoridade de Certificação (CA) confiável para se conectar com segurança. O certificado para se conectar a um servidor de banco de dados do Azure https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pempara PostgreSQL está localizado em. Baixe o arquivo de certificado e salve-o em seu local preferido.
+Em alguns casos, os aplicativos exigem um arquivo de certificado local gerado por meio de um arquivo de certificado de AC (autoridade de certificação) confiável para se conectar com segurança. O certificado para se conectar a um servidor de banco de dados do Azure para PostgreSQL está localizado em https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem . Baixe o arquivo de certificado e salve-o em seu local preferido. (Consulte os links a seguir para obter certificados para servidores em nuvens soberanass: [Azure governamental](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem), [Azure China](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)e [Azure Alemanha](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt).) 
 
 ### <a name="connect-using-psql"></a>Conectar usando psql
 
-O exemplo a seguir mostra como se conectar ao seu servidor PostgreSQL usando o utilitário de linha de comando psql. Use a `sslmode=verify-full` configuração cadeia de conexão para impor a verificação de certificado TLS/SSL. Passe o caminho do arquivo de certificado local `sslrootcert` para o parâmetro.
+O exemplo a seguir mostra como se conectar ao seu servidor PostgreSQL usando o utilitário de linha de comando psql. Use a `sslmode=verify-full` configuração cadeia de conexão para impor a verificação de certificado TLS/SSL. Passe o caminho do arquivo de certificado local para o `sslrootcert` parâmetro.
 
 O comando a seguir é um exemplo da cadeia de conexão psql:
 
@@ -66,6 +66,33 @@ psql "sslmode=verify-full sslrootcert=BaltimoreCyberTrustRoot.crt host=mydemoser
 > [!TIP]
 > Confirme se o valor passado para `sslrootcert` corresponde ao caminho do arquivo para o certificado que você salvou.
 
+## <a name="tls-enforcement-in-azure-database-for-postgresql-single-server"></a>Imposição de TLS no banco de dados do Azure para PostgreSQL servidor único
+
+Banco de dados do Azure para PostgreSQL-o servidor único dá suporte à criptografia para clientes que se conectam ao seu servidor de banco de dados usando o protocolo TLS. O TLS é um protocolo padrão do setor que garante conexões de rede seguras entre o servidor de banco de dados e os aplicativos cliente, permitindo que você atenda aos requisitos de conformidade.
+
+### <a name="tls-settings"></a>Configurações de protocolo TLS
+
+O banco de dados do Azure para PostgreSQL servidor único fornece a capacidade de impor a versão de TLS para as conexões de cliente. Para impor a versão de TLS, use a configuração de opção de **versão mínima do TLS** . Os valores a seguir são permitidos para esta configuração de opção:
+
+|  Configuração de TLS mínima             | Versão do TLS do cliente com suporte                |
+|:---------------------------------|-------------------------------------:|
+| TLSEnforcementDisabled (padrão) | Não é necessário TLS                      |
+| TLS1_0                           | TLS 1,0, TLS 1,1, TLS 1,2 e superior |
+| TLS1_1                           | TLS 1,1, TLS 1,2 e superior          |
+| TLS1_2                           | TLS versão 1,2 e superior           |
+
+
+Por exemplo, definir essa versão de configuração de TLS mínima como TLS 1,0 significa que o servidor permitirá conexões de clientes usando TLS 1,0, 1,1 e 1.2 +. Como alternativa, definir isso como 1,2 significa que você só permite conexões de clientes que usam o TLS 1.2 + e todas as conexões com TLS 1,0 e TLS 1,1 serão rejeitadas.
+
+> [!Note] 
+> Por padrão, o banco de dados do Azure para PostgreSQL não impõe uma versão mínima do TLS (a configuração `TLSEnforcementDisabled` ).
+>
+> Depois de aplicar uma versão mínima do TLS, não será possível desabilitar mais tarde a imposição mínima da versão.
+
+Para saber como definir a configuração de TLS para o servidor único do banco de dados do Azure para PostgreSQL, consulte [como definir a configuração de TLS](howto-tls-configurations.md).
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Examine várias opções de conectividade de aplicativo em [bibliotecas de conexões para o banco de dados do Azure para PostgreSQL](concepts-connection-libraries.md).
+
+- Saiba como [Configurar o TLS](howto-tls-configurations.md)

@@ -5,15 +5,15 @@ ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9d4df4efc6dbee88e80e620860487636cc9210dd
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 5213a13539ac028d3e2bfec3bc7476ac645f615b
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837205"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043471"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>O Stream Analytics do Azure no IoT Edge
  
@@ -43,13 +43,12 @@ O ASA usa o Hub IoT para implantar os trabalhos de borda para o(s) dispositivo(s
 
 ### <a name="installation-instructions"></a>Instruções de instalação
 As etapas de alto nível são descritas na tabela a seguir. Mais detalhes são fornecidos nas seções a seguir.
-
-|      |Etapa   | Observações   |
-| ---   | ---   |  ---      |
-| 1   | **Criar um contêiner de armazenamento**   | Contêineres de armazenamento são usados para salvar a definição de trabalho em que eles podem ser acessados por dispositivos IoT. <br>  Você pode reutilizar qualquer contêiner de armazenamento existente.     |
-| 2   | **Criar um trabalho de borda ASA**   |  Crie um novo trabalho e selecione **Borda** como **ambiente de hospedagem**. <br> Esses trabalhos são criados/gerenciados na nuvem e executados em seus próprios dispositivos IoT Edge.     |
-| 3   | **Configurar o ambiente IoT Edge nos dispositivos**   | Instruções para [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) ou [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
-| 4   | **Implantar o ASA em dispositivos IoT Edge**   |  A definição de trabalho ASA é exportada para o contêiner de armazenamento criado anteriormente.       |
+|Etapa   | Observações   |
+| ---   |  ---      |
+| **Criar um contêiner de armazenamento**   | Contêineres de armazenamento são usados para salvar a definição de trabalho em que eles podem ser acessados por dispositivos IoT. <br>  Você pode reutilizar qualquer contêiner de armazenamento existente.     |
+| **Criar um trabalho de borda ASA**   |  Crie um novo trabalho e selecione **Borda** como **ambiente de hospedagem**. <br> Esses trabalhos são criados/gerenciados na nuvem e executados em seus próprios dispositivos IoT Edge.     |
+| **Configurar o ambiente IoT Edge nos dispositivos**   | Instruções para [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) ou [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
+| **Implantar o ASA em dispositivos IoT Edge**   |  A definição de trabalho ASA é exportada para o contêiner de armazenamento criado anteriormente.       |
 
 Você pode seguir [este tutorial passo a passo](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) para implantar seu primeiro trabalho ASA no IoT Edge. O vídeo a seguir deve ajudar a compreender o processo para executar um trabalho do Azure Stream Analytics em um dispositivo de borda IoT:  
 

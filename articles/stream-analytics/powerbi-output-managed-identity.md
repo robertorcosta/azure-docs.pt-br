@@ -4,14 +4,14 @@ description: Este artigo descreve como usar identidades gerenciadas para autenti
 author: cedarbaum
 ms.author: sacedarb
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/10/2020
-ms.openlocfilehash: 31a5195038ef25acadc08e2acbedf8471b25833c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 647ab275fb7f34ee9721e4f085df0d22048fc04d
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81261407"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044236"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>Use a identidade gerenciada para autenticar seu trabalho de Azure Stream Analytics para Power BI
 
@@ -172,7 +172,7 @@ Agora que o trabalho de Stream Analytics foi criado, ele pode receber acesso a u
 
 ### <a name="use-the-power-bi-powershell-cmdlets"></a>Usar os cmdlets do Power BI PowerShell
 
-1. Instale os cmdlets do Power BI `MicrosoftPowerBIMgmt` PowerShell.
+1. Instale os `MicrosoftPowerBIMgmt` cmdlets do Power bi PowerShell.
 
    > [!Important]
    > Verifique se você está usando a versão 1.0.821 ou posterior dos cmdlets.

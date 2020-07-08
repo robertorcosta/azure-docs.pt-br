@@ -5,15 +5,15 @@ author: jseb225
 ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 52800f52e72e4aabcc8f6ebc733443615607f3a3
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: ae352ead9e3ba6980c82ea48dca3db872b8d1e6d
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835488"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043437"
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Gerenciamento de SDK do .NET: Configurar e executar trabalhos de análise usando API do Azure Stream Analytics para .NET
 Saiba como configurar e executar trabalhos de análise usando a API do Stream Analytics para .NET usando o SDK do .NET de Gerenciamento. Configurar um projeto, criar fontes de entrada e saídas, transformações e iniciar e parar trabalhos. Seus trabalhos de análise, você pode transmitir dados de armazenamento de Blob ou de um hub de eventos.
@@ -212,7 +212,7 @@ O método **TestConnection** testa se o trabalho do Stream Analytics é capaz de
 ## <a name="create-a-stream-analytics-output-target"></a>Criar um destino de saída do Stream Analytics
 Criar um destino de saída é semelhante a criar uma fonte de entrada do Stream Analytics. Como as fontes de entrada, os destinos de saída são vinculados a trabalho específico. Para usar o mesmo destino de saída para diferentes trabalhos, chame o método novamente e especifique um nome de trabalho diferente.
 
-O código a seguir cria um destino de saída (Banco de Dados SQL do Azure). Você pode personalizar o tipo de dados de destino de saída e/ou o tipo de serialização.
+O código a seguir cria um destino de saída (banco de dados SQL do Azure). Você pode personalizar o tipo de dados de destino de saída e/ou o tipo de serialização.
 
    ```csharp
    // Create an output
