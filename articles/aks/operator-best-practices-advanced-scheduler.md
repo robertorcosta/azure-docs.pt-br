@@ -5,11 +5,12 @@ description: Conheça as práticas recomendadas de operador do cluster para usar
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: f63db0efb509223715efd4848a91d0435ab54af7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b003c9f0c3b47779bd7da92fb64c57830911fae
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340846"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077840"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para os recursos do agendador avançado no Serviço de Kubernetes do Azure (AKS)
 
@@ -100,7 +101,7 @@ Taints e tolerations são usados para isolar logicamente recursos com um corte d
 Vamos examinar um exemplo de nós com uma grande quantidade de memória. Esses nós podem dar preferência ao pods que solicitam uma grande quantidade de memória. Para garantir que os recursos não fiquem ocioso, eles também permitem que outros pods sejam executados.
 
 ```console
-kubectl label node aks-nodepool1 hardware:highmem
+kubectl label node aks-nodepool1 hardware=highmem
 ```
 
 Uma especificação de pod, em seguida, adiciona a `nodeSelector` propriedade para definir um seletor de nó que corresponde ao rótulo definido em um nó:

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: c01e0df1f420c8489ca3445d9fa025b251a870f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 7/7/2020
+ms.openlocfilehash: c1f4945cda9db0f99799ea072737d4524f04e481
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79532384"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86076565"
 ---
 # <a name="understand-business-continuity-in-azure-database-for-mariadb"></a>Entender a continuidade dos negócios no banco de dados do Azure para MariaDB
 
@@ -48,11 +48,12 @@ A outra opção é usar a restauração geográfica do Banco de Dados do Azure p
 > [!IMPORTANT]
 > A restauração geográfica somente será possível se o servidor foi provisionado com armazenamento de backup com redundância geográfica.
 
+## <a name="cross-region-read-replicas"></a>Réplicas de leitura entre regiões
+
+Você pode usar réplicas de leitura entre regiões para aprimorar sua continuidade de negócios e planejamento de recuperação de desastre. As réplicas de leitura são atualizadas de forma assíncrona usando a tecnologia de replicação de log binário do MariaDB. Saiba mais sobre réplicas de leitura, regiões disponíveis e como fazer failover do [artigo conceitos de leitura de réplicas](concepts-read-replicas.md). 
+
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber mais sobre backups automáticos, consulte [Backups no Banco de Dados do Azure para MariaDB](concepts-backup.md).
-- Para restaurar para um determinado ponto no tempo usando o Portal do Azure, confira  [Restaurar um banco de dados para um ponto no tempo usando o Portal do Azure](howto-restore-server-portal.md).
-
-<!--
-- To restore to a point in time using Azure CLI, see [restore database to a point in time using CLI](howto-restore-server-cli.md). 
--->
+- Saiba mais sobre os [backups automatizados no banco de dados do Azure para MariaDB](concepts-backup.md).
+- Saiba como restaurar usando o [portal do Azure](howto-restore-server-portal.md) ou a [CLI do Azure](howto-restore-server-cli.md).
+- Saiba mais sobre [réplicas de leitura no banco de dados do Azure para MariaDB](concepts-read-replicas.md).

@@ -2,13 +2,13 @@
 title: Funções de modelo-data
 description: Descreve as funções a serem usadas em um modelo de Azure Resource Manager para trabalhar com datas.
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: 0c31b26361a262a502b2a9e0fb068391846cab4b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/22/2020
+ms.openlocfilehash: abdc88ce15279b90f8f9dc05a38a2ae236498f12
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192290"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058037"
 ---
 # <a name="date-functions-for-arm-templates"></a>Funções de data para modelos de ARM
 
@@ -25,13 +25,13 @@ Adiciona uma duração de tempo a um valor base. O formato ISO 8601 é esperado.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | Digite | Descrição |
 |:--- |:--- |:--- |:--- |
-| base | Sim | cadeia de caracteres | O valor DateTime inicial para a adição. Use o [formato de carimbo de data/hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). |
-| duration | Sim | cadeia de caracteres | O valor de tempo a ser adicionado à base. Pode ser um valor negativo. Use o [formato de duração ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
-| format | Não | cadeia de caracteres | O formato de saída para o resultado de data e hora. Se não for fornecido, o formato do valor de base será usado. Use cadeias de caracteres de [formato padrão](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [cadeias de caracteres de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| base | Sim | string | O valor DateTime inicial para a adição. Use o [formato de carimbo de data/hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). |
+| duration | Sim | string | O valor de tempo a ser adicionado à base. Pode ser um valor negativo. Use o [formato de duração ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
+| format | Não | string | O formato de saída para o resultado de data e hora. Se não for fornecido, o formato do valor de base será usado. Use cadeias de caracteres de [formato padrão](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [cadeias de caracteres de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 O valor de data e hora que resulta da adição do valor de duração ao valor base.
 
@@ -72,9 +72,9 @@ O modelo de exemplo a seguir mostra diferentes maneiras de adicionar valores de 
 }
 ```
 
-Quando o modelo anterior é implantado com uma hora `2020-04-07 14:53:14Z`base de, a saída é:
+Quando o modelo anterior é implantado com uma hora base de `2020-04-07 14:53:14Z` , a saída é:
 
-| Nome | Type | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | add3Years | String | 4/7/2023 2:53:14 PM |
 | subtract9Days | String | 3/29/2020 2:53:14 PM |
@@ -142,19 +142,19 @@ Retorna o valor DateTime (UTC) atual no formato especificado. Se nenhum formato 
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | Digite | Descrição |
 |:--- |:--- |:--- |:--- |
-| format |Não |cadeia de caracteres |O valor codificado em URI a ser convertido em uma cadeia de caracteres. Use cadeias de caracteres de [formato padrão](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [cadeias de caracteres de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| format |Não |string |O valor codificado em URI a ser convertido em uma cadeia de caracteres. Use cadeias de caracteres de [formato padrão](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [cadeias de caracteres de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="remarks"></a>Comentários
 
 Você só pode usar essa função dentro de uma expressão para o valor padrão de um parâmetro. O uso dessa função em qualquer outro lugar em um modelo retorna um erro. A função não é permitida em outras partes do modelo porque ela retorna um valor diferente cada vez que é chamada. Implantar o mesmo modelo com os mesmos parâmetros não produziria com confiança os mesmos resultados.
 
-Se você usar a [opção para reimplantar uma implantação bem-sucedida anterior](rollback-on-error.md)e a implantação anterior incluir um parâmetro que usa UtcNow, o parâmetro não será reavaliado. Em vez disso, o valor do parâmetro da implantação anterior é automaticamente reutilizado na implantação de reversão.
+Se você usar a [opção para reverter em](rollback-on-error.md) caso de erro para uma implantação bem-sucedida anterior e a implantação anterior incluir um parâmetro que usa UtcNow, o parâmetro não será reavaliado. Em vez disso, o valor do parâmetro da implantação anterior é automaticamente reutilizado na implantação de reversão.
 
 Tenha cuidado ao reimplantar um modelo que dependa da função utcNow para um valor padrão. Quando você reimplanta e não fornece um valor para o parâmetro, a função é reavaliada. Se você quiser atualizar um recurso existente em vez de criar um novo, passe o valor do parâmetro da implantação anterior.
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 O valor DateTime UTC atual.
 
@@ -164,7 +164,7 @@ O modelo de exemplo a seguir mostra formatos diferentes para o valor DateTime.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "utcValue": {
@@ -201,11 +201,11 @@ O modelo de exemplo a seguir mostra formatos diferentes para o valor DateTime.
 
 A saída do exemplo anterior varia de acordo com cada implantação, mas será semelhante a:
 
-| Nome | Type | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| utcOutput | cadeia de caracteres | 20190305T175318Z |
-| utcShortOutput | cadeia de caracteres | 05/03/2019 |
-| utcCustomOutput | cadeia de caracteres | 3 5 |
+| utcOutput | string | 20190305T175318Z |
+| utcShortOutput | string | 05/03/2019 |
+| utcCustomOutput | string | 3 5 |
 
 O exemplo a seguir mostra como usar um valor da função ao definir um valor de marca.
 

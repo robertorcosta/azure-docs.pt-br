@@ -10,11 +10,11 @@ ms.date: 02/14/2020
 ms.topic: include
 ms.custom: include file
 ms.author: diberry
-ms.openlocfilehash: 0f5ee8b1f575c3caa8e1e2608444ea853c51d53f
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: a55f880398aa186ef2f2e7e2c66d731c1631b3f4
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77372260"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86062675"
 ---
-Para este artigo, você pode usar a conta gratuita do [LUIS](../luis-concept-keys.md#starter-key) para criar o seu aplicativo do LUIS.
+Para este artigo, você pode usar a conta gratuita do [LUIS](../luis-how-to-azure-subscription.md#starter-key) para criar o seu aplicativo do LUIS.

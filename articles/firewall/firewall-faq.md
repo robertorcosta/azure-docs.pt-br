@@ -5,13 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 07/07/2020
 ms.author: victorh
-ms.openlocfilehash: cf896f6783cca0a61892c43860328d87ada56a9c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 27cdff24672f70407e8f8f89c6c49a8c2de87d0a
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791479"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078418"
 ---
 # <a name="azure-firewall-faq"></a>Perguntas frequentes do Firewall do Azure
 
@@ -218,3 +219,7 @@ Não, não há suporte para a movimentação de um grupo de IPS para outro grupo
 ## <a name="what-is-the-tcp-idle-timeout-for-azure-firewall"></a>Qual é o tempo limite de ociosidade de TCP para o Firewall do Azure?
 
 Um comportamento padrão de um firewall de rede é garantir que as conexões TCP sejam mantidas ativas e fechá-las imediatamente se não houver atividade. O tempo limite de ociosidade de TCP do firewall do Azure é de quatro minutos. Essa configuração não é configurável. Se um período de inatividade for maior do que o valor de tempo limite, não haverá garantia de que a sessão TCP ou HTTP seja mantida. Uma prática comum é usar um TCP keep alive. Essa prática mantém a conexão ativa por um período maior. Para obter mais informações, consulte os [exemplos do .net](https://docs.microsoft.com/dotnet/api/system.net.servicepoint.settcpkeepalive?redirectedfrom=MSDN&view=netcore-3.1#System_Net_ServicePoint_SetTcpKeepAlive_System_Boolean_System_Int32_System_Int32_).
+
+## <a name="can-i-deploy-azure-firewall-without-a-public-ip-address"></a>Posso implantar o Firewall do Azure sem um endereço IP público?
+
+Não, no momento, você deve implantar o Firewall do Azure com um endereço IP público.

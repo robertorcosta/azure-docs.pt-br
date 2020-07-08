@@ -2,35 +2,35 @@
 title: Autenticação externa da tarefa ACR
 description: Configurar uma tarefa de registro de contêiner do Azure (tarefa ACR) para ler as credenciais do Hub do Docker armazenadas em um cofre de chaves do Azure, usando uma identidade gerenciada para recursos do Azure.
 ms.topic: article
-ms.date: 01/14/2020
-ms.openlocfilehash: 47d3d643ee1287ef4f444095a2c6cfe6dcab294b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 07/06/2020
+ms.openlocfilehash: 0bc43f958a14016146160a06372af0b36a9fff75
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76842513"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058122"
 ---
 # <a name="external-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Autenticação externa em uma tarefa ACR usando uma identidade gerenciada pelo Azure 
 
-Em uma [tarefa ACR](container-registry-tasks-overview.md), você pode [habilitar uma identidade gerenciada para recursos do Azure](container-registry-tasks-authentication-managed-identity.md). A tarefa pode usar a identidade para acessar outros recursos do Azure, sem a necessidade de fornecer ou gerenciar credenciais. 
+Em uma [tarefa do ACR](container-registry-tasks-overview.md), você pode [habilitar uma identidade gerenciada para os recursos do Azure](container-registry-tasks-authentication-managed-identity.md). A tarefa pode usar a identidade para acessar outros recursos Azure, sem a necessidade de fornecer ou gerenciar credenciais. 
 
 Neste artigo, você aprenderá a habilitar uma identidade gerenciada em uma tarefa que acessa os segredos armazenados em um cofre de chaves do Azure. 
 
-Para criar os recursos do Azure, este artigo requer que você execute o CLI do Azure versão 2.0.68 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli].
+Para criar os recursos do Azure, este artigo requer que você execute a versão 2.0.68 ou posterior da CLI do Azure. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli].
 
 ## <a name="scenario-overview"></a>Visão geral do cenário
 
 A tarefa de exemplo lê as credenciais do Hub do Docker armazenadas em um cofre de chaves do Azure. As credenciais são para uma conta de Hub do Docker com permissões de gravação (push) para um repositório privado do Hub do Docker. Para ler as credenciais, configure a tarefa com uma identidade gerenciada e atribua as permissões apropriadas a ela. A tarefa associada à identidade cria uma imagem e entra no Hub do Docker para enviar a imagem por push para o repositório privado. 
 
-Este exemplo mostra etapas usando uma identidade gerenciada atribuída pelo usuário ou pelo sistema. Sua escolha de identidade depende das necessidades da sua organização.
+Este exemplo mostra as etapas usando uma identidade gerenciada atribuída pelo usuário ou pelo sistema. A sua escolha de identidade depende das necessidades da sua organização.
 
 Em um cenário do mundo real, uma empresa pode publicar imagens em um repositório privado no Hub do Docker como parte de um processo de compilação. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você precisa de um registro de contêiner do Azure no qual executa a tarefa. Neste artigo, esse registro é denominado *myregistry*. Substitua pelo seu próprio nome de registro em etapas posteriores.
+Você precisa de um registro de contêiner do Azure no qual executa a tarefa. Neste artigo, esse registro é nomeado *myregistry*. Substitua pelo seu próprio nome de registro em etapas posteriores.
 
-Se você ainda não tiver um registro de contêiner do Azure, consulte [início rápido: criar um registro de contêiner privado usando o CLI do Azure](container-registry-get-started-azure-cli.md). Você ainda não precisa enviar imagens por push ao registro.
+Se você ainda não tiver um registro de contêiner do Azure, consulte [início rápido: criar um registro de contêiner privado usando o CLI do Azure](container-registry-get-started-azure-cli.md). Você ainda não precisa enviar imagens por push para o registro.
 
 Você também precisa de um repositório privado no Hub do Docker e uma conta do Hub do Docker com permissões para gravar no repositório. Neste exemplo, esse repositório é denominado *hubuser/hubrepo*. 
 
@@ -66,7 +66,7 @@ az keyvault secret set \
 
 Em um cenário do mundo real, os segredos provavelmente seriam definidos e mantidos em um processo separado.
 
-## <a name="define-task-steps-in-yaml-file"></a>Definir etapas de tarefa no arquivo YAML
+## <a name="define-task-steps-in-yaml-file"></a>Definir as etapas de tarefa no arquivo YAML
 
 As etapas para esta tarefa de exemplo são definidas em um [arquivo YAML](container-registry-tasks-reference-yaml.md). Crie um arquivo chamado `dockerhubtask.yaml` em um diretório de trabalho local e cole o conteúdo a seguir. Certifique-se de substituir o nome do cofre de chaves no arquivo pelo nome do cofre de chaves.
 
@@ -91,20 +91,20 @@ steps:
 As etapas da tarefa fazem o seguinte:
 
 * Gerencie credenciais de segredo para autenticar com o Hub do Docker.
-* Autentique com o Hub do Docker passando os segredos para `docker login` o comando.
+* Autentique com o Hub do Docker passando os segredos para o `docker login` comando.
 * Crie uma imagem usando um exemplo de Dockerfile no repositório [Azure-Samples/ACR-Tasks](https://github.com/Azure-Samples/acr-tasks.git) .
 * Envie a imagem por push para o repositório privado do Hub do Docker.
 
 
-## <a name="option-1-create-task-with-user-assigned-identity"></a>Opção 1: criar tarefa com identidade atribuída pelo usuário
+## <a name="option-1-create-task-with-user-assigned-identity"></a>Opção 1: Criar tarefa com identidade atribuída pelo usuário
 
-As etapas nesta seção criam uma tarefa e habilitam uma identidade atribuída pelo usuário. Se você quiser habilitar uma identidade atribuída pelo sistema, consulte a [opção 2: criar tarefa com a identidade atribuída pelo sistema](#option-2-create-task-with-system-assigned-identity). 
+As etapas nesta seção criam uma tarefa e habilitam uma identidade atribuída pelo usuário. Se você quiser habilitar uma identidade atribuída pelo sistema, consulte [Opção 2: Criar tarefa com identidade atribuída pelo usuário](#option-2-create-task-with-system-assigned-identity). 
 
 [!INCLUDE [container-registry-tasks-user-assigned-id](../../includes/container-registry-tasks-user-assigned-id.md)]
 
 ### <a name="create-task"></a>Criar tarefa
 
-Crie a tarefa *dockerhubtask* executando o comando [AZ ACR Task Create][az-acr-task-create] a seguir. A tarefa é executada sem um contexto de código-fonte e o comando faz `dockerhubtask.yaml` referência ao arquivo no diretório de trabalho. O `--assign-identity` parâmetro passa a ID de recurso da identidade atribuída pelo usuário. 
+Crie a tarefa *dockerhubtask* executando o comando [AZ ACR Task Create][az-acr-task-create] a seguir. A tarefa é executada sem um contexto de código-fonte, e o comando faz referência ao arquivo `dockerhubtask.yaml` no diretório de trabalho. O parâmetro `--assign-identity` passa a ID do recurso da identidade atribuída pelo usuário. 
 
 ```azurecli
 az acr task create \
@@ -117,13 +117,27 @@ az acr task create \
 
 [!INCLUDE [container-registry-tasks-user-id-properties](../../includes/container-registry-tasks-user-id-properties.md)]
 
-## <a name="option-2-create-task-with-system-assigned-identity"></a>Opção 2: criar tarefa com identidade atribuída pelo sistema
 
-As etapas nesta seção criam uma tarefa e habilitam uma identidade atribuída pelo sistema. Se você quiser habilitar uma identidade atribuída pelo usuário, consulte a [opção 1: criar tarefa com a identidade atribuída pelo usuário](#option-1-create-task-with-user-assigned-identity). 
+### <a name="grant-identity-access-to-key-vault"></a>Conceder acesso de identidade ao cofre de chaves
+
+Execute o seguinte comando [AZ keyvault Set-Policy][az-keyvault-set-policy] para definir uma política de acesso no cofre de chaves. O exemplo a seguir permite que a identidade Leia segredos do cofre de chaves. 
+
+```azurecli
+az keyvault set-policy --name mykeyvault \
+  --resource-group myResourceGroup \
+  --object-id $principalID \
+  --secret-permissions get
+```
+
+Continue para [executar a tarefa manualmente](#manually-run-the-task).
+
+## <a name="option-2-create-task-with-system-assigned-identity"></a>Opção 2: Criar tarefa com identidade atribuída pelo sistema
+
+As etapas nesta seção criam uma tarefa e habilitam uma identidade atribuída pelo sistema. Se você quiser habilitar uma identidade atribuída pelo usuário, consulte [Opção 1: Criar tarefa com identidade atribuída pelo usuário](#option-1-create-task-with-user-assigned-identity). 
 
 ### <a name="create-task"></a>Criar tarefa
 
-Crie a tarefa *dockerhubtask* executando o comando [AZ ACR Task Create][az-acr-task-create] a seguir. A tarefa é executada sem um contexto de código-fonte e o comando faz `dockerhubtask.yaml` referência ao arquivo no diretório de trabalho. O `--assign-identity` parâmetro sem valor habilita a identidade atribuída pelo sistema na tarefa.  
+Crie a tarefa *dockerhubtask* executando o comando [AZ ACR Task Create][az-acr-task-create] a seguir. A tarefa é executada sem um contexto de código-fonte, e o comando faz referência ao arquivo `dockerhubtask.yaml` no diretório de trabalho. O parâmetro `--assign-identity` sem valor habilita a identidade atribuída pelo sistema na tarefa.  
 
 ```azurecli
 az acr task create \
@@ -136,7 +150,7 @@ az acr task create \
 
 [!INCLUDE [container-registry-tasks-system-id-properties](../../includes/container-registry-tasks-system-id-properties.md)]
 
-## <a name="grant-identity-access-to-key-vault"></a>Conceder acesso de identidade ao cofre de chaves
+### <a name="grant-identity-access-to-key-vault"></a>Conceder acesso de identidade ao cofre de chaves
 
 Execute o seguinte comando [AZ keyvault Set-Policy][az-keyvault-set-policy] para definir uma política de acesso no cofre de chaves. O exemplo a seguir permite que a identidade Leia segredos do cofre de chaves. 
 
@@ -149,7 +163,7 @@ az keyvault set-policy --name mykeyvault \
 
 ## <a name="manually-run-the-task"></a>Executar a tarefa manualmente
 
-Para verificar se a tarefa na qual você habilitou uma identidade gerenciada é executada com êxito, acione manualmente a tarefa com o comando [AZ ACR Task execute][az-acr-task-run] . O `--set` parâmetro é usado para passar o nome do repositório privado para a tarefa. Neste exemplo, o nome do repositório de espaço reservado é *hubuser/hubrepo*.
+Para verificar se a tarefa na qual você habilitou uma identidade gerenciada está sendo executada com sucesso, acione manualmente a tarefa com o comando [az acr task run][az-acr-task-run]. O `--set` parâmetro é usado para passar o nome do repositório privado para a tarefa. Neste exemplo, o nome do repositório de espaço reservado é *hubuser/hubrepo*.
 
 ```azurecli
 az acr task run --name dockerhubtask --registry myregistry --set PrivateRepo=hubuser/hubrepo
@@ -202,12 +216,12 @@ Sending build context to Docker daemon    129kB
 Run ID: cf24 was successful after 15s
 ```
 
-Para confirmar se a imagem foi enviada por push, verifique a`cf24` marca (neste exemplo) no repositório privado do Hub do Docker.
+Para confirmar se a imagem foi enviada por push, verifique a marca ( `cf24` neste exemplo) no repositório privado do Hub do Docker.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre como [habilitar uma identidade gerenciada em uma tarefa ACR](container-registry-tasks-authentication-managed-identity.md).
-* Consulte a [referência de YAML de tarefas do ACR](container-registry-tasks-reference-yaml.md)
+* Saiba mais sobre [habilitar uma identidade gerenciada em uma tarefa do ACR](container-registry-tasks-authentication-managed-identity.md).
+* Consulte [a referência YAML das Tarefas do ACR](container-registry-tasks-reference-yaml.md)
 
 
 <!-- LINKS - Internal -->

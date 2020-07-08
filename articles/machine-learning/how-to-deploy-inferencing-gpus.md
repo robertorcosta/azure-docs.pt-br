@@ -11,12 +11,12 @@ author: csteegz
 ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.custom: tracking-python
-ms.openlocfilehash: c115b641ca5c22ebe227af5349d7ef133e198b44
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 344112e19adbfaa1b06eebab309f31ed4e070c7d
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84976737"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86076973"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Implantar um modelo de aprendizado profundo para inferência com GPU
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -161,6 +161,9 @@ channels:
 Para este exemplo, o arquivo é salvo como `myenv.yml` .
 
 ## <a name="define-the-deployment-configuration"></a>Definir a configuração de implantação
+
+> [!IMPORTANT]
+> AKS não permite que o pods Compartilhe GPUs, você pode ter apenas tantas réplicas de um serviço Web habilitado para GPU, pois há GPUs no cluster.
 
 A configuração de implantação define o ambiente do serviço kubernetes do Azure usado para executar o serviço Web:
 

@@ -2,25 +2,21 @@
 title: Práticas recomendadas para modelos
 description: Descreve as abordagens recomendadas para a criação de modelos do Azure Resource Manager. Oferece sugestões para evitar problemas comuns ao usar os modelos.
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 870636d6457d842c89f261c2537644c17a335294
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/09/2020
+ms.openlocfilehash: a85e9afd64c416628c35bd36d16086f28d0732d3
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80156405"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058054"
 ---
 # <a name="arm-template-best-practices"></a>Práticas recomendadas do modelo ARM
 
-Este artigo fornece recomendações sobre como construir seu modelo de Azure Resource Manager (ARM). Essas recomendações ajudam a evitar problemas comuns ao usar um modelo ARM para implantar uma solução.
-
-Para obter recomendações sobre como controlar suas assinaturas do Azure, consulte [Azure Enterprise Scaffold: governança de assinatura prescritiva](/azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=%2Fen-us%2Fazure%2Fazure-resource-manager%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json).
-
-Para obter recomendações sobre como criar modelos que funcionam em todos os ambientes de nuvem do Azure, consulte [Desenvolver modelos do Azure Resource Manager para manter a consistência nuvem](templates-cloud-consistency.md).
+Este artigo mostra como usar as práticas recomendadas ao construir o modelo do ARM. Essas recomendações ajudam a evitar problemas comuns ao usar um modelo ARM para implantar uma solução.
 
 ## <a name="template-limits"></a>Limites de modelo
 
-Limite o tamanho do modelo para 4 MB e cada arquivo de parâmetro para 64 KB. O limite de 4 MB se aplica ao estado final do modelo depois que ele é expandido com definições de recursos iterativos e valores para variáveis e parâmetros. 
+Limite o tamanho do modelo para 4 MB e cada arquivo de parâmetro para 64 KB. O limite de 4 MB se aplica ao estado final do modelo depois que ele é expandido com definições de recursos iterativos e valores para variáveis e parâmetros.
 
 Você também está limitado a:
 
@@ -234,7 +230,7 @@ As seguintes informações podem ser úteis quando você trabalha com [recursos]
    * [Configurar acesso WinRM para VMs no Azure Resource Manager](../../virtual-machines/windows/winrm.md)
    * [Permitir acesso externo à sua VM usando o portal do Azure](../../virtual-machines/windows/nsg-quickstart-portal.md)
    * [Permitir acesso externo à sua VM usando o PowerShell](../../virtual-machines/windows/nsg-quickstart-powershell.md)
-   * [Permitir acesso externo à sua VM Linux usando a CLI do Azure](../../virtual-machines/virtual-machines-linux-nsg-quickstart.md)
+   * [Permitir acesso externo à sua VM Linux usando a CLI do Azure](../../virtual-machines/linux/nsg-quickstart.md)
 
 * A propriedade **domainNameLabel** para endereços IP públicos deve ser exclusiva. O valor de **domainNameLabel** deve ter entre 3 e 63 caracteres e seguir as regras especificadas por essa expressão regular: `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. Como a função **uniqueString** gera uma cadeia de caracteres com tamanho de 13 caracteres, o parâmetro **dnsPrefixString** é limitado a 50 caracteres:
 
@@ -275,7 +271,12 @@ As seguintes informações podem ser úteis quando você trabalha com [recursos]
    > [!NOTE]
    > Para garantir que os segredos sejam criptografados quando passados como parâmetros para VMs e extensões, use a propriedade **protectedSettings** das extensões relevantes.
    > 
-   > 
+
+## <a name="use-test-toolkit"></a>Usar o kit de ferramentas de teste
+
+O kit de ferramentas de teste do modelo ARM é um script que verifica se o modelo usa práticas recomendadas. Quando o modelo não está em conformidade com as práticas recomendadas, ele retorna uma lista de avisos com alterações sugeridas. O kit de ferramentas de teste pode ajudá-lo a aprender como implementar práticas recomendadas em seu modelo.
+
+Depois de concluir o modelo, execute o kit de ferramentas de teste para ver se há maneiras de melhorar a implementação de ti. Para obter mais informações, consulte [ARM template Test Toolkit](test-toolkit.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

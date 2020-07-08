@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 48602cb65430bcf6720b4d6f4ba05c771a7bd55b
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 03ef1708f836eb016d8f2fce530b9588cc61cd35
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559952"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86075698"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Gerenciar clusters HDInsight usando a API REST do Apache Ambari
 
@@ -27,7 +27,7 @@ O Apache Ambari simplifica o gerenciamento e o monitoramento de clusters do Hado
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um cluster Hadoop no HDInsight. Consulte [introdução ao HDInsight no Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
+* Um cluster Hadoop no HDInsight. Consulte [Introdução ao HDInsight no Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
 * Bash no Ubuntu no Windows 10.  Os exemplos deste artigo usam o shell do Bash no Windows 10. Confira o [Guia de instalação do subsistema do Windows para Linux para o Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) para conhecer as etapas de instalação.  Outros [shells do Unix](https://www.gnu.org/software/bash/) também funcionarão.  Os exemplos, com algumas pequenas modificações, podem funcionar em um prompt de comando do Windows.  Ou você pode usar o Windows PowerShell.
 
@@ -37,13 +37,13 @@ O Apache Ambari simplifica o gerenciamento e o monitoramento de clusters do Hado
 
 ## <a name="base-uniform-resource-identifier-for-ambari-rest-api"></a>Uniform Resource Identifier base para a API REST do Ambari
 
- O URI (Uniform Resource Identifier base) para a API REST do Ambari no HDInsight `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`é, `CLUSTERNAME` em que é o nome do cluster.  Os nomes de cluster nos URIs diferenciam **maiúsculas de minúsculas**.  Embora o nome do cluster na parte do FQDN (nome de domínio totalmente qualificado) do URI`CLUSTERNAME.azurehdinsight.net`() não diferencia maiúsculas de minúsculas, outras ocorrências no URI diferenciam maiúsculas de minúsculas.
+ O URI (Uniform Resource Identifier base) para a API REST do Ambari no HDInsight é `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME` , em que `CLUSTERNAME` é o nome do cluster.  Os nomes de cluster nos URIs diferenciam **maiúsculas de minúsculas**.  Embora o nome do cluster na parte do FQDN (nome de domínio totalmente qualificado) do URI ( `CLUSTERNAME.azurehdinsight.net` ) não diferencia maiúsculas de minúsculas, outras ocorrências no URI diferenciam maiúsculas de minúsculas.
 
 ## <a name="authentication"></a>Autenticação
 
 Conectar-se ao Ambari no HDInsight requer HTTPS. Use o nome da conta do administrador (o padrão é **admin**) e a senha fornecidos durante a criação do cluster.
 
-Para Enterprise Security Package clusters, em vez `admin`de, use um nome de usuário `username@domain.onmicrosoft.com`totalmente qualificado como.
+Para Enterprise Security Package clusters, em vez de `admin` , use um nome de usuário totalmente qualificado como `username@domain.onmicrosoft.com` .
 
 ## <a name="examples"></a>Exemplos
 
@@ -52,7 +52,7 @@ Para Enterprise Security Package clusters, em vez `admin`de, use um nome de usu�
 Preserve suas credenciais para evitar reinseri-las para cada exemplo.  O nome do cluster será preservado em uma etapa separada.
 
 **A. bash**  
-Edite o script a seguir `PASSWORD` substituindo pela sua senha real.  Em seguida, digite o comando.
+Edite o script a seguir substituindo `PASSWORD` pela sua senha real.  Em seguida, digite o comando.
 
 ```bash
 export password='PASSWORD'
@@ -68,7 +68,7 @@ $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
 
 A capitalização real do nome do cluster pode ser diferente do esperado.  As etapas aqui mostrarão o capital real e, em seguida, o armazenará em uma variável para todos os exemplos posteriores.
 
-Edite os scripts abaixo para `CLUSTERNAME` substituir pelo nome do cluster. Em seguida, digite o comando. (O nome do cluster para o FQDN não diferencia maiúsculas de minúsculas.)
+Edite os scripts abaixo para substituir `CLUSTERNAME` pelo nome do cluster. Em seguida, digite o comando. (O nome do cluster para o FQDN não diferencia maiúsculas de minúsculas.)
 
 ```bash
 export clusterName=$(curl -u admin:$password -sS -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
@@ -87,7 +87,7 @@ $clusterName
 
 ### <a name="parsing-json-data"></a>Analisar dados JSON
 
-O exemplo a seguir usa [JQ](https://stedolan.github.io/jq/) ou [ConvertFrom-JSON](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json) para analisar o documento de resposta JSON e exibir `health_report` apenas as informações dos resultados.
+O exemplo a seguir usa [JQ](https://stedolan.github.io/jq/) ou [ConvertFrom-JSON](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json) para analisar o documento de resposta JSON e exibir apenas as `health_report` informações dos resultados.
 
 ```bash
 curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName" \
@@ -364,11 +364,13 @@ Este exemplo retorna um documento JSON que contém a configuração atual do com
 2. Edite `newconfig.json`.  
    Abra o documento `newconfig.json` e modifique/adicione valores no objeto `properties`. O exemplo a seguir altera o valor de `"livy.server.csrf_protection.enabled"` desde `"true"` até `"false"`.
 
-        "livy.server.csrf_protection.enabled": "false",
+    ```json
+    "livy.server.csrf_protection.enabled": "false",
+    ```
 
     Salve o arquivo quando terminar de fazer modificações.
 
-3. Enviar `newconfig.json`.  
+3. Enviar `newconfig.json` .  
    Use os seguintes comandos para enviar a configuração atualizada ao Ambari.
 
     ```bash
@@ -385,7 +387,7 @@ Este exemplo retorna um documento JSON que contém a configuração atual do com
     $resp.Content
     ```  
 
-    Esses comandos enviam o conteúdo do arquivo **newconfig. JSON** para o cluster como a nova configuração. A solicitação retorna um documento JSON. O elemento **versionTag** nesse documento deverá corresponder à versão enviada e o objeto **configs** conterá as alterações de configuração solicitadas.
+    Esses comandos enviam o conteúdo do **newconfig.jsno** arquivo para o cluster como a nova configuração. A solicitação retorna um documento JSON. O elemento **versionTag** nesse documento deverá corresponder à versão enviada e o objeto **configs** conterá as alterações de configuração solicitadas.
 
 ### <a name="restart-a-service-component"></a>Reiniciar um componente de serviço
 
@@ -456,10 +458,10 @@ Neste ponto, a interface do usuário da Web do amAmbari indica que o serviço Sp
     ```
 
     > [!IMPORTANT]  
-    > O valor `href` retornado por esse URI usa o endereço IP interno do nó de cluster. Para usá-lo de fora do cluster, substitua `10.0.0.18:8080` a parte pelo FQDN do cluster.  
+    > O valor `href` retornado por esse URI usa o endereço IP interno do nó de cluster. Para usá-lo de fora do cluster, substitua a `10.0.0.18:8080` parte pelo FQDN do cluster.  
 
 4. Verificar solicitação.  
-    Edite o comando a seguir `29` substituindo pelo valor real `id` para retornado da etapa anterior.  Os comandos a seguir recuperam o status da solicitação:
+    Edite o comando a seguir substituindo pelo `29` valor real para `id` retornado da etapa anterior.  Os comandos a seguir recuperam o status da solicitação:
 
     ```bash
     curl -u admin:$password -sS -H "X-Requested-By: ambari" \

@@ -9,20 +9,20 @@ editor: cgronlun
 ms.assetid: 3a7ac351-ebd3-43a1-8c5d-18223903d08e
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/28/2017
-ms.openlocfilehash: aa8500e0e301de5f015d074646bf4da82e4de0a1
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: HT
+ms.openlocfilehash: b844a18a5acbd7a631bfe3b650dfa155d0e064ba
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84192549"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86076650"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>Implantar os serviços Web do Azure Machine Learning Studio (clássico) que usam os módulos Importar Dados e Exportar Dados
 
 Quando você cria um experimento de previsão, normalmente adiciona uma entrada e uma saída de serviço Web. Ao implantar o experimento, os consumidores poderão enviar e receber dados do serviço Web por meio de entradas e saídas. Para alguns aplicativos, os dados do cliente podem estar disponíveis a partir de um feed de dados ou já residirem em uma fonte de dados externa, como o armazenamento de Blobs do Azure. Nesses casos, eles não precisam de dados de leitura e gravação usando saídas e entradas do serviço Web. Em vez disso, eles podem usar o BES (Serviço de execução de lote) para ler dados da fonte de dados usando um módulo Importar Dados e gravar os resultados de pontuação em um local de dados diferente usando um módulo Exportar Dados.
 
-Os módulos Importar Dados e Exportar Dados podem ler e gravar em vários locais de dados, como uma URL da Web via HTTP, uma Consulta de Hive, um banco de dados SQL do Azure, Armazenamento de Tabelas do Azure, Armazenamento de Blobs do Azure, um provedor de Feed de Dados ou um banco de dados SQL Server.
+Os módulos importar dados e exportar dados podem ler e gravar em vários locais de dados, como uma URL da Web por meio de HTTP, uma consulta de Hive, um banco de dado no Azure SQL Database, o armazenamento de tabelas do Azure, o armazenamento de BLOBs do Azure, um feed de dados fornecido ou um SQL Server.
 
 Este tópico usa o "Exemplo 5: Treinar, testar, avaliar para classificação binária: conjunto de dados de adulto" e pressupõe que o conjunto de dados já tenha sido carregado em uma tabela SQL do Azure chamada censusdata.
 
@@ -41,8 +41,8 @@ Para ler os dados da tabela SQL do Azure:
 6. Nos campos **Nome do servidor de banco de dados**, **Nome do banco de dados**, **Nome de usuário** e **Senha**, insira as informações apropriadas ao seu banco de dados.
 7. No campo Consulta de banco de dados, digite a consulta a seguir.
 
+    ```tsql
      select [age],
-
         [workclass],
         [fnlwgt],
         [education],
@@ -58,6 +58,7 @@ Para ler os dados da tabela SQL do Azure:
         [native-country],
         [income]
      from dbo.censusdata;
+    ```
 8. Na parte inferior da tela do experimento, clique em **Executar**.
 
 ## <a name="create-the-predictive-experiment"></a>Criar o experimento preditivo
@@ -105,13 +106,15 @@ Para implantar como um serviço Web Clássico e criar um aplicativo para consumi
 8. Atualize o valor da variável *apiKey* com a chave de API que você salvou anteriormente.
 9. Localize a declaração de solicitação e atualize os valores dos Parâmetros de Serviço Web que são passados para os módulos *Importar Dados* e *Exportar Dados*. Nesse caso, você usa a consulta original, mas definirá um novo nome de tabela.
 
-        var request = new BatchExecutionRequest()
-        {
-            GlobalParameters = new Dictionary<string, string>() {
-                { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
-                { "Table", "dbo.ScoredTable2" },
-            }
-        };
+    ```csharp
+    var request = new BatchExecutionRequest()
+    {
+        GlobalParameters = new Dictionary<string, string>() {
+            { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
+            { "Table", "dbo.ScoredTable2" },
+        }
+    };
+    ```
 10. Execute o aplicativo.
 
 Após a conclusão da execução, uma nova tabela será adicionada ao banco de dados que contém os resultados da pontuação.
@@ -133,15 +136,17 @@ Para implantar como um serviço Web Novo e criar um aplicativo para consumi-lo:
 8. Atualize o valor da variável *apiKey* com a **Chave Primária** localizada na seção **Informações básicas de consumo**.
 9. Localize a declaração *scoreRequest* e atualize os valores dos Parâmetros de Serviço Web que são passados para os módulos *Importar Dados* e *Exportar Dados*. Nesse caso, você usa a consulta original, mas definirá um novo nome de tabela.
 
-        var scoreRequest = new
+    ```csharp
+    var scoreRequest = new
+    {
+        Inputs = new Dictionary<string, StringTable>()
         {
-            Inputs = new Dictionary<string, StringTable>()
-            {
-            },
-            GlobalParameters = new Dictionary<string, string>() {
-                { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
-                { "Table", "dbo.ScoredTable3" },
-            }
-        };
+        },
+        GlobalParameters = new Dictionary<string, string>() {
+            { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
+            { "Table", "dbo.ScoredTable3" },
+        }
+    };
+    ```
 10. Execute o aplicativo.
 

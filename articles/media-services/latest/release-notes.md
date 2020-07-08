@@ -11,11 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: juliako
-ms.openlocfilehash: 6abb44012035f31f970a347687964afb0c715d29
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d09fba2130dc302378a59200349a569cc248234b
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84983371"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86075426"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de versão dos Serviços de Mídia do Azure v3
 
@@ -42,6 +43,16 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 A visualização da análise de vídeo ao vivo em IoT Edge ficou pública. Para obter mais informações, consulte [notas de versão](../live-video-analytics-edge/release-notes.md).
 
 A análise de vídeo ao vivo no IoT Edge é uma expansão para a família de serviços de mídia. Ele permite que você analise vídeos ao vivo com modelos de ia de sua escolha em seus próprios dispositivos de borda e, opcionalmente, Capture e grave esse vídeo. Agora você pode criar aplicativos com análise de vídeo em tempo real na borda sem se preocupar com a complexidade de criar e operar um pipeline de vídeo ao vivo.
+
+### <a name="search-by-topics"></a>Pesquisar por tópicos
+
+Agora você pode usar a API de pesquisa para procurar vídeos com tópicos específicos (somente API).
+
+Os tópicos são adicionados como parte do `textScope` (parâmetro opcional). Consulte [API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Search-Videos) para obter detalhes.  
+
+### <a name="labels-enhancement"></a>Aprimoramento de rótulos
+
+O rotulador de rótulo foi atualizado e agora inclui mais rótulos visuais que podem ser identificados.
 
 ## <a name="may-2020"></a>Maio de 2020
 

@@ -4,19 +4,23 @@ description: Saiba como adicionar uma entidade de serviço de automação à fun
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
-ms.openlocfilehash: bc3e17ce5becf039703585167e1ef3aa825cf2ab
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 4ce23e9da84d01a288c1c37c6a6d884db2ed3969
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697523"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077551"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Adicionar uma entidade de serviço à função de administrador do servidor 
 
- Para automatizar tarefas do PowerShell autônomas, uma entidade de serviço deve ter privilégios de **administrador do servidor** no servidor do Analysis Services sendo gerenciado. Este artigo descreve como adicionar uma entidade de serviço à função de administradores do servidor em um servidor do AS do Azure. Você pode fazer isso usando o SQL Server Management Studio ou um modelo do Resource Manager.
+ Para automatizar tarefas do PowerShell autônomas, uma entidade de serviço deve ter privilégios de **administrador do servidor** no servidor do Analysis Services sendo gerenciado. Este artigo descreve como adicionar uma entidade de serviço à função de administradores do servidor em um servidor do AS do Azure. Você pode fazer isso usando o SQL Server Management Studio ou um modelo do Resource Manager. 
+
+> [!NOTE]
+> As entidades de serviço devem ser adicionadas diretamente à função de administrador do servidor. Não há suporte para a adição de uma entidade de serviço a um grupo de segurança e a adição desse grupo de segurança à função de administrador do servidor. 
 
 ## <a name="before-you-begin"></a>Antes de começar
 Antes de concluir essa tarefa, você deverá ter uma entidade de serviço registrado no Azure Active Directory.

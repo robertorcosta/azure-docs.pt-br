@@ -5,11 +5,12 @@ description: Aprenda as práticas recomendadas do operador de cluster para isola
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 00643dc1699d1cbd47efd271738015ea05e895e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 12c65f3b4241d3e732c51acb6ffa95ff314efb50
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80668348"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077755"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para isolamento de cluster no Azure Kubernetes Service (AKS)
 
@@ -29,7 +30,7 @@ O Kubernetes fornece recursos que permitem isolar logicamente equipes e cargas d
   * Os recursos mais avançados do planejador incluem manchas e tolerâncias, seletores de nó e afinidade de nó e pod ou antiafinidade. Para obter mais informações sobre esses recursos, consulte [Práticas recomendadas para recursos avançados do agendador no AKS][aks-best-practices-advanced-scheduler].
 * ** Rede ** inclui o uso de políticas de rede para controlar o fluxo de tráfego dentro e fora dos pods.
 * **Autenticação e autorização** incluem o usuário de RBAC (controle de acesso baseado em função) e integração do Azure Active Directory (AD), identidades de conjuntos e segredos no Cofre de Chaves do Azure. Para obter mais informações sobre esses recursos, consulte [Práticas recomendadas para autenticação e autorização no AKS][aks-best-practices-identity].
-* **Contêineres** incluem políticas de segurança do pod, contextos de segurança do pod, imagens de varredura e runtimes para vulnerabilidades. Envolve também o uso do App Armor ou do Seccomp (Secure Computing) para restringir o acesso ao contêiner ao nó subjacente.
+* Os **contêineres** incluem o complemento Azure Policy para AKs para impor a segurança de Pod, o uso de contextos de segurança pod e a verificação de imagens e o tempo de execução de vulnerabilidades. Envolve também o uso do App Armor ou do Seccomp (Secure Computing) para restringir o acesso ao contêiner ao nó subjacente.
 
 ## <a name="logically-isolate-clusters"></a>Isolar logicamente clusters
 

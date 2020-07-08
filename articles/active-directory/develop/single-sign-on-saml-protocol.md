@@ -14,12 +14,12 @@ ms.date: 05/18/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: 155816a9cd171b42e1def5cafa09cb9e310d5ee7
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: HT
+ms.openlocfilehash: a68c0248ce364be486610c406388586b69cbb3f4
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83771665"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86076939"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocolo SAML de Logon Único
 
@@ -46,7 +46,7 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 </samlp:AuthnRequest>
 ```
 
-| Parâmetro |  | Descrição |
+| Parâmetro | Type | Descrição |
 | --- | --- | --- |
 | ID | Obrigatório | O Azure AD usa esse atributo para popular o atributo `InResponseTo` da resposta retornada. A ID não deve começar com um número. Uma estratégia comum é anexar uma cadeia de caracteres como "id" à representação de cadeia de caracteres de um GUID. Por exemplo, `id6c1c178c166d486687be4aaf5e482730` é uma ID válida. |
 | Versão | Obrigatório | Esse parâmetro deve ser definido como **2.0**. |
@@ -86,6 +86,8 @@ Se `NameIDPolicy` for fornecido, você poderá incluir seu atributo `Format` opc
 * `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`: esse valor permite que o Azure Active Directory selecione o formato de declaração. O Azure Active Directory emite o NameID como um identificador de par.
 * `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`: o Azure Active Directory emite a declaração NameID como um valor gerado aleatoriamente que é exclusivo à operação de SSO atual. Isso significa que o valor é temporário e não pode ser usado para identificar o usuário da autenticação.
 
+Se `SPNameQualifier` for especificado, o AD do Azure incluirá o mesmo `SPNameQualifier` na resposta.
+
 O Azure AD ignora o atributo `AllowCreate` .
 
 ### <a name="requestauthncontext"></a>RequestAuthnContext
@@ -97,7 +99,7 @@ O elemento `Scoping`, que inclui uma lista de provedores de identidade, é opcio
 Se fornecido, não inclua o atributo `ProxyCount` ou elemento `IDPListOption` ou `RequesterID`, pois eles não têm suporte.
 
 ### <a name="signature"></a>Assinatura
-Não inclua um elemento `Signature` nos elementos `AuthnRequest`. O Azure Active Directory não valida solicitações de autenticação assinadas. A verificação do solicitante é fornecida apenas respondendo a URLs registradas do Serviço do Consumidor de Declaração.
+Um `Signature` elemento em `AuthnRequest` elementos é opcional. O Azure AD não valida solicitações de autenticação assinadas se uma assinatura estiver presente. A verificação do solicitante é fornecida apenas respondendo a URLs registradas do Serviço do Consumidor de Declaração.
 
 ### <a name="subject"></a>Assunto
 Não inclua um elemento `Subject`. O Azure Active Directory não é compatível com a especificação de um assunto para uma solicitação e retornará um erro se uma especificação for fornecida.
@@ -157,7 +159,7 @@ O elemento `Response` inclui os resultados da solicitação de autorização. O 
 
 ### <a name="issuer"></a>Emissor
 
-O Azure Active Directory define o elemento `Issuer` como `https://sts.windows.net/<TenantIDGUID>/`, em que \<TenantIDGUID> é a ID de locatário do locatário do Azure AD.
+O Azure AD define o elemento `Issuer` como `https://sts.windows.net/<TenantIDGUID>/`, em que \<TenantIDGUID> é a ID de locatário do locatário do Azure AD.
 
 Por exemplo, uma resposta com o elemento Issuer poderia ter a aparência deste exemplo:
 
@@ -192,7 +194,7 @@ Além de `ID`, `IssueInstant` e `Version`, o Azure AD define os elementos a segu
 
 #### <a name="issuer"></a>Emissor
 
-Isso é definido como `https://sts.windows.net/<TenantIDGUID>/`, em que \<TenantIDGUID> é a ID de locatário do locatário do Azure Active Directory.
+Isso é definido como `https://sts.windows.net/<TenantIDGUID>/`, em que \<TenantIDGUID> é a ID de locatário do locatário do Azure AD.
 
 ```
 <Issuer>https://sts.windows.net/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
