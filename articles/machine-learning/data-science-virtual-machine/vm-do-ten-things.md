@@ -5,16 +5,16 @@ description: Executar tarefas de exploração e modelagem de dados no Máquina V
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
+ms.custom: tracking-python
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: a2eba958ca2d4a90cb3706839d726fdd0a48ed4f
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.openlocfilehash: 7d9aced42efefc8651605be44f0091b2f4f2815e
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82994067"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959272"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Dez coisas que você pode fazer na Máquina Virtual de Ciência de Dados do Windows
 
@@ -55,24 +55,24 @@ Para o R, você pode usar um IDE como RStudio que pode ser encontrado no menu in
 
 Para Python, você pode usar um IDE como o Visual Studio Community Edition, que tem a extensão PTVS (Ferramentas Python para Visual Studio) pré-instalada. Por padrão, somente o Python 3,6, o ambiente de Conda raiz, é configurado em PTVS. Para habilitar o Anaconda Python 2,7, execute as seguintes etapas:
 
-1. Crie ambientes personalizados para cada versão acessando **ferramentas** > **python** > **ambientes Python**e, em seguida, selecionando **+ personalizado** no Visual Studio Community Edition.
+1. Crie ambientes personalizados para cada versão acessando **ferramentas**  >  **python**  >  **ambientes Python**e, em seguida, selecionando **+ personalizado** no Visual Studio Community Edition.
 1. Forneça uma descrição e defina o caminho do prefixo do ambiente como **c:\anaconda\envs\python2** para anaconda Python 2,7.
-1. Selecione **detecção** > automática**aplicar** para salvar o ambiente.
+1. Selecione **detecção automática**  >  **aplicar** para salvar o ambiente.
 
 Consulte a [documentação do PTVS](https://aka.ms/ptvsdocs) para obter mais detalhes sobre como criar ambientes do Python.
 
-Agora você está pronto para criar um novo projeto Python. Vá para **arquivo** > **novo** > **projeto** > **Python** e selecione o tipo de aplicativo Python que você está criando. Você pode definir o ambiente do Python para o projeto atual para a versão desejada (Python 2,7 ou 3,6) clicando com o botão direito do mouse em **ambientes do Python** e selecionando **Adicionar/remover ambientes Python**. Você pode encontrar mais informações sobre como trabalhar com o PTVS na [documentação do produto](https://aka.ms/ptvsdocs).
+Agora você está pronto para criar um novo projeto Python. Vá para **arquivo**  >  **novo**  >  **projeto**  >  **Python** e selecione o tipo de aplicativo Python que você está criando. Você pode definir o ambiente do Python para o projeto atual para a versão desejada (Python 2,7 ou 3,6) clicando com o botão direito do mouse em **ambientes do Python** e selecionando **Adicionar/remover ambientes Python**. Você pode encontrar mais informações sobre como trabalhar com o PTVS na [documentação do produto](https://aka.ms/ptvsdocs).
 
 ## <a name="use-jupyter-notebooks"></a>Usar notebooks Jupyter
 O Jupyter Notebook fornece um IDE baseado em navegador para exploração e modelagem de dados. Você pode usar o Python 2, Python 3 ou R (software livre e Microsoft R Server) em um notebook Jupyter.
 
-Para iniciar o Jupyter Notebook, selecione o ícone de **Jupyter Notebook** no menu **Iniciar** ou na área de trabalho. No prompt de comando do DSVM, você também pode executar o ```jupyter notebook``` comando do diretório em que você tem blocos de anotações existentes ou onde deseja criar novos blocos de anotações.  
+Para iniciar o Jupyter Notebook, selecione o ícone de **Jupyter Notebook** no menu **Iniciar** ou na área de trabalho. No prompt de comando do DSVM, você também pode executar o comando ```jupyter notebook``` do diretório em que você tem blocos de anotações existentes ou onde deseja criar novos blocos de anotações.  
 
-Depois de iniciar o Jupyter, navegue até `/notebooks` o diretório de blocos de anotações de exemplo que são previamente empacotados no DSVM. Agora você pode:
+Depois de iniciar o Jupyter, navegue até o `/notebooks` diretório de blocos de anotações de exemplo que são previamente empacotados no DSVM. Agora você pode:
 
 * Selecione o bloco de anotações para ver o código.
 * Execute cada célula selecionando Shift + Enter.
-* Execute o bloco de anotações inteiro selecionando a**execução**da **célula** > .
+* Execute o bloco de anotações inteiro selecionando a execução da **célula**  >  **Run**.
 * Crie um novo bloco de anotações selecionando o ícone de Jupyter (canto superior esquerdo), selecionando o botão **novo** à direita e escolhendo o idioma do notebook (também conhecido como kernels).   
 
 > [!NOTE]
@@ -129,9 +129,9 @@ IrisPredictor(3,2,3,4)
 ```
 
 ### <a name="build-and-operationalize-r-models"></a>Crie e operacionalize modelos de R
-Você pode implantar modelos de R criados no Máquina Virtual de Ciência de Dados ou em outro lugar no Azure Machine Learning de forma semelhante a como ele é feito para o Python. Estas são as etapas:
+Você pode implantar modelos de R criados no Máquina Virtual de Ciência de Dados ou em outro lugar no Azure Machine Learning de forma semelhante a como ele é feito para o Python. Aqui estão as etapas para fazer isso:
 
-1. Crie um arquivo Settings. JSON para fornecer a ID do espaço de trabalho e o token de autenticação. 
+1. Crie um settings.jsno arquivo para fornecer a ID do espaço de trabalho e o token de autenticação. 
 2. Grave um wrapper para a função de previsão do modelo.
 3. Chame ```publishWebService``` na biblioteca de Azure Machine Learning para passar o wrapper da função.  
 
@@ -139,9 +139,9 @@ Use o procedimento e os trechos de código a seguir para configurar, compilar, p
 
 #### <a name="set-up"></a>Configuração
 
-Crie um arquivo Settings. JSON em um diretório chamado ```.azureml``` em seu diretório base. Insira os parâmetros do seu espaço de trabalho Azure Machine Learning.
+Crie um settings.jsno arquivo em um diretório chamado ```.azureml``` em seu diretório base. Insira os parâmetros do seu espaço de trabalho Azure Machine Learning.
 
-Aqui está a estrutura de arquivos Settings. JSON:
+Aqui está a settings.jsna estrutura de arquivos:
 
 ```json
 {"workspace":{
@@ -248,7 +248,9 @@ O DSVM vem carregado com as ferramentas de cliente na linha de comando e na GUI 
 
 Para baixar o código de um repositório GitHub, você usa o comando ```git clone```. Por exemplo, para baixar o repositório de ciência de dados publicado pela Microsoft no diretório atual, você pode executar o seguinte comando no git bash:
 
-    git clone https://github.com/Azure/DataScienceVM.git
+```bash
+git clone https://github.com/Azure/DataScienceVM.git
+```
 
 No Visual Studio, você pode fazer a mesma operação de clonagem. A captura de tela a seguir mostra como acessar as ferramentas git e GitHub no Visual Studio:
 
@@ -266,7 +268,7 @@ O armazenamento de BLOBs do Azure é um serviço de armazenamento em nuvem confi
 
    ![Captura de tela do processo de criação da conta de armazenamento no portal do Azure](./media/vm-do-ten-things/create-azure-blob.png)
 
-* Confirme se a ferramenta de linha de comando AzCopy está pré-instalada: ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```. O diretório que contém azcopy. exe já está em sua variável de ambiente PATH, portanto, você pode evitar digitar o caminho de comando completo ao executar essa ferramenta. Para obter mais informações sobre a ferramenta AzCopy, consulte a [documentação do AzCopy](../../storage/common/storage-use-azcopy.md).
+* Confirme se a ferramenta de linha de comando AzCopy está pré-instalada: ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe``` . O diretório que contém azcopy.exe já está em sua variável de ambiente PATH, portanto, você pode evitar digitar o caminho de comando completo ao executar essa ferramenta. Para obter mais informações sobre a ferramenta AzCopy, consulte a [documentação do AzCopy](../../storage/common/storage-use-azcopy.md).
 * Inicie o Gerenciador de Armazenamento do Azure. Você pode baixá-lo na [página da web Gerenciador de armazenamento](https://storageexplorer.com/). 
 
    ![Captura de tela de Gerenciador de Armazenamento do Azure acessar uma conta de armazenamento](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
@@ -275,7 +277,9 @@ O armazenamento de BLOBs do Azure é um serviço de armazenamento em nuvem confi
 
 Para mover dados entre seus arquivos locais e o armazenamento de BLOBs, você pode usar AzCopy na linha de comando ou no PowerShell:
 
-    AzCopy /Source:C:\myfolder /Dest:https://<mystorageaccount>.blob.core.windows.net/<mycontainer> /DestKey:<storage account key> /Pattern:abc.txt
+```powershell
+AzCopy /Source:C:\myfolder /Dest:https://<mystorageaccount>.blob.core.windows.net/<mycontainer> /DestKey:<storage account key> /Pattern:abc.txt
+```
 
 Substitua **C:\MyFolder** pelo caminho em que o arquivo está armazenado, **mystorageaccount** com o nome da conta de armazenamento de BLOBs, **MyContainer** com o nome do contêiner e a **chave da conta de armazenamento** com sua chave de acesso de armazenamento de BLOBs. Você pode encontrar suas credenciais de conta de armazenamento no [portal do Azure](https://portal.azure.com).
 
@@ -298,8 +302,8 @@ Depois de executar o comando AzCopy para copiar para um blob do Azure, seu arqui
 
 Você também pode carregar dados do arquivo local em sua VM usando Gerenciador de Armazenamento do Azure:
 
-* Para carregar dados em um contêiner, selecione o contêiner de destino e selecione o botão **carregar** . ![Captura de tela do botão carregar no Gerenciador de armazenamento do Azure](./media/vm-do-ten-things/storage-accounts.png)
-* Selecione as reticências (**...**) à direita da caixa **arquivos** , selecione um ou vários arquivos para carregar do sistema de arquivos e selecione **carregar** para começar a carregar os arquivos. ![Captura de tela da caixa de diálogo carregar arquivos](./media/vm-do-ten-things/upload-files-to-blob.png)
+* Para carregar dados em um contêiner, selecione o contêiner de destino e selecione o botão **carregar** . ![ Captura de tela do botão carregar no Gerenciador de Armazenamento do Azure](./media/vm-do-ten-things/storage-accounts.png)
+* Selecione as reticências (**...**) à direita da caixa **arquivos** , selecione um ou vários arquivos para carregar do sistema de arquivos e selecione **carregar** para começar a carregar os arquivos. ![ Captura de tela da caixa de diálogo carregar arquivos](./media/vm-do-ten-things/upload-files-to-blob.png)
 
 #### <a name="read-data-from-an-azure-blob-machine-learning-reader-module"></a>Ler dados de um blob do Azure: módulo do leitor de Machine Learning
 
@@ -436,7 +440,7 @@ Depois que a consulta for enviada ao servidor, um diagrama mostrará o status do
 
 Depois que o conjunto de dados é ingerido no Azure Data Lake, você pode usar a [linguagem U-SQL](../../data-lake-analytics/data-lake-analytics-u-sql-get-started.md) para consultar e explorar os dados. A linguagem U-SQL é semelhante ao T-SQL, mas combina alguns recursos do C# para que os usuários possam escrever módulos personalizados e funções definidas pelo usuário. Você pode usar os scripts da etapa anterior.
 
-Depois que a consulta for enviada ao servidor, tripdata_summary. CSV aparece no Azure Data Lake Explorer. Você pode visualizar os dados clicando com o botão direito do mouse no arquivo.
+Depois que a consulta for enviada ao servidor, tripdata_summary.CSV aparecerá no Azure Data Lake Explorer. Você pode visualizar os dados clicando com o botão direito do mouse no arquivo.
 
 ![Captura de tela do arquivo CSV no Data Lake Explorer](./media/vm-do-ten-things/USQL_create_summary.png)
 
@@ -454,10 +458,10 @@ O Azure Cosmos DB é um banco de dados NoSQL na nuvem. Você pode usá-lo para t
 
 Use as seguintes etapas de pré-requisito para acessar Azure Cosmos DB do DSVM:
 
-1. O SDK do Python Azure Cosmos DB já está instalado no DSVM. Para atualizá-lo ```pip install pydocumentdb --upgrade``` , execute a partir de um prompt de comando.
+1. O SDK do Python Azure Cosmos DB já está instalado no DSVM. Para atualizá-lo, execute ```pip install pydocumentdb --upgrade``` a partir de um prompt de comando.
 2. Crie uma conta de Azure Cosmos DB e um banco de dados do [portal do Azure](https://portal.azure.com).
 3. Baixe a ferramenta de migração de dados Azure Cosmos DB do [centro de download da Microsoft](https://www.microsoft.com/download/details.aspx?id=53595) e extraia para um diretório de sua escolha.
-4. Importe dados JSON (dados de vulcão) armazenados em um [blob público](https://https://data.humdata.org/dataset/a60ac839-920d-435a-bf7d-25855602699d/resource/7234d067-2d74-449a-9c61-22ae6d98d928/download/volcano.json) em Azure Cosmos DB com os seguintes parâmetros de comando para a ferramenta de migração. (Use dtui. exe do diretório em que você instalou a ferramenta de migração de dados Azure Cosmos DB.) Insira a origem e o local de destino com estes parâmetros:
+4. Importe dados JSON (dados de vulcão) armazenados em um [blob público](https://data.humdata.org/dataset/a60ac839-920d-435a-bf7d-25855602699d/resource/7234d067-2d74-449a-9c61-22ae6d98d928/download/volcano.json) em Azure Cosmos DB com os seguintes parâmetros de comando para a ferramenta de migração. (Use dtui.exe no diretório em que você instalou a ferramenta de migração de dados do Azure Cosmos DB.) Insira a origem e o local de destino com estes parâmetros:
    
     `/s:JsonFile /s.Files:https://data.humdata.org/dataset/a60ac839-920d-435a-bf7d-25855602699d/resource/7234d067-2d74-449a-9c61-22ae6d98d928/download/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1`
 
@@ -466,11 +470,11 @@ Depois de importar os dados, você pode ir para Jupyter e abrir o notebook intit
 ## <a name="use-power-bi-reports-and-dashboards"></a>Usar Power BI relatórios e painéis 
 Você pode visualizar o arquivo JSON vulcão do exemplo de Azure Cosmos DB anterior no Power BI Desktop para obter informações visuais sobre os dados. As etapas detalhadas estão disponíveis no [artigo sobre o Power BI](../../cosmos-db/powerbi-visualize.md). Aqui estão as etapas de alto nível:
 
-1. Abra o Power BI Desktop e selecione **Obter dados**. Especifique a URL como: `https://cahandson.blob.core.windows.net/samples/volcano.json`.
+1. Abra o Power BI Desktop e selecione **Obter dados**. Especifique a URL como: `https://cahandson.blob.core.windows.net/samples/volcano.json` .
 2. Você deve ver os registros JSON importados como uma lista. Converta a lista em uma tabela para que Power BI possa trabalhar com ela.
 4. Expanda as colunas selecionando o ícone expandir (seta).
 5. Observe que o local é um campo de **registro** . Expanda o registro e selecione apenas as coordenadas. **Coordenar** é uma coluna de lista.
-6. Adicione uma nova coluna para converter a coluna de coordenadas da lista em uma coluna **LatLong** separada por vírgulas. Concatene os dois elementos no campo lista de coordenadas usando a fórmula ```Text.From([coordinates]{1})&","&Text.From([coordinates]{0})```.
+6. Adicione uma nova coluna para converter a coluna de coordenadas da lista em uma coluna **LatLong** separada por vírgulas. Concatene os dois elementos no campo lista de coordenadas usando a fórmula ```Text.From([coordinates]{1})&","&Text.From([coordinates]{0})``` .
 7. Converta a coluna de **elevação** em decimal e selecione os botões **fechar** e **aplicar** .
 
 Em vez de etapas anteriores, você pode colar o código a seguir. Ele gera scripts das etapas usadas no Editor Avançado em Power BI para gravar as transformações de dados em uma linguagem de consulta.
@@ -508,7 +512,7 @@ Da mesma forma, sua necessidade de capacidade de processamento de VM pode diminu
 ## <a name="add-more-tools"></a>Adicionar mais ferramentas
 As ferramentas predefinidas no DSVM podem atender a muitas necessidades comuns de análise de dados. Isso poupa tempo porque você não precisa instalar e configurar seus ambientes um a um. Ele também economiza dinheiro, pois você paga apenas pelos recursos que usa.
 
-Você pode usar outros serviços de análise e dados do Azure com o perfil criado neste artigo para aprimorar seu ambiente de análise. Em alguns casos, talvez você precise de ferramentas adicionais, incluindo algumas ferramentas de parceiros de propriedade. Você tem acesso administrativo total na máquina virtual para instalar novas ferramentas de que precisa. Também é possível instalar pacotes adicionais no Python e no R que não foram pré-instalados. Para Python, você pode usar o ```conda``` ou ```pip```o. Para o r, você pode ```install.packages()``` usar o no console do r ou usar o IDE e selecionar **pacotes** > **instalar pacotes**.
+Você pode usar outros serviços de análise e dados do Azure com o perfil criado neste artigo para aprimorar seu ambiente de análise. Em alguns casos, talvez você precise de ferramentas adicionais, incluindo algumas ferramentas de parceiros de propriedade. Você tem acesso administrativo total na máquina virtual para instalar novas ferramentas de que precisa. Também é possível instalar pacotes adicionais no Python e no R que não foram pré-instalados. Para Python, você pode usar o ```conda``` ou o ```pip``` . Para o r, você pode usar o ```install.packages()``` no console do r ou usar o IDE e selecionar **pacotes**  >  **instalar pacotes**.
 
 ## <a name="deep-learning"></a>Aprendizado
 

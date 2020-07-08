@@ -8,12 +8,11 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: cc4e267c6912b8938db1ba5497a27f9c0026bd79
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b24e0487aef73ed7852cb4a64766a1f8d92aff94
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80887326"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84677417"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Proteja suas portas de gerenciamento com acesso just-in-time
 
@@ -74,7 +73,7 @@ Na central de segurança, você pode configurar uma política JIT e solicitar o 
 
      1. Clique em **OK**.
 
-1. Clique em **Salvar**.
+1. Clique em **Save** (Salvar).
 
 > [!NOTE]
 >Quando o acesso à VM JIT está habilitado para uma VM, a central de segurança do Azure cria as regras "negar todo o tráfego de entrada" para as portas selecionadas nos grupos de segurança de rede associados e no firewall do Azure com ele. Se outras regras tiverem sido criadas para as portas selecionadas, as regras existentes têm prioridade sobre as novas regras "negar todo o tráfego de entrada". Se não houver nenhuma regra existente nas portas selecionadas, a nova regra "negar todo o tráfego de entrada" assumirá a prioridade mais alta nos grupos de segurança de rede e no firewall do Azure.
@@ -211,7 +210,7 @@ Para fazer isso, execute o seguinte no PowerShell:
 
 1.    Atribuir uma variável que contenha a política de acesso Just-In-Time à VM para uma VM:
 
-        $JitPolicy = (@ {ID = "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME" portas = (@ {Number = 22;        protocolo = "\*";        allowedSourceAddressPrefix = @ ("\*");        maxRequestAccessDuration = "PT3H"}, @ {Number = 3389;        protocolo = "\*";        allowedSourceAddressPrefix = @ ("\*");        maxRequestAccessDuration = "PT3H"})})
+        $JitPolicy = (@ {ID = "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";   portas = (@ {Number = 22;        protocolo = " \* ";        allowedSourceAddressPrefix = @ (" \* ");        maxRequestAccessDuration = "PT3H"}, @ {Number = 3389;        protocolo = " \* ";        allowedSourceAddressPrefix = @ (" \* ");        maxRequestAccessDuration = "PT3H"})})
 
 2.    Inserir a política de acesso Just-In-Time à VM em uma matriz:
     
@@ -228,7 +227,7 @@ No exemplo a seguir, é possível ver uma solicitação de acesso Just-In-Time �
 Execute o seguinte no PowerShell:
 1.    Configurar as propriedades de acesso de solicitação da VM
 
-        $JitPolicyVm 1 = (@ {ID = "/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME" portas = (@ {Number = 22;      endTimeUtc = "2018-09-17T17:00:00.3658798 Z";      allowedSourceAddressPrefix = @ ("IPV4ADDRESS")})})
+        $JitPolicyVm 1 = (@ {ID = "/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";   portas = (@ {Number = 22;      endTimeUtc = "2018-09-17T17:00:00.3658798 Z";      allowedSourceAddressPrefix = @ ("IPV4ADDRESS")})})
 2.    Insira os parâmetros de solicitação de acesso da VM em uma matriz:
 
         $JitPolicyArr = @ ($JitPolicyVm 1)
@@ -241,7 +240,7 @@ Para obter mais informações, consulte a [documentação do cmdlet do PowerShel
 
 ## <a name="automatic-cleanup-of-redundant-jit-rules"></a>Limpeza automática de regras JIT redundantes 
 
-Sempre que você atualiza uma política JIT, uma ferramenta de limpeza é executada automaticamente para verificar a validade de todo o conjunto de regras. A ferramenta procura incompatibilidades entre as regras em sua política e as regras no NSG. Se a ferramenta de limpeza encontrar uma incompatibilidade, ela determinará a causa e, quando for seguro, removerá as regras internas que não são mais necessárias. O limpador nunca exclui as regras que você criou.
+Sempre que você atualiza uma política JIT, uma ferramenta de limpeza é executada automaticamente para verificar a validade de todo o conjunto de regras. A ferramenta procura incompatibilidades entre as regras em sua política e as regras no NSG. Se a ferramenta de limpeza encontrar uma incompatibilidade, ela determinará a causa e, quando for seguro, removerá as regras internas que não são mais necessárias. O limpador nunca exclui regras que você criou.
 
 Exemplos de cenários quando o limpador pode remover uma regra interna:
 

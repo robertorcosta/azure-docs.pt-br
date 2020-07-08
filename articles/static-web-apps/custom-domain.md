@@ -7,12 +7,11 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 8425c2c1f653d874d24053a12d511c64a3b9ee9d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 8e832f57053cb950f705875f2895a9197cc7c83e
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655247"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960292"
 ---
 # <a name="setup-a-custom-domain-in-azure-static-web-apps-preview"></a>Configurar um domínio personalizado nos Aplicativos Web Estáticos do Azure – Visualização
 
@@ -29,11 +28,11 @@ Ao configurar nomes de domínio, os registros "A" são usados para mapear domín
 
 Há alguns tipos diferentes de configurações de DNS disponíveis para um aplicativo.
 
-| Se desejar                            | Então                                                |
-| ----------------------------------------- | --------------------------------------------------- |
-| Dar suporte à `www.example.com`                 | [Mapear um registro CNAME](#map-a-cname-record)           |
-| Dar suporte à `example.com`                     | [Configurar um domínio raiz](#configure-a-root-domain) |
-| Apontar todos os subdomínios para `www.example.com` | [Mapear um caractere curinga](#map-a-wildcard-domain)                   |
+| Se desejar                                 | Então                                                |
+| -----------------------------------------------| --------------------------------------------------- |
+| Suporte `www.example.com` ou`blog.example.net`| [Mapear um registro CNAME](#map-a-cname-record)           |
+| Dar suporte à `example.com`                          | [Configurar um domínio raiz](#configure-a-root-domain) |
+| Apontar todos os subdomínios para `www.example.com`      | [Mapear um caractere curinga](#map-a-wildcard-domain)            |
 
 ## <a name="map-a-cname-record"></a>Criar um registro CNAME
 

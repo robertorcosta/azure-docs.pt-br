@@ -7,12 +7,11 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/19/2020
 ms.author: hamusa
-ms.openlocfilehash: a19a1b6e7416667079ab07fc5440ee8828c26bf4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b84a7b88f700e2ba8e9fbe29099dfcbce8dbf3b7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76294364"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85081080"
 ---
 # <a name="assess-large-numbers-of-physical-servers-for-migration-to-azure"></a>Avaliar grandes números de servidores físicos para migração para o Azure
 
@@ -44,11 +43,11 @@ Ao planejar a avaliação de um grande número de servidores físicos, há algum
  
 Use os limites resumidos nesta tabela para planejamento.
 
-**Planejamento** | **limites**
+**Planejamento** | **Limites**
 --- | --- 
-**Projetos de migrações para Azure** | Avalie até 35.000 servidores em um projeto.
-**Dispositivo de Migrações para Azure** | Um dispositivo pode descobrir até 250 servidores.<br/> Um dispositivo só pode ser associado a um único projeto de migrações para Azure.<br/> Qualquer número de dispositivos pode ser associado a um único projeto de migrações para Azure. <br/><br/> 
-**Agrupar** | Você pode adicionar até 35.000 servidores em um único grupo.
+**Projetos das Migrações para Azure** | Avalie até 35.000 servidores em um projeto.
+**Dispositivo de Migrações para Azure** | Um dispositivo pode descobrir até 1000 servidores.<br/> Um dispositivo só pode ser associado a um único projeto de migrações para Azure.<br/> Qualquer número de dispositivos pode ser associado a um único projeto de migrações para Azure. <br/><br/> 
+**Group** | Você pode adicionar até 35.000 servidores em um único grupo.
 **Avaliação de migrações para Azure** | Você pode avaliar até 35.000 servidores em uma única avaliação.
 
 
@@ -56,7 +55,7 @@ Use os limites resumidos nesta tabela para planejamento.
 
 - Para iniciar a descoberta do dispositivo, você precisa selecionar cada servidor físico. 
 
-## <a name="prepare-for-assessment"></a>Preparar para avaliação
+## <a name="prepare-for-assessment"></a>Preparar-se para avaliação
 
 Prepare servidores físicos e do Azure para avaliação do servidor. 
 

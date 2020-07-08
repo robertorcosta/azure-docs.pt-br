@@ -6,19 +6,18 @@ author: curtand
 ms.author: curtand
 manager: mtillman
 ms.date: 04/27/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca30d5b050a34000fa7c6465356aba206aeaa8e4
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
-ms.translationtype: MT
+ms.openlocfilehash: 3fc393279aaa6b293c2eb29099be45385ad08d9a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203328"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84731488"
 ---
 # <a name="bulk-delete-users-in-azure-active-directory"></a>Excluir usuários em massa no Azure Active Directory
 
@@ -34,21 +33,21 @@ Baixe e preencha o modelo CSV para ajudá-lo a excluir com êxito os usuários d
 
 As linhas em um modelo CSV baixado são as seguintes:
 
-- **Número de versão**: a primeira linha que contém o número de versão deve ser incluída no CSV de carregamento.
-- **Títulos de coluna** &lt;: o formato dos títulos de coluna é o *nome* &gt; do item [PropertyName &lt;] *necessário ou em branco*&gt;. Por exemplo, `User name [userPrincipalName] Required`. Algumas versões mais antigas do modelo podem ter pequenas variações.
-- **Linha de exemplos**: incluímos no modelo uma linha de exemplos de valores aceitáveis para cada coluna. Você deve remover a linha de exemplos e substituí-la por suas próprias entradas.
+- **Número de versão**: A primeira linha que contém o número de versão deve ser incluída no CSV de carregamento.
+- **Cabeçalhos de coluna**: O formato dos cabeçalhos de coluna é &lt;*Nome do item*&gt; [PropertyName]&lt;*Obrigatório ou em branco*&gt;. Por exemplo, `User name [userPrincipalName] Required`. Algumas versões mais antigas do modelo podem ter pequenas variações.
+- **Linha de exemplos**: incluímos no modelo uma linha de exemplos de valores aceitáveis para cada coluna. Você deve remover a linha de exemplos e substituí-la por suas entradas.
 
 ### <a name="additional-guidance"></a>Diretriz adicional
 
-- As duas primeiras linhas do modelo de carregamento não devem ser removidas ou modificadas ou o carregamento não pode ser processado.
+- As duas primeiras linhas do modelo de carregamento não devem ser removidas nem modificadas ou o carregamento não poderá ser processado.
 - As colunas necessárias são listadas primeiro.
-- Não recomendamos adicionar novas colunas ao modelo. Todas as colunas adicionais adicionadas são ignoradas e não processadas.
+- Não recomendamos adicionar novas colunas ao modelo. Todas as colunas extras adicionadas são ignoradas e não são processadas.
 - Recomendamos que você baixe a versão mais recente do modelo CSV sempre que possível.
 
 ## <a name="to-bulk-delete-users"></a>Para excluir usuários em massa
 
-1. [Entre em sua organização do Azure ad](https://aad.portal.azure.com) com uma conta que seja um administrador de usuário na organização.
-1. No Azure AD, selecione **usuários** > **excluir em massa**.
+1. [Entre em sua organização do Azure AD](https://aad.portal.azure.com) com uma conta que seja um administrador de usuários na organização.
+1. No Azure AD, selecione **usuários**  >  **excluir em massa**.
 1. Na página **usuário de exclusão em massa** , selecione **baixar** para receber um arquivo CSV válido de propriedades do usuário.
 
    ![Selecione um arquivo CSV local no qual você lista os usuários que deseja excluir](./media/users-bulk-delete/bulk-delete.png)
@@ -62,11 +61,11 @@ As linhas em um modelo CSV baixado são as seguintes:
 1. Quando o arquivo passar na validação, selecione **Enviar** para iniciar a operação em massa do Azure que exclui os usuários.
 1. Quando a operação de exclusão for concluída, você verá uma notificação de que a operação em massa foi bem-sucedida.
 
-Se houver erros, você poderá baixar e exibir o arquivo de resultados na página **resultados da operação em massa** . O arquivo contém o motivo de cada erro.
+Se houver erros, você poderá baixar e exibir o arquivo de resultados na página **Resultados da operação em massa**. O arquivo contém o motivo de cada erro.
 
 ## <a name="check-status"></a>Verificar o status
 
-Você pode ver o status de todas as suas solicitações em massa pendentes na página **resultados da operação em massa** .
+É possível ver o status de todas as suas solicitações em massa pendentes na página **Resultados da operação em massa**.
 
    [![](media/users-bulk-delete/bulk-center.png "Check delete status in the Bulk Operations Results page")](media/users-bulk-delete/bulk-center.png#lightbox)
 
@@ -81,7 +80,7 @@ Em seguida, você pode verificar para ver se os usuários que você excluiu exis
 
 ### <a name="verify-deleted-users-with-powershell"></a>Verificar usuários excluídos com o PowerShell
 
-Execute o seguinte comando:
+Execute o comando a seguir:
 
 ``` PowerShell
 Get-AzureADUser -Filter "UserType eq 'Member'"
@@ -92,5 +91,5 @@ Verifique se os usuários que você excluiu não estão mais listados.
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Adição de Usuários em Massa](users-bulk-add.md)
-- [Baixar lista de usuários](users-bulk-download.md)
+- [Baixar a lista de usuários](users-bulk-download.md)
 - [Restauração de usuários em massa](users-bulk-restore.md)

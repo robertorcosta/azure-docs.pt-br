@@ -6,19 +6,18 @@ author: curtand
 ms.author: curtand
 manager: daveba
 ms.date: 04/16/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b35163387ed4ce71f7a2019835a1d9fdbff3051
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 00dfac7c3036c4fd457c5d3a6bb4eb7bd4e56998
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81532622"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84731317"
 ---
 # <a name="download-a-list-of-users-in-azure-active-directory-portal"></a>Baixar uma lista de usuários no portal Azure Active Directory
 
@@ -32,8 +31,8 @@ Para baixar a lista de usuários do centro de administração do Azure AD, você
 
 1. [Entre em sua organização do Azure ad](https://aad.portal.azure.com) com uma conta de administrador de usuário na organização.
 2. Navegue até Azure Active Directory > usuários. Em seguida, selecione os usuários que deseja incluir no download marcando a caixa na coluna esquerda ao lado de cada usuário. Observação: neste momento, não há como selecionar todos os usuários para exportação. Cada um deve ser selecionado individualmente.
-3. No Azure AD, selecione **usuários** > **baixar usuários**.
-4. Na página **baixar usuários** , selecione **Iniciar** para receber um arquivo CSV listando propriedades de perfil de usuário. Se houver erros, você poderá baixar e exibir o arquivo de resultados na página resultados da operação em massa. O arquivo contém o motivo de cada erro.
+3. No Azure AD, selecione **usuários**  >  **baixar usuários**.
+4. Na página **baixar usuários** , selecione **Iniciar** para receber um arquivo CSV listando propriedades de perfil de usuário. Se houver erros, você poderá baixar e exibir o arquivo de resultados na página Resultados da operação em massa. O arquivo contém o motivo de cada erro.
 
    ![Selecione onde você deseja que a lista os usuários que deseja baixar](./media/users-bulk-download/bulk-download.png)
 
@@ -81,5 +80,5 @@ Cada atividade em massa para criar uma lista de usuários pode ser executada por
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Adição de Usuários em Massa](users-bulk-add.md)
-- [Exclusão de usuários em massa](users-bulk-delete.md)
+- [Exclusão em massa de usuários](users-bulk-delete.md)
 - [Restauração de usuários em massa](users-bulk-restore.md)

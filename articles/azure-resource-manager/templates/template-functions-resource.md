@@ -2,13 +2,12 @@
 title: Funções de modelo – recursos
 description: Descreve as funções a serem usadas em um modelo do Azure Resource Manager para recuperar valores sobre recursos.
 ms.topic: conceptual
-ms.date: 05/21/2020
-ms.openlocfilehash: aea3f654551f66390afa207ac5ce682d23e5bfe9
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: HT
+ms.date: 06/18/2020
+ms.openlocfilehash: f79fa3420420a2ff440c3228f227cc71436b4a1c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780574"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85099252"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funções de recurso para modelos do ARM
 
@@ -83,7 +82,7 @@ O exemplo a seguir retorna a ID de recurso para um bloqueio de grupo de recursos
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "lockName":{
@@ -101,14 +100,14 @@ O exemplo a seguir retorna a ID de recurso para um bloqueio de grupo de recursos
 }
 ```
 
-<a id="listkeys" />
-<a id="list" />
+<a id="listkeys"></a>
+<a id="list"></a>
 
 ## <a name="list"></a>lista*
 
 `list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)`
 
-A sintaxe dessa função varia de acordo com o nome das operações de lista. Cada implementação retorna valores para o tipo de recurso compatível com uma operação de lista. O nome da operação deve começar com `list`. Alguns usos comuns são `listKeys`, `listKeyValue` e `listSecrets`.
+A sintaxe dessa função varia de acordo com o nome das operações de lista. Cada implementação retorna valores para o tipo de recurso compatível com uma operação de lista. O nome da operação deve começar com `list`. Alguns usos comuns são `listKeys` , `listKeyValue` e `listSecrets` .
 
 ### <a name="parameters"></a>Parâmetros
 
@@ -120,7 +119,9 @@ A sintaxe dessa função varia de acordo com o nome das operações de lista. Ca
 
 ### <a name="valid-uses"></a>Usos válidos
 
-As funções de lista podem ser usadas somente nas propriedades de uma definição de recurso e na seção de saídas de um modelo ou uma implantação. Quando usado com [iteração de propriedade](copy-properties.md), você pode usar as funções de lista para `input` porque a expressão é atribuída à propriedade de recurso. Você não pode usá-las com `count` porque a contagem deve ser determinada antes que a função list seja resolvida.
+As funções de lista podem ser usadas nas propriedades de uma definição de recurso. Não use uma função de lista que exponha informações confidenciais na seção de saídas de um modelo. Os valores de saída são armazenados no histórico de implantação e podem ser recuperados por um usuário mal-intencionado.
+
+Quando usado com [iteração de propriedade](copy-properties.md), você pode usar as funções de lista para `input` porque a expressão é atribuída à propriedade de recurso. Você não pode usá-las com `count` porque a contagem deve ser determinada antes que a função list seja resolvida.
 
 ### <a name="implementations"></a>Implementações
 
@@ -167,8 +168,8 @@ Os possíveis usos de lista* são mostrados na tabela a seguir.
 | Microsoft.DocumentDB/databaseAccounts | [listKeys](/rest/api/cosmos-db-resource-provider/databaseaccounts/listkeys) |
 | Microsoft.DomainRegistration | [listDomainRecommendations](/rest/api/appservice/domains/listrecommendations) |
 | Microsoft.DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
-| Microsoft.EventGrid/domains | [listKeys](/rest/api/eventgrid/version2019-06-01/domains/listsharedaccesskeys) |
-| Microsoft.EventGrid/topics | [listKeys](/rest/api/eventgrid/version2019-06-01/topics/listsharedaccesskeys) |
+| Microsoft.EventGrid/domains | [listKeys](/rest/api/eventgrid/version2020-06-01/domains/listsharedaccesskeys) |
+| Microsoft.EventGrid/topics | [listKeys](/rest/api/eventgrid/version2020-06-01/topics/listsharedaccesskeys) |
 | Microsoft.EventHub/namespaces/authorizationRules | [listkeys](/rest/api/eventhub) |
 | Microsoft.EventHub/namespaces/disasterRecoveryConfigs/authorizationRules | [listkeys](/rest/api/eventhub) |
 | Microsoft.EventHub/namespaces/eventhubs/authorizationRules | [listkeys](/rest/api/eventhub) |
@@ -284,71 +285,31 @@ Se você usar a função **list** em um recurso implantado condicionalmente, a f
 
 ### <a name="list-example"></a>Exemplo de lista
 
-O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json) a seguir mostra como retornar as chaves primárias e secundárias de uma conta de armazenamento na seção de saídas. Ele também retorna um token SAS para a conta de armazenamento.
-
-Para obter o token SAS, passe um objeto para a data de validade. A data de validade deve ser futura. Este exemplo destina-se a mostrar como você pode usar as funções da lista. Normalmente, você deve usar o token SAS em um valor de recurso em vez de retorná-lo como um valor de saída. Os valores de saída são armazenados no histórico de implantação e não são seguros.
+O exemplo a seguir usa listKeys ao definir um valor para [scripts de implantação](deployment-script-template.md).
 
 ```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "storagename": {
-            "type": "string"
-        },
-        "location": {
-            "type": "string",
-            "defaultValue": "southcentralus"
-        },
-        "accountSasProperties": {
-            "type": "object",
-            "defaultValue": {
-                "signedServices": "b",
-                "signedPermission": "r",
-                "signedExpiry": "2018-08-20T11:00:00Z",
-                "signedResourceTypes": "s"
-            }
-        }
-    },
-    "resources": [
-        {
-            "apiVersion": "2018-02-01",
-            "name": "[parameters('storagename')]",
-            "location": "[parameters('location')]",
-            "type": "Microsoft.Storage/storageAccounts",
-            "sku": {
-                "name": "Standard_LRS"
-            },
-            "kind": "StorageV2",
-            "properties": {
-                "supportsHttpsTrafficOnly": false,
-                "accessTier": "Hot",
-                "encryption": {
-                    "services": {
-                        "blob": {
-                            "enabled": true
-                        },
-                        "file": {
-                            "enabled": true
-                        }
-                    },
-                    "keySource": "Microsoft.Storage"
-                }
-            },
-            "dependsOn": []
-        }
-    ],
-    "outputs": {
-        "keys": {
-            "type": "object",
-            "value": "[listKeys(parameters('storagename'), '2018-02-01')]"
-        },
-        "accountSAS": {
-            "type": "object",
-            "value": "[listAccountSas(parameters('storagename'), '2018-02-01', parameters('accountSasProperties'))]"
+"storageAccountSettings": {
+    "storageAccountName": "[variables('storageAccountName')]",
+    "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value]"
+}
+```
+
+O exemplo a seguir mostra uma função de lista que usa um parâmetro. Nesse caso, a função é **listAccountSas**. Passe um objeto para a hora de expiração. A data de validade deve ser futura.
+
+```json
+"parameters": {
+    "accountSasProperties": {
+        "type": "object",
+        "defaultValue": {
+            "signedServices": "b",
+            "signedPermission": "r",
+            "signedExpiry": "2020-08-20T11:00:00Z",
+            "signedResourceTypes": "s"
         }
     }
-}
+},
+...
+"sasToken": "[listAccountSas(parameters('storagename'), '2018-02-01', parameters('accountSasProperties')).accountSasToken]"
 ```
 
 Para obter um exemplo de listKeyValue, confira [Início rápido: Implantação automatizada de VM com a Configuração de Aplicativos e o modelo do Resource Manager](../../azure-app-configuration/quickstart-resource-manager.md#deploy-vm-using-stored-key-values).
@@ -386,7 +347,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "providerNamespace": {
@@ -495,7 +456,7 @@ A função de referência pode ser usada somente nas propriedades de uma defini�
 
 Você não pode usar a função de referência para definir o valor da propriedade `count` em um loop de cópia. Você pode usar para definir outras propriedades no loop. A referência está bloqueada para a propriedade de contagem porque essa propriedade deve ser determinada antes que a função de referência seja resolvida.
 
-Você não pode usar a função de referência nas saídas de um [modelo aninhado](linked-templates.md#nested-template) para retornar um recurso que você implantou no modelo aninhado. Em vez disso, use um [modelo vinculado](linked-templates.md#linked-template).
+Para usar a função de referência ou qualquer função de lista * na seção de saídas de um modelo aninhado, você deve definir o ```expressionEvaluationOptions``` para usar a avaliação de [escopo interno](linked-templates.md#expression-evaluation-scope-in-nested-templates) ou usar um link vinculado em vez de um modelo aninhado.
 
 Se você usar a função **reference** em um recurso implantado condicionalmente, a função será avaliada mesmo que o recurso não seja implantado.  Você receberá um erro se a função **reference** se referir a um recurso que não existe. Use a função **if** para garantir que a função seja avaliada apenas quando o recurso estiver sendo implantado. Consulte a [função if](template-functions-logical.md#if) para um modelo de exemplo que usa if e reference com um recurso implantado condicionalmente.
 
@@ -537,10 +498,20 @@ Para simplificar a criação de qualquer ID de recurso, use as funções `resour
 
 As [identidades gerenciadas para recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md) são [tipos de recursos de extensão](../management/extension-resource-types.md) criados implicitamente para alguns recursos. Como a identidade gerenciada não é definida explicitamente no modelo, você deve referenciar o recurso ao qual a identidade é aplicada. Use `Full` para obter todas as propriedades, incluindo a identidade criada implicitamente.
 
-Por exemplo, para obter a ID de locatário para uma identidade gerenciada aplicada a um conjunto de dimensionamento de máquinas virtuais, use:
+O padrão é:
+
+`"[reference(resourceId(<resource-provider-namespace>, <resource-name>, <API-version>, 'Full').Identity.propertyName]"`
+
+Por exemplo, para obter a ID da entidade de segurança para uma identidade gerenciada que é aplicada a uma máquina virtual, use:
 
 ```json
-"tenantId": "[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), '2019-03-01', 'Full').Identity.tenantId]"
+"[reference(resourceId('Microsoft.Compute/virtualMachines', variables('vmName')),'2019-12-01', 'Full').identity.principalId]",
+```
+
+Ou, para obter a ID de locatário para uma identidade gerenciada que é aplicada a um conjunto de dimensionamento de máquinas virtuais, use:
+
+```json
+"[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), 2019-12-01, 'Full').Identity.tenantId]"
 ```
 
 ### <a name="reference-example"></a>Exemplo de referência
@@ -549,7 +520,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "storageAccountName": {
@@ -643,7 +614,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "storageResourceGroup": {
@@ -715,7 +686,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -759,7 +730,7 @@ Retorna o identificador exclusivo de um recurso. Você pode usar essa função q
 
 Continue adicionando nomes de recursos como parâmetros quando o tipo de recurso incluir mais segmentos.
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Quando o modelo é implantado no escopo de um grupo de recursos, a ID do recurso é retornada no seguinte formato:
 
@@ -817,7 +788,7 @@ Frequentemente, você precisa usar essa função ao usar uma conta de armazename
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "virtualNetworkName": {
@@ -863,7 +834,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -889,7 +860,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Type | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | sameRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
@@ -925,7 +896,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -945,7 +916,7 @@ Retorna o identificador exclusivo de um recurso implantado no nível da assinatu
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Digite | Descrição |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |Não |string (no formato GUID) |O valor padrão é a assinatura atual. Especifique esse valor quando você precisar recuperar um recurso em outra assinatura. |
 | resourceType |Sim |string |Tipo de recurso, incluindo o namespace do provedor de recursos. |
@@ -972,7 +943,7 @@ O modelo a seguir atribui uma função interna. Você pode implantá-lo em um gr
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "principalId": {
@@ -1027,7 +998,7 @@ Retorna o identificador exclusivo de um recurso implantado no nível do locatár
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Digite | Descrição |
 |:--- |:--- |:--- |:--- |
 | resourceType |Sim |string |Tipo de recurso, incluindo o namespace do provedor de recursos. |
 | resourceName1 |Sim |string |Nome do recurso. |

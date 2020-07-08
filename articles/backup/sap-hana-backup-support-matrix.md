@@ -3,12 +3,11 @@ title: Matriz de suporte de backup do SAP HANA
 description: Neste artigo, saiba mais sobre os cenários e limitações compatíveis ao usar o backup do Azure para fazer backup de bancos de dados do SAP HANA em VMs do Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 5dcbfa67ce69a3dad1c263427ea3a0e34e8cef18
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 472bbfa09bff135fa9642c097974436241c433c6
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747349"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959714"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Matriz de suporte para backup de bancos de dados do SAP HANA em VMs do Azure
 
@@ -22,13 +21,13 @@ O Backup do Azure oferece suporte ao backup de bancos de dados SAP HANA no Azure
 | **Cenário**               | **Configurações compatíveis**                                | **Configurações não compatíveis**                              |
 | -------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **Topologia**               | SAP HANA em execução apenas em VMs Linux do Azure                    | Instâncias grandes do HANA (HLI)                                   |
-| **Áreas geográficas**                   | **GA:**<br> **Américas**  - EUA Central, Leste dos EUA 2, Leste dos EUA, Centro-Norte dos EUA, Centro-Sul dos EUA, Oeste dos EUA 2, Centro-Oeste dos EUA, Oeste dos EUA, Canadá Central, Leste do Canadá, Sul do Brasil <br> **Ásia-Pacífico**  - Austrália Central, Austrália Central 2, Leste da Austrália, Sudeste da Austrália, Leste do Japão, Oeste do Japão, Coreia Central, Sul da Coreia, Leste da Ásia, Sudeste da Ásia, Índia Central, Sul da Índia, Oeste da Índia, Leste da China, Norte da China, Oeste da China 2, Norte da China 2 <br> **Europa** – Oeste da Europa, Norte da Europa, França Central, Sul do Reino Unido, Oeste do Reino Unido, Norte da Alemanha, Centro-Oeste da Alemanha, Norte da Suíça, Oeste da Suíça, Centro-Norte da Suíça <br> **África/Oriente Médio** - Norte da África do Sul, Oeste da África do Sul, Norte dos EAU, EAU Central  <BR>  **Regiões do Azure Governamental** | Sul da França, Alemanha Central, Nordeste da Alemanha, IOWA do US Gov |
-| **Versões do sistema operacional**            | SLES 12 com SP2, SP3 ou SP4; SLES 15 com SP1                              | RHEL                                                |
-| **Versões do HANA**          | SDC no HANA 1.x, MDC no HANA 2.x < = SPS04 Rev 46       | -                                                            |
+| **Regiões**                   | **GA:**<br> **Américas**  - EUA Central, Leste dos EUA 2, Leste dos EUA, Centro-Norte dos EUA, Centro-Sul dos EUA, Oeste dos EUA 2, Centro-Oeste dos EUA, Oeste dos EUA, Canadá Central, Leste do Canadá, Sul do Brasil <br> **Ásia-Pacífico**  - Austrália Central, Austrália Central 2, Leste da Austrália, Sudeste da Austrália, Leste do Japão, Oeste do Japão, Coreia Central, Sul da Coreia, Leste da Ásia, Sudeste da Ásia, Índia Central, Sul da Índia, Oeste da Índia, Leste da China, Norte da China, Oeste da China 2, Norte da China 2 <br> **Europa** – Europa Ocidental, Europa setentrional, França Central, Sul do Reino Unido, Oeste do Reino Unido, Norte da Alemanha, Centro-oeste da Alemanha, Norte da Suíça, oeste da Suíça, central norte da Suíça, leste da Noruega, oeste da Noruega <br> **África/Oriente Médio** - Norte da África do Sul, Oeste da África do Sul, Norte dos EAU, EAU Central  <BR>  **Regiões do Azure Governamental** | Sul da França, Alemanha Central, Nordeste da Alemanha, IOWA do US Gov |
+| **Versões do sistema operacional**            | SLES 12 com SP2, SP3 e SP4; SLES 15 com SP0 e SP1 <br><br>   **Visualização** -RHEL 7,4, 7,6, 7,7 e 8,1  <br>     [Introdução](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db) à visualização de backup SAP Hana para RHEL (7,4, 7,6, 7,7 e 8,1). Para outras consultas, escreva-nos em [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).                |                                             |
+| **Versões do HANA**          | SDC no HANA 1. x, MDC no HANA 2. x <= SPS04 Rev 48       | -                                                            |
 | **Implantações do HANA**       | SAP HANA em uma única VM do Azure - Apenas escalar verticalmente. <br><br> Para implantações de alta disponibilidade, ambos os nós em dois computadores diferentes são tratados como nós individuais com cadeias de dados separadas.               | Escalabilidade <br><br> O backup não faz failover para o nó secundário automaticamente em implantações de alta disponibilidade. A configuração do backup deve ser feita separadamente para cada nó.                                           |
 | **Instâncias do HANA**         | Uma única instância do SAP HANA em uma única VM do Azure - Apenas escalar verticalmente | Várias instâncias do SAP HANA em uma única VM                  |
 | **Tipos de banco de dados do HANA**    | Contêiner do Banco de Dados Individual (SDC) em 1.x, contêiner de vários bancos de dados (MDC) em 2.x | MDC no HANA 1.x                                              |
-| **Tamanho do banco de dados do HANA**     | Tamanho de backup completo de 2 TB conforme relatado pelo HANA)                   |                                                              |
+| **Tamanho do banco de dados do HANA**     | Bancos de dados do HANA com tamanho <= 2 TB (esse não é o tamanho da memória do sistema HANA)               |                                                              |
 | **Tipos de backup**           | Backups completos, diferenciais e de log                          | Incremental, instantâneos                                       |
 | **Restaurar tipos**          | Consulte a observação [1642148](https://launchpad.support.sap.com/#/notes/1642148) do SAP HANA para saber mais sobre os tipos de restauração compatíveis |                                                              |
 | **Limites do backup**          | Até 2 TB de tamanho de backup completo por instância do SAP HANA         |                                                              |

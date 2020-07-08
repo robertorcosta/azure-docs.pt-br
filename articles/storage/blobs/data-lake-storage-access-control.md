@@ -8,20 +8,19 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: dd23745f811cf67aa5e7ef7aa96b877b5980c270
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.openlocfilehash: 4f5be29dd42b03e86abb2be392ea42f875536fb5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82793118"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84193531"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Controle de acesso no Azure Data Lake Storage Gen2
 
 Azure Data Lake Storage Gen2 implementa um modelo de controle de acesso que dá suporte ao RBAC (controle de acesso baseado em função) do Azure e às ACLs (listas de controle de acesso) semelhantes a POSIX. Este artigo resume as noções básicas do modelo de controle de acesso para o Data Lake Storage Gen2.
 
-<a id="azure-role-based-access-control-rbac" />
+<a id="azure-role-based-access-control-rbac"></a>
 
-## <a name="role-based-access-control"></a>Controle de acesso baseado em funções
+## <a name="role-based-access-control"></a>Controle de acesso baseado em função
 
 O RBAC usa atribuições de função para aplicar efetivamente conjuntos de permissões a *entidades de segurança*. Uma *entidade de segurança* é um objeto que representa um usuário, grupo, entidade de serviço ou identidade gerenciada que é definida no Azure Active Directory (AD) que está solicitando acesso aos recursos do Azure.
 
@@ -72,11 +71,11 @@ Para definir permissões de nível de arquivo e diretório, consulte qualquer um
 |Java|[Use o Java para gerenciar diretórios, arquivos e ACLs no Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-java.md)|
 |Python|[Use o Python para gerenciar diretórios, arquivos e ACLs no Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-python.md)|
 |PowerShell|[Use o PowerShell para gerenciar diretórios, arquivos e ACLs no Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-powershell.md)|
-|CLI do Azure|[Use CLI do Azure para gerenciar diretórios, arquivos e ACLs no Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-cli.md)|
+|CLI do Azure|[Usar a CLI do Azure para gerenciar diretórios, arquivos e ACLs no Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-cli.md)|
 |API REST |[Caminho-atualizar](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]
-> Se a entidade de segurança for uma entidade de *serviço* , é importante usar a ID de objeto da entidade de serviço e não a ID de objeto do registro do aplicativo relacionado. Para obter a ID de objeto da entidade de serviço, abra o CLI do Azure e, em seguida, `az ad sp show --id <Your App ID> --query objectId`Use este comando:. Certifique-se de substituir `<Your App ID>` o espaço reservado pela ID do aplicativo do registro do aplicativo.
+> Se a entidade de segurança for uma entidade de *serviço* , é importante usar a ID de objeto da entidade de serviço e não a ID de objeto do registro do aplicativo relacionado. Para obter a ID de objeto da entidade de serviço, abra o CLI do Azure e, em seguida, use este comando: `az ad sp show --id <Your App ID> --query objectId` . Certifique-se de substituir o `<Your App ID>` espaço reservado pela ID do aplicativo do registro do aplicativo.
 
 ### <a name="types-of-access-control-lists"></a>Tipos de listas de controle de acesso
 
@@ -321,7 +320,7 @@ Um GUID será mostrado se a entrada representa um usuário e esse usuário não 
 
 Quando você define ACLs para entidades de serviço, é importante usar a OID (ID de objeto) da entidade de *serviço* para o registro do aplicativo que você criou. É importante observar que os aplicativos registrados têm uma entidade de serviço separada no locatário específico do Azure AD. Os aplicativos registrados têm um OID que é visível no portal do Azure, mas a *entidade de serviço* tem outro OID (diferente).
 
-Para obter o OID para a entidade de serviço que corresponde a um registro de aplicativo, você pode `az ad sp show` usar o comando. Especifique a ID do aplicativo como o parâmetro. Veja um exemplo de como obter o OID para a entidade de serviço que corresponde a um registro de aplicativo com ID do aplicativo = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Execute o seguinte comando na CLI do Azure:
+Para obter o OID para a entidade de serviço que corresponde a um registro de aplicativo, você pode usar o `az ad sp show` comando. Especifique a ID do aplicativo como o parâmetro. Veja um exemplo de como obter o OID para a entidade de serviço que corresponde a um registro de aplicativo com ID do aplicativo = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Execute o seguinte comando na CLI do Azure:
 
 ```azurecli
 az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
@@ -348,6 +347,6 @@ ACLS não herdam. Porém, as ACLs padrão pode ser usadas para definir as ACLs d
 * [POSIX ACL no Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [ACL usando listas de controle de acesso no Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 * [Visão geral do Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md)

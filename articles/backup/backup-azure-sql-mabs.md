@@ -3,12 +3,11 @@ title: Fazer backup de SQL Server usando Servidor de Backup do Azure
 description: Neste artigo, aprenda a configuração para fazer backup de bancos de dados SQL Server usando Backup do Microsoft Azure Server (MABS).
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: 9cd6a8b76e4618031f4d21dc04a82a78fad0076d
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
-ms.translationtype: MT
+ms.openlocfilehash: 2bb172ca36f3f932fdaaf5b71e8fa183c04d1510
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82159243"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84194193"
 ---
 # <a name="back-up-sql-server-to-azure-by-using-azure-backup-server"></a>Fazer backup de SQL Server no Azure usando Servidor de Backup do Azure
 
@@ -36,7 +35,7 @@ Para proteger SQL Server bancos de dados no Azure, primeiro crie uma política d
 1. Para o tipo de grupo de proteção, selecione **servidores**.
 
     ![Selecione o tipo de grupo de proteção servidores](./media/backup-azure-backup-sql/pg-servers.png)
-1. Expanda a máquina SQL Server em que os bancos de dados que você deseja fazer backup estão localizados. Você vê as fontes de dados cujo backup pode ser feito a partir desse servidor. Expanda **todos os compartilhamentos SQL** e selecione os bancos de dados que você deseja fazer backup. Neste exemplo, selecionamos ReportServer $ MSDPM2012 e ReportServer $ MSDPM2012TempDB. Selecione **Avançar**.
+1. Expanda a instância de SQL Server em que os bancos de dados que você deseja fazer backup estão localizados. Você vê as fontes de dados cujo backup pode ser feito a partir desse servidor. Expanda **todos os compartilhamentos SQL** e selecione os bancos de dados que você deseja fazer backup. Neste exemplo, selecionamos ReportServer $ MSDPM2012 e ReportServer $ MSDPM2012TempDB. Selecione **Avançar**.
 
     ![Selecionar um banco de dados SQL Server](./media/backup-azure-backup-sql/pg-databases.png)
 1. Nomeie o grupo de proteção e selecione **desejo proteção online**.
@@ -64,14 +63,14 @@ Para proteger SQL Server bancos de dados no Azure, primeiro crie uma política d
 
     ![Escolha um método de criação de réplica em MABS](./media/backup-azure-backup-sql/pg-manual.png)
 
-    A cópia de backup inicial requer a transferência de toda a fonte de dados (SQL Server banco de dado). Os dados de backup são movidos do servidor de produção (SQL Server máquina) para MABS. Se esse backup for grande, a transferência dos dados pela rede poderá causar o congestionamento da largura de banda. Por esse motivo, os administradores podem optar por usar a mídia removível para transferir o backup inicial **manualmente**. Ou podem transferir os dados **automaticamente pela rede** em um horário especificado.
+    A cópia de backup inicial requer a transferência de toda a fonte de dados (SQL Server banco de dado). Os dados de backup são movidos do servidor de produção (SQL Server computador) para MABS. Se esse backup for grande, a transferência dos dados pela rede poderá causar o congestionamento da largura de banda. Por esse motivo, os administradores podem optar por usar a mídia removível para transferir o backup inicial **manualmente**. Ou podem transferir os dados **automaticamente pela rede** em um horário especificado.
 
     Após a conclusão do backup inicial, os backups continuam incrementalmente na cópia de backup inicial. Os backups incrementais tendem a ser pequenos e são facilmente transferidos pela rede.
 1. Escolha quando executar uma verificação de consistência. Em seguida, selecione **Avançar**.
 
     ![Escolher quando executar uma verificação de consistência](./media/backup-azure-backup-sql/pg-consistent.png)
 
-    O MABS pode executar uma verificação de consistência na integridade do ponto de backup. Ele calcula a soma de verificação do arquivo de backup no servidor de produção (a SQL Server computador neste exemplo) e os dados de backup para esse arquivo em MABS. Se a verificação encontrar um conflito, o arquivo de backup em MABS será considerado corrompido. O MABS corrige os dados de backup enviando os blocos que correspondem à incompatibilidade da soma de verificação. Como a verificação de consistência é uma operação com uso intensivo de desempenho, os administradores podem optar por agendar a verificação de consistência ou executá-la automaticamente.
+    O MABS pode executar uma verificação de consistência na integridade do ponto de backup. Ele calcula a soma de verificação do arquivo de backup no servidor de produção (o SQL Server computador neste exemplo) e os dados de backup para esse arquivo em MABS. Se a verificação encontrar um conflito, o arquivo de backup em MABS será considerado corrompido. O MABS corrige os dados de backup enviando os blocos que correspondem à incompatibilidade da soma de verificação. Como a verificação de consistência é uma operação com uso intensivo de desempenho, os administradores podem optar por agendar a verificação de consistência ou executá-la automaticamente.
 1. Selecione as fontes de dados a serem protegidas no Azure. Em seguida, selecione **Avançar**.
 
     ![Selecionar fontes de dados para proteger no Azure](./media/backup-azure-backup-sql/pg-sqldatabases.png)

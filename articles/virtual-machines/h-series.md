@@ -1,18 +1,17 @@
 ---
 title: Série H-máquinas virtuais do Azure
 description: Especificações para as VMs da série H.
-services: virtual-machines
-author: jonbeck7
+author: ju-shim
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: article
 ms.date: 03/10/2020
-ms.author: lahugh
-ms.openlocfilehash: 6e0257f8a32d05f49dd67195f22d387319358ef2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.author: jushiman
+ms.openlocfilehash: f79dcb8886985d60a1ed82e1a77d231cf7d3ad24
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81314140"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84678674"
 ---
 # <a name="h-series"></a>Série H
 
@@ -20,13 +19,13 @@ As VMs da série H são otimizadas para aplicativos orientados por altas frequê
 
 ACU: 290-300
 
-Armazenamento Premium: sem suporte
+Armazenamento Premium:  Sem suporte
 
 Cache de Armazenamento Premium: sem suporte
 
-Migração ao Vivo: sem suporte
+Migração ao Vivo: Sem suporte
 
-Atualizações de preservação de memória: sem suporte
+Atualizações de preservação de memória: Sem suporte
 
 | Tamanho | vCPU | Processador | Memória (GB) | Largura de banda de memória GB/s | Frequência de CPU base (GHz) | Frequência de todos os núcleos (GHz, pico) | Frequência de núcleo único (GHz, pico) | Desempenho de RDMA (GB/s) | Suporte a MPI | Armazenamento temporário (GB) | Discos de dados máximos | Taxa de transferência máxima do disco: IOPS | Máximo de NICs Ethernet |
 | --- | --- |--- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |

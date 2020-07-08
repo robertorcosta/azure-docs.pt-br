@@ -3,16 +3,15 @@ title: Monitorar a Sincronização de Arquivos do Azure | Microsoft Docs
 description: Como monitorar a Sincronização de Arquivos do Azure.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/28/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: ac09f9b59bc6f47adc9311cc910352c1a0d73b5d
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.openlocfilehash: 0232a0c6526d6dcdfec86dedec437c71e7e21080
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "68699280"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515209"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorar a Sincronização de Arquivos do Azure
 
@@ -38,9 +37,9 @@ As métricas a seguir para a Sincronização de Arquivos do Azure estão dispon�
 |-|-|
 | Bytes sincronizados | Tamanho dos dados transferidos (upload e download).<br><br>Unidade: Bytes<br>Tipo de agregação: Sum<br>Dimensões aplicáveis: nome do ponto de extremidade do servidor, direção de sincronização, nome do grupo de sincronização |
 | Recall da camada de nuvem | Tamanho dos dados em recall.<br><br>**Observação**: essa métrica será removida no futuro. Use a métrica de tamanho de recuperação de camadas de nuvem para monitorar o tamanho dos dados recuperados.<br><br>Unidade: Bytes<br>Tipo de agregação: Sum<br>Dimensão aplicável: nome do servidor |
-| Tamanho de recall em camadas de nuvem | Tamanho dos dados em recall.<br><br>Unidade: Bytes<br>Tipo de agregação: Sum<br>Dimensão aplicável: nome do servidor, nome do grupo de sincronização |
-| Tamanho de recall de camadas de nuvem por aplicativo | Tamanho dos dados recuperados pelo aplicativo.<br><br>Unidade: Bytes<br>Tipo de agregação: Sum<br>Dimensão aplicável: nome do aplicativo, nome do servidor, nome do grupo de sincronização |
-| Taxa de transferência de recall em camadas de nuvem | Tamanho da taxa de transferência de recall de dados.<br><br>Unidade: Bytes<br>Tipo de agregação: Sum<br>Dimensão aplicável: nome do servidor, nome do grupo de sincronização |
+| Tamanho de recall da camada de nuvem | Tamanho dos dados em recall.<br><br>Unidade: Bytes<br>Tipo de agregação: Sum<br>Dimensão aplicável: nome do servidor, nome do grupo de sincronização |
+| Tamanho de recall da camada de nuvem por aplicativo | Tamanho dos dados recuperados pelo aplicativo.<br><br>Unidade: Bytes<br>Tipo de agregação: Sum<br>Dimensão aplicável: nome do aplicativo, nome do servidor, nome do grupo de sincronização |
+| Taxa de transferência de recall da camada de nuvem | Tamanho da taxa de transferência de recall de dados.<br><br>Unidade: Bytes<br>Tipo de agregação: Sum<br>Dimensão aplicável: nome do servidor, nome do grupo de sincronização |
 | Arquivos não sincronizando | Contagem de arquivos que estão falhando em sincronizar.<br><br>Unidade: Contagem<br>Tipo de agregação: Sum<br>Dimensões aplicáveis: nome do ponto de extremidade do servidor, direção de sincronização, nome do grupo de sincronização |
 | Arquivos sincronizados | Contagem dos arquivos transferidos (upload e download).<br><br>Unidade: Contagem<br>Tipo de agregação: Sum<br>Dimensões aplicáveis: nome do ponto de extremidade do servidor, direção de sincronização, nome do grupo de sincronização |
 | Status online do servidor | Contagem de pulsações recebidas do servidor.<br><br>Unidade: Contagem<br>Tipo de agregação: Máximo<br>Dimensão aplicável: nome do servidor |
@@ -57,7 +56,7 @@ A tabela a seguir lista alguns cenários de exemplo para monitorar e a métrica 
 | Integridade do ponto de extremidade do servidor no portal = erro | Resultado da sessão de sincronização |
 | Os arquivos estão falhando ao sincronizar com um ponto de extremidade de servidor ou de nuvem | Arquivos não sincronizando |
 | O servidor registrado não está conseguindo se comunicar com o serviço de sincronização de armazenamento | Status online do servidor |
-| O tamanho de recall em camadas de nuvem excedeu 500GiB em um dia  | Tamanho de recall em camadas de nuvem |
+| O tamanho de recall em camadas de nuvem excedeu 500GiB em um dia  | Tamanho de recall da camada de nuvem |
 
 Para saber mais sobre como configurar alertas no Azure Monitor, consulte [visão geral de alertas no Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 
@@ -68,7 +67,7 @@ Para exibir a integridade do servidor registrado, a integridade do ponto de extr
 ### <a name="registered-server-health"></a>Integridade do servidor registrado
 
 - Se o estado do **servidor registrado** estiver **online**, o servidor estará se comunicando com êxito com o serviço.
-- Se o estado do **servidor registrado** for **exibido offline**, verifique se o processo do monitor de sincronização de armazenamento (AzureStorageSyncMonitor. exe) no servidor está em execução. Se o servidor estiver protegido por um firewall ou proxy, consulte [Este artigo](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy) para configurar o firewall e o proxy.
+- Se o estado do **servidor registrado** for **exibido offline**, verifique se o processo do monitor de sincronização de armazenamento (AzureStorageSyncMonitor.exe) no servidor está em execução. Se o servidor estiver protegido por um firewall ou proxy, consulte [Este artigo](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy) para configurar o firewall e o proxy.
 
 ### <a name="server-endpoint-health"></a>Integridade do ponto de extremidade do servidor
 
@@ -132,7 +131,7 @@ Integridade de camadas de nuvem:
 
 Use os contadores de desempenho da Sincronização de Arquivos do Azure no servidor para monitorar a atividade de sincronização.
 
-Para exibir Sincronização de Arquivos do Azure contadores de desempenho no servidor, abra o monitor de desempenho (Perfmon. exe). Você pode encontrar os contadores nos objetos de **operações de sincronização** de **AFS bytes transferidos** e AFS.
+Para exibir Sincronização de Arquivos do Azure contadores de desempenho no servidor, abra o monitor de desempenho (Perfmon.exe). Você pode encontrar os contadores nos objetos de **operações de sincronização** de **AFS bytes transferidos** e AFS.
 
 Os seguintes contadores de desempenho para a Sincronização de Arquivos do Azure estão disponíveis no Monitor de Desempenho:
 

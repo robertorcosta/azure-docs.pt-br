@@ -10,17 +10,16 @@ ms.service: role-based-access-control
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/01/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 58e7a46633b7bbdd6074fa7e511569ff9e2aebdf
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.openlocfilehash: ac5c19866a164bbc927d23495e9d6ec9a1ef6bfe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996589"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84790697"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Solucionar problemas do RBAC do Azure
 
@@ -51,19 +50,19 @@ $ras.Count
 
 ## <a name="problems-with-azure-role-assignments"></a>Problemas com as atribuições de função do Azure
 
-- Se não for possível adicionar uma atribuição de função no portal do Azure no **controle de acesso (iam)** porque a opção **Adicionar** > **Adicionar atribuição de função** está desabilitada ou porque você recebe o erro de permissões "o cliente com a ID de objeto não tem autorização para executar a ação", verifique se você está conectado no momento com um usuário que recebe uma `Microsoft.Authorization/roleAssignments/write` função que tem a permissão como [proprietário](built-in-roles.md#owner) ou administrador de [acesso do usuário](built-in-roles.md#user-access-administrator) no escopo ao qual você está tentando atribuir a função.
+- Se não for possível adicionar uma atribuição de função no portal do Azure no **controle de acesso (iam)** porque a opção **Adicionar**  >  **Adicionar atribuição de função** está desabilitada ou porque você recebe o erro de permissões "o cliente com a ID de objeto não tem autorização para executar a ação", verifique se você está conectado no momento com um usuário que recebe uma função que tem a `Microsoft.Authorization/roleAssignments/write` permissão como [proprietário](built-in-roles.md#owner) ou administrador de [acesso do usuário](built-in-roles.md#user-access-administrator) no escopo ao qual você está tentando atribuir a função.
 
 ## <a name="problems-with-custom-roles"></a>Problemas com funções personalizadas
 
 - Se você precisar de etapas para criar uma função personalizada, consulte os tutoriais de função personalizada usando o [portal do Azure](custom-roles-portal.md) (atualmente em visualização), [Azure PowerShell](tutorial-custom-role-powershell.md)ou [CLI do Azure](tutorial-custom-role-cli.md).
-- Se não for possível atualizar uma função personalizada existente, verifique se você está conectado no momento com um usuário que recebe uma função que tem a `Microsoft.Authorization/roleDefinition/write` permissão como [proprietário](built-in-roles.md#owner) ou administrador de acesso do [usuário](built-in-roles.md#user-access-administrator).
+- Se não for possível atualizar uma função personalizada existente, verifique se você está conectado no momento com um usuário que recebe uma função que tem a `Microsoft.Authorization/roleDefinition/write` permissão como [proprietário](built-in-roles.md#owner) ou [administrador de acesso do usuário](built-in-roles.md#user-access-administrator).
 - A impossibilidade de excluir uma função personalizada e a mensagem de erro "Existem atribuições de função que fazem referência à função (código: RoleDefinitionHasAssignments)" significam que há atribuições de função que ainda estão usando a função personalizada. Remova essas atribuições de função e tente excluir a função personalizada novamente.
 - Se você receber a mensagem de erro "Limite de definição de função excedido. Não é possível criar mais definições de função (código: RoleDefinitionLimitExceeded) "quando você tenta criar uma nova função personalizada, exclua todas as funções personalizadas que não estão sendo usadas. O Azure dá suporte a até **5000** funções personalizadas em um diretório. (Para Azure Alemanha e Azure China 21Vianet, o limite é de 2000 funções personalizadas.)
 - Se você receber um erro semelhante a "o cliente tem permissão para executar a ação ' Microsoft. Authorization/roleDefinitions/Write ' no escopo '/subscriptions/{SubscriptionId} ', no entanto, a assinatura vinculada não foi encontrada" quando você tentar atualizar uma função personalizada, verifique se um ou mais [escopos atribuíveis](role-definitions.md#assignablescopes) foram excluídos no diretório. Se o escopo tiver sido excluído, crie um tíquete de suporte, pois não há nenhuma solução de autoatendimento disponível no momento.
 
 ## <a name="custom-roles-and-management-groups"></a>Funções personalizadas e grupos de gerenciamento
 
-- Você só pode definir um grupo de gerenciamento `AssignableScopes` em uma função personalizada. A adição de um grupo `AssignableScopes` de gerenciamento ao está em visualização no momento.
+- Você só pode definir um grupo de gerenciamento em `AssignableScopes` uma função personalizada. A adição de um grupo de gerenciamento ao `AssignableScopes` está em visualização no momento.
 - Funções personalizadas com `DataActions` não podem ser atribuídas no escopo do grupo de gerenciamento.
 - Azure Resource Manager não valida a existência do grupo de gerenciamento no escopo atribuível da definição de função.
 - Para obter mais informações sobre funções personalizadas e grupos de gerenciamento, consulte [organizar seus recursos com grupos de gerenciamento do Azure](../governance/management-groups/overview.md#custom-rbac-role-definition-and-assignment).
@@ -98,7 +97,7 @@ Se você convidou recentemente um usuário ao criar uma atribuição de função
 
 No entanto, se essa entidade de segurança não for um usuário convidado recentemente, ela poderá ser uma entidade de segurança excluída. Se você atribuir uma função a uma entidade de segurança e posteriormente excluir essa entidade de segurança sem primeiro remover a atribuição de função, a entidade de segurança será listada como **identidade não encontrada** e um tipo **desconhecido** .
 
-Se você listar essa atribuição de função usando Azure PowerShell, poderá ver um `DisplayName` vazio e `ObjectType` um definido como **desconhecido**. Por exemplo, [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) retorna uma atribuição de função que é semelhante à seguinte saída:
+Se você listar essa atribuição de função usando Azure PowerShell, poderá ver um vazio `DisplayName` e um `ObjectType` definido como **desconhecido**. Por exemplo, [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) retorna uma atribuição de função que é semelhante à seguinte saída:
 
 ```
 RoleAssignmentId   : /subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
@@ -112,7 +111,7 @@ ObjectType         : Unknown
 CanDelegate        : False
 ```
 
-Da mesma forma, se você listar essa atribuição de função usando CLI do Azure, você `principalName`poderá ver um vazio. Por exemplo, a [lista de atribuição de função AZ](/cli/azure/role/assignment#az-role-assignment-list) retorna uma atribuição de função semelhante à seguinte saída:
+Da mesma forma, se você listar essa atribuição de função usando CLI do Azure, você poderá ver um vazio `principalName` . Por exemplo, a [lista de atribuição de função AZ](/cli/azure/role/assignment#az-role-assignment-list) retorna uma atribuição de função semelhante à seguinte saída:
 
 ```
 {
@@ -143,7 +142,7 @@ At line:1 char:1
 + FullyQualifiedErrorId : Microsoft.Azure.Commands.Resources.RemoveAzureRoleAssignmentCommand
 ```
 
-Se você receber essa mensagem de erro, certifique-se de também `-Scope` especificar `-ResourceGroupName` os parâmetros ou.
+Se você receber essa mensagem de erro, certifique-se de também especificar os `-Scope` `-ResourceGroupName` parâmetros ou.
 
 ```
 PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -RoleDefinitionName "Storage Blob Data Contributor" - Scope /subscriptions/11111111-1111-1111-1111-111111111111
@@ -153,7 +152,7 @@ PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -
 
 Às vezes, o Azure Resource Manager armazena em cache configurações e dados para melhorar o desempenho. Quando você adiciona ou remove atribuições de função, pode levar até 30 minutos para que as alterações entrem em vigor. Se estiver usando o portal do Azure, o Azure PowerShell ou a CLI do Azure, será possível forçar uma atualização das alterações de atribuição de função, saindo e entrando novamente. Se estiver fazendo alterações de atribuição de função com chamadas à API REST, poderá forçar uma atualização atualizando o token de acesso.
 
-Se você for adicionar ou remover uma atribuição de função no escopo do grupo de gerenciamento e `DataActions`a função tiver, o acesso no plano de dados poderá não ser atualizado por várias horas. Isso se aplica somente ao escopo do grupo de gerenciamento e ao plano de dados.
+Se você for adicionar ou remover uma atribuição de função no escopo do grupo de gerenciamento e a função tiver `DataActions` , o acesso no plano de dados poderá não ser atualizado por várias horas. Isso se aplica somente ao escopo do grupo de gerenciamento e ao plano de dados.
 
 ## <a name="web-app-features-that-require-write-access"></a>Recursos de aplicativo Web que exigem acesso para gravação
 

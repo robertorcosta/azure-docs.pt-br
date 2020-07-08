@@ -8,12 +8,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/02/2019
-ms.openlocfilehash: eba7d7ad009b2ef0442a916983489489eb5cceb8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3e769d33db0a8f28ed22ba3c284a1e9b23ea6d11
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74806653"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959153"
 ---
 # <a name="use-the-net-sdk-for-apache-hbase"></a>Usar o SDK do .NET para o Apache HBase
 
@@ -25,7 +24,9 @@ Para aplicativos C# e .NET, a [Biblioteca de Cliente do .NET do HBase REST da Mi
 
 O SDK do .NET HBase é fornecido como um pacote do NuGet, que pode ser instalado do **Console Gerenciador de Pacotes do NuGet** do Visual Studio com o seguinte comando:
 
-    Install-Package Microsoft.HBase.Client
+```console
+Install-Package Microsoft.HBase.Client
+```
 
 ## <a name="instantiate-a-new-hbaseclient-object"></a>Criar um novo objeto HBaseClient
 

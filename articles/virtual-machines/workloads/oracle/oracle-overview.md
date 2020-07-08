@@ -10,14 +10,13 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/12/2020
+ms.date: 06/05/2020
 ms.author: borisb
-ms.openlocfilehash: 649d96a158682752e0d4a31bf7ec73eb7c442f0f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 7c15c96305cc1220d9ca3cdb9062d7ea7acb4e86
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660551"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85098942"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Visão geral de soluções e Aplicativos Oracle no Azure
 
@@ -29,7 +28,9 @@ Execute bancos de dados Oracle na infraestrutura do Azure usando Oracle Database
 
 * Oracle Database 12.1, 12.2 e 18.3 Edição Enterprise 
 
-* Oracle Database 12.1, 12.2 e 18.3 Edição Standard 
+* Oracle Database 12.1, 12.2 e 18.3 Edição Standard
+
+* Oracle Database 19,3
 
 Você também pode optar por configurar o Oracle Database em uma imagem não Oracle Linux disponível no Azure, basear uma solução em uma imagem personalizada criada do zero no Azure ou carregar uma imagem personalizada do seu ambiente local.
 
@@ -41,19 +42,19 @@ Escolha entre uma variedade de aplicativos Azure do WebLogic Server para acelera
 
 ## <a name="applications-on-oracle-linux-and-weblogic-server"></a>Aplicativos no Oracle Linux e no WebLogic Server
 
-Execute aplicativos empresariais no Azure em sistemas operacionais Oracle com suporte. As seguintes imagens de máquina virtual estão disponíveis no Azure Marketplace:
+Execute aplicativos empresariais no Azure em imagens Oracle Linux com suporte. As seguintes imagens de máquina virtual estão disponíveis no Azure Marketplace:
 
 * Oracle WebLogic Server 12.1.2
 
-* Oracle Linux com o UEK (Unbreakable Enterprise Kernel) 6.8, 6.9, 6.10, 7.3, 7.4, 7.5 e 7.6 
+* Oracle Linux com o UEK (inquebrable Enterprise kernel) 6,8, 6,9, 6,10, 7,3 a 7,7, 8,0, 8,1. 
 
 ## <a name="high-availability-and-disaster-recovery-options"></a>Opções de alta disponibilidade e recuperação de desastre
 
 * Configure o [Oracle Data Guard](https://docs.oracle.com/cd/B19306_01/server.102/b14239/concepts.htm#g1049956), o [Active Data Guard com FSFO](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dgbkr/index.html), a [Fragmentação](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/admin/sharding-overview.html) ou o [Golden Gate](https://www.oracle.com/middleware/technologies/goldengate.html) na infraestrutura do Azure em conjunto com as [Zonas de Disponibilidade](../../../availability-zones/az-overview.md) para alta disponibilidade na região. Você também pode definir essas configurações em várias regiões do Azure para aumentar a disponibilidade e a recuperação de desastres.
 
-* Use o [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md) para orquestrar e gerenciar a recuperação de desastre para suas VMs do Oracle Linux no Azure e seus servidores físicos ou locais. 
+* Use [Azure site Recovery](../../../site-recovery/site-recovery-overview.md) para orquestrar e gerenciar a recuperação de desastres para suas VMs Oracle Linux no Azure e em seus servidores físicos. 
 
-* Habilite o RAC (Clusters de Aplicativos Reais) da Oracle no Azure usando a [solução do Azure VMWare](https://docs.microsoft.com/azure/vmware-cloudsimple/oracle-real-application-clusters/) ou o [FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
+* Habilite RAC (clusters de aplicativos reais) da Oracle no Azure usando a [solução VMware do Azure](https://docs.microsoft.com/azure/vmware-cloudsimple/oracle-real-application-clusters/) ou [FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
 
 ## <a name="backup-oracle-workloads"></a>Fazer backup de cargas de trabalho do Oracle
 
@@ -72,8 +73,7 @@ Execute aplicativos Oracle na infraestrutura do Azure, conectados a bancos de da
 
 Use modelos Terraform para configurar a infraestrutura do Azure e instalar aplicativos Oracle. 
 
-> [!IMPORTANT]
-> A Oracle garantirá que esses aplicativos sejam executados no Azure ao usar a solução de interconexão do Azure/Oracle Cloud de maio de 2020.
+A Oracle certificou esses aplicativos para serem executados no Azure ao se conectar a um banco de dados Oracle por meio da solução de interconexão de nuvem do Azure/Oracle:
 
 * E-Business Suite
 * JD Edwards EnterpriseOne
@@ -85,7 +85,7 @@ Implante também aplicativos personalizados no Azure que se conectam ao OCI e a 
 
 ### <a name="set-up-oracle-databases-in-oci"></a>Configurar bancos de dados Oracle em OCI
 
-Use os serviços de nuvem do Oracle Database (Banco de Dados Autônomo, RAC, Exadata, DBaaS, Nó Único) em conjunto com os aplicativos Oracle em execução no Azure. Saiba mais sobre as [opções de banco de dados OCI](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm). 
+Use Oracle Database serviços de nuvem (banco de dados autônomo, RAC, Exadata, DBaaS, nó único) em conjunto com o software Oracle em execução no Azure. Saiba mais sobre as [opções de banco de dados OCI](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm). 
  
 
 ## <a name="licensing"></a>Licenciamento

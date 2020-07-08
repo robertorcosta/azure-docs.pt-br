@@ -4,16 +4,15 @@ description: Explica como ativar um novo dispositivo StorSimple, ativar um dispo
 author: alkohli
 ms.assetid: 8e9c6e6c-965c-4a81-81bd-e1c523a14c82
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1319583569a8abc619ad902a87ee551b476f88eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c8f4269235c494ff9dd8d1bf8e0ef940562f8927
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254619"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515269"
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Ativar ou desativar seu dispositivo StorSimple série 8000
 
@@ -86,12 +85,12 @@ Uma interrupção de energia pode desligar um dispositivo StorSimple. A queda de
 * [Dispositivo com apenas o compartimento primário](#8100)
 * [Dispositivo com o compartimento EBOD](#8600)
 
-### <a name="device-with-primary-enclosure-only-a-name8100"></a>Dispositivo com apenas o compartimento primário <a name="8100">
+### <a name="device-with-primary-enclosure-only"></a>Dispositivo com apenas o compartimento primário <a name="8100"></a>
 O sistema pode continuar sua operação normal se houver perda de energia para uma de suas fontes de alimentação. No entanto, para garantir a alta disponibilidade do dispositivo, restaure a energia para a fonte de alimentação assim que possível.
 
 Se houver uma interrupção ou queda de energia em ambas as fontes de alimentação, o sistema será desligado de forma controlada e ordenada. Quando a energia for restaurada, o sistema será automaticamente ligado.
 
-### <a name="device-with-ebod-enclosure-a-name8600"></a>Dispositivo com o compartimento EBOD <a name="8600">
+### <a name="device-with-ebod-enclosure"></a>Dispositivo com o compartimento EBOD <a name="8600"></a>
 #### <a name="power-loss-on-one-power-supply"></a>Perda de energia em uma fonte de alimentação
 O sistema pode continuar sua operação normal se houver perda de energia para uma de suas fontes de alimentação no compartimento primário ou no EBOD. No entanto, para garantir a alta disponibilidade do dispositivo, restaure a energia para a fonte de alimentação assim que possível.
 
@@ -140,21 +139,21 @@ Um dispositivo StorSimple em execução poderá precisar ser desligado se estive
 * [Dispositivo com o compartimento primário](#8100a)
 * [Dispositivo com o compartimento EBOD](#8600a)
 
-### <a name="device-with-primary-enclosure-a-name8100a"></a>Dispositivo com o compartimento primário <a name="8100a">
+### <a name="device-with-primary-enclosure"></a>Dispositivo com o compartimento primário <a name="8100a"></a>
 Você pode desligar o dispositivo de forma ordenada e controlada por meio do Portal do Azure ou do Windows PowerShell para o StorSimple. 
 
 > [!IMPORTANT]
 > Não desligue um dispositivo em execução usando o botão de energia na parte posterior do dispositivo.
 > 
-> Antes de desligar o dispositivo, certifique-se de que todos os componentes de dispositivo estejam íntegros. No portal do Azure, navegue até **dispositivos** > **monitorar** > **integridade do hardware**e verifique se o status de todos os componentes está verde. Isso se aplica apenas a um sistema íntegro. Se o sistema estiver sendo desligado para substituir um componente com problemas de funcionamento, você verá um status de falha (vermelho) ou degradado (amarelo) para o respectivo componente no **Status do Hardware**.
+> Antes de desligar o dispositivo, certifique-se de que todos os componentes de dispositivo estejam íntegros. No portal do Azure, navegue até **dispositivos**  >  **monitorar**  >  **integridade do hardware**e verifique se o status de todos os componentes está verde. Isso se aplica apenas a um sistema íntegro. Se o sistema estiver sendo desligado para substituir um componente com problemas de funcionamento, você verá um status de falha (vermelho) ou degradado (amarelo) para o respectivo componente no **Status do Hardware**.
 > 
 > 
 
 Depois de acessar o Windows PowerShell para o StorSimple ou o Portal do Azure, siga as etapas em [Desligar um dispositivo StorSimple](storsimple-8000-manage-device-controller.md#shut-down-a-storsimple-device). 
 
-### <a name="device-with-ebod-enclosure-a-name8600a"></a>Dispositivo com o compartimento EBOD <a name="8600a">
+### <a name="device-with-ebod-enclosure"></a>Dispositivo com o compartimento EBOD <a name="8600a"></a>
 > [!IMPORTANT]
-> Antes de desligar o compartimento primário e o compartimento EBOD, verifique se todos os componentes do dispositivo estão íntegros. No portal do Azure, navegue até **dispositivos** > **monitorar** > **integridade do hardware**e verifique se todos os componentes estão íntegros.
+> Antes de desligar o compartimento primário e o compartimento EBOD, verifique se todos os componentes do dispositivo estão íntegros. No portal do Azure, navegue até **dispositivos**  >  **monitorar**  >  **integridade do hardware**e verifique se todos os componentes estão íntegros.
 
 
 #### <a name="to-shut-down-a-running-device-with-ebod-enclosure"></a>Para desligar um dispositivo em execução com o compartimento EBOD

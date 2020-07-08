@@ -3,12 +3,11 @@ title: Funções de modelo – implantação
 description: Descreve as funções a serem usadas em um modelo do Resource Manager para recuperar informações sobre implantação.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: a52b4eae9df4ad3fdf9e481ee0a40aac48f6665b
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
-ms.translationtype: MT
+ms.openlocfilehash: e8240c05cba82d5563c4b327ecbc65a9c358720f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203787"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84677807"
 ---
 # <a name="deployment-functions-for-arm-templates"></a>Funções de implantação para modelos ARM
 
@@ -16,8 +15,8 @@ O Resource Manager fornece as seguintes funções para obter valores relacionado
 
 * [planta](#deployment)
 * [ambiente](#environment)
-* [parâmetro](#parameters)
-* [as](#variables)
+* [parameters](#parameters)
+* [variáveis](#variables)
 
 Para obter valores de recursos, de grupos de recursos ou de assinaturas, veja [Funções de recurso](template-functions-resource.md).
 
@@ -27,7 +26,7 @@ Para obter valores de recursos, de grupos de recursos ou de assinaturas, veja [F
 
 Retorna informações sobre a operação de implantação atual.
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Essa função retorna o objeto que é passado durante a implantação. As propriedades no objeto retornado diferem se você for:
 
@@ -82,7 +81,7 @@ Ao implantar um modelo remoto em um grupo de recursos: a função retorna o segu
 }
 ```
 
-Quando você implanta em uma assinatura do Azure, grupo de gerenciamento ou locatário, o objeto de retorno `location` inclui uma propriedade. A propriedade de localização é incluída ao implantar um modelo local ou externo. O formato é:
+Quando você implanta em uma assinatura do Azure, grupo de gerenciamento ou locatário, o objeto de retorno inclui uma `location` propriedade. A propriedade de localização é incluída ao implantar um modelo local ou externo. O formato é:
 
 ```json
 {
@@ -108,10 +107,10 @@ Quando você implanta em uma assinatura do Azure, grupo de gerenciamento ou loca
 Você pode usar a implantação() para vincular a outro modelo com base no URI do modelo pai.
 
 ```json
-"variables": {  
-    "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"  
+"variables": {
+    "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"
 }
-```  
+```
 
 Se você reimplantar um modelo usando o histórico de implantação no portal, o modelo será implantando como um arquivo local. A propriedade `templateLink` não é retornada na função de implantação. Se o seu modelo depender de `templateLink` para criar um link para outro modelo, não use o portal para reimplantação. Ao invés disso, emita os comandos usados para implantar originalmente o modelo.
 
@@ -121,7 +120,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -140,7 +139,7 @@ O exemplo anterior retorna o seguinte objeto:
   "name": "deployment",
   "properties": {
     "template": {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
       "resources": [],
       "outputs": {
@@ -164,7 +163,7 @@ O exemplo anterior retorna o seguinte objeto:
 
 Retorna informações sobre o ambiente do Azure usado para implantação.
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Essa função retorna propriedades para o ambiente atual do Azure. O exemplo a seguir mostra as propriedades do Azure global. Nuvens soberanas podem retornar Propriedades ligeiramente diferentes.
 
@@ -264,9 +263,9 @@ Retorna um valor de parâmetro. O nome do parâmetro especificado deve ser defin
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | Digite | Descrição |
 |:--- |:--- |:--- |:--- |
-| parameterName |Sim |cadeia de caracteres |O nome do parâmetro a retornar. |
+| parameterName |Sim |string |O nome do parâmetro a retornar. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -277,7 +276,7 @@ O valor do parâmetro especificado.
 Normalmente, você usa parâmetros para definir valores de recursos. O exemplo a seguir define o nome do site para o valor do parâmetro passado durante a implantação.
 
 ```json
-"parameters": { 
+"parameters": {
   "siteName": {
       "type": "string"
   }
@@ -298,7 +297,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "stringParameter": {
@@ -351,13 +350,13 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Type | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| stringOutput | Cadeia de caracteres | opção 1 |
+| stringOutput | String | opção 1 |
 | intOutput | Int | 1 |
 | objectOutput | Objeto | {"one": "a", "two": "b"} |
 | arrayOutput | Array | [1, 2, 3] |
-| crossOutput | Cadeia de caracteres | opção 1 |
+| crossOutput | String | opção 1 |
 
 Para obter mais informações sobre como usar parâmetros, consulte [parâmetros no modelo Azure Resource Manager](template-parameters.md).
 
@@ -369,11 +368,11 @@ Retorna o valor da variável. O nome do parâmetro especificado deve ser definid
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | Digite | Descrição |
 |:--- |:--- |:--- |:--- |
 | variableName |Sim |String |O nome da variável a retornar. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 O valor da variável especificada.
 
@@ -407,7 +406,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {},
     "variables": {
@@ -443,11 +442,11 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Type | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| exampleOutput1 | Cadeia de caracteres | myVariable |
+| exampleOutput1 | String | myVariable |
 | exampleOutput2 | Array | [1, 2, 3, 4] |
-| exampleOutput3 | Cadeia de caracteres | myVariable |
+| exampleOutput3 | String | myVariable |
 | exampleOutput4 |  Objeto | {"property1": "value1", "property2": "value2"} |
 
 Para obter mais informações sobre como usar variáveis, consulte [variáveis no modelo Azure Resource Manager](template-variables.md).

@@ -9,12 +9,11 @@ ms.subservice: translator-text
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: face605d756d2107c04b3df0c072602ac91d147d
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
-ms.translationtype: MT
+ms.openlocfilehash: 02e6d776dbb47ee8e30409f6b8adc5a61fc5fe52
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83992888"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958915"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrar workspace e projetos do Hub para o Tradutor Personalizado
 
@@ -118,7 +117,7 @@ A página Histórico de Migração exibe as seguintes informações como resumo 
 
 Se quiser um relatório de migração mais detalhado sobre os projetos, treinamentos e documentos, você terá a opção de exportar os detalhes como CSV.
 
-## <a name="implementation-notes"></a>Notas de implementação
+## <a name="implementation-notes"></a>Notas da implementação
 * Sistemas com pares de idiomas ainda não disponíveis no Tradutor personalizado só estarão disponíveis para acessar dados ou Desimplantar por meio de um tradutor personalizado. Esses projetos serão marcados como "indisponíveis" na página projetos. À medida que habilitarmos novos pares de idiomas com o tradutor personalizado, os projetos ficarão ativos para treinar e implantar. 
 * A migração de um projeto do Hub para o Tradutor Personalizado não terá nenhum impacto sobre os treinamentos ou projetos do Hub. Não podemos excluir projetos ou documentos do Hub durante uma migração e não podemos desfazer a implantação de modelos.
 * Só é possível migrar uma vez por projeto. Se você precisar repetir uma migração em um projeto, entre em contato conosco.
@@ -141,7 +140,7 @@ Esta tabela compara os recursos entre o Microsoft Translator Hub e o conversor p
 
 ## <a name="new-languages"></a>Novos idiomas
 
-Se você for uma comunidade ou organização trabalhando na criação de um novo sistema de linguagem para o Microsoft Translator, acesse [custommt@microsoft.com](mailto:custommt@microsoft.com) para obter mais informações.
+Se você for uma comunidade ou organização trabalhando na criação de um novo sistema de linguagem para o tradutor, acesse [custommt@microsoft.com](mailto:custommt@microsoft.com) para obter mais informações.
 
 ## <a name="next-steps"></a>Próximas etapas
 

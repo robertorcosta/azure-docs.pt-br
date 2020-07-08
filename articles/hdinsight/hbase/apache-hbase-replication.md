@@ -8,12 +8,11 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/06/2019
-ms.openlocfilehash: 1e6465584dd4e67f736b94d2939678c1a69163bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e05cd861f899b700e68c151fcbaa6778dc43eb3a
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75435659"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959187"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurar a replicação de cluster do Apache HBase em redes virtuais do Azure
 
@@ -85,7 +84,7 @@ Alguns dos valores embutidos em código no modelo:
 
 | Propriedade | Valor |
 |----------|-------|
-| Local | Leste dos EUA |
+| Location | Leste dos EUA |
 | Nome da VNet | &lt;ClusterNamePrevix>-vnet2 |
 | Prefixo de espaço de endereço | 10.2.0.0/16 |
 | Nome da sub-rede | Sub-rede 1 |
@@ -180,7 +179,9 @@ Para instalar o Bind, use o seguinte procedimento:
 
     Esse comando retorna um valor semelhante ao texto a seguir:
 
-        vnet1DNS.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net
+    ```output
+    vnet1DNS.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net
+    ```
 
     O texto `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` é o __sufixo DNS__ para essa rede virtual. Salve esse valor, pois ele é usado mais tarde.
 
@@ -227,7 +228,7 @@ Para instalar o Bind, use o seguinte procedimento:
 
     A resposta aparece semelhante ao seguinte texto:
 
-    ```
+    ```output
     Server:         10.2.0.4
     Address:        10.2.0.4#53
     
@@ -296,7 +297,7 @@ As etapas a seguir mostram como chamar o script de ação de script no Portal do
    3. **Cabeçalho**: verifique se essa opção está selecionada. Desmarque os outros tipos de nós.
    4. **Parâmetros**: os seguintes parâmetros de exemplo habilitam a replicação de todas as tabelas existentes e copiam todos os dados do cluster de origem para o cluster de destino:
 
-          -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
+    `-m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata`
     
       > [!NOTE]
       > Use o nome do host em vez de FQDN para o nome DNS do cluster de origem e de destino.
@@ -336,19 +337,19 @@ A lista a seguir mostra alguns casos de uso geral e suas configurações de par�
 
 - **Habilitar a replicação em todas as tabelas entre os dois clusters**. Esse cenário não requer a cópia ou migração dos dados existentes nas tabelas e não usa tabelas Phoenix. Use os seguintes parâmetros:
 
-        -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password>  
+  `-m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password>`
 
 - **Habilitar a replicação em tabelas específicas**. Use os parâmetros a seguir para habilitar a replicação em table1, table2 e table3:
 
-        -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3"
+  `-m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3"`
 
 - **Habilite a replicação em tabelas específicas e copie os dados existentes**. Use os parâmetros a seguir para habilitar a replicação em table1, table2 e table3:
 
-        -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -copydata
+  `-m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -copydata`
 
 - **Habilitar a replicação em todas as tabelas e replicar metadados Phoenix da origem para o destino**. A replicação de metadados Phoenix não é perfeita. Use-a com atenção. Use os seguintes parâmetros:
 
-        -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -replicate-phoenix-meta
+  `-m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -replicate-phoenix-meta`
 
 ## <a name="copy-and-migrate-data"></a>Copiar e migrar dados
 
@@ -360,7 +361,7 @@ Há dois scripts de ação de script separados disponíveis para copiar ou migra
 
 É possível seguir o mesmo procedimento descrito em [Habilitar replicação](#enable-replication) para chamar a ação de script. Use os seguintes parâmetros:
 
-    -m hn1 -t <table1:start_timestamp:end_timestamp;table2:start_timestamp:end_timestamp;...> -p <replication_peer> [-everythingTillNow]
+`-m hn1 -t <table1:start_timestamp:end_timestamp;table2:start_timestamp:end_timestamp;...> -p <replication_peer> [-everythingTillNow]`
 
 A seção `print_usage()` do [script](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_copy_table.sh) fornece uma descrição detalhada dos parâmetros.
 
@@ -368,22 +369,21 @@ A seção `print_usage()` do [script](https://github.com/Azure/hbase-utils/blob/
 
 - **Copiar tabelas específicas (test1, test2 e test3) para todas as linhas editadas até o momento (carimbo de hora atual)**:
 
-        -m hn1 -t "test1::;test2::;test3::" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow
+  `-m hn1 -t "test1::;test2::;test3::" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow`
+
   Ou:
 
-        -m hn1 -t "test1::;test2::;test3::" --replication-peer="zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow
-
+  `-m hn1 -t "test1::;test2::;test3::" --replication-peer="zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow`
 
 - **Copiar tabelas específicas com intervalo de tempo especificado**:
 
-        -m hn1 -t "table1:0:452256397;table2:14141444:452256397" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure"
-
+  `-m hn1 -t "table1:0:452256397;table2:14141444:452256397" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure"`
 
 ## <a name="disable-replication"></a>Desabilitar a replicação
 
 Para desabilitar a replicação, use outro script de ação de script do [GitHub](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh). É possível seguir o mesmo procedimento descrito em [Habilitar replicação](#enable-replication) para chamar a ação de script. Use os seguintes parâmetros:
 
-    -m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> <-all|-t "table1;table2;...">  
+`-m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> <-all|-t "table1;table2;...">`
 
 A seção `print_usage()` do [script](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh) fornece uma explicação detalhada dos parâmetros.
 
@@ -391,14 +391,15 @@ A seção `print_usage()` do [script](https://raw.githubusercontent.com/Azure/hb
 
 - **Desabilitar a replicação em todas as tabelas**:
 
-        -m hn1 -s <source hbase cluster name> -sp Mypassword\!789 -all
-  ou o
+  `-m hn1 -s <source hbase cluster name> -sp Mypassword\!789 -all`
 
-        --src-cluster=<source hbase cluster name> --dst-cluster=<destination hbase cluster name> --src-ambari-user=<source cluster Ambari user name> --src-ambari-password=<source cluster Ambari password>
+  ou
+
+  `--src-cluster=<source hbase cluster name> --dst-cluster=<destination hbase cluster name> --src-ambari-user=<source cluster Ambari user name> --src-ambari-password=<source cluster Ambari password>`
 
 - **Desabilitar a replicação em tabelas específicas (table1, table2 e table3)**:
 
-        -m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> -t "table1;table2;table3"
+  `-m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> -t "table1;table2;table3"`
 
 > [!NOTE]
 > Se você pretende excluir o cluster de destino, certifique-se de removê-lo da lista de pares do cluster de origem. Isso pode ser feito executando o comando remove_peer ' 1 ' no Shell do HBase no cluster de origem. Com falha, o cluster de origem pode não funcionar corretamente.

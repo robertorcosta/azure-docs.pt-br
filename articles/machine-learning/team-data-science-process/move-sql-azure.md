@@ -1,6 +1,6 @@
 ---
 title: Mover dados para um Banco de Dados SQL do Azure - Processo de Ciência de Dados de Equipe
-description: Mover dados de arquivos simples (formatos CSV ou TSV) ou de dados armazenados em um SQL Server local para um banco de dados SQL do Azure.
+description: Mover dados de arquivos simples (formatos CSV ou TSV) ou de dados armazenados em um SQL Server para um banco de dados SQL do Azure.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -11,18 +11,17 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f9a1424f2afe6c5153e208601b21dff9651880a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 99e637099e54698e9d6eabb14920251a9d4a81f5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76722451"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84194388"
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Mover dados para um banco de dados SQL do Azure para Azure Machine Learning
 
-Este artigo descreve as opções para mover dados de arquivos simples (formatos CSV ou TSV) ou de dados armazenados em um SQL Server local para um banco de dado SQL do Azure. Essas tarefas para movimentar dados para a nuvem fazem parte do Processo de Ciência de Dados de Equipe.
+Este artigo descreve as opções para mover dados de arquivos simples (formatos CSV ou TSV) ou de dados armazenados no SQL Server para um banco de dado SQL do Azure. Essas tarefas para movimentar dados para a nuvem fazem parte do Processo de Ciência de Dados de Equipe.
 
-Para um tópico que descreve as opções para mover dados para um SQL Server local para o Machine Learning, consulte [Mover dados para o SQL Server em uma máquina virtual do Azure](move-sql-server-virtual-machine.md).
+Para obter um tópico que descreve as opções para mover dados para SQL Server para Machine Learning, consulte [mover dados para SQL Server em uma máquina virtual do Azure](move-sql-server-virtual-machine.md).
 
 A tabela a seguir resume as opções para mover dados para um Banco de Dados SQL do Azure.
 
@@ -41,7 +40,7 @@ O procedimento descrito aqui requer que você tenha:
 
 **Dados**: os processos de migração são demonstrados usando o [Conjunto de Dados de Táxi de NYC](https://chriswhong.com/open-data/foil_nyc_taxi/). O conjunto de dados de Táxis de NYC contém informações sobre dados de viagem e feiras e está disponível no armazenamento de blobs do Azure: [dados de táxi de NYC](https://www.andresmh.com/nyctaxitrips/). Um exemplo e uma descrição desses arquivos são fornecidos na [Descrição do Conjunto de Dados de Viagens de Táxi de NYC](sql-walkthrough.md#dataset).
 
-Você pode adaptar os procedimentos descritos aqui para um conjunto de seus próprios dados ou seguir as etapas conforme descrito usando o conjunto de dados de Táxi de NYC. Para carregar o conjunto de dados de Táxi de NYC em seu banco de dados do SQL Server local, siga o procedimento descrito em [Importação de dados em massa para o Banco de Dados do SQL Server](sql-walkthrough.md#dbload). Essas instruções são para um SQL Server em uma máquina virtual do Azure, mas o procedimento para carregar o SQL Server local é o mesmo.
+Você pode adaptar os procedimentos descritos aqui para um conjunto de seus próprios dados ou seguir as etapas conforme descrito usando o conjunto de dados de Táxi de NYC. Para carregar o conjunto de dados de táxi de NYC em seu banco de dados SQL Server, siga o procedimento descrito em [importação em massa para o banco de SQL Server](sql-walkthrough.md#dbload).
 
 ## <a name="moving-data-from-a-flat-file-source-to-an-azure-sql-database"></a><a name="file-to-azure-sql-database"></a>Movendo dados de uma fonte de arquivo simples para um banco de dados SQL do Azure
 Os dados em arquivos simples (CSV ou TSV formatado) podem ser movidos para um banco de dado SQL do Azure usando uma consulta SQL de inserção em massa.
@@ -49,8 +48,8 @@ Os dados em arquivos simples (CSV ou TSV formatado) podem ser movidos para um ba
 ### <a name="bulk-insert-sql-query"></a><a name="bulk-insert-sql-query"></a>Consulta SQL de inserção em massa
 As etapas para o procedimento usando a consulta SQL de inserção em massa são semelhantes às instruções para mover dados de uma fonte de arquivo simples para SQL Server em uma VM do Azure. Para obter detalhes, consulte [Consulta SQL de inserção em massa](move-sql-server-virtual-machine.md#insert-tables-bulkquery).
 
-## <a name="moving-data-from-on-premises-sql-server-to-an-azure-sql-database"></a><a name="sql-on-prem-to-sazure-sql-database"></a>Movendo dados de SQL Server locais para um banco de dados SQL do Azure
-Se os dados de origem forem armazenados em um SQL Server local, haverá várias possibilidades para mover os dados para um banco de dado SQL do Azure:
+## <a name="moving-data-from-sql-server-to-an-azure-sql-database"></a><a name="sql-on-prem-to-sazure-sql-database"></a>Movendo dados de SQL Server para um banco de dado SQL do Azure
+Se os dados de origem forem armazenados em SQL Server, haverá várias possibilidades para mover os dados para um banco de dado SQL do Azure:
 
 1. [Exportar para arquivo simples](#export-flat-file)
 2. [Assistente de migração do banco de dados SQL](#insert-tables-bcp)
@@ -69,6 +68,6 @@ As etapas para usar o SQL Database Migration Wizard são semelhantes às instru�
 As etapas para usar o backup e a restauração de banco de dados são semelhantes às instruções listadas em [backup e restauração de banco de dados](move-sql-server-virtual-machine.md#sql-backup).
 
 ### <a name="azure-data-factory"></a><a name="adf"></a>Azure Data Factory (ADF)
-Saiba como mover dados para um banco de dado SQL do Azure com Azure Data Factory (ADF) neste tópico, [mover dados de um SQL Server local para SQL Azure com Azure data Factory](move-sql-azure-adf.md). Este tópico mostra como usar o ADF para mover dados de um SQL Server local para um banco de dado SQL do Azure por meio do armazenamento de BLOBs do Azure.
+Saiba como mover dados para um banco de dado SQL do Azure com Azure Data Factory (ADF) neste tópico, [mover dados de um SQL Server para SQL Azure com Azure data Factory](move-sql-azure-adf.md). Este tópico mostra como usar o ADF para mover dados de um banco de dado SQL Server para um banco de dados SQL do Azure por meio do armazenamento de BLOBs do Azure.
 
 Considere o uso do ADF quando os dados precisarem ser migrados continuamente com fontes híbridas locais e na nuvem.  O ADF também ajuda quando os dados precisam de transformações ou precisa de uma nova lógica de negócios durante a migração. O ADF permite o planejamento e monitoramento de trabalhos usando scripts simples de JSON que gerenciam a movimentação de dados em intervalos periódicos. O ADF também possui outros recursos, como suporte para operações complexas.

@@ -4,12 +4,11 @@ description: Saiba como usar o dimensionador automático de cluster para dimensi
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: f40d13b6b9a37f4c5efcc73e52b631bd2eec659a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: e87470e577f4d2613b43cc02755ccc2d500c0ef8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683549"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84730009"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Dimensionar automaticamente um cluster para atender às demandas de aplicativo no AKS (Serviço de Kubernetes do Azure)
 
@@ -99,7 +98,7 @@ az aks update \
 O exemplo acima atualiza o dimensionador automático de clusters no único pool de nós do *myAKSCluster* para o mínimo de *1* e o máximo de *5* nós.
 
 > [!NOTE]
-O dimensionador automático do cluster toma suas decisões de dimensionamento com base nas contagens mínimas e máximas definidas em cada pool de nós, mas não as impõem. Por exemplo, definir a contagem mínima de 5 quando a contagem de nós atual for 3 não dimensionará imediatamente o pool para até 5. Se você alterar a contagem mínima no pool de nós para um valor maior que o número atual de nós, esse novo limite será respeitado quando houver a presença de pods não agendáveis suficientes, o que exigiria dois novos nós adicionais e seria gatilho para um evento de dimensionamento automático. Depois disso, o novo limite de contagem mínima será respeitado pelo dimensionador automático de cluster.
+> O dimensionador automático do cluster faz decisões de dimensionamento com base nas contagens mínimas e máximas definidas em cada pool de nós, mas não as impõe após a atualização das contagens mínimas ou máximas. Por exemplo, definir uma contagem mín. de 5 quando a contagem de nós atual for 3 não dimensionará imediatamente o pool para até 5. Se a contagem mínima no pool de nós tiver um valor maior que o número atual de nós, as novas configurações mín ou máx. serão respeitadas quando houver um pods não agendável suficiente presente que exigiria dois novos nós adicionais e dispararia um evento de dimensionamento automática. Após o evento Scale, os novos limites de contagem são respeitados.
 
 Monitore o desempenho de seus aplicativos e serviços e ajuste as contagens de nós do dimensionador automático de cluster para que correspondam ao desempenho necessário.
 

@@ -4,12 +4,11 @@ description: Saiba como os modelos de projeto do Visual Studio podem ajudar voc�
 ms.topic: how-to
 ms.date: 02/27/2017
 ms.custom: seodec18
-ms.openlocfilehash: 9332684008b45aea39e07d8225bae6450ba57de5
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: HT
+ms.openlocfilehash: c4cdc3fa7b3238a83d55113c5f7dc551d637c8e2
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779510"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959765"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Usar modelos de projeto do Visual Studio para iniciar rapidamente soluções em lote
 
@@ -427,13 +426,13 @@ parameters.json e, se o encontrar, o carrega como o dicionário de parâmetros. 
 Outra ferramenta útil no desenvolvimento de soluções do Lote são as [Convenções de Arquivo do Lote do Azure][nuget_package]. Use essa biblioteca de classes .NET (em versão de visualização) em seus aplicativos .NET do Lote para armazenar e recuperar com facilidade as saídas de tarefas no Armazenamento do Azure. [Persistir e saída de tarefa e de trabalho do Lote do Azure](batch-task-output.md) contém uma discussão completa sobre a biblioteca e seu uso.
 
 
-[net_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobmanagertask.aspx
+[net_jobmanagertask]: /dotnet/api/microsoft.azure.batch.jobmanagertask
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [nuget_package]: https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files
-[process_exitcode]: https://msdn.microsoft.com/library/system.diagnostics.process.exitcode.aspx
+[process_exitcode]: /dotnet/api/system.diagnostics.process.exitcode
 [vs_gallery]: https://visualstudiogallery.msdn.microsoft.com/
 [vs_gallery_templates]: https://github.com/Azure/batch-extension-templates
-[vs_find_use_ext]: https://msdn.microsoft.com/library/dd293638.aspx
+[vs_find_use_ext]: /visualstudio/ide/finding-and-using-visual-studio-extensions
 
 [diagram01]: ./media/batch-visual-studio-templates/diagram01.png
 [solution_explorer01]: ./media/batch-visual-studio-templates/solution_explorer01.png

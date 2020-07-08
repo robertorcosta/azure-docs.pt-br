@@ -3,15 +3,14 @@ title: Integrar Data Lake Storage Gen1 com o catálogo de dados do Azure
 description: Saiba como registrar dados de Azure Data Lake Storage Gen1 no catálogo de dados do Azure para tornar os dados detectáveis em sua organização.
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 66191a52c6ef1f3d19afd2a47356487b07e9eff4
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
-ms.translationtype: MT
+ms.openlocfilehash: 1484c4bf17d5f437d681e32559b7e6ed4115f5f5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692331"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515128"
 ---
 # <a name="register-data-from-azure-data-lake-storage-gen1-in-azure-data-catalog"></a>Registrar dados do Azure Data Lake Storage Gen1 no Catálogo de Dados do Azure
 Neste artigo, você aprenderá como integrar o Azure Data Lake Storage Gen1 com Catálogo de Dados do Azure para tornar os dados detectáveis em uma organização, integrando-os ao Catálogo de Dados. Para obter mais informações sobre a catalogação de dados, consulte [Catálogo de Dados do Azure](../data-catalog/data-catalog-what-is-data-catalog.md). Para compreender os cenários em que você pode usar o Catálogo de Dados, consulte [Cenários comuns do Catálogo de Dados do Azure](../data-catalog/data-catalog-common-scenarios.md).
@@ -20,8 +19,8 @@ Neste artigo, você aprenderá como integrar o Azure Data Lake Storage Gen1 com 
 Antes de começar este tutorial, você deve ter o seguinte:
 
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Habilitar sua assinatura do Azure** para Data Lake Storage Gen1. Veja [instruções](data-lake-store-get-started-portal.md).
-* **Uma conta de data Lake Storage Gen1**. Siga as instruções em [Introdução ao Azure Data Lake Storage Gen1 usando o portal do Azure](data-lake-store-get-started-portal.md). Para este tutorial, criaremos uma conta do Data Lake Storage Gen1 chamada **datacatalogstore**.
+* **Habilitar sua assinatura do Azure** para Data Lake Storage Gen1. Consulte [as instruções](data-lake-store-get-started-portal.md).
+* **Uma conta do Data Lake Storage Gen1**. Siga as instruções em [Introdução ao Azure Data Lake Storage Gen1 usando o portal do Azure](data-lake-store-get-started-portal.md). Para este tutorial, criaremos uma conta do Data Lake Storage Gen1 chamada **datacatalogstore**.
 
     Depois de criar a conta, carregue um conjunto de dados de exemplo para ela. Para este tutorial, vamos carregar todos os arquivos .csv para na pasta **AmbulanceData** para o [Repositório Git do Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/). Você pode usar vários clientes, como o [Gerenciador de Armazenamento do Azure](https://storageexplorer.com/), para carregar dados em um contêiner de blob.
 * **Catálogo de dados do Azure**. Sua organização já deve ter um Catálogo de Dados do Azure criados para sua organização. É permitido somente um catálogo para cada organização.
@@ -40,7 +39,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
     ![Tela de boas-vindas](./media/data-lake-store-with-data-catalog/welcome.screen.png "Tela de boas-vindas")
 1. Na página Selecionar uma Fonte de Dados, selecione **Azure Data Lake Store**e, em seguida, clique em **Avançar**.
 
-    ![Selecionar fonte de dados](./media/data-lake-store-with-data-catalog/select-source.png "Selecione uma fonte de dados")
+    ![Selecione uma fonte de dados](./media/data-lake-store-with-data-catalog/select-source.png "Selecione uma fonte de dados")
 1. Na próxima página, forneça o nome da conta do Data Lake Storage Gen1 que você quer registrar no Catálogo de Dados. Deixe as outras opções como padrão e clique em **Conectar**.
 
     ![Conectar à fonte de dados](./media/data-lake-store-with-data-catalog/connect-to-source.png "Conectar à fonte de dados")

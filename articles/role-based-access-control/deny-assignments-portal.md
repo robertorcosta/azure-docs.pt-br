@@ -8,18 +8,17 @@ manager: mtillman
 ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 97c03d417f8bf123de3332142344f292de00e3b2
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: MT
+ms.openlocfilehash: 92046b3a944a747ce76d2426855eec7b6bc2cd70
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734103"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84790239"
 ---
 # <a name="list-azure-deny-assignments-using-the-azure-portal"></a>Listar atribuições de negação do Azure usando o portal do Azure
 
@@ -42,7 +41,7 @@ Siga estas etapas para listar as atribuições de negação no escopo do grupo d
 
 1. Clique no grupo de gerenciamento ou assinatura que você deseja listar.
 
-1. Clique em **controle de acesso (iam)**.
+1. Clique em **Controle de acesso (IAM)** .
 
 1. Clique na guia **Negar atribuições** (ou clique no botão **Visualizar** na peça Visualizar negar atribuições).
 
@@ -58,7 +57,7 @@ Siga estas etapas para listar as atribuições de negação no escopo do grupo d
     | --- | --- |
     | **Nome** | Nome da atribuição de negação. |
     | **Tipo de entidade** | Usuário, grupo, grupo definido pelo sistema ou principal do serviço. |
-    | **Negado**  | Nome do principal de segurança incluído na atribuição de negação. |
+    | **Nega**  | Nome do principal de segurança incluído na atribuição de negação. |
     | **Id** | Identificador exclusivo para a atribuição de negação. |
     | **Principais Excluídos** | Se existem entidades de segurança que são excluídas da atribuição de negação. |
     | **Não se aplica a crianças** | Se a atribuição de negação é herdada para subescópios. |

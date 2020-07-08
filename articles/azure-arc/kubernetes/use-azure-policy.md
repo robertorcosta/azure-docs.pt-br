@@ -8,50 +8,36 @@ author: mlearned
 ms.author: mlearned
 description: Use o Azure Policy para aplicar configurações de cluster em escala
 keywords: Kubernetes, Arc, Azure, K8s, containers
-ms.openlocfilehash: c017e9422733069ffd93f6dff72ecb884da057c4
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: HT
+ms.openlocfilehash: 4c013fe562d89bff4d1ce9c9f3e832e1b51c70f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779956"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341380"
 ---
 # <a name="use-azure-policy-to-apply-cluster-configurations-at-scale-preview"></a>Use o Azure Policy para aplicar configurações de cluster em escala (versão prévia)
 
 ## <a name="overview"></a>Visão geral
 
-Use o Azure Policy para impor cada `Microsoft.Kubernetes/connectedclusters` ou o recurso `Microsoft.ContainerService/managedClusters` habilitado para Git-Ops tem `Microsoft.KubernetesConfiguration/sourceControlConfigurations` específico aplicado.  Para usar o Azure Policy, selecione uma definição de política existente e crie uma atribuição de política.  Ao criar a atribuição de política, você define o escopo para a atribuição: será um grupo de recursos ou uma assinatura do Azure.  Também é possível definir os parâmetros para o `sourceControlConfiguration` que será criado.  Depois que a atribuição for criada, o mecanismo de política identificará todos os recursos `connectedCluster` ou `managedCluster` que estão localizados dentro do escopo e aplicará o `sourceControlConfiguration` a cada um.
+Use Azure Policy para impor que cada recurso `Microsoft.Kubernetes/connectedclusters` ou recurso habilitado para operações de git `Microsoft.ContainerService/managedClusters` tenha sido `Microsoft.KubernetesConfiguration/sourceControlConfigurations` aplicado especificamente. Para usar o Azure Policy, selecione uma definição de política existente e crie uma atribuição de política. Ao criar a atribuição de política, você define o escopo para a atribuição: será um grupo de recursos ou uma assinatura do Azure. Também é possível definir os parâmetros para o `sourceControlConfiguration` que será criado. Depois que a atribuição for criada, o mecanismo de política identificará todos os recursos `connectedCluster` ou `managedCluster` que estão localizados dentro do escopo e aplicará o `sourceControlConfiguration` a cada um.
 
 Se estiver usando vários repositórios Git como as fontes de verdade para cada cluster (por exemplo, um repositório para o operador central de TI/cluster e outros repositórios para equipes de aplicativos), você pode habilitar isso usando várias atribuições de política, cada atribuição de política configurada para usar um repositório Git diferente.
-
-## <a name="create-a-custom-policy-definition"></a>Criar uma definição de política personalizada
-
-1. No portal do Azure, vá até a Política e na seção **Criação** da barra lateral, selecione **Definições**.
-2. Selecione **+ Definição de política**.
-3. Defina o **Local da definição** como suas assinatura ou grupo de gerenciamento.  Isso determinará o escopo mais amplo onde a definição da política pode ser usada.
-4. Atribua à política um **Nome** e uma **Descrição**.
-5. Em categoria, escolha **Criar novo** e grave o *Cluster do Kubernetes – Azure Arc*
-6. Na caixa de edição **Regra da política**, copie/cole o conteúdo dessa [definição de política de exemplo](https://raw.githubusercontent.com/Azure/arc-k8s-demo/master/policy/Ensure-GitOps-configuration-for-Kubernetes-cluster.json).
-7. **Salvar**.
-
-Esta etapa para criar uma definição de política personalizada não será necessária depois que o trabalho for concluído para torná-la uma política interna.
 
 ## <a name="create-a-policy-assignment"></a>Criar uma atribuição de política
 
 1. No portal do Azure, vá até a Política e na seção **Criação** da barra lateral, selecione **Definições**.
-2. Encontre a definição que você acabou de criar e selecione-a.
-3. Na página de ações, selecione **Atribuir**.
-4. Defina o **Escopo** do grupo de gerenciamento, a assinatura ou o grupo de recursos ao qual a atribuição de política será aplicada.
-5. Se você quiser excluir algum recurso do escopo da política, defina as **Exclusões**.
-6. Dê um **Nome** e uma **Descrição** à atribuição de política que você possa usar para identificá-la facilmente.
-7. Verifique se **Imposição de política** está definida como *Habilitado*.
-8. Selecione **Avançar**.
-9. Defina os valores do parâmetro que serão usados durante a criação do `sourceControlConfiguration`.
-10. Selecione **Avançar**.
-11. Habilitar **Criar uma tarefa de correção**.
-12. Verifique se **Criar uma identidade gerenciada** está marcada e se a identidade terá permissões de **Colaborador**.  Consulte [este doc](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal) e [o comentário neste doc](https://docs.microsoft.com/azure/governance/policy/how-to/remediate-resources) para obter mais informações sobre as permissões necessárias.
-13. Selecione **Examinar + criar**.
+2. Escolha a política interna "implantar GitOps no cluster kubernetes" na categoria "kubernetes" e clique em **atribuir**.
+3. Defina o **Escopo** do grupo de gerenciamento, a assinatura ou o grupo de recursos ao qual a atribuição de política será aplicada.
+4. Se você quiser excluir algum recurso do escopo da política, defina as **Exclusões**.
+5. Dê um **Nome** e uma **Descrição** à atribuição de política que você possa usar para identificá-la facilmente.
+6. Verifique se **Imposição de política** está definida como *Habilitado*.
+7. Selecione **Avançar**.
+8. Defina os valores do parâmetro que serão usados durante a criação do `sourceControlConfiguration`.
+9. Selecione **Avançar**.
+10. Habilitar **Criar uma tarefa de correção**.
+11. Verifique se **Criar uma identidade gerenciada** está marcada e se a identidade terá permissões de **Colaborador**. Consulte [este doc](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal) e [o comentário neste doc](https://docs.microsoft.com/azure/governance/policy/how-to/remediate-resources) para obter mais informações sobre as permissões necessárias.
+12. Selecione **Examinar + criar**.
 
-Depois que a atribuição de política é criada, para qualquer novo recurso `connectedCluster` (ou recurso `managedCluster` com os agentes do GitOps instalados) que está localizado no escopo da atribuição, o `sourceControlConfiguration` será aplicado.  Para clusters existentes, será necessário executar manualmente uma tarefa de correção.  Normalmente leva de 10 a 20 minutos para que a atribuição de política entre em vigor.
+Depois que a atribuição de política é criada, para qualquer novo recurso `connectedCluster` (ou recurso `managedCluster` com os agentes do GitOps instalados) que está localizado no escopo da atribuição, o `sourceControlConfiguration` será aplicado. Para clusters existentes, será necessário executar manualmente uma tarefa de correção. Normalmente leva de 10 a 20 minutos para que a atribuição de política entre em vigor.
 
 ## <a name="verify-a-policy-assignment"></a>Verificar uma atribuição de política
 

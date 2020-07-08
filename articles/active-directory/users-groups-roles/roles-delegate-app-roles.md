@@ -1,5 +1,5 @@
 ---
-title: Delegar o gerenciamento de administração de aplicativo permidades-Azure AD | Microsoft Docs
+title: Delegar permissões de administrador de gerenciamento de aplicativos-Azure AD | Microsoft Docs
 description: Conceder permissões para o gerenciamento de acesso do aplicativo no Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -8,18 +8,17 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 251bc1c2277f9e43543f95c49d0b730a5a41c3d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2527e4e630e7bf9cce0c68261bfa1c1797fbf795
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253033"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84731810"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegar permissões de registro de aplicativo no Azure Active Directory
 
@@ -60,8 +59,8 @@ Em alguns casos, os aplicativos empresariais criados na Galeria de aplicativos i
 
 ### <a name="to-assign-an-owner-to-an-enterprise-application"></a>Para atribuir um proprietário a um aplicativo empresarial
 
-1. Entre na  [sua organização do Azure ad](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)com uma conta qualificada para o administrador de aplicativos ou o administrador de aplicativos de nuvem para a organização.
-1. Na [página](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) registros de aplicativo da organização, selecione um aplicativo para abrir a página Visão geral do aplicativo.
+1. Entre na [sua organização do Azure ad](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)   com uma conta qualificada para o administrador de aplicativos ou o administrador de aplicativos de nuvem para a organização.
+1. Na [página registros de aplicativo](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/)   da organização, selecione um aplicativo para abrir a página Visão geral do aplicativo.
 1. Selecione **Proprietários** para ver a lista de proprietários do aplicativo.
 1. Selecione **Adicionar** para selecionar um ou mais proprietários para adicionar ao aplicativo.
 

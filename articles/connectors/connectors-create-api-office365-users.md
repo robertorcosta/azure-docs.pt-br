@@ -7,19 +7,18 @@ ms.reviewer: klam, logicappspm
 ms.date: 08/18/2016
 ms.topic: article
 tags: connectors
-ms.openlocfilehash: 179c7538d8072f0e1a4f7d049cf521971efd7a21
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0361d42ea614b394142e32a9193ab1d48d1a4a6c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75666849"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84194231"
 ---
 # <a name="get-and-manage-profiles-in-office-365-users-by-using-azure-logic-apps"></a>Obter e gerenciar perfis em usuários do Office 365 usando aplicativos lógicos do Azure
 
 Conecte-se aos Usuários do Office 365 para obter perfis, pesquisar usuários e muito mais. Com os Usuários do Office 365, você pode:
 
 * Criar seu fluxo de negócios baseado nos dados obtidos dos Usuários do Office 365. 
-* Usar ações que obtêm relatórios diretos, o perfil de usuário de um gerenciador e muito mais. Essas ações obtém uma resposta e disponibilizam a saída para outras ações. Por exemplo, obtenha relatórios diretos de uma pessoa e, em seguida, utilize essas informações e atualize um banco de dados SQL Azure. 
+* Usar ações que obtêm relatórios diretos, o perfil de usuário de um gerenciador e muito mais. Essas ações obtém uma resposta e disponibilizam a saída para outras ações. Por exemplo, obtenha os relatórios diretos de uma pessoa e, em seguida, Pegue essas informações e atualize um banco de dados no banco de dados SQL do Azure. 
 
 É possível começar criando um aplicativo lógico agora. Consulte [Criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 

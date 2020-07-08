@@ -10,12 +10,11 @@ manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.openlocfilehash: 705b2464285b747ea7999b112733b7e99f761f22
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c640adb0758c8dfd9dcdae3e26fd023afd5499f7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81419078"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85252263"
 ---
 # <a name="azure-powershell-samples-for-azure-data-factory"></a>Exemplos do Azure PowerShell para o Azure Data Factory
 
@@ -27,8 +26,8 @@ A tabela a seguir inclui links para scripts de exemplo do Azure PowerShell para 
 |---|---|
 |**Copiar dados**||
 |[Copiar blobs de uma pasta para outra pasta em um Armazenamento de Blobs do Azure](scripts/copy-azure-blob-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| O script do PowerShell copia blobs de uma pasta no Armazenamento de Blobs do Azure para outra pasta no mesmo Armazenamento de Blobs. |
-|[Copiar dados do SQL Server local para o Armazenamento de Blobs do Azure](scripts/hybrid-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| O script do PowerShell copia dados de um banco de dados do SQL Server local para um Armazenamento de Blobs do Azure. |
-|[Cópia em massa](scripts/bulk-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Esse script do PowerShell de exemplo copia dados de diversas tabelas em um banco de dados SQL do Azure para um SQL Data Warehouse do Azure. |
+|[Copiar dados de SQL Server para o armazenamento de BLOBs do Azure](scripts/hybrid-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script do PowerShell copia dados de um banco de SQL Server para um armazenamento de BLOBs do Azure. |
+|[Cópia em massa](scripts/bulk-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script do PowerShell de exemplo copia os dados de várias tabelas em um banco de dados do Azure SQL para um data warehouse do SQL do Azure. |
 |[Cópia incremental](scripts/incremental-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script do PowerShell de exemplo carrega somente os registros novos ou atualizados de um armazenamento de dados de origem para um armazenamento de dados do coletor após a cópia completa inicial dos dados da origem para o coletor. |
 |**Transformar dados**||
 |[Transformar dados usando o cluster Spark](scripts/transform-data-spark-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script do PowerShell transforma dados executando um programa em um cluster Spark. |

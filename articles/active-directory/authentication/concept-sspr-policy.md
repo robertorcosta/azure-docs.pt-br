@@ -5,30 +5,66 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/20/2020
+ms.date: 05/27/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8b6d08dd2073de80ac0f7fd08f510d9cda80545
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: contperfq4
+ms.openlocfilehash: b0684735b32e03abe525b19dce6d9d887afe513b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82143231"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84194073"
 ---
-# <a name="self-service-password-reset-policies-and-restrictions-in-azure-active-directory"></a>Políticas e restrições de redefinição de senha de autoatendimento no Azure Active Directory
+# <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Políticas de senha e restrições de conta no Azure Active Directory
 
-Este artigo descreve as políticas de senha e os requisitos de complexidade associados a contas de usuário no locatário do Azure AD (Azure Active Directory).
+No Azure Active Directory (AD do Azure), há uma política de senha que define as configurações como a complexidade, o comprimento ou a duração da senha. Também há uma política que define os caracteres aceitáveis e o comprimento dos nomes de os.
+
+Quando a redefinição de senha de autoatendimento (SSPR) é usada para alterar ou redefinir uma senha no Azure AD, a política de senha é verificada. Se a senha não atender aos requisitos da política, o usuário será solicitado a tentar novamente. Os administradores do Azure têm algumas restrições sobre o uso de SSPR que são diferentes para contas de usuário regulares.
+
+Este artigo descreve as configurações de política de senha e os requisitos de complexidade associados às contas de usuário em seu locatário do Azure AD e como você pode usar o PowerShell para verificar ou definir as configurações de expiração de senha.
+
+## <a name="username-policies"></a><a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>Políticas de nome de usuário
+
+Cada conta que entra no Azure AD deve ter um valor de atributo UPN (nome principal de usuário) exclusivo associado à sua conta. Em ambientes híbridos com um ambiente de Active Directory Domain Services (AD DS) local sincronizado com o AD do Azure usando Azure AD Connect, por padrão, o UPN do Azure AD é definido como o UPN local.
+
+A tabela a seguir descreve as políticas de nome de usuário que se aplicam a contas de AD DS locais que são sincronizadas com o Azure AD e para contas de usuário somente em nuvem criadas diretamente no Azure AD:
+
+| Property | Requisitos de UserPrincipalName |
+| --- | --- |
+| Caracteres permitidos |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> ' \. - \_ ! \# ^ \~</li></ul> |
+| Caracteres não permitidos |<ul> <li>Qualquer caractere "\@\" que não esteja separando o nome de usuário do domínio.</li> <li>Não pode conter um caractere de ponto "." imediatamente antes do símbolo "\@\"</li></ul> |
+| Restrições de comprimento |<ul> <li>O comprimento total não deve exceder 113 caracteres</li><li>Pode haver até 64 caracteres antes do símbolo de "\@\"</li><li>Pode haver até 48 caracteres após o símbolo de "\@\"</li></ul> |
+
+## <a name="azure-ad-password-policies"></a><a name="password-policies-that-only-apply-to-cloud-user-accounts"></a>Políticas de senha do Azure AD
+
+Uma política de senha é aplicada a todas as contas de usuário que são criadas e gerenciadas diretamente no Azure AD. Essa política de senha não pode ser modificada, embora você possa [Configurar senhas excluídas personalizadas para a proteção de senha do Azure ad](tutorial-configure-custom-password-protection.md).
+
+A política de senha não se aplica a contas de usuário sincronizadas de um ambiente de AD DS local usando Azure AD Connect.
+
+As seguintes opções de política de senha são definidas:
+
+| Property | Requisitos |
+| --- | --- |
+| Caracteres permitidos |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [] {} &#124; \: ',. ? / \`~ " ( ) ;</li> <li>espaço em branco</li></ul> |
+| Caracteres não permitidos | Caracteres Unicode. |
+| Restrições de senha |<ul><li>Um mínimo de 8 caracteres e um máximo de 256 caracteres.</li><li>Requer três de quatro dos seguintes itens:<ul><li>Caracteres minúsculos.</li><li>Caracteres maiúsculos.</li><li>Números (0-9).</li><li>Símbolos (veja as restrições de senha acima).</li></ul></li></ul> |
+| Duração da expiração da senha (duração máxima da senha) |<ul><li>Valor padrão: **90** dias.</li><li>O valor é configurável usando o cmdlet `Set-MsolPasswordPolicy` do Módulo do Azure Active Directory para Windows PowerShell.</li></ul> |
+| Notificação de expiração de senha (quando os usuários são notificados da expiração da senha) |<ul><li>Valor padrão: **14** dias (antes de a senha expirar).</li><li>O valor é configurável usando o cmdlet `Set-MsolPasswordPolicy`.</li></ul> |
+| Expiração de senha (permitir que as senhas nunca expirem) |<ul><li>Valor padrão: **false** (indica que a senha tem uma data de validade).</li><li>O valor pode ser configurado para contas de usuário individuais usando o cmdlet `Set-MsolUser`.</li></ul> |
+| Histórico de alteração de senha | A última senha *não pode* ser usada novamente quando o usuário alterar uma senha. |
+| Histórico de redefinição de senha | A última senha *pode* ser usada novamente quando o usuário redefine uma senha esquecida. |
+| Bloqueio de conta | Após 10 tentativas malsucedidas de conexão com a senha incorreta, o usuário será bloqueado por um minuto. Quanto mais tentativas de conexão com senha incorreta, por mais tempo o usuário ficará bloqueado. O [bloqueio inteligente](howto-password-smart-lockout.md) rastreia os três últimos hashes de senha inválidos para evitar incrementar o contador de bloqueios para a mesma senha. Se alguém inserir a mesma senha inválida várias vezes, esse comportamento não fará com que a conta seja bloqueada. |
 
 ## <a name="administrator-reset-policy-differences"></a>Diferenças da política de redefinição de senha do administrador
 
-**A Microsoft impõe uma política padrão forte de redefinição de senha de *dois portão* para qualquer função de administrador do Azure**. Essa política pode ser diferente da que você definiu para os usuários e essa política não pode ser alterada. Sempre teste a funcionalidade de redefinição de senha como um usuário sem funções de administrador do Azure atribuídas.
+A Microsoft impõe uma política padrão forte de redefinição de senha de *dois portão* para qualquer função de administrador do Azure. Essa política pode ser diferente da que você definiu para os usuários e essa política não pode ser alterada. Sempre teste a funcionalidade de redefinição de senha como um usuário sem funções de administrador do Azure atribuídas.
 
-Com uma política de duas portas, **os administradores não têm a capacidade de usar perguntas de segurança**.
+Com uma política de dois portões, os administradores não podem usar perguntas de segurança.
 
-A política de duas portas requer dois tipos de dados de autenticação, como um *endereço de email*, *aplicativo autenticador* ou um *número de telefone*. Uma política de duas portas aplica-se nas seguintes circunstâncias:
+A política de duas portas requer dois tipos de dados de autenticação, como um endereço de email, aplicativo autenticador ou um número de telefone. Uma política de duas portas aplica-se nas seguintes circunstâncias:
 
 * Todas as seguintes funções de administrador do Azure são afetadas:
   * Administrador de assistência técnica
@@ -38,7 +74,7 @@ A política de duas portas requer dois tipos de dados de autenticação, como um
   * Suporte de camada 2 do parceiro
   * Administradores do Exchange
   * Administrador do Skype for Business
-  * Administrador do usuário
+  * Administrador de usuários
   * Gravadores de diretório
   * Administrador global ou administrador da empresa
   * Administrador do SharePoint
@@ -65,95 +101,73 @@ Uma política de duas portas requer um tipo de dados de autenticação, como um 
 * Um domínio personalizado não foi configurado para seu locatário do Azure AD, portanto, está usando o padrão **. onmicrosoft.com*. O domínio padrão **. onmicrosoft.com* não é recomendado para uso em produção; e
 * O Azure AD Connect não está sincronizando identidades
 
-## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>Políticas UserPrincipalName que se aplicam a todas as contas de usuário
+## <a name="password-expiration-policies"></a><a name="set-password-expiration-policies-in-azure-ad"></a>Políticas de expiração de senha
 
-Cada conta de usuário que precisa entrar no Azure AD deve ter um valor de atributo UPN (nome principal do usuário) exclusivo associado à respectiva conta. A tabela a seguir descreve as políticas que se aplicam a contas de usuário Active Directory Domain Services locais que são sincronizadas para a nuvem e para contas de usuário somente em nuvem:
+Um administrador *global* ou *administrador de usuários* pode usar o [módulo Microsoft Azure ad para Windows PowerShell](/powershell/module/Azuread/?view=azureadps-2.0) para definir senhas de usuário para não expirar.
 
-| Propriedade | Requisitos de UserPrincipalName |
-| --- | --- |
-| Caracteres permitidos |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> ' \. - \_ ! \# ^ \~</li></ul> |
-| Caracteres não permitidos |<ul> <li>Qualquer caractere "\@\" que não esteja separando o nome de usuário do domínio.</li> <li>Não pode conter um caractere de ponto "." imediatamente antes do símbolo "\@\"</li></ul> |
-| Restrições de comprimento |<ul> <li>O comprimento total não deve exceder 113 caracteres</li><li>Pode haver até 64 caracteres antes do símbolo de "\@\"</li><li>Pode haver até 48 caracteres após o símbolo de "\@\"</li></ul> |
-
-## <a name="password-policies-that-only-apply-to-cloud-user-accounts"></a>Políticas de senha que se aplicam somente a contas de usuário na nuvem
-
-A tabela a seguir descreve as configurações de política de senha aplicadas a contas de usuário que são criadas e gerenciadas no Azure AD:
-
-| Propriedade | Requisitos |
-| --- | --- |
-| Caracteres permitidos |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [] {} &#124; \: ',. ? / \`~ " ( ) ;</li> <li>espaço em branco</li></ul> |
-| Caracteres não permitidos | Caracteres Unicode. |
-| Restrições de senha |<ul><li>Um mínimo de 8 caracteres e um máximo de 256 caracteres.</li><li>Requer três de quatro dos seguintes itens:<ul><li>Caracteres minúsculos.</li><li>Caracteres maiúsculos.</li><li>Números (0-9).</li><li>Símbolos (veja as restrições de senha acima).</li></ul></li></ul> |
-| Duração da expiração da senha (duração máxima da senha) |<ul><li>Valor padrão: **90** dias.</li><li>O valor é configurável usando o cmdlet `Set-MsolPasswordPolicy` do Módulo do Azure Active Directory para Windows PowerShell.</li></ul> |
-| Notificação de expiração de senha (quando os usuários são notificados da expiração da senha) |<ul><li>Valor padrão: **14** dias (antes de a senha expirar).</li><li>O valor é configurável usando o cmdlet `Set-MsolPasswordPolicy`.</li></ul> |
-| Expiração de senha (permitir que as senhas nunca expirem) |<ul><li>Valor padrão: **false** (indica que a senha tem uma data de validade).</li><li>O valor pode ser configurado para contas de usuário individuais usando o cmdlet `Set-MsolUser`.</li></ul> |
-| Histórico de alteração de senha | A última senha *não pode* ser usada novamente quando o usuário alterar uma senha. |
-| Histórico de redefinição de senha | A última senha *pode* ser usada novamente quando o usuário redefine uma senha esquecida. |
-| Bloqueio de conta | Após 10 tentativas malsucedidas de conexão com a senha incorreta, o usuário será bloqueado por um minuto. Quanto mais tentativas de conexão com senha incorreta, por mais tempo o usuário ficará bloqueado. O [bloqueio inteligente](howto-password-smart-lockout.md) rastreia os três últimos hashes de senha inválidos para evitar incrementar o contador de bloqueios para a mesma senha. Se alguém inserir a mesma senha inválida várias vezes, esse comportamento não fará com que a conta seja bloqueada. |
-
-## <a name="set-password-expiration-policies-in-azure-ad"></a>Definir políticas de expiração de senha no Azure AD
-
-Um administrador *global* ou *administrador de usuário* para um serviço de nuvem da Microsoft pode usar o *módulo Microsoft Azure ad para Windows PowerShell* para definir senhas de usuário para não expirar. Você também pode usar os cmdlets do Windows PowerShell para remover as configurações que nunca expiram ou para ver quais senhas de usuário são configuradas para não expirar.
+Você também pode usar os cmdlets do PowerShell para remover a configuração nunca expira ou para ver quais senhas de usuário estão definidas para nunca expirar.
 
 Esta instrução se aplica a outros provedores, como o Intune e o Office 365, que também dependem do Azure AD para serviços de identidade e diretório. A expiração da senha é a única parte da política que pode ser alterada.
 
 > [!NOTE]
-> Apenas as senhas de contas de usuário que não são sincronizadas por meio da sincronização de diretório podem ser configuradas para não expirar. Para saber mais sobre a sincronização de diretório, confira [Conectar AD ao Azure AD](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
+> Somente as senhas para contas de usuário que não são sincronizadas por meio do Azure AD Connect podem ser configuradas para não expirar. Para saber mais sobre a sincronização de diretório, confira [Conectar AD ao Azure AD](../hybrid/whatis-hybrid-identity.md).
 
-## <a name="set-or-check-the-password-policies-by-using-powershell"></a>Definir ou verificar políticas de senha usando o PowerShell
+### <a name="set-or-check-the-password-policies-by-using-powershell"></a>Definir ou verificar políticas de senha usando o PowerShell
 
-Para começar, [Baixe e instale o módulo do PowerShell do Azure ad](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0) e [Conecte-o ao seu locatário do Azure ad](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples). Depois que o módulo for instalado, use as etapas a seguir para configurar cada campo.
+Para começar, [Baixe e instale o módulo do PowerShell do Azure ad](/powershell/module/Azuread/?view=azureadps-2.0) e [Conecte-o ao seu locatário do Azure ad](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples).
+
+Depois que o módulo for instalado, use as etapas a seguir para concluir cada tarefa, conforme necessário.
 
 ### <a name="check-the-expiration-policy-for-a-password"></a>Verificar a política de expiração de uma senha
 
-1. Conecte-se ao Windows PowerShell usando suas credenciais de administrador de usuário ou administrador da empresa.
-1. Execute um dos seguintes comandos:
+1. Abra um prompt do PowerShell e [Conecte-se ao seu locatário do Azure ad](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples) usando uma conta de administrador *global* ou de *administrador de usuário* .
+1. Execute um dos seguintes comandos para um usuário individual ou para todos os usuários:
 
-   * Para ver se a senha de um único usuário está definida para nunca expirar, execute o seguinte cmdlet usando o UPN (por exemplo, *abril de\@contoso.onmicrosoft.com*) ou a ID de usuário do usuário que você deseja verificar:
+   * Para ver se a senha de um único usuário está definida para nunca expirar, execute o cmdlet a seguir. Substitua `<user ID>` pela ID de usuário do usuário que você deseja verificar, como *driley \@ contoso.onmicrosoft.com*:
 
-   ```powershell
-   Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}
-   ```
+       ```powershell
+       Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}
+       ```
 
    * Para ver a configuração **Senha nunca expira** para todos os usuários, execute o seguinte cmdlet: 
 
-   ```powershell
-   Get-AzureADUser -All $true | Select-Object UserPrincipalName, @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}
-   ```
+       ```powershell
+       Get-AzureADUser -All $true | Select-Object UserPrincipalName, @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}
+       ```
 
 ### <a name="set-a-password-to-expire"></a>Definir uma senha para expirar
 
-1. Conecte-se ao Windows PowerShell usando suas credenciais de administrador de usuário ou administrador da empresa.
-1. Execute um dos seguintes comandos:
+1. Abra um prompt do PowerShell e [Conecte-se ao seu locatário do Azure ad](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples) usando uma conta de administrador *global* ou de *administrador de usuário* .
+1. Execute um dos seguintes comandos para um usuário individual ou para todos os usuários:
 
-   * Para definir a senha de um usuário para que ela expire, execute o seguinte cmdlet usando o UPN ou a ID do usuário: 
+   * Para definir a senha de um usuário para que a senha expire, execute o cmdlet a seguir. Substitua `<user ID>` pela ID de usuário do usuário que você deseja verificar, como *driley \@ contoso.onmicrosoft.com*
 
-   ```powershell
-   Set-AzureADUser -ObjectId <user ID> -PasswordPolicies None
-   ```
+       ```powershell
+       Set-AzureADUser -ObjectId <user ID> -PasswordPolicies None
+       ```
 
    * Para definir as senhas de todos os usuários da organização para que elas expirem, use o seguinte cmdlet: 
 
-   ```powershell
-   Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies None
-   ```
+       ```powershell
+       Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies None
+       ```
 
 ### <a name="set-a-password-to-never-expire"></a>Definir uma senha para nunca expirar
 
-1. Conecte-se ao Windows PowerShell usando suas credenciais de administrador de usuário ou administrador da empresa.
-1. Execute um dos seguintes comandos:
+1. Abra um prompt do PowerShell e [Conecte-se ao seu locatário do Azure ad](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples) usando uma conta de administrador *global* ou de *administrador de usuário* .
+1. Execute um dos seguintes comandos para um usuário individual ou para todos os usuários:
 
-   * Para definir a senha de um usuário para que ela nunca expire, execute o seguinte cmdlet usando o UPN ou a ID do usuário: 
+   * Para definir a senha de um usuário para nunca expirar, execute o cmdlet a seguir. Substitua `<user ID>` pela ID de usuário do usuário que você deseja verificar, como *driley \@ contoso.onmicrosoft.com*
 
-   ```powershell
-   Set-AzureADUser -ObjectId <user ID> -PasswordPolicies DisablePasswordExpiration
-   ```
+       ```powershell
+       Set-AzureADUser -ObjectId <user ID> -PasswordPolicies DisablePasswordExpiration
+       ```
 
    * Para definir as senhas de todos os usuários de uma organização para nunca expirar, execute o seguinte cmdlet:
 
-   ```powershell
-   Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies DisablePasswordExpiration
-   ```
+       ```powershell
+       Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies DisablePasswordExpiration
+       ```
 
    > [!WARNING]
    > Senhas definidas como `-PasswordPolicies DisablePasswordExpiration` ainda expiram com base no atributo `pwdLastSet`. Com base no atributo `pwdLastSet`, se você alterar a expiração para `-PasswordPolicies None`, todas as senhas que tenham um `pwdLastSet` com idade acima de 90 dias exigirão que o usuário as altere na próxima vez que entrarem. Essa alteração pode afetar um grande número de usuários.

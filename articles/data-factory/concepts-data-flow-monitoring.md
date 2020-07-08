@@ -7,13 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/17/2020
-ms.openlocfilehash: 9594a2ddfaa0103e171618925ba6974bf9ad7f00
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.date: 07/03/2020
+ms.openlocfilehash: 1126f73b4d2e51e952a7cf971363020242838c34
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83833958"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958882"
 ---
 # <a name="monitor-data-flows"></a>Monitorar Fluxo de Dados
 
@@ -56,12 +55,31 @@ Quando o Fluxo de Dados é executado no Spark, o Azure Data Factory determina os
   * Tempo de inicialização do cluster: Tempo necessário para adquirir o ambiente de computação do Spark JIT para sua execução de fluxo de dados
   * Número de transformações: Quantas etapas de transformação estão sendo executadas no seu fluxo
   
-![Monitoramento de fluxo de dados](media/data-flow/monitornew.png "Novo monitoramento do Fluxo de Dados")  
+![Monitoramento de fluxo de dados](media/data-flow/monitornew.png "Novo monitoramento do Fluxo de Dados")
+
+## <a name="total-sink-processing-time-vs-transformation-processing-time"></a>Tempo total de processamento do coletor versus tempo de processamento da transformação
+
+Cada estágio de transformação inclui um tempo total para que esse estágio seja concluído com cada tempo de execução de partição totalizado em conjunto. Ao clicar no coletor, você verá "tempo de processamento do coletor". Esse tempo inclui o total do tempo de transformação *mais* o tempo de e/s necessário para gravar seus dados no armazenamento de destino. A diferença entre o tempo de processamento do coletor e o total da transformação é o tempo de e/s para gravar os dados.
+
+Você também pode ver o tempo detalhado para cada etapa de transformação de partição se abrir a saída JSON de sua atividade de fluxo de dados no modo de exibição de monitoramento do pipeline do ADF. O JSON contém um tempo de milissegundo para cada partição, enquanto o modo de exibição de monitoramento de UX é um tempo agregado de partições adicionadas juntas:
+
+```
+ {
+     "stage": 4,
+     "partitionTimes": [
+          14353,
+          14914,
+          14246,
+          14912,
+          ...
+         ]
+}
+```
   
 ## <a name="monitor-icons"></a>Ícones de monitoramento
 
 Esse ícone significa que os dados de transformação já foram armazenados em cache no cluster, portanto, o caminho de execução e os intervalos levaram isso em consideração:
 
-![Monitoramento de fluxo de dados](media/data-flow/mon004.png "Monitoramento de fluxo de dados")
+![Monitoramento de fluxo de dados](media/data-flow/mon005.png "Monitoramento de fluxo de dados")
 
 Você também verá ícones de círculo verde na transformação. Eles representam uma contagem do número de coletores para os quais os dados estão fluindo.

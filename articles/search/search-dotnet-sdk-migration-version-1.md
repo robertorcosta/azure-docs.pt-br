@@ -9,16 +9,15 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 159aaa8424c3d7a711b587464b80696929f02186
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9cecb7b2a669b47bb79b022df786add65f5648f2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72792391"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85080967"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-11"></a>Atualizar para Azure Search SDK do .NET versão 1,1
 
-Se você estiver usando a visualização da versão 1.0.2 ou mais antiga do [SDK .NET do Azure Search](https://aka.ms/search-sdk), este artigo ajudará você a atualizar seu aplicativo para usar a versão 1.1.
+Se você estiver usando a visualização da versão 1.0.2 ou mais antiga do [SDK .NET do Azure Search](https://docs.microsoft.com/dotnet/api/overview/azure/search), este artigo ajudará você a atualizar seu aplicativo para usar a versão 1.1.
 
 Para obter uma explicação mais geral do SDK, incluindo exemplos, confira [Como usar o Azure Search de um aplicativo .NET](search-howto-dotnet-sdk.md).
 

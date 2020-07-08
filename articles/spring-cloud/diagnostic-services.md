@@ -6,12 +6,11 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
-ms.openlocfilehash: 83b223ab2195516492d55ac85be6e7db0dffbd98
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 57850b45820ec259337a8ad5b67bfebfd6762c24
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176780"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84790578"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analisar logs e métricas com configurações de diagnóstico
 
@@ -45,11 +44,11 @@ Para começar, habilite um desses serviços para receber os dados. Para saber ma
 1. Selecione a opção **configurações de diagnóstico** e, em seguida, selecione **Adicionar configuração de diagnóstico**.
 1. Insira um nome para a configuração e escolha para onde deseja enviar os logs. Você pode selecionar qualquer combinação das três opções a seguir:
     * **Arquivar em uma conta de armazenamento**
-    * **Transmitir para um hub de eventos**
+    * **Transmitir por streaming para um hub de eventos**
     * **Enviar para o Log Analytics**
 
 1. Escolha qual categoria de log e categoria de métrica você deseja monitorar e, em seguida, especifique o tempo de retenção (em dias). O tempo de retenção se aplica somente à conta de armazenamento.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 > [!NOTE]
 > 1. Pode haver um intervalo de até 15 minutos entre o momento em que os logs ou as métricas são emitidos e quando aparecem na sua conta de armazenamento, no Hub de eventos ou Log Analytics.
@@ -174,3 +173,31 @@ AppPlatformLogsforSpring
 ### <a name="learn-more-about-querying-application-logs"></a>Saiba mais sobre como consultar logs de aplicativos
 
 O Azure Monitor fornece amplo suporte para consultar logs de aplicativos usando Log Analytics. Para saber mais sobre esse serviço, confira [introdução às consultas de log em Azure monitor](../azure-monitor/log-query/get-started-queries.md). Para obter mais informações sobre como criar consultas para analisar os logs do aplicativo, consulte [visão geral das consultas de log no Azure monitor](../azure-monitor/log-query/log-query-overview.md).
+
+## <a name="frequently-asked-questions-faq"></a>Perguntas frequentes
+
+### <a name="how-to-convert-multi-line-java-stack-traces-into-a-single-line"></a>Como converter rastreamentos de pilha Java de várias linhas em uma única linha?
+
+Há uma solução alternativa para converter os rastreamentos de pilha de várias linhas em uma única linha. Você pode modificar a saída de log do Java para reformatar mensagens de rastreamento de pilha, substituindo caracteres de nova linha com um token. Se você usar a biblioteca Java Logback, poderá reformatar as mensagens de rastreamento de pilha adicionando `%replace(%ex){'[\r\n]+', '\\n'}%nopex` da seguinte maneira:
+
+```xml
+<configuration>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                level: %level, message: "%logger{36}: %msg", exceptions: "%replace(%ex){'[\r\n]+', '\\n'}%nopex"%n
+            </pattern>
+        </encoder>
+    </appender>
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</configuration>
+```
+E, em seguida, você pode substituir o token por caracteres de nova linha novamente em Log Analytics como abaixo:
+
+```sql
+AppPlatformLogsforSpring
+| extend Log = array_strcat(split(Log, '\\n'), '\n')
+```
+Talvez você possa usar a mesma estratégia para outras bibliotecas de log Java.

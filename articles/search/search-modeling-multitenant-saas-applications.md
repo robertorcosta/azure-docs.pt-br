@@ -8,20 +8,23 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d8e453336005f3389f67e9571fac438bfc340c1b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 90a9672e3a58a068d1a4488a514a6fd51c272a56
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80549019"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85081109"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>Padrões de design para aplicativos SaaS multilocatários e Pesquisa Cognitiva do Azure
+
 Um aplicativo multilocatário é aquele que fornece os mesmos serviços e funcionalidades para qualquer número de locatários que não conseguem ver nem compartilhar os dados de qualquer outro locatário. Este documento discute estratégias de isolamento de locatários para aplicativos multilocatários criados com o Azure Pesquisa Cognitiva.
 
 ## <a name="azure-cognitive-search-concepts"></a>Conceitos de Pesquisa Cognitiva do Azure
-Como uma solução de pesquisa como serviço, o Azure Pesquisa Cognitiva permite aos desenvolvedores adicionar experiências de pesquisa avançada a aplicativos sem gerenciar qualquer infraestrutura ou se tornar um especialista em recuperação de informações. Os dados são carregados para o serviço e, em seguida, são armazenados na nuvem. Usando solicitações simples para a API de Pesquisa Cognitiva do Azure, os dados podem ser modificados e pesquisados. Uma visão geral do serviço pode ser encontrada em [neste artigo](https://aka.ms/whatisazsearch). Antes de discutir os padrões de design, é importante entender alguns conceitos no Azure Pesquisa Cognitiva.
+Como uma solução de pesquisa como serviço, o [Azure pesquisa cognitiva](search-what-is-azure-search.md) permite aos desenvolvedores adicionar experiências de pesquisa avançada a aplicativos sem gerenciar qualquer infraestrutura ou se tornar um especialista em recuperação de informações. Os dados são carregados para o serviço e, em seguida, são armazenados na nuvem. Usando solicitações simples para a API de Pesquisa Cognitiva do Azure, os dados podem ser modificados e pesquisados. 
 
 ### <a name="search-services-indexes-fields-and-documents"></a>Serviços Search, índices, campos e documentos
+
+Antes de discutir os padrões de design, é importante entender alguns conceitos básicos.
+
 Ao usar o Azure Pesquisa Cognitiva, um assina um *serviço de pesquisa*. À medida que os dados são carregados no Azure Pesquisa Cognitiva, eles são armazenados em um *índice* dentro do serviço de pesquisa. Pode haver um número de índices em um único serviço. Para usar os conceitos familiares de bancos de dados, o serviço de pesquisa pode ser comparado a um banco de dados, enquanto os índices dentro de um serviço podem ser comparados a tabelas em um banco de dados.
 
 Cada índice dentro de um serviço de pesquisa tem seu próprio esquema, que é definido por um número de *campos*personalizáveis. Os dados são adicionados a um índice de Pesquisa Cognitiva do Azure na forma de *documentos*individuais. Cada documento deve ser carregado em um índice específico e deve se ajustar o esquema do índice. Ao pesquisar dados usando o Azure Pesquisa Cognitiva, as consultas de pesquisa de texto completo são emitidas em relação a um índice específico.  Para comparar esses conceitos àqueles de um banco de dados, os campos podem ser comparados a colunas em uma tabela e os documentos podem ser comparados a linhas.
@@ -127,5 +130,5 @@ Esse método pode ser usado para obter uma funcionalidade de contas de usuário 
 ## <a name="next-steps"></a>Próximas etapas
 O Azure Pesquisa Cognitiva é uma opção atraente para muitos aplicativos. Ao avaliar os vários padrões de design para aplicativos multilocatários, considere os [vários tipos de preço](https://azure.microsoft.com/pricing/details/search/) e os respectivos [limites de serviço](search-limits-quotas-capacity.md) para melhor adaptar os pesquisa cognitiva do Azure para ajustar as cargas de trabalho e arquiteturas de todos os tamanhos do aplicativo.
 
-Quaisquer perguntas sobre cenários de multilocatário e Pesquisa Cognitiva do Azure podem ser azuresearch_contact@microsoft.comdirecionadas para o.
+Quaisquer perguntas sobre cenários de multilocatário e Pesquisa Cognitiva do Azure podem ser direcionadas para o azuresearch_contact@microsoft.com .
 

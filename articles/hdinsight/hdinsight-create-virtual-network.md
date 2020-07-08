@@ -8,12 +8,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/16/2020
-ms.openlocfilehash: 0c7791d43ffbbc13ab151362c5c3026ebbdb0d34
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: abe9938a3cc9466a56a3e4be24a677751e28e9ac
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81531009"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960156"
 ---
 # <a name="create-virtual-networks-for-azure-hdinsight-clusters"></a>Criar redes virtuais para clusters do Azure HDInsight
 
@@ -48,9 +47,9 @@ O modelo de Gerenciamento de Recursos a seguir cria uma rede virtual que restrin
 Use o script do PowerShell a seguir para criar uma rede virtual que restrinja o tráfego de entrada e permita o tráfego dos endereços IP para a região Norte da Europa.
 
 > [!IMPORTANT]  
-> Altere os endereços IP para `hdirule1` e `hdirule2` , neste exemplo, para corresponder à região do Azure que você está usando. Você pode encontrar essas informações [endereços IP de gerenciamento do HDInsight](hdinsight-management-ip-addresses.md).
+> Altere os endereços IP para `hdirule1` e, `hdirule2` neste exemplo, para corresponder à região do Azure que você está usando. Você pode encontrar essas informações [endereços IP de gerenciamento do HDInsight](hdinsight-management-ip-addresses.md).
 
-```powershell
+```azurepowershell
 $vnetName = "Replace with your virtual network name"
 $resourceGroupName = "Replace with the resource group the virtual network is in"
 $subnetName = "Replace with the name of the subnet that you plan to use for HDInsight"
@@ -153,7 +152,7 @@ $vnet | Set-AzVirtualNetwork
 
 Este exemplo demonstra como adicionar regras para permitir o tráfego de entrada nos endereços IP necessários. Ele não contém uma regra para restringir o acesso de entrada de outras fontes. O código a seguir demonstra como habilitar o acesso SSH da Internet:
 
-```powershell
+```azurepowershell
 Get-AzNetworkSecurityGroup -Name hdisecure -ResourceGroupName RESOURCEGROUP |
 Add-AzNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 306 -Direction Inbound
 ```
@@ -173,7 +172,7 @@ Use as etapas a seguir para criar uma rede virtual que restringe o tráfego de e
 2. Use o seguinte para adicionar regras ao novo grupo de segurança de rede que permitem a comunicação de entrada na porta 443 por meio do serviço de integridade e gerenciamento do Azure HDInsight. Substitua `RESOURCEGROUP` pelo nome do grupo de recursos que contém a rede virtual do Azure.
 
     > [!IMPORTANT]  
-    > Altere os endereços IP para `hdirule1` e `hdirule2` , neste exemplo, para corresponder à região do Azure que você está usando. Você pode encontrar essas informações em [endereços IP de gerenciamento do HDInsight](hdinsight-management-ip-addresses.md).
+    > Altere os endereços IP para `hdirule1` e, `hdirule2` neste exemplo, para corresponder à região do Azure que você está usando. Você pode encontrar essas informações em [endereços IP de gerenciamento do HDInsight](hdinsight-management-ip-addresses.md).
 
     ```azurecli
     az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n hdirule1 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "52.164.210.96" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 300 --direction "Inbound"
@@ -192,9 +191,11 @@ Use as etapas a seguir para criar uma rede virtual que restringe o tráfego de e
 
     Esse comando retorna um valor semelhante ao texto a seguir:
 
-        "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
+    ```output
+    "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
+    ```
 
-4. Use o comando a seguir para aplicar o grupo de segurança de rede a uma sub-rede. Substitua os `GUID` valores `RESOURCEGROUP` e por aqueles retornados da etapa anterior. Substitua `VNETNAME` e `SUBNETNAME` pelo nome da rede virtual e nome da sub-rede que você deseja criar.
+4. Use o comando a seguir para aplicar o grupo de segurança de rede a uma sub-rede. Substitua os `GUID` `RESOURCEGROUP` valores e por aqueles retornados da etapa anterior. Substitua `VNETNAME` e `SUBNETNAME` pelo nome da rede virtual e nome da sub-rede que você deseja criar.
 
     ```azurecli
     az network vnet subnet update -g RESOURCEGROUP --vnet-name VNETNAME --name SUBNETNAME --set networkSecurityGroup.id="/subscriptions/GUID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
@@ -228,7 +229,7 @@ No servidor DNS personalizado da rede virtual:
 
     Substitua `RESOURCEGROUP` pelo nome do grupo de recursos que contém a rede virtual e, em seguida, insira o comando:
 
-    ```powershell
+    ```azurepowershell
     $NICs = Get-AzNetworkInterface -ResourceGroupName "RESOURCEGROUP"
     $NICs[0].DnsSettings.InternalDomainNameSuffix
     ```
@@ -310,7 +311,7 @@ Este exemplo faz as seguintes suposições:
 
     Substitua `RESOURCEGROUP` pelo nome do grupo de recursos que contém a rede virtual e, em seguida, insira o comando:
 
-    ```powershell
+    ```azurepowershell
     $NICs = Get-AzNetworkInterface -ResourceGroupName "RESOURCEGROUP"
     $NICs[0].DnsSettings.InternalDomainNameSuffix
     ```
@@ -377,4 +378,4 @@ Depois de concluir essas etapas, você poderá se conectar aos recursos na rede 
 
 * Para obter mais informações sobre os Grupos de Segurança de Rede, veja [Grupos de segurança de rede](../virtual-network/security-overview.md).
 
-* Para obter mais informações sobre rotas definidas pelo usuário, consulte [rotas definidas pelo usuário e encaminhamento de IP](../virtual-network/virtual-networks-udr-overview.md).
+* Para obter mais informações sobre as rotas definidas pelo usuário, confira [Rotas definidas pelo usuário e encaminhamento IP](../virtual-network/virtual-networks-udr-overview.md).

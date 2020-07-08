@@ -5,19 +5,18 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 4/16/2020
-ms.openlocfilehash: bd0a867cce9b2a9ad793b491b9042034ef5810f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 6/11/2020
+ms.openlocfilehash: ba473942eea35ebcd5991b9b0dee4138d4963e16
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81605147"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85099143"
 ---
-# <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Como configurar parâmetros de servidor no Banco de Dados do Azure para MySQL usando o portal do Azure
+# <a name="configure-server-parameters-in-azure-database-for-mysql-using-the-azure-portal"></a>Configurar parâmetros de servidor no banco de dados do Azure para MySQL usando o portal do Azure
 
 O Banco de Dados do Azure para MySQL dá suporte à configuração de alguns parâmetros de servidor. Este artigo descreve como configurar esses parâmetros usando o portal do Azure. Nem todos os parâmetros de servidor podem ser ajustados.
 
-## <a name="navigate-to-server-parameters-on-azure-portal"></a>Navegue até Parâmetros de servidor no portal do Azure
+## <a name="configure-server-parameters"></a>Configurar parâmetros do servidor
 
 1. Faça logon no portal do Azure e, em seguida, localize o seu Banco de Dados do Azure para MySQL Server.
 2. Na seção **CONFIGURAÇÕES**, clique em **Parâmetros do servidor** para abrir a página de parâmetros do servidor para o servidor do Banco de Dados do Azure para MySQL.
@@ -29,41 +28,16 @@ O Banco de Dados do Azure para MySQL dá suporte à configuração de alguns par
 5. Se você tiver salvo os novos valores para os parâmetros, você sempre pode reverter tudo o que fazer com os valores padrão selecionando **Redefinir tudo para o padrão**.
 ![Redefinir tudo para padrão](./media/howto-server-parameters/5-reset_parameters.png)
 
-## <a name="list-of-configurable-server-parameters"></a>Lista de parâmetros de servidor configuráveis
+## <a name="setting-parameters-not-listed"></a>Parâmetros de configuração não listados
 
-A lista de parâmetros de servidor com suporte está em constante crescimento. Use a guia de parâmetros de servidor no portal do Azure para obter a definição e configurar parâmetros de servidor com base em seus requisitos de aplicativo.
+Se o parâmetro de servidor que você deseja atualizar não estiver listado no portal do Azure, você poderá, opcionalmente, definir o parâmetro no nível de conexão usando `init_connect` . Isso define os parâmetros de servidor para cada cliente que se conecta ao servidor. 
 
-## <a name="non-configurable-server-parameters"></a>Parâmetros do servidor não configuráveis
+1. Na seção **CONFIGURAÇÕES**, clique em **Parâmetros do servidor** para abrir a página de parâmetros do servidor do Banco de Dados do Azure para o servidor MariaDB.
+2. Pesquisar por`init_connect`
+3. Adicione os parâmetros de servidor no formato: `SET parameter_name=YOUR_DESIRED_VALUE` em valor, a coluna valor.
 
-O tamanho do pool de buffers InnoDB não é configurável e está vinculado ao seu [tipo de preço](concepts-service-tiers.md).
-
-|**Tipo de preço**|**vCore(s)**|**Tamanho do pool de buffers <br>InnoDB em MB (servidores com suporte para até 4 TB de armazenamento)**| **Tamanho do pool de buffers <br>InnoDB em MB (servidores com suporte para até 16 TB de armazenamento)**|
-|:---|---:|---:|---:|
-|Basic| 1| 832| |
-|Basic| 2| 2560| |
-|Uso Geral| 2| 3584| 7168|
-|Uso Geral| 4| 7680| 15360|
-|Uso Geral| 8| 15360| 30720|
-|Uso Geral| 16| 31232| 62464|
-|Uso Geral| 32| 62976| 125952|
-|Uso Geral| 64| 125952| 251904|
-|Otimizado para memória| 2| 7168| 14336|
-|Otimizado para memória| 4| 15360| 30720|
-|Otimizado para memória| 8| 30720| 61440|
-|Otimizado para memória| 16| 62464| 124928|
-|Otimizado para memória| 32| 125952| 251904|
-
-Esses parâmetros de servidor adicionais não são configuráveis no sistema:
-
-|**Parâmetro**|**Valor fixo**|
-| :------------------------ | :-------- |
-|innodb_file_per_table na camada Básica|OFF|
-|innodb_flush_log_at_trx_commit|1|
-|sync_binlog|1|
-|innodb_log_file_size|GRÁFICA|
-|innodb_log_files_in_group|2|
-
-Outros parâmetros de servidor que não estão listados aqui são configurados com seus valores padrão iniciais MySQL nas versões [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) e [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
+    Por exemplo, você pode alterar o conjunto de caracteres do seu servidor definindo `init_connect` como`SET character_set_client=utf8;SET character_set_database=utf8mb4;SET character_set_connection=latin1;SET character_set_results=latin1;`
+4. Clique em **Salvar** para salvar as alterações.
 
 ## <a name="working-with-the-time-zone-parameter"></a>Trabalhar com o parâmetro de fuso horário
 
@@ -79,7 +53,7 @@ CALL mysql.az_load_timezone();
 ```
 
 > [!IMPORTANT]
-> Você deve reiniciar o servidor para garantir que as tabelas de fuso horário sejam populadas corretamente. Para reiniciar o servidor, use o [portal do Azure](howto-restart-server-portal.md) ou a [CLI](howto-restart-server-cli.md).
+> Você deve reiniciar o servidor para garantir que as tabelas de fuso horário sejam populadas corretamente. Para reiniciar o servidor, use a [CLI](howto-restart-server-cli.md) ou o [Portal do Azure](howto-restart-server-portal.md).
 
 Para exibir os valores de fuso horário disponíveis, execute o comando a seguir:
 

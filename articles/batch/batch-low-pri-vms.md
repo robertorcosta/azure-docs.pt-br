@@ -5,12 +5,11 @@ author: mscurrell
 ms.topic: how-to
 ms.date: 03/19/2020
 ms.custom: seodec18
-ms.openlocfilehash: 90cd6476992eed30abbe9faca5cc66405aa40079
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: HT
+ms.openlocfilehash: 48350a684844ca0e1624826afeca8e0b9ab36f3b
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780190"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959986"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Usar VMs de baixa prioridade com o Lote
 
@@ -23,11 +22,11 @@ A desvantagem do uso de VMs de prioridade baixa é que elas podem não estar dis
 VMs de prioridade baixa são oferecidas a um preço consideravelmente menor em comparação com VMs dedicadas. Para ver detalhes dos preços, consulte [Preços do Lote](https://azure.microsoft.com/pricing/details/batch/).
 
 > [!NOTE]
-> [As VMs Spot](https://azure.microsoft.com/pricing/spot/) já estão disponíveis para [VMs de instância única](https://docs.microsoft.com/azure/virtual-machines/linux/spot-vms) e [conjuntos de dimensionamento de VM](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot). As VMs Spot representam uma evolução nas VMs de baixa prioridade, mas diferem no fato de que o preço pode variar e um preço máximo opcional pode ser definido em sua alocação.
+> [As VMs Spot](https://azure.microsoft.com/pricing/spot/) já estão disponíveis para [VMs de instância única](../virtual-machines/linux/spot-vms.md) e [conjuntos de dimensionamento de VM](../virtual-machine-scale-sets/use-spot.md). As VMs Spot representam uma evolução nas VMs de baixa prioridade, mas diferem no fato de que o preço pode variar e um preço máximo opcional pode ser definido em sua alocação.
 >
-> Os pools do Lote do Azure começarão a dar suporte às VMs Spot alguns meses depois delas ficarem disponíveis, com novas versões das [ferramentas e APIs do Lote](https://docs.microsoft.com/azure/batch/batch-apis-tools). Quando o suporte à VM Spot estiver disponível, as VMs de baixa prioridade serão preteridas - elas continuarão a ter suporte com o uso das versões atuais das APIs e ferramentas por pelo menos 12 meses, para dar tempo suficiente para a migração para as VMs Spot. 
+> Os pools do Lote do Azure começarão a dar suporte às VMs Spot alguns meses depois delas ficarem disponíveis, com novas versões das [ferramentas e APIs do Lote](./batch-apis-tools.md). Quando o suporte à VM Spot estiver disponível, as VMs de baixa prioridade serão preteridas - elas continuarão a ter suporte com o uso das versões atuais das APIs e ferramentas por pelo menos 12 meses, para dar tempo suficiente para a migração para as VMs Spot. 
 >
-> As VMs Spot não terão suporte para pools de [Configuração de Serviço de Nuvem](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration). Para usar VMs Spot, os pools de Serviço de Nuvem terão que ser migrados para pools de [Configuração de Máquina Virtual](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration).
+> As VMs Spot não terão suporte para pools de [Configuração de Serviço de Nuvem](/rest/api/batchservice/pool/add#cloudserviceconfiguration). Para usar VMs Spot, os pools de Serviço de Nuvem terão que ser migrados para pools de [Configuração de Máquina Virtual](/rest/api/batchservice/pool/add#virtualmachineconfiguration).
 
 ## <a name="use-cases-for-low-priority-vms"></a>Casos de uso para VMs de baixa prioridade
 

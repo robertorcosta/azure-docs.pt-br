@@ -8,12 +8,11 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: alkohli
-ms.openlocfilehash: 1bb8300f1e54cf03563704cf00549ce9e09a3916
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 71df5aa22eb93df6c98eb15f97ab017457946b80
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79260157"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85099071"
 ---
 # <a name="azure-data-box-disk-limits"></a>Limites do Azure Data Box Disk
 
@@ -37,7 +36,7 @@ Para obter as informações mais recentes sobre os limites de serviço de armaze
 
 - [Nomenclatura e referência de contêineres](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)
 - [Nomenclatura e referência de compartilhamentos](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
-- [Convenções de blobs de páginas e blobs de blocos](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
+- [Blobs de bloco e convenções de blob de páginas](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
 
 > [!IMPORTANT]
 > Se há quaisquer arquivos ou diretórios que excedem os limites de serviço de armazenamento do Azure ou não estão em conformidade com as convenções de nomenclatura de Blobs/Arquivos do Azure, esses arquivos ou diretórios não são ingeridos no Armazenamento do Azure por meio do serviço Data Box.
@@ -56,6 +55,7 @@ Para obter as informações mais recentes sobre os limites de serviço de armaze
     - Só é possível ter um disco gerenciado com um determinado nome em um grupo de recursos em todas as pastas pré-criadas e em todo o Data Box Disk. Isso implica que os VHDs enviados para as pastas pré-criadas deverão ter nomes exclusivos. Certifique-se de que o nome determinado não corresponda a um disco gerenciado já existente em um grupo de recursos. Se os VHDs tiverem nomes iguais, somente um VHD será convertido em disco gerenciado com esse nome. Os outros VHDs serão carregados como blobs de páginas na conta de armazenamento temporário.
     - Sempre copie os VHDs para uma das pastas pré-criadas. Se você copiar os VHDs fora dessas pastas ou em uma pasta que você criou, os VHDs serão carregados na conta do Armazenamento do Azure como blobs de páginas e não como discos gerenciados.
     - Apenas os VHDs fixos podem ser carregados para criar discos gerenciados. VHDs dinâmicos, VHDs diferenciais ou arquivos VHDX não têm suporte.
+    - Arquivos não VHD copiados para pastas de discos gerenciados criados antes não serão convertidos em um disco gerenciado.
 
 ## <a name="azure-storage-account-size-limits"></a>Limites de tamanho da conta de armazenamento do Azure
 
@@ -83,14 +83,14 @@ Aqui estão os tamanhos dos objetos do Azure que podem ser gravados. Verifique s
 | Entidade                                       | Convenções                                                                                                                                                                                                                                                                                                               |
 |----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Nomes de contêiner de blob de blocos e blob de páginas <br> Nomes de FileShare para arquivos do Azure | Precisa ser um nome DNS válido com tamanho de 3 a 63 caracteres. <br>  Deve começar com uma letra ou número. <br> Pode conter apenas letras minúsculas, números e o hífen (-). <br> Cada hífen (-) precisa ser imediatamente precedido e seguido por uma letra ou um número. <br> Hifens consecutivos não são permitidos em nomes. |
-| Nomes de arquivo e diretório para arquivos do Azure     |<li> Uso de maiúsculas e minúsculas preservado, sem diferenciação. Não deve exceder 255 caracteres. </li><li> Não pode terminar com barra (/). </li><li>Se fornecido, será removido automaticamente. </li><li> Os seguintes caracteres não são permitidos:<code>" \\ / : \| < > * ?</code></li><li> Os caracteres reservados de URL precisam ser escapados corretamente. </li><li> Os caracteres inválidos para caminho de URL não são permitidos. Pontos de código \\como uE000 não são caracteres Unicode válidos. Alguns caracteres ASCII ou Unicode, como caracteres de controle (0x00 a 0x1F \\, u0081, etc.), também não são permitidos. Para saber quais são as regras que regem as cadeias de caracteres Unicode em HTTP/1.1, confira o RFC 2616, Section 2.2: Basic Rules (RFC 2616, Seção 2.2: regras básicas) e o RFC 3987. </li><li> Os nomes de arquivo a seguir não são permitidos: LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, LPT9, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, PRN, AUX, NUL, CON, CLOCK$, caractere de ponto (.) e de dois pontos (..).</li>|
+| Nomes de arquivo e diretório para arquivos do Azure     |<li> Uso de maiúsculas e minúsculas preservado, sem diferenciação. Não deve exceder 255 caracteres. </li><li> Não pode terminar com barra (/). </li><li>Se fornecido, será removido automaticamente. </li><li> Os seguintes caracteres não são permitidos:<code>" \\ / : \| < > * ?</code></li><li> Os caracteres reservados de URL precisam ser escapados corretamente. </li><li> Os caracteres inválidos para caminho de URL não são permitidos. Pontos de código como \\ uE000 não são caracteres Unicode válidos. Alguns caracteres ASCII ou Unicode, como caracteres de controle (0x00 a 0x1F, \\ u0081, etc.), também não são permitidos. Para saber quais são as regras que regem as cadeias de caracteres Unicode em HTTP/1.1, confira o RFC 2616, Section 2.2: Basic Rules (RFC 2616, Seção 2.2: regras básicas) e o RFC 3987. </li><li> Os nomes de arquivo a seguir não são permitidos: LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, LPT9, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, PRN, AUX, NUL, CON, CLOCK$, caractere de ponto (.) e de dois pontos (..).</li>|
 | Nomes de blob para blobs de blocos e blobs de página      | Nomes de blob diferenciam maiúsculas de minúsculas e podem conter qualquer combinação de caracteres. <br> O nome do blob deve ter entre 1 e 1.024 caracteres. <br> Os caracteres reservados de URL precisam ser escapados corretamente. <br>O número de segmentos de caminho que incluem o nome do blob não pode exceder 254. Um segmento de caminho é a cadeia de caracteres entre caracteres delimitadores consecutivos (por exemplo, a barra '/') que correspondem ao nome de um diretório virtual. |
 
 ## <a name="managed-disk-naming-conventions"></a>Convenções de nomenclatura de disco gerenciado
 
 | Entidade | Convenções                                             |
 |-------------------|-----------------------------------------------------------|
-| Nomes de discos gerenciados       | <li> O nome deve ter de 1 a 80 caracteres de comprimento. </li><li> O nome deve começar com uma letra ou número, terminar com uma letra, número ou sublinhado. </li><li> O nome pode conter apenas letras, números, sublinhados, pontos ou hifens. </li><li>   O nome não deve ter espaços ou `/`.                                              |
+| Nomes de discos gerenciados       | <li> O nome deve ter de 1 a 80 caracteres de comprimento. </li><li> O nome deve começar com uma letra ou número, terminar com uma letra, número ou sublinhado. </li><li> O nome pode conter apenas letras, números, sublinhados, pontos ou hifens. </li><li>   O nome não deve ter espaços ou `/` .                                              |
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -2,18 +2,17 @@
 title: Série B expansível-máquinas virtuais do Azure
 description: Descreve a série B de tamanhos expansíveis de VM do Azure.
 services: virtual-machines
+ms.subservice: sizes
 author: ayshakeen
-manager: gwallace
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: ayshak
-ms.openlocfilehash: 5121ef8eb3123d830233e91968c69b331d255bd0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6e7411f30ac0ef03ecd621f4cf6db5cd9350201b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78161073"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84678538"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Tamanhos expansíveis da máquina virtual da série B
 
@@ -21,17 +20,17 @@ As VMs da série B são ideais para cargas de trabalho que não precisam do dese
 
 A série B vem nos seguintes tamanhos de VM:
 
-Armazenamento Premium: com suporte
+Armazenamento Premium:  Com suporte
 
-Armazenamento em cache Premium: sem suporte
+Cache de Armazenamento Premium:  Sem suporte
 
-Migração ao Vivo: com suporte
+Migração ao Vivo: Com suporte
 
-Atualizações de preservação de memória: com suporte
+Atualizações de preservação de memória: Com suporte
 
-| Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Base de desempenho da CPU da VM | Máximo desempenho da CPU da VM | Créditos iniciais | Créditos bancários/hora | Máximo de créditos armazenados | Discos de dados máximos | Taxa de transferência máxima de armazenamento em cache e temporária: IOPS/MBps | Taxa de transferência máxima do disco não armazenado em cache: IOPS/MBps | Máximo de NICs |
+| Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Base de desempenho da CPU da VM | Máximo desempenho da CPU da VM | Créditos iniciais | Créditos bancários/hora | Máximo de créditos armazenados | Discos de dados máximos | Taxa de transferência máxima de armazenamento temporário: IOPS/MBps | Taxa de transferência de disco sem cache: IOPS/MBps | Máximo de NICs |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| Standard_B1ls<sup>1</sup> | 1  | 0.5 | 4   | 5%   | 100%  | 30  | 3   | 72   | 2  | 200/10    | 160/10    | 2  |
+| Standard_B1ls<sup>1</sup> | 1  | 0,5 | 4   | 5%   | 100%  | 30  | 3   | 72   | 2  | 200/10    | 160/10    | 2  |
 | Standard_B1s              | 1  | 1   | 4   | 10%  | 100%  | 30  | 6   | 144  | 2  | 400/10    | 320/10    | 2  |
 | Standard_B1ms             | 1  | 2   | 4   | 20%  | 100%  | 30  | 12  | 288  | 2  | 800/10    | 640/10    | 2  |
 | Standard_B2s              | 2  | 4   | 8   | 40%  | 200%  | 60  | 24  | 576  | 4  | 1600/15   | 1280/15   | 3  |
@@ -86,11 +85,11 @@ Linha de base: 270%
 | Nenhum tráfego | 22:00 | 0 | 162 | 642 |
 | Nenhum tráfego | 23:00 | 0 | 162 | 804 |
 
-<sup>1</sup> os créditos acumulados/créditos usados em uma hora são equivalentes `((Base CPU perf of VM - CPU Usage) / 100) * 60 minutes`a:.  
+<sup>1</sup> os créditos acumulados/créditos usados em uma hora são equivalentes a: `((Base CPU perf of VM - CPU Usage) / 100) * 60 minutes` .  
 
 Para um D16s_v3 que tem 16 vCPUs e 64 GiB de memória, a taxa horária é $0.936 por hora (mensalmente $673.92) e para B16ms com 16 vCPUs e 64 GiB de memória a taxa é $0.794 por hora (mensalmente $547.86). <b>Isso resulta em uma economia de 15%!</b>
 
-## <a name="q--a"></a>Perguntas e Respostas
+## <a name="q--a"></a>Perguntas e respostas
 
 ### <a name="q-how-do-you-get-135-baseline-performance-from-a-vm"></a>P: como obter 135% da linha de base de desempenho de uma VM?
 

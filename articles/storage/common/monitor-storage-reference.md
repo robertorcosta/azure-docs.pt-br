@@ -9,12 +9,11 @@ ms.date: 05/01/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 481406b02d7d864dd16ac42918ae1aa2dea0b145
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: HT
+ms.openlocfilehash: 12df9566dd3ddfedd1f4553ad8877258d840858c
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195217"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960207"
 ---
 # <a name="azure-storage-monitoring-data-reference"></a>Referência de dados de monitoramento do Azure Storage
 
@@ -32,11 +31,15 @@ O Armazenamento do Azure fornece as seguintes métricas de capacidade no Azure M
 
 #### <a name="account-level"></a>Nível de conta
 
+Esta tabela mostra as [métricas de nível de conta](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccounts).
+
 | Métrica | Descrição |
 | ------------------- | ----------------- |
 | UsedCapacity | A quantidade de armazenamento utilizada pela conta de armazenamento. Para contas de armazenamento Standard, é a soma da capacidade usada por blob, tabela, arquivo e fila. Para contas de armazenamento Premium e contas de armazenamento de Blob, é o mesmo que Capacidade de Blob. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
 
 #### <a name="blob-storage"></a>Armazenamento de blob
+
+Esta tabela mostra as [métricas de armazenamento de BLOBs](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsblobservices).
 
 | Métrica | Descrição |
 | ------------------- | ----------------- |
@@ -47,6 +50,8 @@ O Armazenamento do Azure fornece as seguintes métricas de capacidade no Azure M
 
 #### <a name="table-storage"></a>Armazenamento de tabela
 
+Esta tabela mostra as [métricas de armazenamento de tabela](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountstableservices).
+
 | Métrica | Descrição |
 | ------------------- | ----------------- |
 | TableCapacity | A quantidade de armazenamento de Tabelas usada pela conta de armazenamento. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
@@ -55,13 +60,17 @@ O Armazenamento do Azure fornece as seguintes métricas de capacidade no Azure M
 
 #### <a name="queue-storage"></a>Armazenamento de filas
 
+Esta tabela mostra as [métricas de armazenamento de filas](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsfileservices).
+
 | Métrica | Descrição |
 | ------------------- | ----------------- |
 | QueueCapacity | A quantidade de armazenamento de fila usada pela conta de armazenamento. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
 | QueueCount   | O número de filas em uma conta de armazenamento. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
-| QueueMessageCount | O número de mensagens da fila não expiradas na conta de armazenamento. <br/><br/>Unidade: Contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
+| QueueMessageCount | O número aproximado de mensagens de fila na serviço Fila da conta de armazenamento. <br/><br/>Unidade: Contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
 
 #### <a name="file-storage"></a>Armazenamento de arquivos
+
+Esta tabela mostra as [métricas de armazenamento de arquivos](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsqueueservices).
 
 | Métrica | Descrição |
 | ------------------- | ----------------- |
@@ -128,7 +137,7 @@ A tabela a seguir lista as propriedades dos logs de recursos do armazenamento do
 }
 ```
 
-| Propriedade | Descrição |
+| Property | Descrição |
 |:--- |:---|
 |**time** | A hora universal coordenada (UTC) quando a solicitação foi recebida pelo armazenamento. Por exemplo: `2018/11/08 21:09:36.6900118`.|
 |**resourceId** | A ID do recurso da conta de armazenamento. Por exemplo: `/subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/`<br>`myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/storageAccounts/blobServices/default`|

@@ -6,30 +6,18 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 06/30/2020
 ms.author: memildin
-ms.openlocfilehash: 900398a701659bff593df042db16890792e5cffd
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
-ms.translationtype: MT
+ms.openlocfilehash: 76bf38c9d15e977b39922fdfbc7d30f533707cda
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744736"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85801369"
 ---
-# <a name="monitoring-the-security-of-your-containers"></a>Monitorando a segurança de seus contêineres
+# <a name="monitor-the-security-of-your-containers"></a>Monitorar a segurança de seus contêineres
 
 Esta página explica como usar os recursos de segurança do contêiner descritos no [artigo segurança do contêiner](container-security.md) em nossa seção de conceitos.
 
-A central de segurança do Azure abrange os três aspectos de segurança do contêiner a seguir:
-
-- **Gerenciamento de vulnerabilidades** -se você estiver no tipo de preço Standard da central de segurança (consulte [preços](/azure/security-center/security-center-pricing)), poderá verificar seu registro de contêiner do Azure baseado em ARM toda vez que uma nova imagem for enviada por push. O scanner (da plataforma Qualys) apresenta as conclusões como recomendações da central de segurança.
-    Para obter instruções detalhadas, consulte [verificando os registros de contêiner para vulnerabilidades](#scanning-your-arm-based-container-registries-for-vulnerabilities) abaixo.
-
-- **Proteção dos hosts do Docker dos seus contêineres** – a central de segurança localiza os contêineres não gerenciados hospedados em VMs do Linux IaaS ou em outros computadores Linux que executam o Docker e compara continuamente as configurações dos contêineres com o benchmark do Docker do CIS (Center for Internet Security). A central de segurança alertará se seus contêineres não atenderem a nenhum dos controles. O monitoramento contínuo de riscos de segurança devido a configurações incorretas é um componente crucial de qualquer programa de segurança. 
-    Para obter instruções detalhadas, consulte [protegendo os hosts do Docker de seus contêineres](#hardening-your-containers-docker-hosts) abaixo.
-
-- **Protegendo seus clusters do serviço kubernetes do Azure** – a central de segurança fornece recomendações quando encontra vulnerabilidades na configuração de seus clusters do serviço kubernetes do Azure. Para obter detalhes sobre as recomendações específicas que podem aparecer, consulte as [recomendações do serviço kubernetes](recommendations-reference.md#recs-containers).
-
-- **Proteção de tempo de execução** -se você estiver no tipo de preço Standard da central de segurança, obterá proteção contra ameaças em tempo real para seus ambientes em contêineres. A central de segurança gera alertas para atividades suspeitas no nível de cluster do host e do AKS. Para obter detalhes sobre os alertas de segurança relevantes que podem ser exibidos, consulte as seções [alertas para clusters do serviço kubernetes do Azure](alerts-reference.md#alerts-akscluster) e [alertas para contêineres-nível de host](alerts-reference.md#alerts-containerhost) da tabela de referência de alertas.
 
 ## <a name="scanning-your-arm-based-container-registries-for-vulnerabilities"></a>Verificando se há vulnerabilidades nos registros de contêiner baseados em ARM 
 
@@ -37,7 +25,7 @@ A central de segurança do Azure abrange os três aspectos de segurança do cont
 
     1. Verifique se você está no tipo de preço Standard da central de segurança do Azure.
 
-    1. Na página **configurações de & de preços** , habilite o pacote de registros de contêiner opcional para ![sua assinatura: Habilitando o pacote de registros de contêiner](media/monitor-container-security/enabling-container-registries-bundle.png)
+    1. Na página **configurações de & de preços** , habilite o pacote de registros de contêiner opcional para sua assinatura: ![ habilitando o pacote de registros de contêiner](media/monitor-container-security/enabling-container-registries-bundle.png)
 
         A central de segurança agora está pronta para verificar imagens que são enviadas por push ao registro. 
 

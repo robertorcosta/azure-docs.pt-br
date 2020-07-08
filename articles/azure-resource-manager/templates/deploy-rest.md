@@ -2,13 +2,12 @@
 title: Implantar recursos com a API REST e o modelo
 description: Use o Azure Resource Manager e a API REST do Resource Manager para implantar recursos no Azure. Os recursos são definidos em um modelo do Resource Manager.
 ms.topic: conceptual
-ms.date: 05/20/2020
-ms.openlocfilehash: d7865ac6f9b2bb176ea5308e326dec0741a80962
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.date: 06/04/2020
+ms.openlocfilehash: a2280d3bb406fd7e5c41558478363de68cbd44b8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83723112"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84678402"
 ---
 # <a name="deploy-resources-with-arm-templates-and-resource-manager-rest-api"></a>Implantar recursos com modelos do ARM e a API REST do Resource Manager
 
@@ -73,7 +72,7 @@ Os exemplos neste artigo usam implantações de grupo de recursos.
    }
    ```
 
-1. Valide sua implantação antes de executá-la usando a operação [Validar uma implantação do modelo](/rest/api/resources/deployments/validate) . Ao testar a implantação, forneça parâmetros exatamente como faria ao executar a implantação (mostrado na próxima etapa).
+1. Antes de implantar seu modelo, você pode visualizar as alterações que o modelo fará no seu ambiente. Use a [operação What-If](template-deploy-what-if.md) para verificar se o modelo faz as alterações que você espera. O What-If também valida o modelo para erros.
 
 1. Para implantar um modelo, forneça a ID da assinatura, o nome do grupo de recursos e o nome da implantação na URI de solicitação.
 
@@ -133,7 +132,7 @@ Os exemplos neste artigo usam implantações de grupo de recursos.
       "properties": {
       "mode": "Incremental",
       "template": {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
           "storageAccountType": {

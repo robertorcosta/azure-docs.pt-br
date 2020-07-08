@@ -3,15 +3,14 @@ title: Transmitir dados de Stream Analytics para Data Lake Storage Gen1-Azure
 description: Use Azure Stream Analytics para transmitir dados para Azure Data Lake Storage Gen1.
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/30/2018
 ms.author: twooley
-ms.openlocfilehash: f1740d167bedd20f51ad5bf24a56b7e7e787f754
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
-ms.translationtype: MT
+ms.openlocfilehash: 42c7894c33fe0f09748beee20508e7670545c0ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690974"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515171"
 ---
 # <a name="stream-data-from-azure-storage-blob-into-azure-data-lake-storage-gen1-using-azure-stream-analytics"></a>Dados do Stream do Blob de armazenamento do Azure em Gen1 de armazenamento do Azure Data Lake usando o Azure Stream Analytics
 Neste artigo, você aprenderá a usar Azure Data Lake Storage Gen1 como uma saída para um trabalho de Azure Stream Analytics. Este artigo demonstra um cenário simples que lê dados de um blob de armazenamento do Azure (entrada) e grava os dados no Data Lake armazenamento Gen1 (saída).
@@ -21,9 +20,9 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Conta de armazenamento do Azure**. Você usará um contêiner de blob desta conta para os dados de entrada para um trabalho do Stream Analytics. Para esse tutorial, suponha que você tem uma conta de armazenamento chamada **storageforasa** e um contêiner na conta chamado **storageforasacontainer**. Depois de criar o contêiner, carregue um arquivo de dados de exemplo nele. 
+* **Conta de Armazenamento do Azure**. Você usará um contêiner de blob desta conta para os dados de entrada para um trabalho do Stream Analytics. Para esse tutorial, suponha que você tem uma conta de armazenamento chamada **storageforasa** e um contêiner na conta chamado **storageforasacontainer**. Depois de criar o contêiner, carregue um arquivo de dados de exemplo nele. 
   
-* **Uma conta de data Lake Storage Gen1**. Siga as instruções em [Introdução ao Azure Data Lake Storage Gen1 usando o portal do Azure](data-lake-store-get-started-portal.md). Vamos supor que você tenha uma conta do Data Lake Storage Gen1 chamada **myadlsg1**. 
+* **Uma conta do Data Lake Storage Gen1**. Siga as instruções em [Introdução ao Azure Data Lake Storage Gen1 usando o portal do Azure](data-lake-store-get-started-portal.md). Vamos supor que você tenha uma conta do Data Lake Storage Gen1 chamada **myadlsg1**. 
 
 ## <a name="create-a-stream-analytics-job"></a>Criar um trabalho do Stream Analytics
 Você começa ao criar um trabalho do Stream Analytics, que inclui uma fonte de entrada e um destino de saída. Para este tutorial, a fonte é um contêiner de BLOBs do Azure e o destino é Gen1 de armazenamento do Data Lake.
@@ -112,5 +111,5 @@ Você começa ao criar um trabalho do Stream Analytics, que inclui uma fonte de 
 
     No painel Data Explorer, observe que a saída é gravada em um caminho de pasta conforme especificado nas configurações de saída do Data Lake Storage Gen1 (`streamanalytics/job/output/{date}/{time}`).  
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 * [Criar um cluster de HDInsight para usar o Data Lake armazenamento Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

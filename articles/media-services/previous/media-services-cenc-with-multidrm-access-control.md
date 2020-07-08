@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
-ms.openlocfilehash: 68f42aa13288c2416257f3ba6c0b6072c1572977
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4b5a18f0dc5edc06e4800215e88b694e681b5bbb
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77162983"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960455"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Criação de um sistema de proteção de conteúdo com controle de acesso usando os serviços de mídia do Azure 
 
@@ -234,8 +233,10 @@ Use as seguintes informações de solução de problemas para obter ajuda com pr
 
 * A URL do emissor deve terminar com "/". A audiência deve ser a ID de cliente do aplicativo de player. Além disso, adicione "/" no final da URL do emissor.
 
-        <add key="ida:audience" value="[Application Client ID GUID]" />
-        <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/" />
+    ```xml
+    <add key="ida:audience" value="[Application Client ID GUID]" />
+    <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/" />
+    ```
 
     No [JWT Decoder](http://jwt.calebb.net/), você verá **aud** e **iss**, conforme mostrado no JWT:
 
@@ -247,11 +248,15 @@ Use as seguintes informações de solução de problemas para obter ajuda com pr
 
 * Use o emissor correto ao configurar a proteção por CENC dinâmica.
 
-        <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/"/>
+    ```xml
+    <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/"/>
+    ```
 
     O exemplo a seguir não funciona:
 
-        <add key="ida:issuer" value="https://willzhanad.onmicrosoft.com/" />
+    ```xml
+    <add key="ida:issuer" value="https://willzhanad.onmicrosoft.com/" />
+    ```
 
     O GUID é a ID de locatário do Azure AD. O GUID pode ser encontrado no menu pop-up **Pontos de Extremidade** no Portal do Azure.
 
@@ -261,7 +266,9 @@ Use as seguintes informações de solução de problemas para obter ajuda com pr
 
 * Defina o TokenType adequado ao criar requisitos de restrição.
 
-        objTokenRestrictionTemplate.TokenType = TokenType.JWT;
+    ```csharp
+    objTokenRestrictionTemplate.TokenType = TokenType.JWT;
+    ```
 
     Como você adiciona suporte para JWT (Azure AD) além de SWT (ACS), o TokenType padrão é TokenType.JWT. Se você usar SWT/ACS, deverá definir o token como TokenType.SWT.
 
@@ -398,7 +405,7 @@ Embora o Azure originalmente permitisse acesso somente por usuários de contas d
 
 Como o Azure AD confia no domínio da conta da Microsoft, você pode adicionar contas de qualquer um dos seguintes domínios ao locatário do Azure AD personalizado e usar a conta para entrar:
 
-| **Nome de domínio** | **Domain** |
+| **Nome de domínio** | **Domínio** |
 | --- | --- |
 | **Domínio de locatário do AD do Azure personalizado** |somename.onmicrosoft.com |
 | **Domínio corporativo** |microsoft.com |
@@ -477,6 +484,6 @@ Este documento abordou a CENC com DRM múltiplo nativo e o controle de acesso po
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Envie comentários
+## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
  

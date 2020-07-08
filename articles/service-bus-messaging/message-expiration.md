@@ -1,24 +1,13 @@
 ---
 title: Barramento de serviço do Azure-expiração de mensagem
 description: Este artigo explica a expiração e a vida útil das mensagens do barramento de serviço do Azure. Após esse prazo, a mensagem não é mais entregue.
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: e86c92fa1cfb13929d5617502224f479709efdd3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: ca789be91e835576ec06a422bdbbbf25eb775dac
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76756327"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341201"
 ---
 # <a name="message-expiration-time-to-live"></a>Expiração da mensagem (vida útil)
 
@@ -26,7 +15,7 @@ O conteúdo de uma mensagem ou um comando ou consulta que uma mensagem transmite
 
 Para ambientes de desenvolvimento e teste em que as consultas e tópicos são frequentemente usadas no contexto de execuções parciais de aplicativos ou partes de aplicativos, também é desejável que as mensagens de teste presas sejam automaticamente coletadas no lixo para que a próxima execução de teste possa começar limpa.
 
-A expiração para qualquer mensagem individual pode ser controlada pela configuração da propriedade do sistema [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive), que especifica uma duração relativa. A expiração se torna um instante absoluto quando a mensagem é enfileirada na entidade. Nesse momento, a propriedade [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) assume o valor [(**EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**)](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive). A configuração de vida útil (TTL) em uma mensagem orientada não é imposta quando não há clientes ouvindo ativamente.
+A expiração para qualquer mensagem individual pode ser controlada pela configuração da propriedade do sistema [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive), que especifica uma duração relativa. A expiração se torna um instante absoluto quando a mensagem é enfileirada na entidade. Nesse momento, a propriedade [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) assume o valor [(**EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc)  +  [**TimeToLive**)](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive). A configuração de vida útil (TTL) em uma mensagem orientada não é imposta quando não há clientes ouvindo ativamente.
 
 Após o instante **ExpiresAtUtc**, as mensagens se tornam não qualificadas para recuperação. A expiração não afeta as mensagens que estão bloqueadas no momento para entrega, essas mensagens ainda são manipuladas normalmente. Se o bloqueio expirar ou se a mensagem for abandonada, a expiração entrará em vigor imediatamente.
 

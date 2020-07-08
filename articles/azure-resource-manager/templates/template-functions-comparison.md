@@ -3,22 +3,21 @@ title: Funções de modelo – comparação
 description: Descreve as funções a serem usadas em um modelo do Resource Manager para comparar valores.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 15afc4d721c6577de9fe3e78483fdbfae5b493c6
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
-ms.translationtype: MT
+ms.openlocfilehash: 01d66f43cf73dcc9228118db5a9b6149b19ee66d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203770"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84677824"
 ---
 # <a name="comparison-functions-for-arm-templates"></a>Funções de comparação para modelos do ARM
 
 O Gerenciador de recursos fornece várias funções para fazer comparações em seus modelos de Azure Resource Manager (ARM).
 
-* [COALESCE](#coalesce)
+* [coalesce](#coalesce)
 * [equals](#equals)
-* [grande](#greater)
+* [greater](#greater)
 * [greaterOrEquals](#greaterorequals)
-* [inferiores](#less)
+* [less](#less)
 * [lessOrEquals](#lessorequals)
 
 ## <a name="coalesce"></a>coalesce
@@ -29,12 +28,12 @@ Retorna o primeiro valor não nulo dos parâmetros. Cadeias de caracteres vazias
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | Digite | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |int, string, array ou object |O primeiro valor para testar se é nulo. |
 | argumentos adicionais |Não |int, string, array ou object |Valores adicionais para testar se são nulos. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 O valor dos primeiros parâmetros não nulos, que pode ser uma cadeia de caracteres, inteiro, matriz ou objeto. Null se todos os parâmetros forem nulos.
 
@@ -44,7 +43,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "objectToTest": {
@@ -88,13 +87,13 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Type | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| stringOutput | Cadeia de caracteres | default |
+| stringOutput | String | default |
 | intOutput | Int | 1 |
 | objectOutput | Objeto | {"first": "default"} |
-| arrayOutput | Array | [1] |
-| emptyOutput | Bool | verdadeiro |
+| arrayOutput | Array |  [1] |
+| emptyOutput | Bool | True |
 
 ## <a name="equals"></a>equals
 
@@ -104,12 +103,12 @@ Verifica se dois valores são iguais entre si.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | Digite | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |int, string, array ou object |O primeiro valor para verificar a igualdade. |
 | arg2 |Sim |int, string, array ou object |O segundo valor para verificar a igualdade. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Retorna **True** se os valores são iguais; caso contrário, **False**.
 
@@ -138,7 +137,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {
@@ -199,18 +198,18 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Type | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| checkInts | Bool | verdadeiro |
-| checkStrings | Bool | verdadeiro |
-| checkArrays | Bool | verdadeiro |
-| checkObjects | Bool | verdadeiro |
+| checkInts | Bool | True |
+| checkStrings | Bool | True |
+| checkArrays | Bool | True |
+| checkObjects | Bool | True |
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) a seguir usa [not](template-functions-logical.md#not) com **equals**.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [
     ],
@@ -225,9 +224,9 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior é:
 
-| Nome | Type | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| checkNotEquals | Bool | verdadeiro |
+| checkNotEquals | Bool | True |
 
 ## <a name="greater"></a>greater
 
@@ -237,12 +236,12 @@ Verifica se o primeiro valor é maior que o segundo valor.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | Digite | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |int ou string |O primeiro valor da comparação de maior que. |
 | arg2 |Sim |int ou string |O segundo valor da comparação de maior que. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Retorna **True** se o primeiro valor é maior que o segundo valor; caso contrário, **False**.
 
@@ -252,7 +251,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {
@@ -289,10 +288,10 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Type | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | checkInts | Bool | Falso |
-| checkStrings | Bool | verdadeiro |
+| checkStrings | Bool | True |
 
 ## <a name="greaterorequals"></a>greaterOrEquals
 
@@ -302,12 +301,12 @@ Verifica se o primeiro valor é maior que ou igual ao segundo valor.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | Digite | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |int ou string |O primeiro valor da comparação de maior que ou igual a. |
 | arg2 |Sim |int ou string |O segundo valor da comparação de maior que ou igual a. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Retorna **True** se o primeiro valor é maior que ou igual ao segundo valor; caso contrário, **False**.
 
@@ -317,7 +316,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {
@@ -354,10 +353,10 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Type | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | checkInts | Bool | Falso |
-| checkStrings | Bool | verdadeiro |
+| checkStrings | Bool | True |
 
 ## <a name="less"></a>less
 
@@ -367,12 +366,12 @@ Verifica se o primeiro valor é menor que o segundo valor.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | Digite | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |int ou string |O primeiro valor da comparação de menor que. |
 | arg2 |Sim |int ou string |O segundo valor da comparação de menor que. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Retorna **True** se o primeiro valor é menor que o segundo valor; caso contrário, **False**.
 
@@ -382,7 +381,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {
@@ -419,9 +418,9 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Type | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| checkInts | Bool | verdadeiro |
+| checkInts | Bool | True |
 | checkStrings | Bool | Falso |
 
 ## <a name="lessorequals"></a>lessOrEquals
@@ -432,12 +431,12 @@ Verifica se o primeiro valor é menor que ou igual ao segundo valor.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | Digite | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |int ou string |O primeiro valor da comparação de menor que ou igual a. |
 | arg2 |Sim |int ou string |O segundo valor da comparação de menor que ou igual a. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Retorna **True** se o primeiro valor é menor que ou igual ao segundo valor; caso contrário, **False**.
 
@@ -447,7 +446,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {
@@ -484,9 +483,9 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Type | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| checkInts | Bool | verdadeiro |
+| checkInts | Bool | True |
 | checkStrings | Bool | Falso |
 
 ## <a name="next-steps"></a>Próximas etapas

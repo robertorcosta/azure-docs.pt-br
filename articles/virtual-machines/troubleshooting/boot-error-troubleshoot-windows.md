@@ -12,12 +12,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/19/2019
 ms.author: tibasham
-ms.openlocfilehash: 5d6396efc9ab25baa0d32e7c33c7715863516249
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f7e2b70b111cd195f688e236bf8f05b077acb000
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77371364"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84678759"
 ---
 # <a name="azure-windows-vm-shutdown-is-stuck-on-restarting-shutting-down-or-stopping-services"></a>O desligamento de VM do Windows do Azure está preso em "reinicializando", "desligando" ou "interrompendo serviços"
 
@@ -43,25 +42,25 @@ O Windows usa o processo de desligamento para executar operações de manutenç�
 
 Use o [console serial](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows) para concluir as seguintes etapas:
 
-1. Abra um PowerShell administrativo e verifique o serviço suspenso após a interrupção.
+1. Abra um PowerShell administrativo e verifique o serviço que para de responder após a interrupção.
 
    ``
    Get-Service | Where-Object {$_.Status -eq "STOP_PENDING"}
    ``
 
-2. Em um CMD Administrativo, obtenha o PID do serviço suspenso.
+2. Em um CMD Administrativo, obtenha o PID do serviço sem resposta.
 
    ``
    tasklist /svc | findstr /i <STOPING SERVICE>
    ``
 
-3. Obtenha um exemplo de despejo de memória do processo <STOPPING SERVICE>suspenso.
+3. Obtenha um exemplo de despejo de memória do processo sem resposta <STOPPING SERVICE> .
 
    ``
    procdump.exe -s 5 -n 3 -ma <PID>
    ``
 
-4. Agora, encerre o processo suspenso para desbloquear o processo de desligamento.
+4. Agora, elimine o processo sem resposta para desbloquear o processo de desligamento.
 
    ``
    taskkill /PID <PID> /t /f

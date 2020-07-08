@@ -13,12 +13,11 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 5afa5b5620532865233e38ccb5889b37b2100854
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 7ea74c85af062ce00dbccf8a486ce39cbd524bb0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648544"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515072"
 ---
 # <a name="develop-with-media-services-v3-apis"></a>Desenvolver com as APIs dos Serviços de Mídia v3
 
@@ -41,7 +40,7 @@ Em vez de criar uma entidade de serviço, considere o uso de identidades gerenci
 
 Se você estiver criando um aplicativo do Microsoft Azure AD e uma entidade de serviço, o aplicativo precisará estar no próprio locatário. Depois de criar o aplicativo, conceda o acesso da função de **Colaborado** ou **Proprietário** ao aplicativo à conta dos Serviços de Mídia.
 
-Se você não tiver certeza se tem permissões para criar um aplicativo do Azure AD, consulte [Permissões necessárias](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+Se você não tiver certeza se tem permissões para criar um aplicativo do Azure AD, consulte [Permissões necessárias](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 Na figura anterior, os números representam o fluxo das solicitações em ordem cronológica:
 

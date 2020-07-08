@@ -3,12 +3,12 @@ title: Referência de desenvolvedor do Python para o Azure Functions
 description: Saiba como desenvolver funções usando Python
 ms.topic: article
 ms.date: 12/13/2019
-ms.openlocfilehash: 49577f5ac274b4e34fa07415e5495329ff650aa5
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.custom: tracking-python
+ms.openlocfilehash: 26da89628360783e4507c83c3aeaddfc2b0510b7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83676183"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84730740"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guia do desenvolvedor de Python para o Azure Functions
 
@@ -262,7 +262,7 @@ Para saber mais sobre como registrar em log, confira [Monitorar o Azure Function
 
 ## <a name="http-trigger-and-bindings"></a>Gatilhos e associações HTTP
 
-O gatilho HTTP é definido no arquivo function.jon. O `name` da associação deve corresponder ao parâmetro nomeado na função.
+O gatilho HTTP é definido no function.jsno arquivo. O `name` da associação deve corresponder ao parâmetro nomeado na função.
 Nos exemplos anteriores, um nome de associação `req` é usado. Esse parâmetro é um objeto [HttpRequest], e um objeto [HttpResponse] é retornado.
 
 No objeto [HttpRequest], você pode obter cabeçalhos de solicitação, parâmetros de consulta, parâmetros de rota e o corpo da mensagem.
@@ -629,6 +629,45 @@ from os import listdir
 
 Recomendamos que você mantenha os testes em uma pasta separada da pasta do projeto. Isso impede que você implante o código de teste com seu aplicativo.
 
+## <a name="preinstalled-libraries"></a>Bibliotecas pré-instaladas
+
+Há algumas bibliotecas fornecidas com o tempo de execução de funções do Python.
+
+### <a name="python-standard-library"></a>Biblioteca padrão do Python
+
+A biblioteca padrão do Python contém uma lista de módulos do Python internos que são fornecidos com cada distribuição do Python. A maioria dessas bibliotecas ajuda você a acessar a funcionalidade do sistema, como e/s de arquivo. Em sistemas Windows, essas bibliotecas são instaladas com o Python. Nos sistemas baseados em UNIX, eles são fornecidos por coleções de pacotes.
+
+Para exibir os detalhes completos da lista dessas bibliotecas, visite os links abaixo:
+
+* [Biblioteca padrão do Python 3,6](https://docs.python.org/3.6/library/)
+* [Biblioteca padrão do Python 3,7](https://docs.python.org/3.7/library/)
+* [Biblioteca padrão do Python 3,8](https://docs.python.org/3.8/library/)
+
+### <a name="azure-functions-python-worker-dependencies"></a>Azure Functions dependências de trabalho do Python
+
+O trabalho do Python do Functions requer um conjunto específico de bibliotecas. Você também pode usar essas bibliotecas em suas funções, mas elas não fazem parte do padrão Python. Se suas funções dependem de qualquer uma dessas bibliotecas, elas podem não estar disponíveis para seu código durante a execução fora do Azure Functions. Você pode encontrar uma lista detalhada de dependências na seção **instalar \_ requer** no arquivo [Setup.py](https://github.com/Azure/azure-functions-python-worker/blob/dev/setup.py#L282) .
+
+### <a name="azure-functions-python-library"></a>Azure Functions biblioteca do Python
+
+Cada atualização de trabalho do Python inclui uma nova versão da [biblioteca Azure Functions Python (Azure. Functions)](https://github.com/Azure/azure-functions-python-library). Essa abordagem torna mais fácil atualizar continuamente seus aplicativos de funções do Python, pois cada atualização é compatível com versões anteriores. Uma lista de versões dessa biblioteca pode ser encontrada no [Azure-Functions PyPi](https://pypi.org/project/azure-functions/#history).
+
+A versão da biblioteca de tempo de execução é corrigida pelo Azure e não pode ser substituída por requirements.txt. A `azure-functions` entrada no requirements.txt é apenas para refiapor e conscientização do cliente. 
+
+Use o código a seguir para acompanhar a versão real da biblioteca de funções do Python em seu tempo de execução:
+
+```python
+getattr(azure.functions, '__version__', '< 1.2.1')
+```
+
+### <a name="runtime-system-libraries"></a>Bibliotecas do sistema de tempo de execução
+
+Para obter uma lista de bibliotecas do sistema pré-instalado em imagens do Docker de trabalho do Python, siga os links abaixo:
+
+|  runtime do Functions  | Versão do Debian | Versões do Python |
+|------------|------------|------------|
+| Versão 2.x | Stretch  | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python36/python36.Dockerfile)<br/>[Python 3,7](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python37/python37.Dockerfile) |
+| Versão 3.x | Buster | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python36/python36.Dockerfile)<br/>[Python 3,7](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python37/python37.Dockerfile)<br />[Python 3.8](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python38/python38.Dockerfile) |
+
 ## <a name="cross-origin-resource-sharing"></a>Compartilhamento de recursos entre origens
 
 [!INCLUDE [functions-cors](../../includes/functions-cors.md)]
@@ -637,7 +676,7 @@ O CORS tem suporte total a aplicativos de funções do Python.
 
 ## <a name="known-issues-and-faq"></a>Problemas conhecidos e perguntas frequentes
 
-Graças aos seus valiosos comentários, podemos manter uma lista de guias de solução de problemas comuns:
+Veja a seguir uma lista de guias de solução de problemas comuns:
 
 * [ModuleNotFoundError e ImportError](recover-module-not-found.md)
 

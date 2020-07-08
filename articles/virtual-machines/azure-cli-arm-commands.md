@@ -2,18 +2,16 @@
 title: Comandos da CLI clássica do Azure
 description: Comandos da CLI (interface de linha de comando) do Azure para gerenciar recursos.
 author: cynthn
-manager: gwallace
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: cynthn
-ms.openlocfilehash: ad213cc02f707609a837ea66b79e51c6f2a617f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a3e5fd1a6934d246463e3fd5ad24db7079ca088d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250875"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84678419"
 ---
 # <a name="azure-classic-cli-commands"></a>Comandos da CLI clássica do Azure 
 
