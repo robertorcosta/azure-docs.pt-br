@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 787336f00a83d9403e3069754787743b9be6c5b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77049997"
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>Publicar conteúdo dos Serviços de Mídia do Azure usando o REST 
@@ -38,7 +37,7 @@ Este tópico mostra como criar um localizador de streaming sob demanda para publ
 A seção [a seguir](#types) mostra os tipos de enumeração cujos valores são usados nas chamadas de REST.   
 
 > [!NOTE]
-> Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [configuração para desenvolvimento da API REST dos serviços de mídia](media-services-rest-how-to-use.md).
+> Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).
 > 
 
 ## <a name="connect-to-media-services"></a>Conectar-se aos Serviços de Mídia
@@ -62,7 +61,7 @@ Para criar o localizador de streaming sob demanda e obter URLs, você precisa fa
 ### <a name="create-an-access-policy"></a>Crie uma política de acesso
 
 >[!NOTE]
->Há um limite de 1.000.000 políticas para diferentes políticas de AMS (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy). Use a mesma ID de política, se estiver sempre usando os mesmos dias/permissões de acesso, por exemplo, políticas de localizadores que devem permanecer no local por um longo período (políticas de não upload). Para obter mais informações, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
+>Há um limite de 1.000.000 políticas para diferentes políticas de AMS (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy). Use a mesma ID de política, se estiver sempre usando os mesmos dias/permissões de acesso, por exemplo, políticas de localizadores que devem permanecer no local por um longo período (políticas de não upload). Para saber mais, confira [este artigo](media-services-dotnet-manage-entities.md#limit-access-policies).
 
 Solicitação:
 
@@ -190,10 +189,10 @@ exemplo:
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Envie comentários
+## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 [Visão geral da API REST de operações dos serviços de mídia](media-services-rest-how-to-use.md)
 
 [Configurar política de entrega de ativos](media-services-rest-configure-asset-delivery-policy.md)

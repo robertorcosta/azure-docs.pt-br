@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
 ms.openlocfilehash: 2195056ec66550063aba5ce5e2b977b51a6dc5e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77057798"
 ---
 # <a name="tutorial-configure-foodee-for-automatic-user-provisioning"></a>Tutorial: configurar o alimento para provisionamento automático de usuário
@@ -79,7 +78,7 @@ Para adicionar o alimento da Galeria de aplicativos do Azure AD, faça o seguint
 
     ![O comando Azure Active Directory](common/select-azuread.png)
 
-1. Selecione **aplicativos** > empresariais**todos os aplicativos**.
+1. Selecione **aplicativos empresariais**  >  **todos os aplicativos**.
 
     ![O painel Aplicativos Empresariais](common/enterprise-applications.png)
 
@@ -100,7 +99,7 @@ Nesta seção, você configura o serviço de provisionamento do Azure AD para cr
 
 Configure o provisionamento automático de usuário para o alimento no Azure AD fazendo o seguinte:
 
-1. Na [portal do Azure](https://portal.azure.com), selecione **aplicativos** > empresariais**todos os aplicativos**.
+1. Na [portal do Azure](https://portal.azure.com), selecione **aplicativos empresariais**  >  **todos os aplicativos**.
 
     ![Painel Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -110,15 +109,15 @@ Configure o provisionamento automático de usuário para o alimento no Azure AD 
 
 1. Selecione a guia **Provisionamento**.
 
-    ![Guia provisionamento](common/provisioning.png)
+    ![Guia Provisionamento](common/provisioning.png)
 
 1. Na lista suspensa **modo de provisionamento** , selecione **automático**.
 
-    ![Guia provisionamento](common/provisioning-automatic.png)
+    ![Guia Provisionamento](common/provisioning-automatic.png)
 
 1. Em **credenciais de administrador**, faça o seguinte:
 
-   a. Na caixa **URL do locatário** , insira o valor **https\/:/concierge.food.ee/scim/v2** que você recuperou anteriormente.
+   a. Na caixa **URL do locatário** , insira o valor **https: \/ /concierge.food.ee/scim/v2** que você recuperou anteriormente.
 
    b. Na caixa **token secreto** , insira o valor do **token de API** que você recuperou anteriormente.
    
@@ -160,17 +159,17 @@ Configure o provisionamento automático de usuário para o alimento no Azure AD 
 
     ![A lista suspensa escopo de provisionamento](common/provisioning-scope.png)
 
-1. Quando estiver pronto para provisionar, selecione **salvar**.
+1. Quando estiver pronto para fazer o provisionamento, selecione **Salvar**.
 
     ![O botão de salvamento da configuração de provisionamento](common/provisioning-configuration-save.png)
 
 A operação anterior inicia a sincronização inicial dos usuários ou grupos que você definiu na lista suspensa **escopo** . A sincronização inicial demora mais para ser executada do que as sincronizações subsequentes. Para obter mais informações, consulte [quanto tempo levará para provisionar os usuários?](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
 
-Você pode usar a seção **status atual** para monitorar o progresso e seguir os links para o relatório de atividade de provisionamento. O relatório descreve todas as ações que são executadas pelo serviço de provisionamento do Azure AD no alimento. Para obter mais informações, consulte [verificar o status do provisionamento do usuário](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). Para ler os logs de provisionamento do Azure AD, consulte [relatórios sobre o provisionamento automático de conta de usuário](../app-provisioning/check-status-user-account-provisioning.md).
+Você pode usar a seção **status atual** para monitorar o progresso e seguir os links para o relatório de atividade de provisionamento. O relatório descreve todas as ações que são executadas pelo serviço de provisionamento do Azure AD no alimento. Para obter mais informações, consulte [Verificar o status do provisionamento de usuário](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). Para ler os logs de provisionamento do Azure AD, consulte [relatórios sobre o provisionamento automático de conta de usuário](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciar o provisionamento de conta de usuário para aplicativos empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gerenciar provisionamento de conta de usuário para aplicativos empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 3262841efb9109b1de24fe501ea0a7bea0dd612d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77025122"
 ---
 # <a name="back-up-workload-vms-on-cloudsimple-private-cloud-using-veeam-br"></a>Fazer backup de VMs de carga de trabalho na nuvem privada do CloudSimple usando o Veeam B&R
@@ -136,7 +135,7 @@ Crie regras de firewall entre a sub-rede de gerenciamento e a rede de backup par
 
 A tabela a seguir fornece uma lista de portas.
 
-| ícone | Descrição | ícone | Descrição |
+| Ícone | Descrição | ícone | Descrição |
 | ------------ | ------------- | ------------ | ------------- |
 | Servidor de backup  | vCenter  | HTTPS/TCP  | 443 |
 | Servidor de backup <br> *Necessário para implantar os componentes de replicação & backup do Veeam* | Proxy de backup  | TCP/UDP  | 135, 137 a 139 e 445 |
@@ -196,7 +195,7 @@ Conecte sua rede virtual à nuvem privada seguindo as instruções em conexão d
 
 1. Crie uma conta de armazenamento de uso geral (GPv2) do tipo padrão e um contêiner de BLOB, conforme descrito no Introdução de vídeo da Microsoft [com o armazenamento do Azure](https://azure.microsoft.com/resources/videos/get-started-with-azure-storage).
 2. Crie um contêiner de armazenamento do Azure, conforme descrito na referência [criar contêiner](https://docs.microsoft.com/rest/api/storageservices/create-container) .
-2. Baixe o `azcopy` utilitário de linha de comando para Linux da Microsoft. Você pode usar os seguintes comandos no shell bash no CentOS 7,5.
+2. Baixe o `azcopy` Utilitário de linha de comando para Linux da Microsoft. Você pode usar os seguintes comandos no shell bash no CentOS 7,5.
 
     ```
     wget -O azcopy.tar.gz https://aka.ms/downloadazcopylinux64
@@ -291,7 +290,7 @@ Para desescalonar privilégios, consulte [desescalonamento de privilégios](esca
 * [Criar uma máquina virtual do Linux no portal do Azure](../virtual-machines/linux/quick-create-portal.md)
 * [Como anexar um disco de dados gerenciado a uma VM do Windows no portal do Azure](../virtual-machines/windows/attach-managed-disk-portal.md)
 * [Introdução com o armazenamento do Azure-vídeo](https://azure.microsoft.com/resources/videos/get-started-with-azure-storage)
-* [Criar contêiner](https://docs.microsoft.com/rest/api/storageservices/create-container)
+* [Create Container](https://docs.microsoft.com/rest/api/storageservices/create-container)
 * [Transferir dados com o AzCopy no Linux](../storage/common/storage-use-azcopy-linux.md)
 
 ### <a name="vmware-references"></a>Referências do VMware

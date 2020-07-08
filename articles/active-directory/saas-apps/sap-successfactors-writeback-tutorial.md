@@ -15,10 +15,9 @@ ms.workload: identity
 ms.date: 12/06/2019
 ms.author: chmutali
 ms.openlocfilehash: 2de0cdd32428884170f549afacdbd52c3a10c93f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77060041"
 ---
 # <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-sap-successfactors-preview"></a>Tutorial: configurar o Write-back de atributo do Azure AD para o SAP SuccessFactors (versão prévia)
@@ -116,19 +115,19 @@ Esta seção fornece as etapas para
 
 5. Pesquise por **write-back de SuccessFactors**e adicione esse aplicativo da galeria.
 
-6. Após adicionar o aplicativo e a tela de detalhes do aplicativo for exibida, selecione **Provisionamento**
+6. Depois que o aplicativo for adicionado e a tela de detalhes do aplicativo for exibida, selecione **provisionamento**
 
-7. Altere o **Modo de** **Provisionamento** para **Automático**
+7. Alterar o **Provisioning** **modo** de provisionamento para **automático**
 
 8. Conclua a seção **Credenciais de Administrador**, conforme a seguir:
 
-   * **Nome** de usuário do administrador – insira o nome de usu of the SuccessFactors API User Account, com a ID da empresa anexada. Ele tem o formato: **username\@CompanyID**
+   * **Nome** de usuário do administrador – insira o nome de usu of the SuccessFactors API User Account, com a ID da empresa anexada. Ele tem o formato: **username \@ CompanyID**
 
    * **Senha de administrador –** Insira a senha da conta de usuário da API do SuccessFactors. 
 
    * **URL do locatário –** Insira o nome do ponto de extremidade dos serviços de API OData do SuccessFactors. Insira apenas o nome do host do servidor sem http ou HTTPS. Esse valor deve ser semelhante a: **API-Server-Name.successfactors.com**.
 
-   * **Email de notificação –** digite seu endereço de email e marque a caixa de seleção “enviar email se ocorrer falha”.
+   * **Email de notificação –** Insira seu endereço de email e marque a caixa de seleção "enviar email se ocorrer falha".
     > [!NOTE]
     > O Serviço de Provisionamento do Azure AD envia uma notificação por email quando o trabalho de provisionamento entra no estado de [quarentena](/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
@@ -157,7 +156,7 @@ Nesta seção, você configurará como os dados do usuário fluem do SuccessFact
    >[!NOTE]
    >O Write-back SuccessFactors só dá suporte ao atributo email. Não use **Adicionar novo mapeamento** para adicionar novos atributos. 
 
-1. Para salvar seus mapeamentos, clique em **salvar** na parte superior da seção de mapeamento de atributos.
+1. Para salvar seus mapeamentos, clique em **Salvar** na parte superior da seção Mapeamento de Atributos.
 
 Uma vez concluída a configuração do mapeamento de atributo, você pode agora [habilitar e iniciar o serviço de provisionamento de usuário](#enable-and-launch-user-provisioning).
 
@@ -170,7 +169,7 @@ Depois que as configurações do aplicativo de provisionamento do SuccessFactors
 
 1. Na guia **Provisionamento**, defina o **Status de Provisionamento** para **Em**.
 
-2. Clique em **Salvar**.
+2. Clique em **Save** (Salvar).
 
 3. Esta operação iniciará a sincronização inicial, que pode usar um número variável de horas dependendo de quantos usuários estiverem no locatário SuccessFactors. Você pode verificar a barra de progresso para acompanhar o progresso do ciclo de sincronização. 
 

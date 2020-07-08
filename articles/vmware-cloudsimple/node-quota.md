@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 83dc9e26e03eb955d88340d1ed21084d4e685ed8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77019631"
 ---
 # <a name="cloudsimple-node-quota-limits"></a>Limites de cota do nó CloudSimple
@@ -32,10 +31,10 @@ Você pode aumentar a cota do nó enviando uma solicitação de suporte. A equip
 
 Nos detalhes do tíquete de suporte, forneça o número necessário de nós e SKU do nó.
 
-* SKU do nó
+* A SKU do nó
 * Número de nós adicionais para os quais você está solicitando o aumento de cota
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Comprar nós](create-nodes.md)
+* [Nós de compra](create-nodes.md)
 * [Visão geral dos nós do CloudSimple](cloudsimple-node.md)

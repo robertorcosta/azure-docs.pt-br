@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: df73acfc469a8b7b5329b61095aefdbd73baafd4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77024833"
 ---
 # <a name="set-up-vcenter-on-your-private-cloud-for-vmware-vrealize-automation"></a>Configurar o vCenter em sua nuvem privada para a automação do VMware vRealize
@@ -38,7 +37,7 @@ Conclua estas tarefas antes de configurar o servidor do vCenter:
 | Recurso | Atribuir VM ao pool de recursos<br>Migrar máquina virtual desligada<br>Migrar máquina virtual ligada |
 | Inventário de máquina virtual |  Criar a partir de existente<br>Criar Novo<br>Mover<br>Remover | 
 | Interação da máquina virtual |  Configurar mídia de CD<br>Interação do console<br>Conexão de Dispositivo<br>Desligar<br>Ligar<br>Redefinir<br>Suspend<br>Instalação de ferramentas | 
-| Configuração de máquina virtual |  Adicionar disco existente<br>Adicionar novo disco<br>Adicionar ou remover<br>Remover disco<br>Avançado<br>Alterar contagem de CPU<br>Alterar recurso<br>Estender disco virtual<br>Controle de Alterações de disco<br>Memória<br>Modificar configurações do dispositivo<br>Renomear<br>Definir anotação (versão 5,0 e posterior)<br>Configurações<br>Posicionamento do Swapfile |
+| Configuração de Máquina Virtual |  Adicionar disco existente<br>Adicionar novo disco<br>Adicionar ou remover<br>Remover disco<br>Avançado<br>Alterar contagem de CPU<br>Alterar recurso<br>Estender disco virtual<br>Controle de Alterações de disco<br>Memória<br>Modificar configurações do dispositivo<br>Renomear<br>Definir anotação (versão 5,0 e posterior)<br>Configurações<br>Posicionamento do Swapfile |
 | Provisionamento |  Personalizar<br>Clonar modelo<br>Clonar máquina virtual<br>Implantar o modelo<br>Ler especificações de personalização |
 | Estado da Máquina Virtual | Criar instantâneo<br>Remover instantâneo<br>Reverter para instantâneo |
 
@@ -48,14 +47,14 @@ Conclua estas tarefas antes de configurar o servidor do vCenter:
 2. Implante um agente do vSphere para o ponto de extremidade de automação do vRealize.
     1. Acesse https://*VRA-URL*: 5480/Installer, em que *VRA-URL* é a URL que você usa para acessar a interface do usuário de administração da automação do vRealize.
     2. Clique no **instalador IaaS** para baixar o instalador.<br>
-    A Convenção de nomenclatura para o arquivo do instalador é setup_*VRA-URL*@5480.exe.
+    A Convenção de nomenclatura para o arquivo do instalador é setup_*VRA-URL* @5480.exe .
     3. Execute o instalador. Na tela de Boas-Vindas, clique em **Avançar**.
     4. Aceite o EULA e clique em **Avançar**.
     5. Forneça as informações de entrada, clique em **aceitar certificado**e, em seguida, clique em **Avançar**.
     ![credenciais do vRA](media/configure-vra-endpoint-login.png)
     6. Selecione **instalação personalizada** e **agentes de proxy** e clique em **Avançar**.
     ![tipo de instalação do vRA](media/configure-vra-endpoint-install-type.png)
-    7. Insira as informações de entrada do servidor IaaS e clique em **Avançar**. Se você estiver usando Active Directory, insira o nome de usuário no formato **domínio \ usuário** . Caso contrário, **user@domain** use Format.
+    7. Insira as informações de entrada do servidor IaaS e clique em **Avançar**. Se você estiver usando Active Directory, insira o nome de usuário no formato **domínio \ usuário** . Caso contrário, use **user@domain** Format.
     ![informações de logon do vRA](media/configure-vra-endpoint-account.png)
     8. Para as configurações de proxy, digite **vSphere** para o **tipo de agente**. Insira um nome para o agente.
     9. Insira o FQDN do servidor IaaS no **host do serviço do Gerenciador** e os campos do **host do serviço Web Gerenciador de modelos** . Clique em **testar** para testar a conexão para cada um dos valores de FQDN. Se o teste falhar, modifique as configurações de DNS para que o nome de host do servidor IaaS seja resolvido.
@@ -63,14 +62,14 @@ Conclua estas tarefas antes de configurar o servidor do vCenter:
 
         ![proxy de instalação do vRA](media/configure-vra-endpoint-proxy.png)
 
-    11. Clique em **Avançar**.
+    11. Clique em **Próximo**.
     12. Clique em **Instalar**.
 
 ## <a name="configure-the-vsphere-agent"></a>Configurar o agente vSphere
 
 1. Vá para https://*VRA-URL*/vcac e entre como **ConfigurationAdmin**.
-2. Selecione**pontos**de extremidade das**extremidades** > da **infraestrutura** > .
-3. Selecione **novo** > **Virtual** > **vSphere**virtual.
+2. Selecione pontos de extremidade das extremidades da **infraestrutura**  >  **Endpoints**  >  **Endpoints**.
+3. Selecione **novo**  >  **Virtual**  >  **vSphere**virtual.
 4. Insira o nome do ponto de extremidade vSphere que você especificou no procedimento anterior.
 5. Para **endereço**, insira a URL de vCenter Server de nuvem privada no formato https://*vCenter-FQDN*/SDK, em que *vCenter-FQDN* é o nome do servidor vCenter.
 6. Insira as credenciais para o usuário administrativo IaaS do vRealize Automation que o suporte do CloudSimple criou para você.

@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: cfd4d65b07cf255ac2b60d6bf8376723a997374e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77025071"
 ---
 # <a name="azure-network-connections-overview"></a>Visão geral das conexões de rede do Azure
@@ -25,7 +24,7 @@ Ao criar um serviço CloudSimple em uma região e criar nós, você pode:
 
 A conexão do ExpressRoute é de alta largura de banda com baixa latência.
 
-## <a name="benefits"></a>Vantagens
+## <a name="benefits"></a>Benefícios
 
 A conexão de rede do Azure permite que você:
 

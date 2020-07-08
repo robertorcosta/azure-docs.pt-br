@@ -16,10 +16,9 @@ ms.date: 08/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5b8038896a11b65e835ce71f5fc34e85723cc91a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77060514"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Tutorial: configurar o Salesforce para provisionamento automático de usuário
@@ -70,7 +69,7 @@ O objetivo desta seção é descrever como habilitar o provisionamento de contas
 
 3. Selecione sua instância do Salesforce e selecione a guia **Provisionamento**.
 
-4. Defina o **modo de provisionamento** como **automático**.
+4. Defina o **Modo de Provisionamento** como **Automático**.
 
     ![provisionamento](./media/salesforce-provisioning-tutorial/provisioning.png)
 
@@ -96,13 +95,13 @@ O objetivo desta seção é descrever como habilitar o provisionamento de contas
 
 10. Copie o token, vá até a janela do Azure AD e cole-o no campo **Token Secreto**.
 
-11. A **URL do locatário** deve ser inserida se a instância do Salesforce está na Salesforce Government Cloud. Caso contrário, ela é opcional. Insira a URL do locatário usando o formato "https://\<sua-instância\>.my.salesforce.com", substituindo \<sua-instância\> pelo nome de sua instância do Salesforce.
+11. A **URL do locatário** deve ser inserida se a instância do Salesforce está na Salesforce Government Cloud. Caso contrário, ela é opcional. Insira a URL do locatário usando o formato "https:// \<your-instance\> . My.Salesforce.com", substituindo \<your-instance\> pelo nome da sua instância do Salesforce.
 
 12. No Portal do Azure, clique em **Testar Conexão** para garantir que o Azure AD possa se conectar ao seu aplicativo Salesforce.
 
 13. Insira o endereço de email de uma pessoa ou grupo que deve receber notificações de erro de provisionamento no campo **Email de Notificação** e marque a caixa de seleção abaixo.
 
-14. Clique em **salvar.**  
+14. Clique em **Salvar.**  
 
 15. Na seção Mapeamentos, selecione **Sincronizar Usuários do Azure Active Directory com o Salesforce.**
 
@@ -110,7 +109,7 @@ O objetivo desta seção é descrever como habilitar o provisionamento de contas
 
 17. Para habilitar o serviço de provisionamento do Azure AD para o Salesforce, altere o **Status de Provisionamento** para **Ativado** na seção Configurações
 
-18. Clique em **salvar.**
+18. Clique em **Salvar.**
 
 > [!NOTE]
 > Depois que os usuários são provisionados no aplicativo Salesforce, o administrador precisa definir as configurações específicas de idioma para eles. Consulte este artigo para obter mais detalhes sobre [a](https://help.salesforce.com/articleView?id=setting_your_language.htm&type=5) configuração de idioma.
@@ -134,6 +133,6 @@ Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](tutorial-list.md)
+* [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Configurar logon único](https://docs.microsoft.com/azure/active-directory/active-directory-saas-salesforce-tutorial)

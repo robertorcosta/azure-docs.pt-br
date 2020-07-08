@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 07/23/2019
 ms.author: Zhchia
 ms.openlocfilehash: fbd105ca1623512a3c16f3b609374f5c4055898b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77063111"
 ---
 # <a name="tutorial-configure-symantec-web-security-service-wss-for-automatic-user-provisioning"></a>Tutorial: configurar o Symantec WSS (Web Security Service) para o provisionamento automático de usuário
@@ -41,7 +40,7 @@ O cenário descrito neste tutorial pressupõe que você já tem os seguintes pr�
 
 ## <a name="assigning-users-to-symantec-web-security-service-wss"></a>Atribuindo usuários ao Symantec WSS (Web Security Service)
 
-Azure Active Directory usa um conceito chamado *atribuições* para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de usuário, somente os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
+O Azure Active Directory usa um conceito chamado *atribuições* para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de usuário, somente os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
 
 Antes de configurar e habilitar o provisionamento automático de usuário, você deve decidir quais usuários e/ou grupos no Azure AD precisam de acesso ao Symantec WSS (Web Security Service). Depois de decidir, você pode atribuir esses usuários e/ou grupos ao Symantec WSS (Web Security Service) seguindo as instruções aqui:
 * [Atribuir um usuário ou um grupo a um aplicativo empresarial](../manage-apps/assign-user-or-group-access-portal.md)
@@ -50,17 +49,17 @@ Antes de configurar e habilitar o provisionamento automático de usuário, você
 
 * É recomendável que um único usuário do Azure AD seja atribuído ao Symantec WSS (Web Security Service) para testar a configuração automática de provisionamento de usuário. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
 
-* Ao atribuir um usuário ao Symantec WSS (Web Security Service), você deve selecionar qualquer função específica do aplicativo válida (se disponível) na caixa de diálogo de atribuição. Os usuários com a função de **acesso padrão** são excluídos do provisionamento.
+* Ao atribuir um usuário ao Symantec WSS (Web Security Service), você deve selecionar qualquer função específica do aplicativo válida (se disponível) na caixa de diálogo de atribuição. Usuários com a função **Acesso padrão** são excluídos do provisionamento.
 
 ## <a name="setup-symantec-web-security-service-wss-for-provisioning"></a>Configurar o Symantec WSS (Web Security Service) para provisionamento
 
 Antes de configurar o Symantec WSS (Web Security Service) para o provisionamento automático de usuário com o Azure AD, será necessário habilitar o provisionamento do SCIM no Symantec WSS (Web Security Service).
 
-1. Entre no console de [Administração do Symantec Web Security Service](https://portal.threatpulse.com/login.jsp). Navegue até o**serviço**de **soluções** > .
+1. Entre no console de [Administração do Symantec Web Security Service](https://portal.threatpulse.com/login.jsp). Navegue até o serviço de **soluções**  >  **Service**.
 
     ![Symantec WSS (Web Security Service)](media/symantec-web-security-service/service.png)
 
-2. Navegue para **Account Maintenance** > **integração** > de manutenção de conta**nova integração**.
+2. Navegue para integração de **manutenção de conta**  >  **Integrations**  >  **nova integração**.
 
     ![Symantec Web Security Service (WSS)](media/symantec-web-security-service/acount.png)
 
@@ -82,7 +81,7 @@ Para configurar o Symantec WSS (Web Security Service) para o provisionamento aut
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Vá para **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+2. Vá para **Aplicativos da empresa**, em seguida, selecione **Todos os aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -103,7 +102,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 ### <a name="to-configure-automatic-user-provisioning-for-symantec-web-security-service-wss-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para o Symantec WSS (Web Security Service) no Azure AD:
 
-1. Entre no [portal do Azure](https://portal.azure.com). Selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Entre no [portal do Azure](https://portal.azure.com). Selecione **Aplicativos Empresariais** e **Todos os Aplicativos**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
@@ -113,11 +112,11 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Guia provisionamento](common/provisioning.png)
+    ![Guia Provisionamento](common/provisioning.png)
 
-4. Defina o **modo de provisionamento** como **automático**.
+4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Guia provisionamento](common/provisioning-automatic.png)
+    ![Guia Provisionamento](common/provisioning-automatic.png)
 
 5. Na seção credenciais de administrador, insira a **URL scim** e os valores de **token** recuperados anteriormente na **URL do locatário** e no **token secreto** , respectivamente. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao Symantec Web Security Service. Se a conexão falhar, verifique se sua conta do Symantec WSS (Web Security Service) tem permissões de administrador e tente novamente.
 
@@ -127,7 +126,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-7. Clique em **Salvar**.
+7. Clique em **Save** (Salvar).
 
 8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para o Symantec WSS (Web Security Service)**.
 
@@ -161,11 +160,11 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos definidos no **Escopo** na seção **Configurações**. A sincronização inicial demora mais para ser executada do que as sincronizações subsequentes. Para obter mais informações sobre quanto tempo levará para o provisionamento de usuários e/ou grupos, consulte [quanto tempo levará para provisionar usuários](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
 
-Você pode usar a seção **status atual** para monitorar o progresso e seguir os links para o relatório de atividade de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no Symantec WSS (Web Security Service). Para obter mais informações, consulte [verificar o status do provisionamento do usuário](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). Para ler os logs de provisionamento do Azure AD, consulte [relatórios sobre o provisionamento automático de conta de usuário](../app-provisioning/check-status-user-account-provisioning.md).
+Você pode usar a seção **status atual** para monitorar o progresso e seguir os links para o relatório de atividade de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no Symantec WSS (Web Security Service). Para obter mais informações, consulte [Verificar o status do provisionamento de usuário](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). Para ler os logs de provisionamento do Azure AD, consulte [relatórios sobre o provisionamento automático de conta de usuário](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Próximas etapas

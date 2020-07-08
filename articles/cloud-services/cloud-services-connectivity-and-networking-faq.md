@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 08/23/2018
 ms.author: genli
 ms.openlocfilehash: 7caeba0e88f63106eae80f7142b5d65463f8d7a7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77019393"
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de rede e conectividade para Serviços de Nuvem do Azure: perguntas frequentes
@@ -65,14 +64,14 @@ O algoritmo de distribuição usado é um hash de 5 tuplas (IP de origem, porta 
 
 ## <a name="how-can-i-redirect-incoming-traffic-to-the-default-url-of-my-cloud-service-to-a-custom-url"></a>Como redirecionar o tráfego de entrada para a URL padrão do meu Serviço de Nuvem para uma URL personalizada?
 
-O Módulo de Reescrita de URL do IIS pode ser usado para redirecionar o tráfego que chega na URL padrão do serviço de nuvem (por exemplo, \*.cloudapp.net) para alguma URL/Nome DNS personalizada. Como o módulo de reescrita de URL é habilitado em funções Web por padrão e suas regras são configuradas no Web. config do aplicativo, ela está sempre disponível na VM, independentemente das reinicializações/recriações de imagem. Para obter mais informações, consulte:
+O Módulo de Reescrita de URL do IIS pode ser usado para redirecionar o tráfego que chega na URL padrão do serviço de nuvem (por exemplo, \*.cloudapp.net) para alguma URL/Nome DNS personalizada. Como o módulo de reescrita de URL é habilitado em funções Web por padrão e suas regras são configuradas no web.config do aplicativo, ele está sempre disponível na VM, independentemente de reinicializações/reimagens. Para obter mais informações, consulte:
 
 - [Criar regras de reescrita para o Módulo de Reescrita de URL](https://docs.microsoft.com/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module)
 - [Remova o link padrão](https://stackoverflow.com/questions/32286487/azure-website-how-to-remove-default-link?answertab=votes#tab-top)
 
 ## <a name="how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service"></a>Como bloquear/desabilitar o tráfego de entrada para a URL padrão do meu serviço de nuvem?
 
-Você pode impedir o tráfego de entrada para o padrão de URL/nome do seu serviço da sua nuvem (por exemplo, \*. >.cloudapp.NET). Defina o cabeçalho de host para um nome DNS personalizado (por exemplo,\.www MyCloudService.com) em configuração de associação de site no arquivo de definição do serviço de nuvem (*. csdef), conforme indicado:
+Você pode impedir o tráfego de entrada para o padrão de URL/nome do seu serviço da sua nuvem (por exemplo, \*. >.cloudapp.NET). Defina o cabeçalho de host para um nome DNS personalizado (por exemplo, www \. MyCloudService.com) em configuração de associação de site no arquivo de definição do serviço de nuvem (*. csdef), conforme indicado:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

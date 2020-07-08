@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 09/19/2019
 ms.author: Zhchia
 ms.openlocfilehash: e3e25a8c27b9a5c1bc1e7673300ac8aca9377c08
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77057427"
 ---
 # <a name="tutorial-configure-looop-for-automatic-user-provisioning"></a>Tutorial: configurar o Looop para o provisionamento automático de usuário
@@ -41,7 +40,7 @@ O cenário descrito neste tutorial pressupõe que você já tem os seguintes pr�
 
 ## <a name="assign-users-to-looop"></a>Atribuir usuários ao Looop
 
-Azure Active Directory usa um conceito chamado atribuições para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de usuário, somente os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
+O Azure Active Directory usa um conceito chamado atribuições para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de usuário, somente os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
 
 Antes de configurar e habilitar o provisionamento automático de usuário, você deve decidir quais usuários e/ou grupos no Azure AD precisam de acesso ao Looop. Depois de decidir, você pode atribuir esses usuários e/ou grupos ao Looop seguindo as instruções aqui:
 
@@ -51,7 +50,7 @@ Antes de configurar e habilitar o provisionamento automático de usuário, você
 
 * É recomendável que um único usuário do Azure AD seja atribuído ao Looop para testar a configuração automática de provisionamento de usuário. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
 
-* Ao atribuir um usuário ao Looop, você deve selecionar qualquer função específica do aplicativo válida (se disponível) na caixa de diálogo de atribuição. Os usuários com a função de **acesso padrão** são excluídos do provisionamento.
+* Ao atribuir um usuário ao Looop, você deve selecionar qualquer função específica do aplicativo válida (se disponível) na caixa de diálogo de atribuição. Usuários com a função **Acesso padrão** são excluídos do provisionamento.
 
 ## <a name="set-up-looop-for-provisioning"></a>Configurar o Looop para provisionamento
 
@@ -77,7 +76,7 @@ Para configurar o Looop para o provisionamento automático de usuário com o Azu
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Vá para **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+2. Vá para **Aplicativos da empresa**, em seguida, selecione **Todos os aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -107,7 +106,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 ### <a name="to-configure-automatic-user-provisioning-for-looop-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para Looop no Azure AD:
 
-1. Entre no [portal do Azure](https://portal.azure.com). Selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Entre no [portal do Azure](https://portal.azure.com). Selecione **Aplicativos Empresariais** e **Todos os Aplicativos**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
@@ -117,11 +116,11 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Guia provisionamento](common/provisioning.png)
+    ![Guia Provisionamento](common/provisioning.png)
 
-4. Defina o **modo de provisionamento** como **automático**.
+4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Guia provisionamento](common/provisioning-automatic.png)
+    ![Guia Provisionamento](common/provisioning-automatic.png)
 
 5. Na seção **credenciais de administrador** , insira `https://<organisation_domain>.looop.co/scim/v2` a **URL de locatário**. Por exemplo, `https://demo.looop.co/scim/v2`. Insira o valor que você recuperou e salvou anteriormente de Looop no **token secreto**. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao Looop. Se a conexão falhar, verifique se sua conta do Looop tem permissões de administrador e tente novamente.
 
@@ -131,7 +130,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-7. Clique em **Salvar**.
+7. Clique em **Save** (Salvar).
 
 8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para Looop**.
 
@@ -169,7 +168,7 @@ Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 00348d36c38fdbfdf69a2e4e80a4c720268b40c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77025360"
 ---
 # <a name="manage-accounts-on-the-azure-vmware-solution-by-cloudsimple-portal"></a>Gerenciar contas na solução VMware do Azure pelo portal do CloudSimple
@@ -35,6 +34,6 @@ Para remover uma entrada, clique em **X**.
 
 ## <a name="cloudsimple-operator-access"></a>Acesso do operador CloudSimple
 
-A configuração de acesso do operador permite que o CloudSimple o ajude a solucionar problemas permitindo que um engenheiro de suporte entre no seu portal do CloudSimple.  A configuração é habilitada por padrão. Todas as ações executadas pelo engenheiro de suporte quando conectado à sua conta de cliente são registradas e disponíveis para sua análise na página**auditoria** de **atividade** > .
+A configuração de acesso do operador permite que o CloudSimple o ajude a solucionar problemas permitindo que um engenheiro de suporte entre no seu portal do CloudSimple.  A configuração é habilitada por padrão. Todas as ações executadas pelo engenheiro de suporte quando conectado à sua conta de cliente são registradas e disponíveis para sua análise **Activity**na  >  página**auditoria** de atividade.
 
 Clique na opção **acesso do operador CloudSimple habilitado** para ativar ou desativar o acesso.

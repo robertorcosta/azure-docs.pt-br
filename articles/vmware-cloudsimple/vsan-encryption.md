@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 638b60bd3612fa25350ecef0a738fea75c2f53d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77020634"
 ---
 # <a name="configure-vsan-encryption-for-cloudsimple-private-cloud"></a>Configurar a criptografia vSAN para a nuvem privada do CloudSimple
@@ -79,7 +78,7 @@ Para implantar um cluster de keycontrol do HyTrust no Azure Resource Manager em 
 4. Converta o endereço IP privado do keycontrol em um endereço IP estático.
 5. SSH para a VM de controle de chave usando seu endereço IP público e a chave privada do par de chaves mencionado anteriormente.
 6. Quando solicitado no Shell SSH, selecione `No` para definir o nó como o nó de keycontrol inicial.
-7. Adicione nós de controle de informações adicionais repetindo as etapas 3-5 deste procedimento `Yes` e selecionando quando for solicitado a adicionar a um cluster existente.
+7. Adicione nós de controle de informações adicionais repetindo as etapas 3-5 deste procedimento e selecionando `Yes` quando for solicitado a adicionar a um cluster existente.
 
 ### <a name="hytrust-webui-configure-the-kmip-server"></a>HyTrust WebUI: configurar o servidor KMIP
 

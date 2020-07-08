@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 95d8c2974ea372dd59d15a9f2cc31ed171acd932
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77025054"
 ---
 # <a name="frequently-asked-questions-about-vmware-solution-by-cloudsimple"></a>Perguntas frequentes sobre a solução VMware por CloudSimple
@@ -33,7 +32,7 @@ O CloudSimple está disponível nas regiões leste dos EUA, oeste dos EUA e Euro
 
 **Como fazer habilitar minha assinatura para CloudSimple?**
 
-Você pode entrar em contato com seu [azurevmwaresales@microsoft.com](mailto:azurevmwaresales@microsoft.com) representante de conta Microsoft em para habilitar sua assinatura para o serviço CloudSimple. Forneça sua ID de assinatura no email para o qual você deseja que o serviço CloudSimple seja habilitado.  
+Você pode entrar em contato com seu representante de conta Microsoft em [azurevmwaresales@microsoft.com](mailto:azurevmwaresales@microsoft.com) para habilitar sua assinatura para o serviço CloudSimple. Forneça sua ID de assinatura no email para o qual você deseja que o serviço CloudSimple seja habilitado.  
 
 **Como fazer acessar o portal do CloudSimple?**
 

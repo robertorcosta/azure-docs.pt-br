@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 06/28/2019
 ms.author: zhchia
 ms.openlocfilehash: 0a67dc8069ee71305a47bd5d2a724a61cec234a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77063366"
 ---
 # <a name="tutorial-configure-peakon-for-automatic-user-provisioning"></a>Tutorial: configurar o pico para o provisionamento automático de usuário
@@ -40,7 +39,7 @@ O cenário descrito neste tutorial pressupõe que você já tenha os seguintes p
 
 ## <a name="assigning-users-to-peakon"></a>Atribuindo usuários ao pico
 
-Azure Active Directory usa um conceito chamado *atribuições* para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de usuário, somente os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
+O Azure Active Directory usa um conceito chamado *atribuições* para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de usuário, somente os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
 
 Antes de configurar e habilitar o provisionamento automático de usuário, você deve decidir quais usuários e/ou grupos no Azure AD precisam de acesso ao pico. Depois de decidir, você pode atribuir esses usuários e/ou grupos ao pico, seguindo as instruções aqui:
 
@@ -50,7 +49,7 @@ Antes de configurar e habilitar o provisionamento automático de usuário, você
 
 * É recomendável que um único usuário do Azure AD seja atribuído ao pico para testar a configuração automática de provisionamento de usuário. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
 
-* Ao atribuir um usuário ao pico, você deve selecionar qualquer função específica do aplicativo válida (se disponível) na caixa de diálogo de atribuição. Os usuários com a função de **acesso padrão** são excluídos do provisionamento.
+* Ao atribuir um usuário ao pico, você deve selecionar qualquer função específica do aplicativo válida (se disponível) na caixa de diálogo de atribuição. Usuários com a função **Acesso padrão** são excluídos do provisionamento.
 
 ## <a name="set-up-peakon-for-provisioning"></a>Configurar o pico do provisionamento
 
@@ -78,7 +77,7 @@ Para configurar o pico para o provisionamento automático de usuário com o Azur
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Vá para **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+2. Vá para **Aplicativos da empresa**, em seguida, selecione **Todos os aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -99,7 +98,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 ### <a name="to-configure-automatic-user-provisioning-for-peakon--in-azure-ad"></a>Para configurar o provisionamento automático de usuário para pico no Azure AD:
 
-1. Entre no [portal do Azure](https://portal.azure.com). Selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Entre no [portal do Azure](https://portal.azure.com). Selecione **Aplicativos Empresariais** e **Todos os Aplicativos**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
@@ -109,11 +108,11 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Guia provisionamento](common/provisioning.png)
+    ![Guia Provisionamento](common/provisioning.png)
 
-4. Defina o **modo de provisionamento** como **automático**.
+4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Guia provisionamento](common/provisioning-automatic.png)
+    ![Guia Provisionamento](common/provisioning-automatic.png)
 
 5. Na seção **credenciais de administrador** , insira os valores de token de **portador OAuth** e **URL do scim 2,0** recuperados anteriormente na **URL do locatário** e no **token secreto** , respectivamente. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao pico. Se a conexão falhar, verifique se sua conta de pico tem permissões de administrador e tente novamente.
 
@@ -123,7 +122,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-8. Clique em **Salvar**.
+8. Clique em **Save** (Salvar).
 
 9. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para o pico**.
 
@@ -147,11 +146,11 @@ Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte 
 
 ## <a name="connector-limitations"></a>Limitações do conector
 
-* Todos os atributos de usuário personalizados em picos devem ser estendidos da extensão de usuário de SCIM personalizada `urn:ietf:params:scim:schemas:extension:peakon:2.0:User`de pico.
+* Todos os atributos de usuário personalizados em picos devem ser estendidos da extensão de usuário de SCIM personalizada de pico `urn:ietf:params:scim:schemas:extension:peakon:2.0:User` .
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 ## <a name="next-steps"></a>Próximas etapas
 

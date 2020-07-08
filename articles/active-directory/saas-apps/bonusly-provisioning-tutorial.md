@@ -17,10 +17,9 @@ ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7694e441a59680a9b9544d3479100c1f779964ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77058817"
 ---
 # <a name="tutorial-configure-bonusly-for-automatic-user-provisioning"></a>Tutorial: Configurar o Bonusly para provisionamento automático de usuário
@@ -75,7 +74,7 @@ Antes de configurar e habilitar o provisionamento automático de usuário, é ne
 
 * É recomendável que um único usuário do Azure AD seja atribuído ao Bonusly para testar a configuração de provisionamento automático de usuário. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
 
-* Ao atribuir um usuário ao Bonusly, é necessário selecionar qualquer função específica ao aplicativo válida (se disponível) na caixa de diálogo de atribuição. Os usuários com a função de **acesso padrão** são excluídos do provisionamento.
+* Ao atribuir um usuário ao Bonusly, é necessário selecionar qualquer função específica ao aplicativo válida (se disponível) na caixa de diálogo de atribuição. Usuários com a função **Acesso padrão** são excluídos do provisionamento.
 
 ## <a name="configuring-automatic-user-provisioning-to-bonusly"></a>Configurando o provisionamento automático de usuário no Bonusly
 
@@ -98,7 +97,7 @@ Esta seção orienta você pelas etapas de configuração do serviço de provisi
 
     ![Provisionamento Bonusly](./media/bonusly-provisioning-tutorial/ProvisioningTab.png)
 
-4. Defina o **modo de provisionamento** como **automático**.
+4. Defina o **Modo de Provisionamento** como **Automático**.
 
     ![Provisionamento Bonusly](./media/bonusly-provisioning-tutorial/ProvisioningCredentials.png)
 
@@ -128,7 +127,7 @@ Esta seção orienta você pelas etapas de configuração do serviço de provisi
 
     ![Provisionamento Bonusly](./media/bonusly-provisioning-tutorial/EmailNotification.png)
 
-10. Clique em **Salvar**.
+10. Clique em **Save** (Salvar).
 
 11. Na seção **Mapeamentos**, selecione **Sincronizar usuários do Azure Active Directory com o Bonusly**.
 
@@ -158,7 +157,7 @@ Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Próximas etapas

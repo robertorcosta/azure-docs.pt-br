@@ -17,10 +17,9 @@ ms.date: 03/27/2019
 ms.author: zhchia
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4aa60fb565552961a3c85346c39c318a90c8adc0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77061287"
 ---
 # <a name="tutorial-configure-merchlogix-for-automatic-user-provisioning"></a>Tutorial: configurar o MerchLogix para o provisionamento automático de usuário
@@ -48,7 +47,7 @@ Antes de configurar o MerchLogix para o provisionamento automático de usuário 
 
     ![O botão Azure Active Directory][1]
 
-2. Navegue até **aplicativos** > empresariais**todos os aplicativos**.
+2. Navegue até **aplicativos empresariais**  >  **todos os aplicativos**.
 
     ![Seção de Aplicativos empresariais][2]
 
@@ -74,7 +73,7 @@ Antes de configurar e habilitar o provisionamento automático de usuário, você
 
 * É recomendável que um único usuário do Azure AD seja atribuído ao MerchLogix para testar a configuração de provisionamento automático de usuário inicial. Outros usuários e/ou grupos podem ser atribuídos posteriormente, após os testes serem bem-sucedidos.
 
-* Ao atribuir um usuário ao MerchLogix, você deve selecionar qualquer função específica do aplicativo válida (se disponível) na caixa de diálogo de atribuição. Os usuários com a função de **acesso padrão** são excluídos do provisionamento.
+* Ao atribuir um usuário ao MerchLogix, você deve selecionar qualquer função específica do aplicativo válida (se disponível) na caixa de diálogo de atribuição. Usuários com a função **Acesso padrão** são excluídos do provisionamento.
 
 ## <a name="configuring-automatic-user-provisioning-to-merchlogix"></a>Configurando o provisionamento automático de usuário para o MerchLogix 
 
@@ -91,7 +90,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 3. Selecione a guia **Provisionamento**.
 
-4. Defina o **modo de provisionamento** como **automático**.
+4. Defina o **Modo de Provisionamento** como **Automático**.
 
     ![Provisionamento do MerchLogix](./media/merchlogix-provisioning-tutorial/Merchlogix1.png)
 
@@ -105,7 +104,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 7. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e selecione a caixa de seleção - **Enviar uma notificação por email quando ocorrer uma falha**.
 
-8. Clique em **Salvar**.
+8. Clique em **Save** (Salvar).
 
 9. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para MerchLogix**.
 
@@ -125,7 +124,7 @@ Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Próximas etapas

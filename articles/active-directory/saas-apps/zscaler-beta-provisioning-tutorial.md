@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 505cd7a3350c937885f0f03268ef326a4f784258
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77062716"
 ---
 # <a name="tutorial-configure-zscaler-beta-for-automatic-user-provisioning"></a>Tutorial: configurar o Zscaler beta para provisionamento automático de usuário
@@ -76,7 +75,7 @@ Antes de configurar e habilitar o provisionamento automático de usuário, você
 
 * É recomendável que um único usuário do Azure AD seja atribuído ao Zscaler beta para testar a configuração automática de provisionamento de usuário. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
 
-* Ao atribuir um usuário ao Zscaler beta, você deve selecionar qualquer função específica do aplicativo válida (se disponível) na caixa de diálogo de atribuição. Os usuários com a função de **acesso padrão** são excluídos do provisionamento.
+* Ao atribuir um usuário ao Zscaler beta, você deve selecionar qualquer função específica do aplicativo válida (se disponível) na caixa de diálogo de atribuição. Usuários com a função **Acesso padrão** são excluídos do provisionamento.
 
 ## <a name="configuring-automatic-user-provisioning-to-zscaler-beta"></a>Configurando o provisionamento automático de usuário para o Zscaler beta
 
@@ -99,7 +98,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Provisionamento do Zscaler beta](./media/zscaler-beta-provisioning-tutorial/provisioning-tab.png)
 
-4. Defina o **modo de provisionamento** como **automático**.
+4. Defina o **Modo de Provisionamento** como **Automático**.
 
     ![Provisionamento do Zscaler beta](./media/zscaler-beta-provisioning-tutorial/provisioning-credentials.png)
 
@@ -123,7 +122,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Provisionamento do Zscaler beta](./media/zscaler-beta-provisioning-tutorial/notification.png)
 
-9. Clique em **Salvar**.
+9. Clique em **Save** (Salvar).
 
 10. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para Zscaler beta**.
 
@@ -161,7 +160,7 @@ Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Próximas etapas

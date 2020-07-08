@@ -15,10 +15,9 @@ ms.workload: identity
 ms.date: 12/06/2019
 ms.author: chmutali
 ms.openlocfilehash: 09501a80d6ddcbbc9fa6cc08e36f47beb13d1663
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77063215"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-azure-ad-user-provisioning-preview"></a>Tutorial: configurar o SAP SuccessFactors para o provisionamento de usuário do Azure AD (versão prévia)
@@ -163,19 +162,19 @@ Esta seção fornece etapas para o provisionamento de contas de usuário do Succ
 
 5. Pesquise **SuccessFactors para Azure Active Directory provisionamento de usuário**e adicione esse aplicativo da galeria.
 
-6. Após adicionar o aplicativo e a tela de detalhes do aplicativo for exibida, selecione **Provisionamento**
+6. Depois que o aplicativo for adicionado e a tela de detalhes do aplicativo for exibida, selecione **provisionamento**
 
-7. Altere o **Modo de** **Provisionamento** para **Automático**
+7. Alterar o **Provisioning** **modo** de provisionamento para **automático**
 
 8. Conclua a seção **Credenciais de Administrador**, conforme a seguir:
 
-   * **Nome** de usuário do administrador – insira o nome de usu of the SuccessFactors API User Account, com a ID da empresa anexada. Ele tem o formato: **username\@CompanyID**
+   * **Nome** de usuário do administrador – insira o nome de usu of the SuccessFactors API User Account, com a ID da empresa anexada. Ele tem o formato: **username \@ CompanyID**
 
    * **Senha de administrador –** Insira a senha da conta de usuário da API do SuccessFactors. 
 
    * **URL do locatário –** Insira o nome do ponto de extremidade dos serviços de API OData do SuccessFactors. Insira apenas o nome do host do servidor sem http ou HTTPS. Esse valor deve ser semelhante a: **API-Server-Name.successfactors.com**.
 
-   * **Email de notificação –** digite seu endereço de email e marque a caixa de seleção “enviar email se ocorrer falha”.
+   * **Email de notificação –** Insira seu endereço de email e marque a caixa de seleção "enviar email se ocorrer falha".
     > [!NOTE]
     > O Serviço de Provisionamento do Azure AD envia uma notificação por email quando o trabalho de provisionamento entra no estado de [quarentena](/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
@@ -197,21 +196,21 @@ Nesta seção, você configurará como os dados do usuário fluem do SuccessFact
 
       * Atributo: personIdExternal
 
-      * Operador: COINCIDIR.EXREG
+      * Operador: Coincidir EXREG
 
       * Valor: (1[0-9][0-9][0-9][0-9][0-9][0-9])
 
-   * Exemplo: somente funcionários e não trabalhadores contingentes
+   * Exemplo: Apenas funcionários e trabalhadores não contingentes
 
       * Atributo: EmployeeID
 
-      * Operador: NÃO NULO
+      * Operador: IS NOT NULL
 
    > [!TIP]
    > Quando você estiver configurando o aplicativo de provisionamento de aplicativo pela primeira vez, você precisará testar e verificar seus mapeamentos de atributo e expressões para certificar-se de que ele está dando a você o resultado desejado. A Microsoft recomenda usar os filtros de escopo no **escopo do objeto de origem** para testar seus mapeamentos com alguns usuários de teste do SuccessFactors. Após ter verificado que os mapeamentos funcionam, você pode remover o filtro ou expandi-lo gradualmente para incluir mais usuários.
 
    > [!CAUTION] 
-   > O comportamento padrão do mecanismo de provisionamento é desabilitar/excluir usuários que saem do escopo. Isso pode não ser desejável em sua integração do SuccessFactors com o Azure AD. Para substituir esse comportamento padrão, consulte o artigo [ignorar a exclusão de contas de usuário que saem do escopo](../app-provisioning/skip-out-of-scope-deletions.md)
+   > O comportamento padrão do mecanismo de provisionamento é desabilitar/excluir usuários fora do escopo. Isso pode não ser desejável em sua integração do SuccessFactors com o Azure AD. Para substituir esse comportamento padrão, consulte o artigo [Ignorar a exclusão de contas de usuário fora do escopo](../app-provisioning/skip-out-of-scope-deletions.md)
   
 1. No campo **Ações do objeto de destino** é possível filtrar globalmente quais ações são executadas no Active Directory. **Criar** e **Atualizar** são as mais comuns.
 
@@ -246,9 +245,9 @@ Nesta seção, você configurará como os dados do usuário fluem do SuccessFact
 
          * **Sempre** – aplicar esse mapeamento nas ações de criação e atualização do usuário
 
-         * **Somente durante a criação** -aplique este mapeamento somente em ações de criação de usuário
+         * **Somente durante a criação** – aplicar esse mapeamento somente nas ações de criação de usuário
 
-1. Para salvar seus mapeamentos, clique em **salvar** na parte superior da seção de mapeamento de atributos.
+1. Para salvar seus mapeamentos, clique em **Salvar** na parte superior da seção Mapeamento de Atributos.
 
 Uma vez concluída a configuração do mapeamento de atributo, você pode agora [habilitar e iniciar o serviço de provisionamento de usuário](#enable-and-launch-user-provisioning).
 
@@ -261,7 +260,7 @@ Depois que as configurações do aplicativo de provisionamento do SuccessFactors
 
 1. Na guia **Provisionamento**, defina o **Status de Provisionamento** para **Em**.
 
-2. Clique em **Salvar**.
+2. Clique em **Save** (Salvar).
 
 3. Esta operação iniciará a sincronização inicial, que pode usar um número variável de horas dependendo de quantos usuários estiverem no locatário SuccessFactors. Você pode verificar a barra de progresso para acompanhar o progresso do ciclo de sincronização. 
 

@@ -16,10 +16,9 @@ ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5ed04d8fdcc2d79c66e2ebc53c737c78664e4621
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77058309"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Tutorial: Configurar o Cerner Central para provisionamento automático de usuário
@@ -93,7 +92,7 @@ Para provisionar contas de usuário no Cerner Central, você precisará solicita
 
 7. Selecione sua instância do Cerner Central e selecione a guia **Provisionamento**.
 
-8. Defina o **modo de provisionamento** como **automático**.
+8. Defina o **Modo de Provisionamento** como **Automático**.
 
    ![Provisionamento do Cerner Central](./media/cernercentral-provisioning-tutorial/Cerner.PNG)
 
@@ -111,13 +110,13 @@ Para provisionar contas de usuário no Cerner Central, você precisará solicita
 
 1. Insira o endereço de email de uma pessoa ou grupo que deve receber notificações de erro de provisionamento no campo **Email de Notificação** e marque a caixa de seleção abaixo.
 
-1. Clique em **Salvar**.
+1. Clique em **Save** (Salvar).
 
 1. Na seção **Mapeamentos de Atributo**, examine os atributos de usuário e grupo que serão sincronizados do Azure AD para o Cerner Central. Os atributos selecionados como propriedades **Correspondentes** são usados para corresponder as contas de usuário e grupos no Cerner Central para operações de atualização. Selecione o botão Salvar para confirmar as alterações.
 
 1. Para habilitar o serviço de provisionamento do Azure AD para o Cerner Central, altere o **Status de Provisionamento** para **Ativado** na seção **Configurações**
 
-1. Clique em **Salvar**.
+1. Clique em **Save** (Salvar).
 
 Isso inicia a sincronização inicial de todos os usuários e/ou grupos atribuídos ao Cerner Central na seção Usuários e Grupos. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Microsoft Azure Active Directory esteja em execução. Use a seção **Detalhes de Sincronização** para monitorar o progresso e siga os links para os logs de atividade de provisionamento, que descrevem todas as ações executadas pelo serviço de provisionamento em seu aplicativo Cerner Central.
 
@@ -127,7 +126,7 @@ Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte 
 
 * [Cerner Central: Publicação de dados de identidade usando o Azure AD](https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+Azure+AD)
 * [Tutorial: Configurar o Cerner Central para logon único com o Azure Active Directory](cernercentral-tutorial.md)
-* [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Próximas etapas

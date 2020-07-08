@@ -13,10 +13,9 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
 ms.openlocfilehash: 469e926932ffa11ef9f2a262b78a587ba435549e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77023983"
 ---
 # <a name="set-up-message-passing-interface-for-hpc"></a>Configurar a interface de passagem de mensagens para HPC
@@ -120,7 +119,7 @@ Siga o processo de instalação.
 
 [Baixe o Intel MPI](https://software.intel.com/mpi-library/choose-download).
 
-Altere a variável de ambiente I_MPI_FABRICS dependendo da versão. Para o Intel MPI 2018, `I_MPI_FABRICS=shm:ofa` use e para 2019, `I_MPI_FABRICS=shm:ofi`use.
+Altere a variável de ambiente I_MPI_FABRICS dependendo da versão. Para o Intel MPI 2018, use `I_MPI_FABRICS=shm:ofa` e para 2019, use `I_MPI_FABRICS=shm:ofi` .
 
 A fixação do processo funciona corretamente para 15, 30 e 60 PPN por padrão.
 
@@ -141,7 +140,7 @@ CC=<mpi-install-path/bin/mpicc>CXX=<mpi-install-path/bin/mpicxx> ./configure
 make
 ```
 
-Os benchmarks MPI estão `mpi/` sob a pasta.
+Os benchmarks MPI estão sob a `mpi/` pasta.
 
 
 ## <a name="discover-partition-keys"></a>Descobrir chaves de partição

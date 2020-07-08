@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 06/3/2019
 ms.author: jeedes
 ms.openlocfilehash: 95cb0371c4b2181d8f09991fe6e652c0e939f3e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77063349"
 ---
 # <a name="tutorial-configure-proxyclick-for-automatic-user-provisioning"></a>Tutorial: configurar o Proxyclick para o provisionamento automático de usuário
@@ -49,7 +48,7 @@ Antes de configurar o Proxyclick para o provisionamento automático de usuário 
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Vá para **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+2. Vá para **Aplicativos da empresa**, em seguida, selecione **Todos os aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -63,7 +62,7 @@ Antes de configurar o Proxyclick para o provisionamento automático de usuário 
 
 ## <a name="assigning-users-to-proxyclick"></a>Atribuindo usuários ao Proxyclick
 
-Azure Active Directory usa um conceito chamado *atribuições* para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de usuário, somente os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
+O Azure Active Directory usa um conceito chamado *atribuições* para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de usuário, somente os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
 
 Antes de configurar e habilitar o provisionamento automático de usuário, você deve decidir quais usuários e/ou grupos no Azure AD precisam de acesso ao Proxyclick. Depois de decidir, você pode atribuir esses usuários e/ou grupos ao Proxyclick seguindo as instruções aqui:
 
@@ -73,7 +72,7 @@ Antes de configurar e habilitar o provisionamento automático de usuário, você
 
 * É recomendável que um único usuário do Azure AD seja atribuído ao Proxyclick para testar a configuração automática de provisionamento de usuário. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
 
-* Ao atribuir um usuário ao Proxyclick, você deve selecionar qualquer função específica do aplicativo válida (se disponível) na caixa de diálogo de atribuição. Os usuários com a função de **acesso padrão** são excluídos do provisionamento.
+* Ao atribuir um usuário ao Proxyclick, você deve selecionar qualquer função específica do aplicativo válida (se disponível) na caixa de diálogo de atribuição. Usuários com a função **Acesso padrão** são excluídos do provisionamento.
 
 ## <a name="configuring-automatic-user-provisioning-to-proxyclick"></a>Configurando o provisionamento automático de usuário para o Proxyclick 
 
@@ -84,7 +83,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 ### <a name="to-configure-automatic-user-provisioning-for-proxyclick-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para Proxyclick no Azure AD:
 
-1. Entre no [portal do Azure](https://portal.azure.com). Selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Entre no [portal do Azure](https://portal.azure.com). Selecione **Aplicativos Empresariais** e **Todos os Aplicativos**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
@@ -94,15 +93,15 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Guia provisionamento](common/provisioning.png)
+    ![Guia Provisionamento](common/provisioning.png)
 
-4. Defina o **modo de provisionamento** como **automático**.
+4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Guia provisionamento](common/provisioning-automatic.png)
+    ![Guia Provisionamento](common/provisioning-automatic.png)
 
 5. Para recuperar a **URL do locatário** e o **token secreto** da sua conta do Proxyclick, siga o passo a passos, conforme descrito na etapa 6.
 
-6. Entre no console do [administrador do Proxyclick](https://app.proxyclick.com/login//?destination=%2Fdefault). Navegue até **configurações** > **integrações** > **procurar Marketplace**.
+6. Entre no console do [administrador do Proxyclick](https://app.proxyclick.com/login//?destination=%2Fdefault). Navegue até **configurações**  >  **integrações**  >  **procurar Marketplace**.
 
     ![Configurações de Proxyclick](media/proxyclick-provisioning-tutorial/proxyclick09.png)
 
@@ -120,7 +119,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Provisionamento de usuário do Proxyclick](media/proxyclick-provisioning-tutorial/proxyclick05.png)
 
-    A interface do usuário de configuração das configurações apropriadas agora deve aparecer em**integrações**de **configurações** > . Selecione **configurações** no **Azure AD (provisionamento de usuário)**.
+    A interface do usuário de configuração das configurações apropriadas agora **Settings**deve aparecer em  >  **integrações**de configurações. Selecione **configurações** no **Azure AD (provisionamento de usuário)**.
 
     ![Proxyclick criar](media/proxyclick-provisioning-tutorial/proxyclick06.png)
 
@@ -136,7 +135,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-9. Clique em **Salvar**.
+9. Clique em **Save** (Salvar).
 
 10. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para Proxyclick**.
 
@@ -171,7 +170,7 @@ Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Próximas etapas

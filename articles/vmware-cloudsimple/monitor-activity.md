@@ -10,10 +10,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 1228f3a54e02d4fe7a5133e2bfba55c38e34718a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77019665"
 ---
 # <a name="monitor-vmware-solution-by-cloudsimple-activity"></a>Monitorar a solução VMware por atividade de CloudSimple
@@ -26,7 +25,7 @@ Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com)
 
 ## <a name="access-the-cloudsimple-portal"></a>Acessar o portal da CloudSimple
 
-Acesse o [portal do CloudSimple](access-cloudsimple-portal.md).
+Acesse o [portal da CloudSimple](access-cloudsimple-portal.md).
 
 ## <a name="activity-information"></a>Informações da atividade
 
@@ -113,4 +112,4 @@ As colunas de informações a seguir estão disponíveis para alertas. Clique em
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Consumir VMs do VMware no Azure](quickstart-create-vmware-virtual-machine.md)
-* Saiba mais sobre [nuvens privadas](cloudsimple-private-cloud.md)
+* Saiba mais sobre [Nuvens Privadas](cloudsimple-private-cloud.md)

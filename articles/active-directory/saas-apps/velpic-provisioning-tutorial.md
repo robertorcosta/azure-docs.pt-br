@@ -17,10 +17,9 @@ ms.date: 03/27/2019
 ms.author: zhchia
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9b7a6c2c9b7ecb0b160f7481d95f7682f3f7a109
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77064114"
 ---
 # <a name="tutorial-configuring-velpic-for-automatic-user-provisioning"></a>Tutorial: Configurando o Velpic para o provisionamento automático de usuário
@@ -67,11 +66,11 @@ Esta seção orienta você pela conexão do Azure AD com a API de provisionament
 
 3. Selecione sua instância do Velpic e, em seguida, selecione a guia **provisionamento** .
 
-4. Defina o **modo de provisionamento** como **automático**.
+4. Defina o **Modo de Provisionamento** como **Automático**.
 
     ![Provisionamento do Velpic](./media/velpic-provisioning-tutorial/Velpic1.png)
 
-5. Na seção **credenciais de administrador** , insira a **URL do locatário&token secreto** de Velpic. (Você pode encontrar esses valores em sua conta do Velpic: **gerenciar** > **Integration** > **plug-in** > de integração**scim**)
+5. Na seção **credenciais de administrador** , insira a **URL do locatário&token secreto** de Velpic. (Você pode encontrar esses valores em sua conta do Velpic: **gerenciar**  >  **Integração**  >  do **Plug-in**  >  **Scim**)
 
     ![Valores de autorização](./media/velpic-provisioning-tutorial/Velpic2.png)
 
@@ -79,7 +78,7 @@ Esta seção orienta você pela conexão do Azure AD com a API de provisionament
 
 7. Insira o endereço de email de uma pessoa ou grupo que deve receber notificações de erro de provisionamento no campo **Email de Notificação** e marque a caixa de seleção abaixo.
 
-8. Clique em **Salvar**.
+8. Clique em **Save** (Salvar).
 
 9. Na seção mapeamentos, selecione **sincronizar Azure Active Directory usuários para Velpic**.
 
@@ -87,7 +86,7 @@ Esta seção orienta você pela conexão do Azure AD com a API de provisionament
 
 11. Para habilitar o serviço de provisionamento do Azure AD para o Velpic, altere o **status de provisionamento** para **ativado** na seção **configurações**
 
-12. Clique em **Salvar**.
+12. Clique em **Save** (Salvar).
 
 Isso iniciará a sincronização inicial de todos os usuários e/ou grupos atribuídos ao Velpic na seção usuários e grupos. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço esteja em execução. É possível usar a seção **Detalhes de Sincronização** para monitorar o andamento e seguir os links para os relatórios de atividade de provisionamento, que descrevem todas as ações executadas pelo serviço de provisionamento.
 
@@ -95,7 +94,7 @@ Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Próximas etapas

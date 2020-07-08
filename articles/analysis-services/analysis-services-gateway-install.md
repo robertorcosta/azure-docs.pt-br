@@ -8,10 +8,9 @@ ms.date: 01/17/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: f6218b32fb9574adf62384d2a6ee5a62f3788de8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77062142"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Instalar e configurar um gateway de dados local
@@ -67,20 +66,20 @@ Para saber mais sobre como Azure Analysis Services funciona com o gateway, consu
    > [!NOTE]
    > Se você entrar com uma conta de domínio, ela será mapeada para sua conta organizacional no Azure AD. Sua conta organizacional é usada como administrador do gateway.
 
-## <a name="register"></a><a name="register"></a>Registrar
+## <a name="register"></a><a name="register"></a>Registre-se
 
 Para criar um recurso de gateway no Azure, você precisa registrar a instância local que instalou com o Serviço de Nuvem do Gateway. 
 
 1.  Selecione **Registrar um novo gateway neste computador**.
 
-    ![Registrar](media/analysis-services-gateway-install/aas-gateway-register-new.png)
+    ![Registre-se](media/analysis-services-gateway-install/aas-gateway-register-new.png)
 
 2. Digite um nome e uma chave de recuperação para o gateway. Por padrão, o gateway usa a região padrão de sua assinatura. Se precisar selecionar uma região diferente, selecione **Alterar Região**.
 
     > [!IMPORTANT]
     > Salve sua chave de recuperação em um local seguro. A chave de recuperação é necessária para controlar, migrar ou restaurar um gateway. 
 
-   ![Registrar](media/analysis-services-gateway-install/aas-gateway-register-name.png)
+   ![Registre-se](media/analysis-services-gateway-install/aas-gateway-register-name.png)
 
 
 ## <a name="create-an-azure-gateway-resource"></a><a name="create-resource"></a>Criar um recurso de gateway do Azure
@@ -125,7 +124,7 @@ Depois de instalar e registrar seu gateway, você precisará criar um recurso de
 
     ![Êxito ao conectar o servidor ao recurso de gateway](media/analysis-services-gateway-install/aas-gateway-connect-success.png)
 
-É isso. Se precisar abrir portas ou solucionar qualquer problema, não deixe de conferir [Gateway de dados local](analysis-services-gateway.md).
+Isso é tudo. Se precisar abrir portas ou solucionar qualquer problema, não deixe de conferir [Gateway de dados local](analysis-services-gateway.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

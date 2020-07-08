@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 147ab6b5ace4493e1a0b303c320cb2e81d829b29
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77024935"
 ---
 # <a name="cloudsimple-public-ip-address-overview"></a>Visão geral do endereço IP público do CloudSimple
@@ -23,7 +22,7 @@ O endereço IP público é dedicado ao endereço IP privado até que você o can
 
 Um recurso associado a um endereço IP público sempre usa o endereço IP público para acesso à Internet. Por padrão, somente o acesso à Internet de saída é permitido em um endereço IP público.  O tráfego de entrada no endereço IP público foi negado.  Para permitir o tráfego de entrada, crie uma regra de firewall para o endereço IP público para a porta específica.
 
-## <a name="benefits"></a>Vantagens
+## <a name="benefits"></a>Benefícios
 
 O uso de um endereço IP público para comunicar a entrada fornece:
 

@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 89bef6cef48f2b972aa3f931008b0db84431b832
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77025037"
 ---
 # <a name="firewall-tables-overview"></a>Visão geral das tabelas de firewall
@@ -23,7 +22,7 @@ Uma tabela de firewall lista regras para filtrar o tráfego de rede de e para re
 
 A tabela a seguir descreve os parâmetros em uma regra de firewall.
 
-| Propriedade | Detalhes |
+| Property | Detalhes |
 | ---------| --------|
 | **Nome** | Um nome que identifica exclusivamente a regra de firewall e sua finalidade. |
 | **Priority** | Um número entre 100 e 4096, com 100 sendo a prioridade mais alta. As regras são processadas em ordem de prioridade. Quando o tráfego encontra uma correspondência de regra, o processamento da regra é interrompido. Como resultado, as regras com prioridades mais baixas que têm os mesmos atributos que as regras com prioridades mais altas não são processadas.  Tome cuidado para evitar regras conflitantes. |
@@ -31,7 +30,7 @@ A tabela a seguir descreve os parâmetros em uma regra de firewall.
 | **Protocolo** | As opções incluem any, TCP ou UDP. Se você precisar de ICMP, use any. |
 | **Direção** | Se a regra se aplica ao tráfego de entrada ou de saída. |
 | **Ação** | Permitir ou negar para o tipo de tráfego definido na regra. |
-| **Fonte** | Um endereço IP, bloco CIDR (roteamento entre domínios sem classificação) (10.0.0.0/24, por exemplo) ou qualquer um.  Especificar um intervalo, uma marca de serviço ou um grupo de segurança de aplicativo permite que você crie menos regras de segurança. |
+| **Origem** | Um endereço IP, bloco CIDR (roteamento entre domínios sem classificação) (10.0.0.0/24, por exemplo) ou qualquer um.  Especificar um intervalo, uma marca de serviço ou um grupo de segurança de aplicativo permite que você crie menos regras de segurança. |
 | **Porta de origem** | Porta da qual o tráfego de rede é originado.  Você pode especificar uma porta individual ou um intervalo de portas, como 443 ou 8000-8080. A especificação de intervalos permite que você crie menos regras de segurança. |
 | **Destino** | Um endereço IP, bloco CIDR (roteamento entre domínios sem classificação) (10.0.0.0/24, por exemplo) ou qualquer um.  Especificar um intervalo, uma marca de serviço ou um grupo de segurança de aplicativo permite que você crie menos regras de segurança.  |
 | **Porta de destino** | Porta para a qual o tráfego de rede flui.  Você pode especificar uma porta individual ou um intervalo de portas, como 443 ou 8000-8080. A especificação de intervalos permite que você crie menos regras de segurança.|
@@ -53,7 +52,7 @@ Regras adicionais podem ser necessárias para o fluxo de tráfego na direção i
 
 As regras padrão a seguir são criadas em cada tabela de firewall.
 
-|Prioridade|Name|Rastreamento de estado|Direção|Tipo de Tráfego|Protocolo|Fonte|Porta de origem|Destino|Porta de destino|Ação|
+|Prioridade|Nome|Rastreamento de estado|Direção|Tipo de Tráfego|Protocolo|Origem|Porta de origem|Destino|Porta de destino|Ação|
 |--------|----|--------------|---------|------------|--------|------|-----------|-----------|----------------|------|
 |65000|permitir-tudo para a Internet|Monitoração de estado|Saída|IP público ou tráfego de Internet|Todos|Qualquer|Qualquer|Qualquer|Qualquer|Allow|
 |65001|negar-tudo-da-Internet|Monitoração de estado|Entrada|IP público ou tráfego de Internet|Todos|Qualquer|Qualquer|Qualquer|Qualquer|Negar|

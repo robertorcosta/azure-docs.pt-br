@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
 ms.openlocfilehash: 8fcd0661e2c7cab505121cf0d4d7b4c1d29017f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77063774"
 ---
 # <a name="troubleshoot-error-azure-functions-runtime-is-unreachable"></a>Erro de solução de problemas: "Azure Functions Runtime está inacessível"
@@ -26,7 +25,7 @@ O restante deste artigo ajuda você a solucionar as seguintes causas desse erro,
 
 Cada aplicativo de funções exige uma conta de armazenamento para ser operado. Se essa conta for excluída, a função não funcionará.
 
-Comece pesquisando o nome da conta de armazenamento nas configurações do aplicativo. `AzureWebJobsStorage` Ou `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` contém o nome da sua conta de armazenamento empacotado em uma cadeia de conexão. Para obter mais informações, consulte [referência de configurações de aplicativo para Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage).
+Comece pesquisando o nome da conta de armazenamento nas configurações do aplicativo. `AzureWebJobsStorage`Ou `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` contém o nome da sua conta de armazenamento empacotado em uma cadeia de conexão. Para obter mais informações, consulte [referência de configurações de aplicativo para Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage).
 
 Pesquise sua conta de armazenamento no portal do Azure para ver se ela ainda existe. Se ele tiver sido excluído, recrie a conta de armazenamento e substitua as cadeias de conexão de armazenamento. O código de função é perdido e você precisa reimplantá-lo.
 
@@ -44,7 +43,7 @@ Na etapa anterior, se você não encontrar uma cadeia de conexão da conta de ar
 
 Para obter mais informações, consulte [referência de configurações de aplicativo para Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-app-settings).
 
-### <a name="guidance"></a>Orientação
+### <a name="guidance"></a>Diretrizes
 
 * Não marque "configuração de slot" para qualquer uma dessas configurações. Se você trocar os slots de implantação, o aplicativo de funções será interrompido.
 * Não modifique essas configurações como parte das implantações automatizadas.
@@ -66,7 +65,7 @@ Seu aplicativo de funções deve ser capaz de acessar a conta de armazenamento. 
 
 Se você tiver uma cota de execução diária configurada, seu aplicativo de funções estará temporariamente desabilitado, o que faz com que muitos dos controles do portal fiquem indisponíveis. 
 
-Para verificar a cota no [portal do Azure](https://portal.azure.com), selecione **recursos** > de plataforma**aplicativo de funções configurações** em seu aplicativo de funções. Se você estiver acima da **cota de uso diário** que você definiu, a seguinte mensagem será exibida:
+Para verificar a cota no [portal do Azure](https://portal.azure.com), selecione **recursos de plataforma**  >  **aplicativo de funções configurações** em seu aplicativo de funções. Se você estiver acima da **cota de uso diário** que você definiu, a seguinte mensagem será exibida:
 
   > "O Aplicativo de funções atingiu a cota de uso diário e foi interrompido até o próximo período de 24 horas."
 

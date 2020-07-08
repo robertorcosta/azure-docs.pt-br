@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: a82ba1b433e62ed1c4b72b8e942d4ade29f26c4a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77025292"
 ---
 # <a name="expand-a-cloudsimple-private-cloud"></a>Expandir uma nuvem privada do CloudSimple
@@ -57,4 +56,4 @@ Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com)
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Consumir VMs do VMware no Azure](quickstart-create-vmware-virtual-machine.md)
-* Saiba mais sobre [nuvens privadas](cloudsimple-private-cloud.md)
+* Saiba mais sobre [Nuvens Privadas](cloudsimple-private-cloud.md)

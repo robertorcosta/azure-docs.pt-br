@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 0dd5ede110255b6e53bbc397e683e66b3beffc65
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77019614"
 ---
 # <a name="connect-from-on-premises-to-cloudsimple-using-expressroute"></a>Conectar de local para CloudSimple usando o ExpressRoute
@@ -61,7 +60,7 @@ Para estabelecer a conexão do ExpressRoute, você deve criar uma autorização 
     [![Cópia de autorização de circuito do ExpressRoute](media/azure-expressroute-transit-authorization-copy.png)](media/azure-expressroute-transit-authorization-copy.png)
 
     > [!IMPORTANT]
-    > A **ID do recurso** deve ser copiada da interface do usuário e deve ```/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/expressRouteCircuits/<express-route-circuit-name>``` estar no formato quando você fornecê-la para dar suporte ao.
+    > A **ID do recurso** deve ser copiada da interface do usuário e deve estar no formato ```/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/expressRouteCircuits/<express-route-circuit-name>``` quando você fornecê-la para dar suporte ao.
 
 6. Arquivo um tíquete com <a href="https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest" target="_blank">suporte</a> para a conexão a ser criada.
     * Tipo de problema: **técnico**

@@ -16,10 +16,9 @@ ms.date: 03/28/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d87cffce636146eac3e557670ffc4fb2fc34ae38
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77062873"
 ---
 # <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>Tutorial: Configurar ThousandEyes para provisionamento automático de usuário
@@ -66,7 +65,7 @@ Esta seção explica como conectar seu Azure AD à API de provisionamento de con
 
 3. Selecione sua instância do ThousandEyes e selecione a guia **Provisionamento**.
 
-4. Defina o **modo de provisionamento** como **automático**.
+4. Defina o **Modo de Provisionamento** como **Automático**.
 
     ![Provisionamento do ThousandEyes](./media/thousandeyes-provisioning-tutorial/ThousandEyes1.png)
 
@@ -78,7 +77,7 @@ Esta seção explica como conectar seu Azure AD à API de provisionamento de con
 
 7. Insira o endereço de email de uma pessoa ou um grupo que deve receber notificações de erro de provisionamento no campo **Email de Notificação** e marque a caixa de seleção “Enviar uma notificação por email quando ocorrer uma falha”.
 
-8. Clique em **Salvar**.
+8. Clique em **Save** (Salvar).
 
 9. Na seção Mapeamentos, selecione **Sincronizar Usuários do Azure Active Directory com o ThousandEyes**.
 
@@ -86,7 +85,7 @@ Esta seção explica como conectar seu Azure AD à API de provisionamento de con
 
 11. Para habilitar o serviço de provisionamento do Azure AD para o ThousandEyes, altere o **Status de Provisionamento** para **Ativado** na seção **Configurações**
 
-12. Clique em **Salvar**.
+12. Clique em **Save** (Salvar).
 
 Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos atribuídos ao ThousandEyes na seção Usuários e Grupos. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço esteja em execução. É possível usar a seção **Detalhes de Sincronização** para monitorar o andamento e seguir os links para os logs de atividade de provisionamento, que descrevem todas as ações executadas pelo serviço de provisionamento.
 
@@ -94,7 +93,7 @@ Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Próximas etapas

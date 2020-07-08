@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 08/26/2019
 ms.author: Zhchia
 ms.openlocfilehash: 5dd4f5ac6152c22b5e2a84ecc0774672bcd5590b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77064182"
 ---
 # <a name="tutorial-configure-wrike-for-automatic-user-provisioning"></a>Tutorial: configurar o Wrike para o provisionamento automático de usuário
@@ -40,7 +39,7 @@ O cenário descrito neste tutorial pressupõe que você já tem os seguintes pr�
 * Uma conta de usuário no Wrike com permissões de administrador
 
 ## <a name="assign-users-to-wrike"></a>Atribuir usuários ao Wrike
-Azure Active Directory usa um conceito chamado *atribuições* para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de usuário, somente os usuários ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
+O Azure Active Directory usa um conceito chamado *atribuições* para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de usuário, somente os usuários ou os grupos que foram atribuídos a um aplicativo no Azure Active Directory são sincronizados.
 
 Antes de configurar e habilitar o provisionamento automático de usuário, decida quais usuários ou grupos no Azure AD precisam de acesso ao Wrike. Em seguida, atribua esses usuários ou grupos ao Wrike seguindo as instruções aqui:
 
@@ -50,7 +49,7 @@ Antes de configurar e habilitar o provisionamento automático de usuário, decid
 
 * Recomendamos que você atribua um único usuário do Azure AD ao Wrike para testar a configuração automática de provisionamento de usuário. Usuários ou grupos adicionais podem ser atribuídos posteriormente.
 
-* Ao atribuir um usuário ao Wrike, você deve selecionar qualquer função específica do aplicativo válida (se disponível) na caixa de diálogo de atribuição. Os usuários com a função de acesso padrão são excluídos do provisionamento.
+* Ao atribuir um usuário ao Wrike, você deve selecionar qualquer função específica do aplicativo válida (se disponível) na caixa de diálogo de atribuição. Usuários com a função Acesso padrão são excluídos do provisionamento.
 
 ## <a name="set-up-wrike-for-provisioning"></a>Configurar o Wrike para provisionamento
 
@@ -68,7 +67,7 @@ Antes de configurar o Wrike para o provisionamento automático de usuário com o
 
     ![URL base](media/Wrike-provisioning-tutorial/Wrike-tenanturl.png)
 
-4. Selecione **API** > **Azure scim**.
+4. Selecione **API**  >  **Azure scim**.
 
     ![SCIM do Azure](media/Wrike-provisioning-tutorial/Wrike-add-scim.png)
 
@@ -91,7 +90,7 @@ Para adicionar o Wrike da Galeria de aplicativos do Azure AD, siga estas etapas.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Vá para **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+2. Vá para **Aplicativos da empresa**, em seguida, selecione **Todos os aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -113,7 +112,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 ### <a name="configure-automatic-user-provisioning-for-wrike-in-azure-ad"></a>Configurar o provisionamento automático de usuário para Wrike no Azure AD
 
-1. Entre no [portal do Azure](https://portal.azure.com). Selecione **aplicativos** > empresariais**todos os aplicativos**.
+1. Entre no [portal do Azure](https://portal.azure.com). Selecione **aplicativos empresariais**  >  **todos os aplicativos**.
 
     ![Todos os aplicativos](common/enterprise-applications.png)
 
@@ -123,9 +122,9 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Guia provisionamento](common/provisioning.png)
+    ![Guia Provisionamento](common/provisioning.png)
 
-4. Defina o **modo de provisionamento** como **automático**.
+4. Defina o **Modo de Provisionamento** como **Automático**.
 
     ![Modo de provisionamento definido como automático](common/provisioning-automatic.png)
 
@@ -133,7 +132,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![URL do locatário + token](common/provisioning-testconnection-tenanturltoken.png)
 
-7. Na caixa **email de notificação** , insira o endereço de email de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento. Marque a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha** .
+7. Na caixa **email de notificação** , insira o endereço de email de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento. Marque a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha**.
 
     ![Notificação por email](common/provisioning-notification-email.png)
 
@@ -157,17 +156,17 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Escopo de provisionamento](common/provisioning-scope.png)
 
-14. Quando estiver pronto para provisionar, selecione **salvar**.
+14. Quando estiver pronto para fazer o provisionamento, selecione **Salvar**.
 
     ![Salvando configuração de provisionamento](common/provisioning-configuration-save.png)
 
-Essa operação inicia a sincronização inicial de todos os usuários ou grupos definidos no **escopo** na seção **configurações** . A sincronização inicial demora mais para ser executada do que as sincronizações subsequentes. Para obter mais informações sobre quanto tempo leva para o provisionamento de usuários ou grupos, consulte [quanto tempo levará para provisionar os usuários?](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
+Essa operação inicia a sincronização inicial de todos os usuários ou grupos definidos em **Escopo**, na seção **Configurações**. A sincronização inicial demora mais para ser executada do que as sincronizações subsequentes. Para obter mais informações sobre quanto tempo leva para o provisionamento de usuários ou grupos, consulte [quanto tempo levará para provisionar os usuários?](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
 
-Você pode usar a seção **status atual** para monitorar o progresso e seguir os links para o relatório de atividade de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no Wrike. Para obter mais informações, consulte [verificar o status do provisionamento do usuário](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). Para ler os logs de provisionamento do Azure AD, consulte [relatórios sobre o provisionamento automático de conta de usuário](../app-provisioning/check-status-user-account-provisioning.md).
+Você pode usar a seção **status atual** para monitorar o progresso e seguir os links para o relatório de atividade de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no Wrike. Para obter mais informações, consulte [Verificar o status do provisionamento de usuário](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). Para ler os logs de provisionamento do Azure AD, consulte [relatórios sobre o provisionamento automático de conta de usuário](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciar o provisionamento de conta de usuário para aplicativos empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gerenciar provisionamento de conta de usuário para aplicativos empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Próximas etapas

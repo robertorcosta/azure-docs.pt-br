@@ -17,10 +17,9 @@ ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fcb3fe009a6482c8e512899a952694beaed361a7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77058880"
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>Tutorial: Configurar o BlueJeans para o provisionamento automático de usuário
@@ -51,7 +50,7 @@ Antes de configurar o BlueJeans para o provisionamento automático de usuário c
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Vá para **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+2. Vá para **Aplicativos da empresa**, em seguida, selecione **Todos os aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -75,7 +74,7 @@ Antes de configurar e habilitar o provisionamento automático de usuário, é ne
 
 * É recomendável que um único usuário do Azure AD seja atribuído ao BlueJeans para testar a configuração de provisionamento automático de usuário. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
 
-* Ao atribuir um usuário ao BlueJeans, é necessário selecionar qualquer função específica ao aplicativo válida (se disponível) na caixa de diálogo de atribuição. Os usuários com a função de **acesso padrão** são excluídos do provisionamento.
+* Ao atribuir um usuário ao BlueJeans, é necessário selecionar qualquer função específica ao aplicativo válida (se disponível) na caixa de diálogo de atribuição. Usuários com a função **Acesso padrão** são excluídos do provisionamento.
 
 ## <a name="configuring-automatic-user-provisioning-to-bluejeans"></a>Configurando o provisionamento automático de usuário no BlueJeans
 
@@ -98,7 +97,7 @@ Esta seção orienta você pelas etapas de configuração do serviço de provisi
 
     ![Provisionamento do BlueJeans](./media/bluejeans-provisioning-tutorial/BluejeansProvisioningTab.png)
 
-4. Defina o **modo de provisionamento** como **automático**.
+4. Defina o **Modo de Provisionamento** como **Automático**.
 
     ![Provisionamento do BlueJeans](./media/bluejeans-provisioning-tutorial/Bluejeans1.png)
 
@@ -116,7 +115,7 @@ Esta seção orienta você pelas etapas de configuração do serviço de provisi
 
     ![Provisionamento do BlueJeans](./media/bluejeans-provisioning-tutorial/BluejeansNotificationEmail.png)
 
-8. Clique em **Salvar**.
+8. Clique em **Save** (Salvar).
 
 9. Na seção **Mapeamentos**, selecione **Sincronizar usuários do Azure Active Directory com o BlueJeans**.
 
@@ -150,7 +149,7 @@ Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Próximas etapas

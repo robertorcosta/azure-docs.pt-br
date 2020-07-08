@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 1/10/2020
 ms.author: sutalasi
 ms.openlocfilehash: deef7bfdbc28d744cb81da59d3ffc13a1abee54d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77048611"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Configurar a recuperação de desastre de VMs Hyper-V para um site secundário usando PowerShell (Resource Manager)
@@ -89,7 +88,7 @@ Verifique se você tem o PowerShell do Azure pronto para uso:
    $vault = New-AzRecoveryServicesVault -Name #vaultname -ResourceGroupName #ResourceGroupName -Location #location
    ```
 
-   Você pode recuperar o objeto de cofre depois de criá-lo usando `Get-AzRecoveryServicesVault` o cmdlet.
+   Você pode recuperar o objeto de cofre depois de criá-lo usando o `Get-AzRecoveryServicesVault` cmdlet.
 
 ## <a name="set-the-vault-context"></a>Definir o contexto do cofre
 
@@ -227,7 +226,7 @@ Para verificar a conclusão da operação, siga as etapas em [Monitorar a ativid
    > [!NOTE]
    > O servidor de Virtual Machine Manager de origem pode ser o primeiro ou o segundo na matriz do servidor. Verifique os nomes de servidor de Virtual Machine Manager e recupere as redes adequadamente.
 
-1. O cmdlet cria um mapeamento entre a rede principal e a rede de recuperação. Ele especifica a rede principal como o primeiro elemento de `$PrimaryNetworks`. Ele especifica a rede de recuperação como o primeiro elemento `$RecoveryNetworks`de.
+1. O cmdlet cria um mapeamento entre a rede principal e a rede de recuperação. Ele especifica a rede principal como o primeiro elemento de `$PrimaryNetworks` . Ele especifica a rede de recuperação como o primeiro elemento de `$RecoveryNetworks` .
 
    ```azurepowershell
    New-AzRecoveryServicesAsrNetworkMapping -PrimaryNetwork $PrimaryNetworks[0] -RecoveryNetwork $RecoveryNetworks[0]
@@ -261,7 +260,7 @@ Depois que os servidores, nuvens e redes estiverem configurados corretamente, ha
 > 1. Habilitar o failover para discos gerenciados atualizando as propriedades da VM
 > 1. Use o `Get-AzRecoveryServicesAsrReplicationProtectedItem` cmdlet para buscar a ID do disco de cada disco do item protegido
 > 1. Crie um objeto Dictionary usando `New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"` o cmdlet para conter o mapeamento da ID do disco para o conjunto de criptografia de disco. Esses conjuntos de criptografia de disco devem ser criados previamente por você na região de destino.
-> 1. Atualize as propriedades da VM `Set-AzRecoveryServicesAsrReplicationProtectedItem` usando o cmdlet, passando o objeto Dictionary no parâmetro **DiskIdToDiskEncryptionSetMap** .
+> 1. Atualize as propriedades da VM usando `Set-AzRecoveryServicesAsrReplicationProtectedItem` o cmdlet, passando o objeto Dictionary no parâmetro **DiskIdToDiskEncryptionSetMap** .
 
 ## <a name="run-a-test-failover"></a>Execute um teste de failover
 

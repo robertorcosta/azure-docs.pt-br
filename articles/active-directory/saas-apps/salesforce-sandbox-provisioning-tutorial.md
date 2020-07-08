@@ -16,10 +16,9 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48df954f680c6774b0aa189453615156f4f0b4a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77063264"
 ---
 # <a name="tutorial-configure-salesforce-sandbox-for-automatic-user-provisioning"></a>Tutorial: Configurar a Área Restrita Salesforce para o provisionamento automático de usuário
@@ -66,7 +65,7 @@ O objetivo desta seção é descrever como habilitar o provisionamento de contas
 
 1. Selecione sua instância da Área Restrita Salesforce e selecione a guia **Provisionamento**.
 
-1. Defina o **modo de provisionamento** como **automático**.
+1. Defina o **Modo de Provisionamento** como **Automático**.
 
     ![provisionamento](./media/salesforce-sandbox-provisioning-tutorial/provisioning.png)
 
@@ -96,7 +95,7 @@ O objetivo desta seção é descrever como habilitar o provisionamento de contas
 
 1. No campo **Email de Notificação**, insira o endereço de email de uma pessoa ou um grupo que deve receber notificações de erro de provisionamento e marque a caixa de seleção.
 
-1. Clique em **salvar.**  
+1. Clique em **Salvar.**  
     
 1.  Na seção Mapeamentos, selecione **Sincronizar Usuários do Azure Active Directory com a Área Restrita Salesforce.**
 
@@ -104,7 +103,7 @@ O objetivo desta seção é descrever como habilitar o provisionamento de contas
 
 1. Para habilitar o serviço de provisionamento do Azure AD para a Área Restrita Salesforce, altere o **Status de Provisionamento** para **Ativado** na seção Configurações
 
-1. Clique em **salvar.**
+1. Clique em **Salvar.**
 
 Isso iniciará a sincronização inicial de todos os usuários e/ou grupos atribuídos à Área Restrita Salesforce na seção Usuários e Grupos. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço esteja em execução. Use a seção **Detalhes de Sincronização** para monitorar o progresso e siga os links para os logs de atividade de provisionamento, que descrevem todas as ações executadas pelo serviço de provisionamento em seu aplicativo Área Restrita Salesforce.
 
@@ -112,6 +111,6 @@ Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](tutorial-list.md)
+* [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Configurar logon único](https://docs.microsoft.com/azure/active-directory/active-directory-saas-salesforce-sandbox-tutorial)

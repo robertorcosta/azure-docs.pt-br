@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: a3eed033ba6a1a6f9237116a53ec7751ae906fe4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77025343"
 ---
 # <a name="ensure-application-high-availability-when-running-in-vmware-on-azure"></a>Garantir alta disponibilidade do aplicativo ao executar no VMware no Azure
@@ -47,7 +46,7 @@ Um usuário que cria uma nuvem privada pode selecionar uma região do Azure e um
 
 ## <a name="availability-zones"></a>Zonas de disponibilidade
 
-As zonas de disponibilidade são uma oferta de alta disponibilidade que protege seus aplicativos e dados de falhas do datacenter. As zonas de disponibilidade são locais físicos especiais em uma região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, resfriamento e rede independentes. Cada região tem uma zona de disponibilidade. Para obter mais informações, consulte [o que são zonas de disponibilidade no Azure?](../availability-zones/az-overview.md).
+As zonas de disponibilidade são uma oferta de alta disponibilidade que protege os aplicativos e dados contra falhas do datacenter. As zonas de disponibilidade são locais físicos especiais em uma região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, resfriamento e rede independentes. Cada região tem uma zona de disponibilidade. Para obter mais informações, consulte [o que são zonas de disponibilidade no Azure?](../availability-zones/az-overview.md).
 
 ## <a name="redundant-azure-expressroute-circuits"></a>Circuitos do Azure ExpressRoute redundantes
 
