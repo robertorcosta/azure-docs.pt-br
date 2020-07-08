@@ -9,15 +9,14 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/05/2020
 ms.openlocfilehash: da3387dd9846847f7643ded43c8cbff8ed8b166e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77135727"
 ---
 # <a name="jar-dependency-management-best-practices"></a>Práticas recomendadas de gerenciamento de dependências JAR
 
-Os componentes instalados em clusters HDInsight têm dependências em bibliotecas de terceiros. Normalmente, uma versão específica de módulos comuns, como guava, é referenciada por esses componentes internos. Quando você envia um aplicativo com suas dependências, ele pode causar um conflito entre versões diferentes do mesmo módulo. Se a versão do componente que você referencia no classpath primeiro, os componentes internos podem gerar exceções devido à incompatibilidade de versão. No entanto, se os componentes internos injetarem suas dependências primeiro ao classpath, seu aplicativo poderá gerar `NoSuchMethod`erros como.
+Os componentes instalados em clusters HDInsight têm dependências em bibliotecas de terceiros. Normalmente, uma versão específica de módulos comuns, como guava, é referenciada por esses componentes internos. Quando você envia um aplicativo com suas dependências, ele pode causar um conflito entre versões diferentes do mesmo módulo. Se a versão do componente que você referencia no classpath primeiro, os componentes internos podem gerar exceções devido à incompatibilidade de versão. No entanto, se os componentes internos injetarem suas dependências primeiro ao classpath, seu aplicativo poderá gerar erros como `NoSuchMethod` .
 
 Para evitar o conflito de versão, considere sombrear suas dependências de aplicativo.
 
@@ -32,9 +31,9 @@ Uber-jar é um único arquivo JAR que contém o JAR do aplicativo e suas depend�
 ### <a name="shade-package-using-maven"></a>Sombrear pacote usando o Maven
 O Maven pode criar aplicativos escritos em Java e escalares. O plug-in Maven-Shad-plugin pode ajudá-lo a criar facilmente um Uber-jar sombreado.
 
-O exemplo a seguir mostra um `pom.xml` arquivo que foi atualizado para sombrear um pacote usando o plug-in Maven-Shad-plugin.  A seção `<relocation>…</relocation>` XML move classes do pacote `com.google.guava` para o `com.google.shaded.guava` pacote movendo as entradas de arquivo JAR correspondentes e reescrevendo o código de bytes afetado.
+O exemplo a seguir mostra um arquivo `pom.xml` que foi atualizado para sombrear um pacote usando o plug-in Maven-Shad-plugin.  A seção XML `<relocation>…</relocation>` move classes do pacote `com.google.guava` para `com.google.shaded.guava` o pacote movendo as entradas de arquivo JAR correspondentes e reescrevendo o código de bytes afetado.
 
-Após a `pom.xml`alteração, você pode `mvn package` executar para criar o uber-jar sombreado.
+Após a alteração `pom.xml` , você pode executar `mvn package` para criar o uber-jar sombreado.
 
 ```xml
   <build>
@@ -65,9 +64,9 @@ Após a `pom.xml`alteração, você pode `mvn package` executar para criar o ube
 ```
 
 ### <a name="shade-package-using-sbt"></a>Sombrear pacote usando SBT
-O SBT também é uma ferramenta de compilação para escala e Java. SBT não tem um plug-in de sombreador como Maven-Shad-plugin. Você pode modificar `build.sbt` o arquivo para sombrear pacotes. 
+O SBT também é uma ferramenta de compilação para escala e Java. SBT não tem um plug-in de sombreador como Maven-Shad-plugin. Você pode modificar o `build.sbt` arquivo para sombrear pacotes. 
 
-Por exemplo, para sombrear `com.google.guava`, você pode adicionar o comando abaixo ao `build.sbt` arquivo:
+Por exemplo, para sombrear `com.google.guava` , você pode adicionar o comando abaixo ao `build.sbt` arquivo:
 
 ```scala
 assemblyShadeRules in assembly := Seq(
@@ -75,7 +74,7 @@ assemblyShadeRules in assembly := Seq(
 )
 ```
 
-Em seguida, você `sbt clean` pode `sbt assembly` executar e criar o arquivo JAR sombreado. 
+Em seguida, você pode executar `sbt clean` e `sbt assembly` criar o arquivo JAR sombreado. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

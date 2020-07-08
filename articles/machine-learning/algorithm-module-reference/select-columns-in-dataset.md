@@ -10,15 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: 714148815fa4ff543ecbf86ab21e8d51fe775543
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77153767"
 ---
 # <a name="select-columns-in-dataset-module"></a>Selecionar colunas no módulo DataSet
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer do Azure Machine Learning (versão prévia).
 
 Use este módulo para escolher um subconjunto de colunas a ser usado em operações de downstream. O módulo não remove fisicamente as colunas do conjunto de fonte de origem; em vez disso, ele cria um subconjunto de colunas, assim como uma *exibição* ou *projeção*de banco de dados.
 
@@ -40,7 +39,7 @@ Há várias opções no módulo para escolher colunas por nome:
 
     Se você tiver conectado um conjunto de um que já está populado, uma lista de colunas disponíveis deverá aparecer. Se nenhuma coluna aparecer, talvez seja necessário executar módulos upstream para exibir a lista de colunas.
 
-    Para filtrar a lista, digite na caixa de pesquisa. Por exemplo, se você digitar a letra `w` na caixa de pesquisa, a lista será filtrada para mostrar os nomes de coluna que contêm `w`a letra.
+    Para filtrar a lista, digite na caixa de pesquisa. Por exemplo, se você digitar a letra `w` na caixa de pesquisa, a lista será filtrada para mostrar os nomes de coluna que contêm a letra `w` .
 
     Selecione colunas e clique no botão de seta para a direita para mover as colunas selecionadas para a lista no painel à direita.
 
@@ -96,7 +95,7 @@ Por exemplo, supondo que o conjunto de seus conjuntos de seus tem pelo menos oit
 + `1,3-8`
 + `1,3-6,4` 
 
-o exemplo final não resulta em um erro; no entanto, ele retorna uma única instância `4`da coluna.
+o exemplo final não resulta em um erro; no entanto, ele retorna uma única instância da coluna `4` .
 
 
 
@@ -112,4 +111,4 @@ Por exemplo, em um conjunto de linhas com as colunas Col1, Col2, Col3 e COL4, vo
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 

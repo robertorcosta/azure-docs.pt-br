@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: autoscale
 ms.openlocfilehash: c82b170bb3801bdc701ed84230db57f5691523ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77120697"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Use ações de dimensionamento automático para enviar notificações de alerta por email e webhook no Azure Monitor
@@ -67,7 +66,7 @@ Ao usar a API REST ou o modelo do Resource Manager, inclua o elemento notificaç
 | properties |sim |o valor deve ser vazio {} ou pode conter pares chave-valor |
 
 ## <a name="authentication-in-webhooks"></a>Autenticação em webhooks
-O webhook pode autenticar usando autenticação baseada em token, em que você salva o URI do webhook com uma ID de token como um parâmetro de consulta. Por exemplo, https:\//mysamplealert/Webcallback? tokenid = sometokenid&someparameter = someValue
+O webhook pode autenticar usando autenticação baseada em token, em que você salva o URI do webhook com uma ID de token como um parâmetro de consulta. Por exemplo, https: \/ /mysamplealert/Webcallback? tokenid = sometokenid&someparameter = someValue
 
 ## <a name="autoscale-notification-webhook-payload-schema"></a>Escala automática do esquema de carga útil do webhook de notificação
 Quando a notificação de escala automática é gerada, os metadados a seguir são incluídos na carga útil do webhook:

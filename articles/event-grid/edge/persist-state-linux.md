@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 12655d2ceb4a1124376d9bddf82194472c98ebb9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77086662"
 ---
 # <a name="persist-state-in-linux"></a>Persistir o estado no Linux
@@ -25,7 +24,7 @@ Por padrão, somente os metadados são persistidos e os eventos ainda são armaz
 Este artigo fornece as etapas para implantar o módulo de grade de eventos com persistência em implantações do Linux.
 
 > [!NOTE]
->O módulo de grade de eventos é executado como um usuário com poucos `2000` privilégios com `eventgriduser`UID e Name.
+>O módulo de grade de eventos é executado como um usuário com poucos privilégios com UID `2000` e name `eventgriduser` .
 
 ## <a name="persistence-via-volume-mount"></a>Persistência por meio de montagem de volume
 
@@ -170,7 +169,7 @@ Coisas importantes a serem observadas sobre eventos persistentes:
 * A persistência de evento é configurada em uma assinatura de evento no momento da criação e não pode ser modificada depois que a assinatura do evento é criada. Para alternar a persistência de evento, você deve excluir e recriar a assinatura de evento.
 * A persistência de eventos é quase sempre mais lenta do que nas operações de memória, no entanto, a diferença de velocidade depende muito das características da unidade. A compensação entre velocidade e confiabilidade é inerente a todos os sistemas de mensagens, mas geralmente só se torna perceptível em grande escala.
 
-Para habilitar a persistência de evento em uma assinatura de `persistencePolicy` evento `true`, defina como:
+Para habilitar a persistência de evento em uma assinatura de evento, defina `persistencePolicy` como `true` :
 
  ```json
         {

@@ -4,10 +4,9 @@ description: O Azure Functions é compatível com várias versões do runtime. S
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.openlocfilehash: 5a71338b1b9735d7e7494dc2667bd7addf5d4a53
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77151948"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Como direcionar para versões do Azure Functions runtime
@@ -16,16 +15,16 @@ Uma execução do aplicativo de funções em uma versão específica do Azure Fu
 
 ## <a name="automatic-and-manual-version-updates"></a>Atualizações de versão automática e manual
 
-Azure Functions permite que você direcione uma versão específica do tempo de execução usando `FUNCTIONS_EXTENSION_VERSION` a configuração de aplicativo em um aplicativo de funções. O aplicativo de funções é mantido na versão principal especificada até que você escolha explicitamente mudar para uma nova versão.
+Azure Functions permite que você direcione uma versão específica do tempo de execução usando a `FUNCTIONS_EXTENSION_VERSION` configuração de aplicativo em um aplicativo de funções. O aplicativo de funções é mantido na versão principal especificada até que você escolha explicitamente mudar para uma nova versão.
 
 Se você especificar apenas a versão principal, o aplicativo de funções será atualizado automaticamente para novas versões secundárias do tempo de execução quando eles forem disponibilizados. Novas versões secundárias não devem introduzir alterações significativas. Se você especificar uma versão secundária (por exemplo, "2.0.12345"), o aplicativo de funções será fixado nessa versão específica até que seja explicitamente alterado.
 
 > [!NOTE]
-> Se você fixar em uma versão específica do Azure Functions e tentar publicar no Azure usando o Visual Studio, uma janela de diálogo será exibida solicitando que você atualize para a versão mais recente ou cancele a publicação. Para evitar isso, adicione a `<DisableFunctionExtensionVersionUpdate>true</DisableFunctionExtensionVersionUpdate>` Propriedade em seu `.csproj` arquivo.
+> Se você fixar em uma versão específica do Azure Functions e tentar publicar no Azure usando o Visual Studio, uma janela de diálogo será exibida solicitando que você atualize para a versão mais recente ou cancele a publicação. Para evitar isso, adicione a `<DisableFunctionExtensionVersionUpdate>true</DisableFunctionExtensionVersionUpdate>` propriedade em seu `.csproj` arquivo.
 
 Quando uma nova versão está disponível publicamente, um prompt no portal oferece a possibilidade de atualizar para essa versão. Depois de mudar para uma nova versão, você sempre poderá usar a configuração de aplicativo `FUNCTIONS_EXTENSION_VERSION` para voltar para uma versão anterior do tempo de execução.
 
-A tabela a seguir mostra `FUNCTIONS_EXTENSION_VERSION` os valores para cada versão principal para habilitar as atualizações automáticas:
+A tabela a seguir mostra os `FUNCTIONS_EXTENSION_VERSION` valores para cada versão principal para habilitar as atualizações automáticas:
 
 | Versão principal | `FUNCTIONS_EXTENSION_VERSION` valor |
 | ------------- | ----------------------------------- |

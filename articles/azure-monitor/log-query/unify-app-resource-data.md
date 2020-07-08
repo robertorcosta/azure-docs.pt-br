@@ -8,10 +8,9 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/02/2020
 ms.openlocfilehash: ce58aae3b1db1f0f338d353025d4f277aeb6944f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77137491"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Unificar vários recursos do Application Insights do Azure Monitor 
@@ -70,7 +69,7 @@ A tabela a seguir mostra as diferenças de esquema entre o Log Analytics e o App
 | ApplicationTypeVersion | application_Version |
 | AvailabilityCount | itemCount |
 | AvailabilityDuration | duration |
-| AvailabilityMessage | mensagem |
+| AvailabilityMessage | message |
 | AvailabilityRunLocation | local |
 | AvailabilityTestId | id |
 | AvailabilityTestName | name |
@@ -79,7 +78,7 @@ A tabela a seguir mostra as diferenças de esquema entre o Log Analytics e o App
 | City | client_city |
 | ClientIP | client_IP |
 | Computador | cloud_RoleInstance | 
-| País/Região | client_CountryOrRegion | 
+| País | client_CountryOrRegion | 
 | CustomEventCount | itemCount | 
 | CustomEventDimensions | customDimensions |
 | CustomEventName | name | 
@@ -87,11 +86,11 @@ A tabela a seguir mostra as diferenças de esquema entre o Log Analytics e o App
 | DeviceType | client_Type | 
 | ExceptionCount | itemCount | 
 | ExceptionHandledAt | handledAt |
-| ExceptionMessage | mensagem | 
-| ExceptionType | type |
+| ExceptionMessage | message | 
+| ExceptionType | tipo |
 | OperationID | operation_id |
 | OperationName | operation_Name | 
-| SO | client_OS | 
+| Sistema operacional | client_OS | 
 | PageViewCount | itemCount |
 | PageViewDuration | duration | 
 | PageViewName | name | 
@@ -106,7 +105,7 @@ A tabela a seguir mostra as diferenças de esquema entre o Log Analytics e o App
 | RoleInstance | cloud_RoleInstance |
 | SessionId | session_Id | 
 | SourceSystem | operation_SyntheticSource |
-| TelemetryTYpe | type |
+| TelemetryTYpe | tipo |
 | URL | url |
 | UserAccountId | user_AccountId |
 

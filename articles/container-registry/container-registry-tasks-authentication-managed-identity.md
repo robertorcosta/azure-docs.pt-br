@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 01/14/2020
 ms.author: danlep
 ms.openlocfilehash: f3294698f6973437a23fab798e8daf5642cc9b49
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77111773"
 ---
 # <a name="use-an-azure-managed-identity-in-acr-tasks"></a>Usar uma identidade gerenciada pelo Azure em tarefas ACR 
@@ -50,9 +49,9 @@ Se você planeja usar apenas uma identidade atribuída pelo sistema, ignore esta
 
 ### <a name="2-enable-identity-on-an-acr-task"></a>2. habilitar a identidade em uma tarefa ACR
 
-Ao criar uma tarefa ACR, opcionalmente, habilite uma identidade atribuída pelo usuário, uma identidade atribuída pelo sistema ou ambas. Por exemplo, passe o `--assign-identity` parâmetro ao executar o comando [AZ ACR task Create][az-acr-task-create] no CLI do Azure.
+Ao criar uma tarefa ACR, opcionalmente, habilite uma identidade atribuída pelo usuário, uma identidade atribuída pelo sistema ou ambas. Por exemplo, passe o `--assign-identity` parâmetro ao executar o comando [AZ ACR Task create][az-acr-task-create] no CLI do Azure.
 
-Para habilitar uma identidade atribuída pelo sistema, passe `--assign-identity` sem valor ou `assign-identity [system]`. O comando de exemplo a seguir cria uma tarefa do Linux de um repositório GitHub público `hello-world` que cria a imagem e habilita uma identidade gerenciada atribuída pelo sistema:
+Para habilitar uma identidade atribuída pelo sistema, passe `--assign-identity` sem valor ou `assign-identity [system]` . O comando de exemplo a seguir cria uma tarefa do Linux de um repositório GitHub público que cria a `hello-world` imagem e habilita uma identidade gerenciada atribuída pelo sistema:
 
 ```azurecli
 az acr task create \
@@ -64,7 +63,7 @@ az acr task create \
     --assign-identity
 ```
 
-Para habilitar uma identidade atribuída pelo usuário, passe `--assign-identity` com um valor da *ID de recurso* da identidade. O comando de exemplo a seguir cria uma tarefa do Linux de um repositório GitHub público `hello-world` que cria a imagem e habilita uma identidade gerenciada atribuída pelo usuário:
+Para habilitar uma identidade atribuída pelo usuário, passe `--assign-identity` com um valor da *ID de recurso* da identidade. O comando de exemplo a seguir cria uma tarefa do Linux de um repositório GitHub público que cria a `hello-world` imagem e habilita uma identidade gerenciada atribuída pelo usuário:
 
 ```azurecli
 az acr task create \
@@ -105,7 +104,7 @@ az role assignment create \
 
 Se sua tarefa precisar de credenciais para efetuar pull ou enviar imagens por push para outro registro personalizado, ou para acessar outros recursos, adicione as credenciais à tarefa. Execute o comando [AZ ACR Task Credential Add][az-acr-task-credential-add] para adicionar credenciais e passe o `--use-identity` parâmetro para indicar que a identidade pode acessar as credenciais. 
 
-Por exemplo, para adicionar credenciais para uma identidade atribuída pelo sistema para autenticar com o registro de *targetregistry*contêiner do Azure `use-identity [system]`targetregistry, passe:
+Por exemplo, para adicionar credenciais para uma identidade atribuída pelo sistema para autenticar com o registro de contêiner do Azure *targetregistry*, passe `use-identity [system]` :
 
 ```azurecli
 az acr task credential add \
@@ -115,7 +114,7 @@ az acr task credential add \
     --use-identity [system]
 ```
 
-Para adicionar credenciais para uma identidade atribuída pelo usuário para autenticar com o *targetregistry*do registro `use-identity` , passe com um valor da *ID do cliente* da identidade. Por exemplo:
+Para adicionar credenciais para uma identidade atribuída pelo usuário para autenticar com o *targetregistry*do registro, passe `use-identity` com um valor da *ID do cliente* da identidade. Por exemplo:
 
 ```azurecli
 az acr task credential add \
@@ -125,7 +124,7 @@ az acr task credential add \
     --use-identity <clientID>
 ```
 
-Você pode obter a ID do cliente da identidade executando o comando [AZ Identity show][az-identity-show] . A ID do cliente é um GUID do formulário `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
+Você pode obter a ID do cliente da identidade executando o comando [AZ Identity show][az-identity-show] . A ID do cliente é um GUID do formulário `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` .
 
 ### <a name="5-run-the-task"></a>5. executar a tarefa
 

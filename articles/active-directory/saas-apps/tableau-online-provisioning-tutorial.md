@@ -17,10 +17,9 @@ ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5fae770950810899f7c6583fa401110c3e85022b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77064196"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Tutorial: Configurar o Tableau Online para provisionamento automático de usuário
@@ -28,11 +27,11 @@ ms.locfileid: "77064196"
 Este tutorial demonstra as etapas a serem executadas no tableau online e no Azure Active Directory (AD do Azure) para configurar o Azure AD para provisionar e desprovisionar automaticamente usuários e grupos no tableau online.
 
 > [!NOTE]
-> Este tutorial descreve um conector que é criado sobre o serviço de provisionamento de usuário do Azure AD. Para obter informações sobre o que esse serviço faz, como ele funciona e perguntas frequentes, consulte [automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS (software como serviço) com Azure Active Directory](../app-provisioning/user-provisioning.md).
+> Este tutorial descreve um conector baseado no serviço de provisionamento de usuário do Azure Active Directory. Para obter informações sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e o desprovisionamento de usuários para aplicativos SaaS (software como serviço) com o Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O cenário descrito neste tutorial pressupõe que você tenha:
+O cenário descrito neste tutorial pressupõe que você possui:
 
 *   Um locatário do Azure AD.
 *   Um [locatário online do tableau](https://www.tableau.com/).
@@ -46,15 +45,15 @@ Antes de configurar o tableau online para o provisionamento automático de usuá
 
 Para adicionar o tableau online do Marketplace, siga estas etapas.
 
-1. No [portal do Azure](https://portal.azure.com), no painel de navegação à esquerda, selecione **Azure Active Directory**.
+1. No [Portal do Microsoft Azure](https://portal.azure.com), no painel de navegação esquerdo, selecione **Azure Active Directory**.
 
-    ![O ícone de Azure Active Directory](common/select-azuread.png)
+    ![O ícone do Azure Active Directory](common/select-azuread.png)
 
-2. Vá para **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+2. Vá para **Aplicativos da empresa**, em seguida, selecione **Todos os aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
-3. Para adicionar um novo aplicativo, selecione ** Novo aplicativo ** na parte superior da caixa de diálogo.
+3. Para adicionar um novo aplicativo, selecione **Novo aplicativo** na parte superior da caixa de diálogo.
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
@@ -64,7 +63,7 @@ Para adicionar o tableau online do Marketplace, siga estas etapas.
 
 ## <a name="assign-users-to-tableau-online"></a>Atribuir usuários ao tableau online
 
-Azure Active Directory usa um conceito chamado *atribuições* para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de usuário, somente os usuários ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
+O Azure Active Directory usa um conceito chamado *atribuições* para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de usuário, somente os usuários ou os grupos que foram atribuídos a um aplicativo no Azure Active Directory são sincronizados.
 
 Antes de configurar e habilitar o provisionamento automático de usuário, decida quais usuários ou grupos no Azure AD precisam de acesso ao tableau online. Para atribuir esses usuários ou grupos ao tableau online, siga as instruções em [atribuir um usuário ou grupo a um aplicativo empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal).
 
@@ -72,18 +71,18 @@ Antes de configurar e habilitar o provisionamento automático de usuário, decid
 
 *   Recomendamos que você atribua um único usuário do Azure AD ao tableau online para testar a configuração automática de provisionamento de usuário. Você pode atribuir usuários ou grupos adicionais mais tarde.
 
-*   Quando você atribuir um usuário ao tableau online, selecione qualquer função específica do aplicativo válida, se disponível, na caixa de diálogo atribuição. Os usuários com a função de **acesso padrão** são excluídos do provisionamento.
+*   Quando você atribuir um usuário ao tableau online, selecione qualquer função específica do aplicativo válida, se disponível, na caixa de diálogo atribuição. Usuários com a função **Acesso padrão** são excluídos do provisionamento.
 
 ## <a name="configure-automatic-user-provisioning-to-tableau-online"></a>Configurar o provisionamento automático de usuário para o tableau online
 
-Esta seção orienta você pelas etapas para configurar o serviço de provisionamento do Azure AD. Use-o para criar, atualizar e desabilitar usuários ou grupos no tableau online com base em atribuições de usuário ou de grupo no Azure AD.
+Esta seção aborda as etapas para configurar o serviço de provisionamento do Azure Active Directory. Use-o para criar, atualizar e desabilitar usuários ou grupos no tableau online com base em atribuições de usuário ou de grupo no Azure AD.
 
 > [!TIP]
 > Você também pode habilitar o logon único baseado em SAML para o tableau online. Siga as instruções no [tutorial de logon único do tableau online](tableauonline-tutorial.md). O logon único pode ser configurado independentemente do provisionamento automático de usuário, embora esses dois recursos se complementem.
 
 ### <a name="configure-automatic-user-provisioning-for-tableau-online-in-azure-ad"></a>Configurar o provisionamento automático de usuário para o tableau online no Azure AD
 
-1. Entre no [portal do Azure](https://portal.azure.com). Selecione **aplicativos** > **empresariais todos os aplicativos** > **tableau online**.
+1. Entre no [portal do Azure](https://portal.azure.com). Selecione **aplicativos empresariais**  >  **todos os aplicativos**  >  **tableau online**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
@@ -95,7 +94,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Provisionamento do Tableau Online](./media/tableau-online-provisioning-tutorial/ProvisioningTab.png)
 
-4. Defina o **modo de provisionamento** como **automático**.
+4. Defina o **Modo de Provisionamento** como **Automático**.
 
     ![Modo de provisionamento online do tableau](./media/tableau-online-provisioning-tutorial/ProvisioningCredentials.png)
 
@@ -126,7 +125,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Conexão de teste do tableau online](./media/tableau-online-provisioning-tutorial/TestConnection.png)
 
-8. Na caixa **email de notificação** , insira o endereço de email da pessoa ou grupo para receber as notificações de erro de provisionamento. Marque a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha** .
+8. Na caixa **Email de Notificação**, insira o endereço de email da pessoa ou grupo que deve receber as notificações do erro de provisionamento. Marque a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha**.
 
     ![Email de notificação do tableau online](./media/tableau-online-provisioning-tutorial/EmailNotification.png)
 
@@ -136,7 +135,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Sincronização de usuário do tableau online](./media/tableau-online-provisioning-tutorial/UserMappings.png)
 
-11. Examine os atributos de usuário que são sincronizados do Azure AD para o tableau online na seção **mapeamentos de atributo** . Os atributos selecionados como propriedades **Correspondentes** são usados para corresponder as contas de usuário no Tableau Online para operações de atualização. Para salvar as alterações, selecione **salvar**.
+11. Examine os atributos de usuário que são sincronizados do Azure AD para o tableau online na seção **mapeamentos de atributo** . Os atributos selecionados como propriedades **Correspondentes** são usados para corresponder as contas de usuário no Tableau Online para operações de atualização. Selecione **Salvar** para salvar as alterações.
 
     ![Atributos de usuário correspondentes do tableau online](./media/tableau-online-provisioning-tutorial/UserAttributeMapping.png)
 
@@ -144,33 +143,33 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Sincronização de grupo do tableau online](./media/tableau-online-provisioning-tutorial/GroupMappings.png)
 
-13. Examine os atributos de grupo que são sincronizados do Azure AD para o tableau online na seção **mapeamentos de atributo** . Os atributos selecionados como propriedades **Correspondentes** são usados para corresponder as contas de usuário no Tableau Online para operações de atualização. Para salvar as alterações, selecione **salvar**.
+13. Examine os atributos de grupo que são sincronizados do Azure AD para o tableau online na seção **mapeamentos de atributo** . Os atributos selecionados como propriedades **Correspondentes** são usados para corresponder as contas de usuário no Tableau Online para operações de atualização. Selecione **Salvar** para salvar as alterações.
 
     ![Atributos do grupo de correspondência online do tableau](./media/tableau-online-provisioning-tutorial/GroupAttributeMapping.png)
 
-14. Para configurar filtros de escopo, siga as instruções no [tutorial filtro de escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+14. Para configurar filtros de escopo, siga as instruções fornecidas no [tutorial sobre filtros de escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 15. Para habilitar o serviço de provisionamento do Azure AD para o tableau online, na seção **configurações** , altere o **status de provisionamento** para **ativado**.
 
     ![Status de provisionamento do tableau online](./media/tableau-online-provisioning-tutorial/ProvisioningStatus.png)
 
-16. Defina os usuários ou grupos que você deseja provisionar para tableau online. Na seção **configurações** , selecione os valores desejados no **escopo**.
+16. Defina os usuários ou grupos que você deseja provisionar para tableau online. Na seção **Configurações**, selecione os valores desejados em **Escopo**.
 
     ![Escopo do tableau online](./media/tableau-online-provisioning-tutorial/ScopeSync.png)
 
-17. Quando estiver pronto para provisionar, selecione **salvar**.
+17. Quando estiver pronto para fazer o provisionamento, selecione **Salvar**.
 
     ![Salvar online do tableau](./media/tableau-online-provisioning-tutorial/SaveProvisioning.png)
 
-Essa operação inicia a sincronização inicial de todos os usuários ou grupos definidos no **escopo** na seção **configurações** . A sincronização inicial demora mais para ser executada do que as sincronizações posteriores. Eles ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD seja executado. 
+Essa operação inicia a sincronização inicial de todos os usuários ou grupos definidos em **Escopo**, na seção **Configurações**. A sincronização inicial demora mais para ser executada do que as sincronizações posteriores. Elas ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure Active Directory seja executado. 
 
-Você pode usar a seção **detalhes de sincronização** para monitorar o progresso e seguir os links para o relatório de atividade de provisionamento. O relatório descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no tableau online.
+É possível usar a seção **Detalhes de Sincronização** para monitorar o andamento e seguir os links para o relatório de atividade de provisionamento. O relatório descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no tableau online.
 
 Para obter informações sobre como ler os logs de provisionamento do Azure AD, confira [Relatórios sobre o provisionamento automático de contas de usuário](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciar o provisionamento de conta de usuário para aplicativos empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gerenciar provisionamento de conta de usuário para aplicativos empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Próximas etapas

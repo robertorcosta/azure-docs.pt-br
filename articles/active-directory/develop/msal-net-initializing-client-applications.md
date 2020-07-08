@@ -14,16 +14,15 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 57ce6ab31421cd4016f7e204eeabce82f2f7e6a7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77084006"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>Inicializar aplicativos cliente usando o MSAL.NET
 Este artigo descreve como inicializar aplicativos cliente públicos e clientes confidenciais usando a MSAL.NET (biblioteca de autenticação da Microsoft para .NET).  Para saber mais sobre os tipos de aplicativo cliente e as opções de configuração de aplicativo, leia a [visão geral](msal-client-applications.md).
 
-Com o MSAL.NET 3. x, a maneira recomendada para instanciar um aplicativo é usando os construtores de aplicativo `PublicClientApplicationBuilder` : `ConfidentialClientApplicationBuilder`e. Eles oferecem um mecanismo poderoso para configurar o aplicativo a partir do código ou de um arquivo de configuração, ou até mesmo misturando as duas abordagens.
+Com o MSAL.NET 3. x, a maneira recomendada para instanciar um aplicativo é usando os construtores de aplicativo: `PublicClientApplicationBuilder` e `ConfidentialClientApplicationBuilder` . Eles oferecem um mecanismo poderoso para configurar o aplicativo a partir do código ou de um arquivo de configuração, ou até mesmo misturando as duas abordagens.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de inicializar um aplicativo, primeiro você precisa [registrá-lo](quickstart-register-app.md) para que seu aplicativo possa ser integrado à plataforma de identidade da Microsoft.  Após o registro, talvez você precise das seguintes informações (que podem ser encontradas no portal do Azure):
@@ -48,7 +47,7 @@ IPublicClientApplication app = PublicClientApplicationBuilder.Create(clientId)
 
 ### <a name="initializing-a-confidential-client-application-from-code"></a>Inicializando um aplicativo cliente confidencial do código
 
-Da mesma forma, o código a seguir instancia um aplicativo confidencial (um aplicativo Web localizado em `https://myapp.azurewebsites.net`) manipulando tokens de usuários na nuvem pública Microsoft Azure, com suas contas corporativas e de estudante, ou suas contas pessoais da Microsoft. O aplicativo é identificado com o provedor de identidade compartilhando um segredo do cliente:
+Da mesma forma, o código a seguir instancia um aplicativo confidencial (um aplicativo Web localizado em `https://myapp.azurewebsites.net` ) manipulando tokens de usuários na nuvem pública Microsoft Azure, com suas contas corporativas e de estudante, ou suas contas pessoais da Microsoft. O aplicativo é identificado com o provedor de identidade compartilhando um segredo do cliente:
 
 ```csharp
 string redirectUri = "https://myapp.azurewebsites.net";
@@ -90,7 +89,7 @@ IConfidentialClientApplication app = ConfidentialClientApplicationBuilder.Create
 
 ## <a name="builder-modifiers"></a>Modificadores de Construtor
 
-Nos trechos de código que usam construtores de aplicativos, vários `.With` métodos podem ser aplicados como modificadores (por exemplo, `.WithCertificate` e `.WithRedirectUri`). 
+Nos trechos de código que usam construtores de aplicativos, vários `.With` métodos podem ser aplicados como modificadores (por exemplo, `.WithCertificate` e `.WithRedirectUri` ). 
 
 ### <a name="modifiers-common-to-public-and-confidential-client-applications"></a>Modificadores comuns a aplicativos cliente públicos e confidenciais
 
@@ -104,7 +103,7 @@ Os modificadores que você pode definir em um cliente público ou o construtor d
 |`.WithClientId(string)` | Substitui a ID do cliente.|
 |`.WithComponent(string)` | Define o nome da biblioteca usando MSAL.NET (para motivos de telemetria). |
 |`.WithDebugLoggingCallback()` | Se chamado, o aplicativo chamará `Debug.Write` simplesmente habilitar rastreamentos de depuração. Consulte [Log](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/logging) para obter mais informações.|
-|`.WithExtraQueryParameters(IDictionary<string,string> eqp)` | Defina os parâmetros de consulta extra em nível de aplicativo que serão enviados em todas as solicitações de autenticação. Isso é substituível em cada nível de método de aquisição de token `.WithExtraQueryParameters pattern`(com o mesmo).|
+|`.WithExtraQueryParameters(IDictionary<string,string> eqp)` | Defina os parâmetros de consulta extra em nível de aplicativo que serão enviados em todas as solicitações de autenticação. Isso é substituível em cada nível de método de aquisição de token (com o mesmo `.WithExtraQueryParameters pattern` ).|
 |`.WithHttpClientFactory(IMsalHttpClientFactory httpClientFactory)` | Habilita cenários avançados, como a configuração de um proxy HTTP, ou para forçar o MSAL a usar um HttpClient específico (por exemplo, em ASP.NET Core aplicativos Web/APIs).|
 |`.WithLogging()` | Se chamado, o aplicativo chamará um retorno de chamada com rastreamentos de depuração. Consulte [Log](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/logging) para obter mais informações.|
 |`.WithRedirectUri(string redirectUri)` | Substitui o URI de redirecionamento padrão. No caso de aplicativos cliente públicos, isso será útil para cenários que envolvem o agente.|

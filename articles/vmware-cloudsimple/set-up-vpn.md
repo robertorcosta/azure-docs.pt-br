@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: d000d8390375466232c7daac2a4a056ef424be79
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77087132"
 ---
 # <a name="configure-a-vpn-connection-to-your-cloudsimple-private-cloud"></a>Configurar uma conexão VPN para sua nuvem privada do CloudSimple
@@ -57,7 +56,7 @@ O exemplo abaixo mostra a importação de conexão usando o **cliente viscosity*
 
 2. Abra o viscosity no seu computador.
 
-3. Clique no **+** ícone e selecione **importar conexão** > **do arquivo**.
+3. Clique no **+** ícone e selecione **importar conexão**  >  **do arquivo**.
 
     ![Importar configuração de VPN do arquivo](media/import-p2s-vpn-config.png)
 
@@ -79,7 +78,7 @@ Uma conexão VPN ponto a site resolve os nomes DNS da primeira nuvem privada que
 
 1. Inicie o [portal do CloudSimple](access-cloudsimple-portal.md).
 
-2. Navegue até **recursos** > **nuvens privadas** e selecione a nuvem privada à qual você deseja se conectar.
+2. Navegue até **recursos**  >  **nuvens privadas** e selecione a nuvem privada à qual você deseja se conectar.
 
 3. Na página **Resumo** da nuvem privada, copie o endereço IP do servidor DNS da nuvem privada em **informações básicas**.
 
@@ -97,7 +96,7 @@ Uma conexão VPN ponto a site resolve os nomes DNS da primeira nuvem privada que
 
     ![Editar conexão VPN](media/viscosity-edit-connection.png)
 
-7. Clique na guia **rede** e insira os endereços IP do servidor DNS da nuvem privada separados por uma vírgula ou um espaço e ```cloudsimple.io```o domínio como.  Selecione **ignorar configurações de DNS enviadas pelo servidor VPN**.
+7. Clique na guia **rede** e insira os endereços IP do servidor DNS da nuvem privada separados por uma vírgula ou um espaço e o domínio como ```cloudsimple.io``` .  Selecione **ignorar configurações de DNS enviadas pelo servidor VPN**.
 
     ![Rede VPN](media/viscosity-edit-connection-networking.png)
 

@@ -15,10 +15,9 @@ ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 1c86570850894a47f57a2d3587811411cc9a76eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77190007"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Uso dos serviços externos do serviço de Gerenciamento de API do Azure
@@ -104,7 +103,7 @@ A partir do objeto de resposta, é possível recuperar o corpo e a RFC 7622 info
 
 Como alternativa, se o servidor de autorização não incluir o campo "ativo" para indicar se o token é válido, use uma ferramenta como o postmaster para determinar quais propriedades estão definidas em um token válido. Por exemplo, se uma resposta de token válida contiver uma propriedade chamada "expires_in", verifique se esse nome de propriedade existe na resposta do servidor de autorização dessa forma:
 
-<quando Condition = "@ (((IResponse) contexto. Variáveis ["tokenstate"]). Body.As<JObject>(). Propriedade ("expires_in") = = NULL) ">
+<quando Condition = "@ (((IResponse) contexto. Variáveis ["tokenstate"]). Body.As <JObject> (). Propriedade ("expires_in") = = NULL) ">
 
 ### <a name="reporting-failure"></a>Indicação de falha
 É possível usar `<choose>` para detectar se o token é inválido e, em caso afirmativo, retornar uma resposta 401.

@@ -14,10 +14,9 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 15af18177cea217612a4d5276d130abe02d339f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77160752"
 ---
 # <a name="active-directory-federation-services-support-in-msalnet"></a>Suporte a Serviços de Federação do Active Directory (AD FS) no MSAL.NET
@@ -47,7 +46,7 @@ As versões AD FS com suporte nesse cenário federado são AD FS v2, AD FS v3 (W
 Ao adquirir um token usando os `AcquireTokenByIntegratedAuthentication` métodos ou `AcquireTokenByUsernamePassword` , o MSAL.net Obtém o provedor de identidade para entrar em contato com base no nome de usuário.  MSAL.NET recebe um [token SAML 1,1](reference-saml-tokens.md) depois de contatar o provedor de identidade.  Em seguida, MSAL.NET fornece o token SAML ao Azure AD como uma declaração de usuário (semelhante ao [fluxo em nome de](msal-authentication-flows.md#on-behalf-of)) para obter um JWT.
 
 ## <a name="msal-connects-directly-to-ad-fs"></a>MSAL conecta-se diretamente a AD FS
-O MSAL.NET dá suporte à conexão com o AD FS 2019, que é o Open ID Connect em conformidade e compreende PKCE e escopos. Esse suporte requer que um service pack [KB 4490481](https://support.microsoft.com/en-us/help/4490481/windows-10-update-kb4490481) seja aplicado ao Windows Server. Ao se conectar diretamente ao AD FS, a autoridade que você deseja usar para criar seu aplicativo é semelhante a `https://mysite.contoso.com/adfs/`.
+O MSAL.NET dá suporte à conexão com o AD FS 2019, que é o Open ID Connect em conformidade e compreende PKCE e escopos. Esse suporte requer que um service pack [KB 4490481](https://support.microsoft.com/en-us/help/4490481/windows-10-update-kb4490481) seja aplicado ao Windows Server. Ao se conectar diretamente ao AD FS, a autoridade que você deseja usar para criar seu aplicativo é semelhante a `https://mysite.contoso.com/adfs/` .
 
 No momento, não há planos para dar suporte a uma conexão direta com:
 

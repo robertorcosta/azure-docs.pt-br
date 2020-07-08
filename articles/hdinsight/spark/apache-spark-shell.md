@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/10/2020
 ms.openlocfilehash: f8737f645df2aefbf9ce544199f0cc45ce6a3d60
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77162796"
 ---
 # <a name="run-apache-spark-from-the-spark-shell"></a>Execute o Apache Spark no Shell Spark
@@ -21,7 +20,7 @@ Interativo [Apache Spark](https://spark.apache.org/) Shell fornece um ambiente d
 
 ## <a name="run-an-apache-spark-shell"></a>Executar um Shell do Apache Spark
 
-1. Use o [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) para se conectar ao cluster. Edite o comando a seguir substituindo CLUSTERname pelo nome do cluster e, em seguida, digite o comando:
+1. Use o [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) para se conectar ao cluster. Edite o comando abaixo substituindo CLUSTERNAME pelo nome do cluster e, em seguida, insira o comando:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -59,7 +58,7 @@ Interativo [Apache Spark](https://spark.apache.org/) Shell fornece um ambiente d
     textFile.filter(textFile.value.contains("apple")).show()
     ```
 
-1. Consultar um arquivo CSV. Observe que o idioma abaixo funciona `spark-shell` para `pyspark`o e o.
+1. Consultar um arquivo CSV. Observe que o idioma abaixo funciona para o `spark-shell` e o `pyspark` .
 
     ```scala
     spark.read.csv("/HdiSamples/HdiSamples/SensorSampleData/building/building.csv").show()
@@ -87,7 +86,7 @@ Interativo [Apache Spark](https://spark.apache.org/) Shell fornece um ambiente d
     data.select("BuildingID", "Country").show(10)
     ```
 
-1. Sair
+1. Fechar
 
     ```spark-shell
     :q
@@ -105,9 +104,9 @@ Para acessar a instância de SparkSession, digite `spark`. Para acessar a instâ
 
 ## <a name="important-shell-parameters"></a>Parâmetros de shell importantes
 
-O comando do shell do`spark-shell`Spark ( `pyspark`ou) dá suporte a muitos parâmetros de linha de comando. Para ver uma lista completa de parâmetros, inicie o shell do Spark com a opção `--help`. Alguns desses parâmetros só podem ser aplicados a `spark-submit`, que o Shell do Spark encapsula.
+O comando do shell do Spark ( `spark-shell` ou `pyspark` ) dá suporte a muitos parâmetros de linha de comando. Para ver uma lista completa de parâmetros, inicie o shell do Spark com a opção `--help`. Alguns desses parâmetros só podem ser aplicados a `spark-submit` , que o Shell do Spark encapsula.
 
-| switch | description | exemplo |
+| switch | descrição | exemplo |
 | --- | --- | --- |
 | --master MASTER_URL | Especifica a URL mestre. No HDInsight, esse valor é sempre `yarn`. | `--master yarn`|
 | --jars JAR_LIST | Lista separada por vírgulas de jars locais a ser incluída em classpaths de driver e executor. No HDInsight, essa lista é composta de caminhos para o sistema de arquivos padrão no Armazenamento do Microsoft Azure ou no Data Lake Storage. | `--jars /path/to/examples.jar` |

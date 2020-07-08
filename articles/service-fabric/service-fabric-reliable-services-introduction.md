@@ -7,10 +7,9 @@ ms.date: 3/9/2018
 ms.author: masnider
 ms.custom: sfrev
 ms.openlocfilehash: 58259b0d19d68c468779a579bd9c86e77106c18d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77083508"
 ---
 # <a name="reliable-services-overview"></a>Visão geral dos Reliable Services
@@ -74,7 +73,7 @@ Quando é feita uma chamada de um cliente, o método apropriado é invocado e o 
 
 Não armazenar nenhum estado interno torna este exemplo de calculadora muito simples. Mas a maioria dos serviços não é realmente sem estado. Em vez disso, eles externalizam o estado para algum outro repositório. (Por exemplo, qualquer aplicativo Web que depende da manutenção do estado de sessão em um repositório de backup ou do cache não é sem estado.)
 
-Um exemplo comum de como serviços sem estado são usados na Malha de Serviços é um front-end que expõe a API voltada ao público para um aplicativo Web. O serviço front-end se comunica com serviços com estado para concluir a solicitação de um usuário. Nesse caso, chamadas de clientes são direcionadas para uma porta conhecida, por exemplo, a 80, na qual o serviço sem estado está escutando. Esse serviço sem estado recebe a chamada e determina se ela é de uma parte confiável, bem como o serviço ao qual ela se destina.  Em seguida, o serviço sem estado encaminha a chamada para a partição correta do serviço com estado e aguarda uma resposta. Quando o serviço sem estado recebe uma resposta, ele responde ao cliente original. Um exemplo de tal serviço é o *Service Fabric introdução* amostra ([C#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started) / [Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)), entre outros Service Fabric exemplos nesse repositório.
+Um exemplo comum de como serviços sem estado são usados na Malha de Serviços é um front-end que expõe a API voltada ao público para um aplicativo Web. O serviço front-end se comunica com serviços com estado para concluir a solicitação de um usuário. Nesse caso, chamadas de clientes são direcionadas para uma porta conhecida, por exemplo, a 80, na qual o serviço sem estado está escutando. Esse serviço sem estado recebe a chamada e determina se ela é de uma parte confiável, bem como o serviço ao qual ela se destina.  Em seguida, o serviço sem estado encaminha a chamada para a partição correta do serviço com estado e aguarda uma resposta. Quando o serviço sem estado recebe uma resposta, ele responde ao cliente original. Um exemplo de tal serviço é o *Service Fabric introdução* amostra ([C#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)  /  [Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)), entre outros Service Fabric exemplos nesse repositório.
 
 ### <a name="stateful-reliable-services"></a>Serviços Confiáveis com estado
 
@@ -82,11 +81,11 @@ Um *serviço com estado* é aquele que deve ter uma parte do estado mantida cons
 
 A maioria dos serviços atuais armazena seu estado externamente, pois o repositório externo é o que fornece confiabilidade, disponibilidade, escalabilidade e consistência para esse estado. No Service Fabric, os serviços não são necessários para armazenar seu estado externamente. O Service Fabric cuida desses requisitos para o código e o estado do serviço.
 
-Digamos que desejamos criar um serviço que processa imagens. Para fazer isso, o serviço obtém uma imagem e a série de conversões a serem executadas na imagem. Este serviço retorna um ouvinte de comunicação (suponhamos que é uma WebAPI) que expõe uma API como `ConvertImage(Image i, IList<Conversion> conversions)`. Quando recebe uma solicitação, o serviço a armazena em um `IReliableQueue`e retorna alguma ID para o cliente para que possa rastrear a solicitação.
+Digamos que desejamos criar um serviço que processa imagens. Para fazer isso, o serviço obtém uma imagem e a série de conversões a serem executadas na imagem. Este serviço retorna um ouvinte de comunicação (suponhamos que é uma WebAPI) que expõe uma API como `ConvertImage(Image i, IList<Conversion> conversions)`. Quando recebe uma solicitação, o serviço a armazena em um `IReliableQueue` e retorna alguma ID para o cliente para que possa rastrear a solicitação.
 
 Nesse serviço, `RunAsync()` poderia ser mais complexo. O serviço tem um loop dentro de seu `RunAsync()` que recebe solicitações de `IReliableQueue` e executa as conversões solicitadas. Os resultados são armazenados em um `IReliableDictionary` para que, quando o cliente voltar, ele possa obter suas imagens convertidas. Para garantir que a imagem não seja perdida mesmo se algo der errado, esse Reliable Service sairia da fila, executaria as conversões e armazenaria o resultado em uma transação. Nesse caso, a mensagem é removida da fila e os resultados são armazenados no dicionário de resultados após a conclusão das conversões. Como alternativa, o serviço poderia extrair a imagem da fila e armazená-la imediatamente em um repositório remoto. Isso reduz a quantidade de estado que do serviço precisa gerenciar, porém aumenta a complexidade, visto que o serviço deve manter os metadados necessários para gerenciar o repositório remoto. Com essa abordagem, se algo falhar no meio a solicitação, esta permanecerá na fila aguardando para ser processada.
 
-Embora esse serviço pareça um serviço .NET típico, a diferença é que as estruturas de dados que estão sendo`IReliableQueue` usadas `IReliableDictionary`(e) são fornecidas pelo Service Fabric e são altamente confiáveis, disponíveis e consistentes.
+Embora esse serviço pareça um serviço .NET típico, a diferença é que as estruturas de dados que estão sendo usadas ( `IReliableQueue` e `IReliableDictionary` ) são fornecidas pelo Service Fabric e são altamente confiáveis, disponíveis e consistentes.
 
 ## <a name="when-to-use-reliable-services-apis"></a>Quando usar APIs de Reliable Services
 

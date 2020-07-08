@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: c2bae3bd268dba8efdf23ae314671b17a2c89420
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77086614"
 ---
 # <a name="persist-state-in-windows"></a>Persistir estado no Windows
@@ -73,9 +72,9 @@ Os [volumes do Docker](https://docs.docker.com/storage/volumes/) são usados par
     1. Inicie o explorador de arquivos.
     1. Navegue até a pasta apontada por **mountpoint**.
     1. Clique com o botão direito do mouse em e selecione **Propriedades**.
-    1. Selecione **segurança**.
+    1. Selecione **Segurança**.
     1. Em * nomes de grupo ou de usuário, selecione **Editar**.
-    1. Selecione **Adicionar**, insira `Users`, selecione **verificar nomes**e selecione **OK**.
+    1. Selecione **Adicionar**, insira `Users` , selecione **verificar nomes**e selecione **OK**.
     1. Em *permissões para usuários*, selecione **Modificar**e selecione **OK**.
 1. Usar **associações** para montar este volume e reimplantar o módulo de grade de eventos de portal do Azure
 
@@ -112,7 +111,7 @@ Os [volumes do Docker](https://docs.docker.com/storage/volumes/) são usados par
     ```
 
    >[!IMPORTANT]
-   >Não altere a segunda parte do valor de ligação. Ele aponta para um local específico no módulo. Para o módulo de grade de eventos no Windows, ele deve ser **\\C\\: app metadataDb**.
+   >Não altere a segunda parte do valor de ligação. Ele aponta para um local específico no módulo. Para o módulo de grade de eventos no Windows, ele deve ser **C: \\ app \\ metadataDb**.
 
 
     Por exemplo,
@@ -176,7 +175,7 @@ Em vez de montar um volume, você pode criar um diretório no sistema host e mon
     ```
 
     >[!IMPORTANT]
-    >Não altere a segunda parte do valor de ligação. Ele aponta para um local específico no módulo. Para o módulo de grade de eventos no Windows, ele deve ser **C\\:\\app metadataDb**.
+    >Não altere a segunda parte do valor de ligação. Ele aponta para um local específico no módulo. Para o módulo de grade de eventos no Windows, ele deve ser **C: \\ app \\ metadataDb**.
 
     Por exemplo,
 
@@ -220,7 +219,7 @@ Coisas importantes a serem observadas sobre eventos persistentes:
 * A persistência de evento é configurada em uma assinatura de evento no momento da criação e não pode ser modificada depois que a assinatura do evento é criada. Para alternar a persistência de evento, você deve excluir e recriar a assinatura de evento.
 * A persistência de eventos é quase sempre mais lenta do que nas operações de memória, no entanto, a diferença de velocidade depende muito das características da unidade. A compensação entre velocidade e confiabilidade é inerente a todos os sistemas de mensagens, mas só se torna perceptível em grande escala.
 
-Para habilitar a persistência de evento em uma assinatura de `persistencePolicy` evento `true`, defina como:
+Para habilitar a persistência de evento em uma assinatura de evento, defina `persistencePolicy` como `true` :
 
  ```json
         {

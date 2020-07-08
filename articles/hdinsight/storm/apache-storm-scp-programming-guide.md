@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/13/2020
 ms.openlocfilehash: ddf69a75a39911293277a4a4189cf4e79256e09d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77186873"
 ---
 # <a name="scp-programming-guide-for-apache-storm-in-azure-hdinsight"></a>Guia de programação do SCP para Apache Storm no Azure HDInsight
@@ -357,7 +356,7 @@ public void Abort();
     public T GetAttribute<T>(string key);
 ```
 
-Quando **simplemode** é definido como **true**, o método **Commit** exclui o ZNode correspondente em ZooKeeper. Caso contrário, o método excluirá o ZNode atual e adicionará um novo nó\_no caminho confirmado.
+Quando **simplemode** é definido como **true**, o método **Commit** exclui o ZNode correspondente em ZooKeeper. Caso contrário, o método excluirá o ZNode atual e adicionará um novo nó no \_ caminho confirmado.
 
 ### <a name="scpruntime"></a>SCPRuntime
 
@@ -441,8 +440,8 @@ SCP.NET adicionou as seguintes funções para definir topologias transacionais:
 | **scp-tx-batch-bolt** |*exec-name*<br />*argumento*<br />*campos* |Define um parafuso de lote transacional. A função executa o aplicativo que é especificado pelo *exec-Name* e usa *args.*<br /><br />O parâmetro *Fields* especifica os campos de saída para o parafuso. |
 | **scp-tx-commit-bolt** |*exec-name*<br />*argumento*<br />*campos* |Define um parafuso de confirmação transacional. A função executa o aplicativo que é especificado pelo *exec-Name* e usa *args*.<br /><br />O parâmetro *Fields* especifica os campos de saída para o parafuso. |
 | **nontx-topologia** |*topology-name*<br />*spout-map*<br />*bolt-map* |Define uma topologia não transacional com o nome da topologia, o mapa de definição de esgotamento e o mapa de definição dos parafusos. |
-| **scp-spout** |*exec-name*<br />*argumento*<br />*campos*<br />*parâmetro* |Define um Spout não transacional. A função executa o aplicativo que é especificado pelo *exec-Name* e usa *args*.<br /><br />O parâmetro *Fields* especifica os campos de saída para o Spout.<br /><br />O parâmetro *Parameters* é opcional. Use-o para especificar parâmetros como "transtransactioning. ACK. Enabled". |
-| **scp-bolt** |*exec-name*<br />*argumento*<br />*campos*<br />*parâmetro* |Define um parafuso não transacional. A função executa o aplicativo que é especificado pelo *exec-Name* e usa *args*.<br /><br />O parâmetro *Fields* especifica os campos de saída para o parafuso<br /><br />O parâmetro *Parameters* é opcional. Use-o para especificar parâmetros como "transtransactioning. ACK. Enabled". |
+| **scp-spout** |*exec-name*<br />*argumento*<br />*campos*<br />*parameters* |Define um Spout não transacional. A função executa o aplicativo que é especificado pelo *exec-Name* e usa *args*.<br /><br />O parâmetro *Fields* especifica os campos de saída para o Spout.<br /><br />O parâmetro *Parameters* é opcional. Use-o para especificar parâmetros como "transtransactioning. ACK. Enabled". |
+| **scp-bolt** |*exec-name*<br />*argumento*<br />*campos*<br />*parameters* |Define um parafuso não transacional. A função executa o aplicativo que é especificado pelo *exec-Name* e usa *args*.<br /><br />O parâmetro *Fields* especifica os campos de saída para o parafuso<br /><br />O parâmetro *Parameters* é opcional. Use-o para especificar parâmetros como "transtransactioning. ACK. Enabled". |
 
 SCP.NET define as seguintes palavras-chave:
 
@@ -567,7 +566,7 @@ Se você quiser enviar uma topologia que contenha esgotamentos ou parafusos de J
 bin\runSpec.cmd examples\HybridTopology\HybridTopology.spec specs examples\HybridTopology\net\Target -cp examples\HybridTopology\java\target\*
 ```
 
-Aqui `examples\HybridTopology\java\target\` está a pasta que contém o arquivo JAR SPOUT/pote do Java.
+Aqui `examples\HybridTopology\java\target\` está a pasta que contém o arquivo JAR Spout/pote do Java.
 
 ### <a name="serialization-and-deserialization-between-java-and-c"></a>Serialização e desserialização entre Java e C #
 
@@ -668,7 +667,7 @@ public interface ICustomizedInteropJavaDeserializer {
 
 ## <a name="scp-host-mode"></a>Modo de host SCP
 
-Nesse modo, você pode compilar seu código como uma DLL e usar SCPHost. exe conforme fornecido pelo SCP para enviar uma topologia. Um arquivo de especificação é semelhante a este código:
+Nesse modo, você pode compilar seu código como uma DLL e usar SCPHost.exe conforme fornecido pelo SCP para enviar uma topologia. Um arquivo de especificação é semelhante a este código:
 
 ```csharp
 (scp-spout
@@ -679,10 +678,10 @@ Nesse modo, você pode compilar seu código como uma DLL e usar SCPHost. exe con
   })
 ```
 
-Aqui, `"plugin.name"` é especificado como `"SCPHost.exe"`, que é fornecido pelo SCP SDK. O SCPHost. exe aceita três parâmetros na seguinte ordem:
+Aqui, `"plugin.name"` é especificado como `"SCPHost.exe"` , que é fornecido pelo SCP SDK. SCPHost.exe aceita três parâmetros na seguinte ordem:
 
-1. O nome da DLL, que `"HelloWorld.dll"` está neste exemplo.
-1. O nome da classe, que `"Scp.App.HelloWorld.Generator"` está neste exemplo.
+1. O nome da DLL, que está `"HelloWorld.dll"` neste exemplo.
+1. O nome da classe, que está `"Scp.App.HelloWorld.Generator"` neste exemplo.
 1. O nome de um método estático público, que pode ser invocado para obter uma instância de **ISCPPlugin**.
 
 No modo de host, compile seu código como uma DLL para invocação pela plataforma SCP. Como a plataforma pode obter controle total de toda a lógica de processamento, recomendamos que você envie a topologia no modo de host do SCP. Isso simplifica a experiência de desenvolvimento. Ele também oferece mais flexibilidade e melhor compatibilidade com versões posteriores.
@@ -693,7 +692,7 @@ No modo de host, compile seu código como uma DLL para invocação pela platafor
 
 O exemplo de HelloWorld simples a seguir mostra um gosto de SCP.NET. Ele usa uma topologia não transacional com um Spout chamado **Generator** e dois pinos chamados **Splitter** e **Counter**. O **gerador** Spout gera sentenças aleatoriamente e emite essas sentenças para o **divisor**. O **parafuso do** separador divide as frases em palavras e emite essas palavras para o parafuso do **contador** . O parafuso do **contador** usa um dicionário para registrar a ocorrência de cada palavra.
 
-Este exemplo tem dois arquivos de especificação: HelloWorld. spec e\_HelloWorld EnableAck. spec. O código C# pode descobrir se a confirmação está habilitada obtendo o `pluginConf` objeto do lado do Java.
+Este exemplo tem dois arquivos de especificação: HelloWorld. spec e HelloWorld \_ EnableAck. spec. O código C# pode descobrir se a confirmação está habilitada obtendo o `pluginConf` objeto do lado do Java.
 
 ```csharp
 /* demo how to get pluginConf info */
@@ -728,7 +727,7 @@ public void Fail(long seqId, Dictionary<string, Object> parms)
 
 ### <a name="helloworldtx"></a>HelloWorldTx
 
-O exemplo de HelloWorldTx a seguir demonstra como implementar a topologia transacional. O exemplo tem um Spout chamado **gerador**, um parafuso de lote chamado **contagem parcial**e um parafuso de confirmação chamado **contagem-soma**. O exemplo também tem três arquivos de texto existentes: DataSource0. txt, DataSource1. txt e DataSource2. txt.
+O exemplo de HelloWorldTx a seguir demonstra como implementar a topologia transacional. O exemplo tem um Spout chamado **gerador**, um parafuso de lote chamado **contagem parcial**e um parafuso de confirmação chamado **contagem-soma**. O exemplo também tem três arquivos de texto existentes: DataSource0.txt, DataSource1.txt e DataSource2.txt.
 
 Em cada transação, o **gerador** Spout seleciona aleatoriamente dois arquivos dos três arquivos existentes e emite os dois nomes de arquivo para o parafuso de **contagem parcial** . O parafuso de **contagem parcial** :
 
@@ -783,11 +782,11 @@ public void FinishBatch(Dictionary<string, Object> parms)
 
 ### <a name="hybridtopology"></a>HybridTopology
 
-Essa topologia contém um Spout Java e um parafuso de C#. Ele usa a implementação padrão de serialização e desserialização fornecida pela plataforma SCP. Consulte o arquivo HybridTopology. spec na pasta examples\\HybridTopology para obter os detalhes do arquivo de especificação. Consulte também SubmitTopology. bat para saber como especificar o classpath Java.
+Essa topologia contém um Spout Java e um parafuso de C#. Ele usa a implementação padrão de serialização e desserialização fornecida pela plataforma SCP. Consulte o arquivo HybridTopology. spec na pasta examples \\ HybridTopology para obter os detalhes do arquivo de especificação. Consulte também SubmitTopology.bat para saber como especificar o classpath Java.
 
 ### <a name="scphostdemo"></a>SCPHostDemo
 
-Este exemplo é basicamente o mesmo que HelloWorld. A única diferença é que seu código é compilado como uma DLL e a topologia é enviada usando SCPHost. exe. Consulte a seção modo de host SCP para obter uma explicação mais detalhada.
+Este exemplo é basicamente o mesmo que HelloWorld. A única diferença é que seu código é compilado como uma DLL e a topologia é enviada usando SCPHost.exe. Consulte a seção modo de host SCP para obter uma explicação mais detalhada.
 
 ## <a name="next-steps"></a>Próximas etapas
 

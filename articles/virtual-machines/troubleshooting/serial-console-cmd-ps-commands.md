@@ -14,10 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
 ms.openlocfilehash: 493340764f507c4fa364a5000f65cc232630b243
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77167039"
 ---
 # <a name="windows-commands---cmd-and-powershell"></a>Comandos do Windows – CMD e PowerShell
@@ -480,4 +479,4 @@ Para obter mais informações, consulte [Serviço de metadados da instância do 
 ## <a name="next-steps"></a>Próximas etapas
 * A página principal da documentação do console serial do Windows está localizada [aqui](serial-console-windows.md).
 * O console serial também está disponível para VMs do [Linux](serial-console-linux.md).
-* Saiba mais sobre o [diagnóstico de inicialização](boot-diagnostics.md).
+* Saiba mais sobre [diagnóstico de inicialização](boot-diagnostics.md).

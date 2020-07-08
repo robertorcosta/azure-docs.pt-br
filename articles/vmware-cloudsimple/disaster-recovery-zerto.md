@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 0e019a9229b671be2fb73e758bd39f33657bc2d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77083142"
 ---
 # <a name="set-up-cloudsimple-private-cloud-as-a-disaster-recovery-site-for-on-premises-vmware-workloads"></a>Configurar a nuvem privada do CloudSimple como um site de recuperação de desastre para cargas de trabalho do VMware locais
@@ -51,7 +50,7 @@ As seções a seguir descrevem como implantar uma solução de DR usando a repli
 Para habilitar a replicação virtual zerto do seu ambiente local para sua nuvem privada, conclua os seguintes pré-requisitos.
 
 1. [Configure uma conexão VPN site a site entre sua rede local e sua nuvem privada do CloudSimple](set-up-vpn.md).
-2. [Configure a pesquisa de DNS para que seus componentes de gerenciamento de nuvem privada sejam encaminhados para servidores DNS da nuvem privada](on-premises-dns-setup.md).  Para habilitar o encaminhamento de pesquisa de DNS, crie uma entrada de zona de encaminhamento no servidor DNS local `*.cloudsimple.io` para servidores DNS CloudSimple.
+2. [Configure a pesquisa de DNS para que seus componentes de gerenciamento de nuvem privada sejam encaminhados para servidores DNS da nuvem privada](on-premises-dns-setup.md).  Para habilitar o encaminhamento de pesquisa de DNS, crie uma entrada de zona de encaminhamento no servidor DNS local para `*.cloudsimple.io` servidores DNS CloudSimple.
 3. Configure a pesquisa de DNS para que os componentes do vCenter locais sejam encaminhados para servidores DNS locais.  Os servidores DNS devem estar acessíveis em sua nuvem privada do CloudSimple por meio de VPN site a site. Para obter assistência, envie uma [solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest), fornecendo as informações a seguir.  
 
     * Nome de domínio DNS local
