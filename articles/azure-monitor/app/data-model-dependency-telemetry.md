@@ -5,17 +5,16 @@ ms.topic: conceptual
 ms.date: 04/17/2017
 ms.reviewer: sergkanz
 ms.openlocfilehash: ba0d848904d1ba885dc53e2941953d8dfb4864cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77671912"
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>Telemetria de dependências: modelo de dados do Application Insights
 
 A telemetria de dependência (em [Application Insights](../../azure-monitor/app/app-insights-overview.md)) representa uma interação do componente monitorado com um componente remoto como SQL ou um ponto de extremidade HTTP.
 
-## <a name="name"></a>Name
+## <a name="name"></a>Nome
 
 Nome do comando iniciado com esta chamada de dependência. Valor de baixa cardinalidade. Os exemplos são o nome do procedimento armazenado e o modelo do caminho da URL.
 
@@ -27,7 +26,7 @@ Identificador de uma instância de chamada de dependência. Usado para correlaç
 
 Comando iniciado por essa chamada de dependência. Exemplos são a instrução SQL e a URL HTTP com todos os parâmetros de consulta.
 
-## <a name="type"></a>Type
+## <a name="type"></a>Tipo
 
 Nome do tipo de dependência. Valor de baixa cardinalidade para agrupamento lógico de dependências e a interpretação de outros campos como commandName e resultCode. Exemplos são HTTP, tabela do Azure e SQL.
 
@@ -39,7 +38,7 @@ Site de destino de uma chamada de dependência. Os exemplos são o nome do servi
 
 Duração da solicitação no formato: `DD.HH:MM:SS.MMMMMM`. Deve ser menor que `1000` dias.
 
-## <a name="result-code"></a>Código de resultado
+## <a name="result-code"></a>Código de Resultado
 
 Código de resultado de uma chamada de dependência. Os exemplos são o código de erro do SQL e o código de status HTTP.
 

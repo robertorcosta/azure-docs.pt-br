@@ -4,10 +4,9 @@ description: Monitoramento do desempenho de aplicativos para a VM do Azure e con
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.openlocfilehash: d75e14dccef565f0029d06583e74d5693726dd99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77661321"
 ---
 # <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Implantar o agente de Application Insights de Azure Monitor em máquinas virtuais do Azure e conjuntos de dimensionamento de máquinas virtuais do Azure
@@ -32,7 +31,7 @@ Há duas maneiras de habilitar o monitoramento de aplicativos para máquinas vir
 
     * O agente de Application Insights coleta automaticamente os mesmos sinais de dependência prontos para uso que o SDK do .NET. Consulte [coleção de dependência automática](https://docs.microsoft.com/azure/azure-monitor/app/auto-collect-dependencies#net) para saber mais.
         > [!NOTE]
-        > Atualmente, há suporte apenas para aplicativos hospedados no IIS do .net. Use um SDK para instrumentar aplicativos ASP.NET Core, Java e node. js hospedados em máquinas virtuais do Azure e conjuntos de dimensionamento de máquinas virtuais.
+        > Atualmente, há suporte apenas para aplicativos hospedados no IIS do .net. Use um SDK para instrumentar aplicativos ASP.NET Core, Java e Node.js hospedados em máquinas virtuais do Azure e conjuntos de dimensionamento de máquinas virtuais.
 
 * **Baseado em código** via SDK
 
@@ -168,7 +167,7 @@ Get-AzResource -ResourceId /subscriptions/<mySubscriptionId>/resourceGroups/<myR
 Encontre dicas de solução de problemas para Application Insights extensão do agente de monitoramento para aplicativos .NET em execução em máquinas virtuais do Azure e conjuntos de dimensionamento de máquinas virtuais.
 
 > [!NOTE]
-> Os aplicativos .NET Core, Java e node. js só têm suporte em máquinas virtuais do Azure e conjuntos de dimensionamento de máquinas virtuais do Azure por meio de instrumentação manual baseada em SDK e, portanto, as etapas a seguir não se aplicam a esses cenários.
+> Os aplicativos .NET Core, Java e Node.js só têm suporte em máquinas virtuais do Azure e em conjuntos de dimensionamento de máquinas virtuais do Azure por meio de instrumentação manual baseada em SDK e, portanto, as etapas a seguir não se aplicam a esses cenários.
 
 A saída de execução da extensão é registrada nos arquivos localizados nos seguintes diretórios:
 ```Windows

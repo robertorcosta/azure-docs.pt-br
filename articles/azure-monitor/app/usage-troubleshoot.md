@@ -7,10 +7,9 @@ ms.author: daviste
 ms.date: 07/11/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 8d2e573f34895207a455838b5fc64f95560943d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77670909"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Solucionar problemas de ferramentas de análise de comportamento do usuário no Application Insights
@@ -32,7 +31,7 @@ Atualmente, as ferramentas de análise de comportamento do usuário não são co
 ## <a name="naming-events"></a>Nomeando Eventos
 **Meu aplicativo tem milhares de exibições de página e nomes de evento personalizados diferentes. É difícil distinguir entre eles, e as ferramentas de análise de comportamento do usuário geralmente não respondem. Como corrigir esses problemas de nomenclatura?**
 
-A exibição de página e os nomes de eventos personalizados são usados nas ferramentas de análise de comportamento do usuário. Nomear bem os eventos é essencial para obter valor dessas ferramentas. A meta é um equilíbrio entre ter um número muito pequeno, excessivamente genérico ("botão clicado") e ter nomes muito específicos ("botão de edição clicado em http:\//www.contoso.com/index").
+A exibição de página e os nomes de eventos personalizados são usados nas ferramentas de análise de comportamento do usuário. Nomear bem os eventos é essencial para obter valor dessas ferramentas. A meta é um equilíbrio entre ter um número muito pequeno, excessivamente genérico ("botão clicado") e ter nomes muito específicos ("botão de edição clicado em http: \/ /www.contoso.com/index").
 
 Para fazer alterações no modo de exibição de página e nos nomes de evento personalizado que seu aplicativo está enviando, você precisa alterar o código-fonte e a reimplantação do seu aplicativo. **Todos os dados de telemetria no Application Insights são armazenados por 90 dias e não podem ser excluídos**; portanto, as alterações feitas aos nomes de evento levarão 90 dias para se manifestarem completamente. A 90 dias depois de fazer as alterações no nome, ambos os nomes de evento antigo e novo serão mostrados em sua telemetria, então ajuste as consultas e se comunique com suas equipes adequadamente.
 

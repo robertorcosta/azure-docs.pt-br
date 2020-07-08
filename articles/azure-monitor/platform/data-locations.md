@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 05/21/2019
 ms.openlocfilehash: 7d4459867081d920fefb9471b1a682d21040da9d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77666608"
 ---
 # <a name="monitoring-data-locations-in-azure-monitor"></a>Monitorando locais de dados no Azure Monitor
@@ -21,9 +20,9 @@ O Azure Monitor é baseado em [uma plataforma de dados](data-platform.md) de [lo
 
 A tabela a seguir identifica os diferentes locais em que os dados de monitoramento no Azure são enviados e os diferentes métodos para acessá-los.
 
-| Local | Descrição | Métodos de acesso |
+| Location | Descrição | Métodos de acesso |
 |:---|:---|:---|:--|
-| Métricas de Azure Monitor | O banco de dados de série temporal que é otimizado para analisar data com carimbo de hora. | [Metrics Explorer](metrics-getting-started.md)<br>[API de métricas Azure Monitor](/rest/api/monitor/metrics) |
+| Métricas do Azure Monitor | O banco de dados de série temporal que é otimizado para analisar data com carimbo de hora. | [Metrics Explorer](metrics-getting-started.md)<br>[API de métricas Azure Monitor](/rest/api/monitor/metrics) |
 | Logs do Azure Monitor    | Log Analytics espaço de trabalho baseado no Azure Data Explorer que fornece um avançado mecanismo de análise e uma linguagem de consulta avançada. | [Log Analytics](../log-query/portals.md)<br>[API de Log Analytics](https://dev.loganalytics.io/)<br>[API do Application Insights](https://dev.applicationinsights.io/reference/get-query) |
 | Log de atividades | Os dados do log de atividades são mais úteis quando enviados para Azure Monitor logs para analisá-los com outros dados, mas também são coletados por conta própria para que possam ser exibidos diretamente no portal do Azure. | [Azure portal](activity-log-view.md#azure-portal)<br>[API de Eventos do Azure Monitor](/rest/api/monitor/eventcategories) |
 | Armazenamento do Azure | Algumas fontes de dados serão gravadas diretamente no armazenamento do Azure e exigem configuração para mover dados para logs. Você também pode enviar dados para o armazenamento do Azure para arquivamento e para integração com sistemas externos.  | [Análise de Armazenamento](/rest/api/storageservices/storage-analytics)<br>[Gerenciador de Servidores](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage)<br>[Gerenciador de Armazenamento](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) |

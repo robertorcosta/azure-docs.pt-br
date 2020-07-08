@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.subservice: alerts
 ms.openlocfilehash: c076b8dcea350f9ddd66977e89ce99b81f377b17
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77669039"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhook para alertas de log de atividades do Azure
@@ -262,7 +261,7 @@ Para obter detalhes de esquema específico sobre alertas de log de atividades de
 | conditionType |Sempre "Evento". |
 | name |Nome da regra de alerta. |
 | id |ID do recurso do alerta. |
-| description |Descrição do alerta definida quando o alerta é criado. |
+| descrição |Descrição do alerta definida quando o alerta é criado. |
 | subscriptionId |Id de assinatura do Azure. |
 | timestamp |Hora quando o evento foi gerado pelo serviço do Azure que processou a solicitação. |
 | resourceId |ID de recurso do recurso afetado. |
@@ -277,7 +276,7 @@ Para obter detalhes de esquema específico sobre alertas de log de atividades de
 | eventDataId |Identificador exclusivo do evento. |
 | eventSource |Nome do serviço ou infraestrutura do Azure que gerou o evento. |
 | httpRequest |A solicitação geralmente inclui o clientRequestId, clientIpAddress e método HTTP (por exemplo, PUT). |
-| level |Um dos seguintes valores: Crítico, Erro, Aviso e Informativo. |
+| nível |Um dos seguintes valores: Crítico, Erro, Aviso e Informativo. |
 | operationId |Geralmente um GUID compartilhado entre os eventos correspondentes a uma única operação. |
 | operationName |Nome da operação. |
 | properties |Propriedades do evento. |

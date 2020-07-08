@@ -5,10 +5,9 @@ ms.subservice: logs
 ms.topic: conceptual
 ms.date: 07/29/2018
 ms.openlocfilehash: a85dad2ba638505233e5df769e55fa5bd7b8dafd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77664993"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Criar e gerenciar regras de alerta no Log Analytics com a API REST 
@@ -27,7 +26,7 @@ Atualmente, os alertas somente podem ser criados com uma pesquisa salva no Log A
 Uma pesquisa salva pode ter um ou mais agendamentos. O agendamento define a frequência com que a pesquisa é executada e o intervalo de tempo em que os critérios são identificados.
 Os agendamentos têm as propriedades indicadas na tabela a seguir.
 
-| Propriedade | Descrição |
+| Property | Descrição |
 |:--- |:--- |
 | Intervalo |A frequência com que a pesquisa é executada. Medida em minutos. |
 | QueryTimeSpan |O intervalo durante o qual os critérios são avaliados. Deve ser igual ou maior que Interval. Medida em minutos. |
@@ -87,7 +86,7 @@ Um agendamento pode ter várias ações. Uma ação pode definir um ou mais proc
 
 Todas as ações têm as propriedades indicadas na tabela a seguir.  Diferentes tipos de alertas têm diferentes propriedades adicionais que são descritas abaixo.
 
-| Propriedade | Descrição |
+| Property | Descrição |
 |:--- |:--- |
 | `Type` |Tipo da ação.  Atualmente, os valores possíveis são Alerta e Webhook. |
 | `Name` |Nome de exibição para o alerta. |
@@ -135,7 +134,7 @@ Uma ação de Alerta deve ter somente um limite.  Quando os resultados de pesqui
 
 Os limites têm as propriedades indicadas na tabela a seguir.
 
-| Propriedade | Descrição |
+| Property | Descrição |
 |:--- |:--- |
 | `Operator` |Operador de comparação de limite. <br> gt = Maior Que <br>  lt = Menor Que |
 | `Value` |Valor para o limite. |

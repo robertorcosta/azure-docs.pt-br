@@ -12,10 +12,9 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
 ms.openlocfilehash: 31b49cdd9e0e5569981b2a0b0c6efcab7239e019
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77648505"
 ---
 # <a name="monitor-migration-activity-using-the-azure-database-migration-service"></a>Monitorar a atividade de migração usando o serviço de migração de banco de dados do Azure
@@ -63,11 +62,11 @@ A tabela a seguir lista os campos na folha de nível de banco de dados e descrev
       <td>O pipeline do DMS está em execução e executando a migração.</td>
     </tr>
     <tr>
-      <td>Concluído</td>
+      <td>Concluir</td>
       <td>Migração concluída.</td>
     </tr>
     <tr>
-      <td>Failed (Falha)</td>
+      <td>Falhou</td>
       <td>Falha na migração. Clique nos detalhes da migração para ver os erros de migração.</td>
     </tr>
     <tr>
@@ -92,7 +91,7 @@ A tabela a seguir lista os campos na folha de nível de banco de dados e descrev
       <td>Clique no link para mostrar detalhes do erro.</td>
     </tr>
     <tr>
-      <td rowspan="1" class="duration"><strong>Permanência</strong></td>
+      <td rowspan="1" class="duration"><strong>Duration</strong></td>
       <td>N/D</td>
       <td>Tempo total desde a inicialização da atividade de migração até a conclusão da migração ou a falha de migração.</td>
     </tr>
@@ -132,9 +131,9 @@ A tabela a seguir descreve os campos mostrados no andamento da migração em ní
 | Nome do campo        | Descrição       |
 | ------------- | ------------- |
 | **Status – sincronizando**      | A sincronização contínua está em execução. |
-| **Inserir**      | Número de inserções da CDA nas linhas aplicadas ao destino.      |
+| **Inserção**      | Número de inserções da CDA nas linhas aplicadas ao destino.      |
 | **Atualização** | O número de atualizações da CDA nas linhas aplicadas ao destino.      |
-| **Delete (excluir)**      | Número de exclusões da CDA nas linhas aplicadas ao destino. |
+| **Excluir**      | Número de exclusões da CDA nas linhas aplicadas ao destino. |
 | **Total Aplicado**      | Total de atualizações, inserções e exclusões da CDA nas linhas aplicadas ao destino. |
 | **Erros de dados** | O número de erros de dados ocorridos nesta tabela. Alguns exemplos dos erros são *511: não é possível criar uma linha do tamanho %d que é maior que o tamanho de linha máximo permitido de %d, 8114: erro ao converter o tipo de dados %ls em %ls.*  O cliente deve consultar os detalhes do erro na tabela dms_apply_exceptions no destino do Azure.    |
 

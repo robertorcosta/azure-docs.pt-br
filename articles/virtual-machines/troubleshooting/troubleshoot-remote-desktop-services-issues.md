@@ -13,10 +13,9 @@ ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
 ms.openlocfilehash: 4b314fbdb9cbc0c0b797cbee8e92ee4702bbea81
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77919457"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Serviços de área de trabalho remota não estiver iniciando uma VM do Azure
@@ -94,7 +93,7 @@ Para solucionar esse problema, use o Console Serial. Ou então, [repare a VM off
    ```
 8. Se o serviço não for iniciado, execute a solução baseada no erro recebido:
 
-    |  Erro do |  Sugestão |
+    |  Erro |  Sugestão |
     |---|---|
     |5 - ACESSO NEGADO |Consulte o [Serviço TermService está parado devido a um erro de Acesso Negado](#termservice-service-is-stopped-because-of-an-access-denied-problem). |
     |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |Veja [Serviço TermService está desabilitado](#termservice-service-is-disabled).  |  

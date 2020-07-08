@@ -4,10 +4,9 @@ description: Implante o pacote ZIP do aplicativo com atomicidade. Melhore a prev
 ms.topic: article
 ms.date: 01/14/2020
 ms.openlocfilehash: 5cc909d79b3f5ea2b4c6a3da12bc7250addbe00c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77920715"
 ---
 # <a name="run-your-app-in-azure-app-service-directly-from-a-zip-package"></a>Executar seu aplicativo no serviço Azure App diretamente de um pacote ZIP
@@ -47,7 +46,7 @@ A maneira mais fácil de executar um pacote em seu serviço de aplicativo é com
 az webapp deployment source config-zip --resource-group <group-name> --name <app-name> --src <filename>.zip
 ```
 
-Como a `WEBSITE_RUN_FROM_PACKAGE` configuração do aplicativo está definida, esse comando não extrai o conteúdo do pacote para o diretório *D:\home\site\wwwroot* do seu aplicativo. Em vez disso, ele carrega o arquivo ZIP como está para *D:\home\data\SitePackages*e cria um *PackageName. txt* no mesmo diretório, que contém o nome do pacote zip a ser carregado no tempo de execução. Se você carregar o pacote ZIP de uma maneira diferente (como [FTP](deploy-ftp.md)), precisará criar o diretório *D:\home\data\SitePackages* e o arquivo *PackageName. txt* manualmente.
+Como a `WEBSITE_RUN_FROM_PACKAGE` configuração do aplicativo está definida, esse comando não extrai o conteúdo do pacote para o diretório *D:\home\site\wwwroot* do seu aplicativo. Em vez disso, ele carrega o arquivo ZIP como está para *D:\home\data\SitePackages*e cria um *packagename.txt* no mesmo diretório, que contém o nome do pacote zip a ser carregado em tempo de execução. Se você carregar o pacote ZIP de uma maneira diferente (como [FTP](deploy-ftp.md)), precisará criar o diretório *D:\home\data\SitePackages* e o arquivo de *packagename.txt* manualmente.
 
 O comando também reinicia o aplicativo. Como `WEBSITE_RUN_FROM_PACKAGE` é definido, o serviço de aplicativo monta o pacote carregado como o diretório *wwwroot* somente leitura e executa o aplicativo diretamente do diretório montado.
 
@@ -55,7 +54,7 @@ O comando também reinicia o aplicativo. Como `WEBSITE_RUN_FROM_PACKAGE` é defi
 
 Você também pode executar um pacote de uma URL externa, como o armazenamento de BLOBs do Azure. Você pode usar o [Gerenciador de Armazenamento do Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) para carregar arquivos de pacote para sua conta de armazenamento de Blobs. Você deve usar um contêiner de armazenamento privado com uma [SAS (assinatura de acesso compartilhado)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) para permitir que o tempo de execução do serviço de aplicativo acesse o pacote com segurança. 
 
-Depois de carregar o arquivo no armazenamento de BLOBs e ter uma URL SAS para o arquivo, `WEBSITE_RUN_FROM_PACKAGE` defina a configuração do aplicativo para a URL. O exemplo a seguir faz isso usando CLI do Azure:
+Depois de carregar o arquivo no armazenamento de BLOBs e ter uma URL SAS para o arquivo, defina a `WEBSITE_RUN_FROM_PACKAGE` configuração do aplicativo para a URL. O exemplo a seguir faz isso usando CLI do Azure:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_RUN_FROM_PACKAGE="https://myblobstorage.blob.core.windows.net/content/SampleCoreMVCApp.zip?st=2018-02-13T09%3A48%3A00Z&se=2044-06-14T09%3A48%3A00Z&sp=rl&sv=2017-04-17&sr=b&sig=bNrVrEFzRHQB17GFJ7boEanetyJ9DGwBSV8OM3Mdh%2FM%3D"
@@ -68,7 +67,7 @@ Se você publicar um pacote atualizado com o mesmo nome para o armazenamento de 
 - Executar diretamente de um pacote torna `wwwroot` somente leitura. Seu aplicativo receberá um erro se tentar gravar arquivos nesse diretório.
 - Não há suporte para formatos TAR e GZIP.
 - Este recurso não é compatível com o [cache local](overview-local-cache.md).
-- Para obter um desempenho de inicialização a frio aprimorado, use a`WEBSITE_RUN_FROM_PACKAGE`opção de zip local (= 1).
+- Para obter um desempenho de inicialização a frio aprimorado, use a opção de zip local ( `WEBSITE_RUN_FROM_PACKAGE` = 1).
 
 ## <a name="more-resources"></a>Mais recursos
 

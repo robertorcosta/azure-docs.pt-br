@@ -4,10 +4,9 @@ description: Iniciar o monitoramento de um novo aplicativo com uma nova chave de
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.openlocfilehash: 395e8d667985318f4a084428c6fd4c395ee8b956
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77671436"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Monitorar um site do SharePoint com o Application Insights
@@ -39,7 +38,7 @@ var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=wi
 </script>
 ```
 
-Insira o script logo antes da &lt;marca&gt; /Head de cada página que você deseja controlar. Se seu site tiver uma página mestra, você poderá colocar o script lá. Por exemplo, em um projeto ASP.NET MVC, você deve colocá-lo em View\Shared\_Layout. cshtml
+Insira o script logo antes da &lt; &gt; marca/Head de cada página que você deseja controlar. Se seu site tiver uma página mestra, você poderá colocar o script lá. Por exemplo, em um projeto ASP.NET MVC, você deve colocá-lo em View\Shared\_Layout. cshtml
 
 O script contém a chave de instrumentação que direciona a telemetria para o recurso do Application Insights.
 
@@ -51,7 +50,7 @@ Confira a página mestra e edite-a usando o SharePoint Designer ou qualquer outr
 
 ![](./media/sharepoint/03-master.png)
 
-Adicione o código antes da marca </head> . 
+Adicione o código logo antes da </head> Tags. 
 
 ![](./media/sharepoint/04-code.png)
 

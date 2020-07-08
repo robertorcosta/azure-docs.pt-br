@@ -7,10 +7,9 @@ author: abshamsft
 ms.author: absha
 ms.date: 11/27/2018
 ms.openlocfilehash: 6ac610d7dcf9849b6b439741957684867b9d01aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77660743"
 ---
 # <a name="expressroute-monitor"></a>ExpressRoute Monitor
@@ -57,7 +56,7 @@ Para saber mais sobre NSGs, confira  [Grupos de segurança de rede](../../virt
 3. Se você pretender criar eventos de integridade para esta conexão, selecione **Habilitar Monitoramento de Integridade para esse emparelhamento**. 
 4. Escolha as condições de monitoramento. Você pode definir limites personalizados para geração de eventos de integridade digitando os valores de limite. Sempre que o valor da condição ultrapassar o limite selecionado para a conexão de emparelhamento, será gerado um evento de integridade. 
 5. Selecione **Adicionar Agentes** para escolher os agentes de monitoramentos que você pretende usar para monitorar essa conexão de emparelhamento. Certifique-se de adicionar agentes em ambas as extremidades da conexão. Você precisa de pelo menos um agente na rede virtual conectada a esse emparelhamento. Você também precisa de pelo menos um agente local conectado a esse emparelhamento. 
-6. Selecione **Salvar** para salvar a configuração. 
+6. Selecione **salvar** para salvar a configuração. 
 
    ![Configuração de monitoramento do ExpressRoute](media/network-performance-monitor-expressroute/expressroute-configure-discovery.png)
 
@@ -103,7 +102,7 @@ Esta exibição mostra as conexões de rede virtuais. 
 
 ![Conexões de rede virtual do ExpressRoute](media/network-performance-monitor-expressroute/expressroute-vnet.png)
  
-## <a name="diagnostics"></a>Diagnóstico 
+## <a name="diagnostics"></a>Diagnósticos 
 
 O Monitor de Desempenho de Rede ajuda a diagnosticar vários problemas de conectividade do circuito. Alguns dos problemas que você pode ver estão listadas abaixo.
 

@@ -17,10 +17,9 @@ ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
 ms.openlocfilehash: a1726e18ea8c1ba86d77d7b9ca3d50c444620361
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77657156"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Visão geral de segurança de máquinas virtuais do Azure
@@ -61,10 +60,10 @@ Para uma proteção ainda mais poderosa, considere o uso da [Proteção Avançad
 * [Proteção de próxima geração](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)  
 * [Resposta e a proteção de ponto de extremidade](/windows/security/threat-protection/windows-defender-atp/overview-endpoint-detection-response)
 * [Correção e investigação automatizada](/windows/security/threat-protection/windows-defender-atp/automated-investigations-windows-defender-advanced-threat-protection)
-* [Classificação de segurança](/windows/security/threat-protection/microsoft-defender-atp/configuration-score)
+* [Pontuação segura](/windows/security/threat-protection/microsoft-defender-atp/configuration-score)
 * [Procura avançada](/windows/security/threat-protection/windows-defender-atp/overview-hunting-windows-defender-advanced-threat-protection)
 * [Gerenciamento e APIs](/windows/security/threat-protection/windows-defender-atp/management-apis)
-* [Proteção contra ameaças da Microsoft](/windows/security/threat-protection/windows-defender-atp/threat-protection-integration)
+* [Proteção contra Ameaças da Microsoft](/windows/security/threat-protection/windows-defender-atp/threat-protection-integration)
 
 Saiba mais:
 
@@ -79,7 +78,7 @@ O Cofre de Chaves oferece a opção de armazenar as chaves em HSMs (módulos de 
 
 Saiba mais:
 
-* [O que é o Azure Key Vault?](/azure/key-vault/key-vault-overview)
+* [O que é o Cofre da Chave do Azure?](/azure/key-vault/key-vault-overview)
 * [Blog do Cofre de Chaves do Azure](https://blogs.technet.microsoft.com/kv/)
 
 ## <a name="virtual-machine-disk-encryption"></a>Criptografia de disco da máquina virtual
@@ -129,7 +128,7 @@ Uma Rede Virtual do Azure é um constructo lógico criado na malha de rede físi
 Saiba mais:
 
 * [Visão geral da segurança de rede do Azure](network-overview.md)
-* [Visão geral da rede virtual](/azure/virtual-network/virtual-networks-overview)
+* [Visão geral da Rede Virtual](/azure/virtual-network/virtual-networks-overview)
 * [Recursos de rede e parcerias para cenários empresariais](https://azure.microsoft.com/blog/networking-enterprise/)
 
 ## <a name="security-policy-management-and-reporting"></a>Gerenciamento de política de segurança e emissão de relatórios

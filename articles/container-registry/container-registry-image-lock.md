@@ -4,10 +4,9 @@ description: Defina atributos para uma imagem de contêiner ou repositório para
 ms.topic: article
 ms.date: 09/30/2019
 ms.openlocfilehash: da84767523bb6d948b71b1c1ad2ddaffb628354a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77659689"
 ---
 # <a name="lock-a-container-image-in-an-azure-container-registry"></a>Bloquear uma imagem de contêiner em um registro de contêiner do Azure
@@ -17,7 +16,7 @@ Em um registro de contêiner do Azure, você pode bloquear uma versão de imagem
 Este artigo requer que você execute o CLI do Azure no Azure Cloud Shell ou localmente (versão 2.0.55 ou posterior recomendada). Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli].
 
 > [!IMPORTANT]
-> Este artigo não se aplica ao bloqueio de um registro inteiro, por exemplo, usando **configurações > bloqueios** no portal do Azure `az lock` ou comandos no CLI do Azure. O bloqueio de um recurso de registro não impede que você crie, atualize ou exclua dados em repositórios. O bloqueio de um registro afeta apenas as operações de gerenciamento, como adicionar ou excluir replicações, ou excluir o próprio registro. Mais informações em [Bloquear recursos para evitar alterações inesperadas](../azure-resource-manager/management/lock-resources.md).
+> Este artigo não se aplica ao bloqueio de um registro inteiro, por exemplo, usando **configurações > bloqueios** no portal do Azure ou `az lock` comandos no CLI do Azure. O bloqueio de um recurso de registro não impede que você crie, atualize ou exclua dados em repositórios. O bloqueio de um registro afeta apenas as operações de gerenciamento, como adicionar ou excluir replicações, ou excluir o próprio registro. Mais informações em [Bloquear recursos para evitar alterações inesperadas](../azure-resource-manager/management/lock-resources.md).
 
 ## <a name="scenarios"></a>Cenários
 
@@ -69,7 +68,7 @@ az acr repository update \
 
 ### <a name="lock-an-image-by-manifest-digest"></a>Bloquear uma imagem por Resumo do manifesto
 
-Para bloquear uma imagem *myrepositório/MyImage* identificada pelo resumo do manifesto (SHA-256 hash, `sha256:...`representado como), execute o comando a seguir. (Para localizar o resumo do manifesto associado a uma ou mais marcas de imagem, execute o comando [AZ ACR Repository show-manifestas][az-acr-repository-show-manifests] .)
+Para bloquear uma imagem *myrepositório/MyImage* identificada pelo resumo do manifesto (SHA-256 hash, representado como `sha256:...` ), execute o comando a seguir. (Para localizar o resumo do manifesto associado a uma ou mais marcas de imagem, execute o comando [AZ ACR Repository show-manifestas][az-acr-repository-show-manifests] .)
 
 ```azurecli
 az acr repository update \

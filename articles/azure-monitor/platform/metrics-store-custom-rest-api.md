@@ -8,10 +8,9 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 84709c022631543101889f784231158ebb96b6f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77662257"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>Enviar métricas personalizadas de um recurso do Azure para o repositório de métricas do Azure Monitor usando uma API REST
@@ -103,7 +102,7 @@ Se você receber uma mensagem de erro em alguma parte do processo, considere as 
 
 1. No menu à esquerda, selecione **Monitor**. 
 
-1. Sobre o **Monitor** página, selecione **métricas**. 
+1. Na página **monitorar** , selecione **métricas**. 
 
    ![Selecione Métricas](./media/metrics-store-custom-rest-api/metrics.png) 
 

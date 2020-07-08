@@ -9,21 +9,20 @@ ms.topic: troubleshooting
 ms.date: 02/10/2020
 ms.author: aleldeib
 ms.openlocfilehash: eb6b126b4d1794adf0380432040190b91a17a675
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77925599"
 ---
 # <a name="linux-performance-troubleshooting"></a>Solução de problemas de desempenho do Linux
 
 O esgotamento de recursos em computadores Linux é um problema comum e pode ser manifestado por meio de uma ampla variedade de sintomas. Este documento fornece uma visão geral de alto nível das ferramentas disponíveis para ajudar a diagnosticar esses problemas.
 
-Muitas dessas ferramentas aceitam um intervalo no qual produzir saída sem interrupção. Esse formato de saída geralmente torna os padrões de descobrir muito mais fáceis. Quando aceito, a invocação de exemplo incluirá `[interval]`.
+Muitas dessas ferramentas aceitam um intervalo no qual produzir saída sem interrupção. Esse formato de saída geralmente torna os padrões de descobrir muito mais fáceis. Quando aceito, a invocação de exemplo incluirá `[interval]` .
 
 Muitas dessas ferramentas têm um amplo histórico e amplo conjunto de opções de configuração. Esta página fornece apenas um subconjunto simples de invocações para destacar problemas comuns. A fonte de informações canônica é sempre a documentação de referência para cada ferramenta específica. Essa documentação será muito mais completa do que a fornecida aqui.
 
-## <a name="guidance"></a>Orientação
+## <a name="guidance"></a>Diretrizes
 
 Seja sistemático em sua abordagem para investigar problemas de desempenho. Duas abordagens comuns são usar (utilização, saturação, erros) e vermelho (taxa, erros, duração). Normalmente, o vermelho é usado no contexto de serviços para monitoramento baseado em solicitação. O uso normalmente é usado para monitorar recursos: para cada recurso em um computador, monitore a utilização, a saturação e os erros. Os quatro tipos principais de recursos em qualquer computador são CPU, memória, disco e rede. Alta utilização, saturação ou taxas de erro para qualquer um desses recursos indica um possível problema com o sistema. Quando houver um problema, investigue a causa raiz: por que a latência de e/s de disco é alta? Os discos ou a SKU da máquina virtual foram restringidos? Quais processos estão gravando nos dispositivos e em quais arquivos?
 
@@ -31,7 +30,7 @@ Alguns exemplos de problemas comuns e indicadores para diagnostique-los:
 - Limitação de IOPS: Use iostat para medir o IOPS por dispositivo. Certifique-se de que nenhum disco individual esteja acima do limite e que a soma de todos os discos seja menor que o limite para a máquina virtual.
 - Limitação de largura de banda: Use iostat como para IOPS, mas medindo a taxa de transferência de leitura/gravação. Certifique-se de que a taxa de transferência por dispositivo e agregada estejam abaixo dos limites de largura de banda.
 - Esgotamento de SNAT: isso pode ser manifestado como conexões de alta (saída) ativas em SAR. 
-- Perda de pacotes: isso pode ser medido por proxy por meio da contagem de retransmissão TCP relativa à contagem enviada/recebida. `sar` E `netstat` podem mostrar essas informações.
+- Perda de pacotes: isso pode ser medido por proxy por meio da contagem de retransmissão TCP relativa à contagem enviada/recebida. `sar`E `netstat` podem mostrar essas informações.
 
 ## <a name="general"></a>Geral
 
@@ -119,11 +118,11 @@ procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
  2  0      0 43300372 545716 19691456    0    0     3    50    3    3  2  1 95  1  0
 ```
 
-`vmstat`fornece informações `mpstat` semelhantes e `top`, enumerando o número de processos aguardando pela CPU (coluna de r), estatísticas de memória e porcentagem do tempo de CPU gasto em cada Estado de trabalho.
+`vmstat`fornece informações semelhantes `mpstat` e `top` , enumerando o número de processos aguardando pela CPU (coluna de r), estatísticas de memória e porcentagem do tempo de CPU gasto em cada Estado de trabalho.
 
 ## <a name="memory"></a>Memória
 
-A memória é um recurso muito importante e, felizmente, fácil de controlar. Algumas ferramentas podem relatar CPU e memória, como `vmstat`. Mas ferramentas como `free` ainda podem ser úteis para a depuração rápida.
+A memória é um recurso muito importante e, felizmente, fácil de controlar. Algumas ferramentas podem relatar CPU e memória, como `vmstat` . Mas ferramentas como `free` ainda podem ser úteis para a depuração rápida.
 
 ### <a name="free"></a>livre
 
@@ -157,7 +156,7 @@ sda               0.00    56.00    0.00   65.00     0.00   504.00    15.51     0
 scd0              0.00     0.00    0.00    0.00     0.00     0.00     0.00     0.00    0.00    0.00    0.00   0.00   0.00
 ```
 
-`iostat`fornece informações aprofundadas sobre a utilização do disco. Essa invocação passa `-x` por estatísticas estendidas `-y` , para ignorar a média inicial do sistema de impressão de saída desde `1 1` a inicialização e para especificar que desejamos um intervalo de 1 segundo, terminando após um bloco de saída. 
+`iostat`fornece informações aprofundadas sobre a utilização do disco. Essa invocação passa `-x` por estatísticas estendidas, `-y` para ignorar a média inicial do sistema de impressão de saída desde a inicialização e `1 1` para especificar que desejamos um intervalo de 1 segundo, terminando após um bloco de saída. 
 
 `iostat`o expõe muitas estatísticas úteis:
 
@@ -199,7 +198,7 @@ $ sar -n DEV [interval]
 22:36:58    azvdbf16b0b2fc      9.00     19.00      3.36      1.18      0.00      0.00      0.00      0.00
 ```
 
-`sar`é uma ferramenta poderosa para uma ampla gama de análises. Embora este exemplo use sua capacidade de medir as estatísticas de rede, é igualmente eficiente para medir a CPU e o consumo de memória. Este exemplo invoca `sar` com `-n` sinalizador para especificar a palavra `DEV` -chave (dispositivo de rede), exibindo a taxa de transferência de rede por dispositivo.
+`sar`é uma ferramenta poderosa para uma ampla gama de análises. Embora este exemplo use sua capacidade de medir as estatísticas de rede, é igualmente eficiente para medir a CPU e o consumo de memória. Este exemplo invoca `sar` com `-n` sinalizador para especificar a `DEV` palavra-chave (dispositivo de rede), exibindo a taxa de transferência de rede por dispositivo.
 
 - A soma de `rxKb/s` e `txKb/s` é a taxa de transferência total para um determinado dispositivo. Quando esse valor exceder o limite para a NIC provisionada do Azure, as cargas de trabalho no computador passarão por latência de rede aumentada.
 - `%ifutil`mede a utilização de um determinado dispositivo. À medida que esse valor se aproximar 100%, as cargas de trabalho sofrerão maior latência de rede.
@@ -221,7 +220,7 @@ Average:     atmptf/s  estres/s retrans/s isegerr/s   orsts/s
 Average:         0.00      0.00      0.00      0.00      0.00
 ```
 
-Essa invocação do `sar` usa as `TCP,ETCP` palavras-chave para examinar as conexões TCP. A terceira coluna da última linha, "retrans", é o número de retransmissãos de TCP por segundo. Valores altos para este campo indicam uma conexão de rede não confiável. Na primeira e terceira linhas, "ativa" significa que uma conexão foi originada do dispositivo local, enquanto "Remote" indica uma conexão de entrada.  Um problema comum no Azure é o esgotamento de porta `sar` SNAT, que pode ajudar a detectar. O esgotamento da porta SNAT seria manifestado como valores "ativos" altos, pois o problema ocorre devido a uma alta taxa de conexões TCP de saída, iniciadas localmente.
+Essa invocação do `sar` usa as `TCP,ETCP` palavras-chave para examinar as conexões TCP. A terceira coluna da última linha, "retrans", é o número de retransmissãos de TCP por segundo. Valores altos para este campo indicam uma conexão de rede não confiável. Na primeira e terceira linhas, "ativa" significa que uma conexão foi originada do dispositivo local, enquanto "Remote" indica uma conexão de entrada.  Um problema comum no Azure é o esgotamento de porta SNAT, que `sar` pode ajudar a detectar. O esgotamento da porta SNAT seria manifestado como valores "ativos" altos, pois o problema ocorre devido a uma alta taxa de conexões TCP de saída, iniciadas localmente.
 
 Como `sar` usa um intervalo, ele imprime a saída sem interrupção e, em seguida, imprime as linhas finais da saída que contém os resultados médios da invocação.
 

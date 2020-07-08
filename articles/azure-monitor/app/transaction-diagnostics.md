@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
 ms.openlocfilehash: 39c4c51a1bc84e06efac3674b1ee5b487f9e6729
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77671130"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Diagnóstico de transação entre componentes unificado
@@ -66,9 +65,9 @@ Esse painel recolhível mostra os outros resultados que atendem aos critérios d
 
 O [Application Insights Profiler](../../azure-monitor/app/profiler.md) ou o [depurador de instantâneos](snapshot-debugger.md) ajuda com diagnósticos de nível de código de problemas de falha e desempenho. Com essa experiência, você pode ver Rastreamentos do Profiler ou instantâneos de qualquer componente com um único clique.
 
-Se você não conseguiu obter o criador de perfil, entre em contato com **serviceprofilerhelp\@Microsoft.com**
+Se você não conseguiu obter o criador de perfil, entre em contato com **serviceprofilerhelp \@ Microsoft.com**
 
-Se você não pôde obter Depurador de Instantâneos funcionando, entre em contato com **snapshothelp\@Microsoft.com**
+Se você não pôde obter Depurador de Instantâneos funcionando, entre em contato com **snapshothelp \@ Microsoft.com**
 
 ![Integração do Profiler](media/transaction-diagnostics/profilerTraces.png)
 

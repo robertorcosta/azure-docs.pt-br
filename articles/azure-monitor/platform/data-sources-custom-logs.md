@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 09/26/2019
 ms.openlocfilehash: 1e889aaef7cd01cd743e8063a8a1dd5138ba9d0e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77670586"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Logs personalizados de atividades no Azure Monitor
@@ -50,7 +49,7 @@ Use o procedimento a seguir para definir um arquivo de log personalizado.  Role 
 O Assistente de Log Personalizado é executado no portal do Azure e permite que você defina um novo log personalizado para ser coletado.
 
 1. No portal do Azure, escolha **workspaces do Log Analytics** > seu workspace > **Configurações Avançadas**.
-2. Clique em **dados** > **logs personalizados**.
+2. Clique em **dados**  >  **logs personalizados**.
 3. Por padrão, todas as alterações de configuração são automaticamente envidas por push para todos os agentes. Para agentes do Linux, um arquivo de configuração é enviado para o coletor de dados Fluentd.
 4. Clique e **Adicionar+** para abrir o Custom Log Wizard (Assistente de Log Personalizado).
 
@@ -62,10 +61,10 @@ Inicie carregando um exemplo de log personalizado.  O assistente analisará e ex
 Se um delimitador de carimbo de data/hora for usado, a propriedade TimeGenerated de cada registro armazenado no Azure Monitor será preenchido com a data/hora especificada para essa entrada no arquivo de log.  Se um delimitador de nova linha for usado, TimeGenerated será populada com a data e hora em que o Azure Monitor coletou a entrada.
 
 1. Clique em **Procurar** e navegue até um arquivo de exemplo.  Observe que esse botão pode ser rotulado como **Escolher Arquivo** em alguns navegadores.
-2. Clique em **Avançar**.
+2. Clique em **Próximo**.
 3. O Custom Log Wizard (Assistente de Log Personalizado) carregará o arquivo e listará os registros que identificar.
 4. Altere o delimitador usado para identificar um novo registro e selecione o delimitador que melhor identifica os registros no arquivo de log.
-5. Clique em **Avançar**.
+5. Clique em **Próximo**.
 
 ### <a name="step-3-add-log-collection-paths"></a>Etapa 3. Adicionar caminhos de coleta de log
 Você deve definir um ou mais caminhos no agente no qual ele pode localizar o log personalizado.  Você pode fornecer um caminho e um nome específicos para o arquivo de log ou pode especificar um caminho com um caractere curinga para o nome. Isso dá suporte a aplicativos que criam um novo arquivo por dia ou quando um arquivo atinge um determinado tamanho. Você também pode fornecer vários caminhos para um único arquivo de log.
@@ -88,7 +87,7 @@ A tabela a seguir fornece exemplos de padrões válidos para especificar diferen
 ### <a name="step-4-provide-a-name-and-description-for-the-log"></a>Etapa 4. Fornecer um nome e descrição para o log
 O nome especificado será usado para o tipo de log, conforme descrito acima.  Ele sempre terminará com _CL para distingui-lo como um log personalizado.
 
-1. Digite um nome para o log.  O ** \_sufixo CL** é fornecido automaticamente.
+1. Digite um nome para o log.  O sufixo ** \_ CL** é fornecido automaticamente.
 2. Adicione uma **Descrição**opcional.
 3. Clique em **Próximo** para salvar a definição do log personalizado.
 
@@ -117,12 +116,12 @@ Todo o conteúdo da entrada de log é gravado em uma única propriedade chamada 
 ## <a name="custom-log-record-properties"></a>Propriedades de registro do log personalizado
 Os registros de log personalizado têm um tipo com o nome do log que você fornece e as propriedades na tabela a seguir.
 
-| Propriedade | Descrição |
+| Property | Descrição |
 |:--- |:--- |
 | TimeGenerated |Data e hora em que o registro foi coletado pelo Azure Monitor.  Se o log usar um delimitador baseado na hora, essa será a hora coletada da entrada. |
 | SourceSystem |Tipo de registro do qual os dados foram coletados. <br> OpsManager – agente do Windows, conexão direta ou System Center Operations Manager <br>  Linux: todos os agentes do Linux |
 | RawData |Texto completo da entrada coletada. Você provavelmente desejará [analisar esses dados em propriedades individuais](../log-query/parse-text.md). |
-| ManagementGroupName |Nome do grupo de gerenciamento para agentes do System Center Operations Manager.  Para outros agentes, ele é AOI-\<ID do espaço de trabalho\> |
+| ManagementGroupName |Nome do grupo de gerenciamento para agentes do System Center Operations Manager.  Para outros agentes, ele é AOI-\<workspace ID\> |
 
 
 ## <a name="sample-walkthrough-of-adding-a-custom-log"></a>Passo a passo do exemplo de adição de um log personalizado
@@ -140,7 +139,7 @@ Fornecemos um dos arquivos de log e podemos ver os eventos que ele coletará.  N
 ![Carregar e analisar um log de exemplo](media/data-sources-custom-logs/delimiter.png)
 
 ### <a name="add-log-collection-paths"></a>Adicionar caminhos de coleta de log
-Os arquivos de log estarão localizados em *C:\MyApp\Logs*.  Será criado um novo arquivo por dia com um nome que inclui a data no padrão *appAAAAMMDD.log*.  Um padrão suficiente para esse log seria *\\\*C:\MyApp\Logs. log*.
+Os arquivos de log estarão localizados em *C:\MyApp\Logs*.  Será criado um novo arquivo por dia com um nome que inclui a data no padrão *appAAAAMMDD.log*.  Um padrão suficiente para esse log seria *C:\MyApp\Logs \\ \* . log*.
 
 ![Caminho da coleta do log](media/data-sources-custom-logs/collection-path.png)
 

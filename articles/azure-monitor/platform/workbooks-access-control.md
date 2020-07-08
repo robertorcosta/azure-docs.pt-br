@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: 20116ab105e4eb12875ba3cb279fb261eb5c70e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77658414"
 ---
 # <a name="access-control"></a>Controle de acesso
@@ -24,14 +23,14 @@ O controle de acesso em pastas de trabalho refere-se a duas coisas:
 
 * Acesso necessário para salvar pastas de trabalho
 
-    - Salvar pastas `("My")` de trabalho particulares não requer privilégios adicionais. Todos os usuários podem salvar pastas de trabalho particulares e apenas podem ver essas pastas de trabalho.
+    - Salvar `("My")` pastas de trabalho particulares não requer privilégios adicionais. Todos os usuários podem salvar pastas de trabalho particulares e apenas podem ver essas pastas de trabalho.
     - Salvar pastas de trabalho compartilhadas requer privilégios de gravação em um grupo de recursos para salvar a pasta de trabalho. Esses privilégios geralmente são especificados pela função de [colaborador de monitoramento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) , mas também podem ser definidos por meio da função colaborador de pastas de *trabalho* .
     
 ## <a name="standard-roles-with-workbook-related-privileges"></a>Funções padrão com privilégios relacionados à pasta de trabalho
 
 O [leitor de monitoramento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) inclui privilégios de/Read padrão que seriam usados por ferramentas de monitoramento (incluindo pastas de trabalho) para ler dados de recursos.
 
-O [colaborador](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) de monitoramento `/write` inclui privilégios gerais usados por várias ferramentas de monitoramento para salvar `workbooks/write` itens (incluindo privilégios para salvar pastas de trabalho compartilhadas).
+O [colaborador de monitoramento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) inclui privilégios gerais `/write` usados por várias ferramentas de monitoramento para salvar itens (incluindo `workbooks/write` privilégios para salvar pastas de trabalho compartilhadas).
 "Colaborador de pastas de trabalho" adiciona privilégios de "pastas de trabalho/gravação" a um objeto para salvar pastas de trabalho compartilhadas.
 Nenhum privilégio especial é necessário para que os usuários salvem pastas de trabalho particulares que só possam ver.
 

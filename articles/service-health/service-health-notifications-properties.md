@@ -4,10 +4,9 @@ description: As notificações de integridade do serviço permitem exibir mensag
 ms.topic: conceptual
 ms.date: 4/12/2018
 ms.openlocfilehash: e40538ac98bbc7b79311d4fb0da7568d56a84e18
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77653961"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Exibir as notificações de integridade do serviço usando o Portal do Azure
@@ -30,7 +29,7 @@ canais | Um dos seguintes valores: **Admin** ou **Operação**.
 correlationId | Geralmente, um GUID no formato de cadeia de caracteres. Eventos que pertencem à mesma ação geralmente compartilham a mesma correlationId.
 eventDataId | O identificador exclusivo de um evento.
 eventName | O título de um evento.
-level | O nível de um evento
+nível | O nível de um evento
 resourceProviderName | O nome do provedor de recursos do recurso afetado.
 resourceType| O tipo de recurso do recurso afetado.
 subStatus | Geralmente, o código de status HTTP da chamada REST correspondente, mas também pode incluir outras cadeias de caracteres que descrevam um substatus. Por exemplo: OK (Código de Status HTTP: 200), Criado (Código de Status HTTP: 201), Aceito (Código de Status HTTP: 202), Sem Conteúdo (Código de Status HTTP: 204), Solicitação Incorreta (Código de Status HTTP: 400), Não Encontrado (Código de Status HTTP: 404), Conflito (Código de Status HTTP: 409), Erro Interno do Servidor (Código de Status HTTP: 500), Serviço Não Disponível (Código de Status HTTP: 503), Tempo Limite do Gateway (Código de Status HTTP: 504).

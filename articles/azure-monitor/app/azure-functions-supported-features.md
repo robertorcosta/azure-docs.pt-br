@@ -7,10 +7,9 @@ ms.author: tilee
 ms.date: 4/23/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: cf0c97fd65f9966bf42fa22e2c8f92263952cb7a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77655643"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Recursos suportados do Application Insights para o Azure Functions
@@ -36,7 +35,7 @@ Para obter mais informações sobre versões compatíveis do Application Insight
 | &nbsp;&nbsp;&nbsp;&mdash; hub de eventos  |                 | Sim               | 
 | &nbsp;&nbsp;&nbsp;&mdash; SQL       |                 | Sim               | 
 | | | | 
-| **Recursos com suporte**                |                   |                   |               
+| **Recursos compatíveis**                |                   |                   |               
 | &bull; QuickPulse/LiveMetrics       | Sim             | Sim               | 
 | &nbsp;&nbsp;&nbsp;&mdash; Canal de controle seguro|                 | Sim               | 
 | &bull; Amostragem                     | Sim             | Sim               | 

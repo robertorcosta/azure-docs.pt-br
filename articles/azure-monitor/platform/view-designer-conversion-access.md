@@ -7,10 +7,9 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.openlocfilehash: fb53a966b0dc4959253ac0786ef09ef3c497e809
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77658839"
 ---
 # <a name="view-designer-to-workbooks-conversion-summary-and-access"></a>Resumo e acesso de conversão do designer de pastas de trabalho
@@ -21,7 +20,7 @@ Os usuários do designer de exibição podem estar familiarizados com um bloco d
 
 Você pode aproveitar o alto nível de recursos de personalização fornecidos com os painéis do Azure, que permite atualização automática, movimentação, dimensionamento e filtragem adicional para seus itens fixados e visualizações. 
 
-![Painel](media/view-designer-conversion-access/dashboard.png)
+![Dashboard](media/view-designer-conversion-access/dashboard.png)
 
 Crie um novo painel do Azure ou selecione um painel existente para iniciar a fixação de itens de pastas de trabalho.
 

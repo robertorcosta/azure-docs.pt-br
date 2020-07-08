@@ -7,10 +7,9 @@ ms.author: bfung
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: 194a2da23c8fb405c492df8f6ee173cc97fde4ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77671327"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-service-fabric-cloud-service-and-virtual-machines"></a>Habilitar Depurador de Instantâneos para aplicativos .NET no Azure Service Fabric, serviço de nuvem e máquinas virtuais
@@ -25,7 +24,7 @@ Se seu aplicativo for executado no Azure Service Fabric, serviço de nuvem, máq
 
 2. Inclua o pacote do NuGet [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) em seu aplicativo.
 
-3. Se necessário, personalize a configuração de Depurador de Instantâneos adicionada a [ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). A configuração padrão de Depurador de Instantâneos está quase sempre vazia e todas as configurações são opcionais. Veja um exemplo que mostra uma configuração equivalente à configuração padrão:
+3. Se necessário, personalize a configuração de Depurador de Instantâneos adicionada ao [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). A configuração padrão de Depurador de Instantâneos está quase sempre vazia e todas as configurações são opcionais. Veja um exemplo que mostra uma configuração equivalente à configuração padrão:
 
     ```xml
     <TelemetryProcessors>
@@ -72,18 +71,18 @@ Se seu aplicativo for executado no Azure Service Fabric, serviço de nuvem, máq
 2. Inclua o pacote do NuGet [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) em seu aplicativo.
 
 3. Modifique a classe `Startup` do seu aplicativo para adicionar e configurar o processador de telemetria do Coletor de Instantâneo.
-    1. Se [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet Package versão 1.3.5 ou superior for usado, adicione as seguintes instruções using ao `Startup.cs`.
+    1. Se [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet Package versão 1.3.5 ou superior for usado, adicione as seguintes instruções using ao `Startup.cs` .
 
        ```csharp
             using Microsoft.ApplicationInsights.SnapshotCollector;
        ```
 
-       Adicione o seguinte ao final do método configureservices na `Startup` classe em. `Startup.cs`
+       Adicione o seguinte ao final do método configureservices na `Startup` classe em `Startup.cs` .
 
        ```csharp
             services.AddSnapshotCollector((configuration) => Configuration.Bind(nameof(SnapshotCollectorConfiguration), configuration));
        ```
-    2. Se [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet Package versão 1.3.4 ou abaixo for usado, adicione as seguintes instruções using ao `Startup.cs`.
+    2. Se [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet Package versão 1.3.4 ou abaixo for usado, adicione as seguintes instruções using ao `Startup.cs` .
 
        ```csharp
        using Microsoft.ApplicationInsights.SnapshotCollector;
@@ -129,7 +128,7 @@ Se seu aplicativo for executado no Azure Service Fabric, serviço de nuvem, máq
        }
        ```
 
-4. Se necessário, personalize a configuração de Depurador de Instantâneos adicionando uma seção SnapshotCollectorConfiguration a appSettings. JSON. Todas as configurações na configuração de Depurador de Instantâneos são opcionais. Veja um exemplo que mostra uma configuração equivalente à configuração padrão:
+4. Se necessário, personalize a configuração do Depurador de Instantâneos adicionando uma seção SnapshotCollectorConfiguration ao appsettings.js. Todas as configurações na configuração de Depurador de Instantâneos são opcionais. Veja um exemplo que mostra uma configuração equivalente à configuração padrão:
 
    ```json
    {

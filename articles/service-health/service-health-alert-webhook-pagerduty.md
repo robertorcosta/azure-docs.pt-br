@@ -4,10 +4,9 @@ description: Obtenha notificações personalizadas sobre eventos de integridade 
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.openlocfilehash: bb449a5279f3cea55e6aec2f72edfd11fb26227a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77654062"
 ---
 # <a name="send-azure-service-health-alerts-with-pagerduty-using-webhooks"></a>Enviar alertas de integridade do serviço do Azure com PagerDuty usando WebHooks
@@ -27,7 +26,7 @@ Este artigo mostra como configurar notificações de integridade do serviço do 
 
     a. **Tipo de Integração**: Microsoft Azure
 
-    b. **Nome**da integração \<: nome\>
+    b. **Nome da integração**:\<Name\>
 
     ![As “Configurações de Integração” do PagerDuty](./media/webhook-alerts/pagerduty-integration-settings.png)
 
@@ -52,7 +51,7 @@ Este artigo mostra como configurar notificações de integridade do serviço do 
 1. Selecione **Salvar** quando concluir a criação do alerta.
 
 ### <a name="for-an-existing-action-group"></a>Para um grupo de ação existente:
-1. No [portal do Azure](https://portal.azure.com/), selecione **Monitor**.
+1. Na [portal do Azure](https://portal.azure.com/), selecione **Monitor**.
 
 1. Na seção **Configurações**, selecione **Grupos de ação**.
 
@@ -88,4 +87,4 @@ Este artigo mostra como configurar notificações de integridade do serviço do 
 - Saiba como [configurar notificações de webhook para sistemas de gerenciamento de problemas existentes](service-health-alert-webhook-guide.md).
 - Examine o [esquema de webhook de alerta do log de atividades](../azure-monitor/platform/activity-log-alerts-webhook.md). 
 - Saiba mais sobre as [notificações de integridade do serviço](../azure-monitor/platform/service-notifications.md).
-- Saiba mais sobre [grupos de ações](../azure-monitor/platform/action-groups.md).
+- Saiba mais sobre [grupos de ação](../azure-monitor/platform/action-groups.md).

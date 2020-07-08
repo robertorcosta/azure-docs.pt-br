@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: fff8a19d5643f7ce866c9eb9c57486340b6f8a50
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77624133"
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Depurar seu aplicativo do Service Fabric usando o Visual Studio
@@ -56,7 +55,7 @@ Você pode economizar tempo e dinheiro implantando e depurando seu aplicativo do
 ### <a name="running-a-script-as-part-of-debugging"></a>Executando um script como parte da depuração
 Em determinados cenários, talvez seja necessário executar um script como parte do início de uma sessão de depuração (por exemplo, quando não estiver usando serviços padrão).
 
-No Visual Studio, você pode adicionar um arquivo chamado **Start-Service. ps1** na pasta **scripts** do projeto de aplicativo Service Fabric (. sfproj). Esse script será invocado depois que o aplicativo tiver sido criado no cluster local.
+No Visual Studio, você pode adicionar um arquivo chamado **Start-Service.ps1** na pasta **scripts** do projeto de aplicativo Service Fabric (. sfproj). Esse script será invocado depois que o aplicativo tiver sido criado no cluster local.
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->

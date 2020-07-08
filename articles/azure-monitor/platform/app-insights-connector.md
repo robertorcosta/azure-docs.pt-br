@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 02/13/2019
 ms.openlocfilehash: c143d8aa24d3479f4619ea2c220d4a0c593f9cb1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77665130"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Solução de gerenciamento do Conector do Application Insights (preterida)
@@ -60,7 +59,7 @@ Ao contrário da maioria das outras soluções do Log Analytics, os dados não s
 1. Habilite a solução Análise de Aplicativos Web do Azure no [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AppInsights?tab=Overview) ou usando o processo descrito em [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](../../azure-monitor/insights/solutions.md).
 2. Navegue até o [Portal do Azure](https://portal.azure.com). Selecione **Todos os serviços** para abrir o Application Insights. Em seguida, procure Application Insights. 
 3. Em **Assinaturas**, selecione uma assinatura que tem os recursos do Application Insights e, em seguida, em **Nome**, selecione um ou mais aplicativos.
-4. Clique em **Salvar**.
+4. Clique em **Save** (Salvar).
 
 Em aproximadamente 30 minutos, os dados ficarão disponíveis e o bloco do Application Insights será atualizado com os dados, como a seguinte imagem:
 
@@ -174,7 +173,7 @@ Um registro com um *tipo* de *ApplicationInsights* é criado para cada tipo de d
 
 ### <a name="generic-fields"></a>Campos genéricos
 
-| Propriedade | Descrição |
+| Property | Descrição |
 | --- | --- |
 | Type | ApplicationInsights |
 | ClientIP |   |
@@ -185,7 +184,7 @@ Um registro com um *tipo* de *ApplicationInsights* é criado para cada tipo de d
 | DeviceType | Dispositivo de cliente |
 | ScreenResolution |   |
 | Continente | Continente de origem da solicitação |
-| País/Região | País/região em que a solicitação foi originada |
+| País | País/região em que a solicitação foi originada |
 | Província | Província, Estado ou localidade de origem da solicitação |
 | City | Cidade de origem da solicitação |
 | isSynthetic | Indica se a solicitação foi criada por um usuário ou por um método automatizado. True = método automatizado ou false = gerado pelo usuário |
@@ -200,7 +199,7 @@ Um registro com um *tipo* de *ApplicationInsights* é criado para cada tipo de d
 
 ### <a name="availability-specific-fields"></a>Campos específicos à disponibilidade
 
-| Propriedade | Descrição |
+| Property | Descrição |
 | --- | --- |
 | TelemetryType | Disponibilidade |
 | AvailabilityTestName | Nome do teste na Web |
@@ -225,7 +224,7 @@ Um registro com um *tipo* de *ApplicationInsights* é criado para cada tipo de d
 
 ### <a name="exception-specific-fields"></a>Campos específicos à exceção
 
-| Type | ApplicationInsights |
+| Tipo | ApplicationInsights |
 | --- | --- |
 | TelemetryType | Exceção |
 | ExceptionType | Tipo de exceção |
@@ -242,7 +241,7 @@ Um registro com um *tipo* de *ApplicationInsights* é criado para cada tipo de d
 
 ### <a name="request-specific-fields"></a>Campos específicos à solicitação
 
-| Propriedade | Descrição |
+| Property | Descrição |
 | --- | --- |
 | Type | ApplicationInsights |
 | TelemetryType | Solicitação |

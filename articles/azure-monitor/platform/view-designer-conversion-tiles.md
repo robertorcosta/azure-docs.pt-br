@@ -7,10 +7,9 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.openlocfilehash: f07d15521c787dfd588c285bff57616059caa2f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77658619"
 ---
 # <a name="azure-monitor-view-designer-tile-conversions"></a>Azure Monitor conversões de bloco do designer de exibição
@@ -23,7 +22,7 @@ O [Designer de exibição](view-designer.md) é um recurso do Azure monitor que 
 Recriar o bloco de lista de & de rosca em pastas de trabalho envolve duas visualizações separadas. Para a parte de rosca, há duas opções.
 Para ambos, comece selecionando **Adicionar consulta** e cole a consulta original do designer de exibição na célula.
 
-**Opção 1:** Selecione o **gráfico de pizza** na lista suspensa **Visualização** : ![menu de visualização de gráfico de pizza](media/view-designer-conversion-tiles/pie-chart.png)
+**Opção 1:** Selecione o **gráfico de pizza** na lista suspensa **Visualização** : menu de visualização de ![ gráfico de pizza](media/view-designer-conversion-tiles/pie-chart.png)
 
 **Opção 2:** Selecione **definir por consulta** na lista suspensa **Visualização** e adicione `| render piechart` à consulta:
 
@@ -146,7 +145,7 @@ search *
 
 Há duas opções para visualizar a consulta como um gráfico de barras:
 
-**Opção 1:** Selecione o **gráfico de barras** na lista suspensa **Visualização** : ![visualização de barChart](media/view-designer-conversion-tiles/bar-visualization.png)
+**Opção 1:** Selecione o **gráfico de barras** na lista suspensa **Visualização** : visualização de ![ barChart](media/view-designer-conversion-tiles/bar-visualization.png)
  
 **Opção 2:** Selecione **definir por consulta** na lista suspensa **Visualização** e adicione `| render barchart` à consulta:
 

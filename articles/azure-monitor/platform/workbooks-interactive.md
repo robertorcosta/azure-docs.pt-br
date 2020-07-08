@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: 4d9f6e48722f01970a90a3a1d8d8b58b5d939774
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77658261"
 ---
 # <a name="interactive-workbooks"></a>Pastas de trabalho interativas
@@ -75,7 +74,7 @@ A imagem abaixo mostra um relatório interativo mais elaborado no modo de leitur
 No controle KQL de referência, use a `todynamic` função para analisar o JSON e acessar as colunas individuais.
 
  ## <a name="grid-cell-clicks"></a>Cliques de célula de grade
-As pastas de trabalho permitem que os autores adicionem interatividade por meio de um tipo especial `link renderer`de renderizador de coluna de grade chamado um. Um renderizador de link converte uma célula de grade em um hiperlink com base no conteúdo da célula. As pastas de trabalho dão suporte a vários tipos de renderizadores de link-incluindo aqueles que permitem abrir folhas de visão geral de recursos, visualizadores de conjunto de propriedades, pesquisa, uso, rastreamento de transações, etc.
+As pastas de trabalho permitem que os autores adicionem interatividade por meio de um tipo especial de renderizador de coluna de grade chamado um `link renderer` . Um renderizador de link converte uma célula de grade em um hiperlink com base no conteúdo da célula. As pastas de trabalho dão suporte a vários tipos de renderizadores de link-incluindo aqueles que permitem abrir folhas de visão geral de recursos, visualizadores de conjunto de propriedades, pesquisa, uso, rastreamento de transações, etc.
 
 ### <a name="setting-up-interactivity-using-grid-cell-clicks"></a>Configurando a interatividade usando cliques de célula de grade
 1. Alterne a pasta de trabalho para o modo de edição clicando no item _Editar_ barra de ferramentas.
@@ -90,8 +89,8 @@ As pastas de trabalho permitem que os autores adicionem interatividade por meio 
 5. `Run query`para ver os resultados
 6. Clique em _configurações de coluna_ para abrir o painel configurações.
 7. Na seção _colunas_ , defina:
-    1. _Exemplo_ -renderizador de `Link`coluna:, exibição para `Cell Details`abrir:, rótulo de link:`Sample`
-    2. Processador de _contagem_ de colunas `Bar`:, paleta de `Blue`cores:, valor mínimo:`0`
+    1. _Exemplo_ -renderizador de coluna: `Link` , exibição para abrir: `Cell Details` , rótulo de link:`Sample`
+    2. Processador de _contagem_ de colunas: `Bar` , paleta de cores: `Blue` , valor mínimo:`0`
     3. Renderizador de coluna de _solicitação_ :`Automatic`
     4. Clique em _salvar e fechar_ para aplicar as alterações
 8. Clique em um dos `Sample` links na grade. Isso abre um painel de propriedades com os detalhes de uma solicitação de amostra.
@@ -127,16 +126,16 @@ A pasta de trabalho permite que os usuários façam com que determinados control
 3. Definir valor do parâmetro como`Yes`
 4. No controle de consulta com o gráfico de área, clique no ícone _Configurações avançadas_ (ícone de engrenagem)
 5. Verifique a configuração`Make this item conditionally visible`
-    1. Este item é visível se `ShowDetails` o valor `equals` do parâmetro`Yes`
+    1. Este item é visível se o `ShowDetails` valor `equals` do parâmetro`Yes`
 6. Clique em _edição concluída_ para confirmar as alterações.
 7. Clique em _edição concluída_ na barra de ferramentas da pasta de trabalho para entrar no modo de leitura.
-8. Alterne o valor do parâmetro `ShowDetails` para `No`. Observe que o gráfico abaixo desaparece.
+8. Alterne o valor do parâmetro `ShowDetails` para `No` . Observe que o gráfico abaixo desaparece.
 
-A imagem abaixo mostra o caso visível em `ShowDetails` que é`Yes`
+A imagem abaixo mostra o caso visível em que `ShowDetails` é`Yes`
 
 ![Imagem mostrando a visibilidade condicional em que o gráfico está visível](./media/workbooks-interactive/conditional-visibility.png)
 
-A imagem abaixo mostra o caso oculto em `ShowDetails` que é`No`
+A imagem abaixo mostra o caso oculto em que `ShowDetails` é`No`
 
 ![Imagem mostrando a visibilidade condicional em que o gráfico está oculto](./media/workbooks-interactive/conditional-invisible.png)
 

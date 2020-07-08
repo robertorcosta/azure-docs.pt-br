@@ -14,10 +14,9 @@ ms.topic: troubleshooting
 ms.date: 12/20/2018
 ms.author: genli
 ms.openlocfilehash: 90034a56fcf5211059d37270e12391249f7a16b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77920154"
 ---
 # <a name="windows-activation-fails-in-forced-tunneling-scenario"></a>Falha de ativação do Windows no cenário de túnel forçado
@@ -42,7 +41,7 @@ O endereço IP do servidor KMS para a nuvem global do Azure é 23.102.135.246. S
 |------|-------|-------|
 |Azure Global|kms.core.windows.net|23.102.135.246|
 |Azure Alemanha|kms.core.cloudapi.de|51.4.143.248|
-|Governo dos EUA para Azure|kms.core.usgovcloudapi.net|23.97.0.13|
+|Azure US Government|kms.core.usgovcloudapi.net|23.97.0.13|
 |Azure China 21Vianet|kms.core.chinacloudapi.cn|42.159.7.249|
 
 
@@ -56,7 +55,7 @@ Para adicionar a rota personalizada, siga essas etapas:
 > A ativação usa endereços IP públicos e será afetada por uma configuração de Load Balancer de SKU padrão. Examine cuidadosamente as [conexões de saída no Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) para saber mais sobre os requisitos.
 
 1. Abra o Azure PowerShell e [conecte-se à sua conta do Azure](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
-2. Execute os comandos a seguir:
+2. Execute os seguintes comandos:
 
     ```powershell
     # First, get the virtual network that hosts the VMs that have activation problems. In this case, we get virtual network ArmVNet-DM in Resource Group ArmVNet-DM:
@@ -88,7 +87,7 @@ Para adicionar a rota personalizada, siga essas etapas:
 [!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 1. Abra o Azure PowerShell e [conecte-se à sua conta do Azure](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
-2. Execute os comandos a seguir:
+2. Execute os seguintes comandos:
 
     ```powershell
     # First, create a new route table:

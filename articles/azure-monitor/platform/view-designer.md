@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 02/10/2019
 ms.openlocfilehash: 9a7521f61dc59bd954629a05638c159ab0e70556
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77658482"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Criar exibições personalizadas usando o designer de exibição no Azure Monitor
@@ -100,7 +99,7 @@ As opções para trabalhar com exibições no modo de edição são descritas na
 | Salvar        | Salva as alterações e fecha a exibição. |
 | Cancelar      | Descarta as alterações e fecha a exibição. |
 | Excluir Exibição | Exclui a exibição. |
-| Exportar      | Exporta a exibição para um [modelo do Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) que você poderá importar para outro workspace. O nome do arquivo é o nome da exibição e tem uma extensão *omsview*. |
+| Exportação      | Exporta a exibição para um [modelo do Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) que você poderá importar para outro workspace. O nome do arquivo é o nome da exibição e tem uma extensão *omsview*. |
 | Importar      | Importa o arquivo *omsview* que foi exportado de outro workspace. Essa ação substitui a configuração da exibição existente. |
 | Clone       | Cria uma nova exibição e abre no Designer de Exibição. O nome da nova exibição é o mesmo que o nome original, mas com *Copiar* acrescentado a ele. |
 

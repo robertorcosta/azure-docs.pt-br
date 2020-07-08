@@ -13,10 +13,9 @@ ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
 ms.openlocfilehash: 7bc2c0f472a03c3f069a889c360bea9017a780f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77918199"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>Não é possível RDP para uma VM porque a VM é inicializada no modo de segurança
@@ -52,7 +51,7 @@ Para resolver esse problema, use o controle Serial para configurar a VM para ini
     Se a VM estiver configurada para inicializar no Modo de Segurança, você verá um sinalizador extra na seção do **Carregador de Inicialização do Windows** chamada **safeboot**. Se você não vir o sinalizador **safeboot**, a VM não está no modo de segurança. Este artigo não se aplica ao seu cenário.
 
     O **safeboot** sinalizador pode aparecer com os seguintes valores:
-   - Mínimo
+   - Minimal
    - Rede
 
      Em qualquer um desses dois modos, o RDP não será iniciado. Portanto, a correção permanece a mesma.
@@ -75,7 +74,7 @@ Para resolver esse problema, use o controle Serial para configurar a VM para ini
 
 1. [Anexe o disco do sistema operacional a uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md).
 2. Inicie uma conexão de área de trabalho remota para a VM de recuperação.
-3. Verifique se o disco está sinalizado como **Online** no console de Gerenciamento de Disco. Anote a letra da unidade atribuída ao disco do SO anexado.
+3. Verifique se o disco está sinalizado como **online** no console de gerenciamento de disco. Anote a letra da unidade atribuída ao disco do SO anexado.
 
 #### <a name="enable-dump-log-and-serial-console-optional"></a>Ativar log de despejo e console serial (opcional)
 

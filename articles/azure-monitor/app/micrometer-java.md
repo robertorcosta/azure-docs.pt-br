@@ -6,10 +6,9 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 11/01/2018
 ms.openlocfilehash: dd04087db32f0bbfa75dafa7e12c355e5ab7b515
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77670059"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Como usar o micrômetro com o Java SDK do Azure Application Insights
@@ -58,7 +57,7 @@ Adicione as seguintes dependências ao seu arquivo pom.xml ou build.gradle:
 
 * Application Insights Spring-boot-starter 2.1.2 ou superior
 * Azure-Spring-boot-métricas-inicializadores 2.0.7 ou posterior
-* [Recurso do Application Insights](../../azure-monitor/app/create-new-resource.md )
+* [Application Insights recurso](../../azure-monitor/app/create-new-resource.md )
 
 Etapas:
 
@@ -117,7 +116,7 @@ Adicione as seguintes dependências ao seu arquivo pom.xml ou build.gradle:
 
 * Application Insights Web auto 2.5.0 ou posterior
 * Micrometer Azure Registry 1.1.0 ou superior
-* [Recurso do Application Insights](../../azure-monitor/app/create-new-resource.md )
+* [Application Insights recurso](../../azure-monitor/app/create-new-resource.md )
 
 Etapas:
 

@@ -7,10 +7,9 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.openlocfilehash: 7bfa831332451718c0c9c05023b90104d2b8b02b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77658703"
 ---
 # <a name="azure-monitor-view-designer-to-workbooks-conversion-options"></a>Opções de conversão do designer de exibição para pastas de trabalho do Azure Monitor
@@ -20,12 +19,12 @@ O [Designer de exibição](view-designer.md) é um recurso do Azure monitor que 
 
 O designer de exibição tem um estilo estático fixo de representação, enquanto as pastas de trabalho habilitam a liberdade para incluir e modificar o modo como os dados são representados. As imagens a seguir descrevem dois exemplos de como você pode organizar as pastas de trabalho ao converter exibições.
 
-[Vertical da pasta de trabalho vertical](view-designer-conversion-examples.md#vertical)
-![](media/view-designer-conversion-options/view-designer-vertical.png)
+[Pasta de trabalho vertical](view-designer-conversion-examples.md#vertical) 
+ ![ Vertical](media/view-designer-conversion-options/view-designer-vertical.png)
 
-[Tabbed workbook](view-designer-conversion-examples.md#tabbed)
-![Tipos de dados da guia](media/view-designer-conversion-options/distribution-tab.png)
-![distribuição de tipo de dados da pasta de trabalho com guias na guia tempo](media/view-designer-conversion-options/over-time-tab.png)
+[Pasta de trabalho](view-designer-conversion-examples.md#tabbed) 
+ ![ com guias Tipos de dados guia distribuição tipo de ](media/view-designer-conversion-options/distribution-tab.png)
+ ![ dados na guia tempo](media/view-designer-conversion-options/over-time-tab.png)
 
 ## <a name="tile-conversion"></a>Conversão de bloco
 O designer de exibição usa o recurso de bloco visão geral para representar e resumir o estado geral. Elas são representadas em sete blocos, variando de números a gráficos. Em pastas de trabalho, os usuários podem criar visualizações semelhantes e fixá-las para se parecer com o estilo original dos blocos de visão geral. 

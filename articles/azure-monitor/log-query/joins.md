@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: 2dace6968fbbe69f806c27fb7a46e60c63f78b4f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77670195"
 ---
 # <a name="joins-in-azure-monitor-log-queries"></a>Junções nas consultas de log do Azure Monitor
@@ -100,7 +99,7 @@ Considere os pontos a seguir para o desempenho ideal:
 ## <a name="next-steps"></a>Próximas etapas
 Confira outras lições para utilizar consultas de log no Azure Monitor:
 
-- [Operações da cadeia de caracteres](string-operations.md)
+- [Operações de cadeia de caracteres](string-operations.md)
 - [Funções de agregação](aggregations.md)
 - [Agregações avançadas](advanced-aggregations.md)
 - [JSON e estruturas de dados](json-data-structures.md)

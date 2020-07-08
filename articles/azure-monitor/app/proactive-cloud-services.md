@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.reviewer: harelbr
 ms.openlocfilehash: 997c5e063c4181a597520e60e2a7669401b9677d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77669736"
 ---
 # <a name="alert-on-issues-in-azure-cloud-services-using-the-azure-diagnostics-integration-with-azure-application-insights"></a>Alerta sobre problemas nos Serviços de Nuvem do Azure usando a integração do diagnóstico do Azure com o Azure Application Insights
@@ -111,7 +110,7 @@ Após definir o Grupo de ação, confirme suas alterações e clique em **Criar 
 
 Saiba mais sobre como detectar automaticamente:
 
-[Falhas de anomalias](../../azure-monitor/app/proactive-failure-diagnostics.md)
-de[desempenho](../../azure-monitor/app/proactive-performance-diagnostics.md) de[perdas](../../azure-monitor/app/proactive-potential-memory-leak.md)
-de memória
+[Anomalias](../../azure-monitor/app/proactive-failure-diagnostics.md) 
+ de falha [Vazamentos](../../azure-monitor/app/proactive-potential-memory-leak.md) 
+ de memória [Anomalias de desempenho](../../azure-monitor/app/proactive-performance-diagnostics.md)
 

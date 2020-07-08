@@ -4,10 +4,9 @@ description: Automatizar a configuração de Diagnóstico do Azure para canaliza
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.openlocfilehash: da1796c8af5b9463d8223615f4b0629ba65eb3e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77669796"
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-azure-cloud-services"></a>Usando o PowerShell para configurar o Application Insights para serviços de nuvem do Azure
@@ -125,7 +124,7 @@ Para remover a extensão de diagnóstico de cada função individual:
 ```
 
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 * [Monitorar aplicativos dos Serviços de Nuvem do Azure com o Application Insights](../../azure-monitor/app/cloudservices.md)
 * [Enviar o Diagnóstico do Azure para o Application Insights](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Automatizar a configuração de alertas](powershell-alerts.md)

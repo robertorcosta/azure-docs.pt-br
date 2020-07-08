@@ -16,10 +16,9 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: milanga
 ms.openlocfilehash: 2d746167f993438e5fce467365844df2078c08a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77919283"
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Detectar a face e a emoção com o Azure Media Analytics
@@ -39,7 +38,7 @@ O MP (processador de mídia) **Azure Media Face Detector** permite que você con
   > Esse serviço não realiza reconhecimento facial. Uma pessoa que sair do enquadramento ou ficar obstruída por muito tempo receberá uma nova ID quando retornar.
   > 
   > 
-* **Detecção de emoções**
+* **Detecção de Emoções**
   
     A Detecção de Emoções é um componente opcional do Face Detection Media Processor que retorna uma análise sobre vários atributos emocionais das faces detectadas, incluindo felicidade, tristeza, medo, irritação e muito mais. 
 
@@ -168,7 +167,7 @@ Abaixo, temos os valores recomendados para as configurações de janela e interv
 || Padrões | Máx. | Mín. |
 |--- | --- | --- | --- |
 | AggregateEmotionWindowMs |0.5 |2 |0,25|
-| AggregateEmotionIntervalMs |0.5 |1 |0,25|
+| AggregateEmotionIntervalMs |0,5 |1 |0,25|
 
 ### <a name="json-output"></a>Saída em JSON
 Saída em JSON para agregação de emoção (truncada):
@@ -348,7 +347,7 @@ O programa a seguir mostra como:
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto do Visual Studio
 
-Configure seu ambiente de desenvolvimento e preencha o arquivo app. config com informações de conexão, conforme descrito em [desenvolvimento de serviços de mídia com o .net](media-services-dotnet-how-to-use.md). 
+Configure seu ambiente de desenvolvimento e preencha o arquivo de app.config com informações de conexão, conforme descrito em [desenvolvimento de serviços de mídia com o .net](media-services-dotnet-how-to-use.md). 
 
 #### <a name="example"></a>Exemplo
 
@@ -522,7 +521,7 @@ namespace FaceDetection
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Envie comentários
+## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Links relacionados

@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 11/07/2019
 ms.openlocfilehash: 0f5b2fbd13cb9658e255fde727e115df748aaed9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77654861"
 ---
 # <a name="azure-monitor-for-networks-preview"></a>Azure Monitor para redes (visualização)
@@ -30,7 +29,7 @@ A exibição de integridade e alertas de recursos pode ser personalizada usando 
 
 A caixa de pesquisa pode ser usada para pesquisar recursos e recursos associados. Por exemplo, um IP público é associado a um gateway de aplicativo. Pesquisar o nome DNS do IPs público identificará o IP público e o gateway de aplicativo associado.
 
-![Pesquisar](media/network-insights-overview/search.png)
+![Search](media/network-insights-overview/search.png)
 
 
 ## <a name="resource-health-and-metric"></a>Resource Health e métrica

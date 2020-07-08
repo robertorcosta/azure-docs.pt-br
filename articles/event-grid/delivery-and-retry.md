@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 02/27/2020
 ms.author: spelluru
 ms.openlocfilehash: dda2fd98c4c0d330059156a5ec00baa97ffaf627
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77921055"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega e repetição de mensagens da Grade de Eventos
@@ -99,7 +98,7 @@ Para ver um exemplo de como configurar um local de mensagens mortas, confira [De
 
 A Grade de Eventos usa códigos de resposta HTTP para confirmar o recebimento de eventos. 
 
-### <a name="success-codes"></a>Códigos de êxito
+### <a name="success-codes"></a>Códigos de sucesso
 
 A grade de eventos considera **apenas** os seguintes códigos de resposta http como entregas bem-sucedidas. Todos os outros códigos de status são considerados entregas com falha e serão repetidos ou mortodos conforme apropriado. Após receber um código de status bem-sucedido, a grade de eventos considera a entrega concluída.
 

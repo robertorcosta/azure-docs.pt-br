@@ -8,10 +8,9 @@ ms.date: 02/25/2020
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: 6ed382e88700e4ecd7f8de20a2c8da7ed3c13566
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77925924"
 ---
 # <a name="web-application-firewall-waf-with-front-door-service-exclusion-lists"></a>WAF (firewall do aplicativo Web) com listas de exclusão de serviço de porta frontal 
@@ -20,10 +19,10 @@ ms.locfileid: "77925924"
 ## <a name="configure-exclusion-lists-using-the-azure-portal"></a>Configurar listas de exclusão usando o portal do Azure
 **Gerenciar exclusões** é acessível no portal do WAF em **regras gerenciadas**
 
-![Gerenciar exclusion_add](../media/waf-front-door-exclusion/exclusion1.png)
-![de gerenciamento de exclusão](../media/waf-front-door-exclusion/exclusion2.png)
+![Gerenciar exclusion_add de gerenciamento de exclusão ](../media/waf-front-door-exclusion/exclusion1.png)
+ ![](../media/waf-front-door-exclusion/exclusion2.png)
 
- Uma lista de exclusões de ![exemplo: gerenciar exclusion_define](../media/waf-front-door-exclusion/exclusion3.png)
+ Uma lista de exclusões de exemplo: ![ gerenciar exclusion_define](../media/waf-front-door-exclusion/exclusion3.png)
 
 Este exemplo exclui o valor no campo de cabeçalho de *usuário* . Uma solicitação válida pode incluir o campo de *usuário* que contém uma cadeia de caracteres que dispara uma regra de injeção de SQL. Você pode excluir o parâmetro de *usuário* nesse caso para que a regra WAF não avalie nada no campo.
 

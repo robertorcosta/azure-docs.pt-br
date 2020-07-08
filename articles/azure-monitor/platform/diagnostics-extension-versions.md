@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 01/29/2020
 ms.openlocfilehash: 4dd91363cdebf18e6303238816e8269065a6a317
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77672235"
 ---
 # <a name="windows-azure-diagnostics-extension-wad-configuration-schema-versions-and-history"></a>Histórico e versões do esquema de configuração do WAD (Windows Diagnóstico do Azure Extension)
@@ -24,10 +23,10 @@ Este artigo fornece o histórico de versões das versões de esquema do [diagnó
 |1.x               |1.0                            |plug-in|  
 |2.0 - 2.4         |1.0                            |plug-in|  
 |2.5               |1.2                            |extensão|  
-|2.6               |1,3                            |"|  
+|2.6               |1.3                            |"|  
 |2.7               |1.4                            |"|  
-|2.8               |1.5                            |"|  
-|2,9               |1.6                            |"|
+|2,8               |1.5                            |"|  
+|2.9               |1.6                            |"|
 |2.96              |1.7                            |"|
 |2.96              |1.8                            |"|
 |2.96              |1.8.1                          |"|
@@ -167,7 +166,7 @@ Há algumas diferenças perceptíveis entre como a cadeia de conexão funcionava
 
 * No SDK do Azure 2.4 e anteriores, a cadeia de conexão era usada como um runtime pelo plug-in de diagnóstico para obter as informações de conta de armazenamento para transferir os logs de diagnóstico.
 * No SDK do Azure 2.6 e posteriores, o Visual Studio usa a cadeia de conexão de diagnóstico para configurar a extensão de diagnóstico com as informações da conta de armazenamento apropriadas durante a publicação. A cadeia de conexão permite definir contas de armazenamento diferentes para diferentes configurações de serviço que o Visual Studio usará ao publicar. No entanto, como o plug-in de diagnóstico não está mais disponível (após o SDK do Azure 2.5), o arquivo .cscfg sozinho por si só não é capaz de habilitar a extensão de diagnóstico. Você precisa habilitar a extensão separadamente por meio de ferramentas como o Visual Studio ou o PowerShell.
-* Para simplificar o processo de configuração da extensão de diagnóstico com o PowerShell, a saída do pacote do Visual Studio também contém o XML de configuração pública para a extensão de diagnóstico para cada função. O Visual Studio usa a cadeia de conexão de diagnóstico para preencher as informações da conta de armazenamento presentes na configuração pública. Os arquivos de configuração públicos são criados na pasta extensões e seguem o padrão `PaaSDiagnostics.<RoleName>.PubConfig.xml`. Todas as implantações baseadas em PowerShell podem usar esse padrão para mapear cada configuração para uma função.
+* Para simplificar o processo de configuração da extensão de diagnóstico com o PowerShell, a saída do pacote do Visual Studio também contém o XML de configuração pública para a extensão de diagnóstico para cada função. O Visual Studio usa a cadeia de conexão de diagnóstico para preencher as informações da conta de armazenamento presentes na configuração pública. Os arquivos de configuração públicos são criados na pasta extensões e seguem o padrão `PaaSDiagnostics.<RoleName>.PubConfig.xml` . Todas as implantações baseadas em PowerShell podem usar esse padrão para mapear cada configuração para uma função.
 * A cadeia de conexão no arquivo. cscfg também é usada pelo portal do Azure para acessar os dados de diagnóstico para que ele possa aparecer na guia **monitoramento** . A cadeia de conexão é necessária para configurar o serviço para mostrar dados de monitoramento detalhados no Portal.
 
 #### <a name="migrating-projects-to-azure-sdk-26-and-later"></a>Migrando projetos para o SDK do Azure 2.6 e posteriores

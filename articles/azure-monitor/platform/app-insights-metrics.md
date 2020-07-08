@@ -8,10 +8,9 @@ ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
 ms.openlocfilehash: 12bc51e800ef5ccd4ad3c72d3860fb22bac5b749
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77664908"
 ---
 # <a name="application-insights-log-based-metrics"></a>Application Insights métricas baseadas em log
@@ -182,7 +181,7 @@ As métricas em **falhas** mostram problemas com solicitações de processamento
 
 Essa métrica reflete o número de exceções geradas do código do aplicativo em execução no navegador. Somente as exceções rastreadas com uma ```trackException()``` chamada à API Application insights são incluídas na métrica.
 
-|Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|Anotações|
+|Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|Observações|
 |---|---|---|---|
 |Contagem|Contagem|Nenhum|A versão baseada em log usa agregação **sum**|
 
@@ -197,7 +196,7 @@ exceptions
 
 O número de chamadas de dependência com falha.
 
-|Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|Anotações|
+|Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|Observações|
 |---|---|---|---|
 |Contagem|Contagem|Nenhum|A versão baseada em log usa agregação **sum**|
 
@@ -212,7 +211,7 @@ dependencies
 
 Cada vez que você registra uma exceção em Application Insights, há uma chamada para o [método trackexception ()](../../azure-monitor/app/api-custom-events-metrics.md#trackexception) do SDK. A métrica de exceções mostra o número de exceções registradas.
 
-|Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|Anotações|
+|Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|Observações|
 |---|---|---|---|
 |Contagem|Contagem|Nome da função de nuvem, instância de função de nuvem, tipo de dispositivo|A versão baseada em log usa agregação **sum**|
 
@@ -226,7 +225,7 @@ exceptions
 
 A contagem de solicitações de servidor rastreadas que foram marcadas como *com falha*. Por padrão, o SDK do Application Insights marca automaticamente cada solicitação do servidor que retornou o código de resposta HTTP 5xx ou 4xx como uma solicitação com falha. Você pode personalizar essa lógica modificando a propriedade *Success* do item telemetria de solicitação em um [inicializador de telemetria personalizado](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
 
-|Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|Anotações|
+|Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|Observações|
 |---|---|---|---|
 |Contagem|Contagem|Instância de função de nuvem, nome da função de nuvem, tráfego real ou sintético, desempenho da solicitação, código de resposta|A versão baseada em log usa agregação **sum**|
 
@@ -241,7 +240,7 @@ requests
 
 Essa métrica mostra o número de exceções de servidor.
 
-|Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|Anotações|
+|Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|Observações|
 |---|---|---|---|
 |Contagem|Contagem|Nome da função de nuvem, instância de função de nuvem|A versão baseada em log usa agregação **sum**|
 

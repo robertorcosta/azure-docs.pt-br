@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
 ms.openlocfilehash: 44368ab90abd189c6a8a0792494828c87142eb20
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77672388"
 ---
 # <a name="collect-data-from-azure-diagnostics-extension-to-azure-monitor-logs"></a>Coletar dados da extensão de diagnóstico do Azure para logs de Azure Monitor
@@ -22,14 +21,14 @@ A extensão de diagnóstico do Azure é um [agente no Azure monitor](agents-over
 ## <a name="supported-data-types"></a>Tipos de dados com suporte
 A extensão de diagnóstico do Azure armazena dados em uma conta de armazenamento do Azure. Para que os logs de Azure Monitor coletem esses dados, eles devem estar nos seguintes locais:
 
-| Tipo de Log | Tipo de recurso | Local |
+| Tipo de Log | Tipo de recurso | Location |
 | --- | --- | --- |
 | Logs IIS |Máquinas Virtuais <br> Funções da Web <br> Funções de trabalho |wad-iis-logfiles (Armazenamento de Blobs) |
 | syslog |Máquinas Virtuais |LinuxsyslogVer2v0 (Armazenamento de Tabelas) |
 | Eventos operacionais do Service Fabric |Nós do Service Fabric |WADServiceFabricSystemEventTable |
 | Eventos dos Reliable Actors do Service Fabric |Nós do Service Fabric |WADServiceFabricReliableActorEventTable |
 | Arquitetura de Serviços Confiáveis do Service Fabric |Nós do Service Fabric |WADServiceFabricReliableServiceEventTable |
-| Logs de Eventos do Windows |Nós do Service Fabric <br> Máquinas Virtuais <br> Funções da Web <br> Funções de trabalho |WADWindowsEventLogsTable (Armazenamento de Tabelas) |
+| Log de eventos do Windows |Nós do Service Fabric <br> Máquinas Virtuais <br> Funções da Web <br> Funções de trabalho |WADWindowsEventLogsTable (Armazenamento de Tabelas) |
 | Logs do ETW do Windows |Nós do Service Fabric <br> Máquinas Virtuais <br> Funções da Web <br> Funções de trabalho |WADETWEventTable (Armazenamento de Tabelas) |
 
 ## <a name="data-types-not-supported"></a>Tipos de dados sem suporte

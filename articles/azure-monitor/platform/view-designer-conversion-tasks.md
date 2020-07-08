@@ -7,10 +7,9 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.openlocfilehash: 5559dac916262998d621b40757398088ec613609
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77658737"
 ---
 # <a name="view-designer-to-workbooks-conversion-common-tasks"></a>Tarefas comuns de conversão do designer de exibição para pastas de trabalho
@@ -32,7 +31,7 @@ Selecione a opção **adicionar parâmetros** . O **estilo** padrão é definido
 
  Selecione o botão **Adicionar parâmetro** .
 
-![Adicione o parâmetro](media/view-designer-conversion-tasks/add-parameter.png)
+![Adicionar parâmetro](media/view-designer-conversion-tasks/add-parameter.png)
 
 No menu da barra lateral, na caixa de texto **nome do parâmetro** , digite *timerange*. Defina o **tipo de parâmetro** como *seletor de intervalo de tempo*. Selecione a caixa de seleção **necessário?** .
 
@@ -50,7 +49,7 @@ Os parâmetros podem ser usados em consultas adicionando chaves {} ao seu nome d
 
 ### <a name="option-2-update-your-log-queries"></a>Opção 2: atualizar suas consultas de log
 
-Em sua consulta, adicione a linha `| where TimeGenerated {TimeRange}` : como no exemplo a seguir:
+Em sua consulta, adicione a linha: `| where TimeGenerated {TimeRange}` como no exemplo a seguir:
 
 Consulta original
 ```KQL
@@ -118,7 +117,7 @@ Atualize a lista suspensa de **renderizador de coluna** para ser uma *área do S
 
 Salve as configurações e execute a consulta novamente para atualizar sua tabela para incluir um minigráfico.
 
-A grade resultante será semelhante ao seguinte: ![exemplo de Minigráfico](media/view-designer-conversion-tasks/sparkline-example.png)
+A grade resultante será semelhante ao seguinte: ![ exemplo de Minigráfico](media/view-designer-conversion-tasks/sparkline-example.png)
 
 ## <a name="advanced-cell-settings"></a>Configurações avançadas de célula
 Para o designer de exibição de espelho, você pode executar tarefas como alterar o tamanho das células da pasta de trabalho ou adicionar Pins e links externos aos logs.

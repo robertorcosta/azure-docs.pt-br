@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 01/16/2018
 ms.openlocfilehash: 7999735bf2d182b2811d01172adcfc89cba27dc8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77662494"
 ---
 # <a name="monitor-surface-hubs-with-azure-monitor-to-track-their-health"></a>Monitorar Surface Hubs com o Azure Monitor para acompanhar sua integridade
@@ -40,7 +39,7 @@ Será necessário o ID do espaço de trabalho e a chave do espaço de trabalho p
 O Intune é um produto da Microsoft que permite que você gerencie centralmente as definições de configuração do espaço de trabalho do Log Analytics que são aplicadas a um ou mais dos seus dispositivos. Siga estas etapas para configurar seus dispositivos por meio do Intune:
 
 1. Entre no Intune.
-2. Navegue até **configurações** > **fontes conectadas**.
+2. Navegue até **configurações**  >  **fontes conectadas**.
 3. Criar ou editar uma política com base no modelo de Surface Hub.
 4. Navegue até a seção Azure Operational Insights da política e adicione o *ID do workspace* do Log Analytics e a *Chave do workspace* à política.
 5. Salve a política.

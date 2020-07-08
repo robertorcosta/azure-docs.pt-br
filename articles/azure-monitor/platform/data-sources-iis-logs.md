@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: 1b3ae6295a639c3d59643b106b920cb606572e0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77670569"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Coletar logs II no Azure Monitor
@@ -33,7 +32,7 @@ Azure Monitor coleta entradas de log do IIS de cada agente sempre que o carimbo 
 ## <a name="iis-log-record-properties"></a>Propriedades de registro de log do IIS
 Os registros log do IIS têm um tipo de **W3CIISLog** e têm as propriedades na tabela a seguir:
 
-| Propriedade | Descrição |
+| Property | Descrição |
 |:--- |:--- |
 | Computador |Nome do computador do qual o evento foi coletado. |
 | cIP |Endereço IP do cliente. |
@@ -43,7 +42,7 @@ Os registros log do IIS têm um tipo de **W3CIISLog** e têm as propriedades na 
 | csUserName |Nome do usuário autenticado que acessou o servidor. Os usuários anônimos são indicados por um hífen. |
 | csUriStem |Destino da solicitação, como uma página da Web. |
 | csUriQuery |Consulta, se houver, que o cliente estava tentando executar. |
-| ManagementGroupName |Nome do grupo de gerenciamento para agentes do Operations Manager.  Para outros agentes, ele é AOI-\<ID do espaço de trabalho\> |
+| ManagementGroupName |Nome do grupo de gerenciamento para agentes do Operations Manager.  Para outros agentes, ele é AOI-\<workspace ID\> |
 | RemoteIPCountry |País/região do endereço IP do cliente. |
 | RemoteIPLatitude |Latitude do endereço IP do cliente. |
 | RemoteIPLongitude |Longitude do endereço IP do cliente. |
@@ -65,7 +64,7 @@ A tabela a seguir fornece diferentes exemplos de consultas de log que recuperam 
 | W3CIISLog |Todos os registros de log do IIS. |
 | W3CIISLog &#124; where scStatus==500 |Todos os registros de log do IIS com um status de retorno de 500. |
 | W3CIISLog &#124; summarize count() by cIP |Contagem das entradas do log do IIS por endereço IP do cliente. |
-| W3CIISLog &#124; em que csHost = = "\.www contoso.com" &#124; resume Count () por csUriStem |Contagem de entradas de log do IIS por URL para o\.host www contoso.com. |
+| W3CIISLog &#124; em que csHost = = "www \. contoso.com" &#124; resume Count () por csUriStem |Contagem de entradas de log do IIS por URL para o host www \. contoso.com. |
 | W3CIISLog &#124; summarize sum(csBytes) by Computer &#124; take 500000 |Total de bytes recebidos por cada computador com IIS. |
 
 ## <a name="next-steps"></a>Próximas etapas

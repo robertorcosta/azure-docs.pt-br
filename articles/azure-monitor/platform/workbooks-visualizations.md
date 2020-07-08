@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: d05902f47dff3dd2f8a63ae240c0b8825a5c441f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77658023"
 ---
 # <a name="azure-monitor-workbook-visualizations"></a>Azure Monitor visualizações da pasta de trabalho
@@ -138,7 +137,7 @@ Suporte a blocos da pasta de trabalho mostrando um título, subtítulo, texto gr
 7. Clique no botão **configurações de bloco** para abrir o painel configurações
 8. Em **campos de bloco**, defina:
     * Título: `name`
-    * Esquerda: `Requests`, renderizador `Big Number`:, paleta de `Green to Red`cores:, valor mínimo:`0`
+    * Esquerda: `Requests` , renderizador: `Big Number` , paleta de cores: `Green to Red` , valor mínimo:`0`
     * Resultado`appName`
 9. Clique no botão **salvar e fechar** na parte inferior do painel.
 
@@ -182,14 +181,14 @@ O exemplo a seguir mostra as métricas de integridade do contêiner (tamanho do 
 8. Na seção _colunas_ na parte superior, defina:
     * Renderizador de _ID_ -coluna:`Hidden`
     * _ID pai_ -renderizador de coluna:`Hidden`
-    * _Solicitações_ -renderizador de `Bar`coluna:, `Blue`cor:, valor mínimo:`0`
+    * _Solicitações_ -renderizador de coluna: `Bar` , cor: `Blue` , valor mínimo:`0`
 9. Clique no botão _salvar e fechar_ na parte inferior do painel.    
 
 ![Captura de tela da exibição de resumo do bloco](./media/workbooks-visualizations/tree-settings.png)
 
 ### <a name="tree-settings"></a>Configurações de árvore
 
-| Setting | Explicação |
+| Configuração | Explicação |
 |:------------- |:-------------|
 | `Id Field` | A ID exclusiva de cada linha na grade |
 | `Parent Id Field` | A ID do pai da linha atual |
@@ -243,9 +242,9 @@ O gráfico abaixo mostra dados que fluem para dentro/para fora de um computador 
     * `Node Color Field`: `Kind`
     * `Color palette`: `Pastel`
 10. Em _configurações de formato de nó_ na parte superior, defina:
-    * _Conteúdo principal_-use a coluna `Name`:, renderizador de coluna:`Text`
-    * _Conteúdo do centro_-usar coluna `Calls`:, renderizador `Big Number`de coluna:, paleta de cores:`None`
-    * _Conteúdo inferior_-use a coluna `Kind`:, renderizador de coluna:`Text`
+    * _Conteúdo principal_-use a coluna: `Name` , renderizador de coluna:`Text`
+    * _Conteúdo do centro_-usar coluna: `Calls` , renderizador de coluna: `Big Number` , paleta de cores:`None`
+    * _Conteúdo inferior_-use a coluna: `Kind` , renderizador de coluna:`Text`
 10. Clique no botão _salvar e fechar_ na parte inferior do painel.
 
 ![Captura de tela da exibição de resumo do bloco](./media/workbooks-visualizations/graph-settings.png)

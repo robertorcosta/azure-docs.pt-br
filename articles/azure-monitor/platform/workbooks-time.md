@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: 380b8a7ce286ab06b6935bf63bf3a0e82f371c2f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77658006"
 ---
 # <a name="workbook-time-parameters"></a>Parâmetros de tempo da pasta de trabalho
@@ -49,7 +48,7 @@ Os parâmetros de hora permitem que os usuários definam o contexto de tempo de 
 ### <a name="in-kql"></a>Em KQL
 1. Adicione um controle de consulta à pasta de trabalho e selecione um recurso de Application Insights.
 2. No KQL, insira um filtro de escopo de tempo usando o parâmetro:`| where timestamp {TimeRange}`
-3. Isso expande o tempo de avaliação de `| where timestamp > ago(1d)`consulta para, que é o valor de intervalo de tempo do parâmetro.
+3. Isso expande o tempo de avaliação de consulta para `| where timestamp > ago(1d)` , que é o valor de intervalo de tempo do parâmetro.
 4. Execute a consulta para ver os resultados
 
     ![Imagem mostrando um intervalo de tempo referenciado em KQL](./media/workbooks-time/time-in-code.png)

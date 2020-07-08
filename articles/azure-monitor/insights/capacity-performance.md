@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 07/13/2017
 ms.openlocfilehash: 75c65cf9f76e711a3aeed764de8b92ed619bad2f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77666936"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>Planejar a capacidade da máquina virtual do Hyper-V com a solução de Capacidade e Desempenho (preterida)
@@ -85,10 +84,10 @@ Ao adicionar a solução de capacidade e desempenho ao seu workspace, a Capacida
 
 Clique no bloco de Capacidade e Desempenho para abrir o painel de capacidade e desempenho. O painel inclui as colunas na tabela a seguir. Cada coluna lista os dez principais itens que correspondem aos critérios da coluna para o escopo e o intervalo de tempo especificados. É possível executar uma pesquisa de log que retorna todos os registros clicando em **Ver todos** na parte inferior da coluna ou clicando no cabeçalho de coluna.
 
-- **Hospedar**
+- **Hosts**
     - **Utilização de CPU de host** Mostra uma tendência gráfica de utilização da CPU dos computadores host e uma lista de hosts com base no período selecionado. Passe o mouse sobre o gráfico de linhas para exibir detalhes de um ponto específico no tempo. Clique no gráfico para exibir mais detalhes na pesquisa de logs. Clique em um nome de host para abrir a pesquisa de logs e exibir os detalhes do contador da CPU das VMs hospedadas.
     - **Utilização de memória de host** Mostra uma tendência gráfica de utilização de memória de computadores host e uma lista de hosts com base no período selecionado. Passe o mouse sobre o gráfico de linhas para exibir detalhes de um ponto específico no tempo. Clique no gráfico para exibir mais detalhes na pesquisa de logs. Clique em um nome de host para abrir a pesquisa de logs e exibir os detalhes do contador da memória das VMs hospedadas.
-- **Máquinas Virtuais**
+- **Máquinas virtuais**
     - **Utilização de CPU da VM** mostra uma tendência gráfica da utilização da CPU de máquinas virtuais e uma lista de máquinas virtuais com base no período selecionado. Passe o mouse sobre o gráfico de linhas para exibir detalhes de um ponto específico no tempo para as 3 VMs superiores. Clique no gráfico para exibir mais detalhes na pesquisa de logs. Clique em qualquer nome da VM para abrir a pesquisa de logs e exibir detalhes do contador da CPU agregada para a VM.
     - **Utilização de memória de VM** Mostra uma tendência gráfica de utilização de memória das máquinas virtuais e uma lista de máquinas virtuais com base no período selecionado. Passe o mouse sobre o gráfico de linhas para exibir detalhes de um ponto específico no tempo para as 3 VMs superiores. Clique no gráfico para exibir mais detalhes na pesquisa de logs. Clique em qualquer nome da VM para abrir a pesquisa de logs e exibir detalhes do contador da memória agregada para a VM.
     - **IOPS de disco total da VM** mostra uma tendência gráfica do IOPS de disco total para máquinas virtuais e uma lista de máquinas virtuais com o IOPS para cada uma delas com base no período selecionado. Passe o mouse sobre o gráfico de linhas para exibir detalhes de um ponto específico no tempo para as 3 VMs superiores. Clique no gráfico para exibir mais detalhes na pesquisa de logs. Clique em qualquer nome da VM para abrir a pesquisa de logs e exibir os detalhes do contador de IOPS de disco agregado para a VM.

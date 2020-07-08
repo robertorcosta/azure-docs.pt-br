@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: 3e7dda85f1f890d5ae0eb4722c3e028b373fdcab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77658210"
 ---
 # <a name="workbook-parameters"></a>Parâmetros da pasta de trabalho
@@ -38,8 +37,8 @@ Esses valores de parâmetro podem ser referenciados em outras partes de pastas d
 2. Escolha _adicionar parâmetros_ nos links na pasta de trabalho.
 3. Clique no botão azul _Adicionar parâmetro_ .
 4. No novo painel de parâmetros que aparece, digite:
-    1. Nome do parâmetro `TimeRange` : *(Observe que os __nomes__ de parâmetros **não podem** incluir espaços ou caracteres especiais)*
-    2. Nome de exibição `Time Range`: *(no entanto, os __nomes de exibição__ podem incluir espaços, caracteres especiais, Emoji, etc.)*  
+    1. Nome do parâmetro: `TimeRange` *(Observe que os __nomes__ de parâmetros **não podem** incluir espaços ou caracteres especiais)*
+    2. Nome de exibição: `Time Range` *(no entanto, os __nomes de exibição__ podem incluir espaços, caracteres especiais, Emoji, etc.)*  
     2. Tipo de parâmetro:`Time range picker`
     3. Necessário:`checked`
     4. Intervalos de tempo disponíveis: última hora, últimas 12 horas, últimas 24 horas, últimas 48 horas, últimos 3 dias, últimos 7 dias e permitir seleção de intervalo de tempo personalizado
@@ -54,7 +53,7 @@ Esses valores de parâmetro podem ser referenciados em outras partes de pastas d
 ## <a name="referencing-a-parameter"></a>Referenciando um parâmetro
 ### <a name="via-bindings"></a>Via associações
 1. Adicione um controle de consulta à pasta de trabalho e selecione um recurso de Application Insights.
-2. Abra a lista suspensa _intervalo de tempo_ e selecione `Time Range` a opção na seção parâmetros na parte inferior.
+2. Abra a lista suspensa _intervalo de tempo_ e selecione a `Time Range` opção na seção parâmetros na parte inferior.
 3. Isso associa o parâmetro de intervalo de tempo ao intervalo de tempo do gráfico. O escopo de tempo da consulta de exemplo agora é as últimas 24 horas.
 4. Execute a consulta para ver os resultados
 
@@ -63,7 +62,7 @@ Esses valores de parâmetro podem ser referenciados em outras partes de pastas d
 ### <a name="in-kql"></a>Em KQL
 1. Adicione um controle de consulta à pasta de trabalho e selecione um recurso de Application Insights.
 2. No KQL, insira um filtro de escopo de tempo usando o parâmetro:`| where timestamp {TimeRange}`
-3. Isso expande o tempo de avaliação de `| where timestamp > ago(1d)`consulta para, que é o valor de intervalo de tempo do parâmetro.
+3. Isso expande o tempo de avaliação de consulta para `| where timestamp > ago(1d)` , que é o valor de intervalo de tempo do parâmetro.
 4. Execute a consulta para ver os resultados
 
     ![Imagem mostrando um intervalo de tempo referenciado em KQL](./media/workbooks-parameters/time-in-code.png)

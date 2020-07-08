@@ -9,10 +9,9 @@ ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
 ms.openlocfilehash: 95c85309058911d6767eb44efd7b37ddac7a9119
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77915022"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>Solução de problemas de erros de exclusão de recursos de armazenamento clássicos
@@ -114,7 +113,7 @@ Se o usuário optar pela exclusão usando o PowerShell, isso resultará no erro 
 Siga estas etapas no portal do Azure:
 1.  Navegue até o [Portal do Azure](https://portal.azure.com).
 2.  Navegue para Discos (clássicos). 
-3.  Clique na guia discos. ![captura de tela do portal, com o painel "lista" do blob de contêiner aberto](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_disks_tab.jpg)
+3.  Clique na guia discos. ![ Captura de tela do portal, com o painel "lista" do blob de contêiner aberto](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_disks_tab.jpg)
  
 4.  Selecione o disco de dados e clique em Excluir o Disco.
  ![Captura de tela do portal, com o painel "Lista" aberto do blob do contêiner](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_delete_disk.jpg)

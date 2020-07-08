@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 09/16/2019
 ms.reviewer: sdash
 ms.openlocfilehash: 61358051a8ddc32bc01ec5e231f4c28ebfa18ee0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77670025"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Monitorar a disponibilidade de qualquer site
@@ -23,7 +22,7 @@ Há três tipos de testes de disponibilidade:
 
 * [Teste de ping de URL](#create-a-url-ping-test): um teste simples que você pode criar no Portal do Azure.
 * [Teste na Web de várias etapas](availability-multistep.md): uma gravação de uma sequência de solicitações da Web, que pode ser reproduzida para testar cenários mais complexos. Os testes na Web de várias etapas são criados no Visual Studio Enterprise e carregados no portal para execução.
-* [Testes de disponibilidade de acompanhamento personalizado](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet): se você decidir criar um aplicativo personalizado para executar testes de disponibilidade `TrackAvailability()` , o método poderá ser usado para enviar os resultados para Application insights.
+* [Testes de disponibilidade de acompanhamento personalizado](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet): se você decidir criar um aplicativo personalizado para executar testes de disponibilidade, o `TrackAvailability()` método poderá ser usado para enviar os resultados para Application insights.
 
 **Você pode criar até 100 testes de disponibilidade por recurso de Application Insights.**
 
@@ -31,7 +30,7 @@ Há três tipos de testes de disponibilidade:
 
 Para criar um teste de disponibilidade, primeiro você precisa criar um recurso de Application Insights. Se você já tiver criado um recurso, vá para a próxima seção para [criar um teste de ping de URL](#create-a-url-ping-test).
 
-No portal do Azure, selecione **criar um recurso** > **ferramentas para desenvolvedores** > **Application insights** e [criar um recurso de Application insights](create-new-resource.md).
+No portal do Azure, selecione **criar um recurso**  >  **ferramentas para desenvolvedores**  >  **Application insights** e [criar um recurso de Application insights](create-new-resource.md).
 
 ## <a name="create-a-url-ping-test"></a>Criar um teste de ping de URL
 
@@ -43,34 +42,34 @@ Para criar sua primeira solicitação de disponibilidade, abra o painel disponib
 
 ### <a name="create-a-test"></a>Criar um teste
 
-|Setting| Explicação
+|Configuração| Explicação
 |----|----|----|
 |**URL** |  A URL pode ser qualquer página da web que você deseja testar, mas ela deve estar visível na Internet pública. A URL pode incluir uma cadeia de consulta. Por exemplo, você pode utilizar um pouco seu banco de dados. Se a URL for resolvida para um redirecionamento, nós a seguiremos, até um máximo de 10 redirecionamentos.|
 |**Analisar solicitações dependentes**| Solicitações de teste imagens, scripts, arquivos de estilo e outros arquivos que fazem parte da página da Web em teste. O tempo de resposta gravado inclui o tempo necessário para obter esses arquivos. O teste falhará se qualquer um desses recursos não puder ser baixado com êxito dentro do tempo limite para o teste inteiro. Se a opção não estiver marcada, o teste solicitará apenas o arquivo na URL especificada. A habilitação dessa opção resulta em uma verificação mais estrita. O teste pode falhar para casos, o que pode não ser perceptível ao navegar manualmente no site.
 |**Habilitar novas tentativas**|Quando o teste falha, ele é repetido após um curto intervalo. Uma falha só será relatada se três tentativas sucessivas falharem. Testes subsequentes são então executados com a frequência de teste normal. A repetição é suspensa temporariamente até o próximo sucesso. Essa regra é aplicada independentemente em cada local de teste. **Recomendamos essa opção**. Em média, aproximadamente 80% das falhas desaparecem na repetição.|
 |**Frequência de teste**| define a frequência com que o teste é executado em cada localização de teste. Com uma frequência padrão de cinco minutos e cinco locais de teste, seu site é testado em média a cada minuto.|
-|**Locais de teste**| São os locais de onde nossos servidores enviam solicitações da Web para sua URL. **Nosso número mínimo de locais de teste recomendados é cinco** para garantir que você possa distinguir problemas em seu site por meio de problemas de rede. Você pode selecionar até 16 locais.
+|**Locais de teste**| São os locais de onde nossos servidores enviam solicitações da Web para a sua URL. **O número mínimo de locais de teste recomendado é cinco**, para garantir que você possa diferenciar problemas no seu site de problemas na rede. Você pode selecionar até 16 locais.
 
 **Se a URL não estiver visível na Internet pública, você poderá optar por abrir seletivamente o firewall para permitir apenas as transações de teste**. Para saber mais sobre as exceções de firewall para nossos agentes de teste de disponibilidade, consulte o [Guia de endereço IP](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses#availability-tests).
 
 > [!NOTE]
 > É altamente recomendável testar de vários locais com **um mínimo de cinco locais**. Isso é para evitar alarmes falsos que podem resultar de problemas temporários com um local específico. Além disso, descobrimos que a configuração ideal é ter o **número de locais de teste igual ao limite de local do alerta + 2**.
 
-### <a name="success-criteria"></a>Critérios de sucesso
+### <a name="success-criteria"></a>Critérios de êxito
 
-|Setting| Explicação
+|Configuração| Explicação
 |----|----|----|
-| **Tempo limite do teste** |diminua esse valor para ser alertado sobre respostas lentas. O teste é considerado uma falha se as respostas de seu site não são recebidas dentro desse período. Se você tiver selecionado **Analisar solicitações dependentes**, todas as imagens, arquivos de estilo, scripts e outros recursos dependentes devem ter sido recebidos dentro desse período.|
+| **Tempo limite de teste** |diminua esse valor para ser alertado sobre respostas lentas. O teste é considerado uma falha se as respostas de seu site não são recebidas dentro desse período. Se você tiver selecionado **Analisar solicitações dependentes**, todas as imagens, arquivos de estilo, scripts e outros recursos dependentes devem ter sido recebidos dentro desse período.|
 | **Resposta HTTP** | o código de status retornado que é contado como êxito. 200 é o código que indica que uma página da Web normal foi retornada.|
-| **Correspondência de conteúdo** | Uma cadeia de caracteres, como "bem-vindo!" Faremos o teste que uma correspondência exata de maiúsculas e minúsculas ocorre em todas as respostas. É necessário que seja uma cadeia de caracteres simples, sem curingas. Lembre-se de que se o conteúdo de sua página for alterado, talvez seja necessário atualizá-lo. **Somente caracteres em inglês têm suporte com correspondência de conteúdo** |
+| **Correspondência de conteúdo** | Uma cadeia de caracteres como, por exemplo, “Bem-vindo!” Faremos o teste que uma correspondência exata de maiúsculas e minúsculas ocorre em todas as respostas. É necessário que seja uma cadeia de caracteres simples, sem curingas. Lembre-se de que se o conteúdo de sua página for alterado, talvez seja necessário atualizá-lo. **Somente caracteres da língua inglesa têm suporte na correspondência de conteúdo** |
 
 ### <a name="alerts"></a>Alertas
 
-|Setting| Explicação
+|Configuração| Explicação
 |----|----|----|
-|**Quase em tempo real (visualização)** | É recomendável usar alertas quase em tempo real. A configuração desse tipo de alerta é feita após a criação do teste de disponibilidade.  |
+|**Quase em tempo real (Versão prévia)** | É recomendável usar alertas quase em tempo real. A configuração desse tipo de alerta é feita após a criação do teste de disponibilidade.  |
 |**Clássico** | Não recomendamos o uso de alertas clássicos para novos testes de disponibilidade.|
-|**Limite de local de alerta**|é recomendável um mínimo de 3/5 locais. A relação ideal entre o limite de local de alerta e o número de locais de teste é o número **limite** = **de local de alerta de locais de teste-2, com um mínimo de cinco locais de teste.**|
+|**Limite de locais de alerta**|é recomendável um mínimo de 3/5 locais. A relação ideal entre o limite de alertas locais e o número de locais de teste é o **limite de alertas locais** = **número de locais de teste - 2, com um mínimo de cinco locais de teste.**|
 
 ## <a name="see-your-availability-test-results"></a>Ver os resultados de teste de disponibilidade
 
@@ -125,7 +124,7 @@ Além dos resultados brutos, você também pode exibir duas métricas de disponi
 
 ## <a name="troubleshooting"></a>Solução de problemas
 
-[Artigo de solução de problemas](troubleshoot-availability.md)dedicado.
+[Artigo exclusivo para solução de problemas](troubleshoot-availability.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
