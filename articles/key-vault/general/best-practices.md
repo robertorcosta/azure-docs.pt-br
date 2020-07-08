@@ -10,12 +10,11 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2a81d28998c531339a1b719e37e4b90004157edf
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
-ms.translationtype: MT
+ms.openlocfilehash: 16828435dc8913fff8da4717ee7f77cc701504ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005843"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213067"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Práticas recomendadas para usar Key Vault
 
@@ -36,6 +35,19 @@ Nossa recomendação é usar um cofre por aplicativo por ambiente (desenvolvimen
 ## <a name="backup"></a>Backup
 
 Certifique-se de fazer backups regulares de seu cofre em atualizar/excluir/criar objetos em um cofre.
+
+### <a name="azure-powershell-backup-commands"></a>Azure PowerShell comandos de backup
+
+* [Certificado de backup](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultCertificate?view=azurermps-6.13.0)
+* [Chave de backup](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultKey?view=azurermps-6.13.0)
+* [Segredo de backup](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultSecret?view=azurermps-6.13.0)
+
+### <a name="azure-cli-backup-commands"></a>CLI do Azure comandos de backup
+
+* [Certificado de backup](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-backup)
+* [Chave de backup](https://docs.microsoft.com/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-backup)
+* [Segredo de backup](https://docs.microsoft.com/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-backup)
+
 
 ## <a name="turn-on-logging"></a>Ativar registro em log
 

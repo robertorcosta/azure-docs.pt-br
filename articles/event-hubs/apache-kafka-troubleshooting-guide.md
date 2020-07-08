@@ -1,29 +1,19 @@
 ---
 title: Solucionar problemas com os hubs de eventos do Azure para Apache Kafka
 description: Este artigo mostra como solucionar problemas com os hubs de eventos do Azure para Apache Kafka
-services: event-hubs
-documentationcenter: ''
-author: ShubhaVijayasarathy
-manager: ''
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/01/2020
-ms.author: shvija
-ms.openlocfilehash: 12ddc5fa74b7a1b42bbd64fde9ec3410b1c1e425
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: c2403fd51729ef8809b9a70383ad6f9fd91e52b6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606724"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322677"
 ---
 # <a name="apache-kafka-troubleshooting-guide-for-event-hubs"></a>Guia de solução de problemas Apache Kafka para hubs de eventos
 Este artigo fornece dicas de solução de problemas que você pode encontrar ao usar os hubs de eventos para Apache Kafka. 
 
 ## <a name="server-busy-exception"></a>Exceção do servidor ocupado
-Você pode receber uma exceção de servidor ocupado devido à limitação de Kafka. Com os clientes AMQP, os hubs de eventos retornam imediatamente uma exceção de **servidor ocupado** na limitação de serviço. É equivalente a uma mensagem "tentar novamente mais tarde". No Kafka, as mensagens são atrasadas antes de serem concluídas. O comprimento do atraso é retornado em milissegundos `throttle_time_ms` como na resposta de produzir/buscar. Na maioria dos casos, essas solicitações atrasadas não são registradas como exceções ServerBusy em painéis de hubs de eventos. Em vez disso, o `throttle_time_ms` valor da resposta deve ser usado como um indicador de que a taxa de transferência excedeu a cota provisionada.
+Você pode receber uma exceção de servidor ocupado devido à limitação de Kafka. Com os clientes AMQP, os hubs de eventos retornam imediatamente uma exceção de **servidor ocupado** na limitação de serviço. É equivalente a uma mensagem "tentar novamente mais tarde". No Kafka, as mensagens são atrasadas antes de serem concluídas. O comprimento do atraso é retornado em milissegundos como `throttle_time_ms` na resposta de produzir/buscar. Na maioria dos casos, essas solicitações atrasadas não são registradas como exceções ServerBusy em painéis de hubs de eventos. Em vez disso, o `throttle_time_ms` valor da resposta deve ser usado como um indicador de que a taxa de transferência excedeu a cota provisionada.
 
 Se o tráfego for excessivo, o serviço terá o seguinte comportamento:
 
@@ -39,7 +29,7 @@ Você pode ver que os consumidores não estão recebendo registros e rebalancean
 - Se sua configuração corresponder a esses valores recomendados e você ainda estiver vendo o rebalanceamento constante, sinta-se à vontade para abrir um problema (certifique-se de incluir toda a configuração no problema para que possamos ajudar a depurar)!
 
 ## <a name="compressionmessage-format-version-issue"></a>Problema de versão de formato de mensagem/compactação
-O Kafka dá suporte à compactação e os hubs de eventos para o Kafka atualmente não. Os erros que mencionam uma versão de formato de mensagem ( `The message format version on the broker does not support the request.`por exemplo,) são causados quando um cliente tenta enviar mensagens Kafka compactadas para nossos agentes.
+O Kafka dá suporte à compactação e os hubs de eventos para o Kafka atualmente não. Os erros que mencionam uma versão de formato de mensagem (por exemplo, `The message format version on the broker does not support the request.` ) são causados quando um cliente tenta enviar mensagens Kafka compactadas para nossos agentes.
 
 Se forem necessários dados compactados, compactar os dados antes de enviá-los aos agentes e descompactar após o recebimento é uma solução alternativa válida. O corpo da mensagem é apenas uma matriz de bytes para o serviço, portanto, a compactação/descompactação do lado do cliente não causará problemas.
 

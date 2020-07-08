@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.custom: amqp
 ms.openlocfilehash: ac45cf42ed174d3e9423b4ea39cadf16b84897ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81759643"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Configurar a segurança de X.509 em seu Hub IoT do Azure
@@ -47,7 +46,7 @@ Você pode escolher qualquer uma das seguintes maneiras para obter seus certific
 
 Estas etapas mostram como adicionar uma nova Autoridade de certificação ao Hub IoT por meio do portal.
 
-1. No portal do Azure, navegue até o Hub IOT e selecione **configurações** > **certificados** para o Hub.
+1. No portal do Azure, navegue até o Hub IOT e selecione **configurações**  >  **certificados** para o Hub.
 
 1. Selecione **Adicionar** para adicionar um novo certificado.
 
@@ -73,7 +72,7 @@ Estas etapas mostram como adicionar uma nova Autoridade de certificação ao Hub
 
 ## <a name="create-an-x509-device-for-your-iot-hub"></a>Criar um dispositivo X.509 para o Hub IoT
 
-1. Na portal do Azure, navegue até o Hub IOT e selecione**dispositivos IOT**de **gerenciadores** > .
+1. Na portal do Azure, navegue até o Hub IOT e selecione dispositivos IOT de **gerenciadores**  >  **IoT devices**.
 
 1. Selecione **novo** para adicionar um novo dispositivo.
 
@@ -99,9 +98,9 @@ Em seguida, mostraremos como criar um aplicativo C# para simular o dispositivo X
 
    ![Adicionar o pacote NuGet do SDK de dispositivo no Visual Studio](./media/iot-hub-security-x509-get-started/device-sdk-nuget.png)
 
-    Esta etapa baixa, instala e adiciona uma referência ao pacote NuGet do SDK do dispositivo IoT do Azure e suas dependências.
+    Esta etapa baixa, instala e adiciona uma referência ao pacote NuGet do SDK do dispositivo IoT do Azure e as dependências dele.
 
-1. Adicione as seguintes `using` instruções na parte superior do arquivo **Program.cs** :
+1. Adicione as instruções `using` abaixo na parte superior do arquivo **Program.cs** :
 
     ```csharp
         using Microsoft.Azure.Devices.Client;
@@ -181,7 +180,7 @@ Em seguida, mostraremos como criar um aplicativo C# para simular o dispositivo X
 
    1. Navegue até a pasta que contém sua solução e, em seguida, navegue até o caminho de *compartimento/depuração* dentro da pasta da solução.
 
-   1. Execute o aplicativo **SimulateX509Device. exe** no prompt de comando.
+   1. Execute o aplicativo **SimulateX509Device.exe** no prompt de comando.
 
    Você verá o dispositivo se conectar ao hub e enviar os eventos com êxito.
 

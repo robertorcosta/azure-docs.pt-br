@@ -5,19 +5,18 @@ description: Associar o ASN do par à assinatura do Azure usando o PowerShell
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 77cc4732e017d95cbae19578cf26b1111b08fdde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c0ad9ae885a458da5df8975d5d13018fd92bbdaf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75908980"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710772"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-powershell"></a>Associar o ASN do par à assinatura do Azure usando o PowerShell
 
-Antes de enviar uma solicitação de emparelhamento, você deve primeiro associar seu ASN à assinatura do Azure usando as etapas abaixo.
+Antes de enviar uma solicitação de emparelhamento, você deve primeiro associar seu ASN à assinatura do Azure seguindo as etapas abaixo.
 
 Se preferir, você pode concluir este guia usando o [portal](howto-subscription-association-portal.md).
 
@@ -29,8 +28,8 @@ Se preferir, você pode concluir este guia usando o [portal](howto-subscription-
 ### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Entre na sua conta do Azure e selecione sua assinatura
 [!INCLUDE [Account](./includes/account-powershell.md)]
 
-### <a name="register-for-peering-resource-provider"></a>Registrar para provedor de recursos de emparelhamento
-Registre-se para provedor de recursos de emparelhamento em sua assinatura usando o comando a seguir. Se você não executar isso, os recursos do Azure necessários para configurar o emparelhamento não estarão acessíveis.
+### <a name="register-for-peering-resource-provider"></a>Registrar-se para o provedor de recursos de emparelhamento
+Registre-se para provedor de recursos de emparelhamento em sua assinatura usando o comando a seguir. Se você não fizer isso, os recursos do Azure necessários para configurar o emparelhamento não estarão acessíveis.
 
 ```powershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.Peering
@@ -86,7 +85,7 @@ Type            : Microsoft.Peering/peerAsns
 ```
 
 > [!IMPORTANT]
-> Aguarde até que o ValidationState ative "aprovado" antes de enviar uma solicitação de emparelhamento. Pode levar até 12 horas para essa aprovação.
+> Aguarde até que o ValidationState passe a ser "Aprovado" antes de enviar uma solicitação de emparelhamento. Podem ser necessárias 12 horas para essa aprovação.
 
 ## <a name="modify-peerasn"></a>Modificar PeerAsn
 Você pode modificar as informações de contato do NOC a qualquer momento.
@@ -109,4 +108,4 @@ Atualmente, não há suporte para a exclusão de um PeerASN. Se você precisar e
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-Para obter mais informações, visite [perguntas frequentes sobre emparelhamento da Internet](faqs.md)
+Para obter mais informações, acesse [Perguntas frequentes sobre emparelhamento de Internet](faqs.md)

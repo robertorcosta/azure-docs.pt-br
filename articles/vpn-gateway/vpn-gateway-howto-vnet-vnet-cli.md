@@ -5,15 +5,14 @@ services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: a354f8031c26ca86876dc6f3a2092610226cc84b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e93bae91827b2807ef577d7659924a5d37454fa4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75834569"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987116"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configurar uma conexão gateway de VPN de Vnet pra VNet usando a CLI do Azure
 
@@ -292,7 +291,7 @@ Ao criar conexões adicionais, é importante verificar se o espaço de endereço
 
 ### <a name="step-7---create-and-configure-testvnet5"></a><a name="TestVNet5"></a>Etapa 7: criar e configurar TestVNet5
 
-Esta etapa deve ser feita no contexto da nova assinatura, Assinatura 5. Esta parte pode ser executada pelo administrador em uma organização diferente que possui a assinatura. Para alternar entre assinaturas, use `az account list --all` para listar as assinaturas disponíveis para sua conta e, em seguida, `az account set --subscription <subscriptionID>` use para alternar para a assinatura que você deseja usar.
+Esta etapa deve ser feita no contexto da nova assinatura, Assinatura 5. Esta parte pode ser executada pelo administrador em uma organização diferente que possui a assinatura. Para alternar entre assinaturas `az account list --all` , use para listar as assinaturas disponíveis para sua conta e, em seguida, use `az account set --subscription <subscriptionID>` para alternar para a assinatura que você deseja usar.
 
 1. Verifique se você está conectado à Assinatura 5 e crie um grupo de recursos.
 
@@ -331,7 +330,7 @@ Esta etapa deve ser feita no contexto da nova assinatura, Assinatura 5. Esta par
 
 ### <a name="step-8---create-the-connections"></a><a name="connections5"></a>Etapa 8: criar as conexões
 
-Esta etapa é dividida em duas sessões da CLI marcadas como **[Assinatura 1]** e **[Assinatura 5]** porque os gateways estão em assinaturas diferentes. Para alternar entre assinaturas, use `az account list --all` para listar as assinaturas disponíveis para sua conta e, em seguida, `az account set --subscription <subscriptionID>` use para alternar para a assinatura que você deseja usar.
+Esta etapa é dividida em duas sessões da CLI marcadas como **[Assinatura 1]** e **[Assinatura 5]** porque os gateways estão em assinaturas diferentes. Para alternar entre assinaturas `az account list --all` , use para listar as assinaturas disponíveis para sua conta e, em seguida, use `az account set --subscription <subscriptionID>` para alternar para a assinatura que você deseja usar.
 
 1. **[Assinatura 1]** Faça login e conecte-se à Assinatura 1. Execute o seguinte comando para obter o nome e a ID do Gateway da saída:
 

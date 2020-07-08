@@ -4,15 +4,14 @@ description: Crie uma conexão de gateway de VPN entre redes virtuais usando o R
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 3d91203253c08acdaa159fc70f7a34fa7fca20c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5abf79d23ca2de661383cc002dac9d7f9e4dc5bf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78674174"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84985570"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Configurar uma conexão de gateway de VPN de VNet para VNet usando o portal do Azure
 
@@ -78,7 +77,7 @@ Este artigo mostra como conectar VNets usando o tipo de conexão VNet a VNet. Ao
     - **Espaço de endereço**: 10.1.0.0/16
     - **Assinatura**: selecione a assinatura que você deseja usar.
     - **Grupo de recursos**: TestRG1
-    - **Local**: leste dos EUA
+    - **Localização**: Leste dos EUA
     - **Sub-rede**
         - **Nome**: frontend
         - **Intervalo de endereços**: 10.1.0.0/24

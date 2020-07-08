@@ -1,16 +1,15 @@
 ---
 title: Solucionar problemas com relatórios de integridade do sistema
 description: Descreve os relatórios de integridade enviados por componentes do Service Fabric do Azure e o seu uso para solucionar problemas de cluster ou de aplicativos
-author: oanapl
+author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
-ms.author: oanapl
-ms.openlocfilehash: a76ae803b1283ce50d2f4e259943ce5ffcf0274c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.author: gwallace
+ms.openlocfilehash: a3b2f7c22c1afd0a24aafa3bcd9dc9a6c3f725f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282010"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85392566"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Usar relatórios de integridade do sistema para solução de problemas
 Os componentes do Service Fabric do Azure apresentam relatórios de integridade do sistema em todas as entidades no cluster prontos para uso. O [repositório de integridade](service-fabric-health-introduction.md#health-store) cria e exclui entidades baseado nos relatórios do sistema. Ele também os organiza em uma hierarquia que captura interações de entidade.
@@ -48,7 +47,7 @@ O relatório especifica o tempo limite de concessão global como a TTL (vida út
 * **Propriedade**: começa com **ambiente** e inclui informações de nó.
 * **Próximas etapas**: investigue o motivo da perda da vizinhança. Por exemplo, verifique a comunicação entre os nós do cluster.
 
-### <a name="rebuild"></a>Recriar
+### <a name="rebuild"></a>Recompilar
 
 O serviço FM (Gerenciador de Failover) gerencia as informações sobre os nós de cluster. Quando o FM perde os dados e entra na perda de dados, ele não pode garantir que tem as informações mais atualizadas sobre os nós de cluster. Nesse caso, o sistema passa por uma recompilação e o System.FM coleta dados de todos os nós no cluster para recompilar o estado. Às vezes, devido a questões de rede ou nó, a recompilação pode ficar atrasada ou paralisada. O mesmo pode acontecer com o serviço FMM (Failover Manager Master). O FMM é um serviço de sistema sem estado que controla onde todos os FMs estão no cluster. O primário do FMM é sempre o nó com a ID mais próxima de 0. Se esse nó for removido, uma recompilação será disparada.
 Quando uma das condições anteriores ocorre, o **System.FM** ou **System.FMM** sinaliza um relatório de erros. A recompilação pode ficar paralisada em uma das duas fases:
@@ -639,30 +638,30 @@ HealthEvents          :
 
 A propriedade e o texto indicam qual API ficou paralisada. As próximas etapas a serem tomadas para diferentes APIs paralisadas são diferentes. Qualquer API em *IStatefulServiceReplica* ou no *IStatelessServiceInstance* geralmente é um bug no código de serviço. A seção a seguir descreve como elas são convertidas no [modelo de Reliable Services](service-fabric-reliable-services-lifecycle.md):
 
-- **IStatefulServiceReplica. Open**: esse aviso indica que uma chamada para `CreateServiceInstanceListeners`, `ICommunicationListener.OpenAsync`ou se substituído, `OnOpenAsync` está paralisada.
+- **IStatefulServiceReplica. Open**: esse aviso indica que uma chamada para `CreateServiceInstanceListeners` , `ICommunicationListener.OpenAsync` ou se substituído, `OnOpenAsync` está paralisada.
 
 - **IStatefulServiceReplica.Close** e **IStatefulServiceReplica.Abort**: o caso mais comum é um serviço que não respeita o token de cancelamento passado para `RunAsync`. Também pode ser que `ICommunicationListener.CloseAsync` ou, se substituído, `OnCloseAsync` esteja paralisado.
 
 - **IStatefulServiceReplica.ChangeRole(S)** e **IStatefulServiceReplica.ChangeRole(N)**: o caso mais comum é um serviço que não está respeitando o token de cancelamento passado para `RunAsync`. Nesse cenário, a melhor solução é reiniciar a réplica.
 
-- **IStatefulServiceReplica. ChangeRole (P)**: o caso mais comum é que o serviço não retornou uma tarefa de `RunAsync`.
+- **IStatefulServiceReplica. ChangeRole (P)**: o caso mais comum é que o serviço não retornou uma tarefa de `RunAsync` .
 
 Outras chamadas à API que podem ficar paralisadas estão na interface **IReplicator**. Por exemplo:
 
 - **IReplicator.CatchupReplicaSet**: este aviso indica que um dos seguintes. Há réplicas insuficientes. Para verificar se esse é o caso, observe o status de réplica das réplicas na partição ou o relatório de integridade System.FM para uma reconfiguração paralisada. Ou as réplicas não estão confirmando operações. O cmdlet do PowerShell `Get-ServiceFabricDeployedReplicaDetail` pode ser utilizado para determinar o progresso de todas as réplicas. O problema está nas réplicas cujo valor `LastAppliedReplicationSequenceNumber` está atrás do valor `CommittedSequenceNumber` do primário.
 
-- **IReplicator. BuildReplica (\<replicaid remota>)**: esse aviso indica um problema no processo de compilação. Para obter mais informações, consulte [Replica lifecycle](service-fabric-concepts-replica-lifecycle.md) (Ciclo de vida da réplica). Isso pode acontecer devido a uma configuração incorreta do endereço do replicador. Para obter mais informações, consulte [Configurar Reliable Services com estado](service-fabric-reliable-services-configuration.md) e [Especificar recursos em um manifesto de serviço](service-fabric-service-manifest-resources.md). Também pode ser um problema no nó remoto.
+- **IReplicator.BuildReplica (\<Remote ReplicaId>)**: este aviso indica um problema no processo de build. Para obter mais informações, consulte [Replica lifecycle](service-fabric-concepts-replica-lifecycle.md) (Ciclo de vida da réplica). Isso pode acontecer devido a uma configuração incorreta do endereço do replicador. Para obter mais informações, consulte [Configurar Reliable Services com estado](service-fabric-reliable-services-configuration.md) e [Especificar recursos em um manifesto de serviço](service-fabric-service-manifest-resources.md). Também pode ser um problema no nó remoto.
 
 ### <a name="replicator-system-health-reports"></a>Relatórios de integridade do sistema replicador
-**Fila de replicação cheia:**
-**System. Replicator** relata um aviso quando a fila de replicação está cheia. Na primária, a fila de replicação normalmente fica cheia porque uma ou mais réplicas secundárias são lentas em confirmar operações. No local secundário, isso geralmente acontece quando o serviço está lento para aplicar as operações. O aviso será removido quando a fila não estiver mais cheia.
+**Fila de replicação cheia:** 
+ **System. Replicator** relata um aviso quando a fila de replicação está cheia. Na primária, a fila de replicação normalmente fica cheia porque uma ou mais réplicas secundárias são lentas em confirmar operações. No local secundário, isso geralmente acontece quando o serviço está lento para aplicar as operações. O aviso será removido quando a fila não estiver mais cheia.
 
 * **SourceId**: System.Replicator
 * **Propriedade**: **PrimaryReplicationQueueStatus** ou **SecondaryReplicationQueueStatus**, dependendo da função da réplica.
 * **Próximas etapas**: se o relatório estiver no primário, verifique a conexão entre os nós no cluster. Se todas as conexões estiverem íntegras, pode haver pelo menos um secundário lento com uma latência de disco alta para aplicar as operações. Se o relatório estiver no secundário, verifique primeiro o uso e o desempenho do disco no nó. Em seguida, verifique a conexão de saída do nó lento para o primário.
 
-**RemoteReplicatorConnectionStatus:**
-**System. Replicator** na réplica primária relata um aviso quando a conexão com um replicador secundário (remoto) não está íntegra. O endereço do replicador remoto é mostrado na mensagem do relatório, o que facilita detectar se a configuração errada foi aprovada ou se há problemas de rede entre os replicadores.
+**RemoteReplicatorConnectionStatus:** 
+ **System. Replicator** na réplica primária relata um aviso quando a conexão com um replicador secundário (remoto) não está íntegra. O endereço do replicador remoto é mostrado na mensagem do relatório, o que facilita detectar se a configuração errada foi aprovada ou se há problemas de rede entre os replicadores.
 
 * **SourceId**: System.Replicator
 * **Propriedade**: **RemoteReplicatorConnectionStatus**.

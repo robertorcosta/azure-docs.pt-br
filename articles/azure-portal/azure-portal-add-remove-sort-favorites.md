@@ -6,16 +6,15 @@ keywords: favoritos, portal
 author: mgblythe
 ms.author: mblythe
 ms.date: 12/20/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-portal
 ms.custom: ''
 manager: mtillman
-ms.openlocfilehash: d6b580accb02efb6a44c0c245af583d2e3850409
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 359a544df906a277a89333e3aee2f6203a707f8c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76310808"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764121"
 ---
 # <a name="add-remove-and-rearrange-favorites"></a>Adicionar, remover e reorganizar favoritos
 
@@ -23,7 +22,7 @@ Adicione ou remova itens da sua lista de **favoritos** para que você possa ir r
 
 ## <a name="add-a-favorite"></a>Adicionar um favorito
 
-Os itens listados em **favoritos** são selecionados de **todos os serviços**. Passe o mouse sobre um nome de serviço para exibir informações e recursos relacionados ao serviço. Um ícone de estrela ![preenchida ícone](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-graystar.png) de estrela ao lado do nome do serviço indica que o item aparece na lista de **favoritos** . Selecione o ícone de estrela para adicionar um serviço à lista de **favoritos** .
+Os itens listados em **favoritos** são selecionados de **todos os serviços**. Passe o mouse sobre um nome de serviço para exibir informações e recursos relacionados ao serviço. Um ícone de estrela preenchida ![ ícone de estrela ](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-graystar.png) ao lado do nome do serviço indica que o item aparece na lista de **favoritos** . Selecione o ícone de estrela para adicionar um serviço à lista de **favoritos** .
 
 ### <a name="add-cost-management--billing-to-favorites"></a>Adicionar gerenciamento de custos + cobrança aos favoritos
 

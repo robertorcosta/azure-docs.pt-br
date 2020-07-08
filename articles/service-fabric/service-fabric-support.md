@@ -5,12 +5,11 @@ author: pkcsf
 ms.topic: troubleshooting
 ms.date: 8/24/2018
 ms.author: pkc
-ms.openlocfilehash: ee602b3aa6c701eb10730f4c5c387175bb070ef3
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: f2da9fbb04f9d1fa696250967db404864a3cce82
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834587"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921828"
 ---
 # <a name="azure-service-fabric-support-options"></a>Opções de suporte do Azure Service Fabric
 
@@ -26,7 +25,7 @@ Saiba mais sobre:
 - [Suporte premier da Microsoft](https://support.microsoft.com/en-us/premier).
 
 > [!Note]
-> Clusters em execução em uma camada de confiabilidade bronze ou em cluster de nó único permitirão executar apenas cargas de trabalho de teste. No caso de problemas com um cluster em execução em confiabilidade bronze ou cluster de nó único, a equipe de suporte da Microsoft ajudará você a mitigar o problema, mas não executará uma análise da causa raiz. Confira [as características de confiabilidade do cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) para obter mais detalhes.
+> Clusters em execução em uma camada de confiabilidade bronze ou em cluster de nó único permitirão executar apenas cargas de trabalho de teste. No caso de problemas com um cluster em execução em confiabilidade bronze ou cluster de nó único, a equipe de suporte da Microsoft ajudará você a mitigar o problema, mas não executará uma análise da causa raiz. Confira [as características de confiabilidade do cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#reliability-characteristics-of-the-cluster) para obter mais detalhes.
 >
 > Para saber mais sobre o que é necessário para um cluster pronto para produção, confira a [lista de verificação de preparação para produção](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist).
 
@@ -72,3 +71,4 @@ Não há nenhuma opção de suporte pago para essas versões prévias. Use uma d
 [uservoice-forum]: https://feedback.azure.com/forums/293901-service-fabric
 [acom-docs]: https://aka.ms/servicefabricdocs
 [sample-repos]: https://aka.ms/servicefabricsamples
+[msdn-forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?category=windowsazureplatform

@@ -8,11 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: 0363911574a076b13cb72591fb2564364e096c76
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257960"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710670"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Executar uma simulação de recuperação de desastres para as VMs do Hyper-V em um site secundário
 
@@ -119,13 +118,13 @@ Prepare um servidor DNS para o failover de teste da seguinte forma:
 
 Este procedimento descreve como executar um failover de teste para um plano de recuperação. Como alternativa, você pode executar o failover para uma única máquina virtual na guia **máquinas virtuais** .
 
-1. Selecione **planos** > de recuperação*recoveryplan_name*. Clique em**failover de teste**de **failover** > .
+1. Selecione **planos de recuperação**  >  *recoveryplan_name*. Clique em failover de teste de **failover**  >  **Test Failover**.
 2. Na folha **Failover de Teste**, especifique como as VMs de réplica devem ser conectadas às redes após o failover de teste.
 3. Acompanhe o progresso do failover na guia **Trabalhos** .
 4. Após o failover ser concluído, verifique se as VMs são iniciadas com êxito.
 5. Quando terminar, clique em **Failover de teste de limpeza** no plano de recuperação. Em **Observações**, registre e salve todas as observações associadas ao failover de teste. Essa etapa exclui quaisquer VMs e redes que foram criadas pelo Site Recovery durante o failover de teste. 
 
-![Failover de teste](./media/hyper-v-vmm-test-failover/TestFailover.png)
+![Failover de Teste](./media/hyper-v-vmm-test-failover/TestFailover.png)
  
 
 

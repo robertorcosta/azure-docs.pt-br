@@ -3,24 +3,23 @@ title: Configurar a aceleração automática de entrada usando a descoberta de r
 description: Saiba como configurar a política de descoberta de realm inicial para autenticação Azure Active Directory para usuários federados, incluindo dicas de domínio e aceleração automática.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/08/2019
-ms.author: mimart
+ms.author: kenwith
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 340cf77ae6b4c5677ed91f6a0626b73d259e5fd2
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
-ms.translationtype: MT
+ms.openlocfilehash: 16af484e77787ee1d729ce97eec8c666bf925837
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690497"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763577"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurar aceleração automática de entrada para um aplicativo usando a política Descoberta de Realm Inicial
 
@@ -81,8 +80,8 @@ Para obter mais informações sobre aceleração automática usando as dicas de 
 ### <a name="home-realm-discovery-policy-for-auto-acceleration"></a>Home Realm Discovery policy for auto-acceleration
 Alguns aplicativos não oferecem uma maneira de configurar a solicitação de autenticação emitida. Nesses casos, não é possível usar dicas de domínio para controlar a aceleração automática. Aceleração automática pode ser configurada por meio da política para alcançar o mesmo comportamento.  
 
-## <a name="enable-direct-authentication-for-legacy-applications"></a>Ativar autenticação direta para aplicativos herdados
-A melhor prática é que os aplicativos usem bibliotecas AAD e o login interativo para autenticar usuários. As bibliotecas cuidam dos fluxos de usuários federados.  Às vezes, aplicativos herdados não são escritos para entender a federação. Eles não executam a descoberta de território inicial e não interagem com o endpoint federado correto para autenticar um usuário. Se preferir, você pode usar a Política de HRD para permitir que aplicativos herdados específicos que enviem credenciais de nome de usuário / senha sejam autenticados diretamente no Azure Active Directory. A sincronização de hash de senha deve estar ativada. 
+## <a name="enable-direct-ropc-authentication-of-federated-users-for-legacy-applications"></a>Habilitar a autenticação ROPC direta de usuários federados para aplicativos herdados
+A melhor prática é que os aplicativos usem bibliotecas AAD e o login interativo para autenticar usuários. As bibliotecas cuidam dos fluxos de usuários federados.  Às vezes, os aplicativos herdados, especialmente aqueles que usam concessões ROPC, enviam o nome de usuário e a senha diretamente para o Azure AD e não são escritos para entender a Federação. Eles não executam a descoberta de território inicial e não interagem com o endpoint federado correto para autenticar um usuário. Se você optar por, poderá usar a política HRD para habilitar aplicativos herdados específicos que enviam credenciais de nome de usuário/senha usando a concessão ROPC para autenticar diretamente com Azure Active Directory. A sincronização de hash de senha deve estar ativada. 
 
 > [!IMPORTANT]
 > Ative a autenticação direta somente se você tiver a sincronização de hash de senhas ativada e você souber que está correto autenticar esse aplicativo sem nenhuma política implementada pelo seu IdP local. Se você desativar a Sincronização de Hash de Senha ou desativar a Sincronização de Diretórios com o AD Connect por qualquer motivo, remova essa política para evitar a possibilidade de autenticação direta usando um hash de senha antiga.
@@ -110,7 +109,7 @@ Aqui está uma definição de política HRD de exemplo:
     {  
     "AccelerateToFederatedDomain":true,
     "PreferredDomain":"federated.example.edu",
-    "AllowCloudPasswordValidation":true
+    "AllowCloudPasswordValidation":false
     }
    }
 ```

@@ -4,23 +4,22 @@ description: Use um registro de alias do DNS do Azure para hospedar aplicativos 
 services: dns
 author: rohinkoul
 ms.service: dns
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/10/2019
 ms.author: rohink
-ms.openlocfilehash: 8ba96a028d51e6e5503bb4a8e6735b48033c9ba1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e7c4db7a2fc3ba931415e3b167f7fe72ee2b3980
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76937360"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710534"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Hospedar aplicativos da web do Azure com carga balanceada no apex da zona
 
-O protocolo DNS impede a atribuição de algo diferente de um registro A ou AAAA no ápice da zona. Um vértice da zona de exemplo é contoso.com. Essa restrição apresenta um problema para os proprietários de aplicativos que têm aplicativos com balanceamento de carga por trás do Gerenciador de Tráfego. Não é possível apontar para o perfil do Gerenciador de Tráfego no registro do ápice da zona. Como resultado, os proprietários do aplicativo devem usar uma solução alternativa. Um redirecionamento na camada de aplicativo deve redirecionar do ápice da zona para outro domínio. Um exemplo é um redirecionamento de contoso.com\.para www contoso.com. Esse arranjo apresenta um único ponto de falha para a função de redirecionamento.
+O protocolo DNS impede a atribuição de algo diferente de um registro A ou AAAA no ápice da zona. Um vértice da zona de exemplo é contoso.com. Essa restrição apresenta um problema para os proprietários de aplicativos que têm aplicativos com balanceamento de carga por trás do Gerenciador de Tráfego. Não é possível apontar para o perfil do Gerenciador de Tráfego no registro do ápice da zona. Como resultado, os proprietários do aplicativo devem usar uma solução alternativa. Um redirecionamento na camada de aplicativo deve redirecionar do ápice da zona para outro domínio. Um exemplo é um redirecionamento de contoso.com para www \. contoso.com. Esse arranjo apresenta um único ponto de falha para a função de redirecionamento.
 
 Com registros de alias, esse problema não existe mais. Agora, os proprietários do aplicativo podem apontar seu registro do ápice da zona para um perfil do Gerenciador de Tráfego que tenha nós de extremidade externos. Os proprietários de aplicativos podem apontar para o mesmo perfil do Gerenciador de tráfego que é usado para qualquer outro domínio em sua zona DNS.
 
-Por exemplo, contoso.com e www\.contoso.com podem apontar para o mesmo perfil do Gerenciador de tráfego. Esse é o caso, desde que o perfil do Gerenciador de Tráfego tenha apenas endpoints externos configurados.
+Por exemplo, contoso.com e www \. contoso.com podem apontar para o mesmo perfil do Gerenciador de tráfego. Esse é o caso, desde que o perfil do Gerenciador de Tráfego tenha apenas endpoints externos configurados.
 
 Neste artigo, você aprende a criar um registro de alias para o seu ápice de domínio e a configurar seu perfil de Gerenciador de Tráfego do Microsoft Azure para seus aplicativos da web.
 
@@ -43,7 +42,7 @@ Crie um grupo de recursos para armazenar todos os recursos usados neste artigo.
 Crie dois planos do Serviço de Aplicativo da Web em seu grupo de recursos usando a tabela a seguir para obter informações de configuração. Para obter mais informações sobre como criar um plano do Serviço de Aplicativo, consulte [Gerenciar um plano do Serviço de Aplicativo no Azure](../app-service/app-service-plan-manage.md).
 
 
-|Name  |Sistema operacional  |Local  |Camada de preços  |
+|Nome  |Sistema operacional  |Location  |Camada de preços  |
 |---------|---------|---------|---------|
 |ASP-01     |Windows|Leste dos EUA|Dev / Teste D1-Compartilhado|
 |ASP-02     |Windows|Centro dos EUA|Dev / Teste D1-Compartilhado|
@@ -58,7 +57,7 @@ Crie dois aplicativos da web, um em cada plano do Serviço de Aplicativo.
 4. Selecione **Criar**.
 5. Aceite os padrões e use a tabela a seguir para configurar os dois aplicativos da Web:
 
-   |Name<br>(deve ser exclusivo dentro do. azurewebsites.net)|Grupo de recursos |Pilha de runtime|Região|Plano do serviço de aplicativo/localização
+   |Nome<br>(deve ser exclusivo dentro do. azurewebsites.net)|Grupo de recursos |Pilha de runtime|Região|Plano do serviço de aplicativo/localização
    |---------|---------|-|-|-------|
    |App-01|Uso existente<br>Selecione o grupo de recursos|.NET Core 2.2|Leste dos EUA|ASP-01 (D1)|
    |App-02|Uso existente<br>Selecione o grupo de recursos|.NET Core 2.2|Centro dos EUA|ASP-02 (D1)|
@@ -87,10 +86,10 @@ Agora você pode criar os pontos de extremidade para os dois aplicativos web.
 3. Selecione **Adicionar**.
 4. Use a tabela a seguir para configurar os terminais:
 
-   |Type  |Name  |Destino  |Local  |Configurações personalizadas de cabeçalho|
+   |Type  |Nome  |Destino  |Location  |Configurações personalizadas de cabeçalho|
    |---------|---------|---------|---------|---------|
-   |Ponto de extremidade externo     |Final-01|Endereço IP que você registrou para o App-01|Leste dos EUA|host:\<a URL que você registrou para o aplicativo 01\><br>Exemplo: **: o aplicativo host-01.azurewebsites.net**|
-   |Ponto de extremidade externo     |Final-02|Endereço IP que você registrou para o aplicativo-02|Centro dos EUA|host:\<a URL que você registrou para o aplicativo-02\><br>Exemplo: **: o aplicativo host-02.azurewebsites.net**
+   |Ponto de extremidade externo     |Final-01|Endereço IP que você registrou para o App-01|Leste dos EUA|hospedeira\<the URL you recorded for App-01\><br>Exemplo: **: o aplicativo host-01.azurewebsites.net**|
+   |Ponto de extremidade externo     |Final-02|Endereço IP que você registrou para o aplicativo-02|Centro dos EUA|hospedeira\<the URL you recorded for App-02\><br>Exemplo: **: o aplicativo host-02.azurewebsites.net**
 
 ## <a name="create-dns-zone"></a>Criar zona DNS
 
@@ -104,7 +103,7 @@ Quando você adiciona um nome de host personalizado aos seus aplicativos Web, el
 2. Escolha **Conjunto de registros**.
 3. Adicione o conjunto de registros usando a tabela a seguir. Para o valor, use a URL do aplicativo Web real que você gravou anteriormente:
 
-   |Nome  |Type  |Valor|
+   |Nome  |Tipo  |Valor|
    |---------|---------|-|
    |@     |TXT|App-01.azurewebsites.net|
 
@@ -132,7 +131,7 @@ Agora, adicione um registro de alias para o Apex da zona.
 2. Escolha **Conjunto de registros**.
 3. Adicione o registro definido usando a tabela a seguir:
 
-   |Nome  |Type  |Conjunto de registros de alias  |Tipo de alias  |Recursos do Azure|
+   |Nome  |Tipo  |Conjunto de registros de alias  |Tipo de alias  |Recursos do Azure|
    |---------|---------|---------|---------|-----|
    |@     |Um|Sim|Recursos do Azure|Gerenciador de tráfego - seu perfil|
 

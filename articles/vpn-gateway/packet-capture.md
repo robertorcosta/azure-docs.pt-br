@@ -4,15 +4,14 @@ description: Saiba mais sobre as funcionalidades de captura de pacote que você 
 services: vpn-gateway
 author: radwiv
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/15/2019
 ms.author: radwiv
-ms.openlocfilehash: 2429a8d08baa34aed120cffa069abae1fb9a3df9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6edfe0228ce4cbe21ad4ae0eb8b7316a92f1da31
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75353512"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987145"
 ---
 # <a name="configure-packet-captures-for-vpn-gateways"></a>Configurar capturas de pacote para gateways de VPN
 
@@ -60,7 +59,7 @@ O parâmetro opcional **-FilterData** pode ser usado para aplicar o filtro.
 Stop-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourResourceGroupName" -Name "YourVPNGatewayConnectionName" -SasUrl "YourSASURL"
 ```
 
-## <a name="key-considerations"></a>Considerações-chave
+## <a name="key-considerations"></a>Principais considerações
 
 - A execução de capturas de pacote pode afetar o desempenho. Lembre-se de interromper a captura de pacotes quando ela não for necessária.
 - A duração mínima da captura de pacotes sugerida é de 600 segundos. Ter uma duração de captura de pacotes mais curta pode não fornecer dados completos devido à sincronização de problemas entre vários componentes no caminho.

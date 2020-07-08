@@ -9,12 +9,11 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: 8a69cb83492fabc692886fe6966a147de3bcbb04
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
-ms.translationtype: MT
+ms.openlocfilehash: c0efdda24ae47ae65f0d469b50feaefdf6350678
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780837"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84022207"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: perguntas frequentes
 
@@ -44,6 +43,14 @@ Para obter mais informações, consulte [planejamento de capacidade para cluster
 
 Consulte [tipos de recursos em clusters do Azure HDInsight](hdinsight-virtual-network-architecture.md#resource-types-in-azure-hdinsight-clusters).
 
+### <a name="what-are-the-best-practices-for-creating-large-hdinsight-clusters"></a>Quais são as práticas recomendadas para a criação de clusters HDInsight grandes?
+
+1. Recomenda-se configurar clusters HDInsight com um [AMBARI DB personalizado](https://docs.microsoft.com/azure/hdinsight/hdinsight-custom-ambari-db) para melhorar a escalabilidade do cluster.
+2. Use [Azure data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) para criar clusters HDInsight para aproveitar a maior largura de banda e outras características de desempenho do Azure data Lake Storage Gen2.
+3. Cabeçalho deve ser suficientemente grande para acomodar vários serviços mestres em execução nesses nós.
+4. Algumas cargas de trabalho específicas, como consulta interativa, também precisarão de nós Zookeeper maiores. Considere o mínimo de 8 VMs principais.
+5. No caso do hive e do Spark, use o [metastore do hive externo](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-external-metadata-stores).
+
 ## <a name="individual-components"></a>Componentes individuais
 
 ### <a name="can-i-install-additional-components-on-my-cluster"></a>Posso instalar componentes adicionais no meu cluster?
@@ -68,7 +75,7 @@ Não, não é possível executar Apache Kafka e Apache Spark no mesmo cluster HD
 
 ### <a name="how-do-i-change-timezone-in-ambari"></a>Como fazer alterar o fuso horário em Ambari?
 
-1. Abra a interface do usuário da `https://CLUSTERNAME.azurehdinsight.net`Web do amAmbari em, em que ClusterName é o nome do cluster.
+1. Abra a interface do usuário da Web do amAmbari em `https://CLUSTERNAME.azurehdinsight.net` , em que ClusterName é o nome do cluster.
 2. No canto superior direito, selecione Admin | Configurações. 
 
    ![Configurações de Ambari](media/hdinsight-faq/ambari-settings.png)
@@ -79,9 +86,9 @@ Não, não é possível executar Apache Kafka e Apache Spark no mesmo cluster HD
 
 ## <a name="metastore"></a>Metastore
 
-### <a name="how-can-i-migrate-from-the-existing-metastore-to-azure-sql-server"></a>Como posso migrar do metastore existente para o Azure SQL Server? 
+### <a name="how-can-i-migrate-from-the-existing-metastore-to-azure-sql-database"></a>Como posso migrar do metastore existente para o banco de dados SQL do Azure? 
 
-Para migrar de SQL Server para o SQL Server do Azure, consulte [tutorial: migrar SQL Server para um banco de dados individual ou banco de dados em pool no banco de dados SQL do Azure offline usando DMS](../dms/tutorial-sql-server-to-azure-sql.md).
+Para migrar do SQL Server para o banco de dados SQL do Azure, consulte [tutorial: migrar SQL Server para um banco de dados individual ou banco de dados em pool no banco de dados SQL do Azure offline usando DMS](../dms/tutorial-sql-server-to-azure-sql.md).
 
 ### <a name="is-the-hive-metastore-deleted-when-the-cluster-is-deleted"></a>O metastore do Hive excluído quando o cluster é excluído?
 
@@ -133,7 +140,7 @@ Sim, você pode implantar uma máquina virtual adicional na mesma sub-rede que u
 
 - Nós de borda: você pode adicionar outro nó de borda ao cluster, conforme descrito em [usar nós de borda vazios em clusters de Apache Hadoop no HDInsight](hdinsight-apps-use-edge-node.md).
 
-- Nós autônomos: você pode adicionar uma máquina virtual autônoma à mesma sub-rede e acessar o cluster dessa máquina virtual usando o ponto `https://<CLUSTERNAME>-int.azurehdinsight.net`de extremidade privado. Para obter mais informações, consulte [controlar o tráfego de rede](./control-network-traffic.md).
+- Nós autônomos: você pode adicionar uma máquina virtual autônoma à mesma sub-rede e acessar o cluster dessa máquina virtual usando o ponto de extremidade privado `https://<CLUSTERNAME>-int.azurehdinsight.net` . Para obter mais informações, consulte [controlar o tráfego de rede](./control-network-traffic.md).
 
 ### <a name="should-i-store-data-on-the-local-disk-of-an-edge-node"></a>Devo armazenar dados no disco local de um nó de borda?
 
@@ -184,7 +191,7 @@ Para requisitos de auditoria, a Microsoft recomenda Habilitar logs de Azure Moni
 
 `Clamscan`é o software antivírus executado no cluster HDInsight e é usado pela segurança do Azure (azsecd) para proteger seus clusters contra ataques de vírus. A Microsoft recomenda enfaticamente que os usuários evitem fazer alterações na configuração padrão `Clamscan` .
 
-Esse processo não interfere nem demora nenhum ciclo para outros processos. Ele sempre resultará em outro processo. Os picos de `Clamscan` CPU devem ser vistos somente quando o sistema estiver ocioso.  
+Esse processo não interfere nem demora nenhum ciclo para outros processos. Ele sempre resultará em outro processo. Os picos de CPU `Clamscan` devem ser vistos somente quando o sistema estiver ocioso.  
 
 Em cenários nos quais você deve controlar a agenda, você pode usar as seguintes etapas:
 
@@ -203,7 +210,7 @@ O LLAP é habilitado por motivos de segurança (Apache Ranger), não pelo desemp
 
 ### <a name="how-can-i-add-additional-aad-groups-after-creating-an-esp-cluster"></a>Como posso adicionar outros grupos do AAD depois de criar um cluster ESP?
 Há duas maneiras de atingir essa meta: 1-você pode recriar o cluster e adicionar o grupo adicional no momento da criação do cluster. Se você estiver usando a sincronização com escopo no AAD-DS, verifique se o grupo B está incluído na sincronização com escopo.
-2-Adicione o grupo como um subgrupo aninhado do grupo anterior que foi usado para criar o cluster ESP. Por exemplo, se você tiver criado um cluster ESP com grupo `A`, poderá posteriormente adicionar o grupo `B` como um subgrupo aninhado de `A` e depois de aproximadamente uma hora ele será sincronizado e estará disponível no cluster automaticamente. 
+2-Adicione o grupo como um subgrupo aninhado do grupo anterior que foi usado para criar o cluster ESP. Por exemplo, se você tiver criado um cluster ESP com grupo `A` , poderá posteriormente adicionar o grupo `B` como um subgrupo aninhado de `A` e depois de aproximadamente uma hora ele será sincronizado e estará disponível no cluster automaticamente. 
 
 ## <a name="storage"></a>Armazenamento
 
@@ -241,7 +248,7 @@ done
 ```
  
 > [!NOTE]
-> O arquivo file *names. txt* terá o caminho absoluto dos arquivos nos contêineres de BLOB.
+> O arquivo *filenames.txt* terá o caminho absoluto dos arquivos nos contêineres de BLOB.
  
 ### <a name="are-there-any-ranger-plugins-for-storage"></a>Há algum plug-in do Ranger para armazenamento?
 
@@ -276,14 +283,14 @@ Você usa scripts persistentes para personalizar novos nós de trabalho adiciona
 
 Você pode usar os seguintes pontos de extremidade REST para efetuar pull das informações necessárias no formato JSON. Use cabeçalhos de autenticação básica para fazer as solicitações.
 
-- `Tez Query View`: *https:\//\<nome do cluster>. azurehdinsight.net/WS/v1/Timeline/HIVE_QUERY_ID/*
-- `Tez Dag View`: *https:\//\<nome do cluster>. azurehdinsight.net/WS/v1/Timeline/TEZ_DAG_ID/*
+- `Tez Query View`: *https: \/ / \<cluster name> . azurehdinsight.net/WS/v1/Timeline/HIVE_QUERY_ID/*
+- `Tez Dag View`: *https: \/ / \<cluster name> . azurehdinsight.net/WS/v1/Timeline/TEZ_DAG_ID/*
 
 ### <a name="how-do-i-retrieve-the-configuration-details-from-hdi-cluster-by-using-an-azure-active-directory-user"></a>Como fazer recuperar os detalhes de configuração do cluster HDI usando um usuário Azure Active Directory?
 
 Para negociar tokens de autenticação apropriados com o usuário do AAD, percorra o gateway usando o seguinte formato:
 
-* https://`<cluster dnsname>`. azurehdinsight.NET/API/v1/clusters/testclusterdem/stack_versions/1/repository_versions/1 
+* https:// `<cluster dnsname>` . azurehdinsight.NET/API/v1/clusters/testclusterdem/stack_versions/1/repository_versions/1 
 
 ### <a name="how-do-i-use-ambari-restful-api-to-monitor-yarn-performance"></a>Como fazer usar a API RESTful Ambari para monitorar o desempenho do YARN?
 

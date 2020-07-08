@@ -14,12 +14,11 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3abf7b4acfae5e90d0b3f6781b8fbbf0f6f1427d
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
-ms.translationtype: HT
+ms.openlocfilehash: 70d53bf3d97f27caae7d3dee7cd03a4606d6761c
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860589"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921747"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões da função de administrador no Azure Active Directory
 
@@ -173,7 +172,7 @@ gerencia [solicitações do Sistema de Proteção de Dados do Cliente](https://d
 
 Os usuários com essa função podem gerenciar a Análise de Área de Trabalho e os serviços de Personalização e Política do Office. Para a Análise de Área de Trabalho, isso inclui a capacidade de exibir o inventário de ativos, criar planos de implantação, exibir o status de integridade e de implantação. Para o serviço de Personalização e Política do Office, essa função permite que os usuários gerenciem as políticas do Office.
 
-### <a name="device-administrator"></a>[Administrador de Dispositivo](#device-administrators-permissions)
+### <a name="device-administrators"></a>[Administradores de Dispositivos](#device-administrators-permissions)
 
 Essa função está disponível para atribuição apenas como um administrador local adicional em [Configurações do dispositivo](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Os usuários com essa função se tornam administradores de computador local em todos os dispositivos Windows 10 associados ao Azure Active Directory. Eles não têm a capacidade de gerenciar objetos de dispositivos no Azure Active Directory.
 
@@ -209,7 +208,7 @@ Os usuários com essa função têm permissões globais no Microsoft Exchange On
 
 ### <a name="external-id-user-flow-administrator"></a>[Administrador de fluxo do usuário de ID Externa](#external-id-user-flow-administrator-permissions)
 
-Os usuários com essa função podem criar e gerenciar Fluxos dos Usuários B2C (também chamados de políticas “internas”) no portal do Azure. Ao criar ou editar fluxos de usuário, esses usuários podem alterar o conteúdo html/CSS/javascript da experiência do usuário, alterar os requisitos de MFA por fluxo de usuário, alterar as declarações no token e ajustar as configurações de sessão para todas as políticas na organização do Azure AD. Por outro lado, essa função não inclui a capacidade de revisar dados do usuário nem fazer alterações nos atributos que estão incluídos no esquema da organização. As alterações feitas nas políticas da Identity Experience Framework (também conhecidas como Personalizadas) também estão fora do escopo dessa função.
+Os usuários com essa função podem criar e gerenciar fluxos de usuário (também chamados de políticas "internas") no portal do Azure. Esses usuários podem personalizar o conteúdo HTML/CSS/JavaScript, alterar os requisitos de MFA, selecionar declarações no token, gerenciar conectores de API e definir configurações de sessão para todos os fluxos de usuário na organização do Azure AD. Por outro lado, essa função não inclui a capacidade de revisar dados do usuário ou fazer alterações nos atributos que estão incluídos no esquema da organização. As alterações nas políticas da estrutura de experiência de identidade (também conhecidas como políticas personalizadas) também estão fora do escopo dessa função.
 
 ### <a name="external-id-user-flow-attribute-administrator"></a>[Administrador de atributo de fluxo do usuário de ID Externa](#external-id-user-flow-attribute-administrator-permissions)
 
@@ -224,7 +223,7 @@ Esse administrador gerencia a federação entre as organizações do Azure AD e 
 
 ### <a name="global-administrator--company-administrator"></a>[Administrador Global/Administrador de Empresa](#company-administrator-permissions)
 
-Os usuários com essa função têm acesso a todos os recursos administrativos do Azure Active Directory, bem como aos serviços que usam identidades do Azure Active Directory como centro de segurança do Microsoft 365, centro de conformidade do Microsoft 365, Exchange Online, SharePoint Online e Skype for Business Online. A pessoa que se inscreve na organização do Azure AD se torna um administrador global. Pode haver mais de um administrador global na sua empresa. Administradores globais podem redefinir a senha para qualquer usuário e todos os outros administradores.
+Os usuários com essa função têm acesso a todos os recursos administrativos do Azure Active Directory, bem como aos serviços que usam identidades do Azure Active Directory como centro de segurança do Microsoft 365, centro de conformidade do Microsoft 365, Exchange Online, SharePoint Online e Skype for Business Online. Além disso, os administradores globais podem [elevar seu acesso](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin) para gerenciar todas as assinaturas e grupos de gerenciamento do Azure. Isso permite que os administradores globais obtenham acesso completo a todos os recursos do Azure usando o respectivo locatário do Azure AD. A pessoa que se inscreve na organização do Azure AD se torna um administrador global. Pode haver mais de um administrador global na sua empresa. Administradores globais podem redefinir a senha para qualquer usuário e todos os outros administradores.
 
 > [!NOTE]
 > Na API do Microsoft Graph e no PowerShell do Azure AD, essa função é identificada como “Administrador de Empresa”. É "Administrador Global" no [portal do Azure](https://portal.azure.com).
@@ -238,6 +237,7 @@ Os usuários com essa função podem ler configurações e informações adminis
 > [!NOTE]
 > A função de Leitor global tem algumas limitações atualmente:
 >
+>- [Centro de administração do onedrive](https://admin.onedrive.com/) – o centro de administração do onedrive não dá suporte à função de leitor global
 >- [Centro de administração do M365](https://admin.microsoft.com/Adminportal/Home#/homepage) – o Leitor global não pode ler solicitações do Sistema de Proteção de Dados do Cliente. Você não encontrará a guia **Solicitações do Sistema de Proteção de Dados do Cliente** em **Suporte** no painel esquerdo do Centro de administração do M365.
 >- [Centro de Conformidade e Segurança do Office](https://sip.protection.office.com/homepage) – o Leitor global não pode ler logs de auditoria SCC, fazer pesquisa de conteúdo ou ver a classificação de segurança.
 >- [Centro de administração do Teams](https://admin.teams.microsoft.com) – o Leitor global não pode ler o **ciclo de vida do Teams**, **Análises e relatórios**, **Gerenciamento de dispositivo de telefone IP** e **Catálogo de aplicativos**.
@@ -388,7 +388,7 @@ Usuários com essa função podem exibir os dados de relatórios de uso e o pain
 
 ### <a name="search-administrator"></a>[Administrador de pesquisas](#search-administrator-permissions)
 
-Os usuários com essa função têm acesso completo a todos os recursos de gerenciamento da Pesquisa da Microsoft no Centro de administração do Microsoft 365. Os Administradores de pesquisa podem delegar as funções com esse mesmo nome e de Editor de pesquisa aos usuários, bem como criar e gerenciar conteúdo, como indicadores, perguntas e respostas e locais. Além disso, esses usuários podem exibir o centro de mensagens, monitorar a integridade de serviço e criar solicitações de serviço.
+Os usuários com essa função têm acesso completo a todos os recursos de gerenciamento da Pesquisa da Microsoft no Centro de administração do Microsoft 365. Além disso, esses usuários podem exibir o centro de mensagens, monitorar a integridade de serviço e criar solicitações de serviço.
 
 ### <a name="search-editor"></a>[Editor de pesquisa](#search-editor-permissions)
 
@@ -457,6 +457,9 @@ Usuários com essa função têm permissões globais no Microsoft SharePoint Onl
 
 > [!NOTE]
 > Na API do Microsoft Graph e no PowerShell do Azure AD, essa função é identificada como “Administrador de Serviços do SharePoint”. É "Administrador do SharePoint" no [portal do Azure](https://portal.azure.com).
+
+> [!NOTE]
+> Essa função também concede permissões de escopo para a API de Microsoft Graph para Microsoft Intune, permitindo o gerenciamento e a configuração de políticas relacionadas ao SharePoint e aos recursos do onedrive.
 
 ### <a name="skype-for-business--lync-administrator"></a>[Administrador do Lync/Skype for Business](#lync-service-administrator-permissions)
 
@@ -1345,8 +1348,7 @@ Pode gerenciar compras comerciais de uma empresa, um departamento ou uma equipe.
 | --- | --- |
 | microsoft.commerce.billing/partners/read | Ler a propriedade de parceiros da cobrança do O365. |
 | microsoft.commerce.volumeLicenseServiceCenter/allEntities/allTasks | Gerenciar todos os aspectos do Centro de Serviços de Licenciamento por Volume. |
-| microsoft.directory/organization/basic/update | Atualize as propriedades básicas em organização no Azure Active Directory. |
-| microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Crie e exiba os próprios tíquetes de suporte do Office 365. |
 | microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 
 
@@ -1939,4 +1941,4 @@ Ingresso no Dispositivo no Local de Trabalho | Preterido | [Documentação de fu
 
 * Para saber mais sobre como atribuir um usuário como um administrador de uma assinatura do Azure, veja [Gerenciar o acesso usando funções do Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
 * Para saber mais sobre como o acesso aos recursos é controlado no Microsoft Azure, consulte [Noções básicas sobre funções diferentes](../../role-based-access-control/rbac-and-directory-admin-roles.md)
-* Para saber mais sobre como o Azure Active Directory está relacionado à sua assinatura do Azure, consulte [Como as assinaturas do Azure estão associadas ao Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md)
+* Para obter detalhes sobre a relação entre assinaturas e um locatário do Azure AD, ou para obter instruções para associar ou adicionar uma assinatura, consulte [associar ou adicionar uma assinatura do Azure ao seu locatário de Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md)

@@ -3,25 +3,24 @@ title: Converter links e URLs do Proxy de Aplicativo do Azure AD | Microsoft Doc
 description: Cobre as noções básicas sobre os conectores do Proxy de Aplicativo Azure AD.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/15/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa0dc2081aff5a24fb830b756131cccd5c6ce810
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8e8d6f97870699cea7f55abe42290acdc82c385e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "69533691"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764835"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Redirecione os links inseridos no código para aplicativos publicados com o Proxy de Aplicativo do Azure AD
 
@@ -88,7 +87,7 @@ Há dois tipos comuns de links internos em aplicativos locais:
 
 A lista completa de marcas de código HTML que o proxy de aplicativo dá suporte à conversão de links para o incluem:
 * a
-* audio
+* áudio
 * base
 * botão
 * div
@@ -104,10 +103,10 @@ A lista completa de marcas de código HTML que o proxy de aplicativo dá suporte
 * MenuItem
 * meta
 * objeto
-* script
+* Script
 * source
 * rastrear
-* video
+* vídeo
 
 Além disso, no CSS, o atributo URL também é traduzido.
 
@@ -136,8 +135,8 @@ Se você precisar dar suporte a um desses dois cenários, use as mesmas URLs int
 
 Começar a trabalhar com a translação de link é tão fácil quanto clicar em um botão:
 
-1. Entre no [portal do Azure](https://portal.azure.com) como um administrador.
-2. Vá para **Azure Active Directory** > **aplicativos** > empresariais**todos os aplicativos** > selecione o aplicativo que você deseja gerenciar > **proxy de aplicativo**.
+1. Entre no [Portal do Azure](https://portal.azure.com) como administrador.
+2. Vá para **Azure Active Directory**  >  **aplicativos empresariais**  >  **todos os aplicativos** > selecione o aplicativo que você deseja gerenciar > **proxy de aplicativo**.
 3. Mude **Converter URLs no corpo do aplicativo** para **Sim**.
 
    ![Selecione Sim para converter URLs no corpo do aplicativo](./media/application-proxy-configure-hard-coded-link-translation/select_yes.png)

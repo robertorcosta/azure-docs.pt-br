@@ -2,21 +2,20 @@
 title: Pausar, retomar, dimensionar com APIs REST
 description: Gerenciar potência de computação no data warehouse do Azure Synapse Analytics por meio das APIs REST.
 services: synapse-analytics
-author: kevinvngo
+author: antvgski
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 03/29/2019
-ms.author: kevin
+ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 65161915a63b58ad75ff2c01c16c95dec1aad2ff
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: bbb8e82710b4c8ca7736b53d427b3880faf2be05
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652624"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213271"
 ---
 # <a name="rest-apis-for-azure-synapse-analytics-data-warehouse"></a>APIs REST para data warehouse do Azure Synapse Analytics
 

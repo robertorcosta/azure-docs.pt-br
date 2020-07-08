@@ -1,102 +1,84 @@
 ---
-title: Adicionar blocos ao seu painel | Microsoft Docs
-description: Como construtor, saiba como configurar o painel de aplicativo padrão do Azure IoT Central.
-author: mavoge
-ms.author: mavoge
-ms.date: 10/17/2019
+title: Adicionar blocos ao painel de IoT Central do Azure | Microsoft Docs
+description: Como um construtor, saiba como configurar o painel de aplicativo padrão do Azure IoT Central com blocos.
+author: Haley-Rowland
+ms.author: harowl
+ms.date: 05/27/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-manager: philmea
-ms.openlocfilehash: 1110f76a792a7e3955d5fd32e01ac1566d467151
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 892bdcc08bd19b92c8b3d32d2954583f80005e87
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659003"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84022841"
 ---
 # <a name="configure-the-application-dashboard"></a>Configurar o painel de aplicativo
 
-O **Painel** é a página que é carregada quando os usuários que têm acesso ao aplicativo navegam até a URL do aplicativo. Se você criou seu aplicativo a partir de um dos **Modelos de Aplicativo**, seu aplicativo terá um painel predefinido para iniciar. Se você criou seu aplicativo a partir de um modelo de **Aplicativo personalizado**, seu painel mostrará algumas dicas sobre como começar.
+O **painel** é a primeira página que você vê quando se conecta a um aplicativo IOT central. Se você criar seu aplicativo de um dos [modelos de aplicativo](./concepts-app-templates.md)focados no setor, seu aplicativo terá um painel predefinido para iniciar. Se você criar seu aplicativo a partir de um [modelo de aplicativo](./concepts-app-templates.md)personalizado, seu painel mostrará algumas dicas para começar.
 
-> [!NOTE]
+> [!TIP]
 > Os usuários podem [criar vários painéis](howto-create-personal-dashboards.md) além do painel de aplicativo padrão. Esses painéis podem ser pessoais somente para o usuário ou compartilhados entre todos os usuários do aplicativo.  
 
 ## <a name="add-tiles"></a>Adicionar blocos
 
-A captura de tela a seguir mostra o painel em um aplicativo criado com base no modelo de **Aplicativo Personalizado**. Para personalizar o painel padrão para seu aplicativo, selecione **Editar** na parte superior esquerda da página.
+A captura de tela a seguir mostra o painel em um aplicativo criado a partir do modelo de **aplicativo personalizado** . Para personalizar o painel atual, selecione **Editar**, para adicionar um painel pessoal ou compartilhado personalizado, selecione **novo**:
 
-> [!div class="mx-imgBorder"]
-> ![Painel para aplicativos com base no modelo “Exemplo Contoso”](media/howto-add-tiles-to-your-dashboard/dashboard-sample-contoso.png)
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/dashboard-sample-contoso.png" alt-text="Painel para aplicativos com base no modelo de aplicativo personalizado":::
 
-Selecionar **Editar** abre o painel da biblioteca. A biblioteca contém os blocos e os primitivos de painel que você pode usar para personalizar o painel.
+Depois de selecionar **Editar** ou **novo**, o painel estará no modo de *edição* . Você pode usar as ferramentas no painel **Editar painel** para adicionar blocos ao painel e personalizar e remover blocos no próprio Dashboard. Por exemplo, para adicionar um bloco de **telemetria** para mostrar a temperatura atual relatada por um ou mais dispositivos:
 
-> [!div class="mx-imgBorder"]
-> ![Biblioteca de painéis](media/howto-add-tiles-to-your-dashboard/dashboard-library.png)
+1. No painel **Editar painel** , selecione um **grupo de dispositivos**.
+1. Selecione um ou mais dispositivos no menu suspenso **dispositivos** para mostrar no bloco. Agora você verá a telemetria, as propriedades e os comandos disponíveis dos dispositivos.
+1. Selecione **temperatura** na seção telemetria e, em seguida, selecione **Adicionar bloco**. O bloco agora aparece no painel em que você pode alterar a visualização, redimensionar o bloco e configurá-lo:
 
-Por exemplo, você pode adicionar um bloco de **Telemetria** para a temperatura atual do dispositivo. Para fazer isso:
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/device-details.png" alt-text="Adicionar um bloco de telemetria de temperatura ao painel":::
 
-1. Selecione um **Modelo de dispositivo**
-1. Selecione um dispositivo em **Dispositivos** para o dispositivo que você deseja ver em um bloco do painel. Em seguida, você verá uma lista das propriedades do dispositivo que podem ser usadas no bloco.
-1. Para criar o bloco no painel, clique em **Temperatura** e arraste para a área do painel. Você também pode clicar na caixa de seleção ao lado de **Temperatura** e clicar em **Adicionar bloco**. A captura de tela a seguir mostra a seleção de um modelo de dispositivo e uma instância de dispositivo, criando um bloco de Telemetria de temperatura no painel.
-1. Selecione **Salvar** na parte superior esquerda para salvar o bloco no painel.
+Quando terminar de adicionar e personalizar blocos no painel, selecione **salvar**.
 
-> [!div class="mx-imgBorder"]
-> ![Formulário “Configurar detalhes do dispositivo” com detalhes para configurações e propriedades](media/howto-add-tiles-to-your-dashboard/device-details.png)
+## <a name="customize-tiles"></a>Personalizar blocos
 
-Agora, quando um operador exibe o painel de aplicativo padrão, ele vê o novo bloco com a **Temperatura** para o dispositivo. Cada bloco tem um gráfico pré-selecionado, um gráfico, etc. que será exibido quando o bloco for criado. No entanto, os usuários podem optar por editar e alterar essa visualização.  
+Para personalizar um bloco no painel, o painel deve estar no modo de edição. As opções de personalização disponíveis dependem do [tipo de bloco](#tile-types):
 
-> [!div class="mx-imgBorder"]
-> ![Guia “Painel” com as configurações e propriedades exibidas para o bloco](media/howto-add-tiles-to-your-dashboard/settings-and-properties.png)
+* O ícone de régua em um bloco permite que você altere a visualização. As visualizações incluem gráficos de linhas, últimos valores conhecidos e mapas de calor.
 
-## <a name="edit-tiles"></a>Editar blocos
+* O ícone quadrado permite redimensionar o bloco.
 
-Para editar um bloco no painel, primeiro clique **Editar** na parte superior esquerda da página, que abrirá o modo de edição para o painel e todos os seus blocos.  
-
-> [!div class="mx-imgBorder"]
-> ![Tela do painel com o modo de edição ativado para um bloco selecionado](media/howto-add-tiles-to-your-dashboard/edit-mode.png)
-
-Em seguida, clique no ícone de **Engrenagem** no canto superior direito do bloco que você deseja editar. Aqui, você pode editar aspectos do bloco, incluindo seu título, sua visualização, agregação, etc.
-
-> [!div class="mx-imgBorder"]
-> ![Lista suspensa para configurações de agregação de bloco](media/howto-add-tiles-to-your-dashboard/aggregation-settings.png)
-
-Você também pode alterar a visualização do gráfico clicando no ícone de **Régua** no bloco.
-
-> [!div class="mx-imgBorder"]
-> ![Lista suspensa para configurações de visualização de bloco](media/howto-add-tiles-to-your-dashboard/visualization-settings.png)
+* O ícone de engrenagem permite que você configure a visualização. Por exemplo, para uma visualização de gráfico de linhas, você pode optar por mostrar a legenda e os eixos e escolher o intervalo de tempo para plotar.
 
 ## <a name="tile-types"></a>Tipos de bloco
 
-A tabela a seguir resume o uso de blocos no Azure IoT Central:
+A tabela a seguir descreve os diferentes tipos de bloco que você pode adicionar a um painel:
 
-| Bloco | Painel | Descrição
-| ----------- | ------- | ------- |
-| Conteúdo | Painéis de conjunto de dispositivos e aplicativos |Os blocos com suporte de markdown são blocos clicáveis que exibem texto de título e descrição. Você também pode usar esse bloco como um bloco de link para permitir que um usuário navegue até uma URL relacionada ao seu aplicativo.|
-| Imagem | Painéis de conjunto de dispositivos e aplicativos |Os blocos de imagem exibem uma imagem personalizada e podem ser clicáveis. Use um bloco de imagem para adicionar elementos gráficos a um painel e, opcionalmente, permitir que um usuário navegue até uma URL relevante para seu aplicativo.|
-| Rótulo | Painéis de aplicativo |Os blocos de rótulo exibem um texto personalizado em um painel. Você pode escolher o tamanho do texto. Use um bloco de rótulo para adicionar informações relevantes ao painel, como descrições, detalhes de contato ou ajuda.|
-| Mapeamento | Painéis de dispositivos e aplicativos |Os blocos de mapa exibem o local de um dispositivo em um mapa. Você também pode exibir até 100 pontos do histórico de localização de um dispositivo. Por exemplo, você pode exibir uma rota de amostra de onde um dispositivo esteve na última semana.|
-| Gráfico de linhas | Painéis de dispositivos e aplicativos |Os blocos de gráfico de linhas exibem um gráfico de medida de agregação para um dispositivo por um período de tempo. Por exemplo, você pode exibir um gráfico de linhas que mostra a temperatura média e a pressão de um dispositivo na última hora.|
-| Gráfico de Barras | Painéis de dispositivos e aplicativos |Os blocos de gráfico de barras exibem um gráfico de medidas de agregação para um dispositivo por um período de tempo. Por exemplo, você pode exibir um gráfico de barras que mostra a temperatura média e a pressão de um dispositivo na última hora.|
-| Gráfico de pizza | Painéis de conjunto de dispositivos e aplicativos |Os blocos de gráfico de pizza exibem um gráfico de medidas de agregação para um dispositivo por um período de tempo.|
-| Mapa de Calor | Painéis de conjunto de dispositivos e aplicativos |Os blocos de mapa de calor exibem informações sobre o dispositivo, representadas por cores.|
-| Histórico de eventos | Painéis de dispositivos e aplicativos |Os blocos de histórico de eventos exibem os eventos de um dispositivo durante um período de tempo. Por exemplo, você pode usá-lo para mostrar todas as alterações de temperatura de um dispositivo durante a última hora.|
-| Histórico de Estado | Painéis de dispositivos e aplicativos |Os blocos de histórico de estado exibem os valores de medida para um período de tempo. Por exemplo, você pode usá-los para mostrar os valores de temperatura de um dispositivo durante a última hora.|
-| KPI | Painéis de dispositivos e aplicativos | Os blocos de KPI exibem uma telemetria agregada ou uma medida de evento para um período de tempo. Por exemplo, você pode usá-los para mostrar a temperatura máxima atingida para um dispositivo durante a última hora.|
-| Último valor conhecido | Painéis de dispositivos e aplicativos |Os últimos blocos de valor conhecidos exibem o valor mais recente de uma medição de telemetria ou de estado. Por exemplo, você pode usar esses blocos para exibir as medidas mais recentes de temperatura, pressão e umidade de um dispositivo. |
-| Propriedade | Painéis de dispositivos e aplicativos | Os blocos de propriedades exibem o valor atual para propriedades e propriedades de nuvem de um dispositivo. Por exemplo, você pode usar esse bloco para exibir as propriedades do dispositivo, como o fabricante ou a versão do firmware de um dispositivo. |
+| Bloco             | Descrição |
+| ---------------- | ----------- |
+| Markdown         | Blocos de redução são blocos clicáveis que exibem um texto de título e descrição formatado usando a redução. A URL pode ser um link relativo para outra página no aplicativo ou um link absoluto para um site externo.|
+| Image            | Os blocos de imagem exibem uma imagem personalizada e podem ser clicáveis. A URL pode ser um link relativo para outra página no aplicativo ou um link absoluto para um site externo.|
+| Rotular            | Os blocos de rótulo exibem um texto personalizado em um painel. Você pode escolher o tamanho do texto. Use um bloco de rótulo para adicionar informações relevantes ao painel, como descrições, detalhes de contato ou ajuda.|
+| Contagem            | Os blocos de contagem exibem o número de dispositivos em um grupo de dispositivos.|
+| Mapear              | Os blocos de mapa exibem o local de um ou mais dispositivos em um mapa. Você também pode exibir até 100 pontos do histórico de localização de um dispositivo. Por exemplo, você pode exibir uma rota de amostra de onde um dispositivo esteve na última semana.|
+| KPI              |  Os blocos de KPI exibem valores de telemetria agregados para um ou mais dispositivos durante um período de tempo. Por exemplo, você pode usá-lo para mostrar a temperatura máxima e a pressão atingida para um ou mais dispositivos durante a última hora.|
+| Gráfico de Linhas       | Os blocos de gráfico de linhas plotam um ou mais valores de telemetria agregados para um ou mais dispositivos por um período de tempo. Por exemplo, você pode exibir um gráfico de linhas para plotar a temperatura média e a pressão de um ou mais dispositivos na última hora.|
+| Gráfico de barras        | Os blocos de gráfico de barras plotam um ou mais valores de telemetria agregados para um ou mais dispositivos por um período de tempo. Por exemplo, você pode exibir um gráfico de barras para mostrar a temperatura média e a pressão de um ou mais dispositivos na última hora.|
+| Gráfico de pizza        | Os blocos de gráfico de pizza exibem um ou mais valores agregados de telemetria para um ou mais dispositivos por um período de tempo.|
+| Mapa de Calor         | Os blocos de mapa de calor exibem informações sobre um ou mais dispositivos, representados como cores.|
+| Último valor conhecido | Os últimos blocos de valor conhecidos exibem os valores de telemetria mais recentes para um ou mais dispositivos. Por exemplo, você pode usar esse bloco para exibir os valores de temperatura, pressão e umidade mais recentes para um ou mais dispositivos. |
+| Histórico de eventos    | Os blocos de histórico de eventos exibem os eventos de um dispositivo durante um período de tempo. Por exemplo, você pode usá-lo para mostrar todos os eventos de válvula abrir e fechar para um ou mais dispositivos durante a última hora.|
+| Property         |  Os blocos de propriedades exibem o valor atual para propriedades e propriedades de nuvem de um ou mais dispositivos. Por exemplo, você pode usar esse bloco para exibir as propriedades do dispositivo, como a versão do fabricante ou do firmware de um dispositivo. |
+
+No momento, você pode adicionar até 10 dispositivos a blocos que dão suporte a vários dispositivos.
 
 ### <a name="customizing-visualizations"></a>Personalizar visualizações
 
-Para gráficos de linhas, gráficos de barras e gráficos de pizza, você pode personalizar as cores exibidas por diferentes telemetrias em seu gráfico. Para fazer isso, selecione o ícone de paleta ao lado da telemetria que você deseja personalizar e escolha uma cor.
+Para blocos que exibem valores de agregação, selecione o ícone de engrenagem ao lado do tipo de telemetria no painel **Configurar gráfico** para escolher a agregação. Você pode escolher entre média, soma, máximo, mínimo e contagem.
 
-> [!div class="mx-imgBorder"]
-> ![Lista suspensa para configurações de exibição de cor de telemetria](media/howto-add-tiles-to-your-dashboard/color-customization.png)
+Para gráficos de linhas, gráficos de barras e gráficos de pizza, você pode personalizar a cor dos diferentes valores de telemetria. Selecione o ícone de paleta ao lado da telemetria que você deseja personalizar:
 
-Para telemetrias ou propriedades que são do tipo cadeia de caracteres, você poderá escolher como deseja visualizar o texto. Por exemplo, se o dispositivo enviar uma URL como telemetria de cadeia de caracteres, você poderá visualizar essa URL como um link clicável. Se a URL fizer referência a uma imagem, você poderá renderizar a imagem em um último valor conhecido ou bloco de propriedade. Você poderá alterar a maneira como a telemetria de cadeia de caracteres é exibida selecionando a engrenagem ao lado do nome da telemetria. Dessa forma, você poderá mostrar o texto como um texto, link ou uma imagem.
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/color-customization.png" alt-text="Alterar a cor de um valor de telemetria":::
 
-> [!div class="mx-imgBorder"]
-> ![Lista suspensa para configurações de visualização de cadeia de caracteres](media/howto-add-tiles-to-your-dashboard/string-viz-customization.png)
+Para blocos que mostram Propriedades de cadeia de caracteres ou valores de telemetria, você pode escolher como exibir o texto. Por exemplo, se o dispositivo armazenar uma URL em uma propriedade de cadeia de caracteres, você poderá exibi-la como um link clicável. Se a URL fizer referência a uma imagem, você poderá renderizar a imagem em um último valor conhecido ou bloco de propriedade. Para alterar a forma como uma cadeia de caracteres é exibida, na configuração de bloco, selecione o ícone de engrenagem ao lado da propriedade ou tipo de telemetria:
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/string-customization.png" alt-text="Canalize como uma cadeia de caracteres é exibida em um bloco":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

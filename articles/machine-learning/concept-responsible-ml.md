@@ -9,12 +9,11 @@ ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 05/08/2020
-ms.openlocfilehash: 3cef3c2179019f6d84de5596e61abaf8d7d3182c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: HT
+ms.openlocfilehash: 09bb7710df19482e9625c1834d2646f70368fc1d
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83595005"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920361"
 ---
 # <a name="responsible-machine-learning-ml"></a>Machine Learning (ML) Responsável
 
@@ -36,7 +35,7 @@ Conforme a inteligência artificial e os sistemas autônomos integram-se cada ve
 
 ## <a name="interpret-and-explain-model-behavior"></a>Interpretar e explicar o comportamento do modelo
 
-Os sistemas difíceis de explicar ou de caixa preta podem ser problemáticos porque tornam difícil para os participantes como desenvolvedores de sistemas, reguladores, usuários e tomadores de decisões de negócios entenderem por que os sistemas tomam determinadas decisões. Alguns sistemas de IA são mais explicativos do que outros e, às vezes, há uma compensação entre um sistema com maior precisão e um que é mais explicativo.
+Os sistemas de caixa alta ou opaca podem ser problemáticos porque dificulta para os participantes como desenvolvedores de sistemas, reguladores, usuários e tomadores de decisões de negócios entenderem por que os sistemas tomam determinadas decisões. Alguns sistemas de IA são mais explicativos do que outros e, às vezes, há uma compensação entre um sistema com maior precisão e um que é mais explicativo.
 
 Para criar sistemas de IA interpretáveis, use [InterpretML](https://github.com/interpretml/interpret), um pacote de software livre criado pela Microsoft. [O InterpretML pode ser usado dentro do Azure Machine Learning](how-to-machine-learning-interpretability.md) para [interpretar e explicar seus modelos de machine learning](how-to-machine-learning-interpretability-aml.md), incluindo [modelos de machine learning automatizado](how-to-machine-learning-interpretability-automl.md).
 
@@ -61,11 +60,14 @@ Em cenários tradicionais, os dados brutos são armazenados em arquivos e bancos
 
 É difícil implementar sistemas com privacidade diferencial. O [WhiteNoise](https://github.com/opendifferentialprivacy/whitenoise-core) é um projeto de software livre que contém diferentes componentes para a criação de sistemas privados diferenciais globais. Para saber mais sobre a privacidade diferencial e o projeto WhiteNoise, consulte o artigo [preservar a privacidade de dados usando a privacidade diferencial e WhiteNoise](./concept-differential-privacy.md).
 
+> [!NOTE]
+> Observe que estamos renomeando o kit de ferramentas e vamos introduzir o novo nome nas próximas semanas. 
+
 ## <a name="document-the-machine-learning-lifecycle-with-datasheets"></a>Documentar o ciclo de vida de machine learning com folhas de dados
 
 Documentar as informações certas no processo de machine learning é fundamental para tomar decisões responsáveis em cada estágio. As folhas de dados são uma maneira de documentar os ativos de machine learning que são usados e criados como parte do ciclo de vida do machine learning.
 
-Os modelos tendem a ser considerados como “caixas pretas” e, muitas vezes, há poucas informações sobre eles. Como os sistemas de machine learning estão se tornando mais difundidos e são usados para tomada de decisões, o uso de folhas de dados é uma etapa para o desenvolvimento de sistemas de machine learning mais responsáveis.
+Os modelos tendem a ser considerados como "caixas opacas" e, muitas vezes, há poucas informações sobre eles. Como os sistemas de machine learning estão se tornando mais difundidos e são usados para tomada de decisões, o uso de folhas de dados é uma etapa para o desenvolvimento de sistemas de machine learning mais responsáveis.
 
 Algumas informações do modelo que você pode querer documentar como parte de uma folha de dados:
 
@@ -80,4 +82,5 @@ Consulte o exemplo a seguir para saber como usar o SDK do Azure Machine Learning
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
+- Use a criptografia homomórficas para [implantar um serviço Web inferência criptografado](how-to-homomorphic-encryption-seal.md).
 - Saiba mais sobre o conjunto de diretrizes em [Sobre o ML](https://www.partnershiponai.org/about-ml/) para ver a documentação do sistema de machine learning.

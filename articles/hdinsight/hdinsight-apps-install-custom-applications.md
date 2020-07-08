@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
 ms.openlocfilehash: b25e9d860f118c1b044b13e01a80aaf7a24963cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81768241"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Instalar aplicativos personalizados do Apache Hadoop no HDInsight do Azure
@@ -43,7 +42,7 @@ Arquivos necessários para implantar esse aplicativo (Hue):
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2FIaas-Applications%2Fmaster%2FHue%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-install-custom-applications/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
-    O modelo do Resource Manager está localizado [https://github.com/hdinsight/Iaas-Applications/tree/master/Hue](https://github.com/hdinsight/Iaas-Applications/tree/master/Hue)em.  Para aprender a escrever esse modelo do Resource Manager, confira [MSDN: instalar um aplicativo do HDInsight](https://msdn.microsoft.com/library/mt706515.aspx).
+    O modelo do Resource Manager está localizado em [https://github.com/hdinsight/Iaas-Applications/tree/master/Hue](https://github.com/hdinsight/Iaas-Applications/tree/master/Hue) .  Para aprender a escrever esse modelo do Resource Manager, confira [MSDN: instalar um aplicativo do HDInsight](https://msdn.microsoft.com/library/mt706515.aspx).
 
 1. Selecione o **grupo de recursos** existente que contém o cluster na lista suspensa. É necessário usar o mesmo grupo de recursos que o cluster.
 
@@ -61,7 +60,7 @@ Você pode ver o status da instalação no bloco ao painel do portal e na notifi
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhdinsightapps%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-apps-install-custom-applications/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
-    O modelo do Resource Manager está localizado [https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json)em.  Para aprender a escrever esse modelo do Resource Manager, confira [MSDN: instalar um aplicativo do HDInsight](https://msdn.microsoft.com/library/mt706515.aspx).
+    O modelo do Resource Manager está localizado em [https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json) .  Para aprender a escrever esse modelo do Resource Manager, confira [MSDN: instalar um aplicativo do HDInsight](https://msdn.microsoft.com/library/mt706515.aspx).
 
 2. Siga as instruções para criar o cluster e instalar o Hue. Para saber mais sobre a criação de clusters HDInsight, confira [Criar clusters Hadoop baseados em Linux no HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -85,7 +84,7 @@ Para **matiz**, você pode usar as seguintes etapas:
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Substitua `CLUSTERNAME`e `RESOURCEGROUP` pelos valores relevantes e, em seguida, insira os comandos abaixo:
+Substitua e `CLUSTERNAME` `RESOURCEGROUP` pelos valores relevantes e, em seguida, insira os comandos abaixo:
 
 * Para listar todos os aplicativos para o cluster HDInsight.
 
@@ -129,11 +128,11 @@ Se a instalação de um aplicativo falhar, você poderá ver as mensagens de err
 1. Selecione o cluster onde você instalou o aplicativo.
 1. No menu **configurações** , selecione **aplicativos**.
 1. Clique com o botão direito do mouse no aplicativo que você deseja remover e selecione **excluir**.
-1. Selecione **Sim** para confirmar.
+1. Clique em **Sim** para confirmar.
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Substitua `NAME`, `CLUSTERNAME`e `RESOURCEGROUP` pelos valores relevantes e, em seguida, insira o comando a seguir:
+Substitua `NAME` , `CLUSTERNAME` e `RESOURCEGROUP` pelos valores relevantes e, em seguida, insira o comando a seguir:
 
 ```azurecli
 az hdinsight application delete --name NAME --cluster-name CLUSTERNAME --resource-group RESOURCEGROUP
@@ -142,8 +141,8 @@ az hdinsight application delete --name NAME --cluster-name CLUSTERNAME --resourc
 ## <a name="next-steps"></a>Próximas etapas
 
 * [MSDN: instalar um aplicativo do HDInsight](https://msdn.microsoft.com/library/mt706515.aspx): saiba como desenvolver modelos do Resource Manager para implantar aplicativos do HDInsight.
-* [Instalar aplicativos do HDInsight](hdinsight-apps-install-applications.md): saiba como instalar um aplicativo do HDInsight em seus clusters.
-* [Publicar aplicativos do HDInsight](hdinsight-apps-publish-applications.md): saiba como publicar seus aplicativos personalizados do HDInsight no Azure Marketplace.
+* [Instalar aplicativos HDInsight](hdinsight-apps-install-applications.md): Saiba como instalar um aplicativo HDInsight em seus clusters.
+* [Publicar aplicativos HDInsight](hdinsight-apps-publish-applications.md): Saiba como publicar seus aplicativos personalizados do HDInsight no Azure Marketplace.
 * [Personalizar clusters HDInsight baseados em Linux usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md): saiba como usar a Ação de Script para instalar aplicativos adicionais.
 * [Personalizar clusters Apache Hadoop baseados em Linux no HDInsight usando modelos do Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md): saiba como chamar modelos do Resource Manager para criar clusters HDInsight.
 * [Usar nós de borda vazios no HDInsight](hdinsight-apps-use-edge-node.md): saiba como usar um nó de borda vazio para acessar o cluster HDInsight, testar e hospedar aplicativos HDInsight.

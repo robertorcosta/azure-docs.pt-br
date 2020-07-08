@@ -6,12 +6,11 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: 7ef7a55c81441077d2217ccfc41a2a9c9578eefe
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: HT
+ms.openlocfilehash: 296f212e26d066613c54f7d69802654e5f7b5090
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697555"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85391835"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Cotas de serviço do Azure Cosmos DB
 
@@ -24,7 +23,7 @@ Após a criação de uma conta do Azure Cosmos na sua assinatura, é possível g
 | Recurso | Limite padrão |
 | --- | --- |
 | Máximo de RUs por contêiner ([modo provisionado de taxa de transferência dedicada](databases-containers-items.md#azure-cosmos-containers)) | 1 milhão por padrão. Você pode aumentar isso [abrindo um tíquete de Suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) |
-| Máximo de RUs por banco de dados ([modo provisionado de taxa de transferência compartilhada](databases-containers-items.md#azure-cosmos-containers)) | 1 milhão por padrão. Você pode aumentar isso [abrindo um tíquete de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) |
+| Máximo de RUs por banco de dados ([modo provisionado de taxa de transferência compartilhada](databases-containers-items.md#azure-cosmos-containers)) | 1 milhão por padrão. Você pode aumentar isso [abrindo um tíquete de Suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) |
 | Máximo de RUs por chave de partição (lógica) | 10.000 |
 | Armazenamento máximo em todos os itens por chave de partição (lógica)| 20 GB |
 | Número máximo de chaves de partição (lógica) distintas | Ilimitado |
@@ -117,7 +116,7 @@ Não há restrições sobre as cargas de item, como o número de propriedades e 
 
 ## <a name="per-request-limits"></a>Limites por solicitação
 
-O Azure Cosmos DB dá suporte a [operações CRUD e de consulta](https://docs.microsoft.com/rest/api/cosmos-db/) em relação a recursos como contêineres, itens e bancos de dados. Ele também dá suporte a [solicitações de lote transacionais](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.transactionalbatch) em vários itens com a mesma chave de partição em um contêiner.
+O Azure Cosmos DB dá suporte a [operações CRUD e de consulta](/rest/api/cosmos-db/) em relação a recursos como contêineres, itens e bancos de dados. Ele também dá suporte a [solicitações de lote transacionais](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.transactionalbatch) em vários itens com a mesma chave de partição em um contêiner.
 
 | Recurso | Limite padrão |
 | --- | --- |
@@ -191,7 +190,7 @@ A tabela a seguir lista os limites para o [Avaliar o Azure Cosmos DB gratuitamen
 | A duração da avaliação | 30 dias (uma nova avaliação pode ser solicitada após o término) <br> Depois do término, as informações armazenadas são excluídas. |
 | Máximo de contêineres por assinatura (SQL, Gremlin, API de Tabela) | 1 |
 | Máximo de contêineres por assinatura (API do MongoDB) | 3 |
-| Taxa de transferência máxima por contêiner | 5\.000 |
+| Taxa de transferência máxima por contêiner | 5.000 |
 | Taxa de transferência máxima por banco de dados de taxa de transferência compartilhada | 20000 |
 | Máximo de armazenamento total por conta | 10 GB |
 

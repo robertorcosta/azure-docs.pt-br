@@ -7,12 +7,11 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: a5ef03689a6374dc1cf945a787f9f82b9979a1e0
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: f6b2d081b0dc475e0950b12de31bab83cbe7da8b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834899"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213084"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Perguntas frequentes sobre diferentes APIs no Azure Cosmos DB
 
@@ -152,7 +151,7 @@ Sim, a API do SQL dá suporte a transações entre documentos expressas como pro
 
 Um contêiner é um grupo de documentos e de suas respectivas lógicas de aplicativo JavaScript associadas. Um contêiner é uma entidade faturável, em que o [custo](performance-levels.md) é determinado pela produtividade e pelo armazenamento usado. Os contêineres podem abranger um ou mais servidores ou partições e podem ser dimensionados para lidar com volumes de armazenamento ou de produtividade praticamente ilimitados.
 
-* Para a API do SQL, um contêiner é mapeado para um contêiner.
+* Para a API do SQL, o recurso é chamado de contêiner.
 * Para contas da API do Cosmos DB para contas do MongoDB, o contêiner é mapeado para uma coleção.
 * Para contas da API do Cassandra e de Tabela, o contêiner é mapeado para uma tabela.
 * Para contas da API do Gremlin, o contêiner é mapeado para um grafo.

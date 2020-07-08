@@ -2,22 +2,21 @@
 title: Experiências do usuário final para aplicativos-Azure Active Directory
 description: O Microsoft Azure Active Directory (Azure AD) fornece várias maneiras personalizáveis de implantar aplicativos para usuários finais em sua organização.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72b3e37a423442194b81e3d10ecc7157201ff8be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5c2ec85af2c954c2189f0df1b407a2c40967f096
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79266618"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763390"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Experiências do usuário final para aplicativos no Active Directory Domain Services do Azure
 
@@ -32,7 +31,7 @@ A escolha dos métodos para implantação de sua organização fica seu critéri
 
 ## <a name="azure-ad-access-panel"></a>Painel de acesso do AD do Azure
 
-O painel de acesso https://myapps.microsoft.com no é um portal baseado na Web que permite que um usuário final com uma conta organizacional no Azure Active Directory exiba e inicie aplicativos aos quais eles receberam acesso pelo administrador do Azure AD. Se for um usuário final com o [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/), você também poderá utilizar recursos de gerenciamento do grupo de autoatendimento por meio do Painel de acesso.
+O painel de acesso no https://myapps.microsoft.com é um portal baseado na Web que permite que um usuário final com uma conta organizacional no Azure Active Directory exiba e inicie aplicativos aos quais eles receberam acesso pelo administrador do Azure AD. Se for um usuário final com o [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/), você também poderá utilizar recursos de gerenciamento do grupo de autoatendimento por meio do Painel de acesso.
 
 ![Captura de tela mostra o portal do painel de acesso do Azure AD](media/what-is-single-sign-on/azure-ad-access-panel.png)
 
@@ -44,7 +43,7 @@ Para obter mais informações sobre o painel de acesso do AD do Azure, consulte 
 
 ## <a name="office-365-application-launcher"></a>Iniciador de aplicativos do Office 365
 
-Para organizações que implantaram o Office 365, os aplicativos atribuídos aos usuários por meio do Azure AD também serão exibidos no [https://portal.office.com/myapps](https://portal.office.com/myapps)portal do Office 365 em. Isso torna simples e fácil para os usuários em uma organização para iniciar seus aplicativos sem precisar usar um segundo portal e é a solução de inicialização do aplicativo recomendada para organizações que usam o Office 365.
+Para organizações que implantaram o Office 365, os aplicativos atribuídos aos usuários por meio do Azure AD também serão exibidos no portal do Office 365 em [https://portal.office.com/myapps](https://portal.office.com/myapps) . Isso torna simples e fácil para os usuários em uma organização para iniciar seus aplicativos sem precisar usar um segundo portal e é a solução de inicialização do aplicativo recomendada para organizações que usam o Office 365.
 
 ![Captura de tela mostra o portal do Office 365](./media/end-user-experiences/microsoft-365-portal-office-com.png)
 
@@ -60,7 +59,7 @@ A maioria dos aplicativos federados que oferecem suporte à conexão SAML 2.0, W
 
 O Microsoft Azure Active Directory também oferece suporte a links de logon únicos diretos para aplicativos individuais que oferecem suporte baseado em senha de logon único, logon único vinculado e qualquer forma de logon único federado.
 
-Esses links são URLs criadas especificamente que enviam um usuário por meio do processo de entrada do Azure AD para um aplicativo específico sem exigir que o usuário as inicie do painel de acesso do Azure AD ou do Office 365. Essas **URLs de acesso do usuário** podem ser encontradas nas propriedades de aplicativos empresariais disponíveis. Na portal do Azure, selecione **Azure Active Directory** > **aplicativos empresariais**. Selecione o aplicativo e, em seguida, selecione **Propriedades**.
+Esses links são URLs criadas especificamente que enviam um usuário por meio do processo de entrada do Azure AD para um aplicativo específico sem exigir que o usuário as inicie do painel de acesso do Azure AD ou do Office 365. Essas **URLs de acesso do usuário** podem ser encontradas nas propriedades de aplicativos empresariais disponíveis. No portal do Azure, selecione **Azure Active Directory** > **Aplicativos empresariais**. Selecione o aplicativo e, em seguida, selecione **Propriedades**.
 
 ![Exemplo da URL de acesso do usuário nas propriedades do Twitter](media/end-user-experiences/direct-sign-on-link.png)
 

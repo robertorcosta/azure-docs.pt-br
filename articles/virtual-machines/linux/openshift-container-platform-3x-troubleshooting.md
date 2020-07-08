@@ -11,10 +11,9 @@ ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.openlocfilehash: 90fd3680cfdc4ecd1dcb0ce33b63f8d76dd8bfae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81759472"
 ---
 # <a name="troubleshoot-openshift-container-platform-311-deployment-in-azure"></a>Solucionar problemas de implantação da plataforma de contêiner do OpenShift 3,11 no Azure
@@ -37,9 +36,9 @@ SSH para o host ansioso playbook. Para o modelo OLD (versão 3.9 e anterior), us
 
 ## <a name="log-files"></a>Arquivos de log
 
-Os arquivos de log (stderr e stdout) para os scripts de preparação do host `/var/lib/waagent/custom-script/download/0` estão localizados em em todos os hosts. Se ocorreu um erro durante a preparação do host, exiba esses arquivos de log para determinar o erro.
+Os arquivos de log (stderr e stdout) para os scripts de preparação do host estão localizados em `/var/lib/waagent/custom-script/download/0` em todos os hosts. Se ocorreu um erro durante a preparação do host, exiba esses arquivos de log para determinar o erro.
 
-Se os scripts de preparação forem executados com êxito, os arquivos de log `/var/lib/waagent/custom-script/download/1` no diretório do host do guia estratégico Ansible precisarão ser examinados. Se o erro ocorreu durante a instalação real do OpenShift, o arquivo stdout exibirá o erro. Use estas informações para entrar em contato com o Suporte para obter mais assistência.
+Se os scripts de preparação forem executados com êxito, os arquivos de log no `/var/lib/waagent/custom-script/download/1` diretório do host do guia estratégico Ansible precisarão ser examinados. Se o erro ocorreu durante a instalação real do OpenShift, o arquivo stdout exibirá o erro. Use estas informações para entrar em contato com o Suporte para obter mais assistência.
 
 Saída de exemplo
 
@@ -114,5 +113,5 @@ az group update -g <openshift resource group> --set tags.sptest=test
 
 Para alguns erros, você também pode usar os seguintes comandos para obter mais informações:
 
-1. > de \<serviço de status systemctl
+1. status de systemctl \<service>
 2. journalctl -xe

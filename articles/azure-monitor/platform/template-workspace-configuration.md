@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 01/09/2020
 ms.openlocfilehash: dbeaa58da109c5afceb03a560e69e0c8bf63ad42
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81768122"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Gerenciar Log Analytics espaço de trabalho usando modelos de Azure Resource Manager
@@ -40,7 +39,7 @@ A tabela a seguir lista a versão de API para os recursos usados neste exemplo.
 | Recurso | Tipo de recurso | Versão da API |
 |:---|:---|:---|
 | Workspace   | workspaces    | 2017-03-15-preview |
-| Pesquisar      | savedSearches | 2015-03-20 |
+| Search      | savedSearches | 2015-03-20 |
 | Fonte de dados | datasources   | 2015-11-01-preview |
 | Solução    | solutions     | 2015-11-01-preview |
 
@@ -51,7 +50,7 @@ O exemplo a seguir cria um espaço de trabalho usando um modelo de seu computado
 > [!WARNING]
 > O modelo a seguir cria um espaço de trabalho Log Analytics e configura a coleta de dados. Isso pode alterar suas configurações de cobrança. Examine [gerenciar o uso e os custos com logs de Azure monitor](manage-cost-storage.md) para entender a cobrança dos dados coletados em um espaço de trabalho log Analytics antes de aplicá-los em seu ambiente do Azure.
 
-Para a reserva de capacidade, você define uma reserva de capacidade selecionada para ingerir dados, `CapacityReservation` ESPECIFICANDO a SKU e um valor em GB `capacityReservationLevel`para a propriedade. A lista a seguir detalha os valores com suporte e o comportamento ao configurá-lo.
+Para a reserva de capacidade, você define uma reserva de capacidade selecionada para ingerir dados, especificando a SKU `CapacityReservation` e um valor em GB para a propriedade `capacityReservationLevel` . A lista a seguir detalha os valores com suporte e o comportamento ao configurá-lo.
 
 - Depois de definir o limite de reserva, você não poderá alterar para um SKU diferente dentro de 31 dias.
 

@@ -3,12 +3,11 @@ title: Matriz de suporte do Backup do Azure
 description: Fornece um resumo de configurações compatíveis e limitações do serviço de Backup do Azure.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: faf7abf23d196b389531803c519368b5d474aeb3
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 4946a4627d037053e441152182278c26b4f693fe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659390"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84655632"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de suporte Backup do Azure
 
@@ -101,14 +100,14 @@ O Backup do Azure dá suporte à criptografia para dados em trânsito e em repou
 
 - O tráfego de backup dos servidores para o cofre dos Serviços de Recuperação é criptografado usando a criptografia AES 256.
 - Os dados de backup são enviados por um link HTTPS seguro.
+
+### <a name="data-security"></a>Segurança de dados
+
 - Os dados de backup são armazenados no cofre dos Serviços de Recuperação na forma criptografada.
 - Só você tem a senha para desbloquear esses dados. A Microsoft não pode descriptografar os dados de backup em momento algum.
 
     > [!WARNING]
     > Depois de configurar o cofre, só você terá acesso à chave de criptografia. A Microsoft nunca mantém uma cópia e não tem acesso à chave. Se a chave for perdida, a Microsoft não poderá recuperar os dados de backup.
-
-### <a name="data-security"></a>Segurança de dados
-
 - É necessário configurar a criptografia *dentro* da máquina virtual para o backup de VMs do Azure.
 - O Backup do Azure dá suporte a Azure Disk Encryption, que usa o BitLocker em máquinas virtuais Windows e **dm-crypt** em máquinas virtuais Linux.
 - No back-end, o Backup do Azure usa [Criptografia do Serviço de Armazenamento do Azure](../storage/common/storage-service-encryption.md), que protege dados em repouso.

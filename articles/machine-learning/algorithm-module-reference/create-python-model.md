@@ -8,24 +8,23 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 11/19/2019
-ms.openlocfilehash: 0285520c2733cd6e190f9055824cdfed0ce4b842
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/18/2020
+ms.openlocfilehash: 59a335e41116818e41579488cc6931ed1534c9ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189847"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84984892"
 ---
 # <a name="create-python-model-module"></a>Criar módulo de modelo do Python
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer do Azure Machine Learning (versão prévia).
 
 Saiba como usar o módulo criar modelo Python para criar um modelo não treinado a partir de um script Python. Você pode basear o modelo em qualquer aprendiz que esteja incluído em um pacote do Python no ambiente do Azure Machine Learning designer. 
 
 Depois de criar o modelo, você pode usar [treinar modelo](train-model.md) para treinar o modelo em um conjunto de informações, como qualquer outro aprendiz no Azure Machine Learning. O modelo treinado pode ser passado para o [modelo de Pontuação](score-model.md) para fazer previsões. Em seguida, você pode salvar o modelo treinado e publicar o fluxo de trabalho de Pontuação como um serviço Web.
 
 > [!WARNING]
-> Atualmente, não é possível passar os resultados pontuados de um modelo Python para avaliar o [modelo](evaluate-model.md). Se você precisar avaliar um modelo, poderá escrever um script Python personalizado e executá-lo usando o módulo [Executar script Python](execute-python-script.md) .  
+> Atualmente, não é possível conectar esse módulo para ajustar o módulo de **hiperparâmetros de modelo** ou passar os resultados pontuados de um modelo Python para [avaliar o modelo](evaluate-model.md). Se você precisar ajustar os hiperparâmetros ou avaliar um modelo, poderá escrever um script Python personalizado usando o módulo [Executar script Python](execute-python-script.md) .
 
 
 ## <a name="configure-the-module"></a>Configurar o módulo
@@ -133,4 +132,4 @@ Este artigo mostra como usar **criar modelo Python** com um pipeline simples. Aq
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 

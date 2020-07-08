@@ -4,18 +4,17 @@ description: Saiba como usar o CLI do Azure para criar e o cluster AKS (serviço
 services: container-service
 ms.topic: article
 ms.date: 04/16/2019
-ms.openlocfilehash: dba6590daf5c64dd1e53663e71a0cc27941b1470
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
-ms.translationtype: MT
+ms.openlocfilehash: 83ba43c3b8a00325750ec935fd3a43ec7d56074c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82779936"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85336532"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Integrar Azure Active Directory com o serviço kubernetes do Azure usando o CLI do Azure
 
 O AKS (Serviço de Kubernetes do Azure) pode ser configurado para usar o Azure Active Directory (AD) para autenticação do usuário. Nessa configuração, você pode fazer logon em um cluster AKS usando um token de autenticação do Azure AD. Os operadores de cluster também podem configurar o RBAC (controle de acesso baseado em função) kubernetes com base na identidade do usuário ou no grupo de diretórios.
 
-Este artigo mostra como criar os componentes necessários do Azure AD e, em seguida, implantar um cluster habilitado para o Azure AD e criar uma função de RBAC básica no cluster AKS. Você também pode [concluir essas etapas usando o portal do Azure][azure-ad-portal].
+Este artigo mostra como criar os componentes necessários do Azure AD e, em seguida, implantar um cluster habilitado para o Azure AD e criar uma função de RBAC básica no cluster AKS.
 
 Para obter o script de exemplo completo usado neste artigo, consulte [CLI do Azure Samples-integração AKs com o Azure ad][complete-script].
 
@@ -25,7 +24,7 @@ As seguintes limitações se aplicam:
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Você precisa do CLI do Azure versão 2.0.61 ou posterior instalado e configurado. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][install-azure-cli].
+Você precisará da CLI do Azure versão 2.0.61 ou posterior instalada e configurada. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][install-azure-cli].
 
 Acesse [https://shell.azure.com](https://shell.azure.com) para abrir o Cloud Shell no navegador.
 
@@ -97,7 +96,7 @@ az ad app permission admin-consent --id  $serverApplicationId
 
 ## <a name="create-azure-ad-client-component"></a>Criar componente de cliente do Azure AD
 
-O segundo aplicativo do Azure AD é usado quando um usuário faz logon no cluster AKS com a CLI do`kubectl`kubernetes (). Esse aplicativo cliente usa a solicitação de autenticação do usuário e verifica suas credenciais e permissões. Crie o aplicativo do Azure AD para o componente cliente usando o comando [AZ ad app Create][az-ad-app-create] :
+O segundo aplicativo do Azure AD é usado quando um usuário faz logon no cluster AKS com a CLI do kubernetes ( `kubectl` ). Esse aplicativo cliente usa a solicitação de autenticação do usuário e verifica suas credenciais e permissões. Crie o aplicativo do Azure AD para o componente cliente usando o comando [AZ ad app Create][az-ad-app-create] :
 
 ```azurecli-interactive
 clientApplicationId=$(az ad app create \
@@ -171,7 +170,7 @@ az ad signed-in-user show --query userPrincipalName -o tsv
 > [!IMPORTANT]
 > Se o usuário para o qual você concede a associação de RBAC estiver no mesmo locatário do Azure AD, atribua permissões com base no *userPrincipalName*. Se o usuário estiver em um locatário do Azure AD diferente, consulte e use a propriedade *ObjectID* em seu lugar.
 
-Crie um manifesto do YAML `basic-azure-ad-binding.yaml` chamado e cole o conteúdo a seguir. Na última linha, substitua *userPrincipalName_or_objectId* pela saída de ID de objeto ou UPN do comando anterior:
+Crie um manifesto do YAML chamado `basic-azure-ad-binding.yaml` e cole o conteúdo a seguir. Na última linha, substitua *userPrincipalName_or_objectId* pela saída de ID de objeto ou UPN do comando anterior:
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -229,7 +228,7 @@ kube-system   metrics-server-7b97f9cd9-btxzz          1/1     Running   0       
 kube-system   tunnelfront-6ff887cffb-xkfmq            1/1     Running   0          23h
 ```
 
-O token de autenticação recebido `kubectl` para é armazenado em cache. Você só será solicitado a entrar quando o token tiver expirado ou o arquivo de configuração kubernetes for recriado.
+O token de autenticação recebido para `kubectl` é armazenado em cache. Você só será solicitado a entrar quando o token tiver expirado ou o arquivo de configuração kubernetes for recriado.
 
 Se você vir uma mensagem de erro de autorização depois de entrar com êxito usando um navegador da Web como na saída de exemplo a seguir, verifique os seguintes problemas possíveis:
 

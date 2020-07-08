@@ -13,28 +13,28 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 968cc9ed9d938bb04d1243102855c134147ddf3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7464a9d13e1ffccbc3fab3256fe6c7ab1cb10495
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81269866"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84321489"
 ---
 # <a name="network-security-groups"></a>Grupos de segurança de rede
 <a name="network-security-groups"></a>
 
 Você pode usar o grupo de segurança de rede do Azure para filtrar o tráfego de rede de e para recursos do Azure em uma rede virtual do Azure. Um grupo de segurança de rede contém [regras de segurança](#security-rules) que permitem ou negam o tráfego de rede de entrada ou de saída em relação a vários tipos de recursos do Azure. Para cada regra, você pode especificar origem e destino, porta e protocolo.
+
 Este artigo descreve as propriedades de uma regra de grupo de segurança de rede, as [regras de segurança padrão](#default-security-rules) que são aplicadas e as propriedades de regra que você pode modificar para criar uma [regra de segurança aumentada](#augmented-security-rules).
 
 ## <a name="security-rules"></a><a name="security-rules"></a>Regras de segurança
 
 Um grupo de segurança de rede pode conter nenhuma ou quantas regras você desejar, dentro dos [limites](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) da assinatura do Azure. Cada regra especifica as seguintes propriedades:
 
-|Propriedade  |Explicação  |
+|Property  |Explicação  |
 |---------|---------|
-|Name|Um nome exclusivo dentro do grupo de segurança de rede.|
+|Nome|Um nome exclusivo dentro do grupo de segurança de rede.|
 |Prioridade | Um número entre 100 e 4096. As regras são processadas na ordem de prioridade, com números mais baixos processados antes de números mais altos, pois os números mais baixos têm prioridade mais alta. Depois que o tráfego corresponde a uma regra, o processamento é interrompido. Assim, as regras existentes com baixa prioridade (números mais altos) que têm os mesmos atributos das regras com prioridades mais altas não são processadas.|
-|Origem ou destino| Qualquer endereço IP ou um endereço IP individual, bloco de CIDR (encaminhamento entre domínios) (10.0.0.0/24, por exemplo), [marca de serviço](service-tags-overview.md) ou [grupo de segurança de aplicativo](#application-security-groups). Se você especificar um endereço para um recurso do Azure, especifique o endereço IP privado atribuído ao recurso. Os grupos de segurança de rede são processados depois que o Azure traduz um endereço IP público em um endereço IP privado para tráfego de entrada e antes que o Azure traduza um endereço IP privado para um endereço IP público para tráfego de saída. Saiba mais sobre os [endereços IP](virtual-network-ip-addresses-overview-arm.md) do Azure. A especificação de um intervalo, uma etiqueta de serviço ou um grupo de segurança de aplicativos permite que você crie menos regras de segurança. A capacidade de especificar vários intervalos e endereços IP individuais (você não pode especificar várias marcas de serviço ou grupos de aplicativos) em uma regra é conhecida como [regras de segurança aumentadas](#augmented-security-rules). As regras de segurança aumentadas só podem ser criadas em grupos de segurança de rede criados pelo modelo de implantação do Gerenciador de Recursos. Você não pode especificar vários endereços IP e intervalos de endereços IP em grupos de segurança de rede criados pelo modelo de implantação clássica. Saiba mais sobre os [modelos de implantação do Azure](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
+|Origem ou destino| Qualquer endereço IP ou um endereço IP individual, bloco CIDR (roteamento entre domínios sem classificação) (10.0.0.0/24, por exemplo), marca de serviço ou grupo de segurança do aplicativo. Se você especificar um endereço para um recurso do Azure, especifique o endereço IP privado atribuído ao recurso. Os grupos de segurança de rede são processados depois que o Azure traduz um endereço IP público em um endereço IP privado para tráfego de entrada e antes que o Azure traduza um endereço IP privado para um endereço IP público para tráfego de saída. . A especificação de um intervalo, uma etiqueta de serviço ou um grupo de segurança de aplicativos permite que você crie menos regras de segurança. A capacidade de especificar vários intervalos e endereços IP individuais (você não pode especificar várias marcas de serviço ou grupos de aplicativos) em uma regra é conhecida como [regras de segurança aumentadas](#augmented-security-rules). As regras de segurança aumentadas só podem ser criadas em grupos de segurança de rede criados pelo modelo de implantação do Gerenciador de Recursos. Você não pode especificar vários endereços IP e intervalos de endereços IP em grupos de segurança de rede criados pelo modelo de implantação clássica.|
 |Protocolo     | TCP, UDP, ICMP ou any.|
 |Direção| Se a regra se aplica ao tráfego de entrada ou de saída.|
 |Intervalo de portas     |Você pode especificar uma porta individual ou um intervalo de portas. Por exemplo, você pode especificar 80 ou 10000-10005. A especificação de intervalos permite que você crie menos regras de segurança. As regras de segurança aumentadas só podem ser criadas em grupos de segurança de rede criados pelo modelo de implantação do Gerenciador de Recursos. Você não pode especificar várias portas ou intervalos de porta na mesma regra de segurança em grupos de segurança de rede criados pelo modelo de implantação clássica.   |
@@ -53,19 +53,19 @@ O Azure cria as seguintes regras padrão em cada grupo de segurança de rede que
 
 ##### <a name="allowvnetinbound"></a>AllowVNetInBound
 
-|Prioridade|Fonte|Portas de origem|Destino|Portas de destino|Protocolo|Acesso|
+|Prioridade|Origem|Portas de origem|Destination|Portas de destino|Protocolo|Access|
 |---|---|---|---|---|---|---|
 |65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Qualquer|Allow|
 
 ##### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
-|Prioridade|Fonte|Portas de origem|Destino|Portas de destino|Protocolo|Acesso|
+|Prioridade|Origem|Portas de origem|Destination|Portas de destino|Protocolo|Access|
 |---|---|---|---|---|---|---|
 |65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Qualquer|Allow|
 
 ##### <a name="denyallinbound"></a>DenyAllInBound
 
-|Prioridade|Fonte|Portas de origem|Destino|Portas de destino|Protocolo|Acesso|
+|Prioridade|Origem|Portas de origem|Destination|Portas de destino|Protocolo|Access|
 |---|---|---|---|---|---|---|
 |65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|Qualquer|Negar|
 
@@ -73,19 +73,19 @@ O Azure cria as seguintes regras padrão em cada grupo de segurança de rede que
 
 ##### <a name="allowvnetoutbound"></a>AllowVnetOutBound
 
-|Prioridade|Fonte|Portas de origem| Destino | Portas de destino | Protocolo | Acesso |
+|Prioridade|Origem|Portas de origem| Destination | Portas de destino | Protocolo | Access |
 |---|---|---|---|---|---|---|
 | 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Qualquer | Allow |
 
 ##### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
-|Prioridade|Fonte|Portas de origem| Destino | Portas de destino | Protocolo | Acesso |
+|Prioridade|Origem|Portas de origem| Destination | Portas de destino | Protocolo | Access |
 |---|---|---|---|---|---|---|
 | 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Qualquer | Allow |
 
 ##### <a name="denyalloutbound"></a>DenyAllOutBound
 
-|Prioridade|Fonte|Portas de origem| Destino | Portas de destino | Protocolo | Acesso |
+|Prioridade|Origem|Portas de origem| Destination | Portas de destino | Protocolo | Access |
 |---|---|---|---|---|---|---|
 | 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Qualquer | Negar |
 
@@ -148,7 +148,7 @@ Em relação ao tráfego de saída, o Azure processa as regras em um grupo de se
 > Os grupos de segurança de rede são associados a sub-redes ou a máquinas virtuais e serviços de nuvem implantados no modelo de implantação clássico e a sub-redes ou interfaces de rede no modelo de implantação do Resource Manager. Para saber mais sobre os modelos de implantação do Azure, confira [Entender os modelos de implantação do Azure](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 > [!TIP]
-> A menos que você tenha um motivo específico, recomendamos que você associe um grupo de segurança de rede a uma sub-rede ou a um adaptador de rede, mas não a ambos. Como as regras em um grupo de segurança de rede associado a uma sub-rede podem entrar em conflito com as regras em um grupo de segurança de rede associado a um adaptador de rede, você pode ter problemas de comunicação inesperados que exigem a solução de problemas.
+> A menos que você tenha um motivo específico para o, é recomendável associar um grupo de segurança de rede a uma sub-rede ou um adaptador de rede, mas não ambos. Como as regras em um grupo de segurança de rede associado a uma sub-rede podem entrar em conflito com as regras em um grupo de segurança de rede associado a um adaptador de rede, você pode ter problemas de comunicação inesperados que exigem a solução de problemas.
 
 ## <a name="azure-platform-considerations"></a>Considerações sobre a plataforma do Azure
 

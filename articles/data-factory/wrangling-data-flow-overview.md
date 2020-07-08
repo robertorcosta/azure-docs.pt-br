@@ -7,16 +7,16 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 3b8632eaf7662d705235adaad7cd03d2e7e4904b
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
-ms.translationtype: MT
+ms.openlocfilehash: 203e5fcaa99f7aebeda34e6968f636ed72851ec8
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82626864"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921538"
 ---
 # <a name="what-are-wrangling-data-flows"></a>O que são fluxos de dados Wrangling?
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 
 As organizações precisam fazer a preparação de dados e Wrangling para uma análise precisa de dados complexos que continuam crescendo todos os dias. A preparação de dados é necessária para que as organizações possam usar os dados em vários processos de negócios e reduzir o tempo de implantação.
 
@@ -25,6 +25,9 @@ Os fluxos de dados do Wrangling no Azure Data Factory permitem que você faça u
 O fluxo de dados Wrangling converte M gerado pelo editor de mashup do Power Query online no código do Spark para execução em escala de nuvem.
 
 Os fluxos de dados do Wrangling são especialmente úteis para engenheiros de dados ou "integradores de dados do cidadão".
+
+> [!NOTE]
+> O fluxo de dados Wrangling está disponíveis no momento em visualização pública
 
 ## <a name="use-cases"></a>Casos de uso
 
@@ -40,7 +43,7 @@ Os integradores de dados do cidadão gastam mais de 60% do tempo procurando e pr
 
 Examine visualmente seus dados de forma livre de código para remover exceções, anomalias e ti de acordo com uma forma para análise rápida.
 
-## <a name="supported-sources"></a>Fontes com suporte
+## <a name="supported-sources"></a>Fontes compatíveis
 
 | Conector | Formato de dados | Tipo de autenticação |
 | -- | -- | --|

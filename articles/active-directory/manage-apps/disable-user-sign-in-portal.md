@@ -3,25 +3,24 @@ title: Desabilitar as entradas de usuário para um aplicativo empresarial no Azu
 description: Como desabilitar um aplicativo empresarial para que nenhum usuário possa entrar nele no Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/12/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10553898376c4b9236ee62718fffccd45b12d70b
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
-ms.translationtype: MT
+ms.openlocfilehash: 4c6fc9a4716f1427257b3bbf18e5fa653567e141
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74274083"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763373"
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Desabilitar entradas de usuário em um aplicativo empresarial no Azure Active Directory
 
@@ -31,10 +30,10 @@ ms.locfileid: "74274083"
 
 1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
 1. Selecione **todos os serviços**, insira **Azure Active Directory** na caixa de texto e, em seguida, selecione **Enter**.
-1. No painel **Azure Active Directory** -  ***DirectoryName*** (ou seja, o painel do Azure ad para o diretório que você está gerenciando), selecione **aplicativos empresariais**.
+1. No painel **Azure Active Directory**  -   ***DirectoryName*** (ou seja, o painel do Azure ad para o diretório que você está gerenciando), selecione **aplicativos empresariais**.
 1. No painel **aplicativos empresariais – todos os aplicativos** , você vê uma lista dos aplicativos que você pode gerenciar. Selecione um aplicativo.
 1. No painel ***nomedoaplicativo*** (ou seja, o painel com o nome do aplicativo selecionado no título), selecione **Propriedades**.
-1. No painel ***appname*** - **Propriedades** de AppName, selecione **não** para **habilitado para os usuários entrarem?**.
+1. No painel ***appname***  -  **Propriedades** de AppName, selecione **não** para **habilitado para os usuários entrarem?**.
 1. Escolha o comando **Salvar** .
 
 ## <a name="use-azure-ad-powershell-to-disable-an-unlisted-app"></a>Usar o PowerShell do Azure AD para desabilitar um aplicativo não listado

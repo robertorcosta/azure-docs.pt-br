@@ -3,23 +3,22 @@ title: Logon único para aplicativos com o Proxy de Aplicativo do Azure AD | Mic
 description: Ative o logon único para aplicativos locais publicados com o Proxy de Aplicativo do Azure AD no Portal do Azure.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/12/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0259a8d9fcb4c9c513ab2c31103c9a8488e90ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c5e3d08f887cc1c816dda54863c412660494418b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77025734"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764767"
 ---
 # <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Compartimentação de senhas para logon único com o Proxy de Aplicativo
 
@@ -31,12 +30,12 @@ Você já deve ter publicado e testado seu aplicativo com o Proxy de Aplicativo.
 
 ## <a name="set-up-password-vaulting-for-your-application"></a>Definir o cofre de senha para seu aplicativo
 
-1. Entre no [portal do Azure](https://portal.azure.com) como um administrador.
-1. Selecione **Azure Active Directory** > **aplicativos** > empresariais**todos os aplicativos**.
+1. Entre no [Portal do Azure](https://portal.azure.com) como administrador.
+1. Selecione **Azure Active Directory**  >  **aplicativos empresariais**  >  **todos os aplicativos**.
 1. Na lista, selecione o aplicativo para o qual deseja configurar o SSO.  
 1. Selecione **Proxy de Aplicativo**. 
 1. Altere o **tipo de pré-autenticação** para **passagem** e selecione **salvar**. Posteriormente, você poderá voltar para o tipo de **Azure Active Directory** novamente! 
-1. Selecione **logon único**.
+1. Selecione **Logon único**.
 
    ![Selecionar logon único na página de visão geral do aplicativo](./media/application-proxy-configure-single-sign-on-password-vaulting/select-sso.png)
 
@@ -45,13 +44,13 @@ Você já deve ter publicado e testado seu aplicativo com o Proxy de Aplicativo.
 
    ![Escolha Logon Único Baseado em Senha e digite a URL](./media/application-proxy-configure-single-sign-on-password-vaulting/password-sso.png)
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 1. Selecione **Proxy de Aplicativo**. 
 1. Altere o **tipo de pré-autenticação** para **Azure Active Directory** e selecione **salvar**. 
 1. Selecione **usuários e grupos**.
 1. Atribua usuários ao aplicativo com a seleção de **Adicionar usuário**. 
 1. Se você quiser predefinir credenciais para um usuário, marque a caixa de diálogo do nome de usuário e selecione **Atualizar credenciais**.
-1. Selecione **Azure Active Directory** > **registros de aplicativo** > **todos os aplicativos**.
+1. Selecione **Azure Active Directory**  >  **registros de aplicativo**  >  **todos os aplicativos**.
 1. Na lista, selecione o aplicativo que você configurou com o SSO de senha.
 1. Selecione **Identidade Visual**. 
 1. Atualize a **URL da Home Page** com a **URL de logon** da página SSO de senha e selecione **salvar**.  

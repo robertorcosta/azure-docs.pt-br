@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
 ms.openlocfilehash: 4dd959d75fd582d787e68db4a415a4a694b9cda8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81770678"
 ---
 # <a name="deployment-best-practices"></a>Práticas recomendadas de implantação
@@ -119,7 +118,7 @@ az ad sp create-for-rbac --name "myServicePrincipal" --role contributor \
    --sdk-auth
 ```
 
-Em seu script, faça logon usando `az login --service-principal`, fornecendo as informações da entidade de segurança. Você pode usar `az webapp config container set` para definir o nome do contêiner, a marca, a URL do registro e a senha do registro. Abaixo estão alguns links úteis para que você construa seu processo de CI de contêiner.
+Em seu script, faça logon usando `az login --service-principal` , fornecendo as informações da entidade de segurança. Você pode usar `az webapp config container set` para definir o nome do contêiner, a marca, a URL do registro e a senha do registro. Abaixo estão alguns links úteis para que você construa seu processo de CI de contêiner.
 
 - [Como fazer logon no CLI do Azure no CI de círculo](https://circleci.com/orbs/registry/orb/circleci/azure-cli) 
 
@@ -131,11 +130,11 @@ Use o kudu [zipdeploy/](deploy-zip.md) API para implantar aplicativos jar e [war
 
 ### <a name="node"></a>Nó
 
-Por padrão, o kudu executa as etapas de Build para o seu aplicativo`npm install`de nó (). Se você estiver usando um serviço de compilação como o Azure DevOps, a compilação kudu será desnecessária. Para desabilitar a compilação kudu, crie uma configuração de aplicativo `SCM_DO_BUILD_DURING_DEPLOYMENT`,, com um valor `false`de.
+Por padrão, o kudu executa as etapas de Build para o seu aplicativo de nó ( `npm install` ). Se você estiver usando um serviço de compilação como o Azure DevOps, a compilação kudu será desnecessária. Para desabilitar a compilação kudu, crie uma configuração de aplicativo, `SCM_DO_BUILD_DURING_DEPLOYMENT` , com um valor de `false` .
 
 ### <a name="net"></a>.NET 
 
-Por padrão, o kudu executa as etapas de Build para seu aplicativo .NET`dotnet build`(). Se você estiver usando um serviço de compilação como o Azure DevOps, a compilação kudu será desnecessária. Para desabilitar a compilação kudu, crie uma configuração de aplicativo `SCM_DO_BUILD_DURING_DEPLOYMENT`,, com um valor `false`de.
+Por padrão, o kudu executa as etapas de Build para seu aplicativo .NET ( `dotnet build` ). Se você estiver usando um serviço de compilação como o Azure DevOps, a compilação kudu será desnecessária. Para desabilitar a compilação kudu, crie uma configuração de aplicativo, `SCM_DO_BUILD_DURING_DEPLOYMENT` , com um valor de `false` .
 
 ## <a name="other-deployment-considerations"></a>Outras considerações sobre implantação
 
@@ -156,4 +155,4 @@ Para obter mais informações sobre as práticas recomendadas, visite [diagnóst
 - Escolha o bloco página inicial de **práticas recomendadas** .
 - Clique em **práticas recomendadas para disponibilidade & desempenho** ou **práticas recomendadas para a configuração ideal** para exibir o estado atual do seu aplicativo em relação a essas práticas recomendadas.
 
-Você também pode usar esse link para abrir diretamente o diagnóstico do serviço de aplicativo para `https://ms.portal.azure.com/?websitesextension_ext=asd.featurePath%3Ddetectors%2FParentAvailabilityAndPerformance#@microsoft.onmicrosoft.com/resource/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/troubleshoot`seu recurso:.
+Você também pode usar esse link para abrir diretamente o diagnóstico do serviço de aplicativo para seu recurso: `https://ms.portal.azure.com/?websitesextension_ext=asd.featurePath%3Ddetectors%2FParentAvailabilityAndPerformance#@microsoft.onmicrosoft.com/resource/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/troubleshoot` .

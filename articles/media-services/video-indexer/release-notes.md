@@ -10,18 +10,17 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 06/02/2020
 ms.author: juliako
-ms.openlocfilehash: d78390aac51ea6fa70e1285b15dcc7ade74434ee
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 5bd4c9aa3fde9e3fa596ce5a18b892edfab60af5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124577"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84325058"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notas de versão do Video Indexer de serviços de mídia do Azure
 
->Seja notificado sobre quando revisitar esta página para obter atualizações copiando e colando esta URL: `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+Video+Indexer+release+notes%22&locale=en-us` em seu leitor de RSS feed.
+>Seja notificado sobre quando revisitar esta página para atualizações copiando e colando esta URL `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+Video+Indexer+release+notes%22&locale=en-us` no leitor de feed de RSS.
 
 Para se manter atualizado com os desenvolvimentos mais recentes, este artigo fornece informações sobre:
 
@@ -29,6 +28,20 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 * Problemas conhecidos
 * Correções de bug
 * Funcionalidades preteridas
+
+## <a name="may-2020"></a>Maio de 2020
+
+### <a name="video-indexer-deployed-in-the-east-us"></a>Video Indexer implantado no leste dos EUA
+
+Agora você pode criar uma conta paga Video Indexer na região leste dos EUA.
+ 
+### <a name="video-indexer-url"></a>URL de Video Indexer
+
+Video Indexer pontos de extremidade regionais eram todos unificados para iniciar somente com www. Nenhum item de ação é necessário.
+
+De agora em diante, você chega a www.videoindexer.ai se é para inserir widgets ou fazer logon em Video Indexer aplicativos Web.
+
+O wus.videoindexer.ai também seria Redirecionado para www. Mais informações estão disponíveis em [Video indexer widgets de inserção em seus aplicativos](video-indexer-embed-widgets.md).
 
 ## <a name="april-2020"></a>Abril de 2020
 
@@ -146,10 +159,10 @@ Vários avanços anunciados em IBC 2019:
  
 * Reconhecimento de caracteres animados (visualização pública)
 
-    Capacidade de detectar os caracteres do grupo do AD Recognize no conteúdo animado, por meio da integração com visão personalizada. Para obter mais informações, consulte a [detecção de caracteres animados](animated-characters-recognition.md).
+    Capacidade de detectar os caracteres do grupo do AD Recognize no conteúdo animado, por meio da integração com visão personalizada. Para obter mais informações, consulte [Detecção de caracteres animados](animated-characters-recognition.md).
 * Identificação de vários idiomas (visualização pública)
 
-    Detecte segmentos em vários idiomas na faixa de áudio e crie uma transcrição multilíngue com base neles. Suporte inicial: Inglês, espanhol, alemão e francês. Para obter mais informações, consulte [identificar e transcrever automaticamente o conteúdo em vários idiomas](multi-language-identification-transcription.md).
+    Detecte segmentos em vários idiomas na faixa de áudio e crie uma transcrição multilíngue com base neles. Suporte inicial: Inglês, espanhol, alemão e francês. Para obter mais informações, consulte [Identificar e transcrever automaticamente o conteúdo em vários idiomas](multi-language-identification-transcription.md).
 * Extração de entidade nomeada para pessoas e local
 
     Extrai marcas, locais e pessoas de fala e texto visual por meio do NLP (processamento de idioma natural).

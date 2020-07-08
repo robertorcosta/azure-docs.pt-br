@@ -8,17 +8,16 @@ manager: mtillman
 ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
 ms.service: azure-portal
 ms.devlang: NA
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: e6eda3b522a5b46cd82ef29ae493891a624d3272
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 06cf0a5692b3d80a07c305f53c9e3801cbdb5110
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81459280"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764002"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Criar e compartilhar painéis no Portal do Azure
 
@@ -58,7 +57,7 @@ Agora, vamos editar o painel para adicionar, redimensionar e organizar os blocos
 
 Para adicionar blocos a um painel, siga estas etapas:
 
-1. Selecione ![editar ícone](./media/azure-portal-dashboards/dashboard-edit-icon.png) **Editar** no cabeçalho da página.
+1. Selecione ![ Editar ícone ](./media/azure-portal-dashboards/dashboard-edit-icon.png) **Editar** no cabeçalho da página.
 
     ![Captura de tela do realce de painel Editar](./media/azure-portal-dashboards/dashboard-edit.png)
 
@@ -79,7 +78,7 @@ Há uma maneira alternativa de adicionar blocos ao seu painel. Muitas páginas d
 
 Para alterar o tamanho de um bloco ou reorganizar os blocos em um painel, siga estas etapas:
 
-1. Selecione ![editar ícone](./media/azure-portal-dashboards/dashboard-edit-icon.png) **Editar** no cabeçalho da página.
+1. Selecione ![ Editar ícone ](./media/azure-portal-dashboards/dashboard-edit-icon.png) **Editar** no cabeçalho da página.
 
 1. Selecione o menu de contexto no canto superior direito de um bloco. Em seguida, escolha um tamanho de bloco. Blocos que dão suporte a qualquer tamanho também incluem um "identificador" no canto inferior direito que permite que você arraste o bloco para o tamanho desejado.
 
@@ -106,7 +105,7 @@ Qualquer bloco que precise ser configurado exibe uma faixa de **blocos de config
 
 Os dados no painel mostram automaticamente a atividade das últimas 24 horas. Para mostrar um período de tempo diferente apenas para este bloco, siga estas etapas:
 
-1. Selecione **personalizar dados de bloco** no menu de contexto ou ![no filtro](./media/azure-portal-dashboards/dashboard-filter.png) ícone de filtro no canto superior esquerdo do bloco.
+1. Selecione **personalizar dados de bloco** no menu de contexto ou no ![ ](./media/azure-portal-dashboards/dashboard-filter.png) filtro ícone de filtro no canto superior esquerdo do bloco.
 
     ![Captura de tela do menu de contexto do bloco](./media/azure-portal-dashboards/dashboard-customize-tile-data.png)
 
@@ -126,7 +125,7 @@ Para remover um bloco de um painel, siga estas etapas:
 
 * Selecione o menu de contexto no canto superior direito do bloco e, em seguida, selecione **remover do painel**. Ou,
 
-* Selecione ![editar ícone](./media/azure-portal-dashboards/dashboard-edit-icon.png) **Editar** para entrar no modo de personalização. Passe o mouse no canto superior direito do bloco e, em seguida ![, selecione](./media/azure-portal-dashboards/dashboard-delete-icon.png) o ícone Excluir ícone Excluir para remover o bloco do painel.
+* Selecione ![ Editar ícone ](./media/azure-portal-dashboards/dashboard-edit-icon.png) **Editar** para entrar no modo de personalização. Passe o mouse no canto superior direito do bloco e, em seguida, selecione o ícone Excluir ícone ![ ](./media/azure-portal-dashboards/dashboard-delete-icon.png) Excluir para remover o bloco do painel.
 
    ![Captura de tela mostrando como remover bloco do painel](./media/azure-portal-dashboards/dashboard-delete-tile.png)
 
@@ -136,7 +135,7 @@ Para usar um painel existente como modelo para um novo painel, siga estas etapas
 
 1. Verifique se o modo de exibição de painel está mostrando o painel que você deseja copiar.
 
-1. No cabeçalho da página, selecione ![clonar](./media/azure-portal-dashboards/dashboard-clone.png) ícone **clonar**.
+1. No cabeçalho da página, selecione clonar ![ ícone ](./media/azure-portal-dashboards/dashboard-clone.png) **clonar**.
 
 1. Uma cópia do painel, chamada **clone do** *seu nome do painel* , é aberta no modo de edição. Use as etapas anteriores neste artigo para renomear e personalizar o painel.
 
@@ -170,13 +169,13 @@ Para excluir permanentemente um painel particular ou compartilhado, siga estas e
 
 1. Selecione o painel que você deseja excluir da lista ao lado do nome do painel.
 
-1. Selecione ![excluir ícone](./media/azure-portal-dashboards/dashboard-delete-icon.png) **excluir** no cabeçalho da página.
+1. Selecione ![ excluir ícone ](./media/azure-portal-dashboards/dashboard-delete-icon.png) **excluir** no cabeçalho da página.
 
-1. Para um painel particular, selecione **OK** na caixa de diálogo de confirmação para remover o painel. Para um painel compartilhado, na caixa de diálogo de confirmação, marque a caixa de seleção para confirmar se o painel publicado não será mais visível para outras pessoas. Em seguida, selecione **OK**.
+1. Para um painel particular, selecione **OK** na caixa de diálogo de confirmação para remover o painel. Para um painel compartilhado, na caixa de diálogo de confirmação, marque a caixa de seleção para confirmar se o painel publicado não será mais visível para outras pessoas. Depois, selecione **OK**.
 
     ![Captura de tela da confirmação de exclusão](./media/azure-portal-dashboards/dashboard-delete-dash.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Compartilhar painéis do Azure usando o Controle de Acesso Baseado em Função](azure-portal-dashboard-share-access.md)
-* [Criar programaticamente painéis do Azure](azure-portal-dashboards-create-programmatically.md)
+* [Criar programaticamente os painéis do Azure](azure-portal-dashboards-create-programmatically.md)

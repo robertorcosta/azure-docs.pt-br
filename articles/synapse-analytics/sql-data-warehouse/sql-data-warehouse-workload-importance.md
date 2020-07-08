@@ -6,17 +6,16 @@ author: ronortloff
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 43ee14784b6049e9b5c1a78e733e72bbc45f915d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1b2c71d7bf9e796af77e9a2a4a3a31152f2ca884
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80744047"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85212336"
 ---
 # <a name="azure-synapse-analytics-workload-importance"></a>Importância da carga de trabalho do Azure Synapse Analytics
 
@@ -63,7 +62,7 @@ Como P5 é mediumrc, ele requer dois slots de simultaneidade. O P5 precisa aguar
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para obter mais informações sobre como criar um classificador, consulte [criar classificação de carga de trabalho (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  
-- Para obter mais informações sobre a classificação de carga de trabalho, consulte [classificação de carga de trabalho](sql-data-warehouse-workload-classification.md).  
+- Para obter mais informações sobre a classificação da carga de trabalho, confira [Classificação da carga de trabalho](sql-data-warehouse-workload-classification.md).  
 - Consulte o [classificador início rápido criar carga de trabalho](quickstart-create-a-workload-classifier-tsql.md) para saber como criar um classificador de carga de trabalho.
 - Confira os artigos de instruções [Configurar a importância da carga de trabalho](sql-data-warehouse-how-to-configure-workload-importance.md) e como [Gerenciar e monitorar o gerenciamento de carga de trabalho](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
 - Confira [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para exibir consultas e a importância atribuída.

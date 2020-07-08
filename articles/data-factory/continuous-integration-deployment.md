@@ -11,12 +11,11 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 0feab5c4c03ddce6fb4df2395316484bf35bae81
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: HT
+ms.openlocfilehash: d997c6d4eae93290cbb1e4cafe6c7ad662a65933
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83772855"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85336869"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integração e entrega contínuas no Azure Data Factory
 
@@ -98,7 +97,7 @@ A seguir há um guia para configurar uma versão do Azure Pipelines que automati
 
     ![Exibição de fase](media/continuous-integration-deployment/continuous-integration-image14.png)
 
-    b.  Crie uma tarefa. Procure **Implantação do Grupo de Recursos do Azure** e selecione **Adicionar**.
+    b.  Crie uma tarefa. Pesquise **implantação de modelo ARM**e, em seguida, selecione **Adicionar**.
 
     c.  Na Tarefa de implantação, selecione a assinatura, o grupo de recursos e a localização do data factory de destino. Forneça as credenciais, se necessário.
 
@@ -361,6 +360,14 @@ Veja abaixo o modelo de parametrização padrão atual. Se você precisar adicio
                         "value": "-::secureString"
                     },
                     "resourceId": "="
+                },
+                "computeProperties": {
+                    "dataFlowProperties": {
+                        "externalComputeInfo": [{
+                                "accessToken": "-::secureString"
+                            }
+                        ]
+                    }
                 }
             }
         }
@@ -395,6 +402,7 @@ Veja abaixo o modelo de parametrização padrão atual. Se você precisar adicio
                     "accessKeyId": "=",
                     "servicePrincipalId": "=",
                     "userId": "=",
+                    "host": "=",
                     "clientId": "=",
                     "clusterUserName": "=",
                     "clusterSshUserName": "=",
@@ -413,7 +421,11 @@ Veja abaixo o modelo de parametrização padrão atual. Se você precisar adicio
                     "systemNumber": "=",
                     "server": "=",
                     "url":"=",
+                    "functionAppUrl":"=",
+                    "environmentUrl": "=",
                     "aadResourceId": "=",
+                    "sasUri": "|:-sasUri:secureString",
+                    "sasToken": "|",
                     "connectionString": "|:-connectionString:secureString"
                 }
             }
@@ -570,27 +582,7 @@ Lembre-se de adicionar os scripts do Data Factory no pipeline de CI/CD antes e d
 
 Se o Git não tiver sido configurado, você poderá acessar os modelos vinculados por meio de **Exportar modelo do ARM** na lista de **Modelo do ARM**.
 
-## <a name="exclude-azure-ssis-integration-runtimes-from-cicd"></a>Excluir runtimes de integração do Azure-SSIS da CI/CD
-
-Se o seu alocador de desenvolvimento tiver o Azure-SSIS Integration Runtime, você poderá excluir todos os runtimes de integração do Azure-SSIS do processo de CI/CD no cenário abaixo:
-
-- A infraestrutura do Azure-SSIS IR é complexa e varia em cada ambiente.  
-- O Azure-SSIS IR é configurado manualmente para cada ambiente com o mesmo nome. Caso contrário, a publicação falhará se houver atividade dependendo do Azure-SSIS IR.
-
-Para excluir o Azure-SSIS Integration Runtime:
-
-1. Adicione um arquivo publish_config.json à pasta raiz no branch de colaboração, se não existir.
-1. Adicione a configuração abaixo a publish_config.json: 
-
-```json
-{
-    " excludeIRs": "true"
-}
-```
-
-Ao publicar do branch de colaboração, os runtimes de integração do Azure-SSIS serão excluídos do modelo do Resource Manager gerado.
-
-## <a name="hotfix-production-branch"></a>Branch de produção de hotfix
+## <a name="hotfix-production-environment"></a>Ambiente de produção de hotfix
 
 Se você implantar um alocador na produção e perceber que há um bug que precisa ser reparado imediatamente, mas você não conseguir implantar o branch de colaboração, talvez você precisará implantar um hotfix. Essa abordagem é conhecida como engenharia de correção rápida ou QFE.
 
@@ -631,7 +623,7 @@ Se você está usando a integração do Git ao seu data factory e tem um pipelin
 - Por design, o Data Factory não permite cherry-picking de confirmações nem a publicação seletiva de recursos. As publicações incluirão todas as alterações feitas no data factory.
 
     - As entidades do data factory dependem umas das outras. Por exemplo, os gatilhos dependem de pipelines e os pipelines dependem de conjuntos de dados e de outros pipelines. A publicação seletiva de um subconjunto de recursos pode levar a comportamentos e erros inesperados.
-    - Em raras ocasiões em que você precisa de publicação seletiva, considere usar um hotfix. Para obter mais informações, confira [Branch de produção de hotfix](#hotfix-production-branch).
+    - Em raras ocasiões em que você precisa de publicação seletiva, considere usar um hotfix. Para obter mais informações, consulte [hotfix Production Environment](#hotfix-production-environment).
 
 -   Não é possível publicar de branches particulares.
 
@@ -734,8 +726,10 @@ function triggerSortUtil {
         return;
     }
     $visited[$trigger.Name] = $true;
-    $trigger.Properties.DependsOn | Where-Object {$_ -and $_.ReferenceTrigger} | ForEach-Object{
-        triggerSortUtil -trigger $triggerNameResourceDict[$_.ReferenceTrigger.ReferenceName] -triggerNameResourceDict $triggerNameResourceDict -visited $visited -sortedList $sortedList
+    if ($trigger.Properties.DependsOn) {
+        $trigger.Properties.DependsOn | Where-Object {$_ -and $_.ReferenceTrigger} | ForEach-Object{
+            triggerSortUtil -trigger $triggerNameResourceDict[$_.ReferenceTrigger.ReferenceName] -triggerNameResourceDict $triggerNameResourceDict -visited $visited -sortedList $sortedList
+        }
     }
     $sortedList.Push($trigger)
 }

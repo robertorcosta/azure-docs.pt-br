@@ -7,12 +7,11 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 348d82f704b89b97e11a09b8f88e92831901b3bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a1464acf2b4a620bf0e2dc91f362cc1739737176
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81393457"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84659180"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Conceitos da Grade de Eventos do Azure
 
@@ -41,9 +40,9 @@ Para obter informações sobre como implementar qualquer uma das origens de Grad
 
 O tópico da grade de eventos fornece um ponto de extremidade em que a fonte envia eventos. O editor cria o tópico de grade de eventos e decide se uma origem do evento precisa de um tópico ou mais de um tópico. Um tópico é usado para uma coleção de eventos relacionados. Para reagir a determinados tipos de evento, os assinantes decidem quais tópicos assinar.
 
-Os tópicos do sistema são tópicos internos fornecidos pelos serviços do Azure. Você não vê tópicos do sistema na sua assinatura do Azure porque o editor é o proprietário dos tópicos, mas você pode assiná-los. Para assinar, você deve fornecer informações sobre o recurso do qual deseja receber eventos. Desde que você tenha acesso ao recurso, poderá assinar seus eventos.
+Os tópicos do sistema são tópicos internos fornecidos pelos serviços do Azure, como o armazenamento do Azure, os hubs de eventos do Azure e o barramento de serviço do Azure. Você pode criar tópicos do sistema em sua assinatura do Azure e assiná-los. Para obter mais informações, consulte [visão geral dos tópicos do sistema](system-topics.md). 
 
-Os tópicos personalizados são tópicos de aplicativo e de terceiros. Quando criar ou receber acesso a um tópico personalizado, você verá o tópico personalizado na assinatura.
+Os tópicos personalizados são tópicos de aplicativo e de terceiros. Quando criar ou receber acesso a um tópico personalizado, você verá o tópico personalizado na assinatura. Para obter mais informações, consulte [Custom topics](custom-topics.md).
 
 Ao projetar o seu aplicativo, você terá flexibilidade ao decidir sobre quantos tópicos criar. Para soluções maiores, crie um tópico personalizado para cada categoria de eventos relacionados. Por exemplo, considere um aplicativo que envia eventos relacionados à modificação de contas de usuários e ordens de processamento. É improvável que qualquer manipulador de eventos queira ambas as categorias de eventos. Crie dois tópicos personalizados e permita que os manipuladores de eventos assinem o que for interessante para eles. Para soluções pequenas, você pode preferir enviar todos os eventos para um único tópico. Assinantes de evento podem filtrar par os tipos de evento que desejam.
 

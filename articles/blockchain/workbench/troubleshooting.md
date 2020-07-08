@@ -2,14 +2,13 @@
 title: Solução de problemas do Azure Blockchain Workbench
 description: Como solucionar problemas de um aplicativo de visualização do Azure Blockchain Workbench.
 ms.date: 10/14/2019
-ms.topic: article
+ms.topic: troubleshooting
 ms.reviewer: brendal
-ms.openlocfilehash: ef4bce4dfba77aafa9b86c6877c153534b54636e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 20c0f9bdd6f820a73b1ba6660de805268c0d8714
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74324294"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85212846"
 ---
 # <a name="azure-blockchain-workbench-preview-troubleshooting"></a>Solução de problemas de visualização do Azure Blockchain Workbench
 
@@ -42,7 +41,7 @@ collectBlockchainWorkbenchTroubleshooting.ps1 -SubscriptionID "<subscription_id>
 ```
 Este script aceita os seguintes parâmetros:
 
-| Parâmetro  | Descrição | Necessária |
+| Parâmetro  | Descrição | Obrigatório |
 |---------|---------|----|
 | SubscriptionID | SubscriptionID para criar ou localizar todos os recursos. | Sim |
 | ResourceGroupName | Nome do grupo de recursos do Azure onde o Blockchain Workbench foi implantado. | Sim |

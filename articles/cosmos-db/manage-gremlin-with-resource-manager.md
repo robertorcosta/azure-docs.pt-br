@@ -3,15 +3,14 @@ title: Modelos do Resource Manager para a API Gremlin do Azure Cosmos DB
 description: Use modelos do Azure Resource Manager para criar e configurar a API Gremlin do Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: mjbrown
-ms.openlocfilehash: 0f807213d68e2731e784198f8ce968cdea9b3957
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: 2ce6020d31f52a81450bfb7f8be499b13f2ce356
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684818"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86028185"
 ---
 # <a name="manage-azure-cosmos-db-gremlin-api-resources-using-azure-resource-manager-templates"></a>Gerenciamento de recursos da API Gremlin do Azure Cosmos DB usando modelos do Azure Resource Manager
 
@@ -33,7 +32,7 @@ Para criar qualquer um dos recursos do Azure Cosmos DB abaixo, copie o modelo de
 
 Este modelo criará uma conta do Azure Cosmos para a API Gremlin com um banco de dados e um grafo com taxa de transferência de dimensionamento automático. Este modelo também está disponível para implantação de um clique na galeria de modelos de início rápido do Azure.
 
-[![Implantar no Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-gremlin-autoscale%2Fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Implantar no Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-gremlin-autoscale%2Fazuredeploy.json)
 
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-gremlin-autoscale/azuredeploy.json":::
 
@@ -43,7 +42,7 @@ Este modelo criará uma conta do Azure Cosmos para a API Gremlin com um banco de
 
 Este modelo criará uma conta do Azure Cosmos para a API Gremlin com um banco de dados e um grafo com taxa de transferência de dimensionamento padrão (manual). Este modelo também está disponível para implantação de um clique na galeria de modelos de início rápido do Azure.
 
-[![Implantar no Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-gremlin%2Fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Implantar no Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-gremlin%2Fazuredeploy.json)
 
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-gremlin/azuredeploy.json":::
 

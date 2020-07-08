@@ -10,11 +10,10 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: ba82b1bea4753cd51e275a78b248247032d79a01
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79280996"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710857"
 ---
 # <a name="tutorial-publish-subscribe-to-events-locally"></a>Tutorial: publicar, assinar eventos localmente
 
@@ -118,7 +117,7 @@ Mantenha as rotas padrão e selecione **Avançar** para continuar na seção rev
 
 Como um editor de um evento, você precisa criar um tópico de grade de eventos. Na grade de eventos do Azure, um tópico refere-se a um ponto de extremidade em que os editores podem enviar eventos.
 
-1. Crie topic. JSON com o conteúdo a seguir. Para obter detalhes sobre a carga, consulte nossa [documentação de API](api.md).
+1. Crie topic.jscom o conteúdo a seguir. Para obter detalhes sobre a carga, consulte nossa [documentação de API](api.md).
 
     ```json
         {
@@ -129,7 +128,7 @@ Como um editor de um evento, você precisa criar um tópico de grade de eventos.
         }
     ```
 
-1. Execute o comando a seguir para criar um tópico de grade de eventos. Confirme que você vê o código de status HTTP `200 OK`.
+1. Execute o comando a seguir para criar um tópico de grade de eventos. Confirme que você vê o código de status HTTP `200 OK` .
 
     ```sh
     curl -k -H "Content-Type: application/json" -X PUT -g -d @topic.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1?api-version=2019-01-01-preview
@@ -163,7 +162,7 @@ Os assinantes podem se registrar para eventos publicados em um tópico. Para rec
 
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
-1. Crie Subscription. JSON com o conteúdo a seguir. Para obter detalhes sobre a carga, consulte nossa [documentação de API](api.md)
+1. Crie subscription.jscom o conteúdo a seguir. Para obter detalhes sobre a carga, consulte nossa [documentação de API](api.md)
 
     ```json
         {
@@ -180,7 +179,7 @@ Os assinantes podem se registrar para eventos publicados em um tópico. Para rec
 
     >[!NOTE]
     > A propriedade **EndpointType** especifica que o assinante é um **webhook**.  O **endpointUrl** especifica a URL na qual o assinante está escutando eventos. Essa URL corresponde à amostra de assinante do Azure que você implantou anteriormente.
-2. Execute o comando a seguir para criar uma assinatura para o tópico. Confirme que você vê o código de status HTTP `200 OK`.
+2. Execute o comando a seguir para criar uma assinatura para o tópico. Confirme que você vê o código de status HTTP `200 OK` .
 
     ```sh
     curl -k -H "Content-Type: application/json" -X PUT -g -d @subscription.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1/eventSubscriptions/sampleSubscription1?api-version=2019-01-01-preview
@@ -212,7 +211,7 @@ Os assinantes podem se registrar para eventos publicados em um tópico. Para rec
 
 ## <a name="publish-an-event"></a>Publicar um evento
 
-1. Crie Event. JSON com o conteúdo a seguir. Para obter detalhes sobre a carga, consulte nossa [documentação de API](api.md).
+1. Crie event.jscom o conteúdo a seguir. Para obter detalhes sobre a carga, consulte nossa [documentação de API](api.md).
 
     ```json
         [
@@ -271,7 +270,7 @@ Os assinantes podem se registrar para eventos publicados em um tópico. Para rec
             }
     ```
 
-## <a name="cleanup-resources"></a>Recursos de limpeza
+## <a name="cleanup-resources"></a>Limpar os recursos
 
 * Execute o comando a seguir para excluir o tópico e todas as suas assinaturas.
 

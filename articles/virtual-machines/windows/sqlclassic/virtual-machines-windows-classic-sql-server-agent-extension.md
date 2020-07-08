@@ -15,12 +15,11 @@ ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 384b66020b3d18064ea1cd9f162911878caa598d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: HT
+ms.openlocfilehash: fe899eebb0139dffabef96da32ab1641c983f726
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84017521"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84338400"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>Automatizar tarefas de gerenciamento em máquinas virtuais do Azure com a Extensão do Agente do SQL Server (Clássica)
 > [!div class="op_single_selector"]
@@ -82,7 +81,7 @@ Se você atualizar para a versão mais recente da Extensão do Agente IaaS SQL, 
 > Máquinas virtuais clássicas não têm uma opção para instalar e configurar a extensão do agente SQL IaaS através do portal.
 
 > [!NOTE]
-> A extensão do SQL Server IaaS Agent é compatível apenas com [imagens da galeria de VM do SQL Server](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-vms) (paga conforme o uso ou traga sua própria licença). Ela não será compatível se você instalar manualmente o SQL Server em uma máquina virtual do Windows Server somente de sistema operacional ou se você implantar um VHD de VM do SQL Server personalizado. Nesses casos, talvez seja possível instalar e gerenciar a extensão manualmente usando o PowerShell, mas é altamente recomendável, em vez disso, instalar uma imagem da galeria de VM do SQL Server e personalizá-la.
+> A extensão do SQL Server IaaS Agent é compatível apenas com [imagens da galeria de VM do SQL Server](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms) (paga conforme o uso ou traga sua própria licença). Ela não será compatível se você instalar manualmente o SQL Server em uma máquina virtual do Windows Server somente de sistema operacional ou se você implantar um VHD de VM do SQL Server personalizado. Nesses casos, talvez seja possível instalar e gerenciar a extensão manualmente usando o PowerShell, mas é altamente recomendável, em vez disso, instalar uma imagem da galeria de VM do SQL Server e personalizá-la.
 
 ## <a name="status"></a>Status
 Uma maneira de verificar se a extensão está instalada é exibir o status do agente no Portal do Azure. Selecione uma máquina virtual listada na folha da máquina virtual e, em seguida, clique em **Extensões**. Você deverá ver a extensão **SQLIaaSAgent** na lista.

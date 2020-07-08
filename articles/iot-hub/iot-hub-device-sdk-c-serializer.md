@@ -10,10 +10,9 @@ ms.date: 09/06/2016
 ms.author: robinsh
 ms.custom: amqp
 ms.openlocfilehash: d4916d651638f0d1dbb4f10e0e0732f5c330d300
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81767017"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>SDK do dispositivo IoT do Azure para C – mais sobre o serializador
@@ -65,7 +64,7 @@ O que não é demonstrado neste exemplo são tipos de dados adicionais que são 
 
 Os tipos de dados a seguir têm suporte em modelos criados com a biblioteca do **serializador** :
 
-| Type | Descrição |
+| Tipo | Descrição |
 | --- | --- |
 | double |número de ponto flutuante de precisão dupla |
 | INT |Inteiro de 32 bits |
@@ -316,7 +315,7 @@ WITH_DATA(EDM_DATE_TIME_OFFSET, Time)
 );
 ```
 
-Nesse caso, eliminamos as macros **Declare\_struct** e estamos simplesmente definindo os itens de dados de nosso cenário usando tipos simples da linguagem de modelagem.
+Nesse caso, eliminamos as macros **Declare \_ struct** e estamos simplesmente definindo os itens de dados de nosso cenário usando tipos simples da linguagem de modelagem.
 
 Por enquanto, ignore o evento **Hora**. Além disso, aqui está o código para a **temperatura**de entrada:
 
@@ -556,9 +555,9 @@ Essa pasta contém uma solução do Visual Studio chamada **macro\_utils\_h\_gen
 
   ![Captura de tela da solução do Visual Studio maco_utils_h_generator](media/iot-hub-device-sdk-c-serializer/01-macro_utils_h_generator.png)
 
-O programa nesta solução gera o arquivo **macro\_utils.h**. Há um arquivo padrão de\_macro utils. h incluído no SDK. Essa solução permite que você modifique alguns parâmetros e recrie o arquivo de cabeçalho baseado nesses parâmetros.
+O programa nesta solução gera o arquivo **macro\_utils.h**. Há um \_ arquivo padrão de macro utils. h incluído no SDK. Essa solução permite que você modifique alguns parâmetros e recrie o arquivo de cabeçalho baseado nesses parâmetros.
 
-Os dois parâmetros principais aos quais se preocupa são **nArithmetic** e **nMacroParameters**, que são definidos nessas duas linhas encontradas em macro\_utils.tt:
+Os dois parâmetros principais aos quais se preocupa são **nArithmetic** e **nMacroParameters**, que são definidos nessas duas linhas encontradas em macro \_ utils.tt:
 
 ```C
 <#int nArithmetic=1024;#>
@@ -654,7 +653,7 @@ serializer_init(NULL);
 
 Isso é feito antes de chamar **IoTHubClient\_CreateFromConnectionString**.
 
-Da mesma forma, quando você terminar de trabalhar com a biblioteca, a última chamada que você fará **é\_serializar a desinicialização**:
+Da mesma forma, quando você terminar de trabalhar com a biblioteca, a última chamada que você fará é **serializar a \_ desinicialização**:
 
 ```C
 serializer_deinit();

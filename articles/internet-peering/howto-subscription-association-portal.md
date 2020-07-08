@@ -3,21 +3,20 @@ title: Associar o ASN do par à assinatura do Azure usando o portal
 titleSuffix: Azure
 description: Associar o ASN do par à assinatura do Azure usando o portal
 services: internet-peering
-author: prmitiki
+author: derekolo
 ms.service: internet-peering
-ms.topic: article
-ms.date: 11/27/2019
-ms.author: prmitiki
-ms.openlocfilehash: ee4fb0708d437c21bea8e77864f210c42b5df019
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.topic: how-to
+ms.date: 5/18/2020
+ms.author: derekol
+ms.openlocfilehash: 57c38d3b6eeb26a38a36fb67da25bcf960cee2dc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683966"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710840"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-the-portal"></a>Associar o ASN do par à assinatura do Azure usando o portal
 
-Antes de enviar uma solicitação de emparelhamento, você deve primeiro associar seu ASN à assinatura do Azure seguindo as etapas abaixo.
+Como um provedor de serviços de Internet ou um provedor de Internet, antes de enviar uma solicitação de emparelhamento, primeiro você deve associar seu ASN a uma assinatura do Azure usando as etapas abaixo.
 
 Se preferir, conclua este guia usando o [PowerShell](howto-subscription-association-powershell.md).
 
@@ -55,8 +54,7 @@ Registre-se para o provedor de recursos de emparelhamento em sua assinatura segu
     > ![Registro concluído](./media/rp-register-completed.png)
 
 ### <a name="create-peerasn"></a>Criar PeerAsn
-Como um provedor de serviços de Internet ou um Provedor do Internet Exchange, você pode criar um recurso PeerAsn para associar um ASN (número de sistema autônomo) a uma assinatura do Azure. Você pode associar vários ASNs a uma assinatura navegando até a [página Associar um PeerASN](https://go.microsoft.com/fwlink/?linkid=2129592) para cada ASN que você precisa associar.
-
+Como um provedor de serviços de Internet ou provedor de Internet, você pode criar um novo recurso PeerAsn para associar um número de sistema autônomo (ASN) com a assinatura do Azure na [página associar um ASN de mesmo nível](https://go.microsoft.com/fwlink/?linkid=2129592) . Você pode associar vários ASNs a uma assinatura criando um **PeerAsn** para cada ASN que você precisa associar.
 
 1. Na página **Associar um ASN Par**, na guia **Noções Básicas**, preencha os campos conforme mostrado abaixo.
 

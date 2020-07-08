@@ -3,16 +3,15 @@ title: Expandir discos rígidos virtuais em uma VM Linux
 description: Saiba como expandir discos rígidos virtuais em uma VM Linux com o CLI do Azure.
 author: roygara
 ms.service: virtual-machines-linux
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 1295c5276f0f342323acf8d86eaaf9f785af3e9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 27c9a7c2e526a33875402827e2eee2c63943e058
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78945179"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84659731"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Expandir discos rígidos virtuais em uma VM do Linux com a CLI do Azure
 
@@ -28,7 +27,7 @@ Este artigo requer uma VM existente no Azure com, pelo menos, um disco de dados 
 
 Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo, como *myResourceGroup* e *myVM* com seus próprios valores.
 
-1. Operações em discos rígidos virtuais não podem ser executadas com a VM em execução. Desaloque a VM com [az vm deallocate](/cli/azure/vm#az-vm-deallocate). O exemplo a seguir desaloca a VM chamada *myVM* no grupo de recursos chamado *myResourceGroup*:
+1. Operações em discos rígidos virtuais não podem ser executadas com a VM em execução. Desaloque a VM com [az vm deallocate](/cli/azure/vm#az-vm-deallocate). O exemplo a seguir Desaloca a VM denominada *myVM* no grupo de recursos chamado *MyResource*Group:
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
@@ -133,7 +132,7 @@ Para usar um disco expandido, expanda a partição subjacente e o sistema de arq
     sudo mount /dev/sdc1 /datadrive
     ```
 
-1. Para verificar se o disco de dados foi redimensionado, `df -h`use. A seguinte saída de exemplo mostra a unidade de dados */dev/sdc1* agora é de 200 GB:
+1. Para verificar se o disco de dados foi redimensionado, use `df -h` . A seguinte saída de exemplo mostra a unidade de dados */dev/sdc1* agora é de 200 GB:
 
     ```bash
     Filesystem      Size   Used  Avail Use% Mounted on

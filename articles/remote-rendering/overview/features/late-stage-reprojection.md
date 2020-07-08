@@ -5,12 +5,11 @@ author: sebastianpick
 ms.author: sepick
 ms.date: 02/04/2020
 ms.topic: article
-ms.openlocfilehash: 4aa1148e544ff3451aa1cb956bc4a5fb932b9611
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8d42087008f1812bc3713456025ed3be351d0917
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80680980"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84022173"
 ---
 # <a name="late-stage-reprojection"></a>Reprojeção de fase tardia
 
@@ -24,7 +23,7 @@ Ambos os modos LSR melhoram a estabilidade do holograma, embora tenham suas limi
 
 ## <a name="choose-lsr-mode-in-unity"></a>Escolha o modo LSR no Unity
 
-No editor do Unity, vá para *arquivo > configurações de Build*. Selecione *configurações do Player* no canto inferior esquerdo e, em seguida, verifique *as configurações do player > XR > SDKs da realidade virtual > realidade do Windows Mixed* se **habilitar o compartilhamento de buffer de profundidade** está marcado:
+No editor do Unity, vá para *:::no-loc text="File > Build Settings":::* . Selecione *:::no-loc text="Player Settings":::* na parte inferior esquerda e, em seguida, verifique *:::no-loc text="Player > XR Settings > Virtual Reality SDKs > Windows Mixed Reality":::* se **:::no-loc text="Enable Depth Buffer Sharing":::** está marcado:
 
 ![Sinalizador de compartilhamento de buffer de profundidade habilitado](./media/unity-depth-buffer-sharing-enabled.png)
 
@@ -44,7 +43,7 @@ O planar LSR reprojeta esses objetos melhor que se aproximam do plano fornecido.
 
 ### <a name="configure-planar-lsr-in-unity"></a>Configurar o planar LSR no Unity
 
-Os parâmetros de plano são derivados de um, portanto, chamado de *ponto de foco*, que você precisa `UnityEngine.XR.WSA.HolographicSettings.SetFocusPointForFrame`fornecer a cada quadro. Consulte a [API do ponto de foco do Unity](https://docs.microsoft.com/windows/mixed-reality/focus-point-in-unity) para obter detalhes. Se você não definir um ponto de foco, um fallback será escolhido para você. No entanto, o fallback automático geralmente leva a resultados de qualidade inferior.
+Os parâmetros de plano são derivados de um, portanto, chamado de *ponto de foco*, que você precisa fornecer a cada quadro `UnityEngine.XR.WSA.HolographicSettings.SetFocusPointForFrame` . Consulte a [API do ponto de foco do Unity](https://docs.microsoft.com/windows/mixed-reality/focus-point-in-unity) para obter detalhes. Se você não definir um ponto de foco, um fallback será escolhido para você. No entanto, o fallback automático geralmente leva a resultados de qualidade inferior.
 
 Você pode calcular o ponto de foco por conta própria, embora possa fazer sentido baseá-lo em um calculado pelo host de renderização remoto. Chame `RemoteManagerUnity.CurrentSession.GraphicsBinding.GetRemoteFocusPoint` para obtê-lo. Você será solicitado a fornecer um quadro de coordenadas no qual expressar o ponto de foco. Na maioria dos casos, você só desejará fornecer o resultado `UnityEngine.XR.WSA.WorldManager.GetNativeISpatialCoordinateSystemPtr` aqui.
 
@@ -54,4 +53,4 @@ Os pontos de foco calculados em dois quadros sucessivos podem ser bem diferentes
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Consultas de desempenho do lado do servidor](performance-queries.md)
+* [Consultas de desempenho no lado do servidor](performance-queries.md)
