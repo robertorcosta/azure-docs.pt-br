@@ -3,12 +3,11 @@ title: Fazer backup de bancos de dados do SQL Server para o Azure
 description: Este artigo explica como fazer backup do SQL Server para o Azure. O artigo também explica a recuperação do SQL Server.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: 537257733d7693598fd8007da6ce12c28fbeb02a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e0a555125e50a974ae51a08d7870cdc3ec12fd39
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79408753"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84021085"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Sobre o Backup do SQL Server nas VMs do Azure
 
@@ -39,7 +38,7 @@ Essa solução aproveita as APIs nativas do SQL para fazer backups dos bancos de
 
 Antes de começar, verifique o que está descrito abaixo:
 
-1. Garanta que você tenha uma Instância do SQL Server em execução no Azure. Você pode [criar uma Instância do SQL Server rapidamente](../virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md) no marketplace.
+1. Garanta que você tenha uma Instância do SQL Server em execução no Azure. Você pode [criar uma Instância do SQL Server rapidamente](../azure-sql/virtual-machines/windows/sql-vm-create-portal-quickstart.md) no marketplace.
 2. Examine os [recurso consideração](sql-support-matrix.md#feature-consideration-and-limitations) e [suporte a cenários](sql-support-matrix.md#scenario-support).
 3. [Examine as perguntas comuns](faq-backup-sql-server.md) sobre esse cenário.
 
@@ -109,7 +108,7 @@ Adicione logins do **NT AUTHORITY\SYSTEM** e do **NT Service\AzureWLBackupPlugin
 
 7. Clique em OK.
 8. Repita a mesma sequência de etapas (de 1 a 7 acima) para adicionar o logon de NT Service\AzureWLBackupPluginSvc à instância do SQL Server. Se o logon já existe, verifique se tem a função de servidor sysadmin e, em Status, se tem a permissão de concessão para se conectar ao mecanismo de banco de dados e faça logon como Habilitado.
-9. Depois de conceder a permissão, **redescubra os bancos** de trabalho no **->** Portal: **->** backup do cofre infraestrutura de carga em VM do Azure:
+9. Depois de conceder a permissão, **redescubra os bancos** de trabalho no Portal: **->** backup do cofre infraestrutura **->** de carga em VM do Azure:
 
     ![Redescobrir bancos de dados no portal do Azure](media/backup-azure-sql-database/sql-rediscover-dbs.png)
 

@@ -10,13 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/11/2020
-ms.openlocfilehash: bb3f22223bd64c06cfa4a5f6ffabe7b128dff1d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 05/26/2020
+ms.openlocfilehash: 6496e5c953b3dd5e387a79906b22645ba4a24b4f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416460"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84019972"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerações sobre segurança para movimentação de dados no Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -155,6 +154,12 @@ As imagens a seguir mostram o uso do runtime de integração auto-hospedada para
 
 ### <a name="firewall-configurations-and-allow-list-setting-up-for-ip-addresses"></a><a name="firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway"></a>Configurações de firewall e lista de permissões de configuração para endereços IP
 
+> [!NOTE] 
+> Talvez você precise gerenciar portas ou configurar a lista de permissões para domínios no nível do firewall corporativo, conforme exigido pelas respectivas fontes de dados. Esta tabela usa apenas o Banco de Dados SQL do Azure, o SQL Data Warehouse do Azure e o Azure Data Lake Store como exemplos.
+
+> [!NOTE] 
+> Para obter detalhes sobre estratégias de acesso a dados por meio de Azure Data Factory, consulte [Este artigo](https://docs.microsoft.com/azure/data-factory/data-access-strategies#data-access-strategies-through-azure-data-factory).
+
 #### <a name="firewall-requirements-for-on-premisesprivate-network"></a>Requisitos de firewall para a rede local/privada    
 Em uma empresa, um firewall corporativo é executado no roteador central da organização. O Firewall do Windows é executado como um daemon no computador local em que o runtime de integração auto-hospedada está instalado. 
 
@@ -178,9 +183,9 @@ Alguns armazenamentos de dados na nuvem também exigem que você permita o ender
 
 Os seguintes armazenamentos de dados de nuvem exigem que você permita o endereço IP do computador do Integration Runtime de hospedagem interna. Por padrão, alguns desses armazenamentos de dados podem não exigir a lista de permissões. 
 
-- [Banco de Dados SQL do Azure](../sql-database/sql-database-firewall-configure.md) 
+- [Banco de Dados SQL do Azure](../azure-sql/database/firewall-configure.md) 
 - [SQL Data Warehouse do Azure](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
-- [Azure Data Lake Store](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
+- [Repositório Azure Data Lake](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../cosmos-db/firewall-support.md)
 - [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 

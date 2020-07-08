@@ -8,12 +8,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: f5bb2b97d7da770828c2f4f03167483ad2044c79
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 10d9053e082a995085fa255cc0d9f63a2b4e2b17
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75426399"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84020601"
 ---
 # <a name="checkpoint-and-replay-concepts-in-azure-stream-analytics-jobs"></a>Conceitos de ponto de verificação e de reprodução em trabalhos do Azure Stream Analytics
 Este artigo descreve os conceitos internos de ponto de verificação e de reprodução no Azure Stream Analytics e o impacto deles na recuperação de trabalho. Sempre que um trabalho do Stream Analytics é executado, as informações de estado são mantidas internamente. Essas informações de estado são salvas em um ponto de verificação periodicamente. Em alguns cenários, as informações de ponto de verificação são usadas para a recuperação de trabalho se ocorrer uma falha de trabalho ou de atualização. Em outras circunstâncias, o ponto de verificação não pode ser usado para a recuperação, e é necessária uma reprodução.
@@ -58,7 +57,7 @@ Para estimar a duração do atraso devido a uma atualização de serviço, você
 
 3. Meça o tempo entre a hora de início e quando a primeira saída é gerada. O tempo será aproximadamente o tamanho do atraso que ocorreria no trabalho durante uma atualização de serviço.
 
-4. Se o atraso for muito longo, tente particionar o trabalho e aumentar o número de SUs para que a carga seja distribuída por mais nós. Como alternativa, considere reduzir os tamanhos de janelas na consulta e executar outra agregação ou outro processamento com estado na saída produzida pelo trabalho do Stream Analytics no coletor downstream (por exemplo, usando o banco de dados SQL do Azure).
+4. Se o atraso for muito longo, tente particionar o trabalho e aumentar o número de SUs para que a carga seja distribuída por mais nós. Como alternativa, considere reduzir os tamanhos de janela em sua consulta e executar agregação adicional ou outro processamento com estado na saída produzida pelo trabalho de Stream Analytics no coletor downstream (por exemplo, usando o banco de dados SQL do Azure).
 
 Para questões de estabilidade geral do serviço durante a atualização de trabalho de missão crítica, considere a possibilidade de executar trabalhos duplicados em regiões emparelhadas do Azure. Para obter mais informações, confira [Garantir a confiabilidade do trabalho do Stream Analytics durante atualizações do serviço](stream-analytics-job-reliability.md).
 

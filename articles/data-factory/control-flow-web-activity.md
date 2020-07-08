@@ -11,12 +11,11 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: a5cdb24a80dcbd95e4ccc59dd55f4acb9ae18060
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 150ee15adb042841f74ffbf3b75338b2dd569333
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417888"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84017640"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Atividade da Web no Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -85,7 +84,7 @@ A tabela a seguir mostra os requisitos para o conteúdo JSON:
 
 | Tipo de valor | Corpo da solicitação | Corpo da resposta |
 |---|---|---|
-|Objeto JSON | Com suporte | Com suporte |
+|Objeto JSON | Suportado | Com suporte |
 |Matriz JSON | Com suporte <br/>(No momento, matrizes JSON não funcionam como resultado de um bug. A correção está em andamento.) | Sem suporte |
 | Valor JSON | Com suporte | Sem suporte |
 | Tipo não-JSON | Sem suporte | Sem suporte |
@@ -161,7 +160,7 @@ Quando você usa o método PUT/POST, a propriedade body representa a carga que �
 ```
 
 ## <a name="example"></a>Exemplo
-Neste exemplo, a atividade da Web no pipeline chama um ponto de extremidade REST. Ele passa um serviço vinculado do SQL do Azure e um conjunto de dados SQL do Azure para o ponto de extremidade. O ponto de extremidade REST usa a cadeia de conexão do SQL do Azure para se conectar ao SQL Server do Azure e retorna o nome da instância do SQL Server.
+Neste exemplo, a atividade da Web no pipeline chama um ponto de extremidade REST. Ele passa um serviço vinculado do SQL do Azure e um conjunto de dados SQL do Azure para o ponto de extremidade. O ponto de extremidade REST usa a cadeia de conexão SQL do Azure para se conectar ao SQL Server lógico e retorna o nome da instância do SQL Server.
 
 ### <a name="pipeline-definition"></a>Definição de pipeline
 

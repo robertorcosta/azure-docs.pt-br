@@ -11,12 +11,11 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 1f19d258531e5368238cba72c986aede3f4a64ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c22168aade11bbba66682efea0e2f5a1fcc2ac1f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80130832"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84021493"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory – Considerações sobre segurança para movimentação de dados
 
@@ -134,7 +133,7 @@ A tabela a seguir resume as recomendações de configuração de rede e de gatew
 
 As imagens a seguir mostram o uso do Gateway de Gerenciamento de Dados para mover dados entre um banco de dados local e os serviços do Azure usando o ExpressRoute e a VPN IPsec (com a Rede Virtual):
 
-**ExpressRoute:**
+**Rota expressa:**
  
 ![Usar o ExpressRoute com o gateway](media/data-factory-data-movement-security-considerations/express-route-for-gateway.png) 
 
@@ -173,9 +172,9 @@ Alguns armazenamentos de dados na nuvem também exigem a lista de permissões do
 
 Os armazenamentos de dados na nuvem exige a lista de permissões do endereço IP do computador do gateway. Por padrão, alguns desses armazenamentos de dados poderão não exigir a lista de permissões do endereço IP. 
 
-- [Banco de Dados SQL do Azure](../../sql-database/sql-database-firewall-configure.md) 
+- [Banco de Dados SQL do Azure](../../azure-sql/database/firewall-configure.md) 
 - [SQL Data Warehouse do Azure](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
-- [Azure Data Lake Store](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
+- [Repositório Azure Data Lake](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../../cosmos-db/firewall-support.md)
 - [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 

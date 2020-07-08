@@ -8,12 +8,11 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.custom: Understand-apache-spark-code-concepts
 ms.date: 10/15/2019
-ms.openlocfilehash: bdb38e36a9f1344a3adde15d349a2ec176c0fe95
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a384db9c3c0b4beee6063fd503abadcb4c6b5158
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74424010"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84016943"
 ---
 # <a name="understand-apache-spark-code-for-u-sql-developers"></a>Entender o código Apache Spark para desenvolvedores do U-SQL
 
@@ -42,9 +41,9 @@ Além disso, o Azure Data Lake Analytics oferece U-SQL em um ambiente de serviç
 
 Os scripts U-SQL seguem o seguinte padrão de processamento:
 
-1. Os dados são lidos a partir de arquivos não estruturados `EXTRACT` , usando a instrução, um local ou uma especificação de conjunto de arquivos e o extrator definido pelo usuário e o esquema desejado ou de tabelas U-SQL (tabelas gerenciadas ou externas). Ele é representado como um conjunto de linhas.
+1. Os dados são lidos a partir de arquivos não estruturados, usando a `EXTRACT` instrução, um local ou uma especificação de conjunto de arquivos e o extrator definido pelo usuário e o esquema desejado ou de tabelas U-SQL (tabelas gerenciadas ou externas). Ele é representado como um conjunto de linhas.
 2. Os conjuntos de linhas são transformados em várias instruções U-SQL que aplicam expressões U-SQL aos conjuntos de linhas e produzem novos conjuntos de linhas.
-3. Por fim, os conjuntos de linhas resultantes são enviados para ambos `OUTPUT` os arquivos usando a instrução que especifica os locais e um outgerador interno ou definido pelo usuário, ou em uma tabela U-SQL.
+3. Por fim, os conjuntos de linhas resultantes são enviados para ambos os arquivos usando a `OUTPUT` instrução que especifica os locais e um outgerador interno ou definido pelo usuário, ou em uma tabela U-SQL.
 
 O script é avaliado lentamente, o que significa que cada etapa de extração e transformação é composta em uma árvore de expressão e avaliada globalmente (o fluxo de os).
 
@@ -100,7 +99,7 @@ Se você precisar transformar um script referenciando as bibliotecas de serviço
 
 ## <a name="transform-typed-values"></a>Transformar valores digitados
 
-Como o sistema de tipos do U-SQL é baseado no sistema de tipos .NET e o Spark tem seu próprio sistema de tipos, que é afetado pela Associação de idioma do host, você precisará certificar-se de que os tipos nos quais está operando estão próximos e para certos tipos, os intervalos de tipo, precisão e/ou escala podem ser um pouco diferentes. Além disso, o U-SQL e `null` o Spark tratam valores de forma diferente.
+Como o sistema de tipos do U-SQL é baseado no sistema de tipos .NET e o Spark tem seu próprio sistema de tipos, que é afetado pela Associação de idioma do host, você precisará certificar-se de que os tipos nos quais está operando estão próximos e para certos tipos, os intervalos de tipo, precisão e/ou escala podem ser um pouco diferentes. Além disso, o U-SQL e o Spark tratam `null` valores de forma diferente.
 
 ### <a name="data-types"></a>Tipos de dados
 
@@ -141,9 +140,9 @@ No Spark, tipos por padrão permitem valores nulos no U-SQL, você marca explici
 
 No Spark, NULL indica que o valor é desconhecido. Um valor nulo do Spark é diferente de qualquer valor, incluindo o próprio. As comparações entre dois valores nulos do Spark ou entre um valor nulo e qualquer outro valor retornam Unknown, pois o valor de cada NULL é desconhecido.  
 
-Esse comportamento é diferente do U-SQL, que segue a semântica do C# `null` , em que é diferente de qualquer valor, mas é igual a si mesmo.  
+Esse comportamento é diferente do U-SQL, que segue a semântica do C#, em que `null` é diferente de qualquer valor, mas é igual a si mesmo.  
 
-Portanto, uma `SELECT` instrução SparkSQL que `WHERE column_name = NULL` usa retorna zero linhas mesmo se houver valores nulos `column_name`no, enquanto no U-SQL, ele retornará as linhas em `column_name` que está definido `null`como. Da mesma forma, `SELECT` uma instrução Spark `WHERE column_name != NULL` que usa retorna zero linhas mesmo que haja valores não nulos `column_name`no, enquanto no U-SQL, ele retornaria as linhas que têm não nulo. Portanto, se você quiser a semântica de verificação nula do U-SQL, deverá usar [IsNull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnull) e [IsNotNull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnotnull) , respectivamente (ou seus equivalentes de DSL).
+Portanto, uma `SELECT` instrução SparkSQL que usa `WHERE column_name = NULL` retorna zero linhas mesmo se houver valores nulos no `column_name` , enquanto no U-SQL, ele retornará as linhas em que `column_name` está definido como `null` . Da mesma forma, uma `SELECT` instrução Spark que usa `WHERE column_name != NULL` retorna zero linhas mesmo que haja valores não nulos no `column_name` , enquanto no U-SQL, ele retornaria as linhas que têm não nulo. Portanto, se você quiser a semântica de verificação nula do U-SQL, deverá usar [IsNull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnull) e [IsNotNull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnotnull) , respectivamente (ou seus equivalentes de DSL).
 
 ## <a name="transform-u-sql-catalog-objects"></a>Transformar objetos do catálogo U-SQL
 
@@ -160,8 +159,8 @@ Se o catálogo do U-SQL tiver sido usado para compartilhar dados e objetos de c�
 A linguagem principal do U-SQL está transformando conjuntos de linhas e baseia-se no SQL. Veja a seguir uma lista não exaustiva das expressões de conjunto de linhas mais comuns oferecidas no U-SQL:
 
 - `SELECT`/`FROM`/`WHERE`/`GROUP BY`+ Agregações +`HAVING`/`ORDER BY`+`FETCH`
-- `INNER`/`OUTER`/`CROSS`/`SEMI``JOIN` expressões
-- `CROSS`/`OUTER``APPLY` expressões
+- `INNER`/`OUTER`/`CROSS`/`SEMI``JOIN`expressões
+- `CROSS`/`OUTER``APPLY`expressões
 - `PIVOT`/`UNPIVOT`expressões
 - `VALUES`Construtor de conjunto de linhas
 
@@ -170,8 +169,8 @@ A linguagem principal do U-SQL está transformando conjuntos de linhas e baseia-
 Além disso, o U-SQL fornece uma variedade de expressões escalares baseadas em SQL, como
 
 - `OVER`expressões de janela
-- uma variedade de agregadores internos e funções de classificação (`SUM` `FIRST` etc.)
-- Algumas das expressões escalares do SQL mais conhecidas `CASE`: `LIKE`,,`NOT`( `IN`) `AND`, `OR` , etc.
+- uma variedade de agregadores internos e funções de classificação ( `SUM` `FIRST` etc.)
+- Algumas das expressões escalares do SQL mais conhecidas: `CASE` , `LIKE` , ( `NOT` ) `IN` , `AND` , `OR` etc.
 
 O Spark oferece expressões equivalentes em seu formato DSL e SparkSQL para a maioria dessas expressões. Algumas das expressões sem suporte nativo no Spark precisarão ser reescritas usando uma combinação das expressões nativas do Spark e padrões semanticamente equivalentes. Por exemplo, `OUTER UNION` terá que ser traduzido para a combinação equivalente de projeções e uniões.
 
@@ -179,24 +178,24 @@ Devido à manipulação diferente de valores nulos, uma junção U-SQL sempre co
 
 ## <a name="transform-other-u-sql-concepts"></a>Transformar outros conceitos do U-SQL
 
-O U-SQL também oferece uma variedade de outros recursos e conceitos, como consultas federadas em SQL Server bancos de dados, parâmetros, escalares e variáveis de expressão lambda, variáveis de `OPTION` sistema, dicas.
+O U-SQL também oferece uma variedade de outros recursos e conceitos, como consultas federadas em SQL Server bancos de dados, parâmetros, escalares e variáveis de expressão lambda, variáveis de sistema, `OPTION` dicas.
 
 ### <a name="federated-queries-against-sql-server-databasesexternal-tables"></a>Consultas federadas em bancos de dados SQL Server/tabelas externas
 
-O U-SQL fornece a fonte de dados e as tabelas externas, bem como consultas diretas no Azure SQL Database. Embora o Spark não ofereça as mesmas abstrações de objeto, ele fornece o [conector do Spark para o banco de dados SQL do Azure](../sql-database/sql-database-spark-connector.md) que pode ser usado para consultar bancos de dados SQL.
+O U-SQL fornece a fonte de dados e as tabelas externas, bem como consultas diretas no Azure SQL Database. Embora o Spark não ofereça as mesmas abstrações de objeto, ele fornece o [conector do Spark para o banco de dados SQL do Azure](../azure-sql/database/spark-connector.md) que pode ser usado para consultar bancos de dados SQL.
 
 ### <a name="u-sql-parameters-and-variables"></a>Parâmetros e variáveis do U-SQL
 
 Parâmetros e variáveis de usuário têm conceitos equivalentes no Spark e em seus idiomas de hospedagem.
 
-Por exemplo, em escala, você pode definir uma variável com `var` a palavra-chave:
+Por exemplo, em escala, você pode definir uma variável com a `var` palavra-chave:
 
 ```
 var x = 2 * 3;
 println(x)
 ```
 
-As variáveis de sistema do U-SQL (variáveis `@@`que começam com) podem ser divididas em duas categorias:
+As variáveis de sistema do U-SQL (variáveis que começam com `@@` ) podem ser divididas em duas categorias:
 
 - Variáveis de sistema configuráveis que podem ser definidas para valores específicos para afetar o comportamento dos scripts
 - Variáveis de sistema informativas que consultam informações de nível de trabalho e de sistema
@@ -209,7 +208,7 @@ O U-SQL oferece várias maneiras sintáticas de fornecer dicas para o otimizador
 
 - Definindo uma variável de sistema U-SQL
 - uma `OPTION` cláusula associada à expressão de conjunto de linhas para fornecer uma dica de dados ou de plano
-- uma dica de junção na sintaxe da expressão de junção (por exemplo, `BROADCASTLEFT`)
+- uma dica de junção na sintaxe da expressão de junção (por exemplo, `BROADCASTLEFT` )
 
 O otimizador de consulta baseado em custo do Spark tem seus próprios recursos para fornecer dicas e ajustar o desempenho da consulta. Consulte a documentação correspondente.
 

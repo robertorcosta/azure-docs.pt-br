@@ -4,19 +4,18 @@ description: Este artigo mostra como migrar uma política clássica que exige au
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 12/04/2019
+ms.topic: how-to
+ms.date: 05/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d637ac464b689a25ce5d5a79cf47da0c85d38d0f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d1dc7b7227dbaee488726a75fe7120bd26614dbf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74846005"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "83993721"
 ---
 # <a name="migrate-a-classic-policy-in-the-azure-portal"></a>Migrar uma política clássica no portal do Azure
 
@@ -32,7 +31,7 @@ O processo de migração consiste nas seguintes etapas:
 
 ## <a name="open-a-classic-policy"></a>Abrir uma política clássica
 
-1. Na [portal do Azure](https://portal.azure.com), navegue até **Azure Active Directory** > **Security** > **acesso condicional**de segurança.
+1. Na [portal do Azure](https://portal.azure.com), navegue até **Azure Active Directory**  >  **Security**  >  **acesso condicional**de segurança.
 1. Selecione **as políticas clássicas**.
 
    ![Exibição de políticas clássicas](./media/policy-migration-mfa/12.png)
@@ -41,7 +40,7 @@ O processo de migração consiste nas seguintes etapas:
 
 ## <a name="create-a-new-conditional-access-policy"></a>Criar uma nova política de Acesso Condicional
 
-1. Na [portal do Azure](https://portal.azure.com), navegue até **Azure Active Directory** > **Security** > **acesso condicional**de segurança.
+1. Na [portal do Azure](https://portal.azure.com), navegue até **Azure Active Directory**  >  **Security**  >  **acesso condicional**de segurança.
 1. Para criar uma nova política de acesso condicional, selecione **nova política**.
 1. Na página **Novo**, na caixa de texto **Nome**, digite um nome para a política.
 1. Na seção **Atribuições**, clique em **Usuários e grupos**.

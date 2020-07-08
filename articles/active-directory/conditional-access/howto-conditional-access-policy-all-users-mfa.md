@@ -4,19 +4,18 @@ description: Criar uma política de acesso condicional personalizada para exigir
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 04/02/2020
+ms.topic: how-to
+ms.date: 05/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60d0ad0a1c0a1b4d13ce4d386df22406a8ab8e51
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7af1347ac57e1a5c5ae99744924ea04fe9757581
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617634"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "83995336"
 ---
 # <a name="conditional-access-require-mfa-for-all-users"></a>Acesso condicional: exigir MFA para todos os usuários
 
@@ -28,12 +27,12 @@ As diretrizes neste artigo ajudarão sua organização a criar uma política de 
 
 ## <a name="user-exclusions"></a>Exclusões de usuário
 
-As políticas de acesso condicional são ferramentas poderosas, recomendamos excluir as seguintes contas da sua política:
+As políticas de Acesso Condicional são ferramentas avançadas, recomendamos excluir as seguintes contas da sua política:
 
-* Contas de **acesso de emergência** ou de **vidro** para impedir o bloqueio de conta em todo o locatário. No cenário improvável, todos os administradores são bloqueados de seu locatário, sua conta administrativa de acesso de emergência pode ser usada para fazer logon no locatário. siga as etapas para recuperar o acesso.
-   * Mais informações podem ser encontradas no artigo [gerenciar contas de acesso de emergência no Azure ad](../users-groups-roles/directory-emergency-access.md).
-* **Contas de serviço** e **entidades de serviço**, como a conta de sincronização de Azure ad Connect. As contas de serviço são contas não interativas que não estão ligadas a nenhum usuário específico. Normalmente, eles são usados por serviços de back-end que permitem acesso programático a aplicativos, mas também são usados para entrar em sistemas para fins administrativos. Contas de serviço como essas devem ser excluídas, pois a MFA não pode ser concluída programaticamente. Chamadas feitas por entidades de serviço não são bloqueadas pelo acesso condicional.
-   * Se sua empresa tiver essas contas em uso em scripts ou código, considere substituí-las [por identidades gerenciadas](../managed-identities-azure-resources/overview.md). Como solução alternativa temporária, você pode excluir essas contas específicas da política de linha de base.
+* Contas de **acesso de emergência** ou de **interrupção** para impedir o bloqueio de conta em todo o locatário. No cenário improvável de todos os administradores serem bloqueados de seu locatário, sua conta administrativa de acesso de emergência poderá ser usada para fazer logon no locatário. Siga as etapas para recuperar o acesso.
+   * Mais informações podem ser encontradas no artigo [Gerenciar contas de acesso de emergência no Azure AD](../users-groups-roles/directory-emergency-access.md).
+* **Contas de serviço** e **entidades de serviço**, como a conta de sincronização do Azure AD Connect. As contas de serviço são contas não interativas que não estão ligadas a nenhum usuário específico. Normalmente, elas são usadas por serviços de back-end que permitem acesso programático a aplicativos, mas também são usadas para entrar em sistemas para fins administrativos. Contas de serviço como essas devem ser excluídas, pois a MFA não pode ser concluída programaticamente. As chamadas feitas por entidades de serviço não são bloqueadas pelo Acesso Condicional.
+   * Se a sua organização tiver essas contas em uso em scripts ou código, considere substituí-las por [identidades gerenciadas](../managed-identities-azure-resources/overview.md). Como solução temporária, você pode excluir essas contas específicas da política de linha de base.
 
 ## <a name="application-exclusions"></a>Exclusões de aplicativo
 
@@ -44,19 +43,19 @@ As organizações podem ter muitos aplicativos de nuvem em uso. Nem todos esses 
 As etapas a seguir ajudarão a criar uma política de acesso condicional para exigir que todos os usuários executem a autenticação multifator.
 
 1. Entre no **portal do Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
-1. Navegue até **Azure Active Directory** > **Security** > **acesso condicional**de segurança.
-1. Selecione **nova política**.
+1. Procure **Azure Active Directory** > **Segurança** > **Acesso Condicional**.
+1. Selecione **Nova política**.
 1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes de suas políticas.
-1. Em **atribuições**, selecione **usuários e grupos**
+1. Em **Atribuições**, selecione **Usuários e grupos**.
    1. Em **incluir**, selecione **todos os usuários**
-   1. Em **excluir**, selecione **usuários e grupos** e escolha o acesso de emergência da sua organização ou contas de vidro. 
+   1. Em **Excluir**, selecione **Usuários e grupos** e escolha o acesso de emergência ou as contas de interrupção da sua organização. 
    1. Selecione **Concluído**.
-1. Em **aplicativos de nuvem ou ações** > **incluem**, selecione **todos os aplicativos de nuvem**.
+1. Em **aplicativos de nuvem ou ações**  >  **incluem**, selecione **todos os aplicativos de nuvem**.
    1. Em **excluir**, selecione qualquer aplicativo que não exija autenticação multifator.
-1. Em **condições** > **aplicativos de cliente (versão prévia)**, defina **Configurar** como **Sim**e selecione **concluído**.
-1. Em **Access controls** > **concessão**de controles de acesso, selecione **conceder acesso**, **exigir autenticação multifator**e selecione **selecionar**.
-1. Confirme suas configurações e defina **habilitar política** como **ativado**.
-1. Selecione **criar** para criar para habilitar a política.
+1. Em **condições**  >  **aplicativos de cliente (versão prévia)**, defina **Configurar** como **Sim**. Em **selecionar os aplicativos cliente para os quais essa política será aplicada** , deixe todos os padrões selecionados e selecione **concluído**.
+1. Em **Controles de acesso** > **Conceder**, selecione **Conceder acesso**, **Exigir autenticação multifator** e selecione **Selecionar**.
+1. Confirme suas configurações e defina **Habilitar política** como **Ativado**.
+1. Selecione **Criar** para criar e habilitar sua política.
 
 ### <a name="named-locations"></a>Localizações nomeadas
 
@@ -64,18 +63,18 @@ As organizações podem optar por incorporar locais de rede conhecidos conhecido
 
 Na política de exemplo acima, uma organização pode optar por não exigir a autenticação multifator se estiver acessando um aplicativo de nuvem de sua rede corporativa. Nesse caso, eles podem adicionar a seguinte configuração à política:
 
-1. Em **atribuições**, selecione **condições** > **locais**.
-   1. Configurar **Sim**.
-   1. Inclua **qualquer local**.
-   1. Exclua **todos os locais confiáveis**.
+1. Em **atribuições**, selecione **condições**  >  **locais**.
+   1. Configure **Sim**.
+   1. Inclua **Qualquer localização**.
+   1. Excluir **Todos os locais confiáveis**.
    1. Selecione **Concluído**.
 1. Selecione **Concluído**.
 1. **Salve** as alterações de política.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
+[Políticas comuns de Acesso Condicional](concept-conditional-access-policy-common.md)
 
-[Determinar o impacto usando o modo somente relatório de acesso condicional](howto-conditional-access-report-only.md)
+[Determinar o impacto usando o modo somente relatório de Acesso Condicional](howto-conditional-access-report-only.md)
 
-[Simular comportamento de entrada usando a ferramenta de What If de acesso condicional](troubleshoot-conditional-access-what-if.md)
+[Simular comportamento de entrada usando a ferramenta What If de Acesso Condicional](troubleshoot-conditional-access-what-if.md)

@@ -7,22 +7,21 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/06/2019
-ms.openlocfilehash: 8353c0fba034022a79570d09b320b7b5c4c3e60a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 091ce1cc0b2540a02e62e1e85c5515f6aa62b93c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74951846"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84018830"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Usar Apache Sqoop com o Hadoop no HDInsight
 
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Saiba como usar o Apache Sqoop no HDInsight para importar e exportar dados entre um cluster HDInsight e um banco de dado SQL do Azure.
+Saiba como usar o Apache Sqoop no HDInsight para importar e exportar dados entre um cluster HDInsight e o banco de dado SQL do Azure.
 
 Embora Apache Hadoop seja uma opção natural para o processamento de dados não estruturados e semiestruturados, como logs e arquivos, também pode haver a necessidade de processar dados estruturados armazenados em bancos de dados relacionais.
 
-[Apache Sqoop](https://sqoop.apache.org/docs/1.99.7/user.html) é uma ferramenta projetada para transferir dados entre clusters do Hadoop e bancos de dados relacionais. Você pode usá-lo para importar dados de um RDBMS (sistema de gerenciamento de banco de dados relacional), como SQL Server, MySQL ou Oracle para o HDFS (Sistema de Arquivos Distribuído) do Hadoop, transformar os dados no Hadoop com o MapReduce ou o Apache Hive e, em seguida, exportar os dados de volta para um RDBMS. Neste artigo, você está usando um banco de dados SQL Server para seu banco de dados relacional.
+[Apache Sqoop](https://sqoop.apache.org/docs/1.99.7/user.html) é uma ferramenta projetada para transferir dados entre clusters do Hadoop e bancos de dados relacionais. Você pode usá-lo para importar dados de um RDBMS (sistema de gerenciamento de banco de dados relacional), como SQL Server, MySQL ou Oracle para o HDFS (Sistema de Arquivos Distribuído) do Hadoop, transformar os dados no Hadoop com o MapReduce ou o Apache Hive e, em seguida, exportar os dados de volta para um RDBMS. Neste artigo, você está usando o banco de dados SQL do Azure para seu banco de dados relacional.
 
 > [!IMPORTANT]  
 > Este artigo configura um ambiente de teste para executar a transferência de dados. Em seguida, escolha um método de transferência de dados para esse ambiente de um dos métodos na seção [executar trabalhos do Sqoop](#run-sqoop-jobs), mais adiante.
@@ -33,7 +32,7 @@ Para versões do Sqoop com suporte em clusters HDInsight, consulte [novidades na
 
 O cluster HDInsight é fornecido com alguns dados de exemplo. Você usa estas duas amostras:
 
-* Um arquivo de log do Apache Log4J, que está `/example/data/sample.log`localizado em. Os seguintes logs são extraídos do arquivo:
+* Um arquivo de log do Apache Log4J, que está localizado em `/example/data/sample.log` . Os seguintes logs são extraídos do arquivo:
 
 ```text
 2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
@@ -42,18 +41,18 @@ O cluster HDInsight é fornecido com alguns dados de exemplo. Você usa estas du
 ...
 ```
 
-* Uma tabela do hive `hivesampletable`denominada, que faz referência ao arquivo `/hive/warehouse/hivesampletable`de dados localizado em. A tabela contém alguns dados de dispositivo móvel.
+* Uma tabela do hive denominada `hivesampletable` , que faz referência ao arquivo de dados localizado em `/hive/warehouse/hivesampletable` . A tabela contém alguns dados de dispositivo móvel.
   
   | Campo | Tipo de dados |
   | --- | --- |
-  | clientid |cadeia de caracteres |
-  | querytime |cadeia de caracteres |
-  | market |cadeia de caracteres |
-  | deviceplatform |cadeia de caracteres |
-  | devicemake |cadeia de caracteres |
-  | devicemodel |cadeia de caracteres |
-  | state |cadeia de caracteres |
-  | country |cadeia de caracteres |
+  | clientid |string |
+  | querytime |string |
+  | market |string |
+  | deviceplatform |string |
+  | devicemake |string |
+  | devicemodel |string |
+  | state |string |
+  | country |string |
   | querydwelltime |double |
   | sessionid |BIGINT |
   | sessionpagevieworder |BIGINT |
@@ -82,20 +81,20 @@ O cluster, o banco de dados SQL e outros objetos são criados por meio do portal
     |---|---|
     |Subscription |Selecione sua assinatura do Azure na lista suspensa.|
     |Resource group |Selecione o grupo de recursos na lista suspensa ou crie um novo|
-    |Local |Selecione uma região na lista suspensa.|
+    |Location |Selecione uma região na lista suspensa.|
     |Nome do cluster |Insira um nome para o cluster Hadoop. Use somente letra minúscula.|
-    |Nome de usuário de logon do cluster |Mantenha o valor `admin`preenchido previamente.|
+    |Nome de usuário de logon do cluster |Mantenha o valor preenchido previamente `admin` .|
     |Senha de logon do cluster |Digite uma senha.|
-    |Nome de Usuário SSH |Mantenha o valor `sshuser`preenchido previamente.|
+    |Nome de Usuário SSH |Mantenha o valor preenchido previamente `sshuser` .|
     |Senha SSH |Digite uma senha.|
-    |Logon de administrador do SQL |Mantenha o valor `sqluser`preenchido previamente.|
+    |Logon de administrador do SQL |Mantenha o valor preenchido previamente `sqluser` .|
     |Senha de administrador do SQL |Digite uma senha.|
     |_artifacts local | Use o valor padrão, a menos que você queira usar seu próprio arquivo bacpac em um local diferente.|
     |Token SAS do local _artifacts |Deixe em branco.|
     |Nome do arquivo Bacpac |Use o valor padrão, a menos que você queira usar seu próprio arquivo bacpac.|
-    |Local |Use o valor padrão.|
+    |Location |Use o valor padrão.|
 
-    O nome do SQL Server do Azure `<ClusterName>dbserver`será. O nome do banco de `<ClusterName>db`dados será. O nome da conta de armazenamento padrão `e6qhezrh2pdqu`será.
+    O nome [lógico do SQL Server](../../azure-sql/database/logical-servers.md) será `<ClusterName>dbserver` . O nome do banco de dados será `<ClusterName>db` . O nome da conta de armazenamento padrão será `e6qhezrh2pdqu` .
 
 3. Selecione **Concordo com os termos e as condições declarados acima**.
 
@@ -113,12 +112,12 @@ O HDInsight pode executar trabalhos do Sqoop usando vários métodos. Use a tabe
 
 ## <a name="limitations"></a>Limitações
 
-* Exportação em massa-com o HDInsight baseado em Linux, o conector do Sqoop usado para exportar dados para o Microsoft SQL Server ou o Azure SQL Database não oferece suporte a inserções em massa no momento.
+* Exportação em massa-com o HDInsight baseado em Linux, o conector do Sqoop usado para exportar dados para o Microsoft SQL Server ou o SQL Database não oferece suporte a inserções em massa no momento.
 * Envio em lote — Com HDInsight baseado em Linux, ao usar o comutador `-batch` ao executar inserções, o Sqoop realizará várias inserções em vez de operações de inserção em lotes.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora você aprendeu a usar o Sqoop. Para obter mais informações, consulte:
+Você aprendeu como usar o Sqoop. Para obter mais informações, consulte:
 
 * [Usar o Apache Hive com o HDInsight](../hdinsight-use-hive.md)
 * [Carregar dados no HDInsight](../hdinsight-upload-data.md): localize outros métodos de carregamento de dados no HDInsight/Armazenamento de Blob do Azure.

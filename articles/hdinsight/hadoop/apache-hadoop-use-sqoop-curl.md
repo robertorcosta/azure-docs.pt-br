@@ -7,26 +7,25 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: da29785547d1b6eb4b38d07f020ba885dc5137ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7bd0afe4d0ea01671c996a0f536151d943e4fca7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75767579"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84013003"
 ---
 # <a name="run-apache-sqoop-jobs-in-hdinsight-with-curl"></a>Executar trabalhos do Apache Sqoop no HDInsight com ondulação
 
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Aprenda a usar o Curl para executar tarefas do Apache Sqoop em um cluster do Apache Hadoop no HDInsight. Este artigo demonstra como exportar dados do armazenamento do Azure e importá-los para um banco de dado SQL Server usando a ondulação. Este artigo é uma continuação do [uso do Apache Sqoop com Hadoop no HDInsight](./hdinsight-use-sqoop.md).
+Aprenda a usar o Curl para executar tarefas do Apache Sqoop em um cluster do Apache Hadoop no HDInsight. Este artigo demonstra como exportar dados do armazenamento do Azure e importá-los para um banco de dado SQL Server usando a ondulação. Este artigo é uma continuação do [Usar o Apache Sqoop com o Hadoop no HDInsight](./hdinsight-use-sqoop.md).
 
 Curl é usado para demonstrar como você pode interagir com o HDInsight usando solicitações HTTP brutas para executar, monitorar e recuperar os resultados de trabalhos do Sqoop. Isso funciona usando a API REST do WebHCat (anteriormente conhecido como Templeton) fornecida pelo seu cluster HDInsight.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Conclusão da [configuração do ambiente de teste](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) de [usar o Apache Sqoop com o Hadoop no HDInsight](./hdinsight-use-sqoop.md).
+* Conclusão de [Configurar o ambiente de teste](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) de [Usar o Apache Sqoop com o Hadoop no HDInsight](./hdinsight-use-sqoop.md).
 
-* Um cliente para consultar o banco de dados SQL do Azure. Considere usar [SQL Server Management Studio](../../sql-database/sql-database-connect-query-ssms.md) ou [Visual Studio Code](../../sql-database/sql-database-connect-query-vscode.md).
+* Um cliente para consultar o banco de dados SQL do Azure. Considere usar [SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md) ou [Visual Studio Code](../../azure-sql/database/connect-query-vscode.md).
 
 * [Ondulação](https://curl.haxx.se/). Curl é uma ferramenta para transferir dados de ou um cluster HDInsight ou para ele.
 
@@ -91,7 +90,7 @@ A API REST é protegida por meio de [autenticação básica](https://en.wikipedi
        {"id":"job_1415651640909_0026"}
        ```
 
-1. Para verificar o status do trabalho, use o comando a seguir. Substitua `JOBID` pelo valor retornado na etapa anterior. Por exemplo, se o valor de retorno `{"id":"job_1415651640909_0026"}`era, `JOBID` seria `job_1415651640909_0026`. Revisar local `jq` de conforme necessário.
+1. Para verificar o status do trabalho, use o comando a seguir. Substitua `JOBID` pelo valor retornado na etapa anterior. Por exemplo, se o valor de retorno era `{"id":"job_1415651640909_0026"}` , `JOBID` seria `job_1415651640909_0026` . Revisar local de `jq` conforme necessário.
 
     ```cmd
     set JOBID=job_1415651640909_0026

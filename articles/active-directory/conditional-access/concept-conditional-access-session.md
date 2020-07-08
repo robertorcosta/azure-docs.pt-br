@@ -11,12 +11,11 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e99b9b87f939d614679fdecf24c9d36d99bf2938
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1140b65cf56125b23ef3c616e597aafba989b197
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78671898"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "83993840"
 ---
 # <a name="conditional-access-session"></a>Acesso condicional: sessão
 
@@ -48,7 +47,7 @@ O Controle de Aplicativo de Acesso Condicional permite o monitoramento e control
 
 Para obter mais informações, consulte o artigo [implantar controle de aplicativos de acesso condicional para aplicativos em destaque](/cloud-app-security/proxy-deployment-aad).
 
-## <a name="sign-in-frequency-preview"></a>Frequência de entrada (versão prévia)
+## <a name="sign-in-frequency"></a>Frequência de entrada
 
 A frequência de entrada define o período de tempo antes que um usuário seja solicitado a entrar novamente ao tentar acessar um recurso.
 
@@ -66,7 +65,7 @@ A configuração frequência de entrada funciona com aplicativos que implementar
 
 Para obter mais informações, consulte o artigo [Configurar o gerenciamento de sessão de autenticação com acesso condicional](howto-conditional-access-session-lifetime.md#user-sign-in-frequency).
 
-## <a name="persistent-browser-session-preview"></a>Sessão persistente do navegador (versão prévia)
+## <a name="persistent-browser-session"></a>Sessão persistente do navegador
 
 Uma sessão persistente do navegador permite que os usuários permaneçam conectados após fechar e reabrir a janela do navegador.
 
@@ -74,6 +73,6 @@ Para obter mais informações, consulte o artigo [Configurar o gerenciamento de 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
+- [Políticas comuns de Acesso Condicional](concept-conditional-access-policy-common.md)
 
 - [Modo somente relatório](concept-conditional-access-report-only.md)

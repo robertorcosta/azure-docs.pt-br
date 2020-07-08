@@ -7,12 +7,11 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 28d7b2955c84833841760e441cd2919181e22bc7
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.openlocfilehash: a5dce5b53df817bd365d4ce9670ffd556ce365f7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73572792"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84015495"
 ---
 # <a name="manage-analysis-services"></a>Gerenciar o Analysis Services
 Depois de criar um servidor do Analysis Services no Azure, talvez seja necessário executar algumas tarefas de administração e gerenciamento imediatamente ou em algum momento no futuro. Por exemplo, executar o processamento nos dados atualizados, controlar quem pode acessar os modelos em seu servidor ou monitorar a integridade do servidor. Algumas tarefas de gerenciamento só podem ser executadas no Portal do Azure, outras no SQL Server Management Studio (SSMS) e algumas tarefas podem ser executadas em ambos.
@@ -51,7 +50,7 @@ Para obter todos os recursos mais recentes e a melhor experiência ao se conecta
 
     **Autenticação de Senha do Active Directory** para usar uma conta organizacional. Por exemplo, ao conectar-se de um computador que não ingressou em um domínio.
 
-    **Active Directory - Universal com suporte MFA** para usar [autenticação multifator ou não interativa](../sql-database/sql-database-ssms-mfa-authentication.md). 
+    **Active Directory - Universal com suporte MFA** para usar [autenticação multifator ou não interativa](../azure-sql/database/authentication-mfa-ssms-overview.md). 
    
     ![Conectar-se no SSMS](./media/analysis-services-manage/aas-manage-connect-ssms.png)
 

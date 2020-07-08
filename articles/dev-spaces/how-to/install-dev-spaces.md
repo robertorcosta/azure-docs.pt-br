@@ -7,7 +7,6 @@ description: Saiba como habilitar o Azure Dev Spaces em um cluster AKS e instala
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
 ms.openlocfilehash: b62c4a4861529c19363f159b8cc64a32a0ba11e8
 ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
-ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/27/2020
 ms.locfileid: "83996254"

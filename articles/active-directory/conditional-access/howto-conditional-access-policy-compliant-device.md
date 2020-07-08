@@ -4,19 +4,18 @@ description: Criar uma política de acesso condicional personalizada para exigir
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 03/25/2020
+ms.topic: how-to
+ms.date: 05/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc6bd486c1e8338eaf875c7026764c80d49e2f05
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c65b4ede6f4851418bf17d42db5b3215dafa9234
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80295195"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "83995166"
 ---
 # <a name="conditional-access-require-compliant-devices"></a>Acesso condicional: exigir dispositivos em conformidade
 
@@ -34,21 +33,21 @@ Essas informações de conformidade de política são encaminhadas ao Azure AD, 
 As etapas a seguir ajudarão a criar uma política de acesso condicional para exigir que os dispositivos que acessam os recursos sejam marcados como em conformidade com as políticas de conformidade do Intune da sua organização.
 
 1. Entre no **portal do Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
-1. Navegue até **Azure Active Directory** > **Security** > **acesso condicional**de segurança.
-1. Selecione **nova política**.
+1. Procure **Azure Active Directory** > **Segurança** > **Acesso Condicional**.
+1. Selecione **Nova política**.
 1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes de suas políticas.
-1. Em **atribuições**, selecione **usuários e grupos**
-   1. Em **incluir**, selecione **todos os usuários**.
-   1. Em **excluir**, selecione **usuários e grupos** e escolha o acesso de emergência da sua organização ou contas de vidro. 
+1. Em **Atribuições**, selecione **Usuários e grupos**
+   1. Em **Incluir**, selecione **Todos os usuários**.
+   1. Em **Excluir**, selecione **Usuários e grupos** e escolha o acesso de emergência ou as contas de interrupção da sua organização. 
    1. Selecione **Concluído**.
-1. Em **aplicativos de nuvem ou ações** > **incluem**, selecione **todos os aplicativos de nuvem**.
+1. Em **aplicativos de nuvem ou ações**  >  **incluem**, selecione **todos os aplicativos de nuvem**.
    1. Se você precisar excluir aplicativos específicos de sua política, poderá selecioná-los na guia **excluir** em **selecionar aplicativos de nuvem excluídos** e escolher **selecionar**.
    1. Selecione **Concluído**.
-1. Em **condições** > **aplicativos de cliente (versão prévia)**, defina **Configurar** como **Sim**e selecione **concluído**.
-1. Em **Access controls** > **concessão**de controles de acesso, selecione **exigir que o dispositivo seja marcado como compatível**.
+1. Em **Condições** > **Aplicativos clientes (versão prévia)** , defina **Configurar** como **Sim** e selecione **Concluído**.
+1. Em **Access controls**  >  **concessão**de controles de acesso, selecione **exigir que o dispositivo seja marcado como compatível**.
    1. Selecione **Selecionar**.
-1. Confirme suas configurações e defina **habilitar política** como **ativado**.
-1. Selecione **criar** para criar para habilitar a política.
+1. Confirme suas configurações e defina **Habilitar política** como **Ativado**.
+1. Selecione **Criar** para criar e habilitar sua política.
 
 > [!NOTE]
 > Você pode registrar seus novos dispositivos no Intune mesmo se selecionar exigir que o **dispositivo seja marcado como compatível** para **todos os usuários** e **todos os aplicativos de nuvem** usando as etapas acima. **Exigir que o dispositivo seja marcado como controle em conformidade** não bloqueie o registro do Intune. 
@@ -59,10 +58,10 @@ No Windows 7, iOS, Android, macOS e alguns navegadores da Web de terceiros, o Az
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
+[Políticas comuns de Acesso Condicional](concept-conditional-access-policy-common.md)
 
-[Determinar o impacto usando o modo somente relatório de acesso condicional](howto-conditional-access-report-only.md)
+[Determinar o impacto usando o modo somente relatório de Acesso Condicional](howto-conditional-access-report-only.md)
 
-[Simular comportamento de entrada usando a ferramenta de What If de acesso condicional](troubleshoot-conditional-access-what-if.md)
+[Simular comportamento de entrada usando a ferramenta What If de Acesso Condicional](troubleshoot-conditional-access-what-if.md)
 
 [As políticas de conformidade do dispositivo funcionam com o Azure AD](/intune/device-compliance-get-started#device-compliance-policies-work-with-azure-ad)

@@ -10,12 +10,11 @@ ms.subservice: security-fundamentals
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 9c3657a5b55303429d7825bd317c6f9eeb8c06c5
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
-ms.translationtype: MT
+ms.openlocfilehash: 2222c1d5e434e1c51cb66c2c5943badd58f95af9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583273"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84013020"
 ---
 # <a name="index-of-built-in-security-controls-articles-for-azure-services"></a>Índice de artigos "controles de segurança internos" para serviços do Azure
 
@@ -23,19 +22,19 @@ Este índice fornece links para artigos de "controles de segurança internos". U
 
 Os artigos de controle de segurança internos estão disponíveis para os seguintes serviços:
 
-- [Gerenciamento de API](../../api-management/api-management-security-controls.md)
+- [Gerenciamento da API](../../api-management/api-management-security-controls.md)
 - [Serviço de Aplicativo do Azure](../../app-service/app-service-security-controls.md)
 - [Azure Resource Manager](../../azure-resource-manager/management/azure-resource-manager-security-controls.md)
-- [Backup do Azure](../../backup/backup-security-controls.md)
+- [Serviço de Backup do Azure](../../backup/backup-security-controls.md)
 - [Hubs de eventos do Azure](../../event-hubs/event-hubs-security-controls.md)
 - [Azure ExpressRoute](../../expressroute/expressroute-security-controls.md)
 - [Azure Load Balancer](../../load-balancer/load-balancer-security-controls.md)
-- [Mensagens do barramento de serviço do Azure](../../service-bus-messaging/service-bus-messaging-security-controls.md)
+- [Messaging do Barramento de Serviço do Azure](../../service-bus-messaging/service-bus-messaging-security-controls.md)
 - [Retransmissão do Barramento de Serviço do Azure](../../service-bus-relay/service-bus-relay-security-controls.md)
 - [Azure Service Fabric](../../service-fabric/service-fabric-security-controls.md)
 - [Azure Spring Cloud](../../spring-cloud/spring-cloud-concept-security-controls.md)
-- [Banco de Dados SQL do Azure](../../sql-database/sql-database-security-controls.md)
+- [Banco de Dados SQL do Azure](../../azure-sql/database/security-controls.md)
 - [Conjuntos de dimensionamento de máquina virtual do Azure](../../virtual-machine-scale-sets/virtual-machine-scale-sets-security-controls.md)
-- [Máquinas virtuais do Linux](../../virtual-machines/linux/virtual-machines-linux-security-controls.md)
+- [Máquinas Virtuais do Linux](../../virtual-machines/linux/virtual-machines-linux-security-controls.md)
 - [Máquinas Virtuais do Windows](../../virtual-machines/windows/virtual-machines-windows-security-controls.md)
 - [Gateway de VPN do Azure](../../vpn-gateway/vpn-gateway-security-controls.md)

@@ -13,7 +13,6 @@ ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: d5e44d6b34a16f03d4ca1f82453f1f6e9f074917
 ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
-ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/26/2020
 ms.locfileid: "83860606"
@@ -216,7 +215,7 @@ Selecione os dados da tabela externa da etapa 1 e insira-os na tabela ORC
             SELECT * FROM <database name>.<external textfile table name>;
 
 > [!NOTE]
-> Se a tabela TEXTFILE *\<nome do banco de dados\>.\<nome da tabela externa de arquivo de texto\>* tiver partições, na ETAPA 3, o comando `SELECT * FROM <database name>.<external textfile table name>` selecionará a variável de partição como um campo no conjunto de dados retornados. A inserção deles no *\<nome do banco de dados\>.\<nome da tabela ORC\>* falhará, pois o *\<nome do banco de dados\>.\<nome da tabela ORC\>* não tem a variável de partição como um campo no esquema de tabela. Nesse caso, você precisará selecionar especificamente os campos a serem inseridos no *\<nome do banco de dados\>.\<nome da tabela ORC\>* da seguinte maneira:
+> Se a tabela TEXTFILE *\<nome do banco de dados\>.\<nome da tabela externa de arquivo de texto\>* tiver partições, na ETAPA 3, o comando `SELECT * FROM <database name>.<external textfile table name>` selecionará a variável de partição como um campo no conjunto de dados retornados. A inserção deles no *\<nome do banco de dados\>.\<nome da tabela ORC\>* falhará, pois o *\<nome do banco de dados\>.\<nome da tabela ORC\>* não tem a variável de partição como um campo no esquema de tabela. Nesse caso, você precisará selecionar especificamente os campos a serem inseridos no *\<nome do banco de dados\>.\<nome da tabela ORC\>* da seguinte maneira: É seguro remover o *\<nome da tabela externa do arquivo de texto\>* ao usar a seguinte consulta depois de todos os dados serem inseridos no *\<nome do banco de dados\>.\<nome da tabela ORC\>* : Depois de seguir esse procedimento, você deve ter uma tabela com dados no formato ORC pronta para uso. In this case, you need to specifically select the fields to be inserted to <bpt id="p1">*</bpt><ph id="ph1">\&lt;database name\&gt;</ph>.<ph id="ph2">\&lt;ORC table name\&gt;</ph><ept id="p1">*</ept> as follows:
 >
 >
 
@@ -225,8 +224,8 @@ Selecione os dados da tabela externa da etapa 1 e insira-os na tabela ORC
            FROM <database name>.<external textfile table name>
            WHERE <partition variable>=<partition value>;
 
-É seguro remover o *\<nome da tabela externa do arquivo de texto\>* ao usar a seguinte consulta depois de todos os dados serem inseridos no *\<nome do banco de dados\>.\<nome da tabela ORC\>* :
+It is safe to drop the <bpt id="p1">*</bpt><ph id="ph1">\&lt;external text file table name\&gt;</ph><ept id="p1">*</ept> when using the following query after all data has been inserted into <bpt id="p2">*</bpt><ph id="ph2">\&lt;database name\&gt;</ph>.<ph id="ph3">\&lt;ORC table name\&gt;</ph><ept id="p2">*</ept>:
 
         DROP TABLE IF EXISTS <database name>.<external textfile table name>;
 
-Depois de seguir esse procedimento, você deve ter uma tabela com dados no formato ORC pronta para uso.  
+After following this procedure, you should have a table with data in the ORC format ready to use.  

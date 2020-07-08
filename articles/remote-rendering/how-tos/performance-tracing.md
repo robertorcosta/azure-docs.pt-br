@@ -5,22 +5,21 @@ author: florianborn71
 ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1f4207a11f3ae3664023fccf6178b6db7cf253b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2a10558e76a6e9af7c7571dc4ba3d063ce3e2286
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681305"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84021153"
 ---
 # <a name="create-client-side-performance-traces"></a>Criar rastreamentos de desempenho do lado do cliente
 
 Há muitas razões pelas quais o desempenho da renderização remota do Azure pode não ser tão bom quanto o desejado. Além do desempenho de renderização puro no servidor de nuvem, especialmente a qualidade da conexão de rede tem uma influência significativa sobre a experiência. Para criar o perfil do desempenho do servidor, consulte o capítulo [consultas de desempenho do lado do servidor](../overview/features/performance-queries.md).
 
-Este capítulo se concentra em como identificar possíveis afunilamentos do lado do cliente por meio de *rastreamentos de desempenho*.
+Este capítulo se concentra em como identificar possíveis afunilamentos do lado do cliente por meio do *:::no-loc text="performance traces":::* .
 
 ## <a name="getting-started"></a>Introdução
 
-Se você for novo na funcionalidade de rastreamento de desempenho do Windows, esta seção irá mencionar os termos e os aplicativos mais fundamentais para você começar.
+Se você for novo na funcionalidade do Windows :::no-loc text="performance tracing"::: , esta seção irá mencionar os termos e aplicativos mais fundamentais para você começar.
 
 ### <a name="installation"></a>Instalação
 
@@ -37,11 +36,11 @@ Ao procurar informações sobre rastreamentos de desempenho, você será inevita
 
 O **ETW** representa a [corrida de **T**de ventilação **E**saídas para **W**](https://docs.microsoft.com/windows/win32/etw/about-event-tracing). É simplesmente o nome abrangente para o recurso de rastreamento eficiente no nível do kernel que é incorporado ao Windows. Ele é chamado de rastreamento de *eventos* , porque os aplicativos que dão suporte ao ETW emitirão eventos para registrar ações que podem ajudar a rastrear problemas de desempenho. Por padrão, o sistema operacional já emite eventos para coisas como acessos a disco, opções de tarefas e tal. Aplicativos como o ARR também emitem eventos personalizados, por exemplo, sobre quadros descartados, retardo de rede etc.
 
-**ETL** significa **E**& vento **T**Race **L**ogging. Isso simplesmente significa que um rastreamento foi coletado (registrado) e, portanto, normalmente é usado como a extensão de arquivo para arquivos que armazenam os dados de rastreamento. Assim, quando você faz um rastreamento, normalmente terá um \*arquivo. etl posteriormente.
+**ETL** significa **E**& vento **T**Race **L**ogging. Isso simplesmente significa que um rastreamento foi coletado (registrado) e, portanto, normalmente é usado como a extensão de arquivo para arquivos que armazenam os dados de rastreamento. Assim, quando você faz um rastreamento, normalmente terá um \* arquivo. etl posteriormente.
 
-**WPR** significa [ **W**erenciador **R**ecorder **P**v](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-recorder) e é o nome do aplicativo que inicia e interrompe a gravação de rastreamentos de eventos. WPR usa um arquivo de perfil\*(. wprp) que configura quais eventos exatos registrar em log. Esse `wprp` arquivo é fornecido com o SDK do arr. Ao fazer rastreamentos em um PC desktop, você pode iniciar o WPR diretamente. Ao fazer um rastreamento no HoloLens, você normalmente passa pela interface da Web.
+**WPR** significa [ **W**erenciador **R**ecorder **P**v](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-recorder) e é o nome do aplicativo que inicia e interrompe a gravação de rastreamentos de eventos. WPR usa um arquivo de perfil ( \* . wprp) que configura quais eventos exatos registrar em log. Esse `wprp` arquivo é fornecido com o SDK do arr. Ao fazer rastreamentos em um PC desktop, você pode iniciar o WPR diretamente. Ao fazer um rastreamento no HoloLens, você normalmente passa pela interface da Web.
 
-O **WPA** significa [ **W**erenciador **a**nalyzer **P**](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-analyzer) e é o nome do aplicativo de GUI usado para abrir \*arquivos. ETL e examinar os dados para identificar problemas de desempenho. O WPA permite que você classifique dados por vários critérios, exiba os dados de várias maneiras, aprofunde-se em detalhes e correlacione informações.
+O **WPA** significa [ **W**erenciador **a** **P**nalyzer](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-analyzer) e é o nome do aplicativo de GUI usado para abrir \* arquivos. ETL e examinar os dados para identificar problemas de desempenho. O WPA permite que você classifique dados por vários critérios, exiba os dados de várias maneiras, aprofunde-se em detalhes e correlacione informações.
 
 Embora os rastreamentos de ETL possam ser criados em qualquer dispositivo Windows (PC local, HoloLens, servidor de nuvem, etc.), eles são normalmente salvos em disco e analisados com WPA em um PC desktop. Os arquivos ETL podem ser enviados a outros desenvolvedores para que eles tenham uma aparência. No entanto, lembre-se de que informações confidenciais, como caminhos de arquivo e endereços IP, podem ser capturadas em rastreamentos de ETL. Você pode usar o ETW de duas maneiras: para gravar rastreamentos ou para analisar rastreamentos. A gravação de rastreamentos é direta e requer configuração mínima. A análise de rastreamentos por outro lado requer uma compreensão razoável da ferramenta WPA e do problema que você está investigando. O material geral para o aprendizado de WPA será fornecido abaixo, bem como diretrizes sobre como interpretar rastreamentos específicos do ARR.
 
@@ -51,7 +50,7 @@ Para identificar problemas de desempenho de ARR, você deve preferir fazer um ra
 
 ### <a name="wpr-configuration"></a>Configuração do WPR
 
-1. Inicie o [gravador de desempenho do Windows](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-recorder) no *menu iniciar*.
+1. Inicie o [:::no-loc text="Windows Performance Recorder":::](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-recorder) no *menu iniciar*.
 1. Expandir **mais opções**
 1. Clique em **adicionar perfis...**
 1. Selecione o arquivo *AzureRemoteRenderingNetworkProfiling. wprp*. Você pode encontrar esse arquivo no SDK do ARR em *Tools/ETLProfiles*.
@@ -81,7 +80,7 @@ Para registrar um rastreamento em um HoloLens, inicialize seu dispositivo e insi
 
 1. À esquerda, navegue até *desempenho > rastreamento de desempenho*.
 1. Selecionar **perfis personalizados**
-1. Clique em **procurar...**
+1. Selecione**:::no-loc text="Browse...":::**
 1. Selecione o arquivo *AzureRemoteRenderingNetworkProfiling. wprp*. Você pode encontrar esse arquivo no SDK do ARR em *Tools/ETLProfiles*.
 1. Clique em **Iniciar rastreamento**
 1. Agora, o HoloLens está gravando um rastreamento. Certifique-se de disparar os problemas de desempenho que você deseja investigar. Em seguida, clique em **parar rastreamento**.
@@ -129,4 +128,4 @@ A imagem acima mostra exibições de vários eventos específicos do ARR, além 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Consultas de desempenho do lado do servidor](../overview/features/performance-queries.md)
+* [Consultas de desempenho no lado do servidor](../overview/features/performance-queries.md)

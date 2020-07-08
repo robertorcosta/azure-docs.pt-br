@@ -8,12 +8,11 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: sutalasi
-ms.openlocfilehash: 429f46156da728bbc24108090eac8c04f68da71c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4146553d59607e1512d8f15391d143d44815cea9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74084749"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84016467"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Configurar a recuperação de desastres para o SQL Server
 
@@ -34,11 +33,11 @@ Sua escolha de uma tecnologia BCDR para recuperar SQL Server instâncias deve se
 
 Tipo de implantação | Tecnologia BCDR | RTO esperado para SQL Server | RPO esperado para SQL Server |
 --- | --- | --- | ---
-SQL Server em uma VM (máquina virtual) de IaaS (infraestrutura como serviço) do Azure ou no local.| [Grupo de disponibilidade Sempre Ativo](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017) | O tempo necessário para tornar a réplica secundária como primária. | Como a replicação para a réplica secundária é assíncrona, há alguma perda de dados.
+SQL Server em uma VM (máquina virtual) de IaaS (infraestrutura como serviço) do Azure ou no local.| [Grupo de disponibilidade Always On](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017) | O tempo necessário para tornar a réplica secundária como primária. | Como a replicação para a réplica secundária é assíncrona, há alguma perda de dados.
 SQL Server em uma VM IaaS do Azure ou no local.| [Clustering de failover (FCI AlwaysOn)](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-2017) | O tempo necessário para fazer failover entre os nós. | Como Always On FCI usa o armazenamento compartilhado, a mesma exibição da instância de armazenamento está disponível no failover.
 SQL Server em uma VM IaaS do Azure ou no local.| [Espelhamento de banco de dados (modo de alto desempenho)](https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server?view=sql-server-2017) | O tempo necessário para forçar o serviço, que usa o servidor espelho como um servidor em espera passiva. | A replicação é assíncrona. O banco de dados espelho pode ficar um pouco defasado em relação ao banco de dados principal. O retardo é normalmente pequeno. Mas poderá se tornar grande se o sistema do servidor principal ou espelho estiver sob uma carga pesada.<br/><br/>O envio de logs pode ser um suplemento para espelhamento de banco de dados. É uma alternativa favorável ao espelhamento de banco de dados assíncrono.
-SQL como PaaS (plataforma como serviço) no Azure.<br/><br/>Esse tipo de implantação inclui pools elásticos e servidores de banco de dados SQL do Azure. | Replicação geográfica ativa | 30 segundos após o failover ser disparado.<br/><br/>Quando o failover é ativado para um dos bancos de dados secundários, todos os outros secundários são vinculados automaticamente ao novo primário. | RPO de cinco segundos.<br/><br/>A replicação geográfica ativa usa a tecnologia de Always On do SQL Server. Ele Replica de forma assíncrona as transações confirmadas no banco de dados primário para um banco de dados secundário usando o isolamento de instantâneo.<br/><br/>Os dados secundários têm garantia de nunca ter transações parciais.
-SQL como PaaS configurado com replicação geográfica ativa no Azure.<br/><br/>Esse tipo de implantação inclui uma instância gerenciada do banco de dados SQL, pools elásticos e servidores de banco de dados SQL. | Grupos de failover automático | RTO de uma hora. | RPO de cinco segundos.<br/><br/>Os grupos de failover automático fornecem a semântica do grupo sobre a replicação geográfica ativa. Mas o mesmo mecanismo de replicação assíncrona é usado.
+SQL como PaaS (plataforma como serviço) no Azure.<br/><br/>Esse tipo de implantação inclui bancos de dados individuais e pools elásticos. | Replicação geográfica ativa | 30 segundos após o failover ser disparado.<br/><br/>Quando o failover é ativado para um dos bancos de dados secundários, todos os outros secundários são vinculados automaticamente ao novo primário. | RPO de cinco segundos.<br/><br/>A replicação geográfica ativa usa a tecnologia de Always On do SQL Server. Ele Replica de forma assíncrona as transações confirmadas no banco de dados primário para um banco de dados secundário usando o isolamento de instantâneo.<br/><br/>Os dados secundários têm garantia de nunca ter transações parciais.
+SQL como PaaS configurado com replicação geográfica ativa no Azure.<br/><br/>Esse tipo de implantação inclui instâncias gerenciadas do banco de dados SQL, pools elásticos e bancos de dados individuais. | Grupos de failover automático | RTO de uma hora. | RPO de cinco segundos.<br/><br/>Os grupos de failover automático fornecem a semântica do grupo sobre a replicação geográfica ativa. Mas o mesmo mecanismo de replicação assíncrona é usado.
 SQL Server em uma VM IaaS do Azure ou no local.| Replicação com Azure Site Recovery | O RTO é normalmente menos de 15 minutos. Para saber mais, leia o [SLA de RTO fornecido pelo site Recovery](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). | Uma hora para a consistência do aplicativo e cinco minutos para a consistência de falhas. Se você estiver procurando um RPO inferior, use outras tecnologias BCDR.
 
 > [!NOTE]
@@ -71,8 +70,8 @@ Depois que a camada de banco de dados estiver em execução na região do Azure 
 
 Para entender como você pode criar aplicativos para considerações de conectividade, consulte estes exemplos:
 
-* [Criar um aplicativo para recuperação de desastre na nuvem](../sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-* [Estratégias de recuperação de desastre do pool elástico](../sql-database/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)
+* [Criar um aplicativo para recuperação de desastre na nuvem](../azure-sql/database/designing-cloud-solutions-for-disaster-recovery.md)
+* [Estratégias de recuperação de desastre do pool elástico](../azure-sql/database/disaster-recovery-strategies-for-applications-with-elastic-pool.md)
 
 ### <a name="step-3-interoperate-with-always-on-active-geo-replication-and-auto-failover-groups"></a>Etapa 3: interoperar com Always On, replicação geográfica ativa e grupos de failover automático
 
@@ -162,6 +161,6 @@ Site Recovery é independente de aplicativo. Site Recovery pode ajudar a protege
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre a [arquitetura de site Recovery](site-recovery-components.md).
-* Para SQL Server no Azure, saiba mais sobre [soluções de alta disponibilidade](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md#azure-only-high-availability-solutions) para recuperação em uma região secundária do Azure.
-* Para o banco de dados SQL, saiba mais sobre as opções de [continuidade de negócios](../sql-database/sql-database-business-continuity.md) e [alta disponibilidade](../sql-database/sql-database-high-availability.md) para recuperação em uma região secundária do Azure.
-* Para computadores SQL Server no local, saiba mais sobre as opções de [alta disponibilidade](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md#hybrid-it-disaster-recovery-solutions) para recuperação em máquinas virtuais do Azure.
+* Para SQL Server no Azure, saiba mais sobre [soluções de alta disponibilidade](../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md#azure-only-high-availability-solutions) para recuperação em uma região secundária do Azure.
+* Para o banco de dados SQL, saiba mais sobre as opções de [continuidade de negócios](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md) e [alta disponibilidade](../azure-sql/database/high-availability-sla.md) para recuperação em uma região secundária do Azure.
+* Para computadores SQL Server no local, saiba mais sobre as opções de [alta disponibilidade](../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md#hybrid-it-disaster-recovery-solutions) para recuperação em máquinas virtuais do Azure.

@@ -5,12 +5,11 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: 64553506f75451c50a87932904f00a7275ea9286
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e4ee6abe7481fef4d56c980da80e319624975384
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80680252"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84021306"
 ---
 # <a name="pbr-materials"></a>Materiais de PBR
 
@@ -26,7 +25,7 @@ No entanto, os materiais de PBR não são uma solução universal. Há materiais
 
 Essas propriedades são comuns a todos os materiais:
 
-* **albedoColor:** Essa cor é multiplicada por outras cores, como as cores *albedoMap* ou *Vertex*. Se a *transparência* estiver habilitada em um material, o canal alfa será usado para ajustar a opacidade `1` , com significado totalmente `0` opaco e significado totalmente transparente. O padrão é branco.
+* **albedoColor:** Essa cor é multiplicada por outras cores, como *albedoMap* ou * :::no-loc text="vertex "::: cores*. Se a *transparência* estiver habilitada em um material, o canal alfa será usado para ajustar a opacidade, com `1` significado totalmente opaco e `0` significado totalmente transparente. O padrão é branco.
 
   > [!NOTE]
   > Quando um material de PBR é totalmente transparente, como um pedaço de vidro perfeitamente limpo, ele ainda reflete o ambiente. Pontos brilhantes, como o sol, ainda estão visíveis na reflexão. Isso é diferente para [materiais de cores](color-materials.md).
@@ -37,9 +36,9 @@ Essas propriedades são comuns a todos os materiais:
 
 * **textureCoordinateScale** e **textureCoordinateOffset:** a escala é multiplicada nas coordenadas de textura UV, o deslocamento é adicionado a ela. Pode ser usado para alongar e deslocar as texturas. A escala padrão é (1, 1) e o deslocamento é (0, 0).
 
-* **useVertexColor:** Se a malha contiver cores de vértice e essa opção estiver habilitada, as cores de vértice das malhas serão multiplicadas em *albedoColor* e *albedoMap*. Por padrão, as cores do vértice são desabilitadas.
+* **useVertexColor:** Se a malha contiver :::no-loc text="vertex"::: cores e essa opção estiver habilitada, a cor das malhas :::no-loc text="vertex"::: será multiplicada em *albedoColor* e *albedoMap*. Por padrão, o *useVertexColor* está desabilitado.
 
-* **isDoubleSided:** Se Double-sidedness for definido como true, os triângulos com esse material serão renderizados mesmo se a câmera estiver observando suas faces de apoio. Para a iluminação de materiais do PBR também é computada corretamente para faces traseiras. Por padrão, essa opção está desabilitada. Consulte também [renderização de um único lado](single-sided-rendering.md).
+* **isDoubleSided:** Se Double-sidedness for definido como true, os triângulos com esse material serão renderizados mesmo se a câmera estiver observando suas faces de apoio. Para a iluminação de materiais do PBR também é computada corretamente para faces traseiras. Por padrão, essa opção está desabilitada. Consulte também [ :::no-loc text="Single-sided"::: renderização](single-sided-rendering.md).
 
 ## <a name="pbr-material-properties"></a>Propriedades do material PBR
 
@@ -47,11 +46,11 @@ A ideia principal da renderização com base fisicamente é usar as propriedades
 
 * **baseColor:** Em materiais de PBR, a *cor albedo* é conhecida como a *cor base*. Na renderização remota do Azure, a propriedade de *cor albedo* já está presente nas propriedades de material comuns, portanto, não há nenhuma propriedade de cor de base adicional.
 
-* **áspero** e **roughnessMap:** a irlisação define quão aproximado ou suave a superfície é. As superfícies aproximadas dispersão da luz em mais direções do que as superfícies suaves, o que torna os reflexos desfocados em vez de nítido. O intervalo de valores é `0.0` de `1.0`a. Quando `roughness` for `0.0`igual a, os reflexos serão nítidos. Quando `roughness` for `0.5`igual a, os reflexos ficarão desfocados.
+* **áspero** e **roughnessMap:** a irlisação define quão aproximado ou suave a superfície é. As superfícies aproximadas dispersão da luz em mais direções do que as superfícies suaves, o que torna os reflexos desfocados em vez de nítido. O intervalo de valores é de `0.0` a `1.0` . Quando `roughness` for igual a `0.0` , os reflexos serão nítidos. Quando `roughness` for igual a `0.5` , os reflexos ficarão desfocados.
 
   Se um valor de áspero e um mapa de esboço forem fornecidos, o valor final será o produto dos dois.
 
-* **metal** e **metalnessMap:** na física, essa propriedade corresponde a se uma superfície é conduzida ou interelétrica. Os materiais de condução têm diferentes propriedades reflexivas e tendem a ser refletidas sem nenhuma cor albedo. Em materiais de PBR, essa propriedade afeta o quanto uma superfície reflete o ambiente ao redor. Os valores variam `0.0` de `1.0`a. Quando a metal é `0.0`, a cor do albedo é totalmente visível e o material parece plástico ou Ceramics. Quando a metal é `0.5`, parece metal pintado. Quando a metal é `1.0`, a superfície perde quase completamente sua cor albedo e reflete apenas os arredores. Por exemplo, se `metalness` for `1.0` e `roughness` for `0.0` , uma superfície será como um espelho do mundo real.
+* **metal** e **metalnessMap:** na física, essa propriedade corresponde a se uma superfície é conduzida ou interelétrica. Os materiais de condução têm diferentes propriedades reflexivas e tendem a ser refletidas sem nenhuma cor albedo. Em materiais de PBR, essa propriedade afeta o quanto uma superfície reflete o ambiente ao redor. Os valores variam de `0.0` a `1.0` . Quando a metal é `0.0` , a cor do albedo é totalmente visível e o material parece plástico ou Ceramics. Quando a metal é `0.5` , parece metal pintado. Quando a metal é `1.0` , a superfície perde quase completamente sua cor albedo e reflete apenas os arredores. Por exemplo, se `metalness` for `1.0` e `roughness` for `0.0` , uma superfície será como um espelho do mundo real.
 
   Se um valor de metal e um mapa de metal forem fornecidos, o valor final será o produto dos dois.
 
@@ -61,7 +60,7 @@ A ideia principal da renderização com base fisicamente é usar as propriedades
 
 * **normalMap:** Para simular detalhes refinados, um [mapa normal](https://en.wikipedia.org/wiki/Normal_mapping) pode ser fornecido.
 
-* **occlusionMap** e **aoScale:** [ambiente oclusão](https://en.wikipedia.org/wiki/Ambient_occlusion) faz com que os objetos com crevices pareçam mais realistas adicionando sombras a obstruído áreas. Oclusão valor intervalo de `0.0` a `1.0`, onde `0.0` significa a escuridão (obstruído) `1.0` e significa que não há occlusions. Se uma textura 2D for fornecida como um mapa oclusão, o efeito será habilitado e *aoScale* agirá como um multiplicador.
+* **occlusionMap** e **aoScale:** [ambiente oclusão](https://en.wikipedia.org/wiki/Ambient_occlusion) faz com que os objetos com crevices pareçam mais realistas adicionando sombras a obstruído áreas. Oclusão valor intervalo de `0.0` a `1.0` , onde `0.0` significa a escuridão (obstruído) e `1.0` significa que não há occlusions. Se uma textura 2D for fornecida como um mapa oclusão, o efeito será habilitado e *aoScale* agirá como um multiplicador.
 
   ![Mapa oclusão](./media/boom-box-ao2.gif)
 
@@ -69,7 +68,7 @@ A ideia principal da renderização com base fisicamente é usar as propriedades
 
   A geometria transparente é cara para renderizar. Se você precisar apenas de buracos em uma superfície, por exemplo, para as folhas de uma árvore, será melhor usar o recorte alfa em vez disso.
 
-  ![Aviso](./media/transparency.png) de transparência na imagem acima, como a esfera mais à direita é totalmente transparente, mas a reflexão ainda está visível.
+  ![Aviso de transparência ](./media/transparency.png) na imagem acima, como a esfera mais à direita é totalmente transparente, mas a reflexão ainda está visível.
 
   > [!IMPORTANT]
   > Se algum material deve ser alternado de opaco para transparente no tempo de execução, o renderizador deve usar o [modo de renderização](../../concepts/rendering-modes.md) *TileBasedComposition* . Essa limitação não se aplica aos materiais convertidos como materiais transparentes para começar.

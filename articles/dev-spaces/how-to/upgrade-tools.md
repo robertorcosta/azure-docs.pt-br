@@ -7,7 +7,6 @@ description: Saiba como atualizar as ferramentas de linha de comando do Azure De
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Contêiner do Azure, contêineres
 ms.openlocfilehash: 1dad455b834bbef046b295b2cba040831a74f757
 ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/27/2020
 ms.locfileid: "83873476"

@@ -5,12 +5,11 @@ description: Aprenda as práticas recomendadas do operador de cluster sobre como
 services: container-service
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.openlocfilehash: 0e3569be769fcf70a65cbfee62a3b80a5abdc3b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e02b542f74a2dd7b7e88f1fa075ad6a736895e76
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80668308"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84020040"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para autenticação e autorização no Azure Kubernetes Service (AKS)
 
@@ -19,6 +18,7 @@ ms.locfileid: "80668308"
 Este artigo de práticas recomendadas se concentra em como um operador de cluster pode gerenciar o acesso e a identidade dos clusters do AKS. Neste artigo, você aprenderá como:
 
 > [!div class="checklist"]
+>
 > * Autenticar usuários de cluster do AKS com o Azure Active Directory Domain Services
 > * Controlar o acesso a recursos com controles de acesso baseados em função (RBAC)
 > * Use uma identidade gerenciada para se autenticar com outros serviços
@@ -62,7 +62,7 @@ rules:
   verbs: ["*"]
 ```
 
-Em seguida, é criada uma função que associa o usuário do Azure *ad\@Developer1 contoso.com* ao rolebinding, conforme mostrado no seguinte manifesto YAML:
+Em seguida, é criada uma função que associa o usuário do Azure AD *developer1 \@ contoso.com* ao rolebinding, conforme mostrado no seguinte manifesto YAML:
 
 ```yaml
 kind: RoleBinding
@@ -80,7 +80,7 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
 ```
 
-Quando *developer1\@contoso.com* é autenticado no cluster AKs, ele tem permissões completas para recursos no namespace *Finance-app* . Dessa forma, você separa e controla logicamente o acesso aos recursos. O Kubernetes RBAC deve ser usado em conjunto com a integração do Microsoft Azure Active Directory, conforme discutido na seção anterior.
+Quando *developer1 \@ contoso.com* é autenticado no cluster AKs, ele tem permissões completas para recursos no namespace *Finance-app* . Dessa forma, você separa e controla logicamente o acesso aos recursos. O Kubernetes RBAC deve ser usado em conjunto com a integração do Microsoft Azure Active Directory, conforme discutido na seção anterior.
 
 Para saber como usar os grupos do Azure AD para controlar o acesso aos recursos do kubernetes usando o RBAC, consulte [controlar o acesso a recursos de cluster usando controles de acesso baseado em função e identidades de Azure Active Directory no AKs][azure-ad-rbac].
 
@@ -97,14 +97,14 @@ Identidades gerenciadas para recursos do Azure (atualmente implementados como um
 
 Quando pods solicitam acesso a um serviço do Azure, as regras de rede redirecionam o tráfego para o servidor NMI (Node Management Identity). O servidor NMI identifica pods que solicitam acesso aos serviços do Azure com base em seu endereço remoto e consulta o Controlador de identidade gerenciada (MIC). O MIC verifica os mapeamentos de identidade do Azure no cluster do AKS e o servidor NMI solicita um token de acesso do Azure Active Directory Domain Services (AD) com base no mapeamento de identidade do grupo. O Microsoft Azure Active Directory fornece acesso ao servidor NMI, que é retornado ao pod. Esse token de acesso pode ser usado pelo pod para solicitar acesso aos serviços no Azure.
 
-No exemplo a seguir, um desenvolvedor cria um pod que usa uma identidade gerenciada para solicitar acesso a uma instância do Azure SQL Server:
+No exemplo a seguir, um desenvolvedor cria um pod que usa uma identidade gerenciada para solicitar acesso ao banco de dados SQL do Azure:
 
 ![As identidades do pod permitem que um pod solicite automaticamente o acesso a outros serviços](media/operator-best-practices-identity/pod-identities.png)
 
 1. O operador de cluster primeiro cria uma conta de serviço que pode ser usada para mapear identidades quando os pods solicitam acesso aos serviços.
 1. O servidor NMI e o MIC são implantados para retransmitir quaisquer solicitações de pod de tokens de acesso ao Microsoft Azure Active Directory.
 1. Um desenvolvedor implanta um pod com uma identidade gerenciada que solicita um token de acesso por meio do servidor NMI.
-1. O token é retornado ao pod e usado para acessar uma instância do Azure SQL Server.
+1. O token é retornado para o pod e usado para acessar o banco de dados SQL do Azure
 
 > [!NOTE]
 > As identidades de Pod gerenciadas são um projeto de software livre e não tem suporte do suporte técnico do Azure.
