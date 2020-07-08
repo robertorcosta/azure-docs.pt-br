@@ -5,14 +5,13 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 05/18/2020
+ms.date: 06/08/2020
 ms.author: victorh
-ms.openlocfilehash: d1ec04a0c16feb6d404018ff9538b9572e1d71c2
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: cf896f6783cca0a61892c43860328d87ada56a9c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649617"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791479"
 ---
 # <a name="azure-firewall-faq"></a>Perguntas frequentes do Firewall do Azure
 
@@ -176,7 +175,7 @@ A capacidade inicial da taxa de transferência do Firewall do Azure é de 2,5 a 
 
 ## <a name="how-long-does-it-take-for-azure-firewall-to-scale-out"></a>Quanto tempo leva para o Firewall do Azure escalar horizontalmente?
 
-A escala do Firewall do Azure aumenta gradualmente quando a taxa de transferência média ou o consumo de CPU está em 60%. O aumento de escala horizontal leva de cinco a sete minutos. Ao fazer o teste de desempenho, faça-o por no mínimo 10 a 15 minutos e inicie novas conexões para aproveitar os nós do Firewall recém-criados.
+A escala do Firewall do Azure aumenta gradualmente quando a taxa de transferência média ou o consumo de CPU está em 60%. O aumento de escala horizontal leva de cinco a sete minutos. Ao testar o desempenho, certifique-se de testar por pelo menos 10 a 15 minutos e inicie novas conexões para aproveitar os nós de firewall recém-criados.
 
 ## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>O Firewall do Azure permite acesso ao Active Directory por padrão?
 
@@ -211,3 +210,11 @@ Um ping de TCP não está realmente se conectando ao FQDN de destino. Isso acont
 ## <a name="are-there-limits-for-the-number-of-ip-addresses-supported-by-ip-groups"></a>Há limites para o número de endereços IP aceitos nos grupos de IPs?
 
 Sim. Para saber mais, confira [Assinatura e limites de serviço, cotas e restrições do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits)
+
+## <a name="can-i-move-an-ip-group-to-another-resource-group"></a>Posso mover um grupo de IPS para outro grupo de recursos?
+
+Não, não há suporte para a movimentação de um grupo de IPS para outro grupo de recursos no momento.
+
+## <a name="what-is-the-tcp-idle-timeout-for-azure-firewall"></a>Qual é o tempo limite de ociosidade de TCP para o Firewall do Azure?
+
+Um comportamento padrão de um firewall de rede é garantir que as conexões TCP sejam mantidas ativas e fechá-las imediatamente se não houver atividade. O tempo limite de ociosidade de TCP do firewall do Azure é de quatro minutos. Essa configuração não é configurável. Se um período de inatividade for maior do que o valor de tempo limite, não haverá garantia de que a sessão TCP ou HTTP seja mantida. Uma prática comum é usar um TCP keep alive. Essa prática mantém a conexão ativa por um período maior. Para obter mais informações, consulte os [exemplos do .net](https://docs.microsoft.com/dotnet/api/system.net.servicepoint.settcpkeepalive?redirectedfrom=MSDN&view=netcore-3.1#System_Net_ServicePoint_SetTcpKeepAlive_System_Boolean_System_Int32_System_Int32_).

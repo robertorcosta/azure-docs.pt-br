@@ -4,19 +4,18 @@ description: Saiba como você pode entender o impacto de suas políticas de aces
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
-ms.date: 02/25/2020
+ms.topic: conceptual
+ms.date: 06/22/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc87b434664ba12cefeb233972e749f631d8a2b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 30d9ca806a7ddaf7d6ba657d8224d312a6aae33b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77620678"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253130"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Solucionar problemas usando a ferramenta de What If no acesso condicional
 
@@ -30,7 +29,7 @@ A **ferramenta de política de What If de acesso condicional** permite que você
 
 A ferramenta de **What If** fornece uma maneira de determinar rapidamente as políticas que se aplicam a um usuário específico. Você pode usar as informações, por exemplo, se você precisar solucionar um problema.    
 
-## <a name="how-it-works"></a>Como ele funciona
+## <a name="how-it-works"></a>Como funciona
 
 Na **ferramenta de What If de acesso condicional**, primeiro você precisa definir as configurações do cenário de entrada que deseja simular. Essas configurações incluem:
 
@@ -40,7 +39,7 @@ Na **ferramenta de What If de acesso condicional**, primeiro você precisa defin
      
 Como uma próxima etapa, você pode iniciar uma simulação que avalia suas configurações. Somente as políticas que estão habilitadas fazem parte de uma execução de avaliação.
 
-Terminada a avaliação, a ferramenta gera um relatório das políticas afetadas.
+Terminada a avaliação, a ferramenta gera um relatório das políticas afetadas. Para coletar mais informações sobre uma política de acesso condicional, a [pasta de trabalho informações de acesso condicional e relatórios](howto-conditional-access-insights-reporting.md) pode fornecer detalhes adicionais sobre as políticas no modo somente de relatório e as políticas atualmente habilitadas.
 
 ## <a name="running-the-tool"></a>A execução da ferramenta
 
@@ -104,6 +103,5 @@ Na lista de políticas que não se aplicam ao usuário, você pode também encon
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Se você quiser saber como configurar uma política de acesso condicional, consulte [exigir MFA para aplicativos específicos com Azure Active Directory acesso condicional](app-based-mfa.md).
-- Se você estiver pronto para configurar políticas de acesso condicional para seu ambiente, consulte as [práticas recomendadas para acesso condicional no Azure Active Directory](best-practices.md). 
-- Se você desejar migrar políticas clássicas, consulte [Migrar políticas clássicas no portal do Azure](policy-migration.md)  
+- Mais informações sobre o aplicativo de política de acesso condicional podem ser encontradas usando o modo somente relatório de políticas usando [informações e relatórios de acesso condicional](howto-conditional-access-insights-reporting.md).
+- Se você estiver pronto para configurar políticas de acesso condicional para seu ambiente, consulte as [políticas comuns de acesso condicional](concept-conditional-access-policy-common.md). 

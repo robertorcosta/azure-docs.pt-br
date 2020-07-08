@@ -4,19 +4,18 @@ description: Configurações de gerenciamento para Enterprise State Roaming
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: troubleshooting
+ms.topic: reference
 ms.date: 02/12/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdffbc3a140bd13dcd6d352db8c192803d39b03e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ab24b3113f9dc69b8f3907037e228ba212a03106
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78672360"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85252926"
 ---
 # <a name="group-policy-and-mdm-settings"></a>Configurações de Política de Grupo e do MDM
 
@@ -32,7 +31,7 @@ As tabelas a seguir descrevem as configurações de política disponíveis.
 
 As configurações da  política de MDM se aplicam ao Windows 10 e ao Windows 10 Mobile.  Há suporte do Windows Mobile 10 somente para roaming baseado em conta da Microsoft por meio da conta do OneDrive do usuário. Consulte [dispositivos e pontos de extremidade](enterprise-state-roaming-windows-settings-reference.md) para obter detalhes sobre quais dispositivos têm suporte para a sincronização baseada no Azure AD.
 
-| Name | Descrição |
+| Nome | Descrição |
 | --- | --- |
 | Permitir Conexão da Conta da Microsoft |Permite que os usuários se autentiquem usando uma conta da Microsoft no dispositivo |
 | Permitir Sincronizar Configurações |Permite aos usuários mover dados de aplicativo e configurações do Windows. Desabilitar esta política desabilitará a sincronização, bem como backups em dispositivos móveis |
@@ -43,7 +42,7 @@ As configurações de Política de Grupo se aplicam a dispositivos Windows 10 in
 
 Essas configurações estão localizadas em: `Computer Configuration > Administrative Templates > Windows Components > Sync your settings` 
 
-| Name | Descrição |
+| Nome | Descrição |
 | --- | --- |
 | Contas: Bloquear Contas da Microsoft |Essa configuração de política impede que os usuários adicionem novas contas da Microsoft a este computador |
 | Não sincronizar |Impede que os usuários movam dados de aplicativo e configurações do Windows |

@@ -11,12 +11,11 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 838e523f74a21c44958ddb6dc88e4dab3526d81a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 405beb5cb8c2e74951aa54ba371be04d290ad3a2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80064989"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84194483"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Notas de versão para o Gateway de Gerenciamento de Dados
 > [!NOTE]
@@ -49,8 +48,8 @@ Não mantemos mais as Notas de versão aqui. Obtenha as notas de versão mais re
 -   Adicione as entradas DNS à lista de permissões do Barramento de Serviço, em vez de colocar na lista de permissões todos os endereços IP do Azure do firewall (se necessário). Mais detalhes aqui.
 -   Agora você pode copiar dados de/para um único blob de blocos de até 4,75 TB, que é o tamanho máximo com suporte no blob de blocos. (o limite anterior era de 195 GB).
 -   Correção: problema de memória insuficiente ao descompactar vários arquivos pequenos durante a atividade de cópia.
--   Correção: problema de índice fora do intervalo durante a cópia do DocumentDB para o SQL Server local com o recurso de idempotência.
--   Correção: o script de limpeza do SQL não funcionava no SQL Server local no Assistente de Cópia.
+-   Corrigido: problema de índice fora do intervalo ao copiar do BD de documento para SQL Server com o recurso Idempotência.
+-   Corrigido: o script de limpeza do SQL não funciona com SQL Server do assistente de cópia.
 -   Correção: um nome de coluna com espaço no final não funcionava na atividade de cópia.
 
 ## <a name="28662833"></a>2.8.66283.3
@@ -111,7 +110,7 @@ Não mantemos mais as Notas de versão aqui. Obtenha as notas de versão mais re
 *  O driver DB2 agora oferece suporte ao z/OS e DB2 para i (AS/400) junto com as plataformas já suportadas (Linux, Unix e Windows).
 *  Dá suporte ao uso do Azure Cosmos DB como uma origem ou um destino para armazenamentos de dados locais
 *  Dá suporte à cópia dos dados de/para o armazenamento de blobs quente/frio junto com a conta de armazenamento de uso geral já com suporte.
-*  Permite que você conecte o SQL Server local por meio do gateway com privilégios de logon remoto.  
+*  Permite que você se conecte a SQL Server por meio de gateway com privilégios de logon remoto.  
 
 ## <a name="2060131"></a>2.0.6013.1
 
@@ -126,9 +125,9 @@ Não mantemos mais as Notas de versão aqui. Obtenha as notas de versão mais re
     *  Controles reorganizados e simplificados.
 
     *  Você pode copiar dados de um armazenamento usando a [ferramenta de cópia sem código](data-factory-copy-data-wizard-tutorial.md). Confira [Cópia em Etapas](data-factory-copy-activity-performance.md#staged-copy) para obter detalhes gerais sobre esse recurso.
-*  Você pode aproveitar o Gateway de Gerenciamento de Dados para inserir dados diretamente de um banco de dados SQL Server local no Azure Machine Learning.
+*  Você pode usar Gerenciamento de Dados gateway para entrada de dados diretamente de um banco de SQL Server no Azure Machine Learning.
 
-*  Melhorias de desempenho
+*  Aprimoramentos de desempenho
 
     * Melhore o desempenho de exibição de Esquema/Visualização no SQL Server na ferramenta de cópia sem código.
 
@@ -144,7 +143,7 @@ Não mantemos mais as Notas de versão aqui. Obtenha as notas de versão mais re
 
 *  Em caso de falha da atualização automática, o instalador do gateway recupera a atualização automática três vezes no máximo.
 
-*  Melhorias de desempenho
+*  Aprimoramentos de desempenho
 
     * Melhora no desempenho do carregamento de grandes tabelas de servidor local no cenário de cópia sem código.
 
@@ -152,7 +151,7 @@ Não mantemos mais as Notas de versão aqui. Obtenha as notas de versão mais re
 
 ## <a name="11058921"></a>1.10.5892.1
 
-*  Melhorias de desempenho
+*  Aprimoramentos de desempenho
 
 *  Correções de bug
 
@@ -164,34 +163,34 @@ Não mantemos mais as Notas de versão aqui. Obtenha as notas de versão mais re
 *  Capacidade de definir o horário da agenda de atualização
 *  Script do PowerShell para ativar/desativar a atualização automática
 *  Suporte para o formato JSON  
-*  Melhorias de desempenho
+*  Aprimoramentos de desempenho
 *  Correções de bug
 
 ## <a name="1858221"></a>1.8.5822.1
 
 *  Melhorar a experiência de solução de problemas
-*  Melhorias de desempenho
+*  Aprimoramentos de desempenho
 *  Correções de bug
 
 ### <a name="1757951"></a>1.7.5795.1
 
-*  Melhorias de desempenho
+*  Aprimoramentos de desempenho
 *  Correções de bug
 
 ### <a name="1757641"></a>1.7.5764.1
 
-*  Melhorias de desempenho
+*  Aprimoramentos de desempenho
 *  Correções de bug
 
 ### <a name="1657351"></a>1.6.5735.1
 
 *  Suporte à fonte/coletor do HDFS local
-*  Melhorias de desempenho
+*  Aprimoramentos de desempenho
 *  Correções de bug
 
 ### <a name="1656961"></a>1.6.5696.1
 
-*  Melhorias de desempenho
+*  Aprimoramentos de desempenho
 *  Correções de bug
 
 ### <a name="1656761"></a>1.6.5676.1
@@ -208,7 +207,7 @@ Não mantemos mais as Notas de versão aqui. Obtenha as notas de versão mais re
 ### <a name="1656721"></a>1.6.5672.1
 
 *  Suporte a nome de tabela para  fonte de dados ODBC para o Azure Data Factory
-*  Melhorias de desempenho
+*  Aprimoramentos de desempenho
 *  Correções de bug
 
 ### <a name="1656581"></a>1.6.5658.1
@@ -229,13 +228,13 @@ Não mantemos mais as Notas de versão aqui. Obtenha as notas de versão mais re
 
 *  Suporte a cinco bancos de dados relacionais do Azure Data Factory (MySQL, PostgreSQL, DB2, Teradata e Sybase)
 *  Suporte à compactação (Gzip e Deflate)
-*  Melhorias de desempenho
+*  Aprimoramentos de desempenho
 *  Correções de bug
 
 ### <a name="1455491"></a>1.4.5549.1
 
 *  Adicionar suporte a fonte de dados Oracle para o Azure Data Factory
-*  Melhorias de desempenho
+*  Aprimoramentos de desempenho
 *  Correções de bug
 
 ### <a name="1454921"></a>1.4.5492.1

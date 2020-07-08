@@ -8,18 +8,17 @@ manager: mtillman
 ms.assetid: ''
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: cacdeee4512c512b058be96c4fe3a829c2933f06
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: MT
+ms.openlocfilehash: 298ec15700537f2368ef33ead267e85f5f22bfd7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734851"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791785"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administradores da assinatura clássica do Azure
 
@@ -38,13 +37,13 @@ Este artigo descreve como adicionar ou alterar as funções Administrador de Ser
 
     Coadministradores somente podem ser atribuídos no escopo da assinatura.
 
-1. Clique em **controle de acesso (iam)**.
+1. Clique em **Controle de acesso (IAM)** .
 
 1. Clique na guia **Administradores clássicos**.
 
     ![Captura de tela que abre Administradores clássicos](./media/classic-administrators/classic-administrators.png)
 
-1. Clique em **Adicionar** > **Adicionar coadministrador** para abrir o painel Adicionar co-administradores.
+1. Clique em **Adicionar**  >  **Adicionar coadministrador** para abrir o painel Adicionar co-administradores.
 
     Se a opção Adicionar coadministrador estiver desabilitada, você não terá permissões.
 
@@ -83,7 +82,7 @@ Para obter informações que comparam usuários Membros e usuários convidados, 
 
 1. Abra [Assinaturas](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e selecione a assinatura.
 
-1. Clique em **controle de acesso (iam)**.
+1. Clique em **Controle de acesso (IAM)** .
 
 1. Clique na guia **Administradores clássicos**.
 
@@ -126,9 +125,9 @@ Só pode haver um administrador de serviços por assinatura do Azure. A alteraç
 | Conta de administrador da conta | Pode alterar o administrador de serviços para um conta Microsoft diferente? | Pode alterar o administrador de serviço para uma conta do Azure AD no mesmo diretório? | Pode alterar o administrador de serviço para uma conta do Azure AD em um diretório diferente? |
 | --- | --- | --- | --- |
 | Conta da Microsoft | Sim | Não | Não |
-| Conta do Azure AD | Sim | Sim | Não |
+| Conta do AD do Azure | Sim | Sim | Não |
 
-Se o administrador da conta for uma conta do Azure AD, você poderá alterar o administrador do serviço para uma conta do Azure AD no mesmo diretório, mas não em um diretório diferente. Por exemplo, abby@contoso.com o pode alterar o administrador de bob@contoso.comserviços para o, mas não pode alterar john@notcontoso.com o john@notcontoso.com administrador de serviços para, a menos que tenha uma presença no diretório contoso.com
+Se o administrador da conta for uma conta do Azure AD, você poderá alterar o administrador do serviço para uma conta do Azure AD no mesmo diretório, mas não em um diretório diferente. Por exemplo, abby@contoso.com o pode alterar o administrador de serviços para o bob@contoso.com , mas não pode alterar o administrador de serviços para, john@notcontoso.com a menos que john@notcontoso.com tenha uma presença no diretório contoso.com
 
 Para obter mais informações sobre contas da Microsoft e contas do Azure AD, consulte [o que é Azure Active Directory?](../active-directory/fundamentals/active-directory-whatis.md).
 

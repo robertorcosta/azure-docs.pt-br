@@ -1,15 +1,14 @@
 ---
 author: rothja
-ms.service: cost-management-billing
+ms.service: azure-resource-manager
 ms.topic: include
 ms.date: 2/14/2020
 ms.author: rohink
-ms.openlocfilehash: 3fbbb9d491eef202309c9e64f9a5a839a5d4516d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 434b79a2b178defd9543e1d3ad087bb5282cb287
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80335067"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85805490"
 ---
 **Zonas DNS públicas**
 
@@ -29,6 +28,6 @@ ms.locfileid: "80335067"
 | Número de consultas DNS que uma máquina virtual pode enviar para o resolvedor de DNS do Azure, por segundo |500 <sup>2</sup> |
 | Número máximo de consultas DNS enfileiradas (resposta pendente) por máquina virtual |200 <sup>2</sup> |
 
-<sup>1</sup> Se você precisar aumentar esses limites, entre em contato com o suporte do Azure.
+<sup>1</sup>Se precisar aumentar esses limites, entre em contato com o Suporte do Azure.
 
 <sup>2</sup> Esses limites são aplicados a todas as máquinas virtuais individuais e não no nível de rede virtual. As consultas DNS que excedem esses limites são descartadas.

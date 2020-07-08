@@ -2,24 +2,20 @@
 title: Conformidade usando o Azure Policy
 description: Atribuir políticas internas no Azure Policy para auditar a conformidade de seus registros de contêiner do Azure
 ms.topic: article
-ms.date: 02/26/2020
-ms.openlocfilehash: a2bfdc18f4bbf16fe8fa6bcbcba7bab18aedabf1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/11/2020
+ms.openlocfilehash: 6101db865749f98f50e04f1fec3b8009089b7908
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82144986"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791887"
 ---
 # <a name="audit-compliance-of-azure-container-registries-using-azure-policy"></a>Auditar a conformidade de registros de contêiner do Azure usando o Azure Policy
 
 [Azure Policy](../governance/policy/overview.md) é um serviço no Azure que você usa para criar, atribuir e gerenciar políticas. Essas políticas impõem diferentes regras e efeitos sobre os recursos para que esses recursos permaneçam em conformidade com seus padrões corporativos e contratos de nível de serviço.
 
-Este artigo apresenta políticas internas (visualização) para o registro de contêiner do Azure. Use essas políticas para auditar registros novos e existentes para fins de conformidade.
+Este artigo apresenta políticas internas para o registro de contêiner do Azure. Use essas políticas para auditar registros novos e existentes para fins de conformidade.
 
 Não há encargos para usar Azure Policy.
-
-> [!IMPORTANT]
-> Esse recurso está atualmente na visualização. As versões prévias são disponibilizadas com a condição de que você concorde com os [termos de uso complementares][terms-of-use]. Alguns aspectos desse recurso podem alterar antes da GA (disponibilidade geral).
 
 ## <a name="built-in-policy-definitions"></a>Definições de política internas
 
@@ -27,7 +23,7 @@ As definições de política internas a seguir são específicas do registro de 
 
 [!INCLUDE [azure-policy-samples-policies-container-registry](../../includes/policy/samples/bycat/policies-container-registry.md)]
 
-Consulte também a definição de política de rede interna: [[Preview] o registro de contêiner deve usar um ponto de extremidade de serviço de rede virtual](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4857be7-912a-4c75-87e6-e30292bcdf78).
+Consulte também a definição de política de rede interna: o [registro de contêiner deve usar um ponto de extremidade de serviço de rede virtual](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4857be7-912a-4c75-87e6-e30292bcdf78).
 
 ## <a name="assign-policies"></a>Atribuir políticas
 
@@ -48,7 +44,10 @@ Quando um recurso não está em conformidade, há muitos motivos possíveis. Par
 
 1. Selecione **todos os serviços**e procure **política**.
 1. Selecione **conformidade**.
-1. Use os filtros para limitar os Estados de conformidade ou para procurar ![políticas conformidade de política](./media/container-registry-azure-policy/azure-policy-compliance.png)no Portal.
+1. Use os filtros para limitar os Estados de conformidade ou para pesquisar políticas.
+
+    ![Conformidade de política no portal](./media/container-registry-azure-policy/azure-policy-compliance.png)
+    
 1. Selecione uma política para examinar os detalhes de conformidade agregada e eventos. Se desejar, selecione um registro específico para conformidade de recursos.
 
 ### <a name="policy-compliance-in-the-azure-cli"></a>Conformidade de política no CLI do Azure
@@ -64,8 +63,8 @@ Saída de exemplo:
 ```
 Name                                                                                   ID
 -------------------------------------------------------------------------------------  --------------------------------------------------------------------------------------------------------------------------------
-[Preview]: Container Registries should not allow unrestricted network access           /subscriptions/<subscriptionID>/providers/Microsoft.Authorization/policyAssignments/b4faf132dc344b84ba68a441
-[Preview]: Container Registries should be encrypted with a Customer-Managed Key (CMK)  /subscriptions/<subscriptionID>/providers/Microsoft.Authorization/policyAssignments/cce1ed4f38a147ad994ab60a
+Container Registries should not allow unrestricted network access           /subscriptions/<subscriptionID>/providers/Microsoft.Authorization/policyAssignments/b4faf132dc344b84ba68a441
+Container Registries should be encrypted with a Customer-Managed Key (CMK)  /subscriptions/<subscriptionID>/providers/Microsoft.Authorization/policyAssignments/cce1ed4f38a147ad994ab60a
 ```
 
 Em seguida, execute a [lista de estado de política AZ](/cli/azure/policy/state#az-policy-state-list) para retornar o estado de conformidade formatado em JSON para todos os recursos em uma ID de política específica:
@@ -87,12 +86,8 @@ az policy state list \
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre [definições](../governance/policy/concepts/definition-structure.md) e [efeitos](../governance/policy/concepts/effects.md) de Azure Policy
+* Saiba mais sobre [definições](../governance/policy/concepts/definition-structure.md) e [efeitos](../governance/policy/concepts/effects.md)de Azure Policy.
 
-* Criar uma [definição de política personalizada](../governance/policy/tutorials/create-custom-policy-definition.md)
+* Crie uma [definição de política personalizada](../governance/policy/tutorials/create-custom-policy-definition.md).
 
-* Saiba mais sobre os [recursos de governança](../governance/index.yml) no Azure
-
-
-<!-- LINKS - External -->
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+* Saiba mais sobre os [recursos de governança](../governance/index.yml) no Azure.

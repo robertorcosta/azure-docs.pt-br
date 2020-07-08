@@ -7,19 +7,18 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36c7bb426a329a54f333b76e028b884204543014
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
-ms.translationtype: MT
+ms.openlocfilehash: 0cd2de0929b22dda6e566316c4eda966d8d62e24
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582985"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84732643"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Controlar um diretório não gerenciado como administrador no Azure Active Directory
 
@@ -28,9 +27,9 @@ Este artigo descreve duas maneiras de controlar um nome de domínio DNS em um di
 ## <a name="decide-how-you-want-to-take-over-an-unmanaged-directory"></a>Decida como você deseja controlar um diretório não gerenciado
 Durante o processo de controle do administrador, você pode comprovar a propriedade conforme descrito em [Adicionar um nome de domínio personalizado para o Azure AD](../fundamentals/add-custom-domain.md). As próximas seções explicam a experiência de administração mais detalhadamente, mas aqui está um resumo:
 
-* Ao realizar um [controle do administrador “interno”](#internal-admin-takeover) de um diretório não gerenciado do Azure, você é adicionado como o administrador global do diretório não gerenciado. Usuários, domínios ou planos de serviço não são migrados para outros diretórios que você administra.
+* Ao executar um [tomada de administrador "interno"](#internal-admin-takeover) de um diretório não gerenciado do Azure, você será adicionado como o administrador global do diretório não gerenciado. Nenhum usuário, domínio ou plano de serviço é migrado para qualquer outro diretório que você administra.
 
-* Ao realizar um [controle do administrador “externo”](#external-admin-takeover) de um diretório não gerenciado do Azure, você adiciona o nome de domínio DNS do diretório não gerenciado ao seu diretório do Azure gerenciado. Ao adicionar o nome de domínio, um mapeamento dos usuários para os recursos é criado no diretório gerenciado do Azure, assim os usuários podem continuar a acessar os serviços sem interrupção. 
+* Ao executar um [tomada de administrador "externo"](#external-admin-takeover) de um diretório não gerenciado do Azure, você adiciona o nome de domínio DNS do diretório não gerenciado ao seu diretório gerenciado do Azure. Ao adicionar o nome de domínio, um mapeamento dos usuários para os recursos é criado no diretório gerenciado do Azure, assim os usuários podem continuar a acessar os serviços sem interrupção. 
 
 ## <a name="internal-admin-takeover"></a>Controle de administrador interno
 
@@ -57,13 +56,13 @@ Ao concluir as etapas anteriores, agora você é o administrador global da Fourt
 ### <a name="adding-the-domain-name-to-a-managed-organization-in-azure-ad"></a>Adicionando o nome de domínio a uma organização gerenciada no Azure AD
 
 1. Abra o [centro de administração do Microsoft 365](https://admin.microsoft.com).
-2. Selecione a guia **usuários** e crie uma nova conta de usuário com um nome como o *usuário\@fourthcoffeexyz.onmicrosoft.com* que não usa o nome de domínio personalizado. 
+2. Selecione a guia **usuários** e crie uma nova conta de usuário com um nome como o *usuário \@ fourthcoffeexyz.onmicrosoft.com* que não usa o nome de domínio personalizado. 
 3. Verifique se a nova conta de usuário tem privilégios de administrador global para a organização do Azure AD.
 4. Abra a guia **domínios** no centro de administração Microsoft 365, selecione o nome de domínio e selecione **remover**. 
   
    ![remover o nome de domínio do Office 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
   
-5. Se você tiver usuários ou grupos no Office 365 que fazem referência ao nome de domínio removido, eles deverão ser renomeados para o domínio .onmicrosoft.com. Se você forçar a exclusão do nome de domínio, todos os usuários serão automaticamente renomeados, neste exemplo, para o *usuário\@fourthcoffeexyz.onmicrosoft.com*.
+5. Se você tiver usuários ou grupos no Office 365 que fazem referência ao nome de domínio removido, eles deverão ser renomeados para o domínio .onmicrosoft.com. Se você forçar a exclusão do nome de domínio, todos os usuários serão automaticamente renomeados, neste exemplo, para o *usuário \@ fourthcoffeexyz.onmicrosoft.com*.
   
 6. Entre no centro de [Administração do Azure ad](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) com uma conta que seja o administrador global da organização do Azure AD.
   
@@ -72,7 +71,7 @@ Ao concluir as etapas anteriores, agora você é o administrador global da Fourt
    ![domínio verificado como adicionado ao Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
-> Qualquer usuário do Power BI ou serviço de Rights Management do Azure que tenha licenças atribuídas na organização do Office 365 deverá salvar seus painéis se o nome de domínio for removido. Eles devem entrar com um nome de usuário como *o\@usuário fourthcoffeexyz.onmicrosoft.com* , em vez de *usuário\@fourthcoffee. xyz*.
+> Qualquer usuário do Power BI ou serviço de Rights Management do Azure que tenha licenças atribuídas na organização do Office 365 deverá salvar seus painéis se o nome de domínio for removido. Eles devem entrar com um nome de usuário como o *usuário \@ fourthcoffeexyz.onmicrosoft.com* , em vez de *usuário \@ fourthcoffee. xyz*.
 
 ## <a name="external-admin-takeover"></a>Controle do administrador externo
 
@@ -144,12 +143,12 @@ cmdlet | Uso
    ```powershell
    Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
    ```
-    Por exemplo: 
+    Por exemplo:
    ```
    Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
    ```
 
-4. Copie o valor (o desafio) que é retornado deste comando. Por exemplo: 
+4. Copie o valor (o desafio) que é retornado deste comando. Por exemplo:
    ```powershell
    MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
    ```
@@ -160,7 +159,7 @@ cmdlet | Uso
    Confirm-MsolDomain –DomainName *your_domain_name* –ForceTakeover Force
    ```
   
-   Por exemplo: 
+   Por exemplo:
   
    ```powershell
    Confirm-MsolDomain –DomainName contoso.com –ForceTakeover Force
@@ -171,8 +170,8 @@ Um desafio bem-sucedido fará com que você retorne ao prompt sem erros.
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Adicionar um nome de domínio personalizado ao Azure AD](../fundamentals/add-custom-domain.md)
-* [Como instalar e configurar Azure PowerShell](/powershell/azure/overview)
-* [PowerShell do Azure](/powershell/azure/overview)
+* [Como instalar e configurar o PowerShell do Azure](/powershell/azure/overview)
+* [Azure PowerShell](/powershell/azure/overview)
 * [Referência de Cmdlets do Azure](/powershell/azure/get-started-azureps)
 * [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
 

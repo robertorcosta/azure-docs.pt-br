@@ -7,18 +7,17 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6156857202c1cca94df6d70ec2059daf55178f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0c11723efe3fac236fce49c1f92fa338d4e58b59
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74025159"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84732099"
 ---
 # <a name="application-registration-subtypes-and-permissions-in-azure-active-directory"></a>Subtipos de registro de aplicativo e permissões no Azure Active Directory
 
@@ -36,11 +35,11 @@ Consulte a [visão geral das funções personalizadas](roles-custom-overview.md)
 
 Há duas permissões disponíveis para conceder a capacidade de criar registros de aplicativo, cada um com comportamento diferente:
 
-#### <a name="microsoftdirectoryapplicationscreateasowner"></a>Microsoft. Directory/Applications/createAsOwner
+#### <a name="microsoftdirectoryapplicationscreateasowner"></a>microsoft.directory/applications/createAsOwner
 
 A atribuição dessa permissão faz com que o criador seja adicionado como o primeiro proprietário do registro do aplicativo criado, e o registro do aplicativo criado será contabilizado na cota de objetos criados do 250 do criador.
 
-#### <a name="microsoftdirectoryapplicationscreate"></a>Microsoft. Directory/Applications/Create
+#### <a name="microsoftdirectoryapplicationscreate"></a>microsoft.directory/applications/create
 
 A atribuição dessa permissão faz com que o criador não seja adicionado como o primeiro proprietário do registro do aplicativo criado, e o registro do aplicativo criado não será contabilizado na cota de objetos criados do 250 do criador. Use essa permissão com cuidado, pois não há nada impedindo que o destinatário crie registros de aplicativo até que a cota de nível de diretório seja atingida. Se ambas as permissões forem atribuídas, essa permissão terá precedência.
 
@@ -52,7 +51,7 @@ Criar permissões concedem acesso ao **novo** comando de registro.
 
 Há duas permissões disponíveis para conceder a capacidade de excluir registros de aplicativo:
 
-#### <a name="microsoftdirectoryapplicationsdelete"></a>Microsoft. Directory/Applications/Delete
+#### <a name="microsoftdirectoryapplicationsdelete"></a>microsoft.directory/applications/delete
 
 Concede a capacidade de excluir registros de aplicativo, independentemente do subtipo; ou seja, aplicativos de locatário único e multilocatário.
 
@@ -77,7 +76,7 @@ Capacidade de ler todas as propriedades de aplicativos de locatário único e mu
 
 Concede as mesmas permissões que Microsoft. Directory/Applications/myproperties/Read, mas somente para aplicativos de locatário único.
 
-#### <a name="microsoftdirectoryapplicationsownersread"></a>Microsoft. Directory/Applications/Owners/Read
+#### <a name="microsoftdirectoryapplicationsownersread"></a>microsoft.directory/applications/owners/read
 
 Concede a capacidade de ler a propriedade Owners em aplicativos de locatário único e multilocatário. Concede acesso a todos os campos na página proprietários de registro do aplicativo:
 
@@ -101,7 +100,7 @@ Capacidade de atualizar todas as propriedades em aplicativos de diretório únic
 
 Concede as mesmas permissões que Microsoft. Directory/Applications/myproperties/Update, mas somente para aplicativos de locatário único.
 
-#### <a name="microsoftdirectoryapplicationsaudienceupdate"></a>Microsoft. Directory/Applications/Audience/Update
+#### <a name="microsoftdirectoryapplicationsaudienceupdate"></a>microsoft.directory/applications/audience/update
 
 Capacidade de atualizar a propriedade de tipo de conta com suporte (signInAudience) em aplicativos de diretório único e vários diretórios.
 
@@ -111,7 +110,7 @@ Capacidade de atualizar a propriedade de tipo de conta com suporte (signInAudien
 
 Concede as mesmas permissões que Microsoft. Directory/Applications/Audience/Update, mas somente para aplicativos de locatário único.
 
-#### <a name="microsoftdirectoryapplicationsauthenticationupdate"></a>Microsoft. Directory/aplicativos/autenticação/atualização
+#### <a name="microsoftdirectoryapplicationsauthenticationupdate"></a>microsoft.directory/applications/authentication/update
 
 Capacidade de atualizar a URL de resposta, a URL de saída, o fluxo implícito e as propriedades de domínio do Publicador em aplicativos de locatário único e multilocatário. Concede acesso a todos os campos na página de autenticação de registro do aplicativo, exceto tipos de conta com suporte:
 
@@ -121,7 +120,7 @@ Capacidade de atualizar a URL de resposta, a URL de saída, o fluxo implícito e
 
 Concede as mesmas permissões que Microsoft. Directory/Applications/Authentication/Update, mas somente para aplicativos de locatário único.
 
-#### <a name="microsoftdirectoryapplicationsbasicupdate"></a>Microsoft. Directory/Applications/Basic/Update
+#### <a name="microsoftdirectoryapplicationsbasicupdate"></a>microsoft.directory/applications/basic/update
 
 Capacidade de atualizar o nome, o logotipo, a URL da Home Page, a URL dos termos de serviço e as propriedades de URL da política de privacidade em aplicativos de locatário único e multilocatário. Concede acesso a todos os campos na página de identidade visual do registro do aplicativo:
 
@@ -131,7 +130,7 @@ Capacidade de atualizar o nome, o logotipo, a URL da Home Page, a URL dos termos
 
 Concede as mesmas permissões que Microsoft. Directory/Applications/Basic/Update, mas somente para aplicativos de locatário único.
 
-#### <a name="microsoftdirectoryapplicationscredentialsupdate"></a>Microsoft. Directory/aplicativos/credenciais/atualização
+#### <a name="microsoftdirectoryapplicationscredentialsupdate"></a>microsoft.directory/applications/credentials/update
 
 Capacidade de atualizar as propriedades de certificados e segredos de cliente em aplicativos de locatário único e multilocatário. Concede acesso a todos os campos na página certificados de registro de aplicativo & segredos:
 
@@ -141,7 +140,7 @@ Capacidade de atualizar as propriedades de certificados e segredos de cliente em
 
 Concede as mesmas permissões que Microsoft. Directory/Applications/Credentials/Update, mas somente para aplicativos de diretório único.
 
-#### <a name="microsoftdirectoryapplicationsownersupdate"></a>Microsoft. Directory/Applications/Owners/Update
+#### <a name="microsoftdirectoryapplicationsownersupdate"></a>microsoft.directory/applications/owners/update
 
 Capacidade de atualizar a propriedade de proprietário em um locatário único e multilocatário. Concede acesso a todos os campos na página proprietários de registro do aplicativo:
 
@@ -151,7 +150,7 @@ Capacidade de atualizar a propriedade de proprietário em um locatário único e
 
 Concede as mesmas permissões que Microsoft. Directory/Applications/Owners/Update, mas somente para aplicativos de locatário único.
 
-#### <a name="microsoftdirectoryapplicationspermissionsupdate"></a>Microsoft. Directory/Applications/Permissions/Update
+#### <a name="microsoftdirectoryapplicationspermissionsupdate"></a>microsoft.directory/applications/permissions/update
 
 Capacidade de atualizar as permissões delegadas, permissões de aplicativo, aplicativos cliente autorizados, permissões necessárias e conceder Propriedades de consentimento em aplicativos de locatário único e multilocatário. Não concede a capacidade de executar o consentimento. Concede acesso a todos os campos nas permissões da API de registro de aplicativo e expõe uma página de API:
 
@@ -163,11 +162,11 @@ Capacidade de atualizar as permissões delegadas, permissões de aplicativo, apl
 
 Concede as mesmas permissões que Microsoft. Directory/Applications/Permissions/Update, mas somente para aplicativos de locatário único.
 
-## <a name="required-license-plan"></a>Plano de licença necessário
+## <a name="required-license-plan"></a>Plano de licença necessária
 
 [!INCLUDE [License requirement for using custom roles in Azure AD](../../../includes/active-directory-p1-license.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Criar funções personalizadas usando [o portal do Azure, o PowerShell do Azure AD e o API do Graph](roles-create-custom.md)
-- [Exibir as atribuições para uma função personalizada](roles-view-assignments.md)
+- [Exibir as atribuições de uma função personalizada](roles-view-assignments.md)

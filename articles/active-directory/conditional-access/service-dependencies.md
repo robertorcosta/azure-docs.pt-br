@@ -4,19 +4,18 @@ description: Saiba como as condições são usadas em Azure Active Directory ace
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a108c952c4f1f9b8298e57c8fd94c767bb065f00
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.openlocfilehash: 00b23a845002f5a92128917d81fdadf5a647d798
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82981766"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253181"
 ---
 # <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>O que são dependências de serviço no Azure Active Directory acesso condicional? 
 
@@ -27,7 +26,7 @@ Quando você acessa um site ou serviço diretamente, o impacto de uma política 
 > [!TIP]
 > Usar o aplicativo [office 365 (versão prévia)](concept-conditional-access-cloud-apps.md#office-365-preview) direcionará todos os aplicativos do Office para evitar problemas com dependências de serviço na pilha do Office.
 
-## <a name="policy-enforcement"></a>Aplicação de políticas 
+## <a name="policy-enforcement"></a>Imposição de política 
 
 Se você tiver uma dependência de serviço configurada, a política poderá ser aplicada usando a aplicação de ligação antecipada ou de associação tardia. 
 
@@ -59,7 +58,7 @@ A tabela abaixo lista as dependências de serviço adicionais, onde os aplicativ
 |                     | SharePoint                                  | Associação antecipada |
 | PowerApps           | Gerenciamento de Microsoft Azure (portal e API) | Associação antecipada |
 |                     | Windows Azure Active Directory              | Associação antecipada |
-| Projeto             | Dynamics CRM                                | Associação antecipada |
+| Project             | Dynamics CRM                                | Associação antecipada |
 | Skype for Business  | Exchange                                    | Associação antecipada |
 | Visual Studio       | Gerenciamento de Microsoft Azure (portal e API) | Associação antecipada |
 | Microsoft Forms     | Exchange                                    | Associação antecipada |

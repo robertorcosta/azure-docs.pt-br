@@ -2,27 +2,23 @@
 title: Solucionar problemas de Gerenciamento de Atualizações com a Automação do Azure
 description: Este artigo informa como solucionar problemas com o Gerenciamento de Atualizações de automação do Azure.
 services: automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 03/17/2020
+ms.date: 06/30/2020
 ms.topic: conceptual
 ms.service: automation
-manager: carmonm
-ms.openlocfilehash: 2989d85ddfca036a27ff6b886bd3b13a981c27a3
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: HT
+ms.openlocfilehash: 95e3fc12a77124c32e220d700a112f52cbad08fb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170249"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85801879"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Solucionar problemas do Gerenciamento de Atualizações
 
 Este artigo aborda os problemas que você pode encontrar ao implantar o recurso de Gerenciamento de Atualizações em seus computadores. Existe uma solução de problemas de um agente para o agente do Hybrid Runbook Worker determinar o problema subjacente. Para saber mais sobre a solução de problemas, consulte [Solucionar problemas do Windows Update Agent](update-agent-issues.md) e [solucionar problemas do agente de atualização do Linux](update-agent-issues-linux.md). Para outros problemas de implantação de recursos, consulte [Solucionar problemas de implantação de recursos](onboarding.md).
 
 >[!NOTE]
->Se você tiver problemas ao implantar Gerenciamento de Atualizações em uma VM, verifique o log **Operations Manager** em **Logs de aplicativos e serviços** no computador local. Procure eventos com a ID de evento 4502 e detalhes do evento que contenham `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`.
+>Se você tiver problemas ao implantar Gerenciamento de Atualizações em um computador Windows, abra o Visualizador de Eventos do Windows e verifique o log de eventos do **Operations Manager** em **logs de aplicativos e serviços** no computador local. Procure eventos com a ID de evento 4502 e detalhes do evento que contenham `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`.
 
-## <a name="scenario-you-receive-the-error-failed-to-enable-the-update-solution"></a>Cenário: Você recebe o erro "Falha ao habilitar a solução de atualização"
+## <a name="scenario-you-receive-the-error-failed-to-enable-the-update-solution"></a><a name="failed-to-enable-error"></a>Cenário: Você recebe o erro "Falha ao habilitar a solução de atualização"
 
 ### <a name="issue"></a>Problema
 
@@ -48,9 +44,7 @@ Esse erro pode ocorrer por um dos seguintes motivos:
 
 * Visite [Planejamento de rede](../automation-hybrid-runbook-worker.md#network-planning) para saber mais sobre quais endereços e portas devem ter permissão para que Gerenciamento de Atualizações funcione.  
 
-* Visite [Planejamento de rede](../../azure-monitor/platform/log-analytics-agent.md#network-requirements) para saber mais sobre quais endereços e portas devem ter permissão para que o Agente de análise de logs funcione.
-
-* Verifique se há problemas de configuração de escopo. A [configuração de escopo](../automation-scope-configurations-update-management.md) determina quais computadores estão configurados para Gerenciamento de Atualizações. Se o computador estiver aparecendo no seu espaço de trabalho, e não no portal de Gerenciamento de Atualizações, você deverá definir a configuração de escopo para direcionar os computadores. Para saber mais sobre a configuração de escopo, consulte [Habilitar máquinas no espaço de trabalho](../automation-onboard-solutions-from-automation-account.md#enable-machines-in-the-workspace).
+* Verifique se há problemas de configuração de escopo. A [configuração de escopo](../automation-scope-configurations-update-management.md) determina quais computadores estão configurados para Gerenciamento de Atualizações. Se seu computador estiver aparecendo no seu espaço de trabalho, mas não no Gerenciamento de Atualizações, você deverá definir a configuração de escopo para direcionar os computadores. Para saber mais sobre a configuração de escopo, consulte [Habilitar máquinas no espaço de trabalho](../automation-onboard-solutions-from-automation-account.md#enable-machines-in-the-workspace).
 
 * Remova a configuração de trabalho seguindo as etapas em [Remover o Hybrid Runbook Worker de um computador local com Windows](../automation-windows-hrw-install.md#remove-windows-hybrid-runbook-worker) ou [Remover o Hybrid Runbook Worker de um computador Linux local](../automation-linux-hrw-install.md#remove-linux-hybrid-runbook-worker). 
 

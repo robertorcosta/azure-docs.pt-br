@@ -6,19 +6,18 @@ author: curtand
 ms.author: curtand
 manager: mtillman
 ms.date: 04/16/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59983678c1b14d6aa87a7b500605e3abeb6a9b85
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 00fdd94e8a8cd4b8769260cd595dfee5ff898039
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81533524"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84732611"
 ---
 # <a name="bulk-download-a-list-of-groups-in-azure-active-directory"></a>Baixar em massa uma lista de grupos no Azure Active Directory
 
@@ -27,14 +26,14 @@ Usando o portal do Azure Active Directory (AD do Azure), você pode fazer o down
 ## <a name="to-download-a-list-of-groups"></a>Para baixar uma lista de grupos
 
 1. Entre no [portal do Azure](https://portal.azure.com) com uma conta de administrador na organização.
-1. No Azure AD, selecione **grupos** > **baixar grupos**.
+1. No Azure AD, selecione **grupos**  >  **baixar grupos**.
 1. Na página de **Download grupos** , selecione **Iniciar** para receber um arquivo CSV que lista seus grupos.
 
    ![O comando baixar grupos está na página todos os grupos](./media/groups-bulk-download/bulk-download.png)
 
 ## <a name="check-download-status"></a>Verificar status de download
 
-Você pode ver o status de todas as suas solicitações em massa pendentes na página **resultados da operação em massa** .
+É possível ver o status de todas as suas solicitações em massa pendentes na página **Resultados da operação em massa**.
 
 [![](media/groups-bulk-download/bulk-center.png "Check status in the Bulk Operations Results page")](media/groups-bulk-download/bulk-center.png#lightbox)
 

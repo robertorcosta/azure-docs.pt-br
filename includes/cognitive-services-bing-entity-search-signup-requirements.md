@@ -4,20 +4,15 @@ ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/08/2020
-ms.openlocfilehash: 748f6dea8f6d057274c8e6c9f04690be05218f0c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: b085e3da5f4f390e8e392a36a8d4a5154d091803
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650166"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85805989"
 ---
 ## <a name="create-an-azure-resource"></a>Criar um recurso do Azure
 
 Comece a usar a API de Pesquisa de Entidade do Bing criando um dos recursos do Azure a seguir.
-
-### <a name="trial-resource"></a>[Recurso de avaliação](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)
-   * Não é necessário ter uma assinatura do Azure.
-   * Válido por sete dias, gratuitamente. Após a inscrição, um ponto de extremidade e uma chave de avaliação ficam disponíveis no [site do Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).
 
 ### <a name="bing-entity-search-resource"></a>[Recurso de Pesquisa de Entidade do Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingEntitySearch)
    * Disponível por meio do portal do Azure até que você exclua o recurso.

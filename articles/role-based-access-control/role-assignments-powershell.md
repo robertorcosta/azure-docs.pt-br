@@ -8,20 +8,19 @@ manager: mtillman
 ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: db6b38f142254fa1812f34674e6a870629713d7e
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: MT
+ms.openlocfilehash: 46aea9ab113a0c75ed24497ee39793d08c4f7165
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735650"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84790884"
 ---
-# <a name="add-or-remove-azure-role-assignments-using-azure-powershell"></a>Adicionar ou remover atribuições de função do Azure usando Azure PowerShell
+# <a name="add-or-remove-azure-role-assignments-using-azure-powershell"></a>Adicionar ou remover atribuições de função do Azure usando o Azure PowerShell
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)]Este artigo descreve como atribuir funções usando Azure PowerShell.
 
@@ -58,7 +57,7 @@ Get-AzADGroup -SearchString <group_name_in_quotes>
 
 ### <a name="application"></a>Aplicativo
 
-Para obter a ID de objeto para uma entidade de serviço do Azure AD (identidade usada por um aplicativo), você pode usar [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal). Para uma entidade de serviço, use a ID de objeto e **não** a ID do aplicativo.
+Para obter a ID de objeto para uma entidade de serviço do Azure AD (identidade usada por um aplicativo), você pode usar [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal). Para uma entidade de serviço, use a ID de objeto, e **não** a ID do aplicativo.
 
 ```azurepowershell
 Get-AzADServicePrincipal -SearchString <service_name_in_quotes>
@@ -67,7 +66,7 @@ Get-AzADServicePrincipal -SearchString <service_name_in_quotes>
 
 ## <a name="add-a-role-assignment"></a>Adicionar uma atribuição de função
 
-No RBAC do Azure, para conceder acesso, você adiciona uma atribuição de função.
+Para conceder acesso no Azure RBAC, adicione uma atribuição de função.
 
 ### <a name="user-at-a-resource-group-scope"></a>Usuário em um escopo de grupo de recursos
 
@@ -112,7 +111,7 @@ Para adicionar uma atribuição de função usando a ID de função exclusiva em
 New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionId <role_id> -ResourceGroupName <resource_group_name>
 ```
 
-O exemplo a seguir atribui a função [colaborador da máquina virtual](built-in-roles.md#virtual-machine-contributor) ao *usuário\@Alain example.com* no escopo do grupo de recursos *Pharma-Sales* . Para obter a ID de função exclusiva, você pode usar [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) ou ver [funções internas do Azure](built-in-roles.md).
+O exemplo a seguir atribui a função [colaborador da máquina virtual](built-in-roles.md#virtual-machine-contributor) ao *usuário \@ Alain example.com* no escopo do grupo de recursos *Pharma-Sales* . Para obter a ID de função exclusiva, você pode usar [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) ou ver [funções internas do Azure](built-in-roles.md).
 
 ```Example
 PS C:\> New-AzRoleAssignment -ObjectId 44444444-4444-4444-4444-444444444444 -RoleDefinitionId 9980e02c-c2be-4d73-94e8-173b1dc7cf3c -Scope /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
@@ -207,7 +206,7 @@ CanDelegate        : False
 
 No RBAC do Azure, para remover o acesso, você remove uma atribuição de função usando [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment).
 
-O exemplo a seguir remove a atribuição de função de *colaborador de máquina virtual* do usuário *\@Alain example.com* no grupo de recursos *Pharma-Sales* :
+O exemplo a seguir remove a atribuição de função de *colaborador de máquina virtual* do usuário *Alain \@ example.com* no grupo de recursos *Pharma-Sales* :
 
 ```Example
 PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionName "Virtual Machine Contributor" -ResourceGroupName pharma-sales
@@ -225,11 +224,11 @@ O exemplo a seguir remove o <role_name> função do <object_id> no escopo do gru
 Remove-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -Scope /providers/Microsoft.Management/managementGroups/<group_id>
 ```
 
-Se você receber a mensagem de erro: "as informações fornecidas não são mapeadas para uma atribuição de função", certifique-se de `-Scope` especificar `-ResourceGroupName` também os parâmetros ou. Para obter mais informações, consulte [solucionar problemas do RBAC do Azure](troubleshooting.md#role-assignments-with-identity-not-found).
+Se você receber a mensagem de erro: "as informações fornecidas não são mapeadas para uma atribuição de função", certifique-se de especificar também os `-Scope` `-ResourceGroupName` parâmetros ou. Para obter mais informações, consulte [solucionar problemas do RBAC do Azure](troubleshooting.md#role-assignments-with-identity-not-found).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Listar atribuições de função do Azure usando Azure PowerShell](role-assignments-list-powershell.md)
-- [Tutorial: conceder a um grupo acesso aos recursos do Azure usando Azure PowerShell](tutorial-role-assignments-group-powershell.md)
-- [Tutorial: criar uma função personalizada do Azure usando Azure PowerShell](tutorial-custom-role-powershell.md)
+- [Tutorial: Conceder a um grupo acesso aos recursos do Azure usando o Azure PowerShell](tutorial-role-assignments-group-powershell.md)
+- [Tutorial: Criar uma função personalizada do Azure usando o Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Gerenciar recursos com o Azure PowerShell](../azure-resource-manager/management/manage-resources-powershell.md)

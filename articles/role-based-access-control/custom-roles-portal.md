@@ -7,17 +7,16 @@ author: rolyon
 manager: mtillman
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/30/2020
 ms.author: rolyon
-ms.openlocfilehash: f9ba8fa64a9699917fe73365cb5d9aa0c858cde7
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: MT
+ms.openlocfilehash: a7be51cfceee3bb445b085efd780463c8b6f49be
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734172"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791190"
 ---
 # <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Criar ou atualizar funções personalizadas do Azure usando o portal do Azure
 
@@ -35,7 +34,7 @@ O Azure tem milhares de permissões que podem ser potencialmente incluídas em s
 
 | Método | Descrição |
 | --- | --- |
-| Examinar as funções existentes | Você pode examinar as funções existentes para ver quais permissões estão sendo usadas. Para obter mais informações, consulte [funções internas do Azure](built-in-roles.md). |
+| Examinar as funções existentes | Você pode examinar as funções existentes para ver quais permissões estão sendo usadas. Para obter mais informações, veja [Funções internas do Azure](built-in-roles.md). |
 | Procurar permissões por palavra-chave | Ao criar uma função personalizada usando o portal do Azure, você pode procurar permissões por palavra-chave. Por exemplo, você pode pesquisar por *máquina virtual* ou permissões de *cobrança* . Essa funcionalidade de pesquisa é descrita mais adiante na [etapa 4: permissões](#step-4-permissions). |
 | Baixar todas as permissões | Ao criar uma função personalizada usando o portal do Azure, você pode baixar todas as permissões como um arquivo CSV e, em seguida, pesquisar esse arquivo. No painel **adicionar permissões** , clique no botão **baixar todas as permissões** para baixar todas as permissões. Para obter mais informações sobre o painel adicionar permissões, consulte [etapa 4: permissões](#step-4-permissions). |
 | Exibir as permissões no docs | Você pode exibir as permissões disponíveis em [Azure Resource Manager operações do provedor de recursos](resource-provider-operations.md). |
@@ -196,15 +195,15 @@ Siga estas etapas para adicionar ou remover permissões para sua função person
 
 1. Clique em **Adicionar** para adicionar a permissão à sua lista de permissões.
 
-    A permissão é adicionada como um `Actions` ou um `DataActions`.
+    A permissão é adicionada como um `Actions` ou um `DataActions` .
 
     ![Permissão adicionada](./media/custom-roles-portal/permissions-list-add.png)
 
-1. Para remover permissões, clique no ícone Excluir no final da linha. Neste exemplo, como um usuário não precisará da capacidade de criar tíquetes de suporte, `Microsoft.Support/*` a permissão pode ser excluída.
+1. Para remover permissões, clique no ícone Excluir no final da linha. Neste exemplo, como um usuário não precisará da capacidade de criar tíquetes de suporte, a `Microsoft.Support/*` permissão pode ser excluída.
 
 ### <a name="add-wildcard-permissions"></a>Adicionar permissões curinga
 
-Dependendo de como você optou por iniciar, você pode ter permissões com curingas (\*) na sua lista de permissões. Um curinga (\*) estende uma permissão para tudo que corresponde à cadeia de caracteres que você fornece. Por exemplo, suponha que você quisesse adicionar todas as permissões relacionadas ao gerenciamento de custos e às exportações do Azure. Você pode adicionar todas essas permissões:
+Dependendo de como você optou por iniciar, você pode ter permissões com curingas ( \* ) na sua lista de permissões. Um curinga ( \* ) estende uma permissão para tudo que corresponde à cadeia de caracteres que você fornece. Por exemplo, suponha que você quisesse adicionar todas as permissões relacionadas ao gerenciamento de custos e às exportações do Azure. Você pode adicionar todas essas permissões:
 
 ```
 Microsoft.CostManagement/exports/action
@@ -224,7 +223,7 @@ Se você quiser adicionar uma nova permissão de caractere curinga, não poderá
 
 ### <a name="exclude-permissions"></a>Excluir permissões
 
-Se sua função tiver uma permissão curinga\*() e você quiser excluir ou subtrair permissões específicas dessa permissão de curinga, você poderá excluí-las. Por exemplo, digamos que você tenha a seguinte permissão de curinga:
+Se sua função tiver uma permissão curinga ( \* ) e você quiser excluir ou subtrair permissões específicas dessa permissão de curinga, você poderá excluí-las. Por exemplo, digamos que você tenha a seguinte permissão de curinga:
 
 ```
 Microsoft.CostManagement/exports/*
@@ -236,7 +235,7 @@ Se você não quiser permitir que uma exportação seja excluída, poderá exclu
 Microsoft.CostManagement/exports/delete
 ```
 
-Quando você exclui uma permissão, ela é adicionada como um `NotActions` ou `NotDataActions`. As permissões efetivas de gerenciamento são computadas adicionando todos `Actions` os e subtraindo todos os `NotActions`. As permissões de dados efetivas são computadas adicionando todos `DataActions` os e subtraindo todos os `NotDataActions`.
+Quando você exclui uma permissão, ela é adicionada como um `NotActions` ou `NotDataActions` . As permissões efetivas de gerenciamento são computadas adicionando todos os `Actions` e subtraindo todos os `NotActions` . As permissões de dados efetivas são computadas adicionando todos os `DataActions` e subtraindo todos os `NotDataActions` .
 
 > [!NOTE]
 > A exclusão de uma permissão não é a mesma que uma negação. A exclusão de permissões é simplesmente uma maneira conveniente de subtrair permissões de uma permissão curinga.
@@ -249,7 +248,7 @@ Quando você exclui uma permissão, ela é adicionada como um `NotActions` ou `N
 
     ![Painel de permissões de exclusão-permissão selecionada](./media/custom-roles-portal/exclude-permissions-select.png)
 
-    A permissão é adicionada como um `NotActions` ou `NotDataActions`.
+    A permissão é adicionada como um `NotActions` ou `NotDataActions` .
 
     ![Permissão excluída](./media/custom-roles-portal/exclude-permissions-list-add.png)
 
@@ -269,7 +268,7 @@ Na guia **escopos atribuíveis** , especifique onde sua função personalizada e
 
 ## <a name="step-6-json"></a>Etapa 6: JSON
 
-Na guia **JSON** , você vê sua função personalizada formatada em JSON. Se desejar, você pode editar diretamente o JSON. Se você quiser adicionar uma permissão curinga (\*), deverá usar essa guia.
+Na guia **JSON** , você vê sua função personalizada formatada em JSON. Se desejar, você pode editar diretamente o JSON. Se você quiser adicionar uma permissão curinga ( \* ), deverá usar essa guia.
 
 1. Para editar o JSON, clique em **Editar**.
 
@@ -347,6 +346,6 @@ Siga estas etapas para exibir suas funções personalizadas.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Tutorial: criar uma função personalizada do Azure usando Azure PowerShell](tutorial-custom-role-powershell.md)
+- [Tutorial: Criar uma função personalizada do Azure usando o Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Funções personalizadas do Azure](custom-roles.md)
 - [Operações do provedor de recursos Azure Resource Manager](resource-provider-operations.md)

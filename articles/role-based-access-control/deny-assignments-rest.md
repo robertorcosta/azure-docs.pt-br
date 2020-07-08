@@ -11,16 +11,15 @@ ms.service: role-based-access-control
 ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: dae0352566e6cb4f8ed1384ca12213e2aaa07f9d
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: MT
+ms.openlocfilehash: 2f835c270930734bf9963a7c7c3168b873eddaf6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82733863"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791904"
 ---
 # <a name="list-azure-deny-assignments-using-the-rest-api"></a>Listar atribuições de negação do Azure usando a API REST
 
@@ -46,7 +45,7 @@ Para obter informações sobre uma atribuição de negação, você deve ter:
 1. Dentro do URI, substitua *{scope}* pelo escopo para o qual você deseja listar as atribuições de negação.
 
     > [!div class="mx-tableFixed"]
-    > | Escopo | Type |
+    > | Escopo | Tipo |
     > | --- | --- |
     > | `subscriptions/{subscriptionId}` | Subscription |
     > | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
@@ -71,7 +70,7 @@ Para obter informações sobre uma atribuição de negação, você deve ter:
 1. Dentro do URI, substitua *{scope}* pelo escopo para o qual você deseja listar as atribuições de negação.
 
     > [!div class="mx-tableFixed"]
-    > | Escopo | Type |
+    > | Escopo | Tipo |
     > | --- | --- |
     > | `subscriptions/{subscriptionId}` | Subscription |
     > | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |

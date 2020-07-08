@@ -1,20 +1,18 @@
 ---
 title: Monitorar a integridade de seu Hub IoT do Azure | Microsoft Docs
 description: Use o Azure Monitor e o Azure Resource Health para monitorar seu Hub IoT Hub e diagnosticar problemas rapidamente
-author: kgremban
-manager: philmea
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 11/11/2019
-ms.author: kgremban
+ms.date: 04/21/2020
+ms.author: robinsh
 ms.custom: amqp
-ms.openlocfilehash: a1d74085090a3e20764d7b6fee84ffca52d5cb74
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d00e3dc5e43eb6978f6835ac4b7d101e4a42a226
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81732440"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84792007"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Monitorar a integridade do Hub IoT do Azure e diagnosticar problemas rapidamente
 
@@ -32,8 +30,6 @@ O Hub IoT também fornece suas próprias métricas que você pode usar para ente
 ## <a name="use-azure-monitor"></a>Usar o Azure Monitor
 
 O Azure Monitor fornece informações de diagnóstico para recursos do Azure, o que significa que você pode monitorar as operações que são executadas em seu hub IoT.
-
-As configurações de diagnóstico do Azure Monitor substituem o monitor de operações do Hub IoT. Se você usa atualmente o monitoramento de operações, será necessário migrar seus fluxos de trabalho. Para obter mais informações, consulte [Migrar do monitoramento de operações para as configurações de diagnóstico](iot-hub-migrate-to-diagnostics-settings.md).
 
 Para saber mais sobre as métricas e os eventos que o Azure Monitor inspeciona, consulte [Métricas com suporte com o Azure Monitor](../azure-monitor/platform/metrics-supported.md) e [Serviços, esquemas e categorias com suporte para Logs de Diagnóstico do Azure](../azure-monitor/platform/diagnostic-logs-schema.md).
 
@@ -121,11 +117,11 @@ A categoria de operações de identidade do dispositivo rastreia erros que ocorr
 
 #### <a name="routes"></a>Rotas
 
-A categoria de roteamento de mensagem acompanha os erros que ocorrem durante a avaliação da rota da mensagem e da integridade do ponto de extremidade, conforme visto pelo Hub IoT. Essa categoria inclui eventos, como:
+A categoria [Roteamento de mensagens](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c) rastreia erros que ocorrem durante a avaliação de rota de mensagem e integridade do ponto de extremidade, conforme percebido pelo Hub IOT. Essa categoria inclui eventos, como:
 
 * Uma regra é avaliada como "não definida";
 * O Hub IoT marca um ponto de extremidade como inativo; ou
-* Quaisquer erros recebidos de um ponto de extremidade. 
+* Quaisquer erros recebidos de um ponto de extremidade.
 
 Essa categoria não inclui erros específicos sobre as próprias mensagens (como erros de limitação de dispositivo), que são relatados na categoria "telemetria de dispositivo".
 
@@ -134,17 +130,24 @@ Essa categoria não inclui erros específicos sobre as próprias mensagens (como
     "records":
     [
         {
-            "time": "UTC timestamp",
-            "resourceId": "Resource Id",
-            "operationName": "endpointUnhealthy",
-            "category": "Routes",
-            "level": "Error",
-            "properties": "{\"deviceId\": \"<deviceId>\",\"endpointName\":\"<endpointName>\",\"messageId\":<messageId>,\"details\":\"<errorDetails>\",\"routeName\": \"<routeName>\"}",
-            "location": "Resource location"
+            "time":"2019-12-12T03:25:14Z",
+            "resourceId":"/SUBSCRIPTIONS/91R34780-3DEC-123A-BE2A-213B5500DFF0/RESOURCEGROUPS/ANON-TEST/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/ANONHUB1",
+            "operationName":"endpointUnhealthy",
+            "category":"Routes",
+            "level":"Error",
+            "resultType":"403004",
+            "resultDescription":"DeviceMaximumQueueDepthExceeded",
+            "properties":"{\"deviceId\":null,\"endpointName\":\"anon-sb-1\",\"messageId\":null,\"details\":\"DeviceMaximumQueueDepthExceeded\",\"routeName\":null,\"statusCode\":\"403\"}",
+            "location":"westus"
         }
     ]
 }
 ```
+
+Aqui estão mais detalhes sobre o roteamento de logs de diagnóstico:
+
+* [Lista de códigos de erro de log de diagnóstico de roteamento](troubleshoot-message-routing.md#diagnostics-error-codes)
+* [Lista de operaçõesnames dos logs de diagnóstico de roteamento](troubleshoot-message-routing.md#diagnostics-operation-names)
 
 #### <a name="device-telemetry"></a>Telemetria de dispositivo
 
@@ -315,7 +318,7 @@ A categoria de métodos diretos rastreia as interações solicitação-resposta 
 
 A categoria de rastreamento distribuído rastreia as IDs de correlação para mensagens que carregam o cabeçalho de contexto de rastreamento. Para habilitar esses logs totalmente, o código do lado do cliente deve ser atualizado ao seguir [analisar e diagnosticar aplicativos IOT de ponta a ponta com o rastreamento distribuído do Hub IOT (versão prévia)](iot-hub-distributed-tracing.md).
 
-Observe que `correlationId` está em conformidade com a proposta de [contexto de rastreamento W3C](https://github.com/w3c/trace-context) , em que `trace-id` ele contém um, `span-id`bem como um.
+Observe que `correlationId` está em conformidade com a proposta de [contexto de rastreamento W3C](https://github.com/w3c/trace-context) , em que ele contém um, `trace-id` bem como um `span-id` .
 
 ##### <a name="iot-hub-d2c-device-to-cloud-logs"></a>Logs D2C do Hub IoT (dispositivo para nuvem)
 
@@ -344,7 +347,7 @@ O Hub IoT registra esse log quando uma mensagem que contém propriedades de rast
 
 Aqui, `durationMs` não é calculado, uma vez que o relógio do Hub IoT não pode ser sincronizado com o relógio do dispositivo e, portanto, um cálculo de duração pode ser enganoso. Recomendamos gravar escrever lógica usando carimbos de data/hora na seção `properties` para capturar os picos na latência de dispositivo para nuvem.
 
-| Propriedade | Type | Descrição |
+| Propriedade | Tipo | Descrição |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **messageSize** | Integer | O tamanho da mensagem de dispositivo para nuvem em bytes |
 | **deviceId** | Cadeia de caracteres alfanumérica ASCII de 7 bits | A identidade do dispositivo |
@@ -378,10 +381,10 @@ O Hub IoT registra esse log quando a mensagem que contém as propriedades de ras
 
 Na `properties` seção, esse log contém informações adicionais sobre a entrada da mensagem.
 
-| Propriedade | Type | Descrição |
+| Propriedade | Tipo | Descrição |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **isRoutingEnabled** | Cadeia de caracteres | Verdadeiro ou falso, indica se o roteamento de mensagens está ou não habilitado no Hub IoT |
-| **parentSpanId** | Cadeia de caracteres | A [ID do span](https://w3c.github.io/trace-context/#parent-id) da mensagem pai, que seria, neste caso, o rastreamento de mensagens D2C |
+| **isRoutingEnabled** | String | Verdadeiro ou falso, indica se o roteamento de mensagens está ou não habilitado no Hub IoT |
+| **parentSpanId** | String | A [ID do span](https://w3c.github.io/trace-context/#parent-id) da mensagem pai, que seria, neste caso, o rastreamento de mensagens D2C |
 
 ##### <a name="iot-hub-egress-logs"></a>Logs de saída do Hub IoT
 
@@ -410,11 +413,11 @@ O Hub IoT registra esse log quando [roteamento](iot-hub-devguide-messages-d2c.md
 
 Na `properties` seção, esse log contém informações adicionais sobre a entrada da mensagem.
 
-| Propriedade | Type | Descrição |
+| Propriedade | Tipo | Descrição |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **endpointName** | Cadeia de caracteres | O nome do ponto de extremidade de roteamento |
-| **endpointType** | Cadeia de caracteres | O tipo de roteamento o ponto de extremidade |
-| **parentSpanId** | Cadeia de caracteres | A [ID do span](https://w3c.github.io/trace-context/#parent-id) da mensagem pai, que seria, neste caso, o rastreamento de mensagens de entrada do Hub IoT |
+| **endpointName** | String | O nome do ponto de extremidade de roteamento |
+| **endpointType** | String | O tipo de roteamento o ponto de extremidade |
+| **parentSpanId** | String | A [ID do span](https://w3c.github.io/trace-context/#parent-id) da mensagem pai, que seria, neste caso, o rastreamento de mensagens de entrada do Hub IoT |
 
 #### <a name="configurations"></a>Configurações
 
@@ -543,7 +546,7 @@ Para verificar a integridade de seus Hubs IoT, siga estas etapas:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 
-2. Navegue até **serviço** > integridade de**recursos**integridade.
+2. Navegue até **serviço**integridade de  >  **recursos**integridade.
 
 3. Nas caixas suspensas, selecione sua assinatura e selecione **Hub IOT** como o tipo de recurso.
 

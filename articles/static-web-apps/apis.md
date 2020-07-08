@@ -7,12 +7,11 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 4fa3acf0e6cc767aeee4504bbc4df382a75e256b
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.openlocfilehash: f5f40a615bc5faab6265f42d0728403e2735aa0f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758751"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791615"
 ---
 # <a name="api-support-in-azure-static-web-apps-preview-with-azure-functions"></a>Suporte de API na Versão Prévia dos Aplicativos Web Estáticos do Azure com Azure Functions
 
@@ -33,6 +32,7 @@ Os Aplicativos Web Estáticos do Azure fornecem uma API por meio das Azure Funct
 
 - O prefixo de rota da API deve ser _api_.
 - O aplicativo de funções de API deve estar em JavaScript.
+- As regras de rota para funções de API só dão suporte a [redirecionamentos](routes.md#redirects) e [proteção de rotas com funções](routes.md#securing-routes-with-roles).
 - Gatilhos e associações são limitados ao [HTTP](../azure-functions/functions-bindings-http-webhook.md).
   - Todos os outros [gatilhos e associações das Azure Functions](../azure-functions/functions-triggers-bindings.md#supported-bindings), exceto as associações de saída, são restritos.
 - Os logs só estarão disponíveis se você adicionar [Application Insights](../azure-functions/functions-monitoring.md) ao seu aplicativo Functions.

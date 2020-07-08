@@ -4,19 +4,18 @@ description: Uso da pasta de trabalho de insights e relatórios do Microsoft Azu
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/01/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c4feeca1cbe7eb88aace811829e4d9c2db5f38e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 678c32703501c4d0b66321cfc3518631ffa28c0c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83641600"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253266"
 ---
 # <a name="conditional-access-insights-and-reporting"></a>Insights e relatórios de acesso condicional
 
@@ -98,6 +97,23 @@ Veja o detalhamento de usuários ou entradas de cada uma das condições. Você 
 Você também pode investigar as entradas de um usuário específico procurando as entradas na parte inferior do painel. A consulta à esquerda exibe os usuários mais frequentes. Selecionar um usuário filtra a consulta à direita.  
 
 ## <a name="troubleshooting"></a>Solução de problemas
+
+### <a name="why-are-queries-failing-due-to-a-permissions-error"></a>Por que as consultas falham devido a um erro de permissões?
+
+Para acessar a pasta de trabalho, você precisa das permissões adequadas do Azure AD, bem como Log Analytics permissões de espaço de trabalho. Para testar se você tem as permissões apropriadas do espaço de trabalho executando uma consulta de exemplo do log Analytics:
+
+1. Entre no **portal do Azure**.
+1. Navegue até **Azure Active Directory**  >  **logs**.
+1. Digite `SigninLogs` na caixa de consulta e selecione **executar**.
+1. Se a consulta não retornar nenhum resultado, seu espaço de trabalho poderá não ter sido configurado corretamente. 
+
+![Solucionar problemas de consultas com falha](./media/howto-conditional-access-insights-reporting/query-troubleshoot-sign-in-logs.png)
+
+Para obter mais informações sobre como transmitir logs de entrada do Azure AD para um Log Analytics espaço de trabalho, consulte o artigo [integrar logs do Azure ad a logs de Azure monitor](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
+
+### <a name="why-is-the-conditional-access-policies-parameter-is-empty"></a>Por que o parâmetro de políticas de acesso condicional está vazio?
+
+A lista de políticas é gerada examinando as políticas avaliadas para o evento de entrada mais recente. Se não houver entradas recentes em seu locatário, talvez seja necessário aguardar alguns minutos para que a pasta de trabalho carregue a lista de políticas de acesso condicional. Isso pode ocorrer imediatamente após a configuração de Log Analytics ou pode levar mais tempo se um locatário não tiver uma atividade de entrada recente.
 
 ### <a name="why-is-the-workbook-taking-a-long-time-to-load"></a>Por que a pasta de trabalho está demorando para ser carregada?  
 

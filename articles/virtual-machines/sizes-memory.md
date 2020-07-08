@@ -1,6 +1,6 @@
 ---
 title: Tamanhos de VM do Azure – memória | Microsoft Docs
-description: Lista os diferentes tamanhos otimizados para memória disponíveis para máquinas virtuais no Azure. Lista informações sobre o número de vCPUs, discos de dados e NICs, bem como a taxa de transferência de armazenamento e largura de banda de rede para cada tamanho nessa série.
+description: Lista os diferentes tamanhos otimizados para memória disponíveis para máquinas virtuais no Azure. Lista informações sobre o número de vCPUs, discos de dados e NICs, bem como a taxa de transferência de armazenamento e a largura de banda de rede para cada tamanho nessa série.
 services: virtual-machines
 documentationcenter: ''
 author: mimckitt
@@ -15,16 +15,15 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
-ms.openlocfilehash: ab4c95e3525caa42b979b15fa8118e9dd21bb74a
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
-ms.translationtype: HT
+ms.openlocfilehash: 5e920f165232ec79dcced1de632d90f463ff58d9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248287"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791462"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>Tamanhos de máquinas virtuais com GPU otimizadas para memória
 
-Os tamanhos de VM otimizados para memória oferecem uma taxa de memória alta para CPU que são ideais para servidores de banco de dados relacionais, caches médio a grande e análises in-memory. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como a taxa de transferência de armazenamento e largura de banda de rede para cada tamanho neste agrupamento.
+Os tamanhos de VM com otimização de memória oferecem uma alta taxa de memória para CPU que é excelente para servidores de banco de dados relacionais, caches médios a grandes e análise na memória. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como a taxa de transferência de armazenamento e largura de banda de rede para cada tamanho neste agrupamento.
 
 - As [séries Dv2 e DSv2](dv2-dsv2-series-memory.md), uma continuação da série D original, traz uma CPU com mais potência. A série Dv2 é aproximadamente 35% mais rápida do que a série D. Ela é executado nos processadores Intel&reg; Xeon&reg; 8171M 2,1 GHz (Skylake) ou Intel&reg; Xeon&reg; E5-2673 v4 2,3 GHz (Broadwell) ou Intel&reg; Xeon&reg; E5-2673 v3 2,4 GHz (Haswell) e com a Tecnologia Intel Turbo Boost 2.0. A série Dv2 tem as mesmas configurações de memória e disco que a série D.
 
@@ -34,7 +33,9 @@ Os tamanhos de VM otimizados para memória oferecem uma taxa de memória alta pa
 
 - O processador Intel&reg; Xeon&reg; 8171M 2,1 GHz (Skylake) ou Intel&reg; Xeon&reg; E5-2673 v4 2,3 GHz (Broadwell) das [séries Ev3 e Esv3](ev3-esv3-series.md) em uma configuração hyper-threaded, fornecendo uma melhor proposta de valor para a maioria das cargas de trabalho de uso geral e levando a Ev3 para o alinhamento com as VMs de uso geral da maioria das outras nuvens. A memória foi expandida (de 7 GiB/vCPU a 8 GiB/vCPU), enquanto os limites de rede e disco por núcleo para alinhamento com a migração para o hyper-threading. A série Ev3 é o acompanhamento até os tamanhos de VM de memória alta das famílias D/Dv2.
 
-- As [séries Edv4 e Edsv4](edv4-edsv4-series.md) são executadas nos processadores Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) de 2ª geração, ideais para bancos de dados muito grandes ou outros aplicativos que se beneficiam de altas contagens de vCPU e grandes quantidades de memória. Elas apresentam uma velocidade de clock Turbo sustentável em todos os núcleos de 3,4 GHz, com Tecnologia [Intel&reg; Turbo Boost 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), Tecnologia [Intel&reg; Hyper-Threading](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) e [Intel&reg; Advanced Vector Extensions 512 (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). 
+- As [Ev4 e a série Esv4](ev4-esv4-series.md) são executadas nos processadores da 2ª geração Intel &reg; Xeon &reg; Platinum 8272CL (cascadey Lake) em uma configuração de hiperthread, são ideais para vários aplicativos empresariais com uso intensivo de memória e recursos até 504 GiB de RAM. Ele apresenta a [ &reg; tecnologia Intel Turbo Boost 2,0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [a &reg; tecnologia Hyper-Threading Intel](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) e [ &reg; as extensões de vetor avançadas Intel 512 (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html).
+
+- A [Edv4 e a série Edsv4](edv4-edsv4-series.md) são executadas em processadores de 2ª geração Intel &reg; Xeon &reg; Platinum 8272CL (Cascade, Lake), ideais para bancos de dados muito grandes ou outros aplicativos que se beneficiam de contagens de vCPU altas e grandes quantidades de memória. Elas apresentam uma velocidade de clock Turbo sustentável em todos os núcleos de 3,4 GHz, com Tecnologia [Intel&reg; Turbo Boost 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), Tecnologia [Intel&reg; Hyper-Threading](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) e [Intel&reg; Advanced Vector Extensions 512 (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html).
 
 - A [série M](m-series.md) oferece uma alta contagem de vCPU (até 128 vCPUs) e uma grande quantidade de memória (até 3,8 TiB). Ela também é ideal para bancos de dados extremamente grandes ou outros aplicativos que se beneficiam de altas contagens de vCPU e de grandes quantidades de memória.
 

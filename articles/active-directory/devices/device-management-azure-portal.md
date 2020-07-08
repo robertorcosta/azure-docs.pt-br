@@ -4,19 +4,18 @@ description: Saiba como usar o portal do Azure para gerenciar dispositivos.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
-ms.date: 06/04/2019
+ms.topic: how-to
+ms.date: 05/28/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e09de5911ca0946bfcbcb77d1ad4131c8feac9f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: bf3f6455be992502182fb942f0e6db089051ab1a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79262237"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253147"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gerenciar identidades de dispositivo usando o portal do Azure
 
@@ -27,12 +26,14 @@ Este artigo:
 - Presume que você esteja familiarizado com a [introdução ao gerenciamento de identidade do dispositivo no Azure Active Directory](overview.md)
 - Fornece informações sobre como gerenciar suas identidades de dispositivo usando o portal do AD do Azure
 
+![Exibição de todos os dispositivos na portal do Azure](./media/device-management-azure-portal/all-devices-azure-portal.png)
+
 ## <a name="manage-device-identities"></a>Gerenciar identidades do dispositivo
 
 O portal do AD do Azure fornece um local central para gerenciar suas identidades de dispositivo. Você pode chegar a esse local usando um [link direto](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) ou:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-1. Navegue até **Azure Active Directory** > **dispositivos**.
+1. Navegue até **Azure Active Directory**  >  **dispositivos**.
 
 A página de **Dispositivos** permite que você:
 
@@ -47,7 +48,7 @@ Para gerenciar suas identidades de dispositivo usando o portal do AD do Azure, s
 
 A página Configurações do dispositivo permite que você defina as configurações relacionadas às identidades dos dispositivos:
 
-![Gerenciar um dispositivo do Intune](./media/device-management-azure-portal/21.png)
+![Configurações do dispositivo relacionadas ao Azure AD](./media/device-management-azure-portal/device-settings-azure-portal.png)
 
 - **Os usuários podem ingressar dispositivos no Azure ad** – essa configuração permite que você selecione os usuários que podem registrar seus dispositivos como dispositivos ingressados no Azure AD. O padrão é **All**.
 
@@ -55,7 +56,7 @@ A página Configurações do dispositivo permite que você defina as configuraç
 > **Os usuários podem ingressar dispositivos na configuração do Azure ad** é aplicável somente ao ingresso no Azure AD no Windows 10.
 
 - **Outros administradores locais nos dispositivos associados ao Azure AD** – você pode selecionar os usuários que têm direitos de administrador local em um dispositivo. Os usuários adicionados aqui são adicionados à função *Administradores do dispositivo* no Azure AD. Os administradores globais no Azure AD e os proprietários do dispositivo recebem direitos de administrador local por padrão. Essa opção é uma funcionalidade Premium Edition disponível por meio de produtos como o Azure AD Premium ou o EMS (Enterprise Mobility Suite).
-- **Os usuários podem registrar seus dispositivos com o Azure ad** -você precisa definir essa configuração para permitir que dispositivos Windows 10 Personal, Ios, Android e macOs sejam registrados com o Azure AD. Se você selecionar **nenhum**, os dispositivos não terão permissão para se registrar no Azure AD. O registro com o Microsoft Intune ou o MDM (Gerenciamento de Dispositivo Móvel) para o Office 365 exige registro. Se você tiver configurado qualquer um desses serviços, a opção **TODOS** estará selecionada e **NENHUM** não estará disponível.
+- **Os usuários podem registrar seus dispositivos com o Azure ad** -você precisa definir essa configuração para permitir que dispositivos Windows 10 Personal, Ios, Android e MacOS sejam registrados com o Azure AD. Se você selecionar **nenhum**, os dispositivos não terão permissão para se registrar no Azure AD. O registro com o Microsoft Intune ou o MDM (Gerenciamento de Dispositivo Móvel) para o Office 365 exige registro. Se você tiver configurado qualquer um desses serviços, a opção **TODOS** estará selecionada e **NENHUM** não estará disponível.
 - **Exigir autenticação multifator para ingressar em dispositivos** – você pode escolher se os usuários precisam fornecer um fator de autenticação adicional para ingressar seu dispositivo no Azure AD. O padrão é **No**. É recomendável exigir a autenticação multifator ao registrar um dispositivo. Antes de habilitar a autenticação multifator para este serviço, você deve garantir que a autenticação multifator esteja configurada para os usuários que registram seus dispositivos. Para saber mais sobre os diferentes serviços de autenticação multifator do Azure, consulte [Introdução à autenticação multifator do Azure](../authentication/concept-mfa-whichversion.md). 
 
 > [!NOTE]
@@ -82,13 +83,9 @@ Com as duas opções, você pode obter uma exibição que:
 - Fornece visão geral detalhada de dispositivos registrados e associados
 - Permite que você execute tarefas comuns de gerenciamento de dispositivo
 
-![Todos os dispositivos](./media/device-management-azure-portal/51.png)
-
 >[!TIP]
 >
 >* Se você vir um dispositivo que é "ingressado no Azure AD híbrido" com um estado "pendente" na coluna registrado, ele indica que o dispositivo foi sincronizado do Azure AD Connect e está aguardando a conclusão do registro do cliente. Leia mais sobre como [planejar sua implementação de ingresso no Azure ad híbrido](hybrid-azuread-join-plan.md). Informações adicionais podem ser encontradas no artigo, perguntas frequentes sobre [dispositivos](faq.md).
->
->   ![Dispositivos pendentes](./media/device-management-azure-portal/75.png)
 >
 >* Para alguns dispositivos iOS, os nomes de dispositivo que contém apóstrofos podem usar caracteres diferentes que se parecem com apóstrofos. Portanto, Pesquisar por tais dispositivos é um pouco complicado – se você não estiver vendo os resultados da pesquisa corretamente, verifique se a cadeia de caracteres de pesquisa contém o caractere de apóstrofo correspondente.
 
@@ -96,14 +93,14 @@ Com as duas opções, você pode obter uma exibição que:
 
 Como administrador global ou administrador de dispositivo de nuvem, você pode gerenciar os dispositivos registrados ou ingressados. Os administradores de Serviço do Intune podem:
 
-- Atualizar dispositivos – exemplos são operações diárias, como habilitar/desabilitar dispositivos
-- Excluir dispositivos – quando um dispositivo está desativado e deve ser excluído do Azure AD
+- Dispositivos de atualização-exemplos são operações diárias, como habilitar/desabilitar dispositivos
+- Excluir dispositivos – quando um dispositivo é desativado e deve ser excluído no Azure AD
 
 Esta seção fornece informações sobre tarefas comuns de gerenciamento de identidade de dispositivo.
 
 ### <a name="manage-an-intune-device"></a>Gerenciar um dispositivo do Intune
 
-Se você for um administrador do Intune, será possível gerenciar dispositivos marcados como **Microsoft Intune**. Se o dispositivo não estiver registrado com Microsoft Intune a opção "gerenciar" ficará esmaecida.
+Se você for um administrador do Intune, será possível gerenciar dispositivos marcados como **Microsoft Intune**. Se o dispositivo não estiver registrado com Microsoft Intune, a opção "gerenciar" ficará esmaecida.
 
 ![Gerenciar um dispositivo do Intune](./media/device-management-azure-portal/31.png)
 
@@ -145,7 +142,7 @@ Para excluir um dispositivo, você tem duas opções:
    - Remove todos os detalhes que estão relacionados ao dispositivo, por exemplo, chaves do BitLocker para dispositivos Windows.  
    - Representa uma atividade não recuperável e não é recomendável a menos que necessário.
 
-Se um dispositivo for gerenciado por outra autoridade de gerenciamento (por exemplo, Microsoft Intune), verifique se o dispositivo foi apagado/desativado antes de excluir o dispositivo no Azure AD. Examine como [gerenciar dispositivos obsoletos](device-management-azure-portal.md) antes de excluir qualquer dispositivo.
+Se um dispositivo for gerenciado por outra autoridade de gerenciamento (por exemplo, Microsoft Intune), verifique se o dispositivo foi apagado/desativado antes de excluir o dispositivo no Azure AD. Examine como [gerenciar dispositivos obsoletos](manage-stale-devices.md) antes de excluir qualquer dispositivo.
 
 ### <a name="view-or-copy-device-id"></a>Exibir ou copiar a ID do dispositivo
 
@@ -165,11 +162,32 @@ Para exibir ou copiar as chaves do BitLocker, você precisa ser o proprietário 
 - Administrador global
 - Administrador de assistência técnica
 - Administrador de serviços do Intune
-- Administrador de segurança
+- Administrador de Segurança
 - Leitor de segurança
 
 > [!NOTE]
 > Os dispositivos do Windows 10 ingressados no Azure AD híbrido não têm um proprietário. Portanto, se você está procurando por um dispositivo pelo proprietário e não o encontrou, pesquise pela ID do dispositivo.
+
+### <a name="device-list-filtering-preview"></a>Filtragem da lista de dispositivos (visualização)
+
+Anteriormente, você podia filtrar apenas a lista de dispositivos por atividade e o estado habilitado. Essa visualização agora permite que você filtre a lista de dispositivos pelos seguintes atributos em um dispositivo:
+
+- Estado habilitado
+- Estado de conformidade
+- Tipo de junção (ingressado no Azure AD, ingressado no Azure AD híbrido, Azure AD registrado)
+- Carimbo de data/hora da atividade
+- Sistema operacional
+- Tipo de dispositivo (impressoras, VMs seguras, dispositivos compartilhados, dispositivos registrados)
+
+Para habilitar a funcionalidade de filtragem de visualização na exibição **todos os dispositivos** :
+
+![Habilitar a funcionalidade de visualização de filtragem](./media/device-management-azure-portal/device-filter-preview-enable.png)
+
+1. Entre no [portal do Azure](https://portal.azure.com).
+1. Navegue até **Azure Active Directory**  >  **dispositivos**.
+1. Selecione a faixa que diz, **Experimente as melhorias de filtragem dos novos dispositivos. Clique para habilitar a visualização.**
+
+Agora você terá a capacidade de **adicionar filtros** à sua exibição **todos os dispositivos** .
 
 ## <a name="audit-logs"></a>Logs de auditoria
 

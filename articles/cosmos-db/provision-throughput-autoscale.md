@@ -5,13 +5,12 @@ author: kirillg
 ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.openlocfilehash: 533cd8fa69c01b8a36ff5e314ce61a4b624e62ec
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.date: 06/04/2020
+ms.openlocfilehash: 20b0bcfe5043d4767199c36796fa1123ed779363
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655816"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791139"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>Criar contêineres e bancos de dados do Azure Cosmos com taxa de transferência de dimensionamento automático
 
@@ -29,7 +28,7 @@ Os bancos de dados e contêineres do Azure Cosmos configurados com taxa de trans
 
 * **Escalonável:** Os bancos de dados e contêineres escalam automaticamente a taxa de transferência provisionada conforme necessário. Não há interrupção nas conexões do cliente, aplicativos ou impacto nos SLAs do Azure Cosmos DB.
 
-* **Econômico:** O dimensionamento automático ajuda a otimizar o uso de RU/s e de custos ao reduzir verticalmente quando não estiver em uso. Você paga apenas pelos recursos que suas cargas de trabalho precisam por hora.
+* **Econômico:** O dimensionamento automático ajuda a otimizar o uso de RU/s e de custos ao reduzir verticalmente quando não estiver em uso. Você paga apenas pelos recursos que suas cargas de trabalho precisam por hora. De todas as horas em um mês, se você definir dimensionamento automático RU/s (tmax) e usar o valor total tmax por 66% das horas ou menos, você economizará com o dimensionamento automático. Para saber mais, consulte o artigo [como escolher entre a taxa de transferência padrão (manual) e a autoescala provisionada](how-to-choose-offer.md) .
 
 * **Altamente disponível:** Os bancos de dados e contêineres que usam dimensionamento automático usam o mesmo back-end do Azure Cosmos DB de alta disponibilidade, tolerante a falhas e distribuído globalmente para garantir a durabilidade e a alta disponibilidade dos dados.
 
@@ -57,8 +56,9 @@ A cada hora, você será cobrado pela maior taxa de transferência `T` para a qu
 
 O ponto de entrada para taxa de transferência máxima de dimensionamento automático `Tmax` começa com 4.000 RU/s, que escala entre 400-4.000 RU/s. Você pode definir `Tmax` em incrementos de 1.000 RU/s e alterar o valor a qualquer momento.  
 
-## <a name="enable-autoscale-on-existing-resources"></a>Habilitar dimensionamento automático em recursos existentes ##
-Use o [portal do Azure](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container) para habilitar o dimensionamento automático em um banco de dados ou contêiner existente. Você pode alternar entre o dimensionamento automático e a taxa de transferência provisionada (manual) padrão a qualquer momento. Confira esta [documentação](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) para obter mais informações.
+## <a name="enable-autoscale-on-existing-resources"></a>Habilitar dimensionamento automático em recursos existentes
+
+Use o [portal do Azure](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container) para habilitar o dimensionamento automático em um banco de dados ou contêiner existente. Você pode alternar entre o dimensionamento automático e a taxa de transferência provisionada (manual) padrão a qualquer momento. Confira esta [documentação](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) para obter mais informações. Atualmente, para todas as APIs, você só pode usar o portal do Azure para habilitar o dimensionamento automático em recursos existentes.
 
 ## <a name="throughput-and-storage-limits-for-autoscale"></a><a id="autoscale-limits"></a> Limites de taxa de transferência e armazenamento para dimensionamento automático
 

@@ -3,16 +3,16 @@ title: Aplicativo Azure insights substituir pontos de extremidade do SDK padrão
 description: Modifique o Azure Monitor padrão Application Insights pontos de extremidade do SDK para regiões como o Azure governamental.
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: f5bf5b07f7c058b4778e7695f150fdc71e048182
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
-ms.translationtype: MT
+ms.custom: references_regions
+ms.openlocfilehash: d0c9467497a8bd108d37a340d2cdbb887061e3a6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629177"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84194826"
 ---
 # <a name="application-insights-overriding-default-endpoints"></a>Application Insights substituindo pontos de extremidade padrão
 
-Para enviar dados de Application Insights para determinadas regiões, você precisará substituir os endereços de ponto de extremidade padrão. Cada SDK requer modificações ligeiramente diferentes, todas descritas neste artigo. Essas alterações exigem o ajuste do código de exemplo e a substituição dos `QuickPulse_Endpoint_Address`valores `TelemetryChannel_Endpoint_Address`de espaço `Profile_Query_Endpoint_address` reservado para, e pelos endereços de ponto de extremidade reais para sua região específica. O fim deste artigo contém links para os endereços de ponto de extremidade para regiões em que essa configuração é necessária.
+Para enviar dados de Application Insights para determinadas regiões, você precisará substituir os endereços de ponto de extremidade padrão. Cada SDK requer modificações ligeiramente diferentes, todas descritas neste artigo. Essas alterações exigem o ajuste do código de exemplo e a substituição dos valores de espaço reservado para `QuickPulse_Endpoint_Address` , `TelemetryChannel_Endpoint_Address` e `Profile_Query_Endpoint_address` pelos endereços de ponto de extremidade reais para sua região específica. O fim deste artigo contém links para os endereços de ponto de extremidade para regiões em que essa configuração é necessária.
 
 > [!NOTE]
 > [Cadeias de conexão](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) são o novo método preferencial de configuração de pontos de extremidade personalizados dentro de Application insights.
@@ -24,7 +24,7 @@ Para enviar dados de Application Insights para determinadas regiões, você prec
 # <a name="net"></a>[.NET](#tab/net)
 
 > [!NOTE]
-> O arquivo applicationinsights. config é substituído automaticamente sempre que uma atualização do SDK é executada. Depois de executar uma atualização do SDK, certifique-se de inserir novamente os valores de ponto de extremidade específicos da região.
+> O arquivo de applicationinsights.config é substituído automaticamente sempre que uma atualização do SDK é executada. Depois de executar uma atualização do SDK, certifique-se de inserir novamente os valores de ponto de extremidade específicos da região.
 
 ```xml
 <ApplicationInsights>
@@ -48,7 +48,7 @@ Para enviar dados de Application Insights para determinadas regiões, você prec
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
 
-Modifique o arquivo appSettings. JSON em seu projeto da seguinte maneira para ajustar o ponto de extremidade principal:
+Modifique o appsettings.jsno arquivo em seu projeto da seguinte maneira para ajustar o ponto de extremidade principal:
 
 ```json
 "ApplicationInsights": {
@@ -59,7 +59,7 @@ Modifique o arquivo appSettings. JSON em seu projeto da seguinte maneira para aj
   }
 ```
 
-Os valores para métricas ao vivo e o ponto de extremidade de consulta de perfil só podem ser definidos por meio de código. Para substituir os valores padrão para todos os valores de ponto de extremidade por meio de código, `ConfigureServices` faça as seguintes `Startup.cs` alterações no método do arquivo:
+Os valores para métricas ao vivo e o ponto de extremidade de consulta de perfil só podem ser definidos por meio de código. Para substituir os valores padrão para todos os valores de ponto de extremidade por meio de código, faça as seguintes alterações no `ConfigureServices` método do `Startup.cs` arquivo:
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId;
@@ -76,13 +76,13 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPuls
 
 # <a name="azure-functions"></a>[Azure Functions](#tab/functions)
 
-Por Azure Functions agora é recomendável usar [cadeias de conexão](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) definidas nas configurações do aplicativo da função. Para acessar as configurações do aplicativo para sua função no painel funções, selecione **configurações** > configurações do**aplicativo**de**configuração** > . 
+Por Azure Functions agora é recomendável usar [cadeias de conexão](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) definidas nas configurações do aplicativo da função. Para acessar as configurações do aplicativo para sua função no painel funções, selecione **configurações**configurações do aplicativo de  >  **configuração**  >  **Application settings**. 
 
 Nome: `APPLICATIONINSIGHTS_CONNECTION_STRING` valor:`Connection String Value`
 
 # <a name="java"></a>[Java](#tab/java)
 
-Modifique o arquivo applicationinsights. xml para alterar o endereço do ponto de extremidade padrão.
+Modifique o arquivo de applicationinsights.xml para alterar o endereço do ponto de extremidade padrão.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

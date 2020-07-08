@@ -6,12 +6,11 @@ ms.service: spring-cloud
 ms.topic: troubleshooting
 ms.date: 11/04/2019
 ms.author: brendm
-ms.openlocfilehash: 5dcdb03a6d4ec4f448108dbd771a44f362aa7f20
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: db5363c5d8adaf29e2c460d9ce36afa2d29ae8e7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76277578"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791649"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Solucionar problemas comuns do Azure Spring Cloud
 
@@ -49,7 +48,7 @@ Quando você estiver Depurando falhas do aplicativo, comece verificando o status
 
   - `TomcatErrorCount`(_tomcat. global. Error_): todas as exceções de aplicativo Spring são contadas aqui. Se este número for muito alto, acesse o Azure Log Analytics para inspecionar seus logs de aplicativo.
 
-  - `AppMemoryMax`(_JVM. Memory. Max_): a quantidade máxima de memória disponível para o aplicativo. O valor pode ser indefinido ou pode mudar ao longo do tempo se for definido. Se ele for definido, a quantidade de memória usada e confirmada será sempre menor ou igual ao máximo. No entanto, uma alocação de memória poderá `OutOfMemoryError` falhar com uma mensagem se a alocação tentar aumentar a memória usada de forma que *usada > confirmada*, mesmo se *usada <= Max* ainda for verdadeira. Nessa situação, tente aumentar o tamanho máximo do heap usando o `-Xmx` parâmetro.
+  - `AppMemoryMax`(_JVM. Memory. Max_): a quantidade máxima de memória disponível para o aplicativo. O valor pode ser indefinido ou pode mudar ao longo do tempo se for definido. Se ele for definido, a quantidade de memória usada e confirmada será sempre menor ou igual ao máximo. No entanto, uma alocação de memória poderá falhar com uma `OutOfMemoryError` mensagem se a alocação tentar aumentar a memória usada de forma que *usada > confirmada*, mesmo se *usada <= Max* ainda for verdadeira. Nessa situação, tente aumentar o tamanho máximo do heap usando o `-Xmx` parâmetro.
 
   - `AppMemoryUsed`(_JVM. Memory. Used_): a quantidade de memória em bytes que é usada atualmente pelo aplicativo. Para um aplicativo Java de carregamento normal, essa série de métricas forma um padrão *Sawtooth* , em que o uso de memória aumenta e diminui continuamente em pequenos incrementos e, repentinamente, cai muito e, em seguida, o padrão se repete. Essa série de métricas ocorre devido à coleta de lixo dentro da máquina virtual Java, em que as ações de coleta representam quedas no padrão Sawtooth.
     
@@ -111,7 +110,7 @@ Mas se você tentar configurar a instância do serviço de nuvem do Azure Spring
 
 Se você quiser configurar a instância do serviço de nuvem do Azure Spring usando o modelo do Resource Manager, primeiro consulte [entender a estrutura e a sintaxe dos modelos de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates).
 
-O nome da instância do serviço de nuvem do Azure Spring será usado para solicitar um nome de subdomínio em `azureapps.io`, portanto, a instalação falhará se o nome estiver em conflito com um existente. Você pode encontrar mais detalhes nos logs de atividade.
+O nome da instância do serviço de nuvem do Azure Spring será usado para solicitar um nome de subdomínio em `azureapps.io` , portanto, a instalação falhará se o nome estiver em conflito com um existente. Você pode encontrar mais detalhes nos logs de atividade.
 
 ### <a name="i-cant-deploy-a-jar-package"></a>Não consigo implantar um pacote JAR
 
@@ -160,7 +159,7 @@ As variáveis de ambiente informam a estrutura de nuvem Spring do Azure, garanti
 
 1. Ir para `https://<your application test endpoint>/actuator/health`.  
     - Uma resposta semelhante a `{"status":"UP"}` indica que o ponto de extremidade foi habilitado.
-    - Se a resposta for negativa, inclua a seguinte dependência em seu arquivo *pom. xml* :
+    - Se a resposta for negativa, inclua a seguinte dependência em seu arquivo de *POM.xml* :
 
         ```xml
             <dependency>
@@ -169,7 +168,7 @@ As variáveis de ambiente informam a estrutura de nuvem Spring do Azure, garanti
             </dependency>
         ```
 
-1. Com o ponto de extremidade do acionador do Spring Boot habilitado, vá para a portal do Azure e procure a página de configuração do seu aplicativo.  Adicione uma variável de ambiente com o `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE` nome e o `*` valor. 
+1. Com o ponto de extremidade do acionador do Spring Boot habilitado, vá para a portal do Azure e procure a página de configuração do seu aplicativo.  Adicione uma variável de ambiente com o nome `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE` e o valor `*` . 
 
 1. Reinicie o aplicativo.
 
@@ -189,16 +188,18 @@ As variáveis de ambiente informam a estrutura de nuvem Spring do Azure, garanti
     }
     ```
 
-Procure o nó filho denominado `systemEnvironment`.  Esse nó contém as variáveis de ambiente do aplicativo.
+Procure o nó filho denominado `systemEnvironment` .  Esse nó contém as variáveis de ambiente do aplicativo.
 
 > [!IMPORTANT]
-> Lembre-se de reverter a exposição das variáveis de ambiente antes de tornar o aplicativo acessível ao público.  Vá para a portal do Azure, procure a página de configuração do seu aplicativo e exclua essa variável de ambiente `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE`:.
+> Lembre-se de reverter a exposição das variáveis de ambiente antes de tornar o aplicativo acessível ao público.  Vá para a portal do Azure, procure a página de configuração do seu aplicativo e exclua essa variável de ambiente: `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE` .
 
 ### <a name="i-cant-find-metrics-or-logs-for-my-application"></a>Não consigo encontrar métricas ou logs para meu aplicativo
 
 Vá para **Gerenciamento de aplicativo** para garantir que os status do aplicativo estejam _em execução e em_ funcionamento. _UP_
 
-Se você puder ver as métricas da _JVM_ , mas nenhuma métrica do _tomcat_, verifique se a `spring-boot-actuator` dependência está habilitada no pacote do aplicativo e se ela foi inicializada com êxito.
+Verifique para ver o clima _JMX_ está habilitado em seu pacote de aplicativos. Esse recurso pode ser habilitado com a propriedade de configuração `spring.jmx.enabled=true` .  
+
+Verifique se a `spring-boot-actuator` dependência está habilitada no pacote do aplicativo e se ela foi inicializada com êxito.
 
 ```xml
 <dependency>

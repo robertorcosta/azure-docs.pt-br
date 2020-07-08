@@ -4,19 +4,18 @@ description: Saiba como fazer uma validação controlada do ingresso do Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f43db805ccbb7d4e546c51bbe39350f4bbba2efb
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.openlocfilehash: 66b216e5e511d2d80378ee7e2d124dccbc7abcb7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "80049992"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85252705"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Validação controlada de ingresso no Azure AD híbrido
 
@@ -42,7 +41,7 @@ Use o Editor ADSI (editor de interfaces de serviços Active Directory) para modi
 
 1. Inicie o aplicativo de área de trabalho **Editor ADSI** a partir de uma Workstation administrativa ou de um controlador de domínio como um administrador corporativo.
 1. Conecte-se ao **contexto de nomenclatura de configuração** do seu domínio.
-1. Navegue até **CN = Configuration, DC = contoso, DC = com** > **CN = Services** > **CN = Configuração de registro do dispositivo**
+1. Navegue até **CN = Configuration, DC = contoso, DC = com**  >  **CN = Services**  >  **CN = Configuração de registro do dispositivo**
 1. Clique com o botão direito do mouse no objeto folha **CN = 62a0ff2e-97b9-4513-943F-0d221bd30080** e selecione **Propriedades**
    1. Selecione **palavras-chave** na janela **Editor de atributos** e clique em **Editar**
    1. Selecione os valores de **azureADId** e **azureADName** (um de cada vez) e clique em **remover**
@@ -55,24 +54,24 @@ Use o exemplo a seguir para criar um objeto de Política de Grupo (GPO) para imp
 
 1. Abra um console de gerenciamento de Política de Grupo e crie um novo objeto de Política de Grupo em seu domínio.
    1. Forneça um nome de GPO criado recentemente (por exemplo, ClientSideSCP).
-1. Edite o GPO e localize o seguinte caminho **: configuração** > do computador**preferências** > **configurações** > **do Windows registro**
-1. Clique com o botão direito do mouse no registro e selecione **novo** > **item do registro**
+1. Edite o GPO e localize o seguinte caminho: **configuração do computador**  >  **preferências**  >  **configurações**  >  **do Windows registro**
+1. Clique com o botão direito do mouse no registro e selecione **novo**  >  **item do registro**
    1. Na guia **geral** , configure o seguinte
       1. Ação: **Atualizar**
       1. Hive: **HKEY_LOCAL_MACHINE**
       1. Caminho da chave: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
       1. Nome do valor: **tenantid**
       1. Tipo de valor: **REG_SZ**
-      1. Dados de valor: o GUID ou a **ID de diretório** da sua instância do Azure AD (esse valor pode ser encontrado na**ID de diretório**de**Propriedades** > de**Azure Active Directory** > de **portal do Azure** > )
+      1. Dados de valor: o GUID ou a **ID de diretório** da sua instância do Azure AD (esse valor pode ser encontrado na ID de diretório de propriedades de Azure Active Directory de **portal do Azure**  >  **Azure Active Directory**  >  **Properties**  >  **Directory ID**)
    1. Clique em **OK**
-1. Clique com o botão direito do mouse no registro e selecione **novo** > **item do registro**
+1. Clique com o botão direito do mouse no registro e selecione **novo**  >  **item do registro**
    1. Na guia **geral** , configure o seguinte
       1. Ação: **Atualizar**
       1. Hive: **HKEY_LOCAL_MACHINE**
       1. Caminho da chave: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
       1. Nome do valor: **tenantname**
       1. Tipo de valor: **REG_SZ**
-      1. Dados do valor: seu **nome de domínio** verificado se você estiver usando ambiente federado, como AD FS. Seu **nome de domínio** verificado ou seu nome de domínio onmicrosoft.com, `contoso.onmicrosoft.com` por exemplo, se você estiver usando um ambiente gerenciado
+      1. Dados do valor: seu **nome de domínio** verificado se você estiver usando ambiente federado, como AD FS. Seu **nome de domínio** verificado ou seu nome de domínio onmicrosoft.com, por exemplo, `contoso.onmicrosoft.com` se você estiver usando um ambiente gerenciado
    1. Clique em **OK**
 1. Feche o editor do GPO criado recentemente
 1. Vincular o GPO recém-criado à UO desejada que contém computadores ingressados no domínio que pertencem à sua população de distribuição controlada
@@ -102,4 +101,4 @@ Depois de verificar se tudo está funcionando conforme o esperado, você pode re
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Planejar sua implementação de junção do Azure Active Directory híbrido](hybrid-azuread-join-plan.md)
+[Planejar sua implementação de ingresso no Azure Active Directory híbrido](hybrid-azuread-join-plan.md)

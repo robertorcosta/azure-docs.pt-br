@@ -4,19 +4,18 @@ description: Configurações que serão em roaming ou com backup no Windows 10 c
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: troubleshooting
+ms.topic: reference
 ms.date: 02/12/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a7abc402f1fc2e449e7aac5effdb01b6b941100
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6048ee9237640799b7bec37083e607fc74ffb8e4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78672619"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85252960"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referência de configurações de roaming do Windows 10
 
@@ -26,7 +25,7 @@ Veja a seguir uma lista das configurações que serão móveis ou submetidas a b
 
 Veja a tabela a seguir para obter um resumo dos dispositivos e dos tipos de conta compatíveis com a estrutura de sincronização, de backup e de restauração no Windows 10.
 
-| Tipo e operação de conta | Área de Trabalho | Celular |
+| Tipo e operação de conta | Desktop | Dispositivos móveis |
 | --- | --- | --- |
 | Active Directory do Azure: sincronização |Sim |Não |
 | Active Directory do Azure: backup/restauração |Não |Não |
@@ -69,7 +68,7 @@ Na tabela a seguir, outras entradas na coluna grupo de configurações referem-s
 As entradas internas na coluna Grupo de Configurações referem-se às configurações e aos aplicativos que só podem ter a sincronização desabilitada no próprio aplicativo ou por meio da desabilitação da sincronização do dispositivo inteiro usando o gerenciamento de dispositivos móveis (MDM) ou as configurações da Política de Grupo.
 As configurações que não forem movidas ou sincronizadas não pertencerão a um grupo.
 
-| Configurações | Área de Trabalho | Celular | Agrupar |
+| Configurações | Desktop | Dispositivos móveis | Agrupar |
 | --- | --- | --- | --- |
 | **Contas**: imagem da conta |sync |X |Tema |
 | **Contas**: outras configurações de conta |X |X | |

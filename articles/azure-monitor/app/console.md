@@ -4,12 +4,11 @@ description: Monitorar aplicativos web de disponibilidade, desempenho e uso.
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.reviewer: lmolkova
-ms.openlocfilehash: fe34b2b48de8ef4f6c2cdd61623b885878bad2b4
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: HT
+ms.openlocfilehash: 302d96544a719f0e818d942bff1011c6a4368ef7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774033"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807308"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights para aplicativos do console .NET
 
@@ -131,7 +130,7 @@ Se você criou a configuração com o construtor `TelemetryConfiguration()` sem 
 configuration.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
 ```
 
-* Você também pode instalar e inicializar o módulo de coletor do Contador de Desempenho conforme descrito [aqui](https://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/)
+* Você também pode instalar e inicializar o módulo de coletor do Contador de Desempenho conforme descrito [aqui](https://apmtips.com/posts/2017-02-13-enable-application-insights-live-metrics-from-code/)
 
 
 #### <a name="full-example"></a>Exemplo completo
